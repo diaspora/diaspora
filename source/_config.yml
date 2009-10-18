@@ -1,0 +1,11 @@
+source: .
+destination: ../site
+markdown: rdiscount
+pygments: true
+permalink: /blog/:year/:month/:day/:title
+url: 
+multiviews: true
+sass: false
+haml: true
+post_defaults:
+  layout: post
