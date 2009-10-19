@@ -1,0 +1,62 @@
+!page_width = 560px
+!pad = 15px
+!default_border_radius = 4px
+
+html body
+  background-color= !body_bg
+  color= !body_color
+  a
+    color= !link_color
+
+#header
+  background-color= !header_bg
+  border-bottom= "1px solid" !header_border
+  padding: 20px 0
+  a.title
+    font-size= !h3
+    display: inline-block
+    color= !header_nav
+    text-decoration: none
+  #header_nav
+    float: right
+    +horizontal-list
+    a
+      color: #ccc
+    li.alpha a
+      color: #f2f2f2
+
+.page_width
+  width= !page_width
+  margin: 0 auto
+  padding:
+    left: 30px
+    right: 30px
+
+#page
+  background-color= !page_bg
+  border-top= "1px solid" !page_border
+  padding: 25px 0
+
+#subnav
+  +clearfix
+  margin: -25px 0 25px
+  padding: 10px 0
+  background-color= !subnav_bg
+  border-bottom= "1px solid" !subnav_border
+  font-size: 85%
+  #account
+    float: right
+    a
+      color= !subnav_logout_color
+      display: inline-block
+      padding-left: 10px
+      margin-left: 8px
+      border-left= "1px solid" #aaa
+
+#footer
+  font-size= !base_font_size_small
+  clear: both
+  padding: 15px 0
+  color= !footer_color
+  +h-linear-gradient(darken(!body_bg, 25), !body_bg)
+  border-top= "4px solid" !footer_bg

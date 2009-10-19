@@ -6,15 +6,20 @@
       %meta{:name=>"description", :content=>page.description}/
     - if page.respond_to? :keywords
       %meta{:name=>"keywords", :content=>page.keywords}/
+    %link{:href=>"/stylesheets/screen.css", :rel=>"stylesheet", :media=>"screen, projection", :type=>"text/css"}
   %body
     #header
       .page_width
-        %a.title(href="/")Page Title
+        %a.title(href="/")My Blog
         %ul#header_nav.nav
           %li.alpha
             %a(href="/") Home
     #page
       .page_width
+        %h2= rp(page.title)
         = content
+        %p.pubdate
+          Published:
+          =page.date.strftime("%d %b, %Y")
     #footer
       .page_width Footer

@@ -1,0 +1,52 @@
+//**
+  Example 1:
+  a.twitter
+    +sprite-img("icons-32.png", 1)
+  a.facebook
+    +sprite-img("icons-32png", 2)
+  ...
+  Example 2:
+  a
+    +sprite-background("icons-32.png")
+    a.twitter
+      +sprite-column(1)
+    a.facebook
+      +sprite-row(2)
+    ...
+ 
+!sprite_default_size  ||= 32px
+!sprite_default_margin ||= 0px
+!sprite_image_default_width ||= !sprite_default_size
+!sprite_image_default_height ||= !sprite_default_size
+ 
+ 
+// Sets all the rules for a sprite from a given sprite image to show just one of the sprites.
+// To reduce duplication use a sprite-bg mixin for common properties and a sprite-select mixin for positioning.
+=sprite-img(!img, !col, !row = 1, !width = !sprite_image_default_width, !height = !sprite_image_default_height, !margin = !sprite_default_margin)
+  +sprite-background(!img, !width, !height)
+  +sprite-position(!col, !row, !width, !height, !margin)
+ 
+// Sets rules common for all sprites, assumes you want a square, but allows a rectangular region.
+=sprite-background(!img, !width = !sprite_default_size, !height = !width)
+  +sprite-background-rectangle(!img, !width, !height)
+ 
+// Sets rules common for all sprites, assumes a rectangular region.
+=sprite-background-rectangle(!img, !width = !sprite_image_default_width, !height = !sprite_image_default_height)
+  :background= image_url(!img) "no-repeat"
+  :width= !width
+  :height= !height
+  :overflow hidden
+ 
+// Allows horizontal sprite positioning optimized for a single row of sprites.
+=sprite-column(!col, !width = !sprite_image_default_width, !margin = !sprite_default_margin)
+  +sprite-position(!col, 1, !width, 0px, !margin)
+ 
+// Allows vertical sprite positioning optimized for a single column of sprites.
+=sprite-row(!row, !height = !sprite_image_default_height, !margin = !sprite_default_margin)
+  +sprite-position(1, !row, 0px, !height, !margin)
+ 
+// Allows vertical and horizontal sprite positioning from a grid of equal dimensioned sprites.
+=sprite-position(!col, !row = 1, !width = !sprite_image_default_width, !height = !sprite_image_default_height, !margin = !sprite_default_margin)
+  !x = ((!col - 1) * -!width) - ((!col - 1) * !margin)
+  !y = ((!row - 1) * -!height) - ((!row - 1) * !margin)
+  :background-position= !x !y

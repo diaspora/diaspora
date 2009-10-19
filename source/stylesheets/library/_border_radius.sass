@@ -1,0 +1,47 @@
+!default_border_radius ||= 5px
+
+// Round all borders by amount
+=border-radius(!radius = !default_border_radius)
+  border-radius= !radius
+  -moz-border-radius= !radius
+  -webkit-border-radius= !radius
+
+// Round radius at position by amount.
+// values for !vert: "top", "bottom"
+// values for !horz: "left", "right
+=border-corner-radius(!vert, !horz, !radius = !default_border_radius)
+  border-#{!vert}-#{!horz}-radius= !radius
+  -moz-border-radius-#{!vert}#{!horz}= !radius
+  -webkit-border-#{!vert}-#{!horz}-radius= !radius
+  
+=border-top-left-radius(!radius = !default_border_radius)
+  +border-corner-radius("top", "left", !radius)
+
+=border-top-right-radius(!radius = !default_border_radius)
+  +border-corner-radius("top", "right", !radius)
+
+=border-bottom-left-radius(!radius = !default_border_radius)
+  +border-corner-radius("bottom", "left", !radius)
+
+=border-bottom-right-radius(!radius = !default_border_radius)
+  +border-corner-radius("bottom", "right", !radius)
+
+// Round top corners by amount
+=border-top-radius(!radius = !default_border_radius)
+  +border-top-left-radius(!radius)
+  +border-top-right-radius(!radius)
+
+// Round right corners by amount
+=border-right-radius(!radius = !default_border_radius)
+  +border-top-right-radius(!radius)
+  +border-bottom-right-radius(!radius)
+
+// Round bottom corners by amount
+=border-bottom-radius(!radius = !default_border_radius)
+  +border-bottom-left-radius(!radius)
+  +border-bottom-right-radius(!radius)
+
+// Round left corners by amount
+=border-left-radius(!radius = !default_border_radius)
+  +border-top-left-radius(!radius)
+  +border-bottom-left-radius(!radius)

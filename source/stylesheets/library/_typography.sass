@@ -1,0 +1,67 @@
+!base_font_size ||= 14px
+!base_font_size_small ||= 12px
+!h6 ||= !base_font_size
+!h5 ||= ceil(!h6*1.1)
+!h4 ||= ceil(!h5*1.1)
+!h3 ||= ceil(!h4*1.2)
+!h2 ||= ceil(!h3*1.25)
+!h1 ||= ceil(!h2*1.255)
+
+=set-heading-sizes(!font_size = !base_font_size)
+  !h6 = !font_size
+  !h5 = ceil(!h6*1.1)
+  !h4 = ceil(!h5*1.1)
+  !h3 = ceil(!h4*1.2)
+  !h2 = ceil(!h3*1.25)
+  !h1 = ceil(!h2*1.255)
+  h1, h2, h3, h4
+    &:first-child
+      margin-top: 0
+  h1
+    font-size= !h1
+    margin-bottom= !h2/2
+    line-height= !h1 * 1.2
+  h2
+    font-size= !h2
+    margin= !h2/2 0 !h2/2
+    line-height= !h2 * 1.2
+  h3
+    font-size= !h3
+    margin= !h2/2 0 !h2/2
+    line-height= !h3 * 1.2
+  h4
+    font-size= !h4
+    margin= !h4/2 0 !h4/2
+    line-height= !h4 * 1.2
+  h5
+    font-size= !h5
+    margin= !h4/2 0 !h4/2
+    line-height= !h5 * 1.2
+  h6
+    font-size= !h6
+    margin= !h4/2 0 !h4/2
+    line-height= !h6 * 1.2
+
+=typography-defaults(!font_size = !base_font_size)
+  line-height= ceil(!font_size * 1.5)
+  p
+    padding-bottom= !font_size * 2
+  h1,h2,h3,h4,h5,h6
+    font-weight: bold
+  em
+    font-style: italic
+  strong
+    font-weight: bold
+  span.highlight, em.highlight, strong.highlight
+    background-color: #ff6
+    padding: 2px
+    margin: 0 -2px
+  ul, ol, dl
+    list-style: inside
+    margin= 0 0 (!font_size)
+  li
+    padding: 0 0 2px
+  small
+    font-size= floor(!font_size * .85)
+  big
+    font-size= floor(!font_size * 1.25)

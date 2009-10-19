@@ -6,13 +6,16 @@
       %meta{:name=>"description", :content=>page.description}/
     - if page.respond_to? :keywords
       %meta{:name=>"keywords", :content=>page.keywords}/
+    %link{:href=>"/stylesheets/screen.css", :rel=>"stylesheet", :media=>"screen, projection", :type=>"text/css"}
   %body
     #header
       .page_width
-        %a.title(href="/")Blog
+        %a.title(href="/") My Blog
         %ul#header_nav.nav
           %li.alpha
-            %a(href="/") Home
+            %a(href="/archives") Archives
+          %li.omega
+            %a(href="/atom.xml") Subscribe
     #page
       .page_width
         = content

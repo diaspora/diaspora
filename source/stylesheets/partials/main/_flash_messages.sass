@@ -1,0 +1,36 @@
+!flash_notice       ||= #00529B
+!flash_success      ||= #4F8A10
+!flash_warning      ||= #FBF4BD
+!flash_error        ||= #D8000C
+!flash_notice_bg    ||= #BDE5F8
+!flash_success_bg   ||= #DFF2BF
+!flash_warning_bg   ||= #FBF4BD
+!flash_error_bg     ||= #FFD9DA
+
+=flash-message-style
+  +flash-message-structure
+  &.notice
+    +flash-color(!flash_notice, !flash_notice_bg)
+  &.success
+    +flash-color(!flash_success, !flash_success_bg)
+  &.warning
+    +flash-color(!flash_warning, !flash_warning_bg)
+  &.error
+    +flash-color(!flash_error, !flash_error_bg)
+
+=flash-message-structure
+  background-repeat: no-repeat
+  background-position: 10px center
+  border: 1px dashed
+  padding: 10px 15px
+  margin: 0 0 15px
+
+=flash-color(!color, !bg = 0)
+  color= !color
+  @if !bg == 0
+    background-color= desaturate(lighten(adjust_hue(!color, -10), 83), 20)
+  @else
+    background-color= !bg
+
+#flash
+  +flash-message-style
