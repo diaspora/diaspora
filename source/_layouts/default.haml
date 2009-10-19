@@ -10,7 +10,8 @@ blog_title: My Blog
       %meta{:name=>"description", :content=>page.description}/
     - if page.respond_to? :keywords
       %meta{:name=>"keywords", :content=>page.keywords}/
-    %link{:href=>"/stylesheets/screen.css", :rel=>"stylesheet", :media=>"screen, projection", :type=>"text/css"}
+    %link(href="/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
+    %link(href="/blog/atom.xml" rel="alternate" title="Brandon Mathis - Design Enthusiast" type="application/atom+xml")
   %body
     #header
       .page_width
