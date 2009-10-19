@@ -1,0 +1,20 @@
+!!! 1.1 Transitional
+%html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en")
+  %head
+    %title= page.title
+    - if page.respond_to? :description
+      %meta{:name=>"description", :content=>page.description}/
+    - if page.respond_to? :keywords
+      %meta{:name=>"keywords", :content=>page.keywords}/
+  %body
+    #header
+      .page_width
+        %a.title(href="/")Page Title
+        %ul#header_nav.nav
+          %li.alpha
+            %a(href="/") Home
+    #page
+      .page_width
+        = content
+    #footer
+      .page_width Footer

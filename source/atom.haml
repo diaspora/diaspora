@@ -1,0 +1,21 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="utf-8"?>
+%feed(xmlns="http://www.w3.org/2005/Atom")
+  %title Your Name - Your Site
+  %link(href="yoursite.com/atom.xml" rel="self")
+  %link(href="yoursite.com")
+  %updated= Time.now.xmlschema
+  %id http://yoursite.com/
+  %author
+    %name Your Name
+    %email user[at]domain.com
+  - site.posts[0..14].each do |post|
+    %entry
+      %title= rp(post.title)
+      %link(href="#{full_url(post.url)}")
+      %updated=post.date.xmlschema
+      %id= full_url(post.id)
+      %content(type="html")
+        = h(absolute_url(rp(post.content)))

@@ -1,0 +1,8 @@
+---
+layout: basic/default
+title: Blog
+---
+.blog
+  - site.posts.sort_by(&:date).reverse[0..9].each_with_index do |post,index|
+    %h2= link_to(post.title, post.url, {:class=>"title"})
+    .article= post.content
