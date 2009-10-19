@@ -1,16 +1,20 @@
 ---
 layout: nil
+address: http://yoursite.com
+email: author@domain.com
+name: Your Name
+blog_title: My Blog
 ---
 <?xml version="1.0" encoding="utf-8"?>
 %feed(xmlns="http://www.w3.org/2005/Atom")
-  %title Your Name - Your Site
-  %link(href="yoursite.com/atom.xml" rel="self")
-  %link(href="yoursite.com")
+  %title= "#{page.name} - #{page.blog_title}"
+  %link(href="#{page.address}/atom.xml" rel="self")
+  %link(href="#{page.address}")
   %updated= Time.now.xmlschema
-  %id http://yoursite.com/
+  %id=page.address
   %author
-    %name Your Name
-    %email user[at]domain.com
+    %name= page.name
+    %email= page.email
   - site.posts[0..14].each do |post|
     %entry
       %title= rp(post.title)

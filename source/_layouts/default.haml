@@ -1,3 +1,7 @@
+---
+blog_title: My Blog
+---
+
 !!! 1.1 Transitional
 %html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en")
   %head
@@ -10,7 +14,7 @@
   %body
     #header
       .page_width
-        %a.title(href="/") My Blog
+        %a.title(href="/")=page.blog_title
         %ul#header_nav.nav
           %li.alpha
             %a(href="/archives") Archives
