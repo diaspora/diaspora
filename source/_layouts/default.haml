@@ -33,4 +33,6 @@ root_url:
         - else
           = content
     #footer
-      .page_width Footer
+      .page_width
+        = "Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} | "
+        %span.credit Powered by <a href="http://github.com/henrik/jekyll">Jekyll</a> & <a href="http://github.com/imathis/octopress/">Octopress</a>
