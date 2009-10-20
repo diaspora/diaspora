@@ -6,13 +6,13 @@ root_url:
 !!! 1.1 Transitional
 %html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en")
   %head
-    %title= page.title
+    %title= "#{page.title} - #{page.blog_title}"
     - if page.respond_to? :description
       %meta(name="description" content="#{page.description}")/
     - if page.respond_to? :keywords
       %meta(name="keywords" content="#{page.keywords}")/
     %link(href="#{page.root_url}/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
-    %link(href="#{page.root_url}/atom.xml" rel="alternate" title="##{page.blog_title}" type="application/atom+xml")
+    %link(href="#{page.root_url}/atom.xml" rel="alternate" title="#{page.blog_title}" type="application/atom+xml")
   %body
     #header
       .page_width
