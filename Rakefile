@@ -1,5 +1,16 @@
 require 'active_support'
 
+# preview project on this port - http://localhost:4000
+port = "4000"
+
+# compiled site directory
+site = "site"
+
+# for rsync deployment
+ssh_user      = "user@host.com"
+document_root = "~/document_root/"
+
+
 def ok_failed(condition)
   if (condition)
     puts "OK"
@@ -7,9 +18,6 @@ def ok_failed(condition)
     puts "FAILED"
   end
 end
-
-port = "4000"
-site = "site"
 
 desc "list tasks"
 task :default do
@@ -35,7 +43,7 @@ end
 desc "generate and deploy website"
 task :deploy => :generate do
   print "Deploying website..."
-  ok_failed system("rsync -avz --delete #{site}/ user@host.com:~/document_root/")
+  ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
 desc "start up an instance of serve on the output files"

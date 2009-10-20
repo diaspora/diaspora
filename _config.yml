@@ -8,4 +8,4 @@ multiviews: true
 sass: false
 haml: true
 post_defaults:
-  layout: post
+  layout: default

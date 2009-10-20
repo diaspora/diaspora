@@ -1,5 +1,6 @@
 ---
-blog_title: My Blog
+blog_title: My Octopress Blog
+root_url: 
 ---
 
 !!! 1.1 Transitional
@@ -7,22 +8,29 @@ blog_title: My Blog
   %head
     %title= page.title
     - if page.respond_to? :description
-      %meta{:name=>"description", :content=>page.description}/
+      %meta(name="description" content="#{page.description}")/
     - if page.respond_to? :keywords
-      %meta{:name=>"keywords", :content=>page.keywords}/
-    %link(href="/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
-    %link(href="/blog/atom.xml" rel="alternate" title="Brandon Mathis - Design Enthusiast" type="application/atom+xml")
+      %meta(name="keywords" content="#{page.keywords}")/
+    %link(href="#{page.root_url}/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
+    %link(href="#{page.root_url}/atom.xml" rel="alternate" title="##{page.blog_title}" type="application/atom+xml")
   %body
     #header
       .page_width
         %a.title(href="/")=page.blog_title
         %ul#header_nav.nav
           %li.alpha
-            %a(href="/archives") Archives
+            %a(href="#{page.root_url}/archives") Archives
           %li.omega
-            %a(href="/atom.xml") Subscribe
+            %a(href="#{page.root_url}/atom.xml") Subscribe
     #page
       .page_width
-        = content
+        - if page.respond_to? :date
+          %h2= page.title
+          = content
+          %p.pubdate
+            Published:
+            =page.date.strftime("%d %b, %Y")
+        - else
+          = content
     #footer
       .page_width Footer

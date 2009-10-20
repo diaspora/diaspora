@@ -178,9 +178,6 @@ module Helpers
     input.gsub(/(href|src)(\s*=\s*)(["'])(\/.*?)\3/) { $1 + $2 + $3 + "http://brandonmathis.com" + $4 + $3 }
   end
   
-  def full_url(input)
-    'http://brandonmathis.com'+input
-  end
   def rp(input)
     RubyPants.new(input).to_html
   end
