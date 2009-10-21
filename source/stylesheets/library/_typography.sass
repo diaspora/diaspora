@@ -72,6 +72,12 @@
     +dl-style(!font_size)
   blockquote
     +quote-style
+  q
+    font-style: italic
+    &:before
+      content: "\201C"
+    &:after
+      content: "\201D"
   em, dfn
     font-style: italic
   strong, dfn
@@ -97,6 +103,8 @@
   tt
     display: block
     margin= !font_size * 1.625 0
+  sub, sup
+    line-height: 0
   hr
     margin-bottom= !font_size * 1.625
   
