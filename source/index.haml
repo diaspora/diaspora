@@ -4,5 +4,8 @@ title: Blog
 ---
 .blog
   - site.posts.sort_by(&:date).reverse[0..9].each_with_index do |post,index|
-    %h2= link_to(post.title, post.url, {:class=>"title"})
-    .article= post.content
+    .article
+      %h2= link_to(post.title, post.url, {:class=>"title"})
+      = post.content
+  .footer
+    %a(href="/archives.html" title="archives") &laquo; Blog Archives

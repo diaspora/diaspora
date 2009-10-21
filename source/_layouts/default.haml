@@ -17,10 +17,14 @@ root_url:
     #header
       .page_width
         %a.title(href="/")=page.blog_title
-        %ul#header_nav.nav
+    #nav
+      .page_width
+        %ul
           %li.alpha
-            %a(href="#{page.root_url}/archives") Archives
+            %a(href="#{page.root_url}/") Blog
           %li.omega
+            %a(href="#{page.root_url}/about") About
+          %li.subscribe
             %a(href="#{page.root_url}/atom.xml") Subscribe
     #page
       .page_width
@@ -35,4 +39,4 @@ root_url:
     #footer
       .page_width
         = "Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} | "
-        %span.credit Powered by <a href="http://github.com/henrik/jekyll">Jekyll</a> & <a href="http://github.com/imathis/octopress/">Octopress</a>
+        %span.credit Powered by <a href="http://github.com/imathis/octopress/">Octopress</a>

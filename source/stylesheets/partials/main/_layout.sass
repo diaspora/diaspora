@@ -1,4 +1,5 @@
 !page_width = 560px
+!sidebar_width = 0
 !pad = 15px
 !default_border_radius = 4px
 
@@ -8,23 +9,63 @@ html body
   a
     color= !link_color
 
+#footer a
+  color= #ddd
+  &:hover
+    color = #fff
 #header
   background-color= !header_bg
   border-bottom= "1px solid" !header_border
-  padding: 20px 0
+  padding: 30px 0
   a.title
-    font-size= !h3
+    font-size= !h1
     +heading-font
     display: inline-block
-    color= !header_nav
+    color= !title_color
     text-decoration: none
-  #header_nav
-    float: right
+
+#nav
+  +clearfix
+  position: relative
+  z-index: 1
+  padding: 6px 0
+  background:
+    color= !nav_bg
+    image: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#ddd), color-stop(0.3, #f4f4f4))
+    image: -moz-linear-gradient(left top, left bottom, from(#fcfcfc), to(#ddd), color-stop(0.3, #f4f4f4))
+  border:
+    top= "1px solid" !nav_border_top
+    bottom= "1px solid" !nav_border_bottom
+  ul
+    position: relative
     +horizontal-list
-    a
-      color: #ccc
-    li.alpha a
-      color: #f2f2f2
+    margin: 0 auto
+    overflow: visible
+    li
+      padding: 0 15px
+      border-left: 1px solid #d3d3d3
+      border-right: 1px solid #f4f4f4
+      &.alpha
+        border-left: none
+        padding-left: 0
+      &.omega
+        border-right: 0
+      &.subscribe
+        position: absolute
+        right: 0
+        //left= !page_width - 25px
+        border: none
+        a
+          display: inline-block
+          padding-left: 28px
+          background: url("/images/rss.png") left top no-repeat
+      a
+        display: inline-block
+        color= !nav_color
+        line-height: 150%
+        text-decoration: none
+        &:hover
+          color= !nav_color_hover
 
 .page_width
   width= !page_width
@@ -35,31 +76,27 @@ html body
 
 #page
   background-color= !page_bg
-  border-top= "1px solid" !page_border
-  padding: 25px 0
   .page_width
-    background-color= !page_bg
+    padding:
+      top: 25px
+      bottom: 25px
+    background-color= !content_bg
+    +box-shadow(#ccc)
+  .article
+    padding= !base_font_size * 1.5 0 !base_font_size * 1.5
+    border-bottom= "1px solid" !article_border
+    &:first-child
+      padding-top: 0
+  .blog .footer
+    padding-top= !base_font_size
 
-#subnav
-  +clearfix
-  margin: -25px 0 25px
-  padding: 10px 0
-  background-color= !subnav_bg
-  border-bottom= "1px solid" !subnav_border
-  font-size: 85%
-  #account
-    float: right
-    a
-      color= !subnav_logout_color
-      display: inline-block
-      padding-left: 10px
-      margin-left: 8px
-      border-left= "1px solid" #aaa
 
 #footer
+  position: relative
+  z-index: 2
   font-size= !base_font_size_small
   clear: both
-  padding: 15px 0
+  padding= !base_font_size * 1.5 0
   color= !footer_color
   +h-linear-gradient(darken(!body_bg, 25), !body_bg)
-  border-top= "4px solid" !footer_bg
+  border-top= "14px solid" !footer_bg
