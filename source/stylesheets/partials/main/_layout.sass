@@ -43,8 +43,8 @@ html body
     overflow: visible
     li
       padding: 0 15px
-      border-left: 1px solid #d3d3d3
-      border-right: 1px solid #f4f4f4
+      border-left= "1px solid" !nav_border_left
+      border-right= "1px solid" !nav_border_right
       &.alpha
         border-left: none
         padding-left: 0
@@ -80,14 +80,18 @@ html body
     padding:
       top: 25px
       bottom: 25px
-    background-color= !content_bg
+    background-color= !blog_bg
     +box-shadow(#ccc)
+    border:
+      left= "1px solid" !page_border_sides
+      right= "1px solid" !page_border_sides
+.blog
   .article
     padding= !base_font_size * 1.5 0 !base_font_size * 1.5
     border-bottom= "1px solid" !article_border
     &:first-child
       padding-top: 0
-  .blog .footer
+  .footer
     padding-top= !base_font_size
 
 
