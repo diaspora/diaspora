@@ -1,5 +1,6 @@
 !base_font_size ||= 14px
 !base_font_size_small ||= 12px
+!base_font_color ||= #333
 !h6 = ceil(!base_font_size*1.3)
 !h5 = ceil(!base_font_size*1.4)
 !h4 = ceil(!base_font_size*1.7)
@@ -58,8 +59,19 @@
 =typography-defaults(!font_size = !base_font_size)
   body
     line-height= ceil(!font_size * 1.625)
+    color= !base_font_color
   p
     +p-style(!font_size)
+  table
+    +table-style(!font_size)
+  ol
+    +ol-style(!font_size)
+  ul
+    +ul-style(!font_size)
+  dl
+    +dl-style(!font_size)
+  blockquote
+    +quote-style
   em, dfn
     font-style: italic
   strong, dfn
@@ -70,59 +82,17 @@
     background-color: #ff6
     padding: 2px
     margin: 0 -2px
-  ol li
-    list-style: decimal
-  ul, ol
-    list-style: outside
-    margin= 0 0 !font_size * 1.625
-  li ul, li ol
-    margin= 0 0 !font_size * 1.625
-  dl
-    margin= 0 0 !font_size * 1.625
-    dt
-      font-weight: bold
-    dd
-      margin-left= !font_size * 1.625
-  table
-    margin= 0 0 !font_size * 1.625
-    border-collapse: collapse
-    th
-      font-weight: bold
-    tr, th, td
-      margin: 0
-      margin= 0 !font_size * 1.625 0 !font_size
-    tfoot
-      font-style: italic
-    caption
-      text-align: center
   abbr, acronym
     border-bottom: 1px dotted
+    cursor: help
   address
     margin-top= !font_size * 1.625
     font-style: italic
-  
-  blockquote
-    padding= !font_size !font_size !font_size * 1.625 !font_size * 1.4
-    +serif-font
-    font-size= !font_size * 1.2
-    font-style: italic
-    &:before
-      content: "\201C"
-      font-size= !font_size * 3
-      margin= 0 0 0 -.625em
-      position: absolute
-      font-family: Times, Georgia, serif
-      color: #aaa
-      line-height: 0
-    > p
-      padding: 0
-      margin: 0
   pre, code
     margin= !font_size * 1.625 0
     white-space: pre
   pre, code, tt
     +fixed-font
-    font-size= !font_size
     line-height= !font_size * 1.5
   tt
     display: block
@@ -135,6 +105,41 @@
   big
     font-size= floor(!font_size * 1.25)
 
+=ol-style(!font_size = !base_font_size)
+  list-style: outside
+  margin= 0 0 !font_size * 1.625
+  li
+    list-style: decimal
+    ol
+      margin= 0 0 !font_size * 1.625
+      
+=ul-style(!font_size = !base_font_size)
+  list-style: outside
+  margin= 0 0 !font_size * 1.625
+  li ul
+    margin= 0 0 !font_size * 1.625
+    
+=dl-style(!font_size = !base_font_size)
+  margin= 0 0 !font_size * 1.625
+  dt
+    font-weight: bold
+  dd
+    margin-left= !font_size * 1.625
+
+=quote-style(!font_size = !base_font_size)
+  padding= !font_size !font_size !font_size * 1.625 !font_size * 1.4
+  &:before
+    content: "\201C"
+    font-size= !font_size * 3
+    margin= 0 0 0 -.625em
+    position: absolute
+    font-family: Times, Georgia, serif
+    color: #aaa
+    line-height: 0
+  > p
+    padding: 0
+    margin: 0
+    
 =p-style(!font_size = !base_font_size)
   padding-bottom= !font_size * 0.8125
   img
@@ -149,3 +154,16 @@
       margin:
         right= 0
         left= !font_size * .8125
+
+=table-style(!font_size = !base_font_size)
+  margin= 0 0 !font_size * 1.625
+  border-collapse: collapse
+  th
+    font-weight: bold
+  tr, th, td
+    margin: 0
+    padding= 0 !font_size * 1.625 0 !font_size
+  tfoot
+    font-style: italic
+  caption
+    text-align: center
