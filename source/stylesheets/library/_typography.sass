@@ -1,67 +1,151 @@
 !base_font_size ||= 14px
 !base_font_size_small ||= 12px
-!h6 ||= !base_font_size
-!h5 ||= ceil(!h6*1.1)
-!h4 ||= ceil(!h5*1.1)
-!h3 ||= ceil(!h4*1.2)
-!h2 ||= ceil(!h3*1.25)
-!h1 ||= ceil(!h2*1.255)
+!h6 = ceil(!base_font_size*1.3)
+!h5 = ceil(!base_font_size*1.4)
+!h4 = ceil(!base_font_size*1.7)
+!h3 = ceil(!base_font_size*1.9)
+!h2 = ceil(!base_font_size*2.2)
+!h1 = ceil(!base_font_size*2.5)
+
+=heading-font 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+=sans-font
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", Helvetica, Arial, Verdana, sans-serif
+=serif-font
+  font-family: Times, "Times New Roman" Georgia, serif
+=fixed-font
+  font-family: "Menlo", "Bitstream Vera Sans", Monaco, "Andale Mono", "Lucida Console", monospace
+
+=general-typography(!font_size = !base_font_size)
+  +set-heading-sizes(!font_size)
+  +typography-defaults(!font_size)
 
 =set-heading-sizes(!font_size = !base_font_size)
-  !h6 = !font_size
-  !h5 = ceil(!h6*1.1)
-  !h4 = ceil(!h5*1.1)
-  !h3 = ceil(!h4*1.2)
-  !h2 = ceil(!h3*1.25)
-  !h1 = ceil(!h2*1.255)
+  !h6 = ceil(!font_size*1.3)
+  !h5 = ceil(!font_size*1.4)
+  !h4 = ceil(!font_size*1.7)
+  !h3 = ceil(!font_size*1.9)
+  !h2 = ceil(!font_size*2.2)
+  !h1 = ceil(!font_size*2.5)
   h1, h2, h3, h4
     &:first-child
       margin-top: 0
   h1
     font-size= !h1
-    margin-bottom= !h2/2
-    line-height= !h1 * 1.2
+    margin-bottom= !font_size * .765
+    line-height= !h1 * 1.625
   h2
     font-size= !h2
-    margin= !h2/2 0 !h2/2
-    line-height= !h2 * 1.2
+    margin-bottom= !font_size * .855
+    line-height= !h2 * 1.625
   h3
     font-size= !h3
-    margin= !h2/2 0 !h2/2
-    line-height= !h3 * 1.2
+    margin-bottom= !font_size * .956
+    line-height= !h3 * 1.625
   h4
     font-size= !h4
-    margin= !h4/2 0 !h4/2
-    line-height= !h4 * 1.2
+    margin-bottom= !font_size * 1.161
+    line-height= !h4 * 1.625
   h5
     font-size= !h5
-    margin= !h4/2 0 !h4/2
-    line-height= !h5 * 1.2
+    margin-bottom= !font_size * 1.238
+    line-height= !h5 * 1.625
   h6
     font-size= !h6
-    margin= !h4/2 0 !h4/2
-    line-height= !h6 * 1.2
+    margin-bottom= !font_size * 1.625
+    line-height= !h6 * 1.625
 
 =typography-defaults(!font_size = !base_font_size)
-  line-height= ceil(!font_size * 1.5)
+  body
+    line-height= ceil(!font_size * 1.625)
   p
-    padding-bottom= !font_size * 2
-  h1,h2,h3,h4,h5,h6
-    font-weight: bold
-  em
+    +p-style(!font_size)
+  em, dfn
     font-style: italic
-  strong
+  strong, dfn
     font-weight: bold
+  del
+    text-decoration: line-through
   span.highlight, em.highlight, strong.highlight
     background-color: #ff6
     padding: 2px
     margin: 0 -2px
-  ul, ol, dl
-    list-style: inside
-    margin= 0 0 (!font_size)
-  li
-    padding: 0 0 2px
+  ol li
+    list-style: decimal
+  ul, ol
+    list-style: outside
+    margin= 0 0 !font_size * 1.625
+  li ul, li ol
+    margin= 0 0 !font_size * 1.625
+  dl
+    margin= 0 0 !font_size * 1.625
+    dt
+      font-weight: bold
+    dd
+      margin-left= !font_size * 1.625
+  table
+    margin= 0 0 !font_size * 1.625
+    border-collapse: collapse
+    th
+      font-weight: bold
+    tr, th, td
+      margin: 0
+      margin= 0 !font_size * 1.625 0 !font_size
+    tfoot
+      font-style: italic
+    caption
+      text-align: center
+  abbr, acronym
+    border-bottom: 1px dotted
+  address
+    margin-top= !font_size * 1.625
+    font-style: italic
+  
+  blockquote
+    padding= !font_size !font_size !font_size * 1.625 !font_size * 1.4
+    +serif-font
+    font-size= !font_size * 1.2
+    font-style: italic
+    &:before
+      content: "\201C"
+      font-size= !font_size * 3
+      margin= 0 0 0 -.625em
+      position: absolute
+      font-family: Times, Georgia, serif
+      color: #aaa
+      line-height: 0
+    > p
+      padding: 0
+      margin: 0
+  pre, code
+    margin= !font_size * 1.625 0
+    white-space: pre
+  pre, code, tt
+    +fixed-font
+    font-size= !font_size
+    line-height= !font_size * 1.5
+  tt
+    display: block
+    margin= !font_size * 1.625 0
+  hr
+    margin-bottom= !font_size * 1.625
+  
   small
     font-size= floor(!font_size * .85)
   big
     font-size= floor(!font_size * 1.25)
+
+=p-style(!font_size = !base_font_size)
+  padding-bottom= !font_size * 0.8125
+  img
+    float: left
+    margin:
+      top= !font_size * .5
+      right= !font_size * .8125
+      bottom= !font_size* .8125
+      left= 0
+    padding: 0
+    &.right
+      margin:
+        right= 0
+        left= !font_size * .8125

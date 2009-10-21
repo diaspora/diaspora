@@ -1,26 +1,20 @@
-!base_font_size = 15px
+!base_font_size = 16px
 !base_font_size_small = 13px
 !default_border_radius = 6px
 
-=heading-font 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-=sans-font
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", Helvetica, Arial, Verdana, sans-serif
-=serif-font
-  font-family: Baskerville, "Times New Roman", Times, Georgia, serif
-=fixed-font
-  font-family: "Menlo", "Bitstream Vera Sans", Monaco, "Andale Mono", "Lucida Console", monospace
-    
++general-typography
+=heading-font
+  +serif-font
+
 body
   font-size= !base_font_size
-  +set-heading-sizes
-  +typography-defaults
   +sans-font
   
 h1,h2,h3,h4,h5,h6
   color: #333
-  letter-spacing: -1px
   font-weight: bold
-ol li
-  list-style: decimal
-  margin-left: 1.9em
+  +heading-font
+.quote blockquote
+  font-size= !h4
+  line-height= !h5 * 1.625
+  color: #555
