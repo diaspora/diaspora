@@ -11,8 +11,13 @@ root_url:
       %meta(name="description" content="#{page.description}")/
     - if page.respond_to? :keywords
       %meta(name="keywords" content="#{page.keywords}")/
-    %link(href="#{page.root_url}/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
-    %link(href="#{page.root_url}/atom.xml" rel="alternate" title="#{page.blog_title}" type="application/atom+xml")
+    %link(href="/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
+    %link(href="/atom.xml" rel="alternate" title="#{page.blog_title}" type="application/atom+xml")
+    /%script(src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.3/mootools-yui-compressed.js" type="text/javascript")/
+    %script(src="/javascripts/mootools-yui-compressed.js" type="text/javascript")
+    %script(src="/javascripts/jsonp.js" type="text/javascript")
+    %script(src="/javascripts/twitter_gitter.js" type="text/javascript")
+    %script(src="/javascripts/twitter.js" type="text/javascript")
   %body
     #header
       .page_width
@@ -28,14 +33,19 @@ root_url:
             %a(href="#{page.root_url}/atom.xml") Subscribe
     #page
       .page_width
-        - if page.respond_to? :date
-          %h2= page.title
-          = content
-          %p.pubdate
-            Published:
-            =page.date.strftime("%d %b, %Y")
-        - else
-          = content
+        #main
+          - if page.respond_to? :date
+            %h2= page.title
+            = content
+            %p.pubdate
+              Published:
+              =page.date.strftime("%d %b, %Y")
+          - else
+            = content
+        #sidebar
+          #twitter
+            #twitter_status
+              Status updating...
     #footer
       .page_width
         = "Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} | "

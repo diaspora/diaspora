@@ -1,5 +1,6 @@
-!page_width = 560px
-!sidebar_width = 0
+!page_width = 900px
+!sidebar_width = 250px
+!sidebar_margin = 30px
 !pad = 15px
 !default_border_radius = 4px
 
@@ -52,8 +53,7 @@ html body
         border-right: 0
       &.subscribe
         position: absolute
-        right: 0
-        //left= !page_width - 25px
+        left= !page_width - !sidebar_width - !sidebar_margin/2
         border: none
         a
           display: inline-block
@@ -75,16 +75,27 @@ html body
     right: 30px
 
 #page
+  +clearfix
   background-color= !page_bg
   .page_width
+    +clearfix
     padding:
       top: 25px
       bottom: 25px
     background-color= !blog_bg
-    +box-shadow(#ccc)
+    +easy-box-shadow(#ccc)
     border:
       left= "1px solid" !page_border_sides
       right= "1px solid" !page_border_sides
+#main
+  width= !page_width - !sidebar_width - !sidebar_margin
+#sidebar
+  width= !sidebar_width
+  margin-left= !sidebar_margin
+
+#main, #sidebar
+  float: left
+
 .blog
   .article
     padding= !base_font_size * 1.5 0 !base_font_size * 1.5
