@@ -1,13 +1,14 @@
 require 'active_support'
 
+## -- CHANGE FOR YOUR PROJECT -- ##
+site_url      = "http://yoursite.com"   # deployed site url
+ssh_user      = "user@host.com"    # for rsync deployment
+document_root = "~/document_root/" # for rsync deployment
+## ---- ##
+
 port = "4000"     # preview project port eg. http://localhost:4000
 site = "site"     # compiled site directory
 source = "source" # source file directory
-
-# MUST CHANGE FOR YOUR PROJECT
-site_url = "http://yoursite.com"   # deployed site url
-ssh_user      = "user@host.com"    # for rsync deployment
-document_root = "~/document_root/" # for rsync deployment
 
 def ok_failed(condition)
   if (condition)
@@ -27,6 +28,11 @@ desc "remove files in output directory"
 task :clean do
   puts "Removing output..."
   Dir["#{site}/*"].each { |f| rm_rf(f) }
+end
+
+task :clean_debug do
+  puts "Removing debug pages..."
+  Dir["#{site}/debug"].each { |f| rm_rf(f) }
 end
 
 desc "generate website in output directory"
@@ -56,7 +62,7 @@ task :watch do
 end
 
 desc "generate and deploy website"
-task :deploy => :generate do
+multitask :deploy => [:generate, :clean_debug] do
   print "Deploying website..."
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
