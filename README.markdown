@@ -35,16 +35,16 @@ Octopress gives developers a well designed starting point for a Jekyll blog. It'
 You should really read over the [Jekyll wiki](http://wiki.github.com/mojombo/jekyll) because most of your work will be using Jekyll. Beyond that Octopress is mostly some rake tasks, HAML, and SASS/Compass that has been meticulously crafted for ease of use and modification.
 
 ### Common Rake tasks
-**rake preview**:  
+**rake preview**  
 Generates the site, starts the local web server, and opens your browser to show the generated site.
 
-**rake watch**:  
+**rake watch**  
 Watches the source for changes and regenerates the site every time you save a file. You'll forget your working with a static site.
 
-**rake deploy**:  
+**rake deploy**  
 Generates the site and then uses rsync (based on your configurations in the Rakefile) to synchronize with your web host. In order to use rsync you'll need shell access to your host, and you'll probably want to use your public key for authentication.
 
-**rake stop_serve**:  
+**rake stop_serve**  
 Kills the local web server process.
 
 *There are more but these are the ones you'll use the most. Read the Rakefile if you want to learn more*
@@ -54,7 +54,7 @@ Kills the local web server process.
 Octopress's stylesheets are written in [SASS](http://sass-lang.com). If you haven't learned SASS, you should. It's the future. Octopress also uses [Compass](http://compass-style.org) which is a framework for SASS and contains a great library of SASS mixins which make it trivial to write complicated CSS. This is also the future.
 
 ### Customizing the default theme
-The default theme is comprised of Layout, Typography, Theme, and Partials. Octopress also has a library of mixins that act like SASS helpers for styling tasks.
+The default theme is comprised of Layout, Typography, Theme, and Partials. Octopress also has a library of SASS mixins.
 
 **Layout**  
 Edit the variables at the top of /stylesheets/_layout.sass to configure the primary structural dimensions, including the header, footer, main content, and sidebar.
