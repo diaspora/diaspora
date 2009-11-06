@@ -10,6 +10,7 @@ var filter_mentions = true;
 var tweet_count = 5;
 var tweet_tag = 'p';
 var twitter_div = 'twitter_status';
+var tweet_cookie = 'the_tweets_' + username;
 
 window.addEvent('domready',function() {
 	getTwitterStatus();
@@ -29,7 +30,7 @@ function showTweets(the_tweets, from_cookie){
 
 function getTwitterStatus(){
   $(twitter_div).set('html', 'Fetching tweets...');
-  if(!Cookie.read('the_tweets')) {
+  if(!Cookie.read(tweet_cookie)) {
   	var myTwitterGitter = new TwitterGitter(username,{
   	  count: ((!filter_mentions) ? tweet_count : 15 + tweet_count),
   		onComplete: function(tweets,user) {
@@ -37,21 +38,15 @@ function getTwitterStatus(){
   			tweets.each(function(tweet,i) {
   			  if((tweet.in_reply_to_status_id && !filter_mentions) || !tweet.in_reply_to_status_id){
   			    if(the_tweets.length == tweet_count) return;
+  			    tweet.text = tweet.text.replace(/\n/gi, '<br/>');
     			  the_tweets.push(tweet.text);
   				}
   			});
-  			Cookie.write('the_tweets',the_tweets.join('^!^!^!^!^'), { duration: 1 });
+  			Cookie.write(tweet_cookie,the_tweets.join('^!^!^!^!^'), { duration: 1 });
   			showTweets(the_tweets);
   		}
   	}).retrieve();
 	} else {
-	  showTweets(Cookie.read('the_tweets'),true);
+	  showTweets(Cookie.read(tweet_cookie),true);
 	}
 }
-
-//implement string.tweetify();
-String.implement({
-	tweetify: function() {
-		return this.replace(/(https?:\/\/\S+)/gi,'<a href="$1">$1</a>').replace(/(^|\s)@(\w+)/g,'$1<a href="http://twitter.com/$2">@$2</a>').replace(/(^|\s)#(\w+)/g,'$1<a href="http://search.twitter.com/search?q=%23$2">#$2</a>');
-	}
-});
