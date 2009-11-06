@@ -16,8 +16,7 @@ disqus_short_name: designenthusiast
     %link(href="/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
     %link(href="/atom.xml" rel="alternate" title="#{page.blog_title}" type="application/atom+xml")
     %script(src="/javascripts/mootools-yui-compressed.js" type="text/javascript")
-    %script(src="/javascripts/jsonp.js" type="text/javascript")
-    %script(src="/javascripts/twitter_gitter.js" type="text/javascript")
+    %script(src="/javascripts/mootools-1.2.4.2-more.js" type="text/javascript")
     %script(src="/javascripts/twitter.js" type="text/javascript")
     %script(src="http://www.google-analytics.com/ga.js" type="text/javascript")
   %body
@@ -66,7 +65,7 @@ disqus_short_name: designenthusiast
         %span.credit Powered by <a href="http://github.com/imathis/octopress/">Octopress</a>
     //Disqus Commens code
     :javascript
-      (function() {
+      /*(function() {
           var links = document.getElementsByTagName('a');
           var query = '?';
           for(var i = 0; i < links.length; i++) {
@@ -75,7 +74,7 @@ disqus_short_name: designenthusiast
             }
           }
           document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/#{page.disqus_short_name}/get_num_replies.js' + query + '"></' + 'script>');
-        })();
+        })();*/
     //Google Analytics code
     :javascript
       try {
