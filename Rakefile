@@ -18,8 +18,13 @@ def ok_failed(condition)
   end
 end
 
+desc "generate website in output directory"
+task :default => [:generate_site, :generate_style] do
+  puts "--Site Generating Complete!--"
+end
+
 desc "list tasks"
-task :default do
+task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:default]]).to_sentence}"
   puts "(type rake -T for more detail)\n\n"
 end
@@ -35,18 +40,29 @@ task :clean_debug do
   Dir["#{site}/debug"].each { |f| rm_rf(f) }
 end
 
-desc "generate website in output directory"
-task :generate => :clean do
+desc "Generate styles only"
+task :generate_style do
+  puts "Generating website..."
+  system "compass"
+end
+
+desc "Generate site files only"
+task :generate_site => :clean do
   puts "Generating website..."
   system "jekyll"
   Dir["#{site}/stylesheets/*.sass"].each { |f| rm_rf(f) }
-  system "compass"
   system "mv #{site}/atom.html #{site}/atom.xml"
 end
 
 def rebuild_site(relative)
   puts ">>> Change Detected to: #{relative} <<<"
-  IO.popen('rake generate'){|io| print(io.readpartial(512)) until io.eof?}
+  IO.popen('rake generate_site'){|io| print(io.readpartial(512)) until io.eof?}
+  puts '>>> Update Complete <<<'
+end
+
+def rebuild_style(relative)
+  puts ">>> Change Detected to: #{relative} <<<"
+  IO.popen('rake generate_style'){|io| print(io.readpartial(512)) until io.eof?}
   puts '>>> Update Complete <<<'
 end
 
@@ -54,15 +70,25 @@ desc "Watch the site and regenerate when it changes"
 task :watch do
   require 'fssm'
   puts ">>> Watching for Changes <<<"
-  FSSM.monitor("#{File.dirname(__FILE__)}/#{source}", '**/*') do
-    update {|base, relative| rebuild_site(relative)}
-    delete {|base, relative| rebuild_site(relative)}
-    create {|base, relative| rebuild_site(relative)}
+  FSSM.monitor do
+    path "#{File.dirname(__FILE__)}/#{source}" do
+      update {|base, relative| rebuild_site(relative)}
+      delete {|base, relative| rebuild_site(relative)}
+      create {|base, relative| rebuild_site(relative)}
+    end
+    path "#{File.dirname(__FILE__)}/#{source}/stylesheets" do
+      glob '**/*.sass'
+      update {|base, relative| rebuild_style(relative)}
+      delete {|base, relative| rebuild_style(relative)}
+      create {|base, relative| rebuild_style(relative)}
+    end
   end
+  FSSM.monitor("#{File.dirname(__FILE__)}/#{source}/stylesheets", '**/*') do
+    
 end
 
 desc "generate and deploy website"
-multitask :deploy => [:generate, :clean_debug] do
+multitask :deploy => [:default, :clean_debug] do
   print "Deploying website..."
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
@@ -87,13 +113,13 @@ task :stop_serve do
 end
 
 desc "preview the site in a web browser"
-multitask :preview => [:generate, :start_serve] do
+multitask :preview => [:default, :start_serve] do
   system "open http://localhost:#{port}"
 end
 
 
 desc "Build an XML sitemap of all html files."
-task :sitemap => :generate do
+task :sitemap => :default do
   html_files = FileList.new("#{site}/**/*.html").map{|f| f[("#{site}".size)..-1]}.map do |f|
     if f.ends_with?("index.html")
       f[0..(-("index.html".size + 1))]

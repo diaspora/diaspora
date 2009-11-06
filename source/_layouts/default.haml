@@ -1,6 +1,6 @@
 ---
 blog_title: My Octopress Blog
-root_url: 
+google_site_search_id: 
 ---
 
 !!! 1.1 Transitional
@@ -13,24 +13,29 @@ root_url:
       %meta(name="keywords" content="#{page.keywords}")/
     %link(href="/stylesheets/screen.css" rel="stylesheet" media="screen projection" type="text/css")
     %link(href="/atom.xml" rel="alternate" title="#{page.blog_title}" type="application/atom+xml")
-    /%script(src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.3/mootools-yui-compressed.js" type="text/javascript")/
     %script(src="/javascripts/mootools-yui-compressed.js" type="text/javascript")
     %script(src="/javascripts/jsonp.js" type="text/javascript")
     %script(src="/javascripts/twitter_gitter.js" type="text/javascript")
     %script(src="/javascripts/twitter.js" type="text/javascript")
+    %script(src="http://www.google-analytics.com/ga.js" type="text/javascript")
   %body
     #header
       .page_width
         %a.title(href="/")=page.blog_title
+        #search
+          %form(action="http://www.google.com/cse" id="cse-search-box")
+            %input(type="hidden" name="cx" value="#{page.google_site_search_id}")
+            %input(type="hidden" name="ie" value="UTF-8")
+            %input#q(type="text" name="q")
     #nav
       .page_width
         %ul
           %li.alpha
-            %a(href="#{page.root_url}/") Blog
+            %a(href="/") Blog
           %li.omega
-            %a(href="#{page.root_url}/about") About
+            %a(href="/about") About
           %li.subscribe
-            %a(href="#{page.root_url}/atom.xml") Subscribe
+            %a(href="/atom.xml") Subscribe
     #page
       .page_width
         #main
@@ -50,3 +55,10 @@ root_url:
       .page_width
         = "Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} | "
         %span.credit Powered by <a href="http://github.com/imathis/octopress/">Octopress</a>
+  
+    //Google Analytics code
+    :javascript
+      try {
+      var pageTracker = _gat._getTracker("UA-10876422-1");
+      pageTracker._trackPageview();
+      } catch(err) {}
