@@ -2,7 +2,7 @@
 blog_title: My Octopress Blog
 full_url:
 google_site_search_id: 
-disqus_site: designenthusiast
+disqus_short_name: designenthusiast
 ---
 
 !!! 1.1 Transitional
@@ -53,7 +53,7 @@ disqus_site: designenthusiast
                 var disqus_url = "#{page.full_url}/#{page.url}";
               %noscript
                 %a(href="http://designenthusiast.disqus.com/?url=ref") View the discussion thread
-              %script(type="text/javascript" src="http://disqus.com/forums/#{page.disqus_site}/embed.js")
+              %script(type="text/javascript" src="http://disqus.com/forums/#{page.disqus_short_name}/embed.js")
           - else
             = content
         #sidebar
@@ -74,7 +74,7 @@ disqus_site: designenthusiast
               query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
             }
           }
-          document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/#{page.disqus_site}/get_num_replies.js' + query + '"></' + 'script>');
+          document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/#{page.disqus_short_name}/get_num_replies.js' + query + '"></' + 'script>');
         })();
     //Google Analytics code
     :javascript

@@ -49,6 +49,26 @@ Kills the local web server process.
 
 *There are more but these are the ones you'll use the most. Read the Rakefile if you want to learn more*
 
+## Third Party Integration
+### Twitter
+To configure your twitter feed, edit twitter.js where you can set:
+
+- Account for the feed
+- Number of tweets to show
+- Show Mentions (true/false)
+
+### Disqus Comments
+Octopress has built in support for the Disqus commenting system, using the "universal code" installation method. First register your site at [http://disqus.com/comments/register/](http://disqus.com/comments/register/) Then, to enable Disqus comments on your blog, edit the YAML block at the top of the default layout:
+
+1. Add your site's Disqus shortname
+2. Add your site's full url eg: http://yoursite.com
+
+### Google Site Search
+First setup sitesearch for your site at [http://google.com/sitesearch/](http://google.com/sitesearch/) then add your site\_search\_id to the YAML block in the default layout.
+
+### Google Analytics
+The analytics tracking scripts are already integrated into Octopress, all you have to do is register your site at [http://google.com/analytics/](http://google.com/analytics/).
+
 ## Style Configuration
 ### What you need to know
 Octopress's stylesheets are written in [SASS](http://sass-lang.com). If you haven't learned SASS, you should. It's the future. Octopress also uses [Compass](http://compass-style.org) which is a framework for SASS and contains a great library of SASS mixins which make it trivial to write complicated CSS. This is also the future.
