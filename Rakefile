@@ -50,7 +50,6 @@ desc "Generate site files only"
 task :generate_site => :clean do
   puts "Generating website..."
   system "jekyll"
-  Dir["#{site}/stylesheets/*.sass"].each { |f| rm_rf(f) }
   system "mv #{site}/atom.html #{site}/atom.xml"
 end
 
