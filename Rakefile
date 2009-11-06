@@ -20,35 +20,35 @@ end
 
 desc "generate website in output directory"
 task :default => [:generate_site, :generate_style] do
-  puts "--Site Generating Complete!--"
+  puts ">>> Site Generating Complete! <<<"
 end
 
 desc "list tasks"
 task :list do
-  puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:default]]).to_sentence}"
+  puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).to_sentence}"
   puts "(type rake -T for more detail)\n\n"
 end
 
 desc "remove files in output directory"
 task :clean do
-  puts "Removing output..."
+  puts ">>> Removing output <<<"
   Dir["#{site}/*"].each { |f| rm_rf(f) }
 end
 
 task :clean_debug do
-  puts "Removing debug pages..."
+  puts ">>> Removing debug pages <<<"
   Dir["#{site}/debug"].each { |f| rm_rf(f) }
 end
 
 desc "Generate styles only"
 task :generate_style do
-  puts "Generating website..."
+  puts ">>> Generating styles <<<"
   system "compass"
 end
 
 desc "Generate site files only"
 task :generate_site => :clean do
-  puts "Generating website..."
+  puts ">>> Generating site files <<<"
   system "jekyll"
   system "mv #{site}/atom.html #{site}/atom.xml"
 end
@@ -75,20 +75,18 @@ task :watch do
       delete {|base, relative| rebuild_site(relative)}
       create {|base, relative| rebuild_site(relative)}
     end
-    path "#{File.dirname(__FILE__)}/#{source}/stylesheets" do
+    path "#{File.dirname(__FILE__)}/stylesheets" do
       glob '**/*.sass'
       update {|base, relative| rebuild_style(relative)}
       delete {|base, relative| rebuild_style(relative)}
       create {|base, relative| rebuild_style(relative)}
     end
   end
-  FSSM.monitor("#{File.dirname(__FILE__)}/#{source}/stylesheets", '**/*') do
-    
 end
 
 desc "generate and deploy website"
 multitask :deploy => [:default, :clean_debug] do
-  print "Deploying website..."
+  print ">>> Deploying website <<<"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
