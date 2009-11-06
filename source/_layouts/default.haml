@@ -1,6 +1,8 @@
 ---
 blog_title: My Octopress Blog
+full_url:
 google_site_search_id: 
+disqus_site: designenthusiast
 ---
 
 !!! 1.1 Transitional
@@ -45,6 +47,13 @@ google_site_search_id:
             %p.pubdate
               Published:
               =page.date.strftime("%d %b, %Y")
+              #disqus_thread
+              :javascript
+                var disqus_developer = true;
+                var disqus_url = "#{page.full_url}/#{page.url}";
+              %noscript
+                %a(href="http://designenthusiast.disqus.com/?url=ref") View the discussion thread
+              %script(type="text/javascript" src="http://disqus.com/forums/#{page.disqus_site}/embed.js")
           - else
             = content
         #sidebar
@@ -55,7 +64,18 @@ google_site_search_id:
       .page_width
         = "Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} | "
         %span.credit Powered by <a href="http://github.com/imathis/octopress/">Octopress</a>
-  
+    //Disqus Commens code
+    :javascript
+      (function() {
+          var links = document.getElementsByTagName('a');
+          var query = '?';
+          for(var i = 0; i < links.length; i++) {
+            if(links[i].href.indexOf('#disqus_thread') >= 0) {
+              query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+            }
+          }
+          document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/#{page.disqus_site}/get_num_replies.js' + query + '"></' + 'script>');
+        })();
     //Google Analytics code
     :javascript
       try {
