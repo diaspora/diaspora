@@ -20,7 +20,7 @@ end
 
 desc "generate website in output directory"
 task :default => [:generate_site, :generate_style] do
-  puts ">>> Site Generating Complete! <<<"
+  puts ">>> Site Generating Complete! <<<\n\n"
 end
 
 desc "list tasks"
@@ -48,19 +48,20 @@ end
 
 desc "Generate site files only"
 task :generate_site => [:clean, :generate_style] do
-  puts ">>> Generating site files <<<"
+  puts "\n\n>>> Generating site files <<<"
   system "jekyll"
   system "mv #{site}/atom.html #{site}/atom.xml"
 end
 
 def rebuild_site(relative)
+  puts "\n"
   puts ">>> Change Detected to: #{relative} <<<"
   IO.popen('rake generate_site'){|io| print(io.readpartial(512)) until io.eof?}
   puts '>>> Update Complete <<<'
 end
 
 def rebuild_style(relative)
-  puts ">>> Change Detected to: #{relative} <<<"
+  puts "\n\n>>> Change Detected to: #{relative} <<<"
   IO.popen('rake generate_style'){|io| print(io.readpartial(512)) until io.eof?}
   puts '>>> Update Complete <<<'
 end

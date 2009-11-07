@@ -6,13 +6,11 @@
 // PrettyDate by John Resig at http://ejohn.org/files/pretty.js
 //
 
-var filter_mentions = true;
-var tweet_count = 5;
 var tweet_tag = 'p';
 var twitter_div = 'twitter_status';
 
 window.addEvent('domready',function() {
-	getTwitterStatus('imathis');
+	getTwitterStatus(twitter_user);
 });
 
 function showTweets(the_tweets, from_cookie){
@@ -53,15 +51,15 @@ function prettyDate(time){
 }
 
 function getTwitterStatus(twitter_name){
-  var tweet_cookie = 'tweets_by_' + twitter_name;
+  var tweet_cookie = 'tweets_by_' + twitter_name + tweet_count;
   $(twitter_div).set('html', 'Fetching tweets...');
   if(!Cookie.read(tweet_cookie)) {
   	var myTwitterGitter = new TwitterGitter(twitter_name,{
-  	  count: ((!filter_mentions) ? tweet_count : 15 + tweet_count),
+  	  count: ((show_replies) ? tweet_count : 15 + tweet_count),
   		onComplete: function(tweets,user) {
         the_tweets = Array();
   			tweets.each(function(tweet,i) {
-  			  if((tweet.in_reply_to_status_id && !filter_mentions) || !tweet.in_reply_to_status_id){
+  			  if((tweet.in_reply_to_status_id && show_replies) || !tweet.in_reply_to_status_id){
   			    if(the_tweets.length == tweet_count) return;
   			    tweet.text = tweet.text.replace(/\n/gi, '<br/>');
   			    console.log(tweet);

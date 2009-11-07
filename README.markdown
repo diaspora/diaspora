@@ -51,11 +51,12 @@ Kills the local web server process.
 
 ## Third Party Integration
 ### Twitter
-To configure your twitter feed, edit twitter.js where you can set:
+Twitter settings are at the top of _layouts/default.haml
+You can also change:
 
-- Account for the feed
-- Number of tweets to show
-- Show Mentions (true/false)
+    twitter_user: your_twitter_name
+    show_replies: false
+    tweet_count: 3
 
 ### Disqus Comments
 Octopress has built in support for the Disqus commenting system, using the "universal code" installation method. First register your site at [http://disqus.com/comments/register/](http://disqus.com/comments/register/) Then, to enable Disqus comments on your blog, edit the YAML block at the top of the default layout:
@@ -68,6 +69,9 @@ First setup sitesearch for your site at [http://google.com/sitesearch/](http://g
 
 ### Google Analytics
 The analytics tracking scripts are already integrated into Octopress, all you have to do is register your site at [http://google.com/analytics/](http://google.com/analytics/).
+
+### Removing Third party integrations
+All third party integration is conditionally included. All you have to do is remove the variable from the layout and you're done. If you like, you can also remove the include blocks from the default layout.
 
 ## Style Configuration
 ### What you need to know
