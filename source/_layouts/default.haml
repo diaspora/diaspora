@@ -73,9 +73,9 @@ google_analytics: true
             = content
         #sidebar
           - if page.respond_to? :twitter_user
-            %h4 @#{page.twitter_user}
+            %h4 Twitter <a class="small" href="http://twitter.com/#{page.twitter_user}">@#{page.twitter_user}</a>
             #twitter
-              #twitter_status
+              %ul#twitter_status
                 Status updating...
     #footer
       .page_width

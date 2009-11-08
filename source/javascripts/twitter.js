@@ -6,8 +6,15 @@
 // PrettyDate by John Resig at http://ejohn.org/files/pretty.js
 //
 
-var tweet_tag = 'p';
-var twitter_div = 'twitter_status';
+/*
+	Plugin:   	Octopress Twitter Feed
+	Author:   	Brandon Mathis
+	Website:    http://brandonmathis.com
+	Date:     	11/07/2009
+*/
+
+var tweet_container = 'li';
+var twitter_container = 'twitter_status';
 
 window.addEvent('domready',function() {
 	getTwitterStatus(twitter_user);
@@ -17,11 +24,13 @@ function showTweets(the_tweets, from_cookie){
   if(from_cookie){
     the_tweets = the_tweets.split('^!^!^!^!^');
   }
-  $(twitter_div).set('html', '');
+  $(twitter_container).set('html', '');
   the_tweets.each(function(tweet){
-    new Element(tweet_tag,{
-  		html: parseTweetDate(tweet)
-  	}).inject(twitter_div);
+    tweet = parseTweetDate(tweet)
+    tweet = '<p>' + tweet.replace(/\n\n/gi,'</p><p>') + '</p>';
+    new Element(tweet_container,{
+  		html: tweet
+  	}).inject(twitter_container);
   });
 }
 
@@ -52,7 +61,7 @@ function prettyDate(time){
 
 function getTwitterStatus(twitter_name){
   var tweet_cookie = 'tweets_by_' + twitter_name + tweet_count;
-  $(twitter_div).set('html', 'Fetching tweets...');
+  $(twitter_container).set('html', 'Fetching tweets...');
   if(!Cookie.read(tweet_cookie)) {
   	var myTwitterGitter = new TwitterGitter(twitter_name,{
   	  count: ((show_replies) ? tweet_count : 15 + tweet_count),
@@ -61,8 +70,6 @@ function getTwitterStatus(twitter_name){
   			tweets.each(function(tweet,i) {
   			  if((tweet.in_reply_to_status_id && show_replies) || !tweet.in_reply_to_status_id){
   			    if(the_tweets.length == tweet_count) return;
-  			    tweet.text = tweet.text.replace(/\n/gi, '<br/>');
-  			    console.log(tweet);
     			  the_tweets.push(tweet.text + '-!-!-!-' + tweet.created_at);
   				}
   			});
