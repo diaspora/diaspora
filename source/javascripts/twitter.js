@@ -15,6 +15,7 @@
 
 var tweet_container = 'li';
 var twitter_container = 'twitter_status';
+var key = '-!-!-';
 
 window.addEvent('domready',function() {
 	getTwitterStatus(twitter_user);
@@ -22,11 +23,11 @@ window.addEvent('domready',function() {
 
 function showTweets(the_tweets, from_cookie){
   if(from_cookie){
-    the_tweets = the_tweets.split('^!^!^!^!^');
+    the_tweets = the_tweets.split('^!^!^');
   }
   $(twitter_container).set('html', '');
   the_tweets.each(function(tweet){
-    tweet = parseTweetDate(tweet)
+    tweet = parseTweetMeta(tweet)
     tweet = '<p>' + tweet.replace(/\n\n/gi,'</p><p>') + '</p>';
     new Element(tweet_container,{
   		html: tweet
@@ -34,10 +35,15 @@ function showTweets(the_tweets, from_cookie){
   });
 }
 
-function parseTweetDate(tweet){
-  tweet = tweet.split('-!-!-!-');
-  date = prettyDate(new Date().parse(tweet[1]));
-  return tweet[0] + '<span class="pubdate">' + date + '</span>';
+function parseTweetMeta(tweet_data){
+  var tweet_data = tweet_data.split(key);
+  var tweet = tweet_data[0];
+  var date = tweet_data[1];
+  var tweet_id = tweet_data[2];
+  var source = tweet_data[3];
+  
+  date = prettyDate(new Date().parse(date));
+  return tweet + '<span class="meta"><a href="http://twitter.com/'+twitter_user+'/'+tweet_id+'">' + date + '</a> from ' + source + '</span>';
 }
 
 function prettyDate(time){
@@ -70,10 +76,10 @@ function getTwitterStatus(twitter_name){
   			tweets.each(function(tweet,i) {
   			  if((tweet.in_reply_to_status_id && show_replies) || !tweet.in_reply_to_status_id){
   			    if(the_tweets.length == tweet_count) return;
-    			  the_tweets.push(tweet.text + '-!-!-!-' + tweet.created_at);
+    			  the_tweets.push(tweet.text + key + tweet.created_at + key + tweet.id + key + tweet.source);
   				}
   			});
-  			Cookie.write(tweet_cookie,the_tweets.join('^!^!^!^!^'), { duration: 1 });
+  			Cookie.write(tweet_cookie,the_tweets.join('^!^!^'), { duration: 1 });
   			showTweets(the_tweets);
   		}
   	}).retrieve();
