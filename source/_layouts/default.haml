@@ -79,7 +79,7 @@ google_analytics: true
                 Status updating...
     #footer
       .page_width
-        = "Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} | "
+        Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} -
         %span.credit Powered by <a href="http://github.com/imathis/octopress/">Octopress</a>
     - if page.respond_to? :disqus_short_name
       //Disqus Commens code

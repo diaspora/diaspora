@@ -7,8 +7,8 @@ title: Blog
     .article
       %h2= link_to(post.title, post.url, {:class=>"title"})
       = post.content
-      .footer
-        - if page.respond_to? :disqus_short_name
+      - if page.respond_to? :disqus_short_name
+        .footer
           - if post.data["comments_off"]
             %em.comments_off Comments disabled
           - else

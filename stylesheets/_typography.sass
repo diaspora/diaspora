@@ -10,16 +10,17 @@
   +serif-font
 
 body
-  font-size= !base_font_size
-  +sans-font
+  font-size= !base_font_size +2
+  +serif-font
   
 h1,h2,h3,h4,h5,h6
   color: #333
   font-weight: bold
   +heading-font
+  letter-spacing: -1px
 
 blockquote
-  +heading-font
+  +quote-font
   font-size= !base_font_size * 1.2
 .quote blockquote
   font-size= !h4

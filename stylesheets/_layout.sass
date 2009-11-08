@@ -10,10 +10,6 @@ html body
   a
     color= !link_color
 
-#footer a
-  color= #ddd
-  &:hover
-    color = #fff
 #header
   background-color= !header_bg
   border-bottom= "1px solid" !header_border
@@ -91,22 +87,9 @@ html body
       right= "1px solid" !page_border_sides
 #main
   width= !page_width - !sidebar_width - !sidebar_margin
-#sidebar
-  width= !sidebar_width
-  margin-left= !sidebar_margin
 
-#main, #sidebar
+#main
   float: left
-
-.blog
-  .article
-    padding= !base_font_size * 1.5 0 !base_font_size * 1.5
-    border-bottom= "1px solid" !article_border
-    &:first-child
-      padding-top: 0
-  .footer
-    padding-top= !base_font_size
-
 
 #footer
   position: relative
@@ -117,3 +100,7 @@ html body
   color= !footer_color
   +h-linear-gradient(darken(!body_bg, 25), !body_bg)
   border-top= "14px solid" !footer_bg
+  a
+    color= #ddd
+    &:hover
+      color = #fff
