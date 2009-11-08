@@ -29,7 +29,7 @@ Octopress gives developers a well designed starting point for a Jekyll blog. It'
 
 #### Third
 1. Edit the top of the Rakefile settings to match your web hosting info.
-2. Edit the top of the atom.haml and _layout/default.haml.
+2. Customize the top of the atom.haml and _layout/default.haml.
 
 ## Usage
 You should really read over the [Jekyll wiki](http://wiki.github.com/mojombo/jekyll) because most of your work will be using Jekyll. Beyond that Octopress is mostly some rake tasks, HAML, and SASS/Compass that has been meticulously crafted for ease of use and modification.
