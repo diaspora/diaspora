@@ -174,8 +174,8 @@ module Helpers
     end
   end
   
-  def absolute_url(input)
-    input.gsub(/(href|src)(\s*=\s*)(["'])(\/.*?)\3/) { $1 + $2 + $3 + "http://brandonmathis.com" + $4 + $3 }
+  def absolute_url(input, url)
+    input.gsub(/(href|src)(\s*=\s*)(["'])(\/.*?)\3/) { $1 + $2 + $3 + url + $4 + $3 }
   end
   
   def rp(input)

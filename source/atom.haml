@@ -3,23 +3,23 @@ layout: nil
 author: Your Name
 email: author@domain.com
 blog_title: My Octopress Blog
-root_url: http://yoursite.com
+full_url: http://yoursite.com
 ---
 !!! XML
 %feed(xmlns="http://www.w3.org/2005/Atom")
   %title= page.blog_title
-  %link(href="#{page.root_url}/atom.xml" rel="self")
-  %link(href="#{page.root_url}")
+  %link(href="#{page.full_url}/atom.xml" rel="self")
+  %link(href="#{page.full_url}")
   %updated= Time.now.xmlschema
-  %id=page.root_url
+  %id=page.full_url
   %author
     %name= page.author
     %email= page.email
   - site.posts[0..14].each do |post|
     %entry
       %title= rp(post.title)
-      %link(href="#{page.root_url}#{post.url}")
+      %link(href="#{page.full_url}#{post.url}")
       %updated=post.date.xmlschema
-      %id= "#{page.root_url}#{post.id}"
+      %id= "#{page.full_url}#{post.id}"
       %content(type="html")
-        = h(absolute_url(rp(post.content)))
+        = h(absolute_url(rp(post.content), page.full_url))
