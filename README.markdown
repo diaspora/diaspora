@@ -59,10 +59,10 @@ You can also change:
     tweet_count: 3
 
 ### Disqus Comments
-Octopress has built in support for the Disqus commenting system, using the "universal code" installation method. First register your site at [http://disqus.com/comments/register/](http://disqus.com/comments/register/) Then, to enable Disqus comments on your blog, edit the YAML block at the top of the default layout:
+Octopress has built in support for the Disqus commenting system, using the "universal code" installation method. First register your site at [http://disqus.com/comments/register/](http://disqus.com/comments/register/) Then, edit the settings at the top of _layouts/default.haml
 
-1. Add your site's Disqus shortname
-2. Add your site's full url eg: http://yoursite.com
+    full_url: http://yoursite.com
+    disqus_short_name: yourdisqusname
 
 ### Google Site Search
 First setup sitesearch for your site at [http://google.com/sitesearch/](http://google.com/sitesearch/) then add your site\_search\_id to the YAML block in the default layout.
