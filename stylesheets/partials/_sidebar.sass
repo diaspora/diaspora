@@ -1,11 +1,21 @@
 #sidebar
   float: left
   width= !sidebar_width
-  padding-top: 10px
   margin-left= !sidebar_margin
   
   h4
-    margin: 0
+    margin: 20px 0 0
+    &:first-child
+      margin-top: 10px
     .small
       +sans-font
       font-size: 50%
+
+#delicious
+  p
+    font-style: italic
+  li
+    font-size: 90%
+    color: #666
+    font-style: normal
+    padding-bottom: 8px

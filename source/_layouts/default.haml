@@ -5,6 +5,8 @@ twitter_user: imathis
 tweet_count: 3
 show_replies: false
 
+delicious_user: imathis
+
 full_url: 
 disqus_short_name: 
 
@@ -77,6 +79,10 @@ google_analytics: true
             #twitter
               %ul#twitter_status
                 Status updating...
+          - if page.respond_to? :delicious_user
+            %h4 My Delicious <a class="small" href="http://delicious.com/#{page.delicious_user}">more &rarr;</a>
+            #delicious
+              %script(type="text/javascript" src="http://feeds.delicious.com/v2/js/#{page.delicious_user}?title=&count=5&sort=date&extended")
     #footer
       .page_width
         Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} -
