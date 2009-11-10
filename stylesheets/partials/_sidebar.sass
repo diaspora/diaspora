@@ -9,13 +9,29 @@
       margin-top: 10px
     .small
       +sans-font
-      font-size: 50%
+      font-size: 50%  
+  font-size: 80%
+  line-height: 1.625em
+
+#twitter, #delicious
+  +border-radius
+  background: #f8f8f8
+  border: 1px solid #eee
+  padding: 5px 0
+  ul
+    list-style-type: none
+    margin: 0
+  li
+    margin: 0 15px
+    padding: 10px 0 0
+    border-bottom: #ddd 1px dashed
+    &:last-child
+      border-bottom: 0
 
 #delicious
   p
     font-style: italic
   li
-    font-size: 90%
     color: #666
     font-style: normal
     padding-bottom: 8px

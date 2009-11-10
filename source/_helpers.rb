@@ -156,6 +156,15 @@ module Helpers
   
   # My added helpers
   
+  def show_part (file)
+    data = ''
+    f = File.open(Dir.pwd+"/source/"+file)
+    f.each_line do |line|
+      data += line
+    end
+    data
+  end
+  
   def shorten_words (string, word_limit = 25)
     words = string.split(/\s/)
     if words.size >= word_limit

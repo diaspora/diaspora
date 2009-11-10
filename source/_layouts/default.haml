@@ -6,6 +6,7 @@ tweet_count: 3
 show_replies: false
 
 delicious_user: imathis
+delicious_count: 3
 
 full_url: 
 disqus_short_name: 
@@ -82,13 +83,13 @@ google_analytics: true
           - if page.respond_to? :delicious_user
             %h4 My Delicious <a class="small" href="http://delicious.com/#{page.delicious_user}">more &rarr;</a>
             #delicious
-              %script(type="text/javascript" src="http://feeds.delicious.com/v2/js/#{page.delicious_user}?title=&count=5&sort=date&extended")
+              %script(type="text/javascript" src="http://feeds.delicious.com/v2/js/#{page.delicious_user}?title=&count=#{page.delicious_count}&sort=date&extended")
     #footer
       .page_width
         Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} -
         %span.credit Powered by <a href="http://github.com/imathis/octopress/">Octopress</a>
     - if page.respond_to? :disqus_short_name
-      //Disqus Commens code
+      //Disqus Comments code
       :javascript
         (function() {
             var links = document.getElementsByTagName('a');
