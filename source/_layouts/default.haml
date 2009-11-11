@@ -11,7 +11,7 @@ delicious_count: 3
 full_url: 
 disqus_short_name: 
 
-google_site_search_id: 
+google_custom_search_id: 
 google_analytics: true
 
 ---
@@ -40,10 +40,10 @@ google_analytics: true
     #header
       .page_width
         %a.title(href="/")=page.blog_title
-        - if page.respond_to? :google_site_search_id
+        - if page.respond_to? :google_custom_search_id
           #search
             %form(action="http://www.google.com/cse" id="cse-search-box")
-              %input(type="hidden" name="cx" value="#{page.google_site_search_id}")
+              %input(type="hidden" name="cx" value="#{page.google_custom_search_id}")
               %input(type="hidden" name="ie" value="UTF-8")
               %input#q(type="text" name="q")
     #nav
