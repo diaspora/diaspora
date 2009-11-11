@@ -15,7 +15,7 @@ full_url: http://yoursite.com
   %author
     %name= page.author
     %email= page.email
-  - site.posts[0..14].each do |post|
+  - site.posts.reverse[0..14].each do |post|
     %entry
       %title= rp(post.title)
       %link(href="#{page.full_url}#{post.url}")

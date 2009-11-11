@@ -4,7 +4,7 @@ title: Blog Archives
 ---
 %h2 Blog Archives
 
-- posts = site.posts.group_by { |p| p.date.strftime("%Y") }
+- posts = site.posts.reverse.group_by { |p| p.date.strftime("%Y") }
 - posts.keys.each do |year|
   %h3= year
   %ul
