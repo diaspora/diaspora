@@ -64,8 +64,8 @@ Octopress has built in support for the Disqus commenting system, using the "univ
     full_url: http://yoursite.com
     disqus_short_name: yourdisqusname
 
-### Google Site Search
-First setup sitesearch for your site at [http://google.com/sitesearch/](http://google.com/sitesearch/) then add your site\_search\_id to the YAML block in the default layout.
+### Google Custom Search
+First setup a custom search for your site at [http://google.com/cse/](http://google.com/cse/) then add your custom\_search\_id to the YAML block in the default layout.
 
 ### Google Analytics
 The analytics tracking scripts are already integrated into Octopress, all you have to do is register your site at [http://google.com/analytics/](http://google.com/analytics/).
