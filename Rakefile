@@ -49,7 +49,7 @@ end
 desc "Generate site files only"
 task :generate_site => [:clean, :generate_style] do
   puts "\n\n>>> Generating site files <<<"
-  system "jekyll"
+  system "jekyll --pygments"
   system "mv #{site}/atom.html #{site}/atom.xml"
 end
 
