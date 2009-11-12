@@ -9,13 +9,14 @@ function addExpander(div){
 		'class': 'pre_expander',
     'events': {
       'click': function(){
-        toggleExpander();
+        toggleExpander(this);
       }
     }
 	}).inject(div, 'top');
 }
-function toggleExpander(){
+function toggleExpander(expander){
   var html = '';
+  var expanderPos = expander.getPosition().y;
   if($('main').toggleClass('expanded').hasClass('expanded'))
     html = '&laquo; contract';
   else
@@ -23,6 +24,11 @@ function toggleExpander(){
   $$('div.highlight span.pre_expander').each(function(span){
       span.set('html',html);
   });
+  fixScroll(expander, expanderPos);
+}
+function fixScroll(el, position){
+  pos = el.getPosition().y - position;
+  window.scrollTo(window.getScroll().x ,window.getScroll().y + pos);
 }
 function enableCompressedLayout(codeblocks){
   if(!codeblocks.length) return;
