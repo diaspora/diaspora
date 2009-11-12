@@ -1,7 +1,6 @@
 window.addEvent('domready', function() {
   codeblocks = $$('div.highlight');
   codeblocks.each(addExpander);
-  enableCompressedLayout(codeblocks);
 });
 
 function addExpander(div){
