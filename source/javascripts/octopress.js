@@ -1,14 +1,13 @@
 window.addEvent('domready', function() {
-  $$('div.highlight').each(addExpander);
+  codeblocks = $$('div.highlight');
+  codeblocks.each(addExpander);
+  enableCompressedLayout(codeblocks);
 });
 
 function addExpander(div){
   new Element('span',{
 		html: 'expand &raquo;',
 		'class': 'pre_expander',
-		'styles': {
-      'display': 'block'
-    },
     'events': {
       'click': function(){
         toggleExpander();
@@ -18,12 +17,26 @@ function addExpander(div){
 }
 function toggleExpander(){
   var html = '';
-  if($('main').toggleClass('expanded').hasClass('expanded')){
+  if($('main').toggleClass('expanded').hasClass('expanded'))
     html = '&laquo; contract';
-  } else {
+  else
     html = 'expand &raquo;';
-  }
   $$('div.highlight span.pre_expander').each(function(span){
       span.set('html',html);
   });
+}
+function enableCompressedLayout(codeblocks){
+  if(!codeblocks.length) return;
+  new Element('span',{
+		html: 'Collapse layout',
+		'id': 'collapser',
+    'events': {
+      'click': function(){
+        if($('page').toggleClass('collapsed').hasClass('collapsed'))
+          this.set('html','Expand layout');
+        else
+          this.set('html','Collapse layout');
+      }
+    }
+	}).inject($('main'), 'top');
 }

@@ -75,8 +75,18 @@ html body
 #page
   +clearfix
   background-color= !page_bg
+  &.collapsed
+    .page_width
+      width= !page_width - !sidebar_width
+    #main
+      width: 100%
+      .pre_expander
+        display: none
+    #sidebar
+      float: none
   .page_width
     +clearfix
+    position: relative
     padding:
       top: 25px
       bottom: 25px
@@ -90,6 +100,20 @@ html body
   float: left
   &.expanded
     width: 100%
+
+#sidebar
+  float: left
+  width= !sidebar_width
+  margin-left= !sidebar_margin
+  font-size: 80%
+  line-height: 1.625em
+  h4
+    margin: 20px 0 0
+    &:first-child
+      margin-top: 10px
+    .small
+      +sans-font
+      font-size: 50%
 
 #footer
   position: relative
