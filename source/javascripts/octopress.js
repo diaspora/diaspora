@@ -1,12 +1,7 @@
 window.addEvent('domready', function() {
-  addPreExpanders();
+  $$('div.highlight').each(addExpander);
 });
 
-function addPreExpanders(){
-  $$('div.highlight').each(function(div){
-    addExpander(div);
-  });
-}
 function addExpander(div){
   new Element('span',{
 		html: 'expand &raquo;',
@@ -29,6 +24,6 @@ function toggleExpander(){
     html = 'expand &raquo;';
   }
   $$('div.highlight span.pre_expander').each(function(span){
-    span.set('html',html);
+      span.set('html',html);
   });
 }
