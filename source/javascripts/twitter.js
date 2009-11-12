@@ -69,7 +69,7 @@ function prettyDate(time){
 function getTwitterStatus(twitter_name){
   var tweet_cookie = 'tweets_by_' + twitter_name + tweet_count;
   $(twitter_container).set('html', 'Fetching tweets...');
-  if(!Cookie.read(tweet_cookie)) {
+  if(Cookie.read(tweet_cookie)) {
   	var myTwitterGitter = new TwitterGitter(twitter_name,{
   	  count: ((show_replies) ? tweet_count : 15 + tweet_count),
   		onComplete: function(tweets,user) {
@@ -80,7 +80,7 @@ function getTwitterStatus(twitter_name){
     			  the_tweets.push(tweet.text + key + tweet.created_at + key + tweet.id + key + tweet.source);
   				}
   			});
-  			Cookie.write(tweet_cookie,the_tweets.join('^!^!^'), { duration: 1 });
+  			Cookie.write(tweet_cookie,the_tweets.join('^!^!^'), { duration: 0.02 });
   			showTweets(the_tweets);
   		}
   	}).retrieve();
