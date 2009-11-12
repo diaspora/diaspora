@@ -69,7 +69,7 @@ function prettyDate(time){
 function getTwitterStatus(twitter_name){
   var tweet_cookie = 'tweets_by_' + twitter_name + tweet_count;
   $(twitter_container).set('html', 'Fetching tweets...');
-  if(Cookie.read(tweet_cookie)) {
+  if(!Cookie.read(tweet_cookie)) {
   	var myTwitterGitter = new TwitterGitter(twitter_name,{
   	  count: ((show_replies) ? tweet_count : 15 + tweet_count),
   		onComplete: function(tweets,user) {
