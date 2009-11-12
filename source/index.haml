@@ -6,7 +6,7 @@ title: Blog
   - site.posts.sort_by(&:date).reverse[0..9].each_with_index do |post,index|
     .article
       %h2= link_to(post.title, post.url, {:class=>"title"})
-      = post.content
+      = preserve rp(post.content)
       - if page.respond_to? :disqus_short_name
         .footer
           - if post.data["comments_off"]
