@@ -2,18 +2,19 @@
 layout: default
 title: Syntax Highlighting Debug
 ---
-{% highlight ruby linenos %}
-  def rebuild_site(relative)
-    puts ">>> Change Detected to: #{relative} <<<"
-    IO.popen('rake generate') do |io|
-      print(io.readpartial(512)) until io.eof?
-    end
-    puts '>>> Update Complete <<<'
+{% highlight ruby %}
+def rebuild_site(relative)
+  puts ">>> Change Detected to: #{relative} <<<"
+  IO.popen('rake generate') do |io|
+    print(io.readpartial(512)) until io.eof?
   end
-  
+  puts '>>> Update Complete <<<'
+end
 {% endhighlight %}
 
-{% highlight ruby linenos %}
+So that's a small example. What about a big one?
+
+{% highlight ruby %}
 require 'active_support/core_ext/array'
 require 'active_support/core_ext/hash/except'
 require 'active_support/core_ext/object/metaclass'

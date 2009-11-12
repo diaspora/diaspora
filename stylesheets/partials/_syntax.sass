@@ -2,21 +2,38 @@ pre
   color: #ccc
   font-size: 13px
   background: #222
-  padding: 0 15px 0 0
-  line-height: 1.625em
+  line-height: 1.5em
   border: #aaa 1px solid
   overflow-x: auto
+  padding: 25px 20px
   .lineno
     color: #888
     background: #e3e3e3
-    position: relative
-    line-height: 180%
     display: inline-block
-    padding: 0 10px
+    padding: 0 0 0 10px
     &:first-child
-      padding-top: 12px
-    &:last-child
-      padding-bottom: 12px
+      padding-top: 15px
+      display: inline-block
+
+.highlight
+  position: relative
+  .pre_expander
+    +mono-font
+    font-size: 10px
+    text-align: right
+    padding: 4px 8px
+    line-height: 150%
+    position: absolute
+    cursor: pointer
+    top: 2px
+    right: 2px
+    +border-bottom-left-radius
+    display: block
+    color: #777
+    background: #333
+    &:hover
+      background: #444
+      color: #ccc
 
 // based on: http://github.com/mojombo/tpw/raw/master/css/syntax.css
 .editor
@@ -41,7 +58,7 @@ pre.console
     color= lighten(#008000, 75)
 
 .highlight
-  padding: 0.5em
+  padding: 0 0 0.1em
   color: white
   // Comment
   .c
