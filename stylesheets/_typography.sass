@@ -21,7 +21,13 @@ h1,h2,h3,h4,h5,h6
 
 blockquote
   +quote-font
-  font-size= !base_font_size * 1.2
+  +border-radius(5px)
+  font-style: italic
+  color: #555
+  background: #f8f8f8
+  border: 1px solid #e5e5e5
+  &:before
+    color: #ddd
 .quote blockquote
   font-size= !h4
   line-height= !h5 * 1.625
