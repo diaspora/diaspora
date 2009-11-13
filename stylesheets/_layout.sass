@@ -1,6 +1,8 @@
 !page_width = 900px
-!sidebar_width = 250px
+!main_width = 620px
+!page_pad = 30px
 !sidebar_margin = 30px
+!sidebar_width = !page_width - !main_width - !sidebar_margin
 !pad = 15px
 !default_border_radius = 4px
 
@@ -69,21 +71,12 @@ html body
   width= !page_width
   margin: 0 auto
   padding:
-    left: 30px
-    right: 30px
+    left= !page_pad
+    right= !page_pad
 
 #page
   +clearfix
   background-color= !page_bg
-  &.collapsed
-    .page_width
-      width= !page_width - !sidebar_width
-    #main
-      width: 100%
-      .pre_expander
-        display: none
-    #sidebar
-      float: none
   .page_width
     +clearfix
     position: relative
@@ -96,7 +89,7 @@ html body
       left= "1px solid" !page_border_sides
       right= "1px solid" !page_border_sides
 #main
-  width= !page_width - !sidebar_width - !sidebar_margin
+  width= !main_width
   float: left
   &.expanded
     width: 100%
