@@ -3,8 +3,8 @@ Octopress gives developers a well designed starting point for a Jekyll blog. It'
 
 #### Octopress comes with
 1. A nice, easy to configure theme that focuses on readability.
-2. Built in support for Twitter, Delicious, and Disqus Comments.
-3. Rake tasks that make development fast, and deployment easy.
+2. Built in support for Twitter, Delicious, Disqus Comments, Google Analytics, and Custom Search.
+3. Rake tasks that make development fast, and deploying easy.
 
 ## Why?
 1. Building a Jekyll blog from scratch is a lot of work.
@@ -29,7 +29,7 @@ Setup is really simple.
     sudo gem install serve
 3. Run <code>rake preview</code> to build the site and preview it in a local webserver.
 
-You'll want to change some settings, so check out the [Setup & Configurations wiki page](http://wiki.github.com/imathis/octopress/setup-configuration)
+You'll want to change some settings, so check out the wiki for [Setup & Configurations](http://wiki.github.com/imathis/octopress/setup-configuration).
 
 ## Usage
 Octopress is almost like a front-end for Jekyll. It provides some really handy rake tasks and automation to make blogging as simple as possible. With Octopress you can:
@@ -38,7 +38,7 @@ Octopress is almost like a front-end for Jekyll. It provides some really handy r
 - Automatically regenerate your blog while you work.
 - Generate and deploy with a single command.
 
-See the [usage wiki page](http://wiki.github.com/imathis/octopress/usage) to learn more.
+See the wiki to learn more about [Usage](http://wiki.github.com/imathis/octopress/usage).
 
 ## Third Party Integration
 With search, comments, and analytics, you have no need for a database. This is what makes a statically generated blog possible.
@@ -49,7 +49,7 @@ With search, comments, and analytics, you have no need for a database. This is w
 - Google Analytics
 - Delicious Bookmarks
 
-If you already have an account with these services, you can get set up within seconds. [Check out the wiki](http://wiki.github.com/imathis/octopress/third-party-integration) to learn how to setup or remove these services.
+If you already have an account with these services, you can get set up within seconds. Check out the wiki for [Third Party Configuration](http://wiki.github.com/imathis/octopress/third-party-integration) details, and to learn how to setup or remove these services.
 
 ## Octopress Style
 - Stylesheets use [SASS](http://sass-lang.com) and [Compass](http://compass-style.org)
