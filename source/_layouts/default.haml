@@ -19,7 +19,7 @@ google_analytics: true
 !!! 1.1 Transitional
 %html(xmlns="http://www.w3.org/1999/xhtml" xml:lang="en")
   %head
-    %title= "#{page.title} - #{page.blog_title}"
+    %title #{page.blog_title} :: #{page.title}
     - if page.respond_to? :description
       %meta(name="description" content="#{page.description}")/
     - if page.respond_to? :keywords
