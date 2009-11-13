@@ -37,7 +37,7 @@ end
 
 task :clean_debug do
   puts ">>> Removing debug pages <<<"
-  Dir["#{site}/debug"].each { |f| rm_rf(f) }
+  Dir["#{site}/test"].each { |f| rm_rf(f) }
 end
 
 desc "Generate styles only"
