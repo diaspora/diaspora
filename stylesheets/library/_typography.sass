@@ -117,15 +117,15 @@
     font-size= floor(!font_size * 1.25)
 
 =ol-style(!font_size = !base_font_size)
-  list-style: outside
+  list-style: inside
   margin= 0 0 !font_size * 1.625
   li
-    list-style: decimal
+    list-style-type: decimal
     ol
       margin= 0 0 !font_size * 1.625
       
 =ul-style(!font_size = !base_font_size)
-  list-style: outside
+  list-style: inside
   margin= 0 0 !font_size * 1.625
   li ul
     margin= 0 0 !font_size * 1.625
