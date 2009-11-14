@@ -37,7 +37,7 @@ google_analytics: true
       %script(src="/javascripts/twitter.js" type="text/javascript")
     - if page.respond_to? :google_analytics
       %script(src="http://www.google-analytics.com/ga.js" type="text/javascript")
-  %body
+  %body(id="#{(page.respond_to?(:body_id) ? page.body_id : nil)}")
     #header
       .page_width
         %a.title(href="/")=page.blog_title
@@ -60,11 +60,13 @@ google_analytics: true
       .page_width
         #main
           - if page.respond_to? :date
-            %h2= page.title
-            = preserve rp(content)
-            %p.pubdate
-              Published:
-              =page.date.strftime("%d %b, %Y")
+            .blog
+              .article
+                %h2= page.title
+                = preserve rp(content)
+              %p.pubdate
+                Published:
+                =page.date.strftime("%d %b, %Y")
               - if page.respond_to? :disqus_short_name
                 #disqus_thread
                 :javascript

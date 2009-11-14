@@ -1,0 +1,19 @@
+#page
+  +clearfix
+  background-color= !page_bg
+  .page_width
+    +clearfix
+    position: relative
+    padding:
+      top: 25px
+      bottom: 25px
+    background-color= !blog_bg
+    +easy-box-shadow(#ccc)
+    border:
+      left= "1px solid" !page_border_sides
+      right= "1px solid" !page_border_sides
+#main
+  width= !main_width
+  float: left
+  &.expanded
+    width: 100%

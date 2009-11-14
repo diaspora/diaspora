@@ -1,0 +1,41 @@
+#nav
+  +clearfix
+  position: relative
+  z-index: 1
+  padding: 6px 0
+  background:
+    color= !nav_bg
+    image: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#ddd), color-stop(0.3, #f4f4f4))
+    image: -moz-linear-gradient(left top, left bottom, from(#fcfcfc), to(#ddd), color-stop(0.3, #f4f4f4))
+  border:
+    top= "1px solid" !nav_border_top
+    bottom= "1px solid" !nav_border_bottom
+  ul
+    position: relative
+    +horizontal-list
+    margin: 0 auto
+    overflow: visible
+    li
+      padding: 0 15px
+      border-left= "1px solid" !nav_border_left
+      border-right= "1px solid" !nav_border_right
+      &.alpha
+        border-left: none
+        padding-left: 0
+      &.omega
+        border-right: 0
+      &.subscribe
+        position: absolute
+        left= !page_width - !sidebar_width - !sidebar_margin/2
+        border: none
+        a
+          display: inline-block
+          padding-left: 28px
+          background: url("/images/rss.png") left top no-repeat
+      a
+        display: inline-block
+        color= !nav_color
+        line-height: 150%
+        text-decoration: none
+        &:hover
+          color= !nav_color_hover
