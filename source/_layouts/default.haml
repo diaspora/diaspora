@@ -70,7 +70,6 @@ google_analytics: true
               - if page.respond_to? :disqus_short_name
                 #disqus_thread
                 :javascript
-                  var disqus_developer = true;
                   var disqus_url = "#{page.full_url}/#{page.url}";
                 %noscript
                   %a(href="http://designenthusiast.disqus.com/?url=ref") View the discussion thread
