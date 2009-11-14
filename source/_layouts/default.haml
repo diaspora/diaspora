@@ -32,7 +32,7 @@ google_analytics: true
         var show_replies = #{page.show_replies};
         var tweet_count = #{page.tweet_count};
       %script(src="/javascripts/mootools-yui-compressed.js" type="text/javascript")
-      %script(src="/javascripts/mootools-1.2.4.2-more.js" type="text/javascript")
+      %script(src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript")
       %script(src="/javascripts/octopress.js" type="text/javascript")
       %script(src="/javascripts/twitter.js" type="text/javascript")
     - if page.respond_to? :google_analytics
