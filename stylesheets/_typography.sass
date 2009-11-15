@@ -29,7 +29,15 @@ blockquote
     bottom: 1px solid #e5e5e5
   &:before
     color: #ddd
-.quote blockquote
-  font-size= !h4
-  line-height= !h5 * 1.625
-  color: #555
+  cite
+    +sans-font
+    font-size= !base_font_size - 2px
+    display: block
+    padding-top= !base_font_size
+    &:before
+      content: "\30FC"
+      padding-right: 2px
+    a
+      color: inherit !important
+      &:hover
+        color= !link_color !important
