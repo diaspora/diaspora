@@ -110,7 +110,7 @@ multitask :deploy_github => [:default, :clean_debug] do
   repo.status.deleted.each {|f, s| repo.remove(f)}
   message = ENV["MESSAGE"] || "Site updated at #{Time.now.utc}"
   repo.commit(message)
-  repo.push("origin #{deploy_branch}")
+  repo.push
   repo.branch("#{source_branch}").checkout
 end
 
