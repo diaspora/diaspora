@@ -99,7 +99,7 @@ multitask :deploy_rsync => [:default, :clean_debug] do
 end
 
 desc "generate and deploy website to github user pages"
-multitask :github_user_deploy => [:default, :clean_debug] do
+multitask :deploy_github => [:default, :clean_debug] do
   require 'git'
   repo = Git.open('.')
   repo.branch("#{github_pages_branch}").checkout
