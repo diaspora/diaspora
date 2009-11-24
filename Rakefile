@@ -1,22 +1,21 @@
 require 'active_support'
 
-## -- CHANGE FOR YOUR PROJECT -- ##
-site_url      = "http://yoursite.com"   # deployed site url
+site_url  = "http://yoursite.com"   # deployed site url for sitemap.xml generator
+port      = "4000"     # preview project port eg. http://localhost:4000
+site      = "site"     # compiled site directory
+source    = "source" # source file directory
+
+## -- Rsync Deploy config -- ##
 ssh_user      = "user@host.com"    # for rsync deployment
 document_root = "~/document_root/" # for rsync deployment
 ## ---- ##
 
-port = "4000"     # preview project port eg. http://localhost:4000
-site = "site"     # compiled site directory
-source = "source" # source file directory
-
-# Github pages deploy config
-# For github user pages, use "master"
-# For github project pages use "gh-pages"
-# If you're not using this, you can remove it
+## -- Github Pages deploy config -- ##
 # Read http://pages.github.com for guidance
-
-github_pages_branch = "gh-pages"
+# If you're not using this, you can remove it
+source_branch = "source" # this compiles to your deploy branch
+deploy_branch = "gh-pages" # For user pages, use "master" for project pages use "gh-pages"
+## ---- ##
 
 def ok_failed(condition)
   if (condition)
@@ -93,7 +92,7 @@ task :watch do
   end
 end
 
-desc "generate and deploy website"
+desc "generate and deploy website via rsync"
 multitask :deploy_rsync => [:default, :clean_debug] do
   print ">>> Deploying website <<<"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
@@ -112,7 +111,7 @@ multitask :github_user_deploy => [:default, :clean_debug] do
   message = ENV["MESSAGE"] || "Site updated at #{Time.now.utc}"
   repo.commit(message)
   repo.push
-  repo.branch("source").checkout
+  repo.branch("#{source_branch}").checkout
 end
 
 desc "start up an instance of serve on the output files"
