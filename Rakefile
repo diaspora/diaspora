@@ -102,7 +102,7 @@ desc "generate and deploy website to github user pages"
 multitask :deploy_github => [:default, :clean_debug] do
   require 'git'
   repo = Git.open('.')
-  repo.branch("#{github_pages_branch}").checkout
+  repo.branch("#{deploy_branch}").checkout
   (Dir["*"] - ["#{site}/*"]).each { |f| rm_rf(f) }
   Dir["#{site}/*"].each {|f| mv(f, ".")}
   rm_rf("#{site}/*")
