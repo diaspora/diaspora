@@ -10,6 +10,14 @@ port = "4000"     # preview project port eg. http://localhost:4000
 site = "site"     # compiled site directory
 source = "source" # source file directory
 
+# Github pages deploy config
+# For github user pages, use "master"
+# For github project pages use "gh-pages"
+# If you're not using this, you can remove it
+# Read http://pages.github.com for guidance
+
+github_pages_branch = "gh-pages"
+
 def ok_failed(condition)
   if (condition)
     puts "OK"
@@ -86,9 +94,25 @@ task :watch do
 end
 
 desc "generate and deploy website"
-multitask :deploy => [:default, :clean_debug] do
+multitask :deploy_rsync => [:default, :clean_debug] do
   print ">>> Deploying website <<<"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
+end
+
+desc "generate and deploy website to github user pages"
+multitask :github_user_deploy => [:default, :clean_debug] do
+  require 'git'
+  repo = Git.open('.')
+  repo.branch("#{github_pages_branch}").checkout
+  (Dir["*"] - ["#{site}/*"]).each { |f| rm_rf(f) }
+  Dir["#{site}/*"].each {|f| mv(f, ".")}
+  rm_rf("#{site}/*")
+  Dir["**/*"].each {|f| repo.add(f) }
+  repo.status.deleted.each {|f, s| repo.remove(f)}
+  message = ENV["MESSAGE"] || "Site updated at #{Time.now.utc}"
+  repo.commit(message)
+  repo.push
+  repo.branch("source").checkout
 end
 
 desc "start up an instance of serve on the output files"
