@@ -103,13 +103,14 @@ multitask :deploy_github => [:default, :clean_debug] do
   require 'git'
   repo = Git.open('.')
   repo.branch("#{deploy_branch}").checkout
-  (Dir["*"] - ["#{site}/*"]).each { |f| rm_rf(f) }
+  (Dir["*"] - [site]).each { |f| rm_rf(f) }
   Dir["#{site}/*"].each {|f| mv(f, ".")}
-  rm_rf("#{site}/*")
+  rm_rf(site)
   Dir["**/*"].each {|f| repo.add(f) }
   repo.status.deleted.each {|f, s| repo.remove(f)}
   message = ENV["MESSAGE"] || "Site updated at #{Time.now.utc}"
   repo.commit(message)
+  repo.push("#{deploy_branch} origin")
   repo.branch("#{source_branch}").checkout
 end
 
