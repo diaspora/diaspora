@@ -61,8 +61,7 @@ task :generate_site => [:clean, :generate_style] do
 end
 
 def rebuild_site(relative)
-  puts "\n"
-  puts ">>> Change Detected to: #{relative} <<<"
+  puts "\n\n>>> Change Detected to: #{relative} <<<"
   IO.popen('rake generate_site'){|io| print(io.readpartial(512)) until io.eof?}
   puts '>>> Update Complete <<<'
 end
@@ -94,23 +93,29 @@ end
 
 desc "generate and deploy website via rsync"
 multitask :deploy_rsync => [:default, :clean_debug] do
-  print ">>> Deploying website <<<"
+  puts ">>> Deploying website to #{site_url} <<<"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
 desc "generate and deploy website to github user pages"
 multitask :deploy_github => [:default, :clean_debug] do
+  puts ">>> Deploying #{deploy_branch} branch to Github Pages <<<"
   require 'git'
   repo = Git.open('.')
+  puts "\n>>> Checking out #{deploy_branch} branch <<<\n"
   repo.branch("#{deploy_branch}").checkout
   (Dir["*"] - [site]).each { |f| rm_rf(f) }
   Dir["#{site}/*"].each {|f| mv(f, ".")}
   rm_rf(site)
+  puts "\n>>> Moving generated site files <<<\n"
   Dir["**/*"].each {|f| repo.add(f) }
   repo.status.deleted.each {|f, s| repo.remove(f)}
+  puts "\n>>> Commiting: Site updated at #{Time.now.utc} <<<\n"
   message = ENV["MESSAGE"] || "Site updated at #{Time.now.utc}"
   repo.commit(message)
+  puts "\n>>> Pushing generated site to #{deploy_branch} branch <<<\n"
   repo.push
+  puts "\n>>> Github Pages deploy complete <<<\n"
   repo.branch("#{source_branch}").checkout
 end
 
