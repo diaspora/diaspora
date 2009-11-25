@@ -107,6 +107,6 @@ google_analytics_tracking_id:
       //Google Analytics code
       :javascript
         try {
-        var pageTracker = _gat._getTracker("#{google_analytics_tracking_id}");
+        var pageTracker = _gat._getTracker("#{page.google_analytics_tracking_id}");
         pageTracker._trackPageview();
         } catch(err) {}
