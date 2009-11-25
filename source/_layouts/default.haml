@@ -72,7 +72,7 @@ google_analytics: true
                 :javascript
                   var disqus_url = "#{page.full_url}/#{page.url}";
                 %noscript
-                  %a(href="http://designenthusiast.disqus.com/?url=ref") View the discussion thread
+                  %a(href="http://#{page.disqus_short_name}.disqus.com/?url=ref") View the discussion thread
                 %script(type="text/javascript" src="http://disqus.com/forums/#{page.disqus_short_name}/embed.js")
           - else
             = preserve rp(content)
