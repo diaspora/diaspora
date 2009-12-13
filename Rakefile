@@ -14,7 +14,7 @@ document_root = "~/document_root/" # for rsync deployment
 # Read http://pages.github.com for guidance
 # If you're not using this, you can remove it
 source_branch = "source" # this compiles to your deploy branch
-deploy_branch = "gh-pages" # For user pages, use "master" for project pages use "gh-pages"
+deploy_branch = "master" # For user pages, use "master" for project pages use "gh-pages"
 ## ---- ##
 
 def ok_failed(condition)
