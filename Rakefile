@@ -4,6 +4,8 @@ site_url  = "http://yoursite.com"   # deployed site url for sitemap.xml generato
 port      = "4000"     # preview project port eg. http://localhost:4000
 site      = "site"     # compiled site directory
 source    = "source" # source file directory
+stash     = "_stash"
+posts     = "_posts"
 
 ## -- Rsync Deploy config -- ##
 ssh_user      = "user@host.com"    # for rsync deployment
@@ -45,6 +47,21 @@ task :post, :filename do |t, args|
     post.puts "title: \"#{args.filename.gsub(/[-_]/, ' ').titlecase}\""
     post.puts "---"
   end
+end
+
+# usage rake isolate[my-post]
+desc "Move all other posts than the one currently being worked on to a temporary stash location (stash) so regenerating the site happens much quicker."
+task :isolate, :filename do |t, args|
+  stash_dir = "#{source}/#{stash}"
+  FileUtils.mkdir(stash_dir) unless File.exist?(stash_dir)
+  Dir.glob("#{source}/#{posts}/*.*") do |post|
+    FileUtils.mv post, stash_dir unless post.include?(args.filename)
+  end
+end
+
+desc "Move all stashed posts back into the posts directory, ready for site generation."
+task :integrate do
+  FileUtils.mv Dir.glob("#{source}/#{stash}/*.*"), "#{source}/#{posts}/"
 end
 
 desc "list tasks"
@@ -109,13 +126,13 @@ task :watch do
 end
 
 desc "generate and deploy website via rsync"
-multitask :deploy_rsync => [:default, :clean_debug] do
+multitask :deploy_rsync => [:integrate, :default, :clean_debug] do
   puts ">>> Deploying website to #{site_url} <<<"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
 desc "generate and deploy website to github user pages"
-multitask :deploy_github => [:default, :clean_debug] do
+multitask :deploy_github => [:integrate, :default, :clean_debug] do
   puts ">>> Deploying #{deploy_branch} branch to Github Pages <<<"
   require 'git'
   repo = Git.open('.')

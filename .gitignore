@@ -1,3 +1,4 @@
 site
-*/.sass-cache
-.DS_Store
+.sass-cache
+test
+source/_stash
