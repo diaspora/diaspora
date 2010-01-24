@@ -201,7 +201,7 @@ task :sitemap => :default do
       end
       sitemap.puts %Q{  <url>}
       sitemap.puts %Q{    <loc>#{site_url}#{f}</loc>}
-      sitemap.puts %Q{    <lastmod>#{Time.to_s('%Y-%m-%d')}</lastmod>}
+      sitemap.puts %Q{    <lastmod>#{Time.now.to_s('%Y-%m-%d')}</lastmod>}
       sitemap.puts %Q{    <changefreq>weekly</changefreq>}
       sitemap.puts %Q{    <priority>#{priority}</priority>}
       sitemap.puts %Q{  </url>}
