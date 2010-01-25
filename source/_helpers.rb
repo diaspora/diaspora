@@ -159,6 +159,27 @@ module Helpers
   def style_amp(input)
     input.gsub(" & "," <span class='amp'>&</span> ")
   end
+  
+  module PartialsHelper
+    
+    # A very hackish way to handle partials.  We'll go with it till it breaks...
+    def include(partial_name)
+      file_ext = partial_name[(partial_name.index('.') + 1)..partial_name.length]
+      contents = IO.read("_includes/#{partial_name}")
+      case file_ext
+      when 'haml'
+        Haml::Engine.new(contents).render(binding)
+      when 'textile'
+        RedCloth.new(contents).to_html
+      when 'markdown'
+        RDiscount.new(contents).to_html
+      else
+        contents
+      end
+    end
+  end
+  
+  include PartialsHelper
 end
 
 class String
