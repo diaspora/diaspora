@@ -1,6 +1,6 @@
 !page_pad = 30px
 !page_width = 980px
-!sidebar_margin = 25px
+!sidebar_margin = 20px
 !sidebar_width = 280px
 !default_border_radius = 4px
 
@@ -37,14 +37,14 @@ html body
 
 #sidebar
   float: left
-  width: #{!sidebar_width - !page_pad/2}
+  width: #{!sidebar_width - !sidebar_margin}
   margin: 0 -100% 0 0
-  padding: #{!page_pad} 0 #{!page_pad} #{!page_pad/2}
+  padding: #{!page_pad} 0 #{!page_pad} #{!sidebar_margin}
 
 #page.expanded
   #content
-    width: #{!page_width}
-    padding: 0
+    width: #{!page_width - !page_pad/2}
+    padding: 0 0 0 #{!page_pad/2}
   #sidebar
     float: none
     margin: 0
