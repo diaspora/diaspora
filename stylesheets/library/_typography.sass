@@ -25,43 +25,35 @@
   +typography-defaults(!font_size)
 
 =set-heading-sizes(!font_size = !base_font_size)
-  !h6 = ceil(!font_size*1.3)
-  !h5 = ceil(!font_size*1.4)
-  !h4 = ceil(!font_size*1.7)
-  !h3 = ceil(!font_size*1.9)
-  !h2 = ceil(!font_size*2.2)
-  !h1 = ceil(!font_size*2.5)
+  !h6 = ceil(!font_size*1)
+  !h5 = ceil(!font_size*1)
+  !h4 = ceil(!font_size*1.2)
+  !h3 = ceil(!font_size*1.8)
+  !h2 = ceil(!font_size*3)
+  !h1 = ceil(!font_size*3.5)
   h1, h2, h3, h4
     &:first-child
       margin-top: 0
+  h1,h2,h3,h4,h5,h6
+    line-height: 1.1em
+    margin-bottom: .7em
+    margin-top: .3em
   h1
     font-size= !h1
-    margin-bottom= !font_size * .765
-    line-height= !h1 * 1.625
   h2
     font-size= !h2
-    margin-bottom= !font_size * .855
-    line-height= !h2 * 1.625
   h3
     font-size= !h3
-    margin-bottom= !font_size * .956
-    line-height= !h3 * 1.625
   h4
     font-size= !h4
-    margin-bottom= !font_size * 1.161
-    line-height= !h4 * 1.625
   h5
     font-size= !h5
-    margin-bottom= !font_size * 1.238
-    line-height= !h5 * 1.625
   h6
     font-size= !h6
-    margin-bottom= !font_size * 1.625
-    line-height= !h6 * 1.625
 
 =typography-defaults(!font_size = !base_font_size)
   body
-    line-height: 1.625em
+    line-height: 1.45em
     color= !base_font_color
   p
     +p-style(!font_size)
@@ -97,9 +89,6 @@
   address
     margin-top= !font_size * 1.625
     font-style: italic
-  pre, code
-    margin= !font_size * 1.625 0
-    white-space: pre
   pre, code, tt
     +fixed-font
     line-height= !font_size * 1.5
@@ -109,8 +98,7 @@
   sub, sup
     line-height: 0
   hr
-    margin-bottom= !font_size * 1.625
-  
+    margin-bottom: .2em
   small, .small
     font-size= floor(!font_size * .85)
   big, .big
@@ -151,7 +139,7 @@
     margin: 0
     
 =p-style(!font_size = !base_font_size)
-  padding-bottom= !font_size * 0.8125
+  padding-bottom: 1.3em
   img
     float: left
     margin:

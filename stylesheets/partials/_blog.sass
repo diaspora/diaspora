@@ -1,8 +1,24 @@
 .blog
+  h2
+    padding-top: 0
+    margin-bottom: .1em
+  .title
+    text-decoration: none
+    &:hover
+      text-decoration: underline
   .article
     padding= !base_font_size * 1.5 0 !base_font_size * 1.5
     border-bottom= "1px solid" !article_border
     &:first-child
       padding-top: 0
-  .footer
+  #disqus_thread
     padding-top= !base_font_size
+  .meta
+    +sans-font
+    border-bottom: 1px dashed #ddd
+    text-transform: uppercase
+    color: #777
+    padding: 8px 0 5px
+    margin-bottom: 1.5em
+    font-size: 75%
+    letter-spacing: 1px
