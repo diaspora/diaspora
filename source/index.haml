@@ -10,7 +10,8 @@ disqus:
       %h2= link_to(post.title, post.url, {:class=>"title"})
       .meta
         - author = (page.respond_to?(:author) && page.author) ? 'by: ' + page.author + ' |' : ''
-        #{author} posted: #{post.date.strftime("%B #{post.date.day.ordinalize}, %Y")} 
+        #{author} posted: #{post.date.strftime("%B #{post.date.day.ordinalize}, %Y")}
+        = (page.respond_to?(:updated) && page.updated) ? " | upated: #{page.updated}" : ''
       = preserve rp(post.content)
       - if page.respond_to?(:disqus) && page.disqus
         - if post.data["comments_off"]
