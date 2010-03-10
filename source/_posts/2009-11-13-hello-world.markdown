@@ -11,4 +11,4 @@ If you don't know what Jekyll is, [Jack Moffitt](http://metajack.im/2009/01/23/b
 
 There's no database to set up, and you get to use tools like Emacs, vim, or TextMate to write your posts, not some lame in-browser text editor. Just write, generate, deploy, using the same tools and patters you already use for your daily work.
 
-### So what's Octopress?
+[Read the wiki to learn more](http://wiki.github.com/imathis/octopress/)
