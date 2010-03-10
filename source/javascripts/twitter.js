@@ -44,7 +44,7 @@ function parseTweetMeta(tweet_data){
   var source = tweet_data[3];
   
   date = prettyDate(new Date().parse(date));
-  return tweet + '<span class="meta"><a href="http://twitter.com/'+twitter_user+'/'+tweet_id+'">' + date + '</a>' + (show_source ? ' from '+source : '') + '</span>';
+  return tweet + '<span class="meta"><a href="http://twitter.com/'+twitter_user + '/status/' + tweet_id + '">' + date + '</a>' + (show_source ? ' from '+source : '') + '</span>';
 }
 
 function prettyDate(time){
