@@ -2,6 +2,8 @@
 layout: default
 title: Syntax Highlighting Debug
 ---
+<div class="code_window">
+<em>Ruby</em>
 {% highlight ruby %}
 def rebuild_site(relative)
   puts ">>> Change Detected to: #{relative} <<<"
@@ -11,9 +13,12 @@ def rebuild_site(relative)
   puts '>>> Update Complete <<<'
 end
 {% endhighlight %}
+</div>
 
 So that's a small example. What about a big one?
 
+<div class="code_window">
+<em>Ruby</em>
 {% highlight ruby %}
 require 'active_support/core_ext/array'
 require 'active_support/core_ext/hash/except'
@@ -220,3 +225,4 @@ module ActiveRecord
   end
 end
 {% endhighlight %}
+</div>

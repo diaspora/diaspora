@@ -1,7 +1,7 @@
 !page_pad = 30px
 !page_width = 980px
 !sidebar_margin = 25px
-!sidebar_width = 250px
+!sidebar_width = 280px
 !default_border_radius = 4px
 
 html body
@@ -23,7 +23,6 @@ html body
 
 #page, #header, #footer, #nav
   min-width: #{!page_width}
-  
 #page, #content, .content
   +pie-clearfix
 #content
@@ -38,9 +37,9 @@ html body
 
 #sidebar
   float: left
-  width: #{!sidebar_width - !page_pad}
+  width: #{!sidebar_width - !page_pad/2}
   margin: 0 -100% 0 0
-  padding: #{!page_pad} 0 #{!page_pad} #{!page_pad}
+  padding: #{!page_pad} 0 #{!page_pad} #{!page_pad/2}
 
 #page.expanded
   #content
