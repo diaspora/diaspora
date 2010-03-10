@@ -1,16 +1,17 @@
 #sidebar
-  float: left
-  width= !sidebar_width
-  margin-left= !sidebar_margin
-  font-size: 80%
-  line-height: 1.625em
-  h4
-    margin: 20px 0 0
+  line-height: 1.45em
+  font-size: 90%
+  h3
+    font-size: #{!h4+2}
+    margin: 20px -15px 10px
+    padding: 12px 15px
+    background: #fff
+    border-bottom: 1px solid #e5e5e5
+    border-top: 1px solid #e5e5e5
     &:first-child
-      margin-top: 10px
-    .small
-      +sans-font
-      font-size: 50%
+      margin-top: 0
+  h4
+    font-size: #{!h5}
       
 #twitter, #delicious
   +border-radius

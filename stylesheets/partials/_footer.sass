@@ -1,13 +1,12 @@
 #footer
+  +linear-gradient(color_stops(darken(!body_bg, 5), !body_bg))
+  font-size: #{!base_font_size_small}
+  color: #{!footer_color}
+  border-top: 10px solid #{!footer_bg}
+  padding: 15px 0
   position: relative
   z-index: 2
-  font-size= !base_font_size_small
-  clear: both
-  padding= !base_font_size * 1.5 0
-  color= !footer_color
-  +h-linear-gradient(darken(!body_bg, 25), !body_bg)
-  border-top= "14px solid" !footer_bg
   a
-    color= #ddd
+    color: #ddd
     &:hover
-      color = #fff
+      color: #fff

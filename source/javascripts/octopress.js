@@ -17,7 +17,7 @@ function addExpander(div){
 function toggleExpander(expander){
   var html = '';
   var expanderPos = expander.getPosition().y;
-  if($('main').toggleClass('expanded').hasClass('expanded'))
+  if($('page').toggleClass('expanded').hasClass('expanded'))
     html = '&laquo; contract';
   else
     html = 'expand &raquo;';
