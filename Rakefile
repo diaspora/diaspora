@@ -1,11 +1,12 @@
 require 'active_support'
 
-site_url  = "http://yoursite.com"   # deployed site url for sitemap.xml generator
-port      = "4000"     # preview project port eg. http://localhost:4000
-site      = "site"     # compiled site directory
-source    = "source" # source file directory
-stash     = "_stash"
-posts     = "_posts"
+site_url    = "http://yoursite.com"   # deployed site url for sitemap.xml generator
+port        = "4000"      # preview project port eg. http://localhost:4000
+site        = "site"      # compiled site directory
+source      = "source"    # source file directory
+stash       = "_stash"    # directory to stash posts for speedy generation
+posts       = "_posts"    # directory for blog files
+post_format = "markdown"  # file format for new posts when using the post rake task
 
 ## -- Rsync Deploy config -- ##
 ssh_user      = "user@host.com"    # for rsync deployment
@@ -29,11 +30,15 @@ end
 
 ## if you're deploying with github, change the default deploy to deploy_github
 desc "default deploy task"
-task :deploy => :deploy_rsync do
+task :deploy => [:deploy_rsync] do
+end
+
+desc "Generate and deploy task"
+task :generate_deploy => [:integrate, :generate, :clean_debug, :deploy] do
 end
 
 desc "generate website in output directory"
-task :default => [:generate_site, :generate_style] do
+task :generate => [:generate_site, :generate_style] do
   puts ">>> Site Generating Complete! <<<\n\n"
 end
 
@@ -41,8 +46,7 @@ end
 desc "Begin a new post in #{source}/_posts"
 task :post, :filename do |t, args|
   args.with_defaults(:filename => 'new-post')
-  #system "touch #{source}/_posts/#{Time.now.strftime('%Y-%m-%d_%H-%M')}-#{args.filename}.markdown"
-  open("#{source}/_posts/#{Time.now.strftime('%Y-%m-%d_%H-%M')}-#{args.filename.gsub(/[ _]/, '-')}.markdown", 'w') do |post|
+  open("#{source}/_posts/#{Time.now.strftime('%Y-%m-%d_%H-%M')}-#{args.filename.downcase.gsub(/[ _]/, '-')}.#{post_format}", 'w') do |post|
     post.puts "---"
     post.puts "title: \"#{args.filename.gsub(/[-_]/, ' ').titlecase}\""
     post.puts "---"
@@ -126,13 +130,13 @@ task :watch do
 end
 
 desc "generate and deploy website via rsync"
-multitask :deploy_rsync => [:integrate, :default, :clean_debug] do
+multitask :deploy_rsync do
   puts ">>> Deploying website to #{site_url} <<<"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
 desc "generate and deploy website to github user pages"
-multitask :deploy_github => [:integrate, :default, :clean_debug] do
+multitask :deploy_github do
   puts ">>> Deploying #{deploy_branch} branch to Github Pages <<<"
   require 'git'
   repo = Git.open('.')
@@ -173,13 +177,13 @@ task :stop_serve do
 end
 
 desc "preview the site in a web browser"
-multitask :preview => [:default, :start_serve] do
+multitask :preview => [:start_serve] do
   system "open http://localhost:#{port}"
 end
 
 
 desc "Build an XML sitemap of all html files."
-task :sitemap => :default do
+task :sitemap do
   html_files = FileList.new("#{site}/**/*.html").map{|f| f[("#{site}".size)..-1]}.map do |f|
     if f.ends_with?("index.html")
       f[0..(-("index.html".size + 1))]
@@ -194,14 +198,14 @@ task :sitemap => :default do
       priority = case f
       when %r{^/$}
         1.0
-      when %r{^/blog}
+      when %r{^/articles}
         0.9
       else
         0.8
       end
       sitemap.puts %Q{  <url>}
       sitemap.puts %Q{    <loc>#{site_url}#{f}</loc>}
-      sitemap.puts %Q{    <lastmod>#{Time.now.to_s('%Y-%m-%d')}</lastmod>}
+      sitemap.puts %Q{    <lastmod>#{Time.now.strftime('%Y-%m-%d')}</lastmod>}
       sitemap.puts %Q{    <changefreq>weekly</changefreq>}
       sitemap.puts %Q{    <priority>#{priority}</priority>}
       sitemap.puts %Q{  </url>}

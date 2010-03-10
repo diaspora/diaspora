@@ -111,8 +111,6 @@ module Helpers
   end
   include TagHelper
   
-  # My added helpers
-  
   def to_html_email(address)
     email = string_to_html(address)
     "<a href=\"#{string_to_html('mailto:')}#{email}\">#{email}</a>"
@@ -165,7 +163,7 @@ module Helpers
     # A very hackish way to handle partials.  We'll go with it till it breaks...
     def include(partial_name)
       file_ext = partial_name[(partial_name.index('.') + 1)..partial_name.length]
-      contents = IO.read("_includes/#{partial_name}")
+      contents = IO.read("source/_includes/#{partial_name}")
       case file_ext
       when 'haml'
         Haml::Engine.new(contents).render(binding)
@@ -180,6 +178,7 @@ module Helpers
   end
   
   include PartialsHelper
+  
 end
 
 class String

@@ -26,6 +26,7 @@ google_analytics_tracking_id:
     #nav= include "navigation.haml"
     #page
       .page_width
-        #main= preserve rp(content)
+        #main
+          .blog= include "post.haml"
         #sidebar= include "sidebar.haml"
     = include "footer.haml"

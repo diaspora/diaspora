@@ -1,0 +1,21 @@
+%head
+  %title #{page.blog_title} :: #{page.title}
+  - if page.respond_to? :description
+    %meta(name="description" content="#{page.description}")/
+  - if page.respond_to? :keywords
+    %meta(name="keywords" content="#{page.keywords}")/
+  %link(href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css")
+  %script(src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js" type="text/javascript")
+  %script(src="/javascripts/mootools-1.2.4.2-more.js" type="text/javascript")
+  - if page.respond_to? :twitter_user
+    :javascript
+      var twitter_user = "#{page.twitter_user}"
+      var show_replies = #{page.show_replies};
+      var tweet_count = #{page.tweet_count};
+    %script(src="/javascripts/octopress.js" type="text/javascript")
+    %script(src="/javascripts/twitter.js" type="text/javascript")
+  - if page.respond_to? :google_analytics
+    %script(src="http://www.google-analytics.com/ga.js" type="text/javascript")
+
+  - # RSS Feed  
+  %link(href="/atom.xml" rel="alternate" title="#{page.blog_title}" type="application/atom+xml")
