@@ -1,4 +1,5 @@
 require 'active_support'
+require 'source/_helpers'
 
 site_url    = "http://yoursite.com"   # deployed site url for sitemap.xml generator
 port        = "4000"      # preview project port eg. http://localhost:4000
