@@ -22,8 +22,7 @@ Octopress gives developers a well designed starting point for a Jekyll blog. It'
 Setup is really simple.
   
 1. Download Octopress: <code>git clone git://github.com/imathis/octopress.git</code>
-2. Install required gems:<br/>
-    <code>sudo gem install henrik-jekyll compass fssm serve rdiscount compass-colors</code>
+2. Install dependencies (requires the bundler gem): <code>bundle install</code>
 3. Run <code>rake preview</code> to build the site and preview it in a local webserver.
 
 You'll want to change some settings, so check out the wiki for [Setup & Configurations](http://wiki.github.com/imathis/octopress/configuration).
