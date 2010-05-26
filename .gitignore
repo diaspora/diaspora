@@ -1,4 +1,5 @@
 site
+.bundle
 .DS_Store
 .rvmrc
 .sass-cache

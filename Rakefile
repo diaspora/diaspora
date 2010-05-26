@@ -1,4 +1,7 @@
-require 'active_support'
+require "rubygems"
+require "bundler"
+Bundler.setup
+
 require 'source/_helpers'
 
 site_url    = "http://yoursite.com"   # deployed site url for sitemap.xml generator
