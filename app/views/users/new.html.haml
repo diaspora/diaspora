@@ -1,0 +1,13 @@
+- title "New User"
+
+= form_for @user do |f|
+  = f.error_messages
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+  %p
+    = f.submit
+
+
+%p= link_to "Back to List", users_path

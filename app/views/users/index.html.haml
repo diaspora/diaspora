@@ -1,0 +1,10 @@
+- title "Users"
+
+%table
+  %tr
+    %th Password
+  - for user in @users
+    %tr
+      %td= user.password
+
+%p= link_to "New User", new_user_path
