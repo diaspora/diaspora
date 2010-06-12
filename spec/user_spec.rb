@@ -2,13 +2,17 @@ require 'spec_helper'
 
 describe 'a user should be able to log into his seed' do
   before do
-    User.all.each {|x| x.delete}
+    User.delete_all
   end
 
   it 'should should have a name and password' do
     User.count.should == 0
-    billy = User.create
-    User.count.should == 1
+    billy = User.new
+    User.count.should == 0
+    billy.save
+    User.count.should == 0
+    
+    
   end
 
   it 'should be able to log into a page with a password' do
