@@ -32,3 +32,5 @@ gem "mocha"
 	gem 'rspec-rails', ">= 2.0.0.beta.8"
 #   gem 'webrat'
 #end
+
+gem "devise", :git => "git://github.com/plataformatec/devise.git"
