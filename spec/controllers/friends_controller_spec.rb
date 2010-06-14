@@ -8,10 +8,8 @@ describe FriendsController do
     Friend.create(:username => "max", :url => "http://max.com/")
   end
   
-  
   it "index action should render index template" do
     request.env['warden'].should_receive(:authenticate?).at_least(:once)
-
     get :index
     response.should render_template(:index)
   end
@@ -47,4 +45,11 @@ describe FriendsController do
     post :create
     response.should redirect_to(friend_url(assigns[:friend]))
   end
+  
+  it 'should test that a real creation adds to the database' do 
+  end
+  
+  it 'should have test that a delete removes a friend from the database' do
+  end
+  
 end

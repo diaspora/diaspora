@@ -50,4 +50,11 @@ describe StatusMessagesController do
     get :show, :id => StatusMessage.first.id
     response.should render_template(:show)
   end
+  
+  it "should return xml on the show type if the meme type exsits" do
+    request.env["HTTP_ACCEPT"] = "application/xml"
+    message = StatusMessage.first
+    get :show, :id => message.id
+    response.body.include?(message.to_xml.to_s).should be true
+  end
 end

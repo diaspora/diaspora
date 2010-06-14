@@ -29,5 +29,11 @@ class StatusMessagesController < ApplicationController
   
   def show
     @status_message = StatusMessage.first(:conditions => {:id => params[:id]})
+    
+    respond_to do |format|
+      format.html 
+      format.xml { render :xml => @status_message }
+      format.json { render :json => @status_message }
+    end
   end
 end
