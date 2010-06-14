@@ -1,0 +1,12 @@
+- title "Status Messages"
+
+%table
+  %tr
+    %th Message
+  - for status_message in @status_messages
+    %tr
+      %td= status_message.message
+      %td= link_to 'Show', status_message
+      %td= link_to 'Destroy', status_message, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Status Message", new_status_message_path

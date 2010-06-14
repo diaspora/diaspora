@@ -1,0 +1,13 @@
+- title "New Status Message"
+
+- form_for @status_message do |f|
+  = f.error_messages
+  %p
+    = f.label :message
+    %br
+    = f.text_field :message
+  %p
+    = f.submit
+
+
+%p= link_to "Back to List", status_messages_path
