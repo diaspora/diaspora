@@ -1,10 +1,14 @@
 require File.dirname(__FILE__) + '/../spec_helper'
  
 describe UsersController do
-  render_views
-  
+  #render_views
   #fixtures here?
+  
   it 'should, after logging in redirect to the dashboard page' do
-    puts "where is rafi"
+    pending
+    #go to /login
+    #fill in the form
+    #stub create action
+    #should get a redirect
   end
 end
