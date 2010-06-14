@@ -5,22 +5,31 @@
     %title
       = yield(:title) || "Untitled"
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
+    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application"
+
     = javascript_include_tag :defaults
     = csrf_meta_tag
     = yield(:head)
   
   %body
-    #container
-      - if user_signed_in?
-        = link_to "log out", destroy_user_session_path
-      - else
-        = link_to "login", new_user_session_path
+    #header
+      .container
+        %img#diaspora_text{:src => 'images/diaspora.png'}
 
+        #session_action
+          - if user_signed_in?
+            = link_to "log out", destroy_user_session_path
+          - else
+            = link_to "login", new_user_session_path
+            
+        %ul.nav
+          %li= link_to "users", users_url
+
+    .container
+      - if show_title?
+        %h2= yield(:title)
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
-      
-      - if show_title?
-        %h1= yield(:title)
-      
       = yield

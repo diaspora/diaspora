@@ -1,28 +1,16 @@
-!primary_color = #4B7399
-
-body
-  :background-color = !primary_color
-  :font
-    :family Verdana, Helvetica, Arial
-    :size 14px
-
 a
-  :color #0000FF
-  img
-    :border none
+  :color #1981f7
+  :text
+    :decoration none
+  :border
+    :bottom dotted 1px #999
 
-.clear
-  :clear both
-  :height 0
-  :overflow hidden
+h1,
+h2,
+h3,
+h4
+  :text-shadow 1px 1px 1px #eaeaea
 
-#container
-  :width 75%
-  :margin 0 auto
-  :background #fff
-  :padding 20px 40px
-  :border solid 1px black
-  :margin-top 20px
 
 #flash_notice,
 #flash_error,
@@ -64,3 +52,22 @@ a
     :margin 8px 10px
   ul
     :margin 0
+
+#header
+  :padding
+    :top 1em
+    :bottom 1em
+  :margin
+    :bottom 1em
+
+  #session_action
+    :float right
+
+  ul.nav
+    :padding 0
+    :margin 0
+    :display block
+
+    li
+      :display inline
+
