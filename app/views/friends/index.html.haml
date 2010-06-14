@@ -1,0 +1,14 @@
+- title "Friends"
+
+%table
+  %tr
+    %th username
+    %th url
+  - for friend in @friends
+    %tr
+      %td= friend.username
+      %td= friend.url
+      %td= link_to 'Show', friend
+      %td= link_to 'Destroy', friend, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Friend", new_friend_path

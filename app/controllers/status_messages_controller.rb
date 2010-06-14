@@ -3,6 +3,7 @@ class StatusMessagesController < ApplicationController
   
   def index
     @status_messages = StatusMessage.all
+    @friends = Friend.all
   end
   
   def create

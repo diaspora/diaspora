@@ -1,0 +1,17 @@
+- title "New Friend"
+
+- form_for @friend do |f|
+  = f.error_messages
+  %p
+    = f.label :username
+    %br
+    = f.text_field :username
+  %p
+    = f.label :url
+    %br
+    = f.text_field :url
+  %p
+    = f.submit
+
+
+%p= link_to "Back to List", friends_path

@@ -1,0 +1,13 @@
+- title "Friend"
+
+%p
+  %strong Username:
+  = @friend.username
+%p
+  %strong Url:
+  = @friend.url
+
+%p
+  = link_to "Destroy", @friend, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", friends_path
