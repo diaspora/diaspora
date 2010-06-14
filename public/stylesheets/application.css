@@ -59,4 +59,5 @@ h4 {
     margin: 0;
     display: block; }
     #header ul.nav li {
-      display: inline; }
+      display: inline;
+      margin-right: 1em; }

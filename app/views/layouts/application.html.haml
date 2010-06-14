@@ -16,7 +16,7 @@
   %body
     #header
       .container
-        %img#diaspora_text{:src => 'images/diaspora.png'}
+        %img#diaspora_text{:src => '/images/diaspora.png'}
 
         #session_action
           - if user_signed_in?
@@ -25,7 +25,8 @@
             = link_to "login", new_user_session_path
             
         %ul.nav
-          %li= link_to "users", users_url
+          %li= link_to "Users", users_url
+          %li= link_to "Status Messages", status_messages_url
 
     .container
       - if show_title?
