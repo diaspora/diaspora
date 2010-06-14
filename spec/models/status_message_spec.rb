@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe StatusMessage do
-  it "should have a message" do
+  it "should have a message" do    
     n = StatusMessage.new
     n.valid?.should be false
     n.message = "wales"

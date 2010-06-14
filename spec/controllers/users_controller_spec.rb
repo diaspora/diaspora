@@ -7,12 +7,22 @@ describe UsersController do
   end
   render_views
   #fixtures :all
-  
-  it 'should, after logging in redirect to the dashboard page' do
-    pending
-    #go to /login
-    #fill in the form
-    #stub create action
-    #should get a redirect
+end  
+describe Devise::SessionsController do
+  before do
+    #TODO(dan) Mocking Warden; this is a temp fix
+    request.env['warden'] = mock_model(Warden, :authenticate => @user, :authenticate! => @user)
+    @user = User.create(:email => "bob@rob.com", :password => "lala")
   end
-end
+    it 'should, after logging in redirect to the dashboard page' do
+      pending "probs should be in cucumber"
+      sign_in :user, @user
+      # request.env['warden'].should_receive(:authenticated?).at_least(:once)
+      # request.env['warden'].should_receive(:user).at_least(:once)
+      
+      #User.any_instance.stubs(:valid?).returns(true)
+      #post :create
+
+    end
+  end
+
