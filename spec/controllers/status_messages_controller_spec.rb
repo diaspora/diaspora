@@ -11,23 +11,28 @@ describe StatusMessagesController do
   render_views
   
   it "index action should render index template" do
+    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     get :index
     response.should render_template(:index)
   end
   
   it "create action should render new template when model is invalid" do
+    request.env['warden'].should_receive(:authenticate?).at_least(:once)
+    
     StatusMessage.any_instance.stubs(:valid?).returns(false)
     post :create
     response.should render_template(:new)
   end
   
-  it "create action should redirect when model is valid" do
+  it "create action should redirect when model is valid" do    
     StatusMessage.any_instance.stubs(:valid?).returns(true)
     post :create
     response.should redirect_to(status_message_url(assigns[:status_message]))
   end
   
   it "new action should render new template" do
+    request.env['warden'].should_receive(:authenticate?).at_least(:once)
+    
     get :new
     response.should render_template(:new)
   end
@@ -40,6 +45,8 @@ describe StatusMessagesController do
   end
   
   it "show action should render show template" do
+    request.env['warden'].should_receive(:authenticate?).at_least(:once)
+    
     get :show, :id => StatusMessage.first.id
     response.should render_template(:show)
   end

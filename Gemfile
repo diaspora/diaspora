@@ -19,6 +19,7 @@ gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'ruby-debug'
 
 group :test do
+	gem 'rspec', '>= 2.0.0.beta.10'
 	gem 'rspec-rails', ">= 2.0.0.beta.8"
 	gem "mocha"
   gem 'webrat'
