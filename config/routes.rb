@@ -10,6 +10,8 @@ Diaspora::Application.routes.draw do |map|
   
 
   resources :users
+  resources :status_messages
+    match 'dashboard', :to => 'status_messages#index'
   
 
   # The priority is based upon order of creation:
@@ -69,6 +71,6 @@ Diaspora::Application.routes.draw do |map|
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-  root :to => "users#index"
+  root :to => 'status_messages#index'
 
 end

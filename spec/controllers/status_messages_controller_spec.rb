@@ -1,7 +1,13 @@
 require File.dirname(__FILE__) + '/../spec_helper'
  
 describe StatusMessagesController do
-  fixtures :all
+  before do
+    #TODO(dan) Mocking Warden; this is a temp fix
+    request.env['warden'] = mock_model(Warden, :authenticate => @user, :authenticate! => @user)
+    StatusMessage.create(:message => "yodels.")
+  end
+
+  #fixtures :all
   render_views
   
   it "index action should render index template" do
@@ -28,13 +34,13 @@ describe StatusMessagesController do
   
   it "destroy action should destroy model and redirect to index action" do
     status_message = StatusMessage.first
-    delete :destroy, :id => status_message
+    delete :destroy, :id => status_message.id
     response.should redirect_to(status_messages_url)
-    StatusMessage.exists?(status_message.id).should be_false
+    StatusMessage.first(:conditions => {:id => status_message.id }).nil?.should be true
   end
   
   it "show action should render show template" do
-    get :show, :id => StatusMessage.first
+    get :show, :id => StatusMessage.first.id
     response.should render_template(:show)
   end
 end

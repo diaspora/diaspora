@@ -21,11 +21,12 @@ Rspec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.before(:each) do
       Mongoid.master.collections.select { |c| c.name != 'system.indexes' }.each(&:drop)  
+
     end
   
   
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 end

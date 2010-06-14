@@ -20,13 +20,13 @@ class StatusMessagesController < ApplicationController
   end
   
   def destroy
-    @status_message = StatusMessage.find(params[:id])
+    @status_message = StatusMessage.first(:conditions => {:id => params[:id]})
     @status_message.destroy
     flash[:notice] = "Successfully destroyed status message."
     redirect_to status_messages_url
   end
   
   def show
-    @status_message = StatusMessage.find(params[:id])
+    @status_message = StatusMessage.first(:conditions => {:id => params[:id]})
   end
 end
