@@ -15,7 +15,7 @@ class StatusMessage
   before_create :set_default_owner
   
   def self.newest(owner_email)
-    StatusMessage.last(:conditions => {:owner => owner_email})
+    message = StatusMessage.last(:conditions => {:owner => owner_email})
   end
   
   def self.my_newest
