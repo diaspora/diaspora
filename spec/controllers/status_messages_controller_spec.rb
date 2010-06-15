@@ -13,13 +13,11 @@ describe StatusMessagesController do
   render_views
   
   it "index action should render index template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     get :index
     response.should render_template(:index)
   end
   
   it "create action should render new template when model is invalid" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     
     StatusMessage.any_instance.stubs(:valid?).returns(false)
     post :create
@@ -33,7 +31,6 @@ describe StatusMessagesController do
   end
   
   it "new action should render new template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     
     get :new
     response.should render_template(:new)

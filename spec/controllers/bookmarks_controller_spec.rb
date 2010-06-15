@@ -13,48 +13,36 @@ describe BookmarksController do
   render_views
   
   it "index action should render index template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    
     get :index
     response.should render_template(:index)
   end
   
   it "edit action should render edit template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    
     get :edit, :id => Bookmark.first.id
     response.should render_template(:edit)
   end
   
   it "update action should render edit template when model is invalid" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    
     Bookmark.any_instance.stubs(:valid?).returns(false)
     put :update, :id => Bookmark.first.id
     response.should render_template(:edit)
   end
   
   it "update action should redirect when model is valid" do
-    
     #TODO(dan) look into why we need to create a new bookmark object here
     Bookmark.any_instance.stubs(:valid?).returns(true)
     n = Factory.create(:bookmark, :link => "http://hotub.com")
     n.save 
-    #puts n.inspect
     put :update, :id => Bookmark.first.id
     response.should redirect_to(bookmark_url(assigns[:bookmark]))
   end
   
   it "show action should render show template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    
     get :show, :id => Bookmark.first.id
     response.should render_template(:show)
   end
   
   it "create action should render new template when model is invalid" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    
     Bookmark.any_instance.stubs(:valid?).returns(false)
     post :create
     response.should render_template(:new)
@@ -67,8 +55,6 @@ describe BookmarksController do
   end
   
   it "new action should render new template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    
     get :new
     response.should render_template(:new)
   end
@@ -78,6 +64,5 @@ describe BookmarksController do
     delete :destroy, :id => bookmark.id
     response.should redirect_to(bookmarks_url)
     Bookmark.first(:conditions => {:id => bookmark.id }).nil?.should be true
-    
   end
 end

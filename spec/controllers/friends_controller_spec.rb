@@ -9,7 +9,6 @@ describe FriendsController do
   end
   
   it "index action should render index template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     get :index
     response.should render_template(:index)
   end
@@ -29,13 +28,11 @@ describe FriendsController do
   end
    
   it "new action should render new template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     get :new
     response.should render_template(:new)
   end
   
   it "create action should render new template when model is invalid" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     Friend.any_instance.stubs(:valid?).returns(false)
     post :create
     response.should render_template(:new)
