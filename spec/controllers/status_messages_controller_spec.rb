@@ -8,7 +8,6 @@ describe StatusMessagesController do
     StatusMessage.create(:message => "yodels.")
   end
 
-  #fixtures :all
   render_views
   
   it "index action should render index template" do
@@ -28,7 +27,7 @@ describe StatusMessagesController do
   it "create action should redirect when model is valid" do    
     StatusMessage.any_instance.stubs(:valid?).returns(true)
     post :create
-    response.should redirect_to(status_message_url(assigns[:status_message]))
+    response.should redirect_to(status_messages_url)
   end
   
   it "new action should render new template" do
@@ -47,7 +46,6 @@ describe StatusMessagesController do
   
   it "show action should render show template" do
     request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    
     get :show, :id => StatusMessage.first.id
     response.should render_template(:show)
   end

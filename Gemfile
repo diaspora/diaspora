@@ -21,6 +21,6 @@ end
 
 group :development do
   gem "nifty-generators"
-  gem 'ruby-debug' 
+  #gem 'ruby-debug' 
 end
 
