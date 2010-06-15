@@ -1,4 +1,6 @@
 Diaspora::Application.routes.draw do |map|
+  resources :blogs
+
   resources :bookmarks
 
   resources :friends
