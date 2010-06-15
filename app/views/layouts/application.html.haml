@@ -8,8 +8,9 @@
 
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application"
-
-    = javascript_include_tag :defaults
+    = javascript_include_tag 'jquery142'
+    /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
+    = javascript_include_tag 'rails'
     = csrf_meta_tag
     = yield(:head)
   
