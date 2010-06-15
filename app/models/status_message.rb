@@ -6,7 +6,7 @@ class StatusMessage
   xml_accessor :message
   xml_accessor :owner
 
-  
+   
   field :message
   field :owner
   
