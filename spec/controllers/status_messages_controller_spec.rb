@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe StatusMessagesController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
-    request.env['warden'] = mock_model(Warden, :authenticate => @user, :authenticate! => @user)
+    request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
     @bob = Factory.build(:user,:email => "bob@aol.com", :password => "secret")
     @status_message = Factory.build(:status_message, :message => "yodels.")
     @bob.save
@@ -43,7 +43,6 @@ describe StatusMessagesController do
   end
   
   it "show action should render show template" do
-    request.env['warden'].should_receive(:authenticate?).at_least(:once)
     get :show, :id => @status_message.id
     response.should render_template(:show)
   end

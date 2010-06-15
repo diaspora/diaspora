@@ -3,12 +3,12 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe BookmarksController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
-    request.env['warden'] = mock_model(Warden, :authenticate => @user, :authenticate! => @user)
-    @bob = Factory.create(:user)
+    request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
+    @bob = Factory.build(:user)
     @bookmark = Factory.build(:bookmark) 
-    @bookmark.save #TODO figure out why validations are not working
+    @bob.save
+    @bookmark.save
   end
-
 
   render_views
   
