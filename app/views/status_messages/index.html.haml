@@ -1,13 +1,14 @@
 - title "Status Messages"
 
-%table
-  %tr
-    %th Message
+
+%h3 Messages
+%ul
   - for status_message in @status_messages
-    %tr
-      %td= status_message.message
-      %td= link_to 'Show', status_message
-      %td= link_to 'Destroy', status_message, :confirm => 'Are you sure?', :method => :delete
+    %li
+      = "#{status_message.message} by #{status_message.owner}"
+      = link_to 'Show', status_message
+      |
+      =link_to 'Destroy', status_message, :confirm => 'Are you sure?', :method => :delete
 
 
 %h2 Friends

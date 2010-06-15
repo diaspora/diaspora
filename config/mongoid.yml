@@ -1,10 +1,5 @@
 defaults: &defaults
   host: localhost
-  # slaves:
-  #   - host: slave1.local
-  #     port: 27018
-  #   - host: slave2.local
-  #     port: 27019
   allow_dynamic_fields: false
   parameterize_keys: true
   persist_in_safe_mode: true

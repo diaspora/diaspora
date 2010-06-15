@@ -3,6 +3,10 @@
 %p
   %strong Message:
   = @status_message.message
+  
+%p
+  %strong Owner:
+  = @status_message.owner
 
 %p
   = link_to "Destroy", @status_message, :confirm => 'Are you sure?', :method => :delete

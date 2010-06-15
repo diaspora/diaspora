@@ -8,18 +8,26 @@ describe StatusMessage do
     n.valid?.should be true
   end
   
+  it "should add an owner if none is present" do
+    User.create(:email => "bob@aol.com", :password => "big bux")
+    n = StatusMessage.create(:message => "puppies!")
+    n.owner.should == "bob@aol.com"
+  end
+  
   describe "XML" do
     before do
-      @xml = "<statusmessage>\n  <message>I hate WALRUSES!</message>\n</statusmessage>" 
+      @xml = "<statusmessage>\n  <message>I hate WALRUSES!</message>\n  <owner>Bob</owner>\n</statusmessage>" 
     end
       
     it 'should serialize to XML' do
-      message = StatusMessage.new(:message => "I hate WALRUSES!")
+      message = StatusMessage.create(:message => "I hate WALRUSES!", :owner => "Bob")
       message.to_xml.to_s.should == @xml
     end
   
     it 'should marshal serialized XML to object' do       
-      StatusMessage.from_xml(@xml).message.should == "I hate WALRUSES!"
+      parsed = StatusMessage.from_xml(@xml)
+      parsed.message.should == "I hate WALRUSES!"
+      parsed.owner.should == "Bob"
     end
   end
 end

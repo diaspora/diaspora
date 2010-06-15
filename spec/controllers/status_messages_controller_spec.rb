@@ -4,6 +4,7 @@ describe StatusMessagesController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
     request.env['warden'] = mock_model(Warden, :authenticate => @user, :authenticate! => @user)
+    User.create(:email => "bob@aol.com", :password => "secret")
     StatusMessage.create(:message => "yodels.")
   end
 
