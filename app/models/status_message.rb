@@ -12,9 +12,9 @@ class StatusMessage
   
   validates_presence_of :message
   
-  before_create :add_owner
+  before_create :set_default_owner
   
-    def self.newest(owner_email)
+  def self.newest(owner_email)
     StatusMessage.last(:conditions => {:owner => owner_email})
   end
   
@@ -24,8 +24,7 @@ class StatusMessage
   
   protected
   
-  def add_owner
+  def set_default_owner
     self.owner ||= User.first.email   
   end
-
 end

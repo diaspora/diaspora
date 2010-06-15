@@ -1,4 +1,6 @@
 Diaspora::Application.routes.draw do |map|
+  resources :bookmarks
+
   resources :friends
 
   resources :status_messages

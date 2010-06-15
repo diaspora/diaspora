@@ -1,0 +1,18 @@
+- title "Bookmark"
+
+%p
+  %strong Title:
+  = @bookmark.title
+%p
+  %strong Link:
+  = link_to @bookmark.link
+%p
+  %strong Owner:
+  = @bookmark.owner
+
+%p
+  = link_to "Edit", edit_bookmark_path(@bookmark)
+  |
+  = link_to "Destroy", @bookmark, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", bookmarks_path

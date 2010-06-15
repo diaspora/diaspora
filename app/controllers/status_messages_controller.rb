@@ -10,7 +10,7 @@ class StatusMessagesController < ApplicationController
     @status_message = StatusMessage.new(params[:status_message])
     if @status_message.save
       flash[:notice] = "Successfully created status message."
-      redirect_to @status_message
+      redirect_to status_messages_url
     else
       render :action => 'new'
     end
