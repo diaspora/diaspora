@@ -52,6 +52,8 @@ h4 {
   padding-top: 1em;
   padding-bottom: 1em;
   margin-bottom: 1em; }
+  #header #diaspora_text {
+    border: none; }
   #header #session_action {
     float: right; }
   #header ul.nav {

@@ -16,7 +16,8 @@
   %body
     #header
       .container
-        %img#diaspora_text{:src => '/images/diaspora.png'}
+        %a#diaspora_text{:href => root_url}
+          %img{:src => '/images/diaspora.png'}
 
         #session_action
           - if user_signed_in?

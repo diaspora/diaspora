@@ -14,6 +14,28 @@ describe StatusMessage do
     n.owner.should == "bob@aol.com"
   end
   
+  
+  describe "newest" do
+    before do
+      User.create(:email => "bob@aol.com", :password => "diggity")
+      StatusMessage.create(:message => "wale for jimmy", :owner => "xzibit@dawgz.com")
+      StatusMessage.create(:message => "jimmy wales")
+      StatusMessage.create(:message => "jimmy your wales", :owner => "some@dudes.com")  
+      StatusMessage.create(:message => "lions", :owner => "xzibit@dawgz.com")
+      StatusMessage.create(:message => "bears")
+      StatusMessage.create(:message => "sharks", :owner => "some@dudes.com")
+      StatusMessage.create(:message => "roar")
+    end
+  
+    it "should give the most recent message from owner" do
+      StatusMessage.my_newest.message.should == "roar"
+    end
+    
+    it "should give the most recent message for a given email" do
+      StatusMessage.newest("some@dudes.com").message.should == "sharks"
+    end
+  end
+  
   describe "XML" do
     before do
       @xml = "<statusmessage>\n  <message>I hate WALRUSES!</message>\n  <owner>Bob</owner>\n</statusmessage>" 

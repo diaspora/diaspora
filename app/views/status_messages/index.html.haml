@@ -1,11 +1,17 @@
-- title "Status Messages"
+- title "Home"
 
+%h3 Your latest message
+%h2= "#{StatusMessage.my_newest.message} #{time_ago_in_words(StatusMessage.my_newest.created_at)} ago"
+
+%br
+%br
+%br
 
 %h3 Messages
 %ul
   - for status_message in @status_messages
     %li
-      = "#{status_message.message} by #{status_message.owner}"
+      = "#{status_message.message} by #{status_message.owner} #{time_ago_in_words(status_message.created_at)} ago"
       = link_to 'Show', status_message
       |
       =link_to 'Destroy', status_message, :confirm => 'Are you sure?', :method => :delete
