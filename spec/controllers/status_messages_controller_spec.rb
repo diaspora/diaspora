@@ -4,8 +4,10 @@ describe StatusMessagesController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
     request.env['warden'] = mock_model(Warden, :authenticate => @user, :authenticate! => @user)
-    User.create(:email => "bob@aol.com", :password => "secret")
-    StatusMessage.create(:message => "yodels.")
+    @bob = Factory.build(:user,:email => "bob@aol.com", :password => "secret")
+    @status_message = Factory.build(:status_message, :message => "yodels.")
+    @bob.save
+    @status_message.save #TODO for some reason it complains about validations even though they are valid fields
   end
 
   render_views
@@ -38,15 +40,14 @@ describe StatusMessagesController do
   end
   
   it "destroy action should destroy model and redirect to index action" do
-    status_message = StatusMessage.first
-    delete :destroy, :id => status_message.id
+    delete :destroy, :id => @status_message.id
     response.should redirect_to(status_messages_url)
-    StatusMessage.first(:conditions => {:id => status_message.id }).nil?.should be true
+    StatusMessage.first(:conditions => {:id => @status_message.id }).nil?.should be true
   end
   
   it "show action should render show template" do
     request.env['warden'].should_receive(:authenticate?).at_least(:once)
-    get :show, :id => StatusMessage.first.id
+    get :show, :id => @status_message.id
     response.should render_template(:show)
   end
   

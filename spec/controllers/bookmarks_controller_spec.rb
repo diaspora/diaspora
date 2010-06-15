@@ -4,9 +4,11 @@ describe BookmarksController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
     request.env['warden'] = mock_model(Warden, :authenticate => @user, :authenticate! => @user)
-    User.create(:email => "bob@aol.com", :password => "secret")
-    Bookmark.create(:link => "http://www.yahooligans.com/")
+    @bob = Factory.create(:user)
+    @bookmark = Factory.build(:bookmark) 
+    @bookmark.save #TODO figure out why validations are not working
   end
+
 
   render_views
   
@@ -36,9 +38,10 @@ describe BookmarksController do
     
     #TODO(dan) look into why we need to create a new bookmark object here
     Bookmark.any_instance.stubs(:valid?).returns(true)
-    n = Bookmark.create(:link => "http://hotub.com")
-    puts n.inspect
-    put :update, :id => n.id
+    n = Factory.create(:bookmark, :link => "http://hotub.com")
+    n.save 
+    #puts n.inspect
+    put :update, :id => Bookmark.first.id
     response.should redirect_to(bookmark_url(assigns[:bookmark]))
   end
   

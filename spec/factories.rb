@@ -15,3 +15,7 @@ Factory.define :user do |u|
   u.sequence(:email) {|n| "bob#{n}@aol.com"}
   u.password "bluepin7"
 end
+
+Factory.define :bookmark do |b|
+  b.link "http://www.yahooligans.com/"
+end
