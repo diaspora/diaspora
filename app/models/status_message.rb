@@ -6,7 +6,7 @@ class StatusMessage
   xml_accessor :message
   xml_accessor :owner
 
-  
+   
   field :message
   field :owner
   
@@ -15,6 +15,7 @@ class StatusMessage
   before_create :add_owner
   
     def self.newest(owner_email)
+  
     StatusMessage.last(:conditions => {:owner => owner_email})
   end
   

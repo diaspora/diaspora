@@ -1,8 +1,9 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Friend do
-  it 'should have a diaspora username and diaspora url' do
-    n = Friend.new(:username => 'max')
+  it 'should have a diaspora username and diaspora url' do 
+    n = Factory.build(:friend, :url => nil)
+    #n = Friend.new(:username => 'max')
     n.valid?.should be false
     n.url = "http://max.com/"
     n.valid?.should be true

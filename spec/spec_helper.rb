@@ -3,6 +3,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.dirname(__FILE__) + "/../config/environment" unless defined?(Rails)
 require 'rspec/rails'
+#require File.dirname(__FILE__) + "/factories"
 include Devise::TestHelpers
 
 # Requires supporting files with custom matchers and macros, etc,

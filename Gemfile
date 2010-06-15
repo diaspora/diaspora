@@ -16,6 +16,7 @@ group :test do
   gem 'webrat'
   gem 'redgreen'
   gem 'autotest'
+  gem 'factory_girl_rails'
 end
 
 group :development do
