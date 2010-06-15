@@ -16,7 +16,7 @@
   %body
     #header
       .container
-        %a#diaspora_text{:href => root_url}
+        %a#diaspora_text{:href => root_path}
           %img{:src => '/images/diaspora.png'}
 
         #session_action
@@ -26,9 +26,10 @@
             = link_to "login", new_user_session_path
             
         %ul.nav
-          %li= link_to "Users", users_url
-          %li= link_to "Status Messages", status_messages_url
-          %li= link_to "Friends", friends_url
+          %li= link_to "Home", root_path
+          %li= link_to "Users", users_path
+          %li= link_to "Status Messages", status_messages_path
+          %li= link_to "Friends", friends_path
 
     .container
       - if show_title?
