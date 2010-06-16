@@ -1,19 +1,12 @@
-class StatusMessage
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  include ROXML
+class StatusMessage < Post
   
   xml_accessor :message
-  xml_accessor :owner
-
-   
   field :message
-  field :owner
-  
+
+
   validates_presence_of :message
   
-  before_create :set_default_owner
-  
+ 
   def self.newest(owner_email)
     StatusMessage.last(:conditions => {:owner => owner_email})
   end
@@ -22,9 +15,5 @@ class StatusMessage
     StatusMessage.newest(User.first.email)
   end
   
-  protected
-  
-  def set_default_owner
-    self.owner ||= User.first.email   
-  end
 end
+

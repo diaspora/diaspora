@@ -8,7 +8,11 @@ end
 
 Factory.define :status_message do |m|
   m.sequence(:message) {|n| "jimmy's #{n} whales"}
+end
 
+Factory.define :blog do |b|
+  b.sequence(:title) {|n| "bobby's #{n} penguins"}
+  b.sequence(:body) {|n| "jimmy's huge #{n} whales"}
 end
 
 Factory.define :user do |u|
@@ -18,4 +22,9 @@ end
 
 Factory.define :bookmark do |b|
   b.link "http://www.yahooligans.com/"
+end
+
+Factory.define :post do |p|
+  p.source "New York Times"
+  p.sequence(:snippet) {|n| "This is some information #{n}"}
 end
