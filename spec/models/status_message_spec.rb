@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
+include StatusMessagesHelper
 
 describe StatusMessage do
   before do
@@ -52,21 +53,17 @@ describe StatusMessage do
 
   describe "retrieving" do
     before do
-      @remote = Factory.create(:friend, :url => "http://localhost:1254/")
-      StatusMessages = StatusMessagesHelper::StatusMessages
-      #@remote_messages = (0..5).collect {|a| Factory.build(:status_message)}
-      #stub with response of @remote_msg.xml
+      @remote = Factory.create(:friend, :url => "fakeurl")#http://localhost:1254/")
+      Curl.stub!(:curl).and_return(@@remote_xml)
     end
     it "should marshal xml and serialize it without error" do
-      StatusMessages.from_xml(@@remote_xml).to_xml.to_s.sub("/t<","<").should == @@remote_xml
+      StatusMessages.from_xml(@@remote_xml).to_xml.to_s.should == @@remote_xml
     end
     it "marshal retrieved xml" do
       remote_msgs = StatusMessage.retrieve_from_friend(@remote)
       local_msgs = StatusMessages.from_xml(@@remote_xml)
       remote_msgs.statusmessages.each{ |m| local_msgs.statusmessages.include?(m).should be_true}
       local_msgs.statusmessages.each{ |m| remote_msgs.statusmessages.include?(m).should be_true}
-
-        # .from_xml == @remote_messages
     end
   end
 end

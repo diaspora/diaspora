@@ -3,6 +3,7 @@ class StatusMessage
   include Mongoid::Timestamps
   include ROXML
   include StatusMessagesHelper
+  require 'lib/net/curl'
 
   xml_accessor :message
   xml_accessor :owner
@@ -24,7 +25,7 @@ class StatusMessage
   end
 
   def self.retrieve_from_friend(friend)
-      StatusMessages.from_xml `curl #{friend.url}status_messages.xml --user a@a.com:aaaaaa`
+    StatusMessages.from_xml Curl.curl(friend.url+"status_messages.xml")
   end
 
   def ==(other)
