@@ -9,7 +9,6 @@ describe Bookmark do
   end
   
   it "should add an owner if none is present" do
-    #User.create(:email => "bob@aol.com", :password => "big bux")
     Factory.create(:user, :email => "bob@aol.com")
     n = Factory.create(:bookmark)
     n.owner.should == "bob@aol.com" 

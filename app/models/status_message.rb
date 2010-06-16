@@ -2,7 +2,8 @@ class StatusMessage
   include Mongoid::Document
   include Mongoid::Timestamps
   include ROXML
-  
+  include StatusMessagesHelper
+
   xml_accessor :message
   xml_accessor :owner
 
@@ -21,10 +22,15 @@ class StatusMessage
   def self.my_newest
     StatusMessage.newest(User.first.email)
   end
-  
+
+  def self.retrieve_from_friend(friend)
+      StatusMessages.from_xml `curl #{friend.url}status_messages.xml --user a@a.com:aaaaaa`
+  end
   protected
   
   def set_default_owner
-    self.owner ||= User.first.email   
+    self.owner ||= User.first.email 
   end
+
 end
+

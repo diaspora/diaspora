@@ -46,6 +46,27 @@ describe StatusMessage do
       parsed = StatusMessage.from_xml(@xml)
       parsed.message.should == "I hate WALRUSES!"
       parsed.owner.should == "Bob"
+      parsed.valid?.should be_true
+    end
+  end
+
+  describe "retrieving" do
+    before do
+      @remote = Factory.create(:friend, :url => "http://localhost:1254/")
+      @remote_xml = (0..5).collect{Factory.create(:status_message).to_xml}
+      StatusMessages = StatusMessagesHelper::StatusMessages
+      #@remote_messages = (0..5).collect {|a| Factory.build(:status_message)}
+      #stub with response of @remote_msg.xml
+    end
+    it "should marshal xml and serialize it" do
+      messages = StatusMessages.new(@remote_xml)
+      unreadable_xml = messages.to_xml.to_s.sub("\t\t","\t")
+      unreadable_xml.include?(remote_xml.first.to_s).should be true
+    end
+    it "marshal retrieved xml" do
+      StatusMessage.retrieve_from_friend(@remote).to_xml.should == StatusMessages.from_xml(@remote_xml).to_xml
+
+        # .from_xml == @remote_messages
     end
   end
 end

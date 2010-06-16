@@ -1,4 +1,5 @@
 module StatusMessagesHelper
+
   def my_latest_message
     message = StatusMessage.my_newest
     unless message.nil?
@@ -6,5 +7,16 @@ module StatusMessagesHelper
     else
       return "No message to display."
     end
+  end
+
+  class StatusMessages
+    include ROXML
+   
+   def initialize(messages=[])
+     @statusmessages = messages
+   end
+
+   xml_accessor :statusmessages, :as => [StatusMessage]
+   attr_accessor :statusmessages
   end
 end

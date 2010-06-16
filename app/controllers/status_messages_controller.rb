@@ -1,9 +1,17 @@
 class StatusMessagesController < ApplicationController
-  before_filter :authenticate_user!
-  
+  #before_filter :authenticate_user!
+  include StatusMessagesHelper
+
   def index
     @status_messages = StatusMessage.all
     @friends = Friend.all
+
+    respond_to do |format|
+      format.html 
+      format.xml {render :xml => StatusMessages.new(@status_messages).to_xml }
+      format.json { render :json => @status_messages }
+    end
+
   end
   
   def create

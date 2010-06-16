@@ -8,4 +8,23 @@ describe Friend do
     n.url = "http://max.com/"
     n.valid?.should be true
   end
+
+   describe "XML" do
+    before do
+      @f = Factory.build(:friend)
+      @xml = "<friend>\n  <username>#{@f.username}</username>\n  <url>#{@f.url}</url>\n</friend>" 
+    end
+      
+    it 'should serialize to XML' do
+      @f.to_xml.to_s.should == @xml
+    end
+  
+    it 'should marshal serialized XML to object' do       
+      parsed = Friend.from_xml(@xml)
+      parsed.username.should == @f.username
+      parsed.url.should == @f.url
+      parsed.valid?.should be_true
+    end
+  end
+
 end

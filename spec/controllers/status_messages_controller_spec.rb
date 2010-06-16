@@ -47,10 +47,21 @@ describe StatusMessagesController do
     response.should render_template(:show)
   end
   
-  it "should return xml on the show type if the meme type exsits" do
+  it "should return xml on show type if the MIME type exists" do
     request.env["HTTP_ACCEPT"] = "application/xml"
     message = StatusMessage.first
     get :show, :id => message.id
     response.body.include?(message.to_xml.to_s).should be true
+  end
+
+   it "should return xml on index if the MIME type exists" do
+    Factory.create(:status_message)
+     
+    request.env["HTTP_ACCEPT"] = "application/xml"
+    get :index
+    StatusMessage.all.each do |message|
+      response.body.include?(message.message).should be true
+      response.body.include?(message.owner).should be true
+    end
   end
 end
