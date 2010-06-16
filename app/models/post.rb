@@ -16,6 +16,7 @@ class Post
 
 
   before_create :set_defaults
+  #after_update :notify_friends
 
   protected
 
@@ -25,6 +26,14 @@ class Post
     self.source ||= user_email
     self.snippet ||= user_email
   end
+
+
+  #def notify_friends
+   #friends = Permissions.get_list_for(self)
+   #xml = self.to_xml_to_s
+   #friends.each{|friend| ping friend :with => xml }
+  #end
+
 end
 
 
