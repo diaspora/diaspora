@@ -1,0 +1,9 @@
+- title "Dashboard"
+
+%ul
+  - for post in @posts
+    %li
+      = render "shared/post", :post =>post
+      %br
+      %br
+
