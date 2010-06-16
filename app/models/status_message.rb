@@ -26,6 +26,11 @@ class StatusMessage
   def self.retrieve_from_friend(friend)
       StatusMessages.from_xml `curl #{friend.url}status_messages.xml --user a@a.com:aaaaaa`
   end
+
+  def ==(other)
+    (self.message == other.message) && (self.owner == other.owner)
+  end
+
   protected
   
   def set_default_owner
