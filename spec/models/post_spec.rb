@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Post do
-  before(:all) do
+  before do
     Factory.create(:user, :email => "bob@aol.com")
     @post = Factory.create(:post, :owner => nil, :source => nil, :snippet => nil)    
   end
