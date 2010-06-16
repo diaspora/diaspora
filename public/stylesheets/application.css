@@ -63,3 +63,16 @@ h4 {
     #header ul.nav li {
       display: inline;
       margin-right: 1em; }
+
+ul#stream {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  ul#stream li {
+    list-style: none; }
+  ul#stream > li {
+    padding: 2em 0;
+    border-bottom: 1px solid #666666; }
+    ul#stream > li > ul {
+      padding: 0;
+      margin: 0; }
