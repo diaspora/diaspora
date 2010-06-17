@@ -57,7 +57,7 @@ deployment do
 
   # mechanism for deployment
   delivery :capistrano do
-    recipes 'deploy'
+    recipes './../deploy'
   end
 
   # source based package installer defaults
