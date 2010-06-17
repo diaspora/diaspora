@@ -1,7 +1,4 @@
-require 'active_support'
-require 'active_support/core_ext'
-require 'roxml'
-require 'dm-core'
+require 'addressable/uri'
 require 'eventmachine'
 require 'em-http'
 
