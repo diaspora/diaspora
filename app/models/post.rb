@@ -1,10 +1,13 @@
 class Post 
+  require 'lib/common'
 
   # XML accessors must always preceed mongo field tags
 
   include Mongoid::Document
   include Mongoid::Timestamps
   include ROXML
+
+  include Diaspora::Hookey
 
   xml_accessor :owner
   xml_accessor :snippet

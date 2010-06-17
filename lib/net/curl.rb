@@ -1,6 +1,10 @@
 class Curl
-  def self.curl(s)
-    `curl #{s}`
+  def self.post(s)
+    `curl -X POST -d #{s}`;;
+  end
+  
+  def self.get(s)
+    `curl -X GET #{s}`
   end
 end
 
