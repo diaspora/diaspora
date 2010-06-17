@@ -1,6 +1,5 @@
 class Post 
   require 'lib/common'
-  require 'lib/message_handler' 
   
   
   # XML accessors must always preceed mongo field tags
@@ -22,7 +21,7 @@ class Post
 
   @@models = ["StatusMessage", "Bookmark", "Blog"]
 
-  def self.recent_ordered_posts
+  def self.stream
     # Need to explicitly name each inherited model for dev environment
     query = if Rails.env == "development"
         Post.criteria.all(:_type => @@models)

@@ -2,6 +2,6 @@ class DashboardController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @posts = Post.recent_ordered_posts
+    @posts = Post.stream
   end
 end

@@ -51,7 +51,7 @@ describe StatusMessage do
   describe "retrieving" do
     before do
       @remote = Factory.create(:friend, :url => "fakeurl")#http://localhost:1254/")
-      Curl.stub!(:curl).and_return(@@remote_xml)
+      Curl.stub!(:get).and_return(@@remote_xml)
     end
     it "should marshal xml and serialize it without error" do
       StatusMessages.from_xml(@@remote_xml).to_xml.to_s.should == @@remote_xml
@@ -59,6 +59,8 @@ describe StatusMessage do
     it "marshal retrieved xml" do
       remote_msgs = StatusMessage.retrieve_from_friend(@remote)
       local_msgs = StatusMessages.from_xml(@@remote_xml)
+
+
       remote_msgs.statusmessages.each{ |m| local_msgs.statusmessages.include?(m).should be_true}
       local_msgs.statusmessages.each{ |m| remote_msgs.statusmessages.include?(m).should be_true}
     end
