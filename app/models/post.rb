@@ -7,7 +7,7 @@ class Post
   include Mongoid::Document
   include Mongoid::Timestamps
   include ROXML
-  include Diaspora::Hookey
+  include Diaspora::Webhooks
 
   xml_accessor :owner
   xml_accessor :snippet

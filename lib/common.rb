@@ -1,26 +1,7 @@
 module Diaspora
-  module CommonFields
+
+  module Webhooks
     def self.included(klass)
-      klass.class_eval do
-        include Mongoid::Document
-        include ROXML
-        include Mongoid::Timestamps
-
-        xml_accessor :owner
-        xml_accessor :snippet
-        xml_accessor :source
-
-        field :owner
-        field :source
-        field :snippet
-      end
-    end
-  end
-
-  module Hookey
-
-    def self.included(klass)
-      
       klass.class_eval do
         before_save :notify_friends
 
@@ -33,7 +14,7 @@ module Diaspora
         end
         
         def prep_webhook  
-          self.to_xml.to_s.chomp
+          self.to_xml.to_s
         end
         
         def friends_with_permissions
