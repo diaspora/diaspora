@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0.beta4'
 gem 'mongrel'
 gem 'thin'
-gem 'em-http-request'
+gem 'em-http-request', :git => 'git@github.com:maxwell/em-http-request.git'
 gem 'addressable'
 gem "mongoid", :git => "http://github.com/durran/mongoid.git"
 gem "bson_ext", "1.0.1"

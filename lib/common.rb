@@ -19,30 +19,19 @@ module Diaspora
 
   module Hookey
 
-class Curl
-  def self.post(s)
-    `curl -X POST -d #{s}`;;
-  end
-  
-  def self.get(s)
-    `curl -X GET #{s}`
-  end
-end
-
-
     def self.included(klass)
       
       klass.class_eval do
-        require 'lib/message_handler'
+        #include EventQueue::MessageHandler
         before_save :notify_friends
         
         def notify_friends
-          m = MessageHandler.new
-
+          
+          @@queue = MessageHandler.new
           xml = prep_webhook
           #friends_with_permissions.each{ |friend| puts friend; Curl.post( "\"" + xml + "\" " + friend) }
-          m.add_post_request( friends_with_permissions, xml )
-          m.process
+          @@queue.add_post_request( friends_with_permissions, xml )
+          @@queue.process
         end
         
         def prep_webhook  

@@ -1,12 +1,14 @@
 class Post 
   require 'lib/common'
-
+  require 'lib/message_handler' 
+  
+  
   # XML accessors must always preceed mongo field tags
 
   include Mongoid::Document
   include Mongoid::Timestamps
   include ROXML
-
+@@queue = MessageHandler.new
   include Diaspora::Hookey
 
   xml_accessor :owner
@@ -19,7 +21,6 @@ class Post
 
   before_create :set_defaults
   #after_update :notify_friends
-
 
 
   @@models = ["StatusMessage", "Bookmark", "Blog"]
