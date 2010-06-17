@@ -1,5 +1,4 @@
 class Post 
-  require 'lib/common'
   require 'lib/message_handler' 
   
   
@@ -8,8 +7,6 @@ class Post
   include Mongoid::Document
   include Mongoid::Timestamps
   include ROXML
-@@queue = MessageHandler.new
-  include Diaspora::Hookey
 
   xml_accessor :owner
   xml_accessor :snippet
@@ -21,7 +18,31 @@ class Post
 
   before_create :set_defaults
   #after_update :notify_friends
+  after_save :notify_friends
+        
+  @@queue = MessageHandler.new
+  
+  def notify_friends
+    puts "hello"
 
+    xml = prep_webhook
+    #friends_with_permissions.each{ |friend| puts friend; Curl.post( "\"" + xml + "\" " + friend) }
+    @@queue.add_post_request( friends_with_permissions, xml )
+    @@queue.process
+  end
+
+  def prep_webhook  
+    self.to_xml.to_s.chomp
+  end
+
+  def friends_with_permissions
+    #friends = Friend.only(:url).map{|x| x = x.url + "/receive/"}
+    #3.times {friends = friends + friends}
+    #friends
+    googles = []
+    100.times{ googles <<"http://google.com/"} #"http://localhost:4567/receive/"} #"http://google.com/"}
+    googles
+  end
 
   @@models = ["StatusMessage", "Bookmark", "Blog"]
 
@@ -46,10 +67,5 @@ class Post
   end
 
 
-  #def notify_friends
-   #friends = Permissions.get_list_for(self)
-   #xml = self.to_xml_to_s
-   #friends.each{|friend| ping friend :with => xml }
-  #end
 end
 

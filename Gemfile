@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0.beta4'
 gem 'mongrel'
 gem 'thin'
-gem 'em-http-request', :git => 'git@github.com:maxwell/em-http-request.git'
+gem 'em-http-request'
 gem 'addressable'
 gem "mongoid", :git => "http://github.com/durran/mongoid.git"
 gem "bson_ext", "1.0.1"
@@ -11,6 +11,9 @@ gem "haml"
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
 
+
+
+gem "dm-core"
 
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.10'

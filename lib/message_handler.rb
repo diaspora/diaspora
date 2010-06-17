@@ -1,7 +1,12 @@
-  require 'em-http'
-  require 'eventmachine'
-  require 'addressable/uri'
-  
+require 'active_support'
+require 'active_support/core_ext'
+require 'roxml'
+require 'dm-core'
+require 'eventmachine'
+require 'em-http'
+
+
+
   class MessageHandler 
 
     NUM_TRIES = 3
@@ -25,7 +30,7 @@
         case query.type
         when :post
           http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body => query.body
-          http.callback { process}
+          http.callback {puts "YAR"; process}
         when :get
           http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
           http.callback {send_to_seed(query, http.response); process}

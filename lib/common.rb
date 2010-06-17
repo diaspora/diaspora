@@ -22,12 +22,12 @@ module Diaspora
     def self.included(klass)
       
       klass.class_eval do
-        #include EventQueue::MessageHandler
+        include EventQueue::MessageHandler
         before_save :notify_friends
         
         def notify_friends
+          puts "hello"
           
-          @@queue = MessageHandler.new
           xml = prep_webhook
           #friends_with_permissions.each{ |friend| puts friend; Curl.post( "\"" + xml + "\" " + friend) }
           @@queue.add_post_request( friends_with_permissions, xml )
@@ -40,8 +40,8 @@ module Diaspora
         
         def friends_with_permissions
            #Friend.only(:url).map{|x| x = x.url + "/receive/"}
-           googles = []
-           5.times{ googles <<"http://google.com/"} #"http://localhost:4567/receive/"} #"http://google.com/"}
+           #googles = []
+           #5.times{ googles <<"http://google.com/"} #"http://localhost:4567/receive/"} #"http://google.com/"}
            googles
         end
       end
