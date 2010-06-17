@@ -14,9 +14,23 @@ class Post
   field :source
   field :snippet
 
-
   before_create :set_defaults
   #after_update :notify_friends
+
+
+
+  @@models = ["StatusMessage", "Bookmark", "Blog"]
+
+  def self.recent_ordered_posts
+    # Need to explicitly name each inherited model for dev environment
+    query = if Rails.env == "development"
+        Post.criteria.all(:_type => @@models)
+      else
+        Post.criteria.all
+      end
+    query.order_by( [:created_at, :desc] )
+  end
+
 
   protected
 
@@ -33,7 +47,5 @@ class Post
    #xml = self.to_xml_to_s
    #friends.each{|friend| ping friend :with => xml }
   #end
-
 end
-
 

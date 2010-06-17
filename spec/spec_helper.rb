@@ -24,6 +24,7 @@ Rspec.configure do |config|
     config.before(:each) do
       Mongoid.master.collections.select { |c| c.name != 'system.indexes' }.each(&:drop)  
 
+
     end
   
   
