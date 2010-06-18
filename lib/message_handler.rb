@@ -24,7 +24,7 @@ class MessageHandler
     @queue.pop{ |query|
       case query.type
       when :post
-        http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body => query.body
+        http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml =>  query.body}
         http.callback { process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
