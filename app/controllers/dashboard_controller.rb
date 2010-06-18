@@ -10,10 +10,6 @@ class DashboardController < ApplicationController
 
   def receive
     store_posts_from_xml (params[:xml])
-
-
-
-    puts "holy boner batman"
     render :nothing => true
   end
 end

@@ -31,6 +31,10 @@ class Post
     query.order_by( [:created_at, :desc] )
   end
 
+  def each
+    yield self 
+  end
+
 
   protected
 

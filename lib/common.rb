@@ -8,7 +8,7 @@ module Diaspora
         @@queue = MessageHandler.new
         
         def notify_friends
-          xml = prep_webhook
+          xml = Post.build_xml_for(self)
           @@queue.add_post_request( friends_with_permissions, xml )
           @@queue.process
         end
@@ -18,7 +18,7 @@ module Diaspora
         end
  
         def prep_many  
-          "<post>#{self.to_xml.to_s}</post>"
+          "<post>#{self.prep_webhook}</post>"
         end
 
         def friends_with_permissions
