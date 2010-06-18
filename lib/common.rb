@@ -9,9 +9,9 @@ module Diaspora
         
         def notify_friends
          if self.owner == User.first.email
-            xml = Post.build_xml_for(self)
-            @@queue.add_post_request( friends_with_permissions, xml )
-            @@queue.process
+          xml = Post.build_xml_for(self)
+          @@queue.add_post_request( friends_with_permissions, "xml=#{xml}" )
+          @@queue.process
           end
         end
         
