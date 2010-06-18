@@ -17,5 +17,24 @@ describe DashboardHelper do
     StatusMessage.count.should == 10
   end
 
+  it 'should discard posts where it does not know the type' do
+    xml = "<posts>
+      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      <post><not_a_real_type></not_a_real_type></post>
+      <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      </posts>"
+    store_posts_from_xml(xml)
+    Post.count.should == 2
+  end
+
+  it 'should discard types which are not of type post' do
+    xml = "<posts>
+      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      <post><friend></friend></post>
+      <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      </posts>"
+    store_posts_from_xml(xml)
+    Post.count.should == 2
+  end
 
 end
