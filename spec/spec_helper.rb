@@ -3,6 +3,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.dirname(__FILE__) + "/../config/environment" unless defined?(Rails)
 require 'rspec/rails'
+require 'database_cleaner'
 #require File.dirname(__FILE__) + "/factories"
 include Devise::TestHelpers
 
@@ -20,12 +21,21 @@ Rspec.configure do |config|
   # config.mock_with :rr
   config.mock_with :rspec
 
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-    config.before(:each) do
-      Mongoid.master.collections.select { |c| c.name != 'system.indexes' }.each(&:drop)  
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.orm = "mongoid"
 
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
 
-    end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
   
   
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

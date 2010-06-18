@@ -11,7 +11,6 @@ gem "haml"
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
 
-
 gem 'dm-core'
 
 group :test do
@@ -22,6 +21,7 @@ group :test do
   gem 'redgreen'
   gem 'autotest'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 group :development do

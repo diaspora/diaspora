@@ -9,14 +9,4 @@ module StatusMessagesHelper
     end
   end
 
-  class StatusMessages
-    include ROXML
-   
-   def initialize(messages=[])
-     @statusmessages = messages
-   end
-
-   xml_accessor :statusmessages, :as => [StatusMessage]
-   attr_accessor :statusmessages
-  end
 end

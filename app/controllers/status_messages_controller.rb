@@ -1,6 +1,5 @@
 class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
-  include StatusMessagesHelper
 
   def index
     @status_messages = StatusMessage.criteria.all.order_by( [:created_at, :desc] )
@@ -8,7 +7,7 @@ class StatusMessagesController < ApplicationController
 
     respond_to do |format|
       format.html 
-      format.xml {render :xml => StatusMessages.new(@status_messages).to_xml }
+      format.xml {render :xml => Post.build_xml_for(@status_messages)}
       format.json { render :json => @status_messages }
     end
 

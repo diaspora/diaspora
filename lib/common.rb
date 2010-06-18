@@ -4,23 +4,18 @@ module Diaspora
     def self.included(klass)
       klass.class_eval do
       after_save :notify_friends
-
         @@queue = MessageHandler.new
         
         def notify_friends
-         if self.owner == User.first.email
-          xml = Post.build_xml_for(self)
-          @@queue.add_post_request( friends_with_permissions, xml )
-          @@queue.process
+          if self.owner == User.first.email
+            xml = Post.build_xml_for(self)
+            @@queue.add_post_request( friends_with_permissions, xml )
+            @@queue.process
           end
         end
-        
-        def prep_webhook  
-          self.to_xml.to_s
-        end
  
-        def prep_many  
-          "<post>#{self.prep_webhook}</post>"
+        def prep_webhook
+          "<post>#{self.to_xml.to_s}</post>"
         end
 
         def friends_with_permissions
@@ -29,7 +24,7 @@ module Diaspora
 
         def self.build_xml_for(posts)
           xml = "<posts>"
-          posts.each {|x| xml << x.prep_many}
+          posts.each {|x| xml << x.prep_webhook}
           xml = xml + "</posts>"
         end
       end

@@ -8,7 +8,7 @@ describe Diaspora do
   describe Webhooks do
     before do
       @user = Factory.create(:user)
-      @post = Factory.build(:post)
+      @post = Factory.create(:post)
     end
 
     it "should add the following methods to Post on inclusion" do
@@ -18,7 +18,7 @@ describe Diaspora do
     end
 
     it "should convert an object to a proper webhook" do
-      @post.prep_webhook.should == @post.to_xml.to_s
+      @post.prep_webhook.should == "<post>#{@post.to_xml.to_s}</post>"
     end
 
     it "should retrieve all valid friend endpoints" do
@@ -31,25 +31,21 @@ describe Diaspora do
       @post.friends_with_permissions.should include("http://www.jane.com/receive/")
     end
 
-    it "should send all prepped webhooks to be processed" do
-      MessageHandler.any_instance.stubs(:add_post_request).returns true
-      MessageHandler.any_instance.stubs(:process).returns true
-      @post.notify_friends.should be true
+    it "should send an owners post to their friends" do
+      Post.stub(:build_xml_for).and_return(true) 
+      Post.should_receive(:build_xml_for).and_return true
+      @post.save
     end
   
-    it "should check that it only sends a user's posts to their friends" do
-      Factory.create(:friend, :url => "http://www.bob.com")
-      Factory.create(:friend, :url => "http://www.alice.com")
-      Factory.create(:status_message)
-      Factory.create(:bookmark)
-
-      # this is a messagequeue thing; out of scope for webhooks action
+    it "should check that it does not send a friends post to an owners friends" do
+      Post.stub(:build_xml_for).and_return(true) 
+      Post.should_not_receive(:build_xml_for)
+      Factory.create(:post, :owner => "nottheowner@post.com")
     end
 
-    it "should ensure no duplicate url posts" do
-      pending
-      # this is a messagequeue thing; out of scope for webhooks action
-      
+    it "should ensure one url is created for every friend" do
+      5.times {Factory.create(:friend)}
+      @post.friends_with_permissions.size.should == 5
     end
 
     it "should build an xml object containing multiple Post types" do
