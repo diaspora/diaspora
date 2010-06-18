@@ -3,7 +3,7 @@ module Diaspora
   module Webhooks
     def self.included(klass)
       klass.class_eval do
-        before_save :notify_friends
+      after_save :notify_friends
 
         @@queue = MessageHandler.new
         

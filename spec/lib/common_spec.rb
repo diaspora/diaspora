@@ -1,11 +1,13 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+
 include Diaspora
 
 describe Diaspora do
 
   describe Webhooks do
     before do
+      @user = Factory.create(:user)
       @post = Factory.build(:post)
     end
 
@@ -30,11 +32,35 @@ describe Diaspora do
     end
 
     it "should send all prepped webhooks to be processed" do
-      MessageHandler.any_instance.stubs(:add_post_request).returns(true)
-      MessageHandler.any_instance.stubs(:process).returns(true)
+      MessageHandler.any_instance.stubs(:add_post_request).returns true
+      MessageHandler.any_instance.stubs(:process).returns true
       @post.notify_friends.should be true
     end
+  
+    it "should check that it only sends a user's posts to their friends" do
+      Factory.create(:friend, :url => "http://www.bob.com")
+      Factory.create(:friend, :url => "http://www.alice.com")
+      Factory.create(:status_message)
+      Factory.create(:bookmark)
 
+      # this is a messagequeue thing; out of scope for webhooks action
+    end
+
+    it "should ensure no duplicate url posts" do
+      pending
+      # this is a messagequeue thing; out of scope for webhooks action
+      
+    end
+
+    it "should build an xml object containing multiple Post types" do
+      Factory.create(:status_message)
+      Factory.create(:bookmark)
+
+      stream = Post.stream
+      xml = Post.build_xml_for(stream)
+      xml.should include "<status_message>"
+      xml.should include "<bookmark>"
+    end
   end
 
 end

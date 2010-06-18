@@ -1,5 +1,5 @@
 class StatusMessagesController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   include StatusMessagesHelper
 
   def index
