@@ -3,7 +3,7 @@ class StatusMessagesController < ApplicationController
   include StatusMessagesHelper
 
   def index
-    @status_messages = StatusMessage.all
+    @status_messages = StatusMessage.criteria.all.order_by( [:created_at, :desc] )
     @friends = Friend.all
 
     respond_to do |format|
