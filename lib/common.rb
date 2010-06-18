@@ -8,9 +8,11 @@ module Diaspora
         @@queue = MessageHandler.new
         
         def notify_friends
-          xml = Post.build_xml_for(self)
-          @@queue.add_post_request( friends_with_permissions, xml )
-          @@queue.process
+         if self.owner == User.first.email
+            xml = Post.build_xml_for(self)
+            @@queue.add_post_request( friends_with_permissions, xml )
+            @@queue.process
+          end
         end
         
         def prep_webhook  
