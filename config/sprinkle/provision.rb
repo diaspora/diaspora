@@ -33,14 +33,14 @@ require 'packages/rails'
 #   the user is requested to select which one to use.
 
 policy :diaspora, :roles => :app do
-  requires :rubygems
-	requires :bundler
+#  requires :rubygems
+#	requires :bundler
 	requires :diaspora_dependencies
 #	requires :diaspora
-  requires :appserver
-  requires :database
+#  requires :appserver
+#  requires :database
 #  requires :webserver
-  requires :scm
+#  requires :scm
 end
 
 
