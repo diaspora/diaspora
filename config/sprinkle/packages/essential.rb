@@ -10,6 +10,5 @@ end
 
 package :tools do
   description 'Useful tools'
-  apt 'psmisc'
-  requires :build_essential
+  apt 'psmisc htop'
 end
