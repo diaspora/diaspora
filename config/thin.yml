@@ -1,14 +1,14 @@
-#rackup: /opt/applications/localhash/current/config.ru
-#pid: /tmp/pids/thin.pid
+rackup: /usr/local/app/diaspora/current/config.ru
+pid: /tmp/pids/thin.pid
 wait: 30
 timeout: 600
-#log: /var/log/thin
-#max_conns: 1024
-#require: []
+log: /usr/local/log/thin
+max_conns: 1024
+require: []
 
-#max_persistent_conns: 512
-environment: production
-#servers: 4
+max_persistent_conns: 512
+#environment: production
+servers: 1
 daemonize: true
 #chdir: /usr/applications/localhash/current
 socket: /tmp/thin.sock
