@@ -17,11 +17,12 @@
 #  set of metadata including its installer type (eg. apt, source, gem, etc). Packages can have
 #  relationships to each other via dependencies.
 
-require 'packages/essential'
-require 'packages/database'
-require 'packages/server'
-require 'packages/scm'
-require 'packages/rails'
+require "#{File.dirname(__FILE__)}/packages/essential"
+require "#{File.dirname(__FILE__)}/packages/database"
+require "#{File.dirname(__FILE__)}/packages/server"
+require "#{File.dirname(__FILE__)}/packages/scm"
+require "#{File.dirname(__FILE__)}/packages/ruby"
+#require "#{File.dirname(__FILE__)}/packages/unfortunately_essential"
 
 # Policies
 #
@@ -33,14 +34,14 @@ require 'packages/rails'
 #   the user is requested to select which one to use.
 
 policy :diaspora, :roles => :app do
+#  requires :clean_dreamhost
+#  requires :tools
 #  requires :rubygems
 #	requires :bundler
-	requires :diaspora_dependencies
-#	requires :diaspora
-#  requires :appserver
+#  requires :diaspora_dependencies
 #  requires :database
-#  requires :webserver
-#  requires :scm
+  requires :webserver
+  requires :scm
 end
 
 
@@ -57,7 +58,7 @@ deployment do
 
   # mechanism for deployment
   delivery :capistrano do
-    recipes './../deploy'
+    recipes "#{File.dirname(__FILE__)}/../deploy"
   end
 
   # source based package installer defaults

@@ -7,3 +7,9 @@ package :build_essential do
     pre :install, 'apt-get update'
   end
 end
+
+package :tools do
+  description 'Useful tools'
+  apt 'psmisc'
+  requires :build_essential
+end
