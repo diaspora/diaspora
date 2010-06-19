@@ -10,7 +10,7 @@ gem "bson_ext", "1.0.1"
 gem "haml"
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
-
+gem 'em-websocket'
 gem 'dm-core'
 
 group :test do

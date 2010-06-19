@@ -37,5 +37,19 @@ describe ApplicationHelper do
     Post.count.should == 2
   end
 
+
+  describe "parsing a sender" do 
+    it 'should be able to parse the sender of a collection' do
+    status_messages = []
+    10.times { status_messages << Factory.build(:status_message)}
+    xml = Post.build_xml_for(status_messages) 
+    end
+
+    it 'should be able to verify the sender as a friend' do 
+      pending 
+    end
+
+  end
+
 end
 
