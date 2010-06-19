@@ -1,6 +1,6 @@
-require 'addressable/uri'
-require 'eventmachine'
-require 'em-http'
+# require 'addressable/uri'
+# require 'eventmachine'
+# require 'em-http'
 
 class MessageHandler 
 
