@@ -19,7 +19,7 @@
       .container
         #huge_star *
         %a#diaspora_text{:href => root_path}
-          /%img{:src => '/images/diaspora_white.png'}
+          %img{:src => '/images/diaspora_white.png'}
 
         #session_action
           - if user_signed_in?
@@ -29,12 +29,9 @@
             
     #header_below
       .container
-        %div.big_text#info_top
-          daniel grippi posted a new update
-          %p.description
-            let's take this into overdrive.
         %ul.nav
           %li= link_to "home", root_path
+          %li= link_to "status messages", status_messages_path 
           %li= link_to "friends", friends_path
 
     .container

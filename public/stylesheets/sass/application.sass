@@ -6,8 +6,6 @@ a
   :color #CC1E14
   :text
     :decoration none
-  :border
-    :bottom dotted 1px #999
 
 h1,
 h2,
@@ -65,12 +63,13 @@ h4
   :background
     :color #1A1A21
   :border
-    :bottom 1px solid #fff
+    :bottom 2px solid #fff
   :padding
     :top 5px
 
 
   #huge_star
+    :display none
     :position absolute
     :font
       :family 'helvetica neue', 'helvetica', 'arial', 'sans-serif'
@@ -80,7 +79,9 @@ h4
     :top -15px
 
   #diaspora_text
+    :position absolute
     :border none
+    :top 8px
     
 
   #session_action
@@ -95,17 +96,17 @@ h4
 
 
 ul.nav
+  :position absolute
   :padding 0
   :margin 0
   :font
     :size 130%
-  :position absolute
-  :margin-top -62px
+  :bottom 2px
 
   li
     :display inline
     :margin
-      :right 1em
+      :right 0.5em
     :padding 5px 10px
     :background #F2F8FC
     :border 1px solid #fff
@@ -113,6 +114,8 @@ ul.nav
 
   li:first-child
     :background #fff
+    a
+      :color #1A1A21
 
   li:last-child
     :margin 0
@@ -125,13 +128,15 @@ ul.nav
       :color #ccc
 
 
-
-
-
 #header_below
+  :position relative
   :background
     :color #e6eff7
   :text-align right
+  :height 70px
+  :margin
+    :bottom 40px
+    
 
 #left_pane
   :background
@@ -146,32 +151,42 @@ ul#stream
   :color #666
   > li
     :list-style none
-    :padding 2em
-    :-webkit-box-shadow 0 4px 5px -5px #999
-    :min-height 40px
+    :padding 1em
+    //:-webkit-box-shadow 0 4px 5px -5px #999
+    :border
+      :bottom 1px solid #f1f1f1
 
     img.avatar
+      :width 45px
       background: #fff
-      padding: 2px
-      :border 1px solid #eaeaea
-      :border-radius 3px
 
 
 sp.message
+  :position absolute
+  :float left
+  :margin
+    :left 10px
+    :top -2px
+  :line-height 17px
   :font
     :size 120%
-  :color #999
+    :family 'Lucida Grande'
+  :color #666
   :text-shadow none
+  :width 480px 
 
   sp.from
     :color #000
+    :font
+      :weight bold
 
   sp.time
-    :color #ccc
-    :font-size 80%
+    :color #bababa
+    :font-size 70%
 
 
 div.big_text
+  :position relative
   :font
     :size 24px
     :weight bold
@@ -186,8 +201,21 @@ div.big_text
     :font
       :size 300%
     :line-height 100%
-    a
-      :border none
+
+  .filters
+    :position absolute
+    :right 0
+    :display inline
+    :font
+      :size 12px
+      :weight normal
+
+div.small_text
+  :position relative
+  :font
+    :size 18px 
+    :weight bold
+
   
 
 #publish
@@ -196,16 +224,35 @@ div.big_text
       :size 30px
     :padding 7px
     :border-radius 5px
-    :width 90%
+    :width 100%
+    :margin
+      :bottom 1em
 
 
 #profile_image
+  :display inline block
   :margin
     :top 0
   :width 100px
-
   :border 2px solid #eaeaea
 
-.yellow
-  :background #FFFDB8
-  :border 1px solid #E3E08D
+
+form
+  :font
+    :size 130%
+
+  input
+    :font
+      :size 150%
+    :padding 0.2em
+
+.centered
+  :text-align center
+
+.info_pane
+  :padding 1em
+  :background
+    :color #1A1A21
+  :color #f5fafd
+  :margin
+    :bottom 1em
