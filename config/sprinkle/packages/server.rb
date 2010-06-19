@@ -7,7 +7,7 @@ end
 
 package :nginx_conf, :provides=> :webserver do
   description 'Nginx conf file'
-  transfer "#{File.dirname(__FILE__)}/../conf/nginx.conf", '/usr/local/sbin/conf/nginx.conf', :render => true do
+  transfer "#{File.dirname(__FILE__)}/../conf/nginx.conf", '/usr/local/conf/nginx.conf', :render => true do
     pre :install, "mkdir -p /usr/local/sbin/conf/"
   end
   requires :nginx
