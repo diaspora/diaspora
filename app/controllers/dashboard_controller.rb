@@ -4,7 +4,8 @@ class DashboardController < ApplicationController
   include ApplicationHelper
 
   def index
-    @posts = Post.stream
+    posts = Post.all.order_by( [:created_at, :desc] )
+    @posts = posts
   end
 
 
