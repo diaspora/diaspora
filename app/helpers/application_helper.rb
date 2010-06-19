@@ -12,7 +12,7 @@ module ApplicationHelper
 
     #i need to check some sort of metadata field
 
-    doc.xpath("//post").each do |post| #this is the post wrapper
+    doc.xpath("/XML/posts/post").each do |post| #this is the post wrapper
       post.children.each do|type|  #now the text of post itself is the type 
         #type object to xml is the the thing we want to from_xml
         check_and_save_post(type)

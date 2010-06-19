@@ -19,14 +19,28 @@ module Diaspora
         end
 
         def friends_with_permissions
-           Friend.only(:url).map{|x| x = x.url + "/receive/"}
+           Friend.only(:url).map{|x| x = x.url + "receive/"}
         end
 
         def self.build_xml_for(posts)
-          xml = "<posts>"
+          xml = "<XML>"
+          xml += Post.generate_header
+          xml += "<posts>"
           posts.each {|x| xml << x.prep_webhook}
-          xml = xml + "</posts>"
+          xml += "</posts>"
+          xml += "</XML>"
         end
+
+
+        def self.generate_header
+          "<head>
+            <sender>
+              <email>#{User.first.email}</email>
+              <url>#{User.first.email}</url>
+            </sender>
+          </head>"
+        end
+
       end
     end
   end
