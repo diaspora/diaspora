@@ -35,13 +35,13 @@ require "#{File.dirname(__FILE__)}/packages/ruby"
 
 policy :diaspora, :roles => :app do
 #  requires :clean_dreamhost
-  requires :tools
-  requires :rubygems
-	requires :bundler
-  requires :diaspora_dependencies
-  requires :database
+#  requires :tools
+#  requires :rubygems
+#	requires :bundler
+#  requires :diaspora_dependencies
+#  requires :database
   requires :webserver
-  requires :scm
+#  requires :scm
 end
 
 
