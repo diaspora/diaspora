@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @friends = Friend.all
+    @friends = Friend.criteria.all.order_by( [:created_at, :desc] )
   end
   
   def show

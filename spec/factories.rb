@@ -1,6 +1,7 @@
 #For Guidance
 #http://github.com/thoughtbot/factory_girl
 #http://railscasts.com/episodes/158-factories-not-fixtures
+
 Factory.define :friend do |f|
   f.username 'max'
   f.url  'http://max.com/'

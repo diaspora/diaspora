@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = Bookmark.criteria.all.order_by( [:created_at, :desc] )
   end
   
   def edit

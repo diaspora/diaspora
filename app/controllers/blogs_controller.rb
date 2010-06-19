@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
 
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.criteria.all.order_by( [:created_at, :desc] )
   end
   
   def show

@@ -12,8 +12,9 @@ Diaspora::Application.routes.draw do |map|
   devise_for :users, :path_names  => {:sign_up  => "signup", :sign_in  => "login", :sign_out  => "logout"}
    match 'login', :to => 'devise/sessions#new', :as => "new_user_session"
    match 'logout', :to  => 'devise/sessions#destroy', :as => "destroy_user_session"
-   match 'signup', :to => 'devise/registrations#new', :as => "new_user_registration"
-  
+   #match 'signup', :to => 'devise/registrations#new', :as => "new_user_registration"
+ 
+  match 'receive', :to => 'dashboard#receive'
 
   resources :users
   resources :status_messages

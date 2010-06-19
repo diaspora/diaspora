@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-include StatusMessagesHelper
 
 describe StatusMessage do
   before do
@@ -40,51 +39,12 @@ describe StatusMessage do
     end
   
     it 'should marshal serialized XML to object' do       
-      xml = "<statusmessage>\n  <message>I hate WALRUSES!</message><owner>Bob@rob.ert</owner></statusmessage>" 
+      xml = "<statusmessage><message>I hate WALRUSES!</message><owner>Bob@rob.ert</owner></statusmessage>" 
       parsed = StatusMessage.from_xml(xml)
       parsed.message.should == "I hate WALRUSES!"
       parsed.owner.should == "Bob@rob.ert"
       parsed.valid?.should be_true
     end
   end
-
-  describe "retrieving" do
-    before do
-      @remote = Factory.create(:friend, :url => "fakeurl")#http://localhost:1254/")
-      Curl.stub!(:curl).and_return(@@remote_xml)
-    end
-    it "should marshal xml and serialize it without error" do
-      StatusMessages.from_xml(@@remote_xml).to_xml.to_s.should == @@remote_xml
-    end
-    it "marshal retrieved xml" do
-      remote_msgs = StatusMessage.retrieve_from_friend(@remote)
-      local_msgs = StatusMessages.from_xml(@@remote_xml)
-      remote_msgs.statusmessages.each{ |m| local_msgs.statusmessages.include?(m).should be_true}
-      local_msgs.statusmessages.each{ |m| remote_msgs.statusmessages.include?(m).should be_true}
-    end
-  end
 end
 
-@@remote_xml = 
-"<statusmessages>
-  <statusmessage>
-    <message>jimmy's 22 whales</message>
-    <owner>tester@yahoo.com</owner>
-  </statusmessage>
-  <statusmessage>
-    <message>jimmy's 23 whales</message>
-    <owner>tester@yahoo.com</owner>
-  </statusmessage>
-  <statusmessage>
-    <message>jimmy's 24 whales</message>
-    <owner>tester@yahoo.com</owner>
-  </statusmessage>
-  <statusmessage>
-    <message>jimmy's 25 whales</message>
-    <owner>tester@yahoo.com</owner>
-  </statusmessage>
-  <statusmessage>
-    <message>jimmy's 26 whales</message>
-    <owner>tester@yahoo.com</owner>
-  </statusmessage>
-</statusmessages>"

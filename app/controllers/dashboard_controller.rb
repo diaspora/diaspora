@@ -1,14 +1,15 @@
 class DashboardController < ApplicationController
-  before_filter :authenticate_user!
+  
+  before_filter :authenticate_user!, :except => :receive
+  include ApplicationHelper
 
   def index
-    @posts = Post.all
-    
-    @bookmarks = Bookmark.all
-    @status_messages = StatusMessage.all
-    @blogs = Blog.all
-    #@status_messages = @posts.select{ |x| x._type == "StatusMessage"}
-    #@blogs = @posts.select{ |x| x._type == "Blog"}
-    #@bookmarks = @posts.select{ |x| x._type == "Bookmarks"}
+    @posts = Post.stream
+  end
+
+
+  def receive
+    store_posts_from_xml (params[:xml])
+    render :nothing => true
   end
 end

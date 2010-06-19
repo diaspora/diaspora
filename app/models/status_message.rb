@@ -2,6 +2,8 @@ class StatusMessage < Post
   include StatusMessagesHelper
   require 'lib/net/curl'
  
+  xml_name :status_message
+ 
   xml_accessor :message
   field :message
 
@@ -18,7 +20,7 @@ class StatusMessage < Post
   end
 
   def self.retrieve_from_friend(friend)
-    StatusMessages.from_xml Curl.curl(friend.url+"status_messages.xml")
+    StatusMessages.from_xml Curl.get(friend.url+"status_messages.xml")
   end
 
   def ==(other)

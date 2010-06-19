@@ -1,7 +1,9 @@
 - title "Dashboard"
 
+
 %ul#stream
   - for post in @posts
     %li
       = render "shared/post", :post =>post
+      /= post.inspect
 
