@@ -24,7 +24,6 @@ class MessageHandler
     @queue.pop{ |query|
       case query.type
       when :post
-        puts Addressable::URI::parse(query.destination).inspect
         http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml =>  query.body}
         http.callback { process}
       when :get

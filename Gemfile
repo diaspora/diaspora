@@ -10,7 +10,7 @@ gem "bson_ext", "1.0.1"
 gem "haml"
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
-
+gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
 
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.12'
