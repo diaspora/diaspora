@@ -1,6 +1,6 @@
 class StatusMessage < Post
   include StatusMessagesHelper
-  require 'lib/net/curl'
+  require_relative '../../lib/net/curl'
  
   xml_name :status_message
  

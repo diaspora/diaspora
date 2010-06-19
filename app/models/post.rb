@@ -1,5 +1,5 @@
 class Post 
-  require 'lib/common'
+  require_relative '../../lib/common'
   
   
   # XML accessors must always preceed mongo field tags
