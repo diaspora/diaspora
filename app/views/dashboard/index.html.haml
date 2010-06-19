@@ -13,6 +13,15 @@
 .span-6.last
   %div{ :style => "padding: 1em" }
     %div.big_text
+      daniel grippi
+
+      %img{:src=>"/images/bp.jpeg", :id => "profile_image"}
+      
+
+
+
+
+    %div.big_text
       requests
 
     %div.big_text
@@ -22,8 +31,13 @@
 
 .prepend-2.span-16.last
   %div{ :style => "padding: 1em" }
+
     %div.big_text
-      your feed
+      updates
+
+    /%div#publish
+    /- form_for 'update' do |f|
+    /= f.text_field :thought
 
     %ul#stream
       - for post in @posts
