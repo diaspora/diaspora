@@ -11,6 +11,7 @@ gem "haml"
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
 
+
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.12'
 	gem 'rspec-rails', ">= 2.0.0.beta.8"
