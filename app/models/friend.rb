@@ -9,7 +9,7 @@ class Friend
   field :url
 
   validates_presence_of :username, :url
-  givalidates_format_of :url, :with =>
+  validates_format_of :url, :with =>
     /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
 
   before_validation :clean_url
