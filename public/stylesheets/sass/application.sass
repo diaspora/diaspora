@@ -1,3 +1,7 @@
+body
+  :font
+    :family 'helvetica', 'arial', 'sans-serif'
+
 a
   :color #CC1E14
   :text
@@ -54,51 +58,66 @@ h4
     :margin 0
 
 #header
-  :padding
-    :top 1em
-    :bottom 5em
+  :min-height 35px
   :color #fff
-
   :font
-    :size 120%
-
+    :size 110%
   :background
     :color #1A1A21
-
   :border
-    :bottom 170px solid #e6eff7
+    :bottom 1px solid #fff
 
   #huge_star
     :position absolute
     :font
-      :size 300px
+      :size 80px
     //:background
     //:color #ff3378
-    :top -103px
+    :top -25px
 
   #diaspora_text
     :border none
     
 
   #session_action
+    :display none
     :float right
 
   ul.nav
     :padding 0
     :margin 0
+    :margin-top 6px
     :display block
     :font
       :size 130%
-    :bottom 0
+    :float right
 
     li
       :display inline
       :margin
         :right 1em
 
+    li:last-child
+      :margin 0
     a
       :border
         :bottom none
+      :color #999
+
+      &:hover
+        :color #ccc
+
+
+#header_below
+  :background
+    :color #e6eff7
+  :min-height 150px
+  :line-height 150px
+  :border-bottom 0
+  :position relative
+  :text-align right
+  :z-index -2
+
 
 #left_pane
   :background
@@ -114,28 +133,19 @@ ul#stream
   > li
     :list-style none
     :padding 2em
-    :-webkit-box-shadow 0 4px 5px -5px #000
+    :-webkit-box-shadow 0 4px 5px -5px #999
   > li:first-child
     :padding-top 0
 
 
 sp.message
   :font
-    :size 150%
-  :letter-spacing 0.13em
+    :size 110%
+  :letter-spacing 0.1em
 
-sp.from
-  :font
-    :size 120%
-  :display block
-  :color #999
-  :letter-spacing 0.1em 
+  sp.from
+    :color #999
 
-
-body
-
-  :font
-    :family 'helvetica', 'arial', 'sans-serif'
 
 div.big_text
   :font
@@ -157,7 +167,7 @@ div.big_text
   
 #info_top
   :margin
-    :top -140px
+    :top -130px
     :bottom 50px
 
 #publish
