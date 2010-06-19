@@ -1,6 +1,5 @@
 class StatusMessage < Post
   include StatusMessagesHelper
-  require 'lib/net/curl'
  
   xml_name :status_message
  
@@ -19,9 +18,6 @@ class StatusMessage < Post
     StatusMessage.newest(User.first.email)
   end
 
-  def self.retrieve_from_friend(friend)
-    StatusMessages.from_xml Curl.get(friend.url+"status_messages.xml")
-  end
 
   def ==(other)
     (self.message == other.message) && (self.owner == other.owner)
