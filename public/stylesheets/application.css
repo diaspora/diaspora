@@ -1,5 +1,5 @@
 a {
-  color: #1981f7;
+  color: #cc1e14;
   text-decoration: none;
   border-bottom: dotted 1px #999999; }
 
@@ -50,8 +50,15 @@ h4 {
 
 #header {
   padding-top: 1em;
-  padding-bottom: 1em;
-  margin-bottom: 1em; }
+  padding-bottom: 5em;
+  color: white;
+  font-size: 120%;
+  background-color: #1a1a21;
+  border-bottom: 170px solid #e6eff7; }
+  #header #huge_star {
+    position: absolute;
+    font-size: 300px;
+    top: -103px; }
   #header #diaspora_text {
     border: none; }
   #header #session_action {
@@ -59,20 +66,57 @@ h4 {
   #header ul.nav {
     padding: 0;
     margin: 0;
-    display: block; }
+    display: block;
+    font-size: 130%;
+    bottom: 0; }
     #header ul.nav li {
       display: inline;
       margin-right: 1em; }
+    #header ul.nav a {
+      border-bottom: none; }
+
+#left_pane {
+  background-color: #e6eff7;
+  border-radius: 5px; }
 
 ul#stream {
   margin: 0;
   padding: 0;
-  list-style: none; }
-  ul#stream li {
-    list-style: none; }
+  text-shadow: 0 1px white;
+  color: #666666; }
   ul#stream > li {
-    padding: 2em 0;
-    border-bottom: 1px solid #666666; }
-    ul#stream > li > ul {
-      padding: 0;
-      margin: 0; }
+    list-style: none;
+    padding: 2em;
+    -webkit-box-shadow: 0 4px 5px -5px black; }
+  ul#stream li:first-child {
+    padding-top: 0; }
+
+sp.message {
+  font-size: 150%;
+  letter-spacing: 0.13em; }
+
+sp.from {
+  font-size: 120%;
+  display: block;
+  color: #999999;
+  letter-spacing: 0.1em; }
+
+body {
+  font-family: "helvetica", "arial", "sans-serif"; }
+
+div.big_text {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 36px;
+  margin-bottom: 2em; }
+  div.big_text p.description {
+    font-weight: normal;
+    color: #999999; }
+  div.big_text .big_number {
+    font-size: 300%; }
+    div.big_text .big_number a {
+      border: none; }
+
+#info_top {
+  margin-top: -140px;
+  margin-bottom: 70px; }

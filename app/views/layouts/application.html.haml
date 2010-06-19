@@ -17,8 +17,9 @@
   %body
     #header
       .container
+        #huge_star *
         %a#diaspora_text{:href => root_path}
-          %img{:src => '/images/diaspora.png'}
+          /%img{:src => '/images/diaspora_white.png'}
 
         #session_action
           - if user_signed_in?
@@ -26,13 +27,13 @@
           - else
             = link_to "login", new_user_session_path
             
-        %ul.nav
-          %li= link_to "Home", root_path
-          %li= link_to "Users", users_path
-          %li= link_to "Status Messages", status_messages_path
-          %li= link_to "Friends", friends_path
-          %li= link_to "Bookmarks", bookmarks_path
-          %li= link_to "Blogs", blogs_path 
+        /%ul.nav
+        /%li= link_to "home", root_path
+        /%li= link_to "users", users_path
+        /%li= link_to "status messages", status_messages_path
+        /%li= link_to "friends", friends_path
+        /%li= link_to "bookmarks", bookmarks_path
+        /%li= link_to "blogs", blogs_path 
 
     .container
       - if show_title?

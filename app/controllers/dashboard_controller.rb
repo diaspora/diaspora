@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   include ApplicationHelper
 
   def index
-    @posts = Post.stream
+    @posts = StatusMessage.all
   end
 
 

@@ -1,9 +1,32 @@
-- title "Dashboard"
+
+%div.big_text#info_top
+  welcome home, daniel.
+  %p.description
+    this is your diaspora dashboard, a place where you can catch a
+    = link_to "glimpse", "#"
+    of what all your friends are doing.
 
 
-%ul#stream
-  - for post in @posts
-    %li
-      = render "shared/post", :post =>post
-      /= post.inspect
+
+
+
+.span-6.last
+  %div{ :style => "padding: 1em" }
+    %div.big_text
+      requests
+
+    %div.big_text
+      %div.big_number= link_to "30", "#"
+      new requests
+    
+
+.prepend-2.span-16.last
+  %div{ :style => "padding: 1em" }
+    %div.big_text
+      your feed
+
+    %ul#stream
+      - for post in @posts
+        %li
+          = render "status_messages/pane", :post => post
 

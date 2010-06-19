@@ -1,5 +1,5 @@
 a
-  :color #1981f7
+  :color #CC1E14
   :text
     :decoration none
   :border
@@ -56,9 +56,25 @@ h4
 #header
   :padding
     :top 1em
-    :bottom 1em
-  :margin
-    :bottom 1em
+    :bottom 5em
+  :color #fff
+
+  :font
+    :size 120%
+
+  :background
+    :color #1A1A21
+
+  :border
+    :bottom 170px solid #e6eff7
+
+  #huge_star
+    :position absolute
+    :font
+      :size 300px
+    //:background
+    //:color #ff3378
+    :top -103px
 
   #diaspora_text
     :border none
@@ -71,26 +87,78 @@ h4
     :padding 0
     :margin 0
     :display block
+    :font
+      :size 130%
+    :bottom 0
 
     li
       :display inline
       :margin
         :right 1em
 
+    a
+      :border
+        :bottom none
+
+#left_pane
+  :background
+    :color #E6EFF7
+  :border-radius 5px
+
+
+
 ul#stream
   :margin 0
   :padding 0
-  :list-style none
-
-  li
-    :list-style none
-
+  :text-shadow 0 1px #fff
+  :color #666
   > li
-    :padding 2em 0
-    :border
-      :bottom 1px solid #666
+    :list-style none
+    :padding 2em
+    :-webkit-box-shadow 0 4px 5px -5px #000
+  li:first-child
+    :padding
+      :top 0
 
-    > ul
-      :padding 0
-      :margin 0
+
+sp.message
+  :font
+    :size 150%
+  :letter-spacing 0.13em
+
+sp.from
+  :font
+    :size 120%
+  :display block
+  :color #999
+  :letter-spacing 0.1em 
+
+
+body
+
+  :font
+    :family 'helvetica', 'arial', 'sans-serif'
+
+div.big_text
+  :font
+    :size 24px
+    :weight bold
+  :line-height 36px
+  :margin-bottom 2em
+
+  p.description
+    :font
+      :weight normal
+    :color #999
+
+  .big_number
+    :font
+      :size 300%
+    a
+      :border none
+  
+#info_top
+  :margin
+    :top -140px
+    :bottom 70px
 
