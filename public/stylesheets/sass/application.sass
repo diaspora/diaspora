@@ -58,7 +58,7 @@ h4
     :margin 0
 
 #header
-  :min-height 35px
+  :height 30px
   :color #fff
   :font
     :size 110%
@@ -66,58 +66,72 @@ h4
     :color #1A1A21
   :border
     :bottom 1px solid #fff
+  :padding
+    :top 5px
+
 
   #huge_star
     :position absolute
     :font
-      :size 80px
+      :family 'helvetica neue', 'helvetica', 'arial', 'sans-serif'
+      :size 60px
     //:background
     //:color #ff3378
-    :top -25px
+    :top -15px
 
   #diaspora_text
     :border none
     
 
   #session_action
-    :display none
     :float right
-
-  ul.nav
-    :padding 0
-    :margin 0
-    :margin-top 6px
-    :display block
-    :font
-      :size 130%
-    :float right
-
-    li
-      :display inline
-      :margin
-        :right 1em
-
-    li:last-child
-      :margin 0
+    :font-size 110%
+    :margin-top 1px
     a
-      :border
-        :bottom none
-      :color #999
-
+      :color #ccc
+      :border none
       &:hover
-        :color #ccc
+        :color #fff
+
+
+ul.nav
+  :padding 0
+  :margin 0
+  :font
+    :size 130%
+  :position absolute
+  :margin-top -62px
+
+  li
+    :display inline
+    :margin
+      :right 1em
+    :padding 5px 10px
+    :background #F2F8FC
+    :border 1px solid #fff
+    :border-bottom none
+
+  li:first-child
+    :background #fff
+
+  li:last-child
+    :margin 0
+  a
+    :border
+      :bottom none
+    :color #B1CFE3
+
+    &:hover
+      :color #ccc
+
+
+
 
 
 #header_below
   :background
     :color #e6eff7
-  :min-height 150px
-  :line-height 150px
-  :border-bottom 0
-  :position relative
   :text-align right
-  :z-index -2
-
 
 #left_pane
   :background
@@ -134,17 +148,27 @@ ul#stream
     :list-style none
     :padding 2em
     :-webkit-box-shadow 0 4px 5px -5px #999
-  > li:first-child
-    :padding-top 0
+    :min-height 40px
+
+    img.avatar
+      background: #fff
+      padding: 2px
+      :border 1px solid #eaeaea
+      :border-radius 3px
 
 
 sp.message
   :font
-    :size 110%
-  :letter-spacing 0.1em
+    :size 120%
+  :color #999
+  :text-shadow none
 
   sp.from
-    :color #999
+    :color #000
+
+  sp.time
+    :color #ccc
+    :font-size 80%
 
 
 div.big_text
@@ -152,7 +176,6 @@ div.big_text
     :size 24px
     :weight bold
   :line-height 36px
-  :margin-bottom 2em
 
   p.description
     :font
@@ -162,13 +185,10 @@ div.big_text
   .big_number
     :font
       :size 300%
+    :line-height 100%
     a
       :border none
   
-#info_top
-  :margin
-    :top -130px
-    :bottom 50px
 
 #publish
   input
@@ -181,8 +201,11 @@ div.big_text
 
 #profile_image
   :margin
-    :top 1em
-  :width 240px
+    :top 0
+  :width 100px
 
   :border 2px solid #eaeaea
 
+.yellow
+  :background #FFFDB8
+  :border 1px solid #E3E08D

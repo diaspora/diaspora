@@ -20,21 +20,22 @@
         #huge_star *
         %a#diaspora_text{:href => root_path}
           /%img{:src => '/images/diaspora_white.png'}
-        %ul.nav
-          %li= link_to "home", root_path
-          %li= link_to "users", users_path
-          %li= link_to "status messages", status_messages_path
-          %li= link_to "friends", friends_path
-          %li= link_to "bookmarks", bookmarks_path
-          %li= link_to "blogs", blogs_path 
 
         #session_action
           - if user_signed_in?
-            = link_to "log out", destroy_user_session_path
+            = link_to User.first.email, destroy_user_session_path
           - else
             = link_to "login", new_user_session_path
             
     #header_below
+      .container
+        %div.big_text#info_top
+          daniel grippi posted a new update
+          %p.description
+            let's take this into overdrive.
+        %ul.nav
+          %li= link_to "home", root_path
+          %li= link_to "friends", friends_path
 
     .container
       - if show_title?

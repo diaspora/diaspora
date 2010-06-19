@@ -1,4 +1,10 @@
-%sp.message
-  %sp.from= post.owner
-  = post.message
+%li
+  .span-2.last
+    %img{:src => "/images/mocks/user_pic.jpeg", :height => "35px", :class => "avatar"}
+  .span-13.last
+    %sp.message
+      %sp.from= post.owner
+      = post.message
+      %br
+      %sp.time= "#{time_ago_in_words(post.updated_at)} ago"
 

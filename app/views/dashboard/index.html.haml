@@ -1,38 +1,29 @@
 
-%div.big_text#info_top
-  welcome home, daniel.
-  %p.description
-    this is your diaspora dashboard, a place where you can catch a
-    = link_to "glimpse", "#"
-    of what all your friends are doing.
+/%div.big_text#info_top
+/welcome home, daniel.
+/%p.description
+/this is your diaspora dashboard, a place where you can catch a
+/= link_to "glimpse", "#"
+/of what all your friends are doing.
+
+.span-16.append-2.last
+
+  %div.big_text
+    recent activity
+
+  /%div#publish
+  /- form_for 'StatusMessage' do |f|
+  /= f.text_field :thought
+
+  %ul#stream
+    - for post in @posts
+      = render "status_messages/pane", :post => post
 
 .span-6.last
-  %div{ :style => "padding: 1em" }
-    %div.big_text
-      daniel grippi
+  %div.big_text
+    requests
 
-      %img{:src=>"/images/bp.jpeg", :id => "profile_image"}
-
-    %div.big_text
-      requests
-
-    %div.big_text
-      %div.big_number= link_to "30", "#"
-      new requests
-    
-
-.prepend-2.span-16.last
-  %div{ :style => "padding: 1em" }
-
-    %div.big_text
-      updates
-
-    /%div#publish
-    /- form_for 'update' do |f|
-    /= f.text_field :thought
-
-    %ul#stream
-      - for post in @posts
-        %li
-          = render "status_messages/pane", :post => post
+  %div.big_text
+    %div.big_number= link_to "30", "#"
+    new requests
 
