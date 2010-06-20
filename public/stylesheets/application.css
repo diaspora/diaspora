@@ -1,5 +1,7 @@
 body {
-  font-family: "helvetica", "arial", "sans-serif"; }
+  font-family: "helvetica", "arial", "sans-serif";
+  padding: 2em;
+  margin: 0; }
 
 a {
   color: #cc1e14;
@@ -50,31 +52,29 @@ h4 {
   .error_messages ul {
     margin: 0; }
 
-#header {
+header {
+  margin-top: -2em;
+  margin-right: -2em;
+  margin-left: -2em;
   height: 30px;
   color: white;
-  font-size: 110%;
   background-color: #1a1a21;
   border-bottom: 2px solid white;
   padding-top: 5px; }
-  #header #huge_star {
-    display: none;
-    position: absolute;
-    font-family: "helvetica neue", "helvetica", "arial", "sans-serif";
-    font-size: 60px;
-    top: -15px; }
-  #header #diaspora_text {
+  header #diaspora_text {
     position: absolute;
     border: none;
-    top: 8px; }
-  #header #session_action {
-    float: right;
-    font-size: 110%;
-    margin-top: 1px; }
-    #header #session_action a {
+    top: 8px;
+    left: 1em; }
+  header #session_action {
+    position: absolute;
+    right: 1em;
+    font-size: 120%;
+    margin-top: 2px; }
+    header #session_action a {
       color: #cccccc;
       border: none; }
-      #header #session_action a:hover {
+      header #session_action a:hover {
         color: white; }
 
 ul.nav {
@@ -103,11 +103,13 @@ ul.nav {
       color: #cccccc; }
 
 #header_below {
+  padding: 1em;
   position: relative;
   background-color: #e6eff7;
-  text-align: right;
-  height: 70px;
-  margin-bottom: 40px; }
+  margin-left: -2em;
+  margin-right: -2em;
+  margin-bottom: 40px;
+  height: 20px; }
 
 #left_pane {
   background-color: #e6eff7;
@@ -121,26 +123,32 @@ ul#stream {
   ul#stream > li {
     list-style: none;
     padding: 1em;
-    border-bottom: 1px solid #f1f1f1; }
+    border-bottom: 1px solid #f1f1f1;
+    border-radius: 2px; }
     ul#stream > li img.avatar {
       width: 45px;
       background: white; }
+  ul#stream > li:hover {
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #cccccc; }
+  ul#stream > li:hover .message {
+    color: black; }
+  ul#stream > li:hover .time {
+    color: #666666; }
 
-sp.message {
-  position: absolute;
-  float: left;
+li.message {
   margin-left: 10px;
   margin-top: -2px;
   line-height: 17px;
   font-size: 120%;
   font-family: "Lucida Grande";
-  color: #666666;
-  text-shadow: none;
-  width: 480px; }
-  sp.message sp.from {
+  color: #999999;
+  text-shadow: none; }
+  li.message span.from {
     color: black;
-    font-weight: bold; }
-  sp.message sp.time {
+    font-weight: bold;
+    margin-right: 0.2em; }
+  li.message div.time {
     color: #bababa;
     font-size: 70%; }
 
@@ -167,7 +175,7 @@ div.small_text {
   font-size: 18px;
   font-weight: bold; }
 
-#publish input {
+#publish input#thought {
   font-size: 30px;
   padding: 7px;
   border-radius: 5px;
@@ -181,10 +189,13 @@ div.small_text {
   border: 2px solid #eaeaea; }
 
 form {
-  font-size: 130%; }
+  font-size: 430%;
+  margin: 1em;
+  margin-left: 0em; }
   form input {
     font-size: 150%;
-    padding: 0.2em; }
+    padding: 0.2em;
+    max-width: 100%; }
 
 .centered {
   text-align: center; }
@@ -193,4 +204,5 @@ form {
   padding: 1em;
   background-color: #1a1a21;
   color: #f5fafd;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  border-radius: 2px; }

@@ -15,28 +15,28 @@
     = yield(:head)
   
   %body
-    #header
-      .container
-        #huge_star *
-        %a#diaspora_text{:href => root_path}
-          %img{:src => '/images/diaspora_white.png'}
+    %header
+      %a#diaspora_text{:href => root_path}
+        %img{:src => '/images/diaspora_white.png'}
 
-        #session_action
-          - if user_signed_in?
-            = link_to User.first.email, destroy_user_session_path
-          - else
-            = link_to "login", new_user_session_path
-            
+      #session_action
+        - if user_signed_in?
+          = link_to User.first.email, destroy_user_session_path
+        - else
+          = link_to "login", new_user_session_path
+          
     #header_below
-      .container
+      %nav
         %ul.nav
           %li= link_to "home", root_path
+          %li= link_to "users", users_path
           %li= link_to "status messages", status_messages_path 
+          %li= link_to "bookmarks", bookmarks_path 
+          %li= link_to "blogs", blogs_path 
           %li= link_to "friends", friends_path
 
-    .container
-      - if show_title?
-        %h2= yield(:title)
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
-      = yield
+    - if show_title?
+      %div.big_text= yield(:title)
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}"
+    = yield

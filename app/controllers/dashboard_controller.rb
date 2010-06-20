@@ -4,7 +4,8 @@ class DashboardController < ApplicationController
   include ApplicationHelper
 
   def index
-    @posts = StatusMessage.all
+    @bookmarks = Bookmark.all
+    @messages = StatusMessage.all
   end
 
 

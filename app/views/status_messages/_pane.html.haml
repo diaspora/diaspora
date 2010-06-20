@@ -1,9 +1,7 @@
-%li
-  %img{:src => "/images/mocks/user_pic.jpeg", :class => "avatar"}
-  %sp.message
-    %sp.from= link_to post.owner, "#"
-    /%sp.from Daniel Grippi
-    = post.message
-    %br
-    %sp.time= "#{time_ago_in_words(post.updated_at)} ago"
+%li.message
+  %span.from
+    = link_to post.owner, "#"
+  = post.message
+  %div.time
+    = "#{time_ago_in_words(post.updated_at)} ago"
 

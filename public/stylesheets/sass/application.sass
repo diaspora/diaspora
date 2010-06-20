@@ -1,6 +1,9 @@
 body
   :font
     :family 'helvetica', 'arial', 'sans-serif'
+  :padding 2em
+  :margin 0
+
 
 a
   :color #CC1E14
@@ -55,11 +58,14 @@ h4
   ul
     :margin 0
 
-#header
+header
+  :margin
+    :top -2em
+    :right -2em
+    :left -2em
+
   :height 30px
   :color #fff
-  :font
-    :size 110%
   :background
     :color #1A1A21
   :border
@@ -67,27 +73,19 @@ h4
   :padding
     :top 5px
 
-
-  #huge_star
-    :display none
-    :position absolute
-    :font
-      :family 'helvetica neue', 'helvetica', 'arial', 'sans-serif'
-      :size 60px
-    //:background
-    //:color #ff3378
-    :top -15px
-
   #diaspora_text
     :position absolute
     :border none
     :top 8px
-    
+    :left 1em
 
   #session_action
-    :float right
-    :font-size 110%
-    :margin-top 1px
+    :position absolute
+    :right 1em
+    :font
+      :size 120%
+    :margin
+      :top 2px
     a
       :color #ccc
       :border none
@@ -129,13 +127,15 @@ ul.nav
 
 
 #header_below
+  :padding 1em
   :position relative
   :background
     :color #e6eff7
-  :text-align right
-  :height 70px
   :margin
+    :left -2em
+    :right -2em
     :bottom 40px
+  :height 20px
     
 
 #left_pane
@@ -152,18 +152,30 @@ ul#stream
   > li
     :list-style none
     :padding 1em
-    //:-webkit-box-shadow 0 4px 5px -5px #999
     :border
       :bottom 1px solid #f1f1f1
+
 
     img.avatar
       :width 45px
       background: #fff
+    :border-radius 2px
+
+  > li:hover
+    :background
+      :color #f1f1f1
+    :border
+      :bottom 1px solid #ccc
+  > li:hover .message
+    :color #000
+  > li:hover .time
+    :color #666
+
+    
 
 
-sp.message
-  :position absolute
-  :float left
+
+li.message
   :margin
     :left 10px
     :top -2px
@@ -171,16 +183,17 @@ sp.message
   :font
     :size 120%
     :family 'Lucida Grande'
-  :color #666
+  :color #999
   :text-shadow none
-  :width 480px 
 
-  sp.from
+  span.from
     :color #000
     :font
       :weight bold
+    :margin
+      :right 0.2em
 
-  sp.time
+  div.time
     :color #bababa
     :font-size 70%
 
@@ -216,10 +229,8 @@ div.small_text
     :size 18px 
     :weight bold
 
-  
-
 #publish
-  input
+  input#thought
     :font
       :size 30px
     :padding 7px
@@ -239,12 +250,16 @@ div.small_text
 
 form
   :font
-    :size 130%
+    :size 430%
+  :margin 1em
+  :margin-left 0em
 
   input
     :font
       :size 150%
     :padding 0.2em
+    :max-width 100%
+  
 
 .centered
   :text-align center
@@ -256,3 +271,4 @@ form
   :color #f5fafd
   :margin
     :bottom 1em
+  :border-radius 2px
