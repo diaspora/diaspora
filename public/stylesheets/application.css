@@ -123,13 +123,12 @@ ul#stream {
   ul#stream > li {
     list-style: none;
     padding: 1em;
-    border-bottom: 1px solid #f1f1f1;
-    border-radius: 2px; }
+    border-bottom: 1px solid #f1f1f1; }
     ul#stream > li img.avatar {
       width: 45px;
       background: white; }
   ul#stream > li:hover {
-    background-color: #f1f1f1;
+    background-color: #eeeeee;
     border-bottom: 1px solid #cccccc; }
   ul#stream > li:hover .message {
     color: black; }
