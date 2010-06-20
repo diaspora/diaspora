@@ -2,15 +2,20 @@ source 'http://rubygems.org'
 source 'http://gemcutter.org'
 
 gem 'rails', '3.0.0.beta4'
-gem 'thin'
-gem 'em-http-request', :require => "em-http"
-gem 'addressable', :require => "addressable/uri"
 gem "mongoid", :git => "git://github.com/durran/mongoid.git"
 gem "bson_ext", "1.0.1"
 gem "haml"
 gem "devise", :git => "git://github.com/plataformatec/devise.git"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
+
+
+#mai crazy async stuff
+gem 'em-synchrony',   :git => 'git://github.com/igrigorik/em-synchrony.git',    :require => 'em-synchrony/em-http'
+gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
+gem 'addressable', :require => "addressable/uri"
+
+gem 'thin'
 
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.12'
