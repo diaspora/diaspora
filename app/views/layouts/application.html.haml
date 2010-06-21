@@ -14,6 +14,17 @@
     = csrf_meta_tag
     = yield(:head)
 
+
+    :javascript
+      $(document).ready(function(){
+        $('a').hover(function(){
+          $(this).fadeTo(60, 0.5);
+        }, function(){
+          $(this).fadeTo(80, 1);
+        });
+      });
+      
+
   %body
     %header
       %a#diaspora_text{:href => root_path}
@@ -26,20 +37,22 @@
           = link_to "login", new_user_session_path
           
     #header_below
-      %h1#user_name
-        = User.first.email
-        %span.description= StatusMessage.my_newest.message
-       
-      %img{:src => '/images/mocks/bp.jpeg'}
+      - if user_signed_in?
+        %h1#user_name
+          = link_to User.first.email, root_url
+          %span.description= StatusMessage.my_newest.message
 
-      %nav
-        %ul.nav
-          %li= link_to "home", root_path
-          %li= link_to "users", users_path
-          %li= link_to "status messages", status_messages_path 
-          %li= link_to "bookmarks", bookmarks_path 
-          %li= link_to "blogs", blogs_path 
-          %li= link_to "friends", friends_path
+         
+        %img{:src => '/images/mocks/bp.jpeg'}
+
+        %nav
+          %ul.nav
+            %li= link_to "home", root_path
+            %li= link_to "users", users_path
+            %li= link_to "status messages", status_messages_path 
+            %li= link_to "bookmarks", bookmarks_path 
+            %li= link_to "blogs", blogs_path 
+            %li= link_to "friends", friends_path
 
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
@@ -47,6 +60,5 @@
     %br
     %br
     %br
-    %br
-    %br
-    = yield
+    #content
+      = yield

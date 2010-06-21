@@ -7,6 +7,8 @@ a
   :color #CC1E14
   :text
     :decoration none
+  &:hover
+    :color #CC1E14
 
 #flash_notice,
 #flash_error,
@@ -95,6 +97,8 @@ ul.nav
   :margin 0
   :width 200px
 
+  :margin-top 300px
+
   li
     :display block
     :padding 5px 10px
@@ -128,48 +132,40 @@ ul.nav
   :height 40px
   :width 100%
   :padding 1em
-    :top 4em
-    :bottom 0
+    :top 40px
   :top 0
-
   :background
-    :color rgba( 255, 255, 255, 0.8)
-
-  //:background
-    //:color rgba(230, 239, 247, 0.5)
+    :color rgba( 255, 255, 255, 0.9)
   :margin
     :left -2em
-  
   img
+    :position absolute
     :width 200px
     :border-radius 5px
 
-    
-
+#content  
+  :margin-left 210px
 
 ul#stream
   :margin 0
-  :margin-left 210px
   :padding 0
-  :text-shadow 0 1px #fff
   :color #666
+  :width 60%
+  :min-width 500px
+  :max-width 700px
+
   > li
     :list-style none
     :padding 1em
     :border
       :bottom 1px solid #f1f1f1
-  :width 60%
-  :min-width 500px
-  :max-width 700px
-
 
 li.message
-  :line-height 110%
+  :line-height 140%
   :font
     :size 120%
     :family 'Lucida Grande'
   :color #999
-  :text-shadow none
 
   span.from
     :color #000
@@ -182,7 +178,6 @@ li.message
     :color #bababa
     :font-size 70%
 
-
 h1
   :position relative
   :font
@@ -193,6 +188,7 @@ h1
   p.description, span.description
     :font
       :weight normal
+      :family 'lucida grande'
     :color #999
 
   .big_number
@@ -200,15 +196,7 @@ h1
       :size 300%
     :line-height 100%
 
-  .filters
-    :position absolute
-    :right 0
-    :display inline
-    :font
-      :size 12px
-      :weight normal
-
-div.small_text
+h3
   :position relative
   :font
     :size 18px 
@@ -224,15 +212,6 @@ div.small_text
     :margin
       :bottom 1em
 
-
-#profile_image
-  :display inline block
-  :margin
-    :top 0
-  :width 100px
-  :border 2px solid #eaeaea
-
-
 form
   :font
     :size 430%
@@ -245,15 +224,8 @@ form
     :padding 0.2em
     :max-width 100%
   
-
-.centered
-  :text-align center
-
-.info_pane
-  :padding 1em
-  :background
-    :color #1A1A21
-  :color #f5fafd
-  :margin
-    :bottom 1em
-  :border-radius 2px
+#user_name
+  a
+    :color #000
+    &:hover
+      :color #CC1E14

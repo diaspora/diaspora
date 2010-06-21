@@ -1,9 +1,4 @@
-- title "status messages"
-
-%div.big_text
-  %p.description= my_latest_message
-  %p.description= link_to "New Status Message", new_status_message_path
-
+%h1.big_text= link_to "New Status Message", new_status_message_path
 %ul#stream
   - for status_message in @status_messages
     = render "pane", :post => status_message

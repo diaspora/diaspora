@@ -6,6 +6,8 @@ body {
 a {
   color: #cc1e14;
   text-decoration: none; }
+  a:hover {
+    color: #cc1e14; }
 
 #flash_notice,
 #flash_error,
@@ -78,7 +80,8 @@ ul.nav {
   position: absolute;
   padding: 0;
   margin: 0;
-  width: 200px; }
+  width: 200px;
+  margin-top: 300px; }
   ul.nav li {
     display: block;
     padding: 5px 10px;
@@ -104,20 +107,21 @@ ul.nav {
   height: 40px;
   width: 100%;
   padding: 1em;
-    padding-top: 4em;
-    padding-bottom: 0;
+    padding-top: 40px;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   margin-left: -2em; }
   #header_below img {
+    position: absolute;
     width: 200px;
     border-radius: 5px; }
 
+#content {
+  margin-left: 210px; }
+
 ul#stream {
   margin: 0;
-  margin-left: 210px;
   padding: 0;
-  text-shadow: 0 1px white;
   color: #666666;
   width: 60%;
   min-width: 500px;
@@ -128,11 +132,10 @@ ul#stream {
     border-bottom: 1px solid #f1f1f1; }
 
 li.message {
-  line-height: 110%;
+  line-height: 140%;
   font-size: 120%;
   font-family: "Lucida Grande";
-  color: #999999;
-  text-shadow: none; }
+  color: #999999; }
   li.message span.from {
     color: black;
     font-weight: bold;
@@ -148,18 +151,13 @@ h1 {
   line-height: 36px; }
   h1 p.description, h1 span.description {
     font-weight: normal;
+    font-family: "lucida grande";
     color: #999999; }
   h1 .big_number {
     font-size: 300%;
     line-height: 100%; }
-  h1 .filters {
-    position: absolute;
-    right: 0;
-    display: inline;
-    font-size: 12px;
-    font-weight: normal; }
 
-div.small_text {
+h3 {
   position: relative;
   font-size: 18px;
   font-weight: bold; }
@@ -171,12 +169,6 @@ div.small_text {
   width: 100%;
   margin-bottom: 1em; }
 
-#profile_image {
-  display: inline block;
-  margin-top: 0;
-  width: 100px;
-  border: 2px solid #eaeaea; }
-
 form {
   font-size: 430%;
   margin: 1em;
@@ -186,12 +178,7 @@ form {
     padding: 0.2em;
     max-width: 100%; }
 
-.centered {
-  text-align: center; }
-
-.info_pane {
-  padding: 1em;
-  background-color: #1a1a21;
-  color: #f5fafd;
-  margin-bottom: 1em;
-  border-radius: 2px; }
+#user_name a {
+  color: black; }
+  #user_name a:hover {
+    color: #cc1e14; }
