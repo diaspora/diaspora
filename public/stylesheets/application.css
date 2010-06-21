@@ -7,12 +7,6 @@ a {
   color: #cc1e14;
   text-decoration: none; }
 
-h1,
-h2,
-h3,
-h4 {
-  text-shadow: 1px 1px 1px #eaeaea; }
-
 #flash_notice,
 #flash_error,
 #flash_alert {
@@ -53,6 +47,9 @@ h4 {
     margin: 0; }
 
 header {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
   margin-top: -2em;
   margin-right: -2em;
   margin-left: -2em;
@@ -81,64 +78,57 @@ ul.nav {
   position: absolute;
   padding: 0;
   margin: 0;
-  font-size: 130%;
-  bottom: 2px; }
+  width: 200px; }
   ul.nav li {
-    display: inline;
-    margin-right: 0.5em;
+    display: block;
     padding: 5px 10px;
     background: #f2f8fc;
-    border: 1px solid white;
-    border-bottom: none; }
-  ul.nav li:first-child {
-    background: white; }
-    ul.nav li:first-child a {
-      color: #1a1a21; }
-  ul.nav li:last-child {
-    margin: 0; }
+    border: 1px solid white; }
+  ul.nav li:hover a {
+    color: #666666; }
   ul.nav a {
     border-bottom: none;
     color: #b1cfe3; }
     ul.nav a:hover {
-      color: #cccccc; }
+      color: black; }
+  ul.nav > li:first-child {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px; }
+  ul.nav > li:last-child {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px; }
 
 #header_below {
+  z-index: 5;
+  position: fixed;
+  height: 40px;
+  width: 100%;
   padding: 1em;
-  position: relative;
-  background-color: #e6eff7;
-  margin-left: -2em;
-  margin-right: -2em;
-  margin-bottom: 40px;
-  height: 20px; }
-
-#left_pane {
-  background-color: #e6eff7;
-  border-radius: 5px; }
+    padding-top: 4em;
+    padding-bottom: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-left: -2em; }
+  #header_below img {
+    width: 200px;
+    border-radius: 5px; }
 
 ul#stream {
   margin: 0;
+  margin-left: 210px;
   padding: 0;
   text-shadow: 0 1px white;
-  color: #666666; }
+  color: #666666;
+  width: 60%;
+  min-width: 500px;
+  max-width: 700px; }
   ul#stream > li {
     list-style: none;
     padding: 1em;
     border-bottom: 1px solid #f1f1f1; }
-    ul#stream > li img.avatar {
-      width: 45px;
-      background: white; }
-  ul#stream > li:hover {
-    background-color: #eeeeee;
-    border-bottom: 1px solid #cccccc; }
-  ul#stream > li:hover .message {
-    color: black; }
-  ul#stream > li:hover .time {
-    color: #666666; }
 
 li.message {
-  margin-left: 10px;
-  margin-top: -2px;
-  line-height: 17px;
+  line-height: 110%;
   font-size: 120%;
   font-family: "Lucida Grande";
   color: #999999;
@@ -151,18 +141,18 @@ li.message {
     color: #bababa;
     font-size: 70%; }
 
-div.big_text {
+h1 {
   position: relative;
   font-size: 24px;
   font-weight: bold;
   line-height: 36px; }
-  div.big_text p.description {
+  h1 p.description, h1 span.description {
     font-weight: normal;
     color: #999999; }
-  div.big_text .big_number {
+  h1 .big_number {
     font-size: 300%;
     line-height: 100%; }
-  div.big_text .filters {
+  h1 .filters {
     position: absolute;
     right: 0;
     display: inline;

@@ -3,19 +3,10 @@ body
     :family 'helvetica', 'arial', 'sans-serif'
   :padding 2em
   :margin 0
-
-
 a
   :color #CC1E14
   :text
     :decoration none
-
-h1,
-h2,
-h3,
-h4
-  :text-shadow 1px 1px 1px #eaeaea
-
 
 #flash_notice,
 #flash_error,
@@ -59,6 +50,11 @@ h4
     :margin 0
 
 header
+  :z-index 10
+
+  :position absolute
+  :width 100%
+
   :margin
     :top -2em
     :right -2em
@@ -97,55 +93,63 @@ ul.nav
   :position absolute
   :padding 0
   :margin 0
-  :font
-    :size 130%
-  :bottom 2px
+  :width 200px
 
   li
-    :display inline
-    :margin
-      :right 0.5em
+    :display block
     :padding 5px 10px
     :background #F2F8FC
     :border 1px solid #fff
-    :border-bottom none
-
-  li:first-child
-    :background #fff
+  
+  li:hover
     a
-      :color #1A1A21
+      :color #666
 
-  li:last-child
-    :margin 0
   a
     :border
       :bottom none
     :color #B1CFE3
-
     &:hover
-      :color #ccc
+      :color #000
+
+  > li:first-child
+    :border-top-right-radius 5px
+    :border-top-left-radius 5px
+
+  > li:last-child
+    :border-bottom-right-radius 5px
+    :border-bottom-left-radius 5px
+
 
 
 #header_below
+  :z-index 5 
+  :position fixed
+  :height 40px
+  :width 100%
   :padding 1em
-  :position relative
+    :top 4em
+    :bottom 0
+  :top 0
+
   :background
-    :color #e6eff7
+    :color rgba( 255, 255, 255, 0.8)
+
+  //:background
+    //:color rgba(230, 239, 247, 0.5)
   :margin
     :left -2em
-    :right -2em
-    :bottom 40px
-  :height 20px
-    
+  
+  img
+    :width 200px
+    :border-radius 5px
 
-#left_pane
-  :background
-    :color #E6EFF7
-  :border-radius 5px
+    
 
 
 ul#stream
   :margin 0
+  :margin-left 210px
   :padding 0
   :text-shadow 0 1px #fff
   :color #666
@@ -154,31 +158,13 @@ ul#stream
     :padding 1em
     :border
       :bottom 1px solid #f1f1f1
-
-
-    img.avatar
-      :width 45px
-      background: #fff
-
-  > li:hover
-    :background
-      :color #eee
-    :border
-      :bottom 1px solid #ccc
-  > li:hover .message
-    :color #000
-  > li:hover .time
-    :color #666
-
-    
-
+  :width 60%
+  :min-width 500px
+  :max-width 700px
 
 
 li.message
-  :margin
-    :left 10px
-    :top -2px
-  :line-height 17px
+  :line-height 110%
   :font
     :size 120%
     :family 'Lucida Grande'
@@ -197,14 +183,14 @@ li.message
     :font-size 70%
 
 
-div.big_text
+h1
   :position relative
   :font
     :size 24px
     :weight bold
   :line-height 36px
 
-  p.description
+  p.description, span.description
     :font
       :weight normal
     :color #999

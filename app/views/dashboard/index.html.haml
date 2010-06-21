@@ -1,21 +1,4 @@
-%div.big_text
-  recent activity
-  %div.filters
-    = link_to "displaying all", "#"
 %ul#stream
   - for post in @messages
     = render "status_messages/pane", :post => post
-
-/.span-7.last
-/%div.info_pane
-/%div.big_text
-/%div.big_number= link_to "30", "#"
-/new requests!
-/%div.info_pane
-/%div.big_text
-/your profile
-/%img{:src => "/images/mocks/bp.jpeg", :width => '20%', :class => "profile_image"}
-/%div.info_pane
-/%div.big_text
-/your circle
-/%p= link_to "see all friends", "#"
+    = render "status_messages/pane", :post => post

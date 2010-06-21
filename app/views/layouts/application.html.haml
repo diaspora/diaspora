@@ -13,7 +13,7 @@
     = javascript_include_tag 'rails'
     = csrf_meta_tag
     = yield(:head)
-  
+
   %body
     %header
       %a#diaspora_text{:href => root_path}
@@ -26,6 +26,12 @@
           = link_to "login", new_user_session_path
           
     #header_below
+      %h1#user_name
+        = User.first.email
+        %span.description= StatusMessage.my_newest.message
+       
+      %img{:src => '/images/mocks/bp.jpeg'}
+
       %nav
         %ul.nav
           %li= link_to "home", root_path
@@ -35,8 +41,12 @@
           %li= link_to "blogs", blogs_path 
           %li= link_to "friends", friends_path
 
-    - if show_title?
-      %div.big_text= yield(:title)
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
     = yield
