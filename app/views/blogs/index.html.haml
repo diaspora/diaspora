@@ -1,17 +1,5 @@
-- title "Blogs"
+%h1= link_to "new blog", new_blog_path
 
-%table
-  %tr
-    %th Title
-    %th Body
-    %th Owner
+%ul#stream
   - for blog in @blogs
-    %tr
-      %td= blog.title
-      %td= blog.body
-      %td= blog.owner
-      %td= link_to 'Show', blog
-      %td= link_to 'Edit', edit_blog_path(blog)
-      %td= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "New Blog", new_blog_path
+    = render "pane", :post => blog

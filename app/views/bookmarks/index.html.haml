@@ -1,17 +1,5 @@
-- title "Bookmarks"
+%h1= link_to "new bookmark", new_bookmark_path
 
-%table
-  %tr
-    %th Title
-    %th Link
-    %th Owner
+%ul#stream
   - for bookmark in @bookmarks
-    %tr
-      %td= bookmark.title
-      %td= link_to bookmark.link, bookmark.link
-      %td= bookmark.owner
-      %td= link_to 'Show', bookmark
-      %td= link_to 'Edit', edit_bookmark_path(bookmark)
-      %td= link_to 'Destroy', bookmark, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "New Bookmark", new_bookmark_path
+    = render "pane", :post => bookmark

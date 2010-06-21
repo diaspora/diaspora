@@ -14,32 +14,62 @@
     = javascript_include_tag 'socket'
     = csrf_meta_tag
     = yield(:head)
-  
+
+    :javascript
+      $(document).ready(function(){
+        $('a').hover(function(){
+          $(this).fadeTo(60, 0.5);
+        }, function(){
+          $(this).fadeTo(80, 1);
+        });
+        $('ul.nav li').hover(function(){
+          $(this).fadeTo(60, 0.5);
+        }, function(){
+          $(this).fadeTo(80, 1);
+        });
+      });
+      
+
   %body
-    #header
-      .container
-        %a#diaspora_text{:href => root_path}
-          %img{:src => '/images/diaspora.png'}
+    %header
+      %a#diaspora_text{:href => root_path}
+        %img{:src => '/images/diaspora_white.png'}
 
-        #session_action
-          - if user_signed_in?
-            = link_to "log out", destroy_user_session_path
-          - else
-            = link_to "login", new_user_session_path
-            
-        %ul.nav
-          %li= link_to "Home", root_path
-          %li= link_to "Users", users_path
-          %li= link_to "Status Messages", status_messages_path
-          %li= link_to "Friends", friends_path
-          %li= link_to "Bookmarks", bookmarks_path
-          %li= link_to "Blogs", blogs_path 
+      #session_action
+        - if user_signed_in?
+          =User.first.email
+          |
+          = link_to "logout", destroy_user_session_path
+        - else
+          = link_to "login", new_user_session_path
+          
+    #header_below
+      - if user_signed_in?
+        %h1#user_name
+          = link_to User.first.email, root_url
+          %span.description
+            - if StatusMessage.my_newest
+              = StatusMessage.my_newest.message
 
-    .container
-      - if show_title?
-        %h2= yield(:title)
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
+        %nav
+          %ul.nav
+            %a{ :href => root_path, :title => "Your network stream."}
+              %li home
+            %a{ :href => users_path, :title => "Registered users on your seed."}
+              %li users
+            %a{ :href => status_messages_path, :title => "Recent status messages."}
+              %li status messages
+            %a{ :href => bookmarks_path, :title => "Recently shared links."}
+              %li bookmarks
+            %a{ :href => blogs_path, :title => "Recent blog posts."}
+              %li blogs
+            %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
+              %li friends
+
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}"
+
+    #content
       = yield
 
       #debug

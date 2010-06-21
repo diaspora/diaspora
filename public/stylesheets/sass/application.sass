@@ -1,16 +1,14 @@
+body
+  :font
+    :family 'helvetica', 'arial', 'sans-serif'
+  :padding 2em
+  :margin 0
 a
-  :color #1981f7
+  :color #CC1E14
   :text
     :decoration none
-  :border
-    :bottom dotted 1px #999
-
-h1,
-h2,
-h3,
-h4
-  :text-shadow 1px 1px 1px #eaeaea
-
+  &:hover
+    :color #CC1E14
 
 #flash_notice,
 #flash_error,
@@ -53,44 +51,178 @@ h4
   ul
     :margin 0
 
-#header
-  :padding
-    :top 1em
-    :bottom 1em
+header
+  :z-index 10
+
+  :position fixed
+  :width 100%
+
   :margin
-    :bottom 1em
+    :top -2em
+    :right -2em
+    :left -2em
+
+  :height 30px
+  :color #fff
+  :background
+    :color #1A1A21
+  :border
+    :bottom 2px solid #F2F8FC
+  :padding
+    :top 5px
 
   #diaspora_text
+    :position fixed
     :border none
-    
+    :top 8px
+    :left 1em
 
   #session_action
-    :float right
+    :position fixed
+    :right 1em
+    :font
+      :size 120%
+    :top 7px
+    a
+      :color #ccc
+      :border none
 
-  ul.nav
-    :padding 0
-    :margin 0
+
+ul.nav
+  :position absolute
+  :padding 0
+  :margin 0
+  :width 200px
+  :top 100px
+  :font
+    :size 130%
+
+  li
     :display block
+    :padding 5px 10px
+    :background 
+      :color #F2F8FC
+    :border 1px solid #fff
+  
 
-    li
-      :display inline
-      :margin
-        :right 1em
+    &:first-child
+      :border-top-right-radius 5px
+      :border-top-left-radius 5px
+
+    &:last-child
+      :border-bottom-right-radius 5px
+      :border-bottom-left-radius 5px
+
+  a
+    :color #B1CFE3
+
+#header_below
+  :z-index 5 
+  :position fixed
+  :height 40px
+  :width 100%
+  :padding 1em
+    :top 40px
+  :top 0
+  :background
+    :color rgba( 255, 255, 255, 0.9)
+  :margin
+    :left -2em
+  img
+    :position absolute
+    :width 200px
+    :border-radius 5px
+
+#content  
+  :position absolute
+  :left 250px
+  :top 94px
+  :width 60%
+  :min-width 500px
+  :max-width 700px
 
 ul#stream
   :margin 0
   :padding 0
-  :list-style none
-
-  li
-    :list-style none
+  :color #666
 
   > li
-    :padding 2em 0
+    :list-style none
+    :padding 1em
     :border
-      :bottom 1px solid #666
+      :bottom 1px solid #f1f1f1
 
-    > ul
-      :padding 0
-      :margin 0
+li.message
+  :line-height 140%
+  :font
+    :size 120%
+    :family 'Lucida Grande'
+  :color #999
 
+  span.from
+    :color #000
+    :font
+      :weight bold
+    :margin
+      :right 0.2em
+
+  div.time
+    :color #bababa
+    :font-size 70%
+
+h1
+  :position relative
+  :font
+    :size 24px
+    :weight bold
+  :line-height 36px
+
+  p.description, span.description
+    :font
+      :weight 200
+      :family 'helvetica neue', 'lucida grande', 'sans-serif'
+    :color #999
+    :padding 0.1em
+
+.big_number
+  :font
+    :weight bold
+    :size 500%
+  :line-height 100%
+
+h3
+  :position relative
+  :font
+    :size 18px 
+    :weight bold
+
+#publish
+  input#thought
+    :font
+      :size 30px
+    :padding 7px
+    :border-radius 5px
+    :width 100%
+    :margin
+      :bottom 1em
+
+form
+  :font
+    :size 130%
+  :margin 1em
+  :margin-left 0em
+
+  input
+    :font
+      :size 150%
+    :padding 0.2em
+    :max-width 100%
+  
+#user_name
+  a
+    :color #000
+    &:hover
+      :color #CC1E14
+  :background
+    :color rgba( 255, 255, 255, 0.5)
+    

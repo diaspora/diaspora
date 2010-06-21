@@ -4,6 +4,7 @@ class StatusMessagesController < ApplicationController
   def index
     @status_messages = StatusMessage.criteria.all.order_by( [:created_at, :desc] )
     @friends = Friend.all
+    @posts = Post.stream
 
     respond_to do |format|
       format.html 

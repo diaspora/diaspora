@@ -1,20 +1,5 @@
-- title "Home"
-
-%h3 Your latest message
-%h2= my_latest_message
-
-%br
-%br
-%br
-
-%h3 Messages
-%ul
+%h1.big_text= link_to "new status message", new_status_message_path
+%ul#stream
   - for status_message in @status_messages
-    %li
-      = "#{status_message.message} by #{status_message.owner} #{time_ago_in_words(status_message.created_at)} ago"
-      = link_to 'Show', status_message
-      |
-      =link_to 'Destroy', status_message, :confirm => 'Are you sure?', :method => :delete
+    = render "pane", :post => status_message
 
-
-%p= link_to "New Status Message", new_status_message_path

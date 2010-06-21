@@ -1,9 +1,4 @@
-- title "Dashboard"
-
-
+%h1 your network stream
 %ul#stream
   - for post in @posts
-    %li
-      = render "shared/post", :post =>post
-      /= post.inspect
-
+    = render type_partial(post), :post => post
