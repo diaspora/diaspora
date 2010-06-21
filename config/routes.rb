@@ -3,7 +3,6 @@ Diaspora::Application.routes.draw do |map|
   resources :bookmarks
   resources :friends
   resources :status_messages
-  resources :status_messages
   
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file

@@ -1,5 +1,5 @@
 %h1.big_text= link_to "new status message", new_status_message_path
 %ul#stream
   - for status_message in @status_messages
-    = render "pane", :post => status_message
+    = render "status_message", :post => status_message
 

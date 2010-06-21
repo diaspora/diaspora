@@ -29,4 +29,7 @@ module ApplicationHelper
     end
   end
 
+  def mine?(post)
+    post.owner == User.first.email
+  end
 end

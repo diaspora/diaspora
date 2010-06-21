@@ -1,6 +1,5 @@
 !!!
 %html
-  
   %head
     %title
       = yield(:title) || "Untitled"
@@ -11,7 +10,7 @@
     = javascript_include_tag 'jquery142'
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
     = javascript_include_tag 'rails'
-    = javascript_include_tag 'socket'
+    = javascript_include_tag 'socket' if user_signed_in?
     = csrf_meta_tag
     = yield(:head)
 
@@ -28,7 +27,6 @@
           $(this).fadeTo(80, 1);
         });
       });
-      
 
   %body
     %header

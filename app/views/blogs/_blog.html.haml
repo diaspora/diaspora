@@ -1,0 +1,11 @@
+%li.message{:class => ("mine" if mine?(post))}
+  %span.from
+    = link_to post.owner, "#"
+    %b wrote a new blog post
+    %br
+  %b= post.title
+  %br
+  = post.body
+  %div.time= link_to "#{time_ago_in_words(post.updated_at)} ago", blog_path(post)
+  - if mine?(post)
+    = link_to 'Destroy', blog_path(post), :confirm => 'Are you sure?', :method => :delete

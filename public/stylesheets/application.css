@@ -131,7 +131,8 @@ li.message {
   line-height: 140%;
   font-size: 120%;
   font-family: "Lucida Grande";
-  color: #999999; }
+  color: #999999;
+  margin-bottom: 5px; }
   li.message span.from {
     color: black;
     font-weight: bold;
@@ -139,6 +140,9 @@ li.message {
   li.message div.time {
     color: #bababa;
     font-size: 70%; }
+
+.mine {
+  background-color: rgba(202, 237, 204, 0.5); }
 
 h1 {
   position: relative;
