@@ -45,7 +45,7 @@
     #header_below
       - if user_signed_in?
         %h1#user_name
-          = link_to User.first.email, root_url
+          = link_to User.first.real_name, root_url
           %span.description
             - if StatusMessage.my_newest
               = StatusMessage.my_newest.message
