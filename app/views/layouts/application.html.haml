@@ -14,10 +14,14 @@
     = csrf_meta_tag
     = yield(:head)
 
-
     :javascript
       $(document).ready(function(){
         $('a').hover(function(){
+          $(this).fadeTo(60, 0.5);
+        }, function(){
+          $(this).fadeTo(80, 1);
+        });
+        $('ul.nav li').hover(function(){
           $(this).fadeTo(60, 0.5);
         }, function(){
           $(this).fadeTo(80, 1);
@@ -32,7 +36,9 @@
 
       #session_action
         - if user_signed_in?
-          = link_to User.first.email, destroy_user_session_path
+          =User.first.email
+          |
+          = link_to "logout", destroy_user_session_path
         - else
           = link_to "login", new_user_session_path
           
@@ -40,25 +46,28 @@
       - if user_signed_in?
         %h1#user_name
           = link_to User.first.email, root_url
-          %span.description= StatusMessage.my_newest.message
-
-         
-        %img{:src => '/images/mocks/bp.jpeg'}
+          %span.description
+            - if StatusMessage.my_newest
+              = StatusMessage.my_newest.message
 
         %nav
           %ul.nav
-            %li= link_to "home", root_path
-            %li= link_to "users", users_path
-            %li= link_to "status messages", status_messages_path 
-            %li= link_to "bookmarks", bookmarks_path 
-            %li= link_to "blogs", blogs_path 
-            %li= link_to "friends", friends_path
+            %a{ :href => root_path, :title => "Your network stream."}
+              %li home
+            %a{ :href => users_path, :title => "Registered users on your seed."}
+              %li users
+            %a{ :href => status_messages_path, :title => "Recent status messages."}
+              %li status messages
+            %a{ :href => bookmarks_path, :title => "Recently shared links."}
+              %li bookmarks
+            %a{ :href => blogs_path, :title => "Recent blog posts."}
+              %li blogs
+            %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
+              %li friends
 
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
-    %br
-    %br
-    %br
-    %br
+
     #content
       = yield
+

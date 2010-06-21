@@ -1,5 +1,4 @@
-%h3 home
+%h1 your network stream
 %ul#stream
-  - for post in @messages
-    = render "status_messages/pane", :post => post
-    = render "status_messages/pane", :post => post
+  - for post in @posts
+    = render type_partial(post), :post => post

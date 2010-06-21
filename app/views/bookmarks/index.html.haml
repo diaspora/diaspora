@@ -1,7 +1,4 @@
-- title "Bookmarks"
-
-%h1
-  %p.description= link_to "New Bookmark", new_bookmark_path
+%h1= link_to "new bookmark", new_bookmark_path
 
 %ul#stream
   - for bookmark in @bookmarks

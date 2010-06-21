@@ -1,7 +1,11 @@
 %li.message
   %span.from
     = link_to post.owner, "#"
-    = post.message
+    %b wrote a new blog post
+    %br
+  %b= post.title
+  %br
+  = post.body
   %div.time
     = "#{time_ago_in_words(post.updated_at)} ago"
 
