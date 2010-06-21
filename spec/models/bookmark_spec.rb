@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe Bookmark do
+describe Bookmark do 
   it "should have a link" do
     bookmark = Factory.build(:bookmark, :link => nil)
     bookmark.valid?.should be false
@@ -61,7 +61,7 @@ describe Bookmark do
   describe "XML" do
     it 'should serialize to XML' do
       Factory.create(:user)
-      message = Factory.create(:bookmark, :title => "Reddit", :link => "http://reddit.com")
+      message = Factory.create(:bookmark, :title => "Reddit", :link => "http://reddit.com/")
       message.to_xml.to_s.should include "<title>Reddit</title>"
       message.to_xml.to_s.should include "<link>http://reddit.com/</link>"
     end

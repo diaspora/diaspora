@@ -1,0 +1,15 @@
+= Example Rails Sprinkle Deployment Script
+
+The following example shows how you can provision Rails and associated packages onto a remote server (or set of servers).
+
+== Usage:
+
+$> sprinkle -s rails.rb
+
+or in test mode:
+
+$> sprinkle -t -s rails.rb
+
+== Information
+
+For more information, please see: http://github.com/crafterm/sprinkle/tree/master/README.markdown
