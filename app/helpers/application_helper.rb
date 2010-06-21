@@ -28,4 +28,5 @@ module ApplicationHelper
       puts "Not of type post"
     end
   end
+
 end

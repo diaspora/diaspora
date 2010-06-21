@@ -11,6 +11,7 @@
     = javascript_include_tag 'jquery142'
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
     = javascript_include_tag 'rails'
+    = javascript_include_tag 'socket'
     = csrf_meta_tag
     = yield(:head)
   
@@ -40,3 +41,6 @@
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       = yield
+
+      #debug
+      .msg

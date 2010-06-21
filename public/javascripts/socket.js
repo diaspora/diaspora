@@ -6,7 +6,7 @@ $(document).ready(function(){
     ws.onclose = function() { debug("socket closed"); };
     ws.onopen = function() {
       debug("connected...");
-      ws.send("hello server");
-      ws.send("hello again");
+      //ws.send("hello server");
+      // ws.send("hello again");
     };
 });

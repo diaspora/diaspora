@@ -1,6 +1,6 @@
 class Post 
   require_relative '../../lib/common'
-  
+  include ApplicationHelper 
   
   # XML accessors must always preceed mongo field tags
 
@@ -18,6 +18,8 @@ class Post
   field :snippet
 
   before_create :set_defaults
+
+  after_save :send_to_view
 
   @@models = ["StatusMessage", "Bookmark", "Blog"]
 
@@ -37,6 +39,10 @@ class Post
 
 
   protected
+
+  def send_to_view
+    WebSocket.update_clients  (self.to_json)
+  end
 
   def set_defaults
     user_email = User.first.email
