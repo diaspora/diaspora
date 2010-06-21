@@ -15,8 +15,9 @@ gem 'em-synchrony',   :git => 'git://github.com/igrigorik/em-synchrony.git',    
 gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 gem 'rack-fiber_pool', :require => 'rack/fiber_pool'
 gem 'addressable', :require => "addressable/uri"
-
+gem 'em-websocket'
 gem 'thin'
+
 
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.12'
@@ -31,6 +32,5 @@ end
 
 group :development do
   gem "nifty-generators"
-  #gem 'ruby-debug' 
 end
 
