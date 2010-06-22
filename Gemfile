@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0.beta4'
-gem 'mongrel'
 gem 'thin'
 gem 'em-http-request', :require => "em-http", :git => "git://github.com/igrigorik/em-http-request.git"
 gem 'addressable', :require => "addressable/uri"
