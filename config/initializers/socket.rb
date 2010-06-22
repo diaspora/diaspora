@@ -26,8 +26,14 @@ module WebSocket
     end
 }
   #this should get folded into message queue i think?
-  def self.update_clients(json)
-      @channel.push(json) if @channel
+  def self.update_clients(object)
+     view = ActionView::Base.new(ActionController::Base.view_paths, {})  
+     class << view  
+       include ApplicationHelper 
+       include Rails.application.routes.url_helpers
+     end  
+      n = view.render(:partial =>view.type_partial(object), :locals => {:post  => object})  
+      @channel.push(n) if @channel
   end
 
 end

@@ -39,7 +39,7 @@ describe Diaspora do
 
     describe "body" do
       before do
-        @post = Factory.create(:post)
+        @post = Factory.create(:status_message)
       end
 
       it "should add the following methods to Post on inclusion" do
@@ -71,7 +71,7 @@ describe Diaspora do
       it "should check that it does not send a friends post to an owners friends" do
         Post.stub(:build_xml_for).and_return(true) 
         Post.should_not_receive(:build_xml_for)
-        Factory.create(:post, :owner => "nottheowner@post.com")
+        Factory.create(:status_message, :owner => "nottheowner@post.com")
       end
 
       it "should ensure one url is created for every friend" do
