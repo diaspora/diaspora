@@ -27,3 +27,6 @@ group :development do
   #gem 'ruby-debug' 
 end
 
+group :deployment do
+  gem 'sprinkle', :git => "git://github.com/rsofaer/sprinkle.git"
+end
