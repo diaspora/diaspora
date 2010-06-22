@@ -3,6 +3,7 @@
 #http://railscasts.com/episodes/158-factories-not-fixtures
 
 Factory.define :friend do |f|
+  f.real_name 'John Doe'
   f.username 'max'
   f.url  'http://max.com/'
 end
@@ -17,6 +18,7 @@ Factory.define :blog do |b|
 end
 
 Factory.define :user do |u|
+  u.real_name 'Bob Smith'
   u.sequence(:email) {|n| "bob#{n}@aol.com"}
   u.password "bluepin7"
 end

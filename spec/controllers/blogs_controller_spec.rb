@@ -4,8 +4,10 @@ describe BlogsController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
-    User.create(:email => "bob@aol.com", :password => "secret")
-    Blog.create(:title => "hello", :body => "sir")
+    u = Factory.build(:user, :email => "bob@aol.com", :password => "secret")
+    b = Factory.build(:blog, :title => "hello", :body => "sir")
+    u.save
+    b.save
   end
 
  render_views 

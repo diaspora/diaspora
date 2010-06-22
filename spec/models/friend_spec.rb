@@ -2,10 +2,17 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Friend do
 
-  it 'should have a diaspora username and diaspora url' do 
-    n = Factory.build(:friend, :url => "")
+  it 'should require a diaspora username and diaspora url' do 
+    n = Factory.build(:friend, :url => nil)
     n.valid?.should be false
     n.url = "http://max.com/"
+    n.valid?.should be true
+  end
+
+  it 'should require a real name' do
+    n = Factory.build(:friend, :real_name => nil)
+    n.valid?.should be false
+    n.real_name = "John Smith"
     n.valid?.should be true
   end
 
@@ -57,7 +64,7 @@ describe Friend do
    describe "XML" do
     before do
       @f = Factory.build(:friend)
-      @xml = "<friend>\n  <username>#{@f.username}</username>\n  <url>#{@f.url}</url>\n</friend>" 
+      @xml = "<friend>\n  <username>#{@f.username}</username>\n  <url>#{@f.url}</url>\n  <real_name>#{@f.real_name}</real_name>\n</friend>" 
     end
       
     it 'should serialize to XML' do
