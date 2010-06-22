@@ -4,7 +4,10 @@
     %b shared a link
     %br
   = post.title
-  = link_to post.link.to_s, post.link
+  /- (foo = post.link.to_s)
+  /- (bar = post.link)
+  %a{:href => "#{post.link}"}
+    = post.link
   %div.time= link_to "#{time_ago_in_words(post.updated_at)} ago", bookmark_path(post)
   - if mine?(post)
     = link_to 'Destroy', bookmark_path(post), :confirm => 'Are you sure?', :method => :delete
