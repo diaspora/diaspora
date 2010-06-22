@@ -34,3 +34,6 @@ group :development do
   gem "nifty-generators"
 end
 
+group :deployment do
+  gem 'sprinkle', :git => "git://github.com/rsofaer/sprinkle.git"
+end
