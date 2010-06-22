@@ -15,7 +15,7 @@ module WebSocket
       end
     end
     
-    EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080) do |ws|
+    EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug => true) do |ws|
       ws.onopen {
         sid = @channel.subscribe { |msg| ws.send msg }
         

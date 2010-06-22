@@ -4,8 +4,7 @@
     %b shared a link
     %br
   = post.title
-  /- (foo = post.link.to_s)
-  /- (bar = post.link)
+
   %a{:href => "#{post.link}"}
     = post.link
   %div.time= link_to "#{time_ago_in_words(post.updated_at)} ago", bookmark_path(post)
