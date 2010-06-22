@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe BookmarksController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
+
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
     @bob = Factory.build(:user)
     @bookmark = Factory.build(:bookmark) 
@@ -31,7 +32,7 @@ describe BookmarksController do
   it "update action should redirect when model is valid" do
     #TODO(dan) look into why we need to create a new bookmark object here
     Bookmark.any_instance.stubs(:valid?).returns(true)
-    n = Factory.create(:bookmark, :link => "http://hotub.com")
+    n = Factory.create(:bookmark, :link => "http://hotub.com/")
     n.save 
     put :update, :id => Bookmark.first.id
     response.should redirect_to(bookmark_url(assigns[:bookmark]))

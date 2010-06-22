@@ -10,7 +10,9 @@ describe Post do
 
   describe 'defaults' do
     before do
-      @post = Factory.create(:post, :owner => nil, :source => nil, :snippet => nil)    
+      WebSocket.stub!(:update_clients)
+      @post = Factory.create(:post, :owner => nil, :source => nil, :snippet => nil)
+
     end
 
     it "should add an owner if none is present" do
