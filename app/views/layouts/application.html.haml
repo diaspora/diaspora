@@ -10,7 +10,7 @@
     = javascript_include_tag 'jquery142'
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
     = javascript_include_tag 'rails'
-    
+    = javascript_include_tag 'jquery_form'
     - unless request.user_agent.include? "Safari" ||"Chrome"
       = javascript_include_tag 'FABridge'
       = javascript_include_tag 'swfobject'
@@ -35,6 +35,19 @@
         }, function(){
           $(this).fadeTo(80, 1);
         });
+        
+        // wait for the DOM to be loaded 
+            // bind 'myForm' and provide a simple callback function 
+            $('#new_status_message').ajaxForm(function() { 
+                alert("Thank you for your comment!"); 
+            });
+            $('#new_bookmark').ajaxForm(function() { 
+                alert("Thank you for your comment!"); 
+            }); 
+            
+            $('#new_blog').ajaxForm(function() { 
+                alert("Thank you for your comment!"); 
+            });
       });
 
   %body
