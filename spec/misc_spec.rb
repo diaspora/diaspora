@@ -4,7 +4,7 @@ describe 'making sure the spec runner works' do
 
   it 'should not delete the database mid-spec' do
     User.count.should == 0
-    billy = User.create(:email => "billy@aol.com", :password => "foobar")
+    Factory.create(:user)
     User.count.should == 1
   end
   
@@ -14,7 +14,7 @@ describe 'making sure the spec runner works' do
   
   describe 'testing a before do block' do
     before do
-      @bill = User.create(:email => "billy@aol.com", :password => "foobar")
+      Factory.create(:user)
       
     end
     
