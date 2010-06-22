@@ -41,7 +41,7 @@ class Post
   protected
 
   def send_to_view
-    WebSocket.update_clients  (self.to_json)
+    WebSocket.update_clients(self)
   end
 
   def set_defaults

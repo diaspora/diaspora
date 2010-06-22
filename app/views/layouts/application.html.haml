@@ -10,6 +10,15 @@
     = javascript_include_tag 'jquery142'
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
     = javascript_include_tag 'rails'
+    
+    - unless request.user_agent.include? "Safari" ||"Chrome"
+      = javascript_include_tag 'FABridge'
+      = javascript_include_tag 'swfobject'
+      = javascript_include_tag 'web_socket'
+      :javascript
+          WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
+    
+    
     = javascript_include_tag 'socket' if user_signed_in?
     = csrf_meta_tag
     = yield(:head)
@@ -42,6 +51,7 @@
           = link_to "login", new_user_session_path
           
     #header_below
+      
       - if user_signed_in?
         %h1#user_name
           = link_to User.first.real_name, root_url

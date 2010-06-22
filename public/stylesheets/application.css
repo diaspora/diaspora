@@ -125,14 +125,14 @@ ul#stream {
   ul#stream > li {
     list-style: none;
     padding: 1em;
-    border-bottom: 1px solid #f1f1f1; }
+    border-bottom: 1px solid #f1f1f1;
+    margin-bottom: 5px; }
 
 li.message {
   line-height: 140%;
   font-size: 120%;
   font-family: "Lucida Grande";
-  color: #999999;
-  margin-bottom: 5px; }
+  color: #999999; }
   li.message span.from {
     color: black;
     font-weight: bold;
