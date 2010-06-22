@@ -2,9 +2,6 @@ require 'em-websocket'
 require 'eventmachine'
 
 module WebSocket
-  
-  #mattr_accessor :channel
-
   EM.next_tick {
     EM.add_timer(0.1) do
       @channel = EM::Channel.new
@@ -29,7 +26,7 @@ module WebSocket
 
       }
     end
-}
+  }
   #this should get folded into message queue i think?
   def self.update_clients(object)
 
