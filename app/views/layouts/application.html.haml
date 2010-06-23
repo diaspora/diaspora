@@ -38,6 +38,10 @@
           };
           });
   %body
+  
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}"
+    
     %header
       %a#diaspora_text{:href => root_path}
         %img{:src => '/images/diaspora_white.png'}
@@ -73,8 +77,6 @@
             %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
               %li friends
 
-    - flash.each do |name, msg|
-      = content_tag :div, msg, :id => "flash_#{name}"
 
     #content
       = yield

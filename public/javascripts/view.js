@@ -15,12 +15,11 @@ $(document).ready(function(){
 		$(this).val("")
 	});
 	
-	
-	$(".button").click(function() {
-		$('button[type=submit] .default').click(function() {
-			$('#status_message_message').delay(2000).val("");
-		})
+	$('#status_message_submit').click(function() {
+		$('#status_message_message').val("");
 	});
+	
+	$('#flash_notice, #flash_error, #flash_alert').delay(1500).slideUp(130);
 	
 	
 	
