@@ -6,7 +6,7 @@ class Friend < Person
 
   validates_presence_of :url
   validates_format_of :url, :with =>
-    /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
+     /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
     
   #validate {self.url ! = User.first.url}
 
