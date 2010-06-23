@@ -17,6 +17,10 @@ class Post
   field :source
   field :snippet
 
+
+  belongs_to_related :person
+  
+
   before_create :set_defaults
 
   after_save :send_to_view
@@ -50,6 +54,7 @@ class Post
     self.owner ||= user_email
     self.source ||= user_email
     self.snippet ||= user_email
+    self.person ||= User.first
   end
 end
 

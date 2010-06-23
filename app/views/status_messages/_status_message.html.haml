@@ -1,6 +1,6 @@
 %li.message{:class => ("mine" if mine?(post))}
   %span.from
-    = link_to post.owner, "#"
+    = link_to post.person.real_name, "#"
     = post.message
   %div.time
     = "#{time_ago_in_words(post.updated_at)} ago"
