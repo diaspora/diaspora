@@ -1,16 +1,8 @@
-- title "Friend"
+  %h1= "#{@friend.real_name}'s network stream"
 
-%p
-  %strong Real Name:
-  = @friend.real_name
-%p
-  %strong Email:
-  = @friend.email
-%p
-  %strong Url:
-  = @friend.url
-
-%p
-  = link_to "Destroy", @friend, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", friends_path
+  - if @posts
+    %ul#stream
+      - for post in @posts
+        = render type_partial(post), :post => post
+  - else
+    %h3 no posts to display!

@@ -7,6 +7,7 @@ class FriendsController < ApplicationController
   
   def show
     @friend = Friend.first(:conditions=> {:id => params[:id]})
+    @friend_posts = @friend.posts
   end
   
   def destroy

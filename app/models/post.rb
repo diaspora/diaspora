@@ -41,7 +41,6 @@ class Post
     yield self 
   end
 
-
   protected
 
   def send_to_view
