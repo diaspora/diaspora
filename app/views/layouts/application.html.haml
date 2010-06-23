@@ -2,7 +2,7 @@
 %html
   %head
     %title
-      = yield(:title) || "Untitled"
+      = yield(:title) || "diaspora"
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
@@ -29,13 +29,14 @@
 
           ws = new WebSocket("ws://#{request.host}:8080/");
           ws.onmessage = function(evt) { 
-          $("#stream").prepend($(evt.data).fadeIn("fast")); 
-          };
+            var obj = jQuery.parseJSON(evt.data);
+             if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
+                $("#stream").prepend($(obj['html']).fadeIn("fast")); 
+             };
+          }
           ws.onclose = function() { debug("socket closed"); };
           ws.onopen = function() {
           debug("connected...");
-            //ws.send("hello server");
-            // ws.send("hello again");
           };
           });
         
@@ -55,16 +56,16 @@
         
         // wait for the DOM to be loaded 
             // bind 'myForm' and provide a simple callback function 
-            $('#new_status_message').ajaxForm(function() { 
-                alert("Thank you for your comment!"); 
-            });
-            $('#new_bookmark').ajaxForm(function() { 
-                alert("Thank you for your comment!"); 
-            }); 
-            
-            $('#new_blog').ajaxForm(function() { 
-                alert("Thank you for your comment!"); 
-            });
+        $('#new_status_message').ajaxForm(function() { 
+            alert("Thank you for your comment!"); 
+        });
+        $('#new_bookmark').ajaxForm(function() { 
+            alert("Thank you for your comment!"); 
+        }); 
+        
+        $('#new_blog').ajaxForm(function() { 
+            alert("Thank you for your comment!"); 
+        });
       });
 
   %body

@@ -32,6 +32,7 @@ end
 
 group :development do
   gem "nifty-generators"
+  gem "ruby-debug"
 end
 
 group :deployment do
