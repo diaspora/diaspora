@@ -7,25 +7,42 @@ module ApplicationHelper
     object.attributes.keys 
   end
 
-  def store_posts_from_xml(xml)
+  def parse_sender_id_from_xml(xml)
     doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
-
-    #i need to check some sort of metadata field
-
-    doc.xpath("/XML/posts/post").each do |post| #this is the post wrapper
-      post.children.each do|type|  #now the text of post itself is the type 
-        #type object to xml is the the thing we want to from_xml
-        check_and_save_post(type)
-      end
-    end
+    doc.xpath("/XML/head/sender/email").text.to_s
+  end
+  
+  def parse_sender_object_from_xml(xml)
+    sender_id = parse_sender_id_from_xml(xml)
+    Person.where(:email => sender_id).first
   end
 
-  def check_and_save_post(type)
-    begin
-      object = type.name.camelize.constantize.from_xml type.to_s
-      object.save if object.is_a? Post
-    rescue
-      puts "Not of type post"
+  def parse_body_contents_from_xml(xml)
+    doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
+    doc.xpath("/XML/posts/post")
+  end
+
+  def parse_posts_from_xml(xml)
+    posts = []
+    body = parse_body_contents_from_xml(xml)
+    body.children.each do |post|
+      begin
+        object = post.name.camelize.constantize.from_xml post.to_s
+        posts << object if object.is_a? Post
+      rescue
+        puts "Not a real type: #{post.to_s}"
+      end
+    end
+    posts
+  end
+
+  def store_posts_from_xml(xml)
+    sender_object = parse_sender_object_from_xml(xml)
+    posts = parse_posts_from_xml(xml)
+
+    posts.each do |p|
+      p.person = sender_object
+      p.save
     end
   end
 

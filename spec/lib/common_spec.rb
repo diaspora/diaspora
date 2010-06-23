@@ -29,11 +29,7 @@ describe Diaspora do
       end
 
       it "should provide the owner's email" do
-        @xml.should include "<email>bob@aol.com</email>"
-      end
-
-      it "should provide the owner's url" do
-        pending "user does not have url field"
+        @xml.should include "<email>#{User.first.email}</email>"
       end
     end
 
