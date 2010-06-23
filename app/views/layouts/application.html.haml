@@ -19,12 +19,29 @@
           WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
     
     
-    = javascript_include_tag  'socket' if user_signed_in?
     = csrf_meta_tag
     = yield(:head)
 
+    -  if user_signed_in?
+      :javascript
+          $(document).ready(function(){
+          function debug(str){ $("#debug").append("<p>" +  str); };
+
+          ws = new WebSocket("ws://#{request.host}:8080/");
+          ws.onmessage = function(evt) { 
+          $("#stream").prepend($(evt.data).fadeIn("fast")); 
+          };
+          ws.onclose = function() { debug("socket closed"); };
+          ws.onopen = function() {
+          debug("connected...");
+            //ws.send("hello server");
+            // ws.send("hello again");
+          };
+          });
+        
     :javascript
       $(document).ready(function(){
+        
         $('a').hover(function(){
           $(this).fadeTo(60, 0.5);
         }, function(){

@@ -1,4 +1,4 @@
-	$(document).ready(function(){
+$(document).ready(function(){
     function debug(str){ $("#debug").append("<p>" +  str); };
 
     ws = new WebSocket("ws://localhost:8080/");
