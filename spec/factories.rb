@@ -4,7 +4,7 @@
 
 Factory.define :friend do |f|
   f.real_name 'John Doe'
-  f.username 'max'
+  f.email 'max@max.com'
   f.url  'http://max.com/'
 end
 

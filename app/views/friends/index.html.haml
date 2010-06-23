@@ -2,11 +2,13 @@
 
 %table
   %tr
-    %th username
+    %th real name
+    %th email
     %th url
   - for friend in @friends
     %tr
-      %td= friend.username
+      %td= friend.real_name
+      %td= friend.email
       %td= friend.url
       %td= link_to 'Show', friend
       %td= link_to 'Destroy', friend, :confirm => 'Are you sure?', :method => :delete

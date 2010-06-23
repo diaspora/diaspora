@@ -36,11 +36,9 @@ module Diaspora
           "<head>
             <sender>
               <email>#{User.first.email}</email>
-              <url>#{User.first.email}</url>
             </sender>
           </head>"
         end
-
       end
     end
   end
