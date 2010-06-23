@@ -2,9 +2,11 @@
 
 %table
   %tr
-    %th User
+    %th Real Name
+    %th email
     %th Password
   - for user in @users
     %tr
+      %td= user.real_name
       %td= user.email
       %td= user.encrypted_password

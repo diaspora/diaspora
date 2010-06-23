@@ -1,16 +1,10 @@
-class Friend
-  include Mongoid::Document
-  include ROXML
+class Friend < Person
 
-  xml_accessor :username
   xml_accessor :url
-  xml_accessor :real_name
 
-  field :username
   field :url
-  field :real_name
 
-  validates_presence_of :username, :url, :real_name
+  validates_presence_of :url
   validates_format_of :url, :with =>
     /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
     

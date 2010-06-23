@@ -64,7 +64,7 @@ describe Friend do
    describe "XML" do
     before do
       @f = Factory.build(:friend)
-      @xml = "<friend>\n  <username>#{@f.username}</username>\n  <url>#{@f.url}</url>\n  <real_name>#{@f.real_name}</real_name>\n</friend>" 
+      @xml = "<friend>\n  <url>#{@f.url}</url>\n  <email>#{@f.email}</email>\n  <real_name>#{@f.real_name}</real_name>\n</friend>" 
     end
       
     it 'should serialize to XML' do
@@ -73,7 +73,7 @@ describe Friend do
   
     it 'should marshal serialized XML to object' do       
       parsed = Friend.from_xml(@xml)
-      parsed.username.should == @f.username
+      parsed.email.should == @f.email
       parsed.url.should == @f.url
       parsed.valid?.should be_true
     end

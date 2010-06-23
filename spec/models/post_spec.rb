@@ -5,8 +5,6 @@ describe Post do
     Factory.create(:user, :email => "bob@aol.com")
   end
 
-  describe 'requirements' do
-  end
 
   describe 'defaults' do
     before do
