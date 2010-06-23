@@ -7,14 +7,12 @@
 
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application"
-    = javascript_include_tag 'jquery142'
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
-    = javascript_include_tag 'rails'
-    = javascript_include_tag 'jquery_form'
+    = javascript_include_tag 'jquery142', 'rails', 'view'
+
+    
     - unless request.user_agent.include? "Safari" ||"Chrome"
-      = javascript_include_tag 'FABridge'
-      = javascript_include_tag 'swfobject'
-      = javascript_include_tag 'web_socket'
+      = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
       :javascript
           WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
     
@@ -39,35 +37,6 @@
           debug("connected...");
           };
           });
-        
-    :javascript
-      $(document).ready(function(){
-        
-        $('a').hover(function(){
-          $(this).fadeTo(60, 0.5);
-        }, function(){
-          $(this).fadeTo(80, 1);
-        });
-        $('ul.nav li').hover(function(){
-          $(this).fadeTo(60, 0.5);
-        }, function(){
-          $(this).fadeTo(80, 1);
-        });
-        
-        // wait for the DOM to be loaded 
-            // bind 'myForm' and provide a simple callback function 
-        $('#new_status_message').ajaxForm(function() { 
-            alert("Thank you for your comment!"); 
-        });
-        $('#new_bookmark').ajaxForm(function() { 
-            alert("Thank you for your comment!"); 
-        }); 
-        
-        $('#new_blog').ajaxForm(function() { 
-            alert("Thank you for your comment!"); 
-        });
-      });
-
   %body
     %header
       %a#diaspora_text{:href => root_path}
@@ -87,8 +56,7 @@
         %h1#user_name
           = link_to User.first.real_name, root_url
           %span.description
-            - if StatusMessage.my_newest
-              = StatusMessage.my_newest.message
+            = my_latest_message
 
         %nav
           %ul.nav

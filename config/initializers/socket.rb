@@ -6,6 +6,7 @@ module WebSocket
     EM.add_timer(0.1) do
       @channel = EM::Channel.new
       @view = ActionView::Base.new(ActionController::Base.view_paths, {})  
+      
       class << @view  
         include ApplicationHelper 
         include Rails.application.routes.url_helpers
@@ -16,20 +17,22 @@ module WebSocket
       ws.onopen {
         sid = @channel.subscribe { |msg| ws.send msg }
         
-        ws.onmessage { |msg|
-          @channel.push msg
-        }
+        ws.onmessage { |msg| @channel.push msg}
 
-        ws.onclose {
-          @channel.unsubscribe(sid)
-        }
-
+        ws.onclose {  @channel.unsubscribe(sid) }
       }
     end
   }
-  #this should get folded into message queue i think?
+
   def self.update_clients(object)
-    n = @view.render(:partial => @view.type_partial(object), :locals => {:post  => object})
-    @channel.push({:class =>object.class.to_s.underscore.pluralize, :html => n}.to_json) if @channel
+    @channel.push(WebSocket.view_hash(object).to_json) if @channel
+  end
+  
+  def self.view_hash(object)
+    {:class =>object.class.to_s.underscore.pluralize, :html => WebSocket.view_for(object)}
+  end
+  
+  def self.view_for(object)
+    @view.render(:partial => @view.type_partial(object), :locals => {:post  => object})
   end
 end

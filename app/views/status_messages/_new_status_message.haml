@@ -1,0 +1,6 @@
+= form_for status_message, :remote => true do |f|
+  = f.error_messages
+  %p
+    /= f.label :message
+    = f.text_field :message, :value => "tell me something good"
+    = f.submit 'oh yeah!', :class => 'button'

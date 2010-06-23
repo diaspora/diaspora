@@ -12,10 +12,6 @@ include Devise::TestHelpers
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 Rspec.configure do |config|
-  # == Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #this is a dumb hax TODO
   #config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr

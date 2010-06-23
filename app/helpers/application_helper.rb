@@ -37,4 +37,8 @@ module ApplicationHelper
     class_name = post.class.name.to_s.underscore
     "#{class_name.pluralize}/#{class_name}"
   end
+  
+  def how_long_ago(obj)
+    time_ago_in_words(obj.created_at) + " ago."
+  end
 end
