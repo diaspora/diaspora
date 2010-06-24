@@ -32,6 +32,7 @@ Rspec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    #Factory.sequences.each{ |s| s.reset}
   end
   
   

@@ -11,7 +11,7 @@ describe Bookmark do
   it "should add an owner if none is present" do
     Factory.create(:user, :email => "bob@aol.com")
     n = Factory.create(:bookmark)
-    n.owner.should == "bob@aol.com" 
+    n.person.email.should == "bob@aol.com" 
   end
 
   it 'should validate its link' do
@@ -67,11 +67,10 @@ describe Bookmark do
     end
   
     it 'should marshal serialized XML to object' do       
-      xml = "<bookmark><title>Reddit</message><link>http://reddit.com/</link><owner>bob@aol.com</owner></bookmark>" 
+      xml = "<bookmark><title>Reddit</message><link>http://reddit.com/</link></bookmark>" 
       parsed = Bookmark.from_xml(xml)
       parsed.title.should == "Reddit"
       parsed.link.should == "http://reddit.com/"
-      parsed.owner.should == "bob@aol.com"
       parsed.valid?.should be_true
     end
   end

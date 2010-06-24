@@ -3,7 +3,7 @@ source 'http://gemcutter.org'
 
 gem 'rails', '3.0.0.beta4'
 
-gem "mongoid", :git => "git://github.com/durran/mongoid.git"
+gem "mongoid", :git => "git://github.com/durran/mongoid.git", :ref => "79b4d3710d17c949544f"
 gem "bson_ext", "1.0.1"
 gem "haml"
 gem "devise", :git => "git://github.com/plataformatec/devise.git", :ref => "cfadaf80a2b7e9c0b255"

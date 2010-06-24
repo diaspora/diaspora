@@ -6,7 +6,7 @@
   
 %p
   %strong Owner:
-  = @status_message.owner
+  = @status_message.person.email
 
 %p
   = link_to "Destroy", @status_message, :confirm => 'Are you sure?', :method => :delete

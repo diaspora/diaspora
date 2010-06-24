@@ -8,7 +8,7 @@
   = link_to @bookmark.link
 %p
   %strong Owner:
-  = @bookmark.owner
+  = @bookmark.person.email
 
 %p
   = link_to "Edit", edit_bookmark_path(@bookmark)

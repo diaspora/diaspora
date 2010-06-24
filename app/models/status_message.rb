@@ -9,18 +9,8 @@ class StatusMessage < Post
 
   validates_presence_of :message
   
- 
-  def self.newest(owner_email)
-    StatusMessage.last(:conditions => {:owner => owner_email})
-  end
-  
-  def self.my_newest
-    StatusMessage.newest(User.first.email)
-  end
-
-
-  def ==(other)
-    (self.message == other.message) && (self.owner == other.owner)
+   def ==(other)
+    (self.message == other.message) && (self.person.email == other.person.email)
   end
 
 end

@@ -9,14 +9,6 @@ class Post
   include ROXML
   include Diaspora::Webhooks
 
-  xml_accessor :owner
-  xml_accessor :snippet
-  xml_accessor :source
-
-  field :owner
-  field :source
-  field :snippet
-
 
   belongs_to_related :person
   
@@ -41,6 +33,15 @@ class Post
     yield self 
   end
 
+ def self.newest(person = nil)
+    return self.last if person.nil?
+    self.where(:person_id => person.id).last
+  end
+
+  def self.newest_by_email(email)
+    self.where(:person_id => Person.where(:email => email).first.id).last
+  end
+
 
   protected
 
@@ -50,10 +51,6 @@ class Post
   end
 
   def set_defaults
-    user_email = User.first.email
-    self.owner ||= user_email
-    self.source ||= user_email
-    self.snippet ||= user_email
     self.person ||= User.first
   end
 end

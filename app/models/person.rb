@@ -11,5 +11,8 @@ class Person
   has_many_related :posts
 
   validates_presence_of :email, :real_name
-
+  
+ # def newest(type = nil)
+ #   type.constantize.where(:person_id => id).last
+ # end
 end
