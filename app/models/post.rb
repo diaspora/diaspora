@@ -38,6 +38,9 @@ class Post
     self.where(:person_id => person.id).last
   end
 
+ def self.my_newest
+   self.newest(User.first)
+ end
   def self.newest_by_email(email)
     self.where(:person_id => Person.where(:email => email).first.id).last
   end
