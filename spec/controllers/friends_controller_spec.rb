@@ -5,6 +5,7 @@ describe FriendsController do
   before do
     #TODO(dan) Mocking Warden; this is a temp fix
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
+    Factory.create(:user)
     @friend = Factory.build(:friend)
   end
   
@@ -47,6 +48,13 @@ describe FriendsController do
   end
   
   it 'should have test that a delete removes a friend from the database' do
+  end
+
+  it 'should display a list of a friends posts on their page' do
+    friend = Factory.create(:friend)
+    @status_message = Factory.create(:status_message, :person => friend)
+    get :show, :id => friend.id
+    response.body.should include @status_message.message
   end
   
 end

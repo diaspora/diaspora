@@ -59,4 +59,20 @@ module ApplicationHelper
   def how_long_ago(obj)
     time_ago_in_words(obj.created_at) + " ago."
   end
+
+  def person_url(person)
+    case person.class.to_s
+    when "Friend"
+      friend_path(person)
+    when "User"
+      user_path(person)
+    else
+      "#"
+    end
+  end
+
+  def link_to_person(person)
+    link_to person.real_name, person_url(person)
+  end
+
 end

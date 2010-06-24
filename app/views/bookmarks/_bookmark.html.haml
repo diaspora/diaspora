@@ -1,6 +1,6 @@
 %li.message{:class => ("mine" if mine?(post))}
   %span.from
-    = link_to post.person.email, "#"
+    = link_to_person post.person
     %b shared a link
     %br
   = post.title
