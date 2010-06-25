@@ -1,10 +1,10 @@
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
+
 ENV["RAILS_ENV"] ||= 'test'
 require File.dirname(__FILE__) + "/../config/environment" unless defined?(Rails)
 require 'rspec/rails'
 require 'database_cleaner'
-#require File.dirname(__FILE__) + "/factories"
 include Devise::TestHelpers
 
 # Requires supporting files with custom matchers and macros, etc,
@@ -24,12 +24,11 @@ Rspec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
-    #WebSocket.stub!(:update_clients)
+    WebSocket.stub!(:update_clients)
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
-    #Factory.sequences.each{ |s| s.reset}
   end
   
 end
