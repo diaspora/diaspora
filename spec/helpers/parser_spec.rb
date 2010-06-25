@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 include ApplicationHelper 
 
-describe ApplicationHelper do
+describe "parser in application helper" do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @friend =Factory.create(:friend, :email => "bill@gates.com")

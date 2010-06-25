@@ -9,6 +9,7 @@ class StatusMessage < Post
 
   validates_presence_of :message
   
+  
    def ==(other)
     (self.message == other.message) && (self.person.email == other.person.email)
   end

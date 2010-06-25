@@ -15,8 +15,7 @@ module ApplicationHelper
   def parse_sender_object_from_xml(xml)
     sender_id = parse_sender_id_from_xml(xml)
     Friend.where(:email => sender_id).first
-
-      end
+  end
 
   def parse_body_contents_from_xml(xml)
     doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
