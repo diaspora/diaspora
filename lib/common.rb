@@ -7,11 +7,11 @@ module Diaspora
         @@queue = MessageHandler.new
         
         def notify_friends
-          if self.owner == User.first.email
+          #if self.owner == User.first.email
             xml = Post.build_xml_for(self)
             @@queue.add_post_request( friends_with_permissions, xml )
             @@queue.process
-          end
+          #end
         end
  
         def prep_webhook
@@ -19,12 +19,12 @@ module Diaspora
         end
 
         def friends_with_permissions
-           Friend.only(:url).map{|x| x = x.url + "receive/"}
+           Friend.all.map{|x| x = x.url + "receive/"}
         end
 
         def self.build_xml_for(posts)
           xml = "<XML>"
-          xml += Post.generate_header
+          #xml += Post.generate_header
           xml += "<posts>"
           posts.each {|x| xml << x.prep_webhook}
           xml += "</posts>"

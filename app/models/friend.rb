@@ -2,7 +2,7 @@ class Friend < Person
 
   xml_accessor :url
 
-  field :url
+  key :url, String
 
   validates_presence_of :url
   validates_format_of :url, :with =>

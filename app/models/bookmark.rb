@@ -3,8 +3,8 @@ class Bookmark < Post
   xml_accessor :link
   xml_accessor :title
   
-  field :link
-  field :title
+  key :link, String
+  key :title, String
   
   
   validates_presence_of :link  

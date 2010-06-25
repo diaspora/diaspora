@@ -1,14 +1,15 @@
 class Person
-  include Mongoid::Document
+  include MongoMapper::Document
   include ROXML
 
   xml_accessor :email
   xml_accessor :real_name
 
-  field :email
-  field :real_name
+  key :type, String
+  key :email, String
+  key :real_name, String
 
-  has_many_related :posts
+  has_many :posts
 
   validates_presence_of :email, :real_name
 

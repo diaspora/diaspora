@@ -3,10 +3,13 @@ source 'http://gemcutter.org'
 
 gem 'rails', '3.0.0.beta4'
 
-gem "mongoid", :git => "git://github.com/durran/mongoid.git"
+gem 'mongo_mapper', :git => "http://github.com/BadMinus/mongomapper.git"
+gem 'devise', :git => "http://github.com/BadMinus/devise.git"
+gem 'jnunemaker-validatable', :git => "http://github.com/BadMinus/validatable.git"
+gem 'mongo_ext'
 gem "bson_ext", "1.0.1"
+
 gem "haml"
-gem "devise", :git => "git://github.com/plataformatec/devise.git", :ref => "cfadaf80a2b7e9c0b255"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
 
 
