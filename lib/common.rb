@@ -1,13 +1,12 @@
 module Diaspora
   module Webhooks
-  include ApplicationHelper
     def self.included(klass)
       klass.class_eval do
       after_save :notify_friends
         @@queue = MessageHandler.new
         
         def notify_friends
-          if mine? self
+          if self.person_id == User.first.id
             xml = Post.build_xml_for(self)
             @@queue.add_post_request( friends_with_permissions, xml )
             @@queue.process

@@ -24,7 +24,7 @@ Rspec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
-    WebSocket.stub!(:update_clients)
+    #WebSocket.stub!(:update_clients)
   end
 
   config.after(:each) do

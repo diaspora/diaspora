@@ -37,20 +37,20 @@ describe StatusMessagesController do
   end
   
   it "destroy action should destroy model and redirect to index action" do
-    delete :destroy, :id => @status_message.id
+    delete :destroy, :id => @status_message._id
     response.should redirect_to(status_messages_url)
     StatusMessage.first(:conditions => {:id => @status_message.id }).nil?.should be true
   end
   
   it "show action should render show template" do
-    get :show, :id => @status_message.id
+    get :show, :id => @status_message.post_id
     response.should render_template(:show)
   end
   
   it "should return xml on show type if the MIME type exists" do
     request.env["HTTP_ACCEPT"] = "application/xml"
     message = StatusMessage.first
-    get :show, :id => message.id
+    get :show, :id => message.post_id
     response.body.include?(message.to_xml.to_s).should be true
   end
 

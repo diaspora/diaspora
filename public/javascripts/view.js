@@ -29,6 +29,12 @@ $(document).ready(function(){
 		$(this).val("")
 	});
 	
+	$('#debug_info').click(function() {
+		$('#debug_more').toggle('fast', function() {
+			
+		});
+	});
+	
 
 	
 	$('#flash_notice, #flash_error, #flash_alert').delay(1500).slideUp(130);
