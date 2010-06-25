@@ -8,7 +8,7 @@ class User < Person
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  before_save :do_bad_things
+  before_validation :do_bad_things
   
   def do_bad_things
     self.password_confirmation = self.password

@@ -7,7 +7,7 @@ describe Diaspora do
 
   describe Webhooks do
     before do
-      Factory.create(:user, :email => "bob@aol.com")
+      @user = Factory.create(:user, :email => "bob@aol.com")
     end
 
     describe "header" do 
@@ -35,7 +35,7 @@ describe Diaspora do
 
     describe "body" do
       before do
-        @post = Factory.create(:status_message)
+        @post = Factory.create(:status_message, :person => @user)
       end
 
       it "should add the following methods to Post on inclusion" do

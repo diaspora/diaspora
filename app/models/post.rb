@@ -27,14 +27,15 @@ class Post
 
  def self.newest(person = nil)
     return self.last if person.nil?
-    self.where(:person_id => person.id).last
+
+    self.first(:person_id => person.id, :order => '_id desc')
   end
 
  def self.my_newest
    self.newest(User.first)
  end
   def self.newest_by_email(email)
-    self.where(:person_id => Person.where(:email => email).first.id).last
+    self.newest(Person.first(:email => email))
   end
 
 

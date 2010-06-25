@@ -8,12 +8,6 @@ describe Bookmark do
     bookmark.valid?.should be true
   end
   
-  it "should add an owner if none is present" do
-    Factory.create(:user, :email => "bob@aol.com")
-    n = Factory.create(:bookmark)
-    n.person.email.should == "bob@aol.com" 
-  end
-
   it 'should validate its link' do
     bookmark = Factory.build(:bookmark)
 
