@@ -21,7 +21,7 @@ Rspec.configure do |config|
   DatabaseCleaner.orm = "mongoid"
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
+    #DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
