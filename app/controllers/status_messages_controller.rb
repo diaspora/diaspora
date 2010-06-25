@@ -1,5 +1,4 @@
 class StatusMessagesController < ApplicationController
-  before_filter :authenticate_user!
 
   def index
     @status_message = StatusMessage.new
@@ -15,11 +14,11 @@ class StatusMessagesController < ApplicationController
   end
   
   def create
-    @status_message = StatusMessage.new(params[:status_message])
-    if @status_message.save
+    if current_user.post :status_message, params[:status_message]
       flash[:notice] = "Successfully created status message."
       redirect_to status_messages_url
     else
+      flash[:notics] = "You have failed to update your status."
       render :action => 'new'
     end
   end
