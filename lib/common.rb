@@ -1,6 +1,5 @@
 module Diaspora
   module Webhooks
-  include ApplicationHelper
     def self.included(klass)
       klass.class_eval do
       after_save :notify_friends

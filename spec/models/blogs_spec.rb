@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Blog do
   before do
-    Factory.create(:user, :email => "bob@aol.com")
+    @user = Factory.create(:user, :email => "bob@aol.com")
   end
 
   it "should have a title and body" do    
@@ -14,34 +14,33 @@ describe Blog do
     n.valid?.should be true
   end
   
-  it "should add an owner if none is present" do
-    b = Factory.create(:blog)
-    b.person.email.should == "bob@aol.com"
-  end
   
   describe "newest" do
     before do
       @friend_one = Factory.create(:friend, :email => "some@dudes.com")
       @friend_two = Factory.create(:friend, :email => "other@dudes.com")
-      (2..4).each { Factory.create(:blog, :person => @friend_one) }
-      (5..8).each { Factory.create(:blog) }
-      (9..11).each { Factory.create(:blog, :person => @friend_two) }
+      (2..4).each {|n| Blog.create(:title => "title #{n}", :body => "test #{n}", :person => @friend_one)}
+      (5..8).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @user)}
+      (9..11).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @friend_two)}
+
       Factory.create(:status_message)
       Factory.create(:bookmark)
     end
   
     it "should give the most recent blog title and body from owner" do
-      blog = Blog.newest(User.first)
+      blog = Blog.my_newest()
+      blog.person.email.should == @user.email
       blog.class.should == Blog
-      blog.title.should == "bobby's 8 penguins"
-      blog.body.should == "jimmy's huge 8 whales"
+      blog.title.should == "title 8"
+      blog.body.should == "test 8"
     end
     
     it "should give the most recent blog body for a given email" do
       blog = Blog.newest_by_email("some@dudes.com")
+      blog.person.email.should == @friend_one.email
       blog.class.should == Blog
-      blog.title.should == "bobby's 14 penguins"
-      blog.body.should == "jimmy's huge 14 whales"
+      blog.title.should == "title 4"
+      blog.body.should == "test 4"
     end
   end
   
