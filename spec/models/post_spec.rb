@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Post do
   before do
-    Factory.create(:user, :email => "bob@aol.com")
+    @user = Factory.create(:user, :email => "bob@aol.com")
   end
 
   describe 'defaults' do
@@ -17,7 +17,35 @@ describe Post do
 
   end
 
+  describe "newest" do
+    before do
+      @friend_one = Factory.create(:friend, :email => "some@dudes.com")
+      @friend_two = Factory.create(:friend, :email => "other@dudes.com")
+      (2..4).each {|n| Blog.create(:title => "title #{n}", :body => "test #{n}", :person => @friend_one)}
+      (5..8).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @user)}
+      (9..11).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @friend_two)}
 
+      Factory.create(:status_message)
+      Factory.create(:bookmark)
+    end
+  
+    it "should give the most recent blog title and body from owner" do
+      blog = Blog.my_newest()
+      blog.person.email.should == @user.email
+      blog.class.should == Blog
+      blog.title.should == "title 8"
+      blog.body.should == "test 8"
+    end
+    
+    it "should give the most recent blog body for a given email" do
+      blog = Blog.newest_by_email("some@dudes.com")
+      blog.person.email.should == @friend_one.email
+      blog.class.should == Blog
+      blog.title.should == "title 4"
+      blog.body.should == "test 4"
+    end
+  end
+ 
   describe "stream" do 
     before do
       @owner = Factory.create(:user, :email => "robert@grimm.com")
