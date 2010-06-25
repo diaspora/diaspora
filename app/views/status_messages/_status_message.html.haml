@@ -3,7 +3,7 @@
     = link_to_person post.person
     = post.message
   %div.time
-    = "#{time_ago_in_words(post.updated_at)} ago"
+    = link_to "#{time_ago_in_words(post.updated_at)} ago", status_message_path(post)
   - if mine?(post)
     = link_to 'Destroy', status_message_path(post), :confirm => 'Are you sure?', :method => :delete
     

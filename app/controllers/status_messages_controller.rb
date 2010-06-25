@@ -3,7 +3,7 @@ class StatusMessagesController < ApplicationController
 
   def index
     @status_message = StatusMessage.new
-    @status_messages = StatusMessage.criteria.all.order_by( [:created_at, :desc] )
+    @status_messages = StatusMessage.sort(:created_at.desc).all
     
 
     respond_to do |format|
@@ -16,6 +16,8 @@ class StatusMessagesController < ApplicationController
   
   def create
     @status_message = StatusMessage.new(params[:status_message])
+    @status_message.person = current_user
+    
     if @status_message.save
       flash[:notice] = "Successfully created status message."
       redirect_to status_messages_url
@@ -29,14 +31,14 @@ class StatusMessagesController < ApplicationController
   end
   
   def destroy
-    @status_message = StatusMessage.first(:conditions => {:id => params[:id]})
+    @status_message = StatusMessage.where(:id => params[:id]).first
     @status_message.destroy
     flash[:notice] = "Successfully destroyed status message."
     redirect_to status_messages_url
   end
   
   def show
-    @status_message = StatusMessage.first(:conditions => {:id => params[:id]})
+    @status_message = StatusMessage.where(:id => params[:id]).first
     
     respond_to do |format|
       format.html 

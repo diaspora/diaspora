@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe StatusMessage do
   before do
-      Factory.create(:user, :email => "bob@aol.com", :password => "diggity")
+      @user = Factory.create(:user, :email => "bob@aol.com")
   end
 
   it "should have a message" do    
@@ -11,15 +11,11 @@ describe StatusMessage do
     n.message = "wales"
     n.valid?.should be true
   end
-  
-  it "should add an owner if none is present" do
-    n = Factory.create(:status_message)    
-    n.owner.should == "bob@aol.com"
-  end
    
   describe "newest" do
     before do
-      (1..5).each { Factory.create(:status_message, :owner => "some@dudes.com") }
+      @friend = Factory.build(:friend, :email => "robert@grimm.com")
+      (1..5).each { Factory.create(:status_message, :person => @friend) }
       (6..10).each { Factory.create(:status_message) }
     end
     

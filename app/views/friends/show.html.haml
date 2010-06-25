@@ -1,11 +1,7 @@
 %h1= "#{@friend.real_name}'s network stream"
-
-
-
-
 - if @friend.posts
   %ul#stream
-    - for post in @friend.posts
+    - for post in @friend_posts
       = render type_partial(post), :post => post
 - else
   %h3 no posts to display!

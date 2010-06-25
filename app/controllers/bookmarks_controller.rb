@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @bookmarks = Bookmark.criteria.all.order_by( [:created_at, :desc] )
+    @bookmarks = Bookmark.sort(:created_at.desc).all
   end
   
   def edit
@@ -25,6 +25,7 @@ class BookmarksController < ApplicationController
   
   def create
     @bookmark = Bookmark.new(params[:bookmark])
+    @bookmark.person = current_user
     if @bookmark.save
       flash[:notice] = "Successfully created bookmark."
       redirect_to @bookmark

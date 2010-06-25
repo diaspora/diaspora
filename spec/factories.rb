@@ -21,6 +21,7 @@ Factory.define :user do |u|
   u.real_name 'Bob Smith'
   u.sequence(:email) {|n| "bob#{n}@aol.com"}
   u.password "bluepin7"
+  u.password_confirmation "bluepin7"
 end
 
 Factory.define :bookmark do |b|

@@ -9,15 +9,18 @@ class Post
   include Diaspora::Webhooks
 
 
-  key :type, String
   key :person_id, ObjectId
   
-  belongs_to :person
+  belongs_to :person, :class_name => 'Person'
 
-
-  #before_create :set_defaults
+  timestamps!
 
   after_save :send_to_view
+  after_save :print
+  
+  def self.stream
+    Post.sort(:created_at.desc).all
+  end
 
   def each
     yield self 
@@ -29,8 +32,7 @@ class Post
     self.reload
     WebSocket.update_clients(self)
   end
+  
 
-  def set_defaults
-  end
 end
 

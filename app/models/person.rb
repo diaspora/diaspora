@@ -5,11 +5,12 @@ class Person
   xml_accessor :email
   xml_accessor :real_name
 
-  key :type, String
   key :email, String
   key :real_name, String
+  
+  #key :post_ids, Array#, :typecast => ObjectId
 
-  has_many :posts
+  many :posts, :class_name => 'Post', :foreign_key => :person_id
 
   validates_presence_of :email, :real_name
 

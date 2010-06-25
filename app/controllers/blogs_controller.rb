@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
 
 
   def index
-    @blogs = Blog.criteria.all.order_by( [:created_at, :desc] )
+    @blogs = Blog.sort(:created_at.desc).all
   end
   
   def show
@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
   
   def create
     @blog = Blog.new(params[:blog])
+    @blog.person = current_user
     if @blog.save
       flash[:notice] = "Successfully created blog."
       redirect_to @blog
@@ -25,11 +26,11 @@ class BlogsController < ApplicationController
   end
   
   def edit
-    @blog = Blog.find(params[:id])
+    @blog = Blog.where(:id => params[:id]).first
   end
   
   def update
-    @blog = Blog.find(params[:id])
+    @blog = Blog.where(:id => params[:id]).first
     if @blog.update_attributes(params[:blog])
       flash[:notice] = "Successfully updated blog."
       redirect_to @blog
@@ -39,7 +40,7 @@ class BlogsController < ApplicationController
   end
   
   def destroy
-    @blog = Blog.find(params[:id])
+    @blog = Blog.where(:id => params[:id]).first
     @blog.destroy
     flash[:notice] = "Successfully destroyed blog."
     redirect_to blogs_url

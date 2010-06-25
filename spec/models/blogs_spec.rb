@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Blog do
   before do
-    Factory.create(:user, :email => "bob@aol.com", :password => "diggity")
+    Factory.create(:user, :email => "bob@aol.com")
   end
 
   it "should have a title and body" do    

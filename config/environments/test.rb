@@ -36,7 +36,7 @@ Diaspora::Application.configure do
 begin
  require 'database_cleaner'
  DatabaseCleaner.strategy = :truncation
- DatabaseCleaner.orm = "mongoid"
+ DatabaseCleaner.orm = "mongo_mapper"
 rescue LoadError => ignore_if_database_cleaner_not_present
  puts "Error on cleaner"
 end

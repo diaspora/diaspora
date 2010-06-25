@@ -4,8 +4,7 @@ class DashboardController < ApplicationController
   include ApplicationHelper
 
   def index
-    posts = Post.all.order_by( [:created_at, :desc] )
-    @posts = posts
+    @posts = Post.sort(:created_at.desc).all
   end
 
 

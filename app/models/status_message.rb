@@ -9,7 +9,9 @@ class StatusMessage < Post
 
   validates_presence_of :message
   
- 
+  def self.my_newest
+    StatusMessage.where(:person_id => User.first.id).sort(:created_at.desc).first
+  end
 
 end
 

@@ -8,7 +8,7 @@
   = raw @blog.body
 %p
   %strong Owner:
-  = @blog.owner
+  = @blog.person.real_name
 
 %p
   = link_to "Edit", edit_blog_path(@blog)

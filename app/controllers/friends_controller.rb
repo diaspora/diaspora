@@ -2,15 +2,16 @@ class FriendsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @friends = Friend.criteria.all.order_by( [:created_at, :desc] )
+    @friends = Friend.all
   end
   
   def show
-    @friend = Friend.first(:conditions=> {:id => params[:id]})
+    @friend = Friend.where(:id => params[:id]).first
+    @friend_posts = Post.where(:person_id => @friend.id).sort(:created_at.desc)
   end
   
   def destroy
-    @friend = Friend.first(:conditions=> {:id => params[:id]})
+    @friend = Friend.where(:id => params[:id]).first
     @friend.destroy
     flash[:notice] = "Successfully destroyed friend."
     redirect_to friends_url

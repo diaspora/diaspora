@@ -18,7 +18,7 @@ Rspec.configure do |config|
   config.mock_with :rspec
 
   DatabaseCleaner.strategy = :truncation
-  DatabaseCleaner.orm = "mongoid"
+  DatabaseCleaner.orm = "mongo_mapper"
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
