@@ -13,6 +13,7 @@ class Post
   belongs_to_related :person
   
 
+  before_create :set_defaults
 
   after_save :send_to_view
 
@@ -52,5 +53,8 @@ class Post
     WebSocket.update_clients(self)
   end
 
+  def set_defaults
+    self.person ||= User.first
+  end
 end
 

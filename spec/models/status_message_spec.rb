@@ -8,8 +8,6 @@ describe StatusMessage do
   it "should have a message" do    
     n = Factory.build(:status_message, :message => nil)
     n.valid?.should be false
-    n.message = ""
-    n.valid?.should be false
     n.message = "wales"
     n.valid?.should be true
   end
