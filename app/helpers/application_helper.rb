@@ -14,8 +14,9 @@ module ApplicationHelper
   
   def parse_sender_object_from_xml(xml)
     sender_id = parse_sender_id_from_xml(xml)
-    Person.where(:email => sender_id).first
-  end
+    Friend.where(:email => sender_id).first
+
+      end
 
   def parse_body_contents_from_xml(xml)
     doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
@@ -24,11 +25,13 @@ module ApplicationHelper
 
   def parse_posts_from_xml(xml)
     posts = []
+    sender = parse_sender_object_from_xml(xml)
     body = parse_body_contents_from_xml(xml)
     body.children.each do |post|
       begin
         object = post.name.camelize.constantize.from_xml post.to_s
-        posts << object if object.is_a? Post
+        object.person = sender
+        posts << object if object.is_a? Post 
       rescue
         puts "Not a real type: #{post.to_s}"
       end
@@ -37,12 +40,10 @@ module ApplicationHelper
   end
 
   def store_posts_from_xml(xml)
-    sender_object = parse_sender_object_from_xml(xml)
     posts = parse_posts_from_xml(xml)
 
     posts.each do |p|
-      p.person = sender_object
-      p.save
+      p.save unless p.person.nil?
     end
   end
 

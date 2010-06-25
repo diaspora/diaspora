@@ -16,24 +16,30 @@ describe Blog do
   
   it "should add an owner if none is present" do
     b = Factory.create(:blog)
-    b.owner.should == "bob@aol.com"
+    b.person.email.should == "bob@aol.com"
   end
   
   describe "newest" do
     before do
-      (2..4).each { Factory.create(:blog, :owner => "some@dudes.com") }
+      @friend_one = Factory.create(:friend, :email => "some@dudes.com")
+      @friend_two = Factory.create(:friend, :email => "other@dudes.com")
+      (2..4).each { Factory.create(:blog, :person => @friend_one) }
       (5..8).each { Factory.create(:blog) }
-      (9..11).each { Factory.create(:blog, :owner => "other@dudes.com") }
+      (9..11).each { Factory.create(:blog, :person => @friend_two) }
+      Factory.create(:status_message)
+      Factory.create(:bookmark)
     end
   
     it "should give the most recent blog title and body from owner" do
-      blog = Blog.my_newest
+      blog = Blog.newest(User.first)
+      blog.class.should == Blog
       blog.title.should == "bobby's 8 penguins"
       blog.body.should == "jimmy's huge 8 whales"
     end
     
     it "should give the most recent blog body for a given email" do
-      blog = Blog.newest("some@dudes.com")
+      blog = Blog.newest_by_email("some@dudes.com")
+      blog.class.should == Blog
       blog.title.should == "bobby's 14 penguins"
       blog.body.should == "jimmy's huge 14 whales"
     end

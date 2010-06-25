@@ -9,8 +9,8 @@ class StatusMessage < Post
 
   validates_presence_of :message
   
-  def self.my_newest
-    StatusMessage.where(:person_id => User.first.id).sort(:created_at.desc).first
+   def ==(other)
+    (self.message == other.message) && (self.person.email == other.person.email)
   end
 
 end

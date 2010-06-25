@@ -29,6 +29,4 @@ Factory.define :bookmark do |b|
 end
 
 Factory.define :post do |p|
-  p.source "New York Times"
-  p.sequence(:snippet) {|n| "This is some information #{n}"}
 end

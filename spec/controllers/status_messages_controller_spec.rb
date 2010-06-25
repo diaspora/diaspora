@@ -61,7 +61,7 @@ describe StatusMessagesController do
     get :index
     StatusMessage.all.each do |message|
       response.body.include?(message.message).should be true
-      response.body.include?(message.owner).should be true
+      response.body.include?(message.person.email).should be true
     end
   end
 end

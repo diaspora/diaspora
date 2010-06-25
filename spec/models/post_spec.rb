@@ -8,24 +8,13 @@ describe Post do
   describe 'defaults' do
     before do
       WebSocket.stub!(:update_clients)
-      @post = Factory.create(:post, :person => nil, :owner => nil, :source => nil, :snippet => nil)
+      @post = Factory.create(:post, :person => nil)
     end
 
     it "should associate the owner if none is present" do
       @post.person.should == User.first
     end
 
-    it "should add an owner if none is present" do
-      @post.owner.should == "bob@aol.com"
-    end
-
-    it "should add a source if none is present" do
-      @post.source.should == "bob@aol.com"
-    end
-    
-    it "should add a snippet if none is present" do
-      @post.snippet.should == "bob@aol.com"
-    end
   end
 
 

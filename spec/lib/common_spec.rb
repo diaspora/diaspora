@@ -67,7 +67,8 @@ describe Diaspora do
       it "should check that it does not send a friends post to an owners friends" do
         Post.stub(:build_xml_for).and_return(true) 
         Post.should_not_receive(:build_xml_for)
-        Factory.create(:status_message, :owner => "nottheowner@post.com")
+        
+        Factory.create(:status_message, :person => Factory.create(:friend))
       end
 
       it "should ensure one url is created for every friend" do

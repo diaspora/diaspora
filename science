@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-`sprinkle -s config/sprinkle/provision.rb -v`
-`cap deploy:setup`
-`cap deploy:cold`
-puts 'bababababa bababababa'

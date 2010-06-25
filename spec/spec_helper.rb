@@ -21,7 +21,6 @@ Rspec.configure do |config|
   DatabaseCleaner.orm = "mongo_mapper"
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
@@ -32,6 +31,7 @@ Rspec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    #Factory.sequences.each{ |s| s.reset}
   end
   
   

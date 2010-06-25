@@ -4,38 +4,61 @@ include ApplicationHelper
 
 describe ApplicationHelper do
   before do
-    @user = Factory.create(:user, :email => "bob@aol.com") 
+    @user = Factory.create(:user, :email => "bob@aol.com")
     @friend =Factory.create(:friend, :email => "bill@gates.com")
   end
 
-  it "should store objects sent from xml" do
+  it "should not store posts from me" do
     status_messages = []
-    10.times { status_messages << Factory.build(:status_message)}
-    
+    10.times { status_messages << Factory.build(:status_message, :person => @user)}
     xml = Post.build_xml_for(status_messages) 
-    
     store_posts_from_xml(xml) 
-    StatusMessage.count.should == 10
+    StatusMessage.count.should == 0
   end
-
   it 'should discard posts where it does not know the type' do
     xml = "<XML>
     <head>
       <sender>
-        <email>#{User.first.email}</email>
+        <email>#{Friend.first.email}</email>
       </sender>
     </head><posts>
       <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post> <post><not_a_real_type></not_a_real_type></post> <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
     store_posts_from_xml(xml)
     Post.count.should == 2
+    Post.first.person.email.should == Friend.first.email
   end
+  it "should reject xml with no sender" do
+    xml = "<XML>
+    <head>
+    </head><posts>
+      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      <post><friend></friend></post>
+      <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      </posts></XML>"
+    store_posts_from_xml(xml)
+    Post.count.should == 0
 
+  end
+  it "should reject xml with a sender not in the database" do
+    xml = "<XML>
+    <head>
+      <sender>
+        <email>foo@example.com</email>
+      </sender>
+    </head><posts>
+      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      <post><friend></friend></post>
+      <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+      </posts></XML>"
+    store_posts_from_xml(xml)
+    Post.count.should == 0
+  end
   it 'should discard types which are not of type post' do
     xml = "<XML>
     <head>
       <sender>
-        <email>#{User.first.email}</email>
+        <email>#{Friend.first.email}</email>
       </sender>
     </head><posts>
       <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
@@ -44,6 +67,7 @@ describe ApplicationHelper do
       </posts></XML>"
     store_posts_from_xml(xml)
     Post.count.should == 2
+    Post.first.person.email.should == Friend.first.email
   end
 
 
@@ -58,9 +82,6 @@ describe ApplicationHelper do
       parse_sender_id_from_xml(@xml).should == @user.email
     end
 
-    it 'should be able to retrieve the sender\'s local Person object' do
-      parse_sender_object_from_xml(@xml).should == @user
-    end
 
     it 'should be able to parse the body\'s contents' do
       body = parse_body_contents_from_xml(@xml).to_s

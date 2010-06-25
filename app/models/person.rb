@@ -13,5 +13,8 @@ class Person
   many :posts, :class_name => 'Post', :foreign_key => :person_id
 
   validates_presence_of :email, :real_name
-
+  
+ # def newest(type = nil)
+ #   type.constantize.where(:person_id => id).last
+ # end
 end
