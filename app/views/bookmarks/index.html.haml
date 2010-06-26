@@ -1,5 +1,5 @@
-%h1= link_to "new bookmark", new_bookmark_path
-
+%h1.big_text bookmarks
+= render "bookmarks/new_bookmark", :bookmark => @bookmark
 %ul#stream
   - for bookmark in @bookmarks
     = render "bookmark", :post => bookmark
