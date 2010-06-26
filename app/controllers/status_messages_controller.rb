@@ -2,7 +2,6 @@ class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @status_message = StatusMessage.new
     @status_messages = StatusMessage.sort(:created_at.desc).all
     
 
