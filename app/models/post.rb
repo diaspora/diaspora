@@ -13,7 +13,7 @@ class Post
 
 
   after_save :send_to_view
-  
+  validates_presence_of :person
   
   
   
