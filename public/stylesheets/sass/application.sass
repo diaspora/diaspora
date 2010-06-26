@@ -10,6 +10,8 @@ a
   &:hover
     :color #CC1E14
 
+
+
 #flash_notice,
 #flash_error,
 #flash_alert
@@ -92,34 +94,34 @@ header
       :color #ccc
       :border none
 
-
-ul.nav
+#show_filters
+  :z-index 100
   :position absolute
+  :left 630px
+  :text-align right
+
+#show_filters > a
+  :border 1px solid #666
+  :padding 5px
+
+ul#stream_filters
+  :display none
   :padding 0
   :margin 0
-  :width 200px
-  :top 100px
-  :font
-    :size 130%
-
   li
     :display block
-    :padding 5px 10px
-    :background 
-      :color #F2F8FC
-    :border 1px solid #fff
-  
-
+    :padding 5px 0
     &:first-child
       :border-top-right-radius 5px
       :border-top-left-radius 5px
-
     &:last-child
       :border-bottom-right-radius 5px
       :border-bottom-left-radius 5px
-
   a
     :color #B1CFE3
+  a:hover
+    :color #000
+  :background #fff
 
 #header_below
   :z-index 5 
@@ -140,11 +142,11 @@ ul.nav
 
 #content  
   :position absolute
-  :left 250px
   :top 94px
-  :width 60%
-  :min-width 500px
-  :max-width 700px
+  :width 1000px
+
+#main
+  :width 700px
 
 ul#stream
   :margin 0
@@ -177,7 +179,7 @@ li.message
     :color #bababa
     :font-size 70%
 .mine
-  :background-color rgba(202, 237, 204, 0.5)
+  //:background-color rgba(202, 237, 204, 0.5)
 
 h1
   :position relative
@@ -215,14 +217,9 @@ h3
     :margin
       :bottom 1em
       
-#main
-  :width 70%
-  :min-width 400px
-  :max-width 700px
-  :float left
-  
 #friends_list
-  :float right
+  :position absolute
+  :left 600px
   :width 20%
   :min-width 130px
   :padding-left 10%
@@ -246,4 +243,37 @@ form
       :color #CC1E14
   :background
     :color rgba( 255, 255, 255, 0.5)
+    
+#comment_text
+  :font
+    :size 75%
+  :padding 3px
+
+ul.comment_set
+  :margin 0
+    :top 1em
+  :padding 0
+    :left 1em
+  :list-style none
+  :font
+    :size 80%
+  :width 90%
+
+  li.comment
+    :margin
+      :bottom 0.5em
+    :background
+      :color rgba( 230, 239, 247, 0.4)
+    :padding 0.6em
+    :border-radius 5px
+
+    .from
+      :color #666
+      :font
+        :weight normal
+      a
+        :color #333
+        :font
+          :weight bold
+
     

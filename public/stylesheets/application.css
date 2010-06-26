@@ -79,26 +79,34 @@ header {
       color: #cccccc;
       border: none; }
 
-ul.nav {
+#show_filters {
+  z-index: 100;
   position: absolute;
+  left: 630px;
+  text-align: right; }
+
+#show_filters > a {
+  border: 1px solid #666666;
+  padding: 5px; }
+
+ul#stream_filters {
+  display: none;
   padding: 0;
   margin: 0;
-  width: 200px;
-  top: 100px;
-  font-size: 130%; }
-  ul.nav li {
+  background: white; }
+  ul#stream_filters li {
     display: block;
-    padding: 5px 10px;
-    background-color: #f2f8fc;
-    border: 1px solid white; }
-    ul.nav li:first-child {
+    padding: 5px 0; }
+    ul#stream_filters li:first-child {
       border-top-right-radius: 5px;
       border-top-left-radius: 5px; }
-    ul.nav li:last-child {
+    ul#stream_filters li:last-child {
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px; }
-  ul.nav a {
+  ul#stream_filters a {
     color: #b1cfe3; }
+  ul#stream_filters a:hover {
+    color: black; }
 
 #header_below {
   z-index: 5;
@@ -117,11 +125,11 @@ ul.nav {
 
 #content {
   position: absolute;
-  left: 250px;
   top: 94px;
-  width: 60%;
-  min-width: 500px;
-  max-width: 700px; }
+  width: 1000px; }
+
+#main {
+  width: 700px; }
 
 ul#stream {
   margin: 0;
@@ -145,9 +153,6 @@ li.message {
   li.message div.time {
     color: #bababa;
     font-size: 70%; }
-
-.mine {
-  background-color: rgba(202, 237, 204, 0.5); }
 
 h1 {
   position: relative;
@@ -177,14 +182,9 @@ h3 {
   width: 100%;
   margin-bottom: 1em; }
 
-#main {
-  width: 70%;
-  min-width: 400px;
-  max-width: 700px;
-  float: left; }
-
 #friends_list {
-  float: right;
+  position: absolute;
+  left: 600px;
   width: 20%;
   min-width: 130px;
   padding-left: 10%; }
@@ -204,3 +204,27 @@ form {
     color: black; }
     #user_name a:hover {
       color: #cc1e14; }
+
+#comment_text {
+  font-size: 75%;
+  padding: 3px; }
+
+ul.comment_set {
+  margin: 0;
+    margin-top: 1em;
+  padding: 0;
+    padding-left: 1em;
+  list-style: none;
+  font-size: 80%;
+  width: 90%; }
+  ul.comment_set li.comment {
+    margin-bottom: 0.5em;
+    background-color: rgba(230, 239, 247, 0.4);
+    padding: 0.6em;
+    border-radius: 5px; }
+    ul.comment_set li.comment .from {
+      color: #666666;
+      font-weight: normal; }
+      ul.comment_set li.comment .from a {
+        color: #333333;
+        font-weight: bold; }

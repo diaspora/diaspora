@@ -24,9 +24,7 @@
 
     -  if user_signed_in?
       :javascript
-          $(document).ready(function(){
-          
-          
+        $(document).ready(function(){
           
           function debug(str){ $("#debug").append("<p>" +  str); };
 
@@ -41,7 +39,15 @@
           ws.onopen = function() {
           debug("connected...");
           };
+
+
+          $('#show_filters').hover( function() {
+            $("#stream_filters").fadeIn(80);
+          },
+          function() {
+            $("#stream_filters").fadeOut(100);
           });
+        });
   %body
   
     - flash.each do |name, msg|
@@ -60,15 +66,17 @@
           = link_to "login", new_user_session_path
           
     #header_below
-      
       - if user_signed_in?
         %h1#user_name
           = link_to User.first.real_name, root_url
           %span.description
             = my_latest_message
 
-        %nav
-          %ul.nav
+    #content
+      #main
+        #show_filters
+          = link_to "show all", "#"
+          %ul#stream_filters
             %a{ :href => root_path, :title => "Your network stream."}
               %li home
             %a{ :href => status_messages_path, :title => "Recent status messages."}
@@ -79,10 +87,6 @@
               %li blogs
             %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
               %li friends
-
-
-    #content
-      #main
         = yield
         = render "posts/debug"
       #friends_list
