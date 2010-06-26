@@ -8,6 +8,10 @@ class Post
 
   key :person_id, ObjectId
   belongs_to :person, :class_name => 'Person'
+  
+  
+  many :comments, :class_name => 'Comment', :foreign_key => :post_id
+  
   timestamps!
 
 
