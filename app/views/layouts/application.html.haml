@@ -71,8 +71,6 @@
           %ul.nav
             %a{ :href => root_path, :title => "Your network stream."}
               %li home
-            %a{ :href => users_path, :title => "Registered users on your seed."}
-              %li users
             %a{ :href => status_messages_path, :title => "Recent status messages."}
               %li status messages
             %a{ :href => bookmarks_path, :title => "Recently shared links."}
@@ -88,4 +86,4 @@
         = yield
         = render "posts/debug"
       #friends_list
-        = render 'friends/sidebar'
+        = render 'friends/sidebar' if user_signed_in?

@@ -1,0 +1,6 @@
+= form_for @bookmark, :remote => true do |f|
+  = f.error_messages
+  = f.text_field :title, :value => "Title"
+  = f.text_field :link, :value => "URL"
+  %p
+    = f.submit

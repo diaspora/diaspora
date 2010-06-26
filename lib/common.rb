@@ -8,7 +8,7 @@ module Diaspora
         def notify_friends
           if self.person_id == User.first.id
             xml = Post.build_xml_for(self)
-            @@queue.add_post_request( friends_with_permissions, xml )
+            @@queue.add_post_request( friends_with_permissions, CGI::escape(xml) )
             @@queue.process
           end
         end

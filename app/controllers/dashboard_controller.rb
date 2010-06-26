@@ -9,7 +9,7 @@ class DashboardController < ApplicationController
 
 
   def receive
-    store_posts_from_xml (params[:xml])
+    store_posts_from_xml CGI::unescape(params[:xml])
     render :nothing => true
   end
   

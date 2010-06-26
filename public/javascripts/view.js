@@ -25,10 +25,16 @@ $(document).ready(function(){
 	  $(this).fadeTo(80, 1);
 	});
 
-	$('#status_message_message').click(function() {
-		$(this).val("")
-	});
+	$('#status_message_message').click(clearForm);
 	
+	$('#bookmark_title').click(clearForm);
+	
+	$('#bookmark_link').click(clearForm);
+
+  function clearForm(){
+   $(this).val("");
+  }
+
 	$('#debug_info').click(function() {
 		$('#debug_more').toggle('fast', function() {
 			
