@@ -38,7 +38,7 @@ module ApplicationHelper
     objects
   end
 
-  def kk(xml)
+  def store_objects_from_xml(xml)
     objects = parse_objects_from_xml(xml)
 
     objects.each do |p|
