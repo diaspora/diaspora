@@ -177,6 +177,18 @@ h3 {
   width: 100%;
   margin-bottom: 1em; }
 
+#main {
+  width: 70%;
+  min-width: 400px;
+  max-width: 700px;
+  float: left; }
+
+#friends_list {
+  float: right;
+  width: 20%;
+  min-width: 130px;
+  padding-left: 10%; }
+
 form {
   font-size: 130%;
   margin: 1em;

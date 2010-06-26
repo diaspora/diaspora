@@ -84,5 +84,8 @@
 
 
     #content
-      = yield
-      = render "posts/debug"
+      #main
+        = yield
+        = render "posts/debug"
+      #friends_list
+        = render 'friends/sidebar'

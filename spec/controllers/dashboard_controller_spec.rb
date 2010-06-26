@@ -3,10 +3,19 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe DashboardController do
  render_views
   
-  it "index action should render index template" do
+  before do
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
+  end
+  
+  it "index action should render index template" do
     get :index
     response.should render_template(:index)
+  end
+  
+  it "on index sets a friends variable" do
+    Factory.create :friend
+    get :index
+    assigns[:friends].should == Friend.all
   end
 
 end
