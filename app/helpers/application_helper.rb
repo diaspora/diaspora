@@ -67,7 +67,7 @@ module ApplicationHelper
     when "User"
       user_path(person)
     else
-      "#"
+      link_to "unknown person", "#"
     end
   end
 
