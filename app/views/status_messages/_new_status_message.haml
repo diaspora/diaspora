@@ -1,4 +1,4 @@
-= form_for status_message, :remote => true do |f|
+= form_for StatusMessage.new, :remote => true do |f|
   = f.error_messages
   %p
     /= f.label :message
