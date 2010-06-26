@@ -42,7 +42,8 @@ module ApplicationHelper
     objects = parse_objects_from_xml(xml)
 
     objects.each do |p|
-      p.save if p.respond_to?(:person) && p.person
+      p.save if p.respond_to?(:person) && !(p.person.nil?) #WTF
+      #p.save if p.respond_to?(:person) && !(p.person == nil) #WTF
     end
   end
 

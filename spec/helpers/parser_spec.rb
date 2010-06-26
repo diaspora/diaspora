@@ -103,16 +103,16 @@ describe "parser in application helper" do
     it 'should be able to correctly handle comments' do
       friend = Factory.create(:friend)
       post = Factory.create(:status_message)
+      comment = Factory.build(:comment, :post => post, :person => friend, :text => "Freedom!")
       xml = "<XML><head><sender><email>#{Friend.first.email}</email></sender></head>
       <posts>
-        <post><comment>\n  <text>Freedom!</text>\n  <person>#{friend.id}</person>\n  <post_id>#{post.id}}</post_id>\n</comment></post>
+        <post>#{comment.to_xml}</post>
       </posts></XML>"
       objects = parse_objects_from_xml(xml)
       comment = objects.first
       comment.text.should == "Freedom!"
       comment.person.should == friend
       comment.post.should == post
-            
     end
 
   end
