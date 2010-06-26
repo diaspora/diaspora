@@ -22,27 +22,27 @@ module ApplicationHelper
     doc.xpath("/XML/posts/post")
   end
 
-  def parse_posts_from_xml(xml)
-    posts = []
+  def parse_objects_from_xml(xml)
+    objects = []
     sender = parse_sender_object_from_xml(xml)
     body = parse_body_contents_from_xml(xml)
     body.children.each do |post|
       begin
         object = post.name.camelize.constantize.from_xml post.to_s
-        object.person = sender
-        posts << object if object.is_a? Post 
+        object.person = sender if object.is_a? Post  
+        objects << object 
       rescue
-        puts "Not a real type: #{post.to_s}"
+        puts "Not a real type: #{object.to_s}"
       end
     end
-    posts
+    objects
   end
 
-  def store_posts_from_xml(xml)
-    posts = parse_posts_from_xml(xml)
+  def kk(xml)
+    objects = parse_objects_from_xml(xml)
 
-    posts.each do |p|
-      p.save unless p.person.nil?
+    objects.each do |p|
+      p.save if p.respond_to?(:person) && p.person
     end
   end
 
