@@ -34,6 +34,9 @@ describe Bookmark do
 
     bookmark.link = "http://www.google.com"
     bookmark.valid?.should == true
+    
+    bookmark.link = "http://babycakes.sofaer.net:3000"
+    bookmaark.valid?.should == true
 
     #invalid links
     bookmark.link = "zsdvzxdg"
