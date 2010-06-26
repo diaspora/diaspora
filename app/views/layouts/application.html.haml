@@ -85,5 +85,6 @@
       #main
         = yield
         = render "posts/debug"
-      #friends_list
+      - if user_signed_in?
+        #friends_list
         = render 'friends/sidebar'
