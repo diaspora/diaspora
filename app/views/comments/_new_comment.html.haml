@@ -1,7 +1,6 @@
 = form_for Comment.new, :remote => true do |f|
   = f.error_messages
   %p
-    /= f.label :message
     = f.text_field :text, :value => "dislike!"
     = f.hidden_field :post_id, :value => post.id
     = f.submit 'comment', :class => 'button'

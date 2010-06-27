@@ -30,3 +30,5 @@ end
 
 Factory.define :post do |p|
 end
+
+Factory.define(:comment) {}

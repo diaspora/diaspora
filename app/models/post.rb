@@ -25,10 +25,6 @@ class Post
     Post.sort(:created_at.desc).all
   end
 
-  def each
-    yield self 
-  end
-
  def self.newest(person = nil)
     return self.last if person.nil?
 

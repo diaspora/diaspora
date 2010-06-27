@@ -1,0 +1,6 @@
+%div.comments
+  = render "comments/new_comment", :post => post
+  %ul.comment_set
+    - for comment in post.comments
+      = render "comments/comment", :comment => comment
+	 	

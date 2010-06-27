@@ -12,7 +12,7 @@ describe "parser in application helper" do
     status_messages = []
     10.times { status_messages << Factory.build(:status_message, :person => @user)}
     xml = Post.build_xml_for(status_messages) 
-    store_posts_from_xml(xml) 
+    store_objects_from_xml(xml) 
     StatusMessage.count.should == 0
   end
   it 'should discard posts where it does not know the type' do
@@ -24,7 +24,7 @@ describe "parser in application helper" do
     </head><posts>
       <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post> <post><not_a_real_type></not_a_real_type></post> <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
-    store_posts_from_xml(xml)
+    store_objects_from_xml(xml)
     Post.count.should == 2
     Post.first.person.email.should == Friend.first.email
   end
@@ -36,7 +36,7 @@ describe "parser in application helper" do
       <post><friend></friend></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
-    store_posts_from_xml(xml)
+    store_objects_from_xml(xml)
     Post.count.should == 0
 
   end
@@ -51,7 +51,7 @@ describe "parser in application helper" do
       <post><friend></friend></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
-    store_posts_from_xml(xml)
+    store_objects_from_xml(xml)
     Post.count.should == 0
   end
   it 'should discard types which are not of type post' do
@@ -60,12 +60,13 @@ describe "parser in application helper" do
       <sender>
         <email>#{Friend.first.email}</email>
       </sender>
-    </head><posts>
+    </head>
+    <posts>
       <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       <post><friend></friend></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      </posts></XML>"
-    store_posts_from_xml(xml)
+    </posts></XML>"
+    store_objects_from_xml(xml)
     Post.count.should == 2
     Post.first.person.email.should == Friend.first.email
   end
@@ -94,9 +95,24 @@ describe "parser in application helper" do
     end
 
     it 'should be able to extract all posts to an array' do
-      posts = parse_posts_from_xml(@xml)
+      posts = parse_objects_from_xml(@xml)
       posts.is_a?(Array).should be true
       posts.count.should == 10
+    end
+    
+    it 'should be able to correctly handle comments' do
+      friend = Factory.create(:friend)
+      post = Factory.create(:status_message)
+      comment = Factory.build(:comment, :post => post, :person => friend, :text => "Freedom!")
+      xml = "<XML><head><sender><email>#{Friend.first.email}</email></sender></head>
+      <posts>
+        <post>#{comment.to_xml}</post>
+      </posts></XML>"
+      objects = parse_objects_from_xml(xml)
+      comment = objects.first
+      comment.text.should == "Freedom!"
+      comment.person.should == friend
+      comment.post.should == post
     end
 
   end

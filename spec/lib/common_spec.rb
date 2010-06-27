@@ -59,8 +59,8 @@ describe Diaspora do
       end
 
       it "should send an owners post to their friends" do
-        Post.stub(:build_xml_for).and_return(true) 
-        Post.should_receive(:build_xml_for).and_return true
+        q = Post.send (:class_variable_get, :@@queue)
+        q.should_receive :process
         @post.save
       end
     

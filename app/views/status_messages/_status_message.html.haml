@@ -4,12 +4,7 @@
     = post.message
   %div.time
     = link_to "#{time_ago_in_words(post.updated_at)} ago", status_message_path(post)
-  %div.comments
-    %ul.comment_set
-      - for comment in post.comments
-        = render "comments/comment", :comment => comment
-      = render "comments/new_comment", :post => post
-    
+  = render "comments/comments", :post => post 
   - if mine?(post)
     = link_to 'Destroy', status_message_path(post), :confirm => 'Are you sure?', :method => :delete
     

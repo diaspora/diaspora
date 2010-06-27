@@ -25,7 +25,7 @@ class MessageHandler
       case query.type
       when :post
         http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml =>  query.body}
-        http.callback { process}
+        http.callback {puts query.inspect; process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
