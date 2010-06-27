@@ -1,5 +1,4 @@
 body {
-  font-family: "helvetica", "arial", "sans-serif";
   padding: 2em;
   margin: 0; }
 
@@ -46,34 +45,29 @@ a {
     margin: 0;
     font-weight: bold;
     font-size: 12px;
-    background-color: #cc0000;
-    color: white; }
+    background-color: #cc0000; }
   .error_messages p {
     margin: 8px 10px; }
   .error_messages ul {
     margin: 0; }
 
 header {
-  z-index: 10;
-  position: fixed;
-  width: 100%;
-  margin-top: -2em;
-  margin-right: -2em;
-  margin-left: -2em;
+  position: relative;
+  margin: -2em;
+    margin-bottom: 0;
   height: 30px;
   color: white;
   background-color: #1a1a21;
-  border-bottom: 2px solid #f2f8fc;
+  border-bottom: 2px solid white;
   padding-top: 5px; }
   header #diaspora_text {
-    position: fixed;
+    position: absolute;
     border: none;
-    top: 8px;
-    left: 1em; }
+    top: 10px; }
   header #session_action {
-    position: fixed;
-    right: 1em;
-    font-size: 120%;
+    position: absolute;
+    right: 300px;
+    font-size: 110%;
     top: 7px; }
     header #session_action a {
       color: #cccccc;
@@ -90,10 +84,8 @@ header {
   padding: 5px; }
 
 ul#stream_filters {
-  display: none;
   padding: 0;
-  margin: 0;
-  background: white; }
+  margin: 0; }
   ul#stream_filters li {
     display: block;
     padding: 5px 0; }
@@ -109,25 +101,16 @@ ul#stream_filters {
     color: black; }
 
 #header_below {
-  z-index: 5;
-  position: fixed;
-  height: 40px;
-  width: 100%;
-  padding: 1em;
-    padding-top: 40px;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  margin-left: -2em; }
-  #header_below img {
-    position: absolute;
-    width: 200px;
-    border-radius: 5px; }
+  margin: 0 -2em;
+  -webkit-box-shadow: 0 2px 2px -1px #999999;
+  background-color: #f2f8fc;
+  border-bottom: 1px solid #7e96a6;
+  padding-top: 0.8em;
+  padding-bottom: 0.4em; }
 
 #content {
   position: absolute;
-  top: 94px;
-  width: 60%;
-  min-width: 700px; }
+  top: 94px; }
 
 #main {
   width: 100%; }
@@ -144,7 +127,6 @@ ul#stream {
 
 li.message {
   line-height: 140%;
-  font-size: 120%;
   font-family: "Lucida Grande";
   color: #999999; }
   li.message span.from {
@@ -155,9 +137,13 @@ li.message {
     color: #bababa;
     font-size: 70%; }
 
+#user_name {
+  font-size: 15px;
+  line-height: 100%; }
+
 h1 {
   position: relative;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   line-height: 36px; }
   h1 p.description, h1 span.description {
@@ -165,11 +151,6 @@ h1 {
     font-family: "helvetica neue", "lucida grande", "sans-serif";
     color: #999999;
     padding: 0.1em; }
-
-.big_number {
-  font-weight: bold;
-  font-size: 500%;
-  line-height: 100%; }
 
 h3 {
   position: relative;
@@ -183,30 +164,22 @@ h3 {
   width: 100%;
   margin-bottom: 1em; }
 
-#friends_list {
-  position: absolute;
-  right: 0;
-  width: 20%;
-  min-width: 130px; }
-
 form {
-  font-size: 130%;
+  font-size: 120%;
   margin: 1em;
   margin-left: 0em; }
   form input {
-    font-size: 150%;
     padding: 0.2em;
     max-width: 100%; }
 
 #user_name {
-  background-color: rgba(255, 255, 255, 0.5); }
+  text-shadow: 0 1px 0 white; }
   #user_name a {
     color: black; }
     #user_name a:hover {
       color: #cc1e14; }
 
 #comment_text {
-  font-size: 75%;
   padding: 3px; }
 
 ul.comment_set {
@@ -215,11 +188,10 @@ ul.comment_set {
   padding: 0;
     padding-left: 1em;
   list-style: none;
-  font-size: 80%;
   width: 90%; }
   ul.comment_set li.comment {
     margin-bottom: 0.5em;
-    background-color: rgba(230, 239, 247, 0.4);
+    background-color: #f2f8fc;
     padding: 0.6em;
     border-radius: 5px; }
     ul.comment_set li.comment .from {

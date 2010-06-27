@@ -1,6 +1,4 @@
 body
-  :font
-    :family 'helvetica', 'arial', 'sans-serif'
   :padding 2em
   :margin 0
 a
@@ -9,8 +7,6 @@ a
     :decoration none
   &:hover
     :color #CC1E14
-
-
 
 #flash_notice,
 #flash_error,
@@ -52,43 +48,34 @@ a
       :weight bold
       :size 12px
     :background-color #c00
-    :color #fff
   p
     :margin 8px 10px
   ul
     :margin 0
 
 header
-  :z-index 10
-
-  :position fixed
-  :width 100%
-
-  :margin
-    :top -2em
-    :right -2em
-    :left -2em
-
+  :position relative
+  :margin -2em
+    :bottom 0
   :height 30px
   :color #fff
   :background
     :color #1A1A21
   :border
-    :bottom 2px solid #F2F8FC
+    :bottom 2px solid #fff
   :padding
     :top 5px
 
   #diaspora_text
-    :position fixed
+    :position absolute
     :border none
-    :top 8px
-    :left 1em
+    :top 10px
 
   #session_action
-    :position fixed
-    :right 1em
+    :position absolute
+    :right 300px
     :font
-      :size 120%
+      :size 110%
     :top 7px
     a
       :color #ccc
@@ -105,7 +92,6 @@ header
   :padding 5px
 
 ul#stream_filters
-  :display none
   :padding 0
   :margin 0
   li
@@ -121,30 +107,20 @@ ul#stream_filters
     :color #B1CFE3
   a:hover
     :color #000
-  :background #fff
 
 #header_below
-  :z-index 5 
-  :position fixed
-  :height 40px
-  :width 100%
-  :padding 1em
-    :top 40px
-  :top 0
-  :background
-    :color rgba( 255, 255, 255, 0.9)
-  :margin
-    :left -2em
-  img
-    :position absolute
-    :width 200px
-    :border-radius 5px
+  :margin 0 -2em
+  :-webkit-box-shadow 0 2px 2px -1px #999
+  :background-color #F2F8FC
+  :border
+    :bottom 1px solid #7E96A6
+  :padding
+    :top 0.8em
+    :bottom 0.4em
 
 #content  
   :position absolute
   :top 94px
-  :width 60%
-  :min-width 700px
 
 #main
   :width 100%
@@ -164,7 +140,6 @@ ul#stream
 li.message
   :line-height 140%
   :font
-    :size 120%
     :family 'Lucida Grande'
   :color #999
   
@@ -182,10 +157,15 @@ li.message
 .mine
   //:background-color rgba(202, 237, 204, 0.5)
 
+#user_name
+  :font
+    :size 15px
+  :line-height 100%
+
 h1
   :position relative
   :font
-    :size 24px
+    :size 18px
     :weight bold
   :line-height 36px
 
@@ -195,12 +175,6 @@ h1
       :family 'helvetica neue', 'lucida grande', 'sans-serif'
     :color #999
     :padding 0.1em
-
-.big_number
-  :font
-    :weight bold
-    :size 500%
-  :line-height 100%
 
 h3
   :position relative
@@ -217,22 +191,14 @@ h3
     :width 100%
     :margin
       :bottom 1em
-      
-#friends_list
-  :position absolute
-  :right 0
-  :width 20%
-  :min-width 130px
-  
+
 form
   :font
-    :size 130%
+    :size 120%
   :margin 1em
   :margin-left 0em
 
   input
-    :font
-      :size 150%
     :padding 0.2em
     :max-width 100%
   
@@ -241,12 +207,10 @@ form
     :color #000
     &:hover
       :color #CC1E14
-  :background
-    :color rgba( 255, 255, 255, 0.5)
-    
+  :text
+    :shadow 0 1px 0 #fff
+
 #comment_text
-  :font
-    :size 75%
   :padding 3px
 
 ul.comment_set
@@ -255,15 +219,12 @@ ul.comment_set
   :padding 0
     :left 1em
   :list-style none
-  :font
-    :size 80%
   :width 90%
 
   li.comment
     :margin
       :bottom 0.5em
-    :background
-      :color rgba( 230, 239, 247, 0.4)
+    :background-color #F2F8FC
     :padding 0.6em
     :border-radius 5px
 
