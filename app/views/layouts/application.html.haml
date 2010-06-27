@@ -26,8 +26,6 @@
       :javascript
           $(document).ready(function(){
           
-          
-          
           function debug(str){ $("#debug").append("<p>" +  str); };
 
           ws = new WebSocket("ws://#{request.host}:8080/");
