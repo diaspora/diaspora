@@ -24,50 +24,51 @@
 
     -  if user_signed_in?
       :javascript
-          $(document).ready(function(){
-          
+        $(document).ready(function(){
           function debug(str){ $("#debug").append("<p>" +  str); };
 
           ws = new WebSocket("ws://#{request.host}:8080/");
           ws.onmessage = function(evt) { 
             var obj = jQuery.parseJSON(evt.data);
-             if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
-                $("#stream").prepend($(obj['html']).fadeIn("fast")); 
-             };
-             }
-            ws.onclose = function() { debug("socket closed"); };
-            ws.onopen = function() {
-              ws.send(location.pathname);
-              debug("connected...");
-              };
+            if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
+              $("#stream").prepend($(obj['html']).fadeIn("fast")); 
+            };
+          };
+          ws.onclose = function() { debug("socket closed"); };
+          ws.onopen = function() {
+            ws.send(location.pathname);
+            debug("connected...");
+            };
           });
   %body
-  
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
     
     %header
-      %a#diaspora_text{:href => root_path}
-        %img{:src => '/images/diaspora_white.png'}
+      .container
+        %a#diaspora_text{:href => root_path}
+          %img{:src => '/images/diaspora_white.png'}
 
-      #session_action
-        - if user_signed_in?
-          =User.first.email
-          |
-          = link_to "logout", destroy_user_session_path
-        - else
-          = link_to "login", new_user_session_path
-          
+          #session_action
+            - if user_signed_in?
+              =User.first.email
+              |
+              = link_to "logout", destroy_user_session_path
+            - else
+              = link_to "login", new_user_session_path
+
     #header_below
-      
-      - if user_signed_in?
-        %h1#user_name
-          = link_to User.first.real_name, root_url
-          %span.description
-            = my_latest_message
+      .container
+        - if user_signed_in?
+          %h1#user_name
+            = link_to User.first.real_name, root_url
+            %span.description
+              = my_latest_message
 
-        %nav
-          %ul.nav
+    .container
+      #content.span-24.last
+        .span-3.append-1.last
+          %ul#stream_filters
             %a{ :href => root_path, :title => "Your network stream."}
               %li home
             %a{ :href => status_messages_path, :title => "Recent status messages."}
@@ -78,11 +79,8 @@
               %li blogs
             %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
               %li friends
-
-
-    #content
-      #main
-        = yield
-        = render "posts/debug"
-      #friends_list
-        = render 'friends/sidebar' if user_signed_in?
+        .span-15.append-1.last
+          = yield
+          = render "posts/debug"
+        .span-3.last
+          = render 'friends/sidebar' if user_signed_in?

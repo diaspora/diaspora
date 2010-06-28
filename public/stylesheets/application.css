@@ -1,5 +1,4 @@
 body {
-  font-family: "helvetica", "arial", "sans-serif";
   padding: 2em;
   margin: 0; }
 
@@ -46,82 +45,75 @@ a {
     margin: 0;
     font-weight: bold;
     font-size: 12px;
-    background-color: #cc0000;
-    color: white; }
+    background-color: #cc0000; }
   .error_messages p {
     margin: 8px 10px; }
   .error_messages ul {
     margin: 0; }
 
 header {
-  z-index: 10;
-  position: fixed;
-  width: 100%;
-  margin-top: -2em;
-  margin-right: -2em;
-  margin-left: -2em;
+  position: relative;
+  margin: -2em;
+    margin-bottom: 0;
   height: 30px;
   color: white;
   background-color: #1a1a21;
-  border-bottom: 2px solid #f2f8fc;
+  border-bottom: 2px solid white;
   padding-top: 5px; }
   header #diaspora_text {
-    position: fixed;
+    position: absolute;
     border: none;
-    top: 8px;
-    left: 1em; }
+    top: 10px; }
   header #session_action {
-    position: fixed;
-    right: 1em;
-    font-size: 120%;
+    position: absolute;
+    right: 300px;
+    font-size: 110%;
     top: 7px; }
     header #session_action a {
       color: #cccccc;
       border: none; }
 
-ul.nav {
+#show_filters {
+  z-index: 100;
   position: absolute;
+  right: 0;
+  text-align: right; }
+
+#show_filters > a {
+  border: 1px solid #666666;
+  padding: 5px; }
+
+ul#stream_filters {
   padding: 0;
-  margin: 0;
-  width: 200px;
-  top: 100px;
-  font-size: 130%; }
-  ul.nav li {
+  margin: 0; }
+  ul#stream_filters li {
     display: block;
-    padding: 5px 10px;
-    background-color: #f2f8fc;
-    border: 1px solid white; }
-    ul.nav li:first-child {
+    padding: 5px 0; }
+    ul#stream_filters li:first-child {
       border-top-right-radius: 5px;
       border-top-left-radius: 5px; }
-    ul.nav li:last-child {
+    ul#stream_filters li:last-child {
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px; }
-  ul.nav a {
+  ul#stream_filters a {
     color: #b1cfe3; }
+  ul#stream_filters a:hover {
+    color: black; }
 
 #header_below {
-  z-index: 5;
-  position: fixed;
-  height: 40px;
-  width: 100%;
-  padding: 1em;
-    padding-top: 40px;
-  top: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  margin-left: -2em; }
-  #header_below img {
-    position: absolute;
-    width: 200px;
-    border-radius: 5px; }
+  margin: 0 -2em;
+  -webkit-box-shadow: 0 2px 2px -1px #999999;
+  background-color: #f2f8fc;
+  border-bottom: 1px solid #7e96a6;
+  padding-top: 0.8em;
+  padding-bottom: 0.4em; }
 
 #content {
   position: absolute;
-  left: 250px;
-  top: 94px;
-  width: 60%;
-  min-width: 500px;
-  max-width: 700px; }
+  top: 94px; }
+
+#main {
+  width: 100%; }
 
 ul#stream {
   margin: 0;
@@ -135,7 +127,6 @@ ul#stream {
 
 li.message {
   line-height: 140%;
-  font-size: 120%;
   font-family: "Lucida Grande";
   color: #999999; }
   li.message span.from {
@@ -146,12 +137,13 @@ li.message {
     color: #bababa;
     font-size: 70%; }
 
-.mine {
-  background-color: rgba(202, 237, 204, 0.5); }
+#user_name {
+  font-size: 15px;
+  line-height: 100%; }
 
 h1 {
   position: relative;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   line-height: 36px; }
   h1 p.description, h1 span.description {
@@ -159,11 +151,6 @@ h1 {
     font-family: "helvetica neue", "lucida grande", "sans-serif";
     color: #999999;
     padding: 0.1em; }
-
-.big_number {
-  font-weight: bold;
-  font-size: 500%;
-  line-height: 100%; }
 
 h3 {
   position: relative;
@@ -177,30 +164,39 @@ h3 {
   width: 100%;
   margin-bottom: 1em; }
 
-#main {
-  width: 70%;
-  min-width: 400px;
-  max-width: 700px;
-  float: left; }
-
-#friends_list {
-  float: right;
-  width: 20%;
-  min-width: 130px;
-  padding-left: 10%; }
-
 form {
-  font-size: 130%;
+  font-size: 120%;
   margin: 1em;
   margin-left: 0em; }
   form input {
-    font-size: 150%;
     padding: 0.2em;
     max-width: 100%; }
 
 #user_name {
-  background-color: rgba(255, 255, 255, 0.5); }
+  text-shadow: 0 1px 0 white; }
   #user_name a {
     color: black; }
     #user_name a:hover {
       color: #cc1e14; }
+
+#comment_text {
+  padding: 3px; }
+
+ul.comment_set {
+  margin: 0;
+    margin-top: 1em;
+  padding: 0;
+    padding-left: 1em;
+  list-style: none;
+  width: 90%; }
+  ul.comment_set li.comment {
+    margin-bottom: 0.5em;
+    background-color: #f2f8fc;
+    padding: 0.6em;
+    border-radius: 5px; }
+    ul.comment_set li.comment .from {
+      color: #666666;
+      font-weight: normal; }
+      ul.comment_set li.comment .from a {
+        color: #333333;
+        font-weight: bold; }
