@@ -13,11 +13,12 @@ module WebSocket
       end
     end
     
-    EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug => true) do |ws|
+    EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>false) do |ws|
       ws.onopen {
+
         sid = @channel.subscribe { |msg| ws.send msg }
         
-        ws.onmessage { |msg| @channel.push msg}
+        ws.onmessage { |msg| @channel.push msg; puts msg}
 
         ws.onclose {  @channel.unsubscribe(sid) }
       }
@@ -29,10 +30,18 @@ module WebSocket
   end
   
   def self.view_hash(object)
-    {:class =>object.class.to_s.underscore.pluralize, :html => WebSocket.view_for(object)}
+    #begin
+     # puts "I be working hard"
+    v = WebSocket.view_for(object)
+      #puts view.inspect
+    #rescue
+     # puts "in failzord " + view.inspect
+    #  raise "i suck" 
+    #end
+    {:class =>object.class.to_s.underscore.pluralize, :html => v}
   end
   
   def self.view_for(object)
-    @view.render(:partial => @view.type_partial(object), :locals => {:post  => object})
+    @view.render @view.type_partial(object), :post  => object
   end
 end

@@ -34,11 +34,12 @@
              if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
                 $("#stream").prepend($(obj['html']).fadeIn("fast")); 
              };
-          }
-          ws.onclose = function() { debug("socket closed"); };
-          ws.onopen = function() {
-          debug("connected...");
-          };
+             }
+            ws.onclose = function() { debug("socket closed"); };
+            ws.onopen = function() {
+              ws.send(location.pathname);
+              debug("connected...");
+              };
           });
   %body
   
