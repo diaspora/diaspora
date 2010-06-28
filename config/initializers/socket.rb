@@ -15,10 +15,10 @@ module WebSocket
     
     EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>false) do |ws|
       ws.onopen {
-
+        puts ws.request['Cookie']
         sid = @channel.subscribe { |msg| ws.send msg }
         
-        ws.onmessage { |msg| @channel.push msg; puts msg}
+        ws.onmessage { |msg| puts msg}#@channel.push msg; puts msg}
 
         ws.onclose {  @channel.unsubscribe(sid) }
       }
