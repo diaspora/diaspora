@@ -5,6 +5,7 @@ class Post
   include ROXML
   include Diaspora::Webhooks
 
+  xml_accessor :_id
 
   key :person_id, ObjectId
   belongs_to :person, :class_name => 'Person'

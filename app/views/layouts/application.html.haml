@@ -33,18 +33,12 @@
              if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
                 $("#stream").prepend($(obj['html']).fadeIn("fast")); 
              };
-          }
-          ws.onclose = function() { debug("socket closed"); };
-          ws.onopen = function() {
-          debug("connected...");
-          };
-
-
-          $('#show_filters').hover( function() {
-            $("#stream_filters").fadeIn(80);
-          },
-          function() {
-            $("#stream_filters").fadeOut(100);
+             }
+            ws.onclose = function() { debug("socket closed"); };
+            ws.onopen = function() {
+              ws.send(location.pathname);
+              debug("connected...");
+              };
           });
         });
   %body
