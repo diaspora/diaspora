@@ -1,7 +1,3 @@
-# require 'addressable/uri'
-# require 'eventmachine'
-# require 'em-http'
-
 class MessageHandler 
 
   NUM_TRIES = 3
@@ -17,6 +13,9 @@ class MessageHandler
 
 
   def add_post_request(destinations, body)
+    puts "yay"
+    puts destinations.inspect
+    puts body.inspect
     destinations.each{|dest| @queue.push(Message.new(:post, dest, body))}
   end
 
@@ -25,7 +24,7 @@ class MessageHandler
       case query.type
       when :post
         http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml =>  query.body}
-        http.callback {puts query.inspect; process}
+        http.callback {puts query.body; process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
@@ -34,6 +33,7 @@ class MessageHandler
       end
 
       http.errback {
+        puts query.destination + " failed!"
         query.try_count +=1
         @queue.push query unless query.try_count >= NUM_TRIES 
         process

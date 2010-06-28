@@ -10,6 +10,7 @@ module WebSocket
       class << @view  
         include ApplicationHelper 
         include Rails.application.routes.url_helpers
+        include ActionView::Helpers::FormTagHelper
       end
     end
     
@@ -29,8 +30,15 @@ module WebSocket
   end
   
   def self.view_hash(object)
-    v = WebSocket.view_for(object)
-    puts v
+    begin
+     puts "I be working hard"
+     v = WebSocket.view_for(object)
+    puts v.inspect
+    rescue
+    puts "in failzord " + v .inspect
+      raise "i suck" 
+    end
+
     {:class =>object.class.to_s.underscore.pluralize, :html => v}
   end
   
