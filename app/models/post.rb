@@ -8,19 +8,13 @@ class Post
   xml_accessor :_id
 
   key :person_id, ObjectId
-  belongs_to :person, :class_name => 'Person'
-  
   
   many :comments, :class_name => 'Comment', :foreign_key => :post_id
+  belongs_to :person, :class_name => 'Person'
   
   timestamps!
 
-
-
   after_save :send_to_view
-  #validates_presence_of :person
-  
-  
   
   def self.stream
     Post.sort(:created_at.desc).all

@@ -16,7 +16,6 @@ describe Friend do
     n.valid?.should be true
   end
 
-
   it 'should validate its url' do
     friend = Factory.build(:friend)
 
@@ -65,23 +64,4 @@ describe Friend do
     friend.url = "http:///www.asodij.com/"
     friend.valid?.should == false
   end
-
-   describe "XML" do
-    before do
-      @f = Factory.build(:friend)
-      @xml = "<friend>\n  <url>#{@f.url}</url>\n  <email>#{@f.email}</email>\n  <real_name>#{@f.real_name}</real_name>\n</friend>" 
-    end
-      
-    it 'should serialize to XML' do
-      @f.to_xml.to_s.should == @xml
-    end
-  
-    it 'should marshal serialized XML to object' do       
-      parsed = Friend.from_xml(@xml)
-      parsed.email.should == @f.email
-      parsed.url.should == @f.url
-      parsed.valid?.should be_true
-    end
-  end
-
 end

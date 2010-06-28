@@ -8,13 +8,9 @@ class Person
   key :email, String
   key :real_name, String
   
-  #key :post_ids, Array#, :typecast => ObjectId
-
+  one :profile, :class_name => 'Profile', :foreign_key => :person_id
   many :posts, :class_name => 'Post', :foreign_key => :person_id
 
-  validates_presence_of :email, :real_name
+  validates_presence_of :email, :real_name, :profile
   
- # def newest(type = nil)
- #   type.constantize.where(:person_id => id).last
- # end
 end
