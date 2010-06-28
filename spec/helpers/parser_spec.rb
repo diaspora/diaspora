@@ -15,19 +15,7 @@ describe "parser in application helper" do
     store_objects_from_xml(xml) 
     StatusMessage.count.should == 0
   end
-  it 'should discard posts where it does not know the type' do
-    xml = "<XML>
-    <head>
-      <sender>
-        <email>#{Friend.first.email}</email>
-      </sender>
-    </head><posts>
-      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post> <post><not_a_real_type></not_a_real_type></post> <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      </posts></XML>"
-    store_objects_from_xml(xml)
-    Post.count.should == 2
-    Post.first.person.email.should == Friend.first.email
-  end
+  
   it "should reject xml with no sender" do
     xml = "<XML>
     <head>
@@ -40,6 +28,7 @@ describe "parser in application helper" do
     Post.count.should == 0
 
   end
+  
   it "should reject xml with a sender not in the database" do
     xml = "<XML>
     <head>
@@ -54,6 +43,7 @@ describe "parser in application helper" do
     store_objects_from_xml(xml)
     Post.count.should == 0
   end
+  
   it 'should discard types which are not of type post' do
     xml = "<XML>
     <head>
@@ -62,13 +52,11 @@ describe "parser in application helper" do
       </sender>
     </head>
     <posts>
-      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       <post><friend></friend></post>
-      <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
     </posts></XML>"
+    
     store_objects_from_xml(xml)
-    Post.count.should == 2
-    Post.first.person.email.should == Friend.first.email
+    Post.count.should == 0
   end
 
 
