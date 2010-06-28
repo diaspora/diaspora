@@ -3,7 +3,7 @@ class StatusMessage < Post
   
   xml_name :status_message
   xml_accessor :message
-  
+
   key :message, String
 
 

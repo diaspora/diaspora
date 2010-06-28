@@ -15,10 +15,9 @@ module WebSocket
     
     EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>false) do |ws|
       ws.onopen {
-        puts ws.request['Cookie']
         sid = @channel.subscribe { |msg| ws.send msg }
         
-        ws.onmessage { |msg| puts msg}#@channel.push msg; puts msg}
+        ws.onmessage { |msg|}#@channel.push msg; puts msg}
 
         ws.onclose {  @channel.unsubscribe(sid) }
       }
@@ -30,14 +29,8 @@ module WebSocket
   end
   
   def self.view_hash(object)
-    #begin
-     # puts "I be working hard"
     v = WebSocket.view_for(object)
-      #puts view.inspect
-    #rescue
-     # puts "in failzord " + view.inspect
-    #  raise "i suck" 
-    #end
+    puts v
     {:class =>object.class.to_s.underscore.pluralize, :html => v}
   end
   
