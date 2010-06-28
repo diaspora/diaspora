@@ -5,20 +5,21 @@ module WebSocket
   EM.next_tick {
     EM.add_timer(0.1) do
       @channel = EM::Channel.new
+      puts @channel.inspect
       @view = ActionView::Base.new(ActionController::Base.view_paths, {})  
       
       class << @view  
         include ApplicationHelper 
         include Rails.application.routes.url_helpers
-        include ActionView::Helpers::FormTagHelper
+        #include ActionView::Helpers::FormTagHelper
       end
     end
     
-    EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>false) do |ws|
+    EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>true) do |ws|
       ws.onopen {
         sid = @channel.subscribe { |msg| ws.send msg }
         
-        ws.onmessage { |msg|}#@channel.push msg; puts msg}
+        ws.onmessage { |msg| }#@channel.push msg; puts msg}
 
         ws.onclose {  @channel.unsubscribe(sid) }
       }
@@ -33,10 +34,13 @@ module WebSocket
     begin
      puts "I be working hard"
      v = WebSocket.view_for(object)
-    puts v.inspect
-    rescue
-    puts "in failzord " + v .inspect
-      raise "i suck" 
+     puts v.inspect
+    
+    rescue Exception > e
+      puts "in failzord " + v.inspect
+      puts object.inspect
+      puts e.inspect
+      raise e 
     end
 
     {:class =>object.class.to_s.underscore.pluralize, :html => v}

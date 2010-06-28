@@ -43,8 +43,7 @@ class Post
   protected
 
   def send_to_view
-    self.reload
-    WebSocket.update_clients(self)
+      WebSocket.update_clients(self)
   end
   
 
