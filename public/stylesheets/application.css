@@ -197,16 +197,13 @@ ul.comment_set {
     margin-bottom: 0.5em;
     background-color: #f2f8fc;
     padding: 0.6em;
-    border-radius: 5px; }
+    border-bottom: 1px solid #cccccc; }
     ul.comment_set li.comment .from {
       color: #666666;
       font-weight: normal; }
       ul.comment_set li.comment .from a {
         color: #333333;
         font-weight: bold; }
-
-.new_comment {
-  display: none; }
 
 img#profile_picture {
   width: 100%; }
@@ -228,3 +225,12 @@ img#user_picture {
 
 #debug_info {
   margin-top: 20px; }
+
+textarea {
+  font-family: "lucida grande", "sans-serif";
+  font-size: 14px;
+  height: 18px;
+  display: block;
+  width: 100%;
+  -moz-box-shadow: 0 2px 0px white;
+  border-top: 1px solid #999999; }

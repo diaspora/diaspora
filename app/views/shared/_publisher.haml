@@ -25,15 +25,7 @@
 
   ul#publisher_content_pickers li {
     display: inline;
-    padding: 0.6em;
-
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-
-    border: 1px solid #666;
-
-    background-color: rgba( 255,255,255, 1 );
+    margin-right: 20px;
   }
 
 :javascript
@@ -74,21 +66,17 @@
   #publisher_form
     = form_for StatusMessage.new, :remote => true do |f|
       = f.error_messages
-      %p
-        = f.text_field :message, :value => "Message"
-        = f.submit "Post"
-
+      = f.text_area :message, :value => "Message"
+      = f.submit "Post"
 
     = form_for Bookmark.new, :remote => true do |f|
       = f.error_messages
-      %p
-        = f.text_field :title, :value => "Title"
-        = f.text_field :link, :value => "URL"
-        = f.submit "Post"
+      = f.text_area :title, :value => "Title"
+      = f.text_area :link, :value => "URL"
+      = f.submit "Post"
 
     = form_for Blog.new, :remote => true do |f|
       = f.error_messages
-      %p
-        = f.text_field :title, :value => "Title"
-        = f.text_area :body
-        = f.submit "Post"
+      = f.text_field :title, :value => "Title"
+      = f.text_area :body, :id => "blog_editor"
+      = f.submit "Post"

@@ -117,7 +117,6 @@ ul#stream_filters
     :top 0.8em
     :bottom 0.4em
 
-
 #main
   :width 100%
 
@@ -232,7 +231,8 @@ ul.comment_set
       :bottom 0.5em
     :background-color #F2F8FC
     :padding 0.6em
-    :border-radius 5px
+    :border
+      :bottom 1px solid #ccc
 
     .from
       :color #666
@@ -243,8 +243,6 @@ ul.comment_set
         :font
           :weight bold
 
-.new_comment
-  :display none
 
 
 img#profile_picture
@@ -269,3 +267,16 @@ img#user_picture
 
 #debug_info
   :margin-top 20px
+
+
+textarea
+  :font
+    :family 'lucida grande', 'sans-serif'
+    :size 14px
+  :height 18px
+  :display block
+  :width 100%
+
+  :-moz-box-shadow 0 2px 0px #fff
+
+  :border-top 1px solid #999

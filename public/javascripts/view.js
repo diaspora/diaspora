@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	tinyMCE.init({
-			mode : "textareas",
+			mode : "exact",
+			elements: "blog_editor",
 			theme : "advanced",
 			plugins : "emotions,spellchecker,advhr,insertdatetime,preview",	
 
