@@ -203,3 +203,12 @@ ul.comment_set {
 
 img#profile_picture {
   width: 100%; }
+
+.pagination a {
+  padding: 3px; }
+
+.destroy_link {
+  float: right; }
+
+#debug_info {
+  margin-top: 20px; }
