@@ -41,6 +41,7 @@
             debug("connected...");
             };
           });
+  = javascript_include_tag 'satisfaction' 
   %body
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
@@ -50,13 +51,13 @@
         %a#diaspora_text{:href => root_path}
           %img{:src => '/images/diaspora_white.png'}
 
-          #session_action
-            - if user_signed_in?
-              =User.first.email
-              |
-              = link_to "logout", destroy_user_session_path
-            - else
-              = link_to "login", new_user_session_path
+        #session_action
+          - if user_signed_in?
+            =User.first.email
+            |
+            = link_to "logout", destroy_user_session_path
+          - else
+            = link_to "login", new_user_session_path
 
     #header_below
       .container
