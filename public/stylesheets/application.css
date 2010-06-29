@@ -200,3 +200,6 @@ ul.comment_set {
       ul.comment_set li.comment .from a {
         color: #333333;
         font-weight: bold; }
+
+img#profile_picture {
+  width: 100%; }

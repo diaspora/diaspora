@@ -1,24 +1,30 @@
-%h1= "#{@friend.real_name}"
 
-- if @friend_profile
-  %p
-    %b First Name
-  %p
-    = @friend_profile.first_name
-  %p
-    %b Last Name
-  %p
-    = @friend_profile.last_name
 
-%br
-%br
-%br
-%br
+.span-15
+  .span-4.append-1.last
+    %img{:src => "/images/user_picture.jpg", :id => "profile_picture"}
+  .span-10.last
+    %h1= "#{@friend.real_name}"
+  - if @friend_profile
+    %p
+      %b First Name
+    %p
+      = @friend_profile.first_name
+    %p
+      %b Last Name
+    %p
+      = @friend_profile.last_name
 
-- if @friend.posts
-  %h3 stream
-  %ul#stream
-    - for post in @friend_posts
-      = render type_partial(post), :post => post
-- else
-  %h3 no posts to display!
+  %br
+  %br
+  %br
+  %br
+
+.span-15
+  - if @friend.posts
+    %h3 stream
+    %ul#stream
+      - for post in @friend_posts
+        = render type_partial(post), :post => post
+  - else
+    %h3 no posts to display!
