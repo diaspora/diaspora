@@ -4,8 +4,10 @@ class Profile
   key :first_name, String
   key :last_name, String
 
-  belongs_to :person, :class_name => "Person"
+  key :person_id, ObjectId
 
-  validates_presence_of :first_name, :last_name, :person
+  belongs_to :person
+
+  validates_presence_of :first_name, :last_name, :person_id
 
 end

@@ -2,18 +2,13 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Friend do
 
-  it 'should require a diaspora username and diaspora url' do 
-    n = Factory.build(:friend, :url => nil)
-    n.valid?.should be false
-    n.url = "http://max.com/"
-    n.valid?.should be true
-  end
-
-  it 'should require a real name' do
-    n = Factory.build(:friend, :real_name => nil)
-    n.valid?.should be false
-    n.real_name = "John Smith"
-    n.valid?.should be true
+  describe 'requirements' do
+    it 'should include a url' do 
+      n = Factory.build(:friend, :url => nil)
+      n.valid?.should be false
+      n.url = "http://max.com/"
+      n.valid?.should be true
+    end
   end
 
   it 'should validate its url' do

@@ -6,17 +6,15 @@
 Factory.define :profile do |p|
   p.first_name "Robert"
   p.last_name "Grimm"
-  p.person Person.new( :email => "bob@aol.com", :real_name => "Bob" )
+  p.person Person.new( :email => "bob@aol.com" )
 end
 
 Factory.define :person do |p|
   p.email "bob@aol.com"
-  p.real_name "Bob"
   p.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
 end
 
 Factory.define :user do |u|
-  u.real_name 'Bob Smith'
   u.sequence(:email) {|n| "bob#{n}@aol.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
@@ -24,7 +22,6 @@ Factory.define :user do |u|
 end
 
 Factory.define :friend do |f|
-  f.real_name 'John Doe'
   f.email 'max@max.com'
   f.url  'http://max.com/'
   f.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
