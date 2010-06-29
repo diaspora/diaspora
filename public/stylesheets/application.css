@@ -3,10 +3,9 @@ body {
   margin: 0; }
 
 a {
-  color: #cc1e14;
-  text-decoration: none; }
-  a:hover {
-    color: #cc1e14; }
+  color: #316191;
+  text-decoration: none;
+  font-weight: bold; }
 
 #flash_notice,
 #flash_error,
@@ -54,11 +53,11 @@ a {
 header {
   position: relative;
   margin: -2em;
-    margin-bottom: 0;
+    margin-bottom: 2em;
   height: 30px;
   color: white;
   background-color: #1a1a21;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid #7e96a6;
   padding-top: 5px; }
   header #diaspora_text {
     position: absolute;
@@ -108,44 +107,39 @@ ul#stream_filters {
   padding-top: 0.8em;
   padding-bottom: 0.4em; }
 
-#content {
-  position: absolute;
-  top: 94px; }
-
 #main {
   width: 100%; }
 
 ul#stream {
   margin: 0;
   padding: 0;
-  color: #666666; }
+  color: #666666;
+  font-size: 110%; }
   ul#stream > li {
     list-style: none;
-    padding: 1em;
+    padding: 1em 0;
     border-bottom: 1px solid #f1f1f1;
     margin-bottom: 5px; }
 
 li.message {
+  position: relative;
   line-height: 140%;
   font-family: "Lucida Grande", "sans-serif";
   color: #999999; }
   li.message span.from {
-    color: black;
+    color: #333333;
     font-weight: bold;
     margin-right: 0.2em; }
   li.message div.time {
     color: #bababa;
     font-size: 70%; }
 
-#user_name {
-  font-size: 15px;
-  line-height: 100%; }
-
 h1 {
   position: relative;
-  font-size: 18px;
+  font-size: 21px;
   font-weight: bold;
-  line-height: 36px; }
+  line-height: 36px;
+  text-shadow: 0 1px 1px #cccccc; }
   h1 p.description, h1 span.description {
     font-weight: 200;
     font-family: "helvetica neue", "lucida grande", "sans-serif";
@@ -155,7 +149,8 @@ h1 {
 h3 {
   position: relative;
   font-size: 18px;
-  font-weight: bold; }
+  font-weight: bold;
+  text-shadow: 0 1px 1px #cccccc; }
 
 #publish input#thought {
   font-size: 30px;
@@ -173,7 +168,7 @@ form {
     max-width: 100%; }
 
 #user_name {
-  text-shadow: 0 1px 0 white; }
+  margin-bottom: 1em; }
   #user_name a {
     color: black; }
     #user_name a:hover {
@@ -201,6 +196,9 @@ ul.comment_set {
         color: #333333;
         font-weight: bold; }
 
+.new_comment {
+  display: none; }
+
 img#profile_picture {
   width: 100%; }
 
@@ -211,7 +209,13 @@ img#user_picture {
   padding: 3px; }
 
 .destroy_link {
-  float: right; }
+  position: absolute;
+  right: 0;
+  bottom: 15px;
+  display: none; }
+  .destroy_link a {
+    color: #999999;
+    font-weight: normal; }
 
 #debug_info {
   margin-top: 20px; }

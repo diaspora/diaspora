@@ -1,9 +1,14 @@
 :css
   #publisher{
-    height: 300px;
-    background-color: #eaeaea;
-    border: 1px solid #666;
-    padding: 1em;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    background-color: rgba( 242, 248, 252, 0.7 );
+    border-bottom: 2px #999 solid;
+  }
+
+  #publisher_form {
+    margin-bottom: -15px;
   }
 
   #new_bookmark {
@@ -20,7 +25,15 @@
 
   ul#publisher_content_pickers li {
     display: inline;
-    margin-right: 2em;
+    padding: 0.6em;
+
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+    border: 1px solid #666;
+
+    background-color: rgba( 255,255,255, 1 );
   }
 
 :javascript
@@ -63,7 +76,7 @@
       = f.error_messages
       %p
         = f.text_field :message, :value => "Message"
-        = f.submit :class => 'button'
+        = f.submit "Post"
 
 
     = form_for Bookmark.new, :remote => true do |f|
@@ -71,11 +84,11 @@
       %p
         = f.text_field :title, :value => "Title"
         = f.text_field :link, :value => "URL"
-        = f.submit
+        = f.submit "Post"
 
     = form_for Blog.new, :remote => true do |f|
       = f.error_messages
       %p
         = f.text_field :title, :value => "Title"
         = f.text_area :body
-        = f.submit
+        = f.submit "Post"

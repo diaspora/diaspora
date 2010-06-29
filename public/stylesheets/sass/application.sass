@@ -2,11 +2,10 @@ body
   :padding 2em
   :margin 0
 a
-  :color #CC1E14
+  :color #316191
   :text
     :decoration none
-  &:hover
-    :color #CC1E14
+  :font-weight bold
 
 #flash_notice,
 #flash_error,
@@ -56,13 +55,13 @@ a
 header
   :position relative
   :margin -2em
-    :bottom 0
+    :bottom 2em
   :height 30px
   :color #fff
   :background
     :color #1A1A21
   :border
-    :bottom 2px solid #fff
+    :bottom 2px solid #7E96A6
   :padding
     :top 5px
 
@@ -118,9 +117,6 @@ ul#stream_filters
     :top 0.8em
     :bottom 0.4em
 
-#content  
-  :position absolute
-  :top 94px
 
 #main
   :width 100%
@@ -129,23 +125,25 @@ ul#stream
   :margin 0
   :padding 0
   :color #666
+  :font
+    :size 110%
 
   > li
     :list-style none
-    :padding 1em
+    :padding 1em 0
     :border
       :bottom 1px solid #f1f1f1
     :margin-bottom 5px
 
 li.message
+  :position relative
   :line-height 140%
   :font
     :family 'Lucida Grande', 'sans-serif'
   :color #999
-  
 
   span.from
-    :color #000
+    :color #333
     :font
       :weight bold
     :margin
@@ -154,18 +152,11 @@ li.message
   div.time
     :color #bababa
     :font-size 70%
-.mine
-  //:background-color rgba(202, 237, 204, 0.5)
-
-#user_name
-  :font
-    :size 15px
-  :line-height 100%
 
 h1
   :position relative
   :font
-    :size 18px
+    :size 21px
     :weight bold
   :line-height 36px
 
@@ -175,12 +166,16 @@ h1
       :family 'helvetica neue', 'lucida grande', 'sans-serif'
     :color #999
     :padding 0.1em
+  :text
+    :shadow 0 1px 1px #ccc
 
 h3
   :position relative
   :font
     :size 18px 
     :weight bold
+  :text
+    :shadow 0 1px 1px #ccc
 
 #publish
   input#thought
@@ -203,12 +198,12 @@ form
     :max-width 100%
   
 #user_name
+  :margin
+    :bottom 1em
   a
     :color #000
     &:hover
       :color #CC1E14
-  :text
-    :shadow 0 1px 0 #fff
 
 #comment_text
   :padding 3px
@@ -237,6 +232,10 @@ ul.comment_set
         :font
           :weight bold
 
+.new_comment
+  :display none
+
+
 img#profile_picture
   :width 100%
 
@@ -248,7 +247,14 @@ img#user_picture
     :padding 3px
   
 .destroy_link
-  :float right
+  :position absolute
+  :right 0
+  :bottom 15px
+  :display none
+  a
+    :color #999
+    :font
+      :weight normal
 
 #debug_info
   :margin-top 20px

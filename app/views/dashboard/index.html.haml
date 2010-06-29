@@ -1,5 +1,4 @@
 = render "shared/publisher"
-%h1 your network stream
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post

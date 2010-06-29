@@ -40,7 +40,15 @@
             ws.send(location.pathname);
             debug("connected...");
             };
+
+
+          $("#stream li").hover(function() {
+            $(this).children(".destroy_link").fadeIn(0);
+          }, function() {
+            $(this).children(".destroy_link").fadeOut(0);
           });
+
+        });
   %body
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
@@ -58,17 +66,15 @@
             - else
               = link_to "login", new_user_session_path
 
-    #header_below
-      .container
-        - if user_signed_in?
-          %h1#user_name
-            = link_to User.first.real_name, root_url
-            %span.description
-              = my_latest_message
 
     .container
+      - if user_signed_in?
+        %h1#user_name
+          = link_to User.first.real_name, root_url
+          %span.description
+            = my_latest_message
       #content.span-24.last
-        .span-4.append-1.last
+        .span-5.append-1.last
           %img{:src => "/images/user_picture.jpg", :id => "user_picture"}
           %ul#stream_filters
             %a{ :href => root_path, :title => "Your network stream."}
@@ -81,8 +87,7 @@
               %li blogs
             %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
               %li friends
-        .span-14.append-1.last
+          = render 'friends/sidebar' if user_signed_in?
+        .span-18
           = yield
           = render "posts/debug"
-        .span-3.last
-          = render 'friends/sidebar' if user_signed_in?
