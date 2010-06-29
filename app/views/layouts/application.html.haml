@@ -8,7 +8,7 @@
     
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application"
-    /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
+    /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'view'
     = javascript_include_tag 'tiny_mce/tiny_mce.js'
 
@@ -30,6 +30,7 @@
           ws = new WebSocket("ws://#{request.host}:8080/");
           ws.onmessage = function(evt) { 
             var obj = jQuery.parseJSON(evt.data);
+            debug("got a " + obj['class']);
             if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
               $("#stream").prepend($(obj['html']).fadeIn("fast")); 
             };
