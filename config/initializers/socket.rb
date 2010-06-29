@@ -1,23 +1,14 @@
 require 'em-websocket'
 require 'eventmachine'
-
+require 'lib/socket_render'
 module WebSocket
   EM.next_tick {
     EM.add_timer(0.1) do
       @channel = EM::Channel.new
       puts @channel.inspect
       
-      #this should really be a controller
-      @view = ActionView::Base.new(ActionController::Base.view_paths, {})  
+      include SocketRenderer
       
-      class << @view  
-        include ApplicationHelper 
-        include Rails.application.routes.url_helpers
-        include ActionController::RequestForgeryProtection::ClassMethods
-        def protect_against_forgery?
-          false
-        end
-      end
     end
     
     EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>true) do |ws|
@@ -32,26 +23,8 @@ module WebSocket
   }
 
   def self.update_clients(object)
-    @channel.push(WebSocket.view_hash(object).to_json) if @channel
+    @channel.push(SocketRenderer.view_hash(object).to_json) if @channel
   end
   
-  def self.view_hash(object)
-    begin
-     puts "I be working hard"
-     v = WebSocket.view_for(object)
-     puts v.inspect
-    
-    rescue Exception => e
-      puts "in failzord " + v.inspect
-      puts object.inspect
-      puts e.message
-      raise e 
-    end
-    puts "i made it here"
-    {:class =>object.class.to_s.underscore.pluralize, :html => v}
-  end
-  
-  def self.view_for(object)
-    @view.render @view.type_partial(object), :post  => object
-  end
+ 
 end
