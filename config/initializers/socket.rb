@@ -11,7 +11,12 @@ module WebSocket
       class << @view  
         include ApplicationHelper 
         include Rails.application.routes.url_helpers
-        #include ActionView::Helpers::FormTagHelper
+        include ActionController::RequestForgeryProtection::ClassMethods
+        include ActionView::Helpers::FormTagHelper
+        include ActionView::Helpers::UrlHelper
+        def protect_against_forgery?
+          false
+        end
       end
     end
     
@@ -36,13 +41,13 @@ module WebSocket
      v = WebSocket.view_for(object)
      puts v.inspect
     
-    rescue Exception > e
+    rescue Exception => e
       puts "in failzord " + v.inspect
       puts object.inspect
-      puts e.inspect
+      puts e.message
       raise e 
     end
-
+    puts "i made it here"
     {:class =>object.class.to_s.underscore.pluralize, :html => v}
   end
   

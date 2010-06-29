@@ -30,6 +30,7 @@ $(document).ready(function(){
 	$('#bookmark_title').click(clearForm);
 	
 	$('#bookmark_link').click(clearForm);
+	$('#debug_more').hide();
 
   function clearForm(){
    $(this).val("");

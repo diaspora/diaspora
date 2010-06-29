@@ -4,7 +4,7 @@
     = post.message
   %div.time
     = link_to(how_long_ago(post), status_message_path(post))
-  /= render "comments/comments", :post => post 
+  = render "comments/comments", :post => post 
   - if mine?(post)
     = link_to 'Destroy', status_message_path(post), :confirm => 'Are you sure?', :method => :delete
     
