@@ -68,7 +68,8 @@
 
     .container
       #content.span-24.last
-        .span-3.append-1.last
+        .span-4.append-1.last
+          %img{:src => "/images/user_picture.jpg", :id => "user_picture"}
           %ul#stream_filters
             %a{ :href => root_path, :title => "Your network stream."}
               %li home
@@ -80,7 +81,7 @@
               %li blogs
             %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
               %li friends
-        .span-15.append-1.last
+        .span-14.append-1.last
           = yield
           = render "posts/debug"
         .span-3.last

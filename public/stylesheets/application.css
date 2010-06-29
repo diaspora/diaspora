@@ -204,6 +204,9 @@ ul.comment_set {
 img#profile_picture {
   width: 100%; }
 
+img#user_picture {
+  width: 100%; }
+
 .pagination a {
   padding: 3px; }
 
