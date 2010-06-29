@@ -1,0 +1,81 @@
+:css
+  #publisher{
+    height: 300px;
+    background-color: #eaeaea;
+    border: 1px solid #666;
+    padding: 1em;
+  }
+
+  #new_bookmark {
+    display: none;
+  }
+  #new_blog {
+    display: none;
+  }
+
+  ul#publisher_content_pickers {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul#publisher_content_pickers li {
+    display: inline;
+    margin-right: 2em;
+  }
+
+:javascript
+  $(document).ready( function() {
+
+    $("#publisher_content_pickers li .status_message").click(function(){
+      if( $("#new_status_message").css("display") == "none" ) {
+        $("#publisher_form form").fadeOut(50);
+        $("#new_status_message").delay(50).fadeIn(200);
+      }
+    });
+
+    $("#publisher_content_pickers li .bookmark").click(function(){
+      if( $("#new_bookmark").css("display") == "none" ) {
+        $("#publisher_form form").fadeOut(50);
+        $("#new_bookmark").delay(50).fadeIn(200);
+      }
+    });
+
+    $("#publisher_content_pickers li .blog").click(function(){
+      if( $("#new_blog").css("display") == "none" ) {
+        $("#publisher_form form").fadeOut(50);
+        $("#new_blog").delay(50).fadeIn(200);
+      }
+    });
+
+  });
+
+#publisher
+  %ul#publisher_content_pickers
+    %a{ :class => "status_message", :href => '#', :title => "new status message."}
+      %li status message
+    %a{ :class => "bookmark", :href => '#', :title => "new bookmark."}
+      %li bookmark
+    %a{ :class => "blog", :href => '#', :title => "new blog post."}
+      %li blog
+
+  #publisher_form
+    = form_for StatusMessage.new, :remote => true do |f|
+      = f.error_messages
+      %p
+        = f.text_field :message, :value => "Message"
+        = f.submit :class => 'button'
+
+
+    = form_for Bookmark.new, :remote => true do |f|
+      = f.error_messages
+      %p
+        = f.text_field :title, :value => "Title"
+        = f.text_field :link, :value => "URL"
+        = f.submit
+
+    = form_for Blog.new, :remote => true do |f|
+      = f.error_messages
+      %p
+        = f.text_field :title, :value => "Title"
+        = f.text_area :body
+        = f.submit
