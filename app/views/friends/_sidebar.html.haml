@@ -1,5 +1,5 @@
 %h3 your friends
-%ul#stream
+%ul#friend_stream
   - for friend in @friends
     = link_to friend.real_name, friend_path(friend)
     %br
