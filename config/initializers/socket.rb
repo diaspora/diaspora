@@ -6,9 +6,9 @@ module WebSocket
     EM.add_timer(0.1) do
       @channel = EM::Channel.new
       puts @channel.inspect
-      
       include SocketRenderer
       
+      SocketRenderer.instantiate_view 
     end
     
     EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>true) do |ws|
