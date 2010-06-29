@@ -6,14 +6,14 @@ module WebSocket
     EM.add_timer(0.1) do
       @channel = EM::Channel.new
       puts @channel.inspect
+      
+      #this should really be a controller
       @view = ActionView::Base.new(ActionController::Base.view_paths, {})  
       
       class << @view  
         include ApplicationHelper 
         include Rails.application.routes.url_helpers
         include ActionController::RequestForgeryProtection::ClassMethods
-        include ActionView::Helpers::FormTagHelper
-        include ActionView::Helpers::UrlHelper
         def protect_against_forgery?
           false
         end

@@ -3,3 +3,5 @@
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post
+#pagination
+  = will_paginate @posts

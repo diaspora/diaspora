@@ -31,9 +31,12 @@ $(document).ready(function(){
 	
 	$('#bookmark_link').click(clearForm);
 	$('#debug_more').hide();
+	$(":text").click(clearForm);
 
   function clearForm(){
+	var text =  $(this).text()
    $(this).val("");
+
   }
 
 	$('#debug_info').click(function() {

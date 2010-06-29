@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   
   def index
     @bookmark = Bookmark.new
-    @bookmarks = Bookmark.sort(:created_at.desc).all
+    @bookmarks = Bookmark.paginate :page => params[:page], :order => 'created_at DESC'
   end
   
   def edit

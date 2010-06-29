@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
   include ApplicationHelper
 
   def index
-    @posts = Post.sort(:created_at.desc).all
+    @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
 

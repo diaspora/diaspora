@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
 
 
   def index
-    @blogs = Blog.sort(:created_at.desc).all
+    @blogs = Blog.paginate :page => params[:page], :order => 'created_at DESC'
   end
   
   def show

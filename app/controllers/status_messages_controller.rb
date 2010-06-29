@@ -2,7 +2,7 @@ class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @status_messages = StatusMessage.sort(:created_at.desc).all
+    @status_messages = StatusMessage.paginate :page => params[:page], :order => 'created_at DESC'
     
 
     respond_to do |format|

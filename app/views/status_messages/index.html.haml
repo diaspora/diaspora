@@ -4,4 +4,6 @@
   
   - for status_message in @status_messages
     = render "status_message", :post => status_message
+#pagination
+  = will_paginate @status_messages
 
