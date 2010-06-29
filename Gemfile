@@ -20,6 +20,7 @@ gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', 
 gem 'addressable', :require => "addressable/uri"
 gem 'em-websocket'
 gem 'thin'
+gem 'will_paginate', '3.0.pre'
 
 
 group :test do

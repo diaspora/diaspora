@@ -14,3 +14,6 @@
       %td= link_to 'Destroy', friend, :confirm => 'Are you sure?', :method => :delete
 
 %p= link_to "New Friend", new_friend_path
+
+#pagination
+  = will_paginate @friends

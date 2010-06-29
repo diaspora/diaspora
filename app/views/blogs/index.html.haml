@@ -3,3 +3,5 @@
 %ul#stream
   - for blog in @blogs
     = render "blog", :post => blog
+#pagination
+  = will_paginate @blogs

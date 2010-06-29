@@ -12,6 +12,10 @@ class Post
   many :comments, :class_name => 'Comment', :foreign_key => :post_id
   belongs_to :person, :class_name => 'Person'
   
+  
+  cattr_reader :per_page
+  @@per_page = 10
+    
   timestamps!
 
   after_save :send_to_view
