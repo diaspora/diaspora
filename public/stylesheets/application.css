@@ -127,7 +127,7 @@ ul#stream {
 
 li.message {
   line-height: 140%;
-  font-family: "Lucida Grande";
+  font-family: "Lucida Grande", "sans-serif";
   color: #999999; }
   li.message span.from {
     color: black;
