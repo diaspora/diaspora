@@ -4,6 +4,9 @@ class CommentsController < ApplicationController
   def create
     target = Post.first(:id => params[:comment][:post_id])
     text = params[:comment][:text]
+    puts params.inspect
+    
+    
     if current_user.comment text, :on => target
       render :text => "Woo!"
     else

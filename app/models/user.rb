@@ -14,6 +14,7 @@ class User < Person
     Comment.new(:person_id => self.id, :text => text, :post => options[:on]).save
   end
   
+  validates_presence_of :profile
   
   before_validation :do_bad_things
   def do_bad_things

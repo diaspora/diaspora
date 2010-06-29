@@ -7,6 +7,7 @@ class FriendsController < ApplicationController
   
   def show
     @friend = Friend.where(:id => params[:id]).first
+    @friend_profile = @friend.profile
     @friend_posts = Post.where(:person_id => @friend.id).sort(:created_at.desc)
   end
   

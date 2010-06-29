@@ -1,11 +1,30 @@
 #For Guidance
 #http://github.com/thoughtbot/factory_girl
-#http://railscasts.com/episodes/158-factories-not-fixtures
+# http://railscasts.com/episodes/158-factories-not-fixtures
+
+
+Factory.define :profile do |p|
+  p.first_name "Robert"
+  p.last_name "Grimm"
+  p.person Person.new( :email => "bob@aol.com" )
+end
+
+Factory.define :person do |p|
+  p.email "bob@aol.com"
+  p.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
+end
+
+Factory.define :user do |u|
+  u.sequence(:email) {|n| "bob#{n}@aol.com"}
+  u.password "bluepin7"
+  u.password_confirmation "bluepin7"
+  u.profile Profile.new( :first_name => "Bob", :last_name => "Smith" )
+end
 
 Factory.define :friend do |f|
-  f.real_name 'John Doe'
   f.email 'max@max.com'
   f.url  'http://max.com/'
+  f.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
 end
 
 Factory.define :status_message do |m|
@@ -17,12 +36,6 @@ Factory.define :blog do |b|
   b.sequence(:body) {|n| "jimmy's huge #{n} whales"}
 end
 
-Factory.define :user do |u|
-  u.real_name 'Bob Smith'
-  u.sequence(:email) {|n| "bob#{n}@aol.com"}
-  u.password "bluepin7"
-  u.password_confirmation "bluepin7"
-end
 
 Factory.define :bookmark do |b|
   b.link "http://www.yahooligans.com/"
