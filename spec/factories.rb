@@ -23,7 +23,7 @@ end
 
 Factory.define :friend do |f|
   f.email 'max@max.com'
-  f.url  'http://max.com/'
+  f.sequence(:url)  {|n|"http://max#{n}.com/"}
   f.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
 end
 

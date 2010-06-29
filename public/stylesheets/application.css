@@ -138,8 +138,7 @@ h1 {
   position: relative;
   font-size: 21px;
   font-weight: bold;
-  line-height: 36px;
-  text-shadow: 0 1px 1px #cccccc; }
+  line-height: 36px; }
   h1 p.description, h1 span.description {
     font-weight: 200;
     font-family: "helvetica neue", "lucida grande", "sans-serif";
@@ -149,8 +148,7 @@ h1 {
 h3 {
   position: relative;
   font-size: 18px;
-  font-weight: bold;
-  text-shadow: 0 1px 1px #cccccc; }
+  font-weight: bold; }
 
 #publish input#thought {
   font-size: 30px;

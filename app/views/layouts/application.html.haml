@@ -11,8 +11,18 @@
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'view'
     = javascript_include_tag 'tiny_mce/tiny_mce.js'
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-17207587-1']);
+      _gaq.push(['_setDomainName', '#{root_url}']);
+      _gaq.push(['_trackPageview']);
 
-    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
     - unless request.user_agent.include? "Safari" ||"Chrome"
       = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
       :javascript
@@ -49,6 +59,7 @@
           });
 
         });
+  = javascript_include_tag 'satisfaction' 
   %body
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
@@ -58,13 +69,13 @@
         %a#diaspora_text{:href => root_path}
           %img{:src => '/images/diaspora_white.png'}
 
-          #session_action
-            - if user_signed_in?
-              =User.first.email
-              |
-              = link_to "logout", destroy_user_session_path
-            - else
-              = link_to "login", new_user_session_path
+        #session_action
+          - if user_signed_in?
+            =User.first.email
+            |
+            = link_to "logout", destroy_user_session_path
+          - else
+            = link_to "login", new_user_session_path
 
 
     .container

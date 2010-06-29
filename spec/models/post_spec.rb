@@ -48,7 +48,7 @@ describe Post do
  
   describe "stream" do 
     before do
-      @owner = Factory.create(:user, :email => "robert@grimm.com")
+      @owner = Factory.build(:user)
       @friend_one = Factory.create(:friend, :email => "some@dudes.com")
       @friend_two = Factory.create(:friend, :email => "other@dudes.com")
 
