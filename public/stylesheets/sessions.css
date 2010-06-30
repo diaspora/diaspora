@@ -34,7 +34,7 @@ input[type='password'] {
   margin-top: 0;
   background-color: black;
   color: #eaeaea;
-  -webkit-box-shadow: 0 0 500px white;
+  -webkit-box-shadow: 0 0 70px white;
   border: 1px solid #666666; }
 
 .container {
