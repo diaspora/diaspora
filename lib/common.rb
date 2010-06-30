@@ -7,14 +7,16 @@ module Diaspora
 
     def parse_sender_object_from_xml(xml)
       sender_id = parse_sender_id_from_xml(xml)
-      Friend.where(:email => sender_id).first
+      Friend.where(:email =>sender_id ).first
+
+
     end
     
 
     def parse_owner_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       email = doc.xpath("/person/email").text.to_s
-      Friend.where(:email => sender_id).first
+      Friend.where(:email => email).first
     end
 
     def parse_body_contents_from_xml(xml)
@@ -29,8 +31,13 @@ module Diaspora
       body.children.each do |post|
         begin
           object = post.name.camelize.constantize.from_xml post.to_s
-          puts post.to_s
           object.person =  parse_owner_from_xml post.to_s #if object.is_a? Post  
+          
+         # if object.is_a? Comment
+         #   object.post = parse_post_
+         # end
+          
+          
           objects << object 
         rescue
           puts "Not a real type: #{object.to_s}"

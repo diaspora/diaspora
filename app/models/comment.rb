@@ -4,7 +4,8 @@ class Comment
   include Diaspora::Webhooks
 
   xml_accessor :text
-  xml_reader :person,  :to_xml => proc {|person| person.email}
+  xml_accessor :person, :as => Person
+  xml_accessor :post_id
   
   key :text, String
   key :target, String
