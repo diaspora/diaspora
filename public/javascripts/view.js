@@ -61,7 +61,7 @@ $(document).ready(function(){
 
   // in field label plugin
 
-  $(".show_post_comments").click( function() {
+  $(".show_post_comments").live('click', function() {
     if( $(this).hasClass( "visible" )) {
       $(this).html($(this).html().replace("hide", "show"));
       $(this).parents("li").children(".comments").fadeOut(100);
