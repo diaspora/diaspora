@@ -30,7 +30,6 @@ class MessageHandler
       end
 
       http.errback {
-        puts query.destination + " failed!"
         query.try_count +=1
         @queue.push query unless query.try_count >= NUM_TRIES 
         process

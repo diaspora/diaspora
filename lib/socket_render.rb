@@ -14,9 +14,7 @@ module SocketRenderer
 
   def self.view_hash(object)
     begin
-      puts "I be working hard"
       v = view_for(object)
-      puts v.inspect
 
     rescue Exception => e
       puts "in failzord " + v.inspect
@@ -24,7 +22,6 @@ module SocketRenderer
       puts e.message
       raise e 
     end
-    puts "i made it here"
     {:class =>object.class.to_s.underscore.pluralize, :html => v}
   end
 
