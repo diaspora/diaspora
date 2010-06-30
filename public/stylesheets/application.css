@@ -233,4 +233,5 @@ textarea {
   display: block;
   width: 100%;
   -moz-box-shadow: 0 2px 0px white;
-  border-top: 1px solid #999999; }
+  border-top: 1px solid #999999;
+  clear: both; }
