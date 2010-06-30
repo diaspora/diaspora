@@ -32,12 +32,6 @@ module Diaspora
         begin
           object = post.name.camelize.constantize.from_xml post.to_s
           object.person =  parse_owner_from_xml post.to_s #if object.is_a? Post  
-          
-         # if object.is_a? Comment
-         #   object.post = parse_post_
-         # end
-          
-          
           objects << object 
         rescue
           puts "Not a real type: #{object.to_s}"
@@ -50,6 +44,7 @@ module Diaspora
       objects = parse_objects_from_xml(xml)
 
       objects.each do |p|
+        #This line checks if the sender was in the database, among other things?
         p.save if p.respond_to?(:person) && !(p.person.nil?) #WTF
         #p.save if p.respond_to?(:person) && !(p.person == nil) #WTF
       end
