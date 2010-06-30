@@ -1,24 +1,39 @@
+html
+  :height 100%
+  :background
+    :image url('/images/black_dandy.jpeg')
+    :repeat no-repeat
+    :color #000
+    :position bottom
+
 body
+  :background transparent
   :padding 2em
 
 #huge_text
-  :margin
-    :top 10%
   :display inline block
   :font
-    :size 40px
-    :weight bold
+    :size 30px
+    :weight normal
   :line-height 120px
   :letter
-    :spacing -2px
-  :color #eaeaea
-  :text-shadow 0 1px 1px #999
+    :spacing -1px
+  :color #444
+
+  :color #57493c
+  :color #555
+  :text-shadow 0 1px 3px #555
+  :margin
+    :bottom -20px
 
   span
+    :font
+      :weight bold
     :display inline
-    :color #666
+    :color #fff
+    :text-shadow 0 1px 3px #999
 
-input
+input[type='password']
   :font
     :size 30px
   :text
@@ -27,6 +42,11 @@ input
   :margin
     :bottom 0
     :top 0
+  :background
+    :color #000
+  :color #eaeaea
+  :-webkit-box-shadow 0 0 500px #fff
+  :border 1px solid #666
 
 .container
   :top 30%
