@@ -84,20 +84,16 @@ header {
 
 ul#stream_filters {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+    margin-bottom: 20px; }
   ul#stream_filters li {
     display: block;
-    padding: 5px 0; }
-    ul#stream_filters li:first-child {
-      border-top-right-radius: 5px;
-      border-top-left-radius: 5px; }
-    ul#stream_filters li:last-child {
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px; }
+    padding: 8px 0;
+    border-bottom: 1px #eeeeee solid; }
   ul#stream_filters a {
     color: #b1cfe3; }
-  ul#stream_filters a:hover {
-    color: black; }
+    ul#stream_filters a:hover {
+      color: black; }
 
 #header_below {
   margin: 0 -2em;

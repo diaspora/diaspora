@@ -1,7 +1,7 @@
 :css
   #publisher{
     padding: 10px;
-    padding-top: 20px;
+    padding-top: 15px;
     padding-bottom: 35px;
     background-color: rgba( 242, 248, 252, 0.7 );
     border-bottom: 2px #999 solid;
@@ -21,17 +21,27 @@
   ul#publisher_content_pickers {
     margin: 0;
     padding: 0;
+    text-shadow: 0 -2px 0 #fff;
   }
 
   ul#publisher_content_pickers li {
     display: inline;
-    margin-right: 20px;
+    padding: 5px 10px;
+    margin-right: 5px;
+  }
+
+  .selected {
+    -webkit-border-radius: 5px;
+    border: 1px solid #ccc;
+    border-top: 1px solid #333;
+    -webkit-box-shadow: 0 2px 1px #fff;
+    background-color: rgba( 255, 255, 255, 0.5);
   }
 
 #publisher
   %ul#publisher_content_pickers
     %a{ :class => "status_message", :href => '#', :title => "new status message."}
-      %li status message
+      %li{ :class => "selected" } status message
     %a{ :class => "bookmark", :href => '#', :title => "new bookmark."}
       %li bookmark
     %a{ :class => "blog", :href => '#', :title => "new blog post."}

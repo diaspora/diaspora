@@ -93,19 +93,17 @@ header
 ul#stream_filters
   :padding 0
   :margin 0
+    :bottom 20px
   li
     :display block
-    :padding 5px 0
-    &:first-child
-      :border-top-right-radius 5px
-      :border-top-left-radius 5px
-    &:last-child
-      :border-bottom-right-radius 5px
-      :border-bottom-left-radius 5px
+    :padding 8px 0
+    :border
+      :bottom 1px #eee solid
+
   a
     :color #B1CFE3
-  a:hover
-    :color #000
+    &:hover
+      :color #000
 
 #header_below
   :margin 0 -2em
