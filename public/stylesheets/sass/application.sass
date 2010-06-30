@@ -215,8 +215,6 @@ form
     &:hover
       :color #CC1E14
 
-#comment_text
-  :padding 3px
 
 ul.comment_set
   :margin 0
@@ -276,8 +274,20 @@ textarea
   :height 18px
   :display block
   :width 100%
-
   :-moz-box-shadow 0 2px 0px #fff
-
   :border-top 1px solid #999
-  :clear both 
+
+input[type='submit']
+  :position absolute
+  :right 0
+
+form p
+  :position relative
+  :padding 0
+  :margin 0
+
+label
+  :color #999
+  :position absolute
+  :top 3px
+  :left 0.48em

@@ -183,9 +183,6 @@ form {
     #user_name a:hover {
       color: #cc1e14; }
 
-#comment_text {
-  padding: 3px; }
-
 ul.comment_set {
   margin: 0;
     margin-top: 1em;
@@ -233,5 +230,19 @@ textarea {
   display: block;
   width: 100%;
   -moz-box-shadow: 0 2px 0px white;
-  border-top: 1px solid #999999;
-  clear: both; }
+  border-top: 1px solid #999999; }
+
+input[type='submit'] {
+  position: absolute;
+  right: 0; }
+
+form p {
+  position: relative;
+  padding: 0;
+  margin: 0; }
+
+label {
+  color: #999999;
+  position: absolute;
+  top: 3px;
+  left: 0.48em; }

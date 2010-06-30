@@ -10,7 +10,7 @@
     = stylesheet_link_tag "application"
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher'
-    = javascript_include_tag 'tiny_mce/tiny_mce.js'
+    = javascript_include_tag 'tiny_mce/tiny_mce.js','jquery.infieldlabel'
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-17207587-1']);
@@ -57,6 +57,10 @@
           }, function() {
             $(this).children(".destroy_link").fadeOut(0);
           });
+
+
+
+          $("label").inFieldLabels();
         });
   
   = javascript_include_tag 'satisfaction' , 'satisfaction-display'

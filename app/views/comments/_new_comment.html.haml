@@ -1,4 +1,7 @@
-= form_tag("/comments", :remote => true, :class =>"new_comment", :id => "new_comment-#{post.id}") do
-  = text_area_tag "comment_text", 'leave a comment',  :size => 30, :name => 'comment[text]'
-  = hidden_field_tag  "comment_post_id", "#{post.id}", :name => "comment[post_id]"
-  = submit_tag 'comment', :id => "comment_submit_#{post.id}", :name => "commit"
+= form_for Comment.new, :remote => true do |f|
+  %p
+    %label{:for => "comment_text"} Comment
+    = f.text_area :text
+  = f.hidden_field :post_id, :value => post.id
+  %p
+    = f.submit "Comment"
