@@ -1,7 +1,7 @@
 = form_for Comment.new, :remote => true do |f|
   %p
     %label{:for => "comment_text"} Comment
-    = f.text_area :text
+    = f.text_area :text, :rows => 2
   = f.hidden_field :post_id, :value => post.id
   %p
     = f.submit "Comment"

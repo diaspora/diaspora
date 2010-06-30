@@ -187,25 +187,12 @@ h3
     :size 18px 
     :weight bold
 
-#publish
-  input#thought
-    :font
-      :size 30px
-    :padding 7px
-    :border-radius 5px
-    :width 100%
-    :margin
-      :bottom 1em
-
 form
   :font
     :size 120%
   :margin 1em
   :margin-left 0em
 
-  input
-    :padding 0.2em
-    :max-width 100%
   
 #user_name
   :margin
@@ -267,15 +254,18 @@ img#user_picture
   :margin-top 20px
 
 
-textarea
+input[type='text'], textarea
   :font
     :family 'lucida grande', 'sans-serif'
     :size 14px
-  :height 18px
+  :padding 0.3em
   :display block
   :width 100%
+  :-webkit-box-shadow 0 2px 0px #fff
   :-moz-box-shadow 0 2px 0px #fff
   :border-top 1px solid #999
+  :height auto
+
 
 input[type='submit']
   :position absolute

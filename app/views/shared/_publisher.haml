@@ -2,7 +2,7 @@
   #publisher{
     padding: 10px;
     padding-top: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 35px;
     background-color: rgba( 242, 248, 252, 0.7 );
     border-bottom: 2px #999 solid;
   }
@@ -42,7 +42,7 @@
       = f.error_messages
       %p
         %label{:for => "status_message_message"} Message
-        = f.text_area :message
+        = f.text_area :message, :rows => 2
       %p
         = f.submit "Post"
 
@@ -50,10 +50,10 @@
       = f.error_messages
       %p
         %label{:for => "bookmark_title"} Title
-        = f.text_area :title
+        = f.text_field :title
       %p
         %label{:for => "bookmark_link"} Link
-        = f.text_area :link
+        = f.text_field :link
       %p
         = f.submit "Post"
 
@@ -61,7 +61,7 @@
       = f.error_messages
       %p
         %label{:for => "blog_title"} Title
-        = f.text_area :title
+        = f.text_field :title
       %p
         %label{:for => "blog_body"} Body
         = f.text_area :body
