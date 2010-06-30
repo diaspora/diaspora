@@ -13,4 +13,14 @@ describe Person do
     friend.valid?.should == false
 
   end
+  it 'should serialize to xml' do
+    friend_one = Factory.create(:friend)
+    xml = friend_one.to_xml.to_s
+    (xml.include? "friend").should == true
+  end
+  it 'should have a profile in its xml' do
+    user = Factory.create(:user)
+    xml = user.to_xml.to_s
+    (xml.include? "first_name").should == true
+  end
 end
