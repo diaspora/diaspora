@@ -53,4 +53,23 @@ $(document).ready(function(){
   $('#flash_notice, #flash_error, #flash_alert').delay(1500).slideUp(130);
   
 
+  $("#stream li").hover(function() {
+    $(this).children(".destroy_link").fadeIn(0);
+  }, function() {
+    $(this).children(".destroy_link").fadeOut(0);
+  });
+
+  // in field label plugin
+
+  $(".show_post_comments").live('click', function() {
+    if( $(this).hasClass( "visible" )) {
+      $(this).html($(this).html().replace("hide", "show"));
+      $(this).parents("li").children(".comments").fadeOut(100);
+    } else {
+      $(this).html($(this).html().replace("show", "hide"));
+      $(this).parents("li").children(".comments").fadeIn(100);
+    }
+    $(this).toggleClass( "visible" );
+  });
+
 });//end document ready

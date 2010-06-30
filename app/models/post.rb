@@ -6,6 +6,7 @@ class Post
   include Diaspora::Webhooks
 
   xml_accessor :_id
+  xml_accessor :person, :as => Person
 
   key :person_id, ObjectId
   

@@ -77,6 +77,11 @@ describe Post do
       friend_posts.count.should == 2
     end
   end
-
+  describe 'xml' do
+    it 'should serialize to xml with its person' do
+      message = Factory.create(:status_message, :person => @user)
+      (message.to_xml.to_s.include? @user.email).should == true
+    end
+  end
 end
 

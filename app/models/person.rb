@@ -4,7 +4,8 @@ class Person
 
   xml_accessor :email
   xml_accessor :url
- 
+  xml_accessor :profile, :as => Profile
+
   key :email, String
   key :url, String
   

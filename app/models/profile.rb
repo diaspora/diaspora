@@ -1,6 +1,10 @@
 class Profile
   include MongoMapper::Document
-  
+  include ROXML
+
+  xml_accessor :first_name
+  xml_accessor :last_name
+
   key :first_name, String
   key :last_name, String
 

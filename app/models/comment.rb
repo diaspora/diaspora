@@ -2,7 +2,7 @@ class Comment
   include MongoMapper::Document
   include ROXML
   xml_accessor :text
-  
+  xml_accessor :person, :as => Person
   
   key :text, String
   key :target, String

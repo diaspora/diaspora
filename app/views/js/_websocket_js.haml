@@ -1,0 +1,27 @@
+-  if user_signed_in?
+  - unless request.user_agent.include? "Safari" ||"Chrome"
+    = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
+    :javascript
+        WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
+  :javascript
+    $(document).ready(function(){
+      function debug(str){ $("#debug").append("<p>" +  str); };
+
+      ws = new WebSocket("ws://#{request.host}:8080/");
+      ws.onmessage = function(evt) { 
+        var obj = jQuery.parseJSON(evt.data);
+        debug("got a " + obj['class']);
+        if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
+          $("#stream").prepend(
+            $(obj['html']).fadeIn("fast", function(){
+              $("#stream label:first").inFieldLabels();
+              }
+            )
+          ); 
+        };
+      };
+      ws.onclose = function() { debug("socket closed"); };
+      ws.onopen = function() {
+        ws.send(location.pathname);
+        debug("connected...");
+        };});
