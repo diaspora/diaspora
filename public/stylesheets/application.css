@@ -119,7 +119,7 @@ ul#stream, ul#friend_stream {
 li.message {
   position: relative;
   line-height: 140%;
-  font-family: "Lucida Grande", "sans-serif";
+  font-family: "Lucida Grande", sans-serif;
   color: #999999; }
   li.message span.from {
     color: #333333;
