@@ -8,7 +8,6 @@
 
 require 'config/environment'
 
-
 # Create seed user
 User.create( :email => "a@a.com", :password => "aaaaaa", :profile => Profile.create( :first_name => "Robert", :last_name => "Grimm" ))
 

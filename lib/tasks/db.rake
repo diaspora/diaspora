@@ -12,4 +12,10 @@ namespace :db do
     Person.delete_all
     Profile.delete_all
   end
+
+  desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'
+  task :reset do
+    Rake::Task['db:delete'].invoke
+    Rake::Task['db:seed'].invoke
+  end
 end
