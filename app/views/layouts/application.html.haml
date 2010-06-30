@@ -2,7 +2,8 @@
 %html
   %head
     %title
-      = "diaspora" 
+      = "diaspora "
+      = "- #{User.first.real_name}" if User.first
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{"http-equiv"=> "X-UA-Compatible", :content =>"chrome=1" }
     
@@ -11,73 +12,12 @@
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher'
     = javascript_include_tag 'tiny_mce/tiny_mce.js','jquery.infieldlabel'
-    :javascript
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-17207587-1']);
-      _gaq.push(['_setDomainName', '#{root_url}']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    - unless request.user_agent.include? "Safari" ||"Chrome"
-      = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
-      :javascript
-          WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
-    
+    = render "js/google_a_js"
+    = render "js/websocket_js"
     
     = csrf_meta_tag
     = yield(:head)
 
-    -  if user_signed_in?
-      :javascript
-        $(document).ready(function(){
-          function debug(str){ $("#debug").append("<p>" +  str); };
-
-          ws = new WebSocket("ws://#{request.host}:8080/");
-          ws.onmessage = function(evt) { 
-            var obj = jQuery.parseJSON(evt.data);
-            debug("got a " + obj['class']);
-            if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
-              $("#stream").prepend(
-                $(obj['html']).fadeIn("fast", function(){
-                  $("#stream label:first").inFieldLabels();
-                  }
-                )
-              ); 
-            };
-          };
-          ws.onclose = function() { debug("socket closed"); };
-          ws.onopen = function() {
-            ws.send(location.pathname);
-            debug("connected...");
-            };
-
-
-          $("#stream li").hover(function() {
-            $(this).children(".destroy_link").fadeIn(0);
-          }, function() {
-            $(this).children(".destroy_link").fadeOut(0);
-          });
-
-          // in field label plugin
-
-          $(".show_post_comments").click( function() {
-            if( $(this).hasClass( "visible" )) {
-              $(this).html($(this).html().replace("hide", "show"));
-              $(this).parents("li").children(".comments").fadeOut(100);
-            } else {
-              $(this).html($(this).html().replace("show", "hide"));
-              $(this).parents("li").children(".comments").fadeIn(100);
-            }
-            $(this).toggleClass( "visible" );
-          });
-
-
-        });
   
   = javascript_include_tag 'satisfaction' , 'satisfaction-display'
   %body

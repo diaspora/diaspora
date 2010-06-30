@@ -1,0 +1,11 @@
+development:
+  debug: true
+  socket_port: 8080
+
+test:
+  debug: false
+  socket_port: 8081
+
+production:
+  debug: false
+  socket_port: 8080

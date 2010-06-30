@@ -11,7 +11,10 @@ module WebSocket
       SocketRenderer.instantiate_view 
     end
     
-    EventMachine::WebSocket.start(:host => "0.0.0.0", :port => 8080, :debug =>true) do |ws|
+    EventMachine::WebSocket.start(
+                  :host => "0.0.0.0", 
+                  :port => APP_CONFIG[:socket_port],
+                  :debug =>APP_CONFIG[:debug]) do |ws|
       ws.onopen {
         sid = @channel.subscribe { |msg| ws.send msg }
         
@@ -25,6 +28,4 @@ module WebSocket
   def self.update_clients(object)
     @channel.push(SocketRenderer.view_hash(object).to_json) if @channel
   end
-  
- 
 end

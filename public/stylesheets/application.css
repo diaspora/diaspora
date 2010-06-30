@@ -64,10 +64,10 @@ header {
     border: none;
     top: 10px; }
   header #session_action {
-    position: absolute;
-    right: 300px;
+    float: right;
     font-size: 110%;
-    top: 7px; }
+    top: 7px;
+    padding-right: 10px; }
     header #session_action a {
       color: #cccccc;
       border: none; }

@@ -1,7 +1,6 @@
 class BlogsController < ApplicationController
   before_filter :authenticate_user!
 
-
   def index
     @blogs = Blog.paginate :page => params[:page], :order => 'created_at DESC'
   end

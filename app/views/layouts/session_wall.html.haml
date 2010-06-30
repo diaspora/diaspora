@@ -18,10 +18,13 @@
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
-        
-      %div#huge_text
-        welcome back, 
-        %span
-          = User.first.real_name.downcase
+      - if User.first  
+        %div#huge_text
+          welcome back, 
+          %span
+            = User.first.real_name.downcase
+      -else
+        %div#huge_text
+          you need to add a user first!
 
       = yield
