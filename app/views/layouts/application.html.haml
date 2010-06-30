@@ -58,9 +58,14 @@
             $(this).children(".destroy_link").fadeOut(0);
           });
 
-
-
+          // in field label plugin
           $("label").inFieldLabels();
+
+          $(".show_post_comments").click( function() {
+            $(this).parents("li").children(".comments").fadeIn(100);
+          });
+
+
         });
   
   = javascript_include_tag 'satisfaction' , 'satisfaction-display'

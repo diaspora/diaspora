@@ -120,12 +120,10 @@ ul#stream_filters
 #main
   :width 100%
 
-ul#stream
+ul#stream, ul#friend_stream
   :margin 0
   :padding 0
   :color #666
-  :font
-    :size 110%
 
   > li
     :list-style none
@@ -133,21 +131,6 @@ ul#stream
     :border
       :bottom 1px solid #f1f1f1
     :margin-bottom 5px
-
-ul#friend_stream
-  :margin 0
-  :padding 0
-  :color #666
-  :font
-    :size 110%
-
-  > li
-    :list-style none
-    :padding 1em 0
-    :border
-      :bottom 1px solid #f1f1f1
-    :margin-bottom 5px
-
 
 li.message
   :position relative
@@ -162,6 +145,8 @@ li.message
       :weight bold
     :margin
       :right 0.2em
+    :font
+      :size 110%
 
   div.time
     :color #bababa
@@ -202,6 +187,8 @@ form
     &:hover
       :color #CC1E14
 
+div.comments
+  :display none
 
 ul.comment_set
   :margin 0
@@ -228,6 +215,11 @@ ul.comment_set
         :font
           :weight bold
 
+    form
+      :margin
+        :top -5px
+      :padding
+        :bottom 8px
 
 
 img#profile_picture

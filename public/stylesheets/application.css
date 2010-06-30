@@ -110,23 +110,11 @@ ul#stream_filters {
 #main {
   width: 100%; }
 
-ul#stream {
+ul#stream, ul#friend_stream {
   margin: 0;
   padding: 0;
-  color: #666666;
-  font-size: 110%; }
-  ul#stream > li {
-    list-style: none;
-    padding: 1em 0;
-    border-bottom: 1px solid #f1f1f1;
-    margin-bottom: 5px; }
-
-ul#friend_stream {
-  margin: 0;
-  padding: 0;
-  color: #666666;
-  font-size: 110%; }
-  ul#friend_stream > li {
+  color: #666666; }
+  ul#stream > li, ul#friend_stream > li {
     list-style: none;
     padding: 1em 0;
     border-bottom: 1px solid #f1f1f1;
@@ -140,7 +128,8 @@ li.message {
   li.message span.from {
     color: #333333;
     font-weight: bold;
-    margin-right: 0.2em; }
+    margin-right: 0.2em;
+    font-size: 110%; }
   li.message div.time {
     color: #bababa;
     font-size: 70%; }
@@ -173,6 +162,9 @@ form {
     #user_name a:hover {
       color: #cc1e14; }
 
+div.comments {
+  display: none; }
+
 ul.comment_set {
   margin: 0;
     margin-top: 1em;
@@ -191,6 +183,9 @@ ul.comment_set {
       ul.comment_set li.comment .from a {
         color: #333333;
         font-weight: bold; }
+    ul.comment_set li.comment form {
+      margin-top: -5px;
+      padding-bottom: 8px; }
 
 img#profile_picture {
   width: 100%; }

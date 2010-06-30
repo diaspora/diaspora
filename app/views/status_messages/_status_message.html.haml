@@ -5,6 +5,8 @@
     
   %div.time
     = link_to(how_long_ago(post), status_message_path(post))
+    \--
+    = link_to "show comments (xx)", '#', :class => "show_post_comments"
   = render "comments/comments", :post => post 
 
   - if mine?(post)
