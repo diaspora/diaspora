@@ -103,20 +103,6 @@ describe "parser in application helper" do
       comment.post.should == post
     end
 
-
-
-
-    it 'should parse a person out of a post' do
-       @user.comment "foo", :on => @status_messages.first
-       xml = Comment.build_xml_for([Comment.first]) 
-      puts xml 
-      objs = parse_objects_from_xml(xml)
-
-      puts objs.inspect
-       
-
-
-    end
   end
 end
 
