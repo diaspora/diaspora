@@ -62,7 +62,14 @@
           $("label").inFieldLabels();
 
           $(".show_post_comments").click( function() {
-            $(this).parents("li").children(".comments").fadeIn(100);
+            if( $(this).hasClass( "visible" )) {
+              $(this).html($(this).html().replace("hide", "show"));
+              $(this).parents("li").children(".comments").fadeOut(100);
+            } else {
+              $(this).html($(this).html().replace("show", "hide"));
+              $(this).parents("li").children(".comments").fadeIn(100);
+            }
+            $(this).toggleClass( "visible" );
           });
 
 
@@ -95,18 +102,15 @@
             = my_latest_message
       #content.span-24.last
         .span-5.append-1.last
-          %img{:src => "/images/user_picture.jpg", :id => "user_picture"}
+          = link_to (image_tag "/images/user_picture.jpg", :id => "user_picture"), root_path
+
           %ul#stream_filters
-            %a{ :href => root_path, :title => "Your network stream."}
-              %li home
             %a{ :href => status_messages_path, :title => "Recent status messages."}
               %li status messages
             %a{ :href => bookmarks_path, :title => "Recently shared links."}
               %li bookmarks
             %a{ :href => blogs_path, :title => "Recent blog posts."}
               %li blogs
-            %a{ :href => friends_path, :title => "Your list of connections with other seeds."}
-              %li friends
           = render 'friends/sidebar' if user_signed_in?
         .span-18
           = yield

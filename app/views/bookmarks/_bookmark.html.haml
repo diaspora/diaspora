@@ -7,7 +7,11 @@
 
   %a{:href => "#{post.link}"}
     = post.link
-  %div.time= link_to "#{time_ago_in_words(post.updated_at)} ago", bookmark_path(post)
+  %div.time
+    = link_to(how_long_ago(post), bookmark_path(post))
+    \--
+    = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
+  = render "comments/comments", :post => post 
 
   - if mine?(post)
     .destroy_link
