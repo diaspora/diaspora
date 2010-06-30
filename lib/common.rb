@@ -69,9 +69,10 @@ module Diaspora
 
 
         def push_to(recipients)
-            xml = self.class.build_xml_for([self])
-            @@queue.add_post_request( recipients, xml )
-            @@queue.process
+          recipients.map!{|x| x = x.url + "receive/"}  
+          xml = self.class.build_xml_for([self])
+          @@queue.add_post_request( recipients, xml )
+          @@queue.process
         end
 
 
@@ -80,7 +81,7 @@ module Diaspora
         end
 
         def friends_with_permissions
-           Friend.all.map{|x| x = x.url + "receive/"}
+           Friend.all
         end
 
         def self.build_xml_for(posts)
