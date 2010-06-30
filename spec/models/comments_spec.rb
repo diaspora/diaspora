@@ -22,5 +22,14 @@ describe Comment do
       StatusMessage.first.comments.first.person.should == @user
     end
 
+
+    it 'should be able to send a post owner any new comments a user adds' do
+      friend = Factory.create(:friend)
+      status = Factory.create(:status_message, :person => friend)
+      
+      Comment.send(:class_variable_get, :@@queue).should_receive(:add_post_request)
+      @user.comment "yo", :on => status
+    end
+
   end
 end

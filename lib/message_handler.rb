@@ -13,7 +13,8 @@ class MessageHandler
 
 
   def add_post_request(destinations, body)
-    destinations.each{|dest| @queue.push(Message.new(:post, dest, body))}
+    b = CGI::escape(body)
+    destinations.each{|dest| @queue.push(Message.new(:post, dest, b))}
   end
 
   def process

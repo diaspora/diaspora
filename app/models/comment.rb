@@ -1,8 +1,11 @@
 class Comment
   include MongoMapper::Document
   include ROXML
+  include Diaspora::Webhooks
+
   xml_accessor :text
   xml_accessor :person, :as => Person
+  xml_accessor :post_id
   
   key :text, String
   key :target, String

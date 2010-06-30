@@ -7,7 +7,16 @@ module Diaspora
 
     def parse_sender_object_from_xml(xml)
       sender_id = parse_sender_id_from_xml(xml)
-      Friend.where(:email => sender_id).first
+      Friend.where(:email =>sender_id ).first
+
+
+    end
+    
+
+    def parse_owner_from_xml(xml)
+      doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
+      email = doc.xpath("//person/email").text.to_s
+      Friend.where(:email => email).first
     end
 
     def parse_body_contents_from_xml(xml)
@@ -22,7 +31,13 @@ module Diaspora
       body.children.each do |post|
         begin
           object = post.name.camelize.constantize.from_xml post.to_s
-          object.person = sender if object.is_a? Post  
+          object.person =  parse_owner_from_xml post.to_s #if object.is_a? Post  
+          
+         # if object.is_a? Comment
+         #   object.post = parse_post_
+         # end
+          
+          
           objects << object 
         rescue
           puts "Not a real type: #{object.to_s}"
@@ -39,35 +54,40 @@ module Diaspora
         #p.save if p.respond_to?(:person) && !(p.person == nil) #WTF
       end
     end
-
-
   end
+
   module Webhooks
     def self.included(klass)
       klass.class_eval do
-      after_save :notify_friends
         @@queue = MessageHandler.new
         
         def notify_friends
           if self.person_id == User.first.id
-            xml = Post.build_xml_for([self])
-            @@queue.add_post_request( friends_with_permissions, CGI::escape(xml) )
-            @@queue.process
+            push_to(friends_with_permissions)
           end
         end
- 
+
+
+        def push_to(recipients)
+          recipients.map!{|x| x = x.url + "receive/"}  
+          xml = self.class.build_xml_for([self])
+          @@queue.add_post_request( recipients, xml )
+          @@queue.process
+        end
+
+
         def prep_webhook
           "<post>#{self.to_xml.to_s}</post>"
         end
 
         def friends_with_permissions
-           Friend.all.map{|x| x = x.url + "receive/"}
+           Friend.all
         end
 
         def self.build_xml_for(posts)
           xml = "<XML>"
           xml += Post.generate_header
-          xml += "<posts>"
+          xml += "\n <posts>"
           posts.each {|x| xml << x.prep_webhook}
           xml += "</posts>"
           xml += "</XML>"

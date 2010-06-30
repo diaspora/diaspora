@@ -20,6 +20,7 @@ class Post
   timestamps!
 
   after_save :send_to_view
+  after_save :notify_friends
   
   def self.stream
     Post.sort(:created_at.desc).all
