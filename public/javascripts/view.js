@@ -46,8 +46,11 @@ $(document).ready(function(){
 		});
 	});
 	
+  
+
+  $("label").inFieldLabels();
 	
-	$('#flash_notice, #flash_error, #flash_alert').delay(1500).slideUp(130);
+  $('#flash_notice, #flash_error, #flash_alert').delay(1500).slideUp(130);
   
 
 });//end document ready

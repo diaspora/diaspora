@@ -42,7 +42,12 @@
             var obj = jQuery.parseJSON(evt.data);
             debug("got a " + obj['class']);
             if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
-              $("#stream").prepend($(obj['html']).fadeIn("fast")); 
+              $("#stream").prepend(
+                $(obj['html']).fadeIn("fast", function(){
+                  $("#stream label:first").inFieldLabels();
+                  }
+                )
+              ); 
             };
           };
           ws.onclose = function() { debug("socket closed"); };
@@ -59,7 +64,6 @@
           });
 
           // in field label plugin
-          $("label").inFieldLabels();
 
           $(".show_post_comments").click( function() {
             $(this).parents("li").children(".comments").fadeIn(100);
