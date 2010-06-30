@@ -62,9 +62,9 @@ describe "parser in application helper" do
 
   describe "parsing compliant XML object" do 
     before do
-      status_messages = []
-      10.times { status_messages << Factory.build(:status_message)}
-      @xml = Post.build_xml_for(status_messages) 
+      @status_messages = []
+      10.times { @status_messages << Factory.build(:status_message)}
+      @xml = Post.build_xml_for(@status_messages) 
     end
 
     it 'should be able to parse the sender\'s unique id' do
@@ -103,7 +103,20 @@ describe "parser in application helper" do
       comment.post.should == post
     end
 
-  end
 
+
+
+    it 'should parse a person out of a post' do
+       @user.comment "foo", :on => @status_messages.first
+       xml = Comment.build_xml_for([Comment.first]) 
+      puts xml 
+      objs = parse_objects_from_xml(xml)
+
+      puts objs.inspect
+       
+
+
+    end
+  end
 end
 
