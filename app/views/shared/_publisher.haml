@@ -66,17 +66,30 @@
   #publisher_form
     = form_for StatusMessage.new, :remote => true do |f|
       = f.error_messages
-      = f.text_area :message, :value => "Message"
-      = f.submit "Post"
+      %p
+        %label{:for => "status_message_message"} Message
+        = f.text_area :message
+      %p
+        = f.submit "Post"
 
     = form_for Bookmark.new, :remote => true do |f|
       = f.error_messages
-      = f.text_area :title, :value => "Title"
-      = f.text_area :link, :value => "URL"
-      = f.submit "Post"
+      %p
+        %label{:for => "bookmark_title"} Title
+        = f.text_area :title
+      %p
+        %label{:for => "bookmark_link"} Link
+        = f.text_area :link
+      %p
+        = f.submit "Post"
 
     = form_for Blog.new, :remote => true do |f|
       = f.error_messages
-      = f.text_field :title, :value => "Title"
-      = f.text_area :body, :id => "blog_editor"
-      = f.submit "Post"
+      %p
+        %label{:for => "blog_title"} Title
+        = f.text_area :title
+      %p
+        %label{:for => "blog_body"} Body
+        = f.text_area :body
+      %p
+        = f.submit "Post"
