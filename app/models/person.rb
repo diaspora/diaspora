@@ -26,7 +26,7 @@ class Person
   before_validation :clean_url
  
   def real_name
-    self.profile.first_name + " " + self.profile.last_name
+    profile.first_name + " " + profile.last_name
   end
 
   

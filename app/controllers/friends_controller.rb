@@ -20,10 +20,15 @@ class FriendsController < ApplicationController
   
   def new
     @friend = Friend.new
+    @profile = Profile.new
   end
   
   def create
+   
+    puts params.inspect
     @friend = Friend.new(params[:friend])
+
+
     if @friend.save
       flash[:notice] = "Successfully created friend."
       redirect_to @friend
