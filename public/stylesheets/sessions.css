@@ -1,41 +1,25 @@
-html {
-  height: 100%;
-  background-image: url("/images/black_dandy.jpeg");
-  background-repeat: no-repeat;
-  background-color: black;
-  background-position: bottom; }
-
 body {
-  background: transparent;
   padding: 2em; }
 
 #huge_text {
+  margin-top: 10%;
   display: inline block;
-  font-size: 30px;
-  font-weight: normal;
+  font-size: 40px;
+  font-weight: bold;
   line-height: 120px;
-  letter-spacing: -1px;
-  color: #444444;
-  color: #57493c;
-  color: #555555;
-  text-shadow: 0 1px 3px #555555;
-  margin-bottom: -20px; }
+  letter-spacing: -2px;
+  color: #eaeaea;
+  text-shadow: 0 1px 1px #999999; }
   #huge_text span {
-    font-weight: bold;
     display: inline;
-    color: white;
-    text-shadow: 0 1px 3px #999999; }
+    color: #666666; }
 
-input[type='password'] {
+input {
   font-size: 30px;
   text-align: center;
   width: 300px;
   margin-bottom: 0;
-  margin-top: 0;
-  background-color: black;
-  color: #eaeaea;
-  -webkit-box-shadow: 0 0 70px white;
-  border: 1px solid #666666; }
+  margin-top: 0; }
 
 .container {
   top: 30%;
