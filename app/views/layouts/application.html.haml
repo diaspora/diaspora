@@ -10,9 +10,8 @@
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application"
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-    = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher'
+    = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher', 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js', 'google_a'
     = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel'
-    = render 'js/google_a_js'
     = render 'js/websocket_js'
     
     = csrf_meta_tag
