@@ -26,11 +26,31 @@ def create(backer_number, password)
             ["Millard", "Fillmore"],
             ["Franklin", "Pierce"],
             ["James", "Buchanan"],
-            ["Abraham", "Lincoln"]
+            ["Abraham", "Lincoln"],
+            ["Andrew", "Johnson"],
+            ["Ulysses S.", "Grant"],
+            ["Rutherford B.", "Hayes"],
+            ["James A.", "Garfield"],
+            ["Chester A.", "Arthur"],
+            ["Grover", "Cleveland"],
+            ["Benjamin", "Harrison"],
+            ["William", "McKinley"],
+            ["Theodore", "Roosevelt"],
+            ["William Howard", "Taft"],
+            ["Woodrow", "Wilson"],
+            ["Warren G.", "Harding"],
+            ["Calvin", "Coolidge"],
+            ["Herbert", "Hoover"],
+            ["Franklin D.", "Roosevelt"],
+            ["Harry S.", "Truman"],
+            ["Dwight D.", "Eisenhower"],
+            ["John F.", "Kennedy"],
+            ["Lyndon B.", "Johnson"],
+            ["Richard", "Nixon"]
           ]
-
+        
   # Create seed user
-  email = names[backer_number][1].gsub(/ /,'').downcaase
+  email = names[backer_number][1].gsub(/ /,'').downcase
   user = User.create( :email => "#{email}@joindiaspora.com", :password => "#{password}", :profile => Profile.create( :first_name => names[backer_number][0], :last_name => names[backer_number][1] ))
 
   # Make friends with Diaspora Tom

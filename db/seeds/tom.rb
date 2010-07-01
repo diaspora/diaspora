@@ -26,12 +26,32 @@ names = [ ["George", "Washington"],
           ["Millard", "Fillmore"],
           ["Franklin", "Pierce"],
           ["James", "Buchanan"],
-          ["Abraham", "Lincoln"]
+          ["Abraham", "Lincoln"],
+          ["Andrew", "Johnson"],
+          ["Ulysses S.", "Grant"],
+          ["Rutherford B.", "Hayes"],
+          ["James A.", "Garfield"],
+          ["Chester A.", "Arthur"],
+          ["Grover", "Cleveland"],
+          ["Benjamin", "Harrison"],
+          ["William", "McKinley"],
+          ["Theodore", "Roosevelt"],
+          ["William Howard", "Taft"],
+          ["Woodrow", "Wilson"],
+          ["Warren G.", "Harding"],
+          ["Calvin", "Coolidge"],
+          ["Herbert", "Hoover"],
+          ["Franklin D.", "Roosevelt"],
+          ["Harry S.", "Truman"],
+          ["Dwight D.", "Eisenhower"],
+          ["John F.", "Kennedy"],
+          ["Lyndon B.", "Johnson"],
+          ["Richard", "Nixon"]
         ]
 
 # Make friends
 (0..10).each { |n|
-  email = names[n][1].gsub(/ /,'').downcaase
+  email = names[n][1].gsub(/ /,'').downcase
   Friend.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1]))
 }
 
