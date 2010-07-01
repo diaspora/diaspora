@@ -44,19 +44,16 @@
           = link_to User.first.real_name, root_url
           %span.description
             = my_latest_message
+
       #content.span-24.last
         .span-5.append-1.last
-          
           = link_to owner_picture, root_path
-
-          %ul#stream_filters
-            %a{ :href => status_messages_path, :title => "Recent status messages."}
-              %li status messages
-            %a{ :href => bookmarks_path, :title => "Recently shared links."}
-              %li bookmarks
-            %a{ :href => blogs_path, :title => "Recent blog posts."}
-              %li blogs
+          %ul#stream_filters.nav
+            %li= link_to "status messages", status_messages_path
+            %li= link_to "bookmarks", bookmarks_path
+            %li= link_to "blogs", blogs_path
           = render 'friends/sidebar' if user_signed_in?
+
         .span-18
           = yield
           = render "posts/debug"
