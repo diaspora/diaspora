@@ -87,7 +87,7 @@ def create(backer_number, password)
 
   # Create seed user
   email = names[backer_number][1].gsub(/ /,'').downcase
-  user = User.create( :email => "#{email}@joindiaspora.com", :password => "#{email+pin[backer_number]}", :profile => Profile.create( :first_name => names[backer_number][0], :last_name => names[backer_number][1] ))
+  user = User.create( :email => "#{email}@joindiaspora.com", :password => "#{email+pin[backer_number].to_s}", :profile => Profile.create( :first_name => names[backer_number][0], :last_name => names[backer_number][1] ))
 
   # Make friends with Diaspora Tom
   Friend.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :profile => Profile.create(:first_name => "Diaspora", :last_name => "Tom"))
