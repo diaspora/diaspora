@@ -69,10 +69,12 @@ module Diaspora
 
 
         def push_to(recipients)
-          recipients.map!{|x| x = x.url + "receive/"}  
-          xml = self.class.build_xml_for([self])
-          @@queue.add_post_request( recipients, xml )
-          @@queue.process
+          unless recipients.empty?
+            recipients.map!{|x| x = x.url + "receive/"}  
+            xml = self.class.build_xml_for([self])
+            @@queue.add_post_request( recipients, xml )
+            @@queue.process
+          end
         end
 
 

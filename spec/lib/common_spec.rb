@@ -8,6 +8,7 @@ describe Diaspora do
   describe Webhooks do
     before do
       @user = Factory.create(:user, :email => "bob@aol.com")
+      @friend = Factory.create(:friend)
     end
 
     describe "header" do 
@@ -53,9 +54,7 @@ describe Diaspora do
         Factory.create(:friend, :url => "http://www.alice.com/")
         Factory.create(:friend, :url => "http://www.jane.com/")
 
-        @post.friends_with_permissions.should include("http://www.bob.com/receive/")
-        @post.friends_with_permissions.should include("http://www.alice.com/receive/")
-        @post.friends_with_permissions.should include("http://www.jane.com/receive/")
+        @post.friends_with_permissions.should == Friend.all
       end
 
       it "should send an owners post to their friends" do
@@ -73,7 +72,7 @@ describe Diaspora do
 
       it "should ensure one url is created for every friend" do
         5.times {Factory.create(:friend)}
-        @post.friends_with_permissions.size.should == 5
+        @post.friends_with_permissions.size.should == 6
       end
 
       it "should build an xml object containing multiple Post types" do

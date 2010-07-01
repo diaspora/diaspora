@@ -1,7 +1,7 @@
 %div.comments
-  %ul.comment_set
+  %ul.comment_set{:id => post.id}
     - for comment in post.comments
-      = render "comments/comment", :comment => comment
+      = render 'comments/comment', :post => comment
     %li.comment
-      = render "comments/new_comment", :post => post
+      = render 'comments/new_comment', :post => post
 	 	
