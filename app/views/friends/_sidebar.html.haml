@@ -1,8 +1,5 @@
 %h3 your friends
-%ul#friend_stream
+%ul#friend_stream.nav
   - for friend in @friends
-    = link_to friend.real_name, friend_path(friend)
-    %br
-  %br
-  %hr
-  = link_to "add a new friend", new_friend_path
+    %li= link_to friend.real_name, friend_path(friend)
+/= link_to "add a new friend", new_friend_path
