@@ -16,7 +16,7 @@ def create(backer_number, password)
             ["Thomas", "Jefferson"],
             ["James", "Madison"],
             ["James", "Monroe"],
-            ["John Quincy", "Adams"],
+            ["John", "Quincy Adams"],
             ["Andrew", "Jackson"],
             ["Martin Van", "Buren"],
             ["William Henry","Harrison"],
@@ -30,18 +30,16 @@ def create(backer_number, password)
           ]
 
   # Create seed user
-  user = User.create( :email => "#{names[backer_number][1]}@joindiaspora.com", :password => "#{password}", :profile => Profile.create( :first_name => names[backer_number][0], :last_name => names[backer_number][1] ))
+  email = names[backer_number][1].gsub(/ /,'').downcaase
+  user = User.create( :email => "#{email}@joindiaspora.com", :password => "#{password}", :profile => Profile.create( :first_name => names[backer_number][0], :last_name => names[backer_number][1] ))
 
   # Make friends with Diaspora Tom
   Friend.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :profile => Profile.create(:first_name => "Diaspora", :last_name => "Tom"))
-# Make friends
-  #
-(0..9).each { |n|
-  Friend.create( :email => "#{names[n][1]}@joindiaspora.com", :url => "http://#{names[n][1]}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1])) unless n == backer_number
-}
-
-
+  # Make friends
   
-  
+  (0..10).each { |n|
+    email = names[n][1].gsub(/ /,'').downcaase
+    Friend.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1])) unless n == backer_number
+  }
 end
 

@@ -16,7 +16,7 @@ names = [ ["George", "Washington"],
           ["Thomas", "Jefferson"],
           ["James", "Madison"],
           ["James", "Monroe"],
-          ["John Quincy", "Adams"],
+          ["John", "Quincy Adams"],
           ["Andrew", "Jackson"],
           ["Martin Van", "Buren"],
           ["William Henry","Harrison"],
@@ -30,8 +30,9 @@ names = [ ["George", "Washington"],
         ]
 
 # Make friends
-(0..9).each { |n|
-  Friend.create( :email => "#{names[n][1]}@joindiaspora.com", :url => "http://#{names[n][1]}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1]))
+(0..10).each { |n|
+  email = names[n][1].gsub(/ /,'').downcaase
+  Friend.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1]))
 }
 
 
