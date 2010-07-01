@@ -46,7 +46,8 @@
             = my_latest_message
       #content.span-24.last
         .span-5.append-1.last
-          = link_to (image_tag "/images/user_picture.jpg", :id => "user_picture"), root_path
+          
+          = link_to owner_picture, root_path
 
           %ul#stream_filters
             %a{ :href => status_messages_path, :title => "Recent status messages."}
