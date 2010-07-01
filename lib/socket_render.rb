@@ -22,11 +22,22 @@ module SocketRenderer
       puts e.message
       raise e 
     end
-    {:class =>object.class.to_s.underscore.pluralize, :html => v}
+
+    {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}
   end
 
   def self.view_for(object)
+    puts object.inspect
+    puts @view.type_partial(object)
+    
     @view.render @view.type_partial(object), :post  => object
   end
 
+  def self.obj_id(object)
+    if object.is_a? Post
+      object.id
+    else 
+      object.post.id
+    end
+  end
 end

@@ -11,7 +11,13 @@
       ws.onmessage = function(evt) { 
         var obj = jQuery.parseJSON(evt.data);
         debug("got a " + obj['class']);
-        if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
+        
+        if (obj['class']=="comments"){
+          var post_id = obj['post_id']
+          $('#'+ obj['post_id'] + ' .comment_set li:last' ).before(
+            $(obj['html']).fadeIn("fast", function(){})
+          )
+        }else if((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) {
           $("#stream").prepend(
             $(obj['html']).fadeIn("fast", function(){
               $("#stream label:first").inFieldLabels();
