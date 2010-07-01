@@ -9,7 +9,6 @@ class Comment
   xml_accessor :post_id
   
   key :text, String
-  key :target, String
   timestamps!
   
   key :post_id, ObjectId
@@ -19,6 +18,8 @@ class Comment
   belongs_to :person, :class_name => "Person"
   
   after_save :send_friends_comments_on_my_posts
+  after_save :send_to_view
+  
 
   def ==(other)
     (self.message == other.message) && (self.person.email == other.person.email)
@@ -31,5 +32,10 @@ class Comment
     if (User.first.mine?(self.post) && self.person.is_a?(Friend))
       self.push_to(self.post.friends_with_permissions)
     end
+  end
+  
+  
+  def send_to_view
+      WebSocket.update_clients(self)
   end
 end

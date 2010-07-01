@@ -1,6 +1,6 @@
-%li.comment{:id => comment.id} 
+%li.comment{:id => post.id} 
   %span.from
-    = link_to_person comment.person
-    = auto_link comment.text
+    = link_to_person post.person
+    = auto_link post.text
   %div.time
-    = "#{time_ago_in_words(comment.updated_at)} ago"
+    = "#{time_ago_in_words(post.updated_at)} ago"

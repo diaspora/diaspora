@@ -20,7 +20,9 @@ namespace :db do
 
     # Specifiy what models to remove
     Post.delete_all
-    Person.delete_all
+    #Person.delete_all
+    User.delete_all
+    Friend.delete_all
     Profile.delete_all
   end
 
