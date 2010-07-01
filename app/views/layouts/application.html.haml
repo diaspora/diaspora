@@ -5,12 +5,11 @@
       = "diaspora "
       = "- #{User.first.real_name}" if User.first
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    %meta{"http-equiv"=> "X-UA-Compatible", :content =>"chrome=1" }
     
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application"
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-    = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher', 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js', 'google_a'
+    = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher', 'google_a'
     = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel'
     = render 'js/websocket_js'
     
