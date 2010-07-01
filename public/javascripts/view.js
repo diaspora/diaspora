@@ -13,7 +13,16 @@ $(document).ready(function(){
 		theme_advanced_toolbar_align : "left",
 		//theme_advanced_resizing : true //leave this out as there is an intermittent bug.
 	});
-	  
+
+	
+	$('.comment_set').each(function(index) {
+	    if($(this).children().length > 1) {
+			$(this).parent().show();
+			var show_comments_toggle = $(this).parent().prev().children(".show_post_comments");
+			show_comments_toggle.html("hide comments ("+ ($(this).children().length - 1) + ")");
+		};
+	  });
+
 	$('a').hover(function(){
 	  $(this).fadeTo(60, 0.5);
 	}, function(){
@@ -25,20 +34,6 @@ $(document).ready(function(){
 	}, function(){
 	  $(this).fadeTo(80, 1);
 	});
-
-	$('#status_message_message').click(clearForm);
-	
-	$('#bookmark_title').click(clearForm);
-	
-	$('#bookmark_link').click(clearForm);
-	$('#debug_more').hide();
-	$(":text").click(clearForm);
-
-  function clearForm(){
-	var text =  $(this).text()
-   $(this).val("");
-
-  }
 
 	$('#debug_info').click(function() {
 		$('#debug_more').toggle('fast', function() {
@@ -59,11 +54,10 @@ $(document).ready(function(){
     $(this).children(".destroy_link").fadeOut(0);
   });
 
-  // in field label plugin
 
   $(".show_post_comments").live('click', function(event) {
     event.preventDefault();
-    if( $(this).hasClass( "visible" )) {
+    if( $(this).hasClass( "visible")) {
       $(this).html($(this).html().replace("hide", "show"));
       $(this).parents("li").children(".comments").fadeOut(100);
     } else {
@@ -73,4 +67,18 @@ $(document).ready(function(){
     $(this).toggleClass( "visible" );
   });
 
+//Called with $(selector).clearForm()
+	$.fn.clearForm = function() {
+		return this.each(function() {
+		var type = this.type, tag = this.tagName.toLowerCase();
+		if (tag == 'form')
+			return $(':input',this).clearForm();
+		if (type == 'text' || type == 'password' || tag == 'textarea')
+			this.value = '';
+		else if (type == 'checkbox' || type == 'radio')
+			this.checked = false;
+		else if (tag == 'select')
+			this.selectedIndex = -1;
+		});
+	};
 });//end document ready
