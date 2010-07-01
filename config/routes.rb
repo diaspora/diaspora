@@ -4,8 +4,8 @@ Diaspora::Application.routes.draw do |map|
   resources :friends
   resources :status_messages
   resources :comments
-  
-  
+  match 'warzombie', :to => "dashboard#warzombie"
+
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file
   devise_for :users, :path_names  => {:sign_up  => "signup", :sign_in  => "login", :sign_out  => "logout"}
