@@ -34,5 +34,14 @@ def create(backer_number, password)
 
   # Make friends with Diaspora Tom
   Friend.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :profile => Profile.create(:first_name => "Diaspora", :last_name => "Tom"))
+# Make friends
+  #
+(0..9).each { |n|
+  Friend.create( :email => "#{names[n][1]}@joindiaspora.com", :url => "http://#{names[n][1]}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1])) unless n == backer_number
+}
+
+
+  
+  
 end
 
