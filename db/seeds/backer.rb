@@ -58,7 +58,7 @@ def create(backer_number, password)
   # Make friends
   
   (0..10).each { |n|
-    email = names[n][1].gsub(/ /,'').downcaase
+    email = names[n][1].gsub(/ /,'').downcase
     Friend.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1])) unless n == backer_number
   }
 end
