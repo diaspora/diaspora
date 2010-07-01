@@ -23,8 +23,9 @@
           welcome back, 
           %span
             = User.first.real_name.downcase
+        = yield
       -else
         %div#huge_text
-          you need to add a user first!
+          %span
+            you need to add a user first!
 
-      = yield
