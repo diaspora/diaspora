@@ -67,11 +67,6 @@ describe "parser in application helper" do
       @xml = Post.build_xml_for(@status_messages) 
     end
 
-    it 'should be able to parse the sender\'s unique id' do
-      parse_sender_id_from_xml(@xml).should == @user.email
-    end
-
-
     it 'should be able to parse the body\'s contents' do
       body = parse_body_contents_from_xml(@xml).to_s
       body.should_not include "<head>"

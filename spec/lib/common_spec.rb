@@ -11,29 +11,6 @@ describe Diaspora do
       @friend = Factory.create(:friend)
     end
 
-    describe "header" do 
-      before do
-        Factory.create(:status_message)
-        Factory.create(:bookmark)
-        stream = Post.stream
-        @xml = Post.build_xml_for(stream)
-      end
-
-      it "should generate" do
-        @xml.should include "<head>"
-        @xml.should include "</head>"
-      end
-
-      it "should provide a sender" do
-        @xml.should include "<sender>"
-        @xml.should include "</sender>"
-      end
-
-      it "should provide the owner's email" do
-        @xml.should include "<email>#{User.first.email}</email>"
-      end
-    end
-
     describe "body" do
       before do
         @post = Factory.create(:status_message, :person => @user)

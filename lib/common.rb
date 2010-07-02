@@ -1,16 +1,5 @@
 module Diaspora
   module XMLParser
-=begin
-    def parse_sender_id_from_xml(xml)
-      doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
-      doc.xpath("/XML/head/sender/email").text.to_s
-    end
-
-    def parse_sender_object_from_xml(xml)
-      sender_id = parse_sender_id_from_xml(xml)
-      Friend.where(:email =>sender_id ).first
-    end
-=end
 
     def parse_owner_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
@@ -81,21 +70,12 @@ module Diaspora
 
         def self.build_xml_for(posts)
           xml = "<XML>"
-          xml += Post.generate_header
           xml += "\n <posts>"
           posts.each {|x| xml << x.prep_webhook}
           xml += "</posts>"
           xml += "</XML>"
         end
 
-
-        def self.generate_header
-          "<head>
-            <sender>
-              <email>#{User.first.email}</email>
-            </sender>
-          </head>"
-        end
       end
     end
   end
