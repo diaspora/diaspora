@@ -22,7 +22,7 @@ class Post
   after_save :send_to_view
   after_save :notify_friends
  
-  before_destroy :propagate_delete 
+  before_destroy :propagate_retraction
   after_destroy :destroy_comments
 
   def self.stream
@@ -48,7 +48,7 @@ class Post
     comments.each{|c| c.destroy}
   end
   
-  def propagate_delete
+  def propagate_retraction
     Retraction.for(self).notify_friends
   end
 
