@@ -5,6 +5,7 @@ describe DashboardController do
   
   before do
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
+    Factory.create(:user, :profile => Profile.create( :first_name => "bob", :last_name => "smith"))
   end
   
   it "index action should render index template" do
