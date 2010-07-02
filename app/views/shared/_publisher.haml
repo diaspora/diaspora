@@ -32,20 +32,19 @@
 
   .selected {
     -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
     border: 1px solid #ccc;
     border-top: 1px solid #333;
-    -webkit-box-shadow: 0 2px 1px #fff;
     background-color: rgba( 255, 255, 255, 0.5);
+    -webkit-box-shadow: 0 2px 1px #fff;
+    -moz-box-shadow: 0 2px 1px #fff;
   }
 
 #publisher
   %ul#publisher_content_pickers
-    %a{ :class => "status_message", :href => '#', :title => "new status message."}
-      %li{ :class => "selected" } status message
-    %a{ :class => "bookmark", :href => '#', :title => "new bookmark."}
-      %li bookmark
-    %a{ :class => "blog", :href => '#', :title => "new blog post."}
-      %li blog
+    %li{ :class => "status_message selected" }= link_to "status message", "#"
+    %li{ :class => "bookmark" }= link_to "bookmark", "#"
+    %li{ :class => "blog" }= link_to "blog", "#"
 
   #publisher_form
     = form_for StatusMessage.new, :remote => true do |f|

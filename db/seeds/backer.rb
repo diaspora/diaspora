@@ -48,10 +48,46 @@ def create(backer_number, password)
             ["Lyndon B.", "Johnson"],
             ["Richard", "Nixon"]
           ]
-        
+  pin =[5072,
+        3742,
+        7782,
+        2691,
+        6133,
+        7558,
+        8670,
+        1559,
+        5404,
+        6431,
+        1957,
+        5323,
+        8784,
+        4267,
+        8891,
+        2324,
+        6948,
+        8176,
+        6928,
+        5677,
+        7966,
+        2893,
+        6828,
+        2982,
+        6756,
+        6658,
+        3551,
+        3088,
+        8379,
+        7493,
+        2759,
+        1029,
+        4013,
+        8507,
+        1508,
+        5258]
+
   # Create seed user
   email = names[backer_number][1].gsub(/ /,'').downcase
-  user = User.create( :email => "#{email}@joindiaspora.com", :password => "#{password}", :profile => Profile.create( :first_name => names[backer_number][0], :last_name => names[backer_number][1] ))
+  user = User.create( :email => "#{email}@joindiaspora.com", :password => "#{email+pin[backer_number].to_s}", :profile => Profile.create( :first_name => names[backer_number][0], :last_name => names[backer_number][1] ))
 
   # Make friends with Diaspora Tom
   Friend.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :profile => Profile.create(:first_name => "Diaspora", :last_name => "Tom"))

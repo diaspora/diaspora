@@ -37,4 +37,15 @@ module ApplicationHelper
     link_to person.real_name, person_url(person)
   end
 
+  def owner_picture
+    default = "#{root_url}images/user/default.jpg"
+    image = "#{root_url}images/user/#{User.first.profile.last_name.gsub(/ /,'').downcase}.jpg"
+
+    if File.exist?("public/images/user/#{User.first.profile.last_name.gsub(/ /,'').downcase}.jpg")
+      image_tag image, :id => "user_picture"
+    else
+      image_tag default, :id => "user_picture"
+    end
+  end
+
 end

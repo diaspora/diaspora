@@ -8,12 +8,12 @@
     
     function selectPicker(event){
       event.preventDefault();
-      if( $("#new_" + this.className).css("display") == "none" ) {
+      if( $("#new_" + $(this)[0].classList[0]).css("display") == "none" ) {
         $("#publisher_content_pickers .selected").removeClass("selected");
         $("#publisher_form form").fadeOut(50);
 
-        $(this).children("a > li").toggleClass("selected");
-        $("#new_" + this.className).delay(50).fadeIn(200);
+        $(this).toggleClass("selected");
+        $("#new_" + $(this)[0].classList[0]).delay(50).fadeIn(200);
       }
 
     }

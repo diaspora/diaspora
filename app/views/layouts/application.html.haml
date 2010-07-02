@@ -5,14 +5,12 @@
       = "diaspora "
       = "- #{User.first.real_name}" if User.first
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    %meta{"http-equiv"=> "X-UA-Compatible", :content =>"chrome=1" }
     
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application"
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-    = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher'
+    = javascript_include_tag 'jquery142', 'rails', 'view', 'publisher', 'google_a'
     = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel'
-    = render 'js/google_a_js'
     = render 'js/websocket_js'
     
     = csrf_meta_tag
@@ -44,18 +42,16 @@
           = link_to User.first.real_name, root_url
           %span.description
             = my_latest_message
+
       #content.span-24.last
         .span-5.append-1.last
-          = link_to (image_tag "/images/user_picture.jpg", :id => "user_picture"), root_path
-
-          %ul#stream_filters
-            %a{ :href => status_messages_path, :title => "Recent status messages."}
-              %li status messages
-            %a{ :href => bookmarks_path, :title => "Recently shared links."}
-              %li bookmarks
-            %a{ :href => blogs_path, :title => "Recent blog posts."}
-              %li blogs
+          = link_to owner_picture, root_path
+          %ul#stream_filters.nav
+            %li= link_to "status messages", status_messages_path
+            %li= link_to "bookmarks", bookmarks_path
+            %li= link_to "blogs", blogs_path
           = render 'friends/sidebar' if user_signed_in?
+
         .span-18
           = yield
           = render "posts/debug"
