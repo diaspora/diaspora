@@ -83,5 +83,15 @@ describe Post do
       (message.to_xml.to_s.include? @user.email).should == true
     end
   end
+
+  describe 'deletion' do
+    it 'should delete a posts comments on delete' do
+      post = Factory.create(:status_message, :person => @user)
+      @user.comment "hey", :on=> post
+      post.destroy
+      Post.all(:id => post.id).empty?.should == true
+      Comment.all(:text => "hey").empty?.should == true
+    end
+  end
 end
 

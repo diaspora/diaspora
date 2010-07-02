@@ -23,6 +23,7 @@ class Post
   after_save :notify_friends
  
   before_destroy :propagate_delete 
+  after_destroy :destroy_comments
 
   def self.stream
     Post.sort(:created_at.desc).all
@@ -43,6 +44,10 @@ class Post
 
 
   protected
+  def destroy_comments
+    comments.each{|c| c.destroy}
+  end
+  
   def propagate_delete
     Retraction.for(self).notify_friends
   end
