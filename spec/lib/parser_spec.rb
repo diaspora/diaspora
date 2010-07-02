@@ -97,7 +97,17 @@ describe "parser in application helper" do
       comment.person.should == friend
       comment.post.should == post
     end
+    
+    it 'should marshal retractions' do
+      friend = Factory.create(:friend)
+      message = Factory.create(:status_message, :person => friend)
+      retraction = Retraction.for(message)
+      request = Post.build_xml_for( [retraction] )
 
+      StatusMessage.count.should == 1
+      store_objects_from_xml( request )
+      StatusMessage.count.should == 0
+    end
   end
 end
 

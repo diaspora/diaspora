@@ -21,7 +21,9 @@ class Post
 
   after_save :send_to_view
   after_save :notify_friends
-  
+ 
+  before_destroy :propagate_delete 
+
   def self.stream
     Post.sort(:created_at.desc).all
   end
@@ -41,6 +43,9 @@ class Post
 
 
   protected
+  def propagate_delete
+    Retraction.for(self).notify_friends
+  end
 
   def send_to_view
       WebSocket.update_clients(self)

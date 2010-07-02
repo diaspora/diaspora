@@ -27,9 +27,6 @@ module SocketRenderer
   end
 
   def self.view_for(object)
-    puts object.inspect
-    puts @view.type_partial(object)
-    
     @view.render @view.type_partial(object), :post  => object
   end
 

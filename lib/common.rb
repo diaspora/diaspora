@@ -18,7 +18,7 @@ module Diaspora
       body.children.each do |post|
         begin
           object = post.name.camelize.constantize.from_xml post.to_s
-          object.person =  parse_owner_from_xml post.to_s #if object.is_a? Post  
+          object.person =  parse_owner_from_xml post.to_s if object.respond_to? :person  
           objects << object 
         rescue
           puts "Not a real type: #{object.to_s}"
@@ -31,8 +31,12 @@ module Diaspora
       objects = parse_objects_from_xml(xml)
 
       objects.each do |p|
+        if p.is_a? Retraction
+          Post.delete( p.post_id )
         #This line checks if the sender was in the database, among other things?
-        p.save if p.respond_to?(:person) && !(p.person.nil?) #WTF
+        elsif p.respond_to?(:person) && !(p.person.nil?) #WTF
+          p.save 
+        end
         #p.save if p.respond_to?(:person) && !(p.person == nil) #WTF
       end
     end
