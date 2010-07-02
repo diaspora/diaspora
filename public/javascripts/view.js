@@ -48,12 +48,13 @@ $(document).ready(function(){
   $('#flash_notice, #flash_error, #flash_alert').delay(1500).slideUp(130);
   
 
-  $("#stream li").live('mouseover mouseout',function() {
+  $("#stream li").live('mouseover',function() {
     $(this).children(".destroy_link").fadeIn(0);
-  }, function() {
-    $(this).children(".destroy_link").fadeOut(0);
   });
 
+  $("#stream li").live('mouseout',function() {
+    $(this).children(".destroy_link").fadeOut(0);
+  });
 
   $(".show_post_comments").live('click', function(event) {
     event.preventDefault();
