@@ -1,4 +1,4 @@
-lsDiaspora::Application.routes.draw do |map|
+Diaspora::Application.routes.draw do |map|
   resources :blogs
   resources :bookmarks
   resources :friends
