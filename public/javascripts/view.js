@@ -48,7 +48,7 @@ $(document).ready(function(){
   $('#flash_notice, #flash_error, #flash_alert').delay(1500).slideUp(130);
   
 
-  $("#stream li").hover(function() {
+  $("#stream li").live('mouseover mouseout',function() {
     $(this).children(".destroy_link").fadeIn(0);
   }, function() {
     $(this).children(".destroy_link").fadeOut(0);
