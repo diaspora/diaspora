@@ -11,12 +11,13 @@ a {
 #flash_error,
 #flash_alert {
   z-index: 60;
-  position: fixed;
+  position: absolute;
   padding: 5px 8px;
   margin: 0;
   width: 400px;
   top: 0px;
-  left: 200px; }
+  margin-left: 230px;
+  color: #666666; }
 
 #flash_notice {
   background-color: #ccffcc;
