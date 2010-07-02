@@ -62,11 +62,13 @@ header {
   header #diaspora_text {
     position: absolute;
     border: none;
-    top: 10px; }
+    top: 9px; }
+    header #diaspora_text:hover {
+      color: #316191; }
   header #session_action {
     float: right;
     font-size: 110%;
-    top: 7px;
+    margin-top: 2px;
     padding-right: 10px; }
     header #session_action a {
       color: #cccccc;
@@ -94,14 +96,6 @@ ul#stream_filters {
     color: #b1cfe3; }
     ul#stream_filters a:hover {
       color: black; }
-
-#header_below {
-  margin: 0 -2em;
-  -webkit-box-shadow: 0 2px 2px -1px #999999;
-  background-color: #f2f8fc;
-  border-bottom: 1px solid #7e96a6;
-  padding-top: 0.8em;
-  padding-bottom: 0.4em; }
 
 #main {
   width: 100%; }
@@ -137,7 +131,6 @@ h1 {
   line-height: 36px; }
   h1 p.description, h1 span.description {
     font-weight: 200;
-    font-family: "helvetica neue", "lucida grande", "sans-serif";
     color: #999999;
     padding: 0.1em; }
 
