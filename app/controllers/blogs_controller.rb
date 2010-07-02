@@ -42,6 +42,6 @@ class BlogsController < ApplicationController
     @blog = Blog.where(:id => params[:id]).first
     @blog.destroy
     flash[:notice] = "Successfully destroyed blog."
-    redirect_to blogs_url
+    redirect_to root_url
   end
 end

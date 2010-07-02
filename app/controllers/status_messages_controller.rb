@@ -33,7 +33,7 @@ class StatusMessagesController < ApplicationController
     @status_message = StatusMessage.where(:id => params[:id]).first
     @status_message.destroy
     flash[:notice] = "Successfully destroyed status message."
-    redirect_to status_messages_url
+    redirect_to root_url
   end
   
   def show

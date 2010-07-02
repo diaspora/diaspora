@@ -43,6 +43,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.first(:conditions => {:id => params[:id]})    
     @bookmark.destroy
     flash[:notice] = "Successfully destroyed bookmark."
-    redirect_to bookmarks_url
+    redirect_to root_url
   end
 end
