@@ -32,7 +32,9 @@ module Diaspora
 
       objects.each do |p|
         if p.is_a? Retraction
-          Post.delete( p.post_id )
+        
+          p.perform
+          
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) #WTF
           p.save 

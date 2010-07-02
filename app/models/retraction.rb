@@ -15,4 +15,8 @@ class Retraction
   attr_accessor :post_id
   attr_accessor :person_id
   
+  def perform
+    Post.delete(self.post_id)
+  end
+
 end

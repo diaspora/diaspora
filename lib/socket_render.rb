@@ -14,7 +14,7 @@ module SocketRenderer
 
   def self.view_hash(object)
     begin
-      v = view_for(object)
+      v = view_for(object) unless object.is_a? Retraction
 
     rescue Exception => e
       puts "in failzord " + v.inspect
@@ -34,7 +34,7 @@ module SocketRenderer
     if object.is_a? Post
       object.id
     else 
-      object.post.id
+      object.post_id
     end
   end
 end

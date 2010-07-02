@@ -23,7 +23,7 @@ class Post
   after_save :notify_friends
  
   before_destroy :propagate_retraction
-  after_destroy :destroy_comments
+  after_destroy :destroy_comments, :remove_from_view
 
   def self.stream
     Post.sort(:created_at.desc).all
@@ -53,9 +53,12 @@ class Post
   end
 
   def send_to_view
-      WebSocket.update_clients(self)
+    WebSocket.update_clients(self)
   end
   
+  def remove_from_view
+    WebSocket.update_clients(Retraction.for(self))
+  end
 
 end
 

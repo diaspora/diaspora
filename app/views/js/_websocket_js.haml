@@ -15,13 +15,19 @@
     
         function onPageOne() {
           var c = document.location.search.charAt(document.location.search.length-1);
-            return ((c =='') || (c== '1'))
-          }
+          return ((c =='') || (c== '1'));
+        }
 
 
-        if (obj['class']=="comments"){
+        if (obj['class']=="retractions"){
+          var post_id = obj['post_id'];
+          $('#' + post_id ).fadeOut(500, function(){
+            $(this).remove;
+          });
+
+        }else if (obj['class']=="comments"){
           var post_id = obj['post_id']
-          $('#'+ obj['post_id'] + ' .comment_set li:last' ).before(
+          $('#'+ post_id + ' .comment_set li:last' ).before(
             $(obj['html']).fadeIn("fast", function(){})
           )
         }else if(((location.href.indexOf(obj['class']) != -1 ) || (location.pathname == '/')) && onPageOne()) {
