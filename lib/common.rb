@@ -1,5 +1,6 @@
 module Diaspora
   module XMLParser
+=begin
     def parse_sender_id_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       doc.xpath("/XML/head/sender/email").text.to_s
@@ -8,10 +9,8 @@ module Diaspora
     def parse_sender_object_from_xml(xml)
       sender_id = parse_sender_id_from_xml(xml)
       Friend.where(:email =>sender_id ).first
-
-
     end
-    
+=end
 
     def parse_owner_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
@@ -26,7 +25,6 @@ module Diaspora
 
     def parse_objects_from_xml(xml)
       objects = []
-      sender = parse_sender_object_from_xml(xml)
       body = parse_body_contents_from_xml(xml)
       body.children.each do |post|
         begin
