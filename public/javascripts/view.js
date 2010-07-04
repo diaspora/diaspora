@@ -80,6 +80,8 @@ $(document).ready(function(){
 			this.checked = false;
 		else if (tag == 'select')
 			this.selectedIndex = -1;
-		});
+		$(this).blur();
+    });
+
 	};
 });//end document ready
