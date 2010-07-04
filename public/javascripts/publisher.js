@@ -20,7 +20,7 @@
       }
     });
 
-    $("#publisher_content_pickers  .blog").click(function(){
+    $("#publisher_content_pickers .blog").click(function(){
       if( $("#new_blog").css("display") == "none" ) {
         $("#publisher_content_pickers").children("li").removeClass("selected");
         $("#publisher_form form").fadeOut(50);
@@ -29,5 +29,10 @@
         $("#new_blog").delay(50).fadeIn(200);
       }
     });
+
+    //$("#publisher").mouseout(function(){
+      //$("#publisher_form form").fadeOut(200);  
+      //$("#publisher_content_pickers li").removeClass("selected");
+    //});
 
   });

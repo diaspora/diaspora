@@ -36,6 +36,7 @@
             = link_to "login", new_user_session_path
 
 
+    = render "shared/publisher"
     .container
       - if user_signed_in?
         %h1#user_name
@@ -46,10 +47,6 @@
       #content.span-24.last
         .span-5.append-1.last
           = link_to owner_picture, root_path
-          %ul#stream_filters.nav
-            %li= link_to "status messages", status_messages_path
-            %li= link_to "bookmarks", bookmarks_path
-            %li= link_to "blogs", blogs_path
           = render 'friends/sidebar' if user_signed_in?
 
         .span-18
