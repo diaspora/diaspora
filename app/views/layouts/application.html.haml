@@ -38,11 +38,6 @@
 
     = render "shared/publisher"
     .container
-      - if user_signed_in?
-        %h1#user_name
-          = link_to User.first.real_name, root_url
-          %span.description
-            = my_latest_message
 
       #content.span-24.last
         .span-5.append-1.last
@@ -50,5 +45,10 @@
           = render 'friends/sidebar' if user_signed_in?
 
         .span-18
+          - if user_signed_in?
+            %h1#user_name
+              = link_to User.first.real_name, root_url
+              %span.description
+                = my_latest_message
           = yield
           = render "posts/debug"
