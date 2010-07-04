@@ -14,4 +14,4 @@
 
   - if mine?(post)
     .destroy_link
-      = link_to 'Delete', blog_path(post), :confirm => 'Are you sure?', :method => :delete
+      = link_to 'Delete', blog_path(post), :confirm => 'Are you sure?', :method => :delete, :remote=> true
