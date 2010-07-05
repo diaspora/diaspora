@@ -17,19 +17,20 @@
     = yield(:head)
 
   
-  = javascript_include_tag 'satisfaction' , 'satisfaction-display'
+  /= javascript_include_tag 'satisfaction' , 'satisfaction-display'
   %body
     %header
       .container
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
-        %a#diaspora_text{:href => root_path}
-          %img{:src => '/images/diaspora_white.png'}
-          preview
+        #diaspora_text{:href => root_path}
+          = link_to "DIASPORA*", root_path
+          %span.sub_text
+            PREVIEW
 
         #session_action
           - if user_signed_in?
-            =User.first.email
+            =User.first.real_name
             |
             = link_to "logout", destroy_user_session_path
           - else
@@ -40,11 +41,11 @@
     .container
 
       #content.span-24.last
-        .span-5.append-1.last
+        .span-3.append-1.last
           = link_to owner_picture, root_path
           = render 'friends/sidebar' if user_signed_in?
 
-        .span-18
+        .span-20
           - if user_signed_in?
             %h1#user_name
               = link_to User.first.real_name, root_url

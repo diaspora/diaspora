@@ -1,11 +1,23 @@
+@font-face
+  :font-family 'BrandonGrotesqueLightRegular'
+  :src url('brandongrotesque_light/Brandon_light-webfont.eot')
+  :src local('â˜º'), url('brandongrotesque_light/Brandon_light-webfont.woff') format('woff'), url('brandongrotesque_light/Brandon_light-webfont.ttf') format('truetype'), url('brandongrotesque_light/Brandon_light-webfont.svg#webfont') format('svg')
+  font
+    :weight normal
+    :style normal
+
+
 body
   :padding 2em
   :margin 0
 a
   :color #316191
+  :color #018790
   :text
     :decoration none
   :font-weight bold
+  &:hover
+    :color #BACCA4
 
 #flash_notice,
 #flash_error,
@@ -58,30 +70,44 @@ header
   :position relative
   :margin -2em
     :bottom 0
-  :height 30px
-  :color #fff
+  :height 50px
+  :color #555
   :background
-    :color #1A1A21
+    :color #000
+    :color -webkit-gradient(linear, 0% 0%, 0% 55%, from(#474747), to(#000000))
+    :color rgb(65,69,69)
+    :color #2B2726
   :border
-    :bottom 2px solid #7E96A6
+    :bottom 1px solid #444
   :padding
-    :top 5px
+    :top 20px
+  :-webkit-box-shadow 0 2px 10px #000
 
   #diaspora_text
+    :font
+      :family 'BrandonGrotesqueLightRegular'
+      :size 24px
     :position absolute
     :border none
-    :top 9px
-    &:hover 
-      :color #316191
+    :color #fff
+    :text
+      :shadow 0 2px 0 #000
+    a
+      :color #fff
+
+    span.sub_text
+      :color #000
+      :text
+        :shadow none
+      
 
   #session_action
     :float right
-    :font
-      :size 110%
     :margin
-      :top 2px
+      :top 9px
+    :text-shadow 0 1px 0 #000
     a
-      :color #ccc
+      :color #777
       :border none
     :padding-right 10px
 
@@ -133,13 +159,16 @@ li.message
   :color #999
 
   span.from
-    :color #333
+    :color #000
     :font
-      :weight bold
+      :weight normal
     :margin
       :right 0.2em
     :font
       :size 110%
+    a
+      :font
+        :weight bold
 
   div.time
     :color #bababa
@@ -194,6 +223,8 @@ ul.comment_set
     :margin
       :bottom 0.5em
     :background-color #F2F8FC
+    :background
+      :color rgba(10,81,109,0.1)
     :padding 0.6em
     :border
       :bottom 1px solid #ccc
@@ -219,6 +250,7 @@ img#profile_picture
 
 img#user_picture
   :width 100%
+  :border-radius 3px
   
 .pagination
   a
@@ -249,6 +281,7 @@ input[type='text'], textarea
   :-moz-box-shadow 0 2px 0px #fff
   :border-top 1px solid #999
   :height auto
+  :border-radius 3px
 
 
 input[type='submit']
@@ -273,10 +306,20 @@ ul.nav li > a
   :padding 0.5em 0
   :background
     :color #F2F8FC
+    :color #333
   :border
     :bottom 1px #eaeaea solid
   :margin 0 -2em
     :bottom 2em
+  :color #999
+  :-webkit-box-shadow 0 2px 20px #999
+
+  sp
+    :text-shadow 0 2px 0 #000
+
+  textarea, input
+    :-webkit-box-shadow 0 0px 3px #000
+    :-moz-box-shadow 0 0px 3px #999
 
 #new_blog, 
 #new_bookmark,
@@ -287,7 +330,9 @@ ul#publisher_content_pickers
   :display inline
   :margin 0 -10px
   :padding 0
-  :text-shadow 0 -2px 0 #fff
+  :margin
+    :left 10px
+  :text-shadow 0 2px 0 #000
 
 ul#publisher_content_pickers li
   :display inline
@@ -296,12 +341,6 @@ ul#publisher_content_pickers li
     :right 5px
 
 .selected
-  :-webkit-border-radius 5px
-  :-moz-border-radius 5px
-  :border 1px solid #ccc
-    :top 1px solid #333
-  :background
-    :color rgba( 255, 255, 255, 0.5)
-  :-webkit-box-shadow 0 2px 1px #fff
-  :-moz-box-shadow 0 2px 1px #fff
-
+  :border
+    :bottom 3px solid #999
+  

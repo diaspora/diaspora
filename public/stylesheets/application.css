@@ -1,11 +1,22 @@
+@font-face {
+  font-family: "BrandonGrotesqueLightRegular";
+  src: url("brandongrotesque_light/Brandon_light-webfont.eot");
+  src: local("â˜º"), url("brandongrotesque_light/Brandon_light-webfont.woff") format("woff"), url("brandongrotesque_light/Brandon_light-webfont.ttf") format("truetype"), url("brandongrotesque_light/Brandon_light-webfont.svg#webfont") format("svg");
+  font {
+    weight: normal;
+    style: normal; } }
+
 body {
   padding: 2em;
   margin: 0; }
 
 a {
   color: #316191;
+  color: #018790;
   text-decoration: none;
   font-weight: bold; }
+  a:hover {
+    color: #bacca4; }
 
 #flash_notice,
 #flash_error,
@@ -55,24 +66,34 @@ header {
   position: relative;
   margin: -2em;
     margin-bottom: 0;
-  height: 30px;
-  color: white;
-  background-color: #1a1a21;
-  border-bottom: 2px solid #7e96a6;
-  padding-top: 5px; }
+  height: 50px;
+  color: #555555;
+  background-color: black;
+  background-color: -webkit-gradient(linear, 0% 0%, 0% 55%, from(#474747), to(black));
+  background-color: #414545;
+  background-color: #2b2726;
+  border-bottom: 1px solid #444444;
+  padding-top: 20px;
+  -webkit-box-shadow: 0 2px 10px black; }
   header #diaspora_text {
+    font-family: "BrandonGrotesqueLightRegular";
+    font-size: 24px;
     position: absolute;
     border: none;
-    top: 9px; }
-    header #diaspora_text:hover {
-      color: #316191; }
+    color: white;
+    text-shadow: 0 2px 0 black; }
+    header #diaspora_text a {
+      color: white; }
+    header #diaspora_text span.sub_text {
+      color: black;
+      text-shadow: none; }
   header #session_action {
     float: right;
-    font-size: 110%;
-    margin-top: 2px;
+    margin-top: 9px;
+    text-shadow: 0 1px 0 black;
     padding-right: 10px; }
     header #session_action a {
-      color: #cccccc;
+      color: #777777;
       border: none; }
 
 #show_filters {
@@ -117,10 +138,12 @@ li.message {
   font-family: "Lucida Grande", sans-serif;
   color: #999999; }
   li.message span.from {
-    color: #333333;
-    font-weight: bold;
+    color: black;
+    font-weight: normal;
     margin-right: 0.2em;
     font-size: 110%; }
+    li.message span.from a {
+      font-weight: bold; }
   li.message div.time {
     color: #bababa;
     font-size: 70%; }
@@ -165,6 +188,7 @@ ul.comment_set {
   ul.comment_set li.comment {
     margin-bottom: 0.5em;
     background-color: #f2f8fc;
+    background-color: rgba(10, 81, 109, 0.1);
     padding: 0.6em;
     border-bottom: 1px solid #cccccc; }
     ul.comment_set li.comment .from {
@@ -181,7 +205,8 @@ img#profile_picture {
   width: 100%; }
 
 img#user_picture {
-  width: 100%; }
+  width: 100%;
+  border-radius: 3px; }
 
 .pagination a {
   padding: 3px; }
@@ -207,7 +232,8 @@ input[type='text'], textarea {
   -webkit-box-shadow: 0 2px 0px white;
   -moz-box-shadow: 0 2px 0px white;
   border-top: 1px solid #999999;
-  height: auto; }
+  height: auto;
+  border-radius: 3px; }
 
 input[type='submit'] {
   display: block;
@@ -230,9 +256,17 @@ ul.nav li > a {
 #publisher {
   padding: 0.5em 0;
   background-color: #f2f8fc;
+  background-color: #333333;
   border-bottom: 1px #eaeaea solid;
   margin: 0 -2em;
-    margin-bottom: 2em; }
+    margin-bottom: 2em;
+  color: #999999;
+  -webkit-box-shadow: 0 2px 20px #999999; }
+  #publisher sp {
+    text-shadow: 0 2px 0 black; }
+  #publisher textarea, #publisher input {
+    -webkit-box-shadow: 0 0px 3px black;
+    -moz-box-shadow: 0 0px 3px #999999; }
 
 #new_blog,
 #new_bookmark,
@@ -243,7 +277,8 @@ ul#publisher_content_pickers {
   display: inline;
   margin: 0 -10px;
   padding: 0;
-  text-shadow: 0 -2px 0 white; }
+  margin-left: 10px;
+  text-shadow: 0 2px 0 black; }
 
 ul#publisher_content_pickers li {
   display: inline;
@@ -251,10 +286,4 @@ ul#publisher_content_pickers li {
   margin-right: 5px; }
 
 .selected {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border: 1px solid #cccccc;
-    border-top: 1px solid #333333;
-  background-color: rgba(255, 255, 255, 0.5);
-  -webkit-box-shadow: 0 2px 1px white;
-  -moz-box-shadow: 0 2px 1px white; }
+  border-bottom: 3px solid #999999; }
