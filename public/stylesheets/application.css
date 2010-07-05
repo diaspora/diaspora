@@ -74,7 +74,9 @@ header {
   background-color: #2b2726;
   border-bottom: 1px solid #444444;
   padding-top: 20px;
-  -webkit-box-shadow: 0 2px 10px black; }
+  box-shadow: 0 2px 10px black;
+  -webkit-box-shadow: 0 2px 10px black;
+  -moz-box-shadow: 0 2px 10px black; }
   header #diaspora_text {
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 24px;
@@ -229,6 +231,7 @@ input[type='text'], textarea {
   padding: 0.3em;
   display: block;
   width: 100%;
+  box-shadow: 0 2px 0px white;
   -webkit-box-shadow: 0 2px 0px white;
   -moz-box-shadow: 0 2px 0px white;
   border-top: 1px solid #999999;
@@ -261,10 +264,13 @@ ul.nav li > a {
   margin: 0 -2em;
     margin-bottom: 2em;
   color: #999999;
-  -webkit-box-shadow: 0 2px 20px #999999; }
+  box-shadow: 0 2px 20px #999999;
+  -webkit-box-shadow: 0 2px 20px #999999;
+  -moz-box-shadow: 0 2px 20px #999999; }
   #publisher sp {
     text-shadow: 0 2px 0 black; }
   #publisher textarea, #publisher input {
+    box-shadow: 0 0px 3px black;
     -webkit-box-shadow: 0 0px 3px black;
     -moz-box-shadow: 0 0px 3px #999999; }
 
