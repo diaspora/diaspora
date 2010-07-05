@@ -12,6 +12,9 @@
 
         $(this).toggleClass("selected");
         $(form_id).delay(50).fadeIn(200);
+      } else {
+        $("#publisher_content_pickers").children("li").removeClass("selected");
+        $("#publisher_form form").fadeOut(200);
       }
     }
   });
