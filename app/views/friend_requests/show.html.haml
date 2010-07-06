@@ -1,18 +1,21 @@
-- title "Bookmark"
+- title "Friend Request"
 
 %p
-  %strong Title:
-  = @bookmark.title
+  %strong Recipient:
+  = @friend_request.recipient.email
 %p
-  %strong Link:
-  = link_to @bookmark.link
+  %strong URL:
+  = @friend_request.recipient.url
 %p
-  %strong Owner:
-  = @bookmark.person.real_name
+  %strong Sender:
+  = @friend_request.sender.email
+%p
+  %strong URL:
+  = @friend_request.sender.url
 
 %p
-  = link_to "Edit", edit_bookmark_path(@bookmark)
+  = link_to "Edit", edit_friend_request_path(@bookmark)
   |
-  = link_to "Destroy", @bookmark, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Destroy", @friend_request, :confirm => 'Are you sure?', :method => :delete
   |
-  = link_to "View All", bookmarks_path
+  = link_to "View All", friend_requests_path

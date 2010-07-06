@@ -20,13 +20,16 @@ class FriendRequestsController < ApplicationController
   
   def new
     @friend_request = FriendRequest.new
-    @receiver = Person.new
+    @recipient = Person.new
   end
   
   def create
-   
-    puts params.inspect
+
     @friend_request = FriendRequest.new(params[:friend_request])
+    @friend_request.sender = Person.new( :email => User.first.email, :url => User.first.url )
+    puts
+    puts
+    puts params.inspect
 
 
     if @friend_request.save
