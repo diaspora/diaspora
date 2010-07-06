@@ -1,2 +1,4 @@
 %li.message{:id => post.id}
+
   = post.inspect
+  %h2= post.sender.is_a? User

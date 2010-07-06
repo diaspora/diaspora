@@ -24,13 +24,12 @@ class FriendRequestsController < ApplicationController
   end
   
   def create
-
     @friend_request = FriendRequest.new(params[:friend_request])
-    @friend_request.sender = Person.new( :email => User.first.email, :url => User.first.url )
-    puts
-    puts
-    puts params.inspect
+    @friend_request.sender = current_user
 
+    puts
+    puts
+    puts @recipient
 
     if @friend_request.save
       flash[:notice] = "Successfully created friend request."

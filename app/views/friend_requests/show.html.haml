@@ -2,16 +2,10 @@
 
 %p
   %strong Recipient:
-  = @friend_request.recipient.email
-%p
-  %strong URL:
-  = @friend_request.recipient.url
+  = @friend_request.recipient
 %p
   %strong Sender:
-  = @friend_request.sender.email
-%p
-  %strong URL:
-  = @friend_request.sender.url
+  = @friend_request.sender
 
 %p
   = link_to "Edit", edit_friend_request_path(@bookmark)

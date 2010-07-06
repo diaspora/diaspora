@@ -34,7 +34,7 @@ module Diaspora
         if p.is_a? Retraction
         
           p.perform
-        elsif p.is_a? FriendRequest
+        elsif p.is_a? Friend
           p.save
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) #WTF
@@ -65,10 +65,13 @@ module Diaspora
             @@queue.process
           end
         end
-
-        def push_to_recipient(recipient)
-          if self.sender_id == User.first.id
-            push_to( [recipient] )
+        
+        def push_to_url(url)
+          if url
+            url = url + "receive/"
+            xml = self.class.build_xml_for([self])
+            @@queue.add_post_request( [url], xml )
+            @@queue.process
           end
         end
 
