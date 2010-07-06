@@ -108,6 +108,17 @@ describe "parser in application helper" do
       store_objects_from_xml( request )
       StatusMessage.count.should == 0
     end
+
+    it 'should marshal friend requests' do
+      sender = Factory.build(:user, :email => "bob@aol.com", :url => "http://google.com/")
+      recipient = Factory.build(:person, :email => "robert@grimm.com", :url => "http://localhost:3000/")
+      friend_request = FriendRequest.new(:sender => sender, :recipient => recipient)
+      xml_request = Post.build_xml_for([friend_request]) 
+      
+      FriendRequest.count.should be 0
+      store_objects_from_xml( xml_request )
+      FriendRequest.count.should be 1
+    end
   end
 end
 

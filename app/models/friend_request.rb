@@ -1,7 +1,9 @@
 class FriendRequest
   include MongoMapper::Document
   include ROXML
+  include Diaspora::Webhooks
 
+  xml_name :friend_request
   xml_accessor :sender, :as => Person
   xml_accessor :recipient, :as => Person
 
@@ -9,6 +11,7 @@ class FriendRequest
   key :recipient, Person
 
   validates_presence_of :sender, :recipient
+  after_create :send_off
 
   def accept
     f = Friend.new
@@ -20,6 +23,10 @@ class FriendRequest
 
   def reject
     self.destroy
+  end
+
+  def send_off
+    push_to [self.recipient]
   end
   
 end

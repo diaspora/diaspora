@@ -4,6 +4,8 @@ Diaspora::Application.routes.draw do |map|
   resources :friends
   resources :status_messages
   resources :comments
+  resources :friend_requests
+
   match 'warzombie', :to => "dashboard#warzombie"
 
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,

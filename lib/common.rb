@@ -34,7 +34,8 @@ module Diaspora
         if p.is_a? Retraction
         
           p.perform
-          
+        elsif p.is_a? FriendRequest
+          p.save
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) #WTF
           p.save 

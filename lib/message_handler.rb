@@ -37,8 +37,7 @@ class MessageHandler
       }
     } unless @queue.size == 0
   end
-
-
+  
   def send_to_seed(message, http_response)
     #DO SOMETHING!
   end
