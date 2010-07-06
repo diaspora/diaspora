@@ -2,7 +2,7 @@
   = f.error_messages
 
   
-  = f.fields_for :receiver do |r|
+  = f.fields_for :recipient do |r|
     %p
       = r.label :email
       = r.text_field :email
