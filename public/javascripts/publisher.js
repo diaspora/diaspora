@@ -4,7 +4,8 @@
     $("#publisher_content_pickers .bookmark").click(selectPublisherTab);
     $("#publisher_content_pickers .blog").click(selectPublisherTab);
 
-    function selectPublisherTab(){
+    function selectPublisherTab(evt){
+      evt.preventDefault();
       var form_id = "#new_" + this.className
       if( $(form_id).css("display") == "none" ) {
         $("#publisher_content_pickers").children("li").removeClass("selected");
