@@ -11,8 +11,8 @@ describe Person do
     user = Factory.create(:user)
     friend = Factory.build(:friend, :url => user.url)
     friend.valid?.should == false
-
   end
+
   it 'should serialize to xml' do
     friend_one = Factory.create(:friend)
     xml = friend_one.to_xml.to_s
