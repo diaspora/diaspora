@@ -26,7 +26,7 @@ class FriendRequest
   end
 
   def send_off
-    push_to [self.recipient]
+    push_to_recipient self.recipient
   end
   
 end

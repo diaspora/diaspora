@@ -66,6 +66,11 @@ module Diaspora
           end
         end
 
+        def push_to_recipient(recipient)
+          if self.sender_id == User.first.id
+            push_to( [recipient] )
+          end
+        end
 
         def prep_webhook
           "<post>#{self.to_xml.to_s}</post>"
