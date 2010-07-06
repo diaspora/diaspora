@@ -39,8 +39,9 @@
         $(' .comment_set li:last', post ).before(
           $(html).fadeIn("fast", function(){})
         );
-        $('.show_post_comments', post).html(
-          $('.show_post_comments', post).html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
+        toggler = $('.show_post_comments', post)
+        toggler.html(
+          toggler.html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
       }
 
       function processPost(className, html){
