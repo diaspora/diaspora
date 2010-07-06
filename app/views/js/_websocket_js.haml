@@ -35,9 +35,13 @@
       }
 
       function processComment(post_id, html){
-        $('#'+ post_id + ' .comment_set li:last' ).before(
+        post = $('#' + post_id)[0]
+        $(' .comment_set li:last', post ).before(
           $(html).fadeIn("fast", function(){})
         );
+        toggler = $('.show_post_comments', post)
+        toggler.html(
+          toggler.html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
       }
 
       function processPost(className, html){
