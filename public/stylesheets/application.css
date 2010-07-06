@@ -208,7 +208,8 @@ img#profile_picture {
 
 img#user_picture {
   width: 100%;
-  border-radius: 3px; }
+  border-radius: 3px;
+  -moz-border-radius: 3px; }
 
 .pagination a {
   padding: 3px; }
@@ -236,7 +237,8 @@ input[type='text'], textarea {
   -moz-box-shadow: 0 2px 0px white;
   border-top: 1px solid #999999;
   height: auto;
-  border-radius: 3px; }
+  border-radius: 3px;
+  -moz-border-radius: 3px; }
 
 input[type='submit'] {
   display: block;
