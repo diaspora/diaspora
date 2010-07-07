@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-system('pwd')
+system('bundle install --gemfile ./Gemfile && rspec spec')
