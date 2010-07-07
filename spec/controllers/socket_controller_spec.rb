@@ -1,5 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-
+EventMachine.run{
 describe SocketController do
   before do
     Factory.create(:user)
@@ -11,26 +11,22 @@ describe SocketController do
   end
 
   it 'should unstub the websocket' do
-    EventMachine.run {
-      puts"hi"
+    EventMachine.next_tick {
       WebSocket.initialize_channel
       WebSocket.push_to_clients("what").should_not == "stub"
       WebSocket.unsubscribe(1).should_not == "stub"
       WebSocket.subscribe.should_not == "stub"
-      EventMachine.stop
     }
-    puts "yo"
   end
   
   it 'should add a new subscriber to the websocket channel' do
-    EventMachine.run {
-      puts "foo"
+    EventMachine.next_tick {
       WebSocket.initialize_channel
       @controller.new_subscriber.should == 1
-
-      EventMachine.stop
     }
   end
 
 
 end
+EventMachine.stop
+}
