@@ -33,7 +33,7 @@ require "#{File.dirname(__FILE__)}/packages/ruby"
 #   If there's only one implementation of a virtual package, it's selected automatically, otherwise
 #   the user is requested to select which one to use.
 
-policy :diaspora, :roles => :app do
+policy :diaspora, :roles => :tom, :backer do
 #  requires :clean_dreamhost
   requires :tools
   requires :rubygems
@@ -44,6 +44,16 @@ policy :diaspora, :roles => :app do
   requires :scm
 end
 
+policy :ci, :roles => :ci do
+  requires :tools
+  requires :rubygems
+	requires :bundler
+  requires :diaspora_dependencies
+  requires :database
+  requires :webserver
+  requires :scm
+  #add sqlite
+end
 
 # Deployment
 #
