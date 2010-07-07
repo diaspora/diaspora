@@ -123,6 +123,25 @@ describe "parser in application helper" do
       store_objects_from_xml(xml)
       Friend.count.should be 1
     end
+
+    it "should activate the Friend if I initiated a request to that url" do 
+      friend_request = FriendRequest.create(:url => @friend.url, :sender => @user)
+   
+      friend_request_remote = FriendRequest.new(:url => "http://www.yahoo.com/")
+      friend_request_remote.sender = @friend.clone
+      xml = "<XML>
+            <posts><post>
+      #{friend_request_remote.to_friend_xml.to_s}
+            </post></posts>
+            </XML>"
+
+      @friend.destroy
+      Friend.count.should be 0
+      store_objects_from_xml(xml)
+      Friend.count.should be 1
+      Friend.first.active.should be true
+    end
+
   end
 end
 
