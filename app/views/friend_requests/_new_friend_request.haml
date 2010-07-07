@@ -1,12 +1,4 @@
 = form_for @friend_request, :remote => true do |f|
   = f.error_messages
-
-  = f.fields_for :recipient do |r|
-    %p
-      = r.label :email
-      = r.text_field :email
-    %p
-      = r.label :url
-      = r.text_field :url
   %p
     = f.submit

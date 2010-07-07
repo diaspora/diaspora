@@ -34,8 +34,6 @@ module Diaspora
         if p.is_a? Retraction
         
           p.perform
-        elsif p.is_a? Friend
-          p.save
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) #WTF
           p.save 
@@ -62,15 +60,6 @@ module Diaspora
             recipients.map!{|x| x = x.url + "receive/"}  
             xml = self.class.build_xml_for([self])
             @@queue.add_post_request( recipients, xml )
-            @@queue.process
-          end
-        end
-        
-        def push_to_url(url)
-          if url
-            url = url + "receive/"
-            xml = self.class.build_xml_for([self])
-            @@queue.add_post_request( [url], xml )
             @@queue.process
           end
         end

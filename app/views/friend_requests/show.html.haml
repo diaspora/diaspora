@@ -1,11 +1,7 @@
 - title "Friend Request"
 
 %p
-  %strong Recipient:
-  = @friend_request.recipient
-%p
-  %strong Sender:
-  = @friend_request.sender
+  = friend_request.inspect
 
 %p
   = link_to "Edit", edit_friend_request_path(@bookmark)

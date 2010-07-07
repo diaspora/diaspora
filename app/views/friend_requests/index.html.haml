@@ -2,6 +2,6 @@
 = render "friend_requests/new_friend_request", :friend_request => @friend_request
 %ul#stream
   - for friend_request in @friend_requests
-    = render "friend_request", :post => friend_request
+    = render "friend_request", :friend_request => friend_request
 #pagination
   = will_paginate @friend_requests
