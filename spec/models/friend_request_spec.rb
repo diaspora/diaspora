@@ -26,7 +26,13 @@ describe FriendRequest do
     friend_request = FriendRequest.new(:url => "http://www.google.com")
     friend_request.sender = Factory.create(:user)
     friend_request.save
-    
+  end
+
+  it "should activate a friend if it exists on creation of a request for that url" do
+    user = Factory.create(:user)
+    friend = Factory.create(:friend, :url => "http://google.com/")
+    FriendRequest.create(:url => friend.url, :sender => user)
+    Friend.first.active.should be true
   end
 
 end
