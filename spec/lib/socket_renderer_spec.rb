@@ -4,7 +4,7 @@ describe SocketRenderer do
   before do
     SocketRenderer.instantiate_view
     @user = Factory.create(:user, :email => "bob@jones.com")
-    @user.profile = Factory.build(:profile, :person => @user)
+    @user.profile = Factory.create(:profile, :person => @user)
   end
 
   it 'should render a partial for a status message' do
@@ -15,9 +15,8 @@ describe SocketRenderer do
 
   it 'should prepare a class/view hash' do
       message = Factory.create(:status_message, :person => @user)
-  
+
       hash = SocketRenderer.view_hash(message)
       hash[:class].should == "status_messages"
-      
   end
 end

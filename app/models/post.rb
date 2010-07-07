@@ -20,7 +20,7 @@ class Post
   timestamps!
 
   after_save :send_to_view
-  after_save :notify_friends
+  after_save :notify_people
  
   before_destroy :propagate_retraction
   after_destroy :destroy_comments, :remove_from_view
@@ -49,7 +49,7 @@ class Post
   end
   
   def propagate_retraction
-    Retraction.for(self).notify_friends
+    Retraction.for(self).notify_people
   end
 
   def send_to_view

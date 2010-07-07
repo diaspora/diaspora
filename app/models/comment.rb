@@ -17,7 +17,7 @@ class Comment
   key :person_id, ObjectId
   belongs_to :person, :class_name => "Person"
   
-  after_save :send_friends_comments_on_my_posts
+  after_save :send_people_comments_on_my_posts
   after_save :send_to_view
   
 
@@ -28,9 +28,9 @@ class Comment
   
   protected
   
-  def send_friends_comments_on_my_posts
-    if (User.first.mine?(self.post) && self.person.is_a?(Friend))
-      self.push_to(self.post.friends_with_permissions)
+  def send_people_comments_on_my_posts
+    if User.first.mine?(self.post) && !(self.person.is_a? User)
+      self.push_to(self.post.people_with_permissions)
     end
   end
   

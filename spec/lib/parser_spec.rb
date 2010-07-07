@@ -5,7 +5,7 @@ include ApplicationHelper
 describe "parser in application helper" do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
-    @friend =Factory.create(:friend, :email => "bill@gates.com")
+    @person = Factory.create(:person, :email => "bill@gates.com")
   end
 
   it "should not store posts from me" do
@@ -21,7 +21,7 @@ describe "parser in application helper" do
     <head>
     </head><posts>
       <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      <post><friend></friend></post>
+      <post><person></person></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
     store_objects_from_xml(xml)
@@ -37,7 +37,7 @@ describe "parser in application helper" do
       </sender>
     </head><posts>
       <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      <post><friend></friend></post>
+      <post><person></person></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
     store_objects_from_xml(xml)
@@ -48,11 +48,11 @@ describe "parser in application helper" do
     xml = "<XML>
     <head>
       <sender>
-        <email>#{Friend.first.email}</email>
+        <email>#{Person.first.email}</email>
       </sender>
     </head>
     <posts>
-      <post><friend></friend></post>
+      <post><person></person></post>
     </posts></XML>"
     
     store_objects_from_xml(xml)
@@ -84,23 +84,24 @@ describe "parser in application helper" do
     end
     
     it 'should be able to correctly handle comments' do
-      friend = Factory.create(:friend)
+      person = Factory.create(:person, :email => "test@testing.com")
       post = Factory.create(:status_message)
-      comment = Factory.build(:comment, :post => post, :person => friend, :text => "Freedom!")
-      xml = "<XML><head><sender><email>#{Friend.first.email}</email></sender></head>
+      comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
+      xml = "<XML>
       <posts>
         <post>#{comment.to_xml}</post>
       </posts></XML>"
+
       objects = parse_objects_from_xml(xml)
       comment = objects.first
       comment.text.should == "Freedom!"
-      comment.person.should == friend
+      comment.person.should == person
       comment.post.should == post
     end
     
     it 'should marshal retractions' do
-      friend = Factory.create(:friend)
-      message = Factory.create(:status_message, :person => friend)
+      person = Factory.create(:person)
+      message = Factory.create(:status_message, :person => person)
       retraction = Retraction.for(message)
       request = Post.build_xml_for( [retraction] )
 
@@ -109,37 +110,39 @@ describe "parser in application helper" do
       StatusMessage.count.should == 0
     end
     
-    it "should create a new friend upon getting a friend request" do
-      friend_request = FriendRequest.new(:url => "http://www.googles.com/")
-      friend_request.sender = @friend
+    it "should create a new person upon getting a person request" do
+      person_request = PersonRequest.new(:url => "http://www.googles.com/")
+      person_request.sender = @person
       xml = "<XML>
             <posts><post>
-      #{friend_request.to_friend_xml.to_s}
+      #{person_request.to_person_xml.to_s}
             </post></posts>
             </XML>"
 
-      @friend.destroy
-      Friend.count.should be 0
+      @person.destroy
+      @user.destroy
+      Person.count.should be 0
       store_objects_from_xml(xml)
-      Friend.count.should be 1
+      Person.count.should be 1
     end
 
-    it "should activate the Friend if I initiated a request to that url" do 
-      friend_request = FriendRequest.create(:url => @friend.url, :sender => @user)
+    it "should activate the Person if I initiated a request to that url" do 
+      person_request = PersonRequest.create(:url => @person.url, :sender => @user)
    
-      friend_request_remote = FriendRequest.new(:url => "http://www.yahoo.com/")
-      friend_request_remote.sender = @friend.clone
+      person_request_remote = PersonRequest.new(:url => "http://www.yahoo.com/")
+      person_request_remote.sender = @person.clone
       xml = "<XML>
             <posts><post>
-      #{friend_request_remote.to_friend_xml.to_s}
+      #{person_request_remote.to_person_xml.to_s}
             </post></posts>
             </XML>"
 
-      @friend.destroy
-      Friend.count.should be 0
+      @person.destroy
+      @user.destroy
+      Person.count.should be 0
       store_objects_from_xml(xml)
-      Friend.count.should be 1
-      Friend.first.active.should be true
+      Person.count.should be 1
+      Person.first.active.should be true
     end
 
   end

@@ -1,10 +1,10 @@
 Diaspora::Application.routes.draw do |map|
   resources :blogs
   resources :bookmarks
-  resources :friends
+  resources :people
   resources :status_messages
   resources :comments
-  resources :friend_requests
+  resources :person_requests
 
   match 'warzombie', :to => "dashboard#warzombie"
 

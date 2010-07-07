@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive
   layout 'application'
   
-  before_filter :set_friends
+  before_filter :set_people
 
   layout :layout_by_resource
 
@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def set_friends
-    @friends = Friend.all
+  def set_people
+    @people = Person.all
   end
   
 end

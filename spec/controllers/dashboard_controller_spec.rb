@@ -13,10 +13,10 @@ describe DashboardController do
     response.should render_template(:index)
   end
   
-  it "on index sets a friends variable" do
-    Factory.create :friend
+  it "on index sets a person's variable" do
+    Factory.create :person
     get :index
-    assigns[:friends].should == Friend.all
+    assigns[:people].should == Person.all
   end
 
 end

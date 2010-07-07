@@ -19,11 +19,11 @@ describe Post do
 
   describe "newest" do
     before do
-      @friend_one = Factory.create(:friend, :email => "some@dudes.com")
-      @friend_two = Factory.create(:friend, :email => "other@dudes.com")
-      (2..4).each {|n| Blog.create(:title => "title #{n}", :body => "test #{n}", :person => @friend_one)}
+      @person_one = Factory.create(:person, :email => "some@dudes.com")
+      @person_two = Factory.create(:person, :email => "other@dudes.com")
+      (2..4).each {|n| Blog.create(:title => "title #{n}", :body => "test #{n}", :person => @person_one)}
       (5..8).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @user)}
-      (9..11).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @friend_two)}
+      (9..11).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @person_two)}
 
       Factory.create(:status_message)
       Factory.create(:bookmark)
@@ -39,7 +39,7 @@ describe Post do
     
     it "should give the most recent blog body for a given email" do
       blog = Blog.newest_by_email("some@dudes.com")
-      blog.person.email.should == @friend_one.email
+      blog.person.email.should == @person_one.email
       blog.class.should == Blog
       blog.title.should == "title 4"
       blog.body.should == "test 4"
@@ -49,14 +49,14 @@ describe Post do
   describe "stream" do 
     before do
       @owner = Factory.build(:user)
-      @friend_one = Factory.create(:friend, :email => "some@dudes.com")
-      @friend_two = Factory.create(:friend, :email => "other@dudes.com")
+      @person_one = Factory.create(:person, :email => "some@dudes.com")
+      @person_two = Factory.create(:person, :email => "other@dudes.com")
 
       Factory.create(:status_message, :message => "puppies", :created_at => Time.now+1, :person => @owner)
-      Factory.create(:bookmark, :title => "Reddit", :link => "http://reddit.com", :created_at => Time.now+2, :person => @friend_one)
-      Factory.create(:status_message, :message => "kittens", :created_at => Time.now+3, :person => @friend_two)
+      Factory.create(:bookmark, :title => "Reddit", :link => "http://reddit.com", :created_at => Time.now+2, :person => @person_one)
+      Factory.create(:status_message, :message => "kittens", :created_at => Time.now+3, :person => @person_two)
       Factory.create(:blog, :title => "Bears", :body => "Bear's body", :created_at => Time.now+4, :person => @owner)
-      Factory.create(:bookmark, :title => "Google", :link => "http://google.com", :created_at => Time.now+5, :person => @friend_two)
+      Factory.create(:bookmark, :title => "Google", :link => "http://google.com", :created_at => Time.now+5, :person => @person_two)
     end
 
     it "should list child types in reverse chronological order" do
@@ -70,11 +70,11 @@ describe Post do
     end
 
     it "should get all posts for a specified user" do
-      friend_posts = @friend_one.posts
-      friend_posts.count.should == 1
+      person_posts = @person_one.posts
+      person_posts.count.should == 1
 
-      friend_posts = @friend_two.posts
-      friend_posts.count.should == 2
+      person_posts = @person_two.posts
+      person_posts.count.should == 2
     end
   end
   describe 'xml' do

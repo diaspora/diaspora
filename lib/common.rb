@@ -4,7 +4,7 @@ module Diaspora
     def parse_owner_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       email = doc.xpath("//person/email").text.to_s
-      Friend.where(:email => email).first
+      Person.where(:email => email).first
     end
 
     def parse_body_contents_from_xml(xml)
@@ -33,13 +33,13 @@ module Diaspora
       objects.each do |p|
         if p.is_a? Retraction
           p.perform
-        elsif p.is_a? Friend
-          if FriendRequest.where(:url => p.url).first
+        elsif p.is_a? Person
+          if PersonRequest.where(:url => p.url).first
             p.active = true
           end
           p.save
         #This line checks if the sender was in the database, among other things?
-        elsif p.respond_to?(:person) && !(p.person.nil?) #WTF
+        elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
           p.save 
         end
         #p.save if p.respond_to?(:person) && !(p.person == nil) #WTF
@@ -52,9 +52,9 @@ module Diaspora
       klass.class_eval do
         @@queue = MessageHandler.new
         
-        def notify_friends
+        def notify_people
           if self.person_id == User.first.id
-            push_to(friends_with_permissions)
+            push_to(people_with_permissions)
           end
         end
 
@@ -68,12 +68,12 @@ module Diaspora
           end
         end
 
-        def push_friend_request_to_url(url)
+        def push_person_request_to_url(url)
           if url
             url = url + "receive/"  
             xml = "<XML>
             <posts><post>
-              #{self.to_friend_xml.to_s}
+              #{self.to_person_xml.to_s}
             </post></posts>
             </XML>"
             @@queue.add_post_request( [url], xml )
@@ -85,8 +85,8 @@ module Diaspora
           "<post>#{self.to_xml.to_s}</post>"
         end
 
-        def friends_with_permissions
-           Friend.all
+        def people_with_permissions
+           Person.where( :_type => "Person" ).all
         end
 
         def self.build_xml_for(posts)

@@ -8,7 +8,7 @@ describe Diaspora do
   describe Webhooks do
     before do
       @user = Factory.create(:user, :email => "bob@aol.com")
-      @friend = Factory.create(:friend)
+      @person = Factory.create(:person)
     end
 
     describe "body" do
@@ -17,39 +17,40 @@ describe Diaspora do
       end
 
       it "should add the following methods to Post on inclusion" do
-        @post.respond_to?(:notify_friends).should be true
+        @post.respond_to?(:notify_people).should be true
         @post.respond_to?(:prep_webhook).should be true
-        @post.respond_to?(:friends_with_permissions).should be true
+        @post.respond_to?(:people_with_permissions).should be true
       end
 
       it "should convert an object to a proper webhook" do
         @post.prep_webhook.should == "<post>#{@post.to_xml.to_s}</post>"
       end
 
-      it "should retrieve all valid friend endpoints" do
-        Factory.create(:friend, :url => "http://www.bob.com/")
-        Factory.create(:friend, :url => "http://www.alice.com/")
-        Factory.create(:friend, :url => "http://www.jane.com/")
+      it "should retrieve all valid person endpoints" do
+        Factory.create(:person, :url => "http://www.bob.com/")
+        Factory.create(:person, :url => "http://www.alice.com/")
+        Factory.create(:person, :url => "http://www.jane.com/")
 
-        @post.friends_with_permissions.should == Friend.all
+        non_users = Person.where( :_type => "Person" ).all
+        @post.people_with_permissions.should == non_users
       end
 
-      it "should send an owners post to their friends" do
+      it "should send an owners post to their people" do
         q = Post.send(:class_variable_get, :@@queue)
         q.should_receive :process
         @post.save
       end
     
-      it "should check that it does not send a friends post to an owners friends" do
+      it "should check that it does not send a person's post to an owners people" do
         Post.stub(:build_xml_for).and_return(true) 
         Post.should_not_receive(:build_xml_for)
         
-        Factory.create(:status_message, :person => Factory.create(:friend))
+        Factory.create(:status_message, :person => Factory.create(:person))
       end
 
-      it "should ensure one url is created for every friend" do
-        5.times {Factory.create(:friend)}
-        @post.friends_with_permissions.size.should == 6
+      it "should ensure one url is created for every person" do
+        5.times {Factory.create(:person)}
+        @post.people_with_permissions.size.should == 6
       end
 
       it "should build an xml object containing multiple Post types" do
