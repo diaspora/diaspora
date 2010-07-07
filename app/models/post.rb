@@ -53,11 +53,11 @@ class Post
   end
 
   def send_to_view
-    WebSocket.update_clients(self)
+    WebSocket.push_to_clients(self)
   end
   
   def remove_from_view
-    WebSocket.update_clients(Retraction.for(self))
+    WebSocket.push_to_clients(Retraction.for(self))
   end
 
 end

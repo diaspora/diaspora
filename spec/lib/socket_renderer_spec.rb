@@ -1,4 +1,5 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+=begin
+  require File.dirname(__FILE__) + '/../spec_helper'
 
 describe SocketRenderer do
   before do
@@ -21,3 +22,4 @@ describe SocketRenderer do
       
   end
 end
+=end

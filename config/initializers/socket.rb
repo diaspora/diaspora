@@ -1,31 +1,44 @@
 require 'em-websocket'
 require 'eventmachine'
-require 'lib/socket_render'
+
+
+
 module WebSocket
   EM.next_tick {
-    EM.add_timer(0.1) do
-      @channel = EM::Channel.new
-      puts @channel.inspect
-      include SocketRenderer
-      
-      SocketRenderer.instantiate_view 
-    end
+    initialize_channel
     
     EventMachine::WebSocket.start(
                   :host => "0.0.0.0", 
                   :port => APP_CONFIG[:socket_port],
                   :debug =>APP_CONFIG[:debug]) do |ws|
       ws.onopen {
-        sid = @channel.subscribe { |msg| ws.send msg }
+        @ws = ws
+        sid = SocketController.new.new_subscriber(ws)
         
-        ws.onmessage { |msg| }#@channel.push msg; puts msg}
+        ws.onmessage { |msg| SocketController.new.incoming(msg) }#@channel.push msg; puts msg}
 
-        ws.onclose {  @channel.unsubscribe(sid) }
+        ws.onclose { SocketController.new.delete_subscriber(sid) }
       }
     end
   }
 
-  def self.update_clients(object)
-    @channel.push(SocketRenderer.view_hash(object).to_json) if @channel
+  def self.initialize_channel
+    @channel = EM::Channel.new
+    puts @channel.inspect
   end
+  
+  def self.push_to_clients(html)
+    @channel.push(html)
+  end
+  
+  def self.unsubscribe(sid)
+    @channel.unsubscribe(sid)
+  end
+  
+  
+  def self.subscribe
+    @channel.subscribe{ |msg| puts "hello #{msg}";@ws.send msg }
+  end
+  
 end
+

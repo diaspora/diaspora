@@ -36,6 +36,6 @@ class Comment
   
   
   def send_to_view
-      WebSocket.update_clients(self)
+      WebSocket.push_to_clients(self)
   end
 end

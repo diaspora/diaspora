@@ -105,10 +105,10 @@ describe MessageHandler do
         @handler.add_get_request(@message_urls)
         @handler.size.should == 6
         @handler.process
-        timer = EventMachine::Timer.new(1) do
+        #timer = EventMachine::Timer.new(1) do
           @handler.size.should == 0
           EventMachine.stop
-        end
+        #end
       }
     end
 
