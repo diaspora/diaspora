@@ -20,12 +20,10 @@ describe FriendRequest do
     friend_xml.include?(user.profile.last_name).should be true
   end
 
-  it 'should be sent to the url upon save' do
+  it 'should be sent to the url upon for action' do
     FriendRequest.send(:class_variable_get, :@@queue).should_receive(:add_post_request)
-
-    friend_request = FriendRequest.new(:url => "http://www.google.com")
-    friend_request.sender = Factory.create(:user)
-    friend_request.save
+    Factory.create(:user)
+    FriendRequest.for("http://www.google.com")
   end
 
   it "should activate a friend if it exists on creation of a request for that url" do
