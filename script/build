@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-system('pwd && cd builds/17 && bundle exec bundle install --gemfile Gemfile && bundle exec rspec spec')
+system('pwd')
