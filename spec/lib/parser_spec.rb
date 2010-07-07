@@ -108,7 +108,21 @@ describe "parser in application helper" do
       store_objects_from_xml( request )
       StatusMessage.count.should == 0
     end
+    
+    it "should create a new friend upon getting a friend request" do
+      friend_request = FriendRequest.new(:url => "http://www.googles.com/")
+      friend_request.sender = @friend
+      xml = "<XML>
+            <posts><post>
+      #{friend_request.to_friend_xml.to_s}
+            </post></posts>
+            </XML>"
 
+      @friend.destroy
+      Friend.count.should be 0
+      store_objects_from_xml(xml)
+      Friend.count.should be 1
+    end
   end
 end
 
