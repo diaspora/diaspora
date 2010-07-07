@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-system('bundle exec rake')
+system('BUNDLE_GEMFILE=./Gemfile bundle exec rake')
