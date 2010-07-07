@@ -32,6 +32,7 @@ group :test do
   gem 'autotest'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'em-spec', :git => 'http://github.com/danielsdeleo/em-spec.git'
 end
 
 group :development do
