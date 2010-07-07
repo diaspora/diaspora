@@ -2,10 +2,6 @@ require File.dirname(__FILE__) + '/spec_helper'
  
 describe 'making sure the spec runner works' do
 
-  it 'should fail' do
-    false.should == true
-  end
-
   it 'should not delete the database mid-spec' do
     User.count.should == 0
     Factory.create(:user)
