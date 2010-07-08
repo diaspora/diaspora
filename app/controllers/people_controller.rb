@@ -18,22 +18,4 @@ class PeopleController < ApplicationController
     redirect_to people_url
   end
   
-  def new
-    @person = Person.new
-    @profile = Profile.new
-  end
-  
-  def create
-   
-    puts params.inspect
-    @person = Person.new(params[:person])
-
-
-    if @person.save
-      flash[:notice] = "Successfully created person."
-      redirect_to @person
-    else
-      render :action => 'new'
-    end
-  end
 end

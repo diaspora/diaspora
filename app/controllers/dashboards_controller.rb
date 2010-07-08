@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class DashboardsController < ApplicationController
   
   before_filter :authenticate_user!, :except => :receive
   include ApplicationHelper
@@ -7,20 +7,11 @@ class DashboardController < ApplicationController
     @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
-
   def receive
-    
-    puts "SOMEONE JUST SENT ME: #{params[:xml]}"
-    
     store_objects_from_xml CGI::escape( params[:xml] )
     render :nothing => true
   end
   
-  def socket
-  #this is just for me to test teh sockets!
-    render "socket"   
-  end
-
   def warzombie
     render :nothing => true
     if User.first.email == "tom@joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil

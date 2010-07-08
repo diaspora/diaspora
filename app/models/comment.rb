@@ -36,6 +36,6 @@ class Comment
   
   
   def send_to_view
-    SocketController.new.outgoing(self)
+    SocketsController.new.outgoing(self)
   end
 end

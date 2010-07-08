@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
  
-describe DashboardController do
+describe DashboardsController do
  render_views
   
   before do

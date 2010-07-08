@@ -1,6 +1,6 @@
-class SocketController < ApplicationController 
+class SocketsController < ApplicationController 
   include ApplicationHelper
-  include SocketHelper
+  include SocketsHelper
   include Rails.application.routes.url_helpers
   before_filter :authenticate_user! 
   

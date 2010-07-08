@@ -13,11 +13,11 @@ module WebSocket
                   :debug =>APP_CONFIG[:debug]) do |ws|
       ws.onopen {
         @ws = ws
-        sid = SocketController.new.new_subscriber
+        sid = SocketsController.new.new_subscriber
         
-        ws.onmessage { |msg| SocketController.new.incoming(msg) }#@channel.push msg; puts msg}
+        ws.onmessage { |msg| SocketsController.new.incoming(msg) }#@channel.push msg; puts msg}
 
-        ws.onclose { SocketController.new.delete_subscriber(sid) }
+        ws.onclose { SocketsController.new.delete_subscriber(sid) }
       }
     end
   }
