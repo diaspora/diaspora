@@ -114,22 +114,27 @@ describe "parser in application helper" do
       request = PersonRequest.new(:url => "http://www.googles.com/")
       request.person = @person
 
-      xml = Post.build_xml_for [request]
+      xml = PersonRequest.build_xml_for [request]
 
       @person.destroy
       @user.destroy
       Person.count.should be 0
       store_objects_from_xml(xml)
       Person.count.should be 1
+      puts Person.first.inspect
     end
 
     it "should activate the Person if I initiated a request to that url" do 
       request = PersonRequest.create(:url => @person.url, :person => @user)
-      request_remote = PersonRequest.new(:url => "http://www.yahoo.com/")
+      request_remote = PersonRequest.new(:_id => request.id, :url => "http://www.yahoo.com/")
       request_remote.person = @person.clone
 
-      xml = Post.build_xml_for [request_remote]
-
+      xml = PersonRequest.build_xml_for [request_remote]
+      
+      @person.destroy
+      @user.destroy
+      request_remote.destroy
+      store_objects_from_xml(xml)
       Person.where(:url => @person.url).first.active.should be true
     end
 

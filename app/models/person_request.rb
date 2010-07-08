@@ -1,8 +1,11 @@
 class PersonRequest
+  require 'lib/common'
+  include ApplicationHelper 
   include MongoMapper::Document
-  include Diaspora::Webhooks
   include ROXML
-  
+  include Diaspora::Webhooks
+
+
   xml_name :person_request
 
   xml_accessor :_id
@@ -16,11 +19,9 @@ class PersonRequest
   before_save :check_for_person_requests
 
   def self.for(url)
-    request = PersonRequest.new(:url => url)
-    request.person = User.first
+    request = PersonRequest.new(:url => url, :person => User.first)
     request.save
-
-    request.push_to([request])
+    request.push_to_url(url)
   end
 
   def check_for_person_requests
