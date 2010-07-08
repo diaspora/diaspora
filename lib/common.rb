@@ -34,11 +34,14 @@ module Diaspora
         if p.is_a? Retraction
           p.perform
         elsif p.is_a? PersonRequest
-          if PersonRequest.where(:url => p.url).first
-            p.active = true
+          if PersonRequest.where(:_id => p._id).first
+            p.person.active = true
           end
+
+          p.url = p.person.url
           p.save
           p.person.save
+
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
           p.save 
