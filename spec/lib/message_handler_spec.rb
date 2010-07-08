@@ -5,6 +5,7 @@ describe MessageHandler do
     @handler = MessageHandler.new
     @message_body = "I want to pump you up" 
     @message_urls = ["http://www.google.com/", "http://yahoo.com/", "http://foo.com/"]
+
   end
 
   describe 'GET messages' do

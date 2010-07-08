@@ -27,7 +27,6 @@ module WebSocket
   end
   
   def self.push_to_clients(html)
-    puts html
     @channel.push(html)
   end
   
@@ -37,7 +36,7 @@ module WebSocket
   
   
   def self.subscribe
-    @channel.subscribe{ |msg|  puts @ws.inspect; puts "ehllo" ; @ws.send msg }
+    @channel.subscribe{ |msg| @ws.send msg }
   end
   
 end
