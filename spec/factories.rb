@@ -19,6 +19,7 @@ Factory.define :user do |u|
   u.sequence(:email) {|n| "bob#{n}@aol.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
+  u.url  "www.example.com"
   u.profile Profile.new( :first_name => "Bob", :last_name => "Smith" )
 end
 

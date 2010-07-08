@@ -38,8 +38,8 @@ module ApplicationHelper
   end
 
   def owner_picture
-    default = "#{root_url}images/user/default.jpg"
-    image = "#{root_url}images/user/#{User.first.profile.last_name.gsub(/ /,'').downcase}.jpg"
+    default = "/images/user/default.jpg"
+    image = "/images/user/#{User.first.profile.last_name.gsub(/ /,'').downcase}.jpg"
 
     if File.exist?("public/images/user/#{User.first.profile.last_name.gsub(/ /,'').downcase}.jpg")
       image_tag image, :id => "user_picture"
