@@ -1,9 +1,14 @@
 class MessageHandler 
+  include Singleton
 
   NUM_TRIES = 3
   TIMEOUT = 5 #seconds
 
   def initialize
+    @queue = EM::Queue.new
+  end
+
+  def clear
     @queue = EM::Queue.new
   end
 
@@ -22,7 +27,7 @@ class MessageHandler
       case query.type
       when :post
         http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml =>  query.body}
-        http.callback {process}
+        http.callback {puts "processing"; process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}

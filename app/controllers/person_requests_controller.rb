@@ -24,10 +24,9 @@ class PersonRequestsController < ApplicationController
   end
   
   def create
-    @person_request = PersonRequest.new(params[:person_request])
-    @person_request.sender = current_user
+    @person_request = PersonRequest.for(params[:person_request][:url])
 
-    if @person_request.save
+    if true
       flash[:notice] = "Successfully created person request."
       redirect_to @person_request
     else

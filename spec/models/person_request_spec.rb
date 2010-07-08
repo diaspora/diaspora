@@ -33,4 +33,9 @@ describe PersonRequest do
     Person.where(:url => person.url).first.active.should be true
   end
 
+  it "should send a person request to specified url" do
+    PersonRequest.send(:class_variable_get, :@@queue).should_receive(:add_post_request)
+    PersonRequest.for("http://google.com/")
+  end
+
 end
