@@ -10,14 +10,14 @@ describe PersonRequest do
   end
 
   it 'should generate xml for the User as a Person' do 
-    person_request = PersonRequest.new(:url => "http://www.google.com")
     user = Factory.create(:user)
-    person_request.sender = user
-    person_xml = person_request.to_person_xml.to_s
-    person_xml.include?(user.email).should be true
-    person_xml.include?(user.url).should be true
-    person_xml.include?(user.profile.first_name).should be true
-    person_xml.include?(user.profile.last_name).should be true
+    request = PersonRequest.new(:url => "http://www.google.com/", :person => user)
+
+    xml = request.to_xml.to_s
+    xml.include?(user.email).should be true
+    xml.include?(user.url).should be true
+    xml.include?(user.profile.first_name).should be true
+    xml.include?(user.profile.last_name).should be true
   end
 
   it 'should be sent to the url upon for action' do

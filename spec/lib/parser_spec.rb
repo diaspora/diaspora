@@ -111,13 +111,10 @@ describe "parser in application helper" do
     end
     
     it "should create a new person upon getting a person request" do
-      person_request = PersonRequest.new(:url => "http://www.googles.com/")
-      person_request.sender = @person
-      xml = "<XML>
-            <posts><post>
-      #{person_request.to_person_xml.to_s}
-            </post></posts>
-            </XML>"
+      request = PersonRequest.new(:url => "http://www.googles.com/")
+      request.person = @person
+
+      xml = Post.build_xml_for [request]
 
       @person.destroy
       @user.destroy
@@ -127,22 +124,13 @@ describe "parser in application helper" do
     end
 
     it "should activate the Person if I initiated a request to that url" do 
-      person_request = PersonRequest.create(:url => @person.url, :sender => @user)
-   
-      person_request_remote = PersonRequest.new(:url => "http://www.yahoo.com/")
-      person_request_remote.sender = @person.clone
-      xml = "<XML>
-            <posts><post>
-      #{person_request_remote.to_person_xml.to_s}
-            </post></posts>
-            </XML>"
+      request = PersonRequest.create(:url => @person.url, :person => @user)
+      request_remote = PersonRequest.new(:url => "http://www.yahoo.com/")
+      request_remote.person = @person.clone
 
-      @person.destroy
-      @user.destroy
-      Person.count.should be 0
-      store_objects_from_xml(xml)
-      Person.count.should be 1
-      Person.first.active.should be true
+      xml = Post.build_xml_for [request_remote]
+
+      Person.where(:url => @person.url).first.active.should be true
     end
 
   end

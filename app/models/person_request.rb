@@ -1,30 +1,26 @@
 class PersonRequest
   include MongoMapper::Document
   include Diaspora::Webhooks
+  include ROXML
   
-  key :url, String
+  xml_name :person_request
 
-  attr_accessor :sender
+  xml_accessor :_id
+  xml_accessor :person, :as => Person
+
+  key :url, String
+  key :person, Person
   
   validates_presence_of :url
 
   before_save :check_for_person_requests
 
-  def to_person_xml
-    person = Person.new
-    person.email = sender.email
-    person.url = sender.url
-    person.profile = sender.profile.clone
-
-    person.to_xml
-  end
-
   def self.for(url)
-    person_request = PersonRequest.new(:url => url)
-    person_request.sender = User.first
-    person_request.save
+    request = PersonRequest.new(:url => url)
+    request.person = User.first
+    request.save
 
-    person_request.push_person_request_to_url(person_request.url)
+    request.push_to([request])
   end
 
   def check_for_person_requests

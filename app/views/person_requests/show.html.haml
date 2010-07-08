@@ -1,0 +1,11 @@
+- title "Person Request"
+
+%p
+  = person_request.inspect
+
+%p
+  = link_to "Edit", edit_person_request_path(@person_request)
+  |
+  = link_to "Destroy", @person_request, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", person_requests_path
