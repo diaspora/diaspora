@@ -29,9 +29,6 @@ module Diaspora
 
     def store_objects_from_xml(xml)
       objects = parse_objects_from_xml(xml)
-      
-      puts xml
-
       objects.each do |p|
         if p.is_a? Retraction
           p.perform

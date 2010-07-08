@@ -121,7 +121,6 @@ describe "parser in application helper" do
       Person.count.should be 0
       store_objects_from_xml(xml)
       Person.count.should be 1
-      puts Person.first.inspect
     end
 
     it "should activate the Person if I initiated a request to that url" do 

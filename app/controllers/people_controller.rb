@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @people = Person.paginate :page => params[:page], :order => 'created_at DESC'
+    @people = Person.friends.paginate :page => params[:page], :order => 'created_at DESC'
   end
   
   def show

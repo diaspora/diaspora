@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_people
-    @people = Person.all
+    @people = Person.friends.all
   end
   
 end

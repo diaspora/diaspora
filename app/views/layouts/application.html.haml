@@ -17,7 +17,7 @@
     = yield(:head)
 
   
-  /= javascript_include_tag 'satisfaction' , 'satisfaction-display'
+  = javascript_include_tag 'satisfaction' , 'satisfaction-display'
   %body
     %header
       .container
@@ -43,7 +43,7 @@
       #content.span-24.last
         .span-3.append-1.last
           = link_to owner_picture, root_path
-          /= render 'friends/sidebar' if user_signed_in?
+          = render 'people/sidebar' if user_signed_in?
 
         .span-20
           - if user_signed_in?
