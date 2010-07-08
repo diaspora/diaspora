@@ -13,7 +13,7 @@ class MessageHandler
 
 
   def add_post_request(destinations, body)
-    b = body
+    b = CGI::escape( body )
     destinations.each{|dest| @queue.push(Message.new(:post, dest, b))}
   end
 
@@ -21,9 +21,8 @@ class MessageHandler
     @queue.pop{ |query|
       case query.type
       when :post
-        puts "sending: #{query.body} to #{query.destination}"
         http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml =>  query.body}
-        http.callback {puts "success from: to #{query.destination}";  process}
+        http.callback {process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
@@ -32,7 +31,7 @@ class MessageHandler
       end
 
       http.errback {
-        puts "fauilure from #{query.destination}, retrying"
+        puts "failure from #{query.destination}, retrying"
         query.try_count +=1
         @queue.push query unless query.try_count >= NUM_TRIES 
         process

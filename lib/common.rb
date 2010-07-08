@@ -64,7 +64,6 @@ module Diaspora
           end
         end
 
-
         def push_to(recipients)
           unless recipients.empty?
             recipients.map!{|x| x = x.url + "receive/"}  
@@ -74,13 +73,11 @@ module Diaspora
           end
         end
 
-        def push_to_url(url)
-          puts "bonedog"
-          if url
-            xml = self.class.build_xml_for([self])
-            @@queue.add_post_request( [url], xml )
-            @@queue.process
-          end
+        def push_to_url
+          hook_url = self.url + "receive/"
+          xml = self.class.build_xml_for([self])
+          @@queue.add_post_request( [hook_url], xml )
+          @@queue.process
         end
 
         def prep_webhook
