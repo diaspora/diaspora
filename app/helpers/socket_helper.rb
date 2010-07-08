@@ -13,14 +13,15 @@ module SocketHelper
     begin
       v = render_to_string(:partial => type_partial(object), :locals => {:post => object}) unless object.is_a? Retraction
 
+
     rescue Exception => e
-      puts "in failzord " + v.inspect
+      puts "web socket view rendering failed for some reason." + v.inspect
       puts object.inspect
       puts e.message
       raise e 
     end
 
-    {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}
+    {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}.to_json
   end
 
   

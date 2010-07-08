@@ -24,6 +24,12 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    SocketController.stub!(:incoming).and_return(true)
+    SocketController.stub!(:new_subscriber).and_return(true)
+    SocketController.stub!(:outgoing).and_return(true)
+    SocketController.stub!(:delete_subscriber).and_return(true)
+
+    
     WebSocket.stub!(:push_to_clients).and_return("stub")
     WebSocket.stub!(:unsubscribe).and_return("stub")
     WebSocket.stub!(:subscribe).and_return("stub")

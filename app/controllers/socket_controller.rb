@@ -2,13 +2,16 @@ class SocketController < ApplicationController
   include ApplicationHelper
   include SocketHelper
   include Rails.application.routes.url_helpers
+  before_filter :authenticate_user! 
   
-  def default_url_options()
-    {:host=> 'example.com'}
-  end
+  
+  
+ # def default_url_options()
+ #   {:host=> 'example.com'}
+ # end
 
   def incoming(msg)
-    puts msg
+    puts "#{msg} connected!"
   end
   
   def new_subscriber
@@ -16,32 +19,18 @@ class SocketController < ApplicationController
   end
   
   def outgoing(object)
-    puts "made it sucka"
+    begin 
+    @_request = ActionDispatch::Request.new(:socket => true)
     WebSocket.push_to_clients(action_hash(object))
+    rescue Exception => e
+      puts e.inspect
+      raise e
+    end
   end
   
   def delete_subscriber(sid)
     WebSocket.unsubscribe(sid)
   end
-  
-  
 
-# need a data strucutre to keep track of who is where
-
-#the way this is set up now, we have users on pages
-
-#could have... a channel for every page/collection...not that cool
-#or, have a single channel, which has a corresponding :current page => [sid]
-# can i cherry pick subscribers from a a channel?
-
-
-# we want all sorts of stuff that comes with being a controller
-# like, protect from forgery, view rendering, etc
-
-
-#these functions are not really routes
-#so the question is, whats the best way to call them?
-
-#also, this is an input output controller
 
 end

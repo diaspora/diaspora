@@ -13,7 +13,7 @@ module WebSocket
                   :debug =>APP_CONFIG[:debug]) do |ws|
       ws.onopen {
         @ws = ws
-        sid = SocketController.new.new_subscriber(ws)
+        sid = SocketController.new.new_subscriber
         
         ws.onmessage { |msg| SocketController.new.incoming(msg) }#@channel.push msg; puts msg}
 
@@ -24,10 +24,10 @@ module WebSocket
 
   def self.initialize_channel
     @channel = EM::Channel.new
-    puts @channel.inspect
   end
   
   def self.push_to_clients(html)
+    puts html
     @channel.push(html)
   end
   
@@ -37,7 +37,7 @@ module WebSocket
   
   
   def self.subscribe
-    @channel.subscribe{ |msg| puts "hello #{msg}";@ws.send msg }
+    @channel.subscribe{ |msg|  puts @ws.inspect; puts "ehllo" ; @ws.send msg }
   end
   
 end
