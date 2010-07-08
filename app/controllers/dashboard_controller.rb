@@ -12,7 +12,7 @@ class DashboardController < ApplicationController
     
     puts "SOMEONE JUST SENT ME: #{params[:xml]}"
     
-    store_objects_from_xml params[:xml)
+    store_objects_from_xml params[:xml]
     render :nothing => true
   end
   

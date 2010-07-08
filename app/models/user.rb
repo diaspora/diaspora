@@ -19,6 +19,8 @@ class User < Person
     false
   end
   
+  before_create :assign_key
+
   validates_presence_of :profile
   
   before_validation :do_bad_things
@@ -29,5 +31,33 @@ class User < Person
   def mine?(post)
     self == post.person
   end
+
+  protected
   
+  def assign_key
+    keys = GPGME.list_keys(nil, true)
+    if keys.empty?
+      generate_key
+    end
+    self.key_fingerprint = GPGME.list_keys(nil, true).first.subkeys.first.fingerprint
+    puts self.key_fingerprint
+  end
+
+  def generate_key
+    puts "Yo, generating a key."
+    ctx = GPGME::Ctx.new
+    paramstring = "<GnupgKeyParms format=\"internal\">
+Key-Type: DSA
+Key-Length: 512
+Subkey-Type: ELG-E
+Subkey-Length: 512
+Name-Real: #{self.real_name}
+Name-Comment: #{self.url}
+Name-Email: #{self.email}
+Expire-Date: 0
+Passphrase: #{self.password}
+</GnupgKeyParms>"
+    ctx.genkey(paramstring, nil, nil)
+    
+  end
 end

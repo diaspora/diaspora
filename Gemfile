@@ -12,6 +12,7 @@ gem "bson_ext", "1.0.1"
 gem "haml"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
 
+gem 'gpgme'
 
 #mai crazy async stuff
 #gem 'em-synchrony',   :git => 'git://github.com/igrigorik/em-synchrony.git',    :require => 'em-synchrony/em-http'

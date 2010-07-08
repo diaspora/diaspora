@@ -30,7 +30,12 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  
+  config.after(:suite) do
+    gpgdir = File.expand_path("../../db/gpg-#{Rails.env}", __FILE__)
+    ctx = GPGME::Ctx.new
+    keys = ctx.keys
+    keys.each{|k| ctx.delete_key(k, true)}
+  end
 end
   def stub_socket_controller
      mock_socket_controller = mock('socket mock')
