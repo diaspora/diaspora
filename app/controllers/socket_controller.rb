@@ -1,27 +1,31 @@
 class SocketController < ApplicationController 
+  include ApplicationHelper
+  include SocketHelper
+  include Rails.application.routes.url_helpers
+  
+  def default_url_options()
+    {:host=> 'example.com'}
+  end
 
   def incoming(msg)
     puts msg
   end
   
-  
   def new_subscriber
     WebSocket.subscribe
   end
-  
-  
   
   def outgoing(object)
     puts "made it sucka"
     WebSocket.push_to_clients(action_hash(object))
   end
   
-  
   def delete_subscriber(sid)
     WebSocket.unsubscribe(sid)
   end
   
   
+
 # need a data strucutre to keep track of who is where
 
 #the way this is set up now, we have users on pages
