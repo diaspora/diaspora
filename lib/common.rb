@@ -56,7 +56,7 @@ module Diaspora
   module Webhooks
     def self.included(klass)
       klass.class_eval do
-        @@queue = MessageHandler.instance
+        @@queue = MessageHandler.new
 
         def notify_people
           if self.person_id == User.first.id
@@ -75,6 +75,7 @@ module Diaspora
         end
 
         def push_to_url(url)
+          puts "bonedog"
           if url
             xml = self.class.build_xml_for([self])
             @@queue.add_post_request( [url], xml )

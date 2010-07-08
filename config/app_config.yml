@@ -1,5 +1,5 @@
 development:
-  debug: true
+  debug: false
   socket_port: 8080
 
 test:

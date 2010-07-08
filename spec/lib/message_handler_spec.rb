@@ -2,14 +2,10 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe MessageHandler do
   before do
-    @handler = MessageHandler.instance
+    @handler = MessageHandler.new
     @message_body = "I want to pump you up" 
     @message_urls = ["http://www.google.com/", "http://yahoo.com/", "http://foo.com/"]
 
-  end
-
-  after do
-    @handler.clear
   end
 
   describe 'GET messages' do
