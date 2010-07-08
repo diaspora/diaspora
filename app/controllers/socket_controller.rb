@@ -19,13 +19,8 @@ class SocketController < ApplicationController
   end
   
   def outgoing(object)
-    begin 
-    @_request = ActionDispatch::Request.new(:socket => true)
+    @_request = ActionDispatch::Request.new({})
     WebSocket.push_to_clients(action_hash(object))
-    rescue Exception => e
-      puts e.inspect
-      raise e
-    end
   end
   
   def delete_subscriber(sid)

@@ -1,23 +1,18 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-#require 'em-spec/rspec'
-describe SocketController do
-  render_views
-  
+describe 'SocketController' do
+  render_views  
   before do
     @user = Factory.create(:user)
-    WebSocket.unstub!(:push_to_clients)
-    WebSocket.unstub!(:unsubscribe)
-    WebSocket.unstub!(:subscribe)
+    SocketController.unstub!(:new)
     #EventMachine::WebSocket.stub!(:start)
     @controller = SocketController.new
+    stub_socket_controller
   end
 
   it 'should unstub the websocket' do
       WebSocket.initialize_channel
-      WebSocket.push_to_clients("what").should_not == "stub"
-      WebSocket.unsubscribe(1).should_not == "stub"
-      WebSocket.subscribe.should_not == "stub"
+      @controller.class.should == SocketController
   end
   
   it 'should add a new subscriber to the websocket channel' do
@@ -30,16 +25,16 @@ describe SocketController do
     end
 
     it 'should actionhash posts' do
-      hash = @controller.action_hash(@message)
-      hash[:html].include?(@message.message).should be_true
-      hash[:class].include?('status_message').should be_true
+      json = @controller.action_hash(@message)
+      json.include?(@message.message).should be_true
+      json.include?('status_message').should be_true
     end
 
     it 'should actionhash retractions' do
       retraction = Retraction.for @message
-      hash = @controller.action_hash(retraction)
-      hash[:class].include?('retraction').should be_true
-      hash[:html].should be_nil
+      json = @controller.action_hash(retraction)
+      json.include?('retraction').should be_true
+      json.include?("html\":null").should be_true
     end
   end
 end
