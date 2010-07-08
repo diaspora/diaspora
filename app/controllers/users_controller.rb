@@ -5,7 +5,4 @@ class UsersController < ApplicationController
     @users = User.sort(:created_at.desc).all
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
 end
