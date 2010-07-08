@@ -9,7 +9,10 @@ class DashboardController < ApplicationController
 
 
   def receive
-    store_objects_from_xml CGI::unescape(params[:xml])
+    
+    puts "SOMEONE JUST SENT ME: #{params[:xml]}"
+    
+    store_objects_from_xml params[:xml)
     render :nothing => true
   end
   
