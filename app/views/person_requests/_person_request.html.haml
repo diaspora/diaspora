@@ -1,2 +1,5 @@
-%li.message{:id => person_request.id} 
-  = person_request.inspect
+%li.message{:id => person_request.id, :class => "mine"}
+  = person_request.url
+
+  .destroy_link
+    = link_to 'Ignore', person_request_path(person_request), :confirm => 'Are you sure?', :method => :delete, :remote => true

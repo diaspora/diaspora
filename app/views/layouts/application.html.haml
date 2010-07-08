@@ -2,8 +2,8 @@
 %html
   %head
     %title
-      = "diaspora "
-      = "- #{User.first.real_name}" if User.first
+      = User.first.real_name if User.first
+      = " | diaspora"
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
@@ -16,8 +16,8 @@
     = csrf_meta_tag
     = yield(:head)
 
-  
-  = javascript_include_tag 'satisfaction' , 'satisfaction-display'
+    = javascript_include_tag 'satisfaction' , 'satisfaction-display'
+
   %body
     %header
       .container
@@ -31,6 +31,8 @@
         #session_action
           - if user_signed_in?
             =User.first.real_name
+            |
+            = link_to "requests", person_requests_path
             |
             = link_to "logout", destroy_user_session_path
           - else
