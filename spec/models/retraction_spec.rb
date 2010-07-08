@@ -14,7 +14,7 @@ describe Retraction do
     end
 
     it 'should dispatch a message on delete' do
-      Factory.create(:friend)
+      Factory.create(:person)
       Post.send(:class_variable_get, :@@queue).should_receive(:add_post_request)
       @post.destroy
     end

@@ -10,7 +10,7 @@ class User < Person
     c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
     if c.save
       if mine?(c.post)
-        c.push_to(c.post.friends_with_permissions)  # should return plucky query
+        c.push_to(c.post.people_with_permissions)  # should return plucky query
       else
         c.push_to([c.post.person])
       end

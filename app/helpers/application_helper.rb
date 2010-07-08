@@ -24,10 +24,10 @@ module ApplicationHelper
 
   def person_url(person)
     case person.class.to_s
-    when "Friend"
-      friend_path(person)
     when "User"
       user_path(person)
+    when "Person"
+      person_path(person)
     else
       "unknown person"
     end

@@ -1,0 +1,7 @@
+%h1 person requests
+= render "person_requests/new_person_request", :person_request => @person_request
+%ul#stream
+  - for person_request in @person_requests
+    = render "person_request", :person_request => person_request
+#pagination
+  = will_paginate @person_requests

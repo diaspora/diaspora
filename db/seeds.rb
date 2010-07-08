@@ -29,9 +29,9 @@ names = [ ["George", "Washington"],
           ["Abraham", "Lincoln"]
         ]
 
-# Make friends
+# Make people
 (1..10).each { |n|
-  Friend.create( :email => "b#{n}@joindiaspora.com", :url => "http://b#{n}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n-1][0], :last_name => names[n-1][1]))
+  People.create( :email => "b#{n}@joindiaspora.com", :url => "http://b#{n}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n-1][0], :last_name => names[n-1][1]))
 }
 
 # Populate feed

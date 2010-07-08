@@ -11,6 +11,7 @@ end
 
 Factory.define :person do |p|
   p.email "bob@aol.com"
+  p.sequence(:url)  {|n|"http://google-#{n}.com/"}
   p.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
 end
 
@@ -20,12 +21,6 @@ Factory.define :user do |u|
   u.password_confirmation "bluepin7"
   u.url  "www.example.com"
   u.profile Profile.new( :first_name => "Bob", :last_name => "Smith" )
-end
-
-Factory.define :friend do |f|
-  f.email 'max@max.com'
-  f.sequence(:url)  {|n|"http://max#{n}.com/"}
-  f.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
 end
 
 Factory.define :status_message do |m|

@@ -5,11 +5,11 @@ include ApplicationHelper
 describe ApplicationHelper do
   before do
     @user = Factory.create(:user, :email => "robert@grimm.com")
-    @friend = Factory.create(:friend)
+    @person = Factory.create(:person)
   end
 
   it "should specifiy if a post is not owned user" do
-    p = Factory.create(:post, :person => @friend)
+    p = Factory.create(:post, :person => @person)
     mine?(p).should be false
   end
 
@@ -18,8 +18,8 @@ describe ApplicationHelper do
     mine?(p).should be true
   end
 
-  it "should provide a correct show path for a given friend" do
-    person_url(@friend).should == "/friends/#{@friend.id}"
+  it "should provide a correct show path for a given person" do
+    person_url(@person).should == "/people/#{@person.id}"
   end
 
   it "should provide a correct show path for a given user" do

@@ -49,10 +49,10 @@ names = [ ["George", "Washington"],
           ["Richard", "Nixon"]
         ]
 
-# Make friends
+# Make people
 (0..10).each { |n|
   email = names[n][1].gsub(/ /,'').downcase
-  Friend.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1]))
+  Person.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n][0], :last_name => names[n][1]))
 }
 
 

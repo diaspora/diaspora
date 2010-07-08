@@ -8,6 +8,7 @@ class Person
 
   key :email, String
   key :url, String
+  key :active, Boolean, :default => false
   
   one :profile, :class_name => 'Profile', :foreign_key => :person_id
   many :posts, :class_name => 'Post', :foreign_key => :person_id
@@ -27,7 +28,7 @@ class Person
   before_validation :clean_url
  
   def real_name
-    profile.first_name.to_s + " " + profile.last_name.to_s
+    "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
 
   
