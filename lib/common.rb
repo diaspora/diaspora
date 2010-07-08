@@ -29,6 +29,8 @@ module Diaspora
 
     def store_objects_from_xml(xml)
       objects = parse_objects_from_xml(xml)
+      
+      puts xml
 
       objects.each do |p|
         if p.is_a? Retraction
@@ -68,6 +70,16 @@ module Diaspora
             recipients.map!{|x| x = x.url + "receive/"}  
             xml = self.class.build_xml_for([self])
             @@queue.add_post_request( recipients, xml )
+            @@queue.process
+          end
+        end
+
+        def push_to_url(url)
+          if url
+            puts "AHHHHHH, sending"
+            xml = self.class.build_xml_for([self])
+            puts xml
+            @@queue.add_post_request( [url], xml )
             @@queue.process
           end
         end
