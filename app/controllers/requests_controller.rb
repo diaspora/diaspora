@@ -7,10 +7,15 @@ class RequestsController < ApplicationController
   end
   
   def destroy
-    @request = Request.where(:id => params[:id]).first
-    @request.destroy
-    flash[:notice] = "Successfully destroyed person request."
+    if params[:accept]
+      current_user.accept_friend_request params[:id]
+      flash[:notice] = "you are now friends with #{@request.person.real_name}"
+    else
+      current_user.ignore_friend_request params[:id]
+      flash[:notice] = "ignored friend request"
+    end
     redirect_to requests_url
+
   end
   
   def new
@@ -27,4 +32,6 @@ class RequestsController < ApplicationController
       render :action => 'new'
     end
   end
+
+
 end

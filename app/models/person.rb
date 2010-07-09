@@ -5,7 +5,8 @@ class Person
   xml_accessor :email
   xml_accessor :url
   xml_accessor :profile, :as => Profile
-
+  xml_accessor :_id
+  
   key :email, String
   key :url, String
   key :active, Boolean, :default => false
@@ -23,7 +24,7 @@ class Person
   #validates_uniqueness_of :url
   validates_true_for :url, :logic => lambda { self.url_unique?}
 
-  scope :friends,  where(:_type => "Person")
+  scope :friends,  where(:_type => "Person", :active => true)
   validates_presence_of :email
   
   before_validation :clean_url

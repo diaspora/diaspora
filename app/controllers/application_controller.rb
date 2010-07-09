@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
   end
   
   def set_friends
-    @friends = Person.friends.all
+    @friends = Person.friends.all if current_user
   end
 
   def count_requests
-    @request_count = Request.for_user(current_user).size
+    @request_count = Request.for_user(current_user).size if current_user
   end
   
 end

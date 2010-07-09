@@ -5,18 +5,14 @@ describe DashboardsController do
   
   before do
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user)
-    Factory.create(:user, :profile => Profile.create( :first_name => "bob", :last_name => "smith"))
+    @user = Factory.create(:user, :profile => Profile.create( :first_name => "bob", :last_name => "smith"))
   end
-  
-  it "index action should render index template" do
-    get :index
-    response.should render_template(:index)
-  end
-  
-  it "on index sets a person's variable" do
+
+  it "on index sets a variable containing all a user's friends when a user is signed in" do
+    sign_in :user, @user   
     Factory.create :person
     get :index
-    assigns[:people].should == Person.friends.all
+    assigns[:friends].should == Person.friends.all
   end
 
 end

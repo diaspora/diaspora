@@ -112,14 +112,18 @@ describe "parser in application helper" do
     
     it "should create a new person upon getting a person request" do
       request = Request.instantiate(:to =>"http://www.google.com/", :from => @person)
-
+      
+      original_person_id = @person.id
       xml = Request.build_xml_for [request]
 
       @person.destroy
-      Person.friends.all.count.should be 0
+      Person.all.count.should be 1
       store_objects_from_xml(xml)
-      Person.friends.all.count.should be 1
+      Person.all.count.should be 2
+
+      Person.where(:url => request.callback_url).first.id.should == original_person_id
     end
+    
 
     it "should activate the Person if I initiated a request to that url" do 
       request = Request.instantiate(:to => @person.url, :from => @user).save

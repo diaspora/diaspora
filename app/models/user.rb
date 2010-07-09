@@ -4,7 +4,7 @@ class User < Person
          :recoverable, :rememberable, :trackable, :validatable
          
   
-  before_create :assign_key
+  #before_create :assign_key
   validates_presence_of :profile
   
   before_validation :do_bad_things
@@ -27,10 +27,12 @@ class User < Person
 
   ######### Friend Requesting
   def send_friend_request_to(friend_url)
-    p = Request.instantiate(:to => friend_url, :from => self)
-    if p.save
-      p.push_to_url friend_url
-      p
+    unless Person.where(:url => friend_url).first
+      p = Request.instantiate(:to => friend_url, :from => self)
+      if p.save
+        p.push_to_url friend_url
+        p
+      end
     end
   end 
 
@@ -48,16 +50,22 @@ class User < Person
     request.destroy
   end
 
+  def ignore_friend_request(friend_request_id)
+    request = Request.where(:id => friend_request_id).first
+    person = request.person
+
+    person.destroy unless person.active
+    request.destroy
+  end
+
   def receive_friend_request(friend_request)
     if Request.where(:callback_url => friend_request.callback_url).first
       friend_request.activate_friend
       friend_request.destroy
     else
-      #does this actually save as the same id?
       friend_request.save
     end
   end
- 
 
   def mine?(post)
     self == post.person
