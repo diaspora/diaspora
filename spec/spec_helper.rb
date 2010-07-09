@@ -30,7 +30,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  
 end
   def stub_sockets_controller
     mock_sockets_controller = mock('sockets mock')

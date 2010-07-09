@@ -9,7 +9,8 @@ class Person
   key :email, String
   key :url, String
   key :active, Boolean, :default => false
-  
+  key :key_fingerprint, String
+
   one :profile, :class_name => 'Profile', :foreign_key => :person_id
   many :posts, :class_name => 'Post', :foreign_key => :person_id
 
@@ -27,13 +28,20 @@ class Person
   
   before_validation :clean_url
  
+
   def real_name
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
 
   
+
+  def key
+    GPGME::Ctx.new.get_key key_fingerprint
+  end
   protected
   
+
+
   def url_unique?
     same_url = Person.first(:url => self.url)
     return same_url.nil? || same_url.id == self.id
