@@ -127,7 +127,7 @@ describe "parser in application helper" do
       request_remote = Request.new(:_id => request.id)#
       request_remote.destination_url = @user.url
       request_remote.callback_url = @user.url
-      request_remote.person = @person.clone
+      request_remote.person = @person
 
       xml = Request.build_xml_for [request_remote]
       

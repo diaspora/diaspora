@@ -11,10 +11,21 @@ describe Request do
   end
 
   it 'should generate xml for the User as a Person' do 
-    user = Factory.create(:user)
-    request = Request.new(:url => "http://www.google.com/", :person => user)
+    user = User.create(:email => "rob@bob.com")
+
+    user.profile = Factory.create(:profile)
+    
+    user.save(:validate => false)
+    user.profile.save
+    
+    request = Request.instantiate(:to => "http://www.google.com/", :from => user)
 
     xml = request.to_xml.to_s
+
+    puts xml
+    puts user.profile.first_name
+    puts user.profile.last_name
+
     xml.include?(user.email).should be true
     xml.include?(user.url).should be true
     xml.include?(user.profile.first_name).should be true

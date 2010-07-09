@@ -10,7 +10,9 @@ class Request
 
   key :destination_url, String
   key :callback_url, String
-  key :person, Person
+  key :person_id, ObjectId
+
+  belongs_to :person
   
   validates_presence_of :destination_url, :callback_url
 
