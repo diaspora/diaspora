@@ -36,11 +36,6 @@ class User < Person
     end
   end 
 
-  
-  def do_bad_things
-    self.password_confirmation = self.password
-  end
-
   def accept_friend_request(friend_request_id)
     request = Request.where(:id => friend_request_id).first
     request.activate_friend
@@ -53,7 +48,6 @@ class User < Person
   def ignore_friend_request(friend_request_id)
     request = Request.where(:id => friend_request_id).first
     person = request.person
-
     person.destroy unless person.active
     request.destroy
   end
@@ -67,10 +61,17 @@ class User < Person
     end
   end
 
+  
+  ###Helpers############
   def mine?(post)
     self == post.person
   end
-
+ 
+  def do_bad_things
+    self.password_confirmation = self.password
+  end
+  
+  
   protected
   
   def assign_key
