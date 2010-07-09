@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive
   layout 'application'
   
-  before_filter :set_people
+  before_filter :set_friends, :count_requests
 
   layout :layout_by_resource
 
@@ -14,8 +14,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def set_people
-    @people = Person.friends.all
+  def set_friends
+    @friends = Person.friends.all
+  end
+
+  def count_requests
+    @request_count = Request.for_user(current_user).size
   end
   
 end
