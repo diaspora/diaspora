@@ -1,1 +1,12 @@
 %h1 user page!
+.span-18.last
+  %h1= "#{@user.real_name}"
+- if @user_profile
+  %p
+    %b url 
+  %p
+    = @user.url
+  %p
+    %b Key Fingerprint
+  %p
+    = @user.key_fingerprint

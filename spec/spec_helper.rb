@@ -31,7 +31,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   config.after(:suite) do
-    gpgdir = File.expand_path("../../db/gpg-#{Rails.env}", __FILE__)
     ctx = GPGME::Ctx.new
     keys = ctx.keys
     keys.each{|k| ctx.delete_key(k, true)}

@@ -40,11 +40,9 @@ class User < Person
       generate_key
     end
     self.key_fingerprint = GPGME.list_keys(nil, true).first.subkeys.first.fingerprint
-    puts self.key_fingerprint
   end
 
   def generate_key
-    puts "Yo, generating a key."
     ctx = GPGME::Ctx.new
     paramstring = "<GnupgKeyParms format=\"internal\">
 Key-Type: DSA
