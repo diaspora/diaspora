@@ -31,7 +31,7 @@ describe 'user encryption' do
   end
 
   it 'should sign a message' do
-    message = Factory.create(:status_message, :user => @u)
+    message = Factory.create(:status_message, :person => @u)
     message.verify_signature.should == true 
   end
 end

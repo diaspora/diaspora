@@ -9,7 +9,6 @@ class Post
   xml_accessor :person, :as => Person
 
   key :person_id, ObjectId
-  key :owner_signature, String
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id
   belongs_to :person, :class_name => 'Person'
@@ -43,10 +42,28 @@ class Post
     self.newest(Person.first(:email => email))
   end
 
+#ENCRYPTION
+  before_save :sign_if_mine
+  key :owner_signature, String
   def verify_signature
-    GPGME.verify(owner
+    validity = true
+    signed_text = GPGME.verify(){ |signature|
+      if signature.validity == GPGME::VALIDITY_FULL
+        validity = validity && true
+      else
+        validity = validity && false
+      end
+    }
+    validity = validity && (signed_text == to_xml.to_s)
+    validity
   end
   protected
+  def sign_if_mine
+    if self.person == User.first
+      self.owner_signature = GPGME::sign(to_xml.to_s,nil,{:armor=> true}) 
+    end
+  end
+
   def destroy_comments
     comments.each{|c| c.destroy}
   end
