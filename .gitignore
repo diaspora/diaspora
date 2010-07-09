@@ -1,8 +1,10 @@
 .idea
 *.swp
 *.swo
+*~
 .bundle
 db/*.sqlite3
 log/*.log
 tmp/**/*
-gpg/diaspora*/*
+gpg/diaspora-development/*.gpg
+gpg/diaspora-production/*.gpg
