@@ -4,5 +4,5 @@ Haml::Template.options[:format] = :html5
 # Initialize the rails application
 Diaspora::Application.initialize!
 
-ENV['GNUPGHOME'] = File.expand_path("../../gpg-#{Rails.env}/", __FILE__)
+ENV['GNUPGHOME'] = File.expand_path("../../gpg/diaspora-#{Rails.env}/", __FILE__)
 GPGME::check_version({})

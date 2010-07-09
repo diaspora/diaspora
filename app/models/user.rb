@@ -43,6 +43,7 @@ class User < Person
   end
 
   def generate_key
+    puts "Generating key"
     ctx = GPGME::Ctx.new
     paramstring = "<GnupgKeyParms format=\"internal\">
 Key-Type: DSA

@@ -2,6 +2,9 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe 'user encryption' do
   before :all do
+    ctx = GPGME::Ctx.new
+    keys = ctx.keys
+    keys.each{|k| ctx.delete_key(k, true)}
     @u = User.new
     @u.email = "george@aol.com"
     @u.password = "bluepin7"

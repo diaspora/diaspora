@@ -30,11 +30,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  config.after(:suite) do
-    ctx = GPGME::Ctx.new
-    keys = ctx.keys
-    keys.each{|k| ctx.delete_key(k, true)}
-  end
 end
   def stub_sockets_controller
     mock_sockets_controller = mock('sockets mock')
