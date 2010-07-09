@@ -34,4 +34,28 @@ describe Person do
   end
 
 
+  it 'should delete all of user upon user deletion' do
+    Factory.create(:user)
+
+    f = Factory.create(:person)
+    p = Factory.create(:person)
+    Factory.create(:status_message, :person => f)
+    Factory.create(:blog, :person => f)
+    Factory.create(:bookmark, :person => f)
+    Factory.create(:status_message, :person => f)
+    s = Factory.create(:status_message, :person => p)
+   
+    Factory.create(:comment, :person_id => f.id, :text => "yes i do", :post => s)
+    Factory.create(:comment, :person_id => f.id, :text => "i love you", :post => s)
+    Factory.create(:comment, :person_id => f.id, :text => "hello", :post => s)
+    Factory.create(:comment, :person_id => p.id, :text => "you are creepy", :post => s)
+
+    f.destroy
+
+    Post.count.should == 1
+    Comment.all.count.should == 1
+    s.comments.count.should == 1
+  end
+
+
 end
