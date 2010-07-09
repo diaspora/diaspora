@@ -5,7 +5,8 @@ class Person
   xml_accessor :email
   xml_accessor :url
   xml_accessor :profile, :as => Profile
-
+  xml_accessor :_id
+  
   key :email, String
   key :url, String
   key :active, Boolean, :default => false

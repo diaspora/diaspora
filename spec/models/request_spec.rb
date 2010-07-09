@@ -22,10 +22,6 @@ describe Request do
 
     xml = request.to_xml.to_s
 
-    puts xml
-    puts user.profile.first_name
-    puts user.profile.last_name
-
     xml.include?(user.email).should be true
     xml.include?(user.url).should be true
     xml.include?(user.profile.first_name).should be true

@@ -4,7 +4,7 @@ class User < Person
          :recoverable, :rememberable, :trackable, :validatable
          
   
-  before_create :assign_key
+  #before_create :assign_key
   validates_presence_of :profile
   
   before_validation :do_bad_things
@@ -53,7 +53,6 @@ class User < Person
       friend_request.activate_friend
       friend_request.destroy
     else
-      #does this actually save as the same id?
       friend_request.save
     end
   end
