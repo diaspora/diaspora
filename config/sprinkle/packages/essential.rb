@@ -10,5 +10,5 @@ end
 
 package :tools do
   description 'Useful tools'
-  apt 'psmisc htop elinks'
+  apt 'psmisc htop elinks screen'
 end
