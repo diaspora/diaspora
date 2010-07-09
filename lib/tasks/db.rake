@@ -5,6 +5,12 @@ namespace :db do
       puts "Seeding the database for #{Rails.env}..."
       require 'db/seeds/tom'
     end
+
+    task :dev do
+      puts "Seeding the database for #{Rails.env}..."
+      require 'db/seeds/dev'
+    end
+
     task :backer, :num, :password do |t, args|
       puts "Seeding the database for #{Rails.env}..."
       require 'db/seeds/backer'
@@ -33,5 +39,12 @@ namespace :db do
     Rake::Task['db:purge'].invoke
     Rake::Task['db:seed:tom'].invoke
     puts "Success!"
+  end
+
+  task :reset_dev do
+    puts "making a new base user"
+    Rake::Task['db:purge'].invoke
+    Rake::Task['db:seed:dev'].invoke
+    puts "you did it!"
   end
 end
