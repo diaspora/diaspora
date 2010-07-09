@@ -60,7 +60,7 @@ def create(backer_number, password)
   
   (0..10).each { |n|
     email = backer_info[n][2].gsub(/ /,'').downcase
-    People.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => backer_info[n][1], :last_name => backer_info[n][2])) unless n == backer_number
+    Person.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => backer_info[n][1], :last_name => backer_info[n][2])) unless n == backer_number
   }
 end
 
