@@ -12,6 +12,7 @@ describe 'user encryption' do
     @u.url = "www.example.com"
     @u.profile = Profile.new( :first_name => "Bob", :last_name => "Smith" )
     @u.profile.save
+    @u.send(:assign_key)
     @u.save
   end
 
