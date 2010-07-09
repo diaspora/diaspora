@@ -55,12 +55,12 @@ def create(backer_number, password)
   user = User.create( :email => "#{email}@joindiaspora.com", :password => "#{email+backer_info[backer_number][0].to_s}", :profile => Profile.create( :first_name => backer_info[backer_number][1], :last_name => backer_info[backer_number][2] ))
 
   # Make connection with Diaspora Tom
-  Person.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :profile => Profile.create(:first_name => "Alexander", :last_name => "Hamiltom"))
+  Person.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :active => true, :profile => Profile.create(:first_name => "Alexander", :last_name => "Hamiltom"))
   # Make people
   
   (0..10).each { |n|
     email = backer_info[n][2].gsub(/ /,'').downcase
-    Person.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :profile => Profile.create(:first_name => backer_info[n][1], :last_name => backer_info[n][2])) unless n == backer_number
+    Person.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :active => true, :profile => Profile.create(:first_name => backer_info[n][1], :last_name => backer_info[n][2])) unless n == backer_number
   }
 end
 

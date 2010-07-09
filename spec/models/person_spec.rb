@@ -24,4 +24,14 @@ describe Person do
     xml = person.to_xml.to_s
     (xml.include? "first_name").should == true
   end
+
+  it 'should only return active friends' do
+    Factory.create(:person, :active => true)
+    Factory.create(:person)
+    Factory.create(:person)
+
+    Person.friends.all.count.should == 1
+  end
+
+
 end
