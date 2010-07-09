@@ -5,6 +5,8 @@ class Request
 
   xml_accessor :_id
   xml_accessor :person, :as => Person
+  xml_accessor :destination_url
+  xml_accessor :callback_url
 
   key :destination_url, String
   key :callback_url, String
@@ -21,7 +23,7 @@ class Request
   end
 
   def activate_friend 
-    p = Person.where(:id => self.person.id).first
+    p = Person.where(:url => self.person.url).first
     p.active = true
     p.save
   end

@@ -41,8 +41,8 @@ class User < Person
   end
 
   def receive_friend_request(friend_request)
-    if Request.where(:id => friend_request.id).first
-      friend_request.activate_person
+    if Request.where(:callback_url => friend_request.callback_url).first
+      friend_request.activate_friend
       friend_request.destroy
     else
       friend_request.save
