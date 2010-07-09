@@ -29,6 +29,7 @@ class User < Person
     p = Request.instantiate(:to => friend_url, :from => self)
     if p.save
       p.push_to_url friend_url
+      p
     end
   end
 
