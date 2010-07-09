@@ -53,11 +53,11 @@ class Post
   end
 
   def send_to_view
-    SocketController.new.outgoing(self)
+    SocketsController.new.outgoing(self)
   end
   
   def remove_from_view
-    SocketController.new.outgoing(Retraction.for(self))
+    SocketsController.new.outgoing(Retraction.for(self))
   end
 
 end

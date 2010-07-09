@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @people = Person.paginate :page => params[:page], :order => 'created_at DESC'
+    @people = Person.friends.paginate :page => params[:page], :order => 'created_at DESC'
   end
   
   def show
@@ -18,22 +18,4 @@ class PeopleController < ApplicationController
     redirect_to people_url
   end
   
-  def new
-    @person = Person.new
-    @profile = Profile.new
-  end
-  
-  def create
-   
-    puts params.inspect
-    @person = Person.new(params[:person])
-
-
-    if @person.save
-      flash[:notice] = "Successfully created person."
-      redirect_to @person
-    else
-      render :action => 'new'
-    end
-  end
 end

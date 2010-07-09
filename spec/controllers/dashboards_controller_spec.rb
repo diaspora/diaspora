@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
  
-describe DashboardController do
+describe DashboardsController do
  render_views
   
   before do
@@ -16,7 +16,7 @@ describe DashboardController do
   it "on index sets a person's variable" do
     Factory.create :person
     get :index
-    assigns[:people].should == Person.all
+    assigns[:people].should == Person.friends.all
   end
 
 end

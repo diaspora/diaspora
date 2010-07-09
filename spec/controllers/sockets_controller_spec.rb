@@ -1,21 +1,21 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe 'SocketController' do
+describe 'SocketsController' do
   render_views  
   before do
     @user = Factory.create(:user)
-    SocketController.unstub!(:new)
+    SocketsController.unstub!(:new)
     #EventMachine::WebSocket.stub!(:start)
-    @controller = SocketController.new
-    stub_socket_controller
+    @controller = SocketsController.new
+    stub_sockets_controller
   end
 
-  it 'should unstub the websocket' do
+  it 'should unstub the websockets' do
       WebSocket.initialize_channel
-      @controller.class.should == SocketController
+      @controller.class.should == SocketsController
   end
   
-  it 'should add a new subscriber to the websocket channel' do
+  it 'should add a new subscriber to the websockets channel' do
       WebSocket.initialize_channel
       @controller.new_subscriber.should == 1
   end

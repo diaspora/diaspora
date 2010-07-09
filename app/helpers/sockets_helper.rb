@@ -1,4 +1,4 @@
-module SocketHelper
+module SocketsHelper
  include ApplicationHelper 
   
  def obj_id(object)

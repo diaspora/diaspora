@@ -24,7 +24,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
-    stub_socket_controller 
+    stub_sockets_controller 
   end
 
   config.after(:each) do
@@ -36,11 +36,11 @@ RSpec.configure do |config|
     keys.each{|k| ctx.delete_key(k, true)}
   end
 end
-  def stub_socket_controller
-     mock_socket_controller = mock('socket mock')
-    mock_socket_controller.stub!(:incoming).and_return(true)
-    mock_socket_controller.stub!(:new_subscriber).and_return(true)
-    mock_socket_controller.stub!(:outgoing).and_return(true)
-    mock_socket_controller.stub!(:delete_subscriber).and_return(true)
-    SocketController.stub!(:new).and_return(mock_socket_controller)
+  def stub_sockets_controller
+    mock_sockets_controller = mock('sockets mock')
+    mock_sockets_controller.stub!(:incoming).and_return(true)
+    mock_sockets_controller.stub!(:new_subscriber).and_return(true)
+    mock_sockets_controller.stub!(:outgoing).and_return(true)
+    mock_sockets_controller.stub!(:delete_subscriber).and_return(true)
+    SocketsController.stub!(:new).and_return(mock_sockets_controller)
   end

@@ -17,9 +17,8 @@ Diaspora::Application.routes.draw do |map|
  
 
   resources :users
-  match 'receive', :to => 'dashboard#receive'
-  match "socket", :to => 'dashboard#socket'
+  match 'receive', :to => 'dashboards#receive'
 
-  root :to => 'dashboard#index'
+  root :to => 'dashboards#index'
 
 end

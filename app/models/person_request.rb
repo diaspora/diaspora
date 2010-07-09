@@ -20,8 +20,9 @@ class PersonRequest
 
   def self.for(url)
     request = PersonRequest.new(:url => url, :person => User.first)
+    request.push_to_url
     request.save
-    request.push_to([self])
+    request
   end
 
   def check_for_person_requests
