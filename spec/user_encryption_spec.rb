@@ -30,5 +30,8 @@ describe 'user encryption' do
     @u.key.subkeys[0].fpr.should  == @u.key_fingerprint
   end
 
-
+  it 'should sign a message' do
+    message = Factory.create(:status_message, :user => @u)
+    message.verify_signature.should == true 
+  end
 end

@@ -9,7 +9,8 @@ class Post
   xml_accessor :person, :as => Person
 
   key :person_id, ObjectId
-  
+  key :owner_signature, String
+
   many :comments, :class_name => 'Comment', :foreign_key => :post_id
   belongs_to :person, :class_name => 'Person'
   
@@ -42,7 +43,9 @@ class Post
     self.newest(Person.first(:email => email))
   end
 
-
+  def verify_signature
+    GPGME.verify(owner
+  end
   protected
   def destroy_comments
     comments.each{|c| c.destroy}
