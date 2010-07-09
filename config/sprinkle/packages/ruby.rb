@@ -33,7 +33,7 @@ end
 
 package :diaspora_dependencies do
 	description 'random dependencies'
-	apt %w(libxslt1.1 libxslt1-dev libxml2)
+	apt %w(libxslt1.1 libxslt1-dev libxml2 libgpgme11-dev)
 end
 #package :diaspora do
 #	description 'Diaspora'

@@ -33,7 +33,7 @@ require "#{File.dirname(__FILE__)}/packages/ruby"
 #   If there's only one implementation of a virtual package, it's selected automatically, otherwise
 #   the user is requested to select which one to use.
 
-policy :diaspora, :roles => :tom, :backer do
+policy :diaspora, :roles => [:tom, :backer] do
 #  requires :clean_dreamhost
   requires :tools
   requires :rubygems
@@ -43,7 +43,7 @@ policy :diaspora, :roles => :tom, :backer do
   requires :webserver
   requires :scm
 end
-
+=begin
 policy :ci, :roles => :ci do
   requires :tools
   requires :rubygems
@@ -54,7 +54,7 @@ policy :ci, :roles => :ci do
   requires :scm
   #add sqlite
 end
-
+=end
 # Deployment
 #
 #  Defines script wide settings such as a delivery mechanism for executing commands on the target
