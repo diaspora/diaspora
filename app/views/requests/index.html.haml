@@ -1,0 +1,15 @@
+%h1 requests
+= render "requests/new_request", :request => @request
+
+%ul#stream
+  %li
+    %h3 incoming
+  - for request in @remote_requests
+    = render "request", :request => request
+    = request.destination_url + " " + User.first.url
+
+  %li
+    %h3 outgoing
+  - for request in @local_requests
+    = render "request", :request => request
+

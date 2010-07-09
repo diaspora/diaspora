@@ -4,7 +4,7 @@ Diaspora::Application.routes.draw do |map|
   resources :people
   resources :status_messages
   resources :comments
-  resources :person_requests
+  resources :requests
 
   match 'warzombie', :to => "dashboard#warzombie"
 

@@ -1,9 +1,7 @@
-class PersonRequest
+class Request
   include MongoMapper::Document
   include Diaspora::Webhooks
-
-
-  xml_name :person_request
+  include ROXML
 
   xml_accessor :_id
   xml_accessor :person, :as => Person
@@ -14,8 +12,6 @@ class PersonRequest
   
   validates_presence_of :destination_url, :callback_url
 
-  before_save :check_for_person_requests
-  
   scope :for_user, lambda{ |user| where(:destination_url => user.url) }
   scope :from_user, lambda{ |user| where(:destination_url.ne => user.url) }
 
@@ -25,7 +21,7 @@ class PersonRequest
   end
 
   def activate_friend 
-    p = Person.where(:id => self.person_id).first
+    p = Person.where(:id => self.person.id).first
     p.active = true
     p.save
   end

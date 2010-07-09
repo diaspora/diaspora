@@ -53,6 +53,7 @@ module Diaspora
   module Webhooks
     def self.included(klass)
       klass.class_eval do
+        include ROXML
         @@queue = MessageHandler.new
 
         def notify_people
@@ -70,8 +71,8 @@ module Diaspora
           end
         end
 
-        def push_to_url
-          hook_url = self.url + "receive/"
+        def push_to_url(url)
+          hook_url = url + "receive/"
           xml = self.class.build_xml_for([self])
           @@queue.add_post_request( [hook_url], xml )
           @@queue.process

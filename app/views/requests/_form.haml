@@ -1,0 +1,10 @@
+= form_for @request  do |f|
+  = f.error_messages
+
+  %p
+    = f.label :destination_url
+    = f.text_field :destiation_url
+
+
+  %p
+    = f.submit

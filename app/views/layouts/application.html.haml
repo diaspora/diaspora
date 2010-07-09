@@ -32,7 +32,7 @@
           - if user_signed_in?
             =User.first.real_name
             |
-            = link_to "requests", person_requests_path
+            = link_to "requests", requests_path
             |
             = link_to "logout", destroy_user_session_path
           - else
