@@ -117,11 +117,11 @@ describe "parser in application helper" do
       xml = Request.build_xml_for [request]
 
       @person.destroy
-      Person.friends.all.count.should be 0
+      Person.all.count.should be 1
       store_objects_from_xml(xml)
-      Person.friends.all.count.should be 1
+      Person.all.count.should be 2
 
-      Person.friends.first.id.should ==  original_person_id
+      Person.where(:url => request.callback_url).first.id.should == original_person_id
     end
     
 
