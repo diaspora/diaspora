@@ -43,6 +43,7 @@ class User < Person
     request = Request.where(:id => friend_request_id).first
     request.activate_friend
     request.person = self
+    request.destination_url = request.callback_url
     request.push_to_url(request.callback_url)
     request.destroy
   end
