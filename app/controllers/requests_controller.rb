@@ -24,11 +24,9 @@ class RequestsController < ApplicationController
 
     if @request
       flash[:notice] = "Successfully created person request."
-      redirect_to person_requests_url
+      redirect_to requests_url
     else
       render :action => 'new'
     end
   end
-
-
 end

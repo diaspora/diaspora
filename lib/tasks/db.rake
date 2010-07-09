@@ -23,7 +23,7 @@ namespace :db do
     Person.delete_all
     User.delete_all
     Profile.delete_all
-    PersonRequest.delete_all
+    Request.delete_all
   end
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'

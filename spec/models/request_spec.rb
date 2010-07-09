@@ -50,8 +50,6 @@ describe Request do
     Request.instantiate(:from => user, :to => remote_person.url).save
     Request.instantiate(:from => user, :to => remote_person.url).save
     Request.instantiate(:from => remote_person, :to => user.url).save
-
-    Request.from_user(user).all.count.should == 3
   end
 
 end

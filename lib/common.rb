@@ -32,15 +32,8 @@ module Diaspora
       objects.each do |p|
         if p.is_a? Retraction
           p.perform
-        elsif p.is_a? PersonRequest
-          if PersonRequest.where(:_id => p._id).first
-            p.person.active = true
-          end
-
-          p.url = p.person.url
-          p.save
-          p.person.save
-
+        elsif p.is_a? Request
+          User.first.receive_friend_request(p)
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
           p.save 

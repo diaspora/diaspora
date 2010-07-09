@@ -1,5 +1,6 @@
 %li.message{:id => request.id, :class => "mine"}
   = "to : #{request.destination_url}"
+  = request.person.class
 
   .destroy_link
     = link_to 'Ignore', request_path(request), :confirm => 'Are you sure?', :method => :delete, :remote => true
