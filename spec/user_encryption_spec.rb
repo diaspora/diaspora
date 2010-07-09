@@ -5,17 +5,13 @@ describe 'user encryption' do
     #ctx = GPGME::Ctx.new
     #keys = ctx.keys
     #keys.each{|k| ctx.delete_key(k, true)}
-    @u = User.new
-    @u.email = "george@aol.com"
-    @u.password = "bluepin7"
-    @u.password_confirmation = "bluepin7"
-    @u.url = "www.example.com"
-    @u.profile = Profile.new( :first_name => "Bob", :last_name => "Smith" )
-    @u.profile.save
+    
+  end
+  before do
+    @u = Factory.create(:user)
     @u.send(:assign_key)
     @u.save
   end
-
 #  after :all do
     #gpgdir = File.expand_path("../../db/gpg-#{Rails.env}", __FILE__)
     #ctx = GPGME::Ctx.new
@@ -30,9 +26,23 @@ describe 'user encryption' do
   it 'should retrieve a user key' do
     @u.key.subkeys[0].fpr.should  == @u.key_fingerprint
   end
-
-  it 'should sign a message' do
-    message = Factory.create(:status_message, :person => @u)
-    message.verify_signature.should == true 
+  describe 'signing and verifying' do
+    
+    it 'should sign a message on create' do
+      message = Factory.create(:status_message, :person => @u)
+      message.verify_signature.should be true 
+    end
+    
+    it 'should not be able to verify a message from a person without a key' do 
+      person = Factory.create(:person)
+      message = Factory.create(:status_message, :person => person)
+      message.verify_signature.should be false
+    end
+    
+    it 'should know if the signature is from the wrong person' do
+      pending
+      my_message = Factory.create(
+    end
+    
   end
 end

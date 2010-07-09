@@ -46,16 +46,12 @@ class Post
   before_save :sign_if_mine
   key :owner_signature, String
   def verify_signature
-    validity = true
-    signed_text = GPGME.verify(){ |signature|
-      if signature.validity == GPGME::VALIDITY_FULL
-        validity = validity && true
-      else
-        validity = validity && false
-      end
+    return false unless owner_signature && person.key_fingerprint
+    GPGME.verify(owner_signature){ |signature|
+      return signature.validity == GPGME::VALIDITY_FULL
+      #validity = validity && person.key_fingerprint == signature.fpr
     }
-    validity = validity && (signed_text == to_xml.to_s)
-    validity
+    #validity = validity && (signed_text == to_xml.to_s)
   end
   protected
   def sign_if_mine
