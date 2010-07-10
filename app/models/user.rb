@@ -46,7 +46,7 @@ class User < Person
   end
 
   def ignore_friend_request(friend_request_id)
-    request = Request.where(:id => friend_request_id).first
+    request = Request.first(:id => friend_request_id)
     person = request.person
     person.destroy unless person.active
     request.destroy
@@ -58,6 +58,14 @@ class User < Person
       friend_request.destroy
     else
       friend_request.save
+    end
+  end
+
+  def unfriend(friend_id)
+    bad_friend  = Person.first(:id => friend_id, :active => true)
+    if bad_friend 
+       Retraction.for(self).push_to_url(bad_friend.url) 
+       bad_friend.destroy
     end
   end
 

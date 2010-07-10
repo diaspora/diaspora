@@ -11,6 +11,7 @@ end
 
 Factory.define :person do |p|
   p.email "bob@aol.com"
+  p.active true
   p.sequence(:url)  {|n|"http://google-#{n}.com/"}
   p.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
 end
