@@ -24,11 +24,13 @@ class RequestsController < ApplicationController
   
   def create
     @request = current_user.send_friend_request_to(params[:request][:destination_url])
-
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
       redirect_to requests_url
     else
+      
+      flash[:error] = "you have already friended this person"
+      @request = Request.new
       render :action => 'new'
     end
   end
