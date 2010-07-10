@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
   def destroy
     if params[:accept]
       current_user.accept_friend_request params[:id]
-      flash[:notice] = "you are now friends with #{@request.person.real_name}"
+      flash[:notice] = "you are now friends"
     else
       current_user.ignore_friend_request params[:id]
       flash[:notice] = "ignored friend request"

@@ -12,8 +12,7 @@ class PeopleController < ApplicationController
   end
   
   def destroy
-    @person = Person.where(:id => params[:id]).first
-    @person.destroy
+    current_user.unfriend(params[:id])
     flash[:notice] = "Successfully destroyed person."
     redirect_to people_url
   end

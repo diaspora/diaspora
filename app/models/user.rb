@@ -29,10 +29,11 @@ class User < Person
   def send_friend_request_to(friend_url)
     unless Person.where(:url => friend_url).first
       p = Request.instantiate(:to => friend_url, :from => self)
+      puts p.inspect
       if p.save
         p.push_to_url friend_url
-        p
       end
+      p
     end
   end 
 
