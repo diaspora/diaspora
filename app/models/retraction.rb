@@ -6,7 +6,7 @@ class Retraction
     retraction = self.new
     retraction.post_id= object.id
     retraction.person_id = person_id_from(object)
-    retraction.type = object.class
+    retraction.type = self.type_name(object)
     retraction
   end
 
@@ -19,7 +19,8 @@ class Retraction
   attr_accessor :type
 
   def perform
-    self.type.constantize.delete(self.post_id)
+    puts('GO GO GO')
+    self.type.constantize.destroy(self.post_id)
   end
 
   def self.person_id_from(object)
@@ -27,6 +28,17 @@ class Retraction
       object.id
     else
       object.person.id
+    end
+  end
+
+
+  def self.type_name(object)
+    if object.is_a? Post
+      object.class
+    elsif object.is_a? User
+      'Person'
+    else
+      'Clowntown'
     end
   end
 

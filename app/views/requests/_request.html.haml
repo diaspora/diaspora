@@ -4,6 +4,6 @@
   = "#{request.destination_url}"
 
   .destroy_link
-    = link_to 'Accept', request_path(request, :accept => true), :confirm => 'Are you sure?', :method => :delete 
+    = link_to 'Accept', request_path(request, :accept => true), :method => :delete 
     |
     = link_to 'Ignore', request_path(request), :confirm => 'Are you sure?', :method => :delete

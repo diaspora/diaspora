@@ -8,13 +8,15 @@ class RequestsController < ApplicationController
   
   def destroy
     if params[:accept]
-      current_user.accept_friend_request params[:id]
+      @friend = current_user.accept_friend_request params[:id]
+      
       flash[:notice] = "you are now friends"
+      redirect_to root_url 
     else
       current_user.ignore_friend_request params[:id]
       flash[:notice] = "ignored friend request"
+      redirect_to requests_url
     end
-    redirect_to requests_url
 
   end
   
