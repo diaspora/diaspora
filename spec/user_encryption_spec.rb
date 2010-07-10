@@ -26,6 +26,11 @@ describe 'user encryption' do
   it 'should retrieve a user key' do
     @u.key.subkeys[0].fpr.should  == @u.key_fingerprint
   end
+
+  describe 'key exchange on friending' do
+    
+  end
+
   describe 'signing and verifying' do
     
     it 'should sign a message on create' do
@@ -41,7 +46,6 @@ describe 'user encryption' do
     
     it 'should know if the signature is from the wrong person' do
       pending
-      my_message = Factory.create(
     end
     
   end

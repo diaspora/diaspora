@@ -77,7 +77,7 @@ class User < Person
   def assign_key
     keys = GPGME.list_keys(nil, true)
     if keys.empty?
-      #generate_key
+      generate_key
     end
     self.key_fingerprint = GPGME.list_keys(nil, true).first.subkeys.first.fingerprint
   end
@@ -94,7 +94,6 @@ Name-Real: #{self.real_name}
 Name-Comment: #{self.url}
 Name-Email: #{self.email}
 Expire-Date: 0
-Passphrase: #{self.password}
 </GnupgKeyParms>"
     ctx.genkey(paramstring, nil, nil)
     
