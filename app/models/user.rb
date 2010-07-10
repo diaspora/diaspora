@@ -28,10 +28,10 @@ class User < Person
   ######### Friend Requesting
   def send_friend_request_to(friend_url)
     unless Person.where(:url => friend_url).first
-      request = Request.instantiate(:to => friend_url, :from => self)
-      if request.save
-        request.push_to_url friend_url
-        request
+      p = Request.instantiate(:to => friend_url, :from => self)
+      if p.save
+        p.push_to_url friend_url
+        p
       end
     end
   end 
@@ -41,7 +41,6 @@ class User < Person
     request.activate_friend
     request.person = self
     request.destination_url = request.callback_url
-    request.exported_key = self.export_key
     request.push_to_url(request.callback_url)
     request.destroy
   end

@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/spec_helper'
-include ApplicationHelper
 
 describe 'user encryption' do
   before :all do
@@ -29,28 +28,7 @@ describe 'user encryption' do
   end
 
   describe 'key exchange on friending' do
-    it 'should send over a public key' do
-      Comment.send(:class_variable_get, :@@queue).stub!(:add_post_request)
-      request = @u.send_friend_request_to("http://example.com/") 
-      Request.build_xml_for([request]).include?( @u.export_key).should be true
-    end
-
-    it 'should receive and marshal a public key from a request' do
-      puts "THIS IS FUCKED UP"
-      person  = Factory.build(:person ) 
-      original_key = person.export_key 
-      person.save
-      
-      request = Request.instantiate(:to =>"http://www.google.com/", :from => person)
-      
-      xml = Request.build_xml_for [request]
-      person.destroy
-      
-      store_objects_from_xml(xml)
-      
-      new_person = Person.first(:url => request.callback_url)
-      new_person.export_key.should == original_key 
-    end
+    
   end
 
   describe 'signing and verifying' do

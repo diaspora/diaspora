@@ -17,11 +17,7 @@ module Diaspora
       body = parse_body_contents_from_xml(xml)
       body.children.each do |post|
         begin
-          puts "people: #{Person.count}"
-          puts "requests: #{Request.count}"
           object = post.name.camelize.constantize.from_xml post.to_s
-          puts "people: #{Person.count}"
-          puts "requests: #{Request.count}"          
           object.person =  parse_owner_from_xml post.to_s if object.respond_to? :person  
           objects << object 
         rescue

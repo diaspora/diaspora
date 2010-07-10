@@ -8,14 +8,12 @@ class Request
   xml_accessor :person, :as => Person
   xml_accessor :destination_url
   xml_accessor :callback_url
-  xml_accessor :exported_key
 
   key :destination_url, String
   key :callback_url, String
-  key :person, Person#_id, ObjectId
-  key :exported_key, String
+  key :person_id, ObjectId
 
-  #belongs_to :person
+  belongs_to :person
   
   validates_presence_of :destination_url, :callback_url
 
@@ -24,7 +22,7 @@ class Request
 
   def self.instantiate(options ={})
     person = options[:from]
-    self.new(:destination_url => options[:to], :callback_url => person.url, :person => person, :exported_key => person.export_key)
+    self.new(:destination_url => options[:to], :callback_url => person.url, :person => person)
   end
 
   def activate_friend 
