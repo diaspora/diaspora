@@ -11,7 +11,7 @@ describe Request do
   end
 
   it 'should generate xml for the User as a Person' do 
-    user = User.create(:email => "rob@bob.com")
+    user = Factory.build(:user, :email => "rob@bob.com")
 
     user.profile = Factory.create(:profile)
     

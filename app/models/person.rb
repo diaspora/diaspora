@@ -6,6 +6,7 @@ class Person
   xml_accessor :url
   xml_accessor :profile, :as => Profile
   xml_accessor :_id
+  xml_accessor :key_fingerprint
   
   key :email, String
   key :url, String
@@ -37,6 +38,9 @@ class Person
     GPGME::Ctx.new.get_key key_fingerprint
   end
 
+  def export_key
+    GPGME::export(key_fingerprint, :armor => true)
+  end
 
   protected
   
