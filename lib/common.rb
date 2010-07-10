@@ -47,6 +47,7 @@ module Diaspora
     def self.included(klass)
       klass.class_eval do
         include ROXML
+        require 'message_handler'
         @@queue = MessageHandler.new
 
         def notify_people
