@@ -6,11 +6,12 @@ class Person
   xml_accessor :url
   xml_accessor :profile, :as => Profile
   xml_accessor :_id
+  xml_accessor :key_fingerprint
   
   key :email, String
   key :url, String
   key :active, Boolean, :default => false
-  key :key_fingerprint, String
+  key :key_fingerprint, String, :default => ""
 
   one :profile, :class_name => 'Profile', :foreign_key => :person_id
   many :posts, :class_name => 'Post', :foreign_key => :person_id
@@ -18,7 +19,7 @@ class Person
   timestamps!
 
   before_validation :clean_url
-  validates_presence_of :email, :url
+  validates_presence_of :email, :url, :key_fingerprint
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
@@ -36,7 +37,10 @@ class Person
   def key
     GPGME::Ctx.new.get_key key_fingerprint
   end
-
+  
+  def export_key
+    GPGME::export(key_fingerprint, :armor => true)
+  end
 
   protected
   

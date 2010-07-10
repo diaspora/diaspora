@@ -57,6 +57,7 @@ class User < Person
       friend_request.activate_friend
       friend_request.destroy
     else
+      friend_request.person.save
       friend_request.save
     end
   end
