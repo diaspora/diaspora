@@ -36,7 +36,7 @@ class Post
   end
 
  def self.my_newest
-   self.newest(User.first)
+   self.newest(User.owner)
  end
   def self.newest_by_email(email)
     self.newest(Person.first(:email => email))

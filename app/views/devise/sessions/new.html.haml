@@ -6,7 +6,7 @@
       /= f.check_box :remember_me
       /= f.label :remember_me
 
-    = hidden_field_tag "user_email", "#{User.first.email}", :name => "user[email]"
+    = hidden_field_tag "user_email", "#{User.owner.email}", :name => "user[email]"
     = f.submit "Sign in"
 /= render :partial => "devise/shared/links"
 

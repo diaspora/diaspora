@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def mine?(post)
-    post.person == User.first
+    post.person == User.owner
   end
   
   def type_partial(post)
@@ -39,9 +39,9 @@ module ApplicationHelper
 
   def owner_picture
     default = "/images/user/default.jpg"
-    image = "/images/user/#{User.first.profile.last_name.gsub(/ /,'').downcase}.jpg"
+    image = "/images/user/#{User.owner.profile.last_name.gsub(/ /,'').downcase}.jpg"
 
-    if File.exist?("public/images/user/#{User.first.profile.last_name.gsub(/ /,'').downcase}.jpg")
+    if File.exist?("public/images/user/#{User.owner.profile.last_name.gsub(/ /,'').downcase}.jpg")
       image_tag image, :id => "user_picture"
     else
       image_tag default, :id => "user_picture"

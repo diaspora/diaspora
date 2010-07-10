@@ -8,7 +8,9 @@ class User < Person
   validates_presence_of :profile
   
   before_validation :do_bad_things
-
+ 
+ 
+  
 
   ######## Commenting  ########
   def comment(text, options = {})
@@ -80,6 +82,9 @@ class User < Person
     self.password_confirmation = self.password
   end
   
+  def self.owner
+    User.first
+  end
   
   protected
   
