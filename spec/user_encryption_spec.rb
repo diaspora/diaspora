@@ -37,17 +37,22 @@ describe 'user encryption' do
 
     it 'should receive and marshal a public key from a request' do
       person = Factory.build(:person, :url => "http://test.url/" )
+      person.key_fingerprint.nil?.should== false
+      #should move this to friend request, but i found it here 
+      f = person.key_fingerprint
+      id = person.id
       original_key = person.export_key
       
       request = Request.instantiate(:to =>"http://www.google.com/", :from => person)
       
       xml = Request.build_xml_for [request]
-      puts xml
-      
       person.destroy
       store_objects_from_xml(xml)
-      
+      Person.all.count.should == 2 
       new_person = Person.first(:url => "http://test.url/")
+      new_person.key_fingerprint.nil?.should == false
+      new_person.id.should == id
+      new_person.key_fingerprint.should == f
       new_person.export_key.should == original_key
     end 
   end
