@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 source 'http://gemcutter.org'
 
-gem 'rails', :git =>'http://github.com/rails/rails.git'
+gem 'rails', '3.0.0.beta4'
 gem 'bundler'
 gem 'mongo_mapper', :git => "http://github.com/BadMinus/mongomapper.git"
 gem 'devise', :git => "http://github.com/BadMinus/devise.git"
