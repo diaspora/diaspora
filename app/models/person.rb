@@ -4,14 +4,15 @@ class Person
 
   xml_accessor :email
   xml_accessor :url
-  xml_accessor :profile, :as => Profile
   xml_accessor :_id
   xml_accessor :key_fingerprint
+  xml_accessor :profile, :as => Profile
+  
   
   key :email, String
   key :url, String
   key :active, Boolean, :default => false
-  key :key_fingerprint, String, :default => ""
+  key :key_fingerprint, String
 
   one :profile, :class_name => 'Profile', :foreign_key => :person_id
   many :posts, :class_name => 'Post', :foreign_key => :person_id
