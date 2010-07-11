@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 source 'http://gemcutter.org'
 
 gem 'rails', :git =>'http://github.com/rails/rails.git'
-gem 'bundler'
+gem 'bundler', '1.0.0.beta.4' 
 gem 'mongo_mapper', :git => "http://github.com/BadMinus/mongomapper.git"
 gem 'devise', :git => "http://github.com/BadMinus/devise.git"
 gem 'jnunemaker-validatable', :git => "http://github.com/BadMinus/validatable.git"
@@ -26,8 +26,8 @@ gem 'will_paginate', '3.0.pre'
 
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.12'
-	gem 'rspec-rails', ">= 2.0.0.beta.8"
-	gem "mocha"
+	gem 'rspec-rails'
+  gem "mocha"
   gem 'webrat'
   gem 'redgreen'
   gem 'autotest'
