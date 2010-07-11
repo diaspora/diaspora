@@ -6,5 +6,6 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
+Gemfile.lock
 gpg/diaspora-development/*.gpg
 gpg/diaspora-production/*.gpg

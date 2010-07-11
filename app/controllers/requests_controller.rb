@@ -8,13 +8,15 @@ class RequestsController < ApplicationController
   
   def destroy
     if params[:accept]
-      current_user.accept_friend_request params[:id]
-      flash[:notice] = "you are now friends with #{@request.person.real_name}"
+      @friend = current_user.accept_friend_request params[:id]
+      
+      flash[:notice] = "you are now friends"
+      redirect_to root_url 
     else
       current_user.ignore_friend_request params[:id]
       flash[:notice] = "ignored friend request"
+      redirect_to requests_url
     end
-    redirect_to requests_url
 
   end
   
@@ -24,11 +26,13 @@ class RequestsController < ApplicationController
   
   def create
     @request = current_user.send_friend_request_to(params[:request][:destination_url])
-
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
       redirect_to requests_url
     else
+      
+      flash[:error] = "you have already friended this person"
+      @request = Request.new
       render :action => 'new'
     end
   end

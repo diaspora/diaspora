@@ -29,7 +29,7 @@ class Comment
   protected
   
   def send_people_comments_on_my_posts
-    if User.first.mine?(self.post) && !(self.person.is_a? User)
+    if User.owner.mine?(self.post) && !(self.person.is_a? User)
       self.push_to(self.post.people_with_permissions)
     end
   end

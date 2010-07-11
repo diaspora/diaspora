@@ -8,7 +8,9 @@ class User < Person
   validates_presence_of :profile
   
   before_validation :do_bad_things
-
+ 
+ 
+  
 
   ######## Commenting  ########
   def comment(text, options = {})
@@ -29,10 +31,11 @@ class User < Person
   def send_friend_request_to(friend_url)
     unless Person.where(:url => friend_url).first
       p = Request.instantiate(:to => friend_url, :from => self)
+      puts p.inspect
       if p.save
         p.push_to_url friend_url
-        p
       end
+      p
     end
   end 
 
@@ -46,7 +49,7 @@ class User < Person
   end
 
   def ignore_friend_request(friend_request_id)
-    request = Request.where(:id => friend_request_id).first
+    request = Request.first(:id => friend_request_id)
     person = request.person
     person.destroy unless person.active
     request.destroy
@@ -62,6 +65,14 @@ class User < Person
     end
   end
 
+  def unfriend(friend_id)
+    bad_friend  = Person.first(:id => friend_id, :active => true)
+    if bad_friend 
+       Retraction.for(self).push_to_url(bad_friend.url) 
+       bad_friend.destroy
+    end
+  end
+
   
   ###Helpers############
   def mine?(post)
@@ -72,6 +83,9 @@ class User < Person
     self.password_confirmation = self.password
   end
   
+  def self.owner
+    User.first
+  end
   
   protected
   

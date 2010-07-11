@@ -12,7 +12,7 @@ describe Post do
     end
 
     it "should associate the owner if none is present" do
-      @post.person.should == User.first
+      @post.person.should == User.owner
     end
 
   end

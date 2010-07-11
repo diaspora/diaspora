@@ -9,7 +9,7 @@ describe User do
 
   it "should be able to accept a pending friend request" do
     @user = Factory.create(:user)
-    @friend = Factory.create(:person)
+    @friend = Factory.create(:person, :active => false)
     r = Request.instantiate(:to => @user.url, :from => @friend)
     r.save
     Person.all.count.should == 2
@@ -21,7 +21,7 @@ describe User do
 
   it 'should be able to ignore a pending friend request' do
     @user = Factory.create(:user)
-    @friend = Factory.create(:person)
+    @friend = Factory.create(:person, :active => false)
     r = Request.instantiate(:to => @user.url, :from => @friend)
     r.save
 
@@ -36,7 +36,7 @@ describe User do
 
   it 'should not be able to friend request an existing friend' do
     @user = Factory.create(:user)
-    @friend = Factory.create(:person, :active => true)
+    @friend = Factory.create(:person)
 
     @user.send_friend_request_to( @friend.url ).should be nil
   end

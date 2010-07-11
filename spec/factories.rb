@@ -13,6 +13,7 @@ end
 
 Factory.define :person do |p|
   p.email "bob-person@aol.com"
+  p.active true
   p.sequence(:url)  {|n|"http://google-#{n}.com/"}
   p.key_fingerprint GPGME::list_keys("Aditi").first.subkeys.first.fingerprint
   p.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )

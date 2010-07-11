@@ -26,9 +26,9 @@ describe Person do
   end
 
   it 'should only return active friends' do
-    Factory.create(:person, :active => true)
     Factory.create(:person)
-    Factory.create(:person)
+    Factory.create(:person, :active => false)
+    Factory.create(:person, :active => false)
 
     Person.friends.all.count.should == 1
   end
@@ -57,5 +57,16 @@ describe Person do
     s.comments.count.should == 1
   end
 
+  it 'should let a user unfriend another user' do
+    u = Factory.create(:user)
+
+    f = Factory.create(:person, :active => true)
+
+
+    Person.friends.all.count.should == 1
+    u.unfriend(f.id)
+    Person.friends.all.count.should == 0
+
+  end
 
 end

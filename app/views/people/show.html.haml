@@ -1,5 +1,6 @@
 .span-20.last
   %h1= "#{@person.real_name}"
+  = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
 - if @person_profile
   %p
     %b First Name

@@ -33,7 +33,7 @@ module Diaspora
         if p.is_a? Retraction
           p.perform
         elsif p.is_a? Request
-          User.first.receive_friend_request(p)
+          User.owner.receive_friend_request(p)
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
           p.save 
@@ -47,10 +47,11 @@ module Diaspora
     def self.included(klass)
       klass.class_eval do
         include ROXML
+        require 'message_handler'
         @@queue = MessageHandler.new
 
         def notify_people
-          if self.person_id == User.first.id
+          if self.person_id == User.owner.id
             push_to(people_with_permissions)
           end
         end
@@ -76,7 +77,7 @@ module Diaspora
         end
 
         def people_with_permissions
-           Person.where( :_type => "Person" ).all
+           Person.friends.all
         end
 
         def self.build_xml_for(posts)

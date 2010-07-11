@@ -2,7 +2,7 @@
 %html
   %head
     %title
-      = User.first.real_name if User.first
+      = current_user.real_name if current_user
       = " | diaspora"
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     
@@ -30,7 +30,7 @@
 
         #session_action
           - if user_signed_in?
-            =User.first.real_name
+            = current_user.real_name
             |
             = link_to "requests (#{@request_count})", requests_path
             |
@@ -50,9 +50,9 @@
         .span-20
           - if user_signed_in?
             %h1#user_name
-              = link_to User.first.real_name, root_url
+              = link_to current_user.real_name, root_url
               %span.description
                 = my_latest_message
           = yield
-        .span-20
+        .span-12
           = render "posts/debug"

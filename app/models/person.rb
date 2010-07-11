@@ -30,6 +30,7 @@ class Person
 
   scope :friends,  where(:_type => "Person", :active => true)
 
+
  
   def real_name
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
