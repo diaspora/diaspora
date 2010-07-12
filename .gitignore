@@ -9,3 +9,4 @@ tmp/**/*
 Gemfile.lock
 gpg/diaspora-development/*.gpg
 gpg/diaspora-production/*.gpg
+gpg/*/random_seed
