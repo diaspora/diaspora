@@ -19,7 +19,6 @@ class Retraction
   attr_accessor :type
 
   def perform
-    puts self.inspect
     self.type.constantize.destroy(self.post_id)
   end
 

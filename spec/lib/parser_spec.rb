@@ -144,11 +144,7 @@ describe "parser in application helper" do
 
     it 'should marshal a retraction for a person' do
       retraction = Retraction.for(@user)
-      
       request = Retraction.build_xml_for( [retraction] )
-
-
-      puts request.inspect
 
       Person.count.should == 2
       store_objects_from_xml( request )

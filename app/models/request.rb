@@ -17,6 +17,11 @@ class Request
   
   validates_presence_of :destination_url, :callback_url
 
+  #validates_format_of :destination_url, :with =>
+    #/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
+
+  before_validation :clean_link
+
   scope :for_user, lambda{ |user| where(:destination_url => user.url) }
   scope :from_user, lambda{ |user| where(:destination_url.ne => user.url) }
 
@@ -30,5 +35,14 @@ class Request
     p.active = true
     p.save
   end
+  
 
+  protected
+
+  def clean_link
+    if self.destination_url
+      self.destination_url = 'http://' + self.destination_url unless self.destination_url.match('https?://')
+      self.destination_url = self.destination_url + '/' if self.destination_url[-1,1] != '/'
+    end
+  end
 end
