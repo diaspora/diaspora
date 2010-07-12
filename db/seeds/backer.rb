@@ -66,8 +66,7 @@ def create(backer_number, password)
     Person.create( :email => "#{email}@joindiaspora.com", 
                   :url => "http://#{email}.joindiaspora.com/", 
                   :active => true, 
-                  :profile => Profile.create(:first_name => backer_info[n][1], :last_name => backer_info[n][2])) 
-                      unless n == backer_number
+                  :profile => Profile.create(:first_name => backer_info[n][1], :last_name => backer_info[n][2]))  unless n == backer_number
   }
 end
 
