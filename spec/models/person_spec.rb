@@ -62,11 +62,9 @@ describe Person do
 
     f = Factory.create(:person, :active => true)
 
-
     Person.friends.all.count.should == 1
     u.unfriend(f.id)
     Person.friends.all.count.should == 0
-
   end
 
 end

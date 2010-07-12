@@ -141,6 +141,21 @@ describe "parser in application helper" do
       Person.where(:url => @person.url).first.active.should be true
     end
 
+
+    it 'should marshal a retraction for a person' do
+      retraction = Retraction.for(@user)
+      
+      request = Retraction.build_xml_for( [retraction] )
+
+
+      puts request.inspect
+
+      Person.count.should == 2
+      store_objects_from_xml( request )
+      Person.count.should == 1
+
+    end
+
   end
 end
 
