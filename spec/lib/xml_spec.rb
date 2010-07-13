@@ -1,30 +1,31 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe "XML generation" do
-
-  describe "header" do
-    it 'should generate an OStatus compliant header' do
-      user = Factory.create(:user)
-      Diaspora::XML::generate_headers.should include user.url
-    end
+describe Diaspora::XML do
+  before do
+    @user = Factory.create(:user, :profile => { :first_name => "robert", :last_name => "grimm" } )
+    Diaspora::XML::OWNER = @user
   end
 
+  describe Diaspora::XML::Generate do
 
-  describe "status message entry" do
-    before do
-      @status_message = Factory.build(:status_message)
+    describe "header" do
+      it 'should generate an OStatus compliant header' do
+        Diaspora::XML::Generate::headers(:current_url => @user.url).should include @user.url
+      end
     end
 
-    it "should encode to activity stream xml" do
-      Factory.create(:user)
-      sm_entry = Diaspora::XML::generate(:objects => @status_message)
-      sm_entry.should include(@status_message.message)
-      sm_entry.should include('title')
+    describe "status message entry" do
+      before do
+        @status_message = Factory.create(:status_message, :message => "feed me")
+      end
 
-      puts sm_entry
+      it "should encode to activity stream xml" do
+        sm_entry = Diaspora::XML::generate(:objects => @status_message, :current_url => "http://diaspora.com/")
+        sm_entry.should include(@status_message.message)
+        sm_entry.should include('title')
+      end
+
     end
-
   end
-
 
 end

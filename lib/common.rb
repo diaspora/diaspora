@@ -94,91 +94,86 @@ module Diaspora
 
   module XML
 
+    OWNER = User.owner
 
     def self.generate(opts= {})
-      @owner = User.owner
-      @root_url = @owner.url
-      
-      xml = self.generate_headers(opts[:current_url])
-      xml << self.generate_author
-      xml << self.generate_endpoints
-      xml << self.generate_subject
-      xml << self.build_entries(opts[:objects])
-      xml << self.generate_footer
+      xml = Generate::headers(opts[:current_url])
+      xml << Generate::author
+      xml << Generate::endpoints
+      xml << Generate::subject
+      xml << Generate::entries(opts[:objects])
+      xml << Generate::footer
     end
 
-    def self.generate_headers(current_url)
-      <<-XML
-      <?xml version="1.0" encoding="UTF-8"?>
-      <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
-      <generator uri="#{@owner.url}">Diaspora</generator>
-      <id>#{current_url}</id>
-      <title>Stream</title>
-      <subtitle>its a stream </subtitle>
-      <logo></logo>
-      <updated>#{Time.now}</updated>
-      XML
-    end
-
-    def self.generate_author
-      <<-XML
-        <author>
-        <name>#{@owner.real_name}</name>
-        <uri>#{@root_url}</uri>
-        </author>
-      XML
-    end
-
-    def self.generate_endpoints
-      #generate pubsub, poco, salmon endpoints
-      ""
-    end
-    
-    def self.build_entries(objects)
-      xml = ""
-      if objects.respond_to? :each
-        objects.each {|x| xml << self.build_entry(x)}
-      else
-        xml << self.build_entry(objects)
+    module Generate
+      def self.headers(current_url)
+        <<-XML
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
+<generator uri="#{OWNER.url}">Diaspora</generator>
+<id>#{current_url}</id>
+<title>Stream</title>
+<subtitle>its a stream </subtitle>
+<updated>#{Time.now.xmlschema}</updated>
+        XML
       end
-      xml
+
+      def self.author
+        <<-XML
+<author>
+<name>#{OWNER.real_name}</name>
+<uri>#{OWNER.url}</uri>
+</author>
+        XML
+      end
+
+      def self.endpoints
+        #generate pubsub, poco, salmon endpoints
+        ""
+      end
+      
+      def self.subject
+        <<-XML
+<activity:subject>
+<activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
+<id>#{OWNER.url}</id>
+<title>#{OWNER.real_name}</title>
+<link rel="alternative" type="text/html" href="#{OWNER.url}"/>
+</activity:subject>
+        XML
+      end
+
+      def self.entries(objects)
+        xml = ""
+        if objects.respond_to? :each
+          objects.each {|x| xml << self.entry(x)}
+        else
+          xml << self.entry(objects)
+        end
+        xml
+      end
+
+      def self.entry(object)
+        eval "#{object.class}_build_entry(object)"
+      end
+
+      def self.StatusMessage_build_entry(status_message)
+        <<-XML
+<entry>
+<title>#{status_message.message}</title>
+<link rel="alternate" type="text/html" href="#{OWNER.url}status_messages/#{status_message.id}"/>
+<id>#{OWNER.url}status_messages/#{status_message.id}</id>
+<published>#{status_message.created_at.xmlschema}</published>
+<updated>#{status_message.updated_at.xmlschema}</updated>
+</entry>
+        XML
+      end
+
+      def self.footer
+        <<-XML.strip
+</feed>
+        XML
+      end
     end
-    
-    def self.generate_subject
-      <<-XML
-        <activity:subject>
-        <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
-        <id>#{@root_url}</id>
-        <title>#{@owner.real_name}</title>
-        <link rel="alternative" type="text/html" href="#{@root_url}"/>
-        </activity:subject>
-      XML
-    end
-
-    def self.build_entry(object)
-      eval "#{object.class}_build_entry(object)"
-    end
-
-    def self.StatusMessage_build_entry(status_message)
-      <<-XML
-      <entry>
-      <title>#{status_message.message}</title>
-      <link rel="alternative" type="text/html" href="#{@root_url}/status_messages/#{status_message.id}"/>
-      <id>#{status_message.id}</id>
-      <published>#{status_message.created_at}</published>
-      <updated>#{status_message.updated_at}</updated>
-      </entry>
-      XML
-    end
-
-
-    def self.generate_footer
-      <<-XML
-      </feed>
-      XML
-    end
-
-
   end
-
 end
