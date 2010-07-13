@@ -44,7 +44,8 @@ class Post
   end
 
 #ENCRYPTION
-  before_save :sign_if_mine
+  before_validation :sign_if_mine
+  validates_true_for :owner_signature, :logic => lambda {self.verify_signature}
   
   key :owner_signature, String
   
@@ -66,10 +67,8 @@ class Post
     validity = nil
     GPGME::verify(owner_signature, signable_string, 
       {:armor => true, :always_trust => true}){ |signature|
-        puts signature
         validity =  signature.status == GPGME::GPG_ERR_NO_ERROR &&
           signature.fpr == person.key_fingerprint
-        puts validity
     }
     return validity
   end

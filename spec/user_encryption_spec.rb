@@ -12,6 +12,14 @@ describe 'user encryption' do
     @u = Factory.create(:user)
     @u.send(:assign_key)
     @u.save
+    @person = Factory.create(:person,
+      :key_fingerprint => GPGME.list_keys("Remote Friend").first.subkeys.first.fpr,
+      :profile => Profile.create(:first_name => 'Remote',
+                                :last_name => 'Friend'),
+      :email => 'somewhere@else.com',
+      :url => 'http://distant-example.com/',
+      :key_fingerprint => '57F553EE2C230991566B7C60D3638485F3960087')
+
   end
 
 #  after :all do
@@ -60,7 +68,7 @@ describe 'user encryption' do
       xml = Request.build_xml_for [request]
       person.destroy
       store_objects_from_xml(xml)
-      Person.all.count.should == 2 
+      Person.all.count.should == 3 
       new_person = Person.first(:url => "http://test.url/")
       new_person.key_fingerprint.nil?.should == false
       new_person.id.should == id
@@ -70,15 +78,6 @@ describe 'user encryption' do
   end
 
   describe 'signing and verifying' do
-    before do
-      @person = Factory.create(:person,
-        :key_fingerprint => GPGME.list_keys("Remote Friend").first.subkeys.first.fpr,
-        :profile => Profile.create(:first_name => 'Remote',
-                                  :last_name => 'Friend'),
-        :email => 'somewhere@else.com',
-        :url => 'http://distant-example.com/',
-        :key_fingerprint => '57F553EE2C230991566B7C60D3638485F3960087')
-    end
     it 'should sign a message on create' do
       message = Factory.create(:status_message, :person => @u)
       puts message.owner_signature
@@ -87,20 +86,22 @@ describe 'user encryption' do
     
     it 'should not be able to verify a message from a person without a key' do 
       person = Factory.create(:person, :key_fingerprint => "123")
-      message = Factory.create(:status_message, :person => person)
+      message = Factory.build(:status_message, :person => person)
+      message.save(:validate => false)
       message.verify_signature.should be false
     end
     
     it 'should verify a remote signature' do 
-      message = Factory.create(:status_message, :person => @person)
+      message = Factory.build(:status_message, :person => @person)
       message.owner_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
-      message.save    
+      message.save(:validate => false)
       message.verify_signature.should be true
     end
     
     it 'should know if the signature is from the wrong person' do
-      message = Factory.create(:status_message, :person => @person)
+      message = Factory.build(:status_message, :person => @person)
+      message.save(:validate => false)
       message.owner_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.person = @u
@@ -108,11 +109,11 @@ describe 'user encryption' do
     end
    
     it 'should know if the signature is for the wrong text' do
-      message = Factory.create(:status_message, :person => @person)
+      message = Factory.build(:status_message, :person => @person)
       message.owner_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.message = 'I love VENISON'
-      message.save
+      message.save(:validate => false)
       message.verify_signature.should be false
     end
   end
@@ -123,5 +124,18 @@ describe 'user encryption' do
       xml = message.to_xml.to_s
       xml.include?(message.owner_signature).should be true
     end
+    it 'the signature should be verified on marshaling' do
+
+      message = Factory.build(:status_message, :person => @person)
+      message.owner_signature = GPGME.sign(message.signable_string, nil,
+        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@u.key]})
+      message.save
+      xml = Post.build_xml_for([message])
+      message.destroy
+      Post.count.should be 0
+      store_objects_from_xml(xml)
+      Post.count.should be 0
+    end
+
   end
 end
