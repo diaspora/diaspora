@@ -44,7 +44,9 @@ class Post
 
 #ENCRYPTION
   before_save :sign_if_mine
+  
   key :owner_signature, String
+  
   def verify_signature
     return false unless owner_signature && person.key_fingerprint
     validity = nil
@@ -54,6 +56,7 @@ class Post
     }
     return validity
   end
+  
   protected
   def sign_if_mine
     if self.person == User.first
