@@ -13,6 +13,7 @@ describe 'user encryption' do
     @u.send(:assign_key)
     @u.save
   end
+
 #  after :all do
     #gpgdir = File.expand_path("../../db/gpg-#{Rails.env}", __FILE__)
     #ctx = GPGME::Ctx.new
@@ -20,6 +21,17 @@ describe 'user encryption' do
     #keys.each{|k| ctx.delete_key(k, true)}
   #end
   
+  it 'should remove the key from the keyring on person destroy' do
+    person = Factory.create :person
+    keyid = person.key_fingerprint
+    original_key = person.export_key
+    GPGME.list_keys(keyid).count.should be 1
+    person.destroy
+    GPGME.list_keys(keyid).count.should be 0
+    GPGME.import(original_key)
+    GPGME.list_keys(keyid).count.should be 1
+  end
+
   it 'should have a key fingerprint' do
     @u.key_fingerprint.should_not be nil
   end
@@ -65,14 +77,34 @@ describe 'user encryption' do
     end
     
     it 'should not be able to verify a message from a person without a key' do 
-      person = Factory.create(:person)
+      person = Factory.create(:person, :key_fingerprint => "123")
       message = Factory.create(:status_message, :person => person)
       message.verify_signature.should be false
     end
     
-    it 'should know if the signature is from the wrong person' do
-      pending
+    it 'should verify a remote signature' do 
+      person = Factory.create(:person, :key_fingerprint => GPGME.list_keys("Ilya").first.subkeys.first.fpr)
+      message = Factory.create(:status_message, :person => person,
+                               :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
+                              # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.detached.asc").read)
+                              # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.clear.asc").read)
+
+      message.verify_signature.should be true
     end
     
+    it 'should know if the signature is from the wrong person' do
+      person = Factory.create(:person, :key_fingerprint => GPGME.list_keys("Ilya").first.subkeys.first.fpr)
+      message = Factory.create(:status_message, :person => person,
+                               :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
+                              # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.detached.asc").read)
+                              # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.clear.asc").read)
+
+      message.person = @u
+      message.verify_signature.should be false
+    end
+   
+    it 'should know if the signature is for the wrong text' do
+      pending
+    end
   end
 end

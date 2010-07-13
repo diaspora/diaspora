@@ -60,6 +60,7 @@ class User < Person
       friend_request.activate_friend
       friend_request.destroy
     else
+      GPGME.import(friend_request.exported_key)
       friend_request.person.save
       friend_request.save
     end

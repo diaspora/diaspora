@@ -26,7 +26,7 @@ class Person
   
   validates_true_for :url, :logic => lambda { self.url_unique?}
 
-  after_destroy :remove_all_traces
+  after_destroy :remove_all_traces, :remove_key
 
   scope :friends,  where(:_type => "Person", :active => true)
 
@@ -66,6 +66,9 @@ class Person
     Comment.delete_all(:person_id => self.id)
   end
 
-
+  def remove_key
+    ctx = GPGME::Ctx.new
+    ctx.delete_key(key)
+  end
 
  end

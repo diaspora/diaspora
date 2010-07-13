@@ -47,8 +47,11 @@ class Post
   key :owner_signature, String
   def verify_signature
     return false unless owner_signature && person.key_fingerprint
-    GPGME.verify(owner_signature){ |signature|
-      return signature.validity == GPGME::VALIDITY_FULL
+    
+    GPGME::verify(owner_signature, {:always_trust => true}){ |signature|
+      return signature.status == GPGME::GPG_ERR_NO_ERROR &&
+        #signature.to_s.include?("Good signature from ") &&
+        signature.fpr == person.key_fingerprint
       #validity = validity && person.key_fingerprint == signature.fpr
     }
     #validity = validity && (signed_text == to_xml.to_s)
@@ -56,7 +59,8 @@ class Post
   protected
   def sign_if_mine
     if self.person == User.first
-      self.owner_signature = GPGME::sign(to_xml.to_s,nil,{:armor=> true}) 
+      self.owner_signature = GPGME::sign(to_xml.to_s,nil,{
+        :armor=> true, :mode => GPGME::SIG_MODE_DETACH}) 
     end
   end
 
