@@ -70,7 +70,15 @@ describe 'user encryption' do
   end
 
   describe 'signing and verifying' do
-    
+    before do
+      @person = Factory.create(:person,
+        :key_fingerprint => GPGME.list_keys("Remote Friend").first.subkeys.first.fpr,
+        :profile => Profile.create(:first_name => 'Remote',
+                                  :last_name => 'Friend'),
+        :email => 'somewhere@else.com',
+        :url => 'http://distant-example.com/',
+        :key_fingerprint => '57F553EE2C230991566B7C60D3638485F3960087')
+    end
     it 'should sign a message on create' do
       message = Factory.create(:status_message, :person => @u)
       message.verify_signature.should be true 
@@ -83,38 +91,28 @@ describe 'user encryption' do
     end
     
     it 'should verify a remote signature' do 
-      person = Factory.create(:person,
-        :key_fingerprint => GPGME.list_keys("Remote Friend").first.subkeys.first.fpr,
-        :profile => Profile.create(:first_name => 'Remote',
-                                  :last_name => 'Friend'),
-        :email => 'somewhere@else.com',
-        :url => 'http://distant-example.com/',
-        :key_fingerprint => '57F553EE2C230991566B7C60D3638485F3960087')
-      puts person.inspect
-      message = Factory.create(:status_message, :person => person)
-      message.owner_signature = GPGME.sign(message.to_xml.to_s, nil, {:armor => true, :signers => [person.key]})
-      message.save                        # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.detached.asc").read)
-                              # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.clear.asc").read)
+      message = Factory.create(:status_message, :person => @person)
+      message.owner_signature = GPGME.sign(message.to_xml.to_s, nil,
+        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
+      message.save    
       message.verify_signature.should be true
     end
     
     it 'should know if the signature is from the wrong person' do
-      person = Factory.create(:person, :key_fingerprint => GPGME.list_keys("Ilya").first.subkeys.first.fpr)
-      message = Factory.create(:status_message, :person => person,
-                                :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
-                              # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.detached.asc").read)
-                              # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.clear.asc").read)
-
+      message = Factory.create(:status_message, :person => @person)
+      message.owner_signature = GPGME.sign(message.to_xml.to_s, nil,
+        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.person = @u
       message.verify_signature.should be false
     end
    
     it 'should know if the signature is for the wrong text' do
-      person = Factory.create(:person, :key_fingerprint => GPGME.list_keys("Ilya").first.subkeys.first.fpr)
-      message = Factory.create(:status_message, :message => 'I love VENISON', :person => person,
-                                :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
+      message = Factory.create(:status_message, :person => @person)
+      message.owner_signature = GPGME.sign(message.to_xml.to_s, nil,
+        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
+      message.message = 'I love VENISON'
+      message.save
       message.verify_signature.should be false
-
     end
   end
 end
