@@ -19,7 +19,6 @@ class Retraction
   attr_accessor :type
 
   def perform
-    puts('GO GO GO')
     self.type.constantize.destroy(self.post_id)
   end
 
@@ -35,7 +34,7 @@ class Retraction
   def self.type_name(object)
     if object.is_a? Post
       object.class
-    elsif object.is_a? User
+    elsif object.is_a? Person
       'Person'
     else
       'Clowntown'
