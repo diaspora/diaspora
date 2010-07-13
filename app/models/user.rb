@@ -100,7 +100,12 @@ class User < Person
   def generate_key
     puts "Generating key"
     ctx = GPGME::Ctx.new
-    paramstring = "<GnupgKeyParms format=\"internal\">
+    ctx.genkey(paramstring, nil, nil)
+    
+  end
+
+  def paramstring
+"<GnupgKeyParms format=\"internal\">
 Key-Type: DSA
 Key-Length: 512
 Subkey-Type: ELG-E
@@ -110,7 +115,6 @@ Name-Comment: #{self.url}
 Name-Email: #{self.email}
 Expire-Date: 0
 </GnupgKeyParms>"
-    ctx.genkey(paramstring, nil, nil)
-    
+
   end
 end
