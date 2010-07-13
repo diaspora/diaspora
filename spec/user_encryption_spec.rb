@@ -92,7 +92,7 @@ describe 'user encryption' do
     
     it 'should verify a remote signature' do 
       message = Factory.create(:status_message, :person => @person)
-      message.owner_signature = GPGME.sign(message.to_xml.to_s, nil,
+      message.owner_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.save    
       message.verify_signature.should be true
@@ -100,7 +100,7 @@ describe 'user encryption' do
     
     it 'should know if the signature is from the wrong person' do
       message = Factory.create(:status_message, :person => @person)
-      message.owner_signature = GPGME.sign(message.to_xml.to_s, nil,
+      message.owner_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.person = @u
       message.verify_signature.should be false
@@ -108,7 +108,7 @@ describe 'user encryption' do
    
     it 'should know if the signature is for the wrong text' do
       message = Factory.create(:status_message, :person => @person)
-      message.owner_signature = GPGME.sign(message.to_xml.to_s, nil,
+      message.owner_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.message = 'I love VENISON'
       message.save

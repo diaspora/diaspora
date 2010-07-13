@@ -47,10 +47,22 @@ class Post
   
   key :owner_signature, String
   
+  def signable_accessors
+    accessors = self.class.roxml_attrs.collect{|definition| 
+      definition.accessor}
+    accessors.delete 'person'
+    accessors
+  end
+
+  def signable_string
+    signable_accessors.collect{|accessor| 
+      (self.send accessor.to_sym).to_s}.join ';'
+  end
+
   def verify_signature
     return false unless owner_signature && person.key_fingerprint
     validity = nil
-    GPGME::verify(owner_signature, to_xml.to_s, {:armor => true, :always_trust => true}){ |signature|
+    GPGME::verify(owner_signature, signable_string, {:armor => true, :always_trust => true}){ |signature|
       validity =  signature.status == GPGME::GPG_ERR_NO_ERROR &&
         signature.fpr == person.key_fingerprint
     }
@@ -60,7 +72,7 @@ class Post
   protected
   def sign_if_mine
     if self.person == User.first
-      self.owner_signature = GPGME::sign(to_xml.to_s,nil,
+      self.owner_signature = GPGME::sign(signable_string,nil,
         {:armor=> true, :mode => GPGME::SIG_MODE_DETACH})
     end
   end
