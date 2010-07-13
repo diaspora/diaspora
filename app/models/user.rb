@@ -91,11 +91,11 @@ class User < Person
   protected
   
   def assign_key
-    keys = GPGME.list_keys(nil, true)
+    keys = GPGME.list_keys(real_name, true)
     if keys.empty?
       generate_key
     end
-    self.key_fingerprint = GPGME.list_keys(nil, true).first.subkeys.first.fingerprint
+    self.key_fingerprint = GPGME.list_keys(real_name, true).first.subkeys.first.fingerprint
   end
 
   def generate_key
