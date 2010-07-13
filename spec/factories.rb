@@ -24,7 +24,7 @@ Factory.define :user do |u|
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
   u.url  "www.example.com/"
-  u.key_fingerprint GPGME.list_keys(nil, true).first.subkeys.first.fingerprint
+  u.key_fingerprint GPGME.list_keys("Smith", true).first.subkeys.first.fingerprint
   u.profile Profile.new( :first_name => "Bob", :last_name => "Smith" )
 end
 

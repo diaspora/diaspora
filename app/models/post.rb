@@ -6,6 +6,7 @@ class Post
   include Diaspora::Webhooks
 
   xml_accessor :_id
+  xml_accessor :owner_signature
   xml_accessor :person, :as => Person
 
   key :person_id, ObjectId
@@ -51,6 +52,7 @@ class Post
     accessors = self.class.roxml_attrs.collect{|definition| 
       definition.accessor}
     accessors.delete 'person'
+    accessors.delete 'owner_signature'
     accessors
   end
 
@@ -62,16 +64,19 @@ class Post
   def verify_signature
     return false unless owner_signature && person.key_fingerprint
     validity = nil
-    GPGME::verify(owner_signature, signable_string, {:armor => true, :always_trust => true}){ |signature|
-      validity =  signature.status == GPGME::GPG_ERR_NO_ERROR &&
-        signature.fpr == person.key_fingerprint
+    GPGME::verify(owner_signature, signable_string, 
+      {:armor => true, :always_trust => true}){ |signature|
+        puts signature
+        validity =  signature.status == GPGME::GPG_ERR_NO_ERROR &&
+          signature.fpr == person.key_fingerprint
+        puts validity
     }
     return validity
   end
   
   protected
   def sign_if_mine
-    if self.person == User.first
+    if self.person == User.owner
       self.owner_signature = GPGME::sign(signable_string,nil,
         {:armor=> true, :mode => GPGME::SIG_MODE_DETACH})
     end

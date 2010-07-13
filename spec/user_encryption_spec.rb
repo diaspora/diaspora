@@ -81,6 +81,7 @@ describe 'user encryption' do
     end
     it 'should sign a message on create' do
       message = Factory.create(:status_message, :person => @u)
+      puts message.owner_signature
       message.verify_signature.should be true 
     end
     
@@ -113,6 +114,14 @@ describe 'user encryption' do
       message.message = 'I love VENISON'
       message.save
       message.verify_signature.should be false
+    end
+  end
+
+  describe 'sending and recieving signatures' do
+    it 'should contain the signature in the xml' do
+      message = Factory.create(:status_message, :person => @u)
+      xml = message.to_xml.to_s
+      xml.include?(message.owner_signature).should be true
     end
   end
 end
