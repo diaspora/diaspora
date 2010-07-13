@@ -1,5 +1,5 @@
 class StatusMessagesController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   def index
     @status_messages = StatusMessage.paginate :page => params[:page], :order => 'created_at DESC'
@@ -7,8 +7,7 @@ class StatusMessagesController < ApplicationController
 
     respond_to do |format|
       format.html 
-      format.xml {render :xml => Post.build_xml_for(@status_messages)}
-      format.json { render :json => @status_messages }
+      format.atom {render :xml => Diaspora::XML::generate(:current_url => request.url, :objects => @status_messages)}
     end
 
   end

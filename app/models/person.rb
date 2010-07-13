@@ -2,9 +2,9 @@ class Person
   include MongoMapper::Document
   include ROXML
 
+  xml_accessor :_id
   xml_accessor :email
   xml_accessor :url
-  xml_accessor :_id
   xml_accessor :key_fingerprint
   xml_accessor :profile, :as => Profile
   

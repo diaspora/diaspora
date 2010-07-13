@@ -1,6 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-
 include Diaspora
 
 describe Diaspora do
@@ -63,7 +62,6 @@ describe Diaspora do
         xml.should include "<bookmark>"
       end
     end
-
   end
 
 end

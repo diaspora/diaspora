@@ -18,7 +18,7 @@ class Bookmark < Post
 
   def clean_link
     if self.link
-      self.link = 'http://' + self.link unless self.link.match('http://' || 'https://')
+      self.link = 'http://' + self.link unless self.link.match('https?://')
       self.link = self.link + '/' if self.link[-1,1] != '/'
     end
   end
