@@ -49,17 +49,10 @@ class Post
     return false unless owner_signature && person.key_fingerprint
     validity = nil
     GPGME::verify(owner_signature, to_xml.to_s, {:armor => true, :always_trust => true}){ |signature|
-      puts signature
-      puts signature.inspect
       validity =  signature.status == GPGME::GPG_ERR_NO_ERROR &&
-        #signature.to_s.include?("Good signature from ") &&
         signature.fpr == person.key_fingerprint
-      #validity = validity && person.key_fingerprint == signature.fpr
     }
-    #puts message
-    puts to_xml.to_s
-    return validity# && message == to_xml.to_s
-    #validity = validity && (signed_text == to_xml.to_s)
+    return validity
   end
   protected
   def sign_if_mine
