@@ -85,7 +85,7 @@ describe 'user encryption' do
     it 'should verify a remote signature' do 
       person = Factory.create(:person, :key_fingerprint => GPGME.list_keys("Ilya").first.subkeys.first.fpr)
       message = Factory.create(:status_message, :person => person,
-                               :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
+                                :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
                               # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.detached.asc").read)
                               # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.clear.asc").read)
 
@@ -95,7 +95,7 @@ describe 'user encryption' do
     it 'should know if the signature is from the wrong person' do
       person = Factory.create(:person, :key_fingerprint => GPGME.list_keys("Ilya").first.subkeys.first.fpr)
       message = Factory.create(:status_message, :person => person,
-                               :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
+                                :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
                               # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.detached.asc").read)
                               # :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.clear.asc").read)
 
@@ -104,7 +104,11 @@ describe 'user encryption' do
     end
    
     it 'should know if the signature is for the wrong text' do
-      pending
+      person = Factory.create(:person, :key_fingerprint => GPGME.list_keys("Ilya").first.subkeys.first.fpr)
+      message = Factory.create(:status_message, :message => 'I love VENISON', :person => person,
+                                :owner_signature => File.open(File.dirname(__FILE__) + "/fixtures/msg.xml.normal.asc").read)
+      message.verify_signature.should be false
+
     end
   end
 end
