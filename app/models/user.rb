@@ -4,7 +4,7 @@ class User < Person
          :recoverable, :rememberable, :trackable, :validatable
          
   
-  before_validation_on_create :assign_key
+  before_create :assign_key
   validates_presence_of :profile
   
   before_validation :do_bad_things
@@ -99,6 +99,7 @@ class User < Person
 
   def generate_key
     puts "Generating key"
+    puts paramstring
     ctx = GPGME::Ctx.new
     ctx.genkey(paramstring, nil, nil)
     

@@ -4,7 +4,7 @@ include ApplicationHelper
 
 describe ApplicationHelper do
   before do
-    @user = Factory.create(:user, :email => "robert@grimm.com")
+    @user = Factory.create(:user)
     @person = Factory.create(:person)
   end
 

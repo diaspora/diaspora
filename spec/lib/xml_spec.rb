@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Diaspora::XML do
   before do
-    @user = Factory.create(:user, :profile => { :first_name => "robert", :last_name => "grimm" } )
+    @user = Factory.create(:user) 
     Diaspora::XML::OWNER = @user
   end
 
