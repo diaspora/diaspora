@@ -4,7 +4,7 @@ class User < Person
          :recoverable, :rememberable, :trackable, :validatable
          
   
-  before_create :assign_key
+  before_validation :assign_key
   validates_presence_of :profile
   
   before_validation :do_bad_things
