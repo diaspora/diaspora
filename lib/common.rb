@@ -61,6 +61,9 @@ module Diaspora
             recipients.map!{|x| x = x.url + "receive/"}  
             xml = self.class.build_xml_for([self])
             @@queue.add_post_request( recipients, xml )
+
+            @@queue.add_hub_notification('http://pubsubhubbub.appspot.com/publish/', User.owner.url + self.class.to_s.pluralize.underscore )
+            
             @@queue.process
           end
         end
@@ -128,8 +131,9 @@ module Diaspora
       end
 
       def self.endpoints
-        #generate pubsub, poco, salmon endpoints
-        ""
+          <<-XML
+ <link href="http://pubsubhubbub.appspot.com" rel="hub"/>
+          XML
       end
       
       def self.subject

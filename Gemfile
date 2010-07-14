@@ -13,7 +13,7 @@ gem "haml"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
 
 gem 'gpgme'
-
+gem 'pubsubhubbub'
 #mai crazy async stuff
 #gem 'em-synchrony',   :git => 'git://github.com/igrigorik/em-synchrony.git',    :require => 'em-synchrony/em-http'
 gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'

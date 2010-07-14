@@ -17,20 +17,28 @@ class MessageHandler
     destinations.each{|dest| @queue.push(Message.new(:post, dest, b))}
   end
 
+  def add_hub_notification(destination, feed_location)
+    @queue.push(Message.new(:pubhub, destination, feed_location))
+  end
+
   def process
     @queue.pop{ |query|
       case query.type
       when :post
-        http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml =>  query.body}
-        http.callback {process}
+        http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml => query.body}
+        http.callback { puts  query.destination; process; process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
+      when :pubhub
+        http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT 
+        http.callback { puts  "boner city" + http.response ; process}
       else
         raise "message is not a type I know!"
       end
 
       http.errback {
+        puts http.response
         puts "failure from #{query.destination}, retrying"
         query.try_count +=1
         @queue.push query unless query.try_count >= NUM_TRIES 

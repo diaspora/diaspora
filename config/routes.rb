@@ -18,7 +18,7 @@ Diaspora::Application.routes.draw do |map|
 
   resources :users
   match 'receive', :to => 'dashboards#receive'
-
+  match 'hub', :to => 'dashboards#hub'
   root :to => 'dashboards#index'
 
 end
