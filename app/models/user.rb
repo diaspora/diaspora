@@ -56,11 +56,11 @@ class User < Person
   end
 
   def receive_friend_request(friend_request)
+    GPGME.import(friend_request.exported_key)
     if Request.where(:callback_url => friend_request.callback_url).first
       friend_request.activate_friend
       friend_request.destroy
     else
-      GPGME.import(friend_request.exported_key)
       friend_request.person.save
       friend_request.save
     end
