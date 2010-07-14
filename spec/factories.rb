@@ -8,7 +8,6 @@ GPGME::check_version({})
 Factory.define :profile do |p|
   p.first_name "Robert"
   p.last_name "Grimm"
-  p.person Person.new( :email => "bob@aol.com" )
 end
 
 Factory.define :person do |p|

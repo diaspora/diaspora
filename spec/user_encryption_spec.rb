@@ -15,8 +15,8 @@ describe 'user encryption' do
     @u.save
     @person = Factory.create(:person,
       :key_fingerprint => GPGME.list_keys("Remote Friend").first.subkeys.first.fpr,
-      :profile => Profile.create(:first_name => 'Remote',
-                                :last_name => 'Friend'),
+      :profile => Profile.new(:first_name => 'Remote',
+                              :last_name => 'Friend'),
       :email => 'somewhere@else.com',
       :url => 'http://distant-example.com/',
       :key_fingerprint => '57F553EE2C230991566B7C60D3638485F3960087')

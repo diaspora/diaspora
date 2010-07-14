@@ -14,7 +14,7 @@ class Person
   key :active, Boolean, :default => false
   key :key_fingerprint, String
 
-  one :profile, :class_name => 'Profile', :foreign_key => :person_id
+  one :profile, :class_name => 'Profile'
   many :posts, :class_name => 'Post', :foreign_key => :person_id
 
   timestamps!

@@ -9,7 +9,7 @@
 require 'config/environment'
 
 # Create seed user
-user = User.create( :email => "tom@joindiaspora.com", :password => "aaaaaa", :profile => Profile.create( :first_name => "Diaspora", :last_name => "Tom" ))
+user = User.create( :email => "tom@joindiaspora.com", :password => "aaaaaa", :profile => Profile.new( :first_name => "Diaspora", :last_name => "Tom" ))
 
 names = [ ["George", "Washington"],
           ["John", "Adams"],
@@ -31,7 +31,7 @@ names = [ ["George", "Washington"],
 
 # Make people
 (1..10).each { |n|
-  People.create( :email => "b#{n}@joindiaspora.com", :url => "http://b#{n}.joindiaspora.com/", :profile => Profile.create(:first_name => names[n-1][0], :last_name => names[n-1][1]))
+  People.create( :email => "b#{n}@joindiaspora.com", :url => "http://b#{n}.joindiaspora.com/", :profile => Profile.new(:first_name => names[n-1][0], :last_name => names[n-1][1]))
 }
 
 # Populate feed
