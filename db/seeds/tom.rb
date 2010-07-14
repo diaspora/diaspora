@@ -54,7 +54,5 @@ names = [ ["George", "Washington"],
   #email = names[n][1].gsub(/ /,'').downcase
   #Person.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :active => true, :profile => Profile.new(:first_name => names[n][0], :last_name => names[n][1]))
 #}
-Request.all.each{|r| 
-  User.owner.accept_friend_request(r.id)
-}
+
 
