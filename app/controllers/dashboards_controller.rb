@@ -1,7 +1,8 @@
 class DashboardsController < ApplicationController
   
-  before_filter :authenticate_user!, :except => :receive
+  before_filter :authenticate_user!, :except => [:receive, :hub]
   include ApplicationHelper
+  include DashboardsHelper
 
   def index
     @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
@@ -14,6 +15,17 @@ class DashboardsController < ApplicationController
     store_objects_from_xml params[:xml]
     render :nothing => true
   end
+  
+  def hub
+    if params[:mode] == "subscribe"
+      response.status = subscribe(params)
+    end
+
+    render :nothing => true
+  end
+  
+  
+  
   
   def warzombie
     render :nothing => true
