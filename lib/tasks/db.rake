@@ -28,7 +28,6 @@ namespace :db do
     Post.delete_all
     Person.delete_all
     User.delete_all
-    Profile.delete_all
     Request.delete_all
   end
 
