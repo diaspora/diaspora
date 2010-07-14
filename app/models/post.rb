@@ -46,7 +46,7 @@ class Post
 #ENCRYPTION
   
   before_validation :sign_if_mine
-  #validates_true_for :owner_signature, :logic => lambda {self.verify_signature}
+  validates_true_for :owner_signature, :logic => lambda {self.verify_signature}
   
   key :owner_signature, String
   

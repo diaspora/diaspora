@@ -12,7 +12,7 @@ include Devise::TestHelpers
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-
+  config.mock_with :mocha
   config.mock_with :rspec
 
   DatabaseCleaner.strategy = :truncation
@@ -20,11 +20,12 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    stub_signature_verification
   end
 
   config.before(:each) do
     DatabaseCleaner.start
-    stub_sockets_controller 
+    stub_sockets_controller
   end
 
   config.after(:each) do
@@ -38,4 +39,16 @@ end
     mock_sockets_controller.stub!(:outgoing).and_return(true)
     mock_sockets_controller.stub!(:delete_subscriber).and_return(true)
     SocketsController.stub!(:new).and_return(mock_sockets_controller)
+  end
+
+  def stub_signature_verification
+    Post.any_instance.stubs(:verify_signature).returns(true)
+    StatusMessage.any_instance.stubs(:verify_signature).returns(true)
+    Blog.any_instance.stubs(:verify_signature).returns(true)
+    Bookmark.any_instance.stubs(:verify_signature).returns(true)
+  end
+
+  def unstub_mocha_stubs
+    Mocha::Mockery.instance.stubba.unstub_all
+ 
   end

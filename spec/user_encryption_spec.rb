@@ -9,6 +9,7 @@ describe 'user encryption' do
     
   end
   before do
+    unstub_mocha_stubs
     @u = Factory.create(:user)
     @u.send(:assign_key)
     @u.save
@@ -22,12 +23,13 @@ describe 'user encryption' do
 
   end
 
-#  after :all do
+  after  do
+    stub_signature_verification
     #gpgdir = File.expand_path("../../db/gpg-#{Rails.env}", __FILE__)
     #ctx = GPGME::Ctx.new
     #keys = ctx.keys
     #keys.each{|k| ctx.delete_key(k, true)}
-  #end
+  end
   
   it 'should remove the key from the keyring on person destroy' do
     pending "We can implement deleting from the keyring later, its annoying to test b/c no stub any instance of"
@@ -79,9 +81,9 @@ describe 'user encryption' do
   end
 
   describe 'signing and verifying' do
+
     it 'should sign a message on create' do
       message = Factory.create(:status_message, :person => @u)
-      puts message.owner_signature
       message.verify_signature.should be true 
     end
     
@@ -126,8 +128,6 @@ describe 'user encryption' do
       xml.include?(message.owner_signature).should be true
     end
     it 'the signature should be verified on marshaling' do
-      pending "We're going to work on embeded profile"
-
       message = Factory.build(:status_message, :person => @person)
       message.owner_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@u.key]})
