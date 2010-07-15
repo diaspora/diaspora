@@ -33,4 +33,29 @@ class DashboardsController < ApplicationController
       StatusMessage.create(:message => "A cool, cool morning for once.", :person => User.owner, :created_at => Time.now-150000)
     end
   end
+
+  def zombiefriends
+    render :nothing => true
+    backer_info = ["http://washington.joindiaspora.com",
+                   "http://adams.joindiaspora.com",
+                   "http://jefferson.joindiaspora.com",
+                   "http://madison.joindiaspora.com",
+                   "http://monroe.joindiaspora.com",
+                   "http://quincyadams.joindiaspora.com",
+                   "http://jackson.joindiaspora.com",
+                   "http://buren.joindiaspora.com",
+                   "http://harrison.joindiaspora.com",
+                   "http://tyler.joindiaspora.com",
+                   "http://polk.joindiaspora.com",
+                   #"http://taylor.joindiaspora.com",
+                   #"http://fillmore.joindiaspora.com",
+                   #"http://pierce.joindiaspora.com",
+            ]
+
+    if User.owner.email == "tom@joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
+      backer_info.each do |backer| 
+        User.owner.send_friend_request_to(backer)
+      end
+    end
+  end
 end
