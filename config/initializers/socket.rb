@@ -1,8 +1,6 @@
 require 'em-websocket'
 require 'eventmachine'
 
-
-
 module WebSocket
   EM.next_tick {
     initialize_channel

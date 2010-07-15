@@ -2,7 +2,6 @@ class DashboardsController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:receive, :hub, :host_meta]
   include ApplicationHelper
-  include DashboardsHelper
 
   def index
     @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
