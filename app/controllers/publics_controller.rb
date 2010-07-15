@@ -11,7 +11,7 @@ class PublicsController < ApplicationController
   end
 
   def webfinger
-    @user = Person.first(:email => params[:q].gsub('acct:', '')]
+    @user = Person.first(:email => params[:q].gsub('acct:', ''))
     render 'webfinger', :layout => false, :content_type => 'application/xrd+xml'
   end
   
