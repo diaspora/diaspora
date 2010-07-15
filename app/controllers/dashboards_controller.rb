@@ -16,7 +16,7 @@ class DashboardsController < ApplicationController
   
   def warzombie
     render :nothing => true
-    if User.owner.email == "tom@joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
+    if User.owner.email == "tom@tom.joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
       StatusMessage.create(:message => "There's a bomb in the lasagna!?", :person => User.owner) 
       Bookmark.create(:title => "xkcd", :link => "http://xkcd.com/743/", :person => User.owner )
       StatusMessage.create(:message => "I switched to Motoroi today, a Motorola Android-based phone, in Korea. Now, I am using Android phones in both the U.S. and Korea", :person => User.owner, :created_at => Time.now-930)
@@ -52,7 +52,7 @@ class DashboardsController < ApplicationController
                    #"http://pierce.joindiaspora.com/",
             ]
 
-    if User.owner.email == "tom@joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
+    if User.owner.email == "tom@tom.joindiaspora.com" && Person.friends.first.nil? 
       backer_info.each do |backer|
         logger.info "Zombefriending #{backer}"
         User.owner.send_friend_request_to(backer)
