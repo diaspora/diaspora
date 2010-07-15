@@ -9,7 +9,7 @@
 require 'config/environment'
 
 # Create seed user
-user = User.create( :email => "tom@joindiaspora.com", :password => "evankorth", :url => "http://tom.joindiaspora.com/", :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
+user = User.create( :email => "tom@tom.joindiaspora.com", :password => "evankorth", :url => "http://tom.joindiaspora.com/", :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
 
 names = [ ["George", "Washington"],
           ["John", "Adams"],

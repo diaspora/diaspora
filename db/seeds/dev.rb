@@ -51,8 +51,8 @@ names = [ ["George", "Washington"],
 
 # Make people
 (0..10).each { |n|
-  email = names[n][1].gsub(/ /,'').downcase
-  Person.create( :email => "#{email}@joindiaspora.com", :url => "http://#{email}.joindiaspora.com/", :active => true, :profile => Profile.new(:first_name => names[n][0], :last_name => names[n][1]))
+  username = names[n][1].gsub(/ /,'').downcase
+  Person.create( :email => "#{username}@#{username}joindiaspora.com", :url => "http://#{username}.joindiaspora.com/", :active => true, :profile => Profile.new(:first_name => names[n][0], :last_name => names[n][1]))
 }
 
 

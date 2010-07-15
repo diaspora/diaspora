@@ -51,11 +51,11 @@ def create(backer_number)
 
 
   # Create seed user
-  email = backer_info[backer_number][2].gsub(/ /,'').downcase
-  user = User.create( :email => "#{email}@joindiaspora.com",
-                     :password => "#{email+backer_info[backer_number][0].to_s}",
+  username = backer_info[backer_number][2].gsub(/ /,'').downcase
+  user = User.create( :email => "#{username}@#{username}joindiaspora.com",
+                     :password => "#{username+backer_info[backer_number][0].to_s}",
                      :profile => Profile.new( :first_name => backer_info[backer_number][1], :last_name => backer_info[backer_number][2] ),
-                    :url=> "#{email}.joindiaspora.com")
+                    :url=> "#{username}.joindiaspora.com")
 
   # Make connection with Diaspora Tom
   User.owner.send_friend_request_to('http://tom.joindiaspora.com/')
