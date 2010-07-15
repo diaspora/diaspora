@@ -26,7 +26,8 @@ Diaspora::Application.configure do
   config.action_mailer.delivery_method = :test
   config.threadsafe!
   
-
+  ENV['GNUPGHOME'] = File.expand_path("../../gpg/diaspora-#{Rails.env}/", __FILE__)
+  GPGME::check_version({})
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types

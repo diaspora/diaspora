@@ -16,7 +16,7 @@ class DashboardsController < ApplicationController
   
   def warzombie
     render :nothing => true
-    if User.owner.email == "tom@joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
+    if User.owner.email == "tom@tom.joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
       StatusMessage.create(:message => "There's a bomb in the lasagna!?", :person => User.owner) 
       Bookmark.create(:title => "xkcd", :link => "http://xkcd.com/743/", :person => User.owner )
       StatusMessage.create(:message => "I switched to Motoroi today, a Motorola Android-based phone, in Korea. Now, I am using Android phones in both the U.S. and Korea", :person => User.owner, :created_at => Time.now-930)
@@ -31,6 +31,32 @@ class DashboardsController < ApplicationController
       StatusMessage.create(:message => "Getting a universal remote is the epitome of laziness, I do declare.", :person => User.owner, :created_at => Time.now-4400)
       StatusMessage.create(:message => "Does anyone know how to merge two Skype contact entries of the same person? (i.e. one Skype ID and one mobile number)", :person => User.owner, :created_at => Time.now-400239)
       StatusMessage.create(:message => "A cool, cool morning for once.", :person => User.owner, :created_at => Time.now-150000)
+    end
+  end
+
+  def zombiefriends
+    render :nothing => true
+    backer_info = ["http://washington.joindiaspora.com/",
+                   "http://adams.joindiaspora.com/",
+                   "http://jefferson.joindiaspora.com/",
+                   "http://madison.joindiaspora.com/",
+                   "http://monroe.joindiaspora.com/",
+                   "http://quincyadams.joindiaspora.com/",
+                   "http://jackson.joindiaspora.com/",
+                   "http://buren.joindiaspora.com/",
+                   "http://harrison.joindiaspora.com/",
+                   "http://tyler.joindiaspora.com/",
+                   "http://polk.joindiaspora.com/",
+                   #"http://taylor.joindiaspora.com/",
+                   #"http://fillmore.joindiaspora.com/",
+                   #"http://pierce.joindiaspora.com/",
+            ]
+
+    if User.owner.email == "tom@tom.joindiaspora.com" && Person.friends.first.nil? 
+      backer_info.each do |backer|
+        logger.info "Zombefriending #{backer}"
+        User.owner.send_friend_request_to(backer)
+      end
     end
   end
 end

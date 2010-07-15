@@ -132,13 +132,14 @@ describe "parser in application helper" do
       request_remote.destination_url = @user.url
       request_remote.callback_url = @user.url
       request_remote.person = @person
+      request_remote.exported_key = @person.export_key
 
       xml = Request.build_xml_for [request_remote]
       
       @person.destroy
       request_remote.destroy
       store_objects_from_xml(xml)
-      Person.where(:url => @person.url).first.active.should be true
+      Person.first(:url => @person.url).active.should be true
     end
 
 

@@ -5,6 +5,7 @@ class Person
   xml_accessor :_id
   xml_accessor :email
   xml_accessor :url
+  xml_accessor :key_fingerprint
   xml_accessor :profile, :as => Profile
   
   
@@ -13,19 +14,19 @@ class Person
   key :active, Boolean, :default => false
   key :key_fingerprint, String
 
-  one :profile, :class_name => 'Profile', :foreign_key => :person_id
+  one :profile, :class_name => 'Profile'
   many :posts, :class_name => 'Post', :foreign_key => :person_id
 
   timestamps!
 
   before_validation :clean_url
-  validates_presence_of :email, :url
+  validates_presence_of :email, :url, :key_fingerprint
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
   validates_true_for :url, :logic => lambda { self.url_unique?}
 
-  after_destroy :remove_all_traces
+  after_destroy :remove_all_traces, :remove_key
 
   scope :friends,  where(:_type => "Person", :active => true)
 
@@ -38,7 +39,10 @@ class Person
   def key
     GPGME::Ctx.new.get_key key_fingerprint
   end
-
+  
+  def export_key
+    GPGME::export(key_fingerprint, :armor => true)
+  end
 
   protected
   
@@ -59,9 +63,11 @@ class Person
 
   def remove_all_traces
     self.posts.delete_all
-    Comment.delete_all(:person_id => self.id)
   end
 
-
+  def remove_key
+    ctx = GPGME::Ctx.new
+    ctx.delete_key(key)
+  end
 
  end

@@ -1,0 +1,14 @@
+<status_message>
+  <message>jimmy's 1 whales</message>
+  <_id>4c3b7cf9312f91367f000004</_id>
+  <person>
+    <email>bob1@aol.com</email>
+    <url>http://www.example.com/</url>
+    <_id>4c3b7c64312f913664000005</_id>
+    <key_fingerprint>0264242496D4B585297BF236BEEFE6DEBE3407AA</key_fingerprint>
+    <profile>
+      <first_name>Bob</first_name>
+      <last_name>Smith</last_name>
+    </profile>
+  </person>
+</status_message>
