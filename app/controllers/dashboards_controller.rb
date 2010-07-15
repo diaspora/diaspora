@@ -53,7 +53,8 @@ class DashboardsController < ApplicationController
             ]
 
     if User.owner.email == "tom@joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
-      backer_info.each do |backer| 
+      backer_info.each do |backer|
+        puts backer
         User.owner.send_friend_request_to(backer)
       end
     end
