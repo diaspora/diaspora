@@ -18,7 +18,7 @@ Diaspora::Application.routes.draw do |map|
 
   resources :users
   match 'receive', :to => 'dashboards#receive'
-  match 'hub', :to => 'publics#hubbub'
+  match 'hubbub', :to => 'publics#hubbub'
   match '.well-known/host-meta', :to => 'publics#host_meta'
   match 'webfinger', :to => 'publics#webfinger'
   root :to => 'dashboards#index'
