@@ -10,7 +10,7 @@ require 'config/environment'
 
 
 
-def create(backer_number, password)
+def create(backer_number)
   backer_info = [ [5072,"George", "Washington"],
                   [3742,"John", "Adams"],
                   [7782,"Thomas", "Jefferson"],
@@ -62,12 +62,10 @@ def create(backer_number, password)
   #Person.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :active => true, :profile => Profile.new(:first_name => "Alexander", :last_name => "Hamiltom"))
   # Make people
   
-  #(0..10).each { |n|
-    #email = backer_info[n][2].gsub(/ /,'').downcase
-    #Person.create( :email => "#{email}@joindiaspora.com", 
-                  #:url => "http://#{email}.joindiaspora.com/", 
-                  #:active => true, 
-                  #:profile => Profile.new(:first_name => backer_info[n][1], :last_name => backer_info[n][2]))  unless n == backer_number
+#  (0..10).each { |n|
+    #domain_name = backer_info[n][2].gsub(/ /,'').downcase
+    #url = "http://#{domain_name}.joindiaspora.com/"
+    #User.owner.send_friend_request_to(url)
   #}
 end
 
