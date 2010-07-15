@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:receive, :hub, :host_meta]
+  before_filter :authenticate_user!, :except => :receive
   include ApplicationHelper
 
   def index
