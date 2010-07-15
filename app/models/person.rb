@@ -59,7 +59,6 @@ class Person
 
   def remove_all_traces
     self.posts.delete_all
-    Comment.delete_all(:person_id => self.id)
   end
 
 
