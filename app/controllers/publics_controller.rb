@@ -16,10 +16,8 @@ class PublicsController < ApplicationController
   end
   
   def hubbub
-    puts params.inspect
-      if params['hub.mode'] == "subscribe"
+      if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
         render :text => params['hub.challenge'], :status => 202 
       end
   end
-
 end
