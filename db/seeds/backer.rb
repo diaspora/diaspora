@@ -10,7 +10,7 @@ require 'config/environment'
 
 
 
-def create(backer_number, password)
+def create(backer_number)
   backer_info = [ [5072,"George", "Washington"],
                   [3742,"John", "Adams"],
                   [7782,"Thomas", "Jefferson"],
@@ -66,7 +66,9 @@ def create(backer_number, password)
     Person.create( :email => "#{email}@joindiaspora.com", 
                   :url => "http://#{email}.joindiaspora.com/", 
                   :active => true, 
-                  :profile => Profile.create(:first_name => backer_info[n][1], :last_name => backer_info[n][2]))  unless n == backer_number
+                  :profile => Profile.create(
+                    :first_name => backer_info[n][1],
+                    :last_name => backer_info[n][2]))  unless n == backer_number
   }
 end
 
