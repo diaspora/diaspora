@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   
-  before_filter :authenticate_user!, :except => [:receive, :hub]
+  before_filter :authenticate_user!, :except => [:receive, :hub, :host_meta]
   include ApplicationHelper
   include DashboardsHelper
 
@@ -9,22 +9,10 @@ class DashboardsController < ApplicationController
   end
 
   def receive
-    
     puts "SOMEONE JUST SENT ME: #{params[:xml]}"
-    
     store_objects_from_xml params[:xml]
     render :nothing => true
   end
-  
-  def hub
-    if params[:mode] == "subscribe"
-      response.status = subscribe(params)
-    end
-
-    render :nothing => true
-  end
-  
-  
   
   
   def warzombie
