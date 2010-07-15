@@ -10,17 +10,21 @@ describe 'user encryption' do
   end
   before do
     unstub_mocha_stubs
-    @u = Factory.create(:user)
-    @u.send(:assign_key)
-    @u.save
+    @user = Factory.create(:user)
+    @user.send(:assign_key)
+    @user.save
     @person = Factory.create(:person,
       :key_fingerprint => GPGME.list_keys("Remote Friend").first.subkeys.first.fpr,
       :profile => Profile.new(:first_name => 'Remote',
                               :last_name => 'Friend'),
       :email => 'somewhere@else.com',
-      :url => 'http://distant-example.com/',
-      :key_fingerprint => '57F553EE2C230991566B7C60D3638485F3960087')
-
+      :url => 'http://distant-example.com/')
+    @person2 = Factory.create(:person,
+      :key_fingerprint => GPGME.list_keys("Second Friend").first.subkeys.first.fpr,
+      :profile => Profile.new(:first_name => 'Second',
+                              :last_name => 'Friend'),
+      :email => 'elsewhere@else.com',
+      :url => 'http://distanter-example.com/')
   end
 
   after  do
@@ -44,18 +48,18 @@ describe 'user encryption' do
   end
 
   it 'should have a key fingerprint' do
-    @u.key_fingerprint.should_not be nil
+    @user.key_fingerprint.should_not be nil
   end
 
   it 'should retrieve a user key' do
-    @u.key.subkeys[0].fpr.should  == @u.key_fingerprint
+    @user.key.subkeys[0].fpr.should  == @user.key_fingerprint
   end
 
   describe 'key exchange on friending' do
        it 'should send over a public key' do
       Comment.send(:class_variable_get, :@@queue).stub!(:add_post_request)
-      request = @u.send_friend_request_to("http://example.com/")
-      Request.build_xml_for([request]).include?( @u.export_key).should be true
+      request = @user.send_friend_request_to("http://example.com/")
+      Request.build_xml_for([request]).include?( @user.export_key).should be true
     end
 
     it 'should receive and marshal a public key from a request' do
@@ -70,8 +74,9 @@ describe 'user encryption' do
       
       xml = Request.build_xml_for [request]
       person.destroy
+      personcount = Person.all.count
       store_objects_from_xml(xml)
-      Person.all.count.should == 3 
+      Person.all.count.should == personcount + 1
       new_person = Person.first(:url => "http://test.url/")
       new_person.key_fingerprint.nil?.should == false
       new_person.id.should == id
@@ -83,60 +88,102 @@ describe 'user encryption' do
   describe 'signing and verifying' do
 
     it 'should sign a message on create' do
-      message = Factory.create(:status_message, :person => @u)
-      message.verify_signature.should be true 
+      message = Factory.create(:status_message, :person => @user)
+      message.verify_creator_signature.should be true 
     end
     
     it 'should not be able to verify a message from a person without a key' do 
       person = Factory.create(:person, :key_fingerprint => "123")
       message = Factory.build(:status_message, :person => person)
       message.save(:validate => false)
-      message.verify_signature.should be false
+      message.verify_creator_signature.should be false
     end
     
     it 'should verify a remote signature' do 
       message = Factory.build(:status_message, :person => @person)
-      message.owner_signature = GPGME.sign(message.signable_string, nil,
+      message.creator_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.save(:validate => false)
-      message.verify_signature.should be true
+      message.verify_creator_signature.should be true
     end
     
     it 'should know if the signature is from the wrong person' do
       message = Factory.build(:status_message, :person => @person)
       message.save(:validate => false)
-      message.owner_signature = GPGME.sign(message.signable_string, nil,
+      message.creator_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
-      message.person = @u
-      message.verify_signature.should be false
+      message.person = @user
+      message.verify_creator_signature.should be false
     end
    
     it 'should know if the signature is for the wrong text' do
       message = Factory.build(:status_message, :person => @person)
-      message.owner_signature = GPGME.sign(message.signable_string, nil,
+      message.creator_signature = GPGME.sign(message.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
       message.message = 'I love VENISON'
       message.save(:validate => false)
-      message.verify_signature.should be false
+      message.verify_creator_signature.should be false
     end
   end
 
   describe 'sending and recieving signatures' do
     it 'should contain the signature in the xml' do
-      message = Factory.create(:status_message, :person => @u)
+      message = Factory.create(:status_message, :person => @user)
       xml = message.to_xml.to_s
-      xml.include?(message.owner_signature).should be true
+      xml.include?(message.creator_signature).should be true
     end
-    it 'the signature should be verified on marshaling' do
+    it 'A message with an invalid signature should be rejected' do
       message = Factory.build(:status_message, :person => @person)
-      message.owner_signature = GPGME.sign(message.signable_string, nil,
-        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@u.key]})
+      message.creator_signature = GPGME.sign(message.signable_string, nil,
+        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@user.key]})
       message.save
       xml = Post.build_xml_for([message])
       message.destroy
       Post.count.should be 0
       store_objects_from_xml(xml)
       Post.count.should be 0
+    end
+
+  end
+  describe 'comments' do
+    before do
+      @remote_message = Factory.build(:status_message, :person => @person)
+      @remote_message.creator_signature = GPGME.sign(@remote_message.signable_string, nil,
+        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
+      @remote_message.save 
+
+    end
+    it 'should attach the creator signature if the user is commenting' do
+      @user.comment "Yeah, it was great", :on => @remote_message
+      @remote_message.comments.first.verify_creator_signature.should be true
+    end
+
+    it 'should sign the comment if the user is the post creator' do
+      message = Factory.create(:status_message, :person => @user)
+      @user.comment "Yeah, it was great", :on => message
+      StatusMessage.first.comments.first.verify_creator_signature.should be true
+      StatusMessage.first.comments.first.verify_post_creator_signature.should be true
+    end
+    
+    it 'should verify a comment made on a remote post by a different friend' do
+      comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
+      comment.creator_signature = GPGME.sign(@remote_message.signable_string, nil,
+        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person2.key]})
+      comment.verify_creator_signature.should be true
+
+    end
+
+    it 'should reject comments on a remote post with only a creator sig' do
+        comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
+        comment.creator_signature = GPGME.sign(@remote_message.signable_string, nil,
+          {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person2.key]})
+        comment.verify_creator_signature.should be true
+        comment.verify_post_creator_signature.should be false
+        comment.save.should be false
+    end
+
+    it 'should receive remote comments on a user post with a creator sig' do
+      
     end
 
   end

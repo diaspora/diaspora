@@ -42,10 +42,11 @@ end
   end
 
   def stub_signature_verification
-    Post.any_instance.stubs(:verify_signature).returns(true)
-    StatusMessage.any_instance.stubs(:verify_signature).returns(true)
-    Blog.any_instance.stubs(:verify_signature).returns(true)
-    Bookmark.any_instance.stubs(:verify_signature).returns(true)
+    Post.any_instance.stubs(:verify_creator_signature).returns(true)
+    StatusMessage.any_instance.stubs(:verify_creator_signature).returns(true)
+    Blog.any_instance.stubs(:verify_creator_signature).returns(true)
+    Bookmark.any_instance.stubs(:verify_creator_signature).returns(true)
+    Comment.any_instance.stubs(:verify_creator_signature).returns(true)
   end
 
   def unstub_mocha_stubs

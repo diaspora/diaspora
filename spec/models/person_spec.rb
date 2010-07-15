@@ -65,6 +65,7 @@ describe Person do
     Person.friends.all.count.should == 1
     u.unfriend(f.id)
     Person.friends.all.count.should == 0
+    Person.all.count.should == 1
   end
 
 end
