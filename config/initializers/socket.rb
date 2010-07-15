@@ -1,8 +1,6 @@
 require 'em-websocket'
 require 'eventmachine'
 
-
-
 module WebSocket
   EM.next_tick {
     initialize_channel
@@ -13,7 +11,7 @@ module WebSocket
                   :debug =>APP_CONFIG[:debug]) do |ws|
       ws.onopen {
         @ws = ws
-        sid = SocketsController.new.new_subscriber
+        sid = @channel.subscribe{ |msg| ws.send msg }#SocketsController.new.new_subscriber
         
         ws.onmessage { |msg| SocketsController.new.incoming(msg) }#@channel.push msg; puts msg}
 
@@ -36,7 +34,7 @@ module WebSocket
   
   
   def self.subscribe
-    @channel.subscribe{ |msg| @ws.send msg }
+    @channel.subscribe{ |msg| ws.send msg }
   end
   
 end
