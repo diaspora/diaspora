@@ -7,7 +7,7 @@ gem 'mongo_mapper', :git => "http://github.com/BadMinus/mongomapper.git"
 gem 'devise', :git => "http://github.com/BadMinus/devise.git"
 gem 'jnunemaker-validatable', :git => "http://github.com/BadMinus/validatable.git"
 gem 'mongo_ext'
-gem "bson_ext", "1.0.1"
+gem 'bson_ext'
 
 gem "haml"
 gem 'roxml', :git => "git://github.com/Empact/roxml.git"
