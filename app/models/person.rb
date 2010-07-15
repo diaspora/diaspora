@@ -26,7 +26,7 @@ class Person
   
   validates_true_for :url, :logic => lambda { self.url_unique?}
 
-  after_destroy :remove_all_traces#, :remove_key
+  after_destroy :remove_all_traces, :remove_key
 
   scope :friends,  where(:_type => "Person", :active => true)
 

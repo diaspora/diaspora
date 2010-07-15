@@ -36,7 +36,6 @@ describe 'user encryption' do
   end
   
   it 'should remove the key from the keyring on person destroy' do
-    pending "We can implement deleting from the keyring later, its annoying to test b/c no stub any instance of"
     person = Factory.create :person
     keyid = person.key_fingerprint
     original_key = person.export_key
@@ -167,7 +166,7 @@ describe 'user encryption' do
     
     it 'should verify a comment made on a remote post by a different friend' do
       comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-      comment.creator_signature = GPGME.sign(@remote_message.signable_string, nil,
+      comment.creator_signature = GPGME.sign(comment.signable_string, nil,
         {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person2.key]})
       comment.verify_creator_signature.should be true
 
@@ -175,7 +174,7 @@ describe 'user encryption' do
 
     it 'should reject comments on a remote post with only a creator sig' do
         comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-        comment.creator_signature = GPGME.sign(@remote_message.signable_string, nil,
+        comment.creator_signature = GPGME.sign(comment.signable_string, nil,
           {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person2.key]})
         comment.verify_creator_signature.should be true
         comment.verify_post_creator_signature.should be false

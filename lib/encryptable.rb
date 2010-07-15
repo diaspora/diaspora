@@ -11,7 +11,6 @@
       validity = nil
       GPGME::verify(creator_signature, signable_string, 
         {:armor => true, :always_trust => true}){ |signature|
-        puts signature  
         validity =  signature.status == GPGME::GPG_ERR_NO_ERROR &&
             signature.fpr == person.key_fingerprint
       }

@@ -34,7 +34,7 @@ describe Person do
   end
 
 
-  it 'should delete all of user upon user deletion' do
+  it 'should delete all of user except comments upon user deletion' do
     Factory.create(:user)
 
     f = Factory.create(:person)
@@ -53,8 +53,8 @@ describe Person do
     f.destroy
 
     Post.count.should == 1
-    Comment.all.count.should == 1
-    s.comments.count.should == 1
+    Comment.all.count.should == 4
+    s.comments.count.should == 4
   end
 
   it 'should let a user unfriend another user' do

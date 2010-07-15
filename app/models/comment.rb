@@ -29,7 +29,8 @@ class Comment
   #ENCRYPTION
   
   before_validation :sign_if_mine, :sign_if_my_post
-  validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
+  #validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
+  validates_true_for :post_creator_signature, :logic => lambda {self.verify_post_creator_signature}
   
   xml_accessor :creator_signature
   key :creator_signature, String
@@ -49,8 +50,12 @@ class Comment
       (self.send accessor.to_sym).to_s}.join ';'
   end
 
-    def verify_post_creator_signature
-    verify_signature(post_creator_signature, post.person)
+  def verify_post_creator_signature
+    unless person == User.owner
+      verify_signature(post_creator_signature, post.person)
+    else
+      true
+    end
   end
   
   

@@ -47,6 +47,9 @@ end
     Blog.any_instance.stubs(:verify_creator_signature).returns(true)
     Bookmark.any_instance.stubs(:verify_creator_signature).returns(true)
     Comment.any_instance.stubs(:verify_creator_signature).returns(true)
+    Comment.any_instance.stubs(:verify_post_creator_signature).returns(true)
+    Person.any_instance.stubs(:remove_key).returns(true)
+    User.any_instance.stubs(:remove_key).returns(true)
   end
 
   def unstub_mocha_stubs
