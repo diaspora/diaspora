@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
   <Subject>acct:<%=@user.email%></Subject>
-  <Alias>http://www.identi.ca/user/169966</Alias>
+  <Alias>"<%=@user.url%>hcard"</Alias>
   <Link rel="http://microformats.org/profile/hcard" type="text/html" href="<%=@user.url%>hcard"/>
   <Link rel="http://schemas.google.com/g/2010#updates-from" type="application/atom+xml" href="<%=@user.url%>status_messages.atom"/>
 </XRD>
