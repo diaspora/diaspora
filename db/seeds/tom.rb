@@ -7,7 +7,8 @@
 #   Mayor.create(:name => 'Daley', :city => citie
 
 require 'config/environment'
-
+ENV['GNUPGHOME'] = File.expand_path("../../../gpg/diaspora-#{Rails.env}/", __FILE__)
+GPGME::check_version({})
 # Create seed user
 user = User.create( :email => "tom@tom.joindiaspora.com", :password => "evankorth", :url => "http://tom.joindiaspora.com/", :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
 

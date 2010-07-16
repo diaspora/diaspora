@@ -7,7 +7,8 @@
 #   Mayor.create(:name => 'Daley', :city => citie
 
 require 'config/environment'
-
+ENV['GNUPGHOME'] = File.expand_path("../../../gpg/diaspora-#{Rails.env}/", __FILE__)
+GPGME::check_version({})
 
 
 def create(backer_number)
