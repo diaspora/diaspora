@@ -48,4 +48,8 @@ module ApplicationHelper
     end
   end
 
+  def new_request(request_count)
+    "new_requests" if request_count > 0
+  end
+
 end

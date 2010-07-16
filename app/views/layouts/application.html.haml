@@ -2,8 +2,8 @@
 %html
   %head
     %title
-      = current_user.real_name if current_user
-      = " | diaspora"
+      = "#{current_user.real_name} | diaspora" if current_user
+
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
@@ -32,7 +32,7 @@
           - if user_signed_in?
             = current_user.real_name
             |
-            = link_to "requests (#{@request_count})", requests_path
+            = link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
             |
             = link_to "logout", destroy_user_session_path
           - else
@@ -41,18 +41,18 @@
 
     = render "shared/publisher"
     .container
-
-      #content.span-24.last
+      .span-24.last
         .span-3.append-1.last
           = link_to owner_picture, root_path
           = render 'people/sidebar' if user_signed_in?
 
-        .span-20
+        .span-20.last
           - if user_signed_in?
             %h1#user_name
-              = link_to current_user.real_name, root_url
+              = link_to current_user.real_name, root_path
               %span.description
                 = my_latest_message
           = yield
-        .span-12
+
+        .span-20.last
           = render "posts/debug"
