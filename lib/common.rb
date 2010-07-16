@@ -64,10 +64,8 @@ module Diaspora
             recipients.map!{|x| x = x.url + "receive/"}  
             xml = self.class.build_xml_for([self])
             @@queue.add_post_request( recipients, xml )
-
-            
-            @@queue.process
           end
+          @@queue.process
         end
 
         def push_to_url(url)
