@@ -140,9 +140,9 @@ module Diaspora
         <<-XML
 <activity:subject>
 <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
-<id>#{OWNER.url}</id>
+<id>#{OWNER.url}/hcard</id>
 <title>#{OWNER.real_name}</title>
-<link rel="alternative" type="text/html" href="#{OWNER.url}"/>
+<link rel="alternative" type="text/html" href="#{OWNER.url}/hcard"/>
 </activity:subject>
         XML
       end
