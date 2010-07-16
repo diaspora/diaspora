@@ -132,7 +132,7 @@ module Diaspora
 
       def self.endpoints
           <<-XML
- <link href="http://pubsubhubbub.appspot.com" rel="hub"/>
+ <link href="http://pubsubhubbub.appspot.com/" rel="hub"/>
           XML
       end
       
