@@ -8,6 +8,7 @@ Diaspora::Application.routes.draw do |map|
 
   match 'warzombie', :to => "dashboards#warzombie"
   match 'zombiefriends', :to => "dashboards#zombiefriends"
+  match 'zombiefriendaccept', :to => "dashboards#zombiefriendaccept"
 
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file

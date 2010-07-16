@@ -36,17 +36,17 @@ class DashboardsController < ApplicationController
 
   def zombiefriends
     render :nothing => true
-    backer_info = ["http://washington.joindiaspora.com/",
-                   "http://adams.joindiaspora.com/",
-                   "http://jefferson.joindiaspora.com/",
-                   "http://madison.joindiaspora.com/",
-                   "http://monroe.joindiaspora.com/",
+    backer_info = ["http://washington.joindiaspora.com/",   
+                   "http://adams.joindiaspora.com/",         
+                   "http://jefferson.joindiaspora.com/",   
+                   "http://madison.joindiaspora.com/",    
+                   "http://monroe.joindiaspora.com/",      
                    "http://quincyadams.joindiaspora.com/",
-                   "http://jackson.joindiaspora.com/",
-                   "http://buren.joindiaspora.com/",
-                   "http://harrison.joindiaspora.com/",
-                   "http://tyler.joindiaspora.com/",
-                   "http://polk.joindiaspora.com/",
+                   "http://jackson.joindiaspora.com/",    
+                   "http://buren.joindiaspora.com/",      
+                   "http://harrison.joindiaspora.com/",   
+                   "http://tyler.joindiaspora.com/",      
+                   "http://polk.joindiaspora.com/",       
                    #"http://taylor.joindiaspora.com/",
                    #"http://fillmore.joindiaspora.com/",
                    #"http://pierce.joindiaspora.com/",
@@ -59,4 +59,12 @@ class DashboardsController < ApplicationController
       end
     end
   end
+
+  def zombiefriendaccept
+    render :nothing => true
+    Request.all.each{|r| 
+      User.owner.accept_friend_request(r.id)
+    }
+  end
+  
 end

@@ -59,7 +59,6 @@ def create(backer_number)
                     :url=> "#{username}.joindiaspora.com")
 
   # Make connection with Diaspora Tom
-  User.owner.send_friend_request_to('http://tom.joindiaspora.com/')
   #Person.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :active => true, :profile => Profile.new(:first_name => "Alexander", :last_name => "Hamiltom"))
   # Make people
   
