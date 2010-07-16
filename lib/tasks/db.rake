@@ -18,11 +18,6 @@ namespace :db do
     end
   end
 
-  task :accept_requests do
-    puts "Accepting all friend requests for #{Rails.env}"
-    require 'db/seeds/request'
-  end
-
   desc 'Delete the collections in the current RAILS_ENV database'
   task :purge do
     require 'config/environment'
