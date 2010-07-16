@@ -4,6 +4,12 @@ class BookmarksController < ApplicationController
   def index
     @bookmark = Bookmark.new
     @bookmarks = Bookmark.paginate :page => params[:page], :order => 'created_at DESC'
+    
+
+    respond_to do |format|
+      format.html 
+      format.atom {render :xml => Diaspora::XML::generate(:current_url => request.url, :objects => @bookmarks)}
+    end
   end
   
   def edit

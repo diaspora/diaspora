@@ -164,11 +164,26 @@ module Diaspora
       def self.StatusMessage_build_entry(status_message)
         <<-XML
 <entry>
+<activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
 <title>#{status_message.message}</title>
 <link rel="alternate" type="text/html" href="#{OWNER.url}status_messages/#{status_message.id}"/>
 <id>#{OWNER.url}status_messages/#{status_message.id}</id>
 <published>#{status_message.created_at.xmlschema}</published>
 <updated>#{status_message.updated_at.xmlschema}</updated>
+</entry>
+        XML
+      end
+
+      def self.Bookmark_build_entry(bookmark)
+        <<-XML
+<entry>
+<activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
+<title>#{bookmark.title}</title>
+<link rel="alternate" type="text/html" href="#{OWNER.url}bookmarks/#{bookmark.id}"/>
+<link rel="related" type="text/html" href="#{bookmark.link}"
+<id>#{OWNER.url}bookmarks/#{bookmark.id}</id>
+<published>#{bookmark.created_at.xmlschema}</published>
+<updated>#{bookmark.updated_at.xmlschema}</updated>
 </entry>
         XML
       end
