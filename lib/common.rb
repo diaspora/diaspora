@@ -58,7 +58,7 @@ module Diaspora
 
         def push_to(recipients)
           
-          @@queue.add_hub_notification('http://pubsubhubbub.appspot.com/', User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
+          @@queue.add_hub_notification(APP_CONFIG[:pubsub_server], User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
           
           unless recipients.empty?
             recipients.map!{|x| x = x.url + "receive/"}  
@@ -132,7 +132,7 @@ module Diaspora
 
       def self.endpoints
           <<-XML
- <link href="http://pubsubhubbub.appspot.com/" rel="hub"/>
+ <link href="#{APP_CONFIG[:pubsub_server]}" rel="hub"/>
           XML
       end
       

@@ -2,7 +2,7 @@ class MessageHandler
 
   NUM_TRIES = 3
   TIMEOUT = 5 #seconds
-
+  
   def initialize
     @queue = EM::Queue.new
   end
@@ -18,7 +18,6 @@ class MessageHandler
   end
 
   def add_hub_notification(destination, feed_location)
-    puts "going to: #{destination}, telling it to fetch #{feed_location}"
     @queue.push(Message.new(:pubhub, destination, feed_location))
   end
 
@@ -33,7 +32,7 @@ class MessageHandler
         http.callback {send_to_seed(query, http.response); process}
       when :pubhub
         http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT 
-        http.callback { puts  "boner city"; process}
+        http.callback { process}
       else
         raise "message is not a type I know!"
       end
