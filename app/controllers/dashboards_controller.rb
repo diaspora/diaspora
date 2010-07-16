@@ -61,7 +61,7 @@ class DashboardsController < ApplicationController
   end
 
   def zombiefriendaccept
-
+    render :nothing => true
     Request.all.each{|r| 
       User.owner.accept_friend_request(r.id)
     }
