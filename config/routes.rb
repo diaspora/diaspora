@@ -5,6 +5,7 @@ Diaspora::Application.routes.draw do |map|
   resources :status_messages
   resources :comments
   resources :requests
+  resources :photos
 
   match 'warzombie', :to => "dashboards#warzombie"
   match 'zombiefriends', :to => "dashboards#zombiefriends"
