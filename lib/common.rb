@@ -180,7 +180,7 @@ module Diaspora
 <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
 <title>#{bookmark.title}</title>
 <link rel="alternate" type="text/html" href="#{OWNER.url}bookmarks/#{bookmark.id}"/>
-<link rel="related" type="text/html" href="#{bookmark.link}"
+<link rel="related" type="text/html" href="#{bookmark.link}"/>
 <id>#{OWNER.url}bookmarks/#{bookmark.id}</id>
 <published>#{bookmark.created_at.xmlschema}</published>
 <updated>#{bookmark.updated_at.xmlschema}</updated>
