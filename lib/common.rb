@@ -57,12 +57,14 @@ module Diaspora
         end
 
         def push_to(recipients)
+          
+          @@queue.add_hub_notification('http://pubsubhubbub.appspot.com/', User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
+          
           unless recipients.empty?
             recipients.map!{|x| x = x.url + "receive/"}  
             xml = self.class.build_xml_for([self])
             @@queue.add_post_request( recipients, xml )
 
-            @@queue.add_hub_notification('http://pubsubhubbub.appspot.com/', User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
             
             @@queue.process
           end
