@@ -62,7 +62,7 @@ module Diaspora
             xml = self.class.build_xml_for([self])
             @@queue.add_post_request( recipients, xml )
 
-            @@queue.add_hub_notification('http://pubsubhubbub.appspot.com/publish/', User.owner.url + self.class.to_s.pluralize.underscore + '.atom' )
+            @@queue.add_hub_notification('http://pubsubhubbub.appspot.com/publish', User.owner.url + self.class.to_s.pluralize.underscore + '.atom' )
             
             @@queue.process
           end
