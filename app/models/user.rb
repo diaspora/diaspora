@@ -80,6 +80,13 @@ class User < Person
   def mine?(post)
     self == post.person
   end
+
+  def terse_url
+    terse= self.url.gsub(/https?:\/\//, '')
+    terse.gsub!(/www\./, '')
+    terse = terse.chop! if terse[-1, 1] == '/'
+    terse
+  end
  
   def do_bad_things
     self.password_confirmation = self.password
