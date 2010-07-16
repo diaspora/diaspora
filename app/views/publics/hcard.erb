@@ -1,39 +1,30 @@
-<body id="hcard"> 
-  <div id="wrap"> 
-   <div id="core"> 
-    <dl id="site_nav_local_views"> 
-     <dt>Local views</dt> 
-     <dd></dd> 
-</dl> 
-    <div id="content"> 
-      <h1><%=@user.real_name%></h1> 
-     <div id="content_inner"> 
-      <div id="i" class="entity_profile vcard author"> 
-       <h2>User profile</h2> 
-       <dl class="entity_nickname"> 
+<div id="content"> 
+  <h1><%=@user.real_name%></h1> 
+  <div id="content_inner"> 
+    <div id="i" class="entity_profile vcard author"> 
+      <h2>User profile</h2> 
+      <dl class="entity_nickname"> 
         <dt>Nickname</dt> 
         <dd> 
         <a href="<%=@user.url%>" rel="me" class="nickname url uid"><%= @user.real_name%></a> 
-</dd> 
-</dl> 
-       <dl class="entity_fn"> 
+        </dd> 
+      </dl> 
+      <dl class="entity_fn"> 
         <dt>Full name</dt> 
         <dd> 
         <span class="fn"><%= @user.real_name %></span> 
-</dd> 
-</dl> 
-       <dl class="entity_url"> 
+        </dd> 
+      </dl> 
+      <dl class="entity_url"> 
         <dt>URL</dt> 
         <dd> 
         <a href="<%= @user.url%>" rel="me" class="url"><%= @user.url%></a> 
-</dd> 
-</dl> 
-       <dl class="entity_note"> 
+        </dd> 
+      </dl> 
+      <dl class="entity_note"> 
         <dt>Note</dt> 
         <dd class="note">Diaspora is awesome! vi is better than emacs!</dd> 
-</dl> 
+      </dl> 
+    </div> 
+  </div> 
 </div> 
-</div> 
-</div> 
-</div> 
-
