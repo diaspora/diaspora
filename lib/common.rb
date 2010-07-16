@@ -113,7 +113,7 @@ module Diaspora
         <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
-<generator uri="http://joindiaspora.com">Diaspora</generator>
+<generator uri="http://joindiaspora.com/">Diaspora</generator>
 <id>#{current_url}</id>
 <title>Stream</title>
 <subtitle>its a stream </subtitle>
@@ -142,7 +142,7 @@ module Diaspora
 <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
 <id>#{OWNER.url}</id>
 <title>#{OWNER.real_name}</title>
-<link rel="alternative" type="text/html" href="#{OWNER.url}"/>
+<link rel="alternative" type="text/html" href="#{OWNER.url}hcard"/>
 </activity:subject>
         XML
       end
