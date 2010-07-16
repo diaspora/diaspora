@@ -22,6 +22,7 @@ Diaspora::Application.routes.draw do |map|
   match 'hubbub', :to => 'publics#hubbub'
   match '.well-known/host-meta', :to => 'publics#host_meta'
   match 'webfinger', :to => 'publics#webfinger'
+  match 'hcard', :to => 'publics#hcard'
   root :to => 'dashboards#index'
 
 end

@@ -3,6 +3,8 @@ class PublicsController < ApplicationController
   include PublicsHelper
   
   def hcard
+    @user = User.owner
+    render 'hcard'
   end
 
   def host_meta
