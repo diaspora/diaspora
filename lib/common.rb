@@ -195,9 +195,7 @@ module Diaspora
 <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
 <title>#{blog.title}</title>
 <content>#{blog.body}</content>
-<permalink>
 <link rel="alternate" type="text/html" href="#{OWNER.url}blogs/#{blog.id}"/>
-</permalink>
 <id>#{OWNER.url}blogs/#{blog.id}</id>
 <published>#{blog.created_at.xmlschema}</published>
 <updated>#{blog.updated_at.xmlschema}</updated>
