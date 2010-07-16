@@ -29,12 +29,6 @@ $(document).ready(function(){
 	  $(this).fadeTo(80, 1);
 	});
 
-	$('ul.nav li').hover(function(){
-	  $(this).fadeTo(60, 0.5);
-	}, function(){
-	  $(this).fadeTo(80, 1);
-	});
-
 	$('#debug_info').click(function() {
 		$('#debug_more').toggle('fast', function() {
 			

@@ -10,13 +10,12 @@ body
   :padding 2em
   :margin 0
 a
-  :color #316191
   :color #018790
   :text
     :decoration none
   :font-weight bold
   &:hover
-    :color #BACCA4
+    :color #018790
 
 #flash_notice,
 #flash_error,
@@ -101,7 +100,6 @@ header
       :text
         :shadow none
       
-
   #session_action
     :float right
     :margin
@@ -110,6 +108,8 @@ header
     a
       :color #777
       :border none
+      &.new_requests
+        :color #DF0101
     :padding-right 10px
 
 #show_filters
@@ -121,22 +121,6 @@ header
 #show_filters > a
   :border 1px solid #666
   :padding 5px
-
-ul#stream_filters
-  :padding 0
-  :margin 0
-    :bottom 20px
-  li
-    :display block
-    :padding 8px 0
-    :border
-      :bottom 1px #eee solid
-
-  a
-    :color #B1CFE3
-    &:hover
-      :color #000
-
 #main
   :width 100%
 
@@ -144,13 +128,16 @@ ul#stream, ul#friend_stream
   :margin 0
   :padding 0
   :color #666
-
   > li
     :list-style none
     :padding 1em 0
     :border
       :bottom 1px solid #f1f1f1
     :margin-bottom 5px
+
+ul#friend_stream
+  > li
+    :padding 0.2em 0
 
 li.message
   :position relative
@@ -167,9 +154,6 @@ li.message
       :right 0.2em
     :font
       :size 110%
-    a
-      :font
-        :weight bold
 
   div.time
     :color #bababa
@@ -206,8 +190,6 @@ form
     :bottom 1em
   a
     :color #000
-    &:hover
-      :color #CC1E14
 
 div.comments
   :display none
@@ -258,15 +240,31 @@ img#user_picture
   a
     :padding 3px
   
-.destroy_link
+.destroy_link, .request_button
   :position absolute
   :right 0
   :bottom 15px
-  :display none
   a
     :color #999
     :font
       :weight normal
+
+.destroy_link
+  :display none
+
+.request_buttons
+  :position absolute
+  :right 0
+  :display inline
+  :list-style none
+  :margin 0
+  :padding 0
+
+  > li
+    :display inline
+    &:first-child
+      :margin-right 1em
+
 
 #debug_info
   :margin-top 20px
@@ -302,9 +300,6 @@ label
   :position absolute
   :top 3px
   :left 0.48em
-
-ul.nav li > a
-  :display block
 
 #publisher
   :padding 0.5em 0
@@ -350,4 +345,3 @@ ul#publisher_content_pickers li
 .selected
   :border
     :bottom 3px solid #999
-  

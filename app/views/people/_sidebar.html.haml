@@ -2,4 +2,4 @@
 %ul#friend_stream.nav
   - for friend in @friends
     %li= link_to friend.real_name, person_path(friend)
-= link_to "add a new person", new_request_path
+  %li= link_to "add a new person", new_request_path
