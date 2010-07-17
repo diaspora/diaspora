@@ -2,10 +2,14 @@ Diaspora::Application.routes.draw do |map|
   resources :blogs
   resources :bookmarks
   resources :people
+  resources :users
   resources :status_messages
   resources :comments
   resources :requests
+  resources :photos
 
+  match "/images/files/*path" => "gridfs#serve"
+  
   match 'warzombie', :to => "dashboards#warzombie"
   match 'zombiefriends', :to => "dashboards#zombiefriends"
   match 'zombiefriendaccept', :to => "dashboards#zombiefriendaccept"

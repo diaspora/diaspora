@@ -44,6 +44,9 @@
       .span-24.last
         .span-3.append-1.last
           = link_to owner_picture, root_path
+          = link_to "Edit your profile", edit_user_path(current_user)
+          %br
+          %br
           = render 'people/sidebar' if user_signed_in?
 
         .span-20.last

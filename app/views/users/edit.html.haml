@@ -1,0 +1,25 @@
+%h3 Editing Profile
+
+= form_for @user do |f|
+  = f.error_messages
+
+  = f.fields_for :profile do |p|
+    %p
+      = p.label :first_name
+      = p.text_field :first_name, :value => @profile.first_name
+    %p
+      = p.label :last_name 
+      = p.text_field :last_name, :value => @profile.last_name
+
+  %p
+    = f.label :email
+    = f.text_field :email
+
+  %p
+    = f.label :url
+    = f.text_field :url
+  %p
+    = f.submit
+
+%p
+  = link_to "Show", user_path(@user)

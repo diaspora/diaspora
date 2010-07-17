@@ -1,0 +1,10 @@
+- title "Photo"
+
+%p
+  %strong Photo:
+  = image_tag @photo.image.url
+  
+%p
+  = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", photos_path
