@@ -25,8 +25,8 @@ class RequestsController < ApplicationController
   end
   
   def create
-    url = find_url(params)
-    @request = current_user.send_friend_request_to(params[:request][:destination_url])
+    url = find_url(params[:request][:destination_url])
+    @request = current_user.send_friend_request_to(url)
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
       redirect_to requests_url
@@ -39,13 +39,6 @@ class RequestsController < ApplicationController
   end
 
 
-  def self.diasproa_url(identifier)
-    if identifier.include? '@'
-      f = Redfinger.finger(uri)
-      identifier = f.each{|x|  return x.link if x.rel =='http://joindiaspora.com/seed_location'}
-    end
-    identifier
-  end
   
   private 
 
