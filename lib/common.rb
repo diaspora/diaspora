@@ -97,8 +97,6 @@ module Diaspora
 
   module XML
 
-    OWNER = User.owner
-
     def self.generate(opts= {})
       xml = Generate::headers(opts[:current_url])
       xml << Generate::author
@@ -110,6 +108,8 @@ module Diaspora
 
     module Generate
       def self.headers(current_url)
+        #this is retarded
+        @@user = User.owner
         <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
@@ -124,8 +124,8 @@ module Diaspora
       def self.author
         <<-XML
 <author>
-<name>#{OWNER.real_name}</name>
-<uri>#{OWNER.url}</uri>
+<name>#{@@user.real_name}</name>
+<uri>#{@@user.url}</uri>
 </author>
         XML
       end
@@ -140,9 +140,9 @@ module Diaspora
         <<-XML
 <activity:subject>
 <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
-<id>#{OWNER.url}</id>
-<title>#{OWNER.real_name}</title>
-<link rel="alternative" type="text/html" href="#{OWNER.url}"/>
+<id>#{@@user.url}</id>
+<title>#{@@user.real_name}</title>
+<link rel="alternative" type="text/html" href="#{@@user.url}"/>
 </activity:subject>
         XML
       end
@@ -166,8 +166,8 @@ module Diaspora
 <entry>
 <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
 <title>#{status_message.message}</title>
-<link rel="alternate" type="text/html" href="#{OWNER.url}status_messages/#{status_message.id}"/>
-<id>#{OWNER.url}status_messages/#{status_message.id}</id>
+<link rel="alternate" type="text/html" href="#{@@user.url}status_messages/#{status_message.id}"/>
+<id>#{@@user.url}status_messages/#{status_message.id}</id>
 <published>#{status_message.created_at.xmlschema}</published>
 <updated>#{status_message.updated_at.xmlschema}</updated>
 </entry>
@@ -179,9 +179,9 @@ module Diaspora
 <entry>
 <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
 <title>#{bookmark.title}</title>
-<link rel="alternate" type="text/html" href="#{OWNER.url}bookmarks/#{bookmark.id}"/>
+<link rel="alternate" type="text/html" href="#{@@user.url}bookmarks/#{bookmark.id}"/>
 <link rel="related" type="text/html" href="#{bookmark.link}"/>
-<id>#{OWNER.url}bookmarks/#{bookmark.id}</id>
+<id>#{@@user.url}bookmarks/#{bookmark.id}</id>
 <published>#{bookmark.created_at.xmlschema}</published>
 <updated>#{bookmark.updated_at.xmlschema}</updated>
 </entry>
@@ -195,8 +195,8 @@ module Diaspora
 <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
 <title>#{blog.title}</title>
 <content>#{blog.body}</content>
-<link rel="alternate" type="text/html" href="#{OWNER.url}blogs/#{blog.id}"/>
-<id>#{OWNER.url}blogs/#{blog.id}</id>
+<link rel="alternate" type="text/html" href="#{@@user.url}blogs/#{blog.id}"/>
+<id>#{@@user.url}blogs/#{blog.id}</id>
 <published>#{blog.created_at.xmlschema}</published>
 <updated>#{blog.updated_at.xmlschema}</updated>
 </entry>
