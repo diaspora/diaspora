@@ -23,7 +23,6 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
   end
-require 'spec_helper'
   
   def create
     url = find_url(params)
@@ -39,16 +38,16 @@ require 'spec_helper'
     end
   end
 
-  private 
 
-  def diasproa_url(url)
-    if url.include? '@'
+  def self.diasproa_url(identifier)
+    if identifier.include? '@'
       f = Redfinger.finger(uri)
-      url
+      identifier = f.each{|x|  return x.link if x.rel =='http://joindiaspora.com/seed_location'}
     end
-
+    identifier
   end
   
+  private 
 
 
 end
