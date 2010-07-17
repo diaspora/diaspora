@@ -1,4 +1,7 @@
 %li.message{:id => post.id, :class => ("mine" if mine?(post))}
+
+  = person_image_tag(post.person)
+
   %span.from
     = link_to_person post.person
     %b shared a link

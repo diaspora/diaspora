@@ -10,6 +10,9 @@
   %strong Owner:
   = @bookmark.person.real_name
 
+%h4= "comments (#{@bookmark.comments.count})"
+= render "comments/comments", :post => @bookmark
+
 %p
   = link_to "Edit", edit_bookmark_path(@bookmark)
   |
