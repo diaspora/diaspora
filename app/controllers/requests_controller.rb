@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
   end
   
   def create
-    url = find_url(params[:request][:destination_url])
+    url = diaspora_url(params[:request][:destination_url])
     @request = current_user.send_friend_request_to(url)
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
