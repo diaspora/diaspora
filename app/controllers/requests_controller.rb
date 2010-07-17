@@ -23,6 +23,7 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
   end
+require 'spec_helper'
   
   def create
     url = find_url(params)
@@ -43,10 +44,9 @@ class RequestsController < ApplicationController
   def diasproa_url(url)
     if url.include? '@'
       f = Redfinger.finger(uri)
-
+      url
     end
 
-    uri
   end
   
 
