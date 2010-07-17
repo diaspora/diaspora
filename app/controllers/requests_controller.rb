@@ -25,6 +25,7 @@ class RequestsController < ApplicationController
   end
   
   def create
+    url = find_url(params)
     @request = current_user.send_friend_request_to(params[:request][:destination_url])
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
@@ -36,6 +37,18 @@ class RequestsController < ApplicationController
       render :action => 'new'
     end
   end
+
+  private 
+
+  def diasproa_url(url)
+    if url.include? '@'
+      f = Redfinger.finger(uri)
+
+    end
+
+    uri
+  end
+  
 
 
 end

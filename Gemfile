@@ -22,7 +22,7 @@ gem 'addressable', :require => "addressable/uri"
 gem 'em-websocket'
 gem 'thin'
 gem 'will_paginate', '3.0.pre'
-
+gem 'redfinger'
 
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.17'
