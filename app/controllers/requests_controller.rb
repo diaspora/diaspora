@@ -26,13 +26,16 @@ class RequestsController < ApplicationController
   
   def create
     url = diaspora_url(params[:request][:destination_url])
-    @request = current_user.send_friend_request_to(url)
+    @request = current_user.send_friend_request_to(url) unless url.include?('@')
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
       redirect_to requests_url
     else
-      
-      flash[:error] = "you have already friended this person"
+      if url.include? '@'
+        flash[:error] = "no diaspora seed found with this email!"
+      else
+        flash[:error] = "you have already friended this person"
+      end
       @request = Request.new
       render :action => 'new'
     end
