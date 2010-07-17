@@ -1,8 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Photo do
+  before do
+    @user = Factory.create(:user)
+  end
   it 'should save a photo to GridFS' do
-    photo = Photo.new
+    photo = Photo.new(:person => @user)
     fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
     file = File.open(fixture_name)
     photo.image = file

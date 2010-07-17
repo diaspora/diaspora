@@ -42,12 +42,17 @@ end
   end
 
   def stub_signature_verification
+    get_models.each{ |model|
+      puts model
+    }
+    
     Post.any_instance.stubs(:verify_creator_signature).returns(true)
     StatusMessage.any_instance.stubs(:verify_creator_signature).returns(true)
     Blog.any_instance.stubs(:verify_creator_signature).returns(true)
     Bookmark.any_instance.stubs(:verify_creator_signature).returns(true)
     Comment.any_instance.stubs(:verify_creator_signature).returns(true)
     Comment.any_instance.stubs(:verify_post_creator_signature).returns(true)
+    Photo.any_instance.stubs(:verify_creator_signature).returns(true)
     Person.any_instance.stubs(:remove_key).returns(true)
     User.any_instance.stubs(:remove_key).returns(true)
   end
@@ -56,3 +61,11 @@ end
     Mocha::Mockery.instance.stubba.unstub_all
  
   end
+
+def get_models
+  models = []
+  Dir.glob( RAILS_ROOT + '/app/models/*' ).each do |f|
+    models << File.basename( f ).gsub( /^(.+).rb/, '\1')
+  end
+  models
+end
