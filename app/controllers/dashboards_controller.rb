@@ -1,18 +1,10 @@
 class DashboardsController < ApplicationController
-  
-  before_filter :authenticate_user!, :except => :receive
+  before_filter :authenticate_user!
   include ApplicationHelper
 
   def index
     @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
   end
-
-  def receive
-    puts "SOMEONE JUST SENT ME: #{params[:xml]}"
-    store_objects_from_xml params[:xml]
-    render :nothing => true
-  end
-  
   
   def warzombie
     render :nothing => true

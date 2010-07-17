@@ -22,4 +22,11 @@ class PublicsController < ApplicationController
         render :text => params['hub.challenge'], :status => 202 
       end
   end
+  
+  def receive
+    puts "SOMEONE JUST SENT ME: #{params[:xml]}"
+    store_objects_from_xml params[:xml]
+    render :nothing => true
+  end
+  
 end

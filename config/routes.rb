@@ -20,14 +20,16 @@ Diaspora::Application.routes.draw do |map|
    match 'login', :to => 'devise/sessions#new', :as => "new_user_session"
    match 'logout', :to  => 'devise/sessions#destroy', :as => "destroy_user_session"
    #match 'signup', :to => 'devise/registrations#new', :as => "new_user_registration"
- 
-
   resources :users
-  match 'receive', :to => 'dashboards#receive'
-  match 'hubbub', :to => 'publics#hubbub'
-  match '.well-known/host-meta', :to => 'publics#host_meta'
-  match 'webfinger', :to => 'publics#webfinger'
-  match 'hcard', :to => 'publics#hcard'
+  
+  
+  #public routes
+  match 'receive',              :to => 'publics#receive'
+  match 'hubbub',               :to => 'publics#hubbub'
+  match '.well-known/host-meta',:to => 'publics#host_meta'
+  match 'webfinger',            :to => 'publics#webfinger'
+  match 'hcard',                :to => 'publics#hcard'
+          
+  #root
   root :to => 'dashboards#index'
-
 end
