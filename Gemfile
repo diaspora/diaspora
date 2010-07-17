@@ -18,7 +18,9 @@ gem 'bson_ext'
 gem 'haml'
 gem 'will_paginate', '3.0.pre'
 
+#Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
+gem 'addressable', :require => 'addressable/uri'
 
 #Standards
 gem 'pubsubhubbub'
@@ -28,9 +30,6 @@ gem 'redfinger'
 gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 gem 'em-websocket'
 gem 'thin'
-
-gem 'addressable', :require => 'addressable/uri'
-gem 'will_paginate', '3.0.pre'
 
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch
