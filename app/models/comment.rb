@@ -52,6 +52,7 @@ class Comment
 
   def verify_post_creator_signature
     unless person == User.owner
+      puts "verifying post creator sig from #{post.person.real_name}"
       verify_signature(post_creator_signature, post.person)
     else
       true

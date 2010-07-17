@@ -56,7 +56,6 @@ class User < Person
   end
 
   def receive_friend_request(friend_request)
-    puts friend_request.inspect
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
     GPGME.import(friend_request.exported_key)
     if Request.where(:callback_url => friend_request.callback_url).first

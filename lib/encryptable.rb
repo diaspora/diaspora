@@ -9,10 +9,10 @@
     def verify_signature(signature, person)
       return false unless signature && person.key_fingerprint
       validity = nil
-      GPGME::verify(creator_signature, signable_string, 
-        {:armor => true, :always_trust => true}){ |signature|
-        validity =  signature.status == GPGME::GPG_ERR_NO_ERROR &&
-            signature.fpr == person.key_fingerprint
+      GPGME::verify(signature, signable_string, 
+        {:armor => true, :always_trust => true}){ |sig|
+        validity =  sig.status == GPGME::GPG_ERR_NO_ERROR &&
+            sig.fpr == person.key_fingerprint
       }
       return validity
     end
@@ -25,8 +25,12 @@
     end
 
     def sign
+      sign_with_key(User.owner.key)
+    end
+
+    def sign_with_key(key)
       GPGME::sign(signable_string,nil,
-          {:armor=> true, :mode => GPGME::SIG_MODE_DETACH, :signers => [User.owner.key]})
+          {:armor=> true, :mode => GPGME::SIG_MODE_DETACH, :signers => [key]})
     end
   end
 
