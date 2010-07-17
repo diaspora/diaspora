@@ -2,7 +2,7 @@ class MessageHandler
 
   NUM_TRIES = 3
   TIMEOUT = 5 #seconds
-
+  
   def initialize
     @queue = EM::Queue.new
   end
@@ -32,7 +32,7 @@ class MessageHandler
         http.callback {send_to_seed(query, http.response); process}
       when :pubhub
         http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT 
-        http.callback { puts  "boner city" + http.response ; process}
+        http.callback { process}
       else
         raise "message is not a type I know!"
       end

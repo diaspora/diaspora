@@ -3,6 +3,13 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.paginate :page => params[:page], :order => 'created_at DESC'
+    
+    respond_to do |format|
+      format.html 
+      format.atom {render :xml => Diaspora::XML::generate(:current_url => request.url, :objects => @blogs)}
+    end
+  
+
   end
   
   def show
