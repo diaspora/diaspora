@@ -10,6 +10,9 @@
     %p
       = p.label :last_name 
       = p.text_field :last_name, :value => @profile.last_name
+    %p
+      = p.label :image_url
+      = p.text_field :image_url, :value => @profile.image_url
 
   %p
     = f.label :email

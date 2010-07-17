@@ -37,15 +37,15 @@ module ApplicationHelper
     link_to person.real_name, person_url(person)
   end
 
-  def owner_picture
-    default = "/images/user/default.jpg"
-    image = "/images/user/#{User.owner.profile.last_name.gsub(/ /,'').downcase}.jpg"
+  def owner_image_tag
+    person_image_tag(User.owner)
+  end
 
-    if File.exist?("public/images/user/#{User.owner.profile.last_name.gsub(/ /,'').downcase}.jpg")
-      image_tag image, :id => "user_picture"
-    else
-      image_tag default, :id => "user_picture"
-    end
+  def person_image_tag(person)
+    image_location = person.profile.image_url
+    image_location ||= "/images/user/default.jpg"
+
+    image_tag image_location, :class => "person_picture"
   end
 
   def new_request(request_count)

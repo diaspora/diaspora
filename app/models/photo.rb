@@ -1,4 +1,4 @@
-class Photo
+class Photo < Post
   require 'carrierwave/orm/mongomapper'
   include MongoMapper::Document
 

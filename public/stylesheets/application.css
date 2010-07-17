@@ -118,7 +118,7 @@ ul#stream, ul#friend_stream {
   color: #666666; }
   ul#stream > li, ul#friend_stream > li {
     list-style: none;
-    padding: 1em 0;
+    padding: 15px 0;
     border-bottom: 1px solid #f1f1f1;
     margin-bottom: 5px; }
 
@@ -190,13 +190,18 @@ ul.comment_set {
       margin-top: -5px;
       padding-bottom: 8px; }
 
-img#profile_picture {
-  width: 100%; }
-
-img#user_picture {
-  width: 100%;
+img.person_picture {
+  max-width: 100%;
   border-radius: 3px;
-  -moz-border-radius: 3px; }
+  -moz-border-radius: 3px;
+  display: inline block; }
+
+li.message > img.person_picture,
+li.comment > img.person_picture {
+  height: 30px;
+  display: absolute;
+  float: left;
+  margin-right: 10px; }
 
 .pagination a {
   padding: 3px; }

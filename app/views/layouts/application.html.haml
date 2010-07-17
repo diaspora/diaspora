@@ -43,7 +43,7 @@
     .container
       .span-24.last
         .span-3.append-1.last
-          = link_to owner_picture, root_path
+          = link_to person_image_tag(User.owner), root_path
           = link_to "Edit your profile", edit_user_path(current_user)
           %br
           %br

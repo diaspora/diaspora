@@ -7,6 +7,7 @@ class Profile
 
   key :first_name, String
   key :last_name, String
+  key :image_url, String
 
   validates_presence_of :first_name, :last_name
 

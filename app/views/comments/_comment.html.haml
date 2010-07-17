@@ -1,4 +1,5 @@
 %li.comment{:id => post.id} 
+  = person_image_tag(post.person)
   %span.from
     = link_to_person post.person
     = auto_link post.text
