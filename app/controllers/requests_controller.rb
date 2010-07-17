@@ -25,7 +25,8 @@ class RequestsController < ApplicationController
   end
   
   def create
-    @request = current_user.send_friend_request_to(params[:request][:destination_url])
+    url = diaspora_url(params[:request][:destination_url])
+    @request = current_user.send_friend_request_to(url)
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
       redirect_to requests_url
@@ -36,6 +37,10 @@ class RequestsController < ApplicationController
       render :action => 'new'
     end
   end
+
+
+  
+  private 
 
 
 end

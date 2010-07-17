@@ -28,6 +28,9 @@ gem 'pubsubhubbub'
 gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 gem 'addressable', :require => 'addressable/uri'
 gem 'em-websocket'
+gem 'thin'
+gem 'will_paginate', '3.0.pre'
+gem 'redfinger'
 
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch
