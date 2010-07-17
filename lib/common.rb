@@ -30,6 +30,7 @@ module Diaspora
     def store_objects_from_xml(xml)
       objects = parse_objects_from_xml(xml)
       objects.each do |p|
+        Rails.logger.info("Receiving object:\n#{p.inspect}")
         if p.is_a? Retraction
           p.perform
         elsif p.is_a? Request
