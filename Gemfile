@@ -4,8 +4,6 @@ source 'http://gemcutter.org'
 gem 'rails', '3.0.0.beta4'
 gem 'bundler', '0.9.26'
 
-gem 'thin'
-
 #Security
 gem 'gpgme'
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
@@ -24,13 +22,15 @@ gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
 
 #Standards
 gem 'pubsubhubbub'
+gem 'redfinger'
 
+#EventMachine
 gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
-gem 'addressable', :require => 'addressable/uri'
 gem 'em-websocket'
 gem 'thin'
+
+gem 'addressable', :require => 'addressable/uri'
 gem 'will_paginate', '3.0.pre'
-gem 'redfinger'
 
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch

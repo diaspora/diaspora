@@ -1,1 +1,30 @@
 bronenate
+
+
+
+max's airplane notes:
+
+refractor possibility:
+
+/receive should be part of the pubsubhubbub multiplexed endpoint... posts should contain some of the information in the params as they "publish". currently, we receieve a post of xml in a very genearic :xml params.  the poster could supply more of this known information to make parsing much less complex, rather than inferring information from the parser.
+
+the pubsub, public convention 
+
+(this is for a client)
+to a single, arbitrary multiplexed endpoint (PUBSUBHUBBUB spec)
+params['hub.mode'] = "subscribe" = subscription request (could be interpreted as a friend req)
+params['hub.mode'] = "unsubscribe" = unsubscribe request= could be interpreted as a unfriend. sends to user
+params['hub.mode'] = "" = this is an update from something you are subscribed to
+
+possible diaspora additions:
+
+params['seed.friend'] (or do we want to upgrade subscriptions if they contain a valid public key...?)
+params['seed.unfriend']
+
+params['hub.mode'] = update = this is an update of a current type. sends to store_posts_from_xml (this is overkill i think)
+
+
+params['seed.content_type'] = could be the data-type of the collection or message, could help to parse
+(could be in a format where it is "twitter:activitystream-update:status_message"), where the first is the most specific to the most generic to help with inference.
+
+params['seed.fingerprint'] = the key fingerprint of the friend sending the request.  could be a connivence, (or perhaps the signature) so the user can verify the post without having to invoke the parser. 
