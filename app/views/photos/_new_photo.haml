@@ -1,0 +1,5 @@
+= form_for Photo.new, :remote => true do |f|
+  = f.error_messages
+  %p
+    = f.file_field :image
+    = f.submit 'post it!', :class => 'button'

@@ -1,5 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::ImageScience
+  include CarrierWave::MiniMagick
 
   storage :grid_fs
 

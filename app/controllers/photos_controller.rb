@@ -3,12 +3,10 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.paginate :page => params[:page], :order => 'created_at DESC'
-    
   end
   
   def create
     @photo = Photo.new(params[:photo])
-    @photo.person = current_user
     
     if @photo.save
       flash[:notice] = "Successfully uploaded photo."
@@ -31,6 +29,5 @@ class PhotosController < ApplicationController
   
   def show
     @photo = Photo.where(:id => params[:id]).first
-    
   end
 end

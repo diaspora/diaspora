@@ -31,7 +31,7 @@ gem 'em-websocket'
 
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch
-gem 'image_science'
+gem 'mini_magick'
 
 group :test do
 	gem 'rspec', '>= 2.0.0.beta.17'
