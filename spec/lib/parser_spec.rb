@@ -127,8 +127,8 @@ describe "parser in application helper" do
 
     it "should activate the Person if I initiated a request to that url" do 
       request = Request.instantiate(:to => @person.url, :from => @user).save
-
-      request_remote = Request.new(:_id => request.id)#
+      
+      request_remote = Request.new
       request_remote.destination_url = @user.url
       request_remote.callback_url = @user.url
       request_remote.person = @person

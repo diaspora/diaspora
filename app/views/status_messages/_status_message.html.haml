@@ -7,7 +7,7 @@
     = auto_link post.message
     
   %div.time
-    = link_to(how_long_ago(post), status_message_path(post))
+    = link_to(how_long_ago(post), object_path(post))
     \--
     = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
   = render   "comments/comments", :post => post 

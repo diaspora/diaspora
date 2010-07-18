@@ -1,8 +1,9 @@
 - title "Photo"
 
-%p
-  %strong Photo:
-  = image_tag @photo.image.url
+= image_tag @photo.image.url
+
+%h4= "comments (#{@photo.comments.count})"
+= render "comments/comments", :post => @photo
   
 %p
   = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete

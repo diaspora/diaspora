@@ -1,3 +1,15 @@
 %li.message{:id => post.id}
-  = link_to (image_tag post.image.url(:small_thumb)), photo_path(post)
+
+  = person_image_tag(post.person)
+
+  %span.from
+    = link_to_person post.person
+    %b posted a new photo
+    %br
+  = link_to (image_tag post.image.url(:small_thumb)), object_path(post)
     
+  %div.time
+    = link_to(how_long_ago(post), status_message_path(post))
+    \--
+    = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
+  = render   "comments/comments", :post => post 

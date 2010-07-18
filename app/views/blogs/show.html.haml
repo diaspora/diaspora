@@ -10,6 +10,9 @@
   %strong Owner:
   = @blog.person.real_name
 
+%h4= "comments (#{@blog.comments.count})"
+= render "comments/comments", :post => @blog
+
 %p
   = link_to "Edit", edit_blog_path(@blog)
   |

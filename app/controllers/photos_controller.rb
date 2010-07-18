@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
     @photos = Photo.paginate :page => params[:page], :order => 'created_at DESC'
@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
   
   def create
     @photo = Photo.new(params[:photo])
+    @photo.person = current_user
     
     if @photo.save
       flash[:notice] = "Successfully uploaded photo."

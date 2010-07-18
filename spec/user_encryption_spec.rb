@@ -100,8 +100,7 @@ describe 'user encryption' do
     
     it 'should verify a remote signature' do 
       message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = GPGME.sign(message.signable_string, nil,
-        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
+      message.creator_signature = message.send(:sign_with_key,@person.key)
       message.save(:validate => false)
       message.verify_creator_signature.should be true
     end
@@ -109,16 +108,14 @@ describe 'user encryption' do
     it 'should know if the signature is from the wrong person' do
       message = Factory.build(:status_message, :person => @person)
       message.save(:validate => false)
-      message.creator_signature = GPGME.sign(message.signable_string, nil,
-        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
+      message.creator_signature = message.send(:sign_with_key,@person.key)
       message.person = @user
       message.verify_creator_signature.should be false
     end
    
     it 'should know if the signature is for the wrong text' do
       message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = GPGME.sign(message.signable_string, nil,
-        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
+      message.creator_signature = message.send(:sign_with_key,@person.key)
       message.message = 'I love VENISON'
       message.save(:validate => false)
       message.verify_creator_signature.should be false
@@ -133,8 +130,7 @@ describe 'user encryption' do
     end
     it 'A message with an invalid signature should be rejected' do
       message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = GPGME.sign(message.signable_string, nil,
-        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@user.key]})
+      message.creator_signature = message.send(:sign )
       message.save
       xml = Post.build_xml_for([message])
       message.destroy
@@ -147,10 +143,9 @@ describe 'user encryption' do
   describe 'comments' do
     before do
       @remote_message = Factory.build(:status_message, :person => @person)
-      @remote_message.creator_signature = GPGME.sign(@remote_message.signable_string, nil,
-        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person.key]})
+      @remote_message.creator_signature = @remote_message.send(:sign_with_key,@person.key)
       @remote_message.save 
-
+      @message = Factory.create(:status_message, :person => @user)
     end
     it 'should attach the creator signature if the user is commenting' do
       @user.comment "Yeah, it was great", :on => @remote_message
@@ -160,29 +155,32 @@ describe 'user encryption' do
     it 'should sign the comment if the user is the post creator' do
       message = Factory.create(:status_message, :person => @user)
       @user.comment "Yeah, it was great", :on => message
-      StatusMessage.first.comments.first.verify_creator_signature.should be true
+      message.comments.first.verify_creator_signature.should be true
       StatusMessage.first.comments.first.verify_post_creator_signature.should be true
     end
     
     it 'should verify a comment made on a remote post by a different friend' do
       comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-      comment.creator_signature = GPGME.sign(comment.signable_string, nil,
-        {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person2.key]})
+      comment.creator_signature = comment.send(:sign_with_key,@person2.key)
       comment.verify_creator_signature.should be true
-
+      comment.valid?.should be false
+      comment.post_creator_signature = comment.send(:sign_with_key,@person.key)
+      comment.verify_post_creator_signature.should be true
+      comment.valid?.should be true
     end
 
     it 'should reject comments on a remote post with only a creator sig' do
         comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-        comment.creator_signature = GPGME.sign(comment.signable_string, nil,
-          {:mode => GPGME::SIG_MODE_DETACH, :armor => true, :signers => [@person2.key]})
+        comment.creator_signature = comment.send(:sign_with_key,@person2.key)
         comment.verify_creator_signature.should be true
         comment.verify_post_creator_signature.should be false
         comment.save.should be false
     end
 
     it 'should receive remote comments on a user post with a creator sig' do
-      
+        comment = Comment.new(:person => @person2, :text => "balls", :post => @message)
+        comment.creator_signature = comment.send(:sign_with_key,@person2.key)
+        comment.save.should be true
     end
 
   end
