@@ -11,7 +11,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  version :small_thumb do
+  version :thumb_small do
+    process :resize_to_fill => [30,30]
+  end
+
+  version :thumb_medium do
     process :resize_to_fill => [100,100]
   end
 end
