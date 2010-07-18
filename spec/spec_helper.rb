@@ -42,11 +42,18 @@ end
   end
 
   def stub_signature_verification
-    Post.any_instance.stubs(:verify_creator_signature).returns(true)
-    StatusMessage.any_instance.stubs(:verify_creator_signature).returns(true)
-    Blog.any_instance.stubs(:verify_creator_signature).returns(true)
-    Bookmark.any_instance.stubs(:verify_creator_signature).returns(true)
-    Comment.any_instance.stubs(:verify_creator_signature).returns(true)
+    post_models = []
+    get_models.each{ |model|
+      constant_model = model.camelize.constantize
+      if constant_model == Post || constant_model.superclass == Post
+        post_models << constant_model
+      end
+    }
+    
+    post_models.each{ | model|
+      model.any_instance.stubs(:verify_creator_signature).returns(true)
+    }
+
     Comment.any_instance.stubs(:verify_post_creator_signature).returns(true)
     Person.any_instance.stubs(:remove_key).returns(true)
     User.any_instance.stubs(:remove_key).returns(true)
@@ -54,5 +61,12 @@ end
 
   def unstub_mocha_stubs
     Mocha::Mockery.instance.stubba.unstub_all
- 
+  end
+
+  def get_models
+    models = []
+    Dir.glob( File.dirname(__FILE__) + '/../app/models/*' ).each do |f|
+      models << File.basename( f ).gsub( /^(.+).rb/, '\1')
+    end
+    models
   end
