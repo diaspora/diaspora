@@ -4,10 +4,8 @@ class Collection
   key :name, String
 
   belongs_to :person, :class_name => 'Person'
+  many :photos, :class_name => 'Photo', :foreign_key => :collection_id
 
   validates_presence_of :name
-
-  #many :posts, :class_name => 'Post', :foreign_key => :collection_id
-
 
 end

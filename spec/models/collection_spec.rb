@@ -23,7 +23,22 @@ describe Collection do
   end
 
   it 'should contain photos' do
+    collection = Collection.create(:name => "test collection")
 
+
+    photo = Photo.create(:person => @user)
+
+    puts photo.valid?
+    puts collection.valid?
+
+    puts photo.inspect
+    puts collection.photos.inspect
+
+    puts 'asdojasd'
+    puts photo.collection
+    puts 'asdojasd'
+
+    collection.photos.count.should == 1
   end
 
 
