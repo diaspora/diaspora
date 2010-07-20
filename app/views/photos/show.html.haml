@@ -1,6 +1,7 @@
 - title "Photo"
 
-= image_tag @photo.image.url
+#show_photo
+  = image_tag @photo.image.url
 
 %h4= "comments (#{@photo.comments.count})"
 = render "comments/comments", :post => @photo

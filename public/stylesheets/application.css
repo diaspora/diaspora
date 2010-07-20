@@ -17,6 +17,9 @@ a {
   a:hover {
     color: #018790; }
 
+#show_photo img {
+  width: 100%; }
+
 #flash_notice,
 #flash_error,
 #flash_alert {
