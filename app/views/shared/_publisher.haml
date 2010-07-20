@@ -42,7 +42,6 @@
       = form_for Photo.new, :html => {:multipart => true} do |f|
         = f.error_messages
         %p
-          %label{:for => "image_form"} Image
           = f.file_field :image
         %p
           = f.submit 'post it!', :class => 'button'
