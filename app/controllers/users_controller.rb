@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.first(:id => params[:id])
     @profile = @user.profile
+    @photos = Photo.all
   end
 
   def update

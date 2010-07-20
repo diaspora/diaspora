@@ -230,6 +230,7 @@ ul.comment_set
 img.person_picture
   :max-width 100%
   :border-radius 3px
+  :-webkit-border-radius 3px
   :-moz-border-radius 3px
   :display inline block
 
@@ -348,6 +349,27 @@ ul#publisher_content_pickers li
   :margin
     :right 5px
 
-.selected
+#publisher.selected
   :border
     :bottom 3px solid #999
+
+#image_picker
+  .small_photo
+    :height 100px
+    :position relative
+    :display inline-block
+    :margin
+      :right 1em
+      :bottom 1em
+
+    img
+      :border-radius 3px
+
+    input[type='checkbox']
+      :position absolute
+
+  .selected
+    :-webkit-box-shadow 0 3px 6px #000
+    :-moz-box-shadow 0 3px 6px #000
+    :border 1px solid #fff
+

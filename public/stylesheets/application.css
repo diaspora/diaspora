@@ -193,6 +193,7 @@ ul.comment_set {
 img.person_picture {
   max-width: 100%;
   border-radius: 3px;
+  -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   display: inline block; }
 
@@ -297,5 +298,20 @@ ul#publisher_content_pickers li {
   padding: 5px 10px;
   margin-right: 5px; }
 
-.selected {
+#publisher.selected {
   border-bottom: 3px solid #999999; }
+
+#image_picker .small_photo {
+  height: 100px;
+  position: relative;
+  display: inline-block;
+  margin-right: 1em;
+  margin-bottom: 1em; }
+  #image_picker .small_photo img {
+    border-radius: 3px; }
+  #image_picker .small_photo input[type='checkbox'] {
+    position: absolute; }
+#image_picker .selected {
+  -webkit-box-shadow: 0 3px 6px black;
+  -moz-box-shadow: 0 3px 6px black;
+  border: 1px solid white; }
