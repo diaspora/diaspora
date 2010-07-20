@@ -17,9 +17,6 @@ a {
   a:hover {
     color: #018790; }
 
-#show_photo img {
-  width: 100%; }
-
 #flash_notice,
 #flash_error,
 #flash_alert {
@@ -232,6 +229,9 @@ li.comment > img.person_picture {
     display: inline; }
     .request_buttons > li:first-child {
       margin-right: 1em; }
+
+#show_photo img {
+  max-width: 100%; }
 
 #debug_info {
   margin-top: 20px; }
