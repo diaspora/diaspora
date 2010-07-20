@@ -44,6 +44,7 @@ policy :diaspora, :roles => [:tom, :backer] do
   requires :scm
 end
 =begin
+
 policy :ci, :roles => :ci do
   requires :tools
   requires :rubygems
@@ -54,6 +55,7 @@ policy :ci, :roles => :ci do
   requires :scm
   #add sqlite
 end
+
 =end
 # Deployment
 #

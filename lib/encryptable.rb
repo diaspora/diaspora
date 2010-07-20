@@ -21,14 +21,12 @@
     
     protected
     def sign_if_mine
-      puts "In sign_if_mine"
       if self.person == User.owner
         self.creator_signature = sign
       end
     end
 
     def sign
-      puts "signing"
       sign_with_key(User.owner.key)
     end
 
