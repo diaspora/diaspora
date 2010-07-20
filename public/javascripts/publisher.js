@@ -3,6 +3,7 @@
     $("#publisher_content_pickers .status_message").click(selectPublisherTab);
     $("#publisher_content_pickers .bookmark").click(selectPublisherTab);
     $("#publisher_content_pickers .blog").click(selectPublisherTab);
+    $("#publisher_content_pickers .photo").click(selectPublisherTab);
 
     function selectPublisherTab(evt){
       evt.preventDefault();
