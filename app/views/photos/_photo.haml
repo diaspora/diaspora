@@ -9,7 +9,7 @@
   = link_to (image_tag post.image.url(:thumb_medium)), object_path(post)
     
   %div.time
-    = link_to(how_long_ago(post), status_message_path(post))
+    = link_to(how_long_ago(post), photo_path(post))
     \--
     = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
   = render   "comments/comments", :post => post 
