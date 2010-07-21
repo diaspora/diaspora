@@ -6,8 +6,6 @@
 %ul#stream
   - for album in @albums
     = render "album", :post => album
-    = render "album", :post => album
-    = render "album", :post => album
 #pagination
   = will_paginate @albums
 

@@ -338,4 +338,6 @@ ul#publisher_content_pickers li {
       .album .name .time a {
         font-weight: normal; }
   .album div.image_cycle img {
-    border-radius: 3px; }
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px; }
