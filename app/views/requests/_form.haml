@@ -1,9 +1,6 @@
-= form_for @request  do |f|
+= form_for @request do |f|
   = f.error_messages
 
-  %p
-    = f.label :destination_url
+  .field_with_submit
     = f.text_field :destination_url
-
-  %p
     = f.submit

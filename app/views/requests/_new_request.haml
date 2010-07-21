@@ -1,9 +1,7 @@
 = form_for @request  do |f|
   = f.error_messages
 
-  %p
-    enter a diaspora url, diaspora username, or random email address:  
-    = f.label :destination_url
+  enter a diaspora url, diaspora username, or random email address:  
+  .field_with_submit
     = f.text_field :destination_url
-  %p
     = f.submit

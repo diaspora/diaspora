@@ -36,7 +36,7 @@ module RequestsHelper
 
   def relationship_flow(identifier)
     unless identifier.include?( '@')
-      return identifier
+      return {:friend => identifier}
     end
 
     f = Redfinger.finger(identifier)
