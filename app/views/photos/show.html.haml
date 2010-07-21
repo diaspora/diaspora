@@ -1,17 +1,26 @@
 
-%h3= "viewing photos from album #{@album.name}"
+%h3
+  viewing photos from album 
+  =link_to @album.name, album_path(@album)
 
-#show_photo
-  = link_to (image_tag @photo.image.url), photo_path(@album.next_photo(@photo))
+%div{:id => @photo.id}
 
-#photo_pagination
-  = link_to "<< previous", photo_path(@album.prev_photo(@photo))
-  = link_to "next >>", photo_path(@album.next_photo(@photo))
+  = link_to "full size", @photo.image.url
+  %br
 
-%h4= "comments (#{@photo.comments.count})"
-= render "comments/comments", :post => @photo
-  
-%p
-  = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "<< back to album", album_path(@album)
+  #show_photo
+    = link_to (image_tag @photo.image.url), photo_path(@album.next_photo(@photo))
+
+  #photo_pagination
+    = link_to "<< previous", photo_path(@album.prev_photo(@photo))
+    = link_to "next >>", photo_path(@album.next_photo(@photo))
+
+  %p
+    = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
+    |
+    = link_to "<< back to album", album_path(@album)
+
+  %h4{:class => "show_post_comments"}
+    = "comments (#{@photo.comments.count})"
+  = render "comments/comments", :post => @photo
+    

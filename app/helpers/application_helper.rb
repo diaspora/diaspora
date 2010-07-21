@@ -34,7 +34,7 @@ module ApplicationHelper
   end
 
   def link_to_person(person)
-    link_to person.real_name, person_url(person)
+    link_to person.real_name, person_path(person)
   end
 
   def owner_image_tag

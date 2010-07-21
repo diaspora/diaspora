@@ -6,6 +6,7 @@
       %li{ :class => "status_message" }= link_to "status message", "#"
       %li{ :class => "bookmark" }= link_to "bookmark", "#"
       %li{ :class => "blog" }= link_to "blog", "#"
+      %li= link_to "photos", albums_path
 
     #publisher_form
       = form_for StatusMessage.new, :remote => true do |f|
