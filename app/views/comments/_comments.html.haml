@@ -2,6 +2,6 @@
   %ul.comment_set{:id => post.id}
     - for comment in post.comments
       = render 'comments/comment', :post => comment
-    %li.comment
+    %li.comment.show
       = render 'comments/new_comment', :post => post
 	 	

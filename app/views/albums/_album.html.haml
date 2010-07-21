@@ -1,10 +1,13 @@
-%li.message{:id => post.id, :class => ("mine" if mine?(post))}
-  %h3= link_to post.name, object_path(post)
+%li.album{:id => post.id, :class => ("mine" if mine?(post))}
 
-  =link_to (image_tag post.photos.first.image.url(:thumb_medium)), object_path(post)
+  %div.name
+    = link_to post.name, object_path(post)
+    %div.time
+      = link_to(how_long_ago(post), object_path(post))
+  %div.image_cycle
+    - for photo in post.photos
+      =link_to (image_tag photo.image.url(:thumb_large)), object_path(post)
     
-  %div.time
-    = link_to(how_long_ago(post), object_path(post))
 
   - if mine?(post)
     .destroy_link

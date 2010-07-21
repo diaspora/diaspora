@@ -78,4 +78,12 @@ $(document).ready(function(){
     });
 
 	};
+
+  $("div.image_cycle").cycle({
+    fx: 'fade',
+    random: 1,
+    timeout: 2000,
+    speed: 3000
+  });
+
 });//end document ready
