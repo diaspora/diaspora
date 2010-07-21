@@ -5,7 +5,7 @@ describe Photo do
     @user = Factory.create(:user)
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
-    @photo = Photo.new(:person => @user)
+    @photo = Photo.new(:person => @user, :album => Album.create(:name => "foo"))
   end
   it 'should save a @photo to GridFS' do
     file = File.open(@fixture_name)
@@ -30,6 +30,13 @@ describe Photo do
       @photo.image.should_receive(:check_whitelist!)
       @photo.image = file
       @photo.save.should == false
+    end
+
+
+    it  'must have an album' do
+      photo = Photo.create(:person => @user)
+      photo.valid?.should be false
+      Photo.first.album.name.should == 'foo'
     end
   end
 

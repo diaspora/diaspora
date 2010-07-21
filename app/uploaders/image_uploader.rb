@@ -1,10 +1,10 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  storage :grid_fs
+  storage :file
 
   def store_dir
-    "files/#{model.id}"
+    "uploads"
   end
 
   def extension_white_list
@@ -21,5 +21,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :thumb_large do
     process :resize_to_fill => [300,200]
+  end
+
+  version :scaled_full do
+    process :resize_to_limit => [700,700]
   end
 end
