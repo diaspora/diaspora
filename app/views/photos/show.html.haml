@@ -9,7 +9,7 @@
   %br
 
   #show_photo
-    = link_to (image_tag @photo.image.url), photo_path(@album.next_photo(@photo))
+    = link_to (image_tag @photo.image.url(:scaled_full)), photo_path(@album.next_photo(@photo))
 
   #photo_pagination
     = link_to "<< previous", photo_path(@album.prev_photo(@photo))
