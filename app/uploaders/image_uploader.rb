@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
 
   def store_dir
-    "public/uploads"
+    "uploads"
   end
 
   def extension_white_list
