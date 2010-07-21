@@ -8,7 +8,3 @@
     - for photo in post.photos
       =link_to (image_tag photo.image.url(:thumb_large)), object_path(post)
     
-
-  - if mine?(post)
-    .destroy_link
-      = link_to 'Delete', object_path(post), :confirm => 'Are you sure?', :method => :delete, :remote => true
