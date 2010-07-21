@@ -4,10 +4,10 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(params[:photo])
     @photo.person = current_user
-    @photo.album = Album.first(:id => params[:photo][:album_id])
+    #@photo.album = Album.first(:id => params[:photo][:album_id])
 
     if @photo.save
-      @photo.album.save
+      #@photo.album.save
       flash[:notice] = "Successfully uploaded photo."
       redirect_to @photo.album
     else

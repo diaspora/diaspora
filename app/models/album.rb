@@ -9,4 +9,15 @@ class Album
   timestamps!
 
   validates_presence_of :name
+
+  def prev_photo(photo)
+    n_photo = self.photos.where(:created_at.lt => photo.created_at).sort(:created_at.desc).first
+    n_photo ? n_photo : self.photos.sort(:created_at.desc).first
+  end
+
+  def next_photo(photo)
+    p_photo = self.photos.where(:created_at.gt => photo.created_at).sort(:created_at.asc).first
+    p_photo ? p_photo : self.photos.sort(:created_at.desc).last
+  end
+
 end

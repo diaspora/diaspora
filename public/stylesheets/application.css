@@ -164,14 +164,17 @@ form {
   #user_name a {
     color: black; }
 
-div.comments {
+#stream div.comments {
   display: none; }
+
+#stream ul.comment_set {
+  padding: 0;
+    padding-left: 1em; }
 
 ul.comment_set {
   margin: 0;
     margin-top: 1em;
   padding: 0;
-    padding-left: 1em;
   list-style: none;
   width: 90%; }
   ul.comment_set li.comment {
@@ -328,7 +331,7 @@ ul#publisher_content_pickers li {
   margin-bottom: 2em; }
   .album .name {
     position: absolute;
-    z-index: 6;
+    z-index: 600;
     padding: 1em;
     background: rgba(0, 0, 0, 0.8);
     bottom: 20px;

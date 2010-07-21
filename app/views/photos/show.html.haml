@@ -1,6 +1,12 @@
-- title "Photo"
+
+%h3= "viewing photos from album #{@album.name}"
+
 #show_photo
-  = image_tag @photo.image.url
+  = link_to (image_tag @photo.image.url), photo_path(@album.next_photo(@photo))
+
+#photo_pagination
+  = link_to "<< previous", photo_path(@album.prev_photo(@photo))
+  = link_to "next >>", photo_path(@album.next_photo(@photo))
 
 %h4= "comments (#{@photo.comments.count})"
 = render "comments/comments", :post => @photo
@@ -8,4 +14,4 @@
 %p
   = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
   |
-  = link_to "<< back to album", object_path(@album)
+  = link_to "<< back to album", album_path(@album)

@@ -4,5 +4,8 @@ class Photo < Post
   mount_uploader :image, ImageUploader
 
   key :album_id, ObjectId
-  one :album, :class_name => 'Album'
+  belongs_to :album, :class_name => 'Album'
+  timestamps!
+
+  validates_presence_of :album
 end
