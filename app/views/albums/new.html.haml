@@ -1,0 +1,9 @@
+= form_for @album do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.submit
+
+%p= link_to "Back to List", albums_path

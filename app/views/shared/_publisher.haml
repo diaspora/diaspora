@@ -6,7 +6,6 @@
       %li{ :class => "status_message" }= link_to "status message", "#"
       %li{ :class => "bookmark" }= link_to "bookmark", "#"
       %li{ :class => "blog" }= link_to "blog", "#"
-      %li{ :class => "photo" }= link_to "photo", "#"
 
     #publisher_form
       = form_for StatusMessage.new, :remote => true do |f|
@@ -38,10 +37,3 @@
           = f.text_area :body
         %p
           = f.submit "Post"
-
-      = form_for Photo.new, :html => {:multipart => true} do |f|
-        = f.error_messages
-        %p
-          = f.file_field :image
-        %p
-          = f.submit 'post it!', :class => 'button'

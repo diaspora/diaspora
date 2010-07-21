@@ -1,18 +1,17 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
-
-  def index
-    @photos = Photo.paginate :page => params[:page], :order => 'created_at DESC'
-  end
   
   def create
     @photo = Photo.new(params[:photo])
     @photo.person = current_user
+    @photo.album = Album.first(:id => params[:photo][:album_id])
+
     if @photo.save
+      @photo.album.save
       flash[:notice] = "Successfully uploaded photo."
-      redirect_to photos_url
+      redirect_to @photo.album
     else
-      render :action => 'new'
+      render :action => 'album#new'
     end
   end
   
@@ -29,5 +28,6 @@ class PhotosController < ApplicationController
   
   def show
     @photo = Photo.where(:id => params[:id]).first
+    @album = @photo.album
   end
 end

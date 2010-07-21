@@ -1,9 +1,0 @@
-%h1.big_text photos
-= render "photos/new_photo", :photo => @photo
-%ul#stream
-  
-  - for photo in @photos
-    = render "photo", :post => photo
-#pagination
-  = will_paginate @photos
-

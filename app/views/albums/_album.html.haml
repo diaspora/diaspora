@@ -1,0 +1,11 @@
+%li.message{:id => post.id, :class => ("mine" if mine?(post))}
+  %h3= link_to post.name, object_path(post)
+
+  =link_to (image_tag post.photos.first.image.url(:thumb_medium)), object_path(post)
+    
+  %div.time
+    = link_to(how_long_ago(post), object_path(post))
+
+  - if mine?(post)
+    .destroy_link
+      = link_to 'Delete', object_path(post), :confirm => 'Are you sure?', :method => :delete, :remote => true

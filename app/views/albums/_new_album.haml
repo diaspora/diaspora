@@ -1,0 +1,5 @@
+= form_for Album.new, :remote => true do |f|
+  = f.error_messages
+  %p
+    = f.text_field :name, :value => "tell me something good"
+    = f.submit 'oh yeah!', :class => 'button'

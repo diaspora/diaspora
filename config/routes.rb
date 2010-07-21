@@ -7,6 +7,7 @@ Diaspora::Application.routes.draw do |map|
   resources :comments
   resources :requests
   resources :photos
+  resources :albums
 
   match "/images/files/*path" => "gridfs#serve"
   

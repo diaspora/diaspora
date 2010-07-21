@@ -16,7 +16,7 @@ class Person
 
   one :profile, :class_name => 'Profile'
   many :posts, :class_name => 'Post', :foreign_key => :person_id
-  many :collections, :class_name => 'Collection', :foreign_key => :person_id
+  many :albums, :class_name => 'Album', :foreign_key => :person_id
 
   timestamps!
 
