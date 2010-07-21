@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
   end
   
   def create
-    url = relationship_flow(params[:request][:destination_url]).values.first
+    url = relationship_flow(params[:request][:destination_url])
     @request = current_user.send_friend_request_to(url) unless url.include?('@')|| url == ''
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
