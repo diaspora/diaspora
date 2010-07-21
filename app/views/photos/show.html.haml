@@ -1,23 +1,23 @@
-
 %h3
   viewing photos from album 
-  =link_to @album.name, album_path(@album)
+  = link_to @album.name, album_path(@album)
 
 %div{:id => @photo.id}
 
   = link_to "full size", @photo.image.url
-  %br
 
   #show_photo
-    = link_to (image_tag @photo.image.url(:scaled_full)), photo_path(@album.next_photo(@photo))
+    = linked_scaled_photo @photo, @album
 
   #photo_pagination
-    = link_to "<< previous", photo_path(@album.prev_photo(@photo))
-    = link_to "next >>", photo_path(@album.next_photo(@photo))
+    = link_to_prev @photo, @album
+    |
+    = link_to_next @photo, @album
 
   %p
     = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
-    |
+
+  %p
     = link_to "<< back to album", album_path(@album)
 
   %h4{:class => "show_post_comments"}
