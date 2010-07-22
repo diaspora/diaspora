@@ -57,7 +57,7 @@ class MessageHandler
         http.callback { process}
 
       when :hub_subscribe
-        http = EventMachine::PubSubHubbub.new(query.destination).subscribe query.body, User.owner.url,  :timeout => TIMEOUT 
+        http = EventMachine::PubSubHubbub.new(query.destination).subscribe query.body, User.owner.url + 'hubbub',  :timeout => TIMEOUT 
         http.callback { process}
       else
         raise "message is not a type I know!"
