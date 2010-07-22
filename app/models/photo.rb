@@ -16,7 +16,7 @@ class Photo < Post
 
 
   def remote_photo
-    User.first.url.chop + image.path
+    User.first.url.chop + image.url
   end
 
   def remote_photo= remote_path
