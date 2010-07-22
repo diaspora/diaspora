@@ -37,7 +37,7 @@ class Request
     p.active = true
     p.save
   end
-  
+ 
 
   protected
 

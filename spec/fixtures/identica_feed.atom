@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
+ <generator uri="http://status.net" version="0.9.3">StatusNet</generator>
+ <id>http://identi.ca/api/statuses/user_timeline/169966.atom</id>
+ <title>joindiaspora timeline</title>
+ <subtitle>Updates from joindiaspora on Identi.ca!</subtitle>
+ <logo>http://avatar.identi.ca/169966-96-20100426170852.png</logo>
+ <updated>2010-07-22T01:00:38+00:00</updated>
+<author>
+ <name>joindiaspora</name>
+ <uri>http://identi.ca/user/169966</uri>
+</author>
+ <link href="http://identi.ca/joindiaspora" rel="alternate" type="text/html"/>
+ <link href="http://identi.ca/main/sup#169966" rel="http://api.friendfeed.com/2008/03#sup" type="application/json"/>
+ <link href="http://identi.ca/main/push/hub" rel="hub"/>
+ <link href="http://identi.ca/main/salmon/user/169966" rel="http://salmon-protocol.org/ns/salmon-replies"/>
+ <link href="http://identi.ca/main/salmon/user/169966" rel="http://salmon-protocol.org/ns/salmon-mention"/>
+ <link href="http://identi.ca/api/statuses/user_timeline/169966.atom" rel="self" type="application/atom+xml"/>
+<activity:subject>
+ <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
+ <id>http://identi.ca/user/169966</id>
+ <title>Diaspora</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/joindiaspora"/>
+ <link rel="avatar" type="image/png" media:width="480" media:height="480" href="http://avatar.identi.ca/169966-480-20100426170851.png"/>
+ <link rel="avatar" type="image/png" media:width="96" media:height="96" href="http://avatar.identi.ca/169966-96-20100426170852.png"/>
+ <link rel="avatar" type="image/png" media:width="48" media:height="48" href="http://avatar.identi.ca/169966-48-20100426170852.png"/>
+ <link rel="avatar" type="image/png" media:width="24" media:height="24" href="http://avatar.identi.ca/169966-24-20100426170852.png"/>
+<poco:preferredUsername>joindiaspora</poco:preferredUsername>
+<poco:displayName>Diaspora</poco:displayName>
+<poco:note>Diaspora is an awesome, distributed, open source social network in the making from some young hackers at NYU</poco:note>
+<poco:urls>
+ <poco:type>homepage</poco:type>
+ <poco:value>http://joindiaspora.com</poco:value>
+ <poco:primary>true</poco:primary>
+</poco:urls>
+</activity:subject>
+<entry>
+ <title>A month of Diaspora in action.  First screenshots/video! http://bit.ly/clOFXx</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/39231942"/>
+ <id>http://identi.ca/notice/39231942</id>
+ <published>2010-07-02T06:13:11+00:00</published>
+ <updated>2010-07-02T06:13:11+00:00</updated>
+ <statusnet:notice_info local_id="39231942" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/38985291"/>
+ <content type="html">A month of Diaspora in action.  First screenshots/video! &lt;a href=&quot;http://bit.ly/clOFXx&quot; title=&quot;http://www.joindiaspora.com/2010/07/01/one-month-in.html&quot; rel=&quot;external&quot;&gt;http://bit.ly/clOFXx&lt;/a&gt;</content>
+</entry>
+<entry>
+ <title>http://www.reclaimprivacy.org/  check your FB privacy settings, automagically! !whyisntthisbuiltintofacebook :)</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/32556574"/>
+ <id>http://identi.ca/notice/32556574</id>
+ <published>2010-05-17T18:18:28+00:00</published>
+ <updated>2010-05-17T18:18:28+00:00</updated>
+ <statusnet:notice_info local_id="32556574" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/32429253"/>
+ <content type="html">&lt;a href=&quot;http://www.reclaimprivacy.org/&quot; title=&quot;http://www.reclaimprivacy.org/&quot; rel=&quot;external&quot;&gt;http://www.reclaimprivacy.org/&lt;/a&gt;  check your FB privacy settings, automagically! !whyisntthisbuiltintofacebook :)</content>
+</entry>
+<entry>
+ <title>@cacheson,  should already be there, at http://joindiaspora.com/atom.xml... hopefully that will do the trick...</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/31824813"/>
+ <id>http://identi.ca/notice/31824813</id>
+ <published>2010-05-11T14:29:38+00:00</published>
+ <updated>2010-05-11T14:29:38+00:00</updated>
+ <statusnet:notice_info local_id="31824813" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/31712301"/>
+ <link rel="ostatus:attention" href="http://identi.ca/user/47185"/>
+ <content type="html">@&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/47185&quot; class=&quot;url&quot; title=&quot;Chris Acheson&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;cacheson&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;,  should already be there, at &lt;a href=&quot;http://joindiaspora.com/atom.xml&quot; title=&quot;http://joindiaspora.com/atom.xml&quot; rel=&quot;external&quot; class=&quot;attachment&quot; id=&quot;attachment-15490501&quot;&gt;http://joindiaspora.com/atom.xml&lt;/a&gt;... hopefully that will do the trick...</content>
+ <link rel="enclosure" href="http://joindiaspora.com/atom.xml" type="application/xml" length="31902"/>
+</entry>
+<entry>
+ <title>@elmom,  thanks for your support.  we are excited to get started. helsinki is awesome, I hope to go back one day!  good luck w/hackerspace!</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30760606"/>
+ <id>http://identi.ca/notice/30760606</id>
+ <published>2010-05-02T07:06:02+00:00</published>
+ <updated>2010-05-02T07:06:02+00:00</updated>
+ <statusnet:notice_info local_id="30760606" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30668263"/>
+ <link rel="ostatus:attention" href="http://identi.ca/user/101533"/>
+ <content type="html">@&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/101533&quot; class=&quot;url&quot; title=&quot;Elmo M&amp;#xE4;ntynen&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;elmom&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;,  thanks for your support.  we are excited to get started. helsinki is awesome, I hope to go back one day!  good luck w/hackerspace!</content>
+</entry>
+<entry>
+ <title>@tieguy, thanks for the great feedback, here is our response: http://bit.ly/aF2Fpl</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30549323"/>
+ <id>http://identi.ca/notice/30549323</id>
+ <published>2010-04-30T06:29:28+00:00</published>
+ <updated>2010-04-30T06:29:28+00:00</updated>
+ <statusnet:notice_info local_id="30549323" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30461403"/>
+ <link rel="ostatus:attention" href="http://identi.ca/user/11"/>
+ <content type="html">@&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/11&quot; class=&quot;url&quot; title=&quot;Luis Villa&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;tieguy&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;, thanks for the great feedback, here is our response: &lt;a href=&quot;http://bit.ly/aF2Fpl&quot; title=&quot;http://joindiaspora.com/2010/04/30/a-response-to-mr-villa.html&quot; rel=&quot;external&quot;&gt;http://bit.ly/aF2Fpl&lt;/a&gt;</content>
+</entry>
+<entry>
+ <title>RT @tieguy @joindiaspora hopefully constructive questions for you: http://ur1.ca/xbvq cc: @mlinksva @rejon @biella@brainbird.net</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30154486"/>
+ <id>http://identi.ca/notice/30154486</id>
+ <published>2010-04-27T06:22:14+00:00</published>
+ <updated>2010-04-27T06:22:14+00:00</updated>
+ <statusnet:notice_info local_id="30154486" source="web" favorite="false" repeated="false" repeat_of="30152015"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30076242"/>
+ <ostatus:forward ref="http://identi.ca/notice/30152015" href="http://identi.ca/notice/30152015"></ostatus:forward>
+ <content type="html">RT @&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/11&quot; class=&quot;url&quot; title=&quot;Luis Villa&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;tieguy&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; @&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/169966&quot; class=&quot;url&quot; title=&quot;Diaspora&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;joindiaspora&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; hopefully constructive questions for you: &lt;a href=&quot;http://ur1.ca/xbvq&quot; title=&quot;http://tieguy.org/blog/2010/04/27/questions-for-the-diaspora/&quot; rel=&quot;external&quot;&gt;http://ur1.ca/xbvq&lt;/a&gt; cc: @&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/8&quot; class=&quot;url&quot; title=&quot;Mike Linksvayer&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;mlinksva&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; @&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/37&quot; class=&quot;url&quot; title=&quot;Jon Phillips&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;rejon&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; @&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://brainbird.net/biella&quot; class=&quot;url&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;biella@brainbird.net&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;</content>
+</entry>
+<entry>
+ <title>@tieguy  it's on!  ;) we have already thought about much of your comments, but give us a day or two to give you a good response.</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30152694"/>
+ <id>http://identi.ca/notice/30152694</id>
+ <published>2010-04-27T06:04:30+00:00</published>
+ <updated>2010-04-27T06:04:30+00:00</updated>
+ <statusnet:notice_info local_id="30152694" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30074469"/>
+ <link rel="ostatus:attention" href="http://identi.ca/user/11"/>
+ <content type="html">@&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/11&quot; class=&quot;url&quot; title=&quot;Luis Villa&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;tieguy&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;  it's on!  ;) we have already thought about much of your comments, but give us a day or two to give you a good response.</content>
+</entry>
+<entry>
+ <title>@mattkatz00 we really appreciate your kickstarter backing!</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30089749"/>
+ <id>http://identi.ca/notice/30089749</id>
+ <published>2010-04-26T19:32:19+00:00</published>
+ <updated>2010-04-26T19:32:19+00:00</updated>
+ <statusnet:notice_info local_id="30089749" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30012647"/>
+ <content type="html">@mattkatz00 we really appreciate your kickstarter backing!</content>
+</entry>
+<entry>
+ <title>@danlatorre many thanks for your backing and support!</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30089410"/>
+ <id>http://identi.ca/notice/30089410</id>
+ <published>2010-04-26T19:29:27+00:00</published>
+ <updated>2010-04-26T19:29:27+00:00</updated>
+ <statusnet:notice_info local_id="30089410" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30012313"/>
+ <link rel="ostatus:attention" href="http://identi.ca/user/16365"/>
+ <content type="html">@&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/16365&quot; class=&quot;url&quot; title=&quot;Daniel Latorre&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;danlatorre&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; many thanks for your backing and support!</content>
+</entry>
+<entry>
+ <title>@adwilliamson thanks for backing diaspora!</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30089220"/>
+ <id>http://identi.ca/notice/30089220</id>
+ <published>2010-04-26T19:27:36+00:00</published>
+ <updated>2010-04-26T19:27:36+00:00</updated>
+ <statusnet:notice_info local_id="30089220" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30012129"/>
+ <content type="html">@adwilliamson thanks for backing diaspora!</content>
+</entry>
+<entry>
+ <title>@thisisparker many thanks for your kickstarter backing!</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30088868"/>
+ <id>http://identi.ca/notice/30088868</id>
+ <published>2010-04-26T19:23:51+00:00</published>
+ <updated>2010-04-26T19:23:51+00:00</updated>
+ <statusnet:notice_info local_id="30088868" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/30011788"/>
+ <link rel="ostatus:attention" href="http://identi.ca/user/27657"/>
+ <content type="html">@&lt;span class=&quot;vcard&quot;&gt;&lt;a href=&quot;http://identi.ca/user/27657&quot; class=&quot;url&quot; title=&quot;Parker Higgins&quot;&gt;&lt;span class=&quot;fn nickname&quot;&gt;thisisparker&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; many thanks for your kickstarter backing!</content>
+</entry>
+<entry>
+ <title>We'll be building the interface for Diaspora to StatusNet, but for now, this will be from the web!</title>
+ <link rel="alternate" type="text/html" href="http://identi.ca/notice/30074166"/>
+ <id>http://identi.ca/notice/30074166</id>
+ <published>2010-04-26T17:07:49+00:00</published>
+ <updated>2010-04-26T17:07:49+00:00</updated>
+ <statusnet:notice_info local_id="30074166" source="web" favorite="false" repeated="false"></statusnet:notice_info>
+ <link rel="ostatus:conversation" href="http://identi.ca/conversation/29997414"/>
+ <content type="html">We'll be building the interface for Diaspora to StatusNet, but for now, this will be from the web!</content>
+</entry>
+</feed>
+

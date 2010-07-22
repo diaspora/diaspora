@@ -41,7 +41,6 @@ describe User do
     @user.send_friend_request_to( @friend.url ).should be nil
   end
 
-
   it 'should be able to give me the terse url for webfinger' do
     user = Factory.create(:user)
     user.terse_url.should == 'example.com'
