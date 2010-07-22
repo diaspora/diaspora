@@ -1,6 +1,20 @@
 module Diaspora
-  module XMLParser
+  module OStatusParser
+    def find_hub(xml)
+      Nokogiri::HTML(xml).xpath('//link[@rel="hub"]').first.attribute("href").value
+    end
 
+    def parse_sender(xml)
+      puts xml
+    end
+
+    def parse_objects(xml)
+
+    end
+  end
+  
+
+  module XMLParser
     def parse_owner_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       email = doc.xpath("//person/email").text.to_s
@@ -57,8 +71,12 @@ module Diaspora
           end
         end
 
+        def subscribe_to_ostatus(hub, feed_url)
+          @@queue.add_subscription_request(hub, feed_url)
+          @@queue.process
+        end
+
         def push_to(recipients)
-          
           @@queue.add_hub_notification(APP_CONFIG[:pubsub_server], User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
           
           unless recipients.empty?

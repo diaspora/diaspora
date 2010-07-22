@@ -75,6 +75,26 @@ class User < Person
     end
   end
 
+  ####ostatus######
+  #
+  def subscribe_to_pubsub(feed_url)
+    # THIS SHOULD REALLY BE IN A REQUESR>>>> FIGURE IT OUT
+    r = Request.instantiate(:to => feed_url, :from => self)
+
+    r.subscribe_to_ostatus(feed_url)
+  end
+
+
+  def send_request(thing)
+    if thing[:friend]
+      self.send_friend_request(thing[:friend])
+    elsif thing[:subscribe]
+      self.subscribe_to_pubsub(thing[:subscrube])
+    else
+      raise "you can't do anything to that url"
+    end
+  end
+
   
   ###Helpers############
   def mine?(post)

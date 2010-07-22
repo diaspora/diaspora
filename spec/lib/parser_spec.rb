@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 include ApplicationHelper 
+include Diaspora::OStatusParser
 
 describe "parser in application helper" do
   before do
@@ -59,6 +60,15 @@ describe "parser in application helper" do
     Post.count.should == 0
   end
 
+  describe 'ostatus parsing' do
+    it 'should be able to get the hub of an ostatus feed' do
+      xml_path = File.dirname(__FILE__) + '/../fixtures/identica_feed.atom'
+      xml = File.open(xml_path).read
+
+      Diaspora::OStatusParser::find_hub(xml).should == 'http://identi.ca/main/push/hub'
+    end
+
+  end
 
   describe "parsing compliant XML object" do 
     before do

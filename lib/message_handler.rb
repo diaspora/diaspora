@@ -14,11 +14,27 @@ class MessageHandler
 
   def add_post_request(destinations, body)
     b = CGI::escape( body )
-    destinations.each{|dest| @queue.push(Message.new(:post, dest, b))}
+    destinations.each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
   end
 
   def add_hub_notification(destination, feed_location)
-    @queue.push(Message.new(:pubhub, destination, feed_location))
+    @queue.push(Message.new(:pubhub, destination, :body => feed_location))
+  end
+
+  def add_hub_subscription_request(hub, body)
+    @queue.push(Message.new(:pubhubsub, hub, :body => body))
+  end
+
+  def add_subscription_request(feed)
+
+    feed_action = lambda{
+                    hub = Diaspora::OStatusParser::find_hub(http.response)
+                    add_hub_subscription_request(hub, query.destination)
+                    Diaspora::OStatus::parse_sender(http.response)
+                  }
+
+
+    @queue.push(Message.new(:subscribe, feed, :callback => callback)) 
   end
 
   def process
@@ -30,8 +46,17 @@ class MessageHandler
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
+
+      when :subscribe
+        http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
+        http.callback query.callback
+        
       when :pubhub
         http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT 
+        http.callback { process}
+
+      when :pubhubsub
+        http = EventMachine::PubSubHubbub.new(query.destination).subscribe query.body, User.owner.url,  :timeout => TIMEOUT 
         http.callback { process}
       else
         raise "message is not a type I know!"
@@ -57,10 +82,14 @@ class MessageHandler
 
   class Message
     attr_accessor :type, :destination, :body, :try_count
-    def initialize(type, dest, body= nil)
+    def initialize(type, dest, opts = {})
       @type = type
       @destination = dest
-      @body = body
+      @body = opts[:body]
+
+      opts[:callback] ||= lambda{ process; process }
+      
+      @callback = opts[:callback]
       @try_count = 0
     end
   end
