@@ -156,7 +156,7 @@ describe 'user encryption' do
       message = Factory.create(:status_message, :person => @user)
       @user.comment "Yeah, it was great", :on => message
       message.comments.first.verify_creator_signature.should be true
-      StatusMessage.first.comments.first.verify_post_creator_signature.should be true
+      StatusMessage.first(:message => message.message).comments.first.verify_post_creator_signature.should be true
     end
     
     it 'should verify a comment made on a remote post by a different friend' do
