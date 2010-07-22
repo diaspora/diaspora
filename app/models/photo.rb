@@ -16,6 +16,7 @@ class Photo < Post
 
 
   def remote_photo
+    puts image.url
     User.owner.url.chop + image.url
   end
 
