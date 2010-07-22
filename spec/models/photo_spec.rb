@@ -34,8 +34,10 @@ describe Photo do
 
 
     it  'must have an album' do
-      photo = Photo.create(:person => @user)
+      photo = Photo.new(:person => @user)
       photo.valid?.should be false
+      photo.album = Album.new(:name => "foo")
+      photo.save
       Photo.first.album.name.should == 'foo'
     end
   end

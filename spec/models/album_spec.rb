@@ -30,12 +30,24 @@ describe Album do
     album.photos.count.should == 1
   end
 
+  it 'should remove all photos on album delete' do
+      photo_one = Photo.create(:person => @user, :album => @album, :created_at => Time.now)
+      photo_two = Photo.create(:person => @user, :album => @album, :created_at => Time.now-1)
+      photo_three = Photo.create(:person => @user, :album => @album, :created_at => Time.now-2)
+
+      @album.photos += [photo_one, photo_two, photo_three]
+
+      Photo.all.count.should == 3
+      @album.destroy
+      Photo.all.count.should == 0
+  end
+
   describe 'traversing' do
     before do
       @album = Album.create(:name => "test collection")
-      @photo_one = Photo.create(:person => @user, :created_at => Time.now)
-      @photo_two = Photo.create(:person => @user, :created_at => Time.now-1)
-      @photo_three = Photo.create(:person => @user, :created_at => Time.now-2)
+      @photo_one = Photo.create(:person => @user, :album => @album, :created_at => Time.now)
+      @photo_two = Photo.create(:person => @user, :album => @album, :created_at => Time.now+1)
+      @photo_three = Photo.create(:person => @user, :album => @album, :created_at => Time.now+2)
 
       @album.photos += [@photo_one, @photo_two, @photo_three]
     end
