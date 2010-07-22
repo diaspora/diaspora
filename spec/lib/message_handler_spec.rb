@@ -131,6 +131,52 @@ describe MessageHandler do
 
     end
   end
+
+  describe 'ostatus_subscribe' do
+
+  end
+
+  describe 'hub_publish' do
+
+
+    it 'should correctly queue up a pubsubhub publish request' do
+      destination = "http://identi.ca/hub/"
+      feed_location = "http://google.com/"
+      
+      EventMachine.run {
+        @handler.add_hub_notification(destination, feed_location)
+        q = @handler.instance_variable_get(:@queue)
+
+        message = ""
+        q.pop{|m| message = m} 
+
+        message.destination.should == destination
+        message.body.should  == feed_location
+
+        EventMachine.stop
+      }
+    end
+
+    it 'should notify the hub about new content' do
+      request = FakeHttpRequest.new(:success)
+      request.should_receive(:publish).exactly(1).times.and_return(request)
+      EventMachine::PubSubHubbub.stub!(:new).and_return(request)
+
+      EventMachine.run {
+        @handler.add_hub_notification("http://identi.ca/hub", "http://google.com/feed")
+        @handler.size.should == 1
+        @handler.process
+        @handler.size.should == 0
+        EventMachine.stop
+      }
+    end
+
+  end
+
+  describe 'hub_subscribe' do
+
+  end
+
 end
 
 class FakeHttpRequest

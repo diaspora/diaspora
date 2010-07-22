@@ -46,24 +46,4 @@ describe User do
     user.terse_url.should == 'example.com'
   end
 
-  
-  it 'should subscribe to a status.net user' do
-    @user = Factory.create(:user)
-    @user.request_connection
-
-    
-    #@user.send_friend_request(url)
-      @user.send_subscription(url)
-        get stream  <== schedule async get  :inquire_subscription
-        { 
-          parse out hub
-          subscribe to hub => s        
-          parse_profile
-          parse_messages
-        
-        }
-      end
-  end
-=end
-
 end

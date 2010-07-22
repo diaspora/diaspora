@@ -1,14 +1,14 @@
 module Diaspora
   module OStatusParser
-    def find_hub(xml)
+    def self.find_hub(xml)
       Nokogiri::HTML(xml).xpath('//link[@rel="hub"]').first.attribute("href").value
     end
 
-    def parse_sender(xml)
-      puts xml
+    def self.parse_sender(xml)
+      puts "you just won the game"
     end
 
-    def parse_objects(xml)
+    def self.parse_objects(xml)
 
     end
   end

@@ -1,6 +1,6 @@
 class MessageHandler 
+
   
-  include Diaspora::OStatusParser
   NUM_TRIES = 3
   TIMEOUT = 5 #seconds
   
@@ -19,15 +19,22 @@ class MessageHandler
   end
 
   def add_hub_notification(destination, feed_location)
-    @queue.push(Message.new(:pubhub, destination, :body => feed_location))
+    @queue.push(Message.new(:hub_publish, destination, :body => feed_location))
   end
 
   def add_hub_subscription_request(hub, body)
-    @queue.push(Message.new(:pubhubsub, hub, :body => body))
+    @queue.push(Message.new(:hub_subscribe, hub, :body => body))
   end
 
   def add_subscription_request(feed)
-    @queue.push(Message.new(:subscribe, feed)) 
+    @queue.push(Message.new(:ostatus_subscribe, feed)) 
+  end
+
+
+  def process_ostatus_subscription(query_object, http)
+      hub = Diaspora::OStatusParser::find_hub(http.response)
+      add_hub_subscription_request(hub, query_object.destination)
+      Diaspora::OStatusParser::parse_sender(http.response)
   end
 
   def process
@@ -40,25 +47,16 @@ class MessageHandler
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
 
-      when :subscribe
+      when :ostatus_subscribe
         puts query.destination
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
-        http.callback {
-                    require 'lib/common'
-                    puts http.response
-                    hub = Nokogiri::HTML(http.response).xpath('//link[@rel="hub"]').first.attribute("href").value
-                    
-                    add_hub_subscription_request(hub, query.destination)
-                    #Diaspora::OStatus::parse_sender(http.response)
-                    
-                    process
-          }
+        http.callback { process_ostatus_subscription(query, http); process}
         
-      when :pubhub
+      when :hub_publish
         http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT 
         http.callback { process}
 
-      when :pubhubsub
+      when :hub_subscribe
         http = EventMachine::PubSubHubbub.new(query.destination).subscribe query.body, User.owner.url,  :timeout => TIMEOUT 
         http.callback { process}
       else
@@ -84,7 +82,7 @@ class MessageHandler
   end
 
   class Message
-    attr_accessor :type, :destination, :body, :try_count
+    attr_accessor :type, :destination, :body, :callback, :try_count
     def initialize(type, dest, opts = {})
       @type = type
       @destination = dest
