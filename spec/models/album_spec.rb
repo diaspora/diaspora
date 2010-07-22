@@ -24,16 +24,16 @@ describe Album do
 
   it 'should contain photos' do
     album = Album.create(:name => "test collection")
-    photo = Photo.new(:person => @user)
+    photo = Factory.build(:photo, :person => @user)
 
     album.photos << photo
     album.photos.count.should == 1
   end
 
   it 'should remove all photos on album delete' do
-      photo_one = Photo.create(:person => @user, :album => @album, :created_at => Time.now)
-      photo_two = Photo.create(:person => @user, :album => @album, :created_at => Time.now-1)
-      photo_three = Photo.create(:person => @user, :album => @album, :created_at => Time.now-2)
+      photo_one = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now)
+      photo_two = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now-1)
+      photo_three = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now-2)
 
       @album.photos += [photo_one, photo_two, photo_three]
 
@@ -45,9 +45,9 @@ describe Album do
   describe 'traversing' do
     before do
       @album = Album.create(:name => "test collection")
-      @photo_one = Photo.create(:person => @user, :album => @album, :created_at => Time.now)
-      @photo_two = Photo.create(:person => @user, :album => @album, :created_at => Time.now+1)
-      @photo_three = Photo.create(:person => @user, :album => @album, :created_at => Time.now+2)
+      @photo_one = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now)
+      @photo_two = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now+1)
+      @photo_three = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now+2)
 
       @album.photos += [@photo_one, @photo_two, @photo_three]
     end
@@ -76,9 +76,6 @@ describe Album do
       @album.person = @user
       @album.save
       @xml = @album.to_xml.to_s
-      @photo_one = Photo.create(:person => @user, :album => @album, :created_at => Time.now)
-      @photo_two = Photo.create(:person => @user, :album => @album, :created_at => Time.now+1)
-      @photo_three = Photo.create(:person => @user, :album => @album, :created_at => Time.now+2)
     end
     it 'should have a person' do
       @xml.include?(@album.person.id.to_s).should be true
