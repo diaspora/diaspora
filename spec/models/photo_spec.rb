@@ -16,8 +16,7 @@ describe Photo do
   end
 
   it 'should save a @photo to GridFS' do
-    file = File.open(@fixture_name)
-    @photo.image = file
+    @photo.image.store! File.open(@fixture_name)
     @photo.save.should == true
     binary = @photo.image.read
     fixture_binary = File.open(@fixture_name).read
@@ -27,8 +26,7 @@ describe Photo do
   it  'must have an album' do
 
     photo = Photo.new(:person => @user)
-    file = File.open(@fixture_name)
-    photo.image = file
+    photo.image = File.open(@fixture_name)
     photo.save
     photo.valid?.should be false
     photo.album = Album.create(:name => "foo", :person => @user)
