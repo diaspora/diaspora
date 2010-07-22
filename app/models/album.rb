@@ -17,6 +17,7 @@ class Album
   validates_presence_of :name
 
   before_destroy :destroy_photos
+  after_save :notify_people
 
   def prev_photo(photo)
     n_photo = self.photos.where(:created_at.lt => photo.created_at).sort(:created_at.desc).first
