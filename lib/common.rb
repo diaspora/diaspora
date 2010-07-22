@@ -51,7 +51,7 @@ module Diaspora
           User.owner.receive_friend_request(p)
         #This line checks if the sender was in the database, among other things?
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
-          p.save 
+          Rails.logger.info("Saving object with success: #{p.save}")
         end
         #p.save if p.respond_to?(:person) && !(p.person == nil) #WTF
       end
