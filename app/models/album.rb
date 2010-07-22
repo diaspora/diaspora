@@ -3,7 +3,6 @@ class Album
   include MongoMapper::Document
   include ROXML
   include Diaspora::Webhooks
-  include Encryptable
 
   xml_reader :name
   xml_reader :person, :as => Person
@@ -19,6 +18,7 @@ class Album
 
   before_destroy :destroy_photos
 
+  after_save :send_to_view
   def prev_photo(photo)
     n_photo = self.photos.where(:created_at.lt => photo.created_at).sort(:created_at.desc).first
     n_photo ? n_photo : self.photos.sort(:created_at.desc).first
@@ -34,5 +34,7 @@ class Album
   def destroy_photos
     photos.each{|p| p.destroy}
   end
-
+  def send_to_view
+    SocketsController.new.outgoing(self)
+  end
 end
