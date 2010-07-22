@@ -5,7 +5,7 @@ describe Photo do
     @user = Factory.create(:user)
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
-    @photo = Photo.new(:person => @user, :album => Album.create(:name => "foo"))
+    @photo = Photo.new(:person => @user, :album => Album.create(:name => "foo", :person => @user))
   end
   it 'should save a @photo to GridFS' do
     file = File.open(@fixture_name)
@@ -36,7 +36,7 @@ describe Photo do
     it  'must have an album' do
       photo = Photo.new(:person => @user)
       photo.valid?.should be false
-      photo.album = Album.new(:name => "foo")
+      photo.album = Album.new(:name => "foo", :person => @user)
       photo.save
       Photo.first.album.name.should == 'foo'
     end
@@ -64,7 +64,7 @@ describe Photo do
     it 'should write the url on serialization' do 
       @photo.image = File.open(@fixture_name)
       xml = @photo.to_xml.to_s
-      xml.include?(@photo.image.path).should be true
+      xml.include?(@photo.image.url).should be true
       remote_photo = Photo.from_xml xml
       @photo.destroy
       remote_photo.image.read.nil?.should be false

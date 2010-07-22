@@ -21,7 +21,7 @@ module Diaspora
           object.person =  parse_owner_from_xml post.to_s if object.respond_to? :person  
           objects << object 
         rescue
-          puts "Not a real type: #{object.to_s}"
+          Rails.logger.info "Not a real type: #{object.to_s}"
         end
       end
       objects
