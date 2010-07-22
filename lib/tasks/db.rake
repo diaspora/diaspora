@@ -26,9 +26,11 @@ namespace :db do
 
     # Specifiy what models to remove
     Post.delete_all
+    Comment.delete_all
     Person.delete_all
     User.delete_all
     Request.delete_all
+    Album.delete_all
   end
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'
