@@ -4,9 +4,89 @@ module Diaspora
       Nokogiri::HTML(xml).xpath('//link[@rel="hub"]').first.attribute("href").value
     end
 
-    def self.parse_sender(xml)
-      puts "you just won the game"
+    def self.process(xml)
+      doc = Nokogiri::HTML(xml)
+      parse_author(doc)
+      puts ""
+      parse_entry(doc)
     end
+
+    def parse_author(doc)
+      doc = Nokogiri::HTML(doc) if doc.is_a? String
+      
+      
+      service = parse_service(doc)
+      feed_url = parse_feed_url(doc)
+      avatar_thumbnail = parse_avatar_thumbnail(doc)
+      username = parse_username(doc)
+      profile_url = parse_profile_url(doc)
+
+
+
+      puts "the sender:"
+      puts service
+      puts feed_url
+      puts avatar_thumbnail
+      puts username
+      puts profile_url
+    end
+
+    def parse_entry(doc)
+      doc = Nokogiri::HTML(doc) if doc.is_a? String
+
+      message = parse_message(doc)
+      permalink = parse_permalink(doc)
+      published_at = parse_published_at(doc)
+      updated_at = parse_updated_at(doc)
+      
+
+      puts "the message"
+      puts message
+      puts permalink
+      puts published_at
+      puts updated_at
+    end
+
+
+    ##author###
+    def self.parse_service(doc)
+      doc.xpath('//generator').inner_html
+    end
+
+    def self.parse_feed_url(doc)
+      doc.xpath('//id').first.inner_html
+    end
+
+    def self.parse_avatar_thumbnail(doc)
+      doc.xpath('//logo').first.inner_html
+    end
+
+    def self.parse_username(doc)
+      doc.xpath('//author/name').first.inner_html
+    end
+
+    def self.parse_profile_url(doc)
+      doc.xpath('//author/uri').first.inner_html
+    end
+
+
+    #entry##
+    def self.parse_message(doc)
+      doc.xpath('//entry/title').first.inner_html
+    end
+
+    def self.parse_permalink(doc)
+      doc.xpath('//entry/id').first.inner_html
+    end
+
+    def self.parse_published_at(doc)
+      doc.xpath('//entry/published').first.inner_html
+    end
+
+    def self.parse_updated_at(doc)
+      doc.xpath('//entry/updated').first.inner_html
+    end 
+
 
     def self.parse_objects(xml)
 

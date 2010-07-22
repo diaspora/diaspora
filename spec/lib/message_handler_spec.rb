@@ -194,10 +194,10 @@ describe MessageHandler do
       Diaspora::OStatusParser.stub!(:find_hub).and_return("http://hub.google.com")
       MessageHandler.stub!(:add_hub_subscription_request).and_return(true)
 
-      Diaspora::OStatusParser.stub!(:parse_sender)
+      Diaspora::OStatusParser.stub!(:process)
       Diaspora::OStatusParser.should_receive(:find_hub)
       @handler.should_receive(:add_hub_subscription_request)
-      Diaspora::OStatusParser.should_receive(:parse_sender)
+      Diaspora::OStatusParser.should_receive(:process)
 
       g = mock("Message")
       g.stub!(:destination).and_return("google")

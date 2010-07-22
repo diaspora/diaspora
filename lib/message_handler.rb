@@ -34,7 +34,7 @@ class MessageHandler
   def process_ostatus_subscription(query_object, http)
       hub = Diaspora::OStatusParser::find_hub(http.response)
       add_hub_subscription_request(hub, query_object.destination)
-      Diaspora::OStatusParser::parse_sender(http.response)
+      Diaspora::OStatusParser::process(http.response)
   end
 
   def process
