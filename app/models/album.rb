@@ -1,6 +1,13 @@
 class Album 
+  require 'lib/common'
   include MongoMapper::Document
+  include ROXML
+  include Diaspora::Webhooks
+  include Encryptable
 
+  xml_reader :name
+  xml_reader :person, :as => Person
+  xml_reader :_id
   key :name, String
 
   belongs_to :person, :class_name => 'Person'

@@ -59,4 +59,25 @@ describe Photo do
     end
     
   end
+
+  describe 'remote photos' do
+    it 'should write the url on serialization' do 
+      @photo.image = File.open(@fixture_name)
+      xml = @photo.to_xml.to_s
+      xml.include?(@photo.image.path).should be true
+      remote_photo = Photo.from_xml xml
+      @photo.destroy
+      remote_photo.image.read.nil?.should be false
+
+    end
+    it 'should have an album id on serialization' do
+       @photo.image = File.open(@fixture_name)
+      xml = @photo.to_xml.to_s
+      xml.include?(@photo.album.id.to_s).should be true
+      remote_photo = Photo.from_xml xml
+      @photo.destroy
+      remote_photo.save.should be true
+      remote_photo.album.nil?.should be false
+    end
+  end
 end

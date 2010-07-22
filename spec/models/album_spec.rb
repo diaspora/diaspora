@@ -71,6 +71,26 @@ describe Album do
     end
   end
 
+  describe 'serialization' do
+    before do
+      @album.person = @user
+      @album.save
+      @xml = @album.to_xml.to_s
+      @photo_one = Photo.create(:person => @user, :album => @album, :created_at => Time.now)
+      @photo_two = Photo.create(:person => @user, :album => @album, :created_at => Time.now+1)
+      @photo_three = Photo.create(:person => @user, :album => @album, :created_at => Time.now+2)
+    end
+    it 'should have a person' do
+      @xml.include?(@album.person.id.to_s).should be true
+    end
+    it 'should have a name' do
+      @xml.include?(@album.name).should be true
+    end
+    it 'should have an id' do
+      @xml.include?(@album.id.to_s).should be true
+    end
+
+  end
 
 
 end
