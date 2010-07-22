@@ -15,6 +15,19 @@ describe Photo do
     fixture_binary = File.open(@fixture_name).read
     binary.should == fixture_binary
   end
+
+  it  'must have an album' do
+
+    photo = Photo.new(:person => @user)
+    file = File.open(@fixture_name)
+    photo.image = file
+    photo.save
+    photo.valid?.should be false
+    photo.album = Album.create(:name => "foo", :person => @user)
+    photo.save
+    Photo.first.album.name.should == 'foo'
+  end
+
   describe 'non-image files' do
     it 'should not store' do
       file = File.open(@fail_fixture_name)
@@ -33,13 +46,7 @@ describe Photo do
     end
 
 
-    it  'must have an album' do
-      photo = Photo.new(:person => @user)
-      photo.valid?.should be false
-      photo.album = Album.new(:name => "foo", :person => @user)
-      photo.save
-      Photo.first.album.name.should == 'foo'
-    end
+
   end
 
   describe 'with encryption' do
