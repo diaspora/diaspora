@@ -7,13 +7,16 @@ class Photo < Post
   xml_reader :album_id 
 
   key :album_id, ObjectId
+
+   
   belongs_to :album, :class_name => 'Album'
   timestamps!
 
   validates_presence_of :album
 
+
   def remote_photo
-    image.path
+    User.first.url.chop + image.path
   end
 
   def remote_photo= remote_path
