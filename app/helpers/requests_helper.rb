@@ -25,7 +25,6 @@ module RequestsHelper
 
   def subscription_url(action, profile)
     if action == :subscribe
-      pp profile.links
       profile.links.select{|x| x.rel == 'http://schemas.google.com/g/2010#updates-from'}.first.href
     elsif action == :friend
       profile.links.select{|x| x.rel == 'http://joindiaspora.com/seed_location'}.first.href

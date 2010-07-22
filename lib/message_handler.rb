@@ -1,5 +1,6 @@
 class MessageHandler 
-
+  
+  include Diaspora::OStatusParser
   NUM_TRIES = 3
   TIMEOUT = 5 #seconds
   
@@ -26,15 +27,7 @@ class MessageHandler
   end
 
   def add_subscription_request(feed)
-
-    feed_action = lambda{
-                    hub = Diaspora::OStatusParser::find_hub(http.response)
-                    add_hub_subscription_request(hub, query.destination)
-                    Diaspora::OStatus::parse_sender(http.response)
-                  }
-
-
-    @queue.push(Message.new(:subscribe, feed, :callback => callback)) 
+    @queue.push(Message.new(:subscribe, feed)) 
   end
 
   def process
@@ -48,8 +41,18 @@ class MessageHandler
         http.callback {send_to_seed(query, http.response); process}
 
       when :subscribe
+        puts query.destination
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
-        http.callback query.callback
+        http.callback {
+                    require 'lib/common'
+                    puts http.response
+                    hub = Nokogiri::HTML(http.response).xpath('//link[@rel="hub"]').first.attribute("href").value
+                    
+                    add_hub_subscription_request(hub, query.destination)
+                    #Diaspora::OStatus::parse_sender(http.response)
+                    
+                    process
+          }
         
       when :pubhub
         http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT 

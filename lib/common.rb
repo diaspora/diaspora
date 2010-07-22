@@ -71,8 +71,9 @@ module Diaspora
           end
         end
 
-        def subscribe_to_ostatus(hub, feed_url)
-          @@queue.add_subscription_request(hub, feed_url)
+        def subscribe_to_ostatus(feed_url)
+          puts feed_url
+          @@queue.add_subscription_request(feed_url)
           @@queue.process
         end
 

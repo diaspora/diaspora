@@ -1,4 +1,6 @@
 class User < Person
+  require 'lib/common'
+  include Diaspora::OStatusParser
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -78,18 +80,18 @@ class User < Person
   ####ostatus######
   #
   def subscribe_to_pubsub(feed_url)
-    # THIS SHOULD REALLY BE IN A REQUESR>>>> FIGURE IT OUT
     r = Request.instantiate(:to => feed_url, :from => self)
-
     r.subscribe_to_ostatus(feed_url)
+    r
   end
 
 
-  def send_request(thing)
-    if thing[:friend]
-      self.send_friend_request(thing[:friend])
-    elsif thing[:subscribe]
-      self.subscribe_to_pubsub(thing[:subscrube])
+  def send_request(rel_hash)
+    puts rel_hash.inspect
+    if rel_hash[:friend]
+      self.send_friend_request_to(rel_hash[:friend])
+    elsif rel_hash[:subscribe]
+      self.subscribe_to_pubsub(rel_hash[:subscribe])
     else
       raise "you can't do anything to that url"
     end

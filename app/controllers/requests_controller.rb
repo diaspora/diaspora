@@ -26,6 +26,8 @@ class RequestsController < ApplicationController
   
   def create
     rel_hash = relationship_flow(params[:request][:destination_url])
+    
+    puts rel_hash
     @request = current_user.send_request(rel_hash)
 
     if @request
