@@ -14,9 +14,16 @@ class Photo < Post
 
   validates_presence_of :album
 
+  def self.instantiate params = {}
+    image_file = params[:image]
+    params.delete :image
+    photo = Photo.new(params)
+    photo.image.store! image_file
+    photo
+  end
 
   def remote_photo
-    User.first.url.chop + image.path
+    User.owner.url.chop + image.url
   end
 
   def remote_photo= remote_path

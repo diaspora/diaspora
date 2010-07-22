@@ -36,4 +36,7 @@ class Album
     photos.each{|p| p.destroy}
   end
 
+  def propagate_retraction
+    Retraction.for(self).notify_people
+  end
 end

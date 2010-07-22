@@ -2,12 +2,10 @@ class PhotosController < ApplicationController
   before_filter :authenticate_user!
   
   def create
-    @photo = Photo.new(params[:photo])
+    @photo = Photo.instantiate(params[:photo])
     @photo.person = current_user
-    #@photo.album = Album.first(:id => params[:photo][:album_id])
 
     if @photo.save
-      #@photo.album.save
       flash[:notice] = "Successfully uploaded photo."
       redirect_to @photo.album
     else
