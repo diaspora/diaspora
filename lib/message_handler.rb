@@ -12,22 +12,22 @@ class MessageHandler
     destinations.each{ |dest| @queue.push(Message.new(:get, dest))}
   end
 
+  def add_subscription_request(feed_url)
+    @queue.push(Message.new(:ostatus_subscribe, feed_url)) 
+  end
 
   def add_post_request(destinations, body)
     b = CGI::escape( body )
     destinations.each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
   end
 
-  def add_hub_notification(destination, feed_location)
-    @queue.push(Message.new(:hub_publish, destination, :body => feed_location))
+  # pubsubhubbub
+  def add_hub_notification(hub_url, feed_url)
+    @queue.push(Message.new(:hub_publish, hub_url, :body => feed_url))
   end
 
-  def add_hub_subscription_request(hub, body)
-    @queue.push(Message.new(:hub_subscribe, hub, :body => body))
-  end
-
-  def add_subscription_request(feed)
-    @queue.push(Message.new(:ostatus_subscribe, feed)) 
+  def add_hub_subscription_request(hub_url, feed_url)
+    @queue.push(Message.new(:hub_subscribe, hub_url, :body => feed_url))
   end
 
 
@@ -42,7 +42,7 @@ class MessageHandler
       case query.type
       when :post
         http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml => query.body}
-        http.callback { puts  query.destination; process; process}
+        http.callback { puts query.destination; process; process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
@@ -87,10 +87,7 @@ class MessageHandler
       @type = type
       @destination = dest
       @body = opts[:body]
-
-      opts[:callback] ||= lambda{ process; process }
-      
-      @callback = opts[:callback]
+      @callback = opts[:callback] ||= lambda{ process; process }
       @try_count = 0
     end
   end

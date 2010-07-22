@@ -133,12 +133,25 @@ describe MessageHandler do
   end
 
   describe 'ostatus_subscribe' do
+    it 'should be able to add a GET query to the queue with required destinations' do
+      request = FakeHttpRequest.new(:success)
+      request.should_receive(:get).exactly(1).times.and_return(request)
+      request.stub!(:callback).and_return(true)
+      
+      EventMachine::HttpRequest.stub!(:new).and_return(request)
+
+      EventMachine.run{
+        @handler.add_subscription_request("http://evan.status.net/")
+        @handler.size.should == 1
+
+        @handler.process
+        EventMachine.stop
+      }
+    end
 
   end
 
   describe 'hub_publish' do
-
-
     it 'should correctly queue up a pubsubhub publish request' do
       destination = "http://identi.ca/hub/"
       feed_location = "http://google.com/"
@@ -175,6 +188,24 @@ describe MessageHandler do
 
   describe 'hub_subscribe' do
 
+    it 'should process an ostatus subscription' do
+      request = FakeHttpRequest.new(:success)
+
+      Diaspora::OStatusParser.stub!(:find_hub).and_return("http://hub.google.com")
+      MessageHandler.stub!(:add_hub_subscription_request).and_return(true)
+
+      Diaspora::OStatusParser.stub!(:parse_sender)
+      Diaspora::OStatusParser.should_receive(:find_hub)
+      @handler.should_receive(:add_hub_subscription_request)
+      Diaspora::OStatusParser.should_receive(:parse_sender)
+
+      g = mock("Message")
+      g.stub!(:destination).and_return("google")
+
+      @handler.process_ostatus_subscription(g, request)    
+    end
+
+    
   end
 
 end
