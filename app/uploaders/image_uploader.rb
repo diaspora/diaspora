@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :grid_fs
 
   def store_dir
-    "files/#{model.id}"
+    "files"
   end
 
   def extension_white_list
