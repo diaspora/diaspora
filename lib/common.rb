@@ -5,23 +5,21 @@ module Diaspora
     end
 
     def self.process(xml)
+      
       doc = Nokogiri::HTML(xml)
       parse_author(doc)
       puts ""
       parse_entry(doc)
     end
 
-    def parse_author(doc)
+    def self.parse_author(doc)
       doc = Nokogiri::HTML(doc) if doc.is_a? String
-      
       
       service = parse_service(doc)
       feed_url = parse_feed_url(doc)
       avatar_thumbnail = parse_avatar_thumbnail(doc)
       username = parse_username(doc)
       profile_url = parse_profile_url(doc)
-
-
 
       puts "the sender:"
       puts service
@@ -31,14 +29,13 @@ module Diaspora
       puts profile_url
     end
 
-    def parse_entry(doc)
+    def self.parse_entry(doc)
       doc = Nokogiri::HTML(doc) if doc.is_a? String
 
       message = parse_message(doc)
       permalink = parse_permalink(doc)
       published_at = parse_published_at(doc)
       updated_at = parse_updated_at(doc)
-      
 
       puts "the message"
       puts message
