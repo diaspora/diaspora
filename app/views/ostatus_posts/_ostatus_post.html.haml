@@ -1,6 +1,6 @@
 %li.message{:id => post.id}
 
-  = image_tag post.author.avatar_thumbnail, :class => "person_picture" if !post.author.avatar_thumnail.nil?
+  = image_tag post.author.avatar_thumbnail, :class => "person_picture" unless post.author.avatar_thumbnail.nil?
 
   %span.from
     = link_to post.author.username, author_path(post.author)
