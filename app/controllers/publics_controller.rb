@@ -20,7 +20,7 @@ class PublicsController < ApplicationController
   
   def hubbub
       if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
-        render :text => params['hub.challenge'], :status => 202 
+        render :text => params['hub.challenge'], :status => 202, :layout => false 
       else 
         Diaspora::OStatusParser::process(request.body.read)
       end
