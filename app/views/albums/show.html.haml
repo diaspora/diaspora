@@ -3,7 +3,8 @@
 - for photo in @album_photos
   = link_to (image_tag photo.image.url(:thumb_medium)), object_path(photo)
 
-%p
-  = link_to "Destroy", @album, :confirm => 'Are you sure?', :method => :delete
+-if mine? @album
+  %p
+    = link_to "Destroy", @album, :confirm => 'Are you sure?', :method => :delete
   |
   = link_to "View All", albums_path
