@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_filter :authenticate_user!
   
   def create
-    #begin
+    begin
       @photo = Photo.instantiate(params[:photo])
       @photo.person = current_user
 
@@ -15,11 +15,13 @@ class PhotosController < ApplicationController
       else
         render :action => 'album#new'
       end
-
-    #rescue
-    #  flash[:error] = "Photo upload failed.  Are you sure that was an image?"
-    #  redirect_to Album.first(:id => params[:photo][:album_id])
-    #end
+    rescue TypeError
+      flash[:error] = "Photo upload failed. Are you sure an image was added?"
+      redirect_to Album.first(:id => params[:photo][:album_id])
+    rescue CarrierWave::IntegrityError || 
+      flash[:error] = "Photo upload failed.  Are you sure that was an image?"
+      redirect_to Album.first(:id => params[:photo][:album_id])
+    end
   end
   
   def new
