@@ -14,8 +14,9 @@
     |
     = link_to_next @photo, @album
 
-  %p
-    = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
+  -if mine?(@photo)
+    %p
+      = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
 
   %p
     = link_to "<< back to album", album_path(@album)
