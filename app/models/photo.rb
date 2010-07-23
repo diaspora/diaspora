@@ -22,7 +22,7 @@ class Photo < Post
     photo
   end
   
-  after_save {Rails.logger.info("After saving now the id is #{id}"
+  after_save :log_inspection 
 
   def remote_photo
     @remote_photo ||= User.owner.url.chop + image.url

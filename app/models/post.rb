@@ -62,6 +62,11 @@ class Post
       signable_accessors.collect{|accessor| 
         (self.send accessor.to_sym).to_s}.join ';'
     end
+  
+  def log_inspection prefix
+    Rails.logger.info prefix
+    Rails.logger.info self.inspect
+  end
 
 protected
    def destroy_comments
