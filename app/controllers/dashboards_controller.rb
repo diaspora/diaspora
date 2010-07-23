@@ -4,7 +4,11 @@ class DashboardsController < ApplicationController
 
   def index
     @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
-    @ostatus = OStatusPost.all
+  end
+
+  def ostatus
+    @posts = OstatusPost.paginate :page => params[:page], :order => 'created_at DESC'
+    render :index
   end
   
   def warzombie

@@ -1,0 +1,29 @@
+.span-20.last
+  %h1= "#{@person.real_name}"
+  = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
+%p
+  %b Active?
+%p
+  = @person.active
+- if @person_profile
+  %p
+    %b First Name
+  %p
+    = @person_profile.first_name
+  %p
+    %b Last Name
+  %p
+    = @person_profile.last_name
+  %p
+    %b url 
+  %p
+    = @person.url
+
+.span-20
+  - if @person.posts
+    %h3 stream
+    %ul#stream
+      - for post in @person_posts
+        = render type_partial(post), :post => post
+  - else
+    %h3 no posts to display!

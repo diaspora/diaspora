@@ -1,0 +1,12 @@
+.span-20.last
+  %h1= "#{@author.username}"
+
+.span-20
+  - if @author_ostatus_posts
+
+    %h3 stream
+    %ul#stream
+      - for post in @author_ostatus_posts
+        = render type_partial(post), :post => post
+  - else
+    %h3 no posts to display!

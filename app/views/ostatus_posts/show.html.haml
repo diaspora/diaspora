@@ -1,0 +1,17 @@
+- title "Status Message"
+
+%p
+  %strong Message:
+  = @status_message.message
+  
+%p
+  %strong Owner:
+  = @status_message.person.real_name
+
+%h4= "comments (#{@status_message.comments.count})"
+= render "comments/comments", :post => @status_message
+
+%p
+  = link_to "Destroy", @status_message, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", status_messages_path

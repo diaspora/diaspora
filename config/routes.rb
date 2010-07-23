@@ -9,6 +9,11 @@ Diaspora::Application.routes.draw do |map|
   resources :photos
   resources :albums
 
+  resources :authors
+  resources :ostatus_posts
+
+  match 'ostatus', :to => "dashboards#ostatus"
+
   match "/images/files/*path" => "gridfs#serve"
   
   match 'warzombie', :to => "dashboards#warzombie"

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive
   layout 'application'
   
-  before_filter :set_friends, :count_requests
+  before_filter :set_friends_and_authors, :count_requests
 
   layout :layout_by_resource
 
@@ -14,8 +14,9 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def set_friends
+  def set_friends_and_authors
     @friends = Person.friends.all if current_user
+    @subscribed_persons = Author.all if current_user
   end
 
   def count_requests
