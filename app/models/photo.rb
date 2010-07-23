@@ -22,8 +22,12 @@ class Photo < Post
     photo
   end
   
-  after_save :log_inspection 
+  after_save :log_save_inspection 
+  validates_true_for :album_id, :logic => lambda {self.validate_album_person}
 
+  def validate_album_person
+    album.person_id == person_id
+  end
   def remote_photo
     @remote_photo ||= User.owner.url.chop + image.url
   end

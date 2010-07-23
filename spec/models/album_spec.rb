@@ -3,10 +3,12 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Album do
   before do
     @user = Factory.create(:user)
-    @album = Album.new(:name => "test collection")
+    @album = Album.new(:name => "test collection", :person => @user)
   end
 
   it 'should belong to a person' do
+    @album.person = nil
+    @album.valid?.should be false
     person = Factory.create(:person)
     @album.person = person
     @album.valid?.should be true
@@ -23,7 +25,7 @@ describe Album do
   end
 
   it 'should contain photos' do
-    album = Album.create(:name => "test collection")
+    album = Album.create(:name => "test collection", :person => @user)
     photo = Factory.build(:photo, :person => @user)
 
     album.photos << photo
@@ -44,7 +46,6 @@ describe Album do
 
   describe 'traversing' do
     before do
-      @album = Album.create(:name => "test collection")
       @photo_one = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now)
       @photo_two = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now+1)
       @photo_three = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now+2)
@@ -73,8 +74,6 @@ describe Album do
 
   describe 'serialization' do
     before do
-      @album.person = @user
-      @album.save
       @xml = @album.to_xml.to_s
     end
     it 'should have a person' do

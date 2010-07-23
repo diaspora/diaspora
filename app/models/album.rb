@@ -14,7 +14,7 @@ class Album
 
   timestamps!
 
-  validates_presence_of :name
+  validates_presence_of :name, :person
 
   before_destroy :destroy_photos
   after_save :notify_people
