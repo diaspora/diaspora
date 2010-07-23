@@ -44,7 +44,11 @@ module Diaspora
     end
 
     def self.parse_avatar_thumbnail(doc)
-      doc.xpath('//logo').first.inner_html
+      begin
+        doc.xpath('//logo').first.inner_html
+      rescue
+        puts "user has no thumbnail"
+      end
     end
 
     def self.parse_username(doc)
