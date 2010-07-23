@@ -4,7 +4,7 @@ module DashboardsHelper
     if params[:action] =='ostatus'
       'OStatus Dashboard'
     else
-      'Dashboard' 
+      'Dashboard'
     end
   end
 end
