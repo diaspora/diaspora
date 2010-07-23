@@ -5,43 +5,32 @@ module Diaspora
     end
 
     def self.process(xml)
-      
       doc = Nokogiri::HTML(xml)
-      parse_author(doc)
-      puts ""
-      parse_entry(doc)
+      author_hash = parse_author(doc)
+      entry_hash = parse_entry(doc)
+
+      author = Author.instantiate(author_hash).ostatus_posts.create(entry_hash)
     end
 
     def self.parse_author(doc)
       doc = Nokogiri::HTML(doc) if doc.is_a? String
-      
-      service = parse_service(doc)
-      feed_url = parse_feed_url(doc)
-      avatar_thumbnail = parse_avatar_thumbnail(doc)
-      username = parse_username(doc)
-      profile_url = parse_profile_url(doc)
-
-      puts "the sender:"
-      puts service
-      puts feed_url
-      puts avatar_thumbnail
-      puts username
-      puts profile_url
+      author = {} 
+      author[:service] = parse_service(doc)
+      author[:feed_url] = parse_feed_url(doc)
+      author[:avatar_thumbnail] = parse_avatar_thumbnail(doc)
+      author[:username] = parse_username(doc)
+      author[:profile_url] = parse_profile_url(doc)
+      author
     end
 
     def self.parse_entry(doc)
       doc = Nokogiri::HTML(doc) if doc.is_a? String
-
-      message = parse_message(doc)
-      permalink = parse_permalink(doc)
-      published_at = parse_published_at(doc)
-      updated_at = parse_updated_at(doc)
-
-      puts "the message"
-      puts message
-      puts permalink
-      puts published_at
-      puts updated_at
+      entry = {}
+      entry[:message] = parse_message(doc)
+      entry[:permalink] = parse_permalink(doc)
+      entry[:published_at] = parse_published_at(doc)
+      entry[:updated_at] = parse_updated_at(doc)
+      entry
     end
 
 
