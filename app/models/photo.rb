@@ -27,6 +27,7 @@ class Photo < Post
   end
 
   def remote_photo= remote_path
+    @remote_photo = remote_path
     image.download! remote_path
     image.store!
   end
