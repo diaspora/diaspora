@@ -6,7 +6,7 @@ module RequestsHelper
     elsif ostatus?(profile)
       :subscribe
     else
-      :none
+     :subscribe
     end
   end
 
@@ -29,19 +29,20 @@ module RequestsHelper
     elsif action == :friend
       profile.links.select{|x| x.rel == 'http://joindiaspora.com/seed_location'}.first.href
     else
-      ''
+      nil
     end
   end
 
   def relationship_flow(identifier)
-    unless identifier.include?( '@')
+    unless identifier.include?( '@' )
       return {:friend => identifier}
     end
 
     f = Redfinger.finger(identifier)
     action = subscription_mode(f)
     url = subscription_url(action, f)
-
+    
+    url ||=identifier
     { action => url }
   end
 
