@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
   
   def create
     rel_hash = relationship_flow(params[:request][:destination_url])
-    
+    Rails.logger.info("Sending request: #{rel_hash}")
     puts rel_hash
     @request = current_user.send_request(rel_hash)
 

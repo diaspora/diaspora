@@ -43,6 +43,7 @@ module RequestsHelper
     end
 
     f = Redfinger.finger(identifier)
+    Rails.logger.info("The webfinger to #{identifier} returned #{f}")
     action = subscription_mode(f)
     url = subscription_url(action, f)
     
