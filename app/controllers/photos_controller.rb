@@ -2,14 +2,23 @@ class PhotosController < ApplicationController
   before_filter :authenticate_user!
   
   def create
-    @photo = Photo.instantiate(params[:photo])
-    @photo.person = current_user
+    begin
+      @photo = Photo.instantiate(params[:photo])
+      @photo.person = current_user
 
-    if @photo.save
-      flash[:notice] = "Successfully uploaded photo."
-      redirect_to @photo.album
-    else
-      render :action => 'album#new'
+
+
+
+      if @photo.save
+        flash[:notice] = "Successfully uploaded photo."
+        redirect_to @photo.album
+      else
+        render :action => 'album#new'
+      end
+
+    rescue
+      flash[:error] = "Photo upload failed.  Are you sure that was an image?"
+      redirect_to Album.first(:id => params[:photo][:album_id])
     end
   end
   
