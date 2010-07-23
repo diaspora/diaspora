@@ -1,5 +1,6 @@
 %h3= @album.name 
-%h4= 'by ' + @album.person.real_name
+-unless mine? @album
+  %h4= 'by ' + @album.person.real_name
 -if mine? @album
   = render "photos/new_photo", :photo => @photo, :album => @album
 - for photo in @album_photos
