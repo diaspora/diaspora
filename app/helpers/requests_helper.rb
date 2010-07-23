@@ -34,6 +34,10 @@ module RequestsHelper
   end
 
   def relationship_flow(identifier)
+    if identifier.include?('.atom')
+      return {:subscribe => identifier}
+    end
+    
     unless identifier.include?( '@' )
       return {:friend => identifier}
     end
@@ -42,7 +46,6 @@ module RequestsHelper
     action = subscription_mode(f)
     url = subscription_url(action, f)
     
-    url ||=identifier
     { action => url }
   end
 
