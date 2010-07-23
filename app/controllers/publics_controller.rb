@@ -1,6 +1,7 @@
 class PublicsController < ApplicationController
   include ApplicationHelper
   include PublicsHelper
+  include Diaspora::OStatusParser
   
   def hcard
     @user = User.owner
@@ -21,7 +22,7 @@ class PublicsController < ApplicationController
       if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
         render :text => params['hub.challenge'], :status => 202 
       else 
-        puts request.body.read.inspect
+        Diaspora::OStatusParser::process(request.body.read)
       end
   end
   
