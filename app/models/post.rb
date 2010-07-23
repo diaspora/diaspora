@@ -63,9 +63,12 @@ class Post
         (self.send accessor.to_sym).to_s}.join ';'
     end
   
-  def log_inspection prefix
-    Rails.logger.info prefix
+  def log_inspection
     Rails.logger.info self.inspect
+  end
+  def log_save_inspection
+    Rails.logger.info "After saving, object is:"
+    log_inspection
   end
 
 protected
