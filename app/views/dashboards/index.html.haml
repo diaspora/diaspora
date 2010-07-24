@@ -3,7 +3,9 @@
     = link_to current_user.real_name, root_path
     %span.description
       = my_latest_message
+
 %h1= title_for_page
+= render "shared/publisher"
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post

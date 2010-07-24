@@ -1,41 +1,38 @@
 #publisher
-  .container
-    %sp
-      Post a new 
-    %ul#publisher_content_pickers
-      %li{ :class => "status_message" }= link_to "status message", "#"
-      %li{ :class => "bookmark" }= link_to "bookmark", "#"
-      %li{ :class => "blog" }= link_to "blog", "#"
-      %li= link_to "photos", albums_path
-      %li= link_to "ostatus", ostatus_path
+  %sp
+    Post a new 
+  %ul#publisher_content_pickers
+    %li{ :class => "status_message selected" }= link_to "status message", "#"
+    %li{ :class => "bookmark" }= link_to "bookmark", "#"
+    %li{ :class => "blog" }= link_to "blog", "#"
 
-    #publisher_form
-      = form_for StatusMessage.new, :remote => true do |f|
-        = f.error_messages
-        %p
-          %label{:for => "status_message_message"} Message
-          = f.text_area :message, :rows => 2
-        %p
-          = f.submit "Post"
+  #publisher_form
+    = form_for StatusMessage.new, :remote => true do |f|
+      = f.error_messages
+      %p
+        %label{:for => "status_message_message"} Message
+        = f.text_area :message, :rows => 2
+      %p
+        = f.submit "Post"
 
-      = form_for Bookmark.new, :remote => true do |f|
-        = f.error_messages
-        %p
-          %label{:for => "bookmark_title"} Title
-          = f.text_field :title
-        %p
-          %label{:for => "bookmark_link"} Link
-          = f.text_field :link
-        %p
-          = f.submit "Post"
+    = form_for Bookmark.new, :remote => true do |f|
+      = f.error_messages
+      %p
+        %label{:for => "bookmark_title"} Title
+        = f.text_field :title
+      %p
+        %label{:for => "bookmark_link"} Link
+        = f.text_field :link
+      %p
+        = f.submit "Post"
 
-      = form_for Blog.new, :remote => true do |f|
-        = f.error_messages
-        %p
-          %label{:for => "blog_title"} Title
-          = f.text_field :title
-        %p
-          %label{:for => "blog_body"} Body
-          = f.text_area :body
-        %p
-          = f.submit "Post"
+    = form_for Blog.new, :remote => true do |f|
+      = f.error_messages
+      %p
+        %label{:for => "blog_title"} Title
+        = f.text_field :title
+      %p
+        %label{:for => "blog_body"} Body
+        = f.text_area :body
+      %p
+        = f.submit "Post"

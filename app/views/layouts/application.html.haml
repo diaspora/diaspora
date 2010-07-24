@@ -39,9 +39,13 @@
             = link_to "logout", destroy_user_session_path
           - else
             = link_to "login", new_user_session_path
+    .container
+      = link_to "photos", albums_path
+      |
+      = link_to "ostatus", ostatus_path
+      %br
+      %br
 
-
-    = render "shared/publisher"
     .container
       .span-24.last
         .span-3.append-1.last
