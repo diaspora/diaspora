@@ -121,6 +121,7 @@ ul#friend_stream > li {
   display: inline;
   border: none; }
   ul#friend_stream > li img {
+    max-width: 30px;
     position: relative;
     float: none;
     display: inline; }
