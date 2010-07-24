@@ -68,10 +68,7 @@ header {
   color: #555555;
   background-color: #2b2726;
   border-bottom: 1px solid #444444;
-  padding: 8px 0;
-  box-shadow: 0 2px 2px black;
-  -webkit-box-shadow: 0 2px 2px black;
-  -moz-box-shadow: 0 2px 2px black; }
+  padding: 8px 0; }
   header #diaspora_text {
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 24px;
@@ -157,7 +154,9 @@ form {
 
 #user_name {
   display: inline;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  font-size: 70px;
+  line-height: 100px; }
   #user_name a {
     color: black; }
 
