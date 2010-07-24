@@ -30,6 +30,8 @@ namespace :db do
     Person.delete_all
     User.delete_all
     Request.delete_all
+    Author.delete_all
+    OstatusPost.delete_all
     Album.delete_all
   end
 

@@ -9,7 +9,8 @@ module Diaspora
       author_hash = parse_author(doc)
       entry_hash = parse_entry(doc)
 
-      author = Author.instantiate(author_hash).ostatus_posts.create(entry_hash)
+      author = Author.instantiate(author_hash)
+      author.ostatus_posts.create(entry_hash) unless entry_hash[:message] == 0
     end
 
     def self.parse_author(doc)
