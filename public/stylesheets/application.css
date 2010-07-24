@@ -117,7 +117,13 @@ ul#stream, ul#friend_stream {
     margin-bottom: 5px; }
 
 ul#friend_stream > li {
-  padding: 0.2em 0; }
+  padding: 0.2em 0;
+  display: inline;
+  border: none; }
+  ul#friend_stream > li img {
+    position: relative;
+    float: none;
+    display: inline; }
 
 li.message {
   position: relative;
@@ -195,7 +201,7 @@ ul.comment_set {
       margin-top: -5px;
       padding-bottom: 8px; }
 
-img.person_picture {
+#stream img.person_picture {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
