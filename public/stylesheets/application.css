@@ -68,7 +68,8 @@ header {
   color: #555555;
   background-color: #2b2726;
   border-bottom: 1px solid #444444;
-  padding: 8px 0; }
+  padding: 6px 0;
+    padding-top: 0; }
   header #diaspora_text {
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 24px;
