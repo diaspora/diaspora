@@ -1,4 +1,7 @@
-%h3= @album.name 
+%h1.big_text
+  = link_to 'albums', albums_path
+  >>
+  = @album.name 
 -unless mine? @album
   %h4= 'by ' + @album.person.real_name
 -if mine? @album
@@ -9,5 +12,3 @@
 -if mine? @album
   %p
     = link_to "Destroy", @album, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", albums_path
