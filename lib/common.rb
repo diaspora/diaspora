@@ -36,51 +36,43 @@ module Diaspora
 
     ##author###
     def self.parse_service(doc)
-      doc.xpath('//generator').inner_html
+      doc.xpath('//generator').each{|x| return x.inner_html}
     end
 
     def self.parse_feed_url(doc)
-      doc.xpath('//id').first.inner_html
+      doc.xpath('//id').each{|x| return x.inner_html}
     end
 
     def self.parse_avatar_thumbnail(doc)
-      begin
-        doc.xpath('//logo').first.inner_html
-      rescue
-        puts "user has no thumbnail"
-      end
+        doc.xpath('//logo').each{|x| return x.inner_html}
     end
 
     def self.parse_username(doc)
-      doc.xpath('//author/name').first.inner_html
+      doc.xpath('//author/name').each{|x| return x.inner_html}
     end
 
     def self.parse_profile_url(doc)
-      doc.xpath('//author/uri').first.inner_html
+      doc.xpath('//author/uri').each{|x| return x.inner_html}
     end
 
 
     #entry##
     def self.parse_message(doc)
-      doc.xpath('//entry/title').first.inner_html
+      doc.xpath('//entry/title').each{|x| return x.inner_html}
     end
 
     def self.parse_permalink(doc)
-      doc.xpath('//entry/id').first.inner_html
+      doc.xpath('//entry/id').each{|x| return x.inner_html}
     end
 
     def self.parse_published_at(doc)
-      doc.xpath('//entry/published').first.inner_html
+      doc.xpath('//entry/published').each{|x| return x.inner_html}
     end
 
     def self.parse_updated_at(doc)
-      doc.xpath('//entry/updated').first.inner_html
+      doc.xpath('//entry/updated').each{|x| return x.inner_html}
     end 
 
-
-    def self.parse_objects(xml)
-
-    end
   end
   
 
