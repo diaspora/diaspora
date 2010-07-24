@@ -9,7 +9,7 @@ class MessageHandler
   end
 
   def add_get_request(destinations)
-    destinations.each{ |dest| @queue.push(Message.new(:get, dest))}
+    [*destinations].each{ |dest| @queue.push(Message.new(:get, dest))}
   end
 
   def add_subscription_request(feed_url)
@@ -18,7 +18,7 @@ class MessageHandler
 
   def add_post_request(destinations, body)
     b = CGI::escape( body )
-    destinations.each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
+    [*destinations].each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
   end
 
   # pubsubhubbub

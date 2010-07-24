@@ -1,7 +1,6 @@
 class Post 
-  require 'lib/diaspora/webhooks'
-  include ApplicationHelper 
   include MongoMapper::Document
+  include ApplicationHelper 
   include ROXML
   include Diaspora::Webhooks
   include Encryptable

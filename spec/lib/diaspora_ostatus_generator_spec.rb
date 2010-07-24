@@ -26,8 +26,6 @@ describe Diaspora::OStatus do
         sm_entry.should include(@status_message.message)
         sm_entry.should include('title')
       end
-
     end
   end
-
 end

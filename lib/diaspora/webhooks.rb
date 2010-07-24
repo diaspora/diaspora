@@ -2,8 +2,7 @@ module Diaspora
   module Webhooks
     def self.included(klass)
       klass.class_eval do
-          include ROXML
-          require 'message_handler'
+          #require 'message_handler'
           @@queue = MessageHandler.new
 
           def notify_people
@@ -24,10 +23,9 @@ module Diaspora
 
           def push_to(recipients)
             @@queue.add_hub_notification(APP_CONFIG[:pubsub_server], User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
-
             unless recipients.empty?
               recipients.map!{|x| x = x.url + "receive/"}  
-              xml = self.class.build_xml_for([self])
+              xml = self.class.build_xml_for(self)
               Rails.logger.info("Adding xml for #{self} to message queue to #{recipients}")
               @@queue.add_post_request( recipients, xml )
             end
@@ -36,13 +34,13 @@ module Diaspora
 
           def push_to_url(url)
             hook_url = url + "receive/"
-            xml = self.class.build_xml_for([self])
+            xml = self.class.build_xml_for(self)
             Rails.logger.info("Adding xml for #{self} to message queue to #{url}")
-            @@queue.add_post_request( [hook_url], xml )
+            @@queue.add_post_request( hook_url, xml )
             @@queue.process
           end
 
-          def prep_webhook
+          def to_diaspora_xml
             "<post>#{self.to_xml.to_s}</post>"
           end
 
@@ -53,7 +51,7 @@ module Diaspora
           def self.build_xml_for(posts)
             xml = "<XML>"
             xml += "\n <posts>"
-            posts.each {|x| xml << x.prep_webhook}
+            [*posts].each {|x| xml << x.to_diaspora_xml}
             xml += "</posts>"
             xml += "</XML>"
           end

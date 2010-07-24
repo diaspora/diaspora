@@ -17,12 +17,12 @@ describe Diaspora do
 
       it "should add the following methods to Post on inclusion" do
         @post.respond_to?(:notify_people).should be true
-        @post.respond_to?(:prep_webhook).should be true
+        @post.respond_to?(:to_diaspora_xml).should be true
         @post.respond_to?(:people_with_permissions).should be true
       end
 
-      it "should convert an object to a proper webhook" do
-        @post.prep_webhook.should == "<post>#{@post.to_xml.to_s}</post>"
+      it "should convert an object to a proper diaspora entry" do
+        @post.to_diaspora_xml.should == "<post>#{@post.to_xml.to_s}</post>"
       end
 
       it "should retrieve all valid person endpoints" do
