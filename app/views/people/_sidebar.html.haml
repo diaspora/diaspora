@@ -1,15 +1,16 @@
 %ul#friend_stream.nav
 
-  %h4 friends!
+  %h3 friends
   - for friend in @friends
-    %li= link_to friend.real_name, person_path(friend)
+    %li= person_image_link(friend)
+
+  = link_to "all", people_path
   
   %hr
-  %h4 on other networks!
+  %h3 following
 
   - for author in @subscribed_persons
     %li= link_to author.username, author_path(author)
 
-  %li= link_to "add a new person", new_request_path
-
+= link_to "add a new person", new_request_path
 

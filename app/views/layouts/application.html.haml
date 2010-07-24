@@ -53,7 +53,7 @@
         .span-18.append-3.last
           = yield
         .span-3.last
-          = link_to person_image_tag(User.owner), root_path
+          = link_to (image_tag(current_user.profile.image_url)), root_path
           = link_to "Edit your profile", edit_user_path(current_user)
           %br
           %br

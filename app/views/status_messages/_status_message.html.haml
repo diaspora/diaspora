@@ -1,6 +1,6 @@
 %li.message{:id => post.id, :class => ("mine" if mine?(post))}
 
-  = person_image_tag(post.person)
+  = person_image_link(post.person)
 
   %span.from
     = link_to post.person.real_name, post.person 
