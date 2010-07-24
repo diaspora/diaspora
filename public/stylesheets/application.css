@@ -160,6 +160,11 @@ form {
   line-height: 100px; }
   #user_name a {
     color: black; }
+  #user_name span {
+    line-height: 140px;
+    font-size: 30%;
+    color: #dddddd;
+    float: right; }
 
 #stream div.comments {
   display: none; }
