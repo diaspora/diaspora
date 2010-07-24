@@ -68,7 +68,7 @@ a
 header
   :position relative
   :margin -2em
-    :bottom 2em
+    :bottom 1em
   :color #555
   :background
     :color #2B2726
@@ -89,7 +89,7 @@ header
     :text
       :shadow 0 2px 0 #000
     a
-      :color #fff
+      :color #666
 
     span.sub_text
       :color #000
@@ -182,6 +182,7 @@ form
 
   
 #user_name
+  :display inline
   :margin
     :bottom 1em
   a
@@ -234,7 +235,8 @@ img.person_picture
   :display inline block
 
 li.message > img.person_picture,
-li.comment > img.person_picture
+li.comment > img.person_picture,
+#session_action > img.person_picture
   :height 30px
   :display absolute
   :float left

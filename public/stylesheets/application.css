@@ -64,7 +64,7 @@ a {
 header {
   position: relative;
   margin: -2em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   color: #555555;
   background-color: #2b2726;
   border-bottom: 1px solid #444444;
@@ -80,7 +80,7 @@ header {
     color: white;
     text-shadow: 0 2px 0 black; }
     header #diaspora_text a {
-      color: white; }
+      color: #666666; }
     header #diaspora_text span.sub_text {
       color: black;
       text-shadow: none; }
@@ -156,6 +156,7 @@ form {
   margin-left: 0em; }
 
 #user_name {
+  display: inline;
   margin-bottom: 1em; }
   #user_name a {
     color: black; }
@@ -197,7 +198,8 @@ img.person_picture {
   display: inline block; }
 
 li.message > img.person_picture,
-li.comment > img.person_picture {
+li.comment > img.person_picture,
+#session_action > img.person_picture {
   height: 30px;
   display: absolute;
   float: left;

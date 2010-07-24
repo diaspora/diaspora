@@ -40,6 +40,8 @@
           - else
             = link_to "login", new_user_session_path
     .container
+      = link_to "home", root_path
+      |
       = link_to "photos", albums_path
       |
       = link_to "ostatus", ostatus_path
@@ -48,14 +50,14 @@
 
     .container
       .span-24.last
-        .span-3.append-1.last
+        .span-3.append-2.last
           = link_to person_image_tag(User.owner), root_path
           = link_to "Edit your profile", edit_user_path(current_user)
           %br
           %br
           = render 'people/sidebar' if user_signed_in?
-
-        .span-18.last
+        .span-19.last
           = yield
 
+        .span-24.last
           = render "posts/debug"

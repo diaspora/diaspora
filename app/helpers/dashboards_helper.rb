@@ -2,9 +2,9 @@ module DashboardsHelper
 
   def title_for_page
     if params[:action] =='ostatus'
-      'OStatus Dashboard'
+      'OStatus home'
     else
-      'Dashboard'
+      'home'
     end
   end
 end
