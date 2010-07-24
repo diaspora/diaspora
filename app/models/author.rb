@@ -9,7 +9,8 @@ class Author
   key :hub, String
 
   many :ostatus_posts, :class_name => 'OstatusPost', :foreign_key => :author_id
-  before_save :set_defaults  
+  before_save :set_defaults 
+  before_destroy :delete_posts
 
   def self.instantiate(opts)
     author = Author.first(:feed_url => opts[:feed_url])
@@ -21,5 +22,9 @@ class Author
   def set_defaults
     self.avatar_thumbnail = nil if self.avatar_thumbnail == 0
     self.service = self.url if self.service == 0
+  end
+
+  def delete_posts
+    self.ostatus_posts.delete_all
   end
  end

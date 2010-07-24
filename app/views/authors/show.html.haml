@@ -1,6 +1,6 @@
 .span-20.last
   %h1= "#{@author.username}"
-
+  = link_to 'unsubscribe', @author, :confirm => 'Are you sure?', :method => :delete
 .span-20
   - if @author_ostatus_posts
 
