@@ -94,7 +94,6 @@ class User < Person
 
 
   def send_request(rel_hash)
-    puts rel_hash.inspect
     if rel_hash[:friend]
       self.send_friend_request_to(rel_hash[:friend])
     elsif rel_hash[:subscribe]

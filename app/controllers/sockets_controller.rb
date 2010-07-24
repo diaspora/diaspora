@@ -14,7 +14,6 @@ class SocketsController < ApplicationController
   
   def outgoing(object)
     @_request = ActionDispatch::Request.new({})
-    puts action_hash(object)
     WebSocket.push_to_clients(action_hash(object))
   end
   

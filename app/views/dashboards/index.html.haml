@@ -5,7 +5,6 @@
   %h3= my_latest_message
 = render "shared/publisher"
 %ul#stream
-  = puts @posts.inspect
   - for post in @posts
     = render type_partial(post), :post => post
 #pagination
