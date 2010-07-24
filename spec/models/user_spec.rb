@@ -46,4 +46,15 @@ describe User do
     user.terse_url.should == 'example.com'
   end
 
+  it 'should be able to unsubscribe from a status.net user' do
+    @user = Factory.create(:user)
+    author = Factory.create(:author)
+    Author.all.count.should == 1
+    q = Request.send :class_variable_get, :@@queue
+    q.stub!(:add_hub_unsubscribe_request)
+    q.should_receive(:add_hub_unsubscribe_request)
+
+    @user.unsubscribe_from_pubsub(author.id)  
+    Author.all.count.should == 0
+  end
 end

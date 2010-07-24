@@ -1,12 +1,15 @@
 module Diaspora
   module OStatusParser
     def self.find_hub(xml)
-      Nokogiri::HTML(xml).xpath('//link[@rel="hub"]').first.attribute("href").value
+      xml = Nokogiri::HTML(xml) if xml.is_a? String
+      xml.xpath('//link[@rel="hub"]').first.attribute("href").value
     end
 
     def self.process(xml)
       doc = Nokogiri::HTML(xml)
       author_hash = parse_author(doc)
+
+      author_hash[:hub] = find_hub(doc) 
       entry_hash = parse_entry(doc)
 
       author = Author.instantiate(author_hash)
@@ -136,6 +139,11 @@ module Diaspora
 
         def subscribe_to_ostatus(feed_url)
           @@queue.add_subscription_request(feed_url)
+          @@queue.process
+        end
+
+        def unsubscribe_from_ostatus(feed_url)
+          @@queue.add_hub_unsubscribe_request(self.destination_url, self.callback_url+'hubub', feed_url)
           @@queue.process
         end
 

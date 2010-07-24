@@ -26,7 +26,6 @@ Factory.define :user do |u|
   u.key_fingerprint GPGME.list_keys("Smith", true).first.subkeys.first.fingerprint
   u.profile Profile.new( :first_name => "Bob", :last_name => "Smith" )
 end
-
 Factory.define :status_message do |m|
   m.sequence(:message) {|n| "jimmy's #{n} whales"}
 end
@@ -47,5 +46,12 @@ end
 Factory.define :photo do |p|
   p.image File.open( File.dirname(__FILE__) + '/fixtures/bp.jpeg')
 
+end
+
+Factory.define :author do |p|
+  p.hub  "http://pubsubhubub.appspot.com/"
+  p.service  "StatusNet"
+  p.username  "danielgrippi"
+  p.feed_url "http://google.com"
 end
 Factory.define(:comment) {}

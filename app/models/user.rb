@@ -85,6 +85,13 @@ class User < Person
     r
   end
 
+  def unsubscribe_from_pubsub(author_id)
+    bad_author = Author.first(:id => author_id)
+    r = Request.instantiate(:to => bad_author.hub, :from => self)
+    r.unsubscribe_from_ostatus(bad_author.feed_url)
+    bad_author.destroy
+  end
+
 
   def send_request(rel_hash)
     puts rel_hash.inspect

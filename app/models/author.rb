@@ -6,6 +6,7 @@ class Author
   key :avatar_thumbnail, String
   key :username, String
   key :profile_url, String
+  key :hub, String
 
   many :ostatus_posts, :class_name => 'OstatusPost', :foreign_key => :author_id
   before_save :set_defaults  

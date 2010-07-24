@@ -5,7 +5,7 @@ include Diaspora::OStatusParser
 describe Author do
 
   it 'should create from ostatus compliant xml from the parser' do
-    xml_path = File.dirname(__FILE__) + '/../fixtures/ostatus_update.xml'
+    xml_path = File.dirname(__FILE__) + '/../fixtures/identica_feed.atom'
     xml = File.open(xml_path).read
 
     Author.count.should == 0
