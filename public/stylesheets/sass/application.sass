@@ -68,21 +68,16 @@ a
 header
   :position relative
   :margin -2em
-    :bottom 0
-  :height 50px
+    :bottom 1em
   :color #555
   :background
-    :color #000
-    :color -webkit-gradient(linear, 0% 0%, 0% 55%, from(#474747), to(#000000))
-    :color rgb(65,69,69)
     :color #2B2726
   :border
     :bottom 1px solid #444
-  :padding
-    :top 20px
-  :box-shadow 0 2px 10px #000
-  :-webkit-box-shadow 0 2px 10px #000
-  :-moz-box-shadow 0 2px 10px #000
+  :padding 8px 0
+  :box-shadow 0 2px 2px #000
+  :-webkit-box-shadow 0 2px 2px #000
+  :-moz-box-shadow 0 2px 2px #000
 
   #diaspora_text
     :font
@@ -94,7 +89,7 @@ header
     :text
       :shadow 0 2px 0 #000
     a
-      :color #fff
+      :color #666
 
     span.sub_text
       :color #000
@@ -187,6 +182,7 @@ form
 
   
 #user_name
+  :display inline
   :margin
     :bottom 1em
   a
@@ -239,7 +235,8 @@ img.person_picture
   :display inline block
 
 li.message > img.person_picture,
-li.comment > img.person_picture
+li.comment > img.person_picture,
+#session_action > img.person_picture
   :height 30px
   :display absolute
   :float left
@@ -317,30 +314,16 @@ label
   :left 0.48em
 
 #publisher
-  :padding 0.5em 0
   :background
-    :color #F2F8FC
-    :color #333
+    :color rgba(10,81,109,0.05)
   :border
-    :bottom 1px #eaeaea solid
-  :margin 0 -2em
-    :bottom 2em
+    :bottom 2px #999 solid
   :color #999
-  :box-shadow 0 2px 20px #999
-  :-webkit-box-shadow 0 2px 20px #999
-  :-moz-box-shadow 0 2px 20px #999
-
-  sp
-    :text-shadow 0 2px 0 #000
-
-  textarea, input
-    :box-shadow 0 0px 3px #000
-    :-webkit-box-shadow 0 0px 3px #000
-    :-moz-box-shadow 0 0px 3px #999
+  :padding 20px 1em
+    :top 10px
 
 #new_blog, 
-#new_bookmark,
-#new_status_message
+#new_bookmark
   :display none
 
 ul#publisher_content_pickers
@@ -349,7 +332,6 @@ ul#publisher_content_pickers
   :padding 0
   :margin
     :left 10px
-  :text-shadow 0 2px 0 #000
 
 ul#publisher_content_pickers li
   :display inline
@@ -357,9 +339,11 @@ ul#publisher_content_pickers li
   :margin
     :right 5px
 
-#publisher.selected
+#publisher .selected
   :border
     :bottom 3px solid #999
+  :background
+    :color rgba(10,81,109,0.1)
 
 #image_picker
   .small_photo
