@@ -7,7 +7,7 @@ class StatusMessagesController < ApplicationController
 
     respond_to do |format|
       format.html 
-      format.atom {render :xml => Diaspora::XML::generate(:current_url => request.url, :objects => @status_messages)}
+      format.atom {render :xml => Diaspora::OStatus::generate(:current_url => request.url, :objects => @status_messages)}
     end
 
   end

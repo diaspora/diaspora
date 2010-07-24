@@ -14,8 +14,21 @@ class Bookmark < Post
 
   before_validation :clean_link
 
-  protected
+  def to_activity
+        <<-XML
+  <entry>
+  <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
+  <title>#{self.title}</title>
+  <link rel="alternate" type="text/html" href="#{User.owner.url}bookmarks/#{self.id}"/>
+  <link rel="related" type="text/html" href="#{self.link}"/>
+  <id>#{User.owner.url}bookmarks/#{self.id}</id>
+  <published>#{self.created_at.xmlschema}</published>
+  <updated>#{self.updated_at.xmlschema}</updated>
+  </entry>
+        XML
+  end
 
+  protected
   def clean_link
     if self.link
       self.link = 'http://' + self.link unless self.link.match('https?://')

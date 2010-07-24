@@ -18,8 +18,8 @@ class Album
 
   before_destroy :destroy_photos
   after_save :notify_people
-
   before_destroy :propagate_retraction
+  
   def prev_photo(photo)
     n_photo = self.photos.where(:created_at.lt => photo.created_at).sort(:created_at.desc).first
     n_photo ? n_photo : self.photos.sort(:created_at.desc).first
@@ -31,7 +31,6 @@ class Album
   end
 
   protected
-
   def destroy_photos
     photos.each{|p| p.destroy}
   end
