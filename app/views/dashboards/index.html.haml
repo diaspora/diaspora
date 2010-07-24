@@ -1,8 +1,7 @@
 - if user_signed_in?
   %h1#user_name
     = link_to current_user.real_name, root_path
-
-%h1= title_for_page
+    %h1= title_for_page
 = render "shared/publisher"
 %ul#stream
   = puts @posts.inspect

@@ -272,6 +272,9 @@ label {
   color: #999999;
   padding: 20px 1em;
     padding-top: 10px; }
+  #publisher sp {
+    font-family: "BrandonGrotesqueLightRegular";
+    font-size: large; }
 
 #new_blog,
 #new_bookmark {
