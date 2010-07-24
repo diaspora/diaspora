@@ -1,5 +1,5 @@
 class User < Person
-  require 'lib/common'
+  require 'lib/diaspora/ostatus_parser'
   include Diaspora::OStatusParser
 
   devise :database_authenticatable, :registerable,

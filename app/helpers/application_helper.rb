@@ -1,6 +1,6 @@
 module ApplicationHelper
-  require 'lib/common'
-  include Diaspora::XMLParser
+  require 'lib/diaspora/diaspora_parser'
+  include Diaspora::DiasporaParser
   def object_path(object)
     eval("#{object.class.to_s.underscore}_path(object)")
   end

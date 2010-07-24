@@ -1,5 +1,5 @@
 class Post 
-  require 'lib/common'
+  require 'lib/diaspora/webhooks'
   include ApplicationHelper 
   include MongoMapper::Document
   include ROXML

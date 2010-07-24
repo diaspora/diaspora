@@ -1,0 +1,3 @@
+module Diaspora
+  
+end

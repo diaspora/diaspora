@@ -1,5 +1,5 @@
 class Request
-  require 'lib/common'
+  require 'lib/diaspora/webhooks'
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML

@@ -1,5 +1,5 @@
 class Album 
-  require 'lib/common'
+  require 'lib/diaspora/webhooks'
   include MongoMapper::Document
   include ROXML
   include Diaspora::Webhooks
