@@ -143,7 +143,7 @@ module Diaspora
         end
 
         def unsubscribe_from_ostatus(feed_url)
-          @@queue.add_hub_unsubscribe_request(self.destination_url, self.callback_url+'hubub', feed_url)
+          @@queue.add_hub_unsubscribe_request(self.destination_url, self.callback_url+'hubub/', feed_url)
           @@queue.process
         end
 
