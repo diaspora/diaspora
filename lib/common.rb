@@ -19,7 +19,6 @@ module Diaspora
       author[:service] = parse_service(doc)
       author[:feed_url] = parse_feed_url(doc)
       author[:avatar_thumbnail] = parse_avatar_thumbnail(doc)
-      author[:avatar_thumbnail] = nil if author[:avatar_thumbnail]== 0
       author[:username] = parse_username(doc)
       author[:profile_url] = parse_profile_url(doc)
       author
