@@ -10,9 +10,10 @@
     = linked_scaled_photo @photo, @album
 
   #photo_pagination
-    = link_to_prev @photo, @album
-    |
-    = link_to_next @photo, @album
+    %center
+      = link_to_prev @photo, @album
+      |
+      = link_to_next @photo, @album
 
   -if mine?(@photo)
     %p
