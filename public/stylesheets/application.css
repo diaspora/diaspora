@@ -117,14 +117,13 @@ ul#stream, ul#friend_stream {
     margin-bottom: 5px; }
 
 ul#friend_stream > li {
-  padding: 0.2em 0;
-  display: inline;
-  border: none; }
-  ul#friend_stream > li img {
-    max-width: 30px;
-    position: relative;
-    float: none;
-    display: inline; }
+  padding: 0.2em 0; }
+ul#friend_stream img {
+  width: 25px;
+  max-width: 25px;
+  position: relative;
+  float: none;
+  display: inline; }
 
 li.message {
   position: relative;
