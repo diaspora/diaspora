@@ -28,6 +28,7 @@ Factory.define :user do |u|
 end
 Factory.define :status_message do |m|
   m.sequence(:message) {|n| "jimmy's #{n} whales"}
+  m.person
 end
 
 Factory.define :blog do |b|

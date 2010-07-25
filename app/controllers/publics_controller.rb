@@ -1,6 +1,6 @@
 class PublicsController < ApplicationController
-  include ApplicationHelper
-  include PublicsHelper
+  require 'lib/diaspora/diaspora_parser'
+  include Diaspora::DiasporaParser
   include Diaspora::OStatusParser
   
   def hcard
