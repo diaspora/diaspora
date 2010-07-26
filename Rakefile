@@ -43,7 +43,7 @@ end
 
 desc "generate website in output directory"
 task :generate => [:generate_site, :generate_style] do
-  puts ">>> Site Generating Complete! <<<\n\n"
+  puts ">>> Site Generating Complete! <<<\n\n>>> Refresh your browser <<<"
 end
 
 # usage rake post[my-new-post] or rake post['my new post'] or rake post (defaults to "new-post")
@@ -166,6 +166,7 @@ task :start_serve => :stop_serve do
   cd "#{site}" do
     print "Starting serve..."
     ok_failed system("serve #{port} > /dev/null 2>&1 &")
+    system "open http://localhost:#{port}"
   end
 end
 
@@ -181,8 +182,7 @@ task :stop_serve do
 end
 
 desc "preview the site in a web browser"
-multitask :preview => [:start_serve] do
-  system "open http://localhost:#{port}"
+multitask :preview => [:generate, :start_serve, :watch] do
 end
 
 

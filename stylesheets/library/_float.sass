@@ -3,9 +3,9 @@
 @import modules/_clearfix.sass
 
 // Available as alternate syntax with just +float
-=float(!side = "left")
-  :display inline
-  :float= !side
+=float($side: "left")
+  display: inline
+  float: !side
 
 // Implementation of float:left with fix for double-margin bug
 =float-left

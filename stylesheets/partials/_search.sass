@@ -1,9 +1,9 @@
 #search
   position: absolute
-  left: #{!page_width + !sidebar_margin - !sidebar_width}
-  top: #{30%}
+  left: $page-width + $sidebar-margin - $sidebar-width
+  top: 30%
   form
-    background: url(/images/search_bg.png) no-repeat
+    background: image-url("search_bg.png") no-repeat
     padding: 0
     height: 28px
     width: 218px
@@ -15,6 +15,6 @@
     margin-left: 30px
     font-size: 15px
     border: none
-    color: #aaa
+    color: #aaaaaa
     &:focus
       outline: none

@@ -1,70 +1,74 @@
-!base_font_size ||= 16px
-!small ||= floor(!base_font_size * .85)
-!big ||= floor(!base_font_size * 1.25)
-!base_font_color ||= #333
-!h6 = ceil(!base_font_size*1)
-!h5 = ceil(!base_font_size*1)
-!h4 = ceil(!base_font_size*1.2)
-!h3 = ceil(!base_font_size*1.8)
-!h2 = ceil(!base_font_size*2.8)
-!h1 = ceil(!base_font_size*3.2)
+$base-font-size: 16px !default
+$small: floor($base-font-size * 0.85) !default
+$big: floor($base-font-size * 1.25) !default
+$base-font-color: #333333 !default
+$h6: ceil($base-font-size * 1)
+$h5: ceil($base-font-size * 1)
+$h4: ceil($base-font-size * 1.2)
+$h3: ceil($base-font-size * 1.8)
+$h2: ceil($base-font-size * 2.8)
+$h1: ceil($base-font-size * 3.2)
 
-=heading-font 
+=heading-font
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+
 =sans-font
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Trebuchet MS", Helvetica, Arial, Verdana, sans-serif
+
 =serif-font
   font-family: Georgia, Times, "Times New Roman", serif
+
 =fixed-font
   font-family: "Menlo", "Bitstream Vera Sans", Monaco, "Andale Mono", "Lucida Console", monospace
+
 =mono-font
   +fixed-font
 
-=general-typography(!font_size = !base_font_size)
-  +set-heading-sizes(!font_size)
-  +typography-defaults(!font_size)
+=general-typography($font-size: $base-font-size)
+  +set-heading-sizes($font-size)
+  +typography-defaults($font-size)
 
-=set-heading-sizes(!font_size = !base_font_size)
-  !h6 = ceil(!font_size*1)
-  !h5 = ceil(!font_size*1)
-  !h4 = ceil(!font_size*1.2)
-  !h3 = ceil(!font_size*1.8)
-  !h2 = ceil(!font_size*2.8)
-  !h1 = ceil(!font_size*3.2)
+=set-heading-sizes($font-size: $base-font-size)
+  $h6: ceil($font-size * 1)
+  $h5: ceil($font-size * 1)
+  $h4: ceil($font-size * 1.2)
+  $h3: ceil($font-size * 1.8)
+  $h2: ceil($font-size * 2.8)
+  $h1: ceil($font-size * 3.2)
   h1, h2, h3, h4
     &:first-child
       margin-top: 0
   h1,h2,h3,h4,h5,h6
     line-height: 1.1em
-    margin-bottom: .7em
-    margin-top: .3em
+    margin-bottom: 0.7em
+    margin-top: 0.3em
   h1
-    font-size= !h1
+    font-size: $h1
   h2
-    font-size= !h2
+    font-size: $h2
   h3
-    font-size= !h3
+    font-size: $h3
   h4
-    font-size= !h4
+    font-size: $h4
   h5
-    font-size= !h5
+    font-size: $h5
   h6
-    font-size= !h6
+    font-size: $h6
 
-=typography-defaults(!font_size = !base_font_size)
+=typography-defaults($font-size: $base-font-size)
   body
     line-height: 1.45em
-    color= !base_font_color
+    color: $base-font-color
   p
-    +p-style(!font_size)
+    +p-style($font-size)
   table
-    +table-style(!font_size)
+    +table-style($font-size)
   ol
-    +ol-style(!font_size)
+    +ol-style($font-size)
   ul
-    +ul-style(!font_size)
+    +ul-style($font-size)
   dl
-    +dl-style(!font_size)
+    +dl-style($font-size)
   blockquote
     +quote-style
   q
@@ -80,87 +84,87 @@
   del
     text-decoration: line-through
   span.highlight, em.highlight, strong.highlight
-    background-color: #ff6
+    background-color: #ffff66
     padding: 2px
     margin: 0 -2px
   abbr, acronym
     border-bottom: 1px dotted
     cursor: help
   address
-    margin-top= !font_size * 1.625
+    margin-top: $font-size * 1.625
     font-style: italic
   pre, code, tt
     +fixed-font
-    line-height= !font_size * 1.5
+    line-height: $font-size * 1.5
   tt
     display: block
-    margin= !font_size * 1.625 0
+    margin: $font-size * 1.625 0
   sub, sup
     line-height: 0
   hr
-    margin-bottom: .2em
+    margin-bottom: 0.2em
   small, .small
-    font-size= floor(!font_size * .85)
+    font-size: floor($font-size * 0.85)
   big, .big
-    font-size= floor(!font_size * 1.25)
+    font-size: floor($font-size * 1.25)
 
-=ol-style(!font_size = !base_font_size)
+=ol-style($font-size: $base-font-size)
   list-style: inside decimal
-  margin= 0 0 !font_size * 1.625
+  margin: 0 0 $font-size * 1.625
   li ol
-    margin= 0 0 !font_size * 1.625
-      
-=ul-style(!font_size = !base_font_size)
+    margin: 0 0 $font-size * 1.625
+
+=ul-style($font-size: $base-font-size)
   list-style: inside
-  margin= 0 0 !font_size * 1.625
+  margin: 0 0 $font-size * 1.625
   li ul
-    margin= 0 0 !font_size * 1.625
-    
-=dl-style(!font_size = !base_font_size)
-  margin= 0 0 !font_size * 1.625
+    margin: 0 0 $font-size * 1.625
+
+=dl-style($font-size: $base-font-size)
+  margin: 0 0 $font-size * 1.625
   dt
     font-weight: bold
   dd
-    margin-left= !font_size * 1.625
+    margin-left: $font-size * 1.625
 
-=quote-style(!font_size = !base_font_size)
-  padding= !font_size*1.5 !font_size*1.5 !font_size * 1.5 !font_size * 1.8
+=quote-style($font-size: $base-font-size)
+  padding: $font-size * 1.5 $font-size * 1.5 $font-size * 1.5 $font-size * 1.8
   position: relative
-  margin-bottom= !font_size * 0.8125 
+  margin-bottom: $font-size * 0.813
   &:before
     content: "\201C"
-    font-size= !font_size * 3
-    margin= 5px 0 0 -.525em
+    font-size: $font-size * 3
+    margin: 5px 0 0 -0.525em
     position: absolute
     font-family: Times, Georgia, serif
     line-height: 0
   > p
     padding: 0
     margin: 0
-    
-=p-style(!font_size = !base_font_size)
+
+=p-style($font-size: $base-font-size)
   padding-bottom: 1.3em
   img
     float: left
     margin:
-      top= !font_size * .5
-      right= !font_size * .8125
-      bottom= !font_size* .8125
-      left= 0
+      top: $font-size * 0.5
+      right: $font-size * 0.813
+      bottom: $font-size * 0.813
+      left: 0
     padding: 0
     &.right
       margin:
-        right= 0
-        left= !font_size * .8125
+        right: 0
+        left: $font-size * 0.813
 
-=table-style(!font_size = !base_font_size)
-  margin= 0 0 !font_size * 1.625
+=table-style($font-size: $base-font-size)
+  margin: 0 0 $font-size * 1.625
   border-collapse: collapse
   th
     font-weight: bold
   tr, th, td
     margin: 0
-    padding= 0 !font_size * 1.625 0 !font_size
+    padding: 0 $font-size * 1.625 0 $font-size
   tfoot
     font-style: italic
   caption
