@@ -2,8 +2,13 @@
 
   %div.name
     = link_to post.name, object_path(post)
+
     %div.time
+      by: 
+      = album_person(post)
+      %br
       = link_to(how_long_ago(post), object_path(post))
+
   %div.image_cycle
     - for photo in post.photos
       = image_tag photo.image.url(:thumb_large)

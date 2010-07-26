@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @albums = Album.paginate :page => params[:page], :order => 'created_at DESC'
+    @albums = Album.mine_or_friends(params[:friends], current_user).paginate :page => params[:page], :order => 'created_at DESC'
   end
   
   def create

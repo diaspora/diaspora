@@ -1,7 +1,9 @@
-%h1.big_text albums
+%h1.big_text
+  = friends_albums_link
+  \/ 
+  =your_albums_link
+  %span= link_to ' + ', new_album_path
 
-%h3
-  = link_to "make a new album", new_album_path
 
 %ul#stream
   - for album in @albums
@@ -9,3 +11,5 @@
 #pagination
   = will_paginate @albums
 
+%h3
+  = link_to "make a new album", new_album_path unless params[:friends]
