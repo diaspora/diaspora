@@ -5,6 +5,6 @@
     %div.time
       = link_to(how_long_ago(post), object_path(post))
   %div.image_cycle
-    - for photo in post.photos
+    - for photo in post.photos[0..3]
       = image_tag photo.image.url(:thumb_large)
     

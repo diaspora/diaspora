@@ -3,11 +3,8 @@ class PhotosController < ApplicationController
   
   def create
     begin
-      @photo = Photo.instantiate(params[:photo])
+      @photo = Photo.instantiate(params)
       @photo.person = current_user
-
-
-
 
       if @photo.save
         flash[:notice] = "Successfully uploaded photo."

@@ -20,6 +20,8 @@
 
     = javascript_include_tag 'satisfaction' , 'satisfaction-display'
 
+    = javascript_include_tag 'jquery.html5_upload'
+
   %body
     %header
       .container
@@ -53,7 +55,7 @@
         .span-18.append-3.last
           = yield
         .span-3.last
-          = link_to (person_image_tag(current_user), root_path)
+          = link_to(person_image_tag(current_user), root_path)
           = link_to "Edit your profile", edit_user_path(current_user)
           %br
           %br
