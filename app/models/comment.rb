@@ -33,6 +33,8 @@ class Comment
   validates_true_for :post_creator_signature, :logic => lambda {self.verify_post_creator_signature}
   
   xml_accessor :creator_signature
+  xml_accessor :post_creator_signature
+  
   key :creator_signature, String
   key :post_creator_signature, String
 

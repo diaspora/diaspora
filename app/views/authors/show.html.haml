@@ -8,5 +8,6 @@
     %ul#stream
       - for post in @author_ostatus_posts
         = render type_partial(post), :post => post
+      = will_paginate @author_ostatus_posts
   - else
     %h3 no posts to display!

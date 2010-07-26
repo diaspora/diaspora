@@ -20,6 +20,14 @@ class Album
   after_save :notify_people
   before_destroy :propagate_retraction
   
+  def self.mine_or_friends(friend_param, current_user)
+    if friend_param
+      Album.where(:person_id.ne => current_user.id)
+    else
+      Album.where(:person_id => current_user.id)
+    end
+  end
+  
   def prev_photo(photo)
     n_photo = self.photos.where(:created_at.lt => photo.created_at).sort(:created_at.desc).first
     n_photo ? n_photo : self.photos.sort(:created_at.desc).first
