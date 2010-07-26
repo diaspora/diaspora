@@ -29,7 +29,7 @@ class Photo < Post
     album.person_id == person_id
   end
   def remote_photo
-    @remote_photo ||= User.owner.url.chop + image.url
+    @remote_photo ||= User.owner.url.chop + image.url(:scaled_full)
   end
 
   def remote_photo= remote_path
