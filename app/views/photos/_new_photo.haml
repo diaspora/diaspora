@@ -18,9 +18,23 @@
       },
       onFinishOne: function(event, response, name, number, total) {
         //alert(response);
+      },
+      onFinish: function(event, total){
+        $("#progress_report").delay(600).slideUp(200);
+      },
+      onStart: function(event, total){
+        $("#progress_report").slideDown(600);
+        return true;
       }
     });
   });
+
+:css
+  #progress_report_bar {
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+  }
 
 
 
@@ -33,10 +47,8 @@
   %p
     = f.file_field :image, :multiple => 'multiple'
 
-    #progress_report
+    #progress_report{ :style => "display:none;" }
       #progress_report_name
       #progress_report_status{ :style => "font-style: italic;" }
-      #progress_report_bar_container{ :style => "width: 90%; height: 5px;" }
-        #progress_report_bar{ :style => "background-color: blue; width: 0; height: 100%;" }
-
-    /= f.submit 'post it!', :class => 'button'
+      #progress_report_bar_container{ :style => "width: 90%; height: 15px;" }
+        #progress_report_bar{ :style => "background-color: #0A516D; width: 0; height: 100%;" }

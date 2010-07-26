@@ -27,10 +27,10 @@
 			fieldName: 'user_file[]',//ignore if sendBoundary is false
 
 			STATUSES: {
-				'STARTED':		'Запуск',
-				'PROGRESS':		'Загрузка',
-				'LOADED':		'Обработка',
-				'FINISHED':		'Завершено'
+				'STARTED':		'Started',
+				'PROGRESS':		'Uploading',
+				'LOADED':		'Processing',
+				'FINISHED':		'Finished!'
 			},
 
 			setName: function(text) {},
@@ -38,7 +38,7 @@
 			setProgress: function(value) {},
 
 			genName: function(file, number, total) {
-				return file + "(" + (number+1) + " из " + total + ")";
+				return file + "(" + (number+1) + " of " + total + ")";
 			},
 			genStatus: function(progress, finished) {
 				if (finished) {
