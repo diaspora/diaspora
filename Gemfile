@@ -5,6 +5,6 @@ gem 'activesupport', "2.3.2"
 gem 'henrik-jekyll'
 gem 'compass'
 gem 'compass-colors'
-gem 'kramdown'
+gem 'rdiscount'
 gem 'fssm'
 gem 'serve'
