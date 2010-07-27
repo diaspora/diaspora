@@ -18,7 +18,7 @@
     %p
       = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
   %p
-    = link_to "<< back to album", album_path(@album)
+    = link_to "⇧ #{@album.name}", album_path(@album)
 
   %h4{:class => "show_post_comments"}
     = "comments (#{@photo.comments.count})"

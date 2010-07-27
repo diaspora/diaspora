@@ -1,5 +1,6 @@
 = form_for Album.new do |f|
   = f.error_messages
   %p
-    = f.text_field :name, :value => "tell me something good"
-    = f.submit 'oh yeah!', :class => 'button'
+    = f.label :name
+    = f.text_field :name
+  = f.submit 'create', :class => 'button'

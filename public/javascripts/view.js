@@ -105,4 +105,6 @@ $(document).ready(function(){
     }
   );
 
+  $("input[type='submit']").addClass("button");
+
 });//end document ready
