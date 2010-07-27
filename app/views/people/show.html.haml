@@ -1,24 +1,30 @@
 .span-20.last
   #profile.span-19.last
-    %h1
+    .profile_photo
       = person_image_link(@person)
-      = "#{@person.real_name}"
-      .button.right
-        = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
     
-    %h4{:style => "font-size:small"}
-      %ul{:style => "list-style-type: none"}
-        %li
-          %i= "last seen: #{how_long_ago(@person_posts.first)}"
-        %li
-          %i= "friends since: #{how_long_ago(@person)}"
+    %ul
+      %li
+        %h1
+          = @person.real_name
+          .button.right
+            = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
+      
+      %li
+        %i= "last seen: #{how_long_ago(@person_posts.first)}"
+      %li
+        %i= "friends since: #{how_long_ago(@person)}"
+      %li
+        url:
+        = @person.url
 
-    %h1
-      #latest_message= "\"#{@latest_status_message.message}\""
-  
-    %p
-      %b url:
-      = @person.url
+    
+    %h1.pinched
+      %span
+        = "\"#{@latest_status_message.message}\""
+      
+    %h5="posted: #{how_long_ago(@latest_status_message)}"
+    
   
   .span-20.last
     - if @person.posts

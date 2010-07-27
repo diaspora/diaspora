@@ -1,4 +1,4 @@
-@font-face {
+q@font-face {
   font-family: "BrandonGrotesqueLightRegular";
   src: url("brandongrotesque_light/Brandon_light-webfont.eot");
   src: local("â˜º"), url("brandongrotesque_light/Brandon_light-webfont.woff") format("woff"), url("brandongrotesque_light/Brandon_light-webfont.ttf") format("truetype"), url("brandongrotesque_light/Brandon_light-webfont.svg#webfont") format("svg");
@@ -201,7 +201,14 @@ ul.comment_set {
       margin-top: -5px;
       padding-bottom: 8px; }
 
-#stream img.person_picture, #profile img.person_picture {
+.profile_photo {
+  float: left;
+  margin-right: 10px; }
+
+#profile ul {
+  list-style-type: none; }
+
+#stream img.person_picture {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
