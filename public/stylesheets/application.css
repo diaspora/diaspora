@@ -343,3 +343,34 @@ ul#publisher_content_pickers li {
 .field_with_submit input[type='text'] {
   width: 85%;
   display: inline; }
+
+.button {
+  font-size: 12px;
+  line-height: 100%;
+  text-shadow: 0 1px 0 white;
+  color: #666666;
+  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#fafafa), to(#e0e0e0));
+  padding: 5px;
+  height: 14px;
+  display: inline;
+  border: 1px solid #cccccc;
+    border-bottom: 1px solid #666666;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    border-radius: 3px;
+  box-shadow: 0 1px 1px #cccccc;
+  -webkit-box-shadow: 0 1px 1px #cccccc;
+  -moz-box-shadow: 0 1px 1px #cccccc;
+  cursor: pointer; }
+  .button:active {
+    box-shadow: 0 0px 2px black;
+    -webkit-box-shadow: 0 0px 2px black;
+    -moz-box-shadow: 0 0px 2px black;
+    color: #555555; }
+  .button a {
+    display: block;
+    color: #444444; }
+
+.right {
+  float: right;
+  margin-top: 6px; }

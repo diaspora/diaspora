@@ -2,11 +2,23 @@
   = link_to 'albums', albums_path
   >>
   = @album.name 
-  %h4= "last updated: #{how_long_ago(@album)}"
+
+  .button.right{ :id => "add_photos_button" }
+    = link_to 'add photos', '#'
+
+%h4= "last updated: #{how_long_ago(@album)}"
+
 -unless mine? @album
   %h4= 'by ' + @album.person.real_name
+
+
+
 -if mine? @album
-  = render "photos/new_photo", :photo => @photo, :album => @album
+  #add_photo_box{ :style => "display:none;" }
+    = render "photos/new_photo", :photo => @photo, :album => @album
+
+
+
 - for photo in @album_photos
   = link_to (image_tag photo.image.url(:thumb_medium)), object_path(photo)
 

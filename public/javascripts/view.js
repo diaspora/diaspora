@@ -88,4 +88,9 @@ $(document).ready(function(){
     speed: 3000
   });
 
+
+  $("#add_photos_button").click(function(){
+    $("#add_photo_box").fadeIn(300);
+  });
+
 });//end document ready
