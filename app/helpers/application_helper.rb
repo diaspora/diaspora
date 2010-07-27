@@ -57,5 +57,9 @@ module ApplicationHelper
   def new_request(request_count)
     "new_requests" if request_count > 0
   end
+  
+  def post_yield_tag(post)
+    (':' + post.id.to_s).to_sym
+  end
 
 end

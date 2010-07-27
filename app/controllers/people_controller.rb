@@ -8,7 +8,9 @@ class PeopleController < ApplicationController
   def show
     @person= Person.where(:id => params[:id]).first
     @person_profile = @person.profile
-    @person_posts = Post.where(:person_id => @person.id).sort(:created_at.desc)
+    @person_posts = Post.where(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
+    @latest_status_message = StatusMessage.newest(@person)
+    @post_count = @person_posts.count
   end
   
   def destroy

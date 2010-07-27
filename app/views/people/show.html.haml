@@ -1,29 +1,34 @@
 .span-20.last
-  %h1= "#{@person.real_name}"
-  = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
-%p
-  %b Active?
-%p
-  = @person.active
-- if @person_profile
-  %p
-    %b First Name
-  %p
-    = @person_profile.first_name
-  %p
-    %b Last Name
-  %p
-    = @person_profile.last_name
-  %p
-    %b url 
-  %p
-    = @person.url
+  #profile
+    %h1
+      = person_image_link(@person)
+      = "#{@person.real_name}"
+      .button.right
+        = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
+    
+    %h4{:style => "font-size:small"}
+      %ul{:style => "list-style-type: none"}
+        %li
+          %i= "last seen: #{how_long_ago(@person_posts.first)}"
+        %li
+          %i= "friends since: #{how_long_ago(@person)}"
 
-.span-20
-  - if @person.posts
-    %h3 stream
-    %ul#stream
-      - for post in @person_posts
-        = render type_partial(post), :post => post
-  - else
-    %h3 no posts to display!
+    %h1
+      #latest_message= "\"#{@latest_status_message.message}\""
+  
+    %p
+      %b url:
+      = @person.url
+  
+
+
+
+  .span-20
+    - if @person.posts
+      %h3= "stream - #{@post_count} item(s)" 
+      %ul#stream
+        - for post in @person_posts
+          = render type_partial(post), :post => post
+        = will_paginate @person_posts
+    - else
+      %h3 no posts to display!

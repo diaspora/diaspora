@@ -201,7 +201,7 @@ ul.comment_set {
       margin-top: -5px;
       padding-bottom: 8px; }
 
-#stream img.person_picture {
+#stream img.person_picture, #profile img.person_picture {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -223,7 +223,8 @@ ul.comment_set {
     font-weight: normal; }
 
 .destroy_link {
-  display: none; }
+  display: none;
+  font-size: smaller; }
 
 .request_buttons {
   position: absolute;
