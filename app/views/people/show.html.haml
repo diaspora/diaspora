@@ -1,5 +1,5 @@
 .span-20.last
-  #profile
+  #profile.span-19.last
     %h1
       = person_image_link(@person)
       = "#{@person.real_name}"
@@ -20,7 +20,7 @@
       %b url:
       = @person.url
   
-  .span-20
+  .span-20.last
     - if @person.posts
       %h3= "stream - #{@post_count} item(s)" 
       %ul#stream

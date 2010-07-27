@@ -56,6 +56,7 @@
           = yield
         .span-4.last
           = link_to(person_image_tag(current_user), root_path)
+          %br
           = link_to "Edit your profile", edit_user_path(current_user)
           %br
           %br
