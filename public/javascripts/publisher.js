@@ -6,6 +6,7 @@
     $("#publisher_content_pickers .photo").click(selectPublisherTab);
 	
 	$("#new_status_message").submit(function() {
+		
 		var new_status = $('#status_message_message').val() + " - just now";
 		$('#latest_message').text( new_status );
 	});

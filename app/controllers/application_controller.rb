@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  require 'lib/diaspora/ostatus_generator'
+  
   protect_from_forgery :except => :receive
   layout 'application'
   

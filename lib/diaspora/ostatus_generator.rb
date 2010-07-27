@@ -53,7 +53,7 @@ module Diaspora
       def self.entries(objects)
         xml = ""
         if objects.respond_to? :each
-          objects.each {|x| xml << x.to_ostatus}
+          objects.each {|x| xml << x.to_activity}
         else
           xml << objects.to_activity
         end

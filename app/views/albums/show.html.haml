@@ -2,6 +2,7 @@
   = link_to 'albums', albums_path
   >>
   = @album.name 
+  %h5= "last updated: #{how_long_ago(@album)}"
 -unless mine? @album
   %h4= 'by ' + @album.person.real_name
 -if mine? @album
@@ -11,4 +12,4 @@
 
 -if mine? @album
   %p
-    = link_to "Destroy", @album, :confirm => 'Are you sure?', :method => :delete
+    = link_to "Delete Album", @album, :confirm => 'Are you sure?', :method => :delete

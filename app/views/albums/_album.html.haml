@@ -11,5 +11,5 @@
 
   %div.image_cycle
     - for photo in post.photos[0..3]
-      = image_tag photo.image.url(:thumb_large)
+      = link_to (image_tag photo.image.url(:thumb_large)), album_path(post)
     
