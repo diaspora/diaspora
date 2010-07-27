@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 include ApplicationHelper 
+include Diaspora::DiasporaParser
 
 describe Diaspora::DiasporaParser do
   before do

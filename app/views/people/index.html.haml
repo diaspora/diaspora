@@ -13,7 +13,7 @@
       %td= link_to 'Show', person
       %td= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete
 
-%p= link_to "Add a friend", new_request_path
+%p= link_to "Add a friend", requests_path
 
 #pagination
   = will_paginate @people

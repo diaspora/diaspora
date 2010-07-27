@@ -2,7 +2,7 @@
   = link_to 'albums', albums_path
   >>
   = @album.name 
-  %h5= "last updated: #{how_long_ago(@album)}"
+  %h4= "last updated: #{how_long_ago(@album)}"
 -unless mine? @album
   %h4= 'by ' + @album.person.real_name
 -if mine? @album
