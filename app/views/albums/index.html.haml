@@ -6,7 +6,7 @@
     %li= your_albums_link
 
   .button.right#add_album_button
-    = link_to 'new album', "#"
+    = link_to 'New Album', "#"
 
   #add_album_box.contextual_pane
     = render "albums/new_album"
@@ -17,5 +17,6 @@
 #pagination
   = will_paginate @albums
 
-%h3
-  = link_to "make a new album", new_album_path unless params[:friends]
+#content_bottom
+  .back
+    = link_to "⇧ home", root_path

@@ -352,7 +352,7 @@ ul#publisher_content_pickers li {
     -moz-border-radius: 3px; }
 
 .field_with_submit input[type='text'] {
-  width: 85%;
+  width: 82%;
   display: inline; }
 
 h1.big_text {
@@ -381,3 +381,10 @@ h1.big_text {
 
 .show_post_comments ul.comment_set {
   width: 100%; }
+
+.sub_header {
+  text-align: center;
+  font-style: italic;
+  margin-top: -5px;
+  margin-bottom: 20px;
+  color: #999999; }
