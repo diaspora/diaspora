@@ -22,8 +22,9 @@
     %h1.pinched
       %span
         = "\"#{@latest_status_message.message}\""
+      %span="posted: #{how_long_ago(@latest_status_message)}"
       
-    %h5="posted: #{how_long_ago(@latest_status_message)}"
+    
     
   
   .span-20.last
