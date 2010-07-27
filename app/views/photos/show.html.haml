@@ -4,10 +4,12 @@
   = @photo.image
 
   .button.right
-    = link_to 'edit', '#'
+    = link_to 'Edit', '#'
+
+.sub_header
+  = link_to "full size", @photo.image.url
 
 %div{:id => @photo.id}
-  = link_to "full size", @photo.image.url
 
   #show_photo
     = link_to_prev @photo, @album
