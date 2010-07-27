@@ -1,4 +1,4 @@
-= form_for Album.new, :remote => true do |f|
+= form_for Album.new do |f|
   = f.error_messages
   %p
     = f.text_field :name, :value => "tell me something good"

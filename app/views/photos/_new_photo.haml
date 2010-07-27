@@ -5,22 +5,23 @@
       url: "/photos?album_id=#{album.id}",   
       sendBoundary: window.FormData || $.browser.mozilla,
       onStart: function(event, total) {
-        return confirm("You are trying to upload " + total + " files. Are you sure?");
+        return confirm("You are about to upload " + total + " photos. Are you sure?");
       },
       setName: function(text) {
-          $("#progress_report_name").text(text);
+        $("#progress_report_name").text(text);
       },
       setStatus: function(text) {
         $("#progress_report_status").text(text);
       },
       setProgress: function(val) {
-        $("#progress_report_bar").css('width', Math.ceil(val*100)+"%");
+        //$("#progress_report_bar").css('width', Math.ceil(val*100)+"%");
       },
       onFinishOne: function(event, response, name, number, total) {
         //alert(response);
       },
       onFinish: function(event, total){
         $("#progress_report").delay(600).slideUp(200);
+        $("#add_photo_box").delay(600).fadeOut(200);
       },
       onStart: function(event, total){
         $("#progress_report").slideDown(600);
@@ -30,25 +31,18 @@
   });
 
 :css
-  #progress_report_bar {
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
+  #progress_report, #progress_report_name, #progress_report_status{
+    font-size: 12px;
+    padding: 0;
+    line-height: auto;
   }
-
-
-
 
 = form_for photo, :html => {:multipart => true} do |f|
   = f.error_messages
-
   = f.hidden_field :album_id, :value => album.id
+  = f.file_field :image, :multiple => 'multiple'
 
-  %p
-    = f.file_field :image, :multiple => 'multiple'
-
-    #progress_report{ :style => "display:none;" }
-      #progress_report_name
-      #progress_report_status{ :style => "font-style: italic;" }
-      #progress_report_bar_container{ :style => "width: 90%; height: 15px;" }
-        #progress_report_bar{ :style => "background-color: #0A516D; width: 0; height: 100%;" }
+  #progress_report{ :style => "display:none;" }
+    = image_tag "loader.gif" 
+    #progress_report_name
+    #progress_report_status{ :style => "font-style: italic;" }

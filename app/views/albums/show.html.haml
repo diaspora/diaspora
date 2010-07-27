@@ -1,22 +1,21 @@
 %h1.big_text
-  = link_to 'albums', albums_path
-  >>
+  .back
+    = link_to '⇧ albums', albums_path
+
   = @album.name 
 
-  .button.right{ :id => "add_photos_button" }
-    = link_to 'add photos', '#'
+  -if mine? @album
+    .button.right#add_photos_button
+      = link_to 'add photos', '#'
 
-%h4= "last updated: #{how_long_ago(@album)}"
+    #add_photo_box.contextual_pane
+      = render "photos/new_photo", :photo => @photo, :album => @album
+
+.sub_header
+  ="last updated: #{how_long_ago(@album)}"
 
 -unless mine? @album
   %h4= 'by ' + @album.person.real_name
-
-
-
--if mine? @album
-  #add_photo_box{ :style => "display:none;" }
-    = render "photos/new_photo", :photo => @photo, :album => @album
-
 
 
 - for photo in @album_photos
