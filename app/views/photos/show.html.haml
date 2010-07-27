@@ -14,11 +14,12 @@
     = linked_scaled_photo @photo, @album
     = link_to_next @photo, @album
 
-  -if mine?(@photo)
-    %p
-      = link_to "Destroy", @photo, :confirm => 'Are you sure?', :method => :delete
-  %p
-    = link_to "⇧ #{@album.name}", album_path(@album)
+  #content_bottom
+    .back
+      = link_to "⇧ #{@album.name}", album_path(@album)
+    -if mine? @album
+      .button.right
+        = link_to 'Delete Album', @album, :confirm => 'Are you sure?', :method => :delete
 
   %h4{:class => "show_post_comments"}
     = "comments (#{@photo.comments.count})"

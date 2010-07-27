@@ -5,8 +5,8 @@
   font-size: 12px;
   line-height: 100%;
   text-shadow: 0 1px 0 white;
-  padding: 5px;
   min-height: 14px;
+  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#fafafa), to(#e0e0e0));
   border: 1px solid #cccccc;
     border-bottom: 1px solid #666666;
     border-left: 1px solid #999999;
@@ -14,39 +14,42 @@
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  cursor: pointer; }
+  cursor: pointer;
+  box-shadow: 0 1px 1px #cccccc;
+  -webkit-box-shadow: 0 1px 1px #cccccc;
+  -moz-box-shadow: 0 1px 1px #cccccc; }
   .button a, .button_set a {
     font-weight: normal;
     color: #777777; }
 
 .button {
-  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#fafafa), to(#e0e0e0));
-  box-shadow: 0 1px 1px #cccccc;
-  -webkit-box-shadow: 0 1px 1px #cccccc;
-  -moz-box-shadow: 0 1px 1px #cccccc; }
+  padding: 5px; }
   .button:active {
     box-shadow: 0 0px 2px black;
     -webkit-box-shadow: 0 0px 2px black;
     -moz-box-shadow: 0 0px 2px black;
     color: #555555; }
 
-ul.button_set > li {
-  display: inline;
-  height: 100%;
-  margin-right: -3px;
-  padding: 5px 10px;
-  border-left: 1px solid #cccccc;
-  border-right: 1px solid #eeeeee; }
-  ul.button_set > li:first-child {
-    border-left: none;
-    padding-left: 5px; }
-  ul.button_set > li:last-child {
-    border-right: none;
-    margin-right: 0;
-    padding-right: 5px; }
+ul.button_set {
+  padding: 5px 0; }
+  ul.button_set > li {
+    padding: 5px;
+    display: inline;
+    height: 100%;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid white;
+    margin-left: -3px;
+    margin-right: -3px; }
+    ul.button_set > li:first-child {
+      margin-left: 0;
+      border-left: none; }
+    ul.button_set > li:last-child {
+      margin-right: 0;
+      border-right: none; }
 
-.selected {
-  background-color: #999999; }
+.button .selected, .button_set .selected {
+  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#e0e0e0), to(#fafafa));
+  border-top: 1px solid #aaaaaa; }
 
 .right {
   position: absolute;
@@ -66,10 +69,14 @@ ul.button_set > li {
   color: #999999;
   font-size: 12px;
   font-weight: normal;
-  line-height: auto;
-  padding: 10px; }
+  line-height: auto; }
   .contextual_pane form {
     margin: 0;
+    padding: 10px;
     color: #999999; }
-    .contextual_pane form input {
+    .contextual_pane form input[type='text'] {
+      width: 80%;
       display: block; }
+    .contextual_pane form p {
+      padding: 10px;
+      display: inline; }
