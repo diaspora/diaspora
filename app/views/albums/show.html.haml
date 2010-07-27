@@ -6,7 +6,7 @@
 
   -if mine? @album
     .button.right#add_photos_button
-      = link_to 'add photos', '#'
+      = link_to 'Add Photos', '#'
 
     #add_photo_box.contextual_pane
       = render "photos/new_photo", :photo => @photo, :album => @album
@@ -15,12 +15,15 @@
   ="last updated: #{how_long_ago(@album)}"
 
 -unless mine? @album
-  %h4= 'by ' + @album.person.real_name
+  %h4= "by #{@album.person.real_name}"
 
 
 - for photo in @album_photos
   = link_to (image_tag photo.image.url(:thumb_medium)), object_path(photo)
 
--if mine? @album
-  %p
-    = link_to "Delete Album", @album, :confirm => 'Are you sure?', :method => :delete
+#content_bottom
+  .back
+    = link_to "⇧ albums", albums_path
+  -if mine? @album
+    .button.right
+      = link_to 'Delete Album', @album, :confirm => 'Are you sure?', :method => :delete
