@@ -7,7 +7,7 @@
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
-    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "application", "ui"
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'google'
     = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel'
@@ -52,9 +52,9 @@
 
     .container
       .span-24.last
-        .span-18.append-3.last
+        .span-19.append-1.last
           = yield
-        .span-3.last
+        .span-4.last
           = link_to(person_image_tag(current_user), root_path)
           = link_to "Edit your profile", edit_user_path(current_user)
           %br

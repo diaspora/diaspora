@@ -1,12 +1,15 @@
 %h1.big_text
-  = friends_albums_link
-  \/ 
-  =your_albums_link
+  .back
+    = link_to "⇧ home", root_path
+  %ul.button_set
+    %li.selected= friends_albums_link
+    %li= your_albums_link
 
-  .button.right
-    = link_to 'new album', new_album_path
+  .button.right#add_album_button
+    = link_to 'new album', "#"
 
-
+  #add_album_box.contextual_pane
+    = render "albums/new_album"
 
 %ul#stream
   - for album in @albums

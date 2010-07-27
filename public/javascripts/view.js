@@ -88,9 +88,23 @@ $(document).ready(function(){
     speed: 3000
   });
 
+  //buttons//////
+  $("#add_photos_button").toggle(
+    function(){
+      $("#add_photo_box").fadeIn(300);
+    },function(){
+      $("#add_photo_box").fadeOut(200);
+    }
+  );
 
-  $("#add_photos_button").click(function(){
-    $("#add_photo_box").fadeIn(300);
-  });
+  $("#add_album_button").toggle(
+    function(){
+      $("#add_album_box").fadeIn(300);
+    },function(){
+      $("#add_album_box").fadeOut(200);
+    }
+  );
+
+  $("input[type='submit']").addClass("button");
 
 });//end document ready
