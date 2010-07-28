@@ -333,9 +333,7 @@ ul#publisher_content_pickers li {
   position: relative;
   height: 200px;
   width: 300px;
-  display: inline-block;
-  margin-right: 2em;
-  margin-bottom: 2em; }
+  display: inline-block; }
   .album .name {
     position: absolute;
     z-index: 600;
@@ -349,9 +347,7 @@ ul#publisher_content_pickers li {
       .album .name .time a {
         font-weight: normal; }
   .album div.image_cycle img {
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px; }
+    display: none; }
 
 .field_with_submit input[type='text'] {
   width: 82%;
@@ -393,3 +389,17 @@ h1.big_text {
 
 #next_prev_links {
   text-align: center; }
+
+.image_thumb {
+  display: inline-block;
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  min-height: 100px; }
+  .image_thumb img {
+    display: none; }
+    .image_thumb img:hover {
+      border-bottom: 2px solid #666666; }
+
+.image_cycle img {
+  display: none; }
