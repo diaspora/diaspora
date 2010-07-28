@@ -1,5 +1,6 @@
 .button, .button_set {
   font-family: "Lucida Grande", sans-serif;
+  font-style: normal;
   display: inline;
   color: #777777;
   font-size: 12px;

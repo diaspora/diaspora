@@ -67,7 +67,7 @@ header {
     margin-bottom: 1em;
   color: #555555;
   background-color: #2b2726;
-  border-bottom: 1px solid #444444;
+  border-bottom: 3px solid #333333;
   padding: 6px 0;
     padding-top: 0; }
   header #diaspora_text {
@@ -172,6 +172,9 @@ form {
     color: #dddddd;
     float: right; }
 
+#latest_message {
+  font-weight: normal; }
+
 #stream div.comments {
   display: none; }
 
@@ -208,7 +211,8 @@ ul.comment_set {
 #profile ul {
   list-style-type: none; }
 
-#stream img.person_picture {
+#stream img.person_picture, #profile img.person_picture,
+.comments img.person_picture {
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -289,9 +293,6 @@ label {
   color: #999999;
   padding: 20px 1em;
     padding-top: 10px; }
-  #publisher sp {
-    font-family: "BrandonGrotesqueLightRegular";
-    font-size: large; }
 
 #new_blog,
 #new_bookmark {
@@ -341,7 +342,8 @@ ul#publisher_content_pickers li {
     padding: 1em;
     background: rgba(0, 0, 0, 0.8);
     bottom: 20px;
-    font-size: 18px; }
+    font-size: 18px;
+    text-shadow: 0 2px 0 black; }
     .album .name .time {
       font-size: 12px; }
       .album .name .time a {

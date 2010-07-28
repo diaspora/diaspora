@@ -12,7 +12,7 @@
       = render "photos/new_photo", :photo => @photo, :album => @album
 
 .sub_header
-  ="last updated: #{how_long_ago(@album)}"
+  ="updated #{how_long_ago(@album)}"
 
 -unless mine? @album
   %h4= "by #{@album.person.real_name}"

@@ -73,7 +73,7 @@ header
   :background
     :color #2B2726
   :border
-    :bottom 1px solid #444
+    :bottom 3px solid #333
   :padding 6px 0
     :top 0
 
@@ -202,6 +202,10 @@ form
       :size 30%
     :color #dddddd
     :float right
+
+#latest_message
+  :font
+    :weight normal
     
 
 #stream div.comments
@@ -243,6 +247,7 @@ ul.comment_set
       :padding
         :bottom 8px
         
+
 .profile_photo
   :float left
   :margin-right 10px
@@ -250,7 +255,9 @@ ul.comment_set
   ul
     :list-style-type none
         
-#stream
+
+#stream, #profile,
+.comments
   img.person_picture
     :border-radius 3px
     :-webkit-border-radius 3px
@@ -344,11 +351,6 @@ label
   :color #999
   :padding 20px 1em
     :top 10px
-  sp
-    :font
-      :family 'BrandonGrotesqueLightRegular'
-    :font-size large
-
 
 #new_blog, 
 #new_bookmark
@@ -414,6 +416,8 @@ ul#publisher_content_pickers li
     :bottom 20px
     :font
       :size 18px
+    
+    :text-shadow 0 2px 0 #000
 
     .time
       :font
@@ -478,3 +482,5 @@ h1.big_text
     :top -5px
     :bottom 20px
   :color #999
+
+
