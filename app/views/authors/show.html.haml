@@ -2,8 +2,6 @@
   .back
     = link_to '⇧ ostatus', ostatus_path
   = "#{@author.username}'s stream"
-  .button.right
-    = link_to 'Unsubscribe', @author, :confirm => 'Are you sure?', :method => :delete
 
 - if @author_ostatus_posts
   %ul#stream
@@ -16,3 +14,5 @@
 #content_bottom
   .back
     = link_to "⇧ ostatus", ostatus_path
+  .button.right
+    = link_to 'Unsubscribe', @author, :confirm => 'Are you sure?', :method => :delete

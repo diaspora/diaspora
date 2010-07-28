@@ -17,7 +17,6 @@
 -unless mine? @album
   %h4= "by #{@album.person.real_name}"
 
-
 - for photo in @album_photos
   = link_to (image_tag photo.image.url(:thumb_medium)), object_path(photo)
 
@@ -26,4 +25,4 @@
     = link_to "⇧ albums", albums_path
   -if mine? @album
     .button.right
-      = link_to 'Delete Album', @album, :confirm => 'Are you sure?', :method => :delete
+      = link_to 'Edit Album', edit_album_path(@album)

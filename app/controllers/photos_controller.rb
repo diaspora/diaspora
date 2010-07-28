@@ -29,7 +29,7 @@ class PhotosController < ApplicationController
     @photo = Photo.where(:id => params[:id]).first
     @photo.destroy
     flash[:notice] = "Successfully deleted photo."
-    redirect_to root_url
+    redirect_to @photo.album
   end
   
   def show

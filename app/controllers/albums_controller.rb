@@ -33,4 +33,18 @@ class AlbumsController < ApplicationController
     @album = Album.first(:id => params[:id])
     @album_photos = @album.photos
   end
+
+  def edit
+    @album = Album.first(:id => params[:id])
+  end
+
+  def update
+    @album = Album.first(:id => params[:id])
+    if @album.update_attributes(params[:album])
+      flash[:notice] = "Successfully updated album."
+      redirect_to @album
+    else
+      render :action => 'edit'
+    end
+  end
 end

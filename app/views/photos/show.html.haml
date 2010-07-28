@@ -4,7 +4,7 @@
   = @photo.image
 
   .button.right
-    = link_to 'Edit', '#'
+    = link_to 'Edit Photo', edit_photo_path(@photo)
 
 .sub_header
   = link_to "full size", @photo.image.url
@@ -12,8 +12,11 @@
 %div{:id => @photo.id}
 
   #show_photo
-    = link_to_prev @photo, @album
     = linked_scaled_photo @photo, @album
+
+  #next_prev_links
+    = link_to_prev @photo, @album
+    |
     = link_to_next @photo, @album
 
   #content_bottom

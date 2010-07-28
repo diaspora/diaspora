@@ -1,6 +1,12 @@
-%h1 Editing Profile
-
 = form_for @user do |f|
+
+  %h1.big_text
+    .back
+      = link_to "⇧ home", root_path
+
+    Editing your profile
+
+
   = f.error_messages
 
   = f.fields_for :profile do |p|
@@ -35,8 +41,12 @@
   %p
     = f.label :url
     = f.text_field :url
-  %p
-    = f.submit
 
-%p
-  = link_to "Show", user_path(@user)
+  #submit_block
+    = link_to "Cancel", root_path
+    or
+    = f.submit "Update Profile"
+
+#content_bottom
+  .back
+    = link_to "⇧ home", root_path
