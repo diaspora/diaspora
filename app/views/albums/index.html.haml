@@ -13,9 +13,10 @@
     %li.selected= friends_albums_link
     %li= your_albums_link
 
-%ul#stream
+%div
   - for album in @albums
     = render "album", :post => album
+
 #pagination
   = will_paginate @albums
 

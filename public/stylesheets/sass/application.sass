@@ -405,9 +405,6 @@ ul#publisher_content_pickers li
   :height 200px
   :width 300px
   :display inline-block
-  :margin
-    :right 2em
-    :bottom 2em
 
   .name
     :position absolute
@@ -429,9 +426,7 @@ ul#publisher_content_pickers li
 
   div.image_cycle
     img
-      :border-radius 3px
-      :-webkit-border-radius 3px
-      :-moz-border-radius 3px
+      :display none
 
 .field_with_submit
   input[type='text']
@@ -497,6 +492,10 @@ h1.big_text
 
   img
     :display none
+
+    &:hover
+      :border
+        :bottom 2px solid #666
 
 .image_cycle
   img
