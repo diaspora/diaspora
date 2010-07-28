@@ -3,6 +3,7 @@ class PhotosController < ApplicationController
   
   def create
     begin
+      #puts params.inspect 
       @photo = Photo.instantiate(params)
       @photo.person = current_user
 

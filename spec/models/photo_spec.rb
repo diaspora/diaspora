@@ -10,8 +10,10 @@ describe Photo do
   end
 
   it 'should have a constructor' do
-    photo = Photo.instantiate(:person => @user, :album => @album, :image => File.open(@fixture_name)) 
+    image = File.open(@fixture_name)    
+    photo = Photo.instantiate(:person => @user, :album => @album, :user_file => [image]) 
     photo.save.should be true
+  
     photo.image.read.nil?.should be false
   end
 
@@ -66,7 +68,7 @@ describe Photo do
     end
 
     it 'should save a signed @photo to GridFS' do
-      photo  = Photo.instantiate(:person => @user, :album => @album, :image => File.open(@fixture_name))
+      photo  = Photo.create(:person => @user, :album => @album, :image => File.open(@fixture_name))
       photo.save.should == true
       photo.verify_creator_signature.should be true
     end
@@ -78,13 +80,18 @@ describe Photo do
       @photo.image = File.open(@fixture_name)
       @photo.image.store!
       @photo.save
+      
+  
       xml = @photo.to_xml.to_s
-      xml.include?(@photo.image.url).should be true
+
+      xml.include?("bp.jpeg").should be true
     end
     it 'should have an album id on serialization' do
        @photo.image = File.open(@fixture_name)
+            
       xml = @photo.to_xml.to_s
-      xml.include?(@photo.album.id.to_s).should be true
+      puts xml
+      xml.include?("scaled_full_bp.").should be true
     end
   end
 end
