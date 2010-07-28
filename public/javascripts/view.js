@@ -111,5 +111,9 @@ $(document).ready(function(){
     $(this).fadeIn("slow");
   });
 
+  $(".image_cycle img").load( function() {
+    $(this).fadeIn("slow");
+  });
+
 
 });//end document ready

@@ -402,3 +402,6 @@ h1.big_text {
   min-height: 100px; }
   .image_thumb img {
     display: none; }
+
+.image_cycle img {
+  display: none; }

@@ -8,6 +8,7 @@
   text-shadow: 0 1px 0 white;
   min-height: 14px;
   background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#fafafa), to(#e0e0e0));
+  background: -moz-linear-gradient(top, #fafafa, #e0e0e0);
   border: 1px solid #cccccc;
     border-bottom: 1px solid #666666;
     border-left: 1px solid #999999;
@@ -51,7 +52,6 @@ ul.button_set {
 .button .selected, .button_set .selected {
   background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#e0e0e0), to(#fafafa));
   background: -moz-linear-gradient(top, #e0e0e0, #fafafa);
-  background-image: -moz-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
   border-top: 1px solid #aaaaaa; }
 
 .right {
