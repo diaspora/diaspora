@@ -1,17 +1,17 @@
 module AlbumsHelper
   def friends_albums_link
     if params[:friends]
-      "friends albums"
+      "Friends Albums"
     else
-      link_to 'friends albums', albums_path({:friends => true})
+      link_to 'Friends Albums', albums_path({:friends => true})
     end
   end
   
   def your_albums_link
     if params[:friends]
-      link_to 'your albums', albums_path
+      link_to 'Your Albums', albums_path
     else
-      'your albums'
+      'Your Albums'
     end
   end
   

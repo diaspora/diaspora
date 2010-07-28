@@ -1,13 +1,18 @@
-.span-20.last
-  %h1= "#{@author.username}"
-  = link_to 'unsubscribe', @author, :confirm => 'Are you sure?', :method => :delete
-.span-20
-  - if @author_ostatus_posts
+%h1.big_text
+  .back
+    = link_to '⇧ ostatus', ostatus_path
+  = "#{@author.username}'s stream"
+  .button.right
+    = link_to 'Unsubscribe', @author, :confirm => 'Are you sure?', :method => :delete
 
-    %h3 stream
-    %ul#stream
-      - for post in @author_ostatus_posts
-        = render type_partial(post), :post => post
-      = will_paginate @author_ostatus_posts
-  - else
-    %h3 no posts to display!
+- if @author_ostatus_posts
+  %ul#stream
+    - for post in @author_ostatus_posts
+      = render type_partial(post), :post => post
+    = will_paginate @author_ostatus_posts
+- else
+  %h3 no posts to display!
+
+#content_bottom
+  .back
+    = link_to "⇧ ostatus", ostatus_path
