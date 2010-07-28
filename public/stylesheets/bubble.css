@@ -1,0 +1,64 @@
+/* ------------------------------------------------------------------------------------
+-- MORE COMPLEX CSS3 EXAMPLES
+------------------------------------------------------------------------------------ */
+
+/* Pinched speech bubble
+------------------------------------------ */
+
+.pinched {
+	position:relative;
+	padding:15px;
+	margin:25px 0 2px;
+	text-align:center;
+	color:#fff;
+	background:#333; 
+
+	/* css3 */
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+
+/* creates a rectangle of the colour wanted for the pointy bit */
+.pinched:before {
+	content:"\00a0";
+	position:absolute;
+	top:-20px;
+	left:7%;
+	width:100px;
+	height:20px;
+	margin:0 0 0 -50px;
+	background:#333;
+}
+
+/* creates a rounded rectangle to cover part of the rectangle generated above */
+.pinched:after {
+	content:"\00a0";
+	position:absolute;
+	top:-20px;
+	left:0;
+	width:4%;
+	height:20px;
+	background:#fff;
+
+	/* css3 */
+	-moz-border-radius-bottomright:15px;
+	-webkit-border-bottom-right-radius:15px;
+	border-bottom-right-radius:15px;
+}
+
+/* creates the other rounded rectangle */
+.pinched>:first-child:before {
+	content:"\00a0"; 
+	position:absolute; 
+	top:-20px; 
+	right:0; 
+	width:96%; 
+	height:20px; 
+	background:#fff;
+
+	/* css3 */
+	-moz-border-radius-bottomleft:15px;
+	-webkit-border-bottom-left-radius:15px;
+	border-bottom-left-radius:15px;
+}
