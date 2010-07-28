@@ -393,3 +393,12 @@ h1.big_text {
 
 #next_prev_links {
   text-align: center; }
+
+.image_thumb {
+  display: inline-block;
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  min-height: 100px; }
+  .image_thumb img {
+    display: none; }

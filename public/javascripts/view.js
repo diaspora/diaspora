@@ -107,4 +107,9 @@ $(document).ready(function(){
 
   $("input[type='submit']").addClass("button");
 
+  $(".image_thumb img").load( function() {
+    $(this).fadeIn("slow");
+  });
+
+
 });//end document ready
