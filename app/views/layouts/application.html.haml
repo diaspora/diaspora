@@ -52,9 +52,9 @@
 
     .container
       .span-24.last
-        .span-19.append-1.last
+        .span-20.append-1.last
           = yield
-        .span-4.last
+        .span-3.last
           = link_to(person_image_tag(current_user), root_path)
           %br
           = link_to "Edit your profile", edit_user_path(current_user)
