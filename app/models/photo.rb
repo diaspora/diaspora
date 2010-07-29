@@ -14,9 +14,10 @@ class Photo < Post
 
   validates_presence_of :album
 
-  def self.instantiate params = {}
-    image_file = params[:user_file][0]
+  def self.instantiate(params = {})
+    image_file = params[:user_file].first
     params.delete :user_file
+    
     photo = Photo.new(params)
     photo.image.store! image_file
     photo

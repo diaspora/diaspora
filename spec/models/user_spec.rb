@@ -1,4 +1,4 @@
-require 'spec_helper'
+require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
   it "should be a person" do
@@ -56,5 +56,29 @@ describe User do
 
     @user.unsubscribe_from_pubsub(author.id)  
     Author.all.count.should == 0
+  end
+  
+  it 'should be able to update their profile and send it to their friends' do 
+    pending
+    
+    profile = {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clowntown.com"}
+    
+    @user = Factory.create(:user, :profile => Profile.new(profile))
+    profile = {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://awesome.com"}
+    
+    
+    @user.update_profile(profile)
+    
+    @user.profile.image_url.should == "http://awesome.com"
+    #puts @user.to_xml.to_s
+  end
+  
+  
+  it 'should fix the image_url 'do 
+    pending
+    profile = Profile.new(:image_url => "/images/foo.jpg")
+    user = Factory.create(:user, :profile => profile)
+    
+    puts user.profile.image_url
   end
 end
