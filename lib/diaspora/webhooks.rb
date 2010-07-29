@@ -10,6 +10,10 @@ module Diaspora
               push_to(people_with_permissions)
             end
           end
+          
+          def notify_people!
+            push_to(people_with_permissions)
+          end
 
           def subscribe_to_ostatus(feed_url)
             @@queue.add_subscription_request(feed_url)
@@ -22,9 +26,12 @@ module Diaspora
           end
 
           def push_to(recipients)
+            puts "FOOBATT"
             @@queue.add_hub_notification(APP_CONFIG[:pubsub_server], User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
             unless recipients.empty?
               recipients.map!{|x| x = x.url + "receive/"}  
+              puts self.class
+              puts "made it in here!"
               xml = self.class.build_xml_for(self)
               Rails.logger.info("Adding xml for #{self} to message queue to #{recipients}")
               @@queue.add_post_request( recipients, xml )
@@ -54,6 +61,7 @@ module Diaspora
             [*posts].each {|x| xml << x.to_diaspora_xml}
             xml += "</posts>"
             xml += "</XML>"
+            
           end
         end
     end
