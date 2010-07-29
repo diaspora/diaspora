@@ -174,6 +174,9 @@ form {
   #user_name #latest_message {
     font-weight: normal;
     color: #999999; }
+    #user_name #latest_message span {
+      size: small;
+      font-style: italic; }
   #user_name ul {
     display: inline;
     margin: 0;

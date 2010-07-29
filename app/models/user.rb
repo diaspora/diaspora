@@ -28,6 +28,17 @@ class User < Person
     end
     false
   end
+  
+  ##profile
+  def update_profile(params)
+    if self.update_attributes(params)
+      puts self.profile.class
+      self.profile.notify_people!
+      true
+    else
+      false
+    end
+  end
 
   ######### Friend Requesting
   def send_friend_request_to(friend_url)

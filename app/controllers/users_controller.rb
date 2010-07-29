@@ -17,9 +17,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.where(:id => params[:id]).first
-    puts params.inspect
     
-    if @user.update_attributes(params[:user])
+    if @user.update_profile(params[:user])
       flash[:notice] = "Successfully updated user."
       redirect_to @user
     else

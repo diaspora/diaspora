@@ -59,26 +59,22 @@ describe User do
   end
   
   it 'should be able to update their profile and send it to their friends' do 
-    pending
+    Factory.create(:person)
+    p = {:profile => {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clowntown.com"}}
     
-    profile = {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clowntown.com"}
-    
-    @user = Factory.create(:user, :profile => Profile.new(profile))
-    profile = {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://awesome.com"}
+    @user = Factory.create(:user)
+     p = {:profile => {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com"}}
     
     
-    @user.update_profile(profile)
+    @user.update_profile(p).should == true
     
-    @user.profile.image_url.should == "http://awesome.com"
-    #puts @user.to_xml.to_s
+    @user.profile.image_url.should == "http://clown.com"
+    
+    Profile.should_receive(:build_xml_for)
+    
+    n = Profile.send :class_variable_get, :@@queue
+    n.should_receive(:process)
   end
   
-  
-  it 'should fix the image_url 'do 
-    pending
-    profile = Profile.new(:image_url => "/images/foo.jpg")
-    user = Factory.create(:user, :profile => profile)
-    
-    puts user.profile.image_url
-  end
+
 end

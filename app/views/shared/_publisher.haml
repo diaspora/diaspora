@@ -10,7 +10,7 @@
       %p
         %label{:for => "status_message_message"} Message
         = f.text_area :message, :rows => 2
-      %p
+      %p.right
         = f.submit "Post"
 
     = form_for Bookmark.new, :remote => true do |f|
@@ -21,7 +21,7 @@
       %p
         %label{:for => "bookmark_link"} Link
         = f.text_field :link
-      %p
+      %p.right
         = f.submit "Post"
 
     = form_for Blog.new, :remote => true do |f|
@@ -32,5 +32,5 @@
       %p
         %label{:for => "blog_body"} Body
         = f.text_area :body
-      %p
+      %p.right
         = f.submit "Post"

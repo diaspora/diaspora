@@ -1,14 +1,20 @@
+
 module Diaspora
   module Webhooks
     def self.included(klass)
       klass.class_eval do
-          #require 'message_handler'
+          require 'message_handler'
+          
           @@queue = MessageHandler.new
 
           def notify_people
             if self.person_id == User.owner.id
               push_to(people_with_permissions)
             end
+          end
+          
+          def notify_people!
+            push_to(people_with_permissions)
           end
 
           def subscribe_to_ostatus(feed_url)
@@ -54,6 +60,7 @@ module Diaspora
             [*posts].each {|x| xml << x.to_diaspora_xml}
             xml += "</posts>"
             xml += "</XML>"
+            
           end
         end
     end
