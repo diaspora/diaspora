@@ -1,4 +1,5 @@
 class Post 
+  require 'lib/encryptable'
   include MongoMapper::Document
   include ApplicationHelper 
   include ROXML

@@ -1,8 +1,10 @@
+
 module Diaspora
   module Webhooks
     def self.included(klass)
       klass.class_eval do
-          #require 'message_handler'
+          require 'message_handler'
+          
           @@queue = MessageHandler.new
 
           def notify_people
