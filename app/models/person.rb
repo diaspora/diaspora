@@ -67,6 +67,7 @@ class Person
   end
 
   def remove_key
+    puts 'Removing key from keyring in test environment' if Rails.env == 'test'
     ctx = GPGME::Ctx.new
     ctx.delete_key(key)
   end
