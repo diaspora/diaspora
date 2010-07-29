@@ -55,6 +55,8 @@
             %li= link_to "home", root_path
             %li= link_to "photos", albums_path
             %li= link_to "ostatus", ostatus_path
+            %li= "|"
+            %li= link_to "edit profile", edit_user_path(current_user)
 
     .container
       .span-24.last
@@ -63,9 +65,6 @@
           = yield
 
         .span-3.last
-          = link_to "Edit your profile", edit_user_path(current_user)
-          %br
-          %br
           = render 'people/sidebar' if user_signed_in?
 
         .span-24.last

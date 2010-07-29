@@ -64,7 +64,7 @@ a {
 header {
   position: relative;
   margin: -2em;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   color: #555555;
   background-color: #2b2726;
   border-bottom: 3px solid #333333;
@@ -160,7 +160,7 @@ form {
   margin-left: 0em; }
 
 #user_name {
-  margin-bottom: 3em; }
+  margin-bottom: 20px; }
   #user_name img {
     margin-right: 10px;
     display: inline-block;
