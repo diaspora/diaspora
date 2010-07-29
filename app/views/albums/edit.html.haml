@@ -1,0 +1,25 @@
+%h1.big_text
+  .back
+    = link_to "⇧ #{@album.name}", @album
+
+  = "Editing #{@album.name}"
+
+.sub_header
+  ="updated #{how_long_ago(@album)}"
+
+- form_for @album do |a|
+  = a.error_messages
+  %p
+    = a.text_field :name
+
+  #submit_block
+    = link_to "Cancel", root_path
+    or
+    = a.submit
+
+.button.delete
+  = link_to 'Delete Album', @album, :confirm => 'Are you sure?', :method => :delete
+
+#content_bottom
+  .back
+    = link_to "⇧ #{@album.name}", @album
