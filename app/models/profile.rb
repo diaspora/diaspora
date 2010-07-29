@@ -29,7 +29,7 @@ class Profile
   end
   
   def to_diaspora_xml
-    self.to_xml.to_s
+    "<post>"+ self.to_xml.to_s + "</post>"
   end
   
 end

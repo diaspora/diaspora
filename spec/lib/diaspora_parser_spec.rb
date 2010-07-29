@@ -151,8 +151,30 @@ describe Diaspora::DiasporaParser do
       Person.count.should == 2
       store_objects_from_xml( request )
       Person.count.should == 1
-
     end
+    
+    it 'should marshal a profile for a person' do
+      person = Factory.create(:person)
+      
+      person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com")
+      old_profile = person.profile
+      
+      puts person.profile.inspect
+
+       xml = Post.build_xml_for(person.profile)
+       person.profile = nil
+       person.save
+
+       puts person.profile.inspect
+       person.profile.should_be nil    
+       store_objects_from_xml xml
+      
+      person = Person.first(:id => person.id)
+      
+      person.profile.should == old_profile
+      person.profile.should_not be nil 
+
+      end
   end
 end
 

@@ -65,15 +65,16 @@ describe User do
     @user = Factory.create(:user)
      p = {:profile => {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com"}}
     
+    n = Profile.send :class_variable_get, :@@queue
+    n.should_receive(:process)
+    
     
     @user.update_profile(p).should == true
     
     @user.profile.image_url.should == "http://clown.com"
     
-    Profile.should_receive(:build_xml_for)
-    
-    n = Profile.send :class_variable_get, :@@queue
-    n.should_receive(:process)
+   
+
   end
   
 

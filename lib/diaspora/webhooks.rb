@@ -1,4 +1,3 @@
-
 module Diaspora
   module Webhooks
     def self.included(klass)
@@ -31,7 +30,7 @@ module Diaspora
             @@queue.add_hub_notification(APP_CONFIG[:pubsub_server], User.owner.url + self.class.to_s.pluralize.underscore + '.atom')
             unless recipients.empty?
               recipients.map!{|x| x = x.url + "receive/"}  
-              xml = self.class.build_xml_for(self)
+              xml = Post.build_xml_for(self)
               Rails.logger.info("Adding xml for #{self} to message queue to #{recipients}")
               @@queue.add_post_request( recipients, xml )
             end
