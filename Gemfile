@@ -4,7 +4,7 @@ source 'http://gemcutter.org'
 #gem 'rails', '3.0.0.rc'
 #gem 'bundler', '1.0.0.rc.1'
 gem 'rails' '3.0.0.beta4'
-gem 'bunlder' '0.9.26'
+gem 'bundler' '0.9.26'
 #Security
 gem 'gpgme'
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
