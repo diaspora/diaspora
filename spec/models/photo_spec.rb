@@ -25,8 +25,7 @@ describe Photo do
     binary.should == fixture_binary
   end
 
-  it  'must have an album' do
-
+  it 'must have an album' do
     photo = Photo.new(:person => @user)
     photo.image = File.open(@fixture_name)
     photo.save
@@ -34,6 +33,18 @@ describe Photo do
     photo.album = Album.create(:name => "foo", :person => @user)
     photo.save
     Photo.first.album.name.should == 'foo'
+  end
+
+  it 'should remove its reference in user profile if it is referred' do
+    @photo.image.store! File.open(@fixture_name)
+    @photo.save
+
+    @user.profile.image_url = @photo.image.url(:thumb_medium)
+    @user.save
+
+    User.first.profile.image_url.should == @photo.image.url(:thumb_medium)
+    @photo.destroy
+    User.first.profile.image_url.should be nil
   end
 
   describe 'non-image files' do
@@ -52,9 +63,6 @@ describe Photo do
       @photo.image = file
       @photo.save.should == false
     end
-
-
-
   end
 
   describe 'with encryption' do
@@ -80,12 +88,12 @@ describe Photo do
       @photo.image = File.open(@fixture_name)
       @photo.image.store!
       @photo.save
-      
   
       xml = @photo.to_xml.to_s
 
       xml.include?("bp.jpeg").should be true
     end
+
     it 'should have an album id on serialization' do
        @photo.image = File.open(@fixture_name)
             

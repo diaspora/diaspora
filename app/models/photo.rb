@@ -26,9 +26,13 @@ class Photo < Post
   after_save :log_save_inspection 
   validates_true_for :album_id, :logic => lambda {self.validate_album_person}
 
+  before_destroy :ensure_user_picture
+
+
   def validate_album_person
     album.person_id == person_id
   end
+
   def remote_photo
     @remote_photo ||= User.owner.url.chop + image.url(:scaled_full)
   end
@@ -39,5 +43,12 @@ class Photo < Post
     image.download! remote_path
     image.store!
     Rails.logger.info("Setting remote photo with id #{id}")
+  end
+
+  def ensure_user_picture
+    user = User.owner
+    if user.profile.image_url == image.url(:thumb_medium)
+      user.profile.update_attributes!(:image_url => nil)
+    end
   end
 end
