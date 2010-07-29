@@ -3,6 +3,9 @@
     = link_to '⇧ ostatus', ostatus_path
   = "#{@author.username}'s stream"
 
+.sub_header
+  = @author.profile_url
+
 - if @author_ostatus_posts
   %ul#stream
     - for post in @author_ostatus_posts
