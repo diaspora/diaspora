@@ -74,7 +74,7 @@ describe 'user encryption' do
       xml = Request.build_xml_for [request]
       person.destroy
       personcount = Person.all.count
-      store_objects_from_xml(xml)
+      Diaspora::DiasporaParser.store_objects_from_xml(xml)
       Person.all.count.should == personcount + 1
       new_person = Person.first(:url => "http://test.url/")
       new_person.key_fingerprint.nil?.should == false
@@ -135,7 +135,7 @@ describe 'user encryption' do
       xml = Post.build_xml_for([message])
       message.destroy
       Post.count.should be 0
-      store_objects_from_xml(xml)
+      Diaspora::DiasporaParser.store_objects_from_xml(xml)
       Post.count.should be 0
     end
 
