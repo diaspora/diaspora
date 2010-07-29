@@ -41,22 +41,28 @@
             = link_to "logout", destroy_user_session_path
           - else
             = link_to "login", new_user_session_path
+
     .container
-      = link_to "home", root_path
-      |
-      = link_to "photos", albums_path
-      |
-      = link_to "ostatus", ostatus_path
-      %br
-      %br
+      - if user_signed_in?
+        #user_name
+          = link_to(person_image_tag(current_user), root_path)
+          %h1
+            = link_to current_user.real_name, root_path
+            %span#latest_message
+              = my_latest_message
+
+          %ul.nav
+            %li= link_to "home", root_path
+            %li= link_to "photos", albums_path
+            %li= link_to "ostatus", ostatus_path
 
     .container
       .span-24.last
         .span-20.append-1.last
+
           = yield
+
         .span-3.last
-          = link_to(person_image_tag(current_user), root_path)
-          %br
           = link_to "Edit your profile", edit_user_path(current_user)
           %br
           %br

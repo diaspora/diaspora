@@ -1,9 +1,3 @@
-- if user_signed_in?
-  %h1#user_name
-    = link_to current_user.real_name, root_path
-    %span= title_for_page
-  %h3#latest_message
-    = my_latest_message
 = render "shared/publisher"
 %ul#stream
   - for post in @posts

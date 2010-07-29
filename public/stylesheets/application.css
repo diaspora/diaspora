@@ -64,7 +64,7 @@ a {
 header {
   position: relative;
   margin: -2em;
-    margin-bottom: 1em;
+    margin-bottom: 60px;
   color: #555555;
   background-color: #2b2726;
   border-bottom: 3px solid #333333;
@@ -150,7 +150,7 @@ h1 {
     padding: 0.1em; }
 
 h3 {
-  position: relative;
+  position: relativex;
   font-size: 18px;
   font-weight: bold; }
 
@@ -160,20 +160,28 @@ form {
   margin-left: 0em; }
 
 #user_name {
-  display: inline;
-  margin-bottom: 1em;
-  font-size: 70px;
-  line-height: 100px; }
-  #user_name a {
-    color: black; }
-  #user_name span {
-    line-height: 140px;
-    font-size: 30%;
-    color: #dddddd;
-    float: right; }
-
-#latest_message {
-  font-weight: normal; }
+  margin-bottom: 3em; }
+  #user_name img {
+    margin-right: 10px;
+    display: inline-block;
+    float: left;
+    height: 40px; }
+  #user_name h1 {
+    margin-bottom: 7px;
+    line-height: 18px; }
+    #user_name h1 a {
+      color: black; }
+  #user_name #latest_message {
+    font-weight: normal;
+    color: #999999; }
+  #user_name ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #user_name ul > li {
+      display: inline;
+      margin-right: 1em; }
 
 #stream div.comments {
   display: none; }
@@ -201,8 +209,7 @@ ul.comment_set {
         color: #333333;
         font-weight: bold; }
     ul.comment_set li.comment form {
-      margin-top: -5px;
-      padding-bottom: 8px; }
+      margin-top: -5px; }
 
 .profile_photo {
   float: left;
@@ -291,8 +298,7 @@ label {
   background-color: rgba(10, 81, 109, 0.05);
   border-bottom: 2px #999999 solid;
   color: #999999;
-  padding: 20px 1em;
-    padding-top: 10px; }
+  padding: 15px 1em; }
 
 #new_blog,
 #new_bookmark {
