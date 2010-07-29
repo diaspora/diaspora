@@ -68,7 +68,7 @@ a
 header
   :position relative
   :margin -2em
-    :bottom 1em
+    :bottom 30px
   :color #555
   :background
     :color #2B2726
@@ -175,7 +175,7 @@ h1
     :padding 0.1em
 
 h3
-  :position relative
+  :position relativex
   :font
     :size 18px 
     :weight bold
@@ -188,24 +188,38 @@ form
 
   
 #user_name
-  :display inline
   :margin
-    :bottom 1em
-  :font
-    :size 70px
-  :line-height 100px
-  a
-    :color #000
-  span
-    :line-height 140px
-    :font
-      :size 30%
-    :color #dddddd
-    :float right
+    :bottom 20px
+  
+  img
+    :margin
+      :right 10px
+    :display inline-block
+    :float left
+    :height 40px
 
-#latest_message
-  :font
-    :weight normal
+  h1
+    :margin
+      :bottom 7px
+    :line-height 18px
+    a
+      :color #000
+
+  #latest_message
+    :font
+      :weight normal
+    :color #999
+
+  ul
+    :display inline
+    :margin 0
+    :padding 0
+    :list-style none
+
+    > li
+      :display inline
+      :margin
+        :right 1em
     
 
 #stream div.comments
@@ -244,9 +258,6 @@ ul.comment_set
     form
       :margin
         :top -5px
-      :padding
-        :bottom 8px
-        
 
 .profile_photo
   :float left
@@ -350,8 +361,7 @@ label
   :border
     :bottom 2px #999 solid
   :color #999
-  :padding 20px 1em
-    :top 10px
+  :padding 15px 1em
 
 #new_blog, 
 #new_bookmark
