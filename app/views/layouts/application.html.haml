@@ -50,8 +50,9 @@
             = link_to current_user.real_name, root_path
             %span#latest_message
               = my_latest_message
-              %span{:style => "font-size: small"}
-                = " - #{how_long_ago @latest_status_message}"
+              - unless @latest_status_message.nil?
+                %span{:style => "font-size: small"}
+                  = " - #{how_long_ago @latest_status_message}"
 
           %ul.nav
             %li= link_to "home", root_path
