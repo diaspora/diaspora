@@ -18,6 +18,8 @@
         }else if (obj['class']=="comments"){
           processComment(obj['post_id'], obj['html']) 
         
+        }else if (obj['class']=='photos' && onPageForClass('albums')){
+          processPhotoInAlbum(obj['photo_hash'])
         }else{
           processPost(obj['class'], obj['html'])
         }
@@ -52,6 +54,15 @@
             })
           ); 
         }
+      }
+
+      function processPhotoInAlbum(photoHash){
+        if (location.href.indexOf(photoHash['album_id']) == -1){
+          return ;
+        }
+        html =  "<div class=\'image_thumb\'> <a href=\"/photos/"+ photoHash['id'] +"\"><img alt=\"New thumbnail\" src=\""+ photoHash['thumb_url'] +"\" style=\"display:inline;\" /> </a> </div>"  
+        $("#thumbnails").append( $(html).fadeIn("fast") )
+        
       }
       
       function onPageForClass(className){

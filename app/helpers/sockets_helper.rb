@@ -18,7 +18,11 @@ module SocketsHelper
       puts e.message
       raise e 
     end
-    {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}.to_json
+    if object.is_a? Photo
+      {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object), :photo_hash => object.thumb_hash }.to_json
+    else
+      {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}.to_json
+    end
   end
 
   

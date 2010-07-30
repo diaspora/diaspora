@@ -51,4 +51,8 @@ class Photo < Post
       user.profile.update_attributes!(:image_url => nil)
     end
   end
+
+  def thumb_hash
+    {:thumb_url => image.url(:thumb_medium), :id => id, :album_id => album_id}
+  end
 end
