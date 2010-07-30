@@ -45,11 +45,15 @@ module Diaspora
       objects.each do |p|
         Rails.logger.info("Receiving object:\n#{p.inspect}")
         if p.is_a? Retraction
-          puts "i am here"
           p.perform
         elsif p.is_a? Request
           User.owner.receive_friend_request(p)
         #This line checks if the sender was in the database, among other things?
+        elsif p.is_a? Profile
+          person = Person.first(:id => p.person_id)
+          person.profile = p
+          puts person.profile.save
+          puts person.save
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
           Rails.logger.info("Saving object with success: #{p.save}")
         end
