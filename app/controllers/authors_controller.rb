@@ -3,7 +3,7 @@ class AuthorsController < ApplicationController
   
   def show
     @author= Author.where(:id => params[:id]).first
-    @author_ostatus_posts = @author.ostatus_posts.paginate :page => params[:page], :order => 'created_at DESC'
+    @author_ostatus_posts = @author.ostatus_posts.paginate :page => params[:page], :order => 'published_at DESC'
   end
 
 

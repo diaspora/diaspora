@@ -7,7 +7,7 @@ class DashboardsController < ApplicationController
   end
 
   def ostatus
-    @posts = OstatusPost.paginate :page => params[:page], :order => 'created_at DESC'
+    @posts = OstatusPost.paginate :page => params[:page], :order => 'published_at DESC'
     render :index
   end
   
