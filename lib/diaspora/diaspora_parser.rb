@@ -30,14 +30,7 @@ module Diaspora
             person.profile = object
             person.save  
           end
-            objects << object
-          #elsif object.is_a? Profile
-          #  person = parse_owner_id_from_xml post
-          #  profile_hash = Hash.from_xml(post.to_s)
-          #  person.profile.update_attributes!(profile_hash)
-          #else
-          #  object << object
-          #end 
+          objects << object
         rescue
           Rails.logger.info "Not a real type: #{object.to_s}"
         end
@@ -53,16 +46,11 @@ module Diaspora
           p.perform
         elsif p.is_a? Request
           User.owner.receive_friend_request(p)
-        #This line checks if the sender was in the database, among other things?
         elsif p.is_a? Profile
-
-          puts p.person_id
-
           p.save
-        elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
+        elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) 
           Rails.logger.info("Saving object with success: #{p.save}")
         end
-        #p.save if p.respond_to?(:person) && !(p.person == nil) #WTF
       end
     end
   end

@@ -34,7 +34,7 @@ class Photo < Post
   end
 
   def remote_photo
-    @remote_photo ||= User.owner.url.chop + image.url(:scaled_full)
+    @remote_photo ||= User.owner.url.chop + image.url
   end
 
   def remote_photo= remote_path

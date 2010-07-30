@@ -16,14 +16,6 @@ class Profile
 
   validates_presence_of :first_name, :last_name
 
-  # before_save :expand_profile_photo_path
-  # 
-  # 
-  # def expand_profile_photo_path
-  #   unless image_url.nil? || self.image_url.include?(parent_document.url)
-  #     self.image_url = self._parent_document.url + self.image_url
-  #   end
-  # end
   def person_id
     self._parent_document.id
   end
