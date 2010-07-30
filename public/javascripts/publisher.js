@@ -23,11 +23,4 @@
       }
     }
 
-	function replaceCurrentStatus(evt){
-		evt.preventDefault();
-		var old_message = $("#latest_message");
-		alert(old_message);
-		var status = $(".new_status_message");
-		alert(status);
-	}
   });
