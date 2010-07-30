@@ -60,9 +60,14 @@
         if (location.href.indexOf(photoHash['album_id']) == -1){
           return ;
         }
-        html =  "<div class=\'image_thumb\'> <a href=\"/photos/"+ photoHash['id'] +"\"><img alt=\"New thumbnail\" src=\""+ photoHash['thumb_url'] +"\" style=\"display:inline;\" /> </a> </div>"  
-        $("#thumbnails").append( $(html).fadeIn("fast") )
-        
+        html =  "<div class=\'image_thumb\' id=\'"+photoHash['id']+"\'> \
+          <a href=\"/photos/"+ photoHash['id'] +"\"> \
+          <img alt=\"New thumbnail\" src=\""+ photoHash['thumb_url'] +"\" /> \
+          </a> </div>"  
+        $("#thumbnails").append( $(html) )
+        $(".image_thumb img").load( function() {
+          $(this).fadeIn("slow");
+        });
       }
       
       function onPageForClass(className){
