@@ -24,7 +24,12 @@ module Diaspora
           object = post.name.camelize.constantize.from_xml post.to_s
           if object.respond_to? :person  
             object.person =  parse_owner_from_xml post.to_s 
-          end 
+          elsif object.is_a? Profile
+            puts "got into parse objects from xml PROFILE"
+            person = parse_owner_id_from_xml post
+            person.profile = object
+            person.save  
+          end
             objects << object
           #elsif object.is_a? Profile
           #  person = parse_owner_id_from_xml post
@@ -50,7 +55,10 @@ module Diaspora
           User.owner.receive_friend_request(p)
         #This line checks if the sender was in the database, among other things?
         elsif p.is_a? Profile
-          puts p.save
+
+          puts p.person_id
+
+          p.save
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) #WTF
           Rails.logger.info("Saving object with success: #{p.save}")
         end
