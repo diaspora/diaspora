@@ -20,10 +20,11 @@
         = @person.url
 
     
-    %h1.pinched
-      %span
-        = "\"#{@latest_status_message.message}\""
-      %span="posted: #{how_long_ago(@latest_status_message)}"
+    - unless @latest_status_message.nil?
+      %h1.pinched
+        %span
+          = "\"#{@latest_status_message.message}\""
+        %span="posted: #{how_long_ago(@latest_status_message)}"
       
     
     
