@@ -27,6 +27,11 @@ class Profile
   def person_id
     self._parent_document.id
   end
+
+  def person_id= id
+    person = Person.first(:id => id)
+    person.profile = self
+  end
   
   def to_diaspora_xml
     "<post>"+ self.to_xml.to_s + "</post>"
