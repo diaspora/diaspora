@@ -10,8 +10,9 @@
           .button.right
             = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
       
-      %li
-        %i= "last seen: #{how_long_ago(@person_posts.first)}"
+      -unless @person_posts.first.nil?
+        %li
+          %i= "last seen: #{how_long_ago(@person_posts.first)}"
       %li
         %i= "friends since: #{how_long_ago(@person)}"
       %li
