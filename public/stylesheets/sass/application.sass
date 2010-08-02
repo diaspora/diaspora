@@ -97,7 +97,6 @@ header
       
   #session_action
     :float right
-    :top 0
     :text-shadow 0 1px 0 #000
     a
       :color #777
@@ -181,11 +180,11 @@ h3
     :weight bold
 
 form
+  :position relative
   :font
     :size 120%
   :margin 1em
-  :margin-left 0em
-
+    :left 0em
   
 #user_name
   :margin
@@ -365,6 +364,7 @@ label
     :bottom 2px #999 solid
   :color #999
   :padding 15px 1em
+    :bottom 30px
 
 #new_blog, 
 #new_bookmark
@@ -517,19 +517,31 @@ h1.big_text
 #group
   :color #333
   ul
-    :font-size 18px
     :margin 0
     :padding 0
+    :font
+      :size 14px
     > li
       :display inline
       :margin
         :right 10px
       
-      &.selected
+      &.selected, &.selected a
         :color #fff
-        :font-weight bold
+        :font
+          :weight bold
+          :size 18px
 
-  #user_pictures
+  a
+    :color #333
+    :font
+      :weight normal
+
+  #friend_pictures
+    .add_new
+      :display inline
+      :font
+        :size 40px
     img
       :display inline-block
       :height 40px

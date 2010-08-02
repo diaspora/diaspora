@@ -84,7 +84,6 @@ header {
       text-shadow: none; }
   header #session_action {
     float: right;
-    top: 0;
     text-shadow: 0 1px 0 black;
     padding-right: 10px; }
     header #session_action a {
@@ -155,9 +154,10 @@ h3 {
   font-weight: bold; }
 
 form {
+  position: relative;
   font-size: 120%;
   margin: 1em;
-  margin-left: 0em; }
+    margin-left: 0em; }
 
 #user_name {
   margin-bottom: 20px; }
@@ -301,7 +301,8 @@ label {
   background-color: rgba(10, 81, 109, 0.05);
   border-bottom: 2px #999999 solid;
   color: #999999;
-  padding: 15px 1em; }
+  padding: 15px 1em;
+    padding-bottom: 30px; }
 
 #new_blog,
 #new_bookmark {
@@ -416,15 +417,22 @@ h1.big_text {
 #group {
   color: #333333; }
   #group ul {
-    font-size: 18px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    font-size: 14px; }
     #group ul > li {
       display: inline;
       margin-right: 10px; }
-      #group ul > li.selected {
+      #group ul > li.selected, #group ul > li.selected a {
         color: white;
-        font-weight: bold; }
-  #group #user_pictures img {
+        font-weight: bold;
+        font-size: 18px; }
+  #group a {
+    color: #333333;
+    font-weight: normal; }
+  #group #friend_pictures .add_new {
+    display: inline;
+    font-size: 40px; }
+  #group #friend_pictures img {
     display: inline-block;
     height: 40px; }

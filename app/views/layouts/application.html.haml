@@ -18,8 +18,7 @@
     = csrf_meta_tag
     = yield(:head)
 
-    = javascript_include_tag 'satisfaction' , 'satisfaction-display'
-
+    = javascript_include_tag 'satisfaction', 'satisfaction-display'
     = javascript_include_tag 'jquery.html5_upload'
 
   %body
@@ -44,11 +43,11 @@
 
         #group
           %ul
-            %li.selected ACM
-            %li FAMILY
-            %li WORK
-            %li HIGH SCHOOL
-          #user_pictures
+            %li.selected= link_to "OTHER PRESIDENTS", root_path
+            %li= link_to "OSTATUS", ostatus_path
+            /%li= link_to "NEW YORK", "#"
+            /%li= link_to "NEW CIRCLE", "#"
+          #friend_pictures
             = link_to(person_image_tag(current_user), root_path)
             = link_to(person_image_tag(current_user), root_path)
             = link_to(person_image_tag(current_user), root_path)
@@ -63,6 +62,8 @@
             = link_to(person_image_tag(current_user), root_path)
             - for friend in @friends
               = person_image_link(friend)
+            .add_new
+              = link_to "+", requests_path
 
     .container
       - if user_signed_in?
@@ -85,9 +86,6 @@
 
     .container
       .span-24.last
-
         = yield
-
-
       .span-24.last
         = render "posts/debug"
