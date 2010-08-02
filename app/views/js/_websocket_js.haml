@@ -20,9 +20,13 @@
         
         }else if (obj['class']=='photos' && onPageForClass('albums')){
           processPhotoInAlbum(obj['photo_hash'])
+        }else if (obj['class']=='status_messages'){
+          processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'])
         }else{
           processPost(obj['class'], obj['html'])
         }
+
+        
       }; 
       ws.onclose = function() { debug("socket closed"); };
       ws.onopen = function() {
@@ -56,6 +60,18 @@
         }
       }
 
+      function processStatusMessage(className, html, messageHash){
+        processPost(className, html);
+        if(messageHash['mine?']){
+          updateMyLatestStatus(messageHash);
+        }
+      }
+      
+      function updateMyLatestStatus(messageHash){
+        $("#latest_message").text(messageHash['text']);
+        $("#latest_message_time").text(' - just now');
+      }
+
       function processPhotoInAlbum(photoHash){
         if (location.href.indexOf(photoHash['album_id']) == -1){
           return ;
@@ -65,7 +81,7 @@
           <img alt=\"New thumbnail\" src=\""+ photoHash['thumb_url'] +"\" /> \
           </a> </div>"  
         $("#thumbnails").append( $(html) )
-        $(".image_thumb img").load( function() {
+        $("#"+ photoHash['id'] + "  img").load( function() {
           $(this).fadeIn("slow");
         });
       }

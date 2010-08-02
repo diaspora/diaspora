@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Album do
   before do
+    @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
     @user = Factory.create(:user)
     @album = Album.new(:name => "test collection", :person => @user)
   end
@@ -33,11 +34,13 @@ describe Album do
   end
 
   it 'should remove all photos on album delete' do
-      photo_one = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now)
-      photo_two = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now-1)
-      photo_three = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now-2)
-
-      @album.photos += [photo_one, photo_two, photo_three]
+      photos = []
+      1.upto 3 do
+        photo =   Photo.new(:person => @user, :album => @album, :created_at => Time.now)
+        photo.image.store! File.open @fixture_name
+        photos << photo
+      end
+      @album.photos += photos
 
       Photo.all.count.should == 3
       @album.destroy
@@ -46,29 +49,28 @@ describe Album do
 
   describe 'traversing' do
     before do
-      @photo_one = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now)
-      @photo_two = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now+1)
-      @photo_three = Factory.create(:photo, :person => @user, :album => @album, :created_at => Time.now+2)
-
-      @album.photos += [@photo_one, @photo_two, @photo_three]
-    end
-
-    it 'should retrieve the next photo relative to a given photo' do
-      @album.next_photo(@photo_two).id.should == @photo_three.id
-    end
-
-    it 'should retrieve the previous photo relative to a given photo' do
-      @album.prev_photo(@photo_two).id.should == @photo_one.id
-    end
-
-    describe 'wrapping' do
-      it 'does next photo of last to first' do
-        @album.next_photo(@photo_three).id.should == @photo_one.id
+      @photos = []
+      1.upto 3 do |n|
+        photo =   Photo.new(:person => @user, :album => @album, :created_at => Time.now + n)
+        photo.image.store! File.open @fixture_name
+        @photos << photo
       end
+      @album.photos += @photos   
+    end
+    
+    it 'should traverse the album correctly' do
+      #should retrieve the next photo relative to a given photo
+      @album.next_photo(@photos[1]).id.should == @photos[2].id
 
-      it 'does previous photo of first to last' do
-        @album.prev_photo(@photo_one).id.should == @photo_three.id
-      end
+      #should retrieve the previous photo relative to a given photo
+      @album.prev_photo(@photos[1]).id.should == @photos[0].id
+
+      #wrapping
+      #does next photo of last to first
+      @album.next_photo(@photos[2]).id.should == @photos[0].id
+      
+      #does previous photo of first to last
+      @album.prev_photo(@photos[0]).id.should == @photos[2].id
     end
   end
 
