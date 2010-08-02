@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Photo do
   before do
     @user = Factory.create(:user)
+    @fixture_filename = 'bp.jpeg'
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
     @album = Album.create(:name => "foo", :person => @user)
@@ -47,6 +48,13 @@ describe Photo do
     User.first.profile.image_url.should be nil
   end
 
+  it 'should not use the imported filename as the url' do
+    @photo.image.store! File.open(@fixture_name)
+    puts @photo.image.url(:thumb_medium)
+    @photo.image.url.include?(@fixture_filename).should be false
+    @photo.image.url(:thumb_medium).include?(@fixture_filename).should be false
+  end
+
   describe 'non-image files' do
     it 'should not store' do
       file = File.open(@fail_fixture_name)
@@ -64,7 +72,7 @@ describe Photo do
       @photo.save.should == false
     end
   end
-
+  
   describe 'with encryption' do
     
     before do
@@ -91,15 +99,13 @@ describe Photo do
   
       xml = @photo.to_xml.to_s
 
-      xml.include?("bp.jpeg").should be true
+      xml.include?(@photo.image.url).should be true
     end
 
     it 'should have an album id on serialization' do
-       @photo.image = File.open(@fixture_name)
-            
+      @photo.image.store! File.open(@fixture_name)
       xml = @photo.to_xml.to_s
-      puts xml
-      xml.include?("scaled_full_bp.").should be true
+      xml.include?(@photo.album_id.to_s).should be true
     end
   end
 end
