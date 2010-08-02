@@ -1,0 +1,21 @@
+#group
+  %ul
+    %li.selected= link_to "OTHER PRESIDENTS", root_path
+    %li= link_to "OSTATUS", ostatus_path
+  #friend_pictures
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    = link_to(person_image_tag(current_user), root_path)
+    - for friend in @friends
+      = person_image_link(friend)
+    .add_new
+      = link_to "+", requests_path

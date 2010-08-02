@@ -10,8 +10,7 @@
     = stylesheet_link_tag "application", "ui", 'bubble'
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'google'
-    = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel'
-    = javascript_include_tag 'jquery.cycle/jquery.cycle.min.js'
+    = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel', 'jquery.cycle/jquery.cycle.min.js'
     = javascript_include_tag 'view', 'publisher', 'image_picker'
     = render 'js/websocket_js'
     
@@ -40,30 +39,9 @@
             = link_to "logout", destroy_user_session_path
           - else
             = link_to "login", new_user_session_path
+        
+        = render "shared/group_nav"
 
-        #group
-          %ul
-            %li.selected= link_to "OTHER PRESIDENTS", root_path
-            %li= link_to "OSTATUS", ostatus_path
-            /%li= link_to "NEW YORK", "#"
-            /%li= link_to "NEW CIRCLE", "#"
-          #friend_pictures
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            = link_to(person_image_tag(current_user), root_path)
-            - for friend in @friends
-              = person_image_link(friend)
-            .add_new
-              = link_to "+", requests_path
 
     .container
       - if user_signed_in?
