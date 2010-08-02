@@ -10,7 +10,6 @@ describe User do
   describe 'friend requesting' do
     before do
       @user = Factory.create(:user)
-
     end
 
     it "should be able to accept a pending friend request" do

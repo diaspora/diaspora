@@ -13,10 +13,9 @@ class StatusMessagesController < ApplicationController
   end
   
   def create
-    @status_message = StatusMessage.new(params[:status_message])
-    @status_message.person = current_user
+    @status_message = current_user.post(:status_message, params[:status_message])
     
-    if @status_message.save
+    if @status_message.created_at
       flash[:notice] = "Successfully created status message."
       redirect_to status_messages_url
     else

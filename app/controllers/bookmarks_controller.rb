@@ -31,9 +31,9 @@ class BookmarksController < ApplicationController
   end
   
   def create
-    @bookmark = Bookmark.new(params[:bookmark])
-    @bookmark.person = current_user
-    if @bookmark.save
+    @bookmark = current_user.post(:bookmark, params[:bookmark])
+
+    if @bookmark.created_at
       flash[:notice] = "Successfully created bookmark."
       redirect_to @bookmark
     else

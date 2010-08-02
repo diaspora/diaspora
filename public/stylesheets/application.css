@@ -173,9 +173,10 @@ form {
       color: black; }
   #user_name span {
     size: small;
-    font-style: italic;
     font-weight: normal;
     color: #999999; }
+  #user_name #latest_message_time {
+    font-style: italic; }
   #user_name ul {
     display: inline;
     margin: 0;

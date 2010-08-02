@@ -20,6 +20,10 @@ class Album
   after_save :notify_people
   before_destroy :propagate_retraction
   
+  def instantiate params
+    self.create params
+  end
+
   def self.mine_or_friends(friend_param, current_user)
     if friend_param
       Album.where(:person_id.ne => current_user.id)

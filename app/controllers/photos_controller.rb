@@ -3,11 +3,9 @@ class PhotosController < ApplicationController
   
   def create
     begin
-      #puts params.inspect 
-      @photo = Photo.instantiate(params)
-      @photo.person = current_user
+      @photo = current_user.post(:photo, params)
 
-      if @photo.save
+      if @photo.created_at
         flash[:notice] = "Successfully uploaded photo."
         redirect_to @photo.album
       else
