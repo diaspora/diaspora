@@ -21,9 +21,8 @@ class StatusMessage < Post
         XML
   end
   
-  def ==(other)
-    (self.message == other.message) && (self.person.email == other.person.email)
+  def latest_hash
+    {:mine? => self.person == User.owner, :text => message}
   end
-
 end
 

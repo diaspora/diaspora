@@ -177,6 +177,11 @@ form {
     #user_name #latest_message span {
       size: small;
       font-style: italic; }
+  #user_name #latest_message_time{
+    font-weight: normal;
+    color: #999999;
+    size: small;
+    font-style: italic; }
   #user_name ul {
     display: inline;
     margin: 0;
