@@ -26,6 +26,11 @@ class Post
   before_destroy :propagate_retraction
   after_destroy :destroy_comments, :remove_from_view
 
+  def self.instantiate params
+    self.create params
+  end
+
+#Querying
   def self.stream
     Post.sort(:created_at.desc).all
   end

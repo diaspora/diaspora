@@ -11,7 +11,11 @@ describe StatusMessage do
     n.message = "wales"
     n.valid?.should be true
   end
-   
+  
+  it 'should be postable through the user' do
+    status = @user.post(:status_message, :message => "Users do things")
+  end
+
   describe "XML" do
     it 'should serialize to XML' do
       message = Factory.create(:status_message, :message => "I hate WALRUSES!")

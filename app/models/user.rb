@@ -13,6 +13,13 @@ class User < Person
  
  
   
+  ######## Posting ########
+
+  def post(class_name, options = {})
+    options[:person] = self
+    model_class = class_name.to_s.camelize.constantize
+    post = model_class.instantiate(options)
+  end
 
   ######## Commenting  ########
   def comment(text, options = {})
