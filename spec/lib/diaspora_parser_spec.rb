@@ -154,25 +154,36 @@ describe Diaspora::DiasporaParser do
     end
     
     it 'should marshal a profile for a person' do
+      #Create person
       person = Factory.create(:person)
-      
+      id = person.id
       person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com")
+      person.save
+
+      #Cache profile for checking against marshaled profile
       old_profile = person.profile
-      
-      puts person.profile.inspect
+      old_profile.first_name.should == 'bob'
 
-       xml = Post.build_xml_for(person.profile)
-       person.profile = nil
-       person.save
+      #Build xml for profile, clear profile
+      xml = Post.build_xml_for(person.profile)
+      reloaded_person = Person.first(:id => id)
+      reloaded_person.profile = nil
+      reloaded_person.save
 
-       puts person.profile.inspect
-       person.profile.should_be nil    
-       store_objects_from_xml xml
+      #Make sure profile is cleared
+      Person.first(:id=> id).profile.should be nil    
+      old_profile.first_name.should == 'bob'
+
+      #Marshal profile
+      store_objects_from_xml xml
       
+      #Check that marshaled profile is the same as old profile
       person = Person.first(:id => person.id)
-      
-      person.profile.should == old_profile
       person.profile.should_not be nil 
+      person.profile.first_name.should  == old_profile.first_name
+      person.profile.last_name.should  == old_profile.last_name
+      person.profile.image_url.should  == old_profile.image_url
+      
 
       end
   end
