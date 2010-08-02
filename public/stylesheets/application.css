@@ -67,24 +67,24 @@ header {
     margin-bottom: 30px;
   color: #555555;
   background-color: #2b2726;
+  background-color: black;
   border-bottom: 3px solid #333333;
   padding: 6px 0;
     padding-top: 0; }
   header #diaspora_text {
+    margin-bottom: 1em;
     font-family: "BrandonGrotesqueLightRegular";
-    font-size: 24px;
-    position: absolute;
+    font-size: 16px;
     border: none;
     color: white;
     text-shadow: 0 2px 0 black; }
     header #diaspora_text a {
       color: #666666; }
     header #diaspora_text span.sub_text {
-      color: black;
       text-shadow: none; }
   header #session_action {
     float: right;
-    margin-top: 9px;
+    top: 0;
     text-shadow: 0 1px 0 black;
     padding-right: 10px; }
     header #session_action a {
@@ -412,3 +412,19 @@ h1.big_text {
 
 .image_cycle img {
   display: none; }
+
+#group {
+  color: #333333; }
+  #group ul {
+    font-size: 18px;
+    margin: 0;
+    padding: 0; }
+    #group ul > li {
+      display: inline;
+      margin-right: 10px; }
+      #group ul > li.selected {
+        color: white;
+        font-weight: bold; }
+  #group #user_pictures img {
+    display: inline-block;
+    height: 40px; }

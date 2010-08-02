@@ -42,6 +42,28 @@
           - else
             = link_to "login", new_user_session_path
 
+        #group
+          %ul
+            %li.selected ACM
+            %li FAMILY
+            %li WORK
+            %li HIGH SCHOOL
+          #user_pictures
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            = link_to(person_image_tag(current_user), root_path)
+            - for friend in @friends
+              = person_image_link(friend)
+
     .container
       - if user_signed_in?
         #user_name
@@ -63,12 +85,9 @@
 
     .container
       .span-24.last
-        .span-20.append-1.last
 
-          = yield
+        = yield
 
-        .span-3.last
-          = render 'people/sidebar' if user_signed_in?
 
-        .span-24.last
-          = render "posts/debug"
+      .span-24.last
+        = render "posts/debug"
