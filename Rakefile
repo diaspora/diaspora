@@ -182,9 +182,7 @@ task :stop_serve do
 end
 
 desc "preview the site in a web browser"
-multitask :preview => [:generate, :start_serve, :watch] do
-end
-
+task :preview => [:generate, :start_serve, :watch]
 
 desc "Build an XML sitemap of all html files."
 task :sitemap do
