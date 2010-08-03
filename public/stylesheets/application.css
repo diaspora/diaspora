@@ -431,8 +431,18 @@ h1.big_text {
     color: #333333;
     font-weight: normal; }
   #group #friend_pictures .add_new {
-    display: inline;
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: #222222;
+    text-align: center;
     font-size: 40px; }
+    #group #friend_pictures .add_new a {
+      display: block;
+      position: absolute;
+      top: -13px;
+      left: 7px; }
   #group #friend_pictures img {
     display: inline-block;
     height: 40px; }

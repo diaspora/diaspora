@@ -539,9 +539,19 @@ h1.big_text
 
   #friend_pictures
     .add_new
-      :display inline
-      :font
-        :size 40px
+      :position relative
+      :display inline-block
+      :height 40px
+      :width 40px
+      :background
+        :color #222
+      :text-align center
+      :font-size 40px
+      a
+        :display block
+        :position absolute
+        :top -13px
+        :left 7px
     img
       :display inline-block
       :height 40px
