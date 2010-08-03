@@ -20,7 +20,7 @@ class Album
   after_save :notify_people
   before_destroy :propagate_retraction
   
-  def instantiate params
+  def self.instantiate params
     self.create params
   end
 
