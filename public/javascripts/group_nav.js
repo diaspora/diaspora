@@ -10,4 +10,7 @@ $(document).ready( function() {
   }
 
   $("."+vars['g']).addClass('selected');
+
+  $("#group img").load(function(){$(this).fadeIn("slow");});
+  
 });
