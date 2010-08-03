@@ -14,7 +14,6 @@ describe Post do
     it "should associate the owner if none is present" do
       @post.person.should == User.owner
     end
-
   end
 
   describe "newest" do

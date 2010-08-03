@@ -6,10 +6,9 @@ class AlbumsController < ApplicationController
   end
   
   def create
-    @album = Album.new(params[:album])
-    @album.person = current_user
+    @album = current_user.post(:album, params[:album])
     
-    if @album.save
+    if @album.created_at
       flash[:notice] = "Successfully created album."
       redirect_to @album
     else
@@ -47,4 +46,5 @@ class AlbumsController < ApplicationController
       render :action => 'edit'
     end
   end
+
 end

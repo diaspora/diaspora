@@ -21,9 +21,9 @@ class BlogsController < ApplicationController
   end
   
   def create
-    @blog = Blog.new(params[:blog])
-    @blog.person = current_user
-    if @blog.save
+    @blog = current_user.post(:blog, params[:blog])
+
+    if @blog.created_at
       flash[:notice] = "Successfully created blog."
       redirect_to @blog
     else
