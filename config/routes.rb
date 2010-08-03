@@ -16,9 +16,9 @@ Diaspora::Application.routes.draw do |map|
 
   match "/images/files/*path" => "gridfs#serve"
   
-  match 'warzombie', :to => "dashboards#warzombie"
-  match 'zombiefriends', :to => "dashboards#zombiefriends"
-  match 'zombiefriendaccept', :to => "dashboards#zombiefriendaccept"
+  match 'warzombie', :to => "dev_utilities#warzombie"
+  match 'zombiefriends', :to => "dev_utilities#zombiefriends"
+  match 'zombiefriendaccept', :to => "dev_utilities#zombiefriendaccept"
 
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file
