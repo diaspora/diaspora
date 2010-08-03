@@ -11,4 +11,5 @@ class GridfsController < ActionController::Metal
       self.response_body = "File totally imaginary #{gridfs_path}"
     end
   end
+
 end

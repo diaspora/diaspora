@@ -25,14 +25,8 @@ namespace :db do
     puts "Purging the database for #{Rails.env}..."
 
     # Specifiy what models to remove
-    Post.delete_all
-    Comment.delete_all
-    Person.delete_all
-    User.delete_all
-    Request.delete_all
-    Author.delete_all
-    OstatusPost.delete_all
-    Album.delete_all
+    # No!  Drop the fucking database.
+   MongoMapper::connection.drop_database(MongoMapper::database.name) 
   end
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'

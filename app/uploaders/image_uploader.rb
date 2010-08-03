@@ -11,9 +11,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  def filename
-    model.id.to_s + File.extname(@filename)
-  end
+#  def filename
+#    model.id.to_s + File.extname(@filename)
+#  end
 
   version :thumb_small do
     process :resize_to_fill => [30,30]
