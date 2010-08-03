@@ -165,8 +165,11 @@ desc "start up an instance of serve on the output files"
 task :start_serve => :stop_serve do
   cd "#{site}" do
     print "Starting serve..."
-    ok_failed system("serve #{port} > /dev/null 2>&1 &")
-    system "open http://localhost:#{port}"
+    system("serve #{port} > /dev/null 2>&1 &")
+    sleep 1
+    pid = `ps auxw | awk '/bin\\/serve\\ #{port}/ { print $2 }'`.strip
+    ok_failed !pid.empty?
+    system "open http://localhost:#{port}" unless pid.empty?
   end
 end
 
