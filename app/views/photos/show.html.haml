@@ -14,6 +14,9 @@
   #show_photo
     = linked_scaled_photo @photo, @album
 
+    .caption
+      = @photo.caption
+
   #next_prev_links
     = link_to_prev @photo, @album
     |

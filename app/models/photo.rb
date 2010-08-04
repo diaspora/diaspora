@@ -4,9 +4,11 @@ class Photo < Post
   mount_uploader :image, ImageUploader
   
   xml_accessor :remote_photo
+  xml_accessor :caption
   xml_reader :album_id 
 
   key :album_id, ObjectId
+  key :caption, String
 
    
   belongs_to :album, :class_name => 'Album'
