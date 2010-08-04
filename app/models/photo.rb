@@ -23,6 +23,7 @@ class Photo < Post
     photo = Photo.new(params)
     photo.image.store! image_file
     photo.save
+    photo
   end
   
   after_save :log_save_inspection 

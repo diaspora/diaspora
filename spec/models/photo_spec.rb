@@ -59,7 +59,7 @@ describe Photo do
     @photo.image.store! File.open(@fixture_name)
     puts @photo.image.url(:thumb_medium)
     @photo.image.url.include?(@fixture_filename).should be false
-    @photo.image.url(:thumb_medium).include?(@fixture_filename).should be false
+    @photo.image.url(:thumb_medium).include?("/" + @fixture_filename).should be false
   end
 
   describe 'non-image files' do
