@@ -1,15 +1,11 @@
 module Diaspora
   module OStatusParser
-    def self.find_hub(xml)
-      xml = Nokogiri::HTML(xml) if xml.is_a? String
-      xml.xpath('//link[@rel="hub"]').first.attribute("href").value
-    end
 
     def self.process(xml)
       doc = Nokogiri::HTML(xml)
       author_hash = parse_author(doc)
 
-      author_hash[:hub] = find_hub(doc) 
+      author_hash[:hub] = self.hub(doc) 
       entry_hash = parse_entry(doc)
 
       author = Author.instantiate(author_hash)
@@ -38,44 +34,53 @@ module Diaspora
     end
 
 
-    ##author###
+    def self.hub(xml)
+      xml = Nokogiri::HTML(xml) if xml.is_a? String
+      xml.xpath('//link[@rel="hub"]').first.attribute("href").value
+    end
+
+    # Author #########################
     def self.service(doc)
-      doc.xpath('//generator').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//generator'))
     end
 
     def self.feed_url(doc)
-      doc.xpath('//id').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//id'))
     end
 
     def self.avatar_thumbnail(doc)
-        doc.xpath('//logo').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//logo'))
     end
 
     def self.username(doc)
-      doc.xpath('//author/name').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//author/name'))
     end
 
     def self.profile_url(doc)
-      doc.xpath('//author/uri').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//author/uri'))
     end
 
-
-    #entry##
+    # Entry ##########################
     def self.message(doc)
-      doc.xpath('//entry/title').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//entry/title'))
     end
 
     def self.permalink(doc)
-      doc.xpath('//entry/id').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//entry/id'))
     end
 
     def self.published_at(doc)
-      doc.xpath('//entry/published').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//entry/published'))
     end
 
     def self.updated_at(doc)
-      doc.xpath('//entry/updated').each{|x| return x.inner_html}
+      self.contents(doc.xpath('//entry/updated'))
     end 
+
+
+    def self.contents(xpath)
+      xpath.each{|x| return x.inner_html}
+    end
 
   end
 end

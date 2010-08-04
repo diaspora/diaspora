@@ -5,7 +5,7 @@ describe Diaspora::OStatusParser do
     xml_path = File.dirname(__FILE__) + '/../fixtures/identica_feed.atom'
     xml = File.open(xml_path).read
 
-    Diaspora::OStatusParser::find_hub(xml).should == 'http://identi.ca/main/push/hub'
+    Diaspora::OStatusParser::hub(xml).should == 'http://identi.ca/main/push/hub'
   end
 
 
