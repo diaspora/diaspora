@@ -4,14 +4,16 @@ module Diaspora
     def self.process(xml)
       doc = Nokogiri::HTML(xml)
 
-      author_hash = self.author(doc)
-      author_hash[:hub] = self.hub(doc) 
+      hash = {}
+      hash[:author] = self.author(doc)
+      hash[:author][:hub] = self.hub(doc) 
 
-      entry_hash = self.entry(doc)
+      hash[:entry] = self.entry(doc)
 
-      author = Author.instantiate(author_hash)
-      author.ostatus_posts.create(entry_hash) if entry_hash[:message]
+      author = Author.instantiate(hash[:author])
+      author.ostatus_posts.create(hash[:entry]) if hash[:entry][:message]
     end
+
 
     def self.author(doc)
       return { 
