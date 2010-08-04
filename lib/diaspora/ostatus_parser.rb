@@ -3,34 +3,33 @@ module Diaspora
 
     def self.process(xml)
       doc = Nokogiri::HTML(xml)
-      author_hash = parse_author(doc)
 
+      author_hash = self.author(doc)
       author_hash[:hub] = self.hub(doc) 
-      entry_hash = parse_entry(doc)
+
+      entry_hash = self.entry(doc)
 
       author = Author.instantiate(author_hash)
-      author.ostatus_posts.create(entry_hash) unless entry_hash[:message] == 0
+      author.ostatus_posts.create(entry_hash) if entry_hash[:message]
     end
 
     def self.author(doc)
-      doc = Nokogiri::HTML(doc) if doc.is_a? String
-      author = {} 
-      author[:service]          = self.service(doc)
-      author[:feed_url]         = self.feed_url(doc)
-      author[:avatar_thumbnail] = self.avatar_thumbnail(doc)
-      author[:username]         = self.username(doc)
-      author[:profile_url]      = self.profile_url(doc)
-      author
+      return { 
+        :service          => self.service(doc),
+        :feed_url         => self.feed_url(doc),
+        :avatar_thumbnail => self.avatar_thumbnail(doc),
+        :username         => self.username(doc),
+        :profile_url      => self.profile_url(doc)
+      }
     end
 
     def self.entry(doc)
-      doc = Nokogiri::HTML(doc) if doc.is_a? String
-      entry = {}
-      entry[:message]           = self.message(doc)
-      entry[:permalink]         = self.permalink(doc)
-      entry[:published_at]      = self.published_at(doc)
-      entry[:updated_at]        = self.updated_at(doc)
-      entry
+      return {
+        :message          => self.message(doc),
+        :permalink        => self.permalink(doc),
+        :published_at     => self.published_at(doc),
+        :updated_at       => self.updated_at(doc)
+      }
     end
 
 
