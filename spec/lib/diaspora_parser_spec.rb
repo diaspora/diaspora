@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 include ApplicationHelper 
-include Diaspora::DiasporaParser
+include Diaspora::Parser
 
-describe Diaspora::DiasporaParser do
+describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @person = Factory.create(:person, :email => "bill@gates.com")

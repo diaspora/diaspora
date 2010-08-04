@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/spec_helper'
 include ApplicationHelper
-include Diaspora::DiasporaParser
+include Diaspora::Parser
 
 describe 'user encryption' do
   before :all do

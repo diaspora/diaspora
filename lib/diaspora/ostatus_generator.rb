@@ -1,5 +1,5 @@
 module Diaspora
-  module OStatus
+  module OStatusGenerator
     def self.generate(opts= {})
       xml = Generate::headers(opts[:current_url])
       xml << Generate::author

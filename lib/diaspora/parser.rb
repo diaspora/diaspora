@@ -1,5 +1,5 @@
 module Diaspora
-  module DiasporaParser
+  module Parser
     def parse_owner_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       email = doc.xpath("//person/email").text.to_s
