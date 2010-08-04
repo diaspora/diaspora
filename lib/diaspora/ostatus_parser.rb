@@ -16,65 +16,66 @@ module Diaspora
       author.ostatus_posts.create(entry_hash) unless entry_hash[:message] == 0
     end
 
-    def self.parse_author(doc)
+    def self.author(doc)
       doc = Nokogiri::HTML(doc) if doc.is_a? String
       author = {} 
-      author[:service] = parse_service(doc)
-      author[:feed_url] = parse_feed_url(doc)
-      author[:avatar_thumbnail] = parse_avatar_thumbnail(doc)
-      author[:username] = parse_username(doc)
-      author[:profile_url] = parse_profile_url(doc)
+      author[:service]          = self.service(doc)
+      author[:feed_url]         = self.feed_url(doc)
+      author[:avatar_thumbnail] = self.avatar_thumbnail(doc)
+      author[:username]         = self.username(doc)
+      author[:profile_url]      = self.profile_url(doc)
       author
     end
 
-    def self.parse_entry(doc)
+    def self.entry(doc)
       doc = Nokogiri::HTML(doc) if doc.is_a? String
       entry = {}
-      entry[:message] = parse_message(doc)
-      entry[:permalink] = parse_permalink(doc)
-      entry[:published_at] = parse_published_at(doc)
-      entry[:updated_at] = parse_updated_at(doc)
+      entry[:message]           = self.message(doc)
+      entry[:permalink]         = self.permalink(doc)
+      entry[:published_at]      = self.published_at(doc)
+      entry[:updated_at]        = self.updated_at(doc)
       entry
     end
 
 
     ##author###
-    def self.parse_service(doc)
+    def self.service(doc)
       doc.xpath('//generator').each{|x| return x.inner_html}
     end
 
-    def self.parse_feed_url(doc)
+    def self.feed_url(doc)
       doc.xpath('//id').each{|x| return x.inner_html}
     end
 
-    def self.parse_avatar_thumbnail(doc)
+    def self.avatar_thumbnail(doc)
         doc.xpath('//logo').each{|x| return x.inner_html}
     end
 
-    def self.parse_username(doc)
+    def self.username(doc)
       doc.xpath('//author/name').each{|x| return x.inner_html}
     end
 
-    def self.parse_profile_url(doc)
+    def self.profile_url(doc)
       doc.xpath('//author/uri').each{|x| return x.inner_html}
     end
 
 
     #entry##
-    def self.parse_message(doc)
+    def self.message(doc)
       doc.xpath('//entry/title').each{|x| return x.inner_html}
     end
 
-    def self.parse_permalink(doc)
+    def self.permalink(doc)
       doc.xpath('//entry/id').each{|x| return x.inner_html}
     end
 
-    def self.parse_published_at(doc)
+    def self.published_at(doc)
       doc.xpath('//entry/published').each{|x| return x.inner_html}
     end
 
-    def self.parse_updated_at(doc)
+    def self.updated_at(doc)
       doc.xpath('//entry/updated').each{|x| return x.inner_html}
     end 
+
   end
 end

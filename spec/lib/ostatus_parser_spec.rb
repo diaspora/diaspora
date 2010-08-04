@@ -19,23 +19,23 @@ describe Diaspora::OStatusParser do
 
 
     it 'should parse the users service' do
-      Diaspora::OStatusParser::parse_service(@xml).should == 'StatusNet'
+      Diaspora::OStatusParser::service(@xml).should == 'StatusNet'
     end
 
     it 'should parse the feed_url' do
-      Diaspora::OStatusParser::parse_feed_url(@xml).should == 'http://identi.ca/api/statuses/user_timeline/217769.atom'
+      Diaspora::OStatusParser::feed_url(@xml).should == 'http://identi.ca/api/statuses/user_timeline/217769.atom'
     end
 
     it 'should parse the avatar thumbnail' do 
-      Diaspora::OStatusParser::parse_avatar_thumbnail(@xml).should == 'http://theme.status.net/0.9.3/identica/default-avatar-profile.png'
+      Diaspora::OStatusParser::avatar_thumbnail(@xml).should == 'http://theme.status.net/0.9.3/identica/default-avatar-profile.png'
     end
     
     it 'should parse the username' do
-      Diaspora::OStatusParser::parse_username(@xml).should == 'danielgrippi'
+      Diaspora::OStatusParser::username(@xml).should == 'danielgrippi'
     end
 
     it 'should parse the profile_url' do
-      Diaspora::OStatusParser::parse_profile_url(@xml).should == 'http://identi.ca/user/217769'
+      Diaspora::OStatusParser::profile_url(@xml).should == 'http://identi.ca/user/217769'
     end
 
   end
@@ -49,20 +49,20 @@ describe Diaspora::OStatusParser do
     end
 
     it 'should parse the message' do
-      Diaspora::OStatusParser::parse_message(@xml).should == 'SOAP!'
+      Diaspora::OStatusParser::message(@xml).should == 'SOAP!'
     end
 
     it 'should parse the permalink' do
-      Diaspora::OStatusParser::parse_permalink(@xml).should == 'http://identi.ca/notice/43074747'
+      Diaspora::OStatusParser::permalink(@xml).should == 'http://identi.ca/notice/43074747'
     end
 
     it 'should parse published at date' do
-      Diaspora::OStatusParser::parse_published_at(@xml).should == '2010-07-22T22:15:31+00:00'
+      Diaspora::OStatusParser::published_at(@xml).should == '2010-07-22T22:15:31+00:00'
 
     end
 
     it 'should parse the updated at date' do
-      Diaspora::OStatusParser::parse_updated_at(@xml).should == '2010-07-22T22:15:31+00:00'
+      Diaspora::OStatusParser::updated_at(@xml).should == '2010-07-22T22:15:31+00:00'
     end
   end
 end
