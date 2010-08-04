@@ -264,6 +264,10 @@ ul.comment_set {
   min-height: 200px; }
   #show_photo img {
     max-width: 100%; }
+  #show_photo .caption {
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-size: larger; }
 
 #debug_info {
   margin-top: 20px; }

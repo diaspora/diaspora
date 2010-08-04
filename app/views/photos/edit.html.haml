@@ -1,0 +1,21 @@
+%h1.big_text
+  .back
+    = link_to "⇧ #{@album.name}", album_path(@album)
+  = "Editing #{@photo.image}"
+
+%div{:id => @photo.id}
+
+  #show_photo
+    = linked_scaled_photo @photo, @album
+
+  = form_for @photo do |p|
+    = p.text_field :caption, :value => @photo.caption
+    = p.submit
+
+  #content_bottom
+    .back
+      = link_to "⇧ #{@album.name}", album_path(@album)
+    -if mine? @album
+      .button.right
+        = link_to 'Delete Photo', @photo, :confirm => 'Are you sure?', :method => :delete
+

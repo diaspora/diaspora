@@ -36,6 +36,13 @@ describe Photo do
     Photo.first.album.name.should == 'foo'
   end
 
+  it 'should have a caption' do
+    @photo.image.store! File.open(@fixture_name)
+    @photo.caption = "cool story, bro"
+    @photo.save
+    Photo.first.caption.should == "cool story, bro"
+  end
+
   it 'should remove its reference in user profile if it is referred' do
     @photo.image.store! File.open(@fixture_name)
     @photo.save

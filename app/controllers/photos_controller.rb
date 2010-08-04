@@ -35,4 +35,19 @@ class PhotosController < ApplicationController
     @photo = Photo.where(:id => params[:id]).first
     @album = @photo.album
   end
+
+  def edit
+    @photo= Photo.first(:id => params[:id])
+    @album = @photo.album
+  end
+
+  def update
+    @photo= Photo.first(:id => params[:id])
+    if @photo.update_attributes(params[:photo])
+      flash[:notice] = "Successfully updated photo."
+      redirect_to @photo
+    else
+      render :action => 'edit'
+    end
+  end
 end
