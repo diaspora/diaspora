@@ -302,6 +302,7 @@ label {
   border-bottom: 2px #999999 solid;
   color: #999999;
   padding: 15px 1em;
+    padding-bottom: 30px;
   position: relative; }
 
 #new_blog,
@@ -322,6 +323,9 @@ ul#publisher_content_pickers li {
 #publisher .selected {
   border-bottom: 3px solid #999999;
   background-color: rgba(10, 81, 109, 0.1); }
+
+#publisher .right {
+  padding-right: 15px; }
 
 #image_picker .small_photo {
   height: 100px;
