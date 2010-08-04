@@ -6,7 +6,6 @@ class BlogsController < ApplicationController
     
     respond_to do |format|
       format.html 
-      format.atom {render :xml => Diaspora::OStatus::generate(:current_url => request.url, :objects => @blogs)}
     end
   
 

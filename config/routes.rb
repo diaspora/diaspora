@@ -9,11 +9,6 @@ Diaspora::Application.routes.draw do |map|
   resources :photos
   resources :albums
 
-  resources :authors
-  resources :ostatus_posts
-
-  match 'ostatus', :to => "dashboards#ostatus"
-
   match "/images/files/*path" => "gridfs#serve"
   
   match 'warzombie', :to => "dev_utilities#warzombie"
@@ -31,7 +26,6 @@ Diaspora::Application.routes.draw do |map|
   
   #public routes
   match 'receive',              :to => 'publics#receive'
-  match 'hubbub',               :to => 'publics#hubbub'
   match '.well-known/host-meta',:to => 'publics#host_meta'
   match 'webfinger',            :to => 'publics#webfinger'
   match 'hcard',                :to => 'publics#hcard'

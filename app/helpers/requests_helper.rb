@@ -3,19 +3,13 @@ module RequestsHelper
   def subscription_mode(profile)
     if diaspora?(profile)
       :friend
-    elsif ostatus?(profile)
-      :subscribe
     else
-     :subscribe
+      :none 
     end
   end
 
   def diaspora?(profile)
     profile_contains(profile, 'http://joindiaspora.com/seed_location')
-  end
-
-  def ostatus?(profile)
-    profile_contains(profile, 'http://ostatus.org/schema/1.0/subscribe') 
   end
 
   def profile_contains(profile, rel)
@@ -24,9 +18,7 @@ module RequestsHelper
   end
 
   def subscription_url(action, profile)
-    if action == :subscribe
-      profile.links.select{|x| x.rel == 'http://schemas.google.com/g/2010#updates-from'}.first.href
-    elsif action == :friend
+    if action == :friend
       profile.links.select{|x| x.rel == 'http://joindiaspora.com/seed_location'}.first.href
     else
       nil
@@ -34,14 +26,6 @@ module RequestsHelper
   end
 
   def relationship_flow(identifier)
-    if identifier.include?('.atom')
-      return {:subscribe => identifier}
-    end
-    
-    unless identifier.include?( '@' )
-      return {:friend => identifier}
-    end
-
     f = Redfinger.finger(identifier)
     action = subscription_mode(f)
     url = subscription_url(action, f)

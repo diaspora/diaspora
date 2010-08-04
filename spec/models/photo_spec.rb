@@ -13,7 +13,7 @@ describe Photo do
   it 'should have a constructor' do
     image = File.open(@fixture_name)    
     photo = Photo.instantiate(:person => @user, :album => @album, :user_file => [image]) 
-    photo.save.should be true
+    photo.created_at.nil?.should be false
   
     photo.image.read.nil?.should be false
   end

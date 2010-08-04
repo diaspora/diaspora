@@ -8,9 +8,4 @@
   %br
   %br
 
-  %h3 following
-
-  - for author in @subscribed_persons
-    %li= link_to author.username, author_path(author)
-
 = link_to "add a new person", requests_path

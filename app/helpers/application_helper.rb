@@ -17,11 +17,7 @@ module ApplicationHelper
   end
   
   def how_long_ago(obj)
-    if obj.is_a? OstatusPost
-      "#{time_ago_in_words(obj.published_at)} ago"
-    else
-      "#{time_ago_in_words(obj.created_at)} ago."
-    end
+    "#{time_ago_in_words(obj.created_at)} ago."
   end
 
   def person_url(person)

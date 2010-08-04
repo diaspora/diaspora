@@ -49,10 +49,4 @@ Factory.define :photo do |p|
 
 end
 
-Factory.define :author do |p|
-  p.hub  "http://pubsubhubub.appspot.com/"
-  p.service  "StatusNet"
-  p.username  "danielgrippi"
-  p.feed_url "http://google.com"
-end
 Factory.define(:comment) {}

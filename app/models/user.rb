@@ -1,6 +1,4 @@
 class User < Person
-  require 'lib/diaspora/ostatus_parser'
-  include Diaspora::OStatusParser
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -95,27 +93,9 @@ class User < Person
     end
   end
 
-  ####ostatus######
-  #
-  def subscribe_to_pubsub(feed_url)
-    r = Request.instantiate(:to => feed_url, :from => self)
-    r.subscribe_to_ostatus(feed_url)
-    r
-  end
-
-  def unsubscribe_from_pubsub(author_id)
-    bad_author = Author.first(:id => author_id)
-    r = Request.instantiate(:to => bad_author.hub, :from => self)
-    r.unsubscribe_from_ostatus(bad_author.feed_url)
-    bad_author.destroy
-  end
-
-
   def send_request(rel_hash)
     if rel_hash[:friend]
       self.send_friend_request_to(rel_hash[:friend])
-    elsif rel_hash[:subscribe]
-      self.subscribe_to_pubsub(rel_hash[:subscribe])
     else
       raise "you can't do anything to that url"
     end

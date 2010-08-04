@@ -12,34 +12,10 @@ class MessageHandler
     [*destinations].each{ |dest| @queue.push(Message.new(:get, dest))}
   end
 
-  def add_subscription_request(feed_url)
-    @queue.push(Message.new(:ostatus_subscribe, feed_url)) 
-  end
-
   def add_post_request(destinations, body)
     b = CGI::escape( body )
     [*destinations].each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
   end
-
-  # pubsubhubbub
-  def add_hub_notification(hub_url, feed_url)
-    @queue.push(Message.new(:hub_publish, hub_url, :body => feed_url))
-  end
-
-  def add_hub_subscription_request(hub_url, feed_url)
-    @queue.push(Message.new(:hub_subscribe, hub_url, :body => feed_url))
-  end
-
-  def add_hub_unsubscribe_request(hub, from, feed_url)
-    @queue.push(Message.new(:hub_unsubscribe, hub, :body => feed_url, :owner_url => from))
-  end
-
-  def process_ostatus_subscription(query_object, http)
-      hub = Diaspora::OStatusParser::hub(http.response)
-      add_hub_subscription_request(hub, query_object.destination)
-      Diaspora::OStatusParser::process(http.response)
-  end
-
 
   def process
     @queue.pop{ |query|
@@ -50,22 +26,6 @@ class MessageHandler
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {send_to_seed(query, http.response); process}
-
-      when :ostatus_subscribe
-        puts query.destination
-        http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
-        http.callback { process_ostatus_subscription(query, http); process}
-        
-      when :hub_publish
-        http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT 
-        http.callback { process}
-
-      when :hub_subscribe
-        http = EventMachine::PubSubHubbub.new(query.destination).subscribe query.body, User.owner.url + 'hubbub',  :timeout => TIMEOUT 
-        http.callback { process}
-      when :hub_unsubscribe
-        http = EventMachine::PubSubHubbub.new(query.destination).unsubscribe query.body, query.owner_url,  :timeout => TIMEOUT 
-        http.callback {process}
       else
         raise "message is not a type I know!"
       end

@@ -12,7 +12,6 @@ describe DashboardsController do
     Factory.create :person
     get :index
     assigns[:friends].should == Person.friends.all
-    assigns[:subscribed_persons] == Author.all
   end
 
 end

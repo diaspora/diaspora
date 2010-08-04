@@ -1,7 +1,6 @@
 class PublicsController < ApplicationController
   require 'lib/diaspora/parser'
   include Diaspora::Parser
-  include Diaspora::OStatusParser
   
   def hcard
     @user = User.owner
@@ -16,14 +15,6 @@ class PublicsController < ApplicationController
   def webfinger
     @user = Person.first(:email => params[:q].gsub('acct:', ''))
     render 'webfinger', :layout => false, :content_type => 'application/xrd+xml'
-  end
-  
-  def hubbub
-      if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
-        render :text => params['hub.challenge'], :status => 202, :layout => false 
-      else 
-        Diaspora::OStatusParser::process(request.body.read)
-      end
   end
   
   def receive
