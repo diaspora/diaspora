@@ -8,7 +8,7 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="../../../Diaspora_selenium">Diaspora_selenium</a></td></tr>
+<tr><td><a href="post_and_delete_status_message_not_testing_websocket">post_and_delete_status_message_not_testing_websocket</a></td></tr>
 </tbody></table>
 </body>
 </html>
