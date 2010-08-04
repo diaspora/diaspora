@@ -6,7 +6,7 @@ class Retraction
     retraction = self.new
     retraction.post_id= object.id
     retraction.person_id = person_id_from(object)
-    retraction.type = self.type_name(object)
+    retraction.type = object.class.to_s
     retraction
   end
 
@@ -19,7 +19,11 @@ class Retraction
   attr_accessor :type
 
   def perform
-    self.type.constantize.destroy(self.post_id)
+    begin
+      self.type.constantize.destroy(self.post_id)
+    rescue NameError
+      Rails.logger.info("Retraction for unknown type recieved.")
+    end
   end
 
   def self.person_id_from(object)
@@ -27,17 +31,6 @@ class Retraction
       object.id
     else
       object.person.id
-    end
-  end
-
-
-  def self.type_name(object)
-    if object.is_a? Post
-      object.class
-    elsif object.is_a? Person
-      'Person'
-    else
-      'Clowntown'
     end
   end
 
