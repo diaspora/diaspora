@@ -74,7 +74,7 @@ class User < Person
 
   def receive_friend_request(friend_request)
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
-    friend_request.person.key = OpenSSL::PKey::RSA.new(friend_request.exported_key)
+    friend_request.person.serialized_key = friend_request.exported_key
     if Request.where(:callback_url => friend_request.callback_url).first
       friend_request.activate_friend
       friend_request.destroy
@@ -124,14 +124,14 @@ class User < Person
   protected
   
   def assign_key
-    generate_key
+    self.serialized_key ||= generate_key.export
   end
 
   def generate_key
     puts "Generating key"
     
-    self.key = OpenSSL::PKey::RSA::generate 1024 
-    
+    OpenSSL::PKey::RSA::generate 1024 
+     
   end
 
 end

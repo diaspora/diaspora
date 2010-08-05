@@ -8,10 +8,10 @@
     
     def verify_signature(signature, person)
       return false unless signature && person.key
-      validity = nil
       Rails.logger.info("Verifying sig on #{signable_string} from person #{person.real_name}")
-      person.key.verify "SHA", signature, signable_string
-      
+      validity = person.key.verify "SHA", Base64.decode64(signature), signable_string
+      Rails.logger.info("Validity: #{validity}")
+      validity
     end
     
     protected
@@ -27,7 +27,7 @@
 
     def sign_with_key(key)
       Rails.logger.info("Signing #{signable_string}")
-      key.sign "SHA", signable_string
+      Base64.encode64(key.sign "SHA", signable_string)
       
     end
   end

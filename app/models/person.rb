@@ -12,7 +12,8 @@ class Person
   key :email, String
   key :url, String
   key :active, Boolean, :default => false
-  key :key, OpenSSL::PKey::RSA 
+
+  key :serialized_key, String 
 
   one :profile, :class_name => 'Profile'
   many :posts, :class_name => 'Post', :foreign_key => :person_id
@@ -21,13 +22,13 @@ class Person
   timestamps!
 
   before_validation :clean_url
-  validates_presence_of :email, :url, :key
+  validates_presence_of :email, :url, :serialized_key
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
   validates_true_for :url, :logic => lambda { self.url_unique?}
 
-  after_destroy :remove_all_traces, :remove_key
+  after_destroy :remove_all_traces
 
   scope :friends,  where(:_type => "Person", :active => true)
 
@@ -37,8 +38,16 @@ class Person
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
 
+  def key
+    OpenSSL::PKey::RSA.new( serialized_key )
+  end
+
+  def key= new_key
+    raise TypeError unless new_key.class == OpenSSL::PKey::RSA
+    serialized_key = new_key.export
+  end
   def export_key
-    key.public_key.to_s  
+    key.public_key.export
   end
 
   protected
