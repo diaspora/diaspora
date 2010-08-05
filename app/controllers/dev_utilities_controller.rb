@@ -23,26 +23,11 @@ def warzombie
 
   def zombiefriends
     render :nothing => true
-    backer_info = ["http://washington.joindiaspora.com/",   
-                   "http://adams.joindiaspora.com/",         
-                   "http://jefferson.joindiaspora.com/",   
-                   "http://madison.joindiaspora.com/",    
-                   "http://monroe.joindiaspora.com/",      
-                   "http://quincyadams.joindiaspora.com/",
-                   "http://jackson.joindiaspora.com/",    
-                   "http://buren.joindiaspora.com/",      
-                   "http://harrison.joindiaspora.com/",   
-                   "http://tyler.joindiaspora.com/",      
-                   "http://polk.joindiaspora.com/",       
-                   #"http://taylor.joindiaspora.com/",
-                   #"http://fillmore.joindiaspora.com/",
-                   #"http://pierce.joindiaspora.com/",
-            ]
-
+    backer_info
     if User.owner.email == "tom@tom.joindiaspora.com" && Person.friends.first.nil? 
       backer_info.each do |backer|
-        logger.info "Zombefriending #{backer}"
-        User.owner.send_friend_request_to(backer)
+        logger.info "Zombefriending #{backer['given_name']} #{backer['family_name']}"
+        User.owner.send_friend_request_to("http://#{backer['username']}.joindiaspora.com/")
       end
     end
   end
@@ -53,6 +38,10 @@ def warzombie
       User.owner.accept_friend_request(r.id)
     }
   end
-  
+
+  def backer_info
+    config = YAML.load_file(File.dirname(__FILE__) + '/../../config/deploy_config.yml') 
+    config['servers']['backer']
+  end
 
 end
