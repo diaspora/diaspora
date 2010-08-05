@@ -7,7 +7,6 @@ gem 'rails', '3.0.0.beta4'
 gem 'bundler', '0.9.26'
 
 #Security
-gem 'openssl'
 gem 'gpgme'
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
 

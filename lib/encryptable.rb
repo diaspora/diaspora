@@ -7,7 +7,7 @@
     end
     
     def verify_signature(signature, person)
-      return false unless signature && person.key_fingerprint
+      return false unless signature && person.key
       validity = nil
       Rails.logger.info("Verifying sig on #{signable_string} from person #{person.real_name}")
       person.key.verify "SHA", signature, signable_string

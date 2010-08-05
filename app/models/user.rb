@@ -130,7 +130,7 @@ class User < Person
   def generate_key
     puts "Generating key"
     
-    self.rsa_key = OpenSSL::PKey::RSA::generate 1024 
+    self.key = OpenSSL::PKey::RSA::generate 1024 
     
   end
 

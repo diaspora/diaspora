@@ -5,7 +5,7 @@ class Person
   xml_accessor :_id
   xml_accessor :email
   xml_accessor :url
-  xml_accessor :key_fingerprint
+  #xml_accessor :key_fingerprint
   xml_accessor :profile, :as => Profile
   
   
@@ -21,7 +21,7 @@ class Person
   timestamps!
 
   before_validation :clean_url
-  validates_presence_of :email, :url, :key_fingerprint
+  validates_presence_of :email, :url, :key
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
@@ -38,7 +38,7 @@ class Person
   end
 
   def export_key
-    key.public_key  
+    key.public_key.to_s  
   end
 
   protected
