@@ -20,12 +20,20 @@ class Retraction
   attr_accessor :type
 
   def perform
-    return unless verify_signature(@creator_signature, Post.first(:id => post_id).person)
-     
     begin
+      return unless signature_valid?
       self.type.constantize.destroy(self.post_id)
     rescue NameError
       Rails.logger.info("Retraction for unknown type recieved.")
+    end
+  end
+
+  def signature_valid?
+    target = self.type.constantize.first(:id => self.post_id)
+    if target.is_a? Person
+      verify_signature(@creator_signature, self.type.constantize.first(:id => self.post_id))
+    else 
+      verify_signature(@creator_signature, self.type.constantize.first(:id => self.post_id).person)
     end
   end
 

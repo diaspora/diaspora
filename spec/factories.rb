@@ -12,8 +12,12 @@ Factory.define :person do |p|
   p.email "bob-person@aol.com"
   p.active true
   p.sequence(:url)  {|n|"http://google-#{n}.com/"}
-  p.key OpenSSL::PKey::RSA.new(OpenSSL::PKey::RSA.generate(1024).public_key) 
+  p.serialized_key OpenSSL::PKey::RSA.generate(1024).public_key.export
   p.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
+end
+
+Factory.define :person_with_private_key, :parent => :person do |p|
+  p.serialized_key OpenSSL::PKey::RSA.generate(1024).export
 end
 
 Factory.define :user do |u|
@@ -21,7 +25,7 @@ Factory.define :user do |u|
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
   u.url  "www.example.com/"
-  u.key OpenSSL::PKey::RSA::generate 1024 
+  u.serialized_key OpenSSL::PKey::RSA::generate(1024).export 
   u.profile Profile.new( :first_name => "Bob", :last_name => "Smith" )
 end
 Factory.define :status_message do |m|

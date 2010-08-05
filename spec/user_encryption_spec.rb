@@ -12,16 +12,13 @@ describe 'user encryption' do
   before do
     unstub_mocha_stubs
     @user = Factory.create(:user)
-    @user.send(:assign_key)
     @user.save
-    @person = Factory.create(:person,
-      :key_fingerprint => GPGME.list_keys("Remote Friend").first.subkeys.first.fpr,
+    @person = Factory.create(:person_with_private_key,
       :profile => Profile.new(:first_name => 'Remote',
                               :last_name => 'Friend'),
       :email => 'somewhere@else.com',
       :url => 'http://distant-example.com/')
-    @person2 = Factory.create(:person,
-      :key_fingerprint => GPGME.list_keys("Second Friend").first.subkeys.first.fpr,
+    @person2 = Factory.create(:person_with_private_key,
       :profile => Profile.new(:first_name => 'Second',
                               :last_name => 'Friend'),
       :email => 'elsewhere@else.com',
@@ -35,26 +32,9 @@ describe 'user encryption' do
     #keys = ctx.keys
     #keys.each{|k| ctx.delete_key(k, true)}
   end
-  
-  it 'should remove the key from the keyring on person destroy' do
-    person = Factory.create :person
-    keyid = person.key_fingerprint
-    original_key = person.export_key
-    GPGME.list_keys(keyid).count.should be 1
-    person.destroy
-    GPGME.list_keys(keyid).count.should be 0
-    GPGME.import(original_key)
-    GPGME.list_keys(keyid).count.should be 1
+  it 'should have a key' do
+    @user.key.should_not be nil
   end
-
-  it 'should have a key fingerprint' do
-    @user.key_fingerprint.should_not be nil
-  end
-
-  it 'should retrieve a user key' do
-    @user.key.subkeys[0].fpr.should  == @user.key_fingerprint
-  end
-
   describe 'key exchange on friending' do
        it 'should send over a public key' do
       Comment.send(:class_variable_get, :@@queue).stub!(:add_post_request)
@@ -64,9 +44,8 @@ describe 'user encryption' do
 
     it 'should receive and marshal a public key from a request' do
       person = Factory.build(:person, :url => "http://test.url/" )
-      person.key_fingerprint.nil?.should== false
+      person.key.nil?.should== false
       #should move this to friend request, but i found it here 
-      f = person.key_fingerprint
       id = person.id
       original_key = person.export_key
       
@@ -78,9 +57,7 @@ describe 'user encryption' do
       store_objects_from_xml(xml)
       Person.all.count.should == personcount + 1
       new_person = Person.first(:url => "http://test.url/")
-      new_person.key_fingerprint.nil?.should == false
       new_person.id.should == id
-      new_person.key_fingerprint.should == f
       new_person.export_key.should == original_key
     end 
   end
@@ -93,10 +70,10 @@ describe 'user encryption' do
     end
     
     it 'should not be able to verify a message from a person without a key' do 
-      person = Factory.create(:person, :key_fingerprint => "123")
+      person = Factory.create(:person, :serialized_key => "lskdfhdlfjnh;klsf")
       message = Factory.build(:status_message, :person => person)
       message.save(:validate => false)
-      message.verify_creator_signature.should be false
+      lambda {message.verify_creator_signature.should be false}.should raise_error 
     end
     
     it 'should verify a remote signature' do 
