@@ -14,8 +14,9 @@ class User
   before_validation :do_bad_things
 
 
-
-
+  def method_missing(method, *args)
+    self.person.send(method, *args)
+  end
 
   def pending_friends
     Person.all(:id => self.pending_friend_ids)

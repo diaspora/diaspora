@@ -3,18 +3,19 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Photo do
   before do
     @user = Factory.create(:user)
+    @user.person.save
+
     @fixture_filename = 'bp.jpeg'
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
-    @album = Album.create(:name => "foo", :person => @user)
-    @photo = Photo.new(:person => @user, :album => @album)
+    @album = Album.create(:name => "foo", :person => @user.person)
+    @photo = Photo.new(:person => @user.person, :album => @album)
   end
 
   it 'should have a constructor' do
     image = File.open(@fixture_name)    
-    photo = Photo.instantiate(:person => @user, :album => @album, :user_file => [image]) 
+    photo = Photo.instantiate(:person => @user.person, :album => @album, :user_file => [image]) 
     photo.created_at.nil?.should be false
-  
     photo.image.read.nil?.should be false
   end
 
@@ -27,11 +28,11 @@ describe Photo do
   end
 
   it 'must have an album' do
-    photo = Photo.new(:person => @user)
+    photo = Photo.new(:person => @user.person)
     photo.image = File.open(@fixture_name)
     photo.save
     photo.valid?.should be false
-    photo.album = Album.create(:name => "foo", :person => @user)
+    photo.album = Album.create(:name => "foo", :person => @user.person)
     photo.save
     Photo.first.album.name.should == 'foo'
   end
@@ -49,6 +50,7 @@ describe Photo do
 
     @user.profile.image_url = @photo.image.url(:thumb_medium)
     @user.save
+    @user.person.save
 
     User.first.profile.image_url.should == @photo.image.url(:thumb_medium)
     @photo.destroy
@@ -91,7 +93,7 @@ describe Photo do
     end
 
     it 'should save a signed @photo to GridFS' do
-      photo  = Photo.create(:person => @user, :album => @album, :image => File.open(@fixture_name))
+      photo  = Photo.create(:person => @user.person, :album => @album, :image => File.open(@fixture_name))
       photo.save.should == true
       photo.verify_creator_signature.should be true
     end
