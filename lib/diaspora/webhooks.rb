@@ -18,7 +18,7 @@ module Diaspora
 
         def push_to(recipients)
           unless recipients.empty?
-            recipients.map!{|x| x = x.url + "receive/"}  
+            recipients.map!{|x| x = x.url + "receive/"}
             xml = Post.build_xml_for(self)
             Rails.logger.info("Adding xml for #{self} to message queue to #{recipients}")
             @@queue.add_post_request( recipients, xml )
@@ -39,8 +39,7 @@ module Diaspora
         end
 
         def people_with_permissions
-          puts "#{self.person.owner.friends.count} foo"
-          self.person.owner.friends.all
+          self.person.owner.friends
         end
 
         def self.build_xml_for(posts)

@@ -9,13 +9,11 @@ describe Diaspora do
       @user = Factory.create(:user, :email => "bob@aol.com")
       @user.person.save
       @person = Factory.create(:person)
-      @user.friends << @person
-      @user.save
     end
 
     describe "body" do
       before do
-        @post = Factory.create(:status_message, :person => @user.person)
+        @post = Factory.build(:status_message, :person => @user.person)
       end
 
       it "should add the following methods to Post on inclusion" do
@@ -33,8 +31,10 @@ describe Diaspora do
         @user.friends << Factory.create(:person, :url => "http://www.alice.com/")
         @user.friends << Factory.create(:person, :url => "http://www.jane.com/")
         @user.save
-        
-        @post.people_with_permissions.should == @user.friends.map{|friend| friend.url + "receive/ "}
+
+        @post.person.owner.reload
+                
+        @post.people_with_permissions.should == @user.friends
       end
 
       it "should send an owners post to their people" do
@@ -53,7 +53,10 @@ describe Diaspora do
       it "should ensure one url is created for every person" do
         5.times {@user.friends << Factory.create(:person)}
         @user.save
-        @post.people_with_permissions.size.should == 6
+        
+        @post.person.owner.reload
+        
+        @post.people_with_permissions.size.should == 5
       end
 
       it "should build an xml object containing multiple Post types" do
