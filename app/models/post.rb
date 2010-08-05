@@ -49,24 +49,24 @@ class Post
   end
 
 #ENCRYPTION
-    before_validation :sign_if_mine
-    validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
-    
-    xml_accessor :creator_signature
-    key :creator_signature, String
-    
-    def signable_accessors
-      accessors = self.class.roxml_attrs.collect{|definition| 
-        definition.accessor}
-      accessors.delete 'person'
-      accessors.delete 'creator_signature'
-      accessors
-    end
+  before_validation :sign_if_mine
+  validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
+  
+  xml_accessor :creator_signature
+  key :creator_signature, String
+  
+  def signable_accessors
+    accessors = self.class.roxml_attrs.collect{|definition| 
+      definition.accessor}
+    accessors.delete 'person'
+    accessors.delete 'creator_signature'
+    accessors
+  end
 
-    def signable_string
-      signable_accessors.collect{|accessor| 
-        (self.send accessor.to_sym).to_s}.join ';'
-    end
+  def signable_string
+    signable_accessors.collect{|accessor| 
+      (self.send accessor.to_sym).to_s}.join ';'
+  end
   
   def log_inspection
     Rails.logger.info self.inspect

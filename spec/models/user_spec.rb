@@ -14,23 +14,23 @@ describe User do
     end
 
     it "should be able to accept a pending friend request" do
-      friend = Factory.create(:person, :active => false)
+      friend = Factory.create(:person)
       r = Request.instantiate(:to => @user.url, :from => friend)
       r.save
       Person.all.count.should == 2
       Request.for_user(@user).all.count.should == 1
       @user.accept_friend_request(r.id)
       Request.for_user(@user).all.count.should == 0
-      Person.where(:id => friend.id).first.active.should == true
+      #Person.where(:id => friend.id).first.active.should == true
     end
 
     it 'should be able to ignore a pending friend request' do
-      friend = Factory.create(:person, :active => false)
+      friend = Factory.create(:person)
       r = Request.instantiate(:to => @user.url, :from => friend)
       r.save
 
       Person.count.should == 2
-      friend.active.should == false
+      #friend.active.should == false
 
       @user.ignore_friend_request(r.id)
 
@@ -45,6 +45,8 @@ describe User do
     end
 
     it 'should be able to give me the terse url for webfinger' do
+     @user.person.url = "http://example.com/"
+
       @user.terse_url.should == 'example.com'
     end
 
@@ -56,7 +58,7 @@ describe User do
       queue = Profile.send :class_variable_get, :@@queue
       queue.should_receive(:process)
       
-      @user.update_profile(updated_profile).should == true
+      @user.person.update_profile(updated_profile).should == true
       @user.profile.image_url.should == "http://clown.com"
     end
   end

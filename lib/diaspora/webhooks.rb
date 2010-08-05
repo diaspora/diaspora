@@ -7,7 +7,7 @@ module Diaspora
         @@queue = MessageHandler.new
 
         def notify_people
-          if self.person_id == User.owner.id
+          if self.person_id == User.owner.person.id
             push_to(people_with_permissions)
           end
         end
@@ -39,7 +39,8 @@ module Diaspora
         end
 
         def people_with_permissions
-          Person.friends.all
+          puts "#{self.person.owner.friends.count} foo"
+          self.person.owner.friends.all
         end
 
         def self.build_xml_for(posts)

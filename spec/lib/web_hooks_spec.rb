@@ -7,12 +7,15 @@ describe Diaspora do
   describe Webhooks do
     before do
       @user = Factory.create(:user, :email => "bob@aol.com")
+      @user.person.save
       @person = Factory.create(:person)
+      @user.friends << @person
+      @user.save
     end
 
     describe "body" do
       before do
-        @post = Factory.create(:status_message, :person => @user)
+        @post = Factory.create(:status_message, :person => @user.person)
       end
 
       it "should add the following methods to Post on inclusion" do
@@ -26,16 +29,16 @@ describe Diaspora do
       end
 
       it "should retrieve all valid person endpoints" do
-        Factory.create(:person, :url => "http://www.bob.com/")
-        Factory.create(:person, :url => "http://www.alice.com/")
-        Factory.create(:person, :url => "http://www.jane.com/")
-
-        non_users = Person.where( :_type => "Person" ).all
-        @post.people_with_permissions.should == non_users
+        @user.friends << Factory.create(:person, :url => "http://www.bob.com/")
+        @user.friends << Factory.create(:person, :url => "http://www.alice.com/")
+        @user.friends << Factory.create(:person, :url => "http://www.jane.com/")
+        @user.save
+        
+        @post.people_with_permissions.should == @user.friends.map{|friend| friend.url + "receive/ "}
       end
 
       it "should send an owners post to their people" do
-        q = Post.send(:class_variable_get, :@@queue)
+        q = Post.send(:class_variable_get, :@@queue)      
         q.should_receive :process
         @post.save
       end
@@ -48,7 +51,8 @@ describe Diaspora do
       end
 
       it "should ensure one url is created for every person" do
-        5.times {Factory.create(:person)}
+        5.times {@user.friends << Factory.create(:person)}
+        @user.save
         @post.people_with_permissions.size.should == 6
       end
 

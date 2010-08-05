@@ -36,11 +36,11 @@ describe Request do
 
   it 'should allow me to see only friend requests sent to me' do 
     user = Factory.create(:user)
-    remote_person = Factory.build(:user, :email => "robert@grimm.com", :url => "http://king.com/")
+    remote_person = Factory.build(:person, :email => "robert@grimm.com", :url => "http://king.com/")
     
-    Request.instantiate(:from => user, :to => remote_person.url).save
-    Request.instantiate(:from => user, :to => remote_person.url).save
-    Request.instantiate(:from => user, :to => remote_person.url).save
+    Request.instantiate(:from => user.person, :to => remote_person.url).save
+    Request.instantiate(:from => user.person, :to => remote_person.url).save
+    Request.instantiate(:from => user.person, :to => remote_person.url).save
     Request.instantiate(:from => remote_person, :to => user.url).save
       
     Request.for_user(user).all.count.should == 1

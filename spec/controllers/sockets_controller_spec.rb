@@ -4,7 +4,7 @@ describe 'SocketsController' do
   render_views  
   before do
     @user = Factory.create(:user)
-    @user.person.save
+    @user.person.save 
     SocketsController.unstub!(:new)
     #EventMachine::WebSocket.stub!(:start)
     @controller = SocketsController.new

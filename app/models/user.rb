@@ -10,8 +10,10 @@ class User
   one :person, :class_name => 'Person', :foreign_key => :owner_id
   many :friends, :in => :friend_ids, :class_name => 'Person'
 
-  #before_validation_on_create :assign_key
+  before_validation_on_create :assign_key
   before_validation :do_bad_things
+  
+  ######## Posting ########
 
 
   def method_missing(method, *args)
@@ -32,7 +34,7 @@ class User
   ######### Friend Requesting
   def send_friend_request_to(friend_url)
     unless Person.where(:url => friend_url).first
-      p = Request.instantiate(:to => friend_url, :from => self)
+      p = Request.instantiate(:to => friend_url, :from => self.person)
       if p.save
         p.push_to_url friend_url
       end
@@ -53,18 +55,22 @@ class User
   def ignore_friend_request(friend_request_id)
     request = Request.first(:id => friend_request_id)
     person = request.person
-    person.destroy unless person.active
+    person.destroy unless self.friends.include? person
     request.destroy
   end
 
   def receive_friend_request(friend_request)
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
-    GPGME.import(friend_request.exported_key)
+    
+    friend_request.person.serialized_key = friend_request.exported_key
     if Request.where(:callback_url => friend_request.callback_url).first
       friend_request.activate_friend
       friend_request.destroy
     else
       friend_request.person.save
+      
+      friend_request.create_pending_friend
+      
       friend_request.save
     end
   end
@@ -92,9 +98,7 @@ class User
 
   
   ###Helpers############
-  def mine?(post)
-    self == post.person
-  end
+
 
   def terse_url
     terse= self.url.gsub(/https?:\/\//, '')
@@ -114,32 +118,11 @@ class User
   protected
   
   def assign_key
-    keys = GPGME.list_keys(self.real_name, true)
-    if keys.empty?
-      generate_key
-    end
-    self.key_fingerprint = GPGME.list_keys(self.real_name, true).first.subkeys.first.fingerprint
+    self.person.serialized_key ||= generate_key.export
   end
 
   def generate_key
-    puts "Generating key"
-    puts paramstring
-    ctx = GPGME::Ctx.new
-    ctx.genkey(paramstring, nil, nil)
-    
+    OpenSSL::PKey::RSA::generate 1024 
   end
 
-  def paramstring
-"<GnupgKeyParms format=\"internal\">
-Key-Type: DSA
-Key-Length: 512
-Subkey-Type: ELG-E
-Subkey-Length: 512
-Name-Real: #{self.real_name}
-Name-Comment: #{self.url}
-Name-Email: #{self.email}
-Expire-Date: 0
-</GnupgKeyParms>"
-
-  end
 end

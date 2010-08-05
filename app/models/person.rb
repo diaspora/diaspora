@@ -5,13 +5,15 @@ class Person
   xml_accessor :_id
   xml_accessor :email
   xml_accessor :url
-  xml_accessor :key_fingerprint
+  xml_accessor :serialized_key
   xml_accessor :profile, :as => Profile
   
   
   key :email, String, :unique => true
   key :url, String
-  key :key_fingerprint, String
+
+  key :serialized_key, String 
+
 
   key :owner_id, ObjectId
   key :user_refs, Integer, :default => 0
@@ -26,26 +28,28 @@ class Person
   timestamps!
 
   before_validation :clean_url
-  validates_presence_of :email, :url, :key_fingerprint, :profile
+
+  validates_presence_of :email, :url, :serialized_key, :profile
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
 
-  after_destroy :remove_all_traces, :remove_key
-
-  scope :friends, where(:_type => "Person", :active => true)
-
+  after_destroy :remove_all_traces
  
   def real_name
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
 
   def key
-    GPGME::Ctx.new.get_key key_fingerprint
+    OpenSSL::PKey::RSA.new( serialized_key )
   end
-  
+
+  def key= new_key
+    raise TypeError unless new_key.class == OpenSSL::PKey::RSA
+    serialized_key = new_key.export
+  end
   def export_key
-    GPGME::export(key_fingerprint, :armor => true)
+    key.public_key.export
   end
 
 
@@ -82,6 +86,9 @@ class Person
     end
   end
 
+  def mine?(post)
+    self == post.person
+  end
 
 
   protected
@@ -97,12 +104,6 @@ class Person
 
   def remove_all_traces
     self.posts.delete_all
-  end
-
-  def remove_key
-    puts 'Removing key from keyring in test environment' if Rails.env == 'test'
-    ctx = GPGME::Ctx.new
-    ctx.delete_key(key)
   end
 
  end

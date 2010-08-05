@@ -2,8 +2,6 @@
 #http://github.com/thoughtbot/factory_girl
 # http://railscasts.com/episodes/158-factories-not-fixtures
 #This inclsion, because gpg-agent(not needed) is never run and hence never sets any env. variables on a MAC
-ENV['GNUPGHOME'] = File.expand_path("../../gpg/diaspora-#{Rails.env}/", __FILE__)
-GPGME::check_version({})
 
 Factory.define :profile do |p|
   p.first_name "Robert"
@@ -13,8 +11,13 @@ end
 Factory.define :person do |p|
   p.sequence(:email) {|n| "bob-person-#{n}@aol.com"}
   p.sequence(:url)  {|n| "http://google-#{n}.com/"}
-  p.key_fingerprint GPGME::list_keys("Wesley").first.subkeys.first.fingerprint
   p.profile Factory.create(:profile)
+
+  p.serialized_key OpenSSL::PKey::RSA.generate(1024).public_key.export
+end
+
+Factory.define :person_with_private_key, :parent => :person do |p|
+  p.serialized_key OpenSSL::PKey::RSA.generate(1024).export
 end
 
 Factory.define :user do |u|
@@ -22,7 +25,7 @@ Factory.define :user do |u|
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
 
-  u.sequence(:person) {|p| Factory.create(:person, :email => "robert-#{p}@grimm.org")}
+  u.sequence(:person) {|p| Factory.create(:person_with_private_key, :email => "robert-#{p}@grimm.org")}
 end
 
 Factory.define :status_message do |m|
