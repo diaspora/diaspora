@@ -31,7 +31,7 @@
     end
 
     def sign_with_key(key)
-      Rails.logger.info("Signing #{signable_string} with key for person #{self.person.real_name}")
+      Rails.logger.info("Signing #{signable_string}")
       GPGME::sign(signable_string,nil,
           {:armor=> true, :mode => GPGME::SIG_MODE_DETACH, :signers => [key]})
     end

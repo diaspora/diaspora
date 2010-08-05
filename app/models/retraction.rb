@@ -1,6 +1,7 @@
 class Retraction
   include ROXML
   include Diaspora::Webhooks
+  include Encryptable
 
   def self.for(object)
     retraction = self.new
@@ -19,6 +20,8 @@ class Retraction
   attr_accessor :type
 
   def perform
+    return unless verify_signature(@creator_signature, Post.first(:id => post_id).person.id)
+     
     begin
       self.type.constantize.destroy(self.post_id)
     rescue NameError
@@ -34,4 +37,28 @@ class Retraction
     end
   end
 
+#ENCRYPTION
+    xml_reader :creator_signature
+    
+    def creator_signature
+      @creator_signature ||= sign if person_id == User.owner.id
+    end
+
+    def creator_signature= input
+      @creator_signature = input
+    end
+
+    def signable_accessors
+      accessors = self.class.roxml_attrs.collect{|definition| 
+        definition.accessor}
+      accessors.delete 'person'
+      accessors.delete 'creator_signature'
+      accessors
+    end
+
+    def signable_string
+      signable_accessors.collect{|accessor| 
+        (self.send accessor.to_sym).to_s}.join ';'
+    end
+  
 end
