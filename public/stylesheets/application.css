@@ -206,11 +206,12 @@ ul.comment_set {
     padding: 0.6em;
     border-bottom: 1px solid #cccccc; }
     ul.comment_set li.comment .from {
-      color: #666666;
       font-weight: normal; }
       ul.comment_set li.comment .from a {
-        color: #333333;
         font-weight: bold; }
+    ul.comment_set li.comment div.time {
+      color: #666666;
+      font-size: 70%; }
     ul.comment_set li.comment form {
       margin-top: -5px; }
 
