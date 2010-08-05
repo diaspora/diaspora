@@ -12,7 +12,7 @@ class Person
   key :email, String
   key :url, String
   key :active, Boolean, :default => false
-  key :key_fingerprint, String
+  key :key, OpenSSL::PKey::RSA 
 
   one :profile, :class_name => 'Profile'
   many :posts, :class_name => 'Post', :foreign_key => :person_id
@@ -37,12 +37,8 @@ class Person
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
 
-  def key
-    GPGME::Ctx.new.get_key key_fingerprint
-  end
-  
   def export_key
-    GPGME::export(key_fingerprint, :armor => true)
+    key.public_key  
   end
 
   protected
@@ -64,12 +60,6 @@ class Person
 
   def remove_all_traces
     self.posts.delete_all
-  end
-
-  def remove_key
-    puts 'Removing key from keyring in test environment' if Rails.env == 'test'
-    ctx = GPGME::Ctx.new
-    ctx.delete_key(key)
   end
 
  end

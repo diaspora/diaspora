@@ -9,7 +9,6 @@ class User < Person
   
   before_validation :do_bad_things
  
- 
   
   ######## Posting ########
 
@@ -75,7 +74,6 @@ class User < Person
 
   def receive_friend_request(friend_request)
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
-    GPGME.import(friend_request.exported_key)
     if Request.where(:callback_url => friend_request.callback_url).first
       friend_request.activate_friend
       friend_request.destroy
@@ -125,32 +123,14 @@ class User < Person
   protected
   
   def assign_key
-    keys = GPGME.list_keys(real_name, true)
-    if keys.empty?
-      generate_key
-    end
-    self.key_fingerprint = GPGME.list_keys(real_name, true).first.subkeys.first.fingerprint
+    generate_key
   end
 
   def generate_key
     puts "Generating key"
-    puts paramstring
-    ctx = GPGME::Ctx.new
-    ctx.genkey(paramstring, nil, nil)
+    
+    self.rsa_key = OpenSSL::PKey::RSA::generate 1024 
     
   end
 
-  def paramstring
-"<GnupgKeyParms format=\"internal\">
-Key-Type: DSA
-Key-Length: 512
-Subkey-Type: ELG-E
-Subkey-Length: 512
-Name-Real: #{self.real_name}
-Name-Comment: #{self.url}
-Name-Email: #{self.email}
-Expire-Date: 0
-</GnupgKeyParms>"
-
-  end
 end
