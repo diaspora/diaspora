@@ -11,21 +11,20 @@ Factory.define :profile do |p|
 end
 
 Factory.define :person do |p|
-  p.email "bob-person@aol.com"
-  p.active true
-  p.sequence(:url)  {|n|"http://google-#{n}.com/"}
+  p.sequence(:email) {|n| "bob-person-#{n}@aol.com"}
+  p.sequence(:url)  {|n| "http://google-#{n}.com/"}
   p.key_fingerprint GPGME::list_keys("Wesley").first.subkeys.first.fingerprint
-  p.profile Profile.new( :first_name => "Robert", :last_name => "Grimm" )
+  p.profile Factory.create(:profile)
 end
 
 Factory.define :user do |u|
   u.sequence(:email) {|n| "bob#{n}@aol.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
-  u.url  "www.example.com/"
-  u.key_fingerprint GPGME.list_keys("Smith", true).first.subkeys.first.fingerprint
-  u.profile Profile.new( :first_name => "Bob", :last_name => "Smith" )
+
+  u.person  Factory.create(:person)
 end
+
 Factory.define :status_message do |m|
   m.sequence(:message) {|n| "jimmy's #{n} whales"}
   m.person

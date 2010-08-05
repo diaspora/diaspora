@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
+
   it "should be a person" do
     n = Person.count
     Factory.create(:user)

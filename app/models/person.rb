@@ -9,23 +9,27 @@ class Person
   xml_accessor :profile, :as => Profile
   
   
-  key :email, String
+  key :email, String, :unique => true
   key :url, String
-  key :active, Boolean, :default => false
   key :key_fingerprint, String
 
+  key :owner_id, ObjectId
+
+  belongs_to :owner, :class_name => 'User'
   one :profile, :class_name => 'Profile'
+
+  many :users, :class_name => 'User'
   many :posts, :class_name => 'Post', :foreign_key => :person_id
   many :albums, :class_name => 'Album', :foreign_key => :person_id
+
 
   timestamps!
 
   before_validation :clean_url
-  validates_presence_of :email, :url, :key_fingerprint
+  validates_presence_of :email, :url, :key_fingerprint, :profile
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
-  validates_true_for :url, :logic => lambda { self.url_unique?}
 
   after_destroy :remove_all_traces, :remove_key
 
@@ -45,13 +49,46 @@ class Person
     GPGME::export(key_fingerprint, :armor => true)
   end
 
-  protected
-  
-  def url_unique?
-    same_url = Person.first(:url => self.url)
-    return same_url.nil? || same_url.id == self.id
+
+
+
+
+  ######## Posting ########
+  def post(class_name, options = {})
+    options[:person] = self
+    model_class = class_name.to_s.camelize.constantize
+    post = model_class.instantiate(options)
   end
 
+  ######## Commenting  ########
+  def comment(text, options = {})
+    raise "must comment on something!" unless options[:on]
+    c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
+    if c.save
+      if mine?(c.post)
+        c.push_to(c.post.people_with_permissions)  # should return plucky query
+      else
+        c.push_to([c.post.person])
+      end
+      true
+    end
+    false
+  end
+  
+  ##profile
+  def update_profile(params)
+    if self.update_attributes(params)
+      puts self.profile.class
+      self.profile.notify_people!
+      true
+    else
+      false
+    end
+  end
+
+
+
+  protected
   def clean_url
     self.url ||= "http://localhost:3000/" if self.class == User
     if self.url

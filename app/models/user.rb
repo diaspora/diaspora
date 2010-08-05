@@ -1,49 +1,36 @@
-class User < Person
+class User
+  include MongoMapper::Document
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  
-  before_validation_on_create :assign_key
-  validates_presence_of :profile
+
+  #before_validation_on_create :assign_key
   
   before_validation :do_bad_things
- 
- 
-  
-  ######## Posting ########
 
-  def post(class_name, options = {})
-    options[:person] = self
-    model_class = class_name.to_s.camelize.constantize
-    post = model_class.instantiate(options)
+  one :person, :class_name => 'Person', :foreign_key => :owner_id
+
+  key :friend_ids, Array
+  key :pending_friend_ids, Array
+
+
+  def friends
+    Person.all(:id => self.friend_ids)
   end
 
-  ######## Commenting  ########
-  def comment(text, options = {})
-    raise "must comment on something!" unless options[:on]
-    c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
-    if c.save
-      if mine?(c.post)
-        c.push_to(c.post.people_with_permissions)  # should return plucky query
-      else
-        c.push_to([c.post.person])
-      end
-      true
-    end
-    false
+  def pending_friends
+    Person.all(:id => self.pending_friend_ids)
+  end
+
+
+  def real_name
+    "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
   
-  ##profile
-  def update_profile(params)
-    if self.update_attributes(params)
-      puts self.profile.class
-      self.profile.notify_people!
-      true
-    else
-      false
-    end
-  end
+  
+
+
 
   ######### Friend Requesting
   def send_friend_request_to(friend_url)
@@ -86,11 +73,18 @@ class User < Person
   end
 
   def unfriend(friend_id)
-    bad_friend  = Person.first(:id => friend_id, :active => true)
+    bad_friend  = self.friends.first(:id => friend_id)
+    self.friends.detect{|x| x.id == friend_id}.delete
     if bad_friend 
-       Retraction.for(self).push_to_url(bad_friend.url) 
-       bad_friend.destroy
+
+
+      bad
+
+
+      Retraction.for(self).push_to_url(bad_friend.url) 
+      bad_friend.destroy if bad_friend.users.count == 0
     end
+    self.save
   end
 
   def send_request(rel_hash)
@@ -125,11 +119,11 @@ class User < Person
   protected
   
   def assign_key
-    keys = GPGME.list_keys(real_name, true)
+    keys = GPGME.list_keys(self.real_name, true)
     if keys.empty?
       generate_key
     end
-    self.key_fingerprint = GPGME.list_keys(real_name, true).first.subkeys.first.fingerprint
+    self.key_fingerprint = GPGME.list_keys(self.real_name, true).first.subkeys.first.fingerprint
   end
 
   def generate_key

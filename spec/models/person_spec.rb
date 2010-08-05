@@ -1,16 +1,10 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Person do
-  it 'should not allow two people with the same url' do
+  it 'should not allow two people with the same email' do
     person_one = Factory.create(:person)
-    person_two = Factory.build(:person, :url => person_one.url)
+    person_two = Factory.build(:person, :url => person_one.email)
     person_two.valid?.should == false
-  end
-  
-  it 'should not allow a person with the same url as the user' do
-    user = Factory.create(:user)
-    person = Factory.build(:person, :url => user.url)
-    person.valid?.should == false
   end
 
   it 'should serialize to xml' do
@@ -24,15 +18,6 @@ describe Person do
     xml = person.to_xml.to_s
     (xml.include? "first_name").should == true
   end
-
-  it 'should only return active friends' do
-    Factory.create(:person)
-    Factory.create(:person, :active => false)
-    Factory.create(:person, :active => false)
-
-    Person.friends.all.count.should == 1
-  end
-
 
   it 'should delete all of user except comments upon user deletion' do
     Factory.create(:user)
@@ -57,14 +42,15 @@ describe Person do
     s.comments.count.should == 4
   end
 
-  it 'should let a user unfriend another user' do
-    u = Factory.create(:user)
+  it 'should let a user unfriend a person' do
+    user = Factory.create(:user)
+    person = Factory.create(:person)
 
-    f = Factory.create(:person, :active => true)
+    user.friends << person
 
-    Person.friends.all.count.should == 1
-    u.unfriend(f.id)
-    Person.friends.all.count.should == 0
+    user.friends.count.should == 1
+    user.unfriend(person.id)
+    user.friends.count.should == 0
     Person.all.count.should == 1
   end
 
