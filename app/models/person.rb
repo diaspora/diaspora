@@ -33,8 +33,7 @@ class Person
 
   after_destroy :remove_all_traces, :remove_key
 
-  scope :friends,  where(:_type => "Person", :active => true)
-
+  scope :friends, where(:_type => "Person", :active => true)
 
  
   def real_name

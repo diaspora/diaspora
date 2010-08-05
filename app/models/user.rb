@@ -73,18 +73,22 @@ class User
   end
 
   def unfriend(friend_id)
-    bad_friend  = self.friends.first(:id => friend_id)
-    self.friends.detect{|x| x.id == friend_id}.delete
+    bad_friend = Person.first(:id => friend_id)
+
+
+    puts bad_friend.users.count
+
+    self.friend_ids.delete( friend_id )
+    self.save
+
+
+
+    puts bad_friend.users.count
+    
     if bad_friend 
-
-
-      bad
-
-
       Retraction.for(self).push_to_url(bad_friend.url) 
       bad_friend.destroy if bad_friend.users.count == 0
     end
-    self.save
   end
 
   def send_request(rel_hash)

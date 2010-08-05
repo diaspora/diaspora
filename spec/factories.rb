@@ -22,7 +22,7 @@ Factory.define :user do |u|
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
 
-  u.person  Factory.create(:person)
+  u.sequence(:person) {|p| Factory.create(:person, :email => "robert-#{p}@grimm.org")}
 end
 
 Factory.define :status_message do |m|

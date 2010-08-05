@@ -42,16 +42,49 @@ describe Person do
     s.comments.count.should == 4
   end
 
-  it 'should let a user unfriend a person' do
-    user = Factory.create(:user)
-    person = Factory.create(:person)
+  describe "unfriending" do
+    it 'should delete an orphaned friend' do
+      user = Factory.create(:user)
+      user.save
+      
+      person = Factory.create(:person)
 
-    user.friends << person
+      person.users << user
+      user.friend_ids << person.id
 
-    user.friends.count.should == 1
-    user.unfriend(person.id)
-    user.friends.count.should == 0
-    Person.all.count.should == 1
+      Person.all.count.should == 2
+      user.friends.count.should == 1
+      user.unfriend(person.id)
+      user.friends.count.should == 0
+      Person.all.count.should == 1
+    end
+
+    it 'should not delete an un-orphaned friend' do
+      user_one = Factory.create(:user)
+      user_two = Factory.create(:user)
+
+      user_one.save
+      user_two.save
+
+      person = Factory.create(:person)
+
+      person.users << user_one
+      person.users << user_two
+
+      user_one.friend_ids << person.id
+      user_two.friend_ids << person.id
+
+      Person.all.count.should == 3
+      user_one.friends.count.should == 1
+      user_two.friends.count.should == 1
+
+      user_one.unfriend(person.id)
+
+      user_one.friends.count.should == 0
+      user_two.friends.count.should == 1
+
+      Person.all.count.should == 2
+    end
   end
 
 end
