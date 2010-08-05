@@ -1,12 +1,13 @@
 class Retraction
   include ROXML
   include Diaspora::Webhooks
+  include Encryptable
 
   def self.for(object)
     retraction = self.new
     retraction.post_id= object.id
     retraction.person_id = person_id_from(object)
-    retraction.type = self.type_name(object)
+    retraction.type = object.class.to_s
     retraction
   end
 
@@ -19,7 +20,13 @@ class Retraction
   attr_accessor :type
 
   def perform
-    self.type.constantize.destroy(self.post_id)
+    return unless verify_signature(@creator_signature, Post.first(:id => post_id).person)
+     
+    begin
+      self.type.constantize.destroy(self.post_id)
+    rescue NameError
+      Rails.logger.info("Retraction for unknown type recieved.")
+    end
   end
 
   def self.person_id_from(object)
@@ -30,15 +37,28 @@ class Retraction
     end
   end
 
-
-  def self.type_name(object)
-    if object.is_a? Post
-      object.class
-    elsif object.is_a? Person
-      'Person'
-    else
-      'Clowntown'
+#ENCRYPTION
+    xml_reader :creator_signature
+    
+    def creator_signature
+      @creator_signature ||= sign if person_id == User.owner.id
     end
-  end
 
+    def creator_signature= input
+      @creator_signature = input
+    end
+
+    def signable_accessors
+      accessors = self.class.roxml_attrs.collect{|definition| 
+        definition.accessor}
+      accessors.delete 'person'
+      accessors.delete 'creator_signature'
+      accessors
+    end
+
+    def signable_string
+      signable_accessors.collect{|accessor| 
+        (self.send accessor.to_sym).to_s}.join ';'
+    end
+  
 end
