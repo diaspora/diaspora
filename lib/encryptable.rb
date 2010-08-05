@@ -18,15 +18,11 @@
         return false
       end
       Rails.logger.info("Verifying sig on #{signable_string} from person #{person.real_name}")
-      verify_signature_from_key(signature, person.key) 
-    end
-   
-    def verify_signature_from_key signature, key
-      validity = key.verify "SHA", Base64.decode64(signature), signable_string
+      validity = person.key.verify "SHA", Base64.decode64(signature), signable_string
       Rails.logger.info("Validity: #{validity}")
       validity
     end
-
+    
     protected
     def sign_if_mine
       if self.person == User.owner
