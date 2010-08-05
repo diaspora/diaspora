@@ -50,7 +50,7 @@ describe Person do
       person = Factory.create(:person)
 
       person.users << user
-      user.friend_ids << person.id
+      user.friends << person
 
       Person.all.count.should == 2
       user.friends.count.should == 1
@@ -68,11 +68,15 @@ describe Person do
 
       person = Factory.create(:person)
 
+
       person.users << user_one
       person.users << user_two
+      person.save
 
-      user_one.friend_ids << person.id
-      user_two.friend_ids << person.id
+      user_one.friends << person
+      user_two.friends << person
+      user_one.save
+      user_two.save
 
       Person.all.count.should == 3
       user_one.friends.count.should == 1

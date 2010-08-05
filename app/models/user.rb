@@ -10,13 +10,10 @@ class User
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
-  key :friend_ids, Array
   key :pending_friend_ids, Array
 
+  many :friends, :class_name => 'Person'
 
-  def friends
-    Person.all(:id => self.friend_ids)
-  end
 
   def pending_friends
     Person.all(:id => self.pending_friend_ids)
@@ -76,8 +73,9 @@ class User
 
 
     puts bad_friend.users.count
+    puts self.friends.inspect
 
-    self.friend_ids.delete( friend_id )
+    self.friends.delete( friend_id )
     self.save
 
     bad_friend.users.delete( self.id )
