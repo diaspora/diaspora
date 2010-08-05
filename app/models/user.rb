@@ -4,7 +4,6 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-
   #before_validation_on_create :assign_key
   
   before_validation :do_bad_things
@@ -73,7 +72,7 @@ class User
   end
 
   def unfriend(friend_id)
-    bad_friend = Person.first(:id => friend_id)
+    bad_friend = Person.first(:_id => friend_id)
 
 
     puts bad_friend.users.count
@@ -81,12 +80,18 @@ class User
     self.friend_ids.delete( friend_id )
     self.save
 
+    bad_friend.users.delete( self.id )
+
+
+    puts bad_friend.users.inspect
+
 
 
     puts bad_friend.users.count
     
     if bad_friend 
-      Retraction.for(self).push_to_url(bad_friend.url) 
+      puts bad_friend.url
+      #Retraction.for(self).push_to_url(bad_friend.url) 
       bad_friend.destroy if bad_friend.users.count == 0
     end
   end
