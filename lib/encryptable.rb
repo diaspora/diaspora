@@ -7,7 +7,16 @@
     end
     
     def verify_signature(signature, person)
-      return false unless signature && person.key
+      if person.nil?
+        Rails.logger.info("Verifying sig on #{signable_string} but no person is here")
+        return false
+      elsif person.key.nil?
+        Rails.logger.info("Verifying sig on #{signable_string} but #{person.real_name} has no key")
+        return false
+      elsif signature.nil?
+        Rails.logger.info("Verifying sig on #{signable_string} but #{person.real_name} did not sign")
+        return false
+      end
       Rails.logger.info("Verifying sig on #{signable_string} from person #{person.real_name}")
       validity = person.key.verify "SHA", Base64.decode64(signature), signable_string
       Rails.logger.info("Validity: #{validity}")
