@@ -4,7 +4,8 @@ describe Album do
   before do
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
     @user = Factory.create(:user)
-    @album = Album.new(:name => "test collection", :person => @user)
+    @user.person.save
+    @album = Album.new(:name => "test collection", :person => @user.person)
   end
 
   it 'should belong to a person' do
@@ -26,8 +27,8 @@ describe Album do
   end
 
   it 'should contain photos' do
-    album = Album.create(:name => "test collection", :person => @user)
-    photo = Factory.build(:photo, :person => @user)
+    album = Album.create(:name => "test collection", :person => @user.person)
+    photo = Factory.build(:photo, :person => @user.person)
 
     album.photos << photo
     album.photos.count.should == 1
@@ -36,7 +37,7 @@ describe Album do
   it 'should remove all photos on album delete' do
       photos = []
       1.upto 3 do
-        photo =   Photo.new(:person => @user, :album => @album, :created_at => Time.now)
+        photo =   Photo.new(:person => @user.person, :album => @album, :created_at => Time.now)
         photo.image.store! File.open @fixture_name
         photos << photo
       end
@@ -51,7 +52,7 @@ describe Album do
     before do
       @photos = []
       1.upto 3 do |n|
-        photo =   Photo.new(:person => @user, :album => @album, :created_at => Time.now + n)
+        photo =   Photo.new(:person => @user.person, :album => @album, :created_at => Time.now + n)
         photo.image.store! File.open @fixture_name
         @photos << photo
       end
