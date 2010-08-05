@@ -5,7 +5,7 @@ class Person
   xml_accessor :_id
   xml_accessor :email
   xml_accessor :url
-  #xml_accessor :key_fingerprint
+  xml_accessor :serialized_key
   xml_accessor :profile, :as => Profile
   
   
