@@ -20,7 +20,7 @@ class Retraction
   attr_accessor :type
 
   def perform
-    return unless verify_signature(@creator_signature, Post.first(:id => post_id).person.id)
+    return unless verify_signature(@creator_signature, Post.first(:id => post_id).person)
      
     begin
       self.type.constantize.destroy(self.post_id)
