@@ -74,6 +74,7 @@ class User < Person
 
   def receive_friend_request(friend_request)
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
+    friend_request.person.key = OpenSSL::PKey::RSA.new(friend_request.exported_key)
     if Request.where(:callback_url => friend_request.callback_url).first
       friend_request.activate_friend
       friend_request.destroy
