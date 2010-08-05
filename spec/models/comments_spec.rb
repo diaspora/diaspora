@@ -4,6 +4,7 @@ describe Comment do
   describe "user" do
     before do
       @user = Factory.create :user
+      @user.person.save
     end
     it "should be able to comment on his own status" do
       status = Factory.create(:status_message, :person => @user)

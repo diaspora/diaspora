@@ -5,6 +5,7 @@ describe PublicsController do
   
   before do
     @user = Factory.create(:user, :profile => Profile.new( :first_name => "bob", :last_name => "smith"))
+    @user.person.save
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
   end
 
