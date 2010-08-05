@@ -49,8 +49,9 @@ describe Person do
       
       person = Factory.create(:person)
 
-      person.users << user
       user.friends << person
+      person.user_refs += 1
+      person.save
 
       Person.all.count.should == 2
       user.friends.count.should == 1
@@ -68,15 +69,13 @@ describe Person do
 
       person = Factory.create(:person)
 
-
-      person.users << user_one
-      person.users << user_two
-      person.save
-
       user_one.friends << person
       user_two.friends << person
       user_one.save
       user_two.save
+
+      person.user_refs += 2
+      person.save
 
       Person.all.count.should == 3
       user_one.friends.count.should == 1
@@ -87,7 +86,7 @@ describe Person do
       user_one.friends.count.should == 0
       user_two.friends.count.should == 1
 
-      Person.all.count.should == 2
+      Person.all.count.should == 3
     end
   end
 

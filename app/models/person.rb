@@ -14,11 +14,11 @@ class Person
   key :key_fingerprint, String
 
   key :owner_id, ObjectId
+  key :user_refs, Integer, :default => 0
 
   belongs_to :owner, :class_name => 'User'
   one :profile, :class_name => 'Profile'
 
-  many :users, :class_name => 'User'
   many :posts, :class_name => 'Post', :foreign_key => :person_id
   many :albums, :class_name => 'Album', :foreign_key => :person_id
 
@@ -47,9 +47,6 @@ class Person
   def export_key
     GPGME::export(key_fingerprint, :armor => true)
   end
-
-
-
 
 
   ######## Posting ########

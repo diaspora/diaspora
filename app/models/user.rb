@@ -4,15 +4,17 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  #before_validation_on_create :assign_key
-  
-  before_validation :do_bad_things
-
-  one :person, :class_name => 'Person', :foreign_key => :owner_id
-
+  key :friend_ids, Array
   key :pending_friend_ids, Array
 
-  many :friends, :class_name => 'Person'
+  one :person, :class_name => 'Person', :foreign_key => :owner_id
+  many :friends, :in => :friend_ids, :class_name => 'Person'
+
+  #before_validation_on_create :assign_key
+  before_validation :do_bad_things
+
+
+
 
 
   def pending_friends
@@ -24,8 +26,6 @@ class User
     "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
   
-  
-
 
 
   ######### Friend Requesting
@@ -71,26 +71,13 @@ class User
   def unfriend(friend_id)
     bad_friend = Person.first(:_id => friend_id)
 
-
-    puts bad_friend.users.count
-    puts self.friends.inspect
-
-    self.friends.delete( friend_id )
+    self.friend_ids.delete( friend_id )
     self.save
 
-    bad_friend.users.delete( self.id )
-
-
-    puts bad_friend.users.inspect
-
-
-
-    puts bad_friend.users.count
-    
     if bad_friend 
-      puts bad_friend.url
-      #Retraction.for(self).push_to_url(bad_friend.url) 
-      bad_friend.destroy if bad_friend.users.count == 0
+      Retraction.for(self).push_to_url(bad_friend.url) 
+      bad_friend.update_attributes(:user_refs => bad_friend.user_refs - 1)
+      bad_friend.destroy if bad_friend.user_refs == 0
     end
   end
 
