@@ -1,10 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
- 
+include ApplicationHelper 
 describe DashboardsController do
  render_views
   before do
     @user = Factory.create(:user)
     @user.person.save
+    @person = Factory.create(:person)
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
   end
 
