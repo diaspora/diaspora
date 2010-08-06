@@ -1,12 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 include ApplicationHelper 
-
 describe ApplicationHelper do
   before do
     @user = Factory.create(:user)
     @person = Factory.create(:person)
-    request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
+    #env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
     sign_in @user
     @user.save
   end
@@ -17,7 +16,6 @@ describe ApplicationHelper do
   end
 
   it "should specifiy if a post is owned current user" do
-    ApplicatonHelper.any_instance.stub!(:current_user).and_return(@user)
     p = Factory.create(:post, :person => @user.person)
     
     puts p.person.id == @user.person.id
