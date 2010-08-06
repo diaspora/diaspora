@@ -12,7 +12,7 @@ describe DashboardsController do
     sign_in :user, @user   
     Factory.create :person
     get :index
-    assigns[:friends].should == Person.friends.all
+    assigns[:friends].should == @user.friends
   end
 
 end

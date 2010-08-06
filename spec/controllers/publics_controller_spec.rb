@@ -4,7 +4,7 @@ describe PublicsController do
  render_views
   
   before do
-    @user = Factory.create(:user, :profile => Profile.new( :first_name => "bob", :last_name => "smith"))
+    @user = Factory.create(:user)
     @user.person.save
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
   end

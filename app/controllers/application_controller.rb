@@ -16,9 +16,8 @@ class ApplicationController < ActionController::Base
   end
   
   def set_friends_and_status
-    @friends = Person.friends.all if current_user
-    @latest_status_message = StatusMessage.newest(current_user) if current_user
-    
+    @friends = current_user.friends if current_user
+    @latest_status_message = StatusMessage.newest_for(current_user) if current_user
   end
 
   def count_requests

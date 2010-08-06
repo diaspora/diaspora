@@ -86,7 +86,7 @@ describe Diaspora::Parser do
     
     it 'should be able to correctly handle comments' do
       person = Factory.create(:person, :email => "test@testing.com")
-      post = Factory.create(:status_message)
+      post = Factory.create(:status_message, :person => @user.person)
       comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
       xml = "<XML>
       <posts>
@@ -166,12 +166,12 @@ describe Diaspora::Parser do
 
       #Build xml for profile, clear profile
       xml = Post.build_xml_for(person.profile)
-      reloaded_person = Person.first(:id => id)
+      reloaded_person = Person.first(:id => id)            
       reloaded_person.profile = nil
-      reloaded_person.save
+      reloaded_person.profile.save
 
       #Make sure profile is cleared
-      Person.first(:id=> id).profile.should be nil    
+      Person.first(:id => id).profile.should be nil    
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
@@ -183,8 +183,6 @@ describe Diaspora::Parser do
       person.profile.first_name.should  == old_profile.first_name
       person.profile.last_name.should  == old_profile.last_name
       person.profile.image_url.should  == old_profile.image_url
-      
-
       end
   end
 end

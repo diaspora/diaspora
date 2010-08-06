@@ -44,6 +44,10 @@ class Retraction
       object.person.id
     end
   end
+  
+  def person
+    Person.first(:id => self.person_id)
+  end
 
 #ENCRYPTION
     xml_reader :creator_signature

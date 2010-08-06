@@ -39,7 +39,7 @@ module Diaspora
         end
 
         def people_with_permissions
-          self.person.owner.friends
+          self.person.owner.friends.all
         end
 
         def self.build_xml_for(posts)

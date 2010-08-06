@@ -6,6 +6,9 @@ describe ApplicationHelper do
   before do
     @user = Factory.create(:user)
     @person = Factory.create(:person)
+    request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
+    sign_in @user
+    @user.save
   end
 
   it "should specifiy if a post is not owned user" do
@@ -14,7 +17,11 @@ describe ApplicationHelper do
   end
 
   it "should specifiy if a post is owned current user" do
-    p = Factory.create(:post, :person => @user)
+    ApplicatonHelper.any_instance.stub!(:current_user).and_return(@user)
+    p = Factory.create(:post, :person => @user.person)
+    
+    puts p.person.id == @user.person.id
+    
     mine?(p).should be true
   end
 

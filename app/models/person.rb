@@ -87,7 +87,7 @@ class Person
   end
 
   def mine?(post)
-    self == post.person
+    self.id == post.person.id
   end
 
 

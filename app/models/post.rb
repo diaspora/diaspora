@@ -35,17 +35,8 @@ class Post
     Post.sort(:created_at.desc).all
   end
 
- def self.newest(person = nil)
-    return self.last if person.nil?
-
+  def self.newest_for(person)
     self.first(:person_id => person.id, :order => '_id desc')
-  end
-
-   def self.my_newest
-     self.newest(User.owner)
-   end
-  def self.newest_by_email(email)
-    self.newest(Person.first(:email => email))
   end
 
 #ENCRYPTION

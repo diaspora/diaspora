@@ -57,8 +57,8 @@ describe Bookmark do
 
   describe "XML" do
     it 'should serialize to XML' do
-      Factory.create(:user)
-      message = Factory.create(:bookmark, :title => "Reddit", :link => "http://reddit.com/")
+      u = Factory.create(:user)
+      message = Factory.create(:bookmark, :title => "Reddit", :link => "http://reddit.com/", :person => u.person)
       message.to_xml.to_s.should include "<title>Reddit</title>"
       message.to_xml.to_s.should include "<link>http://reddit.com/</link>"
     end

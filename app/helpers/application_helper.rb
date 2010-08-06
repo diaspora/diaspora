@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def mine?(post)
-    post.person == User.owner
+    post.person.id == current_user.person.id
   end
   
   def type_partial(post)
