@@ -34,7 +34,7 @@ describe Comment do
         @person = Factory.create(:person)
         @user.friends << Factory.create(:person)
         @user.save
-        
+        @person2 = Factory.create(:person) 
         @person_status = Factory.build(:status_message, :person => @person)
         @user_status = Factory.build(:status_message, :person => @user.person)
       end
@@ -46,19 +46,24 @@ describe Comment do
     
       it 'should send a user comment on his own post to lots of people' do
         allowed_urls = @user_status.people_with_permissions.map!{|x| x = x.url + "receive/"}
-        
-        Comment.send(:class_variable_get, :@@queue).should_receive(:add_post_request).with(allowed_urls, anything)
+        puts allowed_urls 
+        queue = Comment.send(:class_variable_get, :@@queue)
+        queue.should_receive(:add_post_request).with(allowed_urls, anything)
         @user.comment "yo", :on => @user_status
       end
     
       it 'should send a comment a person made on your post to all people' do
         Comment.send(:class_variable_get, :@@queue).should_receive(:add_post_request)
-        Comment.create(:person => @person, :text => "balls", :post => @user_status)
+        @person.comment "balls", :on => @user_status
       end
     
+      it 'should not send a comment a person made on his own post to anyone' do
+        Comment.send(:class_variable_get, :@@queue).should_not_receive(:add_post_request)
+        @person.comment "balls", :on => @person_status
+      end
       it 'should not send a comment a person made on a person post to anyone' do
         Comment.send(:class_variable_get, :@@queue).should_not_receive(:add_post_request)
-        Comment.create(:person => @person, :text => "balls", :post => @person_status)  
+        @person2.comment "balls", :on => @person_status
       end
     end
   end

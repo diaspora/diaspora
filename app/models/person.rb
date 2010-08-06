@@ -58,6 +58,9 @@ class Person
     options[:person] = self
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
+    if owns?(post)
+      post.notify_people
+    end
   end
 
   ######## Commenting  ########
@@ -65,16 +68,27 @@ class Person
     raise "must comment on something!" unless options[:on]
     c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
     if c.save
-      if mine?(c.post)
-        c.push_to(c.post.people_with_permissions)  # should return plucky query
+      if self.owner.nil?
+        if c.post.person.owner.nil?
+          #puts "The commenter is not here, and neither is the poster"
+        elsif c.post.person.owner
+          #puts "The commenter is not here, and the poster is"
+          c.push_downstream
+        end
       else
-        c.push_to([c.post.person])
+        if owns? c.post
+          #puts "The commenter is here, and is the poster"
+          c.push_downstream
+        else
+          #puts "The commenter is here, and is not the poster"
+          c.push_upstream
+        end
       end
       true
     end
     false
   end
-  
+ 
   ##profile
   def update_profile(params)
     if self.update_attributes(params)
@@ -86,7 +100,7 @@ class Person
     end
   end
 
-  def mine?(post)
+  def owns?(post)
     self.id == post.person.id
   end
 

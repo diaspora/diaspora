@@ -18,7 +18,6 @@ class Comment
   key :person_id, ObjectId
   belongs_to :person, :class_name => "Person"
   
-  after_save :send_people_comments_on_my_posts
   after_save :send_to_view
   
 
@@ -26,6 +25,16 @@ class Comment
     (self.message == other.message) && (self.person.email == other.person.email)
   end
   
+  def push_upstream
+    puts "Comment going upstream"
+    push_to([post.person])
+  end
+
+  def push_downstream
+    puts "Comment going downstream"
+    push_to(post.people_with_permissions)
+  end
+
   #ENCRYPTION
   
   before_validation :sign_if_mine, :sign_if_my_post
@@ -69,13 +78,6 @@ class Comment
     end
   end 
  
-   def send_people_comments_on_my_posts
-    if User.owner.mine?(self.post) && !(self.person.is_a? User)
-      self.push_to(self.post.people_with_permissions)
-    end
-  end
-  
-  
   def send_to_view
     SocketsController.new.outgoing(self)
   end

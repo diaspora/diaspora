@@ -13,9 +13,8 @@ class MessageHandler
   end
 
   def add_post_request(destinations, body)
+    puts "sending to: #{destinations.inspect}"
     b = CGI::escape( body )
-    puts body
-    puts destinations.inspect
     [*destinations].each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
   end
 
