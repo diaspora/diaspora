@@ -60,7 +60,7 @@ class Comment
   end
 
   def verify_post_creator_signature
-    unless person == User.owner
+    if person.owner.nil?
       verify_signature(post_creator_signature, post.person)
     else
       true
@@ -70,8 +70,8 @@ class Comment
   
   protected
    def sign_if_my_post
-    if self.post.person == User.owner
-      self.post_creator_signature = sign
+    unless self.post.person.owner.nil?
+      self.post_creator_signature = sign_with_key self.post.person.key
     end
   end 
  

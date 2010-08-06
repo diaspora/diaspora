@@ -25,15 +25,7 @@
     
     protected
     def sign_if_mine
-      if self.person == User.owner
-
-
-        self.creator_signature = sign
-      end
-    end
-
-    def sign
-      sign_with_key(User.owner.key)
+      self.creator_signature = sign_with_key(person.key) unless person.owner_id.nil?
     end
 
     def sign_with_key(key)

@@ -13,26 +13,15 @@ describe Request do
   it 'should generate xml for the User as a Person' do 
     user = Factory.create(:user)
 
-    user.profile.save
-    
-    request = Request.instantiate(:to => "http://www.google.com/", :from => user)
+    request = user.send_friend_request_to "http://www.google.com/"
 
     xml = request.to_xml.to_s
 
-    xml.include?(user.email).should be true
+    xml.include?(user.person.email).should be true
     xml.include?(user.url).should be true
     xml.include?(user.profile.first_name).should be true
     xml.include?(user.profile.last_name).should be true
   end
-
-
-  it "should should activate a user" do
-    remote_person = Factory.create(:person, :email => "robert@grimm.com", :url => "http://king.com/")
-    f = Request.create(:destination_url => remote_person.url, :person => remote_person)
-    f.activate_friend
-    Person.where(:id => remote_person.id).first.active.should be true
-  end
-
 
   it 'should allow me to see only friend requests sent to me' do 
     user = Factory.create(:user)
@@ -44,16 +33,6 @@ describe Request do
     Request.instantiate(:from => remote_person, :to => user.url).save
       
     Request.for_user(user).all.count.should == 1
-  end
-
-  it 'should allow me to see only friend requests sent by me' do 
-    user = Factory.create(:user)
-    remote_person = Factory.build(:user, :email => "robert@grimm.com", :url => "http://king.com/")
-
-    Request.instantiate(:from => user, :to => remote_person.url).save
-    Request.instantiate(:from => user, :to => remote_person.url).save
-    Request.instantiate(:from => user, :to => remote_person.url).save
-    Request.instantiate(:from => remote_person, :to => user.url).save
   end
 
 end

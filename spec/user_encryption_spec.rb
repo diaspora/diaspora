@@ -65,7 +65,7 @@ describe 'user encryption' do
   describe 'signing and verifying' do
 
     it 'should sign a message on create' do
-      message = Factory.create(:status_message, :person => @user)
+      message = @user.post :status_message, :message => "hi"
       message.verify_creator_signature.should be true 
     end
     
@@ -102,13 +102,13 @@ describe 'user encryption' do
 
   describe 'sending and recieving signatures' do
     it 'should contain the signature in the xml' do
-      message = Factory.create(:status_message, :person => @user)
+      message = @user.post :status_message, :message => "hi"
       xml = message.to_xml.to_s
       xml.include?(message.creator_signature).should be true
     end
     it 'A message with an invalid signature should be rejected' do
       message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = message.send(:sign )
+      message.creator_signature = "totally valid"
       message.save
       xml = Post.build_xml_for([message])
       message.destroy
@@ -123,7 +123,7 @@ describe 'user encryption' do
       @remote_message = Factory.build(:status_message, :person => @person)
       @remote_message.creator_signature = @remote_message.send(:sign_with_key,@person.key)
       @remote_message.save 
-      @message = Factory.create(:status_message, :person => @user)
+      @message = @user.post :status_message, :message => "hi"
     end
     it 'should attach the creator signature if the user is commenting' do
       @user.comment "Yeah, it was great", :on => @remote_message
@@ -131,10 +131,10 @@ describe 'user encryption' do
     end
 
     it 'should sign the comment if the user is the post creator' do
-      message = Factory.create(:status_message, :person => @user)
+      message = @user.post :status_message, :message => "hi"
       @user.comment "Yeah, it was great", :on => message
       message.comments.first.verify_creator_signature.should be true
-      StatusMessage.first(:message => message.message).comments.first.verify_post_creator_signature.should be true
+      message.comments.first.verify_post_creator_signature.should be true
     end
     
     it 'should verify a comment made on a remote post by a different friend' do

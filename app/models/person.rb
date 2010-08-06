@@ -69,7 +69,16 @@ class Person
     raise "must comment on something!" unless options[:on]
     c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
     if c.save
-      if self.owner.nil?
+      send_comment c
+      true
+    else
+      Rails.logger.warn "this failed to save: #{c.inspect}"
+    end
+    false
+  end
+  
+  def send_comment c
+    if self.owner.nil?
         if c.post.person.owner.nil?
           #puts "The commenter is not here, and neither is the poster"
         elsif c.post.person.owner
@@ -85,11 +94,8 @@ class Person
           c.push_upstream
         end
       end
-      true
-    end
-    false
+
   end
- 
   ##profile
   def update_profile(params)
     if self.update_attributes(params)
