@@ -17,5 +17,5 @@
 #content_bottom
   .back
     = link_to "⇧ ostatus", ostatus_path
-  .button.right
-    = link_to 'Unsubscribe', @author, :confirm => 'Are you sure?', :method => :delete
+  .right
+    = link_to 'Unsubscribe', @author, :confirm => 'Are you sure?', :method => :delete, :class => "button"

@@ -107,5 +107,8 @@ $(document).ready(function(){
     $(this).fadeIn("slow");
   });
 
+  $(".delete").hover(function(){
+    $(this).toggleClass("button");
+  });
 
 });//end document ready

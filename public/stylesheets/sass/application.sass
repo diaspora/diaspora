@@ -11,13 +11,14 @@ body
   :margin 0
 a
   :color #018790
+  :color #556270
   :text
     :decoration none
   &:hover
     :color #fff
     :background
       :color #018790
-
+      :color #556270
 
 #flash_notice,
 #flash_error,
@@ -121,13 +122,12 @@ header
 ul#stream, ul#friend_stream
   :margin 0
   :padding 0
-  :color #666
   > li
     :list-style none
     :padding 15px 0
-    :border
-      :bottom 1px solid #f1f1f1
     :margin-bottom 5px
+    :border
+      :bottom 1px solid #eee
 
 ul#friend_stream
   > li
@@ -356,6 +356,8 @@ label
   :position absolute
   :top 3px
   :left 0.48em
+  :font
+    :weight normal
 
 #publisher
   :background
@@ -451,7 +453,7 @@ h1.big_text
   :position relative
   :line-height auto
   :border
-    :top 2px solid #666
+    //:top 2px solid #666
     :bottom 1px solid #666
   :text
     :align center

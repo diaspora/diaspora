@@ -12,10 +12,12 @@ body {
 
 a {
   color: #018790;
+  color: #556270;
   text-decoration: none; }
   a:hover {
     color: white;
-    background-color: #018790; }
+    background-color: #018790;
+    background-color: #556270; }
 
 #flash_notice,
 #flash_error,
@@ -107,13 +109,12 @@ header {
 
 ul#stream, ul#friend_stream {
   margin: 0;
-  padding: 0;
-  color: #666666; }
+  padding: 0; }
   ul#stream > li, ul#friend_stream > li {
     list-style: none;
     padding: 15px 0;
-    border-bottom: 1px solid #f1f1f1;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eeeeee; }
 
 ul#friend_stream > li {
   padding: 0.2em 0; }
@@ -295,7 +296,8 @@ label {
   color: #999999;
   position: absolute;
   top: 3px;
-  left: 0.48em; }
+  left: 0.48em;
+  font-weight: normal; }
 
 #publisher {
   background-color: rgba(10, 81, 109, 0.05);
@@ -367,7 +369,6 @@ ul#publisher_content_pickers li {
 h1.big_text {
   position: relative;
   line-height: auto;
-  border-top: 2px solid #666666;
   border-bottom: 1px solid #666666;
   text-align: center; }
 
