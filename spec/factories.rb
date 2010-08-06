@@ -20,12 +20,14 @@ Factory.define :person_with_private_key, :parent => :person do |p|
   p.serialized_key OpenSSL::PKey::RSA.generate(1024).export
 end
 
+Factory.define :person_with_user, :parent => :person_with_private_key do |p|
+end
+
 Factory.define :user do |u|
   u.sequence(:email) {|n| "bob#{n}@aol.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
-
-  u.sequence(:person) {|p| Factory.create(:person_with_private_key, :email => "robert-#{p}@grimm.org")}
+  u.person { |a| Factory.create(:person_with_user, :owner_id => a._id)} 
 end
 
 Factory.define :status_message do |m|

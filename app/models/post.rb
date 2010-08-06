@@ -72,7 +72,6 @@ protected
   end
   
   def propagate_retraction
-    puts 'propagating retraction'
     Retraction.for(self).notify_people
   end
 

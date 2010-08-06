@@ -8,7 +8,6 @@ class Retraction
     retraction.post_id= object.id
     retraction.person_id = person_id_from(object)
     retraction.type = object.class.to_s
-    puts retraction.inspect
     retraction
 
   end
