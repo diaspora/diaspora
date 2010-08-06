@@ -40,6 +40,7 @@ describe Diaspora do
       it "should send an owners post to their people" do
         q = Post.send(:class_variable_get, :@@queue)      
         q.should_receive :process
+        @user.post :status_message, :message => "hi" 
         @post.save
       end
     
