@@ -44,20 +44,7 @@ policy :diaspora, :roles => [:tom, :backer] do
   requires :scm
   requires :vim
 end
-=begin
 
-policy :ci, :roles => :ci do
-  requires :tools
-  requires :rubygems
-	requires :bundler
-  requires :diaspora_dependencies
-  requires :database
-  requires :webserver
-  requires :scm
-  #add sqlite
-end
-
-=end
 # Deployment
 #
 #  Defines script wide settings such as a delivery mechanism for executing commands on the target
