@@ -1,19 +1,18 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
+   before do
+      @user = Factory.create(:user)
+   end
 
   it "should be a person" do
     n = Person.count
     Factory.create(:user)
     Person.count.should == n+1
   end
-
+  
   describe 'friend requesting' do
-    before do
-      @user = Factory.create(:user)
-    end
-
-    it "should be able to accept a pending friend request" do
+     it "should be able to accept a pending friend request" do
       friend = Factory.create(:person)
       r = Request.instantiate(:to => @user.url, :from => friend)
       r.save
@@ -50,6 +49,35 @@ describe User do
       @user.terse_url.should == 'example.com'
     end
 
+    it 'should get the pending friends' do
+      person_one = Factory.create :person
+      person_two = Factory.create :person
+      @user.pending_friends.empty?.should be true
+      @user.friends.empty?.should be true
+
+      request = Request.instantiate(:to => @user.url, :from => person_one)
+      person_one.destroy
+      @user.receive_friend_request request
+      @user.pending_friends.size.should be 1
+      @user.friends.size.should be 0
+      
+      request_two = Request.instantiate(:to => @user.url, :from => person_two)
+      person_two.destroy
+      @user.receive_friend_request request_two
+      @user.pending_friends.size.should be 2
+      @user.friends.size.should be 0
+
+      @user.accept_friend_request request.id
+      @user.pending_friends.size.should be 1
+      @user.friends.size.should be 1
+ 
+      @user.ignore_friend_request request_two.id
+      @user.pending_friends.size.should be 0
+      @user.friends.size.should be 1
+    end
+  end
+
+  describe 'profiles' do
     it 'should be able to update their profile and send it to their friends' do 
       Factory.create(:person)
       
@@ -61,5 +89,4 @@ describe User do
       @user.profile.image_url.should == "http://clown.com"
     end
   end
-
 end

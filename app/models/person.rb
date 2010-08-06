@@ -93,7 +93,6 @@ class Person
   ##profile
   def update_profile(params)
     if self.update_attributes(params)
-      puts self.profile.class
       self.profile.notify_people!
       true
     else

@@ -138,7 +138,6 @@ class FakeHttpRequest
     @callback = callback_wanted
   end
   def response 
-    "NOTE YOU ARE IN FAKE HTTP"
   end
 
   def post; end

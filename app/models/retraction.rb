@@ -5,11 +5,15 @@ class Retraction
 
   def self.for(object)
     retraction = self.new
-    retraction.post_id= object.id
+    if object.is_a? User
+      retraction.post_id = object.person.id
+      retraction.type = object.person.class.to_s
+    else
+      retraction.post_id= object.id
+      retraction.type = object.class.to_s
+    end
     retraction.person_id = person_id_from(object)
-    retraction.type = object.class.to_s
     retraction
-
   end
 
   xml_accessor :post_id
@@ -23,6 +27,7 @@ class Retraction
   def perform
     begin
       return unless signature_valid?
+      Rails.logger.info("Retracting #{self.type} id: #{self.post_id}")
       self.type.constantize.destroy(self.post_id)
     rescue NameError
       Rails.logger.info("Retraction for unknown type recieved.")

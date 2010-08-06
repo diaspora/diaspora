@@ -32,17 +32,20 @@ class Request
     person = options[:from]
     self.new(:destination_url => options[:to], :callback_url => person.url, :person => person, :exported_key => person.export_key)
   end
+  
+
 
   def activate_friend 
     from_user = Person.first(:url => self.callback_url).owner
-    puts from_user.inspect
-    from_user.friends << from_user.pending_friends.delete(person)
+    from_user.pending_friends.delete(person)
+
+    from_user.friends << person
+    from_user.save
   end
   
   def set_pending_friend
     p = Person.first(:id => self.person.id)
     
-    puts p.inspect
     self.person.save  #save pending friend
     
   end

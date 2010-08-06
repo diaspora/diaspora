@@ -105,7 +105,6 @@ describe Diaspora::Parser do
       message = Factory.create(:status_message, :person => person)
       retraction = Retraction.for(message)
       request = Post.build_xml_for( [retraction] )
-      puts request
 
       StatusMessage.count.should == 1
       store_objects_from_xml( request )
@@ -141,11 +140,14 @@ describe Diaspora::Parser do
       @person.destroy
       request_remote.destroy
       store_objects_from_xml(xml)
-      Person.first(:url => @person.url).active.should be true
+      new_person = Person.first(:url => @person.url)
+      new_person.nil?.should be false
+      @user.reload
+      @user.friends.include?(new_person).should be true
     end
 
 
-    it 'should marshal a retraction for a person' do
+    it 'should process retraction for a person' do
       retraction = Retraction.for(@user)
       request = Retraction.build_xml_for( [retraction] )
 
@@ -169,7 +171,7 @@ describe Diaspora::Parser do
       xml = Post.build_xml_for(person.profile)
       reloaded_person = Person.first(:id => id)            
       reloaded_person.profile = nil
-      reloaded_person.profile.save
+      reloaded_person.save(:validate => false)
 
       #Make sure profile is cleared
       Person.first(:id => id).profile.should be nil    

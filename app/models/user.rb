@@ -8,7 +8,9 @@ class User
   key :pending_friend_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
+
   many :friends, :in => :friend_ids, :class_name => 'Person'
+  many :pending_friends, :in => :pending_friend_ids, :class_name => 'Person'
 
   before_validation_on_create :assign_key
   before_validation :do_bad_things
@@ -18,10 +20,6 @@ class User
 
   def method_missing(method, *args)
     self.person.send(method, *args)
-  end
-
-  def pending_friends
-    Person.all(:id => self.pending_friend_ids)
   end
 
 
@@ -38,13 +36,15 @@ class User
       if p.save
         p.push_to_url friend_url
       end
-      p
+      p 
     end
   end 
 
   def accept_friend_request(friend_request_id)
     request = Request.where(:id => friend_request_id).first
-    request.activate_friend
+    pending_friends.delete(request.person)
+    friends << request.person
+
     request.person = self
     request.exported_key = self.export_key
     request.destination_url = request.callback_url
@@ -55,7 +55,8 @@ class User
   def ignore_friend_request(friend_request_id)
     request = Request.first(:id => friend_request_id)
     person = request.person
-    person.destroy unless self.friends.include? person
+    pending_friends.delete(request.person)
+    person.destroy unless person.user_refs > 0
     request.destroy
   end
 
@@ -65,12 +66,12 @@ class User
     friend_request.person.serialized_key = friend_request.exported_key
     if Request.where(:callback_url => friend_request.callback_url).first
       friend_request.activate_friend
+      Rails.logger.info("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
       friend_request.person.save
-      
-      friend_request.create_pending_friend
-      
+      pending_friends << friend_request.person
+      Rails.logger.info("#{self.real_name} has received a friend request")
       friend_request.save
     end
   end

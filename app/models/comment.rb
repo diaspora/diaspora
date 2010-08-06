@@ -26,12 +26,10 @@ class Comment
   end
   
   def push_upstream
-    puts "Comment going upstream"
     push_to([post.person])
   end
 
   def push_downstream
-    puts "Comment going downstream"
     push_to(post.people_with_permissions)
   end
 
@@ -63,7 +61,6 @@ class Comment
 
   def verify_post_creator_signature
     unless person == User.owner
-      puts "verifying post creator sig from #{post.person.real_name}"
       verify_signature(post_creator_signature, post.person)
     else
       true

@@ -23,13 +23,12 @@ module Diaspora
         begin
           object = post.name.camelize.constantize.from_xml post.to_s
           if object.is_a? Retraction
-          elsif object.respond_to? :person  
-            object.person =  parse_owner_from_xml post.to_s 
           elsif object.is_a? Profile
-            puts "got into parse objects from xml PROFILE"
             person = parse_owner_id_from_xml post
             person.profile = object
             person.save  
+          elsif object.respond_to? :person  
+            object.person =  parse_owner_from_xml post.to_s 
           end
           objects << object
         rescue NameError => e
@@ -48,7 +47,7 @@ module Diaspora
       objects.each do |p|
         Rails.logger.info("Receiving object:\n#{p.inspect}")
         if p.is_a? Retraction
-          puts "Got a retraction for #{p.post_id}"
+          Rails.logger.info "Got a retraction for #{p.post_id}"
           p.perform
         elsif p.is_a? Request
           User.owner.receive_friend_request(p)
