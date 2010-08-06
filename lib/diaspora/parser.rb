@@ -22,7 +22,8 @@ module Diaspora
       body.children.each do |post|
         begin
           object = post.name.camelize.constantize.from_xml post.to_s
-          if object.respond_to? :person  
+          if object.is_a? Retraction
+          elsif object.respond_to? :person  
             object.person =  parse_owner_from_xml post.to_s 
           elsif object.is_a? Profile
             puts "got into parse objects from xml PROFILE"
@@ -31,8 +32,12 @@ module Diaspora
             person.save  
           end
           objects << object
-        rescue
-          Rails.logger.info "Not a real type: #{object.to_s}"
+        rescue NameError => e
+          if e.message.include? 'wrong constant name'
+            Rails.logger.info "Not a real type: #{object.to_s}"
+          else
+            raise e
+          end
         end
       end
       objects
@@ -43,6 +48,7 @@ module Diaspora
       objects.each do |p|
         Rails.logger.info("Receiving object:\n#{p.inspect}")
         if p.is_a? Retraction
+          puts "Got a retraction for #{p.post_id}"
           p.perform
         elsif p.is_a? Request
           User.owner.receive_friend_request(p)

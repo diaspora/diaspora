@@ -105,6 +105,7 @@ describe Diaspora::Parser do
       message = Factory.create(:status_message, :person => person)
       retraction = Retraction.for(message)
       request = Post.build_xml_for( [retraction] )
+      puts request
 
       StatusMessage.count.should == 1
       store_objects_from_xml( request )
