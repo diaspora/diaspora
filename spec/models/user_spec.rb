@@ -55,8 +55,7 @@ describe User do
       
       updated_profile = {:profile => {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com"}}
       
-      queue = Profile.send :class_variable_get, :@@queue
-      queue.should_receive(:process)
+      message_queue.should_receive(:process)
       
       @user.person.update_profile(updated_profile).should == true
       @user.profile.image_url.should == "http://clown.com"

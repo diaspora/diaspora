@@ -19,7 +19,7 @@ describe Photo do
     photo.image.read.nil?.should be false
   end
 
-  it 'should save a @photo to GridFS' do
+  it 'should save a photo to GridFS' do
     @photo.image.store! File.open(@fixture_name)
     @photo.save.should == true
     binary = @photo.image.read
@@ -92,7 +92,7 @@ describe Photo do
       stub_signature_verification
     end
 
-    it 'should save a signed @photo to GridFS' do
+    it 'should save a signed photo to GridFS' do
       photo  = Photo.create(:person => @user.person, :album => @album, :image => File.open(@fixture_name))
       photo.save.should == true
       photo.verify_creator_signature.should be true

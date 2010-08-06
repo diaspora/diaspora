@@ -38,10 +38,8 @@ describe Diaspora do
       end
 
       it "should send an owners post to their people" do
-        q = Post.send(:class_variable_get, :@@queue)      
-        q.should_receive :process
+        message_queue.should_receive :process
         @user.post :status_message, :message => "hi" 
-        @post.save
       end
     
       it "should check that it does not send a person's post to an owners people" do

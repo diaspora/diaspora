@@ -7,7 +7,7 @@ module Diaspora
         @@queue = MessageHandler.new
 
         def notify_people
-          if self.person_id == User.owner.person.id
+          unless self.person.owner.nil?
             push_to(people_with_permissions)
           end
         end
@@ -17,6 +17,7 @@ module Diaspora
         end
 
         def push_to(recipients)
+            puts "recipients are #{recipients.inspect}"
           unless recipients.empty?
             recipients.map!{|x| x = x.url + "receive/"}
             xml = Post.build_xml_for(self)

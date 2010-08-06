@@ -61,6 +61,7 @@ class Person
     if owns?(post)
       post.notify_people
     end
+    post
   end
 
   ######## Commenting  ########

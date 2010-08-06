@@ -36,8 +36,8 @@ describe 'user encryption' do
     @user.key.should_not be nil
   end
   describe 'key exchange on friending' do
-       it 'should send over a public key' do
-      Comment.send(:class_variable_get, :@@queue).stub!(:add_post_request)
+    it 'should send over a public key' do
+      message_queue.stub!(:add_post_request)
       request = @user.send_friend_request_to("http://example.com/")
       Request.build_xml_for([request]).include?( @user.export_key).should be true
     end

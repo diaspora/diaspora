@@ -25,7 +25,7 @@ describe Comment do
 
     it 'should not send out comments when we have no people' do
       status = Factory.create(:status_message, :person => @user.person)
-      Comment.send(:class_variable_get, :@@queue).should_not_receive(:add_post_request)
+      message_queue.should_not_receive(:add_post_request)
       @user.comment "sup dog", :on => status
     end
 
@@ -40,29 +40,28 @@ describe Comment do
       end
     
       it "should send a user's comment on a person's post to that person" do
-        Comment.send(:class_variable_get, :@@queue).should_receive(:add_post_request)
+        message_queue.should_receive(:add_post_request)
         @user.comment "yo", :on => @person_status
       end
     
       it 'should send a user comment on his own post to lots of people' do
         allowed_urls = @user_status.people_with_permissions.map!{|x| x = x.url + "receive/"}
         puts allowed_urls 
-        queue = Comment.send(:class_variable_get, :@@queue)
-        queue.should_receive(:add_post_request).with(allowed_urls, anything)
+        message_queue.should_receive(:add_post_request).with(allowed_urls, anything)
         @user.comment "yo", :on => @user_status
       end
     
       it 'should send a comment a person made on your post to all people' do
-        Comment.send(:class_variable_get, :@@queue).should_receive(:add_post_request)
+        message_queue.should_receive(:add_post_request)
         @person.comment "balls", :on => @user_status
       end
     
       it 'should not send a comment a person made on his own post to anyone' do
-        Comment.send(:class_variable_get, :@@queue).should_not_receive(:add_post_request)
+        message_queue.should_not_receive(:add_post_request)
         @person.comment "balls", :on => @person_status
       end
       it 'should not send a comment a person made on a person post to anyone' do
-        Comment.send(:class_variable_get, :@@queue).should_not_receive(:add_post_request)
+        message_queue.should_not_receive(:add_post_request)
         @person2.comment "balls", :on => @person_status
       end
     end

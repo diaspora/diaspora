@@ -4,10 +4,11 @@ describe 'SocketsController' do
   render_views  
   before do
     @user = Factory.create(:user)
-    @user.person.save 
     SocketsController.unstub!(:new)
     #EventMachine::WebSocket.stub!(:start)
     @controller = SocketsController.new
+    @controller.request = mock_model(Request, :env =>
+      {'warden' => mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)})
     stub_sockets_controller
   end
 
@@ -22,7 +23,7 @@ describe 'SocketsController' do
   end
   describe 'actionhash' do
     before do
-      @message = Factory.create(:status_message, :person => @user)
+      @message = @user.post :status_message, :message => "post through user for victory"
     end
 
     it 'should actionhash posts' do

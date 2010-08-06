@@ -71,3 +71,7 @@ end
     end
     models
   end
+
+  def message_queue
+    Post.send(:class_variable_get, :@@queue)
+  end
