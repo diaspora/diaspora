@@ -12,10 +12,10 @@ body {
 
 a {
   color: #018790;
-  text-decoration: none;
-  font-weight: bold; }
+  text-decoration: none; }
   a:hover {
-    color: #018790; }
+    color: white;
+    background-color: #018790; }
 
 #flash_notice,
 #flash_error,
@@ -377,7 +377,8 @@ h1.big_text {
 
 .back {
   position: absolute;
-  font-size: 12px; }
+  font-size: 12px;
+  font-weight: normal; }
 
 #content_bottom {
   position: relative;

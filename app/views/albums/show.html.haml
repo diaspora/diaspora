@@ -5,8 +5,8 @@
   = @album.name 
 
   -if mine? @album
-    .button.right#add_photos_button
-      = link_to 'Add Photos', '#'
+    .right#add_photos_button
+      = link_to 'Add Photos', '#', :class => "button"
 
     #add_photo_box.contextual_pane
       = render "photos/new_photo", :photo => @photo, :album => @album
@@ -26,5 +26,5 @@
   .back
     = link_to "⇧ albums", albums_path
   -if mine? @album
-    .button.right
-      = link_to 'Edit Album', edit_album_path(@album)
+    .right
+      = link_to 'Edit Album', edit_album_path(@album), :class => "button"
