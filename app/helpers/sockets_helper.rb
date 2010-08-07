@@ -13,7 +13,7 @@ module SocketsHelper
     begin
       v = render_to_string(:partial => type_partial(object), :locals => {:post => object}) unless object.is_a? Retraction
     rescue Exception => e
-      Rails.logger.error ("web socket view rendering failed for some reason." + v.inspect)
+      Rails.logger.error("web socket view rendering failed for some reason." + v.inspect)
       Rails.logger.error("Socketed object was #{object.inspect}")
       raise e 
     end
