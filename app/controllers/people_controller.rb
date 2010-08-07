@@ -7,7 +7,7 @@ class PeopleController < ApplicationController
       render :index
     else
       @people = Person.search_for_friends(params[:q])
-      render :xml => @people
+      render :json => @people.to_json(:only => :_id)
     end
   end
   
