@@ -16,7 +16,7 @@ class User
   before_validation :do_bad_things
   
   ######## Posting ########
-
+  delegate :email, :email=, :to => :person
 
   def method_missing(method, *args)
     self.person.send(method, *args)
