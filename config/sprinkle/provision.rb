@@ -35,7 +35,7 @@ require "#{File.dirname(__FILE__)}/packages/ruby"
 
 policy :diaspora, :roles => [:tom, :backer] do
 #  requires :clean_dreamhost
-#  requires :tools
+  requires :tools
   requires :rubygems
 	requires :bundler
   requires :diaspora_dependencies

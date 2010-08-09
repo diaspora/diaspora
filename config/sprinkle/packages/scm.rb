@@ -9,6 +9,7 @@ package :privkey do
   description 'checkout from github with it'
   transfer "#{File.dirname(__FILE__)}/../deploy_key/id_rsa", '/root/.ssh/id_rsa', :render => false do 
     pre :install, "rm -rf /root/.ssh/ && mkdir -p /root/.ssh/"
+    post :install, "chmod go-rwx /root/.ssh/id_rsa"
   end
 end
 
