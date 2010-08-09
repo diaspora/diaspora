@@ -1,4 +1,4 @@
-%li.message{:id => post.id, :class => ("mine" if mine?(post))}
+%li.message{:id => post.id, :class => ("mine" if current_user.owns?(post))}
 
   = person_image_tag(post.person)
 
@@ -15,6 +15,6 @@
     = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
   = render "comments/comments", :post => post 
 
-  - if mine?(post)
+  - if current_user.owns?(post)
     .destroy_link
       = link_to 'Delete', blog_path(post), :confirm => 'Are you sure?', :method => :delete, :remote=> true

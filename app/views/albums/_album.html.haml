@@ -1,4 +1,4 @@
-.album{:id => post.id, :class => ("mine" if mine?(post))}
+.album{:id => post.id, :class => ("mine" if current_user.owns?(post))}
 
   %div.name
     = link_to post.name, object_path(post)

@@ -1,4 +1,4 @@
-%li.message{:id => post.id, :class => ("mine" if mine?(post))}
+%li.message{:id => post.id, :class => ("mine" if current_user.owns?(post))}
   = person_image_link(post.person)
   = yield post_yield_tag(post)
   = = render type_partial(post), :post => post

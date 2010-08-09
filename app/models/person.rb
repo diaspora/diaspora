@@ -107,6 +107,7 @@ class Person
   end
 
   def owns?(post)
+    puts self.class
     self.id == post.person.id
   end
 

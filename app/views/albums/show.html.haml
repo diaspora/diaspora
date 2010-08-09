@@ -4,7 +4,7 @@
 
   = @album.name 
 
-  -if mine? @album
+  -if current_user.owns? @album
     .button.right#add_photos_button
       = link_to 'Add Photos', '#'
 
@@ -14,7 +14,7 @@
 .sub_header
   ="updated #{how_long_ago(@album)}"
 
--unless mine? @album
+-unless current_user.owns? @album
   %h4= "by #{@album.person.real_name}"
 
 #thumbnails
@@ -25,6 +25,6 @@
 #content_bottom
   .back
     = link_to "⇧ albums", albums_path
-  -if mine? @album
+  -if current_user.owns? @album
     .button.right
       = link_to 'Edit Album', edit_album_path(@album)

@@ -25,7 +25,7 @@
   #content_bottom
     .back
       = link_to "⇧ #{@album.name}", album_path(@album)
-    -if mine? @album
+    -if current_user.owns? @album
       .button.right
         = link_to 'Delete Photo', @photo, :confirm => 'Are you sure?', :method => :delete
 
