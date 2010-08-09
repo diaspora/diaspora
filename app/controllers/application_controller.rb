@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_friends_and_status
+    @groups = current_user.groups
     @friends = current_user.friends if current_user
     @latest_status_message = StatusMessage.newest_for(current_user) if current_user
   end

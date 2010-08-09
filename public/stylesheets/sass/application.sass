@@ -11,12 +11,14 @@ body
   :margin 0
 a
   :color #018790
+  :color #556270
   :text
     :decoration none
-  :font-weight bold
   &:hover
-    :color #018790
-
+    :color #fff
+    :background
+      :color #018790
+      :color #556270
 
 #flash_notice,
 #flash_error,
@@ -72,16 +74,19 @@ header
   :color #555
   :background
     :color #2B2726
+    :color #000
+    :color #fff
   :border
     :bottom 3px solid #333
   :padding 6px 0
     :top 0
 
   #diaspora_text
+    :margin
+      :bottom 1em
     :font
       :family 'BrandonGrotesqueLightRegular'
-      :size 24px
-    :position absolute
+      :size 16px
     :border none
     :color #fff
     :text
@@ -90,14 +95,11 @@ header
       :color #666
 
     span.sub_text
-      :color #000
       :text
         :shadow none
       
   #session_action
     :float right
-    :margin
-      :top 9px
     :text-shadow 0 1px 0 #000
     a
       :color #777
@@ -121,13 +123,12 @@ header
 ul#stream, ul#friend_stream
   :margin 0
   :padding 0
-  :color #666
   > li
     :list-style none
     :padding 15px 0
-    :border
-      :bottom 1px solid #f1f1f1
     :margin-bottom 5px
+    :border
+      :bottom 1px solid #eee
 
 ul#friend_stream
   > li
@@ -181,11 +182,11 @@ h3
     :weight bold
 
 form
+  :position relative
   :font
     :size 120%
   :margin 1em
-  :margin-left 0em
-
+    :left 0em
   
 #user_name
   :margin
@@ -366,6 +367,8 @@ label
   :position absolute
   :top 3px
   :left 0.48em
+  :font
+    :weight normal
 
 #publisher
   :background
@@ -465,7 +468,7 @@ h1.big_text
   :position relative
   :line-height auto
   :border
-    :top 2px solid #666
+    //:top 2px solid #666
     :bottom 1px solid #666
   :text
     :align center
@@ -479,6 +482,7 @@ h1.big_text
   :position absolute
   :font
     :size 12px
+    :weight normal
 
 #content_bottom
   :position relative
@@ -528,3 +532,46 @@ h1.big_text
 .image_cycle
   img
     :display none
+
+#group
+  :color #333
+  ul
+    :margin 0
+    :padding 0
+    :font
+      :size 14px
+    > li
+      :display inline
+      :margin
+        :right 10px
+      
+      &.selected, &.selected a
+        :color #fff
+        :color #000
+        :font
+          :weight bold
+          :size 18px
+
+  a
+    :color #333
+    :font
+      :weight normal
+
+  #friend_pictures
+    .add_new
+      :position relative
+      :display inline-block
+      :height 40px
+      :width 40px
+      :background
+        :color #222
+      :text-align center
+      :font-size 40px
+      a
+        :display block
+        :position absolute
+        :top -13px
+        :left 7px
+    img
+      :display none
+      :height 40px

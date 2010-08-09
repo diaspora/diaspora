@@ -12,6 +12,8 @@ class User
   many :friends, :in => :friend_ids, :class_name => 'Person'
   many :pending_friends, :in => :pending_friend_ids, :class_name => 'Person'
 
+  many :groups, :class_name => 'Group'
+
   before_validation_on_create :assign_key
   before_validation :do_bad_things
   
@@ -28,9 +30,14 @@ class User
     "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
   
+  ######### Groups ######################
 
+  def group( opts = {} )
+    opts[:user] = self
+    Group.create(opts)
+  end
 
-  ######### Friend Requesting
+  ######### Friend Requesting ###########
   def send_friend_request_to(friend_url)
     unless self.friends.find{ |x| x.url == friend_url}
       p = Request.instantiate(:to => friend_url, :from => self.person)

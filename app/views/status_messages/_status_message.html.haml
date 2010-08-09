@@ -14,4 +14,4 @@
 
   - if current_user.owns?(post)
     .destroy_link
-      = link_to 'Delete', status_message_path(post), :confirm => 'Are you sure?', :method => :delete, :remote => true
+      = link_to 'Delete', status_message_path(post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete"

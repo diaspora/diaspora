@@ -5,21 +5,22 @@
 
   :display inline
 
-  :color #777
+  :padding 4px
+
   :font-size 12px
   :line-height 100%
 
   :text-shadow 0 1px 0 #fff
 
-  :min-height 14px
+  :min-height 10px
 
-  :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#FAFAFA), to(#E0E0E0))
-  :background -moz-linear-gradient(top, #FAFAFA, #E0E0E0)
+  :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#FCFCFC), to(#F6F6F6))
+  :background -moz-linear-gradient(top, #FCFCFC, #F6F6F6)
 
-  :border 1px solid #ccc
-    :bottom 1px solid #666
-    :left 1px solid #999
-    :right 1px solid #999
+  :border 1px solid #EEE
+    :bottom 1px solid #999
+    :left 1px solid #ccc
+    :right 1px solid #ccc
 
   :border-radius 3px
   :-moz-border-radius 3px
@@ -27,28 +28,31 @@
 
   :cursor pointer
 
+  :box-shadow 0 1px 1px #eee
+  :-webkit-box-shadow 0 1px 1px #eee
+  :-moz-box-shadow 0 1px 1px #eee
 
-  :box-shadow 0 1px 1px #ccc
-  :-webkit-box-shadow 0 1px 1px #ccc
-  :-moz-box-shadow 0 1px 1px #ccc
+  :font-weight normal
 
-  a
-    :font-weight normal
-    :color #777
+  :color #666
 
-
-.button
-  :padding 5px
+  &:hover
+    :color #666
+    :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#FAFAFA), to(#F0F0F0))
+    :background -moz-linear-gradient(top, #FAFAFA, #F0F0F0)
 
   &:active
-    :box-shadow 0 0px 2px #000
-    :-webkit-box-shadow 0 0px 2px #000
-    :-moz-box-shadow 0 0px 2px #000
-    :color #555
+    :color #666
+    :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#F0F0F0), to(#FAFAFA))
+    :background -moz-linear-gradient(top, #F0F0F0, #FAFAFA)
+    :border
+      :top 1px solid #ccc
 
 ul.button_set
 
-  :padding 5px 0
+  :padding
+    :left 0
+    :right 0
 
   > li
     :padding 5px
@@ -75,8 +79,8 @@ ul.button_set
         :right none
 
 .button .selected, .button_set .selected
-  :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#E0E0E0), to(#FAFAFA))
-  :background -moz-linear-gradient(top, #e0e0e0, #fafafa)
+  :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#F0F0F0), to(#FAFAFA))
+  :background -moz-linear-gradient(top, #F0F0F0, #fafafa)
 
   :border
     :top 1px solid #aaa

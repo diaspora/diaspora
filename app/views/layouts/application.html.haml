@@ -10,9 +10,8 @@
     = stylesheet_link_tag "application", "ui", 'bubble'
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'google'
-    = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel'
-    = javascript_include_tag 'jquery.cycle/jquery.cycle.min.js'
-    = javascript_include_tag 'view', 'publisher', 'image_picker'
+    = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel', 'jquery.cycle/jquery.cycle.min.js'
+    = javascript_include_tag 'view', 'publisher', 'image_picker', 'group_nav'
     = render 'js/websocket_js'
     
     = csrf_meta_tag
@@ -41,6 +40,9 @@
             = link_to "logout", destroy_user_session_path
           - else
             = link_to "login", new_user_session_path
+        
+        = render "shared/group_nav"
+
 
     .container
       - if user_signed_in?
@@ -62,12 +64,6 @@
 
     .container
       .span-24.last
-        .span-20.append-1.last
-
-          = yield
-
-        .span-3.last
-          = render 'people/sidebar' if user_signed_in?
-
-        .span-24.last
-          = render "posts/debug"
+        = yield
+      .span-24.last
+        = render "posts/debug"
