@@ -9,9 +9,10 @@ module SocketsHelper
     {:host => ""}
   end
 
-  def action_hash(object)
+  def action_hash(uid, object)
     begin
-      v = render_to_string(:partial => type_partial(object), :locals => {:post => object}) unless object.is_a? Retraction
+      user = User.first(:id => uid)
+      v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
     rescue Exception => e
       Rails.logger.error("web socket view rendering failed for object #{object.inspect}.")
       raise e 

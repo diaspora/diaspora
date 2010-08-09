@@ -76,7 +76,10 @@ protected
   end
 
   def send_to_view
-    SocketsController.new.outgoing(self)
+    people_with_permissions.each{|f|
+      SocketsController.new.outgoing(f.owner_id, self) if f.owner_id
+    }
+    SocketsController.new.outgoing(person.owner_id, self) if person.owner_id
   end
   
   def remove_from_view

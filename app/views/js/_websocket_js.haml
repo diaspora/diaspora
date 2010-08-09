@@ -7,7 +7,9 @@
     $(document).ready(function(){
       function debug(str){ $("#debug").append("<p>" +  str); };
 
-      ws = new WebSocket("ws://#{request.host}:8080/");
+      ws = new WebSocket("ws://#{request.host}:8080/#{CGI::escape(current_user.id.to_s)}");
+
+    //Attach onmessage to websocket
       ws.onmessage = function(evt) {
         var obj = jQuery.parseJSON(evt.data);
         debug("got a " + obj['class']);
