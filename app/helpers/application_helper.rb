@@ -31,7 +31,9 @@ module ApplicationHelper
     end
   end
 
-  def link_to_person(person)
+  def link_to_person(user)
+    person = user.person
+    puts person.inspect
     link_to person.real_name, person_path(person)
   end
 

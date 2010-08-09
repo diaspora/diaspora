@@ -9,7 +9,8 @@
 require 'config/environment'
 
 # Create seed user
-user = User.create(  :password => "evankorth", 
+user = User.create( :email => "robert@joindiaspora.com",
+                   :password => "evankorth", 
                   :person => Person.create(
                     :email => "robert@joindiaspora.com",
                     :url => "http://localhost:3000/",
