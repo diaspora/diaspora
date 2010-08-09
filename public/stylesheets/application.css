@@ -70,6 +70,7 @@ header {
   color: #555555;
   background-color: #2b2726;
   background-color: black;
+  background-color: white;
   border-bottom: 3px solid #333333;
   padding: 6px 0;
     padding-top: 0; }
@@ -436,6 +437,7 @@ h1.big_text {
       margin-right: 10px; }
       #group ul > li.selected, #group ul > li.selected a {
         color: white;
+        color: black;
         font-weight: bold;
         font-size: 18px; }
   #group a {
