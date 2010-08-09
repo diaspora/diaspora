@@ -66,7 +66,7 @@ class User
     
     friend_request.person.serialized_key = friend_request.exported_key
     if Request.where(:callback_url => friend_request.callback_url).first
-      friend_request.activate_friend
+      activate_friend friend_request.person
       Rails.logger.info("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
@@ -97,6 +97,11 @@ class User
     else
       raise "you can't do anything to that url"
     end
+  end
+  
+  def activate_friend (person)
+    friends << person
+    save
   end
 
   
