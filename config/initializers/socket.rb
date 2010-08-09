@@ -26,17 +26,26 @@ module WebSocket
   
   def self.push_to_user(uid, data)
     puts "Pushing to #{uid}"
-    @channels[uid.to_s].push(data) if @channels[uid.to_s]
+    @channels[uid.to_s][0].push(data) if @channels[uid.to_s]
   end
   
   def self.subscribe(uid, ws)
     puts "Subscribing #{uid}"
-    @channels[uid] ||= EM::Channel.new
-    @channels[uid].subscribe{ |msg| ws.send msg }
+    self.ensure_channel(uid)
+    @channels[uid][0].subscribe{ |msg| ws.send msg }
+    @channels[uid][1] += 1
+  end
+
+  def self.ensure_channel(uid)
+    @channels[uid] ||= [EM::Channel.new, 0 ]
   end
 
   def self.unsubscribe(uid,sid)
-    @channels[uid].unsubscribe(sid) if @channels[uid]
+    @channels[uid][0].unsubscribe(sid) if @channels[uid]
+    @channels[uid][1] -= 1
+    if @channels[uid][1] <= 0
+      @channels[uid] = nil
+    end
   end
   
 end
