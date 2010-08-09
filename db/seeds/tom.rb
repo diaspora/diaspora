@@ -18,3 +18,10 @@ user = User.create( :email => "tom@tom.joindiaspora.com",
                   )
 user.person.save
 
+user2 = User.create( :email => "korth@tom.joindiaspora.com",
+                    :password => "evankorth",
+                    :person => Person.new( :email => "korth@tom.joindiaspora.com",
+                                          :url => "http://tom.joindiaspora.com/", 
+                                          :profile => Profile.new( :first_name => "Evan",
+                                                                  :last_name => "Korth")))
+user2.person.save

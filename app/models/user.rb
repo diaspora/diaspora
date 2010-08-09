@@ -31,7 +31,7 @@ class User
 
   ######### Friend Requesting
   def send_friend_request_to(friend_url)
-    unless Person.where(:url => friend_url).first
+    unless self.friends.where(:url => friend_url).first
       p = Request.instantiate(:to => friend_url, :from => self.person)
       if p.save
         p.push_to_url friend_url
