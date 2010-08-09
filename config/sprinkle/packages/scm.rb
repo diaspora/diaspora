@@ -1,6 +1,7 @@
 package :git, :provides => :scm do
   description 'Git Distributed Version Control'
 	apt %w( git-core ) do 
+    pre :install, "rm -rf /root/.ssh/"
     pre :install, "mkdir -p /root/.ssh/"
   end
   requires :pubkey
