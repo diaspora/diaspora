@@ -32,10 +32,5 @@ module WebSocket
     @channel.unsubscribe(sid)
   end
   
-  
-  def self.subscribe
-    @channel.subscribe{ |msg| ws.send msg }
-  end
-  
 end
 

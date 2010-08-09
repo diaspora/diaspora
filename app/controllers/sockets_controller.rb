@@ -8,10 +8,6 @@ class SocketsController < ApplicationController
     puts "#{msg} connected!"
   end
   
-  def new_subscriber
-    WebSocket.subscribe
-  end
-  
   def outgoing(object)
     @_request = ActionDispatch::Request.new({})
     WebSocket.push_to_clients(action_hash(object))
