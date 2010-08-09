@@ -23,9 +23,9 @@ def warzombie
 
   def zombiefriends
     render :nothing => true
-    backer_info
+    bkr_info  = backer_info
     if User.owner.email == "tom@tom.joindiaspora.com" && Person.friends.first.nil? 
-      backer_info.each do |backer|
+      bkr_info.each do |backer|
         logger.info "Zombefriending #{backer['given_name']} #{backer['family_name']}"
         User.owner.send_friend_request_to("http://#{backer['username']}.joindiaspora.com/")
       end

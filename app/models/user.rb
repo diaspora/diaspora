@@ -42,7 +42,8 @@ class User
 
   def accept_friend_request(friend_request_id)
     request = Request.where(:id => friend_request_id).first
-    pending_friends.delete(request.person)
+    n = pending_friends.delete(request.person)
+    
     friends << request.person
     save
 
