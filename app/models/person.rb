@@ -40,16 +40,16 @@ class Person
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
 
-  def key
+  def encryption_key
     OpenSSL::PKey::RSA.new( serialized_key )
   end
 
-  def key= new_key
+  def encryption_key= new_key
     raise TypeError unless new_key.class == OpenSSL::PKey::RSA
     serialized_key = new_key.export
   end
   def export_key
-    key.public_key.export
+    encryption_key.public_key.export
   end
 
 
@@ -107,7 +107,6 @@ class Person
   end
 
   def owns?(post)
-    puts self.class
     self.id == post.person.id
   end
 

@@ -10,7 +10,7 @@
       if person.nil?
         Rails.logger.info("Verifying sig on #{signable_string} but no person is here")
         return false
-      elsif person.key.nil?
+      elsif person.encryption_key.nil?
         Rails.logger.info("Verifying sig on #{signable_string} but #{person.real_name} has no key")
         return false
       elsif signature.nil?
@@ -18,14 +18,14 @@
         return false
       end
       Rails.logger.info("Verifying sig on #{signable_string} from person #{person.real_name}")
-      validity = person.key.verify "SHA", Base64.decode64(signature), signable_string
+      validity = person.encryption_key.verify "SHA", Base64.decode64(signature), signable_string
       Rails.logger.info("Validity: #{validity}")
       validity
     end
     
     protected
     def sign_if_mine
-      self.creator_signature = sign_with_key(person.key) unless person.owner_id.nil?
+      self.creator_signature = sign_with_key(person.encryption_key) unless person.owner_id.nil?
     end
 
     def sign_with_key(key)

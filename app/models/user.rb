@@ -15,7 +15,8 @@ class User
   before_validation_on_create :assign_key
   before_validation :do_bad_things
   
-  ######## Posting ########
+  ######## Making things work ########
+
   key :email, String
 
   def method_missing(method, *args)

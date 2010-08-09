@@ -71,7 +71,7 @@ class Comment
   protected
    def sign_if_my_post
     unless self.post.person.owner.nil?
-      self.post_creator_signature = sign_with_key self.post.person.key
+      self.post_creator_signature = sign_with_key self.post.person.encryption_key
     end
   end 
  

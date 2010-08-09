@@ -33,7 +33,7 @@ describe 'user encryption' do
     #keys.each{|k| ctx.delete_key(k, true)}
   end
   it 'should have a key' do
-    @user.key.should_not be nil
+    @user.encryption_key.should_not be nil
   end
   describe 'key exchange on friending' do
     it 'should send over a public key' do
@@ -44,7 +44,7 @@ describe 'user encryption' do
 
     it 'should receive and marshal a public key from a request' do
       person = Factory.build(:person, :url => "http://test.url/" )
-      person.key.nil?.should== false
+      person.encryption_key.nil?.should== false
       #should move this to friend request, but i found it here 
       id = person.id
       original_key = person.export_key
@@ -78,7 +78,7 @@ describe 'user encryption' do
     
     it 'should verify a remote signature' do 
       message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = message.send(:sign_with_key,@person.key)
+      message.creator_signature = message.send(:sign_with_key,@person.encryption_key)
       message.save(:validate => false)
       message.verify_creator_signature.should be true
     end
@@ -86,14 +86,14 @@ describe 'user encryption' do
     it 'should know if the signature is from the wrong person' do
       message = Factory.build(:status_message, :person => @person)
       message.save(:validate => false)
-      message.creator_signature = message.send(:sign_with_key,@person.key)
+      message.creator_signature = message.send(:sign_with_key,@person.encryption_key)
       message.person = @user
       message.verify_creator_signature.should be false
     end
    
     it 'should know if the signature is for the wrong text' do
       message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = message.send(:sign_with_key,@person.key)
+      message.creator_signature = message.send(:sign_with_key,@person.encryption_key)
       message.message = 'I love VENISON'
       message.save(:validate => false)
       message.verify_creator_signature.should be false
@@ -121,7 +121,7 @@ describe 'user encryption' do
   describe 'comments' do
     before do
       @remote_message = Factory.build(:status_message, :person => @person)
-      @remote_message.creator_signature = @remote_message.send(:sign_with_key,@person.key)
+      @remote_message.creator_signature = @remote_message.send(:sign_with_key,@person.encryption_key)
       @remote_message.save 
       @message = @user.post :status_message, :message => "hi"
     end
@@ -139,17 +139,17 @@ describe 'user encryption' do
     
     it 'should verify a comment made on a remote post by a different friend' do
       comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-      comment.creator_signature = comment.send(:sign_with_key,@person2.key)
+      comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
       comment.verify_creator_signature.should be true
       comment.valid?.should be false
-      comment.post_creator_signature = comment.send(:sign_with_key,@person.key)
+      comment.post_creator_signature = comment.send(:sign_with_key,@person.encryption_key)
       comment.verify_post_creator_signature.should be true
       comment.valid?.should be true
     end
 
     it 'should reject comments on a remote post with only a creator sig' do
         comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-        comment.creator_signature = comment.send(:sign_with_key,@person2.key)
+        comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
         comment.verify_creator_signature.should be true
         comment.verify_post_creator_signature.should be false
         comment.save.should be false
@@ -157,7 +157,7 @@ describe 'user encryption' do
 
     it 'should receive remote comments on a user post with a creator sig' do
         comment = Comment.new(:person => @person2, :text => "balls", :post => @message)
-        comment.creator_signature = comment.send(:sign_with_key,@person2.key)
+        comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
         comment.save.should be true
     end
 
