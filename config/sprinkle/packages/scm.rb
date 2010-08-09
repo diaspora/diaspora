@@ -1,12 +1,8 @@
 package :git, :provides => :scm do
   description 'Git Distributed Version Control'
-	apt %w( git-core ) do 
-    pre :install, "rm -rf /root/.ssh/"
-    pre :install, "mkdir -p /root/.ssh/"
-  end
+	apt %w( git-core )
   requires :pubkey
-  requires :privkey
-  requires :known_hosts
+
 end
 
 package :privkey do
@@ -15,7 +11,11 @@ package :privkey do
 end
 
 package :pubkey do
-  transfer "#{File.dirname(__FILE__)}/../deploy_key/id_rsa.pub", '/root/.ssh/id_rsa.pub', :render => false 
+  transfer "#{File.dirname(__FILE__)}/../deploy_key/id_rsa.pub", '/root/.ssh/id_rsa.pub', :render => false  do 
+    pre :install, "mkdir -p /root/.ssh/"
+  requires :privkey
+  requires :known_hosts
+  end
 end
 
 package :known_hosts do
