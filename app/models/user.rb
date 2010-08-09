@@ -32,7 +32,7 @@ class User
 
   ######### Friend Requesting
   def send_friend_request_to(friend_url)
-    unless Person.where(:url => friend_url).first
+    unless self.friends.find{ |x| x.url == friend_url}
       p = Request.instantiate(:to => friend_url, :from => self.person)
       if p.save
         p.push_to_url friend_url
@@ -43,10 +43,12 @@ class User
 
   def accept_friend_request(friend_request_id)
     request = Request.where(:id => friend_request_id).first
-    pending_friends.delete(request.person)
+    n = pending_friends.delete(request.person)
+    
     friends << request.person
+    save
 
-    request.person = self
+    request.person = self.person
     request.exported_key = self.export_key
     request.destination_url = request.callback_url
     request.push_to_url(request.callback_url)
@@ -66,12 +68,13 @@ class User
     
     friend_request.person.serialized_key = friend_request.exported_key
     if Request.where(:callback_url => friend_request.callback_url).first
-      friend_request.activate_friend
+      activate_friend friend_request.person
       Rails.logger.info("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
       friend_request.person.save
       pending_friends << friend_request.person
+      save
       Rails.logger.info("#{self.real_name} has received a friend request")
       friend_request.save
     end
@@ -96,6 +99,11 @@ class User
     else
       raise "you can't do anything to that url"
     end
+  end
+  
+  def activate_friend (person)
+    friends << person
+    save
   end
 
   

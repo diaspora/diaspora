@@ -2,14 +2,15 @@ class PeopleController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @people = Person.friends.paginate :page => params[:page], :order => 'created_at DESC'
+    @people = current_user.friends.paginate :page => params[:page], :order => 'created_at DESC'
   end
   
   def show
     @person= Person.where(:id => params[:id]).first
+  
     @person_profile = @person.profile
     @person_posts = Post.where(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
-    @latest_status_message = StatusMessage.newest(@person)
+    @latest_status_message = StatusMessage.newest_for(@person)
     @post_count = @person_posts.count
   end
   
