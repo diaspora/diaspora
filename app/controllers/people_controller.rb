@@ -2,7 +2,13 @@ class PeopleController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @people = Person.friends.paginate :page => params[:page], :order => 'created_at DESC'
+    unless params[:q]
+      @people = Person.friends.paginate :page => params[:page], :order => 'created_at DESC'
+      render :index
+    else
+      @people = Person.search_for_friends(params[:q])
+      render :json => @people.to_json(:only => :_id)
+    end
   end
   
   def show
