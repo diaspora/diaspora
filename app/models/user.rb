@@ -46,7 +46,7 @@ class User
     friends << request.person
     save
 
-    request.person = self
+    request.person = self.person
     request.exported_key = self.export_key
     request.destination_url = request.callback_url
     request.push_to_url(request.callback_url)
