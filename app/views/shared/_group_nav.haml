@@ -3,7 +3,10 @@
     - for group in @groups
       %li= link_to group.name, group_path(group)
 
-    %li.new_group= link_to "NEW GROUP", new_group_path
+    %li#add_group_button.new_group= link_to "NEW GROUP", "#"
+
+    #add_group_pane.contextual_pane
+      = render "groups/new_group"
 
   #friend_pictures
     - for friend in @friends

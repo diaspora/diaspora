@@ -31,12 +31,6 @@ module ApplicationHelper
     end
   end
 
-  def link_to_person(user)
-    person = user.person
-    puts person.inspect
-    link_to person.real_name, person_path(person)
-  end
-
   def owner_image_tag
     person_image_tag(User.owner)
   end

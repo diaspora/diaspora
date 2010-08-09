@@ -81,21 +81,19 @@ $(document).ready(function(){
   });
 
   //buttons//////
-  $("#add_photos_button").toggle(
+  function pane_toggler_button( name ) {
+    $("#add_" + name + "_button").toggle(
     function(){
-      $("#add_photo_box").fadeIn(300);
+      $("#add_" + name + "_pane").fadeIn(300);
     },function(){
-      $("#add_photo_box").fadeOut(200);
+      $("#add_" + name +"_pane").fadeOut(200);
     }
   );
+  }
 
-  $("#add_album_button").toggle(
-    function(){
-      $("#add_album_box").fadeIn(300);
-    },function(){
-      $("#add_album_box").fadeOut(200);
-    }
-  );
+  pane_toggler_button("album");
+  pane_toggler_button("group");
+  pane_toggler_button("photo");
 
   $("input[type='submit']").addClass("button");
 
