@@ -25,6 +25,7 @@
 #content_bottom
   .back
     = link_to "⇧ albums", albums_path
+
   -if current_user.owns? @album
     .button.right
       = link_to 'Edit Album', edit_album_path(@album)

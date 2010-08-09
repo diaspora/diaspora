@@ -21,15 +21,7 @@ $(document).ready(function(){
 			var show_comments_toggle = $(this).parent().prev().children(".show_post_comments");
 			show_comments_toggle.html("hide comments ("+ ($(this).children().length - 1) + ")");
 		};
-	  });
-
-	$('a').hover(function(){
-    if( $(this).children("img").length < 1 )
-      $(this).fadeTo(60, 0.5);
-	}, function(){
-    if( $(this).children("img").length < 1 )
-      $(this).fadeTo(80, 1);
-	});
+  });
 
 	$('#debug_info').click(function() {
 		$('#debug_more').toggle('fast', function() {
@@ -115,5 +107,8 @@ $(document).ready(function(){
     $(this).fadeIn("slow");
   });
 
+  $(".delete").hover(function(){
+    $(this).toggleClass("button");
+  });
 
 });//end document ready

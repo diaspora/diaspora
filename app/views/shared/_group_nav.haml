@@ -1,0 +1,14 @@
+#group
+  %ul
+    %li.other_presidents= link_to "OTHER PRESIDENTS", root_path(:g => "other_presidents")
+    %li.ostatus= link_to "OSTATUS", ostatus_path(:g => "ostatus")
+    %li.new_circle= link_to "NEW CIRCLE", "#"
+
+  #friend_pictures
+    - for friend in @friends
+      = person_image_link(friend)
+
+    -for author in @subscribed_persons
+      = link_to (image_tag author.avatar_thumbnail, :class => "person_picture"), author_path(author)
+    .add_new
+      = link_to "+", requests_path
