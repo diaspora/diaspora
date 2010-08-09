@@ -18,7 +18,7 @@ class PublicsController < ApplicationController
   end
   
   def receive
-    Rails.logger.info "PublicsController has received: #{params[:xml]}"
+    Rails.logger.debug "PublicsController has received: #{params[:xml]}"
     store_objects_from_xml params[:xml]
     render :nothing => true
   end

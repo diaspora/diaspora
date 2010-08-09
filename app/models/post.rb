@@ -59,10 +59,10 @@ class Post
   end
   
   def log_inspection
-    Rails.logger.info self.inspect
+    Rails.logger.debug self.inspect
   end
   def log_save_inspection
-    Rails.logger.info "After saving, object is:"
+    Rails.logger.debug "After saving, object is:"
     log_inspection
   end
 

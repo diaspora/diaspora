@@ -25,13 +25,12 @@ module WebSocket
   end
   
   def self.push_to_user(uid, data)
-    puts @channels.size
-    Rails.logger.info "Pushing to #{uid}"
+    Rails.logger.debug "Websocketing to #{uid}"
     @channels[uid.to_s][0].push(data) if @channels[uid.to_s]
   end
   
   def self.subscribe(uid, ws)
-    puts "Subscribing socket to #{User.first(:id => uid).email}"
+    Rails.logger.debug "Subscribing socket to #{User.first(:id => uid).email}"
     self.ensure_channel(uid)
     @channels[uid][0].subscribe{ |msg| ws.send msg }
     @channels[uid][1] += 1
@@ -42,11 +41,11 @@ module WebSocket
   end
 
   def self.unsubscribe(uid,sid)
-    puts "Unsubscribing socket #{sid} from #{User.first(:id => uid).email}"
+    Rails.logger.debug "Unsubscribing socket #{sid} from #{User.first(:id => uid).email}"
     @channels[uid][0].unsubscribe(sid) if @channels[uid]
     @channels[uid][1] -= 1
     if @channels[uid][1] <= 0
-      @channels[uid] = nil
+      @channels.delete(uid)
     end
   end
   

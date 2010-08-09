@@ -64,18 +64,18 @@ class User
   end
 
   def receive_friend_request(friend_request)
-    Rails.logger.info("receiving friend request #{friend_request.to_json}")
+    Rails.logger.debug("receiving friend request #{friend_request.to_json}")
     
     friend_request.person.serialized_key = friend_request.exported_key
     if Request.where(:callback_url => friend_request.callback_url).first
       activate_friend friend_request.person
-      Rails.logger.info("#{self.real_name}'s friend request has been accepted")
+      Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
       friend_request.person.save
       pending_friends << friend_request.person
       save
-      Rails.logger.info("#{self.real_name} has received a friend request")
+      Rails.logger.debug("#{self.real_name} has received a friend request")
       friend_request.save
     end
   end
