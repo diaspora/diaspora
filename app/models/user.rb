@@ -44,6 +44,7 @@ class User
     request = Request.where(:id => friend_request_id).first
     pending_friends.delete(request.person)
     friends << request.person
+    save
 
     request.person = self
     request.exported_key = self.export_key
