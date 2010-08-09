@@ -37,7 +37,6 @@ class Request
 
   def activate_friend 
     from_user = Person.first(:url => self.callback_url).owner
-    from_user.pending_friends.delete(person)
 
     from_user.friends << person
     from_user.save

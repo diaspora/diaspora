@@ -71,6 +71,7 @@ class User
     else
       friend_request.person.save
       pending_friends << friend_request.person
+      save
       Rails.logger.info("#{self.real_name} has received a friend request")
       friend_request.save
     end
