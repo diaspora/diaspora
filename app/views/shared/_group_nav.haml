@@ -8,9 +8,10 @@
     #add_group_pane.contextual_pane
       = render "groups/new_group"
 
-  #friend_pictures
-    - for friend in @group.people
-      = person_image_link(friend)
+  - if @group
+    #friend_pictures
+      - for friend in @group.people
+        = person_image_link(friend)
 
     #add_request_button.add_new
       = link_to "+", "#"
