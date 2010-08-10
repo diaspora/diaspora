@@ -118,7 +118,17 @@ class User
 
   
   ###Helpers############
-
+  def self.instantiate( opts = {} )
+    User.create(
+      :email => opts[:email],
+      :password => opts[:password],
+      :password_confirmation => opts[:password_confirmation],
+      :person => Person.new(
+        :email => opts[:email],
+        :profile => Profile.new(
+          :first_name => opts[:first_name],
+          :last_name => opts[:last_name])))
+  end
 
   def terse_url
     terse= self.url.gsub(/https?:\/\//, '')
