@@ -27,7 +27,7 @@ class Retraction
   def perform
     begin
       return unless signature_valid?
-      Rails.logger.info("Retracting #{self.type} id: #{self.post_id}")
+      Rails.logger.debug("Retracting #{self.type} id: #{self.post_id}")
       self.type.constantize.destroy(self.post_id)
     rescue NameError
       Rails.logger.info("Retraction for unknown type recieved.")

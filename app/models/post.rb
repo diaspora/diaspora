@@ -59,10 +59,10 @@ class Post
   end
   
   def log_inspection
-    Rails.logger.info self.inspect
+    Rails.logger.debug self.inspect
   end
   def log_save_inspection
-    Rails.logger.info "After saving, object is:"
+    Rails.logger.debug "After saving, object is:"
     log_inspection
   end
 
@@ -76,7 +76,10 @@ protected
   end
 
   def send_to_view
-    SocketsController.new.outgoing(self)
+    people_with_permissions.each{|f|
+      SocketsController.new.outgoing(f.owner_id, self) if f.owner_id
+    }
+    SocketsController.new.outgoing(person.owner_id, self) if person.owner_id
   end
   
   def remove_from_view

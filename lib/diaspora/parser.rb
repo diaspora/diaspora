@@ -45,16 +45,16 @@ module Diaspora
     def store_objects_from_xml(xml, user)
       objects = parse_objects_from_xml(xml)
       objects.each do |p|
-        Rails.logger.info("Receiving object:\n#{p.inspect}")
+        Rails.logger.debug("Receiving object:\n#{p.inspect}")
         if p.is_a? Retraction
-          Rails.logger.info "Got a retraction for #{p.post_id}"
+          Rails.logger.debug "Got a retraction for #{p.post_id}"
           p.perform
         elsif p.is_a? Request
           user.receive_friend_request(p)
         elsif p.is_a? Profile
           p.save
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) 
-          Rails.logger.info("Saving object with success: #{p.save}")
+          Rails.logger.debug("Saving object with success: #{p.save}")
         end
       end
     end

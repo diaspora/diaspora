@@ -3,8 +3,8 @@
     = link_to "⇧ #{@album.name}", album_path(@album)
   = @photo.image
 
-  .button.right
-    = link_to 'Edit Photo', edit_photo_path(@photo)
+  .right
+    = link_to 'Edit Photo', edit_photo_path(@photo), :class => "button"
 
 .sub_header
   = link_to "full size", @photo.image.url
@@ -25,6 +25,7 @@
   #content_bottom
     .back
       = link_to "⇧ #{@album.name}", album_path(@album)
+
     -if current_user.owns? @album
       .button.right
         = link_to 'Delete Photo', @photo, :confirm => 'Are you sure?', :method => :delete

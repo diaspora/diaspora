@@ -1,0 +1,6 @@
+= form_for Group.new do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    = f.text_field :name
+  = f.submit 'create', :class => 'button'

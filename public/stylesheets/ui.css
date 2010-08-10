@@ -2,38 +2,39 @@
   font-family: "Lucida Grande", sans-serif;
   font-style: normal;
   display: inline;
-  color: #777777;
+  padding: 4px;
   font-size: 12px;
   line-height: 100%;
   text-shadow: 0 1px 0 white;
-  min-height: 14px;
-  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#fafafa), to(#e0e0e0));
-  background: -moz-linear-gradient(top, #fafafa, #e0e0e0);
-  border: 1px solid #cccccc;
-    border-bottom: 1px solid #666666;
-    border-left: 1px solid #999999;
-    border-right: 1px solid #999999;
+  min-height: 10px;
+  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#fcfcfc), to(#f6f6f6));
+  background: -moz-linear-gradient(top, #fcfcfc, #f6f6f6);
+  border: 1px solid #eeeeee;
+    border-bottom: 1px solid #999999;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   cursor: pointer;
-  box-shadow: 0 1px 1px #cccccc;
-  -webkit-box-shadow: 0 1px 1px #cccccc;
-  -moz-box-shadow: 0 1px 1px #cccccc; }
-  .button a, .button_set a {
-    font-weight: normal;
-    color: #777777; }
-
-.button {
-  padding: 5px; }
-  .button:active {
-    box-shadow: 0 0px 2px black;
-    -webkit-box-shadow: 0 0px 2px black;
-    -moz-box-shadow: 0 0px 2px black;
-    color: #555555; }
+  box-shadow: 0 1px 1px #eeeeee;
+  -webkit-box-shadow: 0 1px 1px #eeeeee;
+  -moz-box-shadow: 0 1px 1px #eeeeee;
+  font-weight: normal;
+  color: #666666; }
+  .button:hover, .button_set:hover {
+    color: #666666;
+    background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#fafafa), to(#f0f0f0));
+    background: -moz-linear-gradient(top, #fafafa, #f0f0f0); }
+  .button:active, .button_set:active {
+    color: #666666;
+    background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#f0f0f0), to(#fafafa));
+    background: -moz-linear-gradient(top, #f0f0f0, #fafafa);
+    border-top: 1px solid #cccccc; }
 
 ul.button_set {
-  padding: 5px 0; }
+  padding-left: 0;
+  padding-right: 0; }
   ul.button_set > li {
     padding: 5px;
     display: inline;
@@ -50,8 +51,8 @@ ul.button_set {
       border-right: none; }
 
 .button .selected, .button_set .selected {
-  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#e0e0e0), to(#fafafa));
-  background: -moz-linear-gradient(top, #e0e0e0, #fafafa);
+  background: -webkit-gradient(linear, 0% 29%, 0% 85%, from(#f0f0f0), to(#fafafa));
+  background: -moz-linear-gradient(top, #f0f0f0, #fafafa);
   border-top: 1px solid #aaaaaa; }
 
 .right {

@@ -12,10 +12,13 @@ class User
   many :friends, :in => :friend_ids, :class_name => 'Person'
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
 
+  many :groups, :class_name => 'Group'
+
   before_validation_on_create :assign_key
   before_validation :do_bad_things
   
-  ######## Posting ########
+  ######## Making things work ########
+
   key :email, String
 
   def method_missing(method, *args)
@@ -27,9 +30,14 @@ class User
     "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
   
+  ######### Groups ######################
 
+  def group( opts = {} )
+    opts[:user] = self
+    Group.create(opts)
+  end
 
-  ######### Friend Requesting
+  ######### Friend Requesting ###########
   def send_friend_request_to(friend_url)
 
     unless self.friends.detect{ |x| x.url == friend_url}
@@ -67,20 +75,18 @@ class User
   end
 
   def receive_friend_request(friend_request)
-
-    puts friend_request.inspect
-    Rails.logger.info("receiving friend request #{friend_request.to_json}")
+    Rails.logger.debug("receiving friend request #{friend_request.to_json}")
     
     friend_request.person.serialized_key = friend_request.exported_key
     if Request.where(:callback_url => friend_request.callback_url).first
       activate_friend friend_request.person
-      Rails.logger.info("#{self.real_name}'s friend request has been accepted")
+      Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
       friend_request.person.save
       pending_requests << friend_request
       save
-      Rails.logger.info("#{self.real_name} has received a friend request")
+      Rails.logger.debug("#{self.real_name} has received a friend request")
       friend_request.save
     end
   end

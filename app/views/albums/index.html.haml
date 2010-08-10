@@ -2,8 +2,8 @@
   .back
     = link_to "⇧ home", root_path
   Albums
-  .button.right#add_album_button
-    = link_to 'New Album', "#"
+  .right#add_album_button
+    = link_to 'New Album', "#", :class => "button"
 
   #add_album_box.contextual_pane
     = render "albums/new_album"

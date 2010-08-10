@@ -41,11 +41,9 @@ class Photo < Post
   end
 
   def remote_photo= remote_path
-    Rails.logger.info("Setting remote photo with id #{id}")
     @remote_photo = remote_path
     image.download! remote_path
     image.store!
-    Rails.logger.info("Setting remote photo with id #{id}")
   end
 
   def ensure_user_picture
