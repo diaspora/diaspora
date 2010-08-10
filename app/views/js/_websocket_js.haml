@@ -64,6 +64,7 @@
 
       function processStatusMessage(className, html, messageHash){
         processPost(className, html);
+        console.log(messageHash)
         if(messageHash['mine?']){
           updateMyLatestStatus(messageHash);
         }

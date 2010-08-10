@@ -25,4 +25,20 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+
+  def create
+    @user = User.new(params[:user])
+
+    if @user.save!
+      flash[:notice] = "Successfully signed up."
+      redirect_to root_path
+    else
+      render :action => 'new'
+    end
+  end
+
+  def new
+    @user = User.new
+  end
+  
 end
