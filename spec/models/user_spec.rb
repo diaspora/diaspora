@@ -15,8 +15,10 @@ describe User do
     user = User.instantiate(:email => "bob@bob.com",
                             :password => "password",
                             :password_confirmation => "password",
-                            :first_name => "bob",
-                            :last_name => "grimm")
+                            :person => 
+                              {:profile => {
+                                :first_name => "bob",
+                                :last_name => "grimm"}})
 
     user.save.should be true
     user.person.should_not be nil
