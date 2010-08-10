@@ -1,13 +1,20 @@
 #group
   %ul
     - for group in @groups
-      %li= link_to group.name, group_path(group)
+      %li= link_to group.name, root_path(:group =>group.id)
 
-    %li.new_group= link_to "NEW GROUP", new_group_path
+    %li#add_group_button.new_group= link_to "NEW GROUP", "#"
 
-  #friend_pictures
-    - for friend in @friends
-      = person_image_link(friend)
+    #add_group_pane.contextual_pane
+      = render "groups/new_group"
 
-    .add_new
-      = link_to "+", requests_path
+  - if @group
+    #friend_pictures
+      - for friend in @group.people
+        = person_image_link(friend)
+
+    #add_request_button.add_new
+      = link_to "+", "#"
+
+    #add_request_pane.contextual_pane
+      = render "requests/new_request"

@@ -25,8 +25,8 @@ describe Post do
       (5..8).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @user.person)}
       (9..11).each { |n| Blog.create(:title => "title #{n}",:body => "test #{n}", :person => @person_two)}
 
-      Factory.create(:status_message)
-      Factory.create(:bookmark)
+      Factory.create(:status_message, :person => @user)
+      Factory.create(:bookmark, :person => @user)
     end
   
     it "should give the most recent blog title and body from owner" do

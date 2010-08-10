@@ -13,28 +13,24 @@ describe 'SocketsController' do
   end
 
   it 'should unstub the websockets' do
-      WebSocket.initialize_channel
+      WebSocket.initialize_channels
       @controller.class.should == SocketsController
   end
   
-  it 'should add a new subscriber to the websockets channel' do
-      WebSocket.initialize_channel
-      @controller.new_subscriber.should == 1
-  end
   describe 'actionhash' do
     before do
       @message = @user.post :status_message, :message => "post through user for victory"
     end
 
     it 'should actionhash posts' do
-      json = @controller.action_hash(@message)
+      json = @controller.action_hash(@user.id, @message)
       json.include?(@message.message).should be_true
       json.include?('status_message').should be_true
     end
 
     it 'should actionhash retractions' do
       retraction = Retraction.for @message
-      json = @controller.action_hash(retraction)
+      json = @controller.action_hash(@user.id, retraction)
       json.include?('retraction').should be_true
       json.include?("html\":null").should be_true
     end

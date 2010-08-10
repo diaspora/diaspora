@@ -39,7 +39,13 @@ module Diaspora
         end
 
         def people_with_permissions
-          self.person.owner.friends.all
+          begin
+          friends = self.person.owner.friends
+          friends ||= []
+          rescue
+            Rails.logger.fatal("IOUASDVJOISDNVPOIJSDVOUIDSGPUOID")
+            []
+          end
         end
 
         def self.build_xml_for(posts)
