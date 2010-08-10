@@ -3,8 +3,11 @@ class PublicsController < ApplicationController
   include Diaspora::Parser
   
   def hcard
-    @user = User.owner
-    render 'hcard'
+    @person = Person.first(:_id => params[:id])
+
+    unless @person.nil? || @person.owner.nil?
+      render 'hcard'
+    end
   end
 
   def host_meta
@@ -13,8 +16,10 @@ class PublicsController < ApplicationController
   end
 
   def webfinger
-    @user = Person.first(:email => params[:q].gsub('acct:', ''))
-    render 'webfinger', :layout => false, :content_type => 'application/xrd+xml'
+    @person = Person.first(:email => params[:q].gsub('acct:', ''))
+    unless @person.nil? || @person.owner.nil?
+      render 'webfinger', :layout => false, :content_type => 'application/xrd+xml'
+    end
   end
   
   def receive

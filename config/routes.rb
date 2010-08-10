@@ -24,13 +24,13 @@ Diaspora::Application.routes.draw do |map|
    #match 'signup', :to => 'devise/registrations#new', :as => "new_user_registration"
   resources :users
   
-  
   #public routes
-  match 'receive/users/:id',     :to => 'publics#receive'
-  match '.well-known/host-meta',:to => 'publics#host_meta'
-  match 'webfinger',            :to => 'publics#webfinger'
-  match 'hcard',                :to => 'publics#hcard'
-          
+  #
+  match 'webfinger', :to => 'publics#webfinger'
+  match 'users/:id/hcard',    :to => 'publics#hcard'
+
+  match '.well-known/host-meta',:to => 'publics#host_meta'        
+  match 'receive/users/:id',     :to => 'publics#receive'    
   #root
   root :to => 'dashboards#index'
 end

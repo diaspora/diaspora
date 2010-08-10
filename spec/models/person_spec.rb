@@ -4,6 +4,8 @@ describe Person do
   before do
     @person = Factory.create(:person)
   end
+
+
   it 'should not allow two people with the same email' do
     person_two = Factory.build(:person, :url => @person.email)
     person_two.valid?.should == false
