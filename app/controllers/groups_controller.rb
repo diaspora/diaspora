@@ -1,12 +1,16 @@
 class GroupsController < ApplicationController
   before_filter :authenticate_user!
 
+  def index
+    @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
+  end
+
   def create
     @group = current_user.group(params[:group])
     
     if @group.created_at
       flash[:notice] = "Successfully created group."
-      redirect_to root_url
+      redirect_to @group
     else
       render :action => 'new'
     end
@@ -24,7 +28,10 @@ class GroupsController < ApplicationController
   end
   
   def show
+    @people_ids = @group.people.map {|p| p.id}
+    @posts = Post.paginate :person_id => @people_ids, :order => 'created_at DESC'
     @group = Group.first(:id => params[:id])
+    render :index
   end
 
   def edit

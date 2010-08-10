@@ -32,5 +32,5 @@ Diaspora::Application.routes.draw do |map|
   match 'hcard',                :to => 'publics#hcard'
           
   #root
-  root :to => 'dashboards#index'
+  root :to => 'groups#index'
 end
