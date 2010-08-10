@@ -109,7 +109,7 @@ class Person
     self.id == post.person.id
   end
 
-  def recieve_url
+  def receive_url
     "#{self.url}user/#{self.id}"
   end
 
