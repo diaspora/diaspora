@@ -77,7 +77,7 @@ class User
   def receive_friend_request(friend_request)
     Rails.logger.debug("receiving friend request #{friend_request.to_json}")
     
-    if Request.where(:callback_url => person.url, :destination_url => person.url).first
+    if Request.where(:callback_url => person.receive_url, :destination_url => person.receive_url).first
       activate_friend friend_request.person
       Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
