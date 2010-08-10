@@ -9,13 +9,13 @@
     #add_group_pane.contextual_pane
       = render "groups/new_group"
 
-  #friend_pictures
-    - if @group
+  - if @group
+    #friend_pictures
       - for friend in @group.people
         = person_image_link(friend)
 
-    #add_request_button.add_new
-      = link_to "+", "#"
+      #add_request_button.add_new
+        = link_to "+", "#"
 
-    #add_request_pane.contextual_pane
-      = render "requests/new_request"
+      #add_request_pane.contextual_pane
+        = render "requests/new_request"
