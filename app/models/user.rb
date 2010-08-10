@@ -120,6 +120,7 @@ class User
   ###Helpers############
   def self.instantiate( opts = {} )
     opts[:person][:email] = opts[:email]
+    opts[:person][:serialized_key] = generate_key
     User.create( opts)
   end
 
@@ -145,6 +146,10 @@ class User
   end
 
   def generate_key
+    OpenSSL::PKey::RSA::generate 1024 
+  end
+
+  def self.generate_key
     OpenSSL::PKey::RSA::generate 1024 
   end
 
