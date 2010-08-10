@@ -5,7 +5,7 @@ module PhotosHelper
   end
 
   def link_to_prev(photo, album)
-    link_to "<< previous", photo_path(album.prev_photo(photo)), :rel => "prefetch"
+    link_to "<< prev", photo_path(album.prev_photo(photo)), :rel => "prefetch"
   end
 
   def link_to_next(photo, album)
