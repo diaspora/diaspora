@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:new, :create]
 
-  before_filter :authenticate_user!
   def index
     @users = User.sort(:created_at.desc).all
   end
@@ -27,9 +27,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-
-    if @user.save!
+    @user = User.instantiate(params[:user])
+   
+    if @user.created_at && @user.person.created_at 
       flash[:notice] = "Successfully signed up."
       redirect_to root_path
     else

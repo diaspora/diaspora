@@ -11,6 +11,20 @@ describe User do
     Person.count.should == n+1
   end
   
+  it 'should instantiate with a person and be valid' do
+    user = User.instantiate(:email => "bob@bob.com",
+                            :password => "password",
+                            :password_confirmation => "password",
+                            :person => 
+                              {:profile => {
+                                :first_name => "bob",
+                                :last_name => "grimm"}})
+
+    user.save.should be true
+    user.person.should_not be nil
+    user.person.profile.should_not be nil
+  end
+
   describe 'friend requesting' do
      it "should be able to accept a pending friend request" do
       friend = Factory.create(:person)
