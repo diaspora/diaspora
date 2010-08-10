@@ -4,6 +4,8 @@ describe Group do
   before do
     @user = Factory.create(:user)
     @friend = Factory.create(:person)
+    @user2 = Factory.create(:user)
+    @friend_2 = Factory.create(:person)
   end
 
   describe 'creation' do
@@ -11,6 +13,27 @@ describe Group do
       group = @user.group(:name => 'losers')
       group.name.should == "losers"
     end
+
+    it 'should be able to have people' do
+      group = @user.group(:name => 'losers', :people => [@friend, @friend_2])
+      group.people.size.should == 2
+    end
+
+    it 'should be able to have other users' do
+      group = @user.group(:name => 'losers', :people => [@user2.person])
+      group.people.include?(@user.person).should be false
+      group.people.include?(@user2.person).should be true 
+      group.people.size.should == 1
+    end   
+
+    it 'should be able to have users and people' do
+      group = @user.group(:name => 'losers', :people => [@user2.person, @friend_2])
+      group.people.include?(@user.person).should be false
+      group.people.include?(@user2.person).should be true 
+      group.people.include?(@friend_2).should be true 
+      group.people.size.should == 2
+    end
+
   end
   
   describe 'querying' do

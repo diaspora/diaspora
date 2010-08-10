@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
       @groups = current_user.groups 
       @friends = current_user.friends
       @latest_status_message = StatusMessage.newest_for(current_user)
-      @group = params[:group] ? Group.first(:id => params[:group]) : Group.first
+      @group = params[:group] ? current_user.groups.first(:id => params[:group]) : current_user.groups.first 
     end
   end
 

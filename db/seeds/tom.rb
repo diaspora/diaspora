@@ -24,4 +24,15 @@ user2 = User.create( :email => "korth@tom.joindiaspora.com",
                                           :url => "http://tom.joindiaspora.com/", 
                                           :profile => Profile.new( :first_name => "Evan",
                                                                   :last_name => "Korth")))
+
 user2.person.save
+
+# friending users
+user.friends << user2.person
+user.group(:name => "other dudes", :people => [user2.person])
+user.save
+
+user2.friends << user.person
+user2.group(:name => "some dudes", :people => [user.person])
+user2.save
+

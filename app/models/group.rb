@@ -3,7 +3,9 @@ class Group
   
   key :name, String
 
-  many :people, :class_name => 'Person'
+  key :person_ids, Array
+
+  many :people, :in => :person_ids, :class_name => 'Person'
   belongs_to :user, :class_name => 'User'
 
   timestamps!
