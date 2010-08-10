@@ -5,12 +5,12 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
          
   key :friend_ids, Array
-  key :pending_friend_ids, Array
+  key :pending_request_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends, :in => :friend_ids, :class_name => 'Person'
-  many :pending_friends, :in => :pending_friend_ids, :class_name => 'Person'
+  many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
 
   before_validation_on_create :assign_key
   before_validation :do_bad_things
@@ -31,9 +31,12 @@ class User
 
   ######### Friend Requesting
   def send_friend_request_to(friend_url)
-    unless self.friends.find{ |x| x.url == friend_url}
+
+    unless self.friends.detect{ |x| x.url == friend_url}
       p = Request.instantiate(:to => friend_url, :from => self.person)
       if p.save
+        self.pending_requests << p
+        self.save
         p.push_to_url friend_url
       end
       p 
@@ -42,7 +45,7 @@ class User
 
   def accept_friend_request(friend_request_id)
     request = Request.where(:id => friend_request_id).first
-    n = pending_friends.delete(request.person)
+    n = pending_requests.delete(request)
     
     friends << request.person
     save
@@ -57,12 +60,15 @@ class User
   def ignore_friend_request(friend_request_id)
     request = Request.first(:id => friend_request_id)
     person = request.person
-    pending_friends.delete(request.person)
+    pending_requests.delete(request)
+    save
     person.destroy unless person.user_refs > 0
     request.destroy
   end
 
   def receive_friend_request(friend_request)
+
+    puts friend_request.inspect
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
     
     friend_request.person.serialized_key = friend_request.exported_key
@@ -72,7 +78,7 @@ class User
       friend_request.destroy
     else
       friend_request.person.save
-      pending_friends << friend_request.person
+      pending_requests << friend_request
       save
       Rails.logger.info("#{self.real_name} has received a friend request")
       friend_request.save

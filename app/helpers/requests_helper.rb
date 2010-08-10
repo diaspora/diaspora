@@ -29,7 +29,6 @@ module RequestsHelper
     f = Redfinger.finger(identifier)
     action = subscription_mode(f)
     url = subscription_url(action, f)
-    
     { action => url }
   end
 

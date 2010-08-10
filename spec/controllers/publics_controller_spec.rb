@@ -10,15 +10,38 @@ describe PublicsController do
   end
 
   describe 'receive endpoint' do
+    it 'should have a and endpoint and return a 200 on successful receipt of a request' do
+      post :receive, :id =>@user.id
+      response.code.should == '200'
+    end
+    
+    it 'should accept a post from another node and save the information' do
 
-    it 'should accept a post from anohter node and save the information' do
-      
       person = Factory.create(:person)
       message = StatusMessage.new(:message => 'foo', :person => person)
-      StatusMessage.all.count.should == 0
-      post :receive, {:xml => Post.build_xml_for(message)}
-      StatusMessage.all.count.should == 1
+      StatusMessage.all.count.should be 0
+      post :receive, :id => @user.id, :xml => Post.build_xml_for(message)
+      StatusMessage.all.count.should be 1
     end
+  end
+
+
+
+  it 'should save  requests for the specified user (LOCAL)' do 
+    @user2 = Factory.create(:user)
+    @user2.person.save
+
+    req = Request.instantiate(:from => @user2.person, :to => @user.person.url)
+    xml = Request.build_xml_for [req]
+    
+    puts xml
+    
+
+    req.delete
+    post :receive, :id =>@user.id, :xml => xml
+    
+    @user2.pending_requests.count.should be 1
+    @user.pending_requests.count.should be 1
   end
 
 end

@@ -42,7 +42,7 @@ module Diaspora
       objects
     end
 
-    def store_objects_from_xml(xml)
+    def store_objects_from_xml(xml, user)
       objects = parse_objects_from_xml(xml)
       objects.each do |p|
         Rails.logger.info("Receiving object:\n#{p.inspect}")
@@ -50,7 +50,7 @@ module Diaspora
           Rails.logger.info "Got a retraction for #{p.post_id}"
           p.perform
         elsif p.is_a? Request
-          User.owner.receive_friend_request(p)
+          user.receive_friend_request(p)
         elsif p.is_a? Profile
           p.save
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) 

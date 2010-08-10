@@ -25,7 +25,7 @@ Diaspora::Application.routes.draw do |map|
   
   
   #public routes
-  match 'receive',              :to => 'publics#receive'
+  match 'receive/users/:id',     :to => 'publics#receive'
   match '.well-known/host-meta',:to => 'publics#host_meta'
   match 'webfinger',            :to => 'publics#webfinger'
   match 'hcard',                :to => 'publics#hcard'

@@ -39,6 +39,10 @@ describe User do
 
     it 'should not be able to friend request an existing friend' do
       friend = Factory.create(:person)
+      
+      @user.friends << friend
+      @user.save
+
 
       @user.send_friend_request_to( friend.url ).should be nil
     end
@@ -52,27 +56,27 @@ describe User do
     it 'should get the pending friends' do
       person_one = Factory.create :person
       person_two = Factory.create :person
-      @user.pending_friends.empty?.should be true
+      @user.pending_requests.empty?.should be true
       @user.friends.empty?.should be true
 
       request = Request.instantiate(:to => @user.url, :from => person_one)
       person_one.destroy
       @user.receive_friend_request request
-      @user.pending_friends.size.should be 1
+      @user.pending_requests.size.should be 1
       @user.friends.size.should be 0
       
       request_two = Request.instantiate(:to => @user.url, :from => person_two)
       person_two.destroy
       @user.receive_friend_request request_two
-      @user.pending_friends.size.should be 2
+      @user.pending_requests.size.should be 2
       @user.friends.size.should be 0
 
       @user.accept_friend_request request.id
-      @user.pending_friends.size.should be 1
+      @user.pending_requests.size.should be 1
       @user.friends.size.should be 1
  
       @user.ignore_friend_request request_two.id
-      @user.pending_friends.size.should be 0
+      @user.pending_requests.size.should be 0
       @user.friends.size.should be 1
     end
   end

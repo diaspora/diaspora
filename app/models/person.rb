@@ -5,7 +5,6 @@ class Person
   xml_accessor :_id
   xml_accessor :email
   xml_accessor :url
-  xml_accessor :serialized_key
   xml_accessor :profile, :as => Profile
   
   
@@ -107,7 +106,6 @@ class Person
   end
 
   def owns?(post)
-    puts self.class
     self.id == post.person.id
   end
 
