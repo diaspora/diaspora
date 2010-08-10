@@ -83,9 +83,11 @@ $(document).ready(function(){
   //buttons//////
   function pane_toggler_button( name ) {
     $("#add_" + name + "_button").toggle(
-    function(){
+    function(evt){
+      evt.preventDefault();
       $("#add_" + name + "_pane").fadeIn(300);
-    },function(){
+    },function(evt){
+      evt.preventDefault();
       $("#add_" + name +"_pane").fadeOut(200);
     }
   );
@@ -94,6 +96,7 @@ $(document).ready(function(){
   pane_toggler_button("album");
   pane_toggler_button("group");
   pane_toggler_button("photo");
+  pane_toggler_button("request");
 
   $("input[type='submit']").addClass("button");
 

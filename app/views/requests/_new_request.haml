@@ -1,8 +1,10 @@
-= form_for @request  do |f|
+= form_for Request.new do |f|
   = f.error_messages
+
 
   Enter a Diaspora URL, Diaspora username, or random email address:  
   .field_with_submit
     = f.text_field :destination_url
+    = f.hidden_field :group, :value => @group.id
     = f.submit
 
