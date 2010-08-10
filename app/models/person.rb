@@ -5,7 +5,6 @@ class Person
   xml_accessor :_id
   xml_accessor :email
   xml_accessor :url
-  xml_accessor :serialized_key
   xml_accessor :profile, :as => Profile
   
   
@@ -29,7 +28,7 @@ class Person
 
   before_validation :clean_url
 
-  validates_presence_of :email, :url, :serialized_key, :profile
+  validates_presence_of :email, :url, :profile, :serialized_key 
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
