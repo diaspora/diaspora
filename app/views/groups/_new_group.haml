@@ -1,6 +1,8 @@
+%h1 Add a new group
 = form_for Group.new do |f|
   = f.error_messages
   %p
     = f.label :name
     = f.text_field :name
-  = f.submit 'create', :class => 'button'
+    .right
+      = f.submit 'create', :class => 'button'

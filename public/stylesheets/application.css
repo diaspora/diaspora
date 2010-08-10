@@ -439,7 +439,6 @@ h1.big_text {
       margin-right: 10px; }
       #group ul > li.selected, #group ul > li.selected a {
         color: white;
-        color: black;
         font-weight: bold;
         font-size: 18px; }
   #group a {

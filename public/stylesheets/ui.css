@@ -64,23 +64,11 @@ ul.button_set {
   z-index: 20;
   position: absolute;
   display: none;
-  right: 0;
-  background-color: rgba(30, 30, 30, 0.95);
-  border: 2px solid #999999;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  color: #999999;
-  font-size: 12px;
-  font-weight: normal;
-  line-height: auto; }
-  .contextual_pane form {
-    margin: 0;
-    padding: 10px;
-    color: #999999; }
-    .contextual_pane form input[type='text'] {
-      width: 80%;
-      display: block; }
-    .contextual_pane form p {
-      padding: 10px;
-      display: inline; }
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: 0 0 5px black;
+  -webkit-box-shadow: 0 0 10px black;
+  padding: 2em; }

@@ -5,8 +5,8 @@ class UsersController < ApplicationController
     @users = User.sort(:created_at.desc).all
   end
   def show
-    @user= Person.first(:id => params[:id])
-    @user_profile = @user.profile
+    @user= User.first(:id => params[:id])
+    @user_profile = @user.person.profile
   end
 
   def edit
