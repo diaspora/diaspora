@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
+
  
 describe PublicsController do
  render_views
@@ -37,7 +38,7 @@ describe PublicsController do
       req.delete
     end
 
-    it 'should save  requests for the specified user (LOCAL)' do 
+    it 'should save requests for the specified user (LOCAL)' do 
       post :receive, :id => @user.person.id, :xml => @xml
       
       @user.reload
