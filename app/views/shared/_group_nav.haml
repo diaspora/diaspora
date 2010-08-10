@@ -1,8 +1,8 @@
 #group
   %ul
     - for group in @groups
-      %li{:class => ("selected" if group.id.to_s == params[:group])}
-        = link_to group.name, root_path(:group =>group.id)
+      %li{:class => ("selected" if group.id.to_s == params[:id])}
+        = link_to group.name, group
 
     %li#add_group_button.new_group= link_to "NEW GROUP", "#"
 

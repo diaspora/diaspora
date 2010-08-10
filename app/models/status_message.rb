@@ -22,7 +22,7 @@ class StatusMessage < Post
   end
   
   def latest_hash
-    {:mine? => self.person == User.owner, :text => message}
+    { :text => message}
   end
 end
 

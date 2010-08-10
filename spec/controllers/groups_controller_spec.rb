@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 include ApplicationHelper 
-describe DashboardsController do
+describe GroupsController do
  render_views
   before do
     @user = Factory.create(:user)
