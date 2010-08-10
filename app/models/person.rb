@@ -110,7 +110,7 @@ class Person
   end
 
   def recieve_url
-    "#{self.url}user/#{self.owner.id}"
+    "#{self.url}user/#{self.id}"
   end
 
   protected
