@@ -74,8 +74,12 @@ class Comment
       self.post_creator_signature = sign_with_key self.post.person.encryption_key
     end
   end 
- 
+
   def send_to_view
-    SocketsController.new.outgoing(self)
+    people_with_permissions.each{|f|
+      SocketsController.new.outgoing(f.owner_id, self) if f.owner_id
+    }
+    SocketsController.new.outgoing(person.owner_id, self) if person.owner_id
   end
+
 end
