@@ -77,12 +77,14 @@ class User
   def receive_friend_request(friend_request)
     Rails.logger.debug("receiving friend request #{friend_request.to_json}")
     
-    friend_request.person.serialized_key = friend_request.exported_key
-    if Request.where(:callback_url => friend_request.callback_url).first
+    #u am originator
+    if Request.where(:callback_url => person.url, :destination_url => person.url).first
+      puts "NOOO!!"
       activate_friend friend_request.person
       Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
+      puts "423423"
       friend_request.person.save
       pending_requests << friend_request
       save

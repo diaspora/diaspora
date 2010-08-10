@@ -122,6 +122,7 @@ describe Diaspora::Parser do
       store_objects_from_xml(xml, @user)
       Person.all.count.should be 2
 
+      Person.first(:_id => original_person_id).serialized_key.include?("PUBLIC").should be true
       Person.where(:url => request.callback_url).first.id.should == original_person_id
     end
     
@@ -138,6 +139,9 @@ describe Diaspora::Parser do
       Person.all.count.should be 3
       
       @user2.reload
+      @user2.person.reload
+      puts @user2.inspect
+      puts @user2.person.inspect
       @user2.person.serialized_key.include?("PRIVATE").should be true
 
       Person.where(:url => request.callback_url).first.id.should == original_person_id

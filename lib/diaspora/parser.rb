@@ -16,6 +16,13 @@ module Diaspora
       Person.first(:id => id)
     end
 
+    def get_or_create_person_object_from_xml(doc)
+      person_xml = doc.xpath("//request/person").to_s
+      person_id = doc.xpath("//request/person/_id").text.to_s
+      person = Person.first(:_id => person_id)
+      person ? person : Person.from_xml( person_xml)
+    end
+
     def parse_objects_from_xml(xml)
       objects = []
       body = parse_body_contents_from_xml(xml)
@@ -28,15 +35,15 @@ module Diaspora
             person.profile = object
             person.save  
           elsif object.is_a? Request
-            person_string = Nokogiri::XML(xml) { |cfg| cfg.noblanks }.xpath("/XML/posts/post/request/person").to_s
-            person = Person.from_xml person_string
+            person = get_or_create_person_object_from_xml(post)
             person.serialized_key ||= object.exported_key
             object.person = person
             object.person.save
-
+            object.save
           elsif object.respond_to? :person  
             object.person =  parse_owner_from_xml post.to_s 
           end
+
           objects << object
         rescue NameError => e
           if e.message.include? 'wrong constant name'
@@ -56,8 +63,12 @@ module Diaspora
         if p.is_a? Retraction
           Rails.logger.debug "Got a retraction for #{p.post_id}"
           p.perform
+          
         elsif p.is_a? Request
+          puts user.pending_requests.count
           user.receive_friend_request(p)
+          puts user.pending_requests.count
+
         elsif p.is_a? Profile
           p.save
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) 
