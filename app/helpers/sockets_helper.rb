@@ -5,9 +5,9 @@ module SocketsHelper
     (object.is_a? Post) ? object.id : object.post_id
   end
   
-  def url_options
-    {:host => ""}
-  end
+  #def url_options
+  #  {:host => ""}
+  #end
 
   def action_hash(uid, object)
     begin

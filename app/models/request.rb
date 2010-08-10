@@ -25,12 +25,12 @@ class Request
 
   before_validation :clean_link
 
-  scope :for_user, lambda{ |user| where(:destination_url => user.url) }
-  scope :from_user, lambda{ |user| where(:destination_url.ne => user.url) }
+  scope :for_user, lambda{ |user| where(:destination_url => user.receive_url) }
+  scope :from_user, lambda{ |user| where(:destination_url.ne => user.receive_url) }
 
   def self.instantiate(options = {})
     person = options[:from]
-    self.new(:destination_url => options[:to], :callback_url => person.url, :person => person, :exported_key => person.export_key)
+    self.new(:destination_url => options[:to], :callback_url => person.receive_url, :person => person, :exported_key => person.export_key)
   end
   
 

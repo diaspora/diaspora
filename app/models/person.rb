@@ -109,8 +109,8 @@ class Person
     self.id == post.person.id
   end
 
-  def recieve_url
-    "#{self.url}user/#{self.owner.id}"
+  def receive_url
+    "#{self.url}receive/users/#{self.id}/"
   end
 
   protected
