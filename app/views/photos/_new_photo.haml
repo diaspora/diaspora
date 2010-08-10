@@ -20,7 +20,9 @@
     });
   });
 
-%h1= "Add photos to #{album.name}"
+%h1
+  Add photos to
+  %i= album.name
 = form_for photo, :html => {:multipart => true} do |f|
   = f.error_messages
   = f.hidden_field :album_id, :value => album.id
