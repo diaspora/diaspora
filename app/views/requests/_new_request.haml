@@ -1,4 +1,6 @@
-%h1= "Add a new friend to #{@group.name}"
+%h1
+  Add a new friend to
+  %i= @group.name
 
 = form_for Request.new do |f|
   = f.error_messages

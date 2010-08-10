@@ -357,7 +357,7 @@ ul#publisher_content_pickers li {
   display: inline-block; }
   .album .name {
     position: absolute;
-    z-index: 600;
+    z-index: 6;
     padding: 1em;
     background: rgba(0, 0, 0, 0.8);
     bottom: 20px;
