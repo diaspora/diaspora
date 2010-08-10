@@ -27,6 +27,9 @@ namespace :db do
     # Specifiy what models to remove
     # No!  Drop the fucking database.
    MongoMapper::connection.drop_database(MongoMapper::database.name) 
+
+   puts 'Deleting tmp folder...'
+   `rm -rf #{File.dirname(__FILE__)}/../../public/uploads/tmp`
   end
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'
