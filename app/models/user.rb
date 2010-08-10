@@ -97,7 +97,7 @@ class User
     self.save
 
     if bad_friend 
-      Retraction.for(self).push_to_url(bad_friend.url) 
+      Retraction.for(self).push_to_url(bad_friend.receive_url) 
       bad_friend.update_attributes(:user_refs => bad_friend.user_refs - 1)
       bad_friend.destroy if bad_friend.user_refs == 0
     end

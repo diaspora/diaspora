@@ -30,7 +30,7 @@ class Request
 
   def self.instantiate(options = {})
     person = options[:from]
-    self.new(:destination_url => options[:to], :callback_url => person.url, :person => person, :exported_key => person.export_key)
+    self.new(:destination_url => options[:to], :callback_url => person.receive_url, :person => person, :exported_key => person.export_key)
   end
   
 

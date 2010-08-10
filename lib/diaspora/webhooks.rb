@@ -27,7 +27,7 @@ module Diaspora
         end
 
         def push_to_url(url)
-          hook_url = url + "receive/"
+          hook_url = url 
           xml = self.class.build_xml_for(self)
           Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
           @@queue.add_post_request( hook_url, xml )
