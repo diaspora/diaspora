@@ -27,6 +27,13 @@ module Diaspora
             person = parse_owner_id_from_xml post
             person.profile = object
             person.save  
+          elsif object.is_a? Request
+            person_string = Nokogiri::XML(xml) { |cfg| cfg.noblanks }.xpath("/XML/posts/post/request/person").to_s
+            person = Person.from_xml person_string
+            person.serialized_key ||= object.exported_key
+            object.person = person
+            object.person.save
+
           elsif object.respond_to? :person  
             object.person =  parse_owner_from_xml post.to_s 
           end

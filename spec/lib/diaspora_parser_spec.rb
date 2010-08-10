@@ -6,14 +6,14 @@ include Diaspora::Parser
 describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
-    @person = Factory.create(:person, :email => "bill@gates.com")
+    @person = Factory.create(:person_with_private_key, :email => "bill@gates.com")
   end
 
   it "should not store posts from me" do
     status_messages = []
     10.times { status_messages << Factory.build(:status_message, :person => @user)}
     xml = Post.build_xml_for(status_messages) 
-    store_objects_from_xml(xml) 
+    store_objects_from_xml(xml, @user) 
     StatusMessage.count.should == 0
   end
   
@@ -25,7 +25,7 @@ describe Diaspora::Parser do
       <post><person></person></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
-    store_objects_from_xml(xml)
+    store_objects_from_xml(xml, @user)
     Post.count.should == 0
 
   end
@@ -41,7 +41,7 @@ describe Diaspora::Parser do
       <post><person></person></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </posts></XML>"
-    store_objects_from_xml(xml)
+    store_objects_from_xml(xml, @user)
     Post.count.should == 0
   end
   
@@ -56,7 +56,7 @@ describe Diaspora::Parser do
       <post><person></person></post>
     </posts></XML>"
     
-    store_objects_from_xml(xml)
+    store_objects_from_xml(xml, @user)
     Post.count.should == 0
   end
 
@@ -107,7 +107,7 @@ describe Diaspora::Parser do
       request = Post.build_xml_for( [retraction] )
 
       StatusMessage.count.should == 1
-      store_objects_from_xml( request )
+      store_objects_from_xml( request, @user )
       StatusMessage.count.should == 0
     end
     
@@ -116,15 +116,32 @@ describe Diaspora::Parser do
       
       original_person_id = @person.id
       xml = Request.build_xml_for [request]
-
+      
       @person.destroy
       Person.all.count.should be 1
-      store_objects_from_xml(xml)
+      store_objects_from_xml(xml, @user)
       Person.all.count.should be 2
 
       Person.where(:url => request.callback_url).first.id.should == original_person_id
     end
     
+    it "should not create a new person if the person is already here" do
+      @user2 = Factory.create(:user)
+      request = Request.instantiate(:to =>"http://www.google.com/", :from => @user2.person)
+      
+      original_person_id = @user2.person.id
+      xml = Request.build_xml_for [request]
+      
+      
+      Person.all.count.should be 3
+      store_objects_from_xml(xml, @user)
+      Person.all.count.should be 3
+      
+      @user2.reload
+      @user2.person.serialized_key.include?("PRIVATE").should be true
+
+      Person.where(:url => request.callback_url).first.id.should == original_person_id
+    end
 
     it "should activate the Person if I initiated a request to that url" do 
       request = Request.instantiate(:to => @person.url, :from => @user).save
@@ -139,7 +156,7 @@ describe Diaspora::Parser do
       
       @person.destroy
       request_remote.destroy
-      store_objects_from_xml(xml)
+      store_objects_from_xml(xml, @user)
       new_person = Person.first(:url => @person.url)
       new_person.nil?.should be false
       @user.reload
@@ -152,7 +169,7 @@ describe Diaspora::Parser do
       request = Retraction.build_xml_for( [retraction] )
 
       Person.count.should == 2
-      store_objects_from_xml( request )
+      store_objects_from_xml( request , @user)
       Person.count.should == 1
     end
     
@@ -178,7 +195,7 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
-      store_objects_from_xml xml
+      store_objects_from_xml xml, @user
       
       #Check that marshaled profile is the same as old profile
       person = Person.first(:id => person.id)

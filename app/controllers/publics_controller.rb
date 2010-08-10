@@ -18,7 +18,7 @@ class PublicsController < ApplicationController
   end
   
   def receive
-    user = User.first(:id => params[:id])
+    user = Person.first(:id => params[:id]).owner
     Rails.logger.debug "PublicsController has received: #{params[:xml]}"
     store_objects_from_xml params[:xml], user
     render :nothing => true
