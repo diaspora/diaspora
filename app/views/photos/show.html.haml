@@ -27,8 +27,8 @@
       = link_to "⇧ #{@album.name}", album_path(@album)
 
     -if current_user.owns? @album
-      .button.right
-        = link_to 'Delete Photo', @photo, :confirm => 'Are you sure?', :method => :delete
+      .right
+        = link_to 'Delete Photo', @photo, :confirm => 'Are you sure?', :method => :delete, :class => 'button'
 
   %h4{:class => "show_post_comments"}
     = "comments (#{@photo.comments.count})"

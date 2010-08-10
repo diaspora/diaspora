@@ -70,7 +70,6 @@ header {
   color: #555555;
   background-color: #2b2726;
   background-color: black;
-  background-color: white;
   border-bottom: 3px solid #333333;
   padding: 6px 0;
     padding-top: 0; }
@@ -381,9 +380,15 @@ h1.big_text {
   border-bottom: 1px solid #666666;
   text-align: center; }
 
+.big_text .right {
+  top: -8px; }
+
+#content_bottom .right {
+  top: -5px; }
+
 .right {
-  float: right;
-  margin-top: 6px; }
+  display: inline;
+  float: right; }
 
 .back {
   position: absolute;
@@ -459,3 +464,9 @@ h1.big_text {
   #group #friend_pictures img {
     display: none;
     height: 40px; }
+
+#add_photo_loader {
+  position: absolute;
+  display: none;
+  left: -25px;
+  top: 4px; }
