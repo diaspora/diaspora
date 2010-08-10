@@ -5,8 +5,10 @@
   = @album.name 
 
   -if current_user.owns? @album
-    .button.right#add_photo_button
-      = link_to 'Add Photos', '#'
+    .right#add_photo_button
+      #add_photo_loader
+        = image_tag 'ajax-loader.gif'
+      = link_to 'Add Photos', '#', :class => 'button'
 
     #add_photo_pane.contextual_pane
       = render "photos/new_photo", :photo => @photo, :album => @album
@@ -27,5 +29,5 @@
     = link_to "⇧ albums", albums_path
 
   -if current_user.owns? @album
-    .button.right
-      = link_to 'Edit Album', edit_album_path(@album)
+    .right
+      = link_to 'Edit Album', edit_album_path(@album), :class => 'button'

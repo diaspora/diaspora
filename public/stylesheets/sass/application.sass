@@ -75,7 +75,6 @@ header
   :background
     :color #2B2726
     :color #000
-    :color #fff
   :border
     :bottom 3px solid #333
   :padding 6px 0
@@ -473,10 +472,16 @@ h1.big_text
   :text
     :align center
 
+.big_text
+  .right
+    :top -8px
+#content_bottom
+  .right
+    :top -5px
+
 .right
+  :display inline
   :float right
-  :margin
-    :top 6px
 
 .back
   :position absolute
@@ -575,3 +580,9 @@ h1.big_text
     img
       :display none
       :height 40px
+
+#add_photo_loader
+  :position absolute
+  :display none
+  :left -25px
+  :top 4px

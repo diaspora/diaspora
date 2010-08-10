@@ -8,10 +8,10 @@
         return confirm("You are about to upload " + total + " photos. Are you sure?");
       },
       setName: function(text) {
-        $("#progress_report_name").text(text);
+        //$("#progress_report_name").text(text);
       },
       setStatus: function(text) {
-        $("#progress_report_status").text(text);
+        //$("#progress_report_status").text(text);
       },
       setProgress: function(val) {
         //$("#progress_report_bar").css('width', Math.ceil(val*100)+"%");
@@ -20,11 +20,16 @@
         //alert(response);
       },
       onFinish: function(event, total){
-        $("#progress_report").delay(600).slideUp(200);
-        $("#add_photo_box").delay(600).fadeOut(200);
+        //$("#progress_report").delay(600).slideUp(200);
+        //$("#add_photo_pane").delay(600).fadeOut(200);
+        $("#add_photo_button .button").html( "Add Photos" );
+        $("#add_photo_loader").fadeOut(0);
       },
       onStart: function(event, total){
-        $("#progress_report").slideDown(600);
+        $("#add_photo_pane").fadeOut(400);
+        $("#add_photo_button .button").html( "Uploading Photos" );
+        //$("#add_photo_button").prepend( "<img alt='Loader' src='/images/loader.gif'/>" );
+        $("#add_photo_loader").fadeIn(400);
         return true;
       }
     });
