@@ -18,7 +18,7 @@ module Diaspora
 
         def push_to(recipients)
           unless recipients.empty?
-            recipients.map!{|x| x = x.url + "receive/"}
+            recipients.map!{|x| x = x.receive_url }
             xml = Post.build_xml_for(self)
             Rails.logger.debug("Adding xml for #{self} to message queue to #{recipients}")
             @@queue.add_post_request( recipients, xml )
