@@ -10,29 +10,35 @@ describe Diaspora::Parser do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @person = Factory.create(:person_with_private_key, :email => "bill@gates.com")
   end
+  describe 'with encryption' do
+    before do
+      unstub_mocha_stubs
+    end
+    after do
+      stub_signature_verification
+    end
+    it "should not store posts from me" do
+      10.times { 
+        message = Factory.build(:status_message, :person => @user)
+        xml = message.to_diaspora_xml
+        @user.receive xml 
+        }
+      StatusMessage.count.should == 0
+    end
+    
+    it "should reject xml with no sender" do
+      xml = "<XML>
+      <head>
+      </head>
+        <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+        <post><person></person></post>
+        <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
+        </XML>"
+      @user.receive xml
+      Post.count.should == 0
 
-  it "should not store posts from me" do
-    10.times { 
-      message = Factory.build(:status_message, :person => @user)
-      xml = message.to_diaspora_xml
-      @user.receive xml 
-      }
-    StatusMessage.count.should == 0
-  end
-  
-  it "should reject xml with no sender" do
-    xml = "<XML>
-    <head>
-    </head>
-      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      <post><person></person></post>
-      <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      </XML>"
-    @user.receive xml
-    Post.count.should == 0
-
-  end
-  
+    end
+  end 
   it 'should discard types which are not of type post' do
     xml = "<XML>
       <post><person></person></post>
@@ -47,12 +53,6 @@ describe Diaspora::Parser do
     before do
       @xml = Factory.build(:status_message).to_diaspora_xml 
     end
-
-    it 'should be able to parse the body\'s contents' do
-      body = parse_body_contents_from_xml(@xml).to_s
-      body.should include "<post>"
-      body.should include "</post>"
-    end
     
     it 'should be able to correctly handle comments' do
       person = Factory.create(:person, :email => "test@testing.com")
@@ -60,7 +60,7 @@ describe Diaspora::Parser do
       comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
       xml = comment.to_diaspora_xml 
 
-      comment = parse_from_xml(xml)
+      comment = Diaspora::Parser.from_xml(xml)
       comment.text.should == "Freedom!"
       comment.person.should == person
       comment.post.should == post

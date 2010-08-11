@@ -1,7 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-include Diaspora::Parser
-
 describe User do
    before do
       @user = Factory.create(:user)

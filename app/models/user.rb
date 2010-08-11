@@ -120,7 +120,7 @@ class User
 
   ###### Receiving #######
   def receive xml
-    object = Diaspora::Parser.parse_from_xml(xml)
+    object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
 
     if object.is_a? Retraction
@@ -128,7 +128,7 @@ class User
       object.perform
       
     elsif object.is_a? Request
-      person = get_or_create_person_object_from_xml( xml )
+      person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
       person.serialized_key ||= object.exported_key
       object.person = person
       object.person.save
@@ -136,10 +136,10 @@ class User
       receive_friend_request(object)
 
     elsif object.is_a? Profile
-      person = Diaspora::Parser.parse_owner_id_from_xml xml
+      person = Diaspora::Parser.owner_id_from_xml xml
       person.profile = object
       person.save  
-    elsif object.respond_to?(:person) && !(object.person.nil?) && !(object.person.is_a? User) 
+    else 
       Rails.logger.debug("Saving object with success: #{object.save}")
     end
   end

@@ -25,7 +25,7 @@ class PublicsController < ApplicationController
   def receive
     @user = Person.first(:id => params[:id]).owner
     Rails.logger.debug "PublicsController has received: #{params[:xml]}"
-    @user.receive params[:xml]
+    @user.receive params[:xml] if params[:xml]
     render :nothing => true
   end
   
