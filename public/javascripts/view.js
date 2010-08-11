@@ -81,6 +81,7 @@ $(document).ready(function(){
   });
 
   //buttons//////
+  
   pane_toggler_button("album");
   pane_toggler_button("group");
   pane_toggler_button("photo");
@@ -104,6 +105,9 @@ $(document).ready(function(){
 
 
 function pane_toggler_button( name ) {
+  
+  $("#add_" + name + "_button").fancybox();
+  /*
     $("#add_" + name + "_button").toggle(
     function(evt){
       evt.preventDefault();
@@ -113,4 +117,5 @@ function pane_toggler_button( name ) {
       $("#add_" + name +"_pane").fadeOut(200);
     }
   );
+  */
 }

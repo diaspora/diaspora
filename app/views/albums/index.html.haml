@@ -2,11 +2,12 @@
   .back
     = link_to "⇧ home", root_path
   Albums
-  .right#add_album_button
-    = link_to 'New Album', "#", :class => "button"
+  .right
+    = link_to 'New Album', '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
-#add_album_pane.contextual_pane
-  = render "albums/new_album"
+.yo{:style => "display:none;" }
+  #new_album_pane
+    = render "albums/new_album"
 
 .sub_header
   %ul.button_set
