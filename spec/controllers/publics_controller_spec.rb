@@ -20,7 +20,7 @@ describe PublicsController do
       person = Factory.create(:person)
       message = StatusMessage.new(:message => 'foo', :person => person)
       StatusMessage.all.count.should be 0
-      post :receive, :id => @user.person.id, :xml => message.build_xml_for(message)
+      post :receive, :id => @user.person.id, :xml => message.to_diaspora_xml(message)
       StatusMessage.all.count.should be 1
     end
   end
@@ -37,7 +37,7 @@ describe PublicsController do
       
       req = @user2.send_friend_request_to(@user.person.url)
       #req = Request.instantiate(:from => @user2.person, :to => @user.person.url)
-      @xml = req.build_xml_for
+      @xml = req.to_diaspora_xml
   
       req.delete
       @user2.reload

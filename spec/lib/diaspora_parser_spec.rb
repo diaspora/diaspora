@@ -14,7 +14,7 @@ describe Diaspora::Parser do
   it "should not store posts from me" do
     10.times { 
       message = Factory.build(:status_message, :person => @user)
-      xml = message.build_xml_for
+      xml = message.to_diaspora_xml
       store_objects_from_xml(xml, @user) 
       }
     StatusMessage.count.should == 0
@@ -66,7 +66,7 @@ describe Diaspora::Parser do
 
   describe "parsing compliant XML object" do 
     before do
-      @xml = Factory.build(:status_message).build_xml_for 
+      @xml = Factory.build(:status_message).to_diaspora_xml 
     end
 
     it 'should be able to parse the body\'s contents' do
@@ -103,7 +103,7 @@ describe Diaspora::Parser do
       person = Factory.create(:person)
       message = Factory.create(:status_message, :person => person)
       retraction = Retraction.for(message)
-      request = retraction.build_xml_for
+      request = retraction.to_diaspora_xml
 
       StatusMessage.count.should == 1
       store_objects_from_xml( request, @user )
@@ -114,7 +114,7 @@ describe Diaspora::Parser do
       request = Request.instantiate(:to =>"http://www.google.com/", :from => @person)
       
       original_person_id = @person.id
-      xml = request.build_xml_for 
+      xml = request.to_diaspora_xml 
       
       @person.destroy
       Person.all.count.should be 1
@@ -131,7 +131,7 @@ describe Diaspora::Parser do
       request = Request.instantiate(:to =>"http://www.google.com/", :from => @user2.person)
       
       original_person_id = @user2.person.id
-      xml = request.build_xml_for
+      xml = request.to_diaspora_xml
       
       
       Person.all.count.should be 3
@@ -160,7 +160,7 @@ describe Diaspora::Parser do
       request_remote.person = @person
       request_remote.exported_key = @person.export_key
 
-      xml = request_remote.build_xml_for 
+      xml = request_remote.to_diaspora_xml 
       
       @person.destroy
       request_remote.destroy
@@ -175,7 +175,7 @@ describe Diaspora::Parser do
 
     it 'should process retraction for a person' do
       retraction = Retraction.for(@user)
-      request = retraction.build_xml_for
+      request = retraction.to_diaspora_xml
 
       Person.count.should == 2
       store_objects_from_xml( request , @user)
@@ -194,7 +194,7 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Build xml for profile, clear profile
-      xml = person.profile.build_xml_for
+      xml = person.profile.to_diaspora_xml
       reloaded_person = Person.first(:id => id)            
       reloaded_person.profile = nil
       reloaded_person.save(:validate => false)
@@ -209,7 +209,7 @@ describe Diaspora::Parser do
       #Check that marshaled profile is the same as old profile
       person = Person.first(:id => person.id)
       person.profile.should_not be nil 
-      person.profile.first_name.should  == old_profile.first_name
+      person.profile.first_name.should == old_profile.first_name
       person.profile.last_name.should  == old_profile.last_name
       person.profile.image_url.should  == old_profile.image_url
       end

@@ -19,7 +19,7 @@ module Diaspora
         def push_to(recipients)
           unless recipients.empty?
             recipients.map!{|x| x = x.receive_url }
-            xml = build_xml_for
+            xml = to_diaspora_xml
             Rails.logger.debug("Adding xml for #{self} to message queue to #{recipients}")
             @@queue.add_post_request( recipients, xml )
           end
@@ -28,14 +28,18 @@ module Diaspora
 
         def push_to_url(url)
           hook_url = url 
-          xml = build_xml_for
+          xml = to_diaspora_xml
           Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
           @@queue.add_post_request( hook_url, xml )
           @@queue.process
         end
 
         def to_diaspora_xml
-          "<post>#{self.to_xml.to_s}</post>"
+          xml = "<XML>"
+          xml += "<posts>"
+          xml += "<post>#{self.to_xml.to_s}</post>"
+          xml += "</posts>"
+          xml += "</XML>"
         end
 
         def people_with_permissions
@@ -47,15 +51,6 @@ module Diaspora
             Rails.logger.fatal("Called people_with_permissions on a post from a remote user.  We need to implement this shit.")
             []
           end
-        end
-
-        def build_xml_for
-          xml = "<XML>"
-          xml += "\n <posts>"
-          xml << to_diaspora_xml
-          xml += "</posts>"
-          xml += "</XML>"
-
         end
       end
     end

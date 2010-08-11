@@ -78,9 +78,9 @@ describe User do
         @request_three =  Request.instantiate(:to => @user2.receive_url, :from => @user.person)
         
 
-        @req_xml = @request.build_xml_for
-        @req_two_xml = @request_two.build_xml_for
-        @req_three_xml = @request_three.build_xml_for
+        @req_xml = @request.to_diaspora_xml
+        @req_two_xml = @request_two.to_diaspora_xml
+        @req_three_xml = @request_three.to_diaspora_xml
 
 
         @request.destroy

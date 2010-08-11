@@ -48,6 +48,7 @@ module Diaspora
         rescue NameError => e
           if e.message.include? 'wrong constant name'
             Rails.logger.info "Not a real type: #{object.to_s}"
+            raise e
           else
             raise e
           end
