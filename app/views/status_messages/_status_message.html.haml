@@ -4,7 +4,7 @@
 
   %span.from
     = link_to post.person.real_name, post.person 
-    = auto_link post.message
+    = auto_link sanitize post.message
     
   %div.time
     = link_to(how_long_ago(post), object_path(post))

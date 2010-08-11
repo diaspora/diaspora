@@ -7,7 +7,6 @@ class PhotosController < ApplicationController
 
       if @photo.created_at
         flash[:notice] = "Successfully uploaded photo."
-        redirect_to @photo.album
       else
         render :action => 'album#new'
       end

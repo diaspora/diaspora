@@ -5,6 +5,7 @@ class Post
   include ROXML
   include Diaspora::Webhooks
   include Encryptable
+  include Diaspora::Socketable
 
   xml_accessor :_id
   xml_accessor :person, :as => Person
@@ -75,16 +76,7 @@ protected
     Retraction.for(self).notify_people
   end
 
-  def send_to_view
-    people_with_permissions.each{|f|
-      SocketsController.new.outgoing(f.owner_id, self) if f.owner_id
-    }
-    SocketsController.new.outgoing(person.owner_id, self) if person.owner_id
-  end
-  
-  def remove_from_view
-    SocketsController.new.outgoing(Retraction.for(self))
-  end
+
 
 end
 
