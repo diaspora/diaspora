@@ -8,7 +8,7 @@ class Comment
   xml_accessor :text
   xml_accessor :person, :as => Person
   xml_accessor :post_id
-  
+  xml_accessor :_id 
   
   key :text, String
   timestamps!
