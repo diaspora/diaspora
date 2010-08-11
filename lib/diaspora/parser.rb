@@ -29,6 +29,7 @@ module Diaspora
 
       begin
         object = body.name.camelize.constantize.from_xml body.to_s
+
         if object.is_a? Retraction
         elsif object.is_a? Profile
           person = parse_owner_id_from_xml body
@@ -52,23 +53,5 @@ module Diaspora
       end
     end
 
-    def store_from_xml(xml, user)
-      object = parse_from_xml(xml)
-      Rails.logger.debug("Receiving object:\n#{object.inspect}")
-
-      if object.is_a? Retraction
-        Rails.logger.debug "Got a retraction for #{object.post_id}"
-        object.perform
-        
-      elsif object.is_a? Request
-        user.receive_friend_request(object)
-
-      elsif object.is_a? Profile
-        object.save
-
-      elsif object.respond_to?(:person) && !(object.person.nil?) && !(object.person.is_a? User) 
-        Rails.logger.debug("Saving object with success: #{object.save}")
-      end
-    end
   end
 end

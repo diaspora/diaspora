@@ -113,12 +113,31 @@ class User
     end
   end
   
-  def activate_friend (person)
+  def activate_friend(person)
     friends << person
     save
   end
 
-  
+  ###### Receiving #######
+  def receive xml
+    object = Diaspora::Parser.parse_from_xml(xml)
+    Rails.logger.debug("Receiving object:\n#{object.inspect}")
+
+    if object.is_a? Retraction
+      Rails.logger.debug "Got a retraction for #{object.post_id}"
+      object.perform
+      
+    elsif object.is_a? Request
+      receive_friend_request(object)
+
+    elsif object.is_a? Profile
+      object.save
+
+    elsif object.respond_to?(:person) && !(object.person.nil?) && !(object.person.is_a? User) 
+      Rails.logger.debug("Saving object with success: #{object.save}")
+    end
+  end
+
   ###Helpers############
   def self.instantiate( opts = {} )
     opts[:person][:email] = opts[:email]

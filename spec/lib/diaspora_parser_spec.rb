@@ -15,7 +15,7 @@ describe Diaspora::Parser do
     10.times { 
       message = Factory.build(:status_message, :person => @user)
       xml = message.to_diaspora_xml
-      store_from_xml(xml, @user) 
+      @user.receive xml 
       }
     StatusMessage.count.should == 0
   end
@@ -28,7 +28,7 @@ describe Diaspora::Parser do
       <post><person></person></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </XML>"
-    store_from_xml(xml, @user)
+    @user.receive xml
     Post.count.should == 0
 
   end
@@ -38,7 +38,7 @@ describe Diaspora::Parser do
       <post><person></person></post>
     </XML>"
     
-    store_from_xml(xml, @user)
+    @user.receive xml
     Post.count.should == 0
   end
 
@@ -73,7 +73,7 @@ describe Diaspora::Parser do
       request = retraction.to_diaspora_xml
 
       StatusMessage.count.should == 1
-      store_from_xml( request, @user )
+      @user.receive request
       StatusMessage.count.should == 0
     end
     
@@ -85,7 +85,7 @@ describe Diaspora::Parser do
       
       @person.destroy
       Person.all.count.should be 1
-      store_from_xml(xml, @user)
+      @user.receive xml
       Person.all.count.should be 2
 
       Person.first(:_id => original_person_id).serialized_key.include?("PUBLIC").should be true
@@ -102,7 +102,7 @@ describe Diaspora::Parser do
       
       
       Person.all.count.should be 3
-      store_from_xml(xml, @user)
+      @user.receive xml
       Person.all.count.should be 3
       
       @user2.reload
@@ -131,7 +131,7 @@ describe Diaspora::Parser do
       
       @person.destroy
       request_remote.destroy
-      store_from_xml(xml, @user)
+      @user.receive xml
       new_person = Person.first(:url => @person.url)
       new_person.nil?.should be false
       
@@ -145,7 +145,7 @@ describe Diaspora::Parser do
       request = retraction.to_diaspora_xml
 
       Person.count.should == 2
-      store_from_xml( request , @user)
+      @user.receive request
       Person.count.should == 1
     end
     
@@ -171,7 +171,7 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
-      store_from_xml xml, @user
+      @user.receive xml
       
       #Check that marshaled profile is the same as old profile
       person = Person.first(:id => person.id)

@@ -54,7 +54,7 @@ describe 'user encryption' do
       xml = request.to_diaspora_xml
       person.destroy
       personcount = Person.all.count
-      store_from_xml(xml, @user)
+      @user.receive xml
       Person.all.count.should == personcount + 1
       new_person = Person.first(:url => "http://test.url/")
       new_person.id.should == id
@@ -113,7 +113,7 @@ describe 'user encryption' do
       xml = message.to_diaspora_xml
       message.destroy
       Post.count.should be 0
-      store_from_xml(xml, @user)
+      @user.receive xml
       Post.count.should be 0
     end
 
