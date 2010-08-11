@@ -70,7 +70,6 @@ module Diaspora
 
         elsif p.is_a? Profile
           p.save
-
         elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) 
           Rails.logger.debug("Saving object with success: #{p.save}")
         end
