@@ -68,9 +68,10 @@ class User
   def ignore_friend_request(friend_request_id)
     request = Request.first(:id => friend_request_id)
     person = request.person
+    person.user_refs -= 1
     pending_requests.delete(request)
     save
-    person.destroy unless person.user_refs > 0
+    (person.user_refs > 0 || person.owner.nil? == false) ?  person.save : person.destroy
     request.destroy
   end
 
@@ -81,6 +82,8 @@ class User
       Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
+
+      friend_request.person.user_refs += 1
       friend_request.person.save
       pending_requests << friend_request
       save
@@ -98,7 +101,7 @@ class User
     if bad_friend 
       Retraction.for(self).push_to_url(bad_friend.receive_url) 
       bad_friend.update_attributes(:user_refs => bad_friend.user_refs - 1)
-      bad_friend.destroy if bad_friend.user_refs == 0
+      (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
     end
   end
 

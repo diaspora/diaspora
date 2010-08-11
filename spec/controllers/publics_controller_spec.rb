@@ -1,5 +1,4 @@
 require File.dirname(__FILE__) + '/../spec_helper'
-
  
 describe PublicsController do
  render_views
@@ -32,26 +31,37 @@ describe PublicsController do
       @user2 = Factory.create(:user)
       @user2.person.save
 
-      req = Request.instantiate(:from => @user2.person, :to => @user.person.url)
+      @user3 = Factory.create(:user)
+      @user3.person.save
+
+      
+      req = @user2.send_friend_request_to(@user.person.url)
+      #req = Request.instantiate(:from => @user2.person, :to => @user.person.url)
       @xml = req.build_xml_for
   
       req.delete
+      @user2.reload
+      puts @user2.inspect
+      @user2.pending_requests.count.should be 1
     end
 
-    it 'should save requests for the specified user (LOCAL)' do 
+    it 'should add the pending request to the right user, person exists locally' do 
+      @user2.delete
       post :receive, :id => @user.person.id, :xml => @xml
       
-      @user.reload
-      @user.pending_requests.size.should be 1
+      assigns(:user).should eq(@user)
+
+
     end
 
-    it 'should save  requests for the specified user (REMOTE)' do 
+    it 'should add the pending request to the right user, person does not exist locally' do 
       @user2.person.delete
       @user2.delete
       post :receive, :id => @user.person.id, :xml => @xml
       
-      @user.reload
-      @user.pending_requests.size.should be 1
+
+      assigns(:user).should eq(@user)
+
     end
 
 
