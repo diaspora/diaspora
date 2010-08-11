@@ -81,8 +81,6 @@ $(document).ready(function(){
   });
 
   //buttons//////
-
-
   pane_toggler_button("album");
   pane_toggler_button("group");
   pane_toggler_button("photo");
