@@ -81,18 +81,6 @@ $(document).ready(function(){
   });
 
   //buttons//////
-  function pane_toggler_button( name ) {
-    $("#add_" + name + "_button").toggle(
-    function(evt){
-      evt.preventDefault();
-      $("#add_" + name + "_pane").fadeIn(300);
-    },function(evt){
-      evt.preventDefault();
-      $("#add_" + name +"_pane").fadeOut(200);
-    }
-  );
-  }
-
   pane_toggler_button("album");
   pane_toggler_button("group");
   pane_toggler_button("photo");
@@ -113,3 +101,16 @@ $(document).ready(function(){
   });
 
 });//end document ready
+
+
+function pane_toggler_button( name ) {
+    $("#add_" + name + "_button").toggle(
+    function(evt){
+      evt.preventDefault();
+      $("#add_" + name + "_pane").fadeIn(300);
+    },function(evt){
+      evt.preventDefault();
+      $("#add_" + name +"_pane").fadeOut(200);
+    }
+  );
+}

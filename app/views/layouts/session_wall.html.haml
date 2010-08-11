@@ -40,12 +40,10 @@
         </div>
         <![endif]-->
     
-    
-    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
       %div#huge_text
         diaspora
       = yield
       
-      = link_to "signup", "/signup"
+      /= link_to "signup", "/signup"

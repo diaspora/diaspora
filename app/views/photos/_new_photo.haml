@@ -10,11 +10,13 @@
       onFinish: function(event, total){
         $("#add_photo_button .button").html( "Add Photos" );
         $("#add_photo_loader").fadeOut(400);
+        pane_toggler_button("photo");
       },
       onStart: function(event, total){
         $("#add_photo_pane").fadeOut(400);
         $("#add_photo_button .button").html( "Uploading Photos" );
         $("#add_photo_loader").fadeIn(400);
+        $("#add_photo_button").unbind();
         return true;
       }
     });
