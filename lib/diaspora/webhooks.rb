@@ -40,10 +40,11 @@ module Diaspora
 
         def people_with_permissions
           begin
-          friends = self.person.owner.friends
+          friends = self.person.owner.friends.all
+          Rails.logger.error("Dan is wrong!") if friends.nil?
           friends ||= []
           rescue
-            Rails.logger.fatal("IOUASDVJOISDNVPOIJSDVOUIDSGPUOID")
+            Rails.logger.fatal("Called people_with_permissions on a post from a remote user.  We need to implement this shit.")
             []
           end
         end

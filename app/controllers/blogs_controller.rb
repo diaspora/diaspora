@@ -24,7 +24,6 @@ class BlogsController < ApplicationController
 
     if @blog.created_at
       flash[:notice] = "Successfully created blog."
-      redirect_to @blog
     else
       render :action => 'new'
     end

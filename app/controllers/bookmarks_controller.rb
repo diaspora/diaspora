@@ -34,7 +34,6 @@ class BookmarksController < ApplicationController
 
     if @bookmark.created_at
       flash[:notice] = "Successfully created bookmark."
-      redirect_to @bookmark
     else
       render :action => 'new'
     end
