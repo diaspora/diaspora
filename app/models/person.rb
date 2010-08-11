@@ -58,6 +58,7 @@ class Person
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.notify_people
+    post.socket_to_uid person.owner.id if person.owner_id
     post
   end
 
@@ -67,6 +68,7 @@ class Person
     c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
     if c.save
       send_comment c
+      c.socket_to_uid person.owner.id if person.owner_id
       true
     else
       Rails.logger.warn "this failed to save: #{c.inspect}"
