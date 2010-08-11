@@ -9,7 +9,7 @@ class SocketsController < ApplicationController
   
   def outgoing(uid,object)
     @_request = ActionDispatch::Request.new({})
-    WebSocket.push_to_user(uid, action_hash(uid, object))
+    Diaspora::WebSocket.push_to_user(uid, action_hash(uid, object))
   end
   
 end
