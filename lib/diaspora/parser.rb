@@ -60,14 +60,13 @@ module Diaspora
       objects = parse_objects_from_xml(xml)
       objects.each do |p|
         Rails.logger.debug("Receiving object:\n#{p.inspect}")
+
         if p.is_a? Retraction
           Rails.logger.debug "Got a retraction for #{p.post_id}"
           p.perform
           
         elsif p.is_a? Request
-          puts user.pending_requests.count
           user.receive_friend_request(p)
-          puts user.pending_requests.count
 
         elsif p.is_a? Profile
           p.save

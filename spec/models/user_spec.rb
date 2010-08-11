@@ -28,7 +28,7 @@ describe User do
   describe 'friend requesting' do
      it "should be able to accept a pending friend request" do
       friend = Factory.create(:person)
-      r = Request.instantiate(:to => @user.url, :from => friend)
+      r = Request.instantiate(:to => @user.receive_url, :from => friend)
       r.save
       Person.all.count.should == 2
       Request.for_user(@user).all.count.should == 1
@@ -39,7 +39,7 @@ describe User do
 
     it 'should be able to ignore a pending friend request' do
       friend = Factory.create(:person)
-      r = Request.instantiate(:to => @user.url, :from => friend)
+      r = Request.instantiate(:to => @user.receive_url, :from => friend)
       r.save
 
       Person.count.should == 2
@@ -58,7 +58,7 @@ describe User do
       @user.save
 
 
-      @user.send_friend_request_to( friend.url ).should be nil
+      @user.send_friend_request_to( friend.receive_url ).should be nil
     end
 
     it 'should be able to give me the terse url for webfinger' do
@@ -73,13 +73,13 @@ describe User do
       @user.pending_requests.empty?.should be true
       @user.friends.empty?.should be true
 
-      request = Request.instantiate(:to => @user.url, :from => person_one)
+      request = Request.instantiate(:to => @user.receive_url, :from => person_one)
       person_one.destroy
       @user.receive_friend_request request
       @user.pending_requests.size.should be 1
       @user.friends.size.should be 0
       
-      request_two = Request.instantiate(:to => @user.url, :from => person_two)
+      request_two = Request.instantiate(:to => @user.receive_url, :from => person_two)
       person_two.destroy
       @user.receive_friend_request request_two
       @user.pending_requests.size.should be 2

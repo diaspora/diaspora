@@ -23,6 +23,12 @@ describe 'SocketsController' do
     end
 
     it 'should actionhash posts' do
+      class SocketsController
+        def url_options
+          {:host => ""}
+        end
+      end
+
       json = @controller.action_hash(@user.id, @message)
       json.include?(@message.message).should be_true
       json.include?('status_message').should be_true

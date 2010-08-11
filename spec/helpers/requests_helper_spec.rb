@@ -20,7 +20,7 @@ describe RequestsHelper do
     end
 
     it 'should return the correct tag and url for a given address' do
-      relationship_flow('tom@tom.joindiaspora.com')[:friend].should == 'http://tom.joindiaspora.com/'
+      relationship_flow('tom@tom.joindiaspora.com')[:friend].include?("receive/user").should ==  true
     end
 
   end

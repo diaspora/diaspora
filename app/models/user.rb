@@ -40,7 +40,7 @@ class User
   ######### Friend Requesting ###########
   def send_friend_request_to(friend_url)
 
-    unless self.friends.detect{ |x| x.url == friend_url}
+    unless self.friends.detect{ |x| x.receive_url == friend_url}
       p = Request.instantiate(:to => friend_url, :from => self.person)
       if p.save
         self.pending_requests << p
@@ -76,8 +76,7 @@ class User
 
   def receive_friend_request(friend_request)
     Rails.logger.debug("receiving friend request #{friend_request.to_json}")
-    
-    if Request.where(:callback_url => person.receive_url, :destination_url => person.receive_url).first
+    if pending_requests.detect{|req| (req.callback_url == person.receive_url) && (req.destination_url == person.receive_url)}
       activate_friend friend_request.person
       Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy

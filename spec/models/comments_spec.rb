@@ -45,7 +45,7 @@ describe Comment do
       end
     
       it 'should send a user comment on his own post to lots of people' do
-        allowed_urls = @user_status.people_with_permissions.map{|x| x = x.url + "receive/"}
+        allowed_urls = @user_status.people_with_permissions.map{|x| x = x.receive_url}
         message_queue.should_receive(:add_post_request).with(allowed_urls, anything)
         @user.comment "yo", :on => @user_status
       end
