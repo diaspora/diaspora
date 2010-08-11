@@ -36,9 +36,7 @@ module Diaspora
 
         def to_diaspora_xml
           xml = "<XML>"
-          xml += "<posts>"
           xml += "<post>#{self.to_xml.to_s}</post>"
-          xml += "</posts>"
           xml += "</XML>"
         end
 

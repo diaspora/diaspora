@@ -22,10 +22,6 @@ describe Diaspora do
         @post.respond_to?(:people_with_permissions).should be true
       end
 
-      it "should convert an object to a proper diaspora entry" do
-        @post.to_diaspora_xml.should == "<XML><posts><post>#{@post.to_xml.to_s}</post></posts></XML>"
-      end
-
       it "should retrieve all valid person endpoints" do
         @user.friends << Factory.create(:person, :url => "http://www.bob.com/")
         @user.friends << Factory.create(:person, :url => "http://www.alice.com/")

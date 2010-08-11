@@ -23,29 +23,14 @@ describe Diaspora::Parser do
   it "should reject xml with no sender" do
     xml = "<XML>
     <head>
-    </head><posts>
+    </head>
       <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       <post><person></person></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      </posts></XML>"
+      </XML>"
     store_objects_from_xml(xml, @user)
     Post.count.should == 0
 
-  end
-  
-  it "should reject xml with a sender not in the database" do
-    xml = "<XML>
-    <head>
-      <sender>
-        <email>foo@example.com</email>
-      </sender>
-    </head><posts>
-      <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      <post><person></person></post>
-      <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-      </posts></XML>"
-    store_objects_from_xml(xml, @user)
-    Post.count.should == 0
   end
   
   it 'should discard types which are not of type post' do
@@ -71,8 +56,6 @@ describe Diaspora::Parser do
 
     it 'should be able to parse the body\'s contents' do
       body = parse_body_contents_from_xml(@xml).to_s
-      body.should_not include "<posts>"
-      body.should_not include "</posts>"
       body.should include "<post>"
       body.should include "</post>"
     end
@@ -87,10 +70,7 @@ describe Diaspora::Parser do
       person = Factory.create(:person, :email => "test@testing.com")
       post = Factory.create(:status_message, :person => @user.person)
       comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
-      xml = "<XML>
-      <posts>
-        <post>#{comment.to_xml}</post>
-      </posts></XML>"
+      xml = comment.to_diaspora_xml 
 
       objects = parse_objects_from_xml(xml)
       comment = objects.first

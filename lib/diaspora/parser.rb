@@ -8,7 +8,7 @@ module Diaspora
 
     def parse_body_contents_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
-      doc.xpath("/XML/posts/post")
+      doc.xpath("/XML/post")
     end
     
     def parse_owner_id_from_xml(doc)
