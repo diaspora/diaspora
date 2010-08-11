@@ -22,7 +22,7 @@ class Post
   timestamps!
 
   before_destroy :propagate_retraction
-  after_destroy :destroy_comments, :remove_from_view
+  after_destroy :destroy_comments
 
   def self.instantiate params
     self.create params

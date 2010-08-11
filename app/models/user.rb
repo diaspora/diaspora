@@ -124,8 +124,7 @@ class User
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
 
     if object.is_a? Retraction
-      object.post.unsocket_from_uid self.id
-      object.perform 
+      object.perform self.id 
       
     elsif object.is_a? Request
       person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
@@ -141,7 +140,7 @@ class User
       person.save  
     else 
       Rails.logger.debug("Saving object with success: #{object.save}")
-      object.socket_to_uid id
+      object.socket_to_uid( id) if object.respond_to? :socket_to_uid
     end
   end
 
