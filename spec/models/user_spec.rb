@@ -222,11 +222,15 @@ describe User do
 
     it 'should be able to parse and store a status message from xml' do
       status_message = @user2.post :status_message, :message => 'store this!'
+      person = @user2.person
+
       xml = status_message.to_diaspora_xml
       @user2.destroy
       status_message.destroy
       StatusMessage.all.size.should == 0
       @user.receive( xml )
+      
+      person.posts.first.message.should == 'store this!'
       StatusMessage.all.size.should == 1
     end
   end

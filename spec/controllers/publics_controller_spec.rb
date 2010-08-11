@@ -41,7 +41,6 @@ describe PublicsController do
   
       req.delete
       @user2.reload
-      puts @user2.inspect
       @user2.pending_requests.count.should be 1
     end
 
