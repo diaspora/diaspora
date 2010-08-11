@@ -23,57 +23,51 @@ module Diaspora
       person ? person : Person.from_xml( person_xml)
     end
 
-    def parse_objects_from_xml(xml)
-      objects = []
-      body = parse_body_contents_from_xml(xml)
-      body.children.each do |post|
-        begin
-          object = post.name.camelize.constantize.from_xml post.to_s
-          if object.is_a? Retraction
-          elsif object.is_a? Profile
-            person = parse_owner_id_from_xml post
-            person.profile = object
-            person.save  
-          elsif object.is_a? Request
-            person = get_or_create_person_object_from_xml(post)
-            person.serialized_key ||= object.exported_key
-            object.person = person
-            object.person.save
-            object.save
-          elsif object.respond_to? :person  
-            object.person =  parse_owner_from_xml post.to_s 
-          end
+    def parse_from_xml(xml)
 
-          objects << object
-        rescue NameError => e
-          if e.message.include? 'wrong constant name'
-            Rails.logger.info "Not a real type: #{object.to_s}"
-            raise e
-          else
-            raise e
-          end
+      return unless body = parse_body_contents_from_xml(xml).children.first
+
+      begin
+        object = body.name.camelize.constantize.from_xml body.to_s
+        if object.is_a? Retraction
+        elsif object.is_a? Profile
+          person = parse_owner_id_from_xml body
+          person.profile = object
+          person.save  
+        elsif object.is_a? Request
+          person = get_or_create_person_object_from_xml(body)
+          person.serialized_key ||= object.exported_key
+          object.person = person
+          object.person.save
+          object.save
+        elsif object.respond_to? :person  
+          object.person =  parse_owner_from_xml body.to_s 
         end
+        object
+      rescue NameError => e
+        if e.message.include? 'wrong constant name'
+          Rails.logger.info "Not a real type: #{object.to_s}"
+        end
+        raise e
       end
-      objects
     end
 
-    def store_objects_from_xml(xml, user)
-      objects = parse_objects_from_xml(xml)
-      objects.each do |p|
-        Rails.logger.debug("Receiving object:\n#{p.inspect}")
+    def store_from_xml(xml, user)
+      object = parse_from_xml(xml)
+      Rails.logger.debug("Receiving object:\n#{object.inspect}")
 
-        if p.is_a? Retraction
-          Rails.logger.debug "Got a retraction for #{p.post_id}"
-          p.perform
-          
-        elsif p.is_a? Request
-          user.receive_friend_request(p)
+      if object.is_a? Retraction
+        Rails.logger.debug "Got a retraction for #{object.post_id}"
+        object.perform
+        
+      elsif object.is_a? Request
+        user.receive_friend_request(object)
 
-        elsif p.is_a? Profile
-          p.save
-        elsif p.respond_to?(:person) && !(p.person.nil?) && !(p.person.is_a? User) 
-          Rails.logger.debug("Saving object with success: #{p.save}")
-        end
+      elsif object.is_a? Profile
+        object.save
+
+      elsif object.respond_to?(:person) && !(object.person.nil?) && !(object.person.is_a? User) 
+        Rails.logger.debug("Saving object with success: #{object.save}")
       end
     end
   end

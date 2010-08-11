@@ -15,7 +15,7 @@ describe Diaspora::Parser do
     10.times { 
       message = Factory.build(:status_message, :person => @user)
       xml = message.to_diaspora_xml
-      store_objects_from_xml(xml, @user) 
+      store_from_xml(xml, @user) 
       }
     StatusMessage.count.should == 0
   end
@@ -28,23 +28,17 @@ describe Diaspora::Parser do
       <post><person></person></post>
       <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
       </XML>"
-    store_objects_from_xml(xml, @user)
+    store_from_xml(xml, @user)
     Post.count.should == 0
 
   end
   
   it 'should discard types which are not of type post' do
     xml = "<XML>
-    <head>
-      <sender>
-        <email>#{Person.first.email}</email>
-      </sender>
-    </head>
-    <posts>
       <post><person></person></post>
-    </posts></XML>"
+    </XML>"
     
-    store_objects_from_xml(xml, @user)
+    store_from_xml(xml, @user)
     Post.count.should == 0
   end
 
@@ -59,12 +53,6 @@ describe Diaspora::Parser do
       body.should include "<post>"
       body.should include "</post>"
     end
-
-    it 'should be able to extract all posts to an array' do
-      posts = parse_objects_from_xml(@xml)
-      posts.is_a?(Array).should be true
-      posts.count.should == 1
-    end
     
     it 'should be able to correctly handle comments' do
       person = Factory.create(:person, :email => "test@testing.com")
@@ -72,8 +60,7 @@ describe Diaspora::Parser do
       comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
       xml = comment.to_diaspora_xml 
 
-      objects = parse_objects_from_xml(xml)
-      comment = objects.first
+      comment = parse_from_xml(xml)
       comment.text.should == "Freedom!"
       comment.person.should == person
       comment.post.should == post
@@ -86,7 +73,7 @@ describe Diaspora::Parser do
       request = retraction.to_diaspora_xml
 
       StatusMessage.count.should == 1
-      store_objects_from_xml( request, @user )
+      store_from_xml( request, @user )
       StatusMessage.count.should == 0
     end
     
@@ -98,7 +85,7 @@ describe Diaspora::Parser do
       
       @person.destroy
       Person.all.count.should be 1
-      store_objects_from_xml(xml, @user)
+      store_from_xml(xml, @user)
       Person.all.count.should be 2
 
       Person.first(:_id => original_person_id).serialized_key.include?("PUBLIC").should be true
@@ -115,7 +102,7 @@ describe Diaspora::Parser do
       
       
       Person.all.count.should be 3
-      store_objects_from_xml(xml, @user)
+      store_from_xml(xml, @user)
       Person.all.count.should be 3
       
       @user2.reload
@@ -144,7 +131,7 @@ describe Diaspora::Parser do
       
       @person.destroy
       request_remote.destroy
-      store_objects_from_xml(xml, @user)
+      store_from_xml(xml, @user)
       new_person = Person.first(:url => @person.url)
       new_person.nil?.should be false
       
@@ -158,7 +145,7 @@ describe Diaspora::Parser do
       request = retraction.to_diaspora_xml
 
       Person.count.should == 2
-      store_objects_from_xml( request , @user)
+      store_from_xml( request , @user)
       Person.count.should == 1
     end
     
@@ -184,7 +171,7 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
-      store_objects_from_xml xml, @user
+      store_from_xml xml, @user
       
       #Check that marshaled profile is the same as old profile
       person = Person.first(:id => person.id)

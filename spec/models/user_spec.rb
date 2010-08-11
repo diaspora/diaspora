@@ -90,7 +90,7 @@ describe User do
 
       it 'should befriend the user other user on the same pod' do
 
-        store_objects_from_xml @req_three_xml, @user2
+        store_from_xml @req_three_xml, @user2
         @user2.pending_requests.size.should be 1
         @user2.accept_friend_request @request_three.id
         @user2.friends.include?(@user.person).should be true  
@@ -99,7 +99,7 @@ describe User do
 
       it 'should not delete the ignored user on the same pod' do
 
-        store_objects_from_xml @req_three_xml, @user2
+        store_from_xml @req_three_xml, @user2
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @request_three.id
         @user2.friends.include?(@user.person).should be false  
@@ -108,12 +108,12 @@ describe User do
       
       it 'should both users should befriend the same person' do
 
-        store_objects_from_xml @req_xml, @user
+        store_from_xml @req_xml, @user
         @user.pending_requests.size.should be 1
         @user.accept_friend_request @request.id
         @user.friends.include?(@person_one).should be true  
 
-        store_objects_from_xml @req_two_xml, @user2
+        store_from_xml @req_two_xml, @user2
         @user2.pending_requests.size.should be 1
         @user2.accept_friend_request @request_two.id
         @user2.friends.include?(@person_one).should be true  
@@ -122,12 +122,12 @@ describe User do
 
       it 'should keep the person around if one of the users rejects him' do
 
-        store_objects_from_xml @req_xml, @user
+        store_from_xml @req_xml, @user
         @user.pending_requests.size.should be 1
         @user.accept_friend_request @request.id
         @user.friends.include?(@person_one).should be true  
 
-        store_objects_from_xml @req_two_xml, @user2
+        store_from_xml @req_two_xml, @user2
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @request_two.id
         @user2.friends.include?(@person_one).should be false  
@@ -135,12 +135,12 @@ describe User do
       end
 
       it 'should not keep the person around if the users ignores them' do
-        store_objects_from_xml @req_xml, @user
+        store_from_xml @req_xml, @user
         @user.pending_requests.size.should be 1
         @user.ignore_friend_request @user.pending_requests.first.id
         @user.friends.include?(@person_one).should be false  
 
-        store_objects_from_xml @req_two_xml, @user2
+        store_from_xml @req_two_xml, @user2
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @user2.pending_requests.first.id#@request_two.id
         @user2.friends.include?(@person_one).should be false 
