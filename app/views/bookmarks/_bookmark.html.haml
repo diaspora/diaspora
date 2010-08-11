@@ -3,7 +3,7 @@
   = person_image_tag(post.person)
 
   %span.from
-    = link_to_person post.person
+    = link_to post.person.real_name, post.person
     %b shared a link
     %br
   = post.title
