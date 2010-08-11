@@ -58,7 +58,7 @@ class Person
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.notify_people
-    post.socket_to_uid owner.id if owner_id
+    post.socket_to_uid owner.id if (owner_id && post.respond_to?( :socket_to_uid))
     post
   end
 
