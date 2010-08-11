@@ -12,10 +12,11 @@ describe Diaspora::Parser do
   end
 
   it "should not store posts from me" do
-    status_messages = []
-    10.times { status_messages << Factory.build(:status_message, :person => @user)}
-    xml = Post.build_xml_for(status_messages) 
-    store_objects_from_xml(xml, @user) 
+    10.times { 
+      message = Factory.build(:status_message, :person => @user)
+      xml = message.build_xml_for
+      store_objects_from_xml(xml, @user) 
+      }
     StatusMessage.count.should == 0
   end
   
@@ -65,15 +66,11 @@ describe Diaspora::Parser do
 
   describe "parsing compliant XML object" do 
     before do
-      @status_messages = []
-      10.times { @status_messages << Factory.build(:status_message)}
-      @xml = Post.build_xml_for(@status_messages) 
+      @xml = Factory.build(:status_message).build_xml_for 
     end
 
     it 'should be able to parse the body\'s contents' do
       body = parse_body_contents_from_xml(@xml).to_s
-      body.should_not include "<head>"
-      body.should_not include "</head>"
       body.should_not include "<posts>"
       body.should_not include "</posts>"
       body.should include "<post>"
@@ -83,7 +80,7 @@ describe Diaspora::Parser do
     it 'should be able to extract all posts to an array' do
       posts = parse_objects_from_xml(@xml)
       posts.is_a?(Array).should be true
-      posts.count.should == 10
+      posts.count.should == 1
     end
     
     it 'should be able to correctly handle comments' do
@@ -106,7 +103,7 @@ describe Diaspora::Parser do
       person = Factory.create(:person)
       message = Factory.create(:status_message, :person => person)
       retraction = Retraction.for(message)
-      request = Post.build_xml_for( [retraction] )
+      request = retraction.build_xml_for
 
       StatusMessage.count.should == 1
       store_objects_from_xml( request, @user )
@@ -117,7 +114,7 @@ describe Diaspora::Parser do
       request = Request.instantiate(:to =>"http://www.google.com/", :from => @person)
       
       original_person_id = @person.id
-      xml = Request.build_xml_for [request]
+      xml = request.build_xml_for 
       
       @person.destroy
       Person.all.count.should be 1
@@ -134,7 +131,7 @@ describe Diaspora::Parser do
       request = Request.instantiate(:to =>"http://www.google.com/", :from => @user2.person)
       
       original_person_id = @user2.person.id
-      xml = Request.build_xml_for [request]
+      xml = request.build_xml_for
       
       
       Person.all.count.should be 3
@@ -163,7 +160,7 @@ describe Diaspora::Parser do
       request_remote.person = @person
       request_remote.exported_key = @person.export_key
 
-      xml = Request.build_xml_for [request_remote]
+      xml = request_remote.build_xml_for 
       
       @person.destroy
       request_remote.destroy
@@ -178,7 +175,7 @@ describe Diaspora::Parser do
 
     it 'should process retraction for a person' do
       retraction = Retraction.for(@user)
-      request = Retraction.build_xml_for( [retraction] )
+      request = retraction.build_xml_for
 
       Person.count.should == 2
       store_objects_from_xml( request , @user)
@@ -197,7 +194,7 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Build xml for profile, clear profile
-      xml = Post.build_xml_for(person.profile)
+      xml = person.profile.build_xml_for
       reloaded_person = Person.first(:id => id)            
       reloaded_person.profile = nil
       reloaded_person.save(:validate => false)

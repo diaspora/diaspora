@@ -39,7 +39,7 @@ describe 'user encryption' do
     it 'should send over a public key' do
       message_queue.stub!(:add_post_request)
       request = @user.send_friend_request_to("http://example.com/")
-      Request.build_xml_for([request]).include?( @user.export_key).should be true
+      request.build_xml_for.include?( @user.export_key).should be true
     end
 
     it 'should receive and marshal a public key from a request' do
@@ -51,10 +51,10 @@ describe 'user encryption' do
       
       request = Request.instantiate(:to =>"http://www.google.com/", :from => person)
       
-      xml = Request.build_xml_for [request]
+      xml = request.build_xml_for
       person.destroy
       personcount = Person.all.count
-      store_objects_from_xml(xml)
+      store_objects_from_xml(xml, @user)
       Person.all.count.should == personcount + 1
       new_person = Person.first(:url => "http://test.url/")
       new_person.id.should == id
@@ -110,10 +110,10 @@ describe 'user encryption' do
       message = Factory.build(:status_message, :person => @person)
       message.creator_signature = "totally valid"
       message.save
-      xml = Post.build_xml_for([message])
+      xml = message.build_xml_for
       message.destroy
       Post.count.should be 0
-      store_objects_from_xml(xml)
+      store_objects_from_xml(xml, @user)
       Post.count.should be 0
     end
 

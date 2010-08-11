@@ -19,7 +19,7 @@ module Diaspora
         def push_to(recipients)
           unless recipients.empty?
             recipients.map!{|x| x = x.receive_url }
-            xml = Post.build_xml_for(self)
+            xml = build_xml_for
             Rails.logger.debug("Adding xml for #{self} to message queue to #{recipients}")
             @@queue.add_post_request( recipients, xml )
           end
@@ -28,7 +28,7 @@ module Diaspora
 
         def push_to_url(url)
           hook_url = url 
-          xml = self.class.build_xml_for(self)
+          xml = build_xml_for
           Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
           @@queue.add_post_request( hook_url, xml )
           @@queue.process
@@ -49,10 +49,10 @@ module Diaspora
           end
         end
 
-        def self.build_xml_for(posts)
+        def build_xml_for
           xml = "<XML>"
           xml += "\n <posts>"
-          [*posts].each {|x| xml << x.to_diaspora_xml}
+          xml << to_diaspora_xml
           xml += "</posts>"
           xml += "</XML>"
 

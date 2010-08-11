@@ -37,7 +37,7 @@ class StatusMessagesController < ApplicationController
     
     respond_to do |format|
       format.html 
-      format.xml { render :xml => Post.build_xml_for(@status_message) }
+      format.xml { render :xml => @status_message.build_xml_for }
       format.json { render :json => @status_message }
     end
   end

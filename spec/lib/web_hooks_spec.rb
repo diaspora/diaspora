@@ -43,9 +43,7 @@ describe Diaspora do
       end
     
       it "should check that it does not send a person's post to an owners people" do
-        Post.stub(:build_xml_for).and_return(true) 
-        Post.should_not_receive(:build_xml_for)
-        
+        message_queue.should_not_receive(:add_post_request) 
         Factory.create(:status_message, :person => Factory.create(:person))
       end
 
@@ -58,15 +56,6 @@ describe Diaspora do
         @post.people_with_permissions.size.should == 5
       end
 
-      it "should build an xml object containing multiple Post types" do
-        Factory.create(:status_message)
-        Factory.create(:bookmark)
-
-        stream = Post.stream
-        xml = Post.build_xml_for(stream)
-        xml.should include "<status_message>"
-        xml.should include "<bookmark>"
-      end
     end
   end
 

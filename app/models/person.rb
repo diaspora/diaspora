@@ -57,9 +57,7 @@ class Person
     options[:person] = self
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
-    if owns?(post)
-      post.notify_people
-    end
+    post.notify_people
     post
   end
 

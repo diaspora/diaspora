@@ -21,7 +21,7 @@ describe PublicsController do
       person = Factory.create(:person)
       message = StatusMessage.new(:message => 'foo', :person => person)
       StatusMessage.all.count.should be 0
-      post :receive, :id => @user.person.id, :xml => Post.build_xml_for(message)
+      post :receive, :id => @user.person.id, :xml => message.build_xml_for(message)
       StatusMessage.all.count.should be 1
     end
   end
@@ -33,7 +33,7 @@ describe PublicsController do
       @user2.person.save
 
       req = Request.instantiate(:from => @user2.person, :to => @user.person.url)
-      @xml = Request.build_xml_for [req]
+      @xml = req.build_xml_for
   
       req.delete
     end
