@@ -3,6 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 include ApplicationHelper 
 include Diaspora::Parser
 
+
+
 describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
@@ -123,7 +125,8 @@ describe Diaspora::Parser do
       Person.all.count.should be 2
 
       Person.first(:_id => original_person_id).serialized_key.include?("PUBLIC").should be true
-      Person.where(:url => request.callback_url).first.id.should == original_person_id
+      url = "http://" + request.callback_url.split("/")[2] + "/"
+      Person.where(:url => url).first.id.should == original_person_id
     end
     
     it "should not create a new person if the person is already here" do
@@ -140,19 +143,23 @@ describe Diaspora::Parser do
       
       @user2.reload
       @user2.person.reload
-      puts @user2.inspect
-      puts @user2.person.inspect
       @user2.person.serialized_key.include?("PRIVATE").should be true
 
-      Person.where(:url => request.callback_url).first.id.should == original_person_id
+      url = "http://" + request.callback_url.split("/")[2] + "/"
+      Person.where(:url => url).first.id.should == original_person_id
     end
 
     it "should activate the Person if I initiated a request to that url" do 
-      request = Request.instantiate(:to => @person.url, :from => @user).save
+      request = Request.instantiate(:to => @person.receive_url, :from => @user)
+      request.save
+      @user.pending_requests << request
+      @user.save
       
+
       request_remote = Request.new
-      request_remote.destination_url = @user.url
-      request_remote.callback_url = @user.url
+      request_remote.id = request.id
+      request_remote.destination_url = @user.receive_url
+      request_remote.callback_url = @user.receive_url
       request_remote.person = @person
       request_remote.exported_key = @person.export_key
 
@@ -163,6 +170,7 @@ describe Diaspora::Parser do
       store_objects_from_xml(xml, @user)
       new_person = Person.first(:url => @person.url)
       new_person.nil?.should be false
+      
       @user.reload
       @user.friends.include?(new_person).should be true
     end

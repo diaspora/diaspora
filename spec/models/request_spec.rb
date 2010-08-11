@@ -27,10 +27,10 @@ describe Request do
     user = Factory.create(:user)
     remote_person = Factory.build(:person, :email => "robert@grimm.com", :url => "http://king.com/")
     
-    Request.instantiate(:from => user.person, :to => remote_person.url).save
-    Request.instantiate(:from => user.person, :to => remote_person.url).save
-    Request.instantiate(:from => user.person, :to => remote_person.url).save
-    Request.instantiate(:from => remote_person, :to => user.url).save
+    Request.instantiate(:from => user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:from => user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:from => user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:from => remote_person, :to => user.receive_url).save
       
     Request.for_user(user).all.count.should == 1
   end
