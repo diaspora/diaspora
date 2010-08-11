@@ -39,18 +39,5 @@ module Diaspora
       SocketsController.new.outgoing(id, Retraction.for(self))
     end
 
-    def send_to_view
-      people_with_permissions.each{|f|
-        socket_to_uid f.owner_id if f.owner_id
-      }
-      socket_to_uid person.owner_id if person.owner_id
-    end
-
-     def remove_from_view 
-      people_with_permissions.each{|f|
-        unsocket_from_uid f.owner_id if f.owner_id
-      }
-      unsocket_from_uid person.owner_id if person.owner_id
-    end   
   end
 end

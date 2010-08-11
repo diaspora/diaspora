@@ -19,9 +19,6 @@ class Comment
   key :person_id, ObjectId
   belongs_to :person, :class_name => "Person"
   
-  after_save :send_to_view
-  
-
   def ==(other)
     (self.message == other.message) && (self.person.email == other.person.email)
   end

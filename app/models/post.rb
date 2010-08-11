@@ -21,8 +21,6 @@ class Post
     
   timestamps!
 
-  after_save :send_to_view
- 
   before_destroy :propagate_retraction
   after_destroy :destroy_comments, :remove_from_view
 

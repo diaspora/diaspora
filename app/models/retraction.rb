@@ -25,6 +25,7 @@ class Retraction
   attr_accessor :type
 
   def perform
+    Rails.logger.debug "Performing retraction for #{object.post_id}"
     begin
       return unless signature_valid?
       Rails.logger.debug("Retracting #{self.type} id: #{self.post_id}")
