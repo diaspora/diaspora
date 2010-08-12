@@ -11,8 +11,8 @@
 
 .sub_header
   %ul.button_set
-    %li.selected= friends_albums_link
-    %li= your_albums_link
+    %li{:class => ("selected" if params[:friends])}= friends_albums_link 
+    %li{:class => ("selected" if not params[:friends])}= your_albums_link
 
 %div
   - for album in @albums
