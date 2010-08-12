@@ -12,7 +12,8 @@ class AlbumsController < ApplicationController
       flash[:notice] = "Successfully created album."
       redirect_to @album
     else
-      render :action => 'new'
+      flash[:error] = "Successfully failed."
+      redirect_to albums_path
     end
   end
   
