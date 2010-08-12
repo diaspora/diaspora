@@ -8,10 +8,10 @@
     .right
       #add_photo_loader
         = image_tag 'ajax-loader.gif'
-      #add_photo_button
-        = link_to 'Add Photos', '#', :class => 'button'
-    
-    #add_photo_pane.contextual_pane
+      = link_to 'Add Photos', '#new_photo_pane', :class => 'button', :id => "add_photo_button"
+
+  .yo{:style => "display:none;"}
+    #new_photo_pane
       = render "photos/new_photo", :photo => @photo, :album => @album
 
 .sub_header

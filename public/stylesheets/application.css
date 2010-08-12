@@ -408,9 +408,9 @@ h1.big_text {
   width: 100%; }
 
 .sub_header {
+  position: relative;
   text-align: center;
   font-style: italic;
-  margin-top: -5px;
   margin-bottom: 20px;
   color: #999999; }
 
@@ -422,8 +422,6 @@ h1.big_text {
   min-height: 100px; }
   .image_thumb img {
     display: none; }
-    .image_thumb img:hover {
-      border-bottom: 2px solid #666666; }
 
 .image_cycle img {
   display: none; }
