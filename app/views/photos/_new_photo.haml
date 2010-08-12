@@ -4,26 +4,38 @@
       // WE INSERT ALBUM_ID PARAM HERE
       url: "/photos?album_id=#{album.id}",   
       sendBoundary: window.FormData || $.browser.mozilla,
-      onStart: function(event, total) {
-        return confirm("You are about to upload " + total + " photos. Are you sure?");
+      setName: function(text) {
+        $("#progress_report_name").text(text);
       },
       onFinish: function(event, total){
         $("#add_photo_button").html( "Add Photos" );
         $("#add_photo_loader").fadeOut(400);
+
+        $("#photo_title_status").text("Done!");
+        $("#progress_report").html("Great job!");
       },
       onStart: function(event, total){
-        $("#add_photo_pane").fadeOut(400);
         $("#add_photo_button").html( "Uploading Photos" );
         $("#add_photo_loader").fadeIn(400);
+
+        $("form").fadeOut(0);
+        $("#progress_report").fadeIn(0);
+        $("#photo_title_status").text("Uploading...");
         return true;
       }
     });
   });
 
 %h1
-  Add photos to
-  %i= album.name
+  %span{:id=>"photo_title_status"}
+    Add photos to
+    %i= album.name
 = form_for photo, :html => {:multipart => true} do |f|
   = f.error_messages
   = f.hidden_field :album_id, :value => album.id
   = f.file_field :image, :multiple => 'multiple'
+
+#progress_report{ :style => "display:none;text-align:center;" }
+  = image_tag "ajax-loader.gif"
+  #progress_report_name
+  #progress_report_status
