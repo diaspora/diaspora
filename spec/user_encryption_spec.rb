@@ -48,7 +48,6 @@ describe 'user encryption' do
       xml = request.to_diaspora_xml
       person.destroy
       personcount = Person.all.count
-      puts xml
       @user.receive xml
       Person.all.count.should == personcount + 1
       new_person = Person.first(:url => "http://test.url/")
@@ -70,9 +69,7 @@ describe 'user encryption' do
       message = @user.post :status_message, :message => "hi"
 
 
-      puts "foo"
       retraction = Retraction.for(message)
-      puts retraction.inspect 
       retraction.verify_creator_signature.should be true
 
     end
@@ -120,13 +117,10 @@ describe 'user encryption' do
 
       message = @user2.post :status_message, :message => "hey"
       message.creator_signature = "totally valid"
-      puts message.inspect
       message.save(:validate => false)
 
-      puts message.inspect
       xml = message.to_diaspora_xml
       message.destroy
-      puts xml
       Post.count.should be 0
       @user.receive xml
       Post.count.should be 0
