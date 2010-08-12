@@ -86,8 +86,9 @@ $(document).ready(function(){
   $("#add_album_button").fancybox();
   $("#add_group_button").fancybox();
   $("#add_request_button").fancybox();
+  $("#add_photo_button").fancybox();
 
-  pane_toggler_button("photo");
+  //pane_toggler_button("photo");
 
   $("input[type='submit']").addClass("button");
 
