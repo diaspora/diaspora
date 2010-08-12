@@ -9,10 +9,11 @@ class Retraction
       retraction.post_id = object.person.id
       retraction.type = object.person.class.to_s
     else
-      retraction.post_id= object.id
+      retraction.post_id = object.id
       retraction.type = object.class.to_s
     end
     retraction.person_id = person_id_from(object)
+    retraction.send(:sign_if_mine)
     retraction
   end
 
@@ -27,7 +28,7 @@ class Retraction
   def perform receiving_user_id
     Rails.logger.debug "Performing retraction for #{post_id}"
     begin
-      return unless signature_valid?
+      return unless signature_valid? 
       Rails.logger.debug("Retracting #{self.type} id: #{self.post_id}")
       target = self.type.constantize.first(self.post_id)
       target.unsocket_from_uid receiving_user_id if target.respond_to? :unsocket_from_uid
@@ -62,7 +63,13 @@ class Retraction
     xml_reader :creator_signature
     
     def creator_signature
-      @creator_signature ||= sign if person_id == User.owner.id
+      object =  self.type.constantize.first(:id => post_id)
+
+      if object.class == Person && person_id == object.id
+        @creator_signature || sign_with_key(object.key)
+      elsif person_id == object.person.id
+        @creator_signature || sign_if_mine 
+      end
     end
 
     def creator_signature= input

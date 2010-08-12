@@ -125,7 +125,6 @@ class User
 
     if object.is_a? Retraction
       object.perform self.id 
-      
     elsif object.is_a? Request
       person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
       person.serialized_key ||= object.exported_key
@@ -133,12 +132,11 @@ class User
       object.person.save
       object.save
       receive_friend_request(object)
-
     elsif object.is_a? Profile
       person = Diaspora::Parser.owner_id_from_xml xml
       person.profile = object
       person.save  
-    else 
+    elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object with success: #{object.save}")
       object.socket_to_uid( id) if object.respond_to? :socket_to_uid
     end

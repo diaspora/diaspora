@@ -3,12 +3,6 @@ include ApplicationHelper
 include Diaspora::Parser
 
 describe 'user encryption' do
-  before :all do
-    #ctx = GPGME::Ctx.new
-    #keys = ctx.keys
-    #keys.each{|k| ctx.delete_key(k, true)}
-    
-  end
   before do
     unstub_mocha_stubs
     @user = Factory.create(:user)
@@ -68,6 +62,17 @@ describe 'user encryption' do
       message = @user.post :status_message, :message => "hi"
       message.verify_creator_signature.should be true 
     end
+
+    it 'should sign a retraction on create' do
+
+      unstub_mocha_stubs
+      message = @user.post :status_message, :message => "hi"
+
+
+      retraction = Retraction.for(message)
+      retraction.verify_creator_signature.should be true
+
+    end
     
     it 'should not be able to verify a message from a person without a key' do 
       person = Factory.create(:person, :serialized_key => "lskdfhdlfjnh;klsf")
@@ -106,10 +111,14 @@ describe 'user encryption' do
       xml = message.to_xml.to_s
       xml.include?(message.creator_signature).should be true
     end
+
     it 'A message with an invalid signature should be rejected' do
-      message = Factory.build(:status_message, :person => @person)
+      @user2 = Factory.create :user
+
+      message = @user2.post :status_message, :message => "hey"
       message.creator_signature = "totally valid"
-      message.save
+      message.save(:validate => false)
+
       xml = message.to_diaspora_xml
       message.destroy
       Post.count.should be 0

@@ -39,15 +39,6 @@ describe Diaspora::Parser do
 
     end
   end 
-  it 'should discard types which are not of type post' do
-    xml = "<XML>
-      <post><person></person></post>
-    </XML>"
-    
-    @user.receive xml
-    Post.count.should == 0
-  end
-
 
   describe "parsing compliant XML object" do 
     before do
