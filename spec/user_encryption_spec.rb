@@ -3,12 +3,6 @@ include ApplicationHelper
 include Diaspora::Parser
 
 describe 'user encryption' do
-  before :all do
-    #ctx = GPGME::Ctx.new
-    #keys = ctx.keys
-    #keys.each{|k| ctx.delete_key(k, true)}
-    
-  end
   before do
     unstub_mocha_stubs
     @user = Factory.create(:user)
@@ -54,6 +48,7 @@ describe 'user encryption' do
       xml = request.to_diaspora_xml
       person.destroy
       personcount = Person.all.count
+      puts xml
       @user.receive xml
       Person.all.count.should == personcount + 1
       new_person = Person.first(:url => "http://test.url/")
@@ -67,6 +62,19 @@ describe 'user encryption' do
     it 'should sign a message on create' do
       message = @user.post :status_message, :message => "hi"
       message.verify_creator_signature.should be true 
+    end
+
+    it 'should sign a retraction on create' do
+
+      unstub_mocha_stubs
+      message = @user.post :status_message, :message => "hi"
+
+
+      puts "foo"
+      retraction = Retraction.for(message)
+      puts retraction.inspect 
+      retraction.verify_creator_signature.should be true
+
     end
     
     it 'should not be able to verify a message from a person without a key' do 
@@ -106,12 +114,19 @@ describe 'user encryption' do
       xml = message.to_xml.to_s
       xml.include?(message.creator_signature).should be true
     end
+
     it 'A message with an invalid signature should be rejected' do
-      message = Factory.build(:status_message, :person => @person)
+      @user2 = Factory.create :user
+
+      message = @user2.post :status_message, :message => "hey"
       message.creator_signature = "totally valid"
-      message.save
+      puts message.inspect
+      message.save(:validate => false)
+
+      puts message.inspect
       xml = message.to_diaspora_xml
       message.destroy
+      puts xml
       Post.count.should be 0
       @user.receive xml
       Post.count.should be 0

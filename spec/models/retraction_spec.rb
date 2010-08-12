@@ -22,4 +22,6 @@ describe Retraction do
       @post.destroy
     end
   end
+
+
 end
