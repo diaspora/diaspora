@@ -6,7 +6,7 @@ describe 'user encryption' do
   before do
     unstub_mocha_stubs
     @user = Factory.create(:user)
-    @user.save
+    @group = @user.group(:name => 'dudes')
     @person = Factory.create(:person_with_private_key,
       :profile => Profile.new(:first_name => 'Remote',
                               :last_name => 'Friend'),
@@ -32,7 +32,7 @@ describe 'user encryption' do
   describe 'key exchange on friending' do
     it 'should send over a public key' do
       message_queue.stub!(:add_post_request)
-      request = @user.send_friend_request_to("http://example.com/")
+      request = @user.send_friend_request_to("http://example.com/", @group.id)
       request.to_diaspora_xml.include?( @user.export_key).should be true
     end
 

@@ -15,10 +15,5 @@ describe ApplicationHelper do
   it "should provide a correct show path for a given user" do
     person_url(@user).should == "/users/#{@user.id}"
   end
-  
-  it 'should be able to give me the terse url for webfinger' do
-     @user.person.url = "http://example.com/"
 
-      terse_url( @user.person.url ).should == 'example.com'
-  end
 end

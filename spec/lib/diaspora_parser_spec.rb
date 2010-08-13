@@ -10,6 +10,7 @@ describe Diaspora::Parser do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @group = @user.group(:name => 'spies')
     @person = Factory.create(:person_with_private_key, :email => "bill@gates.com")
+    @user2 = Factory.create(:user)
   end
   describe 'with encryption' do
     before do
@@ -70,15 +71,16 @@ describe Diaspora::Parser do
     end
     
     it "should create a new person upon getting a person request" do
+      person_count = Person.all.count
       request = Request.instantiate(:to =>"http://www.google.com/", :from => @person)
       
       original_person_id = @person.id
       xml = request.to_diaspora_xml 
       
       @person.destroy
-      Person.all.count.should be 1
+      Person.all.count.should == person_count -1
       @user.receive xml
-      Person.all.count.should be 2
+      Person.all.count.should == person_count
 
       Person.first(:_id => original_person_id).serialized_key.include?("PUBLIC").should be true
       url = "http://" + request.callback_url.split("/")[2] + "/"
@@ -86,16 +88,16 @@ describe Diaspora::Parser do
     end
     
     it "should not create a new person if the person is already here" do
-      @user2 = Factory.create(:user)
+      person_count = Person.all.count
       request = Request.instantiate(:to =>"http://www.google.com/", :from => @user2.person)
       
       original_person_id = @user2.person.id
       xml = request.to_diaspora_xml
       
       
-      Person.all.count.should be 3
+      Person.all.count.should be person_count
       @user.receive xml
-      Person.all.count.should be 3
+      Person.all.count.should be person_count
       
       @user2.reload
       @user2.person.reload
@@ -106,30 +108,34 @@ describe Diaspora::Parser do
     end
 
     it "should activate the Person if I initiated a request to that url" do 
-      request = @user.send_friend_request_to( @person.receive_url, @group.id)
+      request = @user.send_friend_request_to( @user2.receive_url, @group.id)
 
-      request.reverse @user 
+      request.reverse @user2 
 
       xml = request.to_diaspora_xml 
 
-      @person.destroy
+      @user2.person.destroy
+      @user2.destroy
 
       @user.receive xml
-      new_person = Person.first(:url => @person.url)
+      new_person = Person.first(:url => @user2.person.url)
       new_person.nil?.should be false
       
       @user.reload
+      @group.reload
+      @group.people.include?(new_person).should be true
       @user.friends.include?(new_person).should be true
     end
 
 
     it 'should process retraction for a person' do
+      person_count = Person.all.count
       retraction = Retraction.for(@user)
       request = retraction.to_diaspora_xml
 
-      Person.count.should == 2
+      Person.count.should == person_count
       @user.receive request
-      Person.count.should == 1
+      Person.count.should == person_count-1
     end
     
     it 'should marshal a profile for a person' do

@@ -44,7 +44,6 @@ class Request
     self.destination_url = self.callback_url
     save
   end
-
   
   def set_pending_friend
     p = Person.first(:id => self.person.id)

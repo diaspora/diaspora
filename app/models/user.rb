@@ -85,9 +85,10 @@ class User
   end
 
   def receive_friend_request(friend_request)
-    Rails.logger.debug("receiving friend request #{friend_request.to_json}")
+    Rails.logger.info("receiving friend request #{friend_request.to_json}")
     if request_from_me?(friend_request)
-      activate_friend(friend_request.person, friend_request.group_id)
+      group = self.groups.first(:id => friend_request.group_id)
+      activate_friend(friend_request.person, group)
 
       Rails.logger.info("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
@@ -136,6 +137,7 @@ class User
     group.people << person
     friends << person
     group.save
+    save
   end
 
   def request_from_me?(request)
@@ -154,6 +156,8 @@ class User
       person.serialized_key ||= object.exported_key
       object.person = person
       object.person.save
+      old_request =  Request.first(:id => object.id)
+      object.group_id = old_request.group_id if old_request
       object.save
       receive_friend_request(object)
     elsif object.is_a? Profile
