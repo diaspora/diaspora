@@ -130,12 +130,28 @@ describe Diaspora::Parser do
 
     it 'should process retraction for a person' do
       person_count = Person.all.count
-      retraction = Retraction.for(@user)
-      request = retraction.to_diaspora_xml
+      request = @user.send_friend_request_to( @user2.receive_url, @group.id)
+      request.reverse @user2 
+      xml = request.to_diaspora_xml 
+
+      retraction = Retraction.for(@user2)
+      retraction_xml = retraction.to_diaspora_xml
+      
+      @user2.person.destroy
+      @user2.destroy
+      @user.receive xml
+      
+      @group.reload
+      group_people_count = @group.people.size
+      #They are now friends
+
 
       Person.count.should == person_count
-      @user.receive request
+      @user.receive retraction_xml
       Person.count.should == person_count-1
+
+      @group.reload
+      @group.people.size.should == group_people_count -1
     end
     
     it 'should marshal a profile for a person' do
