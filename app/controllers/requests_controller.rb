@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
   
   def destroy
     if params[:accept]
-      @friend = current_user.accept_friend_request params[:id]
+      @friend = current_user.accept_friend_request( params[:id], current_user.groups.first.id)
       
       flash[:notice] = "you are now friends"
       redirect_to root_url 
