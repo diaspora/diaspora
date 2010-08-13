@@ -89,14 +89,14 @@ class User
     if request_from_me?(friend_request)
       activate_friend(friend_request.person, friend_request.group_id)
 
-      Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
+      Rails.logger.info("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
       friend_request.person.user_refs += 1
       friend_request.person.save
       pending_requests << friend_request
       save
-      Rails.logger.debug("#{self.real_name} has received a friend request")
+      Rails.logger.info("#{self.real_name} has received a friend request")
       friend_request.save
     end
   end
