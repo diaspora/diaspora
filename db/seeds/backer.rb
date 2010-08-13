@@ -23,5 +23,6 @@ def create(backer_number)
                        :url=> "http://#{username}.joindiaspora.com/")
                     )
   user.person.save
+  user.group(:name => "Presidents")
 end
 
