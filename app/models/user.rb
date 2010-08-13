@@ -82,7 +82,6 @@ class User
       Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
-
       friend_request.person.user_refs += 1
       friend_request.person.save
       pending_requests << friend_request
@@ -94,15 +93,25 @@ class User
 
   def unfriend(friend_id)
     bad_friend = Person.first(:_id => friend_id)
-
     self.friend_ids.delete( friend_id )
-    self.save
 
     if bad_friend 
       Retraction.for(self).push_to_url(bad_friend.receive_url) 
-      bad_friend.update_attributes(:user_refs => bad_friend.user_refs - 1)
+      bad_friend.user_refs -= 1
+
       (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
     end
+    self.save
+  end
+
+  def unfriended_by friend_id
+    bad_friend = Person.first(:_id => friend_id)
+
+    self.friend_ids.delete( friend_id )
+    bad_friend.user_refs -= 1
+
+    (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
+    self.save
   end
 
   def send_request(rel_hash)

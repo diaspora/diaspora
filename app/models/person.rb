@@ -15,7 +15,7 @@ class Person
 
 
   key :owner_id, ObjectId
-  key :user_refs, Integer, :default => 0
+  key :user_refs, Integer, :default => 0 
 
   belongs_to :owner, :class_name => 'User'
   one :profile, :class_name => 'Profile'
@@ -27,7 +27,7 @@ class Person
   timestamps!
 
   before_validation :clean_url
-
+  before_create :check_for_owner
   validates_presence_of :email, :url, :profile, :serialized_key 
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
@@ -124,6 +124,9 @@ class Person
 
   private
 
+  def check_for_owner
+    self.user_refs += 1 unless self.owner_id.nil?
+  end
   def remove_all_traces
     self.posts.delete_all
   end

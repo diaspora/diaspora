@@ -53,11 +53,7 @@ describe User do
       @user.send_friend_request_to( friend.receive_url ).should be nil
     end
 
-    it 'should be able to give me the terse url for webfinger' do
-     @user.person.url = "http://example.com/"
 
-      @user.terse_url.should == 'example.com'
-    end
 
     describe 'multiple users accepting/rejecting the same person' do
       before do
@@ -231,5 +227,47 @@ describe User do
       person.posts.first.message.should == 'store this!'
       StatusMessage.all.size.should == 1
     end
+  end
+
+  describe 'unfriending' do
+    before do
+      @user = Factory.create :user
+      @user2 = Factory.create :user
+
+      @user.friends << @user2.person
+      @user.person.user_refs += 1
+      @user2.friends << @user.person
+
+      @user2.person.user_refs += 1
+
+      @user2.person.save
+      @user.person.save
+    end
+
+    it 'should unfriend the other user on the same seed' do
+      person = @user2.person 
+      person.url = @user.person.url
+      person.save
+      
+      @user.friends.count.should == 1
+      @user2.friends.count.should == 1
+      
+      @user.person.user_refs.should == 2
+
+      @user2.person.user_refs.should == 2
+
+      @user2.unfriend @user.person.id
+      @user2.friends.count.should be 0
+
+      @user.person.reload
+      @user.person.user_refs.should == 1 
+
+      @user.unfriended_by @user2.person.id
+
+      @user2.person.reload
+      @user2.person.user_refs.should == 1
+    end
+    
+
   end
 end
