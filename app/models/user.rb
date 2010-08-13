@@ -141,8 +141,6 @@ class User
     if object.is_a? Retraction
       object.perform self.id 
     elsif object.is_a? Request
-      puts object.inspect
-      old_request = 
       person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
       person.serialized_key ||= object.exported_key
       object.person = person
