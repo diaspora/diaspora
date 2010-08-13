@@ -15,6 +15,7 @@ class Request
   key :callback_url, String
   key :person_id, ObjectId
   key :exported_key, String
+  key :group_id, ObjectId
 
   belongs_to :person
   
@@ -30,10 +31,19 @@ class Request
 
   def self.instantiate(options = {})
     person = options[:from]
-    self.new(:destination_url => options[:to], :callback_url => person.receive_url, :person => person, :exported_key => person.export_key)
+    self.new(:destination_url => options[:to],
+             :callback_url => person.receive_url, 
+             :person => person,
+             :exported_key => person.export_key,
+             :group_id => options[:into])
   end
   
-
+  def reverse accepting_user
+    self.person = accepting_user.person
+    self.exported_key = accepting_user.export_key
+    self.destination_url = self.callback_url
+    save
+  end
 
   
   def set_pending_friend

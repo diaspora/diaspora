@@ -3,6 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe User do
    before do
       @user = Factory.create(:user)
+      @group = @user.group(:name => 'heroes')
    end
 
   it 'should instantiate with a person and be valid' do
@@ -20,13 +21,25 @@ describe User do
   end
 
   describe 'friend requesting' do
+    it "should assign a request to a group" do
+      friend = Factory.create(:person)
+      group = @user.group(:name => "Dudes")
+      group.requests.size.should == 0
+
+      @user.send_friend_request_to(friend.receive_url, group.id)
+
+      group.reload
+      group.requests.size.should == 1
+    end
+
+
      it "should be able to accept a pending friend request" do
       friend = Factory.create(:person)
       r = Request.instantiate(:to => @user.receive_url, :from => friend)
       r.save
       Person.all.count.should == 2
       Request.for_user(@user).all.count.should == 1
-      @user.accept_friend_request(r.id)
+      @user.accept_friend_request(r.id, @group.id)
       Request.for_user(@user).all.count.should == 0
     end
 
@@ -50,7 +63,7 @@ describe User do
       @user.save
 
 
-      @user.send_friend_request_to( friend.receive_url ).should be nil
+      @user.send_friend_request_to( friend.receive_url, @group.id ).should be nil
     end
 
     it 'should be able to give me the terse url for webfinger' do
@@ -65,6 +78,7 @@ describe User do
         @person_one.save
       
         @user2 = Factory.create :user
+        @group2 = @user2.group(:name => "group two")
 
         @user.pending_requests.empty?.should be true
         @user.friends.empty?.should be true
@@ -74,12 +88,10 @@ describe User do
         @request = Request.instantiate(:to => @user.receive_url, :from => @person_one)
         @request_two = Request.instantiate(:to => @user2.receive_url, :from => @person_one)
         @request_three =  Request.instantiate(:to => @user2.receive_url, :from => @user.person)
-        
 
         @req_xml = @request.to_diaspora_xml
         @req_two_xml = @request_two.to_diaspora_xml
         @req_three_xml = @request_three.to_diaspora_xml
-
 
         @request.destroy
         @request_two.destroy
@@ -90,7 +102,7 @@ describe User do
 
         @user2.receive @req_three_xml
         @user2.pending_requests.size.should be 1
-        @user2.accept_friend_request @request_three.id
+        @user2.accept_friend_request @request_three.id, @group2.id
         @user2.friends.include?(@user.person).should be true  
         Person.all.count.should be 3
       end
@@ -108,12 +120,12 @@ describe User do
 
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
-        @user.accept_friend_request @request.id
+        @user.accept_friend_request @request.id, @group.id
         @user.friends.include?(@person_one).should be true  
 
         @user2.receive @req_two_xml
         @user2.pending_requests.size.should be 1
-        @user2.accept_friend_request @request_two.id
+        @user2.accept_friend_request @request_two.id, @group2.id
         @user2.friends.include?(@person_one).should be true  
         Person.all.count.should be 3
       end
@@ -122,7 +134,7 @@ describe User do
 
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
-        @user.accept_friend_request @request.id
+        @user.accept_friend_request @request.id, @group.id
         @user.friends.include?(@person_one).should be true  
 
         @user2.receive @req_two_xml
@@ -171,7 +183,7 @@ describe User do
         @user.pending_requests.size.should be 2
         @user.friends.size.should be 0
 
-        @user.accept_friend_request @request.id
+        @user.accept_friend_request @request.id, @group.id
         @user.pending_requests.size.should be 1
         @user.friends.size.should be 1
         @user.friends.include?(@person_one).should be true
@@ -182,14 +194,6 @@ describe User do
         @user.friends.include?(@person_two).should be false
 
       end
-=begin
-      it 'should do accept reject for people not on the pod' do
-      end
-      it 'should do accept reject for people on the pod'  do
-      end
-      it 'should do accept reject for mixed people on the pod'  do
-      end
-=end
 
     end
   end
