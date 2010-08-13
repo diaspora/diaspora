@@ -53,6 +53,6 @@ def warzombie
     seed_num_hash = {:seed_number => params[:number]}
     file = File.new(Rails.root.join('config','backer_number.yml'),'w')
     file.write(seed_num_hash.to_yaml)
-
+    file.close
   end
 end
