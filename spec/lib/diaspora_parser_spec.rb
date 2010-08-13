@@ -8,6 +8,7 @@ include Diaspora::Parser
 describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
+    @group = @user.group(:name => 'spies')
     @person = Factory.create(:person_with_private_key, :email => "bill@gates.com")
   end
   describe 'with encryption' do
@@ -105,23 +106,14 @@ describe Diaspora::Parser do
     end
 
     it "should activate the Person if I initiated a request to that url" do 
-      request = Request.instantiate(:to => @person.receive_url, :from => @user)
-      request.save
-      @user.pending_requests << request
-      @user.save
-      
+      request = @user.send_friend_request_to( @person.receive_url, @group.id)
 
-      request_remote = Request.new
-      request_remote.id = request.id
-      request_remote.destination_url = @user.receive_url
-      request_remote.callback_url = @user.receive_url
-      request_remote.person = @person
-      request_remote.exported_key = @person.export_key
+      request.reverse @user 
 
-      xml = request_remote.to_diaspora_xml 
-      
+      xml = request.to_diaspora_xml 
+
       @person.destroy
-      request_remote.destroy
+
       @user.receive xml
       new_person = Person.first(:url => @person.url)
       new_person.nil?.should be false

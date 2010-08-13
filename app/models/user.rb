@@ -38,30 +38,39 @@ class User
   end
 
   ######### Friend Requesting ###########
-  def send_friend_request_to(friend_url)
-
+  def send_friend_request_to(friend_url, group_id)
     unless self.friends.detect{ |x| x.receive_url == friend_url}
-      p = Request.instantiate(:to => friend_url, :from => self.person)
-      if p.save
-        self.pending_requests << p
+      request = Request.instantiate(:to => friend_url, :from => self.person, :into => group_id)
+      if request.save
+        self.pending_requests << request
         self.save
-        p.push_to_url friend_url
+
+        group = self.groups.first(:id => group_id)
+
+        group.requests << request
+        group.save
+        
+        request.push_to_url friend_url
       end
-      p 
+      request
     end
   end 
 
-  def accept_friend_request(friend_request_id)
+  def accept_friend_request(friend_request_id, group_id)
     request = Request.where(:id => friend_request_id).first
     n = pending_requests.delete(request)
     
     friends << request.person
     save
 
-    request.person = self.person
-    request.exported_key = self.export_key
-    request.destination_url = request.callback_url
+    group = self.groups.first(:id => group_id)
+    group.people << request.person
+    group.save
+
+    request.reverse self
+
     request.push_to_url(request.callback_url)
+    
     request.destroy
   end
 
@@ -77,8 +86,9 @@ class User
 
   def receive_friend_request(friend_request)
     Rails.logger.debug("receiving friend request #{friend_request.to_json}")
-    if pending_requests.detect{|req| (req.callback_url == person.receive_url) && (req.destination_url == person.receive_url)}
-      activate_friend friend_request.person
+    if request_from_me?(friend_request)
+      activate_friend(friend_request.person, friend_request.group_id)
+
       Rails.logger.debug("#{self.real_name}'s friend request has been accepted")
       friend_request.destroy
     else
@@ -114,17 +124,22 @@ class User
     self.save
   end
 
-  def send_request(rel_hash)
+  def send_request(rel_hash, group)
     if rel_hash[:friend]
-      self.send_friend_request_to(rel_hash[:friend])
+      self.send_friend_request_to(rel_hash[:friend], group)
     else
       raise "you can't do anything to that url"
     end
   end
   
-  def activate_friend(person)
+  def activate_friend(person, group)
+    group.people << person
     friends << person
-    save
+    group.save
+  end
+
+  def request_from_me?(request)
+    pending_requests.detect{|req| (req.callback_url == person.receive_url) && (req.destination_url == person.receive_url)}
   end
 
   ###### Receiving #######

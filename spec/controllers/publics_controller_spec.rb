@@ -30,13 +30,13 @@ describe PublicsController do
     before do
       @user2 = Factory.create(:user)
       @user2.person.save
+      group = @user2.group(:name => 'disciples')
 
       @user3 = Factory.create(:user)
       @user3.person.save
 
-      
-      req = @user2.send_friend_request_to(@user.person.url)
-      #req = Request.instantiate(:from => @user2.person, :to => @user.person.url)
+      req = @user2.send_friend_request_to(@user.person.url, group.id)
+
       @xml = req.to_diaspora_xml
   
       req.delete
@@ -44,25 +44,19 @@ describe PublicsController do
       @user2.pending_requests.count.should be 1
     end
 
-    it 'should add the pending request to the right user, person exists locally' do 
+    it 'should add the pending request to the right user if the target person exists locally' do 
       @user2.delete
       post :receive, :id => @user.person.id, :xml => @xml
       
       assigns(:user).should eq(@user)
-
-
     end
 
-    it 'should add the pending request to the right user, person does not exist locally' do 
+    it 'should add the pending request to the right user if the target person does not exist locally' do 
       @user2.person.delete
       @user2.delete
       post :receive, :id => @user.person.id, :xml => @xml
-      
 
       assigns(:user).should eq(@user)
-
     end
-
-
   end
 end

@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
   def create
     rel_hash = relationship_flow(params[:request][:destination_url])
     Rails.logger.debug("Sending request: #{rel_hash}")
-    @request = current_user.send_request(rel_hash)
+    @request = current_user.send_request(rel_hash, params[:request][:group])
 
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
