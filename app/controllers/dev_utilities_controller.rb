@@ -1,5 +1,5 @@
 class DevUtilitiesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:set_backer_number]
   include ApplicationHelper
   include RequestsHelper
 def warzombie
@@ -48,7 +48,7 @@ def warzombie
     config['servers']['backer']
   end
 
-  def set_backer_seed_number
+  def set_backer_number
     render :nothing => true
     seed_num_hash = {:seed_number => params[:number]}
     file = File.new(Rails.root.join('config','backer_number.yml'),'w')

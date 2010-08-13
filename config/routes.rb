@@ -15,6 +15,7 @@ Diaspora::Application.routes.draw do |map|
   match 'warzombie',          :to => "dev_utilities#warzombie"
   match 'zombiefriends',      :to => "dev_utilities#zombiefriends"
   match 'zombiefriendaccept', :to => "dev_utilities#zombiefriendaccept"
+  match 'set_backer_number', :to => "dev_utilities#set_backer_number"
 
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file
