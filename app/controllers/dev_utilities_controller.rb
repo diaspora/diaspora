@@ -27,8 +27,10 @@ def warzombie
 
     if current_user.email == "tom@tom.joindiaspora.com" 
       bkr_info.each do |backer|
+        backer_email = "#{backer['username']}@#{backer['username']}.joindiaspora.com"
+        rel_hash = relationship_flow(backer_email)
         logger.info "Zombefriending #{backer['given_name']} #{backer['family_name']}"
-        current_user.send_friend_request_to("#{backer['username']}@#{backer['username']}.joindiaspora.com", current_user.groups.first.id)
+        current_user.send_request(rel_hash, current_user.groups.first.id)
       end
     end
   end
