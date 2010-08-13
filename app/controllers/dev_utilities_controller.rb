@@ -1,8 +1,7 @@
 class DevUtilitiesController < ApplicationController
-  require 'lib/diaspora/parser'
-  include Diaspora::Parser
   before_filter :authenticate_user!
   include ApplicationHelper
+  include RequestsHelper
 def warzombie
     render :nothing => true
     if current_user.email == "tom@tom.joindiaspora.com" && StatusMessage.where(:message => "There's a bomb in the lasagna!?").first == nil
