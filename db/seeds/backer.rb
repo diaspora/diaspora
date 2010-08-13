@@ -8,11 +8,11 @@
 
 require 'config/environment'
 
-def create(backer_number)
+def create
   config = YAML.load_file(File.dirname(__FILE__) + '/../../config/deploy_config.yml') 
   backer_info = config['servers']['backer']
 
-
+  backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))['seed_number']
   # Create seed user
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
   user = User.create( :email => "#{username}@#{username}.joindiaspora.com",

@@ -48,4 +48,11 @@ def warzombie
     config['servers']['backer']
   end
 
+  def set_backer_seed_number
+    render :nothing => true
+    seed_num_hash = {:seed_number => params[:number]}
+    file = File.new(Rails.root.join('config','backer_number.yml'),'w')
+    file.write(seed_num_hash.to_yaml)
+
+  end
 end

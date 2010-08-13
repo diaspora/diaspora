@@ -11,10 +11,10 @@ namespace :db do
       require 'db/seeds/dev'
     end
 
-    task :backer, :num do |t, args|
+    task :backer do
       puts "Seeding the database for #{Rails.env}..."
       require 'db/seeds/backer'
-      create( Integer(args.num))
+      create
     end
   end
 
