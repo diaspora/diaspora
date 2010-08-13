@@ -1,4 +1,6 @@
 class DevUtilitiesController < ApplicationController
+  require 'lib/diaspora/parser'
+  include Diaspora::Parser
   before_filter :authenticate_user!
   include ApplicationHelper
 def warzombie
