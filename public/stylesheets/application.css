@@ -377,8 +377,7 @@ ul#publisher_content_pickers li {
 h1.big_text {
   position: relative;
   line-height: auto;
-  border-bottom: 1px solid #666666;
-  text-align: center; }
+  border-bottom: 1px solid #666666; }
 
 .big_text .right {
   top: -8px; }
@@ -391,7 +390,6 @@ h1.big_text {
   float: right; }
 
 .back {
-  position: absolute;
   font-size: 12px;
   font-weight: normal; }
 
@@ -449,12 +447,12 @@ h1.big_text {
     width: 40px;
     background-color: #222222;
     text-align: center;
-    font-size: 40px; }
-    #group #friend_pictures .add_new a {
-      display: block;
-      position: absolute;
-      top: -13px;
-      left: 7px; }
+    font-size: 40px;
+    line-height: 33px;
+    top: -9px; }
+    #group #friend_pictures .add_new:hover {
+      background: #999999;
+      color: black; }
   #group #friend_pictures img {
     display: none;
     height: 40px; }

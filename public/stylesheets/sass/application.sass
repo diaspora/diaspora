@@ -469,8 +469,6 @@ h1.big_text
   :border
     //:top 2px solid #666
     :bottom 1px solid #666
-  :text
-    :align center
 
 .big_text
   .right
@@ -484,7 +482,6 @@ h1.big_text
   :float right
 
 .back
-  :position absolute
   :font
     :size 12px
     :weight normal
@@ -563,11 +560,13 @@ h1.big_text
         :color #222
       :text-align center
       :font-size 40px
-      a
-        :display block
-        :position absolute
-        :top -13px
-        :left 7px
+      :line-height 33px
+      :top -9px
+
+      &:hover
+        :background #999
+        :color #000
+
     img
       :display none
       :height 40px
