@@ -143,7 +143,11 @@ class User
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
 
     if object.is_a? Retraction
-      (object.type == 'Person' )? (unfriended_by friends.first(object.post_id)) : (object.perform self.id)
+      if object.type == 'Person' && object.signature_valid?
+        unfriended_by friends.first(object.post_id)
+      else
+        object.perform self.id
+      end
     elsif object.is_a? Request
       person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
       person.serialized_key ||= object.exported_key
