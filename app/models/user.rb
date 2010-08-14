@@ -60,12 +60,7 @@ class User
     request = Request.where(:id => friend_request_id).first
     n = pending_requests.delete(request)
     
-    friends << request.person
-    save
-
-    group = self.groups.first(:id => group_id)
-    group.people << request.person
-    group.save
+    activate_friend(request.person, groups.first(:id => group_id))
 
     request.reverse self
 
@@ -102,26 +97,22 @@ class User
     end
   end
 
-  def unfriend(friend_id)
-    Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}"
-    bad_friend = Person.first(:_id => friend_id)
+  def unfriend(bad_friend)
+    Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
     Retraction.for(self).push_to_url(bad_friend.receive_url) 
-    remove_friend friend_id
+    remove_friend(bad_friend)
   end
   
-  def remove_friend friend_id
-    bad_friend = Person.first(:_id => friend_id)
-
-    self.friend_ids.delete( friend_id )
+  def remove_friend(bad_friend)
+    raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
     self.save
-
     bad_friend.user_refs -= 1
     (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
   end
 
-  def unfriended_by friend_id
-    Rails.logger.info("#{self.real_name} is being unfriended by #{bad_friend.inspect}"
-    remove_friend friend_id
+  def unfriended_by(bad_friend)
+    Rails.logger.info("#{self.real_name} is being unfriended by #{bad_friend.inspect}")
+    remove_friend bad_friend
   end
 
   def send_request(rel_hash, group)
@@ -133,8 +124,10 @@ class User
   end
   
   def activate_friend(person, group)
+    person.user_refs += 1
     group.people << person
     friends << person
+    person.save
     group.save
     save
   end
@@ -149,7 +142,7 @@ class User
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
 
     if object.is_a? Retraction
-      (object.type == 'Person' )? (unfriended_by object.post_id) : (object.perform self.id)
+      (object.type == 'Person' )? (unfriended_by friends.first(object.post_id)) : (object.perform self.id)
     elsif object.is_a? Request
       person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
       person.serialized_key ||= object.exported_key

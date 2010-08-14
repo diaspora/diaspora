@@ -235,43 +235,36 @@ describe User do
 
   describe 'unfriending' do
     before do
-      @user = Factory.create :user
       @user2 = Factory.create :user
-
-      @user.friends << @user2.person
-      @user.person.user_refs += 1
-      @user2.friends << @user.person
-
-      @user2.person.user_refs += 1
-
-      @user2.person.save
-      @user.person.save
+      @group2 = @user2.group(:name => "Gross people")
+      
+      request = @user.send_friend_request_to( @user2.receive_url, @group.id)
+      request.reverse @user2 
+      @user2.activate_friend(@user.person, @group2)
+      @user.receive request.to_diaspora_xml
     end
 
     it 'should unfriend the other user on the same seed' do
-      person = @user2.person 
-      person.url = @user.person.url
-      person.save
-      
+      @user.reload
+      @user2.reload
+
       @user.friends.count.should == 1
       @user2.friends.count.should == 1
       
-      @user.person.user_refs.should == 2
+      @user.person.user_refs.should == 1
 
-      @user2.person.user_refs.should == 2
+      @user2.person.user_refs.should == 1
 
-      @user2.unfriend @user.person.id
+      @user2.unfriend @user.person
       @user2.friends.count.should be 0
 
       @user.person.reload
-      @user.person.user_refs.should == 1 
+      @user.person.user_refs.should == 0 
 
-      @user.unfriended_by @user2.person.id
+      @user.unfriended_by @user2.person
 
       @user2.person.reload
-      @user2.person.user_refs.should == 1
+      @user2.person.user_refs.should == 0
     end
-    
-
   end
 end

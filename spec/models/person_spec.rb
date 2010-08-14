@@ -2,7 +2,11 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Person do
   before do
+    @user = Factory.create(:user)
+    @user2 = Factory.create(:user)
     @person = Factory.create(:person)
+    @group = @user.group(:name => "Dudes")
+    @group2 = @user2.group(:name => "Abscence of Babes")
   end
 
 
@@ -33,8 +37,6 @@ describe Person do
   end
 
   it 'should delete all of user except comments upon user deletion' do
-    Factory.create(:user)
-
     f = Factory.create(:person)
 
     Factory.create(:status_message, :person => f)
@@ -57,45 +59,39 @@ describe Person do
 
   describe "unfriending" do
     it 'should delete an orphaned friend' do
-      user = Factory.create(:user)
-      user.save
       
+      request = @user.send_friend_request_to @person.receive_url, @group.id
 
-      user.friends << @person
-      @person.user_refs += 1
-      @person.save
-
+      @user.activate_friend(@person, @group) 
+      @user.reload
+      
+      Person.all.count.should == 3
+      @user.friends.count.should == 1
+      @user.unfriend(@person)
+      @user.reload
+      @user.friends.count.should == 0
       Person.all.count.should == 2
-      user.friends.count.should == 1
-      user.unfriend(@person.id)
-      user.friends.count.should == 0
-      Person.all.count.should == 1
     end
 
     it 'should not delete an un-orphaned friend' do
-      user_one = Factory.create(:user)
-      user_two = Factory.create(:user)
+      request = @user.send_friend_request_to @person.receive_url, @group.id
+      request2 = @user2.send_friend_request_to @person.receive_url, @group2.id
 
-      user_one.save
-      user_two.save
+      @user.activate_friend(@person, @group) 
+      @user2.activate_friend(@person, @group2)
 
-
-      user_one.friends << @person
-      user_two.friends << @person
-      user_one.save
-      user_two.save
-
-      @person.user_refs += 2
-      @person.save
-
+      @user.reload
+      @user2.reload
+      
       Person.all.count.should == 3
-      user_one.friends.count.should == 1
-      user_two.friends.count.should == 1
+      @user.friends.count.should == 1
+      @user2.friends.count.should == 1
 
-      user_one.unfriend(@person.id)
-
-      user_one.friends.count.should == 0
-      user_two.friends.count.should == 1
+      @user.unfriend(@person)
+      @user.reload
+      @user2.reload
+      @user.friends.count.should == 0
+      @user2.friends.count.should == 1
 
       Person.all.count.should == 3
     end
