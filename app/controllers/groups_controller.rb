@@ -31,7 +31,6 @@ class GroupsController < ApplicationController
     @people_ids = @group.people.map {|p| p.id}
     @posts = Post.paginate :person_id => @people_ids, :order => 'created_at DESC'
     @group = Group.first(:id => params[:id])
-    render :index
   end
 
   def edit
