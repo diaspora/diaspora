@@ -28,11 +28,6 @@ user2 = User.create( :email => "korth@tom.joindiaspora.com",
 user2.person.save
 
 # friending users
-user.friends << user2.person
-user.group(:name => "other dudes", :people => [user2.person])
-user.save
-
-user2.friends << user.person
-user2.group(:name => "some dudes", :people => [user.person])
-user2.save
-
+group = user.group(:name => "other dudes")
+request = user.send_friend_request_to(user2.receive_url, group_id)
+user2.accept_friend_request request.id, user2.group(:name => "presidents").id
