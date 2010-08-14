@@ -103,26 +103,25 @@ class User
   end
 
   def unfriend(friend_id)
+    Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}"
     bad_friend = Person.first(:_id => friend_id)
+    Retraction.for(self).push_to_url(bad_friend.receive_url) 
+    remove_friend friend_id
+  end
+  
+  def remove_friend friend_id
+    bad_friend = Person.first(:_id => friend_id)
+
     self.friend_ids.delete( friend_id )
-
-    if bad_friend 
-      Retraction.for(self).push_to_url(bad_friend.receive_url) 
-      bad_friend.user_refs -= 1
-
-      (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
-    end
     self.save
+
+    bad_friend.user_refs -= 1
+    (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
   end
 
   def unfriended_by friend_id
-    bad_friend = Person.first(:_id => friend_id)
-
-    self.friend_ids.delete( friend_id )
-    bad_friend.user_refs -= 1
-
-    (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
-    self.save
+    Rails.logger.info("#{self.real_name} is being unfriended by #{bad_friend.inspect}"
+    remove_friend friend_id
   end
 
   def send_request(rel_hash, group)
