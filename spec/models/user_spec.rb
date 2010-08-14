@@ -265,6 +265,11 @@ describe User do
 
       @user2.person.reload
       @user2.person.user_refs.should == 0
+
+      @group.reload
+      @group2.reload
+      @group.people.count.should == 0
+      @group2.people.count.should == 0
     end
   end
 end

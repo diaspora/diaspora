@@ -105,6 +105,7 @@ class User
   
   def remove_friend(bad_friend)
     raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
+    groups.each{|g| g.person_ids.delete( bad_friend.id )}
     self.save
     bad_friend.user_refs -= 1
     (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
