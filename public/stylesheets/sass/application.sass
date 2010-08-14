@@ -70,7 +70,7 @@ a
 header
   :position relative
   :margin -2em
-    :bottom 30px
+    :bottom 20px
   :color #555
   :background
     :color #2B2726
@@ -101,8 +101,6 @@ header
     :float right
     :text-shadow 0 1px 0 #000
     a
-      :color #777
-      :border none
       &.new_requests
         :color #DF0101
     :padding-right 10px
@@ -168,11 +166,10 @@ h1
     :weight bold
   :line-height 36px
 
-  p.description, span.description
+  p.description, span.description, .description
     :font
       :weight 200
     :color #999
-    :padding 0.1em
 
 h3
   :position relativex
@@ -432,7 +429,7 @@ ul#publisher_content_pickers li
 
 .album
   :position relative
-  :height 200px
+  :height 300px
   :width 300px
   :display inline-block
 
@@ -467,12 +464,11 @@ h1.big_text
   :position relative
   :line-height auto
   :border
-    //:top 2px solid #666
     :bottom 1px solid #666
 
-.big_text
   .right
-    :top -8px
+    :top -6px
+
 #content_bottom
   .right
     :top -5px
@@ -576,4 +572,23 @@ h1.big_text
   :display none
   :left -25px
   :top 4px
+
+#user_menu
+  :background #333
+  :padding 5px 
+  :margin 0
+  :list-style none
+
+  a
+    :color #999
+
+  > li
+    :display inline
+    :margin
+      :right 1em
+
+    &:last-child
+      :margin
+        :right 0
+
 
