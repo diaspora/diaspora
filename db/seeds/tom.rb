@@ -29,5 +29,5 @@ user2.person.save
 
 # friending users
 group = user.group(:name => "other dudes")
-request = user.send_friend_request_to(user2.receive_url, group_id)
+request = user.send_friend_request_to(user2.receive_url, group.id)
 user2.accept_friend_request request.id, user2.group(:name => "presidents").id
