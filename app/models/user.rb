@@ -139,6 +139,7 @@ class User
 
   ###### Receiving #######
   def receive xml
+    Rails.logger.info("Received xml is #{xml}")
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
 
