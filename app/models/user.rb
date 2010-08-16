@@ -162,7 +162,8 @@ class User
       person.profile = object
       person.save  
     elsif object.verify_creator_signature == true 
-      Rails.logger.debug("Saving object with success: #{object.save}")
+      Rails.logger.debug("Saving object: #{object}")
+      object.save
       object.socket_to_uid( id) if object.respond_to? :socket_to_uid
     end
   end

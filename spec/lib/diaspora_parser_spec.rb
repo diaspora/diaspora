@@ -12,6 +12,29 @@ describe Diaspora::Parser do
     @person = Factory.create(:person_with_private_key, :email => "bill@gates.com")
     @user2 = Factory.create(:user)
   end
+
+
+  it "should associate the post with a group" do
+    @user.activate_friend(@person, @group)
+
+    status_message = Factory.build(:status_message, :message => "hey!", :person => @person)
+    @user.receive status_message.to_diaspora_xml
+
+
+    # mongomapper doesn't support joins, meaning we can't do a query
+    # on user.groups.
+    # should this code below be a function of a user?
+    # something like self.find_group_for(friend_id) ?
+    groups = @user.groups
+    groups.shift while not groups[0].person_ids.include?(@person.id)
+    group = groups[0]
+    ####
+
+    @group.posts.count.should == 1
+  end
+
+
+
   describe 'with encryption' do
     before do
       unstub_mocha_stubs
@@ -38,7 +61,6 @@ describe Diaspora::Parser do
         </XML>"
       @user.receive xml
       Post.count.should == 0
-
     end
   end 
 
