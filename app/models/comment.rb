@@ -18,10 +18,8 @@ class Comment
   
   key :person_id, ObjectId
   belongs_to :person, :class_name => "Person"
-  
-  def ==(other)
-    (self.message == other.message) && (self.person.email == other.person.email)
-  end
+
+  validates_presence_of :text
   
   def push_upstream
     push_to([post.person])
@@ -34,7 +32,6 @@ class Comment
   #ENCRYPTION
   
   before_validation :sign_if_mine, :sign_if_my_post
-  #validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
   validates_true_for :post_creator_signature, :logic => lambda {self.verify_post_creator_signature}
   
   xml_accessor :creator_signature

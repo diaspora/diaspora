@@ -66,7 +66,7 @@ a {
 header {
   position: relative;
   margin: -2em;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   color: #555555;
   background-color: #2b2726;
   background-color: black;
@@ -88,11 +88,8 @@ header {
     float: right;
     text-shadow: 0 1px 0 black;
     padding-right: 10px; }
-    header #session_action a {
-      color: #777777;
-      border: none; }
-      header #session_action a.new_requests {
-        color: #df0101; }
+    header #session_action a.new_requests {
+      color: #df0101; }
 
 #show_filters {
   z-index: 100;
@@ -144,10 +141,9 @@ h1 {
   font-size: 21px;
   font-weight: bold;
   line-height: 36px; }
-  h1 p.description, h1 span.description {
+  h1 p.description, h1 span.description, h1 .description {
     font-weight: 200;
-    color: #999999;
-    padding: 0.1em; }
+    color: #999999; }
 
 h3 {
   position: relativex;
@@ -352,7 +348,7 @@ ul#publisher_content_pickers li {
 /* cycle it! */
 .album {
   position: relative;
-  height: 200px;
+  height: 300px;
   width: 300px;
   display: inline-block; }
   .album .name {
@@ -377,11 +373,9 @@ ul#publisher_content_pickers li {
 h1.big_text {
   position: relative;
   line-height: auto;
-  border-bottom: 1px solid #666666;
-  text-align: center; }
-
-.big_text .right {
-  top: -8px; }
+  border-bottom: 1px solid #666666; }
+  h1.big_text .right {
+    top: -6px; }
 
 #content_bottom .right {
   top: -5px; }
@@ -391,7 +385,6 @@ h1.big_text {
   float: right; }
 
 .back {
-  position: absolute;
   font-size: 12px;
   font-weight: normal; }
 
@@ -449,12 +442,12 @@ h1.big_text {
     width: 40px;
     background-color: #222222;
     text-align: center;
-    font-size: 40px; }
-    #group #friend_pictures .add_new a {
-      display: block;
-      position: absolute;
-      top: -13px;
-      left: 7px; }
+    font-size: 40px;
+    line-height: 33px;
+    top: -9px; }
+    #group #friend_pictures .add_new:hover {
+      background: #999999;
+      color: black; }
   #group #friend_pictures img {
     display: none;
     height: 40px; }
@@ -464,3 +457,16 @@ h1.big_text {
   display: none;
   left: -25px;
   top: 4px; }
+
+#user_menu {
+  background: #333333;
+  padding: 5px;
+  margin: 0;
+  list-style: none; }
+  #user_menu a {
+    color: #999999; }
+  #user_menu > li {
+    display: inline;
+    margin-right: 1em; }
+    #user_menu > li:last-child {
+      margin-right: 0; }
