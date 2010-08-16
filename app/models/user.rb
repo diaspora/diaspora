@@ -63,10 +63,16 @@ class User
     activate_friend(request.person, group_by_id(group_id))
 
     request.reverse self
-
+    request
+  end
+  
+  def dispatch_friend_acceptance request
     request.push_to_url(request.callback_url)
-    
     request.destroy
+  end
+  
+  def accept_and_respond(friend_request_id, group_id)
+    dispatch_friend_acceptance(accept_friend_request(friend_request_id, group_id))
   end
 
   def ignore_friend_request(friend_request_id)
