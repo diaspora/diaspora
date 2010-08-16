@@ -190,11 +190,11 @@ class User
   end
   
   def friend_by_id( id )
-    friends.detect{|x| x.id == ensure_bson id }
+    friends.detect{|x| x.id == ensure_bson( id ) }
   end
 
   def group_by_id( id )
-    groups.detect{|x| x.id == ensure_bson id }
+    groups.detect{|x| x.id == ensure_bson( id ) }
   end
 
   protected
