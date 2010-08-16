@@ -32,7 +32,11 @@ module ApplicationHelper
   end
 
   def owner_image_tag
-    person_image_tag(User.owner)
+    person_image_tag(current_user)
+  end
+
+  def owner_image_link
+    person_image_link(current_user)
   end
 
   def person_image_tag(person)
@@ -44,10 +48,6 @@ module ApplicationHelper
 
   def person_image_link(person)
     link_to person_image_tag(person), object_path(person)
-  end
-
-  def owner_image_link
-    person_image_link(User.owner)
   end
 
   def new_request(request_count)

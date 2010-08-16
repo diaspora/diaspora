@@ -11,7 +11,6 @@ class PublicsController < ApplicationController
   end
 
   def host_meta
-    @user = User.owner
     render 'host_meta', :layout => false, :content_type => 'application/xrd+xml'
   end
 

@@ -6,17 +6,6 @@ describe Post do
     @user.person.save
   end
 
-  describe 'defaults' do
-    before do
-      WebSocket.stub!(:update_clients)
-      @post = Factory.create(:post, :person => nil)
-    end
-
-    it "should associate the owner if none is present" do
-      @post.person.should == User.owner
-    end
-  end
-
   describe "newest" do
     before do
       @person_one = Factory.create(:person, :email => "some@dudes.com")
