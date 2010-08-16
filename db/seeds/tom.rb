@@ -1,13 +1,27 @@
-#This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => citie
-
 require 'config/environment'
 
+remote_url = "http://tom.joindiaspora.com/"
 # Create seed user
-user = User.create( :email => "tom@tom.joindiaspora.com", :password => "evankorth", :url => "http://tom.joindiaspora.com/", :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
+user = User.create!( :email => "tom@tom.joindiaspora.com",
+                    :password => "evankorth",
+                    :person => Person.new(
+                      :email => "tom@tom.joindiaspora.com",
+                      :url => remote_url,
+                      :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
+                  )
+user.person.save!
 
+user2 = User.create!( :email => "korth@tom.joindiaspora.com",
+                    :password => "evankorth",
+                    :person => Person.new( :email => "korth@tom.joindiaspora.com",
+                                          :url => remote_url, 
+                                          :profile => Profile.new( :first_name => "Evan",
+                                                                  :last_name => "Korth")))
+
+user2.person.save!
+
+# friending users
+group = user.group(:name => "other dudes")
+request = user.send_friend_request_to(user2.receive_url, group.id)
+reversed_request = user2.accept_friend_request( request.id, user2.group(:name => "presidents").id )
+user.receive reversed_request.to_diaspora_xml

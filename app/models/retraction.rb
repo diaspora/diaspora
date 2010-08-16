@@ -5,9 +5,15 @@ class Retraction
 
   def self.for(object)
     retraction = self.new
-    retraction.post_id= object.id
+    if object.is_a? User
+      retraction.post_id = object.person.id
+      retraction.type = object.person.class.to_s
+    else
+      retraction.post_id = object.id
+      retraction.type = object.class.to_s
+    end
     retraction.person_id = person_id_from(object)
-    retraction.type = object.class.to_s
+    retraction.send(:sign_if_mine)
     retraction
   end
 
@@ -19,10 +25,14 @@ class Retraction
   attr_accessor :person_id
   attr_accessor :type
 
-  def perform
+  def perform receiving_user_id
+    Rails.logger.debug "Performing retraction for #{post_id}"
     begin
-      return unless signature_valid?
-      self.type.constantize.destroy(self.post_id)
+      return unless signature_valid? 
+      Rails.logger.debug("Retracting #{self.type} id: #{self.post_id}")
+      target = self.type.constantize.first(self.post_id)
+      target.unsocket_from_uid receiving_user_id if target.respond_to? :unsocket_from_uid
+      target.destroy
     rescue NameError
       Rails.logger.info("Retraction for unknown type recieved.")
     end
@@ -44,12 +54,22 @@ class Retraction
       object.person.id
     end
   end
+  
+  def person
+    Person.first(:id => self.person_id)
+  end
 
 #ENCRYPTION
     xml_reader :creator_signature
     
     def creator_signature
-      @creator_signature ||= sign if person_id == User.owner.id
+      object =  self.type.constantize.first(:id => post_id)
+
+      if object.class == Person && person_id == object.id
+        @creator_signature || sign_with_key(object.key)
+      elsif person_id == object.person.id
+        @creator_signature || sign_if_mine 
+      end
     end
 
     def creator_signature= input

@@ -20,8 +20,7 @@ class Profile
     self._parent_document.id
   end
   
-  def to_diaspora_xml
-    "<post>"+ self.to_xml.to_s + "</post>"
+  def person
+    Person.first(:id => self.person_id)
   end
-  
 end

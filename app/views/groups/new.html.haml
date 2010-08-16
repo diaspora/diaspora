@@ -1,9 +1,9 @@
 %h1.big_text
-  =link_to 'albums', albums_path
+  =link_to 'groups', groups_path 
   >>
-  new album
+  new group
 
-= form_for @album do |f|
+= form_for @group do |f|
   = f.error_messages
   %p
     = f.label :name
@@ -11,4 +11,4 @@
   %p
     = f.submit
 
-%p= link_to "Back to List", albums_path
+%p= link_to "Back to List", groups_path

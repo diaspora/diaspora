@@ -15,6 +15,7 @@ class Request
   key :callback_url, String
   key :person_id, ObjectId
   key :exported_key, String
+  key :group_id, ObjectId
 
   belongs_to :person
   
@@ -25,23 +26,35 @@ class Request
 
   before_validation :clean_link
 
-  scope :for_user, lambda{ |user| where(:destination_url => user.url) }
-  scope :from_user, lambda{ |user| where(:destination_url.ne => user.url) }
+  scope :for_user, lambda{ |user| where(:destination_url => user.receive_url) }
+  scope :from_user, lambda{ |user| where(:destination_url.ne => user.receive_url) }
 
-  def self.instantiate(options ={})
+  def self.instantiate(options = {})
     person = options[:from]
-    self.new(:destination_url => options[:to], :callback_url => person.url, :person => person, :exported_key => person.export_key)
+    self.new(:destination_url => options[:to],
+             :callback_url => person.receive_url, 
+             :person => person,
+             :exported_key => person.export_key,
+             :group_id => options[:into])
   end
-
-  def activate_friend 
-    p = Person.where(:url => self.person.url).first
-    p.active = true
-    p.save
+  
+  def reverse accepting_user
+    self.person = accepting_user.person
+    self.exported_key = accepting_user.export_key
+    self.destination_url = self.callback_url
+    save
+  end
+  
+  def set_pending_friend
+    p = Person.first(:id => self.person.id)
+    
+    self.person.save  #save pending friend
+    
   end
  
 #ENCRYPTION
-    before_validation :sign_if_mine
-    validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
+    #before_validation :sign_if_mine
+    #validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
     
     xml_accessor :creator_signature
     key :creator_signature, String

@@ -8,26 +8,21 @@
 
 require 'config/environment'
 
-def create(backer_number)
+def create
   config = YAML.load_file(File.dirname(__FILE__) + '/../../config/deploy_config.yml') 
   backer_info = config['servers']['backer']
 
-
+  backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
   # Create seed user
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
   user = User.create( :email => "#{username}@#{username}.joindiaspora.com",
                      :password => "#{username+backer_info[backer_number]['pin'].to_s}",
-                     :profile => Profile.new( :first_name => backer_info[backer_number]['given_name'], :last_name => backer_info[backer_number]['family_name'] ),
-                    :url=> "#{username}.joindiaspora.com")
-
-  # Make connection with Diaspora Tom
-  #Person.create( :email => "tom@joindiaspora.com", :url => "http://tom.joindiaspora.com/", :active => true, :profile => Profile.new(:first_name => "Alexander", :last_name => "Hamiltom"))
-  # Make people
-  
-#  (0..10).each { |n|
-    #domain_name = backer_info[n][2].gsub(/ /,'').downcase
-    #url = "http://#{domain_name}.joindiaspora.com/"
-    #User.owner.send_friend_request_to(url)
-  #}
+                     :person => Person.new(
+                       :email => "#{username}@#{username}.joindiaspora.com",
+                       :profile => Profile.new( :first_name => backer_info[backer_number]['given_name'], :last_name => backer_info[backer_number]['family_name'] ),
+                       :url=> "http://#{username}.joindiaspora.com/")
+                    )
+  user.person.save
+  user.group(:name => "Presidents")
 end
 

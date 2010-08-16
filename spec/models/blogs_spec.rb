@@ -18,7 +18,7 @@ describe Blog do
  
   describe "XML" do
     it 'should serialize to XML' do
-      body = Factory.create(:blog, :title => "yessir", :body => "penguins")
+      body = Factory.create(:blog, :title => "yessir", :body => "penguins", :person => @user.person)
       body.to_xml.to_s.should include "<title>yessir</title>"
       body.to_xml.to_s.should include "<body>penguins</body>"
     end

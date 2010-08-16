@@ -1,20 +1,22 @@
+.back= link_to '⇧ albums', albums_path
 %h1.big_text
-  .back
-    = link_to '⇧ albums', albums_path
 
   = @album.name 
 
-  -if mine? @album
-    .button.right#add_photos_button
-      = link_to 'Add Photos', '#'
+  -if current_user.owns? @album
+    .right
+      #add_photo_loader
+        = image_tag 'ajax-loader.gif'
+      = link_to 'Add Photos', '#new_photo_pane', :class => 'button', :id => "add_photo_button"
 
-    #add_photo_box.contextual_pane
+  .yo{:style => "display:none;"}
+    #new_photo_pane
       = render "photos/new_photo", :photo => @photo, :album => @album
 
 .sub_header
   ="updated #{how_long_ago(@album)}"
 
--unless mine? @album
+-unless current_user.owns? @album
   %h4= "by #{@album.person.real_name}"
 
 #thumbnails
@@ -25,6 +27,7 @@
 #content_bottom
   .back
     = link_to "⇧ albums", albums_path
-  -if mine? @album
-    .button.right
-      = link_to 'Edit Album', edit_album_path(@album)
+
+  -if current_user.owns? @album
+    .right
+      = link_to 'Edit Album', edit_album_path(@album), :class => 'button'

@@ -14,4 +14,11 @@ module PublicsHelper
       400
     end
   end
+
+  def terse_url(full_url)
+    terse = full_url.gsub(/https?:\/\//, '')
+    terse.gsub!(/www\./, '')
+    terse = terse.chop! if terse[-1, 1] == '/'
+    terse
+  end
 end

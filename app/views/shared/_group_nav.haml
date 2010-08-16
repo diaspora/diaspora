@@ -1,0 +1,21 @@
+#group
+  %ul
+    - for group in @groups
+      %li{:class => ("selected" if group.id.to_s == params[:id])}
+        = link_to group.name, group
+
+    %li.new_group= link_to("NEW GROUP", "#add_group_pane", :id => "add_group_button")
+
+    .yo{ :style => "display:none;"}
+      #add_group_pane
+        = render "groups/new_group"
+
+  - if @group
+    #friend_pictures
+      - for friend in @group.people
+        = person_image_link(friend)
+      = link_to "+", "#add_request_pane", :id => 'add_request_button', :class => "add_new"
+
+      .yo{:style => 'display:none'}
+        #add_request_pane
+          = render "requests/new_request"

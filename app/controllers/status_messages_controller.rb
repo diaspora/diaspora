@@ -1,5 +1,5 @@
 class StatusMessagesController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def index
     @status_messages = StatusMessage.paginate :page => params[:page], :order => 'created_at DESC'
@@ -16,7 +16,6 @@ class StatusMessagesController < ApplicationController
     
     if @status_message.created_at
       flash[:notice] = "Successfully created status message."
-      redirect_to status_messages_url
     else
       render :action => 'new'
     end
@@ -38,7 +37,7 @@ class StatusMessagesController < ApplicationController
     
     respond_to do |format|
       format.html 
-      format.xml { render :xml => Post.build_xml_for(@status_message) }
+      format.xml { render :xml => @status_message.build_xml_for }
       format.json { render :json => @status_message }
     end
   end

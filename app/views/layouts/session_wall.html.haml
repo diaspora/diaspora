@@ -13,7 +13,7 @@
 
     :javascript
       $(document).ready(function(){
-        $("#user_password").focus(); 
+        $("#user_email").focus(); 
       });
   
     = csrf_meta_tag
@@ -40,18 +40,10 @@
         </div>
         <![endif]-->
     
-    
-    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
-      - if User.owner  
-        %div#huge_text
-          welcome back, 
-          %span
-            = User.owner.real_name.downcase
-        = yield
-      -else
-        %div#huge_text
-          %span
-            you need to add a user first!
-
+      %div#huge_text
+        diaspora
+      = yield
+      
+      /= link_to "signup", "/signup"

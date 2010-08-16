@@ -11,10 +11,10 @@ namespace :db do
       require 'db/seeds/dev'
     end
 
-    task :backer, :num do |t, args|
+    task :backer do
       puts "Seeding the database for #{Rails.env}..."
       require 'db/seeds/backer'
-      create( Integer(args.num))
+      create
     end
   end
 
@@ -27,6 +27,9 @@ namespace :db do
     # Specifiy what models to remove
     # No!  Drop the fucking database.
    MongoMapper::connection.drop_database(MongoMapper::database.name) 
+
+   puts 'Deleting tmp folder...'
+   `rm -rf #{File.dirname(__FILE__)}/../../public/uploads/tmp`
   end
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'

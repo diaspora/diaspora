@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def mine?(post)
-    post.person == User.owner
+    current_user.owns? post
   end
   
   def type_partial(post)
@@ -31,12 +31,12 @@ module ApplicationHelper
     end
   end
 
-  def link_to_person(person)
-    link_to person.real_name, person_path(person)
+  def owner_image_tag
+    person_image_tag(current_user)
   end
 
-  def owner_image_tag
-    person_image_tag(User.owner)
+  def owner_image_link
+    person_image_link(current_user)
   end
 
   def person_image_tag(person)
@@ -48,10 +48,6 @@ module ApplicationHelper
 
   def person_image_link(person)
     link_to person_image_tag(person), object_path(person)
-  end
-
-  def owner_image_link
-    person_image_link(User.owner)
   end
 
   def new_request(request_count)

@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :except => [:new, :create]
 
-  before_filter :authenticate_user!
   def index
     @users = User.sort(:created_at.desc).all
   end
   def show
-    @user= Person.first(:id => params[:id])
-    @user_profile = @user.profile
+    @user= User.first(:id => params[:id])
+    @user_profile = @user.person.profile
   end
 
   def edit
@@ -25,4 +25,20 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
+
+  def create
+    @user = User.instantiate(params[:user])
+   
+    if @user.created_at && @user.person.created_at 
+      flash[:notice] = "Successfully signed up."
+      redirect_to root_path
+    else
+      render :action => 'new'
+    end
+  end
+
+  def new
+    @user = User.new
+  end
+  
 end

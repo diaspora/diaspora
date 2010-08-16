@@ -8,11 +8,17 @@
     
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "application", "ui", 'bubble'
+
+    = stylesheet_link_tag "/../javascripts/fancybox/jquery.fancybox-1.3.1" 
+
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'google'
-    = javascript_include_tag 'tiny_mce/tiny_mce', 'jquery.infieldlabel'
-    = javascript_include_tag 'jquery.cycle/jquery.cycle.min.js'
-    = javascript_include_tag 'view', 'publisher', 'image_picker'
+    = javascript_include_tag 'tiny_mce/tiny_mce'
+    = javascript_include_tag 'jquery.infieldlabel', 'jquery.cycle/jquery.cycle.min.js'
+    
+    = javascript_include_tag 'fancybox/jquery.fancybox-1.3.1.pack'
+
+    = javascript_include_tag 'view', 'publisher', 'image_picker', 'group_nav'
     = render 'js/websocket_js'
     
     = csrf_meta_tag
@@ -23,51 +29,31 @@
     = javascript_include_tag 'jquery.html5_upload'
 
   %body
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}"
+
     %header
       .container
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
+        #session_action
+          - if user_signed_in?
+            %ul#user_menu
+              %li.name= link_to current_user.real_name, current_user.person
+              %li= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
+              %li= link_to "settings", edit_user_path(current_user)
+              %li= link_to "logout", destroy_user_session_path
+          - else
+            = link_to "login", new_user_session_path
+
         #diaspora_text{:href => root_path}
           = link_to "DIASPORA*", root_path
           %span.sub_text
             PREVIEW
+        = render "shared/group_nav"
 
-        #session_action
-          - if user_signed_in?
-            = link_to_person current_user
-            |
-            = link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
-            |
-            = link_to "logout", destroy_user_session_path
-          - else
-            = link_to "login", new_user_session_path
-
-    .container
-      - if user_signed_in?
-        #user_name
-          = link_to(person_image_tag(current_user), root_path)
-          %h1
-            = link_to current_user.real_name, root_path
-            %span#latest_message
-              = my_latest_message
-            - unless @latest_status_message.nil?
-              %span{:style => "font-size: small", :id => 'latest_message_time'}
-                = " - #{how_long_ago @latest_status_message}"
-
-          %ul.nav
-            %li= link_to "home", root_path
-            %li= link_to "photos", albums_path
-            %li= "|"
-            %li= link_to "edit profile", edit_user_path(current_user)
+        = link_to "photos", albums_path
 
     .container
       .span-24.last
-        .span-20.append-1.last
-
-          = yield
-
-        .span-3.last
-          = render 'people/sidebar' if user_signed_in?
-
-        .span-24.last
-          = render "posts/debug"
+        = yield
+      .span-24.last
+        = render "posts/debug"

@@ -3,10 +3,7 @@
     = link_to "⇧ home", root_path
   Requests
 
-= render "requests/new_request", :request => @request
-
 %h3= "currently #{@request_count} requests"
-
 %ul#stream
   - for request in @remote_requests
     = render "request", :request => request

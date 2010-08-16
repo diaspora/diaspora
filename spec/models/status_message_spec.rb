@@ -18,7 +18,7 @@ describe StatusMessage do
 
   describe "XML" do
     it 'should serialize to XML' do
-      message = Factory.create(:status_message, :message => "I hate WALRUSES!")
+      message = Factory.create(:status_message, :message => "I hate WALRUSES!", :person => @user.person)
       message.to_xml.to_s.should include "<message>I hate WALRUSES!</message>"
     end
   

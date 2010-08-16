@@ -8,10 +8,16 @@ class RequestsController < ApplicationController
   
   def destroy
     if params[:accept]
-      @friend = current_user.accept_friend_request params[:id]
-      
-      flash[:notice] = "you are now friends"
-      redirect_to root_url 
+
+      if params[:group_id]
+        @friend = current_user.accept_and_respond( params[:id], params[:group_id])
+        
+        flash[:notice] = "you are now friends"
+        redirect_to root_url 
+      else
+        flash[:error] = "please select a group!"
+        redirect_to requests_url
+      end
     else
       current_user.ignore_friend_request params[:id]
       flash[:notice] = "ignored friend request"
@@ -26,8 +32,8 @@ class RequestsController < ApplicationController
   
   def create
     rel_hash = relationship_flow(params[:request][:destination_url])
-    Rails.logger.info("Sending request: #{rel_hash}")
-    @request = current_user.send_request(rel_hash)
+    Rails.logger.debug("Sending request: #{rel_hash}")
+    @request = current_user.send_request(rel_hash, params[:request][:group])
 
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
@@ -42,10 +48,5 @@ class RequestsController < ApplicationController
       render :action => 'new'
     end
   end
-
-
-  
-  private 
-
 
 end

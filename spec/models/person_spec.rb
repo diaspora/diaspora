@@ -1,54 +1,54 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Person do
-  it 'should not allow two people with the same url' do
-    person_one = Factory.create(:person)
-    person_two = Factory.build(:person, :url => person_one.url)
+  before do
+    @user = Factory.create(:user)
+    @user2 = Factory.create(:user)
+    @person = Factory.create(:person)
+    @group = @user.group(:name => "Dudes")
+    @group2 = @user2.group(:name => "Abscence of Babes")
+  end
+
+
+  it 'should not allow two people with the same email' do
+    person_two = Factory.build(:person, :url => @person.email)
     person_two.valid?.should == false
   end
+
+  describe 'xml' do
+    before do 
+      @xml = @person.to_xml.to_s
+    end
+    it 'should serialize to xml' do
+      (@xml.include? "person").should == true
+    end
+
+    it 'should have a profile in its xml' do
+      (@xml.include? "first_name").should == true
+    end
+  end
   
-  it 'should not allow a person with the same url as the user' do
-    user = Factory.create(:user)
-    person = Factory.build(:person, :url => user.url)
-    person.valid?.should == false
+  it 'should know when a post belongs to it' do
+    person_message = Factory.create(:status_message, :person => @person)
+    person_two = Factory.create(:person)
+
+    @person.owns?(person_message).should be true
+    person_two.owns?(person_message).should be false
   end
-
-  it 'should serialize to xml' do
-    person = Factory.create(:person)
-    xml = person.to_xml.to_s
-    (xml.include? "person").should == true
-  end
-
-  it 'should have a profile in its xml' do
-    person = Factory.create(:person)
-    xml = person.to_xml.to_s
-    (xml.include? "first_name").should == true
-  end
-
-  it 'should only return active friends' do
-    Factory.create(:person)
-    Factory.create(:person, :active => false)
-    Factory.create(:person, :active => false)
-
-    Person.friends.all.count.should == 1
-  end
-
 
   it 'should delete all of user except comments upon user deletion' do
-    Factory.create(:user)
-
     f = Factory.create(:person)
-    p = Factory.create(:person)
+
     Factory.create(:status_message, :person => f)
     Factory.create(:blog, :person => f)
     Factory.create(:bookmark, :person => f)
     Factory.create(:status_message, :person => f)
-    s = Factory.create(:status_message, :person => p)
+    s = Factory.create(:status_message, :person => @person)
    
     Factory.create(:comment, :person_id => f.id, :text => "yes i do", :post => s)
     Factory.create(:comment, :person_id => f.id, :text => "i love you", :post => s)
     Factory.create(:comment, :person_id => f.id, :text => "hello", :post => s)
-    Factory.create(:comment, :person_id => p.id, :text => "you are creepy", :post => s)
+    Factory.create(:comment, :person_id => @person.id, :text => "you are creepy", :post => s)
 
     f.destroy
 
@@ -57,15 +57,44 @@ describe Person do
     s.comments.count.should == 4
   end
 
-  it 'should let a user unfriend another user' do
-    u = Factory.create(:user)
+  describe "unfriending" do
+    it 'should delete an orphaned friend' do
+      
+      request = @user.send_friend_request_to @person.receive_url, @group.id
 
-    f = Factory.create(:person, :active => true)
+      @user.activate_friend(@person, @group) 
+      @user.reload
+      
+      Person.all.count.should == 3
+      @user.friends.count.should == 1
+      @user.unfriend(@person)
+      @user.reload
+      @user.friends.count.should == 0
+      Person.all.count.should == 2
+    end
 
-    Person.friends.all.count.should == 1
-    u.unfriend(f.id)
-    Person.friends.all.count.should == 0
-    Person.all.count.should == 1
+    it 'should not delete an un-orphaned friend' do
+      request = @user.send_friend_request_to @person.receive_url, @group.id
+      request2 = @user2.send_friend_request_to @person.receive_url, @group2.id
+
+      @user.activate_friend(@person, @group) 
+      @user2.activate_friend(@person, @group2)
+
+      @user.reload
+      @user2.reload
+      
+      Person.all.count.should == 3
+      @user.friends.count.should == 1
+      @user2.friends.count.should == 1
+
+      @user.unfriend(@person)
+      @user.reload
+      @user2.reload
+      @user.friends.count.should == 0
+      @user2.friends.count.should == 1
+
+      Person.all.count.should == 3
+    end
   end
 
 end

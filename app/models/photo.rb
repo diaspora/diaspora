@@ -37,22 +37,20 @@ class Photo < Post
   end
 
   def remote_photo
-    @remote_photo ||= User.owner.url.chop + image.url
+    @remote_photo ||= self.person.url.chop + image.url
   end
 
   def remote_photo= remote_path
-    Rails.logger.info("Setting remote photo with id #{id}")
     @remote_photo = remote_path
     image.download! remote_path
     image.store!
-    Rails.logger.info("Setting remote photo with id #{id}")
   end
 
   def ensure_user_picture
-    user = User.owner
-    if user.profile.image_url == image.url(:thumb_medium)
+    users = Person.all('profile.image_url' => image.url(:thumb_medium) )
+    users.each{ |user|
       user.profile.update_attributes!(:image_url => nil)
-    end
+    } 
   end
 
   def thumb_hash

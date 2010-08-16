@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
   
   def index
     unless params[:q]
-      @people = Person.friends.paginate :page => params[:page], :order => 'created_at DESC'
+      @people = current_user.friends.paginate :page => params[:page], :order => 'created_at DESC'
       render :index
     else
       @people = Person.search_for_friends(params[:q])
@@ -12,15 +12,16 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person= Person.where(:id => params[:id]).first
+    @person= current_user.friend_by_id(params[:id])
+  
     @person_profile = @person.profile
     @person_posts = Post.where(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
-    @latest_status_message = StatusMessage.newest(@person)
+    @latest_status_message = StatusMessage.newest_for(@person)
     @post_count = @person_posts.count
   end
   
   def destroy
-    current_user.unfriend(params[:id])
+    current_user.unfriend(current_user.friend_by_id(params[:id]))
     flash[:notice] = "unfriended person."
     redirect_to people_url
   end

@@ -4,11 +4,6 @@ class BookmarksController < ApplicationController
   def index
     @bookmark = Bookmark.new
     @bookmarks = Bookmark.paginate :page => params[:page], :order => 'created_at DESC'
-    
-
-    respond_to do |format|
-      format.html 
-    end
   end
   
   def edit
@@ -34,7 +29,6 @@ class BookmarksController < ApplicationController
 
     if @bookmark.created_at
       flash[:notice] = "Successfully created bookmark."
-      redirect_to @bookmark
     else
       render :action => 'new'
     end

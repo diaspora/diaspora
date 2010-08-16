@@ -3,11 +3,12 @@ class Comment
   include ROXML
   include Diaspora::Webhooks
   include Encryptable
+  include Diaspora::Socketable
   
   xml_accessor :text
   xml_accessor :person, :as => Person
   xml_accessor :post_id
-  
+  xml_accessor :_id 
   
   key :text, String
   timestamps!
@@ -17,19 +18,22 @@ class Comment
   
   key :person_id, ObjectId
   belongs_to :person, :class_name => "Person"
-  
-  after_save :send_people_comments_on_my_posts
-  after_save :send_to_view
-  
 
-  def ==(other)
-    (self.message == other.message) && (self.person.email == other.person.email)
-  end
+  validates_presence_of :text
   
+  def push_upstream
+    Rails.logger.info("GOIN UPSTREAM")
+    push_to([post.person])
+  end
+
+  def push_downstream
+    Rails.logger.info("SWIMMIN DOWNSTREAM")
+    push_to(post.people_with_permissions)
+  end
+
   #ENCRYPTION
   
   before_validation :sign_if_mine, :sign_if_my_post
-  #validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
   validates_true_for :post_creator_signature, :logic => lambda {self.verify_post_creator_signature}
   
   xml_accessor :creator_signature
@@ -53,8 +57,7 @@ class Comment
   end
 
   def verify_post_creator_signature
-    unless person == User.owner
-      puts "verifying post creator sig from #{post.person.real_name}"
+    if person.owner.nil?
       verify_signature(post_creator_signature, post.person)
     else
       true
@@ -64,19 +67,9 @@ class Comment
   
   protected
    def sign_if_my_post
-    if self.post.person == User.owner
-      self.post_creator_signature = sign
+    unless self.post.person.owner.nil?
+      self.post_creator_signature = sign_with_key self.post.person.encryption_key
     end
   end 
- 
-   def send_people_comments_on_my_posts
-    if User.owner.mine?(self.post) && !(self.person.is_a? User)
-      self.push_to(self.post.people_with_permissions)
-    end
-  end
-  
-  
-  def send_to_view
-    SocketsController.new.outgoing(self)
-  end
+
 end

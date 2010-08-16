@@ -1,9 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
- 
-describe DashboardsController do
+include ApplicationHelper 
+describe GroupsController do
  render_views
   before do
-    @user = Factory.create(:user, :profile => Profile.new( :first_name => "bob", :last_name => "smith"))
+    @user = Factory.create(:user)
+    @user.person.save
+    @person = Factory.create(:person)
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
   end
 
@@ -11,7 +13,7 @@ describe DashboardsController do
     sign_in :user, @user   
     Factory.create :person
     get :index
-    assigns[:friends].should == Person.friends.all
+    assigns[:friends].should == @user.friends
   end
 
 end

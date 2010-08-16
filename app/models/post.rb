@@ -5,6 +5,7 @@ class Post
   include ROXML
   include Diaspora::Webhooks
   include Encryptable
+  include Diaspora::Socketable
 
   xml_accessor :_id
   xml_accessor :person, :as => Person
@@ -20,11 +21,8 @@ class Post
     
   timestamps!
 
-  after_save :send_to_view
-  after_save :notify_people
- 
   before_destroy :propagate_retraction
-  after_destroy :destroy_comments, :remove_from_view
+  after_destroy :destroy_comments
 
   def self.instantiate params
     self.create params
@@ -35,17 +33,8 @@ class Post
     Post.sort(:created_at.desc).all
   end
 
- def self.newest(person = nil)
-    return self.last if person.nil?
-
+  def self.newest_for(person)
     self.first(:person_id => person.id, :order => '_id desc')
-  end
-
-   def self.my_newest
-     self.newest(User.owner)
-   end
-  def self.newest_by_email(email)
-    self.newest(Person.first(:email => email))
   end
 
 #ENCRYPTION
@@ -69,10 +58,10 @@ class Post
   end
   
   def log_inspection
-    Rails.logger.info self.inspect
+    Rails.logger.debug self.inspect
   end
   def log_save_inspection
-    Rails.logger.info "After saving, object is:"
+    Rails.logger.debug "After saving, object is:"
     log_inspection
   end
 
@@ -85,13 +74,7 @@ protected
     Retraction.for(self).notify_people
   end
 
-  def send_to_view
-    SocketsController.new.outgoing(self)
-  end
-  
-  def remove_from_view
-    SocketsController.new.outgoing(Retraction.for(self))
-  end
+
 
 end
 

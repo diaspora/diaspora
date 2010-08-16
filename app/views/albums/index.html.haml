@@ -1,17 +1,17 @@
+.back= link_to "⇧ home", root_path
 %h1.big_text
-  .back
-    = link_to "⇧ home", root_path
   Albums
-  .button.right#add_album_button
-    = link_to 'New Album', "#"
+  .right
+    = link_to 'New Album', '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
-  #add_album_box.contextual_pane
+.yo{:style => "display:none;" }
+  #new_album_pane
     = render "albums/new_album"
 
 .sub_header
   %ul.button_set
-    %li.selected= friends_albums_link
-    %li= your_albums_link
+    %li{:class => ("selected" if params[:friends])}= friends_albums_link 
+    %li{:class => ("selected" if not params[:friends])}= your_albums_link
 
 %div
   - for album in @albums

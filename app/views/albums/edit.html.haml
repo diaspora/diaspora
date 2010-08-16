@@ -1,6 +1,5 @@
+.back= link_to "⇧ #{@album.name}", @album
 %h1.big_text
-  .back
-    = link_to "⇧ #{@album.name}", @album
 
   = "Editing #{@album.name}"
 
@@ -11,6 +10,10 @@
   = a.error_messages
   %p
     = a.text_field :name
+
+  %ul
+  - for photo in @album.photos
+    %li.photo_edit_block= image_tag photo.image.url(:thumb_large)
 
   #submit_block
     = link_to "Cancel", root_path

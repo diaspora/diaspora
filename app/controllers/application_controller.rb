@@ -16,9 +16,12 @@ class ApplicationController < ActionController::Base
   end
   
   def set_friends_and_status
-    @friends = Person.friends.all if current_user
-    @latest_status_message = StatusMessage.newest(current_user) if current_user
-    
+    if current_user
+      @groups = current_user.groups 
+      @friends = current_user.friends
+      @latest_status_message = StatusMessage.newest_for(current_user.person)
+      @group = params[:group] ? current_user.group_by_id(params[:group]) : current_user.groups.first 
+    end
   end
 
   def count_requests

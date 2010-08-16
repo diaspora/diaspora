@@ -12,6 +12,11 @@ describe 'making sure the spec runner works' do
     User.count.should == 0
   end
   
+  it 'should factory create a user with a person saved' do
+    user = Factory.create(:user)
+    loaded_user = User.first(:id => user.id)
+    loaded_user.person.owner_id.should == user.id
+  end
   describe 'testing a before do block' do
     before do
       Factory.create(:user)

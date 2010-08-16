@@ -21,15 +21,7 @@ $(document).ready(function(){
 			var show_comments_toggle = $(this).parent().prev().children(".show_post_comments");
 			show_comments_toggle.html("hide comments ("+ ($(this).children().length - 1) + ")");
 		};
-	  });
-
-	$('a').hover(function(){
-    if( $(this).children("img").length < 1 )
-      $(this).fadeTo(60, 0.5);
-	}, function(){
-    if( $(this).children("img").length < 1 )
-      $(this).fadeTo(80, 1);
-	});
+  });
 
 	$('#debug_info').click(function() {
 		$('#debug_more').toggle('fast', function() {
@@ -89,21 +81,14 @@ $(document).ready(function(){
   });
 
   //buttons//////
-  $("#add_photos_button").toggle(
-    function(){
-      $("#add_photo_box").fadeIn(300);
-    },function(){
-      $("#add_photo_box").fadeOut(200);
-    }
-  );
+  
 
-  $("#add_album_button").toggle(
-    function(){
-      $("#add_album_box").fadeIn(300);
-    },function(){
-      $("#add_album_box").fadeOut(200);
-    }
-  );
+  $("#add_album_button").fancybox();
+  $("#add_group_button").fancybox();
+  $("#add_request_button").fancybox();
+  $("#add_photo_button").fancybox();
+
+  //pane_toggler_button("photo");
 
   $("input[type='submit']").addClass("button");
 
@@ -115,5 +100,22 @@ $(document).ready(function(){
     $(this).fadeIn("slow");
   });
 
+  $(".delete").hover(function(){
+    $(this).toggleClass("button");
+  });
 
 });//end document ready
+
+
+function pane_toggler_button( name ) {
+  
+    $("#add_" + name + "_button").toggle(
+    function(evt){
+      evt.preventDefault();
+      $("#add_" + name + "_pane").fadeIn(300);
+    },function(evt){
+      evt.preventDefault();
+      $("#add_" + name +"_pane").fadeOut(200);
+    }
+  );
+}

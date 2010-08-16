@@ -1,33 +1,30 @@
+.back= link_to "⇧ #{@album.name}", album_path(@album)
 %h1.big_text
-  .back
-    = link_to "⇧ #{@album.name}", album_path(@album)
   = @photo.image
 
-  .button.right
-    = link_to 'Edit Photo', edit_photo_path(@photo)
+  .right
+    = link_to 'Edit Photo', edit_photo_path(@photo), :class => "button"
 
 .sub_header
+  = link_to_prev @photo, @album
+  |
   = link_to "full size", @photo.image.url
+  |
+  = link_to_next @photo, @album
 
 %div{:id => @photo.id}
-
   #show_photo
     = linked_scaled_photo @photo, @album
-
     .caption
       = @photo.caption
-
-  #next_prev_links
-    = link_to_prev @photo, @album
-    |
-    = link_to_next @photo, @album
 
   #content_bottom
     .back
       = link_to "⇧ #{@album.name}", album_path(@album)
-    -if mine? @album
-      .button.right
-        = link_to 'Delete Photo', @photo, :confirm => 'Are you sure?', :method => :delete
+
+    -if current_user.owns? @album
+      .right
+        = link_to 'Delete Photo', @photo, :confirm => 'Are you sure?', :method => :delete, :class => 'button'
 
   %h4{:class => "show_post_comments"}
     = "comments (#{@photo.comments.count})"

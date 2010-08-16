@@ -1,0 +1,11 @@
+%h1
+  welcome home,
+  = current_user.profile.first_name
+
+= render "shared/publisher"
+%ul#stream
+  - for post in @posts
+    = render type_partial(post), :post => post
+#pagination
+  = will_paginate @posts
+
