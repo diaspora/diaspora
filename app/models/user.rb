@@ -212,10 +212,6 @@ class User
   end
 
   def ensure_bson id 
-    if id.class == String
-      BSON::ObjectID(id)
-    else
-      id
-    end
+    id.class == String ? BSON::ObjectID(id) : id 
   end
 end
