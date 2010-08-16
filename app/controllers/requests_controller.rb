@@ -16,6 +16,7 @@ class RequestsController < ApplicationController
         redirect_to root_url 
       else
         flash[:error] = "please select a group!"
+        redirect_to requests_url
       end
     else
       current_user.ignore_friend_request params[:id]
