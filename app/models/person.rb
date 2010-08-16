@@ -76,7 +76,7 @@ class Person
   end
   
   def send_comment( c )
-    if self.owner.nil?
+    if self.remote?
       if c.post.person.owner.nil?
         #puts "The commenter is not here, and neither is the poster"
       elsif c.post.person.owner
@@ -113,6 +113,10 @@ class Person
 
   def self.by_webfinger( identifier )
      Person.first(:email => identifier.gsub('acct:', ''))
+  end
+  
+  def remote?
+    owner.nil?
   end
 
   protected
