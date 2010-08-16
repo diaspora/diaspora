@@ -169,11 +169,14 @@ class User
       person = Diaspora::Parser.owner_id_from_xml xml
       person.profile = object
       person.save  
+    elsif object.is_a?(Comment) && object.verify_post_creator_signature
+      if object.verify_creator_signature || object.person.nil?
+        dispatch_comment object if !owns?(object)
+      end
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save
       object.socket_to_uid( id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
-      dispatch_comment object if object.is_a?(Comment) && !owns?(object)
     end
   end
 
