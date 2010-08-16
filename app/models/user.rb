@@ -147,7 +147,6 @@ class User
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
-
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 

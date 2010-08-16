@@ -71,20 +71,14 @@ class Person
     raise "must comment on something!" unless options[:on]
     c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
     if c.save
-      begin
       dispatch_comment c
-      rescue Exception => e
-        puts e.inspect
-        raise e
-      end
-      
       
       c.socket_to_uid owner.id if owner_id
-      true
+      c
     else
       Rails.logger.warn "this failed to save: #{c.inspect}"
+      false
     end
-    false
   end
   
   def dispatch_comment( c )

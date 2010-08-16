@@ -10,19 +10,11 @@ describe RequestsHelper do
     @max = Redfinger.finger('mbs348@gmail.com')
   end
 
-
   describe "profile" do
-
     it 'should detect how to subscribe to a diaspora or webfinger profile' do
       subscription_mode(@tom).should == :friend
       subscription_mode(@evan).should == :none
       subscription_mode(@max).should == :none
     end
-
-    it 'should return the correct tag and url for a given address' do
-      relationship_flow('tom@tom.joindiaspora.com')[:friend].include?("receive/user").should ==  true
-    end
-
   end
-
 end
