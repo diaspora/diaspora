@@ -39,7 +39,7 @@ def warzombie
   def zombiefriendaccept
     render :nothing => true
     Request.all.each{|r| 
-      current_user.accept_friend_request(r.id, current_user.groups.first.id)
+      current_user.accept_and_respond(r.id, current_user.groups.first.id)
     }
   end
 
