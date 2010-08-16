@@ -66,10 +66,10 @@ class User
     request
   end
   
-  def dispatch_friend_acceptance request
+  def dispatch_friend_acceptance(request)
     request.push_to_url(request.callback_url)
-    request.destroy
-  end
+    request.destroy unless request.callback_url.include? user.url
+  end 
   
   def accept_and_respond(friend_request_id, group_id)
     dispatch_friend_acceptance(accept_friend_request(friend_request_id, group_id))
