@@ -139,14 +139,13 @@ class User
 
   ###### Receiving #######
   def receive xml
-    Rails.logger.info("Received xml is #{xml}")
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
 
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
-        Rails.logger.info( "the person id is #{object.post_id} the friend found is #{friends.first(object.post_id)}")
+        Rails.logger.info( "the person id is #{object.post_id} the friend found is #{friends.first(:id => object.post_id).inspect}")
         unfriended_by friends.first(:id => object.post_id)
 
       else
