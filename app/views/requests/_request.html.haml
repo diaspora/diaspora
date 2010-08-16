@@ -5,12 +5,12 @@
 
   .request_buttons
     = form_for request do |r|
-      = r.hidden_field(:accept, :accept, true)
+      = r.hidden_field(:accept, true)
       %select{ :id => "request_group_id", :name => "request[group_id]"}
         - for group in current_user.groups
           %option{:value => group.id}= group.name
       = r.submit_tag "Accept"
 
     = form_for request do |r|
-      = r.hidden_field(:accept, :accept, false)
+      = r.hidden_field(:accept,false)
       = r.submit_tag "Ignore"
