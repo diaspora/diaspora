@@ -45,7 +45,7 @@ class User
         self.pending_requests << request
         self.save
 
-        group = self.groups.first(:id => group_id)
+        group = self.group_by_id(group_id)
 
         group.requests << request
         group.save
@@ -60,7 +60,7 @@ class User
     request = Request.where(:id => friend_request_id).first
     n = pending_requests.delete(request)
     
-    activate_friend(request.person, groups.first(:id => group_id))
+    activate_friend(request.person, group_by_id(group_id))
 
     request.reverse self
 
@@ -82,7 +82,7 @@ class User
   def receive_friend_request(friend_request)
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
     if request_from_me?(friend_request)
-      group = self.groups.first(:id => friend_request.group_id)
+      group = self.group_by_id(friend_request.group_id)
       activate_friend(friend_request.person, group)
 
       Rails.logger.info("#{self.real_name}'s friend request has been accepted")
@@ -145,8 +145,8 @@ class User
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
-        Rails.logger.info( "the person id is #{object.post_id} the friend found is #{friends.first(:id => object.post_id).inspect}")
-        unfriended_by friends.first(:id => object.post_id)
+        Rails.logger.info( "the person id is #{object.post_id} the friend found is #{friend_by_id(object.post_id).inspect}")
+        unfriended_by friend_by_id(object.post_id)
 
       else
         object.perform self.id
@@ -189,10 +189,13 @@ class User
     self.password_confirmation = self.password
   end
   
-  def self.owner
-    User.first
+  def friend_by_id( id )
+    friends.detect{|x| x.id == id }
   end
-  
+
+  def group_by_id( id )
+    groups.detect{|x| x.id == id }
+  end
   protected
   
   def assign_key
