@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
   end
   
   def destroy
-    current_user.unfriend(current_user.friends.first(params[:id]))
+    current_user.unfriend(current_user.friend_by_id(params[:id]))
     flash[:notice] = "unfriended person."
     redirect_to people_url
   end

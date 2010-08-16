@@ -63,10 +63,16 @@ class User
     activate_friend(request.person, group_by_id(group_id))
 
     request.reverse self
-
+    request
+  end
+  
+  def dispatch_friend_acceptance(request)
     request.push_to_url(request.callback_url)
-    
-    request.destroy
+    request.destroy unless request.callback_url.include? url
+  end 
+  
+  def accept_and_respond(friend_request_id, group_id)
+    dispatch_friend_acceptance(accept_friend_request(friend_request_id, group_id))
   end
 
   def ignore_friend_request(friend_request_id)
@@ -167,7 +173,8 @@ class User
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save
-      object.socket_to_uid( id) if object.respond_to? :socket_to_uid
+      object.socket_to_uid( id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      object.person.dispatch_comment object if object.is_a?(Comment)
     end
   end
 

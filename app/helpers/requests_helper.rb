@@ -29,7 +29,7 @@ module RequestsHelper
     puts request.host
     if identifier.include?(request.host)
       person = Person.by_webfinger identifier
-      action = :friend
+      action = (person == current_user.person ? :none : :friend)
       url = person.owner.receive_url
     else
       f = Redfinger.finger(identifier)

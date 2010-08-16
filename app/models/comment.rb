@@ -22,10 +22,12 @@ class Comment
   validates_presence_of :text
   
   def push_upstream
+    Rails.logger.info("GOIN UPSTREAM")
     push_to([post.person])
   end
 
   def push_downstream
+    Rails.logger.info("SWIMMIN DOWNSTREAM")
     push_to(post.people_with_permissions)
   end
 
