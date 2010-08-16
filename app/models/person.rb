@@ -66,7 +66,14 @@ class Person
     raise "must comment on something!" unless options[:on]
     c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
     if c.save
+      begin
       dispatch_comment c
+      rescue Exception => e
+        puts e.inspect
+        raise e
+      end
+      
+      
       c.socket_to_uid owner.id if owner_id
       true
     else
@@ -77,7 +84,7 @@ class Person
   
   def dispatch_comment( c )
     if owns? c.post
-      push_downstream
+      c.push_downstream
     elsif owns? c
       c.push_upstream
     end
