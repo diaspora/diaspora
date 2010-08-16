@@ -77,22 +77,21 @@ class Person
   
   def send_comment( c )
     if self.owner.nil?
-        if c.post.person.owner.nil?
-          #puts "The commenter is not here, and neither is the poster"
-        elsif c.post.person.owner
-          #puts "The commenter is not here, and the poster is"
-          c.push_downstream
-        end
-      else
-        if owns? c.post
-          #puts "The commenter is here, and is the poster"
-          c.push_downstream
-        else
-          #puts "The commenter is here, and is not the poster"
-          c.push_upstream
-        end
+      if c.post.person.owner.nil?
+        #puts "The commenter is not here, and neither is the poster"
+      elsif c.post.person.owner
+        #puts "The commenter is not here, and the poster is"
+        c.push_downstream
       end
-
+    else
+      if owns? c.post
+        #puts "The commenter is here, and is the poster"
+        c.push_downstream
+      else
+        #puts "The commenter is here, and is not the poster"
+        c.push_upstream
+      end
+    end
   end
   ##profile
   def update_profile(params)
