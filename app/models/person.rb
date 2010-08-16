@@ -75,7 +75,7 @@ class Person
     false
   end
   
-  def send_comment c
+  def send_comment( c )
     if self.owner.nil?
         if c.post.person.owner.nil?
           #puts "The commenter is not here, and neither is the poster"
@@ -110,6 +110,10 @@ class Person
 
   def receive_url
     "#{self.url}receive/users/#{self.id}/"
+  end
+
+  def self.by_webfinger( identifier )
+     Person.first(:email => identifier.gsub('acct:', ''))
   end
 
   protected
