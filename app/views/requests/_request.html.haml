@@ -13,7 +13,7 @@
     = link_to "#{request.person.real_name}", '#'
 
   %ul.request_buttons
-    %select{ :class => "group_selector" }
+    %select{ :class => "group_selector", :style=>"display:inline;"}
       - for group in current_user.groups
         %option{:value => group.id}= group.name
     %li.accept= button_to 'Accept', request_path(request, :accept => true), :method => :delete 
