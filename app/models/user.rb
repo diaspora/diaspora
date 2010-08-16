@@ -190,12 +190,13 @@ class User
   end
   
   def friend_by_id( id )
-    friends.detect{|x| x.id == id || x.id == BSON::ObjectID(id) }
+    friends.detect{|x| x.id == ensure_bson id }
   end
 
   def group_by_id( id )
-    groups.detect{|x| x.id == id  || x.id == BSON::ObjectID(id) }
+    groups.detect{|x| x.id == ensure_bson id }
   end
+
   protected
   
   def assign_key
@@ -210,4 +211,11 @@ class User
     OpenSSL::PKey::RSA::generate 1024 
   end
 
+  def ensure_bson id 
+    if id.class == String
+      BSON::ObjectID(id)
+    else
+      id
+    end
+  end
 end
