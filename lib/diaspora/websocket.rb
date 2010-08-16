@@ -21,7 +21,7 @@ module Diaspora
     end
 
     def self.unsubscribe(uid,sid)
-      Rails.logger.debug "Unsubscribing socket #{sid} from #{User.first(:id => uid).email}"
+      Rails.logger.debug "Unsubscribing socket #{sid} from #{uid}"
       @channels[uid][0].unsubscribe(sid) if @channels[uid]
       @channels[uid][1] -= 1
       if @channels[uid][1] <= 0

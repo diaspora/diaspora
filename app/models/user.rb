@@ -174,7 +174,7 @@ class User
       Rails.logger.debug("Saving object: #{object}")
       object.save
       object.socket_to_uid( id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
-      object.person.dispatch_comment object if object.is_a?(Comment)
+      dispatch_comment object if object.is_a?(Comment) && !owns?(object)
     end
   end
 
