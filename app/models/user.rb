@@ -144,7 +144,10 @@ class User
 
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
+
+        Rails.logger.info( "the person id is #{object.post_id} the friend found is #{friends.first(object.post_id)}")
         unfriended_by friends.first(object.post_id)
+
       else
         object.perform self.id
       end
