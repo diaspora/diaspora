@@ -13,8 +13,8 @@ class StatusMessage < Post
   <entry>
   <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
   <title>#{self.message}</title>
-  <link rel="alternate" type="text/html" href="#{User.owner.url}status_messages/#{self.id}"/>
-  <id>#{User.owner.url}status_messages/#{self.id}</id>
+  <link rel="alternate" type="text/html" href="#{person.url}status_messages/#{self.id}"/>
+  <id>#{person.url}status_messages/#{self.id}</id>
   <published>#{self.created_at.xmlschema}</published>
   <updated>#{self.updated_at.xmlschema}</updated>
   </entry>

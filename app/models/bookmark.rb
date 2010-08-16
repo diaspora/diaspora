@@ -17,9 +17,9 @@ class Bookmark < Post
   <entry>
   <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
   <title>#{self.title}</title>
-  <link rel="alternate" type="text/html" href="#{User.owner.url}bookmarks/#{self.id}"/>
+  <link rel="alternate" type="text/html" href="#{person.url}bookmarks/#{self.id}"/>
   <link rel="related" type="text/html" href="#{self.link}"/>
-  <id>#{User.owner.url}bookmarks/#{self.id}</id>
+  <id>#{person.url}bookmarks/#{self.id}</id>
   <published>#{self.created_at.xmlschema}</published>
   <updated>#{self.updated_at.xmlschema}</updated>
   </entry>

@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person= Person.where(:id => params[:id]).first
+    @person= current_user.friend_by_id(params[:id])
   
     @person_profile = @person.profile
     @person_posts = Post.where(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'

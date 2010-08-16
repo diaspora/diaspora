@@ -26,9 +26,16 @@ module RequestsHelper
   end
 
   def relationship_flow(identifier)
-    f = Redfinger.finger(identifier)
-    action = subscription_mode(f)
-    url = subscription_url(action, f)
+    puts request.host
+    if identifier.include?(request.host)
+      person = Person.by_webfinger identifier
+      action = :friend
+      url = person.owner.receive_url
+    else
+      f = Redfinger.finger(identifier)
+      action = subscription_mode(f)
+      url = subscription_url(action, f)
+    end
     { action => url }
   end
 
