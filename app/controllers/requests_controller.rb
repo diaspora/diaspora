@@ -43,9 +43,4 @@ class RequestsController < ApplicationController
     end
   end
 
-
-  
-  private 
-
-
 end

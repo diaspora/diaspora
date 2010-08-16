@@ -3,6 +3,14 @@
   %span.from
     = link_to "#{request.person.real_name}", '#'
 
-  %ul.request_buttons
-    %li= link_to 'Accept', request_path(request, :accept => true), :method => :delete 
-    %li= link_to 'Ignore', request_path(request), :confirm => 'Are you sure?', :method => :delete
+  .request_buttons
+    = form_for request do |r|
+      = r.hidden_field(:accept, :accept, true)
+      %select{ :id => "request_group_id", :name => "request[group_id]"}
+        - for group in current_user.groups
+          %option{:value => group.id}= group.name
+      = r.submit_tag "Accept"
+
+    = form_for request do |r|
+      = r.hidden_field(:accept, :accept, false)
+      = r.submit_tag "Ignore"
