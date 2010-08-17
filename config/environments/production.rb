@@ -42,4 +42,14 @@ Diaspora::Application.configure do
   config.i18n.fallbacks = true
   config.threadsafe!
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp.joindiaspora.com',
+    :port => 587
+    :domain => 'www.joindiaspora.com'
+    :authentication => 'plain'
+    :user_name => 'diaspora-pivots'
+    :password => "xy289|]G+R*-kA"
+    :enable_starttls_auto => true
+  }
 end
