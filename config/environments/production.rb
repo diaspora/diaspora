@@ -43,6 +43,7 @@ Diaspora::Application.configure do
   config.threadsafe!
 
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = {:host => 'pivots.joindiaspora.com'}
   config.action_mailer.smtp_settings = {
     :address => 'smtp.joindiaspora.com',
     :port => 587,
