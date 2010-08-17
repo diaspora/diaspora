@@ -13,17 +13,6 @@ describe Diaspora::Parser do
     @user2 = Factory.create(:user)
   end
 
-
-  it "should associate the post with a group" do
-    @user.activate_friend(@person, @group)
-
-    status_message = Factory.build(:status_message, :message => "hey!", :person => @person)
-    @user.receive status_message.to_diaspora_xml
-    @user.posts.count.should == 1
-  end
-
-
-
   describe 'with encryption' do
     before do
       unstub_mocha_stubs

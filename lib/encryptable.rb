@@ -1,6 +1,6 @@
   module Encryptable
    def signable_string
-     ""
+     raise NotImplementedException("Override this in your encryptable class")
    end
     def verify_creator_signature
       verify_signature(creator_signature, person)
@@ -23,15 +23,9 @@
       validity
     end
     
-    protected
-    def sign_if_mine
-      self.creator_signature = sign_with_key(person.encryption_key) unless person.owner_id.nil?
-    end
-
     def sign_with_key(key)
       Rails.logger.debug("Signing #{signable_string}")
       Base64.encode64(key.sign "SHA", signable_string)
-      
     end
   end
 

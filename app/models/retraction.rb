@@ -13,7 +13,6 @@ class Retraction
       retraction.type = object.class.to_s
     end
     retraction.person_id = person_id_from(object)
-    retraction.send(:sign_if_mine)
     retraction
   end
 
@@ -60,21 +59,7 @@ class Retraction
   end
 
 #ENCRYPTION
-    xml_reader :creator_signature
-    
-    def creator_signature
-      object =  self.type.constantize.first(:id => post_id)
-
-      if object.class == Person && person_id == object.id
-        @creator_signature || sign_with_key(object.key)
-      elsif person_id == object.person.id
-        @creator_signature || sign_if_mine 
-      end
-    end
-
-    def creator_signature= input
-      @creator_signature = input
-    end
+    xml_accessor :creator_signature
 
     def signable_accessors
       accessors = self.class.roxml_attrs.collect{|definition| 
@@ -86,7 +71,8 @@ class Retraction
 
     def signable_string
       signable_accessors.collect{|accessor| 
-        (self.send accessor.to_sym).to_s}.join ';'
+        (self.send accessor.to_sym).to_s
+      }.join ';'
     end
   
 end

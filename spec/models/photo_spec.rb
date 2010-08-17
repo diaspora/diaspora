@@ -86,7 +86,7 @@ describe Photo do
     end
 
     it 'should save a signed photo to GridFS' do
-      photo  = Photo.create(:person => @user.person, :album => @album, :image => File.open(@fixture_name))
+      photo  = @user.post(:photo, :album => @album, :user_file => [File.open(@fixture_name)])
       photo.save.should == true
       photo.verify_creator_signature.should be true
     end

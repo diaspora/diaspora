@@ -37,6 +37,14 @@ class User
     Group.create(opts)
   end
 
+  ######### Posts and Such ###############
+
+  def retract( post )
+    retraction = Retraction.for(post)
+    retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
+    retraction.notify_people
+    retraction
+  end
   ######### Friend Requesting ###########
   def send_friend_request_to(friend_url, group_id)
     unless self.friends.detect{ |x| x.receive_url == friend_url}
@@ -105,7 +113,9 @@ class User
 
   def unfriend(bad_friend)
     Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
-    Retraction.for(self).push_to_url(bad_friend.receive_url) 
+    retraction = Retraction.for(self)
+    retraction.creator_signature = retraction.sign_with_key(encryption_key)
+    retraction.push_to_url(bad_friend.receive_url) 
     remove_friend(bad_friend)
   end
   
@@ -170,9 +180,12 @@ class User
       person.profile = object
       person.save  
     elsif object.is_a?(Comment) && object.verify_post_creator_signature
+
       if object.verify_creator_signature || object.person.nil?
-        dispatch_comment object if !owns?(object)
+        dispatch_comment object unless owns?(object)
+      
       end
+
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save

@@ -69,7 +69,7 @@ describe 'user encryption' do
       message = @user.post :status_message, :message => "hi"
 
 
-      retraction = Retraction.for(message)
+      retraction = @user.retract(message) 
       retraction.verify_creator_signature.should be true
 
     end
@@ -145,29 +145,28 @@ describe 'user encryption' do
       message.comments.first.verify_creator_signature.should be true
       message.comments.first.verify_post_creator_signature.should be true
     end
-    
+
     it 'should verify a comment made on a remote post by a different friend' do
       comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
       comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
       comment.verify_creator_signature.should be true
-      comment.valid?.should be false
+      comment.verify_post_creator_signature.should be false
       comment.post_creator_signature = comment.send(:sign_with_key,@person.encryption_key)
       comment.verify_post_creator_signature.should be true
-      comment.valid?.should be true
     end
 
     it 'should reject comments on a remote post with only a creator sig' do
-        comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-        comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
-        comment.verify_creator_signature.should be true
-        comment.verify_post_creator_signature.should be false
-        comment.save.should be false
+      comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
+      comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
+      comment.verify_creator_signature.should be true
+      comment.verify_post_creator_signature.should be false
     end
 
     it 'should receive remote comments on a user post with a creator sig' do
-        comment = Comment.new(:person => @person2, :text => "balls", :post => @message)
-        comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
-        comment.save.should be true
+      comment = Comment.new(:person => @person2, :text => "balls", :post => @message)
+      comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
+      comment.verify_creator_signature.should be true
+      comment.verify_post_creator_signature.should be false
     end
 
   end
