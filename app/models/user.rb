@@ -51,7 +51,16 @@ class User
     self.save
 
     post
-  end ######### Posts and Such ###############
+  end
+ 
+  def posts_for( opts = {} )
+    if opts[:group]
+      group = self.groups.find_by_id( opts[:group].id )
+      self.posts.find_all_by_person_id( group.person_ids )
+    end
+  end
+  
+  ######### Posts and Such ###############
 
   def retract( post )
     retraction = Retraction.for(post)

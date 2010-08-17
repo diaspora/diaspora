@@ -371,6 +371,39 @@ describe User do
       Post.count.should be 1
     end
 
+    describe 'group streams' do
+      before do
+        @group = @user.group(:name => 'heroes')
+        @group2 = @user.group(:name => 'stuff')
 
+        @user2 = Factory.create :user
+        @user.activate_friend(@user2.person, @group)
+
+        @user3 = Factory.create :user
+        @user.activate_friend(@user3.person, @group2)
+        
+        @user4 = Factory.create :user
+        @user.activate_friend(@user4.person, @group2)
+      end
+
+      it 'should generate a valid stream for a group of people' do
+        status_message1 = @user2.post :status_message, :message => "hi"
+        status_message2 = @user3.post :status_message, :message => "heyyyy"
+        status_message3 = @user4.post :status_message, :message => "yooo"
+
+        @user.receive status_message1.to_diaspora_xml
+        @user.receive status_message2.to_diaspora_xml
+        @user.receive status_message3.to_diaspora_xml
+        @user.reload
+
+        @user.posts_for(:group => @group).include?(status_message1).should be true
+        @user.posts_for(:group => @group).include?(status_message2).should be false
+        @user.posts_for(:group => @group).include?(status_message3).should be false
+
+        @user.posts_for(:group => @group2).include?(status_message1).should be false
+        @user.posts_for(:group => @group2).include?(status_message2).should be true
+        @user.posts_for(:group => @group2).include?(status_message3).should be true
+      end
+    end
   end
 end
