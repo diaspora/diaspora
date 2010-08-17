@@ -59,16 +59,7 @@ class Person
   end
 
 
-  ######## Posting ########
-  def post(class_name, options = {})
-    options[:person] = self
-    model_class = class_name.to_s.camelize.constantize
-    post = model_class.instantiate(options)
-    post.creator_signature = post.sign_with_key(encryption_key)
-    post.notify_people
-    post.socket_to_uid owner.id if (owner_id && post.respond_to?( :socket_to_uid))
-    post
-  end
+
 
   ######## Commenting  ########
   def comment(text, options = {})
