@@ -39,6 +39,14 @@ class User
     Group.create(opts)
   end
 
+  ######### Posts and Such ###############
+
+  def retract( post )
+    retraction = Retraction.for(post)
+    retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
+    retraction.notify_people
+    retraction
+  end
   ######### Friend Requesting ###########
   def send_friend_request_to(friend_url, group_id)
     unless self.friends.detect{ |x| x.receive_url == friend_url}
@@ -107,7 +115,9 @@ class User
 
   def unfriend(bad_friend)
     Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
-    Retraction.for(self).push_to_url(bad_friend.receive_url) 
+    retraction = Retraction.for(self)
+    retraction.creator_signature = retraction.sign_with_key(encryption_key)
+    retraction.push_to_url(bad_friend.receive_url) 
     remove_friend(bad_friend)
   end
   
@@ -165,7 +175,6 @@ class User
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
-
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
@@ -189,7 +198,6 @@ class User
       person.profile = object
       person.save  
 
-
     elsif object.is_a?(Post) && object.verify_creator_signature == true 
       Rails.logger.debug("Saving post: #{object}")
       object.save
@@ -198,14 +206,16 @@ class User
       object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
       dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
 
+    elsif object.is_a?(Comment) && object.verify_post_creator_signature
 
-
+      if object.verify_creator_signature || object.person.nil?
+        dispatch_comment object unless owns?(object)
+      end
 
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save
       object.socket_to_uid( id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
-      dispatch_comment object if object.is_a?(Comment) && !owns?(object)
     end
   end
 

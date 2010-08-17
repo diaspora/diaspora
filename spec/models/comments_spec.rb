@@ -31,9 +31,16 @@ describe Comment do
 
     describe 'comment propagation' do
       before do
+        @group = @user.group(:name => "Doofuses")
+
+        @user2 = Factory.create(:user)
+        @group2 = @user2.group(:name => "Lame-faces")
+
+        request = @user.send_friend_request_to(@user2.receive_url, @group.id)
+        reversed_request = @user2.accept_friend_request( request.id, @group2.id )
+        @user.receive reversed_request.to_diaspora_xml
+        
         @person = Factory.create(:person)
-        @user.friends << Factory.create(:person)
-        @user.save
         @person2 = Factory.create(:person) 
         @person_status = Factory.build(:status_message, :person => @person)
         @user_status = Factory.build(:status_message, :person => @user.person)
@@ -52,16 +59,24 @@ describe Comment do
     
       it 'should send a comment a person made on your post to all people' do
         message_queue.should_receive(:add_post_request)
-        @person.comment "balls", :on => @user_status
+        comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
+        @user.receive(comment.to_diaspora_xml)
+      end
+       it 'should send a comment a user made on your post to all people' do
+        message_queue.should_receive(:add_post_request).twice
+        comment = @user2.comment( "balls", :on => @user_status)
+        @user.receive(comment.to_diaspora_xml)
       end
     
       it 'should not send a comment a person made on his own post to anyone' do
         message_queue.should_not_receive(:add_post_request)
-        @person.comment "balls", :on => @person_status
+        comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @person_status)
+        @user.receive(comment.to_diaspora_xml)
       end
       it 'should not send a comment a person made on a person post to anyone' do
         message_queue.should_not_receive(:add_post_request)
-        @person2.comment "balls", :on => @person_status
+        comment = Comment.new(:person_id => @person2.id, :text => "balls", :post => @person_status)
+        @user.receive(comment.to_diaspora_xml)
       end
     end
   end
