@@ -283,6 +283,12 @@ describe User do
 
       @user.posts.count.should == 0
     end
+    
+    it "should add the post to that user's posts when a user posts it" do
+      status_message = @user.post :status_message, :message => "hi"
+      @user.reload
+      @user.posts.include?(status_message).should be true
+    end
 
     it 'should be removed on unfriending' do
       status_message = @user2.post :status_message, :message => "hi"

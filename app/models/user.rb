@@ -44,7 +44,11 @@ class User
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.notify_people
-    post.socket_to_uid owner.id if (owner_id && post.respond_to?( :socket_to_uid))
+    post.socket_to_uid owner.id if (owner_id && post.respond_to?(:socket_to_uid))
+
+    self.posts << post
+    self.save
+
     post
   end ######### Posts and Such ###############
 
