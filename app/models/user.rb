@@ -6,11 +6,13 @@ class User
          
   key :friend_ids, Array
   key :pending_request_ids, Array
+  key :post_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends, :in => :friend_ids, :class_name => 'Person'
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
+  many :posts, :in => :post_ids, :class_name => 'Post'
 
   many :groups, :class_name => 'Group'
 
@@ -110,9 +112,25 @@ class User
   end
   
   def remove_friend(bad_friend)
+    puts "YEAHH!!"
     raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
     groups.each{|g| g.person_ids.delete( bad_friend.id )}
     self.save
+
+    puts self.posts.find_all_by_person_id( bad_friend.id ).inspect
+    self.posts.find_all_by_person_id( bad_friend.id ).each{|post|
+      puts "HEYYYYYYYY"
+
+      self.post_ids.delete( post.id )
+      puts self.posts
+      post.user_refs =- 1
+
+      puts  "ASODIJ"
+      (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
+    }
+    puts self.inspect 
+    self.save
+
     bad_friend.user_refs -= 1
     (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
   end
@@ -170,6 +188,19 @@ class User
       person = Diaspora::Parser.owner_id_from_xml xml
       person.profile = object
       person.save  
+
+
+    elsif object.is_a?(Post) && object.verify_creator_signature == true 
+      Rails.logger.debug("Saving post: #{object}")
+      object.save
+      self.posts << object
+      self.save
+      object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
+
+
+
+
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save

@@ -56,8 +56,7 @@ describe User do
       Request.count.should == 0
     end
 
-    it 'should not be able to friend request an existing friend' do
-      friend = Factory.create(:person)
+    it 'should not be able to friend request an existing friend' do friend = Factory.create(:person)
       
       @user.friends << friend
       @user.save
@@ -271,5 +270,38 @@ describe User do
       @group.people.count.should == 0
       @group2.people.count.should == 0
     end
+  end
+
+  describe 'post refs' do
+    before do
+      @user2 = Factory.create(:user)
+    end
+
+    it 'should be removed on unfriending' do
+      @user.activate_friend( @user2.person, @group)
+      
+      @user.posts.count.should == 0
+
+      status_message = @user2.post :status_message, :message => "hi"
+      @user.receive status_message.to_diaspora_xml
+
+
+      @user.posts.count.should == 1
+
+      @user.reload
+
+      @user.posts.count.should == 1
+      
+      @user.unfriend(@user2.person)
+
+      puts @user.inspect 
+      @user.reload
+      puts @user.inspect 
+      @user.posts.count.should == 0
+      
+      puts Post.all.inspect
+      Post.count.should be 1
+    end
+
   end
 end

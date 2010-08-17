@@ -19,6 +19,7 @@ describe Diaspora::Parser do
 
     status_message = Factory.build(:status_message, :message => "hey!", :person => @person)
     @user.receive status_message.to_diaspora_xml
+
     @user.posts.count.should == 1
   end
 
