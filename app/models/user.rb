@@ -2,7 +2,8 @@ class User
   include MongoMapper::Document
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable.
+         :confirmable
          
   key :friend_ids, Array
   key :pending_request_ids, Array
