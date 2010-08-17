@@ -21,6 +21,8 @@ class User
   
   ######## Making things work ########
   key :email, String
+  validates_true_for :email, :logic => lambda {
+    email.include?('@pivotallabs.com') || email.include?('@pivotalsf.com')}
 
   def method_missing(method, *args)
     self.person.send(method, *args)

@@ -1,6 +1,7 @@
 require 'config/environment'
 
 remote_url = "http://tom.joindiaspora.com/"
+remote_url = "http://localhost:3000/"
 # Create seed user
 user = User.create!( :email => "tom@tom.joindiaspora.com",
                     :password => "evankorth",
