@@ -256,7 +256,7 @@ class User
 
 
       group = groups.first
-      Rails.logger("pushing a message to group: #{group.name}")
+      Rails.logger.info("pushing a message to group: #{group.name}")
       object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
       dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
 
