@@ -26,6 +26,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.start
     stub_sockets_controller
+    User.stub(:pivotal_only).and_return(:true)
   end
 
   config.after(:each) do

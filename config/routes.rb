@@ -2,7 +2,7 @@ Diaspora::Application.routes.draw do |map|
   resources :blogs
   resources :bookmarks
   resources :people
-  resources :users
+  resources :users, :except => [:new, :create]
   resources :status_messages
   resources :comments
   resources :requests

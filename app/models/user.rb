@@ -16,15 +16,20 @@ class User
 
   many :groups, :class_name => 'Group'
 
-  before_validation_on_create :assign_key
-  before_validation :do_bad_things
-  
+  before_validation_on_create :setup_person
+  before_create :pivotal_only 
+
   ######## Making things work ########
   key :email, String
-  validates_true_for :email, :logic => lambda { self.pivotal_email?}
+  #validates_true_for :email, :logic => lambda {self.pivotal_email?} 
+
   
   def pivotal_email?
     email.include?('@pivotallabs.com')
+  end
+
+  def pivotal_only
+    raise "pivotal only" unless pivotal_email?
   end
 
   def method_missing(method, *args)
@@ -234,12 +239,7 @@ class User
   end
 
   ###Helpers############
-  def self.instantiate( opts = {} )
-    opts[:person][:email] = opts[:email]
-    opts[:person][:serialized_key] = generate_key
-    User.create( opts)
-  end
-
+  
   def terse_url
     terse= self.url.gsub(/https?:\/\//, '')
     terse.gsub!(/www\./, '')
@@ -247,10 +247,6 @@ class User
     terse
   end
  
-  def do_bad_things
-    self.password_confirmation = self.password
-  end
-  
   def friend_by_id( id )
     friends.detect{|x| x.id == ensure_bson( id ) }
   end
@@ -261,8 +257,10 @@ class User
 
   protected
   
-  def assign_key
+  def setup_person 
     self.person.serialized_key ||= generate_key.export
+    self.person.email = email
+    self.person.save
   end
 
   def generate_key

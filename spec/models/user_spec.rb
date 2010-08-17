@@ -6,20 +6,6 @@ describe User do
       @group = @user.group(:name => 'heroes')
    end
 
-  it 'should instantiate with a person and be valid' do
-    user = User.instantiate(:email => "bob@bob.com",
-                            :password => "password",
-                            :password_confirmation => "password",
-                            :person => 
-                              {:profile => {
-                                :first_name => "bob",
-                                :last_name => "grimm"}})
-
-    user.save.should be true
-    user.person.should_not be nil
-    user.person.profile.should_not be nil
-  end
-
   describe 'friend requesting' do
     it "should assign a request to a group" do
       friend = Factory.create(:person)
