@@ -11,6 +11,7 @@ class Post
   xml_accessor :person, :as => Person
 
   key :person_id, ObjectId
+  key :user_refs, Integer, :default => 0 
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id
   belongs_to :person, :class_name => 'Person'
@@ -29,10 +30,6 @@ class Post
   end
 
 #Querying
-  def self.stream
-    Post.sort(:created_at.desc).all
-  end
-
   def self.newest_for(person)
     self.first(:person_id => person.id, :order => '_id desc')
   end

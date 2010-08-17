@@ -38,24 +38,21 @@ class Retraction
   end
 
   def signature_valid?
-    target = self.type.constantize.first(:id => self.post_id)
+    target = self.type.constantize.find_by_id(self.post_id)
+
     if target.is_a? Person
-      verify_signature(@creator_signature, self.type.constantize.first(:id => self.post_id))
+      verify_signature(@creator_signature, self.type.constantize.find_by_id(self.post_id))
     else 
-      verify_signature(@creator_signature, self.type.constantize.first(:id => self.post_id).person)
+      verify_signature(@creator_signature, self.type.constantize.find_by_id(self.post_id).person)
     end
   end
 
   def self.person_id_from(object)
-    if object.is_a? Person
-      object.id
-    else
-      object.person.id
-    end
+    object.is_a?(Person) ? object.id : object.person.id
   end
   
   def person
-    Person.first(:id => self.person_id)
+    Person.find_by_id(self.person_id)
   end
 
 #ENCRYPTION

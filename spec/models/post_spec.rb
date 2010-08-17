@@ -41,16 +41,6 @@ describe Post do
       Factory.create(:bookmark, :title => "Google", :link => "http://google.com", :created_at => Time.now+5, :person => @person_two)
     end
 
-    it "should list child types in reverse chronological order" do
-      stream = Post.stream
-      stream.count.should == 5
-      stream[0].class.should == Bookmark
-      stream[1].class.should == Blog
-      stream[2].class.should == StatusMessage
-      stream[3].class.should == Bookmark
-      stream[4].class.should == StatusMessage
-    end
-
     it "should get all posts for a specified user" do
       person_posts = @person_one.posts
       person_posts.count.should == 1

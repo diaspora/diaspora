@@ -6,11 +6,13 @@ class User
          
   key :friend_ids, Array
   key :pending_request_ids, Array
+  key :post_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends, :in => :friend_ids, :class_name => 'Person'
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
+  many :posts, :in => :post_ids, :class_name => 'Post'
 
   many :groups, :class_name => 'Group'
 
@@ -18,7 +20,6 @@ class User
   before_validation :do_bad_things
   
   ######## Making things work ########
-
   key :email, String
 
   def method_missing(method, *args)
@@ -31,20 +32,19 @@ class User
   end
   
   ######### Groups ######################
-
   def group( opts = {} )
     opts[:user] = self
     Group.create(opts)
   end
 
   ######### Posts and Such ###############
-
   def retract( post )
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
     retraction.notify_people
     retraction
   end
+
   ######### Friend Requesting ###########
   def send_friend_request_to(friend_url, group_id)
     unless self.friends.detect{ |x| x.receive_url == friend_url}
@@ -65,12 +65,12 @@ class User
   end 
 
   def accept_friend_request(friend_request_id, group_id)
-    request = Request.where(:id => friend_request_id).first
-    n = pending_requests.delete(request)
+    request = Request.find_by_id(friend_request_id)
+    pending_requests.delete(request)
     
     activate_friend(request.person, group_by_id(group_id))
 
-    request.reverse self
+    request.reverse_for(self)
     request
   end
   
@@ -84,28 +84,34 @@ class User
   end
 
   def ignore_friend_request(friend_request_id)
-    request = Request.first(:id => friend_request_id)
-    person = request.person
+    request = Request.find_by_id(friend_request_id)
+    person  = request.person
+
     person.user_refs -= 1
-    pending_requests.delete(request)
-    save
+
+    self.pending_requests.delete(request)
+    self.save
+
     (person.user_refs > 0 || person.owner.nil? == false) ?  person.save : person.destroy
     request.destroy
   end
 
   def receive_friend_request(friend_request)
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
+
     if request_from_me?(friend_request)
       group = self.group_by_id(friend_request.group_id)
       activate_friend(friend_request.person, group)
 
       Rails.logger.info("#{self.real_name}'s friend request has been accepted")
+
       friend_request.destroy
     else
+
       friend_request.person.user_refs += 1
       friend_request.person.save
-      pending_requests << friend_request
-      save
+      self.pending_requests << friend_request
+      self.save
       Rails.logger.info("#{self.real_name} has received a friend request")
       friend_request.save
     end
@@ -123,6 +129,14 @@ class User
     raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
     groups.each{|g| g.person_ids.delete( bad_friend.id )}
     self.save
+
+    self.posts.find_all_by_person_id( bad_friend.id ).each{|post|
+      self.post_ids.delete( post.id )
+      post.user_refs -= 1
+      (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
+    }
+    self.save
+
     bad_friend.user_refs -= 1
     (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
   end
@@ -179,17 +193,28 @@ class User
       person = Diaspora::Parser.owner_id_from_xml xml
       person.profile = object
       person.save  
+
+    elsif object.is_a?(Post) && object.verify_creator_signature == true 
+      Rails.logger.debug("Saving post: #{object}")
+
+      object.user_refs += 1
+      object.save
+
+      self.posts << object
+      self.save
+      object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
+
     elsif object.is_a?(Comment) && object.verify_post_creator_signature
 
       if object.verify_creator_signature || object.person.nil?
         dispatch_comment object unless owns?(object)
-      
       end
 
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save
-      object.socket_to_uid( id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
   end
 
