@@ -37,7 +37,17 @@ class User
     Group.create(opts)
   end
 
-  ######### Posts and Such ###############
+   ######## Posting ########
+  def post(class_name, options = {})
+    options[:person] = self.person
+    model_class = class_name.to_s.camelize.constantize
+    post = model_class.instantiate(options)
+    post.creator_signature = post.sign_with_key(encryption_key)
+    post.notify_people
+    post.socket_to_uid owner.id if (owner_id && post.respond_to?( :socket_to_uid))
+    post
+  end ######### Posts and Such ###############
+
   def retract( post )
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 

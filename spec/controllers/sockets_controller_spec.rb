@@ -5,7 +5,6 @@ describe 'SocketsController' do
   before do
     @user = Factory.create(:user)
     SocketsController.unstub!(:new)
-    #EventMachine::WebSocket.stub!(:start)
     @controller = SocketsController.new
     @controller.request = mock_model(Request, :env =>
       {'warden' => mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)})
