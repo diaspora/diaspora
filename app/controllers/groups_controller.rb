@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
+    @posts = current_user.posts.paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def create
