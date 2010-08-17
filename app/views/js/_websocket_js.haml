@@ -12,7 +12,7 @@
     //Attach onmessage to websocket
       ws.onmessage = function(evt) {
         var obj = jQuery.parseJSON(evt.data);
-        debug("got a " + obj['class']);
+        debug("got a " + obj['class'] + 'for group' + obj['group']);
 
         if (obj['class']=="retractions"){
           processRetraction(obj['post_id']);
@@ -23,9 +23,9 @@
         }else if (obj['class']=='photos' && onPageForClass('albums')){
           processPhotoInAlbum(obj['photo_hash'])
         }else if (obj['class']=='status_messages'){
-          processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'])
+          processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'], obj['group'])
         }else{
-          processPost(obj['class'], obj['html'])
+          processPost(obj['class'], obj['html'], obj['group'])
         }
 
         
@@ -52,8 +52,8 @@
           toggler.html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
       }
 
-      function processPost(className, html){
-        if(onPageForClass(className)){
+      function processPost(className, html, groupId){
+        if(onPageForClass(className) || onPageForGroup(groupId)){
           $("#stream").prepend(
             $(html).fadeIn("fast", function(){
               $("#stream label:first").inFieldLabels();
@@ -62,8 +62,8 @@
         }
       }
 
-      function processStatusMessage(className, html, messageHash){
-        processPost(className, html);
+      function processStatusMessage(className, html, messageHash, group_id){
+        processPost(className, html, group_id);
         console.log(messageHash)
         if(messageHash['mine?']){
           updateMyLatestStatus(messageHash);
@@ -91,6 +91,10 @@
       
       function onPageForClass(className){
         return ((location.href.indexOf(className) != -1 ) || (location.pathname == '/')) && onPageOne();
+      }
+
+      function onPageForGroup(groupId){
+        alert( groupId);
       }
       
       function onPageOne() {
