@@ -30,7 +30,7 @@ module RequestsHelper
     url = nil
     local_person = Person.by_webfinger identifier
     if local_person
-      action = (local_person == current_user.local_person ? :none : :friend)
+      action = (local_person == current_user.person ? :none : :friend)
       url = local_person.receive_url
     elsif !(identifier.include?(request.host) || identifier.include?("localhost"))
       f = Redfinger.finger(identifier)

@@ -4,7 +4,7 @@ class SocketsController < ApplicationController
   include Rails.application.routes.url_helpers
 
   def incoming(msg)
-    puts "Got a connection to: #{msg}"
+    Rails.logger.info("Socket received connection to: #{msg}")
   end
   
   def outgoing(uid,object)

@@ -28,9 +28,12 @@ class GroupsController < ApplicationController
   end
   
   def show
-    @people_ids = @group.people.map {|p| p.id}
-    @posts = Post.paginate :person_id => @people_ids, :order => 'created_at DESC'
+    @people_ids = @group.person_ids
+
     @group = Group.first(:id => params[:id])
+
+    @posts = current_user.posts_for( :group => @group ).paginate :order => 'created_at DESC'
+    #@posts = Post.paginate :person_id => @people_ids, :order => 'created_at DESC'
   end
 
   def edit

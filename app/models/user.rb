@@ -53,10 +53,24 @@ class User
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
+    post.save
     post.notify_people
-    post.socket_to_uid owner.id if (owner_id && post.respond_to?( :socket_to_uid))
+    post.socket_to_uid owner.id if (owner_id && post.respond_to?(:socket_to_uid))
+
+    self.posts << post
+    self.save
+
     post
-  end ######### Posts and Such ###############
+  end
+ 
+  def posts_for( opts = {} )
+    if opts[:group]
+      group = self.groups.find_by_id( opts[:group].id )
+      self.posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
+    end
+  end
+  
+  ######### Posts and Such ###############
 
   def retract( post )
     retraction = Retraction.for(post)
