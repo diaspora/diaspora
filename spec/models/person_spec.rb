@@ -138,5 +138,8 @@ describe Person do
       people.include?(@friend_two).should == false
       people.include?(@friend_three).should == false
     end
+    it 'should search by email exactly' do
+      Person.by_webfinger(@friend_one.email).should == @friend_one
+    end
   end
 end
