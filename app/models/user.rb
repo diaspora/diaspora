@@ -17,7 +17,7 @@ class User
   many :groups, :class_name => 'Group'
 
   before_validation_on_create :setup_person
-  before_create :pivotal_only 
+  #before_create :pivotal_only 
 
   ######## Making things work ########
   key :email, String
