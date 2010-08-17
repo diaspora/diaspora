@@ -36,7 +36,6 @@ class User
     self.person.send(method, *args)
   end
 
-
   def real_name
     "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
@@ -269,6 +268,9 @@ class User
     groups.detect{|x| x.id == ensure_bson( id ) }
   end
 
+  def tommy?
+    email.include?("tommy@pivotallabs.com") || email.include?("tsullivan@pivotallabs.com")
+  end
   protected
   
   def setup_person 
