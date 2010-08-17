@@ -12,7 +12,7 @@
     //Attach onmessage to websocket
       ws.onmessage = function(evt) {
         var obj = jQuery.parseJSON(evt.data);
-        debug("got a " + obj['class'] + 'for group' + obj['group']);
+        debug("got a " + obj['class'] + " for group " + obj['group']);
 
         if (obj['class']=="retractions"){
           processRetraction(obj['post_id']);
@@ -62,8 +62,8 @@
         }
       }
 
-      function processStatusMessage(className, html, messageHash, group_id){
-        processPost(className, html, group_id);
+      function processStatusMessage(className, html, messageHash, groupId){
+        processPost(className, html, groupId);
         console.log(messageHash)
         if(messageHash['mine?']){
           updateMyLatestStatus(messageHash);
@@ -94,7 +94,7 @@
       }
 
       function onPageForGroup(groupId){
-        alert( groupId);
+        alert( groupId );
       }
       
       function onPageOne() {

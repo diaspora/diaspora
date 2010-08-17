@@ -32,7 +32,7 @@ module Diaspora
 
   module Socketable
     def socket_to_uid(id, opts={})
-      SocketsController.new.outgoing(id, self, :group => opts[:group_id])
+      SocketsController.new.outgoing(id, self, :group_id => opts[:group_id])
     end
     
     def unsocket_from_uid id
