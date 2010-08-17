@@ -45,11 +45,11 @@ Diaspora::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => 'smtp.joindiaspora.com',
-    :port => 587
-    :domain => 'www.joindiaspora.com'
-    :authentication => 'plain'
-    :user_name => 'diaspora-pivots'
-    :password => "xy289|]G+R*-kA"
+    :port => 587,
+    :domain => 'www.joindiaspora.com',
+    :authentication => 'plain',
+    :user_name => 'diaspora-pivots',
+    :password => "xy289|]G+R*-kA",
     :enable_starttls_auto => true
   }
 end
