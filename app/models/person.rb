@@ -58,35 +58,6 @@ class Person
     encryption_key.public_key.export
   end
 
-
-
-
-  ######## Commenting  ########
-  def comment(text, options = {})
-    raise "must comment on something!" unless options[:on]
-    c = Comment.new(:person_id => self.id, :text => text, :post => options[:on])
-    c.creator_signature = c.sign_with_key(encryption_key)
-    if c.save
-      dispatch_comment c
-      
-      c.socket_to_uid owner.id if owner_id
-      c
-    else
-      Rails.logger.warn "this failed to save: #{c.inspect}"
-      false
-    end
-  end
-  
-  def dispatch_comment( c )
-    if owns? c.post
-      c.post_creator_signature = c.sign_with_key(encryption_key)
-      c.save
-      c.push_downstream
-    elsif owns? c
-      c.save
-      c.push_upstream
-    end
-  end
   ##profile
   def update_profile(params)
     if self.update_attributes(params)
