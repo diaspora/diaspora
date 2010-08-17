@@ -21,8 +21,5 @@ class StatusMessage < Post
         XML
   end
   
-  def latest_hash
-    { :text => message}
-  end
 end
 

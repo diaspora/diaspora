@@ -17,9 +17,9 @@ module SocketsHelper
     
     if object.is_a? Photo
       action_hash[:photo_hash] = object.thumb_hash
-    elsif object.is_a? StatusMessage
-      action_hash[:status_message_hash] = object.latest_hash
-      action_hash[:status_message_hash][:mine?] = true if object.person.owner_id == uid
+    end
+    if object.person.owner_id == uid
+      acton_hash[:mine?] == true
     end
 
     action_hash.to_json

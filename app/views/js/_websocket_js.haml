@@ -22,10 +22,10 @@
         
         }else if (obj['class']=='photos' && onPageForClass('albums')){
           processPhotoInAlbum(obj['photo_hash'])
-        }else if (obj['class']=='status_messages'){
-          processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'], obj['group_id'])
         }else{
-          processPost(obj['class'], obj['html'], obj['group_id'])
+          if( (obj['mine?'] == true)|| (onPageForClass(obj['class']) || onPageForGroup(obj['group_id'])) ){
+            processPost(obj['class'], obj['html'])
+          }
         }
 
         
@@ -62,14 +62,6 @@
         }
       }
 
-      function processStatusMessage(className, html, messageHash, groupId){
-        processPost(className, html, groupId);
-        console.log(messageHash)
-        if(messageHash['mine?']){
-          updateMyLatestStatus(messageHash);
-        }
-      }
-      
       function updateMyLatestStatus(messageHash){
         $("#latest_message").text(messageHash['text']);
         $("#latest_message_time").text(' - just now');
