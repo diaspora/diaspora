@@ -20,7 +20,6 @@ class User
   before_validation :do_bad_things
   
   ######## Making things work ########
-
   key :email, String
 
   def method_missing(method, *args)
@@ -33,20 +32,19 @@ class User
   end
   
   ######### Groups ######################
-
   def group( opts = {} )
     opts[:user] = self
     Group.create(opts)
   end
 
   ######### Posts and Such ###############
-
   def retract( post )
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
     retraction.notify_people
     retraction
   end
+
   ######### Friend Requesting ###########
   def send_friend_request_to(friend_url, group_id)
     unless self.friends.detect{ |x| x.receive_url == friend_url}
@@ -67,12 +65,12 @@ class User
   end 
 
   def accept_friend_request(friend_request_id, group_id)
-    request = Request.where(:id => friend_request_id).first
-    n = pending_requests.delete(request)
+    request = Request.find_by_id(friend_request_id)
+    pending_requests.delete(request)
     
     activate_friend(request.person, group_by_id(group_id))
 
-    request.reverse self
+    request.reverse_for(self)
     request
   end
   
@@ -86,28 +84,34 @@ class User
   end
 
   def ignore_friend_request(friend_request_id)
-    request = Request.first(:id => friend_request_id)
-    person = request.person
+    request = Request.find_by_id(friend_request_id)
+    person  = request.person
+
     person.user_refs -= 1
-    pending_requests.delete(request)
-    save
+
+    self.pending_requests.delete(request)
+    self.save
+
     (person.user_refs > 0 || person.owner.nil? == false) ?  person.save : person.destroy
     request.destroy
   end
 
   def receive_friend_request(friend_request)
     Rails.logger.info("receiving friend request #{friend_request.to_json}")
+
     if request_from_me?(friend_request)
       group = self.group_by_id(friend_request.group_id)
       activate_friend(friend_request.person, group)
 
       Rails.logger.info("#{self.real_name}'s friend request has been accepted")
+
       friend_request.destroy
     else
+
       friend_request.person.user_refs += 1
       friend_request.person.save
-      pending_requests << friend_request
-      save
+      self.pending_requests << friend_request
+      self.save
       Rails.logger.info("#{self.real_name} has received a friend request")
       friend_request.save
     end
@@ -210,7 +214,7 @@ class User
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save
-      object.socket_to_uid( id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
   end
 

@@ -20,38 +20,27 @@ class Request
   belongs_to :person
   
   validates_presence_of :destination_url, :callback_url
-
-  #validates_format_of :destination_url, :with =>
-    #/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
-
   before_validation :clean_link
 
-  scope :for_user, lambda{ |user| where(:destination_url => user.receive_url) }
+  scope :for_user,  lambda{ |user| where(:destination_url => user.receive_url) }
   scope :from_user, lambda{ |user| where(:destination_url.ne => user.receive_url) }
 
   def self.instantiate(options = {})
     person = options[:from]
     self.new(:destination_url => options[:to],
-             :callback_url => person.receive_url, 
-             :person => person,
-             :exported_key => person.export_key,
-             :group_id => options[:into])
+             :callback_url    => person.receive_url, 
+             :person          => person,
+             :exported_key    => person.export_key,
+             :group_id        => options[:into])
   end
   
-  def reverse accepting_user
-    self.person = accepting_user.person
-    self.exported_key = accepting_user.export_key
+  def reverse_for accepting_user
+    self.person          = accepting_user.person
+    self.exported_key    = accepting_user.export_key
     self.destination_url = self.callback_url
-    save
+    self.save
   end
   
-  def set_pending_friend
-    p = Person.first(:id => self.person.id)
-    
-    self.person.save  #save pending friend
-    
-  end
- 
 #ENCRYPTION
     #before_validation :sign_if_mine
     #validates_true_for :creator_signature, :logic => lambda {self.verify_creator_signature}
@@ -61,7 +50,8 @@ class Request
     
     def signable_accessors
       accessors = self.class.roxml_attrs.collect{|definition| 
-        definition.accessor}
+                  definition.accessor}
+
       accessors.delete 'person'
       accessors.delete 'creator_signature'
       accessors
@@ -69,7 +59,7 @@ class Request
 
     def signable_string
       signable_accessors.collect{|accessor| 
-        (self.send accessor.to_sym).to_s}.join ';'
+                                 (self.send accessor.to_sym).to_s}.join ';'
     end
   
   protected

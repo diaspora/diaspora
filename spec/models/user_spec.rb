@@ -238,7 +238,7 @@ describe User do
       @group2 = @user2.group(:name => "Gross people")
       
       request = @user.send_friend_request_to( @user2.receive_url, @group.id)
-      request.reverse @user2 
+      request.reverse_for @user2 
       @user2.activate_friend(@user.person, @group2)
       @user.receive request.to_diaspora_xml
     end
