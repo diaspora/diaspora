@@ -47,7 +47,7 @@ class User
     Group.create(opts)
   end
 
-   ######## Posting ########
+  ######## Posting ########
   def post(class_name, options = {})
     options[:person] = self.person
     model_class = class_name.to_s.camelize.constantize
@@ -67,6 +67,32 @@ class User
     if opts[:group]
       group = self.groups.find_by_id( opts[:group].id )
       self.posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
+    end
+  end
+
+  ######## Commenting  ########
+  def comment(text, options = {})
+    raise "must comment on something!" unless options[:on]
+    comment = Comment.new(:person_id => self.person.id, :text => text, :post => options[:on])
+    comment.creator_signature = comment.sign_with_key(encryption_key)
+    if comment.save
+      dispatch_comment comment
+      comment.socket_to_uid id
+      comment
+    else
+      Rails.logger.warn "this failed to save: #{comment.inspect}"
+      false
+    end
+  end
+  
+  def dispatch_comment( comment )
+    if owns? comment.post
+      comment.post_creator_signature = comment.sign_with_key(encryption_key)
+      comment.save
+      comment.push_downstream
+    elsif owns? comment
+      comment.save
+      comment.push_upstream
     end
   end
   
