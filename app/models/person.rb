@@ -35,8 +35,10 @@ class Person
   after_destroy :remove_all_traces
 
   
-  def self.search_for_friends(query)
-    Person.all('$where' => "function() { return this.profile.first_name.match(/^#{query}/i) || this.profile.last_name.match(/^#{query}/i); }")
+  def self.search(query)
+    Person.all('$where' => "function() { return this.email.match(/^#{query}/i) ||
+               this.profile.first_name.match(/^#{query}/i) ||
+               this.profile.last_name.match(/^#{query}/i); }")
   end
  
   def real_name
