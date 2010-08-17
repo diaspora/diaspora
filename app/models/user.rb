@@ -246,7 +246,7 @@ class User
       person.save  
 
     elsif object.is_a?(Post) && object.verify_creator_signature == true 
-      Rails.logger.debug("Saving post: #{object}")
+      Rails.logger.debug("Saving post: #{object.inspect}")
 
       object.user_refs += 1
       object.save
@@ -254,7 +254,9 @@ class User
       self.posts << object
       self.save
 
-      group = groups.find_by_person_id(object.person.id)
+
+      group = groups.first
+      Rails.logger("pushing a message to group: #{group.name}")
       object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
       dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
 
