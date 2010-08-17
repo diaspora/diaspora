@@ -17,6 +17,7 @@ policy :diaspora, :roles => [:pivots] do
   requires :webserver
   requires :scm
   requires :vim
+  requires :nginx_conf
 end
 
 

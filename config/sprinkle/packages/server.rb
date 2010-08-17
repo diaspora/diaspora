@@ -1,16 +1,15 @@
-package :nginx do
+package :nginx, :provides=> :webserver do
   description 'Nginx HTTP server'
   version '0.7.67'
   source "http://nginx.org/download/nginx-#{version}.tar.gz"
   requires :nginx_dependencies
 end
 
-package :nginx_conf, :provides=> :webserver do
+package :nginx_conf do
   description 'Nginx conf file'
   transfer "#{File.dirname(__FILE__)}/../conf/nginx.conf", '/usr/local/conf/nginx.conf', :render => true do
     pre :install, "mkdir -p /usr/local/sbin/conf/"
   end
-  requires :nginx
 end
 
 package :nginx_dependencies do
