@@ -49,7 +49,7 @@ Diaspora::Application.configure do
     :port => 587,
     :domain => 'mail.joindiaspora.com',
     :authentication => 'plain',
-    :user_name => 'diaspora-pivots',
+    :user_name => 'diaspora-pivots@joindiaspora.com',
     :password => "xy289|]G+R*-kA",
     :enable_starttls_auto => true
   }
