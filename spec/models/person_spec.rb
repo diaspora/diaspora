@@ -96,5 +96,47 @@ describe Person do
       Person.all.count.should == 3
     end
   end
+  describe 'searching' do
+    before do
+      @friend_one = Factory.create(:person)
+      @friend_two = Factory.create(:person)
+      @friend_three = Factory.create(:person)
+      @friend_four = Factory.create(:person)
 
+      @friend_one.profile.first_name = "Robert"
+      @friend_one.profile.last_name = "Grimm"
+      @friend_one.profile.save
+
+      @friend_two.profile.first_name = "Eugene"
+      @friend_two.profile.last_name = "Weinstein"
+      @friend_two.save
+
+      @friend_three.profile.first_name = "Yevgeniy"
+      @friend_three.profile.last_name = "Dodis"
+      @friend_three.save
+
+      @friend_four.profile.first_name = "Casey"
+      @friend_four.profile.last_name = "Grippi"
+      @friend_four.save
+    end
+    it 'should yield search results on partial names' do
+      people = Person.search("Eu") 
+      people.include?(@friend_two).should == true
+      people.include?(@friend_one).should == false
+      people.include?(@friend_three).should == false
+      people.include?(@friend_four).should == false
+
+      people = Person.search("Wei") 
+      people.include?(@friend_two).should == true
+      people.include?(@friend_one).should == false
+      people.include?(@friend_three).should == false
+      people.include?(@friend_four).should == false
+
+      people = Person.search("Gri") 
+      people.include?(@friend_one).should == true
+      people.include?(@friend_four).should == true
+      people.include?(@friend_two).should == false
+      people.include?(@friend_three).should == false
+    end
+  end
 end

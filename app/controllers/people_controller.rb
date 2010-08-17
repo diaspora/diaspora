@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
       @people = current_user.friends.paginate :page => params[:page], :order => 'created_at DESC'
       render :index
     else
-      @people = Person.search_for_friends(params[:q])
+      @people = Person.search(params[:q])
       render :json => @people.to_json(:only => :_id)
     end
   end
