@@ -40,7 +40,7 @@ class Person
                this.profile.first_name.match(/^#{query}/i) ||
                this.profile.last_name.match(/^#{query}/i); }")
   end
- 
+
   def real_name
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
