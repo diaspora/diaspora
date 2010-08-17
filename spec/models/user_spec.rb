@@ -275,33 +275,96 @@ describe User do
   describe 'post refs' do
     before do
       @user2 = Factory.create(:user)
+      @user.activate_friend( @user2.person, @group)
+      
+      @user3 = Factory.create(:user)
+      @group3 = @user3.group(:name => 'heroes')
+
+
+      @user.posts.count.should == 0
     end
 
     it 'should be removed on unfriending' do
-      @user.activate_friend( @user2.person, @group)
-      
-      @user.posts.count.should == 0
-
       status_message = @user2.post :status_message, :message => "hi"
       @user.receive status_message.to_diaspora_xml
-
-
-      @user.posts.count.should == 1
-
       @user.reload
 
       @user.posts.count.should == 1
       
       @user.unfriend(@user2.person)
 
-      puts @user.inspect 
       @user.reload
-      puts @user.inspect 
       @user.posts.count.should == 0
       
-      puts Post.all.inspect
       Post.count.should be 1
     end
+
+    it 'should be remove a post if the noone links to it' do
+      status_message = @user2.post :status_message, :message => "hi"
+      @user.receive status_message.to_diaspora_xml
+      @user.reload
+
+      @user.posts.count.should == 1
+      
+      person = @user2.person
+      @user2.destroy
+      @user.unfriend(person)
+
+      @user.reload
+      @user.posts.count.should == 0
+      
+      Post.count.should be 0
+    end
+
+    it 'should keep track of user references for one person ' do
+      status_message = @user2.post :status_message, :message => "hi"
+      @user.receive status_message.to_diaspora_xml
+      @user.reload
+
+      @user.posts.count.should == 1
+      
+      status_message.reload
+      status_message.user_refs.should == 1
+      
+      @user.unfriend(@user2.person)
+      status_message.reload
+
+      @user.reload
+      @user.posts.count.should == 0
+
+      status_message.reload
+      status_message.user_refs.should == 0
+      
+      Post.count.should be 1
+    end
+
+    it 'should not override userrefs on receive by another person' do
+      @user3 = Factory.create :user
+      @user3.activate_friend(@user2, @group3)
+
+      status_message = @user2.post :status_message, :message => "hi"
+      @user.receive status_message.to_diaspora_xml
+      @user3.receive status_message.to_diaspora_xml
+      @user.reload
+      @user3.reload
+
+      @user.posts.count.should == 1
+      
+      status_message.reload
+      status_message.user_refs.should == 2
+      
+      @user.unfriend(@user2.person)
+      status_message.reload
+
+      @user.reload
+      @user.posts.count.should == 0
+
+      status_message.reload
+      status_message.user_refs.should == 1
+      
+      Post.count.should be 1
+    end
+
 
   end
 end

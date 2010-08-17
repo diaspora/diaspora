@@ -122,23 +122,15 @@ class User
   end
   
   def remove_friend(bad_friend)
-    puts "YEAHH!!"
     raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
     groups.each{|g| g.person_ids.delete( bad_friend.id )}
     self.save
 
-    puts self.posts.find_all_by_person_id( bad_friend.id ).inspect
     self.posts.find_all_by_person_id( bad_friend.id ).each{|post|
-      puts "HEYYYYYYYY"
-
       self.post_ids.delete( post.id )
-      puts self.posts
-      post.user_refs =- 1
-
-      puts  "ASODIJ"
+      post.user_refs -= 1
       (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
     }
-    puts self.inspect 
     self.save
 
     bad_friend.user_refs -= 1
@@ -200,7 +192,10 @@ class User
 
     elsif object.is_a?(Post) && object.verify_creator_signature == true 
       Rails.logger.debug("Saving post: #{object}")
+
+      object.user_refs += 1
       object.save
+
       self.posts << object
       self.save
       object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
