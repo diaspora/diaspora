@@ -18,19 +18,19 @@ class User
   many :groups, :class_name => 'Group'
 
   before_validation_on_create :setup_person
-  #before_create :pivotal_only 
+  before_create :pivotal_or_diaspora_only 
 
   ######## Making things work ########
   key :email, String
   #validates_true_for :email, :logic => lambda {self.pivotal_email?} 
 
   
-  def pivotal_email?
-    email.include?('@pivotallabs.com')
+  def allowed_email?
+    email.include?('@pivotallabs.com') || email.include("@joindiaspora.com")
   end
 
-  def pivotal_only
-    raise "pivotal only" unless pivotal_email?
+  def pivotal_or_diaspora_only
+    raise "pivotal only" unless allowed_email?
   end
 
   def method_missing(method, *args)
