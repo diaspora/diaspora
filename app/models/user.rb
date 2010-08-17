@@ -56,7 +56,7 @@ class User
   def posts_for( opts = {} )
     if opts[:group]
       group = self.groups.find_by_id( opts[:group].id )
-      self.posts.find_all_by_person_id( group.person_ids )
+      self.posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
     end
   end
   

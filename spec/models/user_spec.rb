@@ -346,7 +346,7 @@ describe User do
 
     it 'should not override userrefs on receive by another person' do
       @user3 = Factory.create :user
-      @user3.activate_friend(@user2, @group3)
+      @user3.activate_friend(@user2.person, @group3)
 
       status_message = @user2.post :status_message, :message => "hi"
       @user.receive status_message.to_diaspora_xml
