@@ -31,8 +31,9 @@ class MessageHandler
       end
 
       http.errback {
-        puts http.response
-        puts "failure from #{query.destination}, retrying"
+        Rails.logger.info(http.response)
+        Rails.logger.info("Failure from #{query.destination}, retrying...")
+
         query.try_count +=1
         @queue.push query unless query.try_count >= NUM_TRIES 
         process

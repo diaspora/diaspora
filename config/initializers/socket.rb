@@ -12,7 +12,7 @@ require "lib/diaspora/websocket"
         
         sid = Diaspora::WebSocket.subscribe(ws.request['Path'].gsub('/',''), ws)
         
-        ws.onmessage { |msg| SocketsController.new.incoming(msg) }#@channel.push msg; puts msg}
+        ws.onmessage { |msg| SocketsController.new.incoming(msg) }
 
         ws.onclose { Diaspora::WebSocket.unsubscribe(ws.request['Path'].gsub('/',''), sid) }
       }
