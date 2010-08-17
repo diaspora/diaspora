@@ -33,7 +33,7 @@ require "#{File.dirname(__FILE__)}/packages/ruby"
 #   If there's only one implementation of a virtual package, it's selected automatically, otherwise
 #   the user is requested to select which one to use.
 
-policy :diaspora, :roles => [:tom, :backer] do
+policy :diaspora, :roles => [:pivots] do
 #  requires :clean_dreamhost
   requires :tools
   requires :rubygems
