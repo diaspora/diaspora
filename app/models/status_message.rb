@@ -1,5 +1,4 @@
 class StatusMessage < Post
-  #include StatusMessagesHelper
   
   xml_name :status_message
   xml_accessor :message
