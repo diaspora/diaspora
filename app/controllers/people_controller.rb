@@ -12,7 +12,7 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person= current_user.friend_by_id(params[:id])
+    @person= current_user.visible_person_by_id(params[:id])
   
     @person_profile = @person.profile
     @person_posts = Post.where(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
   end
   
   def destroy
-    current_user.unfriend(current_user.friend_by_id(params[:id]))
+    current_user.unfriend(current_user.visible_person_by_id(params[:id]))
     flash[:notice] = "unfriended person."
     redirect_to people_url
   end
