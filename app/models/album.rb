@@ -27,7 +27,7 @@ class Album
 
   def self.mine_or_friends(friend_param, current_user)
     if friend_param
-      Album.where(:person_id => current_user.friend_ids)
+      Album.find_by_person_id(current_user.friend_ids)
     else
       current_user.person.albums
     end
