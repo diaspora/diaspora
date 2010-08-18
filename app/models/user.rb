@@ -281,7 +281,7 @@ class User
   end
   
   def visible_person_by_id( id )
-    return self if id == self.id
+    return self.person if ensure_bson(id) == self.person.id
     friends.detect{|x| x.id == ensure_bson( id ) }
   end
 
