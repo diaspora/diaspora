@@ -2,6 +2,7 @@ class Group
   include MongoMapper::Document
   
   key :name, String
+  validates_presence_of :name
 
   key :person_ids, Array
   key :request_ids, Array
