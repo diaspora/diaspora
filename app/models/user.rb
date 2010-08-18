@@ -91,7 +91,7 @@ class User
   ######### Posts and Such ###############
 
   def retract( post )
-    post.socket_to_uid(self.id)
+    post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
     retraction.notify_people
