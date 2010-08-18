@@ -12,8 +12,7 @@
     //Attach onmessage to websocket
       ws.onmessage = function(evt) {
         var obj = jQuery.parseJSON(evt.data);
-        debug("got a " + obj['class'] );
-        
+        debug("got a " + obj['class'] + " for group " + obj['group_id']);
 
         if (obj['class']=="retractions"){
           processRetraction(obj['post_id']);
@@ -23,11 +22,10 @@
         
         }else if (obj['class']=='photos' && onPageForClass('albums')){
           processPhotoInAlbum(obj['photo_hash'])
+        }else if (obj['class']=='status_messages'){
+          processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'], obj['group_id'])
         }else{
-          if( (obj['mine?'])|| (onPageForClass(obj['class']) || onPageForGroup(obj['group_id'])) ){
-            
-            processPost(obj['class'], obj['html'])
-          }
+          processPost(obj['class'], obj['html'], obj['group_id'])
         }
 
         
@@ -64,6 +62,14 @@
         }
       }
 
+      function processStatusMessage(className, html, messageHash, groupId){
+        processPost(className, html, groupId);
+        console.log(messageHash)
+        if(messageHash['mine?']){
+          updateMyLatestStatus(messageHash);
+        }
+      }
+      
       function updateMyLatestStatus(messageHash){
         $("#latest_message").text(messageHash['text']);
         $("#latest_message_time").text(' - just now');
