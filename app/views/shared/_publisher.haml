@@ -12,25 +12,3 @@
         = f.text_area :message, :rows => 2
       %p.right
         = f.submit "Post"
-
-    = form_for Bookmark.new, :remote => true do |f|
-      = f.error_messages
-      %p
-        %label{:for => "bookmark_title"} Title
-        = f.text_field :title
-      %p
-        %label{:for => "bookmark_link"} Link
-        = f.text_field :link
-      %p.right
-        = f.submit "Post"
-
-    = form_for Blog.new, :remote => true do |f|
-      = f.error_messages
-      %p
-        %label{:for => "blog_title"} Title
-        = f.text_field :title
-      %p
-        %label{:for => "blog_body"} Body
-        = f.text_area :body
-      %p.right
-        = f.submit "Post"
