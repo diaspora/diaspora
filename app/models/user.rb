@@ -301,7 +301,6 @@ class User
   end
 
   def seed_groups
-    group(:name => "pivots")
   end
   protected
   
