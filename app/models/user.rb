@@ -249,7 +249,7 @@ class User
       person.save  
 
     elsif object.is_a?(Comment) 
-          dispatch_comment object unless owns?(object)
+      dispatch_comment object unless owns?(object)
     else
       Rails.logger.debug("Saving object: #{object}")
       object.user_refs += 1
@@ -258,12 +258,17 @@ class User
       self.raw_visible_posts << object
       self.save
 
-      groups = groups_with_person(object.person)
-      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
+
+    socket(object) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
   end
 
   ###Helpers############
+  def socket( object )
+    groups = groups_with_person(object.person)
+    object.socket_to_uid(id, :group_id => group.id) 
+  end
+
   def self.instantiate( opts = {} )
     opts[:person][:email] = opts[:email]
     opts[:person][:serialized_key] = generate_key
