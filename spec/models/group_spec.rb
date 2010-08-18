@@ -33,7 +33,6 @@ describe Group do
       group.people.include?(@friend_2).should be true 
       group.people.size.should == 2
     end
-
   end
   
   describe 'querying' do
@@ -51,5 +50,18 @@ describe Group do
       @group.people.all.include?(@friend).should be true
       @group.people.size.should == 1
     end
+  end
+
+  describe 'posting' do
+    
+    it 'should add post to group via post method' do
+      @group = @user.group(:name => 'losers', :people => [@friend])
+
+      status_message = @user.post( :status_message, :message => "hey", :group => @group )
+      
+      @group.reload
+      @group.my_posts.include?(status_message).should be true
+    end
+
   end
 end

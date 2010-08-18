@@ -41,6 +41,10 @@ class User
   ######## Posting ########
   def post(class_name, options = {})
     options[:person] = self.person
+
+    group = options[:group]
+    options.delete(:group)
+
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
@@ -51,6 +55,11 @@ class User
 
     self.raw_visible_posts << post
     self.save
+    
+    if group
+      group.my_posts << post
+      group.save
+    end
 
     post
   end

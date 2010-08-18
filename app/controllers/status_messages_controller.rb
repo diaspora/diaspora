@@ -3,12 +3,9 @@ class StatusMessagesController < ApplicationController
 
   def index
     @status_messages = StatusMessage.paginate :page => params[:page], :order => 'created_at DESC'
-    
-
     respond_to do |format|
       format.html 
     end
-
   end
   
   def create
