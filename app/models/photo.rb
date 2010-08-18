@@ -35,15 +35,24 @@ class Photo < Post
   def validate_album_person
     album.person_id == person_id
   end
-
+  
   def remote_photo
-    @remote_photo ||= self.person.url.chop + image.url
+    url
   end
 
   def remote_photo= remote_path
-    @remote_photo = remote_path
-    image.download! remote_path
-    image.store!
+    name_start = remote_path.rindex '/'
+    @remote_photo_path = remote_path.slice(0, name_start )
+    @remote_photo_name = remote_path.slice(name_start, remote_path.length)
+    puts url
+  end
+
+  def url name = nil
+    if @remote_photo_path
+      @remote_photo_path + name.to_s + @remote_photo_name
+    else
+      image.url name
+    end
   end
 
   def ensure_user_picture

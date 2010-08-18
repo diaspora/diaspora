@@ -19,7 +19,7 @@ describe Photo do
     photo.image.read.nil?.should be false
   end
 
-  it 'should save a photo to GridFS' do
+  it 'should save a photo' do
     @photo.image.store! File.open(@fixture_name)
     @photo.save.should == true
     binary = @photo.image.read
@@ -58,7 +58,6 @@ describe Photo do
   end
 
   it 'should not use the imported filename as the url' do
-    pending "Until this passes, duplicate photos will cause errors"
     @photo.image.store! File.open(@fixture_name)
     @photo.image.url.include?(@fixture_filename).should be false
     @photo.image.url(:thumb_medium).include?("/" + @fixture_filename).should be false
@@ -85,7 +84,7 @@ describe Photo do
       stub_signature_verification
     end
 
-    it 'should save a signed photo to GridFS' do
+    it 'should save a signed photo' do
       photo  = @user.post(:photo, :album => @album, :user_file => [File.open(@fixture_name)])
       photo.save.should == true
       photo.signature_valid?.should be true
