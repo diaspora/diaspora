@@ -12,7 +12,8 @@
     //Attach onmessage to websocket
       ws.onmessage = function(evt) {
         var obj = jQuery.parseJSON(evt.data);
-        debug("got a " + obj['class'] + " for group " + obj['group_id']);
+        debug("got a " + obj['class'] );
+        
 
         if (obj['class']=="retractions"){
           processRetraction(obj['post_id']);
@@ -24,6 +25,7 @@
           processPhotoInAlbum(obj['photo_hash'])
         }else{
           if( (obj['mine?'])|| (onPageForClass(obj['class']) || onPageForGroup(obj['group_id'])) ){
+            
             processPost(obj['class'], obj['html'])
           }
         }
