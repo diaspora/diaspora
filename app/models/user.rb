@@ -58,7 +58,7 @@ class User
     
     if group_id
       group = self.groups.find_by_id(group_id)
-      group.my_posts << post
+      group.posts << post
       group.save
     end
 
@@ -68,7 +68,7 @@ class User
   def visible_posts( opts = {} )
     if opts[:by_members_of]
       group = self.groups.find_by_id( opts[:by_members_of].id )
-      self.raw_visible_posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
+      group.posts
     end
   end
 
@@ -266,6 +266,11 @@ class User
       
       self.raw_visible_posts << object
       self.save
+
+      groups = self.groups_with_person(object.person)
+      groups.each{ |group| group.posts << object
+                           group.save
+      }
 
       groups = groups_with_person(object.person)
       object.socket_to_uid(id, :group_id => groups.first.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))

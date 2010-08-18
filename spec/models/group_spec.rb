@@ -60,7 +60,21 @@ describe Group do
       status_message = @user.post( :status_message, :message => "hey", :group_id => @group.id )
       
       @group.reload
-      @group.my_posts.include?(status_message).should be true
+      @group.posts.include?(status_message).should be true
+    end
+
+    it 'should add post to group via receive method' do
+      group = @user.group(:name => 'losers')
+      group2 = @user2.group(:name => 'winners')
+      friend_users(@user, group, @user2, group2)
+
+      message = @user2.post(:status_message, :message => "Hey Dude")
+      
+      @user.receive message.to_diaspora_xml
+      
+      group.reload
+      group.posts.include?(message).should be true
+      @user.visible_posts(:by_members_of => group).include?(message).should be true
     end
 
   end
