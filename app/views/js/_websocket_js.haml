@@ -1,8 +1,7 @@
 -  if user_signed_in?
-  - unless request.user_agent.include? "Safari" ||"Chrome"
-    = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
-    :javascript
-        WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
+  = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
+  :javascript
+      WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
   :javascript
     $(document).ready(function(){
       function debug(str){ $("#debug").append("<p>" +  str); };
