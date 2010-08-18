@@ -243,6 +243,10 @@ class User
 
       else
         object.perform self.id
+        groups = self.groups_with_person(object.person)
+        groups.each{ |group| group.post_ids.delete(ensure_bson(object.post_id))
+                             group.save
+        }
       end
     elsif object.is_a? Request
       person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
