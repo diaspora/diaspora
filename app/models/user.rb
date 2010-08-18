@@ -225,8 +225,8 @@ class User
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
-        Rails.logger.info( "the person id is #{object.post_id} the friend found is #{friend_by_id(object.post_id).inspect}")
-        unfriended_by friend_by_id(object.post_id)
+        Rails.logger.info( "the person id is #{object.post_id} the friend found is #{visible_person_by_id(object.post_id).inspect}")
+        unfriended_by visible_person_by_id(object.post_id)
 
       else
         object.perform self.id
@@ -287,7 +287,8 @@ class User
     self.password_confirmation = self.password
   end
   
-  def friend_by_id( id )
+  def visible_person_by_id( id )
+    return self if id == self.id
     friends.detect{|x| x.id == ensure_bson( id ) }
   end
 
