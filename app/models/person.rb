@@ -25,14 +25,12 @@ class Person
 
   timestamps!
 
+  after_destroy :remove_all_traces
   before_validation :clean_url
   validates_presence_of :email, :url, :profile, :serialized_key 
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
-
-  after_destroy :remove_all_traces
-
   
   def self.search(query)
     Person.all('$where' => "function() { return this.email.match(/^#{query}/i) ||
@@ -90,5 +88,9 @@ class Person
       self.url = 'http://' + self.url unless self.url.match('http://' || 'https://')
       self.url = self.url + '/' if self.url[-1,1] != '/'
     end
+  end
+  private
+  def remove_all_traces
+    Post.all(:person_id => id).each{|p| p.delete}
   end
  end

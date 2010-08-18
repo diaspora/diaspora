@@ -22,7 +22,7 @@ describe User do
     StatusMessage.all.size.should == 0
     @user.receive( xml )
     
-    person.posts.first.message.should == 'store this!'
+    Post.all(:person_id => person.id).first.message.should == 'store this!'
     StatusMessage.all.size.should == 1
   end
 
