@@ -6,13 +6,13 @@
     %h1
       = @person.real_name
       - unless @person.id == current_user.id
-        .button.right
-          = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete
+        .right
+          = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete, :class => "button"
     
     %ul
-      -unless @person_posts.first.nil?
+      -unless @posts.first.nil?
         %li
-          %i= "last seen: #{how_long_ago(@person_posts.first)}"
+          %i= "last seen: #{how_long_ago(@posts.first)}"
       %li
         %i= "friends since: #{how_long_ago(@person)}"
       %li
@@ -26,11 +26,11 @@
         %span="posted: #{how_long_ago(@latest_status_message)}"
   
   .span-20.last
-    - if @person.posts
+    - if @posts
       %h3= "stream - #{@post_count} item(s)" 
       %ul#stream
-        - for post in @person_posts
+        - for post in @posts
           = render type_partial(post), :post => post
-        = will_paginate @person_posts
+        = will_paginate @posts
     - else
       %h3 no posts to display!

@@ -32,7 +32,7 @@ describe Person do
     person_message = Factory.create(:status_message, :person => @person)
     person_two =     Factory.create(:person)
 
-    @person.owns?   (person_message).should be true
+    @person.owns?(person_message).should be true
     person_two.owns?(person_message).should be false
   end
 
@@ -53,7 +53,7 @@ describe Person do
 
     person.destroy
 
-    Post.count.should        == 1
+    Post.count.should == 1
     Comment.all.count.should == 4
     status_message.comments.count.should == 4
   end
@@ -77,7 +77,7 @@ describe Person do
       request = @user.send_friend_request_to @person.receive_url, @group.id
       request2 = @user2.send_friend_request_to @person.receive_url, @group2.id
 
-      @user.activate_friend (@person, @group) 
+      @user.activate_friend(@person, @group) 
       @user2.activate_friend(@person, @group2)
 
       @user.reload

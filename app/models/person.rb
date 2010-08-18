@@ -20,20 +20,17 @@ class Person
   belongs_to :owner, :class_name => 'User'
   one :profile, :class_name => 'Profile'
 
-  many :posts, :class_name => 'Post', :foreign_key => :person_id
   many :albums, :class_name => 'Album', :foreign_key => :person_id
 
 
   timestamps!
 
+  before_destroy :remove_all_traces
   before_validation :clean_url
   validates_presence_of :email, :url, :profile, :serialized_key 
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
-
-  after_destroy :remove_all_traces
-
   
   def self.search(query)
     Person.all('$where' => "function() { return this.email.match(/^#{query}/i) ||
@@ -92,11 +89,9 @@ class Person
       self.url = self.url + '/' if self.url[-1,1] != '/'
     end
   end
-
   private
-
   def remove_all_traces
-    self.posts.delete_all
+    Post.all(:person_id => id).each{|p| p.delete}
+    Album.all(:person_id => id).each{|p| p.delete}
   end
-
  end

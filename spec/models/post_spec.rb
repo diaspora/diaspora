@@ -27,27 +27,6 @@ describe Post do
 
   end
  
-  describe "stream" do 
-    before do
-      @owner      = Factory.build(:user)
-      @person_one = Factory.create(:person, :email => "some@dudes.com")
-      @person_two = Factory.create(:person, :email => "other@dudes.com")
-
-      Factory.create(:status_message, :message => "puppies", :created_at => Time.now+1, :person => @owner.person)
-      Factory.create(:status_message, :message => "http://reddit.com", :created_at => Time.now+2, :person => @person_one)
-      Factory.create(:status_message, :message => "kittens", :created_at => Time.now+3, :person => @person_two)
-      Factory.create(:status_message, :message => "Bear's body", :created_at => Time.now+4, :person => @owner.person)
-      Factory.create(:status_message, :message => "Google", :created_at => Time.now+5, :person => @person_two)
-    end
-
-    it "should get all posts for a specified user" do
-      person_posts = @person_one.posts
-      person_posts.count.should == 1
-
-      person_posts = @person_two.posts
-      person_posts.count.should == 2
-    end
-  end
   describe 'xml' do
     it 'should serialize to xml with its person' do
       message = Factory.create(:status_message, :person => @user.person)
