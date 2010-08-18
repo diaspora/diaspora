@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create]
 
-  def index
-    @users = User.sort(:created_at.desc).all
-  end
   def show
     @user= User.first(:id => params[:id])
     @user_profile = @user.person.profile
