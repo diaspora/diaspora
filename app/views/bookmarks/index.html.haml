@@ -1,7 +1,0 @@
-%h1.big_text bookmarks
-= render "bookmarks/new_bookmark", :bookmark => @bookmark
-%ul#stream
-  - for bookmark in @bookmarks
-    = render "bookmark", :post => bookmark
-#pagination
-  = will_paginate @bookmarks
