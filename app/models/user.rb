@@ -293,7 +293,8 @@ class User
   end
 
   def groups_with_person person
-    groups.select {|group| group.person_ids.include? person.id}
+    id = ensure_bson person.id
+    groups.select {|group| group.person_ids.include? id}
   end
   protected
   
