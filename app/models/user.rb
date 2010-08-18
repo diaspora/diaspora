@@ -269,12 +269,12 @@ class User
       self.save
 
       groups = self.groups_with_person(object.person)
-      groups.each{ |group| group.posts << object
-                           group.save
+      groups.each{ |group| 
+        group.posts << object
+        group.save
+        object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
       }
 
-      groups = groups_with_person(object.person)
-      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
 
   end
