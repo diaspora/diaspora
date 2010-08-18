@@ -101,6 +101,7 @@ class User
   ######### Posts and Such ###############
 
   def retract( post )
+    post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
     retraction.notify_people
@@ -273,7 +274,7 @@ class User
       }
 
       groups = groups_with_person(object.person)
-      object.socket_to_uid(id, :group_id => groups.first.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
   end
 
@@ -296,16 +297,19 @@ class User
   end
   
   def visible_person_by_id( id )
-    return self.person if ensure_bson(id) == self.person.id
-    friends.detect{|x| x.id == ensure_bson( id ) }
+    id = ensure_bson id
+    return self.person if id == self.person.id
+    friends.detect{|x| x.id == id }
   end
 
   def group_by_id( id )
-    groups.detect{|x| x.id == ensure_bson( id ) }
+    id = ensure_bson id
+    groups.detect{|x| x.id == id }
   end
 
   def groups_with_person person
-    groups.select {|group| group.person_ids.include? person.id}
+    id = ensure_bson person.id
+    groups.select {|group| group.person_ids.include? id}
   end
   protected
   

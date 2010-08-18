@@ -22,10 +22,15 @@ class PublicsController < ApplicationController
   end
   
   def receive
-    @user = Person.first(:id => params[:id]).owner
+    render :nothing => true
+    begin
+      @user = Person.first(:id => params[:id]).owner
+    rescue NoMethodError => e
+      Rails.logger.error("Received post #{params[:xml]} for nonexistent person #{params[:id]}")
+      return
+    end
     Rails.logger.debug "PublicsController has received: #{params[:xml]}"
     @user.receive params[:xml] if params[:xml]
-    render :nothing => true
   end
   
 end

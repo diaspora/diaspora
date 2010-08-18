@@ -27,6 +27,7 @@ class Album
 
   def self.mine_or_friends(friend_param, current_user)
     if friend_param
+      puts "i am working"
       Album.find_all_by_person_id(current_user.friend_ids)
     else
       current_user.person.albums
@@ -67,6 +68,6 @@ class Album
   end
 
   def propagate_retraction
-    Retraction.for(self).notify_people
+    self.person.owner.retract(self)
   end
 end
