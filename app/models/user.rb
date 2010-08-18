@@ -52,6 +52,10 @@ class User
   ######## Posting ########
   def post(class_name, options = {})
     options[:person] = self.person
+
+    group_id = options[:group_id]
+    options.delete(:group_id)
+
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
@@ -62,6 +66,12 @@ class User
 
     self.raw_visible_posts << post
     self.save
+    
+    if group_id
+      group = self.groups.find_by_id(group_id)
+      group.posts << post
+      group.save
+    end
 
     post
   end
@@ -69,7 +79,7 @@ class User
   def visible_posts( opts = {} )
     if opts[:by_members_of]
       group = self.groups.find_by_id( opts[:by_members_of].id )
-      self.raw_visible_posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
+      group.posts
     end
   end
 
@@ -260,7 +270,7 @@ class User
       person.save  
 
     elsif object.is_a?(Comment) 
-          dispatch_comment object unless owns?(object)
+      dispatch_comment object unless owns?(object)
     else
       Rails.logger.debug("Saving object: #{object}")
       object.user_refs += 1
@@ -269,13 +279,18 @@ class User
       self.raw_visible_posts << object
       self.save
 
-      groups = groups_with_person(object.person)
-      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      groups = self.groups_with_person(object.person)
+      groups.each{ |group| 
+        group.posts << object
+        group.save
+        object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      }
+
     end
+
   end
 
   ###Helpers############
-  
   def terse_url
     terse= self.url.gsub(/https?:\/\//, '')
     terse.gsub!(/www\./, '')
@@ -312,7 +327,8 @@ class User
   end
 
   def groups_with_person person
-    groups.select {|group| group.person_ids.include? person.id}
+    id = ensure_bson person.id
+    groups.select {|group| group.person_ids.include? id}
   end
   protected
   

@@ -1,4 +1,4 @@
-= render "shared/publisher"
+= render "shared/publisher", :group_id => @group.id
 
 %ul#stream
   - for post in @posts

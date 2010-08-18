@@ -33,12 +33,15 @@ describe Group do
       group.people.include?(@friend_2).should be true 
       group.people.size.should == 2
     end
-
   end
   
   describe 'querying' do
     before do
-      @group = @user.group(:name => 'losers', :people => [@friend])
+      @group = @user.group(:name => 'losers')
+      @user.activate_friend(@friend, @group)
+      @group2 = @user2.group(:name => 'failures')
+      friend_users(@user, @group, @user2, @group2)
+      @group.reload
     end
 
     it 'belong to a user' do
@@ -49,7 +52,43 @@ describe Group do
 
     it 'should have people' do
       @group.people.all.include?(@friend).should be true
-      @group.people.size.should == 1
+      @group.people.size.should == 2
     end
+
+    it 'should be accessible through the user' do
+      groups = @user.groups_with_person(@friend)
+      groups.size.should == 1
+      groups.first.id.should == @group.id
+      groups.first.people.size.should == 2
+      groups.first.people.include?(@friend).should be true
+      groups.first.people.include?(@user2.person).should be true
+    end
+  end
+
+  describe 'posting' do
+    
+    it 'should add post to group via post method' do
+      @group = @user.group(:name => 'losers', :people => [@friend])
+
+      status_message = @user.post( :status_message, :message => "hey", :group_id => @group.id )
+      
+      @group.reload
+      @group.posts.include?(status_message).should be true
+    end
+
+    it 'should add post to group via receive method' do
+      group = @user.group(:name => 'losers')
+      group2 = @user2.group(:name => 'winners')
+      friend_users(@user, group, @user2, group2)
+
+      message = @user2.post(:status_message, :message => "Hey Dude")
+      
+      @user.receive message.to_diaspora_xml
+      
+      group.reload
+      group.posts.include?(message).should be true
+      @user.visible_posts(:by_members_of => group).include?(message).should be true
+    end
+
   end
 end

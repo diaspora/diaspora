@@ -25,6 +25,18 @@ describe User do
     Post.all(:person_id => person.id).first.message.should == 'store this!'
     StatusMessage.all.size.should == 1
   end
+  
+  it 'should not create new groups on message receive' do
+    num_groups = @user.groups.size
+    
+    (0..5).each{ |n|
+      status_message = @user2.post :status_message, :message => "store this #{n}!"
+      xml = status_message.to_diaspora_xml
+      @user.receive( xml )
+    }
+
+    @user.groups.size.should == num_groups
+  end
 
   describe 'post refs' do
     before do

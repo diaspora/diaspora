@@ -430,24 +430,21 @@ h1.big_text {
       #group ul > li.selected, #group ul > li.selected a {
         color: white;
         font-weight: bold;
-        font-size: 18px;
-        text-shadow: 0 2px 0px black; }
+        font-size: 18px; }
   #group a {
     color: #aaaaaa;
     font-weight: normal; }
-  #group #friend_pictures .add_new {
+  #group #friend_pictures .add_new_description {
     position: relative;
-    display: inline-block;
     height: 40px;
-    width: 40px;
-    background-color: black;
-    text-align: center;
-    font-size: 40px;
+    display: inline-block;
+    background-color: #222222;
+    color: #999999;
+    top: -16px;
     line-height: 40px;
-    top: -6px; }
-    #group #friend_pictures .add_new:hover {
-      background: #999999;
-      color: black; }
+    padding: 0 1em;
+    margin-bottom: -20px;
+    font-style: italic; }
   #group #friend_pictures img {
     height: 40px; }
 
