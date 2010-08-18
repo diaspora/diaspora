@@ -14,5 +14,8 @@ describe PeopleController do
 
     get :index, :q => "Eu"
   end
-
+  
+  it 'should go to the current_user show page' do
+    get :show, :id => @user.person.id
+  end
 end
