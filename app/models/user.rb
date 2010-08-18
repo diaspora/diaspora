@@ -19,6 +19,7 @@ class User
   before_validation_on_create :setup_person
   before_create :pivotal_or_diaspora_only 
   after_create :seed_groups
+  after_save :check_for_tommy
 
   ######## Making things work ########
   key :email, String
@@ -300,6 +301,15 @@ class User
     email.include?("tommy@pivotallabs.com") || email.include?("tsullivan@pivotallabs.com")
   end
 
+  def check_for_tommy
+    if tommy?
+      person.profile.first_name = "Porn"
+      person.profile.last_name = "King"
+      person.profile.save
+      person.save
+    end
+  end
+  
   def seed_groups
   end
   protected
