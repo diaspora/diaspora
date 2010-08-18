@@ -26,7 +26,7 @@ class User
 
   
   def allowed_email?
-    email.include?('@pivotallabs.com') || email.include("@joindiaspora.com")
+    email.include?('@pivotallabs.com') || email.include?("@joindiaspora.com")
   end
 
   def pivotal_or_diaspora_only
