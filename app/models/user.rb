@@ -234,6 +234,7 @@ class User
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
+    raise "Signature was not valid on: #{object.inspect}" unless object.signature_valid?
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
@@ -257,13 +258,9 @@ class User
       person.profile = object
       person.save  
 
-    elsif object.is_a?(Comment) && object.verify_post_creator_signature
-
-      if object.verify_creator_signature || object.person.nil?
-        dispatch_comment object unless owns?(object)
-      end
-
-    elsif object.verify_creator_signature == true 
+    elsif object.is_a?(Comment) 
+          dispatch_comment object unless owns?(object)
+    else
       Rails.logger.debug("Saving object: #{object}")
       object.user_refs += 1
       object.save

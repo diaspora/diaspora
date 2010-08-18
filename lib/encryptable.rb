@@ -2,8 +2,9 @@
    def signable_string
      raise NotImplementedException("Override this in your encryptable class")
    end
-    def verify_creator_signature
-      verify_signature(creator_signature, person)
+
+    def signature_valid?
+     verify_signature(creator_signature, person) 
     end
     
     def verify_signature(signature, person)

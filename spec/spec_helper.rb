@@ -43,23 +43,9 @@ end
   end
 
   def stub_signature_verification
-    post_models = []
-    get_models.each{ |model|
-      constant_model = model.camelize.constantize
-      if constant_model == Post || constant_model.superclass == Post
-        post_models << constant_model
-      end
-    }
-    
-    post_models.each{ | model|
-      model.any_instance.stubs(:verify_creator_signature).returns(true)
-      model.any_instance.stubs(:verify_signature).returns(true)
-    }
-
-    Retraction.any_instance.stubs(:verify_signature).returns(true)
-    Request.any_instance.stubs(:verify_signature).returns(true)
-    Comment.any_instance.stubs(:verify_post_creator_signature).returns(true)
-    Comment.any_instance.stubs(:verify_creator_signature).returns(true)
+    (get_models.map{|model| model.camelize.constantize} - [User]).each do |model|
+      model.any_instance.stubs(:signature_valid?).returns(true)
+    end
   end
 
   def unstub_mocha_stubs

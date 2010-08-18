@@ -13,35 +13,6 @@ describe Diaspora::Parser do
     @user2 = Factory.create(:user)
   end
 
-  describe 'with encryption' do
-    before do
-      unstub_mocha_stubs
-    end
-    after do
-      stub_signature_verification
-    end
-    it "should not store posts from me" do
-      10.times { 
-        message = Factory.build(:status_message, :person => @user)
-        xml = message.to_diaspora_xml
-        @user.receive xml 
-        }
-      StatusMessage.count.should == 0
-    end
-    
-    it "should reject xml with no sender" do
-      xml = "<XML>
-      <head>
-      </head>
-        <post><status_message>\n  <message>Here is another message</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-        <post><person></person></post>
-        <post><status_message>\n  <message>HEY DUDE</message>\n  <owner>a@a.com</owner>\n  <snippet>a@a.com</snippet>\n  <source>a@a.com</source>\n</status_message></post>
-        </XML>"
-      @user.receive xml
-      Post.count.should == 0
-    end
-  end 
-
   describe "parsing compliant XML object" do 
     before do
       @xml = Factory.build(:status_message).to_diaspora_xml 
