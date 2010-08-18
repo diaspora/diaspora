@@ -14,7 +14,6 @@ class Album < Post
 
   def self.mine_or_friends(friend_param, current_user)
     if friend_param
-      puts "i am working"
       Album.find_all_by_person_id(current_user.friend_ids)
     else
       current_user.person.albums

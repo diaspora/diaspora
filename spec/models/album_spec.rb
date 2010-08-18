@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe Album do
   before do
-    @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
+    @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @user = Factory.create(:user)
     @user.person.save
     @album = Album.new(:name => "test collection", :person => @user.person)

@@ -15,14 +15,14 @@
     %div#image_picker
       = p.hidden_field :image_url, :value => @profile.image_url, :id => 'image_url_field'
       - for photo in @photos
-        - if photo.image.url(:thumb_medium) == @profile.image_url
+        - if photo.url(:thumb_medium) == @profile.image_url
           %div.small_photo{:id => photo.image.thumb_medium.url, :class=>'selected'}
             = check_box_tag 'checked_photo', true, true
-            = link_to image_tag(photo.image.url(:thumb_medium)), "#"
+            = link_to image_tag(photo.url(:thumb_medium)), "#"
         - else
           %div.small_photo{:id => photo.image.thumb_medium.url}
             = check_box_tag 'checked_photo'
-            = link_to image_tag(photo.image.url(:thumb_medium)), "#"
+            = link_to image_tag(photo.url(:thumb_medium)), "#"
     =will_paginate @photos
 
 
