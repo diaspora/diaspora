@@ -57,7 +57,8 @@ class User
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save
     post.notify_people
-    post.socket_to_uid owner.id if (owner_id && post.respond_to?(:socket_to_uid))
+
+    post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
     self.posts << post
     self.save
@@ -257,14 +258,18 @@ class User
       person.save  
 
     elsif object.is_a?(Post) && object.verify_creator_signature == true 
-      Rails.logger.debug("Saving post: #{object}")
+      Rails.logger.debug("Saving post: #{object.inspect}")
 
       object.user_refs += 1
       object.save
 
       self.posts << object
       self.save
-      object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+
+
+      group = groups.first
+      Rails.logger.info("pushing a message to group: #{group.name}")
+      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
       dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
 
     elsif object.is_a?(Comment) && object.verify_post_creator_signature
@@ -276,7 +281,9 @@ class User
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
       object.save
-      object.socket_to_uid(id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+
+      group = groups.find_by_person_id(object.person.id)
+      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
   end
 

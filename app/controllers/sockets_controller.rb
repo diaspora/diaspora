@@ -7,9 +7,9 @@ class SocketsController < ApplicationController
     Rails.logger.info("Socket received connection to: #{msg}")
   end
   
-  def outgoing(uid,object)
+  def outgoing(uid,object,opts={})
     @_request = ActionDispatch::Request.new({})
-    Diaspora::WebSocket.push_to_user(uid, action_hash(uid, object))
+    Diaspora::WebSocket.push_to_user(uid, action_hash(uid, object, :group_id => opts[:group_id]))
   end
   
 end

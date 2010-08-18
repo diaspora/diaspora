@@ -31,8 +31,8 @@ module Diaspora
   end
 
   module Socketable
-    def socket_to_uid id
-      SocketsController.new.outgoing(id, self)
+    def socket_to_uid(id, opts={})
+      SocketsController.new.outgoing(id, self, :group_id => opts[:group_id])
     end
     
     def unsocket_from_uid id
