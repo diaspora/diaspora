@@ -22,6 +22,7 @@ class User
 
   ######## Making things work ########
   key :email, String
+<<<<<<< HEAD
   #validates_true_for :email, :logic => lambda {self.pivotal_email?} 
 
   
@@ -32,6 +33,9 @@ class User
   def pivotal_or_diaspora_only
     raise "pivotal only" unless allowed_email?
   end
+=======
+  ensure_index :email
+>>>>>>> bded53d51b1ca40e1c5c8f23fb28234849e14f78
 
   def method_missing(method, *args)
     self.person.send(method, *args)
