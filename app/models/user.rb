@@ -91,6 +91,7 @@ class User
   ######### Posts and Such ###############
 
   def retract( post )
+    post.socket_to_uid(self.id)
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
     retraction.notify_people
@@ -258,7 +259,7 @@ class User
       self.save
 
       groups = groups_with_person(object.person)
-      object.socket_to_uid(id, :group_id => groups.first.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
   end
 

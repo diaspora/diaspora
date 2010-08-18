@@ -67,6 +67,6 @@ class Album
   end
 
   def propagate_retraction
-    Retraction.for(self).notify_people
+    self.person.owner.retract(self)
   end
 end

@@ -25,7 +25,7 @@ class Person
 
   timestamps!
 
-  after_destroy :remove_all_traces
+  before_destroy :remove_all_traces
   before_validation :clean_url
   validates_presence_of :email, :url, :profile, :serialized_key 
   validates_format_of :url, :with =>
@@ -92,5 +92,6 @@ class Person
   private
   def remove_all_traces
     Post.all(:person_id => id).each{|p| p.delete}
+    Album.all(:person_id => id).each{|p| p.delete}
   end
  end
