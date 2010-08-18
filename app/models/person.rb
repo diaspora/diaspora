@@ -20,7 +20,6 @@ class Person
   belongs_to :owner, :class_name => 'User'
   one :profile, :class_name => 'Profile'
 
-  many :posts, :class_name => 'Post', :foreign_key => :person_id
   many :albums, :class_name => 'Album', :foreign_key => :person_id
 
 
@@ -92,11 +91,4 @@ class Person
       self.url = self.url + '/' if self.url[-1,1] != '/'
     end
   end
-
-  private
-
-  def remove_all_traces
-    self.posts.delete_all
-  end
-
  end
