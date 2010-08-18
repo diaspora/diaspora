@@ -16,7 +16,7 @@ class User
 
   many :groups, :class_name => 'Group'
 
-  before_validation_on_create :setup_person
+  after_validation_on_create :setup_person
   before_create :pivotal_or_diaspora_only 
   after_create :seed_groups
   after_save :check_for_tommy
