@@ -6,13 +6,13 @@ class User
          
   key :friend_ids, Array
   key :pending_request_ids, Array
-  key :post_ids, Array
+  key :visible_post_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends, :in => :friend_ids, :class_name => 'Person'
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
-  many :posts, :in => :post_ids, :class_name => 'Post'
+  many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
 
   many :groups, :class_name => 'Group'
 
@@ -49,16 +49,16 @@ class User
 
     post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
-    self.posts << post
+    self.raw_visible_posts << post
     self.save
 
     post
   end
  
-  def posts_for( opts = {} )
-    if opts[:group]
-      group = self.groups.find_by_id( opts[:group].id )
-      self.posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
+  def visible_posts( opts = {} )
+    if opts[:by_members_of]
+      group = self.groups.find_by_id( opts[:by_members_of].id )
+      self.raw_visible_posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
     end
   end
 
@@ -182,8 +182,8 @@ class User
     groups.each{|g| g.person_ids.delete( bad_friend.id )}
     self.save
 
-    self.posts.find_all_by_person_id( bad_friend.id ).each{|post|
-      self.post_ids.delete( post.id )
+    self.raw_visible_posts.find_all_by_person_id( bad_friend.id ).each{|post|
+      self.visible_post_ids.delete( post.id )
       post.user_refs -= 1
       (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
     }
@@ -252,7 +252,7 @@ class User
       object.user_refs += 1
       object.save
 
-      self.posts << object
+      self.raw_visible_posts << object
       self.save
 
 

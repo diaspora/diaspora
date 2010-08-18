@@ -76,3 +76,9 @@ end
   def message_queue
     Post.send(:class_variable_get, :@@queue)
   end
+
+  def friend_users(user1, group1, user2, group2)
+    request = user1.send_friend_request_to(user2.receive_url, group1.id)
+    reversed_request = user2.accept_friend_request( request.id, group2.id) 
+    user1.receive reversed_request.to_diaspora_xml
+  end

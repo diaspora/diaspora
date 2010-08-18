@@ -1,6 +1,6 @@
 Diaspora::Application.routes.draw do |map|
   resources :people
-  resources :users, :only => [:edit, :show]
+  resources :users, :only => [:edit, :show, :update]
   resources :status_messages
   resources :comments
   resources :requests
