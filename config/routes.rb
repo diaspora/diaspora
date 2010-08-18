@@ -2,7 +2,7 @@ Diaspora::Application.routes.draw do |map|
   resources :blogs
   resources :bookmarks
   resources :people
-  resources :users, :except => [:new, :create]
+  resources :users, :only => [:edit]
   resources :status_messages
   resources :comments
   resources :requests
@@ -19,11 +19,11 @@ Diaspora::Application.routes.draw do |map|
 
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file
-  devise_for :users do
-    match 'login',  :to => 'devise/sessions#new'
-    match 'logout', :to => 'devise/sessions#destroy'
-    match 'get_to_the_choppa', :to => 'devise/registrations#new'
-  end
+  devise_for :users
+  match 'login',  :to => 'devise/sessions#new',      :as => "new_user_session"
+  match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
+  match 'get_to_the_choppa', :to => 'devise/registrations#new', :as => "new_user_registration"
+  
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'

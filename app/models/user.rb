@@ -2,8 +2,7 @@ class User
   include MongoMapper::Document
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable
+         :recoverable, :rememberable, :trackable, :validatable
          
   key :friend_ids, Array
   key :pending_request_ids, Array
@@ -304,7 +303,7 @@ class User
   def setup_person 
     self.person.serialized_key ||= generate_key.export
     self.person.email = email
-    self.person.save
+    self.person.save!
   end
 
   def generate_key

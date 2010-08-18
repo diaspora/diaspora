@@ -14,7 +14,7 @@
     = f.password_field :password_confirmation
 
   = f.fields_for :person do |p|
-    = p.hidden_field :url, :value => request.path
+    = p.hidden_field :url, :value => request.host
 
     = p.fields_for :profile do |pr|
       %p
