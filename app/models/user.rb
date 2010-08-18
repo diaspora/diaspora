@@ -6,13 +6,13 @@ class User
          
   key :friend_ids, Array
   key :pending_request_ids, Array
-  key :post_ids, Array
+  key :visible_post_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends, :in => :friend_ids, :class_name => 'Person'
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
-  many :posts, :in => :post_ids, :class_name => 'Post'
+  many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
 
   many :groups, :class_name => 'Group'
 
@@ -26,12 +26,12 @@ class User
   #validates_true_for :email, :logic => lambda {self.pivotal_email?} 
 
   
-  def allowed_email?
+  def self.allowed_email?(email)
     email.include?('@pivotallabs.com') || email.include?("@joindiaspora.com")
   end
 
   def pivotal_or_diaspora_only
-    raise "pivotal only" unless allowed_email?
+    raise "pivotal only" unless User.allowed_email?(self.email)
   end
   ensure_index :email
 
@@ -60,16 +60,16 @@ class User
 
     post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
-    self.posts << post
+    self.raw_visible_posts << post
     self.save
 
     post
   end
  
-  def posts_for( opts = {} )
-    if opts[:group]
-      group = self.groups.find_by_id( opts[:group].id )
-      self.posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
+  def visible_posts( opts = {} )
+    if opts[:by_members_of]
+      group = self.groups.find_by_id( opts[:by_members_of].id )
+      self.raw_visible_posts.find_all_by_person_id( (group.person_ids + [self.person.id] ), :order => "created_at desc")
     end
   end
 
@@ -193,8 +193,8 @@ class User
     groups.each{|g| g.person_ids.delete( bad_friend.id )}
     self.save
 
-    self.posts.find_all_by_person_id( bad_friend.id ).each{|post|
-      self.post_ids.delete( post.id )
+    self.raw_visible_posts.find_all_by_person_id( bad_friend.id ).each{|post|
+      self.visible_post_ids.delete( post.id )
       post.user_refs -= 1
       (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
     }
@@ -257,21 +257,6 @@ class User
       person.profile = object
       person.save  
 
-    elsif object.is_a?(Post) && object.verify_creator_signature == true 
-      Rails.logger.debug("Saving post: #{object.inspect}")
-
-      object.user_refs += 1
-      object.save
-
-      self.posts << object
-      self.save
-
-
-      group = groups.first
-      Rails.logger.info("pushing a message to group: #{group.name}")
-      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
-      dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
-
     elsif object.is_a?(Comment) && object.verify_post_creator_signature
 
       if object.verify_creator_signature || object.person.nil?
@@ -280,10 +265,14 @@ class User
 
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
+      object.user_refs += 1
       object.save
+      
+      self.raw_visible_posts << object
+      self.save
 
-      group = groups.find_by_person_id(object.person.id)
-      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      groups = groups_with_person(object.person)
+      object.socket_to_uid(id, :group_id => groups.first.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
   end
 
@@ -321,6 +310,10 @@ class User
   
   def seed_groups
     group(:name => "Pivots")
+  end
+
+  def groups_with_person person
+    groups.select {|group| group.person_ids.include? person.id}
   end
   protected
   

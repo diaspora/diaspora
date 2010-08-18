@@ -14,12 +14,11 @@ describe Request do
   end
 
   it 'should generate xml for the User as a Person' do 
-
     request = @user.send_friend_request_to "http://www.google.com/", @group.id
 
     xml = request.to_xml.to_s
 
-    xml.include?(@user.person.email).should be true
+    xml.include?(@user.email).should be true
     xml.include?(@user.url).should be true
     xml.include?(@user.profile.first_name).should be true
     xml.include?(@user.profile.last_name).should be true
