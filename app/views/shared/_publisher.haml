@@ -1,8 +1,6 @@
 #publisher
   %ul#publisher_content_pickers
     %li{ :class => "status_message selected" }= link_to "status message", "#"
-    %li{ :class => "bookmark" }= link_to "bookmark", "#"
-    %li{ :class => "blog" }= link_to "blog", "#"
 
   #publisher_form
     = form_for StatusMessage.new, :remote => true do |f|
