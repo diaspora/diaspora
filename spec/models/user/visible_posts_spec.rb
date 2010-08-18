@@ -4,7 +4,7 @@ describe User do
    before do
       @user = Factory.create(:user)
       @group = @user.group(:name => 'heroes')
-      @group2 = @user.group(:name => 'stuff')
+      @group2 = @user.group(:name => 'losers')
 
       @user2 = Factory.create :user
       @user2_group = @user2.group(:name => 'dudes')
@@ -19,7 +19,6 @@ describe User do
       @user4_group = @user4.group(:name => 'dudes')
       friend_users(@user, @group2, @user4, @user4_group)
    end
-
 
     it 'should generate a valid stream for a group of people' do
       status_message1 = @user2.post :status_message, :message => "hi"

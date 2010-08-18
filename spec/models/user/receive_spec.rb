@@ -28,9 +28,6 @@ describe User do
 
   describe 'post refs' do
     before do
-      @user2 = Factory.create(:user)
-      @user.activate_friend( @user2.person, @group)
-      
       @user3 = Factory.create(:user)
       @group3 = @user3.group(:name => 'heroes')
     end

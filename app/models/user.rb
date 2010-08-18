@@ -246,21 +246,6 @@ class User
       person.profile = object
       person.save  
 
-    elsif object.is_a?(Post) && object.verify_creator_signature == true 
-      Rails.logger.debug("Saving post: #{object.inspect}")
-
-      object.user_refs += 1
-      object.save
-
-      self.raw_visible_posts << object
-      self.save
-
-
-      group = groups.first
-      Rails.logger.info("pushing a message to group: #{group.name}")
-      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
-      dispatch_comment object if object.is_a?(Comment) && !owns?(object) 
-
     elsif object.is_a?(Comment) && object.verify_post_creator_signature
 
       if object.verify_creator_signature || object.person.nil?
@@ -269,10 +254,14 @@ class User
 
     elsif object.verify_creator_signature == true 
       Rails.logger.debug("Saving object: #{object}")
+      object.user_refs += 1
       object.save
+      
+      self.raw_visible_posts << object
+      self.save
 
-      group = groups.find_by_person_id(object.person.id)
-      object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      groups = groups_with_person(object.person)
+      object.socket_to_uid(id, :group_id => groups.first.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     end
   end
 
@@ -303,6 +292,9 @@ class User
     groups.detect{|x| x.id == ensure_bson( id ) }
   end
 
+  def groups_with_person person
+    groups.select {|group| group.person_ids.include? person.id}
+  end
   protected
   
   def assign_key
