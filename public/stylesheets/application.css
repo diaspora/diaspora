@@ -67,10 +67,9 @@ header {
   position: relative;
   margin: -2em;
     margin-bottom: 20px;
-  color: #555555;
-  background-color: #2b2726;
-  background-color: black;
-  border-bottom: 3px solid #333333;
+  color: black;
+  background-color: #333333;
+  border-bottom: 3px solid black;
   padding: 6px 0;
     padding-top: 0; }
   header #diaspora_text {
@@ -420,7 +419,7 @@ h1.big_text {
   display: none; }
 
 #group {
-  color: #333333; }
+  color: black; }
   #group ul {
     margin: 0;
     padding: 0;
@@ -431,25 +430,25 @@ h1.big_text {
       #group ul > li.selected, #group ul > li.selected a {
         color: white;
         font-weight: bold;
-        font-size: 18px; }
+        font-size: 18px;
+        text-shadow: 0 2px 0px black; }
   #group a {
-    color: #333333;
+    color: #aaaaaa;
     font-weight: normal; }
   #group #friend_pictures .add_new {
     position: relative;
     display: inline-block;
     height: 40px;
     width: 40px;
-    background-color: #222222;
+    background-color: black;
     text-align: center;
     font-size: 40px;
-    line-height: 33px;
-    top: -9px; }
+    line-height: 40px;
+    top: -6px; }
     #group #friend_pictures .add_new:hover {
       background: #999999;
       color: black; }
   #group #friend_pictures img {
-    display: none;
     height: 40px; }
 
 #add_photo_loader {
@@ -459,7 +458,7 @@ h1.big_text {
   top: 4px; }
 
 #user_menu {
-  background: #333333;
+  background: black;
   padding: 5px;
   margin: 0;
   list-style: none; }
