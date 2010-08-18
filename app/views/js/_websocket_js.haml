@@ -23,7 +23,7 @@
         }else if (obj['class']=='photos' && onPageForClass('albums')){
           processPhotoInAlbum(obj['photo_hash'])
         }else{
-          if( (obj['mine?'] == true)|| (onPageForClass(obj['class']) || onPageForGroup(obj['group_id'])) ){
+          if( (obj['mine?'])|| (onPageForClass(obj['class']) || onPageForGroup(obj['group_id'])) ){
             processPost(obj['class'], obj['html'])
           }
         }
