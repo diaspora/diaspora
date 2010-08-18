@@ -2,7 +2,6 @@ body {
   padding: 2em; }
 
 #huge_text {
-  margin-top: 10%;
   display: inline block;
   font-size: 40px;
   font-weight: bold;
@@ -24,3 +23,31 @@ input {
 .container {
   top: 30%;
   text-align: center; }
+
+form p {
+  position: relative;
+  padding: 0;
+  margin-left: 32.8%; }
+
+label {
+  color: #999999;
+  position: absolute;
+  top: 3px;
+  left: 0.48em;
+  font-size: 14px;
+  font-weight: normal; }
+
+input[type='text'],
+input[type='password'] {
+  font-family: "lucida grande", "sans-serif";
+  font-size: 14px;
+  padding: 0.3em;
+  display: block;
+  width: 50%;
+  box-shadow: 0 2px 0px white;
+  -webkit-box-shadow: 0 2px 0px white;
+  -moz-box-shadow: 0 2px 0px white;
+  border-top: 1px solid #999999;
+  height: auto;
+  border-radius: 3px;
+  -moz-border-radius: 3px; }
