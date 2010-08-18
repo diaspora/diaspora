@@ -5,8 +5,8 @@ describe Photo do
     @user = Factory.create(:user)
     @user.person.save
 
-    @fixture_filename = 'bp.jpeg'
-    @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
+    @fixture_filename = 'button.png'
+    @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
     @album = Album.create(:name => "foo", :person => @user.person)
     @photo = Photo.new(:person => @user.person, :album => @album)
