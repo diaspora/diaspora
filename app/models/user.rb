@@ -42,8 +42,8 @@ class User
   def post(class_name, options = {})
     options[:person] = self.person
 
-    group = options[:group]
-    options.delete(:group)
+    group_id = options[:group_id]
+    options.delete(:group_id)
 
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
@@ -56,7 +56,8 @@ class User
     self.raw_visible_posts << post
     self.save
     
-    if group
+    if group_id
+      group = self.groups.find_by_id(group_id)
       group.my_posts << post
       group.save
     end
