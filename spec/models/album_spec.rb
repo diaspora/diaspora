@@ -88,8 +88,5 @@ describe Album do
     it 'should have an id' do
       @xml.include?(@album.id.to_s).should be true
     end
-
   end
-
-
 end
