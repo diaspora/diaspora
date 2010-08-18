@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     if current_user
       @groups = current_user.groups 
       @friends = current_user.friends
-      @group = params[:group] ? current_user.group_by_id(params[:group]) : nil 
+      @group = params[:group] ? current_user.group_by_id(params[:group]) : current_user.groups.first 
     end
   end
 
