@@ -282,12 +282,14 @@ class User
   end
   
   def visible_person_by_id( id )
-    return self.person if ensure_bson(id) == self.person.id
-    friends.detect{|x| x.id == ensure_bson( id ) }
+    id = ensure_bson id
+    return self.person if id == self.person.id
+    friends.detect{|x| x.id == id }
   end
 
   def group_by_id( id )
-    groups.detect{|x| x.id == ensure_bson( id ) }
+    id = ensure_bson id
+    groups.detect{|x| x.id == id }
   end
 
   def groups_with_person person
