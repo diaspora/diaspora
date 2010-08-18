@@ -311,6 +311,7 @@ class User
   end
   
   def seed_groups
+    group(:name => "Pivots")
   end
   protected
   
