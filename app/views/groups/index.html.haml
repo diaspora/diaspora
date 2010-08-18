@@ -2,7 +2,7 @@
   welcome home,
   = current_user.profile.first_name
 
-= render "shared/publisher"
+= render "shared/publisher", :group_id => @group.id
 
 %ul#stream
   - for post in @posts

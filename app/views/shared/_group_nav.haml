@@ -14,7 +14,12 @@
     #friend_pictures
       - for friend in @group.people
         = person_image_link(friend)
-      = link_to "+", "#add_request_pane", :id => 'add_request_button', :class => "add_new"
+      = link_to (image_tag 'add_friend_button.png'), "#add_request_pane", :id => 'add_request_button'
+
+      - if @group.people.count == 0
+        %span.add_new_description
+          << click the plus to add friends to this group
+
 
       .yo{:style => 'display:none'}
         #add_request_pane
