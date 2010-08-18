@@ -23,9 +23,9 @@
         }else if (obj['class']=='photos' && onPageForClass('albums')){
           processPhotoInAlbum(obj['photo_hash'])
         }else if (obj['class']=='status_messages'){
-          processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'], obj['group_id'])
+          processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'], obj['group_id'], obj['mine?'])
         }else{
-          processPost(obj['class'], obj['html'], obj['group_id'])
+          processPost(obj['class'], obj['html'], obj['group_id'], obj['mine?'])
         }
 
         
@@ -52,8 +52,8 @@
           toggler.html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
       }
 
-      function processPost(className, html, groupId){
-        if(onPageForClass(className) || onPageForGroup(groupId)){
+      function processPost(className, html, groupId, mineBool){
+        if(mineBool || onPageForClass(className) || onPageForGroup(groupId)){
           $("#stream").prepend(
             $(html).fadeIn("fast", function(){
               $("#stream label:first").inFieldLabels();
@@ -62,8 +62,8 @@
         }
       }
 
-      function processStatusMessage(className, html, messageHash, groupId){
-        processPost(className, html, groupId);
+      function processStatusMessage(className, html, messageHash, groupId, mineBool){
+        processPost(className, html, groupId, mineBool);
         console.log(messageHash)
         if(messageHash['mine?']){
           updateMyLatestStatus(messageHash);

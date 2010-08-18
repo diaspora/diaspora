@@ -22,6 +22,10 @@ module SocketsHelper
       action_hash[:status_message_hash][:mine?] = true if object.person.owner_id == uid
     end
 
+    if object.person.owner_id == uid
+      action_hash[:mine?] = true
+    end
+
     action_hash.to_json
   end
 

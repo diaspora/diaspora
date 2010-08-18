@@ -3,6 +3,7 @@ class Album
   include MongoMapper::Document
   include ROXML
   include Diaspora::Webhooks
+  include Encryptable
 
   xml_reader :name
   xml_reader :person, :as => Person
@@ -41,6 +42,24 @@ class Album
     p_photo = self.photos.where(:created_at.gt => photo.created_at).sort(:created_at.asc).first
     p_photo ? p_photo : self.photos.sort(:created_at.desc).last
   end
+
+  #ENCRYPTION
+  xml_accessor :creator_signature
+  key :creator_signature, String
+  
+  def signable_accessors
+    accessors = self.class.roxml_attrs.collect{|definition| 
+      definition.accessor}
+    accessors.delete 'person'
+    accessors.delete 'creator_signature'
+    accessors
+  end
+
+  def signable_string
+    signable_accessors.collect{|accessor| 
+      (self.send accessor.to_sym).to_s}.join ';'
+  end
+
 
   protected
   def destroy_photos
