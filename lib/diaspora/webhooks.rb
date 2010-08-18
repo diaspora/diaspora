@@ -6,16 +6,6 @@ module Diaspora
 
         @@queue = MessageHandler.new
 
-        def notify_people
-          unless self.person.owner.nil?
-            push_to(people_with_permissions)
-          end
-        end
-
-        def notify_people!
-          push_to(people_with_permissions)
-        end
-
         def push_to(recipients)
           unless recipients.empty?
             recipients.map!{|x| x = x.receive_url }

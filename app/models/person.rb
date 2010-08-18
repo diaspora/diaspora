@@ -55,15 +55,6 @@ class Person
     encryption_key.public_key.export
   end
 
-  ##profile
-  def update_profile(params)
-    if self.update_attributes(params)
-      self.profile.notify_people!
-      true
-    else
-      false
-    end
-  end
 
   def owns?(post)
     self.id == post.person.id

@@ -18,7 +18,7 @@ class Album
   validates_presence_of :name, :person
 
   before_destroy :destroy_photos
-  after_save :notify_people
+  
   before_destroy :propagate_retraction
   
   def self.instantiate params
