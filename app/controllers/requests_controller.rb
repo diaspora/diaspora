@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
         @friend = current_user.accept_and_respond( params[:id], params[:group_id])
         
         flash[:notice] = "you are now friends"
-        redirect_to root_url 
+        redirect_to current_user.group_by_id(params[:group_id])
       else
         flash[:error] = "please select a group!"
         redirect_to requests_url
