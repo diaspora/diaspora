@@ -17,20 +17,7 @@ describe Diaspora do
       end
 
       it "should add the following methods to Post on inclusion" do
-        @post.respond_to?(:notify_people).should be true
         @post.respond_to?(:to_diaspora_xml).should be true
-        @post.respond_to?(:people_with_permissions).should be true
-      end
-
-      it "should retrieve all valid person endpoints" do
-        @user.friends << Factory.create(:person, :url => "http://www.bob.com/")
-        @user.friends << Factory.create(:person, :url => "http://www.alice.com/")
-        @user.friends << Factory.create(:person, :url => "http://www.jane.com/")
-        @user.save
-
-        @post.person.owner.reload
-                
-        @post.people_with_permissions.should == @user.friends
       end
 
       it "should send an owners post to their people" do

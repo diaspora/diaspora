@@ -49,7 +49,7 @@ Factory.define :post do |p|
 end
 
 Factory.define :photo do |p|
-  p.image File.open( File.dirname(__FILE__) + '/fixtures/bp.jpeg')
+  p.image File.open( File.dirname(__FILE__) + '/fixtures/button.png')
 
 end
 

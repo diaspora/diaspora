@@ -5,8 +5,8 @@ describe Photo do
     @user = Factory.create(:user)
     @user.person.save
 
-    @fixture_filename = 'bp.jpeg'
-    @fixture_name = File.dirname(__FILE__) + '/../fixtures/bp.jpeg'
+    @fixture_filename = 'button.png'
+    @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
     @album = Album.create(:name => "foo", :person => @user.person)
     @photo = Photo.new(:person => @user.person, :album => @album)
@@ -19,7 +19,7 @@ describe Photo do
     photo.image.read.nil?.should be false
   end
 
-  it 'should save a photo to GridFS' do
+  it 'should save a photo' do
     @photo.image.store! File.open(@fixture_name)
     @photo.save.should == true
     binary = @photo.image.read
@@ -58,7 +58,6 @@ describe Photo do
   end
 
   it 'should not use the imported filename as the url' do
-    pending "Until this passes, duplicate photos will cause errors"
     @photo.image.store! File.open(@fixture_name)
     @photo.image.url.include?(@fixture_filename).should be false
     @photo.image.url(:thumb_medium).include?("/" + @fixture_filename).should be false
@@ -85,7 +84,7 @@ describe Photo do
       stub_signature_verification
     end
 
-    it 'should save a signed photo to GridFS' do
+    it 'should save a signed photo' do
       photo  = @user.post(:photo, :album => @album, :user_file => [File.open(@fixture_name)])
       photo.save.should == true
       photo.signature_valid?.should be true
@@ -108,6 +107,27 @@ describe Photo do
       @photo.image.store! File.open(@fixture_name)
       xml = @photo.to_xml.to_s
       xml.include?(@photo.album_id.to_s).should be true
+    end
+
+    it 'should set the remote_photo on marshalling' do
+      @photo.image.store! File.open(@fixture_name)
+
+      @photo.save
+      @photo.reload
+      
+      url = @photo.url
+      thumb_url = @photo.url :thumb_medium
+
+      xml = @photo.to_diaspora_xml
+      id = @photo.id
+
+      @photo.destroy
+      @user.receive xml
+      
+      new_photo = Photo.first(:id => id)
+      new_photo.url.nil?.should be false
+      new_photo.url.include?(url).should be true
+      new_photo.url(:thumb_medium).include?(thumb_url).should be true
     end
   end
 end

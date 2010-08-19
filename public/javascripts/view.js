@@ -85,7 +85,7 @@ $(document).ready(function(){
 
   $("#add_album_button").fancybox();
   $("#add_group_button").fancybox();
-  $("#add_request_button").fancybox();
+  $("#add_request_button").fancybox({ 'titleShow': false });
   $("#add_photo_button").fancybox();
 
   //pane_toggler_button("photo");

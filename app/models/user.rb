@@ -60,19 +60,21 @@ class User
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save
-    post.notify_people
+
+
+    if group_id
+      group = self.groups.find_by_id(group_id)
+      group.posts << post
+      group.save
+      post.push_to( group.people.all )
+    else
+      post.push_to( self.friends.all )
+    end
 
     post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
     self.raw_visible_posts << post
     self.save
-    
-    if group_id
-      group = self.groups.find_by_id(group_id)
-      group.posts << post
-      group.save
-    end
-
     post
   end
  
@@ -115,8 +117,18 @@ class User
     post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
-    retraction.notify_people
+    retraction.push_to( self.friends.all )
     retraction
+  end
+
+  ########### Profile ######################
+  def update_profile(params)
+    if self.person.update_attributes(params)
+      self.profile.push_to( self.friends.all )
+      true
+    else
+      false
+    end
   end
 
   ######### Friend Requesting ###########
@@ -254,6 +266,10 @@ class User
 
       else
         object.perform self.id
+        groups = self.groups_with_person(object.person)
+        groups.each{ |group| group.post_ids.delete(ensure_bson(object.post_id))
+                             group.save
+        }
       end
     elsif object.is_a? Request
       person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )

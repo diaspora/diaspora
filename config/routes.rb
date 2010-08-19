@@ -8,8 +8,6 @@ Diaspora::Application.routes.draw do |map|
   resources :albums
   resources :groups
 
-  match "/images/files/*path" => "gridfs#serve"
-  
   match 'warzombie',          :to => "dev_utilities#warzombie"
   match 'zombiefriends',      :to => "dev_utilities#zombiefriends"
   match 'zombiefriendaccept', :to => "dev_utilities#zombiefriendaccept"

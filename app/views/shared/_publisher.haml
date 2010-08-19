@@ -4,7 +4,8 @@
     = form_for StatusMessage.new, :remote => true do |f|
       = f.error_messages
 
-      = f.hidden_field :group_id, :value => group_id
+      -if group_id
+        = f.hidden_field :group_id, :value => group_id
 
       %p
         %label{:for => "status_message_message"} Message

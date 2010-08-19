@@ -68,16 +68,16 @@ describe Group do
   describe 'posting' do
     
     it 'should add post to group via post method' do
-      @group = @user.group(:name => 'losers', :people => [@friend])
+      group = @user.group(:name => 'losers', :people => [@friend])
 
-      status_message = @user.post( :status_message, :message => "hey", :group_id => @group.id )
+      status_message = @user.post( :status_message, :message => "hey", :group_id => group.id )
       
-      @group.reload
-      @group.posts.include?(status_message).should be true
+      group.reload
+      group.posts.include?(status_message).should be true
     end
 
     it 'should add post to group via receive method' do
-      group = @user.group(:name => 'losers')
+      group  = @user.group(:name => 'losers')
       group2 = @user2.group(:name => 'winners')
       friend_users(@user, group, @user2, group2)
 
@@ -90,5 +90,24 @@ describe Group do
       @user.visible_posts(:by_members_of => group).include?(message).should be true
     end
 
+    it 'should retract the post from the groups as well' do 
+      group  = @user.group(:name => 'losers')
+      group2 = @user2.group(:name => 'winners')
+      friend_users(@user, group, @user2, group2)
+
+      message = @user2.post(:status_message, :message => "Hey Dude")
+      
+      @user.receive message.to_diaspora_xml
+      group.reload
+  
+      group.post_ids.include?(message.id).should be true
+
+      retraction = @user2.retract(message)
+      @user.receive retraction.to_diaspora_xml
+
+      group.reload
+      group.post_ids.include?(message.id).should be false
+    end
   end
+
 end

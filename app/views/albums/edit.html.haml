@@ -13,7 +13,7 @@
 
   %ul
   - for photo in @album.photos
-    %li.photo_edit_block= image_tag photo.image.url(:thumb_large)
+    %li.photo_edit_block= image_tag photo.url(:thumb_large)
 
   #submit_block
     = link_to "Cancel", root_path

@@ -14,7 +14,7 @@ describe User do
       
       message_queue.should_receive(:process)
       
-      @user.person.update_profile(updated_profile).should == true
+      @user.update_profile(updated_profile).should == true
       @user.profile.image_url.should == "http://clown.com"
     end
   end

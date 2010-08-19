@@ -1,10 +1,10 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  storage :grid_fs
+  storage :file
 
   def store_dir
-    "files"
+    "uploads/images"
   end
 
   def extension_white_list
