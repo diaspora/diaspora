@@ -38,7 +38,7 @@ class Photo < Post
   end
   
   def remote_photo
-    url
+    image.url.nil? ? (remote_photo_path +  remote_photo_name) : image.url
   end
 
   def remote_photo= remote_path
