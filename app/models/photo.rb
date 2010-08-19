@@ -44,12 +44,13 @@ class Photo < Post
   def remote_photo= remote_path
     name_start = remote_path.rindex '/'
     self.remote_photo_path = remote_path.slice(0, name_start )
-    self.remote_photo_name = remote_path.slice(name_start, remote_path.length)
+    self.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
   end
 
   def url(name = nil)
     if remote_photo_path
-      person.url.chop + remote_photo_path + name.to_s + remote_photo_name
+      name = name.to_s + "_" if name
+      person.url.chop + remote_photo_path + "/" + name.to_s + remote_photo_name
     else
       image.url name
     end

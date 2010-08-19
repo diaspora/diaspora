@@ -114,6 +114,9 @@ describe Photo do
 
       @photo.save
       @photo.reload
+      
+      url = @photo.url
+      thumb_url = @photo.url :thumb_medium
 
       xml = @photo.to_diaspora_xml
       id = @photo.id
@@ -123,6 +126,8 @@ describe Photo do
       
       new_photo = Photo.first(:id => id)
       new_photo.url.nil?.should be false
+      new_photo.url.include?(url).should be true
+      new_photo.url(:thumb_medium).include?(thumb_url).should be true
     end
   end
 end
