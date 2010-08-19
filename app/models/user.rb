@@ -330,17 +330,13 @@ class User
   end
 
   def setup_person
-    assign_key
+    self.person.serialized_key = generate_key.export
     self.person.email = email
     self.person.save!
   end
 
   protected
   
-  def assign_key
-    self.person.serialized_key ||= generate_key.export
-  end
-
   def generate_key
     OpenSSL::PKey::RSA::generate 1024 
   end
