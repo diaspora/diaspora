@@ -1,17 +1,26 @@
-= (@people.count-1).to_s + search_or_index
+%p
+  =form_tag '/users', :method => "get" do
+    = text_field_tag :q
+    = submit_tag "search"
+    = link_to "reset", users_path
+
+= (@people.count).to_s + search_or_index
 %table
   %tr
     %th real name
     %th email
     %th url
-  - for person in @people
-    - unless person.id == current_user.person.id
+    - for person in @people
       %tr
         %td= person.real_name
         %td= person.email
         %td= person.url
         
         -if current_user.friends.include? person
+
+        - elsif person.id == current_user.person.id
+          %td
+          %td thats you!
         -elsif current_user.pending_requests.find_by_person_id(person.id)
           %td 
           %td ^-you have a friend request from this person       
@@ -19,6 +28,7 @@
           %td 
           %td friend request pending
         -else
+          %td
           %td
             = form_for Request.new do |f|
               = f.select(:group_id, @groups_array)
