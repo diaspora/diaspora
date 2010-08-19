@@ -16,7 +16,7 @@ class User
 
   many :groups, :class_name => 'Group'
 
-  before_validation_on_create :assign_key
+  before_validation_on_create :setup_person
   before_validation :do_bad_things 
   
   ######## Making things work ########
@@ -330,7 +330,7 @@ class User
   end
 
   def setup_person
-    self.person.serialized_key ||= generate_key.export
+    assign_key
     self.person.email = email
     self.person.save!
   end
