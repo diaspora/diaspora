@@ -30,7 +30,8 @@ class Photo < Post
   validates_true_for :album_id, :logic => lambda {self.validate_album_person}
 
   before_destroy :ensure_user_picture
-
+  key :remote_photo_path
+  key :remote_photo_name
 
   def validate_album_person
     album.person_id == person_id
@@ -42,15 +43,13 @@ class Photo < Post
 
   def remote_photo= remote_path
     name_start = remote_path.rindex '/'
-    @remote_photo_path = remote_path.slice(0, name_start )
-    @remote_photo_name = remote_path.slice(name_start, remote_path.length)
-    save
-    raise "Failed to set path for : #{self.inspect}" if Photo.first(:id => self.id).url.nil?
+    self.remote_photo_path = remote_path.slice(0, name_start )
+    self.remote_photo_name = remote_path.slice(name_start, remote_path.length)
   end
 
-  def url name = nil
-    if @remote_photo_path
-      @remote_photo_path + name.to_s + @remote_photo_name
+  def url(name = nil)
+    if remote_photo_path
+      person.url.chop + remote_photo_path + name.to_s + remote_photo_name
     else
       image.url name
     end
