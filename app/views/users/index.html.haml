@@ -1,12 +1,19 @@
-- title "Users"
-
+= @people.count.to_s + search_or_index
 %table
   %tr
-    %th Real Name
+    %th real name
     %th email
-    %th Password
-  - for user in @users
+    %th url
+  - for person in @people
     %tr
-      %td= user.real_name
-      %td= user.email
-      %td= user.encrypted_password
+      %td= person.real_name
+      %td= person.email
+      %td= person.url
+      %td
+        %select{ :class => "group_selector", :style=>"display:inline;"}
+          %option Add to group
+          %option
+          - for group in current_user.groups
+            %option{:value => group.id}= group.name
+      
+      %td= link_to "add as friend", requests_path(:request => {:destination_url => person.email}), :class => "submit", :method => "post"

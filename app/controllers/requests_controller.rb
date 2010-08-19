@@ -31,6 +31,7 @@ class RequestsController < ApplicationController
   end
   
   def create
+    puts params.inspect
     rel_hash = relationship_flow(params[:request][:destination_url])
     Rails.logger.debug("Sending request: #{rel_hash}")
     @request = current_user.send_request(rel_hash, params[:request][:group])
