@@ -15,10 +15,10 @@ Diaspora::Application.routes.draw do |map|
 
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file
-  devise_for :users, :path_names  => {:sign_up  => "get_to_the_choppa", :sign_in  => "login", :sign_out  => "logout"}
-    match 'login',  :to => 'devise/sessions#new',      :as => "new_user_session"
-    match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
-    match 'get_to_the_choppa', :to => 'devise/registrations#new', :as => "new_user_registration"
+  devise_for :users
+  match 'login',  :to => 'devise/sessions#new',      :as => "new_user_session"
+  match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
+  match 'get_to_the_choppa', :to => 'devise/registrations#new', :as => "new_user_registration"
   
   #public routes
   #
