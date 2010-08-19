@@ -6,12 +6,11 @@ gem 'bundler', '1.0.0.rc.5'
 #gem 'bundler', '0.9.26'
 
 #Security
-gem 'gpgme'
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
 
 #Mongo
-#gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
-gem 'mongo_mapper', :git => 'http://github.com/jnunemaker/mongomapper.git'
+gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
+#gem 'mongo_mapper', :git => 'http://github.com/jnunemaker/mongomapper.git'
 gem 'jnunemaker-validatable', :git => 'http://github.com/BadMinus/validatable.git'
 gem 'mongo_ext'
 gem 'bson_ext'
