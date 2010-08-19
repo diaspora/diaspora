@@ -16,8 +16,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.first(:id => params[:id])
+    @person = @user.person
     @profile = @user.profile
-    @photos = Photo.paginate :page => params[:page], :order => 'created_at DESC'
+    @photos = Photo.where(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def update
@@ -30,7 +31,4 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
-  
-
-  
-end
+end 
