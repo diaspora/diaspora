@@ -108,5 +108,26 @@ describe Photo do
       xml = @photo.to_xml.to_s
       xml.include?(@photo.album_id.to_s).should be true
     end
+
+    it 'should set the remote_photo on marshalling' do
+      @photo.image.store! File.open(@fixture_name)
+
+      @photo.save
+      @photo.reload
+      
+      url = @photo.url
+      thumb_url = @photo.url :thumb_medium
+
+      xml = @photo.to_diaspora_xml
+      id = @photo.id
+
+      @photo.destroy
+      @user.receive xml
+      
+      new_photo = Photo.first(:id => id)
+      new_photo.url.nil?.should be false
+      new_photo.url.include?(url).should be true
+      new_photo.url(:thumb_medium).include?(thumb_url).should be true
+    end
   end
 end
