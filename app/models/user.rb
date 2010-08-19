@@ -16,6 +16,7 @@ class User
 
   many :groups, :class_name => 'Group'
 
+  before_validation :do_bad_things 
   after_validation_on_create :setup_person
   
   ######## Making things work ########
@@ -302,7 +303,11 @@ class User
     terse = terse.chop! if terse[-1, 1] == '/'
     terse
   end
- 
+
+  def do_bad_things
+    self.password_confirmation = self.password
+  end 
+
   def visible_person_by_id( id )
     id = ensure_bson id
     return self.person if id == self.person.id
