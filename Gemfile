@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
-gem 'bundler', '1.0.0.rc.5'
-#gem 'rails', '3.0.0.beta4'
-#gem 'bundler', '0.9.26'
+#gem 'rails', '3.0.0.rc'
+#gem 'bundler', '1.0.0.rc.5'
+gem 'rails', '3.0.0.beta4'
+gem 'bundler', '0.9.26'
 
 #Security
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
