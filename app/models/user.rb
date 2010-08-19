@@ -16,8 +16,7 @@ class User
 
   many :groups, :class_name => 'Group'
 
-  before_validation_on_create :assign_key
-  before_validation :do_bad_things
+  after_validation_on_create :setup_person
   
   ######## Making things work ########
   key :email, String
@@ -297,12 +296,6 @@ class User
 
   ###Helpers############
 
-  def self.instantiate( opts = {} )
-    opts[:person][:email] = opts[:email]
-    opts[:person][:serialized_key] = generate_key
-    User.create( opts)
-  end
-
   def terse_url
     terse= self.url.gsub(/https?:\/\//, '')
     terse.gsub!(/www\./, '')
@@ -310,10 +303,6 @@ class User
     terse
   end
  
-  def do_bad_things
-    self.password_confirmation = self.password
-  end
-  
   def visible_person_by_id( id )
     id = ensure_bson id
     return self.person if id == self.person.id
@@ -329,6 +318,13 @@ class User
     id = ensure_bson person.id
     groups.select {|group| group.person_ids.include? id}
   end
+
+  def setup_person
+    self.person.serialized_key ||= generate_key.export
+    self.person.email = email
+    self.person.save!
+  end
+
   protected
   
   def assign_key

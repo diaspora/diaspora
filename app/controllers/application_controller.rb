@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   
   protect_from_forgery :except => :receive
-  layout 'application'
   
   before_filter :set_friends_and_status, :count_requests
 

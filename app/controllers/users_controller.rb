@@ -23,19 +23,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
-    @user = User.instantiate(params[:user])
-   
-    if @user.created_at && @user.person.created_at 
-      flash[:notice] = "Successfully signed up."
-      redirect_to root_path
-    else
-      render :action => 'new'
-    end
-  end
-
-  def new
-    @user = User.new
-  end
   
 end
