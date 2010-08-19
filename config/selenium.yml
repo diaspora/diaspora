@@ -7,7 +7,7 @@ local: &local
   test_framework: webrat
   selenium_server_address: "127.0.0.1"
   selenium_server_port: "4444"
-  selenium_browser_key: "*chrome /Applications/Firefox.app/Contents/MacOS/firefox-bin"
+  selenium_browser_key: "*chrome /usr/bin/firefox"
   application_address: "127.0.0.1"
   application_port: "4000"
 
