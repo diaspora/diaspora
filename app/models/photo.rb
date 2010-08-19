@@ -44,7 +44,8 @@ class Photo < Post
     name_start = remote_path.rindex '/'
     @remote_photo_path = remote_path.slice(0, name_start )
     @remote_photo_name = remote_path.slice(name_start, remote_path.length)
-    puts url
+    save
+    raise "Failed to set path for : #{self.inspect}" if Photo.first(:id => self.id).url.nil?
   end
 
   def url name = nil
