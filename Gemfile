@@ -22,6 +22,7 @@ gem 'will_paginate', '3.0.pre'
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
 gem 'addressable', :require => 'addressable/uri'
+gem 'json'
 
 #Standards
 gem 'pubsubhubbub'
@@ -47,7 +48,6 @@ group :test do
   gem 'database_cleaner'
   gem 'saucelabs-adapter', '= 0.8.12'
   gem 'selenium-rc'
-  gem 'json'
 end
 
 group :development do
