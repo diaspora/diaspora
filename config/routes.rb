@@ -1,4 +1,4 @@
-Diaspora::Application.routes.draw do |map|
+Diaspora::Application.routes.draw do
   resources :people
   resources :users, :only => [:edit, :show, :update]
   resources :status_messages
