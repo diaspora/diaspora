@@ -2,7 +2,7 @@ module PeopleHelper
   
   def search_or_index
     if params[:q]
-      " results for #{q}"
+      " results for #{params[:q]}"
     else
       " people on this pod"
     end
