@@ -1,7 +1,7 @@
 module PhotosHelper
   
   def linked_scaled_photo(photo, album)
-    link_to (image_tag photo.image.url(:scaled_full)), photo_path(album.next_photo(photo)), :rel => "prefetch"
+    link_to (image_tag photo.url(:scaled_full)), photo_path(album.next_photo(photo)), :rel => "prefetch"
   end
 
   def link_to_prev(photo, album)
