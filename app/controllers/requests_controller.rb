@@ -34,7 +34,7 @@ class RequestsController < ApplicationController
     puts params.inspect
     rel_hash = relationship_flow(params[:request][:destination_url])
     Rails.logger.debug("Sending request: #{rel_hash}")
-    @request = current_user.send_request(rel_hash, params[:request][:group])
+    @request = current_user.send_request(rel_hash, params[:request][:group_id])
 
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"

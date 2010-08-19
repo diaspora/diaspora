@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create]
   def index
+
+    @group_array = current_user.groups.collect{|x| [x.to_s, x.id]} 
+
     unless params[:q]
       @people = Person.all
       render :index

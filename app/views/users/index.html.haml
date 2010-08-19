@@ -1,19 +1,26 @@
-= @people.count.to_s + search_or_index
+= (@people.count-1).to_s + search_or_index
 %table
   %tr
     %th real name
     %th email
     %th url
   - for person in @people
-    %tr
-      %td= person.real_name
-      %td= person.email
-      %td= person.url
-      %td
-        %select{ :class => "group_selector", :style=>"display:inline;"}
-          %option Add to group
-          %option
-          - for group in current_user.groups
-            %option{:value => group.id}= group.name
-      
-      %td= link_to "add as friend", requests_path(:request => {:destination_url => person.email}), :class => "submit", :method => "post"
+    - unless person.id == current_user.person.id
+      %tr
+        %td= person.real_name
+        %td= person.email
+        %td= person.url
+        
+        -if current_user.friends.include? person
+        -elsif current_user.pending_requests.find_by_person_id(person.id)
+          %td 
+          %td ^-you have a friend request from this person       
+        -elsif current_user.pending_requests.find_by_url(person.receive_url)
+          %td 
+          %td friend request pending
+        -else
+          %td
+            = form_for Request.new do |f|
+              =f.select(:group_id, @groups_array)
+              = f.hidden_field :destination_url, :value => person.email
+              =f.submit
