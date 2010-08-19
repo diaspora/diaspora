@@ -31,7 +31,7 @@ class Post
 
 #Querying
   def self.newest_for(person)
-    self.first(:person_id => person.id, :order => '_id desc')
+    self.where(:person_id => person.id, :order => '_id desc')
   end
 
 #ENCRYPTION
