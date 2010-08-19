@@ -18,7 +18,6 @@ class User
 
   before_validation_on_create :assign_key
   before_validation :do_bad_things 
-  after_validation_on_create :setup_person
   
   ######## Making things work ########
   key :email, String
