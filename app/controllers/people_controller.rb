@@ -14,8 +14,10 @@ class PeopleController < ApplicationController
   def show
     @person = current_user.visible_person_by_id(params[:id])
     @profile = @person.profile
-    @posts = Post.find_all_by_person_id(@person.id).paginate :page => params[:page], :order => 'created_at DESC'
-    @latest_status_message = StatusMessage.newest_for(@person)
+
+    @posts = Post.where(:person_id => @person.id, :_id.in => current_user.visible_post_ids).paginate :page => params[:page], :order => 'created_at DESC'
+
+    @latest_status_message = current_user.raw_visible_posts.find_all_by__type_and_person_id("StatusMessage", params[:id]).last
     @post_count = @posts.count
   end
   

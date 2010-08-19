@@ -29,6 +29,7 @@ module RequestsHelper
     action = :none
     url = nil
     local_person = Person.by_webfinger identifier
+    puts local_person.inspect
     if local_person
       action = (local_person == current_user.person ? :none : :friend)
       url = local_person.receive_url

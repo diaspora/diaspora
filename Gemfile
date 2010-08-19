@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
-gem 'bundler', '1.0.0.rc.5'
-#gem 'rails', '3.0.0.beta4'
-#gem 'bundler', '0.9.26'
+#gem 'rails', '3.0.0.rc'
+#gem 'bundler', '1.0.0.rc.5'
+gem 'rails', '3.0.0.beta4'
+gem 'bundler', '0.9.26'
 
 #Security
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
@@ -40,11 +40,14 @@ group :test do
 	gem 'rspec', '>= 2.0.0.beta.17'
 	gem 'rspec-rails', '2.0.0.beta.17' 
   gem 'mocha'
-  gem 'webrat'
+  gem 'webrat', '0.7.2.beta.1'
   gem 'redgreen'
   gem 'autotest'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'saucelabs-adapter', '= 0.8.12'
+  gem 'selenium-rc'
+  gem 'json'
 end
 
 group :development do

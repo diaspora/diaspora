@@ -21,6 +21,7 @@ class User
   after_create :seed_groups
   after_save :check_for_tommy
 
+  before_validation :do_bad_things 
   ######## Making things work ########
   key :email, String
   #validates_true_for :email, :logic => lambda {self.pivotal_email?} 
@@ -307,6 +308,12 @@ class User
   end
 
   ###Helpers############
+  def self.instantiate!( opts = {} )
+    opts[:person][:email] = opts[:email]
+    opts[:person][:serialized_key] = generate_key
+    User.create!( opts)
+  end
+	 	
   def terse_url
     terse= self.url.gsub(/https?:\/\//, '')
     terse.gsub!(/www\./, '')
@@ -314,6 +321,10 @@ class User
     terse
   end
  
+  def do_bad_things
+    self.password_confirmation = self.password
+  end 
+
   def visible_person_by_id( id )
     id = ensure_bson id
     return self.person if id == self.person.id
@@ -346,14 +357,22 @@ class User
     id = ensure_bson person.id
     groups.select {|group| group.person_ids.include? id}
   end
+<<<<<<< HEAD
   protected
   
   def setup_person 
     self.person.serialized_key ||= generate_key.export
+=======
+
+  def setup_person
+    self.person.serialized_key = generate_key.export
+>>>>>>> 2e76987e259ff23455d00c077fd347b4376d7e0e
     self.person.email = email
     self.person.save!
   end
 
+  protected
+  
   def generate_key
     OpenSSL::PKey::RSA::generate 1024 
   end

@@ -1,12 +1,42 @@
-- title "Users"
+%h1.big_text
+  .back
+    = link_to "⇧ home", root_path
 
+  Search
+
+%p
+  =form_tag '/users', :method => "get" do
+    = text_field_tag :q
+    = submit_tag "search"
+    = link_to "reset", users_path
+
+= (@people.count).to_s + search_or_index
 %table
   %tr
-    %th Real Name
+    %th real name
     %th email
-    %th Password
-  - for user in @users
-    %tr
-      %td= user.real_name
-      %td= user.email
-      %td= user.encrypted_password
+    %th url
+    - for person in @people
+      %tr
+        %td= person.real_name
+        %td= person.email
+        %td= person.url
+        
+        -if current_user.friends.include? person
+
+        - elsif person.id == current_user.person.id
+          %td
+          %td thats you!
+        -elsif current_user.pending_requests.find_by_person_id(person.id)
+          %td 
+          %td ^-you have a friend request from this person       
+        -elsif current_user.pending_requests.find_by_url(person.receive_url)
+          %td 
+          %td friend request pending
+        -else
+          %td
+          %td
+            = form_for Request.new do |f|
+              = f.select(:group_id, @groups_array)
+              = f.hidden_field :destination_url, :value => person.email
+              = f.submit "add friend"

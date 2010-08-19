@@ -1,6 +1,6 @@
-Diaspora::Application.routes.draw do |map|
+Diaspora::Application.routes.draw do
   resources :people
-  resources :users, :only => [:edit, :show, :update]
+  resources :users, :except => [:create, :new]
   resources :status_messages
   resources :comments
   resources :requests

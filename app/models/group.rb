@@ -15,6 +15,9 @@ class Group
   belongs_to :user, :class_name => 'User'
 
   timestamps!
-
+  
+  def to_s
+    name
+  end
 end
 
