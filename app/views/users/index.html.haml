@@ -1,3 +1,9 @@
+%h1.big_text
+  .back
+    = link_to "⇧ home", root_path
+
+  Search
+
 %p
   =form_tag '/users', :method => "get" do
     = text_field_tag :q
