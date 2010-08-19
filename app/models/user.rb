@@ -357,16 +357,11 @@ class User
     id = ensure_bson person.id
     groups.select {|group| group.person_ids.include? id}
   end
-<<<<<<< HEAD
+
   protected
   
-  def setup_person 
-    self.person.serialized_key ||= generate_key.export
-=======
-
   def setup_person
     self.person.serialized_key = generate_key.export
->>>>>>> 2e76987e259ff23455d00c077fd347b4376d7e0e
     self.person.email = email
     self.person.save!
   end
