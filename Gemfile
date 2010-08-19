@@ -1,16 +1,17 @@
 source 'http://rubygems.org'
 
-#gem 'rails', '3.0.0.rc'
-#gem 'bundler', '1.0.0.rc.1'
-gem 'rails', '3.0.0.beta4'
-gem 'bundler', '0.9.26'
+gem 'rails', '3.0.0.rc'
+gem 'bundler', '1.0.0.rc.5'
+#gem 'rails', '3.0.0.beta4'
+#gem 'bundler', '0.9.26'
 
 #Security
 gem 'gpgme'
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
 
 #Mongo
-gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
+#gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
+gem 'mongo_mapper', :git => 'http://github.com/jnunemaker/mongomapper.git'
 gem 'jnunemaker-validatable', :git => 'http://github.com/BadMinus/validatable.git'
 gem 'mongo_ext'
 gem 'bson_ext'
@@ -28,7 +29,7 @@ gem 'pubsubhubbub'
 gem 'redfinger'
 
 #EventMachine
-gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :ref => 'c6c494c514291f686cf6', :require => 'em-http'
+gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
 gem 'em-websocket'
 gem 'thin'
 
