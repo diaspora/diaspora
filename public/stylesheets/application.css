@@ -471,7 +471,7 @@ h1.big_text {
       display: block;
       background: black; }
       #other_user_menu > li:first-child a {
-        color: white; }
+        color: #999999; }
       #other_user_menu > li:first-child img {
         position: absolute;
         height: 20px;
