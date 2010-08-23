@@ -73,7 +73,6 @@ header {
   padding: 6px 0;
     padding-top: 0; }
   header #diaspora_text {
-    margin-bottom: 1em;
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 16px;
     border: none;
@@ -85,7 +84,6 @@ header {
       text-shadow: none; }
   header #session_action {
     float: right;
-    text-shadow: 0 1px 0 black;
     padding-right: 10px; }
     header #session_action a.new_requests {
       color: #df0101; }
@@ -303,31 +301,25 @@ label {
   background-color: rgba(10, 81, 109, 0.05);
   border-bottom: 2px #999999 solid;
   color: #999999;
-  padding: 15px 1em;
-    padding-bottom: 30px;
-  position: relative; }
-
-#new_blog,
-#new_bookmark {
-  display: none; }
-
-ul#publisher_content_pickers {
-  display: inline;
-  margin: 0 -10px;
-  padding: 0;
-  margin-left: 10px; }
-
-ul#publisher_content_pickers li {
-  display: inline;
-  padding: 5px 10px;
-  margin-right: 5px; }
-
-#publisher .selected {
-  border-bottom: 3px solid #999999;
-  background-color: rgba(10, 81, 109, 0.1); }
-
-#publisher .right {
-  padding-right: 15px; }
+  position: relative;
+  height: 80px; }
+  #publisher textarea {
+    width: 95%; }
+  #publisher .user_image img {
+    height: 50px; }
+  #publisher ul.group_selector {
+    padding: 0;
+    margin: 0;
+    width: 150px;
+    list-style: none; }
+    #publisher ul.group_selector > li {
+      z-index: 10;
+      display: none;
+      background-color: white; }
+      #publisher ul.group_selector > li:active {
+        background-color: yellow; }
+    #publisher ul.group_selector:hover li {
+      display: block; }
 
 #image_picker .small_photo {
   height: 100px;
@@ -419,34 +411,21 @@ h1.big_text {
   display: none; }
 
 #group {
-  color: black; }
+  color: black;
+  background-color: #eeeeee; }
   #group ul {
     margin: 0;
     padding: 0;
+    list-style: none;
     font-size: 14px; }
     #group ul > li {
-      display: inline;
       margin-right: 10px; }
-      #group ul > li.selected, #group ul > li.selected a {
-        color: white;
-        font-weight: bold;
-        font-size: 18px; }
-  #group a {
-    color: #aaaaaa;
-    font-weight: normal; }
-  #group #friend_pictures .add_new_description {
-    position: relative;
-    height: 40px;
-    display: inline-block;
-    background-color: #222222;
-    color: #999999;
-    top: -16px;
-    line-height: 40px;
-    padding: 0 1em;
-    margin-bottom: -20px;
-    font-style: italic; }
+    #group ul .selected {
+      color: black;
+      font-weight: bold;
+      font-size: 24px; }
   #group #friend_pictures img {
-    height: 40px; }
+    height: 20px; }
 
 #add_photo_loader {
   position: absolute;
@@ -456,7 +435,7 @@ h1.big_text {
 
 #user_menu {
   background: black;
-  padding: 5px;
+  padding: 0 5px;
   margin: 0;
   list-style: none; }
   #user_menu a {
@@ -464,5 +443,28 @@ h1.big_text {
   #user_menu > li {
     display: inline;
     margin-right: 1em; }
+    #user_menu > li:first-child {
+      margin-right: 0; }
     #user_menu > li:last-child {
       margin-right: 0; }
+
+#global_search {
+  display: inline;
+  position: relative; }
+  #global_search form {
+    display: inline; }
+    #global_search form input {
+      margin-top: 4px;
+      display: inline;
+      font-size: 12px;
+      border: none; }
+    #global_search form input[type='text'] {
+      width: 200px;
+      padding: 2px;
+      background-image: url("/images/glyphish-icons/icons/06-magnifying-glass.png");
+      background-repeat: no-repeat;
+      background-position: 187px;
+      background-size: 12px; }
+    #global_search form label {
+      font-size: 12px;
+      margin-top: -2px; }
