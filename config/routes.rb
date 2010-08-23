@@ -4,7 +4,7 @@ Diaspora::Application.routes.draw do
   resources :status_messages
   resources :comments
   resources :requests
-  resources :photos
+  resources :photos, :except => [:index]
   resources :albums
   resources :groups
 

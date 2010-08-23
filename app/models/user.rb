@@ -46,6 +46,7 @@ class User
     options.delete(:group_id)
 
     model_class = class_name.to_s.camelize.constantize
+    
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save
@@ -322,6 +323,11 @@ class User
   def group_by_id( id )
     id = ensure_bson id
     groups.detect{|x| x.id == id }
+  end
+
+  def album_by_id( id )
+    id = ensure_bson id
+    albums.detect{|x| x.id == id }
   end
 
   def groups_with_person person
