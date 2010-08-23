@@ -29,11 +29,6 @@ class Post
     self.create params
   end
 
-#Querying
-  def self.newest_for(person)
-    self.where(:person_id => person.id, :order => '_id desc')
-  end
-
 #ENCRYPTION
   xml_accessor :creator_signature
   key :creator_signature, String

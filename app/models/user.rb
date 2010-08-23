@@ -337,8 +337,8 @@ class User
   end
 
   def setup_person
-    self.person.serialized_key = generate_key.export
-    self.person.email = email
+    self.person.serialized_key ||= generate_key.export
+    self.person.email ||= email
     self.person.save!
   end
 

@@ -7,6 +7,7 @@ describe PeopleController do
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
 
     sign_in :user, @user   
+    @user.group(:name => "lame-os")
   end
 
   it "index should yield search results for substring of person name" do
