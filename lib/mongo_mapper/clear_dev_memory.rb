@@ -1,5 +1,5 @@
 module MongoMapper
-  class PerRequestMapClear
+  class ClearDevMemory
     def initialize(app)
       @app = app
     end
