@@ -9,6 +9,7 @@ class StatusMessagesController < ApplicationController
   end
   
   def create
+    puts params.inspect
     @status_message = current_user.post(:status_message, params[:status_message])
     
     if @status_message.created_at

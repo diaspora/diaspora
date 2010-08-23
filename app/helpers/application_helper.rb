@@ -1,4 +1,9 @@
 module ApplicationHelper
+  
+  def current_group?(group)
+    @group.id == group.id
+  end
+  
   def object_path(object)
     eval("#{object.class.to_s.underscore}_path(object)")
   end
