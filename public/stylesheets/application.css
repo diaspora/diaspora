@@ -70,9 +70,9 @@ header {
   color: black;
   background-color: #333333;
   border-bottom: 3px solid black;
-  padding: 6px 0;
-    padding-top: 0; }
+  padding: 0; }
   header #diaspora_text {
+    padding-top: 4px;
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 16px;
     border: none;
