@@ -96,7 +96,6 @@ header
       
   #session_action
     :float right
-    :text-shadow 0 1px 0 #000
     a
       &.new_requests
         :color #DF0101
@@ -520,30 +519,28 @@ h1.big_text
 
 #group
   :color #000
+  :background
+    :color #eee
   ul
     :margin 0
     :padding 0
+    :list
+      :style none
     :font
       :size 14px
     > li
-      :display inline
       :margin
         :right 10px
       
-      &.selected, &.selected a
-        :color #000
-        :font
-          :weight bold
-          :size 24px
-
-  a
-    :color #aaa
-    :font
-      :weight normal
+    .selected
+      :color #000
+      :font
+        :weight bold
+        :size 24px
 
   #friend_pictures
     img
-      :height 40px
+      :height 20px
 
 #add_photo_loader
   :position absolute
@@ -553,7 +550,7 @@ h1.big_text
 
 #user_menu
   :background #000
-  :padding 5px 
+  :padding 0 5px
   :margin 0
   :list-style none
 
@@ -565,8 +562,40 @@ h1.big_text
     :margin
       :right 1em
 
+    &:first-child
+      :margin
+        :right 0
+
     &:last-child
       :margin
         :right 0
 
+#global_search
+  :display inline
+  :position relative
 
+  form
+    :display inline
+
+    input
+      :margin
+        :top 4px
+      :display inline
+      :font
+        :size 12px
+      :border none
+
+    input[type='text']
+      :width 200px
+      :padding 2px
+      :background
+        :image url('/images/glyphish-icons/icons/06-magnifying-glass.png')
+        :repeat no-repeat
+        :position 187px
+        :size 12px
+
+    label
+      :font
+        :size 12px
+      :margin
+        :top -2px

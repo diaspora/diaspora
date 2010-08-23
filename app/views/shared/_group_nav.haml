@@ -1,7 +1,7 @@
 #group
   %ul
     .selected
-      = @group.name
+      = link_to @group.name, @group, :class => "selected"
     - for group in @groups
       - unless (group.id.to_s == params[:id])
         %li
@@ -14,10 +14,12 @@
         = render "groups/new_group"
 
   - if @group
-    #friend_pictures
+    %ul#friend_pictures
       - for friend in @group.people
-        = person_image_link(friend)
-      = link_to (image_tag 'add_friend_button.png'), "#add_request_pane", :id => 'add_request_button'
+        %li
+          = person_image_link(friend)
+          = friend.real_name
+      %li= link_to (image_tag 'add_friend_button.png'), "#add_request_pane", :id => 'add_request_button'
 
       .yo{:style => 'display:none'}
         #add_request_pane

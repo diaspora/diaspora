@@ -84,7 +84,6 @@ header {
       text-shadow: none; }
   header #session_action {
     float: right;
-    text-shadow: 0 1px 0 black;
     padding-right: 10px; }
     header #session_action a.new_requests {
       color: #df0101; }
@@ -412,23 +411,21 @@ h1.big_text {
   display: none; }
 
 #group {
-  color: black; }
+  color: black;
+  background-color: #eeeeee; }
   #group ul {
     margin: 0;
     padding: 0;
+    list-style: none;
     font-size: 14px; }
     #group ul > li {
-      display: inline;
       margin-right: 10px; }
-      #group ul > li.selected, #group ul > li.selected a {
-        color: black;
-        font-weight: bold;
-        font-size: 24px; }
-  #group a {
-    color: #aaaaaa;
-    font-weight: normal; }
+    #group ul .selected {
+      color: black;
+      font-weight: bold;
+      font-size: 24px; }
   #group #friend_pictures img {
-    height: 40px; }
+    height: 20px; }
 
 #add_photo_loader {
   position: absolute;
@@ -438,7 +435,7 @@ h1.big_text {
 
 #user_menu {
   background: black;
-  padding: 5px;
+  padding: 0 5px;
   margin: 0;
   list-style: none; }
   #user_menu a {
@@ -446,5 +443,28 @@ h1.big_text {
   #user_menu > li {
     display: inline;
     margin-right: 1em; }
+    #user_menu > li:first-child {
+      margin-right: 0; }
     #user_menu > li:last-child {
       margin-right: 0; }
+
+#global_search {
+  display: inline;
+  position: relative; }
+  #global_search form {
+    display: inline; }
+    #global_search form input {
+      margin-top: 4px;
+      display: inline;
+      font-size: 12px;
+      border: none; }
+    #global_search form input[type='text'] {
+      width: 200px;
+      padding: 2px;
+      background-image: url("/images/glyphish-icons/icons/06-magnifying-glass.png");
+      background-repeat: no-repeat;
+      background-position: 187px;
+      background-size: 12px; }
+    #global_search form label {
+      font-size: 12px;
+      margin-top: -2px; }
