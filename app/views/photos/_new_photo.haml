@@ -12,8 +12,9 @@
         $("#add_photo_loader").fadeOut(400);
 
         $("#photo_title_status").text("Done!");
-        $("#progress_report").html("Great job!");
-      },
+        $("#progress_report").html("");
+        resetPhotoButton
+       },
       onStart: function(event, total){
         $("#add_photo_button").html( "Uploading Photos" );
         $("#add_photo_loader").fadeIn(400);
@@ -25,6 +26,14 @@
       }
     });
   });
+
+  function resetPhotoButton{
+      $("#add_photo_button").click(function (evt){
+      $("#new_photo_pane").html($.get("photos/ajax_new"));
+      $("#add_photo_button").unbind();
+      $("#add_photo_button").fancybox();
+    }
+  }
 
 %h1
   %span{:id=>"photo_title_status"}

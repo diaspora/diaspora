@@ -46,6 +46,9 @@ class User
     options.delete(:group_id)
 
     model_class = class_name.to_s.camelize.constantize
+    
+    pp options
+
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save

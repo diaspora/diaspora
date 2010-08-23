@@ -21,6 +21,7 @@ class PhotosController < ApplicationController
   
   def new
     @photo = Photo.new
+    render :partial => "new_photo"
   end
   
   def destroy
