@@ -4,7 +4,7 @@ module PeopleHelper
     if params[:q]
       " results for #{params[:q]}"
     else
-      " people on this pod"
+      " people on pod is aware of"
     end
     
   end
