@@ -4,7 +4,7 @@ describe GroupsController do
  render_views
   before do
     @user = Factory.create(:user)
-    @user.person.save
+    @user.group(:name => "lame-os")
     @person = Factory.create(:person)
     request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
   end

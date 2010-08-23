@@ -42,8 +42,8 @@ class User
   def post(class_name, options = {})
     options[:person] = self.person
 
-    group_id = options[:group_id]
-    options.delete(:group_id)
+    group_ids = options[:group_ids]
+    options.delete(:group_ids)
 
     model_class = class_name.to_s.camelize.constantize
     
@@ -52,14 +52,15 @@ class User
     post.save
 
 
-    if group_id
-      group = self.groups.find_by_id(group_id)
+    groups = self.groups.find_all_by_id(group_ids)
+    target_people = [] 
+
+    groups.each{ |group|
       group.posts << post
       group.save
-      post.push_to( group.people.all )
-    else
-      post.push_to( self.friends.all )
-    end
+      target_people = target_people | group.people
+    }
+    post.push_to( target_people )
 
     post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
@@ -336,8 +337,8 @@ class User
   end
 
   def setup_person
-    self.person.serialized_key = generate_key.export
-    self.person.email = email
+    self.person.serialized_key ||= generate_key.export
+    self.person.email ||= email
     self.person.save!
   end
 
