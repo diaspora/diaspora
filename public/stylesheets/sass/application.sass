@@ -549,6 +549,7 @@ h1.big_text
   :top 4px
 
 #user_menu
+  :position relative
   :background #000
   :padding 0 5px
   :margin 0
@@ -570,9 +571,90 @@ h1.big_text
       :margin
         :right 0
 
+#other_user_menu
+  :position absolute
+  :z-index 10
+  :top 0
+  :right 0
+  :display inline-block
+  :padding 0
+  :margin 0
+  :list
+    :style none
+
+  > li
+    :display none
+    :background
+      :color #fff
+    :width 180px
+    :height 29px
+    :border
+      :left 2px solid #000
+      :right 2px solid #000
+
+    &:hover
+      :background
+        :color #eee
+
+    &:first-child
+      :display block
+      :background #000
+      a
+        :color #fff
+
+      img
+        :position absolute
+        :height 20px
+        :top 5px
+        :left 9px
+
+    &:last-child
+      :border
+        :bottom 2px solid #000
+
+    a
+      :display block
+      :height 100%
+      :padding
+        :left 40px
+        :top 5px
+      :color #000
+
+      &:hover
+        :background
+          :color transparent
+
+  .requests
+    :background
+      :image url('/images/glyphish-icons/icons/40-inbox.png')
+      :repeat no-repeat
+      :position 5px
+  .settings
+    :background
+      :image url('/images/glyphish-icons/icons/20-gear2.png')
+      :repeat no-repeat
+      :position 5px
+  .logout
+    :background
+      :image url('/images/glyphish-icons/icons/54-lock.png')
+      :repeat no-repeat
+      :position 5px
+      
+
+
+
+
+  &:hover li
+    :display block
+
+
+
+
 #global_search
   :display inline
   :position relative
+  :padding
+    :right 175px
 
   form
     :display inline
