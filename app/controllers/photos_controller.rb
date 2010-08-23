@@ -2,6 +2,7 @@ class PhotosController < ApplicationController
   before_filter :authenticate_user!
   
   def create
+    render :nothing => true
     begin
       @photo = current_user.post(:photo, params)
 
@@ -21,6 +22,7 @@ class PhotosController < ApplicationController
   
   def new
     @photo = Photo.new
+    @album = current_user.album_by_id(params[:album_id])
     render :partial => "new_photo"
   end
   

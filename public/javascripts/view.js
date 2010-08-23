@@ -71,7 +71,14 @@ $(document).ready(function(){
   $("#add_album_button").fancybox();
   $("#add_group_button").fancybox();
   $("#add_request_button").fancybox({ 'titleShow': false });
-  $("#add_photo_button").fancybox();
+  $("#add_photo_button").fancybox({
+    'onClosed'   :   function(){
+      if($("#add_photo_button").hasClass("uploading_complete")){
+        $("#add_photo_button").removeClass("uploading_complete");
+        reset_photo_fancybox();
+      }
+    }
+  });
 
   //pane_toggler_button("photo");
 
@@ -91,6 +98,12 @@ $(document).ready(function(){
 
 });//end document ready
 
+function reset_photo_fancybox(){
+        album_id = $(".album_id")[0].id;
+        ajax = $.get("/photos/new?album_id=" + album_id, function(){
+          $("#new_photo_pane").html(ajax.responseText)
+        });
+}
 
 function pane_toggler_button( name ) {
   
