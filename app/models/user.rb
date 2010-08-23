@@ -17,23 +17,28 @@ class User
   many :groups, :class_name => 'Group'
 
   after_validation_on_create :setup_person
-  before_create :pivotal_or_diaspora_only 
   after_create :seed_groups
   after_save :check_for_tommy
 
   before_validation :do_bad_things 
   ######## Making things work ########
   key :email, String
-  #validates_true_for :email, :logic => lambda {self.pivotal_email?} 
+  validates_true_for :email, :logic => lambda {self.allowed_email?} 
 
   
-  def self.allowed_email?(email)
-    email.include?('@pivotallabs.com') || email.include?("@joindiaspora.com")
+  def allowed_email?
+    allowed_emails = ["@pivotallabs.com", "@joindiaspora.com", "@sofaer.net",
+      "wchulley@gmail.com", "kimfuh@yahoo.com", "CJichi@yahoo.com",
+      "madkisso@mit.edu", "bribak@msn.com", "asykley@verizon.net",
+      "paulhaeberli@gmail.com","bondovatic@gmail.com", "dixon1e@yahoo.com"]
+    allowed_emails.each{|allowed| 
+      if email.include?(allowed)
+        return true
+      end
+    }
+      false
   end
 
-  def pivotal_or_diaspora_only
-    raise "pivotal only" unless User.allowed_email?(self.email)
-  end
   ensure_index :email
 
   def method_missing(method, *args)
@@ -350,7 +355,10 @@ class User
   end
   
   def seed_groups
-    group(:name => "Pivots")
+    group(:name => "Acquaintances")
+    group(:name => "Family")
+    group(:name => "Nemeses")
+    group(:name => "Work")
   end
 
   def groups_with_person person
