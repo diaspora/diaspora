@@ -80,6 +80,9 @@ header {
     text-shadow: 0 2px 0 black; }
     header #diaspora_text a {
       color: #666666; }
+    header #diaspora_text a:hover {
+      color: white;
+      background: none; }
     header #diaspora_text span.sub_text {
       text-shadow: none; }
   header #session_action {
