@@ -341,13 +341,8 @@ input[type='text'], textarea
   :padding 0.3em
   :display block
   :width 66%
-  :box-shadow 0 2px 0px #fff
-  :-webkit-box-shadow 0 2px 0px #fff
-  :-moz-box-shadow 0 2px 0px #fff
-  :border-top 1px solid #999
+  :border-top 1px solid #666
   :height auto
-  :border-radius 3px
-  :-moz-border-radius 3px
 
 #submit_block
   :text
@@ -379,10 +374,17 @@ label
 
   textarea
     :width 95%
+    :height 40px
+    :margin
+      :top 0
+
+    :-webkit-border-radius 0
 
   .user_image
     img
       :height 50px
+      :padding
+        :left 10px
 
   ul.group_selector
     :padding 0
@@ -556,7 +558,7 @@ h1.big_text
 
 #user_menu
   :position relative
-  :background #000
+  :background #333
   :padding 0 5px
   :margin 0
   :list-style none
@@ -604,7 +606,10 @@ h1.big_text
 
     &:first-child
       :display block
-      :background #000
+      :background #333
+      :border
+        :left 2px solid #333
+        :right 2px solid #333
       a
         :color #999
 
@@ -656,18 +661,19 @@ h1.big_text
   :display inline
   :position relative
   :padding
-    :right 175px
+    :right 167px
 
   form
     :display inline
 
     input
       :margin
-        :top 4px
+        :top 5px
       :display inline
       :font
         :size 12px
       :border none
+      :border-radius 0
 
     input[type='text']
       :width 200px
@@ -682,4 +688,4 @@ h1.big_text
       :font
         :size 12px
       :margin
-        :top -2px
+        :top -3px

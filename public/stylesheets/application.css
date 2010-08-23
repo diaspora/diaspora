@@ -276,13 +276,8 @@ input[type='text'], textarea {
   padding: 0.3em;
   display: block;
   width: 66%;
-  box-shadow: 0 2px 0px white;
-  -webkit-box-shadow: 0 2px 0px white;
-  -moz-box-shadow: 0 2px 0px white;
-  border-top: 1px solid #999999;
-  height: auto;
-  border-radius: 3px;
-  -moz-border-radius: 3px; }
+  border-top: 1px solid #666666;
+  height: auto; }
 
 #submit_block {
   text-align: right;
@@ -307,9 +302,13 @@ label {
   position: relative;
   height: 80px; }
   #publisher textarea {
-    width: 95%; }
+    width: 95%;
+    height: 40px;
+    margin-top: 0;
+    -webkit-border-radius: 0; }
   #publisher .user_image img {
-    height: 50px; }
+    height: 50px;
+    padding-left: 10px; }
   #publisher ul.group_selector {
     padding: 0;
     margin: 0;
@@ -438,7 +437,7 @@ h1.big_text {
 
 #user_menu {
   position: relative;
-  background: black;
+  background: #333333;
   padding: 0 5px;
   margin: 0;
   list-style: none; }
@@ -472,7 +471,9 @@ h1.big_text {
       background-color: #eeeeee; }
     #other_user_menu > li:first-child {
       display: block;
-      background: black; }
+      background: #333333;
+      border-left: 2px solid #333333;
+      border-right: 2px solid #333333; }
       #other_user_menu > li:first-child a {
         color: #999999; }
       #other_user_menu > li:first-child img {
@@ -508,14 +509,15 @@ h1.big_text {
 #global_search {
   display: inline;
   position: relative;
-  padding-right: 175px; }
+  padding-right: 167px; }
   #global_search form {
     display: inline; }
     #global_search form input {
-      margin-top: 4px;
+      margin-top: 5px;
       display: inline;
       font-size: 12px;
-      border: none; }
+      border: none;
+      border-radius: 0; }
     #global_search form input[type='text'] {
       width: 200px;
       padding: 2px;
@@ -525,4 +527,4 @@ h1.big_text {
       background-size: 12px; }
     #global_search form label {
       font-size: 12px;
-      margin-top: -2px; }
+      margin-top: -3px; }
