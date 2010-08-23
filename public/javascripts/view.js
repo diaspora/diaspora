@@ -1,19 +1,4 @@
 $(document).ready(function(){
-	tinyMCE.init({
-			mode : "exact",
-			elements: "blog_editor",
-			theme : "advanced",
-			plugins : "emotions,spellchecker,advhr,insertdatetime,preview",	
-
-			// Theme options - button# indicated the row# only
-		theme_advanced_buttons1 : "newdocument,|,bold,italic,underline,|,justifyleft,justifycenter,justifyright,fontsizeselect,formatselect",
-		theme_advanced_buttons2 : "cut,copy,paste|,bullist,numlist,|,outdent,indent|,undo,redo,|,link,unlink,anchor,image,|,preview,|,forecolor,backcolor",
-		theme_advanced_buttons3 : "insertdate,inserttime,|,spellchecker,|,sub,sup,|,charmap,emotions",	
-		theme_advanced_toolbar_location : "top",
-		theme_advanced_toolbar_align : "left",
-		//theme_advanced_resizing : true //leave this out as there is an intermittent bug.
-	});
-
 	
 	$('.comment_set').each(function(index) {
 	    if($(this).children().length > 1) {
