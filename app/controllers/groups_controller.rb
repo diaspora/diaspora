@@ -33,7 +33,6 @@ class GroupsController < ApplicationController
     @group = Group.first(:id => params[:id])
 
     @posts = current_user.visible_posts( :by_members_of => @group ).paginate :order => 'created_at DESC'
-    #@posts = Post.paginate :person_id => @people_ids, :order => 'created_at DESC'
   end
 
   def edit
