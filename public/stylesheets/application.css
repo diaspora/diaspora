@@ -434,6 +434,7 @@ h1.big_text {
   top: 4px; }
 
 #user_menu {
+  position: relative;
   background: black;
   padding: 0 5px;
   margin: 0;
@@ -448,9 +449,63 @@ h1.big_text {
     #user_menu > li:last-child {
       margin-right: 0; }
 
+#other_user_menu {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+  #other_user_menu > li {
+    display: none;
+    background-color: white;
+    width: 180px;
+    height: 29px;
+    border-left: 2px solid black;
+    border-right: 2px solid black; }
+    #other_user_menu > li:hover {
+      background-color: #eeeeee; }
+    #other_user_menu > li:first-child {
+      display: block;
+      background: black; }
+      #other_user_menu > li:first-child a {
+        color: white; }
+      #other_user_menu > li:first-child img {
+        position: absolute;
+        height: 20px;
+        top: 5px;
+        left: 9px; }
+    #other_user_menu > li:last-child {
+      border-bottom: 2px solid black; }
+    #other_user_menu > li a {
+      display: block;
+      height: 100%;
+      padding-left: 40px;
+      padding-top: 5px;
+      color: black; }
+      #other_user_menu > li a:hover {
+        background-color: transparent; }
+  #other_user_menu .requests {
+    background-image: url("/images/glyphish-icons/icons/40-inbox.png");
+    background-repeat: no-repeat;
+    background-position: 5px; }
+  #other_user_menu .settings {
+    background-image: url("/images/glyphish-icons/icons/20-gear2.png");
+    background-repeat: no-repeat;
+    background-position: 5px; }
+  #other_user_menu .logout {
+    background-image: url("/images/glyphish-icons/icons/54-lock.png");
+    background-repeat: no-repeat;
+    background-position: 5px; }
+  #other_user_menu:hover li {
+    display: block; }
+
 #global_search {
   display: inline;
-  position: relative; }
+  position: relative;
+  padding-right: 175px; }
   #global_search form {
     display: inline; }
     #global_search form input {
