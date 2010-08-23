@@ -80,8 +80,6 @@ header
     :top 0
 
   #diaspora_text
-    :margin
-      :bottom 1em
     :font
       :family 'BrandonGrotesqueLightRegular'
       :size 16px
@@ -371,36 +369,36 @@ label
   :border
     :bottom 2px #999 solid
   :color #999
-  :padding 15px 1em
-    :bottom 30px
   :position relative
+  :height 80px
 
-#new_blog, 
-#new_bookmark
-  :display none
+  textarea
+    :width 95%
 
-ul#publisher_content_pickers
-  :display inline
-  :margin 0 -10px
-  :padding 0
-  :margin
-    :left 10px
+  .user_image
+    img
+      :height 50px
 
-ul#publisher_content_pickers li
-  :display inline
-  :padding 5px 10px
-  :margin
-    :right 5px
+  ul.group_selector
+    :padding 0
+    :margin 0
+    :width 150px
+    :list
+      :style none
 
-#publisher .selected
-  :border
-    :bottom 3px solid #999
-  :background
-    :color rgba(10,81,109,0.1)
+    > li
+      :z-index 10
+      :display none
+      :background
+        :color #fff
 
-#publisher .right
-  :padding
-    :right 15px
+      &:active
+        :background
+          :color yellow
+
+    &:hover li
+      :display block
+
 
 #image_picker
   .small_photo
@@ -423,9 +421,7 @@ ul#publisher_content_pickers li
     :border 1px solid #fff
 
 
-
 /* cycle it! */
-
 .album
   :position relative
   :height 300px
@@ -535,10 +531,10 @@ h1.big_text
         :right 10px
       
       &.selected, &.selected a
-        :color #fff
+        :color #000
         :font
           :weight bold
-          :size 18px
+          :size 24px
 
   a
     :color #aaa
@@ -546,23 +542,6 @@ h1.big_text
       :weight normal
 
   #friend_pictures
-
-    .add_new_description
-      :position relative
-      :height 40px
-      :display inline-block
-      :background
-        :color #222
-      :color #999
-      :top -16px
-      :line
-        :height 40px
-      :padding 0 1em
-      :margin
-        :bottom -20px
-      :font
-        :style italic
-
     img
       :height 40px
 
