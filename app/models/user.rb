@@ -229,6 +229,9 @@ class User
     self.person.save!
   end
 
+  def all_group_ids
+    self.groups.all.map{|x| x.id}
+  end
   protected
    def generate_key
     OpenSSL::PKey::RSA::generate 1024 
