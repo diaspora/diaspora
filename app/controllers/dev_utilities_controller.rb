@@ -58,7 +58,9 @@ def warzombie
   def set_profile_photo
 
     render :nothing => true
-    album = current_user.post(:album, :name => "Profile Photos")
+    album = Album.create(:person => current_user.person, :name => "Profile Photos")
+    current_user.raw_visible_posts << album
+    current_user.save
     
     backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
     username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
