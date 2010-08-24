@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Retraction do
     before do
       @user = Factory.create(:user)
-      @post = @user.post(:status_message, :message => "Destroy!")
+      @post = @user.post :status_message, :message => "Destroy!", :to => @user.group(:name => "losers").id
       @person = Factory.create(:person)
       @user.friends << @person
       @user.save

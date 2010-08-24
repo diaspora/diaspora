@@ -70,7 +70,7 @@ describe Group do
     it 'should add post to group via post method' do
       group = @user.group(:name => 'losers', :people => [@friend])
 
-      status_message = @user.post( :status_message, :message => "hey", :group_ids => [group.id] )
+      status_message = @user.post( :status_message, :message => "hey", :to => group.id )
       
       group.reload
       group.posts.include?(status_message).should be true

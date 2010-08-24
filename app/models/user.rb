@@ -44,8 +44,12 @@ class User
   def post(class_name, options = {})
     options[:person] = self.person
 
-    group_ids = options[:group_ids]
-    options.delete(:group_ids)
+    group_ids = options[:to]
+    group_ids = [group_ids] unless group_ids.is_a? Array
+
+    return nil if group_ids.nil? || group_ids.empty?
+    group_ids.map!{|gid| ensure_bson gid }
+    options.delete(:to)
 
     model_class = class_name.to_s.camelize.constantize
     
@@ -54,7 +58,7 @@ class User
     post.save
 
 
-    groups = self.groups.find_all_by_id(group_ids)
+    groups = self.groups.find_all_by_id( group_ids )
     target_people = [] 
 
     groups.each{ |group|
@@ -63,7 +67,7 @@ class User
       target_people = target_people | group.people
     }
     
-    post.socket_to_uid(id, :group_ids => groups.map{|g| g.id}) if post.respond_to?(:socket_to_uid)
+    post.socket_to_uid(id, :group_ids => group_ids) if post.respond_to?(:socket_to_uid)
     post.push_to( target_people )
 
     self.raw_visible_posts << post

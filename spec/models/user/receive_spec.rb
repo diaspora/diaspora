@@ -8,12 +8,11 @@ describe User do
 
     @user2 = Factory.create(:user)
     @group2 = @user2.group(:name => 'losers') 
-    #Factory.create :friend, @user
     friend_users(@user, @group, @user2, @group2)
   end
 
   it 'should be able to parse and store a status message from xml' do
-    status_message = @user2.post :status_message, :message => 'store this!'
+    status_message = @user2.post :status_message, :message => 'store this!', :to => @group2.id
     person = @user2.person
 
     xml = status_message.to_diaspora_xml
@@ -30,7 +29,7 @@ describe User do
     num_groups = @user.groups.size
     
     (0..5).each{ |n|
-      status_message = @user2.post :status_message, :message => "store this #{n}!"
+      status_message = @user2.post :status_message, :message => "store this #{n}!", :to => @group2.id
       xml = status_message.to_diaspora_xml
       @user.receive( xml )
     }
@@ -45,13 +44,13 @@ describe User do
     end
     
     it "should add the post to that user's posts when a user posts it" do
-      status_message = @user.post :status_message, :message => "hi"
+      status_message = @user.post :status_message, :message => "hi", :to => @group.id
       @user.reload
       @user.raw_visible_posts.include?(status_message).should be true
     end
 
     it 'should be removed on unfriending' do
-      status_message = @user2.post :status_message, :message => "hi"
+      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
       @user.receive status_message.to_diaspora_xml
       @user.reload
 
@@ -66,7 +65,7 @@ describe User do
     end
 
     it 'should be remove a post if the noone links to it' do
-      status_message = @user2.post :status_message, :message => "hi"
+      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
       @user.receive status_message.to_diaspora_xml
       @user.reload
 
@@ -83,7 +82,7 @@ describe User do
     end
 
     it 'should keep track of user references for one person ' do
-      status_message = @user2.post :status_message, :message => "hi"
+      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
       @user.receive status_message.to_diaspora_xml
       @user.reload
 
@@ -107,7 +106,7 @@ describe User do
     it 'should not override userrefs on receive by another person' do
       @user3.activate_friend(@user2.person, @group3)
 
-      status_message = @user2.post :status_message, :message => "hi"
+      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
       @user.receive status_message.to_diaspora_xml
 
       @user3.receive status_message.to_diaspora_xml

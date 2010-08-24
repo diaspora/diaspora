@@ -11,7 +11,7 @@ include Salmon
 describe Salmon do
   it 'should verify the signature on a roundtrip' do
     @user = Factory.create :user
-    @post = @user.post :status_message, :message => "hi"
+    @post = @user.post :status_message, :message => "hi", :to => @user.group(:name => "sdg").id
     x = Salmon::SalmonSlap.create(@user, @post.to_diaspora_xml)
   
     z = Salmon::SalmonSlap.parse x.to_xml
@@ -29,7 +29,7 @@ describe Salmon do
 
   it 'should return the data so it can be "received"' do
     @user = Factory.create :user
-    @post = @user.post :status_message, :message => "hi"
+    @post = @user.post :status_message, :message => "hi", :to => @user.group(:name => "sdg").id
     x = Salmon::SalmonSlap.create(@user, @post.to_diaspora_xml)
   
     z = Salmon::SalmonSlap.parse x.to_xml

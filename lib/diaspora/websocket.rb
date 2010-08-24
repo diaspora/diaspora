@@ -32,7 +32,6 @@ module Diaspora
 
   module Socketable
     def socket_to_uid(id, opts={})
-      puts "#{id}, #{self}, #{opts}"
       SocketsController.new.outgoing(id, self, opts)
     end
     
