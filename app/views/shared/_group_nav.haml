@@ -14,12 +14,10 @@
         = render "groups/new_group"
 
   - if @group
-    %ul#friend_pictures
+    #friend_pictures
       - for friend in @group.people
-        %li
-          = person_image_link(friend)
-          = friend.real_name
-      %li= link_to (image_tag 'add_friend_button.png'), "#add_request_pane", :id => 'add_request_button'
+        = person_image_link(friend)
+      = link_to (image_tag 'add_friend_button.png'), "#add_request_pane", :id => 'add_request_button'
 
       .yo{:style => 'display:none'}
         #add_request_pane
