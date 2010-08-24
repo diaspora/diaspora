@@ -37,8 +37,6 @@ def warzombie
 
   def zombiefriendaccept
     render :nothing => true
-    set_profile_photo
-
     Request.all.each{|r| 
       current_user.accept_and_respond(r.id, current_user.groups.first.id)
     }
@@ -58,13 +56,25 @@ def warzombie
   end
 
   def set_profile_photo
+
+    render :nothing => true
     album = current_user.post(:album, :name => "Profile Photos")
     
     backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
     username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
-    photo = current_user.post(:photo, :album_id => album.id,
-                      :user_file => "public/images/users/#{username}.jpg") 
-   
-    current_user.update_profile(:image_url => photo.url)
+    
+      @fixture_name = File.dirname(__FILE__) + "/../../public/images/user/#{username}.jpg"
+  
+      photo = Photo.new(:person => current_user.person, :album => album)
+      photo.image.store! File.open(@fixture_name)
+      photo.save
+      photo.reload
+  
+      current_user.raw_visible_posts << photo
+      current_user.save
+  
+  
+     current_user.update_profile(:image_url => photo.url(:thumb_medium))
+     current_user.save
   end
 end
