@@ -9,7 +9,8 @@
   //Attach onmessage to websocket
     ws.onmessage = function(evt) {
       var obj = jQuery.parseJSON(evt.data);
-      debug("got a " + obj['class'] + " for group " + obj['group_id']);
+      console.log(obj)
+      debug("got a " + obj['class'] + " for groups " + obj['group_ids']);
 
       if (obj['class']=="retractions"){
         processRetraction(obj['post_id']);
@@ -19,10 +20,8 @@
       
       }else if (obj['class']=='photos' && onPageForClass('albums')){
         processPhotoInAlbum(obj['photo_hash'])
-      }else if (obj['class']=='status_messages'){
-        processStatusMessage(obj['class'], obj['html'], obj['status_message_hash'], obj['group_id'], obj['mine?'])
       }else{
-        processPost(obj['class'], obj['html'], obj['group_id'], obj['mine?'])
+        processPost(obj['class'], obj['html'], obj['group_ids'])
       }
 
       
@@ -33,69 +32,68 @@
       debug("connected...");
     };
 
-    function processRetraction(post_id){
-      $('#' + post_id ).fadeOut(500, function(){
-        $(this).remove;
-      });
-    }
 
-    function processComment(post_id, html){
-      post = $('#' + post_id)[0]
-      $(' .comment_set li:last', post ).before(
-        $(html).fadeIn("fast", function(){})
-      );
-      toggler = $('.show_post_comments', post)
-      toggler.html(
-        toggler.html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
-    }
-
-    function processPost(className, html, groupId, mineBool){
-      if(mineBool || onPageForClass(className) || onPageForGroup(groupId)){
-        $("#stream").prepend(
-          $(html).fadeIn("fast", function(){
-            $("#stream label:first").inFieldLabels();
-          })
-        ); 
-      }
-    }
-
-    function processStatusMessage(className, html, messageHash, groupId, mineBool){
-      processPost(className, html, groupId, mineBool);
-      console.log(messageHash)
-      if(messageHash['mine?']){
-        updateMyLatestStatus(messageHash);
-      }
-    }
-    
-    function updateMyLatestStatus(messageHash){
-      $("#latest_message").text(messageHash['text']);
-      $("#latest_message_time").text(' - just now');
-    }
-
-    function processPhotoInAlbum(photoHash){
-      if (location.href.indexOf(photoHash['album_id']) == -1){
-        return ;
-      }
-      html =  "<div class=\'image_thumb\' id=\'"+photoHash['id']+"\' style=\'padding-right:3px;\'> \
-        <a href=\"/photos/"+ photoHash['id'] +"\"> \
-        <img alt=\"New thumbnail\" src=\""+ photoHash['thumb_url'] +"\" /> \
-        </a> </div>"  
-      $("#thumbnails").append( $(html) )
-      $("#"+ photoHash['id'] + "  img").load( function() {
-        $(this).fadeIn("slow");
-      });
-    }
-    
-    function onPageForClass(className){
-      return ((location.href.indexOf(className) != -1 ) || (location.pathname == '/')) && onPageOne();
-    }
-
-    function onPageForGroup(groupId){
-      return (location.href.indexOf(groupId) != -1 ) 
-    }
-    
-    function onPageOne() {
-        var c = document.location.search.charAt(document.location.search.length-1);
-        return ((c =='') || (c== '1'));
-    }
   });
+  function processRetraction(post_id){
+    $('#' + post_id ).fadeOut(500, function(){
+      $(this).remove;
+    });
+  }
+
+  function processComment(post_id, html){
+    post = $('#' + post_id)[0]
+    $(' .comment_set li:last', post ).before(
+      $(html).fadeIn("fast", function(){})
+    );
+    toggler = $('.show_post_comments', post)
+    toggler.html(
+      toggler.html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
+  }
+
+  function processPost(className, html, groupIds){
+    if(onPageForGroups(groupIds)){
+      $("#stream").prepend(
+        $(html).fadeIn("fast", function(){
+          $("#stream label:first").inFieldLabels();
+        })
+      ); 
+    }
+  }
+
+  function processPhotoInAlbum(photoHash){
+    if (location.href.indexOf(photoHash['album_id']) == -1){
+      return ;
+    }
+    html =  "<div class=\'image_thumb\' id=\'"+photoHash['id']+"\' style=\'padding-right:3px;\'> \
+      <a href=\"/photos/"+ photoHash['id'] +"\"> \
+      <img alt=\"New thumbnail\" src=\""+ photoHash['thumb_url'] +"\" /> \
+      </a> </div>"  
+    $("#thumbnails").append( $(html) )
+    $("#"+ photoHash['id'] + "  img").load( function() {
+      $(this).fadeIn("slow");
+    });
+  }
+  
+  function onPageForClass(className){
+    return ((location.href.indexOf(className) != -1 ) || (location.pathname == '/')) && onPageOne();
+  }
+
+  function onPageForGroups(groupIds){
+    if(location.pathname == '/' && onPageOne()){
+      return true
+    }
+    var found = false;
+    $.each(groupIds, function(index, value) {
+      if(onPageForGroup(value)){ found = true };
+    });
+    return found;
+  }
+
+  function onPageForGroup(groupId){
+    return (location.href.indexOf(groupId) != -1 ) 
+  }
+  
+  function onPageOne() {
+      var c = document.location.search.charAt(document.location.search.length-1);
+      return ((c =='') || (c== '1'));
+  }
