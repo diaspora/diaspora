@@ -48,7 +48,7 @@ describe User do
       @user.save
 
 
-      @user.send_friend_request_to( friend.receive_url, @group.id ).should be nil
+      proc {@user.send_friend_request_to( friend.receive_url, @group.id )}.should raise_error
     end
 
 
