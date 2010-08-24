@@ -33,7 +33,7 @@ class User
       "wchulley@gmail.com", "kimfuh@yahoo.com", "CJichi@yahoo.com",
       "madkisso@mit.edu", "bribak@msn.com", "asykley@verizon.net",
       "paulhaeberli@gmail.com","bondovatic@gmail.com", "dixon1e@yahoo.com"]
-    
+
     allowed_emails.each{|allowed| 
       if email.include?(allowed)
         return true
@@ -243,7 +243,9 @@ class User
     group(:name => "Acquaintances")
     group(:name => "Family")
     group(:name => "Nemeses")
-    group(:name => "Work")
+
+    group(:name => "Pivots")
+
   end
 
   def album_by_id( id )
