@@ -60,8 +60,10 @@
       .container
         #group
           %ul
+            %li= link_to "All Groups", root_url
             - for group in @groups
-              %li= link_to group.name, group
+              %li{:class => ("selected" if current_group?(group))}
+                = link_to group.name, group
             %li.new_group= link_to("new", "#add_group_pane", :id => "add_group_button")
 
           .yo{ :style => "display:none;"}

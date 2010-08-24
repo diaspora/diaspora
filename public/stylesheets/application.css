@@ -72,6 +72,7 @@ header {
     margin-bottom: 0;
   color: black;
   background-color: #333333;
+  border-bottom: 2px solid #666666;
   padding: 0; }
   header #diaspora_text {
     padding-top: 5px;
@@ -424,12 +425,24 @@ h1.big_text {
   color: black; }
   #group ul {
     margin: 0;
+      margin-bottom: -5px;
     padding: 0;
     list-style: none;
     font-size: 14px; }
     #group ul > li {
       display: inline;
-      margin-right: 2em; }
+      margin-right: 1.5em;
+      padding: 0.3em 0.5em; }
+      #group ul > li:hover {
+        background-color: #333333; }
+      #group ul > li a {
+        color: #999999; }
+        #group ul > li a:hover {
+          background: none; }
+    #group ul .selected {
+      background-color: white; }
+      #group ul .selected a {
+        color: black; }
 
 #friend_pictures img {
   height: 40px; }

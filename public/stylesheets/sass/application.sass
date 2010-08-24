@@ -78,6 +78,8 @@ header
   :color #000
   :background
     :color #333
+  :border
+    :bottom 2px solid #666
   :padding 0
 
   #diaspora_text
@@ -336,9 +338,6 @@ ul.comment_set
     :font
       :size larger
 
-
-
-
 #debug_info
   :margin-top 20px
 
@@ -540,6 +539,7 @@ h1.big_text
   :color #000
   ul
     :margin 0
+      :bottom -5px
     :padding 0
     :list
       :style none
@@ -548,7 +548,25 @@ h1.big_text
     > li
       :display inline
       :margin
-        :right 2em
+        :right 1.5em
+
+      :padding 0.3em 0.5em
+
+      &:hover
+        :background
+          :color #333
+
+      a
+        :color #999
+        
+        &:hover
+          :background none
+      
+    .selected
+      :background
+        :color #fff
+      a
+        :color #000
 
 #friend_pictures
   img
