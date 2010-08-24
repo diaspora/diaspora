@@ -7,6 +7,7 @@ class StatusMessagesController < ApplicationController
     
     if @status_message.created_at
       flash[:notice] = "Successfully created status message."
+      render :nothing => true
     else
       render :action => 'new'
     end

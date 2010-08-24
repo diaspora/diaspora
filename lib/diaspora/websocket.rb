@@ -10,7 +10,7 @@ module Diaspora
     end
     
     def self.subscribe(uid, ws)
-      Rails.logger.debug "Subscribing socket to #{User.first(:id => uid).email}"
+      Rails.logger.debug "Subscribing socket to #{uid}"
       self.ensure_channel(uid)
       @channels[uid][0].subscribe{ |msg| ws.send msg }
       @channels[uid][1] += 1
@@ -32,7 +32,8 @@ module Diaspora
 
   module Socketable
     def socket_to_uid(id, opts={})
-      SocketsController.new.outgoing(id, self, :group_id => opts[:group_id])
+      puts "#{id}, #{self}, #{opts}"
+      SocketsController.new.outgoing(id, self, opts)
     end
     
     def unsocket_from_uid id
