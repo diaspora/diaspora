@@ -440,18 +440,17 @@ h1.big_text {
     font-size: 14px; }
     #group ul > li {
       display: inline;
-      margin-right: 1.5em;
-      padding: 0.3em 0.5em; }
-      #group ul > li:hover {
+      margin-right: 1.5em; }
+      #group ul > li:hover a {
         background-color: #333333; }
       #group ul > li a {
-        color: #999999; }
-        #group ul > li a:hover {
-          background: none; }
-    #group ul .selected {
-      background-color: white; }
-      #group ul .selected a {
-        color: black; }
+        color: #999999;
+        padding: 0.3em 0.5em; }
+    #group ul .selected a {
+      background-color: white;
+      color: black; }
+    #group ul .selected:hover a {
+      background-color: #eeeeee; }
 
 #friend_pictures img {
   height: 40px; }
