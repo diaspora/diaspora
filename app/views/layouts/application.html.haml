@@ -56,6 +56,18 @@
           %span{:style => "padding-left:30px;"}
             = link_to "photos", albums_path
 
+    #sub_header
+      .container
+        #group
+          %ul
+            - for group in @groups
+              %li= link_to group.name, group
+            %li.new_group= link_to("new", "#add_group_pane", :id => "add_group_button")
+
+          .yo{ :style => "display:none;"}
+            #add_group_pane
+              = render "groups/new_group"
+
     .container
       .span-4.append-1.last
         = render "shared/group_nav"

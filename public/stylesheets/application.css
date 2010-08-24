@@ -69,10 +69,9 @@ header {
   z-index: 4;
   position: relative;
   margin: -2em;
-    margin-bottom: 20px;
+    margin-bottom: 0;
   color: black;
   background-color: #333333;
-  border-bottom: 3px solid black;
   padding: 0; }
   header #diaspora_text {
     padding-top: 5px;
@@ -93,6 +92,12 @@ header {
     padding-right: 10px; }
     header #session_action a.new_requests {
       color: #df0101; }
+
+#sub_header {
+  margin: 0 -2em;
+  padding: 0.5em 0;
+  background-color: black;
+  margin-bottom: 2em; }
 
 #show_filters {
   z-index: 100;
@@ -416,21 +421,18 @@ h1.big_text {
   display: none; }
 
 #group {
-  color: black;
-  margin-bottom: 1em; }
+  color: black; }
   #group ul {
     margin: 0;
     padding: 0;
     list-style: none;
     font-size: 14px; }
     #group ul > li {
-      margin-right: 10px; }
-    #group ul .selected {
-      color: black;
-      font-weight: bold;
-      font-size: 30px; }
-  #group #friend_pictures img {
-    height: 40px; }
+      display: inline;
+      margin-right: 2em; }
+
+#friend_pictures img {
+  height: 40px; }
 
 #add_photo_loader {
   position: absolute;
