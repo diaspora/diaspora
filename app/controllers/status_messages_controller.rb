@@ -6,15 +6,10 @@ class StatusMessagesController < ApplicationController
     @status_message = current_user.post(:status_message, params[:status_message])
     
     if @status_message.created_at
-      flash[:notice] = "Successfully created status message."
       render :nothing => true
     else
-      render :action => 'new'
+      redirect_to root_url
     end
-  end
-  
-  def new
-    @status_message = StatusMessage.new
   end
   
   def destroy
