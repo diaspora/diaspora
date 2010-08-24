@@ -37,8 +37,6 @@ def warzombie
 
   def zombiefriendaccept
     render :nothing => true
-    set_profile_photo
-
     Request.all.each{|r| 
       current_user.accept_and_respond(r.id, current_user.groups.first.id)
     }
@@ -58,6 +56,8 @@ def warzombie
   end
 
   def set_profile_photo
+
+    render :nothing => true
     album = current_user.post(:album, :name => "Profile Photos")
     
     backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
