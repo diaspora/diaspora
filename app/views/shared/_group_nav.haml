@@ -14,9 +14,9 @@
 
     %li.new_group= link_to("NEW GROUP", "#add_group_pane", :id => "add_group_button")
 
-      .yo{ :style => "display:none;"}
-        #add_group_pane
-          = render "groups/new_group"
+    .yo{ :style => "display:none;"}
+      #add_group_pane
+        = render "groups/new_group"
 
   - if @group
     #friend_pictures

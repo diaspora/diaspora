@@ -30,10 +30,8 @@ class GroupsController < ApplicationController
   end
   
   def show
-    @person_ids = @group.person_ids
-
     @group = Group.first(:id => params[:id])
-
+    @friends = @group.people
     @posts = current_user.visible_posts( :by_members_of => @group ).paginate :order => 'created_at DESC'
   end
 
