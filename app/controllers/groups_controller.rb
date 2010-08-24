@@ -3,8 +3,10 @@ class GroupsController < ApplicationController
 
   def index
     @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :order => 'created_at DESC'
-    @group = :all
     @friends = current_user.friends
+
+    @groups = current_user.groups.find_all_by_id(params[:group_ids]) if params[:group_ids]
+    @groups ||= current_user.groups
   end
 
   def create

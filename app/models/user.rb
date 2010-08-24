@@ -80,9 +80,9 @@ class User
       group.save
       target_people = target_people | group.people
     }
+    
+    post.socket_to_uid(id, :group_ids => groups.map{|g| g.id}) if post.respond_to?(:socket_to_uid)
     post.push_to( target_people )
-
-    post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
     self.raw_visible_posts << post
     self.save

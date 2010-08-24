@@ -1,6 +1,6 @@
 development:
   debug: false
-  socket_debug : false
+  socket_debug : true
   socket_port: 8080
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
 

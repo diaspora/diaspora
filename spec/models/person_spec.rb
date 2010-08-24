@@ -144,5 +144,18 @@ describe Person do
     it 'should search by email exactly' do
       Person.by_webfinger(@friend_one.email).should == @friend_one
     end
+    
+    describe 'wall posting' do 
+      it 'should be able to post on another persons wall' do
+        
+        #user2 is in user's group, user is in group2 on user
+        friend_users(@user, @group, @user2, @group2)
+        
+        @user.person.post_to_wall(:person => @user2.person, :message => "youve got a great smile")
+        @user.person.wall_posts.count.should == 1
+        
+      end
+    end
+    
   end
 end

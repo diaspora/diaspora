@@ -319,18 +319,27 @@ label {
     height: 50px;
     padding-left: 10px; }
   #publisher ul.group_selector {
+    float: left;
     padding: 0;
     margin: 0;
-    width: 150px;
+    width: auto;
+    z-index: 10;
+    position: absolute;
+    height: auto;
+    overflow: visible;
     list-style: none; }
     #publisher ul.group_selector > li {
-      z-index: 10;
+      height: auto;
+      font-size: smaller;
+      padding: 2px;
       display: none;
       background-color: white; }
       #publisher ul.group_selector > li:active {
         background-color: yellow; }
     #publisher ul.group_selector:hover li {
       display: block; }
+  #publisher .button {
+    margin-left: 100px; }
 
 #image_picker .small_photo {
   height: 100px;
