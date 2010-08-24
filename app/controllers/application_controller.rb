@@ -16,9 +16,11 @@ class ApplicationController < ActionController::Base
   end
   
   def set_friends_and_status
-    @group = :all
-    @groups = current_user.groups
-    @friends = current_user.friends
+    unless current_user.nil?
+      @group = :all
+      @groups = current_user.groups
+      @friends = current_user.friends
+    end
   end
 
   def count_requests
