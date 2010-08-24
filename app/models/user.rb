@@ -225,7 +225,7 @@ class User
 
   protected
   
-  def generate_key
+  def self.generate_key
     OpenSSL::PKey::RSA::generate 1024 
   end
 
