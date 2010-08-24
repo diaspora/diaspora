@@ -47,6 +47,7 @@ class RequestsController < ApplicationController
       raise e unless e.message.include? "already friends"
       flash[:notice] = "You are already friends with #{params[:request][:destination_url]}!"
       redirect_to current_user.group_by_id(params[:request][:group_id])
+      return
     end
 
     if @request
