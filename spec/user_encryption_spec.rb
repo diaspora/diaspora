@@ -62,14 +62,14 @@ describe 'user encryption' do
   describe 'signing and verifying' do
 
     it 'should sign a message on create' do
-      message = @user.post :status_message, :message => "hi"
+      message = @user.post :status_message, :message => "hi", :to => @group.id
       message.signature_valid?.should be true 
     end
 
     it 'should sign a retraction on create' do
 
       unstub_mocha_stubs
-      message = @user.post :status_message, :message => "hi"
+      message = @user.post :status_message, :message => "hi", :to => @group.id
 
 
       retraction = @user.retract(message) 
@@ -110,7 +110,7 @@ describe 'user encryption' do
 
   describe 'sending and recieving signatures' do
     it 'should contain the signature in the xml' do
-      message = @user.post :status_message, :message => "hi"
+      message = @user.post :status_message, :message => "hi", :to => @group.id
       xml = message.to_xml.to_s
       xml.include?(message.creator_signature).should be true
     end
@@ -118,7 +118,7 @@ describe 'user encryption' do
     it 'A message with an invalid signature should be rejected' do
       @user2 = Factory.create :user
 
-      message = @user2.post :status_message, :message => "hey"
+      message = @user2.post :status_message, :message => "hey", :to => @user2.group(:name => "bruisers").id
       message.creator_signature = "totally valid"
       message.save(:validate => false)
 
@@ -135,7 +135,7 @@ describe 'user encryption' do
       @remote_message = Factory.build(:status_message, :person => @person)
       @remote_message.creator_signature = @remote_message.send(:sign_with_key,@person.encryption_key)
       @remote_message.save 
-      @message = @user.post :status_message, :message => "hi"
+      @message = @user.post :status_message, :message => "hi", :to => @group.id
     end
     it 'should attach the creator signature if the user is commenting' do
       @user.comment "Yeah, it was great", :on => @remote_message
@@ -143,7 +143,7 @@ describe 'user encryption' do
     end
 
     it 'should sign the comment if the user is the post creator' do
-      message = @user.post :status_message, :message => "hi"
+      message = @user.post :status_message, :message => "hi", :to => @group.id
       @user.comment "Yeah, it was great", :on => message
       message.comments.first.signature_valid?.should be true
       message.comments.first.verify_post_creator_signature.should be true

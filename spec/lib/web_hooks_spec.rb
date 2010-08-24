@@ -6,9 +6,8 @@ describe Diaspora do
 
   describe Webhooks do
     before do
-      @user = Factory.create(:user, :email => "bob@aol.com")
-      @user.person.save
-      @person = Factory.create(:person)
+      @user   = Factory.create(:user, :email => "bob@aol.com")
+      @group  = @user.group(:name => "losers")
     end
 
     describe "body" do
@@ -22,7 +21,7 @@ describe Diaspora do
 
       it "should send an owners post to their people" do
         message_queue.should_receive :process
-        @user.post :status_message, :message => "hi" 
+        @user.post :status_message, :message => "hi", :to => @group.id 
       end
     
       it "should check that it does not send a person's post to an owners people" do
@@ -30,16 +29,6 @@ describe Diaspora do
         Factory.create(:status_message, :person => Factory.create(:person))
       end
 
-      it "should ensure one url is created for every person" do
-        5.times {@user.friends << Factory.create(:person)}
-        @user.save
-        
-        @post.person.owner.reload
-        
-        @post.people_with_permissions.size.should == 5
-      end
-
     end
   end
-
 end

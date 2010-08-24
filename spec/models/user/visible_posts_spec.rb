@@ -21,9 +21,9 @@ describe User do
    end
 
     it 'should generate a valid stream for a group of people' do
-      status_message1 = @user2.post :status_message, :message => "hi"
-      status_message2 = @user3.post :status_message, :message => "heyyyy"
-      status_message3 = @user4.post :status_message, :message => "yooo"
+      status_message1 = @user2.post :status_message, :message => "hi", :to => @user2_group.id
+      status_message2 = @user3.post :status_message, :message => "heyyyy", :to => @user3_group.id
+      status_message3 = @user4.post :status_message, :message => "yooo", :to => @user4_group.id
 
       @user.receive status_message1.to_diaspora_xml
       @user.receive status_message2.to_diaspora_xml
