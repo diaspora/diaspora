@@ -22,14 +22,16 @@ a {
 #flash_notice,
 #flash_error,
 #flash_alert {
-  z-index: 60;
+  z-index: 3;
+  top: 32px;
   position: absolute;
-  padding: 5px 8px;
-  margin: 0;
+  color: black;
   width: 400px;
-  top: 0px;
-  margin-left: 230px;
-  color: #666666; }
+  margin: 0 0 0 -200px;
+  left: 50%;
+  text-align: center;
+  font-size: 14px;
+  padding: 3px 0; }
 
 #flash_notice {
   background-color: #ccffcc;
@@ -64,6 +66,7 @@ a {
     margin: 0; }
 
 header {
+  z-index: 4;
   position: relative;
   margin: -2em;
     margin-bottom: 20px;
@@ -72,7 +75,7 @@ header {
   border-bottom: 3px solid black;
   padding: 0; }
   header #diaspora_text {
-    padding-top: 4px;
+    padding-top: 5px;
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 16px;
     border: none;
@@ -198,8 +201,7 @@ ul.comment_set {
   width: 90%; }
   ul.comment_set li.comment {
     margin-bottom: 0.5em;
-    background-color: #f2f8fc;
-    background-color: rgba(10, 81, 109, 0.1);
+    background-color: rgba(10, 81, 109, 0.05);
     padding: 0.6em;
     border-bottom: 1px solid #cccccc; }
     ul.comment_set li.comment .from {
@@ -300,7 +302,9 @@ label {
   border-bottom: 2px #999999 solid;
   color: #999999;
   position: relative;
-  height: 80px; }
+  height: 69px; }
+  #publisher form {
+    margin-top: 10px; }
   #publisher textarea {
     width: 485px;
     height: 40px;
@@ -436,10 +440,10 @@ h1.big_text {
 
 #user_menu {
   position: relative;
-  background: #333333;
   padding: 0 5px;
   margin: 0;
-  list-style: none; }
+  list-style: none;
+  top: 1px; }
   #user_menu a {
     color: #999999; }
   #user_menu > li {
@@ -470,7 +474,7 @@ h1.big_text {
       background-color: #eeeeee; }
     #other_user_menu > li:first-child {
       display: block;
-      background: #333333;
+      background: none;
       border-left: 2px solid #333333;
       border-right: 2px solid #333333; }
       #other_user_menu > li:first-child a {

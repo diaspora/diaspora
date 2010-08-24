@@ -23,15 +23,18 @@ a
 #flash_notice,
 #flash_error,
 #flash_alert
-  :z-index 60
+  :z-index 3
+  :top 32px
   :position absolute
-  :padding 5px 8px
-  :margin 0
+  :color #000
   :width 400px
-  :top 0px
-  :margin
-    :left 230px
-  :color #666
+  :margin 0 0 0 -200px
+  :left 50%
+  :text
+    :align center
+  :font 
+    :size 14px
+  :padding 3px 0
 
 #flash_notice
   :background-color #CFC
@@ -68,6 +71,7 @@ a
     :margin 0
 
 header
+  :z-index 4
   :position relative
   :margin -2em
     :bottom 20px
@@ -80,7 +84,7 @@ header
 
   #diaspora_text
     :padding
-      :top 4px
+      :top 5px
     :font
       :family 'BrandonGrotesqueLightRegular'
       :size 16px
@@ -240,9 +244,8 @@ ul.comment_set
   li.comment
     :margin
       :bottom 0.5em
-    :background-color #F2F8FC
     :background
-      :color rgba(10,81,109,0.1)
+      :color rgba(10,81,109,0.05)
     :padding 0.6em
     :border
       :bottom 1px solid #ccc
@@ -370,7 +373,11 @@ label
     :bottom 2px #999 solid
   :color #999
   :position relative
-  :height 80px
+  :height 69px
+
+  form
+    :margin
+      :top 10px
 
   textarea
     :width 485px
@@ -557,10 +564,10 @@ h1.big_text
 
 #user_menu
   :position relative
-  :background #333
   :padding 0 5px
   :margin 0
   :list-style none
+  :top 1px
 
   a
     :color #999
@@ -605,7 +612,7 @@ h1.big_text
 
     &:first-child
       :display block
-      :background #333
+      :background none
       :border
         :left 2px solid #333
         :right 2px solid #333
