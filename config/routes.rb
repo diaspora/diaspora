@@ -1,10 +1,10 @@
 Diaspora::Application.routes.draw do
-  resources :people
+  resources :people, :only => [:index, :show, :destroy]
   resources :users, :except => [:create, :new]
-  resources :status_messages
-  resources :comments
-  resources :requests
-  resources :photos
+  resources :status_messages, :except => [:index]
+  resources :comments, :except => [:index]
+  resources :requests, :except => [:edit, :update]
+  resources :photos, :except => [:index]
   resources :albums
   resources :groups
 

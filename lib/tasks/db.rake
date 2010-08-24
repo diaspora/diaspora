@@ -29,7 +29,7 @@ namespace :db do
    MongoMapper::connection.drop_database(MongoMapper::database.name) 
 
    puts 'Deleting tmp folder...'
-   `rm -rf #{File.dirname(__FILE__)}/../../public/uploads/tmp`
+   `rm -rf #{File.dirname(__FILE__)}/../../public/uploads/*`
   end
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'

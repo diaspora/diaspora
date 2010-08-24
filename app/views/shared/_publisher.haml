@@ -1,18 +1,24 @@
 #publisher
-  #publisher_form
+  .span-19.last
     = form_for StatusMessage.new, :remote => true do |f|
       = f.error_messages
 
-      -if group_id
-        = f.hidden_field :group_id, :value => group_id
-        
+      .span-15.last
+        .span-2.last
+          .user_image
+            = owner_image_tag
+        .span-13.last
+          %p
+            %label{:for => "status_message_message"} Message
+            = f.text_area :message, :rows => 2
+      
+      .span-3.last
 
-      %label{:for => "status_message_message"} Message
-      = f.text_area :message, :rows => 2
-      %ul
-        - for group in current_user.groups
-          %li
-            = group.name
-            = check_box_tag("groups_id[]", group.id, current_group?(group))
-      .right
+        %ul.group_selector
+          going to...
+          - for group in current_user.groups
+            %li
+              = check_box_tag("group_ids[]", group.id, current_group?(group) )
+              = group.name
+      .span-1.last
         = f.submit "Post"

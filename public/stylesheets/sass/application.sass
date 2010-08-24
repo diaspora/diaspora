@@ -23,15 +23,18 @@ a
 #flash_notice,
 #flash_error,
 #flash_alert
-  :z-index 60
+  :z-index 3
+  :top 32px
   :position absolute
-  :padding 5px 8px
-  :margin 0
+  :color #000
   :width 400px
-  :top 0px
-  :margin
-    :left 230px
-  :color #666
+  :margin 0 0 0 -200px
+  :left 50%
+  :text
+    :align center
+  :font 
+    :size 14px
+  :padding 3px 0
 
 #flash_notice
   :background-color #CFC
@@ -68,6 +71,7 @@ a
     :margin 0
 
 header
+  :z-index 4
   :position relative
   :margin -2em
     :bottom 20px
@@ -76,12 +80,11 @@ header
     :color #333
   :border
     :bottom 3px solid #000
-  :padding 6px 0
-    :top 0
+  :padding 0
 
   #diaspora_text
-    :margin
-      :bottom 1em
+    :padding
+      :top 5px
     :font
       :family 'BrandonGrotesqueLightRegular'
       :size 16px
@@ -89,8 +92,13 @@ header
     :color #fff
     :text
       :shadow 0 2px 0 #000
+
     a
       :color #666
+
+    a:hover
+      :color #fff
+      :background none
 
     span.sub_text
       :text
@@ -98,7 +106,6 @@ header
       
   #session_action
     :float right
-    :text-shadow 0 1px 0 #000
     a
       &.new_requests
         :color #DF0101
@@ -237,9 +244,8 @@ ul.comment_set
   li.comment
     :margin
       :bottom 0.5em
-    :background-color #F2F8FC
     :background
-      :color rgba(10,81,109,0.1)
+      :color rgba(10,81,109,0.05)
     :padding 0.6em
     :border
       :bottom 1px solid #ccc
@@ -338,13 +344,8 @@ input[type='text'], textarea
   :padding 0.3em
   :display block
   :width 66%
-  :box-shadow 0 2px 0px #fff
-  :-webkit-box-shadow 0 2px 0px #fff
-  :-moz-box-shadow 0 2px 0px #fff
-  :border-top 1px solid #999
+  :border-top 1px solid #666
   :height auto
-  :border-radius 3px
-  :-moz-border-radius 3px
 
 #submit_block
   :text
@@ -371,36 +372,45 @@ label
   :border
     :bottom 2px #999 solid
   :color #999
-  :padding 15px 1em
-    :bottom 30px
   :position relative
+  :height 69px
 
-#new_blog, 
-#new_bookmark
-  :display none
+  form
+    :margin
+      :top 10px
 
-ul#publisher_content_pickers
-  :display inline
-  :margin 0 -10px
-  :padding 0
-  :margin
-    :left 10px
+  textarea
+    :width 485px
+    :height 40px
+    :margin
+      :top 0
 
-ul#publisher_content_pickers li
-  :display inline
-  :padding 5px 10px
-  :margin
-    :right 5px
+  .user_image
+    img
+      :height 50px
+      :padding
+        :left 10px
 
-#publisher .selected
-  :border
-    :bottom 3px solid #999
-  :background
-    :color rgba(10,81,109,0.1)
+  ul.group_selector
+    :padding 0
+    :margin 0
+    :width 150px
+    :list
+      :style none
 
-#publisher .right
-  :padding
-    :right 15px
+    > li
+      :z-index 10
+      :display none
+      :background
+        :color #fff
+
+      &:active
+        :background
+          :color yellow
+
+    &:hover li
+      :display block
+
 
 #image_picker
   .small_photo
@@ -423,9 +433,7 @@ ul#publisher_content_pickers li
     :border 1px solid #fff
 
 
-
 /* cycle it! */
-
 .album
   :position relative
   :height 300px
@@ -524,47 +532,29 @@ h1.big_text
 
 #group
   :color #000
+  :margin
+    :bottom 1em
   ul
     :margin 0
     :padding 0
+    :list
+      :style none
     :font
       :size 14px
     > li
-      :display inline
       :margin
         :right 10px
       
-      &.selected, &.selected a
-        :color #fff
-        :font
-          :weight bold
-          :size 18px
-
-  a
-    :color #aaa
-    :font
-      :weight normal
+    .selected
+      :color #000
+      :font
+        :weight bold
+        :size 30px
 
   #friend_pictures
-
-    .add_new_description
-      :position relative
-      :height 40px
-      :display inline-block
-      :background
-        :color #222
-      :color #999
-      :top -16px
-      :line
-        :height 40px
-      :padding 0 1em
-      :margin
-        :bottom -20px
-      :font
-        :style italic
-
     img
       :height 40px
+
 
 #add_photo_loader
   :position absolute
@@ -573,10 +563,11 @@ h1.big_text
   :top 4px
 
 #user_menu
-  :background #000
-  :padding 5px 
+  :position relative
+  :padding 0 5px
   :margin 0
   :list-style none
+  :top 1px
 
   a
     :color #999
@@ -586,8 +577,121 @@ h1.big_text
     :margin
       :right 1em
 
+    &:first-child
+      :margin
+        :right 0
+
     &:last-child
       :margin
         :right 0
 
+#other_user_menu
+  :position absolute
+  :z-index 10
+  :top 0
+  :right 0
+  :display inline-block
+  :padding 0
+  :margin 0
+  :list
+    :style none
 
+  > li
+    :display none
+    :background
+      :color #fff
+    :width 180px
+    :height 29px
+    :border
+      :left 2px solid #000
+      :right 2px solid #000
+
+    &:hover
+      :background
+        :color #eee
+
+    &:first-child
+      :display block
+      :background none
+      :border
+        :left 2px solid #333
+        :right 2px solid #333
+      a
+        :color #999
+
+      img
+        :position absolute
+        :height 20px
+        :top 5px
+        :left 9px
+
+    &:last-child
+      :border
+        :bottom 2px solid #000
+
+    a
+      :display block
+      :height 100%
+      :padding
+        :left 40px
+        :top 5px
+      :color #000
+
+      &:hover
+        :background
+          :color transparent
+
+  .requests
+    :background
+      :image url('/images/glyphish-icons/icons/40-inbox.png')
+      :repeat no-repeat
+      :position 5px
+  .settings
+    :background
+      :image url('/images/glyphish-icons/icons/20-gear2.png')
+      :repeat no-repeat
+      :position 5px
+  .logout
+    :background
+      :image url('/images/glyphish-icons/icons/54-lock.png')
+      :repeat no-repeat
+      :position 5px
+      
+  &:hover li
+    :display block
+
+
+
+
+#global_search
+  :display inline
+  :position relative
+  :padding
+    :right 167px
+
+  form
+    :display inline
+
+    input
+      :margin
+        :top 5px
+      :display inline
+      :font
+        :size 12px
+      :border none
+      :border-radius 0
+
+    input[type='text']
+      :width 200px
+      :padding 2px
+      :background
+        :image url('/images/glyphish-icons/icons/06-magnifying-glass.png')
+        :repeat no-repeat
+        :position 187px
+        :size 12px
+
+    label
+      :font
+        :size 12px
+      :margin
+        :top -3px
