@@ -8,7 +8,7 @@ class User
          
   key :friend_ids, Array
   key :pending_request_ids, Array
-  key :visible_post_ids, Array
+  key :_post_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
@@ -213,7 +213,7 @@ class User
   end
 
   def groups_with_person person
-    id = ensure_bson person.id
+    id = ensure_bson person.object_id
     groups.select {|group| group.person_ids.include? id}
   end
 
