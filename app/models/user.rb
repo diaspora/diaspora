@@ -230,7 +230,7 @@ class User
   end
 
   def all_group_ids
-    self.groups.all.map{|x| x.id}
+    self.groups.all.collect{|x| x.id}
   end
   protected
    def generate_key
