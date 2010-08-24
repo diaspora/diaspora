@@ -8,7 +8,10 @@
       = link_to post.album.name, object_path(post.album)
 
     %br
-  = link_to (image_tag post.url(:thumb_large)), object_path(post)
+    
+  = render "albums/album", :post => post.album
+   
+  = link_to (image_tag post.url(:thumb_medium)), object_path(post)
     
   %div.time
     = link_to(how_long_ago(post), photo_path(post))
