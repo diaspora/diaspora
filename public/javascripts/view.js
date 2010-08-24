@@ -14,13 +14,10 @@ $(document).ready(function(){
 		});
 	});
 	
-  
-
   $("label").inFieldLabels();
 	
   $('#flash_notice, #flash_error, #flash_alert').delay(2500).slideUp(130);
   
-
   $("#stream li").live('mouseover',function() {
     $(this).children(".destroy_link").fadeIn(0);
   });
@@ -49,15 +46,14 @@ $(document).ready(function(){
 			return $(':input',this).clearForm();
 		if (type == 'text' || type == 'password' || tag == 'textarea')
 			this.value = '';
-		else if (type == 'checkbox' || type == 'radio')
-			this.checked = false;
+		//else if (type == 'checkbox' || type == 'radio')
+			//this.checked = false;
 		else if (tag == 'select')
 			this.selectedIndex = -1;
 		$(this).blur();
     });
-
 	};
-
+  
   $("div.image_cycle").cycle({
     fx: 'fade',
     random: 1,
