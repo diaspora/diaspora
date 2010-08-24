@@ -2,7 +2,7 @@ class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    params[:status_message][:group_ids] = params[:group_ids]
+    params[:status_message][:to] = params[:group_ids]
     @status_message = current_user.post(:status_message, params[:status_message])
     
     if @status_message.created_at

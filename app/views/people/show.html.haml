@@ -6,7 +6,6 @@
     %h1
       = @person.real_name
       - unless @person.id == current_user.person.id
-
         .right
           = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete, :class => "button"
     
@@ -16,6 +15,8 @@
           %i= "last seen: #{how_long_ago(@posts.first)}"
       %li
         %i= "friends since: #{how_long_ago(@person)}"
+      %li
+        ="groups: #{@person_groups}"
       %li
         url:
         = @person.url
@@ -31,7 +32,7 @@
       %h3= "stream - #{@post_count} item(s)" 
       %ul#stream
         - for post in @posts
-          = render type_partial(post), :post => post
+          = render type_partial(post), :post => post unless post.class == Album
         = will_paginate @posts
     - else
       %h3 no posts to display!

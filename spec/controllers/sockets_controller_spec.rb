@@ -18,7 +18,7 @@ describe 'SocketsController' do
   
   describe 'actionhash' do
     before do
-      @message = @user.post :status_message, :message => "post through user for victory"
+      @message = @user.post :status_message, :message => "post through user for victory", :to => @user.group(:name => "losers").id
     end
 
     it 'should actionhash posts' do
