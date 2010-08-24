@@ -62,8 +62,11 @@ def warzombie
     
     backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
     username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
+    
+    @fixture_name = File.dirname(__FILE__) + "../../../public/images/users/#{username}.jpg"
+
     photo = current_user.post(:photo, :album_id => album.id,
-                      :user_file => "public/images/users/#{username}.jpg") 
+                      :user_file => "") 
    
     current_user.update_profile(:image_url => photo.url)
   end
