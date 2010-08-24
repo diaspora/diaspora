@@ -18,7 +18,7 @@
           going to...
           - for group in current_user.groups
             %li
-              = check_box_tag("group_ids[]", group.id, current_group?(group))
+              = check_box_tag("group_ids[]", group.id, current_group?(group) )
               = group.name
       .span-1.last
         = f.submit "Post"
