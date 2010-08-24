@@ -7,7 +7,7 @@ require "lib/diaspora/websocket"
     EventMachine::WebSocket.start(
                   :host => "0.0.0.0", 
                   :port => APP_CONFIG[:socket_port],
-                  :debug =>APP_CONFIG[:debug]) do |ws|
+                  :debug =>APP_CONFIG[:socket_debug]) do |ws|
       ws.onopen {
         
         sid = Diaspora::WebSocket.subscribe(ws.request['Path'].gsub('/',''), ws)

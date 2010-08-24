@@ -13,7 +13,6 @@
 
     /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'rails', 'google'
-    = javascript_include_tag 'tiny_mce/tiny_mce'
     = javascript_include_tag 'jquery.infieldlabel', 'jquery.cycle/jquery.cycle.min.js'
     
     = javascript_include_tag 'fancybox/jquery.fancybox-1.3.1.pack'
@@ -33,26 +32,35 @@
     %header
       .container
         #session_action
-          - if user_signed_in?
-            %ul#user_menu
-              %li.name= link_to current_user.real_name, current_user.person
-              %li= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
-              %li= link_to "settings", edit_user_path(current_user)
-              %li= link_to "search", users_path 
-              %li= link_to "logout", destroy_user_session_path
-          - else
-            = link_to "login", new_user_session_path
+          %ul#user_menu
+            %li#global_search
+              = form_tag(users_path, :method => 'get') do
+                %label{:for => 'q'} Search
+                = text_field_tag 'q'
+
+            %li
+              %ul#other_user_menu
+                %li
+                  = owner_image_tag 
+                  = link_to current_user.real_name, current_user.person
+                %li.requests= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
+                %li.settings= link_to "settings", edit_user_path(current_user)
+                %li.logout= link_to "logout", destroy_user_session_path
+
 
         #diaspora_text{:href => root_path}
           = link_to "DIASPORA*", root_path
           %span.sub_text
             PREVIEW
-        = render "shared/group_nav"
 
-        = link_to "photos", albums_path
+          %span{:style => "padding-left:30px;"}
+            = link_to "photos", albums_path
 
     .container
-      .span-24.last
+      .span-4.append-1.last
+        = render "shared/group_nav"
+
+      .span-19.last
         = yield
-      .span-24.last
+
         = render "posts/debug"

@@ -42,23 +42,25 @@ class User
   def post(class_name, options = {})
     options[:person] = self.person
 
-    group_id = options[:group_id]
-    options.delete(:group_id)
+    group_ids = options[:group_ids]
+    options.delete(:group_ids)
 
     model_class = class_name.to_s.camelize.constantize
+    
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save
 
 
-    if group_id
-      group = self.groups.find_by_id(group_id)
+    groups = self.groups.find_all_by_id(group_ids)
+    target_people = [] 
+
+    groups.each{ |group|
       group.posts << post
       group.save
-      post.push_to( group.people.all )
-    else
-      post.push_to( self.friends.all )
-    end
+      target_people = target_people | group.people
+    }
+    post.push_to( target_people )
 
     post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
@@ -122,22 +124,22 @@ class User
 
   ######### Friend Requesting ###########
   def send_friend_request_to(friend_url, group_id)
-    unless self.friends.detect{ |x| x.receive_url == friend_url}
-      request = Request.instantiate(:to => friend_url, :from => self.person, :into => group_id)
-      if request.save
-        self.pending_requests << request
-        self.save
+    raise "You are already friends with that person!" if self.friends.detect{ |x| x.receive_url == friend_url}
+    request = Request.instantiate(:to => friend_url, :from => self.person, :into => group_id)
+    if request.save
+      self.pending_requests << request
+      self.save
 
-        group = self.group_by_id(group_id)
+      group = self.group_by_id(group_id)
 
-        group.requests << request
-        group.save
-        
-        request.push_to_url friend_url
-      end
-      request
+      group.requests << request
+      group.save
+      
+      request.push_to_url friend_url
     end
-  end 
+    request
+  end
+   
 
   def accept_friend_request(friend_request_id, group_id)
     request = Request.find_by_id(friend_request_id)
@@ -324,14 +326,19 @@ class User
     groups.detect{|x| x.id == id }
   end
 
+  def album_by_id( id )
+    id = ensure_bson id
+    albums.detect{|x| x.id == id }
+  end
+
   def groups_with_person person
     id = ensure_bson person.id
     groups.select {|group| group.person_ids.include? id}
   end
 
   def setup_person
-    self.person.serialized_key = generate_key.export
-    self.person.email = email
+    self.person.serialized_key ||= generate_key.export
+    self.person.email ||= email
     self.person.save!
   end
 
