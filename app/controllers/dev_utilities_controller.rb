@@ -60,6 +60,7 @@ def warzombie
   def set_profile_photo
     album = current_user.post(:album, :name => "Profile Photos")
     
+    backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
     username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
     photo = current_user.post(:photo, :album_id => album.id,
                       :user_file => "public/images/users/#{username}.jpg") 
