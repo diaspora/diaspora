@@ -1,7 +1,9 @@
 #group
   %ul
-    .selected
-      = link_to @group.name, @group, :class => "selected"
+    = link_to @group.name, @group, :class => "selected"
+    = link_to "edit", edit_group_path(@group)
+    
+    
     - for group in @groups
       - unless (group.id.to_s == params[:id])
         %li
