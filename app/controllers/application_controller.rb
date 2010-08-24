@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery :except => :receive
   
-  before_filter :set_friends_and_status, :count_requests
+  before_filter :set_friends_and_status
+  before_filter :count_requests
 
   layout :layout_by_resource
 
@@ -15,11 +16,9 @@ class ApplicationController < ActionController::Base
   end
   
   def set_friends_and_status
-    if current_user
-      @groups = current_user.groups 
-      @friends = current_user.friends
-      @group = params[:group] ? current_user.group_by_id(params[:group]) : current_user.groups.first 
-    end
+    @group = :all
+    @groups = current_user.groups
+    @friends = current_user.friends
   end
 
   def count_requests

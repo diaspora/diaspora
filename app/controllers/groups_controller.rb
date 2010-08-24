@@ -2,7 +2,9 @@ class GroupsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @posts = current_user.raw_visible_posts.paginate :page => params[:page], :order => 'created_at DESC'
+    @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :order => 'created_at DESC'
+    @group = :all
+    @friends = current_user.friends
   end
 
   def create
@@ -28,12 +30,9 @@ class GroupsController < ApplicationController
   end
   
   def show
-    @people_ids = @group.person_ids
-
     @group = Group.first(:id => params[:id])
-
+    @friends = @group.people
     @posts = current_user.visible_posts( :by_members_of => @group ).paginate :order => 'created_at DESC'
-    #@posts = Post.paginate :person_id => @people_ids, :order => 'created_at DESC'
   end
 
   def edit

@@ -1,3 +1,9 @@
+:javascript
+  $(document).ready(function(){
+    reset_photo_fancybox();
+  });
+
+.album_id{:id => @album.id, :style => "display:hidden;"}
 .back= link_to '⇧ albums', albums_path
 %h1.big_text
 
@@ -11,7 +17,6 @@
 
   .yo{:style => "display:none;"}
     #new_photo_pane
-      = render "photos/new_photo", :photo => @photo, :album => @album
 
 .sub_header
   ="updated #{how_long_ago(@album)}"

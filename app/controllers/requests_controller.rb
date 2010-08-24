@@ -31,22 +31,31 @@ class RequestsController < ApplicationController
   end
   
   def create
-    puts params.inspect
-    rel_hash = relationship_flow(params[:request][:destination_url])
+    begin 
+      rel_hash = relationship_flow(params[:request][:destination_url])
+    rescue Exception => e
+      flash[:error] = "no diaspora seed found with this email!"
+      redirect_to current_user.group_by_id(params[:request][:group_id])
+      return
+    end
+    
     Rails.logger.debug("Sending request: #{rel_hash}")
-    @request = current_user.send_request(rel_hash, params[:request][:group_id])
+    
+    begin
+      @request = current_user.send_request(rel_hash, params[:request][:group_id])
+    rescue Exception => e
+      raise e unless e.message.include? "already friends"
+      flash[:notice] = "You are already friends with #{params[:request][:destination_url]}!"
+      redirect_to current_user.group_by_id(params[:request][:group_id])
+      return
+    end
 
     if @request
       flash[:notice] = "a friend request was sent to #{@request.destination_url}"
-      redirect_to requests_url
+      redirect_to current_user.group_by_id(params[:request][:group_id])
     else
-      if url.include? '@'
-        flash[:error] = "no diaspora seed found with this email!"
-      else
-        flash[:error] = "you have already friended this person"
-      end
-      @request = Request.new
-      render :action => 'new'
+      flash[:error] = "Something went horribly wrong..."
+      redirect_to current_user.group_by_id(params[:request][:group_id])
     end
   end
 
