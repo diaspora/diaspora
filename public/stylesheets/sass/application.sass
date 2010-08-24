@@ -397,14 +397,21 @@ label
         :left 10px
 
   ul.group_selector
+    :float left
     :padding 0
     :margin 0
-    :width 150px
+    :width auto
+    :z-index 10
+    :position absolute
+    :height auto
+    :overflow visible
     :list
       :style none
 
     > li
-      :z-index 10
+      :height auto
+      :font-size smaller
+      :padding 2px
       :display none
       :background
         :color #fff
@@ -415,6 +422,9 @@ label
 
     &:hover li
       :display block
+      
+  .button
+    :margin-left 100px
 
 
 #image_picker
