@@ -124,22 +124,22 @@ class User
 
   ######### Friend Requesting ###########
   def send_friend_request_to(friend_url, group_id)
-    unless self.friends.detect{ |x| x.receive_url == friend_url}
-      request = Request.instantiate(:to => friend_url, :from => self.person, :into => group_id)
-      if request.save
-        self.pending_requests << request
-        self.save
+    raise "You are already friends with that person!" if self.friends.detect{ |x| x.receive_url == friend_url}
+    request = Request.instantiate(:to => friend_url, :from => self.person, :into => group_id)
+    if request.save
+      self.pending_requests << request
+      self.save
 
-        group = self.group_by_id(group_id)
+      group = self.group_by_id(group_id)
 
-        group.requests << request
-        group.save
-        
-        request.push_to_url friend_url
-      end
-      request
+      group.requests << request
+      group.save
+      
+      request.push_to_url friend_url
     end
-  end 
+    request
+  end
+   
 
   def accept_friend_request(friend_request_id, group_id)
     request = Request.find_by_id(friend_request_id)
