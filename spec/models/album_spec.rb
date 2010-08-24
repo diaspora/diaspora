@@ -5,14 +5,14 @@ describe Album do
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @user = Factory.create(:user)
     @user.person.save
-    @album = Album.new(:name => "test collection", :person => @user.person)
+    @group = @user.group(:name => "Foo")
+    @album = @user.post(:album, :name => "test collection", :to => @group.id)
   end
 
   it 'should belong to a person' do
     @album.person = nil
     @album.valid?.should be false
-    person = Factory.create(:person)
-    @album.person = person
+    @album.person = Factory.create(:person)
     @album.valid?.should be true
     @album.save
     person.albums.count.should == 1
@@ -27,11 +27,10 @@ describe Album do
   end
 
   it 'should contain photos' do
-    album = Album.create(:name => "test collection", :person => @user.person)
     photo = Factory.build(:photo, :person => @user.person)
 
-    album.photos << photo
-    album.photos.count.should == 1
+    @album.photos << photo
+    @album.photos.count.should == 1
   end
 
   it 'should remove all photos on album delete' do
