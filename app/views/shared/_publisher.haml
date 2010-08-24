@@ -3,8 +3,8 @@
     = form_for StatusMessage.new, :remote => true do |f|
       = f.error_messages
 
-      .span-15.last
-        .span-2.last
+      .span-15
+        .span-2
           .user_image
             = owner_image_tag
         .span-13.last
@@ -12,8 +12,7 @@
             %label{:for => "status_message_message"} Message
             = f.text_area :message, :rows => 2
       
-      .span-3.last
-
+      .span-3
         %ul.group_selector
           going to...
           - for group in current_user.groups
