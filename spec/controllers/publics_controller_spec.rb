@@ -16,11 +16,10 @@ describe PublicsController do
     end
     
     it 'should accept a post from another node and save the information' do
-      pending
       person = Factory.create(:person)
       message = StatusMessage.new(:message => 'foo', :person => person)
       StatusMessage.all.count.should be 0
-      post :receive, :id => @user.person.id, :xml => message.to_diaspora_xml(message)
+      post :receive, :id => @user.person.id, :xml => message.to_diaspora_xml
       StatusMessage.all.count.should be 1
     end
   end

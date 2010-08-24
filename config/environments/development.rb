@@ -1,3 +1,4 @@
+require 'lib/mongo_mapper/clear_dev_memory'
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -17,6 +18,7 @@ Diaspora::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
   config.active_support.deprecation = :log
+  config.middleware.use MongoMapper::ClearDevMemory
   #config.threadsafe!
     config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {:host => 'localhost:3000'}

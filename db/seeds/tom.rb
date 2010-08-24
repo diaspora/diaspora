@@ -26,3 +26,4 @@ group = user.group(:name => "other dudes")
 request = user.send_friend_request_to(user2.receive_url, group.id)
 reversed_request = user2.accept_friend_request( request.id, user2.group(:name => "presidents").id )
 user.receive reversed_request.to_diaspora_xml
+user.group(:name => "Presidents")

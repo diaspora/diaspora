@@ -1,6 +1,8 @@
+require 'lib/diaspora/user/friending.rb'
+
 class User
   include MongoMapper::Document
-
+  include Diaspora::UserModules::Friending
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
@@ -23,7 +25,7 @@ class User
   before_validation :do_bad_things 
   ######## Making things work ########
   key :email, String
-  validates_true_for :email, :logic => lambda {self.allowed_email?} 
+  validates_true_for :email, :logic => lambda {self.allowed_email? unless email.nil?} 
 
   
   def allowed_email?
@@ -31,6 +33,7 @@ class User
       "wchulley@gmail.com", "kimfuh@yahoo.com", "CJichi@yahoo.com",
       "madkisso@mit.edu", "bribak@msn.com", "asykley@verizon.net",
       "paulhaeberli@gmail.com","bondovatic@gmail.com", "dixon1e@yahoo.com"]
+    
     allowed_emails.each{|allowed| 
       if email.include?(allowed)
         return true
@@ -59,23 +62,25 @@ class User
   def post(class_name, options = {})
     options[:person] = self.person
 
-    group_id = options[:group_id]
-    options.delete(:group_id)
+    group_ids = options[:group_ids]
+    options.delete(:group_ids)
 
     model_class = class_name.to_s.camelize.constantize
+    
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save
 
 
-    if group_id
-      group = self.groups.find_by_id(group_id)
+    groups = self.groups.find_all_by_id(group_ids)
+    target_people = [] 
+
+    groups.each{ |group|
       group.posts << post
       group.save
-      post.push_to( group.people.all )
-    else
-      post.push_to( self.friends.all )
-    end
+      target_people = target_people | group.people
+    }
+    post.push_to( target_people )
 
     post.socket_to_uid(id) if post.respond_to?(:socket_to_uid)
 
@@ -86,6 +91,7 @@ class User
  
   def visible_posts( opts = {} )
     if opts[:by_members_of]
+      return raw_visible_posts if opts[:by_members_of] == :all
       group = self.groups.find_by_id( opts[:by_members_of].id )
       group.posts
     end
@@ -135,128 +141,6 @@ class User
     else
       false
     end
-  end
-
-  ######### Friend Requesting ###########
-  def send_friend_request_to(friend_url, group_id)
-    unless self.friends.detect{ |x| x.receive_url == friend_url}
-      request = Request.instantiate(:to => friend_url, :from => self.person, :into => group_id)
-      if request.save
-        self.pending_requests << request
-        self.save
-
-        group = self.group_by_id(group_id)
-
-        group.requests << request
-        group.save
-        
-        request.push_to_url friend_url
-      end
-      request
-    end
-  end 
-
-  def accept_friend_request(friend_request_id, group_id)
-    request = Request.find_by_id(friend_request_id)
-    pending_requests.delete(request)
-    
-    activate_friend(request.person, group_by_id(group_id))
-
-    request.reverse_for(self)
-    request
-  end
-  
-  def dispatch_friend_acceptance(request)
-    request.push_to_url(request.callback_url)
-    request.destroy unless request.callback_url.include? url
-  end 
-  
-  def accept_and_respond(friend_request_id, group_id)
-    dispatch_friend_acceptance(accept_friend_request(friend_request_id, group_id))
-  end
-
-  def ignore_friend_request(friend_request_id)
-    request = Request.find_by_id(friend_request_id)
-    person  = request.person
-
-    person.user_refs -= 1
-
-    self.pending_requests.delete(request)
-    self.save
-
-    (person.user_refs > 0 || person.owner.nil? == false) ?  person.save : person.destroy
-    request.destroy
-  end
-
-  def receive_friend_request(friend_request)
-    Rails.logger.info("receiving friend request #{friend_request.to_json}")
-
-    if request_from_me?(friend_request)
-      group = self.group_by_id(friend_request.group_id)
-      activate_friend(friend_request.person, group)
-
-      Rails.logger.info("#{self.real_name}'s friend request has been accepted")
-
-      friend_request.destroy
-    else
-
-      friend_request.person.user_refs += 1
-      friend_request.person.save
-      self.pending_requests << friend_request
-      self.save
-      Rails.logger.info("#{self.real_name} has received a friend request")
-      friend_request.save
-    end
-  end
-
-  def unfriend(bad_friend)
-    Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
-    retraction = Retraction.for(self)
-    retraction.creator_signature = retraction.sign_with_key(encryption_key)
-    retraction.push_to_url(bad_friend.receive_url) 
-    remove_friend(bad_friend)
-  end
-  
-  def remove_friend(bad_friend)
-    raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
-    groups.each{|g| g.person_ids.delete( bad_friend.id )}
-    self.save
-
-    self.raw_visible_posts.find_all_by_person_id( bad_friend.id ).each{|post|
-      self.visible_post_ids.delete( post.id )
-      post.user_refs -= 1
-      (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
-    }
-    self.save
-
-    bad_friend.user_refs -= 1
-    (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
-  end
-
-  def unfriended_by(bad_friend)
-    Rails.logger.info("#{self.real_name} is being unfriended by #{bad_friend.inspect}")
-    remove_friend bad_friend
-  end
-
-  def send_request(rel_hash, group)
-    if rel_hash[:friend]
-      self.send_friend_request_to(rel_hash[:friend], group)
-    else
-      raise "you can't do anything to that url"
-    end
-  end
-  
-  def activate_friend(person, group)
-    person.user_refs += 1
-    group.people << person
-    friends << person
-    person.save
-    group.save
-    save
-  end
-
-  def request_from_me?(request)
-    pending_requests.detect{|req| (req.callback_url == person.receive_url) && (req.destination_url == person.receive_url)}
   end
 
   ###### Receiving #######
@@ -341,6 +225,7 @@ class User
     groups.detect{|x| x.id == id }
   end
 
+
   def tommy?
     email.include?("tommy@pivotallabs.com") || email.include?("tsullivan@pivotallabs.com")
   end
@@ -361,6 +246,11 @@ class User
     group(:name => "Work")
   end
 
+  def album_by_id( id )
+    id = ensure_bson id
+    albums.detect{|x| x.id == id }
+  end
+
   def groups_with_person person
     id = ensure_bson person.id
     groups.select {|group| group.person_ids.include? id}
@@ -369,16 +259,15 @@ class User
   protected
   
   def setup_person
-    self.person.serialized_key = generate_key.export
-    self.person.email = email
+    self.person.serialized_key ||= generate_key.export
+    self.person.email ||= email
     self.person.save!
   end
 
   protected
-  
-  def generate_key
+   def generate_key
     OpenSSL::PKey::RSA::generate 1024 
-  end
+  end 
 
   def self.generate_key
     OpenSSL::PKey::RSA::generate 1024 
