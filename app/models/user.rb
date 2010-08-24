@@ -45,9 +45,11 @@ class User
     options[:person] = self.person
 
     group_ids = options[:to]
+
+    raise "You must post to someone." if group_ids.nil? || group_ids.empty?
+
     group_ids = [group_ids] unless group_ids.is_a? Array
 
-    return nil if group_ids.nil? || group_ids.empty?
     group_ids.map!{|gid| ensure_bson gid }
     options.delete(:to)
 
