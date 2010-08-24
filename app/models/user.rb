@@ -71,6 +71,7 @@ class User
  
   def visible_posts( opts = {} )
     if opts[:by_members_of]
+      return raw_visible_posts if opts[:by_members_of] == :all
       group = self.groups.find_by_id( opts[:by_members_of].id )
       group.posts
     end
