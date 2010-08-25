@@ -9,15 +9,6 @@ describe Album do
     @album = @user.post(:album, :name => "test collection", :to => @group.id)
   end
 
-  it 'should belong to a person' do
-    @album.person = nil
-    @album.valid?.should be false
-    @album.person = Factory.create(:person)
-    @album.valid?.should be true
-    @album.save
-    person.albums.count.should == 1
-  end
-
   it 'should require a name' do
     @album.name = "test collection"
     @album.valid?.should be true

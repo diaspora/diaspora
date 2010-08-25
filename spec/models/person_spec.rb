@@ -147,7 +147,7 @@ describe Person do
     
     describe 'wall posting' do 
       it 'should be able to post on another persons wall' do
-        
+        pending
         #user2 is in user's group, user is in group2 on user
         friend_users(@user, @group, @user2, @group2)
         

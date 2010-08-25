@@ -81,7 +81,7 @@ describe Group do
       group2 = @user2.group(:name => 'winners')
       friend_users(@user, group, @user2, group2)
 
-      message = @user2.post(:status_message, :message => "Hey Dude")
+      message = @user2.post(:status_message, :message => "Hey Dude", :to => group2.id)
       
       @user.receive message.to_diaspora_xml
       
@@ -95,7 +95,7 @@ describe Group do
       group2 = @user2.group(:name => 'winners')
       friend_users(@user, group, @user2, group2)
 
-      message = @user2.post(:status_message, :message => "Hey Dude")
+      message = @user2.post(:status_message, :message => "Hey Dude", :to => group2.id)
       
       @user.receive message.to_diaspora_xml
       group.reload

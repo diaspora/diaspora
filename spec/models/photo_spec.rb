@@ -8,6 +8,9 @@ describe Photo do
     @fixture_filename = 'button.png'
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
+
+    @group = @user.group(:name => "losers")
+
     @album = Album.create(:name => "foo", :person => @user.person)
     @photo = Photo.new(:person => @user.person, :album => @album)
   end
@@ -85,7 +88,7 @@ describe Photo do
     end
 
     it 'should save a signed photo' do
-      photo  = @user.post(:photo, :album => @album, :user_file => [File.open(@fixture_name)])
+      photo  = @user.post(:photo, :album => @album, :user_file => [File.open(@fixture_name)], :to => @group.id)
       photo.save.should == true
       photo.signature_valid?.should be true
     end

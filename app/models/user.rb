@@ -46,9 +46,9 @@ class User
 
     group_ids = options[:to]
 
+    group_ids = [group_ids] if group_ids.is_a? BSON::ObjectID
     raise "You must post to someone." if group_ids.nil? || group_ids.empty?
 
-    group_ids = [group_ids] unless group_ids.is_a? Array
 
     group_ids.map!{|gid| ensure_bson gid }
     options.delete(:to)
@@ -219,7 +219,7 @@ class User
   end
 
   def groups_with_person person
-    id = ensure_bson person.object_id
+    id = ensure_bson person.id
     groups.select {|group| group.person_ids.include? id}
   end
 
