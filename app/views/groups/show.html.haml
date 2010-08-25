@@ -1,3 +1,7 @@
+%h1
+  Stream for
+  %u= @group.name
+
 = render "shared/publisher", :group_id => @group.id
 %ul#stream
   - for post in @posts
