@@ -138,6 +138,8 @@ li.message {
   li.message .avatar {
     float: left;
     margin-right: 15px; }
+  li.message .delete:hover {
+    background: #eeeeee; }
   li.message .content span.from {
     color: black;
     font-weight: normal;
@@ -465,6 +467,8 @@ h1.big_text {
         padding-right: 0.3em; }
       #group_nav ul > li:hover {
         background-color: #333333; }
+        #group_nav ul > li:hover a {
+          color: #999999; }
       #group_nav ul > li a {
         color: #999999; }
         #group_nav ul > li a:hover {
@@ -472,12 +476,14 @@ h1.big_text {
     #group_nav ul .⚙ {
       margin-left: 4px; }
       #group_nav ul .⚙ a {
-        color: #333333; }
+        color: black; }
     #group_nav ul .selected {
       background-color: white;
       color: black; }
       #group_nav ul .selected:hover {
         background-color: #eeeeee; }
+      #group_nav ul .selected .⚙ a {
+        color: #333333; }
 
 #add_photo_loader {
   position: absolute;
