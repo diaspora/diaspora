@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def current_group?(group)
-    @group == :all || @group.id == group.id
+    @group != :all && @group.id == group.id
   end
   
   def object_path(object)

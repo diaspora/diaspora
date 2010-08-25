@@ -60,7 +60,8 @@
       .container
         #group
           %ul
-            %li= link_to "All Groups", root_url
+            %li{:class => ("selected" if @group == :all)}
+              = link_to "All Groups", root_url
             - for group in @groups
               %li{:class => ("selected" if current_group?(group))}
                 = link_for_group group
