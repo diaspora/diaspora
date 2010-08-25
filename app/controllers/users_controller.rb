@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.first(:id => params[:id])
+    @user = current_user
     @person = @user.person
     @profile = @user.profile
     @photos = Photo.where(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
