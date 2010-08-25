@@ -23,4 +23,7 @@ class Profile
   def person
     Person.first(:id => self.person_id)
   end
+
+  ##this needs to go once we move to Salmon
+  def signature_valid?; true; end
 end
