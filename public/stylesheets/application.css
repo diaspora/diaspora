@@ -19,6 +19,9 @@ a {
     background-color: #018790;
     background-color: #556270; }
 
+.avatar {
+  width: 50px; }
+
 #flash_notice,
 #flash_error,
 #flash_alert {
@@ -113,35 +116,29 @@ header {
 #main {
   width: 100%; }
 
-ul#stream, ul#friend_stream {
+ul#stream {
   margin: 0;
   padding: 0; }
-  ul#stream > li, ul#friend_stream > li {
+  ul#stream > li {
+    min-height: 50px;
     list-style: none;
-    padding: 15px 0;
-    margin-bottom: 5px;
+    padding: 12px 0;
     border-bottom: 1px solid #eeeeee; }
-
-ul#friend_stream > li {
-  padding: 0.2em 0; }
-ul#friend_stream img {
-  width: 25px;
-  max-width: 25px;
-  position: relative;
-  float: none;
-  display: inline; }
 
 li.message {
   position: relative;
   line-height: 140%;
   font-family: "Lucida Grande", sans-serif;
   color: #999999; }
-  li.message span.from {
+  li.message .avatar {
+    float: left;
+    margin-right: 15px; }
+  li.message .content span.from {
     color: black;
     font-weight: normal;
     margin-right: 0.2em;
     font-size: 110%; }
-  li.message div.time {
+  li.message .content div.info {
     color: #bababa;
     font-size: 70%; }
 
@@ -304,25 +301,32 @@ label {
   font-weight: normal; }
 
 #publisher {
-  background-color: rgba(10, 81, 109, 0.05);
   border-bottom: 2px #999999 solid;
   color: #999999;
   position: relative;
-  height: 69px; }
+  height: 63px;
+  margin-bottom: 5px; }
+  #publisher .avatar {
+    float: left;
+    margin-right: 15px; }
+  #publisher p {
+    position: absolute;
+    left: 0; }
   #publisher form {
-    margin-top: 10px; }
+    display: inline; }
+    #publisher form input[type='submit'] {
+      float: right;
+      margin-right: 20px;
+      margin-top: 28px; }
   #publisher textarea {
     width: 485px;
     height: 40px;
     margin-top: 0; }
-  #publisher .user_image img {
-    height: 50px;
-    padding-left: 10px; }
   #publisher ul.group_selector {
-    float: left;
+    left: 510px;
     padding: 0;
     margin: 0;
-    width: auto;
+    width: 110px;
     z-index: 10;
     position: absolute;
     height: auto;
@@ -333,7 +337,7 @@ label {
       font-size: smaller;
       padding: 2px;
       display: none;
-      background-color: white; }
+      background-color: #eeeeee; }
       #publisher ul.group_selector > li:active {
         background-color: yellow; }
     #publisher ul.group_selector:hover li {
@@ -452,9 +456,6 @@ h1.big_text {
     #group ul .selected:hover a {
       background-color: #eeeeee; }
 
-#friend_pictures img {
-  height: 40px; }
-
 #add_photo_loader {
   position: absolute;
   display: none;
@@ -504,8 +505,8 @@ h1.big_text {
         color: #999999; }
       #other_user_menu > li:first-child img {
         position: absolute;
-        height: 20px;
-        top: 5px;
+        width: 20px;
+        top: 3px;
         left: 9px; }
     #other_user_menu > li:last-child {
       border-bottom: 2px solid black; }

@@ -20,6 +20,9 @@ a
       :color #018790
       :color #556270
 
+.avatar
+  :width 50px
+
 #flash_notice,
 #flash_error,
 #flash_alert
@@ -131,27 +134,15 @@ header
 #main
   :width 100%
 
-ul#stream, ul#friend_stream
+ul#stream
   :margin 0
   :padding 0
   > li
+    :min-height 50px
     :list-style none
-    :padding 15px 0
-    :margin-bottom 5px
+    :padding 12px 0
     :border
       :bottom 1px solid #eee
-
-ul#friend_stream
-  > li
-    :padding 0.2em 0
-
-  img
-    :width 25px
-    :max-width 25px
-    :position relative
-    :float none
-    :display inline
-
 
 li.message
   :position relative
@@ -160,18 +151,25 @@ li.message
     :family 'Lucida Grande', sans-serif
   :color #999
 
-  span.from
-    :color #000
-    :font
-      :weight normal
+  .avatar
+    :float left
     :margin
-      :right 0.2em
-    :font
-      :size 110%
+      :right 15px
 
-  div.time
-    :color #bababa
-    :font-size 70%
+
+  .content
+    span.from
+      :color #000
+      :font
+        :weight normal
+      :margin
+        :right 0.2em
+      :font
+        :size 110%
+
+    div.info
+      :color #bababa
+      :font-size 70%
 
 h1
   :position relative
@@ -373,17 +371,31 @@ label
     :weight normal
 
 #publisher
-  :background
-    :color rgba(10,81,109,0.05)
   :border
     :bottom 2px #999 solid
   :color #999
   :position relative
-  :height 69px
+  :height 63px
+  :margin
+    :bottom 5px
+
+  .avatar
+    :float left
+    :margin
+      :right 15px
+
+  p
+    :position absolute
+    :left 0 
 
   form
-    :margin
-      :top 10px
+    :display inline
+
+    input[type='submit']
+      :float right
+      :margin
+        :right 20px
+        :top 28px
 
   textarea
     :width 485px
@@ -391,17 +403,11 @@ label
     :margin
       :top 0
 
-  .user_image
-    img
-      :height 50px
-      :padding
-        :left 10px
-
   ul.group_selector
-    :float left
+    :left 510px
     :padding 0
     :margin 0
-    :width auto
+    :width 110px
     :z-index 10
     :position absolute
     :height auto
@@ -415,7 +421,7 @@ label
       :padding 2px
       :display none
       :background
-        :color #fff
+        :color #eee
 
       &:active
         :background
@@ -581,10 +587,6 @@ h1.big_text
           :background
             :color #eee
 
-#friend_pictures
-  img
-    :height 40px
-
 
 #add_photo_loader
   :position absolute
@@ -651,8 +653,8 @@ h1.big_text
 
       img
         :position absolute
-        :height 20px
-        :top 5px
+        :width 20px
+        :top 3px
         :left 9px
 
     &:last-child
