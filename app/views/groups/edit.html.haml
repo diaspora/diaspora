@@ -6,17 +6,15 @@
 %h1.big_text
   .back
     = link_to "⇧ #{@group.name}", @group
-
   = "Editing Groups"
 
 
-%ul
 - for group in @groups
   %li.group
     = group.name
     %ul
       -for person in group.people
-        %li..person
+        %li.person
           = person.real_name
 
 

@@ -40,6 +40,28 @@ class User
     Group.create(opts)
   end
 
+  def move_friend( opts = {})
+    return true if opts[:to] == opts[:from]
+    friend = Person.first(:_id => opts[:friend_id])
+    if self.friend_ids.include?(friend.id)
+      from_group = self.group_by_id(opts[:from]) 
+      to_group = self.group_by_id(opts[:to])
+      if from_group && to_group
+        posts_to_move = from_group.posts.find_all_by_person_id(friend.id)
+        puts posts_to_move.inspect
+        to_group.people << friend
+        to_group.posts << posts_to_move
+        puts to_group.inspect
+        from_group.person_ids.delete(ensure_bson(friend.id))
+        posts_to_move.each{ |x| from_group.post_ids.delete(x.id)}
+        puts from_group.inspect
+        from_group.save
+        to_group.save
+        return true
+      end
+    end
+    false
+  end
   ######## Posting ########
   def post(class_name, options = {})
     options[:person] = self.person

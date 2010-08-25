@@ -49,4 +49,9 @@ class GroupsController < ApplicationController
     end
   end
 
+  def move_person
+    current_user.move_friend( :friend_id => params[:person_id], :from => params[:old_group_id], :to => params[:new_group_id])
+    render :nothing => true
+  end
+
 end

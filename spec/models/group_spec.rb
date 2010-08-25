@@ -110,4 +110,59 @@ describe Group do
     end
   end
 
+  describe "group editing" do
+    before do
+      @group = @user.group(:name => 'losers')
+      @group2 = @user2.group(:name => 'failures')
+      friend_users(@user, @group, @user2, @group2)
+      @group.reload
+      @group3 = @user.group(:name => 'cats')
+      @user.reload
+    end
+
+    it 'should be able to move a friend from one of users existing groups to another' do
+      @user.move_friend(:friend_id => @user2.person.id, :from => @group.id, :to => @group3.id)
+      @group.reload
+      @group3.reload
+
+      @group.person_ids.include?(@user2.person.id).should be false
+      @group3.people.include?(@user2.person).should be true
+    end
+
+    it "should not move a person who is not a friend" do
+      @user.move_friend(:friend_id => @friend.id, :from => @group.id, :to => @group3.id)
+      @group.reload
+      @group3.reload
+      @group.people.include?(@friend).should be false
+      @group3.people.include?(@friend).should be false
+    end
+     
+    it "should not move a person to a group that's not his" do
+      @user.move_friend(:friend_id => @user2.person.id, :from => @group.id, :to => @group2.id)
+      @group.reload
+      @group2.reload
+      @group.people.include?(@user2.person).should be true 
+      @group2.people.include?(@user2.person).should be false
+    end
+
+    it 'should move all the by that user to the new group' do
+      message = @user2.post(:status_message, :message => "Hey Dude", :to => @group2.id)
+      
+      @user.receive message.to_diaspora_xml
+      @group.reload
+
+      @group.posts.count.should be 1
+      @group3.posts.count.should be 0
+      
+      @user.reload
+      @user.move_friend(:friend_id => @user2.person.id, :from => @group.id, :to => @group3.id)
+      @group.reload
+      @group3.reload
+
+      @group3.posts.count.should be 1
+      @group.posts.count.should be 0
+
+    end
+
+  end
 end

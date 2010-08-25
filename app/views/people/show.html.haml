@@ -17,6 +17,11 @@
         %i= "friends since: #{how_long_ago(@person)}"
       %li
         ="groups: #{@person_groups}"
+        = "edit"
+        = form_for Request.new do |f|
+              = f.select(:group_id, @groups_array)
+              = f.hidden_field :destination_url, :value => person.email
+              = f.submit "add friend"
       %li
         url:
         = @person.url
