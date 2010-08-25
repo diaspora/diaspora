@@ -201,6 +201,10 @@ form {
   padding: 0;
     padding-left: 65px; }
 
+input.comment_submit {
+  display: none;
+  margin-right: -10px; }
+
 ul.comment_set {
   margin: 0;
     margin-top: 1em;
