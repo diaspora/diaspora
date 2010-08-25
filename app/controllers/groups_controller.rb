@@ -35,6 +35,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @groups = current_user.groups
     @group = Group.first(:id => params[:id])
   end
 
