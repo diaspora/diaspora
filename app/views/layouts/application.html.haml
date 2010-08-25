@@ -31,23 +31,6 @@
 
     %header
       .container
-        #session_action
-          %ul#user_menu
-            %li#global_search
-              = form_tag(users_path, :method => 'get') do
-                %label{:for => 'q'} Search
-                = text_field_tag 'q'
-
-            %li
-              %ul#other_user_menu
-                %li
-                  = owner_image_tag 
-                  = link_to current_user.real_name, current_user.person
-                %li.requests= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
-                %li.settings= link_to "settings", edit_user_path(current_user)
-                %li.logout= link_to "logout", destroy_user_session_path
-
-
         #diaspora_text{:href => root_path}
           = link_to "DIASPORA*", root_path
           %span.sub_text
@@ -56,25 +39,29 @@
           %span{:style => "padding-left:30px;"}
             = link_to "photos", albums_path
 
+        #session_action
+          #global_search
+            = form_tag(users_path, :method => 'get') do
+              %label{:for => 'q'} Search
+              = text_field_tag 'q'
+
+          %ul#user_menu
+            %li
+              = owner_image_tag 
+              = link_to current_user.real_name, current_user.person
+            %li.requests= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
+            %li.settings= link_to "settings", edit_user_path(current_user)
+            %li.logout= link_to "logout", destroy_user_session_path
+
+
     #sub_header
       .container
-        #group
-          %ul
-            %li{:class => ("selected" if @group == :all)}
-              = link_to "All Groups", root_url
-            - for group in @groups
-              %li{:class => ("selected" if current_group?(group))}
-                = link_for_group group
-            %li.new_group= link_to("new", "#add_group_pane", :id => "add_group_button")
-
-          .yo{ :style => "display:none;"}
-            #add_group_pane
-              = render "groups/new_group"
+        = render "shared/group_nav"
 
     .container
       .span-5.last
         %h1 Friends
-        = render "shared/group_nav"
+        = render "shared/group_friends"
 
       .span-19.last
         = yield
