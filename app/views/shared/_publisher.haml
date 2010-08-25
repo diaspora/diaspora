@@ -11,6 +11,6 @@
       going to...
       - for group in @groups
         %li
-          = check_box_tag("group_ids[]", group.id, current_group?(group) )
+          = check_box_tag("group_ids[]", group.id, @group == :all || current_group?(group) )
           = group.name
     = f.submit "Post"
