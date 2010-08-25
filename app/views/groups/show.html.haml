@@ -1,6 +1,6 @@
 %h1
   Stream for
-  %u= @group.name
+  = link_to @group.name, @group
 
 = render "shared/publisher", :group_id => @group.id
 %ul#stream
