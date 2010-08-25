@@ -21,7 +21,6 @@
       }else if (obj['class']=='photos' && onPageForClass('albums')){
         processPhotoInAlbum(obj['photo_hash'])
       }else{
-        alert("hey");
         processPost(obj['class'], obj['html'], obj['group_ids'])
       }
 
