@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   
   def set_friends_and_status
     if current_user
+      @group = :all
       @groups = current_user.groups
       @friends = current_user.friends
     end
