@@ -46,14 +46,6 @@ class Post
       (self.send accessor.to_sym).to_s}.join ';'
   end
   
-  def log_inspection
-    Rails.logger.debug self.inspect
-  end
-  def log_save_inspection
-    Rails.logger.debug "After saving, object is:"
-    log_inspection
-  end
-
 protected
    def destroy_comments
     comments.each{|c| c.destroy}

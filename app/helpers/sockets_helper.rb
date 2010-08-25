@@ -7,7 +7,7 @@ module SocketsHelper
 
   def action_hash(uid, object, opts={})
     begin
-      user = User.find_by_id(uid)
+      user = User.find_by_id(User.ensure_bson uid)
       v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
     rescue Exception => e
       Rails.logger.error("web socket view rendering failed for object #{object.inspect}.")

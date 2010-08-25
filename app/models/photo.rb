@@ -26,7 +26,6 @@ class Photo < Post
     photo
   end
   
-  after_save :log_save_inspection 
   validates_true_for :album_id, :logic => lambda {self.validate_album_person}
 
   before_destroy :ensure_user_picture

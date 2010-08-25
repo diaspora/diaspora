@@ -1,7 +1,8 @@
-:javascript
-  $(document).ready(function(){
-    reset_photo_fancybox();
-  });
+- content_for :head do
+  :javascript
+    $(document).ready(function(){
+      reset_photo_fancybox();
+    });
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
 .back= link_to '⇧ albums', albums_path

@@ -30,5 +30,7 @@ describe StatusMessage do
       parsed.valid?.should be_true
     end
   end
+
+
 end
 
