@@ -79,12 +79,14 @@ header {
   border-bottom: 2px solid #666666;
   padding: 0; }
   header #diaspora_text {
-    padding-top: 5px;
+    position: absolute;
+    display: inline;
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 16px;
     border: none;
     color: white;
-    text-shadow: 0 2px 0 black; }
+    text-shadow: 0 2px 0 black;
+    top: 3px; }
     header #diaspora_text a {
       color: #666666; }
     header #diaspora_text a:hover {
@@ -93,6 +95,8 @@ header {
     header #diaspora_text span.sub_text {
       text-shadow: none; }
   header #session_action {
+    position: relative;
+    display: inline;
     float: right;
     padding-right: 10px; }
     header #session_action a.new_requests {
@@ -134,6 +138,8 @@ li.message {
   li.message .avatar {
     float: left;
     margin-right: 15px; }
+  li.message .delete:hover {
+    background: #eeeeee; }
   li.message .content span.from {
     color: black;
     font-weight: normal;
@@ -446,27 +452,38 @@ h1.big_text {
 .image_cycle img {
   display: none; }
 
-#group {
+#group_nav {
   color: black; }
-  #group ul {
+  #group_nav ul {
     margin: 0;
       margin-bottom: -5px;
     padding: 0;
     list-style: none;
     font-size: 14px; }
-    #group ul > li {
+    #group_nav ul > li {
       display: inline;
-      margin-right: 1.5em; }
-      #group ul > li:hover a {
+      margin-right: 1.5em;
+      padding: 0.3em 0.5em;
+        padding-right: 0.3em; }
+      #group_nav ul > li:hover {
         background-color: #333333; }
-      #group ul > li a {
-        color: #999999;
-        padding: 0.3em 0.5em; }
-    #group ul .selected a {
+        #group_nav ul > li:hover a {
+          color: #999999; }
+      #group_nav ul > li a {
+        color: #999999; }
+        #group_nav ul > li a:hover {
+          background: none; }
+    #group_nav ul .⚙ {
+      margin-left: 4px; }
+      #group_nav ul .⚙ a {
+        color: black; }
+    #group_nav ul .selected {
       background-color: white;
       color: black; }
-    #group ul .selected:hover a {
-      background-color: #eeeeee; }
+      #group_nav ul .selected:hover {
+        background-color: #eeeeee; }
+      #group_nav ul .selected .⚙ a {
+        color: #333333; }
 
 #add_photo_loader {
   position: absolute;
@@ -475,22 +492,6 @@ h1.big_text {
   top: 4px; }
 
 #user_menu {
-  position: relative;
-  padding: 0 5px;
-  margin: 0;
-  list-style: none;
-  top: 1px; }
-  #user_menu a {
-    color: #999999; }
-  #user_menu > li {
-    display: inline;
-    margin-right: 1em; }
-    #user_menu > li:first-child {
-      margin-right: 0; }
-    #user_menu > li:last-child {
-      margin-right: 0; }
-
-#other_user_menu {
   position: absolute;
   z-index: 10;
   top: 0;
@@ -499,51 +500,51 @@ h1.big_text {
   padding: 0;
   margin: 0;
   list-style: none; }
-  #other_user_menu > li {
+  #user_menu > li {
     display: none;
     background-color: white;
     width: 180px;
     height: 29px;
     border-left: 2px solid black;
     border-right: 2px solid black; }
-    #other_user_menu > li:hover {
+    #user_menu > li:hover {
       background-color: #eeeeee; }
-    #other_user_menu > li:first-child {
+    #user_menu > li:first-child {
       display: block;
       background: none;
       border-left: 2px solid #333333;
       border-right: 2px solid #333333; }
-      #other_user_menu > li:first-child a {
+      #user_menu > li:first-child a {
         color: #999999; }
-      #other_user_menu > li:first-child img {
+      #user_menu > li:first-child img {
         position: absolute;
         width: 20px;
         height: 20px;
         top: 3px;
         left: 9px; }
-    #other_user_menu > li:last-child {
+    #user_menu > li:last-child {
       border-bottom: 2px solid black; }
-    #other_user_menu > li a {
+    #user_menu > li a {
       display: block;
       height: 100%;
       padding-left: 40px;
       padding-top: 5px;
       color: black; }
-      #other_user_menu > li a:hover {
+      #user_menu > li a:hover {
         background-color: transparent; }
-  #other_user_menu .requests {
+  #user_menu .requests {
     background-image: url("/images/glyphish-icons/icons/40-inbox.png");
     background-repeat: no-repeat;
     background-position: 5px; }
-  #other_user_menu .settings {
+  #user_menu .settings {
     background-image: url("/images/glyphish-icons/icons/20-gear2.png");
     background-repeat: no-repeat;
     background-position: 5px; }
-  #other_user_menu .logout {
+  #user_menu .logout {
     background-image: url("/images/glyphish-icons/icons/54-lock.png");
     background-repeat: no-repeat;
     background-position: 5px; }
-  #other_user_menu:hover li {
+  #user_menu:hover li {
     display: block; }
 
 #global_search {

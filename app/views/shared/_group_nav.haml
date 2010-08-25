@@ -1,10 +1,15 @@
-#friend_pictures
-  - for friend in @friends
-    = person_image_link(friend)
+#group_nav
+  %ul
+    %li{:class => ("selected" if @group == :all)}
+      = link_to "All Groups", root_url
+    - for group in @groups
+      %li{:id => group.id, :class => ("selected" if current_group?(group))}
+        = link_for_group group
+        %span{:class => '⚙'}
+          = link_to "⚙", "#", :class => "edit_group_button"
 
-  - unless @group == :all
-    = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane", :id => 'add_request_button'
-  
-    .yo{:style => 'display:none'}
-      #add_request_pane
-        = render "requests/new_request"
+    %li.new_group= link_to("new", "#add_group_pane", :id => "add_group_button")
+
+  .yo{ :style => "display:none;"}
+    #add_group_pane
+      = render "groups/new_group"

@@ -87,8 +87,8 @@ header
   :padding 0
 
   #diaspora_text
-    :padding
-      :top 5px
+    :position absolute
+    :display inline
     :font
       :family 'BrandonGrotesqueLightRegular'
       :size 16px
@@ -96,6 +96,7 @@ header
     :color #fff
     :text
       :shadow 0 2px 0 #000
+    :top 3px
 
     a
       :color #666
@@ -109,6 +110,8 @@ header
         :shadow none
       
   #session_action
+    :position relative
+    :display inline
     :float right
     a
       &.new_requests
@@ -157,7 +160,9 @@ li.message
     :margin
       :right 15px
 
-
+  .delete:hover
+    :background #eee
+    
   .content
     span.from
       :color #000
@@ -568,7 +573,7 @@ h1.big_text
   img
     :display none
 
-#group
+#group_nav
   :color #000
   ul
     :margin 0
@@ -582,26 +587,37 @@ h1.big_text
       :display inline
       :margin
         :right 1.5em
+      :padding 0.3em 0.5em
+        :right 0.3em
 
       &:hover
+        :background
+          :color #333
         a
-          :background
-            :color #333
+          :color #999
+
 
       a
         :color #999
-        :padding 0.3em 0.5em
-        
-      
-    .selected
+        &:hover
+          :background none
+
+    .⚙
+      :margin
+        :left 4px
       a
-        :background
-          :color #fff
         :color #000
+        
+    .selected
+      :background
+        :color #fff
+      :color #000
       &:hover
+        :background
+          :color #eee
+      .⚙
         a
-          :background
-            :color #eee
+          :color #333
 
 
 #add_photo_loader
@@ -611,29 +627,6 @@ h1.big_text
   :top 4px
 
 #user_menu
-  :position relative
-  :padding 0 5px
-  :margin 0
-  :list-style none
-  :top 1px
-
-  a
-    :color #999
-
-  > li
-    :display inline
-    :margin
-      :right 1em
-
-    &:first-child
-      :margin
-        :right 0
-
-    &:last-child
-      :margin
-        :right 0
-
-#other_user_menu
   :position absolute
   :z-index 10
   :top 0
@@ -744,3 +737,5 @@ h1.big_text
         :size 12px
       :margin
         :top -3px
+
+
