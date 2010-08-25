@@ -192,17 +192,23 @@ form {
 
 #stream div.comments {
   display: none; }
+  #stream div.comments .avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; }
 
 #stream ul.comment_set {
   padding: 0;
-    padding-left: 1em; }
+    padding-left: 65px; }
 
 ul.comment_set {
   margin: 0;
     margin-top: 1em;
   padding: 0;
   list-style: none;
-  width: 90%; }
+  width: 495px; }
+  ul.comment_set textarea {
+    width: 100%; }
   ul.comment_set li.comment {
     margin-bottom: 0.5em;
     background-color: rgba(10, 81, 109, 0.05);
@@ -216,7 +222,8 @@ ul.comment_set {
       color: #666666;
       font-size: 70%; }
     ul.comment_set li.comment form {
-      margin-top: -5px; }
+      margin-top: -5px;
+      margin-bottom: 0; }
 
 .profile_photo {
   float: left;

@@ -30,10 +30,10 @@ $(document).ready(function(){
     event.preventDefault();
     if( $(this).hasClass( "visible")) {
       $(this).html($(this).html().replace("hide", "show"));
-      $(this).parents("li").children(".comments").fadeOut(100);
+      $(this).closest("li").children(".content").children(".comments").fadeOut(100);
     } else {
       $(this).html($(this).html().replace("show", "hide"));
-      $(this).parents("li").children(".comments").fadeIn(100);
+      $(this).closest("li").children(".content").children(".comments").fadeIn(100);
     }
     $(this).toggleClass( "visible" );
   });
