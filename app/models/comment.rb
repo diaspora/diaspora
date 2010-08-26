@@ -58,9 +58,8 @@ class Comment
   end
   
   def signature_valid?
-    Rails.logger.warn "Validating signature on comment from: #{person.inspect}"
-    Rails.logger.warn "#{person.real_name}" if person
-    person ? verify_signature(creator_signature, person) : true
+    return true if person.nil?
+    verify_signature(creator_signature, person)
   end
   
   protected
