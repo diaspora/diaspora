@@ -64,7 +64,7 @@ class Comment
     else
       Rails.logger.warn "Received comment has no person"
     end
-    verify_signature(creator_signature, person) && verify_signature(post_creator_signature, post.person)
+    verify_signature(creator_signature, person) 
   end
   
   protected
