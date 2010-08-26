@@ -16,6 +16,7 @@
       stuff
       -for person in group.people
         %li.person
+          = image_tag person.profile.image_url unless person.profile.image_url.nil?
           = person.real_name
 
 
