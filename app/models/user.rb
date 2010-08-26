@@ -64,23 +64,38 @@ class User
   def post(class_name, options = {})
     options[:person] = self.person
 
-    group_ids = options[:to]
+    if class_name == :photo
+      raise "No album_id given" unless options[:album_id]
+      group_ids = groups_with_post( options[:album_id] )
+      group_ids.map!{ |group| group.id }
+    else
+      group_ids = options.delete(:to)
+    end
 
     group_ids = [group_ids] if group_ids.is_a? BSON::ObjectID
     raise "You must post to someone." if group_ids.nil? || group_ids.empty?
 
-
-    group_ids.map!{|gid| ensure_bson gid }
-    options.delete(:to)
-
     model_class = class_name.to_s.camelize.constantize
-    
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save
 
+    post.socket_to_uid(id, :group_ids => group_ids) if post.respond_to?(:socket_to_uid)
 
-    groups = self.groups.find_all_by_id( group_ids )
+    push_to_groups(post, group_ids)
+
+    self.raw_visible_posts << post
+    self.save
+    post
+  end
+
+  def push_to_groups( post, group_ids )
+    if group_ids == :all || group_ids == "all"
+      groups = self.groups
+    else
+      groups = self.groups.find_all_by_id( group_ids )
+    end
+#send to the groups
     target_people = [] 
 
     groups.each{ |group|
@@ -88,15 +103,9 @@ class User
       group.save
       target_people = target_people | group.people
     }
-    
-    post.socket_to_uid(id, :group_ids => group_ids) if post.respond_to?(:socket_to_uid)
     post.push_to( target_people )
-
-    self.raw_visible_posts << post
-    self.save
-    post
   end
- 
+
   def visible_posts( opts = {} )
     if opts[:by_members_of]
       return raw_visible_posts if opts[:by_members_of] == :all
@@ -167,7 +176,7 @@ class User
       else
         object.perform self.id
         groups = self.groups_with_person(object.person)
-        groups.each{ |group| group.post_ids.delete(ensure_bson(object.post_id))
+        groups.each{ |group| group.post_ids.delete(object.post_id.to_id)
                              group.save
         }
       end
@@ -187,6 +196,7 @@ class User
 
     elsif object.is_a?(Comment) 
       dispatch_comment object unless owns?(object)
+      object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     else
       Rails.logger.debug("Saving object: #{object}")
       object.user_refs += 1
@@ -225,24 +235,28 @@ class User
   end 
 
   def visible_person_by_id( id )
-    id = ensure_bson id
+    id = id.to_id
     return self.person if id == self.person.id
     friends.detect{|x| x.id == id }
   end
 
   def group_by_id( id )
-    id = ensure_bson id
+    id = id.to_id
     groups.detect{|x| x.id == id }
   end
 
   def album_by_id( id )
-    id = ensure_bson id
+    id = id.to_id
     albums.detect{|x| x.id == id }
   end
 
+  def groups_with_post( id )
+    self.groups.find_all_by_post_ids( id )
+  end
+
   def groups_with_person person
-    id = ensure_bson person.id
-    groups.select {|group| group.person_ids.include? id}
+    id = person.id.to_id
+    groups.select { |g| g.person_ids.include? id}
   end
 
   def setup_person
@@ -263,7 +277,4 @@ class User
     OpenSSL::PKey::RSA::generate 1024 
   end
 
-  def ensure_bson id 
-    id.class == String ? BSON::ObjectID(id) : id 
-  end
 end

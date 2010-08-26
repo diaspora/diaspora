@@ -9,7 +9,7 @@
 
     %br
     
-  = render "albums/album", :post => post.album
+  = render "albums/album", :post => post.album, :current_user => current_user
    
   = link_to (image_tag post.url(:thumb_medium)), object_path(post)
     

@@ -48,6 +48,10 @@
     toggler = $('.show_post_comments', post)
     toggler.html(
       toggler.html().replace(/\d/,$('.comment_set', post)[0].childElementCount -1));
+
+    if( !$(".comments", post).is(':visible') ){
+      toggler.click();
+    }
   }
 
   function processPost(className, html, groupIds){
@@ -75,7 +79,7 @@
   }
   
   function onPageForClass(className){
-    return ((location.href.indexOf(className) != -1 ) || (location.pathname == '/')) && onPageOne();
+    return (location.href.indexOf(className) != -1 );
   }
 
   function onPageForGroups(groupIds){

@@ -1,5 +1,11 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
+class SocketsController
+  def url_options
+    {:host => ""}
+  end
+end
+
 describe 'SocketsController' do
   render_views  
   before do
@@ -12,22 +18,25 @@ describe 'SocketsController' do
   end
 
   it 'should unstub the websockets' do
-      WebSocket.initialize_channels
+      Diaspora::WebSocket.initialize_channels
       @controller.class.should == SocketsController
   end
   
   describe 'actionhash' do
     before do
-      @message = @user.post :status_message, :message => "post through user for victory", :to => @user.group(:name => "losers").id
+      @group = @user.group :name => "losers"
+      @message = @user.post :status_message, :message => "post through user for victory", :to => @group.id
+      @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
+    end
+    
+    it 'should actionhash photos' do
+      @album = @user.post(:album, :name => "Loser faces", :to => @group.id)
+      photo  = @user.post(:photo, :album_id => @album.id, :user_file => [File.open(@fixture_name)])
+      json = @controller.action_hash(@user.id, photo, :group_ids => @user.groups_with_post(@album.id).map{|g| g.id})
+      json.include?('photo').should be_true
     end
 
     it 'should actionhash posts' do
-      class SocketsController
-        def url_options
-          {:host => ""}
-        end
-      end
-
       json = @controller.action_hash(@user.id, @message)
       json.include?(@message.message).should be_true
       json.include?('status_message').should be_true

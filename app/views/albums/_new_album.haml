@@ -5,4 +5,5 @@
   %p
     = f.label :name
     = f.text_field :name
+    = f.hidden_field :to, :value => :all
   = f.submit 'create', :class => 'button'

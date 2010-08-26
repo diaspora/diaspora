@@ -1,31 +1,14 @@
 $(document).ready(function(){
 	
-
 	$('#debug_info').click(function() {
-		$('#debug_more').toggle('fast', function() {
-			
-		});
+		$('#debug_more').toggle('fast');
 	});
 	
   $("label").inFieldLabels();
 	
   $('#flash_notice, #flash_error, #flash_alert').delay(2500).slideUp(130);
   
-//Called with $(selector).clearForm()
-	$.fn.clearForm = function() {
-		return this.each(function() {
-		var type = this.type, tag = this.tagName.toLowerCase();
-		if (tag == 'form')
-			return $(':input',this).clearForm();
-		if (type == 'text' || type == 'password' || tag == 'textarea')
-			this.value = '';
-		//else if (type == 'checkbox' || type == 'radio')
-			//this.checked = false;
-		else if (tag == 'select')
-			this.selectedIndex = -1;
-		$(this).blur();
-    });
-	};
+
   
   $("div.image_cycle").cycle({
     fx: 'fade',
@@ -84,3 +67,19 @@ function pane_toggler_button( name ) {
     }
   );
 }
+
+//Called with $(selector).clearForm()
+	$.fn.clearForm = function() {
+		return this.each(function() {
+		var type = this.type, tag = this.tagName.toLowerCase();
+		if (tag == 'form')
+			return $(':input',this).clearForm();
+		if (type == 'text' || type == 'password' || tag == 'textarea')
+			this.value = '';
+		//else if (type == 'checkbox' || type == 'radio')
+			//this.checked = false;
+		else if (tag == 'select')
+			this.selectedIndex = -1;
+		$(this).blur();
+    });
+	};
