@@ -7,7 +7,7 @@
       = link_to post.person.real_name, post.person 
       = auto_link sanitize post.message
       
-    %div.info
+    .info
       = link_to(how_long_ago(post), object_path(post))
       \--
       = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
