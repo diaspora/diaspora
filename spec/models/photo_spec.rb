@@ -3,15 +3,14 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Photo do
   before do
     @user = Factory.create(:user)
-    @user.person.save
+    @group = @user.group(:name => "losers")
+    @album = @user.post :album, :name => "foo", :to => @group.id
 
     @fixture_filename = 'button.png'
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
 
-    @group = @user.group(:name => "losers")
 
-    @album = Album.create(:name => "foo", :person => @user.person)
     @photo = Photo.new(:person => @user.person, :album => @album)
   end
 
@@ -88,7 +87,7 @@ describe Photo do
     end
 
     it 'should save a signed photo' do
-      photo  = @user.post(:photo, :album => @album, :user_file => [File.open(@fixture_name)], :to => @group.id)
+      photo = @user.post(:photo, :album_id => @album.id, :user_file => [File.open(@fixture_name)])
       photo.save.should == true
       photo.signature_valid?.should be true
     end

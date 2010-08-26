@@ -73,7 +73,6 @@ class User
     if group_ids == :all || group_ids == "all"
       groups = self.groups
     else
-      group_ids.map!{|gid| User.ensure_bson gid }
       groups = self.groups.find_all_by_id( group_ids )
     end
 #send to the groups
@@ -157,7 +156,7 @@ class User
       else
         object.perform self.id
         groups = self.groups_with_person(object.person)
-        groups.each{ |group| group.post_ids.delete(User.ensure_bson(object.post_id))
+        groups.each{ |group| group.post_ids.delete(object.post_id.to_id)
                              group.save
         }
       end
@@ -215,29 +214,28 @@ class User
   end 
 
   def visible_person_by_id( id )
-    id = User.ensure_bson id
+    id = id.to_id
     return self.person if id == self.person.id
     friends.detect{|x| x.id == id }
   end
 
   def group_by_id( id )
-    id = User.ensure_bson id
+    id = id.to_id
     groups.detect{|x| x.id == id }
   end
 
   def album_by_id( id )
-    id = User.ensure_bson id
+    id = id.to_id
     albums.detect{|x| x.id == id }
   end
 
   def groups_with_post( id )
-    id = User.ensure_bson id
     self.groups.find_all_by_post_ids( id )
   end
 
   def groups_with_person person
-    id = User.ensure_bson person.id
-    groups.select {|group| group.person_ids.include? id}
+    id = person.id.to_id
+    groups.select { |g| g.person_ids.include? id}
   end
 
   def setup_person
@@ -258,7 +256,4 @@ class User
     OpenSSL::PKey::RSA::generate 1024 
   end
 
-  def self.ensure_bson id 
-    id.class == String ? BSON::ObjectID(id) : id 
-  end
 end
