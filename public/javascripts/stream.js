@@ -1,10 +1,10 @@
 $(document).ready(function(){
+
 	$('.comment_set').each(function(index) {
       var $this = $(this);
 	    if($this.children().length > 1) {
-			$this.parent().show();
 			var show_comments_toggle = $this.parent().prev().children(".show_post_comments");
-			show_comments_toggle.html("hide comments ("+ ($this.children().length - 1) + ")");
+			show_comments_toggle.click();
 		};
   });
 });//end document ready
