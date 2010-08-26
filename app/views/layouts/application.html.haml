@@ -23,8 +23,6 @@
     = csrf_meta_tag
     = yield(:head)
 
-    = javascript_include_tag 'jquery.html5_upload'
-
   %body
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"

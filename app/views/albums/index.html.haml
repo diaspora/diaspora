@@ -1,3 +1,9 @@
+- content_for :head do
+  :javascript
+    $(document).ready(function(){
+      $("#add_album_button").fancybox();
+    });
+
 .back= link_to "⇧ home", root_path
 %h1.big_text
   Albums
