@@ -58,7 +58,6 @@ class Comment
   end
   
   def signature_valid?
-    return true if person.nil?
     verify_signature(creator_signature, person)
   end
   

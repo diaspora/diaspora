@@ -166,6 +166,8 @@ class User
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
+    Rails.logger.debug("From: #{object.person.inspect}") if object.person
+    object.person.save if object.is_a? Comment && Person.find_by_id(object.person_id).nil?
     raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
