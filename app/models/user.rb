@@ -176,6 +176,7 @@ class User
 
     elsif object.is_a?(Comment) 
       dispatch_comment object unless owns?(object)
+      object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     else
       Rails.logger.debug("Saving object: #{object}")
       object.user_refs += 1
