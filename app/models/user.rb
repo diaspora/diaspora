@@ -196,6 +196,7 @@ class User
 
     elsif object.is_a?(Comment) 
       raise "Signature was not valid on: #{object.inspect}" unless object.post.person == self || object.verify_post_creator_signature
+      object.save
       dispatch_comment object unless owns?(object)
       object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     else
