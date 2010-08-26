@@ -16,7 +16,7 @@
       stuff
       -for person in group.people
         %li.person
-          = image_tag person.profile.image_url(:thumb_small) unless person.profile.image_url.nil?
+          = image_tag (person.profile.image_url(:thumb_small),:size => "30x30")  unless person.profile.image_url.nil?
           = person.real_name
 
 
