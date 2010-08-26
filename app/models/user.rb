@@ -51,7 +51,7 @@ class User
         puts posts_to_move.inspect
         to_group.people << friend
         to_group.posts << posts_to_move
-        from_group.person_ids.delete(ensure_bson(friend.id))
+        from_group.person_ids.delete(friend.id.to_id)
         posts_to_move.each{ |x| from_group.post_ids.delete(x.id)}
         from_group.save
         to_group.save

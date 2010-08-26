@@ -21,7 +21,7 @@ class Group
   end
   
   def posts_by_person_id( id )
-    id = ensure_bson id
+    id = id.to_id
     posts.detect{|x| x.person.id == id }
   end
 end
