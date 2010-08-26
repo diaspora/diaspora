@@ -195,6 +195,7 @@ class User
       person.save  
 
     elsif object.is_a?(Comment) 
+      object.person.save
       raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self.person || object.verify_post_creator_signature
       object.save
       dispatch_comment object unless owns?(object)
