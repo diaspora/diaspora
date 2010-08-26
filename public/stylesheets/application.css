@@ -379,9 +379,12 @@ label {
 /* cycle it! */
 .album {
   position: relative;
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   display: inline-block; }
+  .album img {
+    width: 200px;
+    height: 200px; }
   .album .name {
     position: absolute;
     z-index: 6;
