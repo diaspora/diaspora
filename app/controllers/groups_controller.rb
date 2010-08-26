@@ -42,7 +42,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.first(:id => params[:id])
     if @group.update_attributes(params[:group])
-      flash[:notice] = "Successfully updated group."
+      #flash[:notice] = "Successfully updated group."
       redirect_to @group
     else
       render :action => 'edit'
