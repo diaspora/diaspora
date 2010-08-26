@@ -29,7 +29,6 @@ class PublicsController < ApplicationController
       Rails.logger.error("Received post #{params[:xml]} for nonexistent person #{params[:id]}")
       return
     end
-    Rails.logger.debug "PublicsController has received: #{params[:xml]}"
     @user.receive params[:xml] if params[:xml]
   end
   

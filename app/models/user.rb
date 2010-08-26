@@ -166,7 +166,7 @@ class User
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
-    raise "Signature was not valid on: #{object.inspect}" unless object.signature_valid?
+    raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
@@ -195,7 +195,7 @@ class User
       person.save  
 
     elsif object.is_a?(Comment) 
-      raise "Signature was not valid on: #{object.inspect}" unless object.post.person == self || object.verify_post_creator_signature
+      raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self || object.verify_post_creator_signature
       object.save
       dispatch_comment object unless owns?(object)
       object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
