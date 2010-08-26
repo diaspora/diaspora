@@ -6,10 +6,10 @@ module Diaspora
       Person.first(:id => id)
     end
 
-    def self.get_or_create_person_object_from_xml(xml)
+    def self.parse_or_find_person_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
-      person_xml = doc.xpath("//request/person").to_s
-      person_id = doc.xpath("//request/person/_id").text.to_s
+      person_xml = doc.xpath("//person").to_s
+      person_id = doc.xpath("//person/_id").text.to_s
       person = Person.first(:_id => person_id)
       person ? person : Person.from_xml( person_xml)
     end
@@ -36,6 +36,5 @@ module Diaspora
         raise e
       end
     end
-
   end
 end

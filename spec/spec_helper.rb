@@ -43,7 +43,7 @@ end
 
   def stub_signature_verification
     (get_models.map{|model| model.camelize.constantize} - [User]).each do |model|
-      model.any_instance.stubs(:signature_valid?).returns(true)
+      model.any_instance.stubs(:verify_signature).returns(true)
     end
   end
 
