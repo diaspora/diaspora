@@ -57,6 +57,11 @@ class Comment
     verify_signature(post_creator_signature, post.person)
   end
   
+  def signature_valid?
+    Rails.logger.warn "Received comment has person #{person.inspect}"
+    Rails.logger.warn "Received comment has person key #{person.serialized_key}" if person
+    verify_signature(creator_signature, person) && verify_signature(post_creator_signator, post.person)
+  end
   
   protected
    def sign_if_my_post

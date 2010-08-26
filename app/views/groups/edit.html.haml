@@ -8,16 +8,15 @@
     = link_to "⇧ #{@group.name}", @group
   = "Editing Groups"
 
-
+%ul
 - for group in @groups
   %li.group
     = group.name
     %ul
+      stuff
       -for person in group.people
         %li.person
           = person.real_name
-
-
 
 
 #content_bottom
