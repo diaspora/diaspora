@@ -1,12 +1,12 @@
 $(function() {
 		$("li .person").draggable({
-				helper: 'clone',
-				cursor: 'move'
-		});
-		$("li .group").droppable({
+		  revert: true
+    });
+		$(".group ul").droppable({
+
 			drop: function(event, ui) {
-        //alert('dropped!');
-				$("<li class='person'></li>").text(ui.draggable.text()).appendTo(this);
+        $(this).closest("ul").append(ui.draggable)
+				//$("<li class='person ui-draggable'></li>").text(ui.draggable.text()).appendTo(this).draggable();
 			}
 		});
 
