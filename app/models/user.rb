@@ -51,7 +51,7 @@ class User
         puts posts_to_move.inspect
         to_group.people << friend
         to_group.posts << posts_to_move
-        from_group.person_ids.delete(ensure_bson(friend.id))
+        from_group.person_ids.delete(friend.id.to_id)
         posts_to_move.each{ |x| from_group.post_ids.delete(x.id)}
         from_group.save
         to_group.save
@@ -166,7 +166,9 @@ class User
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
-    raise "Signature was not valid on: #{object.inspect}" unless object.signature_valid?
+    Rails.logger.debug("From: #{object.person.inspect}") if object.person
+    object.person.save if object.is_a?(Comment) && Person.find_by_id(object.person_id).nil?
+    raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
@@ -195,6 +197,8 @@ class User
       person.save  
 
     elsif object.is_a?(Comment) 
+      raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self.person || object.verify_post_creator_signature
+      object.save
       dispatch_comment object unless owns?(object)
       object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     else
