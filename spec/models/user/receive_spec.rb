@@ -8,6 +8,10 @@ describe User do
 
     @user2 = Factory.create(:user)
     @group2 = @user2.group(:name => 'losers') 
+
+    @user3 = Factory.create(:user)
+    @group3 = @user3.group(:name => 'heroes')
+
     friend_users(@user, @group, @user2, @group2)
   end
 
@@ -36,11 +40,17 @@ describe User do
 
     @user.groups.size.should == num_groups
   end
+  describe 'comments' do
+    it 'should receive comments from unknown users' do
+      friend_users(@user, @group, @user2, @group2)
+      
+      status_message = @user.post, :status_message, :message => 'message', :to => @group.id
 
+    end
+  end
   describe 'post refs' do
     before do
-      @user3 = Factory.create(:user)
-      @group3 = @user3.group(:name => 'heroes')
+
     end
     
     it "should add the post to that user's posts when a user posts it" do

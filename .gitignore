@@ -5,7 +5,7 @@
 *~
 .bundle
 db/*.sqlite3
-log/*.log
+log/*
 tmp/**/*
 Gemfile.lock
 gpg/diaspora-development/*.gpg
