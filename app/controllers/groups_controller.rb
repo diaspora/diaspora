@@ -49,4 +49,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  def move_person
+    unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to]) 
+      flash[:error] = "didn't work #{params.inspect}"
+    end
+    if group = Group.first(:id => params[:to][:to])
+      redirect_to group 
+    else
+      redirect_to Person.first(:id => params[:friend_id])
+    end
+  end
+
 end

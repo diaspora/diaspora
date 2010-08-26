@@ -17,6 +17,13 @@
         %i= "friends since: #{how_long_ago(@person)}"
       %li
         ="groups: #{@person_groups}"
+        = "edit"
+        = @groups_array.inspect
+        = form_tag move_person_path
+        = select :to, :to,  @groups_array
+        = hidden_field_tag :from, :from, :value => @person_groups.first.id
+        = hidden_field_tag :friend_id, :friend_id, :value => @person.id
+        = submit_tag "save"
       %li
         url:
         = @person.url

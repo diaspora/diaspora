@@ -19,5 +19,10 @@ class Group
   def to_s
     name
   end
+  
+  def posts_by_person_id( id )
+    id = ensure_bson id
+    posts.detect{|x| x.person.id == id }
+  end
 end
 
