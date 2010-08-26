@@ -52,7 +52,7 @@ describe 'user encryption' do
       remote_user.destroy
       
       person_count = Person.all.count
-      proc {@user.receive xml}.should_not raise_error /Signature was not valid/
+      proc {@user.receive xml}.should_not raise_error /ignature was not valid/
       Person.all.count.should == person_count + 1
       new_person = Person.first(:id => id)
       new_person.export_key.should == original_key
@@ -125,7 +125,7 @@ describe 'user encryption' do
       xml = message.to_diaspora_xml
       message.destroy
       Post.count.should be 0
-      proc {@user.receive xml}.should raise_error /Signature was not valid/
+      proc {@user.receive xml}.should raise_error /ignature was not valid/
       Post.count.should be 0
     end
 

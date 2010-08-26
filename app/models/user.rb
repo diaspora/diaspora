@@ -48,7 +48,6 @@ class User
       to_group = self.group_by_id(opts[:to])
       if from_group && to_group
         posts_to_move = from_group.posts.find_all_by_person_id(friend.id)
-        puts posts_to_move.inspect
         to_group.people << friend
         to_group.posts << posts_to_move
         from_group.person_ids.delete(friend.id.to_id)
@@ -167,7 +166,6 @@ class User
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
-    object.person.save if object.is_a?(Comment) && Person.find_by_id(object.person_id).nil?
     raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
@@ -183,7 +181,7 @@ class User
         }
       end
     elsif object.is_a? Request
-      person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
+      person = Diaspora::Parser.parse_or_find_person_from_xml( xml )
       person.serialized_key ||= object.exported_key
       object.person = person
       object.person.save
@@ -197,6 +195,9 @@ class User
       person.save  
 
     elsif object.is_a?(Comment) 
+      object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
+      object.person.save
+    Rails.logger.debug("From: #{object.person.inspect}") if object.person
       raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self.person || object.verify_post_creator_signature
       object.save
       dispatch_comment object unless owns?(object)

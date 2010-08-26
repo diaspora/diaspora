@@ -40,14 +40,7 @@ describe User do
 
     @user.groups.size.should == num_groups
   end
-  describe 'comments' do
-    it 'should receive comments from unknown users' do
-      friend_users(@user, @group, @user2, @group2)
-      
-      status_message = @user.post, :status_message, :message => 'message', :to => @group.id
 
-    end
-  end
   describe 'post refs' do
     before do
 
