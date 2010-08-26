@@ -50,8 +50,14 @@ class GroupsController < ApplicationController
   end
 
   def move_person
-    current_user.move_friend( :friend_id => params[:person_id], :from => params[:old_group_id], :to => params[:new_group_id])
-    render :nothing => true
+    unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to]) 
+      flash[:error] = "didn't work #{params.inspect}"
+    end
+    if group = Group.first(:id => params[:to][:to])
+      redirect_to group 
+    else
+      redirect_to Person.first(:id => params[:friend_id])
+    end
   end
 
 end

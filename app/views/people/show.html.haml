@@ -18,10 +18,12 @@
       %li
         ="groups: #{@person_groups}"
         = "edit"
-        = form_for Request.new do |f|
-              = f.select(:group_id, @groups_array)
-              = f.hidden_field :destination_url, :value => person.email
-              = f.submit "add friend"
+        = @groups_array.inspect
+        = form_tag move_person_path
+        = select :to, :to,  @groups_array
+        = hidden_field_tag :from, :from, :value => @person_groups.first.id
+        = hidden_field_tag :friend_id, :friend_id, :value => @person.id
+        = submit_tag "save"
       %li
         url:
         = @person.url
