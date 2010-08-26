@@ -231,7 +231,7 @@ class User
   end
 
   def groups_with_post( id )
-    self.groups.find_all_by_post_ids( id )
+    self.groups.find_all_by_post_ids( id.to_id )
   end
 
   def groups_with_person person
