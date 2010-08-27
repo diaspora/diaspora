@@ -13,7 +13,7 @@
       -unless @posts.first.nil?
         %li
           %i= "last seen: #{how_long_ago(@posts.first)}"
-      - unless @person == current_user.person
+      - unless @person == current_user.person || not current_user.friends.include?(@person)
         %li
           %i= "friends since: #{how_long_ago(@person)}"
         %li
