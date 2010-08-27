@@ -133,4 +133,37 @@ describe User do
       Post.count.should be 1
     end
   end
+
+  describe 'comments' do
+    it 'should correctly marshal to the downstream user' do
+
+    
+    @user3 = Factory.create(:user)
+    @group3 = @user3.group(:name => 'heroes')
+
+    puts @user.inspect
+    puts @group.inspect
+    friend_users(@user, @group, @user3, @group3)
+
+
+    status_message = @user.post :status_message, :message => 'store this!', :to => @group.id
+
+    @user2.receive status_message.to_diaspora_xml
+    @user3.receive status_message.to_diaspora_xml
+
+    comment = @user2.comment('tada',:on => status_message)
+    @user.receive comment.to_diaspora_xml
+    @user.reload
+    
+    @user.raw_visible_posts.first.comments.first.nil?.should be false
+    upstream_comment = @user.raw_visible_posts.first.comments.first
+
+    @user2.person.delete
+    @user3.receive upstream_comment.to_diaspora_xml
+    @user3.reload
+
+    @user3.raw_visible_posts.first.comments.first.nil?.should be false
+
+    end
+  end
 end
