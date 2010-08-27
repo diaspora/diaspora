@@ -2,10 +2,10 @@
   = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
   = javascript_include_tag 'group-edit.js'
 
+.back
+  = link_to "⇧ #{@group.name}", @group
 
 %h1{:class => 'big_text', :id => 'group_title'}
-  .back
-    = link_to "⇧ #{@group.name}", @group
   = "Editing Groups"
 
 %ul#group_list
