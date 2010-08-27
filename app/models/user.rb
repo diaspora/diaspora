@@ -196,6 +196,7 @@ class User
 
     elsif object.is_a?(Comment) 
       object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
+      Rails.logger.debug("The person parsed from comment xml is #{object.person.inspect}") unless object.person.nil?
       object.person.save
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
       raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self.person || object.verify_post_creator_signature
