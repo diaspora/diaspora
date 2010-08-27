@@ -4,7 +4,8 @@
       = link_to "All Groups", root_url
     - for group in @groups
       %li{:id => group.id, :class => ("selected" if current_group?(group))}
-        = link_for_group group
+        %span.group_name
+          = link_for_group group
         %span{:class => '⚙'}
           = link_to "⚙", "#", :class => "edit_group_button"
 

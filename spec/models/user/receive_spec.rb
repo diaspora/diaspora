@@ -8,6 +8,10 @@ describe User do
 
     @user2 = Factory.create(:user)
     @group2 = @user2.group(:name => 'losers') 
+
+    @user3 = Factory.create(:user)
+    @group3 = @user3.group(:name => 'heroes')
+
     friend_users(@user, @group, @user2, @group2)
   end
 
@@ -39,8 +43,7 @@ describe User do
 
   describe 'post refs' do
     before do
-      @user3 = Factory.create(:user)
-      @group3 = @user3.group(:name => 'heroes')
+
     end
     
     it "should add the post to that user's posts when a user posts it" do
@@ -128,6 +131,38 @@ describe User do
       status_message.user_refs.should == 1
       
       Post.count.should be 1
+    end
+  end
+
+  describe 'comments' do
+    it 'should correctly marshal a stranger for the downstream user' do
+      
+      friend_users(@user, @group, @user3, @group3)
+      post = @user.post :status_message, :message => "hello", :to => @group.id
+
+      @user2.receive post.to_diaspora_xml
+      @user3.receive post.to_diaspora_xml
+
+      comment = @user2.comment('tada',:on => post)
+      @user.receive comment.to_diaspora_xml
+      @user.reload
+
+      commenter_id = @user2.person.id
+
+      @user2.person.delete
+      @user2.delete
+      comment_id = comment.id
+
+      comment.delete
+      @user3.receive comment.to_diaspora_xml
+      @user3.reload
+
+      new_comment = Comment.find_by_id(comment_id)
+      new_comment.should_not be_nil
+      new_comment.person.should_not be_nil
+      new_comment.person.profile.should_not be_nil
+      
+      @user3.visible_person_by_id(commenter_id).should_not be_nil
     end
   end
 end

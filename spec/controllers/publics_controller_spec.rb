@@ -6,7 +6,7 @@ describe PublicsController do
   before do
     @user = Factory.create(:user)
     @user.person.save
-    request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
+    sign_in :user, @user   
   end
 
   describe 'receive endpoint' do

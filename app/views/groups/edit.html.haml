@@ -2,22 +2,25 @@
   = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
   = javascript_include_tag 'group-edit.js'
 
+.back
+  = link_to "⇧ #{@group.name}", @group
 
-%h1.big_text
-  .back
-    = link_to "⇧ #{@group.name}", @group
+%h1{:class => 'big_text', :id => 'group_title'}
   = "Editing Groups"
 
-%ul
+%ul#group_list
 - for group in @groups
-  %li.group
+  %li{:class => 'group'}
     = group.name
-    %ul
-      stuff
+    %ul{:id => group.id}
+      dummy person for dropping onto 
       -for person in group.people
-        %li.person
+        %li{:class => 'person', :id => person.id, :from_group_id => group.id}
+          = image_tag(person.profile.image_url(:thumb_small),:size => "30x30")  unless person.profile.image_url.nil?
           = person.real_name
-
+%p
+  %br
+  = link_to 'Update Groups', '#', :class => 'button', :id => "move_friends_link"
 
 #content_bottom
   .back

@@ -10,14 +10,12 @@ body
   :padding 2em
   :margin 0
 a
-  :color #018790
   :color #556270
   :text
     :decoration none
   &:hover
     :color #fff
     :background
-      :color #018790
       :color #556270
 
 .avatar
@@ -480,9 +478,13 @@ label
 /* cycle it! */
 .album
   :position relative
-  :height 300px
-  :width 300px
+  :height 200px
+  :width 200px
   :display inline-block
+
+  img
+    :width 200px
+    :height 200px
 
   .name
     :position absolute
@@ -601,6 +603,8 @@ h1.big_text
         :color #999
         &:hover
           :background none
+        &.editable:hover
+          :background yellow
 
     .⚙
       :margin
@@ -738,4 +742,7 @@ h1.big_text
       :margin
         :top -3px
 
-
+.editing, .editing:hover
+  :background
+    :color yellow
+  :border 1px #666 solid

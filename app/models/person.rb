@@ -6,6 +6,7 @@ class Person
   xml_accessor :email
   xml_accessor :url
   xml_accessor :profile, :as => Profile
+  xml_reader :exported_key
   
   
   key :email, String, :unique => true
@@ -52,13 +53,17 @@ class Person
   end
 
   def public_key_hash
-    Base64.encode64 OpenSSL::Digest::SHA256.new(self.export_key).to_s
+    Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
   end
 
-  def export_key
+  def exported_key
     encryption_key.public_key.export
   end
 
+  def exported_key= new_key
+    raise "Don't change a key" if serialized_key
+    @serialized_key = new_key
+  end
 
   def owns?(post)
     self.id == post.person.id
@@ -77,6 +82,7 @@ class Person
   end
 
   protected
+
   def clean_url
     self.url ||= "http://localhost:3000/" if self.class == User
     if self.url
@@ -84,7 +90,9 @@ class Person
       self.url = self.url + '/' if self.url[-1,1] != '/'
     end
   end
+
   private
+
   def remove_all_traces
     Post.all(:person_id => id).each{|p| p.delete}
     Album.all(:person_id => id).each{|p| p.delete}

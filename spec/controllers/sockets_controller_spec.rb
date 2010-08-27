@@ -6,15 +6,11 @@ class SocketsController
   end
 end
 
-describe 'SocketsController' do
+describe SocketsController do
   render_views  
   before do
     @user = Factory.create(:user)
-    SocketsController.unstub!(:new)
     @controller = SocketsController.new
-    @controller.request = mock_model(Request, :env =>
-      {'warden' => mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)})
-    stub_sockets_controller
   end
 
   it 'should unstub the websockets' do

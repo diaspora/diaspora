@@ -42,14 +42,30 @@ class GroupsController < ApplicationController
   def update
     @group = Group.first(:id => params[:id])
     if @group.update_attributes(params[:group])
-      flash[:notice] = "Successfully updated group."
+      #flash[:notice] = "Successfully updated group."
       redirect_to @group
     else
       render :action => 'edit'
     end
   end
 
-  def move_person
+  def move_friends
+    pp params
+
+    params[:moves].each{ |move|
+      move = move[1]
+      unless current_user.move_friend(move)
+        flash[:error] = "Group editing failed for friend #{Person.find_by_id( move[:friend_id] ).real_name}."
+        redirect_to Group.first, :action => "edit"
+        return
+      end
+    }
+
+    flash[:notice] = "Groups edited successfully."
+    redirect_to Group.first, :action => "edit"
+    
+  end
+  def move_friend
     unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to]) 
       flash[:error] = "didn't work #{params.inspect}"
     end
@@ -59,5 +75,4 @@ class GroupsController < ApplicationController
       redirect_to Person.first(:id => params[:friend_id])
     end
   end
-
 end

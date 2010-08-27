@@ -30,13 +30,13 @@ class Request
     self.new(:destination_url => options[:to],
              :callback_url    => person.receive_url, 
              :person          => person,
-             :exported_key    => person.export_key,
+             :exported_key    => person.exported_key,
              :group_id        => options[:into])
   end
   
   def reverse_for accepting_user
     self.person          = accepting_user.person
-    self.exported_key    = accepting_user.export_key
+    self.exported_key    = accepting_user.exported_key
     self.destination_url = self.callback_url
     self.save
   end

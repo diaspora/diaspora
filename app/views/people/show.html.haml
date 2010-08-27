@@ -5,7 +5,7 @@
 
     %h1
       = @person.real_name
-      - unless @person.id == current_user.person.id
+      - if @person != current_user.person && current_user.friends.include?(@person)
         .right
           = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete, :class => "button"
     
@@ -13,17 +13,15 @@
       -unless @posts.first.nil?
         %li
           %i= "last seen: #{how_long_ago(@posts.first)}"
-      %li
-        %i= "friends since: #{how_long_ago(@person)}"
-      %li
-        ="groups: #{@person_groups}"
-        = "edit"
-        = @groups_array.inspect
-        = form_tag move_person_path
-        = select :to, :to,  @groups_array
-        = hidden_field_tag :from, :from, :value => @person_groups.first.id
-        = hidden_field_tag :friend_id, :friend_id, :value => @person.id
-        = submit_tag "save"
+      - if @person != current_user.person && current_user.friends.include?(@person)
+        %li
+          %i= "friends since: #{how_long_ago(@person)}"
+        %li
+          = form_tag move_friend_path
+          = select :to, :to,  @groups_dropdown_array, :selected_value => @groups_with_person.first.id
+          = hidden_field_tag :from, :from, :value => @groups_with_person.first.id
+          = hidden_field_tag :friend_id, :friend_id, :value => @person.id
+          = submit_tag "save"
       %li
         url:
         = @person.url

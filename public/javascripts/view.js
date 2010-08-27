@@ -8,8 +8,6 @@ $(document).ready(function(){
 	
   $('#flash_notice, #flash_error, #flash_alert').delay(2500).slideUp(130);
   
-
-  
   $("div.image_cycle").cycle({
     fx: 'fade',
     random: 1,
@@ -18,42 +16,64 @@ $(document).ready(function(){
   });
 
   //buttons//////
-  
-
-  $("#add_album_button").fancybox();
   $("#add_group_button").fancybox();
   $("#add_request_button").fancybox({ 'titleShow': false });
-  $("#add_photo_button").fancybox({
-    'onClosed'   :   function(){
-      if($("#add_photo_button").hasClass("uploading_complete")){
-        $("#add_photo_button").removeClass("uploading_complete");
-        reset_photo_fancybox();
-      }
-    }
-  });
-
-  //pane_toggler_button("photo");
 
   $("input[type='submit']").addClass("button");
-
-  $(".image_thumb img").load( function() {
-    $(this).fadeIn("slow");
-  });
 
   $(".image_cycle img").load( function() {
     $(this).fadeIn("slow");
   });
 
 
+  $(".edit_group_button").click(function() {
+
+    var element = $(this).closest("li").children(".group_name").children("a");
+    var oldHTML = element.html();
+
+    var link = element.attr("href");
+
+    element.toggleClass("editing");
+
+    if( element.hasClass("editing") ) {
+
+      element.attr("contentEditable", true);
+      element.focus();
+
+
+  
+      //remove newline action
+      $(element).keypress(function(e) {
+        if (e.which == 13) {
+          e.preventDefault();
+          element.attr("contentEditable", false);
+          element.toggleClass("editing");
+          element.blur();
+
+          //save changes
+          $.ajax({
+            type: "PUT",
+            url: link,
+            data: {"group" : {"name" : element.text() }}
+          });
+        }
+      });
+
+      //update all other group links
+      $(element).keyup(function(e) {
+        $("a[href='"+link+"']").not(element).text(element.text());
+      });
+
+    } else {
+      element.attr("contentEditable", false);
+    }
+
+  });
+
 
 });//end document ready
 
-function reset_photo_fancybox(){
-        album_id = $(".album_id")[0].id;
-        ajax = $.get("/photos/new?album_id=" + album_id, function(){
-          $("#new_photo_pane").html(ajax.responseText)
-        });
-}
+
 
 function pane_toggler_button( name ) {
   

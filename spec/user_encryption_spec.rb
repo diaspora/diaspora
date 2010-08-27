@@ -33,7 +33,7 @@ describe 'user encryption' do
     it 'should send over a public key' do
       message_queue.stub!(:add_post_request)
       request = @user.send_friend_request_to("http://example.com/", @group.id)
-      request.to_diaspora_xml.include?( @user.export_key).should be true
+      request.to_diaspora_xml.include?( @user.exported_key).should be true
     end
 
     it 'should receive and marshal a public key from a request' do
@@ -41,7 +41,7 @@ describe 'user encryption' do
       remote_user.encryption_key.nil?.should== false
       #should move this to friend request, but i found it here 
       id = remote_user.person.id
-      original_key = remote_user.export_key
+      original_key = remote_user.exported_key
       
       request = remote_user.send_friend_request_to(
         @user.receive_url, remote_user.group(:name => "temp").id)
@@ -52,10 +52,10 @@ describe 'user encryption' do
       remote_user.destroy
       
       person_count = Person.all.count
-      proc {@user.receive xml}.should_not raise_error /Signature was not valid/
+      proc {@user.receive xml}.should_not raise_error /ignature was not valid/
       Person.all.count.should == person_count + 1
       new_person = Person.first(:id => id)
-      new_person.export_key.should == original_key
+      new_person.exported_key.should == original_key
     end 
   end
 
@@ -125,7 +125,7 @@ describe 'user encryption' do
       xml = message.to_diaspora_xml
       message.destroy
       Post.count.should be 0
-      proc {@user.receive xml}.should raise_error /Signature was not valid/
+      proc {@user.receive xml}.should raise_error /ignature was not valid/
       Post.count.should be 0
     end
 

@@ -57,6 +57,9 @@ class Comment
     verify_signature(post_creator_signature, post.person)
   end
   
+  def signature_valid?
+    verify_signature(creator_signature, person)
+  end
   
   protected
    def sign_if_my_post

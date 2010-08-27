@@ -9,10 +9,12 @@ class User
   key :friend_ids, Array
   key :pending_request_ids, Array
   key :visible_post_ids, Array
+  key :visible_person_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends, :in => :friend_ids, :class_name => 'Person'
+  many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
 
@@ -48,10 +50,9 @@ class User
       to_group = self.group_by_id(opts[:to])
       if from_group && to_group
         posts_to_move = from_group.posts.find_all_by_person_id(friend.id)
-        puts posts_to_move.inspect
         to_group.people << friend
         to_group.posts << posts_to_move
-        from_group.person_ids.delete(ensure_bson(friend.id))
+        from_group.person_ids.delete(friend.id.to_id)
         posts_to_move.each{ |x| from_group.post_ids.delete(x.id)}
         from_group.save
         to_group.save
@@ -166,7 +167,9 @@ class User
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object:\n#{object.inspect}")
-    raise "Signature was not valid on: #{object.inspect}" unless object.signature_valid?
+    Rails.logger.debug("From: #{object.person.inspect}") if object.person
+    raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
+
     if object.is_a? Retraction
       if object.type == 'Person' && object.signature_valid?
 
@@ -181,7 +184,7 @@ class User
         }
       end
     elsif object.is_a? Request
-      person = Diaspora::Parser.get_or_create_person_object_from_xml( xml )
+      person = Diaspora::Parser.parse_or_find_person_from_xml( xml )
       person.serialized_key ||= object.exported_key
       object.person = person
       object.person.save
@@ -195,6 +198,14 @@ class User
       person.save  
 
     elsif object.is_a?(Comment) 
+      object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
+      self.visible_people << object.person
+      self.save
+      Rails.logger.debug("The person parsed from comment xml is #{object.person.inspect}") unless object.person.nil?
+      object.person.save
+    Rails.logger.debug("From: #{object.person.inspect}") if object.person
+      raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self.person || object.verify_post_creator_signature
+      object.save
       dispatch_comment object unless owns?(object)
       object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     else
@@ -237,7 +248,9 @@ class User
   def visible_person_by_id( id )
     id = id.to_id
     return self.person if id == self.person.id
-    friends.detect{|x| x.id == id }
+    result = friends.detect{|x| x.id == id }
+    result = visible_people.detect{|x| x.id == id } unless result
+    result
   end
 
   def group_by_id( id )
@@ -260,7 +273,7 @@ class User
   end
 
   def setup_person
-    self.person.serialized_key ||= generate_key.export
+    self.person.serialized_key ||= User.generate_key.export
     self.person.email ||= email
     self.person.save!
   end
@@ -269,9 +282,6 @@ class User
     self.groups.all.collect{|x| x.id}
   end
   protected
-   def generate_key
-    OpenSSL::PKey::RSA::generate 1024 
-  end 
 
   def self.generate_key
     OpenSSL::PKey::RSA::generate 1024 

@@ -1,20 +1,20 @@
 %li.message{:id => post.id}
+
   = person_image_tag(post.person)
 
-  %span.from
-    = link_to post.person.real_name, post.person
-    %b
-      posted a new photo to
-      = link_to post.album.name, object_path(post.album)
+  .content
+    %span.from
+      = link_to post.person.real_name, post.person
+      %b
+        posted a new photo to
+        = link_to post.album.name, object_path(post.album)
 
-    %br
-    
-  = render "albums/album", :post => post.album, :current_user => current_user
-   
-  = link_to (image_tag post.url(:thumb_medium)), object_path(post)
-    
-  %div.time
-    = link_to(how_long_ago(post), photo_path(post))
-    \--
-    = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
-  = render   "comments/comments", :post => post 
+      %br
+      = render "albums/album", :post => post.album, :current_user => current_user
+      = link_to (image_tag post.url(:thumb_medium)), object_path(post)
+      
+    .info
+      = link_to(how_long_ago(post), photo_path(post))
+      \--
+      = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
+    = render   "comments/comments", :post => post 

@@ -63,6 +63,6 @@ class Photo < Post
   end
 
   def thumb_hash
-    {:thumb_url => image.url(:thumb_medium), :id => id, :album_id => album_id}
+    {:thumb_url => url(:thumb_medium), :id => id, :album_id => album_id}
   end
 end

@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb_small do
-    process :resize_to_fill => [30,30]
+    process :resize_to_fill => [50,50]
   end
 
   version :thumb_medium do
@@ -24,7 +24,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb_large do
-    process :resize_to_fill => [300,300]
+    process :resize_to_fill => [200,200]
   end
 
   version :scaled_full do
