@@ -3,22 +3,24 @@
   = javascript_include_tag 'group-edit.js'
 
 
-%h1.big_text
+%h1{:class => 'big_text', :id => 'group_title'}
   .back
     = link_to "⇧ #{@group.name}", @group
   = "Editing Groups"
 
-%ul
+%ul#group_list
 - for group in @groups
-  %li.group
+  %li{:class => 'group'}
     = group.name
-    %ul
-      stuff
+    %ul{:id => group.id}
+      dummy person for dropping onto 
       -for person in group.people
-        %li.person
-          = image_tag (person.profile.image_url(:thumb_small),:size => "30x30")  unless person.profile.image_url.nil?
+        %li{:class => 'person', :id => person.id, :from_group_id => group.id}
+          = image_tag(person.profile.image_url(:thumb_small),:size => "30x30")  unless person.profile.image_url.nil?
           = person.real_name
-
+%p
+  %br
+  = link_to 'Update Groups', '#', :class => 'button', :id => "move_friends_link"
 
 #content_bottom
   .back

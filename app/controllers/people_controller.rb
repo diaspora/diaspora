@@ -16,7 +16,7 @@ class PeopleController < ApplicationController
     @profile = @person.profile
 
     @groups_with_person = current_user.groups_with_person(@person)
-    @all_groups = current_user.groups.collect{|x| [x.to_s, x.id]} 
+    @groups_dropdown_array = current_user.groups.collect{|x| [x.to_s, x.id]} 
 
     @posts = Post.where(:person_id => @person.id, :_id.in => current_user.visible_post_ids).paginate :page => params[:page], :order => 'created_at DESC'
 

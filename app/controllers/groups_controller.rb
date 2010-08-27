@@ -49,15 +49,21 @@ class GroupsController < ApplicationController
     end
   end
 
-  def move_person
-    unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to]) 
-      flash[:error] = "didn't work #{params.inspect}"
-    end
-    if group = Group.first(:id => params[:to][:to])
-      redirect_to group 
-    else
-      redirect_to Person.first(:id => params[:friend_id])
-    end
+  def move_friends
+    pp params
+
+    params[:moves].each{ |move|
+      move = move[1]
+      unless current_user.move_friend(move)
+        flash[:error] = "Group editing failed for friend #{Person.find_by_id( move[:friend_id] ).real_name}."
+        redirect_to Group.first, :action => "edit"
+        return
+      end
+    }
+
+    flash[:notice] = "Groups edited successfully."
+    redirect_to Group.first, :action => "edit"
+    
   end
 
 end
