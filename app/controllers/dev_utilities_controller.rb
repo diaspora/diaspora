@@ -79,4 +79,10 @@ def warzombie
      current_user.update_profile(:image_url => photo.url(:thumb_medium))
      current_user.save
   end
+  
+  def log
+    @log = `tail -n 200 log/development.log`
+    
+    render "shared/log"
+  end
 end
