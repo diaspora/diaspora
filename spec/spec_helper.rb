@@ -21,24 +21,22 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
     stub_signature_verification
+
   end
 
   config.before(:each) do
     DatabaseCleaner.start
-    stub_sockets_controller
+    stub_sockets
   end
 
   config.after(:each) do
     DatabaseCleaner.clean
   end
 end
-  def stub_sockets_controller
-    mock_sockets_controller = mock('sockets mock')
-    mock_sockets_controller.stub!(:incoming).and_return(true)
-    mock_sockets_controller.stub!(:new_subscriber).and_return(true)
-    mock_sockets_controller.stub!(:outgoing).and_return(true)
-    mock_sockets_controller.stub!(:delete_subscriber).and_return(true)
-    SocketsController.stub!(:new).and_return(mock_sockets_controller)
+  def stub_sockets
+    Diaspora::WebSocket.stub!(:push_to_user).and_return(true)
+    Diaspora::WebSocket.stub!(:subscribe).and_return(true)
+    Diaspora::WebSocket.stub!(:unsubscribe).and_return(true)
   end
 
   def stub_signature_verification

@@ -6,7 +6,7 @@ describe GroupsController do
     @user = Factory.create(:user)
     @user.group(:name => "lame-os")
     @person = Factory.create(:person)
-    request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
+    sign_in :user, @user   
   end
 
   it "on index sets a variable containing all a user's friends when a user is signed in" do

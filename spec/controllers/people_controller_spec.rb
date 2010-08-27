@@ -4,7 +4,6 @@ describe PeopleController do
   render_views
   before do
     @user = Factory.create(:user)
-    request.env['warden'] = mock_model(Warden, :authenticate? => @user, :authenticate! => @user, :authenticate => @user)
 
     sign_in :user, @user   
     @user.group(:name => "lame-os")

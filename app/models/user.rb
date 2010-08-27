@@ -250,6 +250,7 @@ class User
     return self.person if id == self.person.id
     result = friends.detect{|x| x.id == id }
     result = visible_people.detect{|x| x.id == id } unless result
+    result
   end
 
   def group_by_id( id )
@@ -272,7 +273,7 @@ class User
   end
 
   def setup_person
-    self.person.serialized_key ||= generate_key.export
+    self.person.serialized_key ||= User.generate_key.export
     self.person.email ||= email
     self.person.save!
   end
@@ -281,9 +282,6 @@ class User
     self.groups.all.collect{|x| x.id}
   end
   protected
-   def generate_key
-    OpenSSL::PKey::RSA::generate 1024 
-  end 
 
   def self.generate_key
     OpenSSL::PKey::RSA::generate 1024 
