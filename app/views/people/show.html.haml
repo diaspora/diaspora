@@ -13,17 +13,15 @@
       -unless @posts.first.nil?
         %li
           %i= "last seen: #{how_long_ago(@posts.first)}"
-      %li
-        %i= "friends since: #{how_long_ago(@person)}"
-      %li
-        ="groups: #{@person_groups}"
-        = "edit"
-        = @groups_array.inspect
-        = form_tag move_person_path
-        = select :to, :to,  @groups_array
-        = hidden_field_tag :from, :from, :value => @person_groups.first.id
-        = hidden_field_tag :friend_id, :friend_id, :value => @person.id
-        = submit_tag "save"
+      - unless @person == current_user.person
+        %li
+          %i= "friends since: #{how_long_ago(@person)}"
+        %li
+          = form_tag move_person_path
+          = select :to, :to,  @all_groups
+          = hidden_field_tag :from, :from, :value => @groups_with_person.first.id
+          = hidden_field_tag :friend_id, :friend_id, :value => @person.id
+          = submit_tag "save"
       %li
         url:
         = @person.url
