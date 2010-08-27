@@ -6,6 +6,7 @@ class Person
   xml_accessor :email
   xml_accessor :url
   xml_accessor :profile, :as => Profile
+  xml_reader :serialized_key
   
   
   key :email, String, :unique => true
@@ -51,6 +52,12 @@ class Person
     serialized_key = new_key.export
   end
 
+  def serialized_key= new_key
+    raise "Don't change a key" if serialized_key
+    
+    @serialized_key = new_key
+  end
+
   def public_key_hash
     Base64.encode64 OpenSSL::Digest::SHA256.new(self.export_key).to_s
   end
@@ -58,7 +65,6 @@ class Person
   def export_key
     encryption_key.public_key.export
   end
-
 
   def owns?(post)
     self.id == post.person.id

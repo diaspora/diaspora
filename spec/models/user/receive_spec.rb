@@ -136,34 +136,30 @@ describe User do
 
   describe 'comments' do
     it 'should correctly marshal to the downstream user' do
+      
+      friend_users(@user, @group, @user3, @group3)
+      post = @user.post :status_message, :message => "hello", :to => @group.id
 
-    
-    @user3 = Factory.create(:user)
-    @group3 = @user3.group(:name => 'heroes')
+      @user2.receive post.to_diaspora_xml
+      @user3.receive post.to_diaspora_xml
 
-    puts @user.inspect
-    puts @group.inspect
-    friend_users(@user, @group, @user3, @group3)
+      comment = @user2.comment('tada',:on => post)
+      @user.receive comment.to_diaspora_xml
+      @user.reload
 
+      @user2.person.delete
+      @user2.delete
+      comment_id = comment.id
 
-    status_message = @user.post :status_message, :message => 'store this!', :to => @group.id
+      comment.delete
+      @user3.receive comment.to_diaspora_xml
+      @user3.reload
 
-    @user2.receive status_message.to_diaspora_xml
-    @user3.receive status_message.to_diaspora_xml
-
-    comment = @user2.comment('tada',:on => status_message)
-    @user.receive comment.to_diaspora_xml
-    @user.reload
-    
-    @user.raw_visible_posts.first.comments.first.nil?.should be false
-    upstream_comment = @user.raw_visible_posts.first.comments.first
-
-    @user2.person.delete
-    @user3.receive upstream_comment.to_diaspora_xml
-    @user3.reload
-
-    @user3.raw_visible_posts.first.comments.first.nil?.should be false
-
+      new_comment = Comment.find_by_id(comment_id)
+      new_comment.should_not be_nil
+      new_comment.person.should_not be_nil
+      new_comment.person.profile.should_not be_nil
+      
     end
   end
 end

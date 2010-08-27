@@ -9,7 +9,6 @@ module Diaspora
     def self.parse_or_find_person_from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       person_xml = doc.xpath("//person").to_s
-      Rails.logger.debug("We're in the parser: #{person_xml}")
       person_id = doc.xpath("//person/_id").text.to_s
       person = Person.first(:_id => person_id)
       person ? person : Person.from_xml( person_xml)

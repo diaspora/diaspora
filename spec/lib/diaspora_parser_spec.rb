@@ -18,7 +18,7 @@ describe Diaspora::Parser do
       @xml = Factory.build(:status_message).to_diaspora_xml 
     end
     
-    it 'should be able to correctly handle comments' do
+     it 'should be able to correctly handle comments with person in db' do
       person = Factory.create(:person, :email => "test@testing.com")
       post = Factory.create(:status_message, :person => @user.person)
       comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
@@ -28,6 +28,23 @@ describe Diaspora::Parser do
       comment.text.should == "Freedom!"
       comment.person.should == person
       comment.post.should == post
+    end
+     
+    it 'should be able to correctly handle person on a comment with person not in db' do
+      commenter = Factory.create(:user)
+      commenter_group = commenter.group :name => "bruisers"
+      friend_users(@user, @group, commenter, commenter_group)
+      post = @user.post :status_message, :message => "hello", :to => @group.id
+      comment = commenter.comment "Fool!", :on => post
+      
+      xml = comment.to_diaspora_xml 
+      commenter.delete
+      commenter.person.delete
+      
+      parsed_person = Diaspora::Parser::parse_or_find_person_from_xml(xml)
+      parsed_person.save.should be true
+      parsed_person.email.should == commenter.person.email
+      parsed_person.profile.should_not be_nil
     end
     
     it 'should marshal retractions' do

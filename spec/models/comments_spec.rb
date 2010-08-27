@@ -4,7 +4,10 @@ describe Comment do
   describe "user" do
     before do
       @user = Factory.create :user
-      @user.person.save
+      @group = @user.group(:name => "Doofuses")
+
+      @user2 = Factory.create(:user)
+      @group2 = @user2.group(:name => "Lame-faces")
     end
     it "should be able to comment on his own status" do
       status = Factory.create(:status_message, :person => @user.person)
@@ -31,10 +34,7 @@ describe Comment do
 
     describe 'comment propagation' do
       before do
-        @group = @user.group(:name => "Doofuses")
 
-        @user2 = Factory.create(:user)
-        @group2 = @user2.group(:name => "Lame-faces")
 
         request = @user.send_friend_request_to(@user2.receive_url, @group.id)
         reversed_request = @user2.accept_friend_request( request.id, @group2.id )
@@ -77,6 +77,17 @@ describe Comment do
         message_queue.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person2.id, :text => "balls", :post => @person_status)
         @user.receive(comment.to_diaspora_xml)
+      end
+    end
+    describe 'serialization' do
+      it 'should serialize the commenter' do
+        commenter = Factory.create(:user)
+        commenter_group = commenter.group :name => "bruisers"
+        friend_users(@user, @group, commenter, commenter_group)
+        post = @user.post :status_message, :message => "hello", :to => @group.id
+        comment = commenter.comment "Fool!", :on => post
+        comment.person.should_not == @user.person
+        comment.to_diaspora_xml.include?(commenter.person.id.to_s).should be true
       end
     end
   end
