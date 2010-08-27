@@ -5,7 +5,7 @@
 
     %h1
       = @person.real_name
-      - unless @person.id == current_user.person.id
+      - if @person != current_user.person && current_user.friends.include?(@person)
         .right
           = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete, :class => "button"
     
