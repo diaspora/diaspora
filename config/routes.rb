@@ -21,6 +21,7 @@ Diaspora::Application.routes.draw do
   match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
   match 'get_to_the_choppa', :to => 'devise/registrations#new', :as => "new_user_registration"
   match 'groups/move_friends', :to => 'groups#move_friends', :as => 'move_friends'
+  match 'groups/move_friend', :to => 'groups#move_friend', :as => 'move_friend'
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'

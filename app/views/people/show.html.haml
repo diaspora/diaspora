@@ -17,7 +17,7 @@
         %li
           %i= "friends since: #{how_long_ago(@person)}"
         %li
-          = form_tag move_friends_path
+          = form_tag move_friend_path
           = select :to, :to,  @groups_dropdown_array, :selected_value => @groups_with_person.first.id
           = hidden_field_tag :from, :from, :value => @groups_with_person.first.id
           = hidden_field_tag :friend_id, :friend_id, :value => @person.id
