@@ -135,7 +135,7 @@ describe User do
   end
 
   describe 'comments' do
-    it 'should correctly marshal to the downstream user' do
+    it 'should correctly marshal a stranger for the downstream user' do
       
       friend_users(@user, @group, @user3, @group3)
       post = @user.post :status_message, :message => "hello", :to => @group.id
@@ -146,6 +146,8 @@ describe User do
       comment = @user2.comment('tada',:on => post)
       @user.receive comment.to_diaspora_xml
       @user.reload
+
+      commenter_id = @user2.person.id
 
       @user2.person.delete
       @user2.delete
@@ -160,6 +162,7 @@ describe User do
       new_comment.person.should_not be_nil
       new_comment.person.profile.should_not be_nil
       
+      @user3.visible_person_by_id(commenter_id).should_not be_nil
     end
   end
 end

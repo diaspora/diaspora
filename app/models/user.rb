@@ -9,10 +9,12 @@ class User
   key :friend_ids, Array
   key :pending_request_ids, Array
   key :visible_post_ids, Array
+  key :visible_person_ids, Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends, :in => :friend_ids, :class_name => 'Person'
+  many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
 
@@ -197,6 +199,8 @@ class User
 
     elsif object.is_a?(Comment) 
       object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
+      self.visible_people << object.person
+      self.save
       Rails.logger.debug("The person parsed from comment xml is #{object.person.inspect}") unless object.person.nil?
       object.person.save
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
@@ -244,7 +248,8 @@ class User
   def visible_person_by_id( id )
     id = id.to_id
     return self.person if id == self.person.id
-    friends.detect{|x| x.id == id }
+    result = friends.detect{|x| x.id == id }
+    result = visible_people.detect{|x| x.id == id } unless result
   end
 
   def group_by_id( id )
