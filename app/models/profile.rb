@@ -21,7 +21,7 @@ class Profile
   end
   
   def person
-    Person.first(:id => self.person_id)
+    self._parent_document
   end
 
   ##this needs to go once we move to Salmon

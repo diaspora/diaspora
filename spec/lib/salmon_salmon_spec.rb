@@ -22,8 +22,8 @@ describe Salmon do
     x.magic_sig.signable_string.should == z.magic_sig.signable_string
     
     
-    x.verified_for_key?(OpenSSL::PKey::RSA.new(@user.export_key)).should be true
-    z.verified_for_key?(OpenSSL::PKey::RSA.new(@user.export_key)).should be true
+    x.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
+    z.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
   end
 
 
