@@ -36,11 +36,8 @@ $(document).ready(function(){
     element.toggleClass("editing");
 
     if( element.hasClass("editing") ) {
-
       element.attr("contentEditable", true);
       element.focus();
-
-
   
       //remove newline action
       $(element).keypress(function(e) {

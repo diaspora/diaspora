@@ -1,9 +1,3 @@
-%h1 
-  Stream for
-  = link_to "all groups", root_path
-
-= render "shared/publisher", :group_ids => :all
-
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album

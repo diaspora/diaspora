@@ -74,7 +74,7 @@ header {
     margin-bottom: 0;
   color: black;
   background-color: #333333;
-  border-bottom: 2px solid #666666;
+  border-bottom: 1px solid #666666;
   padding: 0; }
   header #diaspora_text {
     position: absolute;
@@ -101,9 +101,10 @@ header {
       color: #df0101; }
 
 #sub_header {
+  border-bottom: 1px solid #444444;
   margin: 0 -2em;
   padding: 0.5em 0;
-  background-color: black;
+  background-color: #111111;
   margin-bottom: 2em; }
 
 #show_filters {
@@ -317,7 +318,8 @@ label {
   font-weight: normal; }
 
 #publisher {
-  border-bottom: 2px #999999 solid;
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: #999999;
   position: relative;
   height: 63px;
@@ -459,15 +461,18 @@ h1.big_text {
     margin: 0;
       margin-bottom: -5px;
     padding: 0;
+      padding-left: 65px;
     list-style: none;
     font-size: 14px; }
     #group_nav ul > li {
+      border-radius: 3px 3px 0 0;
+      background-color: #333333;
       display: inline;
-      margin-right: 1.5em;
+      margin-right: 0.5em;
       padding: 0.3em 0.5em;
-        padding-right: 0.3em; }
+      border: 1px solid #444444; }
       #group_nav ul > li:hover {
-        background-color: #333333; }
+        background-color: #444444; }
         #group_nav ul > li:hover a {
           color: #999999; }
       #group_nav ul > li a {
@@ -477,11 +482,14 @@ h1.big_text {
         #group_nav ul > li a.editable:hover {
           background: yellow; }
     #group_nav ul .⚙ {
-      margin-left: 4px; }
+      margin-left: 4px;
+      margin-right: -4px; }
       #group_nav ul .⚙ a {
         color: black; }
     #group_nav ul .selected {
+      opacity: 1;
       background-color: white;
+      border-bottom: 1px solid white;
       color: black; }
       #group_nav ul .selected:hover {
         background-color: #eeeeee; }

@@ -81,7 +81,7 @@ header
   :background
     :color #333
   :border
-    :bottom 2px solid #666
+    :bottom 1px solid #666
   :padding 0
 
   #diaspora_text
@@ -117,10 +117,12 @@ header
     :padding-right 10px
 
 #sub_header
+  :border
+    :bottom 1px solid #444
   :margin 0 -2em
   :padding 0.5em 0
   :background
-    :color black
+    :color #111
   :margin
     :bottom 2em
 
@@ -391,8 +393,9 @@ label
     :weight normal
 
 #publisher
-  :border
-    :bottom 2px #999 solid
+  :padding
+    :top 20px
+    :bottom 20px
   :color #999
   :position relative
   :height 63px
@@ -581,23 +584,27 @@ h1.big_text
     :margin 0
       :bottom -5px
     :padding 0
+      :left 65px
     :list
       :style none
     :font
       :size 14px
     > li
+      :border-radius 3px 3px 0 0
+      :background
+        :color #333
       :display inline
       :margin
-        :right 1.5em
+        :right 0.5em
       :padding 0.3em 0.5em
-        :right 0.3em
+
+      :border 1px solid #444
 
       &:hover
         :background
-          :color #333
+          :color #444
         a
           :color #999
-
 
       a
         :color #999
@@ -609,12 +616,16 @@ h1.big_text
     .⚙
       :margin
         :left 4px
+        :right -4px
       a
         :color #000
         
     .selected
+      :opacity 1
       :background
         :color #fff
+      :border
+        :bottom 1px solid #fff
       :color #000
       &:hover
         :background
