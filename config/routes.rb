@@ -6,7 +6,10 @@ Diaspora::Application.routes.draw do
   resources :requests, :except => [:edit, :update]
   resources :photos, :except => [:index]
   resources :albums
+
   resources :groups
+  match 'groups/move_friends', :to => 'groups#move_friends', :as => 'move_friends'
+  match 'groups/move_friend', :to => 'groups#move_friend', :as => 'move_friend'
 
   match 'warzombie',          :to => "dev_utilities#warzombie"
   match 'zombiefriends',      :to => "dev_utilities#zombiefriends"
@@ -20,8 +23,7 @@ Diaspora::Application.routes.draw do
   match 'login',  :to => 'devise/sessions#new',      :as => "new_user_session"
   match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
   match 'get_to_the_choppa', :to => 'devise/registrations#new', :as => "new_user_registration"
-  match 'groups/move_friends', :to => 'groups#move_friends', :as => 'move_friends'
-  match 'groups/move_friend', :to => 'groups#move_friend', :as => 'move_friend'
+
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'
@@ -30,6 +32,7 @@ Diaspora::Application.routes.draw do
   match '.well-known/host-meta',:to => 'publics#host_meta'        
   match 'receive/users/:id',     :to => 'publics#receive'    
   match 'log', :to => "dev_utilities#log"
+
   #root
   root :to => 'groups#index'
 end
