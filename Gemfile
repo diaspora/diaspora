@@ -13,7 +13,8 @@ gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
 #gem 'mongo_mapper', :git => 'http://github.com/jnunemaker/mongomapper.git'
 gem 'jnunemaker-validatable', :git => 'http://github.com/BadMinus/validatable.git'
 gem 'mongo_ext'
-gem 'bson_ext'
+gem 'bson_ext', '1.0.4'
+gem 'bson', '1.0.4'
 
 #Views
 gem 'haml'
