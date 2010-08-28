@@ -12,13 +12,18 @@ $(function() {
 		$(".group ul").droppable({
 
 			drop: function(event, ui) {
-        $(this).closest("ul").append(ui.draggable)
 				//$("<li class='person ui-draggable'></li>").text(ui.draggable.text()).appendTo(this).draggable();
         var move = {};
         move[ 'friend_id' ] = ui.draggable[0].id
         move[ 'to' ] = $(this)[0].id;
         move[ 'from' ] = ui.draggable[0].getAttribute('from_group_id');
-        $('#group_list').data( ui.draggable[0].id, move);
+        if (move['to'] == move['from']){
+          $('#group_list').data( ui.draggable[0].id, []);
+        } else{
+          $('#group_list').data( ui.draggable[0].id, move);
+        }
+
+        $(this).closest("ul").append(ui.draggable)
 			}
 		});
 
