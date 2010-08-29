@@ -66,7 +66,7 @@ class User
     options[:person] = self.person
 
     if class_name == :photo
-      raise ArgumentError("No album_id given") unless options[:album_id]
+      raise ArgumentError.new("No album_id given") unless options[:album_id]
       group_ids = groups_with_post( options[:album_id] )
       group_ids.map!{ |group| group.id }
     else
@@ -74,7 +74,7 @@ class User
     end
 
     group_ids = [group_ids] if group_ids.is_a? BSON::ObjectID
-    raise ArgumentError("You must post to someone.") if group_ids.nil? || group_ids.empty?
+    raise ArgumentError.new("You must post to someone.") if group_ids.nil? || group_ids.empty?
 
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
