@@ -1,20 +1,28 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
+
+  respond_to :html
+  respond_to :json, :only => :show
   
   def create
+    
+    album = Album.find_by_id params[:album_id]
+
     begin
       @photo = current_user.post(:photo, params)
-      render :nothing => true if @photo.created_at
+      respond_with @photo
       
     rescue TypeError
-      flash[:error] = "Photo upload failed. Are you sure an image was added?"
-      redirect_to Album.first(:id => params[:album_id])
+      message = "Photo upload failed.  Are you sure an image was added?"
+      respond_with :location => album, :error => message
+
     rescue CarrierWave::IntegrityError
-      flash[:error] = "Photo upload failed.  Are you sure that was an image?"
-      redirect_to Album.first(:id => params[:album_id])
+      message = "Photo upload failed.  Are you sure that was an image?"
+      respond_with :location => album, :error => message
+
     rescue RuntimeError => e
-      flash[:error] = "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      redirect_to Album.first(:id => params[:album_id])
+      message = "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      respond_with :location => album, :error => message
       raise e
     end
   end
@@ -26,29 +34,27 @@ class PhotosController < ApplicationController
   end
   
   def destroy
-    @photo = Photo.first(:id => params[:id])
+    @photo = Photo.find_by_id params[:id]
     @photo.destroy
-    flash[:notice] = "Successfully deleted photo."
-    redirect_to @photo.album
+    respond_with :location => @photo.album
   end
   
   def show
-    @photo = Photo.first(:id => params[:id])
+    @photo = Photo.find_by_id params[:id]
     @album = @photo.album
+
+    respond_with @photo, @album
   end
 
   def edit
-    @photo= Photo.first(:id => params[:id])
+    @photo = Photo.find_by_id params[:id]
     @album = @photo.album
   end
 
   def update
-    @photo= Photo.first(:id => params[:id])
-    if @photo.update_attributes(params[:photo])
-      flash[:notice] = "Successfully updated photo."
-      redirect_to @photo
-    else
-      render :action => 'edit'
-    end
+    @photo = Photo.find_by_id params[:id]
+    @photo.update_attributes params[:photo]
+
+    respond_with @photo
   end
 end

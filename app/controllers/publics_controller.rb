@@ -3,7 +3,7 @@ class PublicsController < ApplicationController
   include Diaspora::Parser
   
   def hcard
-    @person = Person.first(:_id => params[:id])
+    @person = Person.find_by_id params[:id]
 
     unless @person.nil? || @person.owner.nil?
       render 'hcard'

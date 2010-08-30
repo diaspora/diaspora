@@ -39,7 +39,7 @@
 
         #session_action
           #global_search
-            = form_tag(users_path, :method => 'get') do
+            = form_tag(people_path, :method => 'get') do
               %label{:for => 'q'} Search
               = text_field_tag 'q'
 

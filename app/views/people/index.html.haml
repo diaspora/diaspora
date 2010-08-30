@@ -1,24 +1,42 @@
-/ %h1.big_text
-/   .back
-/     = link_to '⇧ home', root_path
-/   Friends
-/   .button.right
-/     = link_to 'Add Friend', requests_path
-= @people.count.to_s + search_or_index
+%h1.big_text
+  .back
+    = link_to "⇧ home", root_path
+
+  Search
+
+%p
+  =form_tag '/users', :method => "get" do
+    = text_field_tag :q
+    = submit_tag "search"
+    = link_to "reset", users_path
+
+= (@people.count).to_s + search_or_index
 %table
   %tr
     %th real name
     %th email
     %th url
-  - for person in @people
-    %tr
-      %td= person.real_name
-      %td= person.email
-      %td= person.url
-      %td= link_to 'Show', person
-      %td= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete
+    - for person in @people
+      %tr
+        %td= person.real_name
+        %td= person.email
+        %td= person.url
+        
+        -if current_user.friends.include? person
 
-%p= link_to "Add a friend", requests_path
-
-#pagination
-  = will_paginate @people
+        - elsif person.id == current_user.person.id
+          %td
+          %td thats you!
+        -elsif current_user.pending_requests.find_by_person_id(person.id)
+          %td 
+          %td ^-you have a friend request from this person       
+        -elsif current_user.pending_requests.find_by_url(person.receive_url)
+          %td 
+          %td friend request pending
+        -else
+          %td
+          %td
+            = form_for Request.new do |f|
+              = f.select(:group_id, @groups_array)
+              = f.hidden_field :destination_url, :value => person.email
+              = f.submit "add friend"

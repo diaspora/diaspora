@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = current_user.group(params[:group])
+    @group = current_user.group params[:group]
     respond_with @group
   end
   
@@ -19,13 +19,13 @@ class GroupsController < ApplicationController
   end
   
   def destroy
-    @group = Group.find_by_id(params[:id])
+    @group = Group.find_by_id params[:id]
     @group.destroy
     respond_with :location => groups_url
   end
   
   def show
-    @group   = Group.find_by_id(params[:id])
+    @group   = Group.find_by_id params[:id]
     @friends = @group.people
     @posts   = current_user.visible_posts( :by_members_of => @group ).paginate :order => 'created_at DESC'
 
@@ -34,7 +34,7 @@ class GroupsController < ApplicationController
 
   def edit
     @groups = current_user.groups
-    @group  = Group.find_by_id(params[:id])
+    @group  = Group.find_by_id params[:id]
   end
 
   def update
