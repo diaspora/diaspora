@@ -3,6 +3,15 @@ class Retraction
   include Diaspora::Webhooks
   include Encryptable
 
+  xml_accessor :post_id
+  xml_accessor :person_id
+  xml_accessor :type
+
+  attr_accessor :post_id
+  attr_accessor :person_id
+  attr_accessor :type
+
+
   def self.for(object)
     retraction = self.new
     if object.is_a? User
@@ -15,14 +24,6 @@ class Retraction
     retraction.person_id = person_id_from(object)
     retraction
   end
-
-  xml_accessor :post_id
-  xml_accessor :person_id
-  xml_accessor :type
-
-  attr_accessor :post_id
-  attr_accessor :person_id
-  attr_accessor :type
 
   def perform receiving_user_id
     Rails.logger.debug "Performing retraction for #{post_id}"
@@ -55,21 +56,21 @@ class Retraction
     Person.find_by_id(self.person_id)
   end
 
-#ENCRYPTION
-    xml_accessor :creator_signature
+  #ENCRYPTION
+  xml_accessor :creator_signature
 
-    def signable_accessors
-      accessors = self.class.roxml_attrs.collect{|definition| 
-        definition.accessor}
-      accessors.delete 'person'
-      accessors.delete 'creator_signature'
-      accessors
-    end
+  def signable_accessors
+    accessors = self.class.roxml_attrs.collect{|definition| 
+      definition.accessor}
+    accessors.delete 'person'
+    accessors.delete 'creator_signature'
+    accessors
+  end
 
-    def signable_string
-      signable_accessors.collect{|accessor| 
-        (self.send accessor.to_sym).to_s
-      }.join ';'
-    end
+  def signable_string
+    signable_accessors.collect{|accessor| 
+      (self.send accessor.to_sym).to_s
+    }.join ';'
+  end
   
 end

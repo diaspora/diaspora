@@ -1,6 +1,7 @@
 class Album < Post
 
   xml_reader :name
+
   key :name, String
 
   many :photos, :class_name => 'Photo', :foreign_key => :album_id
@@ -13,11 +14,7 @@ class Album < Post
   
 
   def self.mine_or_friends(friend_param, current_user)
-    if friend_param
-      Album.find_all_by_person_id(current_user.friend_ids)
-    else
-      current_user.person.albums
-    end
+    friend_param ? Album.find_all_by_person_id(current_user.friend_ids) : current_user.person.albums
   end
   
   def prev_photo(photo)

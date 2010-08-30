@@ -1,7 +1,7 @@
 class Group 
   include MongoMapper::Document
   
-  key :name, String
+  key :name,        String
   key :person_ids,  Array
   key :request_ids, Array
   key :post_ids,    Array

@@ -10,16 +10,17 @@ class Comment
   xml_accessor :post_id
   xml_accessor :_id 
   
-  key :text, String
-  timestamps!
-  
-  key :post_id, ObjectId
-  belongs_to :post, :class_name => "Post"
-  
+  key :text,      String
+  key :post_id,   ObjectId
   key :person_id, ObjectId
+
+
+  belongs_to :post,   :class_name => "Post"
   belongs_to :person, :class_name => "Person"
 
   validates_presence_of :text
+
+  timestamps!
   
   def push_upstream
     Rails.logger.info("GOIN UPSTREAM")

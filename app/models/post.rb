@@ -16,12 +16,11 @@ class Post
   many :comments, :class_name => 'Comment', :foreign_key => :post_id
   belongs_to :person, :class_name => 'Person'
   
+  timestamps!
   
   cattr_reader :per_page
   @@per_page = 10
     
-  timestamps!
-  
   before_destroy :propogate_retraction
   after_destroy :destroy_comments
 
@@ -29,7 +28,7 @@ class Post
     self.create params
   end
 
-#ENCRYPTION
+  #ENCRYPTION
   xml_accessor :creator_signature
   key :creator_signature, String
   
@@ -46,13 +45,13 @@ class Post
       (self.send accessor.to_sym).to_s}.join ';'
   end
   
-protected
-   def destroy_comments
+  protected
+  def destroy_comments
     comments.each{|c| c.destroy}
   end
   
-   def propogate_retraction
-     self.person.owner.retract(self)
-   end
+  def propogate_retraction
+    self.person.owner.retract(self)
+  end
 end
 

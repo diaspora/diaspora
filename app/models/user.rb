@@ -6,17 +6,17 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  key :friend_ids, Array
+  key :friend_ids,          Array
   key :pending_request_ids, Array
-  key :visible_post_ids, Array
-  key :visible_person_ids, Array
+  key :visible_post_ids,    Array
+  key :visible_person_ids,  Array
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
-  many :friends, :in => :friend_ids, :class_name => 'Person'
-  many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
-  many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
-  many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
+  many :friends,           :in => :friend_ids,          :class_name => 'Person'
+  many :visible_people,    :in => :visible_person_ids,  :class_name => 'Person' # One of these needs to go
+  many :pending_requests,  :in => :pending_request_ids, :class_name => 'Request'
+  many :raw_visible_posts, :in => :visible_post_ids,    :class_name => 'Post'
 
   many :groups, :class_name => 'Group'
 
@@ -30,7 +30,6 @@ class User
   def method_missing(method, *args)
     self.person.send(method, *args)
   end
-
 
   def real_name
     "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
@@ -61,6 +60,7 @@ class User
     end
     false
   end
+
   ######## Posting ########
   def post(class_name, options = {})
     options[:person] = self.person
@@ -96,7 +96,8 @@ class User
     else
       groups = self.groups.find_all_by_id( group_ids )
     end
-#send to the groups
+
+    #send to the groups
     target_people = [] 
 
     groups.each{ |group|
@@ -142,7 +143,6 @@ class User
   end
   
   ######### Posts and Such ###############
-
   def retract( post )
     post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
