@@ -3,6 +3,7 @@ $('#move_friends_link').live( 'click',
       $.post('/groups/move_friends',
         {'moves' : $('#group_list').data()},
         function(){ $('#group_title').html("Groups edited successfully!");});
+      $(".person").css('background-color','white');
     });
 
 $(function() {
@@ -19,12 +20,13 @@ $(function() {
         move[ 'from' ] = ui.draggable[0].getAttribute('from_group_id');
         if (move['to'] == move['from']){
           $('#group_list').data( ui.draggable[0].id, []);
+          ui.draggable.css('background-color','white');
         } else{
           $('#group_list').data( ui.draggable[0].id, move);
+          ui.draggable.css('background-color','orange');
         }
-
-        $(this).closest("ul").append(ui.draggable)
-			}
+        $(this).closest("ul").append(ui.draggable);
+      }
 		});
 
     
