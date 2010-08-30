@@ -27,9 +27,11 @@ class Group
 
   def as_json(opts = {})
     {
-      "name"   => self.name,
-      "people" => self.people.each{|person| person.as_json},
-      "posts"  => self.posts.each {|post|   post.as_json  },
+      :group => {
+        :name   => self.name,
+        :people => self.people.each{|person| person.as_json},
+        :posts  => self.posts.each {|post|   post.as_json  },
+      }
     }
   end
 end

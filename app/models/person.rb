@@ -76,6 +76,18 @@ class Person
     owner.nil?
   end
 
+  def as_json(opts={})
+    {
+      :person => {
+        :id           => self.id,
+        :name         => self.real_name,
+        :email        => self.email,
+        :url          => self.url,
+        :exported_key => exported_key
+      }
+    }
+  end
+
   protected
   def clean_url
     self.url ||= "http://localhost:3000/" if self.class == User

@@ -20,6 +20,8 @@ class PeopleController < ApplicationController
 
     @latest_status_message = current_user.raw_visible_posts.find_all_by__type_and_person_id("StatusMessage", params[:id]).last
     @post_count = @posts.count
+
+    respond_with @person
   end
   
   def destroy

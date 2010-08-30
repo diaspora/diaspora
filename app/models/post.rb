@@ -44,6 +44,15 @@ class Post
     signable_accessors.collect{|accessor| 
       (self.send accessor.to_sym).to_s}.join ';'
   end
+
+  def as_json(opts={})
+    {
+      :post => {
+        :id     => self.id,
+        :person => self.person.as_json,
+      }
+    }
+  end
   
   protected
   def destroy_comments

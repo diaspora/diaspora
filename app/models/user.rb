@@ -281,6 +281,19 @@ class User
   def all_group_ids
     self.groups.all.collect{|x| x.id}
   end
+
+  def as_json(opts={})
+    {
+      :user => {
+        :posts            => self.raw_visible_posts.each{|post| post.as_json},
+        :friends          => self.friends.each {|friend| friend.as_json},
+        :groups           => self.groups.each  {|group|  group.as_json},
+        :pending_requests => self.pending_requests.each{|request| request.as_json},
+      }
+    }
+  end
+
+
   protected
 
   def self.generate_key
