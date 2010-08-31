@@ -8,21 +8,16 @@ class Person
   xml_accessor :profile, :as => Profile
   xml_reader :exported_key
   
-  
-  key :email, String, :unique => true
-  key :url, String
-
+  key :url,            String
+  key :email,          String, :unique => true
   key :serialized_key, String 
 
-
-  key :owner_id, ObjectId
+  key :owner_id,  ObjectId
   key :user_refs, Integer, :default => 0 
 
-  belongs_to :owner, :class_name => 'User'
   one :profile, :class_name => 'Profile'
-
   many :albums, :class_name => 'Album', :foreign_key => :person_id
-
+  belongs_to :owner, :class_name => 'User'
 
   timestamps!
 
@@ -81,8 +76,19 @@ class Person
     owner.nil?
   end
 
-  protected
+  def as_json(opts={})
+    {
+      :person => {
+        :id           => self.id,
+        :name         => self.real_name,
+        :email        => self.email,
+        :url          => self.url,
+        :exported_key => exported_key
+      }
+    }
+  end
 
+  protected
   def clean_url
     self.url ||= "http://localhost:3000/" if self.class == User
     if self.url
@@ -92,9 +98,8 @@ class Person
   end
 
   private
-
   def remove_all_traces
     Post.all(:person_id => id).each{|p| p.delete}
     Album.all(:person_id => id).each{|p| p.delete}
   end
- end
+end

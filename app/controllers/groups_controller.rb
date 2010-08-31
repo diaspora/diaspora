@@ -1,20 +1,17 @@
 class GroupsController < ApplicationController
   before_filter :authenticate_user!
 
+  respond_to :html
+  respond_to :json, :only => :show
+
   def index
     @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :order => 'created_at DESC'
     @group = :all
   end
 
   def create
-    @group = current_user.group(params[:group])
-    
-    if @group.created_at
-      flash[:notice] = "Successfully created group."
-      redirect_to @group
-    else
-      render :action => 'new'
-    end
+    @group = current_user.group params[:group]
+    respond_with @group
   end
   
   def new
@@ -22,36 +19,31 @@ class GroupsController < ApplicationController
   end
   
   def destroy
-    @group = Group.first(:id => params[:id])
+    @group = Group.find_by_id params[:id]
     @group.destroy
-    flash[:notice] = "Successfully destroyed group."
-    redirect_to groups_url
+    respond_with :location => groups_url
   end
   
   def show
-    @group = Group.first(:id => params[:id])
+    @group   = Group.find_by_id params[:id]
     @friends = @group.people
-    @posts = current_user.visible_posts( :by_members_of => @group ).paginate :order => 'created_at DESC'
+    @posts   = current_user.visible_posts( :by_members_of => @group ).paginate :order => 'created_at DESC'
+
+    respond_with @group
   end
 
   def edit
     @groups = current_user.groups
-    @group = Group.first(:id => params[:id])
+    @group  = Group.find_by_id params[:id]
   end
 
   def update
-    @group = Group.first(:id => params[:id])
-    if @group.update_attributes(params[:group])
-      #flash[:notice] = "Successfully updated group."
-      redirect_to @group
-    else
-      render :action => 'edit'
-    end
+    @group = Group.find_by_id(params[:id])
+    @group.update_attributes(params[:group])
+    respond_with @group
   end
 
   def move_friends
-    pp params
-
     params[:moves].each{ |move|
       move = move[1]
       unless current_user.move_friend(move)
@@ -63,8 +55,8 @@ class GroupsController < ApplicationController
 
     flash[:notice] = "Groups edited successfully."
     redirect_to Group.first, :action => "edit"
-    
   end
+
   def move_friend
     unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to]) 
       flash[:error] = "didn't work #{params.inspect}"

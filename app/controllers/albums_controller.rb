@@ -1,20 +1,17 @@
 class AlbumsController < ApplicationController
   before_filter :authenticate_user!
 
+  respond_to :html
+  respond_to :json, :only => [:index, :show]
+
   def index
     @albums = Album.mine_or_friends(params[:friends], current_user).paginate :page => params[:page], :order => 'created_at DESC'
+    respond_with @albums
   end
   
   def create
     @album = current_user.post(:album, params[:album])
-    
-    if @album.created_at
-      flash[:notice] = "Successfully created album."
-      redirect_to @album
-    else
-      flash[:error] = "Successfully failed."
-      redirect_to albums_path
-    end
+    respond_with @album
   end
   
   def new
@@ -22,30 +19,26 @@ class AlbumsController < ApplicationController
   end
   
   def destroy
-    @album = Album.first(:id => params[:id])
+    @album = Album.find_by_id params[:id]
     @album.destroy
-    flash[:notice] = "Successfully destroyed album."
-    redirect_to albums_url
+    respond_with :location => albums_url
   end
   
   def show
     @photo = Photo.new
-    @album = Album.first(:id => params[:id])
+    @album = Album.find_by_id params[:id]
     @album_photos = @album.photos
+
+    respond_with @album
   end
 
   def edit
-    @album = Album.first(:id => params[:id])
+    @album = Album.find_by_id params[:id]
   end
 
   def update
-    @album = Album.first(:id => params[:id])
-    if @album.update_attributes(params[:album])
-      flash[:notice] = "Successfully updated album."
-      redirect_to @album
-    else
-      render :action => 'edit'
-    end
+    @album = Album.find_params_by_id params[:id]
+    respond_with @album
   end
 
 end

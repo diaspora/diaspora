@@ -1,14 +1,12 @@
 class PeopleController < ApplicationController
   before_filter :authenticate_user!
+
+  respond_to :html
+  respond_to :json, :only => [:index, :show]
   
   def index
-    unless params[:q]
-      @people = current_user.friends.paginate :page => params[:page], :order => 'created_at DESC'
-      render :index
-    else
-      @people = Person.search(params[:q])
-      render :json => @people.to_json(:only => :_id)
-    end
+    @people = Person.search params[:q]
+    respond_with @people
   end
   
   def show
@@ -22,12 +20,13 @@ class PeopleController < ApplicationController
 
     @latest_status_message = current_user.raw_visible_posts.find_all_by__type_and_person_id("StatusMessage", params[:id]).last
     @post_count = @posts.count
+
+    respond_with @person
   end
   
   def destroy
     current_user.unfriend(current_user.visible_person_by_id(params[:id]))
-    flash[:notice] = "unfriended person."
-    redirect_to people_url
+    respond_with :location => people_url
   end
   
 end

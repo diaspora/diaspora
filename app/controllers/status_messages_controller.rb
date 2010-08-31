@@ -1,31 +1,23 @@
 class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
 
+  respond_to :html
+  respond_to :json, :only => :show
+
   def create
     params[:status_message][:to] = params[:group_ids]
     @status_message = current_user.post(:status_message, params[:status_message])
-    
-    if @status_message.created_at
-      render :nothing => true
-    else
-      redirect_to root_url
-    end
+    respond_with @status_message
   end
   
   def destroy
-    @status_message = StatusMessage.where(:id => params[:id]).first
+    @status_message = StatusMessage.find_by_id params[:id]
     @status_message.destroy
-    flash[:notice] = "Successfully destroyed status message."
-    redirect_to root_url
+    respond_with :location => root_url
   end
   
   def show
-    @status_message = StatusMessage.where(:id => params[:id]).first
-    
-    respond_to do |format|
-      format.html 
-      format.xml { render :xml => @status_message.build_xml_for }
-      format.json { render :json => @status_message }
-    end
+    @status_message = StatusMessage.find_by_id params[:id]
+    respond_with @status_message
   end
 end

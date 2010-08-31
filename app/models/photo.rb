@@ -8,13 +8,18 @@ class Photo < Post
   xml_reader :album_id 
 
   key :album_id, ObjectId
-  key :caption, String
+  key :caption,  String
+  key :remote_photo_path
+  key :remote_photo_name
 
-   
   belongs_to :album, :class_name => 'Album'
+
   timestamps!
 
   validates_presence_of :album
+  validates_true_for :album_id, :logic => lambda {self.validate_album_person}
+
+  before_destroy :ensure_user_picture
 
   def self.instantiate(params = {})
     image_file = params[:user_file].first
@@ -25,19 +30,13 @@ class Photo < Post
     photo.save
     photo
   end
-  
-  validates_true_for :album_id, :logic => lambda {self.validate_album_person}
-
-  before_destroy :ensure_user_picture
-  key :remote_photo_path
-  key :remote_photo_name
 
   def validate_album_person
     album.person_id == person_id
   end
   
   def remote_photo
-    image.url.nil? ? (remote_photo_path + '/' +  remote_photo_name) : image.url
+    image.url.nil? ? (remote_photo_path + '/' + remote_photo_name) : image.url
   end
 
   def remote_photo= remote_path

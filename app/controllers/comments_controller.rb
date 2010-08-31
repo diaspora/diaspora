@@ -1,15 +1,20 @@
 class CommentsController < ApplicationController
   before_filter :authenticate_user!
   
+  respond_to :html
+  respond_to :json, :only => :show
+
   def create
-    target = Post.first(:id => params[:comment][:post_id])
+    target = Post.find_by_id params[:comment][:post_id]
     text = params[:comment][:text]
-        
-    if current_user.comment text, :on => target
-      render :text => "Woo!"
-    else
-      render :text => "Boo!"
-    end
+
+    @comment = current_user.comment text, :on => target
+    respond_with @comment
+  end
+
+  def show
+    @comment = Comment.find_by_id params[:id]
+    respond_with @comment
   end
 
 end
