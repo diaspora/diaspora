@@ -4,6 +4,8 @@ $('#move_friends_link').live( 'click',
         {'moves' : $('#group_list').data()},
         function(){ $('#group_title').html("Groups edited successfully!");});
       $(".person").css('background-color','white');
+      $('#group_list').removeData();
+      $(".person").setAttribute('from_group_id', function(){$(this).closest(".group ul").attr('id')})
     });
 
 $(function() {
@@ -13,7 +15,6 @@ $(function() {
 		$(".group ul").droppable({
 
 			drop: function(event, ui) {
-				//$("<li class='person ui-draggable'></li>").text(ui.draggable.text()).appendTo(this).draggable();
         var move = {};
         move[ 'friend_id' ] = ui.draggable[0].id
         move[ 'to' ] = $(this)[0].id;
