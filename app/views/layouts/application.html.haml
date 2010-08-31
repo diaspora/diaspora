@@ -51,17 +51,10 @@
             %li.settings= link_to "settings", edit_user_path(current_user)
             %li.logout= link_to "logout", destroy_user_session_path
 
-    #sub_header
-      .container
-        .span-19.append-5.last
-          = render "shared/publisher", :group_ids => :all
         = render "shared/group_nav"
 
     .container
-      .span-19.last
-        = yield
-
-      .span-4.prepend-1.last
+      .span-5.last
         %h1
           - if @group == :all
             = link_to "Everybody", root_path
@@ -70,6 +63,9 @@
 
         = render "shared/group_friends"
 
-      .span-24.last
+      .span-19.last
+        = yield
+
+      .span-19.prepend-5.last
         = render "posts/debug"
 

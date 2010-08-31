@@ -76,13 +76,13 @@ header
   :z-index 4
   :position relative
   :margin -2em
-    :bottom 0
+    :bottom 2em
   :color #000
   :background
     :color #333
-  :border
-    :bottom 1px solid #666
   :padding 0
+  :border
+    :bottom 1px solid #555
 
   #diaspora_text
     :position absolute
@@ -92,12 +92,10 @@ header
       :size 16px
     :border none
     :color #fff
-    :text
-      :shadow 0 2px 0 #000
     :top 3px
 
     a
-      :color #666
+      :color #999
 
     a:hover
       :color #fff
@@ -115,16 +113,6 @@ header
       &.new_requests
         :color #DF0101
     :padding-right 10px
-
-#sub_header
-  :border
-    :bottom 1px solid #444
-  :margin 0 -2em
-  :padding 0.5em 0
-  :background
-    :color #111
-  :margin
-    :bottom 2em
 
 #show_filters
   :z-index 100
@@ -394,7 +382,6 @@ label
 
 #publisher
   :padding
-    :top 20px
     :bottom 20px
   :color #999
   :position relative
@@ -541,7 +528,7 @@ h1.big_text
   :position relative
   :line-height 36px
 
-  :margin
+  :margin 0 25px
     :top 25px
     :bottom 25px 
 
@@ -581,24 +568,24 @@ h1.big_text
 #group_nav
   :color #000
   ul
-    :margin 0
-      :bottom -5px
+    :margin
+      :bottom 0
     :padding 0
-      :left 65px
+      :bottom 0px
+      :top 35px
     :list
       :style none
     :font
       :size 14px
     > li
-      :border-radius 3px 3px 0 0
       :background
-        :color #333
+        :color #444
       :display inline
       :margin
         :right 0.5em
-      :padding 0.3em 0.5em
+      :padding 3px 8px
 
-      :border 1px solid #444
+      :border 1px solid #555
 
       &:hover
         :background
@@ -621,7 +608,8 @@ h1.big_text
         :color #000
         
     .selected
-      :opacity 1
+      :font
+        :weight bold
       :background
         :color #fff
       :border
@@ -630,6 +618,9 @@ h1.big_text
       &:hover
         :background
           :color #eee
+      a
+        :color #000
+
       .⚙
         a
           :color #333

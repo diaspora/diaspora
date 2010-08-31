@@ -1,3 +1,7 @@
+%h1
+  stream for
+  = link_to 'everybody', root_path
+= render "shared/publisher", :group_ids => :all
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album
