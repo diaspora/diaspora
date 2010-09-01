@@ -5,7 +5,7 @@ $('#move_friends_link').live( 'click',
         function(){ $('#group_title').html("Groups edited successfully!");});
       $(".person").css('background-color','white');
       $('#group_list').removeData();
-      $(".person").setAttribute('from_group_id', function(){$(this).closest(".group ul").attr('id')})
+      $(".person").attr('from_group_id', function(){return $(this).parent().attr('id')})
     });
 
 $(function() {
