@@ -3,7 +3,7 @@ require 'config/environment'
 host = "localhost:3000"
 url = "http://#{host}/"
 # Create seed user
-user = User.create!( :email => "tom@tom.joindiaspora.com",
+user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                     :password => "evankorth",
                     :person => Person.new(
                       :email => "tom@tom.joindiaspora.com",
@@ -12,7 +12,7 @@ user = User.create!( :email => "tom@tom.joindiaspora.com",
                   )
 user.person.save!
 
-user2 = User.create!( :email => "korth@tom.joindiaspora.com",
+user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                     :password => "evankorth",
                     :person => Person.new( :email => "korth@tom.joindiaspora.com",
                                           :url => url, 

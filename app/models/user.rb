@@ -61,6 +61,18 @@ class User
     false
   end
 
+##querying with permissions
+  def posts_visible_to_me(opts ={})
+    if opts[:from].class == Person
+        Post.where(:person_id => opts[:from].id, :_id.in => self.visible_post_ids)
+    elsif opts[:from].class == Group
+        Post.where(:_id.in => opts[:from].post_ids) unless opts[:from].user != self
+    else
+        Post.where(:_id.in => self.visible_post_ids)
+    end
+  end
+
+
   ######## Posting ########
   def post(class_name, options = {})
     options[:person] = self.person
@@ -166,7 +178,7 @@ class User
   ###### Receiving #######
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
-    Rails.logger.debug("Receiving object:\n#{object.inspect}")
+    Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
     raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
 
