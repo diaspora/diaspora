@@ -577,3 +577,25 @@ h1.big_text {
 .editing, .editing:hover {
   background-color: yellow;
   border: 1px #666666 solid; }
+
+.group {
+  list-style: none; }
+  .group ul {
+    min-height: 20px;
+    margin: 0;
+      margin-left: 1em;
+      margin-bottom: 25px;
+    background-color: #efefef;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    list-style: none;
+    padding: 15px; }
+    .group ul li {
+      margin-left: 0;
+      padding: 5px;
+      cursor: move; }
+      .group ul li img {
+        display: inline-block; }
+    .group ul .grey {
+      font-style: italic;
+      color: #666666; }
