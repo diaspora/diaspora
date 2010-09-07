@@ -310,11 +310,11 @@ label {
   font-weight: normal; }
 
 #publisher {
-  padding-bottom: 20px;
   color: #999999;
   position: relative;
   height: 63px;
-  margin-bottom: 5px; }
+  margin-bottom: 10px;
+  border-bottom: 1px solid #666666; }
   #publisher .avatar {
     float: left;
     margin-right: 15px; }
