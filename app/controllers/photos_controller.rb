@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
     @album = current_user.album_by_id(params[:album_id])
-    render :partial => "new_photo"
+    render :partial => 'new_photo'
   end
   
   def destroy
