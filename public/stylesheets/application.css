@@ -462,21 +462,16 @@ h1.big_text {
       margin-right: 0.5em;
       padding: 3px 8px;
       border: 1px solid #555555; }
-      #group_nav ul > li:hover {
-        background-color: #444444; }
-        #group_nav ul > li:hover a {
-          color: #999999; }
       #group_nav ul > li a {
         color: #999999; }
         #group_nav ul > li a:hover {
           background: none; }
         #group_nav ul > li a.editable:hover {
           background: yellow; }
-    #group_nav ul .⚙ {
-      margin-left: 4px;
-      margin-right: -4px; }
-      #group_nav ul .⚙ a {
-        color: black; }
+      #group_nav ul > li:hover {
+        background-color: #444444; }
+        #group_nav ul > li:hover a {
+          color: #999999; }
     #group_nav ul .selected {
       font-weight: bold;
       background-color: white;
@@ -486,8 +481,6 @@ h1.big_text {
         background-color: #eeeeee; }
       #group_nav ul .selected a {
         color: black; }
-      #group_nav ul .selected .⚙ a {
-        color: #333333; }
 
 #add_photo_loader {
   position: absolute;

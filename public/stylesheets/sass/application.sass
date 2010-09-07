@@ -577,6 +577,7 @@ h1.big_text
       :style none
     :font
       :size 14px
+
     > li
       :background
         :color #444
@@ -587,12 +588,6 @@ h1.big_text
 
       :border 1px solid #555
 
-      &:hover
-        :background
-          :color #444
-        a
-          :color #999
-
       a
         :color #999
         &:hover
@@ -600,12 +595,12 @@ h1.big_text
         &.editable:hover
           :background yellow
 
-    .⚙
-      :margin
-        :left 4px
-        :right -4px
-      a
-        :color #000
+      &:hover
+        :background
+          :color #444
+        a
+          :color #999
+
         
     .selected
       :font
@@ -620,11 +615,6 @@ h1.big_text
           :color #eee
       a
         :color #000
-
-      .⚙
-        a
-          :color #333
-
 
 #add_photo_loader
   :position absolute
@@ -780,3 +770,5 @@ h1.big_text
       :font
         :style italic
       :color #666
+
+
