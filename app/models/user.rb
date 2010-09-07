@@ -85,7 +85,7 @@ class User
       group_ids = options.delete(:to)
     end
 
-    group_ids = [group_ids] if group_ids.is_a? BSON::ObjectID
+    group_ids = [group_ids] if group_ids.is_a? BSON::ObjectId
     raise ArgumentError.new("You must post to someone.") if group_ids.nil? || group_ids.empty?
 
     model_class = class_name.to_s.camelize.constantize

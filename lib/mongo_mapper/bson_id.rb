@@ -1,9 +1,9 @@
 class String
   def to_id
-    BSON::ObjectID self
+    BSON::ObjectId self
   end
 end
-class BSON::ObjectID
+class BSON::ObjectId
   def to_id
     self
   end

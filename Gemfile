@@ -1,24 +1,25 @@
 source 'http://rubygems.org'
 
-#gem 'rails', '3.0.0.rc'
-#gem 'bundler', '1.0.0.rc.5'
-gem 'rails', '3.0.0.beta4'
-gem 'bundler', '0.9.26'
+gem 'rails', '3.0.0'
+gem 'bundler', '1.0.0'
+
 
 #Security
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
 
 #Mongo
-gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
-#gem 'mongo_mapper', :git => 'http://github.com/jnunemaker/mongomapper.git'
-gem 'jnunemaker-validatable', :git => 'http://github.com/BadMinus/validatable.git'
+#gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
+gem 'mongo_mapper', :git => 'http://github.com/jnunemaker/mongomapper.git'
+#gem 'mongo_mapper', :git => 'http://github.com/collectiveidea/mongomapper.git', :branch => 'rails3'
+#gem 'jnunemaker-validatable', :git => 'http://github.com/BadMinus/validatable.git'
+gem 'jnunemaker-validatable', :git => 'http://github.com/jnunemaker/validatable.git'
 gem 'mongo_ext'
-gem 'bson_ext', '1.0.4'
-gem 'bson', '1.0.4'
+gem 'bson_ext', '1.0.7'
+gem 'bson', '1.0.7'
 
 #Views
 gem 'haml'
-gem 'will_paginate', '3.0.pre'
+gem 'will_paginate', '3.0.pre2'
 
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git'

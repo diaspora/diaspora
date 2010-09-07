@@ -25,7 +25,7 @@ class Post
   after_destroy :destroy_comments
 
   def self.instantiate params
-    self.create params
+    self.create params.to_hash
   end
 
   #ENCRYPTION
