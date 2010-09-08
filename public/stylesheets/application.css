@@ -105,7 +105,7 @@ header {
     height: 85px; }
     header #group_header h1 {
       margin-bottom: 0;
-      margin-top: 25px; }
+      margin-top: 27px; }
 
 #show_filters {
   z-index: 100;
@@ -292,7 +292,10 @@ ul.comment_set {
     font-size: larger; }
 
 #debug_info {
-  margin-top: 20px; }
+  margin-top: 20px;
+  color: #cccccc; }
+  #debug_info h5 {
+    color: #cccccc; }
 
 input[type='text'], textarea {
   font-family: "lucida grande", "sans-serif";
@@ -336,8 +339,6 @@ label {
       float: right;
       margin-right: 20px;
       margin-top: 26px; }
-      #publisher form input[type='submit'].button {
-        background: #c3ff68; }
   #publisher textarea {
     width: 600px;
     height: 40px;
