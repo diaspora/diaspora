@@ -75,7 +75,7 @@ header {
   color: black;
   background-color: #333333;
   padding: 0;
-  border-bottom: 1px solid #555555; }
+  border-bottom: 1px solid #cccccc; }
   header #diaspora_text {
     position: absolute;
     display: inline;
@@ -98,6 +98,14 @@ header {
     padding-right: 10px; }
     header #session_action a.new_requests {
       color: #df0101; }
+  header #group_header {
+    text-shadow: 0 2px 0 white;
+    background-color: #eeeeee;
+    border-top: 1px solid #555555;
+    height: 85px; }
+    header #group_header h1 {
+      margin-bottom: 0;
+      margin-top: 25px; }
 
 #show_filters {
   z-index: 100;
@@ -120,6 +128,8 @@ ul#stream {
     list-style: none;
     padding: 12px 0;
     border-bottom: 1px solid #eeeeee; }
+  ul#stream > li:first-child {
+    padding-top: 0; }
 
 li.message {
   position: relative;
@@ -313,8 +323,7 @@ label {
   color: #999999;
   position: relative;
   height: 63px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #666666; }
+  margin-top: 20px; }
   #publisher .avatar {
     float: left;
     margin-right: 15px; }
@@ -326,31 +335,13 @@ label {
     #publisher form input[type='submit'] {
       float: right;
       margin-right: 20px;
-      margin-top: 28px; }
+      margin-top: 26px; }
+      #publisher form input[type='submit'].button {
+        background: #c3ff68; }
   #publisher textarea {
-    width: 485px;
+    width: 600px;
     height: 40px;
     margin-top: 0; }
-  #publisher ul.group_selector {
-    left: 510px;
-    padding: 0;
-    margin: 0;
-    width: 110px;
-    z-index: 10;
-    position: absolute;
-    height: auto;
-    overflow: visible;
-    list-style: none; }
-    #publisher ul.group_selector > li {
-      height: auto;
-      font-size: smaller;
-      padding: 2px;
-      display: none;
-      background-color: #eeeeee; }
-      #publisher ul.group_selector > li:active {
-        background-color: yellow; }
-    #publisher ul.group_selector:hover li {
-      display: block; }
   #publisher .button {
     margin-left: 100px; }
 
@@ -486,11 +477,11 @@ h1.big_text {
           color: #999999; }
     #group_nav ul .selected {
       font-weight: bold;
-      background-color: white;
-      border-bottom: 1px solid white;
+      background-color: #eeeeee;
+      border-bottom: 1px solid #eeeeee;
       color: black; }
       #group_nav ul .selected:hover {
-        background-color: #eeeeee; }
+        background-color: #efefef; }
       #group_nav ul .selected a {
         color: black; }
 

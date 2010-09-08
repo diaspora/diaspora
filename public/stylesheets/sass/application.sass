@@ -82,7 +82,7 @@ header
     :color #333
   :padding 0
   :border
-    :bottom 1px solid #555
+    :bottom 1px solid #ccc
 
   #diaspora_text
     :position absolute
@@ -114,6 +114,20 @@ header
         :color #DF0101
     :padding-right 10px
 
+  #group_header
+    :text-shadow 0 2px 0 #fff
+    :background
+      :color #eee
+    :border
+      :top 1px solid #555
+    :height 85px
+
+    h1
+      :margin
+        :bottom 0
+        :top 25px
+    
+
 #show_filters
   :z-index 100
   :position absolute
@@ -135,6 +149,10 @@ ul#stream
     :padding 12px 0
     :border
       :bottom 1px solid #eee
+
+  > li:first-child
+    :padding
+      :top 0
 
 li.message
   :position relative
@@ -385,9 +403,7 @@ label
   :position relative
   :height 63px
   :margin
-    :bottom 10px
-  :border
-    :bottom 1px solid #666
+    :top 20px
 
   .avatar
     :float left
@@ -397,7 +413,7 @@ label
   p
     :position absolute
     :left 0 
-
+  
   form
     :display inline
 
@@ -405,41 +421,14 @@ label
       :float right
       :margin
         :right 20px
-        :top 28px
+        :top 26px
 
   textarea
-    :width 485px
+    :width 600px
     :height 40px
     :margin
       :top 0
 
-  ul.group_selector
-    :left 510px
-    :padding 0
-    :margin 0
-    :width 110px
-    :z-index 10
-    :position absolute
-    :height auto
-    :overflow visible
-    :list
-      :style none
-
-    > li
-      :height auto
-      :font-size smaller
-      :padding 2px
-      :display none
-      :background
-        :color #eee
-
-      &:active
-        :background
-          :color yellow
-
-    &:hover li
-      :display block
-      
   .button
     :margin-left 100px
 
@@ -570,6 +559,7 @@ h1.big_text
   :position relative
   :color #000
 
+
   #group_edit_button
     :display inline
     :margin
@@ -621,19 +611,17 @@ h1.big_text
         a
           :color #999
 
-
-        
     .selected
       :font
         :weight bold
       :background
-        :color #fff
+        :color #eee
       :border
-        :bottom 1px solid #fff
+        :bottom 1px solid #eee
       :color #000
       &:hover
         :background
-          :color #eee
+          :color #efefef
       a
         :color #000
 

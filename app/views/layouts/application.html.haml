@@ -55,14 +55,21 @@
 
         = render "shared/group_nav"
 
+      #group_header
+        .container
+          .span-5.last
+            - if @group == :all
+              %h1
+                All Groups
+            - else
+              %h1
+                = @group.name
+
+          .span-19.last
+            = render "shared/publisher", :group_ids => :all
+
     .container
       .span-5.last
-        %h1
-          - if @group == :all
-            = link_to "Everybody", root_path
-          - else
-            = link_to @group.name, @group
-
         = render "shared/group_friends"
 
       .span-19.last

@@ -32,6 +32,10 @@
     background: -moz-linear-gradient(top, #f0f0f0, #fafafa);
     border-top: 1px solid #cccccc; }
 
+input.button {
+  padding: 5px;
+    padding-bottom: 6px; }
+
 ul.button_set {
   padding-left: 0;
   padding-right: 0; }
