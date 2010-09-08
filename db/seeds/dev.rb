@@ -4,6 +4,7 @@ host = "localhost:3000"
 url = "http://#{host}/"
 # Create seed user
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
+                     :username => "tom",
                     :password => "evankorth",
                     :person => Person.new(
                       :email => "tom@tom.joindiaspora.com",
@@ -13,6 +14,7 @@ user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
 user.person.save!
 
 user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
+                     :username => "korth",
                     :password => "evankorth",
                     :person => Person.new( :email => "korth@tom.joindiaspora.com",
                                           :url => url, 

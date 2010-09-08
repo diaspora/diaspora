@@ -5,6 +5,7 @@ class User
   include Diaspora::UserModules::Friending
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  key :username, :unique => true
          
   key :friend_ids,          Array
   key :pending_request_ids, Array
@@ -23,6 +24,14 @@ class User
   before_validation_on_create :setup_person
   before_validation :do_bad_things 
   
+   def self.find_for_authentication(conditions={})
+     puts conditions
+    if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
+      conditions[:email] = conditions.delete(:username)
+    end
+    super
+  end 
+
   ######## Making things work ########
   key :email, String
   ensure_index :email

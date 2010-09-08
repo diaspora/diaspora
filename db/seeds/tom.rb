@@ -3,6 +3,7 @@ require 'config/environment'
 remote_url = "http://tom.joindiaspora.com/"
 # Create seed user
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
+                     :username => "tom",
                     :password => "evankorth",
                     :person => {
                       :email => "tom@tom.joindiaspora.com",
@@ -14,6 +15,7 @@ user.person.save!
 
 user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                     :password => "evankorth",
+                     :username => "korth",
                     :person => { :email => "korth@tom.joindiaspora.com",
                                           :url => remote_url, 
                                           :profile => { :first_name => "Evan",

@@ -16,6 +16,7 @@ def create
   # Create seed user
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
   user = User.create( :email => "#{username}@#{username}.joindiaspora.com",
+                     :username => username,
                      :password => "#{username+backer_info[backer_number]['pin'].to_s}",
                      :person => Person.new(
                        :email => "#{username}@#{username}.joindiaspora.com",
