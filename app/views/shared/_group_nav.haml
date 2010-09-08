@@ -9,9 +9,8 @@
 
     %li.new_group= link_to("+", "#add_group_pane", :id => "add_group_button")
 
-    %li
-      %span{:class => '⚙'}
-        = link_to "⚙", edit_group_path(Group.first), :class => "edit_group_button", :title => "Manage your facets."
+    #group_edit_button
+      = link_to "edit", edit_group_path(Group.first), :class => "edit_group_button", :title => "Manage your facets."
 
   .yo{ :style => "display:none;"}
     #add_group_pane

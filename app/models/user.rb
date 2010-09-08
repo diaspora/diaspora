@@ -255,8 +255,7 @@ class User
   end
 	 	
   def terse_url
-    terse= self.url.gsub(/https?:\/\//, '')
-    terse.gsub!(/www\./, '')
+    terse = self.url.gsub(/(https?:|www\.)\/\//, '')
     terse = terse.chop! if terse[-1, 1] == '/'
     terse
   end

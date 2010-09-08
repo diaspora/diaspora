@@ -448,7 +448,14 @@ h1.big_text {
   display: none; }
 
 #group_nav {
+  position: relative;
   color: black; }
+  #group_nav #group_edit_button {
+    display: inline;
+    margin-top: 1px;
+    font-size: 12px; }
+    #group_nav #group_edit_button a {
+      color: #999999; }
   #group_nav ul {
     margin-bottom: 0;
     padding: 0;
