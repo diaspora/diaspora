@@ -1,35 +1,12 @@
 :javascript
-  $(function() {
-    $("#photo_image").html5_upload({
-      // WE INSERT ALBUM_ID PARAM HERE
-      url: "/photos?album_id=#{@album.id}",   
-      sendBoundary: window.FormData || $.browser.mozilla,
-      onStart: function(event, total) {
-        return confirm("You are about to upload " + total + " photos. Are you sure?");
-      },
-      onFinish: function(event, total){
-        $("#add_photo_button .button").html( "Add Photos" );
-        $("#add_photo_loader").fadeOut(400);
-      },
-      onStart: function(event, total){
-        $("#add_photo_pane").fadeOut(400);
-        $("#add_photo_button .button").html( "Uploading Photos" );
-        $("#add_photo_loader").fadeIn(400);
-        return true;
-      }
-    });
-  });
+  function createUploader(){            
+    var uploader = new qq.FileUploader({
+        element: document.getElementById('file-upload'),
+        params: {'album_id' : "#{@album.id}"},
+        allowedExtensions: ['jpg', 'jpeg', 'png'],
+        action: "/photos"
+    });           
+  }
+  window.onload = createUploader;      
 
-%h1
-  %span{:id=>"photo_title_status"}
-    Add photos to
-    %i= @album.name
-= form_for @photo, :html => {:multipart => true} do |f|
-  = f.error_messages
-  = f.hidden_field :album_id, :value => @album.id
-  = f.file_field :image, :multiple => 'multiple'
-
-#progress_report{ :style => "display:none;text-align:center;" }
-  = image_tag "ajax-loader.gif"
-  #progress_report_name
-  #progress_report_status
+#file-upload

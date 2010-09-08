@@ -22,7 +22,7 @@ class Photo < Post
   before_destroy :ensure_user_picture
 
   def self.instantiate(params = {})
-    image_file = params[:user_file].first
+    image_file = params[:user_file]
     params.delete :user_file
     
     photo = Photo.new(params)
