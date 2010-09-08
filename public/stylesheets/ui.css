@@ -57,8 +57,7 @@ ul.button_set {
 
 .right {
   position: absolute;
-  right: 0;
-  margin-top: 5px; }
+  right: 0; }
 
 .contextual_pane {
   z-index: 20;

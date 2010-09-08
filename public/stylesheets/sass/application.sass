@@ -583,9 +583,12 @@ h1.big_text
   ul
     :margin
       :bottom 0
+      :right 0
     :padding 0
       :bottom 0px
       :top 35px
+      :right 0
+    :display inline-block
     :list
       :style none
     :font
@@ -600,6 +603,10 @@ h1.big_text
       :padding 3px 8px
 
       :border 1px solid #555
+
+      &.last-child
+        :margin
+          :right 0
 
       a
         :color #999
