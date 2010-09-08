@@ -15,19 +15,13 @@ body {
 
 input {
   font-size: 30px;
-  text-align: center;
-  width: 300px;
+  width: 200px;
   margin-bottom: 0;
   margin-top: 0; }
 
-.container {
-  top: 30%;
-  text-align: center; }
-
 form p {
   position: relative;
-  padding: 0;
-  margin-left: 32.8%; }
+  padding: 0; }
 
 label {
   color: #999999;
@@ -43,7 +37,7 @@ input[type='password'] {
   font-size: 14px;
   padding: 0.3em;
   display: block;
-  width: 50%;
+  width: 395px;
   box-shadow: 0 2px 0px white;
   -webkit-box-shadow: 0 2px 0px white;
   -moz-box-shadow: 0 2px 0px white;
@@ -51,3 +45,17 @@ input[type='password'] {
   height: auto;
   border-radius: 3px;
   -moz-border-radius: 3px; }
+
+#user {
+  display: inline;
+  width: 500px; }
+  #user .username {
+    width: 200px;
+    display: inline; }
+    #user .username input {
+      display: inline;
+      width: 200px; }
+  #user .user_network {
+    width: 200px;
+    display: inline;
+    font-size: 18px; }

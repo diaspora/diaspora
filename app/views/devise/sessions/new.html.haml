@@ -1,10 +1,17 @@
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %p
-    = f.label :username
-    = f.text_field :username
-  %p
-    = f.label :password
-    = f.password_field :password
+
+  #user
+
+    %p.username
+      = f.label :username
+      = f.text_field :username
+    %p.user_network
+      @tom.joindiaspora.com
+
+
+    %p
+      = f.label :password
+      = f.password_field :password
   /%p
   /- if devise_mapping.rememberable?
   /  = f.check_box :remember_me

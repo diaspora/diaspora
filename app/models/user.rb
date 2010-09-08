@@ -25,7 +25,6 @@ class User
   before_validation :do_bad_things 
   
    def self.find_for_authentication(conditions={})
-     puts conditions
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
     end
