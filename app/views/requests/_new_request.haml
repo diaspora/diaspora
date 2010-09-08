@@ -5,9 +5,12 @@
 = form_for Request.new do |f|
   = f.error_messages
 
-  Enter a Diaspora URL, Diaspora username, or random email address:  
+  Enter a Diaspora username:  
+  %br
+  %i= "Your Diaspora username is: #{current_user.diaspora_handle}"
+
   %p
-    = f.label :destination_url, "Your Diaspora URL is: #{current_user.username}@#{request.host}"
+    = f.label :destination_url, "Friend's username"
     = f.text_field :destination_url
   = f.hidden_field :group_id, :value => @group.id
   = f.submit

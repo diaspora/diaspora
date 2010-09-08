@@ -261,6 +261,10 @@ class User
     terse
   end
 
+  def diaspora_handle
+    "#{self.username}@#{self.terse_url}"
+  end
+
   def do_bad_things
     self.password_confirmation = self.password
   end 
