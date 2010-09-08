@@ -18,7 +18,11 @@
     %th url
     - for person in @people
       %tr
-        %td= person.real_name
+        - if current_user.friends.include? person
+          %td= link_to person.real_name, person
+        - else
+          %td= person.real_name
+
         %td= person.email
         %td= person.url
         
