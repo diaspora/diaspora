@@ -6,7 +6,9 @@
   = f.error_messages
 
   Enter a Diaspora URL, Diaspora username, or random email address:  
-  = f.text_field :destination_url
+  %p
+    = f.label :destination_url, "Your Diaspora URL is: #{current_user.username}@#{request.host}"
+    = f.text_field :destination_url
   = f.hidden_field :group_id, :value => @group.id
   = f.submit
 
