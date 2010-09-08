@@ -9,7 +9,7 @@
   //Attach onmessage to websocket
     ws.onmessage = function(evt) {
       var obj = jQuery.parseJSON(evt.data);
-      console.log(obj)
+      //console.log(obj);
       debug("got a " + obj['class'] + " for groups " + obj['group_ids']);
 
       if (obj['class']=="retractions"){
