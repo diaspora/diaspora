@@ -34,7 +34,6 @@ class GroupsController < ApplicationController
 
   def edit
     @groups = current_user.groups
-    @group  = Group.find_by_id params[:id]
   end
 
   def update
