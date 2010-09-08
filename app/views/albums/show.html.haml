@@ -1,5 +1,10 @@
-- content_for :head do
-  = javascript_include_tag 'photos', 'jquery.html5_upload'
+:javascript
+  $(document).ready(function(){
+    $(".image_thumb img").load( function() {
+      $(this).fadeIn("slow");
+    });
+  });
+
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
 .back= link_to '⇧ albums', albums_path
@@ -12,6 +17,8 @@
       #add_photo_loader
         = image_tag 'ajax-loader.gif'
       = link_to 'Add Photos', '#new_photo_pane', :class => 'button', :id => "add_photo_button"
+
+  =render 'photos/new_photo'
 
   .yo{:style => "display:none;"}
     #new_photo_pane

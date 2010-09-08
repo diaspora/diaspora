@@ -9,8 +9,30 @@ class PhotosController < ApplicationController
     album = Album.find_by_id params[:album_id]
 
     begin
+
+      ######################## dealing with local files #############
+      # get file name
+      file_name = params[:qqfile]
+      # get file content type
+      att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
+      # create temporal file
+      file = Tempfile.new(file_name)
+      # put data into this file from raw post request
+      file.print request.raw_post
+
+      # create several required methods for this temporal file
+      Tempfile.send(:define_method, "content_type") {return att_content_type}
+      Tempfile.send(:define_method, "original_filename") {return file_name}
+
+      ##############
+    
+
+      params[:user_file] = file 
       @photo = current_user.post(:photo, params)
-      respond_with @photo
+
+      respond_to do |format|
+        format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+      end
       
     rescue TypeError
       message = "Photo upload failed.  Are you sure an image was added?"
