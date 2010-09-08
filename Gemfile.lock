@@ -235,12 +235,12 @@ DEPENDENCIES
   em-websocket
   factory_girl_rails
   haml
-  jnunemaker-validatable!
+  jnunemaker-validatable (= 1.8.4)!
   json
   mini_magick
   mocha
   mongo_ext
-  mongo_mapper!
+  mongo_mapper (= 0.8.4)!
   nifty-generators
   pubsubhubbub
   rails (= 3.0.0)
