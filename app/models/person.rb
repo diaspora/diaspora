@@ -94,12 +94,14 @@ class Person
 
     public_key = profile.links.select{|x| x.rel == 'diaspora-public-key'}.first.href
     new_person.exported_key = Base64.decode64 public_key
+
+    guid = profile.links.select{|x| x.rel == 'diaspora-public-key'}.first.href
+    new_person.id = guid
     
     new_person.email = identifier
     
     hcard = HCard.find profile.hcard.first[:href]
 
-    receive_url = profile.links.select{ |l| l.rel == 'http://joindiaspora.com/seed_location'}.first.href
     new_person.url = hcard[:url]
     new_person.profile = Profile.new(:first_name => hcard[:given_name], :last_name => hcard[:family_name])
     if new_person.save

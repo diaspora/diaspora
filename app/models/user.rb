@@ -204,6 +204,7 @@ class User
 
   ###### Receiving #######
   def receive_salmon xml
+    Rails.logger.info("Received a salmon: #{xml}")
     salmon = Salmon::SalmonSlap.parse xml
     if salmon.verified_for_key?(salmon.author.public_key)
       self.receive(decrypt(salmon.data))
