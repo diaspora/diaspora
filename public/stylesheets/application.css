@@ -96,6 +96,7 @@ header {
     position: relative;
     display: inline;
     float: right;
+    z-index: 3;
     padding-right: 10px; }
     header #session_action a.new_requests {
       color: #df0101; }
