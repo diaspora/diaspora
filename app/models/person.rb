@@ -95,7 +95,7 @@ class Person
     public_key = profile.links.select{|x| x.rel == 'diaspora-public-key'}.first.href
     new_person.exported_key = Base64.decode64 public_key
 
-    guid = profile.links.select{|x| x.rel == 'diaspora-public-key'}.first.href
+    guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid
     
     new_person.email = identifier
