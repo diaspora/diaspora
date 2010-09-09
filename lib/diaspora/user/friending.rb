@@ -1,9 +1,13 @@
 module Diaspora
   module UserModules
     module Friending
-      def send_friend_request_to(friend, group)
-        raise "You are already friends with that person!" if self.friends.detect{ |x| x.receive_url == friend.receive_url}
-        request = Request.instantiate(:to => friend.receive_url, :from => self.person, :into => group.id)
+      def send_friend_request_to(desired_friend, group)
+        raise "You are already friends with that person!" if self.friends.detect{
+          |x| x.receive_url == desired_friend.receive_url}
+        request = Request.instantiate(
+          :to => desired_friend.receive_url,
+          :from => self.person,
+          :into => group.id)
         if request.save
           self.pending_requests << request
           self.save
@@ -11,7 +15,7 @@ module Diaspora
           group.requests << request
           group.save
           
-          request.push_to_url friend.receive_url
+          salmon request, :to => desired_friend
         end
         request
       end
