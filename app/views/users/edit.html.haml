@@ -25,8 +25,13 @@
             = link_to image_tag(photo.url(:thumb_medium)), "#"
     =will_paginate @photos
 
-
     %h3 Info
+
+    %p
+      %b
+        DIASPORA USERNAME:
+        = @user.diaspora_handle
+
     %p
       = p.label :first_name
       = p.text_field :first_name, :value => @profile.first_name
@@ -37,10 +42,6 @@
   %p
     = f.label :email
     = f.text_field :email
-
-  %p
-    = f.label :url
-    = f.text_field :url
 
   #submit_block
     = link_to "Cancel", root_path

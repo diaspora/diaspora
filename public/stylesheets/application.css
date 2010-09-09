@@ -448,12 +448,22 @@ h1.big_text {
   display: none; }
 
 #group_nav {
+  position: relative;
   color: black; }
+  #group_nav #group_edit_button {
+    display: inline;
+    margin-top: 1px;
+    font-size: 12px; }
+    #group_nav #group_edit_button a {
+      color: #999999; }
   #group_nav ul {
     margin-bottom: 0;
+    margin-right: 0;
     padding: 0;
       padding-bottom: 0px;
       padding-top: 35px;
+      padding-right: 0;
+    display: inline-block;
     list-style: none;
     font-size: 14px; }
     #group_nav ul > li {
@@ -462,6 +472,8 @@ h1.big_text {
       margin-right: 0.5em;
       padding: 3px 8px;
       border: 1px solid #555555; }
+      #group_nav ul > li.last-child {
+        margin-right: 0; }
       #group_nav ul > li a {
         color: #999999; }
         #group_nav ul > li a:hover {
