@@ -29,7 +29,6 @@ gem 'json'
 #Standards
 gem 'pubsubhubbub'
 gem 'redfinger', :git => 'git://github.com/rsofaer/redfinger.git'
-gem 'prism'
 
 #EventMachine
 gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'

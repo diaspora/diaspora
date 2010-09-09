@@ -1,13 +1,5 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-
-
-require 'lib/salmon/salmon'
-include ApplicationHelper 
-include Salmon
-
-
-
 describe Salmon do
   before do
 
@@ -34,7 +26,7 @@ describe Salmon do
   end
 
   it 'should push to a url' do
-    QUEUE.should_receive(:add_post_request)
+    Salmon::QUEUE.should_receive(:add_post_request)
     @sent_salmon.push_to_url("example.com")
   end
 

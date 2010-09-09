@@ -148,12 +148,10 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nifty-generators (0.4.0)
-    nokogiri (1.4.3.1)
+    nokogiri (1.4.1)
     plucky (0.3.5)
       mongo (~> 1.0.8)
     polyglot (0.3.1)
-    prism (0.1.0)
-      nokogiri
     pubsubhubbub (0.1.1)
       em-http-request (>= 0.1.5)
       eventmachine (>= 0.12.9)
@@ -244,7 +242,6 @@ DEPENDENCIES
   mongo_ext
   mongo_mapper (= 0.8.4)!
   nifty-generators
-  prism
   pubsubhubbub
   rails (= 3.0.0)
   redfinger!

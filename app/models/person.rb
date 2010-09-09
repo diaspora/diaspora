@@ -97,8 +97,9 @@ class Person
     
     puts profile.hcard.first[:href]
 
-    hcard = Prism.find profile.hcard.first[:href]
-    puts hcard.inspect
+    hcard = Prism.find profile.hcard.first[:href], :hcard
+    pp hcard.class
+    debugger
     receive_url = profile.links.select{ |l| l.rel == 'http://joindiaspora.com/seed_location'}.first.href
     new_person.url = receive_url.split('receive').first
     new_person.profile = Profile.new(:first_name => "Anon", :last_name => "ymous")
