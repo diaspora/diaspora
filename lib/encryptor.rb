@@ -54,8 +54,6 @@ module Encryptor
       txt
     end
 
-    def self.generate_key
-      OpenSSL::PKey::RSA::generate 4096
-    end
+
   end
 end
