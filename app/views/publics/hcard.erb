@@ -20,7 +20,8 @@
         <dd> 
         <span class="family_name" ><%= @person.profile.last_name %></span> 
         </dd> 
-      </dl>      <dl class="entity_fn"> 
+        </dl>
+        <dl class="entity_fn"> 
         <dt>Full name</dt> 
         <dd> 
         <span class="fn" ><%= @person.real_name %></span> 
@@ -29,7 +30,7 @@
       <dl class="entity_url"> 
         <dt>URL</dt> 
         <dd> 
-        <a href="<%= @person.url%>" rel="me" class="url"><%= @person.url%></a> 
+        <a href="<%= @person.url%>" rel="me" id="pod_location" class="url"><%= @person.url%></a> 
         </dd> 
       </dl> 
       <dl class="entity_note"> 
