@@ -37,7 +37,7 @@ describe PublicsController do
 
       @user3 = Factory.create(:user)
 
-      req = @user2.send_friend_request_to(@user.person.url, group.id)
+      req = @user2.send_friend_request_to(@user.person, group)
 
       @xml = req.to_diaspora_xml
   

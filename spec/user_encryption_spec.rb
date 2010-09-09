@@ -32,7 +32,7 @@ describe 'user encryption' do
   describe 'key exchange on friending' do
     it 'should send over a public key' do
       message_queue.stub!(:add_post_request)
-      request = @user.send_friend_request_to("http://example.com/", @group.id)
+      request = @user.send_friend_request_to(Factory.create(:person), @group)
       request.to_diaspora_xml.include?( @user.exported_key).should be true
     end
 
@@ -44,7 +44,7 @@ describe 'user encryption' do
       original_key = remote_user.exported_key
       
       request = remote_user.send_friend_request_to(
-        @user.receive_url, remote_user.group(:name => "temp").id)
+        @user.person, remote_user.group(:name => "temp"))
       
       xml = request.to_diaspora_xml
       

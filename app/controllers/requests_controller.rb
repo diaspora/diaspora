@@ -45,7 +45,7 @@ class RequestsController < ApplicationController
     Rails.logger.debug("Sending request: #{rel_hash}")
     
     begin
-      @request = current_user.send_request(rel_hash, params[:request][:group_id])
+      @request = current_user.send_friend_request_to(rel_hash[:friend], group)
     rescue Exception => e
       raise e unless e.message.include? "already friends"
       message = "You are already friends with #{params[:request][:destination_url]}!"

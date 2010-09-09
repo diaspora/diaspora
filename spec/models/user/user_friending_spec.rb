@@ -12,7 +12,7 @@ describe User do
       group = @user.group(:name => "Dudes")
       group.requests.size.should == 0
 
-      @user.send_friend_request_to(friend.receive_url, group.id)
+      @user.send_friend_request_to(friend, group)
 
       group.reload
       group.requests.size.should == 1
@@ -48,7 +48,7 @@ describe User do
       @user.save
 
 
-      proc {@user.send_friend_request_to( friend.receive_url, @group.id )}.should raise_error
+      proc {@user.send_friend_request_to( friend, @group)}.should raise_error
     end
 
 
@@ -183,7 +183,7 @@ describe User do
       @user2 = Factory.create :user
       @group2 = @user2.group(:name => "Gross people")
       
-      request = @user.send_friend_request_to( @user2.receive_url, @group.id)
+      request = @user.send_friend_request_to( @user2, @group)
       request.reverse_for @user2 
       @user2.activate_friend(@user.person, @group2)
       @user.receive request.to_diaspora_xml

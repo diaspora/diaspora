@@ -62,7 +62,7 @@ end
   end
 
   def friend_users(user1, group1, user2, group2)
-    request = user1.send_friend_request_to(user2.receive_url, group1.id)
+    request = user1.send_friend_request_to(user2.person, group1)
     reversed_request = user2.accept_friend_request( request.id, group2.id) 
     user1.receive reversed_request.to_diaspora_xml
   end
