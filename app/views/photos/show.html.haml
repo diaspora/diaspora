@@ -10,8 +10,10 @@
     }
   });
 
+= content_for :page_title do
+  = link_to "Photo", @photo
 
-.back= link_to "⇧ #{@album.name}", album_path(@album)
+
 %h1.big_text
   = @photo.image
 

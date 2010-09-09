@@ -1,3 +1,6 @@
+- content_for :page_title do
+  Home
+
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album

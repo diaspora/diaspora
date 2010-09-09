@@ -60,10 +60,14 @@
           .span-5.last
             - if @group == :all
               %h1
-                All Groups
+                = link_to "All Groups", root_path
             - else
               %h1
-                = @group.name
+                = link_to @group.name, @group
+
+            .page_title
+              = yield :page_title
+
           .span-19.last
             = render "shared/publisher", :group_ids => :all
 

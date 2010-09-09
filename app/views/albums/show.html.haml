@@ -5,19 +5,16 @@
     });
   });
 
+= content_for :page_title do
+  = link_to @album.name, @album
+
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
-.back= link_to '⇧ albums', albums_path
-%h1.big_text
 
+%h1.big_text
   = @album.name 
 
-  -if current_user.owns? @album
-    .right
-      #add_photo_loader
-        = image_tag 'ajax-loader.gif'
-      = link_to 'Add Photos', '#new_photo_pane', :class => 'button', :id => "add_photo_button"
-
+-if current_user.owns? @album
   =render 'photos/new_photo'
 
   .yo{:style => "display:none;"}
