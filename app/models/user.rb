@@ -1,8 +1,11 @@
 require 'lib/diaspora/user/friending.rb'
+require 'lib/salmon/salmon'
 
 class User
   include MongoMapper::Document
   include Diaspora::UserModules::Friending
+  include Encryptor::Private
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
@@ -128,6 +131,10 @@ class User
     post.push_to( target_people )
   end
 
+  def salmon( post, opts = {} )
+    Salmon::SalmonSlap.create(self, post.encrypted_xml_for(opts[:to]))
+  end
+
   def visible_posts( opts = {} )
     if opts[:by_members_of]
       return raw_visible_posts if opts[:by_members_of] == :all
@@ -184,6 +191,13 @@ class User
   end
 
   ###### Receiving #######
+  def receive_salmon xml
+    salmon = Salmon::SalmonSlap.parse xml
+    if salmon.verified_for_key?(salmon.author.public_key)
+      self.receive(decrypt(salmon.data))
+    end
+  end
+
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
@@ -314,13 +328,6 @@ class User
         :pending_requests => self.pending_requests.each{|request| request.as_json},
       }
     }
-  end
-
-
-  protected
-
-  def self.generate_key
-    OpenSSL::PKey::RSA::generate 1024 
   end
 
 end

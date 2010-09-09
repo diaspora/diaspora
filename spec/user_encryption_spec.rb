@@ -59,6 +59,17 @@ describe 'user encryption' do
     end 
   end
 
+  describe 'encryption' do
+    before do
+      @message = @user.post :status_message, :message => "hi", :to => @group.id
+    end
+    it 'should encrypt large messages' do
+      ciphertext = @user.encrypt @message.to_diaspora_xml
+      ciphertext.include?(@message.to_diaspora_xml).should be false
+      @user.decrypt(ciphertext).include?(@message.to_diaspora_xml).should be true
+    end
+  end
+
   describe 'signing and verifying' do
 
     it 'should sign a message on create' do

@@ -1,6 +1,7 @@
 class Person
   include MongoMapper::Document
   include ROXML
+  include Encryptor::Public
 
   xml_accessor :_id
   xml_accessor :email
@@ -37,6 +38,13 @@ class Person
   def real_name
     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
   end
+  def owns?(post)
+    self.id == post.person.id
+  end
+
+  def receive_url
+    "#{self.url}receive/users/#{self.id}/"
+  end
 
   def encryption_key
     OpenSSL::PKey::RSA.new( serialized_key )
@@ -51,6 +59,10 @@ class Person
     Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
   end
 
+  def public_key
+    encryption_key.public_key
+  end
+
   def exported_key
     encryption_key.public_key.export
   end
@@ -60,16 +72,34 @@ class Person
     @serialized_key = new_key
   end
 
-  def owns?(post)
-    self.id == post.person.id
-  end
-
-  def receive_url
-    "#{self.url}receive/users/#{self.id}/"
-  end
-
   def self.by_webfinger( identifier )
-     Person.first(:email => identifier.gsub('acct:', ''))
+     local_person = Person.first(:email => identifier.gsub('acct:', ''))
+     if local_person
+       local_person
+     elsif  !identifier.include?("localhost")
+       begin
+        f = Redfinger.finger(identifier)
+       rescue SocketError => e
+         raise "Diaspora server for #{identifier} not found" if e.message =~ /Name or service not known/
+       end
+       #raise "No diaspora user found at #{identifier}"
+       Person.from_webfinger_profile(identifier, f )
+     end
+  end
+
+  def self.from_webfinger_profile( identifier, profile)
+    public_key = profile.links.select{|x| x.rel == 'diaspora-public-key'}.first.href
+    new_person = Person.new
+    new_person.exported_key = Base64.decode64 public_key
+    new_person.email = identifier
+    receive_url = profile.links.select{ |l| l.rel == 'http://joindiaspora.com/seed_location'}.first.href
+    new_person.url = receive_url.split('receive').first
+    new_person.profile = Profile.new(:first_name => "Anon", :last_name => "ymous")
+    if new_person.save!
+      new_person
+    else
+      cry
+    end
   end
   
   def remote?

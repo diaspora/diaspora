@@ -165,4 +165,16 @@ describe User do
       @user3.visible_person_by_id(commenter_id).should_not be_nil
     end
   end
+
+  describe 'salmon' do
+    before do
+      @post = @user.post :status_message, :message => "hello", :to => @group.id
+      @salmon = @user.salmon( @post, :to => @user2.person )
+    end
+
+    it 'should receive a salmon for a post' do
+      @user2.receive_salmon( @salmon.to_xml )
+      @user2.visible_post_ids.include?(@post.id).should be true
+    end
+  end
 end

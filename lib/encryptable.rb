@@ -28,5 +28,10 @@
       Rails.logger.debug("Signing #{signable_string}")
       Base64.encode64(key.sign "SHA", signable_string)
     end
+
+  def encrypted_xml_for(person)
+    person.encrypt self.to_diaspora_xml
+  end
+
   end
 

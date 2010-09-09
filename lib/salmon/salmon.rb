@@ -36,7 +36,7 @@ end
 # Verify documents secured with Magic Signatures
 module Salmon
   class SalmonSlap
-    attr_accessor :magic_sig, :user, :data, :data_type, :sig
+    attr_accessor :magic_sig, :author, :author_email, :data, :data_type, :sig
     def self.parse(xml)
       slap = self.new
       doc = Nokogiri::XML(xml)
@@ -57,15 +57,15 @@ module Salmon
 
       raise ArgumentError, "Magic Signature data must be signed with RSA-SHA256, was #{slap.magic_sig.alg}" unless 'RSA-SHA256' == slap.magic_sig.alg
 
+      uri = doc.search('uri').text
+      slap.author_email = uri.split("acct:").last
       slap 
     end
 
-
-
     def self.create(user, activity)
       salmon = self.new
-      salmon.user = user
-      salmon.magic_sig = MagicSigEnvelope.create(user, activity)
+      salmon.author = user.person
+      salmon.magic_sig = MagicSigEnvelope.create(user , activity)
       salmon
     end
 
@@ -74,13 +74,21 @@ module Salmon
     <?xml version='1.0' encoding='UTF-8'?>
     <entry xmlns='http://www.w3.org/2005/Atom'>
     <author>
-      <name>#{@user.real_name}</name>
-      <uri>acct:#{@user.email}</uri>
+      <name>#{@author.real_name}</name>
+      <uri>acct:#{@author.email}</uri>
     </author>
       #{@magic_sig.to_xml}
       </entry>
 ENTRY
 
+    end
+
+    def author
+      if @author
+        @author
+      else
+        Person.by_webfinger @author_email
+      end
     end
 
     # Decode URL-safe-Base64. This implements 
@@ -161,7 +169,7 @@ ENTRY
   end
 
   class MagicSigEnvelope
-    attr_accessor :data, :data_type, :encoding, :alg, :sig, :user
+    attr_accessor :data, :data_type, :encoding, :alg, :sig, :author
     def self.parse(doc)
       env = self.new
       ns = {'me'=>'http://salmon-protocol.org/ns/magic-env'}
@@ -175,7 +183,7 @@ ENTRY
 
     def self.create(user, activity)
       env = MagicSigEnvelope.new
-      env.user = user
+      env.author = user.person
       env.data = Base64.urlsafe_encode64(activity)
       env.data_type = env.get_data_type
       env.encoding  = env.get_encoding
