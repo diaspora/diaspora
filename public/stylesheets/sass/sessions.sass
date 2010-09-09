@@ -1,28 +1,37 @@
-body
-  :padding 2em
+@font-face
+  :font-family 'BrandonGrotesqueLightRegular'
+  :src url('brandongrotesque_light/Brandon_light-webfont.eot')
+  :src local('â˜º'), url('brandongrotesque_light/Brandon_light-webfont.woff') format('woff'), url('brandongrotesque_light/Brandon_light-webfont.ttf') format('truetype'), url('brandongrotesque_light/Brandon_light-webfont.svg#webfont') format('svg')
+  font
+    :weight normal
+    :style normal
+
+
+html /* via blueprint */
+  :font
+    :size 100.01%
+
+body /* via blueprint */
+  :font
+    :size 75%
+    :family "Helvetica Neue", Arial, Helvetica, sans-serif
+  :color #222
+  :background #fff
+
+  :margin
+    :left 2em
 
 #huge_text
-  :display inline block
   :font
     :size 40px
-    :weight bold
+    :family 'BrandonGrotesqueLightRegular'
   :line-height 120px
-  :letter
-    :spacing -2px
-  :color #eaeaea
+  :color #333
   :text-shadow 0 1px 1px #999
-
-  span
-    :display inline
-    :color #666
 
 input
   :font
-    :size 30px
-  :width 200px
-  :margin
-    :bottom 0
-    :top 0
+    :size 14px
 
 form p
   :position relative
@@ -31,8 +40,9 @@ form p
 label
   :color #999
   :position absolute
-  :top 3px
-  :left 0.48em
+  :padding
+    :top 7px
+  :left 8px
   :font
     :size 14px
     :weight normal
@@ -40,18 +50,10 @@ label
 input[type='text'],
 input[type='password']
   :font
-    :family 'lucida grande', 'sans-serif'
-    :size 14px
+    :family "Helvetica Neue", Arial, Helvetica, sans-serif
   :padding 0.3em
-  :display block
   :width 395px
-  :box-shadow 0 2px 0px #fff
-  :-webkit-box-shadow 0 2px 0px #fff
-  :-moz-box-shadow 0 2px 0px #fff
   :border-top 1px solid #999
-  :height auto
-  :border-radius 3px
-  :-moz-border-radius 3px
 
 #user
   :display inline
