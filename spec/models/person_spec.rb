@@ -147,7 +147,6 @@ describe Person do
 
     it 'should create a stub for a remote user' do
       tom = Person.by_webfinger('tom@tom.joindiaspora.com')
-      puts tom.real_name
       tom.real_name.include?("Hamiltom").should be true
     end
     

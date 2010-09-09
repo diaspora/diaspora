@@ -97,15 +97,12 @@ class Person
     
     new_person.email = identifier
     
-    puts profile.hcard.first[:href]
-
     hcard = HCard.find profile.hcard.first[:href]
 
     receive_url = profile.links.select{ |l| l.rel == 'http://joindiaspora.com/seed_location'}.first.href
     new_person.url = hcard[:url]
-    puts new_person.url
     new_person.profile = Profile.new(:first_name => hcard[:given_name], :last_name => hcard[:family_name])
-    if new_person.save!
+    if new_person.save
       new_person
     else
       nil

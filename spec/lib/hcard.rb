@@ -7,7 +7,6 @@ describe HCard do
     hcard = HCard.find f.hcard.first[:href]
     hcard[:family_name].include?("Hamiltom").should be true
     hcard[:given_name].include?("Alex").should be true
-    pp hcard
-    (hcard[:url] == "http://tom.joindiaspora.com").should be true
+    hcard[:url].should  == "http://tom.joindiaspora.com/"
   end
 end
