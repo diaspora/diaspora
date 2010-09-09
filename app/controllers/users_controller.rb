@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def show
     @user         = User.find_by_id params[:id]
     @user_profile = @user.person.profile
-
     respond_with @user
   end
 
@@ -21,6 +20,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id params[:id]
     @user.update_profile params[:user]
-    respond_with @user
+    respond_with(@user, :location => root_url)
   end
 end 
