@@ -24,7 +24,7 @@ a {
 #flash_notice,
 #flash_error,
 #flash_alert {
-  z-index: 3;
+  z-index: 100;
   top: 32px;
   position: absolute;
   color: black;
@@ -75,8 +75,9 @@ header {
   color: black;
   background-color: #333333;
   padding: 0;
-  border-bottom: 1px solid #555555; }
+  border-bottom: 1px solid #cccccc; }
   header #diaspora_text {
+    z-index: 6;
     position: absolute;
     display: inline;
     font-family: "BrandonGrotesqueLightRegular";
@@ -95,9 +96,26 @@ header {
     position: relative;
     display: inline;
     float: right;
+    z-index: 3;
     padding-right: 10px; }
     header #session_action a.new_requests {
       color: #df0101; }
+  header #group_header {
+    z-index: 5;
+    text-shadow: 0 2px 0 white;
+    background-color: #eeeeee;
+    border-top: 1px solid #555555;
+    height: 85px; }
+    header #group_header h1 {
+      margin-bottom: 0;
+      margin-top: 15px; }
+    header #group_header a {
+      color: #111111; }
+      header #group_header a:hover {
+        background: none;
+        color: #333333; }
+    header #group_header .page_title {
+      text-transform: uppercase; }
 
 #show_filters {
   z-index: 100;
@@ -120,6 +138,8 @@ ul#stream {
     list-style: none;
     padding: 12px 0;
     border-bottom: 1px solid #eeeeee; }
+  ul#stream > li:first-child {
+    padding-top: 0; }
 
 li.message {
   position: relative;
@@ -282,7 +302,10 @@ ul.comment_set {
     font-size: larger; }
 
 #debug_info {
-  margin-top: 20px; }
+  margin-top: 20px;
+  color: #cccccc; }
+  #debug_info h5 {
+    color: #cccccc; }
 
 input[type='text'], textarea {
   font-family: "lucida grande", "sans-serif";
@@ -313,8 +336,7 @@ label {
   color: #999999;
   position: relative;
   height: 63px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #666666; }
+  margin-top: 20px; }
   #publisher .avatar {
     float: left;
     margin-right: 15px; }
@@ -326,31 +348,12 @@ label {
     #publisher form input[type='submit'] {
       float: right;
       margin-right: 20px;
-      margin-top: 28px; }
+      margin-top: 26px; }
   #publisher textarea {
-    width: 485px;
+    width: 600px;
     height: 40px;
-    margin-top: 0; }
-  #publisher ul.group_selector {
-    left: 510px;
-    padding: 0;
-    margin: 0;
-    width: 110px;
-    z-index: 10;
-    position: absolute;
-    height: auto;
-    overflow: visible;
-    list-style: none; }
-    #publisher ul.group_selector > li {
-      height: auto;
-      font-size: smaller;
-      padding: 2px;
-      display: none;
-      background-color: #eeeeee; }
-      #publisher ul.group_selector > li:active {
-        background-color: yellow; }
-    #publisher ul.group_selector:hover li {
-      display: block; }
+    margin-top: 0;
+    -webkit-box-shadow: 0 1px 0 white; }
   #publisher .button {
     margin-left: 100px; }
 
@@ -484,15 +487,15 @@ h1.big_text {
         background-color: #444444; }
         #group_nav ul > li:hover a {
           color: #999999; }
-    #group_nav ul .selected {
-      font-weight: bold;
-      background-color: white;
-      border-bottom: 1px solid white;
-      color: black; }
-      #group_nav ul .selected:hover {
-        background-color: #eeeeee; }
-      #group_nav ul .selected a {
+      #group_nav ul > li.selected {
+        font-weight: bold;
+        background-color: #eeeeee;
+        border-bottom: 1px solid #eeeeee;
         color: black; }
+        #group_nav ul > li.selected:hover {
+          background-color: #efefef; }
+        #group_nav ul > li.selected a {
+          color: black; }
 
 #add_photo_loader {
   position: absolute;

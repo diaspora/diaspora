@@ -4,7 +4,9 @@
       $("#add_album_button").fancybox();
     });
 
-.back= link_to "⇧ home", root_path
+= content_for :page_title do
+  = link_to "Albums", albums_path
+
 %h1.big_text
   Albums
   .right

@@ -1,11 +1,10 @@
 $(document).ready(function(){
-
 	$('.comment_set').each(function(index) {
       var $this = $(this);
 	    if($this.children().length > 1) {
-			var show_comments_toggle = $this.parent().prev().children(".show_post_comments");
-			show_comments_toggle.click();
-		};
+        var show_comments_toggle = $this.parent().prev().children(".show_post_comments");
+        show_comments_toggle.click();
+      }
   });
 });//end document ready
 
@@ -19,12 +18,15 @@ $("#stream li").live('mouseout',function() {
 
 $(".show_post_comments").live('click', function(event) {
   event.preventDefault();
-  if( $(this).hasClass( "visible")) {
-    $(this).html($(this).html().replace("hide", "show"));
-    $(this).closest("li").children(".content").children(".comments").fadeOut(100);
+
+  var $this = $(this);
+
+  if( $this.hasClass( "visible")) {
+    $this.html($(this).html().replace("hide", "show"));
+    $this.closest("li").children(".content").children(".comments").fadeOut(100);
   } else {
-    $(this).html($(this).html().replace("show", "hide"));
-    $(this).closest("li").children(".content").children(".comments").fadeIn(100);
+    $this.html($(this).html().replace("show", "hide"));
+    $this.closest("li").children(".content").children(".comments").fadeIn(100);
   }
   $(this).toggleClass( "visible" );
 });

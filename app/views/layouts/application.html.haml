@@ -50,19 +50,29 @@
               = owner_image_tag 
               = link_to current_user.real_name, current_user.person
             %li.requests= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
-            %li.settings= link_to "settings", edit_user_path(current_user)
+            %li.settings= link_to "edit profile", edit_user_path(current_user)
             %li.logout= link_to "logout", destroy_user_session_path
 
         = render "shared/group_nav"
 
+      #group_header
+        .container
+          .span-5.last
+            - if @group == :all
+              %h1
+                = link_to "All Groups", root_path
+            - else
+              %h1
+                = link_to @group.name, @group
+
+            .page_title
+              = yield :page_title
+
+          .span-19.last
+            = render "shared/publisher", :group_ids => :all
+
     .container
       .span-5.last
-        %h1
-          - if @group == :all
-            = link_to "Everybody", root_path
-          - else
-            = link_to @group.name, @group
-
         = render "shared/group_friends"
 
       .span-19.last

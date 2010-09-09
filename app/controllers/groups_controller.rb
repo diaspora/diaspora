@@ -5,7 +5,7 @@ class GroupsController < ApplicationController
   respond_to :json, :only => :show
 
   def index
-    @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :order => 'created_at DESC'
+    @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @group = :all
   end
 
@@ -27,7 +27,7 @@ class GroupsController < ApplicationController
   def show
     @group   = Group.find_by_id params[:id]
     @friends = @group.people
-    @posts   = current_user.visible_posts( :by_members_of => @group ).paginate :order => 'created_at DESC'
+    @posts   = current_user.visible_posts( :by_members_of => @group ).paginate :per_page => 15, :order => 'created_at DESC'
 
     respond_with @group
   end

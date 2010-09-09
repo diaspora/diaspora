@@ -2,20 +2,19 @@
 %html
   %head
     %title
-      = "diaspora" 
+      DIASPORA | login
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{"http-equiv"=> "X-UA-Compatible", :content =>"chrome=1" }
     
-    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "sessions"
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142', 'google'
     = javascript_include_tag 'jquery.infieldlabel'
-    = javascript_include_tag 'session_wall.js'
 
     :javascript
       $(document).ready(function(){
-        $("#user_email").focus(); 
+        $("#user_username").focus(); 
+        $("label").inFieldLabels();
       });
   
     = csrf_meta_tag
@@ -44,7 +43,7 @@
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
     %div#huge_text
-      diaspora
+      DIASPORA*
     = yield
     
     /= link_to "signup", "/signup"

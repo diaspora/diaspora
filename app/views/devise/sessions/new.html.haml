@@ -1,13 +1,10 @@
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-
   #user
-
     %p.username
       = f.label :username
       = f.text_field :username
     %p.user_network
-      @tom.joindiaspora.com
-
+      ="@#{request.host}"
 
     %p
       = f.label :password
