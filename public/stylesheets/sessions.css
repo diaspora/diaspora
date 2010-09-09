@@ -16,6 +16,19 @@ body {
   background: white;
   margin-left: 2em; }
 
+input[type=text],
+input[type=password],
+textarea, select {
+  background-color: white;
+  border: 1px solid #bbbbbb; }
+
+input[type=text]:focus,
+input[type=password]:focus,
+input.text:focus,
+input.title:focus,
+textarea:focus, select:focus {
+  border-color: #666666; }
+
 #huge_text {
   font-size: 40px;
   font-family: "BrandonGrotesqueLightRegular";

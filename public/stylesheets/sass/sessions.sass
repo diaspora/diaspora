@@ -6,12 +6,13 @@
     :weight normal
     :style normal
 
-
-html /* via blueprint */
+/* via blueprint */
+html
   :font
     :size 100.01%
 
-body /* via blueprint */
+/* via blueprint */
+body
   :font
     :size 75%
     :family "Helvetica Neue", Arial, Helvetica, sans-serif
@@ -20,6 +21,23 @@ body /* via blueprint */
 
   :margin
     :left 2em
+
+/* via blueprint */
+input[type=text],
+input[type=password],
+textarea, select
+  :background
+    :color #fff
+  :border 1px solid #bbb
+
+/* via blueprint */
+input[type=text]:focus,
+input[type=password]:focus,
+input.text:focus,
+input.title:focus,
+textarea:focus, select:focus
+  :border
+    :color #666
 
 #huge_text
   :font
