@@ -77,6 +77,7 @@ header {
   padding: 0;
   border-bottom: 1px solid #cccccc; }
   header #diaspora_text {
+    z-index: 6;
     position: absolute;
     display: inline;
     font-family: "BrandonGrotesqueLightRegular";
@@ -99,6 +100,7 @@ header {
     header #session_action a.new_requests {
       color: #df0101; }
   header #group_header {
+    z-index: 5;
     text-shadow: 0 2px 0 white;
     background-color: #eeeeee;
     border-top: 1px solid #555555;
@@ -342,7 +344,8 @@ label {
   #publisher textarea {
     width: 600px;
     height: 40px;
-    margin-top: 0; }
+    margin-top: 0;
+    -webkit-box-shadow: 0 1px 0 white; }
   #publisher .button {
     margin-left: 100px; }
 
@@ -476,15 +479,15 @@ h1.big_text {
         background-color: #444444; }
         #group_nav ul > li:hover a {
           color: #999999; }
-    #group_nav ul .selected {
-      font-weight: bold;
-      background-color: #eeeeee;
-      border-bottom: 1px solid #eeeeee;
-      color: black; }
-      #group_nav ul .selected:hover {
-        background-color: #efefef; }
-      #group_nav ul .selected a {
+      #group_nav ul > li.selected {
+        font-weight: bold;
+        background-color: #eeeeee;
+        border-bottom: 1px solid #eeeeee;
         color: black; }
+        #group_nav ul > li.selected:hover {
+          background-color: #efefef; }
+        #group_nav ul > li.selected a {
+          color: black; }
 
 #add_photo_loader {
   position: absolute;

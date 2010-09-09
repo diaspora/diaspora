@@ -85,6 +85,7 @@ header
     :bottom 1px solid #ccc
 
   #diaspora_text
+    :z-index 6
     :position absolute
     :display inline
     :font
@@ -115,6 +116,7 @@ header
     :padding-right 10px
 
   #group_header
+    :z-index 5
     :text-shadow 0 2px 0 #fff
     :background
       :color #eee
@@ -432,6 +434,8 @@ label
     :margin
       :top 0
 
+    :-webkit-box-shadow 0 1px 0 #fff
+
   .button
     :margin-left 100px
 
@@ -594,7 +598,6 @@ h1.big_text
       :margin
         :right 0.5em
       :padding 3px 8px
-
       :border 1px solid #555
 
       &.last-child
@@ -614,19 +617,19 @@ h1.big_text
         a
           :color #999
 
-    .selected
-      :font
-        :weight bold
-      :background
-        :color #eee
-      :border
-        :bottom 1px solid #eee
-      :color #000
-      &:hover
+      &.selected
+        :font
+          :weight bold
         :background
-          :color #efefef
-      a
+          :color #eee
+        :border
+          :bottom 1px solid #eee
         :color #000
+        &:hover
+          :background
+            :color #efefef
+        a
+          :color #000
 
 #add_photo_loader
   :position absolute
