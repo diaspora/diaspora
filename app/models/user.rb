@@ -86,7 +86,6 @@ class User
 
   ######## Posting ########
   def post(class_name, options = {})
-    options[:person] = self.person
 
     if class_name == :photo
       raise ArgumentError.new("No album_id given") unless options[:album_id]
@@ -99,15 +98,20 @@ class User
     group_ids = [group_ids] if group_ids.is_a? BSON::ObjectId
     raise ArgumentError.new("You must post to someone.") if group_ids.nil? || group_ids.empty?
 
+    post = build_post(class_name, options)
+
+    post.socket_to_uid(id, :group_ids => group_ids) if post.respond_to?(:socket_to_uid)
+    push_to_groups(post, group_ids)
+
+    post
+  end
+
+  def build_post( class_name, options = {})
+    options[:person] = self.person
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.creator_signature = post.sign_with_key(encryption_key)
     post.save
-
-    post.socket_to_uid(id, :group_ids => group_ids) if post.respond_to?(:socket_to_uid)
-
-    push_to_groups(post, group_ids)
-
     self.raw_visible_posts << post
     self.save
     post
@@ -128,11 +132,19 @@ class User
       group.save
       target_people = target_people | group.people
     }
-    post.push_to( target_people )
+    push_to_people(post, target_people)
+  end
+
+  def push_to_people(post, people)
+    people.each{|person|
+      salmon(post, :to => person)
+    }
   end
 
   def salmon( post, opts = {} )
-    Salmon::SalmonSlap.create(self, post.encrypted_xml_for(opts[:to]))
+    salmon = Salmon::SalmonSlap.create(self, post.encrypted_xml_for(opts[:to]))
+    salmon.push_to_url opts[:to].receive_url
+    salmon
   end
 
   def visible_posts( opts = {} )

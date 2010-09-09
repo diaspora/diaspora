@@ -28,7 +28,15 @@ describe Salmon do
     @parsed_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
     @sent_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
   end
+  
+  it 'should have an accessible queue' do
+    Salmon::QUEUE.is_a?(MessageHandler).should be true
+  end
 
+  it 'should push to a url' do
+    QUEUE.should_receive(:add_post_request)
+    @sent_salmon.push_to_url("example.com")
+  end
 
   it 'should return the data so it can be "received"' do
   

@@ -23,13 +23,19 @@ class PublicsController < ApplicationController
   
   def receive
     render :nothing => true
+    return unless params[:xml]
     begin
       @user = Person.first(:id => params[:id]).owner
     rescue NoMethodError => e
       Rails.logger.error("Received post #{params[:xml]} for nonexistent person #{params[:id]}")
       return
     end
-    @user.receive params[:xml] if params[:xml]
+    puts params[:xml]
+    if params[:xml].include? "xml version='1.0'"
+      @user.receive_salmon params[:xml]
+    else
+      @user.receive params[:xml]
+    end
   end
   
 end
