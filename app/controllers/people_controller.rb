@@ -5,6 +5,7 @@ class PeopleController < ApplicationController
   respond_to :json, :only => [:index, :show]
   
   def index
+    @groups_dropdown_array = current_user.groups.collect{|x| [x.to_s, x.id]} 
     @people = Person.search params[:q]
     respond_with @people
   end
