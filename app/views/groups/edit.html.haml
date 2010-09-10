@@ -8,11 +8,11 @@
 
   %li.group
     %ul
-    - for request in @remote_requests
-      %li.person{:id => request.person.id, :request_id => request.id}
-        = image_tag(request.person.profile.image_url(:thumb_small)) unless request.person.profile.image_url.nil?
-        .name
-          = request.person.real_name
+      - for request in @remote_requests
+        %li.person{:id => request.person.id, :request_id => request.id}
+          = image_tag(request.person.profile.image_url(:thumb_small)) unless request.person.profile.image_url.nil?
+          .name
+            = request.person.real_name
 
 %h1{:id => 'group_title'}
   Relations
