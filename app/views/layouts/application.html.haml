@@ -73,7 +73,8 @@
 
     .container
       .span-5.last
-        = render "shared/group_friends"
+
+        = yield :left_pane
 
       .span-19.last
         = yield

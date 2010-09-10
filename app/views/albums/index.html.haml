@@ -7,6 +7,9 @@
 = content_for :page_title do
   = link_to "Albums", albums_path
 
+- content_for :left_pane do
+  = render "shared/group_friends"
+
 %h1.big_text
   Albums
   .right
