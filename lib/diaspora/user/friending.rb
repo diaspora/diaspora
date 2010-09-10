@@ -79,7 +79,7 @@ module Diaspora
       def unfriend(bad_friend)
         Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
         retraction = Retraction.for(self)
-        retraction.push_to_url(bad_friend.receive_url) 
+        salmon( retraction, :to => bad_friend)
         remove_friend(bad_friend)
       end
       
