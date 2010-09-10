@@ -53,7 +53,7 @@ module Diaspora
 
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
-
+          
         if request_from_me?(friend_request)
           group = self.group_by_id(friend_request.group_id)
           activate_friend(friend_request.person, group)
@@ -62,7 +62,7 @@ module Diaspora
 
           friend_request.destroy
         else
-
+          friend_request.person.reload
           friend_request.person.user_refs += 1
           friend_request.person.save
           self.pending_requests << friend_request
