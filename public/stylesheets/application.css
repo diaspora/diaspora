@@ -453,11 +453,11 @@ h1.big_text {
 #group_nav {
   position: relative;
   color: black; }
-  #group_nav #group_edit_button {
+  #group_nav #group_manage_button {
     display: inline;
     margin-top: 1px;
     font-size: 12px; }
-    #group_nav #group_edit_button a {
+    #group_nav #group_manage_button a {
       color: #999999; }
   #group_nav ul {
     margin-bottom: 0;
@@ -588,6 +588,8 @@ h1.big_text {
 
 .group {
   list-style: none; }
+  .group h3 {
+    display: inline-block; }
   .group ul {
     min-height: 20px;
     margin: 0;
@@ -598,11 +600,22 @@ h1.big_text {
     border-radius: 3px;
     list-style: none;
     padding: 15px; }
-    .group ul li {
+    .group ul li.person {
+      display: inline-block;
       margin-left: 0;
       padding: 5px;
-      cursor: move; }
-      .group ul li img {
+      cursor: move;
+      margin: 5px;
+      background-color: #cccccc;
+      -webkit-border-radius: 3px;
+      text-align: center;
+      width: 75px;
+      height: 75px;
+      padding: 5px;
+      border: 1px solid #999999; }
+      .group ul li.person img {
+        height: 50px;
+        width: 50px;
         display: inline-block; }
     .group ul .grey {
       font-style: italic;

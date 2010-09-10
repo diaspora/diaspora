@@ -60,7 +60,7 @@
           .span-5.last
             - if @group == :all
               %h1
-                = link_to "All Groups", root_path
+                = link_to "All Relations", root_path
             - else
               %h1
                 = link_to @group.name, @group
@@ -73,7 +73,6 @@
 
     .container
       .span-5.last
-
         = yield :left_pane
 
       .span-19.last

@@ -24,7 +24,34 @@ $(document).ready(function(){
   $(".image_cycle img").load( function() {
     $(this).fadeIn("slow");
   });
+
 });//end document ready
+
+$(".group h3").live( 'click', function() {
+
+  var $this = $(this);
+  var id    = $this.closest("li").children("ul").attr("id");
+  var link  = "/groups/"+ id;
+
+  $this.keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      $this.blur();
+
+      //save changes
+      $.ajax({
+        type: "PUT",
+        url: link,
+        data: {"group" : {"name" : $this.text() }}
+      });
+    }
+    //update all other group links
+    $this.keyup(function(e) {
+      $("a[href='"+link+"']").text($this.text());
+    });
+  });
+});
+
 
 function pane_toggler_button( name ) {
   

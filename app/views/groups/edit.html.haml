@@ -2,15 +2,18 @@
   = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
   = javascript_include_tag 'group-edit.js'
 
+- content_for :left_pane do
+  requests
+
 %h1{:class => 'big_text', :id => 'group_title'}
-  = "Editing Groups"
+  = "Managing Relations"
 
 %ul#group_list
 
 - for group in @groups
 
   %li.group
-    %h3= group.name
+    %h3{:contenteditable => true}= group.name
 
     %ul{:id => group.id}
       -if group.people.size < 1
@@ -20,8 +23,9 @@
         -for person in group.people
 
           %li.person{:id => person.id, :from_group_id => group.id}
-            = image_tag(person.profile.image_url(:thumb_small),:size => "30x30") unless person.profile.image_url.nil?
-            = person.real_name
+            = image_tag(person.profile.image_url(:thumb_small)) unless person.profile.image_url.nil?
+            .name
+              = person.real_name
 %p
   %br
   = link_to 'Update Groups', '#', :class => 'button', :id => "move_friends_link"
