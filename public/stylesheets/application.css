@@ -582,15 +582,19 @@ h1.big_text {
       font-size: 12px;
       margin-top: -3px; }
 
-.editing, .editing:hover {
+.editing,
+.editing:hover {
   background-color: yellow;
   border: 1px #666666 solid; }
 
-.group {
+.group,
+.requests {
   list-style: none; }
-  .group h3 {
+  .group h3,
+  .requests h3 {
     display: inline-block; }
-  .group ul {
+  .group ul,
+  .requests ul {
     min-height: 20px;
     margin: 0;
       margin-left: 1em;
@@ -600,7 +604,8 @@ h1.big_text {
     border-radius: 3px;
     list-style: none;
     padding: 15px; }
-  .group .person {
+  .group .person,
+  .requests .person {
     display: inline-block;
     margin-left: 0;
     padding: 5px;
@@ -613,10 +618,12 @@ h1.big_text {
     height: 75px;
     padding: 5px;
     border: 1px solid #999999; }
-    .group .person img {
+    .group .person img,
+    .requests .person img {
       height: 50px;
       width: 50px;
       display: inline-block; }
-    .group .person .grey {
+    .group .person .grey,
+    .requests .person .grey {
       font-style: italic;
       color: #666666; }

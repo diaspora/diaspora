@@ -6,7 +6,7 @@
   %h1{:id => 'group_title'}
     Requests
 
-  %li.group
+  %li.requests
     %ul
       - for request in @remote_requests
         %li.person{:id => request.person.id, :request_id => request.id}
