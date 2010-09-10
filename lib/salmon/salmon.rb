@@ -35,7 +35,6 @@ end
 
 # Verify documents secured with Magic Signatures
 module Salmon
-  QUEUE = MessageHandler.new
 
   class SalmonSlap
     attr_accessor :magic_sig, :author, :author_email, :data, :data_type, :sig
@@ -93,11 +92,7 @@ ENTRY
       end
     end
 
-    def push_to_url(url)
-      Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
-      QUEUE.add_post_request( url, self.to_xml )
-      QUEUE.process
-    end
+ 
 
 
     # Decode URL-safe-Base64. This implements 
@@ -169,11 +164,6 @@ ENTRY
       key.e = e
       key
     end
-
-
-
-
-
 
   end
 

@@ -18,7 +18,7 @@ describe Retraction do
   describe 'dispatching' do
     it 'should dispatch a message on delete' do
       Factory.create(:person)
-      Salmon::QUEUE.should_receive :add_post_request
+      User::QUEUE.should_receive :add_post_request
       @post.destroy
     end
   end

@@ -31,11 +31,7 @@ class PublicsController < ApplicationController
       Rails.logger.error("Received post #{params[:xml]} for nonexistent person #{params[:id]}")
       return
     end
-    if params[:xml].include? "xml version='1.0'"
-      @user.receive_salmon params[:xml]
-    else
-      @user.receive params[:xml]
-    end
+    @user.receive_salmon params[:xml]
   end
   
 end

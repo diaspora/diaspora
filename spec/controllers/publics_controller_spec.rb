@@ -20,7 +20,7 @@ describe PublicsController do
 
       @user.reload
       @user.visible_post_ids.include?(message.id).should be false
-      xml =  user2.salmon(message, :to => @user.person).to_xml
+      xml =  @user.person.encrypt(user2.salmon(message, :to => @user.person).to_xml)
 
       post :receive, :id => @user.person.id, :xml => xml
 
@@ -39,7 +39,7 @@ describe PublicsController do
 
       req = @user2.send_friend_request_to(@user.person, group)
 
-      @xml = req.to_diaspora_xml
+      @xml = @user.person.encrypt(@user2.salmon(req, :to => @user.person).to_xml)
   
       req.delete
       @user2.reload
@@ -54,6 +54,7 @@ describe PublicsController do
     end
 
     it 'should add the pending request to the right user if the target person does not exist locally' do 
+      Person.should_receive(:by_webfinger).with(@user2.person.email).and_return(@user2.person)
       @user2.person.delete
       @user2.delete
       post :receive, :id => @user.person.id, :xml => @xml

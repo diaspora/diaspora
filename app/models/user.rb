@@ -1,10 +1,13 @@
 require 'lib/diaspora/user/friending.rb'
+require 'lib/diaspora/user/querying.rb'
 require 'lib/salmon/salmon'
 
 class User
   include MongoMapper::Document
   include Diaspora::UserModules::Friending
+  include Diaspora::UserModules::Querying
   include Encryptor::Private
+  QUEUE = MessageHandler.new
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -72,18 +75,6 @@ class User
     false
   end
 
-##querying with permissions
-  def posts_visible_to_me(opts ={})
-    if opts[:from].class == Person
-        Post.where(:person_id => opts[:from].id, :_id.in => self.visible_post_ids)
-    elsif opts[:from].class == Group
-        Post.where(:_id.in => opts[:from].post_ids) unless opts[:from].user != self
-    else
-        Post.where(:_id.in => self.visible_post_ids)
-    end
-  end
-
-
   ######## Posting ########
   def post(class_name, options = {})
 
@@ -149,19 +140,20 @@ class User
     }
   end
 
+  def push_to_person( person, xml )
+      Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
+      QUEUE.add_post_request( person.receive_url, person.encrypt(xml) )
+      QUEUE.process
+      
+  end
+
   def salmon( post, opts = {} )
-    salmon = Salmon::SalmonSlap.create(self, post.encrypted_xml_for(opts[:to]))
-    salmon.push_to_url opts[:to].receive_url
+    salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    push_to_person( opts[:to], salmon.to_xml)
     salmon
   end
 
-  def visible_posts( opts = {} )
-    if opts[:by_members_of]
-      return raw_visible_posts if opts[:by_members_of] == :all
-      group = self.groups.find_by_id( opts[:by_members_of].id )
-      group.posts
-    end
-  end
+
 
   ######## Commenting  ########
   def comment(text, options = {})
@@ -211,11 +203,12 @@ class User
   end
 
   ###### Receiving #######
-  def receive_salmon xml
-    Rails.logger.info("Received a salmon: #{xml}")
-    salmon = Salmon::SalmonSlap.parse xml
+  def receive_salmon ciphertext
+    cleartext = decrypt( ciphertext)
+    Rails.logger.info("Received a salmon: #{cleartext}")
+    salmon = Salmon::SalmonSlap.parse cleartext
     if salmon.verified_for_key?(salmon.author.public_key)
-      self.receive(decrypt(salmon.data))
+      self.receive(salmon.data)
     end
   end
 
@@ -303,42 +296,13 @@ class User
     self.password_confirmation = self.password
   end 
 
-  def visible_person_by_id( id )
-    id = id.to_id
-    return self.person if id == self.person.id
-    result = friends.detect{|x| x.id == id }
-    result = visible_people.detect{|x| x.id == id } unless result
-    result
-  end
-
-  def group_by_id( id )
-    id = id.to_id
-    groups.detect{|x| x.id == id }
-  end
-
-  def album_by_id( id )
-    id = id.to_id
-    albums.detect{|x| x.id == id }
-  end
-
-  def groups_with_post( id )
-    self.groups.find_all_by_post_ids( id.to_id )
-  end
-
-  def groups_with_person person
-    id = person.id.to_id
-    groups.select { |g| g.person_ids.include? id}
-  end
-
   def setup_person
     self.person.serialized_key ||= User.generate_key.export
     self.person.email ||= email
     self.person.save!
   end
 
-  def all_group_ids
-    self.groups.all.collect{|x| x.id}
-  end
+
 
   def as_json(opts={})
     {

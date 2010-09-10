@@ -173,7 +173,7 @@ describe User do
     end
 
     it 'should receive a salmon for a post' do
-      @user2.receive_salmon( @salmon.to_xml )
+      @user2.receive_salmon( @user2.person.encrypt(@salmon.to_xml) )
       @user2.visible_post_ids.include?(@post.id).should be true
     end
   end
