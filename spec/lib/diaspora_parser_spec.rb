@@ -51,10 +51,10 @@ describe Diaspora::Parser do
       person = Factory.create(:person)
       message = Factory.create(:status_message, :person => person)
       retraction = Retraction.for(message)
-      request = retraction.to_diaspora_xml
+      xml = retraction.to_diaspora_xml
 
       StatusMessage.count.should == 1
-      @user.receive request
+      @user.receive xml
       StatusMessage.count.should == 0
     end
     

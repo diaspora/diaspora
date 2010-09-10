@@ -27,7 +27,6 @@ class Retraction
   def perform receiving_user_id
     Rails.logger.debug "Performing retraction for #{post_id}"
     begin
-      return unless signature_valid? 
       Rails.logger.debug("Retracting #{self.type} id: #{self.post_id}")
       target = self.type.constantize.first(:id => self.post_id)
       target.unsocket_from_uid receiving_user_id if target.respond_to? :unsocket_from_uid
