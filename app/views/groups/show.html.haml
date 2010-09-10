@@ -1,6 +1,9 @@
 - content_for :page_title do
   Home
 
+- content_for :left_pane do
+  = render "shared/group_friends"
+
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post

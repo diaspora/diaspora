@@ -25,51 +25,32 @@ $(document).ready(function(){
     $(this).fadeIn("slow");
   });
 
-
-  $(".edit_group_button").click(function() {
-
-    var element = $(this).closest("li").children(".group_name").children("a");
-    var oldHTML = element.html();
-
-    var link = element.attr("href");
-
-    element.toggleClass("editing");
-
-    if( element.hasClass("editing") ) {
-      element.attr("contentEditable", true);
-      element.focus();
-  
-      //remove newline action
-      $(element).keypress(function(e) {
-        if (e.which == 13) {
-          e.preventDefault();
-          element.attr("contentEditable", false);
-          element.toggleClass("editing");
-          element.blur();
-
-          //save changes
-          $.ajax({
-            type: "PUT",
-            url: link,
-            data: {"group" : {"name" : element.text() }}
-          });
-        }
-      });
-
-      //update all other group links
-      $(element).keyup(function(e) {
-        $("a[href='"+link+"']").not(element).text(element.text());
-      });
-
-    } else {
-      element.attr("contentEditable", false);
-    }
-
-  });
-
-
 });//end document ready
 
+$(".group h3").live( 'click', function() {
+
+  var $this = $(this);
+  var id    = $this.closest("li").children("ul").attr("id");
+  var link  = "/groups/"+ id;
+
+  $this.keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      $this.blur();
+
+      //save changes
+      $.ajax({
+        type: "PUT",
+        url: link,
+        data: {"group" : {"name" : $this.text() }}
+      });
+    }
+    //update all other group links
+    $this.keyup(function(e) {
+      $("a[href='"+link+"']").text($this.text());
+    });
+  });
+});
 
 
 function pane_toggler_button( name ) {

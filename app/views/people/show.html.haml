@@ -1,14 +1,10 @@
-.span-20.last
-  #profile.span-19.last
+- content_for :page_title do
+  = @person.real_name
+
+- content_for :left_pane do
+  #profile
     .profile_photo
       = person_image_link(@person)
-
-    %h1
-      = @person.real_name
-      - if @person != current_user.person && current_user.friends.include?(@person)
-        .right
-          = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete, :class => "button"
-    
     %ul
       -unless @posts.first.nil?
         %li
@@ -22,19 +18,14 @@
           = hidden_field_tag :from, :from, :value => @groups_with_person.first.id
           = hidden_field_tag :friend_id, :friend_id, :value => @person.id
           = submit_tag "save"
-      %li
-        url:
-        = @person.url
-    
-    - unless @latest_status_message.nil?
-      %h1.pinched
-        %span
-          = "\"#{@latest_status_message.message}\""
-        %span="posted: #{how_long_ago(@latest_status_message)}"
+
+    - if @person != current_user.person && current_user.friends.include?(@person)
+      = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete, :class => "button"
+
+.span-20.last
   
-  .span-20.last
+  .span-19.last
     - if @posts
-      %h3= "stream - #{@post_count} item(s)" 
       %ul#stream
         - for post in @posts
           = render type_partial(post), :post => post unless post.class == Album

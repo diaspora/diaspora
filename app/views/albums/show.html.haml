@@ -8,6 +8,9 @@
 = content_for :page_title do
   = link_to @album.name, @album
 
+- content_for :left_pane do
+  = render "shared/group_friends"
+
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
 
