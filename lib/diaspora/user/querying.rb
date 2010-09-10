@@ -46,6 +46,14 @@ module Diaspora
         groups.select { |g| g.person_ids.include? id}
       end
 
+      def people_in_groups groups
+        people = []
+        groups.each{ |group|
+          people = people | group.people
+        }
+        people
+      end
+
       def all_group_ids
         self.groups.all.collect{|x| x.id}
       end

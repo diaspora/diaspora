@@ -3,7 +3,6 @@ class Profile
   require 'lib/diaspora/webhooks'
   include Diaspora::Webhooks
   include ROXML
-  include Encryptable
 
   xml_reader :person_id
   xml_accessor :first_name
@@ -24,6 +23,4 @@ class Profile
     self._parent_document
   end
 
-  ##this needs to go once we move to Salmon
-  def signature_valid?; true; end
 end

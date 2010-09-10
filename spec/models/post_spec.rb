@@ -14,12 +14,6 @@ describe Post do
     it 'should serialize to xml with its person' do
       @message.to_xml.to_s.include?(@user.person.email).should == true
     end
-    
-    it 'should serialize to encrypted xml' do
-      enc_xml = @message.encrypted_xml_for(@user.person)
-      enc_xml.include?(@message.to_diaspora_xml).should be false
-      @user.decrypt(enc_xml).include?(@message.to_diaspora_xml).should be true
-    end
 
   end
 

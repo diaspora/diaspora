@@ -28,55 +28,77 @@ describe Comment do
 
     it 'should not send out comments when we have no people' do
       status = Factory.create(:status_message, :person => @user.person)
-      message_queue.should_not_receive(:add_post_request)
+      User::QUEUE.should_not_receive(:add_post_request)
       @user.comment "sup dog", :on => status
     end
 
     describe 'comment propagation' do
       before do
+        friend_users(@user, Group.first(:id => @group.id), @user2, @group2)
 
-
-        request = @user.send_friend_request_to(@user2, @group)
-        reversed_request = @user2.accept_friend_request( request.id, @group2.id )
-        @user.receive reversed_request.to_diaspora_xml
-        
         @person = Factory.create(:person)
+        @user.activate_friend(@person, Group.first(:id => @group.id))
+
         @person2 = Factory.create(:person) 
         @person_status = Factory.build(:status_message, :person => @person)
-        @user_status = Factory.build(:status_message, :person => @user.person)
+
+        @user.reload
+        @user_status = @user.post :status_message, :message => "hi", :to => @group.id
+
+        @group.reload
+        @user.reload
       end
     
+      it 'should have the post in the groups post list' do
+        group = Group.first(:id => @group.id)
+        group.people.size.should == 2
+        group.post_ids.include?(@user_status.id).should be true
+      end
+
       it "should send a user's comment on a person's post to that person" do
-        message_queue.should_receive(:add_post_request)
+        User::QUEUE.should_receive(:add_post_request)
         @user.comment "yo", :on => @person_status
       end
     
       it 'should send a user comment on his own post to lots of people' do
-        allowed_urls = @user.friends.map!{ |x| x = x.receive_url }
-        message_queue.should_receive(:add_post_request).with(allowed_urls, anything)
+
+        User::QUEUE.should_receive(:add_post_request).twice
         @user.comment "yo", :on => @user_status
       end
     
       it 'should send a comment a person made on your post to all people' do
-        message_queue.should_receive(:add_post_request)
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
+        User::QUEUE.should_receive(:add_post_request).twice
         @user.receive(comment.to_diaspora_xml)
       end
-       it 'should send a comment a user made on your post to all people' do
-        message_queue.should_receive(:add_post_request).twice
+      
+      it 'should send a comment a user made on your post to all people' do
+        
         comment = @user2.comment( "balls", :on => @user_status)
+        User::QUEUE.should_receive(:add_post_request).twice
         @user.receive(comment.to_diaspora_xml)
       end
     
       it 'should not send a comment a person made on his own post to anyone' do
-        message_queue.should_not_receive(:add_post_request)
+        User::QUEUE.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @person_status)
         @user.receive(comment.to_diaspora_xml)
       end
+      
       it 'should not send a comment a person made on a person post to anyone' do
-        message_queue.should_not_receive(:add_post_request)
+        User::QUEUE.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person2.id, :text => "balls", :post => @person_status)
         @user.receive(comment.to_diaspora_xml)
+      end
+
+      it 'should not clear the group post array on receiving a comment' do
+        @group.post_ids.include?(@user_status.id).should be true
+        comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
+
+        @user.receive(comment.to_diaspora_xml)
+
+        @group.reload
+        @group.post_ids.include?(@user_status.id).should be true
       end
     end
     describe 'serialization' do

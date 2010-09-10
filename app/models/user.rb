@@ -101,7 +101,6 @@ class User
     options[:person] = self.person
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
-    post.creator_signature = post.sign_with_key(encryption_key)
     post.save
     self.raw_visible_posts << post
     self.save
@@ -111,10 +110,11 @@ class User
   def push_to_groups( post, group_ids )
     if group_ids == :all || group_ids == "all"
       groups = self.groups
+    elsif group_ids.is_a?(Array) && group_ids.first.class == Group
+      groups = group_ids
     else
       groups = self.groups.find_all_by_id( group_ids )
     end
-
     #send to the groups
     target_people = [] 
 
@@ -126,13 +126,7 @@ class User
     push_to_people(post, target_people)
   end
 
-  def people_in_groups groups
-    people = []
-    groups.each{ |group|
-      people = people | group.people
-    }
-    people
-  end
+
 
   def push_to_people(post, people)
     people.each{|person|
@@ -157,19 +151,26 @@ class User
 
   ######## Commenting  ########
   def comment(text, options = {})
+    comment = build_comment(text, options)
+    if comment
+      dispatch_comment comment
+      comment.socket_to_uid id
+    end
+    comment
+  end
+  
+  def build_comment( text, options = {})
     raise "must comment on something!" unless options[:on]
     comment = Comment.new(:person_id => self.person.id, :text => text, :post => options[:on])
     comment.creator_signature = comment.sign_with_key(encryption_key)
     if comment.save
-      dispatch_comment comment
-      comment.socket_to_uid id
       comment
     else
       Rails.logger.warn "this failed to save: #{comment.inspect}"
       false
     end
   end
-  
+
   def dispatch_comment( comment )
     if owns? comment.post
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
@@ -185,7 +186,6 @@ class User
   def retract( post )
     post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
-    retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
     push_to_people retraction, people_in_groups(groups_with_post(post.id))
     retraction
   end
@@ -216,10 +216,9 @@ class User
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
-    raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
 
     if object.is_a? Retraction
-      if object.type == 'Person' && object.signature_valid?
+      if object.type == 'Person'
 
         Rails.logger.info( "the person id is #{object.post_id} the friend found is #{visible_person_by_id(object.post_id).inspect}")
         unfriended_by visible_person_by_id(object.post_id)
@@ -247,14 +246,16 @@ class User
 
     elsif object.is_a?(Comment) 
       object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
-      self.visible_people << object.person
+      self.visible_people = self.visible_people | [object.person]
       self.save
       Rails.logger.debug("The person parsed from comment xml is #{object.person.inspect}") unless object.person.nil?
       object.person.save
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
       raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self.person || object.verify_post_creator_signature
       object.save
-      dispatch_comment object unless owns?(object)
+      unless owns?(object)
+        dispatch_comment object
+      end
       object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     else
       Rails.logger.debug("Saving object: #{object}")

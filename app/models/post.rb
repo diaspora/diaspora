@@ -4,7 +4,6 @@ class Post
   include ApplicationHelper 
   include ROXML
   include Diaspora::Webhooks
-  include Encryptable
   include Diaspora::Socketable
 
   xml_accessor :_id
@@ -28,22 +27,6 @@ class Post
     self.create params.to_hash
   end
 
-  #ENCRYPTION
-  xml_accessor :creator_signature
-  key :creator_signature, String
-  
-  def signable_accessors
-    accessors = self.class.roxml_attrs.collect{|definition| 
-      definition.accessor}
-    accessors.delete 'person'
-    accessors.delete 'creator_signature'
-    accessors
-  end
-
-  def signable_string
-    signable_accessors.collect{|accessor| 
-      (self.send accessor.to_sym).to_s}.join ';'
-  end
 
   def as_json(opts={})
     {

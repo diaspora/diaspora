@@ -1,7 +1,6 @@
 class Retraction
   include ROXML
   include Diaspora::Webhooks
-  include Encryptable
 
   xml_accessor :post_id
   xml_accessor :person_id
@@ -38,16 +37,6 @@ class Retraction
     end
   end
 
-  def signature_valid?
-    target = self.type.constantize.find_by_id(self.post_id)
-
-    if target.is_a? Person
-      verify_signature(@creator_signature, self.type.constantize.find_by_id(self.post_id))
-    else 
-      verify_signature(@creator_signature, self.type.constantize.find_by_id(self.post_id).person)
-    end
-  end
-
   def self.person_id_from(object)
     object.is_a?(Person) ? object.id : object.person.id
   end
@@ -56,21 +45,4 @@ class Retraction
     Person.find_by_id(self.person_id)
   end
 
-  #ENCRYPTION
-  xml_accessor :creator_signature
-
-  def signable_accessors
-    accessors = self.class.roxml_attrs.collect{|definition| 
-      definition.accessor}
-    accessors.delete 'person'
-    accessors.delete 'creator_signature'
-    accessors
-  end
-
-  def signable_string
-    signable_accessors.collect{|accessor| 
-      (self.send accessor.to_sym).to_s
-    }.join ';'
-  end
-  
 end

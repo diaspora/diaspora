@@ -24,6 +24,12 @@ describe User do
     proc {@user.post(:status_message, :message => "heyheyhey")}.should raise_error /You must post to someone/ 
   end
 
+  it 'should put the post in the group post array' do
+    post = @user.post(:status_message, :message => "hey", :to => @group.id)
+    @group.reload
+    @group.post_ids.include?(post.id).should be true
+  end
+
   describe 'dispatching' do
     before do
       @post = @user.build_post :status_message, :message => "hey"

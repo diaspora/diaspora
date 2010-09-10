@@ -79,7 +79,6 @@ module Diaspora
       def unfriend(bad_friend)
         Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
         retraction = Retraction.for(self)
-        retraction.creator_signature = retraction.sign_with_key(encryption_key)
         retraction.push_to_url(bad_friend.receive_url) 
         remove_friend(bad_friend)
       end
@@ -109,9 +108,9 @@ module Diaspora
         person.user_refs += 1
         group.people << person
         friends << person
+        save
         person.save
         group.save
-        save
       end
 
       def request_from_me?(request)
