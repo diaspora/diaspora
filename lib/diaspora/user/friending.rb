@@ -31,13 +31,15 @@ module Diaspora
         request
       end
       
-      def dispatch_friend_acceptance(request)
-        request.push_to_url(request.callback_url)
+      def dispatch_friend_acceptance(request, requester)
+        salmon request, :to => requester
         request.destroy unless request.callback_url.include? url
       end 
       
       def accept_and_respond(friend_request_id, group_id)
-        dispatch_friend_acceptance(accept_friend_request(friend_request_id, group_id))
+        requester = Request.find_by_id(friend_request_id).person
+        reversed_request = accept_friend_request(friend_request_id, group_id)
+        dispatch_friend_acceptance reversed_request, requester
       end
 
       def ignore_friend_request(friend_request_id)
