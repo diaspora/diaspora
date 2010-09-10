@@ -1,19 +1,21 @@
 module Diaspora
   module UserModules
     module Friending
-      def send_friend_request_to(friend_url, group_id)
-        raise "You are already friends with that person!" if self.friends.detect{ |x| x.receive_url == friend_url}
-        request = Request.instantiate(:to => friend_url, :from => self.person, :into => group_id)
+      def send_friend_request_to(desired_friend, group)
+        raise "You are already friends with that person!" if self.friends.detect{
+          |x| x.receive_url == desired_friend.receive_url}
+        request = Request.instantiate(
+          :to => desired_friend.receive_url,
+          :from => self.person,
+          :into => group.id)
         if request.save
           self.pending_requests << request
           self.save
 
-          group = self.group_by_id(group_id)
-
           group.requests << request
           group.save
           
-          request.push_to_url friend_url
+          salmon request, :to => desired_friend
         end
         request
       end
@@ -29,13 +31,15 @@ module Diaspora
         request
       end
       
-      def dispatch_friend_acceptance(request)
-        request.push_to_url(request.callback_url)
+      def dispatch_friend_acceptance(request, requester)
+        salmon request, :to => requester
         request.destroy unless request.callback_url.include? url
       end 
       
       def accept_and_respond(friend_request_id, group_id)
-        dispatch_friend_acceptance(accept_friend_request(friend_request_id, group_id))
+        requester = Request.find_by_id(friend_request_id).person
+        reversed_request = accept_friend_request(friend_request_id, group_id)
+        dispatch_friend_acceptance reversed_request, requester
       end
 
       def ignore_friend_request(friend_request_id)
@@ -75,7 +79,6 @@ module Diaspora
       def unfriend(bad_friend)
         Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
         retraction = Retraction.for(self)
-        retraction.creator_signature = retraction.sign_with_key(encryption_key)
         retraction.push_to_url(bad_friend.receive_url) 
         remove_friend(bad_friend)
       end
@@ -101,21 +104,13 @@ module Diaspora
         remove_friend bad_friend
       end
 
-      def send_request(rel_hash, group)
-        if rel_hash[:friend]
-          self.send_friend_request_to(rel_hash[:friend], group)
-        else
-          raise "you can't do anything to that url"
-        end
-      end
-      
       def activate_friend(person, group)
         person.user_refs += 1
         group.people << person
         friends << person
+        save
         person.save
         group.save
-        save
       end
 
       def request_from_me?(request)

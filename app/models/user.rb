@@ -1,8 +1,14 @@
 require 'lib/diaspora/user/friending.rb'
+require 'lib/diaspora/user/querying.rb'
+require 'lib/salmon/salmon'
 
 class User
   include MongoMapper::Document
   include Diaspora::UserModules::Friending
+  include Diaspora::UserModules::Querying
+  include Encryptor::Private
+  QUEUE = MessageHandler.new
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
@@ -69,21 +75,8 @@ class User
     false
   end
 
-##querying with permissions
-  def posts_visible_to_me(opts ={})
-    if opts[:from].class == Person
-        Post.where(:person_id => opts[:from].id, :_id.in => self.visible_post_ids)
-    elsif opts[:from].class == Group
-        Post.where(:_id.in => opts[:from].post_ids) unless opts[:from].user != self
-    else
-        Post.where(:_id.in => self.visible_post_ids)
-    end
-  end
-
-
   ######## Posting ########
   def post(class_name, options = {})
-    options[:person] = self.person
 
     if class_name == :photo
       raise ArgumentError.new("No album_id given") unless options[:album_id]
@@ -96,15 +89,19 @@ class User
     group_ids = [group_ids] if group_ids.is_a? BSON::ObjectId
     raise ArgumentError.new("You must post to someone.") if group_ids.nil? || group_ids.empty?
 
-    model_class = class_name.to_s.camelize.constantize
-    post = model_class.instantiate(options)
-    post.creator_signature = post.sign_with_key(encryption_key)
-    post.save
+    post = build_post(class_name, options)
 
     post.socket_to_uid(id, :group_ids => group_ids) if post.respond_to?(:socket_to_uid)
-
     push_to_groups(post, group_ids)
 
+    post
+  end
+
+  def build_post( class_name, options = {})
+    options[:person] = self.person
+    model_class = class_name.to_s.camelize.constantize
+    post = model_class.instantiate(options)
+    post.save
     self.raw_visible_posts << post
     self.save
     post
@@ -113,10 +110,11 @@ class User
   def push_to_groups( post, group_ids )
     if group_ids == :all || group_ids == "all"
       groups = self.groups
+    elsif group_ids.is_a?(Array) && group_ids.first.class == Group
+      groups = group_ids
     else
       groups = self.groups.find_all_by_id( group_ids )
     end
-
     #send to the groups
     target_people = [] 
 
@@ -125,40 +123,58 @@ class User
       group.save
       target_people = target_people | group.people
     }
-    post.push_to( target_people )
+    push_to_people(post, target_people)
   end
 
-  def visible_posts( opts = {} )
-    if opts[:by_members_of]
-      return raw_visible_posts if opts[:by_members_of] == :all
-      group = self.groups.find_by_id( opts[:by_members_of].id )
-      group.posts
-    end
+  def push_to_people(post, people)
+    people.each{|person|
+      salmon(post, :to => person)
+    }
+  end
+
+  def push_to_person( person, xml )
+      Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
+      QUEUE.add_post_request( person.receive_url, person.encrypt(xml) )
+      QUEUE.process
+      
+  end
+
+  def salmon( post, opts = {} )
+    salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    push_to_person( opts[:to], salmon.to_xml)
+    salmon
   end
 
   ######## Commenting  ########
   def comment(text, options = {})
+    comment = build_comment(text, options)
+    if comment
+      dispatch_comment comment
+      comment.socket_to_uid id
+    end
+    comment
+  end
+  
+  def build_comment( text, options = {})
     raise "must comment on something!" unless options[:on]
     comment = Comment.new(:person_id => self.person.id, :text => text, :post => options[:on])
     comment.creator_signature = comment.sign_with_key(encryption_key)
     if comment.save
-      dispatch_comment comment
-      comment.socket_to_uid id
       comment
     else
       Rails.logger.warn "this failed to save: #{comment.inspect}"
       false
     end
   end
-  
+
   def dispatch_comment( comment )
     if owns? comment.post
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
-      comment.push_downstream
+      push_to_people comment, people_in_groups(groups_with_post(comment.post.id))
     elsif owns? comment
       comment.save
-      comment.push_upstream
+      salmon comment, :to => comment.post.person 
     end
   end
   
@@ -166,8 +182,7 @@ class User
   def retract( post )
     post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
-    retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
-    retraction.push_to( self.friends.all )
+    push_to_people retraction, people_in_groups(groups_with_post(post.id))
     retraction
   end
 
@@ -176,7 +191,7 @@ class User
     params[:profile].delete(:image_url) if params[:profile][:image_url].empty?
 
     if self.person.update_attributes(params)
-      self.profile.push_to( self.friends.all )
+      push_to_groups profile, :all
       true
     else
       false
@@ -184,14 +199,22 @@ class User
   end
 
   ###### Receiving #######
+  def receive_salmon ciphertext
+    cleartext = decrypt( ciphertext)
+    Rails.logger.info("Received a salmon: #{cleartext}")
+    salmon = Salmon::SalmonSlap.parse cleartext
+    if salmon.verified_for_key?(salmon.author.public_key)
+      self.receive(salmon.data)
+    end
+  end
+
   def receive xml
     object = Diaspora::Parser.from_xml(xml)
     Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
-    raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.signature_valid?
 
     if object.is_a? Retraction
-      if object.type == 'Person' && object.signature_valid?
+      if object.type == 'Person'
 
         Rails.logger.info( "the person id is #{object.post_id} the friend found is #{visible_person_by_id(object.post_id).inspect}")
         unfriended_by visible_person_by_id(object.post_id)
@@ -219,14 +242,16 @@ class User
 
     elsif object.is_a?(Comment) 
       object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
-      self.visible_people << object.person
+      self.visible_people = self.visible_people | [object.person]
       self.save
       Rails.logger.debug("The person parsed from comment xml is #{object.person.inspect}") unless object.person.nil?
       object.person.save
     Rails.logger.debug("From: #{object.person.inspect}") if object.person
       raise "In receive for #{self.real_name}, signature was not valid on: #{object.inspect}" unless object.post.person == self.person || object.verify_post_creator_signature
       object.save
-      dispatch_comment object unless owns?(object)
+      unless owns?(object)
+        dispatch_comment object
+      end
       object.socket_to_uid(id)  if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
     else
       Rails.logger.debug("Saving object: #{object}")
@@ -268,42 +293,13 @@ class User
     self.password_confirmation = self.password
   end 
 
-  def visible_person_by_id( id )
-    id = id.to_id
-    return self.person if id == self.person.id
-    result = friends.detect{|x| x.id == id }
-    result = visible_people.detect{|x| x.id == id } unless result
-    result
-  end
-
-  def group_by_id( id )
-    id = id.to_id
-    groups.detect{|x| x.id == id }
-  end
-
-  def album_by_id( id )
-    id = id.to_id
-    albums.detect{|x| x.id == id }
-  end
-
-  def groups_with_post( id )
-    self.groups.find_all_by_post_ids( id.to_id )
-  end
-
-  def groups_with_person person
-    id = person.id.to_id
-    groups.select { |g| g.person_ids.include? id}
-  end
-
   def setup_person
     self.person.serialized_key ||= User.generate_key.export
     self.person.email ||= email
     self.person.save!
   end
 
-  def all_group_ids
-    self.groups.all.collect{|x| x.id}
-  end
+
 
   def as_json(opts={})
     {
@@ -315,12 +311,7 @@ class User
       }
     }
   end
-
-
-  protected
-
-  def self.generate_key
-    OpenSSL::PKey::RSA::generate 1024 
-  end
-
+    def self.generate_key
+      OpenSSL::PKey::RSA::generate 4096
+    end
 end

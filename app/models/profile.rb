@@ -23,6 +23,4 @@ class Profile
     self._parent_document
   end
 
-  ##this needs to go once we move to Salmon
-  def signature_valid?; true; end
 end

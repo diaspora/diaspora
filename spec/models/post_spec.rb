@@ -7,10 +7,14 @@ describe Post do
   end
  
   describe 'xml' do
-    it 'should serialize to xml with its person' do
-      message = Factory.create(:status_message, :person => @user.person)
-      message.to_xml.to_s.include?(@user.person.email).should == true
+    before do
+      @message = Factory.create(:status_message, :person => @user.person)
     end
+
+    it 'should serialize to xml with its person' do
+      @message.to_xml.to_s.include?(@user.person.email).should == true
+    end
+
   end
 
   describe 'deletion' do

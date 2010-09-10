@@ -32,7 +32,7 @@ describe 'user encryption' do
   describe 'key exchange on friending' do
     it 'should send over a public key' do
       message_queue.stub!(:add_post_request)
-      request = @user.send_friend_request_to("http://example.com/", @group.id)
+      request = @user.send_friend_request_to(Factory.create(:person), @group)
       request.to_diaspora_xml.include?( @user.exported_key).should be true
     end
 
@@ -44,7 +44,7 @@ describe 'user encryption' do
       original_key = remote_user.exported_key
       
       request = remote_user.send_friend_request_to(
-        @user.receive_url, remote_user.group(:name => "temp").id)
+        @user.person, remote_user.group(:name => "temp"))
       
       xml = request.to_diaspora_xml
       
@@ -59,82 +59,20 @@ describe 'user encryption' do
     end 
   end
 
-  describe 'signing and verifying' do
-
-    it 'should sign a message on create' do
-      message = @user.post :status_message, :message => "hi", :to => @group.id
-      message.signature_valid?.should be true 
+  describe 'encryption' do
+    before do
+      @message = @user.post :status_message, :message => "hi", :to => @group.id
     end
-
-    it 'should sign a retraction on create' do
-
-      unstub_mocha_stubs
-      message = @user.post :status_message, :message => "hi", :to => @group.id
-
-
-      retraction = @user.retract(message) 
-      retraction.signature_valid?.should be true
-
-    end
-    
-    it 'should not be able to verify a message from a person without a key' do 
-      person = Factory.create(:person, :serialized_key => "lskdfhdlfjnh;klsf")
-      message = Factory.build(:status_message, :person => person)
-      message.save(:validate => false)
-      lambda {message.signature_valid?.should be false}.should raise_error 
-    end
-    
-    it 'should verify a remote signature' do 
-      message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = message.send(:sign_with_key,@person.encryption_key)
-      message.save(:validate => false)
-      message.signature_valid?.should be true
-    end
-    
-    it 'should know if the signature is from the wrong person' do
-      message = Factory.build(:status_message, :person => @person)
-      message.save(:validate => false)
-      message.creator_signature = message.send(:sign_with_key,@person.encryption_key)
-      message.person = @user
-      message.signature_valid?.should be false
-    end
-   
-    it 'should know if the signature is for the wrong text' do
-      message = Factory.build(:status_message, :person => @person)
-      message.creator_signature = message.send(:sign_with_key,@person.encryption_key)
-      message.message = 'I love VENISON'
-      message.save(:validate => false)
-      message.signature_valid?.should be false
+    it 'should encrypt large messages' do
+      ciphertext = @user.encrypt @message.to_diaspora_xml
+      ciphertext.include?(@message.to_diaspora_xml).should be false
+      @user.decrypt(ciphertext).include?(@message.to_diaspora_xml).should be true
     end
   end
 
-  describe 'sending and recieving signatures' do
-    it 'should contain the signature in the xml' do
-      message = @user.post :status_message, :message => "hi", :to => @group.id
-      xml = message.to_xml.to_s
-      xml.include?(message.creator_signature).should be true
-    end
-
-    it 'A message with an invalid signature should be rejected' do
-      @user2 = Factory.create :user
-
-      message = @user2.post :status_message, :message => "hey", :to => @user2.group(:name => "bruisers").id
-      message.creator_signature = "totally valid"
-      message.save(:validate => false)
-
-      xml = message.to_diaspora_xml
-      message.destroy
-      Post.count.should be 0
-      proc {@user.receive xml}.should raise_error /ignature was not valid/
-      Post.count.should be 0
-    end
-
-  end
   describe 'comments' do
     before do
-      @remote_message = Factory.build(:status_message, :person => @person)
-      @remote_message.creator_signature = @remote_message.send(:sign_with_key,@person.encryption_key)
-      @remote_message.save 
+      @remote_message = Factory.create(:status_message, :person => @person)
       @message = @user.post :status_message, :message => "hi", :to => @group.id
     end
     it 'should attach the creator signature if the user is commenting' do

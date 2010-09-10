@@ -15,7 +15,7 @@ describe Request do
 
   it 'should generate xml for the User as a Person' do 
 
-    request = @user.send_friend_request_to "http://www.google.com/", @group.id
+    request = @user.send_friend_request_to Factory.create(:person), @group
 
     xml = request.to_xml.to_s
 

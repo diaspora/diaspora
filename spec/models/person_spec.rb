@@ -60,7 +60,7 @@ describe Person do
 
   describe "unfriending" do
     it 'should delete an orphaned friend' do
-      request = @user.send_friend_request_to @person.receive_url, @group.id
+      request = @user.send_friend_request_to @person, @group
 
       @user.activate_friend(@person, @group) 
       @user.reload
@@ -74,8 +74,8 @@ describe Person do
     end
 
     it 'should not delete an un-orphaned friend' do
-      request = @user.send_friend_request_to @person.receive_url, @group.id
-      request2 = @user2.send_friend_request_to @person.receive_url, @group2.id
+      request = @user.send_friend_request_to @person, @group
+      request2 = @user2.send_friend_request_to @person, @group2
 
       @user.activate_friend(@person, @group) 
       @user2.activate_friend(@person, @group2)
@@ -143,6 +143,11 @@ describe Person do
 
     it 'should search by email exactly' do
       Person.by_webfinger(@friend_one.email).should == @friend_one
+    end
+
+    it 'should create a stub for a remote user' do
+      tom = Person.by_webfinger('tom@tom.joindiaspora.com')
+      tom.real_name.include?("Hamiltom").should be true
     end
     
     describe 'wall posting' do 

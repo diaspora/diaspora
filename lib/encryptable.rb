@@ -28,5 +28,6 @@
       Rails.logger.debug("Signing #{signable_string}")
       Base64.encode64(key.sign "SHA", signable_string)
     end
+
   end
 

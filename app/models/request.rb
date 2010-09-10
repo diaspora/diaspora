@@ -3,7 +3,6 @@ class Request
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML
-  include Encryptable
 
   xml_accessor :_id
   xml_accessor :person, :as => Person
@@ -41,28 +40,7 @@ class Request
     self.save
   end
   
-  #ENCRYPTION
-    
-  xml_accessor :creator_signature
-  key :creator_signature, String
-  
-  def signable_accessors
-    accessors = self.class.roxml_attrs.collect{|definition| 
-                definition.accessor}
-
-    accessors.delete 'person'
-    accessors.delete 'creator_signature'
-    accessors
-  end
-
-  def signable_string
-    signable_accessors.collect{|accessor| 
-                               (self.send accessor.to_sym).to_s}.join ';'
-  end
-
-  def signature_valid?; true; end
-
-  protected
+protected
   def clean_link
     if self.destination_url
       self.destination_url = 'http://' + self.destination_url unless self.destination_url.match('https?://')

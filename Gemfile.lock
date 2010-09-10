@@ -148,7 +148,7 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nifty-generators (0.4.0)
-    nokogiri (1.4.3.1)
+    nokogiri (1.4.1)
     plucky (0.3.5)
       mongo (~> 1.0.8)
     polyglot (0.3.1)
