@@ -3,10 +3,10 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Retraction do
     before do
       @user = Factory.create(:user)
-      @post = @user.post :status_message, :message => "Destroy!", :to => @user.group(:name => "losers").id
       @person = Factory.create(:person)
-      @user.friends << @person
-      @user.save
+      @group = @user.group(:name => "Bruisers")
+      @user.activate_friend(@person, @group)
+      @post = @user.post :status_message, :message => "Destroy!", :to => @group.id
     end
   describe 'serialization' do
     it 'should have a post id after serialization' do
@@ -18,10 +18,8 @@ describe Retraction do
   describe 'dispatching' do
     it 'should dispatch a message on delete' do
       Factory.create(:person)
-      message_queue.should_receive(:add_post_request)
+      Salmon::QUEUE.should_receive :add_post_request
       @post.destroy
     end
   end
-
-
 end
