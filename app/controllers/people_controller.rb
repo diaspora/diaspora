@@ -23,7 +23,7 @@ class PeopleController < ApplicationController
   
   def destroy
     current_user.unfriend(current_user.visible_person_by_id(params[:id]))
-    respond_with :location => people_url
+    respond_with :location => root_url
   end
   
 end
