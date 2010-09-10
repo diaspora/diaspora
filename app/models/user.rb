@@ -126,8 +126,6 @@ class User
     push_to_people(post, target_people)
   end
 
-
-
   def push_to_people(post, people)
     people.each{|person|
       salmon(post, :to => person)
@@ -146,8 +144,6 @@ class User
     push_to_person( opts[:to], salmon.to_xml)
     salmon
   end
-
-
 
   ######## Commenting  ########
   def comment(text, options = {})

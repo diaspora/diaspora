@@ -10,7 +10,6 @@ class Retraction
   attr_accessor :person_id
   attr_accessor :type
 
-
   def self.for(object)
     retraction = self.new
     if object.is_a? User
