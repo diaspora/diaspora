@@ -135,6 +135,13 @@ class User
     push_to_people(post, target_people)
   end
 
+  def people_in_groups groups
+    people = []
+    groups.each{ |group|
+      people = people | group.people
+    }
+  end
+
   def push_to_people(post, people)
     people.each{|person|
       salmon(post, :to => person)
@@ -186,7 +193,7 @@ class User
     post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
-    push_to_groups retraction, groups_with_post(post.id).map!{|g| g.id}
+    push_to_people retraction, people_with_groups(groups_with_post(post.id))
     retraction
   end
 
