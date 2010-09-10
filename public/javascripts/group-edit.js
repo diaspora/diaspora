@@ -20,6 +20,10 @@ $(function() {
     $(".group ul").droppable({
 
 			drop: function(event, ui) {
+        if (ui.draggable[0].attr('request_id') != undefined){
+          alert('This is a request!');
+        }
+
         var move = {};
         move[ 'friend_id' ] = ui.draggable[0].id
         move[ 'to' ] = $(this)[0].id;
