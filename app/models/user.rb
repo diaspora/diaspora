@@ -186,7 +186,7 @@ class User
     post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
-    retraction.push_to( self.friends.all )
+    push_to_groups retraction, groups_with_post(post).map!{|g| g.id}
     retraction
   end
 
@@ -195,7 +195,7 @@ class User
     params[:profile].delete(:image_url) if params[:profile][:image_url].empty?
 
     if self.person.update_attributes(params)
-      self.profile.push_to( self.friends.all )
+      push_to_groups profile, :all
       true
     else
       false
