@@ -186,7 +186,7 @@ class User
     post.unsocket_from_uid(self.id) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
     retraction.creator_signature = retraction.sign_with_key( encryption_key ) 
-    push_to_groups retraction, groups_with_post(post).map!{|g| g.id}
+    push_to_groups retraction, groups_with_post(post.id).map!{|g| g.id}
     retraction
   end
 
