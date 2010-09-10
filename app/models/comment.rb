@@ -22,16 +22,6 @@ class Comment
 
   timestamps!
   
-  def push_upstream
-    Rails.logger.info("GOIN UPSTREAM")
-    push_to([post.person])
-  end
-
-  def push_downstream
-    Rails.logger.info("SWIMMIN DOWNSTREAM")
-    push_to(post.people_with_permissions)
-  end
-
   #ENCRYPTION
   
   xml_accessor :creator_signature

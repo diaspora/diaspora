@@ -174,10 +174,10 @@ class User
     if owns? comment.post
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
-      comment.push_downstream
+      push_to_people comment, people_in_groups(groups_with_post(comment.post.id))
     elsif owns? comment
       comment.save
-      comment.push_upstream
+      salmon comment, :to => comment.post.person 
     end
   end
   
