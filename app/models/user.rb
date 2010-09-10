@@ -140,6 +140,7 @@ class User
     groups.each{ |group|
       people = people | group.people
     }
+    people
   end
 
   def push_to_people(post, people)
