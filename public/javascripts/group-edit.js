@@ -9,10 +9,15 @@ $('#move_friends_link').live( 'click',
     });
 
 $(function() {
-		$("li .person").draggable({
+    $("li .person").draggable({
 		  revert: true
     });
-		$(".group ul").droppable({
+    
+    $("li .person").draggable({
+		  revert: true
+    });
+		
+    $(".group ul").droppable({
 
 			drop: function(event, ui) {
         var move = {};

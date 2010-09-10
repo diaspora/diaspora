@@ -6,17 +6,12 @@
   %h1{:id => 'group_title'}
     Requests
 
-  .requests
+  .group
     - for request in @remote_requests
       .person{:id => request.person.id}
         = image_tag(request.person.profile.image_url(:thumb_small)) unless request.person.profile.image_url.nil?
         .name
           = request.person.real_name
-
-
-
-
-  requests
 
 %h1{:id => 'group_title'}
   Relations
