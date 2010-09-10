@@ -34,6 +34,7 @@ class GroupsController < ApplicationController
 
   def edit
     @groups = current_user.groups
+    @remote_requests = Request.for_user current_user
   end
 
   def update

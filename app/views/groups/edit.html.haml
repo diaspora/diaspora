@@ -3,10 +3,22 @@
   = javascript_include_tag 'group-edit.js'
 
 - content_for :left_pane do
+  %h1{:id => 'group_title'}
+    Requests
+
+  - for request in @remote_requests
+    .person{:id => request.person.id}
+      = image_tag(request.person.profile.image_url(:thumb_small)) unless request.person.profile.image_url.nil?
+      .name
+        = request.person.real_name
+
+
+
+
   requests
 
-%h1{:class => 'big_text', :id => 'group_title'}
-  = "Managing Relations"
+%h1{:id => 'group_title'}
+  Relations
 
 %ul#group_list
 
