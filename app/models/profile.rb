@@ -3,6 +3,7 @@ class Profile
   require 'lib/diaspora/webhooks'
   include Diaspora::Webhooks
   include ROXML
+  include Encryptable
 
   xml_reader :person_id
   xml_accessor :first_name
