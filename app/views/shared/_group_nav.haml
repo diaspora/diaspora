@@ -7,11 +7,12 @@
     %li.new_group= link_to("+", "#add_group_pane", :id => "add_group_button", :title => "Add a new relation")
 
     #group_manage_button
-      = link_to "manage", edit_group_path(Group.first), :class => "edit_group_button", :title => "Manage your relations"
 
   %ul{ :style => "position:absolute;right:0;bottom:0;"}
-    %li{:class => ("selected" if @group == :all), :style => "margin-right:0;"}
+    %li{:class => ("selected" if @group == :all)}
       = link_to "All Relations", root_url
+    %li{ :style => "margin-right:0;" }
+      = link_to "manage", edit_group_path(Group.first), :class => "edit_group_button", :title => "Manage your relations"
 
   .yo{ :style => "display:none;"}
     #add_group_pane
