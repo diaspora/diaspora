@@ -78,6 +78,7 @@ header {
   color: black;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333333), to(black));
   padding: 0;
+    padding-top: 5px;
   border-bottom: 1px solid #cccccc; }
   header #diaspora_text {
     z-index: 6;
@@ -85,8 +86,7 @@ header {
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 16px;
     border: none;
-    color: white;
-    top: 3px; }
+    color: white; }
     header #diaspora_text a {
       color: #999999; }
     header #diaspora_text a:hover {
@@ -458,7 +458,7 @@ h1.big_text {
 #group_nav {
   position: relative;
   color: black;
-  margin-top: 7px;
+  margin-top: 8px;
   margin-bottom: 1px; }
   #group_nav #group_manage_button {
     display: inline; }
@@ -562,6 +562,7 @@ h1.big_text {
 #global_search {
   display: inline;
   position: relative;
+  opacity: 0.5;
   padding-right: 167px; }
   #global_search form {
     display: inline; }
