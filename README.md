@@ -1,7 +1,7 @@
 Diaspora
 ========
 
-Decentralized social network, built on top of Ruby on Rails.
+The privacy aware, personally controlled, do-it-all, open source social network.
 
 
 Getting started
@@ -12,8 +12,7 @@ In order to run Diaspora for development, there are a few external dependencies 
 - [MongoDB](http://www.mongodb.org/downloads) - noSQL data layer.
 - [OpenSSL](http://www.openssl.org/source/) - Used in the current encryption implementation.
 - [ImageMagick](http://www.imagemagick.org/script/binary-releases.php?ImageMagick=0nfesabhe916b9afjc4qiikv03) - Image processing library used to resize uploaded photos.
-
-- [Bundler](http://gembundler.com/)
+- [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
 
 After installing the above, run
@@ -39,11 +38,9 @@ Getting Help
 
 There are multiple outlets of ongoing discussion on the development of Diaspora.
 
-- [Diaspora Developer Google Group]:(http://groups.google.com/group/diaspora-dev)
-- [Diaspora Discussion Google Group]:(http://groups.google.com/group/diaspora-discuss)
+- [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
+- [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
+- [#diaspora-dev](irc://irc.freenode.net/#diaspora-dev)
 
-- [#diaspora-dev]:(irc://irc.freenode.net/#diaspora-dev)
-
-More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://#).
-
+More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
 
