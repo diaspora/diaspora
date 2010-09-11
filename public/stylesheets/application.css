@@ -73,12 +73,11 @@ header {
   margin: -2em;
     margin-bottom: 2em;
   color: black;
-  background-color: #333333;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333333), to(black));
   padding: 0;
   border-bottom: 1px solid #cccccc; }
   header #diaspora_text {
     z-index: 6;
-    position: absolute;
     display: inline;
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 16px;
@@ -246,12 +245,14 @@ ul.comment_set {
       margin-top: -5px;
       margin-bottom: 0; }
 
-.profile_photo {
-  float: left;
-  margin-right: 10px; }
+.profile_photo img {
+  height: 150px;
+  width: 150px; }
 
 #profile ul {
-  list-style-type: none; }
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
 
 #stream img.person_picture, #profile img.person_picture,
 .comments img.person_picture {
@@ -452,49 +453,44 @@ h1.big_text {
 
 #group_nav {
   position: relative;
-  color: black; }
+  color: black;
+  margin-top: 7px;
+  margin-bottom: 1px; }
   #group_nav #group_manage_button {
-    display: inline;
-    margin-top: 1px;
-    font-size: 12px; }
+    display: inline; }
     #group_nav #group_manage_button a {
       color: #999999; }
   #group_nav ul {
-    margin-bottom: 0;
-    margin-right: 0;
+    margin: 0;
     padding: 0;
-      padding-bottom: 0px;
-      padding-top: 35px;
-      padding-right: 0;
-    display: inline-block;
-    list-style: none;
-    font-size: 14px; }
+    list-style: none; }
     #group_nav ul > li {
-      background-color: #444444;
+      padding: 0;
       display: inline;
-      margin-right: 0.5em;
-      padding: 3px 8px;
-      border: 1px solid #555555; }
-      #group_nav ul > li.last-child {
-        margin-right: 0; }
+      margin-right: 0.5em; }
       #group_nav ul > li a {
+        background-color: #444444;
+        border: 1px solid #555555;
+        -webkit-border-radius: 3;
+        position: relative;
+        padding: 3px 8px;
         color: #999999; }
         #group_nav ul > li a:hover {
           background: none; }
-        #group_nav ul > li a.editable:hover {
-          background: yellow; }
-      #group_nav ul > li:hover {
-        background-color: #444444; }
-        #group_nav ul > li:hover a {
-          color: #999999; }
-      #group_nav ul > li.selected {
+      #group_nav ul > li:hover a {
+        background-color: #555555;
+        color: #cccccc; }
+      #group_nav ul > li.selected a {
+        padding-top: 5px;
+        padding-bottom: 3px;
+        line-height: 18px;
         font-weight: bold;
         background-color: #eeeeee;
         border-bottom: 1px solid #eeeeee;
         color: black; }
-        #group_nav ul > li.selected:hover {
+        #group_nav ul > li.selected a:hover {
           background-color: #efefef; }
-        #group_nav ul > li.selected a {
+        #group_nav ul > li.selected a a {
           color: black; }
 
 #add_photo_loader {

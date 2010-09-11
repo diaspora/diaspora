@@ -2,16 +2,15 @@
   %ul
     - for group in @groups
       %li{:id => group.id, :class => ("selected" if current_group?(group))}
-        %span.group_name
-          = link_for_group group
+        = link_for_group group
 
-    %li.new_group= link_to("+", "#add_group_pane", :id => "add_group_button")
+    %li.new_group= link_to("+", "#add_group_pane", :id => "add_group_button", :title => "Add a new relation")
 
     #group_manage_button
-      = link_to "manage", edit_group_path(Group.first), :class => "edit_group_button", :title => "Manage your facets."
+      = link_to "manage", edit_group_path(Group.first), :class => "edit_group_button", :title => "Manage your relations"
 
   %ul{ :style => "position:absolute;right:0;bottom:0;"}
-    %li{:class => ("selected" if @group == :all)}
+    %li{:class => ("selected" if @group == :all), :style => "margin-right:0;"}
       = link_to "All Relations", root_url
 
   .yo{ :style => "display:none;"}
