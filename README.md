@@ -29,7 +29,7 @@ Once mongo is running and bundler has finished, run
 		bundle exec thin start
 to begin the app server in development mode.
 
-Diaspora's test suite uses [rspec]:(http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run
+Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run
 		bundle exec rspec spec
 
 
