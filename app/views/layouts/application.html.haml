@@ -58,12 +58,16 @@
       #group_header
         .container
           .span-5.last
-            - if @group == :all
+            - if @person
               %h1
-                = link_to "All Relations", root_path
+                = @person.real_name
             - else
-              %h1
-                = link_to @group.name, @group
+              - if @group == :all
+                %h1
+                  = link_to "All Relations", root_path
+              - else
+                %h1
+                  = link_to @group.name, @group
 
             .page_title
               = yield :page_title

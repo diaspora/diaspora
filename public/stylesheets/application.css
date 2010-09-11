@@ -238,15 +238,16 @@ ul.comment_set {
     padding: 0.6em;
     border-bottom: 1px solid #cccccc; }
     ul.comment_set li.comment .from {
-      font-weight: normal; }
-      ul.comment_set li.comment .from a {
-        font-weight: bold; }
+      font-size: 1em; }
     ul.comment_set li.comment div.time {
       color: #666666;
       font-size: 70%; }
     ul.comment_set li.comment form {
       margin-top: -5px;
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      font-size: 1em; }
+      ul.comment_set li.comment form textarea {
+        font-size: 1em; }
 
 .profile_photo img {
   height: 150px;

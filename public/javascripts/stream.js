@@ -46,6 +46,6 @@ $(".comment_box").live('blur', function(evt){
 });
 
 $(".comment_submit").live('click', function(evt){
-  $this.parents("p").parents("form").children("p").children(".comment_box").attr("rows", 1);
+  $(this).closest("form").children("p .comment_box").attr("rows", 1);
 });
 
