@@ -12,10 +12,13 @@ body {
 
 a {
   color: #556270;
+  color: #107fc9;
+  color: #019dbe;
   text-decoration: none; }
   a:hover {
     color: white;
-    background-color: #556270; }
+    background-color: #556270;
+    background-color: #019dbe; }
 
 .avatar {
   width: 50px;
