@@ -85,3 +85,6 @@
       .span-19.prepend-5.last
         = render "posts/debug"
 
+      #notification_badge.requests
+        = link_to "requests (#{@request_count})", requests_path
+

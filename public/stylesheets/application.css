@@ -628,3 +628,13 @@ h1.big_text {
     .requests .person .grey {
       font-style: italic;
       color: #666666; }
+
+#notification_badge {
+  position: fixed;
+  bottom: 0;
+  margin-left: 854px; }
+  #notification_badge a {
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+      border-bottom: none;
+    padding: 3px 10px; }
