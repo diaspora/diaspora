@@ -11,12 +11,15 @@ body
   :margin 0
 a
   :color #556270
+  :color #107FC9
+  :color #019DBE
   :text
     :decoration none
   &:hover
     :color #fff
     :background
       :color #556270
+      :color #019DBE
 
 .avatar
   :width 50px
@@ -78,22 +81,20 @@ header
   :margin -2em
     :bottom 2em
   :color #000
-  :background
-    :color #333
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333333), to(#000000))
   :padding 0
+    :top 5px
   :border
     :bottom 1px solid #ccc
 
   #diaspora_text
     :z-index 6
-    :position absolute
     :display inline
     :font
       :family 'BrandonGrotesqueLightRegular'
       :size 16px
     :border none
     :color #fff
-    :top 3px
 
     a
       :color #999
@@ -299,10 +300,7 @@ ul.comment_set
 
     .from
       :font
-        :weight normal
-      a
-        :font
-          :weight bold
+        :size 1em
     
     div.time
       :color #666
@@ -312,13 +310,22 @@ ul.comment_set
       :margin
         :top -5px
         :bottom 0
+      :font
+        :size 1em
+      textarea
+        :font
+          :size 1em
 
 .profile_photo
-  :float left
-  :margin-right 10px
+  img
+    :height 150px
+    :width 150px
+
 #profile
   ul
     :list-style-type none
+    :margin 0
+    :padding 0
         
 
 #stream, #profile,
@@ -577,59 +584,54 @@ h1.big_text
 #group_nav
   :position relative
   :color #000
+  :margin
+    :top 8px
+    :bottom 1px
 
 
   #group_manage_button
     :display inline
-    :margin
-      :top 1px
-    :font
-      :size 12px
 
     a
       :color #999
 
   ul
-    :margin
-      :bottom 0
-      :right 0
+    :margin 0
     :padding 0
-      :bottom 0px
-      :top 35px
-      :right 0
-    :display inline-block
     :list
       :style none
-    :font
-      :size 14px
+
 
     > li
-      :background
-        :color #444
+      :padding 0
       :display inline
       :margin
         :right 0.5em
-      :padding 3px 8px
-      :border 1px solid #555
-
-      &.last-child
-        :margin
-          :right 0
 
       a
+        :background
+          :color #444
+        :border 1px solid #555
+
+        :-webkit-border-radius 3
+
+        :position relative
+        :padding 3px 8px
         :color #999
         &:hover
           :background none
-        &.editable:hover
-          :background yellow
 
-      &:hover
+      &:hover a
         :background
-          :color #444
-        a
-          :color #999
+          :color #555
+        :color #ccc
 
-      &.selected
+      &.selected a
+        :padding
+          :top 5px
+          :bottom 3px
+        :line
+          :height 18px
         :font
           :weight bold
         :background
@@ -731,6 +733,7 @@ h1.big_text
 #global_search
   :display inline
   :position relative
+  :opacity 0.5
   :padding
     :right 167px
 
@@ -822,4 +825,17 @@ h1.big_text
         :style italic
       :color #666
 
+#notification_badge
+  :position fixed
+  :bottom 0
+  :margin
+    :left 854px
 
+  a
+    :background
+      :color #eee
+
+    :border 1px solid #ccc
+      :bottom none
+
+    :padding 3px 10px
