@@ -20,7 +20,7 @@ $(function() {
       $.ajax({
         type: "DELETE",
         url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
-        data: {"accept" : {"group_id" : $(this)[0].id }}
+        data: {"accept" : true  , "group_id" : $(this)[0].id }
       });
       alert("Sent the ajax, check it out!")
       }
