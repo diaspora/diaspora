@@ -204,6 +204,7 @@ class User
     Rails.logger.info("Received a salmon: #{cleartext}")
     salmon = Salmon::SalmonSlap.parse cleartext
     if salmon.verified_for_key?(salmon.author.public_key)
+      Rails.logger.info("data in salmon: #{salmon.data}")
       self.receive(salmon.data)
     end
   end

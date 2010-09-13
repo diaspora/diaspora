@@ -16,6 +16,14 @@ $(function() {
   
   $(".group ul").droppable({
     drop: function(event, ui) {
+      if (ui.draggable[0].getAttribute('request_id') != null){
+      $.ajax({
+        type: "DELETE",
+        url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
+        data: {"accept" : true  , "group_id" : $(this)[0].id }
+      });
+      alert("Sent the ajax, check it out!")
+      }
       var move = {};
       move[ 'friend_id' ] = ui.draggable[0].id
       move[ 'to' ] = $(this)[0].id;
