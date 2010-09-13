@@ -483,6 +483,8 @@ h1.big_text {
           background-color: #efefef; }
         #aspect_nav ul > li.selected a a {
           color: black; }
+  #aspect_nav .new_requests {
+    color: red; }
 
 #global_search {
   display: inline;

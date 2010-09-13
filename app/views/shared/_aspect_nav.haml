@@ -32,7 +32,7 @@
       = link_to "All Aspects", root_url
 
     %li{ :style => "margin-right:0;" }
-      = link_to "manage", edit_aspect_path(Aspect.first), :class => "edit_aspect_button", :title => "Manage your Aspects"
+      = link_to ( (@request_count == 0)? "manage" : "manage (#{@request_count})"), edit_aspect_path(Aspect.first), :class => "edit_aspect_button", :class => new_request(@request_count), :title => "Manage your Aspects"
 
   .yo{ :style => "display:none;"}
     #add_aspect_pane
