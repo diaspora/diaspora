@@ -46,8 +46,7 @@ $(function() {
       if (ui.draggable[0].getAttribute('request_id') != null){
       $.ajax({
         type: "DELETE",
-        url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
-        data: {"accept" : false }
+        url: "/requests/" + ui.draggable[0].getAttribute('request_id')
       });
       alert("Removed Request, proably want an undo countdown.")
       $(ui.draggable[0]).fadeOut('slow')
