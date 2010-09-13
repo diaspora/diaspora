@@ -16,7 +16,6 @@ class Person
   key :serialized_key, String 
 
   key :owner_id,  ObjectId
-  key :user_refs, Integer, :default => 0 
 
   one :profile, :class_name => 'Profile'
   many :albums, :class_name => 'Album', :foreign_key => :person_id

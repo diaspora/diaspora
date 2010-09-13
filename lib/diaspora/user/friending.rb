@@ -46,12 +46,10 @@ module Diaspora
         request = Request.find_by_id(friend_request_id)
         person  = request.person
 
-        person.user_refs -= 1
-
         self.pending_requests.delete(request)
         self.save
 
-        (person.user_refs > 0 || person.owner.nil? == false) ?  person.save : person.destroy
+        person.save
         request.destroy
       end
 
@@ -66,9 +64,6 @@ module Diaspora
 
           friend_request.destroy
         else
-          friend_request.person.reload
-          friend_request.person.user_refs += 1
-          friend_request.person.save
           self.pending_requests << friend_request
           self.save
           Rails.logger.info("#{self.real_name} has received a friend request")
@@ -95,8 +90,7 @@ module Diaspora
         }
         self.save
 
-        bad_friend.user_refs -= 1
-        (bad_friend.user_refs > 0 || bad_friend.owner.nil? == false) ?  bad_friend.save : bad_friend.destroy
+        bad_friend.save
       end
 
       def unfriended_by(bad_friend)
@@ -105,11 +99,9 @@ module Diaspora
       end
 
       def activate_friend(person, aspect)
-        person.user_refs += 1
         aspect.people << person
         friends << person
         save
-        person.save
         aspect.save
       end
 
