@@ -30,7 +30,7 @@
       = content_tag :div, msg, :id => "flash_#{name}"
 
     %header
-      .container
+      .container{:style => "position:relative;"}
         #diaspora_text{:href => root_path}
           = link_to "DIASPORA*", root_path
           %span.sub_text
@@ -40,18 +40,16 @@
             = link_to "photos", albums_path
 
         #session_action
-          #global_search
-            = form_tag(people_path, :method => 'get') do
-              %label{:for => 'q'} Search
-              = text_field_tag 'q'
+          %ul
+            %li#global_search
+              = form_tag(people_path, :method => 'get') do
+                %label{:for => 'q'} Search
+                = text_field_tag 'q'
 
-          %ul#user_menu
-            %li
-              = owner_image_tag 
-              = link_to current_user.real_name, current_user.person
-            %li.requests= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
-            %li.settings= link_to "edit profile", edit_user_path(current_user)
-            %li.logout= link_to "logout", destroy_user_session_path
+            %li= link_to current_user.real_name, current_user.person
+            %li= link_to "requests (#{@request_count})", requests_path, :class => new_request(@request_count)
+            %li= link_to "edit profile", edit_user_path(current_user)
+            %li= link_to "logout", destroy_user_session_path
 
         = render "shared/group_nav"
 

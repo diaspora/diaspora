@@ -78,7 +78,7 @@ header {
   color: black;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(black), to(#333333));
   background: -moz-linear-gradient(19% 75% 90deg, #333333, black);
-  background-color: #333333;
+  background-color: #222222;
   padding: 0;
     padding-top: 5px;
   border-bottom: 1px solid #cccccc; }
@@ -97,13 +97,20 @@ header {
     header #diaspora_text span.sub_text {
       text-shadow: none; }
   header #session_action {
-    position: relative;
+    top: 0;
+    position: absolute;
     display: inline;
-    float: right;
-    z-index: 3;
-    padding-right: 10px; }
-    header #session_action a.new_requests {
-      color: #df0101; }
+    right: 0; }
+    header #session_action ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline; }
+      header #session_action ul li {
+        display: inline;
+        margin-right: 1em; }
+        header #session_action ul li:last-child {
+          margin-right: 0; }
   header #group_header {
     z-index: 5;
     text-shadow: 0 2px 0 white;
@@ -505,67 +512,10 @@ h1.big_text {
   left: -25px;
   top: 4px; }
 
-#user_menu {
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  right: 0;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  list-style: none; }
-  #user_menu > li {
-    display: none;
-    background-color: white;
-    width: 180px;
-    height: 29px;
-    border-left: 2px solid black;
-    border-right: 2px solid black; }
-    #user_menu > li:hover {
-      background-color: #eeeeee; }
-    #user_menu > li:first-child {
-      display: block;
-      background: none;
-      border-left: 2px solid #333333;
-      border-right: 2px solid #333333; }
-      #user_menu > li:first-child a {
-        color: #999999; }
-      #user_menu > li:first-child img {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        top: 3px;
-        left: 9px; }
-    #user_menu > li:last-child {
-      border-bottom: 2px solid black; }
-    #user_menu > li a {
-      display: block;
-      height: 100%;
-      padding-left: 40px;
-      padding-top: 5px;
-      color: black; }
-      #user_menu > li a:hover {
-        background-color: transparent; }
-  #user_menu .requests {
-    background-image: url("/images/glyphish-icons/icons/40-inbox.png");
-    background-repeat: no-repeat;
-    background-position: 5px; }
-  #user_menu .settings {
-    background-image: url("/images/glyphish-icons/icons/20-gear2.png");
-    background-repeat: no-repeat;
-    background-position: 5px; }
-  #user_menu .logout {
-    background-image: url("/images/glyphish-icons/icons/54-lock.png");
-    background-repeat: no-repeat;
-    background-position: 5px; }
-  #user_menu:hover li {
-    display: block; }
-
 #global_search {
   display: inline;
   position: relative;
-  opacity: 0.5;
-  padding-right: 167px; }
+  opacity: 0.5; }
   #global_search form {
     display: inline; }
     #global_search form input {
