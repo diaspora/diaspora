@@ -1,4 +1,4 @@
-class Group 
+class Aspect
   include MongoMapper::Document
   
   key :name,        String
@@ -27,7 +27,7 @@ class Group
 
   def as_json(opts = {})
     {
-      :group => {
+      :aspect => {
         :name   => self.name,
         :people => self.people.each{|person| person.as_json},
         :posts  => self.posts.each {|post|   post.as_json  },

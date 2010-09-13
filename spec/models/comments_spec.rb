@@ -4,10 +4,10 @@ describe Comment do
   describe "user" do
     before do
       @user = Factory.create :user
-      @group = @user.group(:name => "Doofuses")
+      @aspect = @user.aspect(:name => "Doofuses")
 
       @user2 = Factory.create(:user)
-      @group2 = @user2.group(:name => "Lame-faces")
+      @aspect2 = @user2.aspect(:name => "Lame-faces")
     end
     it "should be able to comment on his own status" do
       status = Factory.create(:status_message, :person => @user.person)
@@ -34,25 +34,25 @@ describe Comment do
 
     describe 'comment propagation' do
       before do
-        friend_users(@user, Group.first(:id => @group.id), @user2, @group2)
+        friend_users(@user, Aspect.first(:id => @aspect.id), @user2, @aspect2)
 
         @person = Factory.create(:person)
-        @user.activate_friend(@person, Group.first(:id => @group.id))
+        @user.activate_friend(@person, Aspect.first(:id => @aspect.id))
 
         @person2 = Factory.create(:person) 
         @person_status = Factory.build(:status_message, :person => @person)
 
         @user.reload
-        @user_status = @user.post :status_message, :message => "hi", :to => @group.id
+        @user_status = @user.post :status_message, :message => "hi", :to => @aspect.id
 
-        @group.reload
+        @aspect.reload
         @user.reload
       end
     
-      it 'should have the post in the groups post list' do
-        group = Group.first(:id => @group.id)
-        group.people.size.should == 2
-        group.post_ids.include?(@user_status.id).should be true
+      it 'should have the post in the aspects post list' do
+        aspect = Aspect.first(:id => @aspect.id)
+        aspect.people.size.should == 2
+        aspect.post_ids.include?(@user_status.id).should be true
       end
 
       it "should send a user's comment on a person's post to that person" do
@@ -91,22 +91,22 @@ describe Comment do
         @user.receive(comment.to_diaspora_xml)
       end
 
-      it 'should not clear the group post array on receiving a comment' do
-        @group.post_ids.include?(@user_status.id).should be true
+      it 'should not clear the aspect post array on receiving a comment' do
+        @aspect.post_ids.include?(@user_status.id).should be true
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
 
         @user.receive(comment.to_diaspora_xml)
 
-        @group.reload
-        @group.post_ids.include?(@user_status.id).should be true
+        @aspect.reload
+        @aspect.post_ids.include?(@user_status.id).should be true
       end
     end
     describe 'serialization' do
       it 'should serialize the commenter' do
         commenter = Factory.create(:user)
-        commenter_group = commenter.group :name => "bruisers"
-        friend_users(@user, @group, commenter, commenter_group)
-        post = @user.post :status_message, :message => "hello", :to => @group.id
+        commenter_aspect = commenter.aspect :name => "bruisers"
+        friend_users(@user, @aspect, commenter, commenter_aspect)
+        post = @user.post :status_message, :message => "hello", :to => @aspect.id
         comment = commenter.comment "Fool!", :on => post
         comment.person.should_not == @user.person
         comment.to_diaspora_xml.include?(commenter.person.id.to_s).should be true

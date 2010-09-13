@@ -1,0 +1,14 @@
+%h1.big_text
+  =link_to 'aspects', aspects_path 
+  >>
+  new aspect
+
+= form_for @aspect do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    = f.text_field :name
+  %p
+    = f.submit
+
+%p= link_to "Back to List", aspects_path

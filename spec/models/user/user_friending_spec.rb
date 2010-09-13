@@ -3,19 +3,19 @@ require File.dirname(__FILE__) + '/../../spec_helper'
 describe User do
    before do
       @user = Factory.create(:user)
-      @group = @user.group(:name => 'heroes')
+      @aspect = @user.aspect(:name => 'heroes')
    end
 
   describe 'friend requesting' do
-    it "should assign a request to a group" do
+    it "should assign a request to a aspect" do
       friend = Factory.create(:person)
-      group = @user.group(:name => "Dudes")
-      group.requests.size.should == 0
+      aspect = @user.aspect(:name => "Dudes")
+      aspect.requests.size.should == 0
 
-      @user.send_friend_request_to(friend, group)
+      @user.send_friend_request_to(friend, aspect)
 
-      group.reload
-      group.requests.size.should == 1
+      aspect.reload
+      aspect.requests.size.should == 1
     end
 
 
@@ -25,7 +25,7 @@ describe User do
       r.save
       Person.all.count.should == 2
       Request.for_user(@user).all.count.should == 1
-      @user.accept_friend_request(r.id, @group.id)
+      @user.accept_friend_request(r.id, @aspect.id)
       Request.for_user(@user).all.count.should == 0
     end
 
@@ -48,7 +48,7 @@ describe User do
       @user.save
 
 
-      proc {@user.send_friend_request_to( friend, @group)}.should raise_error
+      proc {@user.send_friend_request_to( friend, @aspect)}.should raise_error
     end
 
 
@@ -59,7 +59,7 @@ describe User do
         @person_one.save
       
         @user2 = Factory.create :user
-        @group2 = @user2.group(:name => "group two")
+        @aspect2 = @user2.aspect(:name => "aspect two")
 
         @user.pending_requests.empty?.should be true
         @user.friends.empty?.should be true
@@ -83,7 +83,7 @@ describe User do
 
         @user2.receive @req_three_xml
         @user2.pending_requests.size.should be 1
-        @user2.accept_friend_request @request_three.id, @group2.id
+        @user2.accept_friend_request @request_three.id, @aspect2.id
         @user2.friends.include?(@user.person).should be true  
         Person.all.count.should be 3
       end
@@ -101,12 +101,12 @@ describe User do
 
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
-        @user.accept_friend_request @request.id, @group.id
+        @user.accept_friend_request @request.id, @aspect.id
         @user.friends.include?(@person_one).should be true  
 
         @user2.receive @req_two_xml
         @user2.pending_requests.size.should be 1
-        @user2.accept_friend_request @request_two.id, @group2.id
+        @user2.accept_friend_request @request_two.id, @aspect2.id
         @user2.friends.include?(@person_one).should be true  
         Person.all.count.should be 3
       end
@@ -115,7 +115,7 @@ describe User do
 
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
-        @user.accept_friend_request @request.id, @group.id
+        @user.accept_friend_request @request.id, @aspect.id
         @user.friends.include?(@person_one).should be true  
 
         @user2.receive @req_two_xml
@@ -164,7 +164,7 @@ describe User do
         @user.pending_requests.size.should be 2
         @user.friends.size.should be 0
 
-        @user.accept_friend_request @request.id, @group.id
+        @user.accept_friend_request @request.id, @aspect.id
         @user.pending_requests.size.should be 1
         @user.friends.size.should be 1
         @user.friends.include?(@person_one).should be true
@@ -181,11 +181,11 @@ describe User do
   describe 'unfriending' do
     before do
       @user2 = Factory.create :user
-      @group2 = @user2.group(:name => "Gross people")
+      @aspect2 = @user2.aspect(:name => "Gross people")
       
-      request = @user.send_friend_request_to( @user2, @group)
+      request = @user.send_friend_request_to( @user2, @aspect)
       request.reverse_for @user2 
-      @user2.activate_friend(@user.person, @group2)
+      @user2.activate_friend(@user.person, @aspect2)
       @user.receive request.to_diaspora_xml
     end
 
@@ -211,10 +211,10 @@ describe User do
       @user2.person.reload
       @user2.person.user_refs.should == 0
 
-      @group.reload
-      @group2.reload
-      @group.people.count.should == 0
-      @group2.people.count.should == 0
+      @aspect.reload
+      @aspect2.reload
+      @aspect.people.count.should == 0
+      @aspect2.people.count.should == 0
     end
   end
 

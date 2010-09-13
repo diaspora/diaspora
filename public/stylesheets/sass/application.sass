@@ -140,7 +140,8 @@ header
           :margin
             :right 0
 
-  #group_header
+  #aspect_header
+    :z-index 5
     :text-shadow 0 2px 0 #fff
     :background
       :color #eee
@@ -574,7 +575,7 @@ h1.big_text
   img
     :display none
 
-#group_nav
+#aspect_nav
   :z-index 4
   :position relative
   :color #000
@@ -583,7 +584,7 @@ h1.big_text
     :bottom 1px
 
 
-  #group_manage_button
+  #aspect_manage_button
     :display inline
 
     a
@@ -644,22 +645,14 @@ h1.big_text
     :display inline
 
     input
-      :margin
-        :top 5px
       :display inline
       :font
         :size 12px
       :border none
-      :border-radius 0
 
     input[type='text']
       :width 200px
       :padding 2px
-      :background
-        :image url('/images/glyphish-icons/icons/06-magnifying-glass.png')
-        :repeat no-repeat
-        :position 187px
-        :size 12px
 
     label
       :font
@@ -667,7 +660,8 @@ h1.big_text
       :margin
         :top -3px
 
-.group,
+
+.aspect,
 .requests,
 .remove
   :list

@@ -30,8 +30,8 @@ def warzombie
         backer_email = "#{backer['username']}@#{backer['username']}.joindiaspora.com"
         rel_hash = relationship_flow(backer_email)
         logger.info "Zombefriending #{backer['given_name']} #{backer['family_name']}"
-        logger.info "Calling send_friend_request with #{rel_hash[:friend]} and #{current_user.groups.first}"
-        current_user.send_friend_request_to(rel_hash[:friend], current_user.groups.first)
+        logger.info "Calling send_friend_request with #{rel_hash[:friend]} and #{current_user.aspects.first}"
+        current_user.send_friend_request_to(rel_hash[:friend], current_user.aspects.first)
       end
     end
   end
@@ -39,7 +39,7 @@ def warzombie
   def zombiefriendaccept
     render :nothing => true
     Request.all.each{|r| 
-      current_user.accept_and_respond(r.id, current_user.groups.first.id)
+      current_user.accept_and_respond(r.id, current_user.aspects.first.id)
     }
   end
 

@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Request do 
   before do
     @user = Factory.create(:user)
-    @group = @user.group(:name => "dudes")
+    @aspect = @user.aspect(:name => "dudes")
   end
   it 'should require a destination and callback url' do
     person_request = Request.new
@@ -15,7 +15,7 @@ describe Request do
 
   it 'should generate xml for the User as a Person' do 
 
-    request = @user.send_friend_request_to Factory.create(:person), @group
+    request = @user.send_friend_request_to Factory.create(:person), @aspect
 
     xml = request.to_xml.to_s
 
@@ -28,10 +28,10 @@ describe Request do
   it 'should allow me to see only friend requests sent to me' do 
     remote_person = Factory.build(:person, :email => "robert@grimm.com", :url => "http://king.com/")
     
-    Request.instantiate(:into => @group.id, :from => @user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => @group.id, :from => @user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => @group.id, :from => @user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => @group.id, :from => remote_person, :to => @user.receive_url).save
+    Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:into => @aspect.id, :from => remote_person, :to => @user.receive_url).save
       
     Request.for_user(@user).all.count.should == 1
   end

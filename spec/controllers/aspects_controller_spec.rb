@@ -1,10 +1,10 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 include ApplicationHelper 
-describe GroupsController do
+describe AspectsController do
  render_views
   before do
     @user = Factory.create(:user)
-    @user.group(:name => "lame-os")
+    @user.aspect(:name => "lame-os")
     @person = Factory.create(:person)
     sign_in :user, @user   
   end

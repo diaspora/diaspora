@@ -4,9 +4,9 @@ describe Retraction do
     before do
       @user = Factory.create(:user)
       @person = Factory.create(:person)
-      @group = @user.group(:name => "Bruisers")
-      @user.activate_friend(@person, @group)
-      @post = @user.post :status_message, :message => "Destroy!", :to => @group.id
+      @aspect = @user.aspect(:name => "Bruisers")
+      @user.activate_friend(@person, @aspect)
+      @post = @user.post :status_message, :message => "Destroy!", :to => @aspect.id
     end
   describe 'serialization' do
     it 'should have a post id after serialization' do

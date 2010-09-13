@@ -26,6 +26,6 @@ def create
                     )
   user.person.save
 
-  user.group(:name => "Presidents")
+  user.aspect(:name => "Presidents")
 end
 

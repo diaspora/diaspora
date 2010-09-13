@@ -5,8 +5,8 @@ describe Person do
     @user = Factory.create(:user)
     @user2 = Factory.create(:user)
     @person = Factory.create(:person)
-    @group = @user.group(:name => "Dudes")
-    @group2 = @user2.group(:name => "Abscence of Babes")
+    @aspect = @user.aspect(:name => "Dudes")
+    @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
   it 'should not allow two people with the same email' do
@@ -60,9 +60,9 @@ describe Person do
 
   describe "unfriending" do
     it 'should delete an orphaned friend' do
-      request = @user.send_friend_request_to @person, @group
+      request = @user.send_friend_request_to @person, @aspect
 
-      @user.activate_friend(@person, @group) 
+      @user.activate_friend(@person, @aspect) 
       @user.reload
       
       Person.all.count.should    == 3
@@ -74,11 +74,11 @@ describe Person do
     end
 
     it 'should not delete an un-orphaned friend' do
-      request = @user.send_friend_request_to @person, @group
-      request2 = @user2.send_friend_request_to @person, @group2
+      request = @user.send_friend_request_to @person, @aspect
+      request2 = @user2.send_friend_request_to @person, @aspect2
 
-      @user.activate_friend(@person, @group) 
-      @user2.activate_friend(@person, @group2)
+      @user.activate_friend(@person, @aspect) 
+      @user2.activate_friend(@person, @aspect2)
 
       @user.reload
       @user2.reload
@@ -153,8 +153,8 @@ describe Person do
     describe 'wall posting' do 
       it 'should be able to post on another persons wall' do
         pending
-        #user2 is in user's group, user is in group2 on user
-        friend_users(@user, @group, @user2, @group2)
+        #user2 is in user's aspect, user is in aspect2 on user
+        friend_users(@user, @aspect, @user2, @aspect2)
         
         @user.person.post_to_wall(:person => @user2.person, :message => "youve got a great smile")
         @user.person.wall_posts.count.should == 1

@@ -117,20 +117,21 @@ header {
         margin-right: 1em; }
         header #session_action ul li:last-child {
           margin-right: 0; }
-  header #group_header {
+  header #aspect_header {
+    z-index: 5;
     text-shadow: 0 2px 0 white;
     background-color: #eeeeee;
     border-top: 1px solid #555555;
     height: 85px; }
-    header #group_header h1 {
+    header #aspect_header h1 {
       margin-bottom: 0;
       margin-top: 15px; }
-    header #group_header a {
+    header #aspect_header a {
       color: #111111; }
-      header #group_header a:hover {
+      header #aspect_header a:hover {
         background: none;
         color: #333333; }
-    header #group_header .page_title {
+    header #aspect_header .page_title {
       text-transform: uppercase; }
 
 ul#stream {
@@ -443,33 +444,33 @@ h1.big_text {
 .image_cycle img {
   display: none; }
 
-#group_nav {
+#aspect_nav {
   z-index: 4;
   position: relative;
   color: black;
   margin-top: 8px;
   margin-bottom: 1px; }
-  #group_nav #group_manage_button {
+  #aspect_nav #aspect_manage_button {
     display: inline; }
-    #group_nav #group_manage_button a {
+    #aspect_nav #aspect_manage_button a {
       color: #999999; }
-  #group_nav ul {
+  #aspect_nav ul {
     margin: 0;
     padding: 0;
     list-style: none; }
-    #group_nav ul > li {
+    #aspect_nav ul > li {
       padding: 0;
       display: inline;
       margin-right: 0.5em; }
-      #group_nav ul > li a {
+      #aspect_nav ul > li a {
         background-color: #444444;
         border: 1px solid #555555;
         padding: 3px 8px;
         color: #999999; }
-        #group_nav ul > li a:hover {
+        #aspect_nav ul > li a:hover {
           background-color: #555555;
           color: #cccccc; }
-      #group_nav ul > li.selected a {
+      #aspect_nav ul > li.selected a {
         padding-top: 5px;
         padding-bottom: 3px;
         line-height: 18px;
@@ -477,9 +478,9 @@ h1.big_text {
         background-color: #eeeeee;
         border-bottom: 1px solid #eeeeee;
         color: black; }
-        #group_nav ul > li.selected a:hover {
+        #aspect_nav ul > li.selected a:hover {
           background-color: #efefef; }
-        #group_nav ul > li.selected a a {
+        #aspect_nav ul > li.selected a a {
           color: black; }
 
 #global_search {
@@ -489,31 +490,25 @@ h1.big_text {
   #global_search form {
     display: inline; }
     #global_search form input {
-      margin-top: 5px;
       display: inline;
       font-size: 12px;
-      border: none;
-      border-radius: 0; }
+      border: none; }
     #global_search form input[type='text'] {
       width: 200px;
-      padding: 2px;
-      background-image: url("/images/glyphish-icons/icons/06-magnifying-glass.png");
-      background-repeat: no-repeat;
-      background-position: 187px;
-      background-size: 12px; }
+      padding: 2px; }
     #global_search form label {
       font-size: 12px;
       margin-top: -3px; }
 
-.group,
+.aspect,
 .requests,
 .remove {
   list-style: none; }
-  .group h3,
+  .aspect h3,
   .requests h3,
   .remove h3 {
     display: inline-block; }
-  .group ul,
+  .aspect ul,
   .requests ul,
   .remove ul {
     min-height: 20px;
@@ -525,8 +520,8 @@ h1.big_text {
     border-radius: 3px;
     list-style: none;
     padding: 15px; }
-  .group .person,
-  .group .requested_person,
+  .aspect .person,
+  .aspect .requested_person,
   .requests .person,
   .requests .requested_person,
   .remove .person,
@@ -543,8 +538,8 @@ h1.big_text {
     height: 75px;
     padding: 5px;
     border: 1px solid #999999; }
-    .group .person img,
-    .group .requested_person img,
+    .aspect .person img,
+    .aspect .requested_person img,
     .requests .person img,
     .requests .requested_person img,
     .remove .person img,
@@ -552,8 +547,8 @@ h1.big_text {
       height: 50px;
       width: 50px;
       display: inline-block; }
-    .group .person .grey,
-    .group .requested_person .grey,
+    .aspect .person .grey,
+    .aspect .requested_person .grey,
     .requests .person .grey,
     .requests .requested_person .grey,
     .remove .person .grey,

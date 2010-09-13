@@ -4,19 +4,19 @@ describe User do
 
   before do
     @user = Factory.create :user
-    @group = @user.group(:name => 'heroes')
+    @aspect = @user.aspect(:name => 'heroes')
 
     @user2 = Factory.create(:user)
-    @group2 = @user2.group(:name => 'losers') 
+    @aspect2 = @user2.aspect(:name => 'losers') 
 
     @user3 = Factory.create(:user)
-    @group3 = @user3.group(:name => 'heroes')
+    @aspect3 = @user3.aspect(:name => 'heroes')
 
-    friend_users(@user, @group, @user2, @group2)
+    friend_users(@user, @aspect, @user2, @aspect2)
   end
 
   it 'should be able to parse and store a status message from xml' do
-    status_message = @user2.post :status_message, :message => 'store this!', :to => @group2.id
+    status_message = @user2.post :status_message, :message => 'store this!', :to => @aspect2.id
     person = @user2.person
 
     xml = status_message.to_diaspora_xml
@@ -29,16 +29,16 @@ describe User do
     StatusMessage.all.size.should == 1
   end
   
-  it 'should not create new groups on message receive' do
-    num_groups = @user.groups.size
+  it 'should not create new aspects on message receive' do
+    num_aspects = @user.aspects.size
     
     (0..5).each{ |n|
-      status_message = @user2.post :status_message, :message => "store this #{n}!", :to => @group2.id
+      status_message = @user2.post :status_message, :message => "store this #{n}!", :to => @aspect2.id
       xml = status_message.to_diaspora_xml
       @user.receive( xml )
     }
 
-    @user.groups.size.should == num_groups
+    @user.aspects.size.should == num_aspects
   end
 
   describe 'post refs' do
@@ -47,13 +47,13 @@ describe User do
     end
     
     it "should add the post to that user's posts when a user posts it" do
-      status_message = @user.post :status_message, :message => "hi", :to => @group.id
+      status_message = @user.post :status_message, :message => "hi", :to => @aspect.id
       @user.reload
       @user.raw_visible_posts.include?(status_message).should be true
     end
 
     it 'should be removed on unfriending' do
-      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
+      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
       @user.receive status_message.to_diaspora_xml
       @user.reload
 
@@ -68,7 +68,7 @@ describe User do
     end
 
     it 'should be remove a post if the noone links to it' do
-      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
+      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
       @user.receive status_message.to_diaspora_xml
       @user.reload
 
@@ -85,7 +85,7 @@ describe User do
     end
 
     it 'should keep track of user references for one person ' do
-      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
+      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
       @user.receive status_message.to_diaspora_xml
       @user.reload
 
@@ -107,9 +107,9 @@ describe User do
     end
 
     it 'should not override userrefs on receive by another person' do
-      @user3.activate_friend(@user2.person, @group3)
+      @user3.activate_friend(@user2.person, @aspect3)
 
-      status_message = @user2.post :status_message, :message => "hi", :to => @group2.id
+      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
       @user.receive status_message.to_diaspora_xml
 
       @user3.receive status_message.to_diaspora_xml
@@ -137,8 +137,8 @@ describe User do
   describe 'comments' do
     it 'should correctly marshal a stranger for the downstream user' do
       
-      friend_users(@user, @group, @user3, @group3)
-      post = @user.post :status_message, :message => "hello", :to => @group.id
+      friend_users(@user, @aspect, @user3, @aspect3)
+      post = @user.post :status_message, :message => "hello", :to => @aspect.id
 
       @user2.receive post.to_diaspora_xml
       @user3.receive post.to_diaspora_xml
@@ -168,7 +168,7 @@ describe User do
 
   describe 'salmon' do
     before do
-      @post = @user.post :status_message, :message => "hello", :to => @group.id
+      @post = @user.post :status_message, :message => "hello", :to => @aspect.id
       @salmon = @user.salmon( @post, :to => @user2.person )
     end
 

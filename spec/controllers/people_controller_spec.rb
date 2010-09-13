@@ -6,7 +6,7 @@ describe PeopleController do
     @user = Factory.create(:user)
 
     sign_in :user, @user   
-    @user.group(:name => "lame-os")
+    @user.aspect(:name => "lame-os")
   end
 
   it "index should yield search results for substring of person name" do

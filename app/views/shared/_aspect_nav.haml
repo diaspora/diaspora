@@ -1,0 +1,21 @@
+#aspect_nav
+  %ul
+    - for aspect in @aspects
+      %li{:id => aspect.id, :class => ("selected" if current_aspect?(aspect))}
+        = link_for_aspect aspect
+
+    %li.new_aspect= link_to("+", "#add_aspect_pane", :id => "add_aspect_button", :title => "Add a new relation")
+
+    #aspect_manage_button
+
+  %ul{ :style => "position:absolute;right:0;bottom:0;"}
+    %li{:class => ("selected" if @aspect == :all)}
+      = link_to "All Aspects", root_url
+
+    %li{ :style => "margin-right:0;" }
+      = link_to "manage", edit_aspect_path(Aspect.first), :class => "edit_aspect_button", :title => "Manage your Aspects"
+
+  .yo{ :style => "display:none;"}
+    #add_aspect_pane
+      = render "aspects/new_aspect"
+

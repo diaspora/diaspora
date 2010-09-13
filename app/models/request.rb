@@ -11,7 +11,7 @@ class Request
   xml_accessor :exported_key, :cdata => true
 
   key :person_id,       ObjectId
-  key :group_id,        ObjectId
+  key :aspect_id,        ObjectId
   key :destination_url, String
   key :callback_url,    String
   key :exported_key,    String
@@ -30,7 +30,7 @@ class Request
              :callback_url    => person.receive_url, 
              :person          => person,
              :exported_key    => person.exported_key,
-             :group_id        => options[:into])
+             :aspect_id        => options[:into])
   end
   
   def reverse_for accepting_user

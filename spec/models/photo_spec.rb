@@ -3,8 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Photo do
   before do
     @user = Factory.create(:user)
-    @group = @user.group(:name => "losers")
-    @album = @user.post :album, :name => "foo", :to => @group.id
+    @aspect = @user.aspect(:name => "losers")
+    @album = @user.post :album, :name => "foo", :to => @aspect.id
 
     @fixture_filename = 'button.png'
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'

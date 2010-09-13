@@ -6,9 +6,11 @@
     weight: normal;
     style: normal; } }
 
+/* via blueprint */
 html {
   font-size: 100.01%; }
 
+/* via blueprint */
 body {
   font-size: 75%;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -16,12 +18,14 @@ body {
   background: white;
   margin-left: 2em; }
 
+/* via blueprint */
 input[type=text],
 input[type=password],
 textarea, select {
   background-color: white;
   border: 1px solid #bbbbbb; }
 
+/* via blueprint */
 input[type=text]:focus,
 input[type=password]:focus,
 input.text:focus,
