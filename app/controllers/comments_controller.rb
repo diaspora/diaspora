@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     text = params[:comment][:text]
 
     @comment = current_user.comment text, :on => target
-    respond_with @comment
+    render :nothing => true
   end
 
   def show
