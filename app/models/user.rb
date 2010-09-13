@@ -87,6 +87,13 @@ class User
     end
 
     group_ids = [group_ids.to_s] if group_ids.is_a? BSON::ObjectId
+
+    Rails.logger.debug("GROUP IDS FOR POST IS THIS:")
+    Rails.logger.debug(group_ids.inspect)
+
+
+    
+
     raise ArgumentError.new("You must post to someone.") if group_ids.nil? || group_ids.empty?
 
     post = build_post(class_name, options)
