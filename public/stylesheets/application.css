@@ -609,8 +609,11 @@ h1.big_text {
     list-style: none;
     padding: 15px; }
   .group .person,
+  .group .requested_person,
   .requests .person,
-  .remove .person {
+  .requests .requested_person,
+  .remove .person,
+  .remove .requested_person {
     display: inline-block;
     margin-left: 0;
     padding: 5px;
@@ -624,14 +627,20 @@ h1.big_text {
     padding: 5px;
     border: 1px solid #999999; }
     .group .person img,
+    .group .requested_person img,
     .requests .person img,
-    .remove .person img {
+    .requests .requested_person img,
+    .remove .person img,
+    .remove .requested_person img {
       height: 50px;
       width: 50px;
       display: inline-block; }
     .group .person .grey,
+    .group .requested_person .grey,
     .requests .person .grey,
-    .remove .person .grey {
+    .requests .requested_person .grey,
+    .remove .person .grey,
+    .remove .requested_person .grey {
       font-style: italic;
       color: #666666; }
 

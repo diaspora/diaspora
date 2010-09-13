@@ -14,44 +14,55 @@ $(function() {
     revert: true
   });
 
-
+  $("li .requested_person").draggable({
+    revert: true
+  });
   $(".group ul").droppable({
     drop: function(event, ui) {
-      if (ui.draggable[0].getAttribute('request_id') != null){
-      $.ajax({
-        type: "DELETE",
-        url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
-        data: {"accept" : true  , "group_id" : $(this)[0].id }
-      });
-      alert("Sent the ajax, check it out!")
-      }
-      var move = {};
-      move[ 'friend_id' ] = ui.draggable[0].id
-      move[ 'to' ] = $(this)[0].id;
-      move[ 'from' ] = ui.draggable[0].getAttribute('from_group_id');
-      if (move['to'] == move['from']){
-        $('#group_list').data( ui.draggable[0].id, []);
-        ui.draggable.css('background-color','white');
-      } else {
-        $('#group_list').data( ui.draggable[0].id, move);
-        ui.draggable.css('background-color','orange');
-      }
-      $(this).closest("ul").append(ui.draggable);
 
+      if ($(ui.draggable[0]).hasClass('requested_person')){
+        $.ajax({
+          type: "DELETE",
+          url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
+          data: {"accept" : true  , "group_id" : $(this)[0].id }
+        });
+        alert("Sent the ajax, check it out!")
+      }else {
+        var move = {};
+        move[ 'friend_id' ] = ui.draggable[0].id
+        move[ 'to' ] = $(this)[0].id;
+        move[ 'from' ] = ui.draggable[0].getAttribute('from_group_id');
+        if (move['to'] == move['from']){
+          $('#group_list').data( ui.draggable[0].id, []);
+          ui.draggable.css('background-color','white');
+        } else {
+          $('#group_list').data( ui.draggable[0].id, move);
+          ui.draggable.css('background-color','orange');
+        }
+        $(this).closest("ul").append(ui.draggable);
+      }
     }
   });
 
   $(".remove ul").droppable({
     drop: function(event, ui) {
-      if (ui.draggable[0].getAttribute('request_id') != null){
-      $.ajax({
-        type: "DELETE",
-        url: "/requests/" + ui.draggable[0].getAttribute('request_id')
-      });
-      alert("Removed Request, proably want an undo countdown.")
-      $(ui.draggable[0]).fadeOut('slow')
+
+      if ($(ui.draggable[0]).hasClass('requested_person')){
+        $.ajax({
+          type: "DELETE",
+          url: "/requests/" + ui.draggable[0].getAttribute('request_id')
+        });
+        alert("Removed Request, proably want an undo countdown.")
+        $(ui.draggable[0]).fadeOut('slow')
+      }else{
+        $.ajax({
+          type: "DELETE",
+          url: "/people/" + ui.draggable[0].id)
+        });
+        alert("Removed Friend, proably want an undo countdown.")
+        $(ui.draggable[0]).fadeOut('slow')
+
       }
-      
     }
   });
 });
