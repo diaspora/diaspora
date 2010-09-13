@@ -466,6 +466,7 @@ h1.big_text {
         background-color: #444444;
         border: 1px solid #555555;
         padding: 3px 8px;
+          padding-bottom: 2px;
         color: #999999; }
         #aspect_nav ul > li a:hover {
           background-color: #555555;
