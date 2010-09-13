@@ -87,13 +87,6 @@ class User
     end
 
     group_ids = [group_ids.to_s] if group_ids.is_a? BSON::ObjectId
-
-    Rails.logger.debug("GROUP IDS FOR POST IS THIS:")
-    Rails.logger.debug(group_ids.inspect)
-
-
-    
-
     raise ArgumentError.new("You must post to someone.") if group_ids.nil? || group_ids.empty?
 
     post = build_post(class_name, options)
@@ -276,7 +269,7 @@ class User
       groups.each{ |group| 
         group.posts << object
         group.save
-        object.socket_to_uid(id, :group_id => group.id) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+        object.socket_to_uid(id, :group_ids => [group.id]) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
       }
 
     end
