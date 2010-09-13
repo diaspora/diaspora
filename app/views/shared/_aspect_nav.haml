@@ -11,6 +11,7 @@
   %ul{ :style => "position:absolute;right:0;bottom:0;"}
     %li{:class => ("selected" if @aspect == :all)}
       = link_to "All Aspects", root_url
+
     %li{ :style => "margin-right:0;" }
       = link_to "manage", edit_aspect_path(Aspect.first), :class => "edit_aspect_button", :title => "Manage your Aspects"
 
