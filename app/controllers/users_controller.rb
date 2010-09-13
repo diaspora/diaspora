@@ -38,7 +38,19 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_id params[:id]
+    prep_image_url(params[:user])
+    
     @user.update_profile params[:user]
     respond_with(@user, :location => root_url)
+  end
+
+  private
+
+  def prep_image_url(params)
+    if params[:profile][:image_url].empty?
+      params[:profile].delete(:image_url)
+    else 
+      params[:profile][:image_url] = "http://" + request.host + ":" + request.port.to_s + params[:profile][:image_url]
+    end
   end
 end 

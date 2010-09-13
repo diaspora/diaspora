@@ -213,8 +213,6 @@ class User
 
   ########### Profile ######################
   def update_profile(params)
-    params[:profile].delete(:image_url) if params[:profile][:image_url].empty?
-
     if self.person.update_attributes(params)
       push_to_aspects profile, :all
       true
