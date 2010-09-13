@@ -77,6 +77,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find_by_id params[:id]
     @photo.destroy
+    flash[:notice] = "Photo deleted."
     respond_with :location => @photo.album
   end
   
@@ -96,8 +97,12 @@ class PhotosController < ApplicationController
 
   def update
     @photo = Photo.find_by_id params[:id]
-    @photo.update_attributes params[:photo]
-
-    respond_with @photo
+    if @photo.update_attributes params[:photo]
+      flash[:notice] = "Photo successfully updated."
+      respond_with @photo
+    else
+      flash[:error] = "Failed to edit photo."
+      render :action => :edit
+    end
   end
 end
