@@ -71,6 +71,8 @@ class PhotosController < ApplicationController
   def edit
     @photo = Photo.find_by_id params[:id]
     @album = @photo.album
+
+    redirect_to @photo unless current_user.owns? @album
   end
 
   def update

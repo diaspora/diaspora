@@ -34,6 +34,7 @@ class AlbumsController < ApplicationController
 
   def edit
     @album = Album.find_by_id params[:id]
+    redirect_to @album unless current_user.owns? @album
   end
 
   def update
