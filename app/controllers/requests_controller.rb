@@ -14,12 +14,12 @@ class RequestsController < ApplicationController
   
   def destroy
     if params[:accept]
-      if params[:group_id]
-        @friend = current_user.accept_and_respond( params[:id], params[:group_id])
+      if params[:aspect_id]
+        @friend = current_user.accept_and_respond( params[:id], params[:aspect_id])
         flash[:notice] = "you are now friends"
-        respond_with :location => current_user.group_by_id(params[:group_id])
+        respond_with :location => current_user.aspect_by_id(params[:aspect_id])
       else
-        flash[:error] = "please select a group!"
+        flash[:error] = "please select a aspect!"
         respond_with :location => requests_url
       end
     else
@@ -33,32 +33,32 @@ class RequestsController < ApplicationController
   end
   
   def create
-    group = current_user.group_by_id(params[:request][:group_id])
+    aspect = current_user.aspect_by_id(params[:request][:aspect_id])
 
     begin 
       rel_hash = relationship_flow(params[:request][:destination_url])
     rescue Exception => e
-      respond_with :location => group, :error => "No diaspora seed found with this email!" 
+      respond_with :location => aspect, :error => "No diaspora seed found with this email!" 
       return
     end
     
     Rails.logger.debug("Sending request: #{rel_hash}")
     
     begin
-      @request = current_user.send_friend_request_to(rel_hash[:friend], group)
+      @request = current_user.send_friend_request_to(rel_hash[:friend], aspect)
     rescue Exception => e
       raise e unless e.message.include? "already friends"
       message = "You are already friends with #{params[:request][:destination_url]}!"
-      respond_with :location => group, :notice => message
+      respond_with :location => aspect, :notice => message
       return
     end
 
     if @request
       message = "A friend request was sent to #{@request.destination_url}."
-      respond_with :location => group, :notice => message
+      respond_with :location => aspect, :notice => message
     else
       message = "Something went horribly wrong."
-      respond_with :location => group, :error => message
+      respond_with :location => aspect, :error => message
     end
   end
 

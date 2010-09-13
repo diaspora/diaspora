@@ -7,10 +7,10 @@ describe Diaspora do
   describe Webhooks do
     before do
       @user   = Factory.create(:user)
-      @group  = @user.group(:name => "losers")
+      @aspect  = @user.aspect(:name => "losers")
       @user2   = Factory.create(:user)
-      @group2  = @user2.group(:name => "losers")
-      friend_users(@user, @group, @user2, @group2)
+      @aspect2  = @user2.aspect(:name => "losers")
+      friend_users(@user, @aspect, @user2, @aspect2)
     end
 
     describe "body" do

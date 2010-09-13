@@ -6,7 +6,7 @@ describe 'user encryption' do
   before do
     unstub_mocha_stubs
     @user = Factory.create(:user)
-    @group = @user.group(:name => 'dudes')
+    @aspect = @user.aspect(:name => 'dudes')
     @person = Factory.create(:person_with_private_key,
       :profile => Profile.new(:first_name => 'Remote',
                               :last_name => 'Friend'),
@@ -32,7 +32,7 @@ describe 'user encryption' do
   describe 'key exchange on friending' do
     it 'should send over a public key' do
       message_queue.stub!(:add_post_request)
-      request = @user.send_friend_request_to(Factory.create(:person), @group)
+      request = @user.send_friend_request_to(Factory.create(:person), @aspect)
       request.to_diaspora_xml.include?( @user.exported_key).should be true
     end
 
@@ -44,7 +44,7 @@ describe 'user encryption' do
       original_key = remote_user.exported_key
       
       request = remote_user.send_friend_request_to(
-        @user.person, remote_user.group(:name => "temp"))
+        @user.person, remote_user.aspect(:name => "temp"))
       
       xml = request.to_diaspora_xml
       
@@ -61,7 +61,7 @@ describe 'user encryption' do
 
   describe 'encryption' do
     before do
-      @message = @user.post :status_message, :message => "hi", :to => @group.id
+      @message = @user.post :status_message, :message => "hi", :to => @aspect.id
     end
     it 'should encrypt large messages' do
       ciphertext = @user.encrypt @message.to_diaspora_xml
@@ -73,7 +73,7 @@ describe 'user encryption' do
   describe 'comments' do
     before do
       @remote_message = Factory.create(:status_message, :person => @person)
-      @message = @user.post :status_message, :message => "hi", :to => @group.id
+      @message = @user.post :status_message, :message => "hi", :to => @aspect.id
     end
     it 'should attach the creator signature if the user is commenting' do
       @user.comment "Yeah, it was great", :on => @remote_message
@@ -81,7 +81,7 @@ describe 'user encryption' do
     end
 
     it 'should sign the comment if the user is the post creator' do
-      message = @user.post :status_message, :message => "hi", :to => @group.id
+      message = @user.post :status_message, :message => "hi", :to => @aspect.id
       @user.comment "Yeah, it was great", :on => message
       message.comments.first.signature_valid?.should be true
       message.comments.first.verify_post_creator_signature.should be true

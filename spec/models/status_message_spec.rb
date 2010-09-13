@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe StatusMessage do
   before do
       @user = Factory.create(:user, :email => "bob@aol.com")
-      @group = @user.group(:name => "losers")
+      @aspect = @user.aspect(:name => "losers")
   end
 
   it "should have a message" do    
@@ -14,7 +14,7 @@ describe StatusMessage do
   end
   
   it 'should be postable through the user' do
-    status = @user.post(:status_message, :message => "Users do things", :to => @group.id)
+    status = @user.post(:status_message, :message => "Users do things", :to => @aspect.id)
   end
 
   describe "XML" do

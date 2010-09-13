@@ -5,7 +5,7 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    params[:status_message][:to] = params[:group_ids]
+    params[:status_message][:to] = params[:aspect_ids]
     @status_message = current_user.post(:status_message, params[:status_message])
     respond_with @status_message
   end

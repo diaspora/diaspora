@@ -1,7 +1,7 @@
 module ApplicationHelper
   
-  def current_group?(group)
-    @group != :all && @group.id == group.id
+  def current_aspect?(aspect)
+    @aspect != :all && @aspect.id == aspect.id
   end
   
   def object_path(object)

@@ -1,19 +1,19 @@
 module Diaspora
   module UserModules
     module Friending
-      def send_friend_request_to(desired_friend, group)
+      def send_friend_request_to(desired_friend, aspect)
         raise "You are already friends with that person!" if self.friends.detect{
           |x| x.receive_url == desired_friend.receive_url}
         request = Request.instantiate(
           :to => desired_friend.receive_url,
           :from => self.person,
-          :into => group.id)
+          :into => aspect.id)
         if request.save
           self.pending_requests << request
           self.save
 
-          group.requests << request
-          group.save
+          aspect.requests << request
+          aspect.save
           
           salmon request, :to => desired_friend
         end
@@ -21,11 +21,11 @@ module Diaspora
       end
        
 
-      def accept_friend_request(friend_request_id, group_id)
+      def accept_friend_request(friend_request_id, aspect_id)
         request = Request.find_by_id(friend_request_id)
         pending_requests.delete(request)
         
-        activate_friend(request.person, group_by_id(group_id))
+        activate_friend(request.person, aspect_by_id(aspect_id))
 
         request.reverse_for(self)
         request
@@ -36,9 +36,9 @@ module Diaspora
         request.destroy unless request.callback_url.include? url
       end 
       
-      def accept_and_respond(friend_request_id, group_id)
+      def accept_and_respond(friend_request_id, aspect_id)
         requester = Request.find_by_id(friend_request_id).person
-        reversed_request = accept_friend_request(friend_request_id, group_id)
+        reversed_request = accept_friend_request(friend_request_id, aspect_id)
         dispatch_friend_acceptance reversed_request, requester
       end
 
@@ -59,8 +59,8 @@ module Diaspora
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
           
         if request_from_me?(friend_request)
-          group = self.group_by_id(friend_request.group_id)
-          activate_friend(friend_request.person, group)
+          aspect = self.aspect_by_id(friend_request.aspect_id)
+          activate_friend(friend_request.person, aspect)
 
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
 
@@ -85,7 +85,7 @@ module Diaspora
       
       def remove_friend(bad_friend)
         raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
-        groups.each{|g| g.person_ids.delete( bad_friend.id )}
+        aspects.each{|g| g.person_ids.delete( bad_friend.id )}
         self.save
 
         self.raw_visible_posts.find_all_by_person_id( bad_friend.id ).each{|post|
@@ -104,13 +104,13 @@ module Diaspora
         remove_friend bad_friend
       end
 
-      def activate_friend(person, group)
+      def activate_friend(person, aspect)
         person.user_refs += 1
-        group.people << person
+        aspect.people << person
         friends << person
         save
         person.save
-        group.save
+        aspect.save
       end
 
       def request_from_me?(request)

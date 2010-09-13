@@ -1,4 +1,4 @@
-class GroupsController < ApplicationController
+class AspectsController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
@@ -6,63 +6,63 @@ class GroupsController < ApplicationController
 
   def index
     @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
-    @group = :all
+    @aspect = :all
   end
 
   def create
-    @group = current_user.group params[:group]
-    respond_with @group
+    @aspect = current_user.aspect params[:aspect]
+    respond_with @aspect
   end
   
   def new
-    @group = Group.new
+    @aspect = Aspect.new
   end
   
   def destroy
-    @group = Group.find_by_id params[:id]
-    @group.destroy
-    respond_with :location => groups_url
+    @aspect = Aspect.find_by_id params[:id]
+    @aspect.destroy
+    respond_with :location => aspects_url
   end
   
   def show
-    @group   = Group.find_by_id params[:id]
-    @friends = @group.people
-    @posts   = current_user.visible_posts( :by_members_of => @group ).paginate :per_page => 15, :order => 'created_at DESC'
+    @aspect   = Aspect.find_by_id params[:id]
+    @friends = @aspect.people
+    @posts   = current_user.visible_posts( :by_members_of => @aspect ).paginate :per_page => 15, :order => 'created_at DESC'
 
-    respond_with @group
+    respond_with @aspect
   end
 
   def edit
-    @groups = current_user.groups
+    @aspects = current_user.aspects
     @remote_requests = Request.for_user current_user
   end
 
   def update
-    @group = Group.find_by_id(params[:id])
-    @group.update_attributes(params[:group])
-    respond_with @group
+    @aspect = Aspect.find_by_id(params[:id])
+    @aspect.update_attributes(params[:aspect])
+    respond_with @aspect
   end
 
   def move_friends
     params[:moves].each{ |move|
       move = move[1]
       unless current_user.move_friend(move)
-        flash[:error] = "Group editing failed for friend #{Person.find_by_id( move[:friend_id] ).real_name}."
-        redirect_to Group.first, :action => "edit"
+        flash[:error] = "Aspect editing failed for friend #{Person.find_by_id( move[:friend_id] ).real_name}."
+        redirect_to Aspect.first, :action => "edit"
         return
       end
     }
 
-    flash[:notice] = "Groups edited successfully."
-    redirect_to Group.first, :action => "edit"
+    flash[:notice] = "Aspects edited successfully."
+    redirect_to Aspect.first, :action => "edit"
   end
 
   def move_friend
     unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to]) 
       flash[:error] = "didn't work #{params.inspect}"
     end
-    if group = Group.first(:id => params[:to][:to])
-      redirect_to group 
+    if aspect = Aspect.first(:id => params[:to][:to])
+      redirect_to aspect 
     else
       redirect_to Person.first(:id => params[:friend_id])
     end

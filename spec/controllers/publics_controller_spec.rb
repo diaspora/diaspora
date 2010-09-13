@@ -33,11 +33,11 @@ describe PublicsController do
   describe 'friend requests' do
     before do
       @user2 = Factory.create(:user)
-      group = @user2.group(:name => 'disciples')
+      aspect = @user2.aspect(:name => 'disciples')
 
       @user3 = Factory.create(:user)
 
-      req = @user2.send_friend_request_to(@user.person, group)
+      req = @user2.send_friend_request_to(@user.person, aspect)
 
       @xml = @user.person.encrypt(@user2.salmon(req, :to => @user.person).to_xml)
   

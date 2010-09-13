@@ -10,7 +10,7 @@
     ws.onmessage = function(evt) {
       var obj = jQuery.parseJSON(evt.data);
       //console.log(obj);
-      debug("got a " + obj['class'] + " for groups " + obj['group_ids']);
+      debug("got a " + obj['class'] + " for aspects " + obj['aspect_ids']);
 
       if (obj['class']=="retractions"){
         processRetraction(obj['post_id']);
@@ -21,7 +21,7 @@
       }else if (obj['class']=='photos' && onPageForClass('albums')){
         processPhotoInAlbum(obj['photo_hash'])
       }else{
-        processPost(obj['class'], obj['html'], obj['group_ids'])
+        processPost(obj['class'], obj['html'], obj['aspect_ids'])
       }
 
       
@@ -55,8 +55,8 @@
     }
   }
 
-  function processPost(className, html, groupIds){
-    if(onPageForGroups(groupIds)){
+  function processPost(className, html, aspectIds){
+    if(onPageForAspects(aspectIds)){
       $("#stream").prepend(
         $(html).fadeIn("fast", function(){
           $("#stream label:first").inFieldLabels();
@@ -83,19 +83,19 @@
     return (location.href.indexOf(className) != -1 );
   }
 
-  function onPageForGroups(groupIds){
+  function onPageForAspects(aspectIds){
     if(location.pathname == '/' && onPageOne()){
       return true
     }
     var found = false;
-    $.each(groupIds, function(index, value) {
-      if(onPageForGroup(value)){ found = true };
+    $.each(aspectIds, function(index, value) {
+      if(onPageForAspect(value)){ found = true };
     });
     return found;
   }
 
-  function onPageForGroup(groupId){
-    return (location.href.indexOf(groupId) != -1 ) 
+  function onPageForAspect(aspectId){
+    return (location.href.indexOf(aspectId) != -1 ) 
   }
   
   function onPageOne() {

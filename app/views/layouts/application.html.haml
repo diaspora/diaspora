@@ -19,7 +19,7 @@
     = javascript_include_tag 'fancybox/jquery.fancybox-1.3.1.pack'
     = javascript_include_tag 'fileuploader'
 
-    = javascript_include_tag 'view', 'image_picker', 'group_nav', 'stream'
+    = javascript_include_tag 'view', 'image_picker', 'aspect_nav', 'stream'
     = render 'js/websocket_js'
     
     = csrf_meta_tag
@@ -53,27 +53,27 @@
             %li.settings= link_to "edit profile", edit_user_path(current_user)
             %li.logout= link_to "logout", destroy_user_session_path
 
-        = render "shared/group_nav"
+        = render "shared/aspect_nav"
 
-      #group_header
+      #aspect_header
         .container
           .span-5.last
             - if @person
               %h1
                 = @person.real_name
             - else
-              - if @group == :all
+              - if @aspect == :all
                 %h1
                   = link_to "All Relations", root_path
               - else
                 %h1
-                  = link_to @group.name, @group
+                  = link_to @aspect.name, @aspect
 
             .page_title
               = yield :page_title
 
           .span-19.last
-            = render "shared/publisher", :group_ids => :all
+            = render "shared/publisher", :aspect_ids => :all
 
     .container
       .span-5.last

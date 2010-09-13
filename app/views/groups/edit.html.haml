@@ -1,6 +1,6 @@
 - content_for :head do 
   = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
-  = javascript_include_tag 'group-edit.js'
+  = javascript_include_tag 'aspect-edit.js'
 
 - content_for :left_pane do
   %h1
@@ -21,29 +21,29 @@
     %ul
 
 
-%h1{:id => 'group_title'}
+%h1{:id => 'aspect_title'}
   Relations
 
-%ul#group_list
+%ul#aspect_list
 
-- for group in @groups
+- for aspect in @aspects
 
-  %li.group
-    %h3{:contenteditable => true}= group.name
+  %li.aspect
+    %h3{:contenteditable => true}= aspect.name
 
-    %ul{:id => group.id}
-      -if group.people.size < 1
+    %ul{:id => aspect.id}
+      -if aspect.people.size < 1
         %li.grey Drag to add people
 
       -else
-        -for person in group.people
+        -for person in aspect.people
 
-          %li.person{:id => person.id, :from_group_id => group.id}
+          %li.person{:id => person.id, :from_aspect_id => aspect.id}
             = person_image_tag(person)
             .name
               = person.real_name
 %p
   %br
-  = link_to 'Update Groups', '#', :class => 'button', :id => "move_friends_link"
+  = link_to 'Update Aspects', '#', :class => 'button', :id => "move_friends_link"
 
 #content_bottom

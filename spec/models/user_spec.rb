@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe User do
    before do
       @user = Factory.create(:user)
-      @group = @user.group(:name => 'heroes')
+      @aspect = @user.aspect(:name => 'heroes')
    end
 
   describe 'profiles' do

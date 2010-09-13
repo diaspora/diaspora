@@ -5,8 +5,8 @@ describe Album do
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @user = Factory.create(:user)
     @user.person.save
-    @group = @user.group(:name => "Foo")
-    @album = @user.post(:album, :name => "test collection", :to => @group.id)
+    @aspect = @user.aspect(:name => "Foo")
+    @album = @user.post(:album, :name => "test collection", :to => @aspect.id)
   end
 
   it 'should require a name' do

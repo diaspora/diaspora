@@ -25,7 +25,7 @@ class User
   many :pending_requests,  :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids,    :class_name => 'Post'
 
-  many :groups, :class_name => 'Group'
+  many :aspects, :class_name => 'Aspect'
 
   before_validation_on_create :setup_person
   before_validation :do_bad_things 
@@ -49,26 +49,26 @@ class User
     "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
   
-  ######### Groups ######################
-  def group( opts = {} )
+  ######### Aspects ######################
+  def aspect( opts = {} )
     opts[:user] = self
-    Group.create(opts)
+    Aspect.create(opts)
   end
 
   def move_friend( opts = {})
     return true if opts[:to] == opts[:from]
     friend = Person.first(:_id => opts[:friend_id])
     if self.friend_ids.include?(friend.id)
-      from_group = self.group_by_id(opts[:from]) 
-      to_group = self.group_by_id(opts[:to])
-      if from_group && to_group
-        posts_to_move = from_group.posts.find_all_by_person_id(friend.id)
-        to_group.people << friend
-        to_group.posts << posts_to_move
-        from_group.person_ids.delete(friend.id.to_id)
-        posts_to_move.each{ |x| from_group.post_ids.delete(x.id)}
-        from_group.save
-        to_group.save
+      from_aspect = self.aspect_by_id(opts[:from]) 
+      to_aspect = self.aspect_by_id(opts[:to])
+      if from_aspect && to_aspect
+        posts_to_move = from_aspect.posts.find_all_by_person_id(friend.id)
+        to_aspect.people << friend
+        to_aspect.posts << posts_to_move
+        from_aspect.person_ids.delete(friend.id.to_id)
+        posts_to_move.each{ |x| from_aspect.post_ids.delete(x.id)}
+        from_aspect.save
+        to_aspect.save
         return true
       end
     end
@@ -80,19 +80,19 @@ class User
 
     if class_name == :photo
       raise ArgumentError.new("No album_id given") unless options[:album_id]
-      group_ids = groups_with_post( options[:album_id] )
-      group_ids.map!{ |group| group.id }
+      aspect_ids = aspects_with_post( options[:album_id] )
+      aspect_ids.map!{ |aspect| aspect.id }
     else
-      group_ids = options.delete(:to)
+      aspect_ids = options.delete(:to)
     end
 
-    group_ids = [group_ids.to_s] if group_ids.is_a? BSON::ObjectId
-    raise ArgumentError.new("You must post to someone.") if group_ids.nil? || group_ids.empty?
+    aspect_ids = [aspect_ids.to_s] if aspect_ids.is_a? BSON::ObjectId
+    raise ArgumentError.new("You must post to someone.") if aspect_ids.nil? || aspect_ids.empty?
 
     post = build_post(class_name, options)
 
-    post.socket_to_uid(id, :group_ids => group_ids) if post.respond_to?(:socket_to_uid)
-    push_to_groups(post, group_ids)
+    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
+    push_to_aspects(post, aspect_ids)
 
     post
   end
@@ -107,21 +107,21 @@ class User
     post
   end
 
-  def push_to_groups( post, group_ids )
-    if group_ids == :all || group_ids == "all"
-      groups = self.groups
-    elsif group_ids.is_a?(Array) && group_ids.first.class == Group
-      groups = group_ids
+  def push_to_aspects( post, aspect_ids )
+    if aspect_ids == :all || aspect_ids == "all"
+      aspects = self.aspects
+    elsif aspect_ids.is_a?(Array) && aspect_ids.first.class == Aspect
+      aspects = aspect_ids
     else
-      groups = self.groups.find_all_by_id( group_ids )
+      aspects = self.aspects.find_all_by_id( aspect_ids )
     end
-    #send to the groups
+    #send to the aspects
     target_people = [] 
 
-    groups.each{ |group|
-      group.posts << post
-      group.save
-      target_people = target_people | group.people
+    aspects.each{ |aspect|
+      aspect.posts << post
+      aspect.save
+      target_people = target_people | aspect.people
     }
     push_to_people(post, target_people)
   end
@@ -171,7 +171,7 @@ class User
     if owns? comment.post
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
-      push_to_people comment, people_in_groups(groups_with_post(comment.post.id))
+      push_to_people comment, people_in_aspects(aspects_with_post(comment.post.id))
     elsif owns? comment
       comment.save
       salmon comment, :to => comment.post.person 
@@ -180,12 +180,12 @@ class User
   
   ######### Posts and Such ###############
   def retract( post )
-    group_ids = groups_with_post( post.id )
-    group_ids.map!{|group| group.id.to_s}
+    aspect_ids = aspects_with_post( post.id )
+    aspect_ids.map!{|aspect| aspect.id.to_s}
 
-    post.unsocket_from_uid(self.id, :group_ids => group_ids) if post.respond_to? :unsocket_from_uid
+    post.unsocket_from_uid(self.id, :aspect_ids => aspect_ids) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
-    push_to_people retraction, people_in_groups(groups_with_post(post.id))
+    push_to_people retraction, people_in_aspects(aspects_with_post(post.id))
     retraction
   end
 
@@ -194,7 +194,7 @@ class User
     params[:profile].delete(:image_url) if params[:profile][:image_url].empty?
 
     if self.person.update_attributes(params)
-      push_to_groups profile, :all
+      push_to_aspects profile, :all
       true
     else
       false
@@ -225,9 +225,9 @@ class User
 
       else
         object.perform self.id
-        groups = self.groups_with_person(object.person)
-        groups.each{ |group| group.post_ids.delete(object.post_id.to_id)
-                             group.save
+        aspects = self.aspects_with_person(object.person)
+        aspects.each{ |aspect| aspect.post_ids.delete(object.post_id.to_id)
+                             aspect.save
         }
       end
     elsif object.is_a? Request
@@ -236,7 +236,7 @@ class User
       object.person = person
       object.person.save
       old_request =  Request.first(:id => object.id)
-      object.group_id = old_request.group_id if old_request
+      object.aspect_id = old_request.aspect_id if old_request
       object.save
       receive_friend_request(object)
     elsif object.is_a? Profile
@@ -265,11 +265,11 @@ class User
       self.raw_visible_posts << object
       self.save
 
-      groups = self.groups_with_person(object.person)
-      groups.each{ |group| 
-        group.posts << object
-        group.save
-        object.socket_to_uid(id, :group_ids => [group.id]) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
+      aspects = self.aspects_with_person(object.person)
+      aspects.each{ |aspect| 
+        aspect.posts << object
+        aspect.save
+        object.socket_to_uid(id, :aspect_ids => [aspect.id]) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
       }
 
     end
@@ -310,7 +310,7 @@ class User
       :user => {
         :posts            => self.raw_visible_posts.each{|post| post.as_json},
         :friends          => self.friends.each {|friend| friend.as_json},
-        :groups           => self.groups.each  {|group|  group.as_json},
+        :aspects           => self.aspects.each  {|aspect|  aspect.as_json},
         :pending_requests => self.pending_requests.each{|request| request.as_json},
       }
     }

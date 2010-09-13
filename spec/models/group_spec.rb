@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe Group do
+describe Aspect do
   before do
     @user = Factory.create(:user)
     @friend = Factory.create(:person)
@@ -10,157 +10,157 @@ describe Group do
 
   describe 'creation' do
     it 'should have a name' do
-      group = @user.group(:name => 'losers')
-      group.name.should == "losers"
+      aspect = @user.aspect(:name => 'losers')
+      aspect.name.should == "losers"
     end
 
     it 'should be able to have people' do
-      group = @user.group(:name => 'losers', :people => [@friend, @friend_2])
-      group.people.size.should == 2
+      aspect = @user.aspect(:name => 'losers', :people => [@friend, @friend_2])
+      aspect.people.size.should == 2
     end
 
     it 'should be able to have other users' do
-      group = @user.group(:name => 'losers', :people => [@user2.person])
-      group.people.include?(@user.person).should be false
-      group.people.include?(@user2.person).should be true 
-      group.people.size.should == 1
+      aspect = @user.aspect(:name => 'losers', :people => [@user2.person])
+      aspect.people.include?(@user.person).should be false
+      aspect.people.include?(@user2.person).should be true 
+      aspect.people.size.should == 1
     end   
 
     it 'should be able to have users and people' do
-      group = @user.group(:name => 'losers', :people => [@user2.person, @friend_2])
-      group.people.include?(@user.person).should be false
-      group.people.include?(@user2.person).should be true 
-      group.people.include?(@friend_2).should be true 
-      group.people.size.should == 2
+      aspect = @user.aspect(:name => 'losers', :people => [@user2.person, @friend_2])
+      aspect.people.include?(@user.person).should be false
+      aspect.people.include?(@user2.person).should be true 
+      aspect.people.include?(@friend_2).should be true 
+      aspect.people.size.should == 2
     end
   end
   
   describe 'querying' do
     before do
-      @group = @user.group(:name => 'losers')
-      @user.activate_friend(@friend, @group)
-      @group2 = @user2.group(:name => 'failures')
-      friend_users(@user, @group, @user2, @group2)
-      @group.reload
+      @aspect = @user.aspect(:name => 'losers')
+      @user.activate_friend(@friend, @aspect)
+      @aspect2 = @user2.aspect(:name => 'failures')
+      friend_users(@user, @aspect, @user2, @aspect2)
+      @aspect.reload
     end
 
     it 'belong to a user' do
-      @group.user.id.should == @user.id
-      @user.groups.size.should == 1
-      @user.groups.first.id.should == @group.id
+      @aspect.user.id.should == @user.id
+      @user.aspects.size.should == 1
+      @user.aspects.first.id.should == @aspect.id
     end
 
     it 'should have people' do
-      @group.people.all.include?(@friend).should be true
-      @group.people.size.should == 2
+      @aspect.people.all.include?(@friend).should be true
+      @aspect.people.size.should == 2
     end
 
     it 'should be accessible through the user' do
-      groups = @user.groups_with_person(@friend)
-      groups.size.should == 1
-      groups.first.id.should == @group.id
-      groups.first.people.size.should == 2
-      groups.first.people.include?(@friend).should be true
-      groups.first.people.include?(@user2.person).should be true
+      aspects = @user.aspects_with_person(@friend)
+      aspects.size.should == 1
+      aspects.first.id.should == @aspect.id
+      aspects.first.people.size.should == 2
+      aspects.first.people.include?(@friend).should be true
+      aspects.first.people.include?(@user2.person).should be true
     end
   end
 
   describe 'posting' do
     
-    it 'should add post to group via post method' do
-      group = @user.group(:name => 'losers', :people => [@friend])
+    it 'should add post to aspect via post method' do
+      aspect = @user.aspect(:name => 'losers', :people => [@friend])
 
-      status_message = @user.post( :status_message, :message => "hey", :to => group.id )
+      status_message = @user.post( :status_message, :message => "hey", :to => aspect.id )
       
-      group.reload
-      group.posts.include?(status_message).should be true
+      aspect.reload
+      aspect.posts.include?(status_message).should be true
     end
 
-    it 'should add post to group via receive method' do
-      group  = @user.group(:name => 'losers')
-      group2 = @user2.group(:name => 'winners')
-      friend_users(@user, group, @user2, group2)
+    it 'should add post to aspect via receive method' do
+      aspect  = @user.aspect(:name => 'losers')
+      aspect2 = @user2.aspect(:name => 'winners')
+      friend_users(@user, aspect, @user2, aspect2)
 
-      message = @user2.post(:status_message, :message => "Hey Dude", :to => group2.id)
+      message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
       
       @user.receive message.to_diaspora_xml
       
-      group.reload
-      group.posts.include?(message).should be true
-      @user.visible_posts(:by_members_of => group).include?(message).should be true
+      aspect.reload
+      aspect.posts.include?(message).should be true
+      @user.visible_posts(:by_members_of => aspect).include?(message).should be true
     end
 
-    it 'should retract the post from the groups as well' do 
-      group  = @user.group(:name => 'losers')
-      group2 = @user2.group(:name => 'winners')
-      friend_users(@user, group, @user2, group2)
+    it 'should retract the post from the aspects as well' do 
+      aspect  = @user.aspect(:name => 'losers')
+      aspect2 = @user2.aspect(:name => 'winners')
+      friend_users(@user, aspect, @user2, aspect2)
 
-      message = @user2.post(:status_message, :message => "Hey Dude", :to => group2.id)
+      message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
       
       @user.receive message.to_diaspora_xml
-      group.reload
+      aspect.reload
   
-      group.post_ids.include?(message.id).should be true
+      aspect.post_ids.include?(message.id).should be true
 
       retraction = @user2.retract(message)
       @user.receive retraction.to_diaspora_xml
 
-      group.reload
-      group.post_ids.include?(message.id).should be false
+      aspect.reload
+      aspect.post_ids.include?(message.id).should be false
     end
   end
 
-  describe "group editing" do
+  describe "aspect editing" do
     before do
-      @group = @user.group(:name => 'losers')
-      @group2 = @user2.group(:name => 'failures')
-      friend_users(@user, @group, @user2, @group2)
-      @group.reload
-      @group3 = @user.group(:name => 'cats')
+      @aspect = @user.aspect(:name => 'losers')
+      @aspect2 = @user2.aspect(:name => 'failures')
+      friend_users(@user, @aspect, @user2, @aspect2)
+      @aspect.reload
+      @aspect3 = @user.aspect(:name => 'cats')
       @user.reload
     end
 
-    it 'should be able to move a friend from one of users existing groups to another' do
-      @user.move_friend(:friend_id => @user2.person.id, :from => @group.id, :to => @group3.id)
-      @group.reload
-      @group3.reload
+    it 'should be able to move a friend from one of users existing aspects to another' do
+      @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect3.id)
+      @aspect.reload
+      @aspect3.reload
 
-      @group.person_ids.include?(@user2.person.id).should be false
-      @group3.people.include?(@user2.person).should be true
+      @aspect.person_ids.include?(@user2.person.id).should be false
+      @aspect3.people.include?(@user2.person).should be true
     end
 
     it "should not move a person who is not a friend" do
-      @user.move_friend(:friend_id => @friend.id, :from => @group.id, :to => @group3.id)
-      @group.reload
-      @group3.reload
-      @group.people.include?(@friend).should be false
-      @group3.people.include?(@friend).should be false
+      @user.move_friend(:friend_id => @friend.id, :from => @aspect.id, :to => @aspect3.id)
+      @aspect.reload
+      @aspect3.reload
+      @aspect.people.include?(@friend).should be false
+      @aspect3.people.include?(@friend).should be false
     end
      
-    it "should not move a person to a group that's not his" do
-      @user.move_friend(:friend_id => @user2.person.id, :from => @group.id, :to => @group2.id)
-      @group.reload
-      @group2.reload
-      @group.people.include?(@user2.person).should be true 
-      @group2.people.include?(@user2.person).should be false
+    it "should not move a person to a aspect that's not his" do
+      @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect2.id)
+      @aspect.reload
+      @aspect2.reload
+      @aspect.people.include?(@user2.person).should be true 
+      @aspect2.people.include?(@user2.person).should be false
     end
 
-    it 'should move all the by that user to the new group' do
-      message = @user2.post(:status_message, :message => "Hey Dude", :to => @group2.id)
+    it 'should move all the by that user to the new aspect' do
+      message = @user2.post(:status_message, :message => "Hey Dude", :to => @aspect2.id)
       
       @user.receive message.to_diaspora_xml
-      @group.reload
+      @aspect.reload
 
-      @group.posts.count.should be 1
-      @group3.posts.count.should be 0
+      @aspect.posts.count.should be 1
+      @aspect3.posts.count.should be 0
       
       @user.reload
-      @user.move_friend(:friend_id => @user2.person.id, :from => @group.id, :to => @group3.id)
-      @group.reload
-      @group3.reload
+      @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect3.id)
+      @aspect.reload
+      @aspect3.reload
 
-      @group3.posts.count.should be 1
-      @group.posts.count.should be 0
+      @aspect3.posts.count.should be 1
+      @aspect.posts.count.should be 0
 
     end
 

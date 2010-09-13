@@ -7,9 +7,9 @@ Diaspora::Application.routes.draw do
   resources :photos, :except => [:index]
   resources :albums
 
-  resources :groups
-  match 'groups/move_friends', :to => 'groups#move_friends', :as => 'move_friends'
-  match 'groups/move_friend', :to => 'groups#move_friend', :as => 'move_friend'
+  resources :aspects
+  match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
+  match 'aspects/move_friend', :to => 'aspects#move_friend', :as => 'move_friend'
 
   match 'warzombie',          :to => "dev_utilities#warzombie"
   match 'zombiefriends',      :to => "dev_utilities#zombiefriends"
@@ -34,5 +34,5 @@ Diaspora::Application.routes.draw do
   match 'log', :to => "dev_utilities#log"
 
   #root
-  root :to => 'groups#index'
+  root :to => 'aspects#index'
 end

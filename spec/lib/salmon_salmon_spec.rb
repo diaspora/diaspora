@@ -4,7 +4,7 @@ describe Salmon do
   before do
 
     @user = Factory.create :user
-    @post = @user.post :status_message, :message => "hi", :to => @user.group(:name => "sdg").id
+    @post = @user.post :status_message, :message => "hi", :to => @user.aspect(:name => "sdg").id
     @sent_salmon = Salmon::SalmonSlap.create(@user, @post.to_diaspora_xml)
     @parsed_salmon = Salmon::SalmonSlap.parse @sent_salmon.to_xml
   end

@@ -1,5 +1,5 @@
-module GroupsHelper
-  def link_for_group( group )
-    link_to group.name, group
+module AspectsHelper
+  def link_for_aspect( aspect )
+    link_to aspect.name, aspect
   end
 end
