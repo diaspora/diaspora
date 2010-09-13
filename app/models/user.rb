@@ -29,10 +29,13 @@ class User
 
   before_validation_on_create :setup_person
   before_validation :do_bad_things 
+  before_save :downcase_username
   
    def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
+    else
+      conditions[:username].downcase!
     end
     super
   end 
@@ -303,6 +306,9 @@ class User
     self.person.save!
   end
 
+  def downcase_username
+    username.downcase!
+  end
 
 
   def as_json(opts={})
