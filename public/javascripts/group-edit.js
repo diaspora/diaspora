@@ -17,6 +17,7 @@ $(function() {
   $("li .requested_person").draggable({
     revert: true
   });
+  
   $(".group ul").droppable({
     drop: function(event, ui) {
 
@@ -57,7 +58,7 @@ $(function() {
       }else{
         $.ajax({
           type: "DELETE",
-          url: "/people/" + ui.draggable[0].id)
+          url: "/people/" + ui.draggable[0].id
         });
         alert("Removed Friend, proably want an undo countdown.")
         $(ui.draggable[0]).fadeOut('slow')
