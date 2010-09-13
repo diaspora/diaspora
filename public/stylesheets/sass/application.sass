@@ -21,6 +21,18 @@ a
       :color #556270
       :color #019DBE
 
+h1
+  :font
+    :size 21px
+    :weight bold
+  :line
+    :height 36px
+
+h3
+  :font
+    :size 18px 
+    :weight bold
+
 .avatar
   :width 50px
   :height 50px
@@ -90,6 +102,13 @@ header
   :border
     :bottom 1px solid #ccc
 
+  a
+    :color #999
+
+    &:hover
+      :background none
+      :color #eee
+
   #diaspora_text
     :display inline
     :font
@@ -98,25 +117,12 @@ header
     :border none
     :color #fff
 
-    a
-      :color #999
-
-    a:hover
-      :color #fff
-      :background none
-
-    span.sub_text
-      :text
-        :shadow none
-      
   #session_action
-    :top 0
     :position absolute
     :display inline
-    :right 0
 
-    a
-      :color #999
+    :top 0
+    :right 0
 
     ul
       :list
@@ -135,7 +141,6 @@ header
             :right 0
 
   #group_header
-    :z-index 5
     :text-shadow 0 2px 0 #fff
     :background
       :color #eee
@@ -158,18 +163,6 @@ header
       :text
         :transform uppercase
 
-
-#show_filters
-  :z-index 100
-  :position absolute
-  :right 0
-  :text-align right
-
-#show_filters > a
-  :border 1px solid #666
-  :padding 5px
-#main
-  :width 100%
 
 ul#stream
   :margin 0
@@ -214,24 +207,6 @@ li.message
       :color #bababa
       :font-size 70%
 
-h1
-  :position relative
-  :font
-    :size 21px
-    :weight bold
-  :line-height 36px
-
-  p.description, span.description, .description
-    :font
-      :weight 200
-    :color #999
-
-
-h3
-  :position relativex
-  :font
-    :size 18px 
-    :weight bold
 
 form
   :position relative
@@ -561,7 +536,7 @@ h1.big_text
   :position relative
   :line-height 36px
 
-  :margin 0 25px
+  :margin 0
     :top 25px
     :bottom 25px 
 
@@ -632,18 +607,13 @@ h1.big_text
           :color #444
         :border 1px solid #555
 
-        :-webkit-border-radius 3
-
-        :position relative
         :padding 3px 8px
         :color #999
-        &:hover
-          :background none
 
-      &:hover a
-        :background
-          :color #555
-        :color #ccc
+        &:hover
+          :background
+            :color #555
+          :color #ccc
 
       &.selected a
         :padding
@@ -663,12 +633,6 @@ h1.big_text
             :color #efefef
         a
           :color #000
-
-#add_photo_loader
-  :position absolute
-  :display none
-  :left -25px
-  :top 4px
 
 
 #global_search
@@ -702,13 +666,6 @@ h1.big_text
         :size 12px
       :margin
         :top -3px
-
-.editing,
-.editing:hover
-  :background
-    :color yellow
-  :border 1px #666 solid
-
 
 .group,
 .requests,
