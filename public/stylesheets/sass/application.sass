@@ -81,14 +81,16 @@ header
   :margin -2em
     :bottom 2em
   :color #000
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333333), to(#000000))
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000000), to(#333333))
+  :background -moz-linear-gradient(19% 75% 90deg, #333333, #000000) 
+  :background
+    :color #222
   :padding 0
     :top 5px
   :border
     :bottom 1px solid #ccc
 
   #diaspora_text
-    :z-index 6
     :display inline
     :font
       :family 'BrandonGrotesqueLightRegular'
@@ -108,14 +110,29 @@ header
         :shadow none
       
   #session_action
-    :position relative
+    :top 0
+    :position absolute
     :display inline
-    :float right
-    :z-index 3
+    :right 0
+
     a
-      &.new_requests
-        :color #DF0101
-    :padding-right 10px
+      :color #999
+
+    ul
+      :list
+        :style none
+      :padding 0
+      :margin 0
+      :display inline
+
+      li
+        :display inline
+        :margin
+          :right 1em
+
+        &:last-child
+          :margin
+            :right 0
 
   #group_header
     :z-index 5
@@ -437,6 +454,7 @@ label
   p
     :position absolute
     :left 0 
+    :top 0
   
   form
     :display inline
@@ -582,6 +600,7 @@ h1.big_text
     :display none
 
 #group_nav
+  :z-index 4
   :position relative
   :color #000
   :margin
@@ -651,91 +670,11 @@ h1.big_text
   :left -25px
   :top 4px
 
-#user_menu
-  :position absolute
-  :z-index 10
-  :top 0
-  :right 0
-  :display inline-block
-  :padding 0
-  :margin 0
-  :list
-    :style none
-
-  > li
-    :display none
-    :background
-      :color #fff
-    :width 180px
-    :height 29px
-    :border
-      :left 2px solid #000
-      :right 2px solid #000
-
-    &:hover
-      :background
-        :color #eee
-
-    &:first-child
-      :display block
-      :background none
-      :border
-        :left 2px solid #333
-        :right 2px solid #333
-      a
-        :color #999
-
-      img
-        :position absolute
-        :width 20px
-        :height 20px
-        :top 3px
-        :left 9px
-
-    &:last-child
-      :border
-        :bottom 2px solid #000
-
-    a
-      :display block
-      :height 100%
-      :padding
-        :left 40px
-        :top 5px
-      :color #000
-
-      &:hover
-        :background
-          :color transparent
-
-  .requests
-    :background
-      :image url('/images/glyphish-icons/icons/40-inbox.png')
-      :repeat no-repeat
-      :position 5px
-  .settings
-    :background
-      :image url('/images/glyphish-icons/icons/20-gear2.png')
-      :repeat no-repeat
-      :position 5px
-  .logout
-    :background
-      :image url('/images/glyphish-icons/icons/54-lock.png')
-      :repeat no-repeat
-      :position 5px
-      
-  &:hover li
-    :display block
-
-
-
 
 #global_search
   :display inline
   :position relative
   :opacity 0.5
-  :padding
-    :right 167px
 
   form
     :display inline
