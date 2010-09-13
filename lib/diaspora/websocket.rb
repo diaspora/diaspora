@@ -35,8 +35,8 @@ module Diaspora
       SocketsController.new.outgoing(id, self, opts)
     end
     
-    def unsocket_from_uid id
-      SocketsController.new.outgoing(id, Retraction.for(self))
+    def unsocket_from_uid(id, opts={})
+      SocketsController.new.outgoing(id, Retraction.for(self), opts)
     end
 
   end
