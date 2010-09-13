@@ -13,7 +13,8 @@ $(function() {
   $("li .person").draggable({
     revert: true
   });
-  
+
+
   $(".group ul").droppable({
     drop: function(event, ui) {
       if (ui.draggable[0].getAttribute('request_id') != null){
@@ -36,6 +37,21 @@ $(function() {
         ui.draggable.css('background-color','orange');
       }
       $(this).closest("ul").append(ui.draggable);
+    }
+  });
+
+  $(".remove ul").droppable({
+    drop: function(event, ui) {
+      if (ui.draggable[0].getAttribute('request_id') != null){
+      $.ajax({
+        type: "DELETE",
+        url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
+        data: {"accept" : false }
+      });
+      alert("Removed Request, proably want an undo countdown.")
+      ui.draggable[0].fadeOut("slow")
+      }
+      
     }
   });
 });
