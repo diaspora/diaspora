@@ -37,6 +37,7 @@ $(function() {
         ui.draggable.css('background-color','orange');
       }
       $(this).closest("ul").append(ui.draggable);
+
     }
   });
 
@@ -49,7 +50,7 @@ $(function() {
         data: {"accept" : false }
       });
       alert("Removed Request, proably want an undo countdown.")
-      ui.draggable[0].fadeOut("slow")
+      $(ui.draggable[0]).fadeOut('slow')
       }
       
     }
