@@ -35,11 +35,9 @@ class RequestsController < ApplicationController
     if params[:accept]
       if params[:aspect_id]
         @friend = current_user.accept_and_respond( params[:id], params[:aspect_id])
-        flash[:notice] = "you are now friends"
-        respond_with :location => current_user.aspect_by_id(params[:aspect_id])
+        respond_with :location => current_user.aspect_by_id(params[:aspect_id]), :notice => "you are now friends"
       else
-        flash[:error] = "please select a aspect!"
-        respond_with :location => requests_url
+        respond_with :location => requests_url, :error => "please select a aspect!"
       end
     else
       current_user.ignore_friend_request params[:id]

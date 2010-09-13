@@ -30,7 +30,7 @@ class AlbumsController < ApplicationController
   
   def create
     @album = current_user.post(:album, params[:album])
-    respond_with @album
+    respond_with @album, :notice => "You've created an album called #{@album.name}."
   end
   
   def new
@@ -40,7 +40,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find_by_id params[:id]
     @album.destroy
-    respond_with :location => albums_url
+    respond_with :location => albums_url, :notice => "Album #{@album.name} destroyed."
   end
   
   def show
@@ -58,7 +58,7 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find_params_by_id params[:id]
-    respond_with @album
+    respond_with @album, :notice => "Album #{@album.name} successfully edited."
   end
 
 end
