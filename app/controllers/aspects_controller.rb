@@ -30,6 +30,7 @@ class AspectsController < ApplicationController
 
   def create
     @aspect = current_user.aspect params[:aspect]
+    flash[:notice] = "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     respond_with @aspect
   end
   
@@ -40,6 +41,7 @@ class AspectsController < ApplicationController
   def destroy
     @aspect = Aspect.find_by_id params[:id]
     @aspect.destroy
+    flash[:notice] = "You are no longer sharing the aspect called #{@aspect.name}."
     respond_with :location => aspects_url
   end
   
@@ -59,6 +61,7 @@ class AspectsController < ApplicationController
   def update
     @aspect = Aspect.find_by_id(params[:id])
     @aspect.update_attributes(params[:aspect])
+    flash[:notice] = "Your aspect, #{@aspect.name}, has been successfully edited."
     respond_with @aspect
   end
 
@@ -81,9 +84,11 @@ class AspectsController < ApplicationController
       flash[:error] = "didn't work #{params.inspect}"
     end
     if aspect = Aspect.first(:id => params[:to][:to])
-      redirect_to aspect 
+      flash[:notice] = "You are now showing your friend a different aspect of yourself."
+      respond_with aspect
     else
-      redirect_to Person.first(:id => params[:friend_id])
+      flash[:notice] = "You are now showing your friend a different aspect of yourself."
+      respond_with Person.first(:id => params[:friend_id])
     end
   end
 end
