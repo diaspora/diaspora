@@ -589,13 +589,16 @@ h1.big_text {
   border: 1px #666666 solid; }
 
 .group,
-.requests {
+.requests,
+.remove {
   list-style: none; }
   .group h3,
-  .requests h3 {
+  .requests h3,
+  .remove h3 {
     display: inline-block; }
   .group ul,
-  .requests ul {
+  .requests ul,
+  .remove ul {
     min-height: 20px;
     margin: 0;
       margin-left: 1em;
@@ -606,7 +609,8 @@ h1.big_text {
     list-style: none;
     padding: 15px; }
   .group .person,
-  .requests .person {
+  .requests .person,
+  .remove .person {
     display: inline-block;
     margin-left: 0;
     padding: 5px;
@@ -620,12 +624,14 @@ h1.big_text {
     padding: 5px;
     border: 1px solid #999999; }
     .group .person img,
-    .requests .person img {
+    .requests .person img,
+    .remove .person img {
       height: 50px;
       width: 50px;
       display: inline-block; }
     .group .person .grey,
-    .requests .person .grey {
+    .requests .person .grey,
+    .remove .person .grey {
       font-style: italic;
       color: #666666; }
 
