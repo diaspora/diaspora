@@ -102,7 +102,7 @@ class Person
        rescue SocketError => e
          raise "Diaspora server for #{identifier} not found" if e.message =~ /Name or service not known/
        end
-       #raise "No diaspora user found at #{identifier}"
+       raise "No diaspora user found at #{identifier}" unless f
        Person.from_webfinger_profile(identifier, f )
      end
   end

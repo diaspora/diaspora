@@ -63,7 +63,7 @@ describe Salmon do
 
   it 'should fail to reference a nonexistent remote author' do
     @parsed_salmon.author_email = 'idsfug@difgubhpsduh.rgd'
-    proc {@parsed_salmon.author.real_name}.should raise_error /not found/
+    proc {@parsed_salmon.author.real_name}.should raise_error /No diaspora user found/
   end
 
 end
