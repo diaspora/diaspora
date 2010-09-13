@@ -15,21 +15,20 @@ In order to run Diaspora for development, there are a few external dependencies 
 - [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
 
-After installing the above, run
+After installing the above, run the following command from where mongo is installed to start mongo.
 		sudo bin/mongod
+Diaspora will **not run** until mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.  It is highly recommended you alias the command to start the database in your .bashrc file.
 
-from where mongo is installed to start mongo.  Diaspora will **not run** until mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.  It is highly recommended you alias the command to start the database in your .bashrc file.
-
-In order to start the app server for the first time, bundler needs to grab Diaspora's gem depencencies.  To allow this, run
+In order to start the app server for the first time, bundler needs to grab Diaspora's gem depencencies.  To allow this, run the following command from Diaspora's root directory.  
 		bundle install
 
-from Diaspora's root directory.  It is important to run a bundle install every so often, in the event of a new gem dependency.  We will make sure to make an announcement in the event of a gem change.
+It is important to run a bundle install every so often, in the event of a new gem dependency.  We will make sure to make an announcement in the event of a gem change.
 
-Once mongo is running and bundler has finished, run
+Once mongo is running and bundler has finished, run:
 		bundle exec thin start
-to begin the app server in development mode.
+This will start the app server in development mode.
 
-Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run
+Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run the following command:
 		bundle exec rspec spec
 
 
