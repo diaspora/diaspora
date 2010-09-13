@@ -28,11 +28,11 @@
 - form_for @album do |a|
   = a.error_messages
   %p
+    %b album name:
     = a.text_field :name
 
-  %ul
   - for photo in @album.photos
-    %li.photo_edit_block= image_tag photo.url(:thumb_large)
+    .photo_edit_block= image_tag photo.url(:thumb_medium)
 
   #submit_block
     = link_to "Cancel", root_path

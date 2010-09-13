@@ -79,7 +79,7 @@ describe Person do
   end
 
   describe "unfriending" do
-    it 'should delete an orphaned friend' do
+    it 'should not delete an orphaned friend' do
       request = @user.send_friend_request_to @person, @aspect
 
       @user.activate_friend(@person, @aspect) 
@@ -90,7 +90,7 @@ describe Person do
       @user.unfriend(@person)
       @user.reload
       @user.friends.count.should == 0
-      Person.all.count.should    == 2
+      Person.all.count.should    == 3
     end
 
     it 'should not delete an un-orphaned friend' do

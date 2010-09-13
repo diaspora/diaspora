@@ -25,7 +25,7 @@
 
 %ul#stream
   - for post in @posts
-    = render type_partial(post), :post => post
+    = render type_partial(post), :post => post unless post.class == Album
 #pagination
   = will_paginate @posts
 

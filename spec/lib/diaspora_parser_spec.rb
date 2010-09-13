@@ -156,7 +156,6 @@ describe Diaspora::Parser do
 
       Person.count.should == person_count
       @user.receive retraction_xml
-      Person.count.should == person_count-1
 
       @aspect.reload
       @aspect.people.size.should == aspect_people_count -1

@@ -78,7 +78,7 @@ end
   end
 
   def message_queue
-    Post.send(:class_variable_get, :@@queue)
+    User::QUEUE
   end
 
   def friend_users(user1, aspect1, user2, aspect2)

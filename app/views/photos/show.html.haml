@@ -40,7 +40,8 @@
   = @photo.image
 
   .right
-    = link_to 'Edit Photo', edit_photo_path(@photo), :class => "button"
+    -if current_user.owns? @album
+      = link_to 'Edit Photo', edit_photo_path(@photo), :class => "button"
 
 .sub_header
   = link_to "<< prev", url_to_prev(@photo, @album)

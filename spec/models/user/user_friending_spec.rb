@@ -58,7 +58,7 @@ describe User do
 
       @user.ignore_friend_request(r.id)
 
-      Person.count.should == 1
+      Person.count.should == 2
       Request.count.should == 0
     end
 
@@ -145,7 +145,7 @@ describe User do
         Person.all.count.should be 3
       end
 
-      it 'should not keep the person around if the users ignores them' do
+      it 'should keep the person around if the users ignores them' do
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
         @user.ignore_friend_request @user.pending_requests.first.id
@@ -155,7 +155,7 @@ describe User do
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @user2.pending_requests.first.id#@request_two.id
         @user2.friends.include?(@person_one).should be false 
-        Person.all.count.should be 2
+        Person.all.count.should be 3
       end
 
 
@@ -216,20 +216,10 @@ describe User do
       @user.friends.count.should == 1
       @user2.friends.count.should == 1
       
-      @user.person.user_refs.should == 1
-
-      @user2.person.user_refs.should == 1
-
       @user2.unfriend @user.person
       @user2.friends.count.should be 0
 
-      @user.person.reload
-      @user.person.user_refs.should == 0 
-
       @user.unfriended_by @user2.person
-
-      @user2.person.reload
-      @user2.person.user_refs.should == 0
 
       @aspect.reload
       @aspect2.reload
