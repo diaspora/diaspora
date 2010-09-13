@@ -83,7 +83,6 @@ header {
     padding-top: 5px;
   border-bottom: 1px solid #cccccc; }
   header #diaspora_text {
-    z-index: 6;
     display: inline;
     font-family: "BrandonGrotesqueLightRegular";
     font-size: 16px;
@@ -101,6 +100,8 @@ header {
     position: absolute;
     display: inline;
     right: 0; }
+    header #session_action a {
+      color: #999999; }
     header #session_action ul {
       list-style: none;
       padding: 0;
@@ -356,7 +357,8 @@ label {
     margin-right: 15px; }
   #publisher p {
     position: absolute;
-    left: 0; }
+    left: 0;
+    top: 0; }
   #publisher form {
     display: inline; }
     #publisher form input[type='submit'] {
@@ -465,6 +467,7 @@ h1.big_text {
   display: none; }
 
 #group_nav {
+  z-index: 4;
   position: relative;
   color: black;
   margin-top: 8px;

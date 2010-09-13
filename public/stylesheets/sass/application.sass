@@ -91,7 +91,6 @@ header
     :bottom 1px solid #ccc
 
   #diaspora_text
-    :z-index 6
     :display inline
     :font
       :family 'BrandonGrotesqueLightRegular'
@@ -115,6 +114,9 @@ header
     :position absolute
     :display inline
     :right 0
+
+    a
+      :color #999
 
     ul
       :list
@@ -452,6 +454,7 @@ label
   p
     :position absolute
     :left 0 
+    :top 0
   
   form
     :display inline
@@ -597,6 +600,7 @@ h1.big_text
     :display none
 
 #group_nav
+  :z-index 4
   :position relative
   :color #000
   :margin
