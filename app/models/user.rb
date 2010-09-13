@@ -181,7 +181,7 @@ class User
   ######### Posts and Such ###############
   def retract( post )
     group_ids = groups_with_post( post.id )
-    group_ids.map!{|group| group.id}
+    group_ids.map!{|group| group.id.to_s}
 
     post.unsocket_from_uid(self.id, :group_ids => group_ids) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
