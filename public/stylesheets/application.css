@@ -76,7 +76,9 @@ header {
   margin: -2em;
     margin-bottom: 2em;
   color: black;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333333), to(black));
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(black), to(#333333));
+  background: -moz-linear-gradient(19% 75% 90deg, #333333, black);
+  background-color: #333333;
   padding: 0;
     padding-top: 5px;
   border-bottom: 1px solid #cccccc; }
