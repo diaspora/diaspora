@@ -77,6 +77,10 @@ module Diaspora
       def all_aspect_ids
         self.aspects.all.collect{|x| x.id}
       end
+
+      def albums_by_aspect aspect
+        aspect.posts.find_all_by__type("Album")
+      end
     end
   end
 end

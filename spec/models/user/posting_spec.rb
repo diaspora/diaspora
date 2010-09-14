@@ -50,6 +50,13 @@ describe User do
     @aspect.post_ids.include?(post.id).should be true
   end
 
+  it 'should put an album in the aspect post array' do
+    album = @user.post :album, :name => "Georges", :to => @aspect.id
+    @aspect.reload
+    @aspect.post_ids.include?(album.id).should be true
+    @aspect.posts.include?(album).should be true
+  end
+
   describe 'dispatching' do
     before do
       @post = @user.build_post :status_message, :message => "hey"

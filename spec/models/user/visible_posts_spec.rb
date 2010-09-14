@@ -58,5 +58,29 @@ describe User do
       @user.visible_posts(:by_members_of => @aspect2).include?(status_message2).should be true
       @user.visible_posts(:by_members_of => @aspect2).include?(status_message3).should be true
     end
+
+    describe 'albums' do
+      before do
+        @album = @user.post :album, :name => "Georges", :to => @aspect.id
+        @aspect.reload
+        @aspect2.reload
+        @user.reload
+
+        @album2 = @user.post :album, :name => "Borges", :to => @aspect.id
+        @aspect.reload
+        @aspect2.reload
+        @user.reload
+
+        @user.post :album, :name => "Luises", :to => @aspect2.id
+        @aspect.reload
+        @aspect2.reload
+        @user.reload
+      end
+
+      it 'should return the right number of albums' do
+        @user.albums_by_aspect(@aspect).size.should == 2
+        @user.albums_by_aspect(@aspect2).size.should == 1
+      end
+    end
 end
 
