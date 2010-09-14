@@ -19,7 +19,7 @@
 
 %h1
   Add a new friend to
-  %i= @aspect.name
+  %i= aspect.name
 
 = form_for Request.new do |f|
   = f.error_messages
@@ -31,6 +31,6 @@
   %p
     = f.label :destination_url, "Friend's username"
     = f.text_field :destination_url
-  = f.hidden_field :aspect_id, :value => @aspect.id
+  = f.hidden_field :aspect_id, :value => aspect.id
   = f.submit
 

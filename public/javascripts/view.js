@@ -37,6 +37,7 @@ $(document).ready(function(){
   //buttons//////
   $("#add_aspect_button").fancybox({ 'titleShow' : false });
   $("#add_request_button").fancybox({ 'titleShow': false });
+  $(".add_request_button").fancybox({ 'titleShow': false });
 
   $("input[type='submit']").addClass("button");
 
