@@ -22,10 +22,10 @@
   = javascript_include_tag 'aspect-edit.js'
 
 - content_for :left_pane do
-  %h1
+  %h3
     Requests
 
-  %li.requests
+  .requests
     %ul
       - for request in @remote_requests
         %li.requested_person{:id => request.person.id, :request_id => request.id}
@@ -39,18 +39,16 @@
   %li.remove
     %ul
 
-
-%h1{:id => 'aspect_title'}
-  Aspects
-
 %ul#aspect_list
 
+  .new_aspect= link_to("add a new aspect", "#add_aspect_pane", :id => "add_aspect_button", :title => "Add a new relation")
 - for aspect in @aspects
-
+  
   %li.aspect
-    %h3{:contenteditable => true}= aspect.name
-
+    %h1{:contenteditable => true}= aspect.name
+    
     %ul{:id => aspect.id}
+    
       -if aspect.people.size < 1
         %li.grey Drag to add people
 
@@ -61,6 +59,11 @@
             = person_image_tag(person)
             .name
               = person.real_name
+      = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+      .yo{:style => 'display:none'}
+        %div{:id => "add_request_pane_#{aspect.id}"}
+          = render "requests/new_request", :aspect => aspect
+
 %p
   %br
   = link_to 'Update Aspects', '#', :class => 'button', :id => "move_friends_link"

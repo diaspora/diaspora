@@ -31,7 +31,7 @@ class AspectsController < ApplicationController
   def create
     @aspect = current_user.aspect params[:aspect]
     flash[:notice] = "Click on the plus on the left side to tell Diaspora who can see your new aspect."
-    respond_with @aspect
+    respond_with :location => edit_aspect_path(@aspect)
   end
   
   def new

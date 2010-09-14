@@ -29,11 +29,11 @@ $('#move_friends_link').live( 'click', function(){
 });
 
 $(function() {
-  $("li .person").draggable({
+  $("ul .person").draggable({
     revert: true
   });
 
-  $("li .requested_person").draggable({
+  $("ul .requested_person").draggable({
     revert: true
   });
   
@@ -59,8 +59,8 @@ $(function() {
           $('#aspect_list').data( ui.draggable[0].id, move);
           ui.draggable.css('background-color','orange');
         }
-        $(this).closest("ul").append(ui.draggable);
       }
+      $(this).closest("ul").append(ui.draggable);
     }
   });
 
