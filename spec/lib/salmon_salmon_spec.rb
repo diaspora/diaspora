@@ -27,6 +27,7 @@ describe Salmon do
     @post = @user.post :status_message, :message => "hi", :to => @user.aspect(:name => "sdg").id
     @sent_salmon = Salmon::SalmonSlap.create(@user, @post.to_diaspora_xml)
     @parsed_salmon = Salmon::SalmonSlap.parse @sent_salmon.to_xml
+    stub_success("tom@tom.joindiaspora.com")
   end
 
   it 'should verify the signature on a roundtrip' do
@@ -63,7 +64,9 @@ describe Salmon do
 
   it 'should fail to reference a nonexistent remote author' do
     @parsed_salmon.author_email = 'idsfug@difgubhpsduh.rgd'
-    proc {@parsed_salmon.author.real_name}.should raise_error /No diaspora user found/
+    proc {
+      Redfinger.stub(:finger).and_return(nil) #Redfinger returns nil when there is no profile
+      @parsed_salmon.author.real_name}.should raise_error /No webfinger profile found/
   end
 
 end
