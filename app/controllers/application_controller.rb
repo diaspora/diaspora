@@ -36,7 +36,12 @@ class ApplicationController < ActionController::Base
   
   def set_friends_and_status
     if current_user
-      @aspect = :all
+      if params[:aspect] == 'all' || params[:aspect] == nil
+        @aspect = :all
+      else
+        @aspect = current_user.aspect_by_id( params[:aspect])
+      end
+      
       @aspects = current_user.aspects
       @friends = current_user.friends
     end
