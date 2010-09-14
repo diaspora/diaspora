@@ -2,9 +2,11 @@
 
 The privacy aware, personally controlled, do-it-all, open source social network.
 
+**DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
+These instructions are designed for developers running [Ubuntu](http://www.ubuntu.com/) (Debian) or Mac OS X.
 
 ## Preparing your system
-In order to run Diaspora for development, there are a few external dependencies in getting your environment set up:
+In order to run Diaspora, you will need to download the following dependencies:
 
 - [Ruby](http://www.ruby-lang.org) - The Ruby programming language.  (We're using 1.8.  Comes preinstalled on Mac OS X.)
 - [MongoDB](http://www.mongodb.org) - A snappy noSQL database.
@@ -12,7 +14,7 @@ In order to run Diaspora for development, there are a few external dependencies 
 - [ImageMagick](http://www.imagemagick.org/) - An Image processing library used to resize uploaded photos.
 - [Git](http://git-scm.com/) - The fast version controll system.
 
-We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Debian, just use Synaptic (it comes pre-installed).
+We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Ubuntu (Debian), just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed).
 
 
 After you have Ruby installed on your system, you will need to get Rubygems, then install Bundler:
