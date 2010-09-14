@@ -47,8 +47,7 @@ class User
   many :aspects, :class_name => 'Aspect'
 
   after_validation_on_create :setup_person
-  after_create :seed_groups
-  after_save :check_for_tommy
+  after_create :seed_aspects
 
   before_validation :do_bad_things 
   before_save :downcase_username
@@ -338,10 +337,10 @@ class User
     self.password_confirmation = self.password
   end 
  
-  def seed_groups
-    group(:name => "Acquaintances")
-    group(:name => "Family")
-    group(:name => "Work")
+  def seed_aspects
+    aspect(:name => "Acquaintances")
+    aspect(:name => "Family")
+    aspect(:name => "Work")
   end
 
   protected
