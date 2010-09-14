@@ -30,25 +30,25 @@
   });
 
 = content_for :page_title do
-  = link_to "Photo", @photo
+  = link_to "◂ #{@photo.album.name}", @photo.album
 
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
+- content_for :publish do
+  %h1
+    = @photo.image
 
-%h1.big_text
-  = @photo.image
-
-  .right
-    -if current_user.owns? @album
-      = link_to 'Edit Photo', edit_photo_path(@photo), :class => "button"
-
-.sub_header
   = link_to "<< prev", url_to_prev(@photo, @album)
   |
   = link_to "full size", @photo.url
   |
   = link_to "next >>", url_to_next(@photo, @album)
+
+  .right
+    -if current_user.owns? @album
+      = link_to 'Edit Photo', edit_photo_path(@photo), :class => "button"
+
 
 %div{:id => @photo.id}
   #show_photo
