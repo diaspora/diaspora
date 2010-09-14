@@ -24,13 +24,14 @@
     });
 
 = content_for :page_title do
-  = link_to "Albums", albums_path
+  = link_to "Home", aspects_path
 
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
 - content_for :publish do
-  %br
+  %h1
+    Albums
   = link_to 'New Album', '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
 .yo{:style => "display:none;" }

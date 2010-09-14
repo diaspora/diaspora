@@ -25,20 +25,18 @@
   });
 
 = content_for :page_title do
-  = link_to @album.name, @album
+  = link_to "Albums", albums_path
 
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
 - content_for :publish do
-  -if current_user.owns? @album
-    =render 'photos/new_photo'
+  %h1
+    = @album.name
+  ="updated #{how_long_ago(@album)}"
 
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
-
-.sub_header
-  ="updated #{how_long_ago(@album)}"
 
 -unless current_user.owns? @album
   %h4= "by #{@album.person.real_name}"
@@ -47,6 +45,8 @@
   - for photo in @album_photos
     .image_thumb
       = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
+  -if current_user.owns? @album
+    =render 'photos/new_photo'
 
 #content_bottom
   .back
