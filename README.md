@@ -4,20 +4,37 @@ Diaspora
 The privacy aware, personally controlled, do-it-all, open source social network.
 
 
-Getting started
----------------
+Preparing your system
+---------------------
 
 In order to run Diaspora for development, there are a few external dependencies in getting your environment set up:
 
-- [MongoDB](http://www.mongodb.org/downloads) - noSQL data layer.
-- [OpenSSL](http://www.openssl.org/source/) - Used in the current encryption implementation.
-- [ImageMagick](http://www.imagemagick.org/script/binary-releases.php?ImageMagick=0nfesabhe916b9afjc4qiikv03) - Image processing library used to resize uploaded photos.
+- [Ruby](http://www.ruby-lang.org) - The Ruby programming language.  (We're using 1.8.  Comes preinstalled on Mac OS X.)
+- [MongoDB](http://www.mongodb.org) - A snappy noSQL database.
+- [OpenSSL](http://www.openssl.org/) - An encryption implementation.  (Comes preinstalled on Mac OS X and later versions of Ubuntu.)
+- [ImageMagick](http://www.imagemagick.org/) - An Image processing library used to resize uploaded photos.
+- [Git](http://git-scm.com/) - The fast version controll system.
+
+We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Debian, just use Synaptic (it comes pre-installed).
+
+
+After you have Ruby installed on your system, you will need to get Bundler.
+
 - [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
 
+Getting Diaspora
+----------------
+
+To download Diaspora, you will want to clone it from the official github repository [here](http://github.com/diaspora/diaspora).  If you have never used github before, their [help desk](http://help.github.com/) has a pretty awesome guide on getting setup[.](http://www.youtube.com/watch?v=OQSNhk5ICTI)
+
+
+Running Diaspora
+----------------
+
 After installing the above, run the following command from where mongo is installed to start mongo.
-		sudo bin/mongod
-Diaspora will **not run** until mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.  It is highly recommended you alias the command to start the database in your .bashrc file.
+		sudo mongod
+Diaspora will **not run** unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 In order to start the app server for the first time, bundler needs to grab Diaspora's gem depencencies.  To allow this, run the following command from Diaspora's root directory.  
 		bundle install
