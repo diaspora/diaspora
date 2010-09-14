@@ -24,7 +24,7 @@ class AlbumsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @albums = Album.mine_or_friends(params[:friends], current_user).paginate :page => params[:page], :order => 'created_at DESC'
+    @albums = current_user.albums_by_aspect(@aspect)
     respond_with @albums
   end
   

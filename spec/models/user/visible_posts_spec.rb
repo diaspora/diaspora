@@ -77,6 +77,10 @@ describe User do
         @user.reload
       end
 
+      it 'should find all albums if passed :all' do
+        @user.albums_by_aspect(:all).size.should == 3
+      end
+
       it 'should return the right number of albums' do
         @user.albums_by_aspect(@aspect).size.should == 2
         @user.albums_by_aspect(@aspect2).size.should == 1

@@ -79,7 +79,7 @@ module Diaspora
       end
 
       def albums_by_aspect aspect
-        aspect.posts.find_all_by__type("Album")
+        aspect == :all ? raw_visible_posts.find_all_by__type("Album") : aspect.posts.find_all_by__type("Album")
       end
     end
   end
