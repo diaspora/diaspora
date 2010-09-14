@@ -22,15 +22,7 @@ class RequestsController < ApplicationController
   include RequestsHelper 
 
   respond_to :html
-  respond_to :json, :only => :index
 
-  def index
-    @remote_requests = Request.for_user current_user
-    @request         = Request.new
-
-    respond_with @remote_requests
-  end
-  
   def destroy
     if params[:accept]
       if params[:aspect_id]
