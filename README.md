@@ -9,7 +9,7 @@ Preparing your system
 
 In order to run Diaspora for development, there are a few external dependencies in getting your environment set up:
 
-- [Ruby](http://www.ruby-lang.org) - The Ruby programming language.  (We're using 1.8.  Comes preinstalled on Mac OS X.)
+- [Ruby](http://www.ruby-lang.org) - The Ruby programming language.  __(We're using 1.8.  Comes preinstalled on Mac OS X.)__
 - [MongoDB](http://www.mongodb.org) - A snappy noSQL database.
 - [OpenSSL](http://www.openssl.org/) - An encryption implementation.  (Comes preinstalled on Mac OS X and later versions of Ubuntu.)
 - [ImageMagick](http://www.imagemagick.org/) - An Image processing library used to resize uploaded photos.
@@ -59,4 +59,16 @@ There are multiple outlets of ongoing discussion on the development of Diaspora.
 - [#diaspora-dev](irc://irc.freenode.net/#diaspora-dev)
 
 More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
+
+
+License
+-------
+Copyright 2010 Diaspora Inc.
+
+Diaspora is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Diaspora is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.  
+
 
