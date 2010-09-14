@@ -53,8 +53,8 @@ class AspectsController < ApplicationController
     respond_with @aspect
   end
 
-  def edit
-    @aspects = current_user.aspects
+  def manage
+    @aspect = :manage
     @remote_requests = Request.for_user current_user
   end
 

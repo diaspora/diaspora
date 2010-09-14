@@ -1,0 +1,20 @@
+#aspect_header
+  .container
+    .span-5.last
+      - if @person
+        %h1
+          = @person.real_name
+      - else
+        %h1
+          - if @aspect == :all
+            = link_to "All Aspects", root_path
+          - elsif @aspect == :manage
+            = link_to "Manage Aspects", root_path
+          - else
+            = link_to @aspect.name, @aspect
+
+      .page_title
+        = yield :page_title
+
+    .span-19.last{ :style => "position:relative;" }
+      = yield :publish

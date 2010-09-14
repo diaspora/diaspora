@@ -20,7 +20,7 @@
 module ApplicationHelper
   
   def current_aspect?(aspect)
-    @aspect != :all && @aspect.id == aspect.id
+    !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
   
   def object_path(object, opts = {})
