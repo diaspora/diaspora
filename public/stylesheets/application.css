@@ -119,20 +119,21 @@ header {
           margin-right: 0; }
   header #aspect_header {
     z-index: 5;
-    text-shadow: 0 2px 0 white;
     background-color: #eeeeee;
     border-top: 1px solid #555555;
-    height: 85px; }
+    padding: 20px 0; }
     header #aspect_header h1 {
       margin-bottom: 0;
-      margin-top: 15px; }
+      text-shadow: 0 2px 0 white; }
     header #aspect_header a {
       color: #111111; }
       header #aspect_header a:hover {
         background: none;
         color: #333333; }
     header #aspect_header .page_title {
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 white;
+      margin-top: -5px; }
 
 ul#stream {
   margin: 0;
@@ -327,9 +328,7 @@ label {
 
 #publisher {
   color: #999999;
-  position: relative;
-  height: 63px;
-  margin-top: 20px; }
+  position: relative; }
   #publisher .avatar {
     float: left;
     margin-right: 15px; }
@@ -347,6 +346,7 @@ label {
     width: 600px;
     height: 40px;
     margin-top: 0;
+    margin-bottom: 0;
     -webkit-box-shadow: 0 1px 0 white; }
   #publisher .button {
     margin-left: 100px; }

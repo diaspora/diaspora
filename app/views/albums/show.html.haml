@@ -30,17 +30,12 @@
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
+- content_for :publish do
+  -if current_user.owns? @album
+    =render 'photos/new_photo'
+
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
-
-%h1.big_text
-  = @album.name 
-
--if current_user.owns? @album
-  =render 'photos/new_photo'
-
-  .yo{:style => "display:none;"}
-    #new_photo_pane
 
 .sub_header
   ="updated #{how_long_ago(@album)}"

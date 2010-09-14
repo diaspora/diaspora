@@ -29,10 +29,8 @@
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
-%h1.big_text
-  Albums
-  .right
-    = link_to 'New Album', '#new_album_pane', {:class => "button", :id => "add_album_button"}
+- content_for :publish do
+  = link_to 'New Album', '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
 .yo{:style => "display:none;" }
   #new_album_pane

@@ -24,7 +24,7 @@ class AlbumsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @albums = current_user.albums_by_aspect(@aspect)
+    @albums = current_user.albums_by_aspect(@aspect).paginate
     respond_with @albums
   end
   

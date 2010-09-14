@@ -23,6 +23,9 @@
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
+- content_for :publish do
+  = render "shared/publisher", :aspect_ids => :all
+
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album
