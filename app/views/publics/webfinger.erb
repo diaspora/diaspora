@@ -2,7 +2,7 @@
 <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
   <Subject>acct:<%=@person.email%></Subject>
   <Alias>"<%= @person.url %>"</Alias>
-  <Link rel="http://microformats.org/profile/hcard" type="text/html" href="<%=@person.url%>/hcard/users/<%=@person.id%>"/>
+  <Link rel="http://microformats.org/profile/hcard" type="text/html" href="<%=@person.url%>hcard/users/<%=@person.id%>"/>
   <Link rel="http://joindiaspora.com/seed_location" type = 'text/html' href="<%=@person.url%>"/>
   <Link rel="http://joindiaspora.com/guid" type = 'text/html' href="<%=@person.id%>"/>
   <Link rel="diaspora-public-key" type = 'RSA' href="<%=Base64.encode64(@person.exported_key)%>"/>

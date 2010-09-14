@@ -25,9 +25,9 @@ describe RequestsController do
  render_views
   before do 
     @user = Factory.create :user
+    stub_success("tom@tom.joindiaspora.com")
+
     @tom = Redfinger.finger('tom@tom.joindiaspora.com')
-    @evan = Redfinger.finger('evan@status.net')
-    @max = Redfinger.finger('mbs348@gmail.com')
     sign_in :user, @user
     stub!(:current_user).and_return @user
   end

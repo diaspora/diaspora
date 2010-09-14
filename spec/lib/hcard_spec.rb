@@ -23,6 +23,7 @@ require File.dirname(__FILE__) + '/../../lib/hcard'
 
 describe HCard do
   it 'should retreive and parse an hcard' do
+    stub_success("tom@tom.joindiaspora.com")
     f = Redfinger.finger('tom@tom.joindiaspora.com')
     hcard = HCard.find f.hcard.first[:href]
     hcard[:family_name].include?("Hamiltom").should be true
