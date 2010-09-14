@@ -30,16 +30,12 @@
   = render "shared/aspect_friends"
 
 - content_for :publish do
+  %br
   = link_to 'New Album', '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
 .yo{:style => "display:none;" }
   #new_album_pane
-    = render "albums/new_album"
-
-.sub_header
-  %ul.button_set
-    %li{:class => ("selected" if params[:friends])}= friends_albums_link 
-    %li{:class => ("selected" if not params[:friends])}= your_albums_link
+    = render "albums/new_album", :aspect => params[:aspect]
 
 %div
   - for album in @albums
