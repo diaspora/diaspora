@@ -53,4 +53,4 @@ class UsersController < ApplicationController
       params[:profile][:image_url] = "http://" + request.host + ":" + request.port.to_s + params[:profile][:image_url]
     end
   end
-end 
+end

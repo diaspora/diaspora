@@ -46,7 +46,10 @@ class User
 
   many :aspects, :class_name => 'Aspect'
 
-  before_validation_on_create :setup_person
+  after_validation_on_create :setup_person
+  after_create :seed_groups
+  after_save :check_for_tommy
+
   before_validation :do_bad_things 
   before_save :downcase_username
   
@@ -61,6 +64,23 @@ class User
 
   ######## Making things work ########
   key :email, String
+  validates_true_for :email, :logic => lambda {self.allowed_email? unless email.nil?} 
+
+  
+  def allowed_email?
+    allowed_emails = ["@pivotallabs.com", "@joindiaspora.com", "@sofaer.net",
+      "wchulley@gmail.com", "kimfuh@yahoo.com", "CJichi@yahoo.com",
+      "madkisso@mit.edu", "bribak@msn.com", "asykley@verizon.net",
+      "paulhaeberli@gmail.com","bondovatic@gmail.com", "dixon1e@yahoo.com"]
+
+    allowed_emails.each{|allowed| 
+      if email.include?(allowed)
+        return true
+      end
+    }
+      false
+  end
+
   ensure_index :email
 
   def method_missing(method, *args)
@@ -313,10 +333,19 @@ class User
     "#{self.username}@#{self.terse_url}"
   end
 
+ 
   def do_bad_things
     self.password_confirmation = self.password
   end 
+ 
+  def seed_groups
+    group(:name => "Acquaintances")
+    group(:name => "Family")
+    group(:name => "Work")
+  end
 
+  protected
+  
   def setup_person
     self.person.serialized_key ||= User.generate_key.export
     self.person.email ||= email

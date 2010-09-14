@@ -45,7 +45,7 @@ end
 
 Factory.define :user do |u|
   u.sequence(:username) {|n| "bob#{n}"}
-  u.sequence(:email) {|n| "bob#{n}@aol.com"}
+  u.sequence(:email) {|n| "bob#{n}@pivotallabs.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
   u.person { |a| Factory.create(:person_with_user, :owner_id => a._id)} 
