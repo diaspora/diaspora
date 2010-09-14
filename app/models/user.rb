@@ -63,23 +63,6 @@ class User
 
   ######## Making things work ########
   key :email, String
-  validates_true_for :email, :logic => lambda {self.allowed_email? unless email.nil?} 
-
-  
-  def allowed_email?
-    allowed_emails = ["@pivotallabs.com", "@joindiaspora.com", "@sofaer.net",
-      "wchulley@gmail.com", "kimfuh@yahoo.com", "CJichi@yahoo.com",
-      "madkisso@mit.edu", "bribak@msn.com", "asykley@verizon.net",
-      "paulhaeberli@gmail.com","bondovatic@gmail.com", "dixon1e@yahoo.com"]
-
-    allowed_emails.each{|allowed| 
-      if email.include?(allowed)
-        return true
-      end
-    }
-      false
-  end
-
   ensure_index :email
 
   def method_missing(method, *args)

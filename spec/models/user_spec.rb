@@ -35,20 +35,6 @@ describe User do
     user3.created_at.nil?.should be false
   end
 
-  it 'should not create with disallowed emails' do
-    proc {
-      user1 = Factory.create(:user, :email => "kimuh@yahoo.com")
-    }.should raise_error /Validation failed/
-
-    proc {
-      user2 = Factory.create(:user, :email => "awesome@sobear.net")
-    }.should raise_error /Validation failed/
-    
-    proc {
-      user3 = Factory.create(:user, :email => "steveellis@pivotalabs.com")
-    }.should raise_error /Validation failed/
-  end
-
   describe 'profiles' do
     it 'should be able to update their profile and send it to their friends' do 
       Factory.create(:person)
