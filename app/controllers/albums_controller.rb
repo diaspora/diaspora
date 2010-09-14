@@ -24,15 +24,15 @@ class AlbumsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @aspect = current_user.aspect_by_id( params[:aspect] ) unless params[:aspect] == 'all'
     @albums = current_user.albums_by_aspect(@aspect).paginate
-    respond_with @albums
+    respond_with @albums, :aspect => @aspect
   end
   
   def create
+    aspect =  params[:album][:to]
     @album = current_user.post(:album, params[:album])
     flash[:notice] = "You've created an album called #{@album.name}."
-    respond_with @album
+    redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
   
   def new

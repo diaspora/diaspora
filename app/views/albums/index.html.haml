@@ -24,7 +24,7 @@
     });
 
 = content_for :page_title do
-  = link_to "◂ Home", aspects_path
+  = link_to "◂ Home", aspects_path, :aspect => params[:aspect]
 
 - content_for :left_pane do
   = render "shared/aspect_friends"

@@ -68,26 +68,7 @@
             %li= link_to "logout", destroy_user_session_path
 
         = render "shared/aspect_nav"
-
-      #aspect_header
-        .container
-          .span-5.last
-            - if @person
-              %h1
-                = @person.real_name
-            - else
-              - if @aspect == :all
-                %h1
-                  = link_to "All Aspects", root_path
-              - else
-                %h1
-                  = link_to @aspect.name, @aspect
-
-            .page_title
-              = yield :page_title
-
-          .span-19.last{ :style => "position:relative;" }
-            = yield :publish
+      = render "shared/sub_header"
 
     .container
       .span-5.last

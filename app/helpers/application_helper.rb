@@ -20,11 +20,11 @@
 module ApplicationHelper
   
   def current_aspect?(aspect)
-    @aspect != :all && @aspect.id == aspect.id
+    !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
   
-  def object_path(object)
-    eval("#{object.class.to_s.underscore}_path(object)")
+  def object_path(object, opts = {})
+    eval("#{object.class.to_s.underscore}_path(object, opts)")
   end
 
   def object_fields(object)
