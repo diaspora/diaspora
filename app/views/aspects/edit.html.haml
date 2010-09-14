@@ -32,37 +32,38 @@
           = image_tag(request.person.profile.image_url(:thumb_small)) unless request.person.profile.image_url.nil?
           .name
             = request.person.real_name
-
   %h1
     Ignore/Remove
 
   %li.remove
     %ul
 
-%ul#aspect_list
-
+- content_for :publish do
   .new_aspect= link_to("add a new aspect", "#add_aspect_pane", :id => "add_aspect_button", :title => "Add a new relation")
-- for aspect in @aspects
-  
-  %li.aspect
-    %h1{:contenteditable => true}= aspect.name
-    
-    %ul{:id => aspect.id}
-    
-      -if aspect.people.size < 1
-        %li.grey Drag to add people
 
-      -else
-        -for person in aspect.people
 
-          %li.person{:id => person.id, :from_aspect_id => aspect.id}
-            = person_image_tag(person)
-            .name
-              = person.real_name
-      = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
-      .yo{:style => 'display:none'}
-        %div{:id => "add_request_pane_#{aspect.id}"}
-          = render "requests/new_request", :aspect => aspect
+
+%ul#aspect_list
+  - for aspect in @aspects
+    %li.aspect
+      %h1{:contenteditable => true}= aspect.name
+      
+      %ul{:id => aspect.id}
+      
+        -if aspect.people.size < 1
+          %li.grey Drag to add people
+
+        -else
+          -for person in aspect.people
+
+            %li.person{:id => person.id, :from_aspect_id => aspect.id}
+              = person_image_tag(person)
+              .name
+                = person.real_name
+        = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+        .yo{:style => 'display:none'}
+          %div{:id => "add_request_pane_#{aspect.id}"}
+            = render "requests/new_request", :aspect => aspect
 
 %p
   %br
