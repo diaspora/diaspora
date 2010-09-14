@@ -24,10 +24,9 @@
   Search
 
 %p
-  =form_tag '/users', :method => "get" do
+  =form_tag '/people', :method => "get" do
     = text_field_tag :q
     = submit_tag "search"
-    = link_to "reset", users_path
 
 = (@people.count).to_s + search_or_index
 %table
@@ -49,7 +48,7 @@
 
         - elsif person.id == current_user.person.id
           %td
-          %td thats you!
+          %td that's you!
         -elsif current_user.pending_requests.find_by_person_id(person.id)
           %td 
           %td ^-you have a friend request from this person       
