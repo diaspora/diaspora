@@ -50,6 +50,7 @@ group :test do
   gem 'database_cleaner'
   gem 'saucelabs-adapter', '= 0.8.12'
   gem 'selenium-rc'
+  gem 'webmock'
 end
 
 group :development do

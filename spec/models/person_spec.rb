@@ -162,10 +162,14 @@ describe Person do
     end
 
     it 'should search by email exactly' do
+
+      stub_success("tom@tom.joindiaspora.com")
       Person.by_webfinger(@friend_one.email).should == @friend_one
     end
 
     it 'should create a stub for a remote user' do
+
+      stub_success("tom@tom.joindiaspora.com")
       tom = Person.by_webfinger('tom@tom.joindiaspora.com')
       tom.real_name.include?("Hamiltom").should be true
     end
