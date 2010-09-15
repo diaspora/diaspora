@@ -520,7 +520,7 @@ h1.big_text {
       position: absolute;
       top: 10px;
       right: 0;
-      display: none; }
+      display: inline; }
     .aspect .aspect_name:hover .tools,
     .requests .aspect_name:hover .tools,
     .remove .aspect_name:hover .tools {
