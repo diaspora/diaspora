@@ -28,6 +28,20 @@ $('#move_friends_link').live( 'click', function(){
 
 });
 
+function decrementRequestsCounter(){
+  var old_request_count = $(".new_requests").html().match(/\d+/);
+
+  if( old_request_count == 1 ) {
+    $(".new_requests").html(
+      $(".new_requests").html().replace(/ \(\d+\)/,''));
+
+  } else {
+    $(".new_requests").html(
+      $(".new_requests").html().replace(/\d+/,old_request_count-1));
+  }
+
+}
+
 $(function() {
   $("ul .person").draggable({
     revert: true
@@ -44,7 +58,10 @@ $(function() {
         $.ajax({
           type: "DELETE",
           url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
-          data: {"accept" : true  , "aspect_id" : $(this)[0].id }
+          data: {"accept" : true  , "aspect_id" : $(this)[0].id },
+          success: function(data){
+            decrementRequestsCounter();
+          }
         });
 
       }else {
@@ -72,7 +89,7 @@ $(function() {
           type: "DELETE",
           url: "/requests/" + ui.draggable[0].getAttribute('request_id')
         });
-        alert("Removed Request, proably want an undo countdown.")
+        decrementRequestsCounter();
         $(ui.draggable[0]).fadeOut('slow')
       }else{
         $.ajax({

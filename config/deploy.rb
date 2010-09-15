@@ -135,24 +135,6 @@ namespace :db do
     run "cd #{current_path} && bundle exec rake db:purge --trace RAILS_ENV=#{rails_env}"
   end
   
-
-  task :tom_seed, :roles => :tom do
-    run "cd #{current_path} && bundle exec rake db:seed:tom --trace RAILS_ENV=#{rails_env}"
-    run "curl -silent -u tom@tom.joindiaspora.com:evankorth http://tom.joindiaspora.com/zombiefriends"
-    backers.each do |backer|
-      run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/zombiefriendaccept"
-      #run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/set_profile_photo"
-    end
-
-  end
-
-  task :backer_seed, :roles => :backer do
-    (0..10).each { |n|
-      run "curl -silent http://localhost/set_backer_number?number=#{n}", :only => {:number => n}
-    }
-    run "cd #{current_path} && bundle exec rake db:seed:backer --trace RAILS_ENV=#{rails_env}"
-  end
-  
   task :reset do
     purge
   end

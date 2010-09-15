@@ -112,10 +112,10 @@ header
   :margin -2em
     :bottom 2em
   :color #000
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#000000), to(#333333))
-  :background -moz-linear-gradient(19% 75% 90deg, #333333, #000000) 
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#222))
+  :background -moz-linear-gradient(19% 75% 90deg, #222, #666)
   :background
-    :color #222
+    :color #666
   :padding 0
     :top 5px
   :border
@@ -164,7 +164,7 @@ header
     :background
       :color #eee
     :border
-      :top 1px solid #555
+      :top 1px solid #fff
     :padding 20px 0
 
     h1
@@ -633,21 +633,22 @@ h1.big_text
 
         &:hover
           :background
-            :color #555
+            :color #4e4e4e
           :color #ccc
 
       &.selected a
+        :text-shadow 0 2px 0 #fff
         :padding
-          :top 5px
-          :bottom 3px
+          :top 4px
+          :bottom 4px
         :line
           :height 18px
         :font
           :weight bold
         :background
           :color #eee
-        :border
-          :bottom 1px solid #eee
+        :border 1px solid #fff
+          :bottom none
         :color #000
         &:hover
           :background
