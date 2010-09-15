@@ -25,7 +25,7 @@ After you have Ruby installed on your system, you will need to get Rubygems, the
 
 To install Ruby 1.8.7 on **Ubuntu**, run the following command:
 
-			sudo apt-get install ruby-full
+		sudo apt-get install ruby-full
 
 If you're on **Mac OS X**, you already have Ruby on your system.  Yay!
 
@@ -33,24 +33,19 @@ If you're on **Mac OS X**, you already have Ruby on your system.  Yay!
 
 To install MongoDB on **Ubuntu**, run the following commands:
 
-		**Download**
 
-		- 32 bit
-			http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz
+If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz`.  If you're running a 64-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz`.
 
-		- 64 bit
-			http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz
-
-			# extract
-			tar xzf mongodb-linux-i686-1.4.0.tgz
-			# create the required data directory
-			sudo mkdir -p /data/db
-			sudo chmod -Rv 777 /data/
+		# extract
+		tar xzf mongodb-linux-i686-1.4.0.tgz
+		# create the required data directory
+		sudo mkdir -p /data/db
+		sudo chmod -Rv 777 /data/
 			
 
 To install MongoDB on **Mac OS X**, run the following:
 
-			brew install mongo
+		brew install mongo
 
 ### OpenSSL
 
@@ -62,25 +57,35 @@ To install ImageMagick on **Ubuntu**, run the following:
 
 To install ImageMagick on **Mac OS X**, run the following:
 
+		brew install imagemagick
+
 ### Git
 
 To install Git on **Ubuntu**, run the following:
 		
-			sudo apt-get install git
+		sudo apt-get install git-core
 
 To install Git on **Mac OS X**, run the following:
 
-			brew install git
+		brew install git
 
 
 ### Rubygems
 
-This step is OS-independent.
+On **Ubuntu**, run the following:
+
+		wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
+		tar -xf rubygems-1.3.7.tgz
+		cd rubygems-1.3.7
+		sudo ruby setup.rb
+		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+
+On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update it for use with the latest Bundler.  To update RubyGems, run `gem update --system`.
 
 
 ### Bundler
 
-This step is also OS-independent.
+After RubyGems is updated, simply run `gem install bundler` to get Bundler.
 
 
 ## Getting Diaspora
