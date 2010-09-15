@@ -442,8 +442,6 @@ h1.big_text {
   display: none; }
 
 #aspect_nav {
-  z-index: 4;
-  position: relative;
   color: black;
   margin-top: 8px;
   margin-bottom: 1px; }
@@ -460,10 +458,11 @@ h1.big_text {
       display: inline;
       margin-right: 0.5em; }
       #aspect_nav ul > li a {
+        line-height: 22px;
         background-color: #444444;
         border: 1px solid #555555;
         padding: 3px 8px;
-          padding-bottom: 2px;
+          padding-bottom: 3px;
         color: #999999; }
         #aspect_nav ul > li a:hover {
           background-color: #4e4e4e;
@@ -471,12 +470,12 @@ h1.big_text {
       #aspect_nav ul > li.selected a {
         text-shadow: 0 2px 0 white;
         padding-top: 4px;
-        padding-bottom: 4px;
+        padding-bottom: 5px;
         line-height: 18px;
         font-weight: bold;
         background-color: #eeeeee;
         border: 1px solid white;
-          border-bottom: none;
+          border-bottom: 1px solid #eeeeee;
         color: black; }
         #aspect_nav ul > li.selected a:hover {
           background-color: #efefef; }

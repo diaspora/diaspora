@@ -9,7 +9,7 @@
       %li{:id => aspect.id, :class => ("selected" if current_aspect?(aspect))}
         = link_for_aspect aspect
 
-  %ul{ :style => "position:absolute;right:0;bottom:0;"}
+  %ul{ :style => "position:absolute;right:0;bottom:0.01em;"}
     %li{:class => ("selected" if @aspect == :all)}
       = link_to "All Aspects", root_url
 
