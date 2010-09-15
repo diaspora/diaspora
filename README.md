@@ -91,12 +91,12 @@ On **Ubuntu**, run the following:
 		sudo ruby setup.rb
 		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
 
-On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update it for use with the latest Bundler.  To update RubyGems, run `gem update --system`.
+On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update it for use with the latest Bundler.  To update RubyGems, run `sudo gem update --system`.
 
 
 ### Bundler
 
-After RubyGems is updated, simply run `gem install bundler` to get Bundler.
+After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.
 
 
 ## Getting Diaspora
