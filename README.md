@@ -1,3 +1,10 @@
+## Commit Guidlines
+You are welcome to contribute, add and extend Diaspora however you see fit.  We will do our best to incorporate everything that meets our guidelines.
+
+All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec or Test-Unit.
+
+GEMS:  We would like to keep external dependencies unduplicated.  We're using Nokogiri, and Mongomapper, and EM::HttpRequest as much as possible.  We have a few gems in the project we'd rather not use, but if you can, use dependencies we already have.
+
 # Diaspora
 
 The privacy aware, personally controlled, do-it-all, open source social network.
@@ -123,15 +130,6 @@ Once mongo is running and bundler has finished, run `bundle exec thin start` fro
 
 ### Testing
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.
-
-
-## Commit Guidlines
-You are welcome to contribute, add and extend Diaspora however you see fit.  We will do our best to incorporate everything that meets our guidelines.
-
-All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec or Test-Unit, (depending on the functionality) so we can minimize diaspora’s requirements.
-
-GEMS:  if you are adding to diaspora, and want to maximize the speed of getting pulled back in, please use the libraries we are already using in the application  ie: Nokogiri for XML parsing, MongoMapper for database querying, EM:HttpRequest for http requests etc etc.  We currently have a few duplicate libraries which we used for the sake of “making it green”, but this duplication is high on our “wanted refactors” list.
-
 
 ## Resources
 
