@@ -11,6 +11,7 @@ remote_url = "http://tom.joindiaspora.com/"
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
                     :password => "evankorth",
+                    :password_confirmation => "evankorth",
                     :url => remote_url,
                     :person => {
                       :diaspora_handle => "tom@tom.joindiaspora.com",
@@ -22,6 +23,7 @@ user.person.save!
 
 user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                     :password => "evankorth",
+                    :password_confirmation => "evankorth",
                      :username => "korth",
                      :url => remote_url,
                     :person => { :diaspora_handle => "korth@tom.joindiaspora.com",

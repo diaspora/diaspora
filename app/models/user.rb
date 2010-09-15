@@ -39,7 +39,6 @@ class User
   after_create :set_diaspora_handle
   after_create :seed_aspects
 
-  before_validation :do_bad_things 
   before_save :downcase_username
   
    def self.find_for_authentication(conditions={})
@@ -313,10 +312,6 @@ class User
   def diaspora_handle
     "#{self.username}@#{self.terse_url}"
   end
-
-  def do_bad_things
-    self.password_confirmation = self.password
-  end 
 
   def setup_person
     self.person.serialized_key ||= User.generate_key.export

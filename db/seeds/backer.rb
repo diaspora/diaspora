@@ -24,6 +24,7 @@ def create
   user = User.create(:email => "#{username}@#{username}.joindiaspora.com",
                      :username => username,
                      :password => "#{username+backer_info[backer_number]['pin'].to_s}",
+                     :password_confirmation => "#{username+backer_info[backer_number]['pin'].to_s}",
                      :url=> "http://#{username}.joindiaspora.com/",
                      :person => Person.new(
                        :diaspora_handle => "#{username}@#{username}.joindiaspora.com",
