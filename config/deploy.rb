@@ -30,7 +30,7 @@ set :deploy_to, all['deploy_to']
 set :scm, :git
 set :user, all['user'] 
 #set :user, ARGV[0]
-set :password, all['password']
+set :password, all['password'] if all['password']
 set :scm_verbose, true
 set :repository, all['repo']
 set :branch, all['branch']
