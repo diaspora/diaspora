@@ -32,7 +32,9 @@ class User
 
   many :aspects, :class_name => 'Aspect'
 
-  before_validation_on_create :setup_person
+  after_validation_on_create :setup_person
+  after_create :seed_aspects
+
   before_validation :do_bad_things 
   before_save :downcase_username
   
@@ -299,10 +301,19 @@ class User
     "#{self.username}@#{self.terse_url}"
   end
 
+ 
   def do_bad_things
     self.password_confirmation = self.password
   end 
+ 
+  def seed_aspects
+    aspect(:name => "Acquaintances")
+    aspect(:name => "Family")
+    aspect(:name => "Work")
+  end
 
+  protected
+  
   def setup_person
     self.person.serialized_key ||= User.generate_key.export
     self.person.email ||= email

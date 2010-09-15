@@ -52,8 +52,7 @@ describe Aspect do
 
     it 'belong to a user' do
       @aspect.user.id.should == @user.id
-      @user.aspects.size.should == 1
-      @user.aspects.first.id.should == @aspect.id
+      @user.aspects.size.should == 4
     end
 
     it 'should have people' do

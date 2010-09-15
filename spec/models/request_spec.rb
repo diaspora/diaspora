@@ -20,7 +20,6 @@ describe Request do
   end
 
   it 'should generate xml for the User as a Person' do 
-
     request = @user.send_friend_request_to Factory.create(:person), @aspect
 
     xml = request.to_xml.to_s
