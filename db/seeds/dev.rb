@@ -12,6 +12,7 @@ url = "http://#{host}/"
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
                     :password => "evankorth",
+                    :url=> "http://#{username}.joindiaspora.com/"
                     :person => Person.new(
                       :diaspora_handle => "tom@tom.joindiaspora.com",
                       :url => url,
@@ -21,6 +22,7 @@ user.person.save!
 
 user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                      :username => "korth",
+                     :url=> "http://#{username}.joindiaspora.com/"
                     :password => "evankorth",
                     :person => Person.new( :diaspora_handle => "korth@tom.joindiaspora.com",
                                           :url => url, 
