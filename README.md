@@ -3,23 +3,32 @@
 The privacy aware, personally controlled, do-it-all, open source social network.
 
 **DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
-These instructions are designed for machines running [Ubuntu](http://www.ubuntu.com/) or Mac OS X.
+These instructions are for machines running [Ubuntu](http://www.ubuntu.com/) or Mac OS X.
 
 ## Preparing your system
 In order to run Diaspora, you will need to download the following dependencies (specific instructions follow):
 
-- [Ruby](http://www.ruby-lang.org) - The Ruby programming language.  (We're using 1.8.  It comes preinstalled on Mac OS X.)
+- Build Tools - Packages needed to compile the components that follow.
+- [Ruby](http://www.ruby-lang.org) - The Ruby programming language.  (We're using **1.8.7**.  It comes preinstalled on Mac OS X.)
 - [MongoDB](http://www.mongodb.org) - A snappy noSQL database.
-- [OpenSSL](http://www.openssl.org/) - An encryption implementation.  (It comes preinstalled on Mac OS X and later versions of Ubuntu.)
+- [OpenSSL](http://www.openssl.org/) - An encryption library.  (It comes preinstalled on Mac OS X and Ubuntu.)
 - [ImageMagick](http://www.imagemagick.org/) - An Image processing library used to resize uploaded photos.
-- [Git](http://git-scm.com/) - The fast version controll system.
+- [Git](http://git-scm.com/) - The fast version control system.
 
-After you have Ruby installed on your system, you will need to get Rubygems, then install Bundler:
+After you have Ruby installed on your system, you will need to get RubyGems, then install Bundler:
 
 - [RubyGems](http://rubygems.org/) - Source for Ruby gems.
 - [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
-**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed).  The below instructions assume you have these installed.**  
+**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed).  The instructions below assume you have these installed.**  
+
+### Build Tools
+
+To install build tools on **Ubuntu**, run the following (includes the gcc and xml parsing dependencies):
+
+		sudo apt-get install build-essential libxslt1.1 libxslt1-dev libxml2
+
+To install build tools on **Mac OS X**, you need to download and install [Xcode](http://developer.apple.com/technologies/tools/xcode.html).
 
 ### Ruby
 
@@ -97,7 +106,7 @@ To download Diaspora, you will want to clone it from the official github reposit
 ## Running Diaspora
 
 ### Install required gems
-In order to start the app server for the **first time**, bundler needs to grab Diaspora's gem depencencies.  To allow this, run `bundle install` from Diaspora's root directory.  
+To start the app server for the **first time**, Bundler needs to grab Diaspora's gem depencencies.  To allow this, run `bundle install` from Diaspora's root directory.  
 
 It is important to run a bundle install every so often, in the event of a new gem dependency.  We will make sure to make an announcement in the event of a gem change.
 
