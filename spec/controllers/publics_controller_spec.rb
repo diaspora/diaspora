@@ -60,7 +60,7 @@ describe PublicsController do
     end
 
     it 'should add the pending request to the right user if the target person does not exist locally' do 
-      Person.should_receive(:by_webfinger).with(@user2.person.email).and_return(@user2.person)
+      Person.should_receive(:by_webfinger).with(@user2.person.diaspora_handle).and_return(@user2.person)
       @user2.person.delete
       @user2.delete
       post :receive, :id => @user.person.id, :xml => @xml

@@ -32,7 +32,7 @@
 
       - else
         You don't have any photos!  Go to the
-        = link_to "albums", albums_path
+        = link_to "albums", albums_path(:aspect => 'all')
         page to upload some.
 
     =will_paginate @photos

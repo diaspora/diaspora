@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <XRD xmlns="http://docs.oasis-open.org/ns/xri/xrd-1.0">
-  <Subject>acct:<%=@person.email%></Subject>
+  <Subject>acct:<%=@person.diaspora_handle%></Subject>
   <Alias>"<%= @person.url %>"</Alias>
   <Link rel="http://microformats.org/profile/hcard" type="text/html" href="<%=@person.url%>hcard/users/<%=@person.id%>"/>
   <Link rel="http://joindiaspora.com/seed_location" type = 'text/html' href="<%=@person.url%>"/>

@@ -3,7 +3,7 @@
 The privacy aware, personally controlled, do-it-all, open source social network.
 
 **DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
-These instructions are for machines running [Ubuntu](http://www.ubuntu.com/) or Mac OS X.
+These instructions are for machines running [Ubuntu](http://www.ubuntu.com/) or Mac OS X.  We are developing Diaspora for the latest and greatest browsers, so please update your Firefox, Chrome or Safari to the latest and greatest.
 
 ## Preparing your system
 In order to run Diaspora, you will need to download the following dependencies (specific instructions follow):

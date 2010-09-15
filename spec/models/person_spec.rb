@@ -15,8 +15,8 @@ describe Person do
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
-  it 'should not allow two people with the same email' do
-    person_two = Factory.build(:person, :url => @person.email)
+  it 'should not allow two people with the same diaspora_handle' do
+    person_two = Factory.build(:person, :url => @person.diaspora_handle)
     person_two.valid?.should == false
   end
 
@@ -147,10 +147,10 @@ describe Person do
       people.include?(@friend_three).should == false
     end
 
-    it 'should search by email exactly' do
+    it 'should search by diaspora_handle exactly' do
 
       stub_success("tom@tom.joindiaspora.com")
-      Person.by_webfinger(@friend_one.email).should == @friend_one
+      Person.by_webfinger(@friend_one.diaspora_handle).should == @friend_one
     end
 
     it 'should create a stub for a remote user' do

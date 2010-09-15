@@ -15,7 +15,7 @@ describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @aspect = @user.aspect(:name => 'spies')
-    @person = Factory.create(:person_with_private_key, :email => "bill@gates.com")
+    @person = Factory.create(:person_with_private_key, :diaspora_handle => "bill@gates.com")
     @user2 = Factory.create(:user)
   end
 
@@ -25,7 +25,7 @@ describe Diaspora::Parser do
     end
     
      it 'should be able to correctly handle comments with person in db' do
-      person = Factory.create(:person, :email => "test@testing.com")
+      person = Factory.create(:person, :diaspora_handle => "test@testing.com")
       post = Factory.create(:status_message, :person => @user.person)
       comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
       xml = comment.to_diaspora_xml 
@@ -49,7 +49,7 @@ describe Diaspora::Parser do
       
       parsed_person = Diaspora::Parser::parse_or_find_person_from_xml(xml)
       parsed_person.save.should be true
-      parsed_person.email.should == commenter.person.email
+      parsed_person.diaspora_handle.should == commenter.person.diaspora_handle
       parsed_person.profile.should_not be_nil
     end
     

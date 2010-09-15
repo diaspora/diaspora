@@ -13,7 +13,7 @@ user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
                     :password => "evankorth",
                     :person => Person.new(
-                      :email => "tom@tom.joindiaspora.com",
+                      :diaspora_handle => "tom@tom.joindiaspora.com",
                       :url => url,
                       :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
                   )
@@ -22,7 +22,7 @@ user.person.save!
 user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                      :username => "korth",
                     :password => "evankorth",
-                    :person => Person.new( :email => "korth@tom.joindiaspora.com",
+                    :person => Person.new( :diaspora_handle => "korth@tom.joindiaspora.com",
                                           :url => url, 
                                           :profile => Profile.new( :first_name => "Evan",
                                                                   :last_name => "Korth")))

@@ -25,7 +25,7 @@ def create
                      :username => username,
                      :password => "#{username+backer_info[backer_number]['pin'].to_s}",
                      :person => Person.new(
-                       :email => "#{username}@#{username}.joindiaspora.com",
+                       :diaspora_handle => "#{username}@#{username}.joindiaspora.com",
                        :profile => Profile.new( :first_name => backer_info[backer_number]['given_name'], :last_name => backer_info[backer_number]['family_name'], 
                                              :image_url => "http://#{username}.joindiaspora.com/images/user/#{username}.jpg"),
                        :url=> "http://#{username}.joindiaspora.com/")
