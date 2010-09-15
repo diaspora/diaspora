@@ -30,18 +30,10 @@ class Person
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-  after_create :ensure_diaspora_handle
   validates_presence_of :url, :profile, :serialized_key 
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
-  
-  def ensure_diaspora_handle
-    if self.owner?
-      self.diaspora_handle = self.owner.diaspora_handle
-      self.save
-    end
-  end
   
   def self.search(query)
     Person.all('$where' => "function() { return this.diaspora_handle.match(/^#{query}/i) ||

@@ -1,3 +1,10 @@
+## Commit Guidlines
+You are welcome to contribute, add and extend Diaspora however you see fit.  We will do our best to incorporate everything that meets our guidelines.
+
+All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec or Test-Unit.
+
+GEMS:  We would like to keep external dependencies unduplicated.  We're using Nokogiri, and Mongomapper, and EM::HttpRequest as much as possible.  We have a few gems in the project we'd rather not use, but if you can, use dependencies we already have.
+
 # Diaspora
 
 The privacy aware, personally controlled, do-it-all, open source social network.
@@ -109,29 +116,18 @@ If you have never used github before, their [help desk](http://help.github.com/)
 ## Running Diaspora
 
 ### Install required gems
-To start the app server for the **first time**, Bundler needs to grab Diaspora's gem depencencies.  To allow this, run `bundle install` from Diaspora's root directory.  
-
-It is important to run a bundle install every so often, in the event of a new gem dependency.  We will make sure to make an announcement in the event of a gem change.
+To start the app server for the first time, you need to use Bundler to install Diaspora's gem depencencies.  Run `bundle install` from Diaspora's root directory.  Bundler will also warn you if there is a new dependency and you need to bundle install again.
 
 ### Start Mongo
 After installing the above, run `sudo mongod` from where mongo is installed to start mongo.
 		
-Diaspora will **not run** unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
+Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
 Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode[.](http://bit.ly/9mwtUw)
 
 ### Testing
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.
-
-
-## Commit Guidlines
-You are welcome to contribute, add and extend Diaspora however you see fit.  We will do our best to incorporate everything that meets our guidelines.
-
-All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec or Test-Unit, (depending on the functionality) so we can minimize diaspora’s requirements.
-
-GEMS:  if you are adding to diaspora, and want to maximize the speed of getting pulled back in, please use the libraries we are already using in the application  ie: Nokogiri for XML parsing, MongoMapper for database querying, EM:HttpRequest for http requests etc etc.  We currently have a few duplicate libraries which we used for the sake of “making it green”, but this duplication is high on our “wanted refactors” list.
-
 
 ## Resources
 
