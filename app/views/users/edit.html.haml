@@ -21,7 +21,7 @@
 
       - unless @photos.nil? || @photos.empty?
         - for photo in @photos
-          - if photo.url(:thumb_medium) == @profile.image_url.sub(@user.url,'/')
+          - if @profile.image_url && (photo.url(:thumb_medium) == @profile.image_url.sub(@user.url,'/'))
             %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
               = check_box_tag 'checked_photo', true, true
               = link_to image_tag(photo.url(:thumb_medium)), "#"
