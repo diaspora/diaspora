@@ -22,7 +22,7 @@
   = javascript_include_tag 'aspect-edit.js'
 
 - content_for :left_pane do
-  %h3
+  %h1
     Requests
 
   .requests
@@ -46,7 +46,14 @@
 %ul#aspect_list
   - for aspect in @aspects
     %li.aspect
-      %h1{:contenteditable => true}= aspect.name
+      
+      .aspect_name
+        %h1{:contenteditable => true}= aspect.name
+
+        .tools
+          = link_to "add a new friend", "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+          |
+          = link_to "show", aspect_path(aspect)
       
       %ul{:id => aspect.id}
       
@@ -60,7 +67,6 @@
               = person_image_tag(person)
               .name
                 = person.real_name
-        = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
         .yo{:style => 'display:none'}
           %div{:id => "add_request_pane_#{aspect.id}"}
             = render "requests/new_request", :aspect => aspect

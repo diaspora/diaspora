@@ -507,20 +507,33 @@ h1.big_text {
 .requests,
 .remove {
   list-style: none; }
-  .aspect h3,
-  .requests h3,
-  .remove h3 {
+  .aspect h1,
+  .requests h1,
+  .remove h1 {
     display: inline-block; }
+  .aspect .aspect_name,
+  .requests .aspect_name,
+  .remove .aspect_name {
+    position: relative; }
+    .aspect .aspect_name .tools,
+    .requests .aspect_name .tools,
+    .remove .aspect_name .tools {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      display: none; }
+    .aspect .aspect_name:hover .tools,
+    .requests .aspect_name:hover .tools,
+    .remove .aspect_name:hover .tools {
+      display: inline; }
   .aspect ul,
   .requests ul,
   .remove ul {
     min-height: 20px;
     margin: 0;
-      margin-left: 1em;
       margin-bottom: 25px;
     background-color: #efefef;
     border: 1px solid #cccccc;
-    border-radius: 3px;
     list-style: none;
     padding: 15px; }
   .aspect .person,
@@ -530,26 +543,39 @@ h1.big_text {
   .remove .person,
   .remove .requested_person {
     display: inline-block;
-    margin-left: 0;
     padding: 5px;
     cursor: move;
     margin: 5px;
-    background-color: #cccccc;
-    -webkit-border-radius: 3px;
+    z-index: 10;
     text-align: center;
-    width: 75px;
-    height: 75px;
-    padding: 5px;
-    border: 1px solid #999999; }
+    width: 125px;
+    height: 120px; }
     .aspect .person img,
     .aspect .requested_person img,
     .requests .person img,
     .requests .requested_person img,
     .remove .person img,
     .remove .requested_person img {
-      height: 50px;
-      width: 50px;
+      height: 100px;
+      width: 100px;
       display: inline-block; }
+    .aspect .person:active,
+    .aspect .requested_person:active,
+    .requests .person:active,
+    .requests .requested_person:active,
+    .remove .person:active,
+    .remove .requested_person:active {
+      z-index: 20;
+      color: #666666; }
+      .aspect .person:active img,
+      .aspect .requested_person:active img,
+      .requests .person:active img,
+      .requests .requested_person:active img,
+      .remove .person:active img,
+      .remove .requested_person:active img {
+        -webkit-box-shadow: 0 1px 3px #333333;
+        -moz-box-shadow: 0 2px 4px #333333;
+        opacity: 0.9; }
     .aspect .person .grey,
     .aspect .requested_person .grey,
     .requests .person .grey,
