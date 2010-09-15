@@ -85,9 +85,9 @@ header {
   margin: -2em;
     margin-bottom: 2em;
   color: black;
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(black), to(#333333));
-  background: -moz-linear-gradient(19% 75% 90deg, #333333, black);
-  background-color: #222222;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#222222));
+  background: -moz-linear-gradient(19% 75% 90deg, #222222, #666666);
+  background-color: #666666;
   padding: 0;
     padding-top: 5px;
   border-bottom: 1px solid #cccccc; }
@@ -120,7 +120,7 @@ header {
   header #aspect_header {
     z-index: 5;
     background-color: #eeeeee;
-    border-top: 1px solid #555555;
+    border-top: 1px solid white;
     padding: 20px 0; }
     header #aspect_header h1 {
       margin-bottom: 0;
@@ -469,15 +469,17 @@ h1.big_text {
           padding-bottom: 2px;
         color: #999999; }
         #aspect_nav ul > li a:hover {
-          background-color: #555555;
+          background-color: #4e4e4e;
           color: #cccccc; }
       #aspect_nav ul > li.selected a {
-        padding-top: 5px;
-        padding-bottom: 3px;
+        text-shadow: 0 2px 0 white;
+        padding-top: 4px;
+        padding-bottom: 4px;
         line-height: 18px;
         font-weight: bold;
         background-color: #eeeeee;
-        border-bottom: 1px solid #eeeeee;
+        border: 1px solid white;
+          border-bottom: none;
         color: black; }
         #aspect_nav ul > li.selected a:hover {
           background-color: #efefef; }
