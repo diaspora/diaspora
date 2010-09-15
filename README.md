@@ -116,14 +116,12 @@ If you have never used github before, their [help desk](http://help.github.com/)
 ## Running Diaspora
 
 ### Install required gems
-To start the app server for the **first time**, Bundler needs to grab Diaspora's gem depencencies.  To allow this, run `bundle install` from Diaspora's root directory.  
-
-It is important to run a bundle install every so often, in the event of a new gem dependency.  We will make sure to make an announcement in the event of a gem change.
+To start the app server for the first time, you need to use Bundler to install Diaspora's gem depencencies.  Run `bundle install` from Diaspora's root directory.  Bundler will also warn you if there is a new dependency and you need to bundle install again.
 
 ### Start Mongo
 After installing the above, run `sudo mongod` from where mongo is installed to start mongo.
 		
-Diaspora will **not run** unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
+Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
 Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode[.](http://bit.ly/9mwtUw)
