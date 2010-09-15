@@ -23,6 +23,7 @@ class Person
   include MongoMapper::Document
   include ROXML
   include Encryptor::Public
+  include Diaspora::Socketable
 
   xml_accessor :_id
   xml_accessor :email
