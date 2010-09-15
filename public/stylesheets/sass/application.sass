@@ -216,12 +216,13 @@ li.message
     :background #eee
     
   .content
+    :padding
+      :left 65px
+
     span.from
       :color #000
       :font
         :weight normal
-      :margin
-        :right 0.2em
       :font
         :size 110%
 
@@ -282,10 +283,6 @@ form
     :height 30px
     :margin
       :right 10px
-
-#stream ul.comment_set
-  :padding 0
-    :left 65px
 
 input.comment_submit
   :display none

@@ -16,7 +16,9 @@
       = link_to(how_long_ago(post), object_path(post))
       \--
       = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
+
     = render   "comments/comments", :post => post 
+
 
   - if current_user.owns?(post)
     .destroy_link

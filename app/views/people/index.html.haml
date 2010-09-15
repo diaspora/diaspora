@@ -3,16 +3,16 @@
 -#   the COPYRIGHT file.
 
 
-%h1.big_text
-  .back
-    = link_to "⇧ home", root_path
+- content_for :publish do
+  %h1
+    Search
 
-  Search
-
-%p
   =form_tag '/people', :method => "get" do
     = text_field_tag :q
     = submit_tag "search"
+
+- content_for :left_pane do
+  \.
 
 = (@people.count).to_s + search_or_index
 %table

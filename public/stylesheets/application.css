@@ -156,14 +156,15 @@ li.message {
     margin-right: 15px; }
   li.message .delete:hover {
     background: #eeeeee; }
-  li.message .content span.from {
-    color: black;
-    font-weight: normal;
-    margin-right: 0.2em;
-    font-size: 110%; }
-  li.message .content div.info {
-    color: #bababa;
-    font-size: 70%; }
+  li.message .content {
+    padding-left: 65px; }
+    li.message .content span.from {
+      color: black;
+      font-weight: normal;
+      font-size: 110%; }
+    li.message .content div.info {
+      color: #bababa;
+      font-size: 70%; }
 
 form {
   position: relative;
@@ -204,10 +205,6 @@ form {
     width: 30px;
     height: 30px;
     margin-right: 10px; }
-
-#stream ul.comment_set {
-  padding: 0;
-    padding-left: 65px; }
 
 input.comment_submit {
   display: none;
