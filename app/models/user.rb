@@ -263,8 +263,6 @@ class User
       person = Diaspora::Parser.owner_id_from_xml xml
       person.profile = object
       person.save  
-      
-      object.socket_to_uid(id, :aspect_ids => aspect_ids) if object.respond_to?(:socket_to_uid)
 
     elsif object.is_a?(Comment) 
       object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
