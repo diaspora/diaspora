@@ -16,11 +16,6 @@
 #    along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-#    Copyright (c) 2010, [Diaspora copyright holder(s)].  This file is
-#    licensed under the Affero General Public License version 3.  See
-#    the COPYRIGHT file.
-
-
 class AlbumsController < ApplicationController
   before_filter :authenticate_user!
 
