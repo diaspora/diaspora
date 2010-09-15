@@ -49,8 +49,8 @@ $(function() {
             var old_request_count = $(".new_requests").html().match(/\d+/);
 
             alert( old_request_count );
-
-            $(".new_requests").html().replace(/\d+/,old_request_count-1);
+            $(".new_requests").html(
+              $(".new_requests").html().replace(/\d+/,old_request_count-1));
           }
         });
 
