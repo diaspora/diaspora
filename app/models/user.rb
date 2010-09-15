@@ -288,7 +288,7 @@ else
 
   ###Helpers############
   def self.instantiate!( opts = {} )
-    opts[:person][:diaspora_handle] = opts[:email]
+    #opts[:person][:diaspora_handle] = opts[:email]
     opts[:person][:serialized_key] = generate_key
     User.create!(opts)
   end
