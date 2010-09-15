@@ -100,7 +100,10 @@ After RubyGems is updated, simply run `gem install bundler` to get Bundler.
 
 
 ## Getting Diaspora
-To download Diaspora, you will want to clone it from the official github repository [here](http://github.com/diaspora/diaspora).  If you have never used github before, their [help desk](http://help.github.com/) has a pretty awesome guide on getting setup[.](http://www.youtube.com/watch?v=OQSNhk5ICTI)
+
+		git clone git@github.com:diaspora/diaspora.git
+
+If you have never used github before, their [help desk](http://help.github.com/) has a pretty awesome guide on getting setup[.](http://www.youtube.com/watch?v=OQSNhk5ICTI)
 
 
 ## Running Diaspora
