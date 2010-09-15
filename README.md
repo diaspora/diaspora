@@ -122,8 +122,11 @@ Once mongo is running and bundler has finished, run `bundle exec thin start` fro
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.
 
 
-## Getting Help
-There are multiple outlets of ongoing discussion on the development of Diaspora.
+## Resources
+
+We are maintaining a [public tracker project](http://www.pivotaltracker.com/projects/61641) and a [wishlist](#).
+
+Ongoing discussion:
 
 - [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
