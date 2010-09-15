@@ -1,0 +1,42 @@
+h1. Blueprint CSS Framework Authors and Contributors
+
+Blueprint is based on the work of many talented people. It is
+through their good intentions we are allowed to use many of the
+techniques found in the framework.
+
+h2. Current Team
+
+Blueprint was realized and maintained through version 0.7.1 by
+"Olav Bjorkoy":http://bjorkoy.com who has sinced passed the torch
+to the current team. They are:
+
+Admins:
+* "Christian Montoya":http://christianmontoya.net
+* "Josh Clayton":http://jdclayton.com
+
+Contributors:
+* "Glenn Rempe":http://blog.rempe.us/
+* "Chris Eppstein":http://twitter.com/chriseppstein
+* "Sean K. Stewart":http://seankstewart.com/
+
+h2. Original CSS authors
+
+The first iteration of Blueprint was built upon many conventions
+and ideas that were developed by true CSS experts.
+
+The grid and typography is based on work by:
+* "Jeff Croft":http://jeffcroft.com
+* "Nathan Borror":http://www.playgroundblues.com
+* "Christian Metts":http://mintchaos.com
+* "Wilson Miner":http://www.wilsonminer.com
+
+The CSS reset is based on work by:
+* "Eric Meyer":http://www.meyerweb.com/eric
+
+The Fancy Type plugin is based on work by:
+* "Mark Boulton":http://www.markboulton.co.uk
+* "Typogrify":http://typogrify.googlecode.com
+
+(However, remember that these people are not involved with the
+framework, so please don't waste their or your time asking them
+for support.)
