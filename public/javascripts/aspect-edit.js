@@ -22,7 +22,7 @@ $('#move_friends_link').live( 'click', function(){
     { 'moves' : $('#aspect_list').data() },
     function(){ $('#aspect_title').html("Groups edited successfully!");});
 
-  $(".person").css('background-color','white');
+  $(".person").css('background-color','none');
   $('#aspect_list').removeData();
   $(".person").attr('from_aspect_id', function(){return $(this).parent().attr('id')})
 
@@ -46,7 +46,7 @@ $(function() {
           url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
           data: {"accept" : true  , "aspect_id" : $(this)[0].id }
         });
-        alert("Sent the ajax, check it out!")
+
       }else {
         var move = {};
         move[ 'friend_id' ] = ui.draggable[0].id
@@ -54,7 +54,7 @@ $(function() {
         move[ 'from' ] = ui.draggable[0].getAttribute('from_aspect_id');
         if (move['to'] == move['from']){
           $('#aspect_list').data( ui.draggable[0].id, []);
-          ui.draggable.css('background-color','white');
+          ui.draggable.css('background-color','#eee');
         } else {
           $('#aspect_list').data( ui.draggable[0].id, move);
           ui.draggable.css('background-color','orange');
@@ -87,7 +87,7 @@ $(function() {
   });
 });
 
-$(".aspect h3").live( 'click', function() {
+$(".aspect h1").live( 'click', function() {
 
   var $this = $(this);
   var id    = $this.closest("li").children("ul").attr("id");
@@ -107,7 +107,7 @@ $(".aspect h3").live( 'click', function() {
     }
     //update all other aspect links
     $this.keyup(function(e) {
-      $("a[href='"+link+"']").text($this.text());
+      $("#aspect_nav a[href='"+link+"']").text($this.text());
     });
   });
 });
