@@ -82,7 +82,7 @@ module Salmon
     <entry xmlns='http://www.w3.org/2005/Atom'>
     <author>
       <name>#{@author.real_name}</name>
-      <uri>acct:#{@author.email}</uri>
+      <uri>acct:#{@author.owner.diaspora_handle}</uri>
     </author>
       #{@magic_sig.to_xml}
       </entry>
