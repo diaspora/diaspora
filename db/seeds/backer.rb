@@ -31,7 +31,7 @@ def create
                                              :image_url => "http://#{username}.joindiaspora.com/images/user/#{username}.jpg"),
                        :url=> "http://#{username}.joindiaspora.com/")
                     )
-  user.person.save
+  user.person.save!
 
   user.aspect(:name => "Presidents")
 end
