@@ -325,6 +325,7 @@ class User
   
   def set_diaspora_handle
     self.person.diaspora_handle ||= self.diaspora_handle
+    self.person.save
   end
 
   def downcase_username
