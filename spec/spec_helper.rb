@@ -38,6 +38,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.start
     stub_sockets
+    User.stub!(:allowed_email?).and_return(:true)
   end
 
   config.after(:each) do
