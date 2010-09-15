@@ -567,6 +567,7 @@ h1.big_text {
     .requests .requested_person:active,
     .remove .person:active,
     .remove .requested_person:active {
+      z-index: 20;
       color: #666666; }
       .aspect .person:active img,
       .aspect .requested_person:active img,
