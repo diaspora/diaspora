@@ -103,7 +103,7 @@ After RubyGems is updated, simply run `gem install bundler` to get Bundler.
 
 		git clone git@github.com:diaspora/diaspora.git
 
-If you have never used github before, their [help desk](http://help.github.com/) has a pretty awesome guide on getting setup[.](http://www.youtube.com/watch?v=OQSNhk5ICTI)
+If you have never used github before, their [help desk](http://help.github.com/) has a pretty awesome guide on getting setup.
 
 
 ## Running Diaspora
@@ -119,7 +119,7 @@ After installing the above, run `sudo mongod` from where mongo is installed to s
 Diaspora will **not run** unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
-Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode.
+Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode[.](http://bit.ly/9mwtUw)
 
 ### Testing
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.
