@@ -35,7 +35,8 @@ class User
   many :aspects, :class_name => 'Aspect'
 
 
-  after_create :setup_person
+  before_create :setup_person
+  after_create :set_diaspora_handle
 
   before_validation :do_bad_things 
   before_save :downcase_username
@@ -313,8 +314,11 @@ class User
 
   def setup_person
     self.person.serialized_key ||= User.generate_key.export
-    self.person.diaspora_handle ||= self.diaspora_handle
     self.person.save!
+  end
+  
+  def set_diaspora_handle
+    self.person.diaspora_handle ||= self.diaspora_handle
   end
 
   def downcase_username
