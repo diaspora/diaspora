@@ -15,7 +15,7 @@ Factory.define :profile do |p|
 end
 
 Factory.define :person do |p|
-  p.sequence(:email) {|n| "bob-person-#{n}@aol.com"}
+  p.sequence(:diaspora_handle) {|n| "bob-person-#{n}@aol.com"}
   p.sequence(:url)  {|n| "http://google-#{n}.com/"}
   p.profile Factory.create(:profile)
 

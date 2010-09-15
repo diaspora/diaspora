@@ -25,14 +25,14 @@ describe Request do
 
     xml = request.to_xml.to_s
 
-    xml.include?(@user.person.email).should be true
+    xml.include?(@user.person.diaspora_handle).should be true
     xml.include?(@user.url).should be true
     xml.include?(@user.profile.first_name).should be true
     xml.include?(@user.profile.last_name).should be true
   end
 
   it 'should allow me to see only friend requests sent to me' do 
-    remote_person = Factory.build(:person, :email => "robert@grimm.com", :url => "http://king.com/")
+    remote_person = Factory.build(:person, :diaspora_handle => "robert@grimm.com", :url => "http://king.com/")
     
     Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
     Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save

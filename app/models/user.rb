@@ -305,7 +305,7 @@ class User
 
   def setup_person
     self.person.serialized_key ||= User.generate_key.export
-    self.person.email ||= email
+    self.person.diaspora_handle ||= self.diaspora_handle
     self.person.save!
   end
 
