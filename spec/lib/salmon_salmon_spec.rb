@@ -37,6 +37,7 @@ describe Salmon do
 
   it 'should parse out the authors diaspora_handle' do
     @parsed_salmon.author_email.should == @user.person.diaspora_handle 
+
   end
 
   it 'should reference a local author' do
