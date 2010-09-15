@@ -8,6 +8,7 @@ require 'config/environment'
 
 host = "localhost:3000"
 url = "http://#{host}/"
+username = "tom"
 # Create seed user
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",

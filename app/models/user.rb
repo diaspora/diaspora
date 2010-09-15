@@ -35,8 +35,6 @@ class User
   many :aspects, :class_name => 'Aspect'
 
 
-  before_create :setup_person
-  after_create :set_diaspora_handle
   after_create :seed_aspects
 
   before_save :downcase_username
@@ -288,10 +286,10 @@ class User
   end
 
   ###Helpers############
-  def self.instantiate!( opts = {} )
-    #opts[:person][:diaspora_handle] = opts[:email]
+  def self.instantiate( opts = {} )
+    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{opts[:url]}"
     opts[:person][:serialized_key] = generate_key
-    User.create!(opts)
+    User.create(opts)
   end
 
   def seed_aspects
@@ -311,16 +309,6 @@ class User
 
   def diaspora_handle
     "#{self.username}@#{self.terse_url}"
-  end
-
-  def setup_person
-    self.person.serialized_key ||= User.generate_key.export
-    self.person.save!
-  end
-  
-  def set_diaspora_handle
-    self.person.diaspora_handle ||= self.diaspora_handle
-    self.person.save
   end
 
   def downcase_username
