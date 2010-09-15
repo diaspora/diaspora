@@ -44,7 +44,14 @@ $(function() {
         $.ajax({
           type: "DELETE",
           url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
-          data: {"accept" : true  , "aspect_id" : $(this)[0].id }
+          data: {"accept" : true  , "aspect_id" : $(this)[0].id },
+          success: function(data){
+            var old_request_count = $(".new_requests").html().match(/\d+/);
+
+            alert( old_request_count );
+
+            $(".new_requests").html().replace(/\d+/,old_request_count-1);
+          }
         });
 
       }else {
