@@ -135,7 +135,7 @@ GEMS:  if you are adding to diaspora, and want to maximize the speed of getting 
 
 ## Resources
 
-We are maintaining a [public tracker project](http://www.pivotaltracker.com/projects/61641) and a [wishlist](#).
+We are maintaining a [public tracker project](http://www.pivotaltracker.com/projects/61641) and a [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap).  Also, you can file [bug reports](https://github.com/diaspora/diaspora/issues) right here on github.
 
 Ongoing discussion:
 
