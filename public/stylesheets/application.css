@@ -531,11 +531,9 @@ h1.big_text {
   .remove ul {
     min-height: 20px;
     margin: 0;
-      margin-left: 1em;
       margin-bottom: 25px;
     background-color: #efefef;
     border: 1px solid #cccccc;
-    border-radius: 3px;
     list-style: none;
     padding: 15px; }
   .aspect .person,
