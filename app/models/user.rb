@@ -36,8 +36,6 @@ class User
 
 
   after_create :setup_person
-  after_create :seed_aspects
-
 
   before_validation :do_bad_things 
   before_save :downcase_username
