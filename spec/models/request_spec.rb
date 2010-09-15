@@ -26,7 +26,7 @@ describe Request do
     xml = request.to_xml.to_s
 
     xml.include?(@user.person.diaspora_handle).should be true
-    xml.include?(@user.url).should be true
+    xml.include?(@user.person.url).should be true
     xml.include?(@user.profile.first_name).should be true
     xml.include?(@user.profile.last_name).should be true
   end
