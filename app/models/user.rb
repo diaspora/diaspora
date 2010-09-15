@@ -36,6 +36,7 @@ class User
 
 
   after_create :setup_person
+  after_create :seed_aspects
 
   before_validation :do_bad_things 
   before_save :downcase_username
@@ -291,6 +292,11 @@ class User
     opts[:person][:diaspora_handle] = opts[:email]
     opts[:person][:serialized_key] = generate_key
     User.create!(opts)
+  end
+
+  def seed_aspects
+    aspect(:name => "Family")
+    aspect(:name => "Work")
   end
 	 
 	def self.create(opts ={})
