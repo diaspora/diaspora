@@ -22,7 +22,9 @@ class User
   key :pending_request_ids, Array
   key :visible_post_ids,    Array
   key :visible_person_ids,  Array
-
+  
+  key :url, String
+  
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends,           :in => :friend_ids,          :class_name => 'Person'
@@ -32,7 +34,11 @@ class User
 
   many :aspects, :class_name => 'Aspect'
 
-  before_validation_on_create :setup_person
+
+  after_create :setup_person
+  after_create :seed_aspects
+
+
   before_validation :do_bad_things 
   before_save :downcase_username
   
@@ -286,9 +292,13 @@ class User
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = opts[:email]
     opts[:person][:serialized_key] = generate_key
-    User.create!( opts)
+    User.create!(opts)
   end
-	 	
+	 
+	def self.create(opts ={})
+	  puts opts.inspect
+	end 
+	 
   def terse_url
     terse = self.url.gsub(/(https?:|www\.)\/\//, '')
     terse = terse.chop! if terse[-1, 1] == '/'
@@ -305,7 +315,7 @@ class User
 
   def setup_person
     self.person.serialized_key ||= User.generate_key.export
-    #self.person.diaspora_handle ||= self.diaspora_handle
+    self.person.diaspora_handle ||= self.diaspora_handle
     self.person.save!
   end
 
