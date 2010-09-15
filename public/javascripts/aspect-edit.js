@@ -50,7 +50,7 @@ $(function() {
 
             if( old_request_count == 1 ) {
               $(".new_requests").html(
-                $(".new_requests").html().replace(/ \(\d+\)/,'');
+                $(".new_requests").html().replace(/ \(\d+\)/,''));
 
             } else {
               $(".new_requests").html(
