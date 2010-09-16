@@ -8,12 +8,8 @@ gem 'bundler', '1.0.0'
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
 
 #Mongo
-#gem 'mongo_mapper', :git => 'http://github.com/BadMinus/mongomapper.git'
 gem 'mongo_mapper', '0.8.4', :git => 'http://github.com/jnunemaker/mongomapper.git'
-#gem 'mongo_mapper', :git => 'http://github.com/collectiveidea/mongomapper.git', :branch => 'rails3'
-#gem 'jnunemaker-validatable', :git => 'http://github.com/BadMinus/validatable.git'
 gem 'jnunemaker-validatable', '1.8.4', :git => 'http://github.com/jnunemaker/validatable.git'
-gem 'mongo_ext'
 gem 'bson_ext', '1.0.7'
 gem 'bson', '1.0.7'
 
