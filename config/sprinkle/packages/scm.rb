@@ -6,7 +6,7 @@
 
 package :git, :provides => :scm do
   description 'Git Distributed Version Control'
-	apt %w( git-core )
+  apt %w( git-core )
   requires :pubkey
 
 end
