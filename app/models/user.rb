@@ -284,7 +284,7 @@ else
 
   ###Helpers############
   def self.instantiate!( opts = {} )
-    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{opts[:url]}"
+    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{URI::parse(opts[:url]).host}"
     opts[:person][:serialized_key] = generate_key
     User.create!(opts)
   end

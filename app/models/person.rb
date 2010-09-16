@@ -78,18 +78,18 @@ class Person
     @serialized_key = new_key
   end
 
-  def self.by_webfinger( identifier )
+  def self.by_webfinger( identifier, opts = {})
     local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
 
      if local_person
        local_person
-     elsif  !identifier.include?("localhost")
+     elsif  !identifier.include?("localhost") && !opts[:local]
        begin
         f = Redfinger.finger(identifier)
        rescue SocketError => e
          raise "Diaspora server for #{identifier} not found" if e.message =~ /Name or service not known/
        end
-       raise "No webfinger profile found at #{identifier}" unless f
+       raise "No webfinger profile found at #{identifier}" if f.nil? || f.links.empty?
        Person.from_webfinger_profile(identifier, f )
      end
   end
@@ -97,7 +97,11 @@ class Person
   def self.from_webfinger_profile( identifier, profile)
     new_person = Person.new
 
-    public_key = profile.links.select{|x| x.rel == 'diaspora-public-key'}.first.href
+    public_key_entry = profile.links.select{|x| x.rel == 'diaspora-public-key'}
+    
+    return nil unless public_key_entry
+    
+    public_key = public_key_entry.first.href
     new_person.exported_key = Base64.decode64 public_key
 
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
