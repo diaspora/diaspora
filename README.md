@@ -10,7 +10,7 @@ GEMS:  We would like to keep external dependencies unduplicated.  We're using No
 The privacy aware, personally controlled, do-it-all, open source social network.
 
 **DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
-These instructions are for machines running [Ubuntu](http://www.ubuntu.com/) or Mac OS X.  We are developing Diaspora for the latest and greatest browsers, so please update your Firefox, Chrome or Safari to the latest and greatest.
+These instructions are for machines running [Ubuntu](http://www.ubuntu.com/), [Fedora](http://www.fedoraproject.org) or Mac OS X.  We are developing Diaspora for the latest and greatest browsers, so please update your Firefox, Chrome or Safari to the latest and greatest.
 
 ## Preparing your system
 In order to run Diaspora, you will need to download the following dependencies (specific instructions follow):
@@ -27,13 +27,17 @@ After you have Ruby installed on your system, you will need to get RubyGems, the
 - [RubyGems](http://rubygems.org/) - Source for Ruby gems.
 - [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
-**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed).  The instructions below assume you have these installed.**  
+**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed); if you're using Fedora simply use [yum](http://yum.baseurl.org/).  The instructions below assume you have these installed.**  
 
 ### Build Tools
 
 To install build tools on **Ubuntu**, run the following (includes the gcc and xml parsing dependencies):
 
 		sudo apt-get install build-essential libxslt1.1 libxslt1-dev libxml2
+
+To install build tools on **Fedora**, run the following:
+
+		sudo yum install libxslt libxslt-devel libxml2 libxml2-devel
 
 To install build tools on **Mac OS X**, you need to download and install [Xcode](http://developer.apple.com/technologies/tools/xcode.html).
 
@@ -42,6 +46,13 @@ To install build tools on **Mac OS X**, you need to download and install [Xcode]
 To install Ruby 1.8.7 on **Ubuntu**, run the following command:
 
 		sudo apt-get install ruby-full
+
+At this time Fedora does not have Ruby 1.8.7. As a workaround it is possible to use [rvm](http://rvm.beginrescueend.com/) with a locally compiled Ruby installation. A semi automated method for doing this is available. It is highly recommended that you review the script before running it so you understand what will occur. The script can be executed by running the following command:
+
+		./script/bootstrap-fedora-diaspora.sh
+
+After reviewing and executing the above script you will need to follow the "MongoDB" section and then you should skip all the way down to "Start Mongo".
+
 
 If you're on **Mac OS X**, you already have Ruby on your system.  Yay!
 
@@ -71,19 +82,46 @@ If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mon
 		sudo chmod -Rv 777 /data/
 			
 
+To install MongoDB on a x86_64 **Fedora** system, add the official MongoDB repository from MongoDB (http://www.mongodb.org/display/DOCS/CentOS+and+Fedora+Packages) into /etc/yum.repos.d/10gen.repo:
+
+		[10gen]
+		name=10gen Repository
+		baseurl=http://downloads.mongodb.org/distros/fedora/13/os/x86_64/
+		gpgcheck=0
+		enabled=1
+
+
+Then use yum to install the packages:
+
+		sudo yum install mongo-stable mongo-stable-server
+
+
+If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz`.  If you're running a 64-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz`.
+
+		# extract
+		tar xzf mongodb-linux-i686-1.4.0.tgz
+		# create the required data directory
+		sudo mkdir -p /data/db
+		sudo chmod -Rv 777 /data/
+
+
 To install MongoDB on **Mac OS X**, run the following:
 
 		brew install mongo
 
 ### OpenSSL
 
-If you're running either **Ubuntu** or **Mac OS X** you already have OpenSSL installed!
+If you're running either **Ubuntu**, **Fedora** or **Mac OS X** you already have OpenSSL installed!
 
 ### ImageMagick
 
 To install ImageMagick on **Ubuntu**, run the following:
 
 		sudo apt-get install imagemagick libmagick9-dev
+
+To install ImageMagick on **Fedora**, run the following:
+
+		sudo yum install ImageMagick
 
 To install ImageMagick on **Mac OS X**, run the following:
 
@@ -94,6 +132,11 @@ To install ImageMagick on **Mac OS X**, run the following:
 To install Git on **Ubuntu**, run the following:
 		
 		sudo apt-get install git-core
+
+To install Git on **Fedora**, run the following:
+		
+		sudo yum install git
+
 
 To install Git on **Mac OS X**, run the following:
 
@@ -110,6 +153,10 @@ On **Ubuntu**, run the following:
 		sudo ruby setup.rb
 		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
 
+On **Fedora**, run the following:
+
+		sudo yum install rubygems
+
 On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update it for use with the latest Bundler.  To update RubyGems, run `sudo gem update --system`.
 
 
@@ -120,7 +167,7 @@ After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.
 
 ## Getting Diaspora
 
-		git clone git@github.com:diaspora/diaspora.git
+		git clone http://github.com/diaspora/diaspora.git
 
 If you have never used github before, their [help desk](http://help.github.com/) has a pretty awesome guide on getting setup.
 
@@ -131,12 +178,18 @@ If you have never used github before, their [help desk](http://help.github.com/)
 To start the app server for the first time, you need to use Bundler to install Diaspora's gem depencencies.  Run `bundle install` from Diaspora's root directory.  Bundler will also warn you if there is a new dependency and you need to bundle install again.
 
 ### Start Mongo
-After installing the above, run `sudo mongod` from where mongo is installed to start mongo.
-		
+If you installed the Ubuntu package, MongoDB should already be running (if not, run `service mongodb start`). If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
+
+If you installed the Fedora package, MongoDB will need to be started via `service mongodb start`. If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
+
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
 Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode[.](http://bit.ly/9mwtUw)
+
+### Logging in
+Run `rake db:seed:tom`, then login with user `tom` and password `evankorth`. More details in db/seeds/tom.rb.
+
 
 ### Testing
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.

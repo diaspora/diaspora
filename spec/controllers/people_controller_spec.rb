@@ -5,13 +5,13 @@
 
 
 require File.dirname(__FILE__) + '/../spec_helper'
- 
+
 describe PeopleController do
   render_views
   before do
     @user = Factory.create(:user)
 
-    sign_in :user, @user   
+    sign_in :user, @user
     @user.aspect(:name => "lame-os")
   end
 
@@ -20,7 +20,7 @@ describe PeopleController do
     Person.should_receive(:search)
     get :index, :q => "Eu"
   end
-  
+
   it 'should go to the current_user show page' do
     get :show, :id => @user.person.id
   end

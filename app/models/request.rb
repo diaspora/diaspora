@@ -22,7 +22,7 @@ class Request
   key :exported_key,    String
 
   belongs_to :person
-  
+
   validates_presence_of :destination_url, :callback_url
   before_validation :clean_link
 
@@ -32,19 +32,19 @@ class Request
   def self.instantiate(options = {})
     person = options[:from]
     self.new(:destination_url => options[:to],
-             :callback_url    => person.receive_url, 
+             :callback_url    => person.receive_url,
              :person          => person,
              :exported_key    => person.exported_key,
              :aspect_id        => options[:into])
   end
-  
+
   def reverse_for accepting_user
     self.person          = accepting_user.person
     self.exported_key    = accepting_user.exported_key
     self.destination_url = self.callback_url
     self.save
   end
-  
+
 protected
   def clean_link
     if self.destination_url

@@ -20,28 +20,28 @@ module Diaspora
 
           aspect.requests << request
           aspect.save
-          
+
           salmon request, :to => desired_friend
         end
         request
       end
-       
+
 
       def accept_friend_request(friend_request_id, aspect_id)
         request = Request.find_by_id(friend_request_id)
         pending_requests.delete(request)
-        
+
         activate_friend(request.person, aspect_by_id(aspect_id))
 
         request.reverse_for(self)
         request
       end
-      
+
       def dispatch_friend_acceptance(request, requester)
         salmon request, :to => requester
         request.destroy unless request.callback_url.include? url
-      end 
-      
+      end
+
       def accept_and_respond(friend_request_id, aspect_id)
         requester = Request.find_by_id(friend_request_id).person
         reversed_request = accept_friend_request(friend_request_id, aspect_id)
@@ -61,7 +61,7 @@ module Diaspora
 
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
-          
+
         if request_from_me?(friend_request)
           aspect = self.aspect_by_id(friend_request.aspect_id)
           activate_friend(friend_request.person, aspect)
@@ -83,7 +83,7 @@ module Diaspora
         salmon( retraction, :to => bad_friend)
         remove_friend(bad_friend)
       end
-      
+
       def remove_friend(bad_friend)
         raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
         aspects.each{|g| g.person_ids.delete( bad_friend.id )}

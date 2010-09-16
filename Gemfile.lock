@@ -8,9 +8,9 @@ GIT
 
 GIT
   remote: git://github.com/igrigorik/em-http-request.git
-  revision: b09b26a2737cce3f41c3d7313054efdb9e2c623e
+  revision: 6f66010cda90991863669ca52fd4c320dd931a06
   specs:
-    em-http-request (0.2.11)
+    em-http-request (0.2.12)
       addressable (>= 2.0.0)
       eventmachine (>= 0.12.9)
 
@@ -93,7 +93,7 @@ GEM
       activemodel (= 3.0.0)
       activesupport (= 3.0.0)
     activesupport (3.0.0)
-    addressable (2.2.0)
+    addressable (2.2.1)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     autotest (4.3.2)
@@ -129,7 +129,7 @@ GEM
     json (1.4.6)
     linecache (0.43)
     lsof (0.3.0)
-    mail (2.2.5)
+    mail (2.2.6.1)
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
@@ -140,7 +140,6 @@ GEM
       rake
     mongo (1.0.8)
       bson (>= 1.0.5)
-    mongo_ext (0.19.3)
     net-scp (1.0.3)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -149,7 +148,7 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nifty-generators (0.4.0)
-    nokogiri (1.4.1)
+    nokogiri (1.4.3.1)
     plucky (0.3.5)
       mongo (~> 1.0.8)
     polyglot (0.3.1)
@@ -178,14 +177,16 @@ GEM
     redgreen (1.2.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rspec (2.0.0.beta.20)
-      rspec-core (= 2.0.0.beta.20)
-      rspec-expectations (= 2.0.0.beta.20)
-      rspec-mocks (= 2.0.0.beta.20)
-    rspec-core (2.0.0.beta.20)
-    rspec-expectations (2.0.0.beta.20)
+    rspec (2.0.0.beta.22)
+      rspec-core (= 2.0.0.beta.22)
+      rspec-expectations (= 2.0.0.beta.22)
+      rspec-mocks (= 2.0.0.beta.22)
+    rspec-core (2.0.0.beta.22)
+    rspec-expectations (2.0.0.beta.22)
       diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.0.beta.20)
+    rspec-mocks (2.0.0.beta.22)
+      rspec-core (= 2.0.0.beta.22)
+      rspec-expectations (= 2.0.0.beta.22)
     rspec-rails (2.0.0.beta.17)
       rspec (>= 2.0.0.beta.14)
       webrat (>= 0.7.0)
@@ -243,7 +244,6 @@ DEPENDENCIES
   json
   mini_magick
   mocha
-  mongo_ext
   mongo_mapper (= 0.8.4)!
   nifty-generators
   pubsubhubbub

@@ -6,7 +6,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-describe Request do 
+describe Request do
   before do
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => "dudes")
@@ -30,14 +30,14 @@ describe Request do
     xml.include?(@user.profile.last_name).should be true
   end
 
-  it 'should allow me to see only friend requests sent to me' do 
+  it 'should allow me to see only friend requests sent to me' do
     remote_person = Factory.build(:person, :diaspora_handle => "robert@grimm.com", :url => "http://king.com/")
-    
+
     Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
     Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
     Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
     Request.instantiate(:into => @aspect.id, :from => remote_person, :to => @user.receive_url).save
-      
+
     Request.for_user(@user).all.count.should == 1
   end
 

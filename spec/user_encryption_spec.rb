@@ -45,24 +45,24 @@ describe 'user encryption' do
     it 'should receive and marshal a public key from a request' do
       remote_user = Factory.build(:user)
       remote_user.encryption_key.nil?.should== false
-      #should move this to friend request, but i found it here 
+      #should move this to friend request, but i found it here
       id = remote_user.person.id
       original_key = remote_user.exported_key
-      
+
       request = remote_user.send_friend_request_to(
         @user.person, remote_user.aspect(:name => "temp"))
-      
+
       xml = request.to_diaspora_xml
-      
+
       remote_user.person.destroy
       remote_user.destroy
-      
+
       person_count = Person.all.count
       proc {@user.receive xml}.should_not raise_error /ignature was not valid/
       Person.all.count.should == person_count + 1
       new_person = Person.first(:id => id)
       new_person.exported_key.should == original_key
-    end 
+    end
   end
 
   describe 'encryption' do

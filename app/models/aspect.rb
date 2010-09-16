@@ -5,7 +5,7 @@
 
 class Aspect
   include MongoMapper::Document
-  
+
   key :name,        String
   key :person_ids,  Array
   key :request_ids, Array
@@ -20,11 +20,11 @@ class Aspect
   validates_presence_of :name
 
   timestamps!
-  
+
   def to_s
     name
   end
-  
+
   def posts_by_person_id( id )
     id = id.to_id
     posts.detect{|x| x.person.id == id }

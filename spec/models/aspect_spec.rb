@@ -28,19 +28,19 @@ describe Aspect do
     it 'should be able to have other users' do
       aspect = @user.aspect(:name => 'losers', :people => [@user2.person])
       aspect.people.include?(@user.person).should be false
-      aspect.people.include?(@user2.person).should be true 
+      aspect.people.include?(@user2.person).should be true
       aspect.people.size.should == 1
-    end   
+    end
 
     it 'should be able to have users and people' do
       aspect = @user.aspect(:name => 'losers', :people => [@user2.person, @friend_2])
       aspect.people.include?(@user.person).should be false
-      aspect.people.include?(@user2.person).should be true 
-      aspect.people.include?(@friend_2).should be true 
+      aspect.people.include?(@user2.person).should be true
+      aspect.people.include?(@friend_2).should be true
       aspect.people.size.should == 2
     end
   end
-  
+
   describe 'querying' do
     before do
       @aspect = @user.aspect(:name => 'losers')
@@ -71,12 +71,12 @@ describe Aspect do
   end
 
   describe 'posting' do
-    
+
     it 'should add post to aspect via post method' do
       aspect = @user.aspect(:name => 'losers', :people => [@friend])
 
       status_message = @user.post( :status_message, :message => "hey", :to => aspect.id )
-      
+
       aspect.reload
       aspect.posts.include?(status_message).should be true
     end
@@ -87,24 +87,24 @@ describe Aspect do
       friend_users(@user, aspect, @user2, aspect2)
 
       message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
-      
+
       @user.receive message.to_diaspora_xml
-      
+
       aspect.reload
       aspect.posts.include?(message).should be true
       @user.visible_posts(:by_members_of => aspect).include?(message).should be true
     end
 
-    it 'should retract the post from the aspects as well' do 
+    it 'should retract the post from the aspects as well' do
       aspect  = @user.aspect(:name => 'losers')
       aspect2 = @user2.aspect(:name => 'winners')
       friend_users(@user, aspect, @user2, aspect2)
 
       message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
-      
+
       @user.receive message.to_diaspora_xml
       aspect.reload
-  
+
       aspect.post_ids.include?(message.id).should be true
 
       retraction = @user2.retract(message)
@@ -141,24 +141,24 @@ describe Aspect do
       @aspect.people.include?(@friend).should be false
       @aspect3.people.include?(@friend).should be false
     end
-     
+
     it "should not move a person to a aspect that's not his" do
       @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect2.id)
       @aspect.reload
       @aspect2.reload
-      @aspect.people.include?(@user2.person).should be true 
+      @aspect.people.include?(@user2.person).should be true
       @aspect2.people.include?(@user2.person).should be false
     end
 
     it 'should move all the by that user to the new aspect' do
       message = @user2.post(:status_message, :message => "Hey Dude", :to => @aspect2.id)
-      
+
       @user.receive message.to_diaspora_xml
       @aspect.reload
 
       @aspect.posts.count.should be 1
       @aspect3.posts.count.should be 0
-      
+
       @user.reload
       @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect3.id)
       @aspect.reload

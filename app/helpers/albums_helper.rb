@@ -11,7 +11,7 @@ module AlbumsHelper
       link_to 'Friends Albums', albums_path({:friends => true})
     end
   end
-  
+
   def your_albums_link
     if params[:friends]
       link_to 'Your Albums', albums_path

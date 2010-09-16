@@ -19,18 +19,18 @@ class AspectsController < ApplicationController
     flash[:notice] = "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     respond_with :location => aspects_manage_path
   end
-  
+
   def new
     @aspect = Aspect.new
   end
-  
+
   def destroy
     @aspect = Aspect.find_by_id params[:id]
     @aspect.destroy
     flash[:notice] = "You are no longer sharing the aspect called #{@aspect.name}."
     respond_with :location => aspects_url
   end
-  
+
   def show
     @aspect   = Aspect.find_by_id params[:id]
     @friends = @aspect.people
@@ -66,7 +66,7 @@ class AspectsController < ApplicationController
   end
 
   def move_friend
-    unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to]) 
+    unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to])
       flash[:error] = "didn't work #{params.inspect}"
     end
     if aspect = Aspect.first(:id => params[:to][:to])

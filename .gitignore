@@ -1,3 +1,4 @@
+.bundle
 .idea
 *.swap
 *.swp
@@ -11,3 +12,4 @@ gpg/diaspora-development/*.gpg
 gpg/diaspora-production/*.gpg
 gpg/*/random_seed
 public/uploads/*
+.rvmrc

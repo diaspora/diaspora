@@ -7,14 +7,14 @@
 module Diaspora
   module WebSocket
     def self.initialize_channels
-      @channels = {} 
+      @channels = {}
     end
-    
+
     def self.push_to_user(uid, data)
       Rails.logger.debug "Websocketing to #{uid}"
       @channels[uid.to_s][0].push(data) if @channels[uid.to_s]
     end
-    
+
     def self.subscribe(uid, ws)
       Rails.logger.debug "Subscribing socket to #{uid}"
       self.ensure_channel(uid)
@@ -40,7 +40,7 @@ module Diaspora
     def socket_to_uid(id, opts={})
       SocketsController.new.outgoing(id, self, opts)
     end
-    
+
     def unsocket_from_uid(id, opts={})
       SocketsController.new.outgoing(id, Retraction.for(self), opts)
     end

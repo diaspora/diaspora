@@ -15,10 +15,10 @@ class Person
   xml_accessor :url
   xml_accessor :profile, :as => Profile
   xml_reader :exported_key
-  
+
   key :url,            String
   key :diaspora_handle, String, :unique => true
-  key :serialized_key, String 
+  key :serialized_key, String
 
   key :owner_id,  ObjectId
 
@@ -30,11 +30,11 @@ class Person
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-  validates_presence_of :url, :profile, :serialized_key 
+  validates_presence_of :url, :profile, :serialized_key
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
-  
-  
+
+
   def self.search(query)
     Person.all('$where' => "function() { return this.diaspora_handle.match(/^#{query}/i) ||
                this.profile.first_name.match(/^#{query}/i) ||
@@ -80,7 +80,7 @@ class Person
 
   def self.by_webfinger( identifier )
     local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
-    
+
      if local_person
        local_person
      elsif  !identifier.include?("localhost")
@@ -102,9 +102,9 @@ class Person
 
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid
-    
+
     new_person.diaspora_handle = identifier
-    
+
     hcard = HCard.find profile.hcard.first[:href]
 
     new_person.url = hcard[:url]
@@ -115,7 +115,7 @@ class Person
       nil
     end
   end
-  
+
   def remote?
     owner.nil?
   end

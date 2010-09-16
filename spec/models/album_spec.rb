@@ -52,9 +52,9 @@ describe Album do
         photo.image.store! File.open @fixture_name
         @photos << photo
       end
-      @album.photos += @photos   
+      @album.photos += @photos
     end
-    
+
     it 'should traverse the album correctly' do
       #should retrieve the next photo relative to a given photo
       @album.next_photo(@photos[1]).id.should == @photos[2].id
@@ -65,7 +65,7 @@ describe Album do
       #wrapping
       #does next photo of last to first
       @album.next_photo(@photos[2]).id.should == @photos[0].id
-      
+
       #does previous photo of first to last
       @album.prev_photo(@photos[0]).id.should == @photos[2].id
     end

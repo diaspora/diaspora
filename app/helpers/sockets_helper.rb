@@ -4,8 +4,8 @@
 
 
 module SocketsHelper
- include ApplicationHelper 
-  
+ include ApplicationHelper
+
  def obj_id(object)
     (object.is_a? Post) ? object.id : object.post_id
   end
@@ -16,10 +16,10 @@ module SocketsHelper
       v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
     rescue Exception => e
       Rails.logger.error("web socket view rendering failed for object #{object.inspect}.")
-      raise e 
+      raise e
     end
     action_hash = {:class =>object.class.to_s.underscore.pluralize,  :html => v, :post_id => obj_id(object)}
-    action_hash.merge! opts 
+    action_hash.merge! opts
     if object.is_a? Photo
       action_hash[:photo_hash] = object.thumb_hash
     elsif object.is_a? StatusMessage
@@ -34,6 +34,6 @@ module SocketsHelper
     action_hash.to_json
   end
 
-  
+
 
 end

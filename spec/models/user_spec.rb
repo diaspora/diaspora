@@ -22,11 +22,11 @@ describe User do
   end
 
   describe 'profiles' do
-    it 'should be able to update their profile and send it to their friends' do 
+    it 'should be able to update their profile and send it to their friends' do
       Factory.create(:person)
-      
+
       updated_profile = {:profile => {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com"}}
-      
+
       @user.update_profile(updated_profile).should == true
       @user.profile.image_url.should == "http://clown.com"
     end

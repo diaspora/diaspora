@@ -17,14 +17,14 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
-         
+
   key :friend_ids,          Array
   key :pending_request_ids, Array
   key :visible_post_ids,    Array
   key :visible_person_ids,  Array
-  
+
   key :url, String
-  
+
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends,           :in => :friend_ids,          :class_name => 'Person'
@@ -37,7 +37,7 @@ class User
   after_create :seed_aspects
 
   before_validation_on_create :downcase_username
-  
+
    def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
@@ -45,7 +45,7 @@ class User
       conditions[:username].downcase!
     end
     super
-  end 
+  end
 
   ######## Making things work ########
   key :email, String
@@ -57,7 +57,7 @@ class User
   def real_name
     "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
-  
+
   ######### Aspects ######################
   def aspect( opts = {} )
     opts[:user] = self
@@ -68,7 +68,7 @@ class User
     return true if opts[:to] == opts[:from]
     friend = Person.first(:_id => opts[:friend_id])
     if self.friend_ids.include?(friend.id)
-      from_aspect = self.aspect_by_id(opts[:from]) 
+      from_aspect = self.aspect_by_id(opts[:from])
       to_aspect = self.aspect_by_id(opts[:to])
       if from_aspect && to_aspect
         posts_to_move = from_aspect.posts.find_all_by_person_id(friend.id)
@@ -125,7 +125,7 @@ class User
       aspects = self.aspects.find_all_by_id( aspect_ids )
     end
     #send to the aspects
-    target_people = [] 
+    target_people = []
 
     aspects.each{ |aspect|
       aspect.posts << post
@@ -145,7 +145,7 @@ class User
       Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
       QUEUE.add_post_request( person.receive_url, person.encrypt(xml) )
       QUEUE.process
-      
+
   end
 
   def salmon( post, opts = {} )
@@ -163,7 +163,7 @@ class User
     end
     comment
   end
-  
+
   def build_comment( text, options = {})
     raise "must comment on something!" unless options[:on]
     comment = Comment.new(:person_id => self.person.id, :text => text, :post => options[:on])
@@ -183,10 +183,10 @@ class User
       push_to_people comment, people_in_aspects(aspects_with_post(comment.post.id))
     elsif owns? comment
       comment.save
-      salmon comment, :to => comment.post.person 
+      salmon comment, :to => comment.post.person
     end
   end
-  
+
   ######### Posts and Such ###############
   def retract( post )
     aspect_ids = aspects_with_post( post.id )
@@ -248,9 +248,9 @@ else
     elsif object.is_a? Profile
       person = Diaspora::Parser.owner_id_from_xml xml
       person.profile = object
-      person.save  
+      person.save
 
-    elsif object.is_a?(Comment) 
+    elsif object.is_a?(Comment)
       object.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if object.person.nil?
       self.visible_people = self.visible_people | [object.person]
       self.save
@@ -267,12 +267,12 @@ else
       Rails.logger.debug("Saving object: #{object}")
       object.user_refs += 1
       object.save
-      
+
       self.raw_visible_posts << object
       self.save
 
       aspects = self.aspects_with_person(object.person)
-      aspects.each{ |aspect| 
+      aspects.each{ |aspect|
         aspect.posts << object
         aspect.save
         object.socket_to_uid(id, :aspect_ids => [aspect.id]) if (object.respond_to?(:socket_to_uid) && !self.owns?(object))
@@ -293,11 +293,11 @@ else
     aspect(:name => "Family")
     aspect(:name => "Work")
   end
-	 
-	def self.create(opts ={})
-	  puts opts.inspect
-	end 
-	 
+  
+  def self.create(opts ={})
+    puts opts.inspect
+  end
+  
   def terse_url
     terse = self.url.gsub(/(https?:|www\.)\/\//, '')
     terse = terse.chop! if terse[-1, 1] == '/'
@@ -309,7 +309,7 @@ else
   end
 
   def downcase_username
-    username.downcase!
+    username.downcase! if username
   end
 
 

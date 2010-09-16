@@ -8,7 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    begin 
+    begin
       user = User.instantiate!(params[:user])
     rescue MongoMapper::DocumentNotValid => e
       user = nil
@@ -20,7 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
       #redirect_to root_url
       sign_in_and_redirect(:user, user)
     else
-      redirect_to "/get_to_the_choppa"
+      redirect_to new_user_registration_path
     end
   end
 

@@ -21,7 +21,7 @@ describe Person do
   end
 
   describe 'xml' do
-    before do 
+    before do
       @xml = @person.to_xml.to_s
     end
 
@@ -33,7 +33,7 @@ describe Person do
       @xml.include?("first_name").should == true
     end
   end
-  
+
   it 'should know when a post belongs to it' do
     person_message = Factory.create(:status_message, :person => @person)
     person_two =     Factory.create(:person)
@@ -51,7 +51,7 @@ describe Person do
     Factory.create(:status_message, :person => person)
 
     status_message = Factory.create(:status_message, :person => @person)
-   
+
     Factory.create(:comment, :person_id => person.id,  :text => "yes i do",       :post => status_message)
     Factory.create(:comment, :person_id => person.id,  :text => "i love you",     :post => status_message)
     Factory.create(:comment, :person_id => person.id,  :text => "hello",          :post => status_message)
@@ -68,9 +68,9 @@ describe Person do
     it 'should not delete an orphaned friend' do
       request = @user.send_friend_request_to @person, @aspect
 
-      @user.activate_friend(@person, @aspect) 
+      @user.activate_friend(@person, @aspect)
       @user.reload
-      
+
       Person.all.count.should    == 3
       @user.friends.count.should == 1
       @user.unfriend(@person)
@@ -83,12 +83,12 @@ describe Person do
       request = @user.send_friend_request_to @person, @aspect
       request2 = @user2.send_friend_request_to @person, @aspect2
 
-      @user.activate_friend(@person, @aspect) 
+      @user.activate_friend(@person, @aspect)
       @user2.activate_friend(@person, @aspect2)
 
       @user.reload
       @user2.reload
-      
+
       Person.all.count.should     == 3
       @user.friends.count.should  == 1
       @user2.friends.count.should == 1
@@ -128,19 +128,19 @@ describe Person do
     end
 
     it 'should yield search results on partial names' do
-      people = Person.search("Eu") 
+      people = Person.search("Eu")
       people.include?(@friend_two).should   == true
       people.include?(@friend_one).should   == false
       people.include?(@friend_three).should == false
       people.include?(@friend_four).should  == false
 
-      people = Person.search("Wei") 
+      people = Person.search("Wei")
       people.include?(@friend_two).should   == true
       people.include?(@friend_one).should   == false
       people.include?(@friend_three).should == false
       people.include?(@friend_four).should  == false
 
-      people = Person.search("Gri") 
+      people = Person.search("Gri")
       people.include?(@friend_one).should   == true
       people.include?(@friend_four).should  == true
       people.include?(@friend_two).should   == false
@@ -159,18 +159,18 @@ describe Person do
       tom = Person.by_webfinger('tom@tom.joindiaspora.com')
       tom.real_name.include?("Hamiltom").should be true
     end
-    
-    describe 'wall posting' do 
+
+    describe 'wall posting' do
       it 'should be able to post on another persons wall' do
         pending
         #user2 is in user's aspect, user is in aspect2 on user
         friend_users(@user, @aspect, @user2, @aspect2)
-        
+
         @user.person.post_to_wall(:person => @user2.person, :message => "youve got a great smile")
         @user.person.wall_posts.count.should == 1
-        
+
       end
     end
-    
+
   end
 end

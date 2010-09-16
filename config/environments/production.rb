@@ -16,6 +16,8 @@ Diaspora::Application.configure do
 
   # Specifies the header that your server uses for sending files
   #config.action_dispatch.x_sendfile_header = "X-Sendfile"
+  
+  config.active_support.deprecation = :notify
 
   # For nginx:
    config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'

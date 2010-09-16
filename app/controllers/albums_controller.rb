@@ -12,25 +12,25 @@ class AlbumsController < ApplicationController
     @albums = current_user.albums_by_aspect(@aspect).paginate
     respond_with @albums, :aspect => @aspect
   end
-  
+
   def create
     aspect =  params[:album][:to]
     @album = current_user.post(:album, params[:album])
     flash[:notice] = "You've created an album called #{@album.name}."
     redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
-  
+
   def new
     @album = Album.new
   end
-  
+
   def destroy
     @album = Album.find_by_id params[:id]
     @album.destroy
     flash[:notice] = "Album #{@album.name} deleted."
     respond_with :location => albums_url
   end
-  
+
   def show
     @photo = Photo.new
     @album = Album.find_by_id params[:id]
@@ -47,7 +47,7 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find_params_by_id params[:id]
     if @album.update_attributes params[:album]
-      flash[:notice] = "Album #{@album.name} successfully edited." 
+      flash[:notice] = "Album #{@album.name} successfully edited."
       respond_with @album
     else
       flash[:error] = "Failed to edit album #{@album.name}."

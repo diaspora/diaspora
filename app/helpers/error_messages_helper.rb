@@ -6,7 +6,7 @@
 module ErrorMessagesHelper
   # Render error messages for the given objects. The :message and :header_message options are allowed.
   def error_messages_for(*objects)
-    options = objects.extract_options! 
+    options = objects.extract_options!
     options[:header_message] ||= "Invalid Fields"
     options[:message] ||= "Correct the following errors and try again."
     messages = objects.compact.map { |o| o.errors.full_messages }.flatten
@@ -17,7 +17,7 @@ module ErrorMessagesHelper
       end
     end
   end
-  
+
   module FormBuilderAdditions
     def error_messages(options = {})
       @template.error_messages_for(@object, options)

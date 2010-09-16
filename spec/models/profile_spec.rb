@@ -18,13 +18,13 @@ describe Profile do
       @person.profile.first_name = "Bob"
       @person.profile.valid?.should be true
     end
-   
+
     it "should include a last name" do
       @person.profile = Factory.build(:profile, :last_name => nil)
       @person.profile.valid?.should be false
       @person.profile.last_name = "Smith"
       @person.profile.valid?.should be true
-    end 
+    end
 
   end
 

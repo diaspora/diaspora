@@ -14,7 +14,7 @@ set :deploy_to, all['deploy_to']
 #set :current_dir, ""
 # Source code
 set :scm, :git
-set :user, all['user'] 
+set :user, all['user']
 #set :user, ARGV[0]
 set :password, all['password'] if all['password']
 set :scm_verbose, true
@@ -42,19 +42,19 @@ namespace :deploy do
 
   task :symlink_images do
     run "mkdir -p #{shared_path}/uploads"
-    run "ln -s -f #{shared_path}/uploads #{current_path}/public/uploads" 
+    run "ln -s -f #{shared_path}/uploads #{current_path}/public/uploads"
   end
-  
+
   task :symlink_bundle do
     run "mkdir -p #{shared_path}/bundle"
-    run "ln -s -f #{shared_path}/bundle #{current_path}/vendor/bundle" 
+    run "ln -s -f #{shared_path}/bundle #{current_path}/vendor/bundle"
   end
 
    task :start do
       start_mongo
       start_thin
-	end
-  
+  end
+
   task :start_mongo do
 		run("mkdir -p -v #{current_path}/log/db/ ")
     run("mkdir -p -v #{shared_path}/db/")
@@ -77,34 +77,34 @@ namespace :deploy do
   end
 
   task :stop_thin do
-    run("killall -s 2 ruby || true") 
+    run("killall -s 2 ruby || true")
     #run("cd #{current_path} && bundle exec thin stop -C config/thin.yml || true")
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
-    stop 
+    stop
     start
   end
 
   task :bundle_gems do
     run "cd #{current_path} && bundle install"
   end
-  
+
   task :reinstall_old_bundler do
     #run ("rm #{current_path}/Gemfile.lock || true")
     run 'gem list | cut -d" " -f1 | xargs gem uninstall -aIx || true '
     run "gem install bundler -v 0.9.26 || true"
   end
-  
+
   task :update_bundler do
     run 'gem install bundler'
   end
-  
-  
+
+
   task :migrate do
   end
  end
-  
+
 namespace :cloud do
   task :reboot do
     run('reboot')

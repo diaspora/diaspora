@@ -28,7 +28,7 @@ user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                      :username => "korth",
                      :url => remote_url,
                     :person => { :diaspora_handle => "korth@tom.joindiaspora.com",
-                                          :url => remote_url, 
+                                          :url => remote_url,
                                           :profile => { :first_name => "Evan",
                                                                   :last_name => "Korth",
                       :image_url => "http://tom.joindiaspora.com/images/user/korth.jpg"}})
