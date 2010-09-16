@@ -311,7 +311,7 @@ class User
   end
 
   def downcase_username
-    username.downcase!
+    username.downcase! if username
   end
 
 
