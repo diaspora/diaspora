@@ -13,3 +13,5 @@ gpg/diaspora-production/*.gpg
 gpg/*/random_seed
 public/uploads/*
 .rvmrc
+config/app_config.yml
+
