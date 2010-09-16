@@ -4,5 +4,5 @@
 
 
 CarrierWave.configure do |config|
-  config.storage = :file
+  config.storage = APP_CONFIG[:attachment_storage].to_sym
 end

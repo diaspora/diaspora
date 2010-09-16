@@ -6,7 +6,13 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  storage :file
+  def cache_dir
+    if APP_CONFIG[:heroku]
+     "#{RAILS_ROOT}/tmp/uploads"
+    else
+      super
+    end
+  end
 
   def store_dir
     "uploads/images"

@@ -1,4 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
+#
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
@@ -9,15 +10,21 @@ development:
   socket_debug : false
   socket_port: 8080
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
+  attachment_storage: 'file'
 
 test:
   debug: false
   socket_debug : false
   socket_port: 8081
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
+  attachment_storage: 'file'
 
 production:
   debug: false
   socket_debug : false
   socket_port: 8080
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
+  attachment_storage: 's3'
+  s3_access_key_id: 'SECRET_ACCESS_KEY_ID'
+  s3_secret_access_key: 'SECRET_ACCESS_KEY'
+  s3_bucket: 'MY_DIASPORA_BUCKET'
