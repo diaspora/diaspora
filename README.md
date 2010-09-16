@@ -138,6 +138,10 @@ Diaspora will not run unless mongo is running.  Mongo will not run by default, a
 ### Run the app server
 Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode[.](http://bit.ly/9mwtUw)
 
+### Logging in
+Run `rake db:seed:tom`, then login with user `tom` and password `evankorth`. More details in db/seeds/tom.rb.
+
+
 ### Testing
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.
 
