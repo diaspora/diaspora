@@ -7,7 +7,7 @@ All commits must be tested, and after each commit, all tests should be green
 before a pull request is sent.  Please write your tests in Rspec or Test-Unit.
 
 GEMS: We would like to keep external dependencies unduplicated.  We're using
-Nokogiri, and Mongomapper, and EM::HttpRequest as much as possible.  We have a
+Nokogiri, Mongomapper, and EM::HttpRequest as much as possible.  We have a
 few gems in the project we'd rather not use, but if you can, use dependencies
 we already have.
 
