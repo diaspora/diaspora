@@ -9,7 +9,8 @@ class AlbumsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @albums = current_user.albums_by_aspect(@aspect).paginate
+    @albums = current_user.albums_by_aspect(@aspect).paginate :page => params[:page], :per_page => 9, :order => 'created_at DESC'
+    @aspect = :all
     respond_with @albums, :aspect => @aspect
   end
 
