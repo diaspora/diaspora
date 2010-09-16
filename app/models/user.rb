@@ -14,7 +14,7 @@ class User
   include Encryptor::Private
   QUEUE = MessageHandler.new
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
 
