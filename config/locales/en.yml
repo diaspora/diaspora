@@ -8,3 +8,108 @@
 
 en:
   hello: "Hello world"
+  layouts:
+      application:
+          edit_profile: "edit profile"
+          logout: "logout"
+  shared:
+      aspect_nav:
+          all_aspects: "All Aspects"
+          manage: "Manage"
+          manage_your_aspects: "Manage your Aspects"
+      sub_header:
+          all_aspects: "All Aspects"
+          manage_aspects: "Manage Aspects"
+      publisher:
+          share: "Share"
+      aspect_friends:
+          add_friends: "add friends"
+  albums:
+      album:
+          you: "you"
+      new_album:
+          create: "create"
+          add_a_new_album: "Add a new album"
+      show: 
+          edit_album: "Edit Album"
+          albums: "albums"
+          updated: "updated"
+          by: "by"
+      edit:
+          editing: "Editing"
+          updated: "updated"
+          are_you_sure: "Are you sure?"
+          delete_album: "Delete Album"
+          cancel: "Cancel"
+      index:
+          home: "home"
+          new_album: "New Album"
+  aspects:
+      index:
+          photos: "photos"
+      show:
+          photos: "photos"
+      manage:
+          add_a_new_aspect: "Add a new aspect"
+          add_a_new_friend:  "Add a new friend"
+          show: "Show"
+          update_aspects: "Update Aspects"
+          requests: "Requests"
+          ignore_remove: "Ignore/Remove"
+      new_aspect:
+          create: "Create"
+  users:
+      edit:
+          cancel: "Cancel"
+          update_profile: "Update Profile"
+          home: "Home"
+          diaspora_username: "DIASPORA USERNAME"
+          info: "Info"
+          picture: "Picture"
+          editing_profile: "Editing profile"
+          albums: "Albums"
+  comments:
+      comment:
+          ago: "ago"
+      new_comment:
+          comment: "Comment"
+  photos:
+      show:
+          prev: "prev"
+          full_size: "full size"
+          next: "next"
+          edit_photo: "Edit Photo"
+          delete_photo: "Delete Photo"
+          are_you_sure: "Are you sure?"
+          comments: "comments"
+      edit:
+          editing: "Editing"
+          are_you_sure: "Are you sure?"
+          delete_photo: "Delete Photo"
+      photo:
+          show_comments: "show comments"
+      new:
+          new_photo: "New Photo"
+          back_to_list: "Back to List"
+          post_it: "post it!"
+  registrations:
+      new:
+          sign_up: "Sign up"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "tell me something good"
+          oh_yeah: "oh yeah!"
+      status_message:
+          show_comments: "show comments"
+          delete: "Delete"
+          are_you_sure: "Are you sure?"
+      show:
+          status_message: "Status Message"
+          comments: "comments"
+          are_you_sure: "Are you sure?"
+          destroy: "Destroy"
+          view_all: "View All"
+          message: "Message"
+          owner: "Owner"
+          
+      
