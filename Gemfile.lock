@@ -140,7 +140,6 @@ GEM
       rake
     mongo (1.0.8)
       bson (>= 1.0.5)
-    mongo_ext (0.19.3)
     net-scp (1.0.3)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -243,7 +242,6 @@ DEPENDENCIES
   json
   mini_magick
   mocha
-  mongo_ext
   mongo_mapper (= 0.8.4)!
   nifty-generators
   pubsubhubbub
