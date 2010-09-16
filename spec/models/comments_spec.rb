@@ -32,6 +32,15 @@ describe Comment do
       StatusMessage.first.comments.first.person.should == @user.person
     end
 
+    it "should be escaped" do
+      status = Factory.create(:status_message, :person => @user.person)
+      status.comments.should == []
+
+      @user.comment "><p style='color:red'>lolol</p><", :on => status
+      StatusMessage.first.comments.first.text.should == "&gt;&lt;p style='color:red'&gt;lolol&lt;/p&gt;&lt;"
+    end
+    
+
     it 'should not send out comments when we have no people' do
       status = Factory.create(:status_message, :person => @user.person)
       User::QUEUE.should_not_receive(:add_post_request)

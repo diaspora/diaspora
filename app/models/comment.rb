@@ -10,6 +10,8 @@ class Comment
   include Encryptable
   include Diaspora::Socketable
 
+  include Haml::Helpers
+
   xml_accessor :text
   xml_accessor :person, :as => Person
   xml_accessor :post_id
@@ -26,6 +28,8 @@ class Comment
   validates_presence_of :text
 
   timestamps!
+
+  after_create :escape_text
 
   #ENCRYPTION
 
@@ -55,6 +59,12 @@ class Comment
 
   def signature_valid?
     verify_signature(creator_signature, person)
+  end
+
+  private
+
+  def escape_text
+    self.text = html_escape text
   end
 
 end
