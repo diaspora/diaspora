@@ -131,7 +131,7 @@ If you have never used github before, their [help desk](http://help.github.com/)
 To start the app server for the first time, you need to use Bundler to install Diaspora's gem depencencies.  Run `bundle install` from Diaspora's root directory.  Bundler will also warn you if there is a new dependency and you need to bundle install again.
 
 ### Start Mongo
-After installing the above, run `sudo mongod` from where mongo is installed to start mongo.
+If you installed the Ubuntu package, MongoDB should already be running (if not, run `service mongodb start`). If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
 		
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
