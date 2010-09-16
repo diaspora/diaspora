@@ -9,24 +9,24 @@ namespace :db do
   namespace :seed do
     task :tom do
       puts "Seeding the database for #{Rails.env}..."
-      require 'db/seeds/tom'
+      require './db/seeds/tom'
     end
 
     task :dev do
       puts "Seeding the database for #{Rails.env}..."
-      require 'db/seeds/dev'
+      require './db/seeds/dev'
     end
 
     task :backer do
       puts "Seeding the database for #{Rails.env}..."
-      require 'db/seeds/backer'
+      require './db/seeds/backer'
       create
     end
   end
 
   desc 'Delete the collections in the current RAILS_ENV database'
   task :purge do
-    require 'config/environment'
+    require './config/environment'
 
     puts "Purging the database for #{Rails.env}..."
 
