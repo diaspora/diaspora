@@ -11,8 +11,11 @@
 #flash_alert {
   z-index: 100;
   top: 32px;
+  position: absolute;
   color: black;
   width: 400px;
+  margin: 0 0 0 -200px;
+  left: 50%;
   text-align: center;
   font-size: 14px;
   padding: 3px 0; }

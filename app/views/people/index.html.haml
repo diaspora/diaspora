@@ -48,3 +48,4 @@
               = f.select(:aspect_id, @aspects_dropdown_array)
               = f.hidden_field :destination_url, :value => person.diaspora_handle
               = f.submit "add friend"
+  = will_paginate @people
