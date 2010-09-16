@@ -164,7 +164,7 @@ On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update 
 
 ### Bundler
 
-After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.
+After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.  If you're using Ubuntu repository .debs, bundler is found at /var/lib/gems/1.8/bin/bundle
 
 
 ## Getting Diaspora
