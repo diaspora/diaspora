@@ -12,7 +12,9 @@ class UsersController < ApplicationController
   def show
     @user         = User.find_by_id params[:id]
     @user_profile = @user.person.profile
-    respond_with @user
+    @person = @current_user
+    @posts = current_user.raw_visible_posts.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_with @person
   end
 
   def edit
