@@ -200,7 +200,7 @@ Ongoing discussion:
   ([join via the web client](http://webchat.freenode.net?channels=diaspora-dev))
 
 More general info and updates about the project can be found on our
-[blog](http://joindiaspora.com), and on [twitter](http://twitter.com/joindiaspora).
+[blog](http://joindiaspora.com), and [on twitter](http://twitter.com/joindiaspora).
 Also, be sure to join the official
 [mailing list](http://http://eepurl.com/Vebk).
 
