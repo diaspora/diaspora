@@ -78,12 +78,12 @@ class Person
     @serialized_key = new_key
   end
 
-  def self.by_webfinger( identifier )
+  def self.by_webfinger( identifier, opts = {})
     local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
 
      if local_person
        local_person
-     elsif  !identifier.include?("localhost")
+     elsif  !identifier.include?("localhost") && !opts[:local]
        begin
         f = Redfinger.finger(identifier)
        rescue SocketError => e
