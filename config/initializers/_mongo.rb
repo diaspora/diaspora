@@ -2,8 +2,11 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+if ENV['MONGOHQ_URL']
+  MongoMapper.config = {RAILS_ENV => {'uri' => ENV['MONGOHQ_URL']}}
+else
+  MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+end
 
 MongoMapper.database = "diaspora-#{Rails.env}"
 
