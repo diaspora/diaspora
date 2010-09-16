@@ -62,7 +62,7 @@ module Diaspora
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
 
-        if request_from_me?(friend_request)
+        if request_from_me?(friend_request) && self.aspect_by_id(friend_request.aspect_id)
           aspect = self.aspect_by_id(friend_request.aspect_id)
           activate_friend(friend_request.person, aspect)
 
