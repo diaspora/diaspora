@@ -164,6 +164,15 @@ On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update 
 
 After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.
 
+If you get an error message like "command not found: bundle", you may
+have to add the gem executable directory to your PATH environment
+variable manually. You can find the executable directory by listing
+the gem environment with the command:
+    gem environment
+
+Use "export" to add the executable directory to your PATH, e.g.:
+    export PATH=/var/lib/gems/1.8/bin:${PATH}
+
 
 ## Getting Diaspora
 
