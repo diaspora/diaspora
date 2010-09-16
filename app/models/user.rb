@@ -229,8 +229,7 @@ class User
 
         Rails.logger.info( "the person id is #{object.post_id} the friend found is #{visible_person_by_id(object.post_id).inspect}")
         unfriended_by visible_person_by_id(object.post_id)
-
-      else
+else
         object.perform self.id
         aspects = self.aspects_with_person(object.person)
         aspects.each{ |aspect| aspect.post_ids.delete(object.post_id.to_id)
