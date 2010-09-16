@@ -22,6 +22,8 @@ en:
           manage_aspects: "Manage Aspects"
       publisher:
           share: "Share"
+      aspect_friends:
+          add_friends: "add friends"
   albums:
       album:
           you: "you"
@@ -52,6 +54,8 @@ en:
           add_a_new_friend:  "Add a new friend"
           show: "Show"
           update_aspects: "Update Aspects"
+          requests: "Requests"
+          ignore_remove: "Ignore/Remove"
       new_aspect:
           create: "Create"
   users:
@@ -88,5 +92,24 @@ en:
           new_photo: "New Photo"
           back_to_list: "Back to List"
           post_it: "post it!"
+  registrations:
+      new:
+          sign_up: "Sign up"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "tell me something good"
+          oh_yeah: "oh yeah!"
+      status_message:
+          show_comments: "show comments"
+          delete: "Delete"
+          are_you_sure: "Are you sure?"
+      show:
+          status_message: "Status Message"
+          comments: "comments"
+          are_you_sure: "Are you sure?"
+          destroy: "Destroy"
+          view_all: "View All"
+          message: "Message"
+          owner: "Owner"
           
       

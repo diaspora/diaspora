@@ -8,8 +8,7 @@
   = javascript_include_tag 'aspect-edit.js'
 
 - content_for :left_pane do
-  %h1
-    Requests
+  %h1=t('.requests')
 
   .requests
     %ul
@@ -18,8 +17,7 @@
           = person_image_tag(request.person)
           .name
             = request.person.real_name
-  %h1
-    Ignore/Remove
+  %h1=t('.ignore_remove')
 
   %li.remove
     %ul
