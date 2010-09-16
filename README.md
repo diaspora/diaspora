@@ -64,10 +64,8 @@ If you're on **Mac OS X**, you already have Ruby on your system.  Yay!
 
 ### MongoDB
 
-To install MongoDB on **Ubuntu**, add the official MongoDB repository from this
-link:
-
-http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages
+To install MongoDB on **Ubuntu**, add the official MongoDB repository from
+[here](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages).
 
 For Lucid, add the following line to your /etc/apt/sources.list:
 
