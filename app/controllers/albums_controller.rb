@@ -46,7 +46,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album = Album.find_params_by_id params[:id]
+    @album = Album.find_by_id params[:id]
     if @album.update_attributes params[:album]
       flash[:notice] = I18n.t('albums.update.success', :name => @album.name)
       respond_with @album
