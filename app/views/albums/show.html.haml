@@ -11,7 +11,7 @@
   });
 
 = content_for :page_title do
-  = link_to "◂ Albums", albums_path(:aspect => @aspect)
+  = link_to "◂ #{t('.albums')}", albums_path(:aspect => @aspect)
 
 - content_for :left_pane do
   = render "shared/aspect_friends"
@@ -19,13 +19,13 @@
 - content_for :publish do
   %h1
     = @album.name
-  ="updated #{how_long_ago(@album)}"
+  ="#{t('.updated')} #{how_long_ago(@album)}"
 
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
 
 -unless current_user.owns? @album
-  %h4= "by #{@album.person.real_name}"
+  %h4= "#{t('.by')} #{@album.person.real_name}"
 
 #thumbnails
   - for photo in @album_photos
@@ -36,8 +36,8 @@
 
 #content_bottom
   .back
-    = link_to "⇧ albums", albums_path
+    = link_to "⇧ #{t('.albums')}", albums_path
 
   -if current_user.owns? @album
     .right
-      = link_to 'Edit Album', edit_album_path(@album), :class => 'button'
+      = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
