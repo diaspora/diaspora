@@ -4,7 +4,7 @@
 
 
 class Post
-  require 'lib/encryptable'
+  require File.expand_path('../../../lib/encryptable', __FILE__)
   include MongoMapper::Document
   include ApplicationHelper
   include ROXML
