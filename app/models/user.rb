@@ -50,7 +50,6 @@ class User
 
   ######## Making things work ########
   key :email, String
-  ensure_index :email
 
   def method_missing(method, *args)
     self.person.send(method, *args)

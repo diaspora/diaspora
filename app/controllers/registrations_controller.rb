@@ -14,7 +14,6 @@ class RegistrationsController < Devise::RegistrationsController
       user = nil
       flash[:error] = e.message
     end
-    puts user
     if user
       #set_flash_message :notice, :signed_up
       flash[:notice] = "You've joined Diaspora!"
