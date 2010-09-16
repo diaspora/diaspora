@@ -286,7 +286,7 @@ class User
   end
 
   ###Helpers############
-  def self.instantiate( opts = {} )
+  def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{opts[:url]}"
     opts[:person][:serialized_key] = generate_key
     User.create!(opts)

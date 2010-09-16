@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     begin 
-      user = User.instantiate(params[:user])
+      user = User.instantiate!(params[:user])
     rescue MongoMapper::DocumentNotValid => e
       user = nil
       flash[:error] = e.message
