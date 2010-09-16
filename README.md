@@ -190,9 +190,26 @@ Once mongo is running and bundler has finished, run `bundle exec thin start` fro
 ### Logging in
 Run `rake db:seed:tom`, then login with user `tom` and password `evankorth`. More details in db/seeds/tom.rb.
 
-
 ### Testing
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.
+
+## Heroku
+
+### Setup
+You need a Heroku account set up and the heroku gem installed. You should also probably set your custom domain up before you deploy, since Diaspora stores it in your user profile when you create your account (i.e. if you want your Diaspora username to be "me@diaspora.mydomain.com" instead of "me@my-diaspora.heroku.com"). You can console and change it later, if you don't want to set your custom domain up right now.
+
+### MongoDB
+If you're using the Heroku MongoHQ plugin, you don't need to do anything to configure Mongo. The plugin sets the MongoHQ environment variable automatically.
+
+If you're not using the plugin, you need to run the following command:
+		heroku config:add MONGOHQ_URL="mongodb://my-mongo-url-that-i-got-from-mongo-hq-or-whatever"
+
+### S3 File attachments
+Heroku has a read-only filesystem, so you'll need to use Amazon S3 or some other custom processor. Here's how to tell Diaspora to use Heroku's temp directory and your S3 credentials:
+		heroku config:add HEROKU=true
+		heroku config:add S3_KEY="AMAZON-S3-KEY-ID"
+		heroku config:add S3_SECRET="AMAZON-S3-KEY-SECRET"
+		heroku config:add S3_BUCKET="my-diaspora-bucket"
 
 ## Resources
 
