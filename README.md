@@ -168,16 +168,16 @@ need to bundle install again.
 
 ### Start Mongo
 
-After installing the above, run `sudo mongod` from where mongo is installed to
-start mongo.
+After installing the above, run `sudo mongod` from where Mongo is installed to
+start Mongo.
 
-Diaspora will not run unless mongo is running.  Mongo will not run by default,
+Diaspora will not run unless Mongo is running.  Mongo will not run by default,
 and will need to be started every time you wish to use or run the test suite
 for Diaspora.
 
 ### Run the app server
 
-Once mongo is running and bundler has finished, run `bundle exec thin start`
+Once Mongo is running and bundler has finished, run `bundle exec thin start`
 from the root Diaspora directory.  This will start the app server in
 development mode[.](http://bit.ly/9mwtUw)
 
