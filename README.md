@@ -147,13 +147,13 @@ To install Git on **Mac OS X**, run the following:
 
 ### Rubygems
 
-On **Ubuntu**, run the following:
+On **Ubuntu** 10.04, run the following:
 
-		wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
-		tar -xf rubygems-1.3.7.tgz
-		cd rubygems-1.3.7
-		sudo ruby setup.rb
-		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+		sudo add-apt-repository ppa:maco.m/ruby
+		sudo apt-get update
+		sudo apt-get install rubygems
+
+This PPA is maintained by an Ubuntu Developer. For Ubuntu 10.10, this version of rubygems is in the repositories.
 
 On **Fedora**, run the following:
 
