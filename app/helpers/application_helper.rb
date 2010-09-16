@@ -10,6 +10,7 @@ module ApplicationHelper
   end
 
   def object_path(object, opts = {})
+    object = object.person if object.is_a? User
     eval("#{object.class.to_s.underscore}_path(object, opts)")
   end
 
