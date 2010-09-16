@@ -206,6 +206,8 @@ Ongoing discussion:
 
 More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
 
+If you wish to contact us privately about any exploits in Diaspora you may find, you can email [exploits@joindiaspora.com](mailto:exploits@joindiaspora.com).
+
 
 ## License
 Copyright 2010 Diaspora Inc.
