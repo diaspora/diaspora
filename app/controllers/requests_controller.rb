@@ -36,6 +36,7 @@ class RequestsController < ApplicationController
     begin
       rel_hash = relationship_flow(params[:request][:destination_url])
     rescue Exception => e
+      raise e unless e.message.include? "not found"
       flash[:error] = "No diaspora seed found with this email!"
       respond_with :location => aspect
       return
