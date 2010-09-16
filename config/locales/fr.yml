@@ -85,31 +85,31 @@ fr:
       edit:
           editing: "Édition"
           are_you_sure: "Êtes-vous sûr?"
-          delete_photo: "Delete Photo"
+          delete_photo: "Supprimer la photo"
       photo:
-          show_comments: "show comments"
+          show_comments: "Montrer les commentaires"
       new:
-          new_photo: "New Photo"
-          back_to_list: "Back to List"
-          post_it: "post it!"
+          new_photo: "Nouvelle photo"
+          back_to_list: "Retour à la liste"
+          post_it: "postez le !"
   registrations:
       new:
-          sign_up: "Sign up"
+          sign_up: "Enregistrement"
   status_messages:
       new_status_message:
-          tell_me_something_good: "tell me something good"
+          tell_me_something_good: "Dites quelque-chose de bien"
           oh_yeah: "oh yeah!"
       status_message:
-          show_comments: "show comments"
-          delete: "Delete"
-          are_you_sure: "Are you sure?"
+          show_comments: "Montrer les commentaires"
+          delete: "Suppression"
+          are_you_sure: "Êtes-vous sûr ?"
       show:
           status_message: "Status Message"
-          comments: "comments"
-          are_you_sure: "Are you sure?"
-          destroy: "Destroy"
-          view_all: "View All"
+          comments: "commentaires"
+          are_you_sure: "Êtes-vous sûr ?"
+          destroy: "Destruction"
+          view_all: "Tout voir"
           message: "Message"
-          owner: "Owner"
+          owner: "Propriétaire"
           
       
