@@ -9,7 +9,8 @@ class AlbumsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @albums = current_user.albums_by_aspect(@aspect).paginate
+    @albums = current_user.albums_by_aspect(@aspect).paginate :page => params[:page], :per_page => 9, :order => 'created_at DESC'
+    @aspect = :all
     respond_with @albums, :aspect => @aspect
   end
 
@@ -45,7 +46,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    @album = Album.find_params_by_id params[:id]
+    @album = Album.find_by_id params[:id]
     if @album.update_attributes params[:album]
       flash[:notice] = "Album #{@album.name} successfully edited."
       respond_with @album
