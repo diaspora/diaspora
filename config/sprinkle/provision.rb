@@ -43,6 +43,6 @@ deployment do
 	binary do
 		prefix   '/usr/local/bin'
     archives '/usr/local/sources'
-  end 
+  end
 end
 

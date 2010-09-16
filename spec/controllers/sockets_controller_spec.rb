@@ -13,7 +13,7 @@ class SocketsController
 end
 
 describe SocketsController do
-  render_views  
+  render_views
   before do
     @user = Factory.create(:user)
     @controller = SocketsController.new
@@ -23,14 +23,14 @@ describe SocketsController do
       Diaspora::WebSocket.initialize_channels
       @controller.class.should == SocketsController
   end
-  
+
   describe 'actionhash' do
     before do
       @aspect = @user.aspect :name => "losers"
       @message = @user.post :status_message, :message => "post through user for victory", :to => @aspect.id
       @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     end
-    
+
     it 'should actionhash photos' do
       pending "Figure out how to make the photo posting api work in specs, it needs a file type"
       @album = @user.post(:album, :name => "Loser faces", :to => @aspect.id)

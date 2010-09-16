@@ -9,7 +9,7 @@ module RequestsHelper
     if diaspora?(profile)
       :friend
     else
-      :none 
+      :none
     end
   end
 

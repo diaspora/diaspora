@@ -9,13 +9,13 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe MessageHandler do
   before do
     @handler = MessageHandler.new
-    @message_body = "I want to pump you up" 
+    @message_body = "I want to pump you up"
     @message_urls = ["http://www.google.com/", "http://yahoo.com/", "http://foo.com/"]
 
   end
 
   describe 'GET messages' do
-    describe 'creating a GET query' do 
+    describe 'creating a GET query' do
       it 'should be able to add a GET query to the queue with required destinations' do
         EventMachine.run{
           @handler.add_get_request(@message_urls)
@@ -31,8 +31,8 @@ describe MessageHandler do
         request = FakeHttpRequest.new(:success)
         request.should_receive(:get).and_return(request)
         EventMachine::HttpRequest.stub!(:new).and_return(request)
-        
-        EventMachine.run { 
+
+        EventMachine.run {
           @handler.add_get_request("http://www.google.com/")
           @handler.size.should == 1
           @handler.process
@@ -60,14 +60,14 @@ describe MessageHandler do
   end
 
   describe 'POST messages' do
-    
+
 
     it 'should be able to add a post message to the queue' do
       EventMachine.run {
         @handler.size.should ==0
         @handler.add_post_request(@message_urls.first, @message_body)
         @handler.size.should == 1
-        
+
         EventMachine.stop
       }
     end
@@ -86,26 +86,26 @@ describe MessageHandler do
       request.should_receive(:post).and_return(request)
       EventMachine::HttpRequest.stub!(:new).and_return(request)
       EventMachine.run{
-        
+
         @handler.add_post_request(@message_urls.first, @message_body)
         @handler.size.should == 1
         @handler.process
-        @handler.size.should == 0 
+        @handler.size.should == 0
 
-        EventMachine.stop 
-      
+        EventMachine.stop
+
       }
     end
   end
 
-  describe "Mixed Queries" do 
-    
+  describe "Mixed Queries" do
+
     it 'should process both POST and GET requests in the same queue' do
       request = FakeHttpRequest.new(:success)
       request.should_receive(:get).exactly(3).times.and_return(request)
       request.should_receive(:post).exactly(3).times.and_return(request)
       EventMachine::HttpRequest.stub!(:new).and_return(request)
- 
+
       EventMachine.run{
         @handler.add_post_request(@message_urls,@message_body)
         @handler.size.should == 3
@@ -124,7 +124,7 @@ describe MessageHandler do
       request.should_receive(:get).exactly(1).times.and_return(request)
       request.should_receive(:post).exactly(1).times.and_return(request)
       @handler.should_receive(:send_to_seed).once
-      
+
       EventMachine::HttpRequest.stub!(:new).and_return(request)
 
       EventMachine.run{
@@ -143,7 +143,7 @@ class FakeHttpRequest
   def initialize(callback_wanted)
     @callback = callback_wanted
   end
-  def response 
+  def response
   end
 
   def post; end

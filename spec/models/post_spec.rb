@@ -11,7 +11,7 @@ describe Post do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @user.person.save
   end
- 
+
   describe 'xml' do
     before do
       @message = Factory.create(:status_message, :person => @user.person)

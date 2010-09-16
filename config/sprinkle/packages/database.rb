@@ -15,7 +15,7 @@ package :mongodb, :provides => :database do
 	version '1.4.3'
 
   binary "http://downloads.mongodb.org/linux/mongodb-linux-x86_64-static-legacy-#{version}.tgz" do
-		post :install, "ln -s -f /usr/local/bin/mongodb-linux-x86_64-static-#{version}/bin/mongod /usr/bin/mongod"  
+		post :install, "ln -s -f /usr/local/bin/mongodb-linux-x86_64-static-#{version}/bin/mongod /usr/bin/mongod"
 	end
 end
 

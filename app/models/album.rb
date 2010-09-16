@@ -16,12 +16,12 @@ class Album < Post
   validates_presence_of :name, :person
 
   before_destroy :destroy_photos
-  
+
 
   def self.mine_or_friends(friend_param, current_user)
     friend_param ? Album.find_all_by_person_id(current_user.friend_ids) : current_user.person.albums
   end
-  
+
   def prev_photo(photo)
     n_photo = self.photos.where(:created_at.lt => photo.created_at).sort(:created_at.desc).first
     n_photo ? n_photo : self.photos.sort(:created_at.desc).first

@@ -13,7 +13,7 @@ describe User do
     @aspect = @user.aspect(:name => 'heroes')
 
     @user2 = Factory.create(:user)
-    @aspect2 = @user2.aspect(:name => 'losers') 
+    @aspect2 = @user2.aspect(:name => 'losers')
 
     @user3 = Factory.create(:user)
     @aspect3 = @user3.aspect(:name => 'heroes')
@@ -30,14 +30,14 @@ describe User do
     status_message.destroy
     StatusMessage.all.size.should == 0
     @user.receive( xml )
-    
+
     Post.all(:person_id => person.id).first.message.should == 'store this!'
     StatusMessage.all.size.should == 1
   end
-  
+
   it 'should not create new aspects on message receive' do
     num_aspects = @user.aspects.size
-    
+
     (0..5).each{ |n|
       status_message = @user2.post :status_message, :message => "store this #{n}!", :to => @aspect2.id
       xml = status_message.to_diaspora_xml
@@ -51,7 +51,7 @@ describe User do
     before do
 
     end
-    
+
     it "should add the post to that user's posts when a user posts it" do
       status_message = @user.post :status_message, :message => "hi", :to => @aspect.id
       @user.reload
@@ -64,12 +64,12 @@ describe User do
       @user.reload
 
       @user.raw_visible_posts.count.should == 1
-      
+
       @user.unfriend(@user2.person)
 
       @user.reload
       @user.raw_visible_posts.count.should == 0
-      
+
       Post.count.should be 1
     end
 
@@ -79,14 +79,14 @@ describe User do
       @user.reload
 
       @user.raw_visible_posts.count.should == 1
-      
+
       person = @user2.person
       @user2.destroy
       @user.unfriend(person)
 
       @user.reload
       @user.raw_visible_posts.count.should == 0
-      
+
       Post.count.should be 0
     end
 
@@ -96,10 +96,10 @@ describe User do
       @user.reload
 
       @user.raw_visible_posts.count.should == 1
-      
+
       status_message.reload
       status_message.user_refs.should == 1
-      
+
       @user.unfriend(@user2.person)
       status_message.reload
 
@@ -108,7 +108,7 @@ describe User do
 
       status_message.reload
       status_message.user_refs.should == 0
-      
+
       Post.count.should be 1
     end
 
@@ -123,10 +123,10 @@ describe User do
       @user3.reload
 
       @user.raw_visible_posts.count.should == 1
-      
+
       status_message.reload
       status_message.user_refs.should == 2
-      
+
       @user.unfriend(@user2.person)
       status_message.reload
 
@@ -135,14 +135,14 @@ describe User do
 
       status_message.reload
       status_message.user_refs.should == 1
-      
+
       Post.count.should be 1
     end
   end
 
   describe 'comments' do
     it 'should correctly marshal a stranger for the downstream user' do
-      
+
       friend_users(@user, @aspect, @user3, @aspect3)
       post = @user.post :status_message, :message => "hello", :to => @aspect.id
 
@@ -167,7 +167,7 @@ describe User do
       new_comment.should_not be_nil
       new_comment.person.should_not be_nil
       new_comment.person.profile.should_not be_nil
-      
+
       @user3.visible_person_by_id(commenter_id).should_not be_nil
     end
   end

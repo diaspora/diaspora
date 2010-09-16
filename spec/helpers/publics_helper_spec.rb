@@ -6,7 +6,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-include PublicsHelper 
+include PublicsHelper
 describe PublicsHelper do
   before do
     @user = Factory.create(:user)

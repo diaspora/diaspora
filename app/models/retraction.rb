@@ -43,7 +43,7 @@ class Retraction
   def self.person_id_from(object)
     object.is_a?(Person) ? object.id : object.person.id
   end
-  
+
   def person
     Person.find_by_id(self.person_id)
   end

@@ -23,7 +23,7 @@ class Profile
   def person_id
     self._parent_document.id
   end
-  
+
   def person
     self._parent_document
   end

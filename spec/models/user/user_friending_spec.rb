@@ -49,7 +49,7 @@ describe User do
     end
 
     it 'should not be able to friend request an existing friend' do friend = Factory.create(:person)
-      
+
       @user.friends << friend
       @user.save
 
@@ -63,7 +63,7 @@ describe User do
       before do
         @person_one = Factory.create :person
         @person_one.save
-      
+
         @user2 = Factory.create :user
         @aspect2 = @user2.aspect(:name => "aspect two")
 
@@ -90,7 +90,7 @@ describe User do
         @user2.receive @req_three_xml
         @user2.pending_requests.size.should be 1
         @user2.accept_friend_request @request_three.id, @aspect2.id
-        @user2.friends.include?(@user.person).should be true  
+        @user2.friends.include?(@user.person).should be true
         Person.all.count.should be 3
       end
 
@@ -99,21 +99,21 @@ describe User do
         @user2.receive @req_three_xml
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @request_three.id
-        @user2.friends.include?(@user.person).should be false  
+        @user2.friends.include?(@user.person).should be false
         Person.all.count.should be 3
       end
-      
+
       it 'should both users should befriend the same person' do
 
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
         @user.accept_friend_request @request.id, @aspect.id
-        @user.friends.include?(@person_one).should be true  
+        @user.friends.include?(@person_one).should be true
 
         @user2.receive @req_two_xml
         @user2.pending_requests.size.should be 1
         @user2.accept_friend_request @request_two.id, @aspect2.id
-        @user2.friends.include?(@person_one).should be true  
+        @user2.friends.include?(@person_one).should be true
         Person.all.count.should be 3
       end
 
@@ -122,12 +122,12 @@ describe User do
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
         @user.accept_friend_request @request.id, @aspect.id
-        @user.friends.include?(@person_one).should be true  
+        @user.friends.include?(@person_one).should be true
 
         @user2.receive @req_two_xml
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @request_two.id
-        @user2.friends.include?(@person_one).should be false  
+        @user2.friends.include?(@person_one).should be false
         Person.all.count.should be 3
       end
 
@@ -135,12 +135,12 @@ describe User do
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
         @user.ignore_friend_request @user.pending_requests.first.id
-        @user.friends.include?(@person_one).should be false  
+        @user.friends.include?(@person_one).should be false
 
         @user2.receive @req_two_xml
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @user2.pending_requests.first.id#@request_two.id
-        @user2.friends.include?(@person_one).should be false 
+        @user2.friends.include?(@person_one).should be false
         Person.all.count.should be 3
       end
 
@@ -158,9 +158,9 @@ describe User do
         @request = Request.instantiate(:to => @user.receive_url, :from => @person_one)
         @request_two = Request.instantiate(:to => @user.receive_url, :from => @person_two)
       end
-      
+
       after do
-        @user.receive_friend_request @request        
+        @user.receive_friend_request @request
 
         @person_two.destroy
         @user.pending_requests.size.should be 1
@@ -188,9 +188,9 @@ describe User do
     before do
       @user2 = Factory.create :user
       @aspect2 = @user2.aspect(:name => "Gross people")
-      
+
       request = @user.send_friend_request_to( @user2, @aspect)
-      request.reverse_for @user2 
+      request.reverse_for @user2
       @user2.activate_friend(@user.person, @aspect2)
       @user.receive request.to_diaspora_xml
     end
@@ -201,7 +201,7 @@ describe User do
 
       @user.friends.count.should == 1
       @user2.friends.count.should == 1
-      
+
       @user2.unfriend @user.person
       @user2.friends.count.should be 0
 

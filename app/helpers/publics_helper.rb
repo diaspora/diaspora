@@ -15,7 +15,7 @@ module PublicsHelper
       elsif opts[:verify] == 'async'
         202
       end
-    else 
+    else
       400
     end
   end

@@ -5,13 +5,13 @@
 
 
 require File.dirname(__FILE__) + '/../spec_helper'
- 
+
 describe PublicsController do
  render_views
-  
+
   before do
     @user = Factory.create(:user)
-    sign_in :user, @user   
+    sign_in :user, @user
   end
 
   describe 'receive endpoint' do
@@ -19,7 +19,7 @@ describe PublicsController do
       post :receive, :id =>@user.person.id
       response.code.should == '200'
     end
-    
+
     it 'should accept a post from another node and save the information' do
       user2 = Factory.create(:user)
       message = user2.build_post(:status_message, :message => "hi")
@@ -46,20 +46,20 @@ describe PublicsController do
       req = @user2.send_friend_request_to(@user.person, aspect)
 
       @xml = @user.person.encrypt(@user2.salmon(req, :to => @user.person).to_xml)
-  
+
       req.delete
       @user2.reload
       @user2.pending_requests.count.should be 1
     end
 
-    it 'should add the pending request to the right user if the target person exists locally' do 
+    it 'should add the pending request to the right user if the target person exists locally' do
       @user2.delete
       post :receive, :id => @user.person.id, :xml => @xml
-      
+
       assigns(:user).should eq(@user)
     end
 
-    it 'should add the pending request to the right user if the target person does not exist locally' do 
+    it 'should add the pending request to the right user if the target person does not exist locally' do
       Person.should_receive(:by_webfinger).with(@user2.person.diaspora_handle).and_return(@user2.person)
       @user2.person.delete
       @user2.delete

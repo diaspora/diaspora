@@ -5,7 +5,7 @@
 
 class RequestsController < ApplicationController
   before_filter :authenticate_user!
-  include RequestsHelper 
+  include RequestsHelper
 
   respond_to :html
 
@@ -25,24 +25,24 @@ class RequestsController < ApplicationController
       respond_with :location => requests_url
     end
   end
-  
+
   def new
     @request = Request.new
   end
-  
+
   def create
     aspect = current_user.aspect_by_id(params[:request][:aspect_id])
 
-    begin 
+    begin
       rel_hash = relationship_flow(params[:request][:destination_url])
     rescue Exception => e
-      flash[:error] = "No diaspora seed found with this email!" 
+      flash[:error] = "No diaspora seed found with this email!"
       respond_with :location => aspect
       return
     end
-    
+
     Rails.logger.debug("Sending request: #{rel_hash}")
-    
+
     begin
       @request = current_user.send_friend_request_to(rel_hash[:friend], aspect)
     rescue Exception => e
