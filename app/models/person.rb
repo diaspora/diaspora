@@ -11,13 +11,13 @@ class Person
   include Encryptor::Public
 
   xml_accessor :_id
-  xml_accessor :email
+  xml_accessor :diaspora_handle
   xml_accessor :url
   xml_accessor :profile, :as => Profile
   xml_reader :exported_key
   
   key :url,            String
-  key :email,          String, :unique => true
+  key :diaspora_handle, String, :unique => true
   key :serialized_key, String 
 
   key :owner_id,  ObjectId
@@ -30,13 +30,13 @@ class Person
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-  validates_presence_of :email, :url, :profile, :serialized_key 
+  validates_presence_of :url, :profile, :serialized_key 
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
   
   
   def self.search(query)
-    Person.all('$where' => "function() { return this.email.match(/^#{query}/i) ||
+    Person.all('$where' => "function() { return this.diaspora_handle.match(/^#{query}/i) ||
                this.profile.first_name.match(/^#{query}/i) ||
                this.profile.last_name.match(/^#{query}/i); }")
   end
@@ -79,7 +79,8 @@ class Person
   end
 
   def self.by_webfinger( identifier )
-     local_person = Person.first(:email => identifier.gsub('acct:', ''))
+    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
+    
      if local_person
        local_person
      elsif  !identifier.include?("localhost")
@@ -102,7 +103,7 @@ class Person
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid
     
-    new_person.email = identifier
+    new_person.diaspora_handle = identifier
     
     hcard = HCard.find profile.hcard.first[:href]
 
@@ -124,7 +125,7 @@ class Person
       :person => {
         :id           => self.id,
         :name         => self.real_name,
-        :email        => self.email,
+        :diaspora_handle        => self.diaspora_handle,
         :url          => self.url,
         :exported_key => exported_key
       }

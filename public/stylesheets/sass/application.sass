@@ -578,8 +578,6 @@ h1.big_text
     :display none
 
 #aspect_nav
-  :z-index 4
-  :position relative
   :color #000
   :margin
     :top 8px
@@ -606,12 +604,14 @@ h1.big_text
         :right 0.5em
 
       a
+        :line
+          :height 22px
         :background
           :color #444
         :border 1px solid #555
 
         :padding 3px 8px
-          :bottom 2px
+          :bottom 3px
         :color #999
 
         &:hover
@@ -623,7 +623,7 @@ h1.big_text
         :text-shadow 0 2px 0 #fff
         :padding
           :top 4px
-          :bottom 4px
+          :bottom 5px
         :line
           :height 18px
         :font
@@ -631,7 +631,7 @@ h1.big_text
         :background
           :color #eee
         :border 1px solid #fff
-          :bottom none
+          :bottom 1px solid #eee
         :color #000
         &:hover
           :background
@@ -682,7 +682,7 @@ h1.big_text
       :position absolute
       :top 10px
       :right 0
-      :display none
+      :display inline
 
     &:hover
       .tools

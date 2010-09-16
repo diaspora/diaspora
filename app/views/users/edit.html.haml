@@ -17,17 +17,27 @@
 
     %h3 Picture
     %div#image_picker
-      = p.hidden_field :image_url, :value => @profile.image_url.sub(@user.url,'/'), :id => 'image_url_field'
-      - for photo in @photos
-        - if photo.url(:thumb_medium) == @profile.image_url.sub(@user.url,'/')
-          %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
-            = check_box_tag 'checked_photo', true, true
-            = link_to image_tag(photo.url(:thumb_medium)), "#"
-        - else
-          %div.small_photo{:id => photo.url(:thumb_medium)}
-            = check_box_tag 'checked_photo'
-            = link_to image_tag(photo.url(:thumb_medium)), "#"
+      = p.hidden_field :image_url, :value => (@profile.image_url.sub(@user.url,'/') if @profile.image_url), :id => 'image_url_field'
+
+      - unless @photos.nil? || @photos.empty?
+        - for photo in @photos
+          - if @profile.image_url && (photo.url(:thumb_medium) == @profile.image_url.sub(@user.url,'/'))
+            %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
+              = check_box_tag 'checked_photo', true, true
+              = link_to image_tag(photo.url(:thumb_medium)), "#"
+          - else
+            %div.small_photo{:id => photo.url(:thumb_medium)}
+              = check_box_tag 'checked_photo'
+              = link_to image_tag(photo.url(:thumb_medium)), "#"
+
+      - else
+        You don't have any photos!  Go to the
+        = link_to "albums", albums_path(:aspect => 'all')
+        page to upload some.
+
     =will_paginate @photos
+
+    %br
 
     %h3 Info
 

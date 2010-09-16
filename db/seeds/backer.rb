@@ -21,16 +21,18 @@ def create
   backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
   # Create seed user
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
-  user = User.create( :email => "#{username}@#{username}.joindiaspora.com",
+  user = User.instantiate!(:email => "#{username}@#{username}.joindiaspora.com",
                      :username => username,
                      :password => "#{username+backer_info[backer_number]['pin'].to_s}",
+                     :password_confirmation => "#{username+backer_info[backer_number]['pin'].to_s}",
+                     :url=> "http://#{username}.joindiaspora.com/",
                      :person => Person.new(
-                       :email => "#{username}@#{username}.joindiaspora.com",
+                       :diaspora_handle => "#{username}@#{username}.joindiaspora.com",
                        :profile => Profile.new( :first_name => backer_info[backer_number]['given_name'], :last_name => backer_info[backer_number]['family_name'], 
                                              :image_url => "http://#{username}.joindiaspora.com/images/user/#{username}.jpg"),
                        :url=> "http://#{username}.joindiaspora.com/")
                     )
-  user.person.save
+  user.person.save!
 
   user.aspect(:name => "Presidents")
 end

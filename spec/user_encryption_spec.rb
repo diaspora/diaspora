@@ -16,12 +16,12 @@ describe 'user encryption' do
     @person = Factory.create(:person_with_private_key,
       :profile => Profile.new(:first_name => 'Remote',
                               :last_name => 'Friend'),
-      :email => 'somewhere@else.com',
+      :diaspora_handle => 'somewhere@else.com',
       :url => 'http://distant-example.com/')
     @person2 = Factory.create(:person_with_private_key,
       :profile => Profile.new(:first_name => 'Second',
                               :last_name => 'Friend'),
-      :email => 'elsewhere@else.com',
+      :diaspora_handle => 'elsewhere@else.com',
       :url => 'http://distanter-example.com/')
   end
 

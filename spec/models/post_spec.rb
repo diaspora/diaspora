@@ -18,7 +18,7 @@ describe Post do
     end
 
     it 'should serialize to xml with its person' do
-      @message.to_xml.to_s.include?(@user.person.email).should == true
+      @message.to_xml.to_s.include?(@user.person.diaspora_handle).should == true
     end
 
   end

@@ -18,7 +18,7 @@
 %table
   %tr
     %th real name
-    %th email
+    %th diaspora handle
     %th url
     - for person in @people
       %tr
@@ -27,7 +27,7 @@
         - else
           %td= person.real_name
 
-        %td= person.email
+        %td= person.diaspora_handle
         %td= person.url
         
         -if current_user.friends.include? person
@@ -46,5 +46,5 @@
           %td
             = form_for Request.new do |f|
               = f.select(:aspect_id, @aspects_dropdown_array)
-              = f.hidden_field :destination_url, :value => person.email
+              = f.hidden_field :destination_url, :value => person.diaspora_handle
               = f.submit "add friend"
