@@ -94,6 +94,7 @@ GEM
       activesupport (= 3.0.0)
     activesupport (3.0.0)
     addressable (2.2.1)
+    archive-tar-minitar (0.5.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     autotest (4.3.2)
@@ -128,6 +129,8 @@ GEM
     i18n (0.4.1)
     json (1.4.6)
     linecache (0.43)
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
     lsof (0.3.0)
     mail (2.2.6.1)
       activesupport (>= 2.3.6)
@@ -140,7 +143,7 @@ GEM
       rake
     mongo (1.0.8)
       bson (>= 1.0.5)
-    net-scp (1.0.3)
+    net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
@@ -195,6 +198,16 @@ GEM
       ruby-debug-base (~> 0.10.3.0)
     ruby-debug-base (0.10.3)
       linecache (>= 0.3)
+    ruby-debug-base19 (0.11.24)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.4)
+      archive-tar-minitar (>= 0.5.2)
     saucelabs-adapter (0.8.12)
       lsof (>= 0.3.0)
       net-ssh (>= 2.0.12)
@@ -254,6 +267,7 @@ DEPENDENCIES
   rspec (>= 2.0.0.beta.17)
   rspec-rails (= 2.0.0.beta.17)
   ruby-debug
+  ruby-debug19
   saucelabs-adapter (= 0.8.12)
   selenium-rc
   sprinkle!

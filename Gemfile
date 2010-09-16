@@ -54,7 +54,12 @@ end
 
 group :development do
   gem 'nifty-generators'
-  gem 'ruby-debug19'
+  platforms :ruby_18 do
+	gem 'ruby-debug'
+  end
+  platforms :ruby_19 do
+	gem 'ruby-debug19', :require => 'ruby_debug'
+  end
 end
 
 group :deployment do
