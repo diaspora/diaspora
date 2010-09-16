@@ -80,5 +80,13 @@ en:
           comments: "comments"
       edit:
           editing: "Editing"
+          are_you_sure: "Are you sure?"
+          delete_photo: "Delete Photo"
+      photo:
+          show_comments: "show comments"
+      new:
+          new_photo: "New Photo"
+          back_to_list: "Back to List"
+          post_it: "post it!"
           
       
