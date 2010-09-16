@@ -47,8 +47,20 @@ If you're on **Mac OS X**, you already have Ruby on your system.  Yay!
 
 ### MongoDB
 
-To install MongoDB on **Ubuntu**, run the following commands:
+To install MongoDB on **Ubuntu**, add the official MongoDB repository from this link:
 
+http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages
+
+For Lucid, add the following line to your /etc/apt/sources.list:
+
+		deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen
+
+And then run:
+		sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+		sudo apt-get update
+		sudo apt-get install mongodb-stable
+
+You can also run the binary directly by doing the following:
 
 If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz`.  If you're running a 64-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz`.
 
