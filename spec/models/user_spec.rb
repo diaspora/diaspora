@@ -31,4 +31,31 @@ describe User do
       @user.profile.image_url.should == "http://clown.com"
     end
   end
+
+  describe 'aspects' do
+    it 'should delete an empty aspect' do
+      @user.aspects.include?(@aspect).should == true
+      @user.drop_aspect(@aspect)
+      @user.reload
+
+      @user.aspects.include?(@aspect).should == false
+    end
+
+    it 'should not delete an aspect with friends' do
+      user2   = Factory.create(:user)
+      aspect2 = user2.aspect(:name => 'stuff')
+      user2.reload
+      aspect2.reload
+
+      friend_users(@user, Aspect.find_by_id(@aspect.id), user2, Aspect.find_by_id(aspect2.id))
+      @aspect.reload
+      
+      @user.aspects.include?(@aspect).should == true
+
+      proc{@user.drop_aspect(@aspect)}.should raise_error /Aspect not empty/
+
+      @user.reload
+      @user.aspects.include?(@aspect).should == true
+    end
+  end
 end
