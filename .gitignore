@@ -1,5 +1,4 @@
 .bundle
-Gemfile.lock
 .idea
 *.swap
 *.swp
