@@ -1,6 +1,6 @@
 namespace :whitespace do
   desc 'Removes trailing whitespace'
-  task :clean do
+  task :cleanup do
     sh %{find . -name '*.rb' -exec sed -i '' 's/ *$//g' {} \\;}
   end
   task :retab do
