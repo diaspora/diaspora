@@ -17,7 +17,7 @@ policy :diaspora, :roles => [:tom,:backer] do
 #  requires :clean_dreamhost
   requires :tools
   requires :rubygems
-	requires :bundler
+  requires :bundler
   requires :diaspora_dependencies
   requires :database
   requires :webserver
@@ -40,8 +40,8 @@ deployment do
     archives '/usr/local/sources'
     builds   '/usr/local/build'
   end
-	binary do
-		prefix   '/usr/local/bin'
+  binary do
+    prefix   '/usr/local/bin'
     archives '/usr/local/sources'
   end
 end
