@@ -30,6 +30,8 @@ de:
       new_album:
           create: "erstellen"
           add_a_new_album: "Album hinzufügen"
+      create:
+          success: Du hast das Album %{name} erstellt.
       show: 
           edit_album: "Album bearbeiten"
           albums: "Alben"
@@ -41,9 +43,14 @@ de:
           are_you_sure: "Bist du sicher?"
           delete_album: "Album löschen"
           cancel: "Abbrechen"
+      update:
+          success: Album %{name} erfolgreich geändert.
+          failure: %{name} wurde nicht geändert.
       index:
           home: "Startseite"
           new_album: "Neues Album"
+      destroy:
+          success: Album %{name} gelöscht.
   aspects:
       index:
           photos: "Fotos"

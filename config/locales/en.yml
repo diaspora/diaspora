@@ -30,6 +30,8 @@ en:
       new_album:
           create: "create"
           add_a_new_album: "Add a new album"
+      create:
+          success: You've created an album called %{name}.
       show: 
           edit_album: "Edit Album"
           albums: "albums"
@@ -41,10 +43,15 @@ en:
           are_you_sure: "Are you sure?"
           delete_album: "Delete Album"
           cancel: "Cancel"
+      update:
+          success: Album %{name} successfully edited.
+          failure: Failed to edit album %{name}.
       index:
           home: "home"
           new_album: "New Album"
-  aspects:
+      destroy:
+          success: Album %{name} deleted.
+   aspects:
       index:
           photos: "photos"
       show:
