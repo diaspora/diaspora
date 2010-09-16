@@ -6,6 +6,49 @@
     weight: normal;
     style: normal; } }
 
+#flash_notice,
+#flash_error,
+#flash_alert {
+  z-index: 100;
+  top: 32px;
+  color: black;
+  width: 400px;
+  text-align: center;
+  font-size: 14px;
+  padding: 3px 0; }
+
+#flash_notice {
+  background-color: #ccffcc;
+  border: solid 1px #66cc66; }
+
+#flash_error,
+#flash_alert {
+  background-color: #ffcccc;
+  border: solid 1px #cc6666; }
+
+.fieldWithErrors {
+  display: inline; }
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #cf0000;
+  padding: 0;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px; }
+  .error_messages h2 {
+    text-align: left;
+    padding: 5px 5px 5px 15px;
+    margin: 0;
+    font-weight: bold;
+    font-size: 12px;
+    background-color: #cc0000; }
+  .error_messages p {
+    margin: 8px 10px; }
+  .error_messages ul {
+    margin: 0; }
+
 /* via blueprint */
 html {
   font-size: 100.01%; }
