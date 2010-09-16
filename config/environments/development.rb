@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-require 'lib/mongo_mapper/clear_dev_memory'
+require_relative '../../lib/mongo_mapper/clear_dev_memory'
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 

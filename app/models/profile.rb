@@ -5,7 +5,7 @@
 
 class Profile
   include MongoMapper::EmbeddedDocument
-  require 'lib/diaspora/webhooks'
+  require_relative '../../lib/diaspora/webhooks'
   include Diaspora::Webhooks
   include ROXML
 

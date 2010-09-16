@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 
-require 'lib/diaspora/user/friending.rb'
-require 'lib/diaspora/user/querying.rb'
-require 'lib/salmon/salmon'
+require_relative '../../lib/diaspora/user/friending.rb'
+require_relative '../../lib/diaspora/user/querying.rb'
+require_relative '../../lib/salmon/salmon'
 
 class User
   include MongoMapper::Document
@@ -295,11 +295,11 @@ class User
     aspect(:name => "Family")
     aspect(:name => "Work")
   end
-  
+
   def self.create(opts ={})
     puts opts.inspect
   end
-  
+
   def terse_url
     terse = self.url.gsub(/(https?:|www\.)\/\//, '')
     terse = terse.chop! if terse[-1, 1] == '/'
