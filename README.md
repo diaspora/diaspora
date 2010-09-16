@@ -201,9 +201,9 @@ Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testin
 We are maintaining a [public tracker project](http://www.pivotaltracker.com/projects/61641) and a [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap).  Also, you can file [bug reports](https://github.com/diaspora/diaspora/issues) right here on github.
 
 Ongoing discussion:
-
 - [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
+- [Diaspora Q&A site](http://diaspora.shapado.com/)
 - [#diaspora-dev](irc://irc.freenode.net/#diaspora-dev)
 
 More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
