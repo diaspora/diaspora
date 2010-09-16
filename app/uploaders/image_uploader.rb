@@ -7,8 +7,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def cache_dir
-    if ENV['TMP_DIR'] 
-      ENV['TMP_DIR'] 
+    if ENV['HEROKU'] 
+      "#{RAILS_ROOT}/tmp/uploads" 
     else
       super
     end
