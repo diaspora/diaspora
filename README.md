@@ -119,6 +119,8 @@ If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mon
 To install MongoDB on **Mac OS X**, run the following:
 
 		brew install mongo
+		sudo mkdir -p /data/db
+		sudo chmod -Rv 777 /data/
 
 ### OpenSSL
 
