@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 
-require_relative '../../lib/diaspora/user/friending.rb'
-require_relative '../../lib/diaspora/user/querying.rb'
-require_relative '../../lib/salmon/salmon'
+require File.expand_path('../../../lib/diaspora/user/friending', __FILE__)
+require File.expand_path('../../../lib/diaspora/user/querying', __FILE__)
+require File.expand_path('../../../lib/salmon/salmon', __FILE__)
 
 class User
   include MongoMapper::Document

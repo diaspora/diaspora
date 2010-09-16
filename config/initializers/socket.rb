@@ -5,7 +5,7 @@
 
 require 'em-websocket'
 require 'eventmachine'
-require_relative "../../lib/diaspora/websocket"
+require File.expand_path("../../../lib/diaspora/websocket", __FILE__)
   EM.next_tick {
     Diaspora::WebSocket.initialize_channels
 

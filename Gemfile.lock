@@ -107,7 +107,6 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
-    columnize (0.3.1)
     crack (0.1.8)
     daemons (1.1.0)
     database_cleaner (0.5.2)
@@ -127,7 +126,6 @@ GEM
     highline (1.6.1)
     i18n (0.4.1)
     json (1.4.6)
-    linecache (0.43)
     lsof (0.3.0)
     mail (2.2.6.1)
       activesupport (>= 2.3.6)
@@ -190,11 +188,6 @@ GEM
     rspec-rails (2.0.0.beta.17)
       rspec (>= 2.0.0.beta.14)
       webrat (>= 0.7.0)
-    ruby-debug (0.10.3)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.3.0)
-    ruby-debug-base (0.10.3)
-      linecache (>= 0.3)
     saucelabs-adapter (0.8.12)
       lsof (>= 0.3.0)
       net-ssh (>= 2.0.12)
@@ -253,7 +246,6 @@ DEPENDENCIES
   roxml!
   rspec (>= 2.0.0.beta.17)
   rspec-rails (= 2.0.0.beta.17)
-  ruby-debug
   saucelabs-adapter (= 0.8.12)
   selenium-rc
   sprinkle!
