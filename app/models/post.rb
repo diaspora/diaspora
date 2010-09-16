@@ -18,7 +18,7 @@ class Post
   key :person_id, ObjectId
   key :user_refs, Integer, :default => 0
 
-  many :comments, :class_name => 'Comment', :foreign_key => :post_id
+  many :comments, :class_name => 'Comment', :foreign_key => :post_id, :order => 'created_at ASC'
   belongs_to :person, :class_name => 'Person'
 
   timestamps!
