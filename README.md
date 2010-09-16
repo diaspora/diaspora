@@ -29,7 +29,7 @@ After you have Ruby installed on your system, you will need to get RubyGems, the
 - [RubyGems](http://rubygems.org/) - Source for Ruby gems.
 - [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
-**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed).  The instructions below assume you have these installed.**  
+**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); and if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed).  The instructions below assume you have these installed.**
 
 ### Build Tools
 
@@ -71,7 +71,7 @@ If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mon
 		# create the required data directory
 		sudo mkdir -p /data/db
 		sudo chmod -Rv 777 /data/
-			
+
 
 To install MongoDB on **Mac OS X**, run the following:
 
@@ -94,7 +94,7 @@ To install ImageMagick on **Mac OS X**, run the following:
 ### Git
 
 To install Git on **Ubuntu**, run the following:
-		
+
 		sudo apt-get install git-core
 
 To install Git on **Mac OS X**, run the following:
@@ -136,7 +136,7 @@ To start the app server for the first time, you need to use Bundler to install D
 ### Start Mongo
 
 After installing the above, run `sudo mongod` from where mongo is installed to start mongo.
-		
+
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
@@ -168,5 +168,5 @@ Diaspora is free software: you can redistribute it and/or modify it under the te
 
 Diaspora is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.  
+You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.
 
