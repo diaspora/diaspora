@@ -289,7 +289,7 @@ class User
   def self.instantiate( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{opts[:url]}"
     opts[:person][:serialized_key] = generate_key
-    User.create(opts)
+    User.create!(opts)
   end
 
   def seed_aspects

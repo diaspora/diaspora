@@ -8,8 +8,21 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    User.instantiate!(params[:user])
-    redirect_to root_url
+    begin 
+      user = User.instantiate(params[:user])
+    rescue MongoMapper::DocumentNotValid => e
+      user = nil
+      flash[:error] = e.message
+    end
+    puts user
+    if user
+      #set_flash_message :notice, :signed_up
+      flash[:notice] = "You've joined Diaspora!"
+      #redirect_to root_url
+      sign_in_and_redirect(:user, user)
+    else
+      redirect_to "/get_to_the_choppa"
+    end
   end
 
   def update
