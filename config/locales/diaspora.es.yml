@@ -1,0 +1,114 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+
+es:
+  hello: "Hola Mundo"
+  layouts:
+      application:
+          edit_profile: "editar perfil"
+          logout: "desloguear"
+  shared:
+      aspect_nav:
+          all_aspects: "All Aspects"
+          manage: "Manejar"
+          manage_your_aspects: "Manage your Aspects"
+      sub_header:
+          all_aspects: "All Aspects"
+          manage_aspects: "Manage Aspects"
+      publisher:
+          share: "Compartir"
+      aspect_friends:
+          add_friends: "Añade amigos"
+  albums:
+      album:
+          you: "usted"
+      new_album:
+          create: "Crear"
+          add_a_new_album: "Añade un nuevo álbum"
+      show: 
+          edit_album: "Editar Álbum"
+          albums: "álbumes"
+          updated: "actualizar"
+          by: "por"
+      edit:
+          editing: "Editando"
+          updated: "actualizado"
+          are_you_sure: "Esta seguro?"
+          delete_album: "Eliminar Album"
+          cancel: "Cancelar"
+      index:
+          home: "home"
+          new_album: "Nuevo Album"
+  aspects:
+      index:
+          photos: "fotos"
+      show:
+          photos: "fotos"
+      manage:
+          add_a_new_aspect: "Añadir nuevo aspecto"
+          add_a_new_friend:  "Añadir nuevo amigo"
+          show: "Mostrar"
+          update_aspects: "Actualizar Aspectos"
+          requests: "Requests"
+          ignore_remove: "Ignorar/Remover"
+      new_aspect:
+          create: "Crear"
+  users:
+      edit:
+          cancel: "Cancelar"
+          update_profile: "Actualizar Perfil"
+          home: "Home"
+          diaspora_username: "USUARIO DE DIASPORA"
+          info: "Info"
+          picture: "Picture"
+          editing_profile: "Editando perfil"
+          albums: "Álbums"
+  comments:
+      comment:
+          ago: "atras"
+      new_comment:
+          comment: "Commentario"
+  photos:
+      show:
+          prev: "prev"
+          full_size: "tamaño actual"
+          next: "prox"
+          edit_photo: "Editar Foto"
+          delete_photo: "Eliminar Foto"
+          are_you_sure: "Esta seguro?"
+          comments: "comentarios"
+      edit:
+          editing: "Editando"
+          are_you_sure: "Esta seguro?"
+          delete_photo: "Eliminar Foto"
+      photo:
+          show_comments: "mostrar comentarios"
+      new:
+          new_photo: "Nueva Foto"
+          back_to_list: "Devuelta a la lista"
+          post_it: "post it!"
+  registrations:
+      new:
+          sign_up: "Registrar"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "dime algo bueno"
+          oh_yeah: "oh yeah!"
+      status_message:
+          show_comments: "mostrar comentarios"
+          delete: "Eliminar"
+          are_you_sure: "Esta seguro?"
+      show:
+          status_message: "Mensaje de status"
+          comments: "comentarios"
+          are_you_sure: "Esta seguro?"
+          destroy: "Destruir"
+          view_all: "Ver Todos"
+          message: "Mensaje"
+          owner: "Dueño"
