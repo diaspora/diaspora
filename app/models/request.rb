@@ -4,7 +4,7 @@
 
 
 class Request
-  require 'lib/diaspora/webhooks'
+  require './lib/diaspora/webhooks'
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML

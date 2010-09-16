@@ -4,7 +4,7 @@
 
 
 class PublicsController < ApplicationController
-  require 'lib/diaspora/parser'
+  require './lib/diaspora/parser'
   include Diaspora::Parser
   layout false
 

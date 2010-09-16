@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-require 'lib/hcard'
+require './lib/hcard'
 
 class Person
   include MongoMapper::Document

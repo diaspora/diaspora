@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 
-require 'lib/diaspora/user/friending.rb'
-require 'lib/diaspora/user/querying.rb'
-require 'lib/salmon/salmon'
+require './lib/diaspora/user/friending.rb'
+require './lib/diaspora/user/querying.rb'
+require './lib/salmon/salmon'
 
 class User
   include MongoMapper::Document
