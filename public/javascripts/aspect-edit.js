@@ -91,7 +91,7 @@ $(function() {
   });
 });
 
-$(".aspect h1").live( 'click', function() {
+$(".aspect h1").live( 'focus', function() {
 
   var $this = $(this);
   var id    = $this.closest("li").children("ul").attr("id");
