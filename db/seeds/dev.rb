@@ -28,7 +28,7 @@ user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
                     :person => Person.new( :diaspora_handle => "korth@tom.joindiaspora.com",
-                                          :url => url, 
+                                          :url => url,
                                           :profile => Profile.new( :first_name => "Evan",
                                                                   :last_name => "Korth")))
 

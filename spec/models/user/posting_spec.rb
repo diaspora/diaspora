@@ -13,7 +13,7 @@ describe User do
      @aspect1 = @user.aspect(:name => 'heroes')
 
      @user2 = Factory.create(:user)
-     @aspect2 = @user2.aspect(:name => 'losers') 
+     @aspect2 = @user2.aspect(:name => 'losers')
 
      @user3 = Factory.create(:user)
      @aspect3 = @user3.aspect(:name => 'heroes')
@@ -27,7 +27,7 @@ describe User do
    end
 
   it 'should not be able to post without a aspect' do
-    proc {@user.post(:status_message, :message => "heyheyhey")}.should raise_error /You must post to someone/ 
+    proc {@user.post(:status_message, :message => "heyheyhey")}.should raise_error /You must post to someone/
   end
 
   it 'should put the post in the aspect post array' do
@@ -61,7 +61,7 @@ describe User do
       @user.should_receive(:salmon).twice
       @user.push_to_people(@post, [@user2.person, @user3.person])
     end
-    
-    
+
+
   end
 end

@@ -10,8 +10,8 @@ include RequestsHelper
 
 describe RequestsHelper do
 
-  before do 
-    
+  before do
+
     stub_success("tom@tom.joindiaspora.com")
     stub_success("evan@status.net")
     @tom = Redfinger.finger('tom@tom.joindiaspora.com')

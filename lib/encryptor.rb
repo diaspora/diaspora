@@ -11,7 +11,7 @@ module Encryptor
       ciphertext = aes_encrypt(cleartext, aes_key)
       encrypted_key = encrypt_aes_key aes_key
       cipher_hash = {:aes_key => encrypted_key, :ciphertext => ciphertext}
-      Base64.encode64( cipher_hash.to_json ) 
+      Base64.encode64( cipher_hash.to_json )
     end
 
     def gen_aes_key

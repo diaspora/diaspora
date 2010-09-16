@@ -8,9 +8,9 @@ class PhotosController < ApplicationController
 
   respond_to :html
   respond_to :json, :only => :show
-  
+
   def create
-    
+
     album = Album.find_by_id params[:album_id]
 
     begin
@@ -30,15 +30,15 @@ class PhotosController < ApplicationController
       Tempfile.send(:define_method, "original_filename") {return file_name}
 
       ##############
-    
 
-      params[:user_file] = file 
+
+      params[:user_file] = file
       @photo = current_user.post(:photo, params)
 
       respond_to do |format|
         format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
       end
-      
+
     rescue TypeError
       message = "Photo upload failed.  Are you sure an image was added?"
       respond_with :location => album, :error => message
@@ -53,20 +53,20 @@ class PhotosController < ApplicationController
       raise e
     end
   end
-  
+
   def new
     @photo = Photo.new
     @album = current_user.album_by_id(params[:album_id])
     render :partial => 'new_photo'
   end
-  
+
   def destroy
     @photo = Photo.find_by_id params[:id]
     @photo.destroy
     flash[:notice] = "Photo deleted."
     respond_with :location => @photo.album
   end
-  
+
   def show
     @photo = Photo.find_by_id params[:id]
     @album = @photo.album

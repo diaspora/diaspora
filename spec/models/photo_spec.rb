@@ -22,8 +22,8 @@ describe Photo do
 
   it 'should have a constructor' do
     pending "Figure out how to make the photo posting api work in specs, it needs a file type"
-    image = File.open(@fixture_name) 
-    photo = Photo.instantiate(:person => @user.person, :album => @album, :user_file => [image]) 
+    image = File.open(@fixture_name)
+    photo = Photo.instantiate(:person => @user.person, :album => @album, :user_file => [image])
     photo.created_at.nil?.should be false
     photo.image.read.nil?.should be false
   end
@@ -82,13 +82,13 @@ describe Photo do
     end
 
   end
-  
+
   describe 'with encryption' do
-    
+
     before do
       unstub_mocha_stubs
     end
-    
+
     after do
       stub_signature_verification
     end
@@ -99,15 +99,15 @@ describe Photo do
       photo.save.should == true
       photo.signature_valid?.should be true
     end
-    
+
   end
 
   describe 'remote photos' do
-    it 'should write the url on serialization' do 
+    it 'should write the url on serialization' do
       @photo.image = File.open(@fixture_name)
       @photo.image.store!
       @photo.save
-  
+
       xml = @photo.to_xml.to_s
 
       xml.include?(@photo.image.url).should be true
@@ -124,7 +124,7 @@ describe Photo do
 
       @photo.save
       @photo.reload
-      
+
       url = @photo.url
       thumb_url = @photo.url :thumb_medium
 
@@ -133,7 +133,7 @@ describe Photo do
 
       @photo.destroy
       @user.receive xml
-      
+
       new_photo = Photo.first(:id => id)
       new_photo.url.nil?.should be false
       new_photo.url.include?(url).should be true

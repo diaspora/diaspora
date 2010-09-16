@@ -7,7 +7,7 @@ class PublicsController < ApplicationController
   require 'lib/diaspora/parser'
   include Diaspora::Parser
   layout false
-  
+
   def hcard
     @person = Person.find_by_id params[:id]
     puts @person
@@ -26,7 +26,7 @@ class PublicsController < ApplicationController
       render 'webfinger', :content_type => 'application/xrd+xml'
     end
   end
-  
+
   def receive
     render :nothing => true
     return unless params[:xml]
@@ -38,5 +38,5 @@ class PublicsController < ApplicationController
     end
     @user.receive_salmon params[:xml]
   end
-  
+
 end

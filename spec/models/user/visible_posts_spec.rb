@@ -20,7 +20,7 @@ describe User do
       @user3 = Factory.create :user
       @user3_aspect = @user3.aspect(:name => 'dudes')
       friend_users(@user, @aspect2, @user3, @user3_aspect)
-      
+
       @user4 = Factory.create :user
       @user4_aspect = @user4.aspect(:name => 'dudes')
       friend_users(@user, @aspect2, @user4, @user4_aspect)

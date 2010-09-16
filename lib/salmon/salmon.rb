@@ -66,7 +66,7 @@ module Salmon
 
       uri = doc.search('uri').text
       slap.author_email = uri.split("acct:").last
-      slap 
+      slap
     end
 
     def self.create(user, activity)
@@ -98,10 +98,10 @@ ENTRY
       end
     end
 
- 
 
 
-    # Decode URL-safe-Base64. This implements 
+
+    # Decode URL-safe-Base64. This implements
     def self.decode64url(str)
       # remove whitespace
       sans_whitespace = str.gsub(/\s/, '')
@@ -115,7 +115,7 @@ ENTRY
     end
 
     # def verified?
-    #   
+    #
     # end
 
     # Check whether this envelope's signature can be verified with the
@@ -128,7 +128,7 @@ ENTRY
       signature = Base64.urlsafe_decode64(self.magic_sig.sig)
       signed_data = self.magic_sig.signable_string# Base64.urlsafe_decode64(self.magic_sig.signable_string)
 
-      
+
       public_key.verify(OpenSSL::Digest::SHA256.new, signature, signed_data )
     end
 
@@ -197,7 +197,7 @@ ENTRY
 
       env.sig = Base64.urlsafe_encode64(
         user.encryption_key.sign OpenSSL::Digest::SHA256.new, env.signable_string )
-      
+
         env
     end
 

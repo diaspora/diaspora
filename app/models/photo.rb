@@ -7,10 +7,10 @@ class Photo < Post
   require 'carrierwave/orm/mongomapper'
   include MongoMapper::Document
   mount_uploader :image, ImageUploader
-  
+
   xml_accessor :remote_photo
   xml_accessor :caption
-  xml_reader :album_id 
+  xml_reader :album_id
 
   key :album_id, ObjectId
   key :caption,  String
@@ -29,7 +29,7 @@ class Photo < Post
   def self.instantiate(params = {})
     image_file = params[:user_file]
     params.delete :user_file
-    
+
     photo = Photo.new(params)
     photo.image.store! image_file
     photo.save
@@ -39,7 +39,7 @@ class Photo < Post
   def validate_album_person
     album.person_id == person_id
   end
-  
+
   def remote_photo
     image.url.nil? ? (remote_photo_path + '/' + remote_photo_name) : image.url
   end
@@ -63,7 +63,7 @@ class Photo < Post
     users = Person.all('profile.image_url' => image.url(:thumb_medium) )
     users.each{ |user|
       user.profile.update_attributes!(:image_url => nil)
-    } 
+    }
   end
 
   def thumb_hash

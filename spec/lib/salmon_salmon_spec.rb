@@ -22,21 +22,21 @@ describe Salmon do
 
     @sent_salmon.magic_sig.sig.should == @parsed_salmon.magic_sig.sig
     @sent_salmon.magic_sig.signable_string.should == @parsed_salmon.magic_sig.signable_string
-    
-    
+
+
     @parsed_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
     @sent_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
   end
 
   it 'should return the data so it can be "received"' do
-  
+
     xml = @post.to_diaspora_xml
 
     @parsed_salmon.data.should == xml
   end
 
   it 'should parse out the authors diaspora_handle' do
-    @parsed_salmon.author_email.should == @user.person.diaspora_handle 
+    @parsed_salmon.author_email.should == @user.person.diaspora_handle
 
   end
 

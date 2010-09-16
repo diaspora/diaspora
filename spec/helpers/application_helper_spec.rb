@@ -6,7 +6,7 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-include ApplicationHelper 
+include ApplicationHelper
 describe ApplicationHelper do
   before do
     @user = Factory.create(:user)

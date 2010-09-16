@@ -4,12 +4,12 @@
 
 
 
-class MessageHandler 
+class MessageHandler
 
-  
+
   NUM_TRIES = 3
   TIMEOUT = 5 #seconds
-  
+
   def initialize
     @queue = EM::Queue.new
   end
@@ -41,12 +41,12 @@ class MessageHandler
         Rails.logger.info("Failure from #{query.destination}, retrying...")
 
         query.try_count +=1
-        @queue.push query unless query.try_count >= NUM_TRIES 
+        @queue.push query unless query.try_count >= NUM_TRIES
         process
       }
     } unless @queue.size == 0
   end
-  
+
   def send_to_seed(message, http_response)
     #DO SOMETHING!
   end

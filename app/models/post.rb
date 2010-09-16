@@ -3,10 +3,10 @@
 #   the COPYRIGHT file.
 
 
-class Post 
+class Post
   require 'lib/encryptable'
   include MongoMapper::Document
-  include ApplicationHelper 
+  include ApplicationHelper
   include ROXML
   include Diaspora::Webhooks
   include Diaspora::Socketable
@@ -15,16 +15,16 @@ class Post
   xml_accessor :person, :as => Person
 
   key :person_id, ObjectId
-  key :user_refs, Integer, :default => 0 
+  key :user_refs, Integer, :default => 0
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id
   belongs_to :person, :class_name => 'Person'
-  
+
   timestamps!
-  
+
   cattr_reader :per_page
   @@per_page = 10
-    
+
   before_destroy :propogate_retraction
   after_destroy :destroy_comments
 
@@ -41,12 +41,12 @@ class Post
       }
     }
   end
-  
+
   protected
   def destroy_comments
     comments.each{|c| c.destroy}
   end
-  
+
   def propogate_retraction
     self.person.owner.retract(self)
   end

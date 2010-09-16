@@ -4,28 +4,28 @@
 
 
 module ApplicationHelper
-  
+
   def current_aspect?(aspect)
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
-  
+
   def object_path(object, opts = {})
     eval("#{object.class.to_s.underscore}_path(object, opts)")
   end
 
   def object_fields(object)
-    object.attributes.keys 
+    object.attributes.keys
   end
 
   def mine?(post)
     current_user.owns? post
   end
-  
+
   def type_partial(post)
     class_name = post.class.name.to_s.underscore
     "#{class_name.pluralize}/#{class_name}"
   end
-  
+
   def how_long_ago(obj)
     "#{time_ago_in_words(obj.created_at)} ago."
   end
@@ -63,7 +63,7 @@ module ApplicationHelper
   def new_request(request_count)
     "new_requests" if request_count > 0
   end
-  
+
   def post_yield_tag(post)
     (':' + post.id.to_s).to_sym
   end

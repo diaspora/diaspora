@@ -12,7 +12,7 @@ module Rack
       @options = options
     end
 
-    def call(env)      
+    def call(env)
 
       if env['HTTP_USER_AGENT'] =~ /MSIE/
         if env['HTTP_USER_AGENT'] =~ /chromeframe/

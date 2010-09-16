@@ -10,9 +10,9 @@
    end
 
     def signature_valid?
-     verify_signature(creator_signature, person) 
+     verify_signature(creator_signature, person)
     end
-    
+
     def verify_signature(signature, person)
       if person.nil?
         Rails.logger.info("Verifying sig on #{signable_string} but no person is here")
@@ -29,7 +29,7 @@
       Rails.logger.debug("Validity: #{validity}")
       validity
     end
-    
+
     def sign_with_key(key)
       Rails.logger.debug("Signing #{signable_string}")
       Base64.encode64(key.sign "SHA", signable_string)

@@ -5,11 +5,11 @@
 
 
 require File.dirname(__FILE__) + '/../spec_helper'
-include ApplicationHelper 
-include RequestsHelper 
+include ApplicationHelper
+include RequestsHelper
 describe RequestsController do
  render_views
-  before do 
+  before do
     @user = Factory.create :user
     stub_success("tom@tom.joindiaspora.com")
 

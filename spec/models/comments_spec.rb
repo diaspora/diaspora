@@ -27,7 +27,7 @@ describe Comment do
       person= Factory.create :person
       status = Factory.create(:status_message, :person => person)
       @user.comment "sup dog", :on => status
-      
+
       StatusMessage.first.comments.first.text.should == "sup dog"
       StatusMessage.first.comments.first.person.should == @user.person
     end
@@ -45,7 +45,7 @@ describe Comment do
         @person = Factory.create(:person)
         @user.activate_friend(@person, Aspect.first(:id => @aspect.id))
 
-        @person2 = Factory.create(:person) 
+        @person2 = Factory.create(:person)
         @person_status = Factory.build(:status_message, :person => @person)
 
         @user.reload
@@ -54,7 +54,7 @@ describe Comment do
         @aspect.reload
         @user.reload
       end
-    
+
       it 'should have the post in the aspects post list' do
         aspect = Aspect.first(:id => @aspect.id)
         aspect.people.size.should == 2
@@ -65,32 +65,32 @@ describe Comment do
         User::QUEUE.should_receive(:add_post_request)
         @user.comment "yo", :on => @person_status
       end
-    
+
       it 'should send a user comment on his own post to lots of people' do
 
         User::QUEUE.should_receive(:add_post_request).twice
         @user.comment "yo", :on => @user_status
       end
-    
+
       it 'should send a comment a person made on your post to all people' do
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
         User::QUEUE.should_receive(:add_post_request).twice
         @user.receive(comment.to_diaspora_xml)
       end
-      
+
       it 'should send a comment a user made on your post to all people' do
-        
+
         comment = @user2.comment( "balls", :on => @user_status)
         User::QUEUE.should_receive(:add_post_request).twice
         @user.receive(comment.to_diaspora_xml)
       end
-    
+
       it 'should not send a comment a person made on his own post to anyone' do
         User::QUEUE.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @person_status)
         @user.receive(comment.to_diaspora_xml)
       end
-      
+
       it 'should not send a comment a person made on a person post to anyone' do
         User::QUEUE.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person2.id, :text => "balls", :post => @person_status)

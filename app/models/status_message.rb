@@ -4,14 +4,14 @@
 
 
 class StatusMessage < Post
-  
+
   xml_name :status_message
   xml_accessor :message
 
   key :message, String
   validates_presence_of :message
-  
-  
+
+
   def to_activity
         <<-XML
   <entry>
@@ -24,7 +24,7 @@ class StatusMessage < Post
   </entry>
         XML
   end
-  
+
   def latest_hash
     { :text => message}
   end
