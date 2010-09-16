@@ -22,6 +22,11 @@ Factory.define :person do |p|
   p.serialized_key OpenSSL::PKey::RSA.generate(1024).public_key.export
 end
 
+Factory.define :album do |p|
+  p.name "my first album"
+  p.person { |a| Factory.create(:person) }
+end
+
 Factory.define :person_with_private_key, :parent => :person do |p|
   p.serialized_key OpenSSL::PKey::RSA.generate(1024).export
 end

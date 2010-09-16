@@ -295,18 +295,18 @@ class User
 
   ###Helpers############
   def self.instantiate!( opts = {} )
-    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{URI::parse(opts[:url]).host}"
+    hostname = opts[:url].gsub(/(https?:|www\.)\/\//, '')
+    hostname.chop! if hostname[-1, 1] == '/'
+    
+    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{hostname}"
+    puts opts[:person][:diaspora_handle]
     opts[:person][:serialized_key] = generate_key
-    User.create!(opts)
+    User.create(opts)
   end
 
   def seed_aspects
     aspect(:name => "Family")
     aspect(:name => "Work")
-  end
-  
-  def self.create(opts ={})
-    puts opts.inspect
   end
   
   def terse_url
