@@ -27,7 +27,7 @@ After you have Ruby installed on your system, you will need to get RubyGems, the
 - [RubyGems](http://rubygems.org/) - Source for Ruby gems.
 - [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
-**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed); if you're using Fedora simply use [yum](http://yum.baseurl.org/).  The instructions below assume you have these installed.**  
+**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed); if you're using Fedora simply use [yum](http://yum.baseurl.org/).  The instructions below assume you have these installed.**
 
 ### Build Tools
 
@@ -80,7 +80,7 @@ If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mon
 		# create the required data directory
 		sudo mkdir -p /data/db
 		sudo chmod -Rv 777 /data/
-			
+
 
 To install MongoDB on a x86_64 **Fedora** system, add the official MongoDB repository from MongoDB (http://www.mongodb.org/display/DOCS/CentOS+and+Fedora+Packages) into /etc/yum.repos.d/10gen.repo:
 
@@ -130,11 +130,11 @@ To install ImageMagick on **Mac OS X**, run the following:
 ### Git
 
 To install Git on **Ubuntu**, run the following:
-		
+
 		sudo apt-get install git-core
 
 To install Git on **Fedora**, run the following:
-		
+
 		sudo yum install git
 
 
@@ -214,5 +214,5 @@ Diaspora is free software: you can redistribute it and/or modify it under the te
 
 Diaspora is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.  
+You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.
 
