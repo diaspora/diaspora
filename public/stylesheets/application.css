@@ -13,12 +13,11 @@ body {
 a {
   color: #556270;
   color: #107fc9;
-  color: #019dbe;
+  color: #069;
   text-decoration: none; }
   a:hover {
-    color: white;
-    background-color: #556270;
-    background-color: #019dbe; }
+    color: #2276CC;
+    }
 
 h1 {
   font-size: 21px;
@@ -161,10 +160,13 @@ li.message {
     li.message .content span.from {
       color: black;
       font-weight: normal;
-      font-size: 110%; }
+      font-size: 120%; }
+    li.message .content span.from a{
+      font-weight:bold;
+    }
     li.message .content div.info {
       color: #bababa;
-      font-size: 70%; }
+      font-size: 90%; }
 
 form {
   position: relative;
@@ -227,7 +229,7 @@ ul.comment_set {
       font-size: 1em; }
     ul.comment_set li.comment div.time {
       color: #666666;
-      font-size: 70%; }
+      font-size: 90%; }
     ul.comment_set li.comment form {
       margin-top: -5px;
       margin-bottom: 0;
@@ -299,8 +301,8 @@ ul.comment_set {
     color: #cccccc; }
 
 input[type='text'], textarea {
-  font-family: "lucida grande", "sans-serif";
-  font-size: 14px;
+  font-family: "Arial";
+  font-size: 15px;
   padding: 0.3em;
   display: block;
   width: 66%;
@@ -380,10 +382,14 @@ label {
     bottom: 20px;
     font-size: 18px;
     text-shadow: 0 2px 0 black; }
+    .album .name a {color:#AAA;
+      font-weight:normal !important;}
     .album .name .time {
+      color:#069;
       font-size: 12px; }
       .album .name .time a {
-        font-weight: normal; }
+        color:#AAA;
+        font-weight: normal !important; }
   .album div.image_cycle img {
     display: none; }
 
