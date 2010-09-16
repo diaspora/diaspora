@@ -198,7 +198,8 @@ Ongoing discussion:
 
 - [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
-- [#diaspora-dev](irc://irc.freenode.net/#diaspora-dev)
+- [#diaspora-dev IRC channel](irc://irc.freenode.net/#diaspora-dev)
+  ([join via the web client](http://webchat.freenode.net?channels=diaspora-dev))
 
 More general info and updates about the project can be found on our
 [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).
