@@ -8,7 +8,7 @@
 shopt -s extglob
 
 # Check if the user has root privilages 
-[ "$(whoami)" != "root" ] && echo "Please run this script as root/sudo" && exit 1
+[[ $( id -u) ]] && echo "$(whoami) has no sudo permissions on this machine" && exit 1
 
 # Install build tools 
 echo "Installing build tools.."
