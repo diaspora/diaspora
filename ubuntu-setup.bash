@@ -7,7 +7,7 @@
 # Set extented globbing 
 shopt -s extglob
 
-# Check if the user has root privilages 
+# Check if the user has sudo privileges.
 [[ $( id -u) ]] && echo "$(whoami) has no sudo permissions on this machine" && exit 1
 
 # Install build tools 
