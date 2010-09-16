@@ -28,3 +28,4 @@ production:
   s3_access_key_id: 'SECRET_ACCESS_KEY_ID'
   s3_secret_access_key: 'SECRET_ACCESS_KEY'
   s3_bucket: 'MY_DIASPORA_BUCKET'
+  heroku: true
