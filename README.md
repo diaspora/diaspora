@@ -184,7 +184,7 @@ If you installed the Ubuntu package, MongoDB should already be running (if not, 
 
 If you installed the Fedora package, MongoDB will need to be started via `service mongodb start`. If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
 
-If you installed the OsX package through "brew", MongoDB will need to be started via `sudo launchctl load org.mongodb.mongod.plist`. (before you have to go to /Library/LaunchDaemons and add a symlink to /usr/local/Cellar/mongodb/1.6.2-x86_64/org.mongodb.mongod.plist)
+If you installed the OsX package through "brew", MongoDB will need to be started via `sudo launchctl load /Library/LaunchDaemons/org.mongodb.mongod.plist`. (before you have to go to /Library/LaunchDaemons and add a symlink to /usr/local/Cellar/mongodb/1.6.2-x86_64/org.mongodb.mongod.plist)
 
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
