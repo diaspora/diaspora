@@ -29,15 +29,15 @@ Diaspora::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}
   match 'login',  :to => 'devise/sessions#new',      :as => "new_user_session"
   match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
-  match 'get_to_the_choppa', :to => 'registrations#new', :as => "new_user_registration"
+  match 'signup', :to => 'registrations#new', :as => "new_user_registration"
 
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'
   match 'hcard/users/:id',    :to => 'publics#hcard'
 
-  match '.well-known/host-meta',:to => 'publics#host_meta'        
-  match 'receive/users/:id',     :to => 'publics#receive'    
+  match '.well-known/host-meta',:to => 'publics#host_meta'
+  match 'receive/users/:id',     :to => 'publics#receive'
   match 'log', :to => "dev_utilities#log"
 
   #root
