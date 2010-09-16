@@ -25,7 +25,7 @@
     %ul
 
 - content_for :publish do
-  = link_to("add a new aspect", "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => "Add a new aspect")
+  = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
 
 
 
@@ -37,9 +37,9 @@
         %h1{:contenteditable => true}= aspect.name
 
         .tools
-          = link_to "add a new friend", "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+          = link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
           |
-          = link_to "show", aspect_path(aspect)
+          = link_to t('.show'), aspect_path(aspect)
       
       %ul{:id => aspect.id}
       
@@ -59,6 +59,6 @@
 
 %p
   %br
-  = link_to 'Update Aspects', '#', :class => 'button', :id => "move_friends_link"
+  = link_to t('.update_aspects'), '#', :class => 'button', :id => "move_friends_link"
 
 #content_bottom
