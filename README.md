@@ -1,4 +1,5 @@
 ## Commit Guidlines
+
 You are welcome to contribute, add and extend Diaspora however you see fit.  We will do our best to incorporate everything that meets our guidelines.
 
 All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec or Test-Unit.
@@ -13,6 +14,7 @@ The privacy aware, personally controlled, do-it-all, open source social network.
 These instructions are for machines running [Ubuntu](http://www.ubuntu.com/) or Mac OS X.  We are developing Diaspora for the latest and greatest browsers, so please update your Firefox, Chrome or Safari to the latest and greatest.
 
 ## Preparing your system
+
 In order to run Diaspora, you will need to download the following dependencies (specific instructions follow):
 
 - Build Tools - Packages needed to compile the components that follow.
@@ -128,17 +130,21 @@ If you have never used github before, their [help desk](http://help.github.com/)
 ## Running Diaspora
 
 ### Install required gems
+
 To start the app server for the first time, you need to use Bundler to install Diaspora's gem depencencies.  Run `bundle install` from Diaspora's root directory.  Bundler will also warn you if there is a new dependency and you need to bundle install again.
 
 ### Start Mongo
+
 After installing the above, run `sudo mongod` from where mongo is installed to start mongo.
 		
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
+
 Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode[.](http://bit.ly/9mwtUw)
 
 ### Testing
+
 Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testing framework.  In order to run the tests, run `bundle exec rspec spec`.
 
 ## Resources
@@ -155,6 +161,7 @@ More general info and updates about the project can be found on our [blog](http:
 
 
 ## License
+
 Copyright 2010 Diaspora Inc.
 
 Diaspora is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
