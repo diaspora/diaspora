@@ -13,3 +13,4 @@ gpg/diaspora-production/*.gpg
 gpg/*/random_seed
 public/uploads/*
 .rvmrc
+/bin
