@@ -59,10 +59,13 @@ namespace :db do
     puts "fixing the people in this seed"
     require 'config/environment'
     
-    people = Person.all
+    people = Person.all( '$where' => "function(){ 
+                        return this.diaspora_handle.charAt(this.diaspora_handle.length-1) == '@'
+                        }")
     
     people.each do |person|
-      if person.diaspora_handle[-1, 1]=='@' && person.owner.nil? == false
+      if person.owner
+        puts "Resetting diaspora handle for #{person.owner.username}"
         person.diaspora_handle = person.owner.diaspora_handle
         person.save
       end
