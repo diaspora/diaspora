@@ -25,25 +25,25 @@ package :rubygems do
   source "http://production.cf.rubygems.org/rubygems/rubygems-#{version}.tgz" do
     custom_install 'ruby setup.rb'
   end
-	run( "PATH=$PATH:/var/lib/gems/1.8/bin")
-	run( "export PATH")
+  run( "PATH=$PATH:/var/lib/gems/1.8/bin")
+  run( "export PATH")
   requires :ruby
 end
 
 package :bundler do
-	description 'bundler'
-	version '0.9.26'
-	gem 'bundler'
-	requires :rubygems
+  description 'bundler'
+  version '0.9.26'
+  gem 'bundler'
+  requires :rubygems
 end
 
 package :diaspora_dependencies do
-	description 'random dependencies'
-	apt %w(libxslt1.1 libxslt1-dev libxml2 libgpgme11-dev imagemagick libmagick9-dev)
+  description 'random dependencies'
+  apt %w(libxslt1.1 libxslt1-dev libxml2 libgpgme11-dev imagemagick libmagick9-dev)
 end
 #package :diaspora do
-#	description 'Diaspora'
-	
+#  description 'Diaspora'
+  
 =begin
 package :rails do
   description 'Ruby on Rails'

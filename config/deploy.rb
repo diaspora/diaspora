@@ -58,17 +58,17 @@ namespace :deploy do
    task :start do
       start_mongo
       start_thin
-	end
+  end
 
   task :start_mongo do
-			run("mkdir -p -v #{current_path}/log/db/ ")
+      run("mkdir -p -v #{current_path}/log/db/ ")
       run("mkdir -p -v #{shared_path}/db/")
-			run("mongod  --fork --logpath #{current_path}/log/db/mongolog.txt --dbpath #{shared_path}/db/ " )
+      run("mongod  --fork --logpath #{current_path}/log/db/mongolog.txt --dbpath #{shared_path}/db/ " )
   end
 
   task :start_thin do
-			run("mkdir -p -v #{current_path}/log/thin/ ")
-			run("cd #{current_path} && bundle exec thin start -C config/thin.yml")
+      run("mkdir -p -v #{current_path}/log/thin/ ")
+      run("cd #{current_path} && bundle exec thin start -C config/thin.yml")
   end
 
   task :stop do

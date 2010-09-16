@@ -295,11 +295,11 @@ class User
     aspect(:name => "Family")
     aspect(:name => "Work")
   end
-	
-	def self.create(opts ={})
-	  puts opts.inspect
-	end
-	
+  
+  def self.create(opts ={})
+    puts opts.inspect
+  end
+  
   def terse_url
     terse = self.url.gsub(/(https?:|www\.)\/\//, '')
     terse = terse.chop! if terse[-1, 1] == '/'
