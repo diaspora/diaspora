@@ -7,13 +7,6 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create]
 
   respond_to :html
-  respond_to :json, :only => :show
-
-  def show
-    @user         = User.find_by_id params[:id]
-    @user_profile = @user.person.profile
-    respond_with @user
-  end
 
   def edit
     @user    = current_user
