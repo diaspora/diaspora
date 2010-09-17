@@ -12,6 +12,13 @@ GEMS:  We would like to keep external dependencies unduplicated.  We're using No
 The privacy aware, personally controlled, do-it-all, open source social network.
 
 **DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
+**PLEASE, DO NOT RUN IN PRODUCTION.  IT IS FUN TO GET RUNNING, BUT EXPECT THINGS TO BE BROKEN**
+
+Also, we really want to continue to focus on features and improving the code base. When we think it is 
+ready for general use, we will post more detailed instructions.
+
+
+
 These instructions are for machines running [Ubuntu](http://www.ubuntu.com/), [Fedora](http://www.fedoraproject.org) or Mac OS X.  We are developing Diaspora for the latest and greatest browsers, so please update your Firefox, Chrome or Safari to the latest and greatest.
 
 ## Preparing your system
