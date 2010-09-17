@@ -3,7 +3,7 @@ You are welcome to contribute, add and extend Diaspora however you see fit.  We 
 
 We need you to fill out a [contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq) before we can accept your patches.  The agreement gives Diaspora joint ownership of the patch so the copyright isn't scattered.  You can find it [here](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq). 
 
-All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec or Test-Unit.
+All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec.
 
 GEMS:  We would like to keep external dependencies unduplicated.  We're using Nokogiri, and Mongomapper, and EM::HttpRequest as much as possible.  We have a few gems in the project we'd rather not use, but if you can, use dependencies we already have.
 
@@ -195,8 +195,14 @@ If you installed the OsX package through "brew", MongoDB will need to be started
 
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
+### Run the server
+`./script/server` will start both thin and the websocket server.  If you want to run a different app server, you will have to run them separately.  See below for instructions.
+
 ### Run the app server
 Once mongo is running and bundler has finished, run `bundle exec thin start` from the root Diaspora directory.  This will start the app server in development mode[.](http://bit.ly/9mwtUw)
+
+### Run the websocket server
+run `bundle exec ruby ./script/websocket_server` to start the websocket server on port 8080.  Change the port in config/app_config.yml.
 
 ### Logging in
 Run `rake db:seed:tom`, then login with user `tom` and password `evankorth`. More details in db/seeds/tom.rb.
