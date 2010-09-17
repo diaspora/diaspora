@@ -8,9 +8,13 @@
   #debug_more{ :style => "display:none;" }
     %ul
       %li
+        %b
+          = GIT_INFO
+      %li
         %b params
         = params.inspect
       %li
         %b websocket status
         #debug
         .msg
+
