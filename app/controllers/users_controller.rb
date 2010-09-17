@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id params[:id]
+    @user = current_user
     prep_image_url(params[:user])
 
     @user.update_profile params[:user]
