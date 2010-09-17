@@ -10,6 +10,8 @@ shopt -s extglob
 # Check if the user has sudo privileges.
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 
+# Check if universal repository is enabled 
+grep -i universe /etc/apt/sources.list >> /dev/null || echo "Please enable universe repository" && exit 1
 
 # Check if wget is installed 
 test wget || echo "Installing wget.." && sudo apt-get install wget && echo "Installed wget.."
