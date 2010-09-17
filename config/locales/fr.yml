@@ -58,6 +58,7 @@ fr:
           requests: "Requêtes"
           ignore_remove: "Ignorer/Supprimer"
       new_aspect:
+          add_a_new_aspect: "Ajouter un nouvel aspect"
           create: "Créer"
   users:
       edit:

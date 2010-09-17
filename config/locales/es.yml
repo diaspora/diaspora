@@ -48,7 +48,7 @@ es:
       create:
           success: "Creo el album llamado %{name}."
       update:
-          success: "Album %{name} fue exitosamente editado."
+          success: "Album %{name} fue editado exitosamente."
           failure: "Fallo el editar el album %{name}."
       destroy:
           success: "Album %{name} fue eliminado."
@@ -65,7 +65,10 @@ es:
           requests: "Requests"
           ignore_remove: "Ignorar/Remover"
       new_aspect:
+          add_a_new_aspect: "Añadir nuevo aspecto"
           create: "Crear"
+      create:
+          success:"Pulsa en el signo de mas a la izquierda para escojer quien puede ver su nuevo aspecto."
   users:
       edit:
           cancel: "Cancelar"

@@ -64,7 +64,10 @@ en:
           requests: "Requests"
           ignore_remove: "Ignore/Remove"
       new_aspect:
+          add_a_new_aspect: "Add a new aspect"
           create: "Create"
+      create:
+          success:"Click on the plus on the left side to tell Diaspora who can see your new aspect."
   users:
       edit:
           cancel: "Cancel"
