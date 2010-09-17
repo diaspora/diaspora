@@ -73,7 +73,7 @@ To install MongoDB on **Ubuntu**, add the official MongoDB repository from this 
 
 http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages
 
-For Lucid, add the following line to your /etc/apt/sources.list:
+For Lucid, add the following line to your /etc/apt/sources.list (for other distros, see http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages):
 
 		deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen
 
