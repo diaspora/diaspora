@@ -124,3 +124,17 @@ es:
           view_all: "Ver Todos"
           message: "Mensaje"
           owner: "Dueño"
+  people:
+      index:
+          add_friend: "añadir amigo"
+          real_name: "nombre real"
+          diaspora_handle: "usuario en diaspora"
+          thats_you: "ese eres tu!"
+          friend_request_pending: "friend request pending"
+          you_have_a_friend_request_from_this_person: "you have a friend request from this person"          
+      show:
+          last_seen: "ultima vez visto: %{how_long_ago}"
+          friends_since: "amigos desde: %{how_long_ago}"
+          save: "guardar"
+          are_you_sure: "Esta seguro?"
+          remove_friend: "remover amigo"
