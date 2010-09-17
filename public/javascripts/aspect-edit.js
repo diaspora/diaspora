@@ -39,6 +39,7 @@ $(function() {
   });
   
   $(".aspect ul").droppable({
+    hoverClass: 'active',
     drop: function(event, ui) {
 
       if ($(ui.draggable[0]).hasClass('requested_person')){
@@ -69,6 +70,7 @@ $(function() {
   });
 
   $(".remove ul").droppable({
+    hoverClass: 'active',
     drop: function(event, ui) {
 
       if ($(ui.draggable[0]).hasClass('requested_person')){
