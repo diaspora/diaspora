@@ -147,13 +147,13 @@ To install Git on **Mac OS X**, run the following:
 
 ### Rubygems
 
-On **Ubuntu**, run the following:
+On **Ubuntu** 10.04, run the following:
 
-		wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
-		tar -xf rubygems-1.3.7.tgz
-		cd rubygems-1.3.7
-		sudo ruby setup.rb
-		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+		sudo add-apt-repository ppa:maco.m/ruby
+		sudo apt-get update
+		sudo apt-get install rubygems
+
+This PPA is maintained by an Ubuntu Developer. For Ubuntu 10.10, this version of rubygems is in the repositories.
 
 On **Fedora**, run the following:
 
@@ -164,7 +164,7 @@ On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update 
 
 ### Bundler
 
-After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.
+After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.  If you're using Ubuntu repository .debs, bundler is found at /var/lib/gems/1.8/bin/bundle
 
 
 ## Getting Diaspora
@@ -184,6 +184,8 @@ If you installed the Ubuntu package, MongoDB should already be running (if not, 
 
 If you installed the Fedora package, MongoDB will need to be started via `service mongodb start`. If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
 
+If you installed the OsX package through "brew", MongoDB will need to be started via `sudo launchctl load /Library/LaunchDaemons/org.mongodb.mongod.plist`. (before you have to go to /Library/LaunchDaemons and add a symlink to /usr/local/Cellar/mongodb/1.6.2-x86_64/org.mongodb.mongod.plist)
+
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
@@ -201,9 +203,9 @@ Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testin
 We are maintaining a [public tracker project](http://www.pivotaltracker.com/projects/61641) and a [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap).  Also, you can file [bug reports](https://github.com/diaspora/diaspora/issues) right here on github.
 
 Ongoing discussion:
-
 - [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
+- [Diaspora Q&A site](http://diaspora.shapado.com/)
 - [#diaspora-dev](irc://irc.freenode.net/#diaspora-dev)
 
 More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).

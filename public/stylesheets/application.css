@@ -513,20 +513,33 @@ h1.big_text {
   .requests .aspect_name,
   .remove .aspect_name {
     position: relative; }
-    .aspect .aspect_name .tools,
-    .requests .aspect_name .tools,
-    .remove .aspect_name .tools {
+    .aspect .aspect_name ul.tools,
+    .requests .aspect_name ul.tools,
+    .remove .aspect_name ul.tools {
       position: absolute;
       top: 10px;
       right: 0;
-      display: inline; }
-    .aspect .aspect_name:hover .tools,
-    .requests .aspect_name:hover .tools,
-    .remove .aspect_name:hover .tools {
-      display: inline; }
-  .aspect ul,
-  .requests ul,
-  .remove ul {
+      display: inline;
+      padding: 0;
+      margin: 0;
+      list-style: none; }
+      .aspect .aspect_name ul.tools li,
+      .requests .aspect_name ul.tools li,
+      .remove .aspect_name ul.tools li {
+        display: inline;
+        margin-right: 1em; }
+        .aspect .aspect_name ul.tools li:last-child,
+        .requests .aspect_name ul.tools li:last-child,
+        .remove .aspect_name ul.tools li:last-child {
+          margin-right: 0; }
+  .aspect .grey,
+  .requests .grey,
+  .remove .grey {
+    color: #999999;
+    cursor: default; }
+  .aspect ul.dropzone,
+  .requests ul.dropzone,
+  .remove ul.dropzone {
     min-height: 20px;
     margin: 0;
       margin-bottom: 25px;
@@ -534,6 +547,10 @@ h1.big_text {
     border: 1px solid #cccccc;
     list-style: none;
     padding: 15px; }
+    .aspect ul.dropzone.active,
+    .requests ul.dropzone.active,
+    .remove ul.dropzone.active {
+      background-color: #fafafa; }
   .aspect .person,
   .aspect .requested_person,
   .requests .person,
@@ -574,14 +591,6 @@ h1.big_text {
         -webkit-box-shadow: 0 1px 3px #333333;
         -moz-box-shadow: 0 2px 4px #333333;
         opacity: 0.9; }
-    .aspect .person .grey,
-    .aspect .requested_person .grey,
-    .requests .person .grey,
-    .requests .requested_person .grey,
-    .remove .person .grey,
-    .remove .requested_person .grey {
-      font-style: italic;
-      color: #666666; }
 
 #notification_badge {
   position: fixed;

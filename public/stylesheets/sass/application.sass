@@ -678,17 +678,29 @@ h1.big_text
   .aspect_name
     :position relative
 
-    .tools
+    ul.tools
       :position absolute
       :top 10px
       :right 0
       :display inline
-
-    &:hover
-      .tools
+      :padding 0
+      :margin 0
+      :list
+        :style none
+      li
         :display inline
+        :margin
+          :right 1em
 
-  ul
+        &:last-child
+          :margin
+            :right 0
+
+  .grey
+    :color #999
+    :cursor default
+
+  ul.dropzone
     :min-height 20px
     :margin 0
       :bottom 25px
@@ -698,6 +710,10 @@ h1.big_text
     :list
       :style none
     :padding 15px
+
+    &.active
+      :background
+        :color #fafafa
 
   .person,
   .requested_person
@@ -725,12 +741,6 @@ h1.big_text
         :-webkit-box-shadow 0 1px 3px #333
         :-moz-box-shadow 0 2px 4px #333
         :opacity 0.9
-
-
-    .grey
-      :font
-        :style italic
-      :color #666
 
 #notification_badge
   :position fixed

@@ -7,11 +7,11 @@
 
 
 
-require "#{File.dirname(__FILE__)}/packages/essential"
-require "#{File.dirname(__FILE__)}/packages/database"
-require "#{File.dirname(__FILE__)}/packages/server"
-require "#{File.dirname(__FILE__)}/packages/scm"
-require "#{File.dirname(__FILE__)}/packages/ruby"
+require '#{File.dirname(__FILE__)}/packages/essential'
+require '#{File.dirname(__FILE__)}/packages/database'
+require '#{File.dirname(__FILE__)}/packages/server'
+require '#{File.dirname(__FILE__)}/packages/scm'
+require '#{File.dirname(__FILE__)}/packages/ruby'
 
 policy :diaspora, :roles => [:tom,:backer] do
 #  requires :clean_dreamhost
