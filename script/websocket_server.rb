@@ -19,6 +19,7 @@ def process_message
 
 end
 
+begin
   EM.run {
     Diaspora::WebSocket.initialize_channels
 
@@ -35,6 +36,13 @@ end
         ws.onclose { Diaspora::WebSocket.unsubscribe(ws.request['Path'].gsub('/',''), sid) }
       }
     end
+
+    puts "Websocket server started."
     process_message
   }
-
+rescue RuntimeError => e
+  raise e unless e.message.include?("no acceptor")
+  puts "Are you sure the websocket server isn't already running?"
+  puts "Just start thin with bundle exec thin start."
+  Process.exit
+end
