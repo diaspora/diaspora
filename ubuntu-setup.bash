@@ -2,7 +2,9 @@
 # Author : hemanth.hm@gmail.com
 # Site : www.h3manth.com
 # This script helps to setup diaspora.
-#
+
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
 # Set extented globbing 
 shopt -s extglob
@@ -82,9 +84,11 @@ echo "Installed blunder.."
 
 # Take a clone of Diaspora
 (
-echo "Clone diaspora source.."
-git clone http://github.com/diaspora/diaspora.git
+
+# Check if the user is already in a cloned source if not clone the source 
+[[ $( basename $PWD ) == "diaspora" ]]  && echo "Already in diaspora directory" ||  git clone http://github.com/diaspora/diaspora.git ; cd diaspora 
 echo "Cloned the source.."
+
 # Install extra gems 
 cd diaspora
 echo "Installing more gems.."
