@@ -30,9 +30,9 @@
               = link_to image_tag(photo.url(:thumb_medium)), "#"
 
       - else
-        You don't have any photos!  Go to the
+        =t('.you_dont_have_any_photos')
         = link_to t('.albums'), albums_path(:aspect => 'all')
-        page to upload some.
+        =t('.page_to_upload_some')
 
     =will_paginate @photos
 

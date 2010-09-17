@@ -30,8 +30,6 @@ de:
       new_album:
           create: "erstellen"
           add_a_new_album: "Album hinzufügen"
-      create:
-          success: Du hast das Album %{name} erstellt.
       show: 
           edit_album: "Album bearbeiten"
           albums: "Alben"
@@ -43,14 +41,16 @@ de:
           are_you_sure: "Bist du sicher?"
           delete_album: "Album löschen"
           cancel: "Abbrechen"
-      update:
-          success: Album %{name} erfolgreich geändert.
-          failure: %{name} wurde nicht geändert.
       index:
           home: "Startseite"
           new_album: "Neues Album"
+      create:
+          success: "Du hast das Album %{name} erstellt."
+      update:
+          success: "Album %{name} erfolgreich geändert."
+          failure: "%{name} wurde nicht geändert."
       destroy:
-          success: Album %{name} gelöscht.
+          success: "Album %{name} gelöscht."
   aspects:
       index:
           photos: "Fotos"
@@ -75,6 +75,8 @@ de:
           picture: "Bild"
           editing_profile: "Profil bearbeiten"
           albums: "Alben"
+          you_dont_have_any_photos: "#TODO"
+          page_to_upload_some:  "#TODO"
   comments:
       comment:
           # this won't work in german at all. Needs more thorough I18n

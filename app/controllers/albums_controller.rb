@@ -17,7 +17,7 @@ class AlbumsController < ApplicationController
   def create
     aspect =  params[:album][:to]
     @album = current_user.post(:album, params[:album])
-    flash[:notice] = I18n.t('albums.create.success', :name => @album.name)
+    flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
     redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
 
@@ -28,7 +28,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find_by_id params[:id]
     @album.destroy
-    flash[:notice] = I18n.t('albums.destroy.success', :name => @album.name)
+    flash[:notice] =  I18n.t 'albums.destroy.success', :name  => @album.name
     respond_with :location => albums_url
   end
 
@@ -48,10 +48,10 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find_by_id params[:id]
     if @album.update_attributes params[:album]
-      flash[:notice] = I18n.t('albums.update.success', :name => @album.name)
+      flash[:notice] =  I18n.t 'albums.update.success', :name  => @album.name
       respond_with @album
     else
-      flash[:error] = I18n.t('albums.update.failure', :name => @album.name)
+      flash[:error] =  I18n.t 'albums.update.failure', :name  => @album.name
       render :action => :edit
     end
   end
