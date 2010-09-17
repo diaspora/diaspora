@@ -601,3 +601,6 @@ h1.big_text {
     border: 1px solid #cccccc;
       border-bottom: none;
     padding: 3px 10px; }
+
+#fancybox-close:hover {
+  background-color: transparent; }
