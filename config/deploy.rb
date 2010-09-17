@@ -53,6 +53,11 @@ namespace :deploy do
    task :start do
       start_mongo
       start_thin
+      start_websocket
+  end
+
+  task :start_websocket do
+    run("cd #{current_path} && bundle exec ruby ./script/websocket_server.rb > /dev/null&")
   end
 
   task :start_mongo do

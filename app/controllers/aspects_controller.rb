@@ -47,7 +47,7 @@ class AspectsController < ApplicationController
 
   def manage
     @aspect = :manage
-    @remote_requests = Request.for_user current_user
+    @remote_requests = Request.for_user(current_user).all
   end
 
   def update
