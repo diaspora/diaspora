@@ -85,10 +85,12 @@ class Person
        local_person
      elsif  !identifier.include?("localhost") && !opts[:local]
        begin
-         puts "begin finger"
+        Rails.logger.info("Webfingering #{identifier}")
         f = Redfinger.finger(identifier)
        rescue SocketError => e
          raise "Diaspora server for #{identifier} not found" if e.message =~ /Name or service not known/
+       rescue Errno::ETIMEDOUT => e
+         raise "Connection timed out to Diaspora server for #{identifier}"
        end
        raise "No webfinger profile found at #{identifier}" if f.nil? || f.links.empty?
        Person.from_webfinger_profile(identifier, f )

@@ -8,6 +8,7 @@ development:
   debug: false
   socket_debug : false
   socket_port: 8080
+  socket_collection_name: 'websocket'
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
 test:

@@ -63,6 +63,7 @@ namespace :db do
                         return this.diaspora_handle.charAt(this.diaspora_handle.length-1) == '@'
                         }")
     
+    puts "Found #{people.count} people with broken diaspora_handle fields"
     people.each do |person|
       if person.owner
         puts "Resetting diaspora handle for #{person.owner.username}"

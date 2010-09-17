@@ -38,6 +38,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.start
     stub_sockets
+    User.stub!(:allowed_email?).and_return(:true)
   end
 
   config.after(:each) do
@@ -45,9 +46,15 @@ RSpec.configure do |config|
   end
 end
   def stub_sockets
-    Diaspora::WebSocket.stub!(:push_to_user).and_return(true)
+    Diaspora::WebSocket.stub!(:queue_to_user).and_return(true)
     Diaspora::WebSocket.stub!(:subscribe).and_return(true)
     Diaspora::WebSocket.stub!(:unsubscribe).and_return(true)
+  end
+
+  def unstub_sockets
+    Diaspora::WebSocket.unstub!(:queue_to_user)
+    Diaspora::WebSocket.unstub!(:subscribe)
+    Diaspora::WebSocket.unstub!(:unsubscribe)
   end
 
   def stub_signature_verification
