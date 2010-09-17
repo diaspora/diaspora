@@ -5,15 +5,16 @@
 
 function decrementRequestsCounter() {
   var $new_requests = $(".new_requests"),
-      old_request_count = $new_requests.html().match(/\d+/);
+      request_html  = $new_requests.html(), 
+      old_request_count = request_html.match(/\d+/);
 
   if( old_request_count == 1 ) {
     $new_requests.html(
-      $new_requests.html().replace(/ \(\d+\)/,'')
+      request_html.replace(/ \(\d+\)/,'')
     );
   } else {
     $new_requests.html(
-      $new_requests.html().replace(/\d+/,old_request_count-1)
+      request_html.replace(/\d+/,old_request_count-1)
     );
   }
 }
