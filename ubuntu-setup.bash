@@ -3,9 +3,6 @@
 # Site : www.h3manth.com
 # This script helps to setup diaspora.
 
-# Exit immediately if a command exits with a non-zero status.
-set -e
-
 # Set extented globbing 
 shopt -s extglob
 
