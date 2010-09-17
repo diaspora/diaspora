@@ -8,7 +8,8 @@
 shopt -s extglob
 
 # Check if the user has sudo privileges.
-[[ $( id -u) ]] && echo "$(whoami) has no sudo permissions on this machine" && exit 1
+sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
+
 
 # Install build tools 
 echo "Installing build tools.."
