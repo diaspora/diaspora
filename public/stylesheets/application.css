@@ -547,6 +547,10 @@ h1.big_text {
     border: 1px solid #cccccc;
     list-style: none;
     padding: 15px; }
+    .aspect ul.dropzone.active,
+    .requests ul.dropzone.active,
+    .remove ul.dropzone.active {
+      background-color: #fafafa; }
   .aspect .person,
   .aspect .requested_person,
   .requests .person,
@@ -597,3 +601,6 @@ h1.big_text {
     border: 1px solid #cccccc;
       border-bottom: none;
     padding: 3px 10px; }
+
+#fancybox-close:hover {
+  background-color: transparent; }
