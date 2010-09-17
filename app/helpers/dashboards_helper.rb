@@ -6,6 +6,6 @@
 module DashboardsHelper
 
   def title_for_page
-      'home'
+      I18n.t('dashboards.helper.home')
   end
 end

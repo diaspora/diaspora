@@ -9,6 +9,21 @@
 
 es:
   hello: "Hola Mundo"
+  application:
+      helper:
+          unknown_person: "persona desconocida"
+          new_requests: "nuevas peticiones"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Campos Invalidos"
+          correct_the_following_errors_and_try_again: "Corrija los siguentes errores y trate de nuevo."
+  people:
+      helper:
+           results_for: " resultados para %{params}"
+           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
   layouts:
       application:
           edit_profile: "editar perfil"
@@ -40,18 +55,21 @@ es:
           editing: "Editando"
           updated: "actualizado"
           are_you_sure: "Esta seguro?"
-          delete_album: "Eliminar Album"
+          delete_album: "Eliminar Álbum"
           cancel: "Cancelar"
       index:
           home: "home"
-          new_album: "Nuevo Album"
+          new_album: "Nuevo Álbum"
       create:
-          success: "Creo el album llamado %{name}."
+          success: "Creo el álbum llamado %{name}."
       update:
-          success: "Album %{name} fue editado exitosamente."
-          failure: "Fallo el editar el album %{name}."
+          success: "Álbum %{name} fue editado exitosamente."
+          failure: "Fallo el editar el álbum %{name}."
       destroy:
-          success: "Album %{name} fue eliminado."
+          success: "Álbum %{name} fue eliminado."
+      helper:
+          friends_albums: "Álbumes de amigos"
+          your_albums: "Tus Álbumes"
   aspects:
       index:
           photos: "fotos"
@@ -69,6 +87,9 @@ es:
           create: "Crear"
       create:
           success:"Pulsa en el signo de mas a la izquierda para escojer quien puede ver su nuevo aspecto."
+      helper:
+          remove: "remover"
+          aspect_not_empty: "Aspecto no esta vacio"
   users:
       edit:
           cancel: "Cancelar"
@@ -124,3 +145,5 @@ es:
           view_all: "Ver Todos"
           message: "Mensaje"
           owner: "Dueño"
+      helper:
+          no_message_to_display: "No hay mensajes que mostrar."          

@@ -8,6 +8,21 @@
 
 de:
   hello: "Hallo Welt"
+  application:
+      helper:
+          unknown_person: "unknown person"
+          new_requests: "new requests"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Invalid Fields"
+          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+  people:
+      helper:
+           results_for: " resultados para %{params}"
+           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
   layouts:
       application:
           edit_profile: "Profil bearbeiten"
@@ -51,6 +66,9 @@ de:
           failure: "%{name} wurde nicht geändert."
       destroy:
           success: "Album %{name} gelöscht."
+      helper:
+          friends_albums: "Friends Albums"
+          your_albums: "Your Albums"
   aspects:
       index:
           photos: "Fotos"
@@ -66,6 +84,9 @@ de:
       new_aspect:
           add_a_new_aspect: "Neuen Aspekt erstellen"
           create: "Erstellen"
+      helper:
+          remove: "remove"
+          aspect_not_empty: "Aspect not empty"          
   users:
       edit:
           cancel: "Abbrechen"
@@ -122,5 +143,5 @@ de:
           view_all: "Alle anzeigen"
           message: "Nachricht"
           owner: "Besitzer"
-          
-      
+      helper:
+          no_message_to_display: "No message to display."

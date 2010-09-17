@@ -9,6 +9,21 @@
 
 fr:
   hello: "Bonjour tout le monde"
+  application:
+      helper:
+          unknown_person: "unknown person"
+          new_requests: "new requests"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Invalid Fields"
+          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+  people:
+      helper:
+           results_for: " resultados para %{params}"
+           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
   layouts:
       application:
           edit_profile: "Éditez votre profil"
@@ -45,6 +60,9 @@ fr:
       index:
           home: "accueil"
           new_album: "Nouvel album"
+      helper:
+          friends_albums: "Friends Albums"
+          your_albums: "Your Albums"
   aspects:
       index:
           photos: "photos"
@@ -60,6 +78,9 @@ fr:
       new_aspect:
           add_a_new_aspect: "Ajouter un nouvel aspect"
           create: "Créer"
+      helper:
+          remove: "remove"
+          aspect_not_empty: "Aspect not empty"
   users:
       edit:
           cancel: "Annuler"
@@ -113,3 +134,5 @@ fr:
           view_all: "Tout voir"
           message: "Message"
           owner: "Propriétaire"
+      helper:
+          no_message_to_display: "No message to display."

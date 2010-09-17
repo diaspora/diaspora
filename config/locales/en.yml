@@ -8,6 +8,21 @@
 
 en:
   hello: "Hello world"
+  application:
+      helper:
+          unknown_person: "unknown person"
+          new_requests: "new requests"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Invalid Fields"
+          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+  people:
+      helper:
+           results_for: " results for %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
       application:
           edit_profile: "edit profile"
@@ -51,6 +66,9 @@ en:
           failure: "Failed to edit album %{name}."
       destroy:
           success: "Album %{name} deleted."
+      helper:
+          friends_albums: "Friends Albums"
+          your_albums: "Your Albums"
   aspects:
       index:
           photos: "photos"
@@ -68,6 +86,9 @@ en:
           create: "Create"
       create:
           success:"Click on the plus on the left side to tell Diaspora who can see your new aspect."
+      helper:
+          remove: "remove"
+          aspect_not_empty: "Aspect not empty"
   users:
       edit:
           cancel: "Cancel"
@@ -123,5 +144,5 @@ en:
           view_all: "View All"
           message: "Message"
           owner: "Owner"
-          
-      
+      helper:
+          no_message_to_display: "No message to display."
