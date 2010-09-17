@@ -17,8 +17,9 @@ describe Diaspora::WebSocket do
   end
 
   it 'The queued job should reach Magent' do
-    Magent.should_receive(:push)
     @post.socket_to_uid(@user.id, :aspect_ids => @aspect.id)
+    channel = Magent::GenericChannel.new('websocket')
+    channel.message_count.should == 1
   end
 
 end
