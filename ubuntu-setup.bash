@@ -11,6 +11,9 @@ shopt -s extglob
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 
 
+# Check if wget is installed 
+test wget || echo "Installing wget.." && sudo apt-get install wget && echo "Installed wget.."
+
 # Install build tools 
 echo "Installing build tools.."
 sudo apt-get -y --no-install-recommends install build-essential libxslt1.1 libxslt1-dev libxml2
