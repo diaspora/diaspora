@@ -13,7 +13,7 @@ require '#{File.dirname(__FILE__)}/packages/server'
 require '#{File.dirname(__FILE__)}/packages/scm'
 require '#{File.dirname(__FILE__)}/packages/ruby'
 
-policy :diaspora, :roles => [:tom,:backer] do
+policy :diaspora, :roles => [:pivots] do
 #  requires :clean_dreamhost
   requires :tools
   requires :rubygems
