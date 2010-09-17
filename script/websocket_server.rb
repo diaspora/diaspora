@@ -2,11 +2,24 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
+require File.dirname(__FILE__) + '/../config/environment'
+require File.dirname(__FILE__) + '/../lib/diaspora/websocket'
 
-require 'em-websocket'
-require 'eventmachine'
-require 'lib/diaspora/websocket'
-  EM.next_tick {
+CHANNEL = Magent::GenericChannel.new('websocket')
+def process_message
+  if CHANNEL.queue_count > 0
+    message = CHANNEL.dequeue
+    if message
+      Diaspora::WebSocket.push_to_user(message['uid'], message['data'])
+    end
+    EM.next_tick{ process_message}
+  else
+    EM::Timer.new(1){process_message}
+  end
+
+end
+
+  EM.run {
     Diaspora::WebSocket.initialize_channels
 
     EventMachine::WebSocket.start(
@@ -22,5 +35,6 @@ require 'lib/diaspora/websocket'
         ws.onclose { Diaspora::WebSocket.unsubscribe(ws.request['Path'].gsub('/',''), sid) }
       }
     end
+    process_message
   }
 
