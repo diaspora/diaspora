@@ -166,3 +166,13 @@ fr:
           save: "save"
           are_you_sure: "Are you sure?"
           remove_friend: "remove friend"
+      destroy:
+          success: "You are now friends."
+          error: "Please select an aspect!"
+          ignore: "Ignored friend request."
+      create:
+          error: "No diaspora seed found with this email!"
+          already_friends: "You are already friends with %{destination_url}!"
+          success: "A friend request was sent to %{destination_url}."
+          horribly_wrong: "Something went horribly wrong."          
+

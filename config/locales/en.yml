@@ -180,3 +180,12 @@ en:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           friends_username: "Friend's username"
+      destroy:
+          success: "You are now friends."
+          error: "Please select an aspect!"
+          ignore: "Ignored friend request."
+      create:
+          error: "No diaspora seed found with this email!"
+          already_friends: "You are already friends with %{destination_url}!"
+          success: "A friend request was sent to %{destination_url}."
+          horribly_wrong: "Something went horribly wrong."
