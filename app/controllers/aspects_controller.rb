@@ -26,9 +26,15 @@ class AspectsController < ApplicationController
 
   def destroy
     @aspect = Aspect.find_by_id params[:id]
-    @aspect.destroy
-    flash[:notice] = "You are no longer sharing the aspect called #{@aspect.name}."
-    respond_with :location => aspects_url
+
+    begin
+      current_user.drop_aspect @aspect
+      flash[:notice] = "#{@aspect.name} was successfully removed."
+    rescue RuntimeError => e 
+      flash[:error] = e.message
+    end
+
+    respond_with :location => aspects_manage_path
   end
 
   def show
