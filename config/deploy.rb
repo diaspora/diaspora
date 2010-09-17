@@ -39,8 +39,6 @@ backers.each{ |backer|
 
 # Start Nginx
 after "deploy:cold" do
-  run("nginx stop")
-  run("killall nginx")
   #run("nginx")
 end
 

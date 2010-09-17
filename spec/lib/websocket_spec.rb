@@ -9,6 +9,7 @@ describe Diaspora::WebSocket do
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => "losers")
     @post = @user.build_post(:status_message, :message => "hey", :to => @aspect.id)
+    unstub_sockets
   end
 
   it 'should queue a job' do
@@ -16,10 +17,21 @@ describe Diaspora::WebSocket do
     @post.socket_to_uid(@user.id, :aspect_ids => @aspect.id)
   end
 
-  it 'The queued job should reach Magent' do
-    @post.socket_to_uid(@user.id, :aspect_ids => @aspect.id)
-    channel = Magent::GenericChannel.new('websocket')
-    channel.message_count.should == 1
+  describe 'queuing and dequeuing ' do
+    before do
+      @post.socket_to_uid(@user.id, :aspect_ids => @aspect.id)
+      @channel = Magent::GenericChannel.new('websocket')
+    end
+
+    it 'should send the queued job to Magent' do
+      @channel.message_count.should == 1
+    end
+
+    it 'should dequeue the job successfully' do
+      messages = @channel.message_count
+      @channel.dequeue
+      @channel.message_count.should == messages -1
+    end
   end
 
 end
