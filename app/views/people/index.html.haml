@@ -17,8 +17,8 @@
 = (@people.count).to_s + search_or_index
 %table
   %tr
-    %th real name
-    %th diaspora handle
+    %th=t('.real_name')
+    %th=t('.diaspora_handle')
     %th url
     - for person in @people
       %tr
@@ -34,18 +34,18 @@
 
         - elsif person.id == current_user.person.id
           %td
-          %td that's you!
+          %td=t('.thats_you')
         -elsif current_user.pending_requests.find_by_person_id(person.id)
           %td 
-          %td ^-you have a friend request from this person       
+          %td="^-#{t('.you_have_a_friend_request_from_this_person')}"       
         -elsif current_user.pending_requests.find_by_url(person.receive_url)
           %td 
-          %td friend request pending
+          %td=t('.friend_request_pending')
         -else
           %td
           %td
             = form_for Request.new do |f|
               = f.select(:aspect_id, @aspects_dropdown_array)
               = f.hidden_field :destination_url, :value => person.diaspora_handle
-              = f.submit "add friend"
+              = f.submit t('.add_friend')
   = will_paginate @people

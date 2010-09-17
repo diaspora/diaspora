@@ -121,6 +121,7 @@ en:
           delete_photo: "Delete Photo"
       photo:
           show_comments: "show comments"
+          posted_a_new_photo_to: "posted a new photo to"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -146,3 +147,20 @@ en:
           owner: "Owner"
       helper:
           no_message_to_display: "No message to display."
+  people:
+      index:
+          add_friend: "add friend"
+          real_name: "real name"
+          diaspora_handle: "diaspora handle"
+          thats_you: "that's you!"
+          friend_request_pending: "friend request pending"
+          you_have_a_friend_request_from_this_person: "you have a friend request from this person"
+      new:
+          new_person: "New Person"
+          back_to_list: "Back to List"
+      show:
+          last_seen: "last seen: %{how_long_ago}"
+          friends_since: "friends since: %{how_long_ago}"
+          save: "save"
+          are_you_sure: "Are you sure?"
+          remove_friend: "remove friend"
