@@ -6,6 +6,11 @@
 
 module Diaspora
   module WebSocket
+    def self.queue_to_user(uid, data)
+      channel = Magent::GenericChannel.new('websocket')
+      channel.enqueue({:uid => uid, :data => data})
+    end
+
     def self.initialize_channels
       @channels = {}
     end
@@ -44,6 +49,5 @@ module Diaspora
     def unsocket_from_uid(id, opts={})
       SocketsController.new.outgoing(id, Retraction.for(self), opts)
     end
-
   end
 end

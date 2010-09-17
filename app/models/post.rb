@@ -4,6 +4,7 @@
 
 
 class Post
+  require './lib/diaspora/websocket'
   require './lib/encryptable'
   include MongoMapper::Document
   include ApplicationHelper
