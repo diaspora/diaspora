@@ -1,6 +1,8 @@
 ## Commit Guidlines
 You are welcome to contribute, add and extend Diaspora however you see fit.  We will do our best to incorporate everything that meets our guidelines.
 
+We need you to fill out a [contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq) before we can accept your patches.  The agreement gives Diaspora joint ownership of the patch so the copyright isn't scattered.  You can find it [here](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq). 
+
 All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec or Test-Unit.
 
 GEMS:  We would like to keep external dependencies unduplicated.  We're using Nokogiri, and Mongomapper, and EM::HttpRequest as much as possible.  We have a few gems in the project we'd rather not use, but if you can, use dependencies we already have.
@@ -10,6 +12,13 @@ GEMS:  We would like to keep external dependencies unduplicated.  We're using No
 The privacy aware, personally controlled, do-it-all, open source social network.
 
 **DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
+**PLEASE, DO NOT RUN IN PRODUCTION.  IT IS FUN TO GET RUNNING, BUT EXPECT THINGS TO BE BROKEN**
+
+Also, we really want to continue to focus on features and improving the code base. When we think it is 
+ready for general use, we will post more detailed instructions.
+
+
+
 These instructions are for machines running [Ubuntu](http://www.ubuntu.com/), [Fedora](http://www.fedoraproject.org) or Mac OS X.  We are developing Diaspora for the latest and greatest browsers, so please update your Firefox, Chrome or Safari to the latest and greatest.
 
 ## Preparing your system
@@ -145,13 +154,13 @@ To install Git on **Mac OS X**, run the following:
 
 ### Rubygems
 
-On **Ubuntu**, run the following:
+On **Ubuntu** 10.04, run the following:
 
-		wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
-		tar -xf rubygems-1.3.7.tgz
-		cd rubygems-1.3.7
-		sudo ruby setup.rb
-		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+		sudo add-apt-repository ppa:maco.m/ruby
+		sudo apt-get update
+		sudo apt-get install rubygems
+
+This PPA is maintained by an Ubuntu Developer. For Ubuntu 10.10, this version of rubygems is in the repositories.
 
 On **Fedora**, run the following:
 
@@ -162,7 +171,7 @@ On **Mac OS X**, RubyGems comes preinstalled; however, you might need to update 
 
 ### Bundler
 
-After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.
+After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.  If you're using Ubuntu repository .debs, bundler is found at /var/lib/gems/1.8/bin/bundle
 
 
 ## Getting Diaspora
@@ -182,6 +191,8 @@ If you installed the Ubuntu package, MongoDB should already be running (if not, 
 
 If you installed the Fedora package, MongoDB will need to be started via `service mongodb start`. If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
 
+If you installed the OsX package through "brew", MongoDB will need to be started via `sudo launchctl load /Library/LaunchDaemons/org.mongodb.mongod.plist`. (before you have to go to /Library/LaunchDaemons and add a symlink to /usr/local/Cellar/mongodb/1.6.2-x86_64/org.mongodb.mongod.plist)
+
 Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the app server
@@ -199,12 +210,14 @@ Diaspora's test suite uses [rspec](http://rspec.info/), a behavior driven testin
 We are maintaining a [public tracker project](http://www.pivotaltracker.com/projects/61641) and a [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap).  Also, you can file [bug reports](https://github.com/diaspora/diaspora/issues) right here on github.
 
 Ongoing discussion:
-
 - [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
+- [Diaspora Q&A site](http://diaspora.shapado.com/)
 - [#diaspora-dev](irc://irc.freenode.net/#diaspora-dev)
 
 More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
+
+If you wish to contact us privately about any exploits in Diaspora you may find, you can email [exploits@joindiaspora.com](mailto:exploits@joindiaspora.com).
 
 
 ## License

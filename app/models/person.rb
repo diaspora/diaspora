@@ -85,6 +85,7 @@ class Person
        local_person
      elsif  !identifier.include?("localhost") && !opts[:local]
        begin
+         puts "begin finger"
         f = Redfinger.finger(identifier)
        rescue SocketError => e
          raise "Diaspora server for #{identifier} not found" if e.message =~ /Name or service not known/
