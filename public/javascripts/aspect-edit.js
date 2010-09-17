@@ -3,18 +3,6 @@
 *   the COPYRIGHT file.
 */
 
-
-$('#move_friends_link').live( 'click', function(){
-  $.post('/aspects/move_friends',
-    { 'moves' : $('#aspect_list').data() },
-    function(){ $('#aspect_title').html("Groups edited successfully!");});
-
-  $(".person").css('background-color','none');
-  $('#aspect_list').removeData();
-  $(".person").attr('from_aspect_id', function(){return $(this).parent().attr('id')})
-
-});
-
 function decrementRequestsCounter(){
   var old_request_count = $(".new_requests").html().match(/\d+/);
 
@@ -30,6 +18,19 @@ function decrementRequestsCounter(){
 }
 
 $(function() {
+
+
+  $('#move_friends_link').live( 'click', function(){
+    $.post('/aspects/move_friends',
+      { 'moves' : $('#aspect_list').data() },
+      function(){ $('#aspect_title').html("Groups edited successfully!");});
+
+    $(".person").css('background-color','none');
+    $('#aspect_list').removeData();
+    $(".person").attr('from_aspect_id', function(){return $(this).parent().attr('id')})
+
+  });
+
   $("ul .person").draggable({
     revert: true
   });
