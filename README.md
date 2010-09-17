@@ -56,6 +56,8 @@ To install Ruby 1.8.7 on **Ubuntu**, run the following command:
 
 		sudo apt-get install ruby-full
 
+Please note that you need to have Universe enabled in your /etc/apt/sources.list file to install ruby using apt-get. 
+
 At this time Fedora does not have Ruby 1.8.7. As a workaround it is possible to use [rvm](http://rvm.beginrescueend.com/) with a locally compiled Ruby installation. A semi automated method for doing this is available. It is highly recommended that you review the script before running it so you understand what will occur. The script can be executed by running the following command:
 
 		./script/bootstrap-fedora-diaspora.sh
@@ -71,7 +73,7 @@ To install MongoDB on **Ubuntu**, add the official MongoDB repository from this 
 
 http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages
 
-For Lucid, add the following line to your /etc/apt/sources.list:
+For Lucid, add the following line to your /etc/apt/sources.list (for other distros, see http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages):
 
 		deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen
 
@@ -117,6 +119,8 @@ If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mon
 To install MongoDB on **Mac OS X**, run the following:
 
 		brew install mongo
+		sudo mkdir -p /data/db
+		sudo chmod -Rv 777 /data/
 
 ### OpenSSL
 
