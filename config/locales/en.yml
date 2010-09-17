@@ -100,6 +100,7 @@ en:
           delete_photo: "Delete Photo"
       photo:
           show_comments: "show comments"
+          posted_a_new_photo_to: "posted a new photo to"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"

@@ -101,6 +101,7 @@ es:
           delete_photo: "Eliminar Foto"
       photo:
           show_comments: "mostrar comentarios"
+          posted_a_new_photo_to: "a puesto una nueva foto en"
       new:
           new_photo: "Nueva Foto"
           back_to_list: "Devuelta a la lista"

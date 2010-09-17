@@ -99,6 +99,7 @@ de:
           delete_photo: "Foto löschen"
       photo:
           show_comments: "Kommentare anzeigen"
+          posted_a_new_photo_to: "posted a new photo to"          
       new:
           new_photo: "Foto erstellen"
           back_to_list: "Zurück zur Liste"

@@ -90,6 +90,7 @@ fr:
           delete_photo: "Supprimer la photo"
       photo:
           show_comments: "Montrer les commentaires"
+          posted_a_new_photo_to: "posted a new photo to"
       new:
           new_photo: "Nouvelle photo"
           back_to_list: "Retour à la liste"
