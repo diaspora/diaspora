@@ -56,6 +56,8 @@ To install Ruby 1.8.7 on **Ubuntu**, run the following command:
 
 		sudo apt-get install ruby-full
 
+Please note that you need to have Universe enabled in your /etc/apt/sources.list file to install ruby using apt-get. 
+
 At this time Fedora does not have Ruby 1.8.7. As a workaround it is possible to use [rvm](http://rvm.beginrescueend.com/) with a locally compiled Ruby installation. A semi automated method for doing this is available. It is highly recommended that you review the script before running it so you understand what will occur. The script can be executed by running the following command:
 
 		./script/bootstrap-fedora-diaspora.sh
