@@ -78,6 +78,18 @@ fr:
       new_aspect:
           add_a_new_aspect: "Ajouter un nouvel aspect"
           create: "Créer"
+      create:
+          success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+      destroy:
+          success: "%{name} was successfully removed."
+      update:
+          success: "Your aspect, %{name}, has been successfully edited."
+      move_friends:
+          failure: "Aspect editing failed for friend %{real_name}."
+          success: "Aspects edited successfully."
+      move_friend:
+          error: "didn't work %{inspect}"
+          notice: "You are now showing your friend a different aspect of yourself."
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"

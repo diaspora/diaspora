@@ -29,7 +29,7 @@ class AspectsController < ApplicationController
 
     begin
       current_user.drop_aspect @aspect
-      flash[:notice] = "#{@aspect.name} was successfully removed."
+      flash[:notice] = i18n.t 'aspects.destroy.success',:name => @aspect.name
     rescue RuntimeError => e 
       flash[:error] = e.message
     end
@@ -53,7 +53,7 @@ class AspectsController < ApplicationController
   def update
     @aspect = Aspect.find_by_id(params[:id])
     @aspect.update_attributes(params[:aspect])
-    flash[:notice] = "Your aspect, #{@aspect.name}, has been successfully edited."
+    flash[:notice] = i18n.t 'aspects.update.success',:name => @aspect.name
     respond_with @aspect
   end
 
@@ -61,25 +61,25 @@ class AspectsController < ApplicationController
     params[:moves].each{ |move|
       move = move[1]
       unless current_user.move_friend(move)
-        flash[:error] = "Aspect editing failed for friend #{Person.find_by_id( move[:friend_id] ).real_name}."
+        flash[:error] = i18n.t 'aspects.move_friends.failure', :real_name => Person.find_by_id( move[:friend_id] ).real_name
         redirect_to Aspect.first, :action => "edit"
         return
       end
     }
 
-    flash[:notice] = "Aspects edited successfully."
+    flash[:notice] = i18n.t 'aspects.move_friends.success'
     redirect_to Aspect.first, :action => "edit"
   end
 
   def move_friend
     unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to])
-      flash[:error] = "didn't work #{params.inspect}"
+      flash[:error] = I18n.t 'aspects.move_friend.error',:inspect => params.inspect
     end
     if aspect = Aspect.first(:id => params[:to][:to])
-      flash[:notice] = "You are now showing your friend a different aspect of yourself."
+      flash[:notice] = I18n.t 'aspects.move_friend.notice'
       respond_with aspect
     else
-      flash[:notice] = "You are now showing your friend a different aspect of yourself."
+      flash[:notice] = I18n.t 'aspects.move_friend.notice'
       respond_with Person.first(:id => params[:friend_id])
     end
   end

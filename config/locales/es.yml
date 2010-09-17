@@ -87,6 +87,16 @@ es:
           create: "Crear"
       create:
           success:"Pulsa en el signo de mas a la izquierda para escojer quien puede ver su nuevo aspecto."
+      destroy:
+          success: "%{name} fue removido exitosamente."
+      update:
+          success: "Su aspecto, %{name}, fue editado exitosamente."
+      move_friends:
+          failure: "Fallo el editar aspecto para el amigo %{real_name}."
+          success: "Los aspectos fueron editados exitosamente."
+      move_friend:
+          error: "no funciono %{inspect}"
+          notice: "Ahora estas mostrando a tu amigo un aspecto diferente de ti."
       helper:
           remove: "remover"
           aspect_not_empty: "Aspecto no esta vacio"
@@ -162,3 +172,9 @@ es:
           save: "guardar"
           are_you_sure: "Esta seguro?"
           remove_friend: "remover amigo"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Añade un nuevo amigo a "
+          enter_a_diaspora_username: "Escribe el usuario de Diaspora:"
+          your_diaspora_username_is: "Tu usuario de Diaspora es: %{diaspora_handle}"
+          friends_username: "Usuario de amigo"
