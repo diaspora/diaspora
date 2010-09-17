@@ -136,9 +136,20 @@ en:
           new_photo: "New Photo"
           back_to_list: "Back to List"
           post_it: "post it!"
+      create:
+          runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+          integrity_error: "Photo upload failed.  Are you sure that was an image?"
+          type_error: "Photo upload failed.  Are you sure an image was added?"
+      update:
+          notice: "Photo successfully updated."
+          error:  "Failed to edit photo."
+      destroy:
+          notice: "Photo deleted."
   registrations:
       new:
           sign_up: "Sign up"
+      create:
+          success: "You've joined Diaspora!"
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"

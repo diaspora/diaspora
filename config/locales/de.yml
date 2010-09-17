@@ -137,9 +137,20 @@ de:
           new_photo: "Foto erstellen"
           back_to_list: "Zurück zur Liste"
           post_it: "Hochladen"
+      create:
+          runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+          integrity_error: "Photo upload failed.  Are you sure that was an image?"
+          type_error: "Photo upload failed.  Are you sure an image was added?"
+      update:
+          notice: "Photo successfully updated."
+          error:  "Failed to edit photo."
+      destroy:
+          notice: "Photo deleted."
   registrations:
       new:
           sign_up: "Anmelden"
+      create:
+          success: "You've joined Diaspora!"
   status_messages:
       new_status_message:
           tell_me_something_good: "Erzähl' mir was schönes!"
