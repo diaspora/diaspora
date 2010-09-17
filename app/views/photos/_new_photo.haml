@@ -9,7 +9,7 @@
         element: document.getElementById('file-upload'),
         params: {'album_id' : "#{@album.id}"},
         allowedExtensions: ['jpg', 'jpeg', 'png'],
-        action: "/photos"
+        action: "#{photos_path}"
     });           
   }
   window.onload = createUploader;      
