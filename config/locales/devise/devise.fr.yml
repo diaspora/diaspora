@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-en:
+fr:
   errors:
     messages:
       not_found: "introuvable"
