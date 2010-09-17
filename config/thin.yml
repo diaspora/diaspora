@@ -14,8 +14,8 @@ require: []
 
 max_persistent_conns: 512
 environment: production
-servers: 3
+servers: 1
 daemonize: true
 #chdir: /usr/applications/localhash/current
-socket: /tmp/thin.sock
-#port: 80
+#socket: /tmp/thin.sock
+port: 80
