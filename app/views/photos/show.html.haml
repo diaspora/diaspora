@@ -7,12 +7,12 @@
   $(document).keydown(function(e){
     switch(e.keyCode) {
     case 37:
-      if(flag){//prevent redirect if textarea has focus
+      if(!$("textarea").hasClass("hasfocus")){//prevent redirect if textarea has focus
         window.location.replace( "#{url_to_prev(@photo,@album)}" );
       }
       break;
     case 39:
-      if(flag){
+      if(!$("textarea").hasClass("hasfocus")){
         window.location.replace( "#{url_to_next(@photo,@album)}" );
       }
       break;
@@ -22,10 +22,10 @@
   //asign a flag to determine if textarea has focus
   $(document).ready(function(){
     $("textarea").live('focus',function(){
-      flag = 0;
+      $(this).addClass("hasfocus");
     });
     $("textarea").live('blur',function(){
-      flag = 1;
+      $(this).removeClass("hasfocus");
     });
   });
 
