@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-en:
+cs:
   errors:
     messages:
       not_found: "nenalezeno"
