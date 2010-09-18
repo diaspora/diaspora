@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-en:
+ru:
   errors:
     messages:
       not_found: "не найден(о)"
