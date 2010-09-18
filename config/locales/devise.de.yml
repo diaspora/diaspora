@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+de:
+  errors:
+    messages:
+      not_found: "nicht gefunden"
+      already_confirmed: "wurde bereits bestätigt"
+      not_locked: "war nicht gesperrt"
+
+  devise:
+    failure:
+      unauthenticated: 'Du musst Dich anmelden oder registrieren um fortzufahren.'
+      unconfirmed: 'Du musst Deinen Account bestätigen um fortzufahren.'
+      locked: 'Dein Account ist gesperrt.'
+      invalid: 'E-Mail-Adresse oder Passwort ungültig.'
+      invalid_token: 'Üngültiges Authentifizierungs-Token.'
+      timeout: 'Deine Sitzung ist abgelaufen, bitte melde Dich erneut an um fortzufahren.'
+      inactive: 'Dein Account wurde noch nicht aktiviert.'
+    sessions:
+      signed_in: 'Erfolgreich angemeldet.'
+      signed_out: 'Erfolgreich abgemeldet.'
+    passwords:
+      send_instructions: 'Du erhälst in Kürze eine E-Mail mit Anweisungen, wie Du Dein Passwort zurücksetzen kannst.'
+      updated: 'Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet.'
+    confirmations:
+      send_instructions: 'Du erhälst in Kürze eine E-Mail mit Anweisungen, wie Du Deinen Account aktivieren kannst.'
+      confirmed: 'Dein Account wurde erfolgreich bestätigt. Du bist nun angemeldet.'
+    registrations:
+      signed_up: 'Du hast Dich erfolgreich registriert. Wenn aktiviert, wurde eine Bestätigung an Deine E-Mail-Adresse versendet.'
+      updated: 'Du hast Deinen Account erfolgreich aktualisiert.'
+      destroyed: 'Tschüss! Dein Account wurde erfolgreich gekündigt. Wir hoffen Dich bald wiederzusehen.'
+    unlocks:
+      send_instructions: 'Du erhälst in Kürze eine E-Mail mit Anweisungen, wie Du Deinen Account entsperren kannst.'
+      unlocked: 'Dein Account wurde erfolgreich entsperrt. Du bist nun angemeldet.'
+    mailer:
+      confirmation_instructions: 'Anweisungen zur Bestätigung'
+      reset_password_instructions: 'Anweisungen zum Zurücksetzen des Passwortes'
+      unlock_instructions: 'Anweisungen zum Enstperren'
