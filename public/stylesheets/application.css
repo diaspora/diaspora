@@ -610,6 +610,25 @@ h1.big_text {
 
 #fancybox-close:hover {
   background-color: transparent; }
+.edit_photo{
+  display:none;}
 #photo_caption{
+  width:100%;
   margin:auto;}
-
+.caption .description{
+  text-align:left;
+  margin-left:3em;
+  display:block
+  width:90%;}
+.caption a{
+  float:left;
+}
+#add-description{
+  width:100%;}
+.caption, .edit_photo{
+  margin:auto;
+  width:70%;}
+#photo_submit{
+  float:right;}
+.clear{
+  clear:both;}

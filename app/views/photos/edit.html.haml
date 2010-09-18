@@ -16,6 +16,7 @@
   = form_for @photo do |p|
     = p.text_field :caption, :value => @photo.caption
     = p.submit
+  %div{:class => 'clear'}
 
   #content_bottom
     .back
