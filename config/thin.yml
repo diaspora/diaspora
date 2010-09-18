@@ -13,7 +13,7 @@ max_conns: 1024
 require: []
 
 max_persistent_conns: 512
-environment: development 
+environment: production
 servers: 1
 daemonize: true
 #chdir: /usr/applications/localhash/current

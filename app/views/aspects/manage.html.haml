@@ -12,7 +12,7 @@
     Requests
 
   .requests
-    %ul
+    %ul.dropzone
       - for request in @remote_requests
         %li.requested_person{:id => request.person.id, :request_id => request.id}
           = person_image_tag(request.person)
@@ -22,7 +22,7 @@
     Ignore/Remove
 
   %li.remove
-    %ul
+    %ul.dropzone
 
 - content_for :publish do
   = link_to("add a new aspect", "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => "Add a new aspect")
@@ -36,12 +36,12 @@
       .aspect_name
         %h1{:contenteditable => true}= aspect.name
 
-        .tools
-          = link_to "add a new friend", "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
-          |
-          = link_to "show", aspect_path(aspect)
+        %ul.tools
+          %li= link_to "add a new friend", "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+          %li= link_to "show", aspect_path(aspect)
+          %li!= remove_link(aspect)
       
-      %ul{:id => aspect.id}
+      %ul.dropzone{:id => aspect.id}
       
         -if aspect.people.size < 1
           %li.grey Drag to add people
