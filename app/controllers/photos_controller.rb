@@ -21,9 +21,9 @@ class PhotosController < ApplicationController
       # get file content type
       att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
       # create temporal file
-      file = Tempfile.new(file_name)
+      file = Tempfile.new(file_name, {encoding: 'BINARY'})
       # put data into this file from raw post request
-      file.print request.raw_post
+      file.print request.raw_post.force_encoding('BINARY')
 
       # create several required methods for this temporal file
       Tempfile.send(:define_method, "content_type") {return att_content_type}

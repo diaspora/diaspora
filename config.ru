@@ -6,6 +6,7 @@
 
 # This file is used by Rack-based servers to start the application.
 
+$LOAD_PATH << '.'
 require ::File.expand_path('../config/environment',  __FILE__)
 #use Rack::FiberPool
 #require 'lib/chrome_frame'

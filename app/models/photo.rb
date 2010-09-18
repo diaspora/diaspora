@@ -22,7 +22,7 @@ class Photo < Post
   timestamps!
 
   validates_presence_of :album
-  validates_true_for :album_id, :logic => lambda {self.validate_album_person}
+  validates_true_for(:album_id, :logic => Proc.new { self.validate_album_person })
 
   before_destroy :ensure_user_picture
 
