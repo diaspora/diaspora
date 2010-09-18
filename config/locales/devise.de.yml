@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+de:
+  errors:
+    messages:
+      not_found: "wurde nicht gefunden"
+      already_confirmed: "wurde schon aktiviert"
+      not_locked: "wurde gesperrt"
+
+  devise:
+    failure:
+      unauthenticated: 'Du musst dich anmelden oder registrieren um fortzufahren.'
+      unconfirmed: 'Dein Account muss bestaetigt werder um fortzufahren.'
+      locked: 'Dein Account ist gesperrt.'
+      invalid: 'Falsche email oder passwort.'
+      invalid_token: 'Ungueltiger authentication Token.'
+      timeout: 'Deine Session ist abgelaufen, bitte melde dich an um fortzufahren.'
+      inactive: 'Dein Account wurde noch nicht aktiviert.'
+    sessions:
+      signed_in: 'erfolgreich angemeldet.'
+      signed_out: 'erfolgreich abgemeldet.'
+    passwords:
+      send_instructions: 'In ein paar Minuten wirst du eine Email bekommen mit Instructionen um dein Passwort zu aendern.'
+      updated: 'Dein Passwort wurde erfolgreich geaendert. Du bist jetzt angemeldet.'
+    confirmations:
+      send_instructions: 'In ein paar Minuten wirst du eine Email bekommen mit Instructionen um dein Account zu aktivieren.'
+      confirmed: 'Du hast dein Account erfolgreich bestaetigt. Du bist jezt angemeldet.'
+    registrations:
+      signed_up: 'Du hast dich erfolgreich registriert. Falls Aktivierungsemails eingeschaltet sind, haben wir dir eine geschickt.'
+      updated: 'Dein Account wurde aktualisiert.'
+      destroyed: 'Tschuess! Dein Account wurde geschlossen. Hoffendlich sehen wir dich bald wieder.'
+    unlocks:
+      send_instructions: 'In ein paar Minuten wirst du eine Email bekommen mit Instructionen um dein Account zu entsperren.'
+      unlocked: 'Dein Account wurde entsperrt. Du bist jetzt angemeldet.'
+    mailer:
+      confirmation_instructions: 'Aktivierungs Anleitung'
+      reset_password_instructions: 'Passwort Aenderungs Instructionen'
+      unlock_instructions: 'Entsperrungs Anleitung'
