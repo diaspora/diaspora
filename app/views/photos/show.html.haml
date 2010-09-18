@@ -7,12 +7,26 @@
   $(document).keydown(function(e){
     switch(e.keyCode) {
     case 37:
-      window.location.replace( "#{url_to_prev(@photo,@album)}" );
+      if(flag){//prevent redirect if textarea has focus
+        window.location.replace( "#{url_to_prev(@photo,@album)}" );
+      }
       break;
     case 39:
-      window.location.replace( "#{url_to_next(@photo,@album)}" );
+      if(flag){
+        window.location.replace( "#{url_to_next(@photo,@album)}" );
+      }
       break;
     }
+  });
+
+  //asign a flag to determine if textarea has focus
+  $(document).ready(function(){
+    $("textarea").live('focus',function(){
+      flag = 0;
+    });
+    $("textarea").live('blur',function(){
+      flag = 1;
+    });
   });
 
 = content_for :page_title do
