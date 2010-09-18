@@ -26,7 +26,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = Album.find_by_id params[:id]
+    @album = current_user.album_by_id params[:id]
     @album.destroy
     flash[:notice] = "Album #{@album.name} deleted."
     respond_with :location => albums_url
@@ -41,12 +41,12 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    @album = Album.find_by_id params[:id]
+    @album = current_user.album_by_id params[:id]
     redirect_to @album unless current_user.owns? @album
   end
 
   def update
-    @album = Album.find_by_id params[:id]
+    @album = current_user.album_by_id params[:id]
     if @album.update_attributes params[:album]
       flash[:notice] = "Album #{@album.name} successfully edited."
       respond_with @album

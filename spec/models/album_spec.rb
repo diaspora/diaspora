@@ -2,87 +2,81 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Album do
-  before do
-    @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
-    @user = Factory.create(:user)
-    @user.person.save
-    @aspect = @user.aspect(:name => "Foo")
-    @album = @user.post(:album, :name => "test collection", :to => @aspect.id)
+  let(:user) { Factory.create(:user) }
+  let(:person) { user.person }
+  let(:aspect) { user.aspect(:name => "Foo") }
+  let(:album) { user.post(:album, :name => "test collection", :to => aspect.id) }
+
+  it 'is valid' do
+    album.should be_valid
   end
 
-  it 'should require a name' do
-    @album.name = "test collection"
-    @album.valid?.should be true
-
-    @album.name = nil
-    @album.valid?.should be false
+  it 'validates presence of a name' do
+    album.name = nil
+    album.should_not be_valid
   end
 
-  it 'should contain photos' do
-    photo = Factory.build(:photo, :person => @user.person)
-
-    @album.photos << photo
-    @album.photos.count.should == 1
+  it 'has many photos' do
+    album.associations[:photos].type == :many
   end
 
-  it 'should remove all photos on album delete' do
-      photos = []
-      1.upto 3 do
-        photo =   Photo.new(:person => @user.person, :album => @album, :created_at => Time.now)
-        photo.image.store! File.open @fixture_name
-        photos << photo
-      end
-      @album.photos += photos
-
-      Photo.all.count.should == 3
-      @album.destroy
-      Photo.all.count.should == 0
-  end
-
-  describe 'traversing' do
+  context 'when an album has two attached images' do
     before do
-      @photos = []
-      1.upto 3 do |n|
-        photo =   Photo.new(:person => @user.person, :album => @album, :created_at => Time.now + n)
-        photo.image.store! File.open @fixture_name
-        @photos << photo
+      2.times do
+        photo = Factory.build(:photo, :person => person, :album => album)
+        album.photos << photo
       end
-      @album.photos += @photos
     end
 
-    it 'should traverse the album correctly' do
-      #should retrieve the next photo relative to a given photo
-      @album.next_photo(@photos[1]).id.should == @photos[2].id
-
-      #should retrieve the previous photo relative to a given photo
-      @album.prev_photo(@photos[1]).id.should == @photos[0].id
-
-      #wrapping
-      #does next photo of last to first
-      @album.next_photo(@photos[2]).id.should == @photos[0].id
-
-      #does previous photo of first to last
-      @album.prev_photo(@photos[0]).id.should == @photos[2].id
+    context 'when the album is deleted' do
+      it 'removes all child photos' do
+        expect{ album.destroy }.to change(Photo, :count).from(2).to(0)
+      end
     end
   end
 
-  describe 'serialization' do
-    before do
-      @xml = @album.to_xml.to_s
+  context 'traversing photos' do
+    let(:attrs)    { {:person => person, :album => album} }
+    let!(:photo_1) { Factory(:photo, attrs.merge(:created_at => 2.days.ago)) }
+    let!(:photo_2) { Factory(:photo, attrs.merge(:created_at => 1.day.ago)) }
+    let!(:photo_3) { Factory(:photo, attrs.merge(:created_at => Time.now)) }
+
+    describe '#next_photo' do
+      it 'returns the next photo' do
+        album.next_photo(photo_1).id.should == photo_2.id
+      end
+
+      it 'returns the first photo when given the last photo in the album' do
+        album.next_photo(photo_3).id.should == photo_1.id
+      end
     end
-    it 'should have a person' do
-      @xml.include?(@album.person.id.to_s).should be true
+
+    describe '#prev_photo' do
+      it 'returns the previous photo' do
+        album.prev_photo(photo_2).id.should == photo_1.id
+      end
+
+      it 'returns the last photo when given the first photo in the album' do
+        album.prev_photo(photo_1).id.should == photo_3.id
+      end
     end
-    it 'should have a name' do
-      @xml.include?(@album.name).should be true
+  end
+
+  describe '#to_xml' do
+    let(:doc) { album.to_xml }
+    it 'has a name' do
+      doc.at_xpath('./name').text.should == album.name
     end
-    it 'should have an id' do
-      @xml.include?(@album.id.to_s).should be true
+
+    it 'has an id' do
+      doc.at_xpath('./_id').text.should == album.id.to_s
+    end
+
+    it 'includes the person' do
+      doc.at_xpath('./person/_id').text.should == album.person.id.to_s
     end
   end
 end
