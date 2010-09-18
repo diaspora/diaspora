@@ -1,5 +1,13 @@
 #!/bin/bash
 
-mkdir -p -v log/thin/
-bundle exec ruby ./script/websocket_server.rb&
-bundle exec thin start $@
+# Check if Mongo is running
+
+if ! ps ax | grep -v grep | grep mongod >/dev/null
+then
+    echo "Mongod not started"
+else
+    mkdir -p -v log/thin/
+    bundle exec ruby ./script/websocket_server.rb&
+    bundle exec thin start $@
+fi
+
