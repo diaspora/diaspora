@@ -24,7 +24,7 @@ begin
     Diaspora::WebSocket.initialize_channels
 
     EventMachine::WebSocket.start(
-                  :host => "0.0.0.0",
+                  :host => APP_CONFIG[:socket_host],
                   :port => APP_CONFIG[:socket_port],
                   :debug =>APP_CONFIG[:socket_debug]) do |ws|
       ws.onopen {
