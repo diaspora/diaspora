@@ -59,7 +59,7 @@ echo "Fetching and installing ruby gems.."
 	then
     	sudo apt-get install --no-install-recommends -y rubygems
 		sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
-	elsif [ RELEASE == "lucid" ]
+	elif [ RELEASE == "lucid" ]
     then
         sudo add-apt-repository ppa:maco.m/ruby
         sudo apt-get update
@@ -83,10 +83,10 @@ echo "Fetching and installing ruby gems.."
 ) 
 echo "Done installing the gems.."
 
-# Install blunder
-echo "Installing blunder.."
+# Install bundler
+echo "Installing bundler.."
 sudo gem install bundler
-echo "Installed blunder.."
+echo "Installed bundler.."
 
 # Take a clone of Diaspora
 (
