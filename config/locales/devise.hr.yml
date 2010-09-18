@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+hr:
+  errors:
+    messages:
+      not_found: "nije pronađen"
+      already_confirmed: "je već potvrđen"
+      not_locked: "nije bio zaključan"
+
+  devise:
+    failure:
+      unauthenticated: 'Trebaš se prijaviti ili registrirati da bi mogao nastavi dalje.'
+      unconfirmed: 'Trebaš potvrditi svoj korisnički račun da bi mogao nastaviti dalje.'
+      locked: 'Tvoj korisnički račun je zaključan.'
+      invalid: 'Neispravan email ili lozinka.'
+      invalid_token: 'Pogrešan autorizacijski token.'
+      timeout: 'Tvoja sesija je istekla, prijavi se da bi magao nastaviti dalje.'
+      inactive: 'Tvoj korisnički račun nije još aktiviran.'
+    sessions:
+      signed_in: 'Uspješno si se prijavio.'
+      signed_out: 'Uspješno si se odjavio.'
+    passwords:
+      send_instructions: 'Uskoro ćeš dobiti email s uputama kako resetirati lozinku.'
+      updated: 'Tvoja lozinka je uspješno promjenjena i prijavljen si.'
+    confirmations:
+      send_instructions: 'Uskoro ćeš dobiti email s uputama kako potvrditi svoj korisnički račun.'
+      confirmed: 'Tvoj korisnički račun je uspješno potvrđen i sada si prijavljen.'
+    registrations:
+      signed_up: 'Usješno si se registrirao, ako su potvrde aktivirane, uskoro ćeš dobiti email s potvrdom registracije.'
+      updated: 'Tvoj korisnički račun je uspješno uređen.'
+      destroyed: 'Doviđenja! Tvoj korisnički račun je otkazan, nadamo se da se vidimo ponovo.'
+    unlocks:
+      send_instructions: 'Uskoro ćeš dobiti email s uputama kako otključati svoj korisnički račun.'
+      unlocked: 'Tvoj korisnički račun je uspješno otključan i sada si prijavljen.'
+    mailer:
+      confirmation_instructions: 'Upute za potvrdu korisničkog računa'
+      reset_password_instructions: 'Upute za resetiranje lozinke'
+      unlock_instructions: 'Upute za otključavanje korisničkog računa'

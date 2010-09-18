@@ -1,0 +1,112 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+hr:
+  hello: "Zdravo"
+  
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%B %e, %Y"
+      only_day: "%e"
+ 
+    day_names: [nedjelja, ponedjeljak, utorak, srijeda, četvrtak, petak, subota]
+    abbr_day_names: [ned, pon, uto, sri, čet, pet, sub]
+    month_names: [~, Siječanj, Veljača, Ožujak, Travanj, Svibanj, Lipanj, Srpanj, Kolovoz, Rujan, Listopad, Studeni, Prosinac]
+    abbr_month_names: [~, Sij, Velj, Ožu, Tra, Svi, Lip, Srp, Kol, Ruj, Lis, Stu, Pro]
+    order: [ :day, :month, :year ]
+    
+  number:
+    format:
+      precision: 3
+      separator: '.'
+      delimiter: ','
+    currency:
+      format:
+        unit: 'Kn'
+        precision: 2
+        format: '%n %u'
+ 
+  support:
+    array:
+      sentence_connector: "i"
+    
+  #TODO - fix some croatian's specific grammar casees
+  datetime:
+    formats:
+      default: "%Y-%m-%dT%H:%M:%S%Z"
+    distance_in_words:
+      half_a_minute: 'Prije pola minute'
+      less_than_x_seconds:
+        zero: 'Prije manje od 1 sekunde'
+        one: 'Prije manje od 1 sekunde'
+        few: 'Prije manje od %{count} sekunde'
+        other: 'Prije manje od %{count} sekundi'
+      x_seconds:
+        one: 'Prije 1 sekunde'
+        few: 'Prije %{count} sekunde'
+        other: '%{count} sekundi'
+      less_than_x_minutes:
+        zero: 'Prije manje оd minute'
+        one: 'Prije manje od minute'
+        other: 'Prije manje od %{count} minuta'
+      x_minutes:
+        one: 'Prije 1 minute'
+        other: 'Prije %{count} minuta'
+      about_x_hours:
+        one: 'Prije oko 1 sat'
+        few: 'Prije око %{count} sata'
+        other: 'Prije око %{count} sati'
+      x_days:
+        one: 'Prije 1 dan'
+        other: 'Prije %{count} dana'
+      about_x_months:
+        one: 'Prije око 1 mjesec'
+        few: 'Prije око %{count} mjeseca'
+        other: 'Prije око %{count} mjeseci'
+      x_months:
+        one: 'Prije 1 mjesec'
+        few: 'Prije %{count} mjeseca'
+        other: 'Prije %{count} mjeseci'
+      about_x_years:
+        one: 'Prije око 1 godine'
+        other: 'Prije око %{count} godine'
+      over_x_years:
+        one: 'Prije preko 1 godine'
+        other: 'Prije preko %{count} godine'
+        
+        
+  activerecord:                
+  errors:
+    template:
+      header:
+        one: 'Snimanje nije uspjelo'
+        few: 'Snimanje nije uspjelo'
+        other: 'Snimanje nije uspjelo'
+      body: "Provjerite sljedeća polja:"
+    messages:
+      inclusion: "nije u listi"
+      exclusion: "nije dostupno"
+      invalid: "nije ispravan"
+      confirmation: "se ne slaže sa svojom potvrdom"
+      accepted: "mora biti prihvaćeno"
+      empty: "mora biti upisan"
+      blank: "mora biti upisan"
+      too_long: "je predugačak (ne više od %{count} znakova)"
+      too_short: "је prekratak (ne manje od %{count} znakova)"
+      wrong_length: "nije odgovarajuće dužine (mora biti %{count} znakova)"
+      taken: "је zauzeto"
+      not_a_number: "nije broj"
+      greater_than: "mora biti veće od %{count}"
+      greater_than_or_equal_to: "mora biti veće ili jednako %{count}"
+      equal_to: "mora biti jednako %{count}"
+      less_than: "mora biti manje od %{count}"
+      less_than_or_equal_to: "mora biti manje ili jednako %{count}"
+      odd: "mora biti neparno"
+      even: "mora biti parno"
