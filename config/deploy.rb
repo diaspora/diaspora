@@ -27,19 +27,22 @@ set :deploy_via, :checkout
 #
 set :rails_env, ENV['rails_env'] || ENV['RAILS_ENV'] || all['default_env']
 
-role :pivots, config['servers']['pivots']['url']
+role :tom,    "tom.joindiaspora.com"
+backers.each{ |backer|
+  role :backer, "#{backer['username']}.joindiaspora.com", :number => backer['number']
+}
 
+#role :ci, "ci.joindiaspora.com"
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
 
 # Start Nginx
 after "deploy:cold" do
-  run("nginx")
+  #run("nginx")
 end
 
 namespace :deploy do
-
   task :symlink_images do
     run "mkdir -p #{shared_path}/uploads"
     run "ln -s -f #{shared_path}/uploads #{current_path}/public/uploads"
@@ -61,24 +64,19 @@ namespace :deploy do
   end
 
   task :start_mongo do
-		run("mkdir -p -v #{current_path}/log/db/ ")
-    run("mkdir -p -v #{shared_path}/db/")
-		run("mongod  --fork --logpath #{current_path}/log/db/mongolog.txt --dbpath #{shared_path}/db/ " )
+      run("mkdir -p -v #{current_path}/log/db/ ")
+      run("mkdir -p -v #{shared_path}/db/")
+      run("mongod  --fork --logpath #{current_path}/log/db/mongolog.txt --dbpath #{shared_path}/db/ " )
   end
 
   task :start_thin do
-		run("mkdir -p -v #{current_path}/log/thin/ ")
-		run("cd #{current_path} && bundle exec thin start -C config/thin.yml")
+      run("mkdir -p -v #{current_path}/log/thin/ ")
+      run("cd #{current_path} && bundle exec thin start -C config/thin.yml")
   end
 
   task :stop do
     stop_thin
     run("killall -s 2 mongod || true")
-  end
- 
-  task :go_cold do
-    stop
-    run("killall nginx")
   end
 
   task :stop_thin do
@@ -121,13 +119,32 @@ namespace :cloud do
   end
 end
 namespace :db do
-  
-  task :purge, :roles => [:pivots] do
+
+  task :purge, :roles => [:tom, :backer] do
     run "cd #{current_path} && bundle exec rake db:purge --trace RAILS_ENV=#{rails_env}"
   end
-  
+
+  task :tom_seed, :roles => :tom do
+    run "cd #{current_path} && bundle exec rake db:seed:tom --trace RAILS_ENV=#{rails_env}"
+    run "curl -silent -u tom@tom.joindiaspora.com:evankorth http://tom.joindiaspora.com/zombiefriends"
+    backers.each do |backer|
+      run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/zombiefriendaccept"
+      #run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/set_profile_photo"
+    end
+
+  end
+
+  task :backer_seed, :roles => :backer do
+    (0..10).each { |n|
+      run "curl -silent http://localhost/set_backer_number?number=#{n}", :only => {:number => n}
+    }
+    run "cd #{current_path} && bundle exec rake db:seed:backer --trace RAILS_ENV=#{rails_env}"
+  end
+
   task :reset do
     purge
+    backer_seed
+    tom_seed
   end
 
 

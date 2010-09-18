@@ -7,9 +7,65 @@
 cross_server:
   deploy_to: '/usr/local/app/diaspora'
   user: 'root'
-  branch: 'production'
   repo: 'git@github.com:diaspora/diaspora.git'
-  default_env: 'production'
+  branch: 'master'
+  default_env: 'development'
 servers:
-  pivots:
-    url: 'pivots.joindiaspora.com'
+  tom:
+    - url: 'tom.joindiaspora.com'
+  backer:
+    - username: 'washington'
+      given_name: 'George'
+      family_name: 'Washington'
+      number: 0
+      pin: 5072
+    - username: 'adams'
+      given_name: 'John'
+      family_name: 'Adams'
+      number: 1
+      pin: 3742
+    - username: 'jefferson'
+      given_name: 'Thomas'
+      family_name: 'Jefferson'
+      number: 2
+      pin: 7782
+    - username: 'madison'
+      given_name: 'James'
+      family_name: 'Madison'
+      number: 3
+      pin: 2691
+    - username: 'monroe'
+      given_name: 'James'
+      family_name: 'Monroe'
+      number: 4
+      pin: 6133
+    - username: 'quincyadams'
+      given_name: 'John Quincy'
+      family_name: 'Adams'
+      number: 5
+      pin: 7558
+    - username: 'jackson'
+      given_name: 'Andrew'
+      family_name: 'Jackson'
+      number: 6
+      pin: 8670
+    - username: 'buren'
+      given_name: 'Martin'
+      family_name: 'Van Buren'
+      number: 7
+      pin: 1559
+    - username: 'harrison'
+      given_name: 'William Henry'
+      family_name: 'Harrison'
+      number: 8
+      pin: 5404
+    - username: 'tyler'
+      given_name: 'John'
+      family_name: 'Tyler'
+      number: 9
+      pin: 6431
+    - username: 'polk'
+      given_name: 'James K.'
+      family_name: 'Polk'
+      number: 10
+      pin: 1957
