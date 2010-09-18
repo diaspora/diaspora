@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+it:
+  errors:
+    messages:
+      not_found: "non trovato"
+      already_confirmed: "è stato già confermato"
+      not_locked: "non è stato bloccato"
+
+  devise:
+    failure:
+      unauthenticated: 'Prima di continuare devi accedere oppure registrarti.'
+      unconfirmed: 'Prima di continuare devi confermare il tuo utente.'
+      locked: 'Il tuo utente è bloccato.'
+      invalid: 'La mail o la password non sono validi.'
+      invalid_token: 'Le informazioni di autenticazione non sono valide.'
+      timeout: 'La tua sessione è scaduta, accedi di nuovo per continuare.'
+      inactive: 'Il tuo accesso non è stato ancora attivato.'
+    sessions:
+      signed_in: 'Accesso eseguito con successo.'
+      signed_out: 'Uscita eseguita con successo.'
+    passwords:
+      send_instructions: 'Nel giro di pochi minuti riceverai una mail con le istruzioni per ripristinare la tua password.'
+      updated: 'La password è stata modificata con successo. Ora sei collegato/a.'
+    confirmations:
+      send_instructions: 'Nel giro di pochi minuti riceverai una mail con le istruzioni per confermare il tuo utente.'
+      confirmed: 'Il tuo utente è stato correttamente conferamto. Ora sei collegato/a.'
+    registrations:
+      signed_up: 'La registrazione è completata. Se necessaria, una mail di conferma è stata spedita al tuo indirizzo.'
+      updated: 'L''aggiornamento del tuo utente è stato completato correttamente.'
+      destroyed: 'Ciao! Il tuo utente è stato cancallato correttamente. Speriamo di rivederci presto.'
+    unlocks:
+      send_instructions: 'Nel giro di pochi minuti riceverai una mail con le istruzioni per sbloccare il tuo utente.'
+      unlocked: 'Il tuo utente è stato sbloccato correttamente. Ora sei collegato/a.'
+    mailer:
+      confirmation_instructions: 'Istruzioni per la conferma dell''utente'
+      reset_password_instructions: 'Istruzioni per il ripristino della password'
+      unlock_instructions: 'Istruzioni per sbloccare l''utente'
