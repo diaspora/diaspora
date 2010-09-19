@@ -1,7 +1,13 @@
 #!/bin/bash
 # Author : hemanth.hm@gmail.com
 # Site : www.h3manth.com
+# Contributions from: Mackenzie Morgan (maco) and Daniel Thomas (drt24)
 # This script helps to setup diaspora.
+#
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
 
 # Set extented globbing 
 shopt -s extglob
