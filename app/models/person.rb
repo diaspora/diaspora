@@ -34,11 +34,8 @@ class Person
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
 
-
   def self.search(query)
-    Person.all('$where' => "function() { return this.diaspora_handle.match(/^#{query}/i) ||
-               this.profile.first_name.match(/^#{query}/i) ||
-               this.profile.last_name.match(/^#{query}/i); }")
+    Person.all('profile.first_name' => /^#{query}/) | Person.all('profile.last_name' => /^#{query}/)
   end
 
   def real_name
