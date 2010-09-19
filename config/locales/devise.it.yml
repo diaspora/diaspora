@@ -1,0 +1,43 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+#   
+#   1st DRAFT of the italian translation
+#   09/2010	Guido Serra aka Zeph <zeph@fsfe.org>
+
+it:
+  errors:
+    messages:
+      not_found: "non trovato"
+      already_confirmed: "era già stato confermato"
+      not_locked: "non era protetto"
+
+  devise:
+    failure:
+      unauthenticated: 'Devi identificarti o registrarti prima di poter continuare.'
+      unconfirmed: 'Devi confermare il tuo account prima di continuare.'
+      locked: 'Il tuo account è protetto.'
+      invalid: 'Email o password errata.'
+      invalid_token: 'Token identificativo non valido.'
+      timeout: 'Sessione scaduta, riautenticati per poter continuare.'
+      inactive: 'Il tuo account non è stato ancora attivato.'
+    sessions:
+      signed_in: 'Autenticato correttamente.'
+      signed_out: 'Uscito correttamente.'
+    passwords:
+      send_instructions: 'Riceverai, a breve, una mail con le istruzioni per proseguire.'
+      updated: 'La tua parola chiave è stata cambiata correttamente, sei autenticato.'
+    confirmations:
+      send_instructions: 'Riceverai una email con le istruzioni, per confermare la tua utenza, in pochi minuti.'
+      confirmed: 'Accesso confermato correttamente, sei ora collegato.'
+    registrations:
+      signed_up: 'Registrazione andata a buon fine. Se abilitata, riceverai un email di conferma.'
+      updated: 'Dati aggiornati correttamente.'
+      destroyed: 'Utenza rimossa, speriamo di rivederti presto.'
+    unlocks:
+      send_instructions: 'Riceverai una email con le istruzioni per sbloccare la tua utenza.'
+      unlocked: 'Utenza sbloccata, sei collegato.'
+    mailer:
+      confirmation_instructions: 'Istruzioni di conferma di un utenza'
+      reset_password_instructions: 'Istruzioni per reinizializzare la parola chiave'
+      unlock_instructions: 'Istruzioni per sbloccare un utenza'
