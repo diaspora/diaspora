@@ -39,21 +39,31 @@ echo "Installing rake.."
 sudo apt-get -y  --no-install-recommends install rake
 echo "..Done installing rake"
 
+#Store the release name so we can use it here and later
+RELEASE=$(lsb_release -c | cut -f2)
+
 # Get the current release and install mongodb
-lsb=$(lsb_release -rs)
-ver=${lsb//.+(0)/.}
-repo="deb http://downloads.mongodb.org/distros/ubuntu ${ver} 10gen"
-echo "Setting up MongoDB.."
-echo "."
-echo ${repo} | sudo tee -a /etc/apt/sources.list
-echo "."
-echo "Fetching keys.."
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-echo "."
-sudo apt-get  update
-echo "."
-sudo apt-get -y  --no-install-recommends install mongodb-stable
-echo "Done installing monngodb-stable.."
+if [ $RELEASE == "maverick" ]
+then
+	#mongodb does not supply a repository for maverick yet so install
+	# an older version from the ubuntu repositories
+	sudo apt-get -y  --no-install-recommends install mongodb
+else
+	lsb=$(lsb_release -rs)
+	ver=${lsb//.+(0)/.}
+	repo="deb http://downloads.mongodb.org/distros/ubuntu ${ver} 10gen"
+	echo "Setting up MongoDB.."
+	echo "."
+	echo ${repo} | sudo tee -a /etc/apt/sources.list
+	echo "."
+	echo "Fetching keys.."
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+	echo "."
+	sudo apt-get  update
+	echo "."
+	sudo apt-get -y  --no-install-recommends install mongodb-stable
+	echo "Done installing monngodb-stable.."
+fi
 
 # Install imagemagick
 echo "Installing imagemagick.."
@@ -68,12 +78,11 @@ echo "Installed git-core.."
 # Setting up ruby gems
 echo "Fetching and installing ruby gems.."
 (
-    RELEASE=$(lsb_release -c | cut -f2)
-    if [ RELEASE == "maverick" ]
+    if [ $RELEASE == "maverick" ]
     then
         sudo apt-get install --no-install-recommends -y rubygems
         sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
-    elif [ RELEASE == "lucid" ]
+    elif [ $RELEASE == "lucid" ]
     then
         sudo add-apt-repository ppa:maco.m/ruby
         sudo apt-get update
