@@ -1,0 +1,42 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+fr:
+  errors:
+    messages:
+      not_found: "non trouvé"
+      already_confirmed: "a déjà été confirmé"
+      not_locked: "n'était pas verrouillé"
+
+  devise:
+    failure:
+      unauthenticated: "Vous devez être connecté ou vous enregistrer avant de continuer."
+      unconfirmed: "Vous devez valider votre compte avant de continuer."
+      locked: "Votre compte est verrouillé."
+      invalid: "E-mail ou mot de passe incorrect."
+      invalid_token: "Jeton d'authentification invalide."
+      timeout: "Votre session a expiré, veuillez vous connecter à nouveau pour continuer."
+      inactive: "Votre compte n'a pas encore été activé."
+    sessions:
+      signed_in: "Connection réussie."
+      signed_out: "Déconnection réussie."
+    passwords:
+      send_instructions: "Vous allez recevoir un e-mail expliquant comment réinitialiser votre mot de passe dans quelques minutes."
+      updated: "Votre mot de passe à été modifié avec succès. Vous êtes maintenant connecté."
+    confirmations:
+      send_instructions: "Vous allez recevoir un e-mail expliquant comment valider votre compte dans quelques minutes."
+      confirmed: "Votre compte à été validé avec succès. Vous êtes maintenant connecté."
+    registrations:
+      signed_up: "Vous êtes correctement enregistré. Si activée, une demande de confirmation vous a été envoyée à votre adresse e-mail."
+      updated: "Votre compte à été mis à jour avec succès."
+      destroyed: "Au revoir ! Votre compte à été correctement annulé. Nous espérons vous revoir bientôt."
+    unlocks:
+      send_instructions: "Vous allez recevoir un e-mail expliquant comment déverrouiller votre compte dans quelques minutes."
+      unlocked: "Votre compte à été déverrouillé avec succès. Vous êtes maintenant connecté."
+    mailer:
+      confirmation_instructions: "Intructions de validation"
+      reset_password_instructions: "Instructions de réinitialisation du mot de passe"
+      unlock_instructions: "Instructions de déverrouillage"
+
