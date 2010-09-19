@@ -13,7 +13,7 @@ fi:
   devise:
     failure:
       unauthenticated: 'Kirjaudu tai rekisteröidy ennen kuin voit jatkaa.'
-      unconfirmed: 'Sinun pitää vahvistaa käyttäjätilisi ennen kuin voit jatkaa'
+      unconfirmed: 'Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa'
       locked: 'Käyttäjätilisi on lukittu.'
       invalid: 'Väärä sähköpostiosoite tai salasana.'
       invalid_token: 'Viallinen todennus.'
@@ -21,9 +21,9 @@ fi:
       inactive: 'Käyttätiliäsi ei ole vielä vahvistettu.'
     sessions:
       signed_in: 'Sisäänkirjautuminen onnistui.'
-      signed_out: 'Uoskirjautuminen onnistui.'
+      signed_out: 'Uloskirjautuminen onnistui.'
     passwords:
-      send_instructions: 'Saat hetken päästä sähköpostiisi ohjeet siitä miten asetat salasanasi uudelleen.'
+      send_instructions: 'Saat hetken päästä sähköpostiisi ohjeet siitä miten määrität salasanasi uudelleen.'
       updated: 'Salasanasi on vaihdettu. Olet nyt kirjautunut sisään.'
     confirmations:
       send_instructions: 'Saat hetken päästä sähköpostiisi ohjeet siitä miten vahvistat käyttäjätilisi luonnin.'
@@ -37,5 +37,5 @@ fi:
       unlocked: 'Käyttäjätilisi lukitus on avattu. Olet nyt kirjautunut sisään.'
     mailer:
       confirmation_instructions: 'Ohjeet vahvistamiseen/todentamiseen'
-      reset_password_instructions: 'Ohjeet salananan uudelleenasettamiseksi'
+      reset_password_instructions: 'Ohjeet salananan uudelleenmäärittämiseksi'
       unlock_instructions: 'Ohjeet lukituksen poistamiseksi'
