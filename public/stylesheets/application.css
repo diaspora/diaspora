@@ -145,6 +145,8 @@ ul#stream {
     border-bottom: 1px solid #eeeeee; }
   ul#stream > li:first-child {
     padding-top: 0; }
+  ul#stream .right {
+    top: 0; }
 
 li.message {
   position: relative;

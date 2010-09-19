@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+#   Translator: jarkko moilanen, jm60697@gmail.com  
+
+fi:
+  errors:
+    messages:
+      not_found: "ei löytynyt"
+      already_confirmed: "oli jo varmistettu"
+      not_locked: "ei ollut lukittu"
+
+  devise:
+    failure:
+      unauthenticated: 'Kirjaudu tai rekisteröidy ennen kuin voit jatkaa.'
+      unconfirmed: 'Sinun pitää vahvistaa käyttäjätilisi ennen kuin voit jatkaa'
+      locked: 'Käyttäjätilisi on lukittu.'
+      invalid: 'Väärä sähköpostiosoite tai salasana.'
+      invalid_token: 'Viallinen todennus.'
+      timeout: 'Istunto on vanhentunut, kirjaudu uudelleen.'
+      inactive: 'Käyttätiliäsi ei ole vielä vahvistettu.'
+    sessions:
+      signed_in: 'Sisäänkirjautuminen onnistui.'
+      signed_out: 'Uoskirjautuminen onnistui.'
+    passwords:
+      send_instructions: 'Saat hetken päästä sähköpostiisi ohjeet siitä miten asetat salasanasi uudelleen.'
+      updated: 'Salasanasi on vaihdettu. Olet nyt kirjautunut sisään.'
+    confirmations:
+      send_instructions: 'Saat hetken päästä sähköpostiisi ohjeet siitä miten vahvistat käyttäjätilisi luonnin.'
+      confirmed: 'Käyttäjätilisi luonti on vahvistettu. Olet nyt kirjautunut sisään.'
+    registrations:
+      signed_up: 'Käyttäjätilin luominen onnistui. Mahdollinen vahvistuspyyntö on lähetetty sähköpostiisi.'
+      updated: 'Käyttäjätilisi on päivitetty.'
+      destroyed: 'Näkemiin! Käyttäjätilisi on poistettu. Toivottavasti näemme sinut pian uudelleen.'
+    unlocks:
+      send_instructions: 'Saat muutaman minuutin kuluttua sähköpostiisi ohjeet siitä miten avaat lukituksen.'
+      unlocked: 'Käyttäjätilisi lukitus on avattu. Olet nyt kirjautunut sisään.'
+    mailer:
+      confirmation_instructions: 'Ohjeet vahvistamiseen/todentamiseen'
+      reset_password_instructions: 'Ohjeet salananan uudelleenasettamiseksi'
+      unlock_instructions: 'Ohjeet lukituksen poistamiseksi'
