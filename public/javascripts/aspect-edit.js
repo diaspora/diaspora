@@ -42,7 +42,7 @@ $(function() {
 
   });
 
-  $("ul .person .requested_person").draggable({
+  $("ul .person, ul .requested_person").draggable({
     revert: true
   });
   
