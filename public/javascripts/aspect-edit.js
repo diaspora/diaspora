@@ -42,14 +42,14 @@ $(function() {
 
   });
 
-  $("ul .person .requested_person").draggable({
+  // Multiple classes here won't work
+  $("ul .person").draggable({
     revert: true
   });
   
-  //  Moved class to logic above - unnec duplicate logic
-  //$("ul .requested_person").draggable({
-  //  revert: true
-  //});
+  $("ul .requested_person").draggable({
+    revert: true
+  });
   
   $(".aspect ul").droppable({
     hoverClass: 'active',
