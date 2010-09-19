@@ -37,6 +37,7 @@ gem 'magent', :git => 'http://github.com/dcu/magent.git'
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch
 gem 'mini_magick'
+gem 'aws'
 
 group :test, :development do
   gem 'factory_girl_rails'
