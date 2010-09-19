@@ -134,13 +134,13 @@ describe Person do
       people.include?(@friend_three).should == false
       people.include?(@friend_four).should  == false
 
-      people = Person.search("Wei")
+      people = Person.search("wEi")
       people.include?(@friend_two).should   == true
       people.include?(@friend_one).should   == false
       people.include?(@friend_three).should == false
       people.include?(@friend_four).should  == false
 
-      people = Person.search("Gri")
+      people = Person.search("gri")
       people.include?(@friend_one).should   == true
       people.include?(@friend_four).should  == true
       people.include?(@friend_two).should   == false
