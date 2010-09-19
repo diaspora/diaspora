@@ -4,7 +4,6 @@
 
 
 module RequestsHelper
-
   def subscription_mode(profile)
     if diaspora?(profile)
       :friend
@@ -40,5 +39,4 @@ module RequestsHelper
     end
     { action => person }
   end
-
 end
