@@ -102,25 +102,28 @@ echo "Installing bundler.."
 sudo gem install bundler
 echo "Installed bundler.."
 
+#fix permissions
+user=`whoami`
+sudo chown -R $user:$user ~/.gem
+
 # Take a clone of Diaspora
 (
     # Check if the user is already in a cloned source if not clone the source
     [[ $( basename $PWD ) == "diaspora" ]]  && \
         echo "Already in diaspora directory" ||  \
-        git clone http://github.com/diaspora/diaspora.git ; cd diaspora
+	{ git clone http://github.com/diaspora/diaspora.git ; cd diaspora ;}
     echo "Cloned the source.."
 
     # Install extra gems
-    cd diaspora
     echo "Installing more gems.."
-    sudo bundle install
+    bundle install
     echo "Installed."
 
     # Install DB setup
     echo "Seting up DB.."
     rake db:seed:tom
-    echo "DB ready. Login -> tom and password -> evankorth.\n"\
-    "More details ./diaspora/db/seeds/tom.rb."
+    echo "DB ready. Login -> tom and password -> evankorth.
+More details ./diaspora/db/seeds/tom.rb."
 
     # Run appserver
     echo "Starting server"
