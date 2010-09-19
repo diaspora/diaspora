@@ -35,7 +35,7 @@ class Person
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
 
   def self.search(query)
-    Person.all('profile.first_name' => /^#{query}/) | Person.all('profile.last_name' => /^#{query}/)
+    Person.all('profile.first_name' => /^#{query}/i) | Person.all('profile.last_name' => /^#{query}/i)
   end
 
   def real_name
