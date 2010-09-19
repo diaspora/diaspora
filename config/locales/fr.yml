@@ -11,31 +11,31 @@ fr:
   hello: "Bonjour tout le monde"
   application:
       helper:
-          unknown_person: "unknown person"
-          new_requests: "new requests"
+          unknown_person: "personne inconnue"
+          new_requests: "nouvelles requêtes"
   dashboards:
       helper:
-          home: "home"
+          home: "accueil"
   error_messages:
       helper:
-          invalid_fields: "Invalid Fields"
-          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+          invalid_fields: "Champs invalides"
+          correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes et essayez de nouveau."
   people:
       helper:
-           results_for: " resultados para %{params}"
-           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
+           results_for: " résultats pour %{params}"
+           people_on_pod_are_aware_of: " personnes en pod sont au courant de "
   layouts:
       application:
           edit_profile: "Éditez votre profil"
           logout: "Déconnexion"
   shared:
       aspect_nav:
-          all_aspects: "Tous les Aspects"
+          all_aspects: "Tous les aspects"
           manage: "Gérez"
-          manage_your_aspects: "Gérez vos Aspects"
+          manage_your_aspects: "Gérez vos aspects"
       sub_header:
-          all_aspects: "Tous les Aspects"
-          manage_aspects: "Gérez vos Aspects"
+          all_aspects: "Tous les aspects"
+          manage_aspects: "Gérez vos aspects"
       publisher:
           share: "Partager"
       aspect_friends:
@@ -54,15 +54,15 @@ fr:
       edit:
           editing: "Édition"
           updated: "mis à jour"
-          are_you_sure: "Êtes-vous sûr?"
+          are_you_sure: "Êtes-vous sûr ?"
           delete_album: "Supprimer l'album"
           cancel: "Annuler"
       index:
           home: "accueil"
           new_album: "Nouvel album"
       helper:
-          friends_albums: "Friends Albums"
-          your_albums: "Your Albums"
+          friends_albums: "Albums d'amis"
+          your_albums: "Vos albums"
   aspects:
       index:
           photos: "photos"
@@ -79,20 +79,20 @@ fr:
           add_a_new_aspect: "Ajouter un nouvel aspect"
           create: "Créer"
       create:
-          success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+          success: "Cliquez sur le « plus » à gauche pour indiquer à Diaspora qui peut voir votre nouvel aspect."
       destroy:
-          success: "%{name} was successfully removed."
+          success: "%{name} a été supprimé."
       update:
-          success: "Your aspect, %{name}, has been successfully edited."
+          success: "Votre aspect, %{name}, a été modifié."
       move_friends:
-          failure: "Aspect editing failed for friend %{real_name}."
-          success: "Aspects edited successfully."
+          failure: "L'édition de l'aspect a échoué pour l'ami %{real_name}."
+          success: "Les aspects ont été édités avec succès."
       move_friend:
-          error: "didn't work %{inspect}"
-          notice: "You are now showing your friend a different aspect of yourself."
+          error: "ne fonctionne pas %{inspect}"
+          notice: "Vous montrez maintenant à votre ami un nouvel aspect de vous-même."
       helper:
-          remove: "remove"
-          aspect_not_empty: "Aspect not empty"
+          remove: "supprimer"
+          aspect_not_empty: "L'aspect n'est pas vide"
   users:
       edit:
           cancel: "Annuler"
@@ -115,75 +115,74 @@ fr:
           next: "suivant"
           edit_photo: "Éditer la photo"
           delete_photo: "Supprimer la photo"
-          are_you_sure: "Êtes-vous sûr?"
+          are_you_sure: "Êtes-vous sûr ?"
           comments: "commentaires"
       edit:
           editing: "Édition"
-          are_you_sure: "Êtes-vous sûr?"
+          are_you_sure: "Êtes-vous sûr ?"
           delete_photo: "Supprimer la photo"
       photo:
           show_comments: "Montrer les commentaires"
-          posted_a_new_photo_to: "posted a new photo to"
+          posted_a_new_photo_to: "a posté une nouvelle photo dans"
       new:
           new_photo: "Nouvelle photo"
           back_to_list: "Retour à la liste"
-          post_it: "postez le !"
+          post_it: "postez le !"
       create:
-          runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-          integrity_error: "Photo upload failed.  Are you sure that was an image?"
-          type_error: "Photo upload failed.  Are you sure an image was added?"
+          runtime_error: "L'envoi de l'image a échoué. Êtes-vous sûr d'avoir attaché votre ceinture ?"
+          integrity_error: "L'envoi de l'image a échoué. Êtes-vous sûr qu'il s'agissait d'une image ?"
+          type_error: "L'envoi de l'image a échoué. Êtes-vous sûr qu'une image avait été ajoutée ?"
       update:
-          notice: "Photo successfully updated."
-          error:  "Failed to edit photo."
+          notice: "L'image a été mise à jour avec succès."
+          error:  "La modification de l'image a échoué."
       destroy:
-          notice: "Photo deleted."
+          notice: "Image supprimée."
   registrations:
       new:
           sign_up: "Enregistrement"
       create:
-          success: "You've joined Diaspora!"
+          success: "Vous avez rejoint Diaspora !"
   status_messages:
       new_status_message:
-          tell_me_something_good: "Dites quelque-chose de bien"
+          tell_me_something_good: "Dites quelque chose de bien"
           oh_yeah: "oh yeah!"
       status_message:
           show_comments: "Montrer les commentaires"
           delete: "Suppression"
-          are_you_sure: "Êtes-vous sûr ?"
+          are_you_sure: "Êtes-vous sûr ?"
       show:
-          status_message: "Status Message"
+          status_message: "Statut"
           comments: "commentaires"
-          are_you_sure: "Êtes-vous sûr ?"
+          are_you_sure: "Êtes-vous sûr ?"
           destroy: "Destruction"
           view_all: "Tout voir"
           message: "Message"
           owner: "Propriétaire"
       helper:
-          no_message_to_display: "No message to display."
+          no_message_to_display: "Aucun message à afficher."
   people:
       index:
-          add_friend: "add friend"
-          real_name: "real name"
+          add_friend: "ajouter un ami"
+          real_name: "nom réel"
           diaspora_handle: "diaspora handle"
-          thats_you: "that's you!"
-          friend_request_pending: "friend request pending"
-          you_have_a_friend_request_from_this_person: "you have a friend request from this person"
+          thats_you: "c'est vous !"
+          friend_request_pending: "demande d'ajout à la liste d'amis en attente"
+          you_have_a_friend_request_from_this_person: "cette personne demande à vous ajouter à sa liste d'amis"
       new:
-          new_person: "New Person"
-          back_to_list: "Back to List"
+          new_person: "Nouvelle personne"
+          back_to_list: "Retour à la liste"
       show:
-          last_seen: "last seen: %{how_long_ago}"
-          friends_since: "friends since: %{how_long_ago}"
-          save: "save"
-          are_you_sure: "Are you sure?"
-          remove_friend: "remove friend"
+          last_seen: "vu pour la dernière fois : %{how_long_ago}"
+          friends_since: "amis depuis : %{how_long_ago}"
+          save: "sauvegarder"
+          are_you_sure: "Êtes-vous sûr ?"
+          remove_friend: "Supprimer de mes amis"
       destroy:
-          success: "You are now friends."
-          error: "Please select an aspect!"
-          ignore: "Ignored friend request."
+          success: "Vous êtes maintenant amis."
+          error: "Veuillez choisir un aspect !"
+          ignore: "Ignorer la demande d'ajout à la liste d'amis."
       create:
-          error: "No diaspora seed found with this email!"
-          already_friends: "You are already friends with %{destination_url}!"
-          success: "A friend request was sent to %{destination_url}."
-          horribly_wrong: "Something went horribly wrong."          
-
+          error: "Aucun seed Diaspora trouvé avec ce courriel !"
+          already_friends: "Vous êtes déjà ami avec %{destination_url}!"
+          success: "Une demande d'ajout à la liste d'amis a été envoyée à %{destination_url}."
+          horribly_wrong: "Quelque chose vient de mal tourner."
