@@ -8,7 +8,7 @@
     Search
 
   =form_tag '/people', :method => "get" do
-    = text_field_tag :q
+    = text_field_tag :q, params[:q]
     = submit_tag "search"
 
 - content_for :left_pane do
