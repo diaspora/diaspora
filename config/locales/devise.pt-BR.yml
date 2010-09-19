@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+pt-BR:
+  errors:
+    messages:
+      not_found: "não encontrado"
+      already_confirmed: "já foi confirmado"
+      not_locked: "não foi bloqueado"
+
+  devise:
+    failure:
+      unauthenticated: 'Você precisa fazer login ou se cadastrar antes de continuar.'
+      unconfirmed: 'Você tem que confirmar a sua conta antes de continuar.'
+      locked: 'Sua conta está bloqueada.'
+      invalid: 'E-mail ou senha inválida.'
+      invalid_token: 'Token de autenticação inválida.'
+      timeout: 'Sua sessão expirou, por favor logue-se novamente para continuar.'
+      inactive: 'Sua conta ainda não foi ativada.'
+    sessions:
+      signed_in: 'Você entrou com sucesso.'
+      signed_out: 'Você saiu com sucesso.'
+    passwords:
+      send_instructions: 'Você receberá um email com instruções sobre como redefinir sua senha em alguns minutos.'
+      updated: 'Sua senha foi alterada com sucesso.'
+    confirmations:
+      send_instructions: 'Você receberá um email em alguns minutos com as instruções sobre como confirmar a sua conta.'
+      confirmed: 'Sua conta foi confirmada com sucesso. Você já pode continuar navegando.'
+    registrations:
+      signed_up: 'Você se inscreveu com êxito. Se habilitado, a confirmação foi enviada para seu e-mail.'
+      updated: 'Você atualizou a sua conta com sucesso.'
+      destroyed: 'Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
+    unlocks:
+      send_instructions: 'Você receberá um email em alguns minutos com as instruções sobre como desbloquear a sua conta.'
+      unlocked: 'Sua conta foi desbloqueada com sucesso. Você já pode continuar navegando.'
+    mailer:
+      confirmation_instructions: 'Instruções para confirmarção'
+      reset_password_instructions: 'Instruções para redefinir a senha'
+      unlock_instructions: 'Instruções para o desbloqueio'

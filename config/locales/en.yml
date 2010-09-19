@@ -169,6 +169,9 @@ en:
       helper:
           no_message_to_display: "No message to display."
   people:
+      person:
+          add_friend: "add friend"
+          pending_request: "pending request"
       index:
           add_friend: "add friend"
           real_name: "real name"

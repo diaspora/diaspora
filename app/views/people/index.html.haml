@@ -8,44 +8,18 @@
     Search
 
   =form_tag '/people', :method => "get" do
-    = text_field_tag :q
+    = text_field_tag :q, params[:q]
     = submit_tag "search"
 
 - content_for :left_pane do
   \.
 
-= (@people.count).to_s + search_or_index
-%table
-  %tr
-    %th=t('.real_name')
-    %th=t('.diaspora_handle')
-    %th url
-    - for person in @people
-      %tr
-        - if current_user.friends.include? person
-          %td= link_to person.real_name, person
-        - else
-          %td= person.real_name
+%h1
+  search results for
+  %u= params[:q]
 
-        %td= person.diaspora_handle
-        %td= person.url
-        
-        -if current_user.friends.include? person
-
-        - elsif person.id == current_user.person.id
-          %td
-          %td=t('.thats_you')
-        -elsif current_user.pending_requests.find_by_person_id(person.id)
-          %td 
-          %td="^-#{t('.you_have_a_friend_request_from_this_person')}"       
-        -elsif current_user.pending_requests.find_by_url(person.receive_url)
-          %td 
-          %td=t('.friend_request_pending')
-        -else
-          %td
-          %td
-            = form_for Request.new do |f|
-              = f.select(:aspect_id, @aspects_dropdown_array)
-              = f.hidden_field :destination_url, :value => person.diaspora_handle
-              = f.submit t('.add_friend')
-  = will_paginate @people
+%ul#stream
+  - for person in @people
+    = render 'people/person', :person => person
+    
+= will_paginate @people

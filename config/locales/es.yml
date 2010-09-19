@@ -170,6 +170,9 @@ es:
       helper:
           no_message_to_display: "No hay mensajes que mostrar."          
   people:
+      person:
+          add_friend: "añadir amigo"
+          pending_request: "petición pendiente"
       index:
           add_friend: "añadir amigo"
           real_name: "nombre real"
