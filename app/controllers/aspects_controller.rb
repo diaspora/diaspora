@@ -52,7 +52,9 @@ class AspectsController < ApplicationController
 
   def update
     @aspect = Aspect.find_by_id(params[:id])
-    @aspect.update_attributes(params[:aspect])
+
+    data = clean_hash(params[:aspect])
+    @aspect.update_attributes( data )
     flash[:notice] = "Your aspect, #{@aspect.name}, has been successfully edited."
     respond_with @aspect
   end
@@ -83,4 +85,12 @@ class AspectsController < ApplicationController
       respond_with Person.first(:id => params[:friend_id])
     end
   end
+
+  private
+  def clean_hash(params)
+    return {
+      :name => params[:name]
+    }
+  end
+
 end

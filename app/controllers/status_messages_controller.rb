@@ -11,7 +11,10 @@ class StatusMessagesController < ApplicationController
 
   def create
     params[:status_message][:to] = params[:aspect_ids]
-    @status_message = current_user.post(:status_message, params[:status_message])
+
+    data = clean_hash params[:status_message]
+
+    @status_message = current_user.post(:status_message, data)
     respond_with @status_message
   end
 
@@ -24,5 +27,13 @@ class StatusMessagesController < ApplicationController
   def show
     @status_message = StatusMessage.find_by_id params[:id]
     respond_with @status_message
+  end
+
+  private
+  def clean_hash(params)
+    return {
+      :message => params[:message],
+      :to      => params[:to]
+    }
   end
 end
