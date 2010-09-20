@@ -9,7 +9,7 @@
           - if @aspect == :all
             = link_to "All Aspects", root_path
           - elsif @aspect == :manage
-            = link_to "Manage Aspects", root_path
+            = "Manage Aspects"
           - else
             = link_to @aspect.name, @aspect
 
