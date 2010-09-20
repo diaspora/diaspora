@@ -26,7 +26,7 @@ sv:
       updated: 'Ditt lösenord har ändrats och du är inloggad.'
     confirmations:
       send_instructions: 'Du kommer att få ett ebrev med instruktioner för att verifiera ditt konto inom några minuter.'
-     confirmed: 'Ditt konto har verifierats och du är inloggad.'
+      confirmed: 'Ditt konto har verifierats och du är inloggad.'
     registrations:
       signed_up: 'Du har skapat ett konto. Beroende på inställningar kan ett ebrev ha skickats till dig.'
       updated: 'Ditt konto har uppdateras.'
