@@ -146,7 +146,6 @@ header
             :right 0
 
   #aspect_header
-    :z-index 5
     :background
       :color #eee
     :border
@@ -162,7 +161,7 @@ header
       :color #111
       &:hover
         :background none
-        :color #333
+        :color #999
 
     .page_title
       :text
@@ -182,9 +181,15 @@ ul#stream
     :border
       :bottom 1px solid #eee
 
-  > li:first-child
-    :padding
-      :top 0
+    &:hover
+      :background
+        :color #fafafa
+
+      .destroy_link
+        :display inline
+
+  .right
+    :top 0
 
 li.message
   :position relative
@@ -215,6 +220,10 @@ li.message
     div.info
       :color #bababa
       :font-size 70%
+
+      .time
+        a
+          :color #666
 
 
 form
@@ -345,7 +354,7 @@ ul.comment_set
   
 .destroy_link, .request_button
   :position absolute
-  :right 0
+  :right 2em
   :bottom 15px
   a
     :color #999
@@ -601,13 +610,16 @@ h1.big_text
       :padding 0
       :display inline
       :margin
-        :right 0.5em
+        :right 2px
 
       a
+        :-webkit-border-radius 3px 3px 0 0
+        :-moz-border-radius 3px 3px 0 0
         :line
           :height 22px
         :background
           :color #444
+
         :border 1px solid #555
 
         :padding 3px 8px
@@ -620,6 +632,9 @@ h1.big_text
           :color #ccc
 
       &.selected a
+        :-webkit-box-shadow 0px -4px 6px -2px #777
+        :-moz-box-shadow 0px -4px 6px -2px #777
+
         :text-shadow 0 2px 0 #fff
         :padding
           :top 4px
@@ -630,6 +645,10 @@ h1.big_text
           :weight bold
         :background
           :color #eee
+
+        :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee))
+        :background -moz-linear-gradient(19% 75% 90deg, #eee, #fff)
+
         :border 1px solid #fff
           :bottom 1px solid #eee
         :color #000

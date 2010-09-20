@@ -16,7 +16,10 @@ class AlbumsController < ApplicationController
 
   def create
     aspect =  params[:album][:to]
-    @album = current_user.post(:album, params[:album])
+
+    data = clean_hash(params[:album])
+
+    @album = current_user.post(:album, data)
     flash[:notice] = "You've created an album called #{@album.name}."
     redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
@@ -47,7 +50,10 @@ class AlbumsController < ApplicationController
 
   def update
     @album = current_user.album_by_id params[:id]
-    if @album.update_attributes params[:album]
+
+    data = clean_hash(params[:album])
+
+    if @album.update_attributes data
       flash[:notice] = "Album #{@album.name} successfully edited."
       respond_with @album
     else
@@ -56,4 +62,11 @@ class AlbumsController < ApplicationController
     end
   end
 
+  private
+  def clean_hash(params)
+    return {
+      :name => params[:name],
+      :to   => params[:to]
+    }
+  end
 end

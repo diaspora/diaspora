@@ -5,7 +5,7 @@ We need you to fill out a [contributor agreement form](https://spreadsheets.goog
 
 All commits must be tested, and after each commit, all tests should be green before a pull request is sent.  Please write your tests in Rspec.
 
-GEMS:  We would like to keep external dependencies unduplicated.  We're using Nokogiri, and Mongomapper, and EM::HttpRequest as much as possible.  We have a few gems in the project we'd rather not use, but if you can, use dependencies we already have.
+GEMS:  We would like to keep external dependencies unduplicated.  We're using Nokogiri, Mongomapper, and EM::HttpRequest as much as possible.  We have a few gems in the project we'd rather not use, but if you can, use dependencies we already have.
 
 # Diaspora
 
@@ -36,7 +36,7 @@ After you have Ruby installed on your system, you will need to get RubyGems, the
 - [RubyGems](http://rubygems.org/) - Source for Ruby gems.
 - [Bundler](http://gembundler.com/) - Gem management tool for Ruby projects.
 
-**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed); if you're using Fedora simply use [yum](http://yum.baseurl.org/).  The instructions below assume you have these installed.**  
+**We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed); if you're using Fedora simply use [yum](http://yum.baseurl.org/).  The instructions below assume you have these installed.**
 
 ### Build Tools
 
@@ -56,6 +56,8 @@ To install Ruby 1.8.7 on **Ubuntu**, run the following command:
 
 		sudo apt-get install ruby-full
 
+Please note that you need to have Universe enabled in your /etc/apt/sources.list file to install ruby using apt-get. 
+
 At this time Fedora does not have Ruby 1.8.7. As a workaround it is possible to use [rvm](http://rvm.beginrescueend.com/) with a locally compiled Ruby installation. A semi automated method for doing this is available. It is highly recommended that you review the script before running it so you understand what will occur. The script can be executed by running the following command:
 
 		./script/bootstrap-fedora-diaspora.sh
@@ -67,29 +69,35 @@ If you're on **Mac OS X**, you already have Ruby on your system.  Yay!
 
 ### MongoDB
 
-To install MongoDB on **Ubuntu**, add the official MongoDB repository from this link:
+To install MongoDB on **Ubuntu**, add the official MongoDB repository [here](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages).
 
-http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages
-
-For Lucid, add the following line to your /etc/apt/sources.list:
+For Lucid, add the following line to your /etc/apt/sources.list (for other distros, see http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages):
 
 		deb http://downloads.mongodb.org/distros/ubuntu 10.4 10gen
 
-And then run:
+Then run:
 		sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
 		sudo apt-get update
 		sudo apt-get install mongodb-stable
 
 You can also run the binary directly by doing the following:
 
-If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz`.  If you're running a 64-bit system, run `wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz`.
+If you're running a 32-bit system, run: 
+
+		wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz
+              
+If you're running a 64-bit system, run: 
+
+		wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz
+
+Then run:
 
 		# extract
 		tar xzf mongodb-linux-i686-1.4.0.tgz
 		# create the required data directory
 		sudo mkdir -p /data/db
 		sudo chmod -Rv 777 /data/
-			
+
 
 To install MongoDB on a x86_64 **Fedora** system, add the official MongoDB repository from MongoDB (http://www.mongodb.org/display/DOCS/CentOS+and+Fedora+Packages) into /etc/yum.repos.d/10gen.repo:
 
@@ -117,6 +125,8 @@ If you're running a 32-bit system, run `wget http://fastdl.mongodb.org/linux/mon
 To install MongoDB on **Mac OS X**, run the following:
 
 		brew install mongo
+		sudo mkdir -p /data/db
+		sudo chmod -Rv 777 /data/
 
 ### OpenSSL
 
@@ -139,11 +149,11 @@ To install ImageMagick on **Mac OS X**, run the following:
 ### Git
 
 To install Git on **Ubuntu**, run the following:
-		
+
 		sudo apt-get install git-core
 
 To install Git on **Fedora**, run the following:
-		
+
 		sudo yum install git
 
 
@@ -189,11 +199,11 @@ To start the app server for the first time, you need to use Bundler to install D
 ### Start Mongo
 If you installed the Ubuntu package, MongoDB should already be running (if not, run `service mongodb start`). If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
 
-If you installed the Fedora package, MongoDB will need to be started via `service mongodb start`. If you installed the binary manually, run `sudo mongod` from where mongo is installed to start mongo.
+If you installed the Fedora package, MongoDB will need to be started via `service mongodb start`. If you installed the binary manually, run `sudo mongod` from where Mongo is installed to start Mongo.
 
 If you installed the OsX package through "brew", MongoDB will need to be started via `sudo launchctl load /Library/LaunchDaemons/org.mongodb.mongod.plist`. (before you have to go to /Library/LaunchDaemons and add a symlink to /usr/local/Cellar/mongodb/1.6.2-x86_64/org.mongodb.mongod.plist)
 
-Diaspora will not run unless mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
+Diaspora will not run unless Mongo is running.  Mongo will not run by default, and will need to be started every time you wish to use or run the test suite for Diaspora.
 
 ### Run the server
 `./script/server` will start both thin and the websocket server.  If you want to run a different app server, you will have to run them separately.  See below for instructions.
@@ -204,7 +214,7 @@ Once mongo is running and bundler has finished, run `bundle exec thin start` fro
 ### Run the websocket server
 run `bundle exec ruby ./script/websocket_server` to start the websocket server on port 8080.  Change the port in config/app_config.yml.
 
-### Logging in
+### Logging in with a sample user
 Run `rake db:seed:tom`, then login with user `tom` and password `evankorth`. More details in db/seeds/tom.rb.
 
 
@@ -219,9 +229,10 @@ Ongoing discussion:
 - [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
 - [Diaspora Q&A site](http://diaspora.shapado.com/)
-- [#diaspora-dev](irc://irc.freenode.net/#diaspora-dev)
+- [#diaspora-dev IRC channel](irc://irc.freenode.net/#diaspora-dev)
+  ([join via the web client](http://webchat.freenode.net?channels=diaspora-dev))
 
-More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
+More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [and on Twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
 
 If you wish to contact us privately about any exploits in Diaspora you may find, you can email [exploits@joindiaspora.com](mailto:exploits@joindiaspora.com).
 
@@ -233,5 +244,5 @@ Diaspora is free software: you can redistribute it and/or modify it under the te
 
 Diaspora is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.  
+You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.
 
