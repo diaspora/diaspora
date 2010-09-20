@@ -12,6 +12,9 @@
 # Set extented globbing 
 shopt -s extglob
 
+# fail on error
+set -e
+
 # Check if the user has sudo privileges.
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 
@@ -19,9 +22,12 @@ sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 grep -i universe /etc/apt/sources.list > /dev/null || \
     { echo "Please enable universe repository" ; exit 1 ; }
 
+# Make sure that we only install the latest version of packages
+sudo apt-get update
+
 # Check if wget is installed 
-test wget || echo "Installing wget.." && sudo apt-get install wget \
-    && echo "Installed wget.."
+test wget || { echo "Installing wget.." && sudo apt-get install wget \
+    && echo "Installed wget.." ; }
 
 # Install build tools 
 echo "Installing build tools.."
@@ -45,24 +51,30 @@ RELEASE=$(lsb_release -c | cut -f2)
 # Get the current release and install mongodb
 if [ $RELEASE == "maverick" ]
 then
-	#mongodb does not supply a repository for maverick yet so install
-	# an older version from the ubuntu repositories
-	sudo apt-get -y  --no-install-recommends install mongodb
+    #mongodb does not supply a repository for maverick yet so install
+    # an older version from the ubuntu repositories
+    echo "Lanchpad bug https://bugs.launchpad.net/ubuntu/+source/mongodb/+bug/557024
+may result in this script failing if it has not been fixed."
+    echo "workaround:
+sudo ln -s /usr/lib/libmozjs.so /usr/lib/xulrunner-1.9.2.10/libmozjs.so
+rake db:seed:tom
+bundle exec thin start"
+    sudo apt-get -y  --no-install-recommends install mongodb
 else
-	lsb=$(lsb_release -rs)
-	ver=${lsb//.+(0)/.}
-	repo="deb http://downloads.mongodb.org/distros/ubuntu ${ver} 10gen"
-	echo "Setting up MongoDB.."
-	echo "."
-	echo ${repo} | sudo tee -a /etc/apt/sources.list
-	echo "."
-	echo "Fetching keys.."
-	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-	echo "."
-	sudo apt-get  update
-	echo "."
-	sudo apt-get -y  --no-install-recommends install mongodb-stable
-	echo "Done installing monngodb-stable.."
+    lsb=$(lsb_release -rs)
+    ver=${lsb//.+(0)/.}
+    repo="deb http://downloads.mongodb.org/distros/ubuntu ${ver} 10gen"
+    echo "Setting up MongoDB.."
+    echo "."
+    echo ${repo} | sudo tee -a /etc/apt/sources.list
+    echo "."
+    echo "Fetching keys.."
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+    echo "."
+    sudo apt-get  update
+    echo "."
+    sudo apt-get -y  --no-install-recommends install mongodb-stable
+    echo "Done installing monngodb-stable.."
 fi
 
 # Install imagemagick
@@ -111,17 +123,14 @@ echo "Installing bundler.."
 sudo gem install bundler
 echo "Installed bundler.."
 
-#fix permissions
-user=`whoami`
-sudo chown -R $user:$user ~/.gem
-
 # Take a clone of Diaspora
 (
     # Check if the user is already in a cloned source if not clone the source
     [[ $( basename $PWD ) == "diaspora" ]]  && \
         echo "Already in diaspora directory" ||  \
-	{ git clone http://github.com/diaspora/diaspora.git ; cd diaspora ;}
-    echo "Cloned the source.."
+        { git clone http://github.com/diaspora/diaspora.git && cd diaspora
+              echo "Cloned the source.."
+        }
 
     # Install extra gems
     echo "Installing more gems.."
