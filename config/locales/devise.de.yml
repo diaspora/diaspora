@@ -17,7 +17,7 @@ de:
       locked: 'Dein Konto ist gesperrt.'
       invalid: 'Ungültige E-Mail-Adresse oder Passwort.'
       invalid_token: 'Ungültiger Authentifizierungstoken.'
-      timeout: 'Deine Sitzung ist abgelaufen, bitte melde dich wieder an um fortzufahren.'
+      timeout: 'Deine Sitzung ist abgelaufen, bitte melde dich erneut an um fortzufahren.'
       inactive: 'Dein Konto wurde noch nicht aktiviert.'
     sessions:
       signed_in: 'Erfolgreich angemeldet.'
