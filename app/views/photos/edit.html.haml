@@ -14,6 +14,7 @@
     = linked_scaled_photo @photo, @album
 
   = form_for @photo do |p|
+    = p.label :caption
     = p.text_field :caption, :value => @photo.caption
     = p.submit
 
