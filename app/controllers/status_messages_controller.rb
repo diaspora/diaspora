@@ -19,13 +19,13 @@ class StatusMessagesController < ApplicationController
   end
 
   def destroy
-    @status_message = StatusMessage.find_by_id params[:id]
+    @status_message = current_user.find_visible_post_by_id params[:id]
     @status_message.destroy
     respond_with :location => root_url
   end
 
   def show
-    @status_message = StatusMessage.find_by_id params[:id]
+    @status_message = current_user.find_visible_post_by_id params[:id]
     respond_with @status_message
   end
 

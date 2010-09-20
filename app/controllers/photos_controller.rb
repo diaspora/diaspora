@@ -65,28 +65,28 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find_by_id params[:id]
+    @photo = current_user.find_visible_post_by_id params[:id]
+
     @photo.destroy
     flash[:notice] = "Photo deleted."
     respond_with :location => @photo.album
   end
 
   def show
-    @photo = Photo.find_by_id params[:id]
+    @photo = current_user.find_visible_post_by_id params[:id]
     @album = @photo.album
-
     respond_with @photo, @album
   end
 
   def edit
-    @photo = Photo.find_by_id params[:id]
+    @photo = current_user.find_visible_post_by_id params[:id]
     @album = @photo.album
 
     redirect_to @photo unless current_user.owns? @album
   end
 
   def update
-    @photo = Photo.find_by_id params[:id]
+    @photo = current_user.find_visible_post_by_id params[:id]
 
     data = clean_hash(params)
 
