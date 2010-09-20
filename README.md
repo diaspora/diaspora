@@ -38,6 +38,10 @@ After you have Ruby installed on your system, you will need to get RubyGems, the
 
 **We suggest using a package management system to download these dependencies.  Trust us, it's going to make your life a lot easier.  If you're using Mac OS X, you can use [homebrew](http://mxcl.github.com/homebrew/); if you're using Ubuntu, just use [Synaptic](http://www.nongnu.org/synaptic/) (it comes pre-installed); if you're using Fedora simply use [yum](http://yum.baseurl.org/).  The instructions below assume you have these installed.**
 
+If you are running Ubuntu there is an installation script which will ensure all dependencies are installed.
+The following executed in the diaspora directory will perform the installation and take about 15 minutes:
+		./ubuntu-setup.bash
+
 ### Build Tools
 
 To install build tools on **Ubuntu**, run the following (includes the gcc and xml parsing dependencies):
