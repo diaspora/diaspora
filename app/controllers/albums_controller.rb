@@ -15,7 +15,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    aspect =  params[:album][:to]
+    aspect = params[:album][:to]
 
     data = clean_hash(params[:album])
 
@@ -29,7 +29,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = current_user.album_by_id params[:id]
+    @album = current_user.find_visible_post_by_id params[:id]
     @album.destroy
     flash[:notice] = "Album #{@album.name} deleted."
     respond_with :location => albums_url
@@ -37,19 +37,18 @@ class AlbumsController < ApplicationController
 
   def show
     @photo = Photo.new
-    @album = Album.find_by_id params[:id]
+    @album = current_user.find_visible_post_by_id( params[:id] )
     @album_photos = @album.photos
-
     respond_with @album
   end
 
   def edit
-    @album = current_user.album_by_id params[:id]
+    @album = current_user.find_visible_post_by_id params[:id]
     redirect_to @album unless current_user.owns? @album
   end
 
   def update
-    @album = current_user.album_by_id params[:id]
+    @album = current_user.find_visible_post_by_id params[:id]
 
     data = clean_hash(params[:album])
 
