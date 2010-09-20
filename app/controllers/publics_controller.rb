@@ -33,7 +33,9 @@ class PublicsController < ApplicationController
     render :nothing => true
     return unless params[:xml]
     begin
-      @user = Person.first(:id => params[:id]).owner
+      person = Person.first(:id => params[:id])
+      puts person.real_name
+      @user = person.owner
     rescue NoMethodError => e
       Rails.logger.error("Received post for nonexistent person #{params[:id]}")
       return
