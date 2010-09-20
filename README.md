@@ -208,7 +208,7 @@ Once mongo is running and bundler has finished, run `bundle exec thin start` fro
 ### Run the websocket server
 run `bundle exec ruby ./script/websocket_server` to start the websocket server on port 8080.  Change the port in config/app_config.yml.
 
-### Logging in
+### Logging in with a sample user
 Run `rake db:seed:tom`, then login with user `tom` and password `evankorth`. More details in db/seeds/tom.rb.
 
 
