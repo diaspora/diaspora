@@ -29,7 +29,7 @@ de:
       send_instructions: 'Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto bestätigst.'
       confirmed: 'Dein Konto wurde erfolgreich bestätigt. Du bist nun angemeldet.'
     registrations:
-      signed_up: 'Du wurdest erfolgreich registriert. Falls aktiviert, wurde dir eine E-Mail zur Bestätigung geschickt.'
+      signed_up: 'Du hast dich erfolgreich registriert. Sofern aktiviert, wurde dir eine Bestätigung per E-Mail gesendet.'
       updated: 'Dein Konto wurde aktualisiert.'
       destroyed: 'Tschüss! Dein Konto wurde erfolgreich abgemeldet. Wir hoffen dich bald wiederzusehen.'
     unlocks:
