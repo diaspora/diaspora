@@ -45,6 +45,19 @@ describe User do
       @user.visible_posts(:by_members_of => @aspect2).include?(status_message3).should be true
     end
 
+    describe 'querying' do
+
+      it 'should find a visible post by id' do
+        status_message1 = @user.post :status_message, :message => "hi", :to => @aspect.id
+        status_message2 = @user2.post :status_message, :message => "heyyyy", :to => @user2_aspect.id
+        status_message3 = @user3.post :status_message, :message => "yooo", :to => @user3_aspect.id
+
+        @user.find_visible_post_by_id(status_message1.id).should == status_message1
+        @user2.find_visible_post_by_id(status_message1.id).should == nil
+      end
+
+    end
+
     describe 'albums' do
       before do
         @album = @user.post :album, :name => "Georges", :to => @aspect.id

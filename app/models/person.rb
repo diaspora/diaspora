@@ -35,6 +35,7 @@ class Person
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
 
   def self.search(query)
+    query = Regexp.escape( query.to_s.strip )
     Person.all('profile.first_name' => /^#{query}/i) | Person.all('profile.last_name' => /^#{query}/i)
   end
 
@@ -76,9 +77,11 @@ class Person
   end
 
   def self.by_webfinger( identifier, opts = {})
+    #need to check if this is a valid email structure, maybe should do in JS
     local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
-
+    
      if local_person
+       Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
        local_person
      elsif  !identifier.include?("localhost") && !opts[:local]
        begin
