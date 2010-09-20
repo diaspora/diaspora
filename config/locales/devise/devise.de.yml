@@ -17,7 +17,7 @@ de:
       locked: 'Dein Konto ist gesperrt.'
       invalid: 'Ungültige E-Mail-Adresse oder Passwort.'
       invalid_token: 'Ungültiger Authentifizierungstoken.'
-      timeout: 'Deine Sitzung ist abgelaufen, bitte melde dich wieder an, um fortzufahren.'
+      timeout: 'Deine Sitzung ist abgelaufen, bitte melde dich erneut an um fortzufahren.'
       inactive: 'Dein Konto wurde noch nicht aktiviert.'
     sessions:
       signed_in: 'Erfolgreich angemeldet.'
@@ -29,9 +29,9 @@ de:
       send_instructions: 'Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto bestätigst.'
       confirmed: 'Dein Konto wurde erfolgreich bestätigt. Du bist nun angemeldet.'
     registrations:
-      signed_up: 'Du wurdest erfolgreich registriert. Falls aktiviert, wurde dir eine E-Mail zur Bestätigung geschickt.'
-      updated: 'Du hast erfolgreich dein Konto aktualisiert.'
-      destroyed: 'Tschüss! Dein Konto wurde erfolgreich abgemeldet. Wir hoffen dich bald wiederzusehen.'
+      signed_up: 'Du hast dich erfolgreich registriert. Sofern aktiviert, wurde dir eine Bestätigung per E-Mail gesendet.'
+      updated: 'Dein Konto wurde aktualisiert.'
+      destroyed: 'Tschüss! Dein Konto wurde erfolgreich gekündigt. Wir hoffen dich bald wiederzusehen.'
     unlocks:
       send_instructions: 'Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto entsperren kannst.'
       unlocked: 'Dein Konto wurde erfolgreich entsperrt. Du bist nun angemeldet.'
