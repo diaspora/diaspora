@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-# Sample localization file for English. Add more files in this directory for other locales.
+# Localization file for German. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 de:
@@ -11,7 +11,7 @@ de:
   layouts:
       application:
           edit_profile: "Profil bearbeiten"
-          logout: "Ausloggen"
+          logout: "Abmelden"
   shared:
       aspect_nav:
           all_aspects: "Alle Aspekte"
