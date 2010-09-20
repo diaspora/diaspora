@@ -220,7 +220,6 @@ class User
   ###### Receiving #######
   def receive_salmon ciphertext
     cleartext = decrypt( ciphertext)
-    Rails.logger.info("Received a salmon: #{cleartext}")
     salmon = Salmon::SalmonSlap.parse cleartext
     if salmon.verified_for_key?(salmon.author.public_key)
       Rails.logger.info("data in salmon: #{salmon.data}")
