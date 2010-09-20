@@ -3,7 +3,7 @@
     .span-5.last
       - if @person
         %h1
-          = @person.real_name
+          = @person.diaspora_handle
       - else
         %h1
           - if @aspect == :all
