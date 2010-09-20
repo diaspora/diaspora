@@ -4,6 +4,8 @@
 
 
 class UsersController < ApplicationController
+  include UsersHelper
+  
   before_filter :authenticate_user!, :except => [:new, :create]
 
   respond_to :html
@@ -21,15 +23,5 @@ class UsersController < ApplicationController
 
     @user.update_profile params[:user]
     respond_with(@user, :location => root_url)
-  end
-
-  private
-
-  def prep_image_url(params)
-    if params[:profile][:image_url].empty?
-      params[:profile].delete(:image_url)
-    else
-      params[:profile][:image_url] = "http://" + request.host + ":" + request.port.to_s + params[:profile][:image_url]
-    end
   end
 end
