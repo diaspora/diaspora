@@ -35,7 +35,7 @@ class PublicsController < ApplicationController
     begin
       @user = Person.first(:id => params[:id]).owner
     rescue NoMethodError => e
-      Rails.logger.error("Received post #{params[:xml]} for nonexistent person #{params[:id]}")
+      Rails.logger.error("Received post for nonexistent person #{params[:id]}")
       return
     end
     @user.receive_salmon params[:xml]
