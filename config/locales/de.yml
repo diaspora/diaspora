@@ -10,15 +10,15 @@ de:
   hello: "Hallo Welt"
   application:
       helper:
-          unknown_person: "unknown person"
-          new_requests: "new requests"
+          unknown_person: "unbekannte Person"
+          new_requests: "neue Anfrage"
   dashboards:
       helper:
           home: "home"
   error_messages:
       helper:
-          invalid_fields: "Invalid Fields"
-          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+          invalid_fields: "Ungültige Felder"
+          correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und probier es erneut."
   people:
       helper:
            results_for: " resultados para %{params}"
@@ -67,8 +67,8 @@ de:
       destroy:
           success: "Album %{name} gelöscht."
       helper:
-          friends_albums: "Friends Albums"
-          your_albums: "Your Albums"
+          friends_albums: "Alben von Freunden"
+          your_albums: "Deine Alben"
   aspects:
       index:
           photos: "Fotos"
@@ -85,20 +85,20 @@ de:
           add_a_new_aspect: "Neuen Aspekt erstellen"
           create: "Erstellen"
       create:
-          success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+          success: "Klicke auf das Plus auf der rechten Seite um Diaspora mitzuteilen wer deinen neuen Aspekt sehen kann."
       destroy:
-          success: "%{name} was successfully removed."
+          success: "%{name} wurde erfolgreich gelöscht."
       update:
-          success: "Your aspect, %{name}, has been successfully edited."
+          success: "Dein Aspekt, %{name}, wurde erfolgreich geändert."
       move_friends:
           failure: "Aspect editing failed for friend %{real_name}."
-          success: "Aspects edited successfully."
+          success: "Aspekt erfolgreich geändert."
       move_friend:
           error: "didn't work %{inspect}"
           notice: "You are now showing your friend a different aspect of yourself."
       helper:
           remove: "remove"
-          aspect_not_empty: "Aspect not empty"          
+          aspect_not_empty: "Aspekt ist nicht leer"          
   users:
       edit:
           cancel: "Abbrechen"
@@ -142,15 +142,15 @@ de:
           integrity_error: "Photo upload failed.  Are you sure that was an image?"
           type_error: "Photo upload failed.  Are you sure an image was added?"
       update:
-          notice: "Photo successfully updated."
+          notice: "Foto erfolgreich aktualisiert."
           error:  "Failed to edit photo."
       destroy:
-          notice: "Photo deleted."
+          notice: "Foto gelöscht."
   registrations:
       new:
           sign_up: "Anmelden"
       create:
-          success: "You've joined Diaspora!"
+          success: "Du bist Diaspora beigetreten!"
   status_messages:
       new_status_message:
           tell_me_something_good: "Erzähl' mir was schönes!"
@@ -171,27 +171,27 @@ de:
           no_message_to_display: "No message to display."
   people:
       index:
-          add_friend: "add friend"
+          add_friend: "Freund hinzufügen"
           real_name: "real name"
           diaspora_handle: "diaspora handle"
-          thats_you: "that's you!"
-          friend_request_pending: "friend request pending"
-          you_have_a_friend_request_from_this_person: "you have a friend request from this person"
+          thats_you: "das bist du!"
+          friend_request_pending: "Freundschaftsanfrage ausstehend"
+          you_have_a_friend_request_from_this_person: "du hast eine Freundschaftsanfrage von dieser Person"
       new:
-          new_person: "New Person"
-          back_to_list: "Back to List"
+          new_person: "Neue Person"
+          back_to_list: "Zurück zur Liste"
       show:
-          last_seen: "last seen: %{how_long_ago}"
-          friends_since: "friends since: %{how_long_ago}"
+          last_seen: "zuletzt gesehen: %{how_long_ago}"
+          friends_since: "Freunde seit: %{how_long_ago}"
           save: "save"
-          are_you_sure: "Are you sure?"
+          are_you_sure: "Bist du sicher?"
           remove_friend: "remove friend"
       destroy:
-          success: "You are now friends."
-          error: "Please select an aspect!"
-          ignore: "Ignored friend request."
+          success: "Ihr seid jetzt Freunde."
+          error: "Bitte wähle einen Aspekt aus!"
+          ignore: "Freundschaftsanfrage ignorieren."
       create:
           error: "No diaspora seed found with this email!"
-          already_friends: "You are already friends with %{destination_url}!"
-          success: "A friend request was sent to %{destination_url}."
-          horribly_wrong: "Something went horribly wrong."
+          already_friends: "Du bist bereits mit %{destination_url} befreundet!"
+          success: "Eine Freundschaftsanfrage wurde an %{destination_url} gesendet."
+          horribly_wrong: "Etwas ging tierisch schief."
