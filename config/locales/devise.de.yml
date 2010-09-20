@@ -31,7 +31,7 @@ de:
     registrations:
       signed_up: 'Du hast dich erfolgreich registriert. Sofern aktiviert, wurde dir eine Bestätigung per E-Mail gesendet.'
       updated: 'Dein Konto wurde aktualisiert.'
-      destroyed: 'Tschüss! Dein Konto wurde erfolgreich abgemeldet. Wir hoffen dich bald wiederzusehen.'
+      destroyed: 'Tschüss! Dein Konto wurde erfolgreich gekündigt. Wir hoffen dich bald wiederzusehen.'
     unlocks:
       send_instructions: 'Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto entsperren kannst.'
       unlocked: 'Dein Konto wurde erfolgreich entsperrt. Du bist nun angemeldet.'
