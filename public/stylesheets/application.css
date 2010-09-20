@@ -118,7 +118,6 @@ header {
         header #session_action ul li:last-child {
           margin-right: 0; }
   header #aspect_header {
-    z-index: 5;
     background-color: #eeeeee;
     border-top: 1px solid white;
     padding: 20px 0; }
@@ -129,7 +128,7 @@ header {
       color: #111111; }
       header #aspect_header a:hover {
         background: none;
-        color: #333333; }
+        color: #999999; }
     header #aspect_header .page_title {
       text-transform: uppercase;
       text-shadow: 0 2px 0 white;
@@ -143,8 +142,12 @@ ul#stream {
     list-style: none;
     padding: 12px 0;
     border-bottom: 1px solid #eeeeee; }
-  ul#stream > li:first-child {
-    padding-top: 0; }
+    ul#stream > li:hover {
+      background-color: #fafafa; }
+      ul#stream > li:hover .destroy_link {
+        display: inline; }
+  ul#stream .right {
+    top: 0; }
 
 li.message {
   position: relative;
@@ -165,6 +168,8 @@ li.message {
     li.message .content div.info {
       color: #bababa;
       font-size: 70%; }
+      li.message .content div.info .time a {
+        color: #666666; }
 
 form {
   position: relative;
@@ -260,7 +265,7 @@ ul.comment_set {
 
 .destroy_link, .request_button {
   position: absolute;
-  right: 0;
+  right: 2em;
   bottom: 15px; }
   .destroy_link a, .request_button a {
     color: #999999;
@@ -456,8 +461,10 @@ h1.big_text {
     #aspect_nav ul > li {
       padding: 0;
       display: inline;
-      margin-right: 0.5em; }
+      margin-right: 2px; }
       #aspect_nav ul > li a {
+        -webkit-border-radius: 3px 3px 0 0;
+        -moz-border-radius: 3px 3px 0 0;
         line-height: 22px;
         background-color: #444444;
         border: 1px solid #555555;
@@ -468,12 +475,16 @@ h1.big_text {
           background-color: #4e4e4e;
           color: #cccccc; }
       #aspect_nav ul > li.selected a {
+        -webkit-box-shadow: 0px -4px 6px -2px #777777;
+        -moz-box-shadow: 0px -4px 6px -2px #777777;
         text-shadow: 0 2px 0 white;
         padding-top: 4px;
         padding-bottom: 5px;
         line-height: 18px;
         font-weight: bold;
         background-color: #eeeeee;
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#eeeeee));
+        background: -moz-linear-gradient(19% 75% 90deg, #eeeeee, white);
         border: 1px solid white;
           border-bottom: 1px solid #eeeeee;
         color: black; }
@@ -509,6 +520,16 @@ h1.big_text {
   .requests h1,
   .remove h1 {
     display: inline-block; }
+  .aspect .tip,
+  .requests .tip,
+  .remove .tip {
+    display: none;
+    color: #999999;
+    margin-left: 0.5em; }
+  .aspect .edit_name_field:hover .tip,
+  .requests .edit_name_field:hover .tip,
+  .remove .edit_name_field:hover .tip {
+    display: inline; }
   .aspect .aspect_name,
   .requests .aspect_name,
   .remove .aspect_name {

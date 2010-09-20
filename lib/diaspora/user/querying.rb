@@ -7,14 +7,9 @@
 module Diaspora
   module UserModules
     module Querying
-      def visible_posts_from_others(opts ={})
-        if opts[:from].class == Person
-            Post.where(:person_id => opts[:from].id, :_id.in => self.visible_post_ids)
-        elsif opts[:from].class == Aspect
-            Post.where(:_id.in => opts[:from].post_ids) unless opts[:from].user != self
-        else
-            Post.where(:_id.in => self.visible_post_ids)
-        end
+
+      def find_visible_post_by_id( id )
+        self.raw_visible_posts.find id
       end
 
       def visible_posts( opts = {} )
@@ -22,6 +17,8 @@ module Diaspora
           return raw_visible_posts if opts[:by_members_of] == :all
           aspect = self.aspects.find_by_id( opts[:by_members_of].id )
           aspect.posts
+        elsif opts[:from]
+          self.raw_visible_posts.find_all_by_person_id(opts[:from].id, :order => 'created_at DESC')
         end
       end
 
