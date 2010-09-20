@@ -17,9 +17,4 @@ class CommentsController < ApplicationController
     render :nothing => true
   end
 
-  def show
-    @comment = Comment.find_by_id params[:id]
-    respond_with @comment
-  end
-
 end

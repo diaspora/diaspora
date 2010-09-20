@@ -1,0 +1,116 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+# Localization file for German. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+  hello: "Hallo Welt"
+  layouts:
+      application:
+          edit_profile: "Profil bearbeiten"
+          logout: "Abmelden"
+  shared:
+      aspect_nav:
+          all_aspects: "Alle Aspekte"
+          manage: "Verwalten"
+          manage_your_aspects: "Aspekte verwalten"
+      sub_header:
+          all_aspects: "Alle Aspekte"
+          manage_aspects: "Aspekte verwalten"
+      publisher:
+          share: "Teilen"
+      aspect_friends:
+          add_friends: "Freunde hinzufügen"
+  albums:
+      album:
+          you: "dir"
+      new_album:
+          create: "erstellen"
+          add_a_new_album: "Album hinzufügen"
+      show: 
+          edit_album: "Album bearbeiten"
+          albums: "Alben"
+          updated: "aktualisiert"
+          by: "von"
+      edit:
+          editing: "Bearbeite"
+          updated: "geändert"
+          are_you_sure: "Bist du sicher?"
+          delete_album: "Album löschen"
+          cancel: "Abbrechen"
+      index:
+          home: "Startseite"
+          new_album: "Neues Album"
+  aspects:
+      index:
+          photos: "Fotos"
+      show:
+          photos: "Fotos"
+      manage:
+          add_a_new_aspect: "Neuen Aspekt erstellen"
+          add_a_new_friend:  "Freund hinzufügen"
+          show: "Anzeigen"
+          update_aspects: "Aspekte aktualisieren"
+          requests: "Anfragen"
+          ignore_remove: "Ignorieren/Entfernen"
+      new_aspect:
+          create: "Erstellen"
+  users:
+      edit:
+          cancel: "Abbrechen"
+          update_profile: "Profil aktualisieren"
+          home: "Startseite"
+          diaspora_username: "Diaspora Benutzername"
+          info: "Info"
+          picture: "Bild"
+          editing_profile: "Profil bearbeiten"
+          albums: "Alben"
+  comments:
+      comment:
+          # this won't work in german at all. Needs more thorough I18n
+          ago: "ago"
+      new_comment:
+          comment: "Kommentar"
+  photos:
+      show:
+          prev: "zurück"
+          full_size: "volle Größe"
+          next: "vor"
+          edit_photo: "Foto bearbeiten"
+          delete_photo: "Foto löschen"
+          are_you_sure: "Bist du sicher?"
+          comments: "Kommentare"
+      edit:
+          editing: "Bearbeite"
+          are_you_sure: "Bist du sicher?"
+          delete_photo: "Foto löschen"
+      photo:
+          show_comments: "Kommentare anzeigen"
+      new:
+          new_photo: "Foto erstellen"
+          back_to_list: "Zurück zur Liste"
+          post_it: "Hochladen"
+  registrations:
+      new:
+          sign_up: "Anmelden"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "Erzähl' mir was schönes!"
+          oh_yeah: "Hey, super!"
+      status_message:
+          show_comments: "Kommentare anzeigen"
+          delete: "Löschen"
+          are_you_sure: "Bist du sicher?"
+      show:
+          status_message: "Statusmeldung"
+          comments: "Kommentare"
+          are_you_sure: "Bist du sicher?"
+          destroy: "Löschen"
+          view_all: "Alle anzeigen"
+          message: "Nachricht"
+          owner: "Besitzer"
+          
+      
