@@ -18,8 +18,10 @@ Also, we really want to continue to focus on features and improving the code bas
 ready for general use, we will post more detailed instructions.
 
 ## Notice
-We currently run Diaspora with the [thin](http://code.macournoyer.com/thin/) as our webserver, behind [nginx](http://wiki.nginx.org/Main).  Diaspora uses the asynchronous feature of [EventMachine](http://rubyeventmachine.com/)
-Because our websocket server and message queue both work using the power of the [Reactor](http://en.wikipedia.org/wiki/Reactor_pattern) pattern.  If you use mod_rails, mongrel, or another non-eventmachine based application server, federation and/or websockets may not work.
+We currently run Diaspora with the [thin](http://code.macournoyer.com/thin/) as our webserver, behind [nginx](http://wiki.nginx.org/Main).  Diaspora uses the asynchronous feature of [EventMachine](http://rubyeventmachine.com/) to send messages between seeds,
+using the power of the [Reactor](http://en.wikipedia.org/wiki/Reactor_pattern) pattern.  If you use mod_rails, mongrel, or another non-eventmachine based application server, federation and/or websockets may not work.
+
+If you don't like thin, you can always try [Rainbows!](http://rainbows.rubyforge.org/)
 We will try and fully support more webservers later, but that is what works for now.
 
 
