@@ -520,6 +520,16 @@ h1.big_text {
   .requests h1,
   .remove h1 {
     display: inline-block; }
+  .aspect .tip,
+  .requests .tip,
+  .remove .tip {
+    display: none;
+    color: #999999;
+    margin-left: 0.5em; }
+  .aspect .edit_name_field:hover .tip,
+  .requests .edit_name_field:hover .tip,
+  .remove .edit_name_field:hover .tip {
+    display: inline; }
   .aspect .aspect_name,
   .requests .aspect_name,
   .remove .aspect_name {
