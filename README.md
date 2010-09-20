@@ -84,11 +84,11 @@ You can also run the binary directly by doing the following:
 
 If you're running a 32-bit system, run: 
 
-    wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz
+		wget http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz
               
 If you're running a 64-bit system, run: 
 
-    wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz
+		wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz
 
 Then run:
 
