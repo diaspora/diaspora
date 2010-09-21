@@ -4,7 +4,6 @@
 
 
 module RequestsHelper
-
   def subscription_mode(profile)
     if diaspora?(profile)
       :friend
@@ -33,11 +32,11 @@ module RequestsHelper
   def relationship_flow(identifier)
     action = :none
     person = nil
+    puts identifier
     person = Person.by_webfinger identifier
     if person
       action = (person == current_user.person ? :none : :friend)
     end
     { action => person }
   end
-
 end

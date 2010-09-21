@@ -123,7 +123,6 @@ describe MessageHandler do
       request = FakeHttpRequest.new(:success)
       request.should_receive(:get).exactly(1).times.and_return(request)
       request.should_receive(:post).exactly(1).times.and_return(request)
-      @handler.should_receive(:send_to_seed).once
 
       EventMachine::HttpRequest.stub!(:new).and_return(request)
 
