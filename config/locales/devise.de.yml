@@ -12,9 +12,9 @@ de:
   devise:
     failure:
       unauthenticated: 'Sie müssen sich anmelden oder registrieren um fortzufahren.'
-      unconfirmed: 'Bestätigen Sie Ihre registrierung um fortzufahren.'
+      unconfirmed: 'Bestätigen Sie Ihre Registrierung um fortzufahren.'
       locked: 'Ihr Benutzerkonto ist gesperrt.'
-      invalid: 'Ungültige E-mail-Adresse oder Passwort.'
+      invalid: 'Ungültige E-Mail-Adresse oder Passwort.'
       invalid_token: 'Ungültiges Token zur Authentifizierung.'
       timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an um fortzufahren.'
       inactive: 'Ihr Benutzerkonto wurde noch nicht aktiviert.'
@@ -28,7 +28,7 @@ de:
       send_instructions: 'Eine E-Mail wird Sie in wenigen Minuten darüber informieren wie Sie ihr Passwort bestätigen können.'
       confirmed: 'Die Bestätigung Ihres Benutzerkontos war erfolgreich. Sie sind nun angemeldet.'
     registrations:
-      signed_up: 'Ihre Registrierung war erfolgreich. Falls Sie das wünschten, wurde eine E-Mail zur bestätigung an Ihre Adresse gesendet.'
+      signed_up: 'Ihre Registrierung war erfolgreich. Sofern aktiviert, wurde eine E-Mail zur bestätigung an Ihre Adresse gesendet.'
       updated: 'Ihr Benutzerkonto wurde erfolgreich geändert.'
       destroyed: 'Bis bald! Ihr Benutzerkonto wurde gelöscht. Wir hoffen Sie bald wieder zu sehen.'
     unlocks:
