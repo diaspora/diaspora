@@ -4,7 +4,6 @@
 
 
 module ApplicationHelper
-
   def current_aspect?(aspect)
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
@@ -43,11 +42,11 @@ module ApplicationHelper
   end
 
   def owner_image_tag
-    person_image_tag(current_user)
+    person_image_tag(current_user.person)
   end
 
   def owner_image_link
-    person_image_link(current_user)
+    person_image_link(current_user.person)
   end
 
   def person_image_tag(person)
@@ -68,5 +67,4 @@ module ApplicationHelper
   def post_yield_tag(post)
     (':' + post.id.to_s).to_sym
   end
-
 end
