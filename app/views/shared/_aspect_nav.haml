@@ -6,7 +6,7 @@
 #aspect_nav
   %ul
     - for aspect in @aspects
-      %li{:class => ("selected" if current_aspect?(aspect))}
+      %li{:id => aspect.id, :class => ("selected" if current_aspect?(aspect))}
         = link_for_aspect aspect
 
   %ul{ :style => "position:absolute;right:0;bottom:0.01em;"}

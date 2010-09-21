@@ -86,8 +86,7 @@ module Diaspora
 
       def remove_friend(bad_friend)
         raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
-        aspects.each{|aspect| 
-          aspect.person_ids.delete( bad_friend.id )}
+        aspects.each{|g| g.person_ids.delete( bad_friend.id )}
         self.save
 
         self.raw_visible_posts.find_all_by_person_id( bad_friend.id ).each{|post|

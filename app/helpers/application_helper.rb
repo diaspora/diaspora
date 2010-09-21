@@ -43,11 +43,11 @@ module ApplicationHelper
   end
 
   def owner_image_tag
-    person_image_tag(current_user.person)
+    person_image_tag(current_user)
   end
 
   def owner_image_link
-    person_image_link(current_user.person)
+    person_image_link(current_user)
   end
 
   def person_image_tag(person)

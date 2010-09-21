@@ -78,7 +78,7 @@ class Person
 
   def self.by_webfinger( identifier, opts = {})
     #need to check if this is a valid email structure, maybe should do in JS
-    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', '').to_s.downcase)
+    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
     
      if local_person
        Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")

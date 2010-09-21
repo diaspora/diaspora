@@ -79,10 +79,10 @@ class AspectsController < ApplicationController
     end
     if aspect = current_user.aspect_by_id(params[:to][:to])
       flash[:notice] = "You are now showing your friend a different aspect of yourself."
-      render :nothing => true
+      respond_with aspect
     else
-      flash[:error] = "Invalid aspect id!"
-      render aspects_manage_path
+      flash[:notice] = "You are now showing your friend a different aspect of yourself."
+      respond_with current_user.visible_person_by_id(params[:friend_id])
     end
   end
 

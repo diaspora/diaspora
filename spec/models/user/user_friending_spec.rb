@@ -189,14 +189,16 @@ describe User do
       @user2 = Factory.create :user
       @aspect2 = @user2.aspect(:name => "Gross people")
 
-      friend_users(@user, @aspect, @user2, @aspect2)
-      @user.reload
-      @user2.reload
-      @aspect.reload
-      @aspect2.reload
+      request = @user.send_friend_request_to( @user2, @aspect)
+      request.reverse_for @user2
+      @user2.activate_friend(@user.person, @aspect2)
+      @user.receive request.to_diaspora_xml
     end
 
     it 'should unfriend the other user on the same seed' do
+      @user.reload
+      @user2.reload
+
       @user.friends.count.should == 1
       @user2.friends.count.should == 1
 
@@ -209,25 +211,6 @@ describe User do
       @aspect2.reload
       @aspect.people.count.should == 0
       @aspect2.people.count.should == 0
-    end
-    context 'with a post' do
-      before do
-        @message = @user.post(:status_message, :message => "hi", :to => @aspect.id)
-        @user2.receive @message.to_diaspora_xml.to_s
-        @user2.unfriend @user.person
-        @user.unfriended_by @user2.person
-        @aspect.reload
-        @aspect2.reload
-        @user.reload
-        @user2.reload
-      end
-      it "deletes the unfriended user's posts from visible_posts" do
-        @user.raw_visible_posts.include?(@message.id).should be_false
-      end
-      it "deletes the unfriended user's posts from the aspect's posts" do
-        pending "We need to implement this"
-        @aspect2.posts.include?(@message).should be_false
-      end
     end
   end
 
