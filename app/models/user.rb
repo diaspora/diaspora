@@ -25,8 +25,6 @@ class User
   key :visible_post_ids,    Array
   key :visible_person_ids,  Array
 
-  key :url, String
-
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends,           :in => :friend_ids,          :class_name => 'Person'
@@ -224,6 +222,7 @@ class User
   ###Helpers############
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{terse_url}"
+    opts[:person][:url] = APP_CONFIG[:pod_url]
     opts[:person][:serialized_key] = generate_key
     User.create(opts)
   end
