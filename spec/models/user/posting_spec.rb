@@ -26,15 +26,22 @@ describe User do
   end
 
   context 'posting' do
-    describe '#post' do
+
+    describe '#validate_aspect_permissions' do
       it 'should not be able to post without a aspect' do
-        proc {user.post(:status_message, :message => "heyheyhey")}.should raise_error /You must post to someone/
+        proc {
+          user.validate_aspect_permissions([])
+        }.should raise_error /You must post to someone/
       end
 
       it 'should not be able to post to someone elses aspect' do
-        proc {user.post(:status_message, :message => "heyheyhey", :to => aspect2.id)}.should raise_error /Cannot post to an aspect you do not own./
+        proc {
+          user.validate_aspect_permissions(aspect2.id)
+        }.should raise_error /Cannot post to an aspect you do not own./
       end
-      
+    end
+
+    describe '#post' do
       it 'should put the post in the aspect post array' do
         post = user.post(:status_message, :message => "hey", :to => aspect.id)
         aspect.reload
@@ -45,6 +52,16 @@ describe User do
         album = user.post :album, :name => "Georges", :to => aspect.id
         aspect.reload
         aspect.posts.should include album
+      end
+    end
+
+    describe '#repost' do
+      let!(:status_message) { user.post(:status_message, :message => "hello", :to => aspect.id) }
+
+      it 'should make the post visible in another aspect' do
+        user.repost( status_message, :to => aspect1.id )
+        aspect1.reload
+        aspect1.posts.count.should be 1
       end
     end
   end
