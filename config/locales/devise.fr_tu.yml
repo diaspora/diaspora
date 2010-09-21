@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+fr_tu:
+  errors:
+    messages:
+      not_found: "introuvable"
+      already_confirmed: "a déjà été confirmé"
+      not_locked: "n’a pas été verrouillé"
+
+  devise:
+    failure:
+      unauthenticated: 'Tu dois te connecter ou t’inscrire avant de continuer.'
+      unconfirmed: 'Tu dois confirmer ton compte avant de continuer.'
+      locked: 'Ton compte est verrouillé.'
+      invalid: 'Adresse e-mail ou mot de passe invalide.'
+      invalid_token: 'Jeton d’authentification invalide.'
+      timeout: 'Ta session a expiré, merci de te connecter de nouveau afin de continuer.'
+      inactive: 'Ton compte n’a pas encore été activé.'
+    sessions:
+      signed_in: 'Connecté avec succès.'
+      signed_out: 'Déconnecté avec succès.'
+    passwords:
+      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant des instructions t’expliquant comment réinitialiser ton mot de passe.'
+      updated: 'Ton mot de passe a été modifié avec succès. Tu es à présent connecté.'
+    confirmations:
+      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant des instructions t’expliquant comment confirmer ton compte.'
+      confirmed: 'Ton compte a été confirmé avec succès. Tu es à présent connecté.'
+    registrations:
+      signed_up: 'Tu t’es inscrit avec succès. Si activée, une confirmation a été envoyée sur ton adresse e-mail.'
+      updated: 'Tu as mis à jour ton compte avec succès.'
+      destroyed: 'Au revoir ! Ton compte a été résilié avec succès. Nous espérons te revoir très bientôt.'
+    unlocks:
+      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant des instructions t’expliquant comment déverrouiller ton compte.'
+      unlocked: 'Ton compte a été déverrouillé avec succès. Tu es à présent connecté.'
+    mailer:
+      confirmation_instructions: 'Instructions de confirmation'
+      reset_password_instructions: 'Réinitialiser les instructions du mot de passe'
+      unlock_instructions: 'Instructions de déverrouillage'
