@@ -105,7 +105,10 @@ class User
     end
 
     aspect_ids = [aspect_ids.to_s] if aspect_ids.is_a? BSON::ObjectId
+
     raise ArgumentError.new("You must post to someone.") if aspect_ids.nil? || aspect_ids.empty?
+    aspect_ids.each{ |aspect_id|
+      raise ArgumentError.new("Cannot post to an aspect you do not own.") unless self.aspects.find(aspect_id) }
 
     post = build_post(class_name, options)
 

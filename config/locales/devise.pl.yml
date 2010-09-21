@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+pl:
+  errors:
+    messages:
+      not_found: "nie znaleziono"
+      already_confirmed: "potwierdzono wcześniej"
+      not_locked: "nie był zablokowany"
+
+  devise:
+    failure:
+      unauthenticated: 'By kontynuować musisz się zalogować lub zarejestrować.'
+      unconfirmed: 'Musisz aktywować swoje konto.'
+      locked: 'Twoje konto jest zablokowane.'
+      invalid: 'Nieprawidłowy adres email lub hasło.'
+      invalid_token: 'Nieprawidłowy kod identyfikacyjny.'
+      timeout: 'Twoja sesja wygasła, zaloguj się ponownie by kontynuować.'
+      inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
+    sessions:
+      signed_in: 'Zalogowano pomyślnie.'
+      signed_out: 'Wylogowano.'
+    passwords:
+      send_instructions: 'W ciągu kilku minut otrzymasz maila zawierającego instrukcjie dotyczące zresetowania hasła.'
+      updated: 'Twoje hasło zostało zmienione, zostałeś zalogowany.'
+    confirmations:
+      send_instructions: 'W ciągu kilku minut otrzymasz maila zawierającego instrukcje dotyczące aktywacji konta.'
+      confirmed: 'Twoje konto zostało aktywowane, zostałeś zalogowany.'
+    registrations:
+      signed_up: 'Zostałeś zarejestrowany. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie email potwierdzający rejestrację.'
+      updated: 'Pomyślnie zaktualizowano informacje o Twoim koncie.'
+      destroyed: 'Żegnaj! Twoje konto zostało usunięte.'
+    unlocks:
+      send_instructions: 'W ciągu kilku minut otrzymasz email z instrukcjami odblokowania konta.'
+      unlocked: 'Twoje konto zostało odblokowane, jesteś zalogowany.'
+    mailer:
+      confirmation_instructions: 'Instrukcje aktywacji'
+      reset_password_instructions: 'Instrukcje zmiany hasła'
+      unlock_instructions: 'Instrukcje odblokowania'

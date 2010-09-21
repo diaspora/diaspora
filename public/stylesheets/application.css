@@ -461,8 +461,10 @@ h1.big_text {
     #aspect_nav ul > li {
       padding: 0;
       display: inline;
-      margin-right: 0.2em; }
+      margin-right: 2px; }
       #aspect_nav ul > li a {
+        -webkit-border-radius: 3px 3px 0 0;
+        -moz-border-radius: 3px 3px 0 0;
         line-height: 22px;
         background-color: #444444;
         border: 1px solid #555555;
@@ -473,7 +475,6 @@ h1.big_text {
           background-color: #4e4e4e;
           color: #cccccc; }
       #aspect_nav ul > li.selected a {
-        z-index: 50;
         -webkit-box-shadow: 0px -4px 6px -2px #777777;
         -moz-box-shadow: 0px -4px 6px -2px #777777;
         text-shadow: 0 2px 0 white;
@@ -519,6 +520,16 @@ h1.big_text {
   .requests h1,
   .remove h1 {
     display: inline-block; }
+  .aspect .tip,
+  .requests .tip,
+  .remove .tip {
+    display: none;
+    color: #999999;
+    margin-left: 0.5em; }
+  .aspect .edit_name_field:hover .tip,
+  .requests .edit_name_field:hover .tip,
+  .remove .edit_name_field:hover .tip {
+    display: inline; }
   .aspect .aspect_name,
   .requests .aspect_name,
   .remove .aspect_name {
