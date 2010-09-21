@@ -102,7 +102,12 @@ class User
       aspect_ids.map!{ |aspect| aspect.id }
     elseif class_name == :album
       raise ArgumentError.new("No album.to given") unless options[:album][:to]
-      aspect_ids = aspects_with_post( options[:album][:to] )
+      # ZTM: FIXME: Set 'all' correctly, it is always invalid in "unless self.aspects.find(aspect_id)"
+      if options[:album][:to] == "all"
+        aspect_ids = self.aspects.all.collect{|x| x}
+      else
+        aspect_ids = self.aspects.find_by_id( options[:album][:to].id )
+      end
       aspect_ids.map!{ |aspect| aspect.id }
     else
       aspect_ids = options.delete(:to)
