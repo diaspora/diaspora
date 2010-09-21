@@ -7,7 +7,7 @@
 
 %p
   %strong Message:
-  = @status_message.message
+  = auto_link sanitize @status_message.message
   
 %p
   %strong Owner:
