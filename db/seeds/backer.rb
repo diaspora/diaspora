@@ -42,10 +42,10 @@ def create
 end
 
 def set_app_config username
-  current_config = YAML.load(Rails.root.join('config', 'app_config.yml')).symbolize_keys
-  current_config[Rails.env] ||= {}
-  current_config[Rails.env][:pod_url] = "#{username}.joindiaspora.com"
-  current_config[:default][:pod_url] = "#{username}.joindiaspora.com"
+  current_config = YAML.load(File.read(Rails.root.join('config', 'app_config_example.yml')))
+  current_config[Rails.env.to_s] ||= {}
+  current_config[Rails.env.to_s]['pod_url'] = "#{username}.joindiaspora.com"
+  current_config['default']['pod_url'] = "#{username}.joindiaspora.com"
   file = File.new(Rails.root.join('config','app_config.yml'),'w')
   file.write(current_config.to_yaml)
   file.close

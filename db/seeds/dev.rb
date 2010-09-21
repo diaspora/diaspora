@@ -6,7 +6,19 @@
 
 require 'config/environment'
 
+def set_app_config username
+  current_config = YAML.load(File.read(Rails.root.join('config', 'app_config_example.yml')))
+  current_config[Rails.env.to_s] ||= {}
+  current_config[Rails.env.to_s]['pod_url'] = "#{username}.joindiaspora.com"
+  current_config['default']['pod_url'] = "#{username}.joindiaspora.com"
+  file = File.new(Rails.root.join('config','app_config.yml'),'w')
+  file.write(current_config.to_yaml)
+  file.close
+end
+
 username = "tom"
+set_app_config username
+
 # Create seed user
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
