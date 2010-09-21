@@ -5,7 +5,7 @@
 
 %h1
   = link_to @status_message.person.real_name, @status_message.person
-  = auto_link sanitize @status_message.message
+  = @status_message.message
   
 
 %h4= "comments (#{@status_message.comments.count})"
