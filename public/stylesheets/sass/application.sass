@@ -453,15 +453,23 @@ label
 
   textarea
     :width 600px
-    :height 40px
+    :height 42px
     :margin
       :top 0
       :bottom 0
 
-    :-webkit-box-shadow 0 1px 0 #fff
+    :box-shadow 0 1px #fff
+    :-moz-box-shadow 0 1px #fff
+    :-webkit-box-shadow 0 1px #fff
 
   .button
     :margin-left 100px
+
+  img
+    :-webkit-box-shadow 0 1px 0 #fff
+    :border 1px solid #bbb
+      :top 1px solid #666
+    
 
 
 #image_picker
@@ -610,9 +618,12 @@ h1.big_text
       :padding 0
       :display inline
       :margin
-        :right 0.2em
+        :right 2px
 
       a
+        :text-shadow 0 2px 0 #444
+        :-webkit-border-radius 3px 3px 0 0
+        :-moz-border-radius 3px 3px 0 0
         :line
           :height 22px
         :background
@@ -630,7 +641,6 @@ h1.big_text
           :color #ccc
 
       &.selected a
-        :z-index 50
         :-webkit-box-shadow 0px -4px 6px -2px #777
         :-moz-box-shadow 0px -4px 6px -2px #777
 
@@ -693,6 +703,17 @@ h1.big_text
   h1
     :display inline-block
 
+  .tip
+    :display none
+    :color #999
+    :margin
+      :left 0.5em
+
+  .edit_name_field:hover
+    .tip
+      :display inline
+
+
   .aspect_name
     :position relative
 
@@ -717,6 +738,7 @@ h1.big_text
   .grey
     :color #999
     :cursor default
+    :text-shadow 0 2px #fff
 
   ul.dropzone
     :min-height 20px

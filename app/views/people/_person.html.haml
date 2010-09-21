@@ -2,14 +2,13 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 %li.message{:id => person.id}
 
   = person_image_link(person)
 
   .content
     %span.from
-      = link_to person.real_name, person
+      = link_to person.real_name, person_path(person)
 
     .info
       = person.diaspora_handle
@@ -17,6 +16,8 @@
     .right{ :style => "display:inline;top:0;" }
       - if person.id == current_user.person.id
         thats you!
+      - elsif current_user.friends.include?(person)
+        Already friends
       - elsif current_user.pending_requests.find_by_person_id(person.id)
         = link_to "pending request", aspects_manage_path
       - else
