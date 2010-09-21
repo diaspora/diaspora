@@ -6,31 +6,23 @@
 
 require 'config/environment'
 
-host = "localhost:3000"
-url = "http://#{host}/"
 username = "tom"
 # Create seed user
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
-                    :url=> "http://#{username}.joindiaspora.com/"
                     :person => Person.new(
-                      :diaspora_handle => "tom@tom.joindiaspora.com",
-                      :url => url,
                       :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
                   )
 user.person.save!
 
 user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                      :username => "korth",
-                     :url=> "http://#{username}.joindiaspora.com/"
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
-                    :person => Person.new( :diaspora_handle => "korth@tom.joindiaspora.com",
-                                          :url => url,
-                                          :profile => Profile.new( :first_name => "Evan",
-                                                                  :last_name => "Korth")))
+                    :person => Person.new(
+                      :profile => Profile.new( :first_name => "Evan", :last_name => "Korth")))
 
 user2.person.save!
 

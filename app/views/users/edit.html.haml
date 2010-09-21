@@ -17,11 +17,11 @@
 
     %h3 Picture
     %div#image_picker
-      = p.hidden_field :image_url, :value => (@profile.image_url.sub(@user.url,'/') if @profile.image_url), :id => 'image_url_field'
+      = p.hidden_field :image_url, :value => (@profile.image_url.sub(APP_CONFIG[:pod_url],'/') if @profile.image_url), :id => 'image_url_field'
 
       - unless @photos.nil? || @photos.empty?
         - for photo in @photos
-          - if @profile.image_url && (photo.url(:thumb_medium) == @profile.image_url.sub(@user.url,'/'))
+          - if @profile.image_url && (photo.url(:thumb_medium) == @profile.image_url.sub(APP_CONFIG[:pod_url],'/'))
             %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
               = check_box_tag 'checked_photo', true, true
               = link_to image_tag(photo.url(:thumb_medium)), "#"
