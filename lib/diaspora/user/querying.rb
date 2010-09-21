@@ -31,7 +31,8 @@ module Diaspora
       end
 
       def aspect_by_id( id )
-        self.aspects.find( id )
+        id = id.to_id
+        aspects.detect{|x| x.id == id }
       end
 
       def album_by_id( id )
