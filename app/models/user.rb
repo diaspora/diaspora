@@ -100,6 +100,10 @@ class User
       raise ArgumentError.new("No album_id given") unless options[:album_id]
       aspect_ids = aspects_with_post( options[:album_id] )
       aspect_ids.map!{ |aspect| aspect.id }
+    elseif class_name == :album
+      raise ArgumentError.new("No id given") unless options[:id]
+      aspect_ids = aspects_with_post( options[:id] )
+      aspect_ids.map!{ |aspect| aspect.id }
     else
       aspect_ids = options.delete(:to)
     end
