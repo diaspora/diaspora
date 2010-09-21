@@ -28,7 +28,7 @@ module ApplicationHelper
   end
 
   def how_long_ago(obj)
-    "#{time_ago_in_words(obj.created_at)} ago."
+    "#{time_ago_in_words(obj.created_at)} ago"
   end
 
   def person_url(person)
@@ -43,11 +43,11 @@ module ApplicationHelper
   end
 
   def owner_image_tag
-    person_image_tag(current_user)
+    person_image_tag(current_user.person)
   end
 
   def owner_image_link
-    person_image_link(current_user)
+    person_image_link(current_user.person)
   end
 
   def person_image_tag(person)

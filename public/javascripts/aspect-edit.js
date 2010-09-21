@@ -20,36 +20,14 @@ function decrementRequestsCounter() {
 }
 
 $(function() {
-
-
-  $('#move_friends_link').live( 'click', function(){
-    $.post(
-      '/aspects/move_friends',
-      { 'moves' : $('#aspect_list').data() },
-      function() { 
-        $('#aspect_title').html("Groups edited successfully!");
-      }    
-    );
-    
-    // should the following logic be moved into the $.post() callback?
-    $("#aspect_list").removeData();
-
-    $(".person")
-      .css('background-color','none')
-      .attr('from_aspect_id', function() { 
-        return $(this).parent().attr('id')
-      });
-
-  });
-
-  $("ul .person .requested_person").draggable({
+  // Multiple classes here won't work
+  $("ul .person").draggable({
     revert: true
   });
   
-  //  Moved class to logic above - unnec duplicate logic
-  //$("ul .requested_person").draggable({
-  //  revert: true
-  //});
+  $("ul .requested_person").draggable({
+    revert: true
+  });
   
   $(".aspect ul").droppable({
     hoverClass: 'active',
@@ -65,26 +43,24 @@ $(function() {
           }
         });
 
-      } else {
-        var $aspect_list  = $('#aspect_list'), 
-            move = {};
-        
-        //  This is poor implementation            
-        move[ 'friend_id' ] = ui.draggable[0].id; // ui.draggable.attr('id')
-        move[ 'to' ]        = $(this)[0].id;//  $(this).attr('id');
-        move[ 'from' ]      = ui.draggable[0].getAttribute('from_aspect_id'); // ui.draggable.attr('from_aspect_id')
-        
-        // if created custom attr's - should be using `data-foo`
-        
-        
-        if (move['to'] == move['from']){
-          $aspect_list.data( ui.draggable[0].id, []);
-          ui.draggable.css('background-color','#eee');
+      };
+        var dropzone = $(this)[0];
+
+        if ($(this)[0].id == ui.draggable[0].getAttribute('from_aspect_id')){
+          ui.draggable.css('background','none');
         } else {
-          $aspect_list.data( ui.draggable[0].id, move);
           ui.draggable.css('background-color','orange');
+          $.ajax({
+            url: "/aspects/move_friend/",
+            data: {"friend_id" : ui.draggable[0].id,
+                   "from" : ui.draggable[0].getAttribute('from_aspect_id'),
+                   "to" : { "to" : dropzone.id }},
+            success: function(data){
+              ui.draggable.attr('from_aspect_id', dropzone.id);
+              ui.draggable.css('background','none');
+            }});
+
         }
-      }
       $(this).closest("ul").append(ui.draggable);
     }
   });

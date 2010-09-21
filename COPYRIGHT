@@ -1,1 +1,14 @@
-Diaspora is copyright Diaspora Inc., 2010, and files herein are licensed under the Affero General Public License version 3, the text of which can be found in GNU-AGPL-3.0, unless otherwise noted.  Components of Diaspora, including Rails, JQuery, and Devise, are licensed under the MIT/X11 license.  Blueprint-CSS is licensed under a modified version of the MIT/X11 license.  All unmodified files from these and other sources retain their original copyright and license notices: see the relevant individual files.  Attribution information for Diaspora is contained in the AUTHORS file.
+Diaspora is copyright Diaspora Inc., 2010, and files herein are licensed under the Affero General Public License version 3, the text of which can be found in GNU-AGPL-3.0, or any later version of the AGPL, unless otherwise noted.  Components of Diaspora, including Rails, JQuery, and Devise, are licensed under the MIT/X11 license.  Blueprint-CSS is licensed under a modified version of the MIT/X11 license.  All unmodified files from these and other sources retain their original copyright and license notices: see the relevant individual files.  Attribution information for Diaspora is contained in the AUTHORS file.
+
+* In addition, as a special exception, the copyright holders give
+* permission to link the code of portions of this program with the
+* OpenSSL library under certain conditions as described in each
+* individual source file, and distribute linked combinations
+* including the two.
+* You must obey the GNU General Public License in all respects
+* for all of the code used other than OpenSSL.  If you modify
+* file(s) with this exception, you may extend this exception to your
+* version of the file(s), but you are not obligated to do so.  If you
+* do not wish to do so, delete this exception statement from your
+* version.  If you delete this exception statement from all source
+* files in the program, then also delete it here.
