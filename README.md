@@ -194,7 +194,7 @@ After RubyGems is updated, simply run `sudo gem install bundler` to get Bundler.
 
 ## Getting Diaspora
 
-		git clone http://github.com/diaspora/diaspora.git
+		git clone git://github.com/diaspora/diaspora.git
 
 If you have never used github before, their [help desk](http://help.github.com/) has a pretty awesome guide on getting setup.
 
