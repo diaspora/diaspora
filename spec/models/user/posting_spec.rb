@@ -30,6 +30,10 @@ describe User do
     proc {@user.post(:status_message, :message => "heyheyhey")}.should raise_error /You must post to someone/
   end
 
+  it 'should not be able to post to someone elses aspect' do
+    proc {@user.post(:status_message, :message => "heyheyhey", :to => @aspect2.id)}.should raise_error /Cannot post to an aspect you do not own./
+  end
+  
   it 'should put the post in the aspect post array' do
     post = @user.post(:status_message, :message => "hey", :to => @aspect.id)
     @aspect.reload

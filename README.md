@@ -17,6 +17,14 @@ The privacy aware, personally controlled, do-it-all, open source social network.
 Also, we really want to continue to focus on features and improving the code base. When we think it is 
 ready for general use, we will post more detailed instructions.
 
+## Notice
+
+We currently run Diaspora with the [thin](http://code.macournoyer.com/thin/) as our webserver, behind [nginx](http://wiki.nginx.org/Main).  Diaspora uses the asynchronous feature of [EventMachine](http://rubyeventmachine.com/) to send messages between seeds,
+
+using the power of the [Reactor](http://en.wikipedia.org/wiki/Reactor_pattern) pattern.  If you use mod_rails, mongrel, or another non-eventmachine based application server, federation and/or websockets may not work.
+
+If you don't like thin, you can always try [Rainbows!](http://rainbows.rubyforge.org/)
+We will try and fully support more webservers later, but that is what works for now.
 
 
 These instructions are for machines running [Ubuntu](http://www.ubuntu.com/), [Fedora](http://www.fedoraproject.org) or Mac OS X.  We are developing Diaspora for the latest and greatest browsers, so please update your Firefox, Chrome or Safari to the latest and greatest.
@@ -235,14 +243,3 @@ Ongoing discussion:
 More general info and updates about the project can be found on our [blog](http://joindiaspora.com), [and on Twitter](http://twitter.com/joindiaspora).  Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
 
 If you wish to contact us privately about any exploits in Diaspora you may find, you can email [exploits@joindiaspora.com](mailto:exploits@joindiaspora.com).
-
-
-## License
-Copyright 2010 Diaspora Inc.
-
-Diaspora is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-Diaspora is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License along with Diaspora.  If not, see <http://www.gnu.org/licenses/>.
-

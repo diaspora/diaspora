@@ -12,6 +12,7 @@ class PhotosController < ApplicationController
   def create
 
     album = Album.find_by_id params[:album_id]
+    puts params
 
     begin
 
@@ -102,13 +103,18 @@ class PhotosController < ApplicationController
 
   private
   def clean_hash(params)
-    return {
-      :photo => {
-        :caption   => params[:photo][:caption],
-      },
-      :album_id  => params[:album_id],
-      :user_file => params[:user_file]
-    }
+    if params[:photo]
+      return {
+        :photo => {
+          :caption   => params[:photo][:caption],
+        }
+      }
+    else
+      return{
+        :album_id  => params[:album_id],
+        :user_file => params[:user_file]
+      }
+    end
   end
 
 end
