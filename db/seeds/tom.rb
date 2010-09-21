@@ -7,7 +7,7 @@
 require 'config/environment'
 
 def set_app_config username
-  current_config = YAML.load(Rails.root.join('config', 'app_config.yml'))
+  current_config = YAML.load(Rails.root.join('config', 'app_config.yml')).symbolize_keys
   current_config[Rails.env] ||= {}
   current_config[Rails.env][:pod_url] = "#{username}.joindiaspora.com"
   current_config[:default][:pod_url] = "#{username}.joindiaspora.com"
