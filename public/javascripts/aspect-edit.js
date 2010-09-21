@@ -47,7 +47,7 @@ $(function() {
         var dropzone = $(this)[0];
 
         if ($(this)[0].id == ui.draggable[0].getAttribute('from_aspect_id')){
-          ui.draggable.css('background-color','#eee');
+          ui.draggable.css('background','none');
         } else {
           ui.draggable.css('background-color','orange');
           $.ajax({
@@ -61,7 +61,6 @@ $(function() {
             }});
 
         }
-      }
       $(this).closest("ul").append(ui.draggable);
     }
   });
