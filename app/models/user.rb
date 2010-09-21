@@ -25,8 +25,6 @@ class User
   key :visible_post_ids,    Array
   key :visible_person_ids,  Array
 
-  key :url, String
-
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :friends,           :in => :friend_ids,          :class_name => 'Person'
@@ -97,7 +95,6 @@ class User
 
   ######## Posting ########
   def post(class_name, options = {})
-
     if class_name == :photo
       raise ArgumentError.new("No album_id given") unless options[:album_id]
       aspect_ids = aspects_with_post( options[:album_id] )
@@ -242,11 +239,8 @@ class User
 
   ###Helpers############
   def self.instantiate!( opts = {} )
-    hostname = opts[:url].gsub(/(https?:|www\.)\/\//, '')
-    hostname.chop! if hostname[-1, 1] == '/'
-    
-    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{hostname}"
-    puts opts[:person][:diaspora_handle]
+    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{terse_url}"
+    opts[:person][:url] = APP_CONFIG[:pod_url]
     opts[:person][:serialized_key] = generate_key
     User.create(opts)
   end
@@ -257,7 +251,7 @@ class User
   end
   
   def terse_url
-    terse = self.url.gsub(/(https?:|www\.)\/\//, '')
+    terse = APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '')
     terse = terse.chop! if terse[-1, 1] == '/'
     terse
   end

@@ -7,11 +7,18 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
-   before do
-      @user = Factory.create(:user)
-      @aspect = @user.aspect(:name => 'heroes')
-   end
-  
+  before do
+    @user = Factory.create(:user)
+    @aspect = @user.aspect(:name => 'heroes')
+  end
+
+  describe '#diaspora_handle' do 
+    it 'uses the pod config url to set the diaspora_handle' do
+      @user.diaspora_handle.should == @user.username + "@example.org"
+    end
+  end
+
+
 
   describe 'profiles' do
     it 'should be able to update their profile and send it to their friends' do
@@ -41,12 +48,12 @@ describe User do
 
       friend_users(@user, Aspect.find_by_id(@aspect.id), user2, Aspect.find_by_id(aspect2.id))
       @aspect.reload
-      
+
       @user.aspects.include?(@aspect).should == true
 
       proc{@user.drop_aspect(@aspect)}.should raise_error /Aspect not empty/
 
-      @user.reload
+        @user.reload
       @user.aspects.include?(@aspect).should == true
     end
   end
