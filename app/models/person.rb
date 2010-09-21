@@ -104,8 +104,8 @@ class Person
     
     return nil unless public_key_entry
     
-    public_key = public_key_entry.first.href
-    new_person.exported_key = Base64.decode64 public_key
+    pubkey = public_key_entry.first.href
+    new_person.exported_key = Base64.decode64 pubkey
 
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid
