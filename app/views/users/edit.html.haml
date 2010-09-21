@@ -53,6 +53,14 @@
       = p.label :last_name 
       = p.text_field :last_name, :value => @profile.last_name
 
+  %br
+  %br
+
+  %h3 Connect with Facebook
+
+  %p
+    = link_to "Login to Facebook", @fb_access_url
+
   #submit_block
     = link_to "Cancel", root_path
     or
