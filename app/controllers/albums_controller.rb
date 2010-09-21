@@ -15,18 +15,13 @@ class AlbumsController < ApplicationController
   end
 
   def create
-	#ZTM: Test!
-    if :to == ""
-      flash[:error] = "Failed to create album, cannot post to no one."
-	else
-      aspect = params[:album][:to]
+    aspect = params[:album][:to]
 
-      data = clean_hash(params[:album])
+    data = clean_hash(params[:album])
 
-      @album = current_user.post(:album, data)
-      flash[:notice] = "You've created an album called #{@album.name}."
-      redirect_to :action => :show, :id => @album.id, :aspect => aspect
-	end
+    @album = current_user.post(:album, data)
+    flash[:notice] = "You've created an album called #{@album.name}."
+    redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
 
   def new
