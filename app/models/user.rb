@@ -96,6 +96,7 @@ class User
   ######## Posting ########
   def post(class_name, options = {})
 
+    puts options.inspect
     if class_name == :photo
       raise ArgumentError.new("No album_id given") unless options[:album_id]
       aspect_ids = aspects_with_post( options[:album_id] )
@@ -108,7 +109,7 @@ class User
 
     raise ArgumentError.new("You must post to someone.") if aspect_ids.nil? || aspect_ids.empty?
     aspect_ids.each{ |aspect_id|
-      raise ArgumentError.new("Cannot post to an aspect you do not own.") unless self.aspects.find(aspect_id) }
+      raise ArgumentError.new("Cannot post to an aspect you do not own.") unless aspect_id == "all" || self.aspects.find(aspect_id) }
 
     post = build_post(class_name, options)
 
