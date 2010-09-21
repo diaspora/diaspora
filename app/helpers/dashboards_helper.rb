@@ -4,8 +4,7 @@
 
 
 module DashboardsHelper
-
   def title_for_page
-      'home'
+    'home'
   end
 end

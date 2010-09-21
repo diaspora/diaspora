@@ -9,7 +9,6 @@ module PublicsHelper
     subscriber ||= Subscriber.new(:url => opts[:callback], :topic => opts[:topic])
 
     if subscriber.save
-
       if opts[:verify] == 'sync'
         204
       elsif opts[:verify] == 'async'

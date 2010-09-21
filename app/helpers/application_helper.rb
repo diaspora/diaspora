@@ -4,7 +4,6 @@
 
 
 module ApplicationHelper
-
   def current_aspect?(aspect)
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
@@ -68,5 +67,4 @@ module ApplicationHelper
   def post_yield_tag(post)
     (':' + post.id.to_s).to_sym
   end
-
 end
