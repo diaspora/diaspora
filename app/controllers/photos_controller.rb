@@ -10,10 +10,7 @@ class PhotosController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-
     album = Album.find_by_id params[:album_id]
-    puts params
-
     begin
 
       ######################## dealing with local files #############
@@ -91,7 +88,7 @@ class PhotosController < ApplicationController
 
     data = clean_hash(params)
 
-    if @photo.update_attributes data[:photo]
+    if current_user.update_post( @photo, data[:photo] )
       flash[:notice] = "Photo successfully updated."
       respond_with @photo
     else

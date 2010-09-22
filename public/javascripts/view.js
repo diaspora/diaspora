@@ -41,6 +41,12 @@ $(document).ready(function(){
     }
   );
 
+  $("#publisher textarea").keydown( function(e) {
+    if (e.shiftKey && e.keyCode == 13) {
+      $("#publisher form").submit();
+    }
+  });
+
 });//end document ready
 
 
