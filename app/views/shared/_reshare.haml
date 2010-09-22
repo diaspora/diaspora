@@ -19,9 +19,9 @@
 
   %ul.reshare_box
     - for aspect in current_user.aspects_with_post( post.id )
+    
       %li.currently_sharing= aspect.name
 
     - for aspect in current_user.aspects
       - unless aspect.posts.include? post
-        %li.aspect_to_share= link_to aspect, repost_path( :id => post.id, :aspect_ids => aspect.id )
-
+        %li.aspect_to_share= link_to aspect, :controller => "aspects", :action => "show", :id => aspect.id, :prefill => post.message
