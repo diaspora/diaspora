@@ -7,12 +7,14 @@
 Diaspora::Application.routes.draw do
   resources :people, :only => [:index, :show, :destroy]
   resources :users, :except => [:create, :new, :show]
-  resources :status_messages, :only => [:create, :destroy, :show]
+  resources :status_messages
   resources :comments, :except => [:index]
   resources :requests, :except => [:edit, :update]
   resources :photos, :except => [:index]
   resources :albums
 
+  match 'repost', :to => 'application#repost', :as => 'repost'
+  
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
   match 'aspects/move_friend', :to => 'aspects#move_friend', :as => 'move_friend'
   match 'aspects/manage', :to => 'aspects#manage'
