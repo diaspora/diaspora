@@ -105,12 +105,15 @@ class User
 
     aspect_ids = validate_aspect_permissions(aspect_ids)
 
-    post = build_post(class_name, options)
+    intitial_post(class_name, aspect_ids, options)
+  end
 
+
+  def intitial_post(class_name, aspect_ids, options = {}) 
+    post = build_post(class_name, options)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
-
-    post
+    post 
   end
 
   def repost( post, options = {} )
