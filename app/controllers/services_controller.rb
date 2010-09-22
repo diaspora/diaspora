@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
 
     code = params['code'] # Facebooks verification string
     if code
-      access_token_hash = MiniFB.oauth_access_token(FB_APP_ID, HOST + "services/create", FB_SECRET, code)
+      access_token_hash = MiniFB.oauth_access_token(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create", FB_SECRET, code)
       p access_token_hash
       @access_token = access_token_hash["access_token"]
 

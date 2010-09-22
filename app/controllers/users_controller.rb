@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @profile = @user.profile
     @photos  = Photo.find_all_by_person_id(@person.id).paginate :page => params[:page], :order => 'created_at DESC'
 
-    @fb_access_url = MiniFB.oauth_url(FB_APP_ID, HOST + "services/create",
+    @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
                                       :scope=>MiniFB.scopes.join(","))
   end
 
