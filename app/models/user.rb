@@ -243,7 +243,7 @@ class User
   ###Helpers############
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
-    pts[:person][:url] = APP_CONFIG[:pod_url]
+    opts[:person][:url] = APP_CONFIG[:pod_url]
     opts[:person][:serialized_key] = generate_key
     User.create(opts)
   end
