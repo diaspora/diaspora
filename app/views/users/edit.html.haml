@@ -56,10 +56,18 @@
   %br
   %br
 
-  %h3 Connect with Facebook
 
-  %p
-    = link_to "Login to Facebook", @fb_access_url
+  %h2 Services
+
+    %h3 Facebook
+
+    - if @logged_in
+      Logged in to facebook as 
+      - @response_hash = MiniFB.get(@access_token, @id, :type => "user")
+      = @response_hash[:user][:name]
+    %p
+      = link_to "Login to Facebook", @fb_access_url
+    
 
   #submit_block
     = link_to "Cancel", root_path

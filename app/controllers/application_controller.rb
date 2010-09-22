@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_friends_and_status, :except => [:create, :update]
   before_filter :count_requests
+  before_filter :fb_user_info
 
   layout :layout_by_resource
 
@@ -35,6 +36,11 @@ class ApplicationController < ActionController::Base
 
   def count_requests
     @request_count = Request.for_user(current_user).size if current_user
+  end
+
+  def fb_user_info
+    @access_token = cookies[:access_token]
+    @logged_in = @access_token.present?
   end
 
 end
