@@ -1,33 +1,17 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
-#   the COPYRIGHT file.
-
-
-
-development:
-  debug: false
-  socket_debug : false
+--- 
+default: 
   socket_host: 0.0.0.0
-  socket_port: 8080
-  socket_collection_name: 'websocket'
-  pubsub_server: 'https://pubsubhubbub.appspot.com/'
-  mongo_host: 'localhost'
+  socket_debug: false
+  pod_url: tom.joindiaspora.com
   mongo_post: 27017
-
-test:
+  socket_collection_name: websocket
+  socket_port: 8080
+  pubsub_server: https://pubsubhubbub.appspot.com/
+  mongo_host: localhost
   debug: false
-  socket_debug : false
-  socket_host: 0.0.0.0
+production: 
+development: 
+  pod_url: tom.joindiaspora.com
+test: 
+  pod_url: http://example.org/
   socket_port: 8081
-  pubsub_server: 'https://pubsubhubbub.appspot.com/'
-  mongo_host: 'localhost'
-  mongo_post: 27017
-
-production:
-  debug: false
-  socket_debug : false
-  socket_host: 0.0.0.0
-  socket_port: 8080
-  pubsub_server: 'https://pubsubhubbub.appspot.com/'
-  mongo_host: 'localhost'
-  mongo_post: 27017

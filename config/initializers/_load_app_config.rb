@@ -2,6 +2,12 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 raw_config = File.read("#{Rails.root}/config/app_config.yml")
-APP_CONFIG = YAML.load(raw_config)[Rails.env].symbolize_keys
+all_envs = YAML.load(raw_config)
+if all_envs[Rails.env]
+  APP_CONFIG = all_envs['default'].merge(all_envs[Rails.env]).symbolize_keys
+else
+  APP_CONFIG = all_envs['default'].symbolize_keys
+end
+
+puts "WARNING: Please modify your app_config.yml to have a proper pod_url!" if APP_CONFIG[:pod_url] == "http://example.org/" && Rails.env != :test

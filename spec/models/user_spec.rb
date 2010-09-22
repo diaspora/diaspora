@@ -7,19 +7,18 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe User do
-   before do
-      @user = Factory.create(:user)
-      @aspect = @user.aspect(:name => 'heroes')
-   end
-  
-  it 'should create with pivotal or allowed emails' do
-    user1 = Factory.create(:user, :email => "kimfuh@yahoo.com")
-    user2 = Factory.create(:user, :email => "awesome@sofaer.net")
-    user3 = Factory.create(:user, :email => "steveellis@pivotallabs.com")
-    user1.created_at.nil?.should be false
-    user2.created_at.nil?.should be false
-    user3.created_at.nil?.should be false
+  before do
+    @user = Factory.create(:user)
+    @aspect = @user.aspect(:name => 'heroes')
   end
+
+  describe '#diaspora_handle' do 
+    it 'uses the pod config url to set the diaspora_handle' do
+      @user.diaspora_handle.should == @user.username + "@example.org"
+    end
+  end
+
+
 
   describe 'profiles' do
     it 'should be able to update their profile and send it to their friends' do
@@ -49,13 +48,14 @@ describe User do
 
       friend_users(@user, Aspect.find_by_id(@aspect.id), user2, Aspect.find_by_id(aspect2.id))
       @aspect.reload
-      
+
       @user.aspects.include?(@aspect).should == true
 
       proc{@user.drop_aspect(@aspect)}.should raise_error /Aspect not empty/
 
-      @user.reload
+        @user.reload
       @user.aspects.include?(@aspect).should == true
     end
   end
+
 end
