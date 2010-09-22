@@ -17,14 +17,10 @@
       \--
       = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
 
-    = render   "comments/comments", :post => post 
+    = render "comments/comments", :post => post 
 
   - if current_user.owns?(post)
     .destroy_link
       = link_to 'Delete', status_message_path(post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete"
-
-  %b reshare:
-  -if @aspects
-    - for aspect in @aspects
-      = link_to aspect, repost_path( :id => post.id, :aspect_ids => aspect.id )
+      = render "shared/reshare", :post => post, :current_user => current_user 
     
