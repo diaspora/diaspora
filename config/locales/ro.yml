@@ -1,0 +1,143 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ro:
+  hello: "Bună, lume!"
+  layouts:
+      application:
+          edit_profile: "editare profil"
+          logout: "deconectare"
+  shared:
+      aspect_nav:
+          all_aspects: "Toate Aspectele"
+          manage: "Administrare"
+          manage_your_aspects: "Administrare Aspecte"
+      sub_header:
+          all_aspects: "Toate Aspectele"
+          manage_aspects: "Administrare Aspecte"
+      publisher:
+          share: "Distribuie"
+      aspect_friends:
+          add_friends: "adăugare prieteni"
+  albums:
+      album:
+          you: "tu"
+      new_album:
+          create: "crează"
+          add_a_new_album: "Album nou"
+      show: 
+          edit_album: "Editare Album"
+          albums: "albume"
+          updated: "actualizat"
+          by: "de"
+      edit:
+          editing: "Editare"
+          updated: "actualizat"
+          are_you_sure: "Sunteți sigur(ă)?"
+          delete_album: "Șterge Album"
+          cancel: "Renuță"
+      index:
+          home: "acasă"
+          new_album: "Album Nou"
+      create:
+          success: "Ați creat un album numit %{name}."
+      update:
+          success: "Albumul %{name} a fost modificat cu succes."
+          failure: "Eroare la editarea albumului %{name}."
+      destroy:
+          success: "Albumul %{name} a fost șters."
+  aspects:
+      index:
+          photos: "poze"
+      show:
+          photos: "poze"
+      manage:
+          add_a_new_aspect: "Adaugă aspect"
+          add_a_new_friend:  "Adadugă prieten"
+          show: "Arată"
+          update_aspects: "Actualizează Aspecte"
+          requests: "Cereri"
+          ignore_remove: "Ignoră/Șterge"
+      new_aspect:
+          add_a_new_aspect: "Adaugă aspect"
+          create: "Crează"
+      create:
+          success:"Click pe semnul plus în partea stângă pentru a indica cine poate accesa noul aspect."
+  users:
+      edit:
+          cancel: "Renunță"
+          update_profile: "Actualizează Profil"
+          home: "Home"
+          diaspora_username: "DIASPORA USERNAME"
+          info: "Info"
+          picture: "Poză"
+          editing_profile: "Editare profil"
+          albums: "Albume"
+          you_dont_have_any_photos: "Nu ai nici o fotografie! Mergi la"
+          page_to_upload_some:  "pentru a încărca câteva."
+  comments:
+      comment:
+          ago: "în urmă"
+      new_comment:
+          comment: "Comentariu"
+  photos:
+      show:
+          prev: "precedent"
+          full_size: "mărime deplină"
+          next: "următor"
+          edit_photo: "Modifică Poză"
+          delete_photo: "Șterge Poză"
+          are_you_sure: "Sunteți sigur(ă)?"
+          comments: "comments"
+      edit:
+          editing: "Modificare"
+          are_you_sure: "Sunteți sigur(ă)?"
+          delete_photo: "Șterge poză"
+      photo:
+          show_comments: "arată comentarii"
+          posted_a_new_photo_to: "a postat o nouă poză în"
+      new:
+          new_photo: "Poză nouă"
+          back_to_list: "Înapoi la Listă"
+          post_it: "postează!"
+  registrations:
+      new:
+          sign_up: "Înregistrare"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "spune-mi ceva bun"
+          oh_yeah: "o, da!"
+      status_message:
+          show_comments: "arată comentarii"
+          delete: "Șterge"
+          are_you_sure: "Sunteți sigur(ă)?"
+      show:
+          status_message: "Mesaj Stare"
+          comments: "comentarii"
+          are_you_sure: "Sunteți sigur(ă)?"
+          destroy: "Distruge"
+          view_all: "Vezi Toate"
+          message: "Mesaj"
+          owner: "Proprietar"
+  people:
+      index:
+          add_friend: "adaugă prieten"
+          real_name: "nume real"
+          diaspora_handle: "diaspora id"
+          thats_you: "acesta ești tu!"
+          friend_request_pending: "cerere de prietenie nerezolvată"
+          you_have_a_friend_request_from_this_person: "aveți o cerere de prietenie din partea acestei persoane"
+      new:
+          new_person: "Persoană Nouă"
+          back_to_list: "Înapoi la Listă"
+      show:
+          last_seen: "văzut: %{how_long_ago}"
+          friends_since: "prieteni: %{how_long_ago}"
+          save: "salvează"
+          are_you_sure: "Sunteți sigur(ă)?"
+          remove_friend: "șterge prieten"
