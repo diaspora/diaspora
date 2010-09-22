@@ -122,6 +122,12 @@ class User
     post
   end
 
+  def update_post( post, post_hash = {} )
+    if self.owns? post
+      post.update_attributes(post_hash)
+    end
+  end
+
   def validate_aspect_permissions(aspect_ids)
     aspect_ids = [aspect_ids.to_s] if aspect_ids.is_a? BSON::ObjectId
 

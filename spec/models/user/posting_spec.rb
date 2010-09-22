@@ -64,6 +64,16 @@ describe User do
         aspect1.posts.count.should be 1
       end
     end
+
+    describe '#update_post' do
+      let!(:album) { user.post(:album, :name => "Profile Photos", :to => aspect.id) }
+
+      it 'should update fields' do
+        update_hash = { :name => "Other Photos" }
+        user.update_post( album, update_hash )
+        album.name.should == "Other Photos"
+      end
+    end
   end
 
   context 'dispatching' do
