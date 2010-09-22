@@ -42,6 +42,8 @@ Diaspora::Application.routes.draw do
   match 'receive/users/:id',     :to => 'publics#receive'
   match 'log', :to => "dev_utilities#log"
 
+  #home
+  match 'home', :to => 'aspects#index'
   #root
   root :to => 'aspects#index'
 end
