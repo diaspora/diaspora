@@ -8,7 +8,7 @@ cross_server:
   deploy_to: '/usr/local/app/diaspora'
   user: 'root'
   repo: 'git@github.com:diaspora/diaspora.git'
-  branch: 'master'
+  branch: 'fb'
   default_env: 'development'
 servers:
   tom:
