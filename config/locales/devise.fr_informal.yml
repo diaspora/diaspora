@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-fr_tu:
+fr_informal:
   errors:
     messages:
       not_found: "introuvable"
