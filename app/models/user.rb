@@ -239,6 +239,9 @@ class User
 
   ###Helpers############
   def self.instantiate!( opts = {} )
+    terse_url = APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '')
+    terse_url.chop! if terse_url[-1, 1] == '/'
+
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{terse_url}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
     opts[:person][:serialized_key] = generate_key
