@@ -122,13 +122,9 @@ class User
     post
   end
 
-  def update_or_repost( post, post_hash = {} )
+  def update_post( post, post_hash = {} )
     if self.owns? post
-      if post_hash[:aspect_ids]
-        repost(post, post_hash[:aspect_ids]) if validate_aspect_permissions post_hash[:aspect_ids]
-      else 
-        post.update_attributes!(post_hash)
-      end
+      post.update_attributes(post_hash)
     end
   end
 

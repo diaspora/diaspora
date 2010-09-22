@@ -65,26 +65,13 @@ describe User do
       end
     end
 
-    describe '#update_or_repost' do
+    describe '#update_post' do
       let!(:album) { user.post(:album, :name => "Profile Photos", :to => aspect.id) }
-
-      it 'should repost' do
-        update_hash = { :aspect_ids => aspect1.id }
-        user.should_receive(:repost).with(album, update_hash[:aspect_ids]).and_return album
-        user.update_or_repost( album, update_hash )
-      end
 
       it 'should update fields' do
         update_hash = { :name => "Other Photos" }
-        user.update_or_repost( album, update_hash )
+        user.update_post( album, update_hash )
         album.name.should == "Other Photos"
-      end
-
-      it 'should reject posting to an external aspect' do
-        update_hash = { :aspect_ids => [aspect3.id] }
-        proc{
-          user.update_or_repost( album, update_hash )
-        }.should raise_error /Cannot post to an aspect you do not own./
       end
     end
   end

@@ -37,13 +37,4 @@ class ApplicationController < ActionController::Base
     @request_count = Request.for_user(current_user).size if current_user
   end
 
-  def repost
-    @post = current_user.find_visible_post_by_id params[:id]
-    if current_user.repost( @post, :to => params[:aspect_ids] )
-      flash[:notice] = "Item re-shared."
-    else
-      flash[:error] = "Failed to re-share."
-    end
-  end
-
 end
