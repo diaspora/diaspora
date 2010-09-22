@@ -88,7 +88,7 @@ class PhotosController < ApplicationController
 
     data = clean_hash(params)
 
-    if @photo.update_attributes data[:photo]
+    if current_user.update_or_repost( @photo, data[:photo] )
       flash[:notice] = "Photo successfully updated."
       respond_with @photo
     else

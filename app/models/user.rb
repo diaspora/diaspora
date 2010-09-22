@@ -122,6 +122,16 @@ class User
     post
   end
 
+  def update_or_repost( post, post_hash = {} )
+    if self.owns? post
+      if post_hash[:aspect_ids]
+        repost(post, post_hash[:aspect_ids]) if validate_aspect_permissions post_hash[:aspect_ids]
+      else 
+        post.update_attributes!(post_hash)
+      end
+    end
+  end
+
   def validate_aspect_permissions(aspect_ids)
     aspect_ids = [aspect_ids.to_s] if aspect_ids.is_a? BSON::ObjectId
 

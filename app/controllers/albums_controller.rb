@@ -52,7 +52,7 @@ class AlbumsController < ApplicationController
 
     data = clean_hash(params[:album])
 
-    if @album.update_attributes data
+    if current_user.update_or_repost( @album, data )
       flash[:notice] = "Album #{@album.name} successfully edited."
       respond_with @album
     else
