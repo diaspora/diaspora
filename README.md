@@ -1,6 +1,6 @@
 ## Commit Guidlines
 
-You are welcome to contribute, add and extend Diaspora however you see fit.  We
+You are welcome to contribute, add to and extend Diaspora however you see fit.  We
 will do our best to incorporate everything that meets our guidelines.
 
 We need you to fill out a
@@ -302,7 +302,6 @@ on port 8080. Change the port in config/app_config.yml.
 
 Run `rake db:seed:tom`, then login with user `tom` and password `evankorth`.
 More details in db/seeds/tom.rb.
-
 
 ### Testing
 
