@@ -26,8 +26,8 @@ network.
 **PLEASE, DO NOT RUN IN PRODUCTION. IT IS FUN TO GET RUNNING, BUT EXPECT THINGS
 TO BE BROKEN**
 
-Also, we really want to continue to focus on features and improving the code
-base.  When we think it is ready for general use, we will post more detailed
+We are continuing to build features and improve the code base.
+When we think it is ready for general use, we will post more detailed
 instructions.
 
 ## Notice
