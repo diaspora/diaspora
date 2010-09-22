@@ -49,6 +49,11 @@ namespace :deploy do
     run "ln -s -f #{shared_path}/bundle #{current_path}/vendor/bundle"
   end
 
+  task :symlink_config do
+    run "touch #{shared_path}/app_config.yml"
+    run "ln -s -f #{shared_path}/app_config.yml #{current_path}/config/app_config.yml"
+  end
+
    task :start do
       start_mongo
       start_thin
@@ -127,4 +132,4 @@ namespace :db do
 
 end
 
-after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle"
+after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config'
