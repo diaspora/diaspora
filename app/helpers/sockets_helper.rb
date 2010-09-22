@@ -33,7 +33,4 @@ module SocketsHelper
 
     action_hash.to_json
   end
-
-
-
 end

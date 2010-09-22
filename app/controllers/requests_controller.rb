@@ -47,8 +47,8 @@ class RequestsController < ApplicationController
     begin
       @request = current_user.send_friend_request_to(rel_hash[:friend], aspect)
     rescue Exception => e
-      raise e unless e.message.include? "already friends"
-      flash[:notice] = "You are already friends with #{params[:request][:destination_url]}!"
+      raise e unless e.message.include? "already"
+      flash[:notice] = "#{e.message} #{params[:request][:destination_url]}"
       respond_with :location => aspect
       return
     end

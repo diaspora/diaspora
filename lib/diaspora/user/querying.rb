@@ -31,12 +31,8 @@ module Diaspora
       end
 
       def aspect_by_id( id )
-        self.aspects.find( id )
-      end
-
-      def album_by_id( id )
         id = id.to_id
-        albums.detect{|x| x.id == id }
+        aspects.detect{|x| x.id == id }
       end
 
       def aspects_with_post( id )

@@ -325,10 +325,10 @@ Ongoing discussion:
 - [#diaspora-dev IRC channel](irc://irc.freenode.net/#diaspora-dev)
   ([join via the web client](http://webchat.freenode.net?channels=diaspora-dev))
 
-More general info and updates about the project can be found on our
-[blog](http://joindiaspora.com),
-[and on Twitter](http://twitter.com/joindiaspora). Also, be sure to join the
-official [mailing list](http://http://eepurl.com/Vebk).
+More general info and updates about the project can be found on:
+[Our blog](http://joindiaspora.com),
+[and on Twitter](http://twitter.com/joindiaspora). 
+Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
 
 If you wish to contact us privately about any exploits in Diaspora you may
 find, you can email
