@@ -41,7 +41,7 @@ class StatusMessagesController < ApplicationController
   def clean_hash(params)
     return {
       :message => params[:message],
-      :to      => params[:to]
+      :to      => params[:to],
       :public  => params[:public]
     }
   end
