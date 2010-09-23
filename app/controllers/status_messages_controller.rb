@@ -14,14 +14,12 @@ class StatusMessagesController < ApplicationController
 
     data = clean_hash params[:status_message]
     
-    if @logged_in && params[:status_message][:to] == :public
+    if @logged_in && params[:status_message][:public] == true
       id = 'me'
       type = 'feed'
 
       @res = MiniFB.post(@access_token, id, :type=>type,
                          :metadata=>true, :params=>{:message => params[:status_message][:message]})
-
-      params[:status_message][:to] == :all
     end
 
     @status_message = current_user.post(:status_message, data)
@@ -44,6 +42,7 @@ class StatusMessagesController < ApplicationController
     return {
       :message => params[:message],
       :to      => params[:to]
+      :public  => params[:public]
     }
   end
 end
