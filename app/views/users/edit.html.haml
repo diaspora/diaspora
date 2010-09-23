@@ -77,7 +77,7 @@
 
     - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
     - @fb_friends[:data].each do |friend|
-      = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture"
+      = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
 
     - form_tag "/services/fb_post" do
       = text_area_tag "message"
