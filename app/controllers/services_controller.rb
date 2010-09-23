@@ -16,10 +16,17 @@ class ServicesController < ApplicationController
       @access_token = access_token_hash["access_token"]
 
       # TODO: This is where you'd want to store the token in your database
-      # but for now, we'll just keep it in the cookie so we don't need a database
-      cookies[:access_token] = @access_token
+      # but for now, we'll just keep it in the session so we don't need a database
+      session[:access_token] = @access_token
       flash[:success] = "Authentication successful."
     end
     redirect_to edit_user_url current_user
   end
+
+  def destroy
+    session[:access_token] = nil
+		session[:user_id] = nil
+    redirect_to edit_user_url current_url
+  end
+
 end

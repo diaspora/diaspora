@@ -19,6 +19,7 @@ Diaspora::Application.routes.draw do
   resources :aspects,           :except => [:edit]
 
   match 'services/create',    :to   => "services#create"
+  match 'services/destroy',   :to   => "services#destroy"
 
   match 'warzombie',          :to   => "dev_utilities#warzombie"
   match 'zombiefriends',      :to   => "dev_utilities#zombiefriends"

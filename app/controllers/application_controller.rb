@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def fb_user_info
-    @access_token = cookies[:access_token]
+    @access_token = session[:access_token]
     @logged_in = @access_token.present?
   end
 
