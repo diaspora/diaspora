@@ -260,7 +260,7 @@ class User
   end
   
   def terse_url
-    terse = APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '')
+    terse = APP_CONFIG[:terse_pod_url]
     terse = terse.chop! if terse[-1, 1] == '/'
     terse
   end
