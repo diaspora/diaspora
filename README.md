@@ -26,7 +26,7 @@ network.
 **PLEASE, DO NOT RUN IN PRODUCTION. IT IS FUN TO GET RUNNING, BUT EXPECT THINGS
 TO BE BROKEN**
 
-Some initial installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora)
+Some initial installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora).
 
 We are continuing to build features and improve the code base.
 When we think it is ready for general use, we will post more final
