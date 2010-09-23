@@ -8,6 +8,9 @@ module Diaspora
   module UserModules
     module Friending
       def send_friend_request_to(desired_friend, aspect)
+        # should have different exception types for these?
+        raise "You have already sent a friend request to that person!" if self.pending_requests.detect{ 
+          |x| x.destination_url == desired_friend.receive_url }
         raise "You are already friends with that person!" if self.friends.detect{
           |x| x.receive_url == desired_friend.receive_url}
         request = Request.instantiate(
@@ -62,7 +65,7 @@ module Diaspora
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
 
-        if request_from_me?(friend_request)
+        if request_from_me?(friend_request) && self.aspect_by_id(friend_request.aspect_id)
           aspect = self.aspect_by_id(friend_request.aspect_id)
           activate_friend(friend_request.person, aspect)
 
@@ -86,7 +89,8 @@ module Diaspora
 
       def remove_friend(bad_friend)
         raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
-        aspects.each{|g| g.person_ids.delete( bad_friend.id )}
+        aspects.each{|aspect| 
+          aspect.person_ids.delete( bad_friend.id )}
         self.save
 
         self.raw_visible_posts.find_all_by_person_id( bad_friend.id ).each{|post|

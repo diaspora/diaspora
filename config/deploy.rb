@@ -39,8 +39,6 @@ backers.each{ |backer|
 
 # Start Nginx
 after "deploy:cold" do
-  run("nginx stop")
-  run("killall nginx")
   #run("nginx")
 end
 
@@ -55,9 +53,19 @@ namespace :deploy do
     run "ln -s -f #{shared_path}/bundle #{current_path}/vendor/bundle"
   end
 
+  task :symlink_config do
+    run "touch #{shared_path}/app_config.yml"
+    run "ln -s -f #{shared_path}/app_config.yml #{current_path}/config/app_config.yml"
+  end
+
    task :start do
       start_mongo
       start_thin
+      start_websocket
+  end
+
+  task :start_websocket do
+    run("cd #{current_path} && bundle exec ruby ./script/websocket_server.rb > /dev/null&")
   end
 
   task :start_mongo do
@@ -147,4 +155,4 @@ namespace :db do
 
 end
 
-after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle"
+after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config'

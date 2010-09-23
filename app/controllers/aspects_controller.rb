@@ -16,7 +16,7 @@ class AspectsController < ApplicationController
 
   def create
     @aspect = current_user.aspect params[:aspect]
-    flash[:notice] = "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+    flash[:notice] = I18n.t('aspects.create.success')
     respond_with :location => aspects_manage_path
   end
 
@@ -25,14 +25,20 @@ class AspectsController < ApplicationController
   end
 
   def destroy
-    @aspect = Aspect.find_by_id params[:id]
-    @aspect.destroy
-    flash[:notice] = "You are no longer sharing the aspect called #{@aspect.name}."
-    respond_with :location => aspects_url
+    @aspect = current_user.aspect_by_id params[:id]
+
+    begin
+      current_user.drop_aspect @aspect
+      flash[:notice] = i18n.t 'aspects.destroy.success',:name => @aspect.name
+    rescue RuntimeError => e 
+      flash[:error] = e.message
+    end
+
+    respond_with :location => aspects_manage_path
   end
 
   def show
-    @aspect   = Aspect.find_by_id params[:id]
+    @aspect  = current_user.aspect_by_id params[:id]
     @friends = @aspect.people
     @posts   = current_user.visible_posts( :by_members_of => @aspect ).paginate :per_page => 15, :order => 'created_at DESC'
 
@@ -41,13 +47,15 @@ class AspectsController < ApplicationController
 
   def manage
     @aspect = :manage
-    @remote_requests = Request.for_user current_user
+    @remote_requests = Request.for_user(current_user).all
   end
 
   def update
-    @aspect = Aspect.find_by_id(params[:id])
-    @aspect.update_attributes(params[:aspect])
-    flash[:notice] = "Your aspect, #{@aspect.name}, has been successfully edited."
+    @aspect = current_user.aspect_by_id(params[:id])
+
+    data = clean_hash(params[:aspect])
+    @aspect.update_attributes( data )
+    flash[:notice] = i18n.t 'aspects.update.success',:name => @aspect.name
     respond_with @aspect
   end
 
@@ -55,26 +63,34 @@ class AspectsController < ApplicationController
     params[:moves].each{ |move|
       move = move[1]
       unless current_user.move_friend(move)
-        flash[:error] = "Aspect editing failed for friend #{Person.find_by_id( move[:friend_id] ).real_name}."
-        redirect_to Aspect.first, :action => "edit"
+        flash[:error] = i18n.t 'aspects.move_friends.failure', :real_name => Person.find_by_id( move[:friend_id] ).real_name
+        redirect_to aspects_manage_path
         return
       end
     }
 
-    flash[:notice] = "Aspects edited successfully."
-    redirect_to Aspect.first, :action => "edit"
+    flash[:notice] = i18n.t 'aspects.move_friends.success'
+    redirect_to aspects_manage_path
   end
 
   def move_friend
     unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to])
-      flash[:error] = "didn't work #{params.inspect}"
+      flash[:error] = I18n.t 'aspects.move_friend.error',:inspect => params.inspect
     end
-    if aspect = Aspect.first(:id => params[:to][:to])
-      flash[:notice] = "You are now showing your friend a different aspect of yourself."
-      respond_with aspect
+    if aspect = current_user.aspect_by_id(params[:to][:to])
+      flash[:notice] = I18n.t 'aspects.move_friend.success'
+      render :nothing => true
     else
-      flash[:notice] = "You are now showing your friend a different aspect of yourself."
-      respond_with Person.first(:id => params[:friend_id])
+      flash[:notice] = I18n.t 'aspects.move_friend.failure'
+      render aspects_manage_path
     end
   end
+
+  private
+  def clean_hash(params)
+    return {
+      :name => params[:name]
+    }
+  end
+
 end

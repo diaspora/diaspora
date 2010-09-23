@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-%h1 Add a new album
+%h1=t('.add_a_new_album')
 
 = form_for Album.new do |f|
   = f.error_messages
@@ -11,4 +11,4 @@
     = f.label :name
     = f.text_field :name
     = f.hidden_field :to, :value => aspect
-  = f.submit 'create', :class => 'button'
+  = f.submit t('.create'), :class => 'button'

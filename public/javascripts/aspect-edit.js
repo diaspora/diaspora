@@ -3,42 +3,34 @@
 *   the COPYRIGHT file.
 */
 
-
-$('#move_friends_link').live( 'click', function(){
-  $.post('/aspects/move_friends',
-    { 'moves' : $('#aspect_list').data() },
-    function(){ $('#aspect_title').html("Groups edited successfully!");});
-
-  $(".person").css('background-color','none');
-  $('#aspect_list').removeData();
-  $(".person").attr('from_aspect_id', function(){return $(this).parent().attr('id')})
-
-});
-
-function decrementRequestsCounter(){
-  var old_request_count = $(".new_requests").html().match(/\d+/);
+function decrementRequestsCounter() {
+  var $new_requests = $(".new_requests"),
+      request_html  = $new_requests.html(), 
+      old_request_count = request_html.match(/\d+/);
 
   if( old_request_count == 1 ) {
-    $(".new_requests").html(
-      $(".new_requests").html().replace(/ \(\d+\)/,''));
-
+    $new_requests.html(
+      request_html.replace(/ \(\d+\)/,'')
+    );
   } else {
-    $(".new_requests").html(
-      $(".new_requests").html().replace(/\d+/,old_request_count-1));
+    $new_requests.html(
+      request_html.replace(/\d+/,old_request_count-1)
+    );
   }
-
 }
 
 $(function() {
+  // Multiple classes here won't work
   $("ul .person").draggable({
     revert: true
   });
-
+  
   $("ul .requested_person").draggable({
     revert: true
   });
   
   $(".aspect ul").droppable({
+    hoverClass: 'active',
     drop: function(event, ui) {
 
       if ($(ui.draggable[0]).hasClass('requested_person')){
@@ -51,67 +43,80 @@ $(function() {
           }
         });
 
-      }else {
-        var move = {};
-        move[ 'friend_id' ] = ui.draggable[0].id
-        move[ 'to' ] = $(this)[0].id;
-        move[ 'from' ] = ui.draggable[0].getAttribute('from_aspect_id');
-        if (move['to'] == move['from']){
-          $('#aspect_list').data( ui.draggable[0].id, []);
-          ui.draggable.css('background-color','#eee');
+      };
+        var dropzone = $(this)[0];
+
+        if ($(this)[0].id == ui.draggable[0].getAttribute('from_aspect_id')){
+          ui.draggable.css('background','none');
         } else {
-          $('#aspect_list').data( ui.draggable[0].id, move);
           ui.draggable.css('background-color','orange');
+          $.ajax({
+            url: "/aspects/move_friend/",
+            data: {"friend_id" : ui.draggable[0].id,
+                   "from" : ui.draggable[0].getAttribute('from_aspect_id'),
+                   "to" : { "to" : dropzone.id }},
+            success: function(data){
+              ui.draggable.attr('from_aspect_id', dropzone.id);
+              ui.draggable.css('background','none');
+            }});
+
         }
-      }
       $(this).closest("ul").append(ui.draggable);
     }
   });
 
   $(".remove ul").droppable({
+    hoverClass: 'active',
     drop: function(event, ui) {
 
       if ($(ui.draggable[0]).hasClass('requested_person')){
         $.ajax({
           type: "DELETE",
-          url: "/requests/" + ui.draggable[0].getAttribute('request_id')
+          url: "/requests/" + ui.draggable.attr('request_id'), 
+          success: function () {
+            decrementRequestsCounter();
+          }
         });
-        decrementRequestsCounter();
-        $(ui.draggable[0]).fadeOut('slow')
-      }else{
+        
+      } else {
         $.ajax({
           type: "DELETE",
-          url: "/people/" + ui.draggable[0].id
+          url: "/people/" + ui.draggable.attr('id'), 
+          success: function () {
+            alert("Removed Friend, proably want an undo countdown.")
+          }
         });
-        alert("Removed Friend, proably want an undo countdown.")
-        $(ui.draggable[0]).fadeOut('slow')
-
+        
       }
+
+      $(ui.draggable[0]).fadeOut('slow'); // ui.draggable.fadeOut('slow')      
     }
   });
-});
 
-$(".aspect h1").live( 'click', function() {
 
-  var $this = $(this);
-  var id    = $this.closest("li").children("ul").attr("id");
-  var link  = "/aspects/"+ id;
+  $(".aspect h1").live( 'focus', function() {
 
-  $this.keypress(function(e) {
-    if (e.which == 13) {
-      e.preventDefault();
-      $this.blur();
+    var $this = $(this), 
+        id    = $this.closest("li").children("ul").attr("id"), 
+        link  = "/aspects/"+ id;
 
-      //save changes
-      $.ajax({
-        type: "PUT",
-        url: link,
-        data: {"aspect" : {"name" : $this.text() }}
+    $this.keypress(function(e) {
+      if (e.which == 13) {
+        e.preventDefault();
+        $this.blur();
+
+        //save changes
+        $.ajax({
+          type: "PUT",
+          url: link,
+          data: {"aspect" : {"name" : $this.text() }}
+        });
+      }
+      //update all other aspect links
+      $this.keyup(function(e) {
+        $("#aspect_nav a[href='"+link+"']").text($this.text());
       });
-    }
-    //update all other aspect links
-    $this.keyup(function(e) {
-      $("#aspect_nav a[href='"+link+"']").text($this.text());
     });
   });
+
 });

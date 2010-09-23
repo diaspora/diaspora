@@ -3,5 +3,8 @@
 #   the COPYRIGHT file.
 
 
-raw_config = File.read("#{Rails.root}/config/app_config.yml")
-APP_CONFIG = YAML.load(raw_config)[Rails.env].symbolize_keys
+# Swedish localization file. 
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+sv:
+  hello: "Hej"

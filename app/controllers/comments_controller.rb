@@ -10,16 +10,11 @@ class CommentsController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    target = Post.find_by_id params[:comment][:post_id]
+    target = current_user.find_visible_post_by_id params[:comment][:post_id]
     text = params[:comment][:text]
 
     @comment = current_user.comment text, :on => target
     render :nothing => true
-  end
-
-  def show
-    @comment = Comment.find_by_id params[:id]
-    respond_with @comment
   end
 
 end

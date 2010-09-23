@@ -8,7 +8,7 @@
 
     %div.time
       by
-      = link_to ((current_user.person == post.person)? 'you' : post.person.real_name), person_path(post.person)
+      = link_to ((current_user.person == post.person)? t('.you') : post.person.real_name), person_path(post.person)
       %br
       = link_to(how_long_ago(post), object_path(post, :aspect => @aspect))
 

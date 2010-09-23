@@ -7,13 +7,6 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create]
 
   respond_to :html
-  respond_to :json, :only => :show
-
-  def show
-    @user         = User.find_by_id params[:id]
-    @user_profile = @user.person.profile
-    respond_with @user
-  end
 
   def edit
     @user    = current_user
@@ -23,15 +16,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id params[:id]
-    prep_image_url(params[:user])
+    @user = current_user
 
-    @user.update_profile params[:user]
+    data = clean_hash params[:user]
+    prep_image_url(data)
+
+    @user.update_profile data
     respond_with(@user, :location => root_url)
   end
 
   private
-
   def prep_image_url(params)
     if params[:profile][:image_url].empty?
       params[:profile].delete(:image_url)
@@ -39,4 +33,16 @@ class UsersController < ApplicationController
       params[:profile][:image_url] = "http://" + request.host + ":" + request.port.to_s + params[:profile][:image_url]
     end
   end
+
+  def clean_hash(params)
+    return {
+      :profile =>
+        {
+        :first_name => params[:profile][:first_name],
+        :last_name => params[:profile][:last_name],
+        :image_url => params[:profile][:image_url]
+        }
+    }
+  end
+
 end

@@ -6,17 +6,18 @@
 
 Diaspora::Application.routes.draw do
   resources :people, :only => [:index, :show, :destroy]
-  resources :users, :except => [:create, :new]
-  resources :status_messages, :only => [:create, :destroy, :show]
+  resources :users, :except => [:create, :new, :show]
+  resources :status_messages
   resources :comments, :except => [:index]
   resources :requests, :except => [:edit, :update]
   resources :photos, :except => [:index]
   resources :albums
 
-  match 'aspects/manage', :to => 'aspects#manage'
-  resources :aspects, :except => [:edit]
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
   match 'aspects/move_friend', :to => 'aspects#move_friend', :as => 'move_friend'
+  match 'aspects/manage', :to => 'aspects#manage'
+  resources :aspects, :except => [:edit]
+
 
   match 'warzombie',          :to => "dev_utilities#warzombie"
   match 'zombiefriends',      :to => "dev_utilities#zombiefriends"
@@ -32,6 +33,7 @@ Diaspora::Application.routes.draw do
   match 'signup', :to => 'registrations#new', :as => "new_user_registration"
 
   match 'get_to_the_choppa', :to => redirect("/signup") 
+  match "/finger", :to => AsyncController
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'
