@@ -29,7 +29,7 @@ class AspectsController < ApplicationController
 
     begin
       current_user.drop_aspect @aspect
-      flash[:notice] = "#{@aspect.name} was successfully removed."
+      flash[:notice] = i18n.t 'aspects.destroy.success',:name => @aspect.name
     rescue RuntimeError => e 
       flash[:error] = e.message
     end
@@ -55,7 +55,7 @@ class AspectsController < ApplicationController
 
     data = clean_hash(params[:aspect])
     @aspect.update_attributes( data )
-    flash[:notice] = "Your aspect, #{@aspect.name}, has been successfully edited."
+    flash[:notice] = i18n.t 'aspects.update.success',:name => @aspect.name
     respond_with @aspect
   end
 
@@ -63,25 +63,25 @@ class AspectsController < ApplicationController
     params[:moves].each{ |move|
       move = move[1]
       unless current_user.move_friend(move)
-        flash[:error] = "Aspect editing failed for friend #{current_user.visible_person_by_id( move[:friend_id] ).real_name}."
+        flash[:error] = i18n.t 'aspects.move_friends.failure', :real_name => Person.find_by_id( move[:friend_id] ).real_name
         redirect_to aspects_manage_path
         return
       end
     }
 
-    flash[:notice] = "Aspects edited successfully."
+    flash[:notice] = i18n.t 'aspects.move_friends.success'
     redirect_to aspects_manage_path
   end
 
   def move_friend
     unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to])
-      flash[:error] = "didn't work #{params.inspect}"
+      flash[:error] = I18n.t 'aspects.move_friend.error',:inspect => params.inspect
     end
     if aspect = current_user.aspect_by_id(params[:to][:to])
-      flash[:notice] = "You are now showing your friend a different aspect of yourself."
+      flash[:notice] = I18n.t 'aspects.move_friend.success'
       render :nothing => true
     else
-      flash[:error] = "Invalid aspect id!"
+      flash[:notice] = I18n.t 'aspects.move_friend.failure'
       render aspects_manage_path
     end
   end

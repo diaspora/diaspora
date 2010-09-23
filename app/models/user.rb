@@ -122,6 +122,12 @@ class User
     post
   end
 
+  def update_post( post, post_hash = {} )
+    if self.owns? post
+      post.update_attributes(post_hash)
+    end
+  end
+
   def validate_aspect_permissions(aspect_ids)
     aspect_ids = [aspect_ids.to_s] if aspect_ids.is_a? BSON::ObjectId
 
@@ -253,14 +259,9 @@ class User
     aspect(:name => "Work")
   end
   
-  def terse_url
-    terse = APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '')
-    terse = terse.chop! if terse[-1, 1] == '/'
-    terse
-  end
 
   def diaspora_handle
-    "#{self.username}@#{self.terse_url}"
+    "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
   end
 
   def downcase_username

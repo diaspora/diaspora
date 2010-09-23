@@ -7,7 +7,7 @@
 Diaspora::Application.routes.draw do
   resources :people, :only => [:index, :show, :destroy]
   resources :users, :except => [:create, :new, :show]
-  resources :status_messages, :only => [:create, :destroy, :show]
+  resources :status_messages
   resources :comments, :except => [:index]
   resources :requests, :except => [:edit, :update]
   resources :photos, :except => [:index]
