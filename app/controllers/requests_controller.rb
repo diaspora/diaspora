@@ -42,6 +42,9 @@ class RequestsController < ApplicationController
       return
     end
 
+
+
+    # rel_hash = {:friend => params[:friend_handle]}
     Rails.logger.debug("Sending request: #{rel_hash}")
 
     begin

@@ -57,7 +57,11 @@ module ApplicationHelper
   end
 
   def person_image_link(person)
-    link_to person_image_tag(person), object_path(person)
+    if current_user.friends.include?(person) || current_user.person == person
+      link_to person_image_tag(person), object_path(person)
+    else
+      person_image_tag person
+    end
   end
 
   def new_request(request_count)
