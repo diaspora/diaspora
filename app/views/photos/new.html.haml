@@ -3,12 +3,12 @@
 -#   the COPYRIGHT file.
 
 
-- title "New Photo"
+- title t('.new_photo')
 
 = form_for( @photo, :html => {:multipart => true}) do |f|
   = f.error_messages
   %p
     = f.file_field :image
-    = f.submit 'post it!', :class => 'button'
+    = f.submit t('.post_it'), :class => 'button'
 
-%p= link_to "Back to List", photos_path
+%p= link_to t('.back_to_list'), photos_path

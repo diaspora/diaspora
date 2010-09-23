@@ -42,15 +42,15 @@ class PhotosController < ApplicationController
       end
 
     rescue TypeError
-      message = "Photo upload failed.  Are you sure an image was added?"
+      message = I18n.t 'photos.create.type_error'
       respond_with :location => album, :error => message
 
     rescue CarrierWave::IntegrityError
-      message = "Photo upload failed.  Are you sure that was an image?"
+      message = I18n.t 'photos.create.integrity_error'
       respond_with :location => album, :error => message
 
     rescue RuntimeError => e
-      message = "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      message = I18n.t 'photos.create.runtime_error'
       respond_with :location => album, :error => message
       raise e
     end
@@ -66,7 +66,7 @@ class PhotosController < ApplicationController
     @photo = current_user.find_visible_post_by_id params[:id]
 
     @photo.destroy
-    flash[:notice] = "Photo deleted."
+    flash[:notice] = I18n.t 'photos.destroy.notice'
     respond_with :location => @photo.album
   end
 
@@ -89,10 +89,10 @@ class PhotosController < ApplicationController
     data = clean_hash(params)
 
     if current_user.update_post( @photo, data[:photo] )
-      flash[:notice] = "Photo successfully updated."
+      flash[:notice] = I18n.t 'photos.update.notice'
       respond_with @photo
     else
-      flash[:error] = "Failed to edit photo."
+      flash[:error] = I18n.t 'photos.update.error'
       render :action => :edit
     end
   end

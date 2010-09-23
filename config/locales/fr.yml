@@ -2,28 +2,42 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 # Localization file for French. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 fr:
   hello: "Bonjour tout le monde"
+  application:
+      helper:
+          unknown_person: "unknown person"
+          new_requests: "new requests"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Invalid Fields"
+          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+  people:
+      helper:
+           results_for: " resultados para %{params}"
+           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
   layouts:
       application:
-          edit_profile: "éditer le profil"
-          logout: "déconnexion"
+          edit_profile: "Éditez votre profil"
+          logout: "Déconnexion"
   shared:
       aspect_nav:
-          all_aspects: "Tous les aspects"
-          manage: "Gérer"
-          manage_your_aspects: "Gérer vos aspects"
+          all_aspects: "Tous les Aspects"
+          manage: "Gérez"
+          manage_your_aspects: "Gérez vos Aspects"
       sub_header:
-          all_aspects: "Tous les aspects"
-          manage_aspects: "Gérer les aspects"
+          all_aspects: "Tous les Aspects"
+          manage_aspects: "Gérez vos Aspects"
       publisher:
           share: "Partager"
       aspect_friends:
-          add_friends: "ajouter des amis"
+          add_friends: "Ajouter des amis"
   albums:
       album:
           you: "vous"
@@ -38,12 +52,15 @@ fr:
       edit:
           editing: "Édition"
           updated: "mis à jour"
-          are_you_sure: "Êtes-vous sûr ?"
-          delete_album: "Supprimer l’album"
+          are_you_sure: "Êtes-vous sûr?"
+          delete_album: "Supprimer l'album"
           cancel: "Annuler"
       index:
           home: "accueil"
           new_album: "Nouvel album"
+      helper:
+          friends_albums: "Friends Albums"
+          your_albums: "Your Albums"
       create:
           success: "Tu as créé un album nommé %{name}."
       update:
@@ -58,9 +75,9 @@ fr:
           photos: "photos"
       manage:
           add_a_new_aspect: "Ajouter un nouvel aspect"
-          add_a_new_friend:  "Ajouter un nouvel ami"
-          show: "Afficher"
-          update_aspects: "Metre à jour les aspects"
+          add_a_new_friend:  "Ajouter un nouvel amis"
+          show: "Voir"
+          update_aspects: "Mettre à jour les aspects"
           requests: "Requêtes"
           ignore_remove: "Ignorer/Supprimer"
       new_aspect:
