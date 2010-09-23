@@ -2,21 +2,13 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
-- title t('.status_message')
-
-%p
-  %strong="#{t('.message')}:"
+%h1
+  = link_to @status_message.person.real_name, @status_message.person
   = @status_message.message
-  
-%p
-  %strong="#{t('.owner')}:"
-  = @status_message.person.real_name
 
 %h4= "#{t('.comments')} (#{@status_message.comments.count})"
 = render "comments/comments", :post => @status_message
 
 %p
-  = link_to t('.destroy'), @status_message, :confirm => t('.are_you_sure'), :method => :delete
-  |
-  = link_to t('.view_all'), status_messages_path
+  - if current_user.owns? @status_message
+    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure?'), :method => :delete

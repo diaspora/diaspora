@@ -36,7 +36,9 @@
     %li.aspect
       
       .aspect_name
-        %h1{:contenteditable => true}= aspect.name
+        %span.edit_name_field
+          %h1{:contenteditable => true}= aspect.name
+          %span.tip click to edit
 
         %ul.tools
           %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
@@ -54,13 +56,16 @@
             %li.person{:id => person.id, :from_aspect_id => aspect.id}
               = person_image_tag(person)
               .name
-                = person.real_name
+                = link_to person.real_name, person
         .yo{:style => 'display:none'}
           %div{:id => "add_request_pane_#{aspect.id}"}
             = render "requests/new_request", :aspect => aspect
 
+<<<<<<< HEAD
 %p
   %br
   = link_to t('.update_aspects'), '#', :class => 'button', :id => "move_friends_link"
 
+=======
+>>>>>>> master
 #content_bottom

@@ -4,8 +4,7 @@
 
 
 module DashboardsHelper
-
   def title_for_page
-      I18n.t('dashboards.helper.home')
+    I18n.t('dashboards.helper.home')
   end
 end

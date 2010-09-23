@@ -17,9 +17,14 @@
   = render "shared/aspect_friends"
 
 - content_for :publish do
+  -if current_user.owns? @album
+    .right
+      =render 'photos/new_photo'
+      = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
   %h1
     = @album.name
   ="#{t('.updated')} #{how_long_ago(@album)}"
+
 
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
@@ -31,13 +36,7 @@
   - for photo in @album_photos
     .image_thumb
       = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
-  -if current_user.owns? @album
-    =render 'photos/new_photo'
 
 #content_bottom
   .back
     = link_to "⇧ #{t('.albums')}", albums_path
-
-  -if current_user.owns? @album
-    .right
-      = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'

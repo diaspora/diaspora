@@ -15,8 +15,11 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    aspect =  params[:album][:to]
-    @album = current_user.post(:album, params[:album])
+    aspect = params[:album][:to]
+
+    data = clean_hash(params[:album])
+
+    @album = current_user.post(:album, data)
     flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
     redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
@@ -26,7 +29,7 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = current_user.album_by_id params[:id]
+    @album = current_user.find_visible_post_by_id params[:id]
     @album.destroy
     flash[:notice] =  I18n.t 'albums.destroy.success', :name  => @album.name
     respond_with :location => albums_url
@@ -34,20 +37,22 @@ class AlbumsController < ApplicationController
 
   def show
     @photo = Photo.new
-    @album = Album.find_by_id params[:id]
+    @album = current_user.find_visible_post_by_id( params[:id] )
     @album_photos = @album.photos
-
     respond_with @album
   end
 
   def edit
-    @album = current_user.album_by_id params[:id]
+    @album = current_user.find_visible_post_by_id params[:id]
     redirect_to @album unless current_user.owns? @album
   end
 
   def update
-    @album = current_user.album_by_id params[:id]
-    if @album.update_attributes params[:album]
+    @album = current_user.find_visible_post_by_id params[:id]
+
+    data = clean_hash(params[:album])
+
+    if current_user.update_post( @album, data )
       flash[:notice] =  I18n.t 'albums.update.success', :name  => @album.name
       respond_with @album
     else
@@ -56,4 +61,11 @@ class AlbumsController < ApplicationController
     end
   end
 
+  private
+  def clean_hash(params)
+    return {
+      :name => params[:name],
+      :to   => params[:to]
+    }
+  end
 end
