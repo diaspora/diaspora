@@ -115,6 +115,14 @@ If you're on **Mac OS X**, you already have Ruby on your system.  Yay!
 
 ### MongoDB
 
+To install MongoDB on **Fedora**, use the official repositories
+
+    sudo yum install mongodb-server
+
+Ensure that the server is started at system reboot:
+
+    sudo chkconfig mongod on
+
 To install MongoDB on **Ubuntu**, add the official MongoDB repository
 [here](http://www.mongodb.org/display/DOCS/Ubuntu+and+Debian+packages).
 
@@ -146,32 +154,6 @@ Then run:
 		sudo mkdir -p /data/db
 		sudo chmod -Rv 777 /data/
 
-
-To install MongoDB on a x86_64 **Fedora** system, add the official MongoDB
-repository from MongoDB
-(http://www.mongodb.org/display/DOCS/CentOS+and+Fedora+Packages) into
-/etc/yum.repos.d/10gen.repo:
-
-		[10gen]
-		name=10gen Repository
-		baseurl=http://downloads.mongodb.org/distros/fedora/13/os/x86_64/
-		gpgcheck=0
-		enabled=1
-
-Then use yum to install the packages:
-
-		sudo yum install mongo-stable mongo-stable-server
-
-If you're running a 32-bit system, run `wget
-http://fastdl.mongodb.org/linux/mongodb-linux-i686-1.6.2.tgz`. If you're
-running a 64-bit system, run `wget
-http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-1.6.2.tgz`.
-
-		# extract
-		tar xzf mongodb-linux-i686-1.4.0.tgz
-		# create the required data directory
-		sudo mkdir -p /data/db
-		sudo chmod -Rv 777 /data/
 
 To install MongoDB on **Mac OS X**, run the following:
 
@@ -266,7 +248,7 @@ run `service mongodb start`). If you installed the binary manually, run `sudo
 mongod` from where mongo is installed to start mongo.
 
 If you installed the Fedora package, MongoDB will need to be started via
-`service mongodb start`. If you installed the binary manually, run `sudo
+`service mongod start`. If you installed the binary manually, run `sudo
 mongod` from where Mongo is installed to start Mongo.
 
 If you installed the OsX package through "brew", MongoDB will need to be
