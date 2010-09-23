@@ -10,7 +10,7 @@
       = f.label :username
       = f.text_field :username
     %p.user_network
-      ="@#{APP_CONFIG[:pod_url].gsub(/(http:\/\/)|(\/$)/,'')}"
+      ="@#{APP_CONFIG[:pod_url]}"
 
     %p
       = f.label :password
