@@ -12,7 +12,7 @@
       = link_to "All Aspects", root_url
 
   %ul{ :style => "position:absolute;right:0;bottom:0.01em;"}
-    %li{:class => ("selected" if @aspect == :all)}
+    %li{:class => ("selected" if @aspect == :public)}
       = link_to "Public", aspects_public_path
 
     %li{ :style => "margin-right:0;", :class => ("selected" if @aspect == :manage)}

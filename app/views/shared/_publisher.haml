@@ -16,7 +16,13 @@
       going to...
       - for aspect in @aspects
         %li
-          = check_box_tag("aspect_ids[]", aspect.id, @aspect == :all || current_aspect?(aspect) )
+          = check_box_tag("aspect_ids[]", aspect.id, @aspect == :public || @aspect == :all || current_aspect?(aspect) )
           = aspect.name
       
     = f.submit "Share"
+
+  - if @logged_in
+    - @response_hash = MiniFB.get(@access_token, 'me')
+    = "going to Facebook as #{@response_hash[:name]}"
+
+    
