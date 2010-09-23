@@ -5,7 +5,7 @@
 if ENV['MONGOHQ_URL']
   MongoMapper.config = {RAILS_ENV => {'uri' => ENV['MONGOHQ_URL']}}
 else
-  MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+  MongoMapper.connection = Mongo::Connection.new(APP_CONFIG['mongo_host'], APP_CONFIG['mongo_port'])
 end
 
 MongoMapper.database = "diaspora-#{Rails.env}"
@@ -16,3 +16,4 @@ if defined?(PhusionPassenger)
    end
 end
 
+Magent.connection  = Mongo::Connection.new(APP_CONFIG['mongo_host'], APP_CONFIG['mongo_port'])

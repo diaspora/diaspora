@@ -262,6 +262,11 @@
 				close.show();
 			}
 
+      $("#fancybox-inner input[type='text'], #fancybox-inner textarea").focus(function() {
+          $(document).unbind('keydown.fb');
+      });
+      
+
 			fancybox_set_navigation();
 
 			$(window).bind("resize.fb", $.fancybox.center);

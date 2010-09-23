@@ -10,16 +10,17 @@
   .content
     %span.from
       = link_to post.person.real_name, post.person 
-      = auto_link sanitize post.message
+      = post.message
       
     .info
-      = link_to(how_long_ago(post), object_path(post))
+      %span.time= link_to(how_long_ago(post), object_path(post))
       \--
       = link_to "show comments (#{post.comments.count})", '#', :class => "show_post_comments"
 
-    = render   "comments/comments", :post => post 
-
+    = render "comments/comments", :post => post 
 
   - if current_user.owns?(post)
     .destroy_link
       = link_to 'Delete', status_message_path(post), :confirm => 'Are you sure?', :method => :delete, :remote => true, :class => "delete"
+      = render "shared/reshare", :post => post, :current_user => current_user 
+    
