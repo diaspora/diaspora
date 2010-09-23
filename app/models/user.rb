@@ -259,14 +259,9 @@ class User
     aspect(:name => "Work")
   end
   
-  def terse_url
-    terse = APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '')
-    terse = terse.chop! if terse[-1, 1] == '/'
-    terse
-  end
 
   def diaspora_handle
-    "#{self.username}@#{self.terse_url}"
+    "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
   end
 
   def downcase_username
