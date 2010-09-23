@@ -29,4 +29,12 @@ class ServicesController < ApplicationController
     redirect_to edit_user_url current_user
   end
 
+  def fb_post
+    id = 'me'
+    type = 'feed'
+
+    @res = MiniFB.post(@access_token, id, :type=>type, :metadata=>true, :params=>params)
+    redirect_to user_edit_url current_user
+  end
+
 end

@@ -65,6 +65,12 @@
       Connected to facebook as 
       - @response_hash = MiniFB.get(@access_token, 'me')
       = @response_hash[:name]
+
+
+      - form_tag :controller => "services", :action => "fb_post"
+        = text_area_tag "message"
+        = submit_tag "send it off"
+
       = link_to "Disconnect from Facebook", services_destroy_path
     - else
       = link_to "Connect to Facebook", @fb_access_url
