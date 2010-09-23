@@ -94,8 +94,8 @@ en:
           failure: "Aspect editing failed for friend %{real_name}."
           success: "Aspects edited successfully."
       move_friend:
-          error: "didn't work %{inspect}"
-          notice: "You are now showing your friend a different aspect of yourself."
+          failure: "didn't work %{inspect}"
+          success: "You are now showing your friend a different aspect of yourself."
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
