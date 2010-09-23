@@ -59,15 +59,15 @@
 
   %h2 Services
 
-    %h3 Facebook
-      %p
-      - if @logged_in
-        Connected to facebook as 
-        - @response_hash = MiniFB.get(@access_token, 'me')
-        = @response_hash[:name]
-        = link_to "Disconnect from Facebook", services_destroy_path
-      - else
-        = link_to "Connect to Facebook", @fb_access_url
+  %h3 Facebook
+    %p
+    - if @logged_in
+      Connected to facebook as 
+      - @response_hash = MiniFB.get(@access_token, 'me')
+      = @response_hash[:name]
+      = link_to "Disconnect from Facebook", services_destroy_path
+    - else
+      = link_to "Connect to Facebook", @fb_access_url
     
 
   #submit_block
