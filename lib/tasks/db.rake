@@ -62,6 +62,7 @@ namespace :db do
       if person.owner
         person.url = APP_CONFIG[:pod_url]
         person.diaspora_handle = person.owner.diaspora_handle
+        person.save 
       end
     }
     puts "everything should be peachy"
