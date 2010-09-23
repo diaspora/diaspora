@@ -1,0 +1,35 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3.  See
+-#   the COPYRIGHT file.
+
+
+- content_for :page_title do
+  = link_to "photos", albums_path(:aspect => @aspect)
+
+- content_for :left_pane do
+  = render "shared/aspect_friends"
+
+- content_for :publish do
+  = render "shared/publisher", :aspect_ids => :public
+
+%h3 Facebook
+%p
+  - if @logged_in
+    Connected to facebook as 
+    - @response_hash = MiniFB.get(@access_token, 'me')
+    = @response_hash[:name]
+
+    - form_tag "/services/fb_post" do
+      = text_area_tag "message"
+      = submit_tag "send it off"
+
+    = link_to "Disconnect from Facebook", services_destroy_path
+  - else
+    = link_to "Connect to Facebook", @fb_access_url
+
+%ul#stream
+  - for post in @posts
+    = render type_partial(post), :post => post unless post.class == Album
+#pagination
+  = will_paginate @posts
+
