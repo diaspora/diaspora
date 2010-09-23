@@ -26,7 +26,7 @@ class ServicesController < ApplicationController
   def destroy
     session[:access_token] = nil
 		session[:user_id] = nil
-    redirect_to edit_user_url current_url
+    redirect_to edit_user_url current_user
   end
 
 end
