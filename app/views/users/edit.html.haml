@@ -60,7 +60,7 @@
   %h2 Services
 
   %h3 Facebook
-    %p
+  %p
     - if @logged_in
       Connected to facebook as 
       - @response_hash = MiniFB.get(@access_token, 'me')
