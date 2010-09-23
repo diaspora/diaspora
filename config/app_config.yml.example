@@ -12,7 +12,7 @@ default:
   socket_collection_name: 'websocket'
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
   mongo_host: 'localhost'
-  mongo_post: 27017
+  mongo_port: 27017
   
 development:
 
