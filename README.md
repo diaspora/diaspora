@@ -279,6 +279,12 @@ Diaspora will not run unless Mongo is running.  Mongo will not run by default,
 and will need to be started every time you wish to use or run the test suite
 for Diaspora.
 
+### Configure Diaspora
+
+Diaspora needs to know where on the internet it is.  Copy config/app_config_example.yml
+to config/app_config.yml, put your url into the url field, and make any other
+needed configuration changes.
+
 ### Run the server
 
 `./script/server` will start both thin and the websocket server.  If you want
