@@ -3,20 +3,8 @@
 #   the COPYRIGHT file.
 
 
-<<<<<<< HEAD
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
-#   
-#   1st DRAFT of the italian translation
-#   09/2010	Guido Serra aka Zeph <zeph@fsfe.org>
-
-it:
-  hello: "Ciao Mondo!"
-=======
 # Sample localization file for Italian. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 it:
   hello: "Ciao Mondo"
->>>>>>> af91eb51b4ff8d001bbdceba4b4e9e45db498190
