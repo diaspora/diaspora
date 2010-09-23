@@ -8,7 +8,10 @@
 
   .content
     %span.from
-      = link_to person.real_name, person_path(person)
+      - if current_user.friends.include?(person) || person.id == current_user.person.id
+        = link_to person.real_name, person_path(person)
+      - else
+        = person.real_name
 
     .info
       = person.diaspora_handle
