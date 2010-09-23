@@ -16,6 +16,7 @@ Diaspora::Application.routes.draw do
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
   match 'aspects/move_friend',  :to => 'aspects#move_friend', :as => 'move_friend'
   match 'aspects/manage',       :to => 'aspects#manage'
+  match 'aspects/public',       :to => 'aspects#public'
   resources :aspects,           :except => [:edit]
 
   match 'services/create',    :to   => "services#create"
