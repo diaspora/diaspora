@@ -33,15 +33,13 @@ instructions.
 ## Notice
 
 We currently run Diaspora with the [thin](http://code.macournoyer.com/thin/) as
-our webserver, behind [nginx](http://wiki.nginx.org/Main). Diaspora uses the
-asynchronous feature of [EventMachine](http://rubyeventmachine.com/) to send
-messages between seeds, using the power of the
-[Reactor](http://en.wikipedia.org/wiki/Reactor_pattern) pattern.  If you use
-mod_rails, mongrel, or another non-eventmachine based application server,
-federation and/or websockets may not work.
+our webserver, behind [nginx](http://wiki.nginx.org/Main). Diaspora uses an
+asynchronous [EventMachine](http://rubyeventmachine.com/) queue inside the appserver
+to send messages between seeds.  If you use mod_rails, mongrel, or another 
+non-eventmachine based application server, federation may not work.
 
 If you don't like thin, you can always try
-[Rainbows!](http://rainbows.rubyforge.org/) We will try and fully support more
+[Rainbows!](http://rainbows.rubyforge.org/) We will try to fully support more
 webservers later, but that is what works for now.
 
 These instructions are for machines running [Ubuntu](http://www.ubuntu.com/),
