@@ -8,7 +8,7 @@
     var uploader = new qq.FileUploader({
         element: document.getElementById('file-upload'),
         params: {'album_id' : "#{@album.id}"},
-        allowedExtensions: ['jpg', 'jpeg', 'png'],
+        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
         action: "#{photos_path}"
     });           
   }
