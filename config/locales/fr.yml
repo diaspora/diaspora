@@ -145,7 +145,7 @@ fr:
       index:
           add_friend: "ajouter un ami"
           real_name: "nom réel"
-          diaspora_handle: "maniement de diaspora"
+          diaspora_handle: "maniement de Diaspora"
           thats_you: "c’est vous !"
           friend_request_pending: "Requête d’ami en attente"
           you_have_a_friend_request_from_this_person: "vous avez une requête d’ami de la part de cette personne"
