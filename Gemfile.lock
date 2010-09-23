@@ -104,8 +104,6 @@ GEM
     addressable (2.2.1)
     arel (1.0.1)
       activesupport (~> 3.0.0)
-    async_sinatra (0.2.3)
-      sinatra (>= 1.0)
     autotest (4.3.2)
     bcrypt-ruby (2.1.2)
     bson (1.0.7)
@@ -214,8 +212,6 @@ GEM
     selenium-client (1.2.18)
     selenium-rc (2.2.4)
       selenium-client (>= 1.2.18)
-    sinatra (1.0)
-      rack (>= 1.0)
     subexec (0.0.4)
     thin (1.2.7)
       daemons (>= 1.0.9)
@@ -242,7 +238,6 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
-  async_sinatra
   autotest
   bson (= 1.0.7)
   bson_ext (= 1.0.7)
@@ -271,7 +266,6 @@ DEPENDENCIES
   ruby-debug
   saucelabs-adapter (= 0.8.12)
   selenium-rc
-  sinatra (= 1.0)
   sprinkle!
   thin
   webmock

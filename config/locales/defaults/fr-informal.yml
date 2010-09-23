@@ -53,7 +53,7 @@ fr-informal:
       edit:
           editing: "Édition"
           updated: "mis à jour"
-          are_you_sure: "Es-tu sûr(e) ?"
+          are_you_sure: "Es-tu sûr(e)?"
           delete_album: "Supprimer l’album"
           cancel: "Annuler"
       index:
@@ -66,7 +66,7 @@ fr-informal:
           failure: "L’édition de l’album %{name} a échoué."
       destroy:
           success: "L’album %{name} a été supprimé."
-        helper:
+      helper:
           friends_albums: "Albums d’amis"
           your_albums: "Tes albums"
   aspects:

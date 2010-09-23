@@ -7,35 +7,35 @@ it:
   errors:
     messages:
       not_found: "non trovato"
-      already_confirmed: "già confermato"
-      not_locked: "non bloccato"
+      already_confirmed: "è già stato confermato"
+      not_locked: "non era bloccato"
 
   devise:
     failure:
-      unauthenticated: 'È necessario che tu acceda o ti registri prima di continuare.'
-      unconfirmed: 'Devi confermare il tuo account prima di continuare.'
-      locked: 'Il tuo account è bloccato.'
-      invalid: 'Email o password invalida.'
-      invalid_token: 'Invalido token di autenticazione.'
-      timeout: 'La tua sessione è scaduta, per favore accedi nuovamente per continuare.'
-      inactive: 'Il tuo account non è ancora stato attivato.'
+      unauthenticated: "Devi effettuare l'accesso o registrarti prima di continuare."
+      unconfirmed: "Devi confermare il tuo account prima di continuare."
+      locked: "Il tuo account è bloccato."
+      invalid: "Email o password errati."
+      invalid_token: "Token di autenticazione errato."
+      timeout: "La tua sessione è scaduta, effettua di nuovo l'accesso per continuare."
+      inactive: "Il tuo account non è ancora stato attivato."
     sessions:
-      signed_in: 'Collegamento avvenuto con successo.'
-      signed_out: 'Uscita avvenuta con successo.'
+      signed_in: "Accesso effettuato con successo."
+      signed_out: "Disconnessione effettuata con successo."
     passwords:
-      send_instructions: 'Tra quale minuto riceverai una email con le istruzioni per ripristinare la password.'
-      updated: 'La tua password è stata cambiata con successo. Ora sei collegato.'
+      send_instructions: "Tra pochi minuti riceverai una email con le istruzioni su come cambiare la tua password."
+      updated: "La tua password è stata modificata. Hai appena effettuato l'accesso."
     confirmations:
-      send_instructions: 'Tra qualche minuti riceverai una email con le istruzioni per confermare il tuo account.'
-      confirmed: 'Il tuo account è stato confermato con successo. Ora sei collegato.'
+      send_instructions: "Tra pochi minuti riceverai una email per confermare il tuo account."
+      confirmed: "Il tuo account è stato confermato con successo. Hai appena effettuato l'accesso."
     registrations:
-      signed_up: 'Ti sei registrato con successo. Se abilitato, ti verrà inviata una email di conferma.'
-      updated: 'Hai aggiornato il tuo account.'
-      destroyed: 'Addio! Il tuo account è stato cancellato. Speriamo di rivederti presto.'
+      signed_up: "Ti sei iscritto. Se il servizio è disponibile, riceverai una conferma via email."
+      updated: "Hai aggiornato il tuo account."
+      destroyed: "Ciao! Il tuo account è stato rimosso. Speriamo che tu torni a trovarci presto."
     unlocks:
-      send_instructions: 'Tra qualche minuti riceverai una email con le istruzioni per sbloccare il tuo account.'
-      unlocked: 'Il tuo account è stato sbloccato. Ora sei collegato.'
+      send_instructions: "Tra pochi minuti riceverai una mail con le istruzioni su come sbloccare il tuo account."
+      unlocked: "Il tuo account è stato sbloccato. Hai appena effettuato l'accesso."
     mailer:
-      confirmation_instructions: 'Istruzioni per la conferma'
-      reset_password_instructions: 'Istruzioni per il reset della password'
-      unlock_instructions: 'Istruzioni per lo sblocco'
+      confirmation_instructions: "Istruzioni sulla conferma"
+      reset_password_instructions: "Istruzioni su come cambiare la password"
+      unlock_instructions: "Istruzioni su come sbloccare l'account"
