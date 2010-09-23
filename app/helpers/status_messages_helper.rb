@@ -8,7 +8,7 @@ module StatusMessagesHelper
     unless @latest_status_message.nil?
       return @latest_status_message.message
     else
-      return "No message to display."
+      return I18n.t('status_messages.helper.no_message_to_display')
     end
   end
 end

@@ -6,15 +6,15 @@
 #aspect_nav
   %ul
     - for aspect in @aspects
-      %li{:id => aspect.id, :class => ("selected" if current_aspect?(aspect))}
+      %li{:class => ("selected" if current_aspect?(aspect))}
         = link_for_aspect aspect
 
   %ul{ :style => "position:absolute;right:0;bottom:0.01em;"}
     %li{:class => ("selected" if @aspect == :all)}
-      = link_to "All Aspects", root_url
+      = link_to t('.all_aspects'), root_url
 
     %li{ :style => "margin-right:0;", :class => ("selected" if @aspect == :manage)}
-      = link_to ( (@request_count == 0)? "Manage Aspects" : "Manage Aspects (#{@request_count})"), {:controller => :aspects, :action => :manage}, :class => "edit_aspect_button", :class => new_request(@request_count), :title => "Manage your Aspects"
+      = link_to ( (@request_count == 0)? t('.manage') : "#{t('.manage')} (#{@request_count})"), {:controller => :aspects, :action => :manage}, :class => "edit_aspect_button", :class => new_request(@request_count), :title => t('.manage_your_aspects')
 
   .yo{ :style => "display:none;"}
     #add_aspect_pane

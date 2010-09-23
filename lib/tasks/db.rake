@@ -58,19 +58,13 @@ namespace :db do
   task :fix_diaspora_handle do
     puts "fixing the people in this seed"
     require 'config/environment'
-    
-    people = Person.all( '$where' => "function(){ 
-                        return this.diaspora_handle.charAt(this.diaspora_handle.length-1) == '@'
-                        }")
-    
-    puts "Found #{people.count} people with broken diaspora_handle fields"
-    people.each do |person|
+    Person.where(:url => 'example.org').all.each{|person|
       if person.owner
-        puts "Resetting diaspora handle for #{person.owner.username}"
+        person.url = APP_CONFIG[:pod_url]
         person.diaspora_handle = person.owner.diaspora_handle
-        person.save
+        person.save 
       end
-    end
+    }
     puts "everything should be peachy"
   end
 end

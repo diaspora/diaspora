@@ -4,7 +4,7 @@
 
 
 - content_for :page_title do
-  = @person.real_name
+  profile
 
 - content_for :left_pane do
   #profile
@@ -13,19 +13,19 @@
     %ul
       -unless @posts.first.nil?
         %li
-          %i= "last seen: #{how_long_ago(@posts.first)}"
+          %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
       - if @person != current_user.person && current_user.friends.include?(@person)
         %li
-          %i= "friends since: #{how_long_ago(@person)}"
+          %i= t(".friends_since",:how_long_ago => how_long_ago(@person))
         %li
           = form_tag move_friend_path
           = select :to, :to,  @aspects_dropdown_array, :selected => @aspects_with_person.first.id
           = hidden_field_tag :from, :from, :value => @aspects_with_person.first.id
           = hidden_field_tag :friend_id, :friend_id, :value => @person.id
-          = submit_tag "save"
+          = submit_tag t('.save')
 
     - if @person != current_user.person && current_user.friends.include?(@person)
-      = link_to 'remove friend', @person, :confirm => 'Are you sure?', :method => :delete, :class => "button"
+      = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
 
 .span-20.last
   
@@ -36,4 +36,4 @@
           = render type_partial(post), :post => post unless post.class == Album
         = will_paginate @posts
     - else
-      %h3 no posts to display!
+      %h3=t('no posts to display!')
