@@ -14,15 +14,15 @@ de:
           new_requests: "neue Anfrage"
   dashboards:
       helper:
-          home: "home"
+          home: "Startseite"
   error_messages:
       helper:
           invalid_fields: "Ungültige Felder"
-          correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und probier es erneut."
+          correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und probiere es erneut."
   people:
       helper:
-           results_for: " resultados para %{params}"
-           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
+           results_for: " Resultate für %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
       application:
           edit_profile: "Profil bearbeiten"
@@ -85,19 +85,19 @@ de:
           add_a_new_aspect: "Neuen Aspekt erstellen"
           create: "Erstellen"
       create:
-          success: "Klicke auf das Plus auf der rechten Seite um Diaspora mitzuteilen wer deinen neuen Aspekt sehen kann."
+          success: "Klicke auf das Plus auf der linken Seite um Diaspora mitzuteilen wer deinen neuen Aspekt sehen kann."
       destroy:
           success: "%{name} wurde erfolgreich gelöscht."
       update:
           success: "Dein Aspekt, %{name}, wurde erfolgreich geändert."
       move_friends:
-          failure: "Aspect editing failed for friend %{real_name}."
+          failure: "Ändern des Aspekts für deinen Freund %{real_name} schlug fehl."
           success: "Aspekt erfolgreich geändert."
       move_friend:
           error: "didn't work %{inspect}"
-          notice: "You are now showing your friend a different aspect of yourself."
+          notice: "Du zeigst deinem Freund jetzt einen anderen Aspekt von dir."
       helper:
-          remove: "remove"
+          remove: "entfernen"
           aspect_not_empty: "Aspekt ist nicht leer"          
   users:
       edit:
@@ -109,8 +109,8 @@ de:
           picture: "Bild"
           editing_profile: "Profil bearbeiten"
           albums: "Alben"
-          you_dont_have_any_photos: "#TODO"
-          page_to_upload_some:  "#TODO"
+          you_dont_have_any_photos: "Du hast keine Fotos! Gehe auf die"
+          page_to_upload_some:  "Seite um welche hochzuladen."
   comments:
       comment:
           # this won't work in german at all. Needs more thorough I18n
@@ -132,18 +132,18 @@ de:
           delete_photo: "Foto löschen"
       photo:
           show_comments: "Kommentare anzeigen"
-          posted_a_new_photo_to: "posted a new photo to"          
+          posted_a_new_photo_to: "neues Fotos veröffentlicht bei"          
       new:
           new_photo: "Foto erstellen"
           back_to_list: "Zurück zur Liste"
           post_it: "Hochladen"
       create:
-          runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-          integrity_error: "Photo upload failed.  Are you sure that was an image?"
-          type_error: "Photo upload failed.  Are you sure an image was added?"
+          runtime_error: "Hochladen eines Fotos fehlgeschlagen.  Bist du sicher, dass dein Sicherheitsgurt befestigt ist?"
+          integrity_error: "Hochladen eines Fotos fehlgeschlagen.  Bist du sicher, dass das ein Bild war?"
+          type_error: "Hochladen eines Fotos fehlgeschlagen.  Bist du sicher, dass ein Bild hinzugefügt wurde?"
       update:
           notice: "Foto erfolgreich aktualisiert."
-          error:  "Failed to edit photo."
+          error:  "Ändern des Fotos fehlgeschlagen."
       destroy:
           notice: "Foto gelöscht."
   registrations:
@@ -154,7 +154,7 @@ de:
   status_messages:
       new_status_message:
           tell_me_something_good: "Erzähl' mir was schönes!"
-          oh_yeah: "Hey, super!"
+          oh_yeah: "Oh, super!"
       status_message:
           show_comments: "Kommentare anzeigen"
           delete: "Löschen"
@@ -166,13 +166,13 @@ de:
           destroy: "Löschen"
           view_all: "Alle anzeigen"
           message: "Nachricht"
-          owner: "Besitzer"
+          owner: "Eigentümer"
       helper:
-          no_message_to_display: "No message to display."
+          no_message_to_display: "Keine Nachricht zum anzeigen."
   people:
       index:
           add_friend: "Freund hinzufügen"
-          real_name: "real name"
+          real_name: "Echter Name"
           diaspora_handle: "diaspora handle"
           thats_you: "das bist du!"
           friend_request_pending: "Freundschaftsanfrage ausstehend"
@@ -183,15 +183,15 @@ de:
       show:
           last_seen: "zuletzt gesehen: %{how_long_ago}"
           friends_since: "Freunde seit: %{how_long_ago}"
-          save: "save"
+          save: "speichern"
           are_you_sure: "Bist du sicher?"
-          remove_friend: "remove friend"
+          remove_friend: "Freund entfernen"
       destroy:
           success: "Ihr seid jetzt Freunde."
           error: "Bitte wähle einen Aspekt aus!"
           ignore: "Freundschaftsanfrage ignorieren."
       create:
-          error: "No diaspora seed found with this email!"
+          error: "Kein Diaspora-Seed in dieser E-Mail gefunden!"
           already_friends: "Du bist bereits mit %{destination_url} befreundet!"
           success: "Eine Freundschaftsanfrage wurde an %{destination_url} gesendet."
           horribly_wrong: "Etwas ging tierisch schief."
