@@ -128,14 +128,18 @@ class User
   end
 
   def validate_aspect_permissions(aspect_ids)
-    aspect_ids = [aspect_ids.to_s] if aspect_ids.is_a? BSON::ObjectId
+    if aspect_ids == "all"
+      return aspect_ids
+    end
+
+    aspect_ids = [aspect_ids.to_s] unless aspect_ids.is_a? Array
 
     if aspect_ids.nil? || aspect_ids.empty?
       raise ArgumentError.new("You must post to someone.")
     end
 
     aspect_ids.each do |aspect_id|
-      unless aspect_id == "all" || self.aspects.find(aspect_id) 
+      unless self.aspects.find(aspect_id) 
         raise ArgumentError.new("Cannot post to an aspect you do not own.")
       end 
     end
