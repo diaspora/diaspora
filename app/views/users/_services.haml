@@ -1,0 +1,28 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3.  See
+-#   the COPYRIGHT file.
+
+
+%h2 Services
+
+%h3 Facebook
+%p
+  - if @logged_in
+    Connected to facebook as 
+    - @response_hash = MiniFB.get(@access_token, 'me')
+    = @response_hash[:name]
+
+    - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
+    - @fb_friends[:data].each do |friend|
+      = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
+
+    - form_tag "/services/fb_post" do
+      = text_area_tag "message"
+      = submit_tag "send it off"
+    = link_to "Disconnect from Facebook", services_destroy_path
+  - else
+    = link_to "Connect to Facebook", @fb_access_url
+
+  #content_bottom
+    .back
+      = link_to "⇧ home", root_path

@@ -50,7 +50,7 @@
                 = text_field_tag 'q'
 
             %li= link_to current_user.real_name, current_user.person
-            %li= link_to "edit profile", edit_user_path(current_user)
+            %li= link_to "settings", edit_user_path(current_user)
             %li= link_to "logout", destroy_user_session_path
 
         = render "shared/aspect_nav"
