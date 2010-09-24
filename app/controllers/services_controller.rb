@@ -17,15 +17,15 @@ class ServicesController < ApplicationController
 
       # TODO: This is where you'd want to store the token in your database
       # but for now, we'll just keep it in the session so we don't need a database
-      session[:access_token] = @access_token
+      env['warden'].session[:access_token] = @access_token
       flash[:success] = "Authentication successful."
     end
     redirect_to edit_user_url current_user
   end
 
   def destroy
-    session[:access_token] = nil
-		session[:user_id] = nil
+    env['warden'].session[:access_token] = nil
+		env['warden'].session[:user_id] = nil
     redirect_to edit_user_url current_user
   end
 
