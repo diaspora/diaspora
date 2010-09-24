@@ -85,7 +85,7 @@ it:
           add_a_new_aspect: "Aggiungi un nuovo aspetto"
           create: "Crea"
       create:
-          success: "Clicca sul segno "più" nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
+          success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
       destroy:
           success: "%{name} è stato rimosso con successo."
       update:
