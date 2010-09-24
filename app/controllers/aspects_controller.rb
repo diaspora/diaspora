@@ -50,7 +50,6 @@ class AspectsController < ApplicationController
                                       :scope=>MiniFB.scopes.join(","))
 
     @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
-    @aspect = :all
 
     respond_with @aspect
   end

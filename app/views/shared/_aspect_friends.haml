@@ -8,7 +8,7 @@
   - for friend in @friends
     = person_image_link(friend)
 
-  -unless @aspect == :all
+  -unless (@aspect == :all) || (@aspect == :public)
     = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane", :id => 'add_request_button'
   
     .yo{:style => 'display:none'}

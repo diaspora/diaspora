@@ -10,6 +10,8 @@
             = link_to "All Aspects", root_path
           - elsif @aspect == :manage
             = "Manage Aspects"
+          - elsif @aspect == :public
+            = "Public"
           - else
             = link_to @aspect.name, @aspect
 
