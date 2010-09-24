@@ -180,7 +180,6 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
-    redgreen (1.2.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     rspec (2.0.0.beta.22)
@@ -252,7 +251,6 @@ DEPENDENCIES
   pubsubhubbub
   rails (= 3.0.0)
   redfinger!
-  redgreen
   roxml!
   rspec (>= 2.0.0.beta.17)
   rspec-rails (= 2.0.0.beta.17)

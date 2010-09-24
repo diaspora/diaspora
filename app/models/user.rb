@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 require File.expand_path('../../../lib/diaspora/user/friending', __FILE__)
 require File.expand_path('../../../lib/diaspora/user/querying', __FILE__)
 require File.expand_path('../../../lib/diaspora/user/receiving', __FILE__)
@@ -258,20 +257,6 @@ class User
     aspect(:name => "Family")
     aspect(:name => "Work")
   end
-<<<<<<< HEAD
-
-  def self.create(opts ={})
-    puts opts.inspect
-  end
-
-  def terse_url
-    terse = self.url.gsub(/(https?:|www\.)\/\//, '')
-    terse = terse.chop! if terse[-1, 1] == '/'
-    terse
-  end
-=======
-  
->>>>>>> master
 
   def diaspora_handle
     "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
