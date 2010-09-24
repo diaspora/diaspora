@@ -8,7 +8,7 @@
   - for friend in @friends
     = person_image_link(friend)
     - if @logged_in && (@aspect == :public)
-      Facebook Friends
+      %h3 Facebook Friends
       - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")                                                                                            
       - @fb_friends[:data].each do |friend|            
         = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
