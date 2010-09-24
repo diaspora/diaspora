@@ -20,7 +20,7 @@ describe Aspect do
       aspect.name.should == "losers"
     end
 
-    it 'should be able to have people' do
+    it 'should be creatable with people' do
       aspect = @user.aspect(:name => 'losers', :people => [@friend, @friend_2])
       aspect.people.size.should == 2
     end
@@ -156,16 +156,16 @@ describe Aspect do
       @user.receive message.to_diaspora_xml
       @aspect.reload
 
-      @aspect.posts.count.should be 1
-      @aspect3.posts.count.should be 0
+      @aspect.posts.count.should == 1
+      @aspect3.posts.count.should == 0
 
       @user.reload
       @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect3.id)
       @aspect.reload
       @aspect3.reload
 
-      @aspect3.posts.count.should be 1
-      @aspect.posts.count.should be 0
+      @aspect3.posts.count.should == 1
+      @aspect.posts.count.should == 0
 
     end
 
