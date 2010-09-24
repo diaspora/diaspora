@@ -14,3 +14,5 @@ gpg/*/random_seed
 public/uploads/*
 .rvmrc
 config/app_config.yml
+bin/*
+nbproject
