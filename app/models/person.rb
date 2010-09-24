@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-require 'lib/hcard'
+require File.expand_path('../../../lib/hcard', __FILE__)
 
 class Person
   include MongoMapper::Document
@@ -34,11 +34,9 @@ class Person
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
 
-
   def self.search(query)
-    Person.all('$where' => "function() { return this.diaspora_handle.match(/^#{query}/i) ||
-               this.profile.first_name.match(/^#{query}/i) ||
-               this.profile.last_name.match(/^#{query}/i); }")
+    query = Regexp.escape( query.to_s.strip )
+    Person.all('profile.first_name' => /^#{query}/i) | Person.all('profile.last_name' => /^#{query}/i)
   end
 
   def real_name
@@ -79,9 +77,11 @@ class Person
   end
 
   def self.by_webfinger( identifier, opts = {})
-    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
-
+    #need to check if this is a valid email structure, maybe should do in JS
+    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', '').to_s.downcase)
+    
      if local_person
+       Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
        local_person
      elsif  !identifier.include?("localhost") && !opts[:local]
        begin
@@ -104,8 +104,8 @@ class Person
     
     return nil unless public_key_entry
     
-    public_key = public_key_entry.first.href
-    new_person.exported_key = Base64.decode64 public_key
+    pubkey = public_key_entry.first.href
+    new_person.exported_key = Base64.decode64 pubkey
 
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid

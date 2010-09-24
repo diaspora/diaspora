@@ -19,18 +19,18 @@ describe Diaspora::WebSocket do
 
   describe 'queuing and dequeuing ' do
     before do
-      @post.socket_to_uid(@user.id, :aspect_ids => @aspect.id)
       @channel = Magent::GenericChannel.new('websocket')
+      @messages = @channel.message_count
+      @post.socket_to_uid(@user.id, :aspect_ids => @aspect.id)
     end
 
     it 'should send the queued job to Magent' do
-      @channel.message_count.should == 1
+      @channel.message_count.should == @messages + 1
     end
 
     it 'should dequeue the job successfully' do
-      messages = @channel.message_count
       @channel.dequeue
-      @channel.message_count.should == messages -1
+      @channel.message_count.should == @messages
     end
   end
 

@@ -17,14 +17,15 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    prep_image_url(params[:user])
 
-    @user.update_profile params[:user]
+    data = clean_hash params[:user]
+    prep_image_url(data)
+
+    @user.update_profile data
     respond_with(@user, :location => root_url)
   end
 
   private
-
   def prep_image_url(params)
     if params[:profile][:image_url].empty?
       params[:profile].delete(:image_url)
@@ -32,4 +33,16 @@ class UsersController < ApplicationController
       params[:profile][:image_url] = "http://" + request.host + ":" + request.port.to_s + params[:profile][:image_url]
     end
   end
+
+  def clean_hash(params)
+    return {
+      :profile =>
+        {
+        :first_name => params[:profile][:first_name],
+        :last_name => params[:profile][:last_name],
+        :image_url => params[:profile][:image_url]
+        }
+    }
+  end
+
 end
