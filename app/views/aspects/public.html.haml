@@ -21,7 +21,7 @@
   - if @logged_in
     - MiniFB.get(@access_token, 'me', :type => "feed").each do |item|
       - if item['type'] == 'status'
-        = render "fb_status", :post => FbStatus.from_api()
+        = render "fb_status", :post => FbStatus.from_api(item)
 
 #pagination
   = will_paginate @posts
