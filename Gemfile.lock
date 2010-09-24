@@ -57,19 +57,13 @@ GIT
 
 GIT
   remote: http://github.com/jnunemaker/mongomapper.git
-  revision: 931dab779011aa7acf60c1a4c7ad19e1ba838345
+  revision: b0eac421ef5b3bee782e15d391eca372a189d414
+  branch: rails3
   specs:
     mongo_mapper (0.8.4)
-      activesupport (>= 2.3.4)
-      jnunemaker-validatable (~> 1.8.4)
+      activemodel (~> 3.0.0)
+      activesupport (~> 3.0.0)
       plucky (~> 0.3.5)
-
-GIT
-  remote: http://github.com/jnunemaker/validatable.git
-  revision: 8d7c3ce14133760e748a0e34b99dfe6ec4d69153
-  specs:
-    jnunemaker-validatable (1.8.4)
-      activesupport (>= 2.3.4)
 
 GEM
   remote: http://rubygems.org/
@@ -241,12 +235,11 @@ DEPENDENCIES
   em-websocket
   factory_girl_rails
   haml
-  jnunemaker-validatable (= 1.8.4)!
   json
   magent!
   mini_magick
   mocha
-  mongo_mapper (= 0.8.4)!
+  mongo_mapper!
   nifty-generators
   pubsubhubbub
   rails (= 3.0.0)
