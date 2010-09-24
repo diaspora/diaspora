@@ -56,7 +56,7 @@ then
     echo "Lanchpad bug https://bugs.launchpad.net/ubuntu/+source/mongodb/+bug/557024
 may result in this script failing if it has not been fixed."
     echo "workaround:
-sudo ln -s /usr/lib/libmozjs.so /usr/lib/xulrunner-1.9.2.10/libmozjs.so
+sudo ln -s /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so
 rake db:seed:tom
 bundle exec thin start"
     sudo apt-get -y  --no-install-recommends install mongodb
