@@ -44,6 +44,7 @@ file [bug reports](https://github.com/diaspora/diaspora/issues) right here on
 github.
 
 Ongoing discussion:
+
 - [Diaspora Developer Google Group](http://groups.google.com/group/diaspora-dev)
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
 - [Diaspora Q&A site](http://diaspora.shapado.com/)
