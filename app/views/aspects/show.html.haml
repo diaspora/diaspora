@@ -4,7 +4,7 @@
 
 
 - content_for :page_title do
-  = link_to "photos", albums_path(:aspect => @aspect)
+  = link_to t('.photos'), albums_path(:aspect => @aspect)
 
 - content_for :left_pane do
   = render "shared/aspect_friends"

@@ -9,14 +9,18 @@ class AlbumsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @albums = current_user.albums_by_aspect(@aspect).paginate
+    @albums = current_user.albums_by_aspect(@aspect).paginate :page => params[:page], :per_page => 9, :order => 'created_at DESC'
+    @aspect = :all
     respond_with @albums, :aspect => @aspect
   end
 
   def create
-    aspect =  params[:album][:to]
-    @album = current_user.post(:album, params[:album])
-    flash[:notice] = "You've created an album called #{@album.name}."
+    aspect = params[:album][:to]
+
+    data = clean_hash(params[:album])
+
+    @album = current_user.post(:album, data)
+    flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
     redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
 
@@ -25,34 +29,43 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
-    @album = Album.find_by_id params[:id]
+    @album = current_user.find_visible_post_by_id params[:id]
     @album.destroy
-    flash[:notice] = "Album #{@album.name} deleted."
+    flash[:notice] =  I18n.t 'albums.destroy.success', :name  => @album.name
     respond_with :location => albums_url
   end
 
   def show
     @photo = Photo.new
-    @album = Album.find_by_id params[:id]
+    @album = current_user.find_visible_post_by_id( params[:id] )
     @album_photos = @album.photos
-
     respond_with @album
   end
 
   def edit
-    @album = Album.find_by_id params[:id]
+    @album = current_user.find_visible_post_by_id params[:id]
     redirect_to @album unless current_user.owns? @album
   end
 
   def update
-    @album = Album.find_params_by_id params[:id]
-    if @album.update_attributes params[:album]
-      flash[:notice] = "Album #{@album.name} successfully edited."
+    @album = current_user.find_visible_post_by_id params[:id]
+
+    data = clean_hash(params[:album])
+
+    if current_user.update_post( @album, data )
+      flash[:notice] =  I18n.t 'albums.update.success', :name  => @album.name
       respond_with @album
     else
-      flash[:error] = "Failed to edit album #{@album.name}."
+      flash[:error] =  I18n.t 'albums.update.failure', :name  => @album.name
       render :action => :edit
     end
   end
 
+  private
+  def clean_hash(params)
+    return {
+      :name => params[:name],
+      :to   => params[:to]
+    }
+  end
 end

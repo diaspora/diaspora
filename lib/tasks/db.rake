@@ -22,6 +22,7 @@ namespace :db do
       require 'db/seeds/backer'
       create
     end
+    
   end
 
   desc 'Delete the collections in the current RAILS_ENV database'
@@ -52,5 +53,18 @@ namespace :db do
     Rake::Task['db:purge'].invoke
     Rake::Task['db:seed:dev'].invoke
     puts "you did it!"
+  end
+  
+  task :fix_diaspora_handle do
+    puts "fixing the people in this seed"
+    require 'config/environment'
+    Person.where(:url => 'example.org').all.each{|person|
+      if person.owner
+        person.url = APP_CONFIG[:pod_url]
+        person.diaspora_handle = person.owner.diaspora_handle
+        person.save 
+      end
+    }
+    puts "everything should be peachy"
   end
 end

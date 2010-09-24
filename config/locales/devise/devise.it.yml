@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+it:
+  errors:
+    messages:
+      not_found: "non trovato"
+      already_confirmed: "è già stato confermato"
+      not_locked: "non era bloccato"
+
+  devise:
+    failure:
+      unauthenticated: "Devi effettuare l'accesso o registrarti prima di continuare."
+      unconfirmed: "Devi confermare il tuo account prima di continuare."
+      locked: "Il tuo account è bloccato."
+      invalid: "Email o password errati."
+      invalid_token: "Token di autenticazione errato."
+      timeout: "La tua sessione è scaduta, effettua di nuovo l'accesso per continuare."
+      inactive: "Il tuo account non è ancora stato attivato."
+    sessions:
+      signed_in: "Accesso effettuato con successo."
+      signed_out: "Disconnessione effettuata con successo."
+    passwords:
+      send_instructions: "Tra pochi minuti riceverai una email con le istruzioni su come cambiare la tua password."
+      updated: "La tua password è stata modificata. Hai appena effettuato l'accesso."
+    confirmations:
+      send_instructions: "Tra pochi minuti riceverai una email per confermare il tuo account."
+      confirmed: "Il tuo account è stato confermato con successo. Hai appena effettuato l'accesso."
+    registrations:
+      signed_up: "Ti sei iscritto. Se il servizio è disponibile, riceverai una conferma via email."
+      updated: "Hai aggiornato il tuo account."
+      destroyed: "Ciao! Il tuo account è stato rimosso. Speriamo che tu torni a trovarci presto."
+    unlocks:
+      send_instructions: "Tra pochi minuti riceverai una mail con le istruzioni su come sbloccare il tuo account."
+      unlocked: "Il tuo account è stato sbloccato. Hai appena effettuato l'accesso."
+    mailer:
+      confirmation_instructions: "Istruzioni sulla conferma"
+      reset_password_instructions: "Istruzioni su come cambiare la password"
+      unlock_instructions: "Istruzioni su come sbloccare l'account"

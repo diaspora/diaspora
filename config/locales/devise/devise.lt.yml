@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+lt:
+  errors:
+    messages:
+      not_found: "nerasta"
+      already_confirmed: "jau patvirtinta"
+      not_locked: "nebuvo užrakinta"
+
+  devise:
+    failure:
+      unauthenticated: 'Norint tęsti, reikia prisijungti arba susikurti paskyrą.'
+      unconfirmed: 'Norint prisijungti, reikia patvirtinti savo paskyrą.'
+      locked: 'Jūsų paskyra yra užrakinta.'
+      invalid: 'Neteisingas el. pašto adresas arba slaptažodis.'
+      invalid_token: 'Neteisingas prisijungimo raktas.'
+      timeout: 'Sesija baigėsi. Norint tęsti, reikia prisijungti iš naujo.'
+      inactive: 'Paskyra dar neaktyvuota.'
+    sessions:
+      signed_in: 'Sėkmingai prisijungta.'
+      signed_out: 'Sėkmingai atsijungta.'
+    passwords:
+      send_instructions: 'Netrukus gausite el. laišką su nurodymais slaptažodžiui atstatyti.'
+      updated: 'Slaptažodis pakeistas sėkmingai. Jūs esate prisijungęs.'
+    confirmations:
+      send_instructions: 'Netrukus gausite el. laišką su nurodymais paskyros patvirtinimui.'
+      confirmed: 'Paskyra patvirtinta. Prisijungėte.'
+    registrations:
+      signed_up: 'Prisijungta sėkmingai. Jei nustatyta, patvirtinimas išsiųstas į jūsų el. paštą.'
+      updated: 'Paskyra atnaujinta sėkmingai.'
+      destroyed: 'Paskyra sėkmingai atšaukta. Iki pasimatymo!'
+    unlocks:
+      send_instructions: 'Netrukus gausite el. laišką su nurodymais paskyros atrakinimui.'
+      unlocked: 'Paskyra atrakinta. Prisijungėte.'
+    mailer:
+      confirmation_instructions: 'Nurodymai patvirtinimui'
+      reset_password_instructions: 'Nurodymai slaptažodžio atstatymui'
+      unlock_instructions: 'Nurodymai paskyros atrakinimui'

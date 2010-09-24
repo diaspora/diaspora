@@ -28,8 +28,11 @@ gem 'redfinger', :git => 'git://github.com/rsofaer/redfinger.git'
 
 #EventMachine
 gem 'em-http-request',:git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
-gem 'em-websocket'
 gem 'thin'
+
+#Websocket
+gem 'em-websocket'
+gem 'magent', :git => 'http://github.com/dcu/magent.git'
 
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch

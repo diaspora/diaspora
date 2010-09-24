@@ -14,14 +14,6 @@ $(document).ready(function(){
   });
 });//end document ready
 
-$("#stream li").live('mouseover',function() {
-  $(this).children(".destroy_link").fadeIn(0);
-});
-
-$("#stream li").live('mouseout',function() {
-  $(this).children(".destroy_link").fadeOut(0);
-});
-
 $(".show_post_comments").live('click', function(event) {
   event.preventDefault();
 

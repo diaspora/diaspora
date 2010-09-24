@@ -35,6 +35,12 @@ describe PublicsController do
     end
   end
 
+  describe 'webfinger' do
+    it 'should not try to webfinger out on a request to webfinger' do
+      Redfinger.should_not_receive :finger
+      post :webfinger, :q => 'remote@example.com'
+    end
+  end
 
   describe 'friend requests' do
     before do

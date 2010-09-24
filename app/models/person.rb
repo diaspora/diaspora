@@ -34,11 +34,9 @@ class Person
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
 
-
   def self.search(query)
-    Person.all('$where' => "function() { return this.diaspora_handle.match(/^#{query}/i) ||
-               this.profile.first_name.match(/^#{query}/i) ||
-               this.profile.last_name.match(/^#{query}/i); }")
+    query = Regexp.escape( query.to_s.strip )
+    Person.all('profile.first_name' => /^#{query}/i) | Person.all('profile.last_name' => /^#{query}/i)
   end
 
   def real_name
@@ -78,18 +76,23 @@ class Person
     @serialized_key = new_key
   end
 
-  def self.by_webfinger( identifier )
-    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
-
+  def self.by_webfinger( identifier, opts = {})
+    #need to check if this is a valid email structure, maybe should do in JS
+    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', '').to_s.downcase)
+    
      if local_person
+       Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
        local_person
-     elsif  !identifier.include?("localhost")
+     elsif  !identifier.include?("localhost") && !opts[:local]
        begin
+        Rails.logger.info("Webfingering #{identifier}")
         f = Redfinger.finger(identifier)
        rescue SocketError => e
          raise "Diaspora server for #{identifier} not found" if e.message =~ /Name or service not known/
+       rescue Errno::ETIMEDOUT => e
+         raise "Connection timed out to Diaspora server for #{identifier}"
        end
-       raise "No webfinger profile found at #{identifier}" unless f
+       raise "No webfinger profile found at #{identifier}" if f.nil? || f.links.empty?
        Person.from_webfinger_profile(identifier, f )
      end
   end
@@ -97,8 +100,12 @@ class Person
   def self.from_webfinger_profile( identifier, profile)
     new_person = Person.new
 
-    public_key = profile.links.select{|x| x.rel == 'diaspora-public-key'}.first.href
-    new_person.exported_key = Base64.decode64 public_key
+    public_key_entry = profile.links.select{|x| x.rel == 'diaspora-public-key'}
+    
+    return nil unless public_key_entry
+    
+    pubkey = public_key_entry.first.href
+    new_person.exported_key = Base64.decode64 pubkey
 
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid

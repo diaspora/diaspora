@@ -10,9 +10,7 @@ class PhotosController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-
     album = Album.find_by_id params[:album_id]
-
     begin
 
       ######################## dealing with local files #############
@@ -33,22 +31,26 @@ class PhotosController < ApplicationController
 
 
       params[:user_file] = file
-      @photo = current_user.post(:photo, params)
+
+      data = clean_hash(params)
+
+
+      @photo = current_user.post(:photo, data)
 
       respond_to do |format|
         format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
       end
 
     rescue TypeError
-      message = "Photo upload failed.  Are you sure an image was added?"
+      message = I18n.t 'photos.create.type_error'
       respond_with :location => album, :error => message
 
     rescue CarrierWave::IntegrityError
-      message = "Photo upload failed.  Are you sure that was an image?"
+      message = I18n.t 'photos.create.integrity_error'
       respond_with :location => album, :error => message
 
     rescue RuntimeError => e
-      message = "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      message = I18n.t 'photos.create.runtime_error'
       respond_with :location => album, :error => message
       raise e
     end
@@ -61,34 +63,55 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = Photo.find_by_id params[:id]
+    @photo = current_user.find_visible_post_by_id params[:id]
+
     @photo.destroy
-    flash[:notice] = "Photo deleted."
+    flash[:notice] = I18n.t 'photos.destroy.notice'
     respond_with :location => @photo.album
   end
 
   def show
-    @photo = Photo.find_by_id params[:id]
+    @photo = current_user.find_visible_post_by_id params[:id]
     @album = @photo.album
-
     respond_with @photo, @album
   end
 
   def edit
-    @photo = Photo.find_by_id params[:id]
+    @photo = current_user.find_visible_post_by_id params[:id]
     @album = @photo.album
 
     redirect_to @photo unless current_user.owns? @album
   end
 
   def update
-    @photo = Photo.find_by_id params[:id]
-    if @photo.update_attributes params[:photo]
-      flash[:notice] = "Photo successfully updated."
+    @photo = current_user.find_visible_post_by_id params[:id]
+
+    data = clean_hash(params)
+
+    if current_user.update_post( @photo, data[:photo] )
+      flash[:notice] = I18n.t 'photos.update.notice'
       respond_with @photo
     else
-      flash[:error] = "Failed to edit photo."
+      flash[:error] = I18n.t 'photos.update.error'
       render :action => :edit
     end
   end
+
+
+  private
+  def clean_hash(params)
+    if params[:photo]
+      return {
+        :photo => {
+          :caption   => params[:photo][:caption],
+        }
+      }
+    else
+      return{
+        :album_id  => params[:album_id],
+        :user_file => params[:user_file]
+      }
+    end
+  end
+
 end
