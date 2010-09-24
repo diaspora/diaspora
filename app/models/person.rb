@@ -78,7 +78,7 @@ class Person
 
   def self.by_webfinger( identifier, opts = {})
     #need to check if this is a valid email structure, maybe should do in JS
-    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', ''))
+    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', '').to_s.downcase)
     
      if local_person
        Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
@@ -104,8 +104,8 @@ class Person
     
     return nil unless public_key_entry
     
-    public_key = public_key_entry.first.href
-    new_person.exported_key = Base64.decode64 public_key
+    pubkey = public_key_entry.first.href
+    new_person.exported_key = Base64.decode64 pubkey
 
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid

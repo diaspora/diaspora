@@ -8,6 +8,21 @@
 
 en:
   hello: "Hello world"
+  application:
+      helper:
+          unknown_person: "unknown person"
+          new_requests: "new requests"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Invalid Fields"
+          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+  people:
+      helper:
+           results_for: " results for %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
       application:
           edit_profile: "edit profile"
@@ -51,6 +66,9 @@ en:
           failure: "Failed to edit album %{name}."
       destroy:
           success: "Album %{name} deleted."
+      helper:
+          friends_albums: "Friends Albums"
+          your_albums: "Your Albums"
   aspects:
       index:
           photos: "photos"
@@ -67,7 +85,20 @@ en:
           add_a_new_aspect: "Add a new aspect"
           create: "Create"
       create:
-          success:"Click on the plus on the left side to tell Diaspora who can see your new aspect."
+          success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+      destroy:
+          success: "%{name} was successfully removed."
+      update:
+          success: "Your aspect, %{name}, has been successfully edited."
+      move_friends:
+          failure: "Aspect editing failed for friend %{real_name}."
+          success: "Aspects edited successfully."
+      move_friend:
+          failure: "didn't work %{inspect}"
+          success: "You are now showing your friend a different aspect of yourself."
+      helper:
+          remove: "remove"
+          aspect_not_empty: "Aspect not empty"
   users:
       edit:
           cancel: "Cancel"
@@ -105,9 +136,20 @@ en:
           new_photo: "New Photo"
           back_to_list: "Back to List"
           post_it: "post it!"
+      create:
+          runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+          integrity_error: "Photo upload failed.  Are you sure that was an image?"
+          type_error: "Photo upload failed.  Are you sure an image was added?"
+      update:
+          notice: "Photo successfully updated."
+          error:  "Failed to edit photo."
+      destroy:
+          notice: "Photo deleted."
   registrations:
       new:
           sign_up: "Sign up"
+      create:
+          success: "You've joined Diaspora!"
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
@@ -124,7 +166,12 @@ en:
           view_all: "View All"
           message: "Message"
           owner: "Owner"
+      helper:
+          no_message_to_display: "No message to display."
   people:
+      person:
+          add_friend: "add friend"
+          pending_request: "pending request"
       index:
           add_friend: "add friend"
           real_name: "real name"
@@ -141,3 +188,18 @@ en:
           save: "save"
           are_you_sure: "Are you sure?"
           remove_friend: "remove friend"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Add a new friend to"
+          enter_a_diaspora_username: "Enter a Diaspora username:"
+          your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+          friends_username: "Friend's username"
+      destroy:
+          success: "You are now friends."
+          error: "Please select an aspect!"
+          ignore: "Ignored friend request."
+      create:
+          error: "No diaspora seed found with this email!"
+          already_friends: "You are already friends with %{destination_url}!"
+          success: "A friend request was sent to %{destination_url}."
+          horribly_wrong: "Something went horribly wrong."

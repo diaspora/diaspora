@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-- title "New Person"
+- title=t('.new_person')
 
 = form_for @person do |f|
   = f.error_messages
@@ -29,4 +29,4 @@
     = f.submit
 
 
-%p= link_to "Back to List", people_path
+%p= link_to t('.back_to_list'), people_path

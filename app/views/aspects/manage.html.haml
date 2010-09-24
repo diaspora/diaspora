@@ -8,8 +8,7 @@
   = javascript_include_tag 'aspect-edit.js'
 
 - content_for :left_pane do
-  %h1
-    Requests
+  %h1=t('.requests')
 
   .requests
     %ul.dropzone
@@ -21,15 +20,14 @@
             = person_image_tag(request.person)
             .name
               = request.person.real_name
-  %h1
-    Ignore/Remove
+  %h1=t('.ignore_remove')
 
   %li.remove
     %ul.dropzone
       %li.grey Drag to ignore/remove
 
 - content_for :publish do
-  = link_to("add a new aspect", "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => "Add a new aspect")
+  = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
 
 
 
@@ -43,8 +41,8 @@
           %span.tip click to edit
 
         %ul.tools
-          %li= link_to "add a new friend", "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
-          %li= link_to "show", aspect_path(aspect)
+          %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+          %li= link_to t('.show'), aspect_path(aspect)
           %li!= remove_link(aspect)
       
       %ul.dropzone{:id => aspect.id}
@@ -62,9 +60,5 @@
         .yo{:style => 'display:none'}
           %div{:id => "add_request_pane_#{aspect.id}"}
             = render "requests/new_request", :aspect => aspect
-
-%p
-  %br
-  = link_to 'Update Aspects', '#', :class => 'button', :id => "move_friends_link"
 
 #content_bottom
