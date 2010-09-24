@@ -17,7 +17,8 @@ class StatusMessagesController < ApplicationController
     if @logged_in && params[:status_message][:public] == true
       id = 'me'
       type = 'feed'
-
+      
+      Rails.logger.info("Sending a message: #{params[:status_message][:message]} to Facebook")
       @res = MiniFB.post(@access_token, id, :type=>type,
                          :metadata=>true, :params=>{:message => params[:status_message][:message]})
     end
