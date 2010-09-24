@@ -18,7 +18,8 @@ class FbStatus
 
   def self.from_api(json)
     hash = JSON.parse(json)
-    self.create( 
+    #just keeping them in memory for now
+    self.new( 
                   :graph_id     => hash['id'],
                   :author_id    => hash['from']['id']
                   :author_name  => hash['from']['name'],
