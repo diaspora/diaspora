@@ -4,7 +4,7 @@
 
 
 class Request
-  require 'lib/diaspora/webhooks'
+  require File.expand_path('../../../lib/diaspora/webhooks', __FILE__)
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML

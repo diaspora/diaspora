@@ -103,7 +103,7 @@ describe Diaspora::Parser do
 
     it "should activate the Person if I initiated a request to that url" do
       request = @user.send_friend_request_to( @user2.person, @aspect)
-
+      @user.reload
       request.reverse_for @user2
 
       xml = request.to_diaspora_xml
@@ -125,6 +125,7 @@ describe Diaspora::Parser do
     it 'should process retraction for a person' do
       person_count = Person.all.count
       request = @user.send_friend_request_to( @user2.person, @aspect)
+      @user.reload
       request.reverse_for @user2
       xml = request.to_diaspora_xml
 

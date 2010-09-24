@@ -20,4 +20,14 @@ describe AlbumsController do
     @album.reload.name.should eql("new_name")
   end
 
+  describe '#create' do
+    it 'all aspects' do
+      params = {"album" => {"name" => "Sunsets","to" => "all"}}
+      post :create, params
+    end
+    it 'one aspect' do
+      params = {"album" => {"name" => "Sunsets","to" => @aspect.id.to_s}}
+      post :create, params
+    end
+  end
 end

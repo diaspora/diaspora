@@ -15,3 +15,5 @@ public/uploads/*
 .rvmrc
 .DS_Store
 config/app_config.yml
+bin/*
+nbproject

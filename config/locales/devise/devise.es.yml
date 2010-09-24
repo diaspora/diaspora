@@ -18,10 +18,10 @@ es:
       signed_in: 'Has ingresado correctamente.'
       signed_out: 'Has salido correctamente.'
     passwords:
-      send_instructions: 'Recibirás un email con instrucciones para cambiar tu contraseña en poco minutos.'
+      send_instructions: 'Recibirás un email con instrucciones para cambiar tu contraseña en pocos minutos.'
       updated: 'Tu contraseña ha sido modificada. Ya has accedido a tu cuenta.'
     confirmations:
-      send_instructions: 'Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos.'
+      send_instructions: 'Recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos.'
       confirmed: 'Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta.'
     registrations:
       signed_up: 'Te has registrado correctamente. Si está disponible, te habremos enviado un email de confirmación.'

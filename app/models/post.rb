@@ -4,8 +4,8 @@
 
 
 class Post
-  require 'lib/diaspora/websocket'
-  require 'lib/encryptable'
+  require File.expand_path('../../../lib/encryptable', __FILE__)
+  require File.expand_path('../../../lib/diaspora/websocket', __FILE__)
   include MongoMapper::Document
   include ApplicationHelper
   include ROXML

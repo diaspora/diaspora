@@ -12,7 +12,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => citie
 
-require 'config/environment'
+require File.dirname(__FILE__) + '/../../config/environment'
 
 def create
 
@@ -25,7 +25,7 @@ def create
   #set pod url
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
   set_app_config username
-  require 'config/initializers/_load_app_config.rb'
+  require File.dirname(__FILE__) + '/../../config/initializers/_load_app_config.rb'
 
   # Create seed user
   user = User.instantiate!(:email => "#{username}@#{username}.joindiaspora.com",

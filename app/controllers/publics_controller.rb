@@ -4,7 +4,7 @@
 
 
 class PublicsController < ApplicationController
-  require 'lib/diaspora/parser'
+  require File.expand_path('../../../lib/diaspora/parser', __FILE__)
   include Diaspora::Parser
   layout false
 
@@ -20,7 +20,7 @@ class PublicsController < ApplicationController
   end
 
   def webfinger
-    @person = Person.by_webfinger(params[:q], :local => true)
+    @person = Person.by_webfinger(params[:q], :local => true) if params[:q]
     unless @person.nil? || @person.owner.nil?
       render 'webfinger', :content_type => 'application/xrd+xml'
     else
