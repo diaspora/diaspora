@@ -10,21 +10,21 @@ class FbStatus
   key :author_id, String
   key :author_name, String
   key :message, String
-  key :updated_time, DateTime
+  key :updated_time, Time 
 
   timestamps!
 
   validates_presence_of :graph_id,:author_id,:author_name,:message,:updated_time
 
-  def self.from_api(json)
-    hash = JSON.parse(json)
+  def self.from_api(hash)
     #just keeping them in memory for now
     self.new( 
                   :graph_id     => hash['id'],
-                  :author_id    => hash['from']['id']
+                  :author_id    => hash['from']['id'],
                   :author_name  => hash['from']['name'],
-                  :message      => hash['message']
-                  :updated_time => Time.parse(hash['updated_time']
+                  :message      => hash['message'],
+                  :updated_time => Time.parse(hash['updated_time'])
+            )
   end
   
 end

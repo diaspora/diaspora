@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-%li.message{:id => post.id, :class => ("mine" if current_user.owns?(post))}
+%li.message{:id => post.id}
 
   = image_tag( "http://graph.facebook.com/#{post.author_id}/picture" )
 

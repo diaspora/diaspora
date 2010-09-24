@@ -5,7 +5,6 @@
 
 
 require File.dirname(__FILE__) + '/../spec_helper'
-require 'json'
 
 describe FbStatus do
   
@@ -16,20 +15,20 @@ describe FbStatus do
   end
 
   describe '#from_api' do
-    let(:json_string) {File.open(File.dirname(__FILE__) + '/../fixtures/fb_status').read}
+    let!(:json_string) {File.open(File.dirname(__FILE__) + '/../fixtures/fb_status').read}
     let!(:json_object) { JSON.parse(json_string) }
-    let!(:status_from_json) {FbStatus.from_api(json_string)}
+    let!(:status_from_json) {FbStatus.from_api(json_object)}
 
     it 'has graph_id' do
       status_from_json.graph_id.should == json_object['id']
     end
     
     it 'has author_id' do
-      status_from_json.graph_id.should == json_object['from']['id']
+      status_from_json.author_id.should == json_object['from']['id']
     end
 
     it 'has author_name' do
-      status_from_json.graph_id.should == json_object['from']['name']
+      status_from_json.author_name.should == json_object['from']['name']
     end
 
     it 'has message' do
