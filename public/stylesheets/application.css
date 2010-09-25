@@ -241,9 +241,13 @@ form {
 
 #stream div.comments {
   display: none; }
-  #stream div.comments .avatar {
+
+div.comments {
+  font-family: "Lucida Grande", sans-serif; }
+  div.comments .avatar {
     width: 30px;
     height: 30px;
+    float: left;
     margin-right: 10px; }
 
 input.comment_submit {
