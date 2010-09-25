@@ -156,6 +156,9 @@ Opening editor in 5 seconds and then continuing with install."
     fi
     $EDITOR config/app_config.yml
 
+    # Create the shared directory which is used by rake db:seed:tom
+    mkdir shared
+
     # Install DB setup
     echo "Seting up DB.."
     rake db:seed:tom
