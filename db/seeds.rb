@@ -12,5 +12,5 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => citie
 
-require File.dirname(__FILE__) + '/../../config/environment'
+require File.join(File.dirname(__FILE__), "..", "..", "config", "environment")
 

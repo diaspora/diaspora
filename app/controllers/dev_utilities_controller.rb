@@ -16,7 +16,7 @@ class DevUtilitiesController < ApplicationController
       bkr_info.each do |backer|
         backer_email = "#{backer['username']}@#{backer['username']}.joindiaspora.com"
         rel_hash = relationship_flow(backer_email)
-        logger.info "Zombefriending #{backer['given_name']} #{backer['family_name']}"
+        logger.info "Zombiefriending #{backer['given_name']} #{backer['family_name']}"
         logger.info "Calling send_friend_request with #{rel_hash[:friend]} and #{current_user.aspects.first}"
         current_user.send_friend_request_to(rel_hash[:friend], current_user.aspects.first)
       end
@@ -30,11 +30,6 @@ class DevUtilitiesController < ApplicationController
     }
   end
 
-  def backer_info
-    config = YAML.load_file(File.dirname(__FILE__) + '/../../config/deploy_config.yml')
-    config['servers']['backer']
-  end
-
   def set_backer_number
     render :nothing => true
     seed_num_hash = {:seed_number => params[:number]}
@@ -44,7 +39,6 @@ class DevUtilitiesController < ApplicationController
   end
 
   def set_profile_photo
-
     render :nothing => true
     album = Album.create(:person => current_user.person, :name => "Profile Photos")
     current_user.raw_visible_posts << album
@@ -53,7 +47,7 @@ class DevUtilitiesController < ApplicationController
     backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
     username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
 
-      @fixture_name = File.dirname(__FILE__) + "/../../public/images/user/#{username}.jpg"
+      @fixture_name = File.join(File.dirname(__FILE__), "..", "..", "public", "images", "user", "#{username}.jpg")
 
       photo = Photo.new(:person => current_user.person, :album => album)
       photo.image.store! File.open(@fixture_name)
@@ -72,5 +66,12 @@ class DevUtilitiesController < ApplicationController
     @log = `tail -n 200 log/development.log`
 
     render "shared/log"
+  end
+
+  protected
+
+  def backer_info
+    config = YAML.load_file(File.join(File.dirname(__FILE__), "..", "..", "config", "deploy_config.yml"))
+    config['servers']['backer']
   end
 end
