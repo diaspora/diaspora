@@ -8,12 +8,17 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
+# USAGE: ./ubuntu-setup.bash
+# Do NOT run this script as root.
 
 # Set extented globbing 
 shopt -s extglob
 
 # fail on error
 set -e
+
+[ "$(whoami)" == "root" ] && echo "Please do not run this script as root/sudo
+We need to do some actions as an ordinary user. We use sudo where necessary." && exit 1
 
 # Check if the user has sudo privileges.
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
