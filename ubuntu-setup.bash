@@ -1,14 +1,25 @@
 #!/bin/bash
 # Author : hemanth.hm@gmail.com
 # Site : www.h3manth.com
+# Contributions from: Mackenzie Morgan (maco) and Daniel Thomas (drt24)
 # This script helps to setup diaspora.
 #
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
 
 # Set extented globbing 
 shopt -s extglob
 
 # Check if the user has sudo privileges.
-[[ $( id -u) ]] && echo "$(whoami) has no sudo permissions on this machine" && exit 1
+sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
+
+# Check if universal repository is enabled 
+grep -i universe /etc/apt/sources.list > /dev/null || { echo "Please enable universe repository" ; exit 1 ; }
+
+# Check if wget is installed 
+test wget || echo "Installing wget.." && sudo apt-get install wget && echo "Installed wget.."
 
 # Install build tools 
 echo "Installing build tools.."
@@ -90,9 +101,11 @@ echo "Installed bundler.."
 
 # Take a clone of Diaspora
 (
-echo "Clone diaspora source.."
-git clone http://github.com/diaspora/diaspora.git
+
+# Check if the user is already in a cloned source if not clone the source 
+[[ $( basename $PWD ) == "diaspora" ]]  && echo "Already in diaspora directory" ||  git clone http://github.com/diaspora/diaspora.git ; cd diaspora 
 echo "Cloned the source.."
+
 # Install extra gems 
 cd diaspora
 echo "Installing more gems.."

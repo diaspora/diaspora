@@ -6,11 +6,11 @@
 
 require File.dirname(__FILE__) + '/../spec_helper'
 
-class SocketsController
+SocketsController.class_eval <<-EOT
   def url_options
     {:host => ""}
   end
-end
+EOT
 
 describe SocketsController do
   render_views

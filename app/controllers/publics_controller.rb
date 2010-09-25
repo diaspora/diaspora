@@ -4,13 +4,12 @@
 
 
 class PublicsController < ApplicationController
-  require 'lib/diaspora/parser'
+  require File.expand_path('../../../lib/diaspora/parser', __FILE__)
   include Diaspora::Parser
   layout false
 
   def hcard
     @person = Person.find_by_id params[:id]
-    puts @person
     unless @person.nil? || @person.owner.nil?
       render 'hcard'
     end
@@ -21,7 +20,7 @@ class PublicsController < ApplicationController
   end
 
   def webfinger
-    @person = Person.by_webfinger(params[:q], :local => true)
+    @person = Person.by_webfinger(params[:q], :local => true) if params[:q]
     unless @person.nil? || @person.owner.nil?
       render 'webfinger', :content_type => 'application/xrd+xml'
     else
@@ -33,9 +32,10 @@ class PublicsController < ApplicationController
     render :nothing => true
     return unless params[:xml]
     begin
-      @user = Person.first(:id => params[:id]).owner
+      person = Person.first(:id => params[:id])
+      @user = person.owner
     rescue NoMethodError => e
-      Rails.logger.error("Received post #{params[:xml]} for nonexistent person #{params[:id]}")
+      Rails.logger.error("Received post for nonexistent person #{params[:id]}")
       return
     end
     @user.receive_salmon params[:xml]

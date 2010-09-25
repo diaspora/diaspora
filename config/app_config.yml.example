@@ -3,25 +3,21 @@
 #   the COPYRIGHT file.
 
 
-
-development:
+default:
+  pod_url: "http://example.org/"
   debug: false
   socket_debug : false
   socket_host: 0.0.0.0
   socket_port: 8080
   socket_collection_name: 'websocket'
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
+  mongo_host: 'localhost'
+  mongo_port: 27017
+  
+development:
 
 test:
-  debug: false
-  socket_debug : false
-  socket_host: 0.0.0.0
+  pod_url: "http://example.org/"
   socket_port: 8081
-  pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
 production:
-  debug: false
-  socket_debug : false
-  socket_host: 0.0.0.0
-  socket_port: 8080
-  pubsub_server: 'https://pubsubhubbub.appspot.com/'

@@ -146,7 +146,6 @@ header
             :right 0
 
   #aspect_header
-    :z-index 5
     :background
       :color #eee
     :border
@@ -162,7 +161,7 @@ header
       :color #111
       &:hover
         :background none
-        :color #333
+        :color #999
 
     .page_title
       :text
@@ -182,9 +181,12 @@ ul#stream
     :border
       :bottom 1px solid #eee
 
-  > li:first-child
-    :padding
-      :top 0
+    &:hover
+      :background
+        :color #fafafa
+
+      .destroy_link
+        :display inline
 
   .right
     :top 0
@@ -218,6 +220,63 @@ li.message
     div.info
       :color #bababa
       :font-size 70%
+
+      .time
+        a
+          :color #666
+
+.reshare_pane
+  :margin
+    :left 5px
+    :right 5px
+  :display inline
+  :position relative
+
+  ul.reshare_box
+    :width 150px
+    :display none
+    :z-index 10
+    :position absolute
+    :margin
+      :top 5px
+    :padding 0
+    
+    :background
+      :color #fafafa
+
+    :list
+      :style none
+
+    :border 5px solid #666
+    :-webkit-box-shadow 0 0 5px #666
+    :-moz-box-shadow 0 0 5px #666
+
+    :text-shadow 0 2px #fff
+    :color #000
+
+    > li 
+      :font
+        :weight bold
+
+      :padding 8px
+        :right 15px
+      :border
+        :top 1px solid #fff
+        :bottom 1px solid #ccc
+
+      &:first-child
+        :border
+          :top none
+      &:last-child
+        :border
+          :bottom none
+      a
+        :display block
+        :height 100%
+
+        &:hover
+          :background
+            :color #eee
 
 
 form
@@ -348,12 +407,16 @@ ul.comment_set
   
 .destroy_link, .request_button
   :position absolute
-  :right 0
+  :right 2em
   :bottom 15px
   a
     :color #999
     :font
       :weight normal
+    &:hover
+      :text
+        :decoration underline
+      :background none
 
 .destroy_link
   :display none
@@ -395,7 +458,7 @@ ul.comment_set
 
 input[type='text'], textarea
   :font
-    :family 'lucida grande', 'sans-serif'
+    :family 'lucida grande', 'lucida sans', 'sans-serif'
     :size 14px
   :padding 0.3em
   :display block
@@ -447,15 +510,23 @@ label
 
   textarea
     :width 600px
-    :height 40px
+    :height 42px
     :margin
       :top 0
       :bottom 0
 
-    :-webkit-box-shadow 0 1px 0 #fff
+    :box-shadow 0 1px #fff
+    :-moz-box-shadow 0 1px #fff
+    :-webkit-box-shadow 0 1px #fff
 
   .button
     :margin-left 100px
+
+  img
+    :-webkit-box-shadow 0 1px 0 #fff
+    :border 1px solid #bbb
+      :top 1px solid #666
+    
 
 
 #image_picker
@@ -604,13 +675,17 @@ h1.big_text
       :padding 0
       :display inline
       :margin
-        :right 0.5em
+        :right 2px
 
       a
+        :text-shadow 0 2px 0 #444
+        :-webkit-border-radius 3px 3px 0 0
+        :-moz-border-radius 3px 3px 0 0
         :line
           :height 22px
         :background
           :color #444
+
         :border 1px solid #555
 
         :padding 3px 8px
@@ -623,6 +698,9 @@ h1.big_text
           :color #ccc
 
       &.selected a
+        :-webkit-box-shadow 0px -4px 6px -2px #777
+        :-moz-box-shadow 0px -4px 6px -2px #777
+
         :text-shadow 0 2px 0 #fff
         :padding
           :top 4px
@@ -633,6 +711,10 @@ h1.big_text
           :weight bold
         :background
           :color #eee
+
+        :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee))
+        :background -moz-linear-gradient(19% 75% 90deg, #eee, #fff)
+
         :border 1px solid #fff
           :bottom 1px solid #eee
         :color #000
@@ -678,6 +760,17 @@ h1.big_text
   h1
     :display inline-block
 
+  .tip
+    :display none
+    :color #999
+    :margin
+      :left 0.5em
+
+  .edit_name_field:hover
+    .tip
+      :display inline
+
+
   .aspect_name
     :position relative
 
@@ -702,6 +795,7 @@ h1.big_text
   .grey
     :color #999
     :cursor default
+    :text-shadow 0 2px #fff
 
   ul.dropzone
     :min-height 20px
