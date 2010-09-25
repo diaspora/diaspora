@@ -7,5 +7,9 @@ namespace :whitespace do
   task :retab do
     sh %{find . -name '*.rb' -exec sed -i '' 's/\t/  /g' {} \\;}
   end
+  desc 'Remove consecutive blank lines'
+  task :scrub_gratuitous_newlines do
+    sh %{find . -name '*.rb' -exec sed -i '' '/./,/^$/!d' {} \\;}
+  end
 end
 
