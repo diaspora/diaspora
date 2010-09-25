@@ -46,7 +46,7 @@ describe 'making sure the spec runner works' do
       @user2.reload
       @aspect2.reload
     end
-    
+
     it 'makes the first user friends with the second' do
       @aspect1.people.include?(@user2.person).should be_true
     end

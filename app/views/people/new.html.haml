@@ -15,13 +15,13 @@
     = f.label :url
     %br
     = f.text_field :url
-    
+
     =f.fields_for :profile do |p|
       %p
         = p.label :first_name
         %br
         = p.text_field :first_name
-        
+
       %p
         = p.label :last_name
         %br

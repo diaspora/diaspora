@@ -10,7 +10,7 @@
       DIASPORA | login
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{"http-equiv"=> "X-UA-Compatible", :content =>"chrome=1" }
-    
+
     = stylesheet_link_tag "sessions"
     /= javascript_include_tag"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_tag 'jquery142'
@@ -18,10 +18,10 @@
 
     :javascript
       $(document).ready(function(){
-        $("#user_username").focus(); 
+        $("#user_username").focus();
         $("label").inFieldLabels();
       });
-  
+
     = csrf_meta_tag
     = yield(:head)
 
@@ -44,11 +44,11 @@
         </div>
       </div>
       <![endif]-->
-  
+
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
     %div#huge_text
       DIASPORA*
     = yield
-    
+
     /= link_to "signup", "/signup"

@@ -9,7 +9,7 @@ module Diaspora
     module Friending
       def send_friend_request_to(desired_friend, aspect)
         # should have different exception types for these?
-        raise "You have already sent a friend request to that person!" if self.pending_requests.detect{ 
+        raise "You have already sent a friend request to that person!" if self.pending_requests.detect{
           |x| x.destination_url == desired_friend.receive_url }
         raise "You are already friends with that person!" if self.friends.detect{
           |x| x.receive_url == desired_friend.receive_url}
@@ -89,7 +89,7 @@ module Diaspora
 
       def remove_friend(bad_friend)
         raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
-        aspects.each{|aspect| 
+        aspects.each{|aspect|
           aspect.person_ids.delete( bad_friend.id )}
         self.save
 

@@ -30,7 +30,7 @@ class AspectsController < ApplicationController
     begin
       current_user.drop_aspect @aspect
       flash[:notice] = i18n.t 'aspects.destroy.success',:name => @aspect.name
-    rescue RuntimeError => e 
+    rescue RuntimeError => e
       flash[:error] = e.message
     end
 

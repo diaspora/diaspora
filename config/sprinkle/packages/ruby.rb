@@ -43,7 +43,7 @@ package :diaspora_dependencies do
 end
 #package :diaspora do
 #  description 'Diaspora'
-  
+
 =begin
 package :rails do
   description 'Ruby on Rails'

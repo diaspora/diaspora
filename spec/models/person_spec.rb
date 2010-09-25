@@ -21,7 +21,7 @@ describe Person do
         @user.person.diaspora_handle.should == @user.username + "@example.org"
       end
     end
-    
+
     context 'remote people' do
       it 'stores the diaspora_handle in the database' do
         @person.diaspora_handle.include?(APP_CONFIG[:terse_pod_url]).should be false

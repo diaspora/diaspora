@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-- content_for :head do 
+- content_for :head do
   = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
   = javascript_include_tag 'aspect-edit.js'
 
@@ -34,7 +34,7 @@
 %ul#aspect_list
   - for aspect in @aspects
     %li.aspect
-      
+
       .aspect_name
         %span.edit_name_field
           %h1{:contenteditable => true}= aspect.name
@@ -44,9 +44,9 @@
           %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
           %li= link_to t('.show'), aspect_path(aspect)
           %li!= remove_link(aspect)
-      
+
       %ul.dropzone{:id => aspect.id}
-      
+
         -if aspect.people.size < 1
           %li.grey Drag to add people
 

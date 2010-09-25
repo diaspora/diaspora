@@ -15,4 +15,4 @@
   %div.image_cycle
     - for photo in post.photos[0..3]
       = link_to (image_tag photo.url(:thumb_large)), album_path(post, :aspect => @aspect)
-    
+

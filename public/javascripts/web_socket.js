@@ -4,7 +4,7 @@
 // Reference: http://tools.ietf.org/html/draft-hixie-thewebsocketprotocol
 
 (function() {
-  
+
   if (window.WebSocket) return;
 
   var console = window.console;
@@ -21,7 +21,7 @@
     }
     return false;
   }
-  
+
   if (!hasFlash()) {
     console.error("Flash Player is not installed.");
     return;
@@ -308,5 +308,5 @@
   } else {
     window.attachEvent("onload", WebSocket.__initialize);
   }
-  
+
 })();

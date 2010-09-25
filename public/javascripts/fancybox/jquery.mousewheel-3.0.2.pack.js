@@ -5,7 +5,7 @@
  * Thanks to: Mathias Bank(http://www.mathias-bank.de) for a scope bug fix.
  *
  * Version: 3.0.2
- * 
+ *
  * Requires: 1.2.2+
  */
 

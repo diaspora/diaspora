@@ -3,7 +3,7 @@
  * Simple and fancy lightbox alternative
  *
  * Examples and documentation at: http://fancybox.net
- * 
+ *
  * Copyright (c) 2008 - 2010 Janis Skarnelis
  *
  * Version: 1.3.1 (05/03/2010)
