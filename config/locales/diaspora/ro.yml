@@ -26,7 +26,7 @@ ro:
       new_album:
           create: "crează"
           add_a_new_album: "Album nou"
-      show: 
+      show:
           edit_album: "Editare Album"
           albums: "albume"
           updated: "actualizat"

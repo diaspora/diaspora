@@ -30,7 +30,7 @@ cy:
       new_album:
           create: "creu"
           add_a_new_album: "Ychwanegu albwm newydd"
-      show: 
+      show:
           edit_album: "Golygu Albwm"
           albums: "albymau"
           updated: "diweddarwyd"

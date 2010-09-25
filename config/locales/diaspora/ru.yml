@@ -30,7 +30,7 @@ ru:
       new_album:
           create: "создать"
           add_a_new_album: "Добавить новый альбом"
-      show: 
+      show:
           edit_album: "Редактировать альбом"
           albums: "альбомы"
           updated: "обновленные"

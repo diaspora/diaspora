@@ -13,7 +13,7 @@ default:
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
   mongo_host: 'localhost'
   mongo_port: 27017
-  
+
 development:
 
 test:

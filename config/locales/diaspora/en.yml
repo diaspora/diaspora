@@ -45,7 +45,7 @@ en:
       new_album:
           create: "create"
           add_a_new_album: "Add a new album"
-      show: 
+      show:
           edit_album: "Edit Album"
           albums: "albums"
           updated: "updated"
