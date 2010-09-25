@@ -46,11 +46,9 @@ group :test do
   gem 'rspec', '>= 2.0.0.beta.17'
   gem 'rspec-rails', '2.0.0.beta.17'
   gem 'mocha'
-  gem 'webrat', '0.7.2.beta.1'
+  gem 'redgreen'
   gem 'autotest'
   gem 'database_cleaner'
-  gem 'saucelabs-adapter', '= 0.8.12'
-  gem 'selenium-rc'
   gem 'webmock'
 end
 
