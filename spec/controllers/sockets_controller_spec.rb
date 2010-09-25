@@ -4,7 +4,7 @@
 
 
 
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 SocketsController.class_eval <<-EOT
   def url_options

@@ -4,7 +4,7 @@
 
 
 
-require File.dirname(__FILE__) + '/spec_helper'
+require 'spec_helper'
 
 describe 'making sure the spec runner works' do
 

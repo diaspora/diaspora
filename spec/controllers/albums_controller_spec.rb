@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 include ApplicationHelper
 describe AlbumsController do
  render_views
