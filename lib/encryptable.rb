@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
   module Encryptable
    def signable_string
      raise NotImplementedException("Override this in your encryptable class")

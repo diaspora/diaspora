@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
 
@@ -35,11 +34,9 @@ class PhotosController < ApplicationController
 
       ##############
 
-
       params[:user_file] = file
 
       data = clean_hash(params)
-
 
       @photo = current_user.post(:photo, data)
 
@@ -102,7 +99,6 @@ class PhotosController < ApplicationController
       render :action => :edit
     end
   end
-
 
   private
   def clean_hash(params)

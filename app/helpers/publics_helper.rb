@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module PublicsHelper
   def subscribe(opts = {})
     subscriber = Subscriber.first(:url => opts[:callback], :topic => opts[:topic])

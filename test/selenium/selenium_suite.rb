@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'test_helper'))
 require 'test/unit/ui/console/testrunner'
 require 'webrat'

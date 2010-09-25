@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 #For Guidance
 #http://github.com/thoughtbot/factory_girl
 # http://railscasts.com/episodes/158-factories-not-fixtures
@@ -54,7 +52,6 @@ Factory.define :blog do |b|
   b.sequence(:title) {|n| "bobby's #{n} penguins"}
   b.sequence(:body) {|n| "jimmy's huge #{n} whales"}
 end
-
 
 Factory.define :bookmark do |b|
   b.link "http://www.yahooligans.com/"

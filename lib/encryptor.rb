@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 module Encryptor
   module Public
     def encrypt cleartext
@@ -59,7 +57,6 @@ module Encryptor
       txt << cipher.final
       txt
     end
-
 
   end
 end

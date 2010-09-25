@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create]
 

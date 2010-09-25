@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 module Diaspora
   module UserModules
     module Friending
@@ -28,7 +26,6 @@ module Diaspora
         end
         request
       end
-
 
       def accept_friend_request(friend_request_id, aspect_id)
         request = Request.find_by_id(friend_request_id)
