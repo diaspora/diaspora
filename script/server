@@ -8,6 +8,6 @@ then
 else
     mkdir -p -v log/thin/
     bundle exec ruby ./script/websocket_server.rb&
-    bundle exec thin -p 80 -a 192.168.0.191 start $@
+    bundle exec thin start $@
 fi
 
