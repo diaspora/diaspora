@@ -58,12 +58,14 @@ if [ $RELEASE == "maverick" ]
 then
     #mongodb does not supply a repository for maverick yet so install
     # an older version from the ubuntu repositories
-    echo "Lanchpad bug https://bugs.launchpad.net/ubuntu/+source/mongodb/+bug/557024
-may result in this script failing if it has not been fixed."
-    echo "workaround:
-sudo ln -s /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so
-rake db:seed:tom
-bundle exec thin start"
+    if [ ! -f /usr/lib/libmozjs.so ]
+    then
+        echo "Lanchpad bug https://bugs.launchpad.net/ubuntu/+source/mongodb/+bug/557024
+has not been fixed using workaround:"
+        echo "sudo ln -s /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so"
+        sudo ln -s /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so
+    fi
+
     sudo apt-get -y  --no-install-recommends install mongodb
 else
     lsb=$(lsb_release -rs)
