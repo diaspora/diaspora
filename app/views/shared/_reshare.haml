@@ -19,7 +19,7 @@
 
   %ul.reshare_box
     - for aspect in current_user.aspects_with_post( post.id )
-    
+
       %li.currently_sharing= aspect.name
 
     - for aspect in current_user.aspects

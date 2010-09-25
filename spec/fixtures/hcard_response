@@ -1,44 +1,44 @@
-<div id="content"> 
-  <h1>Alexander Hamiltom</h1> 
-  <div id="content_inner"> 
-    <div id="i" class="entity_profile vcard author"> 
-      <h2>User profile</h2> 
-      <dl class="entity_nickname"> 
-        <dt>Nickname</dt> 
-        <dd> 
-        <a href="http://tom.joindiaspora.com/" rel="me" class="nickname url uid">Alexander Hamiltom</a> 
-        </dd> 
-      </dl> 
-        <dl class="entity_given_name"> 
-        <dt>Full name</dt> 
-        <dd> 
-        <span class="given_name" >Alexander</span> 
-        </dd> 
+<div id="content">
+  <h1>Alexander Hamiltom</h1>
+  <div id="content_inner">
+    <div id="i" class="entity_profile vcard author">
+      <h2>User profile</h2>
+      <dl class="entity_nickname">
+        <dt>Nickname</dt>
+        <dd>
+        <a href="http://tom.joindiaspora.com/" rel="me" class="nickname url uid">Alexander Hamiltom</a>
+        </dd>
+      </dl>
+        <dl class="entity_given_name">
+        <dt>Full name</dt>
+        <dd>
+        <span class="given_name" >Alexander</span>
+        </dd>
         </dl>
 
-        <dl class="entity_family_name"> 
-        <dt>Full name</dt> 
-        <dd> 
-        <span class="family_name" >Hamiltom</span> 
-        </dd> 
+        <dl class="entity_family_name">
+        <dt>Full name</dt>
+        <dd>
+        <span class="family_name" >Hamiltom</span>
+        </dd>
         </dl>
-        <dl class="entity_fn"> 
-        <dt>Full name</dt> 
-        <dd> 
-        <span class="fn" >Alexander Hamiltom</span> 
-        </dd> 
-      </dl> 
-      <dl class="entity_url"> 
-        <dt>URL</dt> 
-        <dd> 
-        <a href="http://tom.joindiaspora.com/" rel="me" id="pod_location" class="url">http://tom.joindiaspora.com/</a> 
-        </dd> 
-      </dl> 
-      <dl class="entity_note"> 
-        <dt>Note</dt> 
-        <dd class="note">Diaspora is awesome! vi is better than emacs!</dd> 
-      </dl> 
-    </div> 
-  </div> 
+        <dl class="entity_fn">
+        <dt>Full name</dt>
+        <dd>
+        <span class="fn" >Alexander Hamiltom</span>
+        </dd>
+      </dl>
+      <dl class="entity_url">
+        <dt>URL</dt>
+        <dd>
+        <a href="http://tom.joindiaspora.com/" rel="me" id="pod_location" class="url">http://tom.joindiaspora.com/</a>
+        </dd>
+      </dl>
+      <dl class="entity_note">
+        <dt>Note</dt>
+        <dd class="note">Diaspora is awesome! vi is better than emacs!</dd>
+      </dl>
+    </div>
+  </div>
 
-</div> 
+</div>

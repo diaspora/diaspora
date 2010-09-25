@@ -8,7 +8,7 @@ describe User do
   let(:user)   { Factory(:user) }
   let(:aspect) { user.aspect(:name => 'heroes') }
 
-  describe '#diaspora_handle' do 
+  describe '#diaspora_handle' do
     it 'uses the pod config url to set the diaspora_handle' do
       user.diaspora_handle.should == user.username + "@example.org"
     end

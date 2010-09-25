@@ -45,7 +45,7 @@ it:
       new_album:
           create: "crea"
           add_a_new_album: "Aggiungi un nuovo album"
-      show: 
+      show:
           edit_album: "Modifica album"
           albums: "album"
           updated: "aggiornato"

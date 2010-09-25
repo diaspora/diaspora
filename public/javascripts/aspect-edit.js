@@ -5,7 +5,7 @@
 
 function decrementRequestsCounter() {
   var $new_requests = $(".new_requests"),
-      request_html  = $new_requests.html(), 
+      request_html  = $new_requests.html(),
       old_request_count = request_html.match(/\d+/);
 
   if( old_request_count == 1 ) {
@@ -24,11 +24,11 @@ $(function() {
   $("ul .person").draggable({
     revert: true
   });
-  
+
   $("ul .requested_person").draggable({
     revert: true
   });
-  
+
   $(".aspect ul").droppable({
     hoverClass: 'active',
     drop: function(event, ui) {
@@ -72,32 +72,32 @@ $(function() {
       if ($(ui.draggable[0]).hasClass('requested_person')){
         $.ajax({
           type: "DELETE",
-          url: "/requests/" + ui.draggable.attr('request_id'), 
+          url: "/requests/" + ui.draggable.attr('request_id'),
           success: function () {
             decrementRequestsCounter();
           }
         });
-        
+
       } else {
         $.ajax({
           type: "DELETE",
-          url: "/people/" + ui.draggable.attr('id'), 
+          url: "/people/" + ui.draggable.attr('id'),
           success: function () {
             alert("Removed Friend, proably want an undo countdown.")
           }
         });
-        
+
       }
 
-      $(ui.draggable[0]).fadeOut('slow'); // ui.draggable.fadeOut('slow')      
+      $(ui.draggable[0]).fadeOut('slow'); // ui.draggable.fadeOut('slow')
     }
   });
 
 
   $(".aspect h1").live( 'focus', function() {
 
-    var $this = $(this), 
-        id    = $this.closest("li").children("ul").attr("id"), 
+    var $this = $(this),
+        id    = $this.closest("li").children("ul").attr("id"),
         link  = "/aspects/"+ id;
 
     $this.keypress(function(e) {
