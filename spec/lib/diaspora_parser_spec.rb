@@ -4,9 +4,6 @@
 
 require 'spec_helper'
 
-include ApplicationHelper
-include Diaspora::Parser
-
 describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")

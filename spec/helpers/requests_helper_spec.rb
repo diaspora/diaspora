@@ -4,8 +4,6 @@
 
 require 'spec_helper'
 
-include RequestsHelper
-
 describe RequestsHelper do
 
   before do

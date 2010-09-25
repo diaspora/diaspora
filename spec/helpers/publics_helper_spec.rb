@@ -4,7 +4,6 @@
 
 require 'spec_helper'
 
-include PublicsHelper
 describe PublicsHelper do
   before do
     @user = Factory.create(:user)

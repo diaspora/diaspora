@@ -3,10 +3,10 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-include ApplicationHelper
-include RequestsHelper
+
 describe RequestsController do
- render_views
+  include RequestsHelper
+  render_views
   before do
     @user = Factory.create :user
     stub_success("tom@tom.joindiaspora.com")

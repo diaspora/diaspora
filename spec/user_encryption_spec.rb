@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-include ApplicationHelper
-include Diaspora::Parser
 
 describe 'user encryption' do
   before do

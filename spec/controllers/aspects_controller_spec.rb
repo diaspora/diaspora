@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-include ApplicationHelper
+
 describe AspectsController do
  render_views
   before do

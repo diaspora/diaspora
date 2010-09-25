@@ -4,7 +4,6 @@
 
 require 'spec_helper'
 
-include ApplicationHelper
 describe ApplicationHelper do
   before do
     @user = Factory.create(:user)

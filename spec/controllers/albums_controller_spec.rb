@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-include ApplicationHelper
+
 describe AlbumsController do
  render_views
   before do
