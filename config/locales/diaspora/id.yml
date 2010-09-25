@@ -1,0 +1,205 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+
+# Indonesian localization file.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Apa kabar dunia"
+  application:
+      helper:
+          unknown_person: "orang tak dikenal"
+          new_requests: "permintaan baru"
+  dashboards:
+      helper:
+          home: "beranda"
+  error_messages:
+      helper:
+          invalid_fields: "Field tidak valid"
+          correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
+  people:
+      helper:
+           results_for: " hasil untuk %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
+  layouts:
+      application:
+          edit_profile: "ubah profil"
+          logout: "keluar"
+  shared:
+      aspect_nav:
+          all_aspects: "Seluruh aspek"
+          manage: "Kelola"
+          manage_your_aspects: "Kelola aspek anda"
+      sub_header:
+          all_aspects: "Seluruh Aspek"
+          manage_aspects: "Kelola Aspek"
+      publisher:
+          share: "Bagikan"
+      aspect_friends:
+          add_friends: "tambah teman"
+  albums:
+      album:
+          you: "anda"
+      new_album:
+          create: "Ciptakan"
+          add_a_new_album: "Tambah album baru"
+      show: 
+          edit_album: "Ubah Album"
+          albums: "album"
+          updated: "diperbaharui"
+          by: "oleh"
+      edit:
+          editing: "Diubah"
+          updated: "diperbaharui"
+          are_you_sure: "Apakah anda yakin?"
+          delete_album: "Hapus Album"
+          cancel: "Batal"
+      index:
+          home: "beranda"
+          new_album: "Album Baru"
+      create:
+          success: "Anda telah membuat sebuah album dengan nama %{name}."
+      update:
+          success: "Album %{name} berhasil diubah."
+          failure: "Gagal mengubah album %{name}."
+      destroy:
+          success: "Album %{name} dihapus."
+      helper:
+          friends_albums: "Album Teman"
+          your_albums: "Album Anda"
+  aspects:
+      index:
+          photos: "Foto"
+      show:
+          photos: "foto"
+      manage:
+          add_a_new_aspect: "Tambah aspek baru"
+          add_a_new_friend:  "Tambah teman baru"
+          show: "Tampilkan"
+          update_aspects: "Perbaharui Aspek"
+          requests: "Permintaan"
+          ignore_remove: "Abaikan/Hapus"
+      new_aspect:
+          add_a_new_aspect: "Tambah aspek baru"
+          create: "Ciptakan"
+      create:
+          success: "Klik pada tanda plus di sisi kiri untuk memberitahu Diaspora siapa yang dapat melihat aspek baru Anda."
+      destroy:
+          success: "%{name} berhasil dihapus."
+      update:
+          success: "Aspek anda, %{name}, telah berhasil diubah."
+      move_friends:
+          failure: "Gagal mengubah aspek untuk teman %{real_name}."
+          success: "Aspek berhasil diubah."
+      move_friend:
+          failure: "tidak dapat %{inspect}"
+          success: "Anda sekarang menunjukkan teman Anda aspek yang berbeda dari diri Anda sendiri."
+      helper:
+          remove: "hapus"
+          aspect_not_empty: "Aspek tidak kosong"
+  users:
+      edit:
+          cancel: "Batal"
+          update_profile: "Perbaharui Profil"
+          home: "Beranda"
+          diaspora_username: "USERNAME DIASPORA"
+          info: "Info"
+          picture: "Foto"
+          editing_profile: "Mengubah profil"
+          albums: "Album"
+          you_dont_have_any_photos: "Anda tidak memiliki satupun foto!  Kunjungi halaman"
+          page_to_upload_some:  "untuk meng-unggah beberapa foto."
+  comments:
+      comment:
+          ago: "yang lalu"
+      new_comment:
+          comment: "Komentar"
+  photos:
+      show:
+          prev: "sebelumnya"
+          full_size: "ukuran penuh"
+          next: "berikutnya"
+          edit_photo: "Ubah Foto"
+          delete_photo: "Hapus Foto"
+          are_you_sure: "Apakah anda yakin?"
+          comments: "komentar"
+      edit:
+          editing: "Mengubah"
+          are_you_sure: "Apakah anda yakin?"
+          delete_photo: "Hapus Foto"
+      photo:
+          show_comments: "tampilkan komentar"
+          posted_a_new_photo_to: "kirim sebuah foto ke"
+      new:
+          new_photo: "Foto Baru"
+          back_to_list: "Kembali ke Daftar"
+          post_it: "posting!"
+      create:
+          runtime_error: "Foto gagal diunggah.  Apakah Anda yakin sabuk pengaman Anda telah dikencangkan?"
+          integrity_error: "Foto gagal diunggah.  Apakah Anda yakin itu gambar?"
+          type_error: "Foto gagal diunggah.  Apakah Anda yakin gambar telah ditambahkan?"
+      update:
+          notice: "Foto berhasil diperbaharui."
+          error:  "Gagal mengubah foto."
+      destroy:
+          notice: "Foto dihapus."
+  registrations:
+      new:
+          sign_up: "Daftar"
+      create:
+          success: "Anda telah bergabung dengan Diaspora!"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "katakan padaku sesuatu yang baik"
+          oh_yeah: "oh yeah!"
+      status_message:
+          show_comments: "tampilkan komentar"
+          delete: "Hapus"
+          are_you_sure: "Apakah anda yakin?"
+      show:
+          status_message: "Status Pesan"
+          comments: "komentar"
+          are_you_sure: "Apakah anda yakin?"
+          destroy: "Hapus"
+          view_all: "Tampilkan Seluruhnya"
+          message: "Pesan"
+          owner: "Pemilik"
+      helper:
+          no_message_to_display: "Tidak ada pesan yang dapat ditampilkan."
+  people:
+      person:
+          add_friend: "tambah teman"
+          pending_request: "permintaan tertunda"
+      index:
+          add_friend: "tambah teman"
+          real_name: "nama asli"
+          diaspora_handle: "diaspora handle"
+          thats_you: "itu anda!"
+          friend_request_pending: "permintaan pertemanan tertunda"
+          you_have_a_friend_request_from_this_person: "anda memiliki permintaan pertemanan dari orang ini"
+      new:
+          new_person: "Orang Baru"
+          back_to_list: "Kembali ke Daftar"
+      show:
+          last_seen: "terakhir terlihat: %{how_long_ago}"
+          friends_since: "teman sejak: %{how_long_ago}"
+          save: "simpan"
+          are_you_sure: "Apakah anda yakin?"
+          remove_friend: "hapus teman"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Tambah teman baru ke"
+          enter_a_diaspora_username: "Masukkan Username Diaspora:"
+          your_diaspora_username_is: "Username Diaspora anda adalah: %{diaspora_handle}"
+          friends_username: "Username teman"
+      destroy:
+          success: "Anda sekarang berteman."
+          error: "Silahkan pilih sebuah aspek!"
+          ignore: "Permintaan pertemanan yang diabaikan."
+      create:
+          error: "Tidak ada benih diaspora ditemukan dengan email ini!"
+          already_friends: "Anda sudah berteman dengan %{destination_url}!"
+          success: "Sebuah permintaan pertemanan telah terkirim ke %{destination_url}."
+          horribly_wrong: "Ada sesuatu mengerikan yang salah."
