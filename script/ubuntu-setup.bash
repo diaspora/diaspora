@@ -8,7 +8,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-# USAGE: ./ubuntu-setup.bash
+# USAGE: ./script/ubuntu-setup.bash
 # Do NOT run this script as root.
 
 # Set extented globbing 
