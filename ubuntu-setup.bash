@@ -90,7 +90,6 @@ echo "Installed git-core.."
 # Setting up ruby gems
 echo "Fetching and installing ruby gems.."
 (
-<<<<<<< HEAD
     if [ $RELEASE == "maverick" ]
     then
         sudo apt-get install --no-install-recommends -y rubygems
@@ -115,33 +114,6 @@ echo "Fetching and installing ruby gems.."
         echo "."
         sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
         echo "."
-=======
-    RELEASE=$(lsb_release -c | cut -f2)
-    if [ RELEASE == "maverick" ]
-	then
-    	sudo apt-get install --no-install-recommends -y rubygems
-		sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
-	elif [ RELEASE == "lucid" ]
-    then
-        sudo add-apt-repository ppa:maco.m/ruby
-        sudo apt-get update
-    	sudo apt-get install --no-install-recommends -y rubygems
-		sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
-	else
-		# Old version
-		echo "."
-		cd /tmp 
-		wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
-		echo "."
-		tar -xf rubygems-1.3.7.tgz
-		echo "."
-		cd rubygems-1.3.7
-		echo "."
-		sudo ruby setup.rb
-		echo "."
-		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem 
-		echo "."    
->>>>>>> beda67aca699460e487d9388e793b7e77f163233
     fi  
 ) 
 echo "Done installing the gems.."
@@ -153,7 +125,6 @@ echo "Installed bundler.."
 
 # Take a clone of Diaspora
 (
-<<<<<<< HEAD
     # Check if the user is already in a cloned source if not clone the source
     [[ $( basename $PWD ) == "diaspora" ]]  && \
         echo "Already in diaspora directory" ||  \
@@ -171,23 +142,6 @@ echo "Installed bundler.."
     rake db:seed:tom
     echo "DB ready. Login -> tom and password -> evankorth.
 More details ./diaspora/db/seeds/tom.rb."
-=======
-
-# Check if the user is already in a cloned source if not clone the source 
-[[ $( basename $PWD ) == "diaspora" ]]  && echo "Already in diaspora directory" ||  git clone http://github.com/diaspora/diaspora.git ; cd diaspora 
-echo "Cloned the source.."
-
-# Install extra gems 
-cd diaspora
-echo "Installing more gems.."
-sudo bundle install
-echo "Installed."
-
-# Install DB setup 
-echo "Seting up DB.."
-rake db:seed:tom
-echo "DB ready. Login -> tom and password -> evankorth. More details ./diaspora/db/seeds/tom.rb."
->>>>>>> beda67aca699460e487d9388e793b7e77f163233
 
     # Run appserver
     echo "Starting server"
