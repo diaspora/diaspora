@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class PeopleController < ApplicationController
   before_filter :authenticate_user!
 

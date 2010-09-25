@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require 'test_helper'
 require 'rails/performance_test_help'
 

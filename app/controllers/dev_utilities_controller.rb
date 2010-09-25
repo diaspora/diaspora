@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class DevUtilitiesController < ApplicationController
   before_filter :authenticate_user!, :except => [:set_backer_number]
   include ApplicationHelper
@@ -62,7 +61,6 @@ class DevUtilitiesController < ApplicationController
 
       current_user.raw_visible_posts << photo
       current_user.save
-
 
      current_user.update_profile(:image_url => photo.url(:thumb_medium))
      current_user.save

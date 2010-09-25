@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Salmon do
   before do
@@ -22,7 +20,6 @@ describe Salmon do
 
     @sent_salmon.magic_sig.sig.should == @parsed_salmon.magic_sig.sig
     @sent_salmon.magic_sig.signable_string.should == @parsed_salmon.magic_sig.signable_string
-
 
     @parsed_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
     @sent_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(@user.exported_key)).should be true
