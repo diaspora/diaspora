@@ -21,7 +21,7 @@ if ($.support == undefined) {
 function debug(s) {
 	if ($.fn.cycle.debug)
 		log(s);
-}
+}		
 function log() {
 	if (window.console && window.console.log)
 		window.console.log('[cycle] ' + Array.prototype.join.call(arguments,' '));
@@ -61,7 +61,7 @@ $.fn.cycle = function(options, arg2) {
 			return;
 
 		opts.updateActivePagerLink = opts.updateActivePagerLink || $.fn.cycle.updateActivePagerLink;
-
+		
 		// stop existing slideshow for this container (if there is one)
 		if (this.cycleTimeout)
 			clearTimeout(this.cycleTimeout);
@@ -161,7 +161,7 @@ function handleArguments(cont, options, arg2) {
 		return false;
 	}
 	return options;
-
+	
 	function checkInstantResume(isPaused, arg2, cont) {
 		if (!isPaused && arg2 === true) { // resume now!
 			var options = $(cont).data('cycle.opts');
@@ -191,7 +191,7 @@ function destroy(opts) {
 		$(opts.next).unbind(opts.prevNextEvent);
 	if (opts.prev)
 		$(opts.prev).unbind(opts.prevNextEvent);
-
+	
 	if (opts.pager || opts.pagerAnchorBuilder)
 		$.each(opts.pagerAnchors || [], function() {
 			this.unbind().remove();
@@ -349,7 +349,7 @@ function buildOptions($cont, $slides, els, options, o) {
 			opts.speed = $.fx.speeds[opts.speed] || parseInt(opts.speed);
 		if (!opts.sync)
 			opts.speed = opts.speed / 2;
-
+		
 		var buffer = opts.fx == 'shuffle' ? 500 : 250;
 		while((opts.timeout - opts.speed) < buffer) // sanitize timeout
 			opts.timeout += opts.speed;
@@ -589,7 +589,7 @@ function go(els, opts, manual, fwd) {
 		};
 
 		debug('tx firing; currSlide: ' + opts.currSlide + '; nextSlide: ' + opts.nextSlide);
-
+		
 		// get ready to perform the transition
 		opts.busy = 1;
 		if (opts.fxFn) // fx function provided?
@@ -638,7 +638,7 @@ function go(els, opts, manual, fwd) {
 	}
 	if (changed && opts.pager)
 		opts.updateActivePagerLink(opts.pager, opts.currSlide, opts.activePagerClass);
-
+	
 	// stage the next transition
 	var ms = 0;
 	if (opts.timeout && !opts.continuous)
@@ -729,7 +729,7 @@ $.fn.cycle.createPagerAnchor = function(i, el, $p, els, opts) {
 	}
 	else
 		a = '<a href="#">'+(i+1)+'</a>';
-
+		
 	if (!a)
 		return;
 	var $a = $(a);
@@ -765,10 +765,10 @@ $.fn.cycle.createPagerAnchor = function(i, el, $p, els, opts) {
 		go(els,opts,1,opts.currSlide < i); // trigger the trans
 //		return false; // <== allow bubble
 	});
-
+	
 	if ( ! /^click/.test(opts.pagerEvent) && !opts.allowPagerClickBubble)
 		$a.bind('click.cycle', function(){return false;}); // suppress click
-
+	
 	if (opts.pauseOnPagerHover)
 		$a.hover(function() { opts.$cont[0].cyclePause++; }, function() { opts.$cont[0].cyclePause--; } );
 };
