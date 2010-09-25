@@ -8,6 +8,21 @@
 
 pt-BR:
   hello: "Olá mundo"
+  application:
+      helper:
+          unknown_person: "pessoa desconhecida"
+          new_requests: "nova requisição"
+  dashboards:
+      helper:
+          home: "casa"
+  error_messages:
+      helper:
+          invalid_fields: "Campos inválidos"
+          correct_the_following_errors_and_try_again: "Corrija os erros a seguir e tente novamente."
+  people:
+      helper:
+           results_for: " resultados para %{params}"
+           people_on_pod_are_aware_of: " pessoas no pod estão conscientes de"
   layouts:
       application:
           edit_profile: "editar perfil"
@@ -51,6 +66,9 @@ pt-BR:
           failure: "Erro ao editar o álbum %{name}."
       destroy:
           success: "O álbum %{name} foi excluído com sucesso."
+      helper:
+          friends_albums: "Álbum de amigos"
+          your_albums: "Seus álbuns"
   aspects:
       index:
           photos: "photos"
@@ -68,12 +86,25 @@ pt-BR:
           create: "Criar"
       create:
           success:"Clique no mais(+) do lado esquerdo para dizer ao Diaspora quem pode ver seu novo aspecto."
+      destroy:
+          success: "%{name} foi removido com sucesso."
+      update:
+          success: "Seu aspecto, %{name}, foi editado com sucesso."
+      move_friends:
+          failure: "Falha ao editar aspecto para o amigo(a) %{real_name}."
+          success: "Aspectos editados com sucesso."
+      move_friend:
+          failure: "não funcionou %{inspect}"
+          success: "Você está agora mostrando um diferente aspecto seu a um amigo(a)."
+      helper:
+          remove: "remover"
+          aspect_not_empty: "Aspecto não está vazio"
   users:
       edit:
           cancel: "Cancelar"
           update_profile: "Atualizar Perfil"
           home: "Home"
-          diaspora_username: "USUÁRIO DIASPORA"
+          diaspora_username: "NOME DE USUÁRIO DIASPORA"
           info: "Informações"
           picture: "Imagem"
           editing_profile: "Editando perfil"
@@ -105,9 +136,20 @@ pt-BR:
           new_photo: "Nova Foto"
           back_to_list: "Voltar para a Lista"
           post_it: "enviar!"
+      create:
+          runtime_error: "Envio de foto falhou. Você tem tem certeza que seu sinto de segurança está preso?"
+          integrity_error: "Envio de foto falhou. Você tem certeza que é uma imagem?"
+          type_error: "Envio de foto falhou. Você tem certeza que adicionou uma imagem?"
+      update:
+          notice: "Foto enviada com sucesso."
+          error:  "Falha ao editar foto."
+      destroy:
+          notice: "Foto removida."
   registrations:
       new:
           sign_up: "Cadastro"
+      create:
+          success: "Vocé entrou na Diaspora!"
   status_messages:
       new_status_message:
           tell_me_something_good: "diga-me qualquer coisa legal"
@@ -124,7 +166,12 @@ pt-BR:
           view_all: "Exibir Todas"
           message: "Mensagem"
           owner: "Pertence a"
+      helper:
+          no_message_to_display: "Nenhuma mensagem para ser mostrada."
   people:
+      person:
+          add_friend: "adicionar amigo(a)"
+          pending_request: "requisições pendentes"
       index:
           add_friend: "adicionar amigo(a)"
           real_name: "nome real"
@@ -141,3 +188,18 @@ pt-BR:
           save: "salvar"
           are_you_sure: "Tem certeza?"
           remove_friend: "excluir amigo"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Adicionar novo amigo(a) em"
+          enter_a_diaspora_username: "Digite seu nome de usuário Diaspora:"
+          your_diaspora_username_is: "Seu nome de usuário Diaspora é: %{diaspora_handle}"
+          friends_username: "Nome de usuário do Amigo(a)"
+      destroy:
+          success: "Vocês agora são amigos."
+          error: "Favor selecionar um aspecto!"
+          ignore: "Requisições de amigos ignoradas."
+      create:
+          error: "Nenhum semente Diaspora encontrado com esse email."
+          already_friends: "Você já é amigo(a) de %{destination_url}!"
+          success: "Uma requisição de amizade foi enviada para %{destination_url}."
+          horribly_wrong: "Algo horrível aconteceu."
