@@ -142,6 +142,18 @@ echo "Installed bundler.."
     bundle install
     echo "Installed."
 
+    #Configure diaspora
+    cp config/app_config.yml.example config/app_config.yml
+    echo "You need to configure diaspora to tell it which URL it has.
+Opening editor in 5 seconds and then continuing with install."
+    sleep 5
+    #ensure EDITOR is set
+    if [ -z "${EDITOR}"]
+    then
+        EDITOR=vi
+    fi
+    $EDITOR config/app_config.yml
+
     # Install DB setup
     echo "Seting up DB.."
     rake db:seed:tom
