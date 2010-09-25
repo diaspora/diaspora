@@ -13,7 +13,7 @@ require 'active_resource/railtie'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-require 'lib/mongo_mapper/bson_id'
+require File.expand_path('../../lib/mongo_mapper/bson_id', __FILE__)
 module Diaspora
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

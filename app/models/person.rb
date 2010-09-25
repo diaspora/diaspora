@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-require 'lib/hcard'
+require File.expand_path('../../../lib/hcard', __FILE__)
 
 class Person
   include MongoMapper::Document

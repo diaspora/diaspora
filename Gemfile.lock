@@ -57,19 +57,13 @@ GIT
 
 GIT
   remote: http://github.com/jnunemaker/mongomapper.git
-  revision: 931dab779011aa7acf60c1a4c7ad19e1ba838345
+  revision: b0eac421ef5b3bee782e15d391eca372a189d414
+  branch: rails3
   specs:
     mongo_mapper (0.8.4)
-      activesupport (>= 2.3.4)
-      jnunemaker-validatable (~> 1.8.4)
+      activemodel (~> 3.0.0)
+      activesupport (~> 3.0.0)
       plucky (~> 0.3.5)
-
-GIT
-  remote: http://github.com/jnunemaker/validatable.git
-  revision: 8d7c3ce14133760e748a0e34b99dfe6ec4d69153
-  specs:
-    jnunemaker-validatable (1.8.4)
-      activesupport (>= 2.3.4)
 
 GEM
   remote: http://rubygems.org/
@@ -115,7 +109,6 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.0.0)
-    columnize (0.3.1)
     crack (0.1.8)
     daemons (1.1.0)
     database_cleaner (0.5.2)
@@ -135,7 +128,6 @@ GEM
     highline (1.6.1)
     i18n (0.4.1)
     json (1.4.6)
-    linecache (0.43)
     lsof (0.3.0)
     mail (2.2.6.1)
       activesupport (>= 2.3.6)
@@ -182,7 +174,6 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
-    redgreen (1.2.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     rspec (2.0.0.beta.22)
@@ -198,11 +189,6 @@ GEM
     rspec-rails (2.0.0.beta.17)
       rspec (>= 2.0.0.beta.14)
       webrat (>= 0.7.0)
-    ruby-debug (0.10.3)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.3.0)
-    ruby-debug-base (0.10.3)
-      linecache (>= 0.3)
     saucelabs-adapter (0.8.12)
       lsof (>= 0.3.0)
       net-ssh (>= 2.0.12)
@@ -249,21 +235,18 @@ DEPENDENCIES
   em-websocket
   factory_girl_rails
   haml
-  jnunemaker-validatable (= 1.8.4)!
   json
   magent!
   mini_magick
   mocha
-  mongo_mapper (= 0.8.4)!
+  mongo_mapper!
   nifty-generators
   pubsubhubbub
   rails (= 3.0.0)
   redfinger!
-  redgreen
   roxml!
   rspec (>= 2.0.0.beta.17)
   rspec-rails (= 2.0.0.beta.17)
-  ruby-debug
   saucelabs-adapter (= 0.8.12)
   selenium-rc
   sprinkle!

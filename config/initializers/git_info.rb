@@ -3,4 +3,4 @@
 #   the COPYRIGHT file.
 
 
-GIT_INFO = `git show`
+GIT_INFO = `git show --name-only`

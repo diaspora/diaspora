@@ -13,4 +13,7 @@ gpg/diaspora-production/*.gpg
 gpg/*/random_seed
 public/uploads/*
 .rvmrc
+.DS_Store
 config/app_config.yml
+bin/*
+nbproject

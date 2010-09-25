@@ -4,7 +4,7 @@
 
 
 
-require 'config/environment'
+require File.dirname(__FILE__) + '/../../config/environment'
 
 def set_app_config username
   current_config = YAML.load(File.read(Rails.root.join('config', 'app_config.yml.example')))
