@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Photo do
   before do
@@ -15,7 +13,6 @@ describe Photo do
     @fixture_filename = 'button.png'
     @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
-
 
     @photo = Photo.new(:person => @user.person, :album => @album)
   end

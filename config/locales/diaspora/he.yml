@@ -1,0 +1,201 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+he:
+  hello: "שלום עולם"
+  application:
+      helper:
+          unknown_person: "אדם לא מוכר"
+          new_requests: "בקשות חדשות"
+  dashboards:
+      helper:
+          home: "בית"
+  error_messages:
+      helper:
+          invalid_fields: "שדות לא חוקיים"
+          correct_the_following_errors_and_try_again: "נא לתקן את השגיאות הבאות ולנסות שוב."
+  people:
+      helper:
+           results_for: " תוצאות עבור %{params}"
+           people_on_pod_are_aware_of: " אנשים בפוד מכירים את"
+  layouts:
+      application:
+          edit_profile: "ערוך פרופיל"
+          logout: "התנתק"
+  shared:
+      aspect_nav:
+          all_aspects: "כל האספקטים"
+          manage: "נהל"
+          manage_your_aspects: "נהל אספקטים"
+      sub_header:
+          all_aspects: "כל האספקטים"
+          manage_aspects: "נהל אספקטים"
+      publisher:
+          share: "שתף"
+      aspect_friends:
+          add_friends: "הוסף חברים"
+  albums:
+      album:
+          you: "אתה"
+      new_album:
+          create: "צור"
+          add_a_new_album: "הוסף אלבום חדש"
+      show: 
+          edit_album: "ערוך אלבום"
+          albums: "אלבומים"
+          updated: "עדכן"
+          by: "על ידי"
+      edit:
+          editing: "עריכה"
+          updated: "עודכן"
+          are_you_sure: "האם את/ה בטוח/ה?"
+          delete_album: "מחק אלבום"
+          cancel: "בטל"
+      index:
+          home: "בית"
+          new_album: "אלבום חדש"
+      create:
+          success: "יצרת אלבום בשם %{name}."
+      update:
+          success: "אלבום %{name} עודכן בהצלחה."
+          failure: "עריכת אלבום %{name} נכשלה."
+      destroy:
+          success: "אלבום %{name} נמחק."
+      helper:
+          friends_albums: "אלבומים של חברים"
+          your_albums: "האלבומים שלך"
+  aspects:
+      index:
+          photos: "תמונות"
+      show:
+          photos: "תמונות"
+      manage:
+          add_a_new_aspect: "הוסף אספקט"
+          add_a_new_friend:  "הוסף חבר"
+          show: "הצג"
+          update_aspects: "עדכן אספקטים"
+          requests: "בקשות"
+          ignore_remove: "התעלם/מחק"
+      new_aspect:
+          add_a_new_aspect: "הוסף אספקט"
+          create: "צור"
+      create:
+          success: "לחץ על הפלוס בצד ימין על מנת לקבוע מי רשאי לצפות באספקט."
+      destroy:
+          success: "%{name} הוסר בהצלחה."
+      update:
+          success: "האספקט שלך, %{name}, נערך בהצלחה."
+      move_friends:
+          failure: "עריכת אספקט נכשלה עבור %{real_name}."
+          success: "אספקטים נערכו בהצלחה."
+      move_friend:
+          failure: "לא עבד %{inspect}"
+          success: "אתה כעת מציג לחברך אספקט שונה שלך."
+      helper:
+          remove: "מחק"
+          aspect_not_empty: "אספקט לא ריק"
+  users:
+      edit:
+          cancel: "בטל"
+          update_profile: "עדכן פרופיל"
+          home: "בית"
+          diaspora_username: "שם משתמש בדיאספורה"
+          info: "מידע"
+          picture: "תמונה"
+          editing_profile: "עורך פרופיל"
+          albums: "אלבומים"
+          you_dont_have_any_photos: "אין לך תמונות! עבור ל-"
+          page_to_upload_some:  "דף להעלאה."
+  comments:
+      comment:
+          ago: "לפני"
+      new_comment:
+          comment: "הערה"
+  photos:
+      show:
+          prev: "קודם"
+          full_size: "גודל מלא"
+          next: "הבא"
+          edit_photo: "ערוך תמונה"
+          delete_photo: "מחק תמונה"
+          are_you_sure: "האם אתה בטוח?"
+          comments: "הערות"
+      edit:
+          editing: "עריכה"
+          are_you_sure: "האם אתה בטוח?"
+          delete_photo: "מחק תמונה"
+      photo:
+          show_comments: "הצג הערות"
+          posted_a_new_photo_to: "הועלתה תמונה חדשה ל-"
+      new:
+          new_photo: "תמונה חדשה"
+          back_to_list: "חרה לרשימה"
+          post_it: "שתף!"
+      create:
+          runtime_error: "העלאת תמונה נכשלה. האם אתה חוגר חגורת בטיחות?"
+          integrity_error: "העלאת תמונה נכשלה. האם זו אכן הייתה תמונה?"
+          type_error: "העלאת תמונה נכשלה. האם אכן נוספה תמונה?"
+      update:
+          notice: "תמונה עודכנה בהצלחה."
+          error:  "עריכת תמונה נכשלה."
+      destroy:
+          notice: "תמונה נמחקה."
+  registrations:
+      new:
+          sign_up: "הצטרפות"
+      create:
+          success: "הצטרפת לדיאספורה!"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "ספר לי משהו נחמד"
+          oh_yeah: "אחלה!"
+      status_message:
+          show_comments: "הצג תגובות"
+          delete: "מחק"
+          are_you_sure: "האם אתה בטוח?"
+      show:
+          status_message: "הודעת סטטוס"
+          comments: "הערות"
+          are_you_sure: "האם אתה בטוח?"
+          destroy: "השמד"
+          view_all: "הצג הכל"
+          message: "הודעה"
+          owner: "בעלים"
+      helper:
+          no_message_to_display: "אין הודעה להציג."
+  people:
+      person:
+          add_friend: "הוסף חבר"
+          pending_request: "בקשה על תנאי"
+      index:
+          add_friend: "הוסף חבר"
+          real_name: "שם אמיתי"
+          diaspora_handle: "כינוי בדיאספורה"
+          thats_you: "זה אתה!"
+          friend_request_pending: "בקשת חברות ממתינה"
+          you_have_a_friend_request_from_this_person: "יש לך בקשת חברות מאדם זה"
+      new:
+          new_person: "אדם חדש"
+          back_to_list: "חזרה לרשימה"
+      show:
+          last_seen: "נראה לאחרונה: %{how_long_ago}"
+          friends_since: "חברים מאז: %{how_long_ago}"
+          save: "שמור"
+          are_you_sure: "האם אתה בטוח?"
+          remove_friend: "מחק חבר"
+  requests:
+      new_request:
+          add_a_new_friend_to: "הוסף חבר חדש ל-"
+          enter_a_diaspora_username: "הכנס שם משתמש בדיאספורה:"
+          your_diaspora_username_is: "שם המשתמש שלך בדיאספורה: %{diaspora_handle}"
+          friends_username: "שם המשתמש של חבר"
+      destroy:
+          success: "אתם כעת חברים."
+          error: "נא לבחור אספקט!"
+          ignore: "התעלמת מבקשת חברות."
+      create:
+          error: "לא נמצא זרע דיאספורה עם אימייל זה!"
+          already_friends: "את/ה כבר חבר של %{destination_url}!"
+          success: "בקשת חברות נשלחה ל%{destination_url}."
+          horribly_wrong: "משהו רע מאוד קרה."

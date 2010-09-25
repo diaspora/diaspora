@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
+require 'spec_helper'
 
-require File.dirname(__FILE__) + '/../spec_helper'
-include ApplicationHelper
 describe AlbumsController do
  render_views
   before do

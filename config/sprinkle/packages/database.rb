@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 #package :mongo, :provides => :database do
 #  description 'Mongodb'
 #  version '1.4.3'

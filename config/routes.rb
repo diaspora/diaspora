@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 Diaspora::Application.routes.draw do
   resources :people, :only => [:index, :show, :destroy]
   resources :users, :except => [:create, :new, :show]
@@ -17,7 +15,6 @@ Diaspora::Application.routes.draw do
   match 'aspects/move_friend', :to => 'aspects#move_friend', :as => 'move_friend'
   match 'aspects/manage', :to => 'aspects#manage'
   resources :aspects, :except => [:edit]
-
 
   match 'warzombie',          :to => "dev_utilities#warzombie"
   match 'zombiefriends',      :to => "dev_utilities#zombiefriends"

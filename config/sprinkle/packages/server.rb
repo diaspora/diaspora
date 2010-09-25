@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 package :nginx, :provides=> :webserver do
   description 'Nginx HTTP server'
   version '0.7.67'
