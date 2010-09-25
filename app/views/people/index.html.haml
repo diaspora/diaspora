@@ -15,11 +15,10 @@
   &nbsp;
 
 %h1
-  search results for
-  %u= params[:q]
+  = search_or_index
 
 %ul#stream
   - for person in @people
     = render 'people/person', :person => person
-    
+
 = will_paginate @people
