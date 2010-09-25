@@ -11,7 +11,7 @@
       = link_to person.real_name, person_path(person)
 
     .info
-      = person.diaspora_handle
+      =raw enhance_name h(person.diaspora_handle)
 
     .right{ :style => "display:inline;top:0;" }
       - if person.id == current_user.person.id
