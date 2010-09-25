@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class Post
   require File.expand_path('../../../lib/encryptable', __FILE__)
   require File.expand_path('../../../lib/diaspora/websocket', __FILE__)
@@ -32,7 +31,6 @@ class Post
   def self.instantiate params
     self.create params.to_hash
   end
-
 
   def as_json(opts={})
     {

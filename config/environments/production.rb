@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 

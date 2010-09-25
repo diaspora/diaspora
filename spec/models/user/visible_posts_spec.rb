@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require 'spec_helper'
 
 describe User do
@@ -54,7 +52,6 @@ describe User do
   end
 
   context 'albums' do
-
 
     before do
       @album = user.post :album, :name => "Georges", :to => aspect.id

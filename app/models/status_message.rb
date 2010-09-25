@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class StatusMessage < Post
 
   xml_name :status_message
@@ -10,7 +9,6 @@ class StatusMessage < Post
 
   key :message, String
   validates_presence_of :message
-
 
   def to_activity
         <<-XML

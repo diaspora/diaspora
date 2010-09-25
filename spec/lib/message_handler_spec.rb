@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require 'spec_helper'
 
 describe MessageHandler do
@@ -41,7 +39,6 @@ describe MessageHandler do
         }
       end
 
-
       it 'should only retry a bad request three times ' do
         request = FakeHttpRequest.new(:failure)
         request.should_receive(:get).exactly(MessageHandler::NUM_TRIES).times.and_return(request)
@@ -60,7 +57,6 @@ describe MessageHandler do
   end
 
   describe 'POST messages' do
-
 
     it 'should be able to add a post message to the queue' do
       EventMachine.run {

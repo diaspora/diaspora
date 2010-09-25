@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 package :git, :provides => :scm do
   description 'Git Distributed Version Control'
   apt %w( git-core )

@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 module HCard
   def self.find url
     doc = Nokogiri::HTML(Net::HTTP.get URI.parse(url))

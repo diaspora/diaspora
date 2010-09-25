@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require 'spec_helper'
 
 describe StatusMessage do
@@ -36,7 +34,6 @@ describe StatusMessage do
       parsed.valid?.should be_true
     end
   end
-
 
 end
 

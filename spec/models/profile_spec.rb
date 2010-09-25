@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require 'spec_helper'
 
 describe Profile do
@@ -29,4 +27,3 @@ describe Profile do
   end
 
 end
-

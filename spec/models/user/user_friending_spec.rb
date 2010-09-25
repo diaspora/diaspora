@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require 'spec_helper'
 
 describe User do
@@ -23,7 +21,6 @@ describe User do
       aspect.reload
       aspect.requests.size.should == 1
     end
-
 
      it "should be able to accept a pending friend request" do
       friend = Factory.create(:person)
@@ -53,11 +50,8 @@ describe User do
       @user.friends << friend
       @user.save
 
-
       proc {@user.send_friend_request_to( friend, @aspect)}.should raise_error
     end
-
-
 
     describe 'multiple users accepting/rejecting the same person' do
       before do
@@ -144,7 +138,6 @@ describe User do
         Person.all.count.should be 3
       end
 
-
     end
 
     describe 'a user accepting rejecting multiple people' do
@@ -230,7 +223,6 @@ describe User do
       end
     end
   end
-
 
   end
 end
