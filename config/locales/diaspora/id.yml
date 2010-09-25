@@ -48,11 +48,11 @@ en:
       show: 
           edit_album: "Ubah Album"
           albums: "album"
-          updated: "diperbaharui"
+          updated: "diperbarui"
           by: "oleh"
       edit:
           editing: "Diubah"
-          updated: "diperbaharui"
+          updated: "diperbarui"
           are_you_sure: "Apakah anda yakin?"
           delete_album: "Hapus Album"
           cancel: "Batal"
@@ -78,7 +78,7 @@ en:
           add_a_new_aspect: "Tambah aspek baru"
           add_a_new_friend:  "Tambah teman baru"
           show: "Tampilkan"
-          update_aspects: "Perbaharui Aspek"
+          update_aspects: "Perbarui Aspek"
           requests: "Permintaan"
           ignore_remove: "Abaikan/Hapus"
       new_aspect:
@@ -102,7 +102,7 @@ en:
   users:
       edit:
           cancel: "Batal"
-          update_profile: "Perbaharui Profil"
+          update_profile: "Perbarui Profil"
           home: "Beranda"
           diaspora_username: "USERNAME DIASPORA"
           info: "Info"
@@ -141,7 +141,7 @@ en:
           integrity_error: "Foto gagal diunggah.  Apakah Anda yakin itu gambar?"
           type_error: "Foto gagal diunggah.  Apakah Anda yakin gambar telah ditambahkan?"
       update:
-          notice: "Foto berhasil diperbaharui."
+          notice: "Foto berhasil diperbarui."
           error:  "Gagal mengubah foto."
       destroy:
           notice: "Foto dihapus."

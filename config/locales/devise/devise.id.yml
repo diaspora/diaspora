@@ -1,0 +1,43 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+#
+#   Indonesian Localization file.
+#
+
+en:
+  errors:
+    messages:
+      not_found: "tidak ditemukan"
+      already_confirmed: "sudah dikonfirmasi"
+      not_locked: "tidak terkunci"
+
+  devise:
+    failure:
+      unauthenticated: "Anda harus masuk atau mendaftar sebelum melanjutkan."
+      unconfirmed: "Anda harus mengkonfirmasi akun Anda sebelum melanjutkan."
+      locked: "Akun anda terkunci."
+      invalid: "Email atau password tidak valid."
+      invalid_token: "Token otentikasi tidak valid."
+      timeout: "Sesi anda telah berakhir, silahkan masuk lagi untuk melanjutkan."
+      inactive: "Akun anda belum diaktifkan."
+    sessions:
+      signed_in: "Berhasil masuk."
+      signed_out: "Berhasil keluar."
+    passwords:
+      send_instructions: "Anda akan menerima email berisi petunjuk cara me-reset password Anda dalam beberapa menit."
+      updated: "Password Anda telah berhasil diubah. Anda sekarang masuk."
+    confirmations:
+      send_instructions: "Anda akan menerima email berisi instruksi bagaimana mengkonfirmasi akun Anda dalam beberapa menit."
+      confirmed: "Akun Anda telah berhasil dikonfirmasi. Anda sekarang masuk."
+    registrations:
+      signed_up: "Anda telah berhasil mendaftar. Jika diaktifkan, konfirmasi dikirim ke e-mail Anda."
+      updated: "Anda berhasil memperbarui akun anda."
+      destroyed: "Bye! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi."
+    unlocks:
+      send_instructions: "Anda akan menerima email berisi instruksi bagaimana membuka akun Anda dalam beberapa menit."
+      unlocked: "Akun Anda telah berhasil dibuka. Anda sekarang masuk."
+    mailer:
+      confirmation_instructions: "Instruksi konfirmasi"
+      reset_password_instructions: "Instruksi me-reset password"
+      unlock_instructions: "Instruksi membuka"
