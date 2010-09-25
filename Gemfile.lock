@@ -128,7 +128,7 @@ GEM
     highline (1.6.1)
     i18n (0.4.1)
     json (1.4.6)
-    lsof (0.3.0)
+    linecache (0.43)
     mail (2.2.6.1)
       activesupport (>= 2.3.6)
       mime-types
@@ -189,15 +189,11 @@ GEM
     rspec-rails (2.0.0.beta.17)
       rspec (>= 2.0.0.beta.14)
       webrat (>= 0.7.0)
-    saucelabs-adapter (0.8.12)
-      lsof (>= 0.3.0)
-      net-ssh (>= 2.0.12)
-      net-ssh-gateway (>= 1.0.1)
-      rest-client (>= 1.2.0)
-      selenium-client (>= 1.2.17)
-    selenium-client (1.2.18)
-    selenium-rc (2.2.4)
-      selenium-client (>= 1.2.18)
+    ruby-debug (0.10.3)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.3.0)
+    ruby-debug-base (0.10.3)
+      linecache (>= 0.3)
     subexec (0.0.4)
     thin (1.2.7)
       daemons (>= 1.0.9)
@@ -247,10 +243,8 @@ DEPENDENCIES
   roxml!
   rspec (>= 2.0.0.beta.17)
   rspec-rails (= 2.0.0.beta.17)
-  saucelabs-adapter (= 0.8.12)
-  selenium-rc
+  ruby-debug
   sprinkle!
   thin
   webmock
-  webrat (= 0.7.2.beta.1)
   will_paginate (= 3.0.pre2)
