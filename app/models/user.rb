@@ -35,7 +35,7 @@ class User
 
   after_create :seed_aspects
 
-  before_validation_on_create :downcase_username
+  before_validation :downcase_username, :on => :create
 
    def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
