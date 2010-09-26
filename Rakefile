@@ -10,4 +10,5 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 ENV['GNUPGHOME'] = File.expand_path("../../gpg/diaspora-#{Rails.env}/", __FILE__)
+
 Diaspora::Application.load_tasks
