@@ -13,6 +13,8 @@ namespace :whitespace do
   end
   desc 'Remove consecutive blank lines'
   task :scrub_gratuitous_newlines do
-    sh %{find . -name '*.rb' -exec sed -i '' '/./,/^$/!d' {} \\;}
+    sh %{for f in `find . -type f | grep -v -e '.git/' -e 'public/' -e '.png'`;
+          do cat $f | sed '/./,/^$/!d' > tmp; cp tmp $f; rm tmp; echo -n .;
+        done}
   end
 end
