@@ -18,7 +18,7 @@ class AspectsController < ApplicationController
     if @aspect.valid?
       flash[:notice] = I18n.t('aspects.create.success')
     else
-      flash[:notice] = I18n.t('aspects.create.failure')
+      flash[:error] = I18n.t('aspects.create.failure')
     end
     respond_with :location => aspects_manage_path
   end
