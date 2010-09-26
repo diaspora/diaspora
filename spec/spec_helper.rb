@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
 
@@ -15,8 +13,6 @@ require 'webmock/rspec'
 
 include Devise::TestHelpers
 include WebMock
-
-
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -45,6 +41,9 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+ImageUploader.enable_processing = false
+
   def stub_sockets
     Diaspora::WebSocket.stub!(:queue_to_user).and_return(true)
     Diaspora::WebSocket.stub!(:subscribe).and_return(true)

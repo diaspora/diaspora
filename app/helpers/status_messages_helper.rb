@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module StatusMessagesHelper
   def my_latest_message
     unless @latest_status_message.nil?

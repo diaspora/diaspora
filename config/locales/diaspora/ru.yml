@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 # Sample localization file for Russian. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
@@ -30,7 +29,7 @@ ru:
       new_album:
           create: "создать"
           add_a_new_album: "Добавить новый альбом"
-      show: 
+      show:
           edit_album: "Редактировать альбом"
           albums: "альбомы"
           updated: "обновленные"

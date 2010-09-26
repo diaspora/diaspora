@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
 
@@ -15,8 +14,12 @@ class AspectsController < ApplicationController
   end
 
   def create
-    @aspect = current_user.aspect params[:aspect]
-    flash[:notice] = I18n.t('aspects.create.success')
+    @aspect = current_user.aspect(params[:aspect])
+    if @aspect.valid?
+      flash[:notice] = I18n.t('aspects.create.success')
+    else
+      flash[:notice] = I18n.t('aspects.create.failure')
+    end
     respond_with :location => aspects_manage_path
   end
 
@@ -30,7 +33,7 @@ class AspectsController < ApplicationController
     begin
       current_user.drop_aspect @aspect
       flash[:notice] = i18n.t 'aspects.destroy.success',:name => @aspect.name
-    rescue RuntimeError => e 
+    rescue RuntimeError => e
       flash[:error] = e.message
     end
 

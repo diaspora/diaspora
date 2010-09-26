@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class Album < Post
 
   xml_reader :name
@@ -16,7 +15,6 @@ class Album < Post
   validates_presence_of :name, :person
 
   before_destroy :destroy_photos
-
 
   def self.mine_or_friends(friend_param, current_user)
     friend_param ? Album.find_all_by_person_id(current_user.friend_ids) : current_user.person.albums

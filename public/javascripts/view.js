@@ -5,15 +5,15 @@
 
 
 $(document).ready(function(){
-	
+
 	$('#debug_info').click(function() {
 		$('#debug_more').toggle('fast');
 	});
-	
+
   $("label").inFieldLabels();
-	
+
   $('#flash_notice, #flash_error, #flash_alert').delay(2500).slideUp(130);
-  
+
   $("div.image_cycle").cycle({
     fx: 'fade',
     random: 1,

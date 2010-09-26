@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 require File.expand_path('../boot', __FILE__)
 
 require 'action_controller/railtie'

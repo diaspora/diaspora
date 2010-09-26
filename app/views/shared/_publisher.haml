@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 #publisher
   = owner_image_tag
 
@@ -18,5 +17,5 @@
         %li
           = check_box_tag("aspect_ids[]", aspect.id, @aspect == :all || current_aspect?(aspect) )
           = aspect.name
-      
+
     = f.submit t('.share')

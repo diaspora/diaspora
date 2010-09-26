@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class Request
   require File.expand_path('../../../lib/diaspora/webhooks', __FILE__)
   include MongoMapper::Document
