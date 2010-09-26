@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 begin
   require 'rspec/core'
   require 'rspec/core/rake_task'

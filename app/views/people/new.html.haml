@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 - title=t('.new_person')
 
 = form_for @person do |f|
@@ -27,6 +26,5 @@
         %br
         = p.text_field :last_name
     = f.submit
-
 
 %p= link_to t('.back_to_list'), people_path

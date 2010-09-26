@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 common: &common
   # Try to kill mongrel after suite if tmp/pids/mongrel_selenium.pid exists
   # kill_mongrel_after_suite: true

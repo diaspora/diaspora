@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
 :javascript
   WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
@@ -29,14 +28,12 @@
         processPost(obj['class'], obj['html'], obj['aspect_ids'])
       }
 
-
     };
     ws.onclose = function() { debug("socket closed"); };
     ws.onopen = function() {
       ws.send(location.pathname);
       debug("connected...");
     };
-
 
   });
   function processRetraction(post_id){
