@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 ## Special package, anything that defines a 'source' package means build-essential should be installed for Ubuntu
 
 package :build_essential do

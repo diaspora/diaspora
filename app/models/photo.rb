@@ -73,4 +73,3 @@ class Photo < Post
   end
 end
 
-

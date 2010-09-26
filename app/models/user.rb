@@ -71,7 +71,6 @@ class User
     end
   end
 
-
   def move_friend( opts = {})
     return true if opts[:to] == opts[:from]
     friend = Person.first(:_id => opts[:friend_id])
@@ -106,7 +105,6 @@ class User
 
     intitial_post(class_name, aspect_ids, options)
   end
-
 
   def intitial_post(class_name, aspect_ids, options = {})
     post = build_post(class_name, options)
@@ -269,7 +267,6 @@ class User
   def downcase_username
     username.downcase! if username
   end
-
 
   def as_json(opts={})
     {
