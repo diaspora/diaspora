@@ -8,7 +8,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 # Set extented globbing
 shopt -s extglob
 

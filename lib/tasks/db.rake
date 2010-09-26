@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 namespace :db do
   desc 'Seed the current RAILS_ENV database from db/seeds.rb'
   namespace :seed do
