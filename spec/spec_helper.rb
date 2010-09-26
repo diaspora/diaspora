@@ -41,6 +41,9 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+ImageUploader.enable_processing = false
+
   def stub_sockets
     Diaspora::WebSocket.stub!(:queue_to_user).and_return(true)
     Diaspora::WebSocket.stub!(:subscribe).and_return(true)
