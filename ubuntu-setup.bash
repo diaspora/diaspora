@@ -64,32 +64,32 @@ echo "Installed git-core.."
 # Setting up ruby gems
 echo "Fetching and installing ruby gems.."
 (
-    RELEASE=$(lsb_release -c | cut -f2)
-    if [ RELEASE == "maverick" ]
-	then
-    	sudo apt-get install --no-install-recommends -y rubygems
-		sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
-	elif [ RELEASE == "lucid" ]
-    then
-        sudo add-apt-repository ppa:maco.m/ruby
-        sudo apt-get update
-    	sudo apt-get install --no-install-recommends -y rubygems
-		sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
-	else
-		# Old version
-		echo "."
-		cd /tmp
-		wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
-		echo "."
-		tar -xf rubygems-1.3.7.tgz
-		echo "."
-		cd rubygems-1.3.7
-		echo "."
-		sudo ruby setup.rb
-		echo "."
-		sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
-		echo "."
-    fi
+  RELEASE=$(lsb_release -c | cut -f2)
+  if [ RELEASE == "maverick" ]
+  then
+    sudo apt-get install --no-install-recommends -y rubygems
+    sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
+  elif [ RELEASE == "lucid" ]
+  then
+    sudo add-apt-repository ppa:maco.m/ruby
+    sudo apt-get update
+    sudo apt-get install --no-install-recommends -y rubygems
+    sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
+  else
+    # Old version
+    echo "."
+    cd /tmp
+    wget http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz
+    echo "."
+    tar -xf rubygems-1.3.7.tgz
+    echo "."
+    cd rubygems-1.3.7
+    echo "."
+    sudo ruby setup.rb
+    echo "."
+    sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+    echo "."
+  fi
 )
 echo "Done installing the gems.."
 
