@@ -41,7 +41,7 @@ he:
       new_album:
           create: "צור"
           add_a_new_album: "הוסף אלבום חדש"
-      show: 
+      show:
           edit_album: "ערוך אלבום"
           albums: "אלבומים"
           updated: "עדכן"
