@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 :javascript
   $(document).keydown(function(e){
     switch(e.keyCode) {
@@ -35,7 +34,6 @@
     -if current_user.owns? @album
       = link_to t('.edit_photo'), edit_photo_path(@photo), :class => "button"
 
-
 %div{:id => @photo.id}
   #show_photo
     = linked_scaled_photo @photo, @album
@@ -53,4 +51,4 @@
   %h4{:class => "show_post_comments"}
     = "#{t('.comments')} (#{@photo.comments.count})"
   = render "comments/comments", :post => @photo
-    
+

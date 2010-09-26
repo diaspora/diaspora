@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 # Localization file for German. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
@@ -45,7 +44,7 @@ de:
       new_album:
           create: "erstellen"
           add_a_new_album: "Album hinzufügen"
-      show: 
+      show:
           edit_album: "Album bearbeiten"
           albums: "Alben"
           updated: "aktualisiert"
@@ -98,7 +97,7 @@ de:
           notice: "Du zeigst deinem Freund jetzt einen anderen Aspekt von dir."
       helper:
           remove: "entfernen"
-          aspect_not_empty: "Aspekt ist nicht leer"          
+          aspect_not_empty: "Aspekt ist nicht leer"
   users:
       edit:
           cancel: "Abbrechen"
@@ -132,7 +131,7 @@ de:
           delete_photo: "Foto löschen"
       photo:
           show_comments: "Kommentare anzeigen"
-          posted_a_new_photo_to: "neues Foto veröffentlicht bei"          
+          posted_a_new_photo_to: "neues Foto veröffentlicht bei"
       new:
           new_photo: "Foto erstellen"
           back_to_list: "Zurück zur Liste"

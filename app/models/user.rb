@@ -66,7 +66,7 @@ class User
   def drop_aspect( aspect )
     if aspect.people.size == 0
       aspect.destroy
-    else 
+    else
       raise "Aspect not empty"
     end
   end
@@ -106,11 +106,11 @@ class User
     intitial_post(class_name, aspect_ids, options)
   end
 
-  def intitial_post(class_name, aspect_ids, options = {}) 
+  def intitial_post(class_name, aspect_ids, options = {})
     post = build_post(class_name, options)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
-    post 
+    post
   end
 
   def repost( post, options = {} )
@@ -137,9 +137,9 @@ class User
     end
 
     aspect_ids.each do |aspect_id|
-      unless self.aspects.find(aspect_id) 
+      unless self.aspects.find(aspect_id)
         raise ArgumentError.new("Cannot post to an aspect you do not own.")
-      end 
+      end
     end
 
     aspect_ids

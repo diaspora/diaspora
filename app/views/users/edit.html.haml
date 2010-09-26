@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :publish do
   %h1="#{t('.editing_profile')}"
 
@@ -49,7 +48,7 @@
       = p.label :first_name
       = p.text_field :first_name, :value => @profile.first_name
     %p
-      = p.label :last_name 
+      = p.label :last_name
       = p.text_field :last_name, :value => @profile.last_name
 
   #submit_block

@@ -29,7 +29,7 @@ Diaspora::Application.routes.draw do
   match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
   match 'signup', :to => 'registrations#new', :as => "new_user_registration"
 
-  match 'get_to_the_choppa', :to => redirect("/signup") 
+  match 'get_to_the_choppa', :to => redirect("/signup")
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'
