@@ -1,0 +1,37 @@
+body {
+  font-size: 1em; }
+
+a {
+  text-decoration: none; }
+
+header {
+  background-color: #333333;
+  color: white; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+  ul li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid #eeeeee; }
+
+#publisher {
+  background-color: #eeeeee; }
+  #publisher form {
+    display: inline; }
+  #publisher textarea {
+    height: 3em;
+    width: 70%; }
+  #publisher img {
+    display: inline;
+    height: 3em;
+    width: 3em; }
+
+#stream .content {
+  display: inline; }
+#stream img {
+  height: 3em;
+  width: 3em;
+  display: inline; }
+#stream .comments {
+  display: none; }

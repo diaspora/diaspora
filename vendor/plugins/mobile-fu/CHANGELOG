@@ -1,0 +1,113 @@
+commit a46e0d5ff0a95407bbd8f3437a372ced53d90c9b
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Sat Dec 20 20:59:49 2008 -0500
+
+    Added a helper method to determine if a device is JavaScript enabled and one to output the XHTML Mobile 1.0 doctype
+
+commit f4b29b2e2c68a79b8904dddb7a91efd4341540ee
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Sun Sep 21 21:39:10 2008 -0400
+
+    Fixes issue with 'in_mobile_view' instead of 'is_mobile_view' helper method
+
+commit 29e8e8b407dd3dc8d5f3248183223d11c6a78843
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Wed Sep 10 12:51:12 2008 -0400
+
+    Updating CHANGELOG
+
+commit 0aac5bd7f0d2f71e6af7b144a04a18dad9f5aca5
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Wed Sep 10 12:50:50 2008 -0400
+
+    Styling overrides for iPods
+
+commit f30c97c794ba74e737856aa9226328469c8395b6
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Mon Sep 8 00:07:27 2008 -0400
+
+    Adding in some comments to the latest changes
+
+commit 78dae861e46d383356d7e4d6dfdaefbf60072e27
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Mon Sep 8 00:06:16 2008 -0400
+
+    Updating README
+
+commit 1a66ccd2142e387f6d3138acb688a58df4687fcd
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Mon Sep 8 00:05:48 2008 -0400
+
+    Adding in a helper method to check for a specific mobile device and adding in 'ipod' to the list of mobile user agents
+
+commit cbb26fff3287e16a757ee2aed2dcc8e98cbfb369
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Aug 22 22:16:19 2008 -0400
+
+    Updating the CHANGELOG
+
+commit ee49945b593b1c55bf546da1d595a0941d071f94
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Aug 22 22:16:00 2008 -0400
+
+    Updating README
+
+commit 02c12a8563466f7cef6aba8e53915dc2efec908c
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Mon Aug 18 16:08:51 2008 -0400
+
+    Adding in support for Android
+
+commit 2dffa5958905c0419288d03a0650127a0734b41a
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Sat Jul 26 14:08:56 2008 -0400
+
+    Adding in other phone user agents, including some Japanese and French manufacturers
+
+commit e8f9f1a9c2e668d639690f4f1beb4f701f742cfa
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 11:15:52 2008 -0400
+
+    Adding in CHANGELOG
+
+commit a3122b40c0c722b2942e9cb5341614d0e0d834a5
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 11:14:35 2008 -0400
+
+    Changes to README
+
+commit 64a24e36b6a770757963eb2d961262fb8a14ec1b
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 11:10:40 2008 -0400
+
+    Quick fix
+
+commit 116fa5b7c1168471cf56cb9961b98f0b73fc3308
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 10:04:41 2008 -0400
+
+    Fixed issue with mobile view session variable getting set incorrectly, when forcing mobile format
+
+commit d172665c9d0458801fd672076e269a3c0ee9d80d
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 01:04:19 2008 -0400
+
+    Adding in more MIT license goodness
+
+commit a6c947d684d2d9abdbe354dc1ea757f23cd5a633
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 01:00:55 2008 -0400
+
+    Change to the README
+
+commit dad4f4db1f3cb816283069a91c01982c953ff8a5
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 01:00:16 2008 -0400
+
+    Change to the README
+
+commit c5ec9de6ef19e48a66917d8f6f3a59771295765b
+Author: Brendan G. Lim <brendan@intridea.com>
+Date:   Fri Jul 18 00:59:36 2008 -0400
+
+    Releasing Mobile Fu to the world

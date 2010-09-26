@@ -1,0 +1,36 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3.  See
+-#   the COPYRIGHT file.
+
+
+!!!
+%html
+  %head
+    %title
+      = "#{current_user.real_name} | diaspora" if current_user
+
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{"name"=>"viewport", :content=>"initial-scale=1; user-scalable=no"}/
+    
+    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
+    = stylesheet_link_tag "mobile", :media => 'screen'
+
+    /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag 'rails'
+    
+    = csrf_meta_tag
+    = yield(:head)
+
+  %body
+    - flash.each do |name, msg|
+      = content_tag :div, msg, :id => "flash_#{name}"
+
+    %header
+      DIASPORA*
+
+      /= render "shared/aspect_nav"
+      /= render "shared/sub_header"
+
+    = yield
+
+    /= render "posts/debug"
