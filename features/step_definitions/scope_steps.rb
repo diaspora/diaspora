@@ -9,7 +9,7 @@ end
 
 World(SectionLocator)
 
-sections = %w(h1 h2 h3 h4 h5 h6 legend caption dt strong)
+sections = %w(h1 h2 h3 h4 h5 h6 legend caption dt strong header)
 
 When /^(.*) in the "([^\"]*)" section$/ do |action, title|
   within_parent(title, sections) do

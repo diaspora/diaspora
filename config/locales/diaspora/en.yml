@@ -86,6 +86,7 @@ en:
           create: "Create"
       create:
           success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+          failure: "Aspect creation failed."
       destroy:
           success: "%{name} was successfully removed."
       update:

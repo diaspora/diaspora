@@ -14,8 +14,12 @@ class AspectsController < ApplicationController
   end
 
   def create
-    @aspect = current_user.aspect params[:aspect]
-    flash[:notice] = I18n.t('aspects.create.success')
+    @aspect = current_user.aspect(params[:aspect])
+    if @aspect.valid?
+      flash[:notice] = I18n.t('aspects.create.success')
+    else
+      flash[:notice] = I18n.t('aspects.create.failure')
+    end
     respond_with :location => aspects_manage_path
   end
 
