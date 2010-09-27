@@ -1,8 +1,9 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
+#   Translated to Hebrew by Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
 
-en:
+he:
   errors:
     messages:
       not_found: "לא נמצא"
@@ -11,30 +12,30 @@ en:
 
   devise:
     failure:
-      unauthenticated: "צריך להתחבר או להירשם לפני שאפשר להמשיך."
-      unconfirmed: "צריך לאשר את החשבון לפני שאפשר להמשיך."
-      locked: "החשבון שלך נעול."
-      invalid: "אימייל או סיסמה לא נכונים."
-      invalid_token: "מספר אימות לא נכון."
-      timeout: "פג תוקפו של החיבור. נא להתחבר מחדש על מנת להמשיך."
-      inactive: "החשבון לא אומת עדיין."
+      unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות."
+      unconfirmed: "עליך לאמת את חשבונך לפי המשך הפעילות."
+      locked: "חשבונך נעול."
+      invalid: "הססמה או הדוא״ל שגויים."
+      invalid_token: "אסימון האימות שגוי."
+      timeout: "ההפעלה שלך פגה, נא להיכנס שוב כדי להמשיך."
+      inactive: "חשבונך לא הופעל עדין."
     sessions:
-      signed_in: "התחברות עברה בהצלחה."
-      signed_out: "התנתקות עברה בהצלחה."
+      signed_in: "נכנסת בהצלחה."
+      signed_out: "יצאת בהצלחה."
     passwords:
-      send_instructions: "אימייל עם הוראות עיצד לאפס סיסמה יתקבל בקרוב."
-      updated: "סיסמה הוחלפה בהצלחה, את/ה כעת מחובר/ת."
+      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את ססמתך."
+      updated: "ססמתך הוחלפה בהצלחה. נכנסת כעת."
     confirmations:
-      send_instructions: "אימייל עם הוראות כיצד לאמת את החשבון יתקבל בקרוב."
-      confirmed: "חשבון אומת בהצלחה. את/ה כעת מחובר/ת."
+      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
+      confirmed: "חשבונך אומת בהצלחה. נכנסת כעת."
     registrations:
-      signed_up: "התחברת בהצלחה, אם הדבר מאופשר, יתקבל אימייל אישור בקרוב.."
+      signed_up: "נרשמת בהצלחה. הודעת אימות תישלח אליך לדוא״ל במידה שהוגדרה."
       updated: "חשבונך עודכן בהצלחה."
-      destroyed: "להתראות! חשבונך נמחק בהצלחה. מקווים לראותך שוב בקרוב!"
+      destroyed: "להתראות! חשבונך בוטל בהצלחה. מקווים לראותך שוב בקרוב."
     unlocks:
-      send_instructions: "אימייל עם הוראות כיצד להסיר את הנעילה מחשבונך יתקבל בקרוב."
-      unlocked: "חשבונך נפתח בהצלחה. את/ה כעת מחובר/ת."
+      send_instructions: "בעוד מספר דקות תתקבל לתיבת הודא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
+      unlocked: "חשבונך שוחרר בהצלחה. נכנסת כעת."
     mailer:
-      confirmation_instructions: "הוראות אישור"
-      reset_password_instructions: "הוראות איפוס סיסמה"
-      unlock_instructions: "הוראות הסרת נעילה"
+      confirmation_instructions: "הנחיות לאימות"
+      reset_password_instructions: "הנחיות לאיפוס הססמה"
+      unlock_instructions: "הנחיות לשחרור"
