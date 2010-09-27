@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def edit
     @user    = current_user
     @person  = @user.person
-    @profile = @user.profile
+    @profile = @user.person.profile
     @photos  = Photo.find_all_by_person_id(@person.id).paginate :page => params[:page], :order => 'created_at DESC'
   end
 
