@@ -2,21 +2,19 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 Diaspora::Application.routes.draw do
   resources :people, :only => [:index, :show, :destroy]
   resources :users, :except => [:create, :new, :show]
-  resources :status_messages, :only => [:create, :destroy, :show]
+  resources :status_messages
   resources :comments, :except => [:index]
   resources :requests, :except => [:edit, :update]
   resources :photos, :except => [:index]
   resources :albums
 
-  match 'aspects/manage', :to => 'aspects#manage'
-  resources :aspects, :except => [:edit]
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
   match 'aspects/move_friend', :to => 'aspects#move_friend', :as => 'move_friend'
+  match 'aspects/manage', :to => 'aspects#manage'
+  resources :aspects, :except => [:edit]
 
   match 'warzombie',          :to => "dev_utilities#warzombie"
   match 'zombiefriends',      :to => "dev_utilities#zombiefriends"
@@ -31,7 +29,7 @@ Diaspora::Application.routes.draw do
   match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
   match 'signup', :to => 'registrations#new', :as => "new_user_registration"
 
-  match 'get_to_the_choppa', :to => redirect("/signup") 
+  match 'get_to_the_choppa', :to => redirect("/signup")
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'

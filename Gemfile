@@ -3,13 +3,11 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0'
 gem 'bundler', '1.0.0'
 
-
 #Security
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
 
 #Mongo
-gem 'mongo_mapper', '0.8.4', :git => 'http://github.com/jnunemaker/mongomapper.git'
-gem 'jnunemaker-validatable', '1.8.4', :git => 'http://github.com/jnunemaker/validatable.git'
+gem 'mongo_mapper', :branch => 'rails3', :git => 'http://github.com/jnunemaker/mongomapper.git'
 gem 'bson_ext', '1.0.7'
 gem 'bson', '1.0.7'
 
@@ -40,24 +38,23 @@ gem 'mini_magick'
 
 group :test, :development do
   gem 'factory_girl_rails'
+  gem 'ruby-debug' if RUBY_VERSION.include? "1.8"
 end
 
 group :test do
-	gem 'rspec', '>= 2.0.0.beta.17'
-	gem 'rspec-rails', '2.0.0.beta.17'
+  gem 'capybara', '~> 0.3.9'
+  gem 'cucumber-rails', '0.3.2'
+  gem 'rspec', '>= 2.0.0.beta.17'
+  gem 'rspec-rails', '2.0.0.beta.17'
   gem 'mocha'
-  gem 'webrat', '0.7.2.beta.1'
-  gem 'redgreen'
+  gem 'redgreen' if RUBY_VERSION.include? "1.8"
   gem 'autotest'
   gem 'database_cleaner'
-  gem 'saucelabs-adapter', '= 0.8.12'
-  gem 'selenium-rc'
   gem 'webmock'
 end
 
 group :development do
   gem 'nifty-generators'
-  gem 'ruby-debug'
 end
 
 group :deployment do

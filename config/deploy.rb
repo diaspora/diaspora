@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 config = YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
 all = config['cross_server']
 
@@ -51,6 +49,11 @@ namespace :deploy do
   task :symlink_bundle do
     run "mkdir -p #{shared_path}/bundle"
     run "ln -s -f #{shared_path}/bundle #{current_path}/vendor/bundle"
+  end
+
+  task :symlink_config do
+    run "touch #{shared_path}/app_config.yml"
+    run "ln -s -f #{shared_path}/app_config.yml #{current_path}/config/app_config.yml"
   end
 
    task :start do
@@ -103,7 +106,6 @@ namespace :deploy do
     run 'gem install bundler'
   end
 
-
   task :migrate do
   end
  end
@@ -147,7 +149,6 @@ namespace :db do
     tom_seed
   end
 
-
 end
 
-after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle"
+after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config'

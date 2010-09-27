@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module SocketsHelper
  include ApplicationHelper
 
@@ -33,7 +32,4 @@ module SocketsHelper
 
     action_hash.to_json
   end
-
-
-
 end

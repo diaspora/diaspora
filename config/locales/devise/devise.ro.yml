@@ -1,0 +1,40 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+ro:
+  errors:
+    messages:
+      not_found: "inexistent"
+      already_confirmed: "a fost deja confirmat"
+      not_locked: "nu a fost blocat"
+
+  devise:
+    failure:
+      unauthenticated: 'Pentru a continuna, înregistrați-vă.'
+      unconfirmed: 'Pentru a continua, confirmați contul dvs.'
+      locked: 'Contul dvs. este blocat.'
+      invalid: 'Email sau parolă incorectă.'
+      invalid_token: 'Cheie de autentificare invalidă.'
+      timeout: 'Sesiunea dvs. a expirat, autentificați-vă din nou pentru a continua.'
+      inactive: 'Contul dvs. încă nu a fost activat.'
+    sessions:
+      signed_in: 'Autentificare cu succes.'
+      signed_out: 'Deconectare cu succes.'
+    passwords:
+      send_instructions: 'În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei.'
+      updated: 'Parolă schimbată cu success. Sunteți acum autentificat(ă).'
+    confirmations:
+      send_instructions: 'În scurt timp veți primi un email cu instrucțiuni pentru confirmarea contului.'
+      confirmed: 'Contul dvs. a fost confirmat cu succes. Sunteți acum autentificat(ă).'
+    registrations:
+      signed_up: 'Sunteți autentificat(ă). Dacă este cazul, un mesaj de confirmare a fost trimis pe email-ul dvs.'
+      updated: 'Cont actualizat cu succes.'
+      destroyed: 'Pa! Contul dvs. a fost dezactivat cu succes. Sperăm să vă revedem în curând.'
+    unlocks:
+      send_instructions: 'În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului.'
+      unlocked: 'Cont deblocat cu succes. Sunteți acum autentificat(ă).'
+    mailer:
+      confirmation_instructions: 'Instrucțiuni pentru confirmarea contului.'
+      reset_password_instructions: 'Instrucțiuni pentru resetarea parolei.'
+      unlock_instructions: 'Instrucțiuni pentru deblocare contului.'

@@ -5,7 +5,7 @@
 
 function decrementRequestsCounter() {
   var $new_requests = $(".new_requests"),
-      request_html  = $new_requests.html(), 
+      request_html  = $new_requests.html(),
       old_request_count = request_html.match(/\d+/);
 
   if( old_request_count == 1 ) {
@@ -20,37 +20,15 @@ function decrementRequestsCounter() {
 }
 
 $(function() {
-
-
-  $('#move_friends_link').live( 'click', function(){
-    $.post(
-      '/aspects/move_friends',
-      { 'moves' : $('#aspect_list').data() },
-      function() { 
-        $('#aspect_title').html("Groups edited successfully!");
-      }    
-    );
-    
-    // should the following logic be moved into the $.post() callback?
-    $("#aspect_list").removeData();
-
-    $(".person")
-      .css('background-color','none')
-      .attr('from_aspect_id', function() { 
-        return $(this).parent().attr('id')
-      });
-
-  });
-
   // Multiple classes here won't work
   $("ul .person").draggable({
     revert: true
   });
-  
+
   $("ul .requested_person").draggable({
     revert: true
   });
-  
+
   $(".aspect ul").droppable({
     hoverClass: 'active',
     drop: function(event, ui) {
@@ -65,26 +43,24 @@ $(function() {
           }
         });
 
-      } else {
-        var $aspect_list  = $('#aspect_list'), 
-            move = {};
-        
-        //  This is poor implementation            
-        move[ 'friend_id' ] = ui.draggable[0].id; // ui.draggable.attr('id')
-        move[ 'to' ]        = $(this)[0].id;//  $(this).attr('id');
-        move[ 'from' ]      = ui.draggable[0].getAttribute('from_aspect_id'); // ui.draggable.attr('from_aspect_id')
-        
-        // if created custom attr's - should be using `data-foo`
-        
-        
-        if (move['to'] == move['from']){
-          $aspect_list.data( ui.draggable[0].id, []);
-          ui.draggable.css('background-color','#eee');
+      };
+        var dropzone = $(this)[0];
+
+        if ($(this)[0].id == ui.draggable[0].getAttribute('from_aspect_id')){
+          ui.draggable.css('background','none');
         } else {
-          $aspect_list.data( ui.draggable[0].id, move);
           ui.draggable.css('background-color','orange');
+          $.ajax({
+            url: "/aspects/move_friend/",
+            data: {"friend_id" : ui.draggable[0].id,
+                   "from" : ui.draggable[0].getAttribute('from_aspect_id'),
+                   "to" : { "to" : dropzone.id }},
+            success: function(data){
+              ui.draggable.attr('from_aspect_id', dropzone.id);
+              ui.draggable.css('background','none');
+            }});
+
         }
-      }
       $(this).closest("ul").append(ui.draggable);
     }
   });
@@ -96,32 +72,32 @@ $(function() {
       if ($(ui.draggable[0]).hasClass('requested_person')){
         $.ajax({
           type: "DELETE",
-          url: "/requests/" + ui.draggable.attr('request_id'), 
+          url: "/requests/" + ui.draggable.attr('request_id'),
           success: function () {
             decrementRequestsCounter();
           }
         });
-        
+
       } else {
         $.ajax({
           type: "DELETE",
-          url: "/people/" + ui.draggable.attr('id'), 
+          url: "/people/" + ui.draggable.attr('id'),
           success: function () {
             alert("Removed Friend, proably want an undo countdown.")
           }
         });
-        
+
       }
 
-      $(ui.draggable[0]).fadeOut('slow'); // ui.draggable.fadeOut('slow')      
+      $(ui.draggable[0]).fadeOut('slow'); // ui.draggable.fadeOut('slow')
     }
   });
 
 
   $(".aspect h1").live( 'focus', function() {
 
-    var $this = $(this), 
-        id    = $this.closest("li").children("ul").attr("id"), 
+    var $this = $(this),
+        id    = $this.closest("li").children("ul").attr("id"),
         link  = "/aspects/"+ id;
 
     $this.keypress(function(e) {

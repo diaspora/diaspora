@@ -2,20 +2,19 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 %h1
-  Add a new friend to
+  =t('.add_a_new_friend_to')
   %i= aspect.name
 
 = form_for Request.new do |f|
   = f.error_messages
 
-  Enter a Diaspora username:  
+  =t('.enter_a_diaspora_username')
   %br
-  %i= "Your Diaspora username is: #{current_user.diaspora_handle}"
+  %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
 
   %p
-    = f.label :destination_url, "Friend's username"
+    = f.label :destination_url, t(".friends_username")
     = f.text_field :destination_url
   = f.hidden_field :aspect_id, :value => aspect.id
   = f.submit

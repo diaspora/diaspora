@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 #For Guidance
 #http://github.com/thoughtbot/factory_girl
 # http://railscasts.com/episodes/158-factories-not-fixtures
@@ -19,7 +17,7 @@ Factory.define :person do |p|
   p.sequence(:url)  {|n| "http://google-#{n}.com/"}
   p.profile Factory.create(:profile)
 
-  p.serialized_key OpenSSL::PKey::RSA.generate(1024).public_key.export
+  p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
 end
 
 Factory.define :album do |p|
@@ -31,15 +29,25 @@ Factory.define :person_with_private_key, :parent => :person do |p|
   p.serialized_key OpenSSL::PKey::RSA.generate(1024).export
 end
 
-Factory.define :person_with_user, :parent => :person_with_private_key do |p|
-end
-
 Factory.define :user do |u|
   u.sequence(:username) {|n| "bob#{n}"}
   u.sequence(:email) {|n| "bob#{n}@pivotallabs.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
-  u.person { |a| Factory.create(:person_with_user, :owner_id => a._id)}
+  u.serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
+  u.after_build do |user|
+    user.person = Factory(:person, :owner_id => user._id,
+                          :serialized_public_key => user.encryption_key.public_key.export,
+                          :diaspora_handle => "#{user.username}@#{APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
+  end
+end
+
+Factory.define :user_with_aspect, :parent => :user do |u|
+  u.after_build { |user| user.aspects << Factory(:aspect) }
+end
+
+Factory.define :aspect do |aspect|
+  aspect.name "generic"
 end
 
 Factory.define :status_message do |m|
@@ -51,7 +59,6 @@ Factory.define :blog do |b|
   b.sequence(:title) {|n| "bobby's #{n} penguins"}
   b.sequence(:body) {|n| "jimmy's huge #{n} whales"}
 end
-
 
 Factory.define :bookmark do |b|
   b.link "http://www.yahooligans.com/"

@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 #publisher
   = owner_image_tag
 
@@ -10,7 +9,7 @@
     = f.error_messages
     %p
       %label{:for => "status_message_message"} Message
-      = f.text_area :message, :rows => 2
+      = f.text_area :message, :rows => 2, :value => params[:prefill]
 
     %ul.aspect_selector{ :style => "display:none;"}
       going to...
@@ -18,5 +17,5 @@
         %li
           = check_box_tag("aspect_ids[]", aspect.id, @aspect == :all || current_aspect?(aspect) )
           = aspect.name
-      
-    = f.submit "Share"
+
+    = f.submit t('.share')

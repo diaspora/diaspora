@@ -2,7 +2,13 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
+class PhotoAlbumValidator < ActiveModel::Validator
+  def validate(document)
+    unless document.album.person_id == document.person_id
+      document.errors[:base] << "You post photos to that album"
+    end
+  end
+end
 class Photo < Post
   require 'carrierwave/orm/mongomapper'
   include MongoMapper::Document
@@ -22,7 +28,7 @@ class Photo < Post
   timestamps!
 
   validates_presence_of :album
-  validates_true_for :album_id, :logic => lambda {self.validate_album_person}
+  validates_with PhotoAlbumValidator
 
   before_destroy :ensure_user_picture
 
@@ -34,10 +40,6 @@ class Photo < Post
     photo.image.store! image_file
     photo.save
     photo
-  end
-
-  def validate_album_person
-    album.person_id == person_id
   end
 
   def remote_photo
@@ -70,3 +72,4 @@ class Photo < Post
     {:thumb_url => url(:thumb_medium), :id => id, :album_id => album_id}
   end
 end
+
