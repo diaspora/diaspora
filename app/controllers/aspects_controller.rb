@@ -52,7 +52,7 @@ class AspectsController < ApplicationController
     @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
                                       :scope=>MiniFB.scopes.join(","))
 
-    @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
+    @posts = current_user.raw_visible_posts.all(:public => true, :order => 'created_at DESC').paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
 
     respond_with @aspect
   end
