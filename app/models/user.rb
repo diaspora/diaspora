@@ -291,10 +291,4 @@ class User
     OpenSSL::PKey::RSA.new( serialized_private_key )
   end
 
-  def encryption_key= new_key
-    raise TypeError unless new_key.class == OpenSSL::PKey::RSA
-    serialized_private_key = new_key.export
-  end
-
-
 end
