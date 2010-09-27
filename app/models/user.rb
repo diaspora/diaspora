@@ -18,6 +18,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
+  key :serialized_private_key, String
 
   key :friend_ids,          Array
   key :pending_request_ids, Array
@@ -251,7 +252,9 @@ class User
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
-    opts[:person][:serialized_key] = generate_key
+    
+    opts[:serialized_private_key] = generate_key
+    opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
     User.create(opts)
   end
 
@@ -278,7 +281,20 @@ class User
       }
     }
   end
-    def self.generate_key
-      OpenSSL::PKey::RSA::generate 4096
-    end
+
+
+  def self.generate_key
+    OpenSSL::PKey::RSA::generate 4096
+  end
+  
+  def encryption_key
+    OpenSSL::PKey::RSA.new( serialized_private_key )
+  end
+
+  def encryption_key= new_key
+    raise TypeError unless new_key.class == OpenSSL::PKey::RSA
+    serialized_private_key = new_key.export
+  end
+
+
 end
