@@ -7,3 +7,211 @@
 
 cs:
   hello: "Dobrý Den"
+  application:
+      helper:
+          unknown_person: "neznámá osoba"
+          new_requests: "nové žádosti"
+  dashboards:
+      helper:
+          home: "domů"
+  datetime:
+      distance_in_words:
+          less_than_x_seconds: "méně než %{count} sekund"
+          half_a_minute: "půl minuty"
+          less_than_x_minutes: "méně než %{count} minut"
+          x_minutes: "%{count} minuty"
+          about_x_hours: "zhruba %{count} hodin"
+          x_days: "%{count} dní"
+          about_x_months: "zhruba %{count} měsíců"
+          x_months: "%{count} měsíců"
+          about_x_years: "zhruba %{count} let"
+          over_x_years: "přez %{count} let"
+          almost_x_years: "skoro %{count} let"
+  error_messages:
+      helper:
+          invalid_fields: "Neplatná pole"
+          correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
+  people:
+      helper:
+           results_for: " vysledky vyhledávání %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
+  layouts:
+      application:
+          edit_profile: "upravit profil"
+          logout: "odhlásit se"
+  shared:
+      aspect_nav:
+          all_aspects: "Všechny aspekty"
+          manage: "Spravovat"
+          manage_your_aspects: "Spravovat vaše aspekty"
+      sub_header:
+          all_aspects: "Všechny aspekty"
+          manage_aspects: "Spravovat aspekty"
+      publisher:
+          share: "Sdělit"
+      aspect_friends:
+          add_friends: "přidat přátele"
+  albums:
+      album:
+          you: "vy"
+      new_album:
+          create: "vytvořit"
+          add_a_new_album: "Přidat nové album"
+      show: 
+          edit_album: "Upravit album"
+          albums: "alba"
+          updated: "aktualizované"
+          by: "uživatelem"
+      edit:
+          editing: "Upravuje se"
+          updated: "aktualizováno"
+          are_you_sure: "Jste si jisti?"
+          delete_album: "Smazat Album"
+          cancel: "Zrušit"
+      index:
+          home: "doma"
+          new_album: "Nové Album"
+      create:
+          success: "Vytvořili jste nové album nazvané %{name}."
+      update:
+          success: "Album %{name} úspěšně upraveno."
+          failure: "Nepodařilo se upravit album %{name}."
+      destroy:
+          success: "Album %{name} smazáno."
+      helper:
+          friends_albums: "Alba přátel"
+          your_albums: "Vaše Alba"
+  aspects:
+      index:
+          photos: "fotografie"
+      show:
+          photos: "fotografie"
+      manage:
+          add_a_new_aspect: "Přidat aspekt"
+          add_a_new_friend:  "Přidat nového přítele"
+          show: "Show"
+          update_aspects: "Aktualizovat aspekty"
+          requests: "Žádosti"
+          ignore_remove: "Ignorovat/Odebrat"
+      new_aspect:
+          add_a_new_aspect: "Přidat nový aspekt"
+          create: "Vytvořit"
+      create:
+          success: "Řekněte Diaspoře kdo může vidět váš nový aspekt kliknutím na plus na levé straně."
+      destroy:
+          success: "%{name} byl úspěšně odebrán."
+      update:
+          success: "Váš aspekt, %{name}, byl úspěšně upraven."
+      move_friends:
+          failure: "Úprava aspektu přítelem %{real_name} selhala."
+          success: "Aspekty úspěšně upraveny."
+      move_friend:
+          failure: "nepodařilo se %{inspect}"
+          success: "Nyní svému příteli ukazujete jiný ze svých aspektů."
+      helper:
+          remove: "odebrat"
+          aspect_not_empty: "Aspekt není prázdný"
+  users:
+      edit:
+          cancel: "Zrušit"
+          update_profile: "Aktualizovat profil"
+          home: "Domů"
+          diaspora_username: "UŽIVATELSKÉ JMÉNO V DIASPOŘE"
+          info: "Info"
+          picture: "Obrázek"
+          editing_profile: "Upravit profil"
+          albums: "Alba"
+          you_dont_have_any_photos: "Nemáte žádné fotky.   Jděte na stránku"
+          page_to_upload_some:  "a nějaké nahrajte."
+  comments:
+      comment:
+          ago: "nazpět"
+      new_comment:
+          comment: "Komentář"
+  photos:
+      show:
+          prev: "předchozí"
+          full_size: "plná velkost"
+          next: "další"
+          edit_photo: "Upravit fotku"
+          delete_photo: "Smazat fotku"
+          are_you_sure: "Jste si jisti?"
+          comments: "komentáře"
+      edit:
+          editing: "Uprait"
+          are_you_sure: "Jste si jisti?"
+          delete_photo: "Smazat fotku"
+      photo:
+          show_comments: "zobrazit komentáře"
+          posted_a_new_photo_to: "poslal novou fotku do"
+      new:
+          new_photo: "Nová fotka"
+          back_to_list: "Zpět na seznam"
+          post_it: "poslat!"
+      create:
+          runtime_error: "Poslání fotky selhalo.  Jste si jisti, že máte zapnuté pásy?"
+          integrity_error: "Poslání fotky selhalo.  Jste si jisti že to byl obrázek?"
+          type_error: "Poslání fotky selhalo.  Jste si jisti zě byl přidán obrázek?"
+      update:
+          notice: "Fotka úspěšně aktualizována."
+          error:  "Nepodařilo se upravit fotku."
+      destroy:
+          notice: "Fotka smazána."
+  registrations:
+      new:
+          sign_up: "Zapsat se"
+      create:
+          success: "Připojili jste se k Diaspoře!"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "pověz mi něco dobrého"
+          oh_yeah: "ó ano!"
+      status_message:
+          show_comments: "zobrazit komentáře"
+          delete: "Smazat"
+          are_you_sure: "Jste si jisti?"
+      show:
+          status_message: "Zpráva o stavu"
+          comments: "komentáře"
+          are_you_sure: "Jste si jisti?"
+          destroy: "Zničit"
+          view_all: "Zobrazit Vše"
+          message: "Zpráva"
+          owner: "Vlastník"
+      helper:
+          no_message_to_display: "Není k zobrazení žádná zpráva."
+  people:
+      person:
+          add_friend: "přidat přítele"
+          pending_request: "nevyřízené žádosti"
+      index:
+          add_friend: "přidat přítele"
+          real_name: "pravé jméno"
+          diaspora_handle: "adresa v diaspoře"
+          thats_you: "to jste vy!"
+          friend_request_pending: "nevyřízená žádost o přátelství"
+          you_have_a_friend_request_from_this_person: "od této osoby máte žádost o přátelství"
+      new:
+          new_person: "Nová Osoba"
+          back_to_list: "Zpět na Seznam"
+      show:
+          last_seen: "naposledy viděni: %{how_long_ago}"
+          friends_since: "přáteli od: %{how_long_ago}"
+          save: "save"
+          are_you_sure: "Jste si jisti?"
+          remove_friend: "odebrat přítele"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Pridat nového přítele do"
+          enter_a_diaspora_username: "Vložte uživatelské jméno v diaspoře:"
+          your_diaspora_username_is: "Vaše uživatelské jméno v diaspoře je: %{diaspora_handle}"
+          friends_username: "Uživatelské jméno přítele"
+      destroy:
+          success: "Nyní jste přáteli."
+          error: "Prosím vyberte aspekt!"
+          ignore: "Ignorovat žádost o přátelství."
+      create:
+          error: "Semínko diaspory s touto adresou nenalezeno!"
+          already_friends: "S %{destination_url} už jste přáteli!"
+          success: "byla poslána žádost o přátelství na %{destination_url}"
+          horribly_wrong: "Něco se ošklivě pokazilo."
