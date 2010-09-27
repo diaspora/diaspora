@@ -10,7 +10,7 @@
     %p
       %label{:for => "status_message_message"} Message
       = f.text_area :message, :rows => 2, :value => params[:prefill]
-      = "going to Facebook as #{MiniFB.get(@access_token, 'me')[:name]}" if @logged_in && @aspect == :public
+      = connected_fb_as(@access_token) if @logged_in && @aspect == :public
       = f.hidden_field( :public, :value => (params[:action] == 'public') )
 
     %ul.aspect_selector{ :style => "display:none;"}
