@@ -100,6 +100,8 @@ it:
           aspect_not_empty: "Aspetto non vuoto"
   users:
       edit:
+          editing_profile: "Modifica del profilo"
+      profile:
           cancel: "Annulla"
           update_profile: "Aggiorna profilo"
           home: "Home"

@@ -100,6 +100,8 @@ pt-BR:
           aspect_not_empty: "Aspecto não está vazio"
   users:
       edit:
+          editing_profile: "Editando perfil"
+      profile:
           cancel: "Cancelar"
           update_profile: "Atualizar Perfil"
           home: "Home"

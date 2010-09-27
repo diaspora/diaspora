@@ -113,6 +113,8 @@ cs:
           aspect_not_empty: "Aspekt není prázdný"
   users:
       edit:
+          editing_profile: "Upravit profil"
+      profile:
           cancel: "Zrušit"
           update_profile: "Aktualizovat profil"
           home: "Domů"
