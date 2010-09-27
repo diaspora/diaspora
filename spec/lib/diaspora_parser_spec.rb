@@ -8,7 +8,9 @@ describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @aspect = @user.aspect(:name => 'spies')
-    @person = Factory.create(:person_with_private_key, :diaspora_handle => "bill@gates.com")
+    
+    @user3 = Factory.create :user
+    @person = @user3.person
     @user2 = Factory.create(:user)
   end
 
@@ -64,12 +66,13 @@ describe Diaspora::Parser do
       original_person_id = @person.id
       xml = request.to_diaspora_xml
 
+      @user3.destroy
       @person.destroy
       Person.all.count.should == person_count -1
       @user.receive xml
       Person.all.count.should == person_count
 
-      Person.first(:_id => original_person_id).serialized_key.include?("PUBLIC").should be true
+      Person.first(:_id => original_person_id).serialized_public_key.include?("PUBLIC").should be true
       url = "http://" + request.callback_url.split("/")[2] + "/"
       Person.where(:url => url).first.id.should == original_person_id
     end
@@ -87,7 +90,7 @@ describe Diaspora::Parser do
 
       @user2.reload
       @user2.person.reload
-      @user2.person.serialized_key.include?("PRIVATE").should be true
+      @user2.serialized_private_key.include?("PRIVATE").should be true
 
       url = "http://" + request.callback_url.split("/")[2] + "/"
       Person.where(:url => url).first.id.should == original_person_id

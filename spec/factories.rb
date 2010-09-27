@@ -17,7 +17,7 @@ Factory.define :person do |p|
   p.sequence(:url)  {|n| "http://google-#{n}.com/"}
   p.profile Factory.create(:profile)
 
-  p.serialized_key OpenSSL::PKey::RSA.generate(1024).public_key.export
+  p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
 end
 
 Factory.define :album do |p|
@@ -29,16 +29,15 @@ Factory.define :person_with_private_key, :parent => :person do |p|
   p.serialized_key OpenSSL::PKey::RSA.generate(1024).export
 end
 
-Factory.define :person_with_user, :parent => :person_with_private_key do |p|
-end
-
 Factory.define :user do |u|
   u.sequence(:username) {|n| "bob#{n}"}
   u.sequence(:email) {|n| "bob#{n}@pivotallabs.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
+  u.serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
   u.after_build do |user|
-    user.person = Factory(:person_with_private_key, :owner_id => user._id,
+    user.person = Factory(:person, :owner_id => user._id,
+                          :serialized_public_key => user.encryption_key.public_key.export,
                           :diaspora_handle => "#{user.username}@#{APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
   end
 end

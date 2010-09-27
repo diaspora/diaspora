@@ -9,16 +9,9 @@ describe 'user encryption' do
     unstub_mocha_stubs
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => 'dudes')
-    @person = Factory.create(:person_with_private_key,
-      :profile => Profile.new(:first_name => 'Remote',
-                              :last_name => 'Friend'),
-      :diaspora_handle => 'somewhere@else.com',
-      :url => 'http://distant-example.com/')
-    @person2 = Factory.create(:person_with_private_key,
-      :profile => Profile.new(:first_name => 'Second',
-                              :last_name => 'Friend'),
-      :diaspora_handle => 'elsewhere@else.com',
-      :url => 'http://distanter-example.com/')
+    
+    @user2 = Factory.create(:user)
+    @aspect2 = @user2.aspect(:name => 'dudes')
   end
 
   after  do
@@ -74,7 +67,10 @@ describe 'user encryption' do
 
   describe 'comments' do
     before do
-      @remote_message = Factory.create(:status_message, :person => @person)
+      friend_users(@user, @aspect, @user2, @aspect2)
+      @remote_message = @user2.post :status_message, :message => "hello", :to => @aspect2.id
+
+
       @message = @user.post :status_message, :message => "hi", :to => @aspect.id
     end
     it 'should attach the creator signature if the user is commenting' do
@@ -90,24 +86,24 @@ describe 'user encryption' do
     end
 
     it 'should verify a comment made on a remote post by a different friend' do
-      comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-      comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
+      comment = Comment.new(:person => @user2.person, :text => "cats", :post => @remote_message)
+      comment.creator_signature = comment.send(:sign_with_key,@user2.encryption_key)
       comment.signature_valid?.should be true
       comment.verify_post_creator_signature.should be false
-      comment.post_creator_signature = comment.send(:sign_with_key,@person.encryption_key)
+      comment.post_creator_signature = comment.send(:sign_with_key,@user.encryption_key)
       comment.verify_post_creator_signature.should be true
     end
 
     it 'should reject comments on a remote post with only a creator sig' do
-      comment = Comment.new(:person => @person2, :text => "balls", :post => @remote_message)
-      comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
+      comment = Comment.new(:person => @user2.person, :text => "cats", :post => @remote_message)
+      comment.creator_signature = comment.send(:sign_with_key,@user2.encryption_key)
       comment.signature_valid?.should be true
       comment.verify_post_creator_signature.should be false
     end
 
     it 'should receive remote comments on a user post with a creator sig' do
-      comment = Comment.new(:person => @person2, :text => "balls", :post => @message)
-      comment.creator_signature = comment.send(:sign_with_key,@person2.encryption_key)
+      comment = Comment.new(:person => @user2.person, :text => "cats", :post => @message)
+      comment.creator_signature = comment.send(:sign_with_key,@user2.encryption_key)
       comment.signature_valid?.should be true
       comment.verify_post_creator_signature.should be false
     end
