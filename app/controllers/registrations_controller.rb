@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
       flash[:error] = e.message
     end
     if user
-      flash[:notice] = "You've joined Diaspora!"
+      flash[:notice] = I18n.t 'registrations.create.success'
       sign_in_and_redirect(:user, user)
     else
       redirect_to new_user_registration_path

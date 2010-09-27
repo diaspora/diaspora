@@ -2,10 +2,9 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class Post
-  require 'lib/diaspora/websocket'
-  require 'lib/encryptable'
+  require File.expand_path('../../../lib/encryptable', __FILE__)
+  require File.expand_path('../../../lib/diaspora/websocket', __FILE__)
   include MongoMapper::Document
   include ApplicationHelper
   include ROXML
@@ -32,7 +31,6 @@ class Post
   def self.instantiate params
     self.create params.to_hash
   end
-
 
   def as_json(opts={})
     {

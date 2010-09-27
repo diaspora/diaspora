@@ -20,7 +20,7 @@ class AlbumsController < ApplicationController
     data = clean_hash(params[:album])
 
     @album = current_user.post(:album, data)
-    flash[:notice] = "You've created an album called #{@album.name}."
+    flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
     redirect_to :action => :show, :id => @album.id, :aspect => aspect
   end
 
@@ -31,7 +31,7 @@ class AlbumsController < ApplicationController
   def destroy
     @album = current_user.find_visible_post_by_id params[:id]
     @album.destroy
-    flash[:notice] = "Album #{@album.name} deleted."
+    flash[:notice] =  I18n.t 'albums.destroy.success', :name  => @album.name
     respond_with :location => albums_url
   end
 
@@ -53,10 +53,10 @@ class AlbumsController < ApplicationController
     data = clean_hash(params[:album])
 
     if current_user.update_post( @album, data )
-      flash[:notice] = "Album #{@album.name} successfully edited."
+      flash[:notice] =  I18n.t 'albums.update.success', :name  => @album.name
       respond_with @album
     else
-      flash[:error] = "Failed to edit album #{@album.name}."
+      flash[:error] =  I18n.t 'albums.update.failure', :name  => @album.name
       render :action => :edit
     end
   end

@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 #For Guidance
 #http://github.com/thoughtbot/factory_girl
 # http://railscasts.com/episodes/158-factories-not-fixtures
@@ -39,10 +37,18 @@ Factory.define :user do |u|
   u.sequence(:email) {|n| "bob#{n}@pivotallabs.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
-  u.person { |a| Factory.create(:person_with_user,
-                                :owner_id => a._id,
-                                :diaspora_handle => "#{a.username}@#{APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
-  }
+  u.after_build do |user|
+    user.person = Factory(:person_with_private_key, :owner_id => user._id,
+                          :diaspora_handle => "#{user.username}@#{APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
+  end
+end
+
+Factory.define :user_with_aspect, :parent => :user do |u|
+  u.after_build { |user| user.aspects << Factory(:aspect) }
+end
+
+Factory.define :aspect do |aspect|
+  aspect.name "generic"
 end
 
 Factory.define :status_message do |m|
@@ -54,7 +60,6 @@ Factory.define :blog do |b|
   b.sequence(:title) {|n| "bobby's #{n} penguins"}
   b.sequence(:body) {|n| "jimmy's huge #{n} whales"}
 end
-
 
 Factory.define :bookmark do |b|
   b.link "http://www.yahooligans.com/"

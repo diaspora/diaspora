@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 # Add URL safe Base64 support
 module Base64
   module_function
@@ -51,8 +49,6 @@ module Salmon
       sig_doc = doc.search('entry')
       slap.magic_sig = MagicSigEnvelope.parse sig_doc
 
-
-
       if  'base64url' == slap.magic_sig.encoding
         slap.data = decode64url(slap.magic_sig.data)
         slap.sig = slap.magic_sig.sig
@@ -98,9 +94,6 @@ ENTRY
       end
     end
 
-
-
-
     # Decode URL-safe-Base64. This implements
     def self.decode64url(str)
       # remove whitespace
@@ -127,7 +120,6 @@ ENTRY
     def verified_for_key?(public_key)
       signature = Base64.urlsafe_decode64(self.magic_sig.sig)
       signed_data = self.magic_sig.signable_string# Base64.urlsafe_decode64(self.magic_sig.signable_string)
-
 
       public_key.verify(OpenSSL::Digest::SHA256.new, signature, signed_data )
     end
@@ -193,7 +185,6 @@ ENTRY
       env.data_type = env.get_data_type
       env.encoding  = env.get_encoding
       env.alg = env.get_alg
-
 
       env.sig = Base64.urlsafe_encode64(
         user.encryption_key.sign OpenSSL::Digest::SHA256.new, env.signable_string )

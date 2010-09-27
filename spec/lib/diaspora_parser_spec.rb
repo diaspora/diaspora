@@ -2,14 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
-
-include ApplicationHelper
-include Diaspora::Parser
-
-
+require 'spec_helper'
 
 describe Diaspora::Parser do
   before do
@@ -88,7 +81,6 @@ describe Diaspora::Parser do
       original_person_id = @user2.person.id
       xml = request.to_diaspora_xml
 
-
       Person.all.count.should be person_count
       @user.receive xml
       Person.all.count.should be person_count
@@ -103,7 +95,7 @@ describe Diaspora::Parser do
 
     it "should activate the Person if I initiated a request to that url" do
       request = @user.send_friend_request_to( @user2.person, @aspect)
-
+      @user.reload
       request.reverse_for @user2
 
       xml = request.to_diaspora_xml
@@ -121,10 +113,10 @@ describe Diaspora::Parser do
       @user.friends.include?(new_person).should be true
     end
 
-
     it 'should process retraction for a person' do
       person_count = Person.all.count
       request = @user.send_friend_request_to( @user2.person, @aspect)
+      @user.reload
       request.reverse_for @user2
       xml = request.to_diaspora_xml
 
@@ -138,7 +130,6 @@ describe Diaspora::Parser do
       @aspect.reload
       aspect_people_count = @aspect.people.size
       #They are now friends
-
 
       Person.count.should == person_count
       @user.receive retraction_xml

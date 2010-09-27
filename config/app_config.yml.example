@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 default:
   pod_url: "http://example.org/"
   debug: false
@@ -12,8 +11,8 @@ default:
   socket_collection_name: 'websocket'
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
   mongo_host: 'localhost'
-  mongo_post: 27017
-  
+  mongo_port: 27017
+
 development:
 
 test:

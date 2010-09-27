@@ -2,8 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-require 'lib/hcard'
+require File.expand_path('../../../lib/hcard', __FILE__)
 
 class Person
   include MongoMapper::Document
@@ -79,7 +78,7 @@ class Person
   def self.by_webfinger( identifier, opts = {})
     #need to check if this is a valid email structure, maybe should do in JS
     local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', '').to_s.downcase)
-    
+
      if local_person
        Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
        local_person
@@ -101,9 +100,9 @@ class Person
     new_person = Person.new
 
     public_key_entry = profile.links.select{|x| x.rel == 'diaspora-public-key'}
-    
+
     return nil unless public_key_entry
-    
+
     pubkey = public_key_entry.first.href
     new_person.exported_key = Base64.decode64 pubkey
 

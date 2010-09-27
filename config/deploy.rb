@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 config = YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
 all = config['cross_server']
 
@@ -104,7 +102,6 @@ namespace :deploy do
     run 'gem install bundler'
   end
 
-
   task :migrate do
   end
  end
@@ -128,7 +125,6 @@ namespace :db do
   task :reset do
     purge
   end
-
 
 end
 

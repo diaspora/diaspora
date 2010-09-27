@@ -2,8 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-require 'lib/mongo_mapper/clear_dev_memory'
+require File.expand_path('../../../lib/mongo_mapper/clear_dev_memory', __FILE__)
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 

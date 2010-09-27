@@ -2,15 +2,13 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
+require 'spec_helper'
 
-
-require File.dirname(__FILE__) + '/../spec_helper'
-
-class SocketsController
+SocketsController.class_eval <<-EOT
   def url_options
     {:host => ""}
   end
-end
+EOT
 
 describe SocketsController do
   render_views

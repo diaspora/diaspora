@@ -2,12 +2,11 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 cross_server:
   deploy_to: '/usr/local/app/diaspora'
   user: 'root'
   branch: 'production'
-  repo: 'git@github.com:diaspora/diaspora.git'
+  repo: 'git://github.com/diaspora/diaspora.git'
   default_env: 'production'
 servers:
   pivots:

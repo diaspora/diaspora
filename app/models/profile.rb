@@ -2,10 +2,9 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class Profile
   include MongoMapper::EmbeddedDocument
-  require 'lib/diaspora/webhooks'
+  require File.expand_path('../../../lib/diaspora/webhooks', __FILE__)
   include Diaspora::Webhooks
   include ROXML
 

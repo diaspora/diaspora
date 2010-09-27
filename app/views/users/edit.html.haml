@@ -2,10 +2,8 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :publish do
-  %h1
-    Editing profile
+  %h1="#{t('.editing_profile')}"
 
 - content_for :left_pane do
   \.
@@ -15,7 +13,7 @@
 
   = f.fields_for :profile do |p|
 
-    %h3 Picture
+    %h3="#{t('.picture')}"
     %div#image_picker
       = p.hidden_field :image_url, :value => (@profile.image_url if @profile.image_url), :id => 'image_url_field'
 
@@ -31,33 +29,33 @@
               = link_to image_tag(photo.url(:thumb_medium)), "#"
 
       - else
-        You don't have any photos!  Go to the
-        = link_to "albums", albums_path(:aspect => 'all')
-        page to upload some.
+        =t('.you_dont_have_any_photos')
+        = link_to t('.albums'), albums_path(:aspect => 'all')
+        =t('.page_to_upload_some')
 
     =will_paginate @photos
 
     %br
 
-    %h3 Info
+    %h3="#{t('.info')}"
 
     %p
       %b
-        DIASPORA USERNAME:
+        ="#{t('.diaspora_username')}:"
         = @user.diaspora_handle
 
     %p
       = p.label :first_name
       = p.text_field :first_name, :value => @profile.first_name
     %p
-      = p.label :last_name 
+      = p.label :last_name
       = p.text_field :last_name, :value => @profile.last_name
 
   #submit_block
-    = link_to "Cancel", root_path
+    = link_to t('.cancel'), root_path
     or
-    = f.submit "Update Profile"
+    = f.submit t('.update_profile')
 
 #content_bottom
   .back
-    = link_to "⇧ home", root_path
+    = link_to "⇧ #{t('.home')}", root_path
