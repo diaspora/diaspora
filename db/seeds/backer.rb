@@ -10,11 +10,11 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => citie
 
-require File.dirname(__FILE__) + '/../../config/environment'
+require File.join(File.dirname(__FILE__), "..", "..", "config", "environment")
 
 def create
 
-  config = YAML.load_file(File.dirname(__FILE__) + '/../../config/deploy_config.yml')
+  config = YAML.load_file(File.join(File.dirname(__FILE__), "..", "..", "config", "deploy_config.yml"))
   backer_info = config['servers']['backer']
 
   backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
@@ -22,7 +22,7 @@ def create
   #set pod url
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
   set_app_config username
-  require File.dirname(__FILE__) + '/../../config/initializers/_load_app_config.rb'
+  require File.join(File.dirname(__FILE__), "..", "..", "config", "initializers", "_load_app_config.rb")
 
   # Create seed user
   user = User.instantiate!(:email => "#{username}@#{username}.joindiaspora.com",
