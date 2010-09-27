@@ -38,7 +38,6 @@ gem 'mini_magick'
 
 group :test, :development do
   gem 'factory_girl_rails'
-  gem 'ruby-debug'
 end
 
 group :test do
