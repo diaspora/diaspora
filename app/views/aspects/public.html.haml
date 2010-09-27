@@ -18,10 +18,6 @@
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album
-  - if @logged_in
-    - MiniFB.get(@access_token, 'me', :type => "feed")[:data].each do |item|
-      - if item[:type] == 'status'
-        = render "fb_status/fb_status", :post => FbStatus.from_api(item)
 
 #pagination
   = will_paginate @posts
