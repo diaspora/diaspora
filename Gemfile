@@ -38,6 +38,7 @@ gem 'mini_magick'
 
 group :test, :development do
   gem 'factory_girl_rails'
+  gem 'ruby-debug' if RUBY_VERSION.include? "1.8"
 end
 
 group :test do
@@ -46,7 +47,7 @@ group :test do
   gem 'rspec', '>= 2.0.0.beta.17'
   gem 'rspec-rails', '2.0.0.beta.17'
   gem 'mocha'
-  gem 'redgreen'
+  gem 'redgreen' if RUBY_VERSION.include? "1.8"
   gem 'autotest'
   gem 'database_cleaner'
   gem 'webmock'
