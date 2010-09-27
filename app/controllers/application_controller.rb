@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class ApplicationController < ActionController::Base
 
   protect_from_forgery :except => :receive

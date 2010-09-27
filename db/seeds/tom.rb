@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require 'config/environment'
+require File.join(File.dirname(__FILE__), "..", "..", "config", "environment")
 
 def set_app_config username
   current_config = YAML.load(File.read(Rails.root.join('config', 'app_config.yml.example')))
@@ -18,7 +16,6 @@ end
 
 set_app_config "tom"
 require 'config/initializers/_load_app_config.rb'
-
 
 # Create seed user
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
@@ -46,5 +43,4 @@ request = user.send_friend_request_to(user2, aspect)
 reversed_request = user2.accept_friend_request( request.id, user2.aspect(:name => "presidents").id )
 user.receive reversed_request.to_diaspora_xml
 user.aspect(:name => "Presidents")
-
 

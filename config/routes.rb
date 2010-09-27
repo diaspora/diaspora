@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 Diaspora::Application.routes.draw do
   resources :people,          :only   => [:index, :show, :destroy]
   resources :users,           :except => [:create, :new, :show]
@@ -28,7 +26,6 @@ Diaspora::Application.routes.draw do
   match 'zombiefriendaccept', :to   => "dev_utilities#zombiefriendaccept"
   match 'set_backer_number',  :to   => "dev_utilities#set_backer_number"
   match 'set_profile_photo',  :to   => "dev_utilities#set_profile_photo"
-
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file
   devise_for :users, :controllers => {:registrations => "registrations"}
@@ -36,7 +33,7 @@ Diaspora::Application.routes.draw do
   match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
   match 'signup', :to => 'registrations#new',        :as => "new_user_registration"
 
-  match 'get_to_the_choppa', :to => redirect("/signup") 
+  match 'get_to_the_choppa', :to => redirect("/signup")
   #public routes
   #
   match 'webfinger', :to => 'publics#webfinger'

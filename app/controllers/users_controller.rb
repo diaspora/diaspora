@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:new, :create]
 
@@ -11,7 +10,7 @@ class UsersController < ApplicationController
   def edit
     @user    = current_user
     @person  = @user.person
-    @profile = @user.profile
+    @profile = @user.person.profile
     @photos  = Photo.find_all_by_person_id(@person.id).paginate :page => params[:page], :order => 'created_at DESC'
 
     @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
@@ -30,10 +29,15 @@ class UsersController < ApplicationController
 
   private
   def prep_image_url(params)
+    url = APP_CONFIG[:pod_url].chop if APP_CONFIG[:pod_url][-1,1] == '/'
     if params[:profile][:image_url].empty?
       params[:profile].delete(:image_url)
     else
-      params[:profile][:image_url] = "http://" + request.host + ":" + request.port.to_s + params[:profile][:image_url]
+      if /^http:\/\// =~ params[:profile][:image_url]
+        params[:profile][:image_url] = params[:profile][:image_url]
+      else
+        params[:profile][:image_url] = url + params[:profile][:image_url]
+      end
     end
   end
 

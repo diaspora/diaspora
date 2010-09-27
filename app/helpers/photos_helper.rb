@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module PhotosHelper
   def linked_scaled_photo(photo, album)
     link_to (image_tag photo.url(:scaled_full)), photo_path(album.next_photo(photo)), :rel => "prefetch"

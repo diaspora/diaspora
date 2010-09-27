@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
+require 'spec_helper'
 
-require File.dirname(__FILE__) + '/../spec_helper'
-include ApplicationHelper
 describe AlbumsController do
  render_views
   before do
@@ -20,4 +19,14 @@ describe AlbumsController do
     @album.reload.name.should eql("new_name")
   end
 
+  describe '#create' do
+    it 'all aspects' do
+      params = {"album" => {"name" => "Sunsets","to" => "all"}}
+      post :create, params
+    end
+    it 'one aspect' do
+      params = {"album" => {"name" => "Sunsets","to" => @aspect.id.to_s}}
+      post :create, params
+    end
+  end
 end

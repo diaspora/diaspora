@@ -1,0 +1,41 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+cy:
+  errors:
+    messages:
+       not_found: "ni chanfuwyd"
+       already_confirmed: "cadarnhawyd eisioes"
+       not_locked: "heb ei gloi"
+
+  devise:
+    failure:
+      unauthenticated: "Mae angen i chi arwyddo i mewn neu ymuno cyn parhau."
+      unconfirmed: "Rhaid i chi gadarnhau eich cyfrif cyn parhau."
+      locked: "Mae eich cyfrif wedi'i gloi."
+      invalid: "E-bost neu gyfrinair annilys."
+      invalid_token: "Tocyn dilysu annilys."
+      timeout: "Mae eich sesiwn wedi dod i ben, arwyddwch i mewn eto i barhau."
+      inactive: "Nid yw eich cyfrif wedi'i actifadu."
+    sessions:
+      signed_in: "Arwyddwyd i fewn yn llwyddiannus."
+      signed_out: "Arwyddwyd allan yn llwyddiannus."
+    passwords:
+      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
+      updated: "Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+    confirmations:
+      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
+      confirmed: "Cadarnhawyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+    registrations:
+      signed_up: "Rydych chi wedi arwyddo i fyny yn llwyddiannus. Anfonwyd cadarnhad at eich e-bost os yw wedi'i alluogi."
+      updated: "Diweddarwyd eich cyfrif yn llwyddiannus."
+      destroyed: "Hwyl fawr! Canslwyd eich cyfrif yn llwyddiannus. Rydym yn gobeithio gweld chi eto yn fuan."
+    unlocks:
+      send_instructions: "Byddwch yn derbyn e-bost gyda cyfarwyddiadau ar sut i agor eich cyfrif mewn ychydig funudau."
+      unlocked: "Datglowyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+    mailer:
+      confirmation_instructions: "Cyfarwyddiadau cadarnhad."
+      reset_password_instructions: "Ailosod cyfarwyddiadau cyfrinair"
+      unlock_instructions: "Cyfarwyddiadau Datgloi"
+

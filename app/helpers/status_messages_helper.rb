@@ -2,13 +2,12 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module StatusMessagesHelper
   def my_latest_message
     unless @latest_status_message.nil?
       return @latest_status_message.message
     else
-      return "No message to display."
+      return I18n.t('status_messages.helper.no_message_to_display')
     end
   end
 end

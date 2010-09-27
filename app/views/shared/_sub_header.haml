@@ -7,11 +7,11 @@
       - else
         %h1
           - if @aspect == :all
-            = link_to "All Aspects", root_path
-          - elsif @aspect == :manage
-            = "Manage Aspects"
+            = link_to t('.all_aspects'), root_path
           - elsif @aspect == :public
             = "Public"
+          - elsif @aspect == :manage
+            = link_to t('.manage_aspects'), root_path
           - else
             = link_to @aspect.name, @aspect
 

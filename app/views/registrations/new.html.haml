@@ -1,6 +1,5 @@
 = image_tag "http://needcoffee.cachefly.net/needcoffee/uploads/2009/02/predator-arnold-schwarzenegger.jpg"
 
-
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   %p
     = f.label :username
@@ -24,5 +23,5 @@
         = pr.label :last_name
         = pr.text_field :last_name
 
-  = f.submit "Sign up"
+  = f.submit t('.sign_up')
 = render :partial => "devise/shared/links"

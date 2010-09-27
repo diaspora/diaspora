@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module ApplicationHelper
   def current_aspect?(aspect)
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
@@ -37,7 +36,7 @@ module ApplicationHelper
     when "Person"
       person_path(person)
     else
-      "unknown person"
+      I18n.t('application.helper.unknown_person')
     end
   end
 
@@ -61,7 +60,7 @@ module ApplicationHelper
   end
 
   def new_request(request_count)
-    "new_requests" if request_count > 0
+    I18n.t('application.helper.new_requests') if request_count > 0
   end
 
   def post_yield_tag(post)

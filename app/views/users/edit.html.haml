@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 :javascript
   $("#settings_nav li > a").click( function() {
     var target = "#"+$(this).attr('class');
@@ -15,8 +14,7 @@
 
 
 - content_for :publish do
-  %h1
-    Settings
+  %h1="#{t('.editing_profile')}"
 
 - content_for :left_pane do
   %ul#settings_nav
@@ -29,3 +27,4 @@
 #services.settings_pane
   = render 'users/services'
     
+

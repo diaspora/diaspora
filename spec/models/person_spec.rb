@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Person do
   before do
@@ -18,13 +16,13 @@ describe Person do
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
-        @user.person.diaspora_handle.should == @user.username + "@example.org"
+        @user.person.diaspora_handle.should == @user.username + "@" + APP_CONFIG[:terse_pod_url]
       end
     end
-    
+
     context 'remote people' do
       it 'stores the diaspora_handle in the database' do
-        @person.diaspora_handle.include?(@user.terse_url).should be false
+        @person.diaspora_handle.include?(APP_CONFIG[:terse_pod_url]).should be false
       end
     end
   end

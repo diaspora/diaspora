@@ -1,0 +1,204 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+# Sample localization file for Portuguese Brazilian. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+pt-BR:
+  hello: "Olá mundo"
+  application:
+      helper:
+          unknown_person: "pessoa desconhecida"
+          new_requests: "nova requisição"
+  dashboards:
+      helper:
+          home: "casa"
+  error_messages:
+      helper:
+          invalid_fields: "Campos inválidos"
+          correct_the_following_errors_and_try_again: "Corrija os erros a seguir e tente novamente."
+  people:
+      helper:
+           results_for: " resultados para %{params}"
+           people_on_pod_are_aware_of: " pessoas no pod estão conscientes de"
+  layouts:
+      application:
+          edit_profile: "editar perfil"
+          logout: "sair"
+  shared:
+      aspect_nav:
+          all_aspects: "Todos Aspectos"
+          manage: "Gerenciar"
+          manage_your_aspects: "Gerencie seus Aspectos"
+      sub_header:
+          all_aspects: "Todos Aspectos"
+          manage_aspects: "Gerenciar Aspectos"
+      publisher:
+          share: "Compartilhar"
+      aspect_friends:
+          add_friends: "adicionar amigos"
+  albums:
+      album:
+          you: "você"
+      new_album:
+          create: "criar"
+          add_a_new_album: "Adicionar novo álbum"
+      show:
+          edit_album: "Editar Álbum"
+          albums: "álbuns"
+          updated: "atualizado"
+          by: "por"
+      edit:
+          editing: "Editando"
+          updated: "atualizado"
+          are_you_sure: "Tem certeza?"
+          delete_album: "Excluir Álbum"
+          cancel: "Cancelar"
+      index:
+          home: "home"
+          new_album: "Novo Álbum"
+      create:
+          success: "Você criou com sucesso um álbum chamado %{name}."
+      update:
+          success: "O álbum %{name} foi editado com sucesso."
+          failure: "Erro ao editar o álbum %{name}."
+      destroy:
+          success: "O álbum %{name} foi excluído com sucesso."
+      helper:
+          friends_albums: "Álbum de amigos"
+          your_albums: "Seus álbuns"
+  aspects:
+      index:
+          photos: "photos"
+      show:
+          photos: "photos"
+      manage:
+          add_a_new_aspect: "Adicionar um novo aspecto"
+          add_a_new_friend:  "Adicionar um novo amigo"
+          show: "Exibir"
+          update_aspects: "Atualizar Aspectos"
+          requests: "Solicitações"
+          ignore_remove: "Ignorar/Excluir"
+      new_aspect:
+          add_a_new_aspect: "Adicionar um novo aspecto"
+          create: "Criar"
+      create:
+          success:"Clique no mais(+) do lado esquerdo para dizer ao Diaspora quem pode ver seu novo aspecto."
+      destroy:
+          success: "%{name} foi removido com sucesso."
+      update:
+          success: "Seu aspecto, %{name}, foi editado com sucesso."
+      move_friends:
+          failure: "Falha ao editar aspecto para o amigo(a) %{real_name}."
+          success: "Aspectos editados com sucesso."
+      move_friend:
+          failure: "não funcionou %{inspect}"
+          success: "Você está agora mostrando um diferente aspecto seu a um amigo(a)."
+      helper:
+          remove: "remover"
+          aspect_not_empty: "Aspecto não está vazio"
+  users:
+      edit:
+          cancel: "Cancelar"
+          update_profile: "Atualizar Perfil"
+          home: "Home"
+          diaspora_username: "NOME DE USUÁRIO DIASPORA"
+          info: "Informações"
+          picture: "Imagem"
+          editing_profile: "Editando perfil"
+          albums: "Álbuns"
+          you_dont_have_any_photos: "Você não possui nenhuma photo!  Vá para"
+          page_to_upload_some:  "para fazer o upload de alguma."
+  comments:
+      comment:
+          ago: "atrás"
+      new_comment:
+          comment: "Comentário"
+  photos:
+      show:
+          prev: "anterior"
+          full_size: "tamanho máximo"
+          next: "próxima"
+          edit_photo: "Editar Foto"
+          delete_photo: "Excluir Foto"
+          are_you_sure: "Tem certeza?"
+          comments: "comentários"
+      edit:
+          editing: "Editando"
+          are_you_sure: "Tem certeza?"
+          delete_photo: "Excluir Foto"
+      photo:
+          show_comments: "exibir comentários"
+          posted_a_new_photo_to: "enviada um nova foto para"
+      new:
+          new_photo: "Nova Foto"
+          back_to_list: "Voltar para a Lista"
+          post_it: "enviar!"
+      create:
+          runtime_error: "Envio de foto falhou. Você tem tem certeza que seu sinto de segurança está preso?"
+          integrity_error: "Envio de foto falhou. Você tem certeza que é uma imagem?"
+          type_error: "Envio de foto falhou. Você tem certeza que adicionou uma imagem?"
+      update:
+          notice: "Foto enviada com sucesso."
+          error:  "Falha ao editar foto."
+      destroy:
+          notice: "Foto removida."
+  registrations:
+      new:
+          sign_up: "Cadastro"
+      create:
+          success: "Vocé entrou na Diaspora!"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "diga-me qualquer coisa legal"
+          oh_yeah: "É isso aí!"
+      status_message:
+          show_comments: "exibir comentários"
+          delete: "Excluir"
+          are_you_sure: "Tem certeza?"
+      show:
+          status_message: "Mensagem de Status"
+          comments: "comentários"
+          are_you_sure: "Tem certeza?"
+          destroy: "Excluir"
+          view_all: "Exibir Todas"
+          message: "Mensagem"
+          owner: "Pertence a"
+      helper:
+          no_message_to_display: "Nenhuma mensagem para ser mostrada."
+  people:
+      person:
+          add_friend: "adicionar amigo(a)"
+          pending_request: "requisições pendentes"
+      index:
+          add_friend: "adicionar amigo(a)"
+          real_name: "nome real"
+          diaspora_handle: "diaspora handle"
+          thats_you: "esse é você!"
+          friend_request_pending: "pedido de amizade pendente"
+          you_have_a_friend_request_from_this_person: "você possui um pedido de amizade dessa pessoa"
+      new:
+          new_person: "Nova Pessoa"
+          back_to_list: "Voltar para a Lista"
+      show:
+          last_seen: "visto pela última vez a: %{how_long_ago}"
+          friends_since: "amigos desde: %{how_long_ago}"
+          save: "salvar"
+          are_you_sure: "Tem certeza?"
+          remove_friend: "excluir amigo"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Adicionar novo amigo(a) em"
+          enter_a_diaspora_username: "Digite seu nome de usuário Diaspora:"
+          your_diaspora_username_is: "Seu nome de usuário Diaspora é: %{diaspora_handle}"
+          friends_username: "Nome de usuário do Amigo(a)"
+      destroy:
+          success: "Vocês agora são amigos."
+          error: "Favor selecionar um aspecto!"
+          ignore: "Requisições de amigos ignoradas."
+      create:
+          error: "Nenhum semente Diaspora encontrado com esse email."
+          already_friends: "Você já é amigo(a) de %{destination_url}!"
+          success: "Uma requisição de amizade foi enviada para %{destination_url}."
+          horribly_wrong: "Algo horrível aconteceu."

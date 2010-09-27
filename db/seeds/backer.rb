@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -12,12 +10,11 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => citie
 
-require 'config/environment'
+require File.join(File.dirname(__FILE__), "..", "..", "config", "environment")
 
 def create
 
-
-  config = YAML.load_file(File.dirname(__FILE__) + '/../../config/deploy_config.yml')
+  config = YAML.load_file(File.join(File.dirname(__FILE__), "..", "..", "config", "deploy_config.yml"))
   backer_info = config['servers']['backer']
 
   backer_number = YAML.load_file(Rails.root.join('config','backer_number.yml'))[:seed_number].to_i
@@ -25,7 +22,7 @@ def create
   #set pod url
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
   set_app_config username
-  require 'config/initializers/_load_app_config.rb'
+  require File.join(File.dirname(__FILE__), "..", "..", "config", "initializers", "_load_app_config.rb")
 
   # Create seed user
   user = User.instantiate!(:email => "#{username}@#{username}.joindiaspora.com",
