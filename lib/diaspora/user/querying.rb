@@ -11,12 +11,13 @@ module Diaspora
       end
 
       def visible_posts( opts = {} )
+        opts[:order] ||= 'created_at DESC'
         if opts[:by_members_of]
           return raw_visible_posts if opts[:by_members_of] == :all
           aspect = self.aspects.find_by_id( opts[:by_members_of].id )
           aspect.posts
-        elsif opts[:from]
-          self.raw_visible_posts.find_all_by_person_id(opts[:from].id, :order => 'created_at DESC')
+        else
+          self.raw_visible_posts.all(opts)
         end
       end
 

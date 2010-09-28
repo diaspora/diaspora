@@ -12,13 +12,38 @@ describe User do
   let!(:user2) { Factory(:user_with_aspect) }
 
   let!(:status_message1) { user2.post :status_message, :message => "hi", :to => user2.aspects.first.id }
+  let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => user2.aspects.first.id }
+  let!(:status_message3) { user2.post :status_message, :message => "va", :to => user2.aspects.first.id }
+  let!(:status_message4) { user2.post :status_message, :message => "da", :public => true , :to => user2.aspects.first.id }
+
 
   before do
     friend_users(user, first_aspect, user2, user2.aspects.first)
   end
 
   describe "#visible_posts" do
-    it "generates a stream for each aspect that includes only that aspect's posts" do
+    it "queries by person id" do
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message1).should == true
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message2).should == true
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message3).should == true
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message4).should == true
+    end
+
+    it "selects public posts" do
+      user2.visible_posts(:public => true).include?(status_message2).should == true
+      user2.visible_posts(:public => true).include?(status_message4).should == true
+    end
+
+    it "selects non public posts" do
+      user2.visible_posts(:public => false).include?(status_message1).should == true
+      user2.visible_posts(:public => false).include?(status_message3).should == true
+    end
+
+    it "selects by message contents" do
+      user2.visible_posts(:message => "hi").include?(status_message1).should == true
+    end
+
+    it "queries by aspect" do
       user3 = Factory(:user_with_aspect)
       status_message2 = user3.post :status_message, :message => "heyyyy", :to => user3.aspects.first.id
       user4 = Factory(:user_with_aspect)
