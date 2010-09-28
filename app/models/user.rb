@@ -114,12 +114,6 @@ class User
     post
   end
 
-  def repost( post, options = {} )
-    aspect_ids = validate_aspect_permissions(options[:to])
-    push_to_aspects(post, aspect_ids)
-    post
-  end
-
   def update_post( post, post_hash = {} )
     if self.owns? post
       post.update_attributes(post_hash)

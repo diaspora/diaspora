@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
 
   def fb_user_info
     if current_user
-      @access_token = env['warden'].session[:access_token]
+      @access_token = warden.session[:access_token]
       @logged_in = @access_token.present?
     end
   end
