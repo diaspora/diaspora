@@ -24,8 +24,9 @@ We need to do some actions as an ordinary user. We use sudo where necessary." &&
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 
 # Check if universal repository is enabled 
-grep -i universe /etc/apt/sources.list > /dev/null || \
+grep -ie '^deb .*universe' /etc/apt/sources.list > /dev/null || \
     { echo "Please enable universe repository" ; exit 1 ; }
+
 
 # Make sure that we only install the latest version of packages
 sudo apt-get update
