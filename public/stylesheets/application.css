@@ -676,11 +676,11 @@ ul#settings_nav {
 #fancybox-close:hover {
   background-color: transparent; }
 
-.aspect_tag {
+.aspect_tag,
+.public_aspect_tag {
   position: absolute;
   top: 15px;
   right: 2em;
-  background-color: #fffc7f;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -690,6 +690,28 @@ ul#settings_nav {
   text-shadow: 0 1px white;
   border-bottom: 1px solid #eeeeee;
   cursor: default; }
+
+.public_aspect_tag {
+  background-color: #fffc7f; }
+
+.aspect_tag {
+  background-color: #eeeeee;
+  color: #999999;
+  text-shadow: 0 1px white; }
+  .aspect_tag ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .aspect_tag ul li {
+      display: inline;
+      margin-right: 2px;
+      padding-right: 4px;
+      border-right: 1px solid #cccccc; }
+      .aspect_tag ul li:last-child {
+        margin-right: 0;
+        padding-right: 0;
+        border-right: none; }
 
 #friend_pictures {
   line-height: 1em; }

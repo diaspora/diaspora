@@ -866,12 +866,11 @@ ul#settings_nav
   :background
     :color transparent
 
-.aspect_tag
+.aspect_tag,
+.public_aspect_tag
   :position absolute
   :top 15px
   :right 2em
-  :background
-    :color #FFFC7F
 
   :border-radius 5px
   :-webkit-border-radius 5px
@@ -889,6 +888,42 @@ ul#settings_nav
     :bottom 1px solid #eee
 
   :cursor default
+
+.public_aspect_tag
+  :background
+    :color #FFFC7F
+
+.aspect_tag
+  :background
+    :color #eee
+  :color #999
+  :text
+    :shadow 0 1px #fff
+
+  ul
+    :display inline
+    :margin 0
+    :padding 0
+    :list
+      :style none
+
+    li
+      :display inline
+      :margin
+        :right 2px
+      :padding
+        :right 4px
+      :border
+        :right 1px solid #ccc
+
+      &:last-child
+        :margin
+          :right 0
+        :padding
+          :right 0
+        :border
+          :right none
+
 
 #friend_pictures
   :line-height 1em
