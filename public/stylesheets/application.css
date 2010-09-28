@@ -711,7 +711,7 @@ ul#settings_nav {
     padding: 0;
     list-style: none; }
     .aspect_tag ul li {
-      display: inlinte;
+      display: inline-block;
       margin-right: 2px;
       padding-right: 4px;
       border-right: 1px solid #cccccc; }
