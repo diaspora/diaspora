@@ -263,7 +263,7 @@ ul.comment_set {
     margin-bottom: 0.5em;
     background-color: rgba(10, 81, 109, 0.05);
     padding: 0.6em;
-    border-bottom: 1px solid #cccccc; }
+    border-bottom: 1px solid #dddddd; }
     ul.comment_set li.comment .from {
       font-size: 1em; }
     ul.comment_set li.comment div.time {
@@ -711,7 +711,7 @@ ul#settings_nav {
     padding: 0;
     list-style: none; }
     .aspect_tag ul li {
-      display: inline;
+      display: inlinte;
       margin-right: 2px;
       padding-right: 4px;
       border-right: 1px solid #cccccc; }
