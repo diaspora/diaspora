@@ -12,7 +12,7 @@ module Diaspora
 
     def build(builder)
       @structure.inject("") do |xml, method|
-        xml << builder.send(method)
+        xml << builder.send(method) if builder.respond_to? method
       end
     end
   end
