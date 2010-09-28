@@ -675,3 +675,18 @@ ul#settings_nav {
 
 #fancybox-close:hover {
   background-color: transparent; }
+
+.aspect_tag {
+  position: absolute;
+  top: 15px;
+  right: 2em;
+  background-color: #fffc7f;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  font-size: smaller;
+  padding: 0 6px;
+  color: #999999;
+  text-shadow: 0 1px white;
+  border-bottom: 1px solid #eeeeee;
+  cursor: default; }
