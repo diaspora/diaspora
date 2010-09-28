@@ -41,7 +41,7 @@ end
 module Salmon
 
   class SalmonSlap
-    attr_accessor :magic_sig, :author, :author_email, :data, :data_type, :sig
+    attr_accessor :magic_sig, :author, :author_email, :parsed_data, :data_type, :sig
     def self.parse(xml)
       slap = self.new
       doc = Nokogiri::XML(xml)
@@ -50,7 +50,7 @@ module Salmon
       slap.magic_sig = MagicSigEnvelope.parse sig_doc
 
       if  'base64url' == slap.magic_sig.encoding
-        slap.data = decode64url(slap.magic_sig.data)
+        slap.parsed_data = decode64url(slap.magic_sig.data)
         slap.sig = slap.magic_sig.sig
       else
         raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{slap.magic_sig.encoding}"
