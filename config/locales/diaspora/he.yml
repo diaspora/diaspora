@@ -102,6 +102,8 @@ he:
           aspect_not_empty: "ההיסט אינו ריק"
   users:
       edit:
+          editing_profile: "עריכת הפרופיל"
+      profile:
           cancel: "ביטול"
           update_profile: "עדכון הפרופיל"
           home: "בית"

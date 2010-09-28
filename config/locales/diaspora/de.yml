@@ -100,6 +100,8 @@ de:
           aspect_not_empty: "Aspekt ist nicht leer"
   users:
       edit:
+          editing_profile: "Profil bearbeiten"
+      profile:
           cancel: "Abbrechen"
           update_profile: "Profil aktualisieren"
           home: "Startseite"

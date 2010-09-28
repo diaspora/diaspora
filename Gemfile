@@ -19,6 +19,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
 gem 'addressable', :require => 'addressable/uri'
 gem 'json'
+gem 'mini_fb'
 
 #Standards
 gem 'pubsubhubbub'

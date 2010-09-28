@@ -46,15 +46,6 @@ describe User do
     end
   end
 
-  describe '#repost' do
-    it 'should make the post visible in another aspect' do
-      status_message = user.post(:status_message, :message => "hello", :to => aspect.id)
-      user.repost(status_message, :to => aspect1.id)
-      aspect1.reload
-      aspect1.posts.count.should be 1
-    end
-  end
-
   describe '#update_post' do
     it 'should update fields' do
       album = user.post(:album, :name => "Profile Photos", :to => aspect.id)

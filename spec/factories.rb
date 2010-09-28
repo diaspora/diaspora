@@ -69,3 +69,11 @@ Factory.define :photo do |p|
 end
 
 Factory.define(:comment) {}
+
+Factory.define :fb_status do |s|
+   s.graph_id "367501354973"
+   s.author_name "Bret Taylor"
+   s.author_id "220439"
+   s.message "Pigs run from our house in fear. Tonight, I am wrapping the pork tenderloin in bacon and putting pancetta in the corn."
+   s.updated_time Time.parse "2010-03-06T02:57:48+0000"
+end
