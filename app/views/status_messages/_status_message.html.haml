@@ -22,3 +22,13 @@
     .destroy_link
       = link_to t('.delete'), status_message_path(post), :confirm => t('.are_you_sure'), :method => :delete, :remote => true, :class => "delete"
       = render "shared/reshare", :post => post, :current_user => current_user
+
+  - if post.public?
+    .public_aspect_tag
+      public
+  - else
+    .aspect_tag
+      %ul
+        - for aspect in current_user.aspects_with_post( post.id )
+          %li= aspect.name
+

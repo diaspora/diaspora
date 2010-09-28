@@ -69,6 +69,8 @@ ru:
           success:"Нажмите на плюс слева, для того, что-бы указать Diaspora тех, кто может видеть ваш новый аспект."
   users:
       edit:
+          editing_profile: "Редактирование профиля"
+      profile:
           cancel: "Отмена"
           update_profile: "Обновить профиль"
           home: "Домой"

@@ -1,3 +1,11 @@
+namespace :generate do
+  desc 'Generates a Session Secret Token'
+  task :secret_token do
+
+  path = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
+  secret = ActiveSupport::SecureRandom.hex(40)
+  File.open(path, 'w') do |f|
+    f.write <<"EOF"
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
@@ -8,4 +16,11 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Rails.application.config.secret_token = '3484b78b0f9d88f40cd44a20cf647140e5900632d0c9b85e1fd91dc539811d243f2f0756f791019c'
+Rails.application.config.secret_token = '#{secret}'
+EOF
+
+puts "YAY!!"
+end
+
+  end
+end

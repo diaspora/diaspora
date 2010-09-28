@@ -42,7 +42,7 @@ namespace :db do
 
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:tom'].invoke
+    Rake::Task['db:seed:dev'].invoke
     puts "Success!"
   end
 

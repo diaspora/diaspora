@@ -6,8 +6,12 @@
   = owner_image_link
   - for friend in @friends
     = person_image_link(friend)
-
-  -unless @aspect == :all
+    - if @logged_in && (@aspect == :public)
+      %h3 Facebook Friends
+      - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")                                                                                            
+      - @fb_friends[:data].each do |friend|            
+        = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
+  -unless (@aspect == :all) || (@aspect == :public)
     = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane", :id => 'add_request_button'
 
     .yo{:style => 'display:none'}

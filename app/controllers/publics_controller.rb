@@ -5,6 +5,7 @@
 class PublicsController < ApplicationController
   require File.expand_path('../../../lib/diaspora/parser', __FILE__)
   include Diaspora::Parser
+
   layout false
 
   def hcard

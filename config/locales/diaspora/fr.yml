@@ -87,6 +87,8 @@ fr:
           success:"Cliquez sur plus situé sur le côté gauche afin d’en informer Diaspora qui peut voir votre nouvel aspect."
   users:
       edit:
+          editing_profile: "Édition du profil"
+      profile:
           cancel: "Annuler"
           update_profile: "Mettre à jour le profil"
           home: "Accueil"
