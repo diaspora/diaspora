@@ -50,10 +50,10 @@ module Diaspora
     end
 
     def self.create_body
-      @user.raw_visible_posts.all.inject do |xml,curr|
+      @user.visible_posts(:public=>true).inject("") do |xml,curr|
         if curr.respond_to?(:to_activity)
           unless xml
-            xml = curr.to_activity 
+            curr.to_activity 
           else
             xml + curr.to_activity 
           end
