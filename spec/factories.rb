@@ -25,10 +25,6 @@ Factory.define :album do |p|
   p.person { |a| Factory.create(:person) }
 end
 
-Factory.define :person_with_private_key, :parent => :person do |p|
-  p.serialized_key OpenSSL::PKey::RSA.generate(1024).export
-end
-
 Factory.define :user do |u|
   u.sequence(:username) {|n| "bob#{n}"}
   u.sequence(:email) {|n| "bob#{n}@pivotallabs.com"}
