@@ -147,7 +147,9 @@ ul#stream {
     padding: 12px 0;
     border-bottom: 1px solid #eeeeee; }
     ul#stream > li:hover {
-      background-color: #fafafa; }
+      background: -webkit-gradient(linear, 0% 0%, 0% 50%, from(#fafafa), to(#fcfcfc));
+      background-color: #fafafa;
+      border-bottom: 1px solid #dddddd; }
       ul#stream > li:hover .destroy_link {
         display: inline; }
   ul#stream .right {
@@ -392,13 +394,15 @@ label {
     height: 42px;
     margin-top: 0;
     margin-bottom: 0;
-    box-shadow: 0 1px white;
-    -moz-box-shadow: 0 1px white;
-    -webkit-box-shadow: 0 1px white; }
+    box-shadow: 0 1px 2px white;
+    -moz-box-shadow: 0 1px 2px white;
+    -webkit-box-shadow: 0 1px 2px white; }
   #publisher .button {
     margin-left: 100px; }
   #publisher img {
-    -webkit-box-shadow: 0 1px 0 white;
+    box-shadow: 0 1px 2px white;
+    -moz-box-shadow: 0 1px 2px white;
+    -webkit-box-shadow: 0 1px 2px white;
     border: 1px solid #bbbbbb;
       border-top: 1px solid #666666; }
 

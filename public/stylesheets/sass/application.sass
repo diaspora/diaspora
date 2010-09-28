@@ -188,8 +188,13 @@ ul#stream
       :bottom 1px solid #eee
 
     &:hover
+      :background -webkit-gradient(linear, 0% 0%, 0% 50%, from(#FAFAFA), to(#FCFCFC))
+
       :background
         :color #fafafa
+
+      :border
+        :bottom 1px solid #ddd
 
       .destroy_link
         :display inline
@@ -522,15 +527,17 @@ label
       :top 0
       :bottom 0
 
-    :box-shadow 0 1px #fff
-    :-moz-box-shadow 0 1px #fff
-    :-webkit-box-shadow 0 1px #fff
+    :box-shadow 0 1px 2px #fff
+    :-moz-box-shadow 0 1px 2px #fff
+    :-webkit-box-shadow 0 1px 2px #fff
 
   .button
     :margin-left 100px
 
   img
-    :-webkit-box-shadow 0 1px 0 #fff
+    :box-shadow 0 1px 2px #fff
+    :-moz-box-shadow 0 1px 2px #fff
+    :-webkit-box-shadow 0 1px 2px #fff
     :border 1px solid #bbb
       :top 1px solid #666
 
