@@ -29,8 +29,11 @@ class UsersController < ApplicationController
     if params[:profile][:image_url].empty?
       params[:profile].delete(:image_url)
     else
-      url = APP_CONFIG[:pod_url].chop if APP_CONFIG[:pod_url][-1,1] == '/'
-      params[:profile][:image_url] = url + params[:profile][:image_url] if params[:profile][:image_url].at(0) == '/'
+      if /^http:\/\// =~ params[:profile][:image_url]
+        params[:profile][:image_url] = params[:profile][:image_url]
+      else
+        params[:profile][:image_url] = url + params[:profile][:image_url]
+      end
     end
   end
 
