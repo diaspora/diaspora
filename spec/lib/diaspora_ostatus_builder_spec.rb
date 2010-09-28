@@ -14,5 +14,9 @@ describe Diaspora::OstatusBuilder do
 
   let!(:atom) { Diaspora::OstatusBuilder::build(user) }
 
+  it 'should include a users posts' do
+    atom.should include status_message.message
+  end
+
 end
 

@@ -32,6 +32,8 @@ Diaspora::Application.routes.draw do
   match 'get_to_the_choppa', :to => redirect("/signup")
   #public routes
   #
+  match 'public/:username',    :to => 'publics#public'
+
   match 'webfinger', :to => 'publics#webfinger'
   match 'hcard/users/:id',    :to => 'publics#hcard'
 

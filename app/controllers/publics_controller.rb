@@ -4,7 +4,9 @@
 
 class PublicsController < ApplicationController
   require File.expand_path('../../../lib/diaspora/parser', __FILE__)
+  require File.expand_path('../../../lib/diaspora/ostatus_builder', __FILE__)
   include Diaspora::Parser
+  include Diaspora::OstatusBuilder
   layout false
 
   def hcard
@@ -38,6 +40,11 @@ class PublicsController < ApplicationController
       return
     end
     @user.receive_salmon params[:xml]
+  end
+
+  def public
+    user = User.find_by_username(params[:username])
+    render :xml => Diaspora::OstatusBuilder::build(user)
   end
 
 end
