@@ -690,3 +690,11 @@ ul#settings_nav {
   text-shadow: 0 1px white;
   border-bottom: 1px solid #eeeeee;
   cursor: default; }
+
+#friend_pictures {
+  line-height: 1em; }
+  #friend_pictures img {
+    margin-right: -1px; }
+
+#thumbnails {
+  line-height: 14px; }
