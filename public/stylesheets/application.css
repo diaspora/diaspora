@@ -160,7 +160,8 @@ li.message {
   li.message .delete:hover {
     background: #eeeeee; }
   li.message .content {
-    padding-left: 65px; }
+    padding-left: 65px;
+    width: 600px; }
     li.message .content span.from {
       color: black;
       font-weight: normal;
