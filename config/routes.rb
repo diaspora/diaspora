@@ -4,12 +4,15 @@
 
 Diaspora::Application.routes.draw do
   resources :people,          :only   => [:index, :show, :destroy]
-  resources :users,           :except => [:create, :new, :show]
   resources :status_messages, :only   => [:create, :destroy, :show]
   resources :comments,        :except => [:index]
   resources :requests,        :except => [:edit, :update]
   resources :photos,          :except => [:index]
   resources :albums
+  
+  # added public route to user
+  match 'users/:username/public', :to => 'users#public'
+  resources :users,               :except => [:create, :new, :show]
 
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
   match 'aspects/move_friend',  :to => 'aspects#move_friend', :as => 'move_friend'
@@ -36,7 +39,6 @@ Diaspora::Application.routes.draw do
   match 'get_to_the_choppa', :to => redirect("/signup")
   #public routes
   #
-  match 'public/:username',    :to => 'publics#public'
 
   match 'webfinger', :to => 'publics#webfinger'
   match 'hcard/users/:id',    :to => 'publics#hcard'

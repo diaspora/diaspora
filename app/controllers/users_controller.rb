@@ -3,7 +3,9 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, :except => [:new, :create]
+  require File.expand_path('../../../lib/diaspora/ostatus_builder', __FILE__)
+
+  before_filter :authenticate_user!, :except => [:new, :create, :public]
 
   respond_to :html
 
@@ -25,6 +27,14 @@ class UsersController < ApplicationController
 
     @user.update_profile data
     respond_with(@user, :location => root_url)
+  end
+
+  def public
+    user = User.find_by_username(params[:username])
+    director = Diaspora::Director.new
+    ostatus_builder = Diaspora::OstatusBuilder.new(user)
+
+    render :xml => director.build(ostatus_builder)
   end
 
   private
