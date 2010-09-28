@@ -41,7 +41,19 @@ end
 module Salmon
 
   class SalmonSlap
-    attr_accessor :magic_sig, :author, :author_email, :parsed_data, :data_type, :sig
+    attr_accessor :magic_sig, :author, :author_email, :aes_key, :iv, :parsed_data,
+                  :data_type, :sig
+
+    def self.create(user, activity)
+      salmon = self.new
+      salmon.author = user.person
+      aes_key_hash = user.person.gen_aes_key
+      salmon.aes_key = aes_key_hash['key']
+      salmon.iv      = aes_key_hash['iv']
+      salmon.magic_sig = MagicSigEnvelope.create(user , user.person.aes_encrypt(activity, aes_key_hash))
+      salmon
+    end
+   
     def self.parse(xml)
       slap = self.new
       doc = Nokogiri::XML(xml)
@@ -63,13 +75,6 @@ module Salmon
       uri = doc.search('uri').text
       slap.author_email = uri.split("acct:").last
       slap
-    end
-
-    def self.create(user, activity)
-      salmon = self.new
-      salmon.author = user.person
-      salmon.magic_sig = MagicSigEnvelope.create(user , activity)
-      salmon
     end
 
     def to_xml

@@ -18,7 +18,17 @@ describe Salmon do
     it 'has no parsed_data' do
       created_salmon.parsed_data.should be nil
     end
+    
+    it 'sets aes and iv key' do
+      created_salmon.aes_key.should_not be nil
+      created_salmon.iv.should_not be nil
+    end
 
+    it 'should make the data in the signature encrypted with that key' do
+      key_hash = {'key' => created_salmon.aes_key, 'iv' => created_salmon.iv}
+      decoded_string = Salmon::SalmonSlap.decode64url(created_salmon.magic_sig.data)
+      user.aes_decrypt(decoded_string, key_hash).to_s.should == post.to_diaspora_xml.to_s
+    end
   end
 
   context 'round trip' do
