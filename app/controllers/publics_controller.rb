@@ -6,7 +6,7 @@ class PublicsController < ApplicationController
   require File.expand_path('../../../lib/diaspora/parser', __FILE__)
   require File.expand_path('../../../lib/diaspora/ostatus_builder', __FILE__)
   include Diaspora::Parser
-  include Diaspora::OstatusBuilder
+
   layout false
 
   def hcard
@@ -44,7 +44,11 @@ class PublicsController < ApplicationController
 
   def public
     user = User.find_by_username(params[:username])
-    render :xml => Diaspora::OstatusBuilder::build(user)
+
+    director = Diaspora::Director.new
+    ostatus_builder = Diaspora::OstatusBuilder.new(user)
+
+    render :xml => director.build(ostatus_builder)
   end
 
 end
