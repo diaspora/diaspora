@@ -31,10 +31,16 @@ class UsersController < ApplicationController
 
   def public
     user = User.find_by_username(params[:username])
-    director = Diaspora::Director.new
-    ostatus_builder = Diaspora::OstatusBuilder.new(user)
 
-    render :xml => director.build(ostatus_builder)
+    if user
+      director = Diaspora::Director.new
+      ostatus_builder = Diaspora::OstatusBuilder.new(user)
+
+      render :xml => director.build(ostatus_builder)
+    else
+      flash[:error] = "User #{params[:username]} does not exist!"
+      redirect_to root_url
+    end
   end
 
   private
