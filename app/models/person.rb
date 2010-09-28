@@ -49,6 +49,10 @@ class Person
     "#{self.url}receive/users/#{self.id}/"
   end
 
+  def public_url
+    "#{self.url}users/#{self.id}/public"
+  end
+
 
   def public_key_hash
     Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
