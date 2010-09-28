@@ -146,6 +146,12 @@ header
             :right 0
 
   #aspect_header
+    :-webkit-box-shadow 0px -4px 6px -2px #777
+    :-moz-box-shadow 0px -4px 6px -2px #777
+    
+    :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F7F7F7), to(#EEEEEE))
+    :background -moz-linear-gradient(19% 75% 90deg, #eee, #f7f7f7)
+
     :background
       :color #eee
     :border
@@ -713,11 +719,11 @@ h1.big_text
         :background
           :color #eee
 
-        :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee))
-        :background -moz-linear-gradient(19% 75% 90deg, #eee, #fff)
+        :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#F7F7F7))
+        :background -moz-linear-gradient(19% 75% 90deg, #f7f7f7, #fff)
 
         :border 1px solid #fff
-          :bottom 1px solid #eee
+          :bottom 1px solid #F7F7F7
         :color #000
         &:hover
           :background

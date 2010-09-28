@@ -4,11 +4,11 @@
 
 #aspect_nav
   %ul
+    %li{:class => ("selected" if @aspect == :all)}
+      = link_to t('.all_aspects'), root_url
     - for aspect in @aspects
       %li{:class => ("selected" if current_aspect?(aspect))}
         = link_for_aspect aspect
-    %li{:class => ("selected" if @aspect == :all)}
-      = link_to t('.all_aspects'), root_url
 
   %ul{ :style => "position:absolute;right:0;bottom:0.01em;"}
     %li{:class => ("selected" if @aspect == :public)}

@@ -118,6 +118,10 @@ header {
         header #session_action ul li:last-child {
           margin-right: 0; }
   header #aspect_header {
+    -webkit-box-shadow: 0px -4px 6px -2px #777777;
+    -moz-box-shadow: 0px -4px 6px -2px #777777;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f7f7f7), to(#eeeeee));
+    background: -moz-linear-gradient(19% 75% 90deg, #eeeeee, #f7f7f7);
     background-color: #eeeeee;
     border-top: 1px solid white;
     padding: 20px 0; }
@@ -529,10 +533,10 @@ h1.big_text {
         line-height: 18px;
         font-weight: bold;
         background-color: #eeeeee;
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#eeeeee));
-        background: -moz-linear-gradient(19% 75% 90deg, #eeeeee, white);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(white), to(#f7f7f7));
+        background: -moz-linear-gradient(19% 75% 90deg, #f7f7f7, white);
         border: 1px solid white;
-          border-bottom: 1px solid #eeeeee;
+          border-bottom: 1px solid #f7f7f7;
         color: black; }
         #aspect_nav ul > li.selected a:hover {
           background-color: #efefef; }
