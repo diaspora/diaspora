@@ -54,15 +54,26 @@ module Salmon
       salmon
     end
    
-    def self.parse(xml)
+    def self.parse(xml, user)
       slap = self.new
       doc = Nokogiri::XML(xml)
 
       sig_doc = doc.search('entry')
+
+      ### Header ##
+      decrypted_header = user.decrypt(doc.search('encrypted_header').text)
+      puts decrypted_header
+      header_doc = Nokogiri::XML(decrypted_header)
+      puts header_doc.inspect
+      slap.aes_key    = header_doc.search('aes_key').text
+      slap.iv         = header_doc.search('iv').text
+
       slap.magic_sig = MagicSigEnvelope.parse sig_doc
 
       if  'base64url' == slap.magic_sig.encoding
-        slap.parsed_data = decode64url(slap.magic_sig.data)
+
+        key_hash = {'key' => slap.aes_key, 'iv' => slap.iv}
+        slap.parsed_data = user.aes_decrypt(decode64url(slap.magic_sig.data), key_hash)
         slap.sig = slap.magic_sig.sig
       else
         raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{slap.magic_sig.encoding}"
@@ -89,6 +100,34 @@ module Salmon
       </entry>
 ENTRY
 
+    end
+
+    def xml_for person
+      xml =<<ENTRY
+    <?xml version='1.0' encoding='UTF-8'?>
+    <entry xmlns='http://www.w3.org/2005/Atom'>
+    <encrypted_header>#{person.encrypt(decrypted_header.rstrip)}</encrypted_header>
+    <author>
+      <name>#{@author.real_name}</name>
+      <uri>acct:#{@author.diaspora_handle}</uri>
+    </author>
+      #{@magic_sig.to_xml}
+      </entry>
+ENTRY
+
+    end
+
+    def decrypted_header
+      header =<<HEADER
+    <header>
+    <iv>#{iv}</iv>
+    <aes_key>#{aes_key}</aes_key>
+    <author>
+      <name>#{@author.real_name}</name>
+      <uri>acct:#{@author.diaspora_handle}</uri>
+    </author>
+    </header>
+HEADER
     end
 
     def author

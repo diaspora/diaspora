@@ -6,10 +6,12 @@ require 'spec_helper'
 
 describe Salmon do
   let(:user){Factory.create :user}
+  let(:user2) {Factory.create :user}
   let(:post){ user.post :status_message, :message => "hi", :to => user.aspect(:name => "sdg").id }
 
+  let!(:created_salmon) {Salmon::SalmonSlap.create(user, post.to_diaspora_xml)}
+    
   describe '#create' do
-    let!(:created_salmon) {Salmon::SalmonSlap.create(user, post.to_diaspora_xml)}
 
     it 'has data in the magic envelope' do
       created_salmon.magic_sig.data.should_not be nil
@@ -24,17 +26,49 @@ describe Salmon do
       created_salmon.iv.should_not be nil
     end
 
-    it 'should make the data in the signature encrypted with that key' do
+    it 'makes the data in the signature encrypted with that key' do
       key_hash = {'key' => created_salmon.aes_key, 'iv' => created_salmon.iv}
       decoded_string = Salmon::SalmonSlap.decode64url(created_salmon.magic_sig.data)
-      user.aes_decrypt(decoded_string, key_hash).to_s.should == post.to_diaspora_xml.to_s
+      user.aes_decrypt(decoded_string, key_hash).should == post.to_diaspora_xml
     end
+  end
+ 
+  describe '#xml_for' do
+    let(:xml)   {created_salmon.xml_for user2.person}
+
+    it 'has a encrypted header field' do
+      xml.include?("encrypted_header").should be true
+    end
+
+    it 'the encrypted_header field should contain the aes key' do
+      doc = Nokogiri::XML(xml)
+      decrypted_header = user2.decrypt(doc.search('encrypted_header').text)
+      decrypted_header.include?(created_salmon.aes_key).should be true
+    end
+  end
+
+  context 'marshaling' do
+    let(:xml)   {created_salmon.xml_for user2.person}
+    let(:parsed_salmon) { Salmon::SalmonSlap.parse(xml, user2)} 
+
+    it 'should parse out the aes key' do
+      parsed_salmon.aes_key.should == created_salmon.aes_key
+    end
+
+    it 'should parse out the iv' do
+      parsed_salmon.iv.should == created_salmon.iv
+    end
+
+    it 'contains the original data' do
+      parsed_salmon.parsed_data.should == post.to_diaspora_xml
+    end
+
   end
 
   context 'round trip' do
     before do
       @sent_salmon = Salmon::SalmonSlap.create(user, post.to_diaspora_xml)
-      @parsed_salmon = Salmon::SalmonSlap.parse @sent_salmon.to_xml
+      @parsed_salmon =
       stub_success("tom@tom.joindiaspora.com")
     end
 
