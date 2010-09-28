@@ -692,12 +692,18 @@ ul#settings_nav {
   cursor: default; }
 
 .public_aspect_tag {
-  background-color: #fffc7f; }
+  background: -moz-linear-gradient(19% 75% 90deg, #fffa75, #fff8ba);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff8ba), to(#fffa75));
+    background-color: #fffc7f;
+  border-top: 1px solid #ebe66c; }
 
 .aspect_tag {
-  background-color: #eeeeee;
+  background: -moz-linear-gradient(19% 75% 90deg, #e0e0e0, #f0f0f0);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f0f0f0), to(#e0e0e0));
+    background-color: #eeeeee;
   color: #999999;
-  text-shadow: 0 1px white; }
+  text-shadow: 0 1px white;
+  border-top: 1px solid #dddddd; }
   .aspect_tag ul {
     display: inline;
     margin: 0;

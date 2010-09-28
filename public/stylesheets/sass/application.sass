@@ -890,15 +890,21 @@ ul#settings_nav
   :cursor default
 
 .public_aspect_tag
-  :background
+  :background -moz-linear-gradient(19% 75% 90deg,#FFFA75, #FFF8BA)
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF8BA), to(#FFFA75))
     :color #FFFC7F
+  :border
+    :top 1px solid #EBE66C
 
 .aspect_tag
-  :background
+  :background -moz-linear-gradient(19% 75% 90deg,#E0E0E0, #F0F0F0)
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F0F0F0), to(#E0E0E0))
     :color #eee
   :color #999
   :text
     :shadow 0 1px #fff
+  :border
+    :top 1px solid #ddd
 
   ul
     :display inline
