@@ -66,7 +66,10 @@ ru:
           add_a_new_aspect: "Добавить аспект"
           create: "Создать"
       create:
-          success:"Нажмите на плюс слева, для того, что-бы указать Diaspora тех, кто может видеть ваш новый аспект."
+          success:"Нажмите на плюс слева, для того, что-бы указать Diaspora тех, кто может видеть ваш новый аспект
+      helper:
+        remove: "Удалить"
+        aspect_not_empty: "Аспект не пуст"
   users:
       edit:
           editing_profile: "Редактирование профиля"
@@ -79,8 +82,9 @@ ru:
           picture: "Аватар"
           editing_profile: "Редактирование профиля"
           albums: "Альбомы"
-          you_dont_have_any_photos: "У вас нет ни одной фотографии! Перейдите на "
-          page_to_upload_some:  "страницу для загрузки."
+          you_dont_have_any_photos: "У вас нет ни одной фотографии! Перейдите в"
+          page_to_upload_some:  "для загрузки."
+          or: "или"
   comments:
       comment:
           ago: "ранее"
