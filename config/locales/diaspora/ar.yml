@@ -2,48 +2,47 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Sample localization file for Arabic.
 
-en:
-  hello: "مرحبا العال"
+ar:
+  hello: "مرحبا العالم"
   application:
       helper:
-          unknown_person: "غير معروف شخ"
-          new_requests: "طلبات جديد"
+          unknown_person: "غير معروف شخص"
+          new_requests: "طلبات جديدة"
   dashboards:
       helper:
           home: "منزل"
   error_messages:
       helper:
-          invalid_fields: "الحقول غير صالح"
-          correct_the_following_errors_and_try_again: "تصحيح الأخطاء التالية وحاول مرة أخرى"
+          invalid_fields: "الحقول غير صالحة"
+          correct_the_following_errors_and_try_again: ".تصحيح الأخطاء التالية وحاول مرة أخرى"
   people:
       helper:
-           results_for: "%{params} نتائ "
-           people_on_pod_are_aware_of: "الناس في جراب على عل "
+           results_for: "%{params} نتائج "
+           people_on_pod_are_aware_of: "الناس في جراب على علم "
   layouts:
       application:
-          edit_profile: "تعديل الملف الشخص"
-          logout: "خرو"
+          edit_profile: "تعديل الملف الشخصي"
+          logout: "خروج"
   shared:
       aspect_nav:
-          all_aspects: "جميع الجوان"
+          all_aspects: "جميع الجوانب"
           manage: "نجح"
-          manage_your_aspects: "إدارة جوانب الخا"
+          manage_your_aspects: "إدارة جوانب الخاص"
       sub_header:
-          all_aspects: "جميع الجوان"
-          manage_aspects: "إدارة الجوان"
+          all_aspects: "جميع الجوانب"
+          manage_aspects: "إدارة الجوانب"
       publisher:
           share: "تقاسم"
       aspect_friends:
-          add_friends: "أضف أصدقا"
+          add_friends: "أضف أصدقاء"
   albums:
       album:
           you: "أنت"
       new_album:
           create: "خلق"
-          add_a_new_album: "إضافة ألبوم جدي"
+          add_a_new_album: "إضافة ألبوم جديد"
       show:
           edit_album: "تعديل الألبو"
           albums: "البومات"
