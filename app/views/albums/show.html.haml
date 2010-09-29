@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 :javascript
   $(document).ready(function(){
     $(".image_thumb img").load( function() {
@@ -24,8 +23,6 @@
   %h1
     = @album.name
   ="#{t('.updated')} #{how_long_ago(@album)}"
-
-
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
 

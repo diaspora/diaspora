@@ -43,7 +43,7 @@ module Diaspora
 
       def receive_request request, xml
         person = Diaspora::Parser.parse_or_find_person_from_xml( xml )
-        person.serialized_key ||= request.exported_key
+        person.serialized_public_key ||= request.exported_key
         request.person = person
         request.person.save
         old_request =  Request.first(:id => request.id)

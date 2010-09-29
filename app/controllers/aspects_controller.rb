@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
 
@@ -15,8 +14,12 @@ class AspectsController < ApplicationController
   end
 
   def create
-    @aspect = current_user.aspect params[:aspect]
-    flash[:notice] = I18n.t('aspects.create.success')
+    @aspect = current_user.aspect(params[:aspect])
+    if @aspect.valid?
+      flash[:notice] = I18n.t('aspects.create.success')
+    else
+      flash[:error] = I18n.t('aspects.create.failure')
+    end
     respond_with :location => aspects_manage_path
   end
 
@@ -45,6 +48,15 @@ class AspectsController < ApplicationController
     respond_with @aspect
   end
 
+  def public
+    @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
+                                      :scope=>MiniFB.scopes.join(","))
+
+    @posts = current_user.visible_posts(:public => true).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
+
+    respond_with @aspect
+  end
+  
   def manage
     @aspect = :manage
     @remote_requests = Request.for_user(current_user).all

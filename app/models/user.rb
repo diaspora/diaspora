@@ -2,11 +2,10 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-require 'lib/diaspora/user/friending.rb'
-require 'lib/diaspora/user/querying.rb'
-require 'lib/diaspora/user/receiving.rb'
-require 'lib/salmon/salmon'
+require File.expand_path('../../../lib/diaspora/user/friending', __FILE__)
+require File.expand_path('../../../lib/diaspora/user/querying', __FILE__)
+require File.expand_path('../../../lib/diaspora/user/receiving', __FILE__)
+require File.expand_path('../../../lib/salmon/salmon', __FILE__)
 
 class User
   include MongoMapper::Document
@@ -19,6 +18,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
+  key :serialized_private_key, String
 
   key :friend_ids,          Array
   key :pending_request_ids, Array
@@ -36,7 +36,7 @@ class User
 
   after_create :seed_aspects
 
-  before_validation_on_create :downcase_username
+  before_validation :downcase_username, :on => :create
 
    def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
@@ -67,11 +67,10 @@ class User
   def drop_aspect( aspect )
     if aspect.people.size == 0
       aspect.destroy
-    else 
+    else
       raise "Aspect not empty"
     end
   end
-
 
   def move_friend( opts = {})
     return true if opts[:to] == opts[:from]
@@ -108,16 +107,9 @@ class User
     intitial_post(class_name, aspect_ids, options)
   end
 
-
-  def intitial_post(class_name, aspect_ids, options = {}) 
+  def intitial_post(class_name, aspect_ids, options = {})
     post = build_post(class_name, options)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
-    push_to_aspects(post, aspect_ids)
-    post 
-  end
-
-  def repost( post, options = {} )
-    aspect_ids = validate_aspect_permissions(options[:to])
     push_to_aspects(post, aspect_ids)
     post
   end
@@ -129,16 +121,20 @@ class User
   end
 
   def validate_aspect_permissions(aspect_ids)
-    aspect_ids = [aspect_ids.to_s] if aspect_ids.is_a? BSON::ObjectId
+    if aspect_ids == "all"
+      return aspect_ids
+    end
+
+    aspect_ids = [aspect_ids.to_s] unless aspect_ids.is_a? Array
 
     if aspect_ids.nil? || aspect_ids.empty?
       raise ArgumentError.new("You must post to someone.")
     end
 
     aspect_ids.each do |aspect_id|
-      unless aspect_id == "all" || self.aspects.find(aspect_id) 
+      unless self.aspects.find(aspect_id)
         raise ArgumentError.new("Cannot post to an aspect you do not own.")
-      end 
+      end
     end
 
     aspect_ids
@@ -250,7 +246,9 @@ class User
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
-    opts[:person][:serialized_key] = generate_key
+    
+    opts[:serialized_private_key] = generate_key
+    opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
     User.create(opts)
   end
 
@@ -258,7 +256,6 @@ class User
     aspect(:name => "Family")
     aspect(:name => "Work")
   end
-  
 
   def diaspora_handle
     "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
@@ -267,7 +264,6 @@ class User
   def downcase_username
     username.downcase! if username
   end
-
 
   def as_json(opts={})
     {
@@ -279,7 +275,14 @@ class User
       }
     }
   end
-    def self.generate_key
-      OpenSSL::PKey::RSA::generate 4096
-    end
+
+
+  def self.generate_key
+    OpenSSL::PKey::RSA::generate 4096
+  end
+  
+  def encryption_key
+    OpenSSL::PKey::RSA.new( serialized_private_key )
+  end
+
 end

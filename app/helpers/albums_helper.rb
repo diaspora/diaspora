@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module AlbumsHelper
   def friends_albums_link
     if params[:friends]

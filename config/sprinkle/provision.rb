@@ -3,10 +3,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-
-
 require '#{File.dirname(__FILE__)}/packages/essential'
 require '#{File.dirname(__FILE__)}/packages/database'
 require '#{File.dirname(__FILE__)}/packages/server'
@@ -25,7 +21,6 @@ policy :diaspora, :roles => [:pivots] do
   requires :vim
   requires :nginx_conf
 end
-
 
 deployment do
 

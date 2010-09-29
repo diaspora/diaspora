@@ -2,10 +2,10 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class PublicsController < ApplicationController
-  require 'lib/diaspora/parser'
+  require File.expand_path('../../../lib/diaspora/parser', __FILE__)
   include Diaspora::Parser
+
   layout false
 
   def hcard

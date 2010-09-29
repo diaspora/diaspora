@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
 
@@ -19,9 +18,15 @@ class PhotosController < ApplicationController
       # get file content type
       att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
       # create temporal file
-      file = Tempfile.new(file_name)
+      begin
+        file = Tempfile.new(file_name, {:encoding =>  'BINARY'})
+        file.print request.raw_post.force_encoding('BINARY')
+      rescue RuntimeError => e
+        raise e unless e.message.include?('cannot generate tempfile')
+        file = Tempfile.new(file_name) # Ruby 1.8 compatibility
+        file.print request.raw_post
+      end
       # put data into this file from raw post request
-      file.print request.raw_post
 
       # create several required methods for this temporal file
       Tempfile.send(:define_method, "content_type") {return att_content_type}
@@ -29,11 +34,9 @@ class PhotosController < ApplicationController
 
       ##############
 
-
       params[:user_file] = file
 
       data = clean_hash(params)
-
 
       @photo = current_user.post(:photo, data)
 
@@ -96,7 +99,6 @@ class PhotosController < ApplicationController
       render :action => :edit
     end
   end
-
 
   private
   def clean_hash(params)

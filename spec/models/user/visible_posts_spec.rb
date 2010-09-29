@@ -2,46 +2,63 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../../spec_helper'
+require 'spec_helper'
 
 describe User do
-  let(:user) { Factory(:user) }
+  let!(:user) { Factory(:user_with_aspect) }
+  let!(:first_aspect) { user.aspects.first }
+  let!(:second_aspect) { user.aspect(:name => 'losers') }
 
-  let(:user2) { Factory(:user) }
-  let(:user3) { Factory(:user) }
-  let(:user4) { Factory(:user) }
+  let!(:user2) { Factory(:user_with_aspect) }
 
-  let!(:aspect)  { user.aspect(:name => 'heroes') }
-  let!(:aspect2) { user.aspect(:name => 'losers') }
+  let!(:status_message1) { user2.post :status_message, :message => "hi", :to => user2.aspects.first.id }
+  let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => user2.aspects.first.id }
+  let!(:status_message3) { user2.post :status_message, :message => "va", :to => user2.aspects.first.id }
+  let!(:status_message4) { user2.post :status_message, :message => "da", :public => true , :to => user2.aspects.first.id }
 
-  let!(:user2_aspect) { user2.aspect(:name => 'dudes') }
-  let!(:user3_aspect) { user3.aspect(:name => 'dudes') }
-  let!(:user4_aspect) { user4.aspect(:name => 'dudes') }
-
-  let(:status_message1) { user2.post :status_message, :message => "hi", :to => user2_aspect.id }
-  let(:status_message2) { user3.post :status_message, :message => "heyyyy", :to => user3_aspect.id }
-  let(:status_message3) { user4.post :status_message, :message => "yooo", :to => user4_aspect.id }
 
   before do
-    friend_users(user, aspect, user2, user2_aspect)
-    friend_users(user, aspect2, user3, user3_aspect)
-    friend_users(user, aspect2, user4, user4_aspect)
+    friend_users(user, first_aspect, user2, user2.aspects.first)
   end
 
-  it 'should generate a valid stream for a aspect of people' do
-    (1..3).each{ |n|
-      eval("user.receive status_message#{n}.to_diaspora_xml")
-    }
+  describe "#visible_posts" do
+    it "queries by person id" do
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message1).should == true
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message2).should == true
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message3).should == true
+      user2.visible_posts(:person_id => user2.person.id).include?(status_message4).should == true
+    end
 
-    user.visible_posts(:by_members_of => aspect).should include status_message1
-    user.visible_posts(:by_members_of => aspect).should_not include status_message2
-    user.visible_posts(:by_members_of => aspect).should_not include status_message3
+    it "selects public posts" do
+      user2.visible_posts(:public => true).include?(status_message2).should == true
+      user2.visible_posts(:public => true).include?(status_message4).should == true
+    end
 
-    user.visible_posts(:by_members_of => aspect2).should_not include status_message1
-    user.visible_posts(:by_members_of => aspect2).should include status_message2
-    user.visible_posts(:by_members_of => aspect2).should include status_message3
+    it "selects non public posts" do
+      user2.visible_posts(:public => false).include?(status_message1).should == true
+      user2.visible_posts(:public => false).include?(status_message3).should == true
+    end
+
+    it "selects by message contents" do
+      user2.visible_posts(:message => "hi").include?(status_message1).should == true
+    end
+
+    it "queries by aspect" do
+      user3 = Factory(:user_with_aspect)
+      status_message2 = user3.post :status_message, :message => "heyyyy", :to => user3.aspects.first.id
+      user4 = Factory(:user_with_aspect)
+      status_message3 = user4.post :status_message, :message => "yooo", :to => user4.aspects.first.id
+
+      friend_users(user, second_aspect, user3, user3.aspects.first)
+      friend_users(user, second_aspect, user4, user4.aspects.first)
+
+      user.receive status_message1.to_diaspora_xml
+      user.receive status_message2.to_diaspora_xml
+      user.receive status_message3.to_diaspora_xml
+
+      user.visible_posts(:by_members_of => first_aspect).should =~ [status_message1]
+      user.visible_posts(:by_members_of => second_aspect).should =~ [status_message2, status_message3]
+    end
   end
 
   context 'querying' do
@@ -55,21 +72,10 @@ describe User do
 
   context 'albums' do
 
-
     before do
-      @album = user.post :album, :name => "Georges", :to => aspect.id
-      aspect.reload
-      aspect2.reload
-      user.reload
-
-      @album2 = user.post :album, :name => "Borges", :to => aspect.id
-      aspect.reload
-      aspect2.reload
-      user.reload
-
-      user.post :album, :name => "Luises", :to => aspect2.id
-      aspect.reload
-      aspect2.reload
+      user.post :album, :name => "Georges", :to => first_aspect.id
+      user.post :album, :name => "Borges", :to => first_aspect.id
+      user.post :album, :name => "Luises", :to => second_aspect.id
       user.reload
     end
 
@@ -78,8 +84,8 @@ describe User do
     end
 
     it 'should return the right number of albums' do
-      user.albums_by_aspect(aspect).should have(2).albums
-      user.albums_by_aspect(aspect2).should have(1).album
+      user.albums_by_aspect(first_aspect.reload).should have(2).albums
+      user.albums_by_aspect(second_aspect.reload).should have(1).album
     end
   end
 end
