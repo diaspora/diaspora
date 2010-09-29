@@ -44,7 +44,7 @@ ar:
           create: "خلق"
           add_a_new_album: "إضافة ألبوم جديد"
       show:
-          edit_album: "تعديل الألبو"
+          edit_album: "تعديل الألبوم"
           albums: "البومات"
           updated: "تحديث"
           by: "بواسطة"
@@ -52,66 +52,66 @@ ar:
           editing: "التحرير"
           updated: "تحديث"
           are_you_sure: "هل أنت متأكد؟"
-          delete_album: "حذف ألبو"
+          delete_album: "حذف ألبوم"
           cancel: "إلغاء"
       index:
           home: "منزل"
-          new_album: "ألبوم جدي"
+          new_album: "ألبوم جديد"
       create:
-          success: ".%{name} لقد قمت بإنشاء اسم الألبو"
+          success: ".ألبوما %{name} لقد قمت دعا"
       update:
-          success: ".تحرير بنجا %{name} الألبوم"
-          failure: ".%{name} فشلت في تحرير الألبو"
+          success: ".تحرير بنجاح %{name} الألبوم"
+          failure: ".%{name} فشلت في تحرير ألبوم"
       destroy:
           success: ".حذفها %{name} الألبوم"
       helper:
-          friends_albums: "أصدقاء البوما"
-          your_albums: "البومات الخا"
+          friends_albums: "أصدقاء البومات"
+          your_albums: "البومات الخاص"
   aspects:
       index:
           photos: "صور"
       show:
           photos: "صور"
       manage:
-          add_a_new_aspect: "أضف جانبا جديد"
-          add_a_new_friend:  "إضافة صديق جدي"
+          add_a_new_aspect: "أضف جانبا جديدا"
+          add_a_new_friend:  "إضافة صديق جديد"
           show: "عرض"
-          update_aspects: "تحديث الجوان"
+          update_aspects: "تحديث الجوانب"
           requests: "طلبات"
-          ignore_remove: "تجاهل/إزال"
+          ignore_remove: "تجاهل/إزالة"
       new_aspect:
-          add_a_new_aspect: "أضف جانبا جديد"
+          add_a_new_aspect: "أضف جانبا جديدا"
           create: "خلق"
       create:
           success: ".الذي يمكن أن نرى الجانب الجديد الخاص بك Diaspora انقر على علامة الجمع على الجانب الأيسر لنقو"
           failure: ".فشل إنشاء الجانب"
       destroy:
-          success: ".%{name} وقد نجحت في إزال"
+          success: ".%{name} وقد نجحت في إزالة"
       update:
           success: ".تحرير بنجاح ,%{name} ,وقد الجانب الخاص بك"
       move_friends:
           failure: ".%{real_name} فشل تحرير آسبكت لصدي"
           success: ".جوانب الموضوع بنجاح"
       move_friend:
-          failure: "%{inspect} لم تنج"
+          failure: "%{inspect} لم تنجح"
           success: ".أنت الآن عرض صديقك جانبا مختلفا من جوانب نفسك"
       helper:
           remove: "نزع"
           aspect_not_empty: "الجانب يست فارغ"
   users:
       edit:
-          editing_profile: "تحرير الملف الشخص"
+          editing_profile: "تحرير الملف الشخصي"
       profile:
           cancel: "إلغاء"
-          update_profile: "تحديث الملف الشخص"
+          update_profile: "تحديث الملف الشخصي"
           home: "منزل"
-          diaspora_username: "اسم المستخد DIASPORA"
+          diaspora_username: "اسم المستخدم DIASPORA"
           info: "معلومات"
           picture: "صورة"
-          editing_profile: "تحرير الملف الشخص"
+          editing_profile: "تحرير الملف الشخصي"
           albums: "البومات"
-          you_dont_have_any_photos: "ليس لديك أي صوا! نتقل إل"
-          page_to_upload_some:  ".الصفحة لتحميل بع"
+          you_dont_have_any_photos: "ليس لديك أي صوا! نتقل إلى"
+          page_to_upload_some:  ".الصفحة لتحميل بعض"
   comments:
       comment:
           ago: "منذ"
