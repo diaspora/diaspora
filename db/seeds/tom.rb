@@ -2,21 +2,27 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
+require File.join(File.dirname(__FILE__), "..", "..", "config", "environment")
 
+def set_app_config username
+  current_config = YAML.load(File.read(Rails.root.join('config', 'app_config.yml.example')))
+  current_config[Rails.env.to_s] ||= {}
+  current_config[Rails.env.to_s]['pod_url'] = "http://#{username}.joindiaspora.com/"
+  current_config['default']['pod_url'] = "http://#{username}.joindiaspora.com/"
+  file = File.new(Rails.root.join('..','..','shared','app_config.yml'),'w')
+  file.write(current_config.to_yaml)
+  file.close
+end
 
-require 'config/environment'
+set_app_config "tom"
+require 'config/initializers/_load_app_config.rb'
 
-remote_url = "http://tom.joindiaspora.com/"
-#remote_url = "http://localhost:3000/"
 # Create seed user
 user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
-                    :url => remote_url,
                     :person => {
-                      :diaspora_handle => "tom@tom.joindiaspora.com",
-                      :url => remote_url,
                       :profile => { :first_name => "Alexander", :last_name => "Hamiltom",
                       :image_url => "http://tom.joindiaspora.com/images/user/tom.jpg"}}
                   )
@@ -26,11 +32,7 @@ user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
                      :username => "korth",
-                     :url => remote_url,
-                    :person => { :diaspora_handle => "korth@tom.joindiaspora.com",
-                                          :url => remote_url,
-                                          :profile => { :first_name => "Evan",
-                                                                  :last_name => "Korth",
+                    :person => {:profile => { :first_name => "Evan", :last_name => "Korth",
                       :image_url => "http://tom.joindiaspora.com/images/user/korth.jpg"}})
 
 user2.person.save!
@@ -41,3 +43,4 @@ request = user.send_friend_request_to(user2, aspect)
 reversed_request = user2.accept_friend_request( request.id, user2.aspect(:name => "presidents").id )
 user.receive reversed_request.to_diaspora_xml
 user.aspect(:name => "Presidents")
+

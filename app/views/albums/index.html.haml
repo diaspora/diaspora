@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :head do
   :javascript
     $(document).ready(function(){
@@ -10,7 +9,7 @@
     });
 
 = content_for :page_title do
-  = link_to "◂ Home", aspects_path, :aspect => params[:aspect]
+  = link_to "◂ #{t('.home')}", aspects_path, :aspect => params[:aspect]
 
 - content_for :left_pane do
   = render "shared/aspect_friends"
@@ -19,7 +18,7 @@
   %h1
     Albums
   .right
-    = link_to 'New Album', '#new_album_pane', {:class => "button", :id => "add_album_button"}
+    = link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
 .yo{:style => "display:none;" }
   #new_album_pane
@@ -34,4 +33,4 @@
 
 #content_bottom
   .back
-    = link_to "⇧ home", root_path
+    = link_to "⇧ #{t('.home')}", root_path

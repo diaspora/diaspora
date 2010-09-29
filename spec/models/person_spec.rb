@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Person do
   before do
@@ -13,6 +11,20 @@ describe Person do
     @person = Factory.create(:person)
     @aspect = @user.aspect(:name => "Dudes")
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
+  end
+
+  describe '#diaspora_handle' do
+    context 'local people' do
+      it 'uses the pod config url to set the diaspora_handle' do
+        @user.person.diaspora_handle.should == @user.username + "@" + APP_CONFIG[:terse_pod_url]
+      end
+    end
+
+    context 'remote people' do
+      it 'stores the diaspora_handle in the database' do
+        @person.diaspora_handle.include?(APP_CONFIG[:terse_pod_url]).should be false
+      end
+    end
   end
 
   it 'should not allow two people with the same diaspora_handle' do
@@ -148,13 +160,11 @@ describe Person do
     end
 
     it 'should search by diaspora_handle exactly' do
-
       stub_success("tom@tom.joindiaspora.com")
       Person.by_webfinger(@friend_one.diaspora_handle).should == @friend_one
     end
 
     it 'should create a stub for a remote user' do
-
       stub_success("tom@tom.joindiaspora.com")
       tom = Person.by_webfinger('tom@tom.joindiaspora.com')
       tom.real_name.include?("Hamiltom").should be true

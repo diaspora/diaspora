@@ -2,8 +2,7 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
-- title "New Person"
+- title=t('.new_person')
 
 = form_for @person do |f|
   = f.error_messages
@@ -15,18 +14,17 @@
     = f.label :url
     %br
     = f.text_field :url
-    
+
     =f.fields_for :profile do |p|
       %p
         = p.label :first_name
         %br
         = p.text_field :first_name
-        
+
       %p
         = p.label :last_name
         %br
         = p.text_field :last_name
     = f.submit
 
-
-%p= link_to "Back to List", people_path
+%p= link_to t('.back_to_list'), people_path

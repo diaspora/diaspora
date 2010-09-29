@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
 
@@ -13,6 +12,15 @@ class StatusMessagesController < ApplicationController
     params[:status_message][:to] = params[:aspect_ids]
 
     data = clean_hash params[:status_message]
+    
+    if @logged_in && params[:status_message][:public] == 'true'
+      id = 'me'
+      type = 'feed'
+      
+      Rails.logger.info("Sending a message: #{params[:status_message][:message]} to Facebook")
+      @res = MiniFB.post(@access_token, id, :type=>type,
+                         :metadata=>true, :params=>{:message => params[:status_message][:message]})
+    end
 
     @status_message = current_user.post(:status_message, data)
     respond_with @status_message
@@ -33,7 +41,8 @@ class StatusMessagesController < ApplicationController
   def clean_hash(params)
     return {
       :message => params[:message],
-      :to      => params[:to]
+      :to      => params[:to],
+      :public  => params[:public]
     }
   end
 end

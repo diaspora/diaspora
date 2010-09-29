@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
 
@@ -10,10 +9,7 @@ class PhotosController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-
     album = Album.find_by_id params[:album_id]
-    puts params
-
     begin
 
       ######################## dealing with local files #############
@@ -22,9 +18,15 @@ class PhotosController < ApplicationController
       # get file content type
       att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
       # create temporal file
-      file = Tempfile.new(file_name)
+      begin
+        file = Tempfile.new(file_name, {:encoding =>  'BINARY'})
+        file.print request.raw_post.force_encoding('BINARY')
+      rescue RuntimeError => e
+        raise e unless e.message.include?('cannot generate tempfile')
+        file = Tempfile.new(file_name) # Ruby 1.8 compatibility
+        file.print request.raw_post
+      end
       # put data into this file from raw post request
-      file.print request.raw_post
 
       # create several required methods for this temporal file
       Tempfile.send(:define_method, "content_type") {return att_content_type}
@@ -32,11 +34,9 @@ class PhotosController < ApplicationController
 
       ##############
 
-
       params[:user_file] = file
 
       data = clean_hash(params)
-
 
       @photo = current_user.post(:photo, data)
 
@@ -45,15 +45,15 @@ class PhotosController < ApplicationController
       end
 
     rescue TypeError
-      message = "Photo upload failed.  Are you sure an image was added?"
+      message = I18n.t 'photos.create.type_error'
       respond_with :location => album, :error => message
 
     rescue CarrierWave::IntegrityError
-      message = "Photo upload failed.  Are you sure that was an image?"
+      message = I18n.t 'photos.create.integrity_error'
       respond_with :location => album, :error => message
 
     rescue RuntimeError => e
-      message = "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      message = I18n.t 'photos.create.runtime_error'
       respond_with :location => album, :error => message
       raise e
     end
@@ -69,7 +69,7 @@ class PhotosController < ApplicationController
     @photo = current_user.find_visible_post_by_id params[:id]
 
     @photo.destroy
-    flash[:notice] = "Photo deleted."
+    flash[:notice] = I18n.t 'photos.destroy.notice'
     respond_with :location => @photo.album
   end
 
@@ -91,15 +91,14 @@ class PhotosController < ApplicationController
 
     data = clean_hash(params)
 
-    if @photo.update_attributes data[:photo]
-      flash[:notice] = "Photo successfully updated."
+    if current_user.update_post( @photo, data[:photo] )
+      flash[:notice] = I18n.t 'photos.update.notice'
       respond_with @photo
     else
-      flash[:error] = "Failed to edit photo."
+      flash[:error] = I18n.t 'photos.update.error'
       render :action => :edit
     end
   end
-
 
   private
   def clean_hash(params)

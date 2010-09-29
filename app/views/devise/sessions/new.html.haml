@@ -1,7 +1,7 @@
 %h1
   This is a technology preview, do not provide any private information.
-%h3 
-  your account may be deleted until we move into a more stable development period. 
+%h3
+  your account may be deleted until we move into a more stable development period.
 %h3
   USE AT YOUR OWN RISK!!
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
@@ -10,7 +10,7 @@
       = f.label :username
       = f.text_field :username
     %p.user_network
-      ="@#{request.host}"
+      ="@#{APP_CONFIG[:terse_pod_url]}"
 
     %p
       = f.label :password

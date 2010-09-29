@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 module Diaspora
   module Parser
     def self.owner_id_from_xml(xml)

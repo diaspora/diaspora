@@ -2,8 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-require 'lib/hcard'
+require File.expand_path('../../../lib/hcard', __FILE__)
 
 class Person
   include MongoMapper::Document
@@ -18,7 +17,7 @@ class Person
 
   key :url,            String
   key :diaspora_handle, String, :unique => true
-  key :serialized_key, String
+  key :serialized_public_key, String
 
   key :owner_id,  ObjectId
 
@@ -30,7 +29,7 @@ class Person
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-  validates_presence_of :url, :profile, :serialized_key
+  validates_presence_of :url, :profile, :serialized_public_key
   validates_format_of :url, :with =>
      /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
 
@@ -50,36 +49,32 @@ class Person
     "#{self.url}receive/users/#{self.id}/"
   end
 
-  def encryption_key
-    OpenSSL::PKey::RSA.new( serialized_key )
+  def public_url
+    "#{self.url}users/#{self.owner.username}/public"
   end
 
-  def encryption_key= new_key
-    raise TypeError unless new_key.class == OpenSSL::PKey::RSA
-    serialized_key = new_key.export
-  end
 
   def public_key_hash
     Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
   end
 
   def public_key
-    encryption_key.public_key
+    OpenSSL::PKey::RSA.new( serialized_public_key )
   end
 
   def exported_key
-    encryption_key.public_key.export
+    serialized_public_key
   end
 
   def exported_key= new_key
-    raise "Don't change a key" if serialized_key
-    @serialized_key = new_key
+    raise "Don't change a key" if serialized_public_key
+    @serialized_public_key = new_key
   end
 
   def self.by_webfinger( identifier, opts = {})
     #need to check if this is a valid email structure, maybe should do in JS
     local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', '').to_s.downcase)
-    
+
      if local_person
        Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
        local_person
@@ -101,11 +96,11 @@ class Person
     new_person = Person.new
 
     public_key_entry = profile.links.select{|x| x.rel == 'diaspora-public-key'}
-    
+
     return nil unless public_key_entry
-    
-    public_key = public_key_entry.first.href
-    new_person.exported_key = Base64.decode64 public_key
+
+    pubkey = public_key_entry.first.href
+    new_person.exported_key = Base64.decode64 pubkey
 
     guid = profile.links.select{|x| x.rel == 'http://joindiaspora.com/guid'}.first.href
     new_person.id = guid

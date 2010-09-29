@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 ## Defines available packages
 
 package :ruby do
@@ -43,7 +41,7 @@ package :diaspora_dependencies do
 end
 #package :diaspora do
 #  description 'Diaspora'
-  
+
 =begin
 package :rails do
   description 'Ruby on Rails'
