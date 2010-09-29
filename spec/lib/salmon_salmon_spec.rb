@@ -7,6 +7,7 @@ require 'spec_helper'
 describe Salmon do
   let(:user){Factory.create :user}
   let(:user2) {Factory.create :user}
+  let(:user3) {Factory.create :user}
   let(:post){ user.post :status_message, :message => "hi", :to => user.aspect(:name => "sdg").id }
 
   let!(:created_salmon) {Salmon::SalmonSlap.create(user, post.to_diaspora_xml)}
@@ -58,6 +59,10 @@ describe Salmon do
     it 'should parse out the iv' do
       parsed_salmon.iv.should == created_salmon.iv
     end
+    it 'should parse out the authors diaspora_handle' do
+      parsed_salmon.author_email.should == user.person.diaspora_handle
+
+    end
 
     it 'contains the original data' do
       parsed_salmon.parsed_data.should == post.to_diaspora_xml
@@ -91,10 +96,7 @@ describe Salmon do
       @parsed_salmon.parsed_data.should == xml
     end
 
-    it 'should parse out the authors diaspora_handle' do
-      @parsed_salmon.author_email.should == user.person.diaspora_handle
 
-    end
 
     it 'should reference a local author' do
       @parsed_salmon.author.should == user.person
