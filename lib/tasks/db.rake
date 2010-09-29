@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 namespace :db do
   desc 'Seed the current RAILS_ENV database from db/seeds.rb'
   namespace :seed do
@@ -22,7 +20,7 @@ namespace :db do
       require File.dirname(__FILE__) + '/../../db/seeds/backer'
       create
     end
-    
+
   end
 
   desc 'Delete the collections in the current RAILS_ENV database'
@@ -33,7 +31,7 @@ namespace :db do
 
     # Specifiy what models to remove
     # No!  Drop the fucking database.
-   MongoMapper::connection.drop_database(MongoMapper::database.name) 
+   MongoMapper::connection.drop_database(MongoMapper::database.name)
 
    puts 'Deleting tmp folder...'
    `rm -rf #{File.dirname(__FILE__)}/../../public/uploads/*`
@@ -41,10 +39,10 @@ namespace :db do
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'
   task :reset do
-    
+
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:tom'].invoke
+    Rake::Task['db:seed:dev'].invoke
     puts "Success!"
   end
 
@@ -54,7 +52,7 @@ namespace :db do
     Rake::Task['db:seed:dev'].invoke
     puts "you did it!"
   end
-  
+
   task :fix_diaspora_handle do
     puts "fixing the people in this seed"
     require File.dirname(__FILE__) + '/../../config/environment'
@@ -62,7 +60,7 @@ namespace :db do
       if person.owner
         person.url = APP_CONFIG[:pod_url]
         person.diaspora_handle = person.owner.diaspora_handle
-        person.save 
+        person.save
       end
     }
     puts "everything should be peachy"

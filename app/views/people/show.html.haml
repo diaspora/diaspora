@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :page_title do
   profile
 
@@ -28,7 +27,7 @@
       = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
 
 .span-20.last
-  
+
   .span-19.last
     - if @posts
       %ul#stream

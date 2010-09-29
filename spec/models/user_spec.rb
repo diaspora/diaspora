@@ -6,9 +6,16 @@ require 'spec_helper'
 
 describe User do
   let(:user)   { Factory(:user) }
-  let(:aspect) { user.aspect(:name => 'heroes') }
 
-  describe '#diaspora_handle' do 
+  describe "validations" do
+    it "downcases the username" do
+      user = Factory.build(:user, :username => "ALLUPPERCASE")
+      user.valid?
+      user.username.should == "alluppercase"
+    end
+  end
+
+  describe '#diaspora_handle' do
     it 'uses the pod config url to set the diaspora_handle' do
       user.diaspora_handle.should == user.username + "@example.org"
     end
@@ -27,6 +34,7 @@ describe User do
   end
 
   context 'aspects' do
+    let(:aspect) { user.aspect(:name => 'heroes') }
     let(:user2)   { Factory(:user) }
     let(:aspect2) { user2.aspect(:name => 'stuff') }
 

@@ -147,6 +147,7 @@ namespace :db do
     purge
     backer_seed
     tom_seed
+    deploy::restart
   end
 
 end

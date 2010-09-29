@@ -26,7 +26,7 @@ ro:
       new_album:
           create: "crează"
           add_a_new_album: "Album nou"
-      show: 
+      show:
           edit_album: "Editare Album"
           albums: "albume"
           updated: "actualizat"
@@ -66,6 +66,8 @@ ro:
           success:"Click pe semnul plus în partea stângă pentru a indica cine poate accesa noul aspect."
   users:
       edit:
+          editing_profile: "Editare profil"
+      profile:
           cancel: "Renunță"
           update_profile: "Actualizează Profil"
           home: "Home"

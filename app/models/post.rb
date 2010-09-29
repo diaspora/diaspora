@@ -13,6 +13,9 @@ class Post
 
   xml_accessor :_id
   xml_accessor :person, :as => Person
+  xml_reader   :public
+
+  key :public   , Boolean, :default => false
 
   key :person_id, ObjectId
   key :user_refs, Integer, :default => 0

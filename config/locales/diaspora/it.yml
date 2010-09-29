@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 # Sample localization file for Italian. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
@@ -45,7 +44,7 @@ it:
       new_album:
           create: "crea"
           add_a_new_album: "Aggiungi un nuovo album"
-      show: 
+      show:
           edit_album: "Modifica album"
           albums: "album"
           updated: "aggiornato"
@@ -101,6 +100,8 @@ it:
           aspect_not_empty: "Aspetto non vuoto"
   users:
       edit:
+          editing_profile: "Modifica del profilo"
+      profile:
           cancel: "Annulla"
           update_profile: "Aggiorna profilo"
           home: "Home"

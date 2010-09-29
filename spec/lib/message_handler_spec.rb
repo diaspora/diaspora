@@ -39,7 +39,7 @@ describe MessageHandler do
         }
       end
 
-      it 'should only retry a bad request three times ' do
+      it 'should only retry a bad request the correct number of times' do
         request = FakeHttpRequest.new(:failure)
         request.should_receive(:get).exactly(MessageHandler::NUM_TRIES).times.and_return(request)
         EventMachine::HttpRequest.stub!(:new).and_return(request)

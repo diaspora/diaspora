@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
@@ -45,7 +44,7 @@ en:
       new_album:
           create: "create"
           add_a_new_album: "Add a new album"
-      show: 
+      show:
           edit_album: "Edit Album"
           albums: "albums"
           updated: "updated"
@@ -86,6 +85,7 @@ en:
           create: "Create"
       create:
           success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+          failure: "Aspect creation failed."
       destroy:
           success: "%{name} was successfully removed."
       update:
@@ -101,6 +101,8 @@ en:
           aspect_not_empty: "Aspect not empty"
   users:
       edit:
+          editing_profile: "Editing profile"
+      profile:
           cancel: "Cancel"
           update_profile: "Update Profile"
           home: "Home"
