@@ -353,8 +353,14 @@ input[type='text'], textarea {
   padding: 0.3em;
   display: block;
   width: 66%;
-  border-top: 1px solid #666666;
-  height: auto; }
+  border: 1px solid #cccccc;
+  height: auto;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  box-shadow: 0 1px 2px white;
+  -moz-box-shadow: 0 1px 2px white;
+  -webkit-box-shadow: 0 1px 2px white; }
 
 #submit_block {
   text-align: right;
@@ -392,10 +398,7 @@ label {
     width: 600px;
     height: 42px;
     margin-top: 0;
-    margin-bottom: 0;
-    box-shadow: 0 1px 2px white;
-    -moz-box-shadow: 0 1px 2px white;
-    -webkit-box-shadow: 0 1px 2px white; }
+    margin-bottom: 0; }
   #publisher .button {
     margin-left: 100px; }
   #publisher img {

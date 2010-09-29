@@ -7,6 +7,9 @@ then
     echo "Mongod not started"
 else
     mkdir -p -v log/thin/
+		#force AGPL
+		tar cf ../_source.tar --exclude='*.yml' --exclude='public/uploads' *
+		mv ../_source.tar public/source.tar
     bundle exec ruby ./script/websocket_server.rb&
     bundle exec thin start $@
 fi
