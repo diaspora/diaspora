@@ -64,55 +64,38 @@ describe Salmon do
 
     end
 
+    describe '#author' do
+      before do
+        stub_success("tom@tom.joindiaspora.com")
+      end
+
+      it 'should reference a local author' do
+        parsed_salmon.author.should == user.person
+      end
+
+      it 'should reference a remote author' do
+        parsed_salmon.author_email = 'tom@tom.joindiaspora.com'
+        parsed_salmon.author.public_key.should_not be_nil
+      end
+
+      it 'should fail to reference a nonexistent remote author' do
+        parsed_salmon.author_email = 'idsfug@difgubhpsduh.rgd'
+        proc {
+          Redfinger.stub(:finger).and_return(nil) #Redfinger returns nil when there is no profile
+          parsed_salmon.author.real_name}.should raise_error /No webfinger profile found/
+      end
+    end
+
+    it 'verifies the signature for the sender' do
+      parsed_salmon.verified_for_key?(user.public_key).should be true
+    end
+
     it 'contains the original data' do
       parsed_salmon.parsed_data.should == post.to_diaspora_xml
     end
 
   end
 
-  context 'round trip' do
-    before do
-      @sent_salmon = Salmon::SalmonSlap.create(user, post.to_diaspora_xml)
-      @parsed_salmon =
-      stub_success("tom@tom.joindiaspora.com")
-    end
 
 
-    it 'should verify the signature on a roundtrip' do
-
-      @sent_salmon.magic_sig.data.should == @parsed_salmon.magic_sig.data
-
-      @sent_salmon.magic_sig.sig.should == @parsed_salmon.magic_sig.sig
-      @sent_salmon.magic_sig.signable_string.should == @parsed_salmon.magic_sig.signable_string
-
-      @parsed_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(user.exported_key)).should be true
-      @sent_salmon.verified_for_key?(OpenSSL::PKey::RSA.new(user.exported_key)).should be true
-    end
-
-    it 'should return the data so it can be "received"' do
-
-      xml = post.to_diaspora_xml
-
-      @parsed_salmon.parsed_data.should == xml
-    end
-
-
-
-    it 'should reference a local author' do
-      @parsed_salmon.author.should == user.person
-    end
-
-    it 'should reference a remote author' do
-      @parsed_salmon.author_email = 'tom@tom.joindiaspora.com'
-      @parsed_salmon.author.public_key.should_not be_nil
-    end
-
-    it 'should fail to reference a nonexistent remote author' do
-      @parsed_salmon.author_email = 'idsfug@difgubhpsduh.rgd'
-      proc {
-        Redfinger.stub(:finger).and_return(nil) #Redfinger returns nil when there is no profile
-        @parsed_salmon.author.real_name}.should raise_error /No webfinger profile found/
-    end
-
-  end
 end

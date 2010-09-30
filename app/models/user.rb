@@ -170,8 +170,9 @@ class User
   end
 
   def push_to_people(post, people)
+    salmon = salmon(post)
     people.each{|person|
-      salmon(post, :to => person)
+      push_to_person( person, salmon.xml_for( person ))
     }
   end
 
@@ -182,10 +183,8 @@ class User
 
   end
 
-  def salmon( post, opts = {} )
-    salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
-    push_to_person( opts[:to], salmon.to_xml)
-    salmon
+  def salmon( post )
+    Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
   end
 
   ######## Commenting  ########
@@ -217,7 +216,7 @@ class User
       push_to_people comment, people_in_aspects(aspects_with_post(comment.post.id))
     elsif owns? comment
       comment.save
-      salmon comment, :to => comment.post.person
+      push_to_people comment, [comment.post.person]
     end
   end
 

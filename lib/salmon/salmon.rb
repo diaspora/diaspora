@@ -62,9 +62,7 @@ module Salmon
 
       ### Header ##
       decrypted_header = user.decrypt(doc.search('encrypted_header').text)
-      puts decrypted_header
       header_doc = Nokogiri::XML(decrypted_header)
-      puts header_doc.inspect
       slap.aes_key    = header_doc.search('aes_key').text
       slap.iv         = header_doc.search('iv').text
 
@@ -88,20 +86,6 @@ module Salmon
       slap
     end
 
-    def to_xml
-      xml =<<ENTRY
-    <?xml version='1.0' encoding='UTF-8'?>
-    <entry xmlns='http://www.w3.org/2005/Atom'>
-    <author>
-      <name>#{@author.real_name}</name>
-      <uri>acct:#{@author.diaspora_handle}</uri>
-    </author>
-      #{@magic_sig.to_xml}
-      </entry>
-ENTRY
-
-    end
-
     def xml_for person
       xml =<<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
@@ -119,14 +103,14 @@ ENTRY
 
     def decrypted_header
       header =<<HEADER
-    <header>
+    <decrypted_header>
     <iv>#{iv}</iv>
     <aes_key>#{aes_key}</aes_key>
     <author>
       <name>#{@author.real_name}</name>
       <uri>acct:#{@author.diaspora_handle}</uri>
     </author>
-    </header>
+    </decrypted_header>
 HEADER
     end
 
