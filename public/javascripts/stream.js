@@ -21,10 +21,10 @@ $(".show_post_comments").live('click', function(event) {
 
   if( $this.hasClass( "visible")) {
     $this.html($(this).html().replace("hide", "show"));
-    $this.closest("li").children(".content").children(".comments").fadeOut(100);
+    $this.closest("li").children(".content").children(".comments").slideUp(150);
   } else {
     $this.html($(this).html().replace("show", "hide"));
-    $this.closest("li").children(".content").children(".comments").fadeIn(100);
+    $this.closest("li").children(".content").children(".comments").slideDown(150);
   }
   $(this).toggleClass( "visible" );
 });
