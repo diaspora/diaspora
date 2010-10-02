@@ -171,9 +171,6 @@ class User
   end
 
   def push_to_people(post, people)
-     puts post.inspect
-    puts post.to_diaspora_xml
-    puts "Leaving push_to_people"
     salmon = salmon(post)
     people.each{|person|
       xml = salmon.xml_for person
@@ -189,8 +186,6 @@ class User
   end
 
   def salmon( post )
-    puts post.inspect
-    puts post.to_diaspora_xml
     created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
     created_salmon
   end
