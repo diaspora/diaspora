@@ -177,7 +177,6 @@ describe User do
     end
 
     it 'should receive a salmon for a post' do
-      puts @salmon.inspect
       @user2.receive_salmon( @salmon.xml_for @user2.person )
       @user2.visible_post_ids.include?(@post.id).should be true
     end
