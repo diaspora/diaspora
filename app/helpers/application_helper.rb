@@ -71,4 +71,8 @@ module ApplicationHelper
     response_hash = MiniFB.get(token, 'me')
     "Connected to facebook as #{response_hash[:name]}"
   end
+
+  def format text
+    text.gsub(/\n/m, '<br />')
+  end
 end
