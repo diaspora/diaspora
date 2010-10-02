@@ -166,13 +166,18 @@ class User
       aspect.save
       target_people = target_people | aspect.people
     }
+
     push_to_people(post, target_people)
   end
 
   def push_to_people(post, people)
+     puts post.inspect
+    puts post.to_diaspora_xml
+    puts "Leaving push_to_people"
     salmon = salmon(post)
     people.each{|person|
-      push_to_person( person, salmon.xml_for( person ))
+      xml = salmon.xml_for person
+      push_to_person( person, xml)
     }
   end
 
@@ -184,7 +189,10 @@ class User
   end
 
   def salmon( post )
-    Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    puts post.inspect
+    puts post.to_diaspora_xml
+    created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    created_salmon
   end
 
   ######## Commenting  ########
