@@ -12,6 +12,10 @@ describe User do
       user = Factory.build(:user, :username => "ALLUPPERCASE")
       user.valid?
       user.username.should == "alluppercase"
+
+      user = Factory.build(:user, :username => "someUPPERCASE")
+      user.valid?
+      user.username.should == "someuppercase"
     end
   end
 
