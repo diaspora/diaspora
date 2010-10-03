@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class ServicesController < ApplicationController
 
   def create
@@ -25,7 +24,7 @@ class ServicesController < ApplicationController
 
   def destroy
     warden.session[:access_token] = nil
-		warden.session[:user_id] = nil
+    warden.session[:user_id] = nil
     redirect_to edit_user_url current_user
   end
 

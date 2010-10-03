@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 #   Translated to Hebrew by Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
 
-
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
@@ -46,7 +45,7 @@ he:
       new_album:
           create: "יצירה"
           add_a_new_album: "הוספת אלבום חדש"
-      show: 
+      show:
           edit_album: "עריכת אלבום"
           albums: "אלבומים"
           updated: "תאריך העדכון"

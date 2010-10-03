@@ -9,7 +9,6 @@ Given /^I (?:am signed|sign) in as an? (\w+)$/ do |role|
   Given 'I am signed in'
 end
 
-
 Given 'I am signed in' do
   @me ||= Factory(:user)
   When %(I go to the new user session page)
@@ -17,7 +16,6 @@ Given 'I am signed in' do
   When %(I fill in "Password" with "#{@me.password}")
   When %(I press "Sign in")
 end
-
 
 When /^I sign in as "([^"]*)"$/ do |email|
   @me = User.find_by_email(email)

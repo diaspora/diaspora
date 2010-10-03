@@ -8,7 +8,7 @@ describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @aspect = @user.aspect(:name => 'spies')
-    
+
     @user3 = Factory.create :user
     @person = @user3.person
     @user2 = Factory.create(:user)

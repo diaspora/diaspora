@@ -16,7 +16,6 @@ describe User do
   let!(:status_message3) { user2.post :status_message, :message => "va", :to => user2.aspects.first.id }
   let!(:status_message4) { user2.post :status_message, :message => "da", :public => true , :to => user2.aspects.first.id }
 
-
   before do
     friend_users(user, first_aspect, user2, user2.aspects.first)
   end

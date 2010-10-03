@@ -9,7 +9,7 @@ describe 'user encryption' do
     unstub_mocha_stubs
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => 'dudes')
-    
+
     @user2 = Factory.create(:user)
     @aspect2 = @user2.aspect(:name => 'dudes')
   end
@@ -69,7 +69,6 @@ describe 'user encryption' do
     before do
       friend_users(@user, @aspect, @user2, @aspect2)
       @remote_message = @user2.post :status_message, :message => "hello", :to => @aspect2.id
-
 
       @message = @user.post :status_message, :message => "hi", :to => @aspect.id
     end

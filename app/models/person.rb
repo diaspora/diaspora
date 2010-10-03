@@ -53,7 +53,6 @@ class Person
     "#{self.url}users/#{self.owner.username}/public"
   end
 
-
   def public_key_hash
     Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
   end

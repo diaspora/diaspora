@@ -2,14 +2,13 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 %h2 Services
 
 %h3 Facebook
 %p
   - if @logged_in
     = connected_fb_as(@access_token)
-    
+
     %p
     - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
     - @fb_friends[:data].each do |friend|

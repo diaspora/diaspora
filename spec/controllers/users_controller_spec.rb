@@ -20,11 +20,11 @@ describe UsersController do
 
       it "doesn't overwrite the profile photo when an empty string is passed in" do
         image_url = @user.person.profile.image_url
-        put("update", :id => @user.id, "user"=> {"profile"=> 
+        put("update", :id => @user.id, "user"=> {"profile"=>
           {"image_url"   => "",
             "last_name"  => @user.person.profile.last_name,
             "first_name" => @user.person.profile.first_name}})
-        
+
         @user.person.profile.image_url.should == image_url
       end
 

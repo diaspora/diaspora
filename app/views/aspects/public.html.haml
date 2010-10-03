@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :page_title do
   = link_to "photos", albums_path(:aspect => @aspect)
 
@@ -12,7 +11,7 @@
 - content_for :publish do
   - if @logged_in
     = render "shared/publisher", :aspect_ids => :public
-  - else 
+  - else
     = render "shared/publisher", :aspect_ids => :all
 
 %ul#stream
