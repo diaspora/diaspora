@@ -90,7 +90,7 @@ module Salmon
       xml =<<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
     <entry xmlns='http://www.w3.org/2005/Atom'>
-    <encrypted_header>#{person.encrypt(decrypted_header.rstrip)}</encrypted_header>
+    <encrypted_header>#{person.encrypt(decrypted_header)}</encrypted_header>
     <author>
       <name>#{@author.real_name}</name>
       <uri>acct:#{@author.diaspora_handle}</uri>
