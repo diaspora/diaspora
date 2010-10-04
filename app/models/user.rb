@@ -180,7 +180,7 @@ class User
 
   def push_to_person( person, xml )
       Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
-      QUEUE.add_post_request( person.receive_url, person.encrypt(xml) )
+      QUEUE.add_post_request( person.receive_url, xml )
       QUEUE.process
 
   end
