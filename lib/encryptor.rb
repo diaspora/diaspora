@@ -37,7 +37,6 @@ module Encryptor
 
   module Private
     def decrypt cipher_json
-      Rails.logger.info("#{self.real_name} is JSON parsing the #{ Base64.decode64 cipher_json} ")
       json = JSON.parse(Base64.decode64 cipher_json)
       aes_key = get_aes_key json['aes_key']
       aes_decrypt(json['ciphertext'], aes_key)
