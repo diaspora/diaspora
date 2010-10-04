@@ -12,17 +12,12 @@ servers:
   tom:
     - url: 'tom.joindiaspora.com'
   backer:
-   - username: 'adams'
-      given_name: 'John'
-      family_name: 'Adams'
-      number: 1
-      pin: 3742
-   - username: 'jackson'
+    - username: 'jackson'
       given_name: 'Andrew'
       family_name: 'Jackson'
       number: 6
       pin: 8670
-   - username: 'tyler'
+    - username: 'tyler'
       given_name: 'John'
       family_name: 'Tyler'
       number: 9
