@@ -62,9 +62,9 @@ module Salmon
 
       ### Header ##
       decrypted_header = user.decrypt(doc.search('encrypted_header').text)
-      header_doc = Nokogiri::XML(decrypted_header)
-      slap.aes_key    = header_doc.search('aes_key').text
-      slap.iv         = header_doc.search('iv').text
+      header_doc       = Nokogiri::XML(decrypted_header)
+      slap.aes_key     = header_doc.search('aes_key').text
+      slap.iv          = header_doc.search('iv').text
 
       slap.magic_sig = MagicSigEnvelope.parse sig_doc
 
