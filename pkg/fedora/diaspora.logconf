@@ -1,0 +1,12 @@
+/var/log/diaspora/*.log {
+       weekly
+       rotate 10
+       copytruncate
+       delaycompress
+       compress
+       notifempty
+       missingok
+       postrotate
+ 	  (/sbin/service diaspora-ws status | grep running /sbin/servive diaspora-ws restart || :)  >/dev/null 2>&1
+       endscript
+}
