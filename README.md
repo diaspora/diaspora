@@ -1,3 +1,18 @@
+# Diaspora
+
+The privacy aware, personally controlled, do-it-all, open source social
+network.
+
+**DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
+**PLEASE, DO NOT RUN IN PRODUCTION. IT IS FUN TO GET RUNNING, BUT EXPECT THINGS
+TO BE BROKEN**
+
+Initial installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora).
+
+We are continuing to build features and improve the code base.
+When we think it is ready for general use, we will post more final
+instructions.
+
 ## Commit Guidlines
 
 You are welcome to contribute, add to and extend Diaspora however you see fit.  We
@@ -16,21 +31,6 @@ GEMS: We would like to keep external dependencies unduplicated.  We're using
 Nokogiri, Mongomapper, and EM::HttpRequest as much as possible.  We have a few
 gems in the project we'd rather not use, but if you can, use dependencies we
 already have.
-
-# Diaspora
-
-The privacy aware, personally controlled, do-it-all, open source social
-network.
-
-**DISCLAIMER: THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
-**PLEASE, DO NOT RUN IN PRODUCTION. IT IS FUN TO GET RUNNING, BUT EXPECT THINGS
-TO BE BROKEN**
-
-Some initial installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora).
-
-We are continuing to build features and improve the code base.
-When we think it is ready for general use, we will post more final
-instructions.
 
 ## Resources
 

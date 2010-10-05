@@ -66,6 +66,8 @@ ro:
           success:"Click pe semnul plus în partea stângă pentru a indica cine poate accesa noul aspect."
   users:
       edit:
+          editing_profile: "Editare profil"
+      profile:
           cancel: "Renunță"
           update_profile: "Actualizează Profil"
           home: "Home"

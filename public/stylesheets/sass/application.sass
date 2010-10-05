@@ -146,6 +146,11 @@ header
             :right 0
 
   #aspect_header
+    :-webkit-box-shadow 0px -4px 6px -2px #777
+    
+    :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F7F7F7), to(#EEEEEE))
+    :background -moz-linear-gradient(19% 75% 90deg, #eee, #f7f7f7)
+
     :background
       :color #eee
     :border
@@ -182,8 +187,13 @@ ul#stream
       :bottom 1px solid #eee
 
     &:hover
+      :background -webkit-gradient(linear, 0% 0%, 0% 50%, from(#FAFAFA), to(#FCFCFC))
+
       :background
         :color #fafafa
+
+      :border
+        :bottom 1px solid #ddd
 
       .destroy_link
         :display inline
@@ -209,6 +219,7 @@ li.message
   .content
     :padding
       :left 65px
+    :width 600px
 
     span.from
       :color #000
@@ -355,7 +366,7 @@ ul.comment_set
       :color rgba(10,81,109,0.05)
     :padding 0.6em
     :border
-      :bottom 1px solid #ccc
+      :bottom 1px solid #ddd
 
     .from
       :font
@@ -463,8 +474,16 @@ input[type='text'], textarea
   :padding 0.3em
   :display block
   :width 66%
-  :border-top 1px solid #666
+  :border 1px solid #ccc
   :height auto
+
+  :border-radius 5px
+  :-webkit-border-radius 5px
+  :-moz-border-radius 5px
+
+  :box-shadow 0 1px 2px #fff
+  :-moz-box-shadow 0 1px 2px #fff
+  :-webkit-box-shadow 0 1px 2px #fff
 
 #submit_block
   :text
@@ -515,15 +534,13 @@ label
       :top 0
       :bottom 0
 
-    :box-shadow 0 1px #fff
-    :-moz-box-shadow 0 1px #fff
-    :-webkit-box-shadow 0 1px #fff
-
   .button
     :margin-left 100px
 
   img
-    :-webkit-box-shadow 0 1px 0 #fff
+    :box-shadow 0 1px 2px #fff
+    :-moz-box-shadow 0 1px 2px #fff
+    :-webkit-box-shadow 0 1px 2px #fff
     :border 1px solid #bbb
       :top 1px solid #666
 
@@ -712,11 +729,11 @@ h1.big_text
         :background
           :color #eee
 
-        :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eee))
-        :background -moz-linear-gradient(19% 75% 90deg, #eee, #fff)
+        :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#F7F7F7))
+        :background -moz-linear-gradient(19% 75% 90deg, #f7f7f7, #fff)
 
         :border 1px solid #fff
-          :bottom 1px solid #eee
+          :bottom 1px solid #F7F7F7
         :color #000
         &:hover
           :background
@@ -839,21 +856,102 @@ h1.big_text
         :-moz-box-shadow 0 2px 4px #333
         :opacity 0.9
 
-#notification_badge
-  :position fixed
-  :bottom 0
-  :margin
-    :left 854px
+ul#settings_nav
+  :list
+    :style none
+  :padding 0
+  :marign 0
 
-  a
-    :background
-      :color #eee
+  :font
+    :size larger
 
-    :border 1px solid #ccc
-      :bottom none
+  > li
 
-    :padding 3px 10px
+    a
+      :display block
+      :height 100%
+      :border
+        :bottom 1px solid #eee
+      :padding 5px 0
+
+
+.settings_pane
+  :display none
+
 
 #fancybox-close:hover
   :background
     :color transparent
+
+.aspect_tag,
+.public_aspect_tag
+  :position absolute
+  :top 15px
+  :right 2em
+
+  :border-radius 5px
+  :-webkit-border-radius 5px
+  :-moz-border-radius 5px
+
+  :font
+    :size smaller
+  :padding 0 6px
+
+  :color #999
+  :text
+    :shadow 0 1px #fff
+
+  :border
+    :bottom 1px solid #eee
+
+  :cursor default
+
+.public_aspect_tag
+  :background -moz-linear-gradient(19% 75% 90deg,#FFFA75, #FFF8BA)
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF8BA), to(#FFFA75))
+    :color #FFFC7F
+  :border
+    :top 1px solid #EBE66C
+
+.aspect_tag
+  :background -moz-linear-gradient(19% 75% 90deg,#E0E0E0, #F0F0F0)
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F0F0F0), to(#E0E0E0))
+    :color #eee
+  :color #999
+  :text
+    :shadow 0 1px #fff
+  :border
+    :top 1px solid #ddd
+
+  ul
+    :display inline
+    :margin 0
+    :padding 0
+    :list
+      :style none
+
+    li
+      :display inline-block
+      :margin
+        :right 2px
+      :padding
+        :right 4px
+      :border
+        :right 1px solid #ccc
+
+      &:last-child
+        :margin
+          :right 0
+        :padding
+          :right 0
+        :border
+          :right none
+
+
+#friend_pictures
+  :line-height 1em
+  img
+    :margin-right -1px
+
+#thumbnails
+  :line-height 14px

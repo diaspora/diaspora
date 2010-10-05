@@ -17,3 +17,5 @@ public/uploads/*
 config/app_config.yml
 bin/*
 nbproject
+config/initializers/secret_token.rb
+public/source.tar

@@ -18,6 +18,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
+  key :serialized_private_key, String
 
   key :friend_ids,          Array
   key :pending_request_ids, Array
@@ -113,12 +114,6 @@ class User
     post
   end
 
-  def repost( post, options = {} )
-    aspect_ids = validate_aspect_permissions(options[:to])
-    push_to_aspects(post, aspect_ids)
-    post
-  end
-
   def update_post( post, post_hash = {} )
     if self.owns? post
       post.update_attributes(post_hash)
@@ -171,26 +166,28 @@ class User
       aspect.save
       target_people = target_people | aspect.people
     }
+
     push_to_people(post, target_people)
   end
 
   def push_to_people(post, people)
+    salmon = salmon(post)
     people.each{|person|
-      salmon(post, :to => person)
+      xml = salmon.xml_for person
+      push_to_person( person, xml)
     }
   end
 
   def push_to_person( person, xml )
       Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
-      QUEUE.add_post_request( person.receive_url, person.encrypt(xml) )
+      QUEUE.add_post_request( person.receive_url, xml )
       QUEUE.process
 
   end
 
-  def salmon( post, opts = {} )
-    salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
-    push_to_person( opts[:to], salmon.to_xml)
-    salmon
+  def salmon( post )
+    created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    created_salmon
   end
 
   ######## Commenting  ########
@@ -222,7 +219,7 @@ class User
       push_to_people comment, people_in_aspects(aspects_with_post(comment.post.id))
     elsif owns? comment
       comment.save
-      salmon comment, :to => comment.post.person
+      push_to_people comment, [comment.post.person]
     end
   end
 
@@ -251,7 +248,9 @@ class User
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
-    opts[:person][:serialized_key] = generate_key
+    
+    opts[:serialized_private_key] = generate_key
+    opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
     User.create(opts)
   end
 
@@ -278,7 +277,14 @@ class User
       }
     }
   end
-    def self.generate_key
-      OpenSSL::PKey::RSA::generate 4096
-    end
+
+
+  def self.generate_key
+    OpenSSL::PKey::RSA::generate 4096
+  end
+  
+  def encryption_key
+    OpenSSL::PKey::RSA.new( serialized_private_key )
+  end
+
 end

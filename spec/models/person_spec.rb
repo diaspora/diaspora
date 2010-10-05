@@ -16,7 +16,7 @@ describe Person do
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
-        @user.person.diaspora_handle.should == @user.username + "@example.org"
+        @user.person.diaspora_handle.should == @user.username + "@" + APP_CONFIG[:terse_pod_url]
       end
     end
 

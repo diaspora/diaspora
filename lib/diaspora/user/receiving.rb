@@ -1,12 +1,11 @@
 module Diaspora
   module UserModules
     module Receiving
-      def receive_salmon ciphertext
-        cleartext = decrypt( ciphertext)
-        salmon = Salmon::SalmonSlap.parse cleartext
+      def receive_salmon salmon_xml
+        salmon = Salmon::SalmonSlap.parse salmon_xml, self
         if salmon.verified_for_key?(salmon.author.public_key)
-          Rails.logger.info("data in salmon: #{salmon.data}")
-          self.receive(salmon.data)
+          Rails.logger.info("data in salmon: #{salmon.parsed_data}")
+          self.receive(salmon.parsed_data)
         end
       end
 
@@ -43,7 +42,7 @@ module Diaspora
 
       def receive_request request, xml
         person = Diaspora::Parser.parse_or_find_person_from_xml( xml )
-        person.serialized_key ||= request.exported_key
+        person.serialized_public_key ||= request.exported_key
         request.person = person
         request.person.save
         old_request =  Request.first(:id => request.id)

@@ -69,6 +69,8 @@ cy:
           success:"Cliciwch ar y plus ar y chwith i ddweud wrth Diaspora pwy all weld eich agwedd newydd."
   users:
       edit:
+          editing_profile: "Golygu proffil"
+      profile:
           cancel: "Cancel"
           update_profile: "Diweddaru Proffil"
           home: "Adref"

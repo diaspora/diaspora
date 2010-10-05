@@ -21,7 +21,7 @@ it:
   people:
       helper:
            results_for: " risultati per %{params}"
-           people_on_pod_are_aware_of: " people on pod are aware of"
+           people_on_pod_are_aware_of: " persone su pod sono consapevoli di"
   layouts:
       application:
           edit_profile: "modifica profilo"
@@ -100,6 +100,8 @@ it:
           aspect_not_empty: "Aspetto non vuoto"
   users:
       edit:
+          editing_profile: "Modifica del profilo"
+      profile:
           cancel: "Annulla"
           update_profile: "Aggiorna profilo"
           home: "Home"
@@ -136,7 +138,7 @@ it:
           back_to_list: "Torna all'elenco"
           post_it: "inseriscila!"
       create:
-          runtime_error: "Caricamento della foto fallito. Sei sicuro che la tua cintura di sicurezza è allacciata?"
+          runtime_error: "Caricamento della foto fallito. Hai allacciato le cinture?"
           integrity_error: "Caricamento della foto fallito. Sei sicuro che era un'immagine?"
           type_error: "Caricamento della foto fallito. Sei sicuro di aver aggiunto un'immagine?"
       update:

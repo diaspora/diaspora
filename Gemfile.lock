@@ -158,6 +158,9 @@ GEM
       mime-types
       treetop (>= 1.4.5)
     mime-types (1.16)
+    mini_fb (1.1.3)
+      hashie
+      rest-client
     mini_magick (2.1)
       subexec (~> 0.0.4)
     mocha (0.9.8)
@@ -267,6 +270,7 @@ DEPENDENCIES
   haml
   json
   magent!
+  mini_fb
   mini_magick
   mocha
   mongo_mapper!

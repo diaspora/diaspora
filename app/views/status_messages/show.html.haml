@@ -7,6 +7,7 @@
   = @status_message.message
 
 %h4= "#{t('.comments')} (#{@status_message.comments.count})"
+
 = render "comments/comments", :post => @status_message
 
 %p

@@ -42,7 +42,7 @@ namespace :db do
 
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:tom'].invoke
+    Rake::Task['db:seed:dev'].invoke
     puts "Success!"
   end
 
@@ -64,5 +64,18 @@ namespace :db do
       end
     }
     puts "everything should be peachy"
+  end
+
+  task :move_private_key do
+    User.all.each do |user|
+      if user.private_key.nil?
+        user.private_key = user.person.serialized_key
+        user.save
+        person = user.person
+        person.serialized_key = nil
+        person.serialized_public_key = user.encryption_key.public_key
+        person.save
+      end
+    end
   end
 end

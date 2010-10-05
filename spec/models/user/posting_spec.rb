@@ -46,15 +46,6 @@ describe User do
     end
   end
 
-  describe '#repost' do
-    it 'should make the post visible in another aspect' do
-      status_message = user.post(:status_message, :message => "hello", :to => aspect.id)
-      user.repost(status_message, :to => aspect1.id)
-      aspect1.reload
-      aspect1.posts.count.should be 1
-    end
-  end
-
   describe '#update_post' do
     it 'should update fields' do
       album = user.post(:album, :name => "Profile Photos", :to => aspect.id)
@@ -80,19 +71,19 @@ describe User do
 
     describe '#push_to_aspects' do
       it 'should push a post to a aspect' do
-        user.should_receive(:salmon).twice
+        user.should_receive(:push_to_person).twice
         user.push_to_aspects(post, aspect.id)
       end
 
       it 'should push a post to all aspects' do
-        user.should_receive(:salmon).exactly(3).times
+        user.should_receive(:push_to_person).exactly(3).times
         user.push_to_aspects(post, :all)
       end
     end
 
     describe '#push_to_people' do
       it 'should push to people' do
-        user.should_receive(:salmon).twice
+        user.should_receive(:push_to_person).twice
         user.push_to_people(post, [user2.person, user3.person])
       end
     end
