@@ -167,6 +167,8 @@ class User
       target_people = target_people | aspect.people
     }
 
+    push_to_hub(post) if post.respond_to?(:public) && post.public
+
     push_to_people(post, target_people)
   end
 
@@ -179,10 +181,14 @@ class User
   end
 
   def push_to_person( person, xml )
-      Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
-      QUEUE.add_post_request( person.receive_url, xml )
-      QUEUE.process
+    Rails.logger.debug("Adding xml for #{self} to message queue to #{self.url}")
+    QUEUE.add_post_request( person.receive_url, xml )
+    QUEUE.process
+  end
 
+  def push_to_hub(post)
+    Rails.logger.debug("Pushing update to pubsub server")
+    QUEUE.add_hub_notification(APP_CONFIG[:pubsub_server], self.public_url)
   end
 
   def salmon( post )

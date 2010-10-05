@@ -19,3 +19,4 @@ bin/*
 nbproject
 config/initializers/secret_token.rb
 public/source.tar
+config/fb_config.yml
