@@ -71,19 +71,19 @@ describe User do
 
     describe '#push_to_aspects' do
       it 'should push a post to a aspect' do
-        user.should_receive(:salmon).twice
+        user.should_receive(:push_to_person).twice
         user.push_to_aspects(post, aspect.id)
       end
 
       it 'should push a post to all aspects' do
-        user.should_receive(:salmon).exactly(3).times
+        user.should_receive(:push_to_person).exactly(3).times
         user.push_to_aspects(post, :all)
       end
     end
 
     describe '#push_to_people' do
       it 'should push to people' do
-        user.should_receive(:salmon).twice
+        user.should_receive(:push_to_person).twice
         user.push_to_people(post, [user2.person, user3.person])
       end
     end

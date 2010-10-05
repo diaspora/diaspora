@@ -166,26 +166,28 @@ class User
       aspect.save
       target_people = target_people | aspect.people
     }
+
     push_to_people(post, target_people)
   end
 
   def push_to_people(post, people)
+    salmon = salmon(post)
     people.each{|person|
-      salmon(post, :to => person)
+      xml = salmon.xml_for person
+      push_to_person( person, xml)
     }
   end
 
   def push_to_person( person, xml )
       Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
-      QUEUE.add_post_request( person.receive_url, person.encrypt(xml) )
+      QUEUE.add_post_request( person.receive_url, xml )
       QUEUE.process
 
   end
 
-  def salmon( post, opts = {} )
-    salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
-    push_to_person( opts[:to], salmon.to_xml)
-    salmon
+  def salmon( post )
+    created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    created_salmon
   end
 
   ######## Commenting  ########
@@ -217,7 +219,7 @@ class User
       push_to_people comment, people_in_aspects(aspects_with_post(comment.post.id))
     elsif owns? comment
       comment.save
-      salmon comment, :to => comment.post.person
+      push_to_people comment, [comment.post.person]
     end
   end
 
