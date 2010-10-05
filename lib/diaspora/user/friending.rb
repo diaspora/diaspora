@@ -22,7 +22,7 @@ module Diaspora
           aspect.requests << request
           aspect.save
 
-          salmon request, :to => desired_friend
+          push_to_people request, [desired_friend]
         end
         request
       end
@@ -80,7 +80,7 @@ module Diaspora
       def unfriend(bad_friend)
         Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
         retraction = Retraction.for(self)
-        salmon( retraction, :to => bad_friend)
+        push_to_people retraction, [bad_friend]
         remove_friend(bad_friend)
       end
 

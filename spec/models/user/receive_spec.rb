@@ -173,11 +173,11 @@ describe User do
   describe 'salmon' do
     before do
       @post = @user.post :status_message, :message => "hello", :to => @aspect.id
-      @salmon = @user.salmon( @post, :to => @user2.person )
+      @salmon = @user.salmon( @post )
     end
 
     it 'should receive a salmon for a post' do
-      @user2.receive_salmon( @user2.person.encrypt(@salmon.to_xml) )
+      @user2.receive_salmon( @salmon.xml_for @user2.person )
       @user2.visible_post_ids.include?(@post.id).should be true
     end
   end
