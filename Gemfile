@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
-gem 'bundler', '1.0.0'
+gem 'bundler', '>= 1.0.0'
 
 #Security
 gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
