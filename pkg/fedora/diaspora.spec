@@ -58,6 +58,9 @@ chmod 644 master/public/stylesheets/brandongrotesque_light/demo.html
 
 %build
 rm -rf master/vendor/bundle
+pushd  master
+    tar cf public/source.tar  --exclude='source.tar' -X .gitignore *
+popd
 
 %install
 
