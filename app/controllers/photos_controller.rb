@@ -9,7 +9,8 @@ class PhotosController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    album = Album.find_by_id params[:album_id]
+    album = current_user.find_visible_post_by_id( params[:album_id] )
+
     begin
 
       ######################## dealing with local files #############

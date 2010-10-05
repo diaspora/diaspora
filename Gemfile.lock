@@ -258,7 +258,7 @@ DEPENDENCIES
   autotest
   bson (= 1.0.7)
   bson_ext (= 1.0.7)
-  bundler (= 1.0.0)
+  bundler (>= 1.0.0)
   capybara (~> 0.3.9)
   carrierwave!
   cucumber-rails (= 0.3.2)
