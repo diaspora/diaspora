@@ -74,6 +74,7 @@ mkdir -p  $RPM_BUILD_ROOT/etc/logrotate.d
 cp diaspora.logconf  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
+cp master/.gitignore $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
 
 %post
 /bin/chown diaspora:diaspora %{_localstatedir}/log/diaspora

@@ -115,7 +115,7 @@ function checkout()
 # Checkout last version of diaspora unless it's already there.
 # Returns: commit for current branch's HEAD.
 {   
-    mkdir dist || :
+    mkdir dist  >/dev/null 2>&1 || :
     (
         cd dist 
         test -d diaspora && {
@@ -143,7 +143,7 @@ function make_dist
     cp diaspora.logconf  dist/${RELEASE_DIR}
     cd dist
     mkdir ${RELEASE_DIR}/master
-    cp -ar diaspora/*  ${RELEASE_DIR}/master	
+    cp -ar diaspora/*  diaspora/.gitignore ${RELEASE_DIR}/master	
     mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
     tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && rm -rf ${RELEASE_DIR}
 }
