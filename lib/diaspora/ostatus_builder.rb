@@ -28,8 +28,8 @@ module Diaspora
       <?xml version="1.0" encoding="UTF-8"?>
       <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
       <generator uri="http://joindiaspora.com/">Diaspora</generator>
-      <id>#{@user.username}/public</id>
-      <title>Stream</title>
+      <id>#{@user.public_url}</id>
+      <title>#{@user.real_name}'s Public Feed</title>
       <subtitle>its a stream</subtitle>
       <updated>#{Time.now.xmlschema}</updated>
       <author>
