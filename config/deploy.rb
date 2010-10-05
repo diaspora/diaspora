@@ -33,7 +33,7 @@ role :pivots, config['servers']['pivots']['url']
 
 # Start Nginx
 after "deploy:cold" do
-  #run("nginx")
+  run("nginx")
 end
 
 namespace :deploy do
