@@ -59,7 +59,6 @@ function fix_alphatag()
 #  Uses %define git_release to get release.
 #* Fri Sep 24 2010 name surname  <email@com>     1.20100925_faf234320
 {
-set -x
     dist=$(rpm --eval %dist)
     awk  -v dist="$dist" -v version="$2"  \
         ' BEGIN         { done = 0 }
@@ -98,14 +97,14 @@ function patch()
 # Patch git_release, Requires: diaspora-bundle and top comment version.
 # Usage: patch VERSION RELEASE
 {
-	sed -e "/^%%define/s|HEAD|$2|"                  \
+	sed -e "/^%define/s|HEAD|$2|"                  \
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 <diaspora.spec >dist/diaspora.spec                              
 	fix_alphatag dist/diaspora.spec $1
-	mkdir dist/diaspora/tmp
+	#mkdir dist/diaspora/tmp || :
 	bundle_id=$(git_id dist/diaspora/Gemfile)
-	fix_bundle_deps  dist/diaspora.spec $1 $bundle_id
-	sed -e "/^%%define/s|HEAD|$bundle_deps|"                  \
+	fix_bundle_deps  dist/diaspora.spec $1 "1.$bundle_id.fc13"
+	sed -e "/^%define/s|HEAD|$bundle_deps|"        \
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 < diaspora-bundle.spec > dist/diaspora-bundle.spec
 	
@@ -113,12 +112,17 @@ function patch()
 }
 
 function checkout()
-# Checkout last version of dispora unless it's already there.
+# Checkout last version of diaspora unless it's already there.
+# Returns: commit for current branch's HEAD.
 {   
     mkdir dist || :
     (
         cd dist 
-        rm -rf diaspora; git clone --quiet $GIT_REPO;      \
+        test -d diaspora && {
+            ( cd diaspora; git_id -n)
+            return
+        }
+        git clone --quiet $GIT_REPO;      \
         cd diaspora; 
         git checkout --quiet -b dist $GIT_VERSION; 
         git_id  -n 
@@ -136,7 +140,7 @@ function make_dist
     rm -rf dist/${RELEASE_DIR} 
     mkdir dist/${RELEASE_DIR}
     cp diaspora-ws    dist/${RELEASE_DIR}
-    cp diaspora.logconf  dist/${RELEASE_DIR}/diaspora
+    cp diaspora.logconf  dist/${RELEASE_DIR}
     cd dist
     mkdir ${RELEASE_DIR}/master
     cp -ar diaspora/*  ${RELEASE_DIR}/master	
@@ -176,6 +180,34 @@ function make_bundle()
     }
 }
 
+function make_links()
+# Usage: make_links [source commit]
+{
+    dest=$(rpm --eval %_sourcedir)
+    test -z "$dest" && {
+        echo "Can't find RPM source directory, giving up."
+        exit 2
+    }
+
+    src_commit="$1"
+    test -z "$src_commit" && {
+         src_commit=$(checkout)
+    }
+    src="dist/diaspora-$VERSION-$src_commit.tar.gz"
+    ln -sf $PWD/$src $dest
+
+    bundle_commit=$(git_id dist/diaspora/Gemfile)
+    bundle="dist/diaspora-bundle-$VERSION-$bundle_commit.tar.gz"
+    ln -sf $PWD/$bundle $dest
+    cd $dest
+    find . -type l -not -readable -exec rm {} \;
+}
+
+    
+  
+
+
+
 function usage()
 {
     	cat <<- EOF
@@ -188,7 +220,6 @@ function usage()
 		All results are stored in dist/
 	EOF
 }		
-set -x
 test "$1" = "-h"  -o $# = 0 && {
     usage;
     exit 0
@@ -208,8 +239,12 @@ test "$1" = "-c" && {
  
      "bundle")  make_bundle $commit
                 ;;
-     "dist")    make_dist $commit
+     'source')    make_dist $commit
                 ;;
+
+     'links')   make_links $commit
+                ;;
+
      "fix_gemfile")
                 fix_gemfile
                 ;;

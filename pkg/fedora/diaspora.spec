@@ -7,6 +7,8 @@
 #  If the environment variable GIT_VERSION is set, builds an rpm
 #  from this version (i. e., uses this commit).
 #
+
+%global         debug_package %{nil} 
 %define         git_release     HEAD
 
 Summary:        A social network server
@@ -19,10 +21,10 @@ URL:            http://www.joindiaspora.com/
 Vendor:         joindiaspora.com
 Source:         %{name}-%{version}-%{git_release}.tar.gz
 Source1:        diaspora-ws
-#BuildRoot:      %{_tmppath}/root-%{name}-%{version}
-#Prefix:         %{_prefix}
+BuildArch:	noarch
 
 BuildRequires:  git
+
 Requires(pre):  shadow-utils
 Requires:       mongodb-server
 Requires:       ruby(abi) = 1.8
@@ -34,56 +36,50 @@ open source social network server.
 
 %pre
 getent group diaspora >/dev/null || groupadd -r diaspora
-getent passwd diaspora >/dev/null ||   \
-    useradd -r -g diaspora             \
-    -md /var/diaspora -s /sbin/nologin \
+getent passwd diaspora >/dev/null ||       \
+    useradd -r -g diaspora                 \
+    -md /var/lib/diaspora -s /sbin/nologin \
     -c "Diaspora daemon" diaspora
 exit 0
 
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
+
 mkdir diaspora/tmp || :
+find . -name .git  | xargs rm -rf || :
+find . -type f -exec \
+    sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
+
+# Patch request: http://github.com/diaspora/diaspora/issues/issue/392
+find . -name \*.css -print0 | xargs --null chmod 644
+find . -name \*.js  -print0 | xargs --null chmod 644
+chmod 644 master/public/stylesheets/brandongrotesque_light/Brandon_light-webfont.svg
+chmod 644 master/public/stylesheets/brandongrotesque_light/demo.html
 
 %build
-find . -name .git* -execdir rm -rf {} \; || :
-#find . -name test -execdir rm -rf {} \; || : > /dev/null 2>&1
-find . -name \*.css -exec  chmod 644 {} \;
-find . -name \*.js -exec  chmod 644 {} \;
-#find . -name \*.treetop -exec  chmod 644 {} \;
-find . -name \*.rdoc -exec  chmod 644 {} \;
-#find . -name Rakefile -exec  chmod 755  {} \;
-#for f in $(find . -name \*.rb); do
-#  sed -i -e '/^#!/d' $f
-#  chmod 0644 $f
-#done > /dev/null 2>&1
-find . -type f -exec \
-    sed -i 's/^#!\/usr\/local\/bin\/ruby/#!\/usr\/bin\/ruby/g' {} \; > /dev/null
-
-chmod 644 master/public/stylesheets/brandongrotesque_light/demo.html
-chmod 644 master/public/stylesheets/brandongrotesque_light/Brandon_light-webfont.svg
-sed -i -e "s|\r||" master/public/javascripts/jquery.cycle/src/jquery.cycle.lite.js
-sed -i -e "s|\r||" master/public/javascripts/fancybox/jquery.fancybox-1.3.1.js
-
+rm -rf master/vendor/bundle
 
 %install
+
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
-mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora/master/vendor
 cp master/README.md .
 mv master/GNU-AGPL-3.0 .
 
-sed -i '/^cd /s|.*|cd %{_datadir}/diaspora/master|' diaspora-ws
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
 mkdir -p $RPM_BUILD_ROOT/etc/init.d
+sed -i '/^cd /s|.*|cd %{_datadir}/diaspora/master|' diaspora-ws
 cp diaspora-ws $RPM_BUILD_ROOT/etc/init.d
 mkdir -p  $RPM_BUILD_ROOT/etc/logrotate.d
-cp diaspora  $RPM_BUILD_ROOT/etc/logrotate.d
+cp diaspora.logconf  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
+cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
 
 %post
 /bin/chown diaspora:diaspora %{_localstatedir}/log/diaspora
 ln -sf  %{_localstatedir}/log/diaspora \
         %{_datadir}/diaspora/master/log || :
-ln -sf %{_libdir}/diaspora/master/vendor/bundle \
+ln -sf %{_libdir}/diaspora-bundle/master/vendor/bundle \
        %{_datadir}/diaspora/master/vendor || :
 /sbin/chkconfig --add  diaspora-ws
 
@@ -100,7 +96,6 @@ fi
 %defattr(-, root, root, 0755)
 %doc  README.md GNU-AGPL-3.0
 %{_datadir}/diaspora
-%{_libdir}/diaspora
 %{_localstatedir}/log/diaspora
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
 %{_sysconfdir}/init.d/diaspora-ws
