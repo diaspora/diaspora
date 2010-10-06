@@ -42,6 +42,7 @@ module Diaspora
     def create_endpoints
       <<-XML
 <link href="#{APP_CONFIG[:pubsub_server]}" rel="hub"/>
+<link href="#{@user.public_url}.atom" rel="self" type="application/atom+xml"/>
       XML
     end
 
