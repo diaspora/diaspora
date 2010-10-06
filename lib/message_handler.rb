@@ -35,7 +35,7 @@ class MessageHandler
         http.callback {process}
       when :hub_publish
         http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT
-        http.callback {Rails.logger.info("in publish"); Rails.logger.info(http.response) ;process}
+        http.callback {process}
       else
         raise "message is not a type I know!"
       end
