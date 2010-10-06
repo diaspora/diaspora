@@ -6,7 +6,7 @@
   <Link rel="http://joindiaspora.com/seed_location" type = 'text/html' href="<%=@person.url%>"/>
   <Link rel="http://joindiaspora.com/guid" type = 'text/html' href="<%=@person.id%>"/>
 
-  <Link rel="http://schemas.google.com/g/2010#updates-from" type="application/atom+xml" href="<%=@person.public_url%>"/>
+  <Link rel="http://schemas.google.com/g/2010#updates-from" type="application/atom+xml" href="<%=@person.public_url%>.atom"/>
 
   <Link rel="diaspora-public-key" type = 'RSA' href="<%=Base64.encode64(@person.exported_key)%>"/>
 </XRD>
