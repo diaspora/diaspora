@@ -30,7 +30,7 @@ module Diaspora
 <generator uri="http://joindiaspora.com/">Diaspora</generator>
 <id>#{@user.public_url}.atom</id>
 <title>#{@user.real_name}'s Public Feed</title>
-<subtitle>its a stream</subtitle>
+<subtitle>Posts from Diaspora</subtitle>
 <updated>#{Time.now.xmlschema}</updated>
 <author>
   <name>#{@user.real_name}</name>

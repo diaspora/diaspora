@@ -8,6 +8,6 @@ module HCard
     {:given_name => doc.css(".given_name").text,
     :family_name => doc.css(".family_name").text,
     :url => doc.css("#pod_location").text,
-    :photo => doc.css(".photo")}
+    :photo => doc.css(".photo").src}
   end
 end
