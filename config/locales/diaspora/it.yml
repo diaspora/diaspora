@@ -85,6 +85,7 @@ it:
           create: "Crea"
       create:
           success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
+          failure: "Creazione dell'aspetto fallita."
       destroy:
           success: "%{name} è stato rimosso con successo."
       update:
