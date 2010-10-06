@@ -187,7 +187,7 @@ class User
   end
 
   def push_to_hub(post)
-    Rails.logger.debug("Pushing update to pubsub server")
+    Rails.logger.debug("Pushing update to pubsub server #{APP_CONFIG[:pubsub_server]} with url #{self.public_url}")
     QUEUE.add_hub_notification(APP_CONFIG[:pubsub_server], self.public_url)
   end
 
