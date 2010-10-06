@@ -16,6 +16,9 @@ BuildArch:	noarch
 # See http://github.com/diaspora/diaspora/issues/issue/393
 Patch0:		source-fix.patch
 
+# See: http://github.com/diaspora/diaspora/issues/issue/392
+Patch1:         perm-fix.patch
+
 BuildRequires:  git
 
 Requires(pre):  shadow-utils
@@ -39,19 +42,11 @@ exit 0
 %setup -q -n %{name}-%{version}-%{git_release}
 pushd master 
 %patch0 -p1
+git apply %{_sourcedir}/perm-fix.patch
 popd
-
-
 mkdir master/tmp || :
-#find . -name .git  | xargs rm -rf || :
-find . -type f -exec \
+find .  -perm /u+x -type f -exec \
     sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
-
-# Patch request: http://github.com/diaspora/diaspora/issues/issue/392
-find . -name \*.css -print0 | xargs --null chmod 644
-find . -name \*.js  -print0 | xargs --null chmod 644
-chmod 644 master/public/stylesheets/brandongrotesque_light/Brandon_light-webfont.svg
-chmod 644 master/public/stylesheets/brandongrotesque_light/demo.html
 
 %build
 rm -rf master/vendor/bundle
