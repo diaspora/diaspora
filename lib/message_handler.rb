@@ -21,6 +21,7 @@ class MessageHandler
   end
 
   def add_hub_notification(hub_url, feed_url)
+    Rails.logger.info("in message handler")
     @queue.push(Message.new(:hub_publish, hub_url, :body => feed_url))
   end
 
@@ -35,7 +36,7 @@ class MessageHandler
         http.callback {process}
       when :hub_publish
         http = EventMachine::PubSubHubbub.new(query.destination).publish :timeout => TIMEOUT
-        http.callback {Rails.logger.info(http.response); process}
+        http.callback {Rails.logger.info("got into hub_publish"); process}
       else
         raise "message is not a type I know!"
       end
