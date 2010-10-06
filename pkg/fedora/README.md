@@ -4,7 +4,7 @@ Creates Fedora 13 RPM packages from diaspora git repository.
 
 #### Synopsis:
 
-Create source tarballs like  dist/diaspor0a-0.0-1010041233_fade4231.tar.gz  
+Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz  
 and dist/diaspora-bundle-0.0-1010041233_fade4231.tar.gz
     % ./make_dist.sh source
     % ./make_dist.sh bundle
@@ -36,7 +36,9 @@ See: [[http://github.com/diaspora/diaspora/wiki/Using-apache]]
     
 #### Notes
 
-Routines uses last available version from master branch at github.
+Routines uses last available version from master branch at github. The
+version contains a time stamp and an abbreviated git commit id. If listed
+in filename order, like ls does, latest version will be the last one.
 
 You need to copy all patches and secondary sources in this dir to
 the rpm source directory a. k. a. $(rpm --eval %_sourcedir). This
@@ -45,7 +47,8 @@ includes some hidden .* files.
 The spec-files in dist/ are patched by ./make_dist.sh source to reference
 correct versions of diaspora and diaspora-bundle. The diaspora-bundle
 is only updated if Gemfile is updated, upgrading diaspora doesn't 
-always require a new diaspora-bundle.
+always require a new diaspora-bundle. Editing spec files should be done
+in this directory, changes in dist/ are lost when doing ./make_dist source.
 
 rpmlint shows many errors, most of which related to that the server
 won't start if the .git directories are not included. Needs investigation.
