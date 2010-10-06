@@ -18,19 +18,23 @@ instructions.
 You are welcome to contribute, add to and extend Diaspora however you see fit.  We
 will do our best to incorporate everything that meets our guidelines.
 
-We need you to fill out a
-[contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq)
-before we can accept your patches.  The agreement gives Diaspora joint
-ownership of the patch so the copyright isn't scattered.  You can find it
-[here](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq).
+Please do not rebase our tree into yours.  
+See [here](http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html)
+for when to rebase.
 
-All commits must be tested, and after each commit, all tests should be green
+All commits must be tested, and all your tests should be green
 before a pull request is sent.  Please write your tests in Rspec.
 
 GEMS: We would like to keep external dependencies unduplicated.  We're using
 Nokogiri, Mongomapper, and EM::HttpRequest as much as possible.  We have a few
 gems in the project we'd rather not use, but if you can, use dependencies we
 already have.
+
+We need you to fill out a
+[contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq)
+before we can accept your patches.  The agreement gives Diaspora joint
+ownership of the patch so the copyright isn't scattered.  You can find it
+[here](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq).
 
 ## Resources
 
