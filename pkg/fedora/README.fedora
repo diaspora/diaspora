@@ -1,1 +1,18 @@
-TBD
+Here is tools to package diaspora as a RPM package.
+
+Synopsis:
+
+# Create dist/diaspora-0.0-1010041233_faded4231.tar.gz
+% ./make_dist.sh source
+
+# Create dist/diaspora-bundle-0.0-1010041233_faded4231.tar.gz
+% ./make_dist.sh bundle
+
+# Setup links to tarballs from RPM source directory:
+% ./make_dist.sh links
+
+# Build rpms:
+rpmbuild -ba dist/diaspora.spec
+rpmbuild-ba dist/diaspora-bundle.spec
+
+Routines uses last available version from master branch at github.

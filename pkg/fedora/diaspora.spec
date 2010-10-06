@@ -1,13 +1,3 @@
-# 
-#  Build diaspora RPM package.
-#
-#  Packages current HEAD if the diaspora master branch
-#  to a reasonable Fedora RPM.
-#
-#  If the environment variable GIT_VERSION is set, builds an rpm
-#  from this version (i. e., uses this commit).
-#
-
 %global         debug_package %{nil} 
 %define         git_release     HEAD
 
@@ -41,7 +31,7 @@ open source social network server.
 getent group diaspora >/dev/null || groupadd -r diaspora
 getent passwd diaspora >/dev/null ||       \
     useradd -r -g diaspora                 \
-    -md /var/lib/diaspora -s /sbin/nologin \
+    -md /usr/share/diaspora -s /sbin/nologin \
     -c "Diaspora daemon" diaspora
 exit 0
 
