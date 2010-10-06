@@ -4,6 +4,9 @@ Creates Fedora 13 RPM packages from diaspora git repository.
 
 #### Synopsis:
 
+Prerequisites: rub-1.8, rubygem and other packages as described in
+http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora
+
 Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz  
 and dist/diaspora-bundle-0.0-1010041233_fade4231.tar.gz
     % ./make_dist.sh source
