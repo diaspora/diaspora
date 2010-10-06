@@ -11,13 +11,11 @@ URL:            http://www.joindiaspora.com/
 Vendor:         joindiaspora.com
 Source:         %{name}-%{version}-%{git_release}.tar.gz
 Source1:        diaspora-ws
-BuildArch:	noarch
+Source2:        diaspora-setup
+BuildArch:      noarch
 
 # See http://github.com/diaspora/diaspora/issues/issue/393
-Patch0:		source-fix.patch
-
-# See: http://github.com/diaspora/diaspora/issues/issue/392
-Patch1:         perm-fix.patch
+Patch0:         source-fix.patch
 
 BuildRequires:  git
 
@@ -30,32 +28,33 @@ Requires:       diaspora-bundle = %{version}
 A privacy aware, personally controlled, do-it-all and
 open source social network server.
 
-%pre
-getent group diaspora >/dev/null || groupadd -r diaspora
-getent passwd diaspora >/dev/null ||       \
-    useradd -r -g diaspora                 \
-    -md /usr/share/diaspora -s /sbin/nologin \
-    -c "Diaspora daemon" diaspora
-exit 0
-
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
 pushd master 
 %patch0 -p1
+
+# See: http://github.com/diaspora/diaspora/issues/issue/392
 git apply %{_sourcedir}/perm-fix.patch
 popd
-mkdir master/tmp || :
 find .  -perm /u+x -type f -exec \
     sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
 
 %build
 rm -rf master/vendor/bundle
+mkdir master/tmp || :
 pushd  master
     tar cf public/source.tar  --exclude='source.tar' -X .gitignore *
 popd
 
-%install
+%pre
+getent group apache >/dev/null || groupadd -r apache
+getent passwd diaspora >/dev/null ||       \
+    useradd -r -g apache                 \
+    -md /usr/share/diaspora -s /sbin/nologin \
+    -c "Diaspora daemon" diaspora
+exit 0
 
+%install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp master/README.md .
@@ -72,10 +71,12 @@ cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp master/.gitignore $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
 
 %post
-/bin/chown diaspora:diaspora %{_localstatedir}/log/diaspora
-ln -sf  %{_localstatedir}/log/diaspora \
+rm -f  %{_datadir}/diaspora/master/vendor/bundle
+rm -f  %{_datadir}/diaspora/master/log
+
+ln -s  %{_localstatedir}/log/diaspora \
         %{_datadir}/diaspora/master/log || :
-ln -sf %{_libdir}/diaspora-bundle/master/vendor/bundle \
+ln -s  %{_libdir}/diaspora-bundle/master/vendor/bundle \
        %{_datadir}/diaspora/master/vendor || :
 /sbin/chkconfig --add  diaspora-ws
 
@@ -91,8 +92,8 @@ fi
 %files
 %defattr(-, root, root, 0755)
 %doc  README.md GNU-AGPL-3.0
-%{_datadir}/diaspora
-%{_localstatedir}/log/diaspora
+%attr(0555, diaspora, apache) %{_datadir}/diaspora
+%attr(0755, diaspora, apache) %{_localstatedir}/log/diaspora
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
 %{_sysconfdir}/init.d/diaspora-ws
 

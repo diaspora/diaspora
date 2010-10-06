@@ -1,4 +1,5 @@
 /var/log/diaspora/*.log {
+       create 755 diaspora apache
        weekly
        rotate 10
        copytruncate
@@ -7,6 +8,6 @@
        notifempty
        missingok
        postrotate
- 	  (/sbin/service diaspora-ws status | grep running /sbin/servive diaspora-ws restart || :)  >/dev/null 2>&1
+ 	  ( /sbin/service diaspora-ws condrestart )  >/dev/null 2>&1
        endscript
 }

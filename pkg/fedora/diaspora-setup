@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Do what's needed to initiate diaspora.
+#
+# See http://github.com/diaspora/diaspora/issues/issue/395
+
+test $UID = "0" || {
+    echo "You need to be root to do this, giving up"
+    exit 2
+}
+
+cd /usr/share/diaspora/master
+
+if rake --trace db:seed:dev; then
+   cat <<- EOF
+	Database config OK, new user tom/evanhort in place.
+	You might want to edit /usr/share/diaspora/master/config/app_config.yml
+	and change the pod_url to this host's hostname.
+	EOF
+else
+   cat <<- EOF
+	Database config failed. You might want to remove all db files with
+	rm -rf /var/lib/mongodb/* and giv it a new try.
+	EOF
+fi
+
+
+
+    
+
+
