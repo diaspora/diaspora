@@ -139,8 +139,7 @@ function make_dist
     RELEASE_DIR="diaspora-$VERSION-$commit"
     rm -rf dist/${RELEASE_DIR} 
     mkdir dist/${RELEASE_DIR}
-    cp diaspora-ws    dist/${RELEASE_DIR}
-    cp diaspora.logconf  dist/${RELEASE_DIR}
+    cp diaspora-ws diaspora-setup diaspora.logconf dist/${RELEASE_DIR}
     cd dist
     mkdir ${RELEASE_DIR}/master
     cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master	

@@ -69,6 +69,7 @@ cp diaspora.logconf  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp master/.gitignore $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
+cp diaspora-setup  $RPM_BUILD_ROOT/%{_datadir}/diaspora
 
 %post
 rm -f  %{_datadir}/diaspora/master/vendor/bundle
