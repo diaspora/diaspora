@@ -32,7 +32,7 @@ Start development server:
     ./script/server
 
 Start using apache passenger:
-See: [[http://github.com/diaspora/diaspora/wiki/Using-apache]]
+See: http://github.com/diaspora/diaspora/wiki/Using-apache
     
 #### Notes
 
