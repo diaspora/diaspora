@@ -15,15 +15,15 @@ servers:
     - username: 'jackson'
       given_name: 'Andrew'
       family_name: 'Jackson'
-      number: 6
+      number: 0
       pin: 8670
     - username: 'tyler'
       given_name: 'John'
       family_name: 'Tyler'
-      number: 9
+      number: 1
       pin: 6431
     - username: 'polk'
       given_name: 'James K.'
       family_name: 'Polk'
-      number: 10
+      number: 2
       pin: 1957
