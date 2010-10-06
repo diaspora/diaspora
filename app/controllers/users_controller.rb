@@ -21,12 +21,25 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-
     data = clean_hash params[:user]
     prep_image_url(data)
 
+
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
+    
+    if params[:user][:password] && params[:user][:password_confirmation]
+      if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+        flash[:notice] = "Password Changed"
+      else
+        flash[:error] = "Password Change Failed"
+      end
+      
+    end
+    
     @user.update_profile data
-    respond_with(@user, :location => root_url)
+    redirect_to edit_user_path(@user)
+
   end
 
   def public
