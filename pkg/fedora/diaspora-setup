@@ -37,8 +37,7 @@ while : ; do
     read new_hostname garbage
     echo -n "Use hostname \"$new_hostname\" (Yes/No) [Yes]? :"
     read yesno garbage
-    test -z "$yesno" && yesno='yes'
-    test ${yesno:0:1} = 'y' -o ${yesno:0:1} = 'Y' && {
+    test ${yesno:0:1} = 'y' -o ${yesno:0:1} = 'Y' -o -z "$yesno" && {
         sed -i "/pod_url:/s/$hostname/$new_hostname/g" config/app_config.yml &&
             echo "config/app_config.yml updated."
         break

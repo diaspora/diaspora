@@ -1,12 +1,7 @@
 #!/bin/bash
 
-#Usage: make_dist [-b] [-d] [s] [-c <commit>] 
+#Usage: See  function usage() at bottom.
 #
-# -b create a bundler bundle for diaspora
-# -d create a diaspora source tarball
-# -s synchronize Gemfile.lock VERY INTRUSIVE to RUBY ENVIRONMENT
-# -c Use a given commit instead of last available
-
 #
 # Create a diaspora distribution
 #
@@ -41,8 +36,9 @@ function git_id
         cd $dir
         git log -1 --abbrev-commit --date=iso $file |
         awk  -v nl="$nl" \
-         ' /commit/       { commit = $2 }
-           /Date/         { split( $2, d, "-")
+          ' BEGIN         { commit = "" }
+           /^commit/      { if ( commit ==  "") commit = $2 }
+           /^Date:/       { split( $2, d, "-")
                             split( $3, t, ":")
                           }
            END            { printf( "%s%s%s%s%s_%s%s",
@@ -130,7 +126,7 @@ function checkout()
         cd diaspora; 
         git fetch --quiet upstream 
         git merge --quiet upstream/master
-        git checkout --quiet -b dist ${1:-'HEAD'}
+        git checkout --quiet  ${1:-'HEAD'}
         git_id  -n 
     )
 }
@@ -140,6 +136,7 @@ function make_dist
 # Create a distribution tarball
 {
     commit=$(checkout ${1:-'HEAD'})
+    echo "Creating source tarball for $commit"
     patch $VERSION $commit 
 	
     RELEASE_DIR="diaspora-$VERSION-$commit"
@@ -152,19 +149,27 @@ function make_dist
     cp -r ../.bundle ${RELEASE_DIR}/master
     mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
     tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && rm -rf ${RELEASE_DIR}
+    cd ..
+    bundle_id=$(git_id dist/diaspora/Gemfile)
+    echo "Source:           dist/${RELEASE_DIR}.tar.gz"
+    echo "Required bundle:  $bundle_id"
+    echo "Source specfile:  dist/diaspora.spec"
+    echo "Bundle specfile:  dist/diaspora-bundle.spec"
 }
 
 function make_bundle()
 {
-    checkout 'HEAD'
+    checkout ${1:-'HEAD'} >/dev/null
     bundle_id=$(git_id dist/diaspora/Gemfile)
     bundle_name="diaspora-bundle-$VERSION-$bundle_id"
-    test -e  "$bundle_name" || {
+    test -e  "dist/$bundle_name.tar.gz" || {
+        echo "Creating bundle $bundle_name"
        	cd dist
 	    rm -rf $bundle_name 
 	    mkdir -p $bundle_name/bundle
 	    pushd diaspora > /dev/null
-set -x
+                test -e ../../Gemfile.lock.patch &&
+		    git apply ../../Gemfile.lock.patch > /dev/null 2>&1
                 rm -rf devise.tmp
                 git clone http://github.com/BadMinus/devise.git devise.tmp
                 ( cd devise.tmp; gem build devise.gemspec)
@@ -182,6 +187,8 @@ set -x
             popd
             tar czf $bundle_name.tar.gz $bundle_name
     }
+    echo 
+    echo "Bundle: dist/$bundle_name.tar.gz"
 }
 
 function make_links()
@@ -192,6 +199,7 @@ function make_links()
         echo "Can't find RPM source directory, giving up."
         exit 2
     }
+    echo "Linking sources to $dest"
 
     src_commit="$1"
     test -z "$src_commit" && {
@@ -203,14 +211,14 @@ function make_links()
     bundle_commit=$(git_id dist/diaspora/Gemfile)
     bundle="dist/diaspora-bundle-$VERSION-$bundle_commit.tar.gz"
     ln -sf $PWD/$bundle $dest
+
+    for file in $( egrep -v '^#' SOURCES); do
+        ln -sf $PWD/$file $dest/$file
+    done
+
     cd $dest
     find . -type l -not -readable -exec rm {} \;
 }
-
-    
-  
-
-
 
 function usage()
 {
@@ -221,18 +229,20 @@ function usage()
 		-c             Use a given commit, defaults to last checked in.
 		dist           Build a diaspora application tarball.
 		bundle         Build a bundler(1) bundle for diaspora.
-		links          Symlink bundle and source tarballs to rpm sourde dir.
+		links          Symlink bundle and source tarballs to rpm source dir.
 		
 		All results are stored in dist/
 	EOF
 }		
+
+
 test "$1" = "-h"  -o $# = 0 && {
     usage;
     exit 0
 }
 
 test "$1" = "-c" && {
-    test-z "$2" && {
+    test -z "$2" && {
         usage;
         exit 1
     }
@@ -245,7 +255,8 @@ test "$1" = "-c" && {
  
      "bundle")  make_bundle $commit
                 ;;
-     'source')    make_dist $commit
+
+     'source')  make_dist $commit
                 ;;
 
      'links')   make_links $commit

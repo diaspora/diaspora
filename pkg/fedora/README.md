@@ -12,11 +12,11 @@ http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora
 
 Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz  
 and dist/diaspora-bundle-0.0-1010041233_fade4231.tar.gz
-    % ./make_dist.sh source
-    % ./make_dist.sh bundle
+    % ./make-dist.sh source
+    % ./make-dist.sh bundle
 
 Setup links to tarballs from RPM source directory:
-    % ./make_dist.sh links
+    % ./make-dist.sh links
 
 Build rpms:
     rpmbuild -ba dist/diaspora.spec
@@ -47,9 +47,8 @@ Routines uses last available version from master branch at github. The
 version contains a time stamp and an abbreviated git commit id. If listed
 in filename order, like ls does, latest version will be the last one.
 
-You need to copy all patches and secondary sources in this dir to
-the rpm source directory a. k. a. $(rpm --eval %_sourcedir). This
-includes some hidden .* files.
+*make-dist links* creates links  also for all files listed in SOURCES.
+Typically, this is patches and secondary sources.
 
 The spec-files in dist/ are patched by ./make_dist.sh source to reference
 correct versions of diaspora and diaspora-bundle. The diaspora-bundle
