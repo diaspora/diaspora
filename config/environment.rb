@@ -15,6 +15,8 @@ if File.exists?(File.expand_path("./config/fb_config.yml"))
   FB_APP_ID  = fb_config['fb_app_id']
   HOST       = fb_config['host']
   FACEBOOK   = true
+else
+  FACEBOOK   = false
 end
 # Initialize the rails application
 Diaspora::Application.initialize!
