@@ -81,3 +81,8 @@ bundle, containing some C extensions, is architecture-dependent and lives
 in /usr/lib[64]/diaspora. Log files are in /var/log/diaspora. Symlinks in
 /usr/share diaspora makes log and bundle available as expected by diaspora app.
 This is more or less as mandated by LSB and Fedora packaging rules.
+ 
+    find /usr/share/diaspora/ -type l -exec ls -l {} \; | awk '{print $9, $10, $11}'
+    /usr/share/diaspora/master/public/uploads -> /var/lib/diaspora/uploads
+    /usr/share/diaspora/master/log -> /var/log/diaspora
+    /usr/share/diaspora/master/vendor/bundle -> /usr/lib/diaspora-bundle/master/vendor/bundle

@@ -27,6 +27,9 @@ else
     exit 1   
 fi
 
+# %attr(0777, diaspora, apache) doesn't  work in specfile due to umask 022.
+chmod 777 /var/lib/diaspora/uploads
+
 hostname=$( awk '/pod_url:/ { print $2; exit }' <config/app_config.yml)
 while : ; do
     echo "Current hostname is \"$hostname\""

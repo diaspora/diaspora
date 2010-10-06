@@ -47,7 +47,7 @@ pushd  master
 popd
 
 %pre
-getent group apache >/dev/null || groupadd -r apache
+getent group diaspora >/dev/null || groupadd -r diaspora
 getent passwd diaspora >/dev/null ||       \
     useradd -r -g apache                 \
     -md /usr/share/diaspora -s /sbin/nologin \
@@ -70,15 +70,19 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp master/.gitignore $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
 cp diaspora-setup  $RPM_BUILD_ROOT/%{_datadir}/diaspora
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
 
 %post
 rm -f  %{_datadir}/diaspora/master/vendor/bundle
 rm -f  %{_datadir}/diaspora/master/log
+rm -f  %{_datadir}/diaspora/master/public/uploads
 
 ln -s  %{_localstatedir}/log/diaspora \
         %{_datadir}/diaspora/master/log || :
 ln -s  %{_libdir}/diaspora-bundle/master/vendor/bundle \
        %{_datadir}/diaspora/master/vendor || :
+ln -s  %{_localstatedir}/lib/diaspora/uploads \
+       %{_datadir}/diaspora/master/public/uploads || :
 /sbin/chkconfig --add  diaspora-ws
 
 %preun
@@ -93,8 +97,9 @@ fi
 %files
 %defattr(-, root, root, 0755)
 %doc  README.md GNU-AGPL-3.0
-%attr(0555, diaspora, apache) %{_datadir}/diaspora
-%attr(0755, diaspora, apache) %{_localstatedir}/log/diaspora
+%attr(0555, diaspora, diaspora) %{_datadir}/diaspora
+%attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora
+%attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
 %{_sysconfdir}/init.d/diaspora-ws
 
