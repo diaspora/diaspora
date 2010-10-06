@@ -53,7 +53,7 @@ module Diaspora
   <id>#{@user.public_url}</id>
   <title>#{@user.real_name}</title>
   <link rel="alternative" type="text/html" href="#{@user.public_url}"/>
-  <link rel="avatar" type="image/jpeg" media:width="100" media:height="100" href="#{@user.image_url}"/>
+  <link rel="avatar" type="image/jpeg" media:width="100" media:height="100" href="#{APP_CONFIG[:pod_url]}#{@user.profile.image_url}"/>
 </activity:subject>
       XML
     end
