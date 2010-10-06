@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       director = Diaspora::Director.new
       ostatus_builder = Diaspora::OstatusBuilder.new(user)
 
-      render :xml => director.build(ostatus_builder)
+      render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
     else
       flash[:error] = "User #{params[:username]} does not exist!"
       redirect_to root_url
