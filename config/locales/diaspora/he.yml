@@ -86,7 +86,7 @@ he:
           add_a_new_aspect: "הוספת היבט חדש"
           create: "יציאה"
       create:
-          success: "יש ללחוץ על סמל הפלוס שמימין כדי לומר לדיאספורה מי יעול לצפות בהיבט החדש שלך."
+          success: "יש ללחוץ על סמל הפלוס שמימין כדי לומר לדיאספורה מי יכול לצפות בהיבט החדש שלך."
       destroy:
           success: "%{name} הוסר בהצלחה."
       update:
@@ -99,7 +99,7 @@ he:
           success: "כעת יופיע בפני החברים שלך היבט אחר שלך."
       helper:
           remove: "הסרה"
-          aspect_not_empty: "ההיסט אינו ריק"
+          aspect_not_empty: "ההיבט אינו ריק"
   users:
       edit:
           editing_profile: "עריכת הפרופיל"
@@ -134,13 +134,13 @@ he:
           delete_photo: "מחיקת תמונה"
       photo:
           show_comments: "הצגת הערות"
-          posted_a_new_photo_to: "פורסמה תמונה חדשה אל"
+          posted_a_new_photo_to: "פורסמה תמונה חדשה באלבום"
       new:
           new_photo: "תמונה חדשה"
           back_to_list: "חזרה לרשימה"
           post_it: "פרסום!"
       create:
-          runtime_error: "העלאת התמונה נכשלה.  האם החגורה שלך מהודקת?"
+          runtime_error: "העלאת התמונה נכשלה.  הידקת את החגורה?"
           integrity_error: "העלאת התמונה נכשלה.  האם זו באמת הייתה תמונה?"
           type_error: "העלאת התמונה נכשלה.  האם באמת נוספה תמונה?"
       update:
@@ -155,7 +155,7 @@ he:
           success: "הצטרפת לדיאספורה!"
   status_messages:
       new_status_message:
-          tell_me_something_good: "בא לי לשמוע סיפור טוב"
+          tell_me_something_good: "בא לי לשמוע סיפור נחמד"
           oh_yeah: "אחלה!"
       status_message:
           show_comments: "הצגת הערות"
@@ -165,7 +165,7 @@ he:
           status_message: "הודעת מצב"
           comments: "הערות"
           are_you_sure: "בבטחה?"
-          destroy: "הריבה"
+          destroy: "הריסה"
           view_all: "צפייה בכול"
           message: "הודעה"
           owner: "בעלים"

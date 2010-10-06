@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user    = current_user
     @person  = @user.person
     @profile = @user.person.profile
-    @photos  = Photo.find_all_by_person_id(@person.id).paginate :page => params[:page], :order => 'created_at DESC'
+    @photos  = current_user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
 
     @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
                                       :scope=>MiniFB.scopes.join(","))
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       director = Diaspora::Director.new
       ostatus_builder = Diaspora::OstatusBuilder.new(user)
 
-      render :xml => director.build(ostatus_builder)
+      render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
     else
       flash[:error] = "User #{params[:username]} does not exist!"
       redirect_to root_url

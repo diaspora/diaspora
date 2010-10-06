@@ -28,6 +28,12 @@ class PublicsController < ApplicationController
     end
   end
 
+  def hub
+    if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
+      render :text => params['hub.challenge'], :status => 202, :layout => false 
+    end
+  end
+
   def receive
     render :nothing => true
     return unless params[:xml]

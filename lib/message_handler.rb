@@ -20,6 +20,10 @@ class MessageHandler
     [*destinations].each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
   end
 
+  def add_hub_notification(hub_url, feed_url)
+    @queue.push(Message.new(:hub_publish, hub_url, :body => feed_url))
+  end
+
   def process
     @queue.pop{ |query|
       case query.type
@@ -29,6 +33,9 @@ class MessageHandler
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
         http.callback {process}
+      when :hub_publish
+        http = EventMachine::PubSubHubbub.new(query.destination).publish :timeout => TIMEOUT
+        http.callback {process; Rails.logger.debug(http.response)}
       else
         raise "message is not a type I know!"
       end

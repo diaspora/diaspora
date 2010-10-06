@@ -33,6 +33,12 @@
         <a href="<%= @person.url%>" rel="me" id="pod_location" class="url"><%= @person.url%></a>
         </dd>
       </dl>
+      <dl class="entity_photo">
+        <dt>Photo</dt>
+        <dd>
+        <span class="photo"><%= @person.profile.image_url%></span>
+        </dd>
+      </dl>
       <dl class="entity_note">
         <dt>Note</dt>
         <dd class="note">Diaspora is awesome! vi is better than emacs!</dd>
