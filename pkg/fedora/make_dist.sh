@@ -143,7 +143,8 @@ function make_dist
     cp diaspora.logconf  dist/${RELEASE_DIR}
     cd dist
     mkdir ${RELEASE_DIR}/master
-    cp -ar diaspora/*  diaspora/.gitignore ${RELEASE_DIR}/master	
+    cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master	
+    cp -r ../.bundle ${RELEASE_DIR}/master
     mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
     tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && rm -rf ${RELEASE_DIR}
 }
@@ -172,9 +173,22 @@ function make_bundle()
        	cd dist
 	    rm -rf $bundle_name 
 	    mkdir -p $bundle_name/bundle
-	    pushd diaspora
-	        bundle  install --deployment --path="../$bundle_name/bundle"  --without=test rdoc
-	       cp AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT "../$bundle_name"
+	    pushd diaspora > /dev/null
+set -x
+                rm -rf devise.tmp
+                git clone http://github.com/BadMinus/devise.git devise.tmp
+                ( cd devise.tmp; gem build devise.gemspec)
+                gem install --install-dir "../$bundle_name/bundle/ruby/1.8" \
+                            --no-rdoc --no-ri                      \
+                            --ignore-dependencies                  \
+                            devise.tmp/devise-1.1.rc1.gem  &&
+                   rm -rf devise.tmp
+
+	        bundle install --deployment                      \
+                               --path="../$bundle_name/bundle"   \
+                               --without=test rdoc
+
+	        cp AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT "../$bundle_name"
             popd
             tar czf $bundle_name.tar.gz $bundle_name
     }
@@ -211,11 +225,13 @@ function make_links()
 function usage()
 {
     	cat <<- EOF
-		Usage: make_dist [-c commit] <dist|bundle|fix_gemlock>
+
+		Usage: make_dist [-c commit] <dist|bundle|links>
+
 		-c             Use a given commit, defaults to last checked in.
 		dist           Build a diaspora application tarball.
 		bundle         Build a bundler(1) bundle for diaspora.
-		fix_gemlock    Try to fix out-of order gemlock, VERY INTRUSIVE.
+		links          Symlink bundle and source tarballs to rpm sourde dir.
 		
 		All results are stored in dist/
 	EOF

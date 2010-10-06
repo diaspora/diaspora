@@ -65,16 +65,12 @@ pushd bundle/ruby/1.8/
 
     chmod 755 gems/thin-1.2.7/example/async_chat.ru
     chmod 755 gems/thin-1.2.7/example/async_tailer.ru
-    #chmod 644 master/public/stylesheets/brandongrotesque_light/demo.html
     chmod 644 gems/i18n-0.4.1/MIT-LICENSE 
     chmod 755 gems/abstract-1.0.0/abstract.gemspec
     chmod 644 gems/mini_magick-2.1/MIT-LICENSE
-    #chmod 644 master/public/stylesheets/brandongrotesque_light/Brandon_light-webfont.svg
     chmod 755 gems/thin-1.2.7/lib/thin/controllers/service.sh.erb
     chmod 644 gems/treetop-1.4.8/spec/compiler/test_grammar.tt
 
-    #sed -i -e "s|\r||" master/public/javascripts/jquery.cycle/src/jquery.cycle.lite.js
-    #sed -i -e "s|\r||" master/public/javascripts/fancybox/jquery.fancybox-1.3.1.js
 popd
 
 

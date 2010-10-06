@@ -23,6 +23,9 @@ Source:         %{name}-%{version}-%{git_release}.tar.gz
 Source1:        diaspora-ws
 BuildArch:	noarch
 
+# See http://github.com/diaspora/diaspora/issues/issue/393
+Patch0:		source-fix.patch
+
 BuildRequires:  git
 
 Requires(pre):  shadow-utils
@@ -44,9 +47,13 @@ exit 0
 
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
+pushd master 
+%patch0 -p1
+popd
 
-mkdir diaspora/tmp || :
-find . -name .git  | xargs rm -rf || :
+
+mkdir master/tmp || :
+#find . -name .git  | xargs rm -rf || :
 find . -type f -exec \
     sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
 
