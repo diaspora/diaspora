@@ -30,7 +30,7 @@ class PublicsController < ApplicationController
 
   def hub
     if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
-      render :text => params['hub.challenge'], :status => 202, :layout => false 
+      render :text => params['hub.challenge'], :status => 202, :layout => false
     end
   end
 

@@ -9,7 +9,7 @@ Diaspora::Application.routes.draw do
   resources :requests,        :except => [:edit, :update]
   resources :photos,          :except => [:index]
   resources :albums
-  
+
   # added public route to user
   match 'public/:username', :to => 'users#public'
   resources :users,               :except => [:create, :new, :show]

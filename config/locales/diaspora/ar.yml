@@ -1,0 +1,206 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+# Sample localization file for Arabic.
+
+ar:
+  hello: "مرحبا العالم"
+  application:
+      helper:
+          unknown_person: "غير معروف شخص"
+          new_requests: "طلبات جديدة"
+  dashboards:
+      helper:
+          home: "منزل"
+  error_messages:
+      helper:
+          invalid_fields: "الحقول غير صالحة"
+          correct_the_following_errors_and_try_again: ".تصحيح الأخطاء التالية وحاول مرة أخرى"
+  people:
+      helper:
+           results_for: "%{params} نتائج "
+           people_on_pod_are_aware_of: "الناس في جراب على علم "
+  layouts:
+      application:
+          edit_profile: "تعديل الملف الشخصي"
+          logout: "خروج"
+  shared:
+      aspect_nav:
+          all_aspects: "جميع الجوانب"
+          manage: "نجح"
+          manage_your_aspects: "إدارة جوانب الخاص"
+      sub_header:
+          all_aspects: "جميع الجوانب"
+          manage_aspects: "إدارة الجوانب"
+      publisher:
+          share: "تقاسم"
+      aspect_friends:
+          add_friends: "أضف أصدقاء"
+  albums:
+      album:
+          you: "أنت"
+      new_album:
+          create: "خلق"
+          add_a_new_album: "إضافة ألبوم جديد"
+      show:
+          edit_album: "تعديل الألبوم"
+          albums: "البومات"
+          updated: "تحديث"
+          by: "بواسطة"
+      edit:
+          editing: "التحرير"
+          updated: "تحديث"
+          are_you_sure: "هل أنت متأكد؟"
+          delete_album: "حذف ألبوم"
+          cancel: "إلغاء"
+      index:
+          home: "منزل"
+          new_album: "ألبوم جديد"
+      create:
+          success: ".ألبوما %{name} لقد قمت دعا"
+      update:
+          success: ".تحرير بنجاح %{name} الألبوم"
+          failure: ".%{name} فشلت في تحرير ألبوم"
+      destroy:
+          success: ".حذفها %{name} الألبوم"
+      helper:
+          friends_albums: "أصدقاء البومات"
+          your_albums: "البومات الخاص"
+  aspects:
+      index:
+          photos: "صور"
+      show:
+          photos: "صور"
+      manage:
+          add_a_new_aspect: "أضف جانبا جديدا"
+          add_a_new_friend:  "إضافة صديق جديد"
+          show: "عرض"
+          update_aspects: "تحديث الجوانب"
+          requests: "طلبات"
+          ignore_remove: "تجاهل/إزالة"
+      new_aspect:
+          add_a_new_aspect: "أضف جانبا جديدا"
+          create: "خلق"
+      create:
+          success: ".الذي يمكن أن نرى الجانب الجديد الخاص بك Diaspora انقر على علامة الجمع على الجانب الأيسر لنقو"
+          failure: ".فشل إنشاء الجانب"
+      destroy:
+          success: ".%{name} وقد نجحت في إزالة"
+      update:
+          success: ".تحرير بنجاح ,%{name} ,وقد الجانب الخاص بك"
+      move_friends:
+          failure: ".%{real_name} فشل تحرير آسبكت لصدي"
+          success: ".جوانب الموضوع بنجاح"
+      move_friend:
+          failure: "%{inspect} لم تنجح"
+          success: ".أنت الآن عرض صديقك جانبا مختلفا من جوانب نفسك"
+      helper:
+          remove: "نزع"
+          aspect_not_empty: "الجانب يست فارغ"
+  users:
+      edit:
+          editing_profile: "تحرير الملف الشخصي"
+      profile:
+          cancel: "إلغاء"
+          update_profile: "تحديث الملف الشخصي"
+          home: "منزل"
+          diaspora_username: "اسم المستخدم DIASPORA"
+          info: "معلومات"
+          picture: "صورة"
+          editing_profile: "تحرير الملف الشخصي"
+          albums: "البومات"
+          you_dont_have_any_photos: "ليس لديك أي صوا! نتقل إلى"
+          page_to_upload_some:  ".الصفحة لتحميل بعض"
+  comments:
+      comment:
+          ago: "منذ"
+      new_comment:
+          comment: "كيف"
+  photos:
+      show:
+          prev: "السابق"
+          full_size: "الحجم الكام"
+          next: "القادم"
+          edit_photo: "تحرير الصو"
+          delete_photo: "حذف الصو"
+          are_you_sure: "هل أنت متأكد؟"
+          comments: "تعليقات"
+      edit:
+          editing: "تصحيح"
+          are_you_sure: "هل أنت متأك؟"
+          delete_photo: "حذف الصو"
+      photo:
+          show_comments: "sعرض التعليقا"
+          posted_a_new_photo_to: "أرسلت صورة جديدة ل"
+      new:
+          new_photo: "جديد الصو"
+          back_to_list: "عودة إلى قائم"
+          post_it: "!بعد ذلك"
+      create:
+          runtime_error: "?فشل تحميل الصور. هل أنت متأكد من أن يتم ربط حزام الأمان"
+          integrity_error: "?فشل تحميل الصور. هل أنت متأكد من أن صورة"
+          type_error: "?فشل تحميل الصور. هل أنت متأكد من وأضيف صورة"
+      update:
+          notice: ".الصورة تحديثها بنجاح"
+          error:  ".فشل لتحرير الصو"
+      destroy:
+          notice: ".الصور المحذوفة"
+  registrations:
+      new:
+          sign_up: "قم بالتسجي"
+      create:
+          success: "!Diaspora لقد انضممت"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "قل لي شيئا جيد"
+          oh_yeah: "!نعم"
+      status_message:
+          show_comments: "عرض التعليقا"
+          delete: "حذف"
+          are_you_sure: "هل أنت متأكد؟"
+      show:
+          status_message: "رسالة الحالة"
+          comments: "تعليقات"
+          are_you_sure: "هل أنت متأكد؟"
+          destroy: "هدم"
+          view_all: "عرض الك"
+          message: "رسالة"
+          owner: "مالك"
+      helper:
+          no_message_to_display: ".أي رسالة لعرضه"
+  people:
+      person:
+          add_friend: "أضف صدي"
+          pending_request: "في انتظار طلب"
+      index:
+          add_friend: "أضف صدي"
+          real_name: "اسمه الحقيقي"
+          diaspora_handle: "اسمك المستعار diaspora"
+          thats_you: "!هذا لك"
+          friend_request_pending: "طلب صديق معلقة"
+          you_have_a_friend_request_from_this_person: "لديك صديق طلب من هذا الشخص"
+      new:
+          new_person: "شخص جديد"
+          back_to_list: "عودة إلى قائمة"
+      show:
+          last_seen: "%{how_long_ago} :المشاهدة الأخيرة"
+          friends_since: "%{how_long_ago} :أصدقاء منذ"
+          save: "حفظ"
+          are_you_sure: "هل أنت متأكد؟"
+          remove_friend: "إزالة صديق"
+  requests:
+      new_request:
+          add_a_new_friend_to: "إضافة صديق جديد إلى"
+          enter_a_diaspora_username: ":Diaspora أدخل اسم مستخدم"
+          your_diaspora_username_is: "%{diaspora_handle} :هو Diaspora اسم المستخدم الخاص"
+          friends_username: "صديق اسم المستخدم"
+      destroy:
+          success: ".أنت الآن أصدقاء"
+          error: "!الرجاء اختيار جانبا"
+          ignore: ".صديق تجاهل الطلب"
+      create:
+          error: "!مع هذا البريد الإلكتروني diaspora لم يتم العثور على بذور"
+          already_friends: "!%{destination_url} كنت بالفعل مع أصدقاء"
+          success: ".%{destination_url} وأرسل طلب صداقة إلى"
+          horribly_wrong: ".ذهب شيء خاطئ"

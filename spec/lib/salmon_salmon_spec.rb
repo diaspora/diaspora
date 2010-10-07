@@ -11,17 +11,17 @@ describe Salmon do
   let(:post){ user.post :status_message, :message => "hi", :to => user.aspect(:name => "sdg").id }
 
   let!(:created_salmon) {Salmon::SalmonSlap.create(user, post.to_diaspora_xml)}
-    
+
   describe '#create' do
 
     it 'has data in the magic envelope' do
       created_salmon.magic_sig.data.should_not be nil
     end
-    
+
     it 'has no parsed_data' do
       created_salmon.parsed_data.should be nil
     end
-    
+
     it 'sets aes and iv key' do
       created_salmon.aes_key.should_not be nil
       created_salmon.iv.should_not be nil
@@ -33,7 +33,7 @@ describe Salmon do
       user.aes_decrypt(decoded_string, key_hash).should == post.to_diaspora_xml
     end
   end
- 
+
   describe '#xml_for' do
     let(:xml)   {created_salmon.xml_for user2.person}
 
@@ -50,7 +50,7 @@ describe Salmon do
 
   context 'marshaling' do
     let(:xml)   {created_salmon.xml_for user2.person}
-    let(:parsed_salmon) { Salmon::SalmonSlap.parse(xml, user2)} 
+    let(:parsed_salmon) { Salmon::SalmonSlap.parse(xml, user2)}
 
     it 'should parse out the aes key' do
       parsed_salmon.aes_key.should == created_salmon.aes_key

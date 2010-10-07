@@ -46,7 +46,7 @@ he:
       new_album:
           create: "יצירה"
           add_a_new_album: "הוספת אלבום חדש"
-      show: 
+      show:
           edit_album: "עריכת אלבום"
           albums: "אלבומים"
           updated: "תאריך העדכון"

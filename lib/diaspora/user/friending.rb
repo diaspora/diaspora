@@ -38,7 +38,8 @@ module Diaspora
       end
 
       def dispatch_friend_acceptance(request, requester)
-        salmon request, :to => requester
+        friend_acceptance = salmon(request)
+        push_to_person requester, friend_acceptance.xml_for(requester)
         request.destroy unless request.callback_url.include? url
       end
 

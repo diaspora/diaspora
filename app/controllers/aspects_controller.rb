@@ -32,8 +32,8 @@ class AspectsController < ApplicationController
 
     begin
       current_user.drop_aspect @aspect
-      flash[:notice] = i18n.t 'aspects.destroy.success',:name => @aspect.name
-    rescue RuntimeError => e
+      flash[:notice] = I18n.t 'aspects.destroy.success',:name => @aspect.name
+    rescue RuntimeError => e 
       flash[:error] = e.message
     end
 
@@ -56,7 +56,7 @@ class AspectsController < ApplicationController
 
     respond_with @aspect
   end
-  
+
   def manage
     @aspect = :manage
     @remote_requests = Request.for_user(current_user).all
@@ -67,7 +67,7 @@ class AspectsController < ApplicationController
 
     data = clean_hash(params[:aspect])
     @aspect.update_attributes( data )
-    flash[:notice] = i18n.t 'aspects.update.success',:name => @aspect.name
+    flash[:notice] = I18n.t 'aspects.update.success',:name => @aspect.name
     respond_with @aspect
   end
 
@@ -75,13 +75,13 @@ class AspectsController < ApplicationController
     params[:moves].each{ |move|
       move = move[1]
       unless current_user.move_friend(move)
-        flash[:error] = i18n.t 'aspects.move_friends.failure', :real_name => Person.find_by_id( move[:friend_id] ).real_name
+        flash[:error] = I18n.t 'aspects.move_friends.failure', :real_name => Person.find_by_id( move[:friend_id] ).real_name
         redirect_to aspects_manage_path
         return
       end
     }
 
-    flash[:notice] = i18n.t 'aspects.move_friends.success'
+    flash[:notice] = I18n.t 'aspects.move_friends.success'
     redirect_to aspects_manage_path
   end
 

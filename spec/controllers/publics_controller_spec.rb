@@ -24,7 +24,7 @@ describe PublicsController do
 
       user.reload
       user.visible_post_ids.include?(message.id).should be false
-      
+
       xml = user2.salmon(message).xml_for(user.person)
 
       post :receive, :id => user.person.id, :xml => xml
