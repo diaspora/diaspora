@@ -19,7 +19,7 @@ describe DevUtilitiesController do
     end
   end
 
-  describe "#set_profile_photo" do
+  describe "operations that affect config/backer_number.yml" do
     # In case anyone wants their config/backer_number.yml to still exist after running specs
     before do
       @backer_number_file = File.join(File.dirname(__FILE__), "..", "..", "config", "backer_number.yml")
@@ -33,10 +33,32 @@ describe DevUtilitiesController do
         FileUtils.rm_rf(@backer_number_file)
       end
     end
-    it "succeeds" do
-      get :set_backer_number, 'number' => '3'
-      get :set_profile_photo
-      response.should be_success
+
+    describe "#set_backer_number" do
+      it "creates a file containing the seed number" do
+        File.should_not exist(@backer_number_file)
+        get :set_backer_number, 'number' => '3'
+        File.should exist(@backer_number_file)
+        YAML.load_file(@backer_number_file)[:seed_number].to_i.should == 3
+      end
+    end
+
+    describe "#set_profile_photo" do
+      before do
+        config = YAML.load_file(File.join(File.dirname(__FILE__), "..", "..", "config", "deploy_config.yml"))
+        seed_numbers = config["servers"]["backer"].map {|b| b["number"] }
+        @good_number = seed_numbers.max
+        @bad_number = @good_number + 1
+      end
+      it "succeeds when a backer with the seed number exists" do
+        get :set_backer_number, 'number' => @good_number.to_s
+        get :set_profile_photo
+        response.should be_success
+      end
+      it "fails when a backer with the seed number does not exist" do
+        get :set_backer_number, 'number' => @bad_number.to_s
+        lambda { get :set_profile_photo }.should raise_error
+      end
     end
   end
 end
