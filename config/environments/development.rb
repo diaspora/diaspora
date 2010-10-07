@@ -28,7 +28,7 @@ Diaspora::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = {:host => 'pivots.joindiaspora.com'}
   config.action_mailer.smtp_settings = {
-    :address => 'pivots.joindiaspora.com',
+    :address => 'smtp.gmail.com',
     :port => 587,
     :domain => 'mail.joindiaspora.com',
     :authentication => 'plain',
