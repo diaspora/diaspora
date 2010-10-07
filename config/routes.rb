@@ -15,6 +15,7 @@ Diaspora::Application.routes.draw do
   # added public route to user
   match 'public/:username', :to => 'users#public'
   match 'users/export',     :to => 'users#export'
+  match 'users/export_photos',     :to => 'users#export_photos'
   resources :users,         :except => [:create, :new, :show]
 
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
