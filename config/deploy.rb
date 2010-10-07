@@ -142,7 +142,7 @@ namespace :db do
   end
 
   task :backer_seed, :roles => :backer do
-    (0..10).each { |n|
+    (0..2).each { |n|
       run "curl -silent http://localhost/set_backer_number?number=#{n}", :only => {:number => n}
     }
     run "cd #{current_path} && bundle exec rake db:seed:backer --trace RAILS_ENV=#{rails_env}"

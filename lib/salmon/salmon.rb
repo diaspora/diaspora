@@ -53,7 +53,7 @@ module Salmon
       salmon.magic_sig = MagicSigEnvelope.create(user , user.person.aes_encrypt(activity, aes_key_hash))
       salmon
     end
-   
+
     def self.parse(xml, user)
       slap = self.new
       doc = Nokogiri::XML(xml)

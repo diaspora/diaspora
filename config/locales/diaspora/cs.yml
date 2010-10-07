@@ -57,7 +57,7 @@ cs:
       new_album:
           create: "vytvořit"
           add_a_new_album: "Přidat nové album"
-      show: 
+      show:
           edit_album: "Upravit album"
           albums: "alba"
           updated: "aktualizované"
