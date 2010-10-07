@@ -1,0 +1,5 @@
+--- 
+BUNDLE_FROZEN: "1"
+BUNDLE_DISABLE_SHARED_GEMS: "1"
+BUNDLE_WITHOUT: test:rdoc
+BUNDLE_PATH: vendor/bundle
