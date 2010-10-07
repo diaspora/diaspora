@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class Request
-  require 'lib/diaspora/webhooks'
+  require File.expand_path('../../../lib/diaspora/webhooks', __FILE__)
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML
@@ -26,8 +25,8 @@ class Request
   validates_presence_of :destination_url, :callback_url
   before_validation :clean_link
 
-  scope :for_user,  lambda{ |user| where(:destination_url    => user.receive_url) }
-  scope :from_user, lambda{ |user| where(:destination_url.ne => user.receive_url) }
+  scope :for_user,  lambda{ |user| where(:destination_url    => user.person.receive_url) }
+  scope :from_user, lambda{ |user| where(:destination_url.ne => user.person.receive_url) }
 
   def self.instantiate(options = {})
     person = options[:from]

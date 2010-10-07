@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 

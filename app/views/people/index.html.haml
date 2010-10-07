@@ -2,50 +2,23 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :publish do
   %h1
     Search
 
   =form_tag '/people', :method => "get" do
-    = text_field_tag :q
+    = text_field_tag :q, params[:q]
     = submit_tag "search"
 
 - content_for :left_pane do
   \.
 
-= (@people.count).to_s + search_or_index
-%table
-  %tr
-    %th real name
-    %th diaspora handle
-    %th url
-    - for person in @people
-      %tr
-        - if current_user.friends.include? person
-          %td= link_to person.real_name, person
-        - else
-          %td= person.real_name
+%h1
+  search results for
+  %u= params[:q]
 
-        %td= person.diaspora_handle
-        %td= person.url
-        
-        -if current_user.friends.include? person
+%ul#stream
+  - for person in @people
+    = render 'people/person', :person => person
 
-        - elsif person.id == current_user.person.id
-          %td
-          %td that's you!
-        -elsif current_user.pending_requests.find_by_person_id(person.id)
-          %td 
-          %td ^-you have a friend request from this person       
-        -elsif current_user.pending_requests.find_by_url(person.receive_url)
-          %td 
-          %td friend request pending
-        -else
-          %td
-          %td
-            = form_for Request.new do |f|
-              = f.select(:aspect_id, @aspects_dropdown_array)
-              = f.hidden_field :destination_url, :value => person.diaspora_handle
-              = f.submit "add friend"
-  = will_paginate @people
+= will_paginate @people

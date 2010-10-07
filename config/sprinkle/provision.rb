@@ -1,11 +1,7 @@
-#!/usr/bin/env sprinkle -s
+#
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
-
-
-
-
 
 require '#{File.dirname(__FILE__)}/packages/essential'
 require '#{File.dirname(__FILE__)}/packages/database'
@@ -25,7 +21,6 @@ policy :diaspora, :roles => [:pivots] do
   requires :vim
   requires :nginx_conf
 end
-
 
 deployment do
 

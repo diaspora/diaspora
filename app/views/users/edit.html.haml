@@ -2,66 +2,29 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
+:javascript
+  $("#settings_nav li > a").click( function() {
+    var target = "#"+$(this).attr('class');
+    if( !$(target).is(":visible") ) {
+      $(".settings_pane").fadeOut(200, function() {
+        $(target).delay(200).fadeIn(200);
+      });
+    }
+  });
+
 
 - content_for :publish do
-  %h1
-    Editing profile
+  %h1="#{t('.editing_profile')}"
 
 - content_for :left_pane do
-  \.
+  %ul#settings_nav
+    %li=link_to 'Profile', '#', :class => 'profile'
+    %li=link_to 'Services', '#', :class => 'services'
 
-= form_for @user do |f|
-  = f.error_messages
+#profile.settings_pane{:style=>"display:block;"}
+  = render 'users/profile'
 
-  = f.fields_for :profile do |p|
+#services.settings_pane
+  = render 'users/services'
 
-    %h3 Picture
-    %div#image_picker
-      = p.hidden_field :image_url, :value => (@profile.image_url.sub(@user.url,'/') if @profile.image_url), :id => 'image_url_field'
 
-      - unless @photos.nil? || @photos.empty?
-        - for photo in @photos
-          - if @profile.image_url && (photo.url(:thumb_medium) == @profile.image_url.sub(@user.url,'/'))
-            %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
-              = check_box_tag 'checked_photo', true, true
-              = link_to image_tag(photo.url(:thumb_medium)), "#"
-          - else
-            %div.small_photo{:id => photo.url(:thumb_medium)}
-              = check_box_tag 'checked_photo'
-              = link_to image_tag(photo.url(:thumb_medium)), "#"
-
-      - else
-        You don't have any photos!  Go to the
-        = link_to "albums", albums_path(:aspect => 'all')
-        page to upload some.
-
-    =will_paginate @photos
-
-    %br
-
-    %h3 Info
-
-    %p
-      %b
-        DIASPORA USERNAME:
-        = @user.diaspora_handle
-
-    %p
-      = p.label :first_name
-      = p.text_field :first_name, :value => @profile.first_name
-    %p
-      = p.label :last_name 
-      = p.text_field :last_name, :value => @profile.last_name
-
-  %p
-    = f.label :email
-    = f.text_field :email
-
-  #submit_block
-    = link_to "Cancel", root_path
-    or
-    = f.submit "Update Profile"
-
-#content_bottom
-  .back
-    = link_to "⇧ home", root_path

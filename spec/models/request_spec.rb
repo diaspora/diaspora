@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Request do
   before do
@@ -19,7 +17,7 @@ describe Request do
     person_request.valid?.should be true
   end
 
-  it 'should generate xml for the User as a Person' do 
+  it 'should generate xml for the User as a Person' do
     request = @user.send_friend_request_to Factory.create(:person), @aspect
 
     xml = request.to_xml.to_s

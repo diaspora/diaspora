@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe StatusMessage do
   before do
@@ -36,7 +34,6 @@ describe StatusMessage do
       parsed.valid?.should be_true
     end
   end
-
 
 end
 

@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -16,7 +15,7 @@ Diaspora::Application.configure do
 
   # Specifies the header that your server uses for sending files
   #config.action_dispatch.x_sendfile_header = "X-Sendfile"
-  
+
   config.active_support.deprecation = :notify
 
   # For nginx:

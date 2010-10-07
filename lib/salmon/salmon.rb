@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 # Add URL safe Base64 support
 module Base64
   module_function
@@ -43,18 +41,38 @@ end
 module Salmon
 
   class SalmonSlap
-    attr_accessor :magic_sig, :author, :author_email, :data, :data_type, :sig
-    def self.parse(xml)
+    attr_accessor :magic_sig, :author, :author_email, :aes_key, :iv, :parsed_data,
+                  :data_type, :sig
+
+    def self.create(user, activity)
+      salmon = self.new
+      salmon.author = user.person
+      aes_key_hash = user.person.gen_aes_key
+      salmon.aes_key = aes_key_hash['key']
+      salmon.iv      = aes_key_hash['iv']
+      salmon.magic_sig = MagicSigEnvelope.create(user , user.person.aes_encrypt(activity, aes_key_hash))
+      salmon
+    end
+
+    def self.parse(xml, user)
       slap = self.new
       doc = Nokogiri::XML(xml)
 
       sig_doc = doc.search('entry')
+
+      ### Header ##
+      decrypted_header = user.decrypt(doc.search('encrypted_header').text)
+      header_doc       = Nokogiri::XML(decrypted_header)
+      slap.author_email= header_doc.search('uri').text.split("acct:").last
+      slap.aes_key     = header_doc.search('aes_key').text
+      slap.iv          = header_doc.search('iv').text
+
       slap.magic_sig = MagicSigEnvelope.parse sig_doc
 
-
-
       if  'base64url' == slap.magic_sig.encoding
-        slap.data = decode64url(slap.magic_sig.data)
+
+        key_hash = {'key' => slap.aes_key, 'iv' => slap.iv}
+        slap.parsed_data = user.aes_decrypt(decode64url(slap.magic_sig.data), key_hash)
         slap.sig = slap.magic_sig.sig
       else
         raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{slap.magic_sig.encoding}"
@@ -64,30 +82,31 @@ module Salmon
 
       raise ArgumentError, "Magic Signature data must be signed with RSA-SHA256, was #{slap.magic_sig.alg}" unless 'RSA-SHA256' == slap.magic_sig.alg
 
-      uri = doc.search('uri').text
-      slap.author_email = uri.split("acct:").last
       slap
     end
 
-    def self.create(user, activity)
-      salmon = self.new
-      salmon.author = user.person
-      salmon.magic_sig = MagicSigEnvelope.create(user , activity)
-      salmon
-    end
-
-    def to_xml
+    def xml_for person
       xml =<<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
     <entry xmlns='http://www.w3.org/2005/Atom'>
-    <author>
-      <name>#{@author.real_name}</name>
-      <uri>acct:#{@author.diaspora_handle}</uri>
-    </author>
+    <encrypted_header>#{person.encrypt(decrypted_header)}</encrypted_header>
       #{@magic_sig.to_xml}
       </entry>
 ENTRY
 
+    end
+
+    def decrypted_header
+      header =<<HEADER
+    <decrypted_header>
+    <iv>#{iv}</iv>
+    <aes_key>#{aes_key}</aes_key>
+    <author>
+      <name>#{@author.real_name}</name>
+      <uri>acct:#{@author.diaspora_handle}</uri>
+    </author>
+    </decrypted_header>
+HEADER
     end
 
     def author
@@ -97,9 +116,6 @@ ENTRY
         Person.by_webfinger @author_email
       end
     end
-
-
-
 
     # Decode URL-safe-Base64. This implements
     def self.decode64url(str)
@@ -127,7 +143,6 @@ ENTRY
     def verified_for_key?(public_key)
       signature = Base64.urlsafe_decode64(self.magic_sig.sig)
       signed_data = self.magic_sig.signable_string# Base64.urlsafe_decode64(self.magic_sig.signable_string)
-
 
       public_key.verify(OpenSSL::Digest::SHA256.new, signature, signed_data )
     end
@@ -193,7 +208,6 @@ ENTRY
       env.data_type = env.get_data_type
       env.encoding  = env.get_encoding
       env.alg = env.get_alg
-
 
       env.sig = Base64.urlsafe_encode64(
         user.encryption_key.sign OpenSSL::Digest::SHA256.new, env.signable_string )

@@ -2,10 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
 class MessageHandler
-
 
   NUM_TRIES = 3
   TIMEOUT = 5 #seconds
@@ -23,6 +20,10 @@ class MessageHandler
     [*destinations].each{|dest| @queue.push(Message.new(:post, dest, :body => b))}
   end
 
+  def add_hub_notification(hub_url, feed_url)
+    @queue.push(Message.new(:hub_publish, hub_url, :body => feed_url))
+  end
+
   def process
     @queue.pop{ |query|
       case query.type
@@ -31,7 +32,10 @@ class MessageHandler
         http.callback { process; process}
       when :get
         http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
-        http.callback {send_to_seed(query, http.response); process}
+        http.callback {process}
+      when :hub_publish
+        http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT
+        http.callback {process}
       else
         raise "message is not a type I know!"
       end
@@ -45,10 +49,6 @@ class MessageHandler
         process
       }
     } unless @queue.size == 0
-  end
-
-  def send_to_seed(message, http_response)
-    #DO SOMETHING!
   end
 
   def size

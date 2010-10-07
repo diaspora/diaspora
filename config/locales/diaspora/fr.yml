@@ -1,0 +1,162 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+# Localization file for French. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+  hello: "Bonjour tout le monde"
+  application:
+      helper:
+          unknown_person: "unknown person"
+          new_requests: "new requests"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Invalid Fields"
+          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+  people:
+      helper:
+           results_for: " resultados para %{params}"
+           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
+  layouts:
+      application:
+          edit_profile: "Éditez votre profil"
+          logout: "Déconnexion"
+  shared:
+      aspect_nav:
+          all_aspects: "Tous les Aspects"
+          manage: "Gérez"
+          manage_your_aspects: "Gérez vos Aspects"
+      sub_header:
+          all_aspects: "Tous les Aspects"
+          manage_aspects: "Gérez vos Aspects"
+      publisher:
+          share: "Partager"
+      aspect_friends:
+          add_friends: "Ajouter des amis"
+  albums:
+      album:
+          you: "vous"
+      new_album:
+          create: "créer"
+          add_a_new_album: "Ajouter un nouvel album"
+      show:
+          edit_album: "Éditer l’album"
+          albums: "albums"
+          updated: "mis à jour"
+          by: "par"
+      edit:
+          editing: "Édition"
+          updated: "mis à jour"
+          are_you_sure: "Êtes-vous sûr?"
+          delete_album: "Supprimer l'album"
+          cancel: "Annuler"
+      index:
+          home: "accueil"
+          new_album: "Nouvel album"
+      helper:
+          friends_albums: "Friends Albums"
+          your_albums: "Your Albums"
+      create:
+          success: "Tu as créé un album nommé %{name}."
+      update:
+          success: "L’album %{name} a été édité avec succès."
+          failure: "L’édition de l’album %{name} a échoué."
+      destroy:
+          success: "L’album %{name} a été supprimé."
+  aspects:
+      index:
+          photos: "photos"
+      show:
+          photos: "photos"
+      manage:
+          add_a_new_aspect: "Ajouter un nouvel aspect"
+          add_a_new_friend:  "Ajouter un nouvel amis"
+          show: "Voir"
+          update_aspects: "Mettre à jour les aspects"
+          requests: "Requêtes"
+          ignore_remove: "Ignorer/Supprimer"
+      new_aspect:
+          add_a_new_aspect: "Ajouter un nouvel aspect"
+          create: "Créer"
+      create:
+          success:"Cliquez sur plus situé sur le côté gauche afin d’en informer Diaspora qui peut voir votre nouvel aspect."
+  users:
+      edit:
+          editing_profile: "Édition du profil"
+      profile:
+          cancel: "Annuler"
+          update_profile: "Mettre à jour le profil"
+          home: "Accueil"
+          diaspora_username: "NOM D’UTILISATEUR DIASPORA"
+          info: "Information"
+          picture: "Image"
+          editing_profile: "Édition du profil"
+          albums: "Albums"
+          you_dont_have_any_photos: "Vous n’avez aucune photo !  Rendez-vous sur la page"
+          page_to_upload_some:  "afin d’en transférer quelques-unes."
+  comments:
+      comment:
+          ago: "il y a"
+      new_comment:
+          comment: "Commentaire"
+  photos:
+      show:
+          prev: "précédent"
+          full_size: "taille réelle"
+          next: "suivant"
+          edit_photo: "Éditer la photo"
+          delete_photo: "Supprimer la photo"
+          are_you_sure: "Êtes-vous sûr ?"
+          comments: "commentaires"
+      edit:
+          editing: "Édition"
+          are_you_sure: "Êtes-vous sûr ?"
+          delete_photo: "Supprimer la photo"
+      photo:
+          show_comments: "afficher les commentaires"
+          posted_a_new_photo_to: "a publié une nouvelle photo sur"
+      new:
+          new_photo: "Nouvelle photo"
+          back_to_list: "Retourner à la liste"
+          post_it: "publiez-la !"
+  registrations:
+      new:
+          sign_up: "Inscription"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "dites-moi quelque chose de bien"
+          oh_yeah: "oh ouais !"
+      status_message:
+          show_comments: "afficher les commentaires"
+          delete: "Supprimer"
+          are_you_sure: "Êtes-vous sûr ?"
+      show:
+          status_message: "Message d’état"
+          comments: "commentaires"
+          are_you_sure: "Êtes-vous sûr ?"
+          destroy: "Détruire"
+          view_all: "Tout voir"
+          message: "Message"
+          owner: "Propriétaire"
+  people:
+      index:
+          add_friend: "ajouter un ami"
+          real_name: "nom réel"
+          diaspora_handle: "maniement de Diaspora"
+          thats_you: "c’est vous !"
+          friend_request_pending: "Requête d’ami en attente"
+          you_have_a_friend_request_from_this_person: "vous avez une requête d’ami de la part de cette personne"
+      new:
+          new_person: "Nouvelle personne"
+          back_to_list: "Retourner à la liste"
+      show:
+          last_seen: "dernière connexion : %{how_long_ago}"
+          friends_since: "amis depuis : %{how_long_ago}"
+          save: "sauvegarder"
+          are_you_sure: "Êtes-vous sûr ?"
+          remove_friend: "supprimer un ami"

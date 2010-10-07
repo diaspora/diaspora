@@ -2,10 +2,8 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
 module DashboardsHelper
-
   def title_for_page
-      'home'
+    I18n.t('dashboards.helper.home')
   end
 end

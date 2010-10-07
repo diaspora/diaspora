@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe MessageHandler do
   before do
@@ -41,8 +39,7 @@ describe MessageHandler do
         }
       end
 
-
-      it 'should only retry a bad request three times ' do
+      it 'should only retry a bad request the correct number of times' do
         request = FakeHttpRequest.new(:failure)
         request.should_receive(:get).exactly(MessageHandler::NUM_TRIES).times.and_return(request)
         EventMachine::HttpRequest.stub!(:new).and_return(request)
@@ -60,7 +57,6 @@ describe MessageHandler do
   end
 
   describe 'POST messages' do
-
 
     it 'should be able to add a post message to the queue' do
       EventMachine.run {
@@ -98,6 +94,26 @@ describe MessageHandler do
     end
   end
 
+  describe "Hub publish" do
+    it 'should correctly queue up a pubsubhubbub publish request' do
+      destination = "http://identi.ca/hub/"
+      feed_location = "http://google.com/"
+
+      EventMachine.run {
+        @handler.add_hub_notification(destination, feed_location)
+        q = @handler.instance_variable_get(:@queue)
+
+        message = ""
+        q.pop{|m| message = m}
+
+        message.destination.should == destination
+        message.body.should == feed_location
+
+        EventMachine.stop
+      }
+    end
+  end
+
   describe "Mixed Queries" do
 
     it 'should process both POST and GET requests in the same queue' do
@@ -123,7 +139,6 @@ describe MessageHandler do
       request = FakeHttpRequest.new(:success)
       request.should_receive(:get).exactly(1).times.and_return(request)
       request.should_receive(:post).exactly(1).times.and_return(request)
-      @handler.should_receive(:send_to_seed).once
 
       EventMachine::HttpRequest.stub!(:new).and_return(request)
 

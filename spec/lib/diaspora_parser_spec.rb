@@ -2,20 +2,15 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
-
-include ApplicationHelper
-include Diaspora::Parser
-
-
+require 'spec_helper'
 
 describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @aspect = @user.aspect(:name => 'spies')
-    @person = Factory.create(:person_with_private_key, :diaspora_handle => "bill@gates.com")
+
+    @user3 = Factory.create :user
+    @person = @user3.person
     @user2 = Factory.create(:user)
   end
 
@@ -71,12 +66,13 @@ describe Diaspora::Parser do
       original_person_id = @person.id
       xml = request.to_diaspora_xml
 
+      @user3.destroy
       @person.destroy
       Person.all.count.should == person_count -1
       @user.receive xml
       Person.all.count.should == person_count
 
-      Person.first(:_id => original_person_id).serialized_key.include?("PUBLIC").should be true
+      Person.first(:_id => original_person_id).serialized_public_key.include?("PUBLIC").should be true
       url = "http://" + request.callback_url.split("/")[2] + "/"
       Person.where(:url => url).first.id.should == original_person_id
     end
@@ -88,14 +84,13 @@ describe Diaspora::Parser do
       original_person_id = @user2.person.id
       xml = request.to_diaspora_xml
 
-
       Person.all.count.should be person_count
       @user.receive xml
       Person.all.count.should be person_count
 
       @user2.reload
       @user2.person.reload
-      @user2.person.serialized_key.include?("PRIVATE").should be true
+      @user2.serialized_private_key.include?("PRIVATE").should be true
 
       url = "http://" + request.callback_url.split("/")[2] + "/"
       Person.where(:url => url).first.id.should == original_person_id
@@ -103,7 +98,7 @@ describe Diaspora::Parser do
 
     it "should activate the Person if I initiated a request to that url" do
       request = @user.send_friend_request_to( @user2.person, @aspect)
-
+      @user.reload
       request.reverse_for @user2
 
       xml = request.to_diaspora_xml
@@ -121,10 +116,10 @@ describe Diaspora::Parser do
       @user.friends.include?(new_person).should be true
     end
 
-
     it 'should process retraction for a person' do
       person_count = Person.all.count
       request = @user.send_friend_request_to( @user2.person, @aspect)
+      @user.reload
       request.reverse_for @user2
       xml = request.to_diaspora_xml
 
@@ -138,7 +133,6 @@ describe Diaspora::Parser do
       @aspect.reload
       aspect_people_count = @aspect.people.size
       #They are now friends
-
 
       Person.count.should == person_count
       @user.receive retraction_xml

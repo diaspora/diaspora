@@ -2,60 +2,57 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-
-
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe User do
-   before do
-      @user = Factory.create(:user)
-      @aspect = @user.aspect(:name => 'heroes')
-   end
-  
-  it 'should create with pivotal or allowed emails' do
-    user1 = Factory.create(:user, :email => "kimfuh@yahoo.com")
-    user2 = Factory.create(:user, :email => "awesome@sofaer.net")
-    user3 = Factory.create(:user, :email => "steveellis@pivotallabs.com")
-    user1.created_at.nil?.should be false
-    user2.created_at.nil?.should be false
-    user3.created_at.nil?.should be false
-  end
+  let(:user)   { Factory(:user) }
 
-  describe 'profiles' do
-    it 'should be able to update their profile and send it to their friends' do
-      Factory.create(:person)
+  describe "validations" do
+    it "downcases the username" do
+      user = Factory.build(:user, :username => "ALLUPPERCASE")
+      user.valid?
+      user.username.should == "alluppercase"
 
-      updated_profile = {:profile => {:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com"}}
-
-      @user.update_profile(updated_profile).should == true
-      @user.profile.image_url.should == "http://clown.com"
+      user = Factory.build(:user, :username => "someUPPERCASE")
+      user.valid?
+      user.username.should == "someuppercase"
     end
   end
 
-  describe 'aspects' do
-    it 'should delete an empty aspect' do
-      @user.aspects.include?(@aspect).should == true
-      @user.drop_aspect(@aspect)
-      @user.reload
+  describe '#diaspora_handle' do
+    it 'uses the pod config url to set the diaspora_handle' do
+      user.diaspora_handle.should == user.username + "@" + APP_CONFIG[:terse_pod_url]
+    end
+  end
 
-      @user.aspects.include?(@aspect).should == false
+  context 'profiles' do
+    it 'should be able to update their profile and send it to their friends' do
+      updated_profile = { :profile => {
+                            :first_name => 'bob',
+                            :last_name => 'billytown',
+                            :image_url => "http://clown.com"} }
+
+      user.update_profile(updated_profile).should be true
+      user.profile.image_url.should == "http://clown.com"
+    end
+  end
+
+  context 'aspects' do
+    let(:aspect) { user.aspect(:name => 'heroes') }
+    let(:user2)   { Factory(:user) }
+    let(:aspect2) { user2.aspect(:name => 'stuff') }
+
+    it 'should delete an empty aspect' do
+      user.drop_aspect(aspect)
+      user.aspects.include?(aspect).should == false
     end
 
     it 'should not delete an aspect with friends' do
-      user2   = Factory.create(:user)
-      aspect2 = user2.aspect(:name => 'stuff')
-      user2.reload
-      aspect2.reload
-
-      friend_users(@user, Aspect.find_by_id(@aspect.id), user2, Aspect.find_by_id(aspect2.id))
-      @aspect.reload
-      
-      @user.aspects.include?(@aspect).should == true
-
-      proc{@user.drop_aspect(@aspect)}.should raise_error /Aspect not empty/
-
-      @user.reload
-      @user.aspects.include?(@aspect).should == true
+      friend_users(user, Aspect.find_by_id(aspect.id), user2, Aspect.find_by_id(aspect2.id))
+      aspect.reload
+      proc{user.drop_aspect(aspect)}.should raise_error /Aspect not empty/
+      user.aspects.include?(aspect).should == true
     end
   end
+
 end

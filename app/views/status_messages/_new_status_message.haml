@@ -2,9 +2,8 @@
 -#   licensed under the Affero General Public License version 3.  See
 -#   the COPYRIGHT file.
 
-
 = form_for StatusMessage.new, :remote => true do |f|
   = f.error_messages
   %p
-    = f.text_field :message, :value => "tell me something good"
-    = f.submit 'oh yeah!', :class => 'button'
+    = f.text_field :message, :value => t('.tell_me_something_good')
+    = f.submit t('.oh_yeah'), :class => 'button'
