@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3.  See
 #   the COPYRIGHT file.
 
-no_NO:
+nb:
   errors:
     messages:
       not_found: "ble ikke funnet"
