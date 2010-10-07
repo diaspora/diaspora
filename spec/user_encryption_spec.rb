@@ -9,7 +9,7 @@ describe 'user encryption' do
     unstub_mocha_stubs
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => 'dudes')
-    
+
     @user2 = Factory.create(:user)
     @aspect2 = @user2.aspect(:name => 'dudes')
   end

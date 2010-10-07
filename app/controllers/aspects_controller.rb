@@ -56,7 +56,7 @@ class AspectsController < ApplicationController
 
     respond_with @aspect
   end
-  
+
   def manage
     @aspect = :manage
     @remote_requests = Request.for_user(current_user).all

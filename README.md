@@ -18,7 +18,7 @@ instructions.
 You are welcome to contribute, add to and extend Diaspora however you see fit.  We
 will do our best to incorporate everything that meets our guidelines.
 
-Please do not rebase our tree into yours.  
+Please do not rebase our tree into yours.
 See [here](http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html)
 for when to rebase.
 

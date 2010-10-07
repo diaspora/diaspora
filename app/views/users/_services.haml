@@ -10,7 +10,7 @@
   %p
     - if @logged_in
       = connected_fb_as(@access_token)
-      
+
       %p
       - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
       - @fb_friends[:data].each do |friend|
