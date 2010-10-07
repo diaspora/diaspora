@@ -47,6 +47,13 @@
     %p
       = p.label :last_name
       = p.text_field :last_name, :value => @profile.last_name
+  %p
+    = f.label :password
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+
 
   #submit_block
     = link_to t('.cancel'), root_path

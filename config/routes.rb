@@ -9,9 +9,9 @@ Diaspora::Application.routes.draw do
   resources :requests,        :except => [:edit, :update]
   resources :photos,          :except => [:index]
   resources :albums
-  
+
   # added public route to user
-  match 'users/:username/public', :to => 'users#public'
+  match 'public/:username', :to => 'users#public'
   resources :users,               :except => [:create, :new, :show]
 
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
@@ -42,6 +42,8 @@ Diaspora::Application.routes.draw do
 
   match 'webfinger', :to => 'publics#webfinger'
   match 'hcard/users/:id',    :to => 'publics#hcard'
+
+  match 'hub',    :to => 'publics#hub'
 
   match '.well-known/host-meta',:to => 'publics#host_meta'
   match 'receive/users/:id',     :to => 'publics#receive'

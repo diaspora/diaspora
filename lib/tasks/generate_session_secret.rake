@@ -19,7 +19,6 @@ namespace :generate do
 Rails.application.config.secret_token = '#{secret}'
 EOF
 
-puts "YAY!!"
 end
 
   end

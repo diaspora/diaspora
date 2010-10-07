@@ -22,7 +22,7 @@ module Diaspora
           aspect.requests << request
           aspect.save
 
-          salmon request, :to => desired_friend
+          push_to_people request, [desired_friend]
         end
         request
       end
@@ -38,7 +38,8 @@ module Diaspora
       end
 
       def dispatch_friend_acceptance(request, requester)
-        salmon request, :to => requester
+        friend_acceptance = salmon(request)
+        push_to_person requester, friend_acceptance.xml_for(requester)
         request.destroy unless request.callback_url.include? url
       end
 
@@ -80,7 +81,7 @@ module Diaspora
       def unfriend(bad_friend)
         Rails.logger.info("#{self.real_name} is unfriending #{bad_friend.inspect}")
         retraction = Retraction.for(self)
-        salmon( retraction, :to => bad_friend)
+        push_to_people retraction, [bad_friend]
         remove_friend(bad_friend)
       end
 

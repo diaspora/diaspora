@@ -56,6 +56,11 @@ namespace :deploy do
     run "ln -s -f #{shared_path}/app_config.yml #{current_path}/config/app_config.yml"
   end
 
+  task :symlink_fb_config do
+    run "touch #{shared_path}/fb_config.yml"
+    run "ln -s -f #{shared_path}/fb_config.yml #{current_path}/config/fb_config.yml"
+  end
+
    task :start do
       start_mongo
       start_thin
@@ -137,7 +142,7 @@ namespace :db do
   end
 
   task :backer_seed, :roles => :backer do
-    (0..10).each { |n|
+    (0..2).each { |n|
       run "curl -silent http://localhost/set_backer_number?number=#{n}", :only => {:number => n}
     }
     run "cd #{current_path} && bundle exec rake db:seed:backer --trace RAILS_ENV=#{rails_env}"
@@ -152,4 +157,4 @@ namespace :db do
 
 end
 
-after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config'
+after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config', 'deploy:symlink_fb_config'
