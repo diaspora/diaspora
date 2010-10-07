@@ -16,9 +16,9 @@ module Diaspora
         builder = Nokogiri::XML::Builder.new do |xml|
           xml.user {
             xml.username user.username
-            xml.serialized_private_key user.serialized_private_key 
             xml.parent << user.person.to_xml
-
+            xml.serialized_private_key user.serialized_private_key 
+            
             xml.aspects {
               user.aspects.each do |aspect|
                 xml.aspect { 
