@@ -11,6 +11,14 @@ describe UsersController do
     @user.aspect(:name => "lame-os")
   end
 
+  describe '#export' do
+    it 'should return an xml file'  do
+      get :export
+      response.header["Content-Type"].should include "application/xml"
+    end
+  end
+
+
   describe '#update' do
     context 'with a profile photo set' do
       before do
