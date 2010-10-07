@@ -4,11 +4,6 @@
 
 module Diaspora
 
-  def self.bone(user)
-    exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
-    exporter.execute(user)
-  end
-
   class Exporter
     def initialize(strategy)
       self.class.send(:include, strategy)
@@ -22,7 +17,7 @@ module Diaspora
           xml.user {
             xml.username user.username
             xml.serialized_private_key user.serialized_private_key 
-            xml.person user.person.to_xml
+            xml.parent << user.person.to_xml
 
             xml.aspects {
               user.aspects.each do |aspect|
@@ -36,8 +31,14 @@ module Diaspora
                     end
                   }
                   xml.posts {
-                    aspect.posts.each do |post|
-                      xml.post post.to_xml if post.respond_to? :to_xml
+                    aspect.posts.find_all_by_person_id(user.person.id).each do |post|
+                      post_doc = post.to_xml
+                      
+                      post.comments.each do |comment|
+                        post_doc << comment.to_xml
+                      end
+
+                      xml.post post_doc
                     end
                   }
                 }
