@@ -50,7 +50,7 @@ class Person
   end
 
   def public_url
-    "#{self.url}users/#{self.owner.username}/public.atom"
+    "#{self.url}public/#{self.owner.username}"
   end
 
 
@@ -110,7 +110,7 @@ class Person
     hcard = HCard.find profile.hcard.first[:href]
 
     new_person.url = hcard[:url]
-    new_person.profile = Profile.new(:first_name => hcard[:given_name], :last_name => hcard[:family_name])
+    new_person.profile = Profile.new(:first_name => hcard[:given_name], :last_name => hcard[:family_name], :image_url => hcard[:photo])
     if new_person.save
       new_person
     else

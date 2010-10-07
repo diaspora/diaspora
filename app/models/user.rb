@@ -187,7 +187,7 @@ class User
   end
 
   def push_to_hub(post)
-    Rails.logger.debug("Pushing update to pubsub server")
+    Rails.logger.debug("Pushing update to pubsub server #{APP_CONFIG[:pubsub_server]} with url #{self.public_url}")
     QUEUE.add_hub_notification(APP_CONFIG[:pubsub_server], self.public_url)
   end
 
@@ -254,7 +254,7 @@ class User
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
-    
+
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
     User.create(opts)
@@ -288,7 +288,7 @@ class User
   def self.generate_key
     OpenSSL::PKey::RSA::generate 4096
   end
-  
+
   def encryption_key
     OpenSSL::PKey::RSA.new( serialized_private_key )
   end

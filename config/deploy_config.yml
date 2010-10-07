@@ -11,3 +11,4 @@ cross_server:
 servers:
   pivots:
     url: 'pivots.joindiaspora.com'
+

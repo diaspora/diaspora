@@ -53,7 +53,7 @@ module Salmon
       salmon.magic_sig = MagicSigEnvelope.create(user , user.person.aes_encrypt(activity, aes_key_hash))
       salmon
     end
-   
+
     def self.parse(xml, user)
       slap = self.new
       doc = Nokogiri::XML(xml)
@@ -63,6 +63,7 @@ module Salmon
       ### Header ##
       decrypted_header = user.decrypt(doc.search('encrypted_header').text)
       header_doc       = Nokogiri::XML(decrypted_header)
+      slap.author_email= header_doc.search('uri').text.split("acct:").last
       slap.aes_key     = header_doc.search('aes_key').text
       slap.iv          = header_doc.search('iv').text
 
@@ -81,8 +82,6 @@ module Salmon
 
       raise ArgumentError, "Magic Signature data must be signed with RSA-SHA256, was #{slap.magic_sig.alg}" unless 'RSA-SHA256' == slap.magic_sig.alg
 
-      uri = doc.search('uri').text
-      slap.author_email = uri.split("acct:").last
       slap
     end
 
@@ -91,10 +90,6 @@ module Salmon
     <?xml version='1.0' encoding='UTF-8'?>
     <entry xmlns='http://www.w3.org/2005/Atom'>
     <encrypted_header>#{person.encrypt(decrypted_header)}</encrypted_header>
-    <author>
-      <name>#{@author.real_name}</name>
-      <uri>acct:#{@author.diaspora_handle}</uri>
-    </author>
       #{@magic_sig.to_xml}
       </entry>
 ENTRY

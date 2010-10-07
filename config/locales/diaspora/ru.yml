@@ -66,7 +66,10 @@ ru:
           add_a_new_aspect: "Добавить аспект"
           create: "Создать"
       create:
-          success:"Нажмите на плюс слева, для того, что-бы указать Diaspora тех, кто может видеть ваш новый аспект."
+          success:"Нажмите на плюс слева, для того, что-бы указать Diaspora тех, кто может видеть ваш новый аспект
+      helper:
+        remove: "Удалить"
+        aspect_not_empty: "Аспект не пуст"
   users:
       edit:
           editing_profile: "Редактирование профиля"
@@ -79,8 +82,9 @@ ru:
           picture: "Аватар"
           editing_profile: "Редактирование профиля"
           albums: "Альбомы"
-          you_dont_have_any_photos: "У вас нет ни одной фотографии! Перейдите на "
-          page_to_upload_some:  "страницу для загрузки."
+          you_dont_have_any_photos: "У вас нет ни одной фотографии! Перейдите в"
+          page_to_upload_some:  "для загрузки."
+          or: "или"
   comments:
       comment:
           ago: "ранее"
@@ -142,3 +146,18 @@ ru:
           save: "сохранить"
           are_you_sure: "Вы уверены?"
           remove_friend: "удалить друга"
+  requests:
+      new_request:
+          add_a_new_friend_to: "добавить нового друга к"
+          enter_a_diaspora_username: "Введите имя пользователя Diaspora:"
+          your_diaspora_username_is: "Ваше имя пользователя Diaspora: %{diaspora_handle}"
+          friends_username: "Имя пользователя друга"
+      destroy:
+          success: "Теперь вы друзья."
+          error: "Выберите аспект!"
+          ignore: "Игнорированные запросы дружбы."
+      create:
+          error: "Для этого адреса не найдено семя Diaspora!"
+          already_friends: "Вы уже друзья с %{destination_url}!"
+          success: "Запрос на дружбу выслан к %{destination_url}."
+          horribly_wrong: "Что-то пошло совсем не так."
