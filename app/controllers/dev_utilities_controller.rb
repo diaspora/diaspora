@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class DevUtilitiesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:set_backer_number]
+  before_filter :authenticate_user!, :except => [:set_backer_number, :log]
   include ApplicationHelper
   include RequestsHelper
 
