@@ -50,7 +50,7 @@ class Person
   end
 
   def public_url
-    "#{self.url}users/#{self.owner.username}/public"
+    "#{self.url}users/#{self.owner.username}"
   end
 
 
