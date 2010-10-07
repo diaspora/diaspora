@@ -19,10 +19,14 @@
 - content_for :left_pane do
   %ul#settings_nav
     %li=link_to 'Profile', '#', :class => 'profile'
+    %li=link_to 'Account', '#', :class => 'account'
     %li=link_to 'Services', '#', :class => 'services'
 
 #profile.settings_pane{:style=>"display:block;"}
   = render 'users/profile'
+
+#account.settings_pane
+  = link_to "download my stuff", users_export_path, :class => "button"
 
 #services.settings_pane
   = render 'users/services'

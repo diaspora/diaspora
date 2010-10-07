@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
   def export
     exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
-    render :xml => exporter.execute(current_user) 
+    send_data exporter.execute(current_user), :filename => "#{current_user.username}_diaspora_data.xml", :type => :xml
   end
 
   private
