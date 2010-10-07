@@ -4,6 +4,7 @@
 
 class UsersController < ApplicationController
   require File.expand_path('../../../lib/diaspora/ostatus_builder', __FILE__)
+  require File.expand_path('../../../lib/diaspora/exporter', __FILE__)
 
   before_filter :authenticate_user!, :except => [:new, :create, :public]
 
@@ -54,6 +55,11 @@ class UsersController < ApplicationController
       flash[:error] = "User #{params[:username]} does not exist!"
       redirect_to root_url
     end
+  end
+
+  def export
+    exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
+    render :xml => exporter.execute(current_user) 
   end
 
   private

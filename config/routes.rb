@@ -10,9 +10,12 @@ Diaspora::Application.routes.draw do
   resources :photos,          :except => [:index]
   resources :albums
 
+  devise_for :users, :controllers => {:registrations => "registrations",
+                                      :password      => "devise/passwords"}
   # added public route to user
   match 'public/:username', :to => 'users#public'
-  resources :users,               :except => [:create, :new, :show]
+  match 'users/export',     :to => 'users#export'
+  resources :users,         :except => [:create, :new, :show]
 
   match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
   match 'aspects/move_friend',  :to => 'aspects#move_friend', :as => 'move_friend'
@@ -31,7 +34,6 @@ Diaspora::Application.routes.draw do
   match 'set_profile_photo',  :to   => "dev_utilities#set_profile_photo"
   #routes for devise, not really sure you will need to mess with this in the future, lets put default,
   #non mutable stuff in anohter file
-  devise_for :users, :controllers => {:registrations => "registrations"}
   match 'login',  :to => 'devise/sessions#new',      :as => "new_user_session"
   match 'logout', :to => 'devise/sessions#destroy',  :as => "destroy_user_session"
   match 'signup', :to => 'registrations#new',        :as => "new_user_registration"
