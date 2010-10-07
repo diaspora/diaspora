@@ -23,7 +23,7 @@ class StatusMessagesController < ApplicationController
     end
 
     @status_message = current_user.post(:status_message, data)
-    respond_with @status_message
+    render :nothing => true
   end
 
   def destroy
