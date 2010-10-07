@@ -1,0 +1,21 @@
+diff --git a/script/server b/script/server
+index da43895..c5357a3 100755
+--- a/script/server
++++ b/script/server
+@@ -7,9 +7,13 @@ then
+     echo "Mongod not started"
+ else
+     mkdir -p -v log/thin/
+-		#force AGPL
+-		tar cf ../_source.tar -X .gitignore *
+-		mv ../_source.tar public/source.tar
++    #force AGPL
++    test -w public -a ! -e  public/source.tar &&
++        tar cf public/source.tar  --exclude='source.tar' -X .gitignore *
++    test -e public/source.tar || {
++        echo "Can't find, or even create, public/source.tar. Giving up"
++        exit 2
++    }
+     bundle exec ruby ./script/websocket_server.rb&
+     bundle exec thin start $@
+ fi

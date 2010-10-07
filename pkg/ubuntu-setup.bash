@@ -5,7 +5,7 @@
 # This script helps to setup diaspora.
 #
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 # USAGE: ./script/ubuntu-setup.bash
@@ -23,9 +23,10 @@ We need to do some actions as an ordinary user. We use sudo where necessary." &&
 # Check if the user has sudo privileges.
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 
-# Check if universal repository is enabled
-grep -i universe /etc/apt/sources.list > /dev/null || \
+# Check if universal repository is enabled 
+grep -ie '^deb .*universe' /etc/apt/sources.list > /dev/null || \
     { echo "Please enable universe repository" ; exit 1 ; }
+
 
 # Make sure that we only install the latest version of packages
 sudo apt-get update
