@@ -12,6 +12,13 @@ default:
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
   mongo_host: 'localhost'
   mongo_port: 27017
+  smtp_address: 'smtp.example.com'
+  smtp_port: '587'
+  smtp_domain: 'mail.example.com'
+  smtp_authentication: 'plain'
+  smtp_username: 'no-reply@example.com'
+  smtp_password: 'secret'
+  
 
 development:
 
