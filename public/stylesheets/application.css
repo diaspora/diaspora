@@ -716,3 +716,7 @@ ul#settings_nav {
 
 #thumbnails {
   line-height: 14px; }
+
+#aspect_list {
+  margin: 0;
+  padding: 0; }
