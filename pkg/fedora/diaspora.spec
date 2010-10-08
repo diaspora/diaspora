@@ -1,4 +1,4 @@
-%global         debug_package %{nil} 
+%global         debug_package   %{nil} 
 %define         git_release     HEAD
 
 Summary:        A social network server
@@ -14,15 +14,10 @@ Source1:        diaspora-ws
 Source2:        diaspora-setup
 BuildArch:      noarch
 
-# See http://github.com/diaspora/diaspora/issues/issue/393
-Patch0:         source-fix.patch
-
-BuildRequires:  git
-
-Requires(pre):  shadow-utils
 Requires:       mongodb-server
 Requires:       ruby(abi) = 1.8
 Requires:       diaspora-bundle = %{version}
+
 
 %description
 A privacy aware, personally controlled, do-it-all and
@@ -30,12 +25,7 @@ open source social network server.
 
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
-pushd master 
-%patch0 -p1
 
-# See: http://github.com/diaspora/diaspora/issues/issue/392
-git apply %{_sourcedir}/perm-fix.patch
-popd
 find .  -perm /u+x -type f -exec \
     sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
 
@@ -45,14 +35,6 @@ mkdir master/tmp || :
 pushd  master
     tar cf public/source.tar  --exclude='source.tar' -X .gitignore *
 popd
-
-%pre
-getent group diaspora >/dev/null || groupadd -r diaspora
-getent passwd diaspora >/dev/null ||       \
-    useradd -r -g apache                 \
-    -md /usr/share/diaspora -s /sbin/nologin \
-    -c "Diaspora daemon" diaspora
-exit 0
 
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
@@ -68,9 +50,18 @@ mkdir -p  $RPM_BUILD_ROOT/etc/logrotate.d
 cp diaspora.logconf  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
-cp master/.gitignore $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
+cp -ar master/.gitignore master/.bundle $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
 cp diaspora-setup  $RPM_BUILD_ROOT/%{_datadir}/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
+
+find  $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type d  -fprintf dirs '%%%dir "%%p"\n'
+find  -L $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type f -fprintf files '"%%p"\n'
+cat files >> dirs && mv -f dirs files
+sed -i   -e '\|.*/master/config.ru"$|d'                    \
+         -e '\|.*/master/config/environment.rb"$|d'        \
+         -e 's|%{buildroot}||' -e 's|//|/|' -e '/""/d'     \
+      files
+
 
 %post
 rm -f  %{_datadir}/diaspora/master/vendor/bundle
@@ -83,7 +74,7 @@ ln -s  %{_libdir}/diaspora-bundle/master/vendor/bundle \
        %{_datadir}/diaspora/master/vendor || :
 ln -s  %{_localstatedir}/lib/diaspora/uploads \
        %{_datadir}/diaspora/master/public/uploads || :
-/sbin/chkconfig --add  diaspora-ws
+/sbin/chkconfig --add  diaspora-ws || :
 
 %preun
 if [ $1 -eq 0 ] ; then
@@ -94,15 +85,39 @@ fi
 %clean
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 
-%files
-%defattr(-, root, root, 0755)
+%files -f files
+%defattr(-, diaspora, diaspora, 0755)
 %doc  README.md GNU-AGPL-3.0
-%attr(0555, diaspora, diaspora) %{_datadir}/diaspora
+%attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config.ru
+%attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config/environment.rb
 %attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
 %{_sysconfdir}/init.d/diaspora-ws
 
 %changelog
-* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>       1.1009280542_859ec2d
-  - Initial attempt to create a spec file
+* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1009280542_859ec2d
+  - Initial attempt to create a spec fi+le
+
+# rubygem-term-ansicolor  in repo (1.0.5)
+# rubygem-abstract:       in repo (1.0)
+# rubygem-actionpack      in repo (2.3.5), rawhide (2.3.8)
+# rubygem-builder         in repo (2.1.2)
+# rubygem-columnize       in repo (0.3.1)
+# rubygem-crack           in repo (0.1.8)
+# rubygem-cucumber        in repo (0.9.0)
+# diff-lcs                in rep  (1.1.2)
+# eventmachine            in repo (0.12.10)
+# gherkin                 in repo (2.2.4)
+# rubygem-json            in repo (1.1.9), rawhide(1.4.6)
+# rubygem-linecache       in repo (0.43)
+# rubygem-mime-types      in repo (1.16)
+# rubygem-mocha           in repo (0.9.8)
+# rubygem-net-ssh         in repo (2.0.23)
+# rubygem-nokogiri        in repo (1.4.3.1)
+# rubygem-rake            in repo (0.8.7)
+# rubygem-ruby-debug      in repo (0.10.4)
+# rubygem-ruby-debug-base in repo (0.10.4)
+# rubygem-term-ansicolor  in repo (1.0.5)
+# rubygem-thin            in repo(1.2.5), rawhide(1.2.7)
+# rubygem-uuidtools       in repo(2.1.1)

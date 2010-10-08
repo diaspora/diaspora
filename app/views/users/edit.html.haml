@@ -14,7 +14,7 @@
 
 
 - content_for :publish do
-  %h1="#{t('.editing_profile')}"
+  %h2="#{t('.editing_profile')}"
 
 - content_for :left_pane do
   %ul#settings_nav
@@ -26,10 +26,8 @@
   = render 'users/profile'
 
 #account.settings_pane
-  = link_to "download my xml", users_export_path, :class => "button"
-  = link_to "download my photos", users_export_photos_path, :class => "button"
+  = render 'users/account'
 
 #services.settings_pane
   = render 'users/services'
-
 

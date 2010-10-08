@@ -1,5 +1,9 @@
-%define         git_release     1010040945_a09a6d8
-# Turn off the brp-python-bytecompile script
+%define         git_release     HEAD
+
+# Turn off java repack, this is in in /usr/lib[64] anyway
+%define         __jar_repack    %{nil}
+
+# Turn off the brp-python-bytecompile script, *pyc/pyo causes problems
 %global __os_install_post %(echo '%{__os_install_post}' | 
        sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
@@ -13,6 +17,8 @@ URL:            http://www.joindiaspora.com/
 Vendor:         joindiaspora.com
 Source:         %{name}-%{version}-%{git_release}.tar.gz
 Prefix:         %{_prefix}
+
+Requires(pre):  shadow-utils
 BuildRequires:  git
 Requires:       ruby(abi) = 1.8
 
@@ -27,8 +33,6 @@ Requires:  %{name} = %{version}
 
 %description devel
 Source file usede to compile native libraries in diaspora-bundle.
-
-
 
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
@@ -60,7 +64,7 @@ pushd bundle/ruby/1.8/
       sed -i -e '/^#!/d' $f
       chmod 0644 $f
     done > /dev/null 2>&1
-    find . -type f -print0 | 
+    find .  -perm /u+x  -type f -print0 | 
         xargs --null sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|'
 
     chmod 755 gems/thin-1.2.7/example/async_chat.ru
@@ -70,13 +74,12 @@ pushd bundle/ruby/1.8/
     chmod 644 gems/mini_magick-2.1/MIT-LICENSE
     chmod 755 gems/thin-1.2.7/lib/thin/controllers/service.sh.erb
     chmod 644 gems/treetop-1.4.8/spec/compiler/test_grammar.tt
-
 popd
-
 
 %build
 
 pushd bundle/ruby/1.8/
+    # In repo (2.2.4)
     test -d gems/gherkin-*/ext && {
     pushd gems/gherkin-*/ext
     # Recompile all shared libraries using -O2 optimalization flagcd 
@@ -104,16 +107,18 @@ pushd bundle/ruby/1.8/
     popd
     }
 
+    # In repo as 1.2.5, rawhide 1.2.7
     pushd  gems/thin-1.2.7/lib
         rm thin_parser.so
         ln -s ../ext/thin_parser/thin_parser.so .
     popd
 
-    pushd gems/bson_ext-1.0.7/ext/bson_ext
+    pushd gems/bson_ext-1.1/ext/bson_ext
         rm cbson.so
         ln -s ../cbson/cbson.so .
     popd
 
+    # In repo (0.10.4) 
     pushd gems/ruby-debug-base-0.10.3/lib
         rm ruby_debug.so
         ln -s ../ext/ruby_debug.so .
@@ -127,6 +132,7 @@ pushd bundle/ruby/1.8/
        ln -s ../ext/fastfilereader/fastfilereaderext.so .
     popd
 
+    # In repo
     pushd gems/bcrypt-ruby-2.1.2/lib
         rm bcrypt_ext.so
         ln -s ../ext/mri/bcrypt_ext.so .
@@ -151,8 +157,8 @@ pushd bundle/ruby/1.8/
         ln -s ../ext/trace_nums.so .
     popd
 
-    pushd bundler/gems/em-http-request-6f66010cda90/lib
-       rm em_buffer.so
+    pushd bundler/gems/em-http-request-*/lib
+        rm em_buffer.so
         ln -s ../ext/buffer/em_buffer.so .
         rm http11_client.so
         ln -s ../ext/http11_client/http11_client.so .
@@ -160,7 +166,19 @@ pushd bundle/ruby/1.8/
 popd
 
 
+
+%pre
+getent group diaspora >/dev/null || groupadd -r diaspora
+getent passwd diaspora >/dev/null ||        \
+    useradd -r -g diaspora                  \
+    -md  /var/lib/diaspora -s /sbin/nologin \
+    -c "Diaspora daemon" diaspora
+exit 0
+
+
 %install
+[ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
+
 find . -name .git | xargs rm -rf
 find . -name .gitignore -delete
 find . -name \*.o -delete  || :
@@ -180,16 +198,17 @@ pushd bundle/ruby/1.8/gems/selenium-webdriver-0.0.28/lib/selenium/webdriver/
 popd
 }
 
-[ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor
 
 cp -ar  bundle $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor
 find  %{buildroot}/%{_libdir}/diaspora-bundle  \
     -type d  -fprintf dirs '%%%dir "%%p"\n'
-find  -L %{buildroot}/%{_libdir}/diaspora-bundle  \
-    -regextype posix-awk -type f -not -regex '.*[.]c$|.*[.]h$|.*[.]cpp$' -fprintf files '"%%p"\n'
+find  -L %{buildroot}/%{_libdir}/diaspora-bundle  -regextype posix-awk \
+    -type f -not -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'          \
+    -fprintf files '"%%p"\n'
 find  %{buildroot}/%{_libdir}/diaspora-bundle -regextype posix-awk \
-   -type f -regex '.*[.]c$|.*[.]h$|.*[.]cpp$'  -fprintf dev-files '"%%p"\n' 
+    -type f -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'            \
+    -fprintf dev-files '"%%p"\n' 
 sed -i  -e 's|%{buildroot}||' -e 's|//|/|' files dev-files dirs
 cat files >> dirs && cp dirs files 
 
@@ -197,7 +216,7 @@ cat files >> dirs && cp dirs files
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 
 %files -f files
-%defattr(-, root, root, 0755)
+%defattr(-, diaspora, diaspora, 0755)
 %doc  COPYRIGHT Gemfile AUTHORS GNU-AGPL-3.0
 
 %files -f dev-files devel

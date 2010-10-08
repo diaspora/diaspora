@@ -9,6 +9,7 @@ require File.expand_path('../../../lib/salmon/salmon', __FILE__)
 
 class User
   include MongoMapper::Document
+  plugin MongoMapper::Devise
   include Diaspora::UserModules::Friending
   include Diaspora::UserModules::Querying
   include Diaspora::UserModules::Receiving
@@ -181,7 +182,7 @@ class User
   end
 
   def push_to_person( person, xml )
-    Rails.logger.debug("Adding xml for #{self} to message queue to #{self.url}")
+    Rails.logger.debug("#{self.real_name} is adding xml to message queue to #{person.receive_url}")
     QUEUE.add_post_request( person.receive_url, xml )
     QUEUE.process
   end

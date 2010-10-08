@@ -19,7 +19,7 @@
   - for photo in @album.photos
     .photo_edit_block= image_tag photo.url(:thumb_medium)
 
-  #submit_block
+  .submit_block
     = link_to t('.cancel'), root_path
     or
     = a.submit

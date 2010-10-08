@@ -19,3 +19,4 @@ gpg/*/random_seed
 public/uploads/*
 public/source.tar
 tmp/**/*
+capybara-*.html

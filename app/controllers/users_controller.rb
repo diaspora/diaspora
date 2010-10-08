@@ -23,10 +23,6 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    data = clean_hash params[:user]
-    prep_image_url(data)
-
-
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
 
@@ -36,10 +32,16 @@ class UsersController < ApplicationController
       else
         flash[:error] = "Password Change Failed"
       end
+    else
+      data = clean_hash params[:user]
+      prep_image_url(data)
 
+      if @user.update_profile data
+        flash[:notice] = "Profile updated"
+      else
+        flash[:error] = "Failed to update profile"
+      end
     end
-
-    @user.update_profile data
     redirect_to edit_user_path(@user)
 
   end

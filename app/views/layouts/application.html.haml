@@ -49,14 +49,14 @@
                 = text_field_tag 'q'
 
             %li= link_to current_user.real_name, current_user.person
-            %li= link_to t('.edit_profile'), edit_user_path(current_user)
+            %li= link_to "settings", edit_user_path(current_user)
             %li= link_to t('.logout.'), destroy_user_session_path
 
         = render "shared/aspect_nav"
       = render "shared/sub_header"
 
     .container
-      .span-5.last
+      .span-4.append-1.last
         = yield :left_pane
 
       .span-19.last
