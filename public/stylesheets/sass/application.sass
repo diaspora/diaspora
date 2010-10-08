@@ -212,6 +212,7 @@ li.message
         :shadow 0 1px #fff
 
       .aspect
+        :cursor default
         :display inline
         :color #bbb
         :font
@@ -224,6 +225,18 @@ li.message
           &:hover
             :text
               :decoration underline
+        ul
+          :display inline
+          :margin 0
+          :padding 0
+          :list
+            :style none
+          li
+            :display inline
+            &:after
+              :content ","
+            &:last-child:after
+              :content ""
 
       a
         :font
@@ -509,9 +522,6 @@ textarea
   :-webkit-border-radius 5px
   :-moz-border-radius 5px
 
-  :box-shadow 0 1px 2px #fff
-  :-moz-box-shadow 0 1px 2px #fff
-  :-webkit-box-shadow 0 1px 2px #fff
 
 .submit_block
   :text
@@ -719,7 +729,6 @@ h1.big_text
     :padding 0
     :list
       :style none
-
 
     > li
       :padding 0
