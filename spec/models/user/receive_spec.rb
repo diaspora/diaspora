@@ -50,10 +50,15 @@ describe User do
 
     end
 
-    it "should add the post to that user's posts when a user posts it" do
+    it "should add a received post to the aspect and visible_posts array" do
       status_message = @user.post :status_message, :message => "hi", :to => @aspect.id
       @user.reload
-      @user.raw_visible_posts.include?(status_message).should be true
+      salmon = @user.salmon(status_message).xml_for @user2.person
+      @user2.receive_salmon salmon
+      @user2.reload
+      @user2.raw_visible_posts.include?(status_message).should be true
+      @aspect2.reload
+      @aspect2.posts.include?(status_message).should be_true
     end
 
     it 'should be removed on unfriending' do
