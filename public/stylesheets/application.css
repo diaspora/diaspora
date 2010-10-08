@@ -347,7 +347,9 @@ ul.comment_set {
   #debug_info h5 {
     color: #cccccc; }
 
-input[type='text'], textarea {
+input[type='text'],
+input[type='password'],
+textarea {
   font-family: "lucida grande", "lucida sans", "sans-serif";
   font-size: 14px;
   padding: 0.3em;
@@ -362,7 +364,7 @@ input[type='text'], textarea {
   -moz-box-shadow: 0 1px 2px white;
   -webkit-box-shadow: 0 1px 2px white; }
 
-#submit_block {
+.submit_block {
   text-align: right;
   font-size: 12px; }
 

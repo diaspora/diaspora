@@ -110,7 +110,6 @@ Devise.setup do |config|
   # scope, setting true below.
   # Note that devise does not generate default routes. You also have to
   # specify them in config/routes.rb
-  config.use_default_scope = true
 
   # Configure the default scope used by Devise. By default it's the first devise
   # role declared in your routes.

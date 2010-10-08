@@ -52,13 +52,12 @@ function git_id
 
 function fix_alphatag()
 #  Patch version on top comment first id line:
-#  Uses %define git_release to get release.
+#  Usage: fix_alphatag <file> <version> <commi_id>
 #* Fri Sep 24 2010 name surname  <email@com>     1.20100925_faf234320
 {
     dist=$(rpm --eval %dist)
-    awk  -v dist="$dist" -v version="$2"  \
+    awk  -v dist="$dist" -v version="$2" -v release="$3"  \
         ' BEGIN         { done = 0 }
-          /%define/     { if ($2 = "git_release") release = $3 }
           /^[*]/        { if (done)
                              print
                           else
@@ -96,7 +95,7 @@ function patch()
 	sed -e "/^%define/s|HEAD|$2|"                  \
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 <diaspora.spec >dist/diaspora.spec                              
-	fix_alphatag dist/diaspora.spec $1
+	fix_alphatag dist/diaspora.spec $1 $2
 	#mkdir dist/diaspora/tmp || :
 	bundle_id=$(git_id dist/diaspora/Gemfile)
 	fix_bundle_deps  dist/diaspora.spec $1 "1.$bundle_id.fc13"
@@ -121,7 +120,11 @@ function checkout()
                  cd diaspora;
                  git remote add upstream \
                      git://github.com/diaspora/diaspora.git
+                 for p in ../../*.patch; do
+                     git apply --whitespace=fix  $p   > /dev/null
+                 done
              )
+         
         }
         cd diaspora; 
         git fetch --quiet upstream 
@@ -145,14 +148,13 @@ function make_dist
     cp diaspora-ws diaspora-setup diaspora.logconf dist/${RELEASE_DIR}
     cd dist
     mkdir ${RELEASE_DIR}/master
-    cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master	
-    cp -r ../.bundle ${RELEASE_DIR}/master
+    cp -ar diaspora/*  diaspora/.git* diaspora/.bundle  ${RELEASE_DIR}/master	
     mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
+    ( cd  ${RELEASE_DIR}; find . -name .gitkeep -delete)
     tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && rm -rf ${RELEASE_DIR}
     cd ..
-    bundle_id=$(git_id dist/diaspora/Gemfile)
     echo "Source:           dist/${RELEASE_DIR}.tar.gz"
-    echo "Required bundle:  $bundle_id"
+    echo "Required bundle:  $(git_id dist/diaspora/Gemfile)"
     echo "Source specfile:  dist/diaspora.spec"
     echo "Bundle specfile:  dist/diaspora-bundle.spec"
 }
@@ -170,20 +172,11 @@ function make_bundle()
 	    pushd diaspora > /dev/null
                 test -e ../../Gemfile.lock.patch &&
 		    git apply ../../Gemfile.lock.patch > /dev/null 2>&1
-                rm -rf devise.tmp
-                git clone http://github.com/BadMinus/devise.git devise.tmp
-                ( cd devise.tmp; gem build devise.gemspec)
-                gem install --install-dir "../$bundle_name/bundle/ruby/1.8" \
-                            --no-rdoc --no-ri                      \
-                            --ignore-dependencies                  \
-                            devise.tmp/devise-1.1.rc1.gem  &&
-                   rm -rf devise.tmp
-
 	        bundle install --deployment                      \
                                --path="../$bundle_name/bundle"   \
                                --without=test rdoc
 
-	        cp AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT "../$bundle_name"
+	        cp -ar AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT "../$bundle_name"
             popd
             tar czf $bundle_name.tar.gz $bundle_name
     }
@@ -201,10 +194,8 @@ function make_links()
     }
     echo "Linking sources to $dest"
 
-    src_commit="$1"
-    test -z "$src_commit" && {
-         src_commit=$(checkout)
-    }
+    src_commit="${1:-$( checkout)}"
+    
     src="dist/diaspora-$VERSION-$src_commit.tar.gz"
     ln -sf $PWD/$src $dest
 
@@ -212,7 +203,7 @@ function make_links()
     bundle="dist/diaspora-bundle-$VERSION-$bundle_commit.tar.gz"
     ln -sf $PWD/$bundle $dest
 
-    for file in $( egrep -v '^#' SOURCES); do
+    for file in $( grep -v '^#' SOURCES); do
         ln -sf $PWD/$file $dest/$file
     done
 
@@ -224,7 +215,7 @@ function usage()
 {
     	cat <<- EOF
 
-		Usage: make_dist [-c commit] <dist|bundle|links>
+		Usage: make-dist [-c commit] <dist|bundle|links>
 
 		-c             Use a given commit, defaults to last checked in.
 		dist           Build a diaspora application tarball.
