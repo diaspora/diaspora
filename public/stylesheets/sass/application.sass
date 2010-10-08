@@ -274,7 +274,7 @@ li.message
         &:active
           :color #005D9C
 
-.reshare_pane
+.destroy_link .reshare_pane
   :margin
     :left 5px
     :right 5px
@@ -306,9 +306,7 @@ li.message
     > li
       :font
         :weight bold
-
-      :padding 8px
-        :right 15px
+      :color #ccc
       :border
         :top 1px solid #fff
         :bottom 1px solid #ccc
@@ -322,10 +320,16 @@ li.message
       a
         :display block
         :height 100%
+        :padding 2px 5px
 
         &:hover
           :background
             :color #eee
+          :text
+            :decoration none
+        &:active
+          :background
+            :color #ccc
 
 
 form
