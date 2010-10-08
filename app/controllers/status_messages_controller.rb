@@ -18,8 +18,7 @@ class StatusMessagesController < ApplicationController
       type = 'feed'
 
       Rails.logger.info("Sending a message: #{params[:status_message][:message]} to Facebook")
-      
-      EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{params[:status_message][:message]}&access_token=#{@access_token}").post, :timeout => TIMEOUT, :body =>{:xml => query.body}
+      EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{params[:status_message][:message]}&access_token=#{@access_token}").post
     end
 
     @status_message = current_user.post(:status_message, data)
