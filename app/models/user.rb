@@ -268,6 +268,7 @@ class User
 
   def accept_invitation!( opts = {} )
     if self.invited?
+      self.username              = opts[:username]
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
       opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
