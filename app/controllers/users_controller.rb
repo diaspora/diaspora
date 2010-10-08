@@ -5,6 +5,7 @@
 class UsersController < ApplicationController
   require File.expand_path('../../../lib/diaspora/ostatus_builder', __FILE__)
   require File.expand_path('../../../lib/diaspora/exporter', __FILE__)
+  require File.expand_path('../../../lib/collect_user_photos', __FILE__)
 
   before_filter :authenticate_user!, :except => [:new, :create, :public]
 
@@ -60,6 +61,11 @@ class UsersController < ApplicationController
   def export
     exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
     send_data exporter.execute(current_user), :filename => "#{current_user.username}_diaspora_data.xml", :type => :xml
+  end
+
+  def export_photos
+    tar_path = PhotoMover::move_photos(current_user)
+    send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
   end
 
   private
