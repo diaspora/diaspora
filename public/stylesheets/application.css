@@ -208,12 +208,12 @@ li.message {
     li.message:hover div.info a:active, li.message:hover .time a:active {
       color: #005d9c; }
 
-.reshare_pane {
+.destroy_link .reshare_pane {
   margin-left: 5px;
   margin-right: 5px;
   display: inline;
   position: relative; }
-  .reshare_pane ul.reshare_box {
+  .destroy_link .reshare_pane ul.reshare_box {
     width: 150px;
     display: none;
     z-index: 10;
@@ -227,21 +227,24 @@ li.message {
     -moz-box-shadow: 0 0 5px #666666;
     text-shadow: 0 2px white;
     color: black; }
-    .reshare_pane ul.reshare_box > li {
+    .destroy_link .reshare_pane ul.reshare_box > li {
       font-weight: bold;
-      padding: 8px;
-        padding-right: 15px;
+      color: #cccccc;
       border-top: 1px solid white;
       border-bottom: 1px solid #cccccc; }
-      .reshare_pane ul.reshare_box > li:first-child {
+      .destroy_link .reshare_pane ul.reshare_box > li:first-child {
         border-top: none; }
-      .reshare_pane ul.reshare_box > li:last-child {
+      .destroy_link .reshare_pane ul.reshare_box > li:last-child {
         border-bottom: none; }
-      .reshare_pane ul.reshare_box > li a {
+      .destroy_link .reshare_pane ul.reshare_box > li a {
         display: block;
-        height: 100%; }
-        .reshare_pane ul.reshare_box > li a:hover {
-          background-color: #eeeeee; }
+        height: 100%;
+        padding: 2px 5px; }
+        .destroy_link .reshare_pane ul.reshare_box > li a:hover {
+          background-color: #eeeeee;
+          text-decoration: none; }
+        .destroy_link .reshare_pane ul.reshare_box > li a:active {
+          background-color: #cccccc; }
 
 form {
   position: relative;
