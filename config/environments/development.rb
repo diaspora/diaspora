@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require File.expand_path('../../../lib/mongo_mapper/clear_dev_memory', __FILE__)
@@ -24,16 +24,4 @@ Diaspora::Application.configure do
   config.active_support.deprecation = :log
   config.middleware.use MongoMapper::ClearDevMemory
   #config.threadsafe!
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {:host => 'pivots.joindiaspora.com'}
-  config.action_mailer.smtp_settings = {
-    :address => 'pivots.joindiaspora.com',
-    :port => 587,
-    :domain => 'mail.joindiaspora.com',
-    :authentication => 'plain',
-    :user_name => 'diaspora-pivots@joindiaspora.com',
-    :password => "xy289|]G+R*-kA",
-    :enable_starttls_auto => true
-  }
 end

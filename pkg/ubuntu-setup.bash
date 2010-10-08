@@ -5,7 +5,7 @@
 # This script helps to setup diaspora.
 #
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 # USAGE: ./script/ubuntu-setup.bash

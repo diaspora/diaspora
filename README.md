@@ -13,7 +13,7 @@ We are continuing to build features and improve the code base.
 When we think it is ready for general use, we will post more final
 instructions.
 
-## Commit Guidlines
+## Commit Guidelines
 
 You are welcome to contribute, add to and extend Diaspora however you see fit.  We
 will do our best to incorporate everything that meets our guidelines.
