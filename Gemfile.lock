@@ -132,6 +132,8 @@ GEM
     culerity (0.2.12)
     daemons (1.1.0)
     database_cleaner (0.5.2)
+    devise_invitable (0.3.4)
+      devise (~> 1.1.0)
     diff-lcs (1.1.2)
     em-websocket (0.1.4)
       addressable (>= 2.1.1)
@@ -267,6 +269,7 @@ DEPENDENCIES
   cucumber-rails (= 0.3.2)
   database_cleaner
   devise!
+  devise_invitable (~> 0.3.4)
   em-http-request!
   em-websocket
   factory_girl_rails
