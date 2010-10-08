@@ -7,28 +7,26 @@
   = person_image_link(post.person)
 
   .content
-    %span.from
+    .from
       = link_to post.person.real_name, post.person
-      = post.message
+      .aspect
+        → 
+        - if post.public?
+          the world
+        - else
+          - for aspect in current_user.aspects_with_post( post.id )
+            = link_to aspect.name, aspect
+
+      - if current_user.owns?(post)
+        .destroy_link
+          = render "shared/reshare", :post => post, :current_user => current_user
+          = link_to t('.delete'), status_message_path(post), :confirm => t('.are_you_sure'), :method => :delete, :remote => true, :class => "delete"
+
+    = post.message
 
     .info
       %span.time= link_to(how_long_ago(post), object_path(post))
-      \--
       = link_to "#{t('.show_comments')} (#{post.comments.count})", '#', :class => "show_post_comments"
 
     = render "comments/comments", :post => post
-
-  - if current_user.owns?(post)
-    .destroy_link
-      = link_to t('.delete'), status_message_path(post), :confirm => t('.are_you_sure'), :method => :delete, :remote => true, :class => "delete"
-      = render "shared/reshare", :post => post, :current_user => current_user
-
-  - if post.public?
-    .public_aspect_tag
-      public
-  - else
-    .aspect_tag
-      %ul
-        - for aspect in current_user.aspects_with_post( post.id )
-          %li= aspect.name
 
