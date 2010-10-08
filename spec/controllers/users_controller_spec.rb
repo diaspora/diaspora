@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
@@ -10,6 +10,14 @@ describe UsersController do
     sign_in :user, @user
     @user.aspect(:name => "lame-os")
   end
+
+  describe '#export' do
+    it 'should return an xml file'  do
+      get :export
+      response.header["Content-Type"].should include "application/xml"
+    end
+  end
+
 
   describe '#update' do
     context 'with a profile photo set' do

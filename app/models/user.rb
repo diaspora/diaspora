@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require File.expand_path('../../../lib/diaspora/user/friending', __FILE__)
@@ -9,6 +9,7 @@ require File.expand_path('../../../lib/salmon/salmon', __FILE__)
 
 class User
   include MongoMapper::Document
+  plugin MongoMapper::Devise
   include Diaspora::UserModules::Friending
   include Diaspora::UserModules::Querying
   include Diaspora::UserModules::Receiving

@@ -1,18 +1,60 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 :javascript
   $(document).keydown(function(e){
     switch(e.keyCode) {
     case 37:
-      window.location.replace( "#{url_to_prev(@photo,@album)}" );
+      if(!$("textarea").hasClass("hasfocus")){//prevent redirect if textarea has focus
+        window.location.replace( "#{url_to_prev(@photo,@album)}" );
+      }
       break;
     case 39:
-      window.location.replace( "#{url_to_next(@photo,@album)}" );
+      if(!$("textarea").hasClass("hasfocus")){
+        window.location.replace( "#{url_to_next(@photo,@album)}" );
+      }
       break;
     }
   });
+
+  $(document).ready(function(){
+    //add a clas to verify if a textarea has focus
+    $("textarea").live('focus',function(){
+      $(this).addClass("hasfocus");
+    });
+    $("textarea").live('blur',function(){
+      $(this).removeClass("hasfocus");
+    });
+
+    //show form to add description
+    $(".edit-desc").click(function(){
+      $(".edit_photo").toggle(); 
+      //$(".caption").toggle();
+    });
+
+    //Add a description with ajax request
+    $("#photo_submit").click(function(evenet){
+      event.preventDefault();
+      var method = $(".edit_photo").attr("method");
+      var url = $(".edit_photo").attr("action");
+      var data = $(".edit_photo").serialize();
+      $(".description").text($("#photo_caption").val());
+      //$(".caption").toggle();
+      $(".edit_photo").toggle();
+
+        $.ajax({  
+          type: method,
+          url: url,  
+          data: data,  
+          success: function(response){  
+            $("#add-description").remove();
+          }
+        });
+
+    });
+
+  });//end document ready
 
 = content_for :page_title do
   = link_to "◂ #{@photo.album.name}", @photo.album
@@ -38,7 +80,21 @@
   #show_photo
     = linked_scaled_photo @photo, @album
     .caption
-      = @photo.caption
+      -if current_user.owns? @album
+        -if @photo.caption and @photo.caption != ""
+          = link_to 'Edit','javascript:void(0)', :id => "edit-desc", :class => "edit-desc"
+      .description
+        = @photo.caption
+
+    -if current_user.owns? @album
+      %div{:class => 'clear'}
+      -if !@photo.caption or @photo.caption == ""
+        = link_to 'Add a description','javascript:void(0)', :id => "add-description", :class => "edit-desc"
+
+    = form_for @photo do |p|
+      = p.text_field :caption, :value => @photo.caption
+      = p.submit
+      %div{:class => 'clear'}
 
   #content_bottom
     .back

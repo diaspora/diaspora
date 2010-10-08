@@ -1,5 +1,5 @@
 /*   Copyright (c) 2010, Diaspora Inc.  This file is
-*   licensed under the Affero General Public License version 3.  See
+*   licensed under the Affero General Public License version 3 or later.  See
 *   the COPYRIGHT file.
 */
 
@@ -94,7 +94,7 @@ $(function() {
   });
 
 
-  $(".aspect h1").live( 'focus', function() {
+  $(".aspect h3").live( 'focus', function() {
 
     var $this = $(this),
         id    = $this.closest("li").children("ul").attr("id"),

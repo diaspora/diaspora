@@ -4,12 +4,13 @@ gem 'rails', '3.0.0'
 gem 'bundler', '>= 1.0.0'
 
 #Security
-gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
+gem 'devise', '1.1.2'
+gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 
 #Mongo
 gem 'mongo_mapper', :branch => 'rails3', :git => 'http://github.com/jnunemaker/mongomapper.git'
-gem 'bson_ext', '1.0.7'
-gem 'bson', '1.0.7'
+gem 'bson_ext', '1.1'
+gem 'bson', '1.1'
 
 #Views
 gem 'haml'
@@ -36,6 +37,7 @@ gem 'magent', :git => 'http://github.com/dcu/magent.git'
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch
 gem 'mini_magick'
+gem 'aws'
 
 group :test, :development do
   gem 'factory_girl_rails'
@@ -48,14 +50,8 @@ group :test do
   gem 'rspec', '>= 2.0.0.beta.17'
   gem 'rspec-rails', '2.0.0.beta.17'
   gem 'mocha'
-  gem 'redgreen' if RUBY_VERSION.include? "1.8"
-  gem 'autotest'
   gem 'database_cleaner'
   gem 'webmock'
-end
-
-group :development do
-  gem 'nifty-generators'
 end
 
 group :deployment do

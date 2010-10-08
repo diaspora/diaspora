@@ -1,5 +1,5 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 :javascript
@@ -14,17 +14,20 @@
 
 
 - content_for :publish do
-  %h1="#{t('.editing_profile')}"
+  %h2="#{t('.editing_profile')}"
 
 - content_for :left_pane do
   %ul#settings_nav
     %li=link_to 'Profile', '#', :class => 'profile'
+    %li=link_to 'Account', '#', :class => 'account'
     %li=link_to 'Services', '#', :class => 'services'
 
 #profile.settings_pane{:style=>"display:block;"}
   = render 'users/profile'
 
+#account.settings_pane
+  = render 'users/account'
+
 #services.settings_pane
   = render 'users/services'
-
 
