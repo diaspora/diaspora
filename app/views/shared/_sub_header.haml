@@ -2,10 +2,10 @@
   .container
     .span-5.last
       - if @person
-        %h1
+        %h2
           = @person.real_name
       - else
-        %h1
+        %h2
           - if @aspect == :all
             = link_to t('.all_aspects'), root_path
           - elsif @aspect == :public

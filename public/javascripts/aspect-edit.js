@@ -94,7 +94,7 @@ $(function() {
   });
 
 
-  $(".aspect h1").live( 'focus', function() {
+  $(".aspect h3").live( 'focus', function() {
 
     var $this = $(this),
         id    = $this.closest("li").children("ul").attr("id"),

@@ -15,28 +15,18 @@ body
   :padding 2em
   :margin 0
 a
-  :color #556270
   :color #107FC9
-  :color #019DBE
   :text
     :decoration none
   &:hover
-    :color #fff
-    :background
-      :color #556270
-      :color #019DBE
+    :color #22AAE0
 
-h1
-  :font
-    :size 21px
-    :weight bold
-  :line
-    :height 36px
+h1, h2, h3, h4
+  :color #444
 
 h3
   :font
     :size 18px
-    :weight bold
 
 .avatar
   :width 50px
@@ -158,12 +148,10 @@ header
     :padding 20px 0
 
     h1
-      :margin
-        :bottom 0
-      :text-shadow 0 2px 0 #fff
+      :text-shadow 0 1px 0 #fff
 
     a
-      :color #111
+      :color #444
       &:hover
         :background none
         :color #999
@@ -171,9 +159,7 @@ header
     .page_title
       :text
         :transform uppercase
-        :shadow 0 2px 0 #fff
-      :margin
-        :top -5px
+        :shadow 0 1px 0 #fff
 
 
 ul#stream
@@ -187,14 +173,10 @@ ul#stream
       :bottom 1px solid #eee
 
     &:hover
-      :background -webkit-gradient(linear, 0% 0%, 0% 50%, from(#FAFAFA), to(#FCFCFC))
-
       :background
         :color #fafafa
-
       :border
         :bottom 1px solid #ddd
-
       .destroy_link
         :display inline
 
@@ -203,10 +185,10 @@ ul#stream
 
 li.message
   :position relative
-  :line-height 140%
+  :line-height 19px
   :font
-    :family 'Lucida Grande', sans-serif
-  :color #999
+    :family 'Arial', 'Helvetica', sans-serif
+  :color #777
 
   .avatar
     :float left
@@ -217,24 +199,49 @@ li.message
     :background #eee
 
   .content
+    :margin
+      :top -4px
     :padding
       :left 65px
-    :width 600px
 
-    span.from
-      :color #000
+    .from
       :font
-        :weight normal
-      :font
-        :size 110%
+        :family 'Helvetica neue', Arial, Helvetica, sans-serif
+      :text
+        :shadow 0 1px #fff
+
+      .aspect
+        :display inline
+        :color #bbb
+        :font
+          :size 12px
+
+      a
+        :font
+          :weight bold
+
+    :color #444
+    :font
+      :weight normal
+      :size 14px
 
     div.info
-      :color #bababa
-      :font-size 70%
-
+      :color #eee
+      :font-size 11px
+      a
+        :color #ccc
       .time
         a
-          :color #666
+          :color #bbb
+        :font
+          :weight bold
+        :margin
+          :right 5px
+      
+  &:hover
+    div.info, .time
+      a
+        :color #107FC9
 
 .reshare_pane
   :margin
@@ -354,7 +361,7 @@ ul.comment_set
     :top 1em
   :padding 0
   :list-style none
-  :width 495px
+  :width 610px
 
   textarea
     :width 100%
@@ -369,12 +376,17 @@ ul.comment_set
       :bottom 1px solid #ddd
 
     .from
-      :font
-        :size 1em
+      a
+        :color #444
+    :font
+      :size 12px
+
+    :line
+      :height 17px
 
     div.time
       :color #666
-      :font-size 70%
+      :font-size 10px
 
     form
       :margin
@@ -418,8 +430,7 @@ ul.comment_set
 
 .destroy_link, .request_button
   :position absolute
-  :right 2em
-  :bottom 15px
+  :right 0
   a
     :color #999
     :font
@@ -427,11 +438,9 @@ ul.comment_set
     &:hover
       :text
         :decoration underline
-      :background none
 
 .destroy_link
   :display none
-  :font-size smaller
 
 .request_buttons
   :position absolute
@@ -471,7 +480,7 @@ input[type='text'],
 input[type='password'],
 textarea
   :font
-    :family 'lucida grande', 'lucida sans', 'sans-serif'
+    :family 'Arial', 'Helvetica', sans-serif
     :size 14px
   :padding 0.3em
   :display block
@@ -499,12 +508,15 @@ form p
   :margin 0
 
 label
+  :font
+    :family 'Arial', 'Helvetica', sans-serif
+    :weight normal
   :color #999
   :position absolute
   :top 3px
   :left 0.48em
-  :font
-    :weight normal
+  :text
+    :shadow 0 1px 1px #eee
 
 #publisher
   :color #999
@@ -676,6 +688,9 @@ h1.big_text
     :top 8px
     :bottom 1px
 
+  :font
+    :family 'Arial', 'Helvetica', sans-serif
+
 
   #aspect_manage_button
     :display inline
@@ -697,7 +712,7 @@ h1.big_text
         :right 2px
 
       a
-        :text-shadow 0 2px 0 #444
+        :text-shadow 0 1px 0 #444
         :-webkit-border-radius 3px 3px 0 0
         :-moz-border-radius 3px 3px 0 0
         :line
@@ -720,7 +735,7 @@ h1.big_text
         :-webkit-box-shadow 0px -4px 6px -2px #777
         :-moz-box-shadow 0px -4px 6px -2px #777
 
-        :text-shadow 0 2px 0 #fff
+        :text-shadow 0 1px 0 #fff
         :padding
           :top 4px
           :bottom 5px
@@ -736,7 +751,7 @@ h1.big_text
 
         :border 1px solid #fff
           :bottom 1px solid #F7F7F7
-        :color #000
+        :color #444
         &:hover
           :background
             :color #efefef
@@ -776,7 +791,7 @@ h1.big_text
   :list
     :style none
 
-  h1
+  h3
     :display inline-block
 
   .tip
@@ -795,7 +810,7 @@ h1.big_text
 
     ul.tools
       :position absolute
-      :top 10px
+      :top 5px
       :right 0
       :display inline
       :padding 0
@@ -814,7 +829,7 @@ h1.big_text
   .grey
     :color #999
     :cursor default
-    :text-shadow 0 2px #fff
+    :text-shadow 0 1px #fff
 
   ul.dropzone
     :min-height 20px
@@ -868,13 +883,14 @@ ul#settings_nav
     :size larger
 
   > li
-
     a
+      :font
+        :size smaller
       :display block
       :height 100%
       :border
         :bottom 1px solid #eee
-      :padding 5px 0
+      :padding 2px
 
 
 .settings_pane
@@ -954,6 +970,8 @@ ul#settings_nav
   :line-height 1em
   img
     :margin-right -1px
+    :width 35px
+    :height 35px
 
 #thumbnails
   :line-height 14px

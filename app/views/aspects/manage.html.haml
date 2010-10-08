@@ -7,7 +7,7 @@
   = javascript_include_tag 'aspect-edit.js'
 
 - content_for :left_pane do
-  %h1=t('.requests')
+  %h3=t('.requests')
 
   .requests
     %ul.dropzone
@@ -19,7 +19,7 @@
             = person_image_tag(request.person)
             .name
               = request.person.real_name
-  %h1=t('.ignore_remove')
+  %h3=t('.ignore_remove')
 
   %li.remove
     %ul.dropzone
@@ -34,7 +34,7 @@
 
       .aspect_name
         %span.edit_name_field
-          %h1{:contenteditable => true}= aspect.name
+          %h3{:contenteditable => true}= aspect.name
           %span.tip click to edit
 
         %ul.tools
