@@ -4,12 +4,13 @@ gem 'rails', '3.0.0'
 gem 'bundler', '>= 1.0.0'
 
 #Security
-gem 'devise', :git => 'http://github.com/BadMinus/devise.git'
+gem 'devise', '1.1.2'
+gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 
 #Mongo
 gem 'mongo_mapper', :branch => 'rails3', :git => 'http://github.com/jnunemaker/mongomapper.git'
-gem 'bson_ext', '1.0.7'
-gem 'bson', '1.0.7'
+gem 'bson_ext', '1.1'
+gem 'bson', '1.1'
 
 #Views
 gem 'haml'
