@@ -5,10 +5,9 @@
 require 'spec_helper'
 
 describe Request do
-  before do
-    @user = Factory.create(:user)
-    @aspect = @user.aspect(:name => "dudes")
-  end
+  let(:user) { Factory(:user) }
+  let(:aspect) { user.aspect(:name => "dudes") }
+
   it 'should require a destination and callback url' do
     person_request = Request.new
     person_request.valid?.should be false
@@ -18,25 +17,25 @@ describe Request do
   end
 
   it 'should generate xml for the User as a Person' do
-    request = @user.send_friend_request_to Factory.create(:person), @aspect
+    request = user.send_friend_request_to Factory(:person), aspect
 
     xml = request.to_xml.to_s
 
-    xml.include?(@user.person.diaspora_handle).should be true
-    xml.include?(@user.person.url).should be true
-    xml.include?(@user.profile.first_name).should be true
-    xml.include?(@user.profile.last_name).should be true
+    xml.should include user.person.diaspora_handle
+    xml.should include user.person.url
+    xml.should include user.profile.first_name
+    xml.should include user.profile.last_name
   end
 
   it 'should allow me to see only friend requests sent to me' do
     remote_person = Factory.build(:person, :diaspora_handle => "robert@grimm.com", :url => "http://king.com/")
 
-    Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => @aspect.id, :from => @user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => @aspect.id, :from => remote_person, :to => @user.receive_url).save
+    Request.instantiate(:into => aspect.id, :from => user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:into => aspect.id, :from => user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:into => aspect.id, :from => user.person, :to => remote_person.receive_url).save
+    Request.instantiate(:into => aspect.id, :from => remote_person, :to => user.receive_url).save
 
-    Request.for_user(@user).all.count.should == 1
+    Request.for_user(user).all.count.should == 1
   end
 
 end
