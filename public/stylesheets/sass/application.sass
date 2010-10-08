@@ -20,6 +20,9 @@ a
     :decoration none
   &:hover
     :color #22AAE0
+  &:active
+    :color #005D9C
+    
 
 h1, h2, h3, h4
   :color #444
@@ -225,6 +228,8 @@ li.message
           &:hover
             :text
               :decoration underline
+          &:active
+            :color #999
         ul
           :display inline
           :margin 0
@@ -264,6 +269,10 @@ li.message
     div.info, .time
       a
         :color #107FC9
+        &:hover
+          :color #22AAE0
+        &:active
+          :color #005D9C
 
 .reshare_pane
   :margin
@@ -916,6 +925,8 @@ ul#settings_nav
 
 
 #friend_pictures
+  :margin
+    :top 12px
   :line-height 1em
   img
     :margin-right -1px

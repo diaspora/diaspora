@@ -15,6 +15,8 @@ a {
   text-decoration: none; }
   a:hover {
     color: #22aae0; }
+  a:active {
+    color: #005d9c; }
 
 h1, h2, h3, h4 {
   color: #444444; }
@@ -174,6 +176,8 @@ li.message {
           color: #bbbbbb; }
           li.message .content .from .aspect a:hover {
             text-decoration: underline; }
+          li.message .content .from .aspect a:active {
+            color: #999999; }
         li.message .content .from .aspect ul {
           display: inline;
           margin: 0;
@@ -199,6 +203,10 @@ li.message {
           color: #bbbbbb; }
   li.message:hover div.info a, li.message:hover .time a {
     color: #107fc9; }
+    li.message:hover div.info a:hover, li.message:hover .time a:hover {
+      color: #22aae0; }
+    li.message:hover div.info a:active, li.message:hover .time a:active {
+      color: #005d9c; }
 
 .reshare_pane {
   margin-left: 5px;
@@ -709,6 +717,7 @@ ul#settings_nav {
   background-color: transparent; }
 
 #friend_pictures {
+  margin-top: 12px;
   line-height: 1em; }
   #friend_pictures img {
     margin-right: -1px;
