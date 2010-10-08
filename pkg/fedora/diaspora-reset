@@ -1,5 +1,7 @@
 #!/bin/sh
-
+#
+# Try to revert to pristine state, deleting all users and
+# configuration
 
 set -x
 service mongod stop
@@ -8,4 +10,5 @@ rm -rf /var/lib/mongod/*
 cp /usr/share/diaspora/master/config/app_config.yml.example \
   /usr/share/diaspora/master/config/app_config.yml
 service mongod start
+
 

@@ -12,7 +12,6 @@ test $UID = "0" || {
     exit 2
 }
 
-# Note: this line is patched by installation scripts.
 cd /usr/share/diaspora/master
 
 /sbin/service mongod start || :
@@ -21,7 +20,7 @@ test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml
 
 if rake db:seed:dev; then
-    echo "Database config OK, new user tom/evankort in place"
+    echo "Database config OK, new user tom/evankorth in place"
 else
     cat <<- EOF
 
