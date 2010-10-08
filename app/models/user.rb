@@ -21,6 +21,8 @@ class User
   key :username, :unique => true
   key :serialized_private_key, String
 
+  key :invitation_token,    String
+  key :invitation_sent_at,  DateTime
   key :friend_ids,          Array
   key :pending_request_ids, Array
   key :visible_post_ids,    Array
