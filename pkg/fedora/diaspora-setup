@@ -12,19 +12,26 @@ test $UID = "0" || {
     exit 2
 }
 
+# Note: this line is patched by installation scripts.
 cd /usr/share/diaspora/master
+
+/sbin/service mongod start || :
+
+test -e config/app_config.yml ||
+    cp config/app_config.yml.example config/app_config.yml
 
 if rake db:seed:dev; then
     echo "Database config OK, new user tom/evankort in place"
 else
     cat <<- EOF
 
-	Database config failed. You might want to remove all db files with
-	rm -rf /var/lib/mongodb/* and/or resetting the config file by
-	cp config/app_config.yml.example config/app_config.yml before
-	making a new try.
-	EOF
-    exit 1   
+        Database config failed. You might want to remove all db files with
+        'rm -rf /var/lib/mongodb/*' and/or resetting the config file by
+        'cp config/app_config.yml.example config/app_config.yml' before
+        making a new try. Also, make sure the mongodb server is running
+        e. g., using '/sbin/service mongod status'.
+        EOF
+    exit 1
 fi
 
 # %attr(0777, diaspora, diaspora) doesn't work in specfile due to umask 022.
@@ -35,17 +42,12 @@ while : ; do
     echo "Current hostname is \"$hostname\""
     echo -n "Enter new hostname [$hostname] :"
     read new_hostname garbage
-    echo -n "Use hostname \"$new_hostname\" (Yes/No) [Yes]? :"
+    echo -n "Use hostname \"$new_hostname\" as pod_url (Yes/No) [Yes]? :"
     read yesno garbage
-    test ${yesno:0:1} = 'y' -o ${yesno:0:1} = 'Y' -o -z "$yesno" && {
+    test "${yesno:0:1}" = 'y' -o "${yesno:0:1}" = 'Y' -o -z "$yesno" && {
         sed -i "/pod_url:/s/$hostname/$new_hostname/g" config/app_config.yml &&
             echo "config/app_config.yml updated."
         break
     }
 done
-
-
-
-    
-
 
