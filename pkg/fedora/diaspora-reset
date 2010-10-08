@@ -6,7 +6,7 @@
 set -x
 service mongod stop
 service diaspora-ws stop
-rm -rf /var/lib/mongod/*
+rm -rf /var/lib/mongodb/*
 cp /usr/share/diaspora/master/config/app_config.yml.example \
   /usr/share/diaspora/master/config/app_config.yml
 service mongod start

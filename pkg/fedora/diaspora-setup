@@ -24,12 +24,12 @@ if rake db:seed:dev; then
 else
     cat <<- EOF
 
-        Database config failed. You might want to remove all db files with
-        'rm -rf /var/lib/mongodb/*' and/or resetting the config file by
-        'cp config/app_config.yml.example config/app_config.yml' before
-        making a new try. Also, make sure the mongodb server is running
-        e. g., using '/sbin/service mongod status'.
-        EOF
+	Database config failed. You might want to remove all db files with
+	'rm -rf /var/lib/mongodb/*' and/or resetting the config file by
+	'cp config/app_config.yml.example config/app_config.yml' before
+	making a new try. Also, make sure the mongodb server is running
+	e. g., using '/sbin/service mongod status'.
+	EOF
     exit 1
 fi
 

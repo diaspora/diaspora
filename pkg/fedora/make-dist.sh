@@ -66,7 +66,7 @@ function fix_alphatag()
                           next
                         }
                         { print }' \
-    < $1 > $1.tmp && cp $1.tmp $1 && rm $1.tmp
+    < $1 > $1.tmp && mv -f $1.tmp $1 
 }
 
 function fix_bundle_deps
@@ -81,7 +81,7 @@ function fix_bundle_deps
                                 next
                                }
                                { print}' \
-             < $1 > $1.tmp && cp $1.tmp $1 && rm $1.tmp
+             < $1 > $1.tmp && mv -f  $1.tmp $1 
 }
 
 function patch()
@@ -92,10 +92,10 @@ function patch()
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 <diaspora.spec >dist/diaspora.spec                              
         fix_alphatag dist/diaspora.spec $1 $2
-        #mkdir dist/diaspora/tmp || :
         bundle_id=$(git_id dist/diaspora/Gemfile)
-        fix_bundle_deps  dist/diaspora.spec $1 "1.$bundle_id.fc13"
-        sed -e "/^%define/s|HEAD|$bundle_deps|"        \
+        dist_tag=$(rpm --eval %dist)
+        fix_bundle_deps  dist/diaspora.spec $1 "1.${bundle_id}$dist_tag"
+        sed -e "/^%define/s|HEAD|$bundle_id|"          \
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 < diaspora-bundle.spec > dist/diaspora-bundle.spec
         
@@ -117,10 +117,9 @@ function checkout()
                  git remote add upstream \
                      git://github.com/diaspora/diaspora.git
                  for p in ../../*.patch; do
-                     git apply --whitespace=fix  $p   > /dev/null
+                     git apply --whitespace=fix  $p  > /dev/null
                  done
              )
-         
         }
         cd diaspora; 
         git fetch --quiet upstream 
@@ -144,11 +143,18 @@ function make_dist
     mkdir dist/${RELEASE_DIR}
     cp diaspora-ws diaspora-setup diaspora.logconf dist/${RELEASE_DIR}
     cd dist
-    mkdir ${RELEASE_DIR}/master
-    cp -ar diaspora/*  diaspora/.git* diaspora/.bundle  ${RELEASE_DIR}/master
-    mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
-    ( cd  ${RELEASE_DIR}; find . -name .gitkeep -delete)
-    tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && rm -rf ${RELEASE_DIR}
+        mkdir ${RELEASE_DIR}/master
+        cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master
+        mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
+        (
+             cd  ${RELEASE_DIR};
+             find . -name .gitkeep -delete
+             cd master
+             rm -rf .bundle
+             git apply ../../../add-bundle.patch
+        )
+        tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && \
+            rm -rf ${RELEASE_DIR}
     cd ..
     echo "Source:           dist/${RELEASE_DIR}.tar.gz"
     echo "Required bundle:  $(git_id dist/diaspora/Gemfile)"
@@ -170,15 +176,13 @@ function make_bundle()
             rm -rf $bundle_name 
             mkdir -p $bundle_name/bundle
             pushd diaspora > /dev/null
-                test -e ../../Gemfile.lock.patch &&
-                git apply ../../Gemfile.lock.patch > /dev/null 2>&1
                 bundle install --deployment                      \
                                --path="../$bundle_name/bundle"   \
                                --without=test rdoc
 
                 cp -ar AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT \
                        "../$bundle_name"
-            popd
+            popd > /dev/null
             tar czf $bundle_name.tar.gz $bundle_name
         cd ..
     }
