@@ -1,0 +1,208 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+nl:
+  hello: "Hallo wereld"
+  application:
+      helper:
+          unknown_person: "onbekend persoon"
+          new_requests: "nieuwe verzoeken"
+  dashboards:
+      helper:
+          home: "home"
+  error_messages:
+      helper:
+          invalid_fields: "Ongeldige velden"
+          correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
+  people:
+      helper:
+           results_for: " resultaten voor %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"    # No idea how to translate this!
+  layouts:
+      application:
+          edit_profile: "verander profiel"
+          logout: "uitloggen"
+  shared:
+      aspect_nav:
+          all_aspects: "Alle Aspecten"
+          manage: "Beheer"
+          manage_your_aspects: "Beheer je Aspecten"
+      sub_header:
+          all_aspects: "Alle Aspecten"
+          manage_aspects: "Beheer Aspecten"
+      publisher:
+          share: "Delen"
+      aspect_friends:
+          add_friends: "voeg vrienden toe"
+  albums:
+      album:
+          you: "jij"
+      new_album:
+          create: "maak"
+          add_a_new_album: "Maak een nieuw album"
+      show:
+          edit_album: "Verander Album"
+          albums: "albums"
+          updated: "geupdated"
+          by: "door"
+      edit:
+          editing: "Veranderen"
+          updated: "geupdated"
+          are_you_sure: "Weet je het zeker?"
+          delete_album: "Verwijder Album"
+          cancel: "Annuleer"
+      index:
+          home: "home"
+          new_album: "Nieuw Album"
+      create:
+          success: "Je hebt het album %{name} gemaakt."
+      update:
+          success: "Album %{name} succesvol veranderd."
+          failure: "Niet gelukt om album %{name} te veranderen."
+      destroy:
+          success: "Album %{name} verwijderd."
+      helper:
+          friends_albums: "Albums van Vrienden"
+          your_albums: "Jouw Albums"
+  aspects:
+      index:
+          photos: "foto's"
+      show:
+          photos: "foto's"
+      manage:
+          add_a_new_aspect: "Voeg een nieuw aspect toe"
+          add_a_new_friend:  "Voeg een nieuwe friend toe"
+          show: "Bekijk"
+          update_aspects: "Verander Aspects"
+          requests: "Aanvragen"
+          ignore_remove: "Negeer/Verwijderen"
+      new_aspect:
+          add_a_new_aspect: "Voeg een nieuw aspect toe"
+          create: "Aanmaken"
+      create:
+          success: "Klik op de plus aan de linkerkant om Diaspora te vertellen wie je nieuwe aspect kan zien."
+          failure: "Aanmaken van aspect mislukt."
+      destroy:
+          success: "%{name} is succesvol verwijderd."
+      update:
+          success: "Je aspect, %{name}, is succelvol aangepast."
+      move_friends:
+          failure: "Aanpassen van aspect is mislukt voor vriend %{real_name}."
+          success: "Aspect succesvol aangepast."
+      move_friend:
+          failure: "werkt niet %{inspect}"
+          success: "Je laat je vriend nu een ander aspect van je zien."
+      helper:
+          remove: "verwijderen"
+          aspect_not_empty: "Aspect niet leeg"
+  users:
+      edit:
+          editing_profile: "Verander profiel"
+      profile:
+          cancel: "Annuleren"
+          update_profile: "Verander Profiel"
+          home: "Home"
+          diaspora_username: "DIASPORA USERNAME"
+          info: "Info"
+          picture: "Foto"
+          editing_profile: "Verander profiel"
+          albums: "Albums"
+          you_dont_have_any_photos: "Je hebt nog geen foto's!  Ga naar de"
+          page_to_upload_some:  "pagina om er een aantal te uploaden."
+          or: "of"
+  comments:
+      comment:
+          ago: "geleden"
+      new_comment:
+          comment: "Reactie"
+  photos:
+      show:
+          prev: "vorige"
+          full_size: "volledige grootte"
+          next: "volgende"
+          edit_photo: "Verander Foto"
+          delete_photo: "Verwijder Foto"
+          are_you_sure: "Weet je het zeker?"
+          comments: "reacties"
+      edit:
+          editing: "Veranderen"
+          are_you_sure: "Weet je het zeker?"
+          delete_photo: "Verwijder Foto"
+      photo:
+          show_comments: "laat reacties zien"
+          posted_a_new_photo_to: "postte een nieuwe foto in"
+      new:
+          new_photo: "Nieuwe Foto"
+          back_to_list: "Terug naar de lijst"
+          post_it: "post het!"
+      create:
+          runtime_error: "Uploaden van foto mislukt. Weet je zeker dat je je gordel omhebt?"
+          integrity_error: "Uploaden van foto mislukt. Weet je zeker dat het een foto is?"
+          type_error: "Uploaden van foto mislukt. Weet je zeker dat er een foto was toegevoegd?"
+      update:
+          notice: "Foto succelvol veranderd."
+          error:  "Foto veranderen niet gelukt."
+      destroy:
+          notice: "Foto verwijderd."
+  registrations:
+      new:
+          sign_up: "Registeren"
+      create:
+          success: "Je bent nu lid van Diaspora!"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "vertel me iets leuks"
+          oh_yeah: "oh ja!"
+      status_message:
+          show_comments: "laat reacties zien"
+          delete: "Verwijder"
+          are_you_sure: "Weet je het zeker?"
+      show:
+          status_message: "Status Bericht"
+          comments: "reacties"
+          are_you_sure: "Weet je het zeker?"
+          destroy: "Verwijderen"
+          view_all: "Bekijk allen"
+          message: "Bericht"
+          owner: "Eigenaar"
+      helper:
+          no_message_to_display: "Geen bericht om te weergeven."
+  people:
+      person:
+          add_friend: "voeg vriend to"
+          pending_request: "openstaand verzoek"
+      index:
+          add_friend: "voeg vriend toe"
+          real_name: "echte naam"
+          diaspora_handle: "diaspora handle"
+          thats_you: "dat ben jij!"
+          friend_request_pending: "openstaand vriendenverzoek"
+          you_have_a_friend_request_from_this_person: "je hebt een vriendenverzoek van deze persoon"
+      new:
+          new_person: "Nieuwe persoon"
+          back_to_list: "Terug naar de lijst"
+      show:
+          last_seen: "voor het laast gezien: %{how_long_ago}"
+          friends_since: "vrienden sinds: %{how_long_ago}"
+          save: "opslaan"
+          are_you_sure: "Weet je het zeker?"
+          remove_friend: "verwijder vriend"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Voeg een nieuwe vriend toe aan"
+          enter_a_diaspora_username: "Voer een Diaspora gebruikersnaam in:"
+          your_diaspora_username_is: "Je Diaspora gebruikersnaam is: %{diaspora_handle}"
+          friends_username: "Gebruikersnaam van vriend"
+      destroy:
+          success: "Jullie zijn nu vrienden."
+          error: "Selecteer een aspect!"
+          ignore: "Vriendenverzoek genegeerd."
+      create:
+          error: "Geen Diaspora seed met dit emailadres gevonden!"
+          already_friends: "Je bent al vrienden met %{destination_url}!"
+          success: "Een vriendenverzoek is verstuurd naar %{destination_url}."
+          horribly_wrong: "Iets is totaal verkeerd gegaan."
