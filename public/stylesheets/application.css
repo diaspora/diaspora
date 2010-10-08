@@ -538,11 +538,7 @@ h1.big_text {
       margin-right: 2px; }
       #aspect_nav ul > li a {
         text-shadow: 0 1px 0 #444444;
-        -webkit-border-radius: 3px 3px 0 0;
-        -moz-border-radius: 3px 3px 0 0;
         line-height: 22px;
-        background-color: #444444;
-        border: 1px solid #555555;
         padding: 3px 8px;
           padding-bottom: 3px;
         color: #999999; }
@@ -550,6 +546,8 @@ h1.big_text {
           background-color: #4e4e4e;
           color: #cccccc; }
       #aspect_nav ul > li.selected a {
+        -webkit-border-radius: 5px 5px 0 0;
+        -moz-border-radius: 5px 5px 0 0;
         -webkit-box-shadow: 0px -4px 6px -2px #777777;
         -moz-box-shadow: 0px -4px 6px -2px #777777;
         text-shadow: 0 1px 0 white;
