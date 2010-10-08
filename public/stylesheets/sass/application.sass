@@ -199,6 +199,7 @@ li.message
     :background #eee
 
   .content
+    :max-width 610px
     :margin
       :top -4px
     :padding
@@ -215,6 +216,14 @@ li.message
         :color #bbb
         :font
           :size 12px
+        a
+          :font
+            :weight normal
+          :color #bbb
+
+          &:hover
+            :text
+              :decoration underline
 
       a
         :font
@@ -345,8 +354,8 @@ form
   :display none
 
   .avatar
-    :width 30px
-    :height 30px
+    :width 35px
+    :height 35px
     :margin
       :right 10px
 
@@ -361,7 +370,7 @@ ul.comment_set
     :top 1em
   :padding 0
   :list-style none
-  :width 610px
+  :max-width 610px
 
   textarea
     :width 100%
@@ -375,18 +384,26 @@ ul.comment_set
     :border
       :bottom 1px solid #ddd
 
-    .from
-      a
-        :color #444
-    :font
-      :size 12px
+    .content
+      :color #777
+      :margin
+        :top -2px
+      :padding
+        :left 45px
+      .from
+        a
+          :color #444
+      :font
+        :size 12px
 
-    :line
-      :height 17px
+      :line
+        :height 18px
 
-    div.time
-      :color #666
-      :font-size 10px
+      div.time
+        :color #bbb
+        :font
+          :size 11px
+          :weight bold
 
     form
       :margin
@@ -428,9 +445,12 @@ ul.comment_set
   a
     :padding 3px
 
-.destroy_link, .request_button
+li.message .from .destroy_link
+  :display none
   :position absolute
   :right 0
+  :font
+    :size 12px
   a
     :color #999
     :font
@@ -438,9 +458,6 @@ ul.comment_set
     &:hover
       :text
         :decoration underline
-
-.destroy_link
-  :display none
 
 .request_buttons
   :position absolute
@@ -900,70 +917,6 @@ ul#settings_nav
 #fancybox-close:hover
   :background
     :color transparent
-
-.aspect_tag,
-.public_aspect_tag
-  :position absolute
-  :top 15px
-  :right 2em
-
-  :border-radius 5px
-  :-webkit-border-radius 5px
-  :-moz-border-radius 5px
-
-  :font
-    :size smaller
-  :padding 0 6px
-
-  :color #999
-  :text
-    :shadow 0 1px #fff
-
-  :border
-    :bottom 1px solid #eee
-
-  :cursor default
-
-.public_aspect_tag
-  :background -moz-linear-gradient(19% 75% 90deg,#FFFA75, #FFF8BA)
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF8BA), to(#FFFA75))
-    :color #FFFC7F
-  :border
-    :top 1px solid #EBE66C
-
-.aspect_tag
-  :background -moz-linear-gradient(19% 75% 90deg,#E0E0E0, #F0F0F0)
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F0F0F0), to(#E0E0E0))
-    :color #eee
-  :color #999
-  :text
-    :shadow 0 1px #fff
-  :border
-    :top 1px solid #ddd
-
-  ul
-    :display inline
-    :margin 0
-    :padding 0
-    :list
-      :style none
-
-    li
-      :display inline-block
-      :margin
-        :right 2px
-      :padding
-        :right 4px
-      :border
-        :right 1px solid #ccc
-
-      &:last-child
-        :margin
-          :right 0
-        :padding
-          :right 0
-        :border
-          :right none
 
 
 #friend_pictures

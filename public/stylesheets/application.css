@@ -155,6 +155,7 @@ li.message {
   li.message .delete:hover {
     background: #eeeeee; }
   li.message .content {
+    max-width: 610px;
     margin-top: -4px;
     padding-left: 65px;
     color: #444444;
@@ -167,6 +168,11 @@ li.message {
         display: inline;
         color: #bbbbbb;
         font-size: 12px; }
+        li.message .content .from .aspect a {
+          font-weight: normal;
+          color: #bbbbbb; }
+          li.message .content .from .aspect a:hover {
+            text-decoration: underline; }
       li.message .content .from a {
         font-weight: bold; }
     li.message .content div.info {
@@ -253,8 +259,8 @@ form {
 #stream div.comments {
   display: none; }
   #stream div.comments .avatar {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     margin-right: 10px; }
 
 input.comment_submit {
@@ -266,21 +272,26 @@ ul.comment_set {
     margin-top: 1em;
   padding: 0;
   list-style: none;
-  width: 610px; }
+  max-width: 610px; }
   ul.comment_set textarea {
     width: 100%; }
   ul.comment_set li.comment {
     margin-bottom: 0.5em;
     background-color: rgba(10, 81, 109, 0.05);
     padding: 0.6em;
-    border-bottom: 1px solid #dddddd;
-    font-size: 12px;
-    line-height: 17px; }
-    ul.comment_set li.comment .from a {
-      color: #444444; }
-    ul.comment_set li.comment div.time {
-      color: #666666;
-      font-size: 10px; }
+    border-bottom: 1px solid #dddddd; }
+    ul.comment_set li.comment .content {
+      color: #777777;
+      margin-top: -2px;
+      padding-left: 45px;
+      font-size: 12px;
+      line-height: 18px; }
+      ul.comment_set li.comment .content .from a {
+        color: #444444; }
+      ul.comment_set li.comment .content div.time {
+        color: #bbbbbb;
+        font-size: 11px;
+        font-weight: bold; }
     ul.comment_set li.comment form {
       margin-top: -5px;
       margin-bottom: 0;
@@ -311,17 +322,16 @@ ul.comment_set {
 .pagination a {
   padding: 3px; }
 
-.destroy_link, .request_button {
+li.message .from .destroy_link {
+  display: none;
   position: absolute;
-  right: 0; }
-  .destroy_link a, .request_button a {
+  right: 0;
+  font-size: 12px; }
+  li.message .from .destroy_link a {
     color: #999999;
     font-weight: normal; }
-    .destroy_link a:hover, .request_button a:hover {
+    li.message .from .destroy_link a:hover {
       text-decoration: underline; }
-
-.destroy_link {
-  display: none; }
 
 .request_buttons {
   position: absolute;
@@ -696,49 +706,6 @@ ul#settings_nav {
 
 #fancybox-close:hover {
   background-color: transparent; }
-
-.aspect_tag,
-.public_aspect_tag {
-  position: absolute;
-  top: 15px;
-  right: 2em;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  font-size: smaller;
-  padding: 0 6px;
-  color: #999999;
-  text-shadow: 0 1px white;
-  border-bottom: 1px solid #eeeeee;
-  cursor: default; }
-
-.public_aspect_tag {
-  background: -moz-linear-gradient(19% 75% 90deg, #fffa75, #fff8ba);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff8ba), to(#fffa75));
-    background-color: #fffc7f;
-  border-top: 1px solid #ebe66c; }
-
-.aspect_tag {
-  background: -moz-linear-gradient(19% 75% 90deg, #e0e0e0, #f0f0f0);
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f0f0f0), to(#e0e0e0));
-    background-color: #eeeeee;
-  color: #999999;
-  text-shadow: 0 1px white;
-  border-top: 1px solid #dddddd; }
-  .aspect_tag ul {
-    display: inline;
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-    .aspect_tag ul li {
-      display: inline-block;
-      margin-right: 2px;
-      padding-right: 4px;
-      border-right: 1px solid #cccccc; }
-      .aspect_tag ul li:last-child {
-        margin-right: 0;
-        padding-right: 0;
-        border-right: none; }
 
 #friend_pictures {
   line-height: 1em; }
