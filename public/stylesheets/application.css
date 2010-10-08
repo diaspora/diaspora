@@ -428,12 +428,6 @@ label {
     margin-bottom: 0; }
   #publisher .button {
     margin-left: 100px; }
-  #publisher img {
-    box-shadow: 0 1px 2px white;
-    -moz-box-shadow: 0 1px 2px white;
-    -webkit-box-shadow: 0 1px 2px white;
-    border: 1px solid #bbbbbb;
-      border-top: 1px solid #666666; }
 
 #image_picker .small_photo {
   height: 100px;
