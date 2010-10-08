@@ -12,7 +12,7 @@ Diaspora::Application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
-                                      :invitation    => "invitations"}
+                                      :invitations    => "invitations"}
   # added public route to user
   match 'public/:username', :to => 'users#public'
   match 'users/export',     :to => 'users#export'

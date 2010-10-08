@@ -7,6 +7,16 @@ require File.expand_path('../../../lib/diaspora/user/querying', __FILE__)
 require File.expand_path('../../../lib/diaspora/user/receiving', __FILE__)
 require File.expand_path('../../../lib/salmon/salmon', __FILE__)
 
+class InvitedUserValidator < ActiveModel::Validator
+  def validate(document)
+    unless document.invitation_token
+      unless document.person
+        document.errors[:base] << "Unless you are being invited, you must have a person"
+      end
+    end
+  end
+end
+
 class User
   include MongoMapper::Document
   plugin MongoMapper::Devise
@@ -40,6 +50,7 @@ class User
   after_create :seed_aspects
 
   before_validation :downcase_username, :on => :create
+  validates_with InvitedUserValidator
 
    def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
@@ -254,6 +265,26 @@ class User
   end
 
   ###Helpers############
+
+  def accept_invitation!( opts = {} )
+    if self.invited?
+      self.password              = opts[:password]
+      self.password_confirmation = opts[:password_confirmation]
+      opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
+      opts[:person][:url] = APP_CONFIG[:pod_url]
+
+      opts[:serialized_private_key] = User.generate_key
+      self.serialized_private_key =  opts[:serialized_private_key]
+      opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
+
+      person_hash = opts.delete(:person)
+      self.person = Person.create(person_hash)
+      self.person.save
+      self.save
+      self
+    end
+  end
+
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
