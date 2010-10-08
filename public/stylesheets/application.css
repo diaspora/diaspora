@@ -165,6 +165,7 @@ li.message {
       font-family: "Helvetica neue", Arial, Helvetica, sans-serif;
       text-shadow: 0 1px white; }
       li.message .content .from .aspect {
+        cursor: default;
         display: inline;
         color: #bbbbbb;
         font-size: 12px; }
@@ -173,6 +174,17 @@ li.message {
           color: #bbbbbb; }
           li.message .content .from .aspect a:hover {
             text-decoration: underline; }
+        li.message .content .from .aspect ul {
+          display: inline;
+          margin: 0;
+          padding: 0;
+          list-style: none; }
+          li.message .content .from .aspect ul li {
+            display: inline; }
+            li.message .content .from .aspect ul li:after {
+              content: ","; }
+            li.message .content .from .aspect ul li:last-child:after {
+              content: ""; }
       li.message .content .from a {
         font-weight: bold; }
     li.message .content div.info {
@@ -373,10 +385,7 @@ textarea {
   height: auto;
   border-radius: 5px;
   -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  box-shadow: 0 1px 2px white;
-  -moz-box-shadow: 0 1px 2px white;
-  -webkit-box-shadow: 0 1px 2px white; }
+  -moz-border-radius: 5px; }
 
 .submit_block {
   text-align: right;
