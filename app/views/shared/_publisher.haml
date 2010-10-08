@@ -18,7 +18,6 @@
           = check_box_tag("aspect_ids[]", aspect.id, @aspect == :all || current_aspect?(aspect) )
           = aspect.name
 
-    = connected_fb_as(@access_token) if @logged_in && @aspect == :all
     = f.hidden_field( :public, :value => false )
   
     .buttons
