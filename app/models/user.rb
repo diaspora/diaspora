@@ -182,7 +182,7 @@ class User
   end
 
   def push_to_person( person, xml )
-    Rails.logger.debug("Adding xml for #{self} to message queue to #{self.url}")
+    Rails.logger.debug("#{self.real_name} is adding xml #{xml} to message queue to #{person.receive_url}")
     QUEUE.add_post_request( person.receive_url, xml )
     QUEUE.process
   end
