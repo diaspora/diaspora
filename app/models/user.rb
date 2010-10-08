@@ -9,6 +9,7 @@ require File.expand_path('../../../lib/salmon/salmon', __FILE__)
 
 class User
   include MongoMapper::Document
+  plugin MongoMapper::Devise
   include Diaspora::UserModules::Friending
   include Diaspora::UserModules::Querying
   include Diaspora::UserModules::Receiving

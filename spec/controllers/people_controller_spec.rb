@@ -22,4 +22,12 @@ describe PeopleController do
   it 'should go to the current_user show page' do
     get :show, :id => @user.person.id
   end
+
+  it "doesn't error out on an invalid id" do
+    get :show, :id => 'delicious'
+  end
+
+  it "doesn't error out on a nonexistent person" do
+    get :show, :id => @user.id
+  end
 end

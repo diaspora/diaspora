@@ -218,7 +218,6 @@ describe User do
         @user.raw_visible_posts.include?(@message.id).should be_false
       end
       it "deletes the unfriended user's posts from the aspect's posts" do
-        pending "We need to implement this"
         @aspect2.posts.include?(@message).should be_false
       end
     end
