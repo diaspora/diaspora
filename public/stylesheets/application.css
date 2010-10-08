@@ -418,16 +418,16 @@ label {
   #publisher form {
     display: inline; }
     #publisher form input[type='submit'] {
-      float: right;
+      display: block;
       margin-right: 20px;
-      margin-top: 26px; }
+      width: 100%; }
   #publisher textarea {
-    width: 600px;
+    width: 570px;
     height: 42px;
     margin-top: 0;
     margin-bottom: 0; }
-  #publisher .button {
-    margin-left: 100px; }
+  #publisher .buttons {
+    float: right; }
 
 #image_picker .small_photo {
   height: 100px;

@@ -26,6 +26,4 @@ class FbStatus
                   :updated_time => Time.parse(hash['updated_time'])
             )
   end
-
 end
-

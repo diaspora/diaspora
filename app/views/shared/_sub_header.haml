@@ -7,7 +7,7 @@
       - else
         %h2
           - if @aspect == :all
-            = link_to t('.all_aspects'), root_path
+            = link_to "Everyone", root_path
           - elsif @aspect == :public
             = "Public"
           - elsif @aspect == :manage
