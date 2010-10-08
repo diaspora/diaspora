@@ -22,7 +22,7 @@
     = f.hidden_field( :public, :value => (params[:action] == 'public') )
   
     .buttons
-      = f.submit t('.share'), :name => "share", :id => "fii"
-      - if broadcast
+      = f.submit t('.share')
+      - if defined? broadcast
         = f.submit "Broadcast", :class => "broadcast", :name => "broadcast"
 
