@@ -60,7 +60,7 @@ module ApplicationHelper
   end
 
   def new_request(request_count)
-    I18n.t('application.helper.new_requests') if request_count > 0
+    "new_requests" if request_count > 0 #Should not be Il8ned
   end
 
   def post_yield_tag(post)
