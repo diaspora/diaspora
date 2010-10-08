@@ -1,15 +1,10 @@
 #!/bin/bash
 
-#Usage: See  function usage() at bottom.
-#
-#
 # Create a diaspora distribution
 #
-# Builds a diaspora distribution containing the application and bundled
-# libraries. Normally checks out latest version of the master branch.
+# Usage: See  function usage() at bottom.
 #
 GIT_REPO='http://github.com/diaspora/diaspora.git'
-RELEASE='HEAD'
 VERSION='0.0'
 
 function git_id
@@ -52,8 +47,9 @@ function git_id
 
 function fix_alphatag()
 #  Patch version on top comment first id line:
-#  Usage: fix_alphatag <file> <version> <commi_id>
-#* Fri Sep 24 2010 name surname  <email@com>     1.20100925_faf234320
+#  Usage: fix_alphatag <file> <version> <commit_id>
+#  Patches:\
+#       *   Fri Sep 24 2010 name surname <email@com> 1.20100925_faf23207
 {
     dist=$(rpm --eval %dist)
     awk  -v dist="$dist" -v version="$2" -v release="$3"  \
@@ -70,40 +66,40 @@ function fix_alphatag()
                           next
                         }
                         { print }' \
-    < $1 > $1.tmp && cp $1.tmp $1 && rm $1.tmp
+    < $1 > $1.tmp && mv -f $1.tmp $1 
 }
 
 function fix_bundle_deps
-# usage: fix_bundle_deps <specfile> <version> release
-# Patches Requires:   diaspora-bundle = 0.0-20101021-aefsf323148
+# usage: fix_bundle_deps <specfile> <version> <release>
+# Patches: Requires:   diaspora-bundle = 0.0-20101021-aefsf323148
 {
-	awk -v vers="$2-$3" \
-		' /Requires:/ { if ($2 == "diaspora-bundle")
-				    printf( "%s	%s = %s\n", $1,$2,vers)
-				else
-				    print				    
-				next
-			       }
-			       { print}' \
-             < $1 > $1.tmp && cp $1.tmp $1 && rm $1.tmp			    
+        awk -v vers="$2-$3" \
+                ' /Requires:/ { if ($2 == "diaspora-bundle")
+                                    printf( "%s %s = %s\n", $1,$2,vers)
+                                else
+                                    print
+                                next
+                               }
+                               { print}' \
+             < $1 > $1.tmp && mv -f  $1.tmp $1 
 }
 
 function patch()
-# Patch git_release, Requires: diaspora-bundle and top comment version.
+# Patch  spec-files with current version-release
 # Usage: patch VERSION RELEASE
 {
-	sed -e "/^%define/s|HEAD|$2|"                  \
+        sed -e "/^%define/s|HEAD|$2|"                  \
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 <diaspora.spec >dist/diaspora.spec                              
-	fix_alphatag dist/diaspora.spec $1 $2
-	#mkdir dist/diaspora/tmp || :
-	bundle_id=$(git_id dist/diaspora/Gemfile)
-	fix_bundle_deps  dist/diaspora.spec $1 "1.$bundle_id.fc13"
-	sed -e "/^%define/s|HEAD|$bundle_deps|"        \
+        fix_alphatag dist/diaspora.spec $1 $2
+        bundle_id=$(git_id dist/diaspora/Gemfile)
+        dist_tag=$(rpm --eval %dist)
+        fix_bundle_deps  dist/diaspora.spec $1 "1.${bundle_id}$dist_tag"
+        sed -e "/^%define/s|HEAD|$bundle_id|"          \
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 < diaspora-bundle.spec > dist/diaspora-bundle.spec
-	
-	cp dist/diaspora.spec dist/diaspora/diaspora.spec
+        
+        cp dist/diaspora.spec dist/diaspora/diaspora.spec
 }
 
 function checkout()
@@ -121,10 +117,9 @@ function checkout()
                  git remote add upstream \
                      git://github.com/diaspora/diaspora.git
                  for p in ../../*.patch; do
-                     git apply --whitespace=fix  $p   > /dev/null
+                     git apply --whitespace=fix  $p  > /dev/null
                  done
              )
-         
         }
         cd diaspora; 
         git fetch --quiet upstream 
@@ -137,21 +132,29 @@ function checkout()
 
 function make_dist
 # Create a distribution tarball
+# Usage:  make dist [ commit, defaults to HEAD]
 {
     commit=$(checkout ${1:-'HEAD'})
     echo "Creating source tarball for $commit"
     patch $VERSION $commit 
-	
+
     RELEASE_DIR="diaspora-$VERSION-$commit"
     rm -rf dist/${RELEASE_DIR} 
     mkdir dist/${RELEASE_DIR}
     cp diaspora-ws diaspora-setup diaspora.logconf dist/${RELEASE_DIR}
     cd dist
-    mkdir ${RELEASE_DIR}/master
-    cp -ar diaspora/*  diaspora/.git* diaspora/.bundle  ${RELEASE_DIR}/master	
-    mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
-    ( cd  ${RELEASE_DIR}; find . -name .gitkeep -delete)
-    tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && rm -rf ${RELEASE_DIR}
+        mkdir ${RELEASE_DIR}/master
+        cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master
+        mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
+        (
+             cd  ${RELEASE_DIR};
+             find . -name .gitkeep -delete
+             cd master
+             rm -rf .bundle
+             git apply ../../../add-bundle.patch
+        )
+        tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && \
+            rm -rf ${RELEASE_DIR}
     cd ..
     echo "Source:           dist/${RELEASE_DIR}.tar.gz"
     echo "Required bundle:  $(git_id dist/diaspora/Gemfile)"
@@ -160,25 +163,28 @@ function make_dist
 }
 
 function make_bundle()
+# Create the bundle tarball
+# Usage:  make_bundle [ commit, defaults to HEAD]
+#
 {
     checkout ${1:-'HEAD'} >/dev/null
     bundle_id=$(git_id dist/diaspora/Gemfile)
     bundle_name="diaspora-bundle-$VERSION-$bundle_id"
     test -e  "dist/$bundle_name.tar.gz" || {
         echo "Creating bundle $bundle_name"
-       	cd dist
-	    rm -rf $bundle_name 
-	    mkdir -p $bundle_name/bundle
-	    pushd diaspora > /dev/null
-                test -e ../../Gemfile.lock.patch &&
-		    git apply ../../Gemfile.lock.patch > /dev/null 2>&1
-	        bundle install --deployment                      \
+        cd dist
+            rm -rf $bundle_name 
+            mkdir -p $bundle_name/bundle
+            pushd diaspora > /dev/null
+                bundle install --deployment                      \
                                --path="../$bundle_name/bundle"   \
                                --without=test rdoc
 
-	        cp -ar AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT "../$bundle_name"
-            popd
+                cp -ar AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT \
+                       "../$bundle_name"
+            popd > /dev/null
             tar czf $bundle_name.tar.gz $bundle_name
+        cd ..
     }
     echo 
     echo "Bundle: dist/$bundle_name.tar.gz"
@@ -213,18 +219,18 @@ function make_links()
 
 function usage()
 {
-    	cat <<- EOF
+        cat <<- EOF
 
-		Usage: make-dist [-c commit] <dist|bundle|links>
+	Usage: make-dist [-c commit] <dist|bundle|links>
 
-		-c             Use a given commit, defaults to last checked in.
-		dist           Build a diaspora application tarball.
-		bundle         Build a bundler(1) bundle for diaspora.
-		links          Symlink bundle and source tarballs to rpm source dir.
-		
-		All results are stored in dist/
+	-c             Use a given commit, defaults to last checked in.
+	dist           Build a diaspora application tarball.
+	bundle         Build a bundler(1) bundle for diaspora.
+	links          Symlink bundle and source tarballs to rpm source dir.
+	
+	All results are stored in dist/
 	EOF
-}		
+}
 
 
 test "$1" = "-h"  -o $# = 0 && {
@@ -242,25 +248,25 @@ test "$1" = "-c" && {
 }
     
     
- case $1 in
+case $1 in
  
-     "bundle")  make_bundle $commit
-                ;;
+    "bundle")  make_bundle $commit
+               ;;
 
-     'source')  make_dist $commit
-                ;;
+    'source')  make_dist $commit
+               ;;
 
-     'links')   make_links $commit
-                ;;
+    'links')   make_links $commit
+               ;;
 
-     "fix_gemfile")
-                fix_gemfile
-                ;;
+    "fix_gemfile")
+               fix_gemfile
+               ;;
                 
-            *)  usage
-                exit 1
-                ;;
- esac
+           *)  usage
+               exit 1
+               ;;
+esac
  
          
 

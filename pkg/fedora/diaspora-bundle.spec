@@ -1,5 +1,9 @@
-%define         git_release     1010040945_a09a6d8
-# Turn off the brp-python-bytecompile script
+%define         git_release     HEAD
+
+# Turn off java repack, this is in in /usr/lib[64] anyway
+%define         __jar_repack    %{nil}
+
+# Turn off the brp-python-bytecompile script, *pyc/pyo causes problems
 %global __os_install_post %(echo '%{__os_install_post}' | 
        sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
@@ -109,7 +113,7 @@ pushd bundle/ruby/1.8/
         ln -s ../ext/thin_parser/thin_parser.so .
     popd
 
-    pushd gems/bson_ext-1.0.7/ext/bson_ext
+    pushd gems/bson_ext-1.1/ext/bson_ext
         rm cbson.so
         ln -s ../cbson/cbson.so .
     popd
@@ -153,7 +157,7 @@ pushd bundle/ruby/1.8/
         ln -s ../ext/trace_nums.so .
     popd
 
-    pushd bundler/gems/em-http-request-6f66010cda90/lib
+    pushd bundler/gems/em-http-request-*/lib
         rm em_buffer.so
         ln -s ../ext/buffer/em_buffer.so .
         rm http11_client.so
@@ -161,16 +165,20 @@ pushd bundle/ruby/1.8/
     popd
 popd
 
+
+
 %pre
 getent group diaspora >/dev/null || groupadd -r diaspora
-getent passwd diaspora >/dev/null ||       \
-    useradd -r -g apache                 \
+getent passwd diaspora >/dev/null ||        \
+    useradd -r -g diaspora                  \
     -md  /var/lib/diaspora -s /sbin/nologin \
     -c "Diaspora daemon" diaspora
 exit 0
 
 
 %install
+[ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
+
 find . -name .git | xargs rm -rf
 find . -name .gitignore -delete
 find . -name \*.o -delete  || :
@@ -190,7 +198,6 @@ pushd bundle/ruby/1.8/gems/selenium-webdriver-0.0.28/lib/selenium/webdriver/
 popd
 }
 
-[ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor
 
 cp -ar  bundle $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor

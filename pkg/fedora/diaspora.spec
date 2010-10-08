@@ -1,4 +1,4 @@
-%global         debug_package %{nil} 
+%global         debug_package   %{nil} 
 %define         git_release     HEAD
 
 Summary:        A social network server
@@ -14,34 +14,10 @@ Source1:        diaspora-ws
 Source2:        diaspora-setup
 BuildArch:      noarch
 
-BuildRequires:  git
-
 Requires:       mongodb-server
 Requires:       ruby(abi) = 1.8
 Requires:       diaspora-bundle = %{version}
 
-# rubygem-term-ansicolor  in repo (1.0.5)
-# rubygem-abstract:       in repo (1.0)
-# rubygem-actionpack      in repo (2.3.5), rawhide (2.3.8)
-# rubygem-builder         in repo (2.1.2)
-# rubygem-columnize       in repo (0.3.1)
-# rubygem-crack           in repo (0.1.8)
-# rubygem-cucumber        in repo (0.9.0)
-# diff-lcs                in rep  (1.1.2)
-# eventmachine            in repo (0.12.10)
-# gherkin                 in repo (2.2.4)
-# rubygem-json            in repo (1.1.9), rawhide(1.4.6)
-# rubygem-linecache       in repo (0.43)
-# rubygem-mime-types      in repo (1.16)
-# rubygem-mocha           in repo (0.9.8)
-# rubygem-net-ssh         in repo (2.0.23)
-# rubygem-nokogiri        in repo (1.4.3.1)
-# rubygem-rake            in repo (0.8.7)
-# rubygem-ruby-debug      in repo (0.10.4)
-# rubygem-ruby-debug-base in repo (0.10.4)
-# rubygem-term-ansicolor  in repo (1.0.5)
-# rubygem-thin            in repo(1.2.5), rawhide(1.2.7)
-# rubygem-uuidtools       in repo(2.1.1)
 
 %description
 A privacy aware, personally controlled, do-it-all and
@@ -120,5 +96,28 @@ fi
 %{_sysconfdir}/init.d/diaspora-ws
 
 %changelog
-* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>       1.1009280542_859ec2d
+* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1009280542_859ec2d
   - Initial attempt to create a spec fi+le
+
+# rubygem-term-ansicolor  in repo (1.0.5)
+# rubygem-abstract:       in repo (1.0)
+# rubygem-actionpack      in repo (2.3.5), rawhide (2.3.8)
+# rubygem-builder         in repo (2.1.2)
+# rubygem-columnize       in repo (0.3.1)
+# rubygem-crack           in repo (0.1.8)
+# rubygem-cucumber        in repo (0.9.0)
+# diff-lcs                in rep  (1.1.2)
+# eventmachine            in repo (0.12.10)
+# gherkin                 in repo (2.2.4)
+# rubygem-json            in repo (1.1.9), rawhide(1.4.6)
+# rubygem-linecache       in repo (0.43)
+# rubygem-mime-types      in repo (1.16)
+# rubygem-mocha           in repo (0.9.8)
+# rubygem-net-ssh         in repo (2.0.23)
+# rubygem-nokogiri        in repo (1.4.3.1)
+# rubygem-rake            in repo (0.8.7)
+# rubygem-ruby-debug      in repo (0.10.4)
+# rubygem-ruby-debug-base in repo (0.10.4)
+# rubygem-term-ansicolor  in repo (1.0.5)
+# rubygem-thin            in repo(1.2.5), rawhide(1.2.7)
+# rubygem-uuidtools       in repo(2.1.1)

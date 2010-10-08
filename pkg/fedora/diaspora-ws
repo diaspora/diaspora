@@ -27,6 +27,7 @@ if [ -f /etc/sysconfig/diaspora-ws -a $UID -eq 0 ]; then
     . /etc/sysconfig/diaspora-ws
 fi
 
+# Note: this line is patched by installation scripts.
 cd  /usr/share/diaspora
 
 RETVAL=0
