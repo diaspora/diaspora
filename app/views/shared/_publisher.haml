@@ -10,8 +10,6 @@
     %p
       %label{:for => "status_message_message"} Message
       = f.text_area :message, :rows => 2, :value => params[:prefill]
-      = connected_fb_as(@access_token) if @logged_in && @aspect == :public
-      = f.hidden_field( :public, :value => (params[:action] == 'public') )
 
     %ul.aspect_selector{ :style => "display:none;"}
       going to...
@@ -19,4 +17,12 @@
         %li
           = check_box_tag("aspect_ids[]", aspect.id, @aspect == :public || @aspect == :all || current_aspect?(aspect) )
           = aspect.name
-    = f.submit t('.share')
+
+    = connected_fb_as(@access_token) if @logged_in && @aspect == :all
+    = f.hidden_field( :public, :value => (params[:action] == 'public') )
+  
+    .buttons
+      = f.submit t('.share')
+      - if defined? broadcast
+        = f.submit "Broadcast", :class => "broadcast", :name => "broadcast"
+
