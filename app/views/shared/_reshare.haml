@@ -11,11 +11,17 @@
     $(this).parent(".reshare_pane").children(".reshare_box").fadeOut(200);
   });
 
-.reshare_pane
-  %span.reshare_button
-    = link_to "Reshare", "#"
 
-  %ul.reshare_box
-    - for aspect in current_user.aspects
-      - unless aspect.posts.include? post
-        %li.aspect_to_share= link_to aspect, :controller => "aspects", :action => "show", :id => aspect.id, :prefill => post.message
+- unless current_user.aspects.size == current_user.aspects_with_post(post.id).size
+  .reshare_pane
+    %span.reshare_button
+      = link_to "Reshare", "#"
+
+    %ul.reshare_box
+      - for aspect in current_user.aspects
+        - unless aspect.posts.include? post
+          %li.aspect_to_share= link_to aspect, :controller => "aspects", :action => "show", :id => aspect.id, :prefill => post.message
+- else
+  .reshare_pane
+    %span.reshare_button
+      = link_to "Reshare", "#", :class => "inactive"

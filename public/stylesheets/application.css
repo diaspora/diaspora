@@ -208,6 +208,12 @@ li.message {
     li.message:hover div.info a:active, li.message:hover .time a:active {
       color: #005d9c; }
 
+.destroy_link .reshare_pane .reshare_button a.inactive {
+  color: #cccccc;
+  cursor: default; }
+  .destroy_link .reshare_pane .reshare_button a.inactive:hover {
+    text-decoration: none; }
+
 .destroy_link .reshare_pane {
   margin-left: 5px;
   margin-right: 5px;
