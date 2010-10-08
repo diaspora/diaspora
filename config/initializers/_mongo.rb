@@ -4,8 +4,8 @@
 
 ENV['MONGODB_URL'] = ENV['MONGOHQ_URL'] || URI::Generic.build(:scheme => 'mongodb', :host => APP_CONFIG['mongo_host'], :port => APP_CONFIG['mongo_port'], :path => "/diaspora-#{Rails.env}").to_s
 
-MongoMapper.config = {RAILS_ENV => {'uri' => ENV['MONGODB_URL']}}
-MongoMapper.connect RAILS_ENV
+MongoMapper.config = {::Rails.env => {'uri' => ENV['MONGODB_URL']}}
+MongoMapper.connect ::Rails.env
 
 if defined?(PhusionPassenger)
    PhusionPassenger.on_event(:starting_worker_process) do |forked|
