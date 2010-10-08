@@ -81,7 +81,6 @@ describe User do
       end
 
       it 'should befriend the user other user on the same pod' do
-
         @user2.receive @req_three_xml
         @user2.pending_requests.size.should be 1
         @user2.accept_friend_request @request_three.id, @aspect2.id
@@ -90,7 +89,6 @@ describe User do
       end
 
       it 'should not delete the ignored user on the same pod' do
-
         @user2.receive @req_three_xml
         @user2.pending_requests.size.should be 1
         @user2.ignore_friend_request @request_three.id
@@ -99,7 +97,6 @@ describe User do
       end
 
       it 'should both users should befriend the same person' do
-
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
         @user.accept_friend_request @request.id, @aspect.id
@@ -113,7 +110,6 @@ describe User do
       end
 
       it 'should keep the person around if one of the users rejects him' do
-
         @user.receive @req_xml
         @user.pending_requests.size.should be 1
         @user.accept_friend_request @request.id, @aspect.id
@@ -138,7 +134,6 @@ describe User do
         @user2.friends.include?(@person_one).should be false
         Person.all.count.should be 3
       end
-
     end
 
     describe 'a user accepting rejecting multiple people' do
@@ -153,7 +148,7 @@ describe User do
         @request_two = Request.instantiate(:to => @user.receive_url, :from => @person_two)
       end
 
-      after do
+      it "keeps the right counts of friends" do
         @user.receive_friend_request @request
 
         @person_two.destroy
@@ -173,9 +168,7 @@ describe User do
         @user.pending_requests.size.should be 0
         @user.friends.size.should be 1
         @user.friends.include?(@person_two).should be false
-
       end
-
     end
 
     describe 'unfriending' do
@@ -184,26 +177,21 @@ describe User do
         @aspect2 = @user2.aspect(:name => "Gross people")
 
         friend_users(@user, @aspect, @user2, @aspect2)
-        @user.reload
-        @user2.reload
-        @aspect.reload
-        @aspect2.reload
       end
 
       it 'should unfriend the other user on the same seed' do
-        @user.friends.count.should == 1
-        @user2.friends.count.should == 1
+        @user.friends(true).count.should == 1
+        @user2.friends(true).count.should == 1
 
         @user2.unfriend @user.person
-        @user2.friends.count.should be 0
 
+        @user2.friends(true).count.should == 0
         @user.unfriended_by @user2.person
 
-        @aspect.reload
-        @aspect2.reload
-        @aspect.people.count.should == 0
-        @aspect2.people.count.should == 0
+        @aspect.reload.people(true).count.should == 0
+        @aspect2.reload.people(true).count.should == 0
       end
+
       context 'with a post' do
         before do
           @message = @user.post(:status_message, :message => "hi", :to => @aspect.id)
