@@ -3,9 +3,10 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  require File.expand_path('../../../lib/diaspora/ostatus_builder', __FILE__)
-  require File.expand_path('../../../lib/diaspora/exporter', __FILE__)
-  require File.expand_path('../../../lib/collect_user_photos', __FILE__)
+  require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
+  require File.join(Rails.root, 'lib/diaspora/exporter')
+  require File.join(Rails.root, 'lib/collect_user_photos')
+
 
   before_filter :authenticate_user!, :except => [:new, :create, :public]
 

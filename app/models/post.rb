@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 class Post
-  require File.expand_path('../../../lib/encryptable', __FILE__)
-  require File.expand_path('../../../lib/diaspora/websocket', __FILE__)
+  require File.join(Rails.root, 'lib/encryptable')
+  require File.join(Rails.root, 'lib/diaspora/websocket')
   include MongoMapper::Document
   include ApplicationHelper
   include ROXML

@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.expand_path('../../../lib/hcard', __FILE__)
+require File.join(Rails.root, 'lib/hcard')
 
 class Person
   include MongoMapper::Document

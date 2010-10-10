@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(File.dirname(__FILE__), "..", "spec_helper")
+require File.join(Rails.root, "spec", "spec_helper")
 
 describe DevUtilitiesController do
   render_views

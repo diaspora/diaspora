@@ -4,7 +4,7 @@
 
 class Profile
   include MongoMapper::EmbeddedDocument
-  require File.expand_path('../../../lib/diaspora/webhooks', __FILE__)
+  require File.join(Rails.root, 'lib/diaspora/webhooks')
   include Diaspora::Webhooks
   include ROXML
 

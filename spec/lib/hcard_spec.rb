@@ -3,7 +3,8 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.dirname(__FILE__) + '/../../lib/hcard'
+require File.join(Rails.root, 'lib/hcard')
+
 
 describe HCard do
   it 'should retreive and parse an hcard' do
