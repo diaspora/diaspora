@@ -24,7 +24,7 @@ describe DevUtilitiesController do
     before do
       @backer_number_file = File.join(File.dirname(__FILE__), "..", "..", "config", "backer_number.yml")
       @temp_file = File.join(File.dirname(__FILE__), "..", "..", "config", "backer_number.yml-tmp")
-      FileUtils.mv(@backer_number_file, @temp_file, :force => true)
+      FileUtils.mv(@backer_number_file, @temp_file, :force => true) if File.exists?(@backer_number_file)
     end
     after do
       if File.exists?(@temp_file)
