@@ -65,9 +65,6 @@ The topmost comment's version is patched to reflect the complete version
 of current specfile by 'make-dist source'. WRite the comment in this 
 directory, copy-paste previous version nr. It will be updated.
 
-rpmlint shows many errors, most of which related to that the server
-won't start if the .git directories are not included. Needs investigation.
-
 This has been confirmed to start up and provide basic functionality both using 
 the thin webserver and apache passenger, and on 32/64 bit systems.
 
