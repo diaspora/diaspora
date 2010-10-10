@@ -14,16 +14,16 @@ function git_id
 # Usage: git_id [-n] [file or directory]
 #
 {
-    nl="\n"
-    file_or_dir="$PWD"
+    local nl="\n"
+    local file_or_dir="$PWD"
     test "$1" = '-n' && { nl=""; shift; }
     test -n "$1" && file_or_dir="$1"
     if [ -d $file_or_dir ]; then
-        file=""
-        dir=$file_or_dir
+        local file=""
+        local dir=$file_or_dir
     else
-        file=$(basename $file_or_dir)
-        dir=$(dirname $file_or_dir)
+        local file=$(basename $file_or_dir)
+        local dir=$(dirname $file_or_dir)
     fi
 
     export LANG=C
@@ -51,7 +51,7 @@ function fix_alphatag()
 #  Patches:\
 #       *   Fri Sep 24 2010 name surname <email@com> 1.20100925_faf23207
 {
-    dist=$(rpm --eval %dist)
+    local dist=$(rpm --eval %dist)
     awk  -v dist="$dist" -v version="$2" -v release="$3"  \
         ' BEGIN         { done = 0 }
           /^[*]/        { if (done)
@@ -92,8 +92,8 @@ function patch()
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 <diaspora.spec >dist/diaspora.spec
         fix_alphatag dist/diaspora.spec $1 $2
-        bundle_id=$(git_id dist/diaspora/Gemfile)
-        dist_tag=$(rpm --eval %dist)
+        local bundle_id=$(git_id dist/diaspora/Gemfile)
+        local dist_tag=$(rpm --eval %dist)
         fix_bundle_deps  dist/diaspora.spec $1 "1.${bundle_id}$dist_tag"
         sed -e "/^%define/s|HEAD|$bundle_id|"          \
             -e '/^Version:/s|.*|Version:        '$1'|' \
@@ -107,7 +107,7 @@ function checkout()
 # Usage: checkout [commit id, defaults to HEAD]
 # Returns: commit for current branch's HEAD.
 {
-    mkdir dist  >/dev/null 2>&1 || :
+    mkdir dist  &>/dev/null || :
     (
         cd dist
         test -d diaspora || {
@@ -194,13 +194,13 @@ function make_bundle()
 function make_links()
 # Usage: make_links [source commit]
 {
-    dest=$(rpm --eval %_sourcedir)
+    local dest=$(rpm --eval %_sourcedir)
     test -z "$dest" && {
         echo "Can't find RPM source directory, giving up."
         exit 2
     }
 
-    src_commit="${1:-$( checkout)}"
+    local src_commit="${1:-$( checkout)}"
     echo "Linking sources for $src_commit to $dest"
 
     src="dist/diaspora-$VERSION-$src_commit.tar.gz"
@@ -211,8 +211,8 @@ function make_links()
 	EOF
     ln -sf $PWD/$src $dest
 
-    bundle_commit=$(git_id dist/diaspora/Gemfile)
-    bundle="dist/diaspora-bundle-$VERSION-$bundle_commit.tar.gz"
+    local bundle_commit=$(git_id dist/diaspora/Gemfile)
+    local bundle="dist/diaspora-bundle-$VERSION-$bundle_commit.tar.gz"
     test -e $bundle ||
         cat <<- EOF
 	Warning: $bundle does not exist
@@ -220,6 +220,7 @@ function make_links()
 	EOF
     ln -sf $PWD/$bundle $dest
 
+    local file
     for file in $( grep -v '^#' SOURCES); do
         if [ -e "$file" ]; then
             ln -sf $PWD/$file $dest/$file
