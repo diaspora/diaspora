@@ -13,6 +13,7 @@ Source:         %{name}-%{version}-%{git_release}.tar.gz
 Source1:        diaspora-wsd
 Source2:        diaspora-setup
 Source3:        diaspora.logconf
+Source4:	make_rel_symlink.py
 BuildArch:      noarch
 BuildRoot:      %{_rmpdir}/not-used-in-fedora/
 
@@ -37,6 +38,10 @@ rm -rf master/vendor/bundle
 %install
 rm -fr $RPM_BUILD_ROOT
 
+sed -i \
+    '/BUNDLE_PATH/s|:.*|: %{_libdir}/diaspora-bundle/master/vendor/bundle|' \
+     master/.bundle/config
+
 cp master/GNU-AGPL-3.0 master/COPYRIGHT master/README.md master/AUTHORS .
 cp master/pkg/fedora/README.md README-Fedora.md
 
@@ -56,10 +61,12 @@ mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 
-rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/vendor/bundle
-rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/log
-rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/public/uploads
-rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/tmp
+%{SOURCE4} $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora \
+           $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/log
+%{SOURCE4} $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads \
+           $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/public/uploads
+%{SOURCE4} $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp \
+           $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/tmp
 
 find  $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type d        \
     -fprintf dirs '%%%dir "%%p"\n'
@@ -71,25 +78,21 @@ sed -i   -e '\|.*/master/config.ru"$|d'                    \
          -e 's|%{buildroot}||' -e 's|//|/|' -e '/""/d'     \
       files
 
-%post
-ln -sf  %{_localstatedir}/log/diaspora \
-        %{_datadir}/diaspora/master/log &>/dev/null || :
-ln -sf  %{_libdir}/diaspora-bundle/master/vendor/bundle \
-       .%{_datadir}/diaspora/master/vendor &>/dev/null || :
-ln -sf  %{_localstatedir}/lib/diaspora/uploads \
-        %{_datadir}/diaspora/master/public/uploads &>/dev/null || :
-ln -sf  %{_localstatedir}/lib/diaspora/tmp \
-        %{_datadir}/diaspora/master/tmp &>/dev/null || :
 
+%post
 /sbin/chkconfig --add  diaspora-wsd
+
+
 %preun
 if [ $1 -eq 0 ] ; then
-    service diaspora-wsd stop  >/dev/null 2>&1 || :
+    service diaspora-wsd stop  &>/dev/null || :
     /sbin/chkconfig --del  diaspora-wsd
 fi
 
+
 %clean
 rm -fr $RPM_BUILD_ROOT
+
 
 %files -f files
 %defattr(-, root, root, 0755)
@@ -99,6 +102,9 @@ rm -fr $RPM_BUILD_ROOT
 %attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/tmp
+%{_datadir}/diaspora/master/tmp
+%{_datadir}/diaspora/master/public/uploads
+%{_datadir}/diaspora/master/log
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
 %{_sysconfdir}/init.d/diaspora-wsd
 
