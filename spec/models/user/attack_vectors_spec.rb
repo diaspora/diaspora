@@ -46,7 +46,8 @@ describe User do
       user.raw_visible_posts.first.message.should == "store this!"
     end
 
-    it 'overites another persons profile' do 
+    it 'overites another persons profile' do
+      pending "don't allow profile overwriting"
       profile = user2.profile.clone
       profile.first_name = "Not BOB"
 
