@@ -22,9 +22,9 @@ function git_id
         file=""
         dir=$file_or_dir
     else
-        file=$(basename $file_or_dir) 
+        file=$(basename $file_or_dir)
         dir=$(dirname $file_or_dir)
-    fi    
+    fi
 
     export LANG=C
     (
@@ -59,14 +59,14 @@ function fix_alphatag()
                           else
                           {
                              gsub( "1[.].*", "")
-                             printf( "%s%s-1.%s%s\n", 
+                             printf( "%s%s-1.%s%s\n",
                                      $0, version, release,dist)
                              done = 1
                           }
                           next
                         }
                         { print }' \
-    < $1 > $1.tmp && mv -f $1.tmp $1 
+    < $1 > $1.tmp && mv -f $1.tmp $1
 }
 
 function fix_bundle_deps
@@ -81,7 +81,7 @@ function fix_bundle_deps
                                 next
                                }
                                { print}' \
-             < $1 > $1.tmp && mv -f  $1.tmp $1 
+             < $1 > $1.tmp && mv -f  $1.tmp $1
 }
 
 function patch()
@@ -90,7 +90,7 @@ function patch()
 {
         sed -e "/^%define/s|HEAD|$2|"                  \
             -e '/^Version:/s|.*|Version:        '$1'|' \
-                <diaspora.spec >dist/diaspora.spec                              
+                <diaspora.spec >dist/diaspora.spec
         fix_alphatag dist/diaspora.spec $1 $2
         bundle_id=$(git_id dist/diaspora/Gemfile)
         dist_tag=$(rpm --eval %dist)
@@ -98,7 +98,7 @@ function patch()
         sed -e "/^%define/s|HEAD|$bundle_id|"          \
             -e '/^Version:/s|.*|Version:        '$1'|' \
                 < diaspora-bundle.spec > dist/diaspora-bundle.spec
-        
+
         cp dist/diaspora.spec dist/diaspora/diaspora.spec
 }
 
@@ -106,12 +106,12 @@ function checkout()
 # Checkout last version of diaspora unless it's already there.
 # Usage: checkout [commit id, defaults to HEAD]
 # Returns: commit for current branch's HEAD.
-{   
+{
     mkdir dist  >/dev/null 2>&1 || :
     (
-        cd dist 
+        cd dist
         test -d diaspora || {
-             git clone --quiet $GIT_REPO; 
+             git clone --quiet $GIT_REPO;
              (
                  cd diaspora;
                  git remote add upstream \
@@ -121,11 +121,11 @@ function checkout()
                  done
              )
         }
-        cd diaspora; 
-        git fetch --quiet upstream 
+        cd diaspora;
+        git fetch --quiet upstream
         git merge --quiet upstream/master
         git checkout --quiet  ${1:-'HEAD'}
-        git_id  -n 
+        git_id  -n
     )
 }
 
@@ -136,10 +136,10 @@ function make_dist
 {
     commit=$(checkout ${1:-'HEAD'})
     echo "Creating source tarball for $commit"
-    patch $VERSION $commit 
+    patch $VERSION $commit
 
     RELEASE_DIR="diaspora-$VERSION-$commit"
-    rm -rf dist/${RELEASE_DIR} 
+    rm -rf dist/${RELEASE_DIR}
     mkdir dist/${RELEASE_DIR}
     cp diaspora-ws diaspora-setup diaspora.logconf dist/${RELEASE_DIR}
     cd dist
@@ -173,7 +173,7 @@ function make_bundle()
     test -e  "dist/$bundle_name.tar.gz" || {
         echo "Creating bundle $bundle_name"
         cd dist
-            rm -rf $bundle_name 
+            rm -rf $bundle_name
             mkdir -p $bundle_name/bundle
             pushd diaspora > /dev/null
                 bundle install --deployment                      \
@@ -186,7 +186,7 @@ function make_bundle()
             tar czf $bundle_name.tar.gz $bundle_name
         cd ..
     }
-    echo 
+    echo
     echo "Bundle: dist/$bundle_name.tar.gz"
 }
 
@@ -201,7 +201,7 @@ function make_links()
     echo "Linking sources to $dest"
 
     src_commit="${1:-$( checkout)}"
-    
+
     src="dist/diaspora-$VERSION-$src_commit.tar.gz"
     ln -sf $PWD/$src $dest
 
@@ -227,7 +227,7 @@ function usage()
 	dist           Build a diaspora application tarball.
 	bundle         Build a bundler(1) bundle for diaspora.
 	links          Symlink bundle and source tarballs to rpm source dir.
-	
+
 	All results are stored in dist/
 	EOF
 }
@@ -246,10 +246,10 @@ test "$1" = "-c" && {
     commit="$2"
     shift; shift
 }
-    
-    
+
+
 case $1 in
- 
+
     "bundle")  make_bundle $commit
                ;;
 
@@ -262,11 +262,11 @@ case $1 in
     "fix_gemfile")
                fix_gemfile
                ;;
-                
+
            *)  usage
                exit 1
                ;;
 esac
- 
-         
+
+
 

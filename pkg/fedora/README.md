@@ -68,15 +68,6 @@ directory, copy-paste previous version nr. It will be updated.
 This has been confirmed to start up and provide basic functionality both using 
 the thin webserver and apache passenger, and on 32/64 bit systems.
 
-#### Bugs
-
-As of now, diaspora fails if it not owns all file under /usr/share/diaspora.
-I guess this means diaspora writes some stuff somewhere. In the long run,
-this should be located and symlinked to /var,leaving the rest of the files
-owned by root. FTM, all files in /usr/share/diaspore are owned by
-diaspora
-
-
 #### Implementation
 
 'make-dist.sh source'  script checks out latest version of diaspora into the
@@ -89,17 +80,18 @@ patches, the content of diaspora-bundle.
 Here is also support for running the diaspora websocket service as a system 
 service through /sbin/service and some install scripts.
     
-Diaspora files are stored in /usr/share/diaspora, and owned by diaspora. The
+Diaspora files are stored in /usr/share/diaspora, and owned by root. The
 bundle, containing some C extensions, is architecture-dependent and lives
 in /usr/lib[64]/diaspora. Log files are in /var/log/diaspora. Symlinks in
-/usr/share diaspora makes log and bundle available as expected by diaspora app.
-This is more or less as mandated by LSB and Fedora packaging rules.
- 
-    find /usr/share/diaspora/ -type l -exec ls -l {} \; | awk '{print $9, $10, $11}'
-    /usr/share/diaspora/master/public/uploads -> /var/lib/diaspora/uploads
-    /usr/share/diaspora/master/log -> /var/log/diaspora
-    /usr/share/diaspora/master/vendor/bundle -> /usr/lib/diaspora-bundle/master/vendor/bundle
+/usr/share diaspora makes log, bundle  and tmp dir available as expected by 
+diaspora app.  This is more or less as mandated by LSB and Fedora packaging rules.
 
+    find . -type l -exec ls -l {} \; | awk '{print $9, $10, $11}'
+    ./public/uploads -> /var/lib/diaspora/uploads
+    ./log -> /var/log/diaspora
+    ./tmp -> /var/lib/diaspora/tmp
+    ./vendor/bundle -> /usr/lib/diaspora-bundle/master/vendor/bundle
+ 
 
 #### Discussion
 

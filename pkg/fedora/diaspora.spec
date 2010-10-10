@@ -53,6 +53,7 @@ cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master/.gitignore master/.bundle $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
 cp diaspora-setup  $RPM_BUILD_ROOT/%{_datadir}/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 
 find  $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type d  -fprintf dirs '%%%dir "%%p"\n'
 find  -L $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type f -fprintf files '"%%p"\n'
@@ -67,6 +68,7 @@ sed -i   -e '\|.*/master/config.ru"$|d'                    \
 rm -f  %{_datadir}/diaspora/master/vendor/bundle
 rm -f  %{_datadir}/diaspora/master/log
 rm -f  %{_datadir}/diaspora/master/public/uploads
+rm -rf  %{_datadir}/diaspora/master/tmp
 
 ln -s  %{_localstatedir}/log/diaspora \
         %{_datadir}/diaspora/master/log || :
@@ -74,6 +76,8 @@ ln -s  %{_libdir}/diaspora-bundle/master/vendor/bundle \
        %{_datadir}/diaspora/master/vendor || :
 ln -s  %{_localstatedir}/lib/diaspora/uploads \
        %{_datadir}/diaspora/master/public/uploads || :
+ln -s  %{_localstatedir}/lib/diaspora/tmp \
+       %{_datadir}/diaspora/master/tmp || :
 /sbin/chkconfig --add  diaspora-ws || :
 
 %preun
@@ -86,12 +90,13 @@ fi
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 
 %files -f files
-%defattr(-, diaspora, diaspora, 0755)
+%defattr(-, root, root, 0755)
 %doc  README.md GNU-AGPL-3.0
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config.ru
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config/environment.rb
 %attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
+%attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/tmp
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
 %{_sysconfdir}/init.d/diaspora-ws
 
