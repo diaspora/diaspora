@@ -1,3 +1,4 @@
 # These files will be linked to %_sourcedir by 'make-dist links'
 diaspora-setup
 diaspora-ws
+diaspora.logconf

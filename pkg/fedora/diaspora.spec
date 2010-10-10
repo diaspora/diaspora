@@ -1,17 +1,18 @@
-%global         debug_package   %{nil} 
+%global         debug_package   %{nil}
 %define         git_release     HEAD
 
 Summary:        A social network server
 Name:           diaspora
 Version:        0.0.1
 Release:        1.%{git_release}%{?dist}
-License:        AGPLv3 
+License:        AGPLv3
 Group:          Applications/Communications
 URL:            http://www.joindiaspora.com/
 Vendor:         joindiaspora.com
 Source:         %{name}-%{version}-%{git_release}.tar.gz
 Source1:        diaspora-ws
 Source2:        diaspora-setup
+Source3:        diaspora.logconf
 BuildArch:      noarch
 
 Requires:       mongodb-server
@@ -32,26 +33,26 @@ find .  -perm /u+x -type f -exec \
 %build
 rm -rf master/vendor/bundle
 mkdir master/tmp || :
-pushd  master
-    tar cf public/source.tar  --exclude='source.tar' -X .gitignore *
-popd
 
 %install
-[ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
-cp master/README.md .
-mv master/GNU-AGPL-3.0 .
+rm -fr $RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
+cp master/GNU-AGPL-3.0 master/COPYRIGHT master/README.md master/AUTHORS .
+cp master/pkg/fedora/README.md README-Fedora.md
+
 mkdir -p $RPM_BUILD_ROOT/etc/init.d
-sed -i '/^cd /s|.*|cd %{_datadir}/diaspora/master|' diaspora-ws
-cp diaspora-ws $RPM_BUILD_ROOT/etc/init.d
-mkdir -p  $RPM_BUILD_ROOT/etc/logrotate.d
-cp diaspora.logconf  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
+cp %SOURCE1  $RPM_BUILD_ROOT/etc/init.d
+sed -i '/^cd /s|.*|cd %{_datadir}/diaspora/master|'  \
+       $RPM_BUILD_ROOT/etc/init.d/diaspora-ws
+
+mkdir -p  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d
+cp %SOURCE3  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
+
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
-cp -ar master/.gitignore master/.bundle $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
-cp diaspora-setup  $RPM_BUILD_ROOT/%{_datadir}/diaspora
+cp %SOURCE2  $RPM_BUILD_ROOT/%{_datadir}/diaspora
+
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 
@@ -91,7 +92,7 @@ fi
 
 %files -f files
 %defattr(-, root, root, 0755)
-%doc  README.md GNU-AGPL-3.0
+%doc AUTHORS README.md GNU-AGPL-3.0 COPYRIGHT README-Fedora.md
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config.ru
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config/environment.rb
 %attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora

@@ -118,7 +118,7 @@ function checkout()
                      git://github.com/diaspora/diaspora.git
                  for p in ../../*.patch; do
                      git apply --whitespace=fix  $p  > /dev/null
-                 done
+                 done &>/dev/null  || :
              )
         }
         cd diaspora;
@@ -141,17 +141,18 @@ function make_dist
     RELEASE_DIR="diaspora-$VERSION-$commit"
     rm -rf dist/${RELEASE_DIR}
     mkdir dist/${RELEASE_DIR}
-    cp diaspora-ws diaspora-setup diaspora.logconf dist/${RELEASE_DIR}
     cd dist
         mkdir ${RELEASE_DIR}/master
         cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master
         mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
         (
-             cd  ${RELEASE_DIR};
-             find . -name .gitkeep -delete
-             cd master
+             cd  ${RELEASE_DIR}/master
+             git show --name-only > config/gitversion
+             tar cf public/source.tar  \
+                 --exclude='source.tar' -X .gitignore *
+             find $PWD  -name .git\* | xargs rm -rf
              rm -rf .bundle
-             git apply ../../../add-bundle.patch
+             /usr/bin/patch -p1 <../../../add-bundle.diff
         )
         tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && \
             rm -rf ${RELEASE_DIR}
@@ -198,23 +199,36 @@ function make_links()
         echo "Can't find RPM source directory, giving up."
         exit 2
     }
-    echo "Linking sources to $dest"
 
     src_commit="${1:-$( checkout)}"
+    echo "Linking sources for $src_commit to $dest"
 
     src="dist/diaspora-$VERSION-$src_commit.tar.gz"
+    test -e $src ||
+        cat <<- EOF
+	Warning: $src does not exist
+	(last version not built?)
+	EOF
     ln -sf $PWD/$src $dest
 
     bundle_commit=$(git_id dist/diaspora/Gemfile)
     bundle="dist/diaspora-bundle-$VERSION-$bundle_commit.tar.gz"
+    test -e $bundle ||
+        cat <<- EOF
+	Warning: $bundle does not exist
+	(last version not built?)
+	EOF
     ln -sf $PWD/$bundle $dest
 
     for file in $( grep -v '^#' SOURCES); do
-        ln -sf $PWD/$file $dest/$file
+        if [ -e "$file" ]; then
+            ln -sf $PWD/$file $dest/$file
+        else
+            echo "Warning: $file (listed in SOURCES) does not exist"
+        fi
     done
 
-    cd $dest
-    find . -type l -not -readable -exec rm {} \;
+    ( cd $dest;  find . -type l -not -readable -exec rm {} \;)
 }
 
 function usage()
@@ -257,10 +271,6 @@ case $1 in
                ;;
 
     'links')   make_links $commit
-               ;;
-
-    "fix_gemfile")
-               fix_gemfile
                ;;
 
            *)  usage
