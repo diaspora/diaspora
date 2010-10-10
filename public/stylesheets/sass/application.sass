@@ -39,26 +39,39 @@ h3
 #flash_error,
 #flash_alert
   :z-index 100
-  :top 32px
-  :position absolute
-  :color #000
-  :width 400px
-  :margin 0 0 0 -200px
-  :left 50%
-  :text
-    :align center
-  :font
-    :size 14px
-  :padding 3px 0
+  :position fixed
+  :color #fff
 
+  :top 0
+  :left 0
+
+  :width 100%
+
+  :padding 1em
+  
+  :box-shadow 0 1px 2px #333
+  :-moz-box-shadow 0 1px 2px #333
+  :-webkit-box-shadow 0 1px 2px #333
+
+  :font
+    :weight bold
+  
 #flash_notice
-  :background-color #CFC
-  :border solid 1px #6C6
+  :background
+    :color rgba(127,255,36,0.85)
+  :border
+    :bottom solid 1px #6C6
+  :text
+    :shadow 0 1px #6C6
 
 #flash_error,
 #flash_alert
-  :background-color #FCC
-  :border solid 1px #C66
+  :background
+    :color rgba(208,49,43,0.85)
+  :border
+    :bottom solid 1px #C66
+  :text
+    :shadow 0 1px #C66
 
 .fieldWithErrors
   :display inline

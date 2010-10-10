@@ -12,7 +12,9 @@ $(document).ready(function(){
 
   $("label").inFieldLabels();
 
-  $('#flash_notice, #flash_error, #flash_alert').delay(2500).slideUp(130);
+  $('#flash_notice, #flash_error, #flash_alert').delay(4000).animate({
+    top: -100 
+  }, $(this).remove());
 
   $("div.image_cycle").cycle({
     fx: 'fade',
