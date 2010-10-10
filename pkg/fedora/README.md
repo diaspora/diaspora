@@ -1,12 +1,13 @@
 ## Diaspora RPM tools
 
-Creates RPM packages from diaspora git repository.
+Creates diaspora source tarballs and RPM packages
 
 An alternative to the capistrano system, providing classic, binary RPM
-packages for deployment on Fedora 13.
+packages for deployment on Fedora 13 and OS-independent source tarballs
+aimed for packaging purposes.
 
 
-#### Synopsis:
+#### Fedora RPM synopsis
 
 *Prerequisites*: ruby-1.8, rubygem and other packages as described in
 http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora
@@ -17,8 +18,8 @@ and dist/diaspora-bundle-0.0-1010041233_fade4231.tar.gz:
     % ./make-dist.sh source
     % ./make-dist.sh bundle
 
-Setup links to tarballs from RPM source directory:
-    % ./make-dist.sh links
+Setup links to tarballs from RPM source directory and create spec files:
+    % ./make-dist.sh prepare
 
 Build rpms:
     rpmbuild -ba dist/diaspora.spec
@@ -39,34 +40,73 @@ Start development server:
 
 See http://github.com/diaspora/diaspora/wiki/Using-apache for
 apache/passenger setup. After configuration, start with:
-    /sbin/service diaspora-ws start
+    /sbin/service diaspora-wsd start
     /sbin/service httpd restart
 
+#### Generic source synopsis
+
+Generate source tarball:
+    % ./make-dist.sh source
+    Using repo:          http://github.com/diaspora/diaspora.git
+    Commit id:           1010092232_b313272
+    Source:              dist/diaspora-0.0-1010092232_b313272.tar.gz
+    Required bundle:     1010081636_d1a4ee0
+    %
+
+The source tarball could be used as-is, by unpacking add making a
+*bundle install*. An alternative is to generate a canned bundle like:
+    % ./make-dist.sh bundle
+          [ lot's of output...]
+    Bundle: dist/diaspora-bundle-0.0-1010081636_d1a4ee0.tar.gz
+    %
+
+This file can be installed anywhere. To use it, add a symlink from vendor/bundle
+to the bundle's master directory.  Reasonable defaults are to install
+diaspora in /var/diaspora and bundle in /usr/lib/diaspora-bundle. With these,
+the link is
+    % rm -rf /var/diaspora/master/vendor/bundle
+    % ln -sf /usr/lib/diaspora-bundle/master/bundle  \
+    >          /var/diaspora/master/vendor
+    %
+
+The directories tmp, log, and public/uploads needs to be writable. If using
+apache passenger, read the docs on uid used and file ownership.
+
+Note that the bundle version required is printed each time a new source
+is generated.
 
 #### Notes
 
+The source tarball is as retrieved from diaspora with following differences:
+
+   - The .git directories are removed (freeing more than 50% of the size).
+   - A new file /master/config/gitversion is created.
+   - The file public/source.tar is generated.
+   - The file .bundle/config  is patched. Remove before doing
+     *bundle install*
+
 Routines uses last available version from master branch at github. The
-version contains a time stamp and an abbreviated git commit id. If listed
-in filename order, like ls does, latest version will be the last one.
+version contains a time stamp and an abbreviated git commit id.
 Using -c, a specific commit can be used for source build.
 
-*make-dist links* creates links  also for all files listed in SOURCES.
+*make-dist prepare* creates links  also for all files listed in SOURCES.
 Typically, this is  secondary sources. *make-dist.sh sources*
 applies all patches named *.patch in this directory after checking out
 source from git.
 
-The spec-files in dist/ are patched by ./make-dist.sh source to reference
+The spec-files in dist/ are patched by *./make-dist.sh prepare* to reference
 correct versions of diaspora and diaspora-bundle. The diaspora-bundle
 is only updated if Gemfile is updated, upgrading diaspora doesn't
 always require a new diaspora-bundle. Editing spec files should be done
-in this directory, changes in dist/ are lost when doing ./make-dist source.
+in this directory, changes in dist/ are lost when doing *./make-dist prepare*.
 
 The topmost comment's version is patched to reflect the complete version
-of current specfile by 'make-dist source'. WRite the comment in this
+of current specfile by *make-dist source*. Write the comment in this
 directory, copy-paste previous version nr. It will be updated.
 
 This has been confirmed to start up and provide basic functionality both using
-the thin webserver and apache passenger, and on 32/64 bit systems.
+the thin webserver and apache passenger, on 32/64 bit systems and in the
+mock build environment.
 
 #### Implementation
 

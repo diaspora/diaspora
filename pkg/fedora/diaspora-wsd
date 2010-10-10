@@ -1,30 +1,30 @@
 #!/bin/bash
 #
-#	/etc/rc.d/init.d/diaspora-ws
+#	/etc/rc.d/init.d/diaspora-wsd
 #
-# Starts the diaspora websocket server
+# Starts the diaspora websocket daemon
 #
 # chkconfig: - 80 80
-# description: Diaspora websocket server
+# description: Diaspora websocket daemon
 
 ### BEGIN INIT INFO
-# Provides: diaspora-ws
+# Provides: diaspora-wsd
 # Required-Start: $local_fs $network
 # Required-Stop: $local_fs $network
 # Should-Start: $remote_fs
 # Should-Stop: $remote_fs
-# Default-Start: 
+# Default-Start:
 # Default-Stop: 0 1 2 3 4 5 6
 # Short-Description: start and stop Diaspora websocket server
 # Description: The websocket server provides websocket services for
-#              diaspora. 
+#              diaspora.
 ### END INIT INFO
 
 # Source function library.
 . /etc/init.d/functions
 
-if [ -f /etc/sysconfig/diaspora-ws -a $UID -eq 0 ]; then
-    . /etc/sysconfig/diaspora-ws
+if [ -f /etc/sysconfig/diaspora-wsd -a $UID -eq 0 ]; then
+    . /etc/sysconfig/diaspora-wsd
 fi
 
 # Note: this line is patched by installation scripts.
@@ -33,9 +33,9 @@ cd  /usr/share/diaspora
 RETVAL=0
 prog="Diaspora websocket server"
 exec="script/websocket_server.rb"
-pidfile="/var/run/diaspora-ws"
-lockfile="/var/lock/subsys/diaspora-ws"
-logfile=/var/log/diaspora-ws.log
+pidfile="/var/run/diaspora-wsd"
+lockfile="/var/lock/subsys/diaspora-wsd"
+logfile=/var/log/diaspora-wsd.log
 
 [ -n "$OPTIONS" ] && OPTIONS=" $OPTIONS"
 ruby_cmd="ruby -C $PWD $exec$OPTIONS"

@@ -10,10 +10,11 @@ Group:          Applications/Communications
 URL:            http://www.joindiaspora.com/
 Vendor:         joindiaspora.com
 Source:         %{name}-%{version}-%{git_release}.tar.gz
-Source1:        diaspora-ws
+Source1:        diaspora-wsd
 Source2:        diaspora-setup
 Source3:        diaspora.logconf
 BuildArch:      noarch
+BuildRoot:      %{_rmpdir}/not-used-in-fedora/
 
 Requires:       mongodb-server
 Requires:       ruby(abi) = 1.8
@@ -27,12 +28,11 @@ open source social network server.
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
 
-find .  -perm /u+x -type f -exec \
+find . -perm /u+x -type f -exec \
     sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
 
 %build
 rm -rf master/vendor/bundle
-mkdir master/tmp || :
 
 %install
 rm -fr $RPM_BUILD_ROOT
@@ -43,7 +43,7 @@ cp master/pkg/fedora/README.md README-Fedora.md
 mkdir -p $RPM_BUILD_ROOT/etc/init.d
 cp %SOURCE1  $RPM_BUILD_ROOT/etc/init.d
 sed -i '/^cd /s|.*|cd %{_datadir}/diaspora/master|'  \
-       $RPM_BUILD_ROOT/etc/init.d/diaspora-ws
+       $RPM_BUILD_ROOT/etc/init.d/diaspora-wsd
 
 mkdir -p  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d
 cp %SOURCE3  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
@@ -56,39 +56,40 @@ mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 
-find  $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type d  -fprintf dirs '%%%dir "%%p"\n'
-find  -L $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type f -fprintf files '"%%p"\n'
+rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/vendor/bundle
+rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/log
+rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/public/uploads
+rm -rf  $RPM_BUILD_ROOT/%{_datadir}/diaspora/master/tmp
+
+find  $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type d        \
+    -fprintf dirs '%%%dir "%%p"\n'
+find  -L $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type f     \
+    -fprintf files '"%%p"\n'
 cat files >> dirs && mv -f dirs files
 sed -i   -e '\|.*/master/config.ru"$|d'                    \
          -e '\|.*/master/config/environment.rb"$|d'        \
          -e 's|%{buildroot}||' -e 's|//|/|' -e '/""/d'     \
       files
 
-
 %post
-rm -f  %{_datadir}/diaspora/master/vendor/bundle
-rm -f  %{_datadir}/diaspora/master/log
-rm -f  %{_datadir}/diaspora/master/public/uploads
-rm -rf  %{_datadir}/diaspora/master/tmp
+ln -sf  %{_localstatedir}/log/diaspora \
+        %{_datadir}/diaspora/master/log &>/dev/null || :
+ln -sf  %{_libdir}/diaspora-bundle/master/vendor/bundle \
+       .%{_datadir}/diaspora/master/vendor &>/dev/null || :
+ln -sf  %{_localstatedir}/lib/diaspora/uploads \
+        %{_datadir}/diaspora/master/public/uploads &>/dev/null || :
+ln -sf  %{_localstatedir}/lib/diaspora/tmp \
+        %{_datadir}/diaspora/master/tmp &>/dev/null || :
 
-ln -s  %{_localstatedir}/log/diaspora \
-        %{_datadir}/diaspora/master/log || :
-ln -s  %{_libdir}/diaspora-bundle/master/vendor/bundle \
-       %{_datadir}/diaspora/master/vendor || :
-ln -s  %{_localstatedir}/lib/diaspora/uploads \
-       %{_datadir}/diaspora/master/public/uploads || :
-ln -s  %{_localstatedir}/lib/diaspora/tmp \
-       %{_datadir}/diaspora/master/tmp || :
-/sbin/chkconfig --add  diaspora-ws || :
-
+/sbin/chkconfig --add  diaspora-wsd
 %preun
 if [ $1 -eq 0 ] ; then
-    service diaspora-ws stop  >/dev/null 2>&1 || :
-    /sbin/chkconfig --del  diaspora-ws
+    service diaspora-wsd stop  >/dev/null 2>&1 || :
+    /sbin/chkconfig --del  diaspora-wsd
 fi
 
 %clean
-[ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
+rm -fr $RPM_BUILD_ROOT
 
 %files -f files
 %defattr(-, root, root, 0755)
@@ -99,7 +100,7 @@ fi
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/tmp
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
-%{_sysconfdir}/init.d/diaspora-ws
+%{_sysconfdir}/init.d/diaspora-wsd
 
 %changelog
 * Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1009280542_859ec2d
