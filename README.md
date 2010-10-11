@@ -11,21 +11,22 @@ Initial installation instructions are [here](http://github.com/diaspora/diaspora
 
 We are continuing to build features and improve the code base.
 When we think it is ready for general use, we will post more final
-instructions.
+instructions.  Issue tracking is at [bugs.joindiaspora.com](bugs.joindiaspora.com).
 
 ## Commit Guidelines
 
 You are welcome to contribute, add to and extend Diaspora however you see fit.  We
 will do our best to incorporate everything that meets our guidelines.
 
-Please make your changes on a topic branch in your repo and submit your pull request
-from there, so that commits you don't want to submit aren't included.
+You can find an introduction to the source code [here](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source).  For an idea of where to start, look at our [issue tracker](bugs.joindiaspora.com).
+
+Make a topic branch.  By making your changes in a topic branch, you ensure that new commits to your master are not included in the pull request, and it's easier for us to merge your commits.
 
 Please do not rebase our tree into yours.
 See [here](http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html)
 for when to rebase.
 
-All commits must be tested, and all your tests should be green
+Patches must be tested, and all your tests should be green
 before a pull request is sent.  Please write your tests in Rspec.
 
 GEMS: We would like to keep external dependencies unduplicated.  We're using
