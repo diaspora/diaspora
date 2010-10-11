@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class StatusMessagesController < ApplicationController
@@ -12,18 +12,17 @@ class StatusMessagesController < ApplicationController
     params[:status_message][:to] = params[:aspect_ids]
 
     data = clean_hash params[:status_message]
-    
+
     if @logged_in && params[:status_message][:public] == 'true'
       id = 'me'
       type = 'feed'
-      
+
       Rails.logger.info("Sending a message: #{params[:status_message][:message]} to Facebook")
-      @res = MiniFB.post(@access_token, id, :type=>type,
-                         :metadata=>true, :params=>{:message => params[:status_message][:message]})
+      EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{params[:status_message][:message]}&access_token=#{@access_token}").post
     end
 
     @status_message = current_user.post(:status_message, data)
-    respond_with @status_message
+    render :nothing => true
   end
 
   def destroy

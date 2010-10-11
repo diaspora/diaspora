@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 module Diaspora
@@ -62,9 +62,9 @@ module Diaspora
       @user.visible_posts(:person_id => @user.person.id, :public=>true).inject("") do |xml,curr|
         if curr.respond_to?(:to_activity)
           unless xml
-            curr.to_activity 
+            curr.to_activity
           else
-            xml + curr.to_activity 
+            xml + curr.to_activity
           end
         end
       end

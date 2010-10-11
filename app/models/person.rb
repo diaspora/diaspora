@@ -1,8 +1,8 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.expand_path('../../../lib/hcard', __FILE__)
+require File.join(Rails.root, 'lib/hcard')
 
 class Person
   include MongoMapper::Document
@@ -50,7 +50,7 @@ class Person
   end
 
   def public_url
-    "#{self.url}users/#{self.owner.username}/public"
+    "#{self.url}public/#{self.owner.username}"
   end
 
 

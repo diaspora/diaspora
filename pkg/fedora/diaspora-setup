@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# Do what's needed to initiate diaspora.
+#
+# See http://github.com/diaspora/diaspora/issues/issue/395
+#
+# Note: This is really sort of prototyping. This should be done in ruby,
+# on a web page.
+
+test $UID = "0" || {
+    echo "You need to be root to do this, giving up"
+    exit 2
+}
+
+cd /usr/share/diaspora/master
+
+/sbin/service mongod start || :
+
+test -e config/app_config.yml ||
+    cp config/app_config.yml.example config/app_config.yml
+
+if rake db:seed:dev; then
+    echo "Database config OK, new user tom/evankorth in place"
+else
+    cat <<- EOF
+
+	Database config failed. You might want to remove all db files with
+	'rm -rf /var/lib/mongodb/*' and/or resetting the config file by
+	'cp config/app_config.yml.example config/app_config.yml' before
+	making a new try. Also, make sure the mongodb server is running
+	e. g., using '/sbin/service mongod status'.
+	EOF
+    exit 1
+fi
+
+# %attr(0777, diaspora, diaspora) doesn't work in specfile due to umask 022.
+chmod 777 /var/lib/diaspora/uploads
+
+hostname=$( awk '/pod_url:/ { print $2; exit }' <config/app_config.yml)
+while : ; do
+    echo "Current hostname is \"$hostname\""
+    echo -n "Enter new hostname [$hostname] :"
+    read new_hostname garbage
+    echo -n "Use hostname \"$new_hostname\" as pod_url (Yes/No) [Yes]? :"
+    read yesno garbage
+    test "${yesno:0:1}" = 'y' -o "${yesno:0:1}" = 'Y' -o -z "$yesno" && {
+        sed -i "/pod_url:/s/$hostname/$new_hostname/g" config/app_config.yml &&
+            echo "config/app_config.yml updated."
+        break
+    }
+done
+

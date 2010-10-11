@@ -1,15 +1,16 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 
 
-require File.dirname(__FILE__) + '/../spec_helper'
+require File.join(Rails.root,'spec/spec_helper')
+
 
 describe FbStatus do
-  
+
   let(:fb_status) { Factory.create :fb_status }
-  
+
   it 'is valid' do
     fb_status.should be_valid
   end
@@ -22,7 +23,7 @@ describe FbStatus do
     it 'has graph_id' do
       status_from_json.graph_id.should == json_object['id']
     end
-    
+
     it 'has author_id' do
       status_from_json.author_id.should == json_object['from']['id']
     end
@@ -39,5 +40,5 @@ describe FbStatus do
       status_from_json.updated_time.should == Time.parse(json_object['updated_time'])
     end
   end
-  
+
 end

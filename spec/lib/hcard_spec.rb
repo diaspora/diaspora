@@ -1,9 +1,10 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.dirname(__FILE__) + '/../../lib/hcard'
+require File.join(Rails.root, 'lib/hcard')
+
 
 describe HCard do
   it 'should retreive and parse an hcard' do

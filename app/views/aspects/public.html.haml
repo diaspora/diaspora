@@ -1,5 +1,5 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 
@@ -10,9 +10,7 @@
   = render "shared/aspect_friends"
 
 - content_for :publish do
-  - if @logged_in
-    = render "shared/publisher", :aspect_ids => :public
-  - else 
+  - if
     = render "shared/publisher", :aspect_ids => :all
 
 %ul#stream

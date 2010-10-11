@@ -1,9 +1,9 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class DevUtilitiesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:set_backer_number]
+  before_filter :authenticate_user!, :except => [:set_backer_number, :log]
   include ApplicationHelper
   include RequestsHelper
 

@@ -1,9 +1,9 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class PublicsController < ApplicationController
-  require File.expand_path('../../../lib/diaspora/parser', __FILE__)
+  require File.join(Rails.root, '/lib/diaspora/parser')
   include Diaspora::Parser
 
   layout false
@@ -30,7 +30,7 @@ class PublicsController < ApplicationController
 
   def hub
     if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
-      render :text => params['hub.challenge'], :status => 202, :layout => false 
+      render :text => params['hub.challenge'], :status => 202, :layout => false
     end
   end
 

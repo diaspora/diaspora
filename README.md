@@ -13,12 +13,15 @@ We are continuing to build features and improve the code base.
 When we think it is ready for general use, we will post more final
 instructions.
 
-## Commit Guidlines
+## Commit Guidelines
 
 You are welcome to contribute, add to and extend Diaspora however you see fit.  We
 will do our best to incorporate everything that meets our guidelines.
 
-Please do not rebase our tree into yours.  
+Please make your changes on a topic branch in your repo and submit your pull request
+from there, so that commits you don't want to submit aren't included.
+
+Please do not rebase our tree into yours.
 See [here](http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html)
 for when to rebase.
 
@@ -56,7 +59,7 @@ Ongoing discussion:
 More general info and updates about the project can be found on:
 [Our blog](http://joindiaspora.com),
 [and on Twitter](http://twitter.com/joindiaspora).
-Also, be sure to join the official [mailing list](http://http://eepurl.com/Vebk).
+Also, be sure to join the official [mailing list](http://eepurl.com/Vebk).
 
 If you wish to contact us privately about any exploits in Diaspora you may
 find, you can email

@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 module Diaspora
@@ -38,7 +38,8 @@ module Diaspora
       end
 
       def dispatch_friend_acceptance(request, requester)
-        salmon request, :to => requester
+        friend_acceptance = salmon(request)
+        push_to_person requester, friend_acceptance.xml_for(requester)
         request.destroy unless request.callback_url.include? url
       end
 

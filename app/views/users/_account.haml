@@ -1,0 +1,29 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%h2 Account
+
+%h3 Change Password
+
+= form_for @user do |f|
+  = f.error_messages
+
+  %p
+    = f.label :password, "New Password"
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+
+  .submit_block
+    = link_to "Cancel", edit_user_path(current_user)
+    or
+    = f.submit 'Change password'
+
+%h3 Export Data
+
+= link_to "download my xml", users_export_path, :class => "button"
+= link_to "download my photos", users_export_photos_path, :class => "button"
+

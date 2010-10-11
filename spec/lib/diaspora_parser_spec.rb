@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
@@ -8,7 +8,7 @@ describe Diaspora::Parser do
   before do
     @user = Factory.create(:user, :email => "bob@aol.com")
     @aspect = @user.aspect(:name => 'spies')
-    
+
     @user3 = Factory.create :user
     @person = @user3.person
     @user2 = Factory.create(:user)

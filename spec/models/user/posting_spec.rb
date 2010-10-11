@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
@@ -43,6 +43,11 @@ describe User do
       album = user.post :album, :name => "Georges", :to => aspect.id
       aspect.reload
       aspect.posts.should include album
+    end
+    it "should add the post to that user's visible posts" do
+      status_message = user.post :status_message, :message => "hi", :to => aspect.id
+      user.reload
+      user.raw_visible_posts.include?(status_message).should be true
     end
   end
 

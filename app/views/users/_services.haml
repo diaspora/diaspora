@@ -1,5 +1,5 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 
@@ -10,7 +10,7 @@
   %p
     - if @logged_in
       = connected_fb_as(@access_token)
-      
+
       %p
       - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
       - @fb_friends[:data].each do |friend|
@@ -23,3 +23,4 @@
   #content_bottom
     .back
       = link_to "⇧ home", root_path
+

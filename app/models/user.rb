@@ -1,14 +1,15 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.expand_path('../../../lib/diaspora/user/friending', __FILE__)
-require File.expand_path('../../../lib/diaspora/user/querying', __FILE__)
-require File.expand_path('../../../lib/diaspora/user/receiving', __FILE__)
-require File.expand_path('../../../lib/salmon/salmon', __FILE__)
+require File.join(Rails.root, 'lib/diaspora/user/friending')
+require File.join(Rails.root, 'lib/diaspora/user/querying')
+require File.join(Rails.root, 'lib/diaspora/user/receiving')
+require File.join(Rails.root, 'lib/salmon/salmon')
 
 class User
   include MongoMapper::Document
+  plugin MongoMapper::Devise
   include Diaspora::UserModules::Friending
   include Diaspora::UserModules::Querying
   include Diaspora::UserModules::Receiving
@@ -181,7 +182,7 @@ class User
   end
 
   def push_to_person( person, xml )
-    Rails.logger.debug("Adding xml for #{self} to message queue to #{self.url}")
+    Rails.logger.debug("#{self.real_name} is adding xml to message queue to #{person.receive_url}")
     QUEUE.add_post_request( person.receive_url, xml )
     QUEUE.process
   end
@@ -254,7 +255,7 @@ class User
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
-    
+
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
     User.create(opts)
@@ -288,7 +289,7 @@ class User
   def self.generate_key
     OpenSSL::PKey::RSA::generate 4096
   end
-  
+
   def encryption_key
     OpenSSL::PKey::RSA.new( serialized_private_key )
   end

@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
@@ -105,7 +105,6 @@ Devise.setup do |config|
   # scope, setting true below.
   # Note that devise does not generate default routes. You also have to
   # specify them in config/routes.rb
-  config.use_default_scope = true
 
   # Configure the default scope used by Devise. By default it's the first devise
   # role declared in your routes.

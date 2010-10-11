@@ -1,16 +1,16 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 
-class FbStatus 
+class FbStatus
   include MongoMapper::Document
 
   key :graph_id, String
   key :author_id, String
   key :author_name, String
   key :message, String
-  key :updated_time, Time 
+  key :updated_time, Time
 
   timestamps!
 
@@ -18,7 +18,7 @@ class FbStatus
 
   def self.from_api(hash)
     #just keeping them in memory for now
-    self.new( 
+    self.new(
                   :graph_id     => hash['id'],
                   :author_id    => hash['from']['id'],
                   :author_name  => hash['from']['name'],
@@ -26,6 +26,4 @@ class FbStatus
                   :updated_time => Time.parse(hash['updated_time'])
             )
   end
-  
 end
-

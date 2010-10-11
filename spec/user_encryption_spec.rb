@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
@@ -9,7 +9,7 @@ describe 'user encryption' do
     unstub_mocha_stubs
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => 'dudes')
-    
+
     @user2 = Factory.create(:user)
     @aspect2 = @user2.aspect(:name => 'dudes')
   end

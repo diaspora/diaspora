@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
@@ -11,16 +11,16 @@ describe Photo do
     @album = @user.post :album, :name => "foo", :to => @aspect.id
 
     @fixture_filename = 'button.png'
-    @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
-    @fail_fixture_name = File.dirname(__FILE__) + '/../fixtures/msg.xml'
+    @fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
+    @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
     @photo = Photo.new(:person => @user.person, :album => @album)
   end
 
-  it 'should have a constructor' do
-    pending "Figure out how to make the photo posting api work in specs, it needs a file type"
+  it 'has a constructor' do
     image = File.open(@fixture_name)
-    photo = Photo.instantiate(:person => @user.person, :album => @album, :user_file => [image])
+    photo = Photo.instantiate(
+              :person => @user.person, :album => @album, :user_file => image)
     photo.created_at.nil?.should be false
     photo.image.read.nil?.should be false
   end

@@ -1,9 +1,10 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Request
-  require File.expand_path('../../../lib/diaspora/webhooks', __FILE__)
+class Request  
+  require File.join(Rails.root, 'lib/diaspora/webhooks')
+  
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML

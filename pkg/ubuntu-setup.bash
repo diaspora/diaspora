@@ -5,13 +5,13 @@
 # This script helps to setup diaspora.
 #
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 # USAGE: ./script/ubuntu-setup.bash
 # Do NOT run this script as root.
 
-# Set extented globbing 
+# Set extented globbing
 shopt -s extglob
 
 # fail on error
@@ -24,28 +24,29 @@ We need to do some actions as an ordinary user. We use sudo where necessary." &&
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 
 # Check if universal repository is enabled 
-grep -i universe /etc/apt/sources.list > /dev/null || \
+grep -ie '^deb .*universe' /etc/apt/sources.list > /dev/null || \
     { echo "Please enable universe repository" ; exit 1 ; }
+
 
 # Make sure that we only install the latest version of packages
 sudo apt-get update
 
-# Check if wget is installed 
+# Check if wget is installed
 test wget || { echo "Installing wget.." && sudo apt-get install wget \
     && echo "Installed wget.." ; }
 
-# Install build tools 
+# Install build tools
 echo "Installing build tools.."
 sudo apt-get -y --no-install-recommends install \
     build-essential libxslt1.1 libxslt1-dev libxml2
 echo "..Done installing build tools"
 
-# Install Ruby 1.8.7 
-echo "Installing ruby-full Ruby 1.8.7.." 
+# Install Ruby 1.8.7
+echo "Installing ruby-full Ruby 1.8.7.."
 sudo apt-get -y --no-install-recommends install ruby-full
 echo "..Done installing Ruby"
 
-# Install Rake 
+# Install Rake
 echo "Installing rake.."
 sudo apt-get -y  --no-install-recommends install rake
 echo "..Done installing rake"
@@ -121,8 +122,8 @@ echo "Fetching and installing ruby gems.."
         echo "."
         sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
         echo "."
-    fi  
-) 
+    fi
+)
 echo "Done installing the gems.."
 
 # Install bundler

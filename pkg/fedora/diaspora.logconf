@@ -1,0 +1,13 @@
+/var/log/diaspora/*.log {
+       create 755 diaspora diaspora
+       weekly
+       rotate 10
+       copytruncate
+       delaycompress
+       compress
+       notifempty
+       missingok
+       postrotate
+ 	  ( /sbin/service diaspora-ws condrestart )  >/dev/null 2>&1
+       endscript
+}
