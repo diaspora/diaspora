@@ -76,8 +76,12 @@ class PhotosController < ApplicationController
 
   def show
     @photo = current_user.find_visible_post_by_id params[:id]
-    @album = @photo.album
-    respond_with @photo, @album
+    unless @photo
+      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    else
+      @album = @photo.album
+      respond_with @photo, @album
+    end
   end
 
   def edit

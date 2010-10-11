@@ -8,6 +8,6 @@
        notifempty
        missingok
        postrotate
- 	  ( /sbin/service diaspora-ws condrestart )  >/dev/null 2>&1
+ 	  ( /sbin/service diaspora-wsd condrestart )  >/dev/null 2>&1
        endscript
 }

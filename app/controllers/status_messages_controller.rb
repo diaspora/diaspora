@@ -33,7 +33,11 @@ class StatusMessagesController < ApplicationController
 
   def show
     @status_message = current_user.find_visible_post_by_id params[:id]
-    respond_with @status_message
+    unless @status_message
+      render :status => 404
+    else
+      respond_with @status_message
+    end
   end
 
   private

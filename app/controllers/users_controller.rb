@@ -78,6 +78,10 @@ class UsersController < ApplicationController
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
   end
 
+  def invite
+    User.invite!(:email => params[:email])
+  end
+
   private
   def prep_image_url(params)
     url = APP_CONFIG[:pod_url].chop if APP_CONFIG[:pod_url][-1,1] == '/'

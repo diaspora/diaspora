@@ -4,7 +4,11 @@
 
 class String
   def to_id
-    BSON::ObjectId self
+    begin
+      BSON::ObjectId self
+    rescue
+      nil
+    end
   end
 end
 class BSON::ObjectId

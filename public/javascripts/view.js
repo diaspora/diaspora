@@ -28,6 +28,7 @@ $(document).ready(function(){
   //buttons//////
   $("#add_aspect_button").fancybox({ 'titleShow' : false });
   $("#add_request_button").fancybox({ 'titleShow': false });
+  $("#invite_user_button").fancybox({ 'titleShow': false });
   $(".add_request_button").fancybox({ 'titleShow': false });
 
   $("input[type='submit']").addClass("button");
@@ -72,7 +73,7 @@ $.fn.clearForm = function() {
 
 $("#publisher .broadcast").live("click", function(evt){
   evt.preventDefault();
-  if( confirm("Broadcast to the world?") ) {
+  if( confirm("Publish to Diaspora and Facebook?") ) {
     $("#status_message_public").val("true");
     $(this).submit();
   }
