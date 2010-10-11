@@ -1,0 +1,208 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3.  See
+#   the COPYRIGHT file.
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Merhaba dünya"
+  application:
+      helper:
+          unknown_person: "bilinmiyen insanlar"
+          new_requests: "yeni istekler"
+  dashboards:
+      helper:
+          home: "ev"
+  error_messages:
+      helper:
+          invalid_fields: "Yanliș Bölümler"
+          correct_the_following_errors_and_try_again: "Alttaki yanlișlari düzeltin ve tekrar deneyin."
+  people:
+      helper:
+           results_for: "%{params} için sonuçlar"
+           people_on_pod_are_aware_of: " bu pod'da bizim bildigimiz kişiler."
+  layouts:
+      application:
+          edit_profile: "profili düzelt"
+          logout: "çık"
+  shared:
+      aspect_nav:
+          all_aspects: "Bütün Yanlar"
+          manage: "Düzenle"
+          manage_your_aspects: "Bütün yanlari Düzenle"
+      sub_header:
+          all_aspects: "Bütün Yanlar"
+          manage_aspects: "Yanlari Düzenle"
+      publisher:
+          share: "Paylaş"
+      aspect_friends:
+          add_friends: "Arkadaş ekle"
+  albums:
+      album:
+          you: "sen"
+      new_album:
+          create: "yarat"
+          add_a_new_album: "Yeni albüm ekle"
+      show:
+          edit_album: "Albümü düzelt"
+          albums: "albumler"
+          updated: "düzeltildi"
+          by: "tarafindan"
+      edit:
+          editing: "düzeltiyor"
+          updated: "düzeltildi"
+          are_you_sure: "Eminmisin?"
+          delete_album: "Sil Albümü"
+          cancel: "Vazgec"
+      index:
+          home: "Ev"
+          new_album: "Yeni Albüm"
+      create:
+          success: "Yeni bir album yattiniz %{name} isminde."
+      update:
+          success: "Albüm %{name} basari ile eklenmistir."
+          failure: "Albüm %{name} yi düzeltme basarili degil."
+      destroy:
+          success: "Albüm %{name} silinmistir."
+      helper:
+          friends_albums: "Arkadaşlarin Albümleri"
+          your_albums: "Sizin Albümleriniz"
+  aspects:
+      index:
+          photos: "resimler"
+      show:
+          photos: "resimler"
+      manage:
+          add_a_new_aspect: "Yeni bir yan ekle"
+          add_a_new_friend:  "Yeni bir Arkadaş ekle"
+          show: "Show"
+          update_aspects: "Yanlari düzelt"
+          requests: "Ricalar"
+          ignore_remove: "Goz ardi et/Cikart"
+      new_aspect:
+          add_a_new_aspect: "Yeni bir yan ekle"
+          create: "Yarat"
+      create:
+          success: "Sol taraftaki arti ya tikliyarak Diasporaya sizin yeni yaniniz i kimlerin gorebilecegini soyleyin."
+          failure: "Yan yaratimi basarili degildi."
+      destroy:
+          success: "%{name} basariyla yaratildi."
+      update:
+          success: "Sizin yaniniz, %{name}, basariyla düzeltildi."
+      move_friends:
+          failure: "Yan düzeltimi arkadisınız %{real_name} icin basarisizdi."
+          success: "Yanlar basariyla düzeltildi."
+      move_friend:
+          failure: "%{inspect} islemedi."
+          success: "Simdi siz Arkadaşlariniza baska bir yaninizi gosteriyorsunuz."
+      helper:
+          remove: "cikart"
+          aspect_not_empty: "Yan bos degil"
+  users:
+      edit:
+          editing_profile: "Profili düzeltiliyor"
+      profile:
+          cancel: "Vazgec"
+          update_profile: "düzelt Profili"
+          home: "Ev"
+          diaspora_username: "DIASPORA ISMINIZ"
+          info: "Bilgi"
+          picture: "Resim"
+          editing_profile: "Profili düzeltmek"
+          albums: "Albümler"
+          you_dont_have_any_photos: "Hicbir fotorafiniz yok!  Suraya gidin"
+          page_to_upload_some:  "yuklemek icin."
+          or: "veya"
+  comments:
+      comment:
+          ago: "once"
+      new_comment:
+          comment: "Yorum"
+  photos:
+      show:
+          prev: "once"
+          full_size: "tam buyukluk"
+          next: "sonra"
+          edit_photo: "düzelt Fotoyu"
+          delete_photo: "Sil Fotoyu"
+          are_you_sure: "Eminmisınız?"
+          comments: "yorumlar"
+      edit:
+          editing: "düzeltiliyor"
+          are_you_sure: "Eminmisiniz?"
+          delete_photo: "Sil Fotoyu"
+      photo:
+          show_comments: "göster yorumları"
+          posted_a_new_photo_to: "yeni bir foto koydu "
+      new:
+          new_photo: "Yeni Foto"
+          back_to_list: "Listeye Geri Git"
+          post_it: "ekle!"
+      create:
+          runtime_error: "Fotoyu yukleme basarisızdi.  Emniyet kemeriniz takılımiydi?"
+          integrity_error: "Fotoyu yukleme basarisızdi.  Resim olduğundan eminmisınız?"
+          type_error: "Fotoyu yukleme basarisizdi.  Bir resim yuklediğinize eminmisiniz?"
+      update:
+          notice: "Resim başarıyla eklendi."
+          error:  "Fotoyu düzeltme basarısızdı."
+      destroy:
+          notice: "Foto silindi."
+  registrations:
+      new:
+          sign_up: "Katıl"
+      create:
+          success: "Diasporaya katıldınız!"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "bana iyi bir şey söyle"
+          oh_yeah: "tabi ya!"
+      status_message:
+          show_comments: "göster yorumları"
+          delete: "Sil"
+          are_you_sure: "Eminmisiniz?"
+      show:
+          status_message: "Status Mesaji"
+          comments: "yorumlar"
+          are_you_sure: "Eminmisiniz?"
+          destroy: "Yok et"
+          view_all: "Hepsine bak"
+          message: "Mesaj"
+          owner: "Sahibi"
+      helper:
+          no_message_to_display: "Gosterilcek bir mesaj yok."
+  people:
+      person:
+          add_friend: "Arkadaş ekle"
+          pending_request: "bekletilen rica"
+      index:
+          add_friend: "Arkadaş ekle"
+          real_name: "esas ismi"
+          diaspora_handle: "diaspora ismi"
+          thats_you: "o sensin!"
+          friend_request_pending: "Arkadaş ricasi bekletiliyor"
+          you_have_a_friend_request_from_this_person: "siz bir arkadaş isteği aldiniz bu kişiden"
+      new:
+          new_person: "Yeni Kişi"
+          back_to_list: "Listeye geri dön"
+      show:
+          last_seen: "son gorüldu: %{how_long_ago}"
+          friends_since: "Arkadaş süreci: %{how_long_ago}"
+          save: "sakla"
+          are_you_sure: "Eminmisiniz?"
+          remove_friend: "çikart arkadaşlıktan"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Buna yeni bir arkadaş ekle"
+          enter_a_diaspora_username: "Bir Diaspora ismi gir:"
+          your_diaspora_username_is: "Sizin Diaspora isminiz: %{diaspora_handle}"
+          friends_username: "Arkadaşin Diaspora ismi"
+      destroy:
+          success: "Siz şimdi arkadaşsınız."
+          error: "Lutfen bir yan seçiniz!"
+          ignore: "Arkadaş isteğini reddettiniz."
+      create:
+          error: "Diaspora cekirddegi bulunmadı bu email'de!"
+          already_friends: "Siz zaten arakadaşsınız %{destination_url} ile!"
+          success: "Arakadaş olma isteği %{destination_url} a gonderilmiştir."
+          horribly_wrong: "Bir şey muhtemalan yanliş gitti."
