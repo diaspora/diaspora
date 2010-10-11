@@ -39,6 +39,8 @@ class User
 
   before_validation :downcase_username, :on => :create
 
+  before_destroy :unfriend_everyone, :remove_person
+
    def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
@@ -293,5 +295,20 @@ class User
   def encryption_key
     OpenSSL::PKey::RSA.new( serialized_private_key )
   end
+  
+  protected
 
+  def remove_person
+    self.person.destroy
+  end
+
+  def unfriend_everyone
+    friends.each{ |friend|
+      if friend.owner?
+        friend.owner.unfriended_by (self.person )
+      else 
+        self.unfriend( friend )
+      end
+    }
+  end
 end

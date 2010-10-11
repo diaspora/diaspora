@@ -146,6 +146,5 @@ class Person
   private
   def remove_all_traces
     Post.all(:person_id => id).each{|p| p.delete}
-    Album.all(:person_id => id).each{|p| p.delete}
   end
 end
