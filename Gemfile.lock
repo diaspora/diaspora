@@ -15,9 +15,10 @@ GIT
 
 GIT
   remote: git://github.com/igrigorik/em-http-request.git
-  revision: f069bb9b68335496c8f32475b79e448847befdae
+  revision: bf62d67fc72d6e701be5037e239dd470194b8e45
+  ref: bf62d67fc72d6e701be5
   specs:
-    em-http-request (0.2.14)
+    em-http-request (0.2.13)
       addressable (>= 2.0.0)
       eventmachine (>= 0.12.9)
 

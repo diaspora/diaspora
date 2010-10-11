@@ -15,6 +15,8 @@ a {
   text-decoration: none; }
   a:hover {
     color: #22aae0; }
+  a:active {
+    color: #005d9c; }
 
 h1, h2, h3, h4 {
   color: #444444; }
@@ -30,24 +32,27 @@ h3 {
 #flash_error,
 #flash_alert {
   z-index: 100;
-  top: 32px;
-  position: absolute;
-  color: black;
-  width: 400px;
-  margin: 0 0 0 -200px;
-  left: 50%;
-  text-align: center;
-  font-size: 14px;
-  padding: 3px 0; }
+  position: fixed;
+  color: white;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+  box-shadow: 0 1px 2px #333333;
+  -moz-box-shadow: 0 1px 2px #333333;
+  -webkit-box-shadow: 0 1px 2px #333333;
+  font-weight: bold; }
 
 #flash_notice {
-  background-color: #ccffcc;
-  border: solid 1px #66cc66; }
+  background-color: rgba(127, 255, 36, 0.85);
+  border-bottom: solid 1px #66cc66;
+  text-shadow: 0 1px #66cc66; }
 
 #flash_error,
 #flash_alert {
-  background-color: #ffcccc;
-  border: solid 1px #cc6666; }
+  background-color: rgba(208, 49, 43, 0.85);
+  border-bottom: solid 1px #cc6666;
+  text-shadow: 0 1px #cc6666; }
 
 .fieldWithErrors {
   display: inline; }
@@ -174,6 +179,8 @@ li.message {
           color: #bbbbbb; }
           li.message .content .from .aspect a:hover {
             text-decoration: underline; }
+          li.message .content .from .aspect a:active {
+            color: #999999; }
         li.message .content .from .aspect ul {
           display: inline;
           margin: 0;
@@ -199,13 +206,23 @@ li.message {
           color: #bbbbbb; }
   li.message:hover div.info a, li.message:hover .time a {
     color: #107fc9; }
+    li.message:hover div.info a:hover, li.message:hover .time a:hover {
+      color: #22aae0; }
+    li.message:hover div.info a:active, li.message:hover .time a:active {
+      color: #005d9c; }
 
-.reshare_pane {
+.destroy_link .reshare_pane .reshare_button a.inactive {
+  color: #cccccc;
+  cursor: default; }
+  .destroy_link .reshare_pane .reshare_button a.inactive:hover {
+    text-decoration: none; }
+
+.destroy_link .reshare_pane {
   margin-left: 5px;
   margin-right: 5px;
   display: inline;
   position: relative; }
-  .reshare_pane ul.reshare_box {
+  .destroy_link .reshare_pane ul.reshare_box {
     width: 150px;
     display: none;
     z-index: 10;
@@ -219,21 +236,24 @@ li.message {
     -moz-box-shadow: 0 0 5px #666666;
     text-shadow: 0 2px white;
     color: black; }
-    .reshare_pane ul.reshare_box > li {
+    .destroy_link .reshare_pane ul.reshare_box > li {
       font-weight: bold;
-      padding: 8px;
-        padding-right: 15px;
+      color: #cccccc;
       border-top: 1px solid white;
       border-bottom: 1px solid #cccccc; }
-      .reshare_pane ul.reshare_box > li:first-child {
+      .destroy_link .reshare_pane ul.reshare_box > li:first-child {
         border-top: none; }
-      .reshare_pane ul.reshare_box > li:last-child {
+      .destroy_link .reshare_pane ul.reshare_box > li:last-child {
         border-bottom: none; }
-      .reshare_pane ul.reshare_box > li a {
+      .destroy_link .reshare_pane ul.reshare_box > li a {
         display: block;
-        height: 100%; }
-        .reshare_pane ul.reshare_box > li a:hover {
-          background-color: #eeeeee; }
+        height: 100%;
+        padding: 2px 5px; }
+        .destroy_link .reshare_pane ul.reshare_box > li a:hover {
+          background-color: #eeeeee;
+          text-decoration: none; }
+        .destroy_link .reshare_pane ul.reshare_box > li a:active {
+          background-color: #cccccc; }
 
 form {
   position: relative;
@@ -418,22 +438,16 @@ label {
   #publisher form {
     display: inline; }
     #publisher form input[type='submit'] {
-      float: right;
+      display: block;
       margin-right: 20px;
-      margin-top: 26px; }
+      width: 100%; }
   #publisher textarea {
-    width: 600px;
+    width: 570px;
     height: 42px;
     margin-top: 0;
     margin-bottom: 0; }
-  #publisher .button {
-    margin-left: 100px; }
-  #publisher img {
-    box-shadow: 0 1px 2px white;
-    -moz-box-shadow: 0 1px 2px white;
-    -webkit-box-shadow: 0 1px 2px white;
-    border: 1px solid #bbbbbb;
-      border-top: 1px solid #666666; }
+  #publisher .buttons {
+    float: right; }
 
 #image_picker .small_photo {
   height: 100px;
@@ -715,6 +729,7 @@ ul#settings_nav {
   background-color: transparent; }
 
 #friend_pictures {
+  margin-top: 12px;
   line-height: 1em; }
   #friend_pictures img {
     margin-right: -1px;

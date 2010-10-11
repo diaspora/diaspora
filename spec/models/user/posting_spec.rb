@@ -44,6 +44,11 @@ describe User do
       aspect.reload
       aspect.posts.should include album
     end
+    it "should add the post to that user's visible posts" do
+      status_message = user.post :status_message, :message => "hi", :to => aspect.id
+      user.reload
+      user.raw_visible_posts.include?(status_message).should be true
+    end
   end
 
   describe '#update_post' do

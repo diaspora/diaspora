@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(File.dirname(__FILE__), "..", "spec_helper")
+require File.join(Rails.root, "spec", "spec_helper")
 
 describe DevUtilitiesController do
   render_views
@@ -24,7 +24,7 @@ describe DevUtilitiesController do
     before do
       @backer_number_file = File.join(File.dirname(__FILE__), "..", "..", "config", "backer_number.yml")
       @temp_file = File.join(File.dirname(__FILE__), "..", "..", "config", "backer_number.yml-tmp")
-      FileUtils.mv(@backer_number_file, @temp_file, :force => true)
+      FileUtils.mv(@backer_number_file, @temp_file, :force => true) if File.exists?(@backer_number_file)
     end
     after do
       if File.exists?(@temp_file)

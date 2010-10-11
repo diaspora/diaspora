@@ -13,7 +13,7 @@ module Diaspora
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
-
+        
         if object.is_a? Retraction
           receive_retraction object, xml
         elsif object.is_a? Request

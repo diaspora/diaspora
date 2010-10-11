@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.dirname(__FILE__) + '/../../lib/diaspora/exporter'
+require File.join(Rails.root, 'lib/diaspora/exporter')
 
 describe Diaspora::Exporter do
 

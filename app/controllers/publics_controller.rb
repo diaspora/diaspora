@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PublicsController < ApplicationController
-  require File.expand_path('../../../lib/diaspora/parser', __FILE__)
+  require File.join(Rails.root, '/lib/diaspora/parser')
   include Diaspora::Parser
 
   layout false

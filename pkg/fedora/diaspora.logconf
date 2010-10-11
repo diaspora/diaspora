@@ -1,5 +1,5 @@
 /var/log/diaspora/*.log {
-       create 755 diaspora apache
+       create 755 diaspora diaspora
        weekly
        rotate 10
        copytruncate

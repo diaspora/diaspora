@@ -10,12 +10,13 @@
     .from
       = link_to post.person.real_name, post.person
       .aspect
-        → 
-        - if post.public?
-          the world
-        - else
-          - for aspect in current_user.aspects_with_post( post.id )
-            = aspect.name
+        ➔
+        %ul
+          - if post.public?
+            the world
+          - else
+            - for aspect in current_user.aspects_with_post( post.id )
+              %li= link_to aspect.name, aspect
 
     =t('.posted_a_new_photo_to')
     = link_to post.album.name, object_path(post.album)

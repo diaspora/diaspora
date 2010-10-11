@@ -20,6 +20,9 @@ a
     :decoration none
   &:hover
     :color #22AAE0
+  &:active
+    :color #005D9C
+    
 
 h1, h2, h3, h4
   :color #444
@@ -36,26 +39,39 @@ h3
 #flash_error,
 #flash_alert
   :z-index 100
-  :top 32px
-  :position absolute
-  :color #000
-  :width 400px
-  :margin 0 0 0 -200px
-  :left 50%
-  :text
-    :align center
-  :font
-    :size 14px
-  :padding 3px 0
+  :position fixed
+  :color #fff
 
+  :top -100px
+  :left 0
+
+  :width 100%
+
+  :padding 1em
+  
+  :box-shadow 0 1px 2px #333
+  :-moz-box-shadow 0 1px 2px #333
+  :-webkit-box-shadow 0 1px 2px #333
+
+  :font
+    :weight bold
+  
 #flash_notice
-  :background-color #CFC
-  :border solid 1px #6C6
+  :background
+    :color rgba(127,255,36,0.85)
+  :border
+    :bottom solid 1px #6C6
+  :text
+    :shadow 0 1px #6C6
 
 #flash_error,
 #flash_alert
-  :background-color #FCC
-  :border solid 1px #C66
+  :background
+    :color rgba(208,49,43,0.85)
+  :border
+    :bottom solid 1px #C66
+  :text
+    :shadow 0 1px #C66
 
 .fieldWithErrors
   :display inline
@@ -225,6 +241,8 @@ li.message
           &:hover
             :text
               :decoration underline
+          &:active
+            :color #999
         ul
           :display inline
           :margin 0
@@ -264,8 +282,20 @@ li.message
     div.info, .time
       a
         :color #107FC9
+        &:hover
+          :color #22AAE0
+        &:active
+          :color #005D9C
 
-.reshare_pane
+
+.destroy_link .reshare_pane .reshare_button a.inactive
+  :color #ccc
+  &:hover
+    :text
+      :decoration none
+  :cursor default
+
+.destroy_link .reshare_pane
   :margin
     :left 5px
     :right 5px
@@ -297,9 +327,7 @@ li.message
     > li
       :font
         :weight bold
-
-      :padding 8px
-        :right 15px
+      :color #ccc
       :border
         :top 1px solid #fff
         :bottom 1px solid #ccc
@@ -313,10 +341,16 @@ li.message
       a
         :display block
         :height 100%
+        :padding 2px 5px
 
         &:hover
           :background
             :color #eee
+          :text
+            :decoration none
+        &:active
+          :background
+            :color #ccc
 
 
 form
@@ -563,29 +597,20 @@ label
     :display inline
 
     input[type='submit']
-      :float right
+      :display block
       :margin
         :right 20px
-        :top 26px
+      :width 100%
 
   textarea
-    :width 600px
+    :width 570px
     :height 42px
     :margin
       :top 0
       :bottom 0
 
-  .button
-    :margin-left 100px
-
-  img
-    :box-shadow 0 1px 2px #fff
-    :-moz-box-shadow 0 1px 2px #fff
-    :-webkit-box-shadow 0 1px 2px #fff
-    :border 1px solid #bbb
-      :top 1px solid #666
-
-
+  .buttons
+    :float right
 
 #image_picker
   .small_photo
@@ -925,6 +950,8 @@ ul#settings_nav
 
 
 #friend_pictures
+  :margin
+    :top 12px
   :line-height 1em
   img
     :margin-right -1px
