@@ -11,14 +11,14 @@ Initial installation instructions are [here](http://github.com/diaspora/diaspora
 
 We are continuing to build features and improve the code base.
 When we think it is ready for general use, we will post more final
-instructions.
+instructions.  Issue tracking is at [bugs.joindiaspora.com](bugs.joindiaspora.com).
 
 ## Commit Guidelines
 
 You are welcome to contribute, add to and extend Diaspora however you see fit.  We
 will do our best to incorporate everything that meets our guidelines.
 
-You can find an introduction to the source code [here](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source).
+You can find an introduction to the source code [here](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source).  For an idea of where to start, look at our [issue tracker](bugs.joindiaspora.com).
 
 Make a topic branch.  By making your changes in a topic branch, you ensure that new commits to your master are not included in the pull request, and it's easier for us to merge your commits.
 
