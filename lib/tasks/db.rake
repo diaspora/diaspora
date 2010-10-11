@@ -67,6 +67,7 @@ namespace :db do
   end
 
   task :move_private_key do
+    require File.dirname(__FILE__) + '/../../config/environment'
     User.all.each do |user|
       if user.private_key.nil?
         user.private_key = user.person.serialized_key
