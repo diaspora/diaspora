@@ -34,7 +34,7 @@ h3 {
   z-index: 100;
   position: fixed;
   color: white;
-  top: 0;
+  top: -100px;
   left: 0;
   width: 100%;
   padding: 1em;
