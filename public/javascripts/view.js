@@ -72,7 +72,7 @@ $.fn.clearForm = function() {
 
 $("#publisher .broadcast").live("click", function(evt){
   evt.preventDefault();
-  if( confirm("Broadcast to the world?") ) {
+  if( confirm("Publish to Diaspora and Facebook?") ) {
     $("#status_message_public").val("true");
     $(this).submit();
   }
