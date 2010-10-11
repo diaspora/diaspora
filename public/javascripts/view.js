@@ -12,7 +12,11 @@ $(document).ready(function(){
 
   $("label").inFieldLabels();
 
-  $('#flash_notice, #flash_error, #flash_alert').delay(2500).slideUp(130);
+  $('#flash_notice, #flash_error, #flash_alert').animate({
+    top: 0
+  }).delay(4000).animate({
+    top: -100 
+  }, $(this).remove());
 
   $("div.image_cycle").cycle({
     fx: 'fade',
@@ -24,6 +28,7 @@ $(document).ready(function(){
   //buttons//////
   $("#add_aspect_button").fancybox({ 'titleShow' : false });
   $("#add_request_button").fancybox({ 'titleShow': false });
+  $("#invite_user_button").fancybox({ 'titleShow': false });
   $(".add_request_button").fancybox({ 'titleShow': false });
 
   $("input[type='submit']").addClass("button");
@@ -68,7 +73,7 @@ $.fn.clearForm = function() {
 
 $("#publisher .broadcast").live("click", function(evt){
   evt.preventDefault();
-  if( confirm("Broadcast to the world?") ) {
+  if( confirm("Publish to Diaspora and Facebook?") ) {
     $("#status_message_public").val("true");
     $(this).submit();
   }

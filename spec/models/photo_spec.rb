@@ -85,25 +85,6 @@ describe Photo do
 
   end
 
-  describe 'with encryption' do
-
-    before do
-      unstub_mocha_stubs
-    end
-
-    after do
-      stub_signature_verification
-    end
-
-    it 'should save a signed photo' do
-      pending "Figure out how to make the photo posting api work in specs, it needs a file type"
-      photo = @user.post(:photo, :album_id => @album.id, :user_file => [File.open(@fixture_name)])
-      photo.save.should == true
-      photo.signature_valid?.should be true
-    end
-
-  end
-
   describe 'remote photos' do
     it 'should write the url on serialization' do
       @photo.image = File.open(@fixture_name)

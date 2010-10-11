@@ -32,24 +32,27 @@ h3 {
 #flash_error,
 #flash_alert {
   z-index: 100;
-  top: 32px;
-  position: absolute;
-  color: black;
-  width: 400px;
-  margin: 0 0 0 -200px;
-  left: 50%;
-  text-align: center;
-  font-size: 14px;
-  padding: 3px 0; }
+  position: fixed;
+  color: white;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  padding: 1em;
+  box-shadow: 0 1px 2px #333333;
+  -moz-box-shadow: 0 1px 2px #333333;
+  -webkit-box-shadow: 0 1px 2px #333333;
+  font-weight: bold; }
 
 #flash_notice {
-  background-color: #ccffcc;
-  border: solid 1px #66cc66; }
+  background-color: rgba(127, 255, 36, 0.85);
+  border-bottom: solid 1px #66cc66;
+  text-shadow: 0 1px #66cc66; }
 
 #flash_error,
 #flash_alert {
-  background-color: #ffcccc;
-  border: solid 1px #cc6666; }
+  background-color: rgba(208, 49, 43, 0.85);
+  border-bottom: solid 1px #cc6666;
+  text-shadow: 0 1px #cc6666; }
 
 .fieldWithErrors {
   display: inline; }

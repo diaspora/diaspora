@@ -21,12 +21,19 @@
               = request.person.real_name
   %h3=t('.ignore_remove')
 
-  %li.remove
+  .remove
     %ul.dropzone
       %li.grey Drag to ignore/remove
 
+  %h3= link_to "Invite a friend!", "#invite_user_pane", :id => "invite_user_button", :class => "invite_user_button", :title => "Invite a friend"
+
+  .yo{ :style => "display:none;"}
+    #invite_user_pane
+      = render "invitations/new"
+
 - content_for :publish do
   = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
+
 
 %ul#aspect_list
   - for aspect in @aspects

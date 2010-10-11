@@ -4,9 +4,9 @@ gem 'rails', '3.0.0'
 gem 'bundler', '>= 1.0.0'
 
 #Security
-gem 'devise', '1.1.2'
+gem 'devise', '1.1.3'
 gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
-
+gem 'devise_invitable', '~> 0.3.4'
 #Mongo
 gem 'mongo_mapper', :branch => 'rails3', :git => 'http://github.com/jnunemaker/mongomapper.git'
 gem 'bson_ext', '1.1'

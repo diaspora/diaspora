@@ -3,9 +3,10 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  require File.expand_path('../../../lib/diaspora/ostatus_builder', __FILE__)
-  require File.expand_path('../../../lib/diaspora/exporter', __FILE__)
-  require File.expand_path('../../../lib/collect_user_photos', __FILE__)
+  require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
+  require File.join(Rails.root, 'lib/diaspora/exporter')
+  require File.join(Rails.root, 'lib/collect_user_photos')
+
 
   before_filter :authenticate_user!, :except => [:new, :create, :public]
 
@@ -46,6 +47,13 @@ class UsersController < ApplicationController
 
   end
 
+  def destroy
+    current_user.destroy
+    sign_out current_user
+    flash[:notice] = t('user.destroy')
+    redirect_to root_path
+  end
+
   def public
     user = User.find_by_username(params[:username])
 
@@ -68,6 +76,10 @@ class UsersController < ApplicationController
   def export_photos
     tar_path = PhotoMover::move_photos(current_user)
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
+  end
+
+  def invite
+    User.invite!(:email => params[:email])
   end
 
   private

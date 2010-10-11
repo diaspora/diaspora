@@ -4,7 +4,8 @@
 
 
 
-require File.dirname(__FILE__) + '/../spec_helper'
+require File.join(Rails.root,'spec/spec_helper')
+
 
 describe FbStatus do
 

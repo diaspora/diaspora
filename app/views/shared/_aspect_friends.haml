@@ -19,5 +19,11 @@
         = render "requests/new_request", :aspect => @aspect
   -else
     .clear
+      %br
       = link_to t('.add_friends'), aspects_manage_path
 
+%br
+= link_to "Invite a friend!", "#invite_user_pane", :id => "invite_user_button", :class => "invite_user_button", :title => "Invite a friend"
+.yo{ :style => "display:none;"}
+  #invite_user_pane
+    = render "invitations/new"
