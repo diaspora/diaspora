@@ -21,7 +21,7 @@ en:
   people:
       helper:
            results_for: "%{params} için sonuçlar"
-           people_on_pod_are_aware_of: " bu pod'da bizim bildigimiz kişiler."
+           people_on_pod_are_aware_of: " bu podda bizim bildiğimiz kişiler."
   layouts:
       application:
           edit_profile: "profili düzelt"
@@ -30,10 +30,10 @@ en:
       aspect_nav:
           all_aspects: "Bütün Yanlar"
           manage: "Düzenle"
-          manage_your_aspects: "Bütün yanlari Düzenle"
+          manage_your_aspects: "Bütün yanları düzenle"
       sub_header:
           all_aspects: "Bütün Yanlar"
-          manage_aspects: "Yanlari Düzenle"
+          manage_aspects: "Yanları Düzenle"
       publisher:
           share: "Paylaş"
       aspect_friends:
@@ -46,27 +46,27 @@ en:
           add_a_new_album: "Yeni albüm ekle"
       show:
           edit_album: "Albümü düzelt"
-          albums: "albumler"
+          albums: "albümler"
           updated: "düzeltildi"
-          by: "tarafindan"
+          by: "tarafından"
       edit:
           editing: "düzeltiyor"
           updated: "düzeltildi"
           are_you_sure: "Eminmisin?"
           delete_album: "Sil Albümü"
-          cancel: "Vazgec"
+          cancel: "Vazgeç"
       index:
           home: "Ev"
           new_album: "Yeni Albüm"
       create:
-          success: "Yeni bir album yattiniz %{name} isminde."
+          success: "Yeni bir album yarattınız %{name} isminde."
       update:
-          success: "Albüm %{name} basari ile eklenmistir."
-          failure: "Albüm %{name} yi düzeltme basarili degil."
+          success: "Albüm %{name} başarı ile eklenmiştir."
+          failure: "Albüm %{name} yı düzeltme başarılı değil."
       destroy:
           success: "Albüm %{name} silinmistir."
       helper:
-          friends_albums: "Arkadaşlarin Albümleri"
+          friends_albums: "Arkadaşların Albümleri"
           your_albums: "Sizin Albümleriniz"
   aspects:
       index:
@@ -75,35 +75,35 @@ en:
           photos: "resimler"
       manage:
           add_a_new_aspect: "Yeni bir yan ekle"
-          add_a_new_friend:  "Yeni bir Arkadaş ekle"
+          add_a_new_friend:  "Yeni bir arkadaş ekle"
           show: "Show"
           update_aspects: "Yanlari düzelt"
           requests: "Ricalar"
-          ignore_remove: "Goz ardi et/Cikart"
+          ignore_remove: "Goz ardi et/çıkart"
       new_aspect:
           add_a_new_aspect: "Yeni bir yan ekle"
           create: "Yarat"
       create:
-          success: "Sol taraftaki arti ya tikliyarak Diasporaya sizin yeni yaniniz i kimlerin gorebilecegini soyleyin."
-          failure: "Yan yaratimi basarili degildi."
+          success: "Sol taraftaki arti ya tıklıyarak Diasporaya sizin yeni yanınızı kimlerin görebileceğini belirtin."
+          failure: "Yan yaratimi basarılı değildi."
       destroy:
-          success: "%{name} basariyla yaratildi."
+          success: "%{name} basarıyla yaratıldı."
       update:
-          success: "Sizin yaniniz, %{name}, basariyla düzeltildi."
+          success: "Sizin yanınız, %{name}, başariyla düzeltildi."
       move_friends:
-          failure: "Yan düzeltimi arkadisınız %{real_name} icin basarisizdi."
-          success: "Yanlar basariyla düzeltildi."
+          failure: "Yan düzeltimi arkadisınız %{real_name} icin başarisizdi."
+          success: "Yanlar başariyla düzeltildi."
       move_friend:
           failure: "%{inspect} islemedi."
-          success: "Simdi siz Arkadaşlariniza baska bir yaninizi gosteriyorsunuz."
+          success: "Simdi siz arkadaşlarınıza başka bir yanınızı gosteriyorsunuz."
       helper:
           remove: "cikart"
-          aspect_not_empty: "Yan bos degil"
+          aspect_not_empty: "Yan bos değil"
   users:
       edit:
           editing_profile: "Profili düzeltiliyor"
       profile:
-          cancel: "Vazgec"
+          cancel: "Vazgeç"
           update_profile: "düzelt Profili"
           home: "Ev"
           diaspora_username: "DIASPORA ISMINIZ"
@@ -111,7 +111,7 @@ en:
           picture: "Resim"
           editing_profile: "Profili düzeltmek"
           albums: "Albümler"
-          you_dont_have_any_photos: "Hicbir fotorafiniz yok!  Suraya gidin"
+          you_dont_have_any_photos: "Hicbir fotorafiniz yok! Şuraya gidin"
           page_to_upload_some:  "yuklemek icin."
           or: "veya"
   comments:
@@ -122,11 +122,11 @@ en:
   photos:
       show:
           prev: "once"
-          full_size: "tam buyukluk"
+          full_size: "tam büyüklük"
           next: "sonra"
           edit_photo: "düzelt Fotoyu"
           delete_photo: "Sil Fotoyu"
-          are_you_sure: "Eminmisınız?"
+          are_you_sure: "Eminmisiniz?"
           comments: "yorumlar"
       edit:
           editing: "düzeltiliyor"
@@ -140,9 +140,9 @@ en:
           back_to_list: "Listeye Geri Git"
           post_it: "ekle!"
       create:
-          runtime_error: "Fotoyu yukleme basarisızdi.  Emniyet kemeriniz takılımiydi?"
-          integrity_error: "Fotoyu yukleme basarisızdi.  Resim olduğundan eminmisınız?"
-          type_error: "Fotoyu yukleme basarisizdi.  Bir resim yuklediğinize eminmisiniz?"
+          runtime_error: "Fotoyu yukleme başarısızdı.  Emniyet kemeriniz takılımıydı?"
+          integrity_error: "Fotoyu yukleme başarısızdı.  Resim olduğundan eminmisınız?"
+          type_error: "Fotoyu yukleme başarısızdı.  Bir resim yuklediğinize eminmisiniz?"
       update:
           notice: "Resim başarıyla eklendi."
           error:  "Fotoyu düzeltme basarısızdı."
@@ -186,7 +186,7 @@ en:
           new_person: "Yeni Kişi"
           back_to_list: "Listeye geri dön"
       show:
-          last_seen: "son gorüldu: %{how_long_ago}"
+          last_seen: "son gorüldü: %{how_long_ago}"
           friends_since: "Arkadaş süreci: %{how_long_ago}"
           save: "sakla"
           are_you_sure: "Eminmisiniz?"
@@ -202,7 +202,7 @@ en:
           error: "Lutfen bir yan seçiniz!"
           ignore: "Arkadaş isteğini reddettiniz."
       create:
-          error: "Diaspora cekirddegi bulunmadı bu email'de!"
+          error: "Diaspora cekirdeği bulunmadı bu emailde!"
           already_friends: "Siz zaten arakadaşsınız %{destination_url} ile!"
-          success: "Arakadaş olma isteği %{destination_url} a gonderilmiştir."
+          success: "%{destination_url} için arakadaş olma isteği  gonderilmiştir."
           horribly_wrong: "Bir şey muhtemalan yanliş gitti."
