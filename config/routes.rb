@@ -11,10 +11,11 @@ Diaspora::Application.routes.draw do
   resources :albums
 
   devise_for :users, :controllers => {:registrations => "registrations",
-                                      :password      => "devise/passwords"}
+                                      :password      => "devise/passwords",
+                                      :invitations    => "invitations"}
   # added public route to user
-  match 'public/:username', :to => 'users#public'
-  match 'users/export',     :to => 'users#export'
+  match 'public/:username',        :to => 'users#public'
+  match 'users/export',            :to => 'users#export'
   match 'users/export_photos',     :to => 'users#export_photos'
   resources :users,         :except => [:create, :new, :show]
 
