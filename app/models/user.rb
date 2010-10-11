@@ -7,6 +7,16 @@ require File.join(Rails.root, 'lib/diaspora/user/querying')
 require File.join(Rails.root, 'lib/diaspora/user/receiving')
 require File.join(Rails.root, 'lib/salmon/salmon')
 
+class InvitedUserValidator < ActiveModel::Validator
+  def validate(document)
+    unless document.invitation_token
+      unless document.person
+        document.errors[:base] << "Unless you are being invited, you must have a person"
+      end
+    end
+  end
+end
+
 class User
   include MongoMapper::Document
   plugin MongoMapper::Devise
@@ -16,11 +26,13 @@ class User
   include Encryptor::Private
   QUEUE = MessageHandler.new
 
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   key :username, :unique => true
   key :serialized_private_key, String
 
+  key :invitation_token,    String
+  key :invitation_sent_at,  DateTime
   key :friend_ids,          Array
   key :pending_request_ids, Array
   key :visible_post_ids,    Array
@@ -38,6 +50,7 @@ class User
   after_create :seed_aspects
 
   before_validation :downcase_username, :on => :create
+  validates_with InvitedUserValidator
 
    def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
@@ -252,6 +265,27 @@ class User
   end
 
   ###Helpers############
+
+  def accept_invitation!( opts = {} )
+    if self.invited?
+      self.username              = opts[:username]
+      self.password              = opts[:password]
+      self.password_confirmation = opts[:password_confirmation]
+      opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
+      opts[:person][:url] = APP_CONFIG[:pod_url]
+
+      opts[:serialized_private_key] = User.generate_key
+      self.serialized_private_key =  opts[:serialized_private_key]
+      opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
+
+      person_hash = opts.delete(:person)
+      self.person = Person.create(person_hash)
+      self.person.save
+      self.save
+      self
+    end
+  end
+
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]

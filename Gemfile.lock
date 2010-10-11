@@ -135,6 +135,8 @@ GEM
     devise (1.1.2)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
+    devise_invitable (0.3.4)
+      devise (~> 1.1.0)
     diff-lcs (1.1.2)
     em-websocket (0.1.4)
       addressable (>= 2.1.1)
@@ -269,6 +271,7 @@ DEPENDENCIES
   database_cleaner
   devise (= 1.1.2)
   devise-mongo_mapper!
+  devise_invitable (~> 0.3.4)
   em-http-request!
   em-websocket
   factory_girl_rails
