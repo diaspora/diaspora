@@ -44,11 +44,9 @@ module Diaspora
       end
 
       def people_in_aspects aspects
-        people = []
-        aspects.each{ |aspect|
-          people = people | aspect.people
-        }
-        people
+        aspects.inject([]) do |found_people,aspect|
+          found_people | aspect.people
+        end
       end
 
       def all_aspect_ids
