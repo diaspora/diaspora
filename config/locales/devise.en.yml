@@ -30,6 +30,10 @@ en:
     unlocks:
       send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
       unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    invitations:
+      send_instructions: 'Your invitation has been sent.'
+      invitation_token_invalid: 'The invitation token provided is not valid!'
+      updated: 'Your password was set successfully. You are now signed in.'
     mailer:
       confirmation_instructions:
         subject: 'Confirmation instructions'
@@ -37,3 +41,6 @@ en:
         subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'Unlock Instructions'
+      invitation:
+        subject: 'A friend wants you to join Diaspora!'
+

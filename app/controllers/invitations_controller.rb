@@ -4,15 +4,10 @@
 
 class InvitationsController < Devise::InvitationsController
   def update
-    puts params.inspect
     begin
-      puts params["user"]["invitation_token"]
       user = User.find_by_invitation_token(params["user"]["invitation_token"])
-    
-      puts user.inspect
       user.accept_invitation!(params["user"])
     rescue MongoMapper::DocumentNotValid => e
-      puts "Doc Not VALID"
       user = nil
       flash[:error] = e.message
     end
