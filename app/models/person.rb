@@ -36,10 +36,8 @@ class Person
   def self.search(query)
     qTokens = query.to_s.strip.split(" ")
     fullQueryText = Regexp.escape( query.to_s.strip )
+    p = []
     
-    p = Person.all('profile.first_name' => /^#{fullQueryText}/i) \
-                 | Person.all('profile.last_name' => /^#{fullQueryText}/i) 
-
     qTokens.each {
         |token|
         

@@ -160,7 +160,6 @@ describe Person do
     end
 
     it 'should yield results on full names' do
-      pending "Not yet implemented."
       people = Person.search("Casey Grippi")
       people.should == [@friend_four]
     end
