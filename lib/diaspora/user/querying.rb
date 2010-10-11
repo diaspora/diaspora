@@ -7,7 +7,7 @@ module Diaspora
     module Querying
 
       def find_visible_post_by_id( id )
-        self.raw_visible_posts.find id
+        self.raw_visible_posts.find id.to_id
       end
 
       def visible_posts( opts = {} )
