@@ -20,3 +20,4 @@ public/uploads/*
 public/source.tar
 tmp/**/*
 capybara-*.html
+*.tmproj
