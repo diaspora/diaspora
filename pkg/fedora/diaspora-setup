@@ -1,20 +1,22 @@
 #!/bin/bash
 #
-# Do what's needed to initiate diaspora.
+#  Do what's needed to initiate diaspora.
 #
-# See http://github.com/diaspora/diaspora/issues/issue/395
-#
-# Note: This is really sort of prototyping. This should be done in ruby,
-# on a web page.
 
 test $UID = "0" || {
     echo "You need to be root to do this, giving up"
     exit 2
 }
 
-cd /usr/share/diaspora/master
+services=$( netstat -nl | grep '[^:]:3000[ \t]')
+test -n "$services" && {
+    echo "Warning: something is already using port 3000"
+    echo "     $services"
+}
 
 /sbin/service mongod start || :
+
+cd /usr/share/diaspora/master
 
 test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml
@@ -49,4 +51,3 @@ while : ; do
         break
     }
 done
-

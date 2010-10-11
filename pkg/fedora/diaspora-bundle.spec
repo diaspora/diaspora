@@ -4,22 +4,22 @@
 %define         __jar_repack    %{nil}
 
 # Turn off the brp-python-bytecompile script, *pyc/pyo causes problems
-%global __os_install_post %(echo '%{__os_install_post}' | 
+%global __os_install_post %(echo '%{__os_install_post}' |
        sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 Summary:        Rubygem bundle for diaspora
 Name:           diaspora-bundle
 Version:        0.0
 Release:        1.%{git_release}%{?dist}
-License:        AGPLv3 
+License:        AGPLv3
 Group:          Applications/Communications
 URL:            http://www.joindiaspora.com/
 Vendor:         joindiaspora.com
 Source:         %{name}-%{version}-%{git_release}.tar.gz
 Prefix:         %{_prefix}
+BuildRoot:      %{_rmpdir}/not-used-in-fedora/
 
 Requires(pre):  shadow-utils
-BuildRequires:  git
 Requires:       ruby(abi) = 1.8
 
 %description
@@ -36,6 +36,8 @@ Source file usede to compile native libraries in diaspora-bundle.
 
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
+
+find . -name .git* -print | xargs rm -rf
 
 pushd bundle/ruby/1.8/
     find . -name \*.css -exec  chmod 644 {} \;
@@ -64,12 +66,12 @@ pushd bundle/ruby/1.8/
       sed -i -e '/^#!/d' $f
       chmod 0644 $f
     done > /dev/null 2>&1
-    find .  -perm /u+x  -type f -print0 | 
+    find .  -perm /u+x  -type f -print0 |
         xargs --null sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|'
 
     chmod 755 gems/thin-1.2.7/example/async_chat.ru
     chmod 755 gems/thin-1.2.7/example/async_tailer.ru
-    chmod 644 gems/i18n-0.4.1/MIT-LICENSE 
+    chmod 644 gems/i18n-0.4.1/MIT-LICENSE
     chmod 755 gems/abstract-1.0.0/abstract.gemspec
     chmod 644 gems/mini_magick-2.1/MIT-LICENSE
     chmod 755 gems/thin-1.2.7/lib/thin/controllers/service.sh.erb
@@ -82,7 +84,7 @@ pushd bundle/ruby/1.8/
     # In repo (2.2.4)
     test -d gems/gherkin-*/ext && {
     pushd gems/gherkin-*/ext
-    # Recompile all shared libraries using -O2 optimalization flagcd 
+    # Recompile all shared libraries using -O2 flag
     for lexer_dir in */ ; do
         pushd $lexer_dir
             sed -i 's/ -O0 / -O2 /' extconf.rb
@@ -118,7 +120,7 @@ pushd bundle/ruby/1.8/
         ln -s ../cbson/cbson.so .
     popd
 
-    # In repo (0.10.4) 
+    # In repo (0.10.4)
     pushd gems/ruby-debug-base-0.10.3/lib
         rm ruby_debug.so
         ln -s ../ext/ruby_debug.so .
@@ -144,6 +146,7 @@ pushd bundle/ruby/1.8/
         ln -sf ../../ext/nokogiri/nokogiri.so .
     popd
 
+    # in repo (rawhide)
     pushd gems/json-1.4.6/ext/json/ext/json/ext
         rm generator.so
         ln -s ../../generator/generator.so
@@ -199,18 +202,18 @@ popd
 }
 
 mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor
-
 cp -ar  bundle $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor
+
 find  %{buildroot}/%{_libdir}/diaspora-bundle  \
     -type d  -fprintf dirs '%%%dir "%%p"\n'
 find  -L %{buildroot}/%{_libdir}/diaspora-bundle  -regextype posix-awk \
-    -type f -not -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'          \
+    -type f -not -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'        \
     -fprintf files '"%%p"\n'
-find  %{buildroot}/%{_libdir}/diaspora-bundle -regextype posix-awk \
-    -type f -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'            \
-    -fprintf dev-files '"%%p"\n' 
+find  %{buildroot}/%{_libdir}/diaspora-bundle -regextype posix-awk     \
+    -type f -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'             \
+    -fprintf dev-files '"%%p"\n'
 sed -i  -e 's|%{buildroot}||' -e 's|//|/|' files dev-files dirs
-cat files >> dirs && cp dirs files 
+cat files >> dirs && cp dirs files
 
 %clean
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
@@ -224,5 +227,5 @@ cat files >> dirs && cp dirs files
 %doc COPYRIGHT AUTHORS GNU-AGPL-3.0
 
 %changelog
-* Sat Oct 02 2010 Alec Leamas  <leamas.alec@gmail.com>       1.1009271539_08b9aa8
+* Sat Oct 02 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1009271539_08b9aa8
   - Initial attempt to create a spec file
