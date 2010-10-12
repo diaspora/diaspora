@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Install diaspora dependencies i. e., what apt-get will do
+#
+set -x
+
+sudo apt-get update
+sudo apt-get install -qy build-essential libxslt1-dev libxml2 ruby-full mongodb \
+rake python-software-properties git imagemagick libmagick9-dev
+[starts mongodb]
+sudo add-apt-repository ppa:maco.m/ruby
+sudo apt-get update
+sudo apt-get install -qy rubygems
+sudo gem install bundler  --bindir /usr/local/bin

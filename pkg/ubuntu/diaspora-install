@@ -1,0 +1,68 @@
+#!/bin/bash
+#
+# Install a fedora source package
+#
+# Usage diaspora-install <tar package>
+
+test "$(perl -e 'print $>')" = "0" || {
+    echo "You need to be root to do this, giving up"
+    exit 2
+}
+
+set -x
+
+getent group diaspora >/dev/null || groupadd -r diaspora
+getent passwd diaspora >/dev/null ||    \
+    useradd -r -g diaspora              \
+    -md  /var/lib/diaspora              \
+    -s   /bin/bash                      \
+    -c "Diaspora daemon" diaspora
+
+sudo tar -C /usr/share -xzf  $1
+
+cd /usr/share;
+rm -rf /usr/share/diaspora
+mv $( basename $1 .tar.gz) diaspora
+cd /usr/share/diaspora
+find . -perm /u+x -type f -exec \
+    sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
+rm -rf master/vendor/bundle  master/public/uploads master/tmp master/log
+sed -i '/BUNDLE_PATH/s|:.*|: /usr/lib/diaspora-bundle/bundle|' \
+         master/.bundle/config
+
+cp master/GNU-AGPL-3.0 master/COPYRIGHT master/README.md master/AUTHORS .
+cp master/config/app_config.yml.example ./app_config.yml
+cp master/pkg/ubuntu/diaspora-wsd /etc/init.d
+
+sed -i '/^cd /s|.*|cd /usr/share/diaspora/master|' /etc/init.d/diaspora-wsd
+
+cp master/pkg/ubuntu/diaspora.logrotate  /etc/logrotate.d/diaspora
+
+cp master/pkg/ubuntu/diaspora-setup .
+
+mkdir -p /var/log/diaspora
+mkdir -p /var/lib/diaspora/uploads
+mkdir -p /var/lib/diaspora/tmp
+mkdir -p /etc/diaspora
+
+ln -sf /var/log/diaspora  ./master/log
+cp master/config/app_config.yml.example /etc/diaspora/app_config.yml
+ln -sf /etc/diaspora/app_config.yml master/config/app_config.yml
+ln -sf /var/lib/diaspora/uploads master/public/
+ln -sf /var/lib/diaspora/tmp master
+ln -sf /usr/lib/diaspora-bundle/bundle master/vendor
+
+rm -rf /usr/share/doc/diaspora
+mkdir -p /usr/share/doc/diaspora
+mv  AUTHORS README.md GNU-AGPL-3.0 COPYRIGHT /usr/share/doc/diaspora
+
+find ./ -print | xargs chown root:root
+rm -rf /usr/share/doc/diaspora
+mkdir /usr/share/doc/diaspora
+
+chown diaspora:diaspora /usr/share/diaspora/master/config.ru
+chown diaspora:diaspora /usr/share/diaspora/master/config/environment.rb
+chown diaspora:diaspora /var/log/diaspora
+chown diaspora:diaspora /var/lib/diaspora/uploads
+chown diaspora:diaspora /var/lib/diaspora/tmp
+chown diaspora:diaspora /var/lib/diaspora
