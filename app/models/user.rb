@@ -339,9 +339,9 @@ class User
   def unfriend_everyone
     friends.each{ |friend|
       if friend.owner?
-        friend.owner.unfriended_by (self.person )
+        friend.owner.unfriended_by self.person
       else 
-        self.unfriend( friend )
+        self.unfriend friend 
       end
     }
   end
