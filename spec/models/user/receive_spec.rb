@@ -81,7 +81,7 @@ describe User do
       user.raw_visible_posts.count.should == 1
 
       person = user2.person
-      user2.destroy
+      user2.delete
       user.unfriend(person)
 
       user.reload
