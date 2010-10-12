@@ -151,6 +151,10 @@ describe Diaspora::Importer do
     describe '#parse_posts' do
       let(:posts) { @importer.parse_posts(@doc) }
 
+      it 'should return an array' do
+        posts.count.should == 4
+      end
+
       it 'should return vaild posts' do         
         posts.all?(&:valid?).should be true
       end
