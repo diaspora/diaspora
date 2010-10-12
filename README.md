@@ -15,10 +15,13 @@ Please report any bugs you see.  Issue tracking is at [bugs.joindiaspora.com](ht
 
 You can find an introduction to the source code [here](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source).
 Bugs and pending features are on our [issue tracker](http://bugs.joindiaspora.com).  Here are a few good places to start:
+
 - Run "rake spec" to run our [Rspec](http://blog.davidchelimsky.net/2007/05/14/an-introduction-to-rspec-part-i/) 
 unit test suite.  Take a look at the pending specs, make one pass!
+
 - Run "rake cucumber" to run our [Cucumber](http://rubylearning.com/blog/2010/10/05/outside-in-development/)
 integration test suite.  As you can see, we need more integration tests.  Pick a feature and write one!
+
 - Take a look at the [issue tracker](http://bugs.joindiaspora.com) and pick a bug.
 Write a spec for it, so it's easy for another developer to fix it.
 
