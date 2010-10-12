@@ -11,7 +11,7 @@ Bootstrap the distribution from git:
     cd diaspora/pkg/ubuntu
 
 Install the dependencies (a good time for a coffe break)
-    ./diaspora-install-deps
+    sudo ./diaspora-install-deps
 
 Create and install the diaspora bundle and application:
     ./make-dist.sh bundle
@@ -59,6 +59,9 @@ Once diaspora ins installed ,makedist.sh et. al. are available in
 the stuff using git in this case.
 
 The user diaspora is added during install.
+
+Tools used for building package are installed globally. All of diasporas
+dependencies lives in the nothing is insalled by user or on system level.
 
 make-dist.sh accepts arguments to get a specified commit and/or use another
 repo.
