@@ -9,15 +9,17 @@ describe Diaspora::Exporter do
 
   let!(:user1) { Factory(:user) }
   let!(:user2) { Factory(:user) }
+  let!(:user3) { Factory(:user) }
 
   let(:aspect1) { user1.aspect(:name => "Work")   }
   let(:aspect2) { user2.aspect(:name => "Family") }
+  let(:aspect3) { user3.aspect(:name => "Pivots") }
 
   let!(:status_message1) { user1.post(:status_message, :message => "One", :public => true, :to => aspect1.id) }
   let!(:status_message2) { user1.post(:status_message, :message => "Two", :public => true, :to => aspect1.id) }
   let!(:status_message3) { user2.post(:status_message, :message => "Three", :public => false, :to => aspect2.id) }
 
-  let!(:exported) { Diaspora::Exporter.new(Diaspora::Exporters::XML).execute(user1) }
+  let(:exported) { Diaspora::Exporter.new(Diaspora::Exporters::XML).execute(user1) }
 
   it 'should include a users posts' do
     exported.should include status_message1.message
@@ -39,5 +41,11 @@ describe Diaspora::Exporter do
     doc = Nokogiri::XML::parse(exported)
     posts = doc.xpath('//posts').to_s
     posts.should include(status_message1.message)
+  end
+
+  it 'should serialize a users friends' do
+    friend_users(user1, aspect1, user3, aspect3)
+    doc = Nokogiri::XML::parse(exported) 
+    doc.xpath('/export/people').to_s.should include user3.person.id.to_s
   end
 end

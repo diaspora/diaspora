@@ -14,12 +14,12 @@ module Diaspora
     module XML
       def execute(xml)
         doc = Nokogiri::XML.parse(xml)
-        user, person = parse_user(doc)
+        user, person = parse_user_and_person(doc)
         user
 
       end
 
-      def parse_user(doc)
+      def parse_user_and_person(doc)
         user = User.new
         user_doc = doc.xpath('/export/user')
         user.username = user_doc.xpath('//user/username').text
@@ -54,9 +54,12 @@ module Diaspora
 
 
       def parse_posts(doc)
+        post_doc = doc.xpath('/export/posts/status_message')
+        post_doc.inject([]) do |posts,curr|
+          posts << StatusMessage.from_xml(curr.to_s)
+        end
       end
 
     end
   end
-
 end
