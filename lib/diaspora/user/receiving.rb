@@ -79,12 +79,12 @@ module Diaspora
 
       def receive_comment comment, xml
         comment.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if comment.person.nil?
+        raise "In receive for #{self.real_name}, signature was not valid on: #{comment.inspect}" unless comment.post.person == self.person || comment.verify_post_creator_signature
         self.visible_people = self.visible_people | [comment.person]
         self.save
         Rails.logger.debug("The person parsed from comment xml is #{comment.person.inspect}") unless comment.person.nil?
         comment.person.save
         Rails.logger.debug("From: #{comment.person.inspect}") if comment.person
-        raise "In receive for #{self.real_name}, signature was not valid on: #{comment.inspect}" unless comment.post.person == self.person || comment.verify_post_creator_signature
         comment.save
         unless owns?(comment)
           dispatch_comment comment
