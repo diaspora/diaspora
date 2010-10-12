@@ -85,6 +85,8 @@ class UsersController < ApplicationController
   private
   def prep_image_url(params)
     url = APP_CONFIG[:pod_url].chop if APP_CONFIG[:pod_url][-1,1] == '/'
+    url ||= ''
+
     if params[:profile][:image_url].empty?
       params[:profile].delete(:image_url)
     else
