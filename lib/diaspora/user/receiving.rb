@@ -14,14 +14,13 @@ module Diaspora
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
 
-
         sender_in_xml = sender(object, xml)
 
         if (salmon_author == sender_in_xml)
           if object.is_a? Retraction
             receive_retraction object, xml
           elsif object.is_a? Request
-            receive_request object, xml
+            receive_request object, sender_in_xml
           elsif object.is_a? Profile
             receive_profile object, xml
           elsif object.is_a?(Comment)
@@ -30,7 +29,7 @@ module Diaspora
             receive_post object, xml
           end
         else
-          raise "Possibly Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
+          raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
         end
       end
 
@@ -38,7 +37,7 @@ module Diaspora
         if object.is_a? Retraction
           sender = object.person
         elsif object.is_a? Request
-          sender = Diaspora::Parser.parse_or_find_person_from_xml( xml )
+          sender = object.person
         elsif object.is_a? Profile
           sender = Diaspora::Parser.owner_id_from_xml xml
         elsif object.is_a?(Comment)
@@ -62,8 +61,7 @@ module Diaspora
         end
       end
 
-      def receive_request request, xml
-        person = Diaspora::Parser.parse_or_find_person_from_xml( xml )
+      def receive_request request, person
         person.serialized_public_key ||= request.exported_key
         request.person = person
         request.person.save
