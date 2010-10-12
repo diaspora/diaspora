@@ -28,7 +28,7 @@ describe User do
     user2.destroy
     status_message.destroy
     StatusMessage.all.size.should == 0
-    user.receive( xml )
+    user.receive xml , user2.person
 
     Post.all(:person_id => person.id).first.message.should == 'store this!'
     StatusMessage.all.size.should == 1
@@ -40,7 +40,7 @@ describe User do
     (0..5).each{ |n|
       status_message = user2.post :status_message, :message => "store this #{n}!", :to => aspect2.id
       xml = status_message.to_diaspora_xml
-      user.receive( xml )
+      user.receive xml, user2.person
     }
 
     user.aspects.size.should == num_aspects
@@ -60,7 +60,7 @@ describe User do
 
     it 'should be removed on unfriending' do
       status_message = user2.post :status_message, :message => "hi", :to => aspect2.id
-      user.receive status_message.to_diaspora_xml
+      user.receive status_message.to_diaspora_xml, user2.person
       user.reload
 
       user.raw_visible_posts.count.should == 1
@@ -75,13 +75,13 @@ describe User do
 
     it 'should be remove a post if the noone links to it' do
       status_message = user2.post :status_message, :message => "hi", :to => aspect2.id
-      user.receive status_message.to_diaspora_xml
+      user.receive status_message.to_diaspora_xml, user2.person
       user.reload
 
       user.raw_visible_posts.count.should == 1
 
       person = user2.person
-      user2.destroy
+      user2.delete
       user.unfriend(person)
 
       user.reload
@@ -92,7 +92,7 @@ describe User do
 
     it 'should keep track of user references for one person ' do
       status_message = user2.post :status_message, :message => "hi", :to => aspect2.id
-      user.receive status_message.to_diaspora_xml
+      user.receive status_message.to_diaspora_xml, user2.person
       user.reload
 
       user.raw_visible_posts.count.should == 1
@@ -116,9 +116,9 @@ describe User do
       user3.activate_friend(user2.person, aspect3)
 
       status_message = user2.post :status_message, :message => "hi", :to => aspect2.id
-      user.receive status_message.to_diaspora_xml
+      user.receive status_message.to_diaspora_xml, user2.person
 
-      user3.receive status_message.to_diaspora_xml
+      user3.receive status_message.to_diaspora_xml, user2.person
       user.reload
       user3.reload
 
@@ -145,11 +145,11 @@ describe User do
 
       post = user.post :status_message, :message => "hello", :to => aspect.id
 
-      user2.receive post.to_diaspora_xml
-      user3.receive post.to_diaspora_xml
+      user2.receive post.to_diaspora_xml, user.person
+      user3.receive post.to_diaspora_xml, user.person
 
       comment = user2.comment('tada',:on => post)
-      user.receive comment.to_diaspora_xml
+      user.receive comment.to_diaspora_xml, user2.person
       user.reload
 
       commenter_id = user2.person.id
@@ -159,7 +159,7 @@ describe User do
       comment_id = comment.id
 
       comment.delete
-      user3.receive comment.to_diaspora_xml
+      user3.receive comment.to_diaspora_xml, user.person
       user3.reload
 
       new_comment = Comment.find_by_id(comment_id)

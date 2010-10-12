@@ -9,14 +9,15 @@ module Diaspora
         end
       end
 
-      def receive xml, author
+      def receive xml, salmon_author
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
 
 
-      
-        if (author == sender(object, xml))
+        sender_in_xml = sender(object, xml)
+
+        if (salmon_author == sender_in_xml)
           if object.is_a? Retraction
             receive_retraction object, xml
           elsif object.is_a? Request
@@ -29,7 +30,7 @@ module Diaspora
             receive_post object, xml
           end
         else
-          raise "Possibly Malicious Post, #{author.real_name} with id #{author.id} is sending a #{object.class} as #{sender.real_name} with id #{sender.id} "
+          raise "Possibly Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
         end
       end
 
@@ -41,7 +42,7 @@ module Diaspora
         elsif object.is_a? Profile
           sender = Diaspora::Parser.owner_id_from_xml xml
         elsif object.is_a?(Comment)
-          sender = object.post.person
+          sender = (owns?(object.post))? object.person : object.post.person
         else
           sender = object.person
         end
