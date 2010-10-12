@@ -44,6 +44,7 @@ mkdir -p /var/log/diaspora
 mkdir -p /var/lib/diaspora/uploads
 mkdir -p /var/lib/diaspora/tmp
 mkdir -p /etc/diaspora
+mkdir -p /usr/share/diaspora/master/pkg/ubuntu/dist
 
 ln -sf /var/log/diaspora  ./master/log
 cp master/config/app_config.yml.example /etc/diaspora/app_config.yml
@@ -66,3 +67,5 @@ chown diaspora:diaspora /var/log/diaspora
 chown diaspora:diaspora /var/lib/diaspora/uploads
 chown diaspora:diaspora /var/lib/diaspora/tmp
 chown diaspora:diaspora /var/lib/diaspora
+chown diaspora:diaspora /usr/share/diaspora/master/pkg/ubuntu/dist
+

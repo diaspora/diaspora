@@ -1,11 +1,12 @@
 ## Package-oriented install for ubuntu.
 
-Here are some scripts to install diaspora on Ubuntu. They are designed to
+Here are somediaspora-installdiaspora-install scripts to install diaspora on Ubuntu. They are designed to
 work as a first step towards packaging, but should be usable as is.
 
 ### Synopsis
 
 Bootstrap the distribution from git:
+    sudo apt-get install git
     git clone git://github.com/diaspora/diaspora.git
     cd diaspora/pkg/ubuntu
 
@@ -25,20 +26,42 @@ Initiate and start the server;
     cd /usr/share/diaspora/master
     ./script/server
 
+### Upgrading
+Once diaspora ins installed ,makedist.sh et. al. are available in
+/usr/share/diaspora/master/pkg/ubuntu, so there's no need to checkout
+the stuff using git in this case.
+
+The normal procedure to update is to just
+    $ sudo su - diaspora
+    $ cd /usr/share/diaspora/master/pkg/ubuntu
+    $ ./make-dist.sh bundle
+    $ ./make-dist.sh source
+
+And then use diaspore-install and diaspora-install-bundle as above.
+
+It's necessary to always have the correct bundle. The easy way is to just
+    $ ./make-dist.sh bundle
+
+    Repo:       http://github.com/diaspora/diaspora.git
+    Bundle:     dist/diaspora-bundle-0.0-1010111342_afad554.tar.gz
+
+The command will return the last built bundle (which is cached) if it's
+OK to use. If it's not, it will build a new.
+
 ### Notes
 
 The application lives in /usr/share/diaspora/master. All writable areas
 (log, uploads, tmp) are links to /var/lib/diaspora. The config file lives
 in /etc/diaspora. All files in /usr/share are read-only, owned by root.
 
-The bundle lives in /usr/lib/diaspora-bundle, readonly,owned by root.
+The bundle lives in /usr/lib/diaspora-bundle, readonly, owned by root.
 Application finds it through the patched .bundle/config in root dir.
 
-The user diaspora is added during install.
+Once diaspora ins installed ,makedist.sh et. al. are available in
+/usr/share/diaspora/master/pkg/ubuntu, so there's no need to checkout
+the stuff using git in this case.
 
-The  'make-dist-source' prints a message about the version of the bundle
-it needs. Normally, it doesn't change and it's a fast procedure to generate
-and install the source tarball. Generating the bundle takes some time, though.
+The user diaspora is added during install.
 
 make-dist.sh accepts arguments to get a specified commit and/or use another
 repo.
