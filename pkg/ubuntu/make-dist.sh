@@ -1,0 +1,1 @@
+../fedora/make-dist.sh

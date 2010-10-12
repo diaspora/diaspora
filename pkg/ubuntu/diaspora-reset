@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+#  Try to revert to pristine state, deleting all users and
+#  configuration
+#
+
+set -x
+service mongodb stop
+rm -rf /var/lib/mongodb/*
+cp /usr/share/diaspora/master/config/app_config.yml.example \
+  /usr/share/diaspora/master/config/app_config.yml
+service mongodb start
