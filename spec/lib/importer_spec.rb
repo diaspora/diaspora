@@ -28,6 +28,7 @@ describe Diaspora::Importer do
   let!(:aspect6) { user3.aspect(:name => "Cats") }
   let!(:aspect7) { user4.aspect(:name => "Dogs") }
   let!(:aspect8) { user5.aspect(:name => "Hamsters") }
+  let!(:aspect9) { user5.aspect(:name => "Gophers") }
 
   # User1 posts one status messages to aspects (1-4), two other users post message to one aspect
   let(:status_message1) { user1.post(:status_message, :message => "One", :public => true, :to => aspect1.id) }
@@ -36,21 +37,28 @@ describe Diaspora::Importer do
   let(:status_message4) { user1.post(:status_message, :message => "Four", :public => false, :to => aspect4.id) }
   let(:status_message5) { user2.post(:status_message, :message => "Five", :public => false, :to => aspect5.id) }
   let(:status_message6) { user3.post(:status_message, :message => "Six", :public => false, :to => aspect6.id) }
+  let(:status_message7) { user5.post(:status_message, :message => "Seven", :public => false, :to => aspect9.id) }
 
   before(:all) do
-    # Friend users
+    # Friend users with user1
     friend_users( user1, aspect1, user2, aspect5 )
     friend_users( user1, aspect2, user3, aspect6 )
     friend_users( user1, aspect3, user4, aspect7 )
     friend_users( user1, aspect4, user5, aspect8 )
 
-    # Generate status messages and receive
+    # Friend users 4 and 5
+    friend_users( user5, aspect9, user4, aspect7 )
+
+    # Generate status messages and receive for user1
     user2.receive status_message1.to_diaspora_xml
     user3.receive status_message2.to_diaspora_xml
     user4.receive status_message3.to_diaspora_xml
     user5.receive status_message4.to_diaspora_xml
     user1.receive status_message5.to_diaspora_xml
     user1.receive status_message6.to_diaspora_xml
+
+    # Generate status message and recieve between user4 and user5
+    user4.receive status_message7.to_diaspora_xml
   end
 
   it 'should gut check this test' do 
@@ -67,6 +75,75 @@ describe Diaspora::Importer do
     
     user1.raw_visible_posts.count.should be 6
     user1.raw_visible_posts.find_all_by_person_id(user1.person.id).count.should be 4
+    user1.raw_visible_posts.find_all_by_person_id(user1.person.id).should_not include status_message7
+  end
+
+  context 'importing a user' do
+
+    before(:all) do
+      # Generate exported XML for user1
+      exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
+      @xml = exporter.execute(user1)
+      @old_user = user1
+      @old_aspects = user1.aspects
+      # Remove user1 from the server
+      user1.aspects.each( &:delete )
+      user1.raw_visible_posts.find_all_by_person_id(user1.person.id).each( &:delete )
+      user1.delete
+      
+      @importer = Diaspora::Importer.new(Diaspora::Importers::XML)
+      @doc = Nokogiri::XML::parse(@xml)
+    end
+
+    it 'should import a user' do
+      user = @importer.execute(@xml)
+      
+      user.class.should == User
+
+    end
+
+    describe '#parse_user' do
+      before do
+        @user, @person = @importer.parse_user(@doc)
+      end
+
+      it 'should set username' do
+        @user.username.should == @old_user.username
+      end
+
+      it 'should set private key' do
+        @user.serialized_private_key.should == @old_user.serialized_private_key
+      end
+
+      it 'should ensure a match between persons public and private keys' do
+        pending
+      end
+    end
+    
+    describe '#parse_aspects' do
+      before do
+        @aspects = @importer.parse_aspects(@doc)
+      end
+
+      it 'should return an array' do
+        @aspects.count.should == 6
+      end
+
+      it 'should should have post ids' do
+        puts @aspects.inspect
+        @aspects.any?{|x| x.post_ids.count > 0}.should be true
+      end
+
+    end
+
+    describe '#parse_posts' do
+      it 'should have a users personal posts' do 
+        pending
+        @user.raw_visible_posts.find_all_by_person_id(user1.person.id).count.should be 4
+      end
+    end
+
+  
   end
 
 end
