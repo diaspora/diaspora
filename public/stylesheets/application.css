@@ -195,8 +195,8 @@ li.message {
       li.message .content .from a {
         font-weight: bold; }
     li.message .content div.info {
-      color: #eeeeee;
-      font-size: 11px; }
+      color: #444444;
+      font-size: 14px; }
       li.message .content div.info a {
         color: #cccccc; }
       li.message .content div.info .time {

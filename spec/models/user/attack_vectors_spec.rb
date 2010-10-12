@@ -28,38 +28,35 @@ describe User do
       user.raw_visible_posts.count.should be 1
 
       malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :person => user3.person)
-      user.receive_salmon(user3.salmon(malicious_message).xml_for(user.person))
+      proc{user.receive_salmon(user3.salmon(malicious_message).xml_for(user.person))}.should raise_error /Malicious Post/
 
       user.raw_visible_posts.count.should be 1
       user.raw_visible_posts.first.message.should == "store this!"
     end
      
-    it 'ovewrites messages which apear to ' do 
+    it 'ovewrites messages which apear to be from the same user' do 
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
       user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
       user.raw_visible_posts.count.should be 1
 
       malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :person => user2.person)
-      user.receive_salmon(user3.salmon(malicious_message).xml_for(user.person))
+      proc{user.receive_salmon(user3.salmon(malicious_message).xml_for(user.person))}.should raise_error /Malicious Post/
+
 
       user.raw_visible_posts.count.should be 1
       user.raw_visible_posts.first.message.should == "store this!"
     end
 
     it 'overites another persons profile' do
-      pending "don't allow profile overwriting"
       profile = user2.profile.clone
       profile.first_name = "Not BOB"
 
       user2.reload
       user2.profile.first_name.should == "Robert"
-      user.receive_salmon(user3.salmon(profile).xml_for(user.person))
+      proc{user.receive_salmon(user3.salmon(profile).xml_for(user.person))}.should raise_error /Malicious Post/
       user2.reload
       user2.profile.first_name.should == "Robert"
     end
 
-    it 'overwrites requests' do
-      pending
-    end
   end
 end
