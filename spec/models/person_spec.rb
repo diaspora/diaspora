@@ -43,6 +43,7 @@ describe Person do
 
     it 'should have a profile in its xml' do
       @xml.include?("first_name").should == true
+
     end
   end
 
@@ -54,7 +55,7 @@ describe Person do
     person_two.owns?(person_message).should be false
   end
 
-  it 'should delete all of user except comments upon user deletion' do
+  it 'should delete all of user posts except comments upon user deletion' do
     person = Factory.create(:person)
 
     Factory.create(:status_message, :person => person)
