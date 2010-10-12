@@ -53,6 +53,30 @@ describe Comment do
         @user.reload
       end
 
+      it 'should receive a comment from a person not on the pod' do
+        user3 = Factory.create :user
+        aspect3 = user3.aspect(:name => "blah")
+
+        friend_users(@user, @aspect, user3, aspect3)
+        
+        comment = Comment.new(:person_id => user3.person.id, :text => "hey", :post => @user_status)
+        comment.creator_signature = comment.sign_with_key(user3.encryption_key)
+
+
+        comment.post_creator_signature = comment.sign_with_key(@user.encryption_key)
+        xml = @user.salmon(comment).xml_for(@user2)
+
+        user3.person.delete
+        user3.delete
+
+         
+        @user_status.reload
+        @user_status.comments.should == []
+        @user2.receive_salmon(xml)
+        @user_status.reload
+        @user_status.comments.include?(comment).should be true
+      end
+
       it 'should have the post in the aspects post list' do
         aspect = Aspect.first(:id => @aspect.id)
         aspect.people.size.should == 2
