@@ -5,26 +5,47 @@ module Diaspora
         salmon = Salmon::SalmonSlap.parse salmon_xml, self
         if salmon.verified_for_key?(salmon.author.public_key)
           Rails.logger.info("data in salmon: #{salmon.parsed_data}")
-          self.receive(salmon.parsed_data)
+          self.receive(salmon.parsed_data, salmon.author)
         end
       end
 
-      def receive xml
+      def receive xml, author
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
-        
-        if object.is_a? Retraction
-          receive_retraction object, xml
-        elsif object.is_a? Request
-          receive_request object, xml
-        elsif object.is_a? Profile
-          receive_profile object, xml
-        elsif object.is_a?(Comment)
-          receive_comment object, xml
+
+
+      
+        if (author == sender(object, xml))
+          if object.is_a? Retraction
+            receive_retraction object, xml
+          elsif object.is_a? Request
+            receive_request object, xml
+          elsif object.is_a? Profile
+            receive_profile object, xml
+          elsif object.is_a?(Comment)
+            receive_comment object, xml
+          else
+            receive_post object, xml
+          end
         else
-          receive_post object, xml
+          raise "Possibly Malicious Post, #{author.real_name} with id #{author.id} is sending a #{object.class} as #{sender.real_name} with id #{sender.id} "
         end
+      end
+
+      def sender(object, xml)
+        if object.is_a? Retraction
+          sender = object.person
+        elsif object.is_a? Request
+          sender = Diaspora::Parser.parse_or_find_person_from_xml( xml )
+        elsif object.is_a? Profile
+          sender = Diaspora::Parser.owner_id_from_xml xml
+        elsif object.is_a?(Comment)
+          sender = object.post.person
+        else
+          sender = object.person
+        end
+        sender
       end
 
       def receive_retraction retraction, xml
