@@ -84,22 +84,21 @@ describe Diaspora::Importer do
       # Generate exported XML for user1
       exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
       @xml = exporter.execute(user1)
+
       @old_user = user1
       @old_aspects = user1.aspects
       # Remove user1 from the server
       user1.aspects.each( &:delete )
       user1.raw_visible_posts.find_all_by_person_id(user1.person.id).each( &:delete )
       user1.delete
-      
+
       @importer = Diaspora::Importer.new(Diaspora::Importers::XML)
       @doc = Nokogiri::XML::parse(@xml)
     end
 
     it 'should import a user' do
       user = @importer.execute(@xml)
-      
       user.class.should == User
-
     end
 
     describe '#parse_user' do
@@ -112,6 +111,7 @@ describe Diaspora::Importer do
       end
 
       it 'should set private key' do
+        @user.serialized_private_key.should_not be nil
         @user.serialized_private_key.should == @old_user.serialized_private_key
       end
 
@@ -125,16 +125,38 @@ describe Diaspora::Importer do
         @aspects = @importer.parse_aspects(@doc)
       end
 
+      it 'should return valid aspects' do 
+        @aspects.all?(&:valid?).should be true
+      end
+
       it 'should return an array' do
         @aspects.count.should == 6
       end
 
       it 'should should have post ids' do
-        puts @aspects.inspect
         @aspects.any?{|x| x.post_ids.count > 0}.should be true
       end
 
+      it 'should have person ids' do
+        @aspects.any?{|x| x.person_ids.count > 0}.should be true
+      end
     end
+
+    describe '#parse_people' do
+      before do
+        @people = @importer.parse_people(@doc)
+      end
+
+      it 'should return valid people' do 
+        @people.all?(&:valid?).should be true
+      end
+
+      it 'should return an array' do
+        @people.count.should == 4 
+      end
+    end
+
+
 
     describe '#parse_posts' do
       it 'should have a users personal posts' do 

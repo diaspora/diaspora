@@ -16,8 +16,6 @@ module Diaspora
         doc = Nokogiri::XML.parse(xml)
         user, person = parse_user(doc)
         user
-        
-
 
       end
 
@@ -31,29 +29,27 @@ module Diaspora
       end
 
       def parse_aspects(doc)
-        aspects = []
+       aspects = []
         aspect_doc = doc.xpath('/export/aspects/aspect')
 
         aspect_doc.each do |x| 
-          
-          puts x.to_s
-          puts; puts
-          
-          
+          a = Nokogiri::XML.parse(x.to_s)
+
           aspect = Aspect.new
-
-          aspect.id = x.xpath('//aspect/_id').text
-          aspect.name = x.xpath('//aspect/name').text
-
-          aspect.post_ids = x.xpath('//aspect/post_ids/post_id').collect(&:text)
+          aspect.id = a.xpath('/aspect/_id').text
+          aspect.name = a.xpath('/aspect/name').text
+          aspect.post_ids = a.xpath('/aspect/post_ids/post_id').collect(&:text)
+          aspect.person_ids = a.xpath('/aspect/person_ids/person_id').collect(&:text)
           aspects << aspect
         end
-        
         aspects
-
       end
 
       def parse_people(doc)
+        people_doc = doc.xpath('/export/people/person')
+        people_doc.inject([]) do |people,curr|
+          people << Person.from_xml(curr.to_s)
+        end
       end
 
 

@@ -20,14 +20,24 @@ describe Diaspora::Exporter do
   let!(:exported) { Diaspora::Exporter.new(Diaspora::Exporters::XML).execute(user1) }
 
   it 'should include a users posts' do
-    exported.should include status_message1.to_xml.to_s
-    exported.should include status_message2.to_xml.to_s
-    exported.should_not include status_message3.to_xml.to_s
+    exported.should include status_message1.message
+    exported.should include status_message2.message
+    exported.should_not include status_message3.message
   end
 
   it 'should include a users private key' do
     exported.should include user1.serialized_private_key
   end
 
-end
+  it 'should include post_ids' do 
+    doc = Nokogiri::XML::parse(exported)
+    doc.xpath('//aspects').to_s.should include status_message1.id.to_s
+    doc.xpath('//posts').to_s.should include status_message1.id.to_s
+  end
 
+  it 'should include a list of users posts' do 
+    doc = Nokogiri::XML::parse(exported)
+    posts = doc.xpath('//posts').to_s
+    posts.should include(status_message1.message)
+  end
+end

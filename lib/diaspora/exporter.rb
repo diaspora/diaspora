@@ -23,25 +23,31 @@ module Diaspora
             }
             xml.aspects {
               user.aspects.each do |aspect|
-                puts aspect.people.inspect
                 xml.aspect { 
                   xml._id aspect.id
                   xml.name aspect.name
                    
                   xml.person_ids {
-                    aspect.people.each do |person|
-                      xml.person_id person.id
+                    aspect.person_ids.each do |id|
+                      xml.person_id id
                     end
                   }
 
                   xml.post_ids {
-                    aspect.posts.each do |post|
-                      xml.post_id post.id
+                    aspect.post_ids.each do |id|
+                      xml.post_id id
                     end
                   }
                 }
               end
             }
+
+            xml.people {
+              user.friends.each do |friend|
+                xml.parent << friend.to_xml
+              end
+            }
+
             xml.posts {
               user.raw_visible_posts.find_all_by_person_id(user.person.id).each do |post|
                 #post_doc = post.to_xml
@@ -50,7 +56,7 @@ module Diaspora
                 #  post_doc << comment.to_xml
                 #end
 
-                xml.post post.to_xml
+                xml.parent << post.to_xml
               end
             }
           }
