@@ -72,9 +72,9 @@ module Diaspora
     end
 
 
-    def clean_aspects(aspects, filter)
+    def clean_aspects(aspects, whitelist)
       aspects.collect! do |aspect|
-        aspect.post_ids.delete_if{ |x| !filter.include? x.id }
+        aspect.post_ids.delete_if{ |x| !whitelist.include? x }
       end
     end
   end
