@@ -15,7 +15,7 @@ grep -v '^#' /etc/apt/sources.list | grep -q universe || {
 sudo apt-get update
 sudo apt-get install -qy --ignore-missing build-essential libxslt1-dev \
      libxml2 ruby-full mongodb rake python-software-properties git-core \
-     imagemagick libmagick9-dev
+     imagemagick libmagick9-dev xulrunner-1.9
 sudo add-apt-repository ppa:maco.m/ruby
 sudo apt-get update
 sudo apt-get install -qy rubygems
