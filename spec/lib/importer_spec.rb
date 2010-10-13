@@ -78,7 +78,7 @@ describe Diaspora::Importer do
     @user1.raw_visible_posts.find_all_by_person_id(@user1.person.id).should_not include @status_message7
   end
 
-  context 'importing a user' do
+  context 'parsing a user' do
 
     before(:each) do
       # Generate exported XML for user1
@@ -92,7 +92,7 @@ describe Diaspora::Importer do
       @user1.raw_visible_posts.find_all_by_person_id(@user1.person.id).each( &:delete )
       @user1.delete
 
-      @importer = Diaspora::Importer.new(Diaspora::Importers::XML)
+      @importer = Diaspora::Importer.new(Diaspora::Parsers::XML)
       @doc = Nokogiri::XML::parse(@xml)
     end
 
@@ -158,6 +158,16 @@ describe Diaspora::Importer do
       it 'should return vaild posts' do         
         posts.all?(&:valid?).should be true
       end
+    end
+
+    context 'verifying a user' do
+
+      describe '#verify_user' do
+        it 'should validate' do
+          verify_user(@user).should be true
+        end
+      end
+
     end
   end
 end
