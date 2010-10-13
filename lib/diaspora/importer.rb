@@ -9,11 +9,44 @@ module Diaspora
       self.class.send(:include, strategy)
     end
     
+    def commit(user, person, aspects, people, posts)
+      filter = verify_and_clean(user, person, people, aspects, posts)
+      #assume data is good
+      
+      # to go 
+      user.email = "tits@tits.tits"
+      user.password= "megatits@tits.tits"
+      user.password_confirmation = "megatits@tits.tits"
 
-    def commit(user, person, aspects, filters)
-    
-      filters[:unknown].values.each do |x| 
+     
+     
+      user.person = person
 
+
+      user.person.diaspora_handle = "obby@foo.com"
+      
+      user.visible_post_ids = filter[:whitelist].keys
+
+      user.friend_ids = people.collect{ |x| x.id }
+      user.visible_person_ids = user.friend_ids
+
+      user.save!
+      user.person.save!
+      
+      posts.each do |post|
+        post.save! if filter[:unknown].include? post.id
+      end
+
+
+
+      aspects.each do |aspect|
+        user.aspects << aspect
+      end
+
+
+
+      people.each do |p|
+        p.save! #if filter[:people].include? person.id
       end
     end
 
@@ -22,8 +55,14 @@ module Diaspora
     def verify_and_clean(user, person, people, aspects, posts)
       verify_user(user)
       verify_person_for_user(user, person)
-      post_filter = filter_posts(posts, person)
-      clean_aspects(aspects, post_filter[:whitelist])
+      filters = filter_posts(posts, person)
+
+
+      clean_aspects(aspects, filters[:whitelist])
+
+
+      filters[:people] = filter_people(people)
+      filters  
     end
  
     def verify_user(user)
@@ -43,28 +82,29 @@ module Diaspora
 
     def filter_people(people)
       person_ids = people.collect{|x| x.id}
-      people_from_db = People.find_all_by_id(person_ids)  #this query should be limited to only return person_id
-      person_ids - people_from_db.collect{ |x| x.id }
+      people_from_db = Person.find_all_by_id(person_ids)  #this query should be limited to only return person_id
+      person_ids = person_ids - people_from_db.collect{ |x| x.id }
+
+      person_hash = {}
+      person_ids.each{|x| person_hash[x.to_s] = true }  
+      person_hash
     end
 
     def filter_posts(posts, person)
       post_ids = posts.collect{|x| x.id}
       posts_from_db = Post.find_all_by_id(post_ids)  #this query should be limited to only return post id and owner id
-  
-
+ 
       unknown_posts = post_ids - posts_from_db.collect{|x| x.id}
-
-
 
       posts_from_db.delete_if{|x| x.person_id == person.id}
       unauthorized_post_ids = posts_from_db.collect{|x| x.id}
       post_whitelist = post_ids - unauthorized_post_ids
 
       unknown = {}
-      unknown_posts.each{|x| unknown[x] = true }
+      unknown_posts.each{|x| unknown[x.to_s] = true }
       
       whitelist = {}
-      post_whitelist.each{|x| whitelist[x] = true }
+      post_whitelist.each{|x| whitelist[x.to_s] = true }
       
       return {
           :unknown => unknown,
@@ -73,8 +113,8 @@ module Diaspora
 
 
     def clean_aspects(aspects, whitelist)
-      aspects.collect! do |aspect|
-        aspect.post_ids.delete_if{ |x| !whitelist.include? x }
+      aspects.each do |aspect|
+        aspect.post_ids.delete_if{ |x| !whitelist.include? x.to_s }
       end
     end
   end
@@ -90,7 +130,7 @@ module Diaspora
         posts = parse_posts(doc)
 
         user
-
+        commit(user, person, aspects, people, posts)
       end
 
       def parse_user_and_person(doc)
