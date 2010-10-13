@@ -1,7 +1,7 @@
 %p
   Hello #{@resource.email}!
 %p
-  Someone has invited you to #{root_url}, you can accept it through the link below.
+  #{(@resource.inviters.count == 1)? ( @resource.inviters.first.real_name " has") : (@resource.inviters.map{|inv| inv.real_name}.join(",") + " have")} invited you to #{root_url}, you can accept it through the link below.
 %p= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
 %p
   If you don't want to accept the invitation, please ignore this email.

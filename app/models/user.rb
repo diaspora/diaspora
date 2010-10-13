@@ -29,6 +29,7 @@ class User
 
   key :invitation_token,    String
   key :invitation_sent_at,  DateTime
+  key :inviter_ids,         Array
   key :friend_ids,          Array
   key :pending_request_ids, Array
   key :visible_post_ids,    Array
@@ -36,6 +37,7 @@ class User
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
+  many :inviters,          :in => :inviter_ids,         :class_name => 'User'
   many :friends,           :in => :friend_ids,          :class_name => 'Person'
   many :visible_people,    :in => :visible_person_ids,  :class_name => 'Person' # One of these needs to go
   many :pending_requests,  :in => :pending_request_ids, :class_name => 'Request'
@@ -263,6 +265,29 @@ class User
   end
 
   ###Invitations############
+  def invite_user( opts = {} )
+    invited_user = User.invite!(:email => opts[:email], :inviter => self)
+    #invited_user.inviters << self
+    #invited_user.save!
+    invited_user
+  end
+
+  def self.invite!(attributes={})
+    inviter = attributes.delete(:inviter)
+    invitable = find_or_initialize_with_error_by(:email, attributes.delete(:email))
+    invitable.attributes = attributes
+    invitable.inviters << inviter
+
+    if invitable.new_record?
+      invitable.errors.clear if invitable.email.try(:match, Devise.email_regexp)
+    else
+      invitable.errors.add(:email, :taken) unless invitable.invited?
+    end
+
+    invitable.invite! if invitable.errors.empty?
+    invitable
+  end
+
   def accept_invitation!( opts = {} )
     if self.invited?
       self.username              = opts[:username]

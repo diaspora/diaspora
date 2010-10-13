@@ -3,6 +3,17 @@
 #   the COPYRIGHT file.
 
 class InvitationsController < Devise::InvitationsController
+  def create
+    self.resource = current_user.invite_user(params[resource_name])
+
+    if resource.errors.empty?
+      set_flash_message :notice, :send_instructions#, :email => self.resource.email
+      redirect_to after_sign_in_path_for(resource_name)
+    else
+      render_with_scope :new
+    end
+  end
+
   def update
     begin
       user = User.find_by_invitation_token(params["user"]["invitation_token"])
