@@ -8,13 +8,45 @@ module Diaspora
     def initialize(strategy)
       self.class.send(:include, strategy)
     end
+    
+
+    ### verification (to be module) ################
+
+    def verify(user, person, people, aspects, posts)
+      verify_user(user)
+      verify_person_for_user(user, person)
+    end
+ 
+    def verify_user(user)
+      User.find_by_id(user.id).nil? ? true : raise("User already exists!")
+    end
+
+    def verify_person_for_user(user, person)
+      local_person = Person.find_by_id(person.id)
+      if local_person
+        unless user.encryption_key.public_key.to_s == local_person.public_key.to_s
+          raise "local person found with different owner" 
+        end
+      end
+      true
+    end
+
+    def verify_people(people)
+      
+    end
+    
   end
 
-  module Importers
+  module Parsers
     module XML
       def execute(xml)
         doc = Nokogiri::XML.parse(xml)
+
         user, person = parse_user_and_person(doc)
+        aspects = parse_aspects(doc)
+        people = parse_people(doc)
+        posts = parse_posts(doc)
+
         user
 
       end
@@ -61,5 +93,6 @@ module Diaspora
       end
 
     end
+
   end
 end
