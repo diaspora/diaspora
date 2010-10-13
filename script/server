@@ -1,4 +1,16 @@
 #!/bin/bash
+#
+# Start diaspora websocket and main services
+#
+# See issue 287
+
+# Is someone listening on 3000 already? (ipv4 only test ?)
+services=$( netstat -nl | grep '[^:]:3000[ \t]')
+test -n "$services" && {
+    echo "Warning: something is already using port 3000"
+    echo "     $services"
+}
+
 
 # Check if Mongo is running
 
