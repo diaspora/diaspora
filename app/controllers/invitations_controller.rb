@@ -4,14 +4,19 @@
 
 class InvitationsController < Devise::InvitationsController
   def create
-    self.resource = current_user.invite_user(params[resource_name])
-
-    if resource.errors.empty?
-      set_flash_message :notice, :send_instructions#, :email => self.resource.email
-      redirect_to after_sign_in_path_for(resource_name)
-    else
-      render_with_scope :new
+    begin
+      self.resource = current_user.invite_user(params[resource_name])
+      flash[:notice] = I18n.t 'invitations.create.sent'
+    rescue RuntimeError => e
+      if  e.message == "You have no invites"
+        flash[:error] = I18n.t 'invitations.create.no_more'
+      elsif e.message == "You already invited this person"
+        flash[:error] = I18n.t 'invitations.create.already_sent'
+      else
+        raise e
+      end
     end
+    redirect_to after_sign_in_path_for(resource_name)
   end
 
   def update

@@ -27,6 +27,7 @@ class User
   key :username, :unique => true
   key :serialized_private_key, String
 
+  key :invites,             Integer, :default => 5
   key :invitation_token,    String
   key :invitation_sent_at,  DateTime
   key :inviter_ids,         Array
@@ -266,17 +267,25 @@ class User
 
   ###Invitations############
   def invite_user( opts = {} )
-    invited_user = User.invite!(:email => opts[:email], :inviter => self)
-    #invited_user.inviters << self
-    #invited_user.save!
-    invited_user
+    if self.invites > 0
+      invited_user = User.invite!(:email => opts[:email], :inviter => self)
+      self.invites = self.invites - 1
+      self.save!
+      invited_user
+    else
+      raise "You have no invites"
+    end
   end
 
   def self.invite!(attributes={})
     inviter = attributes.delete(:inviter)
     invitable = find_or_initialize_with_error_by(:email, attributes.delete(:email))
     invitable.attributes = attributes
-    invitable.inviters << inviter
+    if invitable.inviters.include?(inviter)
+      raise "You already invited this person"
+    else
+      invitable.inviters << inviter
+    end
 
     if invitable.new_record?
       invitable.errors.clear if invitable.email.try(:match, Devise.email_regexp)

@@ -6,7 +6,11 @@ require 'spec_helper'
 
 describe User do
   let(:inviter)  {Factory.create :user}
-  let!(:invited_user) { create_user_with_invitation("abc", :email => "email@example.com", :inviter => inviter)}
+  let(:inviter_with_3_invites) {Factory.create :user, :invites => 3}
+  let!(:invited_user)  { create_user_with_invitation("abc", :email => "email@example.com", :inviter => inviter)}
+  let(:invited_user1) { create_user_with_invitation("abc", :email => "email@example.com", :inviter => inviter_with_3_invites)}
+  let(:invited_user2) { create_user_with_invitation("abc", :email => "email@example.com", :inviter => inviter_with_3_invites)}
+  let(:invited_user3) { create_user_with_invitation("abc", :email => "email@example.com", :inviter => inviter_with_3_invites)}
 
   context "creating invites" do
     it 'should invite the user' do
@@ -20,6 +24,23 @@ describe User do
       invited_user = inviter.invite_user(:email => "email@example.com")
       invited_user.reload
       invited_user.inviters.include?(inviter).should be true
+    end
+  end
+
+  context "limit on invites" do
+    it 'does not invite users after 3 invites' do
+      User.stub!(:invite!).and_return(invited_user1,invited_user2,invited_user3)
+      inviter_with_3_invites.invite_user(:email => "email1@example.com")
+      inviter_with_3_invites.invite_user(:email => "email2@example.com")
+      inviter_with_3_invites.invite_user(:email => "email3@example.com")
+      proc{inviter_with_3_invites.invite_user(:email => "email4@example.com")}.should raise_error /You have no invites/
+    end
+
+    it 'does not invite people I already invited' do
+      pending "this is really weird to test without the actual method working"
+      User.stub!(:invite!).and_return(invited_user1,invited_user1)
+      inviter_with_3_invites.invite_user(:email => "email1@example.com")
+      proc{inviter_with_3_invites.invite_user(:email => "email1@example.com")}.should raise_error /You already invited that person/
     end
   end
 
