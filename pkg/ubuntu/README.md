@@ -66,8 +66,13 @@ dependencies lives in the nothing is insalled by user or on system level.
 make-dist.sh accepts arguments to get a specified commit and/or use another
 repo.
 
-This has been tested on a Ubuntu 32-bit 10.10 , clean server. Since this
-is a very small dist, the dependencies should possibly be complete.
+This has been tested on a Ubuntu 32-bit 10.10 , clean server and on 10.04
+Lucid desktop, also clean installation.
+
+mongodb is having problems occasionally. Sometimes the dependencies are not
+installed, and mongod refuses to start. invoke /usr/bin/mongod -f /etc/mongodb.conf
+fo test. The lockfile /var/lib/mongodb/mongod.conf is also a potential
+problem. Remove to make it start again.
 
 The diaspora-wsd is just placeholder FTM, it does **not** work.
 
