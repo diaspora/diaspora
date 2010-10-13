@@ -13,10 +13,11 @@ do
   fi
 done
 
-services=$( netstat -nl | grep '[^:]:'+ $PORT +'[ \t]')
+services=$( netstat -nl | grep '[^:]:'$PORT'[ \t]')
 test -n "$services" && {
     echo "Warning: something is already using port " + $PORT
     echo "     $services"
+    exit
 }
 
 
