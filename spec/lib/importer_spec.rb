@@ -31,14 +31,22 @@ describe Diaspora::Importer do
     @aspect8 = @user5.aspect(:name => "Hamsters")
     @aspect9 = @user5.aspect(:name => "Gophers")
 
+    @aspect10 = @user1.aspect(:name => "Work") 
+    @aspect11 = @user1.aspect(:name => "Family")
+
     # User1 posts one status messages to aspects (1-4), two other users post message to one aspect
-    @status_message1 = @user1.post(:status_message, :message => "One", :public => true, :to => @aspect1.id)
-    @status_message2 = @user1.post(:status_message, :message => "Two", :public => true, :to => @aspect2.id)
+    @status_message1 = @user1.post(:status_message, :message => "One", :public => false, :to => @aspect1.id)
+    @status_message2 = @user1.post(:status_message, :message => "Two", :public => false, :to => @aspect2.id)
     @status_message3 = @user1.post(:status_message, :message => "Three", :public => false, :to => @aspect3.id)
     @status_message4 = @user1.post(:status_message, :message => "Four", :public => false, :to => @aspect4.id)
     @status_message5 = @user2.post(:status_message, :message => "Five", :public => false, :to => @aspect5.id)
     @status_message6 = @user3.post(:status_message, :message => "Six", :public => false, :to => @aspect6.id)
     @status_message7 = @user5.post(:status_message, :message => "Seven", :public => false, :to => @aspect9.id)
+
+    @aspect1.posts << @status_message1
+    @aspect2.posts << @status_message2
+    @aspect3.posts << @status_message3
+    @aspect4.posts << @status_message4
 
     # Friend users with user1
     friend_users( @user1, @aspect1, @user2, @aspect5 )
@@ -62,7 +70,9 @@ describe Diaspora::Importer do
   end
 
   it 'should gut check this test' do 
+    
     @user1.friends.count.should be 4
+
     @user1.friends.should include @user2.person
     @user1.friends.should include @user3.person
     @user1.friends.should include @user4.person
@@ -83,6 +93,7 @@ describe Diaspora::Importer do
     before(:each) do
       # Generate exported XML for user1
       exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
+      @user1.aspects.reload
       @xml = exporter.execute(@user1)
 
       @old_user = @user1
@@ -97,6 +108,7 @@ describe Diaspora::Importer do
     end
 
     it 'should import a user' do
+      pending
       user = @importer.execute(@xml)
       user.class.should == User
     end
@@ -161,5 +173,64 @@ describe Diaspora::Importer do
     end
 
   end
+
+  describe 'importing a user' do
+
+    context '#execute' do
+      before(:each) do
+        # Generate exported XML for user1
+        exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
+        @xml = exporter.execute(@user1)
+
+        # Remove user1 from the server
+        @user1.aspects.each( &:delete )
+        @user1.raw_visible_posts.find_all_by_person_id(@user1.person.id).each( &:delete )
+        @user1.delete
+
+        @importer = Diaspora::Importer.new(Diaspora::Parsers::XML)
+      end
+
+      it 'should import' do
+        User.delete_all
+        Person.delete_all
+        Post.delete_all
+        StatusMessage.delete_all
+        Aspect.delete_all
+
+        User.count.should == 0
+        Person.count.should == 0
+        
+        @importer.execute(@xml)
+        
+        User.count.should == 1
+        n = User.first
+        Post.count.should == 4 
+        n.aspects.count.should  == 6
+        Person.count.should be == 5 
+     
+
+        Person.find_by_id( @user1.person.id ).nil?.should == false
+        Person.find_by_id( @user2.person.id ).nil?.should == false
+
+        n.aspects.count.should == 6
+ 
+        people_count = 0
+        n.aspects.each{|x| people_count += x.people.count }
+        people_count.should == 4
+
+        post_count = 0
+        n.aspects.reload
+        n.aspects.each{ |x| post_count += x.post_ids.count }
+        post_count.should == 4
+        
+        n.friends.count.should be 4
+      end
+
+      
+
+    end
+
+  end
+
 end
 

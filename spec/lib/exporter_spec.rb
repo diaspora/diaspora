@@ -34,6 +34,8 @@ describe Diaspora::Exporter do
   it 'should include post_ids' do 
     doc = Nokogiri::XML::parse(exported)
     doc.xpath('//aspects').to_s.should include status_message1.id.to_s
+
+    doc.xpath('//aspects').to_s.should include status_message2.id.to_s
     doc.xpath('//posts').to_s.should include status_message1.id.to_s
   end
 

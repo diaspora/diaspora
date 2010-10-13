@@ -33,8 +33,8 @@ module Diaspora
                   }
 
                   xml.post_ids {
-                    aspect.post_ids.each do |id|
-                      xml.post_id id
+                    aspect.posts.each do |post|
+                      xml.post_id post.id
                     end
                   }
                 }

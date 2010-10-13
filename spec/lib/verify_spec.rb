@@ -58,8 +58,8 @@ describe Diaspora::Importer do
         whitelist = importer.filter_posts(posts, user1.person)[:whitelist]
 
         whitelist.should have(2).posts
-        whitelist.should include status_message1.id
-        whitelist.should include status_message2.id
+        whitelist.should include status_message1.id.to_s
+        whitelist.should include status_message2.id.to_s
       end
 
       it 'should remove posts not owned by the user' do
@@ -87,29 +87,23 @@ describe Diaspora::Importer do
 
     describe '#clean_aspects' do 
       it 'should purge posts not in whitelist that are present in aspects' do
-        whitelist = {status_message1.id => true, status_message2.id => true}
+        whitelist = {status_message1.id.to_s => true, status_message2.id.to_s => true}
 
         aspect1.reload
-        aspect1.post_ids << status_message3.id
+        aspect1.post_ids << status_message3.id.to_s
 
-        aspect1.post_ids.should have(3).ids
-        
-        importer.clean_aspects([aspect1], whitelist)
-
+        proc{ importer.clean_aspects([aspect1], whitelist) }.should change(aspect1.post_ids, :count).by(-1)
         aspect1.post_ids.should_not include status_message3.id 
-        aspect1.post_ids.should have(2).ids
       end
     end
 
     describe '#filter_people' do
-     
       it 'should filter people who already exist in the database' do
-        people = [user1.person, user2.person, Factory.build(:person)]
-
-        importer.filter_people(people).should have(1).person
+        new_peep = Factory.build(:person)
+        people = [user1.person, user2.person, new_peep]
+        
+        importer.filter_people(people).keys.should == [new_peep.id.to_s]
       end
-  
-
     end
   end
 end
