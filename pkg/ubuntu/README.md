@@ -6,7 +6,7 @@ work as a first step towards packaging, but should be usable as is.
 ### Synopsis
 
 Bootstrap the distribution from git:
-    sudo apt-get install git
+    sudo apt-get install git-core
     git clone git://github.com/diaspora/diaspora.git
     cd diaspora/pkg/ubuntu
 
@@ -27,9 +27,6 @@ Initiate and start the server;
     ./script/server
 
 ### Upgrading
-Once diaspora ins installed ,makedist.sh et. al. are available in
-/usr/share/diaspora/master/pkg/ubuntu, so there's no need to checkout
-the stuff using git in this case.
 
 The normal procedure to update is to just
     $ sudo su - diaspora
