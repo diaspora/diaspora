@@ -14,7 +14,9 @@ test -n "$services" && {
     echo "     $services"
 }
 
-/usr/sbin/service mongodb start || :
+service mongodb stop || :
+rm -f /var/lib/mongodb/mongod.lock
+service mongodb start || :
 
 cd /usr/share/diaspora/master
 
@@ -26,11 +28,13 @@ if rake db:seed:dev; then
 else
     cat <<- EOF
 
-	Database config failed. You might want to remove all db files with
-	'rm -rf /var/lib/mongodb/*' and/or resetting the config file by
-	'cp config/app_config.yml.example config/app_config.yml' before
-	making a new try. Also, make sure the mongodb server is running
-	e. g., using '/sbin/service mongod status'.
+	Database config failed. You might want to
+	 - Just remove the db lock file: rm /var/lib/mongodb/mongod.lock
+	 - Remove all db files: rm -rf /var/lib/mongodb/*
+	 - Reset the config file by
+	   cp config/app_config.yml.example config/app_config.yml
+	Also, make sure the mongodb server is running e. g., using
+	'service mongod status'.
 	EOF
     exit 1
 fi
