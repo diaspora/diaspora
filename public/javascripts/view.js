@@ -26,10 +26,10 @@ $(document).ready(function(){
   });
 
   //buttons//////
-  $("#add_aspect_button").fancybox({ 'titleShow' : false });
-  $("#add_request_button").fancybox({ 'titleShow': false });
-  $("#invite_user_button").fancybox({ 'titleShow': false });
-  $(".add_request_button").fancybox({ 'titleShow': false });
+  $("#add_aspect_button").fancybox({ 'titleShow' : false , 'hideOnOverlayClick' : false });
+  $("#add_request_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
+  $("#invite_user_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
+  $(".add_request_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
 
   $("input[type='submit']").addClass("button");
 
