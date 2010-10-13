@@ -14,6 +14,7 @@ module Diaspora
     module XML
       def execute(user)
         builder = Nokogiri::XML::Builder.new do |xml|
+          user_person_id = user.person.id
           xml.export {
             xml.user {
               xml.username user.username
@@ -33,7 +34,7 @@ module Diaspora
                   }
 
                   xml.post_ids {
-                    aspect.posts.each do |post|
+                    aspect.posts.find_all_by_person_id(user_person_id).each do |post|
                       xml.post_id post.id
                     end
                   }
@@ -48,7 +49,7 @@ module Diaspora
             }
 
             xml.posts {
-              user.raw_visible_posts.find_all_by_person_id(user.person.id).each do |post|
+              user.raw_visible_posts.find_all_by_person_id(user_person_id).each do |post|
                 #post_doc = post.to_xml
                 
                 #post.comments.each do |comment|
