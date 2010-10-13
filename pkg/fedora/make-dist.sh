@@ -126,8 +126,7 @@ function checkout()
             git clone --quiet $GIT_REPO;
             (
                 cd diaspora;
-                git remote add upstream \
-                    git://github.com/diaspora/diaspora.git
+                git remote add upstream $GIT_REPO
                 for p in ../../*.patch; do
                     git apply --whitespace=fix  $p  > /dev/null
                 done &> /dev/null || :
@@ -159,7 +158,6 @@ function make_src
     cd dist
         mkdir ${RELEASE_DIR}/master
         cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master
-        mv  ${RELEASE_DIR}/master/diaspora.spec  ${RELEASE_DIR}
         (
              cd  ${RELEASE_DIR}/master
              git show --name-only > config/gitversion
@@ -168,6 +166,9 @@ function make_src
              find $PWD  -name .git\* | xargs rm -rf
              rm -rf .bundle
              /usr/bin/patch -p1 -s <../../../add-bundle.diff
+             for p in  ../../../*.patch; do
+                 /usr/bin/patch -p1 -s < $p
+             done &> /dev/null || :
         )
         tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && \
             rm -rf ${RELEASE_DIR}
@@ -203,7 +204,8 @@ function make_bundle()
         cd ..
     }
     echo
-    echo "Bundle: dist/$bundle_name.tar.gz"
+    echo "Repo:       $GIT_REPO"
+    echo "Bundle:     dist/$bundle_name.tar.gz"
 }
 
 
@@ -278,9 +280,8 @@ function usage()
 	EOF
 }
 
-
 commit='HEAD'
-while getopts ":r:c:h" opt
+while getopts ":r:c:u:h" opt
 do
     case $opt in
         u)   GIT_REPO="$OPTARG"

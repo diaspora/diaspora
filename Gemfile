@@ -8,7 +8,7 @@ gem 'devise', '1.1.3'
 gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 gem 'devise_invitable', '~> 0.3.4'
 #Mongo
-gem 'mongo_mapper', :branch => 'rails3', :git => 'http://github.com/jnunemaker/mongomapper.git'
+gem 'mongo_mapper', :branch => 'rails3', :git => 'git://github.com/jnunemaker/mongomapper.git'
 gem 'bson_ext', '1.1'
 gem 'bson', '1.1'
 
@@ -32,7 +32,7 @@ gem 'thin'
 
 #Websocket
 gem 'em-websocket'
-gem 'magent', :git => 'http://github.com/dcu/magent.git'
+gem 'magent', :git => 'git://github.com/dcu/magent.git'
 
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch

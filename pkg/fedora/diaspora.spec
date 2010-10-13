@@ -34,6 +34,10 @@ find . -perm /u+x -type f -exec \
 
 %build
 rm -rf master/vendor/bundle
+<<<<<<< HEAD
+mkdir master/tmp || :
+=======
+>>>>>>> upstream/master
 
 %install
 rm -fr $RPM_BUILD_ROOT
@@ -55,7 +59,14 @@ cp %SOURCE3  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
 
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
+<<<<<<< HEAD
+cp -ar  master/.bundle $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
+cp diaspora-setup  $RPM_BUILD_ROOT/%{_datadir}/diaspora
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
+=======
 cp %SOURCE2  $RPM_BUILD_ROOT/%{_datadir}/diaspora
+>>>>>>> upstream/master
 
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
@@ -80,8 +91,25 @@ sed -i   -e '\|.*/master/config.ru"$|d'                    \
 
 
 %post
+<<<<<<< HEAD
+rm -f  %{_datadir}/diaspora/master/vendor/bundle
+rm -f  %{_datadir}/diaspora/master/log
+rm -f  %{_datadir}/diaspora/master/public/uploads
+rm -rf  %{_datadir}/diaspora/master/tmp
+
+ln -s  %{_localstatedir}/log/diaspora \
+        %{_datadir}/diaspora/master/log || :
+ln -s  %{_libdir}/diaspora-bundle/master/vendor/bundle \
+       %{_datadir}/diaspora/master/vendor || :
+ln -s  %{_localstatedir}/lib/diaspora/uploads \
+       %{_datadir}/diaspora/master/public/uploads || :
+ln -s  %{_localstatedir}/lib/diaspora/tmp \
+       %{_datadir}/diaspora/master/tmp || :
+/sbin/chkconfig --add  diaspora-ws || :
+=======
 /sbin/chkconfig --add  diaspora-wsd
 
+>>>>>>> upstream/master
 
 %preun
 if [ $1 -eq 0 ] ; then
@@ -96,15 +124,22 @@ rm -fr $RPM_BUILD_ROOT
 
 %files -f files
 %defattr(-, root, root, 0755)
+<<<<<<< HEAD
+%doc  README.md GNU-AGPL-3.0
+=======
 %doc AUTHORS README.md GNU-AGPL-3.0 COPYRIGHT README-Fedora.md
+>>>>>>> upstream/master
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config.ru
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config/environment.rb
 %attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/tmp
+<<<<<<< HEAD
+=======
 %{_datadir}/diaspora/master/tmp
 %{_datadir}/diaspora/master/public/uploads
 %{_datadir}/diaspora/master/log
+>>>>>>> upstream/master
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
 %{_sysconfdir}/init.d/diaspora-wsd
 

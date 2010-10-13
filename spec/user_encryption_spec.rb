@@ -43,11 +43,12 @@ describe 'user encryption' do
 
       xml = request.to_diaspora_xml
 
-      remote_user.person.destroy
-      remote_user.destroy
+      remote_user.person.delete
+      remote_user.delete
 
       person_count = Person.all.count
-      proc {@user.receive xml}.should_not raise_error /ignature was not valid/
+      @user.receive xml, remote_user.person
+        
       Person.all.count.should == person_count + 1
       new_person = Person.first(:id => id)
       new_person.exported_key.should == original_key

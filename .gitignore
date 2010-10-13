@@ -17,6 +17,7 @@ nbproject
 gpg/diaspora-development/*.gpg
 gpg/diaspora-production/*.gpg
 gpg/*/random_seed
+patches-*
 public/uploads/*
 public/source.tar
 tmp/**/*
