@@ -10,13 +10,20 @@ module Diaspora
     end
     
 
+    def commit(user, person, aspects, filters)
+    
+      filters[:unknown].values.each do |x| 
+
+      end
+    end
+
     ### verification (to be module) ################
 
-    def verify(user, person, people, aspects, posts)
+    def verify_and_clean(user, person, people, aspects, posts)
       verify_user(user)
       verify_person_for_user(user, person)
-      verified_posts = verify_posts(posts, person)
-
+      post_filter = filter_posts(posts, person)
+      clean_aspects(aspects, post_filter[:whitelist])
     end
  
     def verify_user(user)
@@ -33,18 +40,43 @@ module Diaspora
       true
     end
 
-    def verify_posts(posts, person)
-      post_ids = posts.collect{|x| x.id}
 
-      posts_from_db = Post.find_all_by_id(post_id)  #this query should be limited to only return post id and owner id
-
-      unauthorized_posts = posts_from_db.delete_if{|x| x.owner_id != person.id}
-
-      unauthorized_post_ids = unauthorized_posts.collect{|x| x.id}
-
-      post_whitelist = post_ids - unauthorized_post_ids
+    def filter_people(people)
+      person_ids = people.collect{|x| x.id}
+      people_from_db = People.find_all_by_id(person_ids)  #this query should be limited to only return person_id
+      person_ids - people_from_db.collect{ |x| x.id }
     end
-    
+
+    def filter_posts(posts, person)
+      post_ids = posts.collect{|x| x.id}
+      posts_from_db = Post.find_all_by_id(post_ids)  #this query should be limited to only return post id and owner id
+  
+
+      unknown_posts = post_ids - posts_from_db.collect{|x| x.id}
+
+
+
+      posts_from_db.delete_if{|x| x.person_id == person.id}
+      unauthorized_post_ids = posts_from_db.collect{|x| x.id}
+      post_whitelist = post_ids - unauthorized_post_ids
+
+      unknown = {}
+      unknown_posts.each{|x| unknown[x] = true }
+      
+      whitelist = {}
+      post_whitelist.each{|x| whitelist[x] = true }
+      
+      return {
+          :unknown => unknown,
+          :whitelist => whitelist }
+    end
+
+
+    def clean_aspects(aspects, filter)
+      aspects.collect! do |aspect|
+        aspect.post_ids.delete_if{ |x| !filter.include? x.id }
+      end
+    end
   end
 
   module Parsers

@@ -52,9 +52,29 @@ describe Diaspora::Importer do
     end
 
 
-    describe '#verify_posts' do
+    describe '#filter_posts' do
       it 'should make sure all found posts are owned by the user' do
-        pending "next test to conquer"
+        posts = [status_message1, status_message2]
+        whitelist = importer.filter_posts(posts, user1.person)[:whitelist]
+
+        whitelist.should have(2).posts
+        whitelist.should include status_message1.id
+        whitelist.should include status_message2.id
+      end
+
+      it 'should remove posts not owned by the user' do
+        posts = [status_message1, status_message2, status_message3]
+        whitelist = importer.filter_posts(posts, user1.person)[:whitelist]
+
+        whitelist.should have(2).posts
+        whitelist.should_not include status_message3.id
+      end
+
+      it 'should return a list of unknown posts' do
+        posts = [status_message1, status_message2, Factory.build(:status_message)]
+        unknown = importer.filter_posts(posts, user1.person)[:unknown]
+
+        unknown.should have(1).post
       end
       
     end
