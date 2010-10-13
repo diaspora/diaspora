@@ -50,4 +50,11 @@ describe Diaspora::Exporter do
     doc = Nokogiri::XML::parse(exported) 
     doc.xpath('/export/people').to_s.should include user3.person.id.to_s
   end
+
+  it 'should serialize only a users posts within his aspects' do
+    message = Factory(:status_message, :message => "Shouldn't be here", :person => user3.person)
+    aspect1.posts << message
+    doc = Nokogiri::XML::parse(exported)
+    doc.xpath('/export/aspects').to_s.should_not include message.message
+  end
 end
