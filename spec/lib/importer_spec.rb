@@ -50,15 +50,15 @@ describe Diaspora::Importer do
     friend_users( @user5, @aspect9, @user4, @aspect7 )
 
     # Generate status messages and receive for user1
-    @user2.receive @status_message1.to_diaspora_xml
-    @user3.receive @status_message2.to_diaspora_xml
-    @user4.receive @status_message3.to_diaspora_xml
-    @user5.receive @status_message4.to_diaspora_xml
-    @user1.receive @status_message5.to_diaspora_xml
-    @user1.receive @status_message6.to_diaspora_xml
+    @user2.receive @status_message1.to_diaspora_xml, @user1.person
+    @user3.receive @status_message2.to_diaspora_xml, @user1.person
+    @user4.receive @status_message3.to_diaspora_xml, @user1.person
+    @user5.receive @status_message4.to_diaspora_xml, @user1.person
+    @user1.receive @status_message5.to_diaspora_xml, @user2.person
+    @user1.receive @status_message6.to_diaspora_xml, @user3.person
 
     # Generate status message and recieve between user4 and user5
-    @user4.receive @status_message7.to_diaspora_xml
+    @user4.receive @status_message7.to_diaspora_xml, @user5.person
   end
 
   it 'should gut check this test' do 
@@ -160,15 +160,6 @@ describe Diaspora::Importer do
       end
     end
 
-    context 'verifying a user' do
-
-      describe '#verify_user' do
-        it 'should validate' do
-          verify_user(@user).should be true
-        end
-      end
-
-    end
   end
 end
 

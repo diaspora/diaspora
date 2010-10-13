@@ -38,7 +38,7 @@ module Diaspora
 
       posts_from_db = Post.find_all_by_id(post_id)  #this query should be limited to only return post id and owner id
 
-      unauthorized_posts = posts_from_db.delete_if{|x| x.owner_id != person.id}t
+      unauthorized_posts = posts_from_db.delete_if{|x| x.owner_id != person.id}
 
       unauthorized_post_ids = unauthorized_posts.collect{|x| x.id}
 
