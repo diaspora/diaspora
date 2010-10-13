@@ -76,8 +76,30 @@ describe Diaspora::Importer do
 
         unknown.should have(1).post
       end
-      
+
+      it 'should generate a whitelist, unknown posts inclusive' do
+        posts = [status_message1, status_message2, Factory.build(:status_message)]
+        filters = importer.filter_posts(posts, user1.person)
+
+        filters[:whitelist].should include filters[:unknown].keys.first
+      end
     end
 
+    describe '#clean_aspects' do 
+      it 'should purge posts not in whitelist that are present in aspects' do
+        whitelist = {status_message1.id => true, status_message2.id => true}
+
+        aspect1.reload
+        aspect1.post_ids << status_message3.id
+
+        aspect1.post_ids.should have(3).ids
+        
+        importer.clean_aspects([aspect1], whitelist)
+
+        aspect1.post_ids.should_not include status_message3.id 
+        aspect1.post_ids.should have(2).ids
+      end
+
+    end
   end
 end
