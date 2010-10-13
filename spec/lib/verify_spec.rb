@@ -54,8 +54,7 @@ describe Diaspora::Importer do
 
     describe '#verify_posts' do
       it 'should make sure all found posts are owned by the user' do
-        1.should ==2
-        
+        pending "next test to conquer"
       end
       
     end
