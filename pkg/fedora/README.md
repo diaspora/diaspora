@@ -1,5 +1,9 @@
 ## Diaspora RPM tools
 
+NOTE: This does not work ATM, see discussions on Gemfile.lock in
+attached to a  commit 12/10 (yea, I know, you calll it 10/12, but you
+are wrong ;)
+
 Creates diaspora source tarballs and RPM packages
 
 An alternative to the capistrano system, providing classic, binary RPM
