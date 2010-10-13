@@ -15,6 +15,8 @@ module Diaspora
     def verify(user, person, people, aspects, posts)
       verify_user(user)
       verify_person_for_user(user, person)
+      verified_posts = verify_posts(posts, person)
+
     end
  
     def verify_user(user)
@@ -31,8 +33,16 @@ module Diaspora
       true
     end
 
-    def verify_people(people)
-      
+    def verify_posts(posts, person)
+      post_ids = posts.collect{|x| x.id}
+
+      posts_from_db = Post.find_all_by_id(post_id)  #this query should be limited to only return post id and owner id
+
+      unauthorized_posts = posts_from_db.delete_if{|x| x.owner_id != person.id}t
+
+      unauthorized_post_ids = unauthorized_posts.collect{|x| x.id}
+
+      post_whitelist = post_ids - unauthorized_post_ids
     end
     
   end
@@ -68,7 +78,6 @@ module Diaspora
           a = Nokogiri::XML.parse(x.to_s)
 
           aspect = Aspect.new
-          aspect.id = a.xpath('/aspect/_id').text
           aspect.name = a.xpath('/aspect/name').text
           aspect.post_ids = a.xpath('/aspect/post_ids/post_id').collect(&:text)
           aspect.person_ids = a.xpath('/aspect/person_ids/person_id').collect(&:text)
