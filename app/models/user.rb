@@ -266,8 +266,7 @@ class User
     end
   end
 
-  ###Helpers############
-
+  ###Invitations############
   def accept_invitation!( opts = {} )
     if self.invited?
       self.username              = opts[:username]
@@ -283,11 +282,13 @@ class User
       person_hash = opts.delete(:person)
       self.person = Person.create(person_hash)
       self.person.save
+      self.invitation_token = nil
       self.save
       self
     end
   end
 
+  ###Helpers############
   def self.instantiate!( opts = {} )
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
