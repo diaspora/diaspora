@@ -7,19 +7,19 @@
 PORT=3000
 while getopts ":p:" OPTION
 do
-  if OPTION='p'
+  if [ $OPTION == 'p' ]
   then
     PORT=$OPTARG
   fi
 done
 
-services=$( netstat -nl | grep '[^:]:'$PORT'[ \t]')
+services=$( netstat -nl | grep ":$PORT[ \t]")
+
 test -n "$services" && {
     echo "Warning: something is already using port "$PORT
     echo "     $services"
     exit
 }
-
 
 # Check if Mongo is running
 
