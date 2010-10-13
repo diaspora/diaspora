@@ -99,6 +99,16 @@ describe Diaspora::Importer do
         aspect1.post_ids.should_not include status_message3.id 
         aspect1.post_ids.should have(2).ids
       end
+    end
+
+    describe '#filter_people' do
+     
+      it 'should filter people who already exist in the database' do
+        people = [user1.person, user2.person, Factory.build(:person)]
+
+        importer.filter_people(people).should have(1).person
+      end
+  
 
     end
   end
