@@ -41,7 +41,7 @@ describe Request do
   it 'should strip the destination url' do
     person_request = Request.new
     person_request.destination_url = "   http://google.com/   "
-    person_request.send(:clean_linl)
+    person_request.send(:clean_link)
     person_request.destination_url.should == "http://google.com/"
   end
 
