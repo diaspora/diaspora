@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib/diaspora/user/friending')
-require File.join(Rails.root, 'lib/diaspora/user/querying')
-require File.join(Rails.root, 'lib/diaspora/user/receiving')
+require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
 
 class InvitedUserValidator < ActiveModel::Validator
@@ -20,9 +18,7 @@ end
 class User
   include MongoMapper::Document
   plugin MongoMapper::Devise
-  include Diaspora::UserModules::Friending
-  include Diaspora::UserModules::Querying
-  include Diaspora::UserModules::Receiving
+  include Diaspora::UserModules
   include Encryptor::Private
   QUEUE = MessageHandler.new
 
