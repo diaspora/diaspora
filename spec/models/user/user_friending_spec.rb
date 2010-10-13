@@ -166,19 +166,22 @@ describe User do
     describe 'unfriending' do
       before do
         friend_users(user,aspect, user2, aspect2)
+        user.reload
+        user2.reload
       end
 
       it 'should unfriend the other user on the same seed' do
-        user.friends(true).count.should == 1
-        user2.friends(true).count.should == 1
+        user.friends.count.should == 1
+        user2.friends.count.should == 1
 
         user2.unfriend user.person
+        user2.reload
 
-        user2.friends(true).count.should == 0
+        user2.friends.count.should == 0
         user.unfriended_by user2.person
 
-        aspect.reload.people(true).count.should == 0
-        aspect2.reload.people(true).count.should == 0
+        aspect.reload.people.count.should == 0
+        aspect2.reload.people.count.should == 0
       end
 
       context 'with a post' do
@@ -189,10 +192,10 @@ describe User do
           user.unfriended_by  user2.person
         end
         it "deletes the unfriended user's posts from visible_posts" do
-          user.raw_visible_posts(true).include?(@message.id).should be_false
+          user.reload.raw_visible_posts.include?(@message.id).should be_false
         end
         it "deletes the unfriended user's posts from the aspect's posts" do
-          aspect2.posts(true).include?(@message).should be_false
+          aspect2.posts.include?(@message).should be_false
         end
       end
     end
