@@ -82,7 +82,7 @@ ImageUploader.enable_processing = false
     request = user1.send_friend_request_to(user2.person, aspect1)
     reversed_request = user2.accept_friend_request( request.id, aspect2.id)
     user1.reload
-    user1.receive reversed_request.to_diaspora_xml
+    user1.receive reversed_request.to_diaspora_xml, user2.person
     user1.reload
     aspect1.reload
     user2.reload
