@@ -20,7 +20,6 @@ test -n "$services" && {
     echo "     $services"
     exit
 }
-exit
 
 # Check if Mongo is running
 
