@@ -38,4 +38,11 @@ describe Request do
     Request.for_user(user).all.count.should == 1
   end
 
+  it 'should strip the destination url' do
+    person_request = Request.new
+    person_request.destination_url = "   http://google.com/   "
+    person_request.send(:clean_linl)
+    person_request.destination_url.should == "http://google.com/"
+  end
+
 end
