@@ -49,8 +49,16 @@ describe Diaspora::Importer do
         user = Factory.build(:user)
         importer.verify_person_for_user(user, user.person)
       end
-
     end
+
+
+    describe '#verify_posts' do
+      it 'should make sure all found posts are owned by the user' do
+        1.should ==2
+        
+      end
       
+    end
+
   end
 end

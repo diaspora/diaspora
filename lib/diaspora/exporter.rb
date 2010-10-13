@@ -24,7 +24,6 @@ module Diaspora
             xml.aspects {
               user.aspects.each do |aspect|
                 xml.aspect { 
-                  xml._id aspect.id
                   xml.name aspect.name
                    
                   xml.person_ids {
