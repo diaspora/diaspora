@@ -115,7 +115,7 @@ describe Photo do
       id = @photo.id
 
       @photo.destroy
-      @user.receive xml
+      @user.receive xml, @photo.person
 
       new_photo = Photo.first(:id => id)
       new_photo.url.nil?.should be false

@@ -1,9 +1,9 @@
 %global         debug_package   %{nil}
-%define         git_release     HEAD
+%define         git_release     1010092232_b313272
 
 Summary:        A social network server
 Name:           diaspora
-Version:        0.0.1
+Version:        0.0
 Release:        1.%{git_release}%{?dist}
 License:        AGPLv3
 Group:          Applications/Communications
@@ -19,7 +19,7 @@ BuildRoot:      %{_rmpdir}/not-used-in-fedora/
 
 Requires:       mongodb-server
 Requires:       ruby(abi) = 1.8
-Requires:       diaspora-bundle = %{version}
+Requires: diaspora-bundle = 0.0-1.1010081636_d1a4ee0.fc13
 
 
 %description
@@ -109,7 +109,8 @@ rm -fr $RPM_BUILD_ROOT
 %{_sysconfdir}/init.d/diaspora-wsd
 
 %changelog
-* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1009280542_859ec2d
+* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1010092232_b313272.fc13
+
   - Initial attempt to create a spec fi+le
 
 # rubygem-term-ansicolor  in repo (1.0.5)

@@ -53,6 +53,30 @@ describe Comment do
         @user.reload
       end
 
+      it 'should receive a comment from a person not on the pod' do
+        user3 = Factory.create :user
+        aspect3 = user3.aspect(:name => "blah")
+
+        friend_users(@user, @aspect, user3, aspect3)
+        
+        comment = Comment.new(:person_id => user3.person.id, :text => "hey", :post => @user_status)
+        comment.creator_signature = comment.sign_with_key(user3.encryption_key)
+
+
+        comment.post_creator_signature = comment.sign_with_key(@user.encryption_key)
+        xml = @user.salmon(comment).xml_for(@user2)
+
+        user3.person.delete
+        user3.delete
+
+         
+        @user_status.reload
+        @user_status.comments.should == []
+        @user2.receive_salmon(xml)
+        @user_status.reload
+        @user_status.comments.include?(comment).should be true
+      end
+
       it 'should have the post in the aspects post list' do
         aspect = Aspect.first(:id => @aspect.id)
         aspect.people.size.should == 2
@@ -73,33 +97,33 @@ describe Comment do
       it 'should send a comment a person made on your post to all people' do
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
         User::QUEUE.should_receive(:add_post_request).twice
-        @user.receive(comment.to_diaspora_xml)
+        @user.receive comment.to_diaspora_xml, @person
       end
 
       it 'should send a comment a user made on your post to all people' do
 
         comment = @user2.comment( "balls", :on => @user_status)
         User::QUEUE.should_receive(:add_post_request).twice
-        @user.receive(comment.to_diaspora_xml)
+        @user.receive comment.to_diaspora_xml, @user2.person
       end
 
       it 'should not send a comment a person made on his own post to anyone' do
         User::QUEUE.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @person_status)
-        @user.receive(comment.to_diaspora_xml)
+        @user.receive comment.to_diaspora_xml, @person
       end
 
       it 'should not send a comment a person made on a person post to anyone' do
         User::QUEUE.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person2.id, :text => "balls", :post => @person_status)
-        @user.receive(comment.to_diaspora_xml)
+        @user.receive comment.to_diaspora_xml, @person
       end
 
       it 'should not clear the aspect post array on receiving a comment' do
         @aspect.post_ids.include?(@user_status.id).should be true
         comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
 
-        @user.receive(comment.to_diaspora_xml)
+        @user.receive comment.to_diaspora_xml, @person
 
         @aspect.reload
         @aspect.post_ids.include?(@user_status.id).should be true

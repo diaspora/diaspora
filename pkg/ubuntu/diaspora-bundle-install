@@ -1,0 +1,26 @@
+#!/bin/sh
+
+test "$(perl -e 'print $>')" = "0" || {
+    echo "You need to be root to do this, giving up"
+    exit 2
+}
+
+test $# = "1" || {
+    echo "Usage: diaspora-bundle-install <diaspora-bundle-VERSION-RELEASE.tar.gz>"
+    exit 1
+}
+
+test -r "$1" || {
+    echo "Cannot open $1"
+    exit 2
+}
+
+rm -rf /usr/lib/diaspora-bundle
+tar xf $1 -C /usr/lib
+
+cd /usr/lib
+mv $(basename $1 .tar.gz) diaspora-bundle
+mkdir -p /usr/share/doc/diaspora-bundle || :
+cd /usr/lib/diaspora-bundle
+
+cp  AUTHORS GNU-AGPL-3.0 COPYRIGHT /usr/share/doc/diaspora-bundle
