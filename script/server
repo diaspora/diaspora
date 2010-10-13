@@ -3,10 +3,19 @@
 # Start diaspora websocket and main services
 #
 
-# Is someone listening on 3000 already? (ipv4 only test ?)
-services=$( netstat -nl | grep '[^:]:3000[ \t]')
+# Is someone listening on the port already? (ipv4 only test ?)
+PORT=3000
+while getopts ":p:" OPTION
+do
+  if OPTION='p'
+  then
+    PORT=$OPTARG
+  fi
+done
+
+services=$( netstat -nl | grep '[^:]:'+ $PORT +'[ \t]')
 test -n "$services" && {
-    echo "Warning: something is already using port 3000"
+    echo "Warning: something is already using port " + $PORT
     echo "     $services"
 }
 
