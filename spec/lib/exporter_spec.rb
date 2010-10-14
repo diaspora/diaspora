@@ -39,6 +39,11 @@ describe Diaspora::Exporter do
     doc.xpath('//posts').to_s.should include status_message1.id.to_s
   end
 
+  it 'should include post created at time' do
+    doc = Nokogiri::XML::parse(exported)
+    doc.xpath('//posts').to_s.should include status_message1.created_at.to_s
+  end
+
   it 'should include a list of users posts' do 
     doc = Nokogiri::XML::parse(exported)
     posts = doc.xpath('//posts').to_s
