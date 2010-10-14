@@ -4,8 +4,13 @@ config/fb_config.yml
 config/initializers/secret_token.rb
 .bundle
 
-# Uploded files and local files
+# Generated files
 log/*
+public/stylesheets/application.css
+public/stylesheets/sessions.css
+public/stylesheets/ui.css
+
+# Uploded files and local files
 public/uploads/*
 public/source.tar
 tmp/**/*

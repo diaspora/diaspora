@@ -48,6 +48,7 @@ class Request
 protected
   def clean_link
     if self.destination_url
+      self.destination_url = self.destination_url.strip
       self.destination_url = 'http://' + self.destination_url unless self.destination_url.match('https?://')
       self.destination_url = self.destination_url + '/' if self.destination_url[-1,1] != '/'
     end

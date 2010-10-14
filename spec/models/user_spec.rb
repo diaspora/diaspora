@@ -86,6 +86,16 @@ describe User do
       user.should_receive(:remove_person)
       user.destroy
     end
+
+    
+    it 'should remove all aspects' do
+      pending "this should use :dependant => :destroy on the many assoc...but that screws this test suite..."
+      aspects = user.aspects
+      user.destroy
+      proc{ aspects.reload }.should raise_error /does not exist/
+
+    end
+
    
     describe '#remove_person' do
       it 'should remove the person object' do

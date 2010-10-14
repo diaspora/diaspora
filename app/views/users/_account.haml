@@ -5,8 +5,13 @@
 
 %h2 Account
 
-%h3 Change Password
+= link_to "invite friends", new_user_invitation_path(current_user)
 
+%br
+%br
+%br
+
+%h3 Change Password
 = form_for @user do |f|
   = f.error_messages
 
@@ -23,12 +28,14 @@
     = f.submit 'Change password'
 
 %h3 Export Data
-
 = link_to "download my xml", users_export_path, :class => "button"
 = link_to "download my photos", users_export_photos_path, :class => "button"
 
-%h3 Close Account
+%br
+%br
+%br
 
+%h3 Close Account
 = link_to "Close Account", current_user,
             :confirm => "Are you sure?", :method => :delete,
             :class => "button"
