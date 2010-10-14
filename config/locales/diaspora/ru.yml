@@ -11,16 +11,23 @@ ru:
       application:
           edit_profile: "редактировать профиль"
           logout: "выйти"
+          settings: 'настройки'
+          search: 'искать'
   shared:
       aspect_nav:
           all_aspects: "Все аспекты"
           manage: "Управление"
           manage_your_aspects: "Управление вашими аспектами"
+          everyone: 'Все'
       sub_header:
           all_aspects: "Все аспекты"
           manage_aspects: "Управление аспектами"
+          everyone: "Все"
+          public: "Опубликованное"
       publisher:
           share: "Опубликовать"
+          message: "Сообщение"
+          broadcast: "Вещать"
       aspect_friends:
           add_friends: "добавить друзей"
   albums:
@@ -66,7 +73,7 @@ ru:
           add_a_new_aspect: "Добавить аспект"
           create: "Создать"
       create:
-          success:"Нажмите на плюс слева, для того, что-бы указать Diaspora тех, кто может видеть ваш новый аспект
+          success: "Нажмите на плюс слева, для того, что-бы указать Diaspora тех, кто может видеть ваш новый аспект"
       helper:
         remove: "Удалить"
         aspect_not_empty: "Аспект не пуст"
@@ -166,53 +173,53 @@ ru:
     distance_in_words:
       half_a_minute: "меньше минуты"
       less_than_x_seconds:
-        one:   "меньше {{count}} секунды"
-        few:   "меньше {{count}} секунд"
-        many:  "меньше {{count}} секунд"
-        other: "меньше {{count}} секунды"
+        one:   "меньше %{count} секунды"
+        few:   "меньше %{count} секунд"
+        many:  "меньше %{count} секунд"
+        other: "меньше %{count} секунды"
       x_seconds:
-        one:   "{{count}} секунда"
-        few:   "{{count}} секунды"
-        many:  "{{count}} секунд"
-        other: "{{count}} секунды"
+        one:   "%{count} секунда"
+        few:   "%{count} секунды"
+        many:  "%{count} секунд"
+        other: "%{count} секунды"
       less_than_x_minutes:
-        one:   "меньше {{count}} минуты"
-        few:   "меньше {{count}} минут"
-        many:  "меньше {{count}} минут"
-        other: "меньше {{count}} минуты"
+        one:   "меньше %{count} минуты"
+        few:   "меньше %{count} минут"
+        many:  "меньше %{count} минут"
+        other: "меньше %{count} минуты"
       x_minutes:
-        one:   "{{count}} минуту"
-        few:   "{{count}} минуты"
-        many:  "{{count}} минут"
-        other: "{{count}} минуты"
+        one:   "%{count} минуту"
+        few:   "%{count} минуты"
+        many:  "%{count} минут"
+        other: "%{count} минуты"
       about_x_hours:
-        one:   "около {{count}} часа"
-        few:   "около {{count}} часов"
-        many:  "около {{count}} часов"
-        other: "около {{count}} часа"
+        one:   "около %{count} часа"
+        few:   "около %{count} часов"
+        many:  "около %{count} часов"
+        other: "около %{count} часа"
       x_days:
-        one:   "{{count}} день"
-        few:   "{{count}} дня"
-        many:  "{{count}} дней"
-        other: "{{count}} дня"
+        one:   "%{count} день"
+        few:   "%{count} дня"
+        many:  "%{count} дней"
+        other: "%{count} дня"
       about_x_months:
-        one:   "около {{count}} месяца"
-        few:   "около {{count}} месяцев"
-        many:  "около {{count}} месяцев"
-        other: "около {{count}} месяца"
+        one:   "около %{count} месяца"
+        few:   "около %{count} месяцев"
+        many:  "около %{count} месяцев"
+        other: "около %{count} месяца"
       x_months:
-        one:   "{{count}} месяц"
-        few:   "{{count}} месяца"
-        many:  "{{count}} месяцев"
-        other: "{{count}} месяца"
+        one:   "%{count} месяц"
+        few:   "%{count} месяца"
+        many:  "%{count} месяцев"
+        other: "%{count} месяца"
       about_x_years:
-        one:   "около {{count}} года"
-        few:   "около {{count}} лет"
-        many:  "около {{count}} лет"
-        other: "около {{count}} лет"
+        one:   "около %{count} года"
+        few:   "около %{count} лет"
+        many:  "около %{count} лет"
+        other: "около %{count} лет"
       over_x_years:
-        one:   "больше {{count}} года"
-        few:   "больше {{count}} лет"
-        many:  "больше {{count}} лет"
-        other: "больше {{count}} лет"
+        one:   "больше %{count} года"
+        few:   "больше %{count} лет"
+        many:  "больше %{count} лет"
+        other: "больше %{count} лет"
 

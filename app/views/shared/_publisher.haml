@@ -8,7 +8,7 @@
   = form_for StatusMessage.new, :remote => true do |f|
     = f.error_messages
     %p
-      %label{:for => "status_message_message"} Message
+      %label{:for => "status_message_message"}= t('.message')
       = f.text_area :message, :rows => 2, :value => params[:prefill]
 
     %ul.aspect_selector{ :style => "display:none;"}
@@ -26,5 +26,5 @@
       - else
         = f.submit t('.share'), :title => "Share with #{@aspect.name}"
       - if defined? broadcast
-        = f.submit "Broadcast", :class => "broadcast", :name => "broadcast", :title => "Publish to Diaspora and Facebook"
+        = f.submit t('.broadcast'), :class => "broadcast", :name => "broadcast", :title => "Publish to Diaspora and Facebook"
 

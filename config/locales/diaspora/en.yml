@@ -26,16 +26,23 @@ en:
       application:
           edit_profile: "edit profile"
           logout: "logout"
+          settings: "settings"
+          search: "Search"
   shared:
       aspect_nav:
           all_aspects: "All Aspects"
           manage: "Manage"
           manage_your_aspects: "Manage your Aspects"
+          everyone: 'Everyone'
       sub_header:
           all_aspects: "All Aspects"
           manage_aspects: "Manage Aspects"
+          everyone: "Everyone"
+          public: "Public"
       publisher:
           share: "Share"
+          broadcast: "Broadcast"
+          message: "Message"
       aspect_friends:
           add_friends: "add friends"
   albums:
@@ -80,6 +87,11 @@ en:
           update_aspects: "Update Aspects"
           requests: "Requests"
           ignore_remove: "Ignore/Remove"
+          no_new_requests: "No new requests"
+          drag_to_ignore: "Drag to ignore/remove"
+          you_have_invites: "You have %{invites} invites."
+          invite: "Invite a friend!"
+          drag_to_add_people: "Drag to add people"
       new_aspect:
           add_a_new_aspect: "Add a new aspect"
           create: "Create"
@@ -161,6 +173,8 @@ en:
           already_sent: 'You already invited this person.'
           invitation_token_invalid: 'The invitation token provided is not valid!'
           updated: 'Your password was set successfully. You are now signed in.'
+          send: "Send invitation"
+          send_an_invitation: "Send an invitation"
 
   status_messages:
       new_status_message:

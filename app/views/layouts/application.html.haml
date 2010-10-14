@@ -45,11 +45,11 @@
           %ul
             %li#global_search
               = form_tag(people_path, :method => 'get') do
-                %label{:for => 'q'} Search
+                %label{:for => 'q'}=t('.search')
                 = text_field_tag 'q'
 
             %li= link_to current_user.real_name, current_user.person
-            %li= link_to "settings", edit_user_path(current_user)
+            %li= link_to t('.settings'), edit_user_path(current_user)
             %li= link_to t('.logout.'), destroy_user_session_path
 
         = render "shared/aspect_nav"

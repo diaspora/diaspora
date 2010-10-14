@@ -12,7 +12,7 @@
   .requests
     %ul.dropzone
       - if @remote_requests.size < 1
-        %li.grey No new requests
+        %li.grey=t('.no_new_requests')
       - else
         - for request in @remote_requests
           %li.requested_person{:id => request.person.id, :request_id => request.id}
@@ -23,10 +23,10 @@
 
   .remove
     %ul.dropzone
-      %li.grey Drag to ignore/remove
+      %li.grey=t('.drag_to_ignore')
 
-  %h3= link_to "Invite a friend!", "#invite_user_pane", :id => "invite_user_button", :class => "invite_user_button", :title => "Invite a friend"
-  %h3= "You have #{@invites} invites."
+  %h3= link_to t('.invite'), "#invite_user_pane", :id => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
+  %h3= t('.you_have_invites', :invites => @invites)
 
   .yo{ :style => "display:none;"}
     #invite_user_pane
@@ -53,7 +53,7 @@
       %ul.dropzone{:id => aspect.id}
 
         -if aspect.people.size < 1
-          %li.grey Drag to add people
+          %li.grey= t('.drag_to_add_people')
 
         -else
           -for person in aspect.people

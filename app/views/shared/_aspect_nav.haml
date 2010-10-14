@@ -5,7 +5,7 @@
 #aspect_nav
   %ul
     %li{:class => ("selected" if @aspect == :all)}
-      = link_to "Everyone", root_url
+      = link_to t('.everyone'), root_url
     - for aspect in @aspects
       %li{:class => ("selected" if current_aspect?(aspect))}
         = link_for_aspect aspect
