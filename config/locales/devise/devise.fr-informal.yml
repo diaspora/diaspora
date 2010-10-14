@@ -1,7 +1,3 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
 fr-informal:
   errors:
     messages:
@@ -14,7 +10,7 @@ fr-informal:
       unauthenticated: 'Tu dois te connecter ou t’inscrire avant de continuer.'
       unconfirmed: 'Tu dois confirmer ton compte avant de continuer.'
       locked: 'Ton compte est verrouillé.'
-      invalid: 'Adresse e-mail ou mot de passe invalide.'
+      invalid: 'E-mail ou mot de passe invalide.'
       invalid_token: 'Jeton d’authentification invalide.'
       timeout: 'Ta session a expiré, merci de te connecter de nouveau afin de continuer.'
       inactive: 'Ton compte n’a pas encore été activé.'
@@ -22,19 +18,29 @@ fr-informal:
       signed_in: 'Connecté avec succès.'
       signed_out: 'Déconnecté avec succès.'
     passwords:
-      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant des instructions t’expliquant comment réinitialiser ton mot de passe.'
+      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant les instructions pour réinitialiser ton mot de passe.'
       updated: 'Ton mot de passe a été modifié avec succès. Tu es à présent connecté.'
     confirmations:
-      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant des instructions t’expliquant comment confirmer ton compte.'
+      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant les instructions pour confirmer ton compte.'
       confirmed: 'Ton compte a été confirmé avec succès. Tu es à présent connecté.'
     registrations:
-      signed_up: 'Tu t’es inscrit avec succès. Si activée, une confirmation a été envoyée sur ton adresse e-mail.'
+      signed_up: 'Tu t’es inscrit avec succès. Si cette dernière est activée, une confirmation a été envoyée sur ton adresse e-mail.'
       updated: 'Tu as mis à jour ton compte avec succès.'
       destroyed: 'Au revoir ! Ton compte a été résilié avec succès. Nous espérons te revoir très bientôt.'
     unlocks:
-      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant des instructions t’expliquant comment déverrouiller ton compte.'
+      send_instructions: 'Tu vas recevoir dans quelques minutes un e-mail contenant les instructions pour déverrouiller ton compte.'
       unlocked: 'Ton compte a été déverrouillé avec succès. Tu es à présent connecté.'
+    invitations:
+      send_instructions: 'Ton invitation a été envoyée.'
+      invitation_token_invalid: 'Le jeton d’invitation fourni n’est pas valide !'
+      updated: 'Ton mot de passe a été réglé avec succès. Tu es à présent connecté.'
     mailer:
-      confirmation_instructions: 'Instructions de confirmation'
-      reset_password_instructions: 'Réinitialiser les instructions du mot de passe'
-      unlock_instructions: 'Instructions de déverrouillage'
+      confirmation_instructions:
+        subject: 'Instructions de confirmation'
+      reset_password_instructions:
+        subject: 'Instructions de réinitialisation du mot de passe'
+      unlock_instructions:
+        subject: 'Instructions de déverrouillage'
+      invitation:
+        subject: 'Un ami souhaite que tu rejoignes Diaspora !'
+
