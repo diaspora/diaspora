@@ -107,16 +107,6 @@ describe Diaspora::Importer do
       @doc = Nokogiri::XML::parse(@xml)
     end
 
-    it 'should import a user' do
-      pending
-      user = @importer.execute(@xml,
-                              :email => "bob@bob.com",
-                              :password => "bobbybob",
-                              :password => "bobbybob",
-                              :diaspora_handle => "bob@diaspora.com")
-      user.class.should == User
-    end
-
     describe '#parse_user_and_person' do
       before(:each) do
         @user, @person = @importer.parse_user_and_person(@doc)
