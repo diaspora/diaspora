@@ -22,7 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def update
+    def update
     super
   end
 end

@@ -131,9 +131,6 @@ describe Diaspora::Importer do
         @user.serialized_private_key.should == @old_user.serialized_private_key
       end
 
-      it 'should ensure a match between persons public and private keys' do
-        pending
-      end
     end
     
     describe '#parse_aspects' do
