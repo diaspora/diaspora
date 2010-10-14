@@ -22,6 +22,20 @@ describe User do
       user.valid?
       user.username.should == "someuppercase"
     end
+
+    it "confirms the password" do
+      pending "I cannot figure out why this doesn't work. --Raphael"
+      user = User.instantiate!( 
+        :email => "tom@tom.joindiaspora.com",
+        :username => "tom",
+        :password => "evankorth",
+        :password_confirmation => "potatoes",
+        :person => Person.new(
+          :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
+                  )
+      user.created_at.should be_nil
+      user.valid?.should be_false
+    end
   end
 
   describe '#diaspora_handle' do

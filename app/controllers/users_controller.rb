@@ -104,7 +104,6 @@ class UsersController < ApplicationController
   end
 
 
-
   private
   def prep_image_url(params)
     url = APP_CONFIG[:pod_url].chop if APP_CONFIG[:pod_url][-1,1] == '/'

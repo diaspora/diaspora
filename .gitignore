@@ -1,4 +1,17 @@
+# Configuration files
+config/app_config.yml
+config/fb_config.yml
+config/initializers/secret_token.rb
 .bundle
+
+# Uploded files and local files
+log/*
+public/uploads/*
+public/source.tar
+tmp/**/*
+db/*.sqlite3
+
+# Temporary files of every sort
 .DS_Store
 .idea
 .rvmrc
@@ -8,17 +21,6 @@
 *.swp
 *~
 bin/*
-config/app_config.yml
-config/fb_config.yml
-config/initializers/secret_token.rb
-db/*.sqlite3
-log/*
 nbproject
-gpg/diaspora-development/*.gpg
-gpg/diaspora-production/*.gpg
-gpg/*/random_seed
 patches-*
-public/uploads/*
-public/source.tar
-tmp/**/*
 capybara-*.html

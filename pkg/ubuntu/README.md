@@ -1,5 +1,10 @@
 ## Package-oriented install for ubuntu.
 
+NOTE: This does not work ATM, see discussions on Gemfile.lock in
+attached to a  commit 12/10 (yea, I know, you calll it 10/12, but you
+are wrong ;)
+
+
 Here are somediaspora-installdiaspora-install scripts to install diaspora on Ubuntu. They are designed to
 work as a first step towards packaging, but should be usable as is.
 

@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_friends_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :fb_user_info
+  before_filter :set_invites
 
   layout :layout_by_resource
 
@@ -35,6 +36,12 @@ class ApplicationController < ActionController::Base
 
   def count_requests
     @request_count = Request.for_user(current_user).size if current_user
+  end
+
+  def set_invites
+    if current_user
+      @invites = current_user.invites
+    end
   end
 
   def fb_user_info
