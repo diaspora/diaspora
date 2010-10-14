@@ -39,7 +39,7 @@
   function processRetraction(post_id){
     $('#' + post_id ).fadeOut(500).remove();
     if($("#stream")[0].childElementCount == 0){
-      $("#empty_message").fadeIn(200);
+      $("#no_posts").fadeIn(200);
     }
   }
 
@@ -68,8 +68,8 @@
         )
       };
 
-      if( $("#empty_message").is(":visible") ){
-        $("#empty_message").fadeOut(400, addPostToStream(html)).hide();
+      if( $("#no_posts").is(":visible") ){
+        $("#no_posts").fadeOut(400, addPostToStream(html)).hide();
       } else {
         addPostToStream(html);
       }

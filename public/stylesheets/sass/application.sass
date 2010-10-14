@@ -979,11 +979,12 @@ ul#settings_nav
 
       &:hover
         &:after
-          :content "        ►"
+          :content " ►"
 
-#empty_message
+.empty_message
   :margin
     :top 12px
+    :bottom 12px
   :text
     :align center
 
@@ -993,13 +994,17 @@ ul#settings_nav
 
   :margin
     :left 70px
-  :padding 1em
-    :top 0
-  :width 80%
+  :padding 2em
+    :bottom 0.7em
+
+  :width 520px
+
   :border 2px dashed #777
   :border-radius 5px
 
   .null_arrow
+    :margin
+      :top -14px
     :font
       :size 80px
     :display inline-block

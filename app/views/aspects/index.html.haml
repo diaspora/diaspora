@@ -8,13 +8,11 @@
 - content_for :publish do
   = render "shared/publisher", :aspect_ids => :all, :broadcast => true
 
+= render 'aspects/empty_messages'
+
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album
-
-#empty_message{:style => ("display:none" unless @posts.count == 0)}
-  .null_arrow ⇧
-  %h3 Nobody has said anything yet.  Get the conversation started!
 
 #pagination
   = will_paginate @posts

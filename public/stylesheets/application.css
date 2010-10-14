@@ -752,20 +752,22 @@ ul#settings_nav {
     padding: 3px;
     border-bottom: 1px solid #cccccc; }
     #left_pane ul li a:hover:after {
-      content: "        ►"; }
+      content: " ►"; }
 
-#empty_message {
+.empty_message {
   margin-top: 12px;
+  margin-bottom: 12px;
   text-align: center;
   color: #777777;
   margin-left: 70px;
-  padding: 1em;
-    padding-top: 0;
-  width: 80%;
+  padding: 2em;
+    padding-bottom: 0.7em;
+  width: 520px;
   border: 2px dashed #777777;
   border-radius: 5px; }
-  #empty_message h3 {
+  .empty_message h3 {
     color: #777777; }
-  #empty_message .null_arrow {
+  .empty_message .null_arrow {
+    margin-top: -14px;
     font-size: 80px;
     display: inline-block; }
