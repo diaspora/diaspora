@@ -33,7 +33,7 @@ class RequestsController < ApplicationController
     aspect = current_user.aspect_by_id(params[:request][:aspect_id])
 
     begin
-      rel_hash = relationship_flow(params[:request][:destination_url])
+      rel_hash = relationship_flow(params[:request][:destination_url].strip!)
     rescue Exception => e
       raise e unless e.message.include? "not found"
       flash[:error] = I18n.t 'requests.create.error'
