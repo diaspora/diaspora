@@ -59,13 +59,22 @@
 
   function processPost(className, html, aspectIds){
     if(onPageForAspects(aspectIds)){
-      $("#stream").prepend(
-        $(html).fadeIn("fast", function(){
-          $("#stream label:first").inFieldLabels();
-        })
-      );
+      var addPostToStream = function (html){
+        $("#stream").prepend(
+          $(html).fadeIn("fast", function(){
+            $("#stream label:first").inFieldLabels();
+          })
+        )
+      };
+
+      if( $("#empty_message").length > 0 ){
+        $("#empty_message").fadeOut(400, addPostToStream(html)).remove();
+      } else {
+        addPostToStream(html);
+      }
     }
   }
+
 
   function processPhotoInAlbum(photoHash){
     if (location.href.indexOf(photoHash['album_id']) == -1){

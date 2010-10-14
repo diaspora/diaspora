@@ -754,7 +754,7 @@ ul#settings_nav {
     #left_pane ul li a:hover:after {
       content: "        ►"; }
 
-.empty_message {
+#empty_message {
   margin-top: 12px;
   text-align: center;
   color: #777777;
@@ -764,8 +764,8 @@ ul#settings_nav {
   width: 80%;
   border: 2px dashed #777777;
   border-radius: 5px; }
-  .empty_message h3 {
+  #empty_message h3 {
     color: #777777; }
-  .empty_message .null_arrow {
+  #empty_message .null_arrow {
     font-size: 80px;
     display: inline-block; }
