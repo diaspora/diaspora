@@ -2,9 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :page_title do
-  = link_to t('.photos'), albums_path(:aspect => @aspect)
-
 - content_for :left_pane do
   = render "shared/aspect_friends"
 

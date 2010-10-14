@@ -90,7 +90,7 @@ header {
     padding-top: 5px;
   border-bottom: 1px solid #cccccc; }
   header a {
-    color: #999999; }
+    color: #cccccc; }
     header a:hover {
       background: none;
       color: #eeeeee; }
@@ -564,10 +564,10 @@ h1.big_text {
         line-height: 22px;
         padding: 3px 8px;
           padding-bottom: 3px;
-        color: #999999; }
+        color: #cccccc; }
         #aspect_nav ul > li a:hover {
           background-color: #4e4e4e;
-          color: #cccccc; }
+          color: #eeeeee; }
       #aspect_nav ul > li.selected a {
         -webkit-border-radius: 5px 5px 0 0;
         -moz-border-radius: 5px 5px 0 0;
@@ -742,3 +742,14 @@ ul#settings_nav {
 #aspect_list {
   margin: 0;
   padding: 0; }
+
+#left_pane ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  #left_pane ul li a {
+    display: block;
+    padding: 3px;
+    border-bottom: 1px solid #cccccc; }
+    #left_pane ul li a:hover:after {
+      content: "        ►"; }

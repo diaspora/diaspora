@@ -8,9 +8,6 @@
       $("#add_album_button").fancybox();
     });
 
-= content_for :page_title do
-  = link_to "◂ #{t('.home')}", aspects_path, :aspect => params[:aspect]
-
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
@@ -31,6 +28,3 @@
 #pagination
   = will_paginate @albums
 
-#content_bottom
-  .back
-    = link_to "⇧ #{t('.home')}", root_path

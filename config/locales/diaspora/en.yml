@@ -38,6 +38,7 @@ en:
           share: "Share"
       aspect_friends:
           add_friends: "add friends"
+          photos: "photos"
   albums:
       album:
           you: "you"
@@ -69,10 +70,6 @@ en:
           friends_albums: "Friends Albums"
           your_albums: "Your Albums"
   aspects:
-      index:
-          photos: "photos"
-      show:
-          photos: "photos"
       manage:
           add_a_new_aspect: "Add a new aspect"
           add_a_new_friend:  "Add a new friend"

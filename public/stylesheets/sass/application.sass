@@ -964,3 +964,19 @@ ul#settings_nav
 #aspect_list
   :margin 0
   :padding 0
+
+#left_pane
+  ul
+    :margin 0
+    :padding 0
+    :list
+      :style none
+    li a
+      :display block
+      :padding 3px
+      :border
+        :bottom 1px solid #ccc
+
+      &:hover
+        &:after
+          :content "        ►"
