@@ -109,7 +109,11 @@ describe Diaspora::Importer do
 
     it 'should import a user' do
       pending
-      user = @importer.execute(@xml)
+      user = @importer.execute(@xml,
+                              :email => "bob@bob.com",
+                              :password => "bobbybob",
+                              :password => "bobbybob",
+                              :diaspora_handle => "bob@diaspora.com")
       user.class.should == User
     end
 
@@ -200,7 +204,11 @@ describe Diaspora::Importer do
         User.count.should == 0
         Person.count.should == 0
         
-        @importer.execute(@xml)
+        @importer.execute(@xml,
+                          :email => "bob@bob.com",
+                          :password => "bobbybob",
+                          :password => "bobbybob",
+                          :diaspora_handle => "bob@diaspora.com")
         
         User.count.should == 1
         n = User.first
