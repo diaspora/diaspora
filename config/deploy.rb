@@ -14,7 +14,6 @@ set :deploy_to, all['deploy_to']
 set :scm, :git
 set :user, all['user']
 #set :user, ARGV[0]
-set :password, all['password'] if all['password']
 set :scm_verbose, true
 set :repository, all['repo']
 set :branch, all['branch']
@@ -25,10 +24,7 @@ set :deploy_via, :checkout
 #
 set :rails_env, ENV['rails_env'] || ENV['RAILS_ENV'] || all['default_env']
 
-role :tom,    "tom.joindiaspora.com"
-backers.each{ |backer|
-  role :backer, "#{backer['username']}.joindiaspora.com", :number => backer['number']
-}
+role :pivots, config['servers']['pivots']['url']
 
 #role :ci, "ci.joindiaspora.com"
 # If you are using Passenger mod_rails uncomment this:
@@ -37,7 +33,7 @@ backers.each{ |backer|
 
 # Start Nginx
 after "deploy:cold" do
-  #run("nginx")
+  run("nginx")
 end
 
 namespace :deploy do
@@ -127,32 +123,12 @@ namespace :cloud do
 end
 namespace :db do
 
-  task :purge, :roles => [:tom, :backer] do
+  task :purge, :roles => [:pivots] do
     run "cd #{current_path} && bundle exec rake db:purge --trace RAILS_ENV=#{rails_env}"
-  end
-
-  task :tom_seed, :roles => :tom do
-    run "cd #{current_path} && bundle exec rake db:seed:tom --trace RAILS_ENV=#{rails_env}"
-    run "curl -silent -u tom@tom.joindiaspora.com:evankorth http://tom.joindiaspora.com/zombiefriends"
-    backers.each do |backer|
-      run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/zombiefriendaccept"
-      #run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/set_profile_photo"
-    end
-
-  end
-
-  task :backer_seed, :roles => :backer do
-    (0..2).each { |n|
-      run "curl -silent http://localhost/set_backer_number?number=#{n}", :only => {:number => n}
-    }
-    run "cd #{current_path} && bundle exec rake db:seed:backer --trace RAILS_ENV=#{rails_env}"
   end
 
   task :reset do
     purge
-    backer_seed
-    tom_seed
-    deploy::restart
   end
 
 end
