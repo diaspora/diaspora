@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-en:
+tr:
   errors:
     messages:
       not_found: "bulunmadi"
