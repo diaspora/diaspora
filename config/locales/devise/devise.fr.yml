@@ -10,7 +10,7 @@ fr:
       unauthenticated: 'Vous devez vous connecter ou vous inscrire avant de continuer.'
       unconfirmed: 'Vous devez confirmer votre compte avant de continuer.'
       locked: 'Votre compte est verrouillé.'
-      invalid: 'E-mail ou mot de passe invalide.'
+      invalid: 'Adresse e-mail ou mot de passe invalide.'
       invalid_token: 'Jeton d’authentification invalide.'
       timeout: 'Votre session a expiré, veuillez vous connecter de nouveau afin de continuer.'
       inactive: 'Votre compte n’a pas encore été activé.'

@@ -10,7 +10,7 @@ fr-informal:
       unauthenticated: 'Tu dois te connecter ou t’inscrire avant de continuer.'
       unconfirmed: 'Tu dois confirmer ton compte avant de continuer.'
       locked: 'Ton compte est verrouillé.'
-      invalid: 'E-mail ou mot de passe invalide.'
+      invalid: 'Adresse e-mail ou mot de passe invalide.'
       invalid_token: 'Jeton d’authentification invalide.'
       timeout: 'Ta session a expiré, merci de te connecter de nouveau afin de continuer.'
       inactive: 'Ton compte n’a pas encore été activé.'
