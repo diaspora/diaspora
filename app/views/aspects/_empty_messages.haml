@@ -4,15 +4,17 @@
 
 #no_posts.empty_message{:style => ("display:none" unless @posts.count == 0)}
   .null_arrow ⇧
-  %h3 Nobody has said anything yet.  Get the conversation started!
+  %h3=t('.start_talking')
 
 #no_friends.empty_message{:style => ("display:none" unless @friends.count == 0)}
-  %h3 You have no friends in this aspect.
 
-  - unless (@aspect == :all) || (@aspect == :public)
-    %h4= link_to "Add a friend", "#add_request_pane", :class => "add_request_button"
+  - if (@aspect == :all) || (@aspect == :public)
+    %h3=t('.nobody')
+    %h4= link_to t('.add_friend'), aspects_manage_path
+    %h4= link_to t('.invite'), aspects_manage_path
   - else
-    %h4= link_to "Add a friend", aspects_manage_path
+    %h3=t('.nobody_in_aspect', :aspect_name => @aspect.name)
+    %h4= link_to t('.add_friend_to', :aspect_name => @aspect.name), "#add_request_pane", :class => "add_request_button"
+    %h4= link_to t('.invite', :aspect_name => @aspect.name), "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
 
-  %h4= link_to "Invite a friend to join Diaspora!", "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => "Invite a friend"
 
