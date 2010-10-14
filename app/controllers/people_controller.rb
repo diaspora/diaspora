@@ -12,7 +12,6 @@ class PeopleController < ApplicationController
     @aspects_dropdown_array = current_user.aspects.collect{|x| [x.to_s, x.id]}
     @aspect = :all
     @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'created_at DESC'
-
     respond_with @people
   end
 

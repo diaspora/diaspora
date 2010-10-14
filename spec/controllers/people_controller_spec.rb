@@ -14,9 +14,10 @@ describe PeopleController do
   end
 
   it "index should yield search results for substring of person name" do
-    pending "wait, what???"
-    Person.should_receive(:search)
+    
+    eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
     get :index, :q => "Eu"
+    assigns[:people].should include eugene
   end
 
   it 'should go to the current_user show page' do
