@@ -10,11 +10,15 @@ describe User do
   let!(:second_aspect) { user.aspect(:name => 'losers') }
 
   let!(:user2) { Factory(:user_with_aspect) }
+  let!(:user3) { Factory(:user_with_aspect) }
+  let!(:user4) { Factory(:user_with_aspect) }
 
   let!(:status_message1) { user2.post :status_message, :message => "hi", :to => user2.aspects.first.id }
   let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => user2.aspects.first.id }
   let!(:status_message3) { user2.post :status_message, :message => "va", :to => user2.aspects.first.id }
   let!(:status_message4) { user2.post :status_message, :message => "da", :public => true , :to => user2.aspects.first.id }
+  let!(:status_message5)  { user3.post :status_message, :message => "heyyyy", :to => user3.aspects.first.id}
+  let!(:status_message6)  { user4.post :status_message, :message => "yooo", :to => user4.aspects.first.id}
 
 
   before do
@@ -44,20 +48,15 @@ describe User do
     end
 
     it "queries by aspect" do
-      user3 = Factory(:user_with_aspect)
-      status_message2 = user3.post :status_message, :message => "heyyyy", :to => user3.aspects.first.id
-      user4 = Factory(:user_with_aspect)
-      status_message3 = user4.post :status_message, :message => "yooo", :to => user4.aspects.first.id
-
       friend_users(user, second_aspect, user3, user3.aspects.first)
       friend_users(user, second_aspect, user4, user4.aspects.first)
 
-      user.receive status_message1.to_diaspora_xml
-      user.receive status_message2.to_diaspora_xml
-      user.receive status_message3.to_diaspora_xml
+      user.receive status_message4.to_diaspora_xml, user2.person
+      user.receive status_message5.to_diaspora_xml, user3.person
+      user.receive status_message6.to_diaspora_xml, user4.person
 
-      user.visible_posts(:by_members_of => first_aspect).should =~ [status_message1]
-      user.visible_posts(:by_members_of => second_aspect).should =~ [status_message2, status_message3]
+      user.visible_posts(:by_members_of => first_aspect).should =~ [status_message4]
+      user.visible_posts(:by_members_of => second_aspect).should =~ [status_message5, status_message6]
     end
   end
 

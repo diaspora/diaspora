@@ -34,6 +34,20 @@ describe PublicsController do
     end
   end
 
+  describe '#hcard' do
+    it 'queries by person id' do
+      post :hcard, :id => user.person.id
+      assigns[:person].should == user.person
+      response.code.should == '200'
+    end
+
+    it 'does not query by user id' do
+      post :hcard, :id => user.id
+      assigns[:person].should be_nil
+      response.code.should == '404'
+    end
+  end
+
   describe 'webfinger' do
     it 'should not try to webfinger out on a request to webfinger' do
       Redfinger.should_not_receive :finger

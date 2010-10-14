@@ -47,6 +47,13 @@ class UsersController < ApplicationController
 
   end
 
+  def destroy
+    current_user.destroy
+    sign_out current_user
+    flash[:notice] = t('user.destroy')
+    redirect_to root_path
+  end
+
   def public
     user = User.find_by_username(params[:username])
 

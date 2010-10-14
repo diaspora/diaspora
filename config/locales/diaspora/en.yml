@@ -114,6 +114,7 @@ en:
           you_dont_have_any_photos: "You don't have any photos!  Go to the"
           page_to_upload_some:  "page to upload some."
           or: "or"
+      destroy: "Account successfully closed."
   comments:
       comment:
           ago: "ago"
@@ -153,6 +154,14 @@ en:
           sign_up: "Sign up"
       create:
           success: "You've joined Diaspora!"
+  invitations:
+      create:
+          sent: 'Your invitation has been sent.'
+          no_more: 'You have no more invitations.'
+          already_sent: 'You already invited this person.'
+          invitation_token_invalid: 'The invitation token provided is not valid!'
+          updated: 'Your password was set successfully. You are now signed in.'
+
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"

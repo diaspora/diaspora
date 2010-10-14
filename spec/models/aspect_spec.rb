@@ -86,7 +86,7 @@ describe Aspect do
 
       message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
 
-      @user.receive message.to_diaspora_xml
+      @user.receive message.to_diaspora_xml, @user2.person
 
       aspect.reload
       aspect.posts.include?(message).should be true
@@ -100,13 +100,14 @@ describe Aspect do
 
       message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
 
-      @user.receive message.to_diaspora_xml
+      @user.receive message.to_diaspora_xml, @user2.person
       aspect.reload
 
       aspect.post_ids.include?(message.id).should be true
 
       retraction = @user2.retract(message)
-      @user.receive retraction.to_diaspora_xml
+      @user.receive retraction.to_diaspora_xml, @user2.person
+
 
       aspect.reload
       aspect.post_ids.include?(message.id).should be false
@@ -151,7 +152,7 @@ describe Aspect do
     it 'should move all the by that user to the new aspect' do
       message = @user2.post(:status_message, :message => "Hey Dude", :to => @aspect2.id)
 
-      @user.receive message.to_diaspora_xml
+      @user.receive message.to_diaspora_xml, @user2.person
       @aspect.reload
 
       @aspect.posts.count.should == 1

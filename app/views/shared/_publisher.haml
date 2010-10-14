@@ -21,7 +21,10 @@
     = f.hidden_field( :public, :value => false )
   
     .buttons
-      = f.submit t('.share')
+      - if @aspect == :all
+        = f.submit t('.share'), :title => "Share with all aspects"
+      - else
+        = f.submit t('.share'), :title => "Share with #{@aspect.name}"
       - if defined? broadcast
-        = f.submit "Broadcast", :class => "broadcast", :name => "broadcast"
+        = f.submit "Broadcast", :class => "broadcast", :name => "broadcast", :title => "Publish to Diaspora and Facebook"
 

@@ -7,7 +7,7 @@ module Diaspora
     module Querying
 
       def find_visible_post_by_id( id )
-        self.raw_visible_posts.find id
+        self.raw_visible_posts.find id.to_id
       end
 
       def visible_posts( opts = {} )
@@ -44,11 +44,9 @@ module Diaspora
       end
 
       def people_in_aspects aspects
-        people = []
-        aspects.each{ |aspect|
-          people = people | aspect.people
-        }
-        people
+        aspects.inject([]) do |found_people,aspect|
+          found_people | aspect.people
+        end
       end
 
       def all_aspect_ids

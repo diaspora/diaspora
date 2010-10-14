@@ -67,13 +67,14 @@ namespace :db do
   end
 
   task :move_private_key do
+    require File.dirname(__FILE__) + '/../../config/environment'
     User.all.each do |user|
-      if user.private_key.nil?
-        user.private_key = user.person.serialized_key
+      if user.serialized_private_key.nil?
+        user.serialized_private_key = user.person.serialized_key
         user.save
         person = user.person
         person.serialized_key = nil
-        person.serialized_public_key = user.encryption_key.public_key
+        person.serialized_public_key = user.encryption_key.public_key.to_s
         person.save
       end
     end

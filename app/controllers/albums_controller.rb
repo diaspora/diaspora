@@ -10,7 +10,6 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = current_user.albums_by_aspect(@aspect).paginate :page => params[:page], :per_page => 9, :order => 'created_at DESC'
-    @aspect = :all
     respond_with @albums, :aspect => @aspect
   end
 
@@ -38,8 +37,12 @@ class AlbumsController < ApplicationController
   def show
     @photo = Photo.new
     @album = current_user.find_visible_post_by_id( params[:id] )
-    @album_photos = @album.photos
-    respond_with @album
+    unless @album
+      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    else
+      @album_photos = @album.photos
+      respond_with @album
+    end
   end
 
   def edit

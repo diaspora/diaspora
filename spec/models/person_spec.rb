@@ -43,6 +43,7 @@ describe Person do
 
     it 'should have a profile in its xml' do
       @xml.include?("first_name").should == true
+
     end
   end
 
@@ -54,7 +55,7 @@ describe Person do
     person_two.owns?(person_message).should be false
   end
 
-  it 'should delete all of user except comments upon user deletion' do
+  it 'should delete all of user posts except comments upon user deletion' do
     person = Factory.create(:person)
 
     Factory.create(:status_message, :person => person)
@@ -115,7 +116,7 @@ describe Person do
     end
   end
 
-  describe 'searching' do
+  describe '::search' do
     before do
       @friend_one   = Factory.create(:person)
       @friend_two   = Factory.create(:person)
@@ -157,6 +158,11 @@ describe Person do
       people.include?(@friend_four).should  == true
       people.include?(@friend_two).should   == false
       people.include?(@friend_three).should == false
+    end
+
+    it 'should yield results on full names' do
+      people = Person.search("Casey Grippi")
+      people.should == [@friend_four]
     end
 
     it 'should search by diaspora_handle exactly' do

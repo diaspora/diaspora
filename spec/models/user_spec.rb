@@ -6,6 +6,11 @@ require 'spec_helper'
 
 describe User do
   let(:user)   { Factory(:user) }
+  let(:aspect) { user.aspect(:name => 'heroes') }
+  let(:user2)   { Factory(:user) }
+  let(:aspect2) { user2.aspect(:name => 'stuff') }
+  let(:user3)   { Factory(:user) }
+  let(:aspect3) { user3.aspect(:name => 'stuff') }
 
   describe "validations" do
     it "downcases the username" do
@@ -16,6 +21,20 @@ describe User do
       user = Factory.build(:user, :username => "someUPPERCASE")
       user.valid?
       user.username.should == "someuppercase"
+    end
+
+    it "confirms the password" do
+      pending "I cannot figure out why this doesn't work. --Raphael"
+      user = User.instantiate!( 
+        :email => "tom@tom.joindiaspora.com",
+        :username => "tom",
+        :password => "evankorth",
+        :password_confirmation => "potatoes",
+        :person => Person.new(
+          :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
+                  )
+      user.created_at.should be_nil
+      user.valid?.should be_false
     end
   end
 
@@ -38,9 +57,6 @@ describe User do
   end
 
   context 'aspects' do
-    let(:aspect) { user.aspect(:name => 'heroes') }
-    let(:user2)   { Factory(:user) }
-    let(:aspect2) { user2.aspect(:name => 'stuff') }
 
     it 'should delete an empty aspect' do
       user.drop_aspect(aspect)
@@ -48,10 +64,72 @@ describe User do
     end
 
     it 'should not delete an aspect with friends' do
-      friend_users(user, Aspect.find_by_id(aspect.id), user2, Aspect.find_by_id(aspect2.id))
+      friend_users(user, aspect, user2, aspect2)
       aspect.reload
       proc{user.drop_aspect(aspect)}.should raise_error /Aspect not empty/
       user.aspects.include?(aspect).should == true
+    end
+  end
+
+  context 'account removal' do
+    before do
+      friend_users(user, aspect, user2, aspect2)
+      friend_users(user, aspect, user3, aspect3)
+    end
+    
+    it 'should unfriend everyone' do
+      user.should_receive(:unfriend_everyone)
+      user.destroy
+    end
+    
+    it 'should remove person' do
+      user.should_receive(:remove_person)
+      user.destroy
+    end
+
+    
+    it 'should remove all aspects' do
+      pending "this should use :dependant => :destroy on the many assoc...but that screws this test suite..."
+      aspects = user.aspects
+      user.destroy
+      proc{ aspects.reload }.should raise_error /does not exist/
+
+    end
+
+   
+    describe '#remove_person' do
+      it 'should remove the person object' do
+        person = user.person
+        user.destroy
+        person.reload
+        person.should be nil
+      end
+
+      it 'should remove the posts' do
+        message = user.post(:status_message, :message => "hi", :to => aspect.id)
+        user.reload
+        user.destroy
+        proc{ message.reload }.should raise_error /does not exist/
+      end
+    end
+
+    describe '#unfriend_everyone' do
+
+      before do
+        user3.delete
+      end
+
+      it 'should send retractions to remote poeple' do
+        user.should_receive(:unfriend).once
+        user.destroy
+      end
+
+      it 'should unfriend local people' do 
+        user2.friends.count.should be 1
+        user.destroy
+        user2.reload
+        user2.friends.count.should be 0
+      end
     end
   end
 

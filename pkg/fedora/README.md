@@ -1,24 +1,29 @@
 ## Diaspora RPM tools
 
-Creates RPM packages from diaspora git repository.  
+NOTE: This does not work ATM, see discussions on Gemfile.lock in
+attached to a  commit 12/10 (yea, I know, you calll it 10/12, but you
+are wrong ;)
 
-An alternative to the capistrano system, providing classic, binary RPM 
-packages for deployment on Fedora 13.
+Creates diaspora source tarballs and RPM packages
+
+An alternative to the capistrano system, providing classic, binary RPM
+packages for deployment on Fedora 13 and OS-independent source tarballs
+aimed for packaging purposes.
 
 
-#### Synopsis:
+#### Fedora RPM synopsis
 
 *Prerequisites*: ruby-1.8, rubygem and other packages as described in
 http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora
 or http://github.com/diaspora/diaspora/wiki/Installing-on-CentOS-Fedora
 
-Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz  
+Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz
 and dist/diaspora-bundle-0.0-1010041233_fade4231.tar.gz:
     % ./make-dist.sh source
     % ./make-dist.sh bundle
 
-Setup links to tarballs from RPM source directory:
-    % ./make-dist.sh links
+Setup links to tarballs from RPM source directory and create spec files:
+    % ./make-dist.sh prepare
 
 Build rpms:
     rpmbuild -ba dist/diaspora.spec
@@ -28,7 +33,7 @@ Install (as root):
     rpm -U ~/rmpbuild/rpms/i686/diaspora-bundle-0.0-1.1010042345_4343fade43.fc13.i686
     rpm -U ~/rmpbuild/rpms/noarch/diaspora-0.0-1.1010042345_4343fade43.fc13.noarch
 
-Initiate (as root). 
+Initiate (as root).
     /usr/share/diaspora/diaspora-setup
 
 Start development server:
@@ -37,48 +42,75 @@ Start development server:
     cd /usr/share/diaspora/master
     ./script/server
 
-See http://github.com/diaspora/diaspora/wiki/Using-apache for  
+See http://github.com/diaspora/diaspora/wiki/Using-apache for
 apache/passenger setup. After configuration, start with:
-    /sbin/service diaspora-ws start
+    /sbin/service diaspora-wsd start
     /sbin/service httpd restart
 
+#### Generic source synopsis
+
+Generate source tarball:
+    % ./make-dist.sh source
+    Using repo:          http://github.com/diaspora/diaspora.git
+    Commit id:           1010092232_b313272
+    Source:              dist/diaspora-0.0-1010092232_b313272.tar.gz
+    Required bundle:     1010081636_d1a4ee0
+    %
+
+The source tarball could be used as-is, by unpacking add making a
+*bundle install*. An alternative is to generate a canned bundle like:
+    % ./make-dist.sh bundle
+          [ lot's of output...]
+    Bundle: dist/diaspora-bundle-0.0-1010081636_d1a4ee0.tar.gz
+    %
+
+This file can be installed anywhere. To use it, add a symlink from vendor/bundle
+to the bundle's master directory.  Reasonable defaults are to install
+diaspora in /var/diaspora and bundle in /usr/lib/diaspora-bundle. With these,
+the link is
+    % rm -rf /var/diaspora/master/vendor/bundle
+    % ln -sf /usr/lib/diaspora-bundle/master/bundle  \
+    >          /var/diaspora/master/vendor
+    %
+
+The directories tmp, log, and public/uploads needs to be writable. If using
+apache passenger, read the docs on uid used and file ownership.
+
+Note that the bundle version required is printed each time a new source
+is generated.
 
 #### Notes
 
+The source tarball is as retrieved from diaspora with following differences:
+
+   - The .git directories are removed (freeing more than 50% of the size).
+   - A new file /master/config/gitversion is created.
+   - The file public/source.tar is generated.
+   - The file .bundle/config  is patched. Remove before doing
+     *bundle install*
+
 Routines uses last available version from master branch at github. The
-version contains a time stamp and an abbreviated git commit id. If listed
-in filename order, like ls does, latest version will be the last one.
+version contains a time stamp and an abbreviated git commit id.
 Using -c, a specific commit can be used for source build.
 
-*make-dist links* creates links  also for all files listed in SOURCES.
+*make-dist prepare* creates links  also for all files listed in SOURCES.
 Typically, this is  secondary sources. *make-dist.sh sources*
 applies all patches named *.patch in this directory after checking out
 source from git.
 
-The spec-files in dist/ are patched by ./make-dist.sh source to reference
+The spec-files in dist/ are patched by *./make-dist.sh prepare* to reference
 correct versions of diaspora and diaspora-bundle. The diaspora-bundle
-is only updated if Gemfile is updated, upgrading diaspora doesn't 
+is only updated if Gemfile is updated, upgrading diaspora doesn't
 always require a new diaspora-bundle. Editing spec files should be done
-in this directory, changes in dist/ are lost when doing ./make-dist source.
+in this directory, changes in dist/ are lost when doing *./make-dist prepare*.
 
 The topmost comment's version is patched to reflect the complete version
-of current specfile by 'make-dist source'. WRite the comment in this 
+of current specfile by *make-dist source*. Write the comment in this
 directory, copy-paste previous version nr. It will be updated.
 
-rpmlint shows many errors, most of which related to that the server
-won't start if the .git directories are not included. Needs investigation.
-
-This has been confirmed to start up and provide basic functionality both using 
-the thin webserver and apache passenger, and on 32/64 bit systems.
-
-#### Bugs
-
-As of now, diaspora fails if it not owns all file under /usr/share/diaspora.
-I guess this means diaspora writes some stuff somewhere. In the long run,
-this should be located and symlinked to /var,leaving the rest of the files
-owned by root. FTM, all files in /usr/share/diaspore are owned by
-diaspora
-
+This has been confirmed to start up and provide basic functionality both using
+the thin webserver and apache passenger, on 32/64 bit systems and in the
+mock build environment.
 
 #### Implementation
 
@@ -86,22 +118,23 @@ diaspora
  dist/diaspora directory. This content is, after some patches, the diaspora package.
 
 'make-dir.sh bundle' makes a 'bundle install --deployment' in the diaspora dir.
-The resulting bundle is stored in vendor/bundle. This is, after some more 
+The resulting bundle is stored in vendor/bundle. This is, after some more
 patches, the content of diaspora-bundle.
 
-Here is also support for running the diaspora websocket service as a system 
+Here is also support for running the diaspora websocket service as a system
 service through /sbin/service and some install scripts.
-    
-Diaspora files are stored in /usr/share/diaspora, and owned by diaspora. The
+
+Diaspora files are stored in /usr/share/diaspora, and owned by root. The
 bundle, containing some C extensions, is architecture-dependent and lives
 in /usr/lib[64]/diaspora. Log files are in /var/log/diaspora. Symlinks in
-/usr/share diaspora makes log and bundle available as expected by diaspora app.
-This is more or less as mandated by LSB and Fedora packaging rules.
- 
-    find /usr/share/diaspora/ -type l -exec ls -l {} \; | awk '{print $9, $10, $11}'
-    /usr/share/diaspora/master/public/uploads -> /var/lib/diaspora/uploads
-    /usr/share/diaspora/master/log -> /var/log/diaspora
-    /usr/share/diaspora/master/vendor/bundle -> /usr/lib/diaspora-bundle/master/vendor/bundle
+/usr/share diaspora makes log, bundle  and tmp dir available as expected by
+diaspora app.  This is more or less as mandated by LSB and Fedora packaging rules.
+
+    find . -type l -exec ls -l {} \; | awk '{print $9, $10, $11}'
+    ./public/uploads -> /var/lib/diaspora/uploads
+    ./log -> /var/log/diaspora
+    ./tmp -> /var/lib/diaspora/tmp
+    ./vendor/bundle -> /usr/lib/diaspora-bundle/master/vendor/bundle
 
 
 #### Discussion
@@ -119,11 +152,11 @@ original README.md:
   not 777.
 
 - Splitting in two packages makes sense IMHO. The bundle is not changed that often,
-  but is quite bug: ~18M without test packages (the default) or ~55M with test
-  packages. The application is just ~7.5M, and is fast to deploy even with these
+  but is quite big: ~30M without test packages (the default) or ~55M with test
+  packages. The application is just ~3M, and is fast to deploy even with these
   tools (yes, I know, capistrano is much faster...)
 
 - Many, roughly 50% of the packages in the bundle are already packaged for Fedora
   i. e., they could be removed from the bundle and added as dependencies instead.
-  This is likely to make things more stable in the long run. 
+  This is likely to make things more stable in the long run.
   diaspora.spec has a list.
