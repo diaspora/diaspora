@@ -223,9 +223,8 @@ GEM
     rspec-mocks (2.0.0)
       rspec-core (= 2.0.0)
       rspec-expectations (= 2.0.0)
-    rspec-rails (2.0.0.beta.17)
-      rspec (>= 2.0.0.beta.14)
-      webrat (>= 0.7.0)
+    rspec-rails (2.0.0)
+      rspec (= 2.0.0)
     ruby-debug (0.10.3)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.3.0)
@@ -253,10 +252,6 @@ GEM
     webmock (1.3.5)
       addressable (>= 2.1.1)
       crack (>= 0.1.7)
-    webrat (0.7.1)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
     will_paginate (3.0.pre2)
     xml-simple (1.0.12)
 
@@ -290,8 +285,8 @@ DEPENDENCIES
   rails (= 3.0.0)
   redfinger!
   roxml!
-  rspec (>= 2.0.0.beta.17)
-  rspec-rails (= 2.0.0.beta.17)
+  rspec (>= 2.0.0)
+  rspec-rails (>= 2.0.0)
   ruby-debug
   sprinkle!
   thin

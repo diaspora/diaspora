@@ -35,19 +35,17 @@ class Person
 
   def self.search(query)
     return Person.all if query.to_s.empty?
-    qTokens = query.to_s.strip.split(" ")
-    fullQueryText = Regexp.escape( query.to_s.strip )
+    query_tokens = query.to_s.strip.split(" ")
+    full_query_text = Regexp.escape( query.to_s.strip )
+    
     p = []
     
-    qTokens.each {
-        |token|
-        
+    query_tokens.each do |token|
         q = Regexp.escape( token.to_s.strip )
         p = Person.all('profile.first_name' => /^#{q}/i) \
                  | Person.all('profile.last_name' => /^#{q}/i) \
                      | p
-                
-   }
+    end
 
    return p
   end
