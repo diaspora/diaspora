@@ -21,7 +21,7 @@ describe User do
   end
 
   context 'malicious friend attack vector' do
-    it 'ovewrites messages with a different user' do 
+    it 'overwrites messages with a different user' do 
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
       user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
@@ -34,7 +34,7 @@ describe User do
       user.raw_visible_posts.first.message.should == "store this!"
     end
      
-    it 'ovewrites messages which apear to be from the same user' do 
+    it 'overwrites messages which apear to be from the same user' do 
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
       user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
       user.raw_visible_posts.count.should be 1
@@ -47,7 +47,7 @@ describe User do
       user.raw_visible_posts.first.message.should == "store this!"
     end
 
-    it 'overites another persons profile' do
+    it 'should not overwrite another persons profile profile' do
       profile = user2.profile.clone
       profile.first_name = "Not BOB"
 
@@ -57,6 +57,29 @@ describe User do
       user2.reload
       user2.profile.first_name.should == "Robert"
     end
+    
+    it 'should not overwrite another persons profile through comment' do
+      pending
+      user_status = user.post(:status_message, :message => "hi", :to => 'all')
+      comment = Comment.new(:person_id => user3.person.id, :text => "hey", :post => user_status)
+      
+      comment.creator_signature = comment.sign_with_key(user3.encryption_key)
+      comment.post_creator_signature = comment.sign_with_key(user.encryption_key)
 
+      person = user3.person
+      original_url = person.url
+      original_id = person.id
+      puts original_url
+      
+      comment.person.url = "http://bad.com/"
+      user3.delete
+      person.delete
+      
+      comment.to_diaspora_xml.include?("bad.com").should be true
+      user2.receive_salmon(user.salmon(comment).xml_for(user2.person))
+ 
+      comment.person.url.should == original_url
+      Person.first(:id => original_id).url.should == original_url
+    end
   end
 end
