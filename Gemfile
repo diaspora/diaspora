@@ -47,8 +47,8 @@ end
 group :test do
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
-  gem 'rspec', '>= 2.0.0.beta.17'
-  gem 'rspec-rails', '2.0.0.beta.17'
+  gem 'rspec', '>= 2.0.0'
+  gem 'rspec-rails', '>= 2.0.0'
   gem 'mocha'
   gem 'database_cleaner'
   gem 'webmock'
