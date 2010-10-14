@@ -9,21 +9,21 @@ module Diaspora
       self.class.send(:include, strategy)
     end
     
-    def commit(user, person, aspects, people, posts)
+    def commit(user, person, aspects, people, posts, opts = {})
       filter = verify_and_clean(user, person, people, aspects, posts)
       #assume data is good
       
       # to go 
-      user.email = "tits@tits.tits"
-      user.password= "megatits@tits.tits"
-      user.password_confirmation = "megatits@tits.tits"
+      user.email = opts[:email]
+      user.password= opts[:password]
+      user.password_confirmation = opts[:pasword_confirmation]
 
      
      
       user.person = person
 
 
-      user.person.diaspora_handle = "obby@foo.com"
+      user.person.diaspora_handle = opts[:diaspora_handle] 
       
       user.visible_post_ids = filter[:whitelist].keys
 
@@ -46,7 +46,7 @@ module Diaspora
 
 
       people.each do |p|
-        p.save! #if filter[:people].include? person.id
+        p.save! if filter[:people].include? p.id.to_s
       end
     end
 
@@ -121,7 +121,7 @@ module Diaspora
 
   module Parsers
     module XML
-      def execute(xml)
+      def execute(xml, opts = {})
         doc = Nokogiri::XML.parse(xml)
 
         user, person = parse_user_and_person(doc)
@@ -130,7 +130,7 @@ module Diaspora
         posts = parse_posts(doc)
 
         user
-        commit(user, person, aspects, people, posts)
+        commit(user, person, aspects, people, posts, opts)
       end
 
       def parse_user_and_person(doc)
