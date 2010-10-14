@@ -12,10 +12,9 @@
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album
 
-- if @posts.size == 0
-  #empty_message
-    .null_arrow ⇧
-    %h3 Nobody has said anything yet.  Get the conversation started!
+#empty_message{:style => ("display:none" unless @posts.count == 0)}
+  .null_arrow ⇧
+  %h3 Nobody has said anything yet.  Get the conversation started!
 
 #pagination
   = will_paginate @posts
