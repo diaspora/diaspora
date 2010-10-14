@@ -21,7 +21,7 @@ fr:
   people:
       helper:
            results_for: " résultats concernant %{params}"
-           people_on_pod_are_aware_of: " personnes agissant comme des automates sont conscients de"
+           people_on_pod_are_aware_of: " personnes agissant comme des automates sont au courant"
   layouts:
       application:
           edit_profile: "éditer le profil"
