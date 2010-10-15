@@ -3,6 +3,7 @@ config/app_config.yml
 config/fb_config.yml
 config/initializers/secret_token.rb
 .bundle
+vendor/bundle/*
 
 # Generated files
 log/*
