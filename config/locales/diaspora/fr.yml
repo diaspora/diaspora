@@ -2,42 +2,42 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-# Localization file for French. Add more files in this directory for other locales.
+# Localization file for French (Formal Honorifics). Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 fr:
   hello: "Bonjour tout le monde"
   application:
       helper:
-          unknown_person: "unknown person"
-          new_requests: "new requests"
+          unknown_person: "personne inconnue"
+          new_requests: "nouvelles requêtes"
   dashboards:
       helper:
-          home: "home"
+          home: "accueil"
   error_messages:
       helper:
-          invalid_fields: "Invalid Fields"
-          correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+          invalid_fields: "Champs invalides"
+          correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
   people:
       helper:
-           results_for: " resultados para %{params}"
-           people_on_pod_are_aware_of: " gente en pod estan al tanto de "
+           results_for: " résultats concernant %{params}"
+           people_on_pod_are_aware_of: " personnes agissant comme des automates sont au courant"
   layouts:
       application:
-          edit_profile: "Éditez votre profil"
-          logout: "Déconnexion"
+          edit_profile: "éditer le profil"
+          logout: "déconnexion"
   shared:
       aspect_nav:
-          all_aspects: "Tous les Aspects"
-          manage: "Gérez"
-          manage_your_aspects: "Gérez vos Aspects"
+          all_aspects: "Tous les aspects"
+          manage: "Gérer"
+          manage_your_aspects: "Gérer vos aspects"
       sub_header:
-          all_aspects: "Tous les Aspects"
-          manage_aspects: "Gérez vos Aspects"
+          all_aspects: "Tous les aspects"
+          manage_aspects: "Gérer les aspects"
       publisher:
           share: "Partager"
       aspect_friends:
-          add_friends: "Ajouter des amis"
+          add_friends: "ajouter des amis"
   albums:
       album:
           you: "vous"
@@ -52,22 +52,22 @@ fr:
       edit:
           editing: "Édition"
           updated: "mis à jour"
-          are_you_sure: "Êtes-vous sûr?"
-          delete_album: "Supprimer l'album"
+          are_you_sure: "Êtes-vous sûr(e) ?"
+          delete_album: "Supprimer l’album"
           cancel: "Annuler"
       index:
           home: "accueil"
           new_album: "Nouvel album"
-      helper:
-          friends_albums: "Friends Albums"
-          your_albums: "Your Albums"
       create:
-          success: "Tu as créé un album nommé %{name}."
+          success: "Vous avez créé un album nommé %{name}."
       update:
           success: "L’album %{name} a été édité avec succès."
           failure: "L’édition de l’album %{name} a échoué."
       destroy:
           success: "L’album %{name} a été supprimé."
+      helper:
+          friends_albums: "Albums d’amis"
+          your_albums: "Vos albums"
   aspects:
       index:
           photos: "photos"
@@ -75,8 +75,8 @@ fr:
           photos: "photos"
       manage:
           add_a_new_aspect: "Ajouter un nouvel aspect"
-          add_a_new_friend:  "Ajouter un nouvel amis"
-          show: "Voir"
+          add_a_new_friend:  "Ajouter un nouvel ami"
+          show: "Afficher"
           update_aspects: "Mettre à jour les aspects"
           requests: "Requêtes"
           ignore_remove: "Ignorer/Supprimer"
@@ -84,7 +84,21 @@ fr:
           add_a_new_aspect: "Ajouter un nouvel aspect"
           create: "Créer"
       create:
-          success:"Cliquez sur plus situé sur le côté gauche afin d’en informer Diaspora qui peut voir votre nouvel aspect."
+          success: "Cliquez sur le symbole plus situé sur le côté gauche afin que Diaspora détermine qui peut voir votre nouvel aspect."
+          failure: "La création de l’aspect a échoué."
+      destroy:
+          success: "%{name} a été supprimé avec succès."
+      update:
+          success: "Votre aspect, %{name}, a été édité avec succès."
+      move_friends:
+          failure: "L’édition de l’aspect concernant votre ami %{real_name} a échoué."
+          success: "Les aspects ont été édités avec succès."
+      move_friend:
+          failure: "ne fonctionne pas %{inspect}"
+          success: "Vous montrez à présent à votre ami un aspect différent au vôtre."
+      helper:
+          remove: "supprimer"
+          aspect_not_empty: "L’aspect n’est pas vide"
   users:
       edit:
           editing_profile: "Édition du profil"
@@ -93,12 +107,14 @@ fr:
           update_profile: "Mettre à jour le profil"
           home: "Accueil"
           diaspora_username: "NOM D’UTILISATEUR DIASPORA"
-          info: "Information"
+          info: "Informations"
           picture: "Image"
           editing_profile: "Édition du profil"
           albums: "Albums"
           you_dont_have_any_photos: "Vous n’avez aucune photo !  Rendez-vous sur la page"
           page_to_upload_some:  "afin d’en transférer quelques-unes."
+          or: "ou"
+      destroy: "Compte clôturé avec succès."
   comments:
       comment:
           ago: "il y a"
@@ -111,22 +127,41 @@ fr:
           next: "suivant"
           edit_photo: "Éditer la photo"
           delete_photo: "Supprimer la photo"
-          are_you_sure: "Êtes-vous sûr ?"
+          are_you_sure: "Êtes-vous sûr(e) ?"
           comments: "commentaires"
       edit:
           editing: "Édition"
-          are_you_sure: "Êtes-vous sûr ?"
+          are_you_sure: "Êtes-vous sûr(e) ?"
           delete_photo: "Supprimer la photo"
       photo:
           show_comments: "afficher les commentaires"
-          posted_a_new_photo_to: "a publié une nouvelle photo sur"
+          posted_a_new_photo_to: "a publié une nouvelle photo dans"
       new:
           new_photo: "Nouvelle photo"
           back_to_list: "Retourner à la liste"
-          post_it: "publiez-la !"
+          post_it: "la publier !"
+      create:
+          runtime_error: "Le transfert de la photo a échoué.  Êtes-vous sûr(e) que votre ceinture de sécurité est bien attachée ?"
+          integrity_error: "Le transfert de la photo a échoué.  Êtes-vous sûr(e) que c’était bien une image ?"
+          type_error: "Le transfert de la photo a échoué.  Êtes-vous sûr(e) que l’image a bien été ajoutée ?"
+      update:
+          notice: "La photo a été mise à jour avec succès."
+          error:  "L’édition de la photo a échoué."
+      destroy:
+          notice: "La photo a été supprimée."
   registrations:
       new:
           sign_up: "Inscription"
+      create:
+          success: "Vous avez rejoint Diaspora !"
+  invitations:
+      create:
+          sent: 'Votre invitation a été envoyée.'
+          no_more: 'Vous n’avez plus d’invitation.'
+          already_sent: 'Vous avez déjà invité cette personne.'
+          invitation_token_invalid: 'Le jeton d’invitation fourni n’est pas valide !'
+          updated: 'Votre mot de passe a été réglé avec succès. Vous êtes à présent connecté.'
+
   status_messages:
       new_status_message:
           tell_me_something_good: "dites-moi quelque chose de bien"
@@ -134,16 +169,21 @@ fr:
       status_message:
           show_comments: "afficher les commentaires"
           delete: "Supprimer"
-          are_you_sure: "Êtes-vous sûr ?"
+          are_you_sure: "Êtes-vous sûr(e) ?"
       show:
           status_message: "Message d’état"
           comments: "commentaires"
-          are_you_sure: "Êtes-vous sûr ?"
+          are_you_sure: "Êtes-vous sûr(e) ?"
           destroy: "Détruire"
-          view_all: "Tout voir"
+          view_all: "Tout afficher"
           message: "Message"
           owner: "Propriétaire"
+      helper:
+          no_message_to_display: "Aucun message à afficher."
   people:
+      person:
+          add_friend: "ajouter en ami"
+          pending_request: "requête en attente"
       index:
           add_friend: "ajouter un ami"
           real_name: "nom réel"
@@ -157,6 +197,21 @@ fr:
       show:
           last_seen: "dernière connexion : %{how_long_ago}"
           friends_since: "amis depuis : %{how_long_ago}"
-          save: "sauvegarder"
-          are_you_sure: "Êtes-vous sûr ?"
-          remove_friend: "supprimer un ami"
+          save: "sauver"
+          are_you_sure: "Êtes-vous sûr(e) ?"
+          remove_friend: "supprimer de mes amis"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Ajouter un nouvel ami à"
+          enter_a_diaspora_username: "Saisissez un nom d’utilisateur Diaspora :"
+          your_diaspora_username_is: "Votre nom d’utilisateur Diaspora est : %{diaspora_handle}"
+          friends_username: "Nom d’utilisateur de l’ami"
+      destroy:
+          success: "Vous êtes à présent amis."
+          error: "Veuillez sélectionner un aspect !"
+          ignore: "Requête d’ami ignorée."
+      create:
+          error: "Aucun résultat Diaspora n’a été trouvé avec cette adresse e-mail !"
+          already_friends: "Vous êtes déjà amis avec %{destination_url}!"
+          success: "Une requête d’ami a été envoyée à %{destination_url}."
+          horribly_wrong: "Quelque chose d’horrible s’est produit."

@@ -21,7 +21,7 @@ fr-informal:
   people:
       helper:
            results_for: " résultats concernant %{params}"
-           people_on_pod_are_aware_of: " personnes agissant comme des automates sont conscients de"
+           people_on_pod_are_aware_of: " personnes agissant comme des automates sont au courant"
   layouts:
       application:
           edit_profile: "éditer le profil"
@@ -52,7 +52,7 @@ fr-informal:
       edit:
           editing: "Édition"
           updated: "mis à jour"
-          are_you_sure: "Es-tu sûr(e)?"
+          are_you_sure: "Es-tu sûr(e) ?"
           delete_album: "Supprimer l’album"
           cancel: "Annuler"
       index:
@@ -84,17 +84,18 @@ fr-informal:
           add_a_new_aspect: "Ajouter un nouvel aspect"
           create: "Créer"
       create:
-          success:"Clique sur le symbole plus situé sur le côté gauche afin que Diaspora détermine qui peut voir ton nouvel aspect."
+          success: "Clique sur le symbole plus situé sur le côté gauche afin que Diaspora détermine qui peut voir ton nouvel aspect."
+          failure: "La création de l’aspect a échoué."
       destroy:
           success: "%{name} a été supprimé avec succès."
       update:
           success: "Ton aspect, %{name}, a été édité avec succès."
       move_friends:
-          failure: "L’édition de l’aspect concernant l’ami %{real_name} a échoué."
+          failure: "L’édition de l’aspect concernant ton ami %{real_name} a échoué."
           success: "Les aspects ont été édités avec succès."
       move_friend:
-          error: "ne fonctionne pas %{inspect}"
-          notice: "Tu montres à présent à ton ami un aspect différent au tien."
+          failure: "ne fonctionne pas %{inspect}"
+          success: "Tu montres à présent à ton ami un aspect différent au tiens."
       helper:
           remove: "supprimer"
           aspect_not_empty: "L’aspect n’est pas vide"
@@ -106,12 +107,14 @@ fr-informal:
           update_profile: "Mettre à jour le profil"
           home: "Accueil"
           diaspora_username: "NOM D’UTILISATEUR DIASPORA"
-          info: "Information"
+          info: "Informations"
           picture: "Image"
           editing_profile: "Édition du profil"
           albums: "Albums"
           you_dont_have_any_photos: "Tu n’as aucune photo !  Rends-toi sur la page"
           page_to_upload_some:  "afin d’en transférer quelques-unes."
+          or: "ou"
+      destroy: "Compte clôturé avec succès."
   comments:
       comment:
           ago: "il y a"
@@ -132,25 +135,33 @@ fr-informal:
           delete_photo: "Supprimer la photo"
       photo:
           show_comments: "afficher les commentaires"
-          posted_a_new_photo_to: "a publié une nouvelle photo sur"
+          posted_a_new_photo_to: "a publié une nouvelle photo dans"
       new:
           new_photo: "Nouvelle photo"
           back_to_list: "Retourner à la liste"
-          post_it: "publie-la !"
+          post_it: "la publier !"
       create:
           runtime_error: "Le transfert de la photo a échoué.  Es-tu sûr(e) que ta ceinture de sécurité est bien attachée ?"
           integrity_error: "Le transfert de la photo a échoué.  Es-tu sûr(e) que c’était bien une image ?"
-          type_error: "Le transfert de la photo a échoué.  Es-tu sûr(e) que l’image était bien ajoutée ?"
+          type_error: "Le transfert de la photo a échoué.  Es-tu sûr(e) que l’image a bien été ajoutée ?"
       update:
           notice: "La photo a été mise à jour avec succès."
-          error:  "Échec de l’édition de la photo."
+          error:  "L’édition de la photo a échoué."
       destroy:
-          notice: "Photo supprimée."
+          notice: "La photo a été supprimée."
   registrations:
       new:
           sign_up: "Inscription"
       create:
           success: "Tu as rejoint Diaspora !"
+  invitations:
+      create:
+          sent: 'Ton invitation a été envoyée.'
+          no_more: 'Tu n’as plus d’invitation.'
+          already_sent: 'Tu as déjà invité cette personne.'
+          invitation_token_invalid: 'Le jeton d’invitation fourni n’est pas valide !'
+          updated: 'Ton mot de passe a été réglé avec succès. Tu es à présent connecté.'
+
   status_messages:
       new_status_message:
           tell_me_something_good: "dis-moi quelque chose de bien"
@@ -164,14 +175,14 @@ fr-informal:
           comments: "commentaires"
           are_you_sure: "Es-tu sûr(e) ?"
           destroy: "Détruire"
-          view_all: "Tout voir"
+          view_all: "Tout afficher"
           message: "Message"
           owner: "Propriétaire"
       helper:
           no_message_to_display: "Aucun message à afficher."
   people:
       person:
-          add_friend: "ajouter un ami"
+          add_friend: "ajouter en ami"
           pending_request: "requête en attente"
       index:
           add_friend: "ajouter un ami"
@@ -186,13 +197,13 @@ fr-informal:
       show:
           last_seen: "dernière connexion : %{how_long_ago}"
           friends_since: "amis depuis : %{how_long_ago}"
-          save: "sauvegarder"
+          save: "sauver"
           are_you_sure: "Es-tu sûr(e) ?"
-          remove_friend: "supprimer un ami"
+          remove_friend: "supprimer de mes amis"
   requests:
       new_request:
-          add_a_new_friend_to: "Ajouter un ami à"
-          enter_a_diaspora_username: "Saisi un nom d’utilisateur Diaspora :"
+          add_a_new_friend_to: "Ajouter un nouvel ami à"
+          enter_a_diaspora_username: "Saisis un nom d’utilisateur Diaspora :"
           your_diaspora_username_is: "Ton nom d’utilisateur Diaspora est : %{diaspora_handle}"
           friends_username: "Nom d’utilisateur de l’ami"
       destroy:
@@ -201,6 +212,6 @@ fr-informal:
           ignore: "Requête d’ami ignorée."
       create:
           error: "Aucun résultat Diaspora n’a été trouvé avec cette adresse e-mail !"
-          already_friends: "Tu es déjà ami avec %{destination_url}!"
+          already_friends: "Vous êtes déjà amis avec %{destination_url}!"
           success: "Une requête d’ami a été envoyée à %{destination_url}."
           horribly_wrong: "Quelque chose d’horrible s’est produit."

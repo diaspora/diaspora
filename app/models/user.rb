@@ -268,8 +268,24 @@ class User
   ###Invitations############
   def invite_user( opts = {} )
     if self.invites > 0
-      invited_user = User.invite!(:email => opts[:email], :inviter => self)
+
+      aspect_id = opts.delete(:aspect_id)
+      if aspect_id == nil
+        raise "Must invite into aspect"
+      elsif !(self.aspects.find_by_id(aspect_id))
+        raise "Must invite to your aspect"
+      end
+      request = Request.instantiate(
+      :to => "http://local_request.example.com",
+      :from => self.person,
+      :into => aspect_id
+      )
+
+      invited_user = User.invite!(:email => opts[:email], :request => request, :inviter => self)
+
       self.invites = self.invites - 1
+      self.pending_requests << request
+      request.save
       self.save!
       invited_user
     else
@@ -279,11 +295,14 @@ class User
 
   def self.invite!(attributes={})
     inviter = attributes.delete(:inviter)
+    request = attributes.delete(:request)
+
     invitable = find_or_initialize_with_error_by(:email, attributes.delete(:email))
     invitable.attributes = attributes
     if invitable.inviters.include?(inviter)
       raise "You already invited this person"
     else
+      invitable.pending_requests << request
       invitable.inviters << inviter
     end
 

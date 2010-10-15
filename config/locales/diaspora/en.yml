@@ -38,6 +38,7 @@ en:
           share: "Share"
       aspect_friends:
           add_friends: "add friends"
+          photos: "photos"
   albums:
       album:
           you: "you"
@@ -69,10 +70,13 @@ en:
           friends_albums: "Friends Albums"
           your_albums: "Your Albums"
   aspects:
-      index:
-          photos: "photos"
-      show:
-          photos: "photos"
+      empty_messages:
+          start_talking:  "Nobody has said anything yet.  Get the conversation started!"
+          nobody: "We know you have friends, bring them to Diaspora!"
+          nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+          add_friend: "Add a friend"
+          add_friend_to: "Add a someone to %{aspect_name}"
+          invite: "Invite a someone to join Diaspora!"
       manage:
           add_a_new_aspect: "Add a new aspect"
           add_a_new_friend:  "Add a new friend"
