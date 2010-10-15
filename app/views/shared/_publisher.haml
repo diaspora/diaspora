@@ -6,11 +6,7 @@
   
   $("div.public_toggle input").live("click", function(evt){
     if("#{@logged_in}" == "false" && $(this).attr('checked') == true){
-      if(confirm("You are currently not connected to facebook.  Sign in to facebook?")){
-        window.location = "#{@fb_access_url}";
-      } else {
-        $(this).attr('checked', false);
-      }
+      $(".question_mark").click(); 
     }; 
   });
 
@@ -34,8 +30,8 @@
     - if @aspect == :all
       .public_toggle
         = f.check_box( :public, :value => false )
-        share on facebook
-        = link_to 'public info', "#question_mark_pane", :class => 'question_mark'
+        make public
+        = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
         .yo{:style => "display:none;"}
           #question_mark_pane
             = render 'shared/public_explain'
