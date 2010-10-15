@@ -47,7 +47,7 @@ $(document).ready(function(){
   );
 
   $("#publisher textarea").keydown( function(e) {
-    if (e.shiftKey && e.keyCode == 13) {
+    if (e.keyCode == 13) {
       $("#publisher form").submit();
     }
   });
@@ -71,10 +71,3 @@ $.fn.clearForm = function() {
   });
 };
 
-$("#publisher .broadcast").live("click", function(evt){
-  evt.preventDefault();
-  if( confirm("Publish to Diaspora and Facebook?") ) {
-    $("#status_message_public").val("true");
-    $(this).submit();
-  }
-});
