@@ -542,6 +542,7 @@ li.message .from .destroy_link
 
 input[type='text'],
 input[type='password'],
+input[type="search"],
 textarea
   :font
     :family 'Arial', 'Helvetica', sans-serif
@@ -1019,3 +1020,9 @@ ul#settings_nav
       :size 80px
     :display inline-block
 
+input[type="search"]
+  :-webkit-appearance textfield
+
+header
+  input[type="search"]
+    :width 200px
