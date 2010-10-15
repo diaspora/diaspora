@@ -13,7 +13,7 @@ class StatusMessagesController < ApplicationController
 
     data = clean_hash params[:status_message]
 
-    if @logged_in && params[:status_message][:public] == 'true'
+    if @logged_in && params[:status_message][:public] == '1'
       id = 'me'
       type = 'feed'
 
