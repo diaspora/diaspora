@@ -47,8 +47,7 @@
           %ul
             %li#global_search
               = form_tag(people_path, :method => 'get') do
-                %label{:for => 'q'} Search
-                = text_field_tag 'q'
+                = text_field_tag 'q', nil, :placeholder => "Search", :type => 'search', :results => 5
 
             %li= link_to current_user.real_name, current_user.person
             %li= link_to "settings", edit_user_path(current_user)
