@@ -12,8 +12,9 @@ class StatusMessagesController < ApplicationController
     params[:status_message][:to] = params[:aspect_ids]
 
     data = clean_hash params[:status_message]
+  
 
-    if @logged_in && params[:status_message][:public] == '1'
+    if logged_into_fb? && params[:status_message][:public] == '1'
       id = 'me'
       type = 'feed'
 
