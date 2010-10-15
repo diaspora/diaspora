@@ -5,7 +5,7 @@ network.
 
 **THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
 **PLEASE, DO NOT RUN IN PRODUCTION. IT IS FUN TO GET RUNNING, BUT EXPECT THINGS
-TO BE BROKEN**
+TO BE BROKEN.**
 
 Installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora).
 
@@ -48,8 +48,7 @@ We are maintaining a
 [public tracker project](http://www.pivotaltracker.com/projects/61641)
 and a
 [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap). Also, you can
-file [bug reports](https://github.com/diaspora/diaspora/issues) right here on
-github.
+file [bug reports](http://bugs.joindiaspora.com) on our issue tracker.
 
 Ongoing discussion:
 
@@ -59,8 +58,8 @@ Ongoing discussion:
 - [#diaspora-dev IRC channel](irc://irc.freenode.net/#diaspora-dev)
   ([join via the web client](http://webchat.freenode.net?channels=diaspora-dev))
 
-More general info and updates about the project can be found on:
-[Our blog](http://joindiaspora.com),
+More general info and updates about the project can be found on
+[our blog](http://joindiaspora.com),
 [and on Twitter](http://twitter.com/joindiaspora).
 Also, be sure to join the official [mailing list](http://eepurl.com/Vebk).
 
