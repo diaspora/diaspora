@@ -10,84 +10,84 @@
   .description
     Do the stuff below to further complete some things.
 
-%h2
-  %u
-    Edit your profile
-  ➔
-  Define your aspects ➔
-  Find your friends
+#slider
+  %ul
+    %li
+      %h2
+        %u
+          Edit your profile
+        ➔
+        Define your aspects ➔
+        Find your friends
 
 
-%h3
-  Your Profile
-  .description
-    This info will be available to whomever you connect with on Diaspora.
+      %h3
+        Your Profile
+        .description
+          This info will be available to whomever you connect with on Diaspora.
 
-%h4
-  Your name
-  = text_field_tag :first_name, nil, :placeholder => "First name"
-  = text_field_tag :last_name, nil, :placeholder => "Last name"
+      %h4
+        Your name
+        = text_field_tag :first_name, nil, :placeholder => "First name"
+        = text_field_tag :last_name, nil, :placeholder => "Last name"
 
-%h4
-  Your birthday
-  %br
-  = select_date
+      %h4
+        Your birthday
+        %br
+        = select_date
 
-%h4
-  Your bio
-  = text_area_tag :bio, nil, :placeholder => "Fill me out"
+      %h4
+        Your bio
+        = text_area_tag :bio, nil, :placeholder => "Fill me out"
 
-%h4
-  Your photo
-  %br
-  = file_field_tag :photo
-
-
-%br
-%br
-%br
-%h2
-  Edit your profile ➔
-  %u
-    Define your aspects
-  ➔
-  Find your friends
-
-%h3
-  Your aspects
-  .description
-    These will be blah blah blah blah and some stuff.
-
-%h4
-  Aspect name
-  = text_field_tag :aspect_name, nil, :placeholder => "New aspect"
-
-%br
-%br
-%br
-%h2
-  Edit your profile ➔
-  Define your aspects ➔
-  %u
-    Find your friends
+      %h4
+        Your photo
+        %br
+        = file_field_tag :photo
 
 
-%h3
-  Your friends
-  .description
-    Find your friends on Diaspora, Facebook, or send them an invite via email.
+    %li
+      %h2
+        Edit your profile ➔
+        %u
+          Define your aspects
+        ➔
+        Find your friends
 
-.span-5
-  %h4
-    On Diaspora
-    = text_field_tag :diaspora_handle, nil, :placeholder => "Diaspora handle"
+      %h3
+        Your aspects
+        .description
+          These will be blah blah blah blah and some stuff.
 
-.span-5
-  %h4
-    On Facebook
-    = text_field_tag :facebook_handle, nil, :placeholder => "Name"
+      %h4
+        Aspect name
+        = text_field_tag :aspect_name, nil, :placeholder => "New aspect"
 
-.span-5
-  %h4
-    Invite
-    = text_field_tag :email, nil, :placeholder => "Email", :type => "email"
+
+    %li
+      %h2
+        Edit your profile ➔
+        Define your aspects ➔
+        %u
+          Find your friends
+
+
+    %h3
+      Your friends
+      .description
+        Find your friends on Diaspora, Facebook, or send them an invite via email.
+
+    .span-5
+      %h4
+        On Diaspora
+        = text_field_tag :diaspora_handle, nil, :placeholder => "Diaspora handle"
+
+    .span-5
+      %h4
+        On Facebook
+        = text_field_tag :facebook_handle, nil, :placeholder => "Name"
+
+    .span-5
+      %h4
+        Invite
+        = text_field_tag :email, nil, :placeholder => "Email", :type => "email"
