@@ -65,6 +65,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def getting_started
+    render 'users/getting_started'
+  end
+
   def export
     exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
     send_data exporter.execute(current_user), :filename => "#{current_user.username}_diaspora_data.xml", :type => :xml

@@ -18,6 +18,7 @@ Diaspora::Application.routes.draw do
                                       :invitations   => "invitations"}
   # added public route to user
   match 'public/:username',        :to => 'users#public'
+  match 'users/getting_started',   :to => 'users#getting_started'
   match 'users/export',            :to => 'users#export'
   match 'users/import',            :to => 'users#import'
   match 'users/export_photos',     :to => 'users#export_photos'
