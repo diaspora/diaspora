@@ -151,8 +151,8 @@ module Diaspora
 
           aspect = Aspect.new
           aspect.name = a.xpath('/aspect/name').text
-          aspect.post_ids = a.xpath('/aspect/post_ids/post_id').collect(&:text)
-          aspect.person_ids = a.xpath('/aspect/person_ids/person_id').collect(&:text)
+          aspect.post_ids = a.xpath('/aspect/post_ids/post_id').collect{ |x| x.text.to_id }
+          aspect.person_ids = a.xpath('/aspect/person_ids/person_id').collect{ |x| x.text.to_id }
           aspects << aspect
         end
         aspects

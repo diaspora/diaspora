@@ -202,6 +202,8 @@ describe Diaspora::Importer do
         Post.count.should == 4 
         n.aspects.count.should  == 6
         Person.count.should be == 5 
+
+        User.first.person.diaspora_handle.should == User.first.diaspora_handle
      
 
         Person.find_by_id( @user1.person.id ).nil?.should == false
