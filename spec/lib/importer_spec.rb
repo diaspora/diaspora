@@ -182,7 +182,7 @@ describe Diaspora::Importer do
       end
 
       it 'should import' do
-        pending "there is some weirdness with diaspora handle we need to look into... and this test is terrible'
+        pending "there is some weirdness with diaspora handle we need to look into... and this test is terrible"
         User.delete_all
         Person.delete_all
         Post.delete_all
