@@ -1,6 +1,5 @@
 %h2 Send invitation
 = form_for User.new, :url => invitation_path(User) do |f|
-  /= devise_error_messages!
   %p
     = f.label :email
     = f.text_field :email
@@ -10,4 +9,3 @@
     - else 
       = f.select(:aspects, @aspects_dropdown_array, :selected => [@aspect.to_s, @aspect.id])
   %p= f.submit "Send an invitation"
-/= link_to "Home", after_sign_in_path_for(resource_name)

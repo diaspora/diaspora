@@ -6,7 +6,9 @@ require 'spec_helper'
 
 describe Request do
   let(:user) { Factory(:user) }
+  ler(:person) {Factory :person}
   let(:aspect) { user.aspect(:name => "dudes") }
+  let(:request){ user.send_friend_request_to person, aspect }
 
   it 'should require a destination and callback url' do
     person_request = Request.new
@@ -17,8 +19,6 @@ describe Request do
   end
 
   it 'should generate xml for the User as a Person' do
-    request = user.send_friend_request_to Factory(:person), aspect
-
     xml = request.to_xml.to_s
 
     xml.should include user.person.diaspora_handle
@@ -43,6 +43,13 @@ describe Request do
     person_request.destination_url = "   http://google.com/   "
     person_request.send(:clean_link)
     person_request.destination_url.should == "http://google.com/"
+  end
+
+  context 'quering request through user' do
+    it 'finds requests the user sent' do
+      request
+      user.requests_for_me.include?(request).should be true
+    end
   end
 
 end
