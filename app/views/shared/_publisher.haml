@@ -35,7 +35,10 @@
       .public_toggle
         = f.check_box( :public, :value => false )
         share on facebook
-
+        = link_to 'public info', "#question_mark_pane", :class => 'question_mark'
+        .yo{:style => "display:none;"}
+          #question_mark_pane
+            = render 'shared/public_explain'
     .buttons
       - if @aspect == :all
         = f.submit t('.share'), :title => "Share with all aspects"

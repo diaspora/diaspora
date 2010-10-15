@@ -30,6 +30,7 @@ $(document).ready(function(){
   $(".add_request_button").fancybox({ 'titleShow': false });
   $(".invite_user_button").fancybox({ 'titleShow': false });
   $(".add_request_button").fancybox({ 'titleShow': false });
+  $(".question_mark").fancybox({ 'titleShow': false });
 
   $("input[type='submit']").addClass("button");
 
