@@ -2,30 +2,41 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-#friend_pictures
-  = owner_image_link
-  - for friend in @friends
-    = person_image_link(friend)
-  - if @logged_in && (@aspect == :public)
-    %h3 Facebook Friends
-    - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
-    - @fb_friends[:data].each do |friend|
-      = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
-  -unless (@aspect == :all) || (@aspect == :public)
-    = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane", :id => 'add_request_button'
 
-    .yo{:style => 'display:none'}
-      #add_request_pane
-        = render "requests/new_request", :aspect => @aspect
-  -else
-    .clear
-      %br
-      = link_to t('.add_friends'), aspects_manage_path
+#left_pane
+  #friend_pictures
+    = owner_image_link
+    - for friend in @friends
+      = person_image_link(friend)
+    - if @logged_in && (@aspect == :public)
+      %h3 Facebook Friends
+      - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
+      - @fb_friends[:data].each do |friend|
+        = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
+    -unless (@aspect == :all) || (@aspect == :public)
+      = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane", :id => 'add_request_button'
 
-%br
-= link_to "Invite a friend!", "#invite_user_pane", :id => "invite_user_button", :class => "invite_user_button", :title => "Invite a friend"
-%br
-= "You have #{@invites} invites."
-.yo{ :style => "display:none;"}
-  #invite_user_pane
-    = render "invitations/new"
+      .yo{:style => 'display:none'}
+        #add_request_pane
+          = render "requests/new_request", :aspect => @aspect
+    -else
+      .clear
+        %br
+        = link_to t('.add_friends'), aspects_manage_path
+
+  %br
+  %br
+  %ul
+    %li= link_to 'stream', aspect_path(@aspect)
+    %li= link_to t('.photos'), albums_path(:aspect => @aspect)
+
+  %br
+
+  %h4 Invites
+  = link_to "Invite a friend!", "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => "Invite a friend"
+  %br
+  = "You have #{@invites} invites."
+  .yo{ :style => "display:none;"}
+    #invite_user_pane
+      = render "invitations/new"
+

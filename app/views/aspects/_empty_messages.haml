@@ -1,0 +1,20 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#no_posts.empty_message{:style => ("display:none" unless @posts.count == 0)}
+  .null_arrow ⇧
+  %h3=t('.start_talking')
+
+#no_friends.empty_message{:style => ("display:none" unless @friends.count == 0)}
+
+  - if (@aspect == :all) || (@aspect == :public)
+    %h3=t('.nobody')
+    %h4= link_to t('.add_friend'), aspects_manage_path
+    %h4= link_to t('.invite'), aspects_manage_path
+  - else
+    %h3=t('.nobody_in_aspect', :aspect_name => @aspect.name)
+    %h4= link_to t('.add_friend_to', :aspect_name => @aspect.name), "#add_request_pane", :class => "add_request_button"
+    %h4= link_to t('.invite', :aspect_name => @aspect.name), "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
+
+
