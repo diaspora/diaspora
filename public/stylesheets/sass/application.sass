@@ -964,3 +964,48 @@ ul#settings_nav
 #aspect_list
   :margin 0
   :padding 0
+
+#left_pane
+  ul
+    :margin 0
+    :padding 0
+    :list
+      :style none
+    li a
+      :display block
+      :padding 3px
+      :border
+        :bottom 1px solid #ccc
+
+      &:hover
+        &:after
+          :content " ►"
+
+.empty_message
+  :margin
+    :top 12px
+    :bottom 12px
+  :text
+    :align center
+
+  :color #777
+  h3
+    :color #777
+
+  :margin
+    :left 70px
+  :padding 2em
+    :bottom 0.7em
+
+  :width 520px
+
+  :border 2px dashed #777
+  :border-radius 5px
+
+  .null_arrow
+    :margin
+      :top -14px
+    :font
+      :size 80px
+    :display inline-block
+
