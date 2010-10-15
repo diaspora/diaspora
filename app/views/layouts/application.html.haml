@@ -14,8 +14,7 @@
     = stylesheet_link_tag "blueprint/print", :media => 'print'
 
     = stylesheet_link_tag "application", "ui"
-
-    = stylesheet_link_tag "/../japvascripts/fancybox/jquery.fancybox-1.3.1"
+    = stylesheet_link_tag "/../javascripts/fancybox/jquery.fancybox-1.3.1"
     = stylesheet_link_tag "fileuploader"
     - if current_user
       %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "Public Diaspora Feed for #{current_user.real_name}"}
