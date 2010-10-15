@@ -4,6 +4,10 @@
   %p
     = f.label :email
     = f.text_field :email
-    = f.hidden_field :aspect_id, :value => @aspect.id
+    To
+    - if @aspect == :all
+      = f.select(:aspects, @aspects_dropdown_array)
+    - else 
+      = f.select(:aspects, @aspects_dropdown_array, :selected => [@aspect.to_s, @aspect.id])
   %p= f.submit "Send an invitation"
 /= link_to "Home", after_sign_in_path_for(resource_name)
