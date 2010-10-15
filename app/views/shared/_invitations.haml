@@ -1,0 +1,8 @@
+- unless @aspect == :all
+  %h4 Invites
+  = link_to "Invite a friend", "#invite_user_pane", :class => "invite_user_button", :title => "Invite a friend"
+  = "(#{invites} left)"
+  %br
+  .yo{ :style => "display:none;"}
+    #invite_user_pane
+      = render "invitations/new"

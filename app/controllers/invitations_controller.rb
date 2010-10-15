@@ -12,6 +12,7 @@ class InvitationsController < Devise::InvitationsController
         flash[:error] = I18n.t 'invitations.create.no_more'
       elsif e.message == "You already invited this person"
         flash[:error] = I18n.t 'invitations.create.already_sent'
+      
       else
         raise e
       end

@@ -30,6 +30,7 @@ $(document).ready(function(){
   $(".add_request_button").fancybox({ 'titleShow': false });
   $(".invite_user_button").fancybox({ 'titleShow': false });
   $(".add_request_button").fancybox({ 'titleShow': false });
+  $(".question_mark").fancybox({ 'titleShow': false });
 
   $("input[type='submit']").addClass("button");
 
@@ -47,7 +48,7 @@ $(document).ready(function(){
   );
 
   $("#publisher textarea").keydown( function(e) {
-    if (e.shiftKey && e.keyCode == 13) {
+    if (e.keyCode == 13) {
       $("#publisher form").submit();
     }
   });
@@ -71,10 +72,3 @@ $.fn.clearForm = function() {
   });
 };
 
-$("#publisher .broadcast").live("click", function(evt){
-  evt.preventDefault();
-  if( confirm("Publish to Diaspora and Facebook?") ) {
-    $("#status_message_public").val("true");
-    $(this).submit();
-  }
-});

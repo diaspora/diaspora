@@ -1,0 +1,9 @@
+%h1 you are about to post a public message!
+%p 
+  this message is going to be posted to your public feed, 
+  and to any services you may have connected to Diaspora.
+
+  - if @logged_in
+    = connected_fb_as(@access_token)
+  - else
+    = link_to "Connect to Facebook", @fb_access_url
