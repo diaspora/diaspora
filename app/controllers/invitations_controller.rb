@@ -4,9 +4,10 @@
 
 class InvitationsController < Devise::InvitationsController
 
+  before_filter :check_token, :only => [:edit] 
+
 
   def create
-    puts params.inspect
     begin
       params[:user][:aspect_id] = params[:user].delete(:aspects)
       self.resource = current_user.invite_user(params[resource_name])
@@ -37,6 +38,15 @@ class InvitationsController < Devise::InvitationsController
       sign_in_and_redirect(:user, user)
     else
       redirect_to new_user_registration_path
+    end
+  end
+
+  protected
+
+  def check_token
+    if User.find_by_invitation_token(params['invitation_token']).nil?
+      flash[:error] = "Invitation token not found"
+      redirect_to root_url
     end
   end
 end
