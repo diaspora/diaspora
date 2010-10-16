@@ -115,6 +115,7 @@ header
 
   a
     :color #CCC
+    :text-shadow 0 1px 0 #444
 
     &:hover
       :background none
@@ -128,28 +129,58 @@ header
     :border none
     :color #fff
 
-  #session_action
+  ul#user_menu
+    :z-index 10
+    :font
+      :size 14px
+    :padding 5px 10px
+      :left 40px
+    :margin 0
+      :top -2px
+      :right -5px
+
     :position absolute
     :display inline
 
     :top 0
     :right 0
 
-    ul
-      :list
-        :style none
-      :padding 0
-      :margin 0
-      :display inline
+    :list
+      :style none
 
+    li
+      :display none
+
+      a
+        :display block
+
+    &:hover
       li
-        :display inline
-        :margin
-          :right 1em
+        :display block
 
-        &:last-child
-          :margin
-            :right 0
+    &:hover
+      :margin
+        :top -3px
+        :right -6px
+      :background
+        :color #333
+      :border 1px solid #999
+
+      :box-shadow 0 1px 2px #333
+      :-webkit-box-shadow 0 1px 2px #333
+      :-moz-box-shadow 0 1px 2px #333
+
+    .avatar
+      :height 20px
+      :width 20px
+      :position absolute
+      :left 5px 
+      :display block
+
+
+  #global_search
+    :margin
+      :left 400px
 
   #aspect_header
     :-webkit-box-shadow 0px -4px 6px -2px #777
