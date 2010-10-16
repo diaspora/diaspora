@@ -66,11 +66,11 @@
   %h1
     = @photo.image
 
-  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album)
+  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch'
   |
   = link_to "#{t('.full_size')}", @photo.url
   |
-  = link_to "#{t('.next')} >>", url_to_next(@photo, @album)
+  = link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch'
 
   .right
     -if current_user.owns? @album
