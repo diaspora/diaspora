@@ -6,27 +6,28 @@
 realpath=$( ruby -e "puts File.expand_path(\"$0\")")
 cd $( dirname $realpath)/..
 
-PORT=3000
-THIN_ARGS="$@"
-while [ $# -gt  0 ]; do
-    if [ "$1" = '-p' ]; then
-        PORT="$2"
-        break
-    fi
-    shift
+[ -e config/server.sh ] && source config/server.sh
+
+# Scan for -p, find out what port thin is about to use.
+args="$DEFAULT_THIN_ARGS $@"
+prev_arg=''
+for arg in $( echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
+do
+    [ "$prev_arg" = '-p' ] && THIN_PORT="$arg"
+    prev_arg="$arg"
 done
 
 # Is someone listening on the ports already? (ipv4 only test ?)
-services=$( netstat -nl | grep '[^:]:'$PORT'[ \t]')
+services=$( netstat -nl | grep '[^:]:'$THIN_PORT'[ \t]')
 if [ -n "$services" ]; then
-    echo "Error: something is already using thin port $PORT. Exiting" >&2
+    echo "Error: thin port $THIN_PORT is already in use. Exiting" >&2
     echo "     $services"
     exit 64
 fi
 
-services=$( netstat -nl | grep '[^:]:8080[ \t]')
+services=$( netstat -nl | grep '[^:]:'$SOCKET_PORT'[ \t]')
 if [ -n "$services" ]; then
-    echo "Error: something is already using websocket port 8080. Exiting" >&2
+    echo "Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
     echo "     $services"
     exit 64
 fi
@@ -49,5 +50,4 @@ fi
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
-bundle exec thin start $THIN_ARGS
-
+bundle exec thin start $args
