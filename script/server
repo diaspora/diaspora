@@ -3,38 +3,48 @@
 # Start diaspora websocket and main services
 #
 
-# Is someone listening on the port already? (ipv4 only test ?)
 PORT=3000
-while getopts ":p:" OPTION
-do
-  if [ $OPTION == 'p' ]
-  then
-    PORT=$OPTARG
-  fi
+THIN_ARGS="$@"
+while [ $# -gt  0 ]; do
+    if [ "$1" = '-p' ]; then
+        PORT="$2"
+        break
+    fi
+    shift
 done
 
-services=$( netstat -nl | grep ":$PORT[ \t]")
-
-test -n "$services" && {
-    echo "Warning: something is already using port "$PORT
+# Is someone listening on the ports already? (ipv4 only test ?)
+services=$( netstat -nl | grep '[^:]:'$PORT'[ \t]')
+if [ -n "$services" ]; then
+    echo "Error: something is already using thin port $PORT. Exiting" >&2
     echo "     $services"
-    exit
-}
+    exit 64
+fi
+
+services=$( netstat -nl | grep '[^:]:8080[ \t]')
+if [ -n "$services" ]; then
+    echo "Error: something is already using websocket port 8080. Exiting" >&2
+    echo "     $services"
+    exit 64
+fi
 
 # Check if Mongo is running
-
-if ! ps ax | grep -v grep | grep mongod >/dev/null
+if  ! pgrep mongod >/dev/null
 then
-    echo "Mongod not started"
-else
-    mkdir -p -v log/thin/
-    #force AGPL
-    test -w public -a ! -e  public/source.tar.gz &&
-        tar czf public/source.tar.gz  --exclude='source.tar.gz' -X .gitignore *
-    test -e public/source.tar.gz || {
-        echo "Can't find, or even create, public/source.tar.gz. Giving up"
-        exit 2
-    }
-    bundle exec ruby ./script/websocket_server.rb&
-    bundle exec thin start $@
+    echo "Error: Mongod not started. Exiting" >&2
+    exit 64
 fi
+
+# Force AGPL
+if [ -w public -a ! -e  public/source.tar.gz ]; then
+    tar czf public/source.tar.gz  --exclude='source.tar.gz' -X .gitignore *
+fi
+if [ ! -e public/source.tar.gz ]; then
+    echo "Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
+    exit 65
+fi
+
+mkdir -p -v log/thin/
+bundle exec ruby ./script/websocket_server.rb&
+bundle exec thin start $THIN_ARGS
+
