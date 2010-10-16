@@ -3,6 +3,9 @@
 # Start diaspora websocket and main services
 #
 
+realpath=$( ruby -e "puts File.expand_path(\"$0\")")
+cd $( dirname $realpath)/..
+
 PORT=3000
 THIN_ARGS="$@"
 while [ $# -gt  0 ]; do
