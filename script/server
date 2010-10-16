@@ -29,13 +29,12 @@ then
 else
     mkdir -p -v log/thin/
     #force AGPL
-    test -w public -a ! -e  public/source.tar &&
-        tar cf public/source.tar  --exclude='source.tar' -X .gitignore *
-    test -e public/source.tar || {
-        echo "Can't find, or even create, public/source.tar. Giving up"
+    test -w public -a ! -e  public/source.tar.gz &&
+        tar czf public/source.tar.gz  --exclude='source.tar.gz' -X .gitignore *
+    test -e public/source.tar.gz || {
+        echo "Can't find, or even create, public/source.tar.gz. Giving up"
         exit 2
     }
     bundle exec ruby ./script/websocket_server.rb&
     bundle exec thin start $@
 fi
-
