@@ -38,6 +38,7 @@ fr-informal:
           share: "Partager"
       aspect_friends:
           add_friends: "ajouter des amis"
+          photos: "photos"
   albums:
       album:
           you: "toi"
@@ -69,10 +70,13 @@ fr-informal:
           friends_albums: "Albums d’amis"
           your_albums: "Tes albums"
   aspects:
-      index:
-          photos: "photos"
-      show:
-          photos: "photos"
+      empty_messages:
+          start_talking:  "Personne n’a encore rien dit.  Commence dès à présent la conversation !"
+          nobody: "Tu as forcément des amis, n’hésite pas à les ramener sur Diaspora !"
+          nobody_in_aspect: "Ton aspect '%{aspect_name}' est vide."
+          add_friend: "Ajouter un ami"
+          add_friend_to: "Ajouter quelqu’un à %{aspect_name}"
+          invite: "Inviter quelqu’un à rejoindre Diaspora !"
       manage:
           add_a_new_aspect: "Ajouter un nouvel aspect"
           add_a_new_friend:  "Ajouter un nouvel ami"
