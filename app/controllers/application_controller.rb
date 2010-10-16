@@ -52,4 +52,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def logged_into_fb?
+    @logged_in
+  end
+
 end
