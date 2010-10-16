@@ -7,9 +7,12 @@ network.
 **PLEASE, DO NOT RUN IN PRODUCTION. IT IS FUN TO GET RUNNING, BUT EXPECT THINGS
 TO BE BROKEN.**
 
+## Installation instructions
+
 Installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora).
 
-Please report any bugs you see.  Issue tracking is at [bugs.joindiaspora.com](http://bugs.joindiaspora.com).
+Thanks for helping battle test Diaspora.
+Please report any bugs you see at [bugs.joindiaspora.com](http://bugs.joindiaspora.com).
 
 ## Contributing to Diaspora
 
