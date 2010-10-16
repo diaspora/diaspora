@@ -12,6 +12,7 @@ describe User do
   let(:inviter_with_3_invites) {Factory.create :user, :invites => 3}
   let(:aspect2) {inviter_with_3_invites.aspect(:name => "Jersey Girls")}
   let!(:invited_user1) { create_user_with_invitation("abc", :email => "email@example.com", :inviter => inviter)}
+  let!(:invited_user2) { inviter.invite_user(:email => "jane@example.com", :aspect_id => aspect.id) }
 
   before do
     deliverable = Object.new
@@ -86,6 +87,23 @@ describe User do
                                 :last_name  => "Smith"}} )
       Person.count.should be person_count + 1
       u.person.profile.first_name.should == "Bob"
+    end
+
+    it 'should auto accept the request for the sender into the right aspect' do
+      u = invited_user2.accept_invitation!(:invitation_token => invited_user2.invitation_token,
+                              :username => "user",
+                              :password => "secret",
+                              :password_confirmation => "secret",
+                              :person => {:profile => {:first_name => "Bob",
+                                :last_name  => "Smith"}} )
+      u.pending_requests
+      u.pending_requests.count.should == 1
+      request = u.pending_requests.first
+      aspect2  = u.aspect(:name => "dudes")
+      u.reload
+      inviter
+      inviter.receive_salmon(u.salmon(u.accept_friend_request(request.id, aspect2.id)).xml_for(inviter.person))
+      inviter.friends.include?(u.person).should be true
     end
   end
   

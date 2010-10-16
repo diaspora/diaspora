@@ -3,5 +3,9 @@
   %p
     = f.label :email
     = f.text_field :email
-    = f.hidden_field :aspect_id, :value => aspect_id(@aspect) 
+    To
+    - if @aspect == :all
+      = f.select(:aspects, @aspects_dropdown_array)
+    - else 
+      = f.select(:aspects, @aspects_dropdown_array, :selected => [@aspect.to_s, @aspect_id])
   %p= f.submit "Send an invitation"

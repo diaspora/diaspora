@@ -114,7 +114,11 @@ module Diaspora
       end
 
       def request_from_me?(request)
-        pending_requests.detect{|req| (req.callback_url == person.receive_url) && (req.destination_url == person.receive_url)}
+        (pending_request_ids.include?(request.id.to_id)) && (request.callback_url == person.receive_url) 
+      end
+
+      def requests_for_me
+        pending_requests.select{|req| req.person != self.person }
       end
     end
   end

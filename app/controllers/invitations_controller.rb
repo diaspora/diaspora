@@ -3,8 +3,12 @@
 #   the COPYRIGHT file.
 
 class InvitationsController < Devise::InvitationsController
+
+
   def create
+    puts params.inspect
     begin
+      params[:user][:aspect_id] = params[:user].delete(:aspects)
       self.resource = current_user.invite_user(params[resource_name])
       flash[:notice] = I18n.t 'invitations.create.sent'
     rescue RuntimeError => e
