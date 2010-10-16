@@ -7,5 +7,5 @@
     - if @aspect == :all
       = f.select(:aspects, @aspects_dropdown_array)
     - else 
-      = f.select(:aspects, @aspects_dropdown_array, :selected => [@aspect.to_s, @aspect.id])
+      = f.select(:aspects, @aspects_dropdown_array, :selected => [@aspect.to_s, @aspect_id])
   %p= f.submit "Send an invitation"

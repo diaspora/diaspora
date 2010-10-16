@@ -12,7 +12,7 @@ require 'database_cleaner'
 require 'webmock/rspec'
 
 include Devise::TestHelpers
-include WebMock
+include WebMock::API
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.

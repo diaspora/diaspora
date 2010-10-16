@@ -6,9 +6,10 @@ require 'spec_helper'
 
 describe Request do
   let(:user) { Factory(:user) }
-  ler(:person) {Factory :person}
+  let(:user2) { Factory :user}
+  let(:person) {Factory :person}
   let(:aspect) { user.aspect(:name => "dudes") }
-  let(:request){ user.send_friend_request_to person, aspect }
+  let(:request){ user.send_friend_request_to user2.person, aspect }
 
   it 'should require a destination and callback url' do
     person_request = Request.new
@@ -19,6 +20,8 @@ describe Request do
   end
 
   it 'should generate xml for the User as a Person' do
+
+    request = user.send_friend_request_to person, aspect
     xml = request.to_xml.to_s
 
     xml.should include user.person.diaspora_handle
@@ -45,10 +48,25 @@ describe Request do
     person_request.destination_url.should == "http://google.com/"
   end
 
-  context 'quering request through user' do
-    it 'finds requests the user sent' do
+  describe '#request_from_me' do
+    it 'recognizes requests from me' do
       request
-      user.requests_for_me.include?(request).should be true
+      user.reload
+      user.request_from_me?(request).should be true
+    end
+
+    it 'recognized when a request is not from me' do 
+      user2.receive_salmon(user.salmon(request).xml_for(user2.person))
+      user2.reload
+      user2.request_from_me?(request).should == false
+    end
+  end
+
+  context 'quering request through user' do
+    it 'finds requests for that user' do
+      user2.receive_salmon(user.salmon(request).xml_for(user2.person))
+      user2.reload
+      user2.requests_for_me.include?(request).should == true
     end
   end
 
