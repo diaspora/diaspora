@@ -40,7 +40,6 @@ describe User do
     it 'sends email to the invited user' do
       ::Devise.mailer.should_receive(:invitation).once
       inviter.invite_user(:email => "ian@example.com", :aspect_id => aspect.id)
-      inviter.invite_user(:email => "ian@example.com", :aspect_id => aspect.id)
     end
 
     it 'adds the inviter to the invited_user' do
@@ -97,7 +96,6 @@ describe User do
                               :password_confirmation => "secret",
                               :person => {:profile => {:first_name => "Bob",
                                 :last_name  => "Smith"}} )
-      u.reload
       u.pending_requests
       u.pending_requests.count.should == 1
       request = u.pending_requests.first
