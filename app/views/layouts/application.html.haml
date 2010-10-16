@@ -44,15 +44,17 @@
           %span.sub_text
             PREVIEW
 
-        #session_action
-          %ul
-            %li#global_search
-              = form_tag(people_path, :method => 'get') do
-                = text_field_tag 'q', nil, :placeholder => "Search", :type => 'search', :results => 5
+        #global_search
+          = form_tag(people_path, :method => 'get') do
+            = text_field_tag 'q', nil, :placeholder => "Search", :type => 'search', :results => 5
 
-            %li= link_to current_user.real_name, current_user.person
-            %li= link_to "settings", edit_user_path(current_user)
-            %li= link_to t('.logout.'), destroy_user_session_path
+        %ul#user_menu
+          .avatar
+            = owner_image_tag
+          = link_to current_user.real_name, '#'
+          %li= link_to "profile", current_user.person
+          %li= link_to "settings", edit_user_path(current_user)
+          %li= link_to t('.logout.'), destroy_user_session_path
 
         = render "shared/aspect_nav"
       = render "shared/sub_header"
