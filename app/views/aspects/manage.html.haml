@@ -42,7 +42,7 @@
 
         %ul.tools
           %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
-          %li= link_to t('.show'), aspect_path(aspect)
+          /%li= link_to t('.show'), aspect_path(aspect)
           %li!= remove_link(aspect)
 
       %ul.dropzone{:id => aspect.id}
@@ -61,4 +61,3 @@
           %div{:id => "add_request_pane_#{aspect.id}"}
             = render "requests/new_request", :aspect => aspect
 
-#content_bottom
