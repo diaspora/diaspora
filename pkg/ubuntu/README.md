@@ -1,9 +1,6 @@
 ## Package-oriented install for ubuntu.
 
-NOTE: This does not work ATM, see discussions on Gemfile.lock in
-attached to a  commit 12/10 (yea, I know, you calll it 10/12, but you
-are wrong ;)
-
+NOTE: This does not work ATM, see http://bugs.joindiaspora.com/issues/372
 
 Here are somediaspora-installdiaspora-install scripts to install diaspora on Ubuntu. They are designed to
 work as a first step towards packaging, but should be usable as is.
@@ -52,6 +49,16 @@ OK to use. If it's not, it will build a new.
 
 ### Notes
 
+./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
+root cause is a bad Gemfile.lock in the git repo. Possible fixes includes
+using a older version known to work:
+    % ./make-dist.sh -c c818885b6 bundle
+    % ./make-dist.sh -c c818885b6 source
+
+or forcing a complete update of Gemfile.lock using 'bundle update' (a
+potential problematic operation):
+    % ./make-dist.sh -f bundle
+
 The application lives in /usr/share/diaspora/master. All writable areas
 (log, uploads, tmp) are links to /var/lib/diaspora. The config file lives
 in /etc/diaspora. All files in /usr/share are read-only, owned by root.
@@ -59,7 +66,7 @@ in /etc/diaspora. All files in /usr/share are read-only, owned by root.
 The bundle lives in /usr/lib/diaspora-bundle, readonly, owned by root.
 Application finds it through the patched .bundle/config in root dir.
 
-Once diaspora ins installed ,makedist.sh et. al. are available in
+Once diaspora is installed, makedist.sh et. al. are available in
 /usr/share/diaspora/master/pkg/ubuntu, so there's no need to checkout
 the stuff using git in this case.
 
