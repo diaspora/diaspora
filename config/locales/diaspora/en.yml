@@ -13,6 +13,8 @@ en:
                   attributes:
                       username:
                           taken: "is already taken."
+                      email:
+                          taken: "is already taken."
   hello: "Hello world"
   application:
       helper:

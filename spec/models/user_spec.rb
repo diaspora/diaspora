@@ -47,6 +47,18 @@ describe User do
         user.username.should == "someuppercase"
       end
     end
+
+    describe "of email" do
+      it "requires email address" do
+        user = Factory.build(:user, :email => nil)
+        user.should_not be_valid
+      end
+
+      it "requires a unique email address" do
+        duplicate_user = Factory.build(:user, :email => user.email)
+        duplicate_user.should_not be_valid
+      end
+    end
   end
 
   describe '#diaspora_handle' do
