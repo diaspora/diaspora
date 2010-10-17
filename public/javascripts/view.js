@@ -72,3 +72,12 @@ $.fn.clearForm = function() {
   });
 };
 
+function openYoutube(videoid, link) {
+  var container = document.createElement('div');
+  container.innerHTML = '<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/'+videoid+'?fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'+videoid+'?fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object><br><a href="#'+videoid+'" onclick="closeYoutube(this)">Close</a> <a href="http://www.youtube.com/watch?v='+videoid+'" target="_blank">Watch on Youtube</a>';
+  link.parentNode.insertBefore(container, this.nextSibling);
+}
+
+function closeYoutube(link) {
+  link.parentNode.parentNode.removeChild(link.parentNode);
+}
