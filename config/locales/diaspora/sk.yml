@@ -1,0 +1,219 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+# Sample localization file for Lithuanian. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+sk:
+  hello: "Dobrý Deň"
+  application:
+      helper:
+          unknown_person: "neznáma osoba"
+          new_requests: "nové žiadosti"
+  dashboards:
+      helper:
+          home: "domov"
+  datetime:
+      distance_in_words:
+          less_than_x_seconds: "menej než %{count} sekúnd"
+          half_a_minute: "pol minúty"
+          less_than_x_minutes: "menej než %{count} minút"
+          x_minutes: "%{count} minúty"
+          about_x_hours: "približne %{count} hodín"
+          x_days: "%{count} dní"
+          about_x_months: "približne %{count} mesiacov"
+          x_months: "%{count} mesiacov"
+          about_x_years: "približne %{count} rokov"
+          over_x_years: "cez %{count} rokov"
+          almost_x_years: "skoro %{count} rokov"
+  error_messages:
+      helper:
+          invalid_fields: "Neplatné polia"
+          correct_the_following_errors_and_try_again: "Opravte nasledujúce chyby a skúste to znovu."
+  people:
+      helper:
+           results_for: " výsledky vyhľadávania %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
+  layouts:
+      application:
+          edit_profile: "upraviť profil"
+          logout: "odhlásiť sa"
+  shared:
+      aspect_nav:
+          all_aspects: "Všetky aspekty"
+          manage: "Spravovať"
+          manage_your_aspects: "Spravovať Vaše aspekty"
+      sub_header:
+          all_aspects: "Všetky aspekty"
+          manage_aspects: "Spravovať aspekty"
+      publisher:
+          share: "Zdieľať"
+      aspect_friends:
+          add_friends: "pridať priateľa"
+  albums:
+      album:
+          you: "Vy"
+      new_album:
+          create: "vytvoriť"
+          add_a_new_album: "Pridať nový album"
+      show:
+          edit_album: "Upraviť album"
+          albums: "albumy"
+          updated: "aktualizované"
+          by: "užívateľom"
+      edit:
+          editing: "Upravuje sa"
+          updated: "aktualizované"
+          are_you_sure: "Ste si istý?"
+          delete_album: "Zmazať album"
+          cancel: "Zrušiť"
+      index:
+          home: "doma"
+          new_album: "Nový album"
+      create:
+          success: "Vytvorili ste nový album s názvom %{name}."
+      update:
+          success: "Album %{name} úspešne upravený."
+          failure: "Nepodarilo sa upraviť album %{name}."
+      destroy:
+          success: "Album %{name} zmazaný."
+      helper:
+          friends_albums: "Albumy priateľov"
+          your_albums: "Vaše albumy"
+  aspects:
+      index:
+          photos: "fotky"
+      show:
+          photos: "fotky"
+      manage:
+          add_a_new_aspect: "Pridať aspekt"
+          add_a_new_friend:  "Pridať nového priateľa"
+          show: "Ukáž"
+          update_aspects: "Aktualizovať aspekty"
+          requests: "Žiadosti"
+          ignore_remove: "Ignorovať/Odobrať"
+      new_aspect:
+          add_a_new_aspect: "Pridať nový aspekt"
+          create: "Vytvoriť"
+      create:
+          success: "Kliknutím na plus (+) vľavo pridáte priateľov, ktorí môžu sledovať Váš nový aspekt."
+      destroy:
+          success: "%{name} bol úspešne odobraný."
+      update:
+          success: "Váš aspekt, %{name}, bol úspešne upravený."
+      move_friends:
+          failure: "Úprava aspektu priateľom %{real_name} zlyhala."
+          success: "Aspekty úspešne upravené."
+      move_friend:
+          failure: "nepodarilo sa %{inspect}"
+          success: "Teraz svojmu priateľovi ukazujete iný zo svojich aspektov."
+      helper:
+          remove: "odobrať"
+          aspect_not_empty: "Aspekt nie je prázdny"
+  users:
+      edit:
+          editing_profile: "Upraviť profil"
+      profile:
+          cancel: "Zrušiť"
+          update_profile: "Aktualizovať profil"
+          home: "Domov"
+          diaspora_username: "UŽÍVATEĽSKÉ MENO NA DIASPÓRE"
+          info: "Info"
+          picture: "Obrázok"
+          editing_profile: "Upraviť profil"
+          albums: "Albumy"
+          you_dont_have_any_photos: "Nemáte žiadne fotky.   Prejsť na stránku"
+          page_to_upload_some:  "a nejaké nahrajte."
+  comments:
+      comment:
+          ago: "naspäť"
+      new_comment:
+          comment: "Komentár"
+  photos:
+      show:
+          prev: "predchádzajúca"
+          full_size: "plná veľkosť"
+          next: "ďalšia"
+          edit_photo: "Upraviť fotku"
+          delete_photo: "Zmazať fotku"
+          are_you_sure: "Ste si istý?"
+          comments: "komentáre"
+      edit:
+          editing: "Upraviť"
+          are_you_sure: "Ste si istý?"
+          delete_photo: "Zmazať fotku"
+      photo:
+          show_comments: "zobraziť komentáre"
+          posted_a_new_photo_to: "poslal novú fotku do"
+      new:
+          new_photo: "Nová fotka"
+          back_to_list: "Späť na zoznam"
+          post_it: "poslať!"
+      create:
+          runtime_error: "Posielanie fotiek zlyhalo.  Ste si istý, že máte zapnuté pásy?"
+          integrity_error: "Posielanie fotiek zlyhalo.  Ste si istý, že to bol obrázok?"
+          type_error: "Posielanie fotiek zlyhalo.  Ste si istý, že bol pridaný obrázok?"
+      update:
+          notice: "Fotka úspešne aktualizovaná."
+          error:  "Nepodarilo sa upraviť fotku."
+      destroy:
+          notice: "Fotka zmazaná."
+  registrations:
+      new:
+          sign_up: "Zapísať sa"
+      create:
+          success: "Pripojili ste sa k Diaspóre!"
+  status_messages:
+      new_status_message:
+          tell_me_something_good: "Povedz mi niečo dobrého!"
+          oh_yeah: "ó áno!"
+      status_message:
+          show_comments: "zobraziť komentáre"
+          delete: "Zmazať"
+          are_you_sure: "Ste si istý?"
+      show:
+          status_message: "Správa o stave"
+          comments: "komentáre"
+          are_you_sure: "Ste si istý?"
+          destroy: "Vymazať"
+          view_all: "Zobraziť všetko"
+          message: "Správa"
+          owner: "Vlastník"
+      helper:
+          no_message_to_display: "Žiadna správa k zobrazeniu."
+  people:
+      person:
+          add_friend: "pridať priateľa"
+          pending_request: "nevybavené žiadosti"
+      index:
+          add_friend: "pridať priateľa"
+          real_name: "pravé meno"
+          diaspora_handle: "adresa na diaspóre"
+          thats_you: "to ste Vy!"
+          friend_request_pending: "Nevybavená žiadosť o priateľstvo"
+          you_have_a_friend_request_from_this_person: "Od tejto osoby máte žiadosť o priateľstvo"
+      new:
+          new_person: "Nová Osoba"
+          back_to_list: "Späť na Zoznam"
+      show:
+          last_seen: "naposledy videný: %{how_long_ago}"
+          friends_since: "priatelia od: %{how_long_ago}"
+          save: "uložiť"
+          are_you_sure: "Ste si istý?"
+          remove_friend: "odobrať priateľa"
+  requests:
+      new_request:
+          add_a_new_friend_to: "Pridať nového priateľa do"
+          enter_a_diaspora_username: "Vložte Vaše užívatelské meno:"
+          your_diaspora_username_is: "Vaše užívatelské meno je: %{diaspora_handle}"
+          friends_username: "Uživatelské meno priateľa"
+      destroy:
+          success: "Teraz ste priatelia."
+          error: "Prosím vyberte aspekt!"
+          ignore: "Ignorovať žiadosť o priateľstvo."
+      create:
+          error: "Semienko diaspóry s touto adresou sa nenašlo!"
+          already_friends: "S %{destination_url} už ste priatelia!"
+          success: "bola zaslaná žiadosť o priateľstvo na %{destination_url}"
+          horribly_wrong: "Niečo sa nepekne pokazilo."
