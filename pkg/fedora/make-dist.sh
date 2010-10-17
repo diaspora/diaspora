@@ -193,7 +193,7 @@ set -x
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
                     rm -f Gemfile.lock
                     rm -rf .bundle
-                    bundle update
+                    bundle update --path="../$bundle_name/bundle"
                 fi
                 bundle install --deployment                      \
                                --path="../$bundle_name/bundle"   \
