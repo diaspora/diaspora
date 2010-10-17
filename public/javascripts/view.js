@@ -72,6 +72,8 @@ $.fn.clearForm = function() {
   });
 };
 
+var video_active_container = null;
+
 function openVideo(type, videoid, link) {
   var container = document.createElement('div');
   if(type == 'youtube.com') {
@@ -79,6 +81,10 @@ function openVideo(type, videoid, link) {
   } else {
     container.innerHTML = 'Invalid videotype <i>'+type+'</i> (ID: '+videoid+')';
   }
+  if(video_active_container != null) {
+    video_active_container.parentNode.removeChild(video_active_container);
+  }
+  video_active_container = container;
   $(container).hide();
   link.parentNode.insertBefore(container, this.nextSibling);
   $(container).slideDown('fast', function() { });
