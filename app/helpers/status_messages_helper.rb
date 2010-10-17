@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 module StatusMessagesHelper
+  @@youtube_title_cache = Hash.new("no-title")
+
   def my_latest_message
     unless @latest_status_message.nil?
       return @latest_status_message.message
@@ -17,10 +19,31 @@ module StatusMessagesHelper
     # next line is important due to XSS! (h is rail's make_html_safe-function)
     message = h(message).html_safe
     message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2')
-    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch.*v=([A-Za-z0-9_]+)[^ ]*/, '\1youtube::\2')
+    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch.*v=([A-Za-z0-9_]+)[^ ]*/, '\1youtube.com::\2')
     message.gsub!(/(http|ftp):\/\/([^ ]+)/, '<a target="_blank" href="\1://\2">\2</a>')
-    message.gsub!(/youtube::([A-Za-z0-9_]+)/, '<a name="\1" onclick="openYoutube(\'\1\', this)" href="#\1">Youtube: \1</a>')
+    youtube = message.match(/youtube\.com::([A-Za-z0-9_]+)/)
+    youtube.to_a.each do |videoid|
+      if videoid.match('::').nil?
+        message.gsub!('youtube.com::'+videoid, '<a onclick="openVideo(\'youtube.com\', \'' + videoid + '\', this)" href="#video">Youtube: ' + youtube_title(videoid) + '</a>')
+      end
+    end
     return message
+  end
+
+  def youtube_title(id)
+    #TODO Check if id is cached, and return cached value
+
+    ret = 'Unknown Video Title' #TODO add translation
+    http = Net::HTTP.new('gdata.youtube.com', 80)
+    path = '/feeds/api/videos/'+id+'?v=2'
+    resp, data = http.get(path, nil)
+    title = data.match(/<title>(.*)<\/title>/)
+    unless title.nil?
+      ret = title.to_s[7..-9]
+    end
+    
+    #TODO Cache the value of ret for id
+    return ret
   end
 
 end
