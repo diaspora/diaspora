@@ -11,12 +11,29 @@ describe RegistrationsController do
 
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
+    @valid_params = {"user" => {"username" => "jdoe",
+                                "email" => "jdoe@example.com",
+                                "password" => "password",
+                                "password_confirmation" => "password",
+                                "person" => {
+                                  "profile" => {
+                                    "first_name" => "John",
+                                    "last_name" => "Doe"}}}}
   end
 
-  describe "#new" do
-    it "succeeds" do
-      get :new
-      response.should be_success
+  describe "#create" do
+    context "with valid parameters" do
+      it "creates a user" do
+        lambda { get :create, @valid_params }.should change(User, :count).by(1)
+      end
+      it "sets the flash" do
+        get :create, @valid_params
+        flash[:notice].should_not be_empty
+      end
+      it "redirects to the root path" do
+        get :create, @valid_params
+        response.should redirect_to root_path
+      end
     end
   end
 end

@@ -3,10 +3,6 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  def new
-    super
-  end
-
   def create
     begin
       user = User.instantiate!(params[:user])
