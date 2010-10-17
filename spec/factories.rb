@@ -32,7 +32,7 @@ Factory.define :user do |u|
   u.password_confirmation "bluepin7"
   u.serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
   u.after_build do |user|
-    user.person = Factory(:person, :owner_id => user._id,
+    user.person = Factory.build(:person, :owner_id => user._id,
                           :serialized_public_key => user.encryption_key.public_key.export,
                           :diaspora_handle => "#{user.username}@#{APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
   end

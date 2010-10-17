@@ -5,40 +5,47 @@
 require 'spec_helper'
 
 describe User do
-  let(:user)   { Factory(:user) }
+  let(:user) { Factory(:user) }
   let(:aspect) { user.aspect(:name => 'heroes') }
-  let(:user2)   { Factory(:user) }
+  let(:user2) { Factory(:user) }
   let(:aspect2) { user2.aspect(:name => 'stuff') }
-  let(:user3)   { Factory(:user) }
+  let(:user3) { Factory(:user) }
   let(:aspect3) { user3.aspect(:name => 'stuff') }
 
-  describe "validations" do
-    it "requires a username" do
-      user = Factory.build(:user, :username => nil)
-      user.should_not be_valid
-    end
-    it "downcases the username" do
-      user = Factory.build(:user, :username => "ALLUPPERCASE")
-      user.valid?
-      user.username.should == "alluppercase"
+  describe "validation" do
 
-      user = Factory.build(:user, :username => "someUPPERCASE")
-      user.valid?
-      user.username.should == "someuppercase"
+    describe "of passwords" do
+      it "fails if password doesn't match confirmation" do
+        user = Factory.build(:user, :password => "password", :password_confirmation => "nope")
+        user.should_not be_valid
+      end
+
+      it "succeeds if password matches confirmation" do
+        user = Factory.build(:user, :password => "password", :password_confirmation => "password")
+        user.should be_valid
+      end
     end
 
-    it "confirms the password" do
-      pending "I cannot figure out why this doesn't work. --Raphael"
-      user = User.instantiate!( 
-        :email => "tom@tom.joindiaspora.com",
-        :username => "tom",
-        :password => "evankorth",
-        :password_confirmation => "potatoes",
-        :person => Person.new(
-          :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
-                  )
-      user.created_at.should be_nil
-      user.valid?.should be_false
+    describe "of username" do
+      it "requires a username" do
+        user = Factory.build(:user, :username => nil)
+        user.should_not be_valid
+      end
+
+      it "requires a unique username" do
+        duplicate_user = Factory.build(:user, :username => user.username)
+        duplicate_user.should_not be_valid
+      end
+
+      it "downcases the username" do
+        user = Factory.build(:user, :username => "ALLUPPERCASE")
+        user.valid?
+        user.username.should == "alluppercase"
+
+        user = Factory.build(:user, :username => "someUPPERCASE")
+        user.valid?
+        user.username.should == "someuppercase"
+      end
     end
   end
 
@@ -50,10 +57,10 @@ describe User do
 
   context 'profiles' do
     it 'should be able to update their profile and send it to their friends' do
-      updated_profile = { :profile => {
-                            :first_name => 'bob',
-                            :last_name => 'billytown',
-                            :image_url => "http://clown.com"} }
+      updated_profile = {:profile => {
+        :first_name => 'bob',
+        :last_name => 'billytown',
+        :image_url => "http://clown.com"}}
 
       user.update_profile(updated_profile).should be true
       user.profile.image_url.should == "http://clown.com"
@@ -70,7 +77,7 @@ describe User do
     it 'should not delete an aspect with friends' do
       friend_users(user, aspect, user2, aspect2)
       aspect.reload
-      proc{user.drop_aspect(aspect)}.should raise_error /Aspect not empty/
+      proc { user.drop_aspect(aspect) }.should raise_error /Aspect not empty/
       user.aspects.include?(aspect).should == true
     end
   end
@@ -80,27 +87,27 @@ describe User do
       friend_users(user, aspect, user2, aspect2)
       friend_users(user, aspect, user3, aspect3)
     end
-    
+
     it 'should unfriend everyone' do
       user.should_receive(:unfriend_everyone)
       user.destroy
     end
-    
+
     it 'should remove person' do
       user.should_receive(:remove_person)
       user.destroy
     end
 
-    
+
     it 'should remove all aspects' do
       pending "this should use :dependant => :destroy on the many assoc...but that screws this test suite..."
       aspects = user.aspects
       user.destroy
-      proc{ aspects.reload }.should raise_error /does not exist/
+      proc { aspects.reload }.should raise_error /does not exist/
 
     end
 
-   
+
     describe '#remove_person' do
       it 'should remove the person object' do
         person = user.person
@@ -113,7 +120,7 @@ describe User do
         message = user.post(:status_message, :message => "hi", :to => aspect.id)
         user.reload
         user.destroy
-        proc{ message.reload }.should raise_error /does not exist/
+        proc { message.reload }.should raise_error /does not exist/
       end
     end
 
@@ -128,7 +135,7 @@ describe User do
         user.destroy
       end
 
-      it 'should unfriend local people' do 
+      it 'should unfriend local people' do
         user2.friends.count.should be 1
         user.destroy
         user2.reload
