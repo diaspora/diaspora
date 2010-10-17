@@ -13,7 +13,6 @@ describe User do
   let(:aspect3) { user3.aspect(:name => 'stuff') }
 
   describe "validation" do
-
     describe "of passwords" do
       it "fails if password doesn't match confirmation" do
         user = Factory.build(:user, :password => "password", :password_confirmation => "nope")
@@ -27,24 +26,25 @@ describe User do
     end
 
     describe "of username" do
-      it "requires a username" do
+      it "requires presence" do
         user = Factory.build(:user, :username => nil)
         user.should_not be_valid
       end
 
-      it "requires a unique username" do
+      it "requires uniqueness" do
         duplicate_user = Factory.build(:user, :username => user.username)
         duplicate_user.should_not be_valid
       end
 
-      it "downcases the username" do
-        user = Factory.build(:user, :username => "ALLUPPERCASE")
-        user.valid?
-        user.username.should == "alluppercase"
+      it "keeps the original case" do
+        user = Factory.build(:user, :username => "WeIrDcAsE")
+        user.should be_valid
+        user.username.should == "WeIrDcAsE"
+      end
 
-        user = Factory.build(:user, :username => "someUPPERCASE")
-        user.valid?
-        user.username.should == "someuppercase"
+      it "fails if the requested username is only different in case from an existing username" do
+        duplicate_user = Factory.build(:user, :username => user.username.upcase)
+        duplicate_user.should_not be_valid
       end
 
       it "strips leading and trailing whitespace" do
@@ -69,6 +69,13 @@ describe User do
         duplicate_user = Factory.build(:user, :email => user.email)
         duplicate_user.should_not be_valid
       end
+    end
+  end
+
+  describe ".find_for_authentication" do
+    it "preserves case" do
+      User.find_for_authentication(:username => user.username).should == user
+      User.find_for_authentication(:username => user.username.upcase).should be_nil
     end
   end
 

@@ -17,17 +17,18 @@ end
 
 class User
   include MongoMapper::Document
-  plugin MongoMapper::Devise
   include Diaspora::UserModules
   include Encryptor::Private
+
+  plugin MongoMapper::Devise
+
   QUEUE = MessageHandler.new
 
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  key :username, :unique => true
+  key :username
   key :serialized_private_key, String
-
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
@@ -37,8 +38,12 @@ class User
   key :visible_post_ids, Array
   key :visible_person_ids, Array
 
+  before_validation :strip_username, :on => :create
   validates_presence_of :username
+  validates_uniqueness_of :username, :case_sensitive => false
   validates_format_of :username, :without => /\s/
+
+  validates_with InvitedUserValidator
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
@@ -47,21 +52,21 @@ class User
   many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
-
   many :aspects, :class_name => 'Aspect'
 
   after_create :seed_aspects
 
-  before_validation :strip_and_downcase_username, :on => :create
-  validates_with InvitedUserValidator
-
   before_destroy :unfriend_everyone, :remove_person
+
+  def strip_username
+    if username.present?
+      username.strip!
+    end
+  end
 
   def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
-    else
-      conditions[:username].downcase!
     end
     super
   end
@@ -358,13 +363,6 @@ class User
 
   def diaspora_handle
     "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
-  end
-
-  def strip_and_downcase_username
-    if username.present?
-      username.strip!
-      username.downcase!
-    end
   end
 
   def as_json(opts={})
