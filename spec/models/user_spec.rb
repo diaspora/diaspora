@@ -46,6 +46,12 @@ describe User do
         user.valid?
         user.username.should == "someuppercase"
       end
+
+      it "strips leading and trailing whitespace" do
+        user = Factory.build(:user, :username => "    janie    ")
+        user.should be_valid
+        user.username.should == "janie"
+      end
     end
 
     describe "of email" do
