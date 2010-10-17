@@ -19,19 +19,20 @@ module StatusMessagesHelper
     # next line is important due to XSS! (h is rail's make_html_safe-function)
     message = h(message).html_safe
     message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2')
-    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch.*v=([A-Za-z0-9_]+)[^ ]*/, '\1youtube.com::\2')
+    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)/, '\1youtube.com::\2')
     message.gsub!(/(http|ftp):\/\/([^ ]+)/, '<a target="_blank" href="\1://\2">\2</a>')
-    youtube = message.match(/youtube\.com::([A-Za-z0-9_]+)/)
-    youtube.to_a.each do |videoid|
-      if videoid.match('::').nil?
-        message.gsub!('youtube.com::'+videoid, '<a onclick="openVideo(\'youtube.com\', \'' + videoid + '\', this)" href="#video">Youtube: ' + youtube_title(videoid) + '</a>')
-      end
+   
+    while youtube = message.match(/youtube\.com::([A-Za-z0-9_]+)/)
+      videoid = youtube[1]
+      message.gsub!('youtube.com::'+videoid, '<a onclick="openVideo(\'youtube.com\', \'' + videoid + '\', this)" href="#video">Youtube: ' + youtube_title(videoid) + '</a>')
     end
     return message
   end
 
   def youtube_title(id)
-    #TODO Check if id is cached, and return cached value
+    unless @@youtube_title_cache[id] == 'no-title'
+      return @@youtube_title_cache[id]
+    end
 
     ret = 'Unknown Video Title' #TODO add translation
     http = Net::HTTP.new('gdata.youtube.com', 80)
@@ -42,7 +43,7 @@ module StatusMessagesHelper
       ret = title.to_s[7..-9]
     end
     
-    #TODO Cache the value of ret for id
+    @@youtube_title_cache[id] = ret;
     return ret
   end
 
