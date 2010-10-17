@@ -54,6 +54,11 @@ describe User do
       proc { user.send_friend_request_to(friend, aspect) }.should raise_error
     end
 
+    it 'should not be able to friend request yourself' do
+      proc { user.send_friend_request_to(nil, aspect) }.should raise_error(RuntimeError, /befriend yourself/)
+    end
+
+
     describe 'multiple users accepting/rejecting the same person' do
 
       before do
