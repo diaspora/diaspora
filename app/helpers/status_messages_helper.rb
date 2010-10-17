@@ -19,8 +19,8 @@ module StatusMessagesHelper
     # next line is important due to XSS! (h is rail's make_html_safe-function)
     message = h(message).html_safe
     message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2')
-    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)/, '\1youtube.com::\2')
-    message.gsub!(/(http|ftp):\/\/([^ ]+)/, '<a target="_blank" href="\1://\2">\2</a>')
+    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)(&[^ ]*|)/, '\1youtube.com::\2')
+    message.gsub!(/(https|http|ftp):\/\/([^ ]+)/, '<a target="_blank" href="\1://\2">\2</a>')
    
     while youtube = message.match(/youtube\.com::([A-Za-z0-9_]+)/)
       videoid = youtube[1]

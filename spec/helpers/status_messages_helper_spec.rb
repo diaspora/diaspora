@@ -17,7 +17,7 @@ describe StatusMessagesHelper do
 
   it "should recognize basic http links (2/3)" do
     proto="http"
-    url="www.youtube.com/watch?v=b15yaPYNDRU"
+    url="webmail.example.com?~()!*/"
     make_links(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
   end
 
@@ -26,7 +26,22 @@ describe StatusMessagesHelper do
     url="127.0.0.1:3000/users/sign_in"
     make_links(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
   end
-  
+
+  it "should recognize secure https links" do
+    proto="https"
+    url="127.0.0.1:3000/users/sign_in"
+    make_links(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
+  end
+
+# this will not work because the make_links requires an internet connection, which is disabled for the test :(
+#  it "should recognize youtube links" do
+#    proto="http"
+#    url="www.youtube.com/watch?v=UNgOJDL9iyQ&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+#    res = make_links(proto+"://"+url, true)
+#    puts "RES: " + res
+#    res.should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
+#  end
+
   it "should recognize basic ftp links" do
     proto="ftp"
     url="ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4"
