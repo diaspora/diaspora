@@ -16,8 +16,11 @@ module StatusMessagesHelper
     
     # next line is important due to XSS! (h is rail's make_html_safe-function)
     message = h(message).html_safe
-    message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2');
-    return message.gsub(/(http|ftp):\/\/([^ ]+)/, '<a target="_blank" href="\1://\2">\2</a>');
+    message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2')
+    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch.*v=([A-Za-z0-9_]+)[^ ]*/, '\1youtube::\2')
+    message.gsub!(/(http|ftp):\/\/([^ ]+)/, '<a target="_blank" href="\1://\2">\2</a>')
+    message.gsub!(/youtube::([A-Za-z0-9_]+)/, '<a name="\1" onclick="openYoutube(\'\1\', this)" href="#\1">Youtube: \1</a>')
+    return message
   end
 
 end
