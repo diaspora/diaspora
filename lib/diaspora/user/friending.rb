@@ -7,6 +7,7 @@ module Diaspora
     module Friending
       def send_friend_request_to(desired_friend, aspect)
         # should have different exception types for these?
+        raise "You cannot befriend yourself" if desired_friend.nil? 
         raise "You have already sent a friend request to that person!" if self.pending_requests.detect{
           |x| x.destination_url == desired_friend.receive_url }
         raise "You are already friends with that person!" if self.friends.detect{
