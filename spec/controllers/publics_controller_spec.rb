@@ -49,9 +49,28 @@ describe PublicsController do
   end
 
   describe 'webfinger' do
-    it 'should not try to webfinger out on a request to webfinger' do
-      Redfinger.should_not_receive :finger
-      post :webfinger, :q => 'remote@example.com'
+    it "succeeds when the person and user exist locally" do
+      user = Factory(:user)
+      post :webfinger, 'q' => user.person.diaspora_handle
+      response.should be_success
+    end
+
+    it "404s when the person exists remotely because it is local only" do
+      stub_success('me@mydiaspora.pod.com')
+      post :webfinger, 'q' => 'me@mydiaspora.pod.com'
+      response.should be_not_found
+    end
+
+    it "404s when the person is local but doesn't have an owner" do
+      person = Factory(:person)
+      post :webfinger, 'q' => person.diaspora_handle
+      response.should be_not_found
+    end
+
+    it "404s when the person does not exist locally or remotely" do
+      stub_failure('me@mydiaspora.pod.com')
+      post :webfinger, 'q' => 'me@mydiaspora.pod.com'
+      response.should be_not_found
     end
   end
 
