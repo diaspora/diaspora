@@ -72,12 +72,15 @@ $.fn.clearForm = function() {
   });
 };
 
-function openYoutube(videoid, link) {
+function openVideo(type, videoid, link) {
   var container = document.createElement('div');
-  container.innerHTML = '<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/'+videoid+'?fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'+videoid+'?fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object><br><a href="#'+videoid+'" onclick="closeYoutube(this)">Close</a> <a href="http://www.youtube.com/watch?v='+videoid+'" target="_blank">Watch on Youtube</a>';
+  if(type == 'youtube.com') {
+    container.innerHTML = '<a href="http://www.youtube.com/watch?v='+videoid+'" target="_blank">Watch this video on Youtube</a><br><object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/'+videoid+'?fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'+videoid+'?fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>';
+  } else {
+    container.innerHTML = 'Invalid videotype <i>'+type+'</i> (ID: '+videoid+')';
+  }
+  $(container).hide();
   link.parentNode.insertBefore(container, this.nextSibling);
-}
-
-function closeYoutube(link) {
-  link.parentNode.parentNode.removeChild(link.parentNode);
+  $(container).slideDown('fast', function() { });
+  link.onclick = function() { $(container).slideToggle('fast', function() { } ); }
 }
