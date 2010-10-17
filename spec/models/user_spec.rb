@@ -13,6 +13,10 @@ describe User do
   let(:aspect3) { user3.aspect(:name => 'stuff') }
 
   describe "validations" do
+    it "requires a username" do
+      user = Factory.build(:user, :username => nil)
+      user.should_not be_valid
+    end
     it "downcases the username" do
       user = Factory.build(:user, :username => "ALLUPPERCASE")
       user.valid?

@@ -35,5 +35,22 @@ describe RegistrationsController do
         response.should redirect_to root_path
       end
     end
+    context "with invalid parameters" do
+      before do
+        @valid_params["user"].delete("username")
+        @invalid_params = @valid_params
+      end
+      it "does not create a user" do
+        lambda { get :create, @invalid_params }.should_not change(User, :count)
+      end
+      it "sets the flash error" do
+        get :create, @invalid_params
+        flash[:error].should_not be_blank
+      end
+      it "goes back to the form" do
+        get :create, @invalid_params
+        response.should redirect_to new_user_registration_path
+      end
+    end
   end
 end

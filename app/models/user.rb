@@ -24,6 +24,7 @@ class User
 
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   key :username, :unique => true
   key :serialized_private_key, String
 
@@ -35,6 +36,8 @@ class User
   key :pending_request_ids, Array
   key :visible_post_ids,    Array
   key :visible_person_ids,  Array
+
+  validates_presence_of :username
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
