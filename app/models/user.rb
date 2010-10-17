@@ -38,6 +38,7 @@ class User
   key :visible_person_ids, Array
 
   validates_presence_of :username
+  validates_format_of :username, :without => /\s/
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 

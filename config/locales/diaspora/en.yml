@@ -12,9 +12,9 @@ en:
               user:
                   attributes:
                       username:
-                          taken: "is already taken."
+                          taken: "is already taken"
                       email:
-                          taken: "is already taken."
+                          taken: "is already taken"
   hello: "Hello world"
   application:
       helper:

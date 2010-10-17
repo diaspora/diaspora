@@ -52,6 +52,11 @@ describe User do
         user.should be_valid
         user.username.should == "janie"
       end
+
+      it "fails if there's whitespace in the middle" do
+        user = Factory.build(:user, :username => "bobby tables")
+        user.should_not be_valid
+      end
     end
 
     describe "of email" do
