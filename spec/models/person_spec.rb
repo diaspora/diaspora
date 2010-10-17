@@ -164,17 +164,31 @@ describe Person do
       people = Person.search("Casey Grippi")
       people.should == [@friend_four]
     end
+  end
 
-    it 'should search by diaspora_handle exactly' do
-      stub_success("tom@tom.joindiaspora.com")
-      Person.by_webfinger(@friend_one.diaspora_handle).should == @friend_one
+  describe ".by_webfinger" do
+    context "local people" do
+      before do
+        @local_person = Factory(:person)
+        Redfinger.should_not_receive :finger
+      end
+
+      it "finds the local person without calling out" do
+        person = Person.by_webfinger(@local_person.diaspora_handle)
+        person.should == @local_person
+      end
+
+      it "finds a local person with a mixed-case username" do
+        user = Factory(:user, :username => "SaMaNtHa")
+        person = Person.by_webfinger(user.person.diaspora_handle)
+        person.should == user.person
+      end
     end
 
-    it 'should create a stub for a remote user' do
+    it 'creates a stub for a remote user' do
       stub_success("tom@tom.joindiaspora.com")
       tom = Person.by_webfinger('tom@tom.joindiaspora.com')
       tom.real_name.include?("Hamiltom").should be true
     end
-
   end
 end
