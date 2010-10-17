@@ -126,7 +126,8 @@ function checkout()
             git clone --quiet $GIT_REPO;
             (
                 cd diaspora;
-                git remote add upstream $GIT_REPO
+                git remote add upstream \
+                    git://github.com/diaspora/diaspora.git
                 for p in ../../*.patch; do
                     git apply --whitespace=fix  $p  > /dev/null
                 done &> /dev/null || :
@@ -166,9 +167,6 @@ function make_src
              find $PWD  -name .git\* | xargs rm -rf
              rm -rf .bundle
              /usr/bin/patch -p1 -s <../../../add-bundle.diff
-             for p in  ../../../*.patch; do
-                 /usr/bin/patch -p1 -s < $p
-             done &> /dev/null || :
         )
         tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && \
             rm -rf ${RELEASE_DIR}
@@ -183,6 +181,7 @@ function make_bundle()
 # Usage:  make_bundle [ commit, defaults to HEAD]
 #
 {
+set -x
     checkout ${1:-'HEAD'} >/dev/null
     bundle_id=$( git_id dist/diaspora/Gemfile)
     bundle_name="diaspora-bundle-$VERSION-$bundle_id"
@@ -192,11 +191,14 @@ function make_bundle()
             rm -rf $bundle_name
             mkdir -p $bundle_name/bundle
             pushd diaspora > /dev/null
+                if [ "$BUNDLE_FIX" = 'yes' ]; then
+                    bundle update
+                fi
                 bundle install --deployment                      \
                                --path="../$bundle_name/bundle"   \
                                --without=test rdoc
 
-                cp -ar AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT \
+                cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                        "../$bundle_name"
             popd > /dev/null
             tar czf $bundle_name.tar.gz $bundle_name
@@ -204,8 +206,7 @@ function make_bundle()
         cd ..
     }
     echo
-    echo "Repo:       $GIT_REPO"
-    echo "Bundle:     dist/$bundle_name.tar.gz"
+    echo "Bundle: dist/$bundle_name.tar.gz"
 }
 
 
@@ -269,6 +270,8 @@ function usage()
 	-r  release    Mark with specified release, defaults to 1.
 	-u  uri        Git repository URI, defaults to
 	               $GIT_REPO.
+        -f             For bundle, fix dependencies by running 'bundle update'
+                       before 'bundle install'
 
 	source         Build a diaspora application tarball.
 	bundle         Build a bundler(1) bundle for diaspora.
@@ -280,8 +283,10 @@ function usage()
 	EOF
 }
 
+
 commit='HEAD'
-while getopts ":r:c:u:h" opt
+BUNDLE_FIX='no'
+while getopts ":r:c:fh" opt
 do
     case $opt in
         u)   GIT_REPO="$OPTARG"
@@ -289,6 +294,8 @@ do
         c)   commit="${OPTARG:0:7}"
              ;;
         r)   RELEASE="$OPTARG:"
+             ;;
+        f)   BUNDLE_FIX='yes'
              ;;
         h)   usage
              exit 0
@@ -300,7 +307,7 @@ do
 done
 shift $(($OPTIND - 1))
 
-typeset -r GIT_REPO RELEASE
+typeset -r GIT_REPO RELEASE BUNDLE_FIX
 export LANG=C
 
 test $# -gt 1 -o $# -eq 0 && {
@@ -310,7 +317,7 @@ test $# -gt 1 -o $# -eq 0 && {
 
 case $1 in
 
-    "bundle")  make_bundle $commit
+    "bundle")  make_bundle $commit $BUNDLE_FIX
                ;;
     'source')  make_src $commit
                ;;

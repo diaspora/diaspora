@@ -1,8 +1,6 @@
 ## Diaspora RPM tools
 
-NOTE: This does not work ATM, see discussions on Gemfile.lock in
-attached to a  commit 12/10 (yea, I know, you calll it 10/12, but you
-are wrong ;)
+NOTE: This does not work ATM, see http://bugs.joindiaspora.com/issues/372
 
 Creates diaspora source tarballs and RPM packages
 
@@ -88,6 +86,19 @@ The source tarball is as retrieved from diaspora with following differences:
    - The file public/source.tar is generated.
    - The file .bundle/config  is patched. Remove before doing
      *bundle install*
+
+./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
+root cause is a bad Gemfile in the git repo. Possible fixes includes
+using a older version known to work:
+
+     % ./make-dist.sh -c c818885b6 bundle
+     % ./make-dist.sh -c c818885b6 source
+
+or forcing a complete update of Gemfile.lock using 'bundle update' (a
+potential problematic operation):
+
+     % ./make-dist.sh -f bundle
+
 
 Routines uses last available version from master branch at github. The
 version contains a time stamp and an abbreviated git commit id.

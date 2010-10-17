@@ -73,7 +73,7 @@ pushd bundle/ruby/1.8/
     chmod 755 gems/thin-1.2.7/example/async_tailer.ru
     chmod 644 gems/i18n-0.4.1/MIT-LICENSE
     chmod 755 gems/abstract-1.0.0/abstract.gemspec
-    chmod 644 gems/mini_magick-2.1/MIT-LICENSE
+    chmod 644 gems/mini_magick-2.1/MIT-LICENSE || :
     chmod 755 gems/thin-1.2.7/lib/thin/controllers/service.sh.erb
     chmod 644 gems/treetop-1.4.8/spec/compiler/test_grammar.tt
 popd
@@ -201,8 +201,8 @@ pushd bundle/ruby/1.8/gems/selenium-webdriver-0.0.28/lib/selenium/webdriver/
 popd
 }
 
-mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor
-cp -ar  bundle $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/master/vendor
+mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/
+cp -ar  bundle $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle/
 
 find  %{buildroot}/%{_libdir}/diaspora-bundle  \
     -type d  -fprintf dirs '%%%dir "%%p"\n'
@@ -220,7 +220,7 @@ cat files >> dirs && cp dirs files
 
 %files -f files
 %defattr(-, diaspora, diaspora, 0755)
-%doc  COPYRIGHT Gemfile AUTHORS GNU-AGPL-3.0
+%doc  COPYRIGHT Gemfile Gemfile.lock AUTHORS GNU-AGPL-3.0
 
 %files -f dev-files devel
 %defattr(-, root, root, 0644)
