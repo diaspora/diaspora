@@ -17,7 +17,7 @@
   .right
     = link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
-.yo{:style => "display:none;" }
+.fancybox_content
   #new_album_pane
     = render "albums/new_album", :aspect => params[:aspect]
 

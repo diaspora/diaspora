@@ -13,10 +13,10 @@
       - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
       - @fb_friends[:data].each do |friend|
         = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
-    -unless (@aspect == :all) || (@aspect == :public)
+    -unless (@aspect == :all)
       = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane", :id => 'add_request_button'
 
-      .yo{:style => 'display:none'}
+      .fancybox_content
         #add_request_pane
           = render "requests/new_request", :aspect => @aspect
     -else

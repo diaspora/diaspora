@@ -1,11 +1,13 @@
 %h2 Send invitation
-= form_for User.new, :url => invitation_path(User) do |f|
+= form_for User.new, :url => invitation_path(User) do |invite|
   %p
-    = f.label :email
-    = f.text_field :email
-    To
-    - if @aspect == :all
-      = f.select(:aspects, @aspects_dropdown_array)
-    - else 
-      = f.select(:aspects, @aspects_dropdown_array, :selected => [@aspect.to_s, @aspect_id])
-  %p= f.submit "Send an invitation"
+    = invite.label :email
+    = invite.text_field :email
+  To
+  - if @aspect == :all
+    = invite.select(:aspects, @aspects_dropdown_array)
+  - else 
+    = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
+
+  %p= invite.submit "Send an invitation"
+
