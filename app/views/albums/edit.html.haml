@@ -2,19 +2,15 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.back= link_to "⇧ #{@album.name}", @album
-%h1.big_text
 
-  = "#{t('.editing')} #{@album.name}"
+%h2= "#{t('.editing')} #{@album.name}"
 
-.sub_header
-  ="#{t('.updated')} #{how_long_ago(@album)}"
+- form_for @album do |album|
+  = album.error_messages
 
-- form_for @album do |a|
-  = a.error_messages
-  %p
-    %b album name:
-    = a.text_field :name
+  %h4
+    Album name
+    = album.text_field :name
 
   - for photo in @album.photos
     .photo_edit_block= image_tag photo.url(:thumb_medium)
@@ -22,11 +18,8 @@
   .submit_block
     = link_to t('.cancel'), root_path
     or
-    = a.submit
+    = album.submit
 
 .button.delete
   = link_to t('.delete_album'), @album, :confirm => t('.are_you_sure'), :method => :delete
 
-#content_bottom
-  .back
-    = link_to "⇧ #{@album.name}", @album

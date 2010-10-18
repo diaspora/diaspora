@@ -2,20 +2,16 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h1.big_text
-  .back
-    = link_to "⇧ #{@album.name}", album_path(@album)
-  = "#{t('.editing')} #{@photo.image}"
+%h2= "#{t('.editing')} #{@photo.image}"
 
 %div{:id => @photo.id}
-
   #show_photo
     = linked_scaled_photo @photo, @album
 
-  = form_for @photo do |p|
-    = p.label :caption
-    = p.text_field :caption, :value => @photo.caption
-    = p.submit
+  = form_for @photo do |photo|
+    = photo.label :caption
+    = photo.text_field :caption, :value => @photo.caption
+    = photo.submit
   %div{:class => 'clear'}
 
   #content_bottom
