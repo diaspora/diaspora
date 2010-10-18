@@ -64,8 +64,8 @@ $.fn.clearForm = function() {
     return $(':input',this).clearForm();
   if (type == 'text' || type == 'password' || tag == 'textarea')
     this.value = '';
-  //else if (type == 'checkbox' || type == 'radio')
-    //this.checked = false;
+  else if (type == 'checkbox' || type == 'radio')
+    this.checked = false;
   else if (tag == 'select')
     this.selectedIndex = -1;
   $(this).blur();

@@ -8,6 +8,14 @@
       $(".question_mark").click(); 
     }; 
   });
+  
+  $("#publisher textarea").live("focus", function(evt){
+    $("#publisher .options_and_submit").fadeIn(50);
+  });
+
+  $("#publisher form").live("submit", function(evt){
+    $("#publisher .options_and_submit").hide();
+  });
 
 #publisher
   = owner_image_tag
@@ -19,19 +27,21 @@
       = status.text_area :message, :rows => 2, :value => params[:prefill]
 
     = status.hidden_field :to, :value => (@aspect == :all ? @aspect : @aspect.id)
+
+    .options_and_submit
   
-    - if @aspect == :all
-      .public_toggle
-        = status.check_box( :public, :value => false )
-        make public
-        = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
+      - if @aspect == :all
+        .public_toggle
+          = status.check_box( :public, :value => false )
+          make public
+          = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
 
-        .fancybox_content
-          #question_mark_pane
-            = render 'shared/public_explain'
+          .fancybox_content
+            #question_mark_pane
+              = render 'shared/public_explain'
 
-    - if @aspect == :all
-      = status.submit t('.share'), :title => "Share with all aspects"
-    - else
-      = status.submit t('.share'), :title => "Share with #{@aspect}"
+      - if @aspect == :all
+        = status.submit t('.share'), :title => "Share with all aspects"
+      - else
+        = status.submit t('.share'), :title => "Share with #{@aspect}"
 

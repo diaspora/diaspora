@@ -11,11 +11,8 @@
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
-- content_for :publish do
-  %h1
-    Albums
-  .right
-    = link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
+%h3 Albums
+= link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
 .fancybox_content
   #new_album_pane
