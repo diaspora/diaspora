@@ -47,7 +47,7 @@ $(function() {
         var dropzone = $(this)[0];
 
         if ($(this)[0].id == ui.draggable[0].getAttribute('from_aspect_id')){
-          ui.draggable.css('background','none');
+          ui.draggable.css('background-color','#333');
         } else {
           ui.draggable.css('background-color','orange');
           $.ajax({
@@ -57,7 +57,7 @@ $(function() {
                    "to" : { "to" : dropzone.id }},
             success: function(data){
               ui.draggable.attr('from_aspect_id', dropzone.id);
-              ui.draggable.css('background','none');
+              ui.draggable.css('background-color','#333');
             }});
 
         }
