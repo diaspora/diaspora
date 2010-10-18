@@ -46,6 +46,12 @@ describe User do
       invited_user.inviters.include?(inviter).should be_true
     end
 
+    it 'adds an optional message' do
+      invited_user = inviter.invite_user(:email => "marcy@example.com", :invite_message => "How've you been?",:aspect_id => aspect.id)
+      invited_user.reload
+      invited_user.invite_messages[inviter.id.to_s].should == "How've you been?"
+    end
+
 
     it 'adds a pending request to the invited user' do
       invited_user = inviter.invite_user(:email => "marcy@example.com", :aspect_id => aspect.id)

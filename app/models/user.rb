@@ -38,6 +38,8 @@ class User
   key :visible_post_ids, Array
   key :visible_person_ids, Array
 
+  key :invite_messages, Hash
+
   before_validation :strip_username, :on => :create
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
@@ -129,6 +131,13 @@ class User
     aspect_ids = validate_aspect_permissions(aspect_ids)
 
     intitial_post(class_name, aspect_ids, options)
+  end
+
+  def post_to_message_fb(message, access_token)
+    id = 'me'
+    type = 'feed'
+    Rails.logger.info("Sending a message: #{message} to Facebook")
+    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{access_token}").post
   end
 
   def intitial_post(class_name, aspect_ids, options = {})
@@ -290,7 +299,7 @@ class User
         :into => aspect_id
       )
 
-      invited_user = User.invite!(:email => opts[:email], :request => request, :inviter => self)
+      invited_user = User.invite!(:email => opts[:email], :request => request, :inviter => self, :invite_message => opts[:invite_message])
 
       self.invites = self.invites - 1
       self.pending_requests << request
@@ -313,6 +322,10 @@ class User
     else
       invitable.pending_requests << request
       invitable.inviters << inviter
+      message = attributes.delete(:invite_message)
+      if message
+        invitable.invite_messages[inviter.id.to_s] = message
+      end
     end
 
     if invitable.new_record?
