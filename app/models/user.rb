@@ -38,6 +38,8 @@ class User
   key :visible_post_ids, Array
   key :visible_person_ids, Array
 
+  key :invite_messages, Hash
+
   before_validation :strip_username, :on => :create
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
@@ -290,7 +292,7 @@ class User
         :into => aspect_id
       )
 
-      invited_user = User.invite!(:email => opts[:email], :request => request, :inviter => self)
+      invited_user = User.invite!(:email => opts[:email], :request => request, :inviter => self, :invite_message => opts[:invite_message])
 
       self.invites = self.invites - 1
       self.pending_requests << request
@@ -313,6 +315,10 @@ class User
     else
       invitable.pending_requests << request
       invitable.inviters << inviter
+      message = attributes.delete(:invite_message)
+      if message
+        invitable.invite_messages[inviter.id.to_s] = message
+      end
     end
 
     if invitable.new_record?
