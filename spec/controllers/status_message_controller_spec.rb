@@ -5,16 +5,17 @@
 require 'spec_helper'
 
 describe StatusMessagesController do
- render_views
+  render_views
+
+  let!(:user) { Factory(:user) }
+  let!(:aspect) { user.aspect(:name => "lame-os") }
+
   before do
-    @user = Factory.create(:user)
-    @aspect = @user.aspect(:name => "lame-os")
-    @album = @user.post :album, :to => @aspect.id, :name => 'things on fire'
-    sign_in :user, @user
+    sign_in :user, user
   end
 
   describe '#create' do
-   let(:status_message_hash) {{"aspect_ids" =>"#{@aspect.id.to_s}", "status_message"=>{"public"=>"1", "message"=>"facebook, is that you?"}}}
+   let(:status_message_hash) {{"status_message"=>{"public"=>"1", "message"=>"facebook, is that you?", "to" =>"#{aspect.id}"}}}
     
    before do
      @controller.stub!(:logged_into_fb?).and_return(true)
