@@ -10,6 +10,7 @@
 
 = render 'aspects/empty_messages'
 
+= render "shared/publisher"
 %ul#stream
   - for post in @posts
     = render type_partial(post), :post => post unless post.class == Album
