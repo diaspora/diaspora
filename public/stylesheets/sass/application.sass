@@ -248,7 +248,6 @@ li.message
     :background #eee
 
   .content
-    :max-width 610px
     :margin
       :top -4px
     :padding
@@ -450,16 +449,13 @@ ul.comment_set
     :top 1em
   :padding 0
   :list-style none
-  :max-width 610px
+  :background
+    :color rgba(10,81,109,0.05)
 
   textarea
     :width 100%
 
   li.comment
-    :margin
-      :bottom 0.5em
-    :background
-      :color rgba(10,81,109,0.05)
     :padding 0.6em
     :border
       :bottom 1px solid #ddd
@@ -468,8 +464,10 @@ ul.comment_set
       :color #777
       :margin
         :top -2px
+        :bottom -2px
       :padding
         :left 45px
+        :right 20px
       .from
         a
           :color #444
@@ -477,7 +475,7 @@ ul.comment_set
         :size 12px
 
       :line
-        :height 18px
+        :height 16px
 
       div.time
         :color #bbb
