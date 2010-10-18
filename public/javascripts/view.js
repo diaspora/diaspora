@@ -72,3 +72,21 @@ $.fn.clearForm = function() {
   });
 };
 
+var video_active_container = null;
+
+function openVideo(type, videoid, link) {
+  var container = document.createElement('div');
+  if(type == 'youtube.com') {
+    container.innerHTML = '<a href="http://www.youtube.com/watch?v='+videoid+'" target="_blank">Watch this video on Youtube</a><br><object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/'+videoid+'?fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'+videoid+'?fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>';
+  } else {
+    container.innerHTML = 'Invalid videotype <i>'+type+'</i> (ID: '+videoid+')';
+  }
+  if(video_active_container != null) {
+    video_active_container.parentNode.removeChild(video_active_container);
+  }
+  video_active_container = container;
+  $(container).hide();
+  link.parentNode.insertBefore(container, this.nextSibling);
+  $(container).slideDown('fast', function() { });
+  link.onclick = function() { $(container).slideToggle('fast', function() { } ); }
+}
