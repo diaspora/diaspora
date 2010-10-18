@@ -4,7 +4,7 @@
     = invite.label :email
     = invite.text_field :email
   To
-  - if @aspect == :all
+  - unless @aspect.is_a? Aspect
     = invite.select(:aspects, @aspects_dropdown_array)
   - else 
     = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
