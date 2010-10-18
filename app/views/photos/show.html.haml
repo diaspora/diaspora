@@ -30,7 +30,6 @@
     //show form to add description
     $(".edit-desc").click(function(){
       $(".edit_photo").toggle(); 
-      //$(".caption").toggle();
     });
 
     //Add a description with ajax request
@@ -40,7 +39,6 @@
       var url = $(".edit_photo").attr("action");
       var data = $(".edit_photo").serialize();
       $(".description").text($("#photo_caption").val());
-      //$(".caption").toggle();
       $(".edit_photo").toggle();
 
         $.ajax({  
@@ -80,13 +78,13 @@
   #show_photo
     = linked_scaled_photo @photo, @album
     .caption
-      -if current_user.owns? @album
+      -if current_user.owns? @photo
         -if @photo.caption and @photo.caption != ""
           = link_to 'Edit','javascript:void(0)', :id => "edit-desc", :class => "edit-desc"
       .description
         = @photo.caption
 
-    -if current_user.owns? @album
+    -if current_user.owns? @photo
       %div{:class => 'clear'}
       -if !@photo.caption or @photo.caption == ""
         = link_to 'Add a description','javascript:void(0)', :id => "add-description", :class => "edit-desc"
