@@ -15,14 +15,12 @@
 - content_for :left_pane do
   = render "shared/aspect_friends"
 
-- content_for :publish do
-  -if current_user.owns? @album
-    .right
-      =render 'photos/new_photo'
-      = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
-  %h1
-    = @album.name
-  ="#{t('.updated')} #{how_long_ago(@album)}"
+%h3
+  = @album.name
+="#{t('.updated')} #{how_long_ago(@album)}"
+-if current_user.owns? @album
+  =render 'photos/new_photo'
+  = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
 
 .album_id{:id => @album.id, :style => "display:hidden;"}
 

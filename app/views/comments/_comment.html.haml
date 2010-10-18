@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 %li.comment{:id => post.id}
-  = person_image_tag(post.person)
+  = person_image_link(post.person)
   .content
     .from
       = link_to post.person.real_name, post.person
