@@ -130,11 +130,11 @@ describe User do
 
 
     it 'should remove all aspects' do
-      pending "this should use :dependant => :destroy on the many assoc...but that screws this test suite..."
       aspects = user.aspects
+      aspects.count.should > 0
       user.destroy
-      proc { aspects.reload }.should raise_error /does not exist/
-
+      aspects.reload
+      aspects.count.should == 0
     end
 
 
