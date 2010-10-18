@@ -3,7 +3,6 @@
 -#   the COPYRIGHT file.
 
 :javascript
-  
   $("div.public_toggle input").live("click", function(evt){
     if("#{@logged_in}" == "false" && $(this).attr('checked') == true){
       $(".question_mark").click(); 
@@ -16,28 +15,23 @@
   = form_for StatusMessage.new, :remote => true do |f|
     = f.error_messages
     %p
-      %label{:for => "status_message_message"} Message
+      = f.label :message, "Post a message to #{@aspect}"
       = f.text_area :message, :rows => 2, :value => params[:prefill]
 
-    %ul.aspect_selector{ :style => "display:none;"}
-      going to...
-      - for aspect in @aspects
-        %li
-          = check_box_tag("aspect_ids[]", aspect.id, @aspect == :all || current_aspect?(aspect) )
-          = aspect.name
-
+    = f.hidden_field :to, :value => (@aspect == :all ? @aspect : @aspect.id)
   
     - if @aspect == :all
       .public_toggle
         = f.check_box( :public, :value => false )
         make public
         = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
-        .yo{:style => "display:none;"}
+
+        .fancybox_content
           #question_mark_pane
             = render 'shared/public_explain'
-    .buttons
-      - if @aspect == :all
-        = f.submit t('.share'), :title => "Share with all aspects"
-      - else
-        = f.submit t('.share'), :title => "Share with #{@aspect.name}"
+
+    - if @aspect == :all
+      = f.submit t('.share'), :title => "Share with all aspects"
+    - else
+      = f.submit t('.share'), :title => "Share with #{@aspect.name}"
 
