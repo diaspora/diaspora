@@ -104,14 +104,10 @@ header
   :margin -2em
     :bottom 2em
   :color #000
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#222))
-  :background -moz-linear-gradient(19% 75% 90deg, #222, #666)
   :background
-    :color #666
+    :color #333
   :padding 0
     :top 5px
-  :border
-    :bottom 1px solid #ccc
 
   a
     :color #CCC
@@ -130,7 +126,7 @@ header
 
   ul#user_menu
     a
-      :text-shadow 0 1px 0 #444
+      :text-shadow 0 1px 0 #000
 
     :z-index 10
     :font
@@ -182,16 +178,13 @@ header
 
   #global_search
     :margin
-      :left 400px
+      :left 425px
 
   #aspect_header
     :-webkit-box-shadow 0px -4px 6px -2px #777
     
-    :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F7F7F7), to(#EEEEEE))
-    :background -moz-linear-gradient(19% 75% 90deg, #eee, #f7f7f7)
-
     :background
-      :color #eee
+      :color #fff
     :border
       :top 1px solid #fff
     :padding 20px 0
@@ -231,6 +224,9 @@ ul#stream
 
   .right
     :top 0
+
+  .avatar
+    :border-radius 5px
 
 li.message
   :position relative
@@ -614,11 +610,20 @@ label
 #publisher
   :color #999
   :position relative
+  :height 65px
+  :width 100%
+  :margin
+    :bottom 10px
+    :top 50px
+
+  :border
+    :bottom 2px #777 solid
 
   .avatar
     :float left
     :margin
       :right 15px
+    :border-radius 5px
 
   p
     :position absolute
@@ -634,7 +639,7 @@ label
         :right 20px
 
   textarea
-    :width 570px
+    :width 515px
     :height 42px
     :margin 0
 
@@ -773,7 +778,7 @@ h1.big_text
 #aspect_nav
   :color #000
   :margin
-    :top 8px
+    :top 0
     :bottom 1px
 
   :font
@@ -807,18 +812,13 @@ h1.big_text
         :color #CCC
 
         &:hover
-          :background
-            :color #4e4e4e
           :color #eee
 
       &.selected a
         :-webkit-border-radius 5px 5px 0 0 
         :-moz-border-radius 5px 5px 0 0 
 
-        :-webkit-box-shadow 0px -4px 6px -2px #777
-        :-moz-box-shadow 0px -4px 6px -2px #777
-
-        :text-shadow 0 1px 0 #fff
+        :text-shadow 0 1px 0 #eee
         :padding
           :top 4px
           :bottom 5px
@@ -827,17 +827,11 @@ h1.big_text
         :font
           :weight bold
         :background
-          :color #eee
+          :color #fff
 
-        :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#F7F7F7))
-        :background -moz-linear-gradient(19% 75% 90deg, #f7f7f7, #fff)
-
-        :border 1px solid #fff
-          :bottom 1px solid #F7F7F7
         :color #444
         &:hover
-          :background
-            :color #efefef
+          :color #888
         a
           :color #000
   .new_requests
@@ -854,18 +848,12 @@ h1.big_text
     input
       :display inline
       :font
-        :size 12px
+        :size 13px
       :border none
 
     input[type='text']
       :width 200px
       :padding 2px
-
-    label
-      :font
-        :size 12px
-      :margin
-        :top -3px
 
 
 .aspect,
@@ -991,8 +979,8 @@ ul#settings_nav
   :line-height 1em
   img
     :margin-right -1px
-    :width 35px
-    :height 35px
+    :width 30px
+    :height 30px
 
 #thumbnails
   :line-height 14px
@@ -1028,12 +1016,9 @@ ul#settings_nav
   h3
     :color #777
 
-  :margin
-    :left 70px
+  :margin 0
   :padding 2em
     :bottom 0.7em
-
-  :width 520px
 
   :border 2px dashed #777
   :border-radius 5px

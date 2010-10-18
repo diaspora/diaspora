@@ -57,13 +57,12 @@
           %li= link_to t('.logout.'), destroy_user_session_path
 
         = render "shared/aspect_nav"
-      = render "shared/sub_header"
 
     .container
       .span-4.append-1.last
         = yield :left_pane
 
-      .span-19.last
+      .span-15.last
         = yield
 
       .span-19.prepend-5.last

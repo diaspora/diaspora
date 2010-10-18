@@ -1,6 +1,6 @@
 #aspect_header
   .container
-    .span-5.last
+    .span-4.last
       - if @person
         %h2
           = @person.real_name
@@ -16,5 +16,5 @@
       .page_title
         = yield :page_title
 
-    .span-19.last{ :style => "position:relative;" }
+    .span-15.last{ :style => "position:relative;" }
       = yield :publish
