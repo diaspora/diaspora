@@ -27,9 +27,8 @@
 
   = render 'shared/invitations', :invites => @invites
 
-- content_for :publish do
-  = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
-
+%h2 Manage aspects
+= link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
 
 %ul#aspect_list
   - for aspect in @aspects

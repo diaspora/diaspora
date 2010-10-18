@@ -11,7 +11,6 @@
         = link_for_aspect aspect
 
   %ul{ :style => "position:absolute;right:0;bottom:0.01em;"}
-
     %li{ :style => "margin-right:0;", :class => ("selected" if @aspect == :manage)}
       = link_to ( (@request_count == 0)? t('.manage') : "#{t('.manage')} (#{@request_count})"), {:controller => :aspects, :action => :manage}, :class => "edit_aspect_button", :class => new_request(@request_count), :title => t('.manage_your_aspects')
 

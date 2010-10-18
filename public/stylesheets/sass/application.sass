@@ -180,30 +180,6 @@ header
     :margin
       :left 425px
 
-  #aspect_header
-    :-webkit-box-shadow 0px -4px 6px -2px #777
-    
-    :background
-      :color #fff
-    :border
-      :top 1px solid #fff
-    :padding 20px 0
-
-    h1
-      :text-shadow 0 1px 0 #fff
-
-    a
-      :color #444
-      &:hover
-        :background none
-        :color #999
-
-    .page_title
-      :text
-        :transform uppercase
-        :shadow 0 1px 0 #fff
-
-
 ul#stream
   :margin 0
   :padding 0
@@ -925,24 +901,33 @@ h1.big_text
     :margin 5px
     :z-index 10
 
-    :text
-      :align center
+    :width 110px
 
-    :width 125px
-    :height 120px
+    :background
+      :color #333
+
+    :border-radius 5px
+  
+    a
+      :color #ccc
 
     img
-      :height 100px
-      :width 100px
-      :display inline-block
+      :height 40px
+      :width 40px
+      :display inline
+
+    .name
+      :display inline
+      :top 0
+      :margin
+        :left 5px
 
     &:active
       :z-index 20
       :color #666
-      img
-        :-webkit-box-shadow 0 1px 3px #333
-        :-moz-box-shadow 0 2px 4px #333
-        :opacity 0.9
+      :-webkit-box-shadow 0 1px 3px #000
+      :-moz-box-shadow 0 2px 4px #000
+      :opacity 0.9
 
 ul#settings_nav
   :list
@@ -1007,7 +992,6 @@ ul#settings_nav
 
 .empty_message
   :margin
-    :top 12px
     :bottom 12px
   :text
     :align center
@@ -1016,11 +1000,10 @@ ul#settings_nav
   h3
     :color #777
 
-  :margin 0
   :padding 2em
     :bottom 0.7em
 
-  :border 2px dashed #777
+  :border 2px dashed #FAC421
   :border-radius 5px
 
   .null_arrow
