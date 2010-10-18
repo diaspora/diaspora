@@ -133,6 +133,13 @@ class User
     intitial_post(class_name, aspect_ids, options)
   end
 
+  def post_to_message_fb(message, access_token)
+    id = 'me'
+    type = 'feed'
+    Rails.logger.info("Sending a message: #{message} to Facebook")
+    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{access_token}").post
+  end
+
   def intitial_post(class_name, aspect_ids, options = {})
     post = build_post(class_name, options)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
