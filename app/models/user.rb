@@ -290,8 +290,21 @@ class User
       aspect_id = opts.delete(:aspect_id)
       if aspect_id == nil
         raise "Must invite into aspect"
-      elsif !(self.aspects.find_by_id(aspect_id))
+      end
+      aspect_object = self.aspects.find_by_id(aspect_id)
+      if !(aspect_object)
         raise "Must invite to your aspect"
+      else
+        u = User.find_by_email(opts[:email])
+        if u.nil?  
+        elsif friends.include?(u.person)
+          raise "You are already friends with this person"          
+        elsif not u.invited?
+          self.send_friend_request_to(u.person, aspect_object)
+          return
+        elsif u.invited? && u.inviters.include?(self)
+          raise "You already invited this person"          
+        end
       end
       request = Request.instantiate(
         :to => "http://local_request.example.com",

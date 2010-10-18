@@ -64,6 +64,20 @@ describe User do
       inviter.reload
       inviter.pending_requests.find_by_callback_url(inviter.receive_url).nil?.should == false
     end
+
+    it 'throws if you try to add someone you"re friends with' do
+      friend_users(inviter, aspect, another_user, wrong_aspect)
+      inviter.reload
+      proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /You are already friends with this person/
+    end
+
+    it 'sends a friend request to a user with that email into the aspect' do
+      inviter.should_receive(:send_friend_request_to){ |a, b| 
+        a.should == another_user.person
+        b.should == aspect
+      }
+      inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)
+    end
   end
 
   context "limit on invites" do

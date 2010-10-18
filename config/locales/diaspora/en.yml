@@ -172,6 +172,7 @@ en:
           sent: 'Your invitation has been sent.'
           no_more: 'You have no more invitations.'
           already_sent: 'You already invited this person.'
+          already_friends: 'You are already friends with this person' 
           invitation_token_invalid: 'The invitation token provided is not valid!'
           updated: 'Your password was set successfully. You are now signed in.'
 
