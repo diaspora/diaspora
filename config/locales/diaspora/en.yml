@@ -225,6 +225,7 @@ en:
           ignore: "Ignored friend request."
       create:
           error: "No diaspora seed found with this email!"
+          yourself: "You cannot befriend yourself!"
           already_friends: "You are already friends with %{destination_url}!"
           success: "A friend request was sent to %{destination_url}."
           horribly_wrong: "Something went horribly wrong."
