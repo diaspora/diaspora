@@ -3,9 +3,9 @@
 -#   the COPYRIGHT file.
 
 %h1=t('.add_a_new_aspect')
-= form_for Aspect.new do |f|
-  = f.error_messages
+= form_for Aspect.new do |aspect|
+  = aspect.error_messages
   %p
-    = f.label :name
-    = f.text_field :name
-    = f.submit t('.create'), :class => 'button'
+    = aspect.label :name
+    = aspect.text_field :name
+    = aspect.submit t('.create'), :class => 'button'

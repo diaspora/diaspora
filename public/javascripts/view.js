@@ -47,9 +47,9 @@ $(document).ready(function(){
     }
   );
 
-  $("#publisher textarea").keydown( function(e) {
+  $("#publisher textarea, .comment textarea").keydown( function(e) {
     if (e.keyCode == 13) {
-      $("#publisher form").submit();
+      $(this).closest("form").submit();
     }
   });
 
