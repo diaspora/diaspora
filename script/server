@@ -33,7 +33,7 @@ if [ -n "$services" ]; then
 fi
 
 # Check if Mongo is running
-if  ! pgrep mongod >/dev/null
+if  ! ps ax | grep -v grep | grep mongod >/dev/null
 then
     echo "Error: Mongod not started. Exiting" >&2
     exit 64
