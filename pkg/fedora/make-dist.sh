@@ -162,8 +162,8 @@ function make_src
         (
              cd  ${RELEASE_DIR}/master
              git show --name-only > config/gitversion
-             tar cf public/source.tar  \
-                 --exclude='source.tar' -X .gitignore *
+             tar czf public/source.tar.gz  \
+                 --exclude='source.tar.gz' -X .gitignore *
              find $PWD  -name .git\* | xargs rm -rf
              rm -rf .bundle
              /usr/bin/patch -p1 -s <../../../add-bundle.diff
@@ -192,6 +192,8 @@ set -x
             mkdir -p $bundle_name/bundle
             pushd diaspora > /dev/null
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
+                    rm -f Gemfile.lock
+                    rm -rf .bundle
                     bundle update
                 fi
                 bundle install --deployment                      \
@@ -286,7 +288,7 @@ function usage()
 
 commit='HEAD'
 BUNDLE_FIX='no'
-while getopts ":r:c:fh" opt
+while getopts ":r:c:u:fh" opt
 do
     case $opt in
         u)   GIT_REPO="$OPTARG"

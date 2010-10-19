@@ -2,11 +2,15 @@
 #
 #  Do what's needed to initiate diaspora.
 #
+#  Usage: sudo diaspora-setup [external hostname]
+#
 
 test  "$( perl -e 'print $<')" = "0" || {
     echo "You need to be root to do this, giving up"
     exit 2
 }
+
+arg_hostname="$1"
 
 services=$( netstat -nl | grep '[^:]:3000[ \t]')
 test -n "$services" && {
@@ -41,6 +45,12 @@ fi
 
 chmod 777 /var/lib/diaspora/uploads
 chown -R diaspora /var/log/diaspora
+
+if [ -n "$arg_hostname" ]; then
+    sed -i "/pod_url:/s/$hostname/$arg_hostname/g" config/app_config.yml &&
+        echo "config/app_config.yml updated."
+    exit 0
+fi
 
 hostname=$( awk '/pod_url:/ { print $2; exit }' <config/app_config.yml)
 while : ; do
