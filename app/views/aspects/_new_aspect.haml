@@ -2,10 +2,14 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h1=t('.add_a_new_aspect')
-= form_for Aspect.new do |aspect|
-  = aspect.error_messages
-  %p
-    = aspect.label :name
-    = aspect.text_field :name
-    = aspect.submit t('.create'), :class => 'button'
+.span-12.last
+  .modal_title_bar
+    %h4= t('.add_a_new_aspect')
+
+  = form_for Aspect.new do |aspect|
+    = aspect.error_messages
+    %p
+      = aspect.label :name
+      = aspect.text_field :name
+      = aspect.submit t('.create'), :class => 'button'
+
