@@ -941,22 +941,20 @@ h1.big_text
       :opacity 0.9
 
 ul#settings_nav
+  :display inline
   :list
     :style none
   :padding 0
-  :marign 0
-
   :font
-    :size larger
+    :size large
+  :margin
+    :left 5.68em
 
   > li
+    :display inline
+    :margin
+      :right 1em
     a
-      :font
-        :size smaller
-      :display block
-      :height 100%
-      :border
-        :bottom 1px solid #eee
       :padding 2px
 
 
@@ -1036,3 +1034,7 @@ header
 
 .edit_photo
   :display none
+
+#section_header
+  :background
+    :color #aaa
