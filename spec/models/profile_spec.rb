@@ -9,6 +9,15 @@ describe Profile do
     @person = Factory.build(:person)
   end
 
+  describe 'sanitization' do
+    it 'strips the names' do
+      @person.profile = Factory.build(:profile, :first_name => "  Bob", :last_name => "Bobson  ")
+      @person.profile.save
+      @person.profile.first_name.should == "Bob"
+      @person.profile.last_name.should == "Bobson"
+    end
+  end
+
   describe 'requirements' do
     it "should include a first name" do
       @person.profile = Factory.build(:profile,:first_name => nil)
@@ -23,7 +32,5 @@ describe Profile do
       @person.profile.last_name = "Smith"
       @person.profile.valid?.should be true
     end
-
   end
-
 end
