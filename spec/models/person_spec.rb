@@ -14,11 +14,6 @@ describe Person do
   end
 
   describe '#diaspora_handle' do
-    it 'should downcase and strip the handle before it saves' do
-      p = Factory.build(:person, :diaspora_handle => "  FOOBaR@example.com  ")
-      p.save
-      p.diaspora_handle.should == "foobar@example.com"
-    end
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
         @user.person.diaspora_handle.should == @user.username + "@" + APP_CONFIG[:terse_pod_url]
@@ -30,14 +25,20 @@ describe Person do
         @person.diaspora_handle.include?(APP_CONFIG[:terse_pod_url]).should be false
       end
     end
+    describe 'validation' do
+      it 'is unique' do
+        person_two = Factory.build(:person, :url => @person.diaspora_handle)
+        person_two.valid?.should be_false
+      end
+
+      it 'is case insensitive' do
+        person_two = Factory.build(:person, :url => @person.diaspora_handle.upcase)
+        person_two.valid?.should be_false
+      end
+    end
   end
 
-  it 'should not allow two people with the same diaspora_handle' do
-    person_two = Factory.build(:person, :url => @person.diaspora_handle)
-    person_two.valid?.should == false
-  end
-
-    describe 'xml' do
+  describe 'xml' do
     before do
       @xml = @person.to_xml.to_s
     end
@@ -52,7 +53,7 @@ describe Person do
     end
   end
 
-  it 'should know when a post belongs to it' do
+  it '#owns? posts' do
     person_message = Factory.create(:status_message, :person => @person)
     person_two =     Factory.create(:person)
 
@@ -186,6 +187,12 @@ describe Person do
       it "finds a local person with a mixed-case username" do
         user = Factory(:user, :username => "SaMaNtHa")
         person = Person.by_webfinger(user.person.diaspora_handle)
+        person.should == user.person
+      end
+
+      it "is case insensitive" do
+        user = Factory(:user, :username => "SaMaNtHa")
+        person = Person.by_webfinger(user.person.diaspora_handle.upcase)
         person.should == user.person
       end
     end

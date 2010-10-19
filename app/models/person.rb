@@ -27,20 +27,11 @@ class Person
 
   timestamps!
   
-  before_save :strip_and_downcase_diaspora_handle
   before_destroy :remove_all_traces
   before_validation :clean_url
   validates_presence_of :url, :profile, :serialized_public_key
   validates_format_of :url, :with =>
     /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
-
-
-  def strip_and_downcase_diaspora_handle
-    if self.diaspora_handle
-      self.diaspora_handle.strip!
-      self.diaspora_handle.downcase! 
-    end
-  end
 
   def self.search(query)
     return Person.all if query.to_s.empty?
@@ -95,12 +86,14 @@ class Person
 
   def self.by_webfinger(identifier, opts = {})
     #need to check if this is a valid email structure, maybe should do in JS
-    local_person = Person.first(:diaspora_handle => identifier.gsub('acct:', '').to_s)
+    query = /#{Regexp.escape(identifier.gsub('acct:', '').to_s)}/i
+    local_person = Person.first(:diaspora_handle => query)
 
     if local_person
       Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
       local_person
     elsif  !identifier.include?("localhost") && !opts[:local]
+      #Get remote profile
       begin
         Rails.logger.info("Webfingering #{identifier}")
         f = Redfinger.finger(identifier)
