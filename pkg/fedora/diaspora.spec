@@ -77,6 +77,7 @@ mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 cp %SOURCE2  $RPM_BUILD_ROOT/%{_datadir}/diaspora
 
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/run/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 
@@ -94,12 +95,15 @@ find  -L $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type f     \
 cat files >> dirs && mv -f dirs files
 sed -i   -e '\|.*/master/config.ru"$|d'                    \
          -e '\|.*/master/config/environment.rb"$|d'        \
+         -e '\|.*/run/diaspora"$|d'                        \
+         -e '\|.*/pkg/fedora/dist"$|d'                     \
          -e 's|%{buildroot}||' -e 's|//|/|' -e '/""/d'     \
       files
 
 
 %post wsd
 /sbin/chkconfig --add  diaspora-wsd || :
+
 
 %preun  wsd
 if [ $1 -eq 0 ] ; then
@@ -117,9 +121,11 @@ rm -fr $RPM_BUILD_ROOT
 %doc AUTHORS README.md GNU-AGPL-3.0 COPYRIGHT README-Fedora.md
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config.ru
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config/environment.rb
+%attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/pkg/fedora/dist
 %attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/tmp
+%attr(-, diaspora, diaspora) %{_localstatedir}/run/diaspora
 
 %{_datadir}/diaspora/master/tmp
 %{_datadir}/diaspora/master/public/uploads
