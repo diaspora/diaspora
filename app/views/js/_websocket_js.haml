@@ -4,7 +4,7 @@
 
 = javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
 :javascript
-  WebSocket.__swfLocation = "/javascripts/WebSocketMain.swf";
+  WebSocket.__swfLocation = "#{javascript_path 'WebSocketMain.swf'}";
   $(document).ready(function(){
     function debug(str){ $("#debug").append("<p>" +  str); };
 
