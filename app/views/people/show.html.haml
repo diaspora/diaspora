@@ -5,7 +5,8 @@
 - content_for :page_title do
   profile
 
-- content_for :left_pane do
+.span-4.append-1.last
+  %h2= @person.real_name
   #profile
     .profile_photo
       = person_image_link(@person)
@@ -26,12 +27,12 @@
     - if @person != current_user.person && current_user.friends.include?(@person)
       = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
 
-.span-20.last
-  .span-19.last
-    - if @posts
-      %ul#stream
-        - for post in @posts
-          = render type_partial(post), :post => post unless post.class == Album
-        = will_paginate @posts
-    - else
-      %h3=t('no posts to display!')
+.span-15.last
+  - if @posts.count > 0
+    %ul#stream
+      - for post in @posts
+        = render type_partial(post), :post => post unless post.class == Album
+      = will_paginate @posts
+  - else
+    %h3=t('no posts to display!')
+

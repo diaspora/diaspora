@@ -50,7 +50,7 @@ module ApplicationHelper
 
   def person_image_tag(person)
     image_location = person.profile.image_url
-    image_location ||= "/images/user/default.jpg"
+    image_location ||= "/images/user/default.png"
 
     image_tag image_location, :class => "avatar", :alt => person.real_name, :title => person.real_name
   end

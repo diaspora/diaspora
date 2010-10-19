@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 :javascript
-  $("#settings_nav li > a").click( function() {
+  $("#settings_nav li > a").live("click", function() {
     var target = "#"+$(this).attr('class');
     if( !$(target).is(":visible") ) {
       $(".settings_pane").fadeOut(200, function() {
@@ -12,22 +12,20 @@
     }
   });
 
-
-- content_for :publish do
-  %h2="#{t('.editing_profile')}"
-
-- content_for :left_pane do
+%h2
+  Settings
   %ul#settings_nav
     %li=link_to 'Profile', '#', :class => 'profile'
     %li=link_to 'Account', '#', :class => 'account'
     %li=link_to 'Services', '#', :class => 'services'
 
-#profile.settings_pane{:style=>"display:block;"}
-  = render 'users/profile'
+.span-19.prepend-5.last
+  #profile.settings_pane{:style=>"display:block;"}
+    = render 'users/profile'
 
-#account.settings_pane
-  = render 'users/account'
+  #account.settings_pane
+    = render 'users/account'
 
-#services.settings_pane
-  = render 'users/services'
+  #services.settings_pane
+    = render 'users/services'
 
