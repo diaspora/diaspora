@@ -14,6 +14,11 @@ describe Person do
   end
 
   describe '#diaspora_handle' do
+    it 'should downcase and strip the handle before it saves' do
+      p = Factory.build(:person, :diaspora_handle => "  FOOBaR@example.com  ")
+      p.save
+      p.diaspora_handle.should == "foobar@example.com"
+    end
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
         @user.person.diaspora_handle.should == @user.username + "@" + APP_CONFIG[:terse_pod_url]
@@ -32,7 +37,7 @@ describe Person do
     person_two.valid?.should == false
   end
 
-  describe 'xml' do
+    describe 'xml' do
     before do
       @xml = @person.to_xml.to_s
     end
