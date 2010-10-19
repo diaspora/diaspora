@@ -23,7 +23,7 @@ class AspectsController < ApplicationController
     else
       flash[:error] = I18n.t('aspects.create.failure')
     end
-    respond_with :location => aspects_manage_path
+    respond_with @aspect
   end
 
   def new

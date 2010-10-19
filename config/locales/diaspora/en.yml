@@ -149,6 +149,8 @@ en:
       photo:
           show_comments: "show comments"
           posted_a_new_photo_to: "posted a new photo to"
+          delete: "Delete"
+          are_you_sure: "Are you sure?"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"

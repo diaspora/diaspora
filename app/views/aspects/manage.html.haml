@@ -6,9 +6,11 @@
   = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
   = javascript_include_tag 'aspect-edit.js'
 
-%h2
-  Manage aspects
-  = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
+#section_header
+  %h2
+    Manage aspects
+  .right
+    = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :class => "new_aspect add_aspect_button button", :title => t('.add_a_new_aspect'))
 
 .span-4.append-1.last
   %h3=t('.requests')
