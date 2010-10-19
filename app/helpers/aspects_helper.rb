@@ -14,12 +14,4 @@ module AspectsHelper
       "<span class='grey' title=#{I18n.t('aspects.helper.aspect_not_empty')}>#{I18n.t('aspects.helper.remove')}</span>"
     end
   end
-
-  def aspect_id(aspect)
-    if aspect.class == Aspect
-      aspect.id
-    else
-      :all
-    end
-  end
 end
