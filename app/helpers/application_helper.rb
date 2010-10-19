@@ -7,6 +7,14 @@ module ApplicationHelper
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
 
+  def aspect_or_all_path aspect
+    if @aspect.is_a? Aspect
+      aspect_path @aspect
+    else
+      aspects_path
+    end
+  end
+  
   def object_path(object, opts = {})
     object = object.person if object.is_a? User
     eval("#{object.class.to_s.underscore}_path(object, opts)")
