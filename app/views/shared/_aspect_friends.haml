@@ -28,7 +28,11 @@
   %br
   %br
   %ul
-    %li= link_to 'stream', aspect_path(@aspect)
+    - if @aspect == :all
+      %li= link_to 'stream', root_path
+    - else
+      %li= link_to 'stream', aspect_path(@aspect)
+
     %li= link_to t('.photos'), albums_path(:aspect => @aspect)
 
   %br

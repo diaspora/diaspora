@@ -8,20 +8,23 @@
       $("#add_album_button").fancybox();
     });
 
-- content_for :left_pane do
+.span-4.append-1.last
   = render "shared/aspect_friends"
 
-%h3 Albums
-= link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
+.span-15.last
+  %h3
+    = @aspect
+    Albums
+  = link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
 
-.fancybox_content
-  #new_album_pane
-    = render "albums/new_album", :aspect => params[:aspect]
+  .fancybox_content
+    #new_album_pane
+      = render "albums/new_album", :aspect => params[:aspect]
 
-%div
-  - for album in @albums
-    = render "album", :post => album
+  %div
+    - for album in @albums
+      = render "album", :post => album
 
-#pagination
-  = will_paginate @albums
+  #pagination
+    = will_paginate @albums
 
