@@ -39,6 +39,21 @@ describe Aspect do
     end
   end
 
+  describe 'validation' do
+    before do
+      @aspect = @user.aspect(:name => 'losers')
+    end
+    it 'has a unique name for one user' do
+      aspect2 = @user.aspect(:name => @aspect.name)
+      aspect2.valid?.should be_false
+    end
+
+    it 'has no uniqueness between users' do
+      aspect2 = @user2.aspect(:name => @aspect.name)
+      aspect2.valid?.should be_true
+    end
+  end
+
   describe 'querying' do
     before do
       @aspect = @user.aspect(:name => 'losers')
