@@ -174,7 +174,7 @@ popd
 getent group diaspora >/dev/null || groupadd -r diaspora
 getent passwd diaspora >/dev/null ||        \
     useradd -r -g diaspora                  \
-    -md  /var/lib/diaspora -s /sbin/nologin \
+    -md  /var/lib/diaspora -s /bin/bash     \
     -c "Diaspora daemon" diaspora
 exit 0
 

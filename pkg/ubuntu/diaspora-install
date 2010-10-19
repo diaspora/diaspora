@@ -9,8 +9,6 @@ test "$(perl -e 'print $>')" = "0" || {
     exit 2
 }
 
-set -x
-
 getent group diaspora >/dev/null || groupadd -r diaspora
 getent passwd diaspora >/dev/null ||    \
     useradd -r -g diaspora              \

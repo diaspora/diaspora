@@ -1,32 +1,30 @@
 ## Package-oriented install for ubuntu.
 
-NOTE: This does not work ATM, see http://bugs.joindiaspora.com/issues/372
-
-Here are somediaspora-installdiaspora-install scripts to install diaspora on Ubuntu. They are designed to
+Here are  scripts to install diaspora on Ubuntu. They are designed to
 work as a first step towards packaging, but should be usable as is.
 
 ### Synopsis
 
 Bootstrap the distribution from git:
-    sudo apt-get install git-core
-    git clone git://github.com/diaspora/diaspora.git
-    cd diaspora/pkg/ubuntu
+    % sudo apt-get install git-core
+    % git clone git://github.com/diaspora/diaspora.git
+    % cd diaspora/pkg/ubuntu
 
-Install the dependencies (a good time for a coffe break)
-    sudo ./diaspora-install-deps
+Install the dependencies (a good time for a coffe break):
+    % sudo ./diaspora-install-deps
 
 Create and install the diaspora bundle and application:
-    ./make-dist.sh bundle
-    sudo ./diaspora-bundle-install dist/diaspora-bundle-*.tar.gz
+    % ./make-dist.sh bundle
+    % sudo ./diaspora-bundle-install dist/diaspora-bundle-*.tar.gz
 
-    ./make-dist.sh source
-    sudo ./diaspora-install dist/diaspora-0.0*.tar.gz
+    % ./make-dist.sh source
+    % sudo ./diaspora-install dist/diaspora-0.0*.tar.gz
 
 Initiate and start the server;
-    sudo ./diaspora-setup
-    sudo su - diaspora
-    cd /usr/share/diaspora/master
-    ./script/server
+    % sudo ./diaspora-setup
+    % sudo su - diaspora
+    % cd /usr/share/diaspora/master
+    % ./script/server
 
 ### Upgrading
 
@@ -36,18 +34,22 @@ The normal procedure to update is to just
     $ ./make-dist.sh bundle
     $ ./make-dist.sh source
 
-And then use diaspore-install and diaspora-install-bundle as above.
-
-It's necessary to always have the correct bundle. The easy way is to just
-    $ ./make-dist.sh bundle
-
-    Repo:       http://github.com/diaspora/diaspora.git
-    Bundle:     dist/diaspora-bundle-0.0-1010111342_afad554.tar.gz
-
-The command will return the last built bundle (which is cached) if it's
-OK to use. If it's not, it will build a new.
+And then use diaspora-install and diaspora-install-bundle as above.
+It's necessary to always have the correct bundle. The  *./make-dist.sh bundle*
+above will use a cached bundle if it's still valid, else build a new.
+In most cases only source will need to be built, which is fast.
 
 ### Notes
+
+./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
+root cause is a bad Gemfile.lock in the git repo. Possible fixes includes
+using a older version known to work:
+    % ./make-dist.sh -c c818885b6 bundle
+    % ./make-dist.sh -c c818885b6 source
+
+or forcing a complete update of Gemfile.lock using 'bundle update' (a
+potentially problematic operation):
+    % ./make-dist.sh -f bundle
 
 ./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
 root cause is a bad Gemfile.lock in the git repo. Possible fixes includes
@@ -73,22 +75,20 @@ the stuff using git in this case.
 The user diaspora is added during install.
 
 Tools used for building package are installed globally. All of diasporas
-dependencies lives in the nothing is insalled by user or on system level.
-
-make-dist.sh accepts arguments to get a specified commit and/or use another
-repo.
+dependencies lives in the application - nothing is installed by user or
+on system level.
 
 This has been tested on a Ubuntu 32-bit 10.10 , clean server and on 10.04
 Lucid desktop, also clean installation.
 
 mongodb is having problems occasionally. Sometimes the dependencies are not
-installed, and mongod refuses to start. invoke /usr/bin/mongod -f /etc/mongodb.conf
-fo test. The lockfile /var/lib/mongodb/mongod.conf is also a potential
-problem. Remove to make it start again.
+installed, and mongod refuses to start. invoke */usr/bin/mongod -f
+/etc/mongodb.conf* to test. The lockfile /var/lib/mongodb/mongod.conf is
+also a potential problem. Remove to make it start again.
 
 The diaspora-wsd is just placeholder FTM, it does **not** work.
 
-Please, report any problems!
+
 
 
 
