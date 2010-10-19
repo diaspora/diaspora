@@ -187,6 +187,7 @@ ul#stream
     :min-height 50px
     :list-style none
     :padding 12px 0
+      :right 12px
     :border
       :bottom 1px solid #eee
 
@@ -195,11 +196,8 @@ ul#stream
         :color #fafafa
       :border
         :bottom 1px solid #ddd
-      .destroy_link
+      .right
         :display inline
-
-  .right
-    :top 0
 
   .avatar
     :border-radius 5px
@@ -215,9 +213,6 @@ li.message
     :float left
     :margin
       :right 15px
-
-  .delete:hover
-    :background #eee
 
   .content
     :margin
@@ -292,14 +287,14 @@ li.message
           :color #005D9C
 
 
-.destroy_link .reshare_pane .reshare_button a.inactive
+.right .reshare_pane .reshare_button a.inactive
   :color #ccc
   &:hover
     :text
       :decoration none
   :cursor default
 
-.destroy_link .reshare_pane
+.right .reshare_pane
   :margin
     :left 5px
     :right 5px
@@ -495,12 +490,13 @@ ul.comment_set
   a
     :padding 3px
 
-li.message .from .destroy_link
+li.message .from .right
   :display none
   :position absolute
-  :right 0
+  :right 12px
   :font
     :size 12px
+  :color #999
   a
     :color #999
     :font
@@ -941,22 +937,20 @@ h1.big_text
       :opacity 0.9
 
 ul#settings_nav
+  :display inline
   :list
     :style none
   :padding 0
-  :marign 0
-
   :font
-    :size larger
+    :size large
+  :margin
+    :left 5.68em
 
   > li
+    :display inline
+    :margin
+      :right 1em
     a
-      :font
-        :size smaller
-      :display block
-      :height 100%
-      :border
-        :bottom 1px solid #eee
       :padding 2px
 
 
@@ -1036,3 +1030,17 @@ header
 
 .edit_photo
   :display none
+
+#section_header
+  :width 100%
+  :border
+    :bottom 2px solid #777
+  :position relative
+
+  :margin
+    :bottom 2em
+  :padding
+    :bottom 1em
+
+  h2
+    :display inline

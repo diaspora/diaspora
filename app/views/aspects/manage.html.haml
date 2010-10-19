@@ -6,7 +6,13 @@
   = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
   = javascript_include_tag 'aspect-edit.js'
 
-- content_for :left_pane do
+#section_header
+  %h2
+    Manage aspects
+  .right
+    = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :class => "new_aspect add_aspect_button button", :title => t('.add_a_new_aspect'))
+
+.span-4.append-1.last
   %h3=t('.requests')
 
   .requests
@@ -27,36 +33,34 @@
 
   = render 'shared/invitations', :invites => @invites
 
-%h2 Manage aspects
-= link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
+.span-19.last
+  %ul#aspect_list
+    - for aspect in @aspects
+      %li.aspect
 
-%ul#aspect_list
-  - for aspect in @aspects
-    %li.aspect
+        .aspect_name
+          %span.edit_name_field
+            %h3{:contenteditable => true}= aspect.name
+            %span.tip click to edit
 
-      .aspect_name
-        %span.edit_name_field
-          %h3{:contenteditable => true}= aspect.name
-          %span.tip click to edit
+          %ul.tools
+            %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+            %li!= remove_link(aspect)
 
-        %ul.tools
-          %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
-          %li!= remove_link(aspect)
+        %ul.dropzone{:id => aspect.id}
 
-      %ul.dropzone{:id => aspect.id}
+          -if aspect.people.size < 1
+            %li.grey Drag to add people
 
-        -if aspect.people.size < 1
-          %li.grey Drag to add people
+          -else
+            -for person in aspect.people
 
-        -else
-          -for person in aspect.people
+              %li.person{:id => person.id, :from_aspect_id => aspect.id}
+                = person_image_tag(person)
+                .name
+                  = link_to person.real_name, person
 
-            %li.person{:id => person.id, :from_aspect_id => aspect.id}
-              = person_image_tag(person)
-              .name
-                = link_to person.real_name, person
-
-        .fancybox_content
-          %div{:id => "add_request_pane_#{aspect.id}"}
-            = render "requests/new_request", :aspect => aspect
+          .fancybox_content
+            %div{:id => "add_request_pane_#{aspect.id}"}
+              = render "requests/new_request", :aspect => aspect
 
