@@ -79,19 +79,10 @@ dependencies lives in the application - nothing is installed by user or
 on system level.
 
 This has been tested on a Ubuntu 32-bit 10.10 , clean server and on 10.04
-Lucid desktop, also clean installation.
+Lucid desktop, also clean installation. Irregular nightly builds are
+available from time to time at ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds
 
 mongodb is having problems occasionally. Sometimes the dependencies are not
 installed, and mongod refuses to start. invoke */usr/bin/mongod -f
 /etc/mongodb.conf* to test. The lockfile /var/lib/mongodb/mongod.conf is
 also a potential problem. Remove to make it start again.
-
-The diaspora-wsd is just placeholder FTM, it does **not** work.
-
-
-
-
-
-
-
-
