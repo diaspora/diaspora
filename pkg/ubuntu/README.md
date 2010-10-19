@@ -82,7 +82,7 @@ on system level.
 This has been tested on a Ubuntu 32-bit 10.10 , clean server and on 10.04
 Lucid desktop, also clean installation. Irregular nightly builds are
 available from time to time at
-[my underpowered home server](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
+[ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
 
 mongodb is having problems occasionally. Sometimes the dependencies are not
 installed, and mongod refuses to start. invoke */usr/bin/mongod -f
