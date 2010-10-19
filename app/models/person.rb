@@ -26,12 +26,21 @@ class Person
   belongs_to :owner, :class_name => 'User'
 
   timestamps!
-
+  
+  before_save :strip_and_downcase_diaspora_handle
   before_destroy :remove_all_traces
   before_validation :clean_url
   validates_presence_of :url, :profile, :serialized_public_key
   validates_format_of :url, :with =>
     /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
+
+
+  def strip_and_downcase_diaspora_handle
+    if self.diaspora_handle
+      self.diaspora_handle.strip!
+      self.diaspora_handle.downcase! 
+    end
+  end
 
   def self.search(query)
     return Person.all if query.to_s.empty?
@@ -46,7 +55,7 @@ class Person
  | Person.all('profile.last_name' => /^#{q}/i) \
  | p
     end
-
+  
     return p
   end
 
