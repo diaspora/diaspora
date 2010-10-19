@@ -49,7 +49,8 @@ $(".comment_submit").live('click', function(evt){
 
 $(".reshare_button").live("click", function(e){
   e.preventDefault();
-  $(this).parent(".reshare_pane").children(".reshare_box").show();
-  $(this).addClass("active");
+  var button = $(this);
+  button.parent(".reshare_pane").children(".reshare_box").show();
+  button.addClass("active");
 });
 
