@@ -121,7 +121,7 @@ directory, copy-paste previous version nr. It will be updated.
 This has been confirmed to start up and provide basic functionality both using
 the thin webserver and apache passenger, on 32/64 bit systems and in the
 mock build environment. Irregular nightly builds are available form time to time
-at ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds
+at [[ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds]]
 
 #### Implementation
 
