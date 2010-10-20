@@ -56,7 +56,7 @@ class User
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
   many :aspects, :class_name => 'Aspect'
 
-  after_create :seed_aspects
+  #after_create :seed_aspects
 
   before_destroy :unfriend_everyone, :remove_person, :remove_all_aspects
 
@@ -395,7 +395,11 @@ class User
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-    User.create(opts)
+    
+    u = User.new(opts)
+    u.seed_aspects
+    u.save!
+    u
   end
 
   def seed_aspects

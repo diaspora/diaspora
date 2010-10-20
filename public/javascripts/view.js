@@ -53,6 +53,21 @@ $(document).ready(function(){
     }
   });
 
+  $("#user_menu").click( function(){
+    $(this).toggleClass("active");
+  });
+
+  $('body').click( function(event){
+    if(!$(event.target).closest('#user_menu').length){
+      $("#user_menu").removeClass("active");
+    };
+    if(!$(event.target).closest('.reshare_box').length){
+      $(".reshare_button").removeClass("active");
+      $(".reshare_box").hide();
+    };
+  });
+
+
 });//end document ready
 
 
