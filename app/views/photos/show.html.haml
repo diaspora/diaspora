@@ -77,7 +77,7 @@
   %div{:id => @photo.id}
     #show_photo
       .edit_pane
-        .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
+        .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
           = link_to 'make profile photo', '#', :class => "make_profile_photo"
         = linked_scaled_photo @photo, @album
       .caption

@@ -60,7 +60,7 @@ module ApplicationHelper
     image_location = person.profile.image_url
     image_location ||= "/images/user/default.png"
 
-    image_tag image_location, :class => "avatar", :alt => person.real_name, :title => person.real_name
+    image_tag image_location, :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id
   end
 
   def person_image_link(person)

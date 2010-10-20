@@ -107,12 +107,17 @@ function openVideo(type, videoid, link) {
 
 $(".make_profile_photo").live("click", function(){
   var user_id   = $(this).closest(".controls").attr('data-actor');
+      person_id = $(this).closest(".controls").attr('data-actor_person');
       photo_url = $(this).closest(".controls").attr('data-image_url');
 
   $.ajax({
     type: "PUT",
     url: '/users/'+user_id,
     data: {"user":{"profile":{ "image_url": photo_url }}},
-    success: window.location.reload()
+    success: function(){
+      $("img[data-person_id='"+ person_id +"']").each( function() {
+        $(this).attr('src', photo_url);
+      });
+    }
   });
 });
