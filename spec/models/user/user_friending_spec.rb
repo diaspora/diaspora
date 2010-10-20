@@ -165,13 +165,13 @@ describe User do
       it 'should unfriend the other user on the same seed' do
         lambda {user2.unfriend user.person}.should change{
           user2.friends.count}.by(-1)
-        aspect2.people.count.should == 0
+        aspect2.reload.people.count.should == 0
       end
 
       it 'is unfriended by another user' do
         lambda {user.unfriended_by user2.person}.should change{
           user.friends.count}.by(-1)
-        aspect.people.count.should == 0
+        aspect.reload.people.count.should == 0
       end
 
       context 'with a post' do
