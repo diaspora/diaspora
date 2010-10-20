@@ -10,7 +10,10 @@ describe AspectsController do
   before do
     @user    = Factory.create(:user)
     @aspect  = @user.aspect(:name => "lame-os")
-    @person  = Factory.create(:person)
+    @aspect1 = @user.aspect(:name => "another aspect")
+    @user2   = Factory.create(:user)
+    @aspect2 = @user2.aspect(:name => "party people")
+    friend_users(@user,@aspect, @user2, @aspect2)
     sign_in :user, @user
   end
 
@@ -25,9 +28,9 @@ describe AspectsController do
   describe "#create" do
     describe "with valid params" do
       it "creates an aspect" do
-        @user.aspects.count.should == 1
+        @user.aspects.count.should == 2
         post :create, "aspect" => {"name" => "new aspect"}
-        @user.reload.aspects.count.should == 2
+        @user.reload.aspects.count.should == 3
       end
       it "redirects to the aspect page" do
         post :create, "aspect" => {"name" => "new aspect"}
@@ -36,9 +39,9 @@ describe AspectsController do
     end
     describe "with invalid params" do
       it "does not create an aspect" do
-        @user.aspects.count.should == 1
+        @user.aspects.count.should == 2
         post :create, "aspect" => {"name" => ""}
-        @user.reload.aspects.count.should == 1
+        @user.reload.aspects.count.should == 2
       end
       it "goes back to manage aspects" do
         post :create, "aspect" => {"name" => ""}
@@ -66,6 +69,16 @@ describe AspectsController do
       params[:user_id] = new_user.id
       put('update', :id => @aspect.id, "aspect" => params)
       Aspect.find(@aspect.id).user_id.should == @user.id
+    end
+  end
+
+  describe "#add_to_aspect" do
+    it 'adds the users to the aspect' do
+      @aspect1.reload
+      @aspect1.people.include?(@user2.person).should be false
+      post 'add_to_aspect', {'friend_id' => @user2.person.id, 'to_aspect_id' => @aspect1.id }
+      @aspect1.reload
+      @aspect1.people.include?(@user2.person).should be true
     end
   end
 end
