@@ -12,7 +12,7 @@
     - else 
       = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
     Message:
-    = invite.text_area :invite_messages
+    = invite.text_area :invite_messages, :value => ""
 
     %p= invite.submit "Send an invitation"
 
