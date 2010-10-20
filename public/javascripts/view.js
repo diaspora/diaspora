@@ -74,7 +74,7 @@ $(document).ready(function(){
     };
   });
   
-  $("#slider").easySlider({speed:400, numeric:true});
+  //$("#slider").easySlider({speed:400});
   
 
   $("img", "#left_pane").tipsy({live:true});

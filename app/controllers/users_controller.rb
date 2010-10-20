@@ -66,7 +66,16 @@ class UsersController < ApplicationController
   end
 
   def getting_started
-    render 'users/getting_started'
+    @aspect  = :getting_started
+    @user    = current_user
+    @profile = current_user.profile
+    @photos  = current_user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
+
+    if params[:id].to_i < 4
+      render "users/getting_started/#{params[:id]}"
+    else
+      render "users/getting_started/1"
+    end
   end
 
   def export

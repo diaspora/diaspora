@@ -40,6 +40,8 @@ class User
 
   key :invite_messages, Hash
 
+  key :getting_started, Boolean, :default => false
+
   before_validation :strip_username, :on => :create
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false

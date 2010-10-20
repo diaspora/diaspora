@@ -393,6 +393,8 @@ li.message
 
 form
   :position relative
+  :font
+    :size 14px
 
 #user_name
   :margin
@@ -442,7 +444,6 @@ form
     > li
       :background none
       :border none
-    
 
 #stream ul.comments
   :display none
@@ -452,6 +453,10 @@ form
     :height 35px
     :margin
       :right 10px
+
+  form
+    :margin
+      :right 12px
 
 input.comment_submit
   :display none
@@ -635,7 +640,6 @@ label
   :width 100%
   :margin
     :bottom 10px
-    :top -14px
 
   :border
     :bottom 2px #777 solid
@@ -674,14 +678,14 @@ label
       :bottom -2px
     input[type='submit']
       :position absolute
-      :right -13px
+      :right 0
       :top 5px
       :width 75px
+    input
+      :display inline
 
     .public_toggle
       :width 300px
-      :margin
-        :left -3px
       :font
         :size smaller
         :style italic
@@ -1074,16 +1078,6 @@ ul#settings_nav
     :width 30px
     :height 30px
 
-.friend_pictures.horizontal
-  :display inline
-  :margin
-    :left 20px
-
-  img
-    :width 30px
-    :height 30px
-    :margin-right -4px
-
 #thumbnails
   :line-height 14px
 
@@ -1244,11 +1238,34 @@ ul#breadcrumb
       &:after
         :content ''
 
-#slider ul, #slider li
+#getting_started_button
+  :position fixed
+  :bottom 4px 
+  :margin 
+    :left 680px
+
+  a
+    :padding 10px
+    :background #333
+    :color #eee
+
+    :-webkit-border-radius 5px 5px 0 0
+    :-moz-border-radius 5px 5px 0 0
+    :border-radius 5px 5px 0 0
+
+    :-webkit-box-shadow 0 0 2px #666
+
+ul.aspects
   :margin 0
   :padding 0
   :list-style none
+  :width 67%
+  :color #999
+  :font
+    :size 24px
 
-#slider, #slider li
-  :width 1000px
-  :overflow hidden
+  > li
+    :padding 12px 0
+    :border
+      :bottom 1px solid #eee
+

@@ -1,0 +1,36 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+
+%h1
+  = "Welcome, #{current_user.real_name}!"
+  .description
+    Do the stuff below to further complete some things.
+
+%h2
+  Edit your profile ➔
+  Define your aspects ➔
+  %u
+    Find your friends
+
+%h3
+  Your friends
+  .description
+    Find your friends on Diaspora, Facebook, or send them an invite via email.
+
+.span-5
+  %h4
+    On Diaspora
+    = text_field_tag :diaspora_handle, nil, :placeholder => "Diaspora handle"
+
+.span-5
+  %h4
+    On Facebook
+    = text_field_tag :facebook_handle, nil, :placeholder => "Name"
+
+.span-5
+  %h4
+    Invite
+    = text_field_tag :email, nil, :placeholder => "Email", :type => "email"

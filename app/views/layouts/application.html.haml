@@ -30,7 +30,6 @@
     = javascript_include_tag 'fileuploader'
 
     = javascript_include_tag 'view', 'image_picker', 'stream'
-    = javascript_include_tag 'easySlider1.7'
 
     = render 'js/websocket_js'
 
@@ -68,3 +67,6 @@
 
       .span-24.last
         = render "posts/debug"
+
+      #getting_started_button
+        = link_to "Getting started", getting_started_path(1)

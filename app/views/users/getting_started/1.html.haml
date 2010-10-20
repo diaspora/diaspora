@@ -1,0 +1,20 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+
+%h1
+  = "Welcome, #{current_user.real_name}!"
+  .description
+    Do the stuff below to further complete some things.
+
+%h2
+  %u
+    Edit your profile
+  ➔
+  Define your aspects ➔
+  Find your friends
+
+= render 'users/profile'
+
