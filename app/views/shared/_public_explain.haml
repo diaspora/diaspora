@@ -1,12 +1,18 @@
-%h3 You are about to post a public message!
-%p
-  Public messages will be available for others outside of Diaspora to see.
-  %br
-  %br
-  - if @logged_in
-    = connected_fb_as(@access_token)
-  - else
-    = link_to "Connect to Facebook", @fb_access_url
-  %br
-  %br
-  = link_to "OK", '#', :class => "button", :onClick => '$.fancybox.close();'
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.span-12.last
+  .modal_title_bar
+    %h4 You are about to post a public message!
+  %p
+    Public messages will be available for others outside of Diaspora to see.
+    %br
+    %br
+    - if @logged_in
+      = connected_fb_as(@access_token)
+    - else
+      = link_to "Connect to Facebook", @fb_access_url
+    %br
+    %br
+    = link_to "OK", '#', :class => "button", :onClick => '$.fancybox.close();'

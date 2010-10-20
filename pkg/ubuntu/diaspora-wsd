@@ -2,7 +2,7 @@
 #
 #	/etc/rc.d/init.d/diaspora-wsd
 #
-# Starts the diaspora websocket daemon
+# SHOULD start the diaspora websocket daemon, but it doesn't. No way.
 #
 # chkconfig: - 80 80
 # description: Diaspora websocket daemon
@@ -100,4 +100,3 @@ case "$1" in
 esac
 
 exit $RETVAL
-

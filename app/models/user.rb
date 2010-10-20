@@ -48,6 +48,12 @@ class User
   validates_with InvitedUserValidator
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
+  validate :person_is_valid
+  def person_is_valid
+    if person.present? && !person.valid?
+      person.errors.full_messages.each {|m| errors.add(:base, m)}
+    end
+  end
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
   many :friends, :in => :friend_ids, :class_name => 'Person'
@@ -56,9 +62,9 @@ class User
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
   many :aspects, :class_name => 'Aspect'
 
-  after_create :seed_aspects
+  #after_create :seed_aspects
 
-  before_destroy :unfriend_everyone, :remove_person, :remove_all_aspects
+  before_destroy :unfriend_everyone, :remove_person
 
   def strip_username
     if username.present?
@@ -385,13 +391,15 @@ class User
   end
 
   ###Helpers############
-  def self.instantiate!(opts = {})
+  def self.build(opts = {})
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-    User.create(opts)
+
+    u = User.new(opts)
+    u
   end
 
   def seed_aspects
@@ -437,9 +445,5 @@ class User
         self.unfriend friend
       end
     }
-  end
-  
-  def remove_all_aspects
-    aspects.destroy_all
   end
 end

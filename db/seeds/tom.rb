@@ -18,23 +18,24 @@ set_app_config "tom"
 require 'config/initializers/_load_app_config.rb'
 
 # Create seed user
-user = User.instantiate!( :email => "tom@tom.joindiaspora.com",
+user = User.build( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
                     :person => {
                       :profile => { :first_name => "Alexander", :last_name => "Hamiltom",
                       :image_url => "http://tom.joindiaspora.com/images/user/tom.jpg"}}
-                  )
+                  ).save!
+user.seed_aspects
 user.person.save!
 
-user2 = User.instantiate!( :email => "korth@tom.joindiaspora.com",
+user2 = User.build( :email => "korth@tom.joindiaspora.com",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
                      :username => "korth",
                     :person => {:profile => { :first_name => "Evan", :last_name => "Korth",
                       :image_url => "http://tom.joindiaspora.com/images/user/korth.jpg"}})
-
+user2.seed_aspects
 user2.person.save!
 
 # friending users

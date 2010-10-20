@@ -30,7 +30,7 @@ sed -i '/BUNDLE_PATH/s|:.*|: /usr/lib/diaspora-bundle/bundle|' \
 
 cp master/GNU-AGPL-3.0 master/COPYRIGHT master/README.md master/AUTHORS .
 cp master/config/app_config.yml.example ./app_config.yml
-cp master/pkg/ubuntu/diaspora-wsd.conf /etc/init
+cp master/pkg/ubuntu/diaspora-wsd /etc/init.d
 
 sed -i '/^cd /s|.*|cd /usr/share/diaspora/master|' /etc/init.d/diaspora-wsd
 
@@ -41,8 +41,8 @@ cp master/pkg/ubuntu/diaspora-setup .
 mkdir -p /var/log/diaspora
 mkdir -p /var/lib/diaspora/uploads
 mkdir -p /var/lib/diaspora/tmp
-mkdir -p /var/run/diaspora
 mkdir -p /etc/diaspora
+mkdir -p /usr/share/diaspora/master/pkg/ubuntu/dist
 
 ln -sf /var/log/diaspora  ./master/log
 cp master/config/app_config.yml.example /etc/diaspora/app_config.yml
@@ -65,6 +65,5 @@ chown diaspora:diaspora /var/log/diaspora
 chown diaspora:diaspora /var/lib/diaspora/uploads
 chown diaspora:diaspora /var/lib/diaspora/tmp
 chown diaspora:diaspora /var/lib/diaspora
-chown diaspora:diaspora /var/run/diaspora
 chown diaspora:diaspora /usr/share/diaspora/master/pkg/ubuntu/dist
 

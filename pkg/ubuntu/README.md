@@ -5,7 +5,6 @@ work as a first step towards packaging, but should be usable as is.
 
 ### Synopsis
 
-
 Bootstrap the distribution from git:
     % sudo apt-get install git-core
     % git clone git://github.com/diaspora/diaspora.git
@@ -80,11 +79,19 @@ dependencies lives in the application - nothing is installed by user or
 on system level.
 
 This has been tested on a Ubuntu 32-bit 10.10 , clean server and on 10.04
-Lucid desktop, also clean installation. Irregular nightly builds are
-available from time to time at
-[ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
+Lucid desktop, also clean installation.
 
 mongodb is having problems occasionally. Sometimes the dependencies are not
 installed, and mongod refuses to start. invoke */usr/bin/mongod -f
 /etc/mongodb.conf* to test. The lockfile /var/lib/mongodb/mongod.conf is
 also a potential problem. Remove to make it start again.
+
+The diaspora-wsd is just placeholder FTM, it does **not** work.
+
+
+
+
+
+
+
+

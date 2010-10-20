@@ -18,7 +18,7 @@ describe Comment do
       status.comments.should == []
 
       @user.comment "Yeah, it was great", :on => status
-      StatusMessage.first.comments.first.text.should == "Yeah, it was great"
+      status.reload.comments.first.text.should == "Yeah, it was great"
     end
 
     it "should be able to comment on a person's status" do
@@ -26,8 +26,8 @@ describe Comment do
       status = Factory.create(:status_message, :person => person)
       @user.comment "sup dog", :on => status
 
-      StatusMessage.first.comments.first.text.should == "sup dog"
-      StatusMessage.first.comments.first.person.should == @user.person
+      status.reload.comments.first.text.should == "sup dog"
+      status.reload.comments.first.person.should == @user.person
     end
 
     it 'should not send out comments when we have no people' do

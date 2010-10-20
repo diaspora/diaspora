@@ -69,8 +69,13 @@ describe Aspect do
     end
 
     it 'belong to a user' do
+<<<<<<< HEAD
       @aspect.user.id.should == user.id
       user.aspects.size.should == 3
+=======
+      @aspect.user.id.should == @user.id
+      @user.aspects.size.should == 1 
+>>>>>>> 961510a8ed06590109a8090686355ffdcde71180
     end
 
     it 'should have people' do

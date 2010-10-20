@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Diaspora::Parser do
   before do
-    @user = Factory.create(:user, :email => "bob@aol.com")
+    @user = Factory.create(:user)
     @aspect = @user.aspect(:name => 'spies')
 
     @user3 = Factory.create :user
@@ -22,7 +22,7 @@ describe Diaspora::Parser do
     end
 
      it 'should be able to correctly handle comments with person in db' do
-      person = Factory.create(:person, :diaspora_handle => "test@testing.com")
+      person = Factory.create(:person)
       post = Factory.create(:status_message, :person => @user.person)
       comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
       xml = comment.to_diaspora_xml
@@ -56,9 +56,7 @@ describe Diaspora::Parser do
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
-      StatusMessage.count.should == 1
-      @user.receive xml, person
-      StatusMessage.count.should == 0
+      proc {@user.receive xml, person}.should change(StatusMessage, :count).by(-1)
     end
 
     it "should create a new person upon getting a person request" do
@@ -155,7 +153,7 @@ describe Diaspora::Parser do
       person.save
 
       #Cache profile for checking against marshaled profile
-      old_profile = person.profile
+      old_profile = person.profile.dup
       old_profile.first_name.should == 'bob'
 
       #Build xml for profile, clear profile

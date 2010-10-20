@@ -22,6 +22,13 @@ class Person
   key :owner_id, ObjectId
 
   one :profile, :class_name => 'Profile'
+  validate :profile_is_valid
+  def profile_is_valid
+    if profile.present? && !profile.valid?
+      profile.errors.full_messages.each { |m| errors.add(:base, m) }
+    end
+  end
+
   many :albums, :class_name => 'Album', :foreign_key => :person_id
   belongs_to :owner, :class_name => 'User'
 
@@ -85,7 +92,11 @@ class Person
   end
 
   def self.by_webfinger(identifier, opts = {})
-    #need to check if this is a valid email structure, maybe should do in JS
+    # Raise an error if identifier has a port number 
+    raise "Identifier is invalid" if(identifier.strip.match(/\:\d+$/))
+    # Raise an error if identifier is not a valid email (generous regexp)
+    raise "Identifier is invalid" if !(identifier =~ /\A.*\@.*\..*\Z/)
+
     query = /#{Regexp.escape(identifier.gsub('acct:', '').to_s)}/i
     local_person = Person.first(:diaspora_handle => query)
 
@@ -162,4 +173,5 @@ class Person
   def remove_all_traces
     Post.all(:person_id => id).each { |p| p.delete }
   end
+
 end
