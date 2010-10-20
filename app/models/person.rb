@@ -22,13 +22,6 @@ class Person
   key :owner_id, ObjectId
 
   one :profile, :class_name => 'Profile'
-  validate :profile_is_valid
-  def profile_is_valid
-    if profile.present? && !profile.valid?
-      profile.errors.full_messages.each { |m| errors.add(:base, m) }
-    end
-  end
-
   many :albums, :class_name => 'Album', :foreign_key => :person_id
   belongs_to :owner, :class_name => 'User'
 
@@ -169,5 +162,4 @@ class Person
   def remove_all_traces
     Post.all(:person_id => id).each { |p| p.delete }
   end
-
 end

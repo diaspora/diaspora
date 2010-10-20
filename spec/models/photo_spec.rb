@@ -51,7 +51,8 @@ describe Photo do
   it 'should have a caption' do
     @photo.image.store! File.open(@fixture_name)
     @photo.caption = "cool story, bro"
-    @photo.save.should be_true
+    @photo.save
+    Photo.first.caption.should == "cool story, bro"
   end
 
   it 'should remove its reference in user profile if it is referred' do
@@ -62,9 +63,9 @@ describe Photo do
     @user.save
     @user.person.save
 
-    @user.profile.image_url.should == @photo.image.url(:thumb_medium)
+    User.first.profile.image_url.should == @photo.image.url(:thumb_medium)
     @photo.destroy
-    @user.reload.profile.image_url.should be nil
+    User.first.profile.image_url.should be nil
   end
 
   it 'should not use the imported filename as the url' do

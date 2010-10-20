@@ -22,7 +22,7 @@ a
     :color #22AAE0
   &:active
     :color #005D9C
-    
+
 
 h1, h2, h3, h4
   :color #444
@@ -48,14 +48,14 @@ h3
   :width 100%
 
   :padding 1em
-  
+
   :box-shadow 0 1px 2px #333
   :-moz-box-shadow 0 1px 2px #333
   :-webkit-box-shadow 0 1px 2px #333
 
   :font
     :weight bold
-  
+
 #flash_notice
   :background
     :color rgba(127,255,36,0.85)
@@ -128,9 +128,9 @@ header
     a
       :text-shadow 0 1px 0 #000
 
-    :width 100px
-
     :z-index 10
+    :font
+      :size 14px
     :padding 5px 10px
       :left 40px
     :margin 0
@@ -152,7 +152,11 @@ header
       a
         :display block
 
-    &.active
+    &:hover
+      li
+        :display block
+
+    &:hover
       :margin
         :top -3px
         :right -6px
@@ -164,14 +168,11 @@ header
       :-webkit-box-shadow 0 1px 2px #333
       :-moz-box-shadow 0 1px 2px #333
 
-      li
-        :display block
-
     .avatar
       :height 20px
       :width 20px
       :position absolute
-      :left 5px 
+      :left 5px
       :display block
 
 
@@ -274,7 +275,7 @@ li.message
           :weight bold
         :margin
           :right 5px
-      
+
   &:hover
     div.info, .time
       a
@@ -292,16 +293,6 @@ li.message
       :decoration none
   :cursor default
 
-.right .reshare_pane .reshare_button
-  :padding 5px
-  &.active
-    :background
-      :color #333
-    :border-radius 5px 5px 0 0
-    a
-      :color #fff
-      :text-shadow none
-
 .right .reshare_pane
   :margin
     :left 5px
@@ -309,14 +300,13 @@ li.message
   :display inline
   :position relative
 
-
   ul.reshare_box
     :width 150px
     :display none
     :z-index 10
     :position absolute
     :margin
-      :top 0
+      :top 5px
     :padding 0
 
     :background
@@ -325,7 +315,9 @@ li.message
     :list
       :style none
 
-    :border 5px solid #333
+    :border 5px solid #666
+    :-webkit-box-shadow 0 0 5px #666
+    :-moz-box-shadow 0 0 5px #666
 
     :text-shadow 0 2px #fff
     :color #000
@@ -348,7 +340,6 @@ li.message
         :display block
         :height 100%
         :padding 2px 5px
-        :cursor default
 
         &:hover
           :background
@@ -416,7 +407,7 @@ form
     > li
       :background none
       :border none
-    
+
 
 #stream div.comments
   :display none
@@ -807,8 +798,8 @@ h1.big_text
       :margin 0
 
       a
-        :-webkit-border-radius 5px 5px 0 0 
-        :-moz-border-radius 5px 5px 0 0 
+        :-webkit-border-radius 5px 5px 0 0
+        :-moz-border-radius 5px 5px 0 0
 
         :text-shadow 0 1px 0 #444
         :line
@@ -936,7 +927,7 @@ h1.big_text
       :color #333
 
     :border-radius 5px
-  
+
     a
       :color #ccc
 

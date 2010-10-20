@@ -6,7 +6,8 @@ require 'spec_helper'
 
 describe Post do
   before do
-    @user = Factory.create(:user)
+    @user = Factory.create(:user, :email => "bob@aol.com")
+    @user.person.save
   end
 
   describe 'xml' do

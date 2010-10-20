@@ -14,7 +14,6 @@ class Post
   xml_accessor :_id
   xml_accessor :person, :as => Person
   xml_reader   :public
-  xml_reader :created_at
 
   key :public   , Boolean, :default => false
 

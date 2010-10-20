@@ -14,49 +14,34 @@ module Diaspora
     module XML
       def execute(user)
         builder = Nokogiri::XML::Builder.new do |xml|
-          user_person_id = user.person.id
-          xml.export {
-            xml.user {
-              xml.username user.username
-              xml.serialized_private_key user.serialized_private_key 
-              
-              xml.parent << user.person.to_xml
-            }
+          xml.user {
+            xml.username user.username
+            xml.parent << user.person.to_xml
+            xml.serialized_private_key user.serialized_private_key 
+            
             xml.aspects {
               user.aspects.each do |aspect|
                 xml.aspect { 
+                  xml.id_ aspect.id
                   xml.name aspect.name
-                   
-                  xml.person_ids {
-                    aspect.person_ids.each do |id|
-                      xml.person_id id
+                
+                  xml.people {
+                    aspect.people.each do |person|
+                      xml.person person.to_xml
                     end
                   }
+                  xml.posts {
+                    aspect.posts.find_all_by_person_id(user.person.id).each do |post|
+                      post_doc = post.to_xml
+                      
+                      post.comments.each do |comment|
+                        post_doc << comment.to_xml
+                      end
 
-                  xml.post_ids {
-                    aspect.posts.find_all_by_person_id(user_person_id).each do |post|
-                      xml.post_id post.id
+                      xml.post post_doc
                     end
                   }
                 }
-              end
-            }
-
-            xml.people {
-              user.friends.each do |friend|
-                xml.parent << friend.to_xml
-              end
-            }
-
-            xml.posts {
-              user.raw_visible_posts.find_all_by_person_id(user_person_id).each do |post|
-                #post_doc = post.to_xml
-                
-                #post.comments.each do |comment|
-                #  post_doc << comment.to_xml
-                #end
-
-                xml.parent << post.to_xml
               end
             }
           }

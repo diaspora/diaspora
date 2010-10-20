@@ -5,8 +5,7 @@
 require 'spec_helper'
 
 describe AspectsController do
-  render_views
-
+ render_views
   before do
     @user = Factory.create(:user)
     @user.aspect(:name => "lame-os")
@@ -14,36 +13,11 @@ describe AspectsController do
     sign_in :user, @user
   end
 
-  describe "#index" do
-    it "assigns @friends to all the user's friends" do
-      Factory.create :person
-      get :index
-      assigns[:friends].should == @user.friends
-    end
+  it "on index sets a variable containing all a user's friends when a user is signed in" do
+    sign_in :user, @user
+    Factory.create :person
+    get :index
+    assigns[:friends].should == @user.friends
   end
 
-  describe "#create" do
-    describe "with valid params" do
-      it "creates an aspect" do
-        @user.aspects.count.should == 1
-        post :create, "aspect" => {"name" => "new aspect"}
-        @user.reload.aspects.count.should == 2
-      end
-      it "redirects to the aspect page" do
-        post :create, "aspect" => {"name" => "new aspect"}
-        response.should redirect_to(aspect_path(Aspect.find_by_name("new aspect")))
-      end
-    end
-    describe "with invalid params" do
-      it "does not create an aspect" do
-        @user.aspects.count.should == 1
-        post :create, "aspect" => {"name" => ""}
-        @user.reload.aspects.count.should == 1
-      end
-      it "goes back to manage aspects" do
-        post :create, "aspect" => {"name" => ""}
-        response.should redirect_to(aspects_manage_path)
-      end
-    end
-  end
 end

@@ -48,12 +48,6 @@ class User
   validates_with InvitedUserValidator
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
-  validate :person_is_valid
-  def person_is_valid
-    if person.present? && !person.valid?
-      person.errors.full_messages.each {|m| errors.add(:base, m)}
-    end
-  end
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
   many :friends, :in => :friend_ids, :class_name => 'Person'
@@ -62,7 +56,7 @@ class User
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
   many :aspects, :class_name => 'Aspect', :dependent => :destroy
 
-  #after_create :seed_aspects
+  after_create :seed_aspects
 
   before_destroy :unfriend_everyone, :remove_person, :remove_all_aspects
 
@@ -385,11 +379,7 @@ class User
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-
-    u = User.new(opts)
-    u.seed_aspects
-    u.save!
-    u
+    User.create(opts)
   end
 
   def seed_aspects

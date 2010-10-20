@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '>= 3.0.0'
-
 gem 'bundler', '>= 1.0.0'
 
 #Security
@@ -42,7 +41,6 @@ gem 'aws'
 
 group :test, :development do
   gem 'factory_girl_rails'
-  gem 'ruby-debug19' if RUBY_VERSION.include? "1.9"
   gem 'ruby-debug' if RUBY_VERSION.include? "1.8"
 end
 
