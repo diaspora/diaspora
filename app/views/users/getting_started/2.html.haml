@@ -3,33 +3,34 @@
 -#   the COPYRIGHT file.
 
 
+.span-8.append-1.last
+  %h1{:style => "text-align:right;"}
+    = "Welcome!"
+    .description
+      Do the stuff below to further complete some things.
 
-%h1
-  = "Welcome, #{current_user.real_name}!"
-  .description
-    Do the stuff below to further complete some things.
+  %h3{:style => "text-align:right;"}
+    = link_to "Edit your profile", getting_started_path(1)
+    %br
+    = link_to "Define your aspects", getting_started_path(2)
+    %br
+    = link_to "Find your friends", getting_started_path(3)
 
-%h2
-  Edit your profile ➔
-  %u
-    Define your aspects
-  ➔
-  Find your friends
+.span-15.last
+  %h3
+    Your aspects
+    .description
+      These will be blah blah blah blah and some stuff.
 
-%h3
-  Your aspects
-  .description
-    These will be blah blah blah blah and some stuff.
+  %h4
+    Aspect name
+    = text_field_tag :aspect_name, nil, :placeholder => "New aspect"
 
-%h4
-  Aspect name
-  = text_field_tag :aspect_name, nil, :placeholder => "New aspect"
-
-%ul.aspects
-  - for aspect in @aspects
-    %li
-      = aspect
-      .friend_pictures.horizontal
-        - for friend in @friends
-          = person_image_link(friend)
+  %ul.aspects
+    - for aspect in @aspects
+      %li
+        = aspect
+        .friend_pictures.horizontal
+          - for friend in @friends
+            = person_image_link(friend)
 
