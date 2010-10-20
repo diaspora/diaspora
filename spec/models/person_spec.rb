@@ -197,6 +197,26 @@ describe Person do
       end
     end
 
+    it 'identifier should be a valid email' do
+      stub_success("joe.valid+email@my-address.com")
+      Proc.new { 
+        Person.by_webfinger("joe.valid+email@my-address.com")
+      }.should_not raise_error(RuntimeError, "Identifier is invalid")
+
+      stub_success("not_a_@valid_email")
+      Proc.new { 
+        Person.by_webfinger("not_a_@valid_email")
+      }.should raise_error(RuntimeError, "Identifier is invalid")
+
+    end
+
+    it 'should not accept a port number' do
+      stub_success("eviljoe@diaspora.local:3000")
+      Proc.new { 
+        Person.by_webfinger('eviljoe@diaspora.local:3000')
+      }.should raise_error(RuntimeError, "Identifier is invalid")
+    end
+
     it 'creates a stub for a remote user' do
       stub_success("tom@tom.joindiaspora.com")
       tom = Person.by_webfinger('tom@tom.joindiaspora.com')
