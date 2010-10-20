@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   respond_to :html
 
   def edit
+    @aspect  = :user_edit
     @user    = current_user
     @person  = @user.person
     @profile = @user.person.profile
