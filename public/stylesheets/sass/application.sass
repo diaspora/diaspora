@@ -733,6 +733,11 @@ h1.big_text
   :display inline
   :float right
 
+  form
+    :margin
+      :right 0
+      :top 0
+
 .back
   :font
     :size 12px
@@ -936,6 +941,7 @@ h1.big_text
       :color #333
 
     :border-radius 5px
+    :color #ccc
   
     a
       :color #ccc
@@ -1083,3 +1089,29 @@ header
   img
     :height 27px
     :width 27px
+
+
+.edit_pane
+  :display inline
+  :position relative
+
+  .controls
+    :display none
+    :background
+      :color rgba(51,51,51,0.9)
+    :padding 10px
+    :position absolute
+    :right 0
+
+    a
+      :font
+        :weight bold
+      :color #eee
+      :text-shadow 0 1px #000
+
+      &:hover
+        :color #fff
+    
+  &:hover
+    .controls
+      :display inline

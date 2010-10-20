@@ -106,22 +106,34 @@ class User
 
   def move_friend(opts = {})
     return true if opts[:to] == opts[:from]
-    friend = Person.first(:_id => opts[:friend_id])
-    if self.friend_ids.include?(friend.id)
-      from_aspect = self.aspect_by_id(opts[:from])
-      to_aspect = self.aspect_by_id(opts[:to])
-      if from_aspect && to_aspect
-        posts_to_move = from_aspect.posts.find_all_by_person_id(friend.id)
-        to_aspect.people << friend
-        to_aspect.posts << posts_to_move
-        from_aspect.person_ids.delete(friend.id.to_id)
-        posts_to_move.each { |x| from_aspect.post_ids.delete(x.id) }
-        from_aspect.save
-        to_aspect.save
+    if opts[:friend_id] && opts[:to] && opts[:from] 
+      from_aspect = self.aspects.first(:_id => opts[:from])
+      posts_to_move = from_aspect.posts.find_all_by_person_id(opts[:friend_id])
+      if add_person_to_aspect(opts[:friend_id], opts[:to], :posts => posts_to_move)
+        delete_person_from_aspect(opts[:friend_id], opts[:from], :posts => posts_to_move) 
         return true
       end
     end
     false
+  end
+
+  def add_person_to_aspect(person_id, aspect_id, opts = {})
+    raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id) 
+    raise "Can not add person you are not friends with" unless person = self.find_friend_by_id(person_id)
+    raise 'Can not add person who is already in the aspect' if aspect.person_ids.include?(person_id)
+    aspect.people << person 
+    opts[:posts] ||= self.raw_visible_posts.all(:person_id => person_id)
+    
+    aspect.posts += opts[:posts]
+    aspect.save
+  end
+
+  def delete_person_from_aspect(person_id, aspect_id, opts = {})
+    raise "Can not delete a person from an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
+    aspect.person_ids.delete(person_id)
+    opts[:posts] ||= aspect.posts.all(:person_id => person_id)
+    aspect.posts -= opts[:posts]
+    aspect.save
   end
 
   ######## Posting ########
@@ -281,7 +293,7 @@ class User
 
   ########### Profile ######################
   def update_profile(params)
-    if self.person.update_attributes(params)
+    if self.person.profile.update_attributes(params)
       push_to_aspects profile, :all
       true
     else
