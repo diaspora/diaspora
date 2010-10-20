@@ -5,32 +5,40 @@
 require 'spec_helper'
 
 describe Profile do
-  before do
-    @person = Factory.build(:person)
-  end
-
-  describe 'sanitization' do
-    it 'strips the names' do
-      @person.profile = Factory.build(:profile, :first_name => "  Bob", :last_name => "Bobson  ")
-      @person.profile.save
-      @person.profile.first_name.should == "Bob"
-      @person.profile.last_name.should == "Bobson"
+  describe 'validation' do
+    describe "of first_name" do
+      it "requires first name" do
+        profile = Factory.build(:profile, :first_name => nil)
+        profile.should_not be_valid
+        profile.first_name = "Hortense"
+        profile.should be_valid
+      end
+      it "requires non-empty first name" do
+        profile = Factory.build(:profile, :first_name => "     ")
+        profile.should_not be_valid
+      end
+      it "strips leading and trailing whitespace" do
+        profile = Factory.build(:profile, :first_name => "     Shelly    ")
+        profile.should be_valid
+        profile.first_name.should == "Shelly"
+      end
     end
-  end
-
-  describe 'requirements' do
-    it "should include a first name" do
-      @person.profile = Factory.build(:profile,:first_name => nil)
-      @person.profile.valid?.should be false
-      @person.profile.first_name = "Bob"
-      @person.profile.valid?.should be true
-    end
-
-    it "should include a last name" do
-      @person.profile = Factory.build(:profile, :last_name => nil)
-      @person.profile.valid?.should be false
-      @person.profile.last_name = "Smith"
-      @person.profile.valid?.should be true
+    describe "of last_name" do
+      it "requires a last name" do
+        profile = Factory.build(:profile, :last_name => nil)
+        profile.should_not be_valid
+        profile.last_name = "Shankar"
+        profile.should be_valid
+      end
+      it "requires non-empty last name" do
+        profile = Factory.build(:profile, :last_name => "     ")
+        profile.should_not be_valid
+      end
+      it "strips leading and trailing whitespace" do
+        profile = Factory.build(:profile, :last_name => "     Ohba    ")
+        profile.should be_valid
+        profile.last_name.should == "Ohba"
+      end
     end
   end
 end

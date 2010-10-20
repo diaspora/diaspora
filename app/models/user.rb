@@ -48,6 +48,12 @@ class User
   validates_with InvitedUserValidator
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
+  validate :person_is_valid
+  def person_is_valid
+    if person.present? && !person.valid?
+      person.errors.full_messages.each {|m| errors.add(:base, m)}
+    end
+  end
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
   many :friends, :in => :friend_ids, :class_name => 'Person'
@@ -379,7 +385,7 @@ class User
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-    
+
     u = User.new(opts)
     u.seed_aspects
     u.save!

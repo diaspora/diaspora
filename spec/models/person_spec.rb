@@ -13,6 +13,22 @@ describe Person do
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
+  describe "validation" do
+    describe "of associated profile" do
+      it "fails if the profile isn't valid" do
+        person = Factory.build(:person)
+        person.should be_valid
+        
+        person.profile.update_attribute(:first_name, nil)
+        person.profile.should_not be_valid
+        person.should_not be_valid
+
+        person.errors.count.should == 1
+        person.errors.full_messages.first.should =~ /first name/i
+      end
+    end
+  end
+
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do

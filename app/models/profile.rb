@@ -18,6 +18,7 @@ class Profile
   key :image_url,  String
 
   validates_presence_of :first_name, :last_name
+  after_validation :strip_names
 
   before_save :strip_names
 
@@ -29,9 +30,10 @@ class Profile
     self._parent_document
   end
 
-  private
+  protected
+
   def strip_names
-    first_name.strip!
-    last_name.strip!
+    self.first_name.strip! if self.first_name
+    self.last_name.strip! if self.last_name
   end
 end
