@@ -64,7 +64,7 @@ class User
 
   #after_create :seed_aspects
 
-  before_destroy :unfriend_everyone, :remove_person
+  before_destroy :unfriend_everyone, :remove_person, :remove_all_aspects
 
   def strip_username
     if username.present?
@@ -435,5 +435,9 @@ class User
         self.unfriend friend
       end
     }
+  end
+  
+  def remove_all_aspects
+    aspects.destroy_all
   end
 end
