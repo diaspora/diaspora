@@ -28,10 +28,9 @@ describe User do
     it "should be able to accept a pending friend request" do
       r = Request.instantiate(:to => user.receive_url, :from => friend)
       r.save
-      Person.all.count.should == 2
-      Request.for_user(user).all.count.should == 1
-      user.accept_friend_request(r.id, aspect.id)
-      Request.for_user(user).all.count.should == 0
+      
+      proc {user.accept_friend_request(r.id, aspect.id)}.should change{
+        Request.for_user(user).all.count}.by(-1)
     end
 
     it 'should be able to ignore a pending friend request' do
@@ -39,12 +38,8 @@ describe User do
       r = Request.instantiate(:to => user.receive_url, :from => friend)
       r.save
 
-      Person.count.should == 2
-
-      user.ignore_friend_request(r.id)
-
-      Person.count.should == 2
-      Request.count.should == 0
+      proc{user.ignore_friend_request(r.id)}.should change{
+        Request.for_user(user).count}.by(-1)
     end
 
     it 'should not be able to friend request an existing friend' do
@@ -80,59 +75,53 @@ describe User do
         @request_three.destroy
       end
 
-      it 'should befriend the user other user on the same pod' do
-        user2.receive @req_three_xml, user.person
-        user2.pending_requests.size.should be 1
-        user2.accept_friend_request @request_three.id, aspect2.id
-        user2.friends.include?(user.person).should be true
-        Person.all.count.should be 3
+      context 'request from one remote person to one local user' do
+        before do
+          user2.receive @req_three_xml, user.person
+        end
+        it 'should befriend the user other user on the same pod' do
+          proc{
+            user2.accept_friend_request @request_three.id, aspect2.id
+          }.should_not change(Person, :count)
+          user2.friends.include?(user.person).should be true
+        end
+
+        it 'should not delete the ignored user on the same pod' do
+          proc{
+            user2.ignore_friend_request @request_three.id
+          }.should_not change(Person, :count)
+          user2.friends.include?(user.person).should be false
+        end
       end
+      context 'Two users receiving requests from one person' do
+        before do
+          user.receive @req_xml, person_one
 
-      it 'should not delete the ignored user on the same pod' do
-        user2.receive @req_three_xml, user.person
-        user2.pending_requests.size.should be 1
-        user2.ignore_friend_request @request_three.id
-        user2.friends.include?(user.person).should be false
-        Person.all.count.should be 3
-      end
+          user2.receive @req_two_xml, person_one
+        end
+        it 'should both users should befriend the same person' do
+          user.accept_friend_request @request.id, aspect.id
+          user.friends.include?(person_one).should be true
 
-      it 'should both users should befriend the same person' do
-        user.receive @req_xml, person_one
-        user.pending_requests.size.should be 1
-        user.accept_friend_request @request.id, aspect.id
-        user.friends.include?(person_one).should be true
+          user2.accept_friend_request @request_two.id, aspect2.id
+          user2.friends.include?(person_one).should be true
+        end
 
-        user2.receive @req_two_xml, person_one
-        user2.pending_requests.size.should be 1
-        user2.accept_friend_request @request_two.id, aspect2.id
-        user2.friends.include?(person_one).should be true
-        Person.all.count.should be 3
-      end
+        it 'should keep the person around if one of the users rejects him' do
+          user.accept_friend_request @request.id, aspect.id
+          user.friends.include?(person_one).should be true
 
-      it 'should keep the person around if one of the users rejects him' do
-        user.receive @req_xml, person_one
-        user.pending_requests.size.should be 1
-        user.accept_friend_request @request.id, aspect.id
-        user.friends.include?(person_one).should be true
+          user2.ignore_friend_request @request_two.id
+          user2.friends.include?(person_one).should be false
+        end
 
-        user2.receive @req_two_xml, person_one
-        user2.pending_requests.size.should be 1
-        user2.ignore_friend_request @request_two.id
-        user2.friends.include?(person_one).should be false
-        Person.all.count.should be 3
-      end
+        it 'should keep the person around if the users ignores them' do
+          user.ignore_friend_request user.pending_requests.first.id
+          user.friends.include?(person_one).should be false
 
-      it 'should keep the person around if the users ignores them' do
-        user.receive @req_xml, person_one
-        user.pending_requests.size.should be 1
-        user.ignore_friend_request user.pending_requests.first.id
-        user.friends.include?(person_one).should be false
-
-        user2.receive @req_two_xml, person_one
-        user2.pending_requests.size.should be 1
-        user2.ignore_friend_request user2.pending_requests.first.id #@request_two.id
-        user2.friends.include?(person_one).should be false
-        Person.all.count.should be 3
+          user2.ignore_friend_request user2.pending_requests.first.id #@request_two.id
+          user2.friends.include?(person_one).should be false
+        end
       end
     end
 
