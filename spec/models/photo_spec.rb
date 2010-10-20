@@ -64,7 +64,7 @@ describe Photo do
 
     @user.profile.image_url.should == @photo.image.url(:thumb_medium)
     @photo.destroy
-    @user.profile.image_url.should be nil
+    @user.reload.profile.image_url.should be nil
   end
 
   it 'should not use the imported filename as the url' do
