@@ -7,6 +7,7 @@ default:
   debug: false
   socket_debug : false
   socket_host: 0.0.0.0
+  socket_pidfile: "log/diaspora-wsd.pid"
   socket_port: 8080
   socket_collection_name: 'websocket'
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
@@ -18,7 +19,7 @@ default:
   smtp_authentication: 'plain'
   smtp_username: 'no-reply@example.com'
   smtp_password: 'secret'
-  
+
 
 development:
 
