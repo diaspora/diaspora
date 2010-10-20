@@ -44,8 +44,7 @@ module Diaspora
       end
 
       def aspects_with_person person
-        id = person.id.to_id
-        aspects.select { |g| g.person_ids.include? id}
+        aspects.all(:person_ids => person.id)
       end
 
       def people_in_aspects aspects

@@ -79,13 +79,26 @@ describe Aspect do
       aspect.people.size.should == 2
     end
 
-    it 'should be accessible through the user' do
-      aspects = user.aspects_with_person(friend)
-      aspects.size.should == 1
-      aspects.first.id.should == aspect.id
-      aspects.first.people.size.should == 2
-      aspects.first.people.include?(friend).should be true
-      aspects.first.people.include?(user2.person).should be true
+    describe '#aspects_with_person' do
+      let!(:aspect_without_friend) {user.aspect(:name => "Another aspect")}
+      it 'should return the aspects with given friend' do
+        aspects = user.aspects_with_person(friend)
+        aspects.size.should == 1
+        aspects.first.id.should == aspect.id
+        aspects.first.people.size.should == 2
+        aspects.first.people.include?(friend).should be true
+        aspects.first.people.include?(user2.person).should be true
+      end
+
+      it 'returns multiple aspects if the person is there' do
+        user.reload
+        user.add_person_to_aspect(friend.id, aspect1.id)
+        aspects = user.aspects_with_person(friend)
+        aspects.count.should == 2
+        aspects.each{ |asp| asp.people.include?(friend) }
+        aspects.should_not include aspect_without_friend
+      end
+
     end
   end
 

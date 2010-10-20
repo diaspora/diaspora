@@ -8,9 +8,9 @@ describe AspectsController do
   render_views
 
   before do
-    @user = Factory.create(:user)
-    @user.aspect(:name => "lame-os")
-    @person = Factory.create(:person)
+    @user    = Factory.create(:user)
+    @aspect  = @user.aspect(:name => "lame-os")
+    @person  = Factory.create(:person)
     sign_in :user, @user
   end
 
@@ -44,6 +44,15 @@ describe AspectsController do
         post :create, "aspect" => {"name" => ""}
         response.should redirect_to(aspects_manage_path)
       end
+    end
+  end
+
+  describe "#move_friend" do
+    let(:opts) { {:friend_id => "person_id", :from => "from_aspect_id", :to => {:to => "to_aspect_id"}}}
+    it 'calls the move_friend_method' do
+      pending "need to figure out how to stub current_user to return our test @user"
+      @user.should_receive(:move_friend).with( :friend_id => "person_id", :from => "from_aspect_id", :to => "to_aspect_id")
+      post :move_friend, opts
     end
   end
 

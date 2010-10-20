@@ -5,6 +5,7 @@ work as a first step towards packaging, but should be usable as is.
 
 ### Synopsis
 
+
 Bootstrap the distribution from git:
     % sudo apt-get install git-core
     % git clone git://github.com/diaspora/diaspora.git
@@ -34,12 +35,17 @@ The normal procedure to update is to just
     $ ./make-dist.sh bundle
     $ ./make-dist.sh source
 
-And then use diaspora-install and diaspora-install-bundle as above.
+and then use diaspora-install and diaspora-install-bundle as above.
 It's necessary to always have the correct bundle. The  *./make-dist.sh bundle*
 above will use a cached bundle if it's still valid, else build a new.
 In most cases only source will need to be built, which is fast.
 
 ### Notes
+
+The diaspora websocket service can be comtrolled through upstart.
+To start/stop:
+    % sudo service diaspora-wsd start
+    % sudo service diaspora-wsd stop
 
 ./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
 root cause is a bad Gemfile.lock in the git repo. Possible fixes includes
@@ -49,16 +55,6 @@ using a older version known to work:
 
 or forcing a complete update of Gemfile.lock using 'bundle update' (a
 potentially problematic operation):
-    % ./make-dist.sh -f bundle
-
-./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
-root cause is a bad Gemfile.lock in the git repo. Possible fixes includes
-using a older version known to work:
-    % ./make-dist.sh -c c818885b6 bundle
-    % ./make-dist.sh -c c818885b6 source
-
-or forcing a complete update of Gemfile.lock using 'bundle update' (a
-potential problematic operation):
     % ./make-dist.sh -f bundle
 
 The application lives in /usr/share/diaspora/master. All writable areas
@@ -79,19 +75,11 @@ dependencies lives in the application - nothing is installed by user or
 on system level.
 
 This has been tested on a Ubuntu 32-bit 10.10 , clean server and on 10.04
-Lucid desktop, also clean installation.
+Lucid desktop, also clean installation. Irregular nightly builds are
+available from time to time at
+[ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
 
 mongodb is having problems occasionally. Sometimes the dependencies are not
 installed, and mongod refuses to start. invoke */usr/bin/mongod -f
 /etc/mongodb.conf* to test. The lockfile /var/lib/mongodb/mongod.conf is
 also a potential problem. Remove to make it start again.
-
-The diaspora-wsd is just placeholder FTM, it does **not** work.
-
-
-
-
-
-
-
-

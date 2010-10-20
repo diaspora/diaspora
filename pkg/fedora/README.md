@@ -12,11 +12,11 @@ aimed for packaging purposes.
 Prerequisites:
 
 - ruby-1.8, rubygem, git  and rake as described in
-  http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora
-  or http://github.com/diaspora/diaspora/wiki/Installing-on-CentOS-Fedora
+  [RPM installation Fedora](http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora)
+  or [Installing-on-CentOS-Fedora](http://github.com/diaspora/diaspora/wiki/Installing-on-CentOS-Fedora)
 
 - A personal environment to build RPM:s, also described in
-  http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora
+  [RPM installation Fedora](http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora)
 
 Install g++ (possibly unnnecessary?):
     % yum install gcc-c++
@@ -46,7 +46,7 @@ Start development server:
     cd /usr/share/diaspora/master
     ./script/server
 
-See http://github.com/diaspora/diaspora/wiki/Using-apache for
+See [Using Apache](http://github.com/diaspora/diaspora/wiki/Using-apache) for
 apache/passenger setup. After configuration, start with:
     /sbin/service diaspora-wsd start
     /sbin/service httpd restart
@@ -120,7 +120,8 @@ directory, copy-paste previous version nr. It will be updated.
 
 This has been confirmed to start up and provide basic functionality both using
 the thin webserver and apache passenger, on 32/64 bit systems and in the
-mock build environment.
+mock build environment. Irregular nightly builds are available form time to time
+at [ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
 
 #### Implementation
 
