@@ -17,17 +17,23 @@ module Diaspora
         sender_in_xml = sender(object, xml)
 
         if (salmon_author == sender_in_xml)
-          if object.is_a? Retraction
-            receive_retraction object, xml
-          elsif object.is_a? Request
+          
+          if object.is_a? Request
             receive_request object, sender_in_xml
-          elsif object.is_a? Profile
-            receive_profile object, xml
-          elsif object.is_a?(Comment)
-            receive_comment object, xml
+          elsif self.friend_ids.include? salmon_author.id
+            if object.is_a? Retraction
+              receive_retraction object, xml
+            elsif object.is_a? Profile
+              receive_profile object, xml
+            elsif object.is_a?(Comment)
+              receive_comment object, xml
+            else
+              receive_post object, xml
+            end
           else
-            receive_post object, xml
+            raise "Not friends with that person"
           end
+
         else
           raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
         end

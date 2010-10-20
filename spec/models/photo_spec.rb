@@ -102,10 +102,18 @@ describe Photo do
     end
 
     it 'should set the remote_photo on marshalling' do
+      pending "did the socket get unstubbed?"
       @photo.image.store! File.open(@fixture_name)
 
+
+      #security hax
+      user2 = Factory.create(:user)
+      aspect2 = user2.aspect(:name => "foobars")
+      friend_users(@user, @aspect, user2, aspect2)
+      @photo.person = user2.person
+
       @photo.save
-      @photo.reload
+      #@photo.reload
 
       url = @photo.url
       thumb_url = @photo.url :thumb_medium

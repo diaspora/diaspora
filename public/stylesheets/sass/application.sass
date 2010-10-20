@@ -179,14 +179,13 @@ header
     :margin
       :left 425px
 
-ul#stream
+#stream
   :margin 0
   :padding 0
   > li
     :min-height 50px
     :list-style none
     :padding 12px 0
-      :right 12px
     :border
       :bottom 1px solid #eee
 
@@ -404,6 +403,20 @@ form
       :margin
         :right 1em
 
+#stream.show
+  div.comments
+    :display block
+    ul.comment_set
+      :margin
+        :top 0
+  > li
+    :border none
+    :padding 0
+  &:hover
+    > li
+      :background none
+      :border none
+    
 
 #stream div.comments
   :display none
@@ -1066,3 +1079,7 @@ header
     :font
       :size small
 
+.show_text
+  img
+    :height 27px
+    :width 27px

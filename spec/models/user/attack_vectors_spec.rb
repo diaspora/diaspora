@@ -25,7 +25,6 @@ describe User do
   context 'non-friend valid user' do
     
     it 'raises if receives post by non-friend' do
-      pending "need to that posts come from friends.... requests need special treatment(because the person may not be in the db)"
       post_from_non_friend = bad_user.build_post( :status_message, :message => 'hi')
       xml = bad_user.salmon(post_from_non_friend).xml_for(user.person)
 
