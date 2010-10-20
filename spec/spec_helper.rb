@@ -26,14 +26,12 @@ RSpec.configure do |config|
   DatabaseCleaner.orm = "mongo_mapper"
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-    DatabaseCleaner.clean
     stub_signature_verification
   end
 
   config.before(:each) do
     stub_sockets
-    User.stub!(:allowed_email?).and_return(:true)
+    DatabaseCleaner.clean
   end
 end
 
