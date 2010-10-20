@@ -1,0 +1,40 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+cs:
+  errors:
+    messages:
+      not_found: "nenájdené"
+      already_confirmed: "už bolo potvrdené"
+      not_locked: "nebolo zamknuté"
+
+  devise:
+    failure:
+      unauthenticated: 'Pre pokračovanie sa musíte prihlásiť, alebo si vytvoriť účet.'
+      unconfirmed: 'Pred pokračovaním musíte potvrdiť Váš účet.'
+      locked: 'Váš účet je zamknutý.'
+      invalid: 'Neplatný e-mail alebo heslo.'
+      invalid_token: 'Neplatný autentifikačný token.'
+      timeout: 'Vaše sedenie vypršalo, pre pokračovanie sa prosím znovu prihláste.'
+      inactive: 'Váš účet ešte nebol autentifikovaný.'
+    sessions:
+      signed_in: 'Prihlásenie prebehlo úspešne.'
+      signed_out: 'Odhlásenie prebehlo úspešne.'
+    passwords:
+      send_instructions: 'Behom niekoľkých minút obdržíte e-mail s inštrukciami o resetnutí hesla.'
+      updated: 'Vaše heslo bolo úspešne zmenené. Teraz ste prihlásený.'
+    confirmations:
+      send_instructions: 'Behom niekoľkých minút obdržíte e-mail s inštrukciami k potvrdeniu Vášho účtu.'
+      confirmed: 'Váš účet bol úspešne potvrdený. Teraz ste prihlásený.'
+    registrations:
+      signed_up: 'Úspešne ste vytvorili účet. Ak je tak server nastavený, bol Vám zaslaný potvrdzovací email.'
+      updated: 'Úspešne ste upravili Váš účet.'
+      destroyed: 'Zbohom! Váš účet bol úspešne zrušený. Dovidenia.'
+    unlocks:
+      send_instructions: 'Behom niekoľkých minút obdržíte e-mail s inštrukciami k odomknutiu Vášho účtu.'
+      unlocked: 'Váš účet bol úspešne odomknutý. Teraz ste prihlásený.'
+    mailer:
+      confirmation_instructions: 'Inštrukcie k potvrdeniu'
+      reset_password_instructions: 'Inštrukcie k resetnutiu hesla'
+      unlock_instructions: 'Inštrukcie k odomknutiu'
