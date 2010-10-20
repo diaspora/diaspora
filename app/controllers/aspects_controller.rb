@@ -46,6 +46,7 @@ class AspectsController < ApplicationController
 
   def show
     @aspect = current_user.aspect_by_id params[:id]
+    @friends_dropdown_array = current_user.friends.all(:person_id.nin => @aspect.person_ids )
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
@@ -92,13 +93,13 @@ class AspectsController < ApplicationController
   end
 
   def add_to_aspect
-    if current_user.add_person_to_aspect( params[:friend_id], params[:to_aspect_id])
+    if current_user.add_person_to_aspect( params[:friend_id], params[:aspect_id])
       flash[:notice] =  I18n.t 'aspects.add_to_aspect.success'
-      render :nothing => true
     else 
       flash[:notice] =  I18n.t 'aspects.add_to_aspect.success'
-      render :nothing => true, :status => 500
     end
+
+    redirect_to aspects_path(params[:aspect_id])
   end
 
   private

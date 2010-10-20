@@ -76,7 +76,7 @@ describe AspectsController do
     it 'adds the users to the aspect' do
       @aspect1.reload
       @aspect1.people.include?(@user2.person).should be false
-      post 'add_to_aspect', {'friend_id' => @user2.person.id, 'to_aspect_id' => @aspect1.id }
+      post 'add_to_aspect', {:friend_id => @user2.person.id, :aspect_id => @aspect1.id }
       @aspect1.reload
       @aspect1.people.include?(@user2.person).should be true
     end
