@@ -67,7 +67,6 @@ $(document).ready(function(){
     };
   });
 
-
 });//end document ready
 
 
@@ -105,3 +104,15 @@ function openVideo(type, videoid, link) {
   $(container).slideDown('fast', function() { });
   link.onclick = function() { $(container).slideToggle('fast', function() { } ); }
 }
+
+$(".make_profile_photo").live("click", function(){
+  var user_id   = $(this).closest(".controls").attr('data-actor');
+      photo_url = $(this).closest(".controls").attr('data-image_url');
+
+  $.ajax({
+    type: "PUT",
+    url: '/users/'+user_id,
+    data: {"user":{"profile":{ "image_url": photo_url }}},
+    success: window.location.reload()
+  });
+});

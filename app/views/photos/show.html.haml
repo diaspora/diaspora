@@ -76,7 +76,10 @@
 
   %div{:id => @photo.id}
     #show_photo
-      = linked_scaled_photo @photo, @album
+      .edit_pane
+        .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
+          = link_to 'make profile photo', '#', :class => "make_profile_photo"
+        = linked_scaled_photo @photo, @album
       .caption
         -if current_user.owns? @photo
           -if @photo.caption and @photo.caption != ""

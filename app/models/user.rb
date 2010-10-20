@@ -293,7 +293,7 @@ class User
 
   ########### Profile ######################
   def update_profile(params)
-    if self.person.update_attributes(params)
+    if self.person.profile.update_attributes(params)
       push_to_aspects profile, :all
       true
     else
