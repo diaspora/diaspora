@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:id => post.id, :class => ("mine" if current_user.owns?(post))}
+%li.message{ :data=>{:guid=>post.id}, :class => ("mine" if current_user.owns?(post))}
 
   = person_image_link(post.person)
 

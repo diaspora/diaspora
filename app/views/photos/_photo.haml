@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:id => post.id}
+%li.message{:data=>{:guid=>post.id}}
 
   = person_image_tag(post.person)
 
@@ -20,7 +20,7 @@
 
       - if current_user.owns?(post)
         .right
-          = link_to t('.delete'), status_message_path(post), :confirm => t('.are_you_sure'), :method => :delete, :remote => true, :class => "delete"
+          = link_to t('.delete'), photo_path(post), :confirm => t('.are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
     =t('.posted_a_new_photo_to')
     = link_to post.album.name, object_path(post.album)

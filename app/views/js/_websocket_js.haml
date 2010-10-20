@@ -37,7 +37,7 @@
 
   });
   function processRetraction(post_id){
-    $('#' + post_id ).fadeOut(500).remove();
+    $("*[data-guid='"+post_id+"']").fadeOut(400, function(){$(this).remove()});
     if($("#stream")[0].childElementCount == 0){
       $("#no_posts").fadeIn(200);
     }
