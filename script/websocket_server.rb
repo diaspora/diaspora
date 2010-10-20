@@ -25,6 +25,7 @@ def write_pidfile
   end
 end
 
+
 CHANNEL = Magent::GenericChannel.new('websocket')
 def process_message
   if CHANNEL.queue_count > 0

@@ -26,6 +26,8 @@ cd /usr/share/diaspora/master
 
 test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml
+sed -i '/socket_pidfile:/s|:.*|: /var/run/diaspora/diaspora-wsd.pid|' \
+    config/app_config.yml
 
 if rake db:seed:dev; then
     echo "Database config OK, new user tom/evankorth in place"
@@ -43,10 +45,8 @@ else
     exit 1
 fi
 
+chmod 777 /var/lib/diaspora/uploads
 chown -R diaspora /var/log/diaspora
-
-sed -i '/socket_pidfile:/s|:.*|: /var/run/diaspora/diaspora-wsd.pid|' \
-    config/app_config.yml
 
 hostname=$( awk '/pod_url:/ { print $2; exit }' <config/app_config.yml)
 
