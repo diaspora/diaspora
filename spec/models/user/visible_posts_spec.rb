@@ -24,6 +24,21 @@ describe User do
   before do
     friend_users(user, first_aspect, user2, user2.aspects.first)
     friend_users(user, second_aspect, user3, user3.aspects.first)
+
+  end
+
+  describe '#friends_not_in_aspect' do
+    it 'finds the people who are not in the given aspect' do
+      
+      friend_users(user, first_aspect, user4, user4.aspects.first)
+      people = user.friends_not_in_aspect(first_aspect)
+      people.should == [user3.person]
+
+      people2 = user.friends_not_in_aspect(second_aspect)
+      people2.count.should == 2
+      people2.include?(user2.person).should be true
+      people2.include?(user4.person).should be true
+    end
   end
 
   describe "#visible_posts" do

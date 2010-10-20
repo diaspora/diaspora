@@ -82,6 +82,7 @@ describe Aspect do
     describe '#aspects_with_person' do
       let!(:aspect_without_friend) {user.aspect(:name => "Another aspect")}
       it 'should return the aspects with given friend' do
+        user.reload
         aspects = user.aspects_with_person(friend)
         aspects.size.should == 1
         aspects.first.id.should == aspect.id
