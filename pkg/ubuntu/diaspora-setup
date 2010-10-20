@@ -43,8 +43,10 @@ else
     exit 1
 fi
 
-chmod 777 /var/lib/diaspora/uploads
 chown -R diaspora /var/log/diaspora
+
+sed -i '/socket_pidfile:/s|:.*|: /var/run/diaspora/diaspora-wsd.pid|' \
+    config/app_config.yml
 
 hostname=$( awk '/pod_url:/ { print $2; exit }' <config/app_config.yml)
 
@@ -61,7 +63,7 @@ while : ; do
     echo -n "Use hostname \"$new_hostname\" as pod_url (Yes/No) [Yes]? :"
     read yesno garbage
     test "${yesno:0:1}" = 'y' -o "${yesno:0:1}" = 'Y' -o -z "$yesno" && {
-        sed -i "/pod_url:/s|$hostname|$new_hostname|g" config/app_config.yml &&
+        sed -i "/pod_url:/s/$hostname/$new_hostname/g" config/app_config.yml &&
             echo "config/app_config.yml updated."
         break
     }

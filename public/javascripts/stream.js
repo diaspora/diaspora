@@ -29,7 +29,7 @@ $(".show_post_comments").live('click', function(event) {
   $(this).toggleClass( "visible" );
 });
 
-$(".comment_box").toggle(function(evt){
+$(".comment_box").live('focus', function(evt){
   var $this = $(this);
   $this.attr("rows", 2);
   $this.parents("p").parents("form").children("p").children(".comment_submit").fadeIn(200);
@@ -45,12 +45,5 @@ $(".comment_box").live('blur', function(evt){
 
 $(".comment_submit").live('click', function(evt){
   $(this).closest("form").children("p .comment_box").attr("rows", 1);
-});
-
-$(".reshare_button").live("click", function(e){
-  e.preventDefault();
-  var button = $(this);
-  button.parent(".reshare_pane").children(".reshare_box").show();
-  button.addClass("active");
 });
 

@@ -2,14 +2,22 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h1
-  = link_to @status_message.person.real_name, @status_message.person
-  = @status_message.message
+.span-14.append-1.last
+  #stream
+    %h1.show_text
+      = person_image_link(@status_message.person)
+      = link_to @status_message.person.real_name, @status_message.person
+      = make_links(@status_message.message)
 
-%h4= "#{t('.comments')} (#{@status_message.comments.count})"
+  = "Posted #{how_long_ago(@status_message)} to"
+  - for aspect in current_user.aspects_with_post( @status_message.id )
+    = link_to aspect.name, aspect
 
-= render "comments/comments", :post => @status_message
-
-%p
   - if current_user.owns? @status_message
-    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure?'), :method => :delete
+    %p
+      = link_to t('.destroy'), @status_message, :confirm => t('.are_you_sure'), :method => :delete
+
+.span-9.last
+  #stream.show
+    %li.message{:id => @status_message.id}
+      = render "comments/comments", :post => @status_message

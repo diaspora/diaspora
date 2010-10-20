@@ -5,6 +5,26 @@
 require File.dirname(__FILE__) + '/../config/environment'
 require File.dirname(__FILE__) + '/../lib/diaspora/websocket'
 
+at_exit do
+  begin
+    File.delete(PID_FILE)
+  rescue
+    puts 'Cannot remove pidfile: ' + (PID_FILE ? PID_FILE : "NIL")
+  end
+end
+
+def write_pidfile
+  begin
+    f = File.open(PID_FILE, "w")
+    f.write(Process.pid)
+    f.close
+  rescue => e
+    puts "Can't write to pidfile!"
+    puts e.inspect
+    puts e.backtrace
+  end
+end
+
 CHANNEL = Magent::GenericChannel.new('websocket')
 def process_message
   if CHANNEL.queue_count > 0
@@ -37,6 +57,8 @@ begin
       }
     end
 
+    PID_FILE = APP_CONFIG[:socket_pidfile]
+    write_pidfile
     puts "Websocket server started."
     process_message
   }

@@ -126,8 +126,7 @@ function checkout()
             git clone --quiet $GIT_REPO;
             (
                 cd diaspora;
-                git remote add upstream \
-                    git://github.com/diaspora/diaspora.git
+                git remote add upstream $GIT_REPO
                 for p in ../../*.patch; do
                     git apply --whitespace=fix  $p  > /dev/null
                 done &> /dev/null || :
@@ -181,7 +180,6 @@ function make_bundle()
 # Usage:  make_bundle [ commit, defaults to HEAD]
 #
 {
-set -x
     checkout ${1:-'HEAD'} >/dev/null
     bundle_id=$( git_id dist/diaspora/Gemfile)
     bundle_name="diaspora-bundle-$VERSION-$bundle_id"

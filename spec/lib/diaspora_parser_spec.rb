@@ -12,6 +12,8 @@ describe Diaspora::Parser do
     @user3 = Factory.create :user
     @person = @user3.person
     @user2 = Factory.create(:user)
+    @aspect2 = @user2.aspect(:name => "pandas")
+    friend_users(@user, @aspect, @user2, @aspect2) 
   end
 
   describe "parsing compliant XML object" do
@@ -49,7 +51,7 @@ describe Diaspora::Parser do
     end
 
     it 'should marshal retractions' do
-      person = Factory.create(:person)
+      person = @user2.person
       message = Factory.create(:status_message, :person => person)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
@@ -97,17 +99,17 @@ describe Diaspora::Parser do
     end
 
     it "should activate the Person if I initiated a request to that url" do
-      request = @user.send_friend_request_to( @user2.person, @aspect)
+      request = @user.send_friend_request_to( @user3.person, @aspect)
       @user.reload
-      request.reverse_for @user2
+      request.reverse_for @user3
 
       xml = request.to_diaspora_xml
 
-      @user2.person.destroy
-      @user2.destroy
+      @user3.person.destroy
+      @user3.destroy
 
-      @user.receive xml, @user2.person
-      new_person = Person.first(:url => @user2.person.url)
+      @user.receive xml, @user3.person
+      new_person = Person.first(:url => @user3.person.url)
       new_person.nil?.should be false
 
       @user.reload
@@ -117,18 +119,20 @@ describe Diaspora::Parser do
     end
 
     it 'should process retraction for a person' do
+      user4 = Factory(:user)
+
       person_count = Person.all.count
-      request = @user.send_friend_request_to( @user2.person, @aspect)
+      request = @user.send_friend_request_to( user4.person, @aspect)
       @user.reload
-      request.reverse_for @user2
+      request.reverse_for user4
       xml = request.to_diaspora_xml
 
-      retraction = Retraction.for(@user2)
+      retraction = Retraction.for(user4)
       retraction_xml = retraction.to_diaspora_xml
 
-      @user2.person.destroy
-      @user2.destroy
-      @user.receive xml, @user2.person
+      user4.person.destroy
+      user4.destroy
+      @user.receive xml, user4.person
 
 
       @aspect.reload
@@ -136,7 +140,7 @@ describe Diaspora::Parser do
       #They are now friends
 
       Person.count.should == person_count
-      @user.receive retraction_xml, @user2.person
+      @user.receive retraction_xml, user4.person
 
 
       @aspect.reload
@@ -145,7 +149,7 @@ describe Diaspora::Parser do
 
     it 'should marshal a profile for a person' do
       #Create person
-      person = Factory.create(:person)
+      person = @user2.person
       id = person.id
       person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com")
       person.save

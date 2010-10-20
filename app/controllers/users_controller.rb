@@ -5,11 +5,10 @@
 class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
   require File.join(Rails.root, 'lib/diaspora/exporter')
-  require File.join(Rails.root, 'lib/diaspora/importer')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
 
-  before_filter :authenticate_user!, :except => [:new, :create, :public, :import]
+  before_filter :authenticate_user!, :except => [:new, :create, :public]
 
   respond_to :html
 
@@ -78,31 +77,6 @@ class UsersController < ApplicationController
     tar_path = PhotoMover::move_photos(current_user)
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
   end
-
-  def invite
-    User.invite!(:email => params[:email])
-  end
-  
-  
-  def import
-    xml = params[:upload][:file].read
-
-    params[:user][:diaspora_handle] = 'asodij@asodij.asd'
-
-
-    begin
-      importer = Diaspora::Importer.new(Diaspora::Parsers::XML)
-      importer.execute(xml, params[:user])
-      flash[:notice] = "hang on a sec, try logging in!"
-
-    rescue Exception => e
-      flash[:error] = "Derp, something went wrong: #{e.message}"
-    end
-
-      redirect_to new_user_registration_path
-    #redirect_to user_session_path
-  end
-
 
   private
   def prep_image_url(params)

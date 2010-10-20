@@ -13,7 +13,7 @@ public/stylesheets/ui.css
 
 # Uploded files and local files
 public/uploads/*
-public/source.tar*
+public/source.tar
 tmp/**/*
 db/*.sqlite3
 

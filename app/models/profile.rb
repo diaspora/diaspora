@@ -19,8 +19,6 @@ class Profile
 
   validates_presence_of :first_name, :last_name
 
-  before_save :strip_names
-
   def person_id
     self._parent_document.id
   end
@@ -29,9 +27,4 @@ class Profile
     self._parent_document
   end
 
-  private
-  def strip_names
-    first_name.strip!
-    last_name.strip!
-  end
 end
