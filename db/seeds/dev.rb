@@ -24,7 +24,8 @@ user = User.build( :email => "tom@tom.joindiaspora.com",
                     :password_confirmation => "evankorth",
                     :person => Person.new(
                       :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
-                  ).save
+                  )
+user.save
 user.person.save!
 user.seed_aspects
 
@@ -33,8 +34,10 @@ user2 = User.build( :email => "korth@tom.joindiaspora.com",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
                     :person => Person.new(
-                      :profile => Profile.new( :first_name => "Evan", :last_name => "Korth"))).save
+                      :profile => Profile.new( :first_name => "Evan", :last_name => "Korth")))
 
+
+user2.save
 user2.person.save!
 user2.seed_aspects
 
