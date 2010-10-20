@@ -12,7 +12,7 @@ describe AspectsController do
     @aspect  = @user.aspect(:name => "lame-os")
     @person  = Factory.create(:person)
     sign_in :user, @user
-end
+  end
 
   describe "#index" do
     it "assigns @friends to all the user's friends" do
@@ -53,6 +53,19 @@ end
       pending "need to figure out how to stub current_user to return our test @user"
       @user.should_receive(:move_friend).with( :friend_id => "person_id", :from => "from_aspect_id", :to => "to_aspect_id")
       post :move_friend, opts
+    end
+  end
+
+  describe "#update" do
+    before do
+      @aspect = @user.aspect(:name => "Bruisers")
+    end
+    it "doesn't overwrite random attributes" do
+      new_user = Factory.create :user
+      params = {"name" => "Bruisers"}
+      params[:user_id] = new_user.id
+      put('update', :id => @aspect.id, "aspect" => params)
+      Aspect.find(@aspect.id).user_id.should == @user.id
     end
   end
 end

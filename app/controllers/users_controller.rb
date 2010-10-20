@@ -36,10 +36,8 @@ class UsersController < ApplicationController
         flash[:error] = "Password Change Failed"
       end
     else
-      data = clean_hash params[:user]
-      prep_image_url(data)
-
-      if @user.update_profile data
+      prep_image_url(params[:user])
+      if @user.update_profile params[:user][:profile]
         flash[:notice] = "Profile updated"
       else
         flash[:error] = "Failed to update profile"
@@ -118,17 +116,6 @@ class UsersController < ApplicationController
         params[:profile][:image_url] = url + params[:profile][:image_url]
       end
     end
-  end
-
-  def clean_hash(params)
-    return {
-      :profile =>
-        {
-        :first_name => params[:profile][:first_name],
-        :last_name => params[:profile][:last_name],
-        :image_url => params[:profile][:image_url]
-        }
-    }
   end
 
 end

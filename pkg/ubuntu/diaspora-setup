@@ -43,8 +43,10 @@ else
     exit 1
 fi
 
-chmod 777 /var/lib/diaspora/uploads
 chown -R diaspora /var/log/diaspora
+
+sed -i '/socket_pidfile:/s|:.*|: /var/run/diaspora/diaspora-wsd.pid|' \
+    config/app_config.yml
 
 hostname=$( awk '/pod_url:/ { print $2; exit }' <config/app_config.yml)
 

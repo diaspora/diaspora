@@ -33,9 +33,9 @@ cd  /usr/share/diaspora
 RETVAL=0
 prog="Diaspora websocket server"
 exec="script/websocket_server.rb"
-pidfile="/var/run/diaspora-wsd"
+pidfile="/var/run/diaspora/diaspora-wsd"
 lockfile="/var/lock/subsys/diaspora-wsd"
-logfile=/var/log/diaspora-wsd.log
+logfile="/var/log/diaspora/diaspora-wsd.log"
 
 [ -n "$OPTIONS" ] && OPTIONS=" $OPTIONS"
 ruby_cmd="ruby -C $PWD $exec$OPTIONS"
