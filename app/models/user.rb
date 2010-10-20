@@ -379,7 +379,7 @@ class User
   end
 
   ###Helpers############
-  def self.instantiate!(opts = {})
+  def self.build(opts = {})
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
 
@@ -387,8 +387,6 @@ class User
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
 
     u = User.new(opts)
-    u.seed_aspects
-    u.save!
     u
   end
 
