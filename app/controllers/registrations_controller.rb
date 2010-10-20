@@ -9,6 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     rescue MongoMapper::DocumentNotValid => e
       flash[:error] = e.message
       redirect_to new_user_registration_path
+      return
     end
     if user.save
       flash[:notice] = I18n.t 'registrations.create.success'
