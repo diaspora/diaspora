@@ -60,7 +60,7 @@ class User
   many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
-  many :aspects, :class_name => 'Aspect'
+  many :aspects, :class_name => 'Aspect', :dependent => :destroy
 
   #after_create :seed_aspects
 

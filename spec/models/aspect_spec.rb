@@ -46,47 +46,43 @@ describe Aspect do
 
   describe 'validation' do
     before do
-      @aspect = user.aspect(:name => 'losers')
+      aspect
     end
     it 'has a unique name for one user' do
-      aspect2 = user.aspect(:name => @aspect.name)
+      aspect2 = user.aspect(:name => aspect.name)
       aspect2.valid?.should be_false
     end
 
     it 'has no uniqueness between users' do
-      aspect2 = user2.aspect(:name => @aspect.name)
+      aspect2 = user2.aspect(:name => aspect.name)
       aspect2.valid?.should be_true
     end
   end
 
   describe 'querying' do
     before do
-      @aspect = user.aspect(:name => 'losers')
-      user.activate_friend(friend, @aspect)
-      @aspect2 = user2.aspect(:name => 'failures')
-      friend_users(user, @aspect, user2, @aspect2)
-      @aspect.reload
+      aspect
+      user.activate_friend(friend, aspect)
+      aspect2
+      friend_users(user, aspect, user2, aspect2)
+      aspect.reload
+      user.reload
     end
 
     it 'belong to a user' do
-<<<<<<< HEAD
-      @aspect.user.id.should == user.id
-      user.aspects.size.should == 3
-=======
-      @aspect.user.id.should == @user.id
-      @user.aspects.size.should == 1 
->>>>>>> 961510a8ed06590109a8090686355ffdcde71180
+      aspect.user.id.should == user.id
+      user.aspects.should == [aspect]
     end
 
     it 'should have people' do
-      @aspect.people.all.include?(friend).should be true
-      @aspect.people.size.should == 2
+      aspect.people.all.include?(friend).should be true
+      aspect.people.size.should == 2
     end
 
     it 'should be accessible through the user' do
       aspects = user.aspects_with_person(friend)
       aspects.size.should == 1
-      aspects.first.id.should == @aspect.id
+      aspects.first.id.should == aspect.id
       aspects.first.people.size.should == 2
       aspects.first.people.include?(friend).should be true
       aspects.first.people.include?(user2.person).should be true
