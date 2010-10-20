@@ -92,7 +92,11 @@ class Person
   end
 
   def self.by_webfinger(identifier, opts = {})
-    #need to check if this is a valid email structure, maybe should do in JS
+    # Raise an error if identifier has a port number 
+    raise "Identifier is invalid" if(identifier.strip.match(/\:\d+$/))
+    # Raise an error if identifier is not a valid email (generous regexp)
+    raise "Identifier is invalid" if !(identifier =~ /\A.*\@.*\..*\Z/)
+
     query = /#{Regexp.escape(identifier.gsub('acct:', '').to_s)}/i
     local_person = Person.first(:diaspora_handle => query)
 

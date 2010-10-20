@@ -153,7 +153,7 @@ describe Diaspora::Parser do
       person.save
 
       #Cache profile for checking against marshaled profile
-      old_profile = person.profile
+      old_profile = person.profile.dup
       old_profile.first_name.should == 'bob'
 
       #Build xml for profile, clear profile

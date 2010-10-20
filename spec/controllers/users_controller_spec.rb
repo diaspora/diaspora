@@ -24,16 +24,25 @@ describe UsersController do
       before do
         @user.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
         @user.person.profile.save
+        
+        @params = {"profile"=>
+          {"image_url"   => "",
+            "last_name"  => @user.person.profile.last_name,
+            "first_name" => @user.person.profile.first_name}}
       end
 
       it "doesn't overwrite the profile photo when an empty string is passed in" do
         image_url = @user.person.profile.image_url
-        put("update", :id => @user.id, "user"=> {"profile"=>
-          {"image_url"   => "",
-            "last_name"  => @user.person.profile.last_name,
-            "first_name" => @user.person.profile.first_name}})
+        put("update", :id => @user.id, "user" => @params)
 
         @user.person.profile.image_url.should == image_url
+      end
+      it "doesn't overwrite random attributes" do
+        new_user = Factory.create(:user)
+        @params[:owner_id] = new_user.id
+        person = @user.person
+        put('update', :id => @user.id, "user" => @params)
+        Person.find(person.id).owner_id.should == @user.id
       end
     end
 

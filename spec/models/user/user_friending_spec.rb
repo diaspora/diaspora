@@ -160,22 +160,18 @@ describe User do
     describe 'unfriending' do
       before do
         friend_users(user,aspect, user2, aspect2)
-        user.reload
-        user2.reload
       end
 
       it 'should unfriend the other user on the same seed' do
-        user.friends.count.should == 1
-        user2.friends.count.should == 1
-
-        user2.unfriend user.person
-        user2.reload
-
-        user2.friends.count.should == 0
-        user.unfriended_by user2.person
-
-        aspect.reload.people.count.should == 0
+        lambda {user2.unfriend user.person}.should change{
+          user2.friends.count}.by(-1)
         aspect2.reload.people.count.should == 0
+      end
+
+      it 'is unfriended by another user' do
+        lambda {user.unfriended_by user2.person}.should change{
+          user.friends.count}.by(-1)
+        aspect.reload.people.count.should == 0
       end
 
       context 'with a post' do

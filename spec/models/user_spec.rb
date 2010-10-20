@@ -86,17 +86,29 @@ describe User do
     end
   end
 
-  describe ".instantiate!" do
-    it "creates the user if params are valid" do
-      User.find_by_username("ohai").should be_nil
-      user = User.instantiate!({
-                                 :username => "ohai",
-                                 :email => "ohai@example.com",
-                                 :password => "password",
-                                 :password_confirmation => "password",
-                                 :person => {:profile => {:first_name => "O", :last_name => "Hai"}}})
-      user.should be_valid
-      User.find_by_username("ohai").should == user
+  describe ".build" do
+    context 'with valid params' do
+      before do
+        params = {:username => "ohai",
+                  :email => "ohai@example.com",
+                  :password => "password",
+                  :password_confirmation => "password",
+                  :person => 
+                    {:profile => 
+                      {:first_name => "O", 
+                       :last_name => "Hai"}
+                    }
+        }
+        @user = User.build(params)
+      end
+      it "makes a valid user" do
+        @user.should be_valid
+        User.find_by_username("ohai").should be_nil
+      end
+      it 'saves successfully' do
+        @user.save.should be_true
+        User.find_by_username("ohai").should == @user
+      end
     end
     describe "with invalid params" do
       before do
@@ -107,16 +119,11 @@ describe User do
           :password_confirmation => "password",
           :person => {:profile => {:first_name => "", :last_name => ""}}}
       end
-      it "raises an error" do
-        lambda { User.instantiate!(@invalid_params) }.should raise_error
+      it "raises no error" do
+        lambda { User.build(@invalid_params) }.should_not raise_error
       end
-      it "does not create the user" do
-        User.find_by_username("ohai").should be_nil
-        begin
-          User.instantiate!(@invalid_params)
-        rescue
-        end
-        User.find_by_username("ohai").should be_nil
+      it "does not save" do
+        User.build(@invalid_params).save.should be_false
       end
     end
   end
