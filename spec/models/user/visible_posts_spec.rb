@@ -23,6 +23,7 @@ describe User do
 
   before do
     friend_users(user, first_aspect, user2, user2.aspects.first)
+    friend_users(user, second_aspect, user3, user3.aspects.first)
   end
 
   describe "#visible_posts" do
@@ -48,7 +49,6 @@ describe User do
     end
 
     it "queries by aspect" do
-      friend_users(user, second_aspect, user3, user3.aspects.first)
       friend_users(user, second_aspect, user4, user4.aspects.first)
 
       user.receive status_message4.to_diaspora_xml, user2.person
@@ -66,6 +66,19 @@ describe User do
         user2.find_visible_post_by_id(status_message1.id).should == status_message1
         user.find_visible_post_by_id(status_message1.id).should == nil
       end
+    end
+
+    describe '#find_friend_by_id' do
+      it 'should find both friends' do
+        user.reload
+        user.find_friend_by_id(user2.person.id).should == user2.person
+        user.find_friend_by_id(user3.person.id).should == user3.person
+      end
+
+      it 'should not find a non-friend' do
+        user3.find_friend_by_id(user4.person.id).should be nil
+      end
+
     end
   end
 

@@ -34,6 +34,11 @@ module Diaspora
         aspects.detect{|x| x.id == id }
       end
 
+      def find_friend_by_id(id)
+        id = id.to_id
+        friends.detect{|x| x.id == id }
+      end
+
       def aspects_with_post( id )
         self.aspects.find_all_by_post_ids( id.to_id )
       end

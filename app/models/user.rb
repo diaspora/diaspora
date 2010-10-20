@@ -54,7 +54,7 @@ class User
   many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
-  many :aspects, :class_name => 'Aspect', :dependent => :destroy
+  many :aspects, :class_name => 'Aspect'
 
   after_create :seed_aspects
 
@@ -116,6 +116,22 @@ class User
       end
     end
     false
+  end
+
+  def add_person_to_aspect(person_id, aspect_id)
+    raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id) 
+    raise "Can not add person you are not friends with" unless person = self.find_friend_by_id(person_id)
+    raise 'Can not add person who is already in the aspect' if aspect.person_ids.include?(person_id)
+    aspect.people << person 
+    aspect.save
+  end
+
+  def delete_person_from_aspect(person_id, aspect_id)
+    raise "Can not delete a person from an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
+    aspect.person_ids.delete(person_id)
+    id_array = aspect.posts.find_all_by_person_id(person_id).collect{|x| x.id}
+    aspect.post_ids = aspect.post_ids - id_array
+    aspect.save
   end
 
   ######## Posting ########

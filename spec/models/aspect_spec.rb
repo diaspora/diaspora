@@ -129,59 +129,129 @@ describe Aspect do
     end
   end
 
-  describe "aspect editing" do
+  context "aspect editing" do
+    let(:aspect) {@user.aspect(:name => 'losers')}
+    let(:aspect2) {@user2.aspect(:name => 'failures')}
+    let(:aspect1) {@user.aspect(:name => 'cats')}
+    let(:not_friend) { Factory(:person, :diaspora_handle => "not@person.com")}
+    let(:user3) {Factory(:user)}
+    let(:aspect3) {user3.aspect(:name => "lala")}
+
     before do
-      @aspect = @user.aspect(:name => 'losers')
-      @aspect2 = @user2.aspect(:name => 'failures')
-      friend_users(@user, @aspect, @user2, @aspect2)
-      @aspect.reload
-      @aspect3 = @user.aspect(:name => 'cats')
+      friend_users(@user, aspect, @user2, aspect2)
+      aspect.reload
       @user.reload
     end
 
     it 'should be able to move a friend from one of users existing aspects to another' do
-      @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect3.id)
-      @aspect.reload
-      @aspect3.reload
+      @user.move_friend(:friend_id => @user2.person.id, :from => aspect.id, :to => aspect1.id)
+      aspect.reload
+      aspect1.reload
 
-      @aspect.person_ids.include?(@user2.person.id).should be false
-      @aspect3.people.include?(@user2.person).should be true
+      aspect.person_ids.include?(@user2.person.id).should be false
+      aspect1.people.include?(@user2.person).should be true
     end
 
     it "should not move a person who is not a friend" do
-      @user.move_friend(:friend_id => @friend.id, :from => @aspect.id, :to => @aspect3.id)
-      @aspect.reload
-      @aspect3.reload
-      @aspect.people.include?(@friend).should be false
-      @aspect3.people.include?(@friend).should be false
+      @user.move_friend(:friend_id => @friend.id, :from => aspect.id, :to => aspect1.id)
+      aspect.reload
+      aspect1.reload
+      aspect.people.include?(@friend).should be false
+      aspect1.people.include?(@friend).should be false
     end
 
     it "should not move a person to a aspect that's not his" do
-      @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect2.id)
-      @aspect.reload
-      @aspect2.reload
-      @aspect.people.include?(@user2.person).should be true
-      @aspect2.people.include?(@user2.person).should be false
+      @user.move_friend(:friend_id => @user2.person.id, :from => aspect.id, :to => aspect2.id)
+      aspect.reload
+      aspect2.reload
+      aspect.people.include?(@user2.person).should be true
+      aspect2.people.include?(@user2.person).should be false
     end
 
-    it 'should move all the by that user to the new aspect' do
-      message = @user2.post(:status_message, :message => "Hey Dude", :to => @aspect2.id)
+    it 'should move all posts by that user to the new aspect' do
+      message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
 
       @user.receive message.to_diaspora_xml, @user2.person
-      @aspect.reload
+      aspect.reload
 
-      @aspect.posts.count.should == 1
-      @aspect3.posts.count.should == 0
+      aspect.posts.count.should == 1
+      aspect1.posts.count.should == 0
 
       @user.reload
-      @user.move_friend(:friend_id => @user2.person.id, :from => @aspect.id, :to => @aspect3.id)
-      @aspect.reload
-      @aspect3.reload
+      @user.move_friend(:friend_id => @user2.person.id, :from => aspect.id, :to => aspect1.id)
+      aspect.reload
+      aspect1.reload
 
-      @aspect3.posts.count.should == 1
-      @aspect.posts.count.should == 0
-
+      aspect1.posts.count.should == 1
+      aspect.posts.count.should == 0
     end
 
+    describe "#add_person_to_aspect" do
+      it 'adds the user to the aspect' do
+        aspect1.people.should_not include @user2.person
+        @user.add_person_to_aspect(@user2.person.id, aspect1.id)
+        aspect1.reload
+        aspect1.people.should include @user2.person
+      end
+
+      it 'raises if its an aspect that the user does not own'do
+        proc{@user.add_person_to_aspect(@user2.person.id, aspect2.id) }.should raise_error /Can not add person to an aspect you do not own/
+      end
+
+      it 'does not allow to have duplicate people in an aspect' do
+        proc{@user.add_person_to_aspect(not_friend.id, aspect1.id) }.should raise_error /Can not add person you are not friends with/
+      end
+
+      it 'does not allow you to add a person if they are already in the aspect' do
+        proc{@user.add_person_to_aspect(@user2.person.id, aspect.id) }.should raise_error /Can not add person who is already in the aspect/
+      end
+    end
+
+    describe '#delete_person_from_aspect' do
+      it 'deletes a user from the aspect' do
+         @user.add_person_to_aspect(@user2.person.id, aspect1.id)
+         @user.reload
+         @user.aspects.find_by_id(aspect1.id).people.include?(@user2.person).should be true
+         @user.delete_person_from_aspect(@user2.person.id, aspect1.id)
+         @user.reload
+         @user.aspects.find_by_id(aspect1.id).people.include?(@user2.person).should be false
+      end
+
+      it 'should check to make sure you have the aspect ' do
+        proc{@user.delete_person_from_aspect(@user2.person.id, aspect2.id) }.should raise_error /Can not delete a person from an aspect you do not own/
+      end
+
+        context 'removing posts' do
+          before do
+            friend_users(@user, aspect, user3, aspect3)
+
+            message = @user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
+            @user.receive message.to_diaspora_xml, @user2.person
+            aspect.reload
+            aspect.posts.count.should == 1
+          end
+
+          it 'should remove the users posts from that aspect' do
+            @user.reload
+            @user.delete_person_from_aspect(@user2.person.id, aspect.id)
+            aspect.reload
+            aspect.posts.count.should == 0
+          end
+
+          it 'should not delete other peoples posts' do
+            message2 = user3.post(:status_message, :message => "other post", :to => aspect3.id)
+
+            @user.receive message2.to_diaspora_xml, user3.person
+
+            aspect.reload
+            aspect.posts.count.should == 2
+
+            @user.reload
+            @user.delete_person_from_aspect(@user2.person.id, aspect.id)
+            aspect.reload
+            aspect.posts.should == [message2]
+          end
+        end
+      end
   end
 end
