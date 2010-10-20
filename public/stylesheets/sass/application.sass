@@ -128,9 +128,9 @@ header
     a
       :text-shadow 0 1px 0 #000
 
+    :width 100px
+
     :z-index 10
-    :font
-      :size 14px
     :padding 5px 10px
       :left 40px
     :margin 0
@@ -152,11 +152,7 @@ header
       a
         :display block
 
-    &:hover
-      li
-        :display block
-
-    &:hover
+    &.active
       :margin
         :top -3px
         :right -6px
@@ -167,6 +163,9 @@ header
       :box-shadow 0 1px 2px #333
       :-webkit-box-shadow 0 1px 2px #333
       :-moz-box-shadow 0 1px 2px #333
+
+      li
+        :display block
 
     .avatar
       :height 20px
@@ -294,6 +293,16 @@ li.message
       :decoration none
   :cursor default
 
+.right .reshare_pane .reshare_button
+  :padding 5px
+  &.active
+    :background
+      :color #333
+    :border-radius 5px 5px 0 0
+    a
+      :color #fff
+      :text-shadow none
+
 .right .reshare_pane
   :margin
     :left 5px
@@ -301,13 +310,14 @@ li.message
   :display inline
   :position relative
 
+
   ul.reshare_box
     :width 150px
     :display none
     :z-index 10
     :position absolute
     :margin
-      :top 5px
+      :top 0
     :padding 0
 
     :background
@@ -316,9 +326,7 @@ li.message
     :list
       :style none
 
-    :border 5px solid #666
-    :-webkit-box-shadow 0 0 5px #666
-    :-moz-box-shadow 0 0 5px #666
+    :border 5px solid #333
 
     :text-shadow 0 2px #fff
     :color #000
@@ -341,6 +349,7 @@ li.message
         :display block
         :height 100%
         :padding 2px 5px
+        :cursor default
 
         &:hover
           :background
@@ -1044,3 +1053,16 @@ header
 
   h2
     :display inline
+
+.modal_title_bar
+  :width 100%
+  :background
+    :color #333
+  :margin
+    :bottom 2em
+  h4
+    :color #fff
+    :padding 10px 20px
+    :font
+      :size small
+

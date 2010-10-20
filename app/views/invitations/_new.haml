@@ -1,15 +1,20 @@
-%h2 Send invitation
-= form_for User.new, :url => invitation_path(User) do |invite|
-  %p
-    = invite.label :email
-    = invite.text_field :email
-  To
-  - unless @aspect.is_a? Aspect
-    = invite.select(:aspects, @aspects_dropdown_array)
-  - else 
-    = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
-  Message:
-  = invite.text_area :invite_messages
+.span-12.last
+  .modal_title_bar
+    %h4 Invite someone to join Diaspora!
 
-  %p= invite.submit "Send an invitation"
+  %i if they accept, they will be added to the aspect you invited them
+  = form_for User.new, :url => invitation_path(User) do |invite|
+    %p
+      = invite.label :email
+      = invite.text_field :email
+    To
+    - unless @aspect.is_a? Aspect
+      = invite.select(:aspects, @aspects_dropdown_array)
+    - else 
+      = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
+    
+    Message:
+    = invite.text_area :invite_messages, :value => ""
+
+    %p= invite.submit "Send an invitation"
 

@@ -13,6 +13,22 @@ describe Person do
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
+  describe "validation" do
+    describe "of associated profile" do
+      it "fails if the profile isn't valid" do
+        person = Factory.build(:person)
+        person.should be_valid
+        
+        person.profile.update_attribute(:first_name, nil)
+        person.profile.should_not be_valid
+        person.should_not be_valid
+
+        person.errors.count.should == 1
+        person.errors.full_messages.first.should =~ /first name/i
+      end
+    end
+  end
+
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
@@ -61,64 +77,38 @@ describe Person do
     person_two.owns?(person_message).should be false
   end
 
-  it 'should delete all of user posts except comments upon user deletion' do
+  it "deletes all of a person's posts upon person deletion" do
     person = Factory.create(:person)
 
-    Factory.create(:status_message, :person => person)
-    Factory.create(:status_message, :person => person)
-    Factory.create(:status_message, :person => person)
-    Factory.create(:status_message, :person => person)
+    status = Factory.create(:status_message, :person => person)
+    Factory.create(:status_message, :person => @person)
+
+    lambda {person.destroy}.should change(Post, :count).by(-1)
+  end
+
+  it "does not delete a person's comments on person deletion" do
+    person = Factory.create(:person)
 
     status_message = Factory.create(:status_message, :person => @person)
 
-    Factory.create(:comment, :person_id => person.id,  :text => "yes i do",       :post => status_message)
     Factory.create(:comment, :person_id => person.id,  :text => "i love you",     :post => status_message)
-    Factory.create(:comment, :person_id => person.id,  :text => "hello",          :post => status_message)
     Factory.create(:comment, :person_id => @person.id, :text => "you are creepy", :post => status_message)
-
-    person.destroy
-
-    Post.count.should == 1
-    Comment.all.count.should == 4
-    status_message.comments.count.should == 4
+    
+    lambda {person.destroy}.should_not change(Comment, :count)
   end
 
   describe "unfriending" do
     it 'should not delete an orphaned friend' do
-      request = @user.send_friend_request_to @person, @aspect
-
       @user.activate_friend(@person, @aspect)
-      @user.reload
 
-      Person.all.count.should    == 3
-      @user.friends.count.should == 1
-      @user.unfriend(@person)
-      @user.reload
-      @user.friends.count.should == 0
-      Person.all.count.should    == 3
+      lambda {@user.unfriend(@person)}.should_not change(Person, :count)
     end
 
     it 'should not delete an un-orphaned friend' do
-      request = @user.send_friend_request_to @person, @aspect
-      request2 = @user2.send_friend_request_to @person, @aspect2
-
       @user.activate_friend(@person, @aspect)
       @user2.activate_friend(@person, @aspect2)
 
-      @user.reload
-      @user2.reload
-
-      Person.all.count.should     == 3
-      @user.friends.count.should  == 1
-      @user2.friends.count.should == 1
-
-      @user.unfriend(@person)
-      @user.reload
-      @user2.reload
-      @user.friends.count.should  == 0
-      @user2.friends.count.should == 1
-
-      Person.all.count.should     == 3
+      lambda {@user.unfriend(@person)}.should_not change(Person, :count)
     end
   end
 

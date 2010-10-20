@@ -13,6 +13,20 @@ describe User do
   let(:aspect3) { user3.aspect(:name => 'stuff') }
 
   describe "validation" do
+    describe "of associated person" do
+      it "fails if person is not valid" do
+        user = Factory.build(:user)
+        user.should be_valid
+
+        user.person.update_attribute(:serialized_public_key, nil)
+        user.person.should_not be_valid
+        user.should_not be_valid
+
+        user.errors.full_messages.count.should == 1
+        user.errors.full_messages.first.should =~ /serialized public key/i
+      end
+    end
+
     describe "of passwords" do
       it "fails if password doesn't match confirmation" do
         user = Factory.build(:user, :password => "password", :password_confirmation => "nope")
@@ -72,6 +86,41 @@ describe User do
     end
   end
 
+  describe ".instantiate!" do
+    it "creates the user if params are valid" do
+      User.find_by_username("ohai").should be_nil
+      user = User.instantiate!({
+                                 :username => "ohai",
+                                 :email => "ohai@example.com",
+                                 :password => "password",
+                                 :password_confirmation => "password",
+                                 :person => {:profile => {:first_name => "O", :last_name => "Hai"}}})
+      user.should be_valid
+      User.find_by_username("ohai").should == user
+    end
+    describe "with invalid params" do
+      before do
+        @invalid_params = {
+          :username => "ohai",
+          :email => "ohai@example.com",
+          :password => "password",
+          :password_confirmation => "password",
+          :person => {:profile => {:first_name => "", :last_name => ""}}}
+      end
+      it "raises an error" do
+        lambda { User.instantiate!(@invalid_params) }.should raise_error
+      end
+      it "does not create the user" do
+        User.find_by_username("ohai").should be_nil
+        begin
+          User.instantiate!(@invalid_params)
+        rescue
+        end
+        User.find_by_username("ohai").should be_nil
+      end
+    end
+  end
+
   describe ".find_for_authentication" do
     it "preserves case" do
       User.find_for_authentication(:username => user.username).should == user
@@ -98,7 +147,6 @@ describe User do
   end
 
   context 'aspects' do
-
     it 'should delete an empty aspect' do
       user.drop_aspect(aspect)
       user.aspects.include?(aspect).should == false
@@ -128,7 +176,6 @@ describe User do
       user.destroy
     end
 
-
     it 'should remove all aspects' do
       aspects = user.aspects
       aspects.count.should > 0
@@ -136,7 +183,6 @@ describe User do
       aspects.reload
       aspects.count.should == 0
     end
-
 
     describe '#remove_person' do
       it 'should remove the person object' do
@@ -155,7 +201,6 @@ describe User do
     end
 
     describe '#unfriend_everyone' do
-
       before do
         user3.delete
       end
@@ -173,5 +218,4 @@ describe User do
       end
     end
   end
-
 end
