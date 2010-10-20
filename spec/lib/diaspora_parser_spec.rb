@@ -54,9 +54,7 @@ describe Diaspora::Parser do
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
-      StatusMessage.count.should == 1
-      @user.receive xml, person
-      StatusMessage.count.should == 0
+      proc {@user.receive xml, person}.should change(StatusMessage, :count).by(-1)
     end
 
     it "should create a new person upon getting a person request" do
