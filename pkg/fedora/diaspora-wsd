@@ -33,7 +33,7 @@ cd  /usr/share/diaspora
 RETVAL=0
 prog="Diaspora websocket server"
 exec="script/websocket_server.rb"
-pidfile="/var/run/diaspora/diaspora-wsd"
+pidfile="/var/run/diaspora-wsd"
 lockfile="/var/lock/subsys/diaspora-wsd"
 logfile=/var/log/diaspora-wsd.log
 
