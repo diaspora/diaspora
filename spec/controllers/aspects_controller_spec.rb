@@ -46,4 +46,17 @@ describe AspectsController do
       end
     end
   end
+
+  describe "#update" do
+    before do
+      @aspect = @user.aspect(:name => "Bruisers")
+    end
+    it "doesn't overwrite random attributes" do
+      new_user = Factory.create :user
+      params = {"name" => "Bruisers"}
+      params[:user_id] = new_user.id
+      put('update', :id => @aspect.id, "aspect" => params)
+      Aspect.find(@aspect.id).user_id.should == @user.id
+    end
+  end
 end
