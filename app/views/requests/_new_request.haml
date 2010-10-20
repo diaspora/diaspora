@@ -8,10 +8,9 @@
       =t('.add_a_new_friend_to')
       %i= aspect.name
 
-  = form_tag '/aspects/add_to_aspect', :id => 'add_to_aspect' do
-    = select_tag :friend_id, options_from_collection_for_select(@friends_dropdown_array, "id", "real_name"), :include_blank => true
-    = hidden_field_tag :aspect_id, aspect.id
-    = submit_tag "add to #{@aspect.name}"
+  - if @friends_not_in_aspect
+    = render('shared/add_friend_dropdown', :aspect => @aspect, :friends => @friends_not_in_aspect)
+
 
 
 
