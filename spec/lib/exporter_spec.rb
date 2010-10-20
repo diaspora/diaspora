@@ -41,7 +41,7 @@ describe Diaspora::Exporter do
 
   it 'should include post created at time' do
     doc = Nokogiri::XML::parse(exported)
-    doc.xpath('//posts').to_s.should include status_message1.created_at.to_s
+    Time.parse(doc.xpath('//posts/status_message/created_at').first.text).should == status_message1.created_at
   end
 
   it 'should include a list of users posts' do 
