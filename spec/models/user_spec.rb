@@ -143,13 +143,13 @@ describe User do
 
   context 'profiles' do
     it 'should be able to update their profile and send it to their friends' do
-      updated_profile = {:profile => {
+      updated_profile = {
         :first_name => 'bob',
         :last_name => 'billytown',
-        :image_url => "http://clown.com"}}
+        :image_url => "http://clown.com"}
 
       user.update_profile(updated_profile).should be true
-      user.profile.image_url.should == "http://clown.com"
+      user.reload.profile.image_url.should == "http://clown.com"
     end
   end
 
