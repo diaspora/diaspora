@@ -48,7 +48,7 @@
       %p
         Hello #{@resource.email}!
       %p
-        #{(@resource.inviters.count == 1)? ( @resource.inviters.first.real_name + " has") : (@resource.inviters.map{|inv| inv.real_name + " (#{inv.diaspora_handle})"}.join(",") + " have")} invited you to join Diaspora at #{root_url}, you can accept it through the link below.
+        #{(@resource.inviters.count == 1)? ( @resource.inviters.first.real_name + " (#{@resource.inviters.first.diaspora_handle})" + " has") : (@resource.inviters.map{|inv| inv.real_name + " (#{inv.diaspora_handle})"}.join(",") + " have")} invited you to join Diaspora at #{root_url}, you can accept it through the link below.
       - @resource.inviters.each do |inv|
         - if @resource.invite_messages[inv.id.to_s]
           = "#{inv.real_name}:"
