@@ -99,7 +99,7 @@ class AspectsController < ApplicationController
       flash[:error] =  I18n.t 'aspects.add_to_aspect.failure'
     end
 
-    redirect_to aspects_path(params[:aspect_id])
+    redirect_to aspect_path(params[:aspect_id])
   end
 
   def remove_from_aspect
