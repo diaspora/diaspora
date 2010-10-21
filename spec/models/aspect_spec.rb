@@ -63,10 +63,6 @@ describe Aspect do
     before do
       aspect
       user.activate_friend(friend, aspect)
-      aspect2
-      friend_users(user, aspect, user2, aspect2)
-      aspect.reload
-      user.reload
     end
 
     it 'belong to a user' do
@@ -76,7 +72,7 @@ describe Aspect do
 
     it 'should have people' do
       aspect.people.all.include?(friend).should be true
-      aspect.people.size.should == 2
+      aspect.people.size.should == 1
     end
 
     describe '#aspects_with_person' do
@@ -85,10 +81,7 @@ describe Aspect do
         user.reload
         aspects = user.aspects_with_person(friend)
         aspects.size.should == 1
-        aspects.first.id.should == aspect.id
-        aspects.first.people.size.should == 2
-        aspects.first.people.include?(friend).should be true
-        aspects.first.people.include?(user2.person).should be true
+        aspects.first.should == aspect
       end
 
       it 'returns multiple aspects if the person is there' do
@@ -99,7 +92,6 @@ describe Aspect do
         aspects.each{ |asp| asp.people.include?(friend) }
         aspects.should_not include aspect_without_friend
       end
-
     end
   end
 
@@ -150,8 +142,6 @@ describe Aspect do
   end
 
   context "aspect management" do
-
-
     before do
       friend_users(user, aspect, user2, aspect2)
       aspect.reload
