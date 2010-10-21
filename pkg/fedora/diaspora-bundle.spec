@@ -51,6 +51,7 @@ for gem in vendor/cache/*.gem; do
                 $gem
 done
 
+
 pushd vendor/bundle/gems
     # In repo (2.2.4)
     test -d gherkin-*/ext && {
@@ -191,14 +192,12 @@ exit 0
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -fr $RPM_BUILD_ROOT
 
-echo "ROOT:" $(pwd)
-
 find . -name .git | xargs rm -rf
 find . -name .gitignore -delete
 find . -name \*.o -delete  || :
 
-test -d gems/selenium-webdriver-0.0.28 && {
-pushd  gems/selenium-webdriver-0.0.28/lib/selenium/webdriver/
+test -d vendor/bundle/gems/selenium-webdriver-0.0.* && {
+pushd  vendor/bundle/gems/selenium-webdriver-0.0.*/lib/selenium/webdriver/
 %ifarch  %ix86 x86_64
 %ifarch %ix86
    rm -rf firefox/native/linux/amd64
