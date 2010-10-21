@@ -8,7 +8,7 @@ rm Gemfile.lock &&
 source /usr/local/rvm/scripts/rvm &&
 rvm use ruby-1.8.7-p249 &&
 bundle install &&
-bundle exec rake ci &&
+bundle exec rake cruise &&
 echo "" &&
 echo "*************************************************************************************************" &&
 echo "*                                   ruby 1.9.2-p0 build                                         *" &&
@@ -18,4 +18,4 @@ rm Gemfile.lock &&
 source /usr/local/rvm/scripts/rvm &&
 rvm use ruby-1.9.2-p0 &&
 bundle install &&
-bundle exec rake ci
+bundle exec rake cruise
