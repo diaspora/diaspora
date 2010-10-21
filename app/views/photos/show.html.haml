@@ -54,31 +54,28 @@
 
   });//end document ready
 
-.span-4.append-1.last
-  = render "shared/aspect_friends"
+%h2
+  = @aspect
+  .friend_pictures.horizontal
+    = owner_image_link
+    - for friend in @friends
+      = person_image_link(friend)
 
-.span-19.last
-  %h3
-    = link_to @photo.album.name, @photo.album
-    = @photo.image
+%h3
+  = link_to @photo.album.name, @photo.album
 
-  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch'
-  |
-  = link_to "#{t('.full_size')}", @photo.url
-  |
-  = link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch'
-
-  -if current_user.owns? @album
-    = link_to t('.edit_photo'), edit_photo_path(@photo), :class => "button"
-
-  %br
-  %br
-
-  %div{:id => @photo.id}
+.span-14.append-1.last
+  %div{:data=>{:guid=>@photo.id}}
     #show_photo
-      .edit_pane
-        .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
-          = link_to 'make profile photo', '#', :class => "make_profile_photo"
+
+      -if current_user.owns? @photo
+        .edit_pane
+          .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
+            = link_to 'make profile photo', '#', :class => "make_profile_photo"
+            |
+            = link_to 'edit', '#', :class => "make_profile_photo"
+          = linked_scaled_photo @photo, @album
+      -else
         = linked_scaled_photo @photo, @album
       .caption
         -if current_user.owns? @photo
@@ -87,26 +84,29 @@
         .description
           = @photo.caption
 
-      -if current_user.owns? @photo
-        %div{:class => 'clear'}
-        -if !@photo.caption or @photo.caption == ""
-          = link_to 'Add a description','javascript:void(0)', :id => "add-description", :class => "edit-desc"
+  -if current_user.owns? @photo
+    %div{:class => 'clear'}
+    -if !@photo.caption or @photo.caption == ""
+      = link_to 'Add a description','javascript:void(0)', :id => "add-description", :class => "edit-desc"
+  %br
+  %br
 
-      = form_for @photo do |p|
-        = p.text_field :caption, :value => @photo.caption
-        = p.submit
-        %div{:class => 'clear'}
+  = form_for @photo do |p|
+    = p.text_field :caption, :value => @photo.caption
+    = p.submit
+    %div{:class => 'clear'}
 
-    %h4{:class => "show_post_comments"}
-      = "#{t('.comments')} (#{@photo.comments.count})"
-    = render "comments/comments", :post => @photo
+  -if current_user.owns? @album
+    = link_to t('.delete_photo'), @photo, :confirm => t('.are_you_sure'), :method => :delete, :class => 'button'
 
-    #content_bottom
-      .back
-        = link_to "⇧ #{@album.name}", album_path(@album)
-
-      -if current_user.owns? @album
-        .right
-          = link_to t('.delete_photo'), @photo, :confirm => t('.are_you_sure'), :method => :delete, :class => 'button'
-
-
+.span-9.last
+  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch'
+  |
+  = link_to "#{t('.full_size')}", @photo.url
+  |
+  = link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch'
+  %br
+  %br
+  #stream.show
+    %li.message{:id => @photo.id}
+      = render "comments/comments", :post => @photo

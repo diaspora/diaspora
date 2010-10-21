@@ -24,8 +24,8 @@ user = User.build( :email => "tom@tom.joindiaspora.com",
                     :password_confirmation => "evankorth",
                     :person => {
                       :profile => { :first_name => "Alexander", :last_name => "Hamiltom",
-                      :image_url => "http://tom.joindiaspora.com/images/user/tom.jpg"}}
-                  ).save!
+                      :image_url => "http://tom.joindiaspora.com/images/user/tom.jpg"}})
+user.save!
 user.seed_aspects
 user.person.save!
 
@@ -35,9 +35,9 @@ user2 = User.build( :email => "korth@tom.joindiaspora.com",
                      :username => "korth",
                     :person => {:profile => { :first_name => "Evan", :last_name => "Korth",
                       :image_url => "http://tom.joindiaspora.com/images/user/korth.jpg"}})
+user2.save!
 user2.seed_aspects
 user2.person.save!
-
 # friending users
 aspect = user.aspect(:name => "other dudes")
 request = user.send_friend_request_to(user2, aspect)

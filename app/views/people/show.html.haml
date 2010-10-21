@@ -16,15 +16,16 @@
           %b.small= @person.diaspora_handle
         %li
           %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
+
       - if @person != current_user.person && current_user.friends.include?(@person)
         %li
           %i= t(".friends_since",:how_long_ago => how_long_ago(@person))
         %li
-          = form_tag move_friend_path
-          = select :to, :to,  @aspects_dropdown_array, :selected => @aspects_with_person.first.id
-          = hidden_field_tag :from, :from, :value => @aspects_with_person.first.id
-          = hidden_field_tag :friend_id, :friend_id, :value => @person.id
-          = submit_tag t('.save')
+          .person_aspects
+            ➔
+            %ul
+              - for aspect in @aspects_with_person
+                %li= link_to aspect.name, aspect
 
     - if @person != current_user.person && current_user.friends.include?(@person)
       = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
@@ -36,5 +37,5 @@
         = render type_partial(post), :post => post unless post.class == Album
       = will_paginate @posts
   - else
-    %h3=t('no posts to display!')
+    %h3= t('.no_posts')
 

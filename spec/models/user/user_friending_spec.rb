@@ -7,6 +7,7 @@ require 'spec_helper'
 describe User do
   let(:user) {Factory.create :user}
   let(:aspect) {user.aspect(:name => 'heroes')}
+  let(:aspect1) {user.aspect(:name => 'other')}
   let(:friend) { Factory.create(:person) }
 
   let(:person_one) {Factory.create :person}
@@ -172,6 +173,14 @@ describe User do
         lambda {user.unfriended_by user2.person}.should change{
           user.friends.count}.by(-1)
         aspect.reload.people.count.should == 0
+      end
+
+      it 'should remove the friend from all aspects they are in' do
+        user.add_person_to_aspect(user2.person.id, aspect1.id)
+         lambda {user.unfriended_by user2.person}.should change{
+          user.friends.count}.by(-1)
+        aspect.reload.people.count.should == 0
+        aspect1.reload.people.count.should == 0
       end
 
       context 'with a post' do

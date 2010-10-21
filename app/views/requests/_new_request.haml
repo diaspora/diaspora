@@ -8,6 +8,13 @@
       =t('.add_a_new_friend_to')
       %i= aspect.name
 
+  - if @friends_not_in_aspect
+    = render('shared/add_friend_dropdown', :aspect => @aspect, :friends => @friends_not_in_aspect)
+
+
+
+
+
   = form_for Request.new do |fr_request|
     = fr_request.error_messages
 

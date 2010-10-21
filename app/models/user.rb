@@ -130,7 +130,7 @@ class User
 
   def delete_person_from_aspect(person_id, aspect_id, opts = {})
     raise "Can not delete a person from an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
-    aspect.person_ids.delete(person_id)
+    aspect.person_ids.delete(person_id.to_id)
     opts[:posts] ||= aspect.posts.all(:person_id => person_id)
     aspect.posts -= opts[:posts]
     aspect.save

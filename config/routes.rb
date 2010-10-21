@@ -20,8 +20,9 @@ Diaspora::Application.routes.draw do
   match 'users/export_photos',     :to => 'users#export_photos'
   resources :users,         :except => [:create, :new, :show]
 
-  match 'aspects/move_friends', :to => 'aspects#move_friends', :as => 'move_friends'
   match 'aspects/move_friend',  :to => 'aspects#move_friend', :as => 'move_friend'
+  match 'aspects/add_to_aspect',:to => 'aspects#add_to_aspect', :as => 'add_to_aspect'
+  match 'aspects/remove_from_aspect',:to => 'aspects#remove_from_aspect', :as => 'remove_from_aspect'
   match 'aspects/manage',       :to => 'aspects#manage'
   match 'aspects/public',       :to => 'aspects#public'
   resources :aspects,           :except => [:edit]

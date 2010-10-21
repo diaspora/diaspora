@@ -46,6 +46,7 @@ class AspectsController < ApplicationController
 
   def show
     @aspect = current_user.aspect_by_id params[:id]
+    @friends_not_in_aspect = current_user.friends_not_in_aspect(@aspect)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
@@ -78,20 +79,6 @@ class AspectsController < ApplicationController
     respond_with @aspect
   end
 
-  def move_friends
-    params[:moves].each{ |move|
-      move = move[1]
-      unless current_user.move_friend(move)
-        flash[:error] = I18n.t 'aspects.move_friends.failure', :real_name => Person.find_by_id( move[:friend_id] ).real_name
-        redirect_to aspects_manage_path
-        return
-      end
-    }
-
-    flash[:notice] = I18n.t 'aspects.move_friends.success'
-    redirect_to aspects_manage_path
-  end
-
   def move_friend
     unless current_user.move_friend( :friend_id => params[:friend_id], :from => params[:from], :to => params[:to][:to])
       flash[:error] = I18n.t 'aspects.move_friend.error',:inspect => params.inspect
@@ -105,11 +92,29 @@ class AspectsController < ApplicationController
     end
   end
 
+  def add_to_aspect
+    if current_user.add_person_to_aspect( params[:friend_id], params[:aspect_id])
+      flash[:notice] =  I18n.t 'aspects.add_to_aspect.success'
+    else 
+      flash[:error] =  I18n.t 'aspects.add_to_aspect.failure'
+    end
+
+    redirect_to aspect_path(params[:aspect_id])
+  end
+
+  def remove_from_aspect
+    if current_user.delete_person_from_aspect( params[:friend_id], params[:aspect_id])
+      flash[:notice] =  I18n.t 'aspects.remove_from_aspect.success'
+    else 
+      flash[:error] =  I18n.t 'aspects.remove_from_aspect.failure'
+    end
+    redirect_to aspects_manage_path
+  end
+
   private
   def clean_hash(params)
     return {
       :name => params[:name]
     }
   end
-
 end
