@@ -18,29 +18,27 @@ describe Aspect do
   let(:aspect3) {user3.aspect(:name => "lala")}
 
   describe 'creation' do
+    let(:aspect){user.aspect(:name => 'losers')}
     it 'should have a name' do
-      aspect = user.aspect(:name => 'losers')
       aspect.name.should == "losers"
     end
 
-    it 'should be creatable with people' do
+    it 'should not be creatable with people' do
       aspect = user.aspect(:name => 'losers', :people => [friend, friend_2])
-      aspect.people.size.should == 2
+      aspect.people.size.should == 0
     end
 
     it 'should be able to have other users' do
-      aspect = user.aspect(:name => 'losers', :people => [user2.person])
+      aspect.people << user2.person
       aspect.people.include?(user.person).should be false
       aspect.people.include?(user2.person).should be true
       aspect.people.size.should == 1
     end
 
     it 'should be able to have users and people' do
-      aspect = user.aspect(:name => 'losers', :people => [user2.person, friend_2])
-      aspect.people.include?(user.person).should be false
-      aspect.people.include?(user2.person).should be true
-      aspect.people.include?(friend_2).should be true
-      aspect.people.size.should == 2
+      aspect.people << user2.person
+      aspect.people << friend_2
+      aspect.save.should be_true
     end
   end
 

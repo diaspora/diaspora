@@ -103,6 +103,7 @@ describe User do
       end
       it "makes a valid user" do
         @user.should be_valid
+        @user.persisted?.should be_false
         User.find_by_username("ohai").should be_nil
       end
       it 'saves successfully' do
