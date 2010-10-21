@@ -61,6 +61,9 @@
     - for friend in @friends
       = person_image_link(friend)
 
+%h3
+  = link_to @photo.album.name, @photo.album
+
 .span-14.append-1.last
   %div{:data=>{:guid=>@photo.id}}
     #show_photo
@@ -80,14 +83,6 @@
             = link_to 'Edit','javascript:void(0)', :id => "edit-desc", :class => "edit-desc"
         .description
           = @photo.caption
-
-  %h3
-    = link_to @photo.album.name, @photo.album
-    = @photo.image
-
-
-  -if current_user.owns? @album
-    = link_to t('.edit_photo'), edit_photo_path(@photo), :class => "button"
 
   -if current_user.owns? @photo
     %div{:class => 'clear'}
