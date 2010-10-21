@@ -16,6 +16,10 @@
     - for friend in @friends
       = person_image_link(friend)
 
+%h3
+  = link_to "#{@aspect} Albums", albums_path(:aspect => @aspect)
+
+
 .span-19.appends-1.last
   #thumbnails
     - for photo in @album_photos
@@ -23,10 +27,11 @@
         = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
 
 .span-5.last
-  %h3
+  %h2
     = @album.name
+
   ="#{t('.updated')} #{how_long_ago(@album)}"
-  = link_to "#{@aspect} Albums", albums_path(:aspect => @aspect)
+
   -if current_user.owns? @album
     =render 'photos/new_photo'
     = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
