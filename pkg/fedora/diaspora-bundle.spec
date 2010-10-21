@@ -69,13 +69,13 @@ pushd bundle/ruby/1.8/
     find .  -perm /u+x  -type f -print0 |
         xargs --null sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|'
 
-    chmod 755 gems/thin-1.2.7/example/async_chat.ru
-    chmod 755 gems/thin-1.2.7/example/async_tailer.ru
-    chmod 644 gems/i18n-0.4.1/MIT-LICENSE
-    chmod 755 gems/abstract-1.0.0/abstract.gemspec
+    chmod 755 gems/thin-1.2.7/example/async_chat.ru || :
+    chmod 755 gems/thin-1.2.7/example/async_tailer.ru || :
+    chmod 644 gems/i18n-0.4.1/MIT-LICENSE || :
+    chmod 755 gems/abstract-1.0.0/abstract.gemspec || :
     chmod 644 gems/mini_magick-2.1/MIT-LICENSE || :
-    chmod 755 gems/thin-1.2.7/lib/thin/controllers/service.sh.erb
-    chmod 644 gems/treetop-1.4.8/spec/compiler/test_grammar.tt
+    chmod 755 gems/thin-1.2.7/lib/thin/controllers/service.sh.erb || :
+    chmod 644 gems/treetop-1.4.8/spec/compiler/test_grammar.tt || :
 popd
 
 %build
