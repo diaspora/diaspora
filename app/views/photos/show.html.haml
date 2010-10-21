@@ -2,57 +2,58 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-:javascript
-  $(document).keydown(function(e){
-    switch(e.keyCode) {
-    case 37:
-      if(!$("textarea").hasClass("hasfocus")){//prevent redirect if textarea has focus
-        window.location.replace( "#{url_to_prev(@photo,@album)}" );
+- content_for :head do
+  :javascript
+    $(document).keydown(function(e){
+      switch(e.keyCode) {
+      case 37:
+        if(!$("textarea").hasClass("hasfocus")){//prevent redirect if textarea has focus
+          window.location.replace( "#{url_to_prev(@photo,@album)}" );
+        }
+        break;
+      case 39:
+        if(!$("textarea").hasClass("hasfocus")){
+          window.location.replace( "#{url_to_next(@photo,@album)}" );
+        }
+        break;
       }
-      break;
-    case 39:
-      if(!$("textarea").hasClass("hasfocus")){
-        window.location.replace( "#{url_to_next(@photo,@album)}" );
-      }
-      break;
-    }
-  });
-
-  $(document).ready(function(){
-    //add a clas to verify if a textarea has focus
-    $("textarea").live('focus',function(){
-      $(this).addClass("hasfocus");
-    });
-    $("textarea").live('blur',function(){
-      $(this).removeClass("hasfocus");
     });
 
-    //show form to add description
-    $(".edit-desc").click(function(){
-      $(".edit_photo").toggle(); 
-    });
+    $(document).ready(function(){
+      //add a clas to verify if a textarea has focus
+      $("textarea").live('focus',function(){
+        $(this).addClass("hasfocus");
+      });
+      $("textarea").live('blur',function(){
+        $(this).removeClass("hasfocus");
+      });
 
-    //Add a description with ajax request
-    $("#photo_submit").click(function(evenet){
-      event.preventDefault();
-      var method = $(".edit_photo").attr("method");
-      var url = $(".edit_photo").attr("action");
-      var data = $(".edit_photo").serialize();
-      $(".description").text($("#photo_caption").val());
-      $(".edit_photo").toggle();
+      //show form to add description
+      $(".edit-desc").click(function(){
+        $(".edit_photo").toggle(); 
+      });
 
-        $.ajax({  
-          type: method,
-          url: url,  
-          data: data,  
-          success: function(response){  
-            $("#add-description").remove();
-          }
-        });
+      //Add a description with ajax request
+      $("#photo_submit").click(function(evenet){
+        event.preventDefault();
+        var method = $(".edit_photo").attr("method");
+        var url = $(".edit_photo").attr("action");
+        var data = $(".edit_photo").serialize();
+        $(".description").text($("#photo_caption").val());
+        $(".edit_photo").toggle();
 
-    });
+          $.ajax({  
+            type: method,
+            url: url,  
+            data: data,  
+            success: function(response){  
+              $("#add-description").remove();
+            }
+          });
 
-  });//end document ready
+      });
+
+    });//end document ready
 
 %h2
   = @aspect
@@ -64,6 +65,12 @@
 %h3
   = link_to @photo.album.name, @photo.album
 
+= link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch'
+|
+= link_to "#{t('.full_size')}", @photo.url
+|
+= link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch'
+
 .span-14.append-1.last
   %div{:data=>{:guid=>@photo.id}}
     #show_photo
@@ -72,8 +79,6 @@
         .edit_pane
           .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
             = link_to 'make profile photo', '#', :class => "make_profile_photo"
-            |
-            = link_to 'edit', '#', :class => "make_profile_photo"
           = linked_scaled_photo @photo, @album
       -else
         = linked_scaled_photo @photo, @album
@@ -100,13 +105,6 @@
     = link_to t('.delete_photo'), @photo, :confirm => t('.are_you_sure'), :method => :delete, :class => 'button'
 
 .span-9.last
-  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch'
-  |
-  = link_to "#{t('.full_size')}", @photo.url
-  |
-  = link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch'
-  %br
-  %br
   #stream.show
-    %li.message{:id => @photo.id}
+    %li.message{:data=>{:guid=>@photo.id}}
       = render "comments/comments", :post => @photo

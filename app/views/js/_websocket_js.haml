@@ -44,17 +44,19 @@
   }
 
   function processComment(post_id, html){
-    post = $('#' + post_id)[0]
+    post = $("*[data-guid='"+post_id+"']'");
     $(' .comment_set li:last', post ).before(
       $(html).fadeIn("fast", function(){})
     );
     toggler = $('.show_post_comments', post)
 
-    toggler.html(
-      toggler.html().replace(/\d+/,$('.comment_set', post)[0].childElementCount -1));
+    if(toggler.length > 0){
+      toggler.html(
+        toggler.html().replace(/\d+/,$('.comment_set', post)[0].childElementCount -1));
 
-    if( !$(".comments", post).is(':visible') ){
-      toggler.click();
+      if( !$(".comments", post).is(':visible') ){
+        toggler.click();
+      }
     }
   }
 

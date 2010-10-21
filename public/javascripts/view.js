@@ -47,7 +47,7 @@ $(document).ready(function(){
     }
   );
 
-  $("#publisher textarea, .comment textarea").keydown( function(e) {
+  $("#publisher textarea, .comment_box").keydown( function(e) {
     if (e.keyCode == 13) {
       $(this).closest("form").submit();
     }
