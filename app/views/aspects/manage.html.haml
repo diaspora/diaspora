@@ -60,7 +60,7 @@
           -else
             -for person in aspect.people
 
-              %li.person{:id => person.id, :from_aspect_id => aspect.id}
+              %li.person{:id => person.id, :class => person.id, :from_aspect_id => aspect.id}
                 = person_image_tag(person)
                 .name
                   = link_to person.real_name, person
