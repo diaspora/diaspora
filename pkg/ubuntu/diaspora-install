@@ -25,7 +25,7 @@ cd /usr/share/diaspora
 find . -perm /u+x -type f -exec \
     sed -i 's|^#!/usr/local/bin/ruby|#!/usr/bin/ruby|' {} \; > /dev/null
 rm -rf master/vendor/bundle  master/public/uploads master/tmp master/log
-sed -i '/BUNDLE_PATH/s|:.*|: /usr/lib/diaspora-bundle/bundle|' \
+sed -i '/BUNDLE_PATH/s|:.*|: /usr/lib/diaspora-bundle/vendor/bundle|' \
          master/.bundle/config
 
 cp master/GNU-AGPL-3.0 master/COPYRIGHT master/README.md master/AUTHORS .
@@ -48,7 +48,7 @@ cp master/config/app_config.yml.example /etc/diaspora/app_config.yml
 ln -sf /etc/diaspora/app_config.yml master/config/app_config.yml
 ln -sf /var/lib/diaspora/uploads master/public/
 ln -sf /var/lib/diaspora/tmp master
-ln -sf /usr/lib/diaspora-bundle/bundle master/vendor
+ln -sf /usr/lib/diaspora-bundle/vendor/bundle master/vendor
 
 rm -rf /usr/share/doc/diaspora
 mkdir -p /usr/share/doc/diaspora
