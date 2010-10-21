@@ -43,7 +43,7 @@ GIT
 
 GIT
   remote: git://github.com/rsofaer/carrierwave.git
-  revision: 9edb8bdddd2236742a85bfd7b260387498d01f88
+  revision: 00347b93a4232ed0edd3e30a8730b5ffde635d17
   branch: master
   specs:
     carrierwave (0.4.4)
