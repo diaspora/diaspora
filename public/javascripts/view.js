@@ -121,3 +121,17 @@ $(".make_profile_photo").live("click", function(){
     }
   });
 });
+
+$(".comment_box").live("focus",function(evt){
+  var $this = $(this);
+  $this.attr("rows", 2);
+  $this.parents("p").parents("form").children("p").children(".comment_submit").fadeIn(200);
+});
+
+$(".comment_box").live('blur', function(evt){
+  var $this = $(this);
+  if( $this.val() == '' ) {
+    $this.parents("p").parents("form").children("p").children(".comment_submit").fadeOut(0);
+    $this.attr("rows", 1);
+  }
+});

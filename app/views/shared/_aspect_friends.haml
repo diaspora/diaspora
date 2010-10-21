@@ -5,7 +5,7 @@
 
 #left_pane
   %h2= @aspect
-  #friend_pictures
+  .friend_pictures
     = owner_image_link
     - for friend in @friends
       = person_image_link(friend)

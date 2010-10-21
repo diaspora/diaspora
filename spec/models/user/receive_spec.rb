@@ -17,7 +17,6 @@ describe User do
 
   before do
     friend_users(user, aspect, user2, aspect2)
-    friend_users(user, aspect, user3, aspect3)
   end
 
   it 'should be able to parse and store a status message from xml' do
@@ -94,6 +93,10 @@ describe User do
   end
 
   describe 'comments' do
+    before do
+      friend_users(user, aspect, user3, aspect3)
+    end
+
     it 'should correctly marshal a stranger for the downstream user' do
 
       post = user.post :status_message, :message => "hello", :to => aspect.id

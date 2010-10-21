@@ -544,10 +544,15 @@ li.message .from .right
       :margin-right 1em
 
 #show_photo
-  :text-align center
-  :min-height 200px
   img
     :max-width 100%
+    :-webkit-box-shadow 0 2px 4px #333
+    :border 10px solid #fff
+      :bottom 80px solid #fff
+
+    :-webkit-border-radius 3px
+    :-moz-border-radius 3px
+    :border-radius 3px
 
   .caption
     :margin
@@ -995,7 +1000,7 @@ ul#settings_nav
     :color transparent
 
 
-#friend_pictures
+.friend_pictures
   :margin
     :top 12px
   :line-height 1em
@@ -1003,6 +1008,16 @@ ul#settings_nav
     :margin-right -1px
     :width 30px
     :height 30px
+
+.friend_pictures.horizontal
+  :display inline
+  :margin
+    :left 20px
+
+  img
+    :width 20px
+    :height 20px
+    :margin-right -4px
 
 #thumbnails
   :line-height 14px
@@ -1105,7 +1120,9 @@ header
       :color rgba(51,51,51,0.9)
     :padding 10px
     :position absolute
-    :right 0
+    :right 10px
+    :margin
+      :top 10px
 
     a
       :font
@@ -1119,3 +1136,4 @@ header
   &:hover
     .controls
       :display inline
+

@@ -22,25 +22,25 @@ user = User.build( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
-                    :person => Person.new(
-                      :profile => Profile.new( :first_name => "Alexander", :last_name => "Hamiltom" ))
-                  )
+                    :person => {
+                      :profile => { :first_name => "Alexander", :last_name => "Hamiltom",
+                      :image_url => "/images/user/tom.jpg"}})
+      
 user.save
 user.person.save!
 user.seed_aspects
 
 user2 = User.build( :email => "korth@tom.joindiaspora.com",
-                     :username => "korth",
                     :password => "evankorth",
                     :password_confirmation => "evankorth",
-                    :person => Person.new(
-                      :profile => Profile.new( :first_name => "Evan", :last_name => "Korth")))
+                     :username => "korth",
+                    :person => {:profile => { :first_name => "Evan", :last_name => "Korth",
+                      :image_url => "/images/user/korth.jpg"}})
 
 
 user2.save
 user2.person.save!
 user2.seed_aspects
-
 # friending users
 aspect = user.aspect(:name => "other dudes")
 request = user.send_friend_request_to(user2, aspect)
