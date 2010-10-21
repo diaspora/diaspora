@@ -43,10 +43,11 @@ GIT
 
 GIT
   remote: git://github.com/rsofaer/carrierwave.git
-  revision: 9edb8bdddd2236742a85bfd7b260387498d01f88
+  revision: c3dfbdda2fa227af91fe383bb126f59b991a318f
   branch: master
   specs:
-    carrierwave (0.4.4)
+    carrierwave (0.5.0)
+      activesupport (~> 3.0)
 
 GIT
   remote: git://github.com/rsofaer/redfinger.git
