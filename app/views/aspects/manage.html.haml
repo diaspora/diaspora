@@ -25,8 +25,13 @@
             = person_image_tag(request.person)
             .name
               = request.person.real_name
-  %h3=t('.ignore_remove')
 
+  %h3 Remove from Aspect
+  .aspect_remove
+    %ul.dropzone
+      %li.grey Drag to remove person from aspect
+
+  %h3=t('.ignore_remove')
   .remove
     %ul.dropzone
       %li.grey Drag to ignore/remove

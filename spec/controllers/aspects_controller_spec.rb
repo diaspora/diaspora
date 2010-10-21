@@ -80,5 +80,15 @@ describe AspectsController do
       @aspect1.reload
       @aspect1.people.include?(@user2.person).should be true
     end
+  end 
+  
+  describe "#remove_from_aspect" do
+    it 'adds the users to the aspect' do
+      @aspect.reload
+      @aspect.people.include?(@user2.person).should be true
+      post 'remove_from_aspect', {:friend_id => @user2.person.id, :aspect_id => @aspect1.id }
+      @aspect1.reload
+      @aspect1.people.include?(@user2.person).should be false
+    end
   end
 end
