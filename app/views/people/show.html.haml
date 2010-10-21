@@ -37,5 +37,5 @@
         = render type_partial(post), :post => post unless post.class == Album
       = will_paginate @posts
   - else
-    %h3=t('no posts to display!')
+    %h3= t('.no_posts')
 
