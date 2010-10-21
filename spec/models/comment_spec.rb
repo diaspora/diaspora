@@ -62,14 +62,14 @@ describe Comment do
       comment.creator_signature = comment.sign_with_key(user3.encryption_key)
       comment.post_creator_signature = comment.sign_with_key(user.encryption_key)
 
-      xml = user.salmon(comment).xml_for(user3)
+      xml = user.salmon(comment).xml_for(user2)
 
       user3.person.delete
       user3.delete
 
       @user_status.reload
       @user_status.comments.should == []
-      user.receive_salmon(xml)
+      user2.receive_salmon(xml)
       @user_status.reload
       @user_status.comments.include?(comment).should be true
     end
