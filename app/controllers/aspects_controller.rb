@@ -96,10 +96,19 @@ class AspectsController < ApplicationController
     if current_user.add_person_to_aspect( params[:friend_id], params[:aspect_id])
       flash[:notice] =  I18n.t 'aspects.add_to_aspect.success'
     else 
-      flash[:notice] =  I18n.t 'aspects.add_to_aspect.success'
+      flash[:error] =  I18n.t 'aspects.add_to_aspect.failure'
     end
 
     redirect_to aspects_path(params[:aspect_id])
+  end
+
+  def remove_from_aspect
+    if current_user.delete_person_from_aspect( params[:friend_id], params[:aspect_id])
+      flash[:notice] =  I18n.t 'aspects.remove_from_aspect.success'
+    else 
+      flash[:error] =  I18n.t 'aspects.remove_from_aspect.failure'
+    end
+    redirect_to aspects_manage_path
   end
 
   private

@@ -93,6 +93,27 @@ $(function() {
     }
   });
 
+  $(".aspect_remove ul").droppable({
+    hoverClass: 'active',
+    drop: function(event, ui) {
+
+      if (!$(ui.draggable[0]).hasClass('requested_person')){
+        var aspect = ui.draggable[0].getAttribute('from_aspect_id')
+        var person_id =  ui.draggable[0].id
+        $.ajax({
+          type: "POST",
+          url: "/aspects/remove_from_aspect",
+          data:{
+                'friend_id' : person_id,
+                'aspect_id' : aspect
+                }
+        });
+      }
+
+      $(ui.draggable[0]).fadeOut('slow'); // ui.draggable.fadeOut('slow')
+    }
+  });
+
 
   $(".aspect h3").live( 'focus', function() {
 
