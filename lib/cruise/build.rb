@@ -8,7 +8,7 @@ end
 
 def rake(*tasks)
   tasks.each do |task|
-    return false unless system("#{root_dir}/bin/rake", task, 'RAILS_ENV=test')
+    return false unless system("rake", task, 'RAILS_ENV=test')
   end
 end
 
