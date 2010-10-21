@@ -9,27 +9,30 @@
     });
   });
 
-.span-4.append-1.last
-  = render "shared/aspect_friends"
+%h2
+  = @aspect
+  .friend_pictures.horizontal
+    = owner_image_link
+    - for friend in @friends
+      = person_image_link(friend)
 
-.span-19.last
+.span-19.appends-1.last
+  #thumbnails
+    - for photo in @album_photos
+      .image_thumb
+        = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
+
+.span-5.last
   %h3
-    = link_to "#{@aspect} Albums", albums_path(:aspect => @aspect)
-
     = @album.name
   ="#{t('.updated')} #{how_long_ago(@album)}"
-  .right
-    -if current_user.owns? @album
-      =render 'photos/new_photo'
-      = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
+  = link_to "#{@aspect} Albums", albums_path(:aspect => @aspect)
+  -if current_user.owns? @album
+    =render 'photos/new_photo'
+    = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
 
   .album_id{:id => @album.id, :style => "display:hidden;"}
 
   -unless current_user.owns? @album
     %h4= "#{t('.by')} #{@album.person.real_name}"
-
-  #thumbnails
-    - for photo in @album_photos
-      .image_thumb
-        = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
 
