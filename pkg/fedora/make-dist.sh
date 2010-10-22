@@ -200,12 +200,12 @@ function package_git_gems()
 
             rm -rf "$name"
             git clone "$url" "$name"
-            cd ${name%.git}
+            cd $name
                 git reset --hard  $rev
                 sed -i '/s.date/s/Date.today/"2010-09-25"/' *.gemspec
                 gem build *.gemspec
                 cp *.gem $dest
-                echo "Built GIT gem $name"
+                echo "Built GIT gem $name (*.gem)"
             cd ..
         done
     cd ..
