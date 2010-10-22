@@ -198,9 +198,9 @@ describe Person do
       
       it 'should return nil if there is not an exact match' do
         Redfinger.stub!(:finger).and_return(nil)
-        Person.stub!(:from_webfinger_profile).and_return(false)
 
         person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
+        person1 = Factory(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
         #Person.by_webfinger("tom@tom.joindiaspora.com").should_be false 
         proc{ Person.by_webfinger("tom@tom.joindiaspora.com")}.should raise_error
       end
