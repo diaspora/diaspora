@@ -97,8 +97,8 @@ class Person
     # Raise an error if identifier is not a valid email (generous regexp)
     raise "Identifier is invalid" if !(identifier =~ /\A.*\@.*\..*\Z/)
 
-    query = /#{Regexp.escape(identifier.gsub('acct:', '').to_s)}/i
-    local_person = Person.first(:diaspora_handle => query)
+    query = Regexp.escape(identifier.gsub('acct:', '').to_s
+    local_person = Person.find_by_diaspora_handle(:diaspora_handle => query)
 
     if local_person
       Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
