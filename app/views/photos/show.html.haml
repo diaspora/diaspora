@@ -58,7 +58,7 @@
 = render 'shared/author_info', :post => @photo
 
 %ul#breadcrumb
-  %li= link_to "Photos", '#'
+  %li= link_to "#{@album.person.profile.first_name}'s Photos", '#'
   %li= link_to @album.name, album_path(@album)
   %li= @photo.caption
 

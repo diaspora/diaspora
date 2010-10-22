@@ -13,7 +13,7 @@
 = render 'shared/author_info', :post => @album
 
 %ul#breadcrumb
-  %li= link_to "Photos", '#'
+  %li= link_to "#{@album.person.profile.first_name}'s Photos", '#'
   %li= @album.name
 
 
