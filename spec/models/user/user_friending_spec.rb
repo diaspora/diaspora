@@ -95,7 +95,9 @@ describe User do
         end
 
         it 'sends an email to the receiving user' do
-          Notifier.should_receive(:new_request)
+          mail_obj = mock("mailer")
+          mail_obj.should_receive(:deliver)
+          Notifier.should_receive(:new_request).and_return(mail_obj)
           user.receive @req_xml, person_one
         end
 
