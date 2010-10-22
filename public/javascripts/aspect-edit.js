@@ -21,8 +21,17 @@ function decrementRequestsCounter() {
 
 // Dragging person between aspects
 $(function() {
-  $("ul .person").draggable({ revert: true });
-  $("ul .requested_person").draggable({ revert: true });
+  $("ul .person").draggable({
+    revert: true,
+    start: function(event,ui){
+      $(this).children("img").animate({'height':80, 'width':80, 'opacity':0.8},200);
+      $(".draggable_info").fadeIn(100);
+    },
+    stop: function(event,ui){
+      $(this).children("img").animate({'height':70, 'width':70, 'opacity':1},200);
+      $(".draggable_info").fadeOut(100);
+    }
+  });
 
   $(".aspect ul.dropzone").droppable({
     hoverClass: 'active',

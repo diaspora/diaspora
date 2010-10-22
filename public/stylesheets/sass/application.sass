@@ -943,12 +943,12 @@ h1.big_text
 .aspect_remove
   :list
     :style none
-  .grey
-    :color #999
-    :cursor default
-    :text-shadow 0 1px #fff
+  :color #999
+  :cursor default
+  :text-shadow 0 1px #fff
 
   ul.dropzone
+    :position relative
     :min-height 20px
     :margin 0
       :bottom 25px
@@ -965,6 +965,16 @@ h1.big_text
     &.active
       :background
         :color rgba(255,252,127,0.2)
+
+    .draggable_info
+      :position absolute
+      :display none
+      :right 15px 
+      :bottom 10px 
+      :font
+        :style italic
+        :size 14px
+      :color #aaa
 
   .person
     :display inline-block
@@ -991,7 +1001,6 @@ h1.big_text
       img
         :-webkit-box-shadow 0 1px 3px #000
         :-moz-box-shadow 0 2px 4px #000
-        :opacity 0.9
 
       .delete
         :display none

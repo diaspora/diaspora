@@ -18,7 +18,7 @@
   .requests
     %ul.dropzone
       - if @remote_requests.size < 1
-        %li.grey No new requests
+        %li No new requests
       - else
         - for request in @remote_requests
           %li.person.request{:data=>{:guid=>request.id, :person_id=>request.person.id}}
@@ -27,7 +27,8 @@
   %h3 Remove from Aspect
   .aspect_remove
     %ul.dropzone
-      %li.grey Drag to remove person from aspect
+      .draggable_info
+        Drag to remove person from aspect
 
   = render 'shared/invitations', :invites => @invites
 
@@ -47,18 +48,15 @@
             %li!= remove_link(aspect)
 
         %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
-
-          -if aspect.people.size < 1
-            %li.grey Drag to add people
-
-          -else
-            -for person in aspect.people
-              %li.person{:data=>{:guid=>person.id, :aspect_id=>aspect.id}}
-                .delete
-                  .x
-                    X
-                  .circle
-                = person_image_tag(person)
+          -for person in aspect.people
+            %li.person{:data=>{:guid=>person.id, :aspect_id=>aspect.id}}
+              .delete
+                .x
+                  X
+                .circle
+              = person_image_tag(person)
+          .draggable_info
+            Drag to add people
 
 
 
