@@ -40,19 +40,9 @@ Source file usede to compile native libraries in diaspora-bundle.
 %build
 mkdir -p vendor/cache
 mv *.gem vendor/cache
-for gem in vendor/cache/*.gem; do
-    gem install --local                      \
-                --install-dir vendor/bundle  \
-                --no-rdoc                    \
-                --no-ri                      \
-                --no-test                    \
-                --no-wrappers                \
-                --ignore-dependencies        \
-                $gem
-done
+bundle install --local --deployment --without ri rdoc
 
-
-pushd vendor/bundle/gems
+pushd vendor/bundle/ruby/1.8/gems
     # In repo (2.2.4)
     test -d gherkin-*/ext && {
     pushd gherkin-*/ext
@@ -132,7 +122,7 @@ pushd vendor/bundle/gems
         ln -s ../ext/trace_nums.so .
     popd
 
-    pushd em-http-request-*/lib
+    pushd ../bundler/gems/em-http-request*/lib
         rm em_buffer.so
         ln -s ../ext/buffer/em_buffer.so .
         rm http11_client.so
@@ -178,8 +168,6 @@ pushd vendor/bundle/gems
 popd
 
 
-
-
 %pre
 getent group diaspora >/dev/null || groupadd -r diaspora
 getent passwd diaspora >/dev/null ||        \
@@ -196,8 +184,8 @@ find . -name .git | xargs rm -rf
 find . -name .gitignore -delete
 find . -name \*.o -delete  || :
 
-test -d vendor/bundle/gems/selenium-webdriver-0.0.* && {
-pushd  vendor/bundle/gems/selenium-webdriver-0.0.*/lib/selenium/webdriver/
+test -d vendor/bundle/ruby/1.8//gems/selenium-webdriver-0.0.* && {
+pushd  vendor/bundle//ruby/1.8/gems/selenium-webdriver-0.0.*/lib/selenium/webdriver/
 %ifarch  %ix86 x86_64
 %ifarch %ix86
    rm -rf firefox/native/linux/amd64
