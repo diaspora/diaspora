@@ -93,6 +93,16 @@ describe User do
           }.should_not change(Person, :count)
           user2.friends.include?(user.person).should be false
         end
+
+        it 'sends an email to the receiving user' do
+          Notifier.should_receive(:new_request)
+          user.receive @req_xml, person_one
+        end
+
+
+        it 'should send a an email saying your friend request was confirmed' do
+            pending
+        end
       end
       context 'Two users receiving requests from one person' do
         before do
@@ -107,7 +117,7 @@ describe User do
           user2.accept_friend_request @request_two.id, aspect2.id
           user2.friends.include?(person_one).should be true
         end
-
+        
         it 'should keep the person around if one of the users rejects him' do
           user.accept_friend_request @request.id, aspect.id
           user.friends.include?(person_one).should be true
@@ -124,6 +134,8 @@ describe User do
           user2.friends.include?(person_one).should be false
         end
       end
+
+
     end
 
     describe 'a user accepting rejecting multiple people' do
