@@ -903,13 +903,7 @@ h1.big_text
       :padding 2px
 
 
-.aspect,
-.requests,
-.remove,
-.aspect_remove
-  :list
-    :style none
-
+.aspect
   h3
     :display inline-block
 
@@ -944,7 +938,11 @@ h1.big_text
         &:last-child
           :margin
             :right 0
-
+.aspect,
+.requests,
+.aspect_remove
+  :list
+    :style none
   .grey
     :color #999
     :cursor default
@@ -954,25 +952,27 @@ h1.big_text
     :min-height 20px
     :margin 0
       :bottom 25px
-    :background
-      :color #efefef
-    :border 1px solid #ccc
+
+    :-webkit-border-radius 10px
+    :-moz-border-radius 10px
+    :border-radius 10px
+
     :list
       :style none
     :padding 15px
+    :border 2px dashed #ccc
 
     &.active
       :background
-        :color #fafafa
+        :color rgba(255,252,127,0.2)
 
-  .person,
-  .requested_person
+  .person
     :display inline-block
     :cursor move
     :z-index 10
     :position relative
     :padding 0
-    :margin 0
+    :margin 5px
 
     :color #eee
 
@@ -980,6 +980,7 @@ h1.big_text
       :height 70px
       :width 70px
       :border-radius 5px
+      :-webkit-box-shadow 0 1px 2px #999
 
     &:hover
       .delete
@@ -1033,6 +1034,10 @@ h1.big_text
           :background
             :color rgba(208,49,43,1)
 
+
+.requests
+  ul.dropzone
+    :border 2px solid #ccc
 
 ul#settings_nav
   :display inline
@@ -1152,6 +1157,10 @@ header
 
   h2
     :display inline
+  
+  .right
+    :margin
+      :top 10px
 
 .modal_title_bar
   :width 100%
