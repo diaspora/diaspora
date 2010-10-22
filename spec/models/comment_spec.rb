@@ -97,6 +97,10 @@ describe Comment do
       user.receive comment.to_diaspora_xml, user2.person
     end
 
+    context 'posts from a remote person' do
+      before(:all) do
+        stub_comment_signature_verification
+      end
     it 'should not send a comment a person made on his own post to anyone' do
       User::QUEUE.should_not_receive(:add_post_request)
       comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @person_status)
@@ -108,6 +112,10 @@ describe Comment do
       comment = Comment.new(:person_id => @person2.id, :text => "balls", :post => @person_status)
       user.receive comment.to_diaspora_xml, @person
     end
+    after(:all) do
+      unstub_mocha_stubs
+    end
+  end
 
     it 'should not clear the aspect post array on receiving a comment' do
       aspect.post_ids.include?(@user_status.id).should be true

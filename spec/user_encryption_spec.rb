@@ -6,7 +6,6 @@ require 'spec_helper'
 
 describe 'user encryption' do
   before do
-    unstub_mocha_stubs
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => 'dudes')
 
@@ -14,13 +13,6 @@ describe 'user encryption' do
     @aspect2 = @user2.aspect(:name => 'dudes')
   end
 
-  after  do
-    stub_signature_verification
-    #gpgdir = File.expand_path("../../db/gpg-#{Rails.env}", __FILE__)
-    #ctx = GPGME::Ctx.new
-    #keys = ctx.keys
-    #keys.each{|k| ctx.delete_key(k, true)}
-  end
   it 'should have a key' do
     @user.encryption_key.should_not be nil
   end
@@ -34,6 +26,8 @@ describe 'user encryption' do
     it 'should receive and marshal a public key from a request' do
       remote_user = Factory.build(:user)
       remote_user.encryption_key.nil?.should== false
+
+      Person.should_receive(:by_webfinger).and_return(remote_user.person)
       #should move this to friend request, but i found it here
       id = remote_user.person.id
       original_key = remote_user.exported_key
@@ -41,13 +35,13 @@ describe 'user encryption' do
       request = remote_user.send_friend_request_to(
         @user.person, remote_user.aspect(:name => "temp"))
 
-      xml = request.to_diaspora_xml
+      xml = remote_user.salmon(request).xml_for(@user)
 
       remote_user.person.delete
       remote_user.delete
 
       person_count = Person.all.count
-      @user.receive xml, remote_user.person
+      @user.receive_salmon xml
         
       Person.all.count.should == person_count + 1
       new_person = Person.first(:id => id)
