@@ -49,10 +49,10 @@
         Hello #{@receiver.profile.first_name}!
       %p
         = "#{@sender.real_name} (#{@sender.diaspora_handle})"
-        just sent you a friend request on Diaspora*
-        You should really think about checking it out.
-        %br
-        = link_to "sign in here", new_user_session_url
+        has accepted your friend request. They are now in your 
+        = link_to @aspect.name, aspect_url(@aspect)
+        aspect.
+
         %br
         love, 
         %br

@@ -5,7 +5,7 @@
 
 require 'spec_helper'
 
-describe User do
+describe Diaspora::UserModules::Friending do
   let(:user) { Factory.create :user }
   let(:aspect) { user.aspect(:name => 'heroes') }
   let(:aspect1) { user.aspect(:name => 'other') }
@@ -21,6 +21,7 @@ describe User do
     deliverable = Object.new
     deliverable.stub!(:deliver)
     Notifier.stub!(:new_request).and_return(deliverable)
+    Notifier.stub!(:request_accepted).and_return(deliverable)
   end
 
   context 'friend requesting' do
@@ -59,6 +60,13 @@ describe User do
 
     it 'should not be able to friend request yourself' do
       proc { user.send_friend_request_to(nil, aspect) }.should raise_error(RuntimeError, /befriend yourself/)
+    end
+
+    it 'should send an email on acceptance if a friend request' do
+      Notifier.should_receive(:request_accepted)
+      request = user.send_friend_request_to(user2.person, aspect)
+      request.reverse_for(user2)
+      user.receive_friend_request(request)
     end
 
 
@@ -108,9 +116,7 @@ describe User do
           user.receive @req_xml, person_one
         end
 
-        it 'should send a an email saying your friend request was confirmed' do
-          pending
-        end
+
       end
       context 'Two users receiving requests from one person' do
         before do
@@ -118,21 +124,24 @@ describe User do
           user2.receive @req_two_xml, person_one
         end
 
-        it 'should both users should befriend the same person' do
-          user.accept_friend_request @request.id, aspect.id
-          user.friends.include?(person_one).should be true
+        describe '#accept_friend_request' do
+          it 'should both users should befriend the same person' do
+            user.accept_friend_request @request.id, aspect.id
+            user.friends.include?(person_one).should be true
 
-          user2.accept_friend_request @request_two.id, aspect2.id
-          user2.friends.include?(person_one).should be true
+            user2.accept_friend_request @request_two.id, aspect2.id
+            user2.friends.include?(person_one).should be true
+          end
+
+          it 'should keep the person around if one of the users rejects him' do
+            user.accept_friend_request @request.id, aspect.id
+            user.friends.include?(person_one).should be true
+
+            user2.ignore_friend_request @request_two.id
+            user2.friends.include?(person_one).should be false
+          end
         end
 
-        it 'should keep the person around if one of the users rejects him' do
-          user.accept_friend_request @request.id, aspect.id
-          user.friends.include?(person_one).should be true
-
-          user2.ignore_friend_request @request_two.id
-          user2.friends.include?(person_one).should be false
-        end
 
         it 'should keep the person around if the users ignores them' do
           user.ignore_friend_request user.pending_requests.first.id
