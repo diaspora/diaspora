@@ -27,6 +27,9 @@ describe 'user encryption' do
       remote_user = Factory.build(:user)
       remote_user.encryption_key.nil?.should== false
 
+      deliverable = Object.new
+      deliverable.stub!(:deliver)
+      Notifier.stub!(:new_request).and_return(deliverable)
       Person.should_receive(:by_webfinger).and_return(remote_user.person)
       #should move this to friend request, but i found it here
       id = remote_user.person.id
