@@ -226,6 +226,7 @@ function make_bundle()
             rm -rf $bundle_name
             cd diaspora
                 rm -rf vendor/*
+                mkdir -p vendor/cache
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
                     rm -f Gemfile.lock
                     rm -rf .bundle
