@@ -5,6 +5,6 @@ class Notifier < ActionMailer::Base
     @receiver = recipient
     @sender = sender
     mail(:to => "#{recipient.real_name} <#{recipient.email}>",
-    :subject => "new friend request from #{@sender.inspect}")
+    :subject => "new Diaspora* friend request from #{@sender.real_name}")
   end
 end
