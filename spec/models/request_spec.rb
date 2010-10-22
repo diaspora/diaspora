@@ -28,6 +28,7 @@ describe Request do
     xml.should include user.person.url
     xml.should include user.profile.first_name
     xml.should include user.profile.last_name
+    xml.should include user.exported_key
   end
 
   it 'should allow me to see only friend requests sent to me' do

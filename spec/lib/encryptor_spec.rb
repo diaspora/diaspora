@@ -14,11 +14,6 @@ describe 'user encryption' do
   end
 
   describe 'key exchange on friending' do
-    it 'should send over a public key' do
-      message_queue.stub!(:add_post_request)
-      request = @user.send_friend_request_to(Factory.create(:person), @aspect)
-      request.to_diaspora_xml.include?( @user.exported_key).should be true
-    end
 
     it 'should receive and marshal a public key from a request' do
       remote_user = Factory.build(:user)
