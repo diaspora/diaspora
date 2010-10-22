@@ -175,6 +175,42 @@ function make_src
     echo "Required bundle:     $(git_id dist/diaspora/Gemfile)"
 }
 
+function get_git_repos()
+{
+    grep -A 2 GIT $1 |
+        awk   ' /remote:/   { repo = $2 }
+                /revision:/ { printf "%s=%s\n",repo, $2}'
+}
+
+
+function package_git_gems()
+{
+    gemfile="$1"
+    dest="$2"
+
+    rm -rf git-tmp
+    mkdir git-tmp
+    cd git-tmp
+        for repo in $( get_git_repos $1); do
+            url=${repo%%=*}
+            rev=${repo##*=}
+
+            name=${url##*/}
+            name="${name%.git}"
+
+            rm -rf "$name"
+            git clone "$url" "$name"
+            cd ${name%.git}
+                git reset --hard  $rev
+                sed -i '/s.date/s/Date.today/"2010-09-25"/' *.gemspec
+                gem build *.gemspec
+                cp *.gem $dest
+                echo "Built GIT gem $name"
+            cd ..
+        done
+    cd ..
+}
+
 
 function make_bundle()
 # Create the bundle tarball
@@ -188,22 +224,23 @@ function make_bundle()
         echo "Creating bundle $bundle_name"
         cd dist
             rm -rf $bundle_name
-            mkdir -p $bundle_name/bundle
-            pushd diaspora > /dev/null
+            cd diaspora
+                rm -rf vendor/*
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
                     rm -f Gemfile.lock
                     rm -rf .bundle
                     bundle update
                 fi
-                bundle install --deployment                      \
-                               --path="../$bundle_name/bundle"   \
-                               --without=test rdoc
-
+                bundle package
+                package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache/"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
-                       "../$bundle_name"
-            popd > /dev/null
-            tar czf $bundle_name.tar.gz $bundle_name
-            rm -rf  $bundle_name
+                       vendor/cache
+                cd vendor
+                    mv cache $bundle_name
+                    tar czf ../../$bundle_name.tar.gz $bundle_name
+                    mv $bundle_name vendor
+                cd ..
+            cd ..
         cd ..
     }
     echo
