@@ -247,6 +247,7 @@ function make_bundle()
     }
     echo
     echo "Bundle: dist/$bundle_name.tar.gz"
+    echo "Current dir:$PWD"
 }
 
 
