@@ -56,6 +56,10 @@ describe Request do
     end
 
     it 'recognized when a request is not from me' do 
+      deliverable = Object.new
+      deliverable.stub!(:deliver)
+      Notifier.stub!(:new_request).and_return(deliverable)
+
       user2.receive_salmon(user.salmon(request).xml_for(user2.person))
       user2.reload
       user2.request_from_me?(request).should == false
@@ -64,6 +68,10 @@ describe Request do
 
   context 'quering request through user' do
     it 'finds requests for that user' do
+      deliverable = Object.new
+      deliverable.stub!(:deliver)
+      Notifier.stub!(:new_request).and_return(deliverable)
+
       user2.receive_salmon(user.salmon(request).xml_for(user2.person))
       user2.reload
       user2.requests_for_me.include?(request).should == true

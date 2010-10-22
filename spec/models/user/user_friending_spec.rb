@@ -1,3 +1,4 @@
+
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -5,16 +6,22 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) {Factory.create :user}
-  let(:aspect) {user.aspect(:name => 'heroes')}
-  let(:aspect1) {user.aspect(:name => 'other')}
+  let(:user) { Factory.create :user }
+  let(:aspect) { user.aspect(:name => 'heroes') }
+  let(:aspect1) { user.aspect(:name => 'other') }
   let(:friend) { Factory.create(:person) }
 
-  let(:person_one) {Factory.create :person}
-  let(:person_two) {Factory.create :person}
-  
-  let(:user2)   { Factory.create :user}
-  let(:aspect2) { user2.aspect(:name => "aspect two")}
+  let(:person_one) { Factory.create :person }
+  let(:person_two) { Factory.create :person }
+
+  let(:user2) { Factory.create :user }
+  let(:aspect2) { user2.aspect(:name => "aspect two") }
+
+  before do
+    deliverable = Object.new
+    deliverable.stub!(:deliver)
+    Notifier.stub!(:new_request).and_return(deliverable)
+  end
 
   context 'friend requesting' do
     it "should assign a request to a aspect" do
@@ -29,9 +36,9 @@ describe User do
     it "should be able to accept a pending friend request" do
       r = Request.instantiate(:to => user.receive_url, :from => friend)
       r.save
-      
-      proc {user.accept_friend_request(r.id, aspect.id)}.should change{
-        Request.for_user(user).all.count}.by(-1)
+
+      proc { user.accept_friend_request(r.id, aspect.id) }.should change {
+        Request.for_user(user).all.count }.by(-1)
     end
 
     it 'should be able to ignore a pending friend request' do
@@ -39,8 +46,8 @@ describe User do
       r = Request.instantiate(:to => user.receive_url, :from => friend)
       r.save
 
-      proc{user.ignore_friend_request(r.id)}.should change{
-        Request.for_user(user).count}.by(-1)
+      proc { user.ignore_friend_request(r.id) }.should change {
+        Request.for_user(user).count }.by(-1)
     end
 
     it 'should not be able to friend request an existing friend' do
@@ -81,14 +88,14 @@ describe User do
           user2.receive @req_three_xml, user.person
         end
         it 'should befriend the user other user on the same pod' do
-          proc{
+          proc {
             user2.accept_friend_request @request_three.id, aspect2.id
           }.should_not change(Person, :count)
           user2.friends.include?(user.person).should be true
         end
 
         it 'should not delete the ignored user on the same pod' do
-          proc{
+          proc {
             user2.ignore_friend_request @request_three.id
           }.should_not change(Person, :count)
           user2.friends.include?(user.person).should be false
@@ -101,17 +108,16 @@ describe User do
           user.receive @req_xml, person_one
         end
 
-
         it 'should send a an email saying your friend request was confirmed' do
-            pending
+          pending
         end
       end
       context 'Two users receiving requests from one person' do
         before do
           user.receive @req_xml, person_one
-
           user2.receive @req_two_xml, person_one
         end
+
         it 'should both users should befriend the same person' do
           user.accept_friend_request @request.id, aspect.id
           user.friends.include?(person_one).should be true
@@ -119,7 +125,7 @@ describe User do
           user2.accept_friend_request @request_two.id, aspect2.id
           user2.friends.include?(person_one).should be true
         end
-        
+
         it 'should keep the person around if one of the users rejects him' do
           user.accept_friend_request @request.id, aspect.id
           user.friends.include?(person_one).should be true
@@ -174,25 +180,25 @@ describe User do
 
     describe 'unfriending' do
       before do
-        friend_users(user,aspect, user2, aspect2)
+        friend_users(user, aspect, user2, aspect2)
       end
 
       it 'should unfriend the other user on the same seed' do
-        lambda {user2.unfriend user.person}.should change{
-          user2.friends.count}.by(-1)
+        lambda { user2.unfriend user.person }.should change {
+          user2.friends.count }.by(-1)
         aspect2.reload.people.count.should == 0
       end
 
       it 'is unfriended by another user' do
-        lambda {user.unfriended_by user2.person}.should change{
-          user.friends.count}.by(-1)
+        lambda { user.unfriended_by user2.person }.should change {
+          user.friends.count }.by(-1)
         aspect.reload.people.count.should == 0
       end
 
       it 'should remove the friend from all aspects they are in' do
         user.add_person_to_aspect(user2.person.id, aspect1.id)
-         lambda {user.unfriended_by user2.person}.should change{
-          user.friends.count}.by(-1)
+        lambda { user.unfriended_by user2.person }.should change {
+          user.friends.count }.by(-1)
         aspect.reload.people.count.should == 0
         aspect1.reload.people.count.should == 0
       end
@@ -200,9 +206,9 @@ describe User do
       context 'with a post' do
         before do
           @message = user.post(:status_message, :message => "hi", :to => aspect.id)
-          user2.receive      @message.to_diaspora_xml.to_s, user.person
-          user2.unfriend      user.person
-          user.unfriended_by  user2.person
+          user2.receive @message.to_diaspora_xml.to_s, user.person
+          user2.unfriend user.person
+          user.unfriended_by user2.person
         end
         it "deletes the unfriended user's posts from visible_posts" do
           user.reload.raw_visible_posts.include?(@message.id).should be_false
