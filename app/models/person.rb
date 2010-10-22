@@ -97,7 +97,7 @@ class Person
     # Raise an error if identifier is not a valid email (generous regexp)
     raise "Identifier is invalid" if !(identifier =~ /\A.*\@.*\..*\Z/)
 
-    query = /#{Regexp.escape(identifier.gsub('acct:', '').to_s)}/i
+    query = /\A^#{Regexp.escape(identifier.gsub('acct:', '').to_s)}\z/i
     local_person = Person.first(:diaspora_handle => query)
     
     if local_person
