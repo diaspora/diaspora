@@ -21,62 +21,49 @@ function decrementRequestsCounter() {
 
 // Dragging person between aspects
 $(function() {
-  $(".person").draggable({
+  $("ul .person").draggable({
     revert: true,
     start: function(event,ui){
       $(this).children("img").animate({'height':80, 'width':80, 'opacity':0.8},200);
-      $(".dropzone").fadeIn(100);
+      $(".draggable_info").fadeIn(100);
     },
     stop: function(event,ui){
       $(this).children("img").animate({'height':70, 'width':70, 'opacity':1},200);
+      $(".draggable_info").fadeOut(100);
     }
   });
 
-  $(".dropzone", ".aspect").droppable({
+  $(".aspect ul.dropzone").droppable({
     hoverClass: 'active',
     drop: function(event, ui) {
 
       var dropzone = $(this);
       var person   = ui.draggable;
-      var aspect   = dropzone.closest(".aspect");
 
       if( person.hasClass('request') ){
         $.ajax({
           type: "DELETE",
           url: "/requests/" + person.attr('data-guid'),
-          data: {"accept" : true, "aspect_id" : aspect.attr('data-guid') },
+          data: {"accept" : true, "aspect_id" : dropzone.attr('data-aspect_id') },
           success: function(data){
             decrementRequestsCounter();
           }
         });
       };
 
-      if( aspect.attr('data-guid') != person.attr('data-aspect_id' )){
 
-        if( dropzone.hasClass("move_person") ){
-          $.ajax({
-            url: "/aspects/move_friend/",
-            data: {"friend_id" : person.attr('data-guid'),
-                   "from"      : person.attr('data-aspect_id'),
-                   "to"        : { "to" : aspect.attr('data-guid') }},
-            success: function(data){
-              person.attr('data-aspect_id', aspect.attr('data-guid'));
-            }});
-
-          $("ul.people li:last", aspect).before(person);
-
-        } else {
-          $.ajax({
-            url: "/aspects/add_to_aspect/",
-            data: {"friend_id" : person.attr('data-guid'),
-                   "aspect_id" : aspect.attr('data-guid') },
-            success: function(data){
-              person.attr('data-aspect_id', aspect.attr('data-guid'));
-            }});
-    
-          $("ul.people li:last", aspect).before(person);
+      if( dropzone.attr('data-aspect_id') != person.attr('data-aspect_id' )){
+        $.ajax({
+          url: "/aspects/move_friend/",
+          data: {"friend_id" : person.attr('data-guid'),
+                 "from"      : person.attr('data-aspect_id'),
+                 "to"        : { "to" : dropzone.attr('data-aspect_id') }},
+          success: function(data){
+            person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
+          }});
         }
-      }
+
+      $(this).closest("ul").append(person);
     }
   });
 
@@ -101,7 +88,7 @@ $(function() {
                   'aspect_id' : person.attr('data-aspect_id') }
           });
         }
-      person.fadeOut('slow', function(){person.remove()});
+      person.fadeOut('slow', $(this).remove());
       }
     }
   });
@@ -111,7 +98,6 @@ $(function() {
 
 
 // Person deletion
-
 $(".delete").live("click", function() {
 
   var person = $(this).closest("li.person");
@@ -132,19 +118,17 @@ $(".delete").live("click", function() {
 
   } else {
 
-    var person_id = $(this).closest("li.person").attr('data-guid');
+    if( confirm("Remove this person from all aspects?") ){
+      var person_id = $(this).closest("li.person").attr('data-guid');
 
-
-    /*
-    $.ajax({
-      type: "DELETE",
-      url: "/people/" + person_id,
-      success: function() {
-        person.fadeOut(200);
-      }
-    });
-
-    */
+      $.ajax({
+        type: "DELETE",
+        url: "/people/" + person_id,
+        success: function() {
+          person.fadeOut(200);
+        }
+      });
+    }
   }
 });
 

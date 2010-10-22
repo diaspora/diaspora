@@ -938,71 +938,49 @@ h1.big_text
         &:last-child
           :margin
             :right 0
-
-ul#aspect_list
-  :list
-    :style none
-  :padding 0
-  :margin 0
-
 .aspect,
 .requests,
 .aspect_remove
-  :position relative
+  :list
+    :style none
   :color #999
   :cursor default
   :text-shadow 0 1px #fff
 
+  ul.dropzone
+    :position relative
+    :min-height 20px
+    :margin 0
+      :bottom 25px
 
-  .dropzone
-    :display inline-block
-    
     :-webkit-border-radius 10px
     :-moz-border-radius 10px
     :border-radius 10px
 
-    :margin 5px
+    :list
+      :style none
+    :padding 15px
     :border 2px dashed #ccc
-
-    :height 70px
-    :max-height 70px
-    :width 70px
-    :max-width 70px
 
     &.active
       :background
         :color rgba(255,252,127,0.2)
 
-    a
-      :display block
-      :height 100%
-      :padding
-        :top 12px
-      :text
-        :align center
+    .draggable_info
+      :position absolute
+      :display none
+      :right 15px 
+      :bottom 10px 
       :font
+        :style italic
         :size 14px
-
-      :color #999
-
-      &:hover
-        :color #666
-
-  ul
-    :list
-      :style none
-    :min-height 20px
-    :margin 0
-      :bottom 25px
-    :padding 0
-
-    li
-      :display inline-block
+      :color #aaa
 
   .person
+    :display inline-block
     :cursor move
     :z-index 10
-    :top 0
+    :position relative
     :padding 0
     :margin 5px
 
@@ -1056,15 +1034,8 @@ ul#aspect_list
       .x
         :z-index 2
         :position absolute
-        :padding
-          :top 2px
-          :left 7px
-        a
-          :cursor default
-          :display block
-          :height 100%
-          :text-shadow none
-          :color #eee
+        :top 2px
+        :left 7px
 
       &:hover
         :cursor default
