@@ -26,5 +26,5 @@
 
 .span-9.last
   #stream.show
-    %li.message{:id => @status_message.id}
+    %li.message{:data=>{:guid=>@status_message.id}}
       = render "comments/comments", :post => @status_message

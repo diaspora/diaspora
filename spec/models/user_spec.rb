@@ -9,8 +9,6 @@ describe User do
   let(:aspect) { user.aspect(:name => 'heroes') }
   let(:user2) { Factory(:user) }
   let(:aspect2) { user2.aspect(:name => 'stuff') }
-  let(:user3) { Factory(:user) }
-  let(:aspect3) { user3.aspect(:name => 'stuff') }
 
   describe "validation" do
     describe "of associated person" do
@@ -103,6 +101,7 @@ describe User do
       end
       it "makes a valid user" do
         @user.should be_valid
+        @user.persisted?.should be_false
         User.find_by_username("ohai").should be_nil
       end
       it 'saves successfully' do
@@ -143,13 +142,13 @@ describe User do
 
   context 'profiles' do
     it 'should be able to update their profile and send it to their friends' do
-      updated_profile = {:profile => {
+      updated_profile = {
         :first_name => 'bob',
         :last_name => 'billytown',
-        :image_url => "http://clown.com"}}
+        :image_url => "http://clown.com"}
 
       user.update_profile(updated_profile).should be true
-      user.profile.image_url.should == "http://clown.com"
+      user.reload.profile.image_url.should == "http://clown.com"
     end
   end
 
@@ -167,12 +166,7 @@ describe User do
     end
   end
 
-  context 'account removal' do
-    before do
-      friend_users(user, aspect, user2, aspect2)
-      friend_users(user, aspect, user3, aspect3)
-    end
-
+  describe 'account removal' do
     it 'should unfriend everyone' do
       user.should_receive(:unfriend_everyone)
       user.destroy
@@ -184,11 +178,8 @@ describe User do
     end
 
     it 'should remove all aspects' do
-      aspects = user.aspects
-      aspects.count.should > 0
-      user.destroy
-      aspects.reload
-      aspects.count.should == 0
+      aspect
+      lambda {user.destroy}.should change{user.aspects.reload.count}.by(-1)
     end
 
     describe '#remove_person' do
@@ -208,20 +199,18 @@ describe User do
     end
 
     describe '#unfriend_everyone' do
-      before do
-        user3.delete
-      end
 
       it 'should send retractions to remote poeple' do
+        user2.delete
+        user.activate_friend(user2.person, aspect)
+
         user.should_receive(:unfriend).once
         user.destroy
       end
 
       it 'should unfriend local people' do
-        user2.friends.count.should be 1
-        user.destroy
-        user2.reload
-        user2.friends.count.should be 0
+        friend_users(user, aspect, user2, aspect2)
+        lambda {user.destroy}.should change{user2.reload.friends.count}.by(-1)
       end
     end
   end

@@ -8,10 +8,14 @@
       $("#add_album_button").fancybox();
     });
 
-.span-4.append-1.last
-  = render "shared/aspect_friends"
+%h2
+  = @aspect
+  .friend_pictures.horizontal
+    = owner_image_link
+    - for friend in @friends
+      = person_image_link(friend)
 
-.span-15.last
+.span-24.last
   %h3
     = @aspect
     Albums

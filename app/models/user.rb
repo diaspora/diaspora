@@ -92,8 +92,10 @@ class User
 
   ######### Aspects ######################
   def aspect(opts = {})
-    opts[:user] = self
-    Aspect.create(opts)
+    aspect = Aspect.new(opts)
+    aspect.user = self
+    aspect.save
+    aspect
   end
 
   def drop_aspect(aspect)

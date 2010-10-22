@@ -27,7 +27,7 @@ describe User do
     status_message.destroy
 
     user
-    lambda {user.receive xml , user2.person}.should change (Post,:count).by(1)
+    lambda {user.receive xml , user2.person}.should change(Post,:count).by(1)
   end
 
   it 'should not create new aspects on message receive' do
