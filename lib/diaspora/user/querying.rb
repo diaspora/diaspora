@@ -24,7 +24,7 @@ module Diaspora
       def visible_person_by_id( id )
         id = id.to_id
         return self.person if id == self.person.id
-        result = friends.detect{|x| x.id == id }
+        result = friends.first(:person_id => id).person
         result = visible_people.detect{|x| x.id == id } unless result
         result
       end
@@ -38,22 +38,17 @@ module Diaspora
         aspects.detect{|x| x.id == id }
       end
 
-      def find_friend_by_id(id)
-        id = id.to_id
-        friends.detect{|x| x.id == id }
-      end
-
       def aspects_with_post( id )
         self.aspects.find_all_by_post_ids( id.to_id )
       end
 
       def aspects_with_person person
-        aspects.all(:person_ids => person.id)
+        contact_for(person).aspects
       end
 
-      def people_in_aspects aspects
-        aspects.inject([]) do |found_people,aspect|
-          found_people | aspect.people
+      def contacts_in_aspects aspects
+        aspects.inject([]) do |contacts,aspect|
+          contacts | aspect.people
         end
       end
 

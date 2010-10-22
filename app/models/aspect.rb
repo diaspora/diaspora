@@ -6,11 +6,10 @@ class Aspect
   include MongoMapper::Document
 
   key :name,        String
-  key :person_ids,  Array
   key :request_ids, Array
   key :post_ids,    Array
 
-  many :people,   :in => :person_ids,  :class_name => 'Person'
+  many :people,   :foreign_key => 'aspect_ids', :class_name => 'Contact'
   many :requests, :in => :request_ids, :class_name => 'Request'
   many :posts,    :in => :post_ids,    :class_name => 'Post'
 

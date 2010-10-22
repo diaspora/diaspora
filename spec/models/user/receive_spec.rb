@@ -23,10 +23,9 @@ describe User do
     status_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
     xml = status_message.to_diaspora_xml
-    user2.destroy
+    user2.delete
     status_message.destroy
 
-    user
     lambda {user.receive xml , user2.person}.should change(Post,:count).by(1)
   end
 

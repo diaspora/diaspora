@@ -98,8 +98,9 @@ describe Diaspora::Parser do
 
       user.reload
       aspect.reload
-      aspect.people.include?(new_person).should be true
-      user.friends.include?(new_person).should be true
+      new_contact = user.contact_for(new_person)
+      aspect.people.include?(new_contact).should be true
+      user.friends.include?(new_contact).should be true
     end
 
     it 'should process retraction for a person' do

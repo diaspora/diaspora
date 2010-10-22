@@ -55,7 +55,7 @@ class User
   end
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
-  many :friends, :in => :friend_ids, :class_name => 'Person'
+  many :friends, :in => :friend_ids, :class_name => 'Contact'
   many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
@@ -119,22 +119,27 @@ class User
   end
 
   def add_person_to_aspect(person_id, aspect_id, opts = {})
-    raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id) 
-    raise "Can not add person you are not friends with" unless person = self.find_friend_by_id(person_id)
-    raise 'Can not add person who is already in the aspect' if aspect.person_ids.include?(person_id)
-    aspect.people << person 
+    contact = contact_for(Person.find(person_id))
+    raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
+    raise "Can not add person you are not friends with" unless contact
+    raise 'Can not add person who is already in the aspect' if aspect.people.include?(contact)
+    contact.aspects << aspect
     opts[:posts] ||= self.raw_visible_posts.all(:person_id => person_id)
     
     aspect.posts += opts[:posts]
+    contact.save
     aspect.save
   end
 
   def delete_person_from_aspect(person_id, aspect_id, opts = {})
-    raise "Can not delete a person from an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
-    aspect.person_ids.delete(person_id.to_id)
+    aspect = Aspect.find(aspect_id)
+    raise "Can not delete a person from an aspect you do not own" unless aspect.user == self
+    contact = contact_for Person.find(person_id)
+    contact.aspects.delete aspect
     opts[:posts] ||= aspect.posts.all(:person_id => person_id)
     aspect.posts -= opts[:posts]
     aspect.save
+    contact.save
   end
 
   ######## Posting ########
@@ -211,17 +216,17 @@ class User
       aspects = self.aspects.find_all_by_id(aspect_ids)
     end
     #send to the aspects
-    target_people = []
+    target_contacts = []
 
     aspects.each { |aspect|
       aspect.posts << post
       aspect.save
-      target_people = target_people | aspect.people
+      target_contacts = target_contacts | aspect.people
     }
 
     push_to_hub(post) if post.respond_to?(:public) && post.public
 
-    push_to_people(post, target_people)
+    push_to_people(post, target_contacts.map{|c|c.person})
   end
 
   def push_to_people(post, people)
@@ -274,7 +279,7 @@ class User
     if owns? comment.post
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
-      push_to_people comment, people_in_aspects(aspects_with_post(comment.post.id))
+      push_to_people comment, contacts_in_aspects(aspects_with_post(comment.post.id)).map{|c|c.person}
     elsif owns? comment
       comment.save
       push_to_people comment, [comment.post.person]
@@ -288,7 +293,7 @@ class User
 
     post.unsocket_from_uid(self.id, :aspect_ids => aspect_ids) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
-    push_to_people retraction, people_in_aspects(aspects_with_post(post.id))
+    push_to_people retraction, contacts_in_aspects(aspects_with_post(post.id)).map{|c| c.person}
     retraction
   end
 
@@ -439,11 +444,11 @@ class User
   end
 
   def unfriend_everyone
-    friends.each { |friend|
-      if friend.owner?
-        friend.owner.unfriended_by self.person
+    friends.each { |contact|
+      if contact.person.owner?
+        contact.person.owner.unfriended_by self.person
       else
-        self.unfriend friend
+        self.unfriend contact
       end
     }
   end

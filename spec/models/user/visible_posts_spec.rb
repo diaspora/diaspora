@@ -73,17 +73,6 @@ describe User do
       end
     end
 
-    describe '#find_friend_by_id' do
-      it 'should find a friend' do
-        friend_users(user, first_aspect, user2, user2.aspects.first)
-        user.find_friend_by_id(user2.person.id).should == user2.person
-      end
-
-      it 'should not find a non-friend' do
-        user = Factory :user
-        user.find_friend_by_id(user2.person.id).should be nil
-      end
-    end
   end
   describe '#albums_by_aspect' do
     let!(:first_aspect)  {user2.aspect(:name => 'bruisers')}
