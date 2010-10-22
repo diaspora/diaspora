@@ -71,15 +71,15 @@ module Diaspora
           activate_friend(friend_request.person, aspect)
 
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
-          Notifier.request_accepted(self, friend_request.person, aspect).deliver
           friend_request.destroy
+          Notifier.request_accepted(self, friend_request.person, aspect).deliver
         #this is a new friend request
         else
           self.pending_requests << friend_request
           self.save
-          Notifier.new_request(self, friend_request.person).deliver
           Rails.logger.info("#{self.real_name} has received a friend request")
           friend_request.save
+          Notifier.new_request(self, friend_request.person).deliver
         end
       end
 
