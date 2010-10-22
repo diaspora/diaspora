@@ -16,7 +16,7 @@
   %h3=t('.requests')
 
   .requests
-    %ul.dropzone
+    %ul
       - if @remote_requests.size < 1
         %li No new requests
       - else
@@ -44,23 +44,35 @@
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
             %li!= remove_link(aspect)
 
-        %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
+
+        %ul.people{:data=>{:aspect_id=>aspect.id}}
           -for person in aspect.people
             %li.person{:data=>{:guid=>person.id, :aspect_id=>aspect.id}}
               .delete
                 .x
-                  X
+                  = link_to "X", "#remove_person_pane", :class => "remove_person_button"
                 .circle
               = person_image_tag(person)
-          .draggable_info
-            Drag to add people
 
+          %li.dropzone_targets
+            %span.dropzone.add_person
+              = link_to "Add person", "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+            %span.dropzone.move_person
+              = link_to "Move person", '#'
 
 
           .fancybox_content
             %div{:id => "add_request_pane_#{aspect.id}"}
               = render "requests/new_request", :aspect => aspect
+
+
+  .fancybox_content
+    #remove_person_pane
+      .span-12.last
+        .modal_title_bar
+          %h4 Remove from aspect
+
+        .person
 
