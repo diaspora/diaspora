@@ -55,15 +55,12 @@
 
     });//end document ready
 
-%h2
-  = @aspect
-  .friend_pictures.horizontal
-    = owner_image_link
-    - for friend in @friends
-      = person_image_link(friend)
+= render 'shared/author_info', :post => @photo
 
-%h3
-  = link_to @photo.album.name, @photo.album
+%ul#breadcrumb
+  %li= link_to "Photos", '#'
+  %li= link_to @album.name, album_path(@album)
+  %li= @photo.caption
 
 = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch'
 |

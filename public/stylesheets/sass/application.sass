@@ -202,6 +202,71 @@ header
   .avatar
     :border-radius 5px
 
+
+.from
+  :font
+    :family 'Helvetica neue', Arial, Helvetica, sans-serif
+  :text
+    :shadow 0 1px #fff
+
+  .aspect
+    :cursor default
+    :display inline
+    :color #bbb
+    :font
+      :size 85%
+    a
+      :font
+        :weight normal
+      :color #bbb
+
+      &:hover
+        :text
+          :decoration underline
+      &:active
+        :color #999
+    ul
+      :display inline
+      :margin 0
+      :padding 0
+      :list
+        :style none
+      li
+        :display inline
+        &:after
+          :content ","
+        &:last-child:after
+          :content ""
+
+  a
+    :font
+      :weight bold
+
+#author_info
+  :position relative
+  :padding
+    :left 65px
+  :height 70px
+
+  img
+    :position absolute
+    :top 8px
+    :left 0
+
+  h2
+    :margin
+      :bottom -2px
+  a
+    :font
+      :weight normal
+
+  .from
+    :font
+      :size 14px
+
+  .avatar
+    :border-radius 5px
+
 li.message
   :position relative
   :line-height 19px
@@ -220,44 +285,6 @@ li.message
     :padding
       :left 65px
 
-    .from
-      :font
-        :family 'Helvetica neue', Arial, Helvetica, sans-serif
-      :text
-        :shadow 0 1px #fff
-
-      .aspect
-        :cursor default
-        :display inline
-        :color #bbb
-        :font
-          :size 12px
-        a
-          :font
-            :weight normal
-          :color #bbb
-
-          &:hover
-            :text
-              :decoration underline
-          &:active
-            :color #999
-        ul
-          :display inline
-          :margin 0
-          :padding 0
-          :list
-            :style none
-          li
-            :display inline
-            &:after
-              :content ","
-            &:last-child:after
-              :content ""
-
-      a
-        :font
-          :weight bold
 
     :color #444
     :font
@@ -639,8 +666,11 @@ label
     :position relative
 
   textarea
-    :width 515px
     :height 42px
+
+  input[type='text'],
+  textarea
+    :width 515px
     :margin 0
 
   .options_and_submit
@@ -1136,3 +1166,27 @@ header
     .controls
       :display inline
 
+ul#breadcrumb
+  :list
+    :style none
+  :margin 0
+  :padding 0
+  :font
+    :size 14px
+    :weight bold
+  :line
+    :height 3em
+
+  a
+    :font
+      :weight bold
+
+  > li
+    :display inline
+
+    &:after
+      :content ' ››'
+
+    &:last-child
+      &:after
+        :content ''

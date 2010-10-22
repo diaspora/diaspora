@@ -9,7 +9,7 @@
     }; 
   });
   
-  $("#publisher textarea").live("focus", function(evt){
+  $("#publisher textarea, #publisher input").live("focus", function(evt){
     $("#publisher .options_and_submit").fadeIn(50);
   });
 
@@ -20,28 +20,41 @@
 #publisher
   = owner_image_tag
 
-  = form_for StatusMessage.new, :remote => true do |status|
-    = status.error_messages
-    %p
-      = status.label :message, "Post a message to #{@aspect}"
-      = status.text_area :message, :rows => 2, :value => params[:prefill]
+  - if( !defined?(type) || type == :status_message )
+    = form_for StatusMessage.new, :remote => true do |status|
+      = status.error_messages
+      %p
+        = status.label :message, "Post a message to #{aspect}"
+        = status.text_area :message, :rows => 2, :value => params[:prefill]
 
-    = status.hidden_field :to, :value => (@aspect == :all ? @aspect : @aspect.id)
+      = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
-    .options_and_submit
-  
-      - if @aspect == :all
-        .public_toggle
-          = status.check_box( :public, :value => false )
-          make public
-          = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
+      .options_and_submit
+    
+        - if aspect == :all
+          .public_toggle
+            = status.check_box( :public, :value => false )
+            make public
+            = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
 
-          .fancybox_content
-            #question_mark_pane
-              = render 'shared/public_explain'
+            .fancybox_content
+              #question_mark_pane
+                = render 'shared/public_explain'
 
-      - if @aspect == :all
-        = status.submit t('.share'), :title => "Share with all aspects"
-      - else
-        = status.submit t('.share'), :title => "Share with #{@aspect}"
+        - if aspect == :all
+          = status.submit t('.share'), :title => "Share with all aspects"
+        - else
+          = status.submit t('.share'), :title => "Share with #{aspect}"
+
+  - else
+    = form_for Album.new do |album|
+      = album.error_messages
+      %p
+        = album.label :name
+        = album.text_field :name
+
+      = album.hidden_field :to, :value => aspect
+
+      .options_and_submit
+        = album.submit "Create", :class => 'button'
 

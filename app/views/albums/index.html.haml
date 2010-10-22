@@ -8,22 +8,11 @@
       $("#add_album_button").fancybox();
     });
 
-%h2
-  = @aspect
-  .friend_pictures.horizontal
-    = owner_image_link
-    - for friend in @friends
-      = person_image_link(friend)
+.span-4.append-1.last
+  = render "shared/aspect_friends"
 
-.span-24.last
-  %h3
-    = @aspect
-    Albums
-  = link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
-
-  .fancybox_content
-    #new_album_pane
-      = render "albums/new_album", :aspect => params[:aspect]
+.span-15.last
+  = render "shared/publisher", :type => :album, :aspect => @aspect.id
 
   %div
     - for album in @albums

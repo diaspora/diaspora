@@ -9,15 +9,12 @@
     });
   });
 
-%h2
-  = @aspect
-  .friend_pictures.horizontal
-    = owner_image_link
-    - for friend in @friends
-      = person_image_link(friend)
 
-%h3
-  = link_to "#{@aspect} Albums", albums_path(:aspect => @aspect)
+= render 'shared/author_info', :post => @album
+
+%ul#breadcrumb
+  %li= link_to "Photos", '#'
+  %li= @album.name
 
 
 .span-19.appends-1.last
