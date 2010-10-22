@@ -6,10 +6,10 @@ require 'spec_helper'
 
 describe PublicsController do
   render_views
-  let(:user) {Factory.create :user}
-  let(:user2){Factory.create :user}
-  let(:aspect1){user.aspect(:name => "foo")}
-  let(:aspect2){user2.aspect(:name => "far")}
+  let(:user) { Factory.create :user }
+  let(:user2) { Factory.create :user }
+  let(:aspect1) { user.aspect(:name => "foo") }
+  let(:aspect2) { user2.aspect(:name => "far") }
   before do
     sign_in :user, user
   end
@@ -23,7 +23,7 @@ describe PublicsController do
     it 'should accept a post from another node and save the information' do
       message = user2.build_post(:status_message, :message => "hi")
       friend_users(user, aspect1, user2, aspect2)
-      
+
       user.reload
       user.visible_post_ids.include?(message.id).should be false
 
@@ -77,10 +77,13 @@ describe PublicsController do
   end
 
   describe 'friend requests' do
-    let(:aspect2) {user2.aspect(:name => 'disciples')}
-    let!(:req)     {user2.send_friend_request_to(user.person, aspect2)}
-    let!(:xml)     {user2.salmon(req).xml_for(user.person)}
+    let(:aspect2) { user2.aspect(:name => 'disciples') }
+    let!(:req) { user2.send_friend_request_to(user.person, aspect2) }
+    let!(:xml) { user2.salmon(req).xml_for(user.person) }
     before do
+      deliverable = Object.new
+      deliverable.stub!(:deliver)
+      Notifier.stub!(:new_request).and_return(deliverable)
       req.delete
       user2.reload
       user2.pending_requests.count.should be 1

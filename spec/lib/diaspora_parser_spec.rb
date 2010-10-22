@@ -5,15 +5,15 @@
 require 'spec_helper'
 
 describe Diaspora::Parser do
-    let(:user)   {Factory.create(:user)}
-    let(:aspect) {user.aspect(:name => 'spies')}
-    let(:user2)  {Factory.create(:user)}
-    let(:aspect2){user2.aspect(:name => "pandas")}
-    let(:user3)  {Factory.create :user}
-    let(:person) {user3.person}
+  let(:user) { Factory.create(:user) }
+  let(:aspect) { user.aspect(:name => 'spies') }
+  let(:user2) { Factory.create(:user) }
+  let(:aspect2) { user2.aspect(:name => "pandas") }
+  let(:user3) { Factory.create :user }
+  let(:person) { user3.person }
 
   describe "parsing compliant XML object" do
-     it 'should be able to correctly handle comments with person in db' do
+    it 'should be able to correctly handle comments with person in db' do
       post = user.post :status_message, :message => "hello", :to => aspect.id
       comment = Factory.build(:comment, :post => post, :person => @person, :text => "Freedom!")
       xml = comment.to_diaspora_xml
@@ -25,7 +25,7 @@ describe Diaspora::Parser do
     end
 
     it 'should be able to correctly handle person on a comment with person not in db' do
-      friend_users(user, aspect, user2, aspect2) 
+      friend_users(user, aspect, user2, aspect2)
       post = user.post :status_message, :message => "hello", :to => aspect.id
       comment = user2.comment "Fool!", :on => post
 
@@ -40,42 +40,50 @@ describe Diaspora::Parser do
     end
 
     it 'should accept retractions' do
-      friend_users(user, aspect, user2, aspect2) 
+      friend_users(user, aspect, user2, aspect2)
       message = Factory.create(:status_message, :person => user2.person)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
-      proc {user.receive xml, user2.person}.should change(StatusMessage, :count).by(-1)
+      proc { user.receive xml, user2.person }.should change(StatusMessage, :count).by(-1)
     end
 
-    it "should create a new person upon getting a person request" do
-      request = Request.instantiate(:to =>"http://www.google.com/", :from => person)
+    context "friending" do
+      before do
+        deliverable = Object.new
+        deliverable.stub!(:deliver)
+        Notifier.stub!(:new_request).and_return(deliverable)
+      end
 
-      xml = request.to_diaspora_xml
+      it "should create a new person upon getting a person request" do
+        request = Request.instantiate(:to =>"http://www.google.com/", :from => person)
 
-      user3.destroy
-      person.destroy
-      user
-      lambda {user.receive xml, person}.should change(Person, :count).by(1)
-    end
+        xml = request.to_diaspora_xml
 
-    it "should not create a new person if the person is already here" do
-      request = Request.instantiate(:to =>"http://www.google.com/", :from => user2.person)
-      original_person_id = user2.person.id
-      xml = request.to_diaspora_xml
-      user
-      lambda {user.receive xml, user2.person}.should_not change(Person, :count)
+        user3.destroy
+        person.destroy
+        user
+        lambda { user.receive xml, person }.should change(Person, :count).by(1)
+      end
 
-      user2.reload
-      user2.person.reload
-      user2.serialized_private_key.include?("PRIVATE").should be true
+      it "should not create a new person if the person is already here" do
+        request = Request.instantiate(:to =>"http://www.google.com/", :from => user2.person)
+        original_person_id = user2.person.id
+        xml = request.to_diaspora_xml
+        user
+        lambda { user.receive xml, user2.person }.should_not change(Person, :count)
 
-      url = "http://" + request.callback_url.split("/")[2] + "/"
-      Person.where(:url => url).first.id.should == original_person_id
+        user2.reload
+        user2.person.reload
+        user2.serialized_private_key.include?("PRIVATE").should be true
+
+        url = "http://" + request.callback_url.split("/")[2] + "/"
+        Person.where(:url => url).first.id.should == original_person_id
+      end
     end
 
     it "should activate the Person if I initiated a request to that url" do
-      request = user.send_friend_request_to( user3.person, aspect)
+      request = user.send_friend_request_to(user3.person, aspect)
       user.reload
       request.reverse_for user3
 
@@ -95,16 +103,16 @@ describe Diaspora::Parser do
     end
 
     it 'should process retraction for a person' do
-      friend_users(user, aspect, user2, aspect2) 
+      friend_users(user, aspect, user2, aspect2)
       retraction = Retraction.for(user2)
       retraction_xml = retraction.to_diaspora_xml
 
-      lambda {user.receive retraction_xml, user2.person}.should change{
-        aspect.reload.people.size}.by(-1)
+      lambda { user.receive retraction_xml, user2.person }.should change {
+        aspect.reload.people.size }.by(-1)
     end
 
     it 'should marshal a profile for a person' do
-      friend_users(user, aspect, user2, aspect2) 
+      friend_users(user, aspect, user2, aspect2)
       #Create person
       person = user2.person
       id = person.id
@@ -132,9 +140,9 @@ describe Diaspora::Parser do
       person = Person.first(:id => person.id)
       person.profile.should_not be nil
       person.profile.first_name.should == old_profile.first_name
-      person.profile.last_name.should  == old_profile.last_name
-      person.profile.image_url.should  == old_profile.image_url
-      end
+      person.profile.last_name.should == old_profile.last_name
+      person.profile.image_url.should == old_profile.image_url
+    end
   end
 end
 
