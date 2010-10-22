@@ -10,6 +10,10 @@ describe User do
   let(:user2) { Factory(:user) }
   let(:aspect2) { user2.aspect(:name => 'stuff') }
 
+  it 'should have a key' do
+    user.encryption_key.should_not be nil
+  end
+
   describe "validation" do
     describe "of associated person" do
       it "fails if person is not valid" do

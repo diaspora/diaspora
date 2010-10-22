@@ -13,9 +13,6 @@ describe 'user encryption' do
     @aspect2 = @user2.aspect(:name => 'dudes')
   end
 
-  it 'should have a key' do
-    @user.encryption_key.should_not be nil
-  end
   describe 'key exchange on friending' do
     it 'should send over a public key' do
       message_queue.stub!(:add_post_request)
