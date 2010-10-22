@@ -31,11 +31,6 @@
     %ul.dropzone
       %li.grey Drag to remove person from aspect
 
-  %h3=t('.ignore_remove')
-  .remove
-    %ul.dropzone
-      %li.grey Drag to ignore/remove
-
   = render 'shared/invitations', :invites => @invites
 
 .span-19.last
@@ -61,9 +56,11 @@
             -for person in aspect.people
 
               %li.person{:id => person.id, :class => person.id, :from_aspect_id => aspect.id}
+                .delete
+                  .x
+                    X
+                  .circle
                 = person_image_tag(person)
-                .name
-                  = link_to person.real_name, person
 
           .fancybox_content
             %div{:id => "add_request_pane_#{aspect.id}"}

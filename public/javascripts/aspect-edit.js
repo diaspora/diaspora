@@ -47,9 +47,9 @@ $(function() {
         var dropzone = $(this)[0];
 
         if ($(this)[0].id == ui.draggable[0].getAttribute('from_aspect_id')){
-          ui.draggable.css('background-color','#333');
+          ui.draggable.css('background','none');
         } else {
-          ui.draggable.css('background-color','orange');
+          ui.draggable.css('background','none');
           $.ajax({
             url: "/aspects/move_friend/",
             data: {"friend_id" : ui.draggable[0].id,
@@ -57,40 +57,11 @@ $(function() {
                    "to" : { "to" : dropzone.id }},
             success: function(data){
               ui.draggable.attr('from_aspect_id', dropzone.id);
-              ui.draggable.css('background-color','#333');
+              ui.draggable.css('background','none');
             }});
 
         }
       $(this).closest("ul").append(ui.draggable);
-    }
-  });
-
-  $(".remove ul").droppable({
-    hoverClass: 'active',
-    drop: function(event, ui) {
-
-      if ($(ui.draggable[0]).hasClass('requested_person')){
-        $.ajax({
-          type: "DELETE",
-          url: "/requests/" + ui.draggable.attr('request_id'),
-          success: function () {
-            decrementRequestsCounter();
-          }
-        });
-
-      } else {
-        $.ajax({
-          type: "DELETE",
-          url: "/people/" + ui.draggable.attr('id'),
-          success: function () {
-            alert("Removed Friend, proably want an undo countdown.")
-          }
-        });
-
-      }
-
-      $(ui.draggable[0]).fadeOut('slow'); 
-      $(ui.draggable[0]).remove();
     }
   });
 
@@ -114,11 +85,7 @@ $(function() {
         }
       $(ui.draggable[0]).fadeOut('slow'); 
       $(ui.draggable[0]).remove();
-
-
       }
-
-
     }
   });
 
@@ -147,5 +114,39 @@ $(function() {
       });
     });
   });
-
 });
+
+
+//deletion
+$(".delete").live("click", function() {
+
+  var person = $(this).closest("li.person");
+      request_id = person.attr("request_id");
+
+  if (request_id){
+    if( confirm("Remove this person from all aspects?") ){
+      $.ajax({
+        type: "DELETE",
+        url: "/requests/" + request_id,
+        success: function () {
+          decrementRequestsCounter();
+        }
+      });
+    }
+
+  } else {
+    if( confirm("Remove this person from all aspects?") ){
+
+      var person_id = $(this).closest("li.person").attr('id');
+
+      $.ajax({
+        type: "DELETE",
+        url: "/people/" + person_id,
+        success: function() {
+          person.fadeOut(200);
+        }
+      });
+    }
+  }
+});
+

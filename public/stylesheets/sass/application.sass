@@ -968,39 +968,71 @@ h1.big_text
   .person,
   .requested_person
     :display inline-block
-    :padding 5px
     :cursor move
-    :margin 5px
     :z-index 10
+    :position relative
+    :padding 0
+    :margin 0
 
-    :width 110px
-
-    :background
-      :color #333
-
-    :border-radius 5px
-    :color #ccc
-  
-    a
-      :color #ccc
+    :color #eee
 
     img
-      :height 40px
-      :width 40px
-      :display inline
+      :height 70px
+      :width 70px
+      :border-radius 5px
 
-    .name
-      :display inline
-      :top 0
-      :margin
-        :left 5px
+    &:hover
+      .delete
+        :display inline
 
     &:active
       :z-index 20
-      :color #666
-      :-webkit-box-shadow 0 1px 3px #000
-      :-moz-box-shadow 0 2px 4px #000
-      :opacity 0.9
+      img
+        :-webkit-box-shadow 0 1px 3px #000
+        :-moz-box-shadow 0 2px 4px #000
+        :opacity 0.9
+
+      .delete
+        :display none
+
+    .delete
+      :display none
+
+      :position absolute
+      :top -8px
+      :left -8px
+
+      .circle
+        :z-index 1
+        :position absolute
+        :background
+          :color #333
+
+        :width 20px
+        :max-width 20px
+        :height 20px
+        :max-height 20px
+
+        :border 1px solid #fff
+
+        :-webkit-border-radius 20px
+        :-moz-border-radius 20px
+        :border-radius 20px
+
+        :-webkit-box-shadow 0 1px 3px #000
+
+      .x
+        :z-index 2
+        :position absolute
+        :top 2px
+        :left 7px
+
+      &:hover
+        :cursor default
+        .circle
+          :background
+            :color rgba(208,49,43,1)
+
 
 ul#settings_nav
   :display inline
