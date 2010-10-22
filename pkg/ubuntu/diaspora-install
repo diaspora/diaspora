@@ -48,7 +48,7 @@ cp master/config/app_config.yml.example /etc/diaspora/app_config.yml
 ln -sf /etc/diaspora/app_config.yml master/config/app_config.yml
 ln -sf /var/lib/diaspora/uploads master/public/
 ln -sf /var/lib/diaspora/tmp master
-ln -sf /usr/lib/diaspora-bundle/bundle master/vendor
+ln -sf /usr/lib/diaspora-bundle/vemdor/bundle master/vendor
 
 rm -rf /usr/share/doc/diaspora
 mkdir -p /usr/share/doc/diaspora
