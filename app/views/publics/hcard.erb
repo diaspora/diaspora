@@ -36,12 +36,8 @@
       <dl class="entity_photo">
         <dt>Photo</dt>
         <dd>
-        <img class="photo avatar" src="<%= @person.profile.image_url%>" width="100" height="100"/>
+        <img class="photo avatar" src="<%= image_or_default(@person)%>" width="100" height="100"/>
         </dd>
-      </dl>
-      <dl class="entity_note">
-        <dt>Note</dt>
-        <dd class="note">Diaspora is awesome! vi is better than emacs!</dd>
       </dl>
     </div>
   </div>
