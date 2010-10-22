@@ -206,6 +206,7 @@ function package_git_gems()
                 gem build *.gemspec
                 cp *.gem $dest
                 echo "Built GIT gem $name (*.gem)"
+                echo "Where: $dest"
             cd ..
         done
     cd ..
@@ -233,7 +234,7 @@ function make_bundle()
                     bundle update
                 fi
                 bundle package
-                package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache/"
+                package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                        vendor/cache
                 cd vendor
