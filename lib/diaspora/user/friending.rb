@@ -74,7 +74,7 @@ module Diaspora
         else
           self.pending_requests << friend_request
           self.save
-          Notifier.new_request(self, friend_request.person)
+          Notifier.new_request(self, friend_request.person).deliver
           Rails.logger.info("#{self.real_name} has received a friend request")
           friend_request.save
         end

@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe User do
+describe "attack vectors" do
 
   let(:user) { Factory(:user) }
   let(:aspect) { user.aspect(:name => 'heroes') }
@@ -73,10 +73,11 @@ describe User do
       profile.first_name = "Not BOB"
 
       user2.reload
-      user2.profile.first_name.should == "Robert"
+
+      first_name = user2.profile.first_name
       proc{user.receive_salmon(user3.salmon(profile).xml_for(user.person))}.should raise_error /Malicious Post/
       user2.reload
-      user2.profile.first_name.should == "Robert"
+      user2.profile.first_name.should == first_name
     end
     
     it 'should not overwrite another persons profile through comment' do
