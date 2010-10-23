@@ -234,6 +234,7 @@ set -x
                     rm -rf .bundle
                     bundle update
                 fi
+                bundle install
                 bundle package
 echo "Packaged, PWD $PWD"
 exit 0
