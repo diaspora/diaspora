@@ -227,17 +227,12 @@ set -x
         cd dist
             rm -rf $bundle_name
             cd diaspora
-                rm -rf vendor/*
-                mkdir -p vendor/cache
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
                     rm -f Gemfile.lock
                     rm -rf .bundle
                     bundle update
                 fi
                 bundle package
-echo "Packaged, PWD $PWD"
-exit 0
-
                 package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                        vendor/cache
