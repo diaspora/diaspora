@@ -13,7 +13,8 @@ def create
 
   #set pod url
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
-  set_app_config username
+  set_app_config username unless File.exists?(Rails.root.join('config', 'app_config.yml'))
+
   require File.join(File.dirname(__FILE__), "..", "..", "config", "initializers", "_load_app_config.rb")
 
   # Create seed user
