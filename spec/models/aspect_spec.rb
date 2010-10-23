@@ -153,10 +153,10 @@ describe Aspect do
 
     describe "#add_person_to_aspect" do
       it 'adds the user to the aspect' do
-        aspect1.people.should_not include contact
+        aspect1.people.include?(contact).should be_false 
         user.add_person_to_aspect(user2.person.id, aspect1.id)
         aspect1.reload
-        aspect1.people.should include contact
+        aspect1.people.include?(contact).should be_true
       end
 
       it 'raises if its an aspect that the user does not own'do
@@ -228,8 +228,8 @@ describe Aspect do
           aspect.reload
           aspect1.reload
 
-          aspect.people.include?(contact).should be false
-          aspect1.people.include?(contact).should be true
+          aspect.people.include?(contact).should be_false
+          aspect1.people.include?(contact).should be_true
         end
 
         it "should not move a person who is not a friend" do

@@ -17,7 +17,7 @@
         %li
           %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
 
-      - if @person != current_user.person && current_user.friends.include?(@person)
+      - if @person != current_user.person && @contact
         %li
           %i= t(".friends_since",:how_long_ago => how_long_ago(@person))
         %li

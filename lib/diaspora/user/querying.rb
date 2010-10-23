@@ -23,14 +23,17 @@ module Diaspora
 
       def visible_person_by_id( id )
         id = id.to_id
-        return self.person if id == self.person.id
-        result = friends.first(:person_id => id).person
-        result = visible_people.detect{|x| x.id == id } unless result
-        result
+        if id == self.person.id
+          self.person
+        elsif friend = friends.first(:person_id => id)
+          friend.person
+        else
+          visible_people.detect{|x| x.id == id }
+        end
       end
 
-      def friends_not_in_aspect( aspect )
-        Person.all(:id.in => self.friend_ids, :id.nin => aspect.person_ids)
+      def friends_not_in_aspect( aspect ) 
+        Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).map{|c| c.person}
       end
 
       def aspect_by_id( id )

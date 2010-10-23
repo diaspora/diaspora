@@ -32,11 +32,11 @@ class User
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
-  key :inviter_ids, Array
-  key :friend_ids, Array
-  key :pending_request_ids, Array
-  key :visible_post_ids, Array
-  key :visible_person_ids, Array
+  key :inviter_ids, Array, :typecast => 'ObjectId' 
+  key :friend_ids, Array, :typecast => 'ObjectId' 
+  key :pending_request_ids, Array, :typecast => 'ObjectId' 
+  key :visible_post_ids, Array, :typecast => 'ObjectId' 
+  key :visible_person_ids, Array, :typecast => 'ObjectId' 
 
   key :invite_messages, Hash
 
@@ -135,11 +135,11 @@ class User
     aspect = Aspect.find(aspect_id)
     raise "Can not delete a person from an aspect you do not own" unless aspect.user == self
     contact = contact_for Person.find(person_id)
-    contact.aspects.delete aspect
+    contact.aspect_ids.delete aspect.id
     opts[:posts] ||= aspect.posts.all(:person_id => person_id)
     aspect.posts -= opts[:posts]
-    aspect.save
     contact.save
+    aspect.save
   end
 
   ######## Posting ########

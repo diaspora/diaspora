@@ -14,6 +14,7 @@ describe AspectsController do
     @user2   = Factory.create(:user)
     @aspect2 = @user2.aspect(:name => "party people")
     friend_users(@user,@aspect, @user2, @aspect2)
+    @contact = @user.contact_for(@user2.person)
     sign_in :user, @user
   end
 
@@ -21,7 +22,7 @@ describe AspectsController do
     it "assigns @friends to all the user's friends" do
       Factory.create :person
       get :index
-      assigns[:friends].should == @user.friends
+      assigns[:friends].should == @user.friends.map{|c| c.person}
     end
   end
 
@@ -75,20 +76,20 @@ describe AspectsController do
   describe "#add_to_aspect" do
     it 'adds the users to the aspect' do
       @aspect1.reload
-      @aspect1.people.include?(@user2.person).should be false
+      @aspect1.people.include?(@contact).should be false
       post 'add_to_aspect', {:friend_id => @user2.person.id, :aspect_id => @aspect1.id }
       @aspect1.reload
-      @aspect1.people.include?(@user2.person).should be true
+      @aspect1.people.include?(@contact).should be true
     end
   end 
   
   describe "#remove_from_aspect" do
     it 'adds the users to the aspect' do
       @aspect.reload
-      @aspect.people.include?(@user2.person).should be true
+      @aspect.people.include?(@contact).should be true
       post 'remove_from_aspect', {:friend_id => @user2.person.id, :aspect_id => @aspect1.id }
       @aspect1.reload
-      @aspect1.people.include?(@user2.person).should be false
+      @aspect1.people.include?(@contact).should be false
     end
   end
 end
