@@ -235,6 +235,9 @@ set -x
                     bundle update
                 fi
                 bundle package
+echo "Packaged, PWD $PWD"
+exit 0
+
                 package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                        vendor/cache
