@@ -21,6 +21,15 @@ describe StatusMessage do
     status = @user.post(:status_message, :message => "Users do things", :to => @aspect.id)
   end
 
+  it 'should require status messages to be less than 1000 characters' do
+    message = ''
+    1001.times do message = message +'1';end
+    status = Factory.build(:status_message, :message => message)
+
+    status.should_not be_valid
+    
+  end
+
   describe "XML" do
     it 'should serialize to XML' do
       message = Factory.create(:status_message, :message => "I hate WALRUSES!", :person => @user.person)
