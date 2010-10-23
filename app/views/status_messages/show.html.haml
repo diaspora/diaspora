@@ -3,17 +3,11 @@
 -#   the COPYRIGHT file.
 
 
-%h2
-  = @aspect
-  .friend_pictures.horizontal
-    - for friend in @friends
-      = person_image_link(friend)
+= render 'shared/author_info', :post => @status_message
 
 .span-14.append-1.last
   #stream
     %h1.show_text
-      = person_image_link(@status_message.person)
-      = link_to @status_message.person.real_name, @status_message.person
       = make_links(@status_message.message)
 
   = "Posted #{how_long_ago(@status_message)} to"

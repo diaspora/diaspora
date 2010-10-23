@@ -202,6 +202,71 @@ header
   .avatar
     :border-radius 5px
 
+
+.from
+  :font
+    :family 'Helvetica neue', Arial, Helvetica, sans-serif
+  :text
+    :shadow 0 1px #fff
+
+  .aspect
+    :cursor default
+    :display inline
+    :color #bbb
+    :font
+      :size 85%
+    a
+      :font
+        :weight normal
+      :color #bbb
+
+      &:hover
+        :text
+          :decoration underline
+      &:active
+        :color #999
+    ul
+      :display inline
+      :margin 0
+      :padding 0
+      :list
+        :style none
+      li
+        :display inline
+        &:after
+          :content ","
+        &:last-child:after
+          :content ""
+
+  a
+    :font
+      :weight bold
+
+#author_info
+  :position relative
+  :padding
+    :left 65px
+  :height 70px
+
+  img
+    :position absolute
+    :top 8px
+    :left 0
+
+  h2
+    :margin
+      :bottom -2px
+  a
+    :font
+      :weight normal
+
+  .from
+    :font
+      :size 14px
+
+  .avatar
+    :border-radius 5px
+
 li.message
   :position relative
   :line-height 19px
@@ -220,44 +285,6 @@ li.message
     :padding
       :left 65px
 
-    .from
-      :font
-        :family 'Helvetica neue', Arial, Helvetica, sans-serif
-      :text
-        :shadow 0 1px #fff
-
-      .aspect
-        :cursor default
-        :display inline
-        :color #bbb
-        :font
-          :size 12px
-        a
-          :font
-            :weight normal
-          :color #bbb
-
-          &:hover
-            :text
-              :decoration underline
-          &:active
-            :color #999
-        ul
-          :display inline
-          :margin 0
-          :padding 0
-          :list
-            :style none
-          li
-            :display inline
-            &:after
-              :content ","
-            &:last-child:after
-              :content ""
-
-      a
-        :font
-          :weight bold
 
     :color #444
     :font
@@ -639,8 +666,11 @@ label
     :position relative
 
   textarea
-    :width 515px
     :height 42px
+
+  input[type='text'],
+  textarea
+    :width 515px
     :margin 0
 
   .options_and_submit
@@ -873,13 +903,7 @@ h1.big_text
       :padding 2px
 
 
-.aspect,
-.requests,
-.remove,
-.aspect_remove
-  :list
-    :style none
-
+.aspect
   h3
     :display inline-block
 
@@ -914,63 +938,115 @@ h1.big_text
         &:last-child
           :margin
             :right 0
-
-  .grey
-    :color #999
-    :cursor default
-    :text-shadow 0 1px #fff
+.aspect,
+.requests,
+.aspect_remove
+  :list
+    :style none
+  :color #999
+  :cursor default
+  :text-shadow 0 1px #fff
 
   ul.dropzone
+    :position relative
     :min-height 20px
     :margin 0
       :bottom 25px
-    :background
-      :color #efefef
-    :border 1px solid #ccc
+
+    :-webkit-border-radius 10px
+    :-moz-border-radius 10px
+    :border-radius 10px
+
     :list
       :style none
     :padding 15px
+    :border 2px dashed #ccc
 
     &.active
       :background
-        :color #fafafa
+        :color rgba(255,252,127,0.2)
 
-  .person,
-  .requested_person
+    .draggable_info
+      :position absolute
+      :display none
+      :right 15px 
+      :bottom 10px 
+      :font
+        :style italic
+        :size 14px
+      :color #aaa
+
+  .person
     :display inline-block
-    :padding 5px
     :cursor move
-    :margin 5px
     :z-index 10
+    :position relative
+    :padding 0
+    :margin 5px
 
-    :width 110px
-
-    :background
-      :color #333
-
-    :border-radius 5px
-    :color #ccc
-  
-    a
-      :color #ccc
+    :color #eee
 
     img
-      :height 40px
-      :width 40px
-      :display inline
+      :height 70px
+      :width 70px
+      :border-radius 5px
+      :-webkit-box-shadow 0 1px 2px #999
 
-    .name
-      :display inline
-      :top 0
-      :margin
-        :left 5px
+    &:hover
+      .delete
+        :display inline
 
     &:active
       :z-index 20
-      :color #666
-      :-webkit-box-shadow 0 1px 3px #000
-      :-moz-box-shadow 0 2px 4px #000
-      :opacity 0.9
+      img
+        :-webkit-box-shadow 0 1px 3px #000
+        :-moz-box-shadow 0 2px 4px #000
+
+      .delete
+        :display none
+
+    .delete
+      :display none
+
+      :position absolute
+      :top -8px
+      :left -8px
+
+      .circle
+        :z-index 1
+        :position absolute
+        :background
+          :color #333
+
+        :width 20px
+        :max-width 20px
+        :height 20px
+        :max-height 20px
+
+        :border 1px solid #fff
+
+        :-webkit-border-radius 20px
+        :-moz-border-radius 20px
+        :border-radius 20px
+
+        :-webkit-box-shadow 0 1px 3px #000
+
+      .x
+        :z-index 2
+        :position absolute
+        :top 2px
+        :left 7px
+
+      &:hover
+        :cursor default
+        .circle
+          :background
+            :color rgba(208,49,43,1)
+
+
+.requests
+  ul.dropzone
+    :border 2px solid #ccc
 
 ul#settings_nav
   :display inline
@@ -1090,6 +1166,10 @@ header
 
   h2
     :display inline
+  
+  .right
+    :margin
+      :top 10px
 
 .modal_title_bar
   :width 100%
@@ -1136,3 +1216,27 @@ header
     .controls
       :display inline
 
+ul#breadcrumb
+  :list
+    :style none
+  :margin 0
+  :padding 0
+  :font
+    :size 14px
+    :weight bold
+  :line
+    :height 3em
+
+  a
+    :font
+      :weight bold
+
+  > li
+    :display inline
+
+    &:after
+      :content ' ››'
+
+    &:last-child
+      &:after
+        :content ''

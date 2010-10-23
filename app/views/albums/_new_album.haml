@@ -2,14 +2,11 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-12.last
-  .modal_title_bar
-    %h4= t('.add_a_new_album')
 
-  = form_for Album.new do |f|
-    = f.error_messages
-    %p
-      = f.label :name
-      = f.text_field :name
-      = f.hidden_field :to, :value => aspect
-    = f.submit t('.create'), :class => 'button'
+= form_for Album.new do |album|
+  = album.error_messages
+  %p
+    = album.label :name
+    = album.hidden_field :to, :value => aspect
+    = album.text_field :name
+  = album.submit t('.create'), :class => 'button'

@@ -187,6 +187,25 @@ describe Person do
       end
     end
 
+
+      it 'should only find people who are exact matches' do
+        user = Factory(:user, :username => "SaMaNtHa")
+        person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
+        user.person.diaspora_handle = "tom@tom.joindiaspora.com"
+        user.person.save
+        Person.by_webfinger("tom@tom.joindiaspora.com").diaspora_handle.should == "tom@tom.joindiaspora.com"
+      end
+      
+      it 'should return nil if there is not an exact match' do
+        Redfinger.stub!(:finger).and_return(nil)
+
+        person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
+        person1 = Factory(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
+        #Person.by_webfinger("tom@tom.joindiaspora.com").should_be false 
+        proc{ Person.by_webfinger("tom@tom.joindiaspora.com")}.should raise_error
+      end
+
+
     it 'identifier should be a valid email' do
       stub_success("joe.valid+email@my-address.com")
       Proc.new { 

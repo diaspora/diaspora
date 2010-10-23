@@ -115,6 +115,7 @@ describe User do
       comment_id = comment.id
 
       comment.delete
+      comment.post_creator_signature = comment.sign_with_key(user.encryption_key)
       user3.receive comment.to_diaspora_xml, user.person
       user3.reload
 

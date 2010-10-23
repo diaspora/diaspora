@@ -15,7 +15,9 @@ def set_app_config username
 end
 
 username = "tom"
-set_app_config username
+set_app_config username unless File.exists?(Rails.root.join('config', 'app_config.yml'))
+
+require Rails.root.join('config',  "initializers", "_load_app_config.rb")
 
 # Create seed user
 user = User.build( :email => "tom@tom.joindiaspora.com",

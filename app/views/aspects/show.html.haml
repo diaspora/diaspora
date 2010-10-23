@@ -7,7 +7,7 @@
 
 .span-15.last
   = render 'aspects/no_friends_message'
-  = render 'shared/publisher'
+  = render 'shared/publisher', :type => :status_message, :aspect => @aspect
   = render 'aspects/no_posts_message'
   %ul#stream
     - for post in @posts

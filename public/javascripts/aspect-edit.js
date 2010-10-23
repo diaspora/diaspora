@@ -4,9 +4,9 @@
 */
 
 function decrementRequestsCounter() {
-  var $new_requests = $(".new_requests"),
-      request_html  = $new_requests.html(),
-      old_request_count = request_html.match(/\d+/);
+  var $new_requests     = $(".new_requests");
+  var request_html      = $new_requests.html();
+  var old_request_count = request_html.match(/\d+/);
 
   if( old_request_count == 1 ) {
     $new_requests.html(
@@ -19,133 +19,142 @@ function decrementRequestsCounter() {
   }
 }
 
+// Dragging person between aspects
 $(function() {
-  // Multiple classes here won't work
   $("ul .person").draggable({
-    revert: true
+    revert: true,
+    start: function(event,ui){
+      $(this).children("img").animate({'height':80, 'width':80, 'opacity':0.8},200);
+      $(".draggable_info").fadeIn(100);
+    },
+    stop: function(event,ui){
+      $(this).children("img").animate({'height':70, 'width':70, 'opacity':1},200);
+      $(".draggable_info").fadeOut(100);
+    }
   });
 
-  $("ul .requested_person").draggable({
-    revert: true
-  });
-
-  $(".aspect ul").droppable({
+  $(".aspect ul.dropzone").droppable({
     hoverClass: 'active',
     drop: function(event, ui) {
 
-      if ($(ui.draggable[0]).hasClass('requested_person')){
+      var dropzone = $(this);
+      var person   = ui.draggable;
+
+      if( person.hasClass('request') ){
         $.ajax({
           type: "DELETE",
-          url: "/requests/" + ui.draggable[0].getAttribute('request_id') ,
-          data: {"accept" : true  , "aspect_id" : $(this)[0].id },
+          url: "/requests/" + person.attr('data-guid'),
+          data: {"accept" : true, "aspect_id" : dropzone.attr('data-aspect_id') },
           success: function(data){
             decrementRequestsCounter();
           }
         });
-
       };
-        var dropzone = $(this)[0];
 
-        if ($(this)[0].id == ui.draggable[0].getAttribute('from_aspect_id')){
-          ui.draggable.css('background-color','#333');
-        } else {
-          ui.draggable.css('background-color','orange');
-          $.ajax({
-            url: "/aspects/move_friend/",
-            data: {"friend_id" : ui.draggable[0].id,
-                   "from" : ui.draggable[0].getAttribute('from_aspect_id'),
-                   "to" : { "to" : dropzone.id }},
-            success: function(data){
-              ui.draggable.attr('from_aspect_id', dropzone.id);
-              ui.draggable.css('background-color','#333');
-            }});
 
+      if( dropzone.attr('data-aspect_id') != person.attr('data-aspect_id' )){
+        $.ajax({
+          url: "/aspects/move_friend/",
+          data: {"friend_id" : person.attr('data-guid'),
+                 "from"      : person.attr('data-aspect_id'),
+                 "to"        : { "to" : dropzone.attr('data-aspect_id') }},
+          success: function(data){
+            person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
+          }});
         }
-      $(this).closest("ul").append(ui.draggable);
+
+      $(this).closest("ul").append(person);
     }
   });
 
-  $(".remove ul").droppable({
-    hoverClass: 'active',
-    drop: function(event, ui) {
-
-      if ($(ui.draggable[0]).hasClass('requested_person')){
-        $.ajax({
-          type: "DELETE",
-          url: "/requests/" + ui.draggable.attr('request_id'),
-          success: function () {
-            decrementRequestsCounter();
-          }
-        });
-
-      } else {
-        $.ajax({
-          type: "DELETE",
-          url: "/people/" + ui.draggable.attr('id'),
-          success: function () {
-            alert("Removed Friend, proably want an undo countdown.")
-          }
-        });
-
-      }
-
-      $(ui.draggable[0]).fadeOut('slow'); 
-      $(ui.draggable[0]).remove();
-    }
-  });
 
   $(".aspect_remove ul").droppable({
     hoverClass: 'active',
     drop: function(event, ui) {
-      if ($( "." + ui.draggable[0].id).length == 1) {
+
+      var person = ui.draggable;
+
+      if ( person.attr('data-guid').length == 1 ) {
         alert("You can not remove the person from the last aspect");
+
       } else {
-        if (!$(ui.draggable[0]).hasClass('requested_person')){
-          var aspect = ui.draggable[0].getAttribute('from_aspect_id')
-          var person_id =  ui.draggable[0].id
+        if( !person.hasClass('request') ){
+
           $.ajax({
             type: "POST",
             url: "/aspects/remove_from_aspect",
             data:{
-                  'friend_id' : person_id,
-                  'aspect_id' : aspect
-                  }
+                  'friend_id' : person.attr('data-guid'),
+                  'aspect_id' : person.attr('data-aspect_id') }
           });
         }
-      $(ui.draggable[0]).fadeOut('slow'); 
-      $(ui.draggable[0]).remove();
-
-
+      person.fadeOut('slow', $(this).remove());
       }
-
-
     }
   });
 
 
-  $(".aspect h3").live( 'focus', function() {
+});
 
-    var $this = $(this),
-        id    = $this.closest("li").children("ul").attr("id"),
-        link  = "/aspects/"+ id;
 
-    $this.keypress(function(e) {
-      if (e.which == 13) {
-        e.preventDefault();
-        $this.blur();
+// Person deletion
+$(".delete").live("click", function() {
 
-        //save changes
-        $.ajax({
-          type: "PUT",
-          url: link,
-          data: {"aspect" : {"name" : $this.text() }}
-        });
-      }
-      //update all other aspect links
-      $this.keyup(function(e) {
-        $("#aspect_nav a[href='"+link+"']").text($this.text());
+  var person = $(this).closest("li.person");
+
+  if (person.hasClass('request')){
+
+    if( confirm("Ignore request?") ){
+      var request_id = person.attr("data-guid");
+
+      $.ajax({
+        type: "DELETE",
+        url: "/requests/" + request_id,
+        success: function () {
+          decrementRequestsCounter();
+        }
       });
+    }
+
+  } else {
+
+    if( confirm("Remove this person from all aspects?") ){
+      var person_id = $(this).closest("li.person").attr('data-guid');
+
+      $.ajax({
+        type: "DELETE",
+        url: "/people/" + person_id,
+        success: function() {
+          person.fadeOut(200);
+        }
+      });
+    }
+  }
+});
+
+
+// Editing aspect name
+$(".aspect h3").live('focus', function() {
+
+  var $this = $(this);
+  var id    = $this.closest("li.aspect").attr("data-guid");
+  var link  = "/aspects/"+ id;
+
+  $this.keypress(function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      $this.blur();
+
+      //save changes
+      $.ajax({
+        type: "PUT",
+        url: link,
+        data: {"aspect" : {"name" : $this.text() }}
+      });
+    }
+    //update all other aspect links
+    $this.keyup(function(e) {
+      $("#aspect_nav a[href='"+link+"']").text($this.text());
     });
   });
-
 });
