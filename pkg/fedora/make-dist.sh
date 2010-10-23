@@ -226,6 +226,8 @@ set -x
         echo "Creating bundle $bundle_name"
         cd dist
             rm -rf $bundle_name
+rm -rf diaspora
+git clone  --quiet $GIT_REPO
             cd diaspora
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
                     rm -f Gemfile.lock
