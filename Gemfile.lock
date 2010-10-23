@@ -170,6 +170,9 @@ GEM
     factory_girl_rails (1.0)
       factory_girl (~> 1.3)
       rails (>= 3.0.0.beta4)
+    faraday (0.4.6)
+      addressable (>= 2.1.1)
+      rack (>= 1.0.1)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gherkin (2.2.9)
@@ -182,11 +185,20 @@ GEM
     i18n (0.4.1)
     json (1.4.6)
     json_pure (1.4.6)
+<<<<<<< HEAD
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
+<<<<<<< HEAD
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
+=======
+    linecache (0.43)
+=======
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
+>>>>>>> twitter oauth dance complete
+>>>>>>> twitter oauth dance complete
     mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
@@ -207,6 +219,8 @@ GEM
     moneta (0.6.0)
     mongo (1.1)
       bson (>= 1.0.5)
+    multi_json (0.0.4)
+    net-ldap (0.1.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -215,6 +229,7 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.3.1)
+<<<<<<< HEAD
     ohai (0.5.8)
       extlib
       json (>= 1.4.4, <= 1.4.6)
@@ -222,15 +237,54 @@ GEM
       mixlib-config
       mixlib-log
       systemu
+=======
+    oa-basic (0.1.5)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.5)
+      rest-client (~> 1.6.0)
+    oa-core (0.1.5)
+      rack (~> 1.1)
+    oa-enterprise (0.1.5)
+      net-ldap (~> 0.1.1)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.5)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
+    oa-oauth (0.1.5)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.5)
+      oauth (~> 0.4.0)
+      oauth2 (~> 0.0.10)
+    oa-openid (0.1.5)
+      oa-core (= 0.1.5)
+      rack-openid (~> 1.1.1)
+      ruby-openid-apps-discovery
+    oauth (0.4.3)
+    oauth2 (0.0.13)
+      faraday (~> 0.4.1)
+      multi_json (>= 0.0.4)
+    omniauth (0.1.5)
+      oa-basic (= 0.1.5)
+      oa-core (= 0.1.5)
+      oa-enterprise (= 0.1.5)
+      oa-oauth (= 0.1.5)
+      oa-openid (= 0.1.5)
+>>>>>>> twitter oauth dance complete
     plucky (0.3.6)
       mongo (~> 1.1)
     polyglot (0.3.1)
     pubsubhubbub (0.1.1)
       em-http-request (>= 0.1.5)
       eventmachine (>= 0.12.9)
+    pyu-ruby-sasl (0.0.3.2)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
+    rack-openid (1.1.2)
+      rack (>= 0.4)
+      ruby-openid (>= 2.0.3)
     rack-test (0.5.6)
       rack (>= 1.0)
     rails (3.0.1)
@@ -269,8 +323,17 @@ GEM
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
+<<<<<<< HEAD
     ruby_core_source (0.1.4)
       archive-tar-minitar (>= 0.5.2)
+=======
+    ruby-openid (2.1.8)
+    ruby-openid-apps-discovery (1.2.0)
+      ruby-openid (>= 2.1.7)
+    ruby_core_source (0.1.4)
+      archive-tar-minitar (>= 0.5.2)
+    rubyntlm (0.1.1)
+>>>>>>> twitter oauth dance complete
     rubyzip (0.9.4)
     selenium-webdriver (0.0.29)
       childprocess (>= 0.0.7)
@@ -325,6 +388,7 @@ DEPENDENCIES
   mini_magick
   mocha
   mongo_mapper!
+  omniauth
   pubsubhubbub
   rails (>= 3.0.0)
   redfinger!

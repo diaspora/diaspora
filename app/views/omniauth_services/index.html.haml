@@ -1,0 +1,17 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%h2
+  Services
+
+%ul#stream
+  - for service in @services
+    %h3
+      = service.provider
+      %b
+        =service.uid
+      = link_to "disconnect", service, :confirm => "disconnect #{service.provider}?", :method => :delete
+
+= link_to "Connect to twitter", "/auth/twitter"
+

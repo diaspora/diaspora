@@ -9,6 +9,10 @@ gem "chef"
 gem 'devise', '1.1.3'
 gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 gem 'devise_invitable', '~> 0.3.4'
+
+#Authentication
+gem 'omniauth'
+
 #Mongo
 gem 'mongo_mapper', :branch => 'rails3', :git => 'git://github.com/jnunemaker/mongomapper.git'
 gem 'bson_ext', '1.1'
