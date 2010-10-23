@@ -62,10 +62,12 @@ class Photo < Post
   end
 
   def ensure_user_picture
-    users = Person.all('profile.image_url' => image.url(:thumb_medium) )
-    users.each{ |user|
-      user.profile.update_attributes!(:image_url => nil)
-    }
+    image_file = File.basename(image.url(:thumb_medium))
+    User.all.each do |user|
+      if image_file == File.basename(user.profile.image_url) 
+        user.profile.update_attributes!(:image_url => nil)
+      end
+    end
   end
 
   def thumb_hash
