@@ -241,7 +241,7 @@ git clone  --quiet $GIT_REPO
                 cd vendor
                     mv cache $bundle_name
                     tar czf ../../$bundle_name.tar.gz $bundle_name
-                    mv $bundle_name vendor
+                    mv $bundle_name cache
                 cd ..
             cd ..
         cd ..
