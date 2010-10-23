@@ -73,6 +73,11 @@ describe User do
         user = Factory.build(:user, :username => "bobby tables")
         user.should_not be_valid
       end
+
+      it 'can not contain non url safe characters' do
+        user = Factory.build(:user, :username => "kittens;")
+        user.should_not be_valid
+      end
     end
 
     describe "of email" do

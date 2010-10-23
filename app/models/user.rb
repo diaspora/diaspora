@@ -43,8 +43,7 @@ class User
   before_validation :strip_username, :on => :create
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
-  validates_format_of :username, :without => /\s/
-
+  validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
   validates_with InvitedUserValidator
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
