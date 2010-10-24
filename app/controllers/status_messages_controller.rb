@@ -10,12 +10,17 @@ class StatusMessagesController < ApplicationController
 
   def create
     data = clean_hash params[:status_message]
+    message = params[:status_message][:message]
 
-    if logged_into_fb? && params[:status_message][:public] == '1'
-      current_user.post_to_message_fb(params[:status_message][:message], @access_token)
+    if params[:status_message][:public] == '1'
+      current_user.post_to_twitter(message)
+      if logged_into_fb?
+        current_user.post_to_message_fb(message, @access_token)
+      end
     end
 
     @status_message = current_user.post(:status_message, data)
+    
     render :nothing => true
   end
 

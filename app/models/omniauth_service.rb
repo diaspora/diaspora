@@ -9,5 +9,7 @@ class OmniauthService
 
   key :provider, String
   key :uid, String
-
+  key :access_token, String
+  key :access_secret, String
+  key :nickname, String
 end
