@@ -31,12 +31,11 @@ else
     cat <<- EOF
 
 	Database config failed. You might want to remove all db files with
-	'rm -rf /var/lib/mongodb/*' and/or resetting the config file by
+	'rm -rf /var/lib/mongodb/*' and/or reset the config file by
 	'cp config/app_config.yml.example config/app_config.yml' before
 	making a new try. Also, make sure the mongodb server is running
 	e. g., using '/sbin/service mongod status'.
 	EOF
-    exit 1
 fi
 
 chown -R diaspora /var/log/diaspora
