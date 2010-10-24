@@ -3,8 +3,15 @@
 #   the COPYRIGHT file.
 
 class InvitationsController < Devise::InvitationsController
+
+  before_filter :check_token, :only => [:edit] 
+
+
   def create
     begin
+      params[:user][:aspect_id] = params[:user].delete(:aspects)
+      message = params[:user].delete(:invite_messages)
+      params[:user][:invite_message] = message unless message == ""
       self.resource = current_user.invite_user(params[resource_name])
       flash[:notice] = I18n.t 'invitations.create.sent'
     rescue RuntimeError => e
@@ -12,6 +19,8 @@ class InvitationsController < Devise::InvitationsController
         flash[:error] = I18n.t 'invitations.create.no_more'
       elsif e.message == "You already invited this person"
         flash[:error] = I18n.t 'invitations.create.already_sent'
+      elsif e.message == "You are already friends with this person"
+        flash[:error] = I18n.t 'invitations.create.already_friends'
       else
         raise e
       end
@@ -32,6 +41,15 @@ class InvitationsController < Devise::InvitationsController
       sign_in_and_redirect(:user, user)
     else
       redirect_to new_user_registration_path
+    end
+  end
+
+  protected
+
+  def check_token
+    if User.find_by_invitation_token(params['invitation_token']).nil?
+      flash[:error] = "Invitation token not found"
+      redirect_to root_url
     end
   end
 end

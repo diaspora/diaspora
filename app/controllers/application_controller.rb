@@ -30,12 +30,13 @@ class ApplicationController < ActionController::Base
       end
 
       @aspects = current_user.aspects
+      @aspects_dropdown_array = current_user.aspects.collect{|x| [x.to_s, x.id]}
       @friends = current_user.friends
     end
   end
 
   def count_requests
-    @request_count = Request.for_user(current_user).size if current_user
+    @request_count = current_user.requests_for_me.size if current_user
   end
 
   def set_invites
@@ -49,6 +50,10 @@ class ApplicationController < ActionController::Base
       @access_token = warden.session[:access_token]
       @logged_in = @access_token.present?
     end
+  end
+
+  def logged_into_fb?
+    @logged_in
   end
 
 end

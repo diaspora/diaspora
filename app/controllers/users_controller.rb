@@ -5,14 +5,16 @@
 class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
   require File.join(Rails.root, 'lib/diaspora/exporter')
+  require File.join(Rails.root, 'lib/diaspora/importer')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
 
-  before_filter :authenticate_user!, :except => [:new, :create, :public]
+  before_filter :authenticate_user!, :except => [:new, :create, :public, :import]
 
   respond_to :html
 
   def edit
+    @aspect  = :user_edit
     @user    = current_user
     @person  = @user.person
     @profile = @user.person.profile
@@ -34,10 +36,8 @@ class UsersController < ApplicationController
         flash[:error] = "Password Change Failed"
       end
     else
-      data = clean_hash params[:user]
-      prep_image_url(data)
-
-      if @user.update_profile data
+      prep_image_url(params[:user])
+      if @user.update_profile params[:user][:profile]
         flash[:notice] = "Profile updated"
       else
         flash[:error] = "Failed to update profile"
@@ -78,9 +78,35 @@ class UsersController < ApplicationController
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
   end
 
+  def invite
+    User.invite!(:email => params[:email])
+  end
+  
+  
+  def import
+    xml = params[:upload][:file].read
+
+    params[:user][:diaspora_handle] = 'asodij@asodij.asd'
+
+
+    begin
+      importer = Diaspora::Importer.new(Diaspora::Parsers::XML)
+      importer.execute(xml, params[:user])
+      flash[:notice] = "hang on a sec, try logging in!"
+
+    rescue Exception => e
+      flash[:error] = "Derp, something went wrong: #{e.message}"
+    end
+
+      redirect_to new_user_registration_path
+    #redirect_to user_session_path
+  end
+
+
   private
   def prep_image_url(params)
-    url = APP_CONFIG[:pod_url].chop if APP_CONFIG[:pod_url][-1,1] == '/'
+    url = APP_CONFIG[:pod_url].dup
+    url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
     if params[:profile][:image_url].empty?
       params[:profile].delete(:image_url)
     else
@@ -90,17 +116,6 @@ class UsersController < ApplicationController
         params[:profile][:image_url] = url + params[:profile][:image_url]
       end
     end
-  end
-
-  def clean_hash(params)
-    return {
-      :profile =>
-        {
-        :first_name => params[:profile][:first_name],
-        :last_name => params[:profile][:last_name],
-        :image_url => params[:profile][:image_url]
-        }
-    }
   end
 
 end

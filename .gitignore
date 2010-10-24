@@ -3,6 +3,7 @@ config/app_config.yml
 config/fb_config.yml
 config/initializers/secret_token.rb
 .bundle
+vendor/bundle/*
 
 # Generated files
 log/*
@@ -12,7 +13,7 @@ public/stylesheets/ui.css
 
 # Uploded files and local files
 public/uploads/*
-public/source.tar
+public/source.tar*
 tmp/**/*
 db/*.sqlite3
 

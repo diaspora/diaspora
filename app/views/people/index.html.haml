@@ -2,23 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :publish do
-  %h1
-    Search
+.span-15.prepend-5.last
+  %h2
+    search results for
+    %u= params[:q]
 
-  =form_tag '/people', :method => "get" do
-    = text_field_tag :q, params[:q]
-    = submit_tag "search"
+  %ul#stream
+    - for person in @people
+      = render 'people/person', :person => person
 
-- content_for :left_pane do
-  \.
-
-%h1
-  search results for
-  %u= params[:q]
-
-%ul#stream
-  - for person in @people
-    = render 'people/person', :person => person
-
-= will_paginate @people
+  = will_paginate @people

@@ -7,6 +7,7 @@ module Diaspora
     module Friending
       def send_friend_request_to(desired_friend, aspect)
         # should have different exception types for these?
+        raise "You cannot befriend yourself" if desired_friend.nil? 
         raise "You have already sent a friend request to that person!" if self.pending_requests.detect{
           |x| x.destination_url == desired_friend.receive_url }
         raise "You are already friends with that person!" if self.friends.detect{
@@ -62,19 +63,23 @@ module Diaspora
 
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
+        
 
+        #response from a friend request you sent
         if request_from_me?(friend_request) && self.aspect_by_id(friend_request.aspect_id)
           aspect = self.aspect_by_id(friend_request.aspect_id)
           activate_friend(friend_request.person, aspect)
 
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
-
           friend_request.destroy
+          Notifier.request_accepted(self, friend_request.person, aspect).deliver
+        #this is a new friend request
         else
           self.pending_requests << friend_request
           self.save
           Rails.logger.info("#{self.real_name} has received a friend request")
           friend_request.save
+          Notifier.new_request(self, friend_request.person).deliver
         end
       end
 
@@ -88,7 +93,10 @@ module Diaspora
       def remove_friend(bad_friend)
         raise "Friend not deleted" unless self.friend_ids.delete( bad_friend.id )
         aspects.each{|aspect|
-          aspect.person_ids.delete( bad_friend.id )}
+          if aspect.person_ids.delete( bad_friend.id )
+            aspect.posts.delete_if { |post| 
+              post.person_id == bad_friend.id}
+          end}
         self.save
 
         self.raw_visible_posts.find_all_by_person_id( bad_friend.id ).each{|post|
@@ -114,7 +122,11 @@ module Diaspora
       end
 
       def request_from_me?(request)
-        pending_requests.detect{|req| (req.callback_url == person.receive_url) && (req.destination_url == person.receive_url)}
+        (pending_request_ids.include?(request.id.to_id)) && (request.callback_url == person.receive_url) 
+      end
+
+      def requests_for_me
+        pending_requests.select{|req| req.person != self.person }
       end
     end
   end

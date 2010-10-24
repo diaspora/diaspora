@@ -9,16 +9,10 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    params[:status_message][:to] = params[:aspect_ids]
-
     data = clean_hash params[:status_message]
 
-    if @logged_in && params[:status_message][:public] == 'true'
-      id = 'me'
-      type = 'feed'
-
-      Rails.logger.info("Sending a message: #{params[:status_message][:message]} to Facebook")
-      EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{params[:status_message][:message]}&access_token=#{@access_token}").post
+    if logged_into_fb? && params[:status_message][:public] == '1'
+      current_user.post_to_message_fb(params[:status_message][:message], @access_token)
     end
 
     @status_message = current_user.post(:status_message, data)

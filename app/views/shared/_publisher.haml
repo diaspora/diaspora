@@ -2,29 +2,59 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+:javascript
+  $("div.public_toggle input").live("click", function(evt){
+    if("#{@logged_in}" == "false" && $(this).attr('checked') == true){
+      $(".question_mark").click(); 
+    }; 
+  });
+  
+  $("#publisher textarea, #publisher input").live("focus", function(evt){
+    $("#publisher .options_and_submit").fadeIn(50);
+  });
+
+  $("#publisher form").live("submit", function(evt){
+    $("#publisher .options_and_submit").hide();
+  });
+
 #publisher
   = owner_image_tag
 
-  = form_for StatusMessage.new, :remote => true do |f|
-    = f.error_messages
-    %p
-      %label{:for => "status_message_message"} Message
-      = f.text_area :message, :rows => 2, :value => params[:prefill]
+  - if( !defined?(type) || type == :status_message )
+    = form_for StatusMessage.new, :remote => true do |status|
+      = status.error_messages
+      %p
+        = status.label :message, "Post a message to #{aspect}"
+        = status.text_area :message, :rows => 2, :value => params[:prefill]
 
-    %ul.aspect_selector{ :style => "display:none;"}
-      going to...
-      - for aspect in @aspects
-        %li
-          = check_box_tag("aspect_ids[]", aspect.id, @aspect == :all || current_aspect?(aspect) )
-          = aspect.name
+      = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
-    = f.hidden_field( :public, :value => false )
-  
-    .buttons
-      - if @aspect == :all
-        = f.submit t('.share'), :title => "Share with all aspects"
-      - else
-        = f.submit t('.share'), :title => "Share with #{@aspect.name}"
-      - if defined? broadcast
-        = f.submit "Broadcast", :class => "broadcast", :name => "broadcast", :title => "Publish to Diaspora and Facebook"
+      .options_and_submit
+    
+        - if aspect == :all
+          .public_toggle
+            = status.check_box( :public, :value => false )
+            make public
+            = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
+
+            .fancybox_content
+              #question_mark_pane
+                = render 'shared/public_explain'
+
+        - if aspect == :all
+          = status.submit t('.share'), :title => "Share with all aspects"
+        - else
+          = status.submit t('.share'), :title => "Share with #{aspect}"
+
+  - else
+    = form_for Album.new do |album|
+      = album.error_messages
+      %p
+        = album.label :name
+        = album.text_field :name
+
+      = album.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
+
+      .options_and_submit
+        = album.submit "Create", :class => 'button'
 

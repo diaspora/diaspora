@@ -1,5 +1,9 @@
+# Turn off the brp-python-bytecompile script
+%global __os_install_post %(echo '%{__os_install_post}' | \
+    sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 %global         debug_package   %{nil}
-%define         git_release     1010092232_b313272
+
+%define         git_release     HEAD
 
 Summary:        A social network server
 Name:           diaspora
@@ -13,18 +17,29 @@ Source:         %{name}-%{version}-%{git_release}.tar.gz
 Source1:        diaspora-wsd
 Source2:        diaspora-setup
 Source3:        diaspora.logconf
-Source4:	make_rel_symlink.py
+Source4:        make_rel_symlink.py
 BuildArch:      noarch
 BuildRoot:      %{_rmpdir}/not-used-in-fedora/
 
 Requires:       mongodb-server
 Requires:       ruby(abi) = 1.8
-Requires: diaspora-bundle = 0.0-1.1010081636_d1a4ee0.fc13
+Requires:       diaspora-bundle = %{version}
 
 
 %description
 A privacy aware, personally controlled, do-it-all and
 open source social network server.
+
+%package   wsd
+Summary:   Sys V init script for diaspora websocket daemon
+Group:     Applications/Communications
+Requires:  %{name} = %{version}
+
+%description wsd
+Tools to use the diaspora websocket daemon as a service e. g., when
+using papche passenger or system-wide installed thin server to run
+diaspora.
+
 
 %prep
 %setup -q -n %{name}-%{version}-%{git_release}
@@ -34,12 +49,13 @@ find . -perm /u+x -type f -exec \
 
 %build
 rm -rf master/vendor/bundle
+mkdir master/tmp || :
 
 %install
 rm -fr $RPM_BUILD_ROOT
 
 sed -i \
-    '/BUNDLE_PATH/s|:.*|: %{_libdir}/diaspora-bundle/master/vendor/bundle|' \
+    '/BUNDLE_PATH/s|:.*|: %{_libdir}/diaspora-bundle/bundle|' \
      master/.bundle/config
 
 cp master/GNU-AGPL-3.0 master/COPYRIGHT master/README.md master/AUTHORS .
@@ -55,9 +71,13 @@ cp %SOURCE3  $RPM_BUILD_ROOT/%{_sysconfdir}/logrotate.d/diaspora
 
 mkdir -p $RPM_BUILD_ROOT/%{_datadir}/diaspora
 cp -ar master $RPM_BUILD_ROOT/%{_datadir}/diaspora
+cp -ar  master/.bundle $RPM_BUILD_ROOT/%{_datadir}/diaspora/master
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 cp %SOURCE2  $RPM_BUILD_ROOT/%{_datadir}/diaspora
 
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/log/diaspora
+mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/run/diaspora
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/uploads
 mkdir -p $RPM_BUILD_ROOT/%{_localstatedir}/lib/diaspora/tmp
 
@@ -75,15 +95,17 @@ find  -L $RPM_BUILD_ROOT/%{_datadir}/diaspora  -type f     \
 cat files >> dirs && mv -f dirs files
 sed -i   -e '\|.*/master/config.ru"$|d'                    \
          -e '\|.*/master/config/environment.rb"$|d'        \
+         -e '\|.*/run/diaspora"$|d'                        \
+         -e '\|.*/pkg/fedora/dist"$|d'                     \
          -e 's|%{buildroot}||' -e 's|//|/|' -e '/""/d'     \
       files
 
 
-%post
-/sbin/chkconfig --add  diaspora-wsd
+%post wsd
+/sbin/chkconfig --add  diaspora-wsd || :
 
 
-%preun
+%preun  wsd
 if [ $1 -eq 0 ] ; then
     service diaspora-wsd stop  &>/dev/null || :
     /sbin/chkconfig --del  diaspora-wsd
@@ -99,18 +121,24 @@ rm -fr $RPM_BUILD_ROOT
 %doc AUTHORS README.md GNU-AGPL-3.0 COPYRIGHT README-Fedora.md
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config.ru
 %attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/config/environment.rb
+%attr(-, diaspora, diaspora) %{_datadir}/diaspora/master/pkg/fedora/dist
 %attr(-, diaspora, diaspora) %{_localstatedir}/log/diaspora
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/uploads
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/tmp
+%attr(-, diaspora, diaspora) %{_localstatedir}/run/diaspora
+
 %{_datadir}/diaspora/master/tmp
 %{_datadir}/diaspora/master/public/uploads
 %{_datadir}/diaspora/master/log
+
 %config(noreplace) %{_sysconfdir}/logrotate.d/diaspora
+
+%files wsd
+%defattr(-, root, root, 0755)
 %{_sysconfdir}/init.d/diaspora-wsd
 
 %changelog
-* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1010092232_b313272.fc13
-
+* Fri Sep 24 2010 Alec Leamas  <leamas.alec@gmail.com>  0.0-1.1009280542_859ec2d
   - Initial attempt to create a spec fi+le
 
 # rubygem-term-ansicolor  in repo (1.0.5)

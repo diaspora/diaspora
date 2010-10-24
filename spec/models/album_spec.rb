@@ -20,7 +20,7 @@ describe Album do
   end
 
   it 'has many photos' do
-    album.associations[:photos].type == :many
+    album.associations[:photos].type.should == :many
   end
 
   context 'when an album has two attached images' do

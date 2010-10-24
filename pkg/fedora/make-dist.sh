@@ -126,7 +126,8 @@ function checkout()
             git clone --quiet $GIT_REPO;
             (
                 cd diaspora;
-                git remote add upstream $GIT_REPO
+                git remote add upstream \
+                    git://github.com/diaspora/diaspora.git
                 for p in ../../*.patch; do
                     git apply --whitespace=fix  $p  > /dev/null
                 done &> /dev/null || :
@@ -161,20 +162,54 @@ function make_src
         (
              cd  ${RELEASE_DIR}/master
              git show --name-only > config/gitversion
-             tar cf public/source.tar  \
-                 --exclude='source.tar' -X .gitignore *
+             tar czf public/source.tar.gz  \
+                 --exclude='source.tar.gz' -X .gitignore *
              find $PWD  -name .git\* | xargs rm -rf
              rm -rf .bundle
              /usr/bin/patch -p1 -s <../../../add-bundle.diff
-             for p in  ../../../*.patch; do
-                 /usr/bin/patch -p1 -s < $p
-             done &> /dev/null || :
         )
         tar czf ${RELEASE_DIR}.tar.gz  ${RELEASE_DIR} && \
             rm -rf ${RELEASE_DIR}
     cd ..
     echo "Source:              dist/${RELEASE_DIR}.tar.gz"
     echo "Required bundle:     $(git_id dist/diaspora/Gemfile)"
+}
+
+function get_git_repos()
+{
+    grep -A 2 GIT $1 |
+        awk   ' /remote:/   { repo = $2 }
+                /revision:/ { printf "%s=%s\n",repo, $2}'
+}
+
+
+function package_git_gems()
+{
+    gemfile="$1"
+    dest="$2"
+
+    rm -rf git-tmp
+    mkdir git-tmp
+    cd git-tmp
+        for repo in $( get_git_repos $1); do
+            url=${repo%%=*}
+            rev=${repo##*=}
+
+            name=${url##*/}
+            name="${name%.git}"
+
+            rm -rf "$name"
+            git clone "$url" "$name"
+            cd $name
+                git reset --hard  $rev
+                sed -i '/s.date/s/Date.today/"2010-09-25"/' *.gemspec
+                gem build *.gemspec
+                cp *.gem $dest
+                echo "Built GIT gem $name (*.gem)"
+                echo "Where: $dest"
+            cd ..
+        done
+    cd ..
 }
 
 
@@ -190,22 +225,28 @@ function make_bundle()
         echo "Creating bundle $bundle_name"
         cd dist
             rm -rf $bundle_name
-            mkdir -p $bundle_name/bundle
-            pushd diaspora > /dev/null
-                bundle install --deployment                      \
-                               --path="../$bundle_name/bundle"   \
-                               --without=test rdoc
-
-                cp -ar AUTHORS Gemfile GNU-AGPL-3.0 COPYRIGHT \
-                       "../$bundle_name"
-            popd > /dev/null
-            tar czf $bundle_name.tar.gz $bundle_name
-            rm -rf  $bundle_name
+            cd diaspora
+                if [ "$BUNDLE_FIX" = 'yes' ]; then
+                    rm -f Gemfile.lock
+                    rm -rf .bundle
+                    bundle update
+                fi
+                bundle install --deployment
+                bundle package
+                package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache"
+                cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
+                       vendor/cache
+                cd vendor
+                    mv cache $bundle_name
+                    tar czf ../../$bundle_name.tar.gz $bundle_name
+                    mv $bundle_name cache
+                cd ..
+            cd ..
         cd ..
     }
     echo
-    echo "Repo:       $GIT_REPO"
-    echo "Bundle:     dist/$bundle_name.tar.gz"
+    echo "Bundle: dist/$bundle_name.tar.gz"
+    echo "Current dir:$PWD"
 }
 
 
@@ -269,6 +310,8 @@ function usage()
 	-r  release    Mark with specified release, defaults to 1.
 	-u  uri        Git repository URI, defaults to
 	               $GIT_REPO.
+        -f             For bundle, fix dependencies by running 'bundle update'
+                       before 'bundle install'
 
 	source         Build a diaspora application tarball.
 	bundle         Build a bundler(1) bundle for diaspora.
@@ -280,8 +323,10 @@ function usage()
 	EOF
 }
 
+
 commit='HEAD'
-while getopts ":r:c:u:h" opt
+BUNDLE_FIX='no'
+while getopts ":r:c:u:fh" opt
 do
     case $opt in
         u)   GIT_REPO="$OPTARG"
@@ -289,6 +334,8 @@ do
         c)   commit="${OPTARG:0:7}"
              ;;
         r)   RELEASE="$OPTARG:"
+             ;;
+        f)   BUNDLE_FIX='yes'
              ;;
         h)   usage
              exit 0
@@ -300,7 +347,7 @@ do
 done
 shift $(($OPTIND - 1))
 
-typeset -r GIT_REPO RELEASE
+typeset -r GIT_REPO RELEASE BUNDLE_FIX
 export LANG=C
 
 test $# -gt 1 -o $# -eq 0 && {
@@ -310,7 +357,7 @@ test $# -gt 1 -o $# -eq 0 && {
 
 case $1 in
 
-    "bundle")  make_bundle $commit
+    "bundle")  make_bundle $commit $BUNDLE_FIX
                ;;
     'source')  make_src $commit
                ;;

@@ -1,9 +1,5 @@
 ## Diaspora RPM tools
 
-NOTE: This does not work ATM, see discussions on Gemfile.lock in
-attached to a  commit 12/10 (yea, I know, you calll it 10/12, but you
-are wrong ;)
-
 Creates diaspora source tarballs and RPM packages
 
 An alternative to the capistrano system, providing classic, binary RPM
@@ -13,9 +9,17 @@ aimed for packaging purposes.
 
 #### Fedora RPM synopsis
 
-*Prerequisites*: ruby-1.8, rubygem and other packages as described in
-http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora
-or http://github.com/diaspora/diaspora/wiki/Installing-on-CentOS-Fedora
+Prerequisites:
+
+- ruby-1.8, rubygem, git  and rake as described in
+  [RPM installation Fedora](http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora)
+  or [Installing-on-CentOS-Fedora](http://github.com/diaspora/diaspora/wiki/Installing-on-CentOS-Fedora)
+
+- A personal environment to build RPM:s, also described in
+  [RPM installation Fedora](http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora)
+
+Install g++ (possibly unnnecessary?):
+    % yum install gcc-c++
 
 Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz
 and dist/diaspora-bundle-0.0-1010041233_fade4231.tar.gz:
@@ -42,7 +46,7 @@ Start development server:
     cd /usr/share/diaspora/master
     ./script/server
 
-See http://github.com/diaspora/diaspora/wiki/Using-apache for
+See [Using Apache](http://github.com/diaspora/diaspora/wiki/Using-apache) for
 apache/passenger setup. After configuration, start with:
     /sbin/service diaspora-wsd start
     /sbin/service httpd restart
@@ -65,12 +69,12 @@ The source tarball could be used as-is, by unpacking add making a
     %
 
 This file can be installed anywhere. To use it, add a symlink from vendor/bundle
-to the bundle's master directory.  Reasonable defaults are to install
-diaspora in /var/diaspora and bundle in /usr/lib/diaspora-bundle. With these,
+to the bundle's bundle directory.  Reasonable defaults are to install
+diaspora in /usr/share/diaspora and bundle in /usr/lib/diaspora-bundle. With these,
 the link is
-    % rm -rf /var/diaspora/master/vendor/bundle
-    % ln -sf /usr/lib/diaspora-bundle/master/bundle  \
-    >          /var/diaspora/master/vendor
+    % rm -rf /usr/share/diaspora/master/vendor/bundle
+    % ln -sf /usr/lib/diaspora-bundle/bundle  \
+    >          /usr/share/diaspora/master/vendor
     %
 
 The directories tmp, log, and public/uploads needs to be writable. If using
@@ -85,13 +89,19 @@ The source tarball is as retrieved from diaspora with following differences:
 
    - The .git directories are removed (freeing more than 50% of the size).
    - A new file /master/config/gitversion is created.
-   - The file public/source.tar is generated.
+   - The file public/source.tar.gz is generated.
    - The file .bundle/config  is patched. Remove before doing
      *bundle install*
 
-Routines uses last available version from master branch at github. The
-version contains a time stamp and an abbreviated git commit id.
-Using -c, a specific commit can be used for source build.
+./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
+root cause is a bad Gemfile in the git repo. Possible fixes includes
+using a older version known to work:
+     % ./make-dist.sh -c c818885b6 bundle
+     % ./make-dist.sh -c c818885b6 source
+
+or forcing a complete update of Gemfile.lock using 'bundle update' (a
+potentially problematic operation):
+     % ./make-dist.sh -f bundle
 
 *make-dist prepare* creates links  also for all files listed in SOURCES.
 Typically, this is  secondary sources. *make-dist.sh sources*
@@ -110,7 +120,8 @@ directory, copy-paste previous version nr. It will be updated.
 
 This has been confirmed to start up and provide basic functionality both using
 the thin webserver and apache passenger, on 32/64 bit systems and in the
-mock build environment.
+mock build environment. Irregular nightly builds are available form time to time
+at [ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
 
 #### Implementation
 
@@ -139,24 +150,24 @@ diaspora app.  This is more or less as mandated by LSB and Fedora packaging rule
 
 #### Discussion
 
-For better or worse, this installation differs from the procedure outlined in the
-original README.md:
+For better or worse, this installation differs from the procedure outlined
+in the original README.md:
 
-- All configuration is done in /usr/share/diaspore. No global ur user installed bundles
-  are involved. Easier to maintain, but a mess if there should be parallel
-  installations.
+- All configuration is done in /usr/share/diaspore. No global or user
+  installed bundles are involved. Easier to maintain, but a mess if there
+  should be parallel installations.
 
 - Service is run under it's own uid, not root or an ordinary user account.
 
-- Using the pre-packaged mongod server means that the DB has reasonable permissions,
-  not 777.
+- Using the pre-packaged mongod server means that the DB has reasonable
+  permissions, not 777.
 
-- Splitting in two packages makes sense IMHO. The bundle is not changed that often,
-  but is quite big: ~30M without test packages (the default) or ~55M with test
-  packages. The application is just ~3M, and is fast to deploy even with these
-  tools (yes, I know, capistrano is much faster...)
+- Splitting in two packages makes sense IMHO. The bundle is not changed
+  that often, but is quite big: ~35M without test packages (the default) or
+  ~55M with test packages. The application is just ~3M, and is fast to
+  deploy even with these tools (yes, I know, capistrano is much faster...)
 
-- Many, roughly 50% of the packages in the bundle are already packaged for Fedora
-  i. e., they could be removed from the bundle and added as dependencies instead.
-  This is likely to make things more stable in the long run.
-  diaspora.spec has a list.
+- Many, roughly 50% of the packages in the bundle are already packaged
+  for Fedora i. e., they could be removed from the bundle and added as
+  dependencies instead.  This is likely to make things more stable in the
+  long run.  diaspora.spec has a list.

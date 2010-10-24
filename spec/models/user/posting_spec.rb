@@ -72,6 +72,8 @@ describe User do
       friend_users(user, aspect, user2, aspect2)
       friend_users(user, aspect, user3, aspect3)
       friend_users(user, aspect1, user4, aspect4)
+      user.add_person_to_aspect(user2.person.id, aspect1.id)
+      user.reload
     end
 
     describe '#push_to_aspects' do
@@ -80,7 +82,7 @@ describe User do
         user.push_to_aspects(post, aspect.id)
       end
 
-      it 'should push a post to all aspects' do
+      it 'should push a post to friends in all aspects' do
         user.should_receive(:push_to_person).exactly(3).times
         user.push_to_aspects(post, :all)
       end
@@ -92,5 +94,6 @@ describe User do
         user.push_to_people(post, [user2.person, user3.person])
       end
     end
+
   end
 end

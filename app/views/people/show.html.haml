@@ -5,34 +5,37 @@
 - content_for :page_title do
   profile
 
-- content_for :left_pane do
+.span-4.append-1.last
+  %h2= @person.real_name
   #profile
     .profile_photo
       = person_image_link(@person)
     %ul
       -unless @posts.first.nil?
         %li
+          %b.small= @person.diaspora_handle
+        %li
           %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
+
       - if @person != current_user.person && current_user.friends.include?(@person)
         %li
           %i= t(".friends_since",:how_long_ago => how_long_ago(@person))
         %li
-          = form_tag move_friend_path
-          = select :to, :to,  @aspects_dropdown_array, :selected => @aspects_with_person.first.id
-          = hidden_field_tag :from, :from, :value => @aspects_with_person.first.id
-          = hidden_field_tag :friend_id, :friend_id, :value => @person.id
-          = submit_tag t('.save')
+          .person_aspects
+            ➔
+            %ul
+              - for aspect in @aspects_with_person
+                %li= link_to aspect.name, aspect
 
     - if @person != current_user.person && current_user.friends.include?(@person)
       = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
 
-.span-20.last
+.span-15.last
+  - if @posts.count > 0
+    %ul#stream
+      - for post in @posts
+        = render type_partial(post), :post => post unless post.class == Album
+      = will_paginate @posts
+  - else
+    %h3= t('.no_posts')
 
-  .span-19.last
-    - if @posts
-      %ul#stream
-        - for post in @posts
-          = render type_partial(post), :post => post unless post.class == Album
-        = will_paginate @posts
-    - else
-      %h3=t('no posts to display!')

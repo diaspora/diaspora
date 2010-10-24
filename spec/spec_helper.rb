@@ -12,7 +12,7 @@ require 'database_cleaner'
 require 'webmock/rspec'
 
 include Devise::TestHelpers
-include WebMock
+include WebMock::API
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
@@ -25,19 +25,8 @@ RSpec.configure do |config|
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.orm = "mongo_mapper"
 
-  config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
-    stub_signature_verification
-
-  end
-
   config.before(:each) do
-    DatabaseCleaner.start
     stub_sockets
-    User.stub!(:allowed_email?).and_return(:true)
-  end
-
-  config.after(:each) do
     DatabaseCleaner.clean
   end
 end
@@ -56,10 +45,8 @@ ImageUploader.enable_processing = false
     Diaspora::WebSocket.unstub!(:unsubscribe)
   end
 
-  def stub_signature_verification
-    (get_models.map{|model| model.camelize.constantize} - [User]).each do |model|
-      model.any_instance.stubs(:verify_signature).returns(true)
-    end
+  def stub_comment_signature_verification
+    Comment.any_instance.stubs(:verify_signature).returns(true)
   end
 
   def unstub_mocha_stubs
@@ -89,11 +76,11 @@ ImageUploader.enable_processing = false
     aspect2.reload
   end
 
-  def stub_success(address = 'abc@example.com')
+  def stub_success(address = 'abc@example.com', opts = {})
     host = address.split('@')[1]
     stub_request(:get, "https://#{host}/.well-known/host-meta").to_return(:status => 200, :body => host_xrd)
     stub_request(:get, "http://#{host}/.well-known/host-meta").to_return(:status => 200, :body => host_xrd)
-    if host.include?("joindiaspora.com")
+    if opts[:diaspora] || host.include?("diaspora")
       stub_request(:get, /webfinger\/\?q=#{address}/).to_return(:status => 200, :body => finger_xrd)
       stub_request(:get, "http://#{host}/hcard/users/4c8eccce34b7da59ff000002").to_return(:status => 200, :body => hcard_response)
     else

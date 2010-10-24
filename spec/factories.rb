@@ -8,14 +8,15 @@
 #This inclsion, because gpg-agent(not needed) is never run and hence never sets any env. variables on a MAC
 
 Factory.define :profile do |p|
-  p.first_name "Robert"
-  p.last_name "Grimm"
+  p.sequence(:first_name){|n| "Robert#{n}"}
+  p.sequence(:last_name){|n| "Grimm#{n}"}
 end
+
 
 Factory.define :person do |p|
   p.sequence(:diaspora_handle) {|n| "bob-person-#{n}@aol.com"}
   p.sequence(:url)  {|n| "http://google-#{n}.com/"}
-  p.profile Factory.create(:profile)
+  p.profile Factory.create(:profile, :first_name => "eugene", :last_name => "weinstien")
 
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
 end
@@ -32,7 +33,7 @@ Factory.define :user do |u|
   u.password_confirmation "bluepin7"
   u.serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
   u.after_build do |user|
-    user.person = Factory(:person, :owner_id => user._id,
+  user.person = Factory.build(:person, :profile => Factory.create(:profile), :owner_id => user._id,
                           :serialized_public_key => user.encryption_key.public_key.export,
                           :diaspora_handle => "#{user.username}@#{APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
   end

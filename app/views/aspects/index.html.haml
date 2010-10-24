@@ -2,18 +2,17 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :page_title do
-  = link_to t('.photos'), albums_path(:aspect => @aspect)
-
-- content_for :left_pane do
+.span-4.append-1.last
   = render "shared/aspect_friends"
 
-- content_for :publish do
-  = render "shared/publisher", :aspect_ids => :all, :broadcast => true
+.span-15.last
+  = render 'aspects/no_friends_message'
+  = render 'shared/publisher', :type => :status_message, :aspect => @aspect
+  = render 'aspects/no_posts_message'
+  %ul#stream
+    - for post in @posts
+      = render type_partial(post), :post => post unless post.class == Album
 
-%ul#stream
-  - for post in @posts
-    = render type_partial(post), :post => post unless post.class == Album
-#pagination
-  = will_paginate @posts
+  #pagination
+    = will_paginate @posts
 

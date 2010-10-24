@@ -8,29 +8,16 @@
       $("#add_album_button").fancybox();
     });
 
-= content_for :page_title do
-  = link_to "◂ #{t('.home')}", aspects_path, :aspect => params[:aspect]
-
-- content_for :left_pane do
+.span-4.append-1.last
   = render "shared/aspect_friends"
 
-- content_for :publish do
-  %h1
-    Albums
-  .right
-    = link_to t('.new_album'), '#new_album_pane', {:class => "button", :id => "add_album_button"}
+.span-15.last
+  = render "shared/publisher", :type => :album, :aspect => @aspect
 
-.yo{:style => "display:none;" }
-  #new_album_pane
-    = render "albums/new_album", :aspect => params[:aspect]
+  %div
+    - for album in @albums
+      = render "album", :post => album
 
-%div
-  - for album in @albums
-    = render "album", :post => album
+  #pagination
+    = will_paginate @albums
 
-#pagination
-  = will_paginate @albums
-
-#content_bottom
-  .back
-    = link_to "⇧ #{t('.home')}", root_path

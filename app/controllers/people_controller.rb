@@ -9,20 +9,19 @@ class PeopleController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @aspects_dropdown_array = current_user.aspects.collect{|x| [x.to_s, x.id]}
-    @aspect = :all
+    @aspect = :search
     @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'created_at DESC'
     respond_with @people
   end
 
   def show
+    @aspect = :profile
     @person = current_user.visible_person_by_id(params[:id])
     unless @person
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @profile = @person.profile
       @aspects_with_person = current_user.aspects_with_person(@person)
-      @aspects_dropdown_array = current_user.aspects.collect{|x| [x.to_s, x.id]}
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
       @latest_status_message = current_user.raw_visible_posts.find_all_by__type_and_person_id("StatusMessage", params[:id]).last
       @post_count = @posts.count

@@ -3,7 +3,8 @@
 #   the COPYRIGHT file.
 
 class StatusMessage < Post
-
+  
+  validates_length_of :message, :maximum => 1000, :message => "please make your status messages less than 1000 characters"
   xml_name :status_message
   xml_accessor :message
 

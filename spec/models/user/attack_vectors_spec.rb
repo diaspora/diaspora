@@ -4,10 +4,12 @@
 
 require 'spec_helper'
 
-describe User do
+describe "attack vectors" do
 
   let(:user) { Factory(:user) }
   let(:aspect) { user.aspect(:name => 'heroes') }
+  
+  let(:bad_user) { Factory(:user)}
 
   let(:user2) { Factory(:user) }
   let(:aspect2) { user2.aspect(:name => 'losers') }
@@ -18,6 +20,25 @@ describe User do
   before do
     friend_users(user, aspect, user2, aspect2)
     friend_users(user, aspect, user3, aspect3)
+  end
+
+  context 'non-friend valid user' do
+    
+    it 'raises if receives post by non-friend' do
+      post_from_non_friend = bad_user.build_post( :status_message, :message => 'hi')
+      xml = bad_user.salmon(post_from_non_friend).xml_for(user.person)
+
+      post_from_non_friend.delete
+      bad_user.delete
+
+      post_count = Post.count
+      proc{ user.receive_salmon(xml) }.should raise_error /Not friends with that person/
+
+      user.raw_visible_posts.include?(post_from_non_friend).should be false
+
+      Post.count.should == post_count
+    end
+
   end
 
   context 'malicious friend attack vector' do
@@ -52,10 +73,11 @@ describe User do
       profile.first_name = "Not BOB"
 
       user2.reload
-      user2.profile.first_name.should == "Robert"
+
+      first_name = user2.profile.first_name
       proc{user.receive_salmon(user3.salmon(profile).xml_for(user.person))}.should raise_error /Malicious Post/
       user2.reload
-      user2.profile.first_name.should == "Robert"
+      user2.profile.first_name.should == first_name
     end
     
     it 'should not overwrite another persons profile through comment' do

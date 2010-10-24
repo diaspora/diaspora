@@ -7,6 +7,14 @@ module ApplicationHelper
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
 
+  def aspect_or_all_path aspect
+    if @aspect.is_a? Aspect
+      aspect_path @aspect
+    else
+      aspects_path
+    end
+  end
+  
   def object_path(object, opts = {})
     object = object.person if object.is_a? User
     eval("#{object.class.to_s.underscore}_path(object, opts)")
@@ -49,11 +57,15 @@ module ApplicationHelper
   end
 
   def person_image_tag(person)
-    image_location = person.profile.image_url
-    image_location ||= "/images/user/default.jpg"
-
-    image_tag image_location, :class => "avatar", :alt => person.real_name, :title => person.real_name
+    image_tag image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id
   end
+
+  def image_or_default(person)
+    image_location = person.profile.image_url
+    image_location ||= "/images/user/default.png"
+    image_location
+  end
+  
 
   def person_image_link(person)
     link_to person_image_tag(person), object_path(person)

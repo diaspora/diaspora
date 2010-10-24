@@ -29,9 +29,18 @@ module Diaspora
         result
       end
 
+      def friends_not_in_aspect( aspect )
+        Person.all(:id.in => self.friend_ids, :id.nin => aspect.person_ids)
+      end
+
       def aspect_by_id( id )
         id = id.to_id
         aspects.detect{|x| x.id == id }
+      end
+
+      def find_friend_by_id(id)
+        id = id.to_id
+        friends.detect{|x| x.id == id }
       end
 
       def aspects_with_post( id )
@@ -39,8 +48,7 @@ module Diaspora
       end
 
       def aspects_with_person person
-        id = person.id.to_id
-        aspects.select { |g| g.person_ids.include? id}
+        aspects.all(:person_ids => person.id)
       end
 
       def people_in_aspects aspects

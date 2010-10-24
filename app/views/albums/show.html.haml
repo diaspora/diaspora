@@ -9,31 +9,32 @@
     });
   });
 
-= content_for :page_title do
-  = link_to "◂ #{t('.albums')}", albums_path(:aspect => @aspect)
 
-- content_for :left_pane do
-  = render "shared/aspect_friends"
+= render 'shared/author_info', :post => @album
 
-- content_for :publish do
-  -if current_user.owns? @album
-    .right
-      =render 'photos/new_photo'
-      = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
-  %h1
+%ul#breadcrumb
+  %li= link_to "#{@album.person.profile.first_name}'s Photos", '#'
+  %li= @album.name
+
+
+.span-19.appends-1.last
+  #thumbnails
+    - for photo in @album_photos
+      .image_thumb
+        = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
+
+.span-5.last
+  %h2
     = @album.name
+
   ="#{t('.updated')} #{how_long_ago(@album)}"
 
-.album_id{:id => @album.id, :style => "display:hidden;"}
+  -if current_user.owns? @album
+    =render 'photos/new_photo'
+    = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
 
--unless current_user.owns? @album
-  %h4= "#{t('.by')} #{@album.person.real_name}"
+  .album_id{:id => @album.id, :style => "display:hidden;"}
 
-#thumbnails
-  - for photo in @album_photos
-    .image_thumb
-      = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
+  -unless current_user.owns? @album
+    %h4= "#{t('.by')} #{@album.person.real_name}"
 
-#content_bottom
-  .back
-    = link_to "⇧ #{t('.albums')}", albums_path

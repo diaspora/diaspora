@@ -6,6 +6,15 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  activemodel:
+      errors:
+          models:
+              user:
+                  attributes:
+                      username:
+                          taken: "is already taken"
+                      email:
+                          taken: "is already taken"
   hello: "Hello world"
   application:
       helper:
@@ -38,6 +47,7 @@ en:
           share: "Share"
       aspect_friends:
           add_friends: "add friends"
+          photos: "photos"
   albums:
       album:
           you: "you"
@@ -69,10 +79,14 @@ en:
           friends_albums: "Friends Albums"
           your_albums: "Your Albums"
   aspects:
-      index:
-          photos: "photos"
-      show:
-          photos: "photos"
+      no_friends_message:
+          nobody: "We know you have friends, bring them to Diaspora!"
+          nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+          add_friend: "Add a friend"
+          add_friend_to: "Add someone to %{aspect_name}"
+          invite: "Invite someone to join Diaspora!"
+      no_posts_message:
+          start_talking:  "Nobody has said anything yet.  Get the conversation started!"
       manage:
           add_a_new_aspect: "Add a new aspect"
           add_a_new_friend:  "Add a new friend"
@@ -90,12 +104,12 @@ en:
           success: "%{name} was successfully removed."
       update:
           success: "Your aspect, %{name}, has been successfully edited."
-      move_friends:
-          failure: "Aspect editing failed for friend %{real_name}."
-          success: "Aspects edited successfully."
       move_friend:
           failure: "didn't work %{inspect}"
-          success: "You are now showing your friend a different aspect of yourself."
+          success: "Person moved to new aspect"
+      add_to_aspect:
+          failure: "Failed to add friend to aspect."
+          success: "Successfully added friend to aspect."
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
@@ -136,6 +150,8 @@ en:
       photo:
           show_comments: "show comments"
           posted_a_new_photo_to: "posted a new photo to"
+          delete: "Delete"
+          are_you_sure: "Are you sure?"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -159,6 +175,7 @@ en:
           sent: 'Your invitation has been sent.'
           no_more: 'You have no more invitations.'
           already_sent: 'You already invited this person.'
+          already_friends: 'You are already friends with this person' 
           invitation_token_invalid: 'The invitation token provided is not valid!'
           updated: 'Your password was set successfully. You are now signed in.'
 
@@ -200,6 +217,7 @@ en:
           save: "save"
           are_you_sure: "Are you sure?"
           remove_friend: "remove friend"
+          no_posts: "no posts to display!"
   requests:
       new_request:
           add_a_new_friend_to: "Add a new friend to"
@@ -212,6 +230,9 @@ en:
           ignore: "Ignored friend request."
       create:
           error: "No diaspora seed found with this email!"
+          invalid_identity: "This identity is not properly formatted"
+          error_server: "Problem with other server. Maybe it doesn't exist?"
+          yourself: "You cannot befriend yourself!"
           already_friends: "You are already friends with %{destination_url}!"
           success: "A friend request was sent to %{destination_url}."
           horribly_wrong: "Something went horribly wrong."

@@ -12,12 +12,10 @@ Feature: User creates an aspect
   Scenario: success
     Given I fill in "Name" with "Dorm Mates" in the modal window
     When I press "Create" in the modal window
-    Then I should see "Manage Aspects"
-    And I should see "Dorm Mates" in the header
-    And I should see "Dorm Mates" in the aspect list
+    Then I should see "Dorm Mates" in the header
+    And I should see "Your aspect 'Dorm Mates' is empty."
 
   Scenario: I omit the name
     Given I fill in "Name" with "" in the modal window
     When I press "Create" in the modal window
-    Then I should see "Manage Aspects"
-    And I should see "Aspect creation failed."
+    Then I should see "Aspect creation failed."

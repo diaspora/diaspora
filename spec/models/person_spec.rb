@@ -13,6 +13,22 @@ describe Person do
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
+  describe "validation" do
+    describe "of associated profile" do
+      it "fails if the profile isn't valid" do
+        person = Factory.build(:person)
+        person.should be_valid
+        
+        person.profile.update_attribute(:first_name, nil)
+        person.profile.should_not be_valid
+        person.should_not be_valid
+
+        person.errors.count.should == 1
+        person.errors.full_messages.first.should =~ /first name/i
+      end
+    end
+  end
+
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
@@ -25,11 +41,17 @@ describe Person do
         @person.diaspora_handle.include?(APP_CONFIG[:terse_pod_url]).should be false
       end
     end
-  end
+    describe 'validation' do
+      it 'is unique' do
+        person_two = Factory.build(:person, :url => @person.diaspora_handle)
+        person_two.valid?.should be_false
+      end
 
-  it 'should not allow two people with the same diaspora_handle' do
-    person_two = Factory.build(:person, :url => @person.diaspora_handle)
-    person_two.valid?.should == false
+      it 'is case insensitive' do
+        person_two = Factory.build(:person, :url => @person.diaspora_handle.upcase)
+        person_two.valid?.should be_false
+      end
+    end
   end
 
   describe 'xml' do
@@ -47,7 +69,7 @@ describe Person do
     end
   end
 
-  it 'should know when a post belongs to it' do
+  it '#owns? posts' do
     person_message = Factory.create(:status_message, :person => @person)
     person_two =     Factory.create(:person)
 
@@ -55,64 +77,38 @@ describe Person do
     person_two.owns?(person_message).should be false
   end
 
-  it 'should delete all of user posts except comments upon user deletion' do
+  it "deletes all of a person's posts upon person deletion" do
     person = Factory.create(:person)
 
-    Factory.create(:status_message, :person => person)
-    Factory.create(:status_message, :person => person)
-    Factory.create(:status_message, :person => person)
-    Factory.create(:status_message, :person => person)
+    status = Factory.create(:status_message, :person => person)
+    Factory.create(:status_message, :person => @person)
+
+    lambda {person.destroy}.should change(Post, :count).by(-1)
+  end
+
+  it "does not delete a person's comments on person deletion" do
+    person = Factory.create(:person)
 
     status_message = Factory.create(:status_message, :person => @person)
 
-    Factory.create(:comment, :person_id => person.id,  :text => "yes i do",       :post => status_message)
     Factory.create(:comment, :person_id => person.id,  :text => "i love you",     :post => status_message)
-    Factory.create(:comment, :person_id => person.id,  :text => "hello",          :post => status_message)
     Factory.create(:comment, :person_id => @person.id, :text => "you are creepy", :post => status_message)
-
-    person.destroy
-
-    Post.count.should == 1
-    Comment.all.count.should == 4
-    status_message.comments.count.should == 4
+    
+    lambda {person.destroy}.should_not change(Comment, :count)
   end
 
   describe "unfriending" do
     it 'should not delete an orphaned friend' do
-      request = @user.send_friend_request_to @person, @aspect
-
       @user.activate_friend(@person, @aspect)
-      @user.reload
 
-      Person.all.count.should    == 3
-      @user.friends.count.should == 1
-      @user.unfriend(@person)
-      @user.reload
-      @user.friends.count.should == 0
-      Person.all.count.should    == 3
+      lambda {@user.unfriend(@person)}.should_not change(Person, :count)
     end
 
     it 'should not delete an un-orphaned friend' do
-      request = @user.send_friend_request_to @person, @aspect
-      request2 = @user2.send_friend_request_to @person, @aspect2
-
       @user.activate_friend(@person, @aspect)
       @user2.activate_friend(@person, @aspect2)
 
-      @user.reload
-      @user2.reload
-
-      Person.all.count.should     == 3
-      @user.friends.count.should  == 1
-      @user2.friends.count.should == 1
-
-      @user.unfriend(@person)
-      @user.reload
-      @user2.reload
-      @user.friends.count.should  == 0
-      @user2.friends.count.should == 1
-
-      Person.all.count.should     == 3
+      lambda {@user.unfriend(@person)}.should_not change(Person, :count)
     end
   end
 
@@ -164,17 +160,76 @@ describe Person do
       people = Person.search("Casey Grippi")
       people.should == [@friend_four]
     end
+  end
 
-    it 'should search by diaspora_handle exactly' do
-      stub_success("tom@tom.joindiaspora.com")
-      Person.by_webfinger(@friend_one.diaspora_handle).should == @friend_one
+  describe ".by_webfinger" do
+    context "local people" do
+      before do
+        @local_person = Factory(:person)
+        Redfinger.should_not_receive :finger
+      end
+
+      it "finds the local person without calling out" do
+        person = Person.by_webfinger(@local_person.diaspora_handle)
+        person.should == @local_person
+      end
+
+      it "finds a local person with a mixed-case username" do
+        user = Factory(:user, :username => "SaMaNtHa")
+        person = Person.by_webfinger(user.person.diaspora_handle)
+        person.should == user.person
+      end
+
+      it "is case insensitive" do
+        user = Factory(:user, :username => "SaMaNtHa")
+        person = Person.by_webfinger(user.person.diaspora_handle.upcase)
+        person.should == user.person
+      end
     end
 
-    it 'should create a stub for a remote user' do
+
+      it 'should only find people who are exact matches' do
+        user = Factory(:user, :username => "SaMaNtHa")
+        person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
+        user.person.diaspora_handle = "tom@tom.joindiaspora.com"
+        user.person.save
+        Person.by_webfinger("tom@tom.joindiaspora.com").diaspora_handle.should == "tom@tom.joindiaspora.com"
+      end
+      
+      it 'should return nil if there is not an exact match' do
+        Redfinger.stub!(:finger).and_return(nil)
+
+        person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
+        person1 = Factory(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
+        #Person.by_webfinger("tom@tom.joindiaspora.com").should_be false 
+        proc{ Person.by_webfinger("tom@tom.joindiaspora.com")}.should raise_error
+      end
+
+
+    it 'identifier should be a valid email' do
+      stub_success("joe.valid+email@my-address.com")
+      Proc.new { 
+        Person.by_webfinger("joe.valid+email@my-address.com")
+      }.should_not raise_error(RuntimeError, "Identifier is invalid")
+
+      stub_success("not_a_@valid_email")
+      Proc.new { 
+        Person.by_webfinger("not_a_@valid_email")
+      }.should raise_error(RuntimeError, "Identifier is invalid")
+
+    end
+
+    it 'should not accept a port number' do
+      stub_success("eviljoe@diaspora.local:3000")
+      Proc.new { 
+        Person.by_webfinger('eviljoe@diaspora.local:3000')
+      }.should raise_error(RuntimeError, "Identifier is invalid")
+    end
+
+    it 'creates a stub for a remote user' do
       stub_success("tom@tom.joindiaspora.com")
       tom = Person.by_webfinger('tom@tom.joindiaspora.com')
       tom.real_name.include?("Hamiltom").should be true
     end
-
   end
 end
