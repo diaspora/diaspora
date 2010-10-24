@@ -12,7 +12,7 @@
   = render "shared/aspect_friends"
 
 .span-15.last
-  = render "shared/publisher", :type => :album, :aspect => @aspect.id
+  = render "shared/publisher", :type => :album, :aspect => @aspect
 
   %div
     - for album in @albums

@@ -53,7 +53,7 @@
         = album.label :name
         = album.text_field :name
 
-      = album.hidden_field :to, :value => aspect
+      = album.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
       .options_and_submit
         = album.submit "Create", :class => 'button'
