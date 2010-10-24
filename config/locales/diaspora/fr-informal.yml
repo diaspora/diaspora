@@ -6,6 +6,15 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 fr-informal:
+  activemodel:
+      errors:
+          models:
+              user:
+                  attributes:
+                      username:
+                          taken: "est déjà pris"
+                      email:
+                          taken: "est déjà pris"
   hello: "Bonjour tout le monde"
   application:
       helper:
@@ -70,13 +79,14 @@ fr-informal:
           friends_albums: "Albums d’amis"
           your_albums: "Tes albums"
   aspects:
-      empty_messages:
-          start_talking:  "Personne n’a encore rien dit.  Commence dès à présent la conversation !"
+      no_friends_message:
           nobody: "Tu as forcément des amis, n’hésite pas à les ramener sur Diaspora !"
           nobody_in_aspect: "Ton aspect '%{aspect_name}' est vide."
           add_friend: "Ajouter un ami"
           add_friend_to: "Ajouter quelqu’un à %{aspect_name}"
           invite: "Inviter quelqu’un à rejoindre Diaspora !"
+      no_posts_message:
+          start_talking:  "Personne n’a encore rien dit.  Commence dès à présent la conversation !"
       manage:
           add_a_new_aspect: "Ajouter un nouvel aspect"
           add_a_new_friend:  "Ajouter un nouvel ami"
@@ -94,12 +104,12 @@ fr-informal:
           success: "%{name} a été supprimé avec succès."
       update:
           success: "Ton aspect, %{name}, a été édité avec succès."
-      move_friends:
-          failure: "L’édition de l’aspect concernant ton ami %{real_name} a échoué."
-          success: "Les aspects ont été édités avec succès."
       move_friend:
           failure: "ne fonctionne pas %{inspect}"
-          success: "Tu montres à présent à ton ami un aspect différent au tiens."
+          success: "Personne déplacée vers le nouvel aspect"
+      add_to_aspect:
+          failure: "L’ajout de l’ami vers l’aspect a échoué."
+          success: "Tu as ajouté l’ami à l’aspect avec succès."
       helper:
           remove: "supprimer"
           aspect_not_empty: "L’aspect n’est pas vide"
@@ -140,6 +150,8 @@ fr-informal:
       photo:
           show_comments: "afficher les commentaires"
           posted_a_new_photo_to: "a publié une nouvelle photo dans"
+          delete: "Supprimer"
+          are_you_sure: "Es-tu sûr(e) ?"
       new:
           new_photo: "Nouvelle photo"
           back_to_list: "Retourner à la liste"
@@ -163,6 +175,7 @@ fr-informal:
           sent: 'Ton invitation a été envoyée.'
           no_more: 'Tu n’as plus d’invitation.'
           already_sent: 'Tu as déjà invité cette personne.'
+          already_friends: 'Tu es déjà ami avec cette personne'
           invitation_token_invalid: 'Le jeton d’invitation fourni n’est pas valide !'
           updated: 'Ton mot de passe a été réglé avec succès. Tu es à présent connecté.'
 
@@ -204,6 +217,7 @@ fr-informal:
           save: "sauver"
           are_you_sure: "Es-tu sûr(e) ?"
           remove_friend: "supprimer de mes amis"
+          no_posts: "aucun message à afficher !"
   requests:
       new_request:
           add_a_new_friend_to: "Ajouter un nouvel ami à"
@@ -216,6 +230,9 @@ fr-informal:
           ignore: "Requête d’ami ignorée."
       create:
           error: "Aucun résultat Diaspora n’a été trouvé avec cette adresse e-mail !"
-          already_friends: "Vous êtes déjà amis avec %{destination_url}!"
+          invalid_identity: "Cette identité n’est pas proprement formatée"
+          error_server: "Un problème est survenu avec l’autre serveur. Il n’existe peut-être pas ?"
+          yourself: "Tu ne peux pas être ami avec toi-même !"
+          already_friends: "Tu es déjà ami avec %{destination_url}!"
           success: "Une requête d’ami a été envoyée à %{destination_url}."
           horribly_wrong: "Quelque chose d’horrible s’est produit."
