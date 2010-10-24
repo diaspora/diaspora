@@ -10,10 +10,10 @@
   });
 
 
-= render 'shared/author_info', :post => @album
+= render 'shared/author_info', :person => @album.person, :post => @album
 
 %ul#breadcrumb
-  %li= link_to "#{@album.person.profile.first_name}'s Photos", '#'
+  %li= link_to "#{@album.person.profile.first_name}'s Photos", person_photos_path(@album.person)
   %li= @album.name
 
 

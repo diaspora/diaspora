@@ -1,0 +1,34 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+:javascript
+  $(document).ready(function(){
+    $(".image_thumb img").load( function() {
+      $(this).fadeIn("slow");
+    });
+  });
+
+
+= render 'shared/author_info', :person => @person
+
+%ul#breadcrumb
+  %li= link_to "#{@person.profile.first_name}'s Photos", person_photos_path(@person)
+
+.span-24.last
+  #thumbnails
+    - for photo in @photos
+      .image_thumb
+        = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
+
+.span-24.last
+  %h3
+    Photos
+  %div
+    - for album in @albums
+      = render "albums/album", :post => album
+
+.span-24.last
+  %h3
+    Albums
+

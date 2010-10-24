@@ -8,6 +8,16 @@ class PhotosController < ApplicationController
   respond_to :html
   respond_to :json, :only => :show
 
+  def index
+    if params[:person_id]
+      @person = current_user.visible_people.find_by_person_id(params[:person_id])
+    end
+    @person ||= current_user.person
+
+    @photos = current_user.visible_posts(:_type => "Photo", :person_id => @person.id)
+    @albums = current_user.visible_posts(:_type => "Album", :person_id => @person.id)
+  end
+
   def create
     album = current_user.find_visible_post_by_id( params[:album_id] )
 
@@ -78,6 +88,8 @@ class PhotosController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @album = @photo.album
+      @ownership = current_user.owns? @photo
+
       respond_with @photo, @album
     end
   end
