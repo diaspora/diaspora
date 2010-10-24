@@ -226,14 +226,13 @@ set -x
         echo "Creating bundle $bundle_name"
         cd dist
             rm -rf $bundle_name
-rm -rf diaspora
-git clone  --quiet $GIT_REPO
             cd diaspora
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
                     rm -f Gemfile.lock
                     rm -rf .bundle
                     bundle update
                 fi
+                bundle install --deployment
                 bundle package
                 package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
