@@ -5,9 +5,9 @@
 
 
 $(document).ready(function(){
-  
+
   // expand all comments on page load
-	$("#stream").find('.comments').each(function(index) {
+	$("#stream:not('.show')").find('.comments').each(function(index) {
       var comments = $(this);
 	    if(comments.children("li").length > 1) {
         var show_comments_toggle = comments.closest("li").find(".show_post_comments");
@@ -16,7 +16,7 @@ $(document).ready(function(){
   });
 
   // comment toggle action
-  $("#stream").delegate("a.show_post_comments", "click", function(evt) {
+  $("#stream:not('.show')").delegate("a.show_post_comments", "click", function(evt) {
     evt.preventDefault();
     expandComments($(this));
   });

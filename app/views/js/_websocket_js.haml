@@ -45,7 +45,7 @@
 
   function processComment(post_id, html){
     post = $("*[data-guid='"+post_id+"']'");
-    $(' .comments li:last', post ).before(
+    $('.comments li:last', post ).before(
       $(html).fadeIn("fast", function(){})
     );
     toggler = $('.show_post_comments', post)
@@ -63,9 +63,9 @@
   function processPost(className, html, aspectIds){
     if(onPageForAspects(aspectIds)){
       var addPostToStream = function (html){
-        $("#stream").prepend(
+        $("#stream:not('.show')").prepend(
           $(html).fadeIn("fast", function(){
-            $("#stream label:first").inFieldLabels();
+            $("#stream").find("label").first().inFieldLabels();
           })
         )
       };

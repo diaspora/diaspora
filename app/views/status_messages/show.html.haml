@@ -6,13 +6,10 @@
 = render 'shared/author_info', :post => @status_message
 
 .span-14.append-1.last
-  #stream
-    %h1.show_text
-      = make_links(@status_message.message)
+  %h1.show_text
+    = make_links(@status_message.message)
 
-  = "Posted #{how_long_ago(@status_message)} to"
-  - for aspect in current_user.aspects_with_post( @status_message.id )
-    = link_to aspect.name, aspect
+  = how_long_ago(@status_message)
 
   - if current_user.owns? @status_message
     %p
