@@ -21,7 +21,7 @@
       - @fb_friends[:data].each do |friend|
         = image_tag( "http://graph.facebook.com/#{friend[:id]}/picture" )
     -unless (@aspect == :all)
-      = link_to (image_tag('add_friend_button.png', :height => "50px", :width => "50px")), "#add_request_pane", :id => 'add_request_button'
+      = link_to (image_tag('add_friend_button.png', :title => "add to #{@aspect}")), "#add_request_pane", :id => 'add_request_button'
 
       .fancybox_content
         #add_request_pane
