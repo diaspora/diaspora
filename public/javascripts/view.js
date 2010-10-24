@@ -68,6 +68,9 @@ $(document).ready(function(){
     };
   });
 
+  $("img", "#left_pane").tipsy({live:true});
+  $(".add_aspect_button", "#aspect_nav").tipsy({gravity:'w'});
+
 });//end document ready
 
 
@@ -136,3 +139,4 @@ $(".comment_box").live('blur', function(evt){
     $this.attr("rows", 1);
   }
 });
+
