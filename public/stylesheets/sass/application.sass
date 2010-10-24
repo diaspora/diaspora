@@ -433,11 +433,10 @@ form
         :right 1em
 
 #stream.show
-  div.comments
+  ul.comments
     :display block
-    ul.comment_set
-      :margin
-        :top 0
+    :margin
+      :top 0
   > li
     :border none
     :padding 0
@@ -447,7 +446,7 @@ form
       :border none
     
 
-#stream div.comments
+#stream ul.comments
   :display none
 
   .avatar
@@ -462,7 +461,7 @@ input.comment_submit
     :right -10px
 
 
-ul.comment_set
+ul.comments
   :margin 0
     :top 1em
   :padding 0
@@ -794,7 +793,7 @@ h1.big_text
     :top 1px solid #999
     :bottom 2px solid #eee
 
-.show_post_comments ul.comment_set
+.show_post_comments ul.comments
   :width 100%
 
 .sub_header
