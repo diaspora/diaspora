@@ -4,11 +4,17 @@
 
 
 #left_pane
-  %h2= @aspect
+  - if @aspect == :all
+    %h2= "Everyone"
+  - else
+    %h2= @aspect
+
   .friend_pictures
     = owner_image_link
+
     - for friend in @friends
       = person_image_link(friend)
+
     - if @logged_in && (@aspect == :public)
       %h3 Facebook Friends
       - @fb_friends = MiniFB.get(@access_token, 'me', :type => "friends")
