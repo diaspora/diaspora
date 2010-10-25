@@ -241,10 +241,9 @@ function make_bundle()
                     ../$bundle_name
                 make_docs "vendor/gems"  "../$bundle_name/docs"
                 mv vendor/cache ../$bundle_name/cache
-
-                tar czf ../$bundle_name.tar.gz $bundle_name
-                mv ../$bundle_name/cache cache
             cd ..
+            tar czf $bundle_name.tar.gz $bundle_name
+            mv $bundle_name/cache diaspora/vendor/cache
         cd ..
     }
     echo
