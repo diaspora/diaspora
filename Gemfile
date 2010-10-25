@@ -45,6 +45,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'ruby-debug19' if RUBY_VERSION.include? "1.9"
   gem 'ruby-debug' if RUBY_VERSION.include? "1.8"
+  gem 'launchy'
 end
 
 group :test do
