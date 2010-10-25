@@ -1,7 +1,7 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
+require File.join(Rails.root, 'lib/em-webfinger')
 class DevUtilitiesController < ApplicationController
   before_filter :authenticate_user!, :except => [:set_backer_number, :log]
   include ApplicationHelper
@@ -10,14 +10,25 @@ class DevUtilitiesController < ApplicationController
   def zombiefriends
     render :nothing => true
     bkr_info  = backer_info
-
     if current_user.email == "tom@tom.joindiaspora.com"
+      puts bkr_info.inspect
       bkr_info.each do |backer|
         backer_email = "#{backer['username']}@#{backer['username']}.joindiaspora.com"
-        rel_hash = relationship_flow(backer_email)
-        logger.info "Zombiefriending #{backer['given_name']} #{backer['family_name']}"
-        logger.info "Calling send_friend_request with #{rel_hash[:friend]} and #{current_user.aspects.first}"
-        current_user.send_friend_request_to(rel_hash[:friend], current_user.aspects.first)
+       
+        webfinger = EMWebfinger.new(backer_email)
+        
+        webfinger.on_person { |person|
+          puts person.inspect
+          if person.respond_to? :diaspora_handle
+            rel_hash = {:friend => person}
+            logger.info "Zombiefriending #{backer['given_name']} #{backer['family_name']}"
+            logger.info "Calling send_friend_request with #{rel_hash[:friend]} and #{current_user.aspects.first}"
+            current_user.send_friend_request_to(rel_hash[:friend], current_user.aspects.first)
+          else
+            puts "error: #{person}"
+          end
+          }
+        webfinger.fetch
       end
     end
   end

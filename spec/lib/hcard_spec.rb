@@ -5,7 +5,6 @@
 require 'spec_helper'
 require File.join(Rails.root, 'lib/hcard')
 
-
 describe HCard do
   it 'should retreive and parse an hcard' do
     stub_success("tom@tom.joindiaspora.com")
@@ -13,6 +12,7 @@ describe HCard do
     hcard = HCard.find f.hcard.first[:href]
     hcard[:family_name].include?("Hamiltom").should be true
     hcard[:given_name].include?("Alex").should be true
+    hcard[:photo].include?("tom.jpg").should be true
     hcard[:url].should  == "http://tom.joindiaspora.com/"
   end
 end

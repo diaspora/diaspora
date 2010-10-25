@@ -22,8 +22,8 @@ class PublicsController < ApplicationController
   end
 
   def webfinger
-    @person = Person.by_webfinger(params[:q], :local => true) if params[:q]
-    unless @person.nil? || @person.owner.nil?
+    @person = Person.local_by_account_identifier(params[:q]) if params[:q]
+    unless @person.nil? 
       render 'webfinger', :content_type => 'application/xrd+xml'
     else
       render :nothing => true, :status => 404
@@ -33,7 +33,7 @@ class PublicsController < ApplicationController
   def hub
     if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
       render :text => params['hub.challenge'], :status => 202, :layout => false
-    end
+      end
   end
 
   def receive

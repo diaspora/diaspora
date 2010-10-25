@@ -1,12 +1,18 @@
+require File.join(Rails.root, 'lib/em-webfinger')
+
 module Diaspora
   module UserModules
     module Receiving
       def receive_salmon salmon_xml
         salmon = Salmon::SalmonSlap.parse salmon_xml, self
-        if salmon.verified_for_key?(salmon.author.public_key)
-          Rails.logger.info("data in salmon: #{salmon.parsed_data}")
-          self.receive(salmon.parsed_data, salmon.author)
-        end
+        webfinger = EMWebfinger.new(salmon.author_email)
+
+        webfinger.on_person { |salmon_author|
+          if salmon.verified_for_key?(salmon_author.public_key)
+            Rails.logger.info("data in salmon: #{salmon.parsed_data}")
+            self.receive(salmon.parsed_data, salmon_author)
+          end
+        }
       end
 
       def receive xml, salmon_author

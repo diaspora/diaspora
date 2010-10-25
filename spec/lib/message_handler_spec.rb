@@ -154,20 +154,3 @@ describe MessageHandler do
   end
 end
 
-class FakeHttpRequest
-  def initialize(callback_wanted)
-    @callback = callback_wanted
-  end
-  def response
-  end
-
-  def post; end
-  def get; end
-  def callback(&b)
-    b.call if @callback == :success
-  end
-  def errback(&b)
-    b.call if @callback == :failure
-  end
-end
-

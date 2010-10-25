@@ -23,6 +23,13 @@ class Person
 
   one :profile, :class_name => 'Profile'
   validate :profile_is_valid
+  before_save :downcase_diaspora_handle 
+  
+  
+  def downcase_diaspora_handle
+    diaspora_handle.downcase!
+  end
+
   def profile_is_valid
     if profile.present? && !profile.valid?
       profile.errors.full_messages.each { |m| errors.add(:base, m) }
@@ -97,61 +104,35 @@ class Person
     @serialized_public_key = new_key
   end
 
-  def self.by_webfinger(identifier, opts = {})
-    # Raise an error if identifier has a port number 
-    raise "Identifier is invalid" if(identifier.strip.match(/\:\d+$/))
-    # Raise an error if identifier is not a valid email (generous regexp)
-    raise "Identifier is invalid" if !(identifier =~ /\A.*\@.*\..*\Z/)
-
-    query = /\A^#{Regexp.escape(identifier.gsub('acct:', '').to_s)}\z/i
-    local_person = Person.first(:diaspora_handle => query)
-    
-    if local_person
-      Rails.logger.info("Do not need to webfinger, found a local person #{local_person.real_name}")
-      local_person
-    elsif  !identifier.include?("localhost") && !opts[:local]
-      #Get remote profile
-      begin
-        Rails.logger.info("Webfingering #{identifier}")
-        f = Redfinger.finger(identifier)
-      rescue SocketError => e
-        raise "Diaspora server for #{identifier} not found" if e.message =~ /Name or service not known/
-      rescue Errno::ETIMEDOUT => e
-        raise "Connection timed out to Diaspora server for #{identifier}"
-      end
-      raise "No webfinger profile found at #{identifier}" if f.nil? || f.links.empty?
-      Person.from_webfinger_profile(identifier, f)
-    end
+  #database calls
+  def self.by_account_identifier(identifier)
+    identifier = identifier.strip.downcase.gsub('acct:', '') if identifier
+    self.first(:diaspora_handle => identifier)
   end
 
-  def self.from_webfinger_profile(identifier, profile)
+  def self.local_by_account_identifier(identifier)
+    person = self.by_account_identifier(identifier)
+   (person.nil? || person.remote?) ? nil : person
+  end
+
+  def self.build_from_webfinger(profile, hcard)
+    return nil if profile.nil? || !profile.valid_diaspora_profile?
     new_person = Person.new
+    new_person.exported_key = profile.public_key
+    new_person.id = profile.guid
+    new_person.diaspora_handle = profile.account
+    new_person.url = profile.seed_location
 
-    public_key_entry = profile.links.select { |x| x.rel == 'diaspora-public-key' }
-
-    return nil unless public_key_entry
-
-    pubkey = public_key_entry.first.href
-    new_person.exported_key = Base64.decode64 pubkey
-
-    guid = profile.links.select { |x| x.rel == 'http://joindiaspora.com/guid' }.first.href
-    new_person.id = guid
-
-    new_person.diaspora_handle = identifier
-
-    hcard = HCard.find profile.hcard.first[:href]
-
+    #hcard_profile = HCard.find profile.hcard.first[:href]
+    Rails.logger.info("hcard: #{ hcard.inspect}")
     new_person.url = hcard[:url]
     new_person.profile = Profile.new(:first_name => hcard[:given_name], :last_name => hcard[:family_name], :image_url => hcard[:photo])
-    if new_person.save
-      new_person
-    else
-      nil
-    end
+
+    new_person.save! ? new_person : nil
   end
 
   def remote?
-    owner.nil?
+    owner_id.nil?
   end
 
   def as_json(opts={})
@@ -159,7 +140,7 @@ class Person
       :person => {
         :id           => self.id,
         :name         => self.real_name,
-        :diaspora_handle        => self.diaspora_handle,
+        :diaspora_handle => self.diaspora_handle,
         :url          => self.url,
         :exported_key => exported_key
       }

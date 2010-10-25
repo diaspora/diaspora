@@ -19,7 +19,8 @@ describe 'user encryption' do
       deliverable = Object.new
       deliverable.stub!(:deliver)
       Notifier.stub!(:new_request).and_return(deliverable)
-      Person.should_receive(:by_webfinger).and_return(remote_user.person)
+      Person.should_receive(:by_account_identifier).and_return(remote_user.person)
+      remote_user.should_receive(:push_to_people).and_return(true) 
       #should move this to friend request, but i found it here
       id = remote_user.person.id
       original_key = remote_user.exported_key
