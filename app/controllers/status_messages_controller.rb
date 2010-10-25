@@ -14,9 +14,7 @@ class StatusMessagesController < ApplicationController
 
     if params[:status_message][:public] == '1'
       current_user.post_to_twitter(message)
-      if logged_into_fb?
-        current_user.post_to_facebook(message, @access_token)
-      end
+      current_user.post_to_facebook(message)
     end
 
     @status_message = current_user.post(:status_message, data)

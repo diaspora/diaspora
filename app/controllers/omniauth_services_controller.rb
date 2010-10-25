@@ -13,15 +13,25 @@ class OmniauthServicesController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
 
-    puts auth.inspect
+    provider = auth['provider']
+    user     = auth['user_info']
 
-    access_token = auth['extra']['access_token']
-    user = auth['user_info']
-    current_user.services.create(:nickname => user['nickname'],
-                                 :access_token => access_token.token, 
-                                 :access_secret => access_token.secret,
-                                 :provider => auth['provider'], 
-                                 :uid => auth['uid'])
+    if provider == 'twitter'
+      access_token = auth['extra']['access_token']
+      current_user.services.create(:nickname => user['nickname'],
+                                   :access_token => access_token.token, 
+                                   :access_secret => access_token.secret,
+                                   :provider => provider, 
+                                   :uid => auth['uid'])
+                                   
+    elsif provider == 'facebook'
+      current_user.services.create(:nickname => user['nickname'],
+                                   :access_token => auth['credentials']['token'],
+                                   :provider => provider, 
+                                   :uid => auth['uid'])
+    end
+
+
     flash[:notice] = "Authentication successful."
     redirect_to omniauth_services_url
   end
