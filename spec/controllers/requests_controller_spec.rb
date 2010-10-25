@@ -53,4 +53,8 @@ describe RequestsController do
   it 'should redirect to the page which you called it from ' do
     pending "i need to figure out how to do this"
   end
+
+  it 'should not blow up if there is a problem mid way thru the webfinger process' do
+    pending "i need to do this tomorrow
+  end
 end
