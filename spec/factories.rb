@@ -57,12 +57,12 @@ Factory.define :photo do |p|
 
 end
 
-Factory.define :omniauth_service do |service|
+Factory.define :service do |service|
   service.nickname "sirrobertking"
   service.provider "twitter"
 
-  service.sequence(:uid) { |token| "000#{token}" }
-  service.sequence(:access_token) { |token| "12345#{token}" }
+  service.sequence(:uid)           { |token| "00000#{token}" }
+  service.sequence(:access_token)  { |token| "12345#{token}" }
   service.sequence(:access_secret) { |token| "98765#{token}" }
 end
 

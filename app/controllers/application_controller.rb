@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_friends_and_status, :except => [:create, :update]
   before_filter :count_requests
-  before_filter :fb_user_info
   before_filter :set_invites
 
   layout :layout_by_resource
@@ -44,17 +43,4 @@ class ApplicationController < ActionController::Base
       @invites = current_user.invites
     end
   end
-
-  ## take this out
-  def fb_user_info
-    if current_user
-      @access_token = warden.session[:access_token]
-      @logged_in = @access_token.present?
-    end
-  end
-  def logged_into_fb?
-    @logged_in
-  end
-  ##
-
 end

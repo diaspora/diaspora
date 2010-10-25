@@ -9,10 +9,14 @@
     Public messages will be available for others outside of Diaspora to see.
     %br
     %br
-    - if @logged_in
-      = connected_fb_as(@access_token)
-    - else
-      = link_to "Connect to Facebook", @fb_access_url
+
+    - if current_user.services
+      - for service in current_user.services 
+        = "logged in to #{service.provider}"
+        %br
+
+    = link_to "manage connected services", services_path
+
     %br
     %br
     = link_to "OK", '#', :class => "button", :onClick => '$.fancybox.close();'

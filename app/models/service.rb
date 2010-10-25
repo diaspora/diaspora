@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class OmniauthService
+class Service
   include MongoMapper::Document
 
   belongs_to :user

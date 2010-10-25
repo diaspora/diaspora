@@ -4,15 +4,15 @@
 
 require 'spec_helper'
 
-describe OmniauthServicesController do
+describe ServicesController do
   render_views
   let(:user) { Factory(:user) }
   let!(:aspect) { user.aspect(:name => "lame-os") }
 
-  let!(:service1) {a = Factory(:omniauth_service); user.services << a; a}
-  let!(:service2) {a = Factory(:omniauth_service); user.services << a; a}
-  let!(:service3) {a = Factory(:omniauth_service); user.services << a; a}
-  let!(:service4) {a = Factory(:omniauth_service); user.services << a; a}
+  let!(:service1) {a = Factory(:service); user.services << a; a}
+  let!(:service2) {a = Factory(:service); user.services << a; a}
+  let!(:service3) {a = Factory(:service); user.services << a; a}
+  let!(:service4) {a = Factory(:service); user.services << a; a}
 
   let(:mock_access_token) { Object.new }
 

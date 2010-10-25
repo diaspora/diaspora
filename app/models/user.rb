@@ -61,7 +61,7 @@ class User
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
   many :aspects, :class_name => 'Aspect', :dependent => :destroy
 
-  many :services, :class_name => "OmniauthService"
+  many :services, :class_name => "Service"
 
   #after_create :seed_aspects
 
