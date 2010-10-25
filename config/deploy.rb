@@ -138,7 +138,6 @@ namespace :db do
       run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/zombiefriendaccept"
       #run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/set_profile_photo"
     end
-
   end
 
   task :backer_seed, :roles => :backer do
