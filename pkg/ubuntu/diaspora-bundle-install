@@ -28,4 +28,13 @@ cp -a AUTHORS GNU-AGPL-3.0 COPYRIGHT Gemfile Gemfile.lock \
 cp -ar docs /usr/share/doc/diaspora-bundle
 
 bundle install --local --deployment --without ri rdoc
+for gem in vendor/git/*; do
+    gem install --local   \
+                --force   \
+                --no-rdoc \
+                --no-ri   \
+                --install-dir vendor/bundle/ruby/1.8/bundler \
+    $gem
+done
+
 

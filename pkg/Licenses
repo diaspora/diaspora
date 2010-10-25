@@ -1,0 +1,99 @@
+
+abstract:		Ruby
+actionmailer:		MIT
+actionpack:		MIT
+activemodel:		MIT
+activerecord:		MIT
+activeresource:		?   (Other distros uses MIT, "Ruby-alike", no pointers)
+activesupport:		MIT
+addressable:		MIT
+arel:			MIT
+aws			MIT
+bcrypt-ruby:		MIT
+builder:		MIT
+bunny:			MIT
+capistrano:		MIT
+capybara:		MIT
+chef:			ASL 2.0
+childprocess:		MIT
+columnize: 		GPLv2
+crack:			MIT
+cucumber:		MIT
+cucumber-rails:         MIT
+culerity:		MIT
+daemons:		Ruby+MIT
+database_cleaner:	MIT
+devise:			MIT
+devise_invitable	MIT
+diff			Ruby+GPLv2+ Artistic 2.0
+em-websocket:		MIT
+eribus:			MIT
+event-machine:		Ruby+GPLv2
+extlib:			MIT
+factory_girls           MIT
+factory_girls_rails:	MIT
+ffi			MIT
+haml			MIT
+http_connection:	MIT
+gherkin:		MIT
+hashie:			MIT
+highline		GPLv2+Ruby
+json: 			Ruby
+json-pure: 		Ruby
+launchy:		MIT
+linecache:		GPLv2
+mail:			MIT
+mime-types:		GPLv2+Ruby+Artistic 2.0
+mini_magick:		MIT
+mini_fb:		?
+mixlib-authentication:  ASL 2.0
+mixlib-cli              ASL 2.0
+mixlib-config           ASL 2.0
+mixlib-log              ASL 2.0
+mocha			Ruby+MIT
+moneta:			MIT
+mongo:			ASL 2.0
+net-scp:		MIT
+net-sftp:		MIT
+net-ssh:		MIT
+net-ssh-gatawey:	MIT
+ohai:			ASL 2.0
+plucky:			MIT
+polyglot.		MIT
+pubsubhubbub:           ASL 2.0  http://code.google.com/p/pubsubhubbub/
+rake:			MIT
+rack-mount:             MIT
+rack-test:		MIT
+railties:		MIT
+rest-client:		MIT
+rspec-core:		MIT
+rspec-expectations:	MIT
+rspec-mocks:       	MIT
+rspec-rails:       	MIT
+rack:			MIT
+rack-mount:		MIT
+ruby-debug:		MIT
+ruby-debug-base:	MIT
+rubyzip:		Ruby
+selenium-webdriver:	ASL 2.0
+subexec:		MIT
+term-ansicolor: 	GPLv2
+textile.		MIT
+textile-warden:		MIT
+thin:			MIT
+thor:			MIT
+treetop:		MIT
+tx-info:		MIT
+uutdtools:		MIT
+iwarden:		MIT
+webmock:		MIT
+will-paginate		MIT
+
+
+
+
+
+
+
+
+

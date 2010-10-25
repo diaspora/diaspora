@@ -183,15 +183,61 @@ function read_git_urls()
 
 function fix_gemfile()
 {
-    local gemfile=$1
-    for url in $(read_git_urls $gemfile); do
-        local name=${url##*/}
-        name=${name%.*}
-        rm -rf vendor/git/$name
-        git clone --bare --quiet $url vendor/git/$name &&
-            sed -i "s#$url#vendor/git/$name#" $gemfile ||
-                echo "Cannot fix git repo \"$url\""
+
+    sed -i '/git:/s/,.*//'  $1
+    sed -i -e 's/GIT/GEM/' \
+           -e '/[ ]*revision:/d' \
+           -e '/[ ]*remote: git/s|git:.*|http://github.com|' \
+        $1.lock
+
+}
+
+function build_git_gems()
+# Usage: build_git_gems <Gemfile> <tmpdir> <gemdir>
+{
+    mkdir gem-tmp || :
+    cd gem-tmp
+    rm -rf *
+
+    grep 'git:'  ../$1 |  sed 's/,/ /' | awk '
+       /^.*git:\/\/.*$/  {
+                    gsub( "=>", "")
+                    gsub( ",", "")
+                    if ( $1 != "gem") {
+                          print "Strange git: line (ignored) :" $0
+                          next
+                    }
+                    name = $2
+                    suffix = ""
+                    url=""
+                    for (i = 3; i <= NF; i += 1) {
+                        key = $i
+                        i += 1
+                        if (key == ":git")
+                            url = $i
+                        else if ( key == ":ref") {
+                            suffix =  "; cd " name
+                            suffix = suffix "; git reset --hard " $i
+                            suffix = suffix "; cd .."
+                        }
+                        else if ( key == ":branch")
+                            suffix = "; git checkout " $i
+                    }
+                    print "Running: ", cmd
+                    cmd =  sprintf( "git clone --quiet %s %s %s\n",
+                                     url, name, suffix)
+                    system( cmd)
+                }'
+    sed -i 's/Date.today/"2010-10-24"/' carrierwave/carrierwave.gemspec
+    for dir in *; do
+        cd $dir
+        gem build *.gemspec
+        cp *.gem ../../$2
+        cd ..
     done
+
+    cd ..
+    # rm -rf gem-tmp
 }
 
 function make_docs()
@@ -201,12 +247,18 @@ function make_docs()
 
     for gem in $(ls $gems); do
         local name=$(basename $gem)
-        [ -r $gem/README* ] && {
-             local readme=$(basename  $gem/README*)
-             cp  -a $gem/$readme $dest/$readme.$name
+        [ -r $gems/$gem/README* ] && {
+             local readme=$(basename $gems/$gem/README*)
+             cp  -a $gems/$gem/$readme $dest/$readme.$name
         }
-        [ -r $gem/COPYRIGHT ] && \
-             cp -a $gem/COPYRIGHT $dest/COPYRIGHT.$name
+        [ -r $gems/$gem/COPYRIGHT ] && \
+             cp -a $gems/$gem/COPYRIGHT $dest/COPYRIGHT.$name
+        [ -r $gems/$gem/LICENSE ] && \
+             cp -a $gems/$gem/LICENSE $dest/LICENSE.$name
+        [ -r $gems/$gem/MIT-LICENSE ] && \
+             cp -a $gems/$gem/MIT-LICENSE $dest/MIT-LICENSE.$name
+        [ -r $gems/$gem/COPYING ] && \
+             cp -a $gems/$gem/COPYING $dest/COPYING.$name
     done
 }
 
@@ -229,11 +281,14 @@ function make_bundle()
                     rm -rf .bundle
                     bundle update
                 fi
-
+set -x
                 [ -d 'vendor/git' ] || mkdir  vendor/git
-                fix_gemfile ./Gemfile
-                bundle install --path vendor/gems
+                bundle install
                 bundle package
+                mkdir vendor/git
+                build_git_gems  Gemfile vendor/git
+#                fix_gemfile Gemfile
+set +x
 
                 mkdir  -p "../$bundle_name/docs"
                 mkdir -p "../$bundle_name/vendor"
@@ -241,14 +296,14 @@ function make_bundle()
                     ../$bundle_name
                 make_docs "vendor/gems"  "../$bundle_name/docs"
                 mv vendor/cache ../$bundle_name/vendor
+                mv vendor/git  ../$bundle_name/vendor
+                rm -rf vendor/gems/*
             cd ..
             tar czf $bundle_name.tar.gz $bundle_name
-            mv $bundle_name/vendor/cache diaspora/vendor/cache
         cd ..
     }
     echo
     echo "Bundle: dist/$bundle_name.tar.gz"
-    echo "Current dir:$PWD"
 }
 
 
