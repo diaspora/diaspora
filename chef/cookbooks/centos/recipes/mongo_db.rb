@@ -7,5 +7,9 @@ execute "refresh yum" do
 end
 
 execute "install mongo" do
-  command "yum install -y mongo-stable"
+  command "yum install -y mongo-stable-server"
+end
+
+execute "make the data directory" do
+  command "mkdir -p /data/db"
 end

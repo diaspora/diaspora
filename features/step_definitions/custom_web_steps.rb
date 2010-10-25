@@ -15,3 +15,9 @@ When /^(.*) in the aspect list$/ do |action|
     When action
   end
 end
+
+Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
+  within("#stream") do
+    Then "I should see #{stuff}"
+  end
+end
