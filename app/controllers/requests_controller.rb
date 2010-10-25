@@ -46,7 +46,6 @@ class RequestsController < ApplicationController
 
         begin
           @request = current_user.send_friend_request_to(rel_hash[:friend], aspect)
-          
         rescue Exception => e
           Rails.logger.debug("error: #{e.message}")
           flash[:error] = e.message
@@ -55,16 +54,12 @@ class RequestsController < ApplicationController
         #socket to tell people this failed?
       end
       }
-    rescue Exception => e 
-      flash[:error] = e.message
-    end
-    
-    if params[:getting_started]
-      redirect_to getting_started_path(:step=>params[:getting_started])
-    else
-      flash[:notice] = "we tried our best to send a message to #{account}" unless flash[:error]
-      respond_with :location => aspects_manage_path 
-      return
-    end    
+      rescue Exception => e 
+        flash[:error] = e.message
+      end
+
+
+    flash[:notice] = "we tried our best to send a message to #{account}" unless flash[:error]
+    redirect_to aspects_manage_path
   end
 end
