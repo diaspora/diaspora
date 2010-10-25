@@ -67,5 +67,4 @@ class RequestsController < ApplicationController
       return
     end    
   end
- end
-
+end

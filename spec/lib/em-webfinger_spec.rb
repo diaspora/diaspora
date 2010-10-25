@@ -28,6 +28,10 @@ describe EMWebfinger do
   let(:non_diaspora_hcard) {File.open(File.join(Rails.root, 'spec/fixtures/evan_hcard')).read}
 
   context 'setup' do
+<<<<<<< HEAD
+=======
+    let(:action){ Proc.new{|person| puts person.inspect }}
+>>>>>>> EM websocket cleanly merged with master.  webfingering is now async
 
     describe '#intialize' do
       it 'sets account ' do
@@ -36,6 +40,7 @@ describe EMWebfinger do
       end
 
       it 'should raise an error on an unresonable email' do
+<<<<<<< HEAD
         proc{
           EMWebfinger.new("joe.valid+email@my-address.com")
         }.should_not raise_error(RuntimeError, "Identifier is invalid")
@@ -47,6 +52,10 @@ describe EMWebfinger do
           EMWebfinger.new('eviljoe@diaspora.local:3000')
         }.should raise_error(RuntimeError, "Identifier is invalid")
       end  
+=======
+        proc{EMWebfinger.new("asfadfasdf")}.should raise_error
+      end
+>>>>>>> EM websocket cleanly merged with master.  webfingering is now async
     end
 
     describe '#on_person' do 
@@ -112,6 +121,10 @@ describe EMWebfinger do
           }
         }
       end
+<<<<<<< HEAD
+=======
+
+>>>>>>> EM websocket cleanly merged with master.  webfingering is now async
     end
   end
 end
