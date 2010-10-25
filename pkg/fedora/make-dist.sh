@@ -175,25 +175,9 @@ function make_src
     echo "Required bundle:     $(git_id dist/diaspora/Gemfile)"
 }
 
-function read_git_urls()
-# Simple now, possibly needs to handle also http: git repos.
-{
-    grep -o 'git://[^ ]*'  $1 | tr -d '\047",'
-}
-
-function fix_gemfile()
-{
-
-    sed -i '/git:/s/,.*//'  $1
-    sed -i -e 's/GIT/GEM/' \
-           -e '/[ ]*revision:/d' \
-           -e '/[ ]*remote: git/s|git:.*|http://github.com|' \
-        $1.lock
-
-}
-
 function build_git_gems()
 # Usage: build_git_gems <Gemfile> <tmpdir> <gemdir>
+# Horrible hack, in wait for bundler handling git gems OK.
 {
     mkdir gem-tmp || :
     cd gem-tmp
@@ -202,7 +186,6 @@ function build_git_gems()
     grep 'git:'  ../$1 |  sed 's/,/ /' | awk '
        /^.*git:\/\/.*$/  {
                     gsub( "=>", "")
-                    gsub( ",", "")
                     if ( $1 != "gem") {
                           print "Strange git: line (ignored) :" $0
                           next
@@ -223,9 +206,9 @@ function build_git_gems()
                         else if ( key == ":branch")
                             suffix = "; git checkout " $i
                     }
-                    print "Running: ", cmd
                     cmd =  sprintf( "git clone --quiet %s %s %s\n",
                                      url, name, suffix)
+                    print "Running: ", cmd
                     system( cmd)
                 }'
     sed -i 's/Date.today/"2010-10-24"/' carrierwave/carrierwave.gemspec
@@ -255,6 +238,8 @@ function make_docs()
              cp -a $gems/$gem/COPYRIGHT $dest/COPYRIGHT.$name
         [ -r $gems/$gem/LICENSE ] && \
              cp -a $gems/$gem/LICENSE $dest/LICENSE.$name
+        [ -r $gems/$gem/License ] && \
+             cp -a $gems/$gem/License $dest/License.$name
         [ -r $gems/$gem/MIT-LICENSE ] && \
              cp -a $gems/$gem/MIT-LICENSE $dest/MIT-LICENSE.$name
         [ -r $gems/$gem/COPYING ] && \
@@ -281,25 +266,24 @@ function make_bundle()
                     rm -rf .bundle
                     bundle update
                 fi
-set -x
-                [ -d 'vendor/git' ] || mkdir  vendor/git
+
                 bundle install
                 bundle package
-                mkdir vendor/git
+                [ -d 'vendor/git' ] || mkdir  vendor/git
                 build_git_gems  Gemfile vendor/git
-#                fix_gemfile Gemfile
-set +x
 
                 mkdir  -p "../$bundle_name/docs"
                 mkdir -p "../$bundle_name/vendor"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                     ../$bundle_name
+
                 make_docs "vendor/gems"  "../$bundle_name/docs"
                 mv vendor/cache ../$bundle_name/vendor
                 mv vendor/git  ../$bundle_name/vendor
                 rm -rf vendor/gems/*
             cd ..
             tar czf $bundle_name.tar.gz $bundle_name
+            mv $bundle_name/vendor/cache diaspora/vendor/cache
         cd ..
     }
     echo
