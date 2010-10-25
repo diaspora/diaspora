@@ -14,7 +14,6 @@ describe AlbumsController do
   end
 
   it "should update the name of an album" do
-    sign_in :user, @user
     put :update, :id => @album.id, :album => { :name => "new_name"}
     @album.reload.name.should eql("new_name")
   end

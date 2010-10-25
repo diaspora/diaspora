@@ -154,7 +154,7 @@ class User
     intitial_post(class_name, aspect_ids, options)
   end
 
-  def post_to_message_fb(message, access_token)
+  def post_to_facebook(message, access_token)
     id = 'me'
     type = 'feed'
     Rails.logger.info("Sending a message: #{message} to Facebook")
