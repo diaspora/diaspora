@@ -138,7 +138,7 @@ function checkout()
         cd diaspora;
         git fetch --quiet upstream
         git merge --quiet upstream/master
-        git checkout --quiet  ${1:-'HEAD'}
+        [ -n "$1" ] && git reset --hard  --quiet  $1
         git_id  -n
     )
 }
@@ -183,14 +183,30 @@ function read_git_urls()
 
 function fix_gemfile()
 {
-    gemfile=$1
+    local gemfile=$1
     for url in $(read_git_urls $gemfile); do
-        name=${url##*/}
+        local name=${url##*/}
         name=${name%.*}
         rm -rf vendor/git/$name
         git clone --bare --quiet $url vendor/git/$name &&
             sed -i "s#$url#vendor/git/$name#" $gemfile ||
                 echo "Cannot fix git repo \"$url\""
+    done
+}
+
+function make_docs()
+{
+    local gems=$1
+    local dest=$2
+
+    for gem in $(ls $gems); do
+        local name=$(basename $gem)
+        [ -r $gem/README* ] && {
+             local readme=$(basename  $gem/README*)
+             cp  -a $gem/$readme $dest/$readme.$name
+        }
+        [ -r $gem/COPYRIGHT ] && \
+             cp -a $gem/COPYRIGHT $dest/COPYRIGHT.$name
     done
 }
 
@@ -201,8 +217,8 @@ function make_bundle()
 #
 {
     checkout ${1:-'HEAD'} >/dev/null
-    bundle_id=$( git_id dist/diaspora/Gemfile)
-    bundle_name="diaspora-bundle-$VERSION-$bundle_id"
+    local bundle_id=$( git_id dist/diaspora/Gemfile)
+    local bundle_name="diaspora-bundle-$VERSION-$bundle_id"
     test -e  "dist/$bundle_name.tar.gz" || {
         echo "Creating bundle $bundle_name"
         cd dist
@@ -213,17 +229,21 @@ function make_bundle()
                     rm -rf .bundle
                     bundle update
                 fi
+
                 [ -d 'vendor/git' ] || mkdir  vendor/git
                 fix_gemfile ./Gemfile
                 bundle install --path vendor/gems
                 bundle package
+
+                mkdir  -p "../$bundle_name/docs"
+                mkdir -p "../$bundle_name/vendor"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
-                       vendor/cache
-                cd vendor
-                    mv cache $bundle_name
-                    tar czf ../../$bundle_name.tar.gz $bundle_name
-                    mv $bundle_name cache
-                cd ..
+                    ../$bundle_name
+                make_docs "vendor/gems"  "../$bundle_name/docs"
+                mv vendor/cache ../$bundle_name/cache
+
+                tar czf ../$bundle_name.tar.gz $bundle_name
+                mv ../$bundle_name/cache cache
             cd ..
         cd ..
     }

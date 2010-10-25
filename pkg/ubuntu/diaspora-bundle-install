@@ -23,11 +23,9 @@ mv $(basename $1 .tar.gz) diaspora-bundle
 
 mkdir -p /usr/share/doc/diaspora-bundle || :
 cd /usr/lib/diaspora-bundle
-cp AUTHORS GNU-AGPL-3.0 COPYRIGHT Gemfile Gemfile.lock \
+cp -a AUTHORS GNU-AGPL-3.0 COPYRIGHT Gemfile Gemfile.lock \
      /usr/share/doc/diaspora-bundle
-
-mkdir -p vendor/cache
-mv *.gem vendor/cache
+cp -ar docs /usr/share/doc/diaspora-bundle
 
 bundle install --local --deployment --without ri rdoc
 

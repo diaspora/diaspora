@@ -38,8 +38,6 @@ Source file usede to compile native libraries in diaspora-bundle.
 %setup -q -n %{name}-%{version}-%{git_release}
 
 %build
-mkdir -p vendor/cache
-mv *.gem vendor/cache
 bundle install --local --deployment --without ri rdoc
 
 pushd vendor/bundle/ruby/1.8/gems
@@ -218,7 +216,7 @@ cat files >> dirs && cp dirs files
 
 %files -f files
 %defattr(-, diaspora, diaspora, 0755)
-%doc  COPYRIGHT Gemfile Gemfile.lock AUTHORS GNU-AGPL-3.0
+%doc  COPYRIGHT Gemfile Gemfile.lock AUTHORS GNU-AGPL-3.0 docs
 
 %files -f dev-files devel
 %defattr(-, root, root, 0644)

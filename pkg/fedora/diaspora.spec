@@ -49,13 +49,12 @@ find . -perm /u+x -type f -exec \
 
 %build
 rm -rf master/vendor/bundle
-mkdir master/tmp || :
 
 %install
 rm -fr $RPM_BUILD_ROOT
 
 sed -i \
-    '/BUNDLE_PATH/s|:.*|: %{_libdir}/diaspora-bundle/bundle|' \
+    '/BUNDLE_PATH/s|:.*|: %{_libdir}/diaspora-bundle/vendor/bundle|' \
      master/.bundle/config
 
 cp master/GNU-AGPL-3.0 master/COPYRIGHT master/README.md master/AUTHORS .
