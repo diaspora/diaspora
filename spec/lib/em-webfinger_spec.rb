@@ -28,7 +28,6 @@ describe EMWebfinger do
   let(:non_diaspora_hcard) {File.open(File.join(Rails.root, 'spec/fixtures/evan_hcard')).read}
 
   context 'setup' do
-    let(:action){ Proc.new{|person| puts person.inspect }}
 
     describe '#intialize' do
       it 'sets account ' do
@@ -37,8 +36,17 @@ describe EMWebfinger do
       end
 
       it 'should raise an error on an unresonable email' do
-        proc{EMWebfinger.new("asfadfasdf")}.should raise_error
+        proc{
+          EMWebfinger.new("joe.valid+email@my-address.com")
+        }.should_not raise_error(RuntimeError, "Identifier is invalid")
+
       end
+
+        it 'should not allow port numbers' do
+        proc{
+          EMWebfinger.new('eviljoe@diaspora.local:3000')
+        }.should raise_error(RuntimeError, "Identifier is invalid")
+      end  
     end
 
     describe '#on_person' do 
@@ -104,7 +112,6 @@ describe EMWebfinger do
           }
         }
       end
-
     end
   end
 end

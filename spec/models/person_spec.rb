@@ -199,7 +199,7 @@ describe Person do
         person.should == user1.person
       end
 
-      it 'should only find people who are exact matches' do
+      it 'should only find people who are exact matches (1/2)' do
         user = Factory(:user, :username => "SaMaNtHa")
         person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
         user.person.diaspora_handle = "tom@tom.joindiaspora.com"
@@ -207,37 +207,14 @@ describe Person do
         Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle.should == "tom@tom.joindiaspora.com"
       end
 
-      it 'should return nil if there is not an exact match' do
-        pending "should check in the webfinger client"
+      it 'should only find people who are exact matches (2/2)' do 
         person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
         person1 = Factory(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
-        #Person.by_webfinger("tom@tom.joindiaspora.com").should_be false 
-        proc{ Person.by_webfinger("tom@tom.joindiaspora.com")}.should raise_error
+        f = Person.by_account_identifier("tom@tom.joindiaspora.com") 
+        f.should be nil
       end
 
-
-      it 'identifier should be a valid email' do
-        pending "should check in the webfinger client"
-        stub_success("joe.valid+email@my-address.com")
-        Proc.new { 
-          Person.by_account_identifier("joe.valid+email@my-address.com")
-        }.should_not raise_error(RuntimeError, "Identifier is invalid")
-
-        stub_success("not_a_@valid_email")
-        Proc.new { 
-          Person.by_account_identifer("not_a_@valid_email")
-        }.should raise_error(RuntimeError, "Identifier is invalid")
-
-      end
-
-      it 'should not accept a port number' do
-        pending "should check the webfinger client"
-        stub_success("eviljoe@diaspora.local:3000")
-        Proc.new { 
-          Person.by_account_identifier('eviljoe@diaspora.local:3000')
-        }.should raise_error(RuntimeError, "Identifier is invalid")
-      end
-
+  
     end
 
     describe '.local_by_account_identifier' do

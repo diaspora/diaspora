@@ -4,7 +4,7 @@ require File.join(Rails.root, 'lib/webfinger_profile')
 class EMWebfinger
   TIMEOUT = 5
   def initialize(account)
-    @account = account
+    @account = account.strip.gsub('acct:','').to_s
     @callbacks = []
     # Raise an error if identifier has a port number 
     raise "Identifier is invalid" if(@account.strip.match(/\:\d+$/))
@@ -14,9 +14,6 @@ class EMWebfinger
   
   def fetch
     raise 'you need to set a callback before calling fetch' if @callbacks.empty?
-    query = /\A^#{Regexp.escape(@account.gsub('acct:', '').to_s)}\z/i
-    local_person = Person.first(:diaspora_handle => query)
-
     person = Person.by_account_identifier(@account)
     if person
       process_callbacks person
