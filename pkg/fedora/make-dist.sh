@@ -175,41 +175,23 @@ function make_src
     echo "Required bundle:     $(git_id dist/diaspora/Gemfile)"
 }
 
-function get_git_repos()
+function read_git_urls()
+# Simple now, possibly needs to handle also http: git repos.
 {
-    grep -A 2 GIT $1 |
-        awk   ' /remote:/   { repo = $2 }
-                /revision:/ { printf "%s=%s\n",repo, $2}'
+    grep -o 'git://[^ ]*'  $1 | tr -d '\047",'
 }
 
-
-function package_git_gems()
+function fix_gemfile()
 {
-    gemfile="$1"
-    dest="$2"
-
-    rm -rf git-tmp
-    mkdir git-tmp
-    cd git-tmp
-        for repo in $( get_git_repos $1); do
-            url=${repo%%=*}
-            rev=${repo##*=}
-
-            name=${url##*/}
-            name="${name%.git}"
-
-            rm -rf "$name"
-            git clone "$url" "$name"
-            cd $name
-                git reset --hard  $rev
-                sed -i '/s.date/s/Date.today/"2010-09-25"/' *.gemspec
-                gem build *.gemspec
-                cp *.gem $dest
-                echo "Built GIT gem $name (*.gem)"
-                echo "Where: $dest"
-            cd ..
-        done
-    cd ..
+    gemfile=$1
+    for url in $(read_git_urls $gemfile); do
+        name=${url##*/}
+        name=${name%.*}
+        rm -rf vendor/git/$name
+        git clone --bare --quiet $url vendor/git/$name &&
+            sed -i "s#$url#vendor/git/$name#" $gemfile ||
+                echo "Cannot fix git repo \"$url\""
+    done
 }
 
 
@@ -231,9 +213,10 @@ function make_bundle()
                     rm -rf .bundle
                     bundle update
                 fi
-                bundle install --deployment
+                [ -d 'vendor/git' ] || mkdir  vendor/git
+                fix_gemfile ./Gemfile
+                bundle install --path vendor/gems
                 bundle package
-                package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                        vendor/cache
                 cd vendor
