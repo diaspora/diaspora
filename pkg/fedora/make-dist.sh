@@ -240,10 +240,10 @@ function make_bundle()
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                     ../$bundle_name
                 make_docs "vendor/gems"  "../$bundle_name/docs"
-                mv vendor/cache ../$bundle_name/cache
+                mv vendor/cache ../$bundle_name/vendor
             cd ..
             tar czf $bundle_name.tar.gz $bundle_name
-            mv $bundle_name/cache diaspora/vendor/cache
+            mv $bundle_name/vendor/cache diaspora/vendor/cache
         cd ..
     }
     echo
