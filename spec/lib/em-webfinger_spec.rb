@@ -28,10 +28,7 @@ describe EMWebfinger do
   let(:non_diaspora_hcard) {File.open(File.join(Rails.root, 'spec/fixtures/evan_hcard')).read}
 
   context 'setup' do
-<<<<<<< HEAD
-=======
     let(:action){ Proc.new{|person| puts person.inspect }}
->>>>>>> EM websocket cleanly merged with master.  webfingering is now async
 
     describe '#intialize' do
       it 'sets account ' do
@@ -40,32 +37,29 @@ describe EMWebfinger do
       end
 
       it 'should raise an error on an unresonable email' do
-<<<<<<< HEAD
         proc{
           EMWebfinger.new("joe.valid+email@my-address.com")
         }.should_not raise_error(RuntimeError, "Identifier is invalid")
-
       end
 
-        it 'should not allow port numbers' do
+      it 'should not allow port numbers' do
         proc{
           EMWebfinger.new('eviljoe@diaspora.local:3000')
         }.should raise_error(RuntimeError, "Identifier is invalid")
       end  
-=======
-        proc{EMWebfinger.new("asfadfasdf")}.should raise_error
-      end
->>>>>>> EM websocket cleanly merged with master.  webfingering is now async
+      proc{EMWebfinger.new("asfadfasdf")}.should raise_error
     end
+  end
 
-    describe '#on_person' do 
-      it 'should set a callback' do
-        n = EMWebfinger.new("mbs@gmail.com")
-        n.stub(:fetch).and_return(true)
 
-        n.on_person{|person| puts "foo"}
-        n.instance_variable_get(:@callbacks).count.should be 1
-      end
+  describe '#on_person' do 
+    it 'should set a callback' do
+      n = EMWebfinger.new("mbs@gmail.com")
+      n.stub(:fetch).and_return(true)
+
+      n.on_person{|person| puts "foo"}
+      n.instance_variable_get(:@callbacks).count.should be 1
+    end
     end
 
     describe '#fetch' do
@@ -120,11 +114,6 @@ describe EMWebfinger do
             EM.stop
           }
         }
-      end
-<<<<<<< HEAD
-=======
-
->>>>>>> EM websocket cleanly merged with master.  webfingering is now async
     end
   end
 end

@@ -213,38 +213,8 @@ describe Person do
         f = Person.by_account_identifier("tom@tom.joindiaspora.com") 
         f.should be nil
       end
+
   
-    end
-
-    describe '.local_by_account_identifier' do
-      it 'should find local users people' do
-        p = Person.local_by_account_identifier(user.diaspora_handle)
-        p.should == user.person
-      end
-
-
-      it 'identifier should be a valid email' do
-        pending "should check in the webfinger client"
-        stub_success("joe.valid+email@my-address.com")
-        Proc.new { 
-          Person.by_account_identifier("joe.valid+email@my-address.com")
-        }.should_not raise_error(RuntimeError, "Identifier is invalid")
-
-        stub_success("not_a_@valid_email")
-        Proc.new { 
-          Person.by_account_identifer("not_a_@valid_email")
-        }.should raise_error(RuntimeError, "Identifier is invalid")
-
-      end
-
-      it 'should not accept a port number' do
-        pending "should check the webfinger client"
-        stub_success("eviljoe@diaspora.local:3000")
-        Proc.new { 
-          Person.by_account_identifier('eviljoe@diaspora.local:3000')
-        }.should raise_error(RuntimeError, "Identifier is invalid")
-      end
-
     end
 
     describe '.local_by_account_identifier' do
