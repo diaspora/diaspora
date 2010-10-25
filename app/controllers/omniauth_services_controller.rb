@@ -13,6 +13,8 @@ class OmniauthServicesController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
 
+    puts auth.inspect
+
     access_token = auth['extra']['access_token']
     user = auth['user_info']
     current_user.services.create(:nickname => user['nickname'],

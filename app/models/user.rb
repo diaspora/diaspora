@@ -154,11 +154,12 @@ class User
     intitial_post(class_name, aspect_ids, options)
   end
 
-  def post_to_facebook(message, access_token)
-    id = 'me'
-    type = 'feed'
-    Rails.logger.info("Sending a message: #{message} to Facebook")
-    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{access_token}").post
+  def post_to_facebook(message)
+    facebook = self.services.find_by_provider("facebook")
+    if facebook
+      Rails.logger.info("Sending a message: #{message} to Facebook")
+      EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{facebook.access_token}").post
+    end
   end
 
   def post_to_twitter(message)

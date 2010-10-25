@@ -45,15 +45,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  ## take this out
   def fb_user_info
     if current_user
       @access_token = warden.session[:access_token]
       @logged_in = @access_token.present?
     end
   end
-
   def logged_into_fb?
     @logged_in
   end
+  ##
 
 end
