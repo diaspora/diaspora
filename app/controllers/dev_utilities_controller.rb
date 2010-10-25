@@ -28,7 +28,6 @@ class DevUtilitiesController < ApplicationController
             puts "error: #{person}"
           end
           }
-        webfinger.fetch
       end
     end
   end
