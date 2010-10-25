@@ -20,6 +20,20 @@
         Already friends
       - elsif current_user.pending_requests.find_by_person_id(person.id)
         = link_to =t('.pending_request'), aspects_manage_path
+      - elsif @aspects_dropdown_array.empty?
+        = link_to(t('.add_aspect_friend'),"#add_aspect_pane_#{person.id}" , :id => "add_aspect_button", :class => "add_aspect_button add_aspect button", :title => t('.add_aspect_friend'))
+        .yo{:style => 'display:none'}
+          %div{:id => "add_aspect_pane_#{person.id}"}
+            %h1
+              =t('.add_a_new_aspect')
+             
+            = form_for Aspect.new do |f|
+              = f.error_messages
+              %p
+                = f.label :name
+                = f.text_field :name
+                = f.hidden_field :person_ids, :value => person.id
+                = f.submit t('.create'), :class => 'button'
       - else
         = form_for Request.new do |f|
           = f.select(:aspect_id, @aspects_dropdown_array)

@@ -186,7 +186,10 @@ en:
           no_message_to_display: "No message to display."
   people:
       person:
+          add_a_new_aspect: "Add aspect with Friend"
+          add_aspect_friend: "add aspect"
           add_friend: "add friend"
+          create: "create"
           pending_request: "pending request"
       index:
           add_friend: "add friend"
