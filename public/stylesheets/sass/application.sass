@@ -638,61 +638,59 @@ label
   :color #999
   :position relative
   :min-height 65px
-  :max-height 90px
   :width 100%
   :margin
     :bottom 10px
-    :top 0px
+    :top -14px
 
   :border
     :bottom 2px #777 solid
 
   .avatar
-    :float left
+    :position absolute
     :margin
       :right 15px
     :border-radius 5px
     :-webkit-border-radius 5px
     :-moz-border-radius 5px
 
-  p
-    :position absolute
-    :left 0
-    :top 0
-
   form
-    :display inline
     :position relative
+    :margin
+      :left 65px
+      :bottom 10px
+    :top 0
 
   textarea
     :height 42px
+    :display block
 
   input[type='text'],
   textarea
-    :width 515px
+    :width 514px
     :margin 0
 
   .options_and_submit
     :display none
+    :position relative
     :padding
-      :top 63px
-      :bottom 5px
+      :top 8px
+    :margin
+      :bottom -2px
     input[type='submit']
-      :float right
-      :margin
-        :top -4px
+      :position absolute
+      :right -13px
+      :top 5px
       :width 75px
 
     .public_toggle
-      :position absolute
-      :bottom 8px
       :width 300px
+      :margin
+        :left -3px
       :font
         :size smaller
         :style italic
       :display inline
-      :margin
-        :left 62px
 
 #image_picker
   .small_photo
