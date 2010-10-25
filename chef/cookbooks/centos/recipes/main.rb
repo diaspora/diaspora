@@ -4,3 +4,4 @@ end
 
 include_recipe "centos::image_magick"
 include_recipe "centos::mongo_db"
+include_recipe "common::main"
