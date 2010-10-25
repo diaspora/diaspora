@@ -31,7 +31,7 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
-  def create
+ def create
     aspect = current_user.aspect_by_id(params[:request][:aspect_id])
     account = params[:request][:destination_url].strip  
     begin 
@@ -52,7 +52,7 @@ class RequestsController < ApplicationController
           flash[:error] = e.message
         end
       else
-        Rails.logger.info "#{person}"
+        #socket to tell people this failed?
       end
       }
     rescue Exception => e 
@@ -67,5 +67,5 @@ class RequestsController < ApplicationController
       return
     end    
   end
-end
+ end
 
