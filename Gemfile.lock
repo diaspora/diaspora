@@ -182,13 +182,15 @@ GEM
     hashie (0.4.0)
     highline (1.6.1)
     http_connection (1.4.0)
+    httparty (0.6.1)
+      crack (= 0.1.8)
     i18n (0.4.1)
     json (1.4.6)
     json_pure (1.4.6)
-<<<<<<< HEAD
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
+<<<<<<< HEAD
 <<<<<<< HEAD
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
@@ -199,6 +201,10 @@ GEM
       ruby_core_source (>= 0.1.4)
 >>>>>>> twitter oauth dance complete
 >>>>>>> twitter oauth dance complete
+=======
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
+>>>>>>> fixed failing specs due to omitted factories.
     mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
@@ -229,15 +235,6 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.3.1)
-<<<<<<< HEAD
-    ohai (0.5.8)
-      extlib
-      json (>= 1.4.4, <= 1.4.6)
-      mixlib-cli
-      mixlib-config
-      mixlib-log
-      systemu
-=======
     oa-basic (0.1.5)
       multi_json (~> 0.0.2)
       nokogiri (~> 1.4.2)
@@ -265,13 +262,19 @@ GEM
     oauth2 (0.0.13)
       faraday (~> 0.4.1)
       multi_json (>= 0.0.4)
+    ohai (0.5.8)
+      extlib
+      json (>= 1.4.4, <= 1.4.6)
+      mixlib-cli
+      mixlib-config
+      mixlib-log
+      systemu
     omniauth (0.1.5)
       oa-basic (= 0.1.5)
       oa-core (= 0.1.5)
       oa-enterprise (= 0.1.5)
       oa-oauth (= 0.1.5)
       oa-openid (= 0.1.5)
->>>>>>> twitter oauth dance complete
     plucky (0.3.6)
       mongo (~> 1.1)
     polyglot (0.3.1)
@@ -350,6 +353,11 @@ GEM
     thor (0.14.3)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
+    twitter (0.9.12)
+      hashie (~> 0.4.0)
+      httparty (~> 0.6.1)
+      multi_json (~> 0.0.4)
+      oauth (~> 0.4.3)
     tzinfo (0.3.23)
     uuidtools (2.1.1)
     warden (0.10.7)
@@ -398,5 +406,6 @@ DEPENDENCIES
   ruby-debug19
   sprinkle!
   thin
+  twitter
   webmock
   will_paginate (= 3.0.pre2)
