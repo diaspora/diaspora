@@ -40,7 +40,12 @@ class UsersController < ApplicationController
         flash[:error] = "Failed to update profile"
       end
     end
-    redirect_to edit_user_path(@user)
+
+    if params[:getting_started]
+      redirect_to getting_started_path(params[:getting_started].to_i+1)
+    else
+      redirect_to edit_user_path(@user)
+    end
 
   end
 

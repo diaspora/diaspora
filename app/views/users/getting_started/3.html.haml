@@ -16,24 +16,23 @@
     = link_to "Define your aspects", getting_started_path(2)
     %br
     = link_to "Connect your services", getting_started_path(3)
+    %br
 
 .span-15.last
-  %h3
-    Your friends
-    .description
-      Find your friends on Diaspora, Facebook, or send them an invite via email.
+  .floating
+    %h3
+      Your friends
+      .description
+        Find your friends on Diaspora, Facebook, or send them an invite via email.
 
-  .span-5.last
     %h4
       On Diaspora
       = text_field_tag :diaspora_handle, nil, :placeholder => "Diaspora handle"
 
-  .span-5.last
     %h4
       On Facebook
       = text_field_tag :facebook_handle, nil, :placeholder => "Name"
 
-  .span-5.last
     %h4
       Invite
       = text_field_tag :email, nil, :placeholder => "Email", :type => "email"

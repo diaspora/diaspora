@@ -10,7 +10,7 @@
       Do the stuff below to further complete some things.
 
   %h3
-    = link_to "Edit your profile", getting_started_path(1)
+    = link_to "Edit your profile", getting_started_path(1), :class => 'selected'
     %br
     = link_to "Define your aspects", getting_started_path(2)
     %br
@@ -18,5 +18,56 @@
     %br
 
 .span-15.last
-  = render 'users/profile'
+  .floating
+    = form_for @user do |user|
+      %h3
+        Your Profile
+        .description
+          This info will be available to whomever you connect with on Diaspora.
+
+      = user.error_messages
+
+      = user.fields_for :profile do |profile|
+        %h4
+          Your name
+          = profile.text_field :first_name, :value => @profile.first_name, :placeholder => "First name"
+          = profile.text_field :last_name, :value => @profile.last_name, :placeholder => "Last name"
+
+        %h4
+          Your birthday
+          %br
+          = select_date Time.now, :order => [:month, :day, :year]
+
+        %h4
+          Your bio
+          = profile.text_area :bio, :value => @profile.bio, :rows => 5, :placeholder => "Fill me out"
+
+        %h4
+          Your photo
+          %div#image_picker
+            = profile.hidden_field :image_url, :value => (@profile.image_url if @profile.image_url), :id => 'image_url_field'
+
+            - unless @photos.nil? || @photos.empty?
+              - for photo in @photos
+                - if @profile.image_url && @profile.image_url.include?(photo.url(:thumb_medium))
+                  %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
+                    = check_box_tag 'checked_photo', true, true
+                    = link_to image_tag(photo.url(:thumb_medium)), "#"
+                - else
+                  %div.small_photo{:id => photo.url(:thumb_medium)}
+                    = check_box_tag 'checked_photo'
+                    = link_to image_tag(photo.url(:thumb_medium)), "#"
+
+            - else
+              =t('.you_dont_have_any_photos')
+              = link_to t('.albums'), albums_path(:aspect => 'all')
+              =t('.page_to_upload_some')
+
+          =will_paginate @photos
+
+        = hidden_field_tag :getting_started, 1
+
+
+      .submit_block
+        = user.submit "Save and continue →"
 
