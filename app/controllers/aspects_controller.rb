@@ -48,7 +48,7 @@ class AspectsController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @friends = @aspect.people
-      @posts   = current_user.visible_posts( :by_members_of => @aspect ).paginate :per_page => 15, :order => 'created_at DESC'
+      @posts   = current_user.visible_posts( :by_members_of => @aspect ).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
       respond_with @aspect
     end
   end
