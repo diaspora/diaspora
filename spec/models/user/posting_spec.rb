@@ -7,11 +7,15 @@ require 'spec_helper'
 describe User do
 
   let!(:user) { Factory(:user) }
+  let!(:user2) { Factory(:user) }
+
   let!(:aspect) { user.aspect(:name => 'heroes') }
   let!(:aspect1) { user.aspect(:name => 'other') }
-
-  let!(:user2) { Factory(:user) }
   let!(:aspect2) { user2.aspect(:name => 'losers') }
+
+  let!(:service1) { user.services << Factory(:service, :provider => 'twitter') }
+  let!(:service2) { user.services << Factory(:service, :provider => 'facebook') }
+
 
   describe '#validate_aspect_permissions' do
     it 'requires an aspect' do
@@ -44,11 +48,25 @@ describe User do
       aspect.reload
       aspect.posts.should include album
     end
+
     it "should add the post to that user's visible posts" do
       status_message = user.post :status_message, :message => "hi", :to => aspect.id
       user.reload
       user.raw_visible_posts.include?(status_message).should be true
     end
+
+    it "posts to services if post is public" do
+      user.should_receive(:post_to_twitter).exactly(1).times
+      user.should_receive(:post_to_facebook).exactly(1).times
+      user.post :status_message, :message => "hi", :to => "all", :public => true
+    end
+
+    it "does not post to services if post is not public" do
+      user.should_receive(:post_to_twitter).exactly(0).times
+      user.should_receive(:post_to_facebook).exactly(0).times
+      user.post :status_message, :message => "hi", :to => "all"
+    end
+
   end
 
   describe '#update_post' do

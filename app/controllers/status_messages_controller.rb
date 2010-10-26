@@ -11,14 +11,7 @@ class StatusMessagesController < ApplicationController
   def create
     data = clean_hash params[:status_message]
     message = params[:status_message][:message]
-
-    if params[:status_message][:public] == '1'
-      current_user.post_to_twitter(message)
-      current_user.post_to_facebook(message)
-    end
-
     @status_message = current_user.post(:status_message, data)
-    
     render :nothing => true
   end
 
