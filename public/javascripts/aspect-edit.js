@@ -92,7 +92,7 @@ $(function() {
                   'aspect_id' : person.attr('data-aspect_id') }
           });
         }
-      person.fadeOut('slow', $(this).remove());
+      person.fadeOut(400, function(){person.remove();});
       }
     }
   });
