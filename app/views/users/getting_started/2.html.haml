@@ -27,7 +27,7 @@
     %br
     = link_to "Define your aspects", getting_started_path(2)
     %br
-    = link_to "Find your friends", getting_started_path(3)
+    = link_to "Connect your services", getting_started_path(3)
     %br
 
 .span-15.last
@@ -49,6 +49,12 @@
         .friend_pictures.horizontal
           - for friend in aspect.people
             = person_image_link(friend)
+
+          = link_to (image_tag('add_friend_button.png', :title => "add to #{@aspect}")), "#add_request_pane", :class => 'add_request_button'
+
+          .fancybox_content
+            #add_request_pane
+              = render "requests/new_request", :aspect => aspect
 
         = link_to "x", aspect_path(aspect), :confirm => "are you sure?", :method => :delete, :remote => true, :class => "delete right"
 
