@@ -19,15 +19,15 @@
 
 .span-15.last
   .floating
-    = form_for @user do |user|
+    = form_for @person do |person|
       %h3
         Your Profile
         .description
           This info will be available to whomever you connect with on Diaspora.
 
-      = user.error_messages
+      = person.error_messages
 
-      = user.fields_for :profile do |profile|
+      = person.fields_for :profile do |profile|
         %h4
           Your name
           = profile.text_field :first_name, :value => @profile.first_name, :placeholder => "First name"
@@ -69,5 +69,5 @@
 
 
       .submit_block
-        = user.submit "Save and continue →"
+        = person.submit "Save and continue →"
 

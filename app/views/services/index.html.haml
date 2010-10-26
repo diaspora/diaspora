@@ -6,8 +6,8 @@
   %h2
     Settings
   %ul#settings_nav
-    %li=link_to 'Profile', '#', :class => 'profile'
-    %li=link_to 'Account', '#', :class => 'account'
+    %li=link_to 'Profile', edit_person_path(current_user.person)
+    %li=link_to 'Account', edit_user_path(current_user)
     %li=link_to 'Services', services_path
 
 .span-19.prepend-5.last
