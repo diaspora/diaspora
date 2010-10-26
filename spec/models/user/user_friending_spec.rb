@@ -61,7 +61,7 @@ describe Diaspora::UserModules::Friending do
 
 
   context 'friend requesting' do
-    it "should assign a request to a aspect" do
+    it "should assign a request to a aspect for the user that sent it out" do
       aspect.requests.size.should == 0
 
       user.send_friend_request_to(friend, aspect)
@@ -70,21 +70,42 @@ describe Diaspora::UserModules::Friending do
       aspect.requests.size.should == 1
     end
 
-    it "should be able to accept a pending friend request" do
-      r = Request.instantiate(:to => user.receive_url, :from => friend)
-      r.save
+    describe  '#receive_friend_request' do
+      it 'adds a request to pending if it was not sent by user' do
+        r = Request.instantiate(:to => user.receive_url, :from => friend)
+        r.save
+        user.receive_friend_request(r)
+        user.reload.pending_requests.should include r
+      end
 
-      proc { user.accept_friend_request(r.id, aspect.id) }.should change {
-        Request.for_user(user).all.count }.by(-1)
+      it 'should autoaccept a request the user sent' do
+        request = user.send_friend_request_to(user2.person, aspect)
+        request.reverse_for(user2)
+        proc{user.receive_friend_request(request)}.should change(user.reload.friends, :count).by(1)
+      end
+
     end
 
-    it 'should be able to ignore a pending friend request' do
-      friend = Factory.create(:person)
-      r = Request.instantiate(:to => user.receive_url, :from => friend)
-      r.save
+    context 'received a friend request' do
 
-      proc { user.ignore_friend_request(r.id) }.should change {
-        Request.for_user(user).count }.by(-1)
+      let(:request_for_user) {Request.instantiate(:to => user.receive_url, :from => friend)}
+      let(:request2_for_user) {Request.instantiate(:to => user.receive_url, :from => person_one)}
+      before do
+        request_for_user.save
+        user.receive_friend_request(request_for_user)
+        user.receive_friend_request(request2_for_user)
+        user.reload
+      end
+
+      it "should delete an accepted friend request" do
+        proc { user.accept_friend_request(request2_for_user.id, aspect.id) }.should change(
+          user.reload.pending_requests, :count ).by(-1)
+      end
+
+      it 'should be able to ignore a pending friend request' do
+        proc { user.ignore_friend_request(request_for_user.id) }.should change (
+          user.reload.pending_requests, :count ).by(-1)
+      end
     end
 
     it 'should not be able to friend request an existing friend' do
@@ -204,20 +225,20 @@ describe Diaspora::UserModules::Friending do
         user.receive_friend_request @request
 
         person_two.destroy
-        user.pending_requests.size.should be 1
+        user.reload.pending_requests.size.should be 1
         user.friends.size.should be 0
 
         user.receive_friend_request @request_two
-        user.pending_requests.size.should be 2
+        user.reload.pending_requests.size.should be 2
         user.friends.size.should be 0
 
         user.accept_friend_request @request.id, aspect.id
-        user.pending_requests.size.should be 1
+        user.reload.pending_requests.size.should be 1
         user.friends.size.should be 1
         user.contact_for(person_one).should_not be_nil
 
         user.ignore_friend_request @request_two.id
-        user.pending_requests.size.should be 0
+        user.reload.pending_requests.size.should be 0
         user.friends.size.should be 1
         user.contact_for(person_two).should be_nil
       end

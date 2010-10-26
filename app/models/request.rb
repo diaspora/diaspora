@@ -26,8 +26,6 @@ class Request
   validates_presence_of :destination_url, :callback_url
   before_validation :clean_link
 
-  scope :for_user,  lambda{ |user| where(:destination_url    => user.person.receive_url) }
-
   def self.instantiate(options = {})
     person = options[:from]
     self.new(:destination_url => options[:to],
