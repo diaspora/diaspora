@@ -10,6 +10,7 @@ oauth_keys_file = "#{Rails.root}/config/oauth_keys.yml"
 
 if File.exist? oauth_keys_file
   SERVICES = load_config_yaml(oauth_keys_file)
-  SERVICES ||= load_config_yaml("#{oauth_keys_file}.example")
 end
+
+SERVICES ||= load_config_yaml("#{oauth_keys_file}.example")
 
