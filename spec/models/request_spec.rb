@@ -31,17 +31,6 @@ describe Request do
     xml.should include user.exported_key
   end
 
-  it 'should allow me to see only friend requests sent to me' do
-    remote_person = Factory.build(:person, :diaspora_handle => "robert@grimm.com", :url => "http://king.com/")
-
-    Request.instantiate(:into => aspect.id, :from => user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => aspect.id, :from => user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => aspect.id, :from => user.person, :to => remote_person.receive_url).save
-    Request.instantiate(:into => aspect.id, :from => remote_person, :to => user.receive_url).save
-
-    Request.for_user(user).all.count.should == 1
-  end
-
   it 'should strip the destination url' do
     person_request = Request.new
     person_request.destination_url = "   http://google.com/   "

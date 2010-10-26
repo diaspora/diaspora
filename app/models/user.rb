@@ -32,11 +32,11 @@ class User
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
-  key :inviter_ids, Array
-  key :friend_ids, Array
-  key :pending_request_ids, Array
-  key :visible_post_ids, Array
-  key :visible_person_ids, Array
+  key :inviter_ids, Array, :typecast => 'ObjectId' 
+  key :friend_ids, Array, :typecast => 'ObjectId' 
+  key :pending_request_ids, Array, :typecast => 'ObjectId' 
+  key :visible_post_ids, Array, :typecast => 'ObjectId' 
+  key :visible_person_ids, Array, :typecast => 'ObjectId' 
 
   key :invite_messages, Hash
 
