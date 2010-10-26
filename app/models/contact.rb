@@ -4,6 +4,8 @@
 
 class Contact
   include MongoMapper::Document
+  attr_accessor :aspect_names #this is only used in the importer
+  
   belongs_to :user
   validates_presence_of :user
 
