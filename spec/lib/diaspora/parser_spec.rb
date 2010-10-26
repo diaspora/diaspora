@@ -15,13 +15,14 @@ describe Diaspora::Parser do
   describe "parsing compliant XML object" do
     it 'should be able to correctly handle comments with person in db' do
       post = user.post :status_message, :message => "hello", :to => aspect.id
-      comment = Factory.build(:comment, :post => post, :person => @person, :text => "Freedom!")
+      comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
+      comment.delete
       xml = comment.to_diaspora_xml
 
-      comment = Diaspora::Parser.from_xml(xml)
-      comment.text.should == "Freedom!"
-      comment.person.should == @person
-      comment.post.should == post
+      comment_from_xml = Diaspora::Parser.from_xml(xml)
+      comment_from_xml.text.should == "Freedom!"
+      comment_from_xml.person.should == person
+      comment_from_xml.post.should == post
     end
 
     it 'should be able to correctly handle person on a comment with person not in db' do

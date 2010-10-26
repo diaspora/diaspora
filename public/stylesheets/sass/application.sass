@@ -59,14 +59,16 @@ h3
   
 #flash_notice
   :background
-    :color rgba(127,255,36,0.6)
+    :color rgb(126,240,77)
+    :color rgba(126,240,77,0.98)
   :text
     :shadow 0 1px #6C6
 
 #flash_error,
 #flash_alert
   :background
-    :color rgba(208,49,43,0.85)
+    :color rgb(208,49,43)
+    :color rgba(208,49,43,0.98)
   :border
     :bottom solid 1px #C66
   :text
@@ -433,11 +435,10 @@ form
         :right 1em
 
 #stream.show
-  div.comments
+  ul.comments
     :display block
-    ul.comment_set
-      :margin
-        :top 0
+    :margin
+      :top 0
   > li
     :border none
     :padding 0
@@ -447,7 +448,7 @@ form
       :border none
     
 
-#stream div.comments
+#stream ul.comments
   :display none
 
   .avatar
@@ -462,7 +463,7 @@ input.comment_submit
     :right -10px
 
 
-ul.comment_set
+ul.comments
   :margin 0
     :top 1em
   :padding 0
@@ -639,61 +640,60 @@ label
   :color #999
   :position relative
   :min-height 65px
-  :max-height 90px
   :width 100%
   :margin
     :bottom 10px
-    :top 0px
+    :top -14px
 
   :border
     :bottom 2px #777 solid
 
   .avatar
-    :float left
+    :position absolute
     :margin
       :right 15px
     :border-radius 5px
     :-webkit-border-radius 5px
     :-moz-border-radius 5px
 
-  p
-    :position absolute
-    :left 0
-    :top 0
-
   form
-    :display inline
     :position relative
+    :margin
+      :left 65px
+      :bottom 10px
+    :top 0
 
   textarea
     :height 42px
+    :display block
 
   input[type='text'],
   textarea
-    :width 515px
+    :width 514px
     :margin 0
 
   .options_and_submit
+    :min-height 21px
     :display none
+    :position relative
     :padding
-      :top 63px
-      :bottom 5px
+      :top 8px
+    :margin
+      :bottom -2px
     input[type='submit']
-      :float right
-      :margin
-        :top -4px
+      :position absolute
+      :right -13px
+      :top 5px
       :width 75px
 
     .public_toggle
-      :position absolute
-      :bottom 8px
       :width 300px
+      :margin
+        :left -3px
       :font
         :size smaller
         :style italic
       :display inline
-      :margin
-        :left 62px
 
 #image_picker
   .small_photo
@@ -794,7 +794,7 @@ h1.big_text
     :top 1px solid #999
     :bottom 2px solid #eee
 
-.show_post_comments ul.comment_set
+.show_post_comments ul.comments
   :width 100%
 
 .sub_header
@@ -824,10 +824,6 @@ h1.big_text
 
 #aspect_nav
   :color #000
-  :margin
-    :top 0
-    :bottom 1px
-
   :font
     :family 'Arial', 'Helvetica', sans-serif
 
@@ -856,7 +852,7 @@ h1.big_text
         :line
           :height 22px
 
-        :padding 3px 10px
+        :padding 4px 10px
         :color #CCC
 
         &:hover
@@ -1119,7 +1115,7 @@ ul#settings_nav
 
 .empty_message
   :margin
-    :bottom 12px
+    :bottom 24px
   :text
     :align center
 

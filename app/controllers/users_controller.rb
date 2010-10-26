@@ -19,9 +19,6 @@ class UsersController < ApplicationController
     @person  = @user.person
     @profile = @user.person.profile
     @photos  = current_user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
-
-    @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
-                                      :scope=>MiniFB.scopes.join(","))
   end
 
   def update

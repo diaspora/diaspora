@@ -42,13 +42,11 @@ describe 'user encryption' do
   end
 
   describe 'encryption' do
-    before do
-      @string = File.open(File.dirname(__FILE__) + '/../fixtures/fb_status').read
-    end
     it 'should encrypt a string' do
-      ciphertext = @user.encrypt @string
-      ciphertext.include?(@string).should be false
-      @user.decrypt(ciphertext).should == @string
+      string = "Secretsauce"
+      ciphertext = @user.encrypt string
+      ciphertext.include?(string).should be false
+      @user.decrypt(ciphertext).should == string
     end
   end
 end

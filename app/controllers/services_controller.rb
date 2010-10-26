@@ -4,37 +4,42 @@
 
 
 class ServicesController < ApplicationController
+  before_filter :authenticate_user!
+
+  def index
+    @services = current_user.services
+  end
 
   def create
-    puts 'services/create'
-    p params
+    auth = request.env['omniauth.auth']
 
-    code = params['code'] # Facebooks verification string
-    if code
-      access_token_hash = MiniFB.oauth_access_token(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create", FB_SECRET, code)
-      p access_token_hash
-      @access_token = access_token_hash["access_token"]
+    provider = auth['provider']
+    user     = auth['user_info']
 
-      # TODO: This is where you'd want to store the token in your database
-      # but for now, we'll just keep it in the session so we don't need a database
-      warden.session[:access_token] = @access_token
-      flash[:success] = "Authentication successful."
+    if provider == 'twitter'
+      access_token = auth['extra']['access_token']
+      current_user.services.create(:nickname => user['nickname'],
+                                   :access_token => access_token.token, 
+                                   :access_secret => access_token.secret,
+                                   :provider => provider, 
+                                   :uid => auth['uid'])
+                                   
+    elsif provider == 'facebook'
+      current_user.services.create(:nickname => user['nickname'],
+                                   :access_token => auth['credentials']['token'],
+                                   :provider => provider, 
+                                   :uid => auth['uid'])
     end
-    redirect_to edit_user_url current_user
+
+
+    flash[:notice] = "Authentication successful."
+    redirect_to services_url
   end
 
   def destroy
-    warden.session[:access_token] = nil
-		warden.session[:user_id] = nil
-    redirect_to edit_user_url current_user
+    @service = current_user.services.find(params[:id])
+    @service.destroy
+    flash[:notice] = "Successfully destroyed authentication."
+    redirect_to services_url
   end
-
-  def fb_post
-    id = 'me'
-    type = 'feed'
-
-    @res = MiniFB.post(@access_token, id, :type=>type, :metadata=>true, :params=>params)
-    redirect_to edit_user_url current_user
-  end
-
 end

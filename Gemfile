@@ -3,11 +3,16 @@ source 'http://rubygems.org'
 gem 'rails', '>= 3.0.0'
 
 gem 'bundler', '>= 1.0.0'
+gem "chef"
 
 #Security
 gem 'devise', '1.1.3'
 gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 gem 'devise_invitable', '~> 0.3.4'
+
+#Authentication
+gem 'omniauth'
+gem 'twitter'
 #Mongo
 gem 'mongo_mapper', :branch => 'rails3', :git => 'git://github.com/jnunemaker/mongomapper.git'
 gem 'bson_ext', '1.1'
@@ -44,6 +49,7 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'ruby-debug19' if RUBY_VERSION.include? "1.9"
   gem 'ruby-debug' if RUBY_VERSION.include? "1.8"
+  gem 'launchy'
 end
 
 group :test do

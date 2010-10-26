@@ -16,11 +16,25 @@ test -r "$1" || {
 }
 
 rm -rf /usr/lib/diaspora-bundle
-tar xf $1 -C /usr/lib
+tar xzf $1 -C /usr/lib
 
 cd /usr/lib
 mv $(basename $1 .tar.gz) diaspora-bundle
+
 mkdir -p /usr/share/doc/diaspora-bundle || :
 cd /usr/lib/diaspora-bundle
+cp -a AUTHORS GNU-AGPL-3.0 COPYRIGHT Gemfile Gemfile.lock \
+     /usr/share/doc/diaspora-bundle
+cp -ar docs /usr/share/doc/diaspora-bundle
 
-cp  AUTHORS GNU-AGPL-3.0 COPYRIGHT /usr/share/doc/diaspora-bundle
+bundle install --local --deployment --without ri rdoc
+for gem in vendor/git/*; do
+    gem install --local   \
+                --force   \
+                --no-rdoc \
+                --no-ri   \
+                --install-dir vendor/bundle/ruby/1.8/bundler \
+    $gem
+done
+
+
