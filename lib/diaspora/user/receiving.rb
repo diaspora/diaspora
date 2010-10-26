@@ -69,6 +69,7 @@ module Diaspora
         request.person = person
         request.person.save
         old_request =  Request.first(:id => request.id)
+        Rails.logger.info("I got a reqest_id #{request.id} with old request #{old_request.inspect}")
         request.aspect_id = old_request.aspect_id if old_request
         request.save
         receive_friend_request(request)
