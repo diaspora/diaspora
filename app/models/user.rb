@@ -61,6 +61,8 @@ class User
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
   many :aspects, :class_name => 'Aspect', :dependent => :destroy
 
+  many :services, :class_name => "Service"
+
   #after_create :seed_aspects
 
   before_destroy :unfriend_everyone, :remove_person
@@ -149,21 +151,29 @@ class User
 
     aspect_ids = validate_aspect_permissions(aspect_ids)
 
-    intitial_post(class_name, aspect_ids, options)
-  end
-
-  def post_to_message_fb(message, access_token)
-    id = 'me'
-    type = 'feed'
-    Rails.logger.info("Sending a message: #{message} to Facebook")
-    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{access_token}").post
-  end
-
-  def intitial_post(class_name, aspect_ids, options = {})
     post = build_post(class_name, options)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
+    
+    if options[:public] == true
+      self.services.each do |service|
+        self.send("post_to_#{service.provider}".to_sym, service, post.message)
+      end
+    end
+
     post
+  end
+
+  def post_to_facebook(service, message)
+    Rails.logger.info("Sending a message: #{message} to Facebook")
+    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{service.access_token}").post
+  end
+
+  def post_to_twitter(service, message)
+    oauth = Twitter::OAuth.new(SERVICES['twitter']['consumer_token'], SERVICES['twitter']['consumer_secret'])
+    oauth.authorize_from_access(service.access_token, service.access_secret)
+    client = Twitter::Base.new(oauth)
+    client.update(message)
   end
 
   def update_post(post, post_hash = {})

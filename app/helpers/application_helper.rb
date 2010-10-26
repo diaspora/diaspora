@@ -78,9 +78,4 @@ module ApplicationHelper
   def post_yield_tag(post)
     (':' + post.id.to_s).to_sym
   end
-
-  def connected_fb_as token
-    response_hash = MiniFB.get(token, 'me')
-    "Connected to facebook as #{response_hash[:name]}"
-  end
 end

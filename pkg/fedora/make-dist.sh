@@ -138,7 +138,7 @@ function checkout()
         cd diaspora;
         git fetch --quiet upstream
         git merge --quiet upstream/master
-        git checkout --quiet  ${1:-'HEAD'}
+        [ -n "$1" ] && git reset --hard  --quiet  $1
         git_id  -n
     )
 }
@@ -175,41 +175,91 @@ function make_src
     echo "Required bundle:     $(git_id dist/diaspora/Gemfile)"
 }
 
-function get_git_repos()
+
+function build_git_gems()
+# Usage: build_git_gems <Gemfile> <tmpdir> <gemdir>
+# Horrible hack, in wait for bundler handling git gems OK.
 {
-    grep -A 2 GIT $1 |
-        awk   ' /remote:/   { repo = $2 }
-                /revision:/ { printf "%s=%s\n",repo, $2}'
+    mkdir gem-tmp || :
+    cd gem-tmp
+    rm -rf *
+
+    grep 'git:'  ../$1 |  sed 's/,/ /' | awk '
+       /^.*git:\/\/.*$/  {
+                    gsub( "=>", "")
+                    gsub( ",", "")
+                    if ( $1 != "gem") {
+                          print "Strange git: line (ignored) :" $0
+                          next
+                    }
+                    name = $2
+                    suffix = ""
+                    url=""
+                    for (i = 3; i <= NF; i += 1) {
+                        key = $i
+                        i += 1
+                        if (key == ":git")
+                            url = $i
+                        else if ( key == ":ref") {
+                            suffix =  "; cd " name
+                            suffix = suffix "; git reset --hard " $i
+                            suffix = suffix "; cd .."
+                        }
+                        else if ( key == ":branch")
+                            suffix = "; git checkout " $i
+                    }
+                    print "Running: ", cmd
+                    cmd =  sprintf( "git clone --quiet %s %s %s\n",
+                                     url, name, suffix)
+                    system( cmd)
+                }'
+    sed -i 's/Date.today/"2010-10-24"/' carrierwave/carrierwave.gemspec
+    for dir in *; do
+        cd $dir
+        gem build *.gemspec
+        cp *.gem ../../$2
+        cd ..
+    done
+
+    cd ..
+    # rm -rf gem-tmp
 }
 
-
-function package_git_gems()
+function make_docs()
 {
-    gemfile="$1"
-    dest="$2"
+    local gemfile=$1
+    for url in $(read_git_urls $gemfile); do
+        local name=${url##*/}
+        name=${name%.*}
+        rm -rf vendor/git/$name
+        git clone --bare --quiet $url vendor/git/$name &&
+            sed -i "s#$url#vendor/git/$name#" $gemfile ||
+                echo "Cannot fix git repo \"$url\""
+    done
+}
 
-    rm -rf git-tmp
-    mkdir git-tmp
-    cd git-tmp
-        for repo in $( get_git_repos $1); do
-            url=${repo%%=*}
-            rev=${repo##*=}
+function make_docs()
+{
+    local gems=$1
+    local dest=$2
 
-            name=${url##*/}
-            name="${name%.git}"
-
-            rm -rf "$name"
-            git clone "$url" "$name"
-            cd $name
-                git reset --hard  $rev
-                sed -i '/s.date/s/Date.today/"2010-09-25"/' *.gemspec
-                gem build *.gemspec
-                cp *.gem $dest
-                echo "Built GIT gem $name (*.gem)"
-                echo "Where: $dest"
-            cd ..
-        done
-    cd ..
+    for gem in $(ls $gems); do
+        local name=$(basename $gem)
+        [ -r $gems/$gem/README* ] && {
+             local readme=$(basename $gems/$gem/README*)
+             cp  -a $gems/$gem/$readme $dest/$readme.$name
+        }
+        [ -r $gems/$gem/COPYRIGHT ] && \
+             cp -a $gems/$gem/COPYRIGHT $dest/COPYRIGHT.$name
+        [ -r $gems/$gem/LICENSE ] && \
+             cp -a $gems/$gem/LICENSE $dest/LICENSE.$name
+        [ -r $gems/$gem/License ] && \
+             cp -a $gems/$gem/License $dest/License.$name
+        [ -r $gems/$gem/MIT-LICENSE ] && \
+             cp -a $gems/$gem/MIT-LICENSE $dest/MIT-LICENSE.$name
+        [ -r $gems/$gem/COPYING ] && \
+             cp -a $gems/$gem/COPYING $dest/COPYING.$name
+    done
 }
 
 
@@ -219,8 +269,8 @@ function make_bundle()
 #
 {
     checkout ${1:-'HEAD'} >/dev/null
-    bundle_id=$( git_id dist/diaspora/Gemfile)
-    bundle_name="diaspora-bundle-$VERSION-$bundle_id"
+    local bundle_id=$( git_id dist/diaspora/Gemfile)
+    local bundle_name="diaspora-bundle-$VERSION-$bundle_id"
     test -e  "dist/$bundle_name.tar.gz" || {
         echo "Creating bundle $bundle_name"
         cd dist
@@ -231,22 +281,25 @@ function make_bundle()
                     rm -rf .bundle
                     bundle update
                 fi
-                bundle install --deployment
+                [ -d 'vendor/git' ] || mkdir  vendor/git
+                bundle install
                 bundle package
-                package_git_gems "$PWD/Gemfile.lock" "$PWD/vendor/cache"
+                mkdir vendor/git
+                build_git_gems  Gemfile vendor/git
+
+                mkdir  -p "../$bundle_name/docs"
+                mkdir -p "../$bundle_name/vendor"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
-                       vendor/cache
-                cd vendor
-                    mv cache $bundle_name
-                    tar czf ../../$bundle_name.tar.gz $bundle_name
-                    mv $bundle_name cache
-                cd ..
+                    ../$bundle_name
+                make_docs "vendor/gems"  "../$bundle_name/docs"
+                mv vendor/cache ../$bundle_name/vendor
             cd ..
+            tar czf $bundle_name.tar.gz $bundle_name
+            mv $bundle_name/vendor/cache diaspora/vendor/cache
         cd ..
     }
     echo
     echo "Bundle: dist/$bundle_name.tar.gz"
-    echo "Current dir:$PWD"
 }
 
 

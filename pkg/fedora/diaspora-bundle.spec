@@ -38,9 +38,16 @@ Source file usede to compile native libraries in diaspora-bundle.
 %setup -q -n %{name}-%{version}-%{git_release}
 
 %build
-mkdir -p vendor/cache
-mv *.gem vendor/cache
-bundle install --local --deployment --without ri rdoc
+bundle install --local --deployment --without ri rdoc test
+for gem in vendor/git/*; do
+    gem install --local   \
+                --force   \
+                --no-rdoc \
+                --no-ri   \
+                --install-dir vendor/bundle/ruby/1.8/bundler \
+    $gem
+
+done
 
 pushd vendor/bundle/ruby/1.8/gems
     # In repo (2.2.4)
@@ -200,7 +207,7 @@ popd
 }
 
 mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
-cp -ar  vendor/bundle  $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
+cp -ar  vendor  $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
 
 find  %{buildroot}/%{_libdir}/diaspora-bundle  \
     -type d  -fprintf dirs '%%%dir "%%p"\n'
@@ -218,7 +225,7 @@ cat files >> dirs && cp dirs files
 
 %files -f files
 %defattr(-, diaspora, diaspora, 0755)
-%doc  COPYRIGHT Gemfile Gemfile.lock AUTHORS GNU-AGPL-3.0
+%doc  COPYRIGHT Gemfile Gemfile.lock AUTHORS GNU-AGPL-3.0 docs
 
 %files -f dev-files devel
 %defattr(-, root, root, 0644)

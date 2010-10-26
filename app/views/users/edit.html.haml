@@ -18,7 +18,7 @@
   %ul#settings_nav
     %li=link_to 'Profile', '#', :class => 'profile'
     %li=link_to 'Account', '#', :class => 'account'
-    %li=link_to 'Services', '#', :class => 'services'
+    %li=link_to 'Services', services_path
 
 .span-19.prepend-5.last
   #profile.settings_pane{:style=>"display:block;"}
@@ -26,7 +26,4 @@
 
   #account.settings_pane
     = render 'users/account'
-
-  #services.settings_pane
-    = render 'users/services'
 

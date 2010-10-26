@@ -52,29 +52,19 @@ Factory.define :status_message do |m|
   m.person
 end
 
-Factory.define :blog do |b|
-  b.sequence(:title) {|n| "bobby's #{n} penguins"}
-  b.sequence(:body) {|n| "jimmy's huge #{n} whales"}
-end
-
-Factory.define :bookmark do |b|
-  b.link "http://www.yahooligans.com/"
-end
-
-Factory.define :post do |p|
-end
-
 Factory.define :photo do |p|
   p.image File.open( File.dirname(__FILE__) + '/fixtures/button.png')
 
 end
 
+Factory.define :service do |service|
+  service.nickname "sirrobertking"
+  service.provider "twitter"
+
+  service.sequence(:uid)           { |token| "00000#{token}" }
+  service.sequence(:access_token)  { |token| "12345#{token}" }
+  service.sequence(:access_secret) { |token| "98765#{token}" }
+end
+
 Factory.define(:comment) {}
 
-Factory.define :fb_status do |s|
-   s.graph_id "367501354973"
-   s.author_name "Bret Taylor"
-   s.author_id "220439"
-   s.message "Pigs run from our house in fear. Tonight, I am wrapping the pork tenderloin in bacon and putting pancetta in the corn."
-   s.updated_time Time.parse "2010-03-06T02:57:48+0000"
-end

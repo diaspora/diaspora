@@ -1,4 +1,0 @@
-fb_api_key: {key}
-fb_secret: {secret}
-fb_app_id: {app_id}
-host: http://localhost:3000/

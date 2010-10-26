@@ -2,20 +2,22 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-:javascript
-  $("div.public_toggle input").live("click", function(evt){
-    if("#{@logged_in}" == "false" && $(this).attr('checked') == true){
-      $(".question_mark").click(); 
-    }; 
-  });
-  
-  $("#publisher textarea, #publisher input").live("focus", function(evt){
-    $("#publisher .options_and_submit").fadeIn(50);
-  });
 
-  $("#publisher form").live("submit", function(evt){
-    $("#publisher .options_and_submit").hide();
-  });
+- content_for :head do
+  :javascript
+    $("div.public_toggle input").live("click", function(evt){
+      if($(this).attr('checked') == true){
+        $(".question_mark").click(); 
+      }; 
+    });
+    
+    $("#publisher textarea, #publisher input").live("focus", function(evt){
+      $("#publisher .options_and_submit").fadeIn(50);
+    });
+
+    $("#publisher form").live("submit", function(evt){
+      $("#publisher .options_and_submit").hide();
+    });
 
 #publisher
   = owner_image_tag
@@ -33,7 +35,7 @@
     
         - if aspect == :all
           .public_toggle
-            = status.check_box( :public, :value => false )
+            = status.check_box( :public, {}, true, false )
             make public
             = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
 
