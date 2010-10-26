@@ -3,18 +3,19 @@
 -#   the COPYRIGHT file.
 
 
-.span-8.append-1.last
-  %h1{:style => "text-align:right;"}
-    = "Welcome!"
+.span-8.append-1.last{:style => "text-align:right;"}
+  %h1
+    = "Welcome to Diaspora!"
     .description
       Do the stuff below to further complete some things.
 
-  %h3{:style => "text-align:right;"}
+  %h3
     = link_to "Edit your profile", getting_started_path(1)
     %br
     = link_to "Define your aspects", getting_started_path(2)
     %br
     = link_to "Find your friends", getting_started_path(3)
+    %br
 
 .span-15.last
   = render 'users/profile'

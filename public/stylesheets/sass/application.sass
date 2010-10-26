@@ -1130,6 +1130,8 @@ h1,h2,h3,h4
       :size 70%
       :weight 100
     :color #ccc
+    :margin
+      :top 0.5em
     
 h2,h3,h4
   .description
@@ -1264,7 +1266,30 @@ ul.aspects
     :size 24px
 
   > li
-    :padding 12px 0
+    :padding 12px
     :border
       :bottom 1px solid #eee
 
+    &:hover
+      :background
+        :color #fafafa
+      
+
+  .right
+    :top 12px
+    :right 12px
+
+  .delete
+    :background
+      :color #eee
+    :width 20px
+    :height 20px
+
+    :-webkit-border-radius 10px
+
+    :line-height 16px 
+    :text-indent 6px
+    :font-size 16px
+
+.inline
+  :display inline
