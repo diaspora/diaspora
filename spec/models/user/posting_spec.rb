@@ -13,8 +13,8 @@ describe User do
   let!(:aspect1) { user.aspect(:name => 'other') }
   let!(:aspect2) { user2.aspect(:name => 'losers') }
 
-  let!(:service1) { user.services << Factory(:service, :provider => 'twitter') }
-  let!(:service2) { user.services << Factory(:service, :provider => 'facebook') }
+  let!(:service1) { s = Factory(:service, :provider => 'twitter'); user.services << s; s }
+  let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
 
 
   describe '#validate_aspect_permissions' do
@@ -56,9 +56,10 @@ describe User do
     end
 
     it "posts to services if post is public" do
-      user.should_receive(:post_to_twitter).exactly(1).times
-      user.should_receive(:post_to_facebook).exactly(1).times
-      user.post :status_message, :message => "hi", :to => "all", :public => true
+      message = "hello, world!"
+      user.should_receive(:post_to_twitter).with(service1, message).exactly(1).times
+      user.should_receive(:post_to_facebook).with(service2, message).exactly(1).times
+      user.post :status_message, :message => message, :to => "all", :public => true
     end
 
     it "does not post to services if post is not public" do

@@ -35,7 +35,7 @@
     
         - if aspect == :all
           .public_toggle
-            = status.check_box( :public, :value => false )
+            = status.check_box( :public, {}, true, false )
             make public
             = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
 

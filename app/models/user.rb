@@ -155,31 +155,25 @@ class User
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
     
-    if options[:public]
+    if options[:public] == true
       self.services.each do |service|
-        self.send("post_to_#{service.provider}".to_sym)
+        self.send("post_to_#{service.provider}".to_sym, service, post.message)
       end
     end
 
     post
   end
 
-  def post_to_facebook(message)
-    facebook = self.services.find_by_provider("facebook")
-    if facebook
-      Rails.logger.info("Sending a message: #{message} to Facebook")
-      EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{facebook.access_token}").post
-    end
+  def post_to_facebook(service, message)
+    Rails.logger.info("Sending a message: #{message} to Facebook")
+    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{service.access_token}").post
   end
 
-  def post_to_twitter(message)
-    twitter = self.services.find_by_provider("twitter")
-    if twitter
-      oauth = Twitter::OAuth.new(SERVICES['twitter']['consumer_token'], SERVICES['twitter']['consumer_secret'])
-      oauth.authorize_from_access(twitter.access_token, twitter.access_secret)
-      client = Twitter::Base.new(oauth)
-      client.update(message)
-    end
+  def post_to_twitter(service, message)
+    oauth = Twitter::OAuth.new(SERVICES['twitter']['consumer_token'], SERVICES['twitter']['consumer_secret'])
+    oauth.authorize_from_access(service.access_token, service.access_secret)
+    client = Twitter::Base.new(oauth)
+    client.update(message)
   end
 
   def update_post(post, post_hash = {})

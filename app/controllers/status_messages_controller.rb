@@ -9,9 +9,13 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
+    public_flag = params[:status_message][:public]
+    public_flag.match(/(true)/) ? public_flag = true : public_flag = false
+    params[:status_message][:public] = public_flag 
+
     data = clean_hash params[:status_message]
     message = params[:status_message][:message]
-    @status_message = current_user.post(:status_message, data)
+    status_message = current_user.post(:status_message, data)
     render :nothing => true
   end
 
@@ -23,11 +27,7 @@ class StatusMessagesController < ApplicationController
 
   def show
     @status_message = current_user.find_visible_post_by_id params[:id]
-    unless @status_message
-      render :status => 404
-    else
-      respond_with @status_message
-    end
+    respond_with @status_message
   end
 
   private

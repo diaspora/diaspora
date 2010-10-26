@@ -16,35 +16,33 @@ describe StatusMessagesController do
   end
 
   describe '#create' do
-    let(:status_message_hash) {{"status_message"=>{"public"=>"1", "message"=>"facebook, is that you?", "to" =>"#{aspect.id}"}}}
-
+    let(:status_message_hash) {{"status_message"=>{"public"=>"true", "message"=>"facebook, is that you?", "to" =>"#{aspect.id}"}}}
 
     context "posting out to facebook" do
-      before do
-        @controller.stub!(:logged_into_fb?).and_return(true)
-      end
+      let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
 
       it 'should post to facebook when public is set' do
         user.should_receive(:post_to_facebook)
         post :create, status_message_hash
       end
 
-      it 'should not post to facebook when public in not set' do
-        status_message_hash['status_message']['public'] = '0'
+      it 'should not post to facebook when public is not set' do
+        status_message_hash['status_message']['public'] = 'false'
         user.should_not_receive(:post_to_facebook)
         post :create, status_message_hash
       end
     end
 
-
     context "posting to twitter" do
+      let!(:service1) { s = Factory(:service, :provider => 'twitter'); user.services << s; s }
+
       it 'should post to twitter if public is set' do
         user.should_receive(:post_to_twitter).and_return(true)
         post :create, status_message_hash
       end
 
       it 'should not post to twitter when public in not set' do
-        status_message_hash['status_message']['public'] = '0'
+        status_message_hash['status_message']['public'] = 'false'
         user.should_not_receive(:post_to_twitter)
         post :create, status_message_hash
       end
