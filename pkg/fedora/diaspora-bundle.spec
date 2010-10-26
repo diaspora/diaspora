@@ -39,12 +39,12 @@ Source file usede to compile native libraries in diaspora-bundle.
 
 %build
 bundle install --local --deployment --without ri rdoc test
-for gem in vendor/git/*; do
+for gem in vendor/git/*.gem; do
     gem install --local   \
                 --force   \
                 --no-rdoc \
                 --no-ri   \
-                --install-dir vendor/bundle/ruby/1.8/bundler \
+                --install-dir vendor/bundle/ruby/1.8 \
     $gem
 
 done
@@ -190,6 +190,8 @@ exit 0
 find . -name .git | xargs rm -rf
 find . -name .gitignore -delete
 find . -name \*.o -delete  || :
+rm -rf vendor/git
+rm -rf vendor/cache
 
 test -d vendor/bundle/ruby/1.8//gems/selenium-webdriver-0.0.* && {
 pushd  vendor/bundle//ruby/1.8/gems/selenium-webdriver-0.0.*/lib/selenium/webdriver/

@@ -175,6 +175,12 @@ function make_src
     echo "Required bundle:     $(git_id dist/diaspora/Gemfile)"
 }
 
+function fix_gemfile
+{
+    sed -i  's|git://.*/|vendor/git/|g' $1
+
+}
+
 function build_git_gems()
 # Usage: build_git_gems <Gemfile> <tmpdir> <gemdir>
 # Horrible hack, in wait for bundler handling git gems OK.
@@ -183,42 +189,46 @@ function build_git_gems()
     cd gem-tmp
     rm -rf *
 
-    grep 'git:'  ../$1 |  sed 's/,/ /' | awk '
+    grep 'git:'  ../$1 |  sed 's/,/ /g' | awk '
        /^.*git:\/\/.*$/  {
-                    gsub( "=>", "")
+                    gsub( "=>", " ")
                     if ( $1 != "gem") {
                           print "Strange git: line (ignored) :" $0
                           next
                     }
                     name = $2
-                    suffix = ""
                     url=""
+                    suffix = "; cd " name
                     for (i = 3; i <= NF; i += 1) {
                         key = $i
                         i += 1
                         if (key == ":git")
                             url = $i
-                        else if ( key == ":ref") {
-                            suffix =  "; cd " name
+                        else if ( key == ":ref")
                             suffix = suffix "; git reset --hard " $i
-                            suffix = suffix "; cd .."
-                        }
                         else if ( key == ":branch")
-                            suffix = "; git checkout " $i
+                            suffix = suffix "; git checkout " $i
                     }
+                    suffix = suffix "; cd .."
                     cmd =  sprintf( "git clone --quiet %s %s %s\n",
                                      url, name, suffix)
+                    print "Running: ", cmd
+                    system( cmd)
+                    cmd = sprintf( "git clone --bare --quiet %s\n", url)
                     print "Running: ", cmd
                     system( cmd)
                 }'
     sed -i 's/Date.today/"2010-10-24"/' carrierwave/carrierwave.gemspec
     for dir in *; do
-        cd $dir
-        gem build *.gemspec
-        cp *.gem ../../$2
-        cd ..
+        if  [ -e  $dir/*.gemspec ] ; then
+            cd $dir
+                gem build *.gemspec
+                cp *.gem ../../$2
+            cd ..
+        else
+            cp -ar $dir ../$2
+        fi
     done
-
     cd ..
     # rm -rf gem-tmp
 }
@@ -230,19 +240,19 @@ function make_docs()
 
     for gem in $(ls $gems); do
         local name=$(basename $gem)
-        [ -r $gems/$gem/README* ] && {
+        [ -r "$gems/$gem/README*" ] && {
              local readme=$(basename $gems/$gem/README*)
              cp  -a $gems/$gem/$readme $dest/$readme.$name
         }
-        [ -r $gems/$gem/COPYRIGHT ] && \
+        [ -r "$gems/$gem/COPYRIGHT" ] && \
              cp -a $gems/$gem/COPYRIGHT $dest/COPYRIGHT.$name
-        [ -r $gems/$gem/LICENSE ] && \
+        [ -r "$gems/$gem/LICENSE" ] && \
              cp -a $gems/$gem/LICENSE $dest/LICENSE.$name
-        [ -r $gems/$gem/License ] && \
+        [ -r "$gems/$gem/License" ] && \
              cp -a $gems/$gem/License $dest/License.$name
-        [ -r $gems/$gem/MIT-LICENSE ] && \
+        [ -r "$gems/$gem/MIT-LICENSE" ] && \
              cp -a $gems/$gem/MIT-LICENSE $dest/MIT-LICENSE.$name
-        [ -r $gems/$gem/COPYING ] && \
+        [ -r "$gems/$gem/COPYING" ] && \
              cp -a $gems/$gem/COPYING $dest/COPYING.$name
     done
 }
@@ -267,17 +277,22 @@ function make_bundle()
                     bundle update
                 fi
 
-                bundle install
-                bundle package
                 [ -d 'vendor/git' ] || mkdir  vendor/git
                 build_git_gems  Gemfile vendor/git
+                sed -i  's|git://.*/|vendor/git/|g' Gemfile
+                rm Gemfile.lock
+                rm -rf .bundle
+                # see: http://bugs.joindiaspora.com/issues/440
+                bundle install --path=vendor/bundle  ||
+                     bundle install --path=vendor/bundle
+                bundle package
 
                 mkdir  -p "../$bundle_name/docs"
                 mkdir -p "../$bundle_name/vendor"
                 cp -ar AUTHORS Gemfile Gemfile.lock GNU-AGPL-3.0 COPYRIGHT \
                     ../$bundle_name
 
-                make_docs "vendor/gems"  "../$bundle_name/docs"
+                make_docs "vendor/bundle/ruby/1.8/gems/"  "../$bundle_name/docs"
                 mv vendor/cache ../$bundle_name/vendor
                 mv vendor/git  ../$bundle_name/vendor
                 rm -rf vendor/gems/*
@@ -348,16 +363,16 @@ function usage()
 
 	-h             Print this message.
 	-c  commit     Use a given commit, defaults to last checked in.
-	-r  release    Mark with specified release, defaults to 1.
+	-r  release    For prepare, mark with release nr, defaults to 1.
 	-u  uri        Git repository URI, defaults to
 	               $GIT_REPO.
-        -f             For bundle, fix dependencies by running 'bundle update'
-                       before 'bundle install'
+	-f             For bundle, fix dependencies by running 'bundle update'
+	               before 'bundle install'
 
 	source         Build a diaspora application tarball.
 	bundle         Build a bundler(1) bundle for diaspora.
 	prepare        Symlink bundle and source tarballs to rpm source dir,
-                       create patched  rpm spec files.
+	               create patched  rpm spec files.
 
 	All results are stored in dist/
 
