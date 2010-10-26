@@ -76,6 +76,7 @@ $(document).ready(function(){
 
   $("img", "#left_pane").tipsy({live:true});
   $(".add_aspect_button", "#aspect_nav").tipsy({gravity:'w'});
+  $(".person img", ".dropzone").tipsy({live:true});
 
 });//end document ready
 
