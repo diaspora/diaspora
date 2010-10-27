@@ -1,50 +1,50 @@
-= image_tag "http://needcoffee.cachefly.net/needcoffee/uploads/2009/02/predator-arnold-schwarzenegger.jpg"
-
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-  %p
-    = f.label :username
-    = f.text_field :username
-  %p
-    = f.label :email
-    = f.text_field :email
-  %p
-    = f.label :password
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-
-  = f.fields_for :person do |p|
-    = p.fields_for :profile do |pr|
+.span-12.prepend-6.last
+  .floating
+    %h3
+      Sign up for Diaspora
+    = image_tag "http://needcoffee.cachefly.net/needcoffee/uploads/2009/02/predator-arnold-schwarzenegger.jpg"
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       %p
-        = pr.label :first_name
-        = pr.text_field :first_name
+        = f.label :username
+        = f.text_field :username
       %p
-        = pr.label :last_name
-        = pr.text_field :last_name
-  = f.submit t('.sign_up')
-= render :partial => "devise/shared/links"
+        = f.label :email
+        = f.text_field :email
+      %p
+        = f.label :password
+        = f.password_field :password
+      %p
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+
+      = f.fields_for :person do |p|
+        = p.fields_for :profile do |pr|
+          %p
+            = pr.label :first_name
+            = pr.text_field :first_name
+          %p
+            = pr.label :last_name
+            = pr.text_field :last_name
+      = f.submit t('.sign_up')
 
 
-%br
-%br
+  .floating
+    %h3
+      Upload an existing Diaspora account
 
-%h2 or, upload yourself
+    = form_tag '/users/import', :multipart => true do
 
+      %p
+        = label_tag 'user[email]'
+        = text_field_tag 'user[email]'
+      %p
+        = label_tag 'user[password]'
+        = password_field_tag 'user[password]'
+      %p
+        = label_tag 'user[password_confirmation]'
+        = password_field_tag 'user[password_confirmation]'
 
-= form_tag '/users/import', :multipart => true do
-
-  %p
-    = label_tag 'user[email]'
-    = text_field_tag 'user[email]'
-  %p
-    = label_tag 'user[password]'
-    = password_field_tag 'user[password]'
-  %p
-    = label_tag 'user[password_confirmation]'
-    = password_field_tag 'user[password_confirmation]'
-
-  %label Select File
-  = file_field 'upload', 'file'
-  = submit_tag "Upload"
+      %label Select File
+      = file_field 'upload', 'file'
+      = submit_tag "Upload"
 
