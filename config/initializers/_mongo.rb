@@ -14,4 +14,3 @@ if defined?(PhusionPassenger)
 end
 
 Magent.connection = MongoMapper.connection
-MongoMapper.database.profiling_level = :all
