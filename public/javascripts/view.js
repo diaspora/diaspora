@@ -127,8 +127,8 @@ $(".make_profile_photo").live("click", function(){
 
   $.ajax({
     type: "PUT",
-    url: '/users/'+user_id,
-    data: {"user":{"profile":{ "image_url": photo_url }}},
+    url: '/people/'+user_id,
+    data: {"person":{"profile":{ "image_url": photo_url }}},
     success: function(){
       $("img[data-person_id='"+ person_id +"']").each( function() {
         $(this).attr('src', photo_url);
