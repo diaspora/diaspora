@@ -89,10 +89,6 @@ class User
     self.person.send(method, *args)
   end
 
-  def real_name
-    "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
-  end
-
   ######### Aspects ######################
   def aspect(opts = {})
     aspect = Aspect.new(opts)
@@ -405,11 +401,14 @@ class User
 
   ###Helpers############
   def self.build(opts = {})
+    opts[:person] = {}
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
+
+    opts[:person][:profile] = Profile.new
 
     u = User.new(opts)
     u

@@ -14,11 +14,7 @@ describe RegistrationsController do
     @valid_params = {"user" => {"username" => "jdoe",
                                 "email" => "jdoe@example.com",
                                 "password" => "password",
-                                "password_confirmation" => "password",
-                                "person" => {
-                                  "profile" => {
-                                    "first_name" => "John",
-                                    "last_name" => "Doe"}}}}
+                                "password_confirmation" => "password"}}
   end
 
   describe "#create" do
@@ -41,7 +37,7 @@ describe RegistrationsController do
     end
     context "with invalid parameters" do
       before do
-        @valid_params["user"]["person"]["profile"].delete("first_name")
+        @valid_params["user"]["password_confirmation"] = "baddword"
         @invalid_params = @valid_params
       end
       it "does not create a user" do

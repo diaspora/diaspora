@@ -19,7 +19,6 @@ class Profile
   key :image_url,  String
   key :bio,        String
 
-  validates_presence_of :first_name, :last_name
   after_validation :strip_names
 
   before_save :strip_names

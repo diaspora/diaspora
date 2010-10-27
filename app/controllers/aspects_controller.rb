@@ -13,7 +13,7 @@ class AspectsController < ApplicationController
     @aspect = :all
     
     if current_user.getting_started == true
-      redirect_to getting_started_path(1)
+      redirect_to getting_started_path
     end
   end
 

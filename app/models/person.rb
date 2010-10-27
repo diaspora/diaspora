@@ -58,7 +58,11 @@ class Person
   end
 
   def real_name
-    "#{profile.first_name.to_s} #{profile.last_name.to_s}"
+    if profile.first_name.nil? || profile.first_name.empty?
+      self.diaspora_handle
+    else
+      "#{profile.first_name.to_s} #{profile.last_name.to_s}"
+    end
   end
 
   def owns?(post)

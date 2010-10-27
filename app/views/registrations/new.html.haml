@@ -17,14 +17,6 @@
         = f.label :password_confirmation
         = f.password_field :password_confirmation
 
-      = f.fields_for :person do |p|
-        = p.fields_for :profile do |pr|
-          %p
-            = pr.label :first_name
-            = pr.text_field :first_name
-          %p
-            = pr.label :last_name
-            = pr.text_field :last_name
       = f.submit t('.sign_up')
 
 

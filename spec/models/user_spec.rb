@@ -124,7 +124,7 @@ describe User do
           :username => "ohai",
           :email => "ohai@example.com",
           :password => "password",
-          :password_confirmation => "password",
+          :password_confirmation => "wrongpasswordz",
           :person => {:profile => {:first_name => "", :last_name => ""}}}
       end
       it "raises no error" do

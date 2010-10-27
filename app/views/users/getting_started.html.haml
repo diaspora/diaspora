@@ -30,7 +30,7 @@
     %br
 
 .span-15.last
-  .floating
+  .floating{:style=>"min-height:500px;"}
     = render "users/getting_started/step_#{@step}", :current_user => current_user
 
     - if @step > 1
