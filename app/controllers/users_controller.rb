@@ -14,14 +14,8 @@ class UsersController < ApplicationController
   respond_to :html
 
   def edit
-    @aspect  = :user_edit
-    @user    = current_user
-    @person  = @user.person
-    @profile = @user.person.profile
-    @photos  = current_user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
-
-    @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
-                                      :scope=>MiniFB.scopes.join(","))
+    @aspect = :user_edit
+    @user   = current_user
   end
 
   def update
@@ -35,16 +29,9 @@ class UsersController < ApplicationController
       else
         flash[:error] = "Password Change Failed"
       end
-    else
-      prep_image_url(params[:user])
-      if @user.update_profile params[:user][:profile]
-        flash[:notice] = "Profile updated"
-      else
-        flash[:error] = "Failed to update profile"
-      end
     end
-    redirect_to edit_user_path(@user)
 
+    redirect_to edit_user_path(@user)
   end
 
   def destroy
@@ -103,19 +90,5 @@ class UsersController < ApplicationController
   end
 
 
-  private
-  def prep_image_url(params)
-    url = APP_CONFIG[:pod_url].dup
-    url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
-    if params[:profile][:image_url].empty?
-      params[:profile].delete(:image_url)
-    else
-      if /^http:\/\// =~ params[:profile][:image_url]
-        params[:profile][:image_url] = params[:profile][:image_url]
-      else
-        params[:profile][:image_url] = url + params[:profile][:image_url]
-      end
-    end
-  end
 
 end

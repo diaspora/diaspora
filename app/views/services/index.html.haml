@@ -1,0 +1,28 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#section_header
+  %h2
+    Settings
+  %ul#settings_nav
+    %li=link_to 'Profile', edit_person_path(current_user.person)
+    %li=link_to 'Account', edit_user_path(current_user)
+    %li=link_to 'Services', services_path
+
+.span-19.prepend-5.last
+  %h2
+    Services
+
+  %ul#stream
+    - for service in @services
+      %h3
+        %b= service.provider
+        logged in as
+        %b
+          = service.nickname
+        = link_to "disconnect", service, :confirm => "disconnect #{service.provider}?", :method => :delete
+
+  %h4= link_to "Connect to twitter", "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
+  %h4= link_to "Connect to facebook", "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
+

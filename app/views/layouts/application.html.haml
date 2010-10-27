@@ -55,8 +55,9 @@
           .avatar
             = owner_image_tag
           = link_to current_user.real_name, '#'
-          %li= link_to "profile", current_user.person
-          %li= link_to "settings", edit_user_path(current_user)
+          %li= link_to "view profile", current_user.person
+          %li= link_to "edit profile", edit_person_path(current_user.person)
+          %li= link_to "account settings", edit_user_path(current_user)
           %li= link_to t('.logout.'), destroy_user_session_path
 
         = render "shared/aspect_nav"

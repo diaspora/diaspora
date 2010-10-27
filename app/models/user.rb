@@ -32,11 +32,11 @@ class User
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
-  key :inviter_ids, Array
-  key :friend_ids, Array
-  key :pending_request_ids, Array
-  key :visible_post_ids, Array
-  key :visible_person_ids, Array
+  key :inviter_ids, Array, :typecast => 'ObjectId' 
+  key :friend_ids, Array, :typecast => 'ObjectId' 
+  key :pending_request_ids, Array, :typecast => 'ObjectId' 
+  key :visible_post_ids, Array, :typecast => 'ObjectId' 
+  key :visible_person_ids, Array, :typecast => 'ObjectId' 
 
   key :invite_messages, Hash
 
@@ -60,6 +60,8 @@ class User
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
   many :aspects, :class_name => 'Aspect', :dependent => :destroy
+
+  many :services, :class_name => "Service"
 
   #after_create :seed_aspects
 
@@ -149,21 +151,29 @@ class User
 
     aspect_ids = validate_aspect_permissions(aspect_ids)
 
-    intitial_post(class_name, aspect_ids, options)
-  end
-
-  def post_to_message_fb(message, access_token)
-    id = 'me'
-    type = 'feed'
-    Rails.logger.info("Sending a message: #{message} to Facebook")
-    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{access_token}").post
-  end
-
-  def intitial_post(class_name, aspect_ids, options = {})
     post = build_post(class_name, options)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
+    
+    if options[:public] == true
+      self.services.each do |service|
+        self.send("post_to_#{service.provider}".to_sym, service, post.message)
+      end
+    end
+
     post
+  end
+
+  def post_to_facebook(service, message)
+    Rails.logger.info("Sending a message: #{message} to Facebook")
+    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{service.access_token}").post
+  end
+
+  def post_to_twitter(service, message)
+    oauth = Twitter::OAuth.new(SERVICES['twitter']['consumer_token'], SERVICES['twitter']['consumer_secret'])
+    oauth.authorize_from_access(service.access_token, service.access_secret)
+    client = Twitter::Base.new(oauth)
+    client.update(message)
   end
 
   def update_post(post, post_hash = {})

@@ -11,9 +11,6 @@ class AspectsController < ApplicationController
   def index
     @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @aspect = :all
-
-    @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
-                                      :scope=>MiniFB.scopes.join(","))
   end
 
   def create
@@ -51,18 +48,9 @@ class AspectsController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @friends = @aspect.people
-      @posts   = current_user.visible_posts( :by_members_of => @aspect ).paginate :per_page => 15, :order => 'created_at DESC'
+      @posts   = current_user.visible_posts( :by_members_of => @aspect ).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
       respond_with @aspect
     end
-  end
-
-  def public
-   # @fb_access_url = MiniFB.oauth_url(FB_APP_ID, APP_CONFIG[:pod_url] + "services/create",
-    #                                  :scope=>MiniFB.scopes.join(","))
-
-    @posts = current_user.visible_posts(:person_id => current_user.person.id, :public => true).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
-
-    respond_with @aspect
   end
 
   def manage
@@ -108,12 +96,5 @@ class AspectsController < ApplicationController
       flash[:error] =  I18n.t 'aspects.remove_from_aspect.failure'
     end
     redirect_to aspects_manage_path
-  end
-
-  private
-  def clean_hash(params)
-    return {
-      :name => params[:name]
-    }
   end
 end
