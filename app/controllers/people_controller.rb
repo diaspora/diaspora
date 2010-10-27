@@ -21,7 +21,8 @@ class PeopleController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @profile = @person.profile
-      @aspects_with_person = current_user.aspects_with_person(@person)
+      @contact = current_user.contact_for(@person)
+      @aspects_with_person = @contact.aspects if @contact
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
       respond_with @person
     end

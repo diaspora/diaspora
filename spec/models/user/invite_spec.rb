@@ -68,7 +68,7 @@ describe User do
     it 'throws if you try to add someone you"re friends with' do
       friend_users(inviter, aspect, another_user, wrong_aspect)
       inviter.reload
-      proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /You are already friends with this person/
+      proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /You are already friends with that person/
     end
 
     it 'sends a friend request to a user with that email into the aspect' do
@@ -126,7 +126,7 @@ describe User do
       u.reload
       inviter
       inviter.receive_salmon(u.salmon(u.accept_friend_request(request.id, aspect2.id)).xml_for(inviter.person))
-      inviter.friends.include?(u.person).should be true
+      inviter.contact_for(u.person).should_not be_nil
     end
   end
 end

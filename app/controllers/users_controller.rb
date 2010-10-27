@@ -73,16 +73,13 @@ class UsersController < ApplicationController
   def import
     xml = params[:upload][:file].read
 
-    params[:user][:diaspora_handle] = 'asodij@asodij.asd'
-
-
     begin
       importer = Diaspora::Importer.new(Diaspora::Parsers::XML)
       importer.execute(xml, params[:user])
       flash[:notice] = "hang on a sec, try logging in!"
 
     rescue Exception => e
-      flash[:error] = "Derp, something went wrong: #{e.message}"
+      flash[:error] = "Something went wrong: #{e.message}"
     end
 
       redirect_to new_user_registration_path

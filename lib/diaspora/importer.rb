@@ -9,8 +9,9 @@ module Diaspora
       self.class.send(:include, strategy)
     end
     
-    def commit(user, person, aspects, people, posts, opts = {})
-      filter = verify_and_clean(user, person, people, aspects, posts)
+    def commit(user, person, aspects, people, posts, contacts, opts = {})
+      filter = verify_and_clean(user, person, people, aspects, posts, contacts)
+  
       #assume data is good
       
       # to go 
@@ -27,11 +28,9 @@ module Diaspora
       
       user.visible_post_ids = filter[:whitelist].keys
 
-      user.friend_ids = people.collect{ |x| x.id }
-      user.visible_person_ids = user.friend_ids
+      #user.friend_ids =       
+      user.visible_person_ids = people.collect{ |x| x.id }
 
-      user.save!
-      user.person.save!
       
       posts.each do |post|
         post.save! if filter[:unknown].include? post.id
@@ -43,26 +42,58 @@ module Diaspora
         user.aspects << aspect
       end
 
-
-
       people.each do |p|
         p.save! if filter[:people].include? p.id.to_s
       end
+
+      contacts.each do |contact|
+        contact.user = user
+
+        user.friends << contact
+        contact.save!
+      end
+
+
+      puts user.persisted?
+
+      puts user.inspect
+      user.save(:validate => false)
+
+
+    end
+
+    def assign_aspect_ids(contacts, aspects)
+      a_hash = {}
+      aspects.each{|x| a_hash[x.name]=x.id}
+
+      contacts.each do |contact|
+        contact.aspect_names.each  do |x|
+          contact.aspect_ids << a_hash[x]
+        end
+        contact.aspect_names = nil
+      end
+
+
     end
 
     ### verification (to be module) ################
 
-    def verify_and_clean(user, person, people, aspects, posts)
+    def verify_and_clean(user, person, people, aspects, posts, contacts)
       verify_user(user)
       verify_person_for_user(user, person)
       filters = filter_posts(posts, person)
-
-
       clean_aspects(aspects, filters[:whitelist])
+      filters[:all_person_ids] = people.collect{ |x| x.id.to_id }
 
-
+      raise "incorrect number of contacts" unless verify_contacts(contacts, filters[:all_person_ids])
+      assign_aspect_ids(contacts, aspects)
       filters[:people] = filter_people(people)
       filters  
+    end
+
+    def verify_contacts(contacts, person_ids)
+      return false if contacts.count != person_ids.count
+      contacts.all?{|x| person_ids.include?(x.person_id)} 
     end
  
     def verify_user(user)
@@ -126,11 +157,12 @@ module Diaspora
 
         user, person = parse_user_and_person(doc)
         aspects = parse_aspects(doc)
+        contacts = parse_contacts(doc)
         people = parse_people(doc)
         posts = parse_posts(doc)
-
+      
         user
-        commit(user, person, aspects, people, posts, opts)
+        commit(user, person, aspects, people, posts, contacts, opts)
       end
 
       def parse_user_and_person(doc)
@@ -152,7 +184,6 @@ module Diaspora
           aspect = Aspect.new
           aspect.name = a.xpath('/aspect/name').text
           aspect.post_ids = a.xpath('/aspect/post_ids/post_id').collect{ |x| x.text.to_id }
-          aspect.person_ids = a.xpath('/aspect/person_ids/person_id').collect{ |x| x.text.to_id }
           aspects << aspect
         end
         aspects
@@ -165,6 +196,18 @@ module Diaspora
         end
       end
 
+      def parse_contacts(doc)
+        contacts = []
+        contact_doc = doc.xpath('/export/contacts/contact') 
+
+        contact_doc.each do |x|
+          contact = Contact.new
+          contact.person_id = x.xpath("person_id").text.to_id
+          contact.aspect_names = x.xpath('aspects/aspect/name').collect{ |x| x.text}
+          contacts << contact
+        end
+        contacts
+      end
 
       def parse_posts(doc)
         post_doc = doc.xpath('/export/posts/status_message')
