@@ -55,6 +55,6 @@ describe RequestsController do
   end
 
   it 'should not blow up if there is a problem mid way thru the webfinger process' do
-    pending "i need to do this tomorrow'
+    pending "i need to do this tomorrow"
   end
 end
