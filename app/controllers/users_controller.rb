@@ -65,18 +65,16 @@ class UsersController < ApplicationController
   end
 
   def getting_started
-    @aspect  = :getting_started
-    @user    = current_user
-    @person  = @user.person
-    @profile = current_user.profile
-    @photos  = current_user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
-    @services = current_user.services
+    @aspect   = :getting_started
+    @user     = current_user
+    @person   = @user.person
+    @profile  = @user.profile
+    @photos   = @user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
+    @services = @user.services
 
-    if params[:id].to_i < 5
-      render "users/getting_started/#{params[:id]}"
-    else
-      render "users/getting_started/1"
-    end
+    @step = ((params[:step].to_i>0)&&(params[:step].to_i<5)) ? params[:step].to_i : 1
+    @step ||= 1
+    render "users/getting_started"
   end
 
   def export

@@ -49,7 +49,7 @@ class PeopleController < ApplicationController
     end
 
     if params[:getting_started]
-      redirect_to getting_started_path(params[:getting_started].to_i+1)
+      redirect_to getting_started_path(:step => params[:getting_started].to_i+1)
     else
       redirect_to edit_person_path
     end

@@ -1,0 +1,38 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%h3
+  Your aspects
+  .description
+    Diaspora aspects are mappings of your real-life aspects.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others.
+
+%h4
+  Aspect name
+  - form_for Aspect.new, :remote => true do |aspect|
+    = aspect.text_field :name, :style => "display:inline;"
+    = aspect.submit "Add"
+
+%ul.aspects
+  - for aspect in @aspects
+    %li{:style=>"position:relative;"}
+      = aspect
+      .friend_pictures.horizontal
+        - for friend in aspect.people
+          = person_image_link(friend)
+
+        = link_to (image_tag('add_friend_button.png', :title => "add to #{aspect}")), "#add_request_pane", :class => 'add_request_button'
+
+        .fancybox_content
+          #add_request_pane
+            = render "requests/new_request", :aspect => aspect, :getting_started => 2
+
+      = link_to "x", aspect_path(aspect), :confirm => "are you sure?", :method => :delete, :remote => true, :class => "delete right"
+
+%br
+%br
+
+.submit_block
+  = link_to "Save and continue →", getting_started_path(:step => 3), :class => "button"
+
