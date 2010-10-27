@@ -67,7 +67,7 @@ describe Diaspora::UserModules::Friending do
       end
 
       it 'should be able to ignore a pending friend request' do
-        proc { user.ignore_friend_request(request_for_user.id) }.should change (
+        proc { user.ignore_friend_request(request_for_user.id) }.should change(
           user.reload.pending_requests, :count ).by(-1)
       end
     end
