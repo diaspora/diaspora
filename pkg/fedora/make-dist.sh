@@ -252,8 +252,8 @@ function make_bundle()
             rm -rf $bundle_name
             cd diaspora
                 rm Gemfile.lock
+                rm -rf .bundle
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
-                    rm -rf .bundle
                     bundle update
                 fi
 
@@ -262,10 +262,12 @@ function make_bundle()
                 git checkout Gemfile
                 build_git_gems  Gemfile vendor/git
                 sed -i  's|git://.*/|vendor/git/|g' Gemfile
-                rm -rf .bundle
                 # see: http://bugs.joindiaspora.com/issues/440
-                bundle install --path=vendor/bundle  ||
-                     bundle install --path=vendor/bundle
+                bundle install --path=vendor/bundle  || {
+                    rm -rf vendor/git/* .bundle
+                    build_git_gems  Gemfile vendor/git
+                    bundle install --path=vendor/bundle
+                }
                 bundle package
 
                 mkdir  -p "../$bundle_name/docs"
