@@ -21,7 +21,36 @@
 .span-15.last
   .floating
     %h1
-      You're all set up!
+      = "You're all set up, #{current_user.person.profile.first_name}!"
+      .description
+        You're now ready to start sharing with 
+        %ul.inline_aspect_listing
+          - for aspect in @aspects
+            %li= aspect
+
+    %br
+    %br
+
+
     %h3
       = link_to "Continue on to your everyone page, an overview of all of your aspects.", root_path
 
+    %br
+    %br
+    %br
+
+    %p
+      You can change your profile any time by clicking
+      %b edit profile
+      in your user menu (top right).
+    %p
+      You can connect/disconnect your services any time by clicking
+      %b edit account
+      in your user menu (top right).
+    %p
+      You can manage your aspects any time by clicking the
+      %b manage
+      tab.  Your contacts can also be added while on a particular aspect page, as well.
+
+    .submit_block
+      = link_to "Back", getting_started_path(3), :class => "button"

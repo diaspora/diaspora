@@ -35,13 +35,13 @@
     %h3
       Your aspects
       .description
-        Diaspora aspects are mappings of your real-life aspects.  You can manage these later by clicking the manage tab on the top right.
+        Diaspora aspects are mappings of your real-life aspects.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others.
 
     %h4
       Aspect name
-    - form_for Aspect.new, :remote => true do |aspect|
-      = aspect.text_field :name, :style => "display:inline;"
-      = aspect.submit "Add"
+      - form_for Aspect.new, :remote => true do |aspect|
+        = aspect.text_field :name, :style => "display:inline;"
+        = aspect.submit "Add"
 
     %ul.aspects
       - for aspect in @aspects
@@ -63,4 +63,5 @@
     %br
 
     .submit_block
+      = link_to "Back", getting_started_path(1), :class => "button"
       = link_to "Save and continue →", getting_started_path(3), :class => "button"

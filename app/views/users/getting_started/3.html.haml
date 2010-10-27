@@ -20,7 +20,10 @@
 
 .span-15.last
   .floating
-    %h3 Your services
+    %h3
+      Your services
+      .description
+        Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select "public."
     %ul#stream
       - for service in @services
         %h3
@@ -34,4 +37,5 @@
     %h4= link_to "Connect to facebook", "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
 
     .submit_block
+      = link_to "Back", getting_started_path(2), :class => "button"
       = link_to "Save and continue →", getting_started_path(4), :class => "button"

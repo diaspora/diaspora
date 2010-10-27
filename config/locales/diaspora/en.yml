@@ -117,6 +117,12 @@ en:
       edit:
           editing_profile: "Editing profile"
       destroy: "Account successfully closed."
+      getting_started:
+          '1':
+              albums: "Albums"
+              you_dont_have_any_photos: "You don't have any photos!  Go to the"
+              page_to_upload_some:  "page to upload some."
+              or: "or"
   comments:
       comment:
           ago: "ago"

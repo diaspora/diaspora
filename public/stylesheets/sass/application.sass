@@ -393,8 +393,11 @@ li.message
 
 form
   :position relative
-  :font
-    :size 14px
+  input,
+  textarea,
+  label
+    :font
+      :size 14px
 
 #user_name
   :margin
@@ -596,7 +599,6 @@ li.message .from .right
   h5
     :color #ccc
 
-
 input:not([type='submit']),
 textarea
   :font
@@ -612,6 +614,8 @@ textarea
   :-webkit-border-radius 5px
   :-moz-border-radius 5px
 
+input[type='checkbox']
+  :width auto
 
 .submit_block
   :text
@@ -685,7 +689,6 @@ label
       :display inline
 
     .public_toggle
-      :width 300px
       :font
         :size smaller
         :style italic
@@ -1298,6 +1301,7 @@ ul.aspects
   :display inline
 
 .floating
+  :position relative
   :padding 12px
   :background
     :color rgb(255,255,255)
@@ -1306,8 +1310,12 @@ ul.aspects
   :border
     :bottom 1px solid #ccc
     :top 1px solid #fff
+  :min-height 500px
 
-
+  .submit_block
+    :position absolute
+    :bottom 13px
+    :right 12px
 
 .bottom_notification
   :position fixed
@@ -1325,3 +1333,23 @@ ul.aspects
   :color #fff
   :padding 21px
 
+
+.inline_aspect_listing
+  :margin 0
+  :padding 0
+  :list
+    :style none
+  :display inline
+  > li
+    :display inline
+    :font
+      :weight normal
+    
+    &:after
+      :content ", "
+
+    &:last-child
+      &:before
+        :content "and "
+      &:after
+        :content "."
