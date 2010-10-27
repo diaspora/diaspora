@@ -22,7 +22,7 @@ describe AspectsController do
     it "assigns @friends to all the user's friends" do
       Factory.create :person
       get :index
-      assigns[:friends].should == @user.friends.map{|c| c.person}
+      assigns[:friends].should == @user.person_objects
     end
   end
 

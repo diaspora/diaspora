@@ -236,7 +236,7 @@ class User
 
     push_to_hub(post) if post.respond_to?(:public) && post.public
 
-    push_to_people(post, target_contacts.map{|c|c.person})
+    push_to_people(post, self.person_objects(target_contacts))
   end
 
   def push_to_people(post, people)
@@ -289,7 +289,8 @@ class User
     if owns? comment.post
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
-      push_to_people comment, contacts_in_aspects(aspects_with_post(comment.post.id)).map{|c|c.person}
+      aspects = aspects_with_post(comment.post_id)
+      push_to_people(comment, people_in_aspects(aspects))
     elsif owns? comment
       comment.save
       push_to_people comment, [comment.post.person]
@@ -303,7 +304,7 @@ class User
 
     post.unsocket_from_uid(self.id, :aspect_ids => aspect_ids) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
-    push_to_people retraction, contacts_in_aspects(aspects_with_post(post.id)).map{|c| c.person}
+    push_to_people retraction, people_in_aspects(aspects_with_post(post.id))
     retraction
   end
 

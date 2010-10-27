@@ -33,7 +33,18 @@ module Diaspora
       end
 
       def friends_not_in_aspect( aspect ) 
-        Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).map{|c| c.person}
+        person_ids = Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).collect{|x| x.person_id }
+        Person.all(:id.in => person_ids)
+      end
+
+      def person_objects(contacts = self.friends)
+        person_ids = contacts.collect{|x| x.person_id} 
+        Person.all(:id.in => person_ids)
+      end
+
+      def people_in_aspects(aspects)
+        person_ids = contacts_in_aspects(aspects).collect{|x| x.person_id}
+        Person.all(:id.in => person_ids)
       end
 
       def aspect_by_id( id )
@@ -44,6 +55,7 @@ module Diaspora
       def aspects_with_post( id )
         self.aspects.find_all_by_post_ids( id.to_id )
       end
+
 
       def aspects_with_person person
         contact_for(person).aspects

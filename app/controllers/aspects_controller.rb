@@ -47,7 +47,7 @@ class AspectsController < ApplicationController
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
-      @friends = @aspect.people.map{|c| c.person}
+      @friends = @aspect.person_objects
       @posts   = current_user.visible_posts( :by_members_of => @aspect ).paginate :per_page => 15, :order => 'created_at DESC'
       respond_with @aspect
     end

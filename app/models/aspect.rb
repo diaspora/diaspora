@@ -30,6 +30,11 @@ class Aspect
     posts.detect{|x| x.person.id == id }
   end
 
+  def person_objects
+    person_ids = people.map{|x| x.person_id}
+    Person.all(:id.in => person_ids)
+  end
+
   def as_json(opts = {})
     {
       :aspect => {
