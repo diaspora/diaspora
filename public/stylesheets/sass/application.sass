@@ -105,8 +105,12 @@ header
   :margin -2em
     :bottom 2em
   :color #000
+
   :background
     :color #333
+  :background -webkit-gradient( linear, left bottom, left top, color-stop(0.01, rgb(31,31,31)), color-stop(0.12, rgb(51,51,51)))
+  :background -moz-linear-gradient( center bottom, rgb(31,31,31) 1%, rgb(51,51,51) 12%)
+
   :padding 0
     :top 5px
   :color #CCC
@@ -873,7 +877,7 @@ h1.big_text
         :font
           :weight bold
         :background
-          :color rgba(252,252,252,1)
+          :color rgb(252,252,252)
 
         :color #444
         &:hover
