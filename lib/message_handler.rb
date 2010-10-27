@@ -5,7 +5,7 @@
 class MessageHandler
 
   NUM_TRIES = 3
-  TIMEOUT = 5 #seconds
+  TIMEOUT = 10 #seconds
 
   def initialize
     @queue = EM::Queue.new
