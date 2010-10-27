@@ -257,16 +257,17 @@ function make_bundle()
                     bundle update
                 fi
 
-                [ -d 'vendor/git' ] || mkdir  vendor/git
-                rm -rf vendor/git/*
+                [ -d 'git-repos' ] || mkdir  git-repos
+                rm -rf git-repos/*
                 git checkout Gemfile
-                build_git_gems  Gemfile vendor/git
-                sed -i  's|git://.*/|vendor/git/|g' Gemfile
+                build_git_gems  Gemfile git-repos
+                sed -i  's|git://.*/|git-repos/|g' Gemfile
                 # see: http://bugs.joindiaspora.com/issues/440
                 bundle install --path=vendor/bundle  || {
-                    rm -rf vendor/git/* .bundle
-                    build_git_gems  Gemfile vendor/git
-                    bundle install --path=vendor/bundle
+                    bundle install --path=vendor/bundle || {
+                        echo "bundle install failed, giving up" >&2
+                        exit 3
+                    }
                 }
                 bundle package
 
@@ -277,7 +278,7 @@ function make_bundle()
 
                 make_docs "vendor/bundle/ruby/1.8/gems/"  "../$bundle_name/docs"
                 mv vendor/cache ../$bundle_name/vendor
-                mv vendor/git  ../$bundle_name/vendor
+                mv git-repos ../$bundle_name
                 rm -rf vendor/gems/*
             cd ..
             tar czf $bundle_name.tar.gz $bundle_name
