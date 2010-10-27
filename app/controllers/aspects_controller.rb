@@ -97,11 +97,4 @@ class AspectsController < ApplicationController
     end
     redirect_to aspects_manage_path
   end
-
-  private
-  def clean_hash(params)
-    return {
-      :name => params[:name]
-    }
-  end
 end

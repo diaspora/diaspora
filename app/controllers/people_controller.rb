@@ -24,8 +24,6 @@ class PeopleController < ApplicationController
       @contact = current_user.contact_for(@person)
       @aspects_with_person = @contact.aspects if @contact
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
-      @latest_status_message = current_user.raw_visible_posts.find_all_by__type_and_person_id("StatusMessage", params[:id]).last
-      @post_count = @posts.count
       respond_with @person
     end
   end
@@ -33,6 +31,40 @@ class PeopleController < ApplicationController
   def destroy
     current_user.unfriend(current_user.visible_person_by_id(params[:id]))
     respond_with :location => root_url
+  end
+
+  def edit
+    @aspect  = :person_edit
+    @person  = current_user.person
+    @profile = @person.profile
+    @photos  = current_user.visible_posts(:person_id => @person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
+  end
+
+  def update
+    prep_image_url(params[:person])
+
+    if current_user.update_profile params[:person][:profile]
+      flash[:notice] = "Profile updated"
+    else
+      flash[:error] = "Failed to update profile"
+    end
+
+    redirect_to edit_person_path
+  end
+
+  private
+  def prep_image_url(params)
+    url = APP_CONFIG[:pod_url].dup
+    url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
+    if params[:profile][:image_url].empty?
+      params[:profile].delete(:image_url)
+    else
+      if /^http:\/\// =~ params[:profile][:image_url]
+        params[:profile][:image_url] = params[:profile][:image_url]
+      else
+        params[:profile][:image_url] = url + params[:profile][:image_url]
+      end
+    end
   end
 
 end
