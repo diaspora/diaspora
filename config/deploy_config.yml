@@ -6,7 +6,7 @@ cross_server:
   deploy_to: '/usr/local/app/diaspora'
   user: 'root'
   repo: 'git://github.com/diaspora/diaspora.git'
-  branch: 'contact-refactor'
+  branch: 'master'
   default_env: 'development'
 servers:
   tom:
