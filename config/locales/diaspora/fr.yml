@@ -15,6 +15,10 @@ fr:
                           taken: "est déjà pris"
                       email:
                           taken: "est déjà pris"
+              person:
+                  attributes:
+                      diaspora_handle:
+                          taken: "est déjà pris"
   hello: "Bonjour tout le monde"
   application:
       helper:
