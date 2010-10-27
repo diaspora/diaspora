@@ -161,6 +161,7 @@ function make_src
         cp -ar diaspora/*  diaspora/.git* ${RELEASE_DIR}/master
         (
              cd  ${RELEASE_DIR}/master
+             rm -rf vendor/bundle/* vendor/git/* vendor/cache/* gem-tmp
              git show --name-only > config/gitversion
              tar czf public/source.tar.gz  \
                  --exclude='source.tar.gz' -X .gitignore *
@@ -175,17 +176,11 @@ function make_src
     echo "Required bundle:     $(git_id dist/diaspora/Gemfile)"
 }
 
-function fix_gemfile
-{
-    sed -i  's|git://.*/|vendor/git/|g' $1
-
-}
-
 function build_git_gems()
 # Usage: build_git_gems <Gemfile> <tmpdir> <gemdir>
 # Horrible hack, in wait for bundler handling git gems OK.
 {
-    mkdir gem-tmp || :
+    [ -d 'gem-tmp' ] || mkdir gem-tmp
     cd gem-tmp
     rm -rf *
 
@@ -198,34 +193,19 @@ function build_git_gems()
                     }
                     name = $2
                     url=""
-                    suffix = "; cd " name
                     for (i = 3; i <= NF; i += 1) {
                         key = $i
                         i += 1
                         if (key == ":git")
                             url = $i
-                        else if ( key == ":ref")
-                            suffix = suffix "; git reset --hard " $i
-                        else if ( key == ":branch")
-                            suffix = suffix "; git checkout " $i
                     }
-                    suffix = suffix "; cd .."
-                    cmd =  sprintf( "git clone --quiet %s %s %s\n",
-                                     url, name, suffix)
-                    print "Running: ", cmd
-                    system( cmd)
                     cmd = sprintf( "git clone --bare --quiet %s\n", url)
                     print "Running: ", cmd
                     system( cmd)
                 }'
-    sed -i 's/Date.today/"2010-10-24"/' carrierwave/carrierwave.gemspec
+    mv devise-mongo_mapper.git  devise-mongo_mapper
     for dir in *; do
-        if  [ -e  $dir/*.gemspec ] ; then
-            cd $dir
-                gem build *.gemspec
-                cp *.gem ../../$2
-            cd ..
-        else
+        if  [ ! -e  $dir/*.gemspec ]; then
             cp -ar $dir ../$2
         fi
     done
@@ -271,16 +251,17 @@ function make_bundle()
         cd dist
             rm -rf $bundle_name
             cd diaspora
+                rm Gemfile.lock
                 if [ "$BUNDLE_FIX" = 'yes' ]; then
-                    rm -f Gemfile.lock
                     rm -rf .bundle
                     bundle update
                 fi
 
                 [ -d 'vendor/git' ] || mkdir  vendor/git
+                rm -rf vendor/git/*
+                git checkout Gemfile
                 build_git_gems  Gemfile vendor/git
                 sed -i  's|git://.*/|vendor/git/|g' Gemfile
-                rm Gemfile.lock
                 rm -rf .bundle
                 # see: http://bugs.joindiaspora.com/issues/440
                 bundle install --path=vendor/bundle  ||

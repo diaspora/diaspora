@@ -24,6 +24,12 @@ service mongodb start || :
 
 cd /usr/share/diaspora/master
 
+rm -rf vendor
+ln -s /usr/lib/diaspora-bundle/vendor .
+ln -sf /usr/lib/diaspora-bundle/Gemfile .
+ln -sf /usr/lib/diaspora-bundle/Gemfile.lock .
+
+
 test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml
 
