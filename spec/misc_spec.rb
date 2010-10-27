@@ -11,6 +11,15 @@ describe 'making sure the spec runner works' do
     loaded_user.person.owner_id.should == user.id
   end
 
+  describe 'factories' do
+    describe 'build' do
+      it 'does not save a built user' do
+        pending "This problem is bizarre and needs fixing"
+        Factory.build(:user).persisted?.should be_false
+      end
+    end
+  end
+
    describe '#friend_users' do
     before do
       @user1 = Factory.create(:user)
