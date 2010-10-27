@@ -3,6 +3,18 @@
 -#   the COPYRIGHT file.
 
 
+- if current_user.getting_started == true
+  :javascript
+    $("#getting_started_skip").live("click", function(evt){
+      evt.preventDefault();
+      $.ajax({
+        type: "PUT",
+        url: "/users/#{current_user.id}",
+        data: {"user":{"getting_started":'false'}},
+        success: function() { window.location = "#{root_path}"}
+      })
+    });
+
 .span-8.append-1.last
   %h1{:style => "text-align:right;"}
     = "Welcome to Diaspora!"

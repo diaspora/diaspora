@@ -22,7 +22,6 @@ class UsersController < ApplicationController
     @user = current_user
 
     if params[:user][:getting_started]
-      puts "here"
       boolean = params[:user][:getting_started] == "true"
       @user.update_attributes( :getting_started => boolean )
       redirect_to root_path
@@ -38,9 +37,9 @@ class UsersController < ApplicationController
           flash[:error] = "Password Change Failed"
         end
       end
-    end
 
-    redirect_to edit_user_path(@user)
+      redirect_to edit_user_path(@user)
+    end
   end
 
   def destroy
