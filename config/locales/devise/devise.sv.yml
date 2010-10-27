@@ -31,9 +31,13 @@ sv:
       updated: 'Ditt konto har uppdateras.'
       destroyed: 'Ditt konto är avslutat. Välkommen åter!'
     unlocks:
-      send_instructions: 'Du kommer att få ett ebrev med instruktioner för att låsa upp ditt konto inom några minuter.'
+      send_instructions: 'Du kommer att få ett mail med instruktioner för att låsa upp ditt konto inom några minuter.'
       unlocked: 'Ditt konto har är nu upplåst och du är inloggad'
+    invitations:
+      send_instructions: 'Din inbjudan är nu skickad.'
+      invitation_token_invalid: 'Denna inbjudan är ej giltig!'
+      updated: 'Ditt lösenord är nu inställt och du är inloggad.'
     mailer:
       confirmation_instructions: 'Instruktioner för att verifiera ditt konto.'
-      reset_password_instructions: 'Instruktioner för att terställa ditt lösenord.'
+      reset_password_instructions: 'Instruktioner för att återställa ditt lösenord.'
       unlock_instructions: 'Instruktioner för att låsa upp ditt konto.'
