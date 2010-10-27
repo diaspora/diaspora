@@ -56,9 +56,9 @@ namespace :deploy do
     run "ln -s -f #{shared_path}/app_config.yml #{current_path}/config/app_config.yml"
   end
 
-  task :symlink_fb_config do
-    run "touch #{shared_path}/fb_config.yml"
-    run "ln -s -f #{shared_path}/fb_config.yml #{current_path}/config/fb_config.yml"
+  task :symlink_oauth_keys_config do
+    run "touch #{shared_path}/oauth_keys.yml"
+    run "ln -s -f #{shared_path}/oauth_keys.yml #{current_path}/config/oauth_keys.yml"
   end
 
    task :start do
@@ -157,4 +157,4 @@ namespace :db do
 
 end
 
-after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config', 'deploy:symlink_fb_config'
+after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config', 'deploy:symlink_oauth_keys_config'

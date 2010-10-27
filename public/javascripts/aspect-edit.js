@@ -25,7 +25,11 @@ $(function() {
     revert: true,
     start: function(event,ui){
       $(this).children("img").animate({'height':80, 'width':80, 'opacity':0.8},200);
+      $(this).children("img").tipsy("hide");
       $(".draggable_info").fadeIn(100);
+    },
+    drag: function(event,ui){
+      $(this).children("img").tipsy("hide"); //ensure this is hidden
     },
     stop: function(event,ui){
       $(this).children("img").animate({'height':70, 'width':70, 'opacity':1},200);
@@ -88,7 +92,7 @@ $(function() {
                   'aspect_id' : person.attr('data-aspect_id') }
           });
         }
-      person.fadeOut('slow', $(this).remove());
+      person.fadeOut(400, function(){person.remove();});
       }
     }
   });

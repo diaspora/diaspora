@@ -10,7 +10,7 @@ class StatusMessagesController < ApplicationController
 
   def create
     public_flag = params[:status_message][:public]
-    public_flag.match(/(true)/) ? public_flag = true : public_flag = false
+    public_flag.to_s.match(/(true)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag 
 
     data = clean_hash params[:status_message]
