@@ -54,7 +54,8 @@ describe AspectsController do
   describe "#move_friend" do
     let(:opts) { {:friend_id => "person_id", :from => "from_aspect_id", :to => {:to => "to_aspect_id"}}}
     it 'calls the move_friend_method' do
-      pending "need to figure out how to stub current_user to return our test @user"
+      pending "need to figure out what is the deal with remote requests" 
+      @controller.stub!(:current_user).and_return(@user)
       @user.should_receive(:move_friend).with( :friend_id => "person_id", :from => "from_aspect_id", :to => "to_aspect_id")
       post :move_friend, opts
     end

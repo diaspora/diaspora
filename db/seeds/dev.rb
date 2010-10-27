@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 require File.join(File.dirname(__FILE__), "..", "..", "config", "environment")
+require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
+
 
 def set_app_config username
   current_config = YAML.load(File.read(Rails.root.join('config', 'app_config.yml.example')))
@@ -18,7 +20,7 @@ username = "tom"
 set_app_config username unless File.exists?(Rails.root.join('config', 'app_config.yml'))
 
 require Rails.root.join('config',  "initializers", "_load_app_config.rb")
-
+include HelperMethods
 # Create seed user
 user = User.build( :email => "tom@tom.joindiaspora.com",
                      :username => "tom",
@@ -44,7 +46,8 @@ user2.save
 user2.person.save!
 user2.seed_aspects
 # friending users
-aspect = user.aspect(:name => "other dudes")
-request = user.send_friend_request_to(user2, aspect)
-reversed_request = user2.accept_friend_request( request.id, user2.aspect(:name => "presidents").id )
-user.receive reversed_request.to_diaspora_xml, user2.person
+aspect = user.aspect(:name => "other dudes") 
+aspect2 = user2.aspect(:name => "presidents")
+
+friend_users(user, aspect, user2, aspect2)
+user.aspect(:name => "Presidents")
