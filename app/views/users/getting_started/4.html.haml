@@ -3,6 +3,14 @@
 -#   the COPYRIGHT file.
 
 
+- content_for :head do
+  - if current_user.getting_started == true
+    :javascript
+      $.ajax({
+        type: "PUT",
+        url: "/users/#{current_user.id}",
+        data: {"user":{"getting_started":'false'}}
+      })
 
 .span-8.append-1.last
   %h1{:style => "text-align:right;"}
@@ -30,7 +38,6 @@
 
     %br
     %br
-
 
     %h3
       = link_to "Continue on to your everyone page, an overview of all of your aspects.", root_path

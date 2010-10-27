@@ -20,14 +20,23 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    params[:user].delete(:password) if params[:user][:password].blank?
-    params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
 
-    if params[:user][:password] && params[:user][:password_confirmation]
-      if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-        flash[:notice] = "Password Changed"
-      else
-        flash[:error] = "Password Change Failed"
+    if params[:user][:getting_started]
+      puts "here"
+      boolean = params[:user][:getting_started] == "true"
+      @user.update_attributes( :getting_started => boolean )
+      redirect_to root_path
+
+    else
+      params[:user].delete(:password) if params[:user][:password].blank?
+      params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
+
+      if params[:user][:password] && params[:user][:password_confirmation]
+        if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+          flash[:notice] = "Password Changed"
+        else
+          flash[:error] = "Password Change Failed"
+        end
       end
     end
 

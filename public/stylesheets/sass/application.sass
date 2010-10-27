@@ -1246,23 +1246,6 @@ ul#breadcrumb
       &:after
         :content ''
 
-#getting_started_button
-  :position fixed
-  :bottom 4px 
-  :margin 
-    :left 680px
-
-  a
-    :padding 10px
-    :background #333
-    :color #eee
-
-    :-webkit-border-radius 5px 5px 0 0
-    :-moz-border-radius 5px 5px 0 0
-    :border-radius 5px 5px 0 0
-
-    :-webkit-box-shadow 0 0 2px #666
-
 ul.aspects
   :margin 0
   :padding 0
@@ -1328,10 +1311,22 @@ ul.aspects
   :text
     :align center
   :font
-    :size 16px
+    :size 14px
     :weight bold
   :color #fff
-  :padding 21px
+  :padding 12px
+    :bottom 10px
+  
+  a
+    :color #fafafa
+    :background
+      :color rgb(16,127,201)
+    :padding 8px
+    :border-radius 10px
+
+    &:hover
+      :background
+        :color #22AAE0
 
 
 .inline_aspect_listing

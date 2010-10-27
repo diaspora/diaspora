@@ -11,6 +11,10 @@ class AspectsController < ApplicationController
   def index
     @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @aspect = :all
+    
+    if current_user.getting_started == true
+      redirect_to getting_started_path(1)
+    end
   end
 
   def create
