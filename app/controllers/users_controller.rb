@@ -61,8 +61,9 @@ class UsersController < ApplicationController
     @person  = @user.person
     @profile = current_user.profile
     @photos  = current_user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
+    @services = current_user.services
 
-    if params[:id].to_i < 4
+    if params[:id].to_i < 5
       render "users/getting_started/#{params[:id]}"
     else
       render "users/getting_started/1"

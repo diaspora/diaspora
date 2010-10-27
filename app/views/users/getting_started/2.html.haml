@@ -34,13 +34,13 @@
   .floating
     %h3
       Your aspects
-    %p
-      Diaspora aspects are mappings of your real-life aspects.
+      .description
+        Diaspora aspects are mappings of your real-life aspects.  You can manage these later by clicking the manage tab on the top right.
 
     %h4
       Aspect name
     - form_for Aspect.new, :remote => true do |aspect|
-      = aspect.text_field :name
+      = aspect.text_field :name, :style => "display:inline;"
       = aspect.submit "Add"
 
     %ul.aspects
@@ -55,7 +55,7 @@
 
             .fancybox_content
               #add_request_pane
-                = render "requests/new_request", :aspect => aspect
+                = render "requests/new_request", :aspect => aspect, :getting_started => 2
 
           = link_to "x", aspect_path(aspect), :confirm => "are you sure?", :method => :delete, :remote => true, :class => "delete right"
 

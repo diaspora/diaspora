@@ -20,18 +20,8 @@
 
 .span-15.last
   .floating
-    %h3 Your services
-    %ul#stream
-      - for service in @services
-        %h3
-          %b= service.provider
-          logged in as
-          %b
-            = service.nickname
-          = link_to "disconnect", service, :confirm => "disconnect #{service.provider}?", :method => :delete
+    %h1
+      You're all set up!
+    %h3
+      = link_to "Continue on to your everyone page, an overview of all of your aspects.", root_path
 
-    %h4= link_to "Connect to twitter", "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
-    %h4= link_to "Connect to facebook", "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
-
-    .submit_block
-      = link_to "Save and continue →", getting_started_path(4), :class => "button"

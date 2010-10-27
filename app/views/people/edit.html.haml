@@ -29,7 +29,7 @@
       %h4
         Your birthday
         %br
-        = select_date Time.now, :order => [:month, :day, :year]
+        = date_select person, :birthday, :order => [:month, :day, :year], :start_year => 1930, :end_year => Time.now.year
 
       %h4
         Your bio

@@ -44,7 +44,12 @@ class RequestsController < ApplicationController
       else
         raise e
       end
-      respond_with :location => aspect
+
+      if params[:getting_started]
+        redirect_to getting_started_path(params[:getting_started])
+      else
+        respond_with :location => aspect
+      end
       return
     end
 

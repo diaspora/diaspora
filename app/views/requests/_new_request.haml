@@ -11,10 +11,6 @@
   - if @friends_not_in_aspect
     = render('shared/add_friend_dropdown', :aspect => aspect, :friends => @friends_not_in_aspect)
 
-
-
-
-
   = form_for Request.new do |fr_request|
     = fr_request.error_messages
 
@@ -26,5 +22,9 @@
       = fr_request.label :destination_url, t(".friends_username")
       = fr_request.text_field :destination_url
     = fr_request.hidden_field :aspect_id, :value => aspect.id
+
+    - if defined?(getting_started)
+      = hidden_field_tag :getting_started, getting_started
+
     = fr_request.submit
 
