@@ -46,7 +46,7 @@ class RequestsController < ApplicationController
       end
 
       if params[:getting_started]
-        redirect_to getting_started_path(params[:getting_started])
+        redirect_to getting_started_path(:step=>params[:getting_started])
       else
         respond_with :location => aspect
       end
@@ -66,16 +66,29 @@ class RequestsController < ApplicationController
       else
         raise e
       end
-      respond_with :location => aspect
+
+      if params[:getting_started]
+        redirect_to getting_started_path(:step=>params[:getting_started])
+      else
+        respond_with :location => aspect
+      end
       return
     end
 
     if @request
       flash[:notice] =  I18n.t 'requests.create.success',:destination_url => @request.destination_url
-      respond_with :location => aspect
+      if params[:getting_started]
+        redirect_to getting_started_path(:step=>params[:getting_started])
+      else
+        respond_with :location => aspect
+      end
     else
       flash[:error] = I18n.t 'requests.create.horribly_wrong'
-      respond_with :location => aspect
+      if params[:getting_started]
+        redirect_to getting_started_path(:step=>params[:getting_started])
+      else
+        respond_with :location => aspect
+      end
     end
   end
 
