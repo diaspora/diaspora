@@ -42,7 +42,7 @@ class MessageHandler
 
       http.errback {
         Rails.logger.info(http.response)
-        Rails.logger.info("Failure from #{query.destination}, retrying...")
+        Rails.logger.info("Failure from #{query.destination}, with #{http.inspect},retrying...")
 
         query.try_count +=1
         @queue.push query unless query.try_count >= NUM_TRIES
