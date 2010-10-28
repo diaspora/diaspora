@@ -79,29 +79,5 @@ describe "attack vectors" do
       user2.reload
       user2.profile.first_name.should == first_name
     end
-    
-    it 'should not overwrite another persons profile through comment' do
-      pending
-      user_status = user.post(:status_message, :message => "hi", :to => 'all')
-      comment = Comment.new(:person_id => user3.person.id, :text => "hey", :post => user_status)
-      
-      comment.creator_signature = comment.sign_with_key(user3.encryption_key)
-      comment.post_creator_signature = comment.sign_with_key(user.encryption_key)
-
-      person = user3.person
-      original_url = person.url
-      original_id = person.id
-      puts original_url
-      
-      comment.person.url = "http://bad.com/"
-      user3.delete
-      person.delete
-      
-      comment.to_diaspora_xml.include?("bad.com").should be true
-      user2.receive_salmon(user.salmon(comment).xml_for(user2.person))
- 
-      comment.person.url.should == original_url
-      Person.first(:id => original_id).url.should == original_url
-    end
   end
 end

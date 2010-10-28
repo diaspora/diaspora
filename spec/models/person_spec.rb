@@ -13,22 +13,6 @@ describe Person do
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
-  describe "validation" do
-    describe "of associated profile" do
-      it "fails if the profile isn't valid" do
-        person = Factory.build(:person)
-        person.should be_valid
-        
-        person.profile.update_attribute(:first_name, nil)
-        person.profile.should_not be_valid
-        person.should_not be_valid
-
-        person.errors.count.should == 1
-        person.errors.full_messages.first.should =~ /first name/i
-      end
-    end
-  end
-
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
@@ -50,6 +34,27 @@ describe Person do
       it 'is case insensitive' do
         person_two = Factory.build(:person, :url => @person.diaspora_handle.upcase)
         person_two.valid?.should be_false
+      end
+    end
+  end
+
+  context '#real_name' do
+    let!(:user) { Factory(:user) }
+    let!(:person) { user.person }
+    let!(:profile) { person.profile }
+
+    context 'with first name' do
+      it 'should return their name for real name' do
+        person.real_name.should match /#{profile.first_name}|#{profile.last_name}/
+      end
+    end
+
+    context 'without first name' do
+      it 'should display their diaspora handle' do
+        person.profile.first_name = nil
+        person.profile.last_name = nil
+        person.save!
+        person.real_name.should == person.diaspora_handle
       end
     end
   end
@@ -91,8 +96,8 @@ describe Person do
 
     status_message = Factory.create(:status_message, :person => @person)
 
-    Factory.create(:comment, :person_id => person.id,  :text => "i love you",     :post => status_message)
-    Factory.create(:comment, :person_id => @person.id, :text => "you are creepy", :post => status_message)
+    Factory.create(:comment, :person_id => person.id, :diaspora_handle => person.diaspora_handle, :text => "i love you",     :post => status_message)
+    Factory.create(:comment, :person_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => status_message)
     
     lambda {person.destroy}.should_not change(Comment, :count)
   end

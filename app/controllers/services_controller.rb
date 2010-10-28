@@ -31,7 +31,6 @@ class ServicesController < ApplicationController
                                    :uid => auth['uid'])
     end
 
-
     flash[:notice] = "Authentication successful."
     redirect_to services_url
   end

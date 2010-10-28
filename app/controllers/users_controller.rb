@@ -20,18 +20,26 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    params[:user].delete(:password) if params[:user][:password].blank?
-    params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
 
-    if params[:user][:password] && params[:user][:password_confirmation]
-      if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-        flash[:notice] = "Password Changed"
-      else
-        flash[:error] = "Password Change Failed"
+    if params[:user][:getting_started]
+      boolean = params[:user][:getting_started] == "true"
+      @user.update_attributes( :getting_started => boolean )
+      redirect_to root_path
+
+    else
+      params[:user].delete(:password) if params[:user][:password].blank?
+      params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
+
+      if params[:user][:password] && params[:user][:password_confirmation]
+        if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+          flash[:notice] = "Password Changed"
+        else
+          flash[:error] = "Password Change Failed"
+        end
       end
-    end
 
-    redirect_to edit_user_path(@user)
+      redirect_to edit_user_path(@user)
+    end
   end
 
   def destroy
@@ -53,6 +61,19 @@ class UsersController < ApplicationController
       flash[:error] = "User #{params[:username]} does not exist!"
       redirect_to root_url
     end
+  end
+
+  def getting_started
+    @aspect   = :getting_started
+    @user     = current_user
+    @person   = @user.person
+    @profile  = @user.profile
+    @photos   = @user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
+    @services = @user.services
+
+    @step = ((params[:step].to_i>0)&&(params[:step].to_i<5)) ? params[:step].to_i : 1
+    @step ||= 1
+    render "users/getting_started"
   end
 
   def export
