@@ -2,6 +2,14 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+class HandleValidator < ActiveModel::Validator
+  def validate(document)
+    unless document.diaspora_handle == document.person.diaspora_handle
+      document.errors[:base] << "Diaspora handle and person handle must match"
+    end
+  end
+end
+
 class Comment
   include MongoMapper::Document
   include ROXML
@@ -10,18 +18,21 @@ class Comment
   include Diaspora::Socketable
 
   xml_accessor :text
-  xml_accessor :person, :as => Person
+  xml_reader :diaspora_handle
   xml_accessor :post_id
   xml_accessor :_id
 
   key :text,      String
   key :post_id,   ObjectId
   key :person_id, ObjectId
+  key :diaspora_handle, String
 
   belongs_to :post,   :class_name => "Post"
   belongs_to :person, :class_name => "Person"
 
-  validates_presence_of :text
+  validates_presence_of :text, :diaspora_handle
+  validates_with HandleValidator
+
 
   timestamps!
 

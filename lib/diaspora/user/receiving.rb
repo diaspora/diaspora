@@ -44,6 +44,7 @@ module Diaspora
         elsif object.is_a? Profile
           sender = Diaspora::Parser.owner_id_from_xml xml
         elsif object.is_a?(Comment)
+          object.person = Person.by_webfinger(object.diaspora_handle)
           sender = (owns?(object.post))? object.person : object.post.person
         else
           sender = object.person
@@ -82,14 +83,13 @@ module Diaspora
       end
 
       def receive_comment comment, xml
-        comment.person = Diaspora::Parser.parse_or_find_person_from_xml( xml ).save if comment.person.nil?
         raise "In receive for #{self.real_name}, signature was not valid on: #{comment.inspect}" unless comment.post.person == self.person || comment.verify_post_creator_signature
         self.visible_people = self.visible_people | [comment.person]
         self.save
         Rails.logger.debug("The person parsed from comment xml is #{comment.person.inspect}") unless comment.person.nil?
         comment.person.save
         Rails.logger.debug("From: #{comment.person.inspect}") if comment.person
-        comment.save
+        comment.save!
         unless owns?(comment)
           dispatch_comment comment
         end

@@ -275,7 +275,7 @@ class User
 
   def build_comment(text, options = {})
     raise "must comment on something!" unless options[:on]
-    comment = Comment.new(:person_id => self.person.id, :text => text, :post => options[:on])
+    comment = Comment.new(:person_id => self.person.id, :diaspora_handle => self.person.diaspora_handle, :text => text, :post => options[:on])
     comment.creator_signature = comment.sign_with_key(encryption_key)
     if comment.save
       comment

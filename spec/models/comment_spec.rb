@@ -11,6 +11,13 @@ describe Comment do
   let(:user2)   {Factory.create(:user)}
   let(:aspect2) {user2.aspect(:name => "Lame-faces")}
 
+  it 'validates that the handle belongs to the person' do
+    user_status = user.post(:status_message, :message => "hello", :to => aspect.id)
+    comment = Comment.new(:person_id => user2.person.id, :text => "hey", :post => user_status)
+    comment.valid?
+    comment.errors.full_messages.should include "Diaspora handle and person handle must match"
+  end
+
   describe 'User#comment' do
     before do
       @status = user.post(:status_message, :message => "hello", :to => aspect.id)
@@ -52,28 +59,6 @@ describe Comment do
       user.reload
     end
 
-    it 'should receive a comment from a person not on the pod' do
-      user3 = Factory.create(:user)
-      aspect3 = user3.aspect(:name => "blah")
-
-      friend_users(user, aspect, user3, aspect3)
-
-      comment = Comment.new(:person_id => user3.person.id, :text => "hey", :post => @user_status)
-      comment.creator_signature = comment.sign_with_key(user3.encryption_key)
-      comment.post_creator_signature = comment.sign_with_key(user.encryption_key)
-
-      xml = user.salmon(comment).xml_for(user2)
-
-      user3.person.delete
-      user3.delete
-
-      @user_status.reload
-      @user_status.comments.should == []
-      user2.receive_salmon(xml)
-      @user_status.reload
-      @user_status.comments.include?(comment).should be true
-    end
-
     it "should send a user's comment on a person's post to that person" do
       User::QUEUE.should_receive(:add_post_request)
       user.comment "yo", :on => @person_status
@@ -86,8 +71,9 @@ describe Comment do
     end
 
     it 'should send a comment a person made on your post to all people' do
-      comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
+      comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle,  :text => "cats", :post => @user_status)
       User::QUEUE.should_receive(:add_post_request).twice
+      Person.should_receive(:by_webfinger).and_return(@person)
       user.receive comment.to_diaspora_xml, @person
     end
 
@@ -103,13 +89,13 @@ describe Comment do
       end
     it 'should not send a comment a person made on his own post to anyone' do
       User::QUEUE.should_not_receive(:add_post_request)
-      comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @person_status)
+      comment = Comment.new(:person_id => @person.id,  :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
       user.receive comment.to_diaspora_xml, @person
     end
 
     it 'should not send a comment a person made on a person post to anyone' do
       User::QUEUE.should_not_receive(:add_post_request)
-      comment = Comment.new(:person_id => @person2.id, :text => "balls", :post => @person_status)
+      comment = Comment.new(:person_id => @person2.id,  :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
       user.receive comment.to_diaspora_xml, @person
     end
     after(:all) do
@@ -119,7 +105,7 @@ describe Comment do
 
     it 'should not clear the aspect post array on receiving a comment' do
       aspect.post_ids.include?(@user_status.id).should be true
-      comment = Comment.new(:person_id => @person.id, :text => "balls", :post => @user_status)
+      comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @user_status)
 
       user.receive comment.to_diaspora_xml, @person
 
@@ -128,14 +114,16 @@ describe Comment do
     end
   end
   describe 'serialization' do
-    it 'should serialize the commenter' do
+    it 'should serialize the handle and not the sender' do
       commenter = Factory.create(:user)
       commenter_aspect = commenter.aspect :name => "bruisers"
       friend_users(user, aspect, commenter, commenter_aspect)
       post = user.post :status_message, :message => "hello", :to => aspect.id
       comment = commenter.comment "Fool!", :on => post
       comment.person.should_not == user.person
-      comment.to_diaspora_xml.include?(commenter.person.id.to_s).should be true
+      xml = comment.to_diaspora_xml
+      xml.include?(commenter.person.id.to_s).should be false
+      xml.include?(commenter.diaspora_handle).should be true
     end
   end
 
