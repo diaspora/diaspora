@@ -48,7 +48,8 @@
             %li!= remove_link(aspect)
 
         %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
-          -for person in aspect.people
+          -for contact in aspect.people
+            -person = contact.person
             %li.person{:data=>{:guid=>person.id, :aspect_id=>aspect.id}}
               .delete
                 .x

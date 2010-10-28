@@ -4,7 +4,7 @@
 
 Diaspora::Application.configure do
   config.action_mailer.default_url_options = {:host => APP_CONFIG[:terse_pod_url]}
-  unless Rails.env == 'test'
+  unless Rails.env == 'test' || APP_CONFIG[:mailer_on] != true
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       :address => APP_CONFIG[:smtp_address],

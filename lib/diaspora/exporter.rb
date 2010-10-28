@@ -22,16 +22,19 @@ module Diaspora
               
               xml.parent << user.person.to_xml
             }
+
+
+
             xml.aspects {
               user.aspects.each do |aspect|
                 xml.aspect { 
                   xml.name aspect.name
                    
-                  xml.person_ids {
-                    aspect.person_ids.each do |id|
-                      xml.person_id id
-                    end
-                  }
+#                  xml.person_ids {
+                    #aspect.person_ids.each do |id|
+                      #xml.person_id id
+                    #end
+                  #}
 
                   xml.post_ids {
                     aspect.posts.find_all_by_person_id(user_person_id).each do |post|
@@ -42,21 +45,38 @@ module Diaspora
               end
             }
 
-            xml.people {
+            xml.contacts {
               user.friends.each do |friend|
-                xml.parent << friend.to_xml
+              xml.contact { 
+                xml.user_id friend.user_id
+                xml.person_id friend.person_id
+
+                xml.aspects {
+                  friend.aspects.each do |aspect|
+                    xml.aspect {
+                      xml.name aspect.name
+                    }
+                  end
+                }
+              }
               end
             }
 
             xml.posts {
               user.raw_visible_posts.find_all_by_person_id(user_person_id).each do |post|
-                #post_doc = post.to_xml
-                
                 #post.comments.each do |comment|
                 #  post_doc << comment.to_xml
                 #end
 
                 xml.parent << post.to_xml
+              end
+            }
+             
+            xml.people {
+              user.friends.each do |friend|
+                person = friend.person
+                xml.parent << person.to_xml
+
               end
             }
           }

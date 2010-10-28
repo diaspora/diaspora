@@ -61,30 +61,47 @@ describe User do
     let!(:user)          {Factory :user}
     let!(:first_aspect)  {user.aspect(:name => 'bruisers')}
     let!(:second_aspect) {user.aspect(:name => 'losers')}
+    let!(:user4) { Factory.create(:user_with_aspect)}
+
+    before do
+        friend_users(user, first_aspect, user4, user4.aspects.first)
+        friend_users(user, second_aspect, user2, user2.aspects.first)
+    end
 
     describe '#friends_not_in_aspect' do
       it 'finds the people who are not in the given aspect' do
-        user4 = Factory.create(:user_with_aspect)
-        friend_users(user, first_aspect, user4, user4.aspects.first)
-        friend_users(user, second_aspect, user2, user2.aspects.first)
-
         people = user.friends_not_in_aspect(first_aspect)
         people.should == [user2.person]
       end
     end
 
-    describe '#find_friend_by_id' do
-      it 'should find a friend' do
-        friend_users(user, first_aspect, user2, user2.aspects.first)
-        user.find_friend_by_id(user2.person.id).should == user2.person
+    describe '#person_objects' do
+      it 'returns "person" objects for all of my friends' do
+        people = user.person_objects
+        people.size.should == 2
+        [user4.person, user2.person].each{ |p| people.should include p }
       end
 
-      it 'should not find a non-friend' do
-        user = Factory :user
-        user.find_friend_by_id(user2.person.id).should be nil
+      it 'should return people objects given a collection of contacts' do
+        target_contacts = [user.contact_for(user2.person)]
+        people = user.person_objects(target_contacts) 
+        people.should == [user2.person]
+      end
+
+    end
+
+    describe '#people_in_aspects' do
+      it 'should return people objects for a users friend in each aspect' do
+        people = user.people_in_aspects([first_aspect])
+        people.should == [user4.person]
+        people = user.people_in_aspects([second_aspect])
+        people.should == [user2.person]
       end
     end
   end
+
+
+
   describe '#albums_by_aspect' do
     let!(:first_aspect)  {user2.aspect(:name => 'bruisers')}
     let!(:second_aspect) {user2.aspect(:name => 'losers')}

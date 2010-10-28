@@ -58,7 +58,7 @@ group :test do
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-rails', '>= 2.0.0'
   gem 'mocha'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '0.5.2'
   gem 'webmock'
 end
 

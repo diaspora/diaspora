@@ -51,6 +51,23 @@ describe Diaspora::Importer do
       end
     end
 
+    describe 'verify contacts' do
+      let(:contact1)     {Contact.new(:user => user1, :person => user2.person, :aspects => [aspect1])}
+      let(:contact2)     {Contact.new(:user => user1, :person => user3.person, :aspects => [aspect2])}
+      let(:contact3)     {Contact.new(:user => user1, :person => user3.person, :aspects => [aspect3])}
+      let(:less_contacts) {[contact1]}
+      let(:same_contacts) {[contact1, contact2]}
+      let(:more_contacts) {[contact1, contact2, contact3]}
+
+      let(:person_ids)    {[user2.person.id, user3.person.id]}
+
+
+      it 'should be false if the number of the number of contacts is not equal to the number of imported people' do
+        importer.verify_contacts(less_contacts, person_ids).should be false
+        importer.verify_contacts(same_contacts, person_ids).should be true
+        importer.verify_contacts(more_contacts, person_ids).should be false
+      end
+    end
 
     describe '#filter_posts' do
       it 'should make sure all found posts are owned by the user' do

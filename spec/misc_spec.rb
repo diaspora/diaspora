@@ -11,6 +11,15 @@ describe 'making sure the spec runner works' do
     loaded_user.person.owner_id.should == user.id
   end
 
+  describe 'factories' do
+    describe 'build' do
+      it 'does not save a built user' do
+        pending "This problem is bizarre and needs fixing"
+        Factory.build(:user).persisted?.should be_false
+      end
+    end
+  end
+
    describe '#friend_users' do
     before do
       @user1 = Factory.create(:user)
@@ -18,18 +27,20 @@ describe 'making sure the spec runner works' do
       @user2 = Factory.create(:user)
       @aspect2 = @user2.aspect(:name => "bruisers")
       friend_users(@user1, @aspect1, @user2, @aspect2)
-      @user1.reload
-      @aspect1.reload
-      @user2.reload
-      @aspect2.reload
     end
 
     it 'makes the first user friends with the second' do
-      @aspect1.people.include?(@user2.person).should be_true
+      contact = @user1.contact_for @user2.person
+      @user1.friends.include?(contact).should be_true
+      @aspect1.people.include?(contact).should be_true
+      contact.aspects.include?( @aspect1 ).should be true
     end
 
     it 'makes the second user friends with the first' do
-      @aspect2.people.include?(@user1.person).should be_true
+      contact = @user2.contact_for @user1.person
+      @user2.friends.include?(contact).should be_true
+      @aspect2.people.include?(contact).should be_true
+      contact.aspects.include?( @aspect2 ).should be true
     end
   end
 end

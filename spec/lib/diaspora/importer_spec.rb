@@ -73,14 +73,14 @@ describe Diaspora::Importer do
     
     @user1.friends.count.should be 4
 
-    @user1.friends.should include @user2.person
-    @user1.friends.should include @user3.person
-    @user1.friends.should include @user4.person
-    @user1.friends.should include @user5.person
+    @user1.contact_for(@user2.person).should_not be_nil
+    @user1.contact_for(@user3.person).should_not be_nil
+    @user1.contact_for(@user4.person).should_not be_nil
+    @user1.contact_for(@user5.person).should_not be_nil
     
     # User is generated with two pre-populated aspects
     @user1.aspects.count.should be 6
-    @user1.aspects.find_by_name("Dudes").people.should include @user2.person
+    @user1.aspects.find_by_name("Dudes").people.find_by_person_id(@user2.person.id).should_not be_nil
     @user1.aspects.find_by_name("Dudes").posts.should include @status_message5
     
     @user1.raw_visible_posts.count.should be 6
@@ -137,9 +137,21 @@ describe Diaspora::Importer do
       it 'should should have post ids' do
         aspects.any?{|x| x.post_ids.count > 0}.should be true
       end
+    end
 
-      it 'should have person ids' do
-        aspects.any?{|x| x.person_ids.count > 0}.should be true
+    describe '#parse_contacts' do
+      let(:contacts) { @importer.parse_contacts(@doc) }
+
+      it 'should return an array' do
+        contacts.count.should == 4
+      end
+
+      it 'should should have post ids' do
+        contacts.all?{|x| x.aspect_names.count > 0}.should be true
+      end
+      
+      it 'should should have a person id' do
+        contacts.all?{|x| x.person_id.nil? ||  x.person_id == ""}.should be false
       end
     end
 
@@ -172,9 +184,10 @@ describe Diaspora::Importer do
         # Generate exported XML for user1
         exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
         @xml = exporter.execute(@user1)
-
+        @username =@user1.username
         # Remove user1 from the server
         @user1.aspects.each( &:delete )
+        @user1.friends.each( &:delete )
         @user1.raw_visible_posts.find_all_by_person_id(@user1.person.id).each( &:delete )
         @user1.delete
 
@@ -182,12 +195,15 @@ describe Diaspora::Importer do
       end
 
       it 'should import' do
-        pending "there is some weirdness with diaspora handle we need to look into... and this test is terrible"
+        pending "there is some weirdness with diaspora handle we need to look into... and this test needs love
+        the test passes when the validations are set to false when saving the user in the importer"
+        
         User.delete_all
         Person.delete_all
         Post.delete_all
         StatusMessage.delete_all
         Aspect.delete_all
+        Contact.delete_all
 
         User.count.should == 0
         Person.count.should == 0
@@ -196,15 +212,18 @@ describe Diaspora::Importer do
                           :email => "bob@bob.com",
                           :password => "bobbybob",
                           :password => "bobbybob",
-                          :diaspora_handle => "bob@diaspora.com")
+                          :diaspora_handle => "#{@username}@#{APP_CONFIG[:terse_pod_url]}")
         
         User.count.should == 1
         n = User.first
         Post.count.should == 4 
         n.aspects.count.should  == 6
         Person.count.should be == 5 
+        Contact.count.should be == 4 
 
-        User.first.person.diaspora_handle.should == User.first.diaspora_handle
+        # need to check this 
+        #User.first.person.diaspora_handle.should == User.first.diaspora_handle
+        User.first.diaspora_handle.should == "#{@username}@#{APP_CONFIG[:terse_pod_url]}"
      
 
         Person.find_by_id( @user1.person.id ).nil?.should == false
@@ -223,12 +242,7 @@ describe Diaspora::Importer do
         
         n.friends.count.should be 4
       end
-
-      
-
     end
-
   end
-
 end
 

@@ -23,14 +23,28 @@ module Diaspora
 
       def visible_person_by_id( id )
         id = id.to_id
-        return self.person if id == self.person.id
-        result = friends.detect{|x| x.id == id }
-        result = visible_people.detect{|x| x.id == id } unless result
-        result
+        if id == self.person.id
+          self.person
+        elsif friend = friends.first(:person_id => id)
+          friend.person
+        else
+          visible_people.detect{|x| x.id == id }
+        end
       end
 
-      def friends_not_in_aspect( aspect )
-        Person.all(:id.in => self.friend_ids, :id.nin => aspect.person_ids)
+      def friends_not_in_aspect( aspect ) 
+        person_ids = Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).collect{|x| x.person_id }
+        Person.all(:id.in => person_ids)
+      end
+
+      def person_objects(contacts = self.friends)
+        person_ids = contacts.collect{|x| x.person_id} 
+        Person.all(:id.in => person_ids)
+      end
+
+      def people_in_aspects(aspects)
+        person_ids = contacts_in_aspects(aspects).collect{|x| x.person_id}
+        Person.all(:id.in => person_ids)
       end
 
       def aspect_by_id( id )
@@ -38,22 +52,18 @@ module Diaspora
         aspects.detect{|x| x.id == id }
       end
 
-      def find_friend_by_id(id)
-        id = id.to_id
-        friends.detect{|x| x.id == id }
-      end
-
       def aspects_with_post( id )
         self.aspects.find_all_by_post_ids( id.to_id )
       end
 
+
       def aspects_with_person person
-        aspects.all(:person_ids => person.id)
+        contact_for(person).aspects
       end
 
-      def people_in_aspects aspects
-        aspects.inject([]) do |found_people,aspect|
-          found_people | aspect.people
+      def contacts_in_aspects aspects
+        aspects.inject([]) do |contacts,aspect|
+          contacts | aspect.people
         end
       end
 
