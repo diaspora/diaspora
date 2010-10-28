@@ -142,13 +142,13 @@ namespace :db do
       q = EM::Queue.new 
       
       backers.each do |backer|
-        q.push( proc{run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/zombiefriendaccept"})
+        q.push( lambda{run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/zombiefriendaccept"})
         
       end
      
       timer = EventMachine::PeriodicTimer.new(5) do
-        puts "the time is #{Time.now}"
-      EM.stop  if q.size == 0
+        q.pop {|x| x.call}
+        EM.stop  if q.size == 0
       end
 
     }
@@ -165,7 +165,6 @@ namespace :db do
     purge
     backer_seed
     tom_seed
-    deploy::restart
   end
 
 end
