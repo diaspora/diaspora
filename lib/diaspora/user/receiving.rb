@@ -8,9 +8,14 @@ module Diaspora
         webfinger = EMWebfinger.new(salmon.author_email)
 
         webfinger.on_person { |salmon_author|
-          if salmon.verified_for_key?(salmon_author.public_key)
-            Rails.logger.info("data in salmon: #{salmon.parsed_data}")
-            self.receive(salmon.parsed_data, salmon_author)
+          begin
+            if salmon.verified_for_key?(salmon_author.public_key)
+              Rails.logger.info("data in salmon: #{salmon.parsed_data}")
+              self.receive(salmon.parsed_data, salmon_author)
+            end
+          rescue Exception => e 
+            puts e.inspect
+            Rails.logger e.inspect
           end
         }
       end
