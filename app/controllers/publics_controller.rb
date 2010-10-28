@@ -46,7 +46,11 @@ class PublicsController < ApplicationController
       Rails.logger.error("Received post for nonexistent person #{params[:id]}")
       return
     end
-    @user.receive_salmon params[:xml]
+    
+    EM::next_tick {
+      puts "foobar!"
+      @user.receive_salmon params[:xml]
+    }
   end
 
 end
