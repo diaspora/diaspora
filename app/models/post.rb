@@ -33,7 +33,11 @@ class Post
   after_destroy :destroy_comments
 
   def self.instantiate params
-    self.create params.to_hash
+    new_post = self.new params.to_hash
+    new_post.person = params[:person]
+    new_post.public = params[:public]
+    new_post.save
+    new_post
   end
 
   def as_json(opts={})
