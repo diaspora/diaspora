@@ -12,56 +12,58 @@
     %li=link_to 'Services', services_path
 
 .span-19.prepend-5.last
-  %h2 Profile
   = form_for @person do |person|
+    %h3
+      Your Profile
+      .description
+        This info will be available to whomever you connect with on Diaspora.
+
     = person.error_messages
 
-    = person.fields_for :profile do |p|
+    = person.fields_for :profile do |profile|
+      %h4
+        Your name
+        = profile.text_field :first_name, :value => @profile.first_name, :placeholder => "First name"
+        = profile.text_field :last_name, :value => @profile.last_name, :placeholder => "Last name"
 
-      %h3="#{t('.picture')}"
-      %div#image_picker
-        = p.hidden_field :image_url, :value => (@profile.image_url if @profile.image_url), :id => 'image_url_field'
+      %h4
+        Your gender
+        %br
+        = select_tag 'person[profile][gender]', options_for_select(["","Female","Male"], @person.profile.gender)
 
-        - unless @photos.nil? || @photos.empty?
-          - for photo in @photos
-            - if @profile.image_url && @profile.image_url.include?(photo.url(:thumb_medium))
-              %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
-                = check_box_tag 'checked_photo', true, true
-                = link_to image_tag(photo.url(:thumb_medium)), "#"
-            - else
-              %div.small_photo{:id => photo.url(:thumb_medium)}
-                = check_box_tag 'checked_photo'
-                = link_to image_tag(photo.url(:thumb_medium)), "#"
+      %h4
+        Your birthday
+        %br
+        = select_date @person.profile.birthday, :order => [:month, :day, :year], :start_year => 1930, :end_year => 2000
 
-        - else
-          =t('.you_dont_have_any_photos')
-          = link_to t('.albums'), albums_path(:aspect => 'all')
-          =t('.page_to_upload_some')
+      %h4
+        Your bio
+        = profile.text_area :bio, :value => @profile.bio, :rows => 5, :placeholder => "Fill me out"
 
-      =will_paginate @photos
+      %h4
+        Your photo
+        %div#image_picker
+          = profile.hidden_field :image_url, :value => (@profile.image_url if @profile.image_url), :id => 'image_url_field'
 
-      %br
+          - unless @photos.nil? || @photos.empty?
+            - for photo in @photos
+              - if @profile.image_url && @profile.image_url.include?(photo.url(:thumb_medium))
+                %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
+                  = check_box_tag 'checked_photo', true, true
+                  = link_to image_tag(photo.url(:thumb_medium)), "#"
+              - else
+                %div.small_photo{:id => photo.url(:thumb_medium)}
+                  = check_box_tag 'checked_photo'
+                  = link_to image_tag(photo.url(:thumb_medium)), "#"
 
-      %h3="#{t('.info')}"
+          - else
+            =t('.you_dont_have_any_photos')
+            = link_to t('.albums'), albums_path(:aspect => 'all')
+            =t('.page_to_upload_some')
 
-      %p
-        %b
-          ="#{t('.diaspora_username')}:"
-          = @person.diaspora_handle
-
-      %p
-        = p.label :first_name
-        = p.text_field :first_name, :value => @profile.first_name
-      %p
-        = p.label :last_name
-        = p.text_field :last_name, :value => @profile.last_name
+        =will_paginate @photos
 
     .submit_block
       = link_to t('.cancel'), edit_user_path(current_user)
       = t('.or')
       = person.submit t('.update_profile')
-
-  #content_bottom
-    .back
-      = link_to "⇧ #{t('.home')}", root_path
-

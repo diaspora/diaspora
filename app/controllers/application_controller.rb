@@ -10,16 +10,6 @@ class ApplicationController < ActionController::Base
   before_filter :count_requests
   before_filter :set_invites
 
-  layout :layout_by_resource
-
-  def layout_by_resource
-    if devise_controller?
-      "session_wall"
-    else
-      "application"
-    end
-  end
-
   def set_friends_and_status
     if current_user
       if params[:aspect] == nil || params[:aspect] == 'all'

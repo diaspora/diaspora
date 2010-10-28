@@ -40,6 +40,8 @@ class User
 
   key :invite_messages, Hash
 
+  key :getting_started, Boolean, :default => true
+
   before_validation :strip_username, :on => :create
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
@@ -85,10 +87,6 @@ class User
 
   def method_missing(method, *args)
     self.person.send(method, *args)
-  end
-
-  def real_name
-    "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
 
   ######### Aspects ######################
@@ -409,11 +407,14 @@ class User
 
   ###Helpers############
   def self.build(opts = {})
+    opts[:person] ||= {}
+    opts[:person][:profile] ||= Profile.new
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
+
 
     u = User.new(opts)
     u

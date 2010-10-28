@@ -41,6 +41,12 @@ class PeopleController < ApplicationController
   end
 
   def update
+    # convert date selector into proper timestamp
+    birthday = params[:date]
+    if birthday
+      params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
+    end
+
     prep_image_url(params[:person])
 
     if current_user.update_profile params[:person][:profile]
@@ -49,7 +55,11 @@ class PeopleController < ApplicationController
       flash[:error] = "Failed to update profile"
     end
 
-    redirect_to edit_person_path
+    if params[:getting_started]
+      redirect_to getting_started_path(:step => params[:getting_started].to_i+1)
+    else
+      redirect_to edit_person_path
+    end
   end
 
   private
