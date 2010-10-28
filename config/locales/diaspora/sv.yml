@@ -3,6 +3,9 @@
 #   the COPYRIGHT file.
 
 #   Localization file for Swedish
+#
+#   This file has parts from rails-i18n project at 
+#        http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale
 
 sv:
   activemodel:
@@ -14,6 +17,11 @@ sv:
                           taken: "är redan taget"
                       email:
                           taken: "är redan taget"
+              person:
+                  attributes:
+                      diaspora_handle:
+                          taken: "är redan taget"
+
   hello: "Hej världen!"
   application:
       helper:
@@ -24,24 +32,24 @@ sv:
           home: "hem"
   error_messages:
       helper:
-          invalid_fields: "Ogiltiga fält"
+          invalid_fields: "Ogiltiga uppgifter"
           correct_the_following_errors_and_try_again: "Rätta följande fel och försök igen."
   people:
       helper:
            results_for: " resultat för %{params}"
-           people_on_pod_are_aware_of: " personer på denna pod är medveten om att"
+           people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
   layouts:
       application:
           edit_profile: "ändra profil"
           logout: "logga ut"
   shared:
       aspect_nav:
-          all_aspects: "Alla Aspekter"
+          all_aspects: "Alla sidor"
           manage: "Hantera"
-          manage_your_aspects: "Hantera dina Aspekter"
+          manage_your_aspects: "Hantera dina sidor"
       sub_header:
-          all_aspects: "Alla Aspekter"
-          manage_aspects: "Hantera Aspekter"
+          all_aspects: "Alla sidor"
+          manage_aspects: "Hantera sidor"
       publisher:
           share: "Dela"
       aspect_friends:
@@ -52,66 +60,66 @@ sv:
           you: "du"
       new_album:
           create: "skapa"
-          add_a_new_album: "Lägg till ett nytt Album"
+          add_a_new_album: "Lägg till ett nytt fotoalbum"
       show:
-          edit_album: "Ändra Album"
-          albums: "album"
-          updated: "updated"
+          edit_album: "Ändra fotoalbum"
+          albums: "fotoalbum"
+          updated: "uppdaterad"
           by: "av"
       edit:
           editing: "Ändrar"
           updated: "uppdaterad"
           are_you_sure: "Är du säker?"
-          delete_album: "Ta bort album"
+          delete_album: "Ta bort fotoalbum"
           cancel: "Avbryt"
       index:
           home: "hem"
-          new_album: "NyttAlbum"
+          new_album: "Nytt fotoalbum"
       create:
-          success: "Du har nu skapat albumet %{name}."
+          success: "Du har nu skapat fotoalbumet %{name}."
       update:
-          success: "Albumet %{name} ändrades."
-          failure: "Ändringarna av albumet %{name} misslyckades."
+          success: "Fotoalbumet %{name} ändrades."
+          failure: "Ändringarna av fotoalbumet %{name} misslyckades."
       destroy:
-          success: "Albumet %{name} är nu borttaget."
+          success: "Fotoalbumet %{name} är nu borttaget."
       helper:
-          friends_albums: "Vänners Album"
-          your_albums: "Dina Album"
+          friends_albums: "Vänners fotoalbum"
+          your_albums: "Dina fotoalbum"
   aspects:
       no_friends_message:
           nobody: "Vi vet att du har vänner, bjud in dem till Diaspora!"
-          nobody_in_aspect: "Aspekten '%{aspect_name}' är tom."
+          nobody_in_aspect: "Sidan '%{aspect_name}' är tom."
           add_friend: "Lägg till en vän"
           add_friend_to: "Lägg till en vän i %{aspect_name}"
           invite: "Bjud in en vän till Diaspora!"
       no_posts_message:
           start_talking:  "Ingen har sagt något än. Bli först!"
       manage:
-          add_a_new_aspect: "Lägg till en ny aspekt"
+          add_a_new_aspect: "Lägg till en ny sida"
           add_a_new_friend:  "Lägg till en ny vän"
           show: "Visa"
-          update_aspects: "Uppdatera Aspekter"
-          requests: "Förfrågningar"
+          update_aspects: "Uppdatera sidor"
+          requests: "Vänförfrågningar"
           ignore_remove: "Ignorera/Ta bort"
       new_aspect:
-          add_a_new_aspect: "Lägg till ny aspekt"
+          add_a_new_aspect: "Lägg till ny sida"
           create: "Skapa"
       create:
-          success: "Klicka på plustecknet till höger för att välja vilka som kan se din nya aspekt."
-          failure: "Aspekten kunde inte skapas."
+          success: "Klicka på plustecknet till höger för att välja vilka som kan se din nya sida."
+          failure: "Sidan kunde inte skapas."
       destroy:
           success: "%{name} är nu borttagen."
       update:
-          success: "Din aspekt, %{name}, är nu ändrad."
+          success: "Din sida %{name} är nu ändrad."
       move_friend:
           failure: "fungerade inte %{inspect}"
-          success: "Personen flyttades till den nya aspekten"
+          success: "Personen flyttades till den nya sidan"
       add_to_aspect:
-          failure: "Misslyckades med att lägga personen i den nya aspekten."
-          success: "Personen tillagt i aspekten."
+          failure: "Misslyckades med att lägga in personen på den nya sidan."
+          success: "Personen tillagt på sidan."
       helper:
           remove: "ta bort"
-          aspect_not_empty: "Aspekten är inte tom"
+          aspect_not_empty: "Sidan är inte tom"
   users:
       edit:
           editing_profile: "Ändrar profil"
@@ -119,12 +127,12 @@ sv:
           cancel: "Avbryt"
           update_profile: "Uppdatera Profil"
           home: "Hem"
-          diaspora_username: "DIASPORA-ID:"
+          diaspora_username: "Diaspora-användarnamn:"
           info: "Info"
           picture: "Profilbild"
           editing_profile: "Ändrar profil"
           albums: "Album"
-          you_dont_have_any_photos: "Do har inga foton! Gå till"
+          you_dont_have_any_photos: "Du har inga foton! Gå till"
           page_to_upload_some:  "sidan för att ladda upp några."
           or: "eller"
       destroy: "Ditt konto är nu stängt."
@@ -138,21 +146,21 @@ sv:
           prev: "föregående"
           full_size: "full storlek"
           next: "nästa"
-          edit_photo: "Ändra Foto"
-          delete_photo: "Ta bort Foto"
+          edit_photo: "Ändra foto"
+          delete_photo: "Ta bort foto"
           are_you_sure: "Är du säker?"
           comments: "kommentarer"
       edit:
           editing: "Ändrar"
           are_you_sure: "Är du säker?"
-          delete_photo: "Ta bort Foto"
+          delete_photo: "Ta bort foto"
       photo:
           show_comments: "visa kommentarer"
           posted_a_new_photo_to: "laddade upp ett nytt foto till"
           delete: "Ta bort"
           are_you_sure: "Är du säker?"
       new:
-          new_photo: "Nytt Foto"
+          new_photo: "Nytt foto"
           back_to_list: "Tillbaka till listan"
           post_it: "skicka!"
       create:
@@ -176,7 +184,7 @@ sv:
           already_sent: 'Du har redan bjudit in denna person.'
           already_friends: 'Du är redan vän med den här personen' 
           invitation_token_invalid: 'Din inbjudningskod är inte giltig!'
-          updated: 'Ditt lösenord är nu ändrats, och du har loggats in.'
+          updated: 'Ditt lösenord är nu uppdaterat, och du har loggats in.'
 
   status_messages:
       new_status_message:
@@ -199,14 +207,14 @@ sv:
   people:
       person:
           add_friend: "lägg till vän"
-          pending_request: "väntande förfrågan"
+          pending_request: "väntande vänförfrågan"
       index:
           add_friend: "lägg till vän"
           real_name: "verkligt namn"
-          diaspora_handle: "diaspora-id"
+          diaspora_handle: "diaspora-adress"
           thats_you: "det är du!"
-          friend_request_pending: "förfrågan är skickad"
-          you_have_a_friend_request_from_this_person: "du har en väntande förfrågan från den här personen"
+          friend_request_pending: "vänförfrågan är skickad"
+          you_have_a_friend_request_from_this_person: "du har en väntande vänförfrågan från den här personen"
       new:
           new_person: "Ny Person"
           back_to_list: "Tillbaka till listan"
@@ -220,18 +228,217 @@ sv:
   requests:
       new_request:
           add_a_new_friend_to: "Lägg till en vän till"
-          enter_a_diaspora_username: "Ange ett Diaspora-id:"
-          your_diaspora_username_is: "Ditt Diaspora-id är: %{diaspora_handle}"
-          friends_username: "Vännens Diaspora-id"
+          enter_a_diaspora_username: "Ange ett användarnamn:"
+          your_diaspora_username_is: "Din Diaspora-adress är: %{diaspora_handle}"
+          friends_username: "Vännens Diaspora-adress"
       destroy:
           success: "Ni är nu vänner."
           error: "Var god välj en aspekt!"
-          ignore: "Ignorerade förfrågan."
+          ignore: "Ignorerade vänförfrågan."
       create:
-          error: "Ingen diaspora seed med detta id hittades!"
-          invalid_identity: "Detta id har ett ogiltigt format"
+          error: "Inget diaspora-frö med denna adress hittades!"
+          invalid_identity: "Denna adress har ett ogiltigt format"
           error_server: "Problem att kontaka den andra servern. Är det möjligt att den inte finns?"
-          yourself: "Du kan inte fråga dig själv!"
+          yourself: "Du kan inte lägga till dig själv!"
           already_friends: "Du är redan vän med %{destination_url}!"
-          success: "En förfrågan har skickats till %{destination_url}."
+          success: "En vänförfrågan har skickats till %{destination_url}."
           horribly_wrong: "Nu gick något rejält fel här."
+
+# The following is from the rails-i18n project at http://github.com/svenfuchs/rails-i18n
+
+# Swedish translation.
+# By Johan Lundström (johanlunds@gmail.com) with parts taken from http://github.com/daniel/swe_rails.
+# With contributions by:
+#   * Sven Dahlstrand (sven.dahlstrand@gmail.com)
+#   * Henrik Nyh (henrik@nyh.se)
+
+  number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: ","
+      # Delimits thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: " "
+      # Number of decimals after the separator (the number 1 with a precision of 2 gives: 1.00)
+      precision: 2
+
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%n %u"
+        unit: "kr"
+
+    # Used in number_to_human_size()
+    human:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        # delimiter: ""
+        precision: 1
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "en halv minut"
+      less_than_x_seconds:
+        one:   "mindre än en sekund"
+        other: "mindre än %{count} sekunder"
+      x_seconds:
+        one:   "en sekund"
+        other: "%{count} sekunder"
+      less_than_x_minutes:
+        one:   "mindre än en minut"
+        other: "mindre än %{count} minuter"
+      x_minutes:
+        one:   "en minut"
+        other: "%{count} minuter"
+      about_x_hours:
+        one:   "ungefär en timme"
+        other: "ungefär %{count} timmar"
+      x_days:
+        one:   "en dag"
+        other: "%{count} dagar"
+      about_x_months:
+        one:   "ungefär en månad"
+        other: "ungefär %{count} månader"
+      x_months:
+        one:   "en månad"
+        other: "%{count} månader"
+      about_x_years:
+        one:   "ungefär ett år"
+        other: "ungefär %{count} år"
+      over_x_years:
+        one:   "mer än ett år"
+        other: "mer än %{count} år"
+      almost_x_years:
+        one:   "nästan ett år"
+        other: "nästan %{count} år"
+    prompts:
+      year:   "År"
+      month:  "Månad"
+      day:    "Dag"
+      hour:   "Timme"
+      minute: "Minut"
+      second: "Sekund"
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:   "Ett fel förhindrade denna %{model} från att sparas"
+          other: "%{count} fel förhindrade denna %{model} från att sparas"
+        # The variable :count is also available
+        body: "Det var problem med följande fält:"
+
+  activerecord:
+    errors:
+      # model.errors.full_messages format.
+      format: "%{attribute} %{message}"
+      
+      template:
+        header:
+          one:    "Ett fel förhindrade denna %{model} från att sparas"
+          other:  "%{count} fel förhindrade denna %{model} från att sparas"
+        body: "Det var problem med följande fält:"
+      
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+      messages:
+        inclusion: "finns inte i listan"
+        exclusion: "är reserverat"
+        invalid: "är ogiltigt"
+        confirmation: "stämmer inte överens"
+        accepted: "måste vara accepterad"
+        empty: "får ej vara tom"
+        blank: "måste anges"
+        too_long: "är för lång (maximum är %{count} tecken)"
+        too_short: "är för kort (minimum är %{count} tecken)"
+        wrong_length: "har fel längd (ska vara %{count} tecken)"
+        taken: "har redan tagits"
+        not_a_number: "är inte ett nummer"
+        greater_than: "måste vara större än %{count}"
+        greater_than_or_equal_to: "måste vara större än eller lika med %{count}"
+        equal_to: "måste vara samma som"
+        less_than: "måste vara mindre än %{count}"
+        less_than_or_equal_to: "måste vara mindre än eller lika med %{count}"
+        odd: "måste vara udda"
+        even: "måste vara jämnt"
+        record_invalid: "Ett fel uppstod: %{errors}"
+        # Append your own errors here or at the model/attributes scope.
+
+      # You can define own errors for models or model attributes.
+      # The values :model, :attribute and :value are always available for interpolation.
+      #
+      # For example,
+      #   models:
+      #     user:
+      #       blank: "This is a custom blank message for %{model}: %{attribute}"
+      #       attributes:
+      #         login:
+      #           blank: "This is a custom blank message for User login"
+      # Will define custom blank validation message for User model and
+      # custom blank validation message for login attribute of User model.
+      # models:
+
+    # Translate model names. Used in Model.human_name().
+    #models:
+      # For example,
+      #   user: "Dude"
+      # will translate User model name to "Dude"
+
+    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
+    #attributes:
+      # For example,
+      #   user:
+      #     login: "Handle"
+      # will translate User attribute "login" as "Handle"
+
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%Y-%m-%d"
+      short: "%e %b"
+      long: "%e %B %Y"
+
+    day_names: [söndag, måndag, tisdag, onsdag, torsdag, fredag, lördag]
+    abbr_day_names: [sön, mån, tis, ons, tor, fre, lör]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, januari, februari, mars, april, maj, juni, juli, augusti, september, oktober, november, december]
+    abbr_month_names: [~, jan, feb, mar, apr, maj, jun, jul, aug, sep, okt, nov, dec]
+    # Used in date_select and datime_select.
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%a, %e %b %Y %H:%M:%S %z"
+      short: "%e %b %H:%M"
+      long: "%e %B %Y %H:%M"
+    am: ""
+    pm: ""
+
+# Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " och "
+      last_word_connector: " och "
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Välj"
