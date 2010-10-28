@@ -47,7 +47,7 @@ class AspectsController < ApplicationController
 
   def show
     @aspect = current_user.aspect_by_id params[:id]
-    @friends_not_in_aspect = current_user.friends #current_user.friends_not_in_aspect(@aspect)
+    @friends_not_in_aspect = current_user.friends_not_in_aspect(@aspect)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
