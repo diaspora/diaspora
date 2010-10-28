@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
+  include LanguageHelper
 
   protect_from_forgery :except => :receive
 
@@ -36,6 +37,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = request.compatible_language_from I18n.available_locales
+    if current_user
+      I18n.locale = current_user.language
+    else
+      I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+    end
   end
 end

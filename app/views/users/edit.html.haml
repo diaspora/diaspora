@@ -45,6 +45,16 @@
       or
       = f.submit 'Change password'
 
+  %h3 Change language
+  = form_for @user do |f|
+    = f.error_messages
+
+    %p
+      = f.select :language, available_language_options
+      = f.submit 'Change language'
+
+  %br
+
   %h3 Export Data
   = link_to "download my xml", users_export_path, :class => "button"
   = link_to "download my photos", users_export_photos_path, :class => "button"

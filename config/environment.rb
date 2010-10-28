@@ -18,6 +18,18 @@ if File.exists?(File.expand_path("./config/fb_config.yml"))
 else
   FACEBOOK   = false
 end
+
+if File.exists?(File.expand_path("./config/languages.yml"))
+  languages = YAML::load(File.open(File.expand_path("./config/languages.yml")))
+  AVAILABLE_LANGUAGES = languages['available']
+  DEFAULT_LANGUAGE = languages['default']
+  AVAILABLE_LANGUAGE_CODES = languages['available'].keys.map { |v| v.to_s}
+else
+  AVAILABLE_LANGUAGES = { :en => 'English' }
+  DEFAULT_LANGUAGES = 'en'
+  AVAILABLE_LANGUAGE_CODES = ['en']
+end
+
 # Initialize the rails application
 Diaspora::Application.initialize!
 
