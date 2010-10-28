@@ -150,7 +150,8 @@ namespace :db do
         q.pop {|x| x.call}
         
         if q.size == 0
-          EventMachine::Timer.new(30) do
+        q.pop {|x| x.call}
+          EventMachine::Timer.new(60) do
             EM.stop
           end
         end
