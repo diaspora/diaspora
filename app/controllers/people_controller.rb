@@ -41,6 +41,12 @@ class PeopleController < ApplicationController
   end
 
   def update
+    # convert date selector into proper timestamp
+    birthday = params[:date]
+    if birthday
+      params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
+    end
+
     prep_image_url(params[:person])
 
     if current_user.update_profile params[:person][:profile]

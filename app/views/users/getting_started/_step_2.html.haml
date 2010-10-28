@@ -19,7 +19,7 @@
     %li{:style=>"position:relative;"}
       = aspect
       .friend_pictures.horizontal
-        - for friend in aspect.people
+        - for friend in aspect.person_objects
           = person_image_link(friend)
 
         = link_to (image_tag('add_friend_button.png', :title => "add to #{aspect}")), "#add_request_pane", :class => 'add_request_button'

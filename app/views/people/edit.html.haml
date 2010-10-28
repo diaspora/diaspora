@@ -27,9 +27,14 @@
         = profile.text_field :last_name, :value => @profile.last_name, :placeholder => "Last name"
 
       %h4
+        Your gender
+        %br
+        = select_tag 'person[profile][gender]', options_for_select(["","Female","Male"], @person.profile.gender)
+
+      %h4
         Your birthday
         %br
-        = date_select person, :birthday, :order => [:month, :day, :year], :start_year => 1930, :end_year => Time.now.year
+        = select_date @person.profile.birthday, :order => [:month, :day, :year], :start_year => 1930, :end_year => 2000
 
       %h4
         Your bio
