@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 describe PhotosController do
- render_views
+  render_views
   before do
     @user = Factory.create(:user)
     @aspect = @user.aspect(:name => "lame-os")
@@ -31,7 +31,7 @@ describe PhotosController do
     it "doesn't overwrite random attributes" do
       new_user = Factory.create :user
       params = { :caption => "now with lasers!", :person_id => new_user.id}
-      put('update', :id => @photo.id, :photo => params)
+      put :update, :id => @photo.id, :photo => params
       @photo.reload.person_id.should == @user.person.id
     end
   end

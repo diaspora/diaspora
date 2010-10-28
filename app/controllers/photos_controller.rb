@@ -37,9 +37,7 @@ class PhotosController < ApplicationController
 
       params[:user_file] = file
 
-      data = clean_hash(params)
-
-      @photo = current_user.post(:photo, data)
+      @photo = current_user.post(:photo, params)
 
       respond_to do |format|
         format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
@@ -94,9 +92,7 @@ class PhotosController < ApplicationController
   def update
     @photo = current_user.find_visible_post_by_id params[:id]
 
-    data = clean_hash(params)
-
-    if current_user.update_post( @photo, data[:photo] )
+    if current_user.update_post( @photo, params[:photo] )
       flash[:notice] = I18n.t 'photos.update.notice'
       respond_with @photo
     else
@@ -104,21 +100,4 @@ class PhotosController < ApplicationController
       render :action => :edit
     end
   end
-
-  private
-  def clean_hash(params)
-    if params[:photo]
-      return {
-        :photo => {
-          :caption   => params[:photo][:caption],
-        }
-      }
-    else
-      return{
-        :album_id  => params[:album_id],
-        :user_file => params[:user_file]
-      }
-    end
-  end
-
 end
