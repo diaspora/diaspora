@@ -19,7 +19,6 @@ class User
   include MongoMapper::Document
   include Diaspora::UserModules
   include Encryptor::Private
-  include LanguageHelper
 
   plugin MongoMapper::Devise
 

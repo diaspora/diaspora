@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
-  include LanguageHelper
-
   protect_from_forgery :except => :receive
 
   before_filter :set_friends_and_status, :except => [:create, :update]
