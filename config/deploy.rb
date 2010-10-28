@@ -148,7 +148,12 @@ namespace :db do
      
       timer = EventMachine::PeriodicTimer.new(5) do
         q.pop {|x| x.call}
-        EM.stop  if q.size == 0
+        
+        if q.size == 0
+          EventMachine::Timer.new(30) do
+            EM.stop
+          end
+        end
       end
 
     }

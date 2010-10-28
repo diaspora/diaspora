@@ -60,7 +60,7 @@ describe EMWebfinger do
       n.on_person{|person| puts "foo"}
       n.instance_variable_get(:@callbacks).count.should be 1
     end
-    end
+  end
 
     describe '#fetch' do
       it 'should require a callback' do

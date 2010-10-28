@@ -5,6 +5,14 @@
 require 'spec_helper'
 
 describe MessageHandler do
+    before do
+       unstub_mocha_stubs
+    end
+    after  do
+      stub_sockets
+      MessageHandler.any_instance.stubs(:add_post_request)
+    end
+
   before do
     @handler = MessageHandler.new
     @message_body = "I want to pump you up"

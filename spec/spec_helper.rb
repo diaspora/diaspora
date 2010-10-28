@@ -29,6 +29,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     stub_sockets
+    MessageHandler.any_instance.stubs(:add_post_request)
     DatabaseCleaner.clean
   end
 end
