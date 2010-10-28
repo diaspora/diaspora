@@ -30,6 +30,13 @@
     - if @person != current_user.person && current_user.friends.include?(@person)
       = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
 
+    %br
+    %br
+    %ul
+      %li= link_to 'stream', person_path(@person)
+      %li= link_to 'photos', person_photos_path(@person)
+
+
 .span-15.last
   - if @posts.count > 0
     %ul#stream

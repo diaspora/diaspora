@@ -12,10 +12,6 @@
 
 .span-24.last{:style=>"position:relative;"}
   = render 'shared/author_info', :person => @person
-
-  .right
-    = link_to "+ Add photos", '#add_photo_pane', :class => "add_photo_button button"
-
   %ul#breadcrumb
     %li= link_to "#{@person.profile.first_name}'s Photos", person_photos_path(@person)
 
@@ -31,11 +27,11 @@
   %div
     - for album in @albums
       = render "albums/album", :post => album
+    = link_to "uploads", album_path("uploads")
 
 .span-24.last
   %h3
     Albums
-
 
 .span-24.last
   #add_photo_pane

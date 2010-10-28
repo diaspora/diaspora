@@ -12,6 +12,8 @@
   %li= link_to "#{@photo.person.profile.first_name}'s Photos", person_photos_path(@photo.person)
   - if !@photo.album_id.nil?
     %li= link_to @album.name, album_path(@album)
+  - else
+    %li= link_to "uploads", album_path("uploads")
   %li= @photo.caption
 
 - if @photo.album

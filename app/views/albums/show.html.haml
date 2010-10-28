@@ -10,11 +10,14 @@
   });
 
 
-= render 'shared/author_info', :person => @album.person, :post => @album
+- if @album != :uploads
+  = render 'shared/author_info', :person => @person, :post => @album
+- else
+  = render 'shared/author_info', :person => @person
 
 %ul#breadcrumb
-  %li= link_to "#{@album.person.profile.first_name}'s Photos", person_photos_path(@album.person)
-  %li= @album.name
+  %li= link_to "#{@person.profile.first_name}'s Photos", person_photos_path(@person)
+  %li= @album_name
 
 
 .span-19.appends-1.last
@@ -25,16 +28,19 @@
 
 .span-5.last
   %h2
-    = @album.name
+    = @album_name
 
-  ="#{t('.updated')} #{how_long_ago(@album)}"
+  - if @album != :uploads
+    ="#{t('.updated')} #{how_long_ago(@album)}"
 
-  -if current_user.owns? @album
-    = render 'photos/new_photo', :album_id => @album.id, :aspect_id => nil
-    = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
+  -if current_user.person.id == @person.id
+    = render 'photos/new_photo', :album_id => @album_id, :aspect_id => "all"
 
-  .album_id{:id => @album.id, :style => "display:hidden;"}
+    - if @album != :uploads
+      = link_to t('.edit_album'), edit_album_path(@album_id), :class => 'button'
 
-  -unless current_user.owns? @album
-    %h4= "#{t('.by')} #{@album.person.real_name}"
+  .album_id{:id => @album_id, :style => "display:hidden;"}
+
+  -unless current_user.person.id == @person.id
+    %h4= "#{t('.by')} #{@person.real_name}"
 
