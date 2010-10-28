@@ -52,17 +52,6 @@ describe Photo do
     binary.should == fixture_binary
   end
 
-  it 'must have an album' do
-    photo = Photo.new()
-    photo.person = @user.person
-    photo.image = File.open(@fixture_name)
-    photo.save
-    photo.valid?.should be false
-    photo.album = @album
-    photo.save
-    photo.reload.album.name.should == 'foo'
-  end
-
   it 'should have a caption' do
     @photo.image.store! File.open(@fixture_name)
     @photo.caption = "cool story, bro"

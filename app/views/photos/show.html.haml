@@ -9,15 +9,17 @@
 = render 'shared/author_info', :person => @photo.person, :post => @photo
 
 %ul#breadcrumb
-  %li= link_to "#{@album.person.profile.first_name}'s Photos", person_photos_path(@photo.person)
-  %li= link_to @album.name, album_path(@album)
+  %li= link_to "#{@photo.person.profile.first_name}'s Photos", person_photos_path(@photo.person)
+  - if !@photo.album_id.nil?
+    %li= link_to @album.name, album_path(@album)
   %li= @photo.caption
 
-= link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch', :id => "prev_photo"
-|
-= link_to "#{t('.full_size')}", @photo.url
-|
-= link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch', :id => "next_photo"
+- if @photo.album
+  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch', :id => "prev_photo"
+  |
+  = link_to "#{t('.full_size')}", @photo.url
+  |
+  = link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch', :id => "next_photo"
 
 .span-14.append-1.last
   %div{:data=>{:guid=>@photo.id}}

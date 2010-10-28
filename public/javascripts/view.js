@@ -29,7 +29,7 @@ $(document).ready(function(){
   $(".add_aspect_button").fancybox({ 'titleShow' : false , 'hideOnOverlayClick' : false });
   $(".add_request_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
   $(".invite_user_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
-  $(".add_request_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
+  $(".add_photo_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
   $(".remove_person_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
   $(".question_mark").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
 

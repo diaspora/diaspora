@@ -10,16 +10,20 @@
   });
 
 
-= render 'shared/author_info', :person => @person
+.span-24.last{:style=>"position:relative;"}
+  = render 'shared/author_info', :person => @person
 
-%ul#breadcrumb
-  %li= link_to "#{@person.profile.first_name}'s Photos", person_photos_path(@person)
+  .right
+    = link_to "+ Add photos", '#add_photo_pane', :class => "add_photo_button button"
+
+  %ul#breadcrumb
+    %li= link_to "#{@person.profile.first_name}'s Photos", person_photos_path(@person)
 
 .span-24.last
   #thumbnails
     - for photo in @photos
       .image_thumb
-        = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)
+        = link_to (image_tag photo.url(:thumb_medium)), photo_path(photo)
 
 .span-24.last
   %h3
@@ -31,4 +35,9 @@
 .span-24.last
   %h3
     Albums
+
+
+.span-24.last
+  #add_photo_pane
+    = render "photos/new_photo", :album_id => nil, :aspect_id => :all
 

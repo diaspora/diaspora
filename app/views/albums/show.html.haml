@@ -30,7 +30,7 @@
   ="#{t('.updated')} #{how_long_ago(@album)}"
 
   -if current_user.owns? @album
-    =render 'photos/new_photo'
+    = render 'photos/new_photo', :album_id => @album.id, :aspect_id => nil
     = link_to t('.edit_album'), edit_album_path(@album), :class => 'button'
 
   .album_id{:id => @album.id, :style => "display:hidden;"}

@@ -144,8 +144,7 @@ class User
 
   ######## Posting ########
   def post(class_name, options = {})
-    if class_name == :photo
-      raise ArgumentError.new("No album_id given") unless options[:album_id]
+    if class_name == :photo && !options[:album_id].to_s.empty?
       aspect_ids = aspects_with_post(options[:album_id])
       aspect_ids.map! { |aspect| aspect.id }
     else

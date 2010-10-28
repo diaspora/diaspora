@@ -16,10 +16,12 @@ class PhotosController < ApplicationController
 
     @photos = current_user.visible_posts(:_type => "Photo", :person_id => @person.id)
     @albums = current_user.visible_posts(:_type => "Album", :person_id => @person.id)
+
+    @aspect = :photos
   end
 
   def create
-    album = current_user.find_visible_post_by_id( params[:album_id] )
+    album = current_user.find_visible_post_by_id( params[:photo][:album_id] )
 
     begin
 
@@ -45,9 +47,9 @@ class PhotosController < ApplicationController
 
       ##############
 
-      params[:user_file] = file
+      params[:photo][:user_file] = file
 
-      @photo = current_user.post(:photo, params)
+      @photo = current_user.post(:photo, params[:photo])
 
       respond_to do |format|
         format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
