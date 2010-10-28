@@ -407,14 +407,14 @@ class User
 
   ###Helpers############
   def self.build(opts = {})
-    opts[:person] = {}
+    opts[:person] ||= {}
+    opts[:person][:profile] ||= Profile.new
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
 
-    opts[:person][:profile] = Profile.new
 
     u = User.new(opts)
     u
