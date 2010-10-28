@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_friends_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :set_invites
+  before_filter :set_locale
 
   def set_friends_and_status
     if current_user
@@ -32,5 +33,9 @@ class ApplicationController < ActionController::Base
     if current_user
       @invites = current_user.invites
     end
+  end
+
+  def set_locale
+    I18n.locale = request.compatible_language_from I18n.available_locales
   end
 end
