@@ -3,17 +3,28 @@
 -#   the COPYRIGHT file.
 
 
-- if current_user.getting_started == true
+- content_for :head do
   :javascript
-    $("#getting_started_skip").live("click", function(evt){
-      evt.preventDefault();
-      $.ajax({
-        type: "PUT",
-        url: "/users/#{current_user.id}",
-        data: {"user":{"getting_started":'false'}},
-        success: function() { window.location = "#{root_path}"}
-      })
+    $("#new_aspect").live("ajax:success", function(data,stat,xhr){
+      window.location.reload();
     });
+
+    $(".aspects li").find(".delete").live("click", function(){
+      var aspectElement = $(this).parent("li");
+      aspectElement.fadeOut(300, function(){aspectElement.remove();});
+    });
+    
+  - if current_user.getting_started == true
+    :javascript
+      $("#getting_started_skip").live("click", function(evt){
+        evt.preventDefault();
+        $.ajax({
+          type: "PUT",
+          url: "/users/#{current_user.id}",
+          data: {"user":{"getting_started":'false'}},
+          success: function() { window.location = "#{root_path}"}
+        })
+      });
 
 .span-8.append-1.last
   %h1{:style => "text-align:right;"}

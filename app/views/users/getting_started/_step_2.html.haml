@@ -10,7 +10,7 @@
 
 %h4
   Aspect name
-  - form_for Aspect.new, :remote => true do |aspect|
+  - form_for Aspect.new, :remote => true, :format => :json do |aspect|
     = aspect.text_field :name, :style => "display:inline;"
     = aspect.submit "Add"
 
