@@ -27,6 +27,12 @@ module HelperMethods
     models
   end
 
+  def stub_user_message_handle_methods(user)
+    user.stub!(:push_to_people)
+    user.stub!(:push_to_hub)
+    user.stub!(:push_to_person)
+  end
+
   def message_queue
     User::QUEUE
   end

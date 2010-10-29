@@ -108,7 +108,6 @@ describe EMWebfinger do
     context 'webfingering local people' do
       it 'should return a person from the database if it matches its handle' do
         person
-        EventMachine::HttpRequest.should_not_receive(:new)
         EM.run do
           finger.on_person { |p|
             p.should ==  person

@@ -29,6 +29,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     stub_sockets
+    EventMachine::HttpRequest.any_instance.stubs(:new).returns(FakeHttpRequest.new(:success))
     DatabaseCleaner.clean
   end
 end
