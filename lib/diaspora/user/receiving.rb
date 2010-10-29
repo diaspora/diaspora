@@ -8,10 +8,10 @@ module Diaspora
         webfinger = EMWebfinger.new(salmon.author_email)
 
         webfinger.on_person { |salmon_author|
-            if salmon.verified_for_key?(salmon_author.public_key)
-              Rails.logger.info("data in salmon: #{salmon.parsed_data}")
-              self.receive(salmon.parsed_data, salmon_author)
-            end
+          if salmon.verified_for_key?(salmon_author.public_key)
+            Rails.logger.info("data in salmon: #{salmon.parsed_data}")
+            self.receive(salmon.parsed_data, salmon_author)
+          end
         }
       end
 
@@ -20,29 +20,45 @@ module Diaspora
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
 
-        sender_in_xml = sender(object, xml)
 
-        if (salmon_author != sender_in_xml)
-          raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
-        end
+        if object.is_a?(Comment) 
+          e = EMWebfinger.new(object.diaspora_handle)
 
-        if object.is_a? Request
-          return receive_request object, sender_in_xml
-        end
-        raise "Not friends with that person" unless self.contact_for(salmon_author)
+          e.on_person { |person|
 
-        if object.is_a? Retraction
-          receive_retraction object, xml
-        elsif object.is_a? Profile
-          receive_profile object, xml
-        elsif object.is_a?(Comment)
-          receive_comment object, xml
+            if person.class == Person
+              sender_in_xml = sender(object, xml, person)
+              if (salmon_author != sender_in_xml)
+                raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
+              end
+
+              receive_comment object, xml
+            end
+          }
+
         else
-          receive_post object, xml
+          sender_in_xml = sender(object, xml)
+
+          if (salmon_author != sender_in_xml)
+            raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
+          end
+
+          if object.is_a? Request
+            return receive_request object, sender_in_xml
+          end
+          raise "Not friends with that person" unless self.contact_for(salmon_author)
+
+          if object.is_a? Retraction
+            receive_retraction object, xml
+          elsif object.is_a? Profile
+            receive_profile object, xml
+          else
+            receive_post object, xml
+          end
         end
       end
 
-      def sender(object, xml)
+      def sender(object, xml, webfingered_person = nil)
         if object.is_a? Retraction
           sender = object.person
         elsif object.is_a? Request
@@ -50,7 +66,7 @@ module Diaspora
         elsif object.is_a? Profile
           sender = Diaspora::Parser.owner_id_from_xml xml
         elsif object.is_a?(Comment)
-          object.person = Person.by_webfinger(object.diaspora_handle)
+          object.person = webfingered_person 
           sender = (owns?(object.post))? object.person : object.post.person
         else
           sender = object.person
@@ -77,9 +93,9 @@ module Diaspora
         request.person.save
         old_request =  Request.first(:id => request.id)
         Rails.logger.info("I got a reqest_id #{request.id} with old request #{old_request.inspect}")
-          request.aspect_id = old_request.aspect_id if old_request
-          request.save
-          receive_friend_request(request)
+        request.aspect_id = old_request.aspect_id if old_request
+        request.save
+        receive_friend_request(request)
       end
 
       def receive_profile profile, xml

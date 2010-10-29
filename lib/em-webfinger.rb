@@ -9,8 +9,7 @@ class EMWebfinger
     # Raise an error if identifier has a port number 
     raise "Identifier is invalid" if(@account.strip.match(/\:\d+$/))
     # Raise an error if identifier is not a valid email (generous regexp)
-    raise "Identifier is invalid" if !(@account=~ /\A.*\@.*\..*\Z/)
-  end
+    raise "Identifier is invalid" if !(@account=~ /^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/)
   
   def fetch
     raise 'you need to set a callback before calling fetch' if @callbacks.empty?
