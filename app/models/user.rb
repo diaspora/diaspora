@@ -206,6 +206,8 @@ class User
 
   def build_post(class_name, options = {})
     options[:person] = self.person
+    options[:diaspora_handle] = self.person.diaspora_handle
+
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.save

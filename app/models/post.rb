@@ -11,14 +11,14 @@ class Post
   include Diaspora::Webhooks
   include Diaspora::Socketable
 
-  xml_accessor :_id
-  xml_accessor :person, :as => Person
-  xml_reader   :public
+  xml_reader :_id
+  xml_reader :diaspora_handle
+  xml_reader :public
   xml_reader :created_at
 
-  key :public   , Boolean, :default => false
+  key :public, Boolean, :default => false
 
-  key :person_id, ObjectId
+  key :diaspora_handle, String
   key :user_refs, Integer, :default => 0
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id, :order => 'created_at ASC'
