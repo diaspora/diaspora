@@ -25,14 +25,6 @@ describe Diaspora::UserModules::Friending do
     Notifier.stub!(:request_accepted).and_return(deliverable)
   end
 
-  before :all do
-    User.any_instance.stubs(:push_to_people)
-  end
-
-  after :all do
-    unstub_mocha_stubs
-  end
-
   describe '#contact_for' do
 
     it 'returns a contact' do

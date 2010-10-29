@@ -29,7 +29,9 @@ RSpec.configure do |config|
 
   config.before(:each) do
     stub_sockets
-    EventMachine::HttpRequest.any_instance.stubs(:new).returns(FakeHttpRequest.new(:success))
+    EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
+    EventMachine::HttpRequest.any_instance.stubs(:post)
+    EventMachine::HttpRequest.any_instance.stubs(:get)
     DatabaseCleaner.clean
   end
 end
@@ -51,10 +53,18 @@ class FakeHttpRequest
     @callbacks.pop unless @callbacks.nil? || @callbacks.empty?
   end
 
+  def response_header
+    self
+  end
+
+  def method_missing(method)
+    self
+  end
+
   def post(opts = nil); 
     self 
   end
-  
+
   def get(opts = nil)
     self 
   end

@@ -67,7 +67,7 @@ describe EMWebfinger do
         n = EMWebfinger.new("foo@example.com")
 
         n.on_person{|person|
-          person.should == "webfinger does not seem to be enabled for #{fake_account}"
+          person.should == "webfinger does not seem to be enabled for #{fake_account}'s host"
         }
       end
     end
@@ -107,7 +107,7 @@ describe EMWebfinger do
 
     context 'webfingering local people' do
       it 'should return a person from the database if it matches its handle' do
-        person
+        person.save
         EM.run do
           finger.on_person { |p|
             p.should ==  person

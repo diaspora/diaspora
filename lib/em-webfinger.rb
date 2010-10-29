@@ -35,7 +35,7 @@ class EMWebfinger
       if profile_url 
         get_webfinger_profile(profile_url) 
       else
-        process_callbacks  "webfinger does not seem to be enabled for #{@account}"
+        process_callbacks  "webfinger does not seem to be enabled for #{@account}'s host"
       end
     }
 
