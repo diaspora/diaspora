@@ -123,7 +123,8 @@ describe User do
       remote_person.delete
       user3.delete
 
-      Person.should_receive(:by_webfinger).twice.and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
+      #stubs async webfinger
+      Person.should_receive(:by_account_identifier).twice.and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
         user.person; else; remote_person.save; remote_person; end }
 
       

@@ -27,11 +27,19 @@ class EMWebfinger
   end
 
   private
+
   def get_xrd
     http = EventMachine::HttpRequest.new(xrd_url).get :timeout => TIMEOUT
     http.callback { 
-      get_webfinger_profile(webfinger_profile_url(http.response)) }
-    http.errback { process_callbacks "there was an error getting the xrd at #{xrd_url}" }
+      profile_url = webfinger_profile_url(http.response)
+      if profile_url 
+        get_webfinger_profile(profile_url) 
+      else
+        process_callbacks  "webfinger does not seem to be enabled for #{@account}"
+      end
+    }
+
+    http.errback { process_callbacks "there was an error getting the xrd from account#{@account}" }
   end
 
 
@@ -73,6 +81,7 @@ class EMWebfinger
 
   def webfinger_profile_url(xrd_response)
     doc = Nokogiri::XML::Document.parse(xrd_response)  
+    return nil if doc.namespaces["xmlns"] != "http://docs.oasis-open.org/ns/xri/xrd-1.0" 
     swizzle doc.at('Link[rel=lrdd]').attribute('template').value
   end
 

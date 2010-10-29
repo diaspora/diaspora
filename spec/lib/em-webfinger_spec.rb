@@ -38,7 +38,7 @@ describe EMWebfinger do
 
       it 'should raise an error on an unresonable email' do
         proc{
-          EMWebfinger.new("joe.valid+email@my-address.com")
+          EMWebfinger.new("joe.valid.email@my-address.com")
         }.should_not raise_error(RuntimeError, "Identifier is invalid")
       end
 
@@ -62,14 +62,14 @@ describe EMWebfinger do
 
       it 'should not blow up if the returned xrd is nil' do
         http = FakeHttpRequest.new(:success)
+        fake_account = 'foo@example.com'
         http.callbacks = ['']
         EventMachine::HttpRequest.should_receive(:new).and_return(http)
         n = EMWebfinger.new("foo@example.com")
 
         n.on_person{|person|
-          person = "sad"
+          person.should == "webfinger does not seem to be enabled for #{fake_account}"
         }
-
       end
     end
   end
@@ -84,6 +84,14 @@ describe EMWebfinger do
       describe '#webfinger_profile_url' do
         it 'should parse out the webfinger template' do
           finger.send(:webfinger_profile_url, diaspora_xrd).should == "http://tom.joindiaspora.com/webfinger/?q=#{account}"
+        end
+
+        it 'should return nil if not an xrd' do
+          finger.send(:webfinger_profile_url, '<html></html>').should be nil
+        end
+
+        it 'should return the template for xrd' do
+          finger.send(:webfinger_profile_url, diaspora_xrd).should == 'http://tom.joindiaspora.com/webfinger/?q=foo@tom.joindiaspora.com'
         end
       end
 
