@@ -48,7 +48,8 @@ class DevUtilitiesController < ApplicationController
 
       @fixture_name = File.join(File.dirname(__FILE__), "..", "..", "public", "images", "user", "#{username}.jpg")
 
-      photo = Photo.new(:person => current_user.person, :album => album)
+      photo = Photo.new(:album => album)
+      photo.person = current_user.person
       photo.image.store! File.open(@fixture_name)
       photo.save
       photo.reload

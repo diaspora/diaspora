@@ -18,9 +18,15 @@ describe Aspect do
   let(:aspect3) {user3.aspect(:name => "lala")}
 
   describe 'creation' do
-    let(:aspect){user.aspect(:name => 'losers')}
+    let!(:aspect){user.aspect(:name => 'losers')}
     it 'should have a name' do
       aspect.name.should == "losers"
+    end
+
+    it 'should not allow duplicate names' do
+      lambda {
+        invalid_aspect = user.aspect(:name => "losers ")
+      }.should_not change(Aspect, :count)
     end
 
     it 'should not be creatable with people' do

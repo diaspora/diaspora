@@ -32,12 +32,16 @@ class Photo < Post
 
   before_destroy :ensure_user_picture
 
+  attr_protected :person
+
   def self.instantiate(params = {})
-    image_file = params[:user_file]
-    params.delete :user_file
+    image_file = params.delete(:user_file)
+    person = params.delete(:person)
 
     photo = Photo.new(params)
+
     photo.image.store! image_file
+    photo.person = person
     photo.save
     photo
   end

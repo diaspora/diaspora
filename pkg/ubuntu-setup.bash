@@ -8,8 +8,11 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-# USAGE: ./script/ubuntu-setup.bash
+
+# USAGE: ./pkg/ubuntu-setup.bash  [external hostname]
 # Do NOT run this script as root.
+
+arg_hostname="$1"
 
 # Set extented globbing
 shopt -s extglob
@@ -17,13 +20,13 @@ shopt -s extglob
 # fail on error
 set -e
 
-[ "$(whoami)" == "root" ] && echo "Please do not run this script as root/sudo
+[[ "$(whoami)" == "root" ]] && echo "Please do not run this script as root/sudo
 We need to do some actions as an ordinary user. We use sudo where necessary." && exit 1
 
 # Check if the user has sudo privileges.
 sudo -v >/dev/null 2>&1 || { echo $(whoami) has no sudo privileges ; exit 1; }
 
-# Check if universal repository is enabled 
+# Check if universal repository is enabled
 grep -ie '^deb .*universe' /etc/apt/sources.list > /dev/null || \
     { echo "Please enable universe repository" ; exit 1 ; }
 
@@ -63,8 +66,8 @@ then
     then
         echo "Lanchpad bug https://bugs.launchpad.net/ubuntu/+source/mongodb/+bug/557024
 has not been fixed using workaround:"
-        echo "sudo ln -s /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so"
-        sudo ln -s /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so
+        echo "sudo ln -sf /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so"
+        sudo ln -sf /usr/lib/xulrunner-1.9.2.10/libmozjs.so /usr/lib/libmozjs.so
     fi
 
     sudo apt-get -y  --no-install-recommends install mongodb
@@ -101,13 +104,13 @@ echo "Fetching and installing ruby gems.."
     if [ $RELEASE == "maverick" ]
     then
         sudo apt-get install --no-install-recommends -y rubygems
-        sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
+        sudo ln -sf /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
     elif [ $RELEASE == "lucid" ]
     then
         sudo add-apt-repository ppa:maco.m/ruby
         sudo apt-get update
         sudo apt-get install --no-install-recommends -y rubygems
-        sudo ln -s /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
+        sudo ln -sf /var/lib/gems/1.8/bin/bundle /usr/local/bin/bundle #for PATH
     else
         # Old version
         echo "."
@@ -147,26 +150,49 @@ echo "Installed bundler.."
 
     #Configure diaspora
     cp config/app_config.yml.example config/app_config.yml
-    echo "You need to configure diaspora to tell it which URL it has.
-Opening editor in 5 seconds and then continuing with install."
-    sleep 5
-    #ensure EDITOR is set
-    if [ -z "${EDITOR}"]
-    then
-        EDITOR=vi
+    hostname=$( awk '/pod_url:/ { print $2; exit }' <config/app_config.yml)
+
+    if [ -n "$arg_hostname" ]; then
+        sed -i "/pod_url:/s|$hostname|$arg_hostname|g" config/app_config.yml &&
+        echo "config/app_config.yml updated."
+        exit 0
+    else
+        while : ; do
+            echo "Current hostname is \"$hostname\""
+            echo -n "Enter new hostname [$hostname] :"
+            read new_hostname garbage
+            echo -n "Use \"$new_hostname\" as pod_url (Yes/No) [Yes]? :"
+            read yesno garbage
+            [ "${yesno:0:1}" = 'y' -o "${yesno:0:1}" = 'Y' -o -z "$yesno" ] && {
+                sed -i "/pod_url:/s|$hostname|$new_hostname|g" \
+                    config/app_config.yml &&
+                echo "config/app_config.yml updated."
+                break
+            }
+        done
     fi
-    $EDITOR config/app_config.yml
+
 
     # Create the shared directory which is used by rake db:seed:tom
-    mkdir shared
+    ### mkdir shared
 
     # Install DB setup
-    echo "Seting up DB.."
-    rake db:seed:tom
-    echo "DB ready. Login -> tom and password -> evankorth.
-More details ./diaspora/db/seeds/tom.rb."
+    echo "Setting up DB..."
+    if  rake db:seed:dev ; then
+        cat <<- EOF
+	DB ready. Login -> tom and password -> evankorth.
+	More details ./diaspora/db/seeds/tom.rb. and ./diaspora/db/seeds/dev.rb.
+	EOF
+    else
+        cat <<- EOF
+	Database config failed. You might want to remove all db files with
+	'rm -rf /var/lib/mongodb/*' and/or reset the config file by
+	'cp config/app_config.yml.example config/app_config.yml' before
+	making a new try. Also, make sure the mongodb server is running
+	EOF
+    fi
 
     # Run appserver
     echo "Starting server"
-    bundle exec thin start
+    script/server
 )
