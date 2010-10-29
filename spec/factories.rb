@@ -7,15 +7,19 @@
 # http://railscasts.com/episodes/158-factories-not-fixtures
 #This inclsion, because gpg-agent(not needed) is never run and hence never sets any env. variables on a MAC
 
+def r_str
+  ActiveSupport::SecureRandom.hex(3)
+end
+
 Factory.define :profile do |p|
-  p.sequence(:first_name){|n| "Robert#{n}"}
-  p.sequence(:last_name){|n| "Grimm#{n}"}
+  p.sequence(:first_name){|n| "Robert#{n}#{r_str}"}
+  p.sequence(:last_name){|n| "Grimm#{n}#{r_str}"}
 end
 
 
 Factory.define :person do |p|
-  p.sequence(:diaspora_handle) {|n| "bob-person-#{n}@aol.com"}
-  p.sequence(:url)  {|n| "http://google-#{n}.com/"}
+  p.sequence(:diaspora_handle) {|n| "bob-person-#{n}#{r_str}@aol.com"}
+  p.sequence(:url)  {|n| "http://google-#{n}#{r_str}.com/"}
   p.profile Factory.create(:profile, :first_name => "eugene", :last_name => "weinstien")
 
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
@@ -27,8 +31,8 @@ Factory.define :album do |p|
 end
 
 Factory.define :user do |u|
-  u.sequence(:username) {|n| "bob#{n}"}
-  u.sequence(:email) {|n| "bob#{n}@pivotallabs.com"}
+  u.sequence(:username) {|n| "bob#{n}#{r_str}"}
+  u.sequence(:email) {|n| "bob#{n}#{r_str}@pivotallabs.com"}
   u.password "bluepin7"
   u.password_confirmation "bluepin7"
   u.serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export

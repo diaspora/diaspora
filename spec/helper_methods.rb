@@ -82,4 +82,34 @@ module HelperMethods
   def evan_hcard
     File.open(File.dirname(__FILE__) + '/fixtures/evan_hcard').read
   end
+
+  def build_user_fixtures
+    arr = []
+    10.times do
+      user = Factory :user
+      person = user.person
+      arr << { :user => user.to_mongo, :person => person.to_mongo}
+    end
+    arr
+  end
+
+  def regenerate_user_fixtures
+    users = {:users => build_user_fixtures}
+    File.open(File.join(Rails.root,"spec/fixtures/users.yaml"),'w') do |file|
+      file.write(users.to_yaml)
+    end
+  end
+
+  def save_user_fixtures
+    yaml_users = YAML.load_file(File.join(Rails.root,"spec/fixtures/users.yaml"))
+    db = MongoMapper.database
+    people = db.collection("people")
+    users = db.collection("users")
+    yaml_users[:users].each do |yaml_user|
+      user = yaml_user[:user]
+      person = yaml_user[:person]
+      users.insert(user)
+      people.insert(person)
+    end
+  end
 end
