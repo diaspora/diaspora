@@ -73,7 +73,6 @@ describe Comment do
     it 'should send a comment a person made on your post to all people' do
       comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle,  :text => "cats", :post => @user_status)
       User::QUEUE.should_receive(:add_post_request).twice
-      Person.should_receive(:by_webfinger).and_return(@person)
       user.receive comment.to_diaspora_xml, @person
     end
 

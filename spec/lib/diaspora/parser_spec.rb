@@ -18,10 +18,8 @@ describe Diaspora::Parser do
       comment = Factory.create(:comment, :post => post, :person => person, :diaspora_handle => person.diaspora_handle, :text => "Freedom!")
       comment.delete
       xml = comment.to_diaspora_xml
-      puts xml
-
       comment_from_xml = Diaspora::Parser.from_xml(xml)
-      comment_from_xml.diaspora_handle person.diaspora_handle
+      comment_from_xml.diaspora_handle.should ==  person.diaspora_handle
       comment_from_xml.post.should == post
       comment_from_xml.text.should == "Freedom!"
       comment_from_xml.should_not be comment

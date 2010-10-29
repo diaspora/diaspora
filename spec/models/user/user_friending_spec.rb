@@ -25,6 +25,13 @@ describe Diaspora::UserModules::Friending do
     Notifier.stub!(:request_accepted).and_return(deliverable)
   end
 
+  before :all do
+    User.any_instance.stubs(:push_to_people)
+  end
+
+  after :all do
+    unstub_mocha_stubs
+  end
 
   describe '#contact_for' do
 
@@ -56,7 +63,6 @@ describe Diaspora::UserModules::Friending do
       user.friends << contact
       user2.contact_for(person_one).should be_nil
     end
-
   end
 
 
@@ -83,13 +89,13 @@ describe Diaspora::UserModules::Friending do
         request.reverse_for(user2)
         proc{user.receive_friend_request(request)}.should change(user.reload.friends, :count).by(1)
       end
-
     end
 
     context 'received a friend request' do
 
       let(:request_for_user) {Request.instantiate(:to => user.receive_url, :from => friend)}
       let(:request2_for_user) {Request.instantiate(:to => user.receive_url, :from => person_one)}
+      let(:request_from_myself) {Request.instantiate(:to => user.receive_url, :from => user.person)}
       before do
         request_for_user.save
         user.receive_friend_request(request_for_user)
@@ -105,6 +111,21 @@ describe Diaspora::UserModules::Friending do
       it 'should be able to ignore a pending friend request' do
         proc { user.ignore_friend_request(request_for_user.id) }.should change(
           user.reload.pending_requests, :count ).by(-1)
+      end
+
+      it 'should ignore a friend request from yourself' do
+        
+        user.pending_requests.delete_all
+        user.save
+        request = user.send_friend_request_to(user.person, aspect)
+        request.reverse_for(user)
+        request.aspect_id = nil
+        user.pending_requests.delete_all
+        user.save
+
+        proc { user.receive_friend_request(request) }.should change(
+
+          user.reload.pending_requests, :count ).by(0)
       end
     end
 
@@ -171,8 +192,6 @@ describe Diaspora::UserModules::Friending do
           Notifier.should_receive(:new_request).and_return(mail_obj)
           user.receive @req_xml, person_one
         end
-
-
       end
 
       context 'Two users receiving requests from one person' do

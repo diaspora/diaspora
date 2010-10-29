@@ -19,7 +19,7 @@ describe RequestsController do
       "aspect_id" => @user.aspects[0].id 
       } 
     )
-    response.should redirect_to aspect_path(@user.aspects[0].id.to_s)
+    response.should redirect_to aspects_manage_path 
   end
 
   it "should not error out when requesting an invalid identity" do
@@ -28,7 +28,7 @@ describe RequestsController do
       "aspect_id" => @user.aspects[0].id 
       } 
     )
-    response.should redirect_to aspect_path(@user.aspects[0].id.to_s)
+    response.should redirect_to aspects_manage_path
   end
 
   it "should not error out when requesting an invalid identity with a port number" do
@@ -37,7 +37,7 @@ describe RequestsController do
       "aspect_id" => @user.aspects[0].id 
       } 
     )
-    response.should redirect_to aspect_path(@user.aspects[0].id.to_s)
+    response.should redirect_to aspects_manage_path
   end
 
   it "should not error out when requesting an identity from an invalid server" do
@@ -47,9 +47,14 @@ describe RequestsController do
       "aspect_id" => @user.aspects[0].id 
       } 
     )
-    response.should redirect_to aspect_path(@user.aspects[0].id.to_s)
+    response.should redirect_to aspects_manage_path
   end
 
+  it 'should redirect to the page which you called it from ' do
+    pending "i need to figure out how to do this"
+  end
 
-
+  it 'should not blow up if there is a problem mid way thru the webfinger process' do
+    pending "i need to do this tomorrow"
+  end
 end

@@ -5,6 +5,14 @@
 require 'spec_helper'
 
 describe MessageHandler do
+    before do
+       unstub_mocha_stubs
+    end
+    after  do
+      stub_sockets
+      MessageHandler.any_instance.stubs(:add_post_request)
+    end
+
   before do
     @handler = MessageHandler.new
     @message_body = "I want to pump you up"
@@ -151,23 +159,6 @@ describe MessageHandler do
       }
 
     end
-  end
-end
-
-class FakeHttpRequest
-  def initialize(callback_wanted)
-    @callback = callback_wanted
-  end
-  def response
-  end
-
-  def post; end
-  def get; end
-  def callback(&b)
-    b.call if @callback == :success
-  end
-  def errback(&b)
-    b.call if @callback == :failure
   end
 end
 

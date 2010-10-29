@@ -79,12 +79,14 @@ describe User do
       end
 
       it "keeps the original case" do
+        pending "do we want this?"
         user = Factory.build(:user, :username => "WeIrDcAsE")
         user.should be_valid
         user.username.should == "WeIrDcAsE"
       end
 
       it "fails if the requested username is only different in case from an existing username" do
+        pending "do we want this?"
         duplicate_user = Factory.build(:user, :username => user.username.upcase)
         duplicate_user.should_not be_valid
       end
