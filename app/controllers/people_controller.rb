@@ -16,15 +16,24 @@ class PeopleController < ApplicationController
 
   def show
     @aspect = :profile
-    @person = current_user.visible_person_by_id(params[:id])
-    unless @person
-      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
-    else
+
+    @person = Person.find(params[:id].to_id)
+
+    if @person
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
-      @aspects_with_person = @contact.aspects if @contact
+
+      if @contact
+        @aspects_with_person = @contact.aspects
+      else
+        @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
+      end
+
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
       respond_with @person
+    else
+      flash[:error] = "Person does not exist!"
+      redirect_to people_path
     end
   end
 
