@@ -188,12 +188,6 @@ describe User do
     end
   end
 
-  describe '#diaspora_handle' do
-    it 'uses the pod config url to set the diaspora_handle' do
-      user.diaspora_handle.should == user.username + "@" + APP_CONFIG[:terse_pod_url]
-    end
-  end
-
   context 'profiles' do
     it 'should be able to update their profile and send it to their friends' do
       updated_profile = {
