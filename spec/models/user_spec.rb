@@ -121,6 +121,9 @@ describe User do
     end
 
     describe "of language" do
+      after do
+        I18n.locale = :en
+      end
       it "requires availability" do
         user = Factory.build(:user, :language => 'some invalid language')
         user.should_not be_valid
