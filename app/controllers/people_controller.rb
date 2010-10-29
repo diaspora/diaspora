@@ -73,12 +73,12 @@ class PeopleController < ApplicationController
   private
   def prep_image_url(params)
     if params[:profile] && params[:profile][:image_url]
-      url = APP_CONFIG[:pod_url].dup
-      url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
       if params[:profile][:image_url].empty?
         params[:profile].delete(:image_url)
       else
-        if /^http:\/\// =~ params[:profile][:image_url]
+        url = APP_CONFIG[:pod_url].dup
+        url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
+        if params[:profile][:image_url].match(/^https?:\/\//)
           params[:profile][:image_url] = params[:profile][:image_url]
         else
           params[:profile][:image_url] = url + params[:profile][:image_url]
