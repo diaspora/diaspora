@@ -65,7 +65,6 @@ describe MessageHandler do
   end
 
   describe 'POST messages' do
-
     it 'should be able to add a post message to the queue' do
       EventMachine.run {
         @handler.size.should ==0
@@ -103,6 +102,9 @@ describe MessageHandler do
   end
 
   describe "Hub publish" do
+    before do
+      EventMachine::PubSubHubbub.stub(:new).and_return(:success)
+    end
     it 'should correctly queue up a pubsubhubbub publish request' do
       destination = "http://identi.ca/hub/"
       feed_location = "http://google.com/"

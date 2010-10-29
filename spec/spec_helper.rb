@@ -59,6 +59,10 @@ class FakeHttpRequest
     self 
   end
 
+  def publish(opts = nil)
+    self
+  end
+
   def callback(&b)
     b.call if @callback == :success
   end
