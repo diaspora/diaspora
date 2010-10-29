@@ -5,16 +5,6 @@
 require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
 
-class InvitedUserValidator < ActiveModel::Validator
-  def validate(document)
-    unless document.invitation_token
-      unless document.person
-        document.errors[:base] << "Unless you are being invited, you must have a person"
-      end
-    end
-  end
-end
-
 class User
   include MongoMapper::Document
   include Diaspora::UserModules
@@ -50,11 +40,11 @@ class User
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
-  validates_with InvitedUserValidator
+  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
-  validate :person_is_valid
+  validates_associated :person
   def person_is_valid
     if person.present? && !person.valid?
       person.errors.full_messages.each {|m| errors.add(:base, m)}

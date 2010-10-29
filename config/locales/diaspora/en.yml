@@ -11,6 +11,8 @@ en:
           models:
               user:
                   attributes:
+                      person:
+                          invalid: "is invalid"
                       username:
                           taken: "is already taken"
                       email:

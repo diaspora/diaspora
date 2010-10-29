@@ -51,7 +51,7 @@ describe User do
         user.should_not be_valid
 
         user.errors.full_messages.count.should == 1
-        user.errors.full_messages.first.should =~ /serialized public key/i
+        user.errors.full_messages.first.should =~ /Person is invalid/i
       end
     end
 

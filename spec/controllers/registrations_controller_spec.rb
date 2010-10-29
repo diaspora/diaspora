@@ -44,7 +44,7 @@ describe RegistrationsController do
         lambda { get :create, @invalid_params }.should_not change(User, :count)
       end
       it "assigns @user" do
-        get :create, @valid_params
+        get :create, @invalid_params
         assigns(:user).should_not be_nil
       end
       it "sets the flash error" do
