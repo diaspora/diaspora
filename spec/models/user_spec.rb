@@ -16,11 +16,13 @@ describe User do
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
+      pending "Why do you want to set ids directly? MONGOMAPPERRRRR!!!"
       new_user = Factory.create(:user, :id => user.id)
       new_user.persisted?.should be_true
       new_user.id.should_not == user.id
     end
     it 'does not overwrite old users with create' do
+      pending "Why do you want to set ids directly? MONGOMAPPERRRRR!!!"
           params = {:username => "ohai",
                     :email => "ohai@example.com",
                     :password => "password",

@@ -15,7 +15,7 @@ describe PhotosController do
     image = File.open(@fixture_name)
     #@photo = Photo.instantiate(
      #         :person => @user.person, :album => @album, :user_file => image)
-    @photo  = @user.post(:photo, :album_id => @album.id, :user_file => image, :to => @aspect.id)
+    @photo = @user.post(:photo, :album_id => @album.id, :user_file => image, :to => @aspect.id)
     sign_in :user, @user
   end
 

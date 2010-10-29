@@ -14,7 +14,21 @@ describe Photo do
     @fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo = Photo.new(:person => @user.person, :album => @album)
+    @photo = Photo.new(:album => @album)
+    @photo.person = @user.person
+  end
+
+  describe "protected attributes" do
+    it "doesn't allow mass assignment of person" do
+      @photo.save!
+      @photo.update_attributes(:person => Factory(:person))
+      @photo.reload.person.should == @user.person
+    end
+    it "doesn't allow mass assignment of person_id" do
+      @photo.save!
+      @photo.update_attributes(:person_id => Factory(:person).id)
+      @photo.reload.person.should == @user.person
+    end
   end
 
   it 'has a constructor' do

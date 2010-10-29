@@ -97,7 +97,9 @@ class PhotosController < ApplicationController
       respond_with @photo
     else
       flash[:error] = I18n.t 'photos.update.error'
-      render :action => :edit
+      @album = @photo.album
+      set_friends_and_status
+      render :edit
     end
   end
 end
