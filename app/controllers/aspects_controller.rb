@@ -24,7 +24,7 @@ class AspectsController < ApplicationController
       respond_with @aspect
     else
       flash[:error] = I18n.t('aspects.create.failure')
-      redirect_to aspects_manage_path
+      redirect_to :back
     end
   end
 
