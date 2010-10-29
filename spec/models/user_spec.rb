@@ -102,6 +102,16 @@ describe User do
         user = Factory.build(:user, :username => "kittens;")
         user.should_not be_valid
       end
+      
+      it "can be 32 characters long" do
+        user = Factory.build(:user, :username => "hexagoooooooooooooooooooooooooon")
+        user.should be_valid
+      end
+      
+      it "cannot be 33 characters" do
+        user = Factory.build(:user, :username => "hexagooooooooooooooooooooooooooon")
+        user.should_not be_valid
+      end
     end
 
     describe "of email" do
