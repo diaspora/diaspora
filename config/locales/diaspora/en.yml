@@ -91,7 +91,7 @@ en:
           your_albums: "Your Albums"
   aspects:
       no_friends_message:
-          nobody: "We know you have friends, bring them to Diaspora!"
+          nobody: "We know you have friends — bring them to Diaspora!"
           nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
           add_friend: "Add a friend"
           add_friend_to: "Add someone to %{aspect_name}"
