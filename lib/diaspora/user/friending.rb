@@ -72,7 +72,7 @@ module Diaspora
           activate_friend(friend_request.person, destination_aspect)
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
           friend_request.destroy
-          Notifier.async.request_accepted(self, friend_request.person, destination_aspect).deliver.commit(1)
+          Notifier.request_accepted(self, friend_request.person, destination_aspect)
 
         #this is a new friend request
         elsif !from_me 
@@ -80,7 +80,7 @@ module Diaspora
           self.save
           Rails.logger.info("#{self.real_name} has received a friend request")
           friend_request.save
-          Notifier.async.new_request(self, friend_request.person).deliver.commit(1)
+          Notifier.new_request(self, friend_request.person).deliver
         else
           Rails.logger.info("unsolicited friend request: #{friend_request.to_json}")
         end

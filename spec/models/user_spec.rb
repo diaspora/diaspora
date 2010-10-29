@@ -132,7 +132,8 @@ describe User do
         user.language.should == 'fr'
       end
     end
-  end
+
+   end
 
   describe ".build" do
     context 'with valid params' do
