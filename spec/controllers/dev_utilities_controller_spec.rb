@@ -8,7 +8,7 @@ describe DevUtilitiesController do
   render_views
 
   before do
-    @tom = Factory.create(:user, :email => "tom@tom.joindiaspora.org")
+    @tom = Factory.create(:user_with_aspect, :email => "tom@tom.joindiaspora.org")
     sign_in :user, @tom
   end
 

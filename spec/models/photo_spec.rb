@@ -39,13 +39,14 @@ describe Photo do
   end
 
   it 'must have an album' do
-    photo = Photo.new(:person => @user.person)
+    photo = Photo.new()
+    photo.person = @user.person
     photo.image = File.open(@fixture_name)
     photo.save
     photo.valid?.should be false
-    photo.album = Album.create(:name => "foo", :person => @user.person)
+    photo.album = @album
     photo.save
-    Photo.first.album.name.should == 'foo'
+    photo.reload.album.name.should == 'foo'
   end
 
   it 'should have a caption' do

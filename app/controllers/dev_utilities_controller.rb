@@ -39,7 +39,7 @@ class DevUtilitiesController < ApplicationController
 
   def set_profile_photo
     render :nothing => true
-    album = Album.create(:person => current_user.person, :name => "Profile Photos")
+    album = current_user.post(:album, :name => "Profile Photos", :to => current_user.aspects.first.id)
     current_user.raw_visible_posts << album
     current_user.save
 

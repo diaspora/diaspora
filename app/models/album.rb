@@ -16,6 +16,8 @@ class Album < Post
 
   before_destroy :destroy_photos
 
+  attr_accessible :name
+
   def self.mine_or_friends(friend_param, current_user)
     friend_param ? Album.find_all_by_person_id(current_user.friend_ids) : current_user.person.albums
   end

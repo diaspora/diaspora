@@ -14,6 +14,30 @@ describe User do
     user.encryption_key.should_not be nil
   end
 
+  describe 'overwriting people' do
+    it 'does not overwrite old users with factory' do
+      new_user = Factory.create(:user, :id => user.id)
+      new_user.persisted?.should be_true
+      new_user.id.should_not == user.id
+    end
+    it 'does not overwrite old users with create' do
+          params = {:username => "ohai",
+                    :email => "ohai@example.com",
+                    :password => "password",
+                    :password_confirmation => "password",
+                    :person => 
+                      {:profile => 
+                        {:first_name => "O", 
+                         :last_name => "Hai"}
+                      }
+          }
+          params[:id] = user.id
+      new_user = User.build(params)
+      new_user.save
+      new_user.persisted?.should be_true
+      new_user.id.should_not == user.id
+    end
+  end
   describe "validation" do
     describe "of associated person" do
       it "fails if person is not valid" do

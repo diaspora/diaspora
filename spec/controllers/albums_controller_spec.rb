@@ -13,11 +13,6 @@ describe AlbumsController do
     sign_in :user, @user
   end
 
-  it "should update the name of an album" do
-    put :update, :id => @album.id, :album => { :name => "new_name"}
-    @album.reload.name.should eql("new_name")
-  end
-
   describe '#create' do
     it 'all aspects' do
       params = {"album" => {"name" => "Sunsets","to" => "all"}}
@@ -26,6 +21,21 @@ describe AlbumsController do
     it 'one aspect' do
       params = {"album" => {"name" => "Sunsets","to" => @aspect.id.to_s}}
       post :create, params
+    end
+  end
+
+  describe "#update" do
+    it "should update the name of an album" do
+      put :update, :id => @album.id, :album => { :name => "new_name"}
+      @album.reload.name.should eql("new_name")
+    end
+    
+    it "doesn't overwrite random attributes" do
+      new_user = Factory.create :user
+      params = {:name => "Bruisers", :person_id => new_user.person.id}
+      put('update', :id => @album.id, "album" => params)
+      @album.reload.person_id.should == @user.person.id
+      @album.name.should == 'Bruisers'
     end
   end
 end

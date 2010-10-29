@@ -5,7 +5,7 @@
 class PhotoAlbumValidator < ActiveModel::Validator
   def validate(document)
     unless document.album.person_id == document.person_id
-      document.errors[:base] << "You post photos to that album"
+      document.errors[:base] << "You can't post photos to that album"
     end
   end
 end
