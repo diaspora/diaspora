@@ -119,6 +119,19 @@ describe User do
         duplicate_user.should_not be_valid
       end
     end
+
+    describe "of language" do
+      it "requires availability" do
+        user = Factory.build(:user, :language => 'some invalid language')
+        user.should_not be_valid
+      end
+
+      it "should save with current language if blank" do
+        I18n.locale = :fr
+        user = Factory(:user, :language => nil)
+        user.language.should == 'fr'
+      end
+    end
   end
 
   describe ".build" do

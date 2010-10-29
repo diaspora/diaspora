@@ -29,12 +29,19 @@ class UsersController < ApplicationController
     else
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
+      params[:user].delete(:language) if params[:user][:language].blank?
 
       if params[:user][:password] && params[:user][:password_confirmation]
         if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
           flash[:notice] = "Password Changed"
         else
           flash[:error] = "Password Change Failed"
+        end
+      elsif params[:user][:language]
+        if @user.update_attributes(:language => params[:user][:language])
+          flash[:notice] = "Language Changed"
+        else
+          flash[:error] = "Language Change Failed"
         end
       end
 
