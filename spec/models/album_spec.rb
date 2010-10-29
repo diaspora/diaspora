@@ -65,18 +65,4 @@ describe Album do
     end
   end
 
-  describe '#to_xml' do
-    let(:doc) { album.to_xml }
-    it 'has a name' do
-      doc.at_xpath('./name').text.should == album.name
-    end
-
-    it 'has an id' do
-      doc.at_xpath('./_id').text.should == album.id.to_s
-    end
-
-    it 'includes the person' do
-      doc.at_xpath('./person/_id').text.should == album.person.id.to_s
-    end
-  end
 end

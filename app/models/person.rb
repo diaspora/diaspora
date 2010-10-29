@@ -106,7 +106,7 @@ class Person
 
   #database calls
   def self.by_account_identifier(identifier)
-    identifier = identifier.strip.downcase.gsub('acct:', '') if identifier
+    identifier = identifier.strip.downcase.gsub('acct:', '')
     self.first(:diaspora_handle => identifier)
   end
 

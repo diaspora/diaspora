@@ -21,7 +21,7 @@ module Diaspora
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
 
 
-        if object.is_a?(Comment) 
+        if object.is_a?(Comment) || object.is_a?(Post)
           e = EMWebfinger.new(object.diaspora_handle)
 
           e.on_person { |person|
@@ -32,7 +32,14 @@ module Diaspora
                 raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
               end
 
-              receive_comment object, xml
+              raise "Not friends with that person" unless self.contact_for(salmon_author)
+
+              if object.is_a?(Comment) 
+                receive_comment object, xml
+              else
+                receive_post object, xml
+              end
+
             end
           }
 
@@ -65,11 +72,14 @@ module Diaspora
           sender = object.person
         elsif object.is_a? Profile
           sender = Diaspora::Parser.owner_id_from_xml xml
-        elsif object.is_a?(Comment)
-          object.person = webfingered_person 
-          sender = (owns?(object.post))? object.person : object.post.person
+
         else
-          sender = object.person
+          object.person = webfingered_person
+          if object.is_a?(Comment)
+            sender = (owns?(object.post))? object.person : object.post.person
+          else
+            sender = object.person
+          end
         end
         sender
       end
