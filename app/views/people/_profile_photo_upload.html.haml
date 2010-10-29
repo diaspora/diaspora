@@ -5,7 +5,7 @@
 
 #profile_photo_upload
   = owner_image_tag
-  = render 'photos/new_photo', :album_id => nil, :aspect_id => 'all', :set_profile_image => true
+  = form.file_field :image
 
   %p
     \...or select one from your already existing

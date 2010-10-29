@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-= form_for @person do |person|
+= form_for @person, :html => { :multipart => true } do |person|
   %h3
     Your Profile
     .description
@@ -33,7 +33,7 @@
 
     %h4
       Your photo
-      = render 'people/profile_photo_upload'
+      = render 'people/profile_photo_upload', :form => profile
 
     = hidden_field_tag :getting_started, @step
 

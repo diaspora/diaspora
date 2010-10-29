@@ -12,7 +12,7 @@
     %li=link_to 'Services', services_path
 
 .span-19.prepend-5.last
-  = form_for @person do |person|
+  = form_for @person, :html => { :multipart => true } do |person|
     %h3
       Your Profile
       .description
@@ -42,7 +42,7 @@
 
       %h4
         Your photo
-        = render 'people/profile_photo_upload'
+        = render 'people/profile_photo_upload', :form => profile
 
     .submit_block
       = link_to t('.cancel'), edit_user_path(current_user)

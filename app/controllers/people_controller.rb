@@ -46,6 +46,15 @@ class PeopleController < ApplicationController
       params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
     end
 
+    # upload and set new profile photo
+    if params[:person][:profile][:image]
+      raw_image = params[:person][:profile].delete(:image)
+      params[:profile_image_hash] = { :user_file => raw_image, :to => "all" }
+
+      photo = current_user.post(:photo, params[:profile_image_hash])
+      params[:person][:profile][:image_url] = photo.url(:thumb_medium)
+    end
+
     prep_image_url(params[:person])
 
     if current_user.update_profile params[:person][:profile]
