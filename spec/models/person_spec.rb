@@ -13,6 +13,14 @@ describe Person do
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
+  describe "vaild  url" do
+      it 'should allow for https urls' do
+      person = Factory.create(:person, :url => "https://example.com")
+      person.valid?.should == true
+      end
+    end
+
+
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
