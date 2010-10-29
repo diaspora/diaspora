@@ -51,6 +51,11 @@ class PhotosController < ApplicationController
 
       @photo = current_user.post(:photo, params[:photo])
 
+      # set image as profile photo
+      if params[:set_profile_image] && !params[:set_profile_image].empty?
+        current_user.update_profile(:image_url=>@photo.url(:thumb_medium))
+      end
+
       respond_to do |format|
         format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
       end
