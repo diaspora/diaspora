@@ -75,7 +75,6 @@ class UsersController < ApplicationController
     @user     = current_user
     @person   = @user.person
     @profile  = @user.profile
-    @photos   = @user.visible_posts(:person_id => current_user.person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
     @services = @user.services
 
     @step = ((params[:step].to_i>0)&&(params[:step].to_i<5)) ? params[:step].to_i : 1

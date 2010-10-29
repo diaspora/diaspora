@@ -12,7 +12,7 @@
     %li=link_to 'Services', services_path
 
 .span-19.prepend-5.last
-  = form_for @person do |person|
+  = form_for @person, :html => { :multipart => true } do |person|
     %h3
       Your Profile
       .description
@@ -42,26 +42,7 @@
 
       %h4
         Your photo
-        %div#image_picker
-          = profile.hidden_field :image_url, :value => (@profile.image_url if @profile.image_url), :id => 'image_url_field'
-
-          - unless @photos.nil? || @photos.empty?
-            - for photo in @photos
-              - if @profile.image_url && @profile.image_url.include?(photo.url(:thumb_medium))
-                %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
-                  = check_box_tag 'checked_photo', true, true
-                  = link_to image_tag(photo.url(:thumb_medium)), "#"
-              - else
-                %div.small_photo{:id => photo.url(:thumb_medium)}
-                  = check_box_tag 'checked_photo'
-                  = link_to image_tag(photo.url(:thumb_medium)), "#"
-
-          - else
-            =t('.you_dont_have_any_photos')
-            = link_to t('.albums'), albums_path(:aspect => 'all')
-            =t('.page_to_upload_some')
-
-        =will_paginate @photos
+        = render 'people/profile_photo_upload', :form => profile
 
     .submit_block
       = link_to t('.cancel'), edit_user_path(current_user)
