@@ -11,6 +11,10 @@ class MessageHandler
     @queue = EM::Queue.new
   end
 
+  def clear_queue
+    @queue = EM::Queue.new
+  end
+
   def add_get_request(destinations)
     [*destinations].each{ |dest| @queue.push(Message.new(:get, dest))}
   end

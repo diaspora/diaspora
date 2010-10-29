@@ -22,6 +22,10 @@ describe PublicsController do
   end
   
   describe '#receive' do
+    before do
+      EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
+    end
+
     context 'success cases' do
       it 'should 200 on successful receipt of a request' do
         EM::run { 
