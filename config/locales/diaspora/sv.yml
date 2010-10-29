@@ -4,9 +4,23 @@
 
 #   Localization file for Swedish
 #
-#   This file has parts from rails-i18n project at 
+#   This file has parts from rails-i18n project at
 #        http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale
-
+#
+#   --- And now, Swedish! ---
+#
+#   Svensk terminologi i denna översättning:
+#
+#   album:           fotoalbum
+#   aspect:          sida
+#   diaspora-handle: diaspora-adress
+#   diaspora-id:     (diaspora-) användarnamn
+#   email:           mail, ebrev (diskussion pågår);
+#   pod:             plats
+#   request:         (vän-) förfrågan
+#   profile:         profil
+#   seed:            frö
+#
 sv:
   activemodel:
       errors:
@@ -182,7 +196,7 @@ sv:
           sent: 'Din inbjudan är nu skickad.'
           no_more: 'Du har inga fler inbjudningar.'
           already_sent: 'Du har redan bjudit in denna person.'
-          already_friends: 'Du är redan vän med den här personen' 
+          already_friends: 'Du är redan vän med den här personen'
           invitation_token_invalid: 'Din inbjudningskod är inte giltig!'
           updated: 'Ditt lösenord är nu uppdaterat, och du har loggats in.'
 
@@ -348,13 +362,13 @@ sv:
     errors:
       # model.errors.full_messages format.
       format: "%{attribute} %{message}"
-      
+
       template:
         header:
           one:    "Ett fel förhindrade denna %{model} från att sparas"
           other:  "%{count} fel förhindrade denna %{model} från att sparas"
         body: "Det var problem med följande fält:"
-      
+
       # The values :model, :attribute and :value are always available for interpolation
       # The value :count is available when applicable. Can be used for pluralization.
       messages:
