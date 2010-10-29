@@ -47,18 +47,17 @@ describe EMWebfinger do
           EMWebfinger.new('eviljoe@diaspora.local:3000')
         }.should raise_error(RuntimeError, "Identifier is invalid")
       end  
-      proc{EMWebfinger.new("asfadfasdf")}.should raise_error
     end
-  end
 
 
-  describe '#on_person' do 
-    it 'should set a callback' do
-      n = EMWebfinger.new("mbs@gmail.com")
-      n.stub(:fetch).and_return(true)
+    describe '#on_person' do 
+      it 'should set a callback' do
+        n = EMWebfinger.new("mbs@gmail.com")
+        n.stub(:fetch).and_return(true)
 
-      n.on_person{|person| puts "foo"}
-      n.instance_variable_get(:@callbacks).count.should be 1
+        n.on_person{|person| puts "foo"}
+        n.instance_variable_get(:@callbacks).count.should be 1
+      end
 
       it 'should not blow up if the returned xrd is nil' do
         http = FakeHttpRequest.new(:success)
@@ -72,7 +71,6 @@ describe EMWebfinger do
         }
       end
     end
-  end
 
     describe '#fetch' do
       it 'should require a callback' do
@@ -123,18 +121,18 @@ describe EMWebfinger do
         good_request.callbacks = [diaspora_xrd, diaspora_finger, hcard_xml]
 
         #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
-                      # http://tom.joindiaspora.com/.well-known/host-meta 
+        # http://tom.joindiaspora.com/.well-known/host-meta 
         f = EMWebfinger.new("tom@tom.joindiaspora.com") 
 
         EventMachine::HttpRequest.should_receive(:new).exactly(3).times.and_return(good_request)
-        
+
         EM.run {
           f.on_person{ |p| 
-            p.valid?.should be true 
-            EM.stop
-          }
+          p.valid?.should be true 
+          EM.stop
         }
+        }
+      end
     end
   end
 end
-
