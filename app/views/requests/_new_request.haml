@@ -19,7 +19,7 @@
 
     %p
       = fr_request.label :destination_url, t(".friends_username")
-      = fr_request.text_field :destination_url
+      = fr_request.text_field :destination_url, :onclick => "$('#new_request label').hide();"
     = fr_request.hidden_field :aspect_id, :value => aspect.id
 
     - if defined?(getting_started)
