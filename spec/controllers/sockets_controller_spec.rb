@@ -13,7 +13,7 @@ EOT
 describe SocketsController do
   render_views
   before do
-    @user = Factory.create(:user)
+    @user = make_user
     @controller = SocketsController.new
   end
 

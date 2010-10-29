@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Photo do
   before do
-    @user = Factory.create(:user)
+    @user = make_user
     @aspect = @user.aspect(:name => "losers")
     @album = @user.post :album, :name => "foo", :to => @aspect.id
 

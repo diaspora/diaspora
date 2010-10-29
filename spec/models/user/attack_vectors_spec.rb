@@ -6,15 +6,15 @@ require 'spec_helper'
 
 describe "attack vectors" do
 
-  let(:user) { Factory(:user) }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'heroes') }
   
-  let(:bad_user) { Factory(:user)}
+  let(:bad_user) { make_user}
 
-  let(:user2) { Factory(:user) }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => 'losers') }
 
-  let(:user3) { Factory(:user) }
+  let(:user3) { make_user }
   let(:aspect3) { user3.aspect(:name => 'heroes') }
 
   before do

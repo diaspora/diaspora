@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:user) { Factory(:user) }
+  let(:user) { make_user }
   let!(:aspect) { user.aspect(:name => "lame-os") }
 
   let!(:old_password) { user.encrypted_password }

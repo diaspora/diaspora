@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 describe Album do
-  let(:user) { Factory.create(:user) }
+  let(:user) { make_user }
   let(:person) { user.person }
   let(:aspect) { user.aspect(:name => "Foo") }
   let(:album) { user.post(:album, :name => "test collection", :to => aspect.id) }

@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe Salmon do
-  let(:user){Factory.create :user}
-  let(:user2) {Factory.create :user}
-  let(:user3) {Factory.create :user}
+  let(:user){make_user}
+  let(:user2) {make_user}
+  let(:user3) {make_user}
   let(:post){ user.post :status_message, :message => "hi", :to => user.aspect(:name => "sdg").id }
 
   let!(:created_salmon) {Salmon::SalmonSlap.create(user, post.to_diaspora_xml)}

@@ -10,11 +10,11 @@ describe Diaspora::Importer do
 
   before(:each) do
     # Five users on pod
-    @user1 = Factory(:user)
-    @user2 = Factory(:user)
-    @user3 = Factory(:user)
-    @user4 = Factory(:user)
-    @user5 = Factory(:user)
+    @user1 = make_user
+    @user2 = make_user
+    @user3 = make_user
+    @user4 = make_user
+    @user5 = make_user
 
     # Two external people referenced on pod
     @person1 = Factory(:person)

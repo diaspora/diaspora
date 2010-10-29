@@ -1,15 +1,4 @@
 module HelperMethods
-  def stub_sockets
-    Diaspora::WebSocket.stub!(:queue_to_user).and_return(true)
-    Diaspora::WebSocket.stub!(:subscribe).and_return(true)
-    Diaspora::WebSocket.stub!(:unsubscribe).and_return(true)
-  end
-
-  def unstub_sockets
-    Diaspora::WebSocket.unstub!(:queue_to_user)
-    Diaspora::WebSocket.unstub!(:subscribe)
-    Diaspora::WebSocket.unstub!(:unsubscribe)
-  end
 
   def stub_comment_signature_verification
     Comment.any_instance.stubs(:verify_signature).returns(true)

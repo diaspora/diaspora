@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe Person do
   before do
-    @user = Factory.create(:user)
-    @user2 = Factory.create(:user)
+    @user = make_user
+    @user2 = make_user
     @person = Factory.create(:person)
     @aspect = @user.aspect(:name => "Dudes")
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
@@ -24,7 +24,8 @@ describe Person do
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
-        @user.person.diaspora_handle.should == @user.username + "@" + APP_CONFIG[:terse_pod_url]
+        new_user = Factory.create(:user)
+        new_user.person.diaspora_handle.should == new_user.username + "@" + APP_CONFIG[:terse_pod_url]
       end
     end
 
@@ -47,7 +48,7 @@ describe Person do
   end
 
   context '#real_name' do
-    let!(:user) { Factory(:user) }
+    let!(:user) { make_user }
     let!(:person) { user.person }
     let!(:profile) { person.profile }
 
@@ -176,7 +177,7 @@ describe Person do
   end
 
   context 'people finders for webfinger' do
-    let(:user) {Factory(:user)}
+    let(:user) {make_user}
     let(:person) {Factory(:person)}
 
     describe '.by_account_identifier' do

@@ -7,7 +7,7 @@ require 'spec_helper'
 describe RequestsController do
   render_views
   before do
-    @user = Factory.create(:user)
+    @user = make_user
 
     sign_in :user, @user
     @user.aspect(:name => "lame-os")

@@ -9,7 +9,6 @@ describe MessageHandler do
        unstub_mocha_stubs
     end
     after  do
-      stub_sockets
       MessageHandler.any_instance.stubs(:add_post_request)
     end
 

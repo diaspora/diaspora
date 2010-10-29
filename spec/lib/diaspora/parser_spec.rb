@@ -5,11 +5,11 @@
 require 'spec_helper'
 
 describe Diaspora::Parser do
-  let(:user) { Factory.create(:user) }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'spies') }
-  let(:user2) { Factory.create(:user) }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => "pandas") }
-  let(:user3) { Factory.create :user }
+  let(:user3) { make_user }
   let(:person) { user3.person }
 
   describe "parsing compliant XML object" do

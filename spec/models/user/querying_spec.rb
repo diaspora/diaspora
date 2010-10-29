@@ -38,7 +38,7 @@ describe User do
       end
 
       context 'with two users' do
-        let!(:user)          {Factory :user}
+        let!(:user)          {make_user}
         let!(:first_aspect)  {user.aspect(:name => 'bruisers')}
         let!(:second_aspect) {user.aspect(:name => 'losers')}
 
@@ -58,7 +58,7 @@ describe User do
   end
 
   context 'with two users' do
-    let!(:user)          {Factory :user}
+    let!(:user)          {make_user}
     let!(:first_aspect)  {user.aspect(:name => 'bruisers')}
     let!(:second_aspect) {user.aspect(:name => 'losers')}
     let!(:user4) { Factory.create(:user_with_aspect)}

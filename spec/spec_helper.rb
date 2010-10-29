@@ -28,7 +28,6 @@ RSpec.configure do |config|
   DatabaseCleaner.orm = "mongo_mapper"
 
   config.before(:each) do
-    stub_sockets
     MessageHandler.any_instance.stubs(:add_post_request)
     DatabaseCleaner.clean
     UserFixer.load_user_fixtures

@@ -5,8 +5,8 @@
 require 'spec_helper'
 
 describe Request do
-  let(:user) { Factory(:user) }
-  let(:user2) { Factory :user}
+  let(:user) { make_user }
+  let(:user2) { make_user}
   let(:person) {Factory :person}
   let(:aspect) { user.aspect(:name => "dudes") }
   let(:request){ user.send_friend_request_to user2.person, aspect }
