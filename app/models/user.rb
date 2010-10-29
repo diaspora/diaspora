@@ -42,11 +42,16 @@ class User
 
   key :getting_started, Boolean, :default => true
 
+  key :language, String
+
   before_validation :strip_and_downcase_username, :on => :create
+  before_validation :set_current_language, :on => :create
+
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
   validates_with InvitedUserValidator
+  validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
   validate :person_is_valid
@@ -74,6 +79,10 @@ class User
       username.strip!
       username.downcase!
     end
+  end
+
+  def set_current_language
+    self.language = I18n.locale.to_s if self.language.blank?
   end
 
   def self.find_for_authentication(conditions={})
