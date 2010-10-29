@@ -242,6 +242,7 @@ en:
           error: "No diaspora seed found with this email!"
           invalid_identity: "This identity is not properly formatted"
           error_server: "Problem with other server. Maybe it doesn't exist?"
+          other_server_no_support: "You cannot become friends with %{destination_url}" 
           yourself: "You cannot befriend yourself!"
           already_friends: "You are already friends with %{destination_url}!"
           success: "A friend request was sent to %{destination_url}."

@@ -37,6 +37,8 @@ class RequestsController < ApplicationController
     rescue Exception => e
       if e.message.include? "not found"
         flash[:error] = I18n.t 'requests.create.error'
+      elsif e.message.include? "Unable to find"
+        flash[:error] = I18n.t 'requests.create.other_server_no_support', :destination_url => params[:request][:destination_url]
       elsif e.message.include?  "Connection timed out"
         flash[:error] = I18n.t 'requests.create.error_server'
       elsif e.message == "Identifier is invalid"

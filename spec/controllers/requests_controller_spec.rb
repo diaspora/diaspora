@@ -50,6 +50,15 @@ describe RequestsController do
     response.should redirect_to aspect_path(@user.aspects[0].id.to_s)
   end
 
-
+  it "should not error out when a server exists but has no host XRD file" do
+    Person.should_receive(:by_webfinger).with('johndoe@notadiasporaserver.com').and_raise(
+        Redfinger::ResourceNotFound.new("Unable to find"))
+    put("create", "request" => {
+        "destination_url" => "johndoe@notadiasporaserver.com",
+        "aspect_id" => @user.aspects[0].id 
+      } 
+    )
+    response.should redirect_to aspect_path(@user.aspects[0].id.to_s)
+  end
 
 end
