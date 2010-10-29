@@ -8,11 +8,11 @@ module PhotoMover
     Dir.chdir 'tmp/exports'
 
     albums = user.visible_posts(:person_id => user.person.id, :_type => 'Album')
-    
+
     albums.each do |album|
       album_dir = "#{user.id}/#{album.name}"
-      `mkdir #{album_dir}`
-      
+      FileUtils::mkdir_p album_dir
+
       album.photos.each do |photo|
         current_photo_location = "#{Rails.root}/public/uploads/images/#{photo.image_filename}"
         new_photo_location = "#{album_dir}/#{photo.image_filename}"
