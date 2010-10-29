@@ -53,6 +53,7 @@ describe UsersController do
       it 'should allow user to change his language' do
         user.language = 'en'
         user.save
+        old_language = user.language
         put("update", :id => user.id, "user" => {"language" => "fr"})
         user.reload
         user.language.should_not == old_language
