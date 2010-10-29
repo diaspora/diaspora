@@ -30,6 +30,10 @@
     - if @person != current_user.person && current_user.friends.include?(@person)
       = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
 
+    - if @person == current_user.person
+      %b
+        = link_to "Edit my profile", edit_person_path(@person)
+
     %br
     %br
     %ul
