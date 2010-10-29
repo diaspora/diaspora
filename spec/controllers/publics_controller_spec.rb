@@ -7,8 +7,8 @@ require 'spec_helper'
 
 describe PublicsController do
   render_views
-  let!(:user) { Factory.create :user }
-  let!(:user2) { Factory.create :user }
+  let!(:user) { make_user }
+  let!(:user2) { make_user }
   let!(:aspect1) { user.aspect(:name => "foo") }
   let!(:aspect2) { user2.aspect(:name => "far") }
   let!(:aspect2) { user2.aspect(:name => 'disciples') }
@@ -105,7 +105,7 @@ describe PublicsController do
 
   describe '#webfinger' do
     it "succeeds when the person and user exist locally" do
-      user = Factory(:user)
+      user = make_user
       post :webfinger, 'q' => user.person.diaspora_handle
       response.should be_success
     end

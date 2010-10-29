@@ -7,8 +7,8 @@ require 'spec_helper'
 require File.join(Rails.root, 'lib/em-webfinger')
 
 describe EMWebfinger do
-  let(:user1) { Factory(:user) }
-  let(:user2) { Factory(:user) }
+  let(:user1) { make_user }
+  let(:user2) { make_user }
 
   let(:account) {"foo@tom.joindiaspora.com"}
   let(:person){ Factory(:person, :diaspora_handle => account)}

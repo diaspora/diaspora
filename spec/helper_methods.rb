@@ -1,15 +1,4 @@
 module HelperMethods
-  def stub_sockets
-    Diaspora::WebSocket.stub!(:queue_to_user).and_return(true)
-    Diaspora::WebSocket.stub!(:subscribe).and_return(true)
-    Diaspora::WebSocket.stub!(:unsubscribe).and_return(true)
-  end
-
-  def unstub_sockets
-    Diaspora::WebSocket.unstub!(:queue_to_user)
-    Diaspora::WebSocket.unstub!(:subscribe)
-    Diaspora::WebSocket.unstub!(:unsubscribe)
-  end
 
   def stub_comment_signature_verification
     Comment.any_instance.stubs(:verify_signature).returns(true)
@@ -87,5 +76,51 @@ module HelperMethods
 
   def evan_hcard
     File.open(File.dirname(__FILE__) + '/fixtures/evan_hcard').read
+  end
+
+  def make_user
+    UserFixer.fixed_user
+  end
+
+  class UserFixer
+    def self.regenerate_user_fixtures
+      users = {:users => build_user_fixtures}
+      File.open(File.join(Rails.root,"spec/fixtures/users.yaml"),'w') do |file|
+        file.write(users.to_yaml)
+      end
+    end
+
+    def self.build_user_fixtures
+      arr = []
+      10.times do
+        user = Factory :user
+        person = user.person
+        arr << { :user => user.to_mongo, :person => person.to_mongo}
+      end
+      arr
+    end
+
+    def self.load_user_fixtures
+      yaml_users = YAML.load_file(File.join(Rails.root,"spec/fixtures/users.yaml"))
+      @@user_hashes = []
+      @@user_number = 0
+      yaml_users[:users].each do |yaml_user|
+        user_id = yaml_user[:user]["_id"].to_id
+        @@user_hashes << {:id => user_id, :data => yaml_user}
+      end
+    end
+
+    def self.fixed_user
+      db = MongoMapper.database
+      people = db.collection("people")
+      users = db.collection("users")
+      user_hash = @@user_hashes[@@user_number]
+      @@user_number += 1
+      @@user_number = 0 if @@user_number >= @@user_hashes.length
+      users.insert(user_hash[:data][:user])
+      people.insert(user_hash[:data][:person])
+
+      User.find(user_hash[:id])
+    end
   end
 end

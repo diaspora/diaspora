@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { Factory(:user) }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'heroes') }
-  let(:user2) { Factory(:user) }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => 'stuff') }
 
   it 'should have a key' do
@@ -185,12 +185,6 @@ describe User do
     it "preserves case" do
       User.find_for_authentication(:username => user.username).should == user
       User.find_for_authentication(:username => user.username.upcase).should be_nil
-    end
-  end
-
-  describe '#diaspora_handle' do
-    it 'uses the pod config url to set the diaspora_handle' do
-      user.diaspora_handle.should == user.username + "@" + APP_CONFIG[:terse_pod_url]
     end
   end
 

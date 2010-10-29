@@ -5,16 +5,16 @@
 require 'spec_helper'
 
 describe Aspect do
-  let(:user ) { Factory.create(:user) }
+  let(:user ) { make_user }
   let(:friend) { Factory.create(:person) }
-  let(:user2) { Factory.create(:user) }
+  let(:user2) { make_user }
   let(:friend_2) { Factory.create(:person) }
 
   let(:aspect) {user.aspect(:name => 'losers')}
   let(:aspect2) {user2.aspect(:name => 'failures')}
   let(:aspect1) {user.aspect(:name => 'cats')}
   let(:not_friend) { Factory(:person, :diaspora_handle => "not@person.com")}
-  let(:user3) {Factory(:user)}
+  let(:user3) {make_user}
   let(:aspect3) {user3.aspect(:name => "lala")}
 
   describe 'creation' do

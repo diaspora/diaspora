@@ -5,6 +5,7 @@
 require 'spec_helper'
 
 describe MessageHandler do
+
   let(:handler) {MessageHandler.new()}  
   let(:message_body) {"I want to pump you up"} 
   let(:message_urls) {["http://www.google.com/", "http://yahoo.com/", "http://foo.com/"]}
@@ -159,4 +160,3 @@ describe MessageHandler do
     end
   end
 end
-

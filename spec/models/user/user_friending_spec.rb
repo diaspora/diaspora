@@ -6,7 +6,7 @@
 require 'spec_helper'
 
 describe Diaspora::UserModules::Friending do
-  let(:user) { Factory.create :user }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'heroes') }
   let(:aspect1) { user.aspect(:name => 'other') }
   let(:friend) { Factory.create(:person) }
@@ -15,7 +15,7 @@ describe Diaspora::UserModules::Friending do
   let(:person_two) { Factory.create :person }
   let(:person_three) { Factory.create :person }
 
-  let(:user2) { Factory.create :user }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => "aspect two") }
 
   before do

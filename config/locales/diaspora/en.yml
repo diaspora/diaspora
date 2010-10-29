@@ -216,6 +216,7 @@ en:
           are_you_sure: "Are you sure?"
           remove_friend: "remove friend"
           no_posts: "no posts to display!"
+          add_friend: "add friend"
       edit:
           cancel: "Cancel"
           update_profile: "Update Profile"

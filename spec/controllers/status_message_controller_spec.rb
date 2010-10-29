@@ -7,7 +7,7 @@ require 'spec_helper'
 describe StatusMessagesController do
   render_views
 
-  let!(:user) { Factory(:user) }
+  let!(:user) { make_user }
   let!(:aspect) { user.aspect(:name => "lame-os") }
 
   before do

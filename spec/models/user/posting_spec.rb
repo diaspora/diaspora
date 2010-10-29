@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe User do
 
-  let!(:user) { Factory(:user) }
-  let!(:user2) { Factory(:user) }
+  let!(:user) { make_user }
+  let!(:user2) { make_user }
 
   let!(:aspect) { user.aspect(:name => 'heroes') }
   let!(:aspect1) { user.aspect(:name => 'other') }
@@ -80,9 +80,9 @@ describe User do
   end
 
   context 'dispatching' do
-    let!(:user3) { Factory(:user) }
+    let!(:user3) { make_user }
     let!(:aspect3) { user3.aspect(:name => 'heroes') }
-    let!(:user4) { Factory(:user) }
+    let!(:user4) { make_user }
     let!(:aspect4) { user4.aspect(:name => 'heroes') }
 
     let!(:post) { user.build_post :status_message, :message => "hey" }

@@ -7,7 +7,7 @@ require 'spec_helper'
 describe AlbumsController do
  render_views
   before do
-    @user = Factory.create(:user)
+    @user = make_user
     @aspect = @user.aspect(:name => "lame-os")
     @album = @user.post :album, :to => @aspect.id, :name => 'things on fire'
     sign_in :user, @user
@@ -31,7 +31,7 @@ describe AlbumsController do
     end
     
     it "doesn't overwrite random attributes" do
-      new_user = Factory.create :user
+      new_user = make_user
       params = {:name => "Bruisers", :person_id => new_user.person.id}
       put('update', :id => @album.id, "album" => params)
       @album.reload.person_id.should == @user.person.id

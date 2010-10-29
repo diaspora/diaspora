@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe User do
-  let(:inviter)  {Factory.create :user}
+  let(:inviter)  {make_user}
   let(:aspect)   {inviter.aspect(:name => "awesome")}
-  let(:another_user) {Factory.create :user}
+  let(:another_user) {make_user}
   let(:wrong_aspect) {another_user.aspect(:name => "super")}
   let(:inviter_with_3_invites) {Factory.create :user, :invites => 3}
   let(:aspect2) {inviter_with_3_invites.aspect(:name => "Jersey Girls")}

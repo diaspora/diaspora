@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PhotosController do
   render_views
   before do
-    @user = Factory.create(:user)
+    @user = make_user
     @aspect = @user.aspect(:name => "lame-os")
     @album = @user.post :album, :to => @aspect.id, :name => 'things on fire'
     @fixture_filename = 'button.png'
