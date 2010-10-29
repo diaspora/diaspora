@@ -59,6 +59,18 @@ describe EMWebfinger do
 
       n.on_person{|person| puts "foo"}
       n.instance_variable_get(:@callbacks).count.should be 1
+
+      it 'should not blow up if the returned xrd is nil' do
+        http = FakeHttpRequest.new(:success)
+        http.callbacks = ['']
+        EventMachine::HttpRequest.should_receive(:new).and_return(http)
+        n = EMWebfinger.new("foo@example.com")
+
+        n.on_person{|person|
+          person = "sad"
+        }
+
+      end
     end
   end
 

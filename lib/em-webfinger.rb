@@ -10,7 +10,7 @@ class EMWebfinger
     raise "Identifier is invalid" if(@account.strip.match(/\:\d+$/))
     # Raise an error if identifier is not a valid email (generous regexp)
     raise "Identifier is invalid" if !(@account=~ /^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/)
-  
+  end 
   def fetch
     raise 'you need to set a callback before calling fetch' if @callbacks.empty?
     person = Person.by_account_identifier(@account)
@@ -27,10 +27,10 @@ class EMWebfinger
   end
 
   private
-
   def get_xrd
     http = EventMachine::HttpRequest.new(xrd_url).get :timeout => TIMEOUT
-    http.callback { get_webfinger_profile(webfinger_profile_url(http.response)) }
+    http.callback { 
+      get_webfinger_profile(webfinger_profile_url(http.response)) }
     http.errback { process_callbacks "there was an error getting the xrd at #{xrd_url}" }
   end
 
@@ -64,6 +64,13 @@ class EMWebfinger
 
   ##helpers
   private
+
+  def check_nil_response(html)
+
+  end
+
+
+
   def webfinger_profile_url(xrd_response)
     doc = Nokogiri::XML::Document.parse(xrd_response)  
     swizzle doc.at('Link[rel=lrdd]').attribute('template').value
