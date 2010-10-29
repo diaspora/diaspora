@@ -31,6 +31,7 @@ RSpec.configure do |config|
     stub_sockets
     MessageHandler.any_instance.stubs(:add_post_request)
     DatabaseCleaner.clean
+    UserFixer.load_user_fixtures
   end
 end
 
