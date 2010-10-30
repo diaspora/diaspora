@@ -35,7 +35,6 @@ describe 'making sure the spec runner works' do
   describe 'factories' do
     describe 'build' do
       it 'does not save a built user' do
-        pending 'Why does this happen?'
         Factory.build(:user).persisted?.should be_false
       end
     end
