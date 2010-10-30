@@ -59,6 +59,7 @@ function checkout()
             git clone --quiet $GIT_REPO;
             (
                 cd diaspora;
+                git checkout Gemfile
                 git remote add upstream \
                     git://github.com/diaspora/diaspora.git
                 for p in ../../*.patch; do
