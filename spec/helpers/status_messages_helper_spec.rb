@@ -104,6 +104,18 @@ describe StatusMessagesHelper do
       end
     end
 
+    describe "links" do
+      it "should be recognized without title attribute" do
+        message = "[link text](http://someurl.com) [link text](http://someurl.com)"
+        make_links(message).should == '<a href="http://someurl.com">link text</a> <a href="http://someurl.com">link text</a>'
+      end
+
+      it "should be recognized with title attribute" do
+        message = '[link text](http://someurl.com "some title") [link text](http://someurl.com "some title")'
+        make_links(message).should == '<a href="http://someurl.com" title="some title">link text</a> <a href="http://someurl.com" title="some title">link text</a>'
+      end
+    end
+
     it "should allow escaping" do
       message = '*some text* \\*some text* \\**some text* _some text_ \\_some text_ \\__some text_'
       make_links(message).should == "<em>some text</em> *some text<em> *</em>some text <em>some text</em> _some text<em> _</em>some text"

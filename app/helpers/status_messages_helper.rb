@@ -19,6 +19,9 @@ module StatusMessagesHelper
     # next line is important due to XSS! (h is rail's make_html_safe-function)
     message = h(message).html_safe
 
+    message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/, '<a href="\2" title="\3">\1</a>')
+    message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/, '<a href="\2">\1</a>')
+
     message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/) do |m|
       res = "#{$1}http://#{$2}"
       res.gsub!(/^(\*|_)$/) { |m| "\\#{$1}" }
@@ -29,13 +32,16 @@ module StatusMessagesHelper
       res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
       res
     end
-    message.gsub!(/(https|http|ftp):\/\/([^ ]+)/) do |m|
-      res = %{<a target="_blank" href="#{$1}://#{$2}">#{$2}</a>}
-      res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
-      res
+    message.gsub!(/(<a href=")?(https|http|ftp):\/\/([^ ]+)/) do |m|
+      if $1 == '<a href="'
+        m
+      else
+        res = %{<a target="_blank" href="#{$2}://#{$3}">#{$3}</a>}
+        res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
+        res
+      end
     end
 
-    # markdown
     message.gsub!(/([^\\]|^)\*\*(([^*]|([^*]\*[^*]))*[^*\\])\*\*/, '\1<strong>\2</strong>')
     message.gsub!(/([^\\]|^)__(([^_]|([^_]_[^_]))*[^_\\])__/, '\1<strong>\2</strong>')
     message.gsub!(/([^\\]|^)\*([^*]*[^\\])\*/, '\1<em>\2</em>')
