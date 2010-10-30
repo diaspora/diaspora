@@ -20,7 +20,7 @@
     });
 
 #publisher
-  = owner_image_tag
+  = owner_image_link
 
   - if( !defined?(type) || type == :status_message )
     = form_for StatusMessage.new, :remote => true do |status|
@@ -32,7 +32,6 @@
       = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
       .options_and_submit
-    
         - if aspect == :all
           .public_toggle
             = status.check_box( :public, {}, true, false )
@@ -47,6 +46,11 @@
           = status.submit t('.share'), :title => "Share with all aspects"
         - else
           = status.submit t('.share'), :title => "Share with #{aspect}"
+
+    #publisher_photo_upload
+      or
+      = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id), :album_id => nil
+    
 
   - else
     = form_for Album.new do |album|

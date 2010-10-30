@@ -5,15 +5,41 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { Factory(:user) }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'heroes') }
-  let(:user2) { Factory(:user) }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => 'stuff') }
 
   it 'should have a key' do
     user.encryption_key.should_not be nil
   end
 
+  describe 'overwriting people' do
+    it 'does not overwrite old users with factory' do
+      pending "Why do you want to set ids directly? MONGOMAPPERRRRR!!!"
+      new_user = Factory.create(:user, :id => user.id)
+      new_user.persisted?.should be_true
+      new_user.id.should_not == user.id
+    end
+    it 'does not overwrite old users with create' do
+      pending "Why do you want to set ids directly? MONGOMAPPERRRRR!!!"
+          params = {:username => "ohai",
+                    :email => "ohai@example.com",
+                    :password => "password",
+                    :password_confirmation => "password",
+                    :person => 
+                      {:profile => 
+                        {:first_name => "O", 
+                         :last_name => "Hai"}
+                      }
+          }
+          params[:id] = user.id
+      new_user = User.build(params)
+      new_user.save
+      new_user.persisted?.should be_true
+      new_user.id.should_not == user.id
+    end
+  end
   describe "validation" do
     describe "of associated person" do
       it "fails if person is not valid" do
@@ -25,7 +51,7 @@ describe User do
         user.should_not be_valid
 
         user.errors.full_messages.count.should == 1
-        user.errors.full_messages.first.should =~ /serialized public key/i
+        user.errors.full_messages.first.should =~ /Person is invalid/i
       end
     end
 
@@ -53,12 +79,14 @@ describe User do
       end
 
       it "keeps the original case" do
+        pending "do we want this?"
         user = Factory.build(:user, :username => "WeIrDcAsE")
         user.should be_valid
         user.username.should == "WeIrDcAsE"
       end
 
       it "fails if the requested username is only different in case from an existing username" do
+        pending "do we want this?"
         duplicate_user = Factory.build(:user, :username => user.username.upcase)
         duplicate_user.should_not be_valid
       end
@@ -91,7 +119,24 @@ describe User do
         duplicate_user.should_not be_valid
       end
     end
-  end
+
+    describe "of language" do
+      after do
+        I18n.locale = :en
+      end
+      it "requires availability" do
+        user = Factory.build(:user, :language => 'some invalid language')
+        user.should_not be_valid
+      end
+
+      it "should save with current language if blank" do
+        I18n.locale = :fr
+        user = Factory(:user, :language => nil)
+        user.language.should == 'fr'
+      end
+    end
+
+   end
 
   describe ".build" do
     context 'with valid params' do
@@ -124,7 +169,7 @@ describe User do
           :username => "ohai",
           :email => "ohai@example.com",
           :password => "password",
-          :password_confirmation => "password",
+          :password_confirmation => "wrongpasswordz",
           :person => {:profile => {:first_name => "", :last_name => ""}}}
       end
       it "raises no error" do
@@ -140,12 +185,6 @@ describe User do
     it "preserves case" do
       User.find_for_authentication(:username => user.username).should == user
       User.find_for_authentication(:username => user.username.upcase).should be_nil
-    end
-  end
-
-  describe '#diaspora_handle' do
-    it 'uses the pod config url to set the diaspora_handle' do
-      user.diaspora_handle.should == user.username + "@" + APP_CONFIG[:terse_pod_url]
     end
   end
 

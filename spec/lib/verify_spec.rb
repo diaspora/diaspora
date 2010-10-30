@@ -7,9 +7,9 @@ require File.join(Rails.root, 'lib/diaspora/importer')
 
 describe Diaspora::Importer do
 
-  let!(:user1) { Factory(:user) }
-  let!(:user2) { Factory(:user) }
-  let!(:user3) { Factory(:user) }
+  let!(:user1) { make_user }
+  let!(:user2) { make_user }
+  let!(:user3) { make_user }
 
   let(:aspect1) { user1.aspect(:name => "Work")   }
   let(:aspect2) { user2.aspect(:name => "Family") }
@@ -24,7 +24,7 @@ describe Diaspora::Importer do
   context 'serialized user' do
     describe '#verify_user' do
       it 'should return true for a new valid user' do
-        new_user = Factory(:user)
+        new_user = make_user
         new_user.delete
         importer.verify_user(new_user).should be true
       end

@@ -4,7 +4,7 @@
 
 class PhotoAlbumValidator < ActiveModel::Validator
   def validate(document)
-    unless document.album.person_id == document.person_id
+    unless document.album.nil? || document.album.person_id == document.person_id
       document.errors[:base] << "You post photos to that album"
     end
   end
@@ -27,17 +27,20 @@ class Photo < Post
 
   timestamps!
 
-  validates_presence_of :album
   validates_with PhotoAlbumValidator
 
   before_destroy :ensure_user_picture
 
+  attr_protected :person
+
   def self.instantiate(params = {})
-    image_file = params[:user_file]
-    params.delete :user_file
+    image_file = params.delete(:user_file)
+    person = params.delete(:person)
 
     photo = Photo.new(params)
+
     photo.image.store! image_file
+    photo.person = person
     photo.save
     photo
   end

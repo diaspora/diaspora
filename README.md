@@ -17,7 +17,10 @@ Please report any bugs you see at [bugs.joindiaspora.com](http://bugs.joindiaspo
 ## Contributing to Diaspora
 
 You can find an introduction to the source code [here](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source).
-Bugs and pending features are on our [issue tracker](http://bugs.joindiaspora.com).  Here are a few good places to start:
+Bugs and pending features are on our [issue tracker](http://bugs.joindiaspora.com). 
+A step-by-step guide to development using git can be found [here](http://github.com/diaspora/diaspora/wiki/Git-Workflow).
+
+Here are a few good places to start:
 
 - Run "rake spec" to run our [Rspec](http://blog.davidchelimsky.net/2007/05/14/an-introduction-to-rspec-part-i/) 
 unit test suite. [Here](http://github.com/diaspora/diaspora/wiki/Introduction-to-Our-Rspec-Convention) is an introduction to our Rspec convention.  Take a look at the pending specs, make one pass!
@@ -44,14 +47,14 @@ We need you to fill out a
 before we can accept your patches.  The agreement gives Diaspora joint
 ownership of the patch so the copyright isn't scattered.  You can find it
 [here](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq).
+We're currently working on revising it more details on what we're going for can be found [here](http://joindiaspora.com/licensing.html).
 
 ## Resources
 
-We are maintaining a
-[public tracker project](http://www.pivotaltracker.com/projects/61641)
-and a
+Here is our [bug tracker](http://bugs.joindiaspora.com) and our
 [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap). Also, you can
-file [bug reports](http://bugs.joindiaspora.com) on our issue tracker.
+find see what the core team is upto [here](http://www.pivotaltracker.com/projects/61641).
+
 
 Ongoing discussion:
 

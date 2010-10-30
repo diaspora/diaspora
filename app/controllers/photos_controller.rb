@@ -8,8 +8,20 @@ class PhotosController < ApplicationController
   respond_to :html
   respond_to :json, :only => :show
 
+  def index
+    if params[:person_id]
+      @person = current_user.visible_people.find_by_person_id(params[:person_id])
+    end
+    @person ||= current_user.person
+
+    @photos = current_user.visible_posts(:_type => "Photo", :person_id => @person.id)
+    @albums = current_user.visible_posts(:_type => "Album", :person_id => @person.id)
+
+    @aspect = :photos
+  end
+
   def create
-    album = current_user.find_visible_post_by_id( params[:album_id] )
+    album = current_user.find_visible_post_by_id( params[:photo][:album_id] )
 
     begin
 
@@ -35,11 +47,9 @@ class PhotosController < ApplicationController
 
       ##############
 
-      params[:user_file] = file
+      params[:photo][:user_file] = file
 
-      data = clean_hash(params)
-
-      @photo = current_user.post(:photo, data)
+      @photo = current_user.post(:photo, params[:photo])
 
       respond_to do |format|
         format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
@@ -80,6 +90,8 @@ class PhotosController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @album = @photo.album
+      @ownership = current_user.owns? @photo
+
       respond_with @photo, @album
     end
   end
@@ -94,31 +106,12 @@ class PhotosController < ApplicationController
   def update
     @photo = current_user.find_visible_post_by_id params[:id]
 
-    data = clean_hash(params)
-
-    if current_user.update_post( @photo, data[:photo] )
+    if current_user.update_post( @photo, params[:photo] )
       flash[:notice] = I18n.t 'photos.update.notice'
       respond_with @photo
     else
       flash[:error] = I18n.t 'photos.update.error'
-      render :action => :edit
+      redirect_to [:edit, @photo]
     end
   end
-
-  private
-  def clean_hash(params)
-    if params[:photo]
-      return {
-        :photo => {
-          :caption   => params[:photo][:caption],
-        }
-      }
-    else
-      return{
-        :album_id  => params[:album_id],
-        :user_file => params[:user_file]
-      }
-    end
-  end
-
 end

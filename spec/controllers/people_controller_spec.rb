@@ -46,8 +46,23 @@ describe PeopleController do
         image_url = user.person.profile.image_url
         put("update", :id => user.person.id, "person" => params)
 
+        user.person.reload
         user.person.profile.image_url.should == image_url
       end
+
+      it "doesn't prepend (https?://) if already present in image_url" do
+        params = {:profile=> 
+                   {:image_url  => "https://google.com/image.png",
+                    :last_name  => user.person.profile.last_name,
+                    :first_name => user.person.profile.first_name}}
+
+        put("update", :id => user.person.id, "person" => params)
+
+        user.person.reload
+        user.person.profile.image_url.should == params[:profile][:image_url]
+      end
+
     end
   end
+
 end

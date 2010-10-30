@@ -14,15 +14,15 @@ describe RegistrationsController do
     @valid_params = {"user" => {"username" => "jdoe",
                                 "email" => "jdoe@example.com",
                                 "password" => "password",
-                                "password_confirmation" => "password",
-                                "person" => {
-                                  "profile" => {
-                                    "first_name" => "John",
-                                    "last_name" => "Doe"}}}}
+                                "password_confirmation" => "password"}}
   end
 
   describe "#create" do
     context "with valid parameters" do
+      before do
+        user = Factory.build(:user)
+        User.stub!(:build).and_return(user)
+      end
       it "creates a user" do
         lambda { get :create, @valid_params }.should change(User, :count).by(1)
       end
@@ -41,14 +41,17 @@ describe RegistrationsController do
     end
     context "with invalid parameters" do
       before do
-        @valid_params["user"]["person"]["profile"].delete("first_name")
+        @valid_params["user"]["password_confirmation"] = "baddword"
         @invalid_params = @valid_params
+        user = Factory.build(:user)
+        user.stub!(:save){user.errors.add(:base, "hello"); false}
+        User.stub!(:build).and_return(user)
       end
       it "does not create a user" do
         lambda { get :create, @invalid_params }.should_not change(User, :count)
       end
       it "assigns @user" do
-        get :create, @valid_params
+        get :create, @invalid_params
         assigns(:user).should_not be_nil
       end
       it "sets the flash error" do
@@ -57,7 +60,7 @@ describe RegistrationsController do
       end
       it "goes back to the form" do
         get :create, @invalid_params
-        response.should be_redirect
+        response.should redirect_to new_user_registration_path
       end
     end
   end

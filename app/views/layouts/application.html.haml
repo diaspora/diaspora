@@ -31,7 +31,8 @@
 
     = javascript_include_tag 'view', 'image_picker', 'stream'
 
-    = render 'js/websocket_js'
+    - if current_user
+      = render 'js/websocket_js'
 
     = csrf_meta_tag
     = yield(:head)
@@ -43,24 +44,25 @@
     %header
       .container{:style => "position:relative;"}
         #diaspora_text{:href => root_path}
-          = link_to "DIASPORA*", root_path
+          = link_to "DIASPORA*", (current_user ? root_path : new_user_session_path)
           %span.sub_text
             PREVIEW
 
-        #global_search
-          = form_tag(people_path, :method => 'get') do
-            = text_field_tag 'q', nil, :placeholder => "Search", :type => 'search', :results => 5
+        - if current_user
+          #global_search
+            = form_tag(people_path, :method => 'get') do
+              = text_field_tag 'q', nil, :placeholder => "Search", :type => 'search', :results => 5
 
-        %ul#user_menu
-          .avatar
-            = owner_image_tag
-          = link_to current_user.real_name, '#'
-          %li= link_to "view profile", current_user.person
-          %li= link_to "edit profile", edit_person_path(current_user.person)
-          %li= link_to "account settings", edit_user_path(current_user)
-          %li= link_to t('.logout.'), destroy_user_session_path
+          %ul#user_menu
+            .avatar
+              = owner_image_tag
+            = link_to current_user.real_name, '#'
+            %li= link_to "view profile", current_user.person
+            %li= link_to "edit profile", edit_person_path(current_user.person)
+            %li= link_to "account settings", edit_user_path(current_user)
+            %li= link_to t('.logout.'), destroy_user_session_path
 
-        = render "shared/aspect_nav"
+          = render "shared/aspect_nav"
 
     .container
       .span-24.last
@@ -68,3 +70,4 @@
 
       .span-24.last
         = render "posts/debug"
+

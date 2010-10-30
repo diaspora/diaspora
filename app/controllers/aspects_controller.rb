@@ -11,6 +11,10 @@ class AspectsController < ApplicationController
   def index
     @posts = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @aspect = :all
+    
+    if current_user.getting_started == true
+      redirect_to getting_started_path
+    end
   end
 
   def create
@@ -43,7 +47,6 @@ class AspectsController < ApplicationController
 
   def show
     @aspect = current_user.aspect_by_id params[:id]
-    @friends_not_in_aspect = current_user.friends_not_in_aspect(@aspect)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
@@ -86,7 +89,11 @@ class AspectsController < ApplicationController
       flash[:error] =  I18n.t 'aspects.add_to_aspect.failure'
     end
 
-    redirect_to aspect_path(params[:aspect_id])
+    if params[:manage]
+      redirect_to aspects_manage_path
+    else
+      redirect_to aspect_path(params[:aspect_id])
+    end
   end
 
   def remove_from_aspect

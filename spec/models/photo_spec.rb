@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Photo do
   before do
-    @user = Factory.create(:user)
+    @user = make_user
     @aspect = @user.aspect(:name => "losers")
     @album = @user.post :album, :name => "foo", :to => @aspect.id
 
@@ -14,7 +14,21 @@ describe Photo do
     @fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo = Photo.new(:person => @user.person, :album => @album)
+    @photo = Photo.new(:album => @album)
+    @photo.person = @user.person
+  end
+
+  describe "protected attributes" do
+    it "doesn't allow mass assignment of person" do
+      @photo.save!
+      @photo.update_attributes(:person => Factory(:person))
+      @photo.reload.person.should == @user.person
+    end
+    it "doesn't allow mass assignment of person_id" do
+      @photo.save!
+      @photo.update_attributes(:person_id => Factory(:person).id)
+      @photo.reload.person.should == @user.person
+    end
   end
 
   it 'has a constructor' do
@@ -36,16 +50,6 @@ describe Photo do
       fixture_binary = File.open(@fixture_name).read
     end
     binary.should == fixture_binary
-  end
-
-  it 'must have an album' do
-    photo = Photo.new(:person => @user.person)
-    photo.image = File.open(@fixture_name)
-    photo.save
-    photo.valid?.should be false
-    photo.album = Album.create(:name => "foo", :person => @user.person)
-    photo.save
-    Photo.first.album.name.should == 'foo'
   end
 
   it 'should have a caption' do

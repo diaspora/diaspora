@@ -27,9 +27,9 @@ $(document).ready(function(){
 
   //buttons//////
   $(".add_aspect_button").fancybox({ 'titleShow' : false , 'hideOnOverlayClick' : false });
-  $("#add_request_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
-  $(".invite_user_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
   $(".add_request_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
+  $(".invite_user_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
+  $(".add_photo_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
   $(".remove_person_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
   $(".question_mark").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
 
@@ -73,10 +73,14 @@ $(document).ready(function(){
       $(".reshare_box").hide();
     };
   });
+  
+  //$("#slider").easySlider({speed:400});
+  
 
   $("img", "#left_pane").tipsy({live:true});
   $(".add_aspect_button", "#aspect_nav").tipsy({gravity:'w'});
   $(".person img", ".dropzone").tipsy({live:true});
+  $(".avatar", ".aspects").tipsy({live:true});
 
 });//end document ready
 
@@ -123,8 +127,8 @@ $(".make_profile_photo").live("click", function(){
 
   $.ajax({
     type: "PUT",
-    url: '/users/'+user_id,
-    data: {"user":{"profile":{ "image_url": photo_url }}},
+    url: '/people/'+user_id,
+    data: {"person":{"profile":{ "image_url": photo_url }}},
     success: function(){
       $("img[data-person_id='"+ person_id +"']").each( function() {
         $(this).attr('src', photo_url);
@@ -133,3 +137,10 @@ $(".make_profile_photo").live("click", function(){
   });
 });
 
+$(".getting_started_box").live("click",function(evt){
+  $(this).animate({
+    left: parseInt($(this).css('left'),30) == 0 ?
+        -$(this).outerWidth() :
+        0
+    },function(evt){ $(this).css('left', '1000px')});
+});

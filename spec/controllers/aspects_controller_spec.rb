@@ -8,10 +8,10 @@ describe AspectsController do
   render_views
 
   before do
-    @user    = Factory.create(:user)
+    @user    = make_user
     @aspect  = @user.aspect(:name => "lame-os")
     @aspect1 = @user.aspect(:name => "another aspect")
-    @user2   = Factory.create(:user)
+    @user2   = make_user
     @aspect2 = @user2.aspect(:name => "party people")
     friend_users(@user,@aspect, @user2, @aspect2)
     @contact = @user.contact_for(@user2.person)

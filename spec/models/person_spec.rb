@@ -6,33 +6,26 @@ require 'spec_helper'
 
 describe Person do
   before do
-    @user = Factory.create(:user)
-    @user2 = Factory.create(:user)
+    @user = make_user
+    @user2 = make_user
     @person = Factory.create(:person)
     @aspect = @user.aspect(:name => "Dudes")
     @aspect2 = @user2.aspect(:name => "Abscence of Babes")
   end
 
-  describe "validation" do
-    describe "of associated profile" do
-      it "fails if the profile isn't valid" do
-        person = Factory.build(:person)
-        person.should be_valid
-        
-        person.profile.update_attribute(:first_name, nil)
-        person.profile.should_not be_valid
-        person.should_not be_valid
-
-        person.errors.count.should == 1
-        person.errors.full_messages.first.should =~ /first name/i
+  describe "vaild  url" do
+      it 'should allow for https urls' do
+      person = Factory.create(:person, :url => "https://example.com")
+      person.valid?.should == true
       end
     end
-  end
+
 
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
-        @user.person.diaspora_handle.should == @user.username + "@" + APP_CONFIG[:terse_pod_url]
+        new_user = Factory.create(:user)
+        new_user.person.diaspora_handle.should == new_user.username + "@" + APP_CONFIG[:terse_pod_url]
       end
     end
 
@@ -50,6 +43,27 @@ describe Person do
       it 'is case insensitive' do
         person_two = Factory.build(:person, :url => @person.diaspora_handle.upcase)
         person_two.valid?.should be_false
+      end
+    end
+  end
+
+  context '#real_name' do
+    let!(:user) { make_user }
+    let!(:person) { user.person }
+    let!(:profile) { person.profile }
+
+    context 'with first name' do
+      it 'should return their name for real name' do
+        person.real_name.should match /#{profile.first_name}|#{profile.last_name}/
+      end
+    end
+
+    context 'without first name' do
+      it 'should display their diaspora handle' do
+        person.profile.first_name = nil
+        person.profile.last_name = nil
+        person.save!
+        person.real_name.should == person.diaspora_handle
       end
     end
   end
@@ -91,8 +105,8 @@ describe Person do
 
     status_message = Factory.create(:status_message, :person => @person)
 
-    Factory.create(:comment, :person_id => person.id,  :text => "i love you",     :post => status_message)
-    Factory.create(:comment, :person_id => @person.id, :text => "you are creepy", :post => status_message)
+    Factory.create(:comment, :person_id => person.id, :diaspora_handle => person.diaspora_handle, :text => "i love you",     :post => status_message)
+    Factory.create(:comment, :person_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => status_message)
     
     lambda {person.destroy}.should_not change(Comment, :count)
   end
@@ -112,7 +126,7 @@ describe Person do
     end
   end
 
-  describe '::search' do
+  describe '#search' do
     before do
       @friend_one   = Factory.create(:person)
       @friend_two   = Factory.create(:person)
@@ -162,74 +176,71 @@ describe Person do
     end
   end
 
-  describe ".by_webfinger" do
-    context "local people" do
-      before do
-        @local_person = Factory(:person)
-        Redfinger.should_not_receive :finger
+  context 'people finders for webfinger' do
+    let(:user) {make_user}
+    let(:person) {Factory(:person)}
+
+    describe '.by_account_identifier' do
+      it 'should find a local users person' do
+        p = Person.by_account_identifier(user.diaspora_handle)
+        p.should == user.person
       end
 
-      it "finds the local person without calling out" do
-        person = Person.by_webfinger(@local_person.diaspora_handle)
-        person.should == @local_person
+      it 'should find remote users person' do
+        p = Person.by_account_identifier(person.diaspora_handle)
+        p.should == person
+      end
+
+      it 'should downcase and strip the diaspora_handle' do
+        dh_upper = "    " + user.diaspora_handle.upcase + "   "
+        Person.by_account_identifier(dh_upper).should == user.person
       end
 
       it "finds a local person with a mixed-case username" do
         user = Factory(:user, :username => "SaMaNtHa")
-        person = Person.by_webfinger(user.person.diaspora_handle)
+        person = Person.by_account_identifier(user.person.diaspora_handle)
         person.should == user.person
       end
 
       it "is case insensitive" do
-        user = Factory(:user, :username => "SaMaNtHa")
-        person = Person.by_webfinger(user.person.diaspora_handle.upcase)
-        person.should == user.person
+        user1 = Factory(:user, :username => "SaMaNtHa")
+        person = Person.by_account_identifier(user1.person.diaspora_handle.upcase)
+        person.should == user1.person
       end
-    end
 
-
-      it 'should only find people who are exact matches' do
+      it 'should only find people who are exact matches (1/2)' do
         user = Factory(:user, :username => "SaMaNtHa")
         person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
         user.person.diaspora_handle = "tom@tom.joindiaspora.com"
         user.person.save
-        Person.by_webfinger("tom@tom.joindiaspora.com").diaspora_handle.should == "tom@tom.joindiaspora.com"
+        Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle.should == "tom@tom.joindiaspora.com"
       end
-      
-      it 'should return nil if there is not an exact match' do
-        Redfinger.stub!(:finger).and_return(nil)
 
+      it 'should only find people who are exact matches (2/2)' do 
         person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
         person1 = Factory(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
-        #Person.by_webfinger("tom@tom.joindiaspora.com").should_be false 
-        proc{ Person.by_webfinger("tom@tom.joindiaspora.com")}.should raise_error
+        f = Person.by_account_identifier("tom@tom.joindiaspora.com") 
+        f.should be nil
       end
 
-
-    it 'identifier should be a valid email' do
-      stub_success("joe.valid+email@my-address.com")
-      Proc.new { 
-        Person.by_webfinger("joe.valid+email@my-address.com")
-      }.should_not raise_error(RuntimeError, "Identifier is invalid")
-
-      stub_success("not_a_@valid_email")
-      Proc.new { 
-        Person.by_webfinger("not_a_@valid_email")
-      }.should raise_error(RuntimeError, "Identifier is invalid")
-
+  
     end
 
-    it 'should not accept a port number' do
-      stub_success("eviljoe@diaspora.local:3000")
-      Proc.new { 
-        Person.by_webfinger('eviljoe@diaspora.local:3000')
-      }.should raise_error(RuntimeError, "Identifier is invalid")
-    end
+    describe '.local_by_account_identifier' do
+      it 'should find local users people' do
+        p = Person.local_by_account_identifier(user.diaspora_handle)
+        p.should == user.person
+      end
 
-    it 'creates a stub for a remote user' do
-      stub_success("tom@tom.joindiaspora.com")
-      tom = Person.by_webfinger('tom@tom.joindiaspora.com')
-      tom.real_name.include?("Hamiltom").should be true
+      it 'should not find a remote person' do
+        p = Person.local_by_account_identifier(@person.diaspora_handle)
+        p.should be nil
+      end
+
+      it 'should call .by_account_identifier' do
+        Person.should_receive(:by_account_identifier)
+        Person.local_by_account_identifier(@person.diaspora_handle)
+      end
     end
   end
 end

@@ -63,22 +63,26 @@ module Diaspora
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
         
+        from_me = request_from_me?(friend_request)
+        know_about_request = know_about_request?(friend_request)
+        destination_aspect = self.aspect_by_id(friend_request.aspect_id) if friend_request.aspect_id
 
         #response from a friend request you sent
-        if request_from_me?(friend_request) && self.aspect_by_id(friend_request.aspect_id)
-          aspect = self.aspect_by_id(friend_request.aspect_id)
-          activate_friend(friend_request.person, aspect)
-
+        if from_me && know_about_request && destination_aspect 
+          activate_friend(friend_request.person, destination_aspect)
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
           friend_request.destroy
-          Notifier.request_accepted(self, friend_request.person, aspect).deliver
+          Notifier.request_accepted(self, friend_request.person, destination_aspect)
+
         #this is a new friend request
-        else
+        elsif !from_me 
           self.pending_requests << friend_request
           self.save
           Rails.logger.info("#{self.real_name} has received a friend request")
           friend_request.save
           Notifier.new_request(self, friend_request.person).deliver
+        else
+          Rails.logger.info("unsolicited friend request: #{friend_request.to_json}")
         end
       end
 
@@ -128,7 +132,11 @@ module Diaspora
       end
 
       def request_from_me?(request)
-        (pending_request_ids.include?(request.id.to_id)) && (request.callback_url == person.receive_url) 
+        request.callback_url == person.receive_url 
+      end
+
+      def know_about_request?(request)
+        pending_request_ids.include?(request.id.to_id) unless request.nil? || request.id.nil?
       end
 
       def requests_for_me

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Notifier do
 
-  let!(:user) {Factory.create :user}
+  let!(:user) {make_user}
   let!(:aspect) {user.aspect(:name => "science")}
   let!(:person) {Factory.create :person}
   let!(:request_mail) {Notifier.new_request(user, person)}

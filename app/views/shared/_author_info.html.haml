@@ -1,15 +1,16 @@
 #author_info
-  = owner_image_link
+  = person_image_link(person)
   .from
     %h2
-      = post.person.real_name
-      .aspect
-        ➔
-        %ul
-          - if post.public?
-            the world
-          - else
-            - for aspect in current_user.aspects_with_post( post.id )
-              %li= link_to aspect.name, aspect
+      = person.real_name
+      - if defined?(post)
+        .aspect
+          ➔
+          %ul
+            - if post.public?
+              the world
+            - else
+              - for aspect in current_user.aspects_with_post( post.id )
+                %li= link_to aspect.name, aspect
 
-    = link_to "view profile", person_path(post.person)
+    = link_to "view profile", person_path(person)

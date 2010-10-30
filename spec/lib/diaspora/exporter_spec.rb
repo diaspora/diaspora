@@ -7,9 +7,9 @@ require File.join(Rails.root, 'lib/diaspora/exporter')
 
 describe Diaspora::Exporter do
 
-  let!(:user1) { Factory(:user) }
-  let!(:user2) { Factory(:user) }
-  let!(:user3) { Factory(:user) }
+  let!(:user1) { make_user }
+  let!(:user2) { make_user }
+  let!(:user3) { make_user }
 
   let!(:aspect) { user1.aspect(:name => "Old Work")   }
   let(:aspect1) { user1.aspect(:name => "Work")   }

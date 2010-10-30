@@ -6,13 +6,13 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { Factory(:user) }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'heroes') }
 
-  let(:user2) { Factory(:user) }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => 'losers') }
 
-  let(:user3) { Factory(:user) }
+  let(:user3) { make_user }
   let(:aspect3) { user3.aspect(:name => 'heroes') }
 
   before do
@@ -94,36 +94,48 @@ describe User do
   describe 'comments' do
     before do
       friend_users(user, aspect, user3, aspect3)
+      @post = user.post :status_message, :message => "hello", :to => aspect.id
+
+      user2.receive @post.to_diaspora_xml, user.person
+      user3.receive @post.to_diaspora_xml, user.person
+
+      @comment = user3.comment('tada',:on => @post)
+      @comment.post_creator_signature = @comment.sign_with_key(user.encryption_key)
+      @xml = user.salmon(@comment).xml_for(user2.person)
+      @comment.delete
     end
 
+    it 'should correctly attach the user already on the pod' do
+      local_person = user3.person
+
+      user2.reload.raw_visible_posts.size.should == 1
+      post_in_db = user2.raw_visible_posts.first
+      post_in_db.comments.should == []
+      user2.receive_salmon(@xml)
+      post_in_db.reload
+      
+      post_in_db.comments.include?(@comment).should be true
+      post_in_db.comments.first.person.should == local_person
+    end
+    
     it 'should correctly marshal a stranger for the downstream user' do
+      remote_person = user3.person
+      remote_person.delete
+      user3.delete
 
-      post = user.post :status_message, :message => "hello", :to => aspect.id
+      #stubs async webfinger
+      Person.should_receive(:by_account_identifier).twice.and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
+        user.person; else; remote_person.save; remote_person; end }
 
-      user2.receive post.to_diaspora_xml, user.person
-      user3.receive post.to_diaspora_xml, user.person
-
-      comment = user2.comment('tada',:on => post)
-      user.receive comment.to_diaspora_xml, user2.person
-      user.reload
-
-      commenter_id = user2.person.id
-
-      user2.person.delete
-      user2.delete
-      comment_id = comment.id
-
-      comment.delete
-      comment.post_creator_signature = comment.sign_with_key(user.encryption_key)
-      user3.receive comment.to_diaspora_xml, user.person
-      user3.reload
-
-      new_comment = Comment.find_by_id(comment_id)
-      new_comment.should_not be_nil
-      new_comment.person.should_not be_nil
-      new_comment.person.profile.should_not be_nil
-
-      user3.visible_person_by_id(commenter_id).should_not be_nil
+      
+      user2.reload.raw_visible_posts.size.should == 1
+      post_in_db = user2.raw_visible_posts.first
+      post_in_db.comments.should == []
+      user2.receive_salmon(@xml)
+      post_in_db.reload
+      
+      post_in_db.comments.include?(@comment).should be true
+      post_in_db.comments.first.person.should == remote_person
     end
   end
 

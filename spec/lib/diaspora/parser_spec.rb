@@ -5,39 +5,24 @@
 require 'spec_helper'
 
 describe Diaspora::Parser do
-  let(:user) { Factory.create(:user) }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'spies') }
-  let(:user2) { Factory.create(:user) }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => "pandas") }
-  let(:user3) { Factory.create :user }
+  let(:user3) { make_user }
   let(:person) { user3.person }
 
   describe "parsing compliant XML object" do
-    it 'should be able to correctly handle comments with person in db' do
+    it 'should be able to correctly parse comment fields' do
       post = user.post :status_message, :message => "hello", :to => aspect.id
-      comment = Factory.build(:comment, :post => post, :person => person, :text => "Freedom!")
+      comment = Factory.create(:comment, :post => post, :person => person, :diaspora_handle => person.diaspora_handle, :text => "Freedom!")
       comment.delete
       xml = comment.to_diaspora_xml
-
       comment_from_xml = Diaspora::Parser.from_xml(xml)
-      comment_from_xml.text.should == "Freedom!"
-      comment_from_xml.person.should == person
+      comment_from_xml.diaspora_handle.should ==  person.diaspora_handle
       comment_from_xml.post.should == post
-    end
-
-    it 'should be able to correctly handle person on a comment with person not in db' do
-      friend_users(user, aspect, user2, aspect2)
-      post = user.post :status_message, :message => "hello", :to => aspect.id
-      comment = user2.comment "Fool!", :on => post
-
-      xml = comment.to_diaspora_xml
-      user2.delete
-      user2.person.delete
-
-      parsed_person = Diaspora::Parser::parse_or_find_person_from_xml(xml)
-      parsed_person.save.should be true
-      parsed_person.diaspora_handle.should == user2.person.diaspora_handle
-      parsed_person.profile.should_not be_nil
+      comment_from_xml.text.should == "Freedom!"
+      comment_from_xml.should_not be comment
     end
 
     it 'should accept retractions' do

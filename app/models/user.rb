@@ -5,16 +5,6 @@
 require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
 
-class InvitedUserValidator < ActiveModel::Validator
-  def validate(document)
-    unless document.invitation_token
-      unless document.person
-        document.errors[:base] << "Unless you are being invited, you must have a person"
-      end
-    end
-  end
-end
-
 class User
   include MongoMapper::Document
   include Diaspora::UserModules
@@ -40,19 +30,21 @@ class User
 
   key :invite_messages, Hash
 
-  before_validation :strip_username, :on => :create
+  key :getting_started, Boolean, :default => true
+
+  key :language, String
+
+  before_validation :strip_and_downcase_username, :on => :create
+  before_validation :set_current_language, :on => :create
+
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
-  validates_with InvitedUserValidator
+  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+  validates_associated :person
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
-  validate :person_is_valid
-  def person_is_valid
-    if person.present? && !person.valid?
-      person.errors.full_messages.each {|m| errors.add(:base, m)}
-    end
-  end
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
   many :friends, :in => :friend_ids, :class_name => 'Contact'
@@ -67,10 +59,15 @@ class User
 
   before_destroy :unfriend_everyone, :remove_person
 
-  def strip_username
+  def strip_and_downcase_username
     if username.present?
       username.strip!
+      username.downcase!
     end
+  end
+
+  def set_current_language
+    self.language = I18n.locale.to_s if self.language.blank?
   end
 
   def self.find_for_authentication(conditions={})
@@ -85,10 +82,6 @@ class User
 
   def method_missing(method, *args)
     self.person.send(method, *args)
-  end
-
-  def real_name
-    "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
   end
 
   ######### Aspects ######################
@@ -146,8 +139,7 @@ class User
 
   ######## Posting ########
   def post(class_name, options = {})
-    if class_name == :photo
-      raise ArgumentError.new("No album_id given") unless options[:album_id]
+    if class_name == :photo && !options[:album_id].to_s.empty?
       aspect_ids = aspects_with_post(options[:album_id])
       aspect_ids.map! { |aspect| aspect.id }
     else
@@ -209,6 +201,8 @@ class User
 
   def build_post(class_name, options = {})
     options[:person] = self.person
+    options[:diaspora_handle] = self.person.diaspora_handle
+
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
     post.save
@@ -275,7 +269,7 @@ class User
 
   def build_comment(text, options = {})
     raise "must comment on something!" unless options[:on]
-    comment = Comment.new(:person_id => self.person.id, :text => text, :post => options[:on])
+    comment = Comment.new(:person_id => self.person.id, :diaspora_handle => self.person.diaspora_handle, :text => text, :post => options[:on])
     comment.creator_signature = comment.sign_with_key(encryption_key)
     if comment.save
       comment
@@ -409,11 +403,14 @@ class User
 
   ###Helpers############
   def self.build(opts = {})
+    opts[:person] ||= {}
+    opts[:person][:profile] ||= Profile.new
     opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     opts[:person][:url] = APP_CONFIG[:pod_url]
 
     opts[:serialized_private_key] = generate_key
     opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
+
 
     u = User.new(opts)
     u
@@ -425,7 +422,7 @@ class User
   end
 
   def diaspora_handle
-    "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
+    person.diaspora_handle
   end
 
   def as_json(opts={})

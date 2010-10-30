@@ -35,8 +35,8 @@ qq.FileUploader = function(o){
         // UI customizations
 
         template: '<div class="qq-uploader">' + 
-                '<div class="qq-upload-drop-area"><span>Drop files here to upload</span></div>' +
-                '<div class="qq-upload-button">Upload a file</div>' +
+                '<div class="qq-upload-drop-area"><span>Drop photos here to upload</span></div>' +
+                '<div class="qq-upload-button">Upload a photo</div>' +
                 '<ul class="qq-upload-list"></ul>' + 
              '</div>',
 

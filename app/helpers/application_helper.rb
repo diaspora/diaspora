@@ -78,4 +78,11 @@ module ApplicationHelper
   def post_yield_tag(post)
     (':' + post.id.to_s).to_sym
   end
+
+  def person_photos_path person
+    person_id = person.id if person.respond_to?(:id)
+    person_id ||= person
+      
+    "#{photos_path}?person_id=#{person_id}"
+  end
 end

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+  #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -22,8 +22,8 @@ class PublicsController < ApplicationController
   end
 
   def webfinger
-    @person = Person.by_webfinger(params[:q], :local => true) if params[:q]
-    unless @person.nil? || @person.owner.nil?
+    @person = Person.local_by_account_identifier(params[:q]) if params[:q]
+    unless @person.nil? 
       render 'webfinger', :content_type => 'application/xrd+xml'
     else
       render :nothing => true, :status => 404
@@ -33,20 +33,31 @@ class PublicsController < ApplicationController
   def hub
     if params['hub.mode'] == 'subscribe' || params['hub.mode'] == 'unsubscribe'
       render :text => params['hub.challenge'], :status => 202, :layout => false
-    end
+      end
   end
 
   def receive
-    render :nothing => true
-    return unless params[:xml]
-    begin
-      person = Person.first(:id => params[:id])
-      @user = person.owner
-    rescue NoMethodError => e
-      Rails.logger.error("Received post for nonexistent person #{params[:id]}")
+    if params[:xml].nil?
+      render :nothing => true, :status => 422
       return
     end
-    @user.receive_salmon params[:xml]
-  end
 
+    person = Person.first(:id => params[:id])
+
+    if person.owner_id.nil?
+      Rails.logger.error("Received post for nonexistent person #{params[:id]}")
+      render :nothing => true, :status => 404
+      return
+    end
+
+    @user = person.owner
+     
+    begin
+      @user.receive_salmon(params[:xml])
+    rescue Exception => e
+      Rails.logger.info("bad salmon: #{e.message}")
+    end
+
+    render :nothing => true, :status => 200
+  end
 end

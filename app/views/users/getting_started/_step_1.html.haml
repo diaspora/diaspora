@@ -1,0 +1,42 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+= form_for @person, :html => { :multipart => true } do |person|
+  %h3
+    Your Profile
+    .description
+      This info will be available to whomever you connect with on Diaspora.
+
+  = person.error_messages
+
+  = person.fields_for :profile do |profile|
+    %h4
+      Your name
+      = profile.text_field :first_name, :value => @profile.first_name, :placeholder => "First name"
+      = profile.text_field :last_name, :value => @profile.last_name, :placeholder => "Last name"
+
+    %h4
+      Your gender
+      %br
+      = select_tag 'person[profile][gender]', options_for_select(["","Female","Male"], @person.profile.gender)
+
+    %h4
+      Your birthday
+      %br
+      = select_date @person.profile.birthday, :order => [:month, :day, :year], :start_year => 1930, :end_year => 2000
+
+    %h4
+      Your bio
+      = profile.text_area :bio, :value => @profile.bio, :rows => 5, :placeholder => "Fill me out"
+
+    %h4
+      Your photo
+      = render 'people/profile_photo_upload', :form => profile
+
+    = hidden_field_tag :getting_started, @step
+
+  .submit_block
+    = person.submit "Save and continue →"
+

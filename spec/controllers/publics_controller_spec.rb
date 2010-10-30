@@ -4,37 +4,59 @@
 
 require 'spec_helper'
 
+
 describe PublicsController do
   render_views
-  let(:user) { Factory.create :user }
-  let(:user2) { Factory.create :user }
-  let(:aspect1) { user.aspect(:name => "foo") }
-  let(:aspect2) { user2.aspect(:name => "far") }
+  let!(:user) { make_user }
+  let!(:user2) { make_user }
+  let!(:aspect1) { user.aspect(:name => "foo") }
+  let!(:aspect2) { user2.aspect(:name => "far") }
+  let!(:aspect2) { user2.aspect(:name => 'disciples') }
+  let!(:req) { user2.send_friend_request_to(user.person, aspect2) }
+  let!(:xml) { user2.salmon(req).xml_for(user.person) }
+  let(:person){Factory(:person)}
+
   before do
     sign_in :user, user
-  end
 
-  describe 'receive endpoint' do
-    it 'should have a and endpoint and return a 200 on successful receipt of a request' do
-      post :receive, :id =>user.person.id
-      response.code.should == '200'
+  end
+  
+  describe '#receive' do
+    before do
+      EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
     end
 
-    it 'should accept a post from another node and save the information' do
-      message = user2.build_post(:status_message, :message => "hi")
-      friend_users(user, aspect1, user2, aspect2)
+    context 'success cases' do
+      before do
+        @person_mock = mock()
+        @user_mock = mock()
+        @user_mock.stub!(:receive_salmon).and_return(true)
+        @person_mock.stub!(:owner_id).and_return(true)
+        @person_mock.stub!(:owner).and_return(@user_mock)
+        Person.stub!(:first).and_return(@person_mock)
+      end
+      it 'should 200 on successful receipt of a request' do
+        post :receive, :id =>user.person.id, :xml => xml
+        response.code.should == '200'
+      end
 
-      user.reload
-      user.visible_post_ids.include?(message.id).should be false
+      it 'should have the xml processed as salmon on success' do
+        @user_mock.should_receive(:receive_salmon).and_return(true)
+        post :receive, :id => user.person.id, :xml => xml
+      end
+    end
 
-      xml = user2.salmon(message).xml_for(user.person)
+    it 'should return a 422 if no xml is passed' do
+      post :receive, :id => person.id
+      response.code.should == '422'
+    end
 
-      post :receive, :id => user.person.id, :xml => xml
-
-      user.reload
-      user.visible_post_ids.include?(message.id).should be true
+    it 'should return a 404 if no user is found' do
+      post :receive, :id => person.id, :xml => xml
+      response.code.should == '404'
     end
   end
+
 
   describe '#hcard' do
     it 'queries by person id' do
@@ -50,9 +72,9 @@ describe PublicsController do
     end
   end
 
-  describe 'webfinger' do
+  describe '#webfinger' do
     it "succeeds when the person and user exist locally" do
-      user = Factory(:user)
+      user = make_user
       post :webfinger, 'q' => user.person.diaspora_handle
       response.should be_success
     end
@@ -76,33 +98,36 @@ describe PublicsController do
     end
   end
 
-  describe 'friend requests' do
-    let(:aspect2) { user2.aspect(:name => 'disciples') }
-    let!(:req) { user2.send_friend_request_to(user.person, aspect2) }
-    let!(:xml) { user2.salmon(req).xml_for(user.person) }
-    before do
-      deliverable = Object.new
-      deliverable.stub!(:deliver)
-      Notifier.stub!(:new_request).and_return(deliverable)
-      req.delete
-      user2.reload
-      user2.pending_requests.count.should be 1
-    end
+  context 'intergration tests that should not be in this file' do
+    describe 'friend requests' do
+      before do
+        deliverable = Object.new
+        deliverable.stub!(:deliver)
+        Notifier.stub!(:new_request).and_return(deliverable)
+        req.delete
+        user2.reload
+        user2.pending_requests.count.should be 1
+      end
 
-    it 'should add the pending request to the right user if the target person exists locally' do
-      user2.delete
-      post :receive, :id => user.person.id, :xml => xml
 
-      assigns(:user).should eq(user)
-    end
+      it 'should accept a post from another node and save the information' do
+        pending
+        message = user2.build_post(:status_message, :message => "hi")
 
-    it 'should add the pending request to the right user if the target person does not exist locally' do
-      Person.should_receive(:by_webfinger).with(user2.person.diaspora_handle).and_return(user2.person)
-      user2.person.delete
-      user2.delete
-      post :receive, :id => user.person.id, :xml => xml
+        friend_users(user, aspect1, user2, aspect2)
 
-      assigns(:user).should eq(user)
+        user.reload
+        user.visible_post_ids.include?(message.id).should be false
+
+        xml1 = user2.salmon(message).xml_for(user.person)
+
+        EM::run{
+          post :receive, :id => user.person.id, :xml => xml1
+          EM.stop
+        }
+        user.reload
+        user.visible_post_ids.include?(message.id).should be true
+      end
     end
   end
 end

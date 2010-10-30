@@ -9,15 +9,20 @@ class Profile
   include ROXML
 
   xml_reader :person_id
-  xml_accessor :first_name
-  xml_accessor :last_name
-  xml_accessor :image_url
+  xml_reader :first_name
+  xml_reader :last_name
+  xml_reader :image_url
+  xml_reader :birthday
+  xml_reader :gender
+  xml_reader :bio
 
   key :first_name, String
   key :last_name,  String
   key :image_url,  String
+  key :birthday,   Date
+  key :gender,     String
+  key :bio,        String
 
-  validates_presence_of :first_name, :last_name
   after_validation :strip_names
 
   before_save :strip_names

@@ -6,15 +6,15 @@ require 'spec_helper'
 
 describe "attack vectors" do
 
-  let(:user) { Factory(:user) }
+  let(:user) { make_user }
   let(:aspect) { user.aspect(:name => 'heroes') }
   
-  let(:bad_user) { Factory(:user)}
+  let(:bad_user) { make_user}
 
-  let(:user2) { Factory(:user) }
+  let(:user2) { make_user }
   let(:aspect2) { user2.aspect(:name => 'losers') }
 
-  let(:user3) { Factory(:user) }
+  let(:user3) { make_user }
   let(:aspect3) { user3.aspect(:name => 'heroes') }
 
   before do
@@ -79,29 +79,21 @@ describe "attack vectors" do
       user2.reload
       user2.profile.first_name.should == first_name
     end
-    
-    it 'should not overwrite another persons profile through comment' do
-      pending
-      user_status = user.post(:status_message, :message => "hi", :to => 'all')
-      comment = Comment.new(:person_id => user3.person.id, :text => "hey", :post => user_status)
-      
-      comment.creator_signature = comment.sign_with_key(user3.encryption_key)
-      comment.post_creator_signature = comment.sign_with_key(user.encryption_key)
 
-      person = user3.person
-      original_url = person.url
-      original_id = person.id
-      puts original_url
-      
-      comment.person.url = "http://bad.com/"
-      user3.delete
-      person.delete
-      
-      comment.to_diaspora_xml.include?("bad.com").should be true
-      user2.receive_salmon(user.salmon(comment).xml_for(user2.person))
- 
-      comment.person.url.should == original_url
-      Person.first(:id => original_id).url.should == original_url
+    it 'can send retractions on post you do not own' do
+      pending
+      original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+      user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
+      user.raw_visible_posts.count.should be 1
+
+      ret = Retraction.new
+      ret.post_id = original_message.id
+      ret.person_id = user3.person.id
+      ret.type = original_message.class.to_s
+
+      user.receive_salmon(user3.salmon(ret).xml_for(user.person))
+      StatusMessage.count.should be 1
+      user.reload.raw_visible_posts.count.should be 1
     end
   end
 end

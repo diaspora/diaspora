@@ -28,10 +28,56 @@ RSpec.configure do |config|
   DatabaseCleaner.orm = "mongo_mapper"
 
   config.before(:each) do
-    stub_sockets
+    EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
+    EventMachine::HttpRequest.any_instance.stubs(:post)
+    EventMachine::HttpRequest.any_instance.stubs(:get)
     DatabaseCleaner.clean
+    UserFixer.load_user_fixtures
   end
 end
 
 ImageUploader.enable_processing = false
 
+  
+class FakeHttpRequest
+  def initialize(callback_wanted)
+    @callback = callback_wanted
+    @callbacks = []
+  end
+
+  def callbacks=(rs)
+    @callbacks += rs.reverse
+  end
+
+  def response
+    @callbacks.pop unless @callbacks.nil? || @callbacks.empty?
+  end
+
+  def response_header
+    self
+  end
+
+  def method_missing(method)
+    self
+  end
+
+  def post(opts = nil); 
+    self 
+  end
+
+  def get(opts = nil)
+    self 
+  end
+
+  def publish(opts = nil)
+    self
+  end
+
+  def callback(&b)
+    b.call if @callback == :success
+  end
+
+  def errback(&b)
+    b.call if @callback == :failure
+  end
+end
