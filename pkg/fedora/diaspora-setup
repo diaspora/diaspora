@@ -4,6 +4,7 @@
 #
 #  Usage: # ./diaspora-setup [external hostname]
 #
+export PATH=$PATH:/usr/local/bin
 
 arg_hostname="$1"
 
@@ -22,10 +23,12 @@ test -n "$services" && {
 
 cd /usr/share/diaspora/master
 
+libdir=$(rpm --eval %_libdir)
+
 rm -rf vendor
-ln -s /usr/lib/diaspora-bundle/vendor .
-ln -sf /usr/lib/diaspora-bundle/Gemfile .
-ln -sf /usr/lib/diaspora-bundle/Gemfile.lock .
+ln -s $libdir/diaspora-bundle/vendor .
+ln -sf $libdir/diaspora-bundle/Gemfile .
+ln -sf $libdir/diaspora-bundle/Gemfile.lock .
 
 test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml

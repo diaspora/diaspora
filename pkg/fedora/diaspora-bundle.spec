@@ -199,6 +199,7 @@ popd
 
 mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
 cp -ar  vendor  $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
+cp -a Gemfile Gemfile.lock $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
 
 find  %{buildroot}/%{_libdir}/diaspora-bundle  \
     -type d  -fprintf dirs '%%%dir "%%p"\n'
