@@ -28,9 +28,12 @@ module HelperMethods
 
   def friend_users(user1, aspect1, user2, aspect2)
     request = user1.send_friend_request_to(user2.person, aspect1)
-    user2.receive_friend_request(request)
+
+    user2.receive request.to_diaspora_xml, user1.person
+
     reversed_request = user2.accept_friend_request( request.id, aspect2.id)
     user1.reload
+
     user1.receive reversed_request.to_diaspora_xml, user2.person
     user1.reload
     aspect1.reload

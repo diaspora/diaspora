@@ -233,23 +233,22 @@ describe Diaspora::UserModules::Friending do
       end
 
       it "keeps the right counts of friends" do
-        user.receive_friend_request @request
+        user.receive @request.to_diaspora_xml, person_one
 
-        person_two.destroy
-        user.reload.pending_requests.size.should be 1
+        user.reload.pending_requests.size.should == 1
         user.friends.size.should be 0
 
-        user.receive_friend_request @request_two
-        user.reload.pending_requests.size.should be 2
+        user.receive @request_two.to_diaspora_xml, person_two
+        user.reload.pending_requests.size.should == 2
         user.friends.size.should be 0
 
         user.accept_friend_request @request.id, aspect.id
-        user.reload.pending_requests.size.should be 1
+        user.reload.pending_requests.size.should == 1
         user.friends.size.should be 1
         user.contact_for(person_one).should_not be_nil
 
         user.ignore_friend_request @request_two.id
-        user.reload.pending_requests.size.should be 0
+        user.reload.pending_requests.size.should == 0
         user.friends.size.should be 1
         user.contact_for(person_two).should be_nil
       end

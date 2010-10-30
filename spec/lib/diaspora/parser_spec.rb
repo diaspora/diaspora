@@ -35,6 +35,8 @@ describe Diaspora::Parser do
     end
 
     context "friending" do
+
+    let(:good_request) { FakeHttpRequest.new(:success)}
       before do
         deliverable = Object.new
         deliverable.stub!(:deliver)
@@ -42,30 +44,24 @@ describe Diaspora::Parser do
       end
 
       it "should create a new person upon getting a person request" do
+        webfinger_mock = EMWebfinger.new(person.diaspora_handle)
+        webfinger_mock.should_receive(:on_person)
+
+        EMWebfinger.should_receive(:new).and_return(webfinger_mock)
+
+
         request = Request.instantiate(:to =>"http://www.google.com/", :from => person)
 
         xml = request.to_diaspora_xml
 
-        user3.destroy
-        person.destroy
+        user3.delete
+        person.delete
+        Person.should_receive(:by_account_identifier).exactly(2).times.and_return(person)
         user
         lambda { user.receive xml, person }.should change(Person, :count).by(1)
       end
 
-      it "should not create a new person if the person is already here" do
-        request = Request.instantiate(:to =>"http://www.google.com/", :from => user2.person)
-        original_person_id = user2.person.id
-        xml = request.to_diaspora_xml
-        user
-        lambda { user.receive xml, user2.person }.should_not change(Person, :count)
 
-        user2.reload
-        user2.person.reload
-        user2.serialized_private_key.include?("PRIVATE").should be true
-
-        url = "http://" + request.callback_url.split("/")[2] + "/"
-        Person.where(:url => url).first.id.should == original_person_id
-      end
     end
 
     it "should activate the Person if I initiated a request to that url" do
@@ -73,13 +69,12 @@ describe Diaspora::Parser do
       user.reload
       request.reverse_for user3
 
-      xml = request.to_diaspora_xml
+      xml = user3.salmon(request).xml_for(user.person)
 
-      user3.person.destroy
-      user3.destroy
+      user3.delete
 
-      user.receive xml, user3.person
-      new_person = Person.first(:url => user3.person.url)
+      user.receive_salmon(xml)
+      new_person = Person.find_by_url(user3.person.url)
       new_person.nil?.should be false
 
       user.reload
