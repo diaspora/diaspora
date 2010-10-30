@@ -18,7 +18,7 @@
     %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
 
     %p
-      = fr_request.label :destination_url, t(".friends_username")
+      = fr_request.label :destination_url, t('.friends_username')
       = fr_request.text_field :destination_url
     = fr_request.hidden_field :aspect_id, :value => aspect.id
 
@@ -27,5 +27,5 @@
     - if defined?(manage)
       = hidden_field_tag :manage, true
 
-    = fr_request.submit
+    = fr_request.submit t('.create_request')
 
