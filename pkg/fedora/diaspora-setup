@@ -30,7 +30,7 @@ ln -sf /usr/lib/diaspora-bundle/Gemfile.lock .
 test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml
 
-if rake db:seed:dev; then
+if bundle exec rake db:seed:dev; then
     echo "Database config OK, new user tom/evankorth in place"
 else
     cat <<- EOF
