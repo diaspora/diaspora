@@ -27,53 +27,22 @@ describe PublicsController do
     end
 
     context 'success cases' do
-      it 'should 200 on successful receipt of a request' do
-        EM::run { 
-
-          person_mock = mock()
-          user_mock = mock()
-          user_mock.stub!(:receive_salmon).and_return(true)
-          user_mock.should_receive(:receive_salmon).and_return(true)
-          person_mock.stub!(:owner_id).and_return(true)
-          person_mock.stub!(:owner).and_return(user_mock)
-          Person.stub!(:first).and_return(person_mock)
-
-          post :receive, :id =>user.person.id, :xml => xml
-          response.code.should == '200'
-          EM.stop
-        }
+      before do
+        @person_mock = mock()
+        @user_mock = mock()
+        @user_mock.stub!(:receive_salmon).and_return(true)
+        @person_mock.stub!(:owner_id).and_return(true)
+        @person_mock.stub!(:owner).and_return(@user_mock)
+        Person.stub!(:first).and_return(@person_mock)
       end
-
-      it 'should set the user based on their person_id' do
-
-        EM::run {
-
-          person_mock = mock()
-          person_mock.stub!(:owner_id).and_return(true)
-          person_mock.stub!(:owner).and_return(user)
-          Person.stub!(:first).and_return(person_mock)
-
-
-          post :receive, :id => user.person.id, :xml => xml
-          assigns[:user].should == user
-          EM.stop
-        }
+      it 'should 200 on successful receipt of a request' do
+        post :receive, :id =>user.person.id, :xml => xml
+        response.code.should == '200'
       end
 
       it 'should have the xml processed as salmon on success' do
-        EM::run{
-
-          person_mock = mock()
-          user_mock = mock()
-          user_mock.stub!(:receive_salmon).and_return(true)
-          person_mock.stub!(:owner_id).and_return(true)
-          person_mock.stub!(:owner).and_return(user_mock)
-          Person.stub!(:first).and_return(person_mock)
-
-
-          post :receive, :id => user.person.id, :xml => xml
-          EM.stop
-        }
+        @user_mock.should_receive(:receive_salmon).and_return(true)
+        post :receive, :id => user.person.id, :xml => xml
       end
     end
 
