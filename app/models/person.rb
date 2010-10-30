@@ -22,18 +22,11 @@ class Person
   key :owner_id, ObjectId
 
   one :profile, :class_name => 'Profile'
-  validate :profile_is_valid
+  validates_associated :profile
   before_save :downcase_diaspora_handle 
-  
   
   def downcase_diaspora_handle
     diaspora_handle.downcase!
-  end
-
-  def profile_is_valid
-    if profile.present? && !profile.valid?
-      profile.errors.full_messages.each { |m| errors.add(:base, m) }
-    end
   end
 
   many :albums, :class_name => 'Album', :foreign_key => :person_id

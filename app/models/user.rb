@@ -42,14 +42,9 @@ class User
   validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
   validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+  validates_associated :person
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
-  validates_associated :person
-  def person_is_valid
-    if person.present? && !person.valid?
-      person.errors.full_messages.each {|m| errors.add(:base, m)}
-    end
-  end
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
   many :friends, :in => :friend_ids, :class_name => 'Contact'
