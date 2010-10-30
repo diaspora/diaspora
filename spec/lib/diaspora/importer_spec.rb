@@ -7,8 +7,7 @@ require File.join(Rails.root, 'lib/diaspora/exporter')
 require File.join(Rails.root, 'lib/diaspora/importer')
 
 describe Diaspora::Importer do
-
-  before(:each) do
+  def setup_for_exporting
     # Five users on pod
     @user1 = make_user
     @user2 = make_user
@@ -67,10 +66,29 @@ describe Diaspora::Importer do
 
     # Generate status message and recieve between user4 and user5
     @user4.receive @status_message7.to_diaspora_xml, @user5.person
+
+
+  end
+
+  before(:all) do
+    DatabaseCleaner.clean
+    UserFixer.load_user_fixtures
+    setup_for_exporting
+    # Generate exported XML for user1
+    exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
+    @user1.aspects.reload
+    @xml = exporter.execute(@user1)
+
+    @old_user = @user1
+
+    # Remove user1 from the server
+    @user1.aspects.each( &:delete )
+    @user1.raw_visible_posts.find_all_by_person_id(@user1.person.id).each( &:delete )
+    @user1.delete
   end
 
   it 'should gut check this test' do 
-    
+    setup_for_exporting
     @user1.friends.count.should be 4
 
     @user1.contact_for(@user2.person).should_not be_nil
@@ -91,18 +109,6 @@ describe Diaspora::Importer do
   context 'parsing a user' do
 
     before(:each) do
-      # Generate exported XML for user1
-      exporter = Diaspora::Exporter.new(Diaspora::Exporters::XML)
-      @user1.aspects.reload
-      @xml = exporter.execute(@user1)
-
-      @old_user = @user1
-
-      # Remove user1 from the server
-      @user1.aspects.each( &:delete )
-      @user1.raw_visible_posts.find_all_by_person_id(@user1.person.id).each( &:delete )
-      @user1.delete
-
       @importer = Diaspora::Importer.new(Diaspora::Parsers::XML)
       @doc = Nokogiri::XML::parse(@xml)
     end
