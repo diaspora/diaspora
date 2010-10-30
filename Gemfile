@@ -61,8 +61,8 @@ group :test do
   gem 'mocha'
   gem 'database_cleaner', '0.5.2'
   gem 'webmock'
-  gem 'jasmine', :path => 'vendor/gems/jasmine'
-  gem 'mongrel' if RUBY_VERSION.include? "1.8"
+  gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
+  gem 'mongrel', :require => false if RUBY_VERSION.include? "1.8"
 end
 
 group :deployment do

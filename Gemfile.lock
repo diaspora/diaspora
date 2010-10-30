@@ -23,6 +23,12 @@ GIT
       uuidtools
 
 GIT
+  remote: git://github.com/iain/http_accept_language.git
+  revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
+  specs:
+    http_accept_language (1.0.1)
+
+GIT
   remote: git://github.com/igrigorik/em-http-request.git
   revision: bf62d67fc72d6e701be5037e239dd470194b8e45
   ref: bf62d67fc72d6e701be5
@@ -66,12 +72,6 @@ GIT
       activesupport (>= 3.0.0beta4)
       capistrano (>= 2.5.5)
       highline (>= 1.4.0)
-
-GIT
-  remote: http://github.com/iain/http_accept_language.git
-  revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
-  specs:
-    http_accept_language (1.0.1)
 
 PATH
   remote: vendor/gems/jasmine
