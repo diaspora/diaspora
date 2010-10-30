@@ -146,12 +146,12 @@ function make_bundle()
                 mv vendor/cache ../$bundle_name/vendor
                 mv vendor/gems ../$bundle_name/vendor
                 mv git-repos ../$bundle_name
+                git checkout Gemfile
             cd ..
             tar czf $bundle_name.tar.gz $bundle_name
             mv $bundle_name/vendor/cache diaspora/vendor/cache
         cd ..
     }
-    git checkout Gemfile
     echo
     echo "Bundle: dist/$bundle_name.tar.gz"
 }
