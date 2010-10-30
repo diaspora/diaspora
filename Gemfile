@@ -62,7 +62,7 @@ group :test do
   gem 'database_cleaner', '0.5.2'
   gem 'webmock'
   gem 'jasmine', :path => 'vendor/gems/jasmine'
-  gem 'mongrel'
+  gem 'mongrel' if RUBY_VERSION.include? "1.8"
 end
 
 group :deployment do

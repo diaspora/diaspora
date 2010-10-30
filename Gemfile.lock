@@ -117,7 +117,8 @@ GEM
     addressable (2.2.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
-    aws (2.3.22)
+    aws (2.3.24)
+      activesupport
       http_connection
       uuidtools
       xml-simple
@@ -187,10 +188,10 @@ GEM
     factory_girl_rails (1.0)
       factory_girl (~> 1.3)
       rails (>= 3.0.0.beta4)
-    faraday (0.5.1)
+    faraday (0.5.2)
       addressable (~> 2.2.2)
       multipart-post (~> 1.0.1)
-      rack (~> 1.2.1)
+      rack (>= 1.1.0, < 2)
     fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
@@ -220,7 +221,7 @@ GEM
     mini_fb (1.1.3)
       hashie
       rest-client
-    mini_magick (2.3)
+    mini_magick (3.0)
       subexec (~> 0.0.4)
     mixlib-authentication (1.1.4)
       mixlib-log
