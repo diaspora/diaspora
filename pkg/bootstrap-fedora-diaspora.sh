@@ -26,7 +26,7 @@ getent passwd diaspora  >/dev/null || {
 
 su - diaspora <<EOF
 
-set -x
+#set -x
     [ -e "\$HOME/.rvm/scripts/rvm" ] || {
     echo '#### Installing rvm ####'
     wget  http://rvm.beginrescueend.com/releases/rvm-install-head

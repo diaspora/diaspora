@@ -54,6 +54,7 @@ apache/passenger setup. After configuration, start with:
     /sbin/service diaspora-wsd start
     /sbin/service httpd restart
 
+<<<<<<< HEAD
 prepare-rpm.sh prepare creates links  also for all files listed in SOURCES.
 Typically, this is  secondary sources. *make-dist.sh source*
 
@@ -90,6 +91,11 @@ Note that the bundle version required is printed each time a new source
 is generated.
 
 #### Notes
+
+prepare-rpm.sh prepare creates links  also for all files listed in SOURCES.
+Typically, this is  secondary sources. *make-dist.sh source*
+applies all patches named *.patch in this directory after checking out
+source from git.
 
 The spec-files in dist/ are patched by *./prepare-rpm.sh to reference
 correct versions of diaspora and diaspora-bundle. The diaspora-bundle
