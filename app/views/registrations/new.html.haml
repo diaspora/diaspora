@@ -1,20 +1,20 @@
 .span-12.prepend-6.last
   .floating
     %h3
-      Sign up for Diaspora
+      = t('.sign_up_for_diaspora')
     = image_tag "http://needcoffee.cachefly.net/needcoffee/uploads/2009/02/predator-arnold-schwarzenegger.jpg"
     = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       %p
-        = f.label :username
+        = f.label :username , t('.username')
         = f.text_field :username
       %p
-        = f.label :email
+        = f.label :email , t('.email')
         = f.text_field :email
       %p
-        = f.label :password
+        = f.label :password , t('.password')
         = f.password_field :password
       %p
-        = f.label :password_confirmation
+        = f.label :password_confirmation , t('.password_confirmation')
         = f.password_field :password_confirmation
 
       = f.submit t('.sign_up')
@@ -22,7 +22,7 @@
 
   .floating
     %h3
-      Upload an existing Diaspora account
+      = t('.upload_existing_account')
 
     = form_tag '/users/import', :multipart => true do
 
@@ -38,5 +38,5 @@
 
       %label Select File
       = file_field 'upload', 'file'
-      = submit_tag "Upload"
+      = submit_tag t('.upload')
 

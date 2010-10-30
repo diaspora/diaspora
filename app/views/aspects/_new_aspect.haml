@@ -9,7 +9,7 @@
   = form_for Aspect.new do |aspect|
     = aspect.error_messages
     %p
-      = aspect.label :name
+      = aspect.label :name , t('.name')
       = aspect.text_field :name
       = aspect.submit t('.create'), :class => 'button'
 
