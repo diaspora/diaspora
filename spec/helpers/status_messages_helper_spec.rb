@@ -99,6 +99,8 @@ describe StatusMessagesHelper do
         make_links(message).should == "<strong>this is <em>some</em> text</strong>"
         message = "*this is **some** text*"
         make_links(message).should == "<em>this is <strong>some</strong> text</em>"
+        message = "___some text___"
+        make_links(message).should == "<em><strong>some text</strong></em>"
       end
     end
 

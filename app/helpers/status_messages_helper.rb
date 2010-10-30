@@ -36,8 +36,8 @@ module StatusMessagesHelper
     end
 
     # markdown
-    message.gsub!(/([^\\]|^)\*\*(([^*]|([^*]\*[^*]))*[^\\])\*\*/, '\1<strong>\2</strong>')
-    message.gsub!(/([^\\]|^)__(([^_]|([^_]_[^_]))*[^\\])__/, '\1<strong>\2</strong>')
+    message.gsub!(/([^\\]|^)\*\*(([^*]|([^*]\*[^*]))*[^*\\])\*\*/, '\1<strong>\2</strong>')
+    message.gsub!(/([^\\]|^)__(([^_]|([^_]_[^_]))*[^_\\])__/, '\1<strong>\2</strong>')
     message.gsub!(/([^\\]|^)\*([^*]*[^\\])\*/, '\1<em>\2</em>')
     message.gsub!(/([^\\]|^)_([^_]*[^\\])_/, '\1<em>\2</em>')
     message.gsub!(/([^\\]|^)\*/, '\1')
