@@ -205,7 +205,7 @@ find  %{buildroot}/%{_libdir}/diaspora-bundle  \
 find  -L %{buildroot}/%{_libdir}/diaspora-bundle  -regextype posix-awk \
     -type f -not -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'        \
     -fprintf files '"%%p"\n'
-find  %{buildroot}/%{_libdir}/diaspora-bundle -regextype posix-awk     \
+find  -L %{buildroot}/%{_libdir}/diaspora-bundle -regextype posix-awk  \
     -type f -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'             \
     -fprintf dev-files '"%%p"\n'
 sed -i  -e 's|%{buildroot}||' -e 's|//|/|' files dev-files dirs
