@@ -12,7 +12,7 @@ Bootstrap the distribution from git:
 
 Create and install the diaspora bundle and application in
 diaspora/pkg/source according to
-[source README](/diaspora/diaspora/blob/master/source/fedora/README.md)
+[source README](http://github.com/diaspora/diaspora/blob/master/source/fedora/README.md)
 
 Install the dependencies (a good time for a coffe break):
     % sudo ./diaspora-install-deps
