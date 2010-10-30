@@ -232,6 +232,10 @@ sv:
       new:
           new_person: "Ny Person"
           back_to_list: "Tillbaka till listan"
+      edit:
+          cancel: "Avbryt"
+          or: "eller"
+          update_profile: "Uppdatera profil"
       show:
           last_seen: "senast sedd: %{how_long_ago}"
           friends_since: "vänner sedan: %{how_long_ago}"
