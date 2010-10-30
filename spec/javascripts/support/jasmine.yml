@@ -11,7 +11,8 @@
 #   - dist/**/*.js
 #
 src_files:
-  - public/javascripts/**/*.js
+  - public/javascripts/jquery142.js
+  - public/javascripts/aspect-edit.js
 
 # stylesheets
 #
