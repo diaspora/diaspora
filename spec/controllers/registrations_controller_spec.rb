@@ -44,7 +44,7 @@ describe RegistrationsController do
         @valid_params["user"]["password_confirmation"] = "baddword"
         @invalid_params = @valid_params
         user = Factory.build(:user)
-        user.stub!(:save){user.errors.add_to_base("hello"); false}
+        user.stub!(:save){user.errors.add(:base, "hello"); false}
         User.stub!(:build).and_return(user)
       end
       it "does not create a user" do
