@@ -73,6 +73,17 @@ GIT
   specs:
     http_accept_language (1.0.1)
 
+PATH
+  remote: vendor/gems/jasmine
+  specs:
+    jasmine (1.0.1)
+      json_pure (>= 1.4.3)
+      rack (>= 1.0.0)
+      rake (>= 0.8.7)
+      rspec (>= 1.1.5)
+      selenium-client (>= 1.2.17)
+      selenium-rc (>= 2.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -128,6 +139,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
+    cgi_multipart_eof_fix (2.5.0)
     chef (0.9.12)
       bunny (>= 0.6.0)
       erubis
@@ -179,8 +191,10 @@ GEM
       addressable (~> 2.2.2)
       multipart-post (~> 1.0.1)
       rack (~> 1.2.1)
+    fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    gem_plugin (0.2.3)
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
@@ -218,6 +232,11 @@ GEM
     moneta (0.6.0)
     mongo (1.1)
       bson (>= 1.0.5)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
     multi_json (0.0.4)
     multipart-post (1.0.1)
     net-ldap (0.1.1)
@@ -322,6 +341,9 @@ GEM
       ruby-openid (>= 2.1.7)
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
+    selenium-client (1.2.18)
+    selenium-rc (2.2.4)
+      selenium-client (>= 1.2.18)
     selenium-webdriver (0.0.29)
       childprocess (>= 0.0.7)
       ffi (~> 0.6.3)
@@ -374,6 +396,7 @@ DEPENDENCIES
   factory_girl_rails
   haml
   http_accept_language!
+  jasmine!
   json
   launchy
   magent!
@@ -381,6 +404,7 @@ DEPENDENCIES
   mini_magick
   mocha
   mongo_mapper!
+  mongrel
   omniauth
   pubsubhubbub
   rails (>= 3.0.0)
