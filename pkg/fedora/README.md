@@ -1,13 +1,12 @@
 ## Diaspora RPM tools
 
-Creates diaspora source tarballs and RPM packages
+Create RPM packages
 
 An alternative to the capistrano system, providing classic, binary RPM
-packages for deployment on Fedora 13 and OS-independent source tarballs
-aimed for packaging purposes.
+packages for deployment on Fedora.
 
 
-#### Fedora RPM synopsis
+#### Synopsis
 
 Prerequisites:
 
@@ -62,15 +61,15 @@ Typically, this is  secondary sources. *make-dist.sh source*
 applies all patches named *.patch in this directory after checking out
 source from git.
 
-The spec-files in dist/ are patched by *./make-dist.sh prepare* to reference
+The spec-files in dist/ are patched by *./prepare-rpm.sh to reference
 correct versions of diaspora and diaspora-bundle. The diaspora-bundle
 is only updated if Gemfile is updated, upgrading diaspora doesn't
 always require a new diaspora-bundle. Editing spec files should be done
-in this directory, changes in dist/ are lost when doing *./make-dist prepare*.
+in this directory, changes in dist/ are lost when doing *./prepare-rpm.sh *.
 
 The topmost comment's version is patched to reflect the complete version
-of current specfile by *make-dist source*. Write the comment in this
-directory, copy-paste previous version nr. It will be updated.
+of current specfile .  Write the comment in this directory, copy-paste
+previous version nr. It will be updated.
 
 This has been confirmed to start up and provide basic functionality both using
 the thin webserver and apache passenger, on 32/64 bit systems and in the
@@ -78,17 +77,6 @@ mock build environment. Irregular nightly builds are available form time to time
 at [ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
 
 #### Implementation
-
-'make-dist.sh source'  script checks out latest version of diaspora into the
- dist/diaspora directory. This content is, after some patches, the diaspora package.
-
-'make-dir.sh bundle' makes a *bundle package* in the diaspora dir.
-The resulting bundle is stored in vendor/bundle. This is, after some more
-patches, the content of diaspora-bundle tarball. Target systems makes a
-*bundle install --local* to use it.
-
-Here is also support for running the diaspora websocket service as a system
-service through /sbin/service and some install scripts.
 
 Diaspora files are stored in /usr/share/diaspora, and owned by root. The
 bundle, containing some C extensions, is architecture-dependent and lives
