@@ -1,0 +1,1 @@
+task :default => [:cucumber, :spec, :'jasmine:ci']
