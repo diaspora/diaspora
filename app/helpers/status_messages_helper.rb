@@ -18,14 +18,38 @@ module StatusMessagesHelper
     
     # next line is important due to XSS! (h is rail's make_html_safe-function)
     message = h(message).html_safe
-    message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2')
-    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)(&[^ ]*|)/, '\1youtube.com::\2')
-    message.gsub!(/(https|http|ftp):\/\/([^ ]+)/, '<a target="_blank" href="\1://\2">\2</a>')
-   
-    while youtube = message.match(/youtube\.com::([A-Za-z0-9_]+)/)
+
+    message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/) do |m|
+      res = "#{$1}http://#{$2}"
+      res.gsub!(/^(\*|_)$/) { |m| "\\#{$1}" }
+      res
+    end
+    message.gsub!(/( |^)http:\/\/www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)(&[^ ]*|)/) do |m|
+      res = "#{$1}youtube.com::#{$2}"
+      res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
+      res
+    end
+    message.gsub!(/(https|http|ftp):\/\/([^ ]+)/) do |m|
+      res = %{<a target="_blank" href="#{$1}://#{$2}">#{$2}</a>}
+      res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
+      res
+    end
+
+    # markdown
+    message.gsub!(/([^\\]|^)\*\*(([^*]|([^*]\*[^*]))*[^\\])\*\*/, '\1<strong>\2</strong>')
+    message.gsub!(/([^\\]|^)__(([^_]|([^_]_[^_]))*[^\\])__/, '\1<strong>\2</strong>')
+    message.gsub!(/([^\\]|^)\*([^*]*[^\\])\*/, '\1<em>\2</em>')
+    message.gsub!(/([^\\]|^)_([^_]*[^\\])_/, '\1<em>\2</em>')
+    message.gsub!(/([^\\]|^)\*/, '\1')
+    message.gsub!(/([^\\]|^)_/, '\1')
+    message.gsub!("\\*", "*")
+    message.gsub!("\\_", "_")
+
+    while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\]+)/)
       videoid = youtube[1]
       message.gsub!('youtube.com::'+videoid, '<a onclick="openVideo(\'youtube.com\', \'' + videoid + '\', this)" href="#video">Youtube: ' + youtube_title(videoid) + '</a>')
     end
+
     return message
   end
 

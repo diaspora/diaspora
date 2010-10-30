@@ -68,5 +68,45 @@ describe StatusMessagesHelper do
     make_links(url).should == "<a target=\"_blank\" href=\"http://"+url+"\">"+url+"</a>"
   end
 
+  describe "markdown" do
+    describe "weak emphasis" do
+      it "should be recognized (1/2)" do
+        message = "*some text* some text *some text* some text"
+        make_links(message).should == "<em>some text</em> some text <em>some text</em> some text"
+      end
+
+      it "should be recognized (2/2)" do
+        message = "_some text_ some text _some text_ some text"
+        make_links(message).should == "<em>some text</em> some text <em>some text</em> some text"
+      end
+    end
+
+    describe "strong emphasis" do
+      it "should be recognized (1/2)" do
+        message = "**some text** some text **some text** some text"
+        make_links(message).should == "<strong>some text</strong> some text <strong>some text</strong> some text"
+      end
+
+      it "should be recognized (2/2)" do
+        message = "__some text__ some text __some text__ some text"
+        make_links(message).should == "<strong>some text</strong> some text <strong>some text</strong> some text"
+      end
+    end
+
+    describe "imbricated weak and strong emphasis" do
+      it "should be rendered correctly" do
+        message = "__this is _some_ text__"
+        make_links(message).should == "<strong>this is <em>some</em> text</strong>"
+        message = "*this is **some** text*"
+        make_links(message).should == "<em>this is <strong>some</strong> text</em>"
+      end
+    end
+
+    it "should allow escaping" do
+      message = '*some text* \\*some text* \\**some text* _some text_ \\_some text_ \\__some text_'
+      make_links(message).should == "<em>some text</em> *some text<em> *</em>some text <em>some text</em> _some text<em> _</em>some text"
+    end
+  end
+
   
 end
