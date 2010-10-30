@@ -27,7 +27,7 @@ gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
 gem 'addressable', :require => 'addressable/uri'
 gem 'json'
 gem 'mini_fb'
-gem 'http_accept_language', :git => 'http://github.com/iain/http_accept_language.git'
+gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git'
 
 #Standards
 gem 'pubsubhubbub'
