@@ -10,7 +10,7 @@ describe RequestsController do
     @user = make_user
 
     sign_in :user, @user
-    @user.aspect(:name => "lame-os")
+    @user.aspects.create(:name => "lame-os")
   end
 
   it "should not error out when requesting to be friends with yourself" do

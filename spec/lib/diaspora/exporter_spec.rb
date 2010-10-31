@@ -11,10 +11,10 @@ describe Diaspora::Exporter do
   let!(:user2) { make_user }
   let!(:user3) { make_user }
 
-  let!(:aspect) { user1.aspect(:name => "Old Work")   }
-  let(:aspect1) { user1.aspect(:name => "Work")   }
-  let(:aspect2) { user2.aspect(:name => "Family") }
-  let(:aspect3) { user3.aspect(:name => "Pivots") }
+  let!(:aspect) { user1.aspects.create(:name => "Old Work")   }
+  let(:aspect1) { user1.aspects.create(:name => "Work")   }
+  let(:aspect2) { user2.aspects.create(:name => "Family") }
+  let(:aspect3) { user3.aspects.create(:name => "Pivots") }
 
   let!(:status_message1) { user1.post(:status_message, :message => "One", :public => true, :to => aspect1.id) }
   let!(:status_message2) { user1.post(:status_message, :message => "Two", :public => true, :to => aspect1.id) }

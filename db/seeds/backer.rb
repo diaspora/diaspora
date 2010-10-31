@@ -32,7 +32,7 @@ def create
   user.save
   user.person.save!
 
-  user.aspect(:name => "Presidents")
+  user.aspects.create(:name => "Presidents")
 end
 
 def set_app_config username

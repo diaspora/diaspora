@@ -9,10 +9,10 @@ describe AspectsController do
 
   before do
     @user    = make_user
-    @aspect  = @user.aspect(:name => "lame-os")
-    @aspect1 = @user.aspect(:name => "another aspect")
+    @aspect  = @user.aspects.create(:name => "lame-os")
+    @aspect1 = @user.aspects.create(:name => "another aspect")
     @user2   = make_user
-    @aspect2 = @user2.aspect(:name => "party people")
+    @aspect2 = @user2.aspects.create(:name => "party people")
     friend_users(@user,@aspect, @user2, @aspect2)
     @contact = @user.contact_for(@user2.person)
     sign_in :user, @user
@@ -63,7 +63,7 @@ describe AspectsController do
 
   describe "#update" do
     before do
-      @aspect = @user.aspect(:name => "Bruisers")
+      @aspect = @user.aspects.create(:name => "Bruisers")
     end
     it "doesn't overwrite random attributes" do
       new_user = Factory.create :user

@@ -7,7 +7,7 @@ require 'spec_helper'
 describe StatusMessage do
   before do
       @user = make_user
-      @aspect = @user.aspect(:name => "losers")
+      @aspect = @user.aspects.create(:name => "losers")
   end
 
   it "should have a message" do

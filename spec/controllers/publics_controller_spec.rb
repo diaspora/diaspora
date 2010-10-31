@@ -9,9 +9,9 @@ describe PublicsController do
   render_views
   let!(:user) { make_user }
   let!(:user2) { make_user }
-  let!(:aspect1) { user.aspect(:name => "foo") }
-  let!(:aspect2) { user2.aspect(:name => "far") }
-  let!(:aspect2) { user2.aspect(:name => 'disciples') }
+  let!(:aspect1) { user.aspects.create(:name => "foo") }
+  let!(:aspect2) { user2.aspects.create(:name => "far") }
+  let!(:aspect2) { user2.aspects.create(:name => 'disciples') }
   let!(:req) { user2.send_friend_request_to(user.person, aspect2) }
   let!(:xml) { user2.salmon(req).xml_for(user.person) }
   let(:person){Factory(:person)}
