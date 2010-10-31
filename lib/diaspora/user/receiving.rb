@@ -20,7 +20,6 @@ module Diaspora
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
 
-
         if object.is_a?(Comment) || object.is_a?(Post)
           e = EMWebfinger.new(object.diaspora_handle)
 
@@ -34,7 +33,7 @@ module Diaspora
 
               raise "Not friends with that person" unless self.contact_for(salmon_author)
 
-              if object.is_a?(Comment) 
+              if object.is_a?(Comment)
                 receive_comment object, xml
               else
                 receive_post object, xml
@@ -137,11 +136,11 @@ module Diaspora
         self.save
 
         aspects = self.aspects_with_person(post.person)
-        aspects.each{ |aspect|
+        aspects.each do |aspect|
           aspect.posts << post
           aspect.save
-          post.socket_to_uid(id, :aspect_ids => [aspect.id]) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
-        }
+        end
+        post.socket_to_uid(id, :aspect_ids => aspects.map(&:id)) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
       end
     end
   end

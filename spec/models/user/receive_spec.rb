@@ -19,6 +19,14 @@ describe User do
     friend_users(user, aspect, user2, aspect2)
   end
 
+  it 'should stream only one message to the everyone aspect when a multi-aspected friend posts' do
+    user.add_person_to_aspect(user2.person.id, user.aspect(:name => "villains").id)
+    status = user2.post(:status_message, :message => "Users do things", :to => aspect2.id)
+    xml = status.to_diaspora_xml
+    Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
+    user.receive xml, user2.person
+  end
+
   it 'should be able to parse and store a status message from xml' do
     status_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
@@ -113,11 +121,11 @@ describe User do
       post_in_db.comments.should == []
       user2.receive_salmon(@xml)
       post_in_db.reload
-      
+
       post_in_db.comments.include?(@comment).should be true
       post_in_db.comments.first.person.should == local_person
     end
-    
+
     it 'should correctly marshal a stranger for the downstream user' do
       remote_person = user3.person
       remote_person.delete
@@ -127,13 +135,13 @@ describe User do
       Person.should_receive(:by_account_identifier).twice.and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
         user.person; else; remote_person.save; remote_person; end }
 
-      
+
       user2.reload.raw_visible_posts.size.should == 1
       post_in_db = user2.raw_visible_posts.first
       post_in_db.comments.should == []
       user2.receive_salmon(@xml)
       post_in_db.reload
-      
+
       post_in_db.comments.include?(@comment).should be true
       post_in_db.comments.first.person.should == remote_person
     end
