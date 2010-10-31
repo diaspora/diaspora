@@ -1,11 +1,26 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
+# Copyright (c) 2010, Diaspora Inc. This file is
+# licensed under the Affero General Public License version 3 or later. See
+# the COPYRIGHT file.
 
-# Localization file for German. Add more files in this directory for other locales.
+# Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-de:
+en:
+  activemodel:
+      errors:
+          models:
+              user:
+                  attributes:
+                      person:
+                          invalid: "ist ungültig"
+                      username:
+                          taken: "ist bereits vergeben"
+                      email:
+                          taken: "wird bereits verwendet"
+              person:
+                  attributes:
+                      diaspora_handle:
+                          taken: "wird bereits verwendet"
   hello: "Hallo Welt"
   application:
       helper:
@@ -20,12 +35,15 @@ de:
           correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und probiere es erneut."
   people:
       helper:
-           results_for: " Resultate für %{params}"
+           results_for: " Ergebnisse für %{params}"
            people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
       application:
+          view_profile: "Profil anzeigen"
           edit_profile: "Profil bearbeiten"
-          logout: "Abmelden"
+          account_settings: "Einstellungen Account"
+          search: "Suchen"
+          logout: "abmelden"
   shared:
       aspect_nav:
           all_aspects: "Alle Aspekte"
@@ -38,6 +56,7 @@ de:
           share: "Teilen"
       aspect_friends:
           add_friends: "Freunde hinzufügen"
+          photos: "Bilder"
   albums:
       album:
           you: "dir"
@@ -50,10 +69,12 @@ de:
           updated: "aktualisiert"
           by: "von"
       edit:
+          album_name: "Album"
           editing: "Bearbeite"
-          updated: "geändert"
-          are_you_sure: "Bist du sicher?"
-          delete_album: "Album löschen"
+          updated: "aktualisiert"
+          update_album: "Aktualisiere Album"
+          are_you_sure: "Bist du dir sicher?"
+          delete_album: "Lösche Album"
           cancel: "Abbrechen"
       index:
           home: "Startseite"
@@ -62,61 +83,77 @@ de:
           success: "Du hast das Album %{name} erstellt."
       update:
           success: "Album %{name} erfolgreich geändert."
-          failure: "%{name} wurde nicht geändert."
+          failure: "Album %{name} konnte nicht geändert werden."
       destroy:
           success: "Album %{name} gelöscht."
       helper:
           friends_albums: "Alben von Freunden"
           your_albums: "Deine Alben"
   aspects:
-      index:
-          photos: "Fotos"
-      show:
-          photos: "Fotos"
+      no_friends_message:
+          nobody: "Du hast noch keine Kontakte, hole deine Freunde an Bord!"
+          nobody_in_aspect: "Dein Aspekt '%{aspect_name}' ist leer."
+          add_friend: "Freund hinzufügen"
+          add_friend_to: "Füge jemanden zu %{aspect_name} hinzu."
+          invite: "Lade jemanden ein, an Diaspora teilzunehmen!"
+      no_posts_message:
+          start_talking: "Nobody has said anything yet. Get the conversation started!"
+          start_talking: "Noch niemand hat was gesagt, beginne die Unterhaltung!"
       manage:
           add_a_new_aspect: "Neuen Aspekt erstellen"
-          add_a_new_friend:  "Freund hinzufügen"
+          add_a_new_friend: "Freund hinzufügen"
           show: "Anzeigen"
           update_aspects: "Aspekte aktualisieren"
           requests: "Anfragen"
           ignore_remove: "Ignorieren/Entfernen"
       new_aspect:
           add_a_new_aspect: "Neuen Aspekt erstellen"
+          name: "Name"
           create: "Erstellen"
       create:
           success: "Klicke auf das Plus auf der linken Seite um Diaspora mitzuteilen wer deinen neuen Aspekt sehen kann."
+          failure: "Aspekt Erstellen schlug fehl!"
       destroy:
           success: "%{name} wurde erfolgreich gelöscht."
       update:
           success: "Dein Aspekt, %{name}, wurde erfolgreich geändert."
-      move_friends:
-          failure: "Ändern des Aspekts für deinen Freund %{real_name} fehlgeschlagen."
-          success: "Aspekt erfolgreich geändert."
       move_friend:
-          error: "didn't work %{inspect}"
-          notice: "Du zeigst deinem Freund jetzt einen anderen Aspekt von dir."
+          failure: "didn't work %{inspect}"
+          success: "Kontakt wurde verschoben."
+      add_to_aspect:
+          failure: "Freund konnte dem Aspekt nicht hinzugefügt werden."
+          success: "Freund wurde dem Aspekt erfolgreich hinzugefügt."
       helper:
-          remove: "entfernen"
-          aspect_not_empty: "Aspekt ist nicht leer"
+          remove: "löschen"
+          aspect_not_empty: "Aspekt ist nicht leer."
   users:
       edit:
           editing_profile: "Profil bearbeiten"
-      profile:
+          invite_friends: "Freunde einladen"
+          are_you_sure: "Bist du sicher?"
+          export_data: "Daten exportieren"
+          close_account: "Account schließen"
+          change_language: "Sprache ändern"
+          change_password: "Passwort ändern"
+          new_password: "Neues Passwort"
+          password_confirmation: "Passwort wiederholen"
+          settings: "Einstellungen"
+          profile: "Profil"
+          account: "Account"
+          services: "Dienste"
           cancel: "Abbrechen"
-          update_profile: "Profil aktualisieren"
-          home: "Startseite"
-          diaspora_username: "Diaspora Benutzername"
-          info: "Info"
-          picture: "Bild"
-          editing_profile: "Profil bearbeiten"
-          albums: "Alben"
-          you_dont_have_any_photos: "Du hast keine Fotos! Gehe auf die"
-          page_to_upload_some:  "Seite um welche hochzuladen."
+      destroy: "Account wurde geschlossen."
+      getting_started:
+          'step_1':
+              albums: "Alben"
+              you_dont_have_any_photos: "Du hast noch keine Bilder! Gehe zu"
+              page_to_upload_some: "page to upload some."
+              or: "oder"
   comments:
       comment:
           # this won't work in german at all. Needs more thorough I18n
           ago: "ago"
-      new_comment:
+      new_comment: "Neuer Kommentar"
           comment: "Kommentar"
   photos:
       show:
@@ -133,29 +170,46 @@ de:
           delete_photo: "Foto löschen"
       photo:
           show_comments: "Kommentare anzeigen"
-          posted_a_new_photo_to: "neues Foto veröffentlicht bei"
+          posted_a_new_photo_to: "hat ein neues Foto veröffentlich in"
+          delete: "Löschen"
+          are_you_sure: "Bist du sicher?"
       new:
-          new_photo: "Foto erstellen"
-          back_to_list: "Zurück zur Liste"
-          post_it: "Hochladen"
+          new_photo: "Neues Foto"
+          back_to_list: "Back to List"
+          post_it: "post it!"
       create:
           runtime_error: "Hochladen eines Fotos fehlgeschlagen. Bist du sicher, dass dein Sicherheitsgurt befestigt ist?"
-          integrity_error: "Hochladen eines Fotos fehlgeschlagen.  Bist du sicher, dass das ein Bild war?"
-          type_error: "Hochladen eines Fotos fehlgeschlagen.  Bist du sicher, dass ein Bild hinzugefügt wurde?"
+          integrity_error: "Hochladen eines Fotos fehlgeschlagen. Bist du sicher, dass das ein Bild war?"
+          type_error: "Hochladen eines Fotos fehlgeschlagen. Bist du sicher, dass ein Bild hinzugefügt wurde?"
       update:
           notice: "Foto erfolgreich aktualisiert."
-          error:  "Ändern des Fotos fehlgeschlagen."
+          error: "Ändern des Fotos fehlgeschlagen."
       destroy:
           notice: "Foto gelöscht."
   registrations:
       new:
           sign_up: "Anmelden"
+          sign_up_for_diaspora: "Bei Diaspora anmelden"
+          upload_existing_account: "Bestehenden Account hochladen"
+          upload: "Hochladen"
+          username: "Benutzername"
+          email: "Email"
+          password: "Passwort"
+          password_confirmation: "Passwort wiederholen"
       create:
           success: "Du bist Diaspora beigetreten!"
+  invitations:
+      create:
+          sent: 'Deine Einladung wurde verschickt.'
+          no_more: 'Du hast keine Einladunge mehr.'
+          already_sent: 'Du hast diese Person schon eingeladen.'
+          already_friends: 'Du bist bereits mit dieser Person befreundet.'
+          #invitation_token_invalid: 'The invitation token provided is not valid!' ???
+          invitation_token_invalid: 'Der vorliegende Einladungscode ist ungültig.'
+          #updated: 'Your password was set successfully. You are now signed in.' ???
+          updated: 'Dein Passwort wurde erfolgreich geändert. Du bist jetzt eingeloggt.'
+
   status_messages:
-      new_status_message:
-          tell_me_something_good: "Erzähl' mir was schönes!"
-          oh_yeah: "Oh, super!"
       status_message:
           show_comments: "Kommentare anzeigen"
           delete: "Löschen"
@@ -190,18 +244,30 @@ de:
           save: "speichern"
           are_you_sure: "Bist du sicher?"
           remove_friend: "Freund entfernen"
+          no_posts: "keine Nachrichten anzuzeigen!"
+          add_friend: "Freund hinzufügen"
   requests:
       new_request:
-          add_a_new_friend_to: "Add a new friend to"
+          add_a_new_friend_to: "Freund hinzufügen zu"
           enter_a_diaspora_username: "Gebe einen Diaspora Benutzernamen ein:"
           your_diaspora_username_is: "Dein Diaspora Benutzername ist: %{diaspora_handle}"
-          friends_username: "Freundes Benutzername"
+          friends_username: "Benutzername des Freundes"
+          create_request: "Anfrage stellen"
       destroy:
           success: "Ihr seid jetzt Freunde."
           error: "Bitte wähle einen Aspekt aus!"
           ignore: "Freundschaftsanfrage ignorieren."
       create:
           error: "Kein Diaspora-Seed in dieser E-Mail gefunden!"
+          invalid_identity: "Ungültige Zeichen verwendet"
+          error_server: "Problem mit dem entferten Server. Vielleicht existiert er nicht?"
+          yourself: "Du kannst nicht mit dir selbst befreundet sein!"
           already_friends: "Du bist bereits mit %{destination_url} befreundet!"
           success: "Eine Freundschaftsanfrage wurde an %{destination_url} gesendet."
           horribly_wrong: "Etwas ging tierisch schief."
+  services:
+      index:
+          settings: "Einstellungen"
+          profile: "Profil"
+          account: "Account"
+          services: "Dienste"
