@@ -44,7 +44,8 @@ mkdir -p /var/run/diaspora
 mkdir -p /etc/diaspora
 
 bundle='/usr/lib/diaspora-bundle'
-[[ $(arch) == 'x86_64']] && bundle='/usr/lib64/diaspora-bundle'
+[ "$(arch | tr -d '\n')" =  'x86_64' ] && \
+    bundle='/usr/lib64/diaspora-bundle'
 
 ln -sf /var/log/diaspora  ./master/log
 cp master/config/app_config.yml.example /etc/diaspora/app_config.yml
