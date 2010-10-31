@@ -148,6 +148,9 @@ en:
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
               page_to_upload_some:  "page to upload some."
               or: "or"
+          edit_profile: "Edit your profile"
+          define_aspects: "Define your aspects"
+          connect_services: "Connect your services"
   comments:
       comment:
           ago: "ago"
