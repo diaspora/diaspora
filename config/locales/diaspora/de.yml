@@ -71,10 +71,10 @@ de:
       edit:
           album_name: "Album"
           editing: "Bearbeite"
-          updated: "aktualisiert"
+          updated: "geändert"
           update_album: "Aktualisiere Album"
-          are_you_sure: "Bist du dir sicher?"
-          delete_album: "Lösche Album"
+          are_you_sure: "Bist du sicher?"
+          delete_album: "Album löschen"
           cancel: "Abbrechen"
       index:
           home: "Startseite"
@@ -119,12 +119,12 @@ de:
           success: "Dein Aspekt, %{name}, wurde erfolgreich geändert."
       move_friend:
           failure: "didn't work %{inspect}"
-          success: "Kontakt wurde verschoben."
+          success: "Aspekt erfolgreich geändert."
       add_to_aspect:
           failure: "Freund konnte dem Aspekt nicht hinzugefügt werden."
           success: "Freund wurde dem Aspekt erfolgreich hinzugefügt."
       helper:
-          remove: "löschen"
+          remove: "entfernen"
           aspect_not_empty: "Aspekt ist nicht leer."
   users:
       edit:
@@ -175,8 +175,8 @@ de:
           are_you_sure: "Bist du sicher?"
       new:
           new_photo: "Neues Foto"
-          back_to_list: "Back to List"
-          post_it: "post it!"
+          back_to_list: "Zurück zur Liste"
+          post_it: "Hochladen"
       create:
           runtime_error: "Hochladen eines Fotos fehlgeschlagen. Bist du sicher, dass dein Sicherheitsgurt befestigt ist?"
           integrity_error: "Hochladen eines Fotos fehlgeschlagen. Bist du sicher, dass das ein Bild war?"
@@ -186,7 +186,7 @@ de:
           error: "Ändern des Fotos fehlgeschlagen."
       destroy:
           notice: "Foto gelöscht."
-  registrations:
+  registrations:aktualisiert
       new:
           sign_up: "Anmelden"
           sign_up_for_diaspora: "Bei Diaspora anmelden"
