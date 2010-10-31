@@ -143,6 +143,7 @@ en:
           cancel: "Cancel"
       destroy: "Account successfully closed."
       getting_started:
+          signup_steps: "Complete your sign-up by doing these things:"
           'step_1':
               albums: "Albums"
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
