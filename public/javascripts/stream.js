@@ -44,8 +44,13 @@ $(document).ready(function(){
   $("#stream").delegate(".reshare_button", "click", function(evt){
     evt.preventDefault();
     var button = $(this);
-    button.closest(".reshare_pane").children(".reshare_box").show();
-    button.addClass("active");
+    if(button.hasClass("active")) {
+      button.closest(".reshare_pane").children(".reshare_box").hide();
+      button.removeClass("active");
+    } else {
+      button.closest(".reshare_pane").children(".reshare_box").show();
+      button.addClass("active");
+    }
   });
 
 });//end document ready
