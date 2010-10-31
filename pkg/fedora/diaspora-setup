@@ -4,6 +4,7 @@
 #
 #  Usage: # ./diaspora-setup [external hostname]
 #
+export PATH=$PATH:/usr/local/bin
 
 arg_hostname="$1"
 
@@ -22,10 +23,17 @@ test -n "$services" && {
 
 cd /usr/share/diaspora/master
 
+libdir=$(rpm --eval %_libdir)
+
+rm -rf vendor
+ln -s $libdir/diaspora-bundle/vendor .
+ln -sf $libdir/diaspora-bundle/Gemfile .
+ln -sf $libdir/diaspora-bundle/Gemfile.lock .
+
 test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml
 
-if rake db:seed:dev; then
+if bundle exec rake db:seed:dev; then
     echo "Database config OK, new user tom/evankorth in place"
 else
     cat <<- EOF

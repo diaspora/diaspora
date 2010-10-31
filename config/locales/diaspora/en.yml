@@ -39,7 +39,10 @@ en:
            people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
       application:
+          view_profile: "view profile"
           edit_profile: "edit profile"
+          account_settings: "account settings"
+          search: "Search"
           logout: "logout"
   shared:
       aspect_nav:
@@ -66,8 +69,10 @@ en:
           updated: "updated"
           by: "by"
       edit:
+          album_name: "Album name"
           editing: "Editing"
           updated: "updated"
+          update_album: "Update album"
           are_you_sure: "Are you sure?"
           delete_album: "Delete Album"
           cancel: "Cancel"
@@ -102,6 +107,7 @@ en:
           ignore_remove: "Ignore/Remove"
       new_aspect:
           add_a_new_aspect: "Add a new aspect"
+          name: "Name"
           create: "Create"
       create:
           success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
@@ -122,6 +128,19 @@ en:
   users:
       edit:
           editing_profile: "Editing profile"
+          invite_friends: "Invite friends"
+          are_you_sure: "Are you sure?"
+          export_data: "Export Data"
+          close_account: "Close Account"
+          change_language: "Change Language"
+          change_password: "Change Password"
+          new_password: "New Password"
+          password_confirmation: "Password confirmation"
+          settings: "Settings"
+          profile: "Profile"
+          account: "Account"
+          services: "Services"
+          cancel: "Cancel"
       destroy: "Account successfully closed."
       getting_started:
           'step_1':
@@ -168,6 +187,13 @@ en:
   registrations:
       new:
           sign_up: "Sign up"
+          sign_up_for_diaspora: "Sign up for Diaspora"
+          upload_existing_account: "Upload an existing Diaspora account"
+          upload: "Upload"
+          username: "Username"
+          email: "Email"
+          password: "Password"
+          password_confirmation: "Password confirmation"
       create:
           success: "You've joined Diaspora!"
   invitations:
@@ -220,6 +246,19 @@ en:
           no_posts: "no posts to display!"
           add_friend: "add friend"
       edit:
+          settings: "Settings"
+          your_profile: "Your profile"
+          your_name: "Your name"
+          first_name: "First name"
+          last_name: "Last name"
+          your_gender: "Your gender"
+          your_birthday: "Your birthday"
+          your_bio: "Your bio"
+          fill_me_out: "Fill me out"
+          your_photo: "Your photo"
+          profile: "Profile"
+          account: "Account"
+          services: "Services"
           cancel: "Cancel"
           update_profile: "Update Profile"
           home: "Home"
@@ -237,6 +276,7 @@ en:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           friends_username: "Friend's username"
+          create_request: "Create request"
       destroy:
           success: "You are now friends."
           error: "Please select an aspect!"
@@ -249,3 +289,9 @@ en:
           already_friends: "You are already friends with %{destination_url}!"
           success: "A friend request was sent to %{destination_url}."
           horribly_wrong: "Something went horribly wrong."
+  services:
+      index:
+          settings: "Settings"
+          profile: "Profile"
+          account: "Account"
+          services: "Services"

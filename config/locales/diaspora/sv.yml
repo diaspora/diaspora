@@ -230,8 +230,12 @@ sv:
           friend_request_pending: "vänförfrågan är skickad"
           you_have_a_friend_request_from_this_person: "du har en väntande vänförfrågan från den här personen"
       new:
-          new_person: "Ny Person"
+          new_person: "Ny person"
           back_to_list: "Tillbaka till listan"
+      edit:
+          cancel: "Avbryt"
+          or: "eller"
+          update_profile: "Uppdatera profil"
       show:
           last_seen: "senast sedd: %{how_long_ago}"
           friends_since: "vänner sedan: %{how_long_ago}"

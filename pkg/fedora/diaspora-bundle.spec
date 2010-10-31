@@ -38,16 +38,7 @@ Source file usede to compile native libraries in diaspora-bundle.
 %setup -q -n %{name}-%{version}-%{git_release}
 
 %build
-bundle install --local --deployment --without ri rdoc test
-for gem in vendor/git/*; do
-    gem install --local   \
-                --force   \
-                --no-rdoc \
-                --no-ri   \
-                --install-dir vendor/bundle/ruby/1.8/bundler \
-    $gem
-
-done
+bundle install --local --deployment --without ri rdoc
 
 pushd vendor/bundle/ruby/1.8/gems
     # In repo (2.2.4)
@@ -154,7 +145,7 @@ pushd vendor/bundle/ruby/1.8/gems
     chmod 644 cucumber-rails-0.3.2/templates/install/step_definitions/capybara_steps.rb.erb || :
     chmod 644 ffi-0.6.3/ext/ffi_c/libffi/ltmain.sh || :
     chmod 644 gherkin-2.2.4/tasks/compile.rake || :
-    chmod 644 i18n-0.4.1/MIT-LICENSE
+    chmod 644 i18n-0.4.1/MIT-LICENSE || :
     chmod 755 linecache-0.43/Rakefile || :
     chmod 755 mime-types-1.16/Rakefile || :
     chmod 755 mini_magick-2.1/test/not_an_image.php || :
@@ -168,7 +159,7 @@ pushd vendor/bundle/ruby/1.8/gems
     for file in CHANGES VERSION README Rakefile; do
         chmod 644 term-ansicolor-1.0.5/$file || :
     done
-    chmod 755 thin-1.2.7/lib/thin/controllers/service.sh.erb
+    chmod 755 thin-1.2.7/lib/thin/controllers/service.sh.erb ||:
     chmod 755 thin-1.2.7/example/async_chat.ru  || :
     chmod 755 thin-1.2.7/example/async_tailer.ru  || :
     chmod 644 treetop-1.4.8/spec/compiler/test_grammar.tt  || :
@@ -208,13 +199,14 @@ popd
 
 mkdir -p $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
 cp -ar  vendor  $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
+cp -a Gemfile Gemfile.lock $RPM_BUILD_ROOT/%{_libdir}/diaspora-bundle
 
 find  %{buildroot}/%{_libdir}/diaspora-bundle  \
     -type d  -fprintf dirs '%%%dir "%%p"\n'
 find  -L %{buildroot}/%{_libdir}/diaspora-bundle  -regextype posix-awk \
     -type f -not -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'        \
     -fprintf files '"%%p"\n'
-find  %{buildroot}/%{_libdir}/diaspora-bundle -regextype posix-awk     \
+find  -L %{buildroot}/%{_libdir}/diaspora-bundle -regextype posix-awk  \
     -type f -regex '.*[.]c$|.*[.]h$|.*[.]cpp$|.*Makefile$'             \
     -fprintf dev-files '"%%p"\n'
 sed -i  -e 's|%{buildroot}||' -e 's|//|/|' files dev-files dirs
@@ -225,7 +217,7 @@ cat files >> dirs && cp dirs files
 
 %files -f files
 %defattr(-, diaspora, diaspora, 0755)
-%doc  COPYRIGHT Gemfile Gemfile.lock AUTHORS GNU-AGPL-3.0 docs
+%doc  COPYRIGHT AUTHORS GNU-AGPL-3.0 docs
 
 %files -f dev-files devel
 %defattr(-, root, root, 0644)

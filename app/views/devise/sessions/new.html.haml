@@ -1,22 +1,23 @@
 .span-10.append-1.last
   .floating
-    %h3 Login
+    %h3 
+      = t('.login')
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       #user
         %p.username
-          = f.label :username
+          = f.label :username , t('.username')
           = f.text_field :username
         %p.user_network
           ="@#{APP_CONFIG[:terse_pod_url]}"
 
         %p
-          = f.label :password
+          = f.label :password , t('.password')
           = f.password_field :password
       /%p
       /- if devise_mapping.rememberable?
       /  = f.check_box :remember_me
-      /  = f.label :remember_me
-      = f.submit "Sign in"
+      /  = f.label :remember_me , t('.remember_me')
+      = f.submit t('.sign_in')
     
     %p
       = render :partial => "devise/shared/links"

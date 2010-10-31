@@ -40,8 +40,6 @@ begin
 
   Rake.application.instance_variable_get('@tasks').delete('default')
 
-  task :default => [:cucumber, :spec]
-
   task :features => :cucumber do
     STDERR.puts "*** The 'features' task is deprecated. See rake -T cucumber ***"
   end

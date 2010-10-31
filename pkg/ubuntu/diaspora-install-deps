@@ -14,7 +14,8 @@ grep -v '^#' /etc/apt/sources.list | grep -q universe || {
 release=$( lsb_release -a | awk '/Release:/ {print $2}')
 
 sudo apt-get update
-sudo apt-get install -qy build-essential libxslt1-dev  libxml2  \
+sudo apt-get install --no-install-recommends -qy\
+     build-essential libxslt1-dev  libxml2  \
      ruby-full mongodb rake python-software-properties git-core \
      imagemagick libmagick9-dev
 if [ "$release" = "10.04" ]; then

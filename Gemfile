@@ -27,7 +27,7 @@ gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
 gem 'addressable', :require => 'addressable/uri'
 gem 'json'
 gem 'mini_fb'
-gem 'http_accept_language', :git => 'http://github.com/iain/http_accept_language.git'
+gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git'
 
 #Standards
 gem 'pubsubhubbub'
@@ -61,6 +61,8 @@ group :test do
   gem 'mocha'
   gem 'database_cleaner', '0.5.2'
   gem 'webmock'
+  gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
+  gem 'mongrel', :require => false if RUBY_VERSION.include? "1.8"
 end
 
 group :deployment do

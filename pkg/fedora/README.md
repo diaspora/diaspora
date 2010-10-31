@@ -18,7 +18,7 @@ Prerequisites:
 - A personal environment to build RPM:s, also described in
   [RPM installation Fedora](http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora)
 
-Install g++ (possibly unnnecessary?):
+Install g++ (unnecessary?):
     % yum install gcc-c++
 
 Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz
@@ -73,7 +73,7 @@ to the bundle's bundle directory.  Reasonable defaults are to install
 diaspora in /usr/share/diaspora and bundle in /usr/lib/diaspora-bundle. With these,
 the link is
     % rm -rf /usr/share/diaspora/master/vendor/bundle
-    % ln -sf /usr/lib/diaspora-bundle/bundle  \
+    % ln -sf /usr/lib/diaspora-bundle/vendor/bundle  \
     >          /usr/share/diaspora/master/vendor
     %
 
@@ -92,6 +92,9 @@ The source tarball is as retrieved from diaspora with following differences:
    - The file public/source.tar.gz is generated.
    - The file .bundle/config  is patched. Remove before doing
      *bundle install*
+
+The bundle is basically the output from 'bundle package'. The git-based
+gems are also added into vendor/git.
 
 ./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
 root cause is a bad Gemfile in the git repo. Possible fixes includes
@@ -128,9 +131,10 @@ at [ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.ne
 'make-dist.sh source'  script checks out latest version of diaspora into the
  dist/diaspora directory. This content is, after some patches, the diaspora package.
 
-'make-dir.sh bundle' makes a 'bundle install --deployment' in the diaspora dir.
+'make-dir.sh bundle' makes a *bundle package* in the diaspora dir.
 The resulting bundle is stored in vendor/bundle. This is, after some more
-patches, the content of diaspora-bundle.
+patches, the content of diaspora-bundle tarball. Target systems makes a
+*bundle install --local* to use it.
 
 Here is also support for running the diaspora websocket service as a system
 service through /sbin/service and some install scripts.
