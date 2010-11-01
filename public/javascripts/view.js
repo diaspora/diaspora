@@ -68,14 +68,11 @@ $(document).ready(function(){
     if(!$(event.target).closest('#user_menu').length){
       $("#user_menu").removeClass("active");
     };
-    if(!$(event.target).closest('.reshare_box').length){
+    if(!$(event.target).closest('.reshare_pane').length){
       $(".reshare_button").removeClass("active");
       $(".reshare_box").hide();
     };
   });
-  
-  //$("#slider").easySlider({speed:400});
-  
 
   $("img", "#left_pane").tipsy({live:true});
   $(".add_aspect_button", "#aspect_nav").tipsy({gravity:'w'});

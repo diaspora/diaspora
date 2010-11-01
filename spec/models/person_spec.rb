@@ -9,8 +9,8 @@ describe Person do
     @user = make_user
     @user2 = make_user
     @person = Factory.create(:person)
-    @aspect = @user.aspect(:name => "Dudes")
-    @aspect2 = @user2.aspect(:name => "Abscence of Babes")
+    @aspect = @user.aspects.create(:name => "Dudes")
+    @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
   end
 
   describe "vaild  url" do

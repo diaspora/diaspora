@@ -6,11 +6,11 @@ require 'spec_helper'
 
 describe User do
   let(:inviter)  {make_user}
-  let(:aspect)   {inviter.aspect(:name => "awesome")}
+  let(:aspect)   {inviter.aspects.create(:name => "awesome")}
   let(:another_user) {make_user}
-  let(:wrong_aspect) {another_user.aspect(:name => "super")}
+  let(:wrong_aspect) {another_user.aspects.create(:name => "super")}
   let(:inviter_with_3_invites) {Factory.create :user, :invites => 3}
-  let(:aspect2) {inviter_with_3_invites.aspect(:name => "Jersey Girls")}
+  let(:aspect2) {inviter_with_3_invites.aspects.create(:name => "Jersey Girls")}
 
 
   before do
@@ -122,7 +122,7 @@ describe User do
       u.pending_requests
       u.pending_requests.count.should == 1
       request = u.pending_requests.first
-      aspect2  = u.aspect(:name => "dudes")
+      aspect2  = u.aspects.create(:name => "dudes")
       u.reload
       inviter
       inviter.receive_salmon(u.salmon(u.accept_friend_request(request.id, aspect2.id)).xml_for(inviter.person))

@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Post do
   before do
     @user = make_user
-    @aspect = @user.aspect(:name => "winners")
+    @aspect = @user.aspects.create(:name => "winners")
   end
 
   describe 'deletion' do

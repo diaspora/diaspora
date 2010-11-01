@@ -3,14 +3,6 @@
 -#   the COPYRIGHT file.
 
 
-- if current_user.getting_started == true
-  :javascript
-    $.ajax({
-      type: "PUT",
-      url: "/users/#{current_user.id}",
-      data: {"user":{"getting_started":'false'}}
-    })
-
 %h1
   = "You're all set up, #{current_user.person.profile.first_name}!"
   .description

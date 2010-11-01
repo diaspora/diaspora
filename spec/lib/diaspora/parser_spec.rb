@@ -6,9 +6,9 @@ require 'spec_helper'
 
 describe Diaspora::Parser do
   let(:user) { make_user }
-  let(:aspect) { user.aspect(:name => 'spies') }
+  let(:aspect) { user.aspects.create(:name => 'spies') }
   let(:user2) { make_user }
-  let(:aspect2) { user2.aspect(:name => "pandas") }
+  let(:aspect2) { user2.aspects.create(:name => "pandas") }
   let(:user3) { make_user }
   let(:person) { user3.person }
 

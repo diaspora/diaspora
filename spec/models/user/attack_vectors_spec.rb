@@ -7,15 +7,15 @@ require 'spec_helper'
 describe "attack vectors" do
 
   let(:user) { make_user }
-  let(:aspect) { user.aspect(:name => 'heroes') }
+  let(:aspect) { user.aspects.create(:name => 'heroes') }
   
   let(:bad_user) { make_user}
 
   let(:user2) { make_user }
-  let(:aspect2) { user2.aspect(:name => 'losers') }
+  let(:aspect2) { user2.aspects.create(:name => 'losers') }
 
   let(:user3) { make_user }
-  let(:aspect3) { user3.aspect(:name => 'heroes') }
+  let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
   before do
     friend_users(user, aspect, user2, aspect2)

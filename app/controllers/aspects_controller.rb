@@ -18,7 +18,7 @@ class AspectsController < ApplicationController
   end
 
   def create
-    @aspect = current_user.aspect(params[:aspect])
+    @aspect = current_user.aspects.create(params[:aspect])
     if @aspect.valid?
       flash[:notice] = I18n.t('aspects.create.success')
       respond_with @aspect

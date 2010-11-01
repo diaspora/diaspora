@@ -7,7 +7,7 @@ require 'spec_helper'
 describe 'user encryption' do
   before do
     @user = make_user
-    @aspect = @user.aspect(:name => 'dudes')
+    @aspect = @user.aspects.create(:name => 'dudes')
   end
 
   describe 'key exchange on friending' do
@@ -26,7 +26,7 @@ describe 'user encryption' do
       original_key = remote_user.exported_key
 
       request = remote_user.send_friend_request_to(
-        @user.person, remote_user.aspect(:name => "temp"))
+        @user.person, remote_user.aspects.create(:name => "temp"))
 
       xml = remote_user.salmon(request).xml_for(@user)
 

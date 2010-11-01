@@ -7,7 +7,7 @@ require 'spec_helper'
 describe UsersController do
 
   let(:user) { make_user }
-  let!(:aspect) { user.aspect(:name => "lame-os") }
+  let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   let!(:old_password) { user.encrypted_password }
   let!(:old_language) { user.language }

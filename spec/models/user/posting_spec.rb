@@ -9,9 +9,9 @@ describe User do
   let!(:user) { make_user }
   let!(:user2) { make_user }
 
-  let!(:aspect) { user.aspect(:name => 'heroes') }
-  let!(:aspect1) { user.aspect(:name => 'other') }
-  let!(:aspect2) { user2.aspect(:name => 'losers') }
+  let!(:aspect) { user.aspects.create(:name => 'heroes') }
+  let!(:aspect1) { user.aspects.create(:name => 'other') }
+  let!(:aspect2) { user2.aspects.create(:name => 'losers') }
 
   let!(:service1) { s = Factory(:service, :provider => 'twitter'); user.services << s; s }
   let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
@@ -81,9 +81,9 @@ describe User do
 
   context 'dispatching' do
     let!(:user3) { make_user }
-    let!(:aspect3) { user3.aspect(:name => 'heroes') }
+    let!(:aspect3) { user3.aspects.create(:name => 'heroes') }
     let!(:user4) { make_user }
-    let!(:aspect4) { user4.aspect(:name => 'heroes') }
+    let!(:aspect4) { user4.aspects.create(:name => 'heroes') }
 
     let!(:post) { user.build_post :status_message, :message => "hey" }
 

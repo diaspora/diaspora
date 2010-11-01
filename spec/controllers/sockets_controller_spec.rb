@@ -24,7 +24,7 @@ describe SocketsController do
 
   describe 'actionhash' do
     before do
-      @aspect = @user.aspect :name => "losers"
+      @aspect = @user.aspects.create(:name => "losers")
       @message = @user.post :status_message, :message => "post through user for victory", :to => @aspect.id
       @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     end

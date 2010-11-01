@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Photo do
   before do
     @user = make_user
-    @aspect = @user.aspect(:name => "losers")
+    @aspect = @user.aspects.create(:name => "losers")
     @album = @user.post :album, :name => "foo", :to => @aspect.id
 
     @fixture_filename = 'button.png'
@@ -112,7 +112,7 @@ describe Photo do
 
       #security hax
       user2 = Factory.create(:user)
-      aspect2 = user2.aspect(:name => "foobars")
+      aspect2 = user2.aspects.create(:name => "foobars")
       friend_users(@user, @aspect, user2, aspect2)
       @photo.person = user2.person
 

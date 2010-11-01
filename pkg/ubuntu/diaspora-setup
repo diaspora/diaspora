@@ -4,6 +4,7 @@
 #
 #  Usage: sudo diaspora-setup [external hostname]
 #
+export PATH=$PATH:/usr/local/bin
 
 test  "$( perl -e 'print $<')" = "0" || {
     echo "You need to be root to do this, giving up"
@@ -24,16 +25,19 @@ service mongodb start || :
 
 cd /usr/share/diaspora/master
 
+libdir="/usr/lib"
+[[ $(arch) == "x86_64" ]] && libdir="/usr/lib64"
+
 rm -rf vendor
-ln -s /usr/lib/diaspora-bundle/vendor .
-ln -sf /usr/lib/diaspora-bundle/Gemfile .
-ln -sf /usr/lib/diaspora-bundle/Gemfile.lock .
+ln -s $libdir/diaspora-bundle/vendor .
+ln -sf $libdir/diaspora-bundle/Gemfile .
+ln -sf $libdir/diaspora-bundle/Gemfile.lock .
 
 
 test -e config/app_config.yml ||
     cp config/app_config.yml.example config/app_config.yml
 
-if rake db:seed:dev; then
+if bundle exec rake db:seed:dev; then
     echo "Database config OK, new user tom/evankorth in place"
 else
     cat <<- EOF

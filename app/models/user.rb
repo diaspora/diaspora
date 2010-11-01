@@ -85,13 +85,6 @@ class User
   end
 
   ######### Aspects ######################
-  def aspect(opts = {})
-    aspect = Aspect.new(opts)
-    aspect.user = self
-    aspect.save
-    aspect
-  end
-
   def drop_aspect(aspect)
     if aspect.people.size == 0
       aspect.destroy
@@ -417,8 +410,8 @@ class User
   end
 
   def seed_aspects
-    aspect(:name => "Family")
-    aspect(:name => "Work")
+    self.aspects.create(:name => "Family")
+    self.aspects.create(:name => "Work")
   end
 
   def diaspora_handle

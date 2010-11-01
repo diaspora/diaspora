@@ -8,7 +8,7 @@ describe StatusMessagesController do
   render_views
 
   let!(:user) { make_user }
-  let!(:aspect) { user.aspect(:name => "lame-os") }
+  let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   before do
     sign_in :user, user

@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Album do
   let(:user) { make_user }
   let(:person) { user.person }
-  let(:aspect) { user.aspect(:name => "Foo") }
+  let(:aspect) { user.aspects.create(:name => "Foo") }
   let(:album) { user.post(:album, :name => "test collection", :to => aspect.id) }
 
   it 'is valid' do
