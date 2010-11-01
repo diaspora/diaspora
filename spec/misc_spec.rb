@@ -37,6 +37,10 @@ describe 'making sure the spec runner works' do
       it 'does not save a built user' do
         Factory.build(:user).persisted?.should be_false
       end
+      
+      it 'does not save a built person' do
+        Factory.build(:person).persisted?.should be_false
+      end
     end
   end
 

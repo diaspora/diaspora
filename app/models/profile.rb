@@ -24,6 +24,8 @@ class Profile
   key :bio,        String
 
   after_validation :strip_names
+  validates_length_of :first_name, :maximum => 32
+  validates_length_of :last_name, :maximum => 32
 
   before_save :strip_names
 

@@ -19,17 +19,6 @@ describe Request do
     person_request.valid?.should be true
   end
 
-  it 'should generate xml for the User as a Person' do
-
-    request = user.send_friend_request_to person, aspect
-    xml = request.to_xml.to_s
-
-    xml.should include user.person.diaspora_handle
-    xml.should include user.person.url
-    xml.should include user.profile.first_name
-    xml.should include user.profile.last_name
-    xml.should include user.exported_key
-  end
 
   it 'should strip the destination url' do
     person_request = Request.new
@@ -66,6 +55,30 @@ describe Request do
       user2.reload
       user2.requests_for_me.include?(request).should == true
     end
+  end
+
+  describe 'serialization' do
+    it 'should not generate xml for the User as a Person' do
+      request = user.send_friend_request_to person, aspect
+      xml = request.to_xml.to_s
+
+      xml.should_not include user.person.profile.first_name
+    end
+
+    it 'should serialize the handle and not the sender' do
+      request = user.send_friend_request_to person, aspect
+      xml = request.to_xml.to_s
+
+      xml.should include user.person.diaspora_handle
+    end
+
+    it 'should not serialize the exported key' do
+      request = user.send_friend_request_to person, aspect
+      xml = request.to_xml.to_s
+
+      xml.should_not include user.person.exported_key
+    end
+
   end
 
 end

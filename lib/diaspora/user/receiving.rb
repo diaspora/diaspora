@@ -21,15 +21,20 @@ module Diaspora
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
 
 
-        if object.is_a?(Comment) || object.is_a?(Post)
+        if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request)
           e = EMWebfinger.new(object.diaspora_handle)
 
           e.on_person { |person|
 
             if person.class == Person
+              object.person = person
               sender_in_xml = sender(object, xml, person)
               if (salmon_author != sender_in_xml)
                 raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
+              end
+
+              if object.is_a? Request
+                return receive_request object, sender_in_xml
               end
 
               raise "Not friends with that person" unless self.contact_for(salmon_author)
@@ -50,17 +55,12 @@ module Diaspora
             raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
           end
 
-          if object.is_a? Request
-            return receive_request object, sender_in_xml
-          end
           raise "Not friends with that person" unless self.contact_for(salmon_author)
 
           if object.is_a? Retraction
             receive_retraction object, xml
           elsif object.is_a? Profile
             receive_profile object, xml
-          else
-            receive_post object, xml
           end
         end
       end
@@ -68,13 +68,10 @@ module Diaspora
       def sender(object, xml, webfingered_person = nil)
         if object.is_a? Retraction
           sender = object.person
-        elsif object.is_a? Request
-          sender = object.person
         elsif object.is_a? Profile
           sender = Diaspora::Parser.owner_id_from_xml xml
 
         else
-          object.person = webfingered_person
           if object.is_a?(Comment)
             sender = (owns?(object.post))? object.person : object.post.person
           else
@@ -98,10 +95,9 @@ module Diaspora
       end
 
       def receive_request request, person
-        person.serialized_public_key ||= request.exported_key
         request.person = person
-        request.person.save
-        old_request =  Request.first(:id => request.id)
+        request.person.save!
+        old_request =  Request.find(request.id)
         Rails.logger.info("I got a reqest_id #{request.id} with old request #{old_request.inspect}")
         request.aspect_id = old_request.aspect_id if old_request
         request.save

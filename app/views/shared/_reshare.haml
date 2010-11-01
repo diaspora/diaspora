@@ -5,7 +5,7 @@
 - unless current_user.aspects.size == current_user.aspects_with_post(post.id).size
   .reshare_pane
     %span.reshare_button
-      = link_to "Reshare", "#"
+      = link_to t('.reshare'), "#"
 
     %ul.reshare_box
       - for aspect in current_user.aspects
@@ -14,4 +14,4 @@
 - else
   .reshare_pane
     %span.reshare_button
-      = link_to "Reshare", "#", :class => "inactive"
+      = link_to t('.reshare'), "#", :class => "inactive"

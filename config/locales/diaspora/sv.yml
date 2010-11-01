@@ -58,7 +58,7 @@ sv:
           view_profile: "visa profil"
           edit_profile: "ändra profil"
           account_settings: "kontoinstallningar"
-          search: "Search"
+          search: "Sök ..."
           logout: "logga ut"
   shared:
       aspect_nav:
