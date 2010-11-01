@@ -8,12 +8,12 @@ $(document).keydown(function(e){
   switch(e.keyCode) {
     case 37:
       if(!$("textarea").hasClass("hasfocus")){//prevent redirect if textarea has focus
-        window.location = document.getElementById("prev_photo").href;
+        window.location = $("#prev_photo").attr('href');
       }
       break;
     case 39:
       if(!$("textarea").hasClass("hasfocus")){
-        window.location = document.getElementById("next_photo").href;
+        window.location = $("#next_photo").attr('href');
       }
       break;
   }
@@ -41,7 +41,7 @@ $(document).ready(function(){
     var method = $edit_photo.attr("method");
     var url = $edit_photo.attr("action");
     var data = $edit_photo.serialize();
-    $(".description").text(document.getElementById("photo_caption").value);
+    $(".description").text($("#photo_caption").val());
     $edit_photo.toggle();
 
       $.ajax({  
