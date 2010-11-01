@@ -140,7 +140,7 @@ module Diaspora
       end
 
       def requests_for_me
-        pending_requests.select{|req| req.person != self.person }
+        pending_requests.select{|req| req.destination_url == self.person.receive_url} 
       end
     end
   end
