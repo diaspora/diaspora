@@ -44,7 +44,7 @@
 
     .submit_block
       = link_to t('.cancel'), edit_user_path(current_user)
-      or
+      = t('.or')
       = f.submit t('.change_password')
 
   %h3 

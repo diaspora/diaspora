@@ -26,7 +26,7 @@
     = form_for StatusMessage.new, :remote => true do |status|
       = status.error_messages
       %p
-        = status.label :message, "Post a message to #{aspect}"
+        = status.label :message, t('.post_a_message_to', :aspect => aspect)
         = status.text_area :message, :rows => 2, :value => params[:prefill]
 
       = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
@@ -35,7 +35,7 @@
         - if aspect == :all
           .public_toggle
             = status.check_box( :public, {}, true, false )
-            make public
+            = t('.make_public')
             = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
 
             .fancybox_content
@@ -48,7 +48,7 @@
           = status.submit t('.share'), :title => "Share with #{aspect}"
 
     #publisher_photo_upload
-      or
+      = t('.or')
       = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id), :album_id => nil
     
 
