@@ -14,6 +14,12 @@ def harden_ruby(ruby_string)
       to file
     end
   end
+  Dir.glob("/usr/local/rvm/gems/#{ruby_string}/bin/*").each do |file|
+    link "/usr/local/bin/#{file.split('/').last}" do
+      to file
+    end
+  end
+
 end
 
 harden_ruby("ruby-1.8.7-p302")
