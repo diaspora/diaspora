@@ -17,12 +17,12 @@ module PhotoMover
         current_photo_location = "#{Rails.root}/public/uploads/images/#{photo.image_filename}"
         new_photo_location = "#{album_dir}/#{photo.image_filename}"
 
-        `cp #{current_photo_location} #{new_photo_location}`
+        FileUtils::cp current_photo_location new_photo_location
       end
     end
 
-    `tar cf #{user.id}.tar #{user.id}`
-    `rm -r #{user.id}`
+    system("tar", "cf #{user.id}.tar #{user.id}")
+    FileUtils::rm_r user.id, :secure => true, :force => true
 
     "#{Rails.root}/#{temp_dir}.tar"
   end
