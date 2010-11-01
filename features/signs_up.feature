@@ -31,10 +31,10 @@ Feature: new user registration
 
     When I follow "Continue on to your everyone page, an overview of all of your aspects."
     Then I should be on the home page
-    And I should see "We know you have friends, bring them to Diaspora!"
+    And I should see "bring them to Diaspora!"
 
   Scenario: new user skips the setup wizard
     When I follow "skip getting started"
     And I wait for the home page to load
     Then I should be on the home page
-    And I should see "We know you have friends, bring them to Diaspora!"
+    And I should see "bring them to Diaspora!"
