@@ -33,10 +33,10 @@ test $UID = "0" || {
     echo Error: "this is not a diaspora base directory"
     exit 3
 }
-yum install  -y git bison svn sqlite-devel gcc-c++ patch          \
+yum install  -y git bison sqlite-devel gcc-c++ patch          \
             readline-devel  zlib-devel libyaml-devel libffi-devel \
-            ImageMagick rubygems libxslt-devel  libxml2-devel     \
-            openssl-devel mongodb-server wget openssh-clients     \
+            ImageMagick libxslt-devel  libxml2-devel     \
+            openssl-devel mongodb-server wget  \
             make autoconf automake
 
 getent group diaspora  >/dev/null || groupadd diaspora
@@ -54,16 +54,12 @@ mkdir $home/diaspora
 cp -ar * $home/diaspora
 chown -R diaspora  $home/diaspora
 
+service mongod start
+
 su - diaspora << EOF
 #set -x
 
 cd diaspora
-
-#Configure diaspora
-cp config/app_config.yml.example config/app_config.yml
-source source/funcs.sh
-init_appconfig config/app_config.yml "$DIASPORA_HOSTNAME"
-
 
 [ -e "\$HOME/.rvm/scripts/rvm" ] || {
     echo '#### Installing rvm ####'
@@ -97,6 +93,12 @@ if [[ -z "\$ruby" || ("\${ruby:0:4}" == "/usr") ]]; then
 fi
 
 bundle install
+
+#Configure diaspora
+cp config/app_config.yml.example config/app_config.yml
+source pkg/source/funcs.sh
+init_appconfig config/app_config.yml "$DIASPORA_HOSTNAME"
+
 
 echo "Setting up DB..."
 if  bundle exec rake db:seed:dev ; then
