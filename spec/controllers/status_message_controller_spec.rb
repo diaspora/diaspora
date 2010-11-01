@@ -45,7 +45,7 @@ describe StatusMessagesController do
       it "doesn't overwrite id" do
         old_status_message = user.post(:status_message, :message => "hello", :to => aspect.id)
         status_message_hash[:status_message][:id] = old_status_message.id
-        post :create, status_message_hash
+        lambda {post :create, status_message_hash}.should raise_error /failed save/
         old_status_message.reload.message.should == 'hello'
       end
     end

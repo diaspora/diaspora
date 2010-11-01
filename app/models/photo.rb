@@ -29,9 +29,9 @@ class Photo < Post
 
   validates_with PhotoAlbumValidator
 
-  before_destroy :ensure_user_picture
+  attr_accessible :caption
 
-  attr_protected :person
+  before_destroy :ensure_user_picture
 
   def self.instantiate(params = {})
     image_file = params.delete(:user_file)

@@ -145,6 +145,7 @@ class User
     aspect_ids = validate_aspect_permissions(aspect_ids)
 
     post = build_post(class_name, options)
+
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
     
@@ -201,9 +202,11 @@ class User
 
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
-    post.save
-    self.raw_visible_posts << post
-    self.save
+    if post.save
+      raise 'MongoMapper failed to catch a failed save' unless post.id
+      self.raw_visible_posts << post
+      self.save
+    end
     post
   end
 

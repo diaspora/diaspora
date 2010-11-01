@@ -32,11 +32,12 @@ class Post
   before_destroy :propogate_retraction
   after_destroy :destroy_comments
 
+  attr_accessible :user_refs
   def self.instantiate params
     new_post = self.new params.to_hash
     new_post.person = params[:person]
     new_post.public = params[:public]
-    new_post.save
+    new_post.diaspora_handle = new_post.person.diaspora_handle
     new_post
   end
 

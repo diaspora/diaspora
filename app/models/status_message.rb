@@ -11,6 +11,8 @@ class StatusMessage < Post
   key :message, String
   validates_presence_of :message
 
+  attr_accessible :message
+
   def to_activity
         <<-XML
   <entry>
