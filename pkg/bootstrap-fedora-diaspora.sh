@@ -4,11 +4,15 @@
 #
 #  Usage: pkg/bootstrap-fedora-diaspora.sh [external hostname]
 #
-#  Synopsis:
-#
+#  Synopsis, install:
 #      $ git clone git@github.com:diaspora/diaspora.git
 #      $ cd diaspora
-#      $ sudo pkg/bootstrap-rffedora-diaspora.sh
+#      $ sudo pkg/bootstrap-fedora-diaspora.sh
+#
+#  New start:
+#      $ sudo su - diaspora
+#      $ cd diaspora
+#      $ script/server
 #
 #  Unless already existing, the diaspora user is created.
 #  The directory the scripts is invoked from is copied to
@@ -17,7 +21,6 @@
 #
 #  Script is designed not to make any changes in invoking
 #  caller's environment.
-#  user.
 #
 #  Must run as root
 

@@ -27,7 +27,7 @@ Bootstrap the distribution from git:
 
 Create and install the diaspora bundle and application in
 diaspora/pkg/source according to
-[source README](http://github.com/diaspora/diaspora/blob/master/source/fedora/README.md)
+[source README](http://github.com/diaspora/diaspora/tree/master/pkg/source/)
 
 Setup links from  tarballs to RPM source directory and create spec files:
     % ./prepare-rpm.sh
@@ -54,54 +54,17 @@ apache/passenger setup. After configuration, start with:
     /sbin/service diaspora-wsd start
     /sbin/service httpd restart
 
-<<<<<<< HEAD
 prepare-rpm.sh prepare creates links  also for all files listed in SOURCES.
 Typically, this is  secondary sources. *make-dist.sh source*
-
-#### Generic source synopsis
-
-Generate source tarball:
-    % ./make-dist.sh source
-    Using repo:          http://github.com/diaspora/diaspora.git
-    Commit id:           1010092232_b313272
-    Source:              dist/diaspora-0.0-1010092232_b313272.tar.gz
-    Required bundle:     1010081636_d1a4ee0
-    %
-
-The source tarball could be used as-is, by unpacking add making a
-*bundle install*. An alternative is to generate a canned bundle like:
-    % ./make-dist.sh bundle
-          [ lot's of output...]
-    Bundle: dist/diaspora-bundle-0.0-1010081636_d1a4ee0.tar.gz
-    %
-
-This file can be installed anywhere. To use it, add a symlink from vendor/bundle
-to the bundle's bundle directory.  Reasonable defaults are to install
-diaspora in /usr/share/diaspora and bundle in /usr/lib/diaspora-bundle. With these,
-the link is
-    % rm -rf /usr/share/diaspora/master/vendor/bundle
-    % ln -sf /usr/lib/diaspora-bundle/vendor/bundle  \
-    >          /usr/share/diaspora/master/vendor
-    %
-
-The directories tmp, log, and public/uploads needs to be writable. If using
-apache passenger, read the docs on uid used and file ownership.
-
-Note that the bundle version required is printed each time a new source
-is generated.
 
 #### Notes
 
 prepare-rpm.sh prepare creates links  also for all files listed in SOURCES.
-Typically, this is  secondary sources. *make-dist.sh source*
-applies all patches named *.patch in this directory after checking out
-source from git.
+Typically, this is  secondary sources.
 
 The spec-files in dist/ are patched by *./prepare-rpm.sh to reference
-correct versions of diaspora and diaspora-bundle. The diaspora-bundle
-is only updated if Gemfile is updated, upgrading diaspora doesn't
-always require a new diaspora-bundle. Editing spec files should be done
-in this directory, changes in dist/ are lost when doing *./prepare-rpm.sh *.
+correct versions of diaspora and diaspora-bundle.  Editing spec files should be
+done in this directory, changes in dist/ are lost when doing *./prepare-rpm.sh *.
 
 The topmost comment's version is patched to reflect the complete version
 of current specfile .  Write the comment in this directory, copy-paste
@@ -128,6 +91,9 @@ diaspora app.  This is more or less as mandated by LSB and Fedora packaging rule
 
 
 #### Discussion
+
+The 1.8.7 rebuild is a pain. However, in Fedora 14 1.8.7 is the default
+ruby version.
 
 For better or worse, this installation differs from the procedure outlined
 in the original README.md:
