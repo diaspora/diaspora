@@ -81,6 +81,7 @@ en:
           new_album: "New Album"
       create:
           success: "You've created an album called %{name}."
+          failure: "Failed to create album."
       update:
           success: "Album %{name} successfully edited."
           failure: "Failed to edit album %{name}."

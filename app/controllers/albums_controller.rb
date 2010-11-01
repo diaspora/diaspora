@@ -16,9 +16,15 @@ class AlbumsController < ApplicationController
   def create
     aspect = params[:album][:to]
 
-    @album = current_user.post(:album, params[:album])
-    flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
-    redirect_to :action => :show, :id => @album.id, :aspect => aspect
+    album = Album.instantiate(params[:album].merge(:person => current_user.person))
+    if album.valid?
+      @album = current_user.post(:album, params[:album])
+      flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
+      redirect_to :action => :show, :id => @album.id, :aspect => aspect
+    else
+      flash[:error] = I18n.t 'albums.create.failure'
+      redirect_to albums_path(:aspect => aspect)
+    end
   end
 
   def new
@@ -35,14 +41,14 @@ class AlbumsController < ApplicationController
   def show
     @person = current_user.visible_people.find_by_person_id(params[:person_id]) if params[:person_id]
     @person ||= current_user.person
-    
+
     @album = :uploads if params[:id] == "uploads"
     @album ||= current_user.find_visible_post_by_id(params[:id])
 
     unless @album
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
-    
+
       if @album == :uploads
         @album_id     = nil
         @album_name   = "Uploads"
