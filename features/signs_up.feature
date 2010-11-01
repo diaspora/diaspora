@@ -1,7 +1,7 @@
 @javascript
 Feature: new user registration
 
-  Scenario: new user sees profile wizard
+  Background:
     When I go to the new user registration page
     And I fill in "Username" with "ohai"
     And I fill in "Email" with "ohai@example.com"
@@ -11,6 +11,7 @@ Feature: new user registration
     Then I should be on the getting started page
     And I should see "Welcome to Diaspora!"
 
+  Scenario: new user goes through the setup wizard
     When I fill in "person_profile_first_name" with "O"
     And I fill in "person_profile_last_name" with "Hai"
     And I press "Save and continue"
@@ -32,17 +33,8 @@ Feature: new user registration
     Then I should be on the home page
     And I should see "We know you have friends, bring them to Diaspora!"
 
-  @wip
-  Scenario: new user can skip the profile wizard
-    When I go to the new user registration page
-    And I fill in "Username" with "ohai"
-    And I fill in "Email" with "ohai@example.com"
-    And I fill in "Password" with "secret"
-    And I fill in "Password confirmation" with "secret"
-    And I press "Sign up"
-    Then I should be on the getting started page
-    And I should see "Welcome to Diaspora!"
-
+  Scenario: new user skips the setup wizard
     When I follow "skip getting started"
+    And I wait for the home page to load
     Then I should be on the home page
     And I should see "We know you have friends, bring them to Diaspora!"
