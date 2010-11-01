@@ -7,6 +7,7 @@
 #   This file has parts from rails-i18n project at
 #        http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale
 
+
 de:
   activemodel:
       errors:
@@ -56,11 +57,18 @@ de:
           manage_aspects: "Aspekte verwalten"
       publisher:
           share: "Teilen"
+          or: "oder"
+          post_a_message_to: "Sende eine Nachricht an %{aspect}"
+          make_public: "öffentlich machen"
       aspect_friends:
           add_friends: "Freunde hinzufügen"
           photos: "Fotos"
-      author_info:
-          view_profile: "Profil anzeigen"
+      invitations:
+          invites: 'Einladungen'
+          invite_a_friend: 'Freund einladen'
+          invitations_left: '(%{count} übrig)'
+      reshare:
+          reshare: 'Erneut senden an'
   albums:
       album:
           you: "Du"
@@ -134,7 +142,7 @@ de:
           editing_profile: "Profil bearbeiten"
           invite_friends: "Feunde einladen"
           are_you_sure: "Bist du sicher?"
-          export_data: "Daten exportieren"
+          export_data: "Konto exportieren"
           close_account: "Konto schließen"
           change_language: "Sprache ändern"
           change_password: "Passwort ändern"
@@ -145,8 +153,10 @@ de:
           account: "Konto"
           services: "Dienste"
           cancel: "Abbrechen"
-      destroy: "Account erfolgreich geschlossen."
+          or: "oder" 
+      destroy: "Konto erfolgreich geschlossen."
       getting_started:
+          signup_steps: "Vervollständige deine Registrierung indem du folgende Dinge tust:"
           'step_1':
               albums: "Alben"
               you_dont_have_any_photos: "Du hast keine Fotos! Gehe zur"
@@ -208,6 +218,14 @@ de:
           already_friends: 'Du bist bereits mit dieser Person befreundet'
           invitation_token_invalid: 'Das Einladungstoken ist ungültig!'
           updated: 'Dein Passwort wurde erfolgreich gespeichert. Du bist jetzt angemeldet.'
+      new:
+          email: 'E-Mail'
+          invite_someone_to_join: 'Lade jemanden zu Diaspora ein!'
+          if_they_accept_info: 'Wenn sie akzeptieren findest du sie im Aspekt in den du sie eingeladen hast'
+          to: 'An'
+          message: 'Nachricht:'
+          send_an_invitation: 'Eine Einladung senden'
+          send_invitation: 'Einladung senden'
 
   status_messages:
       new_status_message: #FIXME: seems unused
@@ -217,6 +235,7 @@ de:
           show_comments: "Kommentare zeigen"
           delete: "Löschen"
           are_you_sure: "Bist du sicher?"
+          ago: "her" #FIXME: need something like %{time} ago to translate it to something like Vor %{time}
       show:
           status_message: "Status Nachricht"
           comments: "Kommentare"
@@ -249,8 +268,10 @@ de:
           remove_friend: "Freund entfernen"
           no_posts: "Keine Posts zum anzeigen!"
           add_friend: "Freund hinzufügen"
+          edit_my_profile: "Mein Profil bearbeiten"
       edit:
           settings: "Einstellungen"
+          info_available_to: "Diese Infos werden für alle verfügbar sein mit denen du bei Diaspora verbunden bist."
           your_profile: "Dein Profil"
           your_name: "Dein Name"
           first_name: "Vorname"
