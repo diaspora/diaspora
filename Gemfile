@@ -60,7 +60,7 @@ group :test do
   gem 'rspec-rails', '>= 2.0.0'
   gem 'mocha'
   gem 'database_cleaner', '0.5.2'
-  gem 'webmock'
+  gem 'webmock', :require => false
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
   gem 'mongrel', :require => false if RUBY_VERSION.include? "1.8"
 end
