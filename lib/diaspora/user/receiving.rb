@@ -27,6 +27,7 @@ module Diaspora
           e.on_person { |person|
 
             if person.class == Person
+              object.person = person
               sender_in_xml = sender(object, xml, person)
               if (salmon_author != sender_in_xml)
                 raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
@@ -71,7 +72,6 @@ module Diaspora
           sender = Diaspora::Parser.owner_id_from_xml xml
 
         else
-          object.person = webfingered_person
           if object.is_a?(Comment)
             sender = (owns?(object.post))? object.person : object.post.person
           else
@@ -96,7 +96,7 @@ module Diaspora
 
       def receive_request request, person
         request.person = person
-        request.person.save
+        request.person.save!
         old_request =  Request.find(request.id)
         Rails.logger.info("I got a reqest_id #{request.id} with old request #{old_request.inspect}")
         request.aspect_id = old_request.aspect_id if old_request
