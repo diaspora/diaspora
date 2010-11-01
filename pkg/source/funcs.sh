@@ -59,7 +59,7 @@ function checkout()
             git clone --quiet $GIT_REPO;
             (
                 cd diaspora;
-                git checkout Gemfile
+                git checkout Gemfile Gemfile.lock
                 git remote add upstream \
                     git://github.com/diaspora/diaspora.git
                 for p in ../../*.patch; do
@@ -75,5 +75,34 @@ function checkout()
         [ -n "$1" ] && git reset --hard  --quiet  $1
         git_id  -n
     )
+}
+
+function init_appconfig
+# Edit pod_url in hostname
+# Silently uses argumetn if present, else run dialog.
+# Usage: init_appconfig <app_config.yml> [hostname]
+{
+    config=$1
+    arg_hostanme="$2"
+    hostname=$( awk '/pod_url:/ { print $2; exit }' <$config )
+
+    if [ -n "$arg_hostname" ]; then
+        sed -i "/pod_url:/s|$hostname|$arg_hostname|g" $config && \
+            echo "config/app_config.yml updated."
+        return 0
+    else
+        while : ; do
+            echo "Current hostname is \"$hostname\""
+            echo -n "Enter new hostname [$hostname] :"
+            read new_hostname garbage
+            echo -n "Use \"$new_hostname\" as pod_url (Yes/No) [Yes]? :"
+            read yesno garbage
+            [ "${yesno:0:1}" = 'y' -o "${yesno:0:1}" = 'Y' -o -z "$yesno" ] && {
+                sed -i "/pod_url:/s|$hostname|$new_hostname|g" $config &&
+                    echo "config/app_config.yml updated."
+                break
+            }
+        done
+    fi
 }
 
