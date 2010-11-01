@@ -16,6 +16,7 @@ describe AspectsController do
     friend_users(@user,@aspect, @user2, @aspect2)
     @contact = @user.contact_for(@user2.person)
     sign_in :user, @user
+    request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
   describe "#index" do
@@ -44,9 +45,9 @@ describe AspectsController do
         post :create, "aspect" => {"name" => ""}
         @user.reload.aspects.count.should == 2
       end
-      it "goes back to manage aspects" do
+      it "goes back to the page you came from" do
         post :create, "aspect" => {"name" => ""}
-        response.should redirect_to(aspects_manage_path)
+        response.should redirect_to(:back)
       end
     end
   end
