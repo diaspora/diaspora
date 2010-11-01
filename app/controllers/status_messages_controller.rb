@@ -13,9 +13,7 @@ class StatusMessagesController < ApplicationController
     public_flag.to_s.match(/(true)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag 
 
-    data = clean_hash params[:status_message]
-    message = params[:status_message][:message]
-    status_message = current_user.post(:status_message, data)
+    status_message = current_user.post(:status_message, params[:status_message])
     render :nothing => true
   end
 
@@ -28,14 +26,5 @@ class StatusMessagesController < ApplicationController
   def show
     @status_message = current_user.find_visible_post_by_id params[:id]
     respond_with @status_message
-  end
-
-  private
-  def clean_hash(params)
-    return {
-      :message => params[:message],
-      :to      => params[:to],
-      :public  => params[:public]
-    }
   end
 end
