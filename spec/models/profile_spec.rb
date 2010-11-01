@@ -12,12 +12,32 @@ describe Profile do
         profile.should be_valid
         profile.first_name.should == "Shelly"
       end
+      
+      it "can be 32 characters long" do
+        profile = Factory.build(:profile, :first_name => "Hexagoooooooooooooooooooooooooon")
+        profile.should be_valid
+      end
+      
+      it "cannot be 33 characters" do
+        profile = Factory.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
+        profile.should_not be_valid
+      end
     end
     describe "of last_name" do
       it "strips leading and trailing whitespace" do
         profile = Factory.build(:profile, :last_name => "     Ohba    ")
         profile.should be_valid
         profile.last_name.should == "Ohba"
+      end
+      
+      it "can be 32 characters long" do
+        profile = Factory.build(:profile, :last_name => "Hexagoooooooooooooooooooooooooon")
+        profile.should be_valid
+      end
+      
+      it "cannot be 33 characters" do
+        profile = Factory.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
+        profile.should_not be_valid
       end
     end
   end

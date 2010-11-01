@@ -40,8 +40,11 @@ class User
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
-  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validates_length_of :username, :maximum => 32
+  
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+
+  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_associated :person
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
