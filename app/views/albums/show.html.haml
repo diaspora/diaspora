@@ -42,5 +42,5 @@
   .album_id{:id => @album_id, :style => "display:hidden;"}
 
   -unless current_user.person.id == @person.id
-    %h4= "#{t('.by')} #{@person.real_name}"
+    %h4= "#{t('by')} #{@person.real_name}"
 

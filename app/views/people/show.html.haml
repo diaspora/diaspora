@@ -28,7 +28,7 @@
                 %li= link_to aspect.name, aspect
 
     - if @person != current_user.person && @contact
-      = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
+      = link_to t('.remove_friend'), @person, :confirm => t('are_you_sure'), :method => :delete, :class => "button"
 
     - if @person == current_user.person
       %b

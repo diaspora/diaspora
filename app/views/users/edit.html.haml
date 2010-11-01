@@ -14,15 +14,15 @@
 
 #section_header
   %h2
-    = t('.settings')
+    = t('settings')
   %ul#settings_nav
-    %li=link_to t('.profile'), edit_person_path(current_user.person)
-    %li=link_to t('.account'), edit_user_path(current_user)
-    %li=link_to t('.services'), services_path
+    %li=link_to t('profile'), edit_person_path(current_user.person)
+    %li=link_to t('account'), edit_user_path(current_user)
+    %li=link_to t('services'), services_path
 
 .span-19.prepend-5.last
   %h2
-    = t('.account')
+    = t('account')
 
   = link_to t('.invite_friends'), new_user_invitation_path(current_user)
 
@@ -39,12 +39,12 @@
       = f.label :password, t('.new_password')
       = f.password_field :password
     %p
-      = f.label :password_confirmation, t('.password_confirmation')
+      = f.label :password_confirmation, t('password_confirmation')
       = f.password_field :password_confirmation
 
     .submit_block
-      = link_to t('.cancel'), edit_user_path(current_user)
-      = t('.or')
+      = link_to t('cancel'), edit_user_path(current_user)
+      = t('or')
       = f.submit t('.change_password')
 
   %h3 
@@ -70,5 +70,5 @@
   %h3 
     = t('.close_account')
   = link_to t('.close_account'), current_user,
-              :confirm => t('.are_you_sure'), :method => :delete,
+              :confirm => t('are_you_sure'), :method => :delete,
               :class => "button"

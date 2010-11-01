@@ -19,5 +19,5 @@
       = link_to "⇧ #{@album.name}", album_path(@album)
     -if current_user.owns? @album
       .button.right
-        = link_to t('.delete_photo'), @photo, :confirm => t('.are_you_sure'), :method => :delete
+        = link_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete
 
