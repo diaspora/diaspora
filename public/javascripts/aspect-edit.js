@@ -24,8 +24,8 @@ $(function() {
   $("ul .person").draggable({
     revert: true,
     start: function(event,ui){
-      $(this).children("img").animate({'height':80, 'width':80, 'opacity':0.8},200);
-      $(this).children("img").tipsy("hide");
+      $(this).children("img").animate({'height':80, 'width':80, 'opacity':0.8},200)
+             .tipsy("hide");
       $(".draggable_info").fadeIn(100);
     },
     drag: function(event,ui){
@@ -67,7 +67,7 @@ $(function() {
           }});
         }
 
-      $(this).closest("ul").append(person);
+      dropzone.closest("ul").append(person);
     }
   });
 
@@ -96,8 +96,6 @@ $(function() {
       }
     }
   });
-
-
 });
 
 
@@ -107,7 +105,6 @@ $(".delete").live("click", function() {
   var person = $(this).closest("li.person");
 
   if (person.hasClass('request')){
-
     if( confirm("Ignore request?") ){
       var request_id = person.attr("data-guid");
 
@@ -121,7 +118,6 @@ $(".delete").live("click", function() {
     }
 
   } else {
-
     if( confirm("Remove this person from all aspects?") ){
       var person_id = $(this).closest("li.person").attr('data-guid');
 
