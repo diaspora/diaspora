@@ -5,10 +5,8 @@
 #  Usage: bootstrap-fedora-diaspora.sh [external hostname]
 #
 #  Must run as root
-
-arg_hostname="$1"
-
-. source/funcs.sh
+GIT_REPO='git@github.com:leamas/diaspora.git'
+DIASPORA_HOSTNAME='mumin.dnsalias.net'
 
 test $UID = "0" || {
     echo "You need to be root to do this, giving up"
@@ -67,14 +65,19 @@ if [[ -z "\$ruby" || ("\${ruby:0:4}" == "/usr") ]]; then
 fi
 
 echo '### Clone diapora, install bundle. ###'
-git clone git@github.com:diaspora/diaspora.git
+rm -rf diaspora
+git clone $GIT_REPO
 cd diaspora
+echo "PWD: \$PWD"
+echo "pkg: \$(ls pkg)"
+echo "source: \$(ls pkg/source)"
+source pkg/source/funcs.sh
 bundle install
 
 #Configure diaspora
 
-source pkg/source/funcs.sh
-init_appconfig config/app_config.yml "\$arg_hostname"
+cp config/app_config.yml.example config/app_config.yml
+init_appconfig config/app_config.yml "$DIASPORA_HOSTNAME"
 
 # Install DB setup
 echo "Setting up DB..."

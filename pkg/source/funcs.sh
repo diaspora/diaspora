@@ -83,7 +83,7 @@ function init_appconfig
 # Usage: init_appconfig <app_config.yml> [hostname]
 {
     config=$1
-    arg_hostanme="$2"
+    arg_hostname="$2"
     hostname=$( awk '/pod_url:/ { print $2; exit }' <$config )
 
     if [ -n "$arg_hostname" ]; then
