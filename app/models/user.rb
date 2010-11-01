@@ -22,11 +22,11 @@ class User
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
-  key :inviter_ids, Array, :typecast => 'ObjectId' 
-  key :friend_ids, Array, :typecast => 'ObjectId' 
-  key :pending_request_ids, Array, :typecast => 'ObjectId' 
-  key :visible_post_ids, Array, :typecast => 'ObjectId' 
-  key :visible_person_ids, Array, :typecast => 'ObjectId' 
+  key :inviter_ids, Array, :typecast => 'ObjectId'
+  key :friend_ids, Array, :typecast => 'ObjectId'
+  key :pending_request_ids, Array, :typecast => 'ObjectId'
+  key :visible_post_ids, Array, :typecast => 'ObjectId'
+  key :visible_person_ids, Array, :typecast => 'ObjectId'
 
   key :invite_messages, Hash
 
@@ -39,7 +39,7 @@ class User
 
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
-  validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
+  validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/
   validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
   validates_associated :person
@@ -95,11 +95,11 @@ class User
 
   def move_friend(opts = {})
     return true if opts[:to] == opts[:from]
-    if opts[:friend_id] && opts[:to] && opts[:from] 
+    if opts[:friend_id] && opts[:to] && opts[:from]
       from_aspect = self.aspects.first(:_id => opts[:from])
       posts_to_move = from_aspect.posts.find_all_by_person_id(opts[:friend_id])
       if add_person_to_aspect(opts[:friend_id], opts[:to], :posts => posts_to_move)
-        delete_person_from_aspect(opts[:friend_id], opts[:from], :posts => posts_to_move) 
+        delete_person_from_aspect(opts[:friend_id], opts[:from], :posts => posts_to_move)
         return true
       end
     end
@@ -113,7 +113,7 @@ class User
     raise 'Can not add person who is already in the aspect' if aspect.people.include?(contact)
     contact.aspects << aspect
     opts[:posts] ||= self.raw_visible_posts.all(:person_id => person_id)
-    
+
     aspect.posts += opts[:posts]
     contact.save
     aspect.save
@@ -142,9 +142,9 @@ class User
     aspect_ids = validate_aspect_permissions(aspect_ids)
 
     post = build_post(class_name, options)
-    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
-    
+    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
+
     if options[:public] == true
       self.services.each do |service|
         self.send("post_to_#{service.provider}".to_sym, service, post.message)
@@ -318,14 +318,14 @@ class User
         raise "Must invite to your aspect"
       else
         u = User.find_by_email(opts[:email])
-        if u.nil?  
+        if u.nil?
         elsif friends.include?(u.person)
-          raise "You are already friends with this person"          
+          raise "You are already friends with this person"
         elsif not u.invited?
           self.send_friend_request_to(u.person, aspect_object)
           return
         elsif u.invited? && u.inviters.include?(self)
-          raise "You already invited this person"          
+          raise "You already invited this person"
         end
       end
       request = Request.instantiate(
