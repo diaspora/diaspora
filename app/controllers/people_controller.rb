@@ -56,7 +56,7 @@ class PeopleController < ApplicationController
     end
 
     # upload and set new profile photo
-    if params[:person][:profile][:image]
+    if params[:person][:profile][:image].present?
       raw_image = params[:person][:profile].delete(:image)
       params[:profile_image_hash] = { :user_file => raw_image, :to => "all" }
 
