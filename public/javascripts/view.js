@@ -5,10 +5,9 @@
 
 
 $(document).ready(function(){
-
-	$('#debug_info').click(function() {
-		$('#debug_more').toggle('fast');
-	});
+  $('#debug_info').click(function() {
+    $('#debug_more').toggle('fast');
+  });
 
   $("label").inFieldLabels();
 
@@ -26,12 +25,12 @@ $(document).ready(function(){
   });
 
   //buttons//////
-  $(".add_aspect_button").fancybox({ 'titleShow' : false , 'hideOnOverlayClick' : false });
-  $(".add_request_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
-  $(".invite_user_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
-  $(".add_photo_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
-  $(".remove_person_button").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
-  $(".question_mark").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
+  $(".add_aspect_button," + 
+    ".add_request_button," +
+    ".invite_user_button," +
+    ".add_photo_button," +
+    ".remove_person_button," +
+    ".question_mark").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
 
   $("input[type='submit']").addClass("button");
 
@@ -65,10 +64,11 @@ $(document).ready(function(){
   });
 
   $('body').click( function(event){
-    if(!$(event.target).closest('#user_menu').length){
+    var $this = $(this);
+    if(!$this.closest('#user_menu').length){
       $("#user_menu").removeClass("active");
     };
-    if(!$(event.target).closest('.reshare_pane').length){
+    if(!$this.closest('.reshare_pane').length){
       $(".reshare_button").removeClass("active");
       $(".reshare_box").hide();
     };
