@@ -46,20 +46,12 @@ describe Diaspora::Parser do
       it "should create a new person upon getting a person request" do
         new_person = Factory.build(:person) 
 
-        puts new_person.persisted?
         Person.should_receive(:by_account_identifier).and_return(new_person)
-        puts new_person.persisted?
         request = Request.instantiate(:to =>"http://www.google.com/", :from => new_person)
-        puts new_person.persisted?
         xml = request.to_diaspora_xml
-
         user
 
-        puts Person.count
-        user.receive xml, new_person
-
-        puts Person.count
-        #lambda { user.receive xml, new_person }.should change(Person, :count).by(1)
+        lambda { user.receive xml, new_person }.should change(Person, :count).by(1)
       end
 
 
