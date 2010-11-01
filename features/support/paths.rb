@@ -1,6 +1,8 @@
 module NavigationHelpers
   def path_to(page_name)
     case page_name
+    when /^the home page$/
+      root_path
     when /^its ([\w ]+) page$/
       send("#{$1.gsub(/\W+/, '_')}_path", @it)
     when /^the ([\w ]+) page$/
