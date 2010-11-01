@@ -2,21 +2,42 @@
 #
 #  Install diaspora, its dependencies and start.
 #
-#  Usage: bootstrap-fedora-diaspora.sh [external hostname]
+#  Usage: pkg/bootstrap-fedora-diaspora.sh [external hostname]
+#
+#  Synopsis:
+#
+#      $ git clone git@github.com:diaspora/diaspora.git
+#      $ cd diaspora
+#      $ sudo pkg/bootstrap-rffedora-diaspora.sh
+#
+#  Unless already existing, the diaspora user is created.
+#  The directory the scripts is invoked from is copied to
+#  diasporas's home dir, populated and configured and finally
+#  acts as a base for running diaspora servers.
+#
+#  Script is designed not to make any changes in invoking
+#  caller's environment.
+#  user.
 #
 #  Must run as root
+
 GIT_REPO='git@github.com:leamas/diaspora.git'
-DIASPORA_HOSTNAME='mumin.dnsalias.net'
+DIASPORA_HOSTNAME=${1:-'mumin.dnsalias.net'}
 
 test $UID = "0" || {
     echo "You need to be root to do this, giving up"
     exit 2
 }
 
-yum install  -y git bison svn autoconf sqlite-devel gcc-c++ patch \
+[[ -d config && -d script ]] || {
+    echo Error: "this is not a diaspora base directory"
+    exit 3
+}
+yum install  -y git bison svn sqlite-devel gcc-c++ patch          \
             readline-devel  zlib-devel libyaml-devel libffi-devel \
-            ImageMagick git rubygems libxslt-devel  libxml2-devel \
-            openssl-devel mongodb-server wget openssh-clients
+            ImageMagick rubygems libxslt-devel  libxml2-devel     \
+            openssl-devel mongodb-server wget openssh-clients     \
+            make autoconf automake
 
 getent group diaspora  >/dev/null || groupadd diaspora
 getent passwd diaspora  >/dev/null || {
@@ -24,10 +45,27 @@ getent passwd diaspora  >/dev/null || {
     echo "Created user diaspora"
 }
 
-su - diaspora <<EOF
+home=$( getent passwd diaspora | cut -d: -f6)
+[ -e  $home/diaspora ] && {
+    echo "Moving existing  $home/diaspora out of the way"
+    mv  $home/diaspora  $home/diaspora.$$
+}
+mkdir $home/diaspora
+cp -ar * $home/diaspora
+chown -R diaspora  $home/diaspora
 
+su - diaspora << EOF
 #set -x
-    [ -e "\$HOME/.rvm/scripts/rvm" ] || {
+
+cd diaspora
+
+#Configure diaspora
+cp config/app_config.yml.example config/app_config.yml
+source source/funcs.sh
+init_appconfig config/app_config.yml "$DIASPORA_HOSTNAME"
+
+
+[ -e "\$HOME/.rvm/scripts/rvm" ] || {
     echo '#### Installing rvm ####'
     wget  http://rvm.beginrescueend.com/releases/rvm-install-head
     bash < rvm-install-head && rm rvm-install-head
@@ -47,12 +85,6 @@ su - diaspora <<EOF
 
 source \$HOME/.bashrc
 
-[ -d .ssh ] || {
-    ssh-keygen -q
-    echo "StrictHostKeyChecking no" > .ssh/config
-    chmod 600 .ssh/config
-}
-
 ruby=\$(which ruby) || ruby=""
 
 if [[ -z "\$ruby" || ("\${ruby:0:4}" == "/usr") ]]; then
@@ -64,22 +96,8 @@ if [[ -z "\$ruby" || ("\${ruby:0:4}" == "/usr") ]]; then
     gem install bundler
 fi
 
-echo '### Clone diapora, install bundle. ###'
-rm -rf diaspora
-git clone $GIT_REPO
-cd diaspora
-echo "PWD: \$PWD"
-echo "pkg: \$(ls pkg)"
-echo "source: \$(ls pkg/source)"
-source pkg/source/funcs.sh
 bundle install
 
-#Configure diaspora
-
-cp config/app_config.yml.example config/app_config.yml
-init_appconfig config/app_config.yml "$DIASPORA_HOSTNAME"
-
-# Install DB setup
 echo "Setting up DB..."
 if  bundle exec rake db:seed:dev ; then
     cat <<- EOM
@@ -96,7 +114,6 @@ else
 	EOM
 fi
 
-# Run appserver
 echo "Starting server"
 script/server
 

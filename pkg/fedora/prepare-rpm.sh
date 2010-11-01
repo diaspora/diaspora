@@ -128,6 +128,8 @@ function usage()
 
 	-h             Print this message.
 	-r  release    For prepare, mark with release nr, defaults to 1.
+	-u  uri        Git repository URI, defaults to
+	               $GIT_REPO.
 
 	Symlink bundle and source tarballs to rpm source dir, create
         patched  rpm spec files.
@@ -140,13 +142,15 @@ function usage()
 
 commit='HEAD'
 BUNDLE_FIX='no'
-while getopts ":r:h" opt
+while getopts ":r:u:h" opt
 do
     case $opt in
         r)   RELEASE="$OPTARG:"
              ;;
         h)   usage
              exit 0
+             ;;
+        u)   GIT_REPO="$OPTARG"
              ;;
         *)   usage
              exit 2
