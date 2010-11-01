@@ -23,4 +23,4 @@ end
 APP_CONFIG[:terse_pod_url] = APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '')
 APP_CONFIG[:terse_pod_url].chop! if APP_CONFIG[:terse_pod_url][-1, 1] == '/'
 
-puts "WARNING: Please modify your app_config.yml to have a proper pod_url!" if APP_CONFIG[:terse_pod_url] == "example.org" && Rails.env != :test
+puts "WARNING: Please modify your app_config.yml to have a proper pod_url!" if APP_CONFIG[:terse_pod_url] == "example.org" && Rails.env != "test"
