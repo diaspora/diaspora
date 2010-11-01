@@ -1,20 +1,23 @@
 .span-12.last
   .modal_title_bar
-    %h4 Invite someone to join Diaspora!
+    %h4 
+      = t('.invite_someone_to_join')
 
-  %i if they accept, they will be added to the aspect you invited them
+  %i 
+    = t('.if_they_accept_info')
   = form_for User.new, :url => invitation_path(User) do |invite|
     %p
-      = invite.label :email
+      = invite.label :email , t('.email')
       = invite.text_field :email
-    To
+    = t('.to')
     - unless @aspect.is_a? Aspect
       = invite.select(:aspects, @aspects_dropdown_array)
     - else 
       = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
     
-    Message:
+    = t('.message')
+    
     = invite.text_area :invite_messages, :value => ""
 
-    %p= invite.submit "Send an invitation"
+    %p= invite.submit t('.send_an_invitation')
 

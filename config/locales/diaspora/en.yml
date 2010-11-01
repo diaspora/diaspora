@@ -54,9 +54,18 @@ en:
           manage_aspects: "Manage Aspects"
       publisher:
           share: "Share"
+          or: "or"
+          post_a_message_to: "Post a message to %{aspect}"
+          make_public: "make public"
       aspect_friends:
           add_friends: "add friends"
           photos: "photos"
+      invitations:
+          invites: 'Invites'
+          invite_a_friend: 'Invite a friend'
+          invitations_left: '(%{count} left)'
+      reshare:
+          reshare: 'Reshare'
   albums:
       album:
           you: "you"
@@ -141,6 +150,7 @@ en:
           account: "Account"
           services: "Services"
           cancel: "Cancel"
+          or: "or"
       destroy: "Account successfully closed."
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
@@ -205,7 +215,14 @@ en:
           already_friends: 'You are already friends with this person' 
           invitation_token_invalid: 'The invitation token provided is not valid!'
           updated: 'Your password was set successfully. You are now signed in.'
-
+      new:
+          email: 'Email'
+          invite_someone_to_join: 'Invite someone to join Diaspora!'
+          if_they_accept_info: 'if they accept, they will be added to the aspect you invited them'
+          to: 'To'
+          message: 'Message:'
+          send_an_invitation: 'Send an invitation'
+          send_invitation: 'Send invitation'
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
@@ -214,6 +231,7 @@ en:
           show_comments: "show comments"
           delete: "Delete"
           are_you_sure: "Are you sure?"
+          ago: "ago"
       show:
           status_message: "Status Message"
           comments: "comments"
@@ -246,8 +264,10 @@ en:
           remove_friend: "remove friend"
           no_posts: "no posts to display!"
           add_friend: "add friend"
+          edit_my_profile: "Edit my profile"
       edit:
           settings: "Settings"
+          info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"
           your_name: "Your name"
           first_name: "First name"

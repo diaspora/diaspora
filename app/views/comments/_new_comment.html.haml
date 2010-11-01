@@ -4,7 +4,7 @@
 
 = form_for Comment.new, :remote => true do |comment|
   %p
-    = label_tag "comment_text_on_#{post.id}", "Comment"
+    = label_tag "comment_text_on_#{post.id}", t('.comment')
     = comment.text_area :text, :rows => 1, :id => "comment_text_on_#{post.id}", :class => "comment_box"
 
   = comment.hidden_field :post_id, :value => post.id
