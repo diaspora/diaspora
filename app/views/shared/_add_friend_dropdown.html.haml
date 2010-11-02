@@ -1,5 +1,5 @@
 
-= form_tag '/aspects/add_to_aspect', :id => 'add_to_aspect' do
+= form_tag '/aspects/add_to_aspect', :id => "add_to_aspect_#{aspect.id}" do
   = select_tag :friend_id, options_from_collection_for_select(friends, "id", "real_name"), :include_blank => true
   = hidden_field_tag :aspect_id, aspect.id
   - if defined?(manage) && manage
