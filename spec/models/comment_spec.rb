@@ -6,10 +6,10 @@ require 'spec_helper'
 
 describe Comment do
   let(:user)    {make_user}
-  let(:aspect)  {user.aspect(:name => "Doofuses")}
+  let(:aspect)  {user.aspects.create(:name => "Doofuses")}
 
   let(:user2)   {make_user}
-  let(:aspect2) {user2.aspect(:name => "Lame-faces")}
+  let(:aspect2) {user2.aspects.create(:name => "Lame-faces")}
 
   it 'validates that the handle belongs to the person' do
     user_status = user.post(:status_message, :message => "hello", :to => aspect.id)
@@ -115,7 +115,7 @@ describe Comment do
   describe 'serialization' do
     it 'should serialize the handle and not the sender' do
       commenter = make_user
-      commenter_aspect = commenter.aspect :name => "bruisers"
+      commenter_aspect = commenter.aspects.create(:name => "bruisers")
       friend_users(user, aspect, commenter, commenter_aspect)
       post = user.post :status_message, :message => "hello", :to => aspect.id
       comment = commenter.comment "Fool!", :on => post

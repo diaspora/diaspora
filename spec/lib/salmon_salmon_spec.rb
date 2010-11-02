@@ -8,7 +8,7 @@ describe Salmon do
   let(:user){make_user}
   let(:user2) {make_user}
   let(:user3) {make_user}
-  let(:post){ user.post :status_message, :message => "hi", :to => user.aspect(:name => "sdg").id }
+  let(:post){ user.post :status_message, :message => "hi", :to => user.aspects.create(:name => "sdg").id }
 
   let!(:created_salmon) {Salmon::SalmonSlap.create(user, post.to_diaspora_xml)}
 

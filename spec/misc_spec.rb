@@ -37,15 +37,19 @@ describe 'making sure the spec runner works' do
       it 'does not save a built user' do
         Factory.build(:user).persisted?.should be_false
       end
+      
+      it 'does not save a built person' do
+        Factory.build(:person).persisted?.should be_false
+      end
     end
   end
 
    describe '#friend_users' do
     before do
       @user1 = make_user
-      @aspect1 = @user1.aspect(:name => "losers")
+      @aspect1 = @user1.aspects.create(:name => "losers")
       @user2 = make_user
-      @aspect2 = @user2.aspect(:name => "bruisers")
+      @aspect2 = @user2.aspects.create(:name => "bruisers")
       friend_users(@user1, @aspect1, @user2, @aspect2)
     end
 

@@ -39,8 +39,8 @@ describe User do
 
       context 'with two users' do
         let!(:user)          {make_user}
-        let!(:first_aspect)  {user.aspect(:name => 'bruisers')}
-        let!(:second_aspect) {user.aspect(:name => 'losers')}
+        let!(:first_aspect)  {user.aspects.create(:name => 'bruisers')}
+        let!(:second_aspect) {user.aspects.create(:name => 'losers')}
 
         it "queries by aspect" do
           friend_users(user, first_aspect, user2, user2.aspects.first)
@@ -59,8 +59,8 @@ describe User do
 
   context 'with two users' do
     let!(:user)          {make_user}
-    let!(:first_aspect)  {user.aspect(:name => 'bruisers')}
-    let!(:second_aspect) {user.aspect(:name => 'losers')}
+    let!(:first_aspect)  {user.aspects.create(:name => 'bruisers')}
+    let!(:second_aspect) {user.aspects.create(:name => 'losers')}
     let!(:user4) { Factory.create(:user_with_aspect)}
 
     before do
@@ -103,8 +103,8 @@ describe User do
 
 
   describe '#albums_by_aspect' do
-    let!(:first_aspect)  {user2.aspect(:name => 'bruisers')}
-    let!(:second_aspect) {user2.aspect(:name => 'losers')}
+    let!(:first_aspect)  {user2.aspects.create(:name => 'bruisers')}
+    let!(:second_aspect) {user2.aspects.create(:name => 'losers')}
     before do
       user2.post :album, :name => "Georges", :to => first_aspect.id
       user2.post :album, :name => "Borges", :to => first_aspect.id

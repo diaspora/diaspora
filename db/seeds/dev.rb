@@ -46,8 +46,8 @@ user2.save
 user2.person.save!
 user2.seed_aspects
 # friending users
-aspect = user.aspect(:name => "other dudes") 
-aspect2 = user2.aspect(:name => "presidents")
+aspect = user.aspects.create(:name => "other dudes") 
+aspect2 = user2.aspects.create(:name => "presidents")
 
 friend_users(user, aspect, user2, aspect2)
-user.aspect(:name => "Presidents")
+user.aspects.create(:name => "Presidents")

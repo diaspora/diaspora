@@ -20,6 +20,8 @@ $(document).keydown(function(e){
 });
 
 $(document).ready(function(){
+  var $edit_photo = $(".edit_photo");
+
   //add a clas to verify if a textarea has focus
   $("textarea").live('focus',function(){
     $(this).addClass("hasfocus");
@@ -34,13 +36,13 @@ $(document).ready(function(){
   });
 
   //Add a description with ajax request
-  $("#photo_submit").click(function(evenet){
+  $("#photo_submit").click(function(event){
     event.preventDefault();
-    var method = $(".edit_photo").attr("method");
-    var url = $(".edit_photo").attr("action");
-    var data = $(".edit_photo").serialize();
+    var method = $edit_photo.attr("method");
+    var url = $edit_photo.attr("action");
+    var data = $edit_photo.serialize();
     $(".description").text($("#photo_caption").val());
-    $(".edit_photo").toggle();
+    $edit_photo.toggle();
 
       $.ajax({  
         type: method,

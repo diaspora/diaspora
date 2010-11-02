@@ -1,48 +1,127 @@
 #!/bin/bash
+#
+#  Install diaspora, its dependencies and start.
+#
+#  Usage: pkg/bootstrap-fedora-diaspora.sh [external hostname]
+#
+#  Synopsis, install:
+#      $ git clone git@github.com:diaspora/diaspora.git
+#      $ cd diaspora
+#      $ sudo pkg/bootstrap-fedora-diaspora.sh
+#
+#  New start:
+#      $ sudo su - diaspora
+#      $ cd diaspora
+#      $ script/server
+#
+#  Unless already existing, the diaspora user is created.
+#  The directory the scripts is invoked from is copied to
+#  diasporas's home dir, populated and configured and finally
+#  acts as a base for running diaspora servers.
+#
+#  Script is designed not to make any changes in invoking
+#  caller's environment.
+#
+#  Must run as root
 
-export DIASPORADIR=`pwd`
+GIT_REPO='git@github.com:leamas/diaspora.git'
+DIASPORA_HOSTNAME=${1:-'mumin.dnsalias.net'}
 
-echo "####"
-echo "Installing build deps ..."
-echo "####"
-sleep 3
-su -c "yum install git bison svn autoconf sqlite-devel gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel ImageMagick git rubygems libxslt libxslt-devel libxml2 libxml2-devel openssl-devel"
+test $UID = "0" || {
+    echo "You need to be root to do this, giving up"
+    exit 2
+}
 
-echo "####"
-echo "Installing RVM ..."
-echo "####"
-sleep 3
+[[ -d config && -d script ]] || {
+    echo Error: "this is not a diaspora base directory"
+    exit 3
+}
+yum install  -y git bison sqlite-devel gcc-c++ patch          \
+            readline-devel  zlib-devel libyaml-devel libffi-devel \
+            ImageMagick libxslt-devel  libxml2-devel     \
+            openssl-devel mongodb-server wget  \
+            make autoconf automake
 
-mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone --depth 1 git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
+getent group diaspora  >/dev/null || groupadd diaspora
+getent passwd diaspora  >/dev/null || {
+    useradd -g diaspora -s /bin/bash -m diaspora
+    echo "Created user diaspora"
+}
 
-echo "####"
-echo "Installing RVM into bashrc and sourcing bash ..."
-echo "####"
-sleep 3
+home=$( getent passwd diaspora | cut -d: -f6)
+[ -e  $home/diaspora ] && {
+    echo "Moving existing  $home/diaspora out of the way"
+    mv  $home/diaspora  $home/diaspora.$$
+}
+mkdir $home/diaspora
+cp -ar * $home/diaspora
+chown -R diaspora  $home/diaspora
 
-if [[ `grep -l "rvm/scripts/rvm" $HOME/.bashrc | wc -l` -eq 0 ]]; then
-  echo 'if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi' >> $HOME/.bashrc
+service mongod start
+
+su - diaspora << EOF
+#set -x
+
+cd diaspora
+
+[ -e "\$HOME/.rvm/scripts/rvm" ] || {
+    echo '#### Installing rvm ####'
+    wget  http://rvm.beginrescueend.com/releases/rvm-install-head
+    bash < rvm-install-head && rm rvm-install-head
+    if [[ -s "\$HOME/.rvm/scripts/rvm" ]]; then
+        . "\$HOME/.rvm/scripts/rvm"
+    else
+        echo "Error: rvm installation failed";
+        exit 1;
+    fi
+    touch \$HOME/.bashrc
+    grep -q "rvm/scripts/rvm" \$HOME/.bashrc || {
+        echo '[[ -s "\$HOME/.rvm/scripts/rvm" ]] &&  \
+            source "\$HOME/.rvm/scripts/rvm"' \
+               >> \$HOME/.bashrc
+    }
+}
+
+source \$HOME/.bashrc
+
+ruby=\$(which ruby) || ruby=""
+
+if [[ -z "\$ruby" || ("\${ruby:0:4}" == "/usr") ]]; then
+    echo '#### Installing ruby (will take forever) ... ####'
+    rvm install ruby-1.8.7-p302
+    rvm --default ruby-1.8.7
+
+    echo "#### Installing bundler ... ####"
+    gem install bundler
 fi
-source $HOME/.bashrc
 
-echo "####"
-echo "Installing ruby (will take forever) ..."
-echo "####"
-sleep 3
+bundle install
 
-rvm install ruby-1.8.7-p302
-rvm --default ruby-1.8.7
+#Configure diaspora
+cp config/app_config.yml.example config/app_config.yml
+source pkg/source/funcs.sh
+init_appconfig config/app_config.yml "$DIASPORA_HOSTNAME"
 
-echo "####"
-echo "Installing bundler ..."
-echo "####"
-sleep 3
 
-gem install bundler
+echo "Setting up DB..."
+if  bundle exec rake db:seed:dev ; then
+    cat <<- EOM
+	DB ready. Login -> tom and password -> evankorth.
+	More details ./diaspora/db/seeds/tom.rb. and ./diaspora/db/seeds/dev.rb.
+	EOM
+else
+    cat <<- EOM
+	Database config failed. You might want to remove all db files with
+	'rm -rf /var/lib/mongodb/*' and/or reset the config file by
+	'cp config/app_config.yml.example config/app_config.yml' before
+	making a new try. Also, make sure the mongodb server is running
+	e. g., by running 'service mongodb status'.
+	EOM
+fi
 
-echo "####"
-echo "Installing deps with bundle ..."
-echo "####"
-sleep 3
+echo "Starting server"
+script/server
 
-pushd $DIASPORADIR && bundle install && popd
+EOF
+
+

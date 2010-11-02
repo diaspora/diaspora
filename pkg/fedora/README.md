@@ -1,13 +1,12 @@
 ## Diaspora RPM tools
 
-Creates diaspora source tarballs and RPM packages
+Create RPM packages
 
 An alternative to the capistrano system, providing classic, binary RPM
-packages for deployment on Fedora 13 and OS-independent source tarballs
-aimed for packaging purposes.
+packages for deployment on Fedora.
 
 
-#### Fedora RPM synopsis
+#### Synopsis
 
 Prerequisites:
 
@@ -18,16 +17,20 @@ Prerequisites:
 - A personal environment to build RPM:s, also described in
   [RPM installation Fedora](http://github.com/diaspora/diaspora/wiki/Rpm-installation-on-fedora)
 
-Install g++ (unnecessary?):
+Install g++ and gcc:
     % yum install gcc-c++
 
-Create source tarballs like  dist/diaspora-0.0-1010041233_fade4231.tar.gz
-and dist/diaspora-bundle-0.0-1010041233_fade4231.tar.gz:
-    % ./make-dist.sh source
-    % ./make-dist.sh bundle
+Bootstrap the distribution from git:
+    % sudo apt-get install git-core
+    % git clone git://github.com/diaspora/diaspora.git
+    % cd diaspora/pkg/ubuntu
 
-Setup links to tarballs from RPM source directory and create spec files:
-    % ./make-dist.sh prepare
+Create and install the diaspora bundle and application in
+diaspora/pkg/source according to
+[source README](http://github.com/diaspora/diaspora/tree/master/pkg/source/)
+
+Setup links from  tarballs to RPM source directory and create spec files:
+    % ./prepare-rpm.sh
 
 Build rpms:
     rpmbuild -ba dist/diaspora.spec
@@ -51,75 +54,21 @@ apache/passenger setup. After configuration, start with:
     /sbin/service diaspora-wsd start
     /sbin/service httpd restart
 
-#### Generic source synopsis
-
-Generate source tarball:
-    % ./make-dist.sh source
-    Using repo:          http://github.com/diaspora/diaspora.git
-    Commit id:           1010092232_b313272
-    Source:              dist/diaspora-0.0-1010092232_b313272.tar.gz
-    Required bundle:     1010081636_d1a4ee0
-    %
-
-The source tarball could be used as-is, by unpacking add making a
-*bundle install*. An alternative is to generate a canned bundle like:
-    % ./make-dist.sh bundle
-          [ lot's of output...]
-    Bundle: dist/diaspora-bundle-0.0-1010081636_d1a4ee0.tar.gz
-    %
-
-This file can be installed anywhere. To use it, add a symlink from vendor/bundle
-to the bundle's bundle directory.  Reasonable defaults are to install
-diaspora in /usr/share/diaspora and bundle in /usr/lib/diaspora-bundle. With these,
-the link is
-    % rm -rf /usr/share/diaspora/master/vendor/bundle
-    % ln -sf /usr/lib/diaspora-bundle/vendor/bundle  \
-    >          /usr/share/diaspora/master/vendor
-    %
-
-The directories tmp, log, and public/uploads needs to be writable. If using
-apache passenger, read the docs on uid used and file ownership.
-
-Note that the bundle version required is printed each time a new source
-is generated.
+prepare-rpm.sh prepare creates links  also for all files listed in SOURCES.
+Typically, this is  secondary sources. *make-dist.sh source*
 
 #### Notes
 
-The source tarball is as retrieved from diaspora with following differences:
+prepare-rpm.sh prepare creates links  also for all files listed in SOURCES.
+Typically, this is  secondary sources.
 
-   - The .git directories are removed (freeing more than 50% of the size).
-   - A new file /master/config/gitversion is created.
-   - The file public/source.tar.gz is generated.
-   - The file .bundle/config  is patched. Remove before doing
-     *bundle install*
-
-The bundle is basically the output from 'bundle package'. The git-based
-gems are also added into vendor/git.
-
-./make-dist.sh bundle|source occasionally fails on bad Gemfile.lock. The
-root cause is a bad Gemfile in the git repo. Possible fixes includes
-using a older version known to work:
-     % ./make-dist.sh -c c818885b6 bundle
-     % ./make-dist.sh -c c818885b6 source
-
-or forcing a complete update of Gemfile.lock using 'bundle update' (a
-potentially problematic operation):
-     % ./make-dist.sh -f bundle
-
-*make-dist prepare* creates links  also for all files listed in SOURCES.
-Typically, this is  secondary sources. *make-dist.sh sources*
-applies all patches named *.patch in this directory after checking out
-source from git.
-
-The spec-files in dist/ are patched by *./make-dist.sh prepare* to reference
-correct versions of diaspora and diaspora-bundle. The diaspora-bundle
-is only updated if Gemfile is updated, upgrading diaspora doesn't
-always require a new diaspora-bundle. Editing spec files should be done
-in this directory, changes in dist/ are lost when doing *./make-dist prepare*.
+The spec-files in dist/ are patched by *./prepare-rpm.sh to reference
+correct versions of diaspora and diaspora-bundle.  Editing spec files should be
+done in this directory, changes in dist/ are lost when doing *./prepare-rpm.sh *.
 
 The topmost comment's version is patched to reflect the complete version
-of current specfile by *make-dist source*. Write the comment in this
-directory, copy-paste previous version nr. It will be updated.
+of current specfile .  Write the comment in this directory, copy-paste
+previous version nr. It will be updated.
 
 This has been confirmed to start up and provide basic functionality both using
 the thin webserver and apache passenger, on 32/64 bit systems and in the
@@ -127,17 +76,6 @@ mock build environment. Irregular nightly builds are available form time to time
 at [ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds](ftp://mumin.dnsalias.net/pub/leamas/diaspora/builds)
 
 #### Implementation
-
-'make-dist.sh source'  script checks out latest version of diaspora into the
- dist/diaspora directory. This content is, after some patches, the diaspora package.
-
-'make-dir.sh bundle' makes a *bundle package* in the diaspora dir.
-The resulting bundle is stored in vendor/bundle. This is, after some more
-patches, the content of diaspora-bundle tarball. Target systems makes a
-*bundle install --local* to use it.
-
-Here is also support for running the diaspora websocket service as a system
-service through /sbin/service and some install scripts.
 
 Diaspora files are stored in /usr/share/diaspora, and owned by root. The
 bundle, containing some C extensions, is architecture-dependent and lives
@@ -153,6 +91,9 @@ diaspora app.  This is more or less as mandated by LSB and Fedora packaging rule
 
 
 #### Discussion
+
+The 1.8.7 rebuild is a pain. However, in Fedora 14 1.8.7 is the default
+ruby version.
 
 For better or worse, this installation differs from the procedure outlined
 in the original README.md:

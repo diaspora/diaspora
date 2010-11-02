@@ -8,7 +8,7 @@ describe StatusMessagesController do
   render_views
 
   let!(:user) { make_user }
-  let!(:aspect) { user.aspect(:name => "lame-os") }
+  let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   before do
     sign_in :user, user
@@ -16,7 +16,12 @@ describe StatusMessagesController do
   end
 
   describe '#create' do
-    let(:status_message_hash) {{"status_message"=>{"public"=>"true", "message"=>"facebook, is that you?", "to" =>"#{aspect.id}"}}}
+    let(:status_message_hash) {
+      {:status_message =>{
+        :public  =>"true", 
+        :message =>"facebook, is that you?", 
+        :to      =>"#{aspect.id}"}}
+    }
 
     context "posting out to facebook" do
       let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
@@ -27,9 +32,21 @@ describe StatusMessagesController do
       end
 
       it 'should not post to facebook when public is not set' do
-        status_message_hash['status_message']['public'] = 'false'
+        status_message_hash[:status_message][:public] = 'false'
         user.should_not_receive(:post_to_facebook)
         post :create, status_message_hash
+      end
+      it "doesn't overwrite person_id" do
+        new_user = make_user
+        status_message_hash[:status_message][:person_id] = new_user.person.id
+        post :create, status_message_hash
+        StatusMessage.find_by_message(status_message_hash[:status_message][:message]).person_id.should == user.person.id
+      end
+      it "doesn't overwrite id" do
+        old_status_message = user.post(:status_message, :message => "hello", :to => aspect.id)
+        status_message_hash[:status_message][:id] = old_status_message.id
+        lambda {post :create, status_message_hash}.should raise_error /failed save/
+        old_status_message.reload.message.should == 'hello'
       end
     end
 
@@ -42,7 +59,7 @@ describe StatusMessagesController do
       end
 
       it 'should not post to twitter when public in not set' do
-        status_message_hash['status_message']['public'] = 'false'
+        status_message_hash[:status_message][:public] = 'false'
         user.should_not_receive(:post_to_twitter)
         post :create, status_message_hash
       end

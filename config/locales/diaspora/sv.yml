@@ -27,6 +27,8 @@ sv:
           models:
               user:
                   attributes:
+                      person:
+                          invalid: "är ogiltigt"
                       username:
                           taken: "är redan taget"
                       email:
@@ -35,7 +37,6 @@ sv:
                   attributes:
                       diaspora_handle:
                           taken: "är redan taget"
-
   hello: "Hej världen!"
   application:
       helper:
@@ -54,7 +55,10 @@ sv:
            people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
   layouts:
       application:
+          view_profile: "visa profil"
           edit_profile: "ändra profil"
+          account_settings: "kontoinstallningar"
+          search: "Sök ..."
           logout: "logga ut"
   shared:
       aspect_nav:
@@ -81,8 +85,10 @@ sv:
           updated: "uppdaterad"
           by: "av"
       edit:
+          album_name: "Namn på fotoalbum"
           editing: "Ändrar"
           updated: "uppdaterad"
+          update_album: "Uppdatera fotoalbum"
           are_you_sure: "Är du säker?"
           delete_album: "Ta bort fotoalbum"
           cancel: "Avbryt"
@@ -117,6 +123,7 @@ sv:
           ignore_remove: "Ignorera/Ta bort"
       new_aspect:
           add_a_new_aspect: "Lägg till ny sida"
+          name: "Namn"
           create: "Skapa"
       create:
           success: "Klicka på plustecknet till höger för att välja vilka som kan se din nya sida."
@@ -137,19 +144,26 @@ sv:
   users:
       edit:
           editing_profile: "Ändrar profil"
-      profile:
+          invite_friends: "Bjud in en vän"
+          are_you_sure: "Är du säker?"
+          export_data: "Exportera data"
+          close_account: "Stäng kontot"
+          change_language: "Ändra språk"
+          change_password: "Ändra lösenord"
+          new_password: "Nytt lösenord"
+          password_confirmation: "Bekräfta lösenord"
+          settings: "Inställningar"
+          profile: "Profil"
+          account: "Konto"
+          services: "Tjänster"
           cancel: "Avbryt"
-          update_profile: "Uppdatera Profil"
-          home: "Hem"
-          diaspora_username: "Diaspora-användarnamn:"
-          info: "Info"
-          picture: "Profilbild"
-          editing_profile: "Ändrar profil"
-          albums: "Album"
-          you_dont_have_any_photos: "Du har inga foton! Gå till"
-          page_to_upload_some:  "sidan för att ladda upp några."
-          or: "eller"
       destroy: "Ditt konto är nu stängt."
+      getting_started:
+          'step_1':
+              albums: "Fotoalbum"
+              you_dont_have_any_photos: "Du har inga foton!  Gå till"
+              page_to_upload_some:  "sidan för att ladda upp några."
+              or: "eller"
   comments:
       comment:
           ago: "sedan"
@@ -189,6 +203,13 @@ sv:
   registrations:
       new:
           sign_up: "Registrera dig"
+          sign_up_for_diaspora: "Gå med i Diaspora"
+          upload_existing_account: "Ladda upp ett befintligt Diaspora-konto"
+          upload: "Ladda upp"
+          username: "Användarnamn"
+          email: "E-post address"
+          password: "Lösenord"
+          password_confirmation: "Bekräfta lösenord"
       create:
           success: "Du har nu gått med i Diaspora!"
   invitations:
@@ -232,10 +253,6 @@ sv:
       new:
           new_person: "Ny person"
           back_to_list: "Tillbaka till listan"
-      edit:
-          cancel: "Avbryt"
-          or: "eller"
-          update_profile: "Uppdatera profil"
       show:
           last_seen: "senast sedd: %{how_long_ago}"
           friends_since: "vänner sedan: %{how_long_ago}"
@@ -243,12 +260,39 @@ sv:
           are_you_sure: "Är du säker?"
           remove_friend: "ta bort vän"
           no_posts: "ingenting att visa!"
+          add_friend: "lägg till en vän"
+      edit:
+          settings: "Inställningar"
+          your_profile: "Din profil"
+          your_name: "Ditt namn"
+          first_name: "Förnamn"
+          last_name: "Efternamn"
+          your_gender: "Ditt kön"
+          your_birthday: "Din födelsedag"
+          your_bio: "Din biografi"
+          fill_me_out: "Fyll i mig"
+          your_photo: "Ditt foto"
+          profile: "Profil"
+          account: "Konto"
+          services: "Tjänster"
+          cancel: "Avbryt"
+          update_profile: "Uppdatera profil"
+          home: "Hem"
+          diaspora_username: "Användarnamn:"
+          info: "Info"
+          picture: "Foto"
+          editing_profile: "Ändrar profil"
+          albums: "Fotoalbum"
+          you_dont_have_any_photos: "Du har inga foton!  Gå till"
+          page_to_upload_some:  "sidan för att ladda upp några."
+          or: "eller"
   requests:
       new_request:
           add_a_new_friend_to: "Lägg till en vän till"
           enter_a_diaspora_username: "Ange ett användarnamn:"
           your_diaspora_username_is: "Din Diaspora-adress är: %{diaspora_handle}"
           friends_username: "Vännens Diaspora-adress"
+          create_request: "Skapa förfrågan"
       destroy:
           success: "Ni är nu vänner."
           error: "Var god välj en aspekt!"
@@ -261,6 +305,12 @@ sv:
           already_friends: "Du är redan vän med %{destination_url}!"
           success: "En vänförfrågan har skickats till %{destination_url}."
           horribly_wrong: "Nu gick något rejält fel här."
+  services:
+      index:
+          settings: "Inställningar"
+          profile: "Profil"
+          account: "Konto"
+          services: "Tjänster"
 
 # The following is from the rails-i18n project at http://github.com/svenfuchs/rails-i18n
 

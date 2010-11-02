@@ -21,3 +21,7 @@ Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
     Then "I should see #{stuff}"
   end
 end
+
+When /^I wait for the home page to load$/ do
+  wait_until { current_path == root_path }
+end

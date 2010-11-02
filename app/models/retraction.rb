@@ -7,12 +7,13 @@ class Retraction
   include Diaspora::Webhooks
 
   xml_accessor :post_id
-  xml_accessor :person_id
+  xml_accessor :diaspora_handle
   xml_accessor :type
 
   attr_accessor :post_id
-  attr_accessor :person_id
+  attr_accessor :diaspora_handle
   attr_accessor :type
+  attr_accessor :person
 
   def self.for(object)
     retraction = self.new
@@ -23,12 +24,16 @@ class Retraction
       retraction.post_id = object.id
       retraction.type = object.class.to_s
     end
-    retraction.person_id = person_id_from(object)
+    retraction.diaspora_handle = object.diaspora_handle 
     retraction
   end
 
   def perform receiving_user_id
     Rails.logger.debug "Performing retraction for #{post_id}"
+    unless Post.first(:diaspora_handle => person.diaspora_handle, :id => post_id) 
+      raise "#{person.inspect} is trying to retract a post they do not own"
+    end
+
     begin
       Rails.logger.debug("Retracting #{self.type} id: #{self.post_id}")
       target = self.type.constantize.first(:id => self.post_id)
@@ -38,13 +43,4 @@ class Retraction
       Rails.logger.info("Retraction for unknown type recieved.")
     end
   end
-
-  def self.person_id_from(object)
-    object.is_a?(Person) ? object.id : object.person.id
-  end
-
-  def person
-    Person.find_by_id(self.person_id)
-  end
-
 end

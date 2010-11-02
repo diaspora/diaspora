@@ -8,7 +8,7 @@ describe PhotosController do
   render_views
   before do
     @user = make_user
-    @aspect = @user.aspect(:name => "lame-os")
+    @aspect = @user.aspects.create(:name => "lame-os")
     @album = @user.post :album, :to => @aspect.id, :name => 'things on fire'
     @fixture_filename = 'button.png'
     @fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)

@@ -11,6 +11,8 @@ fr:
           models:
               user:
                   attributes:
+                      person:
+                          invalid: "est invalide"
                       username:
                           taken: "est déjà pris"
                       email:
@@ -37,7 +39,10 @@ fr:
            people_on_pod_are_aware_of: " personnes agissant comme des automates sont au courant"
   layouts:
       application:
+          view_profile: "voir le profil"
           edit_profile: "éditer le profil"
+          account_settings: "options du compte"
+          search: "Rechercher"
           logout: "déconnexion"
   shared:
       aspect_nav:
@@ -64,8 +69,10 @@ fr:
           updated: "mis à jour"
           by: "par"
       edit:
+          album_name: "Nom de l'album"
           editing: "Édition"
           updated: "mis à jour"
+          update_album: "Mettre à jour l'album"
           are_you_sure: "Êtes-vous sûr(e) ?"
           delete_album: "Supprimer l’album"
           cancel: "Annuler"
@@ -100,6 +107,7 @@ fr:
           ignore_remove: "Ignorer/Supprimer"
       new_aspect:
           add_a_new_aspect: "Ajouter un nouvel aspect"
+          name: "Nom"
           create: "Créer"
       create:
           success: "Cliquez sur le symbole plus situé sur le côté gauche afin que Diaspora détermine qui peut voir votre nouvel aspect."
@@ -120,19 +128,26 @@ fr:
   users:
       edit:
           editing_profile: "Édition du profil"
-      profile:
+          invite_friends: "Inviter des amis"
+          are_you_sure: "Êtes-vous sûr(e) ?"
+          export_data: "Exporter des données"
+          close_account: "Clôre le compte"
+          change_language: "Changer la langue"
+          change_password: "Changer le mot de passe"
+          new_password: "Noveau mot de passe"
+          password_confirmation: "Confirmation du mot de passe"
+          settings: "Options"
+          profile: "Profil"
+          account: "Compte"
+          services: "Services"
           cancel: "Annuler"
-          update_profile: "Mettre à jour le profil"
-          home: "Accueil"
-          diaspora_username: "NOM D’UTILISATEUR DIASPORA"
-          info: "Informations"
-          picture: "Image"
-          editing_profile: "Édition du profil"
-          albums: "Albums"
-          you_dont_have_any_photos: "Vous n’avez aucune photo !  Rendez-vous sur la page"
-          page_to_upload_some:  "afin d’en transférer quelques-unes."
-          or: "ou"
       destroy: "Compte clôturé avec succès."
+      getting_started:
+          'step_1':
+              albums: "Albums"
+              you_dont_have_any_photos: "Vous n'avez aucune photos !  Rendez-vous sur la page"
+              page_to_upload_some:  "afin d'en transférer quelques une."
+              or: "ou"
   comments:
       comment:
           ago: "il y a"
@@ -172,6 +187,13 @@ fr:
   registrations:
       new:
           sign_up: "Inscription"
+          sign_up_for_diaspora: "Inscription à Diaspora"
+          upload_existing_account: "Télécharger un compte Diaspora existant"
+          upload: "Télécharger"
+          username: "Nom d'utilisateur"
+          email: "Courriel"
+          password: "Mot de passe"
+          password_confirmation: "Confirmation du mot de passe"
       create:
           success: "Vous avez rejoint Diaspora !"
   invitations:
@@ -222,12 +244,39 @@ fr:
           are_you_sure: "Êtes-vous sûr(e) ?"
           remove_friend: "supprimer de mes amis"
           no_posts: "aucun message à afficher !"
+          add_friend: "ajouter un ami"
+      edit:
+          settings: "Options"
+          your_profile: "Votre profil"
+          your_name: "Votre nom"
+          first_name: "Votre prénom"
+          last_name: "Votre nom de famille"
+          your_gender: "Votre sexe"
+          your_birthday: "Votre anniversaire"
+          your_bio: "Votre bio"
+          fill_me_out: "Remplissez-moi"
+          your_photo: "Votre photo"
+          profile: "Profil"
+          account: "Compte"
+          services: "Services"
+          cancel: "Annuler"
+          update_profile: "Mettre à jour le profil"
+          home: "Accueil"
+          diaspora_username: "NOM D'UTILISATEUR DIASPORA"
+          info: "Info"
+          picture: "Image"
+          editing_profile: "Edition du profil"
+          albums: "Albums"
+          you_dont_have_any_photos: "Vous n'aver aucune photo ! Rendez-vous sur la page"
+          page_to_upload_some:  "afin d'en transférer quelques une."
+          or: "ou"
   requests:
       new_request:
           add_a_new_friend_to: "Ajouter un nouvel ami à"
           enter_a_diaspora_username: "Saisissez un nom d’utilisateur Diaspora :"
           your_diaspora_username_is: "Votre nom d’utilisateur Diaspora est : %{diaspora_handle}"
           friends_username: "Nom d’utilisateur de l’ami"
+          create_request: "Créer une requête"
       destroy:
           success: "Vous êtes à présent amis."
           error: "Veuillez sélectionner un aspect !"
@@ -240,3 +289,184 @@ fr:
           already_friends: "Vous êtes déjà ami avec %{destination_url}!"
           success: "Une requête d’ami a été envoyée à %{destination_url}."
           horribly_wrong: "Quelque chose d’horrible s’est produit."
+  services:
+      index:
+          settings: "Options"
+          profile: "Profil"
+          account: "Compte"
+          services: "Services"
+
+# From http://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/fr.yml
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+    day_names: [lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche]
+    abbr_day_names: [lun, mar, mer, jeu, ven, sam, dim]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, jan., fév., mar., avr., mai, juin, juil., août, sept., oct., nov., déc.]
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%d %B %Y %H:%M:%S"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "une demi-minute"
+      less_than_x_seconds:
+        zero:  "moins d'une seconde"
+        one:   "moins d'une seconde"
+        other: "moins de %{count} secondes"
+      x_seconds:
+        one:   "1 seconde"
+        other: "%{count} secondes"
+      less_than_x_minutes:
+        zero:  "moins d'une minute"
+        one:   "moins d'une minute"
+        other: "moins de %{count} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one:   "environ une heure"
+        other: "environ %{count} heures"
+      x_days:
+        one:   "1 jour"
+        other: "%{count} jours"
+      about_x_months:
+        one:   "environ un mois"
+        other: "environ %{count} mois"
+      x_months:
+        one:   "1 mois"
+        other: "%{count} mois"
+      about_x_years:
+        one:   "environ un an"
+        other: "environ %{count} ans"
+      over_x_years:
+        one:   "plus d'un an"
+        other: "plus de %{count} ans"
+      almost_x_years:
+        one:   "presqu'un an"
+        other: "presque %{count} ans"
+    prompts:
+      year:   "Année"
+      month:  "Mois"
+      day:    "Jour"
+      hour:   "Heure"
+      minute: "Minute"
+      second: "Seconde"
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: ","
+        delimiter: " "
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Octet"
+            other: "Octets"
+          kb: "ko"
+          mb: "Mo"
+          gb: "Go"
+          tb: "To"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Millier"
+          million: "Million"
+          billion: "Milliard"
+          trillion: "Mille milliard"
+          quadrillion: "Million de milliard"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " et "
+      last_word_connector: " et "
+    select:
+      prompt: "Veuillez sélectionner"
+
+  helpers:
+    select:
+      prompt: "Veuillez sélectionner"
+    submit:
+      create: "Créer un %{model}"
+      update: "Modifier ce %{model}"
+      submit: "Enregistrer ce %{model}"
+
+  errors:
+    template: &errors_template
+      header:
+        one:   "Impossible d'enregistrer ce %{model} : 1 erreur"
+        other: "Impossible d'enregistrer ce %{model} : %{count} erreurs"
+      body: "Veuillez vérifier les champs suivants : "
+
+  attributes:
+    created_at: "Créé le"
+    updated_at: "Modifié le"
+
+  errors:
+    format: "Le %{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "n'est pas inclus(e) dans la liste"
+      exclusion: "n'est pas disponible"
+      invalid: "n'est pas valide"
+      confirmation: "ne concorde pas avec la confirmation"
+      accepted: "doit être accepté(e)"
+      empty: "doit être rempli(e)"
+      blank: "doit être rempli(e)"
+      too_long: "est trop long (pas plus de %{count} caractères)"
+      too_short: "est trop court (au moins %{count} caractères)"
+      wrong_length: "ne fait pas la bonne longueur (doit comporter %{count} caractères)"
+      not_a_number: "n'est pas un nombre"
+      not_an_integer: "doit être un nombre entier"
+      greater_than: "doit être supérieur à %{count}"
+      greater_than_or_equal_to: "doit être supérieur ou égal à %{count}"
+      equal_to: "doit être égal à %{count}"
+      less_than: "doit être inférieur à %{count}"
+      less_than_or_equal_to: "doit être inférieur ou égal à %{count}"
+      odd: "doit être impair"
+      even: "doit être pair"
+
+  activerecord:
+    errors:
+      messages:
+        taken: "n'est pas disponible"
+        record_invalid: "La validation a échoué : %{errors}"
+        <<: *errors_messages
+      template:
+        <<: *errors_template
+      full_messages:
+        format: "%{attribute} %{message}"

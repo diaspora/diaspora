@@ -2,16 +2,15 @@
 *   licensed under the Affero General Public License version 3 or later.  See
 *   the COPYRIGHT file.
 */
-
-
-$(document).ready( function() {
+$(document).ready(function() {
     $('div#image_picker div.small_photo').click( function() {
-      $('#image_url_field').val($(this).attr('id'));
+      var $this = $(this);
+      document.getElementById("image_url_field").value = this.id;
 
-      $('div#image_picker div.small_photo').removeClass('selected');
-      $("div#image_picker div.small_photo input[type='checkbox']").attr("checked", false);
+      $('div#image_picker div.small_photo.selected').removeClass('selected')
+        .children("input[type='checkbox']").attr("checked", false);
 
-      $(this).addClass('selected');
-      $(this).children("input[type='checkbox']").attr("checked", true);
+      $this.addClass('selected')
+        .children("input[type='checkbox']").attr("checked", true);
     });
 });

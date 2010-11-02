@@ -5,7 +5,7 @@
 
 
 $(document).ready(function(){
-
+  var $stream = $("#stream");
   // expand all comments on page load
 	$("#stream:not('.show')").find('.comments').each(function(index) {
       var comments = $(this);
@@ -16,17 +16,17 @@ $(document).ready(function(){
   });
 
   // comment toggle action
-  $("#stream:not('.show')").delegate("a.show_post_comments", "click", function(evt) {
+  $stream.not(".show").delegate("a.show_post_comments", "click", function(evt) {
     evt.preventDefault();
     expandComments($(this));
   });
 
   // comment submit action
-  $("#stream").delegate("a.comment_submit", "click", function(evt){
+  $stream.delegate("a.comment_submit", "click", function(evt){
     $(this).closest("form").children(".comment_box").attr("rows", 1);
   });
 
-  $("#stream").delegate("textarea.comment_box", "focus", function(evt){
+  $stream.delegate("textarea.comment_box", "focus", function(evt){
     var commentBox = $(this);
     commentBox.attr("rows", 2)
               .closest("form").find(".comment_submit").fadeIn(200);
@@ -41,11 +41,14 @@ $(document).ready(function(){
   });
 
   // reshare button action
-  $("#stream").delegate(".reshare_button", "click", function(evt){
+  $stream.delegate(".reshare_button", "click", function(evt){
     evt.preventDefault();
-    var button = $(this);
-    button.closest(".reshare_pane").children(".reshare_box").show();
-    button.addClass("active");
+    button = $(this)
+    box = button.siblings(".reshare_box");
+    if(box.length > 0){
+      button.toggleClass("active");
+      box.toggle();
+    }
   });
 
 });//end document ready

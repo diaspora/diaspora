@@ -40,8 +40,11 @@ class User
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
   validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
-  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validates_length_of :username, :maximum => 32
+  
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+
+  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_associated :person
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
@@ -85,13 +88,6 @@ class User
   end
 
   ######### Aspects ######################
-  def aspect(opts = {})
-    aspect = Aspect.new(opts)
-    aspect.user = self
-    aspect.save
-    aspect
-  end
-
   def drop_aspect(aspect)
     if aspect.people.size == 0
       aspect.destroy
@@ -149,6 +145,7 @@ class User
     aspect_ids = validate_aspect_permissions(aspect_ids)
 
     post = build_post(class_name, options)
+
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     push_to_aspects(post, aspect_ids)
     
@@ -205,9 +202,11 @@ class User
 
     model_class = class_name.to_s.camelize.constantize
     post = model_class.instantiate(options)
-    post.save
-    self.raw_visible_posts << post
-    self.save
+    if post.save
+      raise 'MongoMapper failed to catch a failed save' unless post.id
+      self.raw_visible_posts << post
+      self.save
+    end
     post
   end
 
@@ -417,8 +416,8 @@ class User
   end
 
   def seed_aspects
-    aspect(:name => "Family")
-    aspect(:name => "Work")
+    self.aspects.create(:name => "Family")
+    self.aspects.create(:name => "Work")
   end
 
   def diaspora_handle

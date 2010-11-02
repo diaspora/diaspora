@@ -6,9 +6,9 @@ require 'spec_helper'
 
 describe User do
   let(:user) { make_user }
-  let(:aspect) { user.aspect(:name => 'heroes') }
+  let(:aspect) { user.aspects.create(:name => 'heroes') }
   let(:user2) { make_user }
-  let(:aspect2) { user2.aspect(:name => 'stuff') }
+  let(:aspect2) { user2.aspects.create(:name => 'stuff') }
 
   it 'should have a key' do
     user.encryption_key.should_not be nil
@@ -104,6 +104,16 @@ describe User do
 
       it 'can not contain non url safe characters' do
         user = Factory.build(:user, :username => "kittens;")
+        user.should_not be_valid
+      end
+      
+      it "can be 32 characters long" do
+        user = Factory.build(:user, :username => "hexagoooooooooooooooooooooooooon")
+        user.should be_valid
+      end
+      
+      it "cannot be 33 characters" do
+        user = Factory.build(:user, :username => "hexagooooooooooooooooooooooooooon")
         user.should_not be_valid
       end
     end

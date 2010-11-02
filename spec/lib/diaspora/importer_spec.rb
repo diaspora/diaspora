@@ -20,18 +20,18 @@ describe Diaspora::Importer do
     @person2 = Factory(:person)
 
     # User1 has four aspects(1-4), each following user has one aspect
-    @aspect1 = @user1.aspect(:name => "Dudes") 
-    @aspect2 = @user1.aspect(:name => "Girls")
-    @aspect3 = @user1.aspect(:name => "Bros")
-    @aspect4 = @user1.aspect(:name => "People")
-    @aspect5 = @user2.aspect(:name => "Abe Lincolns")
-    @aspect6 = @user3.aspect(:name => "Cats")
-    @aspect7 = @user4.aspect(:name => "Dogs")
-    @aspect8 = @user5.aspect(:name => "Hamsters")
-    @aspect9 = @user5.aspect(:name => "Gophers")
+    @aspect1 = @user1.aspects.create(:name => "Dudes") 
+    @aspect2 = @user1.aspects.create(:name => "Girls")
+    @aspect3 = @user1.aspects.create(:name => "Bros")
+    @aspect4 = @user1.aspects.create(:name => "People")
+    @aspect5 = @user2.aspects.create(:name => "Abe Lincolns")
+    @aspect6 = @user3.aspects.create(:name => "Cats")
+    @aspect7 = @user4.aspects.create(:name => "Dogs")
+    @aspect8 = @user5.aspects.create(:name => "Hamsters")
+    @aspect9 = @user5.aspects.create(:name => "Gophers")
 
-    @aspect10 = @user1.aspect(:name => "Work") 
-    @aspect11 = @user1.aspect(:name => "Family")
+    @aspect10 = @user1.aspects.create(:name => "Work") 
+    @aspect11 = @user1.aspects.create(:name => "Family")
 
     # User1 posts one status messages to aspects (1-4), two other users post message to one aspect
     @status_message1 = @user1.post(:status_message, :message => "One", :public => false, :to => @aspect1.id)

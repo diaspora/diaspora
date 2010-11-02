@@ -7,15 +7,15 @@ require 'spec_helper'
 describe "attack vectors" do
 
   let(:user) { make_user }
-  let(:aspect) { user.aspect(:name => 'heroes') }
+  let(:aspect) { user.aspects.create(:name => 'heroes') }
   
   let(:bad_user) { make_user}
 
   let(:user2) { make_user }
-  let(:aspect2) { user2.aspect(:name => 'losers') }
+  let(:aspect2) { user2.aspects.create(:name => 'losers') }
 
   let(:user3) { make_user }
-  let(:aspect3) { user3.aspect(:name => 'heroes') }
+  let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
   before do
     friend_users(user, aspect, user2, aspect2)
@@ -80,20 +80,60 @@ describe "attack vectors" do
       user2.profile.first_name.should == first_name
     end
 
-    it 'can send retractions on post you do not own' do
-      pending
+    it 'should not receive retractions on post you do not own' do
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
       user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
       user.raw_visible_posts.count.should be 1
 
       ret = Retraction.new
       ret.post_id = original_message.id
-      ret.person_id = user3.person.id
+      ret.diaspora_handle = user3.person.diaspora_handle
       ret.type = original_message.class.to_s
 
-      user.receive_salmon(user3.salmon(ret).xml_for(user.person))
+      proc{ user.receive_salmon(user3.salmon(ret).xml_for(user.person)) }.should raise_error /is trying to retract a post they do not own/
       StatusMessage.count.should be 1
       user.reload.raw_visible_posts.count.should be 1
+    end
+
+    it 'should not receive retractions where the retractor and the salmon author do not match' do
+      original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+      user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
+      user.raw_visible_posts.count.should be 1
+
+      ret = Retraction.new
+      ret.post_id = original_message.id
+      ret.diaspora_handle = user2.person.diaspora_handle
+      ret.type = original_message.class.to_s
+
+      proc{ user.receive_salmon(user3.salmon(ret).xml_for(user.person)) }.should raise_error /Malicious Post/
+      StatusMessage.count.should be 1
+      user.reload.raw_visible_posts.count.should be 1
+    end
+
+    it 'it should not allow you to send retractions for other people' do
+      ret = Retraction.new
+      ret.post_id = user2.person.id
+      ret.diaspora_handle = user3.person.diaspora_handle
+      ret.type = user2.person.class.to_s
+
+      proc{ 
+        user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
+      }.should raise_error /#{user3.diaspora_handle} trying to unfriend #{user2.person.id} from #{user.id}/
+    
+      user.reload.friends.count.should == 2
+    end
+
+    it 'it should not allow you to send retractions with xml and salmon handle mismatch' do
+      ret = Retraction.new
+      ret.post_id = user2.person.id
+      ret.diaspora_handle = user2.person.diaspora_handle
+      ret.type = user2.person.class.to_s
+
+      proc{ 
+        user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
+      }.should raise_error /Malicious Post/
+    
+      user.reload.friends.count.should == 2
     end
   end
 end

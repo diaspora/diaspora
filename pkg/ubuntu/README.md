@@ -5,23 +5,20 @@ work as a first step towards packaging, but should be usable as is.
 
 ### Synopsis
 
-
 Bootstrap the distribution from git:
     % sudo apt-get install git-core
     % git clone git://github.com/diaspora/diaspora.git
     % cd diaspora/pkg/ubuntu
 
+Create and install the diaspora bundle and application in
+diaspora/pkg/source according to
+[source README](http://github.com/diaspora/diaspora/tree/master/pkg/source/)
+
 Install the dependencies (a good time for a coffe break):
     % sudo ./diaspora-install-deps
 
-Create and install the diaspora bundle and application:
-    % ./make-dist.sh bundle
-    % sudo ./diaspora-bundle-install dist/diaspora-bundle-*.tar.gz
-
-    % ./make-dist.sh source
-    % sudo ./diaspora-install dist/diaspora-0.0*.tar.gz
-
-Initiate and start the server;
+Install, initiate and start the server;
+    % sudo ./diaspora-install
     % sudo ./diaspora-setup
     % sudo su - diaspora
     % cd /usr/share/diaspora/master
