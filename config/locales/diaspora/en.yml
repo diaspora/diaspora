@@ -177,7 +177,10 @@ en:
           step_3:
               your_services: "Your services"
               services_info: "Connect your existing social networks to your Diaspora account. You will be able to post publically through your Everyone tab when you select \"public.\""
-              
+              logged_in_as: "Logged in as"
+              disconnect: "disconnect"
+              connect_to_twitter: "Connect to Twitter"
+              connect_to_facebook: "Connect to Facebook"
   comments:
       new_comment:
           comment: "Comment"
