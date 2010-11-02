@@ -115,7 +115,6 @@ GEM
       activesupport (= 3.0.1)
     activesupport (3.0.1)
     addressable (2.2.2)
-    archive-tar-minitar (0.5.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
     aws (2.3.24)
@@ -141,6 +140,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
+    cgi_multipart_eof_fix (2.5.0)
     chef (0.9.12)
       bunny (>= 0.6.0)
       erubis
@@ -192,8 +192,10 @@ GEM
       addressable (~> 2.2.2)
       multipart-post (~> 1.0.1)
       rack (>= 1.1.0, < 2)
+    fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    gem_plugin (0.2.3)
     gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
@@ -209,8 +211,7 @@ GEM
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
-    linecache19 (0.5.11)
-      ruby_core_source (>= 0.1.4)
+    linecache (0.43)
     mail (2.2.9)
       activesupport (>= 2.3.6)
       i18n (~> 0.4.1)
@@ -232,6 +233,11 @@ GEM
     moneta (0.6.0)
     mongo (1.1)
       bson (>= 1.0.5)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
     multi_json (0.0.4)
     multipart-post (1.0.1)
     net-ldap (0.1.1)
@@ -326,19 +332,14 @@ GEM
       rspec-expectations (~> 2.0.1)
     rspec-rails (2.0.1)
       rspec (~> 2.0.0)
-    ruby-debug-base19 (0.11.24)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
+    ruby-debug (0.10.3)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.3.0)
+    ruby-debug-base (0.10.3)
+      linecache (>= 0.3)
     ruby-openid (2.1.8)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
-    ruby_core_source (0.1.4)
-      archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
     selenium-client (1.2.18)
@@ -404,6 +405,7 @@ DEPENDENCIES
   mini_magick
   mocha
   mongo_mapper!
+  mongrel
   omniauth
   pubsubhubbub
   rails (>= 3.0.0)
@@ -411,7 +413,7 @@ DEPENDENCIES
   roxml!
   rspec (>= 2.0.0)
   rspec-rails (>= 2.0.0)
-  ruby-debug19
+  ruby-debug
   sprinkle!
   thin
   twitter
