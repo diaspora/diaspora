@@ -5,11 +5,9 @@
 class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
   require File.join(Rails.root, 'lib/diaspora/exporter')
-  require File.join(Rails.root, 'lib/diaspora/importer')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
-
-  before_filter :authenticate_user!, :except => [:new, :create, :public, :import]
+  before_filter :authenticate_user!, :except => [:new, :create, :public]
 
   respond_to :html
 
@@ -101,23 +99,4 @@ class UsersController < ApplicationController
     User.invite!(:email => params[:email])
   end
   
-  
-  def import
-    xml = params[:upload][:file].read
-
-    begin
-      importer = Diaspora::Importer.new(Diaspora::Parsers::XML)
-      importer.execute(xml, params[:user])
-      flash[:notice] = "hang on a sec, try logging in!"
-
-    rescue Exception => e
-      flash[:error] = "Something went wrong: #{e.message}"
-    end
-
-      redirect_to new_user_registration_path
-    #redirect_to user_session_path
-  end
-
-
-
 end

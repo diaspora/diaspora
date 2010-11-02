@@ -5,38 +5,17 @@
     = image_tag "http://needcoffee.cachefly.net/needcoffee/uploads/2009/02/predator-arnold-schwarzenegger.jpg"
     = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       %p
-        = f.label :username , t('.username')
+        = f.label :username , t('username')
         = f.text_field :username
       %p
-        = f.label :email , t('.email')
+        = f.label :email , t('email')
         = f.text_field :email
       %p
-        = f.label :password , t('.password')
+        = f.label :password , t('password')
         = f.password_field :password
       %p
-        = f.label :password_confirmation , t('.password_confirmation')
+        = f.label :password_confirmation , t('password_confirmation')
         = f.password_field :password_confirmation
 
       = f.submit t('.sign_up')
-
-
-  .floating
-    %h3
-      = t('.upload_existing_account')
-
-    = form_tag '/users/import', :multipart => true do
-
-      %p
-        = label_tag 'user[email]'
-        = text_field_tag 'user[email]'
-      %p
-        = label_tag 'user[password]'
-        = password_field_tag 'user[password]'
-      %p
-        = label_tag 'user[password_confirmation]'
-        = password_field_tag 'user[password_confirmation]'
-
-      %label Select File
-      = file_field 'upload', 'file'
-      = submit_tag t('.upload')
 

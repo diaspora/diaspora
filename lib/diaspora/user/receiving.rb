@@ -129,7 +129,6 @@ module Diaspora
           elsif on_pod == post 
             update_user_refs_and_add_to_aspects(on_pod)
           end
-
         else
           update_user_refs_and_add_to_aspects(post)
         end
@@ -137,19 +136,21 @@ module Diaspora
 
 
       def update_user_refs_and_add_to_aspects(post)
-          Rails.logger.debug("Saving post: #{post}")
-          post.user_refs += 1
-          post.save
+        Rails.logger.debug("Saving post: #{post}")
+        post.user_refs += 1
+        post.save
 
-          self.raw_visible_posts << post
-          self.save
+        self.raw_visible_posts << post
+        self.save
 
-          aspects = self.aspects_with_person(post.person)
-          aspects.each do |aspect|
-            aspect.posts << post
-            aspect.save
-            post.socket_to_uid(id, :aspect_ids => [aspect.id]) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
-          end
+        aspects = self.aspects_with_person(post.person)
+        aspects.each do |aspect|
+          aspect.posts << post
+          aspect.save
+        end
+
+        post.socket_to_uid(id, :aspect_ids => aspects.map{|x| x.id}) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
+
       end
     end
   end

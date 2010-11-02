@@ -19,6 +19,11 @@ de:
       timeout: "Deine Sitzung ist abgelaufen, bitte melde dich erneut an um fortzufahren."
       inactive: "Dein Konto wurde noch nicht aktiviert."
     sessions:
+      new:
+        login: 'Login'
+        username: 'Benutzername'
+        password: 'Passwort'
+        sign_in: 'Anmelden'
       signed_in: "Erfolgreich angemeldet."
       signed_out: "Erfolgreich abgemeldet."
     passwords:
@@ -34,7 +39,21 @@ de:
     unlocks:
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto entsperren kannst."
       unlocked: "Dein Konto wurde erfolgreich entsperrt. Du bist nun angemeldet."
+    invitations:
+      send_instructions: 'Deine Einladung wurde versandt.'
+      invitation_token_invalid: 'Das Einladungstoken ist ungültig!' #FIXME: translate token?
+      updated: 'Dein Passwort wurde erfolgreich gesetzt. Du bist nun angemeldet.'
     mailer:
-      confirmation_instructions: "Instruktionen zur Bestätigung"
-      reset_password_instructions: "Instruktionen zum Zurücksetzen des Passworts"
-      unlock_instructions: "Instruktionen zum Entsperren"
+      confirmation_instructions:
+        subject: "Instruktionen zur Bestätigung"
+      reset_password_instructions:
+        subject: "Instruktionen zum Zurücksetzen des Passworts"
+      unlock_instructions:
+        subject: "Instruktionen zum Entsperren"
+      invitation:
+        subject: 'Ein Freund möchte dich bei Diaspora einladen!'
+    shared:
+      links:
+        sign_in: 'Anmelden'
+        sign_up: 'Registrieren'
+        forgot_your_password: 'Passwort vergessen?'
