@@ -60,6 +60,11 @@ class User
   #after_create :seed_aspects
 
   before_destroy :unfriend_everyone, :remove_person
+  before_save do
+    person.save if person
+  end
+
+  attr_accessible :getting_started, :password, :password_confirmation, :language, 
 
   def strip_and_downcase_username
     if username.present?
@@ -401,16 +406,22 @@ class User
 
   ###Helpers############
   def self.build(opts = {})
+    u = User.new(opts)
+
+    u.username = opts[:username]
+    u.email = opts[:email]
+
     opts[:person] ||= {}
     opts[:person][:profile] ||= Profile.new
-    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
-    opts[:person][:url] = APP_CONFIG[:pod_url]
+    u.person = Person.new(opts[:person])
+    u.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
 
-    opts[:serialized_private_key] = generate_key
-    opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
+    u.person.url = APP_CONFIG[:pod_url]
 
+    new_key = generate_key
+    u.serialized_private_key = new_key
+    u.person.serialized_public_key = new_key.public_key
 
-    u = User.new(opts)
     u
   end
 
@@ -432,7 +443,8 @@ class User
 
 
   def self.generate_key
-    OpenSSL::PKey::RSA::generate 4096
+    key_size = (Rails.env == 'test' ? 512 : 4096)
+    OpenSSL::PKey::RSA::generate key_size
   end
 
   def encryption_key
