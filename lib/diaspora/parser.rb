@@ -4,22 +4,7 @@
 
 module Diaspora
   module Parser
-    def self.owner_id_from_xml(xml)
-      doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
-      id = doc.xpath("//person_id").text.to_s
-      Person.first(:id => id)
-    end
-
-    def self.parse_or_find_person_from_xml(xml)
-      doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
-      person_xml = doc.xpath("//person").to_s
-      person_id = doc.xpath("//person/_id").text.to_s
-      person = Person.first(:_id => person_id)
-      person ? person : Person.from_xml( person_xml)
-    end
-
     def self.from_xml(xml)
-
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       return unless body = doc.xpath("/XML/post").children.first
 
