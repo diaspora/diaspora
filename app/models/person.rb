@@ -56,6 +56,7 @@ class Person
       q = Regexp.escape(token.to_s.strip)
       p = Person.searchable.all('profile.first_name' => /^#{q}/i) \
  | Person.searchable.all('profile.last_name' => /^#{q}/i) \
+ | Person.searchable.all('diaspora_handle' => /^#{q}/i) \
  | p
     end
   

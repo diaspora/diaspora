@@ -193,6 +193,10 @@ describe Person do
       Person.search("johnson").should_not include invisible_person
       Person.search("").should_not include invisible_person
     end
+
+    it 'should search on handles' do
+      Person.search(@friend_one.diaspora_handle).should include @friend_one
+    end
   end
 
   context 'people finders for webfinger' do
