@@ -20,7 +20,7 @@ describe User do
   end
 
   it 'should stream only one message to the everyone aspect when a multi-aspected friend posts' do
-    user.add_person_to_aspect(user2.person.id, user.aspect(:name => "villains").id)
+    user.add_person_to_aspect(user2.person.id, user.aspects.create(:name => "villains").id)
     status = user2.post(:status_message, :message => "Users do things", :to => aspect2.id)
     xml = status.to_diaspora_xml
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
