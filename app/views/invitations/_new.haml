@@ -7,7 +7,7 @@
     = t('.if_they_accept_info')
   = form_for User.new, :url => invitation_path(User) do |invite|
     %p
-      = invite.label :email , t('.email')
+      = invite.label :email , t('email')
       = invite.text_field :email
     = t('.to')
     - unless @aspect.is_a? Aspect

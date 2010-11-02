@@ -6,6 +6,23 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+
+  settings: "Settings"
+  profile: "Profile"
+  account: "Account"
+  services: "Services"
+  cancel: "Cancel"
+  delete: "Delete"  
+  or: "or"
+  by: "by"
+  ago: "ago"
+  username: "Username"
+  email: "Email"
+  home: "Home"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  are_you_sure: "Are you sure?"
+  
   activemodel:
       errors:
           models:
@@ -26,9 +43,6 @@ en:
       helper:
           unknown_person: "unknown person"
           new_requests: "new requests"
-  dashboards:
-      helper:
-          home: "home"
   error_messages:
       helper:
           invalid_fields: "Invalid Fields"
@@ -54,7 +68,6 @@ en:
           manage_aspects: "Manage Aspects"
       publisher:
           share: "Share"
-          or: "or"
           post_a_message_to: "Post a message to %{aspect}"
           make_public: "make public"
       aspect_friends:
@@ -66,6 +79,8 @@ en:
           invitations_left: '(%{count} left)'
       reshare:
           reshare: 'Reshare'
+      author_info:
+          view_profile: 'View profile'
   albums:
       album:
           you: "you"
@@ -76,17 +91,13 @@ en:
           edit_album: "Edit Album"
           albums: "albums"
           updated: "updated"
-          by: "by"
       edit:
           album_name: "Album name"
           editing: "Editing"
           updated: "updated"
           update_album: "Update album"
-          are_you_sure: "Are you sure?"
           delete_album: "Delete Album"
-          cancel: "Cancel"
       index:
-          home: "home"
           new_album: "New Album"
       create:
           success: "You've created an album called %{name}."
@@ -138,19 +149,11 @@ en:
       edit:
           editing_profile: "Editing profile"
           invite_friends: "Invite friends"
-          are_you_sure: "Are you sure?"
           export_data: "Export Data"
           close_account: "Close Account"
           change_language: "Change Language"
           change_password: "Change Password"
           new_password: "New Password"
-          password_confirmation: "Password confirmation"
-          settings: "Settings"
-          profile: "Profile"
-          account: "Account"
-          services: "Services"
-          cancel: "Cancel"
-          or: "or"
       destroy: "Account successfully closed."
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
@@ -158,10 +161,7 @@ en:
               albums: "Albums"
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
               page_to_upload_some:  "page to upload some."
-              or: "or"
   comments:
-      comment:
-          ago: "ago"
       new_comment:
           comment: "Comment"
   photos:
@@ -171,17 +171,13 @@ en:
           next: "next"
           edit_photo: "Edit Photo"
           delete_photo: "Delete Photo"
-          are_you_sure: "Are you sure?"
           comments: "comments"
       edit:
           editing: "Editing"
-          are_you_sure: "Are you sure?"
           delete_photo: "Delete Photo"
       photo:
           show_comments: "show comments"
           posted_a_new_photo_to: "posted a new photo to"
-          delete: "Delete"
-          are_you_sure: "Are you sure?"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -201,10 +197,6 @@ en:
           sign_up_for_diaspora: "Sign up for Diaspora"
           upload_existing_account: "Upload an existing Diaspora account"
           upload: "Upload"
-          username: "Username"
-          email: "Email"
-          password: "Password"
-          password_confirmation: "Password confirmation"
       create:
           success: "You've joined Diaspora!"
   invitations:
@@ -216,7 +208,6 @@ en:
           invitation_token_invalid: 'The invitation token provided is not valid!'
           updated: 'Your password was set successfully. You are now signed in.'
       new:
-          email: 'Email'
           invite_someone_to_join: 'Invite someone to join Diaspora!'
           if_they_accept_info: 'if they accept, they will be added to the aspect you invited them'
           to: 'To'
@@ -229,13 +220,9 @@ en:
           oh_yeah: "oh yeah!"
       status_message:
           show_comments: "show comments"
-          delete: "Delete"
-          are_you_sure: "Are you sure?"
-          ago: "ago"
       show:
           status_message: "Status Message"
           comments: "comments"
-          are_you_sure: "Are you sure?"
           destroy: "Destroy"
           view_all: "View All"
           message: "Message"
@@ -260,13 +247,11 @@ en:
           last_seen: "last seen: %{how_long_ago}"
           friends_since: "friends since: %{how_long_ago}"
           save: "save"
-          are_you_sure: "Are you sure?"
           remove_friend: "remove friend"
           no_posts: "no posts to display!"
           add_friend: "add friend"
           edit_my_profile: "Edit my profile"
       edit:
-          settings: "Settings"
           info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"
           your_name: "Your name"
@@ -277,12 +262,7 @@ en:
           your_bio: "Your bio"
           fill_me_out: "Fill me out"
           your_photo: "Your photo"
-          profile: "Profile"
-          account: "Account"
-          services: "Services"
-          cancel: "Cancel"
           update_profile: "Update Profile"
-          home: "Home"
           diaspora_username: "DIASPORA USERNAME"
           info: "Info"
           picture: "Picture"
@@ -290,7 +270,6 @@ en:
           albums: "Albums"
           you_dont_have_any_photos: "You don't have any photos!  Go to the"
           page_to_upload_some:  "page to upload some."
-          or: "or"
   requests:
       new_request:
           add_a_new_friend_to: "Add a new friend to"
@@ -310,9 +289,3 @@ en:
           already_friends: "You are already friends with %{destination_url}!"
           success: "A friend request was sent to %{destination_url}."
           horribly_wrong: "Something went horribly wrong."
-  services:
-      index:
-          settings: "Settings"
-          profile: "Profile"
-          account: "Account"
-          services: "Services"

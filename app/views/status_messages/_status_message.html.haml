@@ -21,7 +21,7 @@
       - if current_user.owns?(post)
         .right
           = render "shared/reshare", :post => post, :current_user => current_user
-          = link_to t('.delete'), status_message_path(post), :confirm => t('.are_you_sure'), :method => :delete, :remote => true, :class => "delete"
+          = link_to t('delete'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
     = make_links(post.message)
 
