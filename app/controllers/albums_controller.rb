@@ -17,8 +17,13 @@ class AlbumsController < ApplicationController
     aspect = params[:album][:to]
 
     @album = current_user.post(:album, params[:album])
-    flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
-    redirect_to :action => :show, :id => @album.id, :aspect => aspect
+    if @album.persisted?
+      flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
+      redirect_to :action => :show, :id => @album.id, :aspect => aspect
+    else
+      flash[:error] = I18n.t 'albums.create.failure'
+      redirect_to albums_path(:aspect => aspect)
+    end
   end
 
   def new

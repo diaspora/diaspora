@@ -146,15 +146,16 @@ class User
 
     post = build_post(class_name, options)
 
-    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
-    push_to_aspects(post, aspect_ids)
-    
-    if options[:public] == true
-      self.services.each do |service|
-        self.send("post_to_#{service.provider}".to_sym, service, post.message)
+    if post.persisted?
+      post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
+      push_to_aspects(post, aspect_ids)
+      
+      if options[:public] == true
+        self.services.each do |service|
+          self.send("post_to_#{service.provider}".to_sym, service, post.message)
+        end
       end
     end
-
     post
   end
 
