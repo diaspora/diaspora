@@ -1,0 +1,40 @@
+#content
+  %h1= @person.real_name
+  #content_inner
+    #i.entity_profile.vcard.author
+      %h2 User profile
+
+      %dl.entity_nickname
+        %dt Nickname
+        %dd
+          %a.nickname.url.uid{:href=>@person.url, :rel=>'me'}= @person.real_name
+
+      %dl.entity_given_name
+        %dt First name
+        %dd
+          %span.given_name= @person.profile.first_name
+
+      %dl.entity_family_name
+        %dt Family name
+        %dd
+          %span.family_name= @person.profile.last_name
+
+      %dl.entity_fn
+        %dt Full name
+        %dd
+          %span.fn= @person.real_name
+
+      %dl.entity_url
+        %dt URL
+        %dd
+          %a#pod_location.url{:href=>@person.url, :rel=>'me'}= @person.url
+
+      %dl.entity_photo
+        %dt Photo
+        %dd
+          %img.photo.avatar{:src=>image_or_default(@person), :width=>'100px', :height=>'100px'}
+
+      %dl.entity_searchable
+        %dt Searchable
+        %dd
+          %span.searchable= @person.profile.searchable

@@ -12,6 +12,7 @@ describe HCard do
     hcard[:family_name].include?("Hamiltom").should be true
     hcard[:given_name].include?("Alex").should be true
     hcard[:photo].include?("tom.jpg").should be true
-    hcard[:url].should  == "http://tom.joindiaspora.com/"
+    hcard[:url].should == "http://tom.joindiaspora.com/"
+    hcard[:searchable].should == "false"
   end
 end

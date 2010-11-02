@@ -56,15 +56,6 @@ GIT
       activesupport (~> 3.0)
 
 GIT
-  remote: git://github.com/rsofaer/redfinger.git
-  revision: 07721f46d02b9d3aa04880788fecb0b4c1b284d7
-  specs:
-    redfinger (0.0.6)
-      hashie
-      nokogiri (>= 1.4.0)
-      rest-client (>= 1.5.0)
-
-GIT
   remote: git://github.com/rsofaer/sprinkle.git
   revision: 7c744ed158dda1f99a015e6a29d086e80bd8c635
   specs:
@@ -409,7 +400,6 @@ DEPENDENCIES
   omniauth
   pubsubhubbub
   rails (>= 3.0.0)
-  redfinger!
   roxml!
   rspec (>= 2.0.0)
   rspec-rails (>= 2.0.0)

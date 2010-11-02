@@ -55,10 +55,6 @@ class PeopleController < ApplicationController
       params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
     end
 
-    search_flag = params[:person][:searchable]
-    search_flag.to_s.match(/(true)/) ? search_flag = true : search_flag = false
-    params[:person][:searchable] = search_flag 
-
     # upload and set new profile photo
     if params[:person][:profile][:image].present?
       raw_image = params[:person][:profile].delete(:image)

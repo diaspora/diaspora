@@ -11,7 +11,7 @@ class PublicsController < ApplicationController
   def hcard
     @person = Person.find_by_id params[:id]
     unless @person.nil? || @person.owner.nil?
-      render 'hcard'
+      render 'publics/hcard'
     else
       render :nothing => true, :status => 404
     end

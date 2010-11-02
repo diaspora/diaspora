@@ -122,7 +122,10 @@ class Person
     #hcard_profile = HCard.find profile.hcard.first[:href]
     Rails.logger.info("hcard: #{ hcard.inspect}")
     new_person.url = hcard[:url]
-    new_person.profile = Profile.new(:first_name => hcard[:given_name], :last_name => hcard[:family_name], :image_url => hcard[:photo])
+    new_person.profile = Profile.new( :first_name => hcard[:given_name],
+                                      :last_name  => hcard[:family_name],
+                                      :image_url  => hcard[:photo],
+                                      :searchable => hcard[:searchable])
 
     new_person.save! ? new_person : nil
   end
