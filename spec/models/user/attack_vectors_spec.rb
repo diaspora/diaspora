@@ -111,17 +111,29 @@ describe "attack vectors" do
     end
 
     it 'it should not allow you to send retractions for other people' do
-     pending 
       ret = Retraction.new
       ret.post_id = user2.person.id
       ret.diaspora_handle = user3.person.diaspora_handle
       ret.type = user2.person.class.to_s
 
-      #proc{ 
+      proc{ 
         user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
-      #}.should raise_error /Malicious Post/
+      }.should raise_error /#{user3.diaspora_handle} trying to unfriend #{user2.person.id} from #{user.id}/
     
-     # user.reload.friends.count.should == 2
+      user.reload.friends.count.should == 2
+    end
+
+    it 'it should not allow you to send retractions with xml and salmon handle mismatch' do
+      ret = Retraction.new
+      ret.post_id = user2.person.id
+      ret.diaspora_handle = user2.person.diaspora_handle
+      ret.type = user2.person.class.to_s
+
+      proc{ 
+        user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
+      }.should raise_error /Malicious Post/
+    
+      user.reload.friends.count.should == 2
     end
   end
 end

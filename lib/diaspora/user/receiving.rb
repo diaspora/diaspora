@@ -83,6 +83,9 @@ module Diaspora
 
       def receive_retraction retraction, xml
         if retraction.type == 'Person'
+          unless retraction.person.id.to_s == retraction.post_id.to_s
+            raise "#{retraction.diaspora_handle} trying to unfriend #{retraction.post_id} from #{self.id}"
+          end
           Rails.logger.info( "the person id is #{retraction.post_id} the friend found is #{visible_person_by_id(retraction.post_id).inspect}")
           unfriended_by visible_person_by_id(retraction.post_id)
         else

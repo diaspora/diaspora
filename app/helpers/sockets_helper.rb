@@ -23,7 +23,7 @@ module SocketsHelper
       action_hash[:photo_hash] = object.thumb_hash
     end
 
-    if object.person.owner_id == uid
+    if object.person && object.person.owner_id == uid
       action_hash[:mine?] = true
     end
 
