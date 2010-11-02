@@ -16,6 +16,7 @@ describe Photo do
 
     @photo = Photo.new(:album => @album)
     @photo.person = @user.person
+    @photo.diaspora_handle = @user.person.diaspora_handle
   end
 
   describe "protected attributes" do
@@ -104,13 +105,11 @@ describe Photo do
       @xml.include?(@photo.album_id.to_s).should be true
     end
     it 'serializes the diaspora_handle' do
-      pending "For IZ, MS"
       @xml.include?(@user.diaspora_handle).should be true
     end
   end
   describe 'remote photos' do
     it 'should set the remote_photo on marshalling' do
-      pending "For IZ, MS"
       @photo.image.store! File.open(@fixture_name)
 
 
