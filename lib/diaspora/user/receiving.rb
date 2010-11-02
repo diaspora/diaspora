@@ -7,10 +7,15 @@ module Diaspora
         salmon = Salmon::SalmonSlap.parse salmon_xml, self
         webfinger = EMWebfinger.new(salmon.author_email)
 
-        webfinger.on_person { |salmon_author|
-          if salmon.verified_for_key?(salmon_author.public_key)
-            Rails.logger.info("data in salmon: #{salmon.parsed_data}")
-            self.receive(salmon.parsed_data, salmon_author)
+        webfinger.on_person { |response|
+          if response.is_a? Person
+            salmon_author = response
+            if salmon.verified_for_key?(salmon_author.public_key)
+              Rails.logger.info("data in salmon: #{salmon.parsed_data}")
+              self.receive(salmon.parsed_data, salmon_author)
+            end
+          else
+            Rails.logger.info("#{salmon.author_email} not found error: #{response}")
           end
         }
       end

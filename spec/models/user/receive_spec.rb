@@ -14,6 +14,8 @@ describe User do
 
   let(:user3) { make_user }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
+  let(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
+  let(:album)  {user.post(:album, :name => "Original", :to => aspect.id)}
 
   before do
     friend_users(user, aspect, user2, aspect2)
@@ -49,9 +51,15 @@ describe User do
     user.aspects.size.should == num_aspects
   end
 
+  describe '#receive_salmon' do
+   it 'should handle the case where the webfinger fails' do
+    Person.should_receive(:by_account_identifier).and_return("not a person")
+
+    proc{user2.receive_salmon(user.salmon(status).xml_for(user2.person))}.should_not raise_error
+   end
+  end
+
   context 'update posts' do
-    let(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
-    let(:album)  {user.post(:album, :name => "Original", :to => aspect.id)}
 
     it 'does not update posts not marked as mutable' do
       user2.receive_salmon(user.salmon(status).xml_for(user2.person))
