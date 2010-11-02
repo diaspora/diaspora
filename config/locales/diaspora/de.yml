@@ -7,8 +7,23 @@
 #   This file has parts from rails-i18n project at
 #        http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale
 
-
 de:
+  settings: "Einstellungen"
+  profile: "Profil"
+  account: "Konto"
+  services: "Dienste"
+  cancel: "Abbrechen"
+  delete: "Löschen"  
+  or: "oder"
+  by: "von"
+  ago: "her"
+  username: "Benutzername"
+  email: "E-Mail"
+  home: "Start"
+  password: "Passwort"
+  password_confirmation: "Passwort bestätigen"
+  are_you_sure: "Bist du sicher?"
+  
   activemodel:
       errors:
           models:
@@ -29,9 +44,6 @@ de:
       helper:
           unknown_person: "unbekannte Person"
           new_requests: "neue Anfragen"
-  dashboards:
-      helper:
-          home: "start"
   error_messages:
       helper:
           invalid_fields: "Ungültige Felder"
@@ -57,7 +69,6 @@ de:
           manage_aspects: "Aspekte verwalten"
       publisher:
           share: "Teilen"
-          or: "oder"
           post_a_message_to: "Sende eine Nachricht an %{aspect}"
           make_public: "öffentlich machen"
       aspect_friends:
@@ -69,6 +80,8 @@ de:
           invitations_left: '(%{count} übrig)'
       reshare:
           reshare: 'Erneut senden an'
+      author_info:
+          view_profile: 'View profile'
   albums:
       album:
           you: "Du"
@@ -79,17 +92,13 @@ de:
           edit_album: "Album bearbeiten"
           albums: "Alben"
           updated: "aktualisiert"
-          by: "von"
       edit:
-          album_name: "Album Name"
+          album_name: "Name des Albums"
           editing: "Bearbeiten"
           updated: "aktualisiert"
           update_album: "Album aktualisieren"
-          are_you_sure: "Bist du sicher?"
           delete_album: "Album löschen"
-          cancel: "Abbrechen"
       index:
-          home: "Start"
           new_album: "Neues Album"
       create:
           success: "Du hast das Album %{name} erstellt."
@@ -141,19 +150,11 @@ de:
       edit:
           editing_profile: "Profil bearbeiten"
           invite_friends: "Feunde einladen"
-          are_you_sure: "Bist du sicher?"
           export_data: "Konto exportieren"
           close_account: "Konto schließen"
           change_language: "Sprache ändern"
           change_password: "Passwort ändern"
           new_password: "Neues Passwort"
-          password_confirmation: "Passwort bestätigen"
-          settings: "Einstellungen"
-          profile: "Profil"
-          account: "Konto"
-          services: "Dienste"
-          cancel: "Abbrechen"
-          or: "oder" 
       destroy: "Konto erfolgreich geschlossen."
       getting_started:
           signup_steps: "Vervollständige deine Registrierung indem du folgende Dinge tust:"
@@ -161,10 +162,7 @@ de:
               albums: "Alben"
               you_dont_have_any_photos: "Du hast keine Fotos! Gehe zur"
               page_to_upload_some:  "Seite um welche hochzuladen."
-              or: "oder"
   comments:
-      comment:
-          ago: "her" #FIXME: need something like %{time} ago to translate it to something like Vor %{time}
       new_comment:
           comment: "Kommentieren"
   photos:
@@ -174,17 +172,13 @@ de:
           next: "weiter"
           edit_photo: "Foto bearbeiten"
           delete_photo: "Foto löschen"
-          are_you_sure: "Bist du sicher?"
           comments: "Kommentare"
       edit:
           editing: "Bearbeiten"
-          are_you_sure: "Bist du sicher?"
           delete_photo: "Foto löschen"
       photo:
           show_comments: "Kommentare zeigen"
           posted_a_new_photo_to: "Hinzugefügt:"
-          delete: "Löschen"
-          are_you_sure: "Bist du sicher?"
       new:
           new_photo: "Neues Foto"
           back_to_list: "Zurück zu Liste"
@@ -204,10 +198,6 @@ de:
           sign_up_for_diaspora: "Ein Diaspora Konto anlegen"
           upload_existing_account: "Ein existierendes Konto hochladen"
           upload: "Hochladen"
-          username: "Benutzername"
-          email: "E-Mail"
-          password: "Passwort"
-          password_confirmation: "Passwort bestätigen"
       create:
           success: "Willkommen bei Diaspora!"
   invitations:
@@ -219,7 +209,6 @@ de:
           invitation_token_invalid: 'Das Einladungstoken ist ungültig!'
           updated: 'Dein Passwort wurde erfolgreich gespeichert. Du bist jetzt angemeldet.'
       new:
-          email: 'E-Mail'
           invite_someone_to_join: 'Lade jemanden zu Diaspora ein!'
           if_they_accept_info: 'Wenn sie akzeptieren findest du sie im Aspekt in den du sie eingeladen hast'
           to: 'An'
@@ -233,13 +222,9 @@ de:
           oh_yeah: "oh yeah!"
       status_message:
           show_comments: "Kommentare zeigen"
-          delete: "Löschen"
-          are_you_sure: "Bist du sicher?"
-          ago: "her" #FIXME: need something like %{time} ago to translate it to something like Vor %{time}
       show:
           status_message: "Status Nachricht"
           comments: "Kommentare"
-          are_you_sure: "Bist du sicher?"
           destroy: "Zerstören"
           view_all: "Alle zeigen"
           message: "Nachricht"
@@ -264,13 +249,11 @@ de:
           last_seen: "Zuletzt gesehen vor: %{how_long_ago}" #FIXME: appends ago
           friends_since: "Freunde seit: %{how_long_ago}"
           save: "speichern"
-          are_you_sure: "Bist du sicher?"
           remove_friend: "Freund entfernen"
           no_posts: "Keine Posts zum anzeigen!"
           add_friend: "Freund hinzufügen"
           edit_my_profile: "Mein Profil bearbeiten"
       edit:
-          settings: "Einstellungen"
           info_available_to: "Diese Infos werden für alle verfügbar sein mit denen du bei Diaspora verbunden bist."
           your_profile: "Dein Profil"
           your_name: "Dein Name"
@@ -281,12 +264,7 @@ de:
           your_bio: "Deine Info"
           fill_me_out: "Füll mich aus"
           your_photo: "Dein Foto"
-          profile: "Profil"
-          account: "Konto"
-          services: "Dienste"
-          cancel: "Abbrechen"
           update_profile: "Profil aktualisieren"
-          home: "Start"
           diaspora_username: "DIASPORA ADRESSE"
           info: "Info"
           picture: "Bild"
@@ -294,13 +272,12 @@ de:
           albums: "Alben"
           you_dont_have_any_photos: "Du hast keine Fotos! Gehe zur"
           page_to_upload_some:  "Seite um welche hochzuladen."
-          or: "oder"
   requests:
       new_request:
           add_a_new_friend_to: "Neuen Freund hinzufügen zu"
           enter_a_diaspora_username: "Gib eine Diaspora Adresse ein:"
           your_diaspora_username_is: "Deine Diaspora Adresse ist: %{diaspora_handle}"
-          friends_username: "Freunde's Benutzername"
+          friends_username: "Diaspora Addresse deines Freundes"
           create_request: "Anfrage erstellen"
       destroy:
           success: "Ihr seit jetzt Freunde."
@@ -314,12 +291,6 @@ de:
           already_friends: "Du bist bereits mit %{destination_url} befreundet!"
           success: "Eine Freundes-Anfrage wurde an %{destination_url} geschickt."
           horribly_wrong: "Irgendwas ist furchtbar schief gelaufen."
-  services:
-      index:
-          settings: "Einstellungen"
-          profile: "Profil"
-          account: "Konto"
-          services: "Dienste"
 
 # The following is from the rails-i18n project at http://github.com/svenfuchs/rails-i18n
 
