@@ -68,5 +68,59 @@ describe StatusMessagesHelper do
     make_links(url).should == "<a target=\"_blank\" href=\"http://"+url+"\">"+url+"</a>"
   end
 
+  describe "markdown" do
+    describe "weak emphasis" do
+      it "should be recognized (1/2)" do
+        message = "*some text* some text *some text* some text"
+        make_links(message).should == "<em>some text</em> some text <em>some text</em> some text"
+      end
+
+      it "should be recognized (2/2)" do
+        message = "_some text_ some text _some text_ some text"
+        make_links(message).should == "<em>some text</em> some text <em>some text</em> some text"
+      end
+    end
+
+    describe "strong emphasis" do
+      it "should be recognized (1/2)" do
+        message = "**some text** some text **some text** some text"
+        make_links(message).should == "<strong>some text</strong> some text <strong>some text</strong> some text"
+      end
+
+      it "should be recognized (2/2)" do
+        message = "__some text__ some text __some text__ some text"
+        make_links(message).should == "<strong>some text</strong> some text <strong>some text</strong> some text"
+      end
+    end
+
+    describe "imbricated weak and strong emphasis" do
+      it "should be rendered correctly" do
+        message = "__this is _some_ text__"
+        make_links(message).should == "<strong>this is <em>some</em> text</strong>"
+        message = "*this is **some** text*"
+        make_links(message).should == "<em>this is <strong>some</strong> text</em>"
+        message = "___some text___"
+        make_links(message).should == "<em><strong>some text</strong></em>"
+      end
+    end
+
+    describe "links" do
+      it "should be recognized without title attribute" do
+        message = "[link text](http://someurl.com) [link text](http://someurl.com)"
+        make_links(message).should == '<a href="http://someurl.com">link text</a> <a href="http://someurl.com">link text</a>'
+      end
+
+      it "should be recognized with title attribute" do
+        message = '[link text](http://someurl.com "some title") [link text](http://someurl.com "some title")'
+        make_links(message).should == '<a href="http://someurl.com" title="some title">link text</a> <a href="http://someurl.com" title="some title">link text</a>'
+      end
+    end
+
+    it "should allow escaping" do
+      message = '*some text* \\*some text* \\**some text* _some text_ \\_some text_ \\__some text_'
+      make_links(message).should == "<em>some text</em> *some text<em> *</em>some text <em>some text</em> _some text<em> _</em>some text"
+    end
+  end
+
   
 end
