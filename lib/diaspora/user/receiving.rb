@@ -18,67 +18,46 @@ module Diaspora
       def receive xml, salmon_author
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
-        Rails.logger.debug("From: #{object.person.inspect}") if object.person
+        Rails.logger.debug("From: #{object.diaspora_handle}")
+              
+        if object.is_a?(Comment) 
+          xml_author = (owns?(object.post))? object.diaspora_handle : object.post.person.diaspora_handle
+        else
+          xml_author = object.diaspora_handle 
+        end
 
+        if (salmon_author.diaspora_handle != xml_author)
+          raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{xml_author} "
+        end
 
-        if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request) || object.is_a?(Retraction)
+        if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request) || object.is_a?(Retraction) || object.is_a?(Profile) 
           e = EMWebfinger.new(object.diaspora_handle)
 
           e.on_person { |person|
 
             if person.class == Person
-              object.person = person
-
-              sender_in_xml = sender(object, xml, person)
-              if (salmon_author != sender_in_xml)
-                raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
-              end
+              object.person = person if object.respond_to? :person=
 
               if object.is_a? Request
-                return receive_request object, sender_in_xml
+                return receive_request object, person
               end
 
               raise "Not friends with that person" unless self.contact_for(salmon_author)
 
               if object.is_a?(Comment) 
                 receive_comment object, xml
-              elsif object.is_a? Retraction
+              elsif object.is_a?(Retraction)
                 receive_retraction object, xml
+              elsif object.is_a?(Profile)
+                receive_profile object, person
               else
                 receive_post object, xml
               end
-
             end
           }
-
         else
-          sender_in_xml = sender(object, xml)
-
-          if (salmon_author != sender_in_xml)
-            raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
-          end
-
-          raise "Not friends with that person" unless self.contact_for(salmon_author)
-
-
-          if object.is_a? Profile
-            receive_profile object, xml
-          end
+          raise "you messed up"
         end
-      end
-
-      def sender(object, xml, webfingered_person = nil)
-        if object.is_a? Profile
-          sender = Diaspora::Parser.owner_id_from_xml xml
-
-        else
-          if object.is_a?(Comment)
-            sender = (owns?(object.post))? object.person : object.post.person
-          else
-            sender = object.person
-          end
-        end
-        sender
       end
 
       def receive_retraction retraction, xml
@@ -107,8 +86,7 @@ module Diaspora
         receive_friend_request(request)
       end
 
-      def receive_profile profile, xml
-        person = Diaspora::Parser.owner_id_from_xml xml
+      def receive_profile profile, person
         person.profile = profile
         person.save
       end
