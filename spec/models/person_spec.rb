@@ -187,6 +187,12 @@ describe Person do
       people = Person.search("Casey Grippi")
       people.should == [@friend_four]
     end
+
+    it 'should only display searchable people' do
+      invisible_person = Factory(:person, :profile => {:searchable => false, :first_name => "johnson"})
+      Person.search("johnson").should_not include invisible_person
+      Person.search("").should_not include invisible_person
+    end
   end
 
   context 'people finders for webfinger' do

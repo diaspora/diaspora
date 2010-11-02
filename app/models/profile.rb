@@ -8,25 +8,27 @@ class Profile
   include Diaspora::Webhooks
   include ROXML
 
+  xml_reader :diaspora_handle
   xml_reader :first_name
   xml_reader :last_name
   xml_reader :image_url
   xml_reader :birthday
   xml_reader :gender
   xml_reader :bio
-  xml_accessor :diaspora_handle
+  xml_reader :searchable
 
+  key :diaspora_handle, String
   key :first_name, String
   key :last_name,  String
   key :image_url,  String
   key :birthday,   Date
   key :gender,     String
   key :bio,        String
-  key :diaspora_handle, String
+  key :searchable, Boolean, :default => true
 
   after_validation :strip_names
   validates_length_of :first_name, :maximum => 32
-  validates_length_of :last_name, :maximum => 32
+  validates_length_of :last_name,  :maximum => 32
 
   before_save :strip_names
 
