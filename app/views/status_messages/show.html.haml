@@ -13,7 +13,7 @@
 
   - if current_user.owns? @status_message
     %p
-      = link_to t('.destroy'), @status_message, :confirm => t('.are_you_sure'), :method => :delete
+      = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
 .span-9.last
   #stream.show
