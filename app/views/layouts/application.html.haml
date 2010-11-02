@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 !!!
-%html
+%html{:lang => I18n.locale.to_s}
   %head
     %title
       = "#{current_user.real_name} | diaspora" if current_user
