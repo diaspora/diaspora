@@ -27,7 +27,7 @@ describe Diaspora::Parser do
 
     it 'should accept retractions' do
       friend_users(user, aspect, user2, aspect2)
-      message = Factory.create(:status_message, :person => user2.person)
+      message = user2.post(:status_message, :message => "cats", :to => aspect2.id)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 

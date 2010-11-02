@@ -21,13 +21,14 @@ module Diaspora
         Rails.logger.debug("From: #{object.person.inspect}") if object.person
 
 
-        if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request)
+        if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request) || object.is_a?(Retraction)
           e = EMWebfinger.new(object.diaspora_handle)
 
           e.on_person { |person|
 
             if person.class == Person
               object.person = person
+
               sender_in_xml = sender(object, xml, person)
               if (salmon_author != sender_in_xml)
                 raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{sender_in_xml.real_name} with id #{sender_in_xml.id} "
@@ -41,6 +42,8 @@ module Diaspora
 
               if object.is_a?(Comment) 
                 receive_comment object, xml
+              elsif object.is_a? Retraction
+                receive_retraction object, xml
               else
                 receive_post object, xml
               end
@@ -57,18 +60,15 @@ module Diaspora
 
           raise "Not friends with that person" unless self.contact_for(salmon_author)
 
-          if object.is_a? Retraction
-            receive_retraction object, xml
-          elsif object.is_a? Profile
+
+          if object.is_a? Profile
             receive_profile object, xml
           end
         end
       end
 
       def sender(object, xml, webfingered_person = nil)
-        if object.is_a? Retraction
-          sender = object.person
-        elsif object.is_a? Profile
+        if object.is_a? Profile
           sender = Diaspora::Parser.owner_id_from_xml xml
 
         else
@@ -83,6 +83,9 @@ module Diaspora
 
       def receive_retraction retraction, xml
         if retraction.type == 'Person'
+          unless retraction.person.id.to_s == retraction.post_id.to_s
+            raise "#{retraction.diaspora_handle} trying to unfriend #{retraction.post_id} from #{self.id}"
+          end
           Rails.logger.info( "the person id is #{retraction.post_id} the friend found is #{visible_person_by_id(retraction.post_id).inspect}")
           unfriended_by visible_person_by_id(retraction.post_id)
         else
