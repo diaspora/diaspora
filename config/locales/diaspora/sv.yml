@@ -171,10 +171,29 @@ sv:
       destroy: "Ditt konto är nu stängt."
       getting_started:
           signup_steps: "Slutför registreringen genom att göra följande steg:"
+          welcome_to_diaspora: "Välkommen till Diaspora!"
+          edit_your_profile: "Ändra din profil"
+          define_your_aspects: "Ange dina sidor"
+          connect_your_services: "Anslut till tjänster"
+          save_continue: "Spara och fortsätt →"
+          back: "Tillbaka"
+          skip: "hoppa över →"
           'step_1':
               albums: "Fotoalbum"
               you_dont_have_any_photos: "Du har inga foton!  Gå till"
               page_to_upload_some:  "sidan för att ladda upp några."
+          step_2:
+              your_aspects: "Dina sidor"
+              aspects_info_text: "Diaspora aspects are mappings of your real-life aspects. You can manage these later by clicking the manage tab on the top right. Your aspects are unique to you, and not visible by others."
+              aspect_name: "Namn på sida"
+              add: "Spara"
+          step_3:
+              your_services: "Anslut till tjänster"
+              services_info: "Anslut dina existerande sociala nätverk till Diaspora. Gör du detta så kommer du kunna skicka globala meddelanden på sidan \"Alla\" genom att kryssa i \"gör publik\"."
+              logged_in_as: "Ansluten som"
+              disconnect: "koppla bort"
+              connect_to_twitter: "Anslut till Twitter"
+              connect_to_facebook: "Anslut till Facebook"
   comments:
       new_comment:
           comment: "Kommentar"
