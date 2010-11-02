@@ -45,13 +45,13 @@ module Diaspora
               raise "Not friends with that person" unless self.contact_for(salmon_author)
 
               if object.is_a?(Comment) 
-                receive_comment object, xml
+                receive_comment object
               elsif object.is_a?(Retraction)
-                receive_retraction object, xml
+                receive_retraction object
               elsif object.is_a?(Profile)
                 receive_profile object, person
               else
-                receive_post object, xml
+                receive_post object
               end
             end
           }
@@ -60,7 +60,7 @@ module Diaspora
         end
       end
 
-      def receive_retraction retraction, xml
+      def receive_retraction retraction
         if retraction.type == 'Person'
           unless retraction.person.id.to_s == retraction.post_id.to_s
             raise "#{retraction.diaspora_handle} trying to unfriend #{retraction.post_id} from #{self.id}"
@@ -91,7 +91,7 @@ module Diaspora
         person.save
       end
 
-      def receive_comment comment, xml
+      def receive_comment comment
         raise "In receive for #{self.real_name}, signature was not valid on: #{comment.inspect}" unless comment.post.person == self.person || comment.verify_post_creator_signature
         self.visible_people = self.visible_people | [comment.person]
         self.save
@@ -105,20 +105,51 @@ module Diaspora
         comment.socket_to_uid(id)  if (comment.respond_to?(:socket_to_uid) && !self.owns?(comment))
       end
 
-      def receive_post post, xml
-        Rails.logger.debug("Saving post: #{post}")
-        post.user_refs += 1
-        post.save
+      def exsists_on_pod?(post)
+        post.class.find_by_id(post.id)
+      end
 
-        self.raw_visible_posts << post
-        self.save
+      def receive_post post
+        #exsists locally, but you dont know about it
+        #does not exsist locally, and you dont know about it
+        
+        #exsists_locally?
+          #you know about it, and it is mutable
+          #you know about it, and it is not mutable
+        #
+        on_pod = exsists_on_pod?(post)
+        if on_pod 
+          known_post = find_visible_post_by_id(post.id)
+          if known_post 
+            if known_post.mutable?
+              known_post.update_attributes(post.to_mongo)
+            else
+              Rails.logger.info("#{post.diaspora_handle} is trying to update an immutable object #{known_post.inspect}")
+            end
+          elsif on_pod == post 
+            update_user_refs_and_add_to_aspects(on_pod)
+          end
 
-        aspects = self.aspects_with_person(post.person)
-        aspects.each{ |aspect|
-          aspect.posts << post
-          aspect.save
-          post.socket_to_uid(id, :aspect_ids => [aspect.id]) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
-        }
+        else
+          update_user_refs_and_add_to_aspects(post)
+        end
+      end
+
+
+      def update_user_refs_and_add_to_aspects(post)
+          Rails.logger.debug("Saving post: #{post}")
+          post.user_refs += 1
+          post.save
+
+          self.raw_visible_posts << post
+          self.save
+
+          aspects = self.aspects_with_person(post.person)
+          aspects.each do |aspect|
+            aspect.posts << post
+            aspect.save
+            post.socket_to_uid(id, :aspect_ids => [aspect.id]) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
+          end
       end
     end
   end

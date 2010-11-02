@@ -41,6 +41,36 @@ describe User do
     user.aspects.size.should == num_aspects
   end
 
+  context 'update posts' do
+    let(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
+    let(:album)  {user.post(:album, :name => "Original", :to => aspect.id)}
+
+    it 'does not update posts not marked as mutable' do
+      user2.receive_salmon(user.salmon(status).xml_for(user2.person))
+      status.message = 'foo'
+      xml = user.salmon(status).xml_for(user2.person)
+
+      status.reload.message.should == 'Original'
+
+      user2.receive_salmon(xml)
+
+      status.reload.message.should == 'Original'
+    end
+
+    it 'updates posts marked as mutable' do
+      user2.receive_salmon(user.salmon(album).xml_for(user2.person))
+      album.name = 'foo'
+      xml = user.salmon(album).xml_for(user2.person)
+
+      album.reload.name.should == 'Original'
+
+      user2.receive_salmon(xml)
+
+      album.reload.name.should == 'foo'
+    end
+
+  end
+
   describe 'post refs' do
     before do
       @status_message = user2.post :status_message, :message => "hi", :to =>aspect2.id

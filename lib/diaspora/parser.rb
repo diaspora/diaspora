@@ -10,14 +10,7 @@ module Diaspora
 
       begin
         new_object = body.name.camelize.constantize.from_xml body.to_s
-
-        if new_object.is_a? Post
-          existing_object = new_object.class.find_by_id(new_object.id)
-          existing_object ? (return existing_object) : (return new_object)
-        end
-
-        new_object
-
+        return new_object
       rescue NameError => e
         if e.message.include? 'wrong constant name'
           Rails.logger.info "Not a real type: #{object.to_s}"
