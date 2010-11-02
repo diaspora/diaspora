@@ -13,7 +13,20 @@ describe Person do
     @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
   end
 
-  describe "vaild  url" do
+  describe "delegating" do
+    it "delegates first_name to the profile" do
+      @person.first_name.should == @person.profile.first_name
+      @person.profile.update_attributes(:first_name => "Jane")
+      @person.reload.first_name.should == "Jane"
+    end
+    it "delegates last_name to the profile" do
+      @person.last_name.should == @person.profile.last_name
+      @person.profile.update_attributes(:last_name => "Heathers")
+      @person.reload.last_name.should == "Heathers"
+    end
+  end
+
+  describe "vaild url" do
       it 'should allow for https urls' do
       person = Factory.create(:person, :url => "https://example.com")
       person.valid?.should == true
