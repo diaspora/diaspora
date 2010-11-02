@@ -419,10 +419,6 @@ class User
     self.aspects.create(:name => "Work")
   end
 
-  def diaspora_handle
-    person.diaspora_handle
-  end
-
   def as_json(opts={})
     {
       :user => {
