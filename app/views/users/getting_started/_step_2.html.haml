@@ -4,15 +4,15 @@
 
 
 %h3
-  Your aspects
+  = t('.your_aspects')
   .description
-    Diaspora aspects are mappings of your real-life aspects.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others.
+    = t('.aspects_info_text')
 
 %h4
-  Aspect name
+  = t('.aspect_name')
   = form_for Aspect.new, :remote => true, :format => :json do |aspect|
     = aspect.text_field :name, :style => "display:inline;"
-    = aspect.submit "Add"
+    = aspect.submit t('.add')
 
 %ul.aspects
   - for aspect in @aspects
@@ -28,11 +28,11 @@
           #add_request_pane
             = render "requests/new_request", :aspect => aspect, :getting_started => 2
 
-      = link_to "x", aspect_path(aspect), :confirm => "are you sure?", :method => :delete, :remote => true, :class => "delete right"
+      = link_to "x", aspect_path(aspect), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete right"
 
 %br
 %br
 
 .submit_block
-  = link_to "Save and continue →", getting_started_path(:step => 3), :class => "button"
+  = link_to t('users.getting_started.save_continue') , getting_started_path(:step => 3), :class => "button"
 

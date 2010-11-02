@@ -158,10 +158,26 @@ en:
       destroy: "Account successfully closed."
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
-          'step_1':
+          welcome_to_diaspora: "Welcome to Diaspora!"
+          edit_your_profile: "Edit your profile"
+          define_your_aspects: "Define your aspects"
+          connect_your_services: "Connect your services"
+          save_continue: "Save and continue →"
+          back: "Back"
+          skip: "skip getting started →"
+          step_1:
               albums: "Albums"
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
               page_to_upload_some:  "page to upload some."
+          step_2:
+              your_aspects: "Your aspects"
+              aspects_info_text: "Diaspora aspects are mappings of your real-life aspects. You can manage these later by clicking the manage tab on the top right. Your aspects are unique to you, and not visible by others."
+              aspect_name: "Aspect name"
+              add: "Add"
+          step_3:
+              your_services: "Your services"
+              services_info: "Connect your existing social networks to your Diaspora account. You will be able to post publically through your Everyone tab when you select \"public.\""
+              
   comments:
       new_comment:
           comment: "Comment"
