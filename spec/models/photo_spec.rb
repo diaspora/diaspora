@@ -31,6 +31,10 @@ describe Photo do
     end
   end
 
+  it 'should be mutable' do
+    @photo.mutable?.should == true   
+  end
+
   it 'has a constructor' do
     image = File.open(@fixture_name)
     photo = Photo.instantiate(

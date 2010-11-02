@@ -74,5 +74,9 @@ class Photo < Post
   def thumb_hash
     {:thumb_url => url(:thumb_medium), :id => id, :album_id => album_id}
   end
+
+  def mutable?
+    true
+  end
 end
 

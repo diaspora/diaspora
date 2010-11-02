@@ -29,5 +29,12 @@ describe Post do
       xml.include?(@user.person.diaspora_handle).should be true
     end
   end
+
+  describe '#mutable?' do
+    it 'should be false by default' do
+      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      post.mutable?.should == false   
+    end
+  end
 end
 

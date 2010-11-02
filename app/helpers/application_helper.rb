@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
+  @@youtube_title_cache = Hash.new("no-title")
+
   def current_aspect?(aspect)
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
@@ -34,7 +36,7 @@ module ApplicationHelper
   end
 
   def how_long_ago(obj)
-    "#{time_ago_in_words(obj.created_at)} #{t('.ago')}"
+    "#{time_ago_in_words(obj.created_at)} #{t('ago')}"
   end
 
   def person_url(person)
@@ -84,5 +86,87 @@ module ApplicationHelper
     person_id ||= person
       
     "#{photos_path}?person_id=#{person_id}"
+  end
+
+  def markdownify(message, options = {})
+    message = h(message).html_safe
+
+    [:autolinks, :youtube, :emphasis, :links].each do |k|
+      if !options.has_key?(k)
+        options[k] = true
+      end
+    end
+
+    if options[:links]
+      message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
+        escape = (options[:emphasis]) ? "\\" : ""
+        res = "<a target=\"#{escape}_blank\" href=\"#{$2}\" title=\"#{$3}\">#{$1}</a>"
+        res
+      end
+      message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/) do |m|
+        escape = (options[:emphasis]) ? "\\" : ""
+        res = "<a target=\"#{escape}_blank\" href=\"#{$2}\">#{$1}</a>"
+        res
+      end
+    end
+
+    if options[:youtube]
+      message.gsub!(/( |^)(http:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)(&[^ ]*|)/) do |m|
+        res = "#{$1}youtube.com::#{$3}"
+        res.gsub!(/(\*|_)/) { |m| "\\#{$1}" } if options[:emphasis]
+        res
+      end
+    end
+
+    if options[:autolinks]
+      message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2')
+      message.gsub!(/(<a target="\\?_blank" href=")?(https|http|ftp):\/\/([^ ]+)/) do |m|
+        if !$1.nil?
+          m
+        else
+          res = %{<a target="_blank" href="#{$2}://#{$3}">#{$3}</a>}
+          res.gsub!(/(\*|_)/) { |m| "\\#{$1}" } if options[:emphasis]
+          res
+        end
+      end
+    end
+
+    if options[:emphasis]
+      message.gsub!(/([^\\]|^)\*\*(([^*]|([^*]\*[^*]))*[^*\\])\*\*/, '\1<strong>\2</strong>')
+      message.gsub!(/([^\\]|^)__(([^_]|([^_]_[^_]))*[^_\\])__/, '\1<strong>\2</strong>')
+      message.gsub!(/([^\\]|^)\*([^*]*[^\\])\*/, '\1<em>\2</em>')
+      message.gsub!(/([^\\]|^)_([^_]*[^\\])_/, '\1<em>\2</em>')
+      message.gsub!(/([^\\]|^)\*/, '\1')
+      message.gsub!(/([^\\]|^)_/, '\1')
+      message.gsub!("\\*", "*")
+      message.gsub!("\\_", "_")
+    end
+
+    if options[:youtube]
+      while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\]+)/)
+        videoid = youtube[1]
+        message.gsub!('youtube.com::'+videoid, '<a onclick="openVideo(\'youtube.com\', \'' + videoid + '\', this)" href="#video">Youtube: ' + youtube_title(videoid) + '</a>')
+      end
+    end
+
+    return message
+  end
+
+  def youtube_title(id)
+    unless @@youtube_title_cache[id] == 'no-title'
+      return @@youtube_title_cache[id]
+    end
+
+    ret = 'Unknown Video Title' #TODO add translation
+    http = Net::HTTP.new('gdata.youtube.com', 80)
+    path = '/feeds/api/videos/'+id+'?v=2'
+    resp, data = http.get(path, nil)
+    title = data.match(/<title>(.*)<\/title>/)
+    unless title.nil?
+      ret = title.to_s[7..-9]
+    end
+
+    @@youtube_title_cache[id] = ret;
+    return ret
   end
 end

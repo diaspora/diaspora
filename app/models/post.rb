@@ -50,6 +50,10 @@ class Post
     }
   end
 
+  def mutable?
+    false
+  end
+
   protected
   def destroy_comments
     comments.each{|c| c.destroy}

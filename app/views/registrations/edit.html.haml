@@ -24,5 +24,5 @@
   = f.submit t('.update')
 %h3 t('.cancel_my_account')
 %p
-  Unhappy? #{link_to t('.cancel_my_account'), registration_path(resource_name), :confirm => t('.are_you_sure'), :method => :delete}.
+  Unhappy? #{link_to t('.cancel_my_account'), registration_path(resource_name), :confirm => t('are_you_sure'), :method => :delete}.
 = link_to t('.back'), :back

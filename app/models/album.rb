@@ -32,6 +32,10 @@ class Album < Post
     p_photo ? p_photo : self.photos.sort(:created_at.desc).last
   end
 
+  def mutable?
+    true
+  end
+
   protected
   def destroy_photos
     self.photos.each{|p| p.destroy}

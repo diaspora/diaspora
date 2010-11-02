@@ -5,13 +5,13 @@
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       #user
         %p.username
-          = f.label :username , t('.username')
+          = f.label :username , t('username')
           = f.text_field :username
         %p.user_network
           ="@#{APP_CONFIG[:terse_pod_url]}"
 
         %p
-          = f.label :password , t('.password')
+          = f.label :password , t('password')
           = f.password_field :password
       /%p
       /- if devise_mapping.rememberable?

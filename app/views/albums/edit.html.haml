@@ -16,10 +16,10 @@
     .photo_edit_block= image_tag photo.url(:thumb_medium)
 
   .submit_block
-    = link_to t('.cancel'), root_path
+    = link_to t('cancel'), root_path
     or
     = album.submit t('.update_album')
 
 .button.delete
-  = link_to t('.delete_album'), @album, :confirm => t('.are_you_sure'), :method => :delete
+  = link_to t('.delete_album'), @album, :confirm => t('are_you_sure'), :method => :delete
 

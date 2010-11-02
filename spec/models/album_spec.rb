@@ -23,6 +23,11 @@ describe Album do
     album.associations[:photos].type.should == :many
   end
 
+  it 'should be mutable' do
+    post = user.post :album, :name => "hello", :to => aspect.id
+    post.mutable?.should == true   
+  end
+
   context 'when an album has two attached images' do
     before do
       2.times do
