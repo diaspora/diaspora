@@ -123,7 +123,7 @@ echo "Fetching and installing ruby gems.."
         echo "."
         sudo ruby setup.rb
         echo "."
-        sudo ln -s /usr/bin/gem1.8 /usr/bin/gem
+        sudo ln -sf /usr/bin/gem1.8 /usr/bin/gem
         echo "."
     fi
 )
@@ -146,6 +146,7 @@ echo "Installed bundler.."
     # Install extra gems
     echo "Installing more gems.."
     bundle install
+    bundle exec jasmine init
     echo "Installed."
 
     #Configure diaspora
@@ -180,7 +181,7 @@ echo "Installed bundler.."
     echo "Setting up DB..."
     if  rake db:seed:dev ; then
         cat <<- EOF
-	DB ready. Login -> tom and password -> evankorth.
+	DB ready. Logins -> tom or korth,  password -> evankorth.
 	More details ./diaspora/db/seeds/tom.rb. and ./diaspora/db/seeds/dev.rb.
 	EOF
     else

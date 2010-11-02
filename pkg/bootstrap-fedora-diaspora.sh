@@ -48,19 +48,17 @@ getent passwd diaspora  >/dev/null || {
     echo "Created user diaspora"
 }
 
-home=$( getent passwd diaspora | cut -d: -f6)
-[ -e  $home/diaspora ] && {
-    echo "Moving existing  $home/diaspora out of the way"
-    mv  $home/diaspora  $home/diaspora.$$
-}
-mkdir $home/diaspora
-cp -ar * $home/diaspora
-chown -R diaspora  $home/diaspora
-
 service mongod start
 
 su - diaspora << EOF
 #set -x
+
+[ -e  diaspora ] && {
+    echo "Moving existing  diaspora out of the way"
+    mv  diaspora  diaspora.$$
+}
+
+git clone $GIT_REPO
 
 cd diaspora
 
@@ -96,6 +94,7 @@ if [[ -z "\$ruby" || ("\${ruby:0:4}" == "/usr") ]]; then
 fi
 
 bundle install
+#bundle exec jasmine init
 
 #Configure diaspora
 cp config/app_config.yml.example config/app_config.yml
@@ -106,7 +105,7 @@ init_appconfig config/app_config.yml "$DIASPORA_HOSTNAME"
 echo "Setting up DB..."
 if  bundle exec rake db:seed:dev ; then
     cat <<- EOM
-	DB ready. Login -> tom and password -> evankorth.
+	DB ready. Logins -> tom and korth, password -> evankorth.
 	More details ./diaspora/db/seeds/tom.rb. and ./diaspora/db/seeds/dev.rb.
 	EOM
 else

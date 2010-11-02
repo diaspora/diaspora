@@ -127,6 +127,8 @@ rm -fr $RPM_BUILD_ROOT
 %attr(-, diaspora, diaspora) %{_localstatedir}/lib/diaspora/tmp
 %attr(-, diaspora, diaspora) %{_localstatedir}/run/diaspora
 
+%{_datadir}/diaspora/master/pkg/fedora/dist
+%{_datadir}/diaspora/master/pkg/ubuntu/dist
 %{_datadir}/diaspora/master/tmp
 %{_datadir}/diaspora/master/public/uploads
 %{_datadir}/diaspora/master/log
