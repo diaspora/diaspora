@@ -22,7 +22,6 @@ describe User do
       new_user.id.should_not == user.id
     end
     it 'does not overwrite old users with create' do
-      pending "Why do you want to set ids directly? MONGOMAPPERRRRR!!!"
           params = {:username => "ohai",
                     :email => "ohai@example.com",
                     :password => "password",
