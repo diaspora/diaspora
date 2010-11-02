@@ -118,7 +118,7 @@ module Diaspora
           #you know about it, and it is not mutable
         #
         on_pod = exsists_on_pod?(post)
-        if on_pod 
+        if on_pod && on_pod.diaspora_handle == post.diaspora_handle 
           known_post = find_visible_post_by_id(post.id)
           if known_post 
             if known_post.mutable?
@@ -129,8 +129,10 @@ module Diaspora
           elsif on_pod == post 
             update_user_refs_and_add_to_aspects(on_pod)
           end
-        else
+        elsif !on_pod 
           update_user_refs_and_add_to_aspects(post)
+        else
+          Rails.logger.info("#{post.diaspora_handle} is trying to update an exsisting object they do not own #{on_pod.inspect}")
         end
       end
 

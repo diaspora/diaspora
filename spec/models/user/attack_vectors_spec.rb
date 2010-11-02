@@ -17,11 +17,6 @@ describe "attack vectors" do
   let(:user3) { make_user }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
-  before do
-    friend_users(user, aspect, user2, aspect2)
-    friend_users(user, aspect, user3, aspect3)
-  end
-
   context 'non-friend valid user' do
     
     it 'raises if receives post by non-friend' do
@@ -41,7 +36,23 @@ describe "attack vectors" do
 
   end
 
+  it 'does not let a user attach to posts previously in the db unless its received from the author' do
+    friend_users(user, aspect, user3, aspect3)
+
+    original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+
+    original_message.diaspora_handle = user.diaspora_handle
+    user3.receive_salmon(user.salmon(original_message).xml_for(user3.person))
+    user3.reload.visible_posts.should_not include(original_message)
+  end
+
   context 'malicious friend attack vector' do
+    before do
+      friend_users(user, aspect, user2, aspect2)
+      friend_users(user, aspect, user3, aspect3)
+    end
+
+
     it 'overwrites messages with a different user' do 
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
@@ -134,6 +145,19 @@ describe "attack vectors" do
       }.should raise_error /Malicious Post/
     
       user.reload.friends.count.should == 2
+    end
+
+    it 'does not let me update other persons post' do
+      original_message = user2.post :album, :name => 'store this!', :to => aspect2.id
+      user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
+
+      original_message.diaspora_handle = user3.diaspora_handle
+      original_message.name = "bad bad bad"
+      xml = user3.salmon(original_message).xml_for(user.person)
+      user.receive_salmon(xml)
+
+      original_message.reload.name.should == "store this!"
+
     end
   end
 end
