@@ -4,20 +4,20 @@
 
 
 %h3
-  Your services
+  = t('.your_services')
   .description
-    Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select "public."
+    = t('.services_info')
 %ul#stream
   - for service in @services
     %h3
       %b= service.provider
-      logged in as
+      =t('.logged_in_as')
       %b= service.nickname
-      = link_to "disconnect", service, :confirm => "disconnect #{service.provider}?", :method => :delete
+      = link_to t('.disconnect'), service, :confirm => "disconnect #{service.provider}?", :method => :delete
 
-%h4= link_to "Connect to twitter", "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
-%h4= link_to "Connect to facebook", "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
+%h4= link_to t('.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
+%h4= link_to t('.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
 
 .submit_block
-  = link_to "Save and continue →", getting_started_path(:step => 4), :class => "button"
+  = link_to t('users.getting_started.save_continue'), getting_started_path(:step => 4), :class => "button"
 
