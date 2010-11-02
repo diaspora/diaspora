@@ -47,6 +47,11 @@ describe EMWebfinger do
           EMWebfinger.new('eviljoe@diaspora.local:3000')
         }.should raise_error(RuntimeError, "Identifier is invalid")
       end  
+
+      it 'should set ssl as the default' do
+        foo = EMWebfinger.new(account)
+        foo.instance_variable_get(:@ssl).should be true
+      end
     end
 
 
@@ -94,14 +99,14 @@ describe EMWebfinger do
       end
 
       describe '#xrd_url' do
-        it 'should return canonical host-meta url' do
+        it 'should return canonical host-meta url for http' do
+          finger.instance_variable_set(:@ssl, false)
           finger.send(:xrd_url).should == "http://tom.joindiaspora.com/.well-known/host-meta"
         end
 
         it 'can return the https version' do
-          finger.send(:xrd_url, true).should == "https://tom.joindiaspora.com/.well-known/host-meta"
+          finger.send(:xrd_url).should == "https://tom.joindiaspora.com/.well-known/host-meta"
         end
-
       end
     end
 
@@ -127,9 +132,44 @@ describe EMWebfinger do
 
         EM.run {
           f.on_person{ |p| 
-          p.valid?.should be true 
-          EM.stop
+            p.valid?.should be true 
+            EM.stop
+          }
         }
+      end
+      
+      it 'should retry with http if https fails' do
+        good_request.callbacks = [nil, diaspora_xrd, diaspora_finger, hcard_xml]
+
+        #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
+        # http://tom.joindiaspora.com/.well-known/host-meta 
+        f = EMWebfinger.new("tom@tom.joindiaspora.com") 
+
+        EventMachine::HttpRequest.should_receive(:new).exactly(4).times.and_return(good_request)
+
+        f.should_receive(:xrd_url).twice
+
+        EM.run {
+          f.on_person{ |p| 
+            EM.stop
+          }
+        }
+      end
+
+
+      it 'must try https first' do
+        single_request = FakeHttpRequest.new(:success)
+        single_request.callbacks = [diaspora_xrd]
+        good_request.callbacks = [diaspora_finger, hcard_xml]
+        EventMachine::HttpRequest.should_receive(:new).with("https://tom.joindiaspora.com/.well-known/host-meta").and_return(single_request)
+        EventMachine::HttpRequest.should_receive(:new).exactly(2).and_return(good_request)
+
+        f = EMWebfinger.new("tom@tom.joindiaspora.com") 
+
+        EM.run {
+          f.on_person{ |p| 
+            EM.stop
+          }
         }
       end
     end
