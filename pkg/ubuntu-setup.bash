@@ -11,6 +11,7 @@
 
 # USAGE: ./pkg/ubuntu-setup.bash  [external hostname]
 # Do NOT run this script as root.
+GIT_REPO=${GIT_REPO:-'http://github.com/diaspora/diaspora.git'}
 
 arg_hostname="$1"
 
@@ -139,7 +140,7 @@ echo "Installed bundler.."
     # Check if the user is already in a cloned source if not clone the source
     [[ $( basename $PWD ) == "diaspora" ]]  && \
         echo "Already in diaspora directory" ||  \
-        { git clone http://github.com/diaspora/diaspora.git && cd diaspora
+        { git $GIT_REPO && cd diaspora
               echo "Cloned the source.."
         }
 
@@ -195,5 +196,9 @@ echo "Installed bundler.."
 
     # Run appserver
     echo "Starting server"
-    script/server
+    script/server -d
+    pidfile="~diaspora/diaspora/log/diaspora-wsd.pid"
+    echo " To stop server: pkill thin; kill $(cat $pidfile)"
+    echo 'To restart server: sudo su - diaspora -c "diaspora/script/server -d"'
+
 )

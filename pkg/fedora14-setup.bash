@@ -24,7 +24,7 @@
 #
 #  Must run as root
 
-GIT_REPO='git@github.com:leamas/diaspora.git'
+GIT_REPO='http://github.com/leamas/diaspora.git'
 DIASPORA_HOSTNAME=${1:-'mumin.dnsalias.net'}
 
 test $UID = "0" || {
@@ -44,7 +44,8 @@ yum install  -y git bison sqlite-devel  \
             ImageMagick libxslt-devel  libxml2-devel     \
             openssl-devel mongodb-server wget  \
             ruby-devel ruby-libs ruby-ri ruby-irb ruby-rdoc \
-            rubygem compat-readline5 git
+            rubygems compat-readline5 git
+sudo gem install bundler
 
 getent group diaspora  >/dev/null || groupadd diaspora
 getent passwd diaspora  >/dev/null || {
@@ -55,7 +56,7 @@ getent passwd diaspora  >/dev/null || {
 service mongod start
 
 su - diaspora << EOF
-#set -x
+#set -x #used by test scripts, keep
 
 [ -e  diaspora ] && {
     echo "Moving existing  diaspora out of the way"
@@ -66,7 +67,7 @@ git clone $GIT_REPO
 
 cd diaspora
 
-bundle install
+bundle install --deployment
 #bundle exec jasmine init
 
 #Configure diaspora
@@ -92,7 +93,10 @@ else
 fi
 
 echo "Starting server"
-script/server
+script/server -d
+pidfile="~diaspora/diaspora/log/diaspora-wsd.pid"
+echo " To stop server: pkill thin; kill $(cat $pidfile)"
+echo 'To restart server: sudo su - diaspora -c "diaspora/script/server -d"'
 
 EOF
 

@@ -5,7 +5,7 @@
 #  Usage: pkg/bootstrap-fedora-diaspora.sh [external hostname]
 #
 #  Synopsis, install:
-#      $ git clone git@github.com:diaspora/diaspora.git
+#      $ git clone 'http://github.com/diaspora/diaspora.git'
 #      $ cd diaspora
 #      $ sudo pkg/bootstrap-fedora-diaspora.sh
 #
@@ -24,7 +24,7 @@
 #
 #  Must run as root
 
-GIT_REPO='git@github.com:leamas/diaspora.git'
+GIT_REPO=${GIT_REPO:-'http://github.com/diaspora/diaspora.git'}
 DIASPORA_HOSTNAME=${1:-'mumin.dnsalias.net'}
 
 test $UID = "0" || {
@@ -119,7 +119,10 @@ else
 fi
 
 echo "Starting server"
-script/server
+script/server -d
+pidfile="~diaspora/diaspora/log/diaspora-wsd.pid"
+echo " To stop server: pkill thin; kill $(cat $pidfile)"
+echo 'To restart server: sudo su - diaspora -c "diaspora/script/server -d"'
 
 EOF
 
