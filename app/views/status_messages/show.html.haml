@@ -7,7 +7,7 @@
 
 .span-14.append-1.last
   %h1.show_text
-    = make_links(@status_message.message)
+    = markdownify(@status_message.message)
 
   = how_long_ago(@status_message)
 
