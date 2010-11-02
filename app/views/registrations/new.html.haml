@@ -19,24 +19,3 @@
 
       = f.submit t('.sign_up')
 
-
-  .floating
-    %h3
-      = t('.upload_existing_account')
-
-    = form_tag '/users/import', :multipart => true do
-
-      %p
-        = label_tag 'user[email]'
-        = text_field_tag 'user[email]'
-      %p
-        = label_tag 'user[password]'
-        = password_field_tag 'user[password]'
-      %p
-        = label_tag 'user[password_confirmation]'
-        = password_field_tag 'user[password_confirmation]'
-
-      %label Select File
-      = file_field 'upload', 'file'
-      = submit_tag t('.upload')
-
