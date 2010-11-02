@@ -23,6 +23,7 @@ class Person
 
   one :profile, :class_name => 'Profile'
   validates_associated :profile
+  delegate :first_name, :last_name, :to => :profile
   before_save :downcase_diaspora_handle 
   
   def downcase_diaspora_handle

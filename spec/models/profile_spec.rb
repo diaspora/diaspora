@@ -41,4 +41,15 @@ describe Profile do
       end
     end
   end
+
+  describe 'serialization' do
+    let(:person) {Factory.create(:person)} 
+   
+    it 'should include persons diaspora handle' do
+      xml = person.profile.to_diaspora_xml 
+
+      xml.should include person.diaspora_handle
+      xml.should_not include person.id.to_s
+    end
+  end
 end
