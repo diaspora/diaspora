@@ -43,8 +43,12 @@ $(document).ready(function(){
   // reshare button action
   $stream.delegate(".reshare_button", "click", function(evt){
     evt.preventDefault();
-    $(this).toggleClass("active")
-      .closest(".reshare_pane").children(".reshare_box").toggle();
+    button = $(this)
+    box = button.siblings(".reshare_box");
+    if(box.length > 0){
+      button.toggleClass("active");
+      box.toggle();
+    }
   });
 
 });//end document ready

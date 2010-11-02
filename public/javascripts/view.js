@@ -64,11 +64,11 @@ $(document).ready(function(){
   });
 
   $('body').click( function(event){
-    var $this = $(this);
-    if(!$this.closest('#user_menu').length){
+    var target = $(event.target);
+    if(!target.closest('#user_menu').length){
       $("#user_menu").removeClass("active");
     };
-    if(!$this.closest('.reshare_pane').length){
+    if(!target.closest('.reshare_pane').length){
       $(".reshare_button").removeClass("active");
       $(".reshare_box").hide();
     };
