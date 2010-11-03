@@ -36,7 +36,19 @@ describe User do
     end
   end
 
-  describe '#post' do
+  describe '#build_post' do
+    it 'does not save a status_message' do
+      post = user.build_post(:status_message, :message => "hey", :to => aspect.id)
+      post.persisted?.should be_false
+    end
+
+    it 'does not save an album' do
+      post = user.build_post(:album, :name => "hey", :to => aspect.id)
+      post.persisted?.should be_false
+    end
+  end
+
+  describe '#dispatch_post' do
     it 'should put the post in the aspect post array' do
       post = user.post(:status_message, :message => "hey", :to => aspect.id)
       aspect.reload
@@ -67,7 +79,6 @@ describe User do
       user.should_receive(:post_to_facebook).exactly(0).times
       user.post :status_message, :message => "hi", :to => "all"
     end
-
   end
 
   describe '#update_post' do

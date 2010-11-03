@@ -6,6 +6,7 @@ class EMWebfinger
   def initialize(account)
     @account = account.strip.gsub('acct:','').to_s
     @callbacks = []
+    @ssl = true 
     # Raise an error if identifier has a port number 
     raise "Identifier is invalid" if(@account.strip.match(/\:\d+$/))
     # Raise an error if identifier is not a valid email (generous regexp)
@@ -34,12 +35,21 @@ class EMWebfinger
       profile_url = webfinger_profile_url(http.response)
       if profile_url 
         get_webfinger_profile(profile_url) 
+      elsif @ssl
+        @ssl = false
+        get_xrd
       else
         process_callbacks  "webfinger does not seem to be enabled for #{@account}'s host"
       end
     }
 
-    http.errback { process_callbacks "there was an error getting the xrd from account#{@account}" }
+    http.errback {
+      if @ssl
+        @ssl = false
+        get_xrd
+      else
+        process_callbacks "there was an error getting the xrd from account#{@account}" 
+      end }
   end
 
 
@@ -73,25 +83,18 @@ class EMWebfinger
   ##helpers
   private
 
-  def check_nil_response(html)
-
-  end
-
-
-
   def webfinger_profile_url(xrd_response)
     doc = Nokogiri::XML::Document.parse(xrd_response)  
     return nil if doc.namespaces["xmlns"] != "http://docs.oasis-open.org/ns/xri/xrd-1.0" 
     swizzle doc.at('Link[rel=lrdd]').attribute('template').value
   end
 
-  def xrd_url(ssl = false)
+  def xrd_url
     domain = @account.split('@')[1]
-    "http#{'s' if ssl}://#{domain}/.well-known/host-meta"
+    "http#{'s' if @ssl}://#{domain}/.well-known/host-meta"
   end
   
   def swizzle(template)
     template.gsub '{uri}', @account
   end
-
 end
