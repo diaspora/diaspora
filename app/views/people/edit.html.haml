@@ -45,9 +45,9 @@
         = render 'people/profile_photo_upload', :form => profile
 
       %h4
-        Search
+        = t('.search')
         %p{:class=>"checkbox_select"}
-          = profile.label :searchable, "Allow for people to search for you"
+          = profile.label :searchable, t('.allow_search')
           = profile.check_box :searchable, {:checked => @person.profile.searchable}, true, false
 
     .submit_block

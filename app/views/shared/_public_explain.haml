@@ -4,19 +4,19 @@
 
 .span-12.last
   .modal_title_bar
-    %h4 You are about to post a public message!
+    %h4=t('.title')
   %p
-    Public messages will be available for others outside of Diaspora to see.
+    =t('.outside')
     %br
     %br
 
     - if current_user.services
       - for service in current_user.services 
-        = "logged in to #{service.provider}"
+        = t('.logged_in', :service => service.provider)
         %br
 
-    = link_to "manage connected services", services_path
+    = link_to t('.manage'), services_path
 
     %br
     %br
-    = link_to "OK", '#', :class => "button", :onClick => '$.fancybox.close();'
+    = link_to t('ok'), '#', :class => "button", :onClick => '$.fancybox.close();'

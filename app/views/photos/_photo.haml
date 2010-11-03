@@ -13,7 +13,7 @@
         ➔
         %ul
           - if post.public?
-            the world
+            %li= t('.the_world')
           - else
             - for aspect in current_user.aspects_with_post( post.id )
               %li= link_to aspect.name, aspect
@@ -22,7 +22,7 @@
         .right
           = link_to t('delete'), photo_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
-    posted a photo
+      =t('.posted_a_photo')
 
     %br
     %br

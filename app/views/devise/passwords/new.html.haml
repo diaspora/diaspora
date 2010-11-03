@@ -1,12 +1,12 @@
 .span-12.prepend-6.last
   .floating
     %h3
-      Forgot your password?
+      =t('.forgot_password')
     = form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
       = devise_error_messages!
       %p
         = f.label :email
         = f.text_field :email
       %p
-      = f.submit "Send me reset password instructions"
+      = f.submit t('.send_password_instructions')
     = render :partial => "devise/shared/links"

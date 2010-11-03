@@ -36,7 +36,7 @@
 
     %br
     %br
-    = link_to 'photos', person_photos_path(@person)
+    = link_to t('_photos'), person_photos_path(@person)
 
 
 .span-15.last
@@ -55,13 +55,13 @@
     
     .floating
       %h3
-        = "You're currently not friends with #{@person.real_name}"
+        = t('.not_friends', :name => @person.real_name)
         
 
       - unless @pending_request
         %h3
           .description
-            If you'd like, you can request to place him/her in one of your aspects.
+            = t('.request_people')
          
         = form_for Request.new do |f|
           = f.select(:aspect_id, @aspects_dropdown_array)
@@ -71,5 +71,5 @@
       - else
         %h3
           .description
-            = "You have already sent a request to #{@person.real_name}."
+            = t('.already_requested', :name => @person.real_name)
 

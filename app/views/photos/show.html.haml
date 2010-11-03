@@ -9,7 +9,7 @@
 = render 'shared/author_info', :person => @photo.person, :post => @photo
 
 %ul#breadcrumb
-  %li= link_to "#{@photo.person.profile.first_name}'s Photos", person_photos_path(@photo.person)
+  %li= link_to "#{@photo.person.profile.first_name}'s #{t('_photos')}", person_photos_path(@photo.person)
   %li= @photo.caption
 
 / we need to do next photo here
@@ -27,7 +27,7 @@
       -if @ownership
         .edit_pane
           .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
-            = link_to 'make profile photo', '#', :class => "make_profile_photo"
+            = link_to t('.make_profile_photo'), '#', :class => "make_profile_photo"
           = image_tag @photo.url(:scaled_full)
 
       -else
@@ -36,21 +36,21 @@
       .caption
         -if @ownership
           -if @photo.caption and @photo.caption != ""
-            = link_to 'Edit','javascript:void(0)', :id => "edit-desc", :class => "edit-desc"
+            = link_to t('.edit_photo'),'javascript:void(0)', :id => "edit-desc", :class => "edit-desc"
         .description
           = @photo.caption
 
   -if @ownership
     %div{:class => 'clear'}
     -if !@photo.caption or @photo.caption == ""
-      = link_to 'Add a description','javascript:void(0)', :id => "add-description", :class => "edit-desc"
+      = link_to t('.add_a_description'),'javascript:void(0)', :id => "add-description", :class => "edit-desc"
 
   %br
   %br
 
   = form_for @photo do |p|
     = p.text_field :caption, :value => @photo.caption
-    = p.submit
+    = p.submit t('.update_photo')
     %div{:class => 'clear'}
 
   -if @ownership
