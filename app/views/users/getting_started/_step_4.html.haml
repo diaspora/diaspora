@@ -4,9 +4,9 @@
 
 
 %h1
-  = "You're all set up, #{current_user.person.profile.first_name}!"
+  = t('.all_set_up', :name => current_user.person.profile.first_name)
   .description
-    You're now ready to start sharing with 
+    = t('.ready_to_start_sharing')
     %ul.inline_aspect_listing
       - for aspect in @aspects
         %li= aspect
@@ -15,22 +15,24 @@
 %br
 
 %h3
-  = link_to "Continue on to your everyone page, an overview of all of your aspects.", root_path
+  = link_to t('.continue_to') , root_path
 
 %br
 %br
 %br
 
 %p
-  You can change your profile any time by clicking
-  %b edit profile
-  in your user menu (top right).
+  = t('.you_can_change_profile')
+  %b 
+    = t('layouts.application.edit_profile')
+  = t('.in_your_user_menu')
 %p
-  You can connect/disconnect your services any time by clicking
-  %b edit account
-  in your user menu (top right).
+  = t('.connect_disconnect_info')
+  %b 
+    = t('layouts.application.account_settings')
+  = t('.in_your_user_menu')
 %p
-  You can manage your aspects any time by clicking the
-  %b manage
-  tab.  Your contacts can also be added while on a particular aspect page, as well.
-
+  = t('.manage_your_aspects_info')
+  %b 
+    = t('shared.aspect_nav.manage')
+  = t('.contacts_can_also_info')

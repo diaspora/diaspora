@@ -22,6 +22,21 @@
 #   seed:            frö
 #
 sv:
+  settings: "Inställningar"
+  profile: "Profil"
+  account: "Konto"
+  services: "Tjänster"
+  cancel: "Avbryt"
+  delete: "Ta bort"  
+  or: "eller"
+  by: "av"
+  ago: "sedan"
+  username: "Användarnamn"
+  email: "E-post"
+  home: "Hem"
+  password: "Lösenord"
+  password_confirmation: "Bekräfta lösenord"
+  are_you_sure: "Är du säker?"
   activemodel:
       errors:
           models:
@@ -42,9 +57,6 @@ sv:
       helper:
           unknown_person: "okänd person"
           new_requests: "nya förfrågningar"
-  dashboards:
-      helper:
-          home: "hem"
   error_messages:
       helper:
           invalid_fields: "Ogiltiga uppgifter"
@@ -70,9 +82,19 @@ sv:
           manage_aspects: "Hantera sidor"
       publisher:
           share: "Dela"
+          post_a_message_to: "Skicka ett meddelande till %{aspect}"
+          make_public: "gör publik"
       aspect_friends:
           add_friends: "lägg till vänner"
           photos: "foton"
+      invitations:
+          invites: 'Inbjudningar'
+          invite_a_friend: 'Bjud in en vän'
+          invitations_left: '(%{count} kvar)'
+      reshare:
+          reshare: 'Reshare'
+      author_info:
+          view_profile: 'View profile'
   albums:
       album:
           you: "du"
@@ -83,17 +105,13 @@ sv:
           edit_album: "Ändra fotoalbum"
           albums: "fotoalbum"
           updated: "uppdaterad"
-          by: "av"
       edit:
           album_name: "Namn på fotoalbum"
           editing: "Ändrar"
           updated: "uppdaterad"
           update_album: "Uppdatera fotoalbum"
-          are_you_sure: "Är du säker?"
           delete_album: "Ta bort fotoalbum"
-          cancel: "Avbryt"
       index:
-          home: "hem"
           new_album: "Nytt fotoalbum"
       create:
           success: "Du har nu skapat fotoalbumet %{name}."
@@ -145,28 +163,47 @@ sv:
       edit:
           editing_profile: "Ändrar profil"
           invite_friends: "Bjud in en vän"
-          are_you_sure: "Är du säker?"
           export_data: "Exportera data"
           close_account: "Stäng kontot"
           change_language: "Ändra språk"
           change_password: "Ändra lösenord"
           new_password: "Nytt lösenord"
-          password_confirmation: "Bekräfta lösenord"
-          settings: "Inställningar"
-          profile: "Profil"
-          account: "Konto"
-          services: "Tjänster"
-          cancel: "Avbryt"
       destroy: "Ditt konto är nu stängt."
       getting_started:
+          signup_steps: "Slutför registreringen genom att göra följande steg:"
+          welcome_to_diaspora: "Välkommen till Diaspora!"
+          edit_your_profile: "Ändra din profil"
+          define_your_aspects: "Ange dina sidor"
+          connect_your_services: "Anslut till tjänster"
+          save_continue: "Spara och fortsätt →"
+          back: "Tillbaka"
+          skip: "hoppa över →"
           'step_1':
               albums: "Fotoalbum"
               you_dont_have_any_photos: "Du har inga foton!  Gå till"
               page_to_upload_some:  "sidan för att ladda upp några."
-              or: "eller"
+          step_2:
+              your_aspects: "Dina sidor"
+              aspects_info_text: "Diaspora aspects are mappings of your real-life aspects. You can manage these later by clicking the manage tab on the top right. Your aspects are unique to you, and not visible by others."
+              aspect_name: "Namn på sida"
+              add: "Spara"
+          step_3:
+              your_services: "Anslut till tjänster"
+              services_info: "Anslut dina existerande sociala nätverk till Diaspora. Gör du detta så kommer du kunna skicka globala meddelanden på sidan \"Alla\" genom att kryssa i \"gör publik\"."
+              logged_in_as: "Ansluten som"
+              disconnect: "koppla bort"
+              connect_to_twitter: "Anslut till Twitter"
+              connect_to_facebook: "Anslut till Facebook"
+          step_4:
+              all_set_up: "Nu är du klar för start, %{name}!"
+              ready_to_start_sharing: "Du är nu redo att börja dela med"
+              continue_to: "Fortsätt till din Everyone-sida, som visar en överblick av alla dina sidor."
+              you_can_change_profile: "Du kan när som helst ändra din profil genom att klicka på"
+              in_your_user_menu: "i användarmenyn (uppe till höger)"
+              connect_disconnect_info: "Du kan närsomhelt ansluta/koppla från tjänster genom att klicka på"
+              manage_your_aspects_info: "Du kan hantera dina sidor genom att klicka på"
+              contacts_can_also_info: "-fliken.  Du kan även lägga till nya vänner direkt från valfri sida."
   comments:
-      comment:
-          ago: "sedan"
       new_comment:
           comment: "Kommentar"
   photos:
@@ -176,17 +213,13 @@ sv:
           next: "nästa"
           edit_photo: "Ändra foto"
           delete_photo: "Ta bort foto"
-          are_you_sure: "Är du säker?"
           comments: "kommentarer"
       edit:
           editing: "Ändrar"
-          are_you_sure: "Är du säker?"
           delete_photo: "Ta bort foto"
       photo:
           show_comments: "visa kommentarer"
           posted_a_new_photo_to: "laddade upp ett nytt foto till"
-          delete: "Ta bort"
-          are_you_sure: "Är du säker?"
       new:
           new_photo: "Nytt foto"
           back_to_list: "Tillbaka till listan"
@@ -206,10 +239,6 @@ sv:
           sign_up_for_diaspora: "Gå med i Diaspora"
           upload_existing_account: "Ladda upp ett befintligt Diaspora-konto"
           upload: "Ladda upp"
-          username: "Användarnamn"
-          email: "E-post address"
-          password: "Lösenord"
-          password_confirmation: "Bekräfta lösenord"
       create:
           success: "Du har nu gått med i Diaspora!"
   invitations:
@@ -220,19 +249,22 @@ sv:
           already_friends: 'Du är redan vän med den här personen'
           invitation_token_invalid: 'Din inbjudningskod är inte giltig!'
           updated: 'Ditt lösenord är nu uppdaterat, och du har loggats in.'
-
+      new:
+          invite_someone_to_join: 'Bjud in en vän till Diaspora!'
+          if_they_accept_info: 'personen du bjuder in kommer automatiskt att läggas till på den här sidan'
+          to: 'Till'
+          message: 'Meddelande:'
+          send_an_invitation: 'Skicka en inbjudan'
+          send_invitation: 'Skicka inbjudan'
   status_messages:
       new_status_message:
           tell_me_something_good: "berätta något intressant"
           oh_yeah: "oh yeah!"
       status_message:
           show_comments: "visa kommentarer"
-          delete: "Ta bort"
-          are_you_sure: "Är du säker?"
       show:
           status_message: "Statusmeddelande"
           comments: "kommentarer"
-          are_you_sure: "Är du säker?"
           destroy: "Ta bort"
           view_all: "Visa alla"
           message: "Meddelande"
@@ -257,12 +289,12 @@ sv:
           last_seen: "senast sedd: %{how_long_ago}"
           friends_since: "vänner sedan: %{how_long_ago}"
           save: "spara"
-          are_you_sure: "Är du säker?"
           remove_friend: "ta bort vän"
           no_posts: "ingenting att visa!"
           add_friend: "lägg till en vän"
+          edit_my_profile: "Ändra min profil"
       edit:
-          settings: "Inställningar"
+          info_available_to: "Den här informationen kommer vara synlig för alla Diaspora-användare som interagerar med dig."
           your_profile: "Din profil"
           your_name: "Ditt namn"
           first_name: "Förnamn"
@@ -272,12 +304,7 @@ sv:
           your_bio: "Din biografi"
           fill_me_out: "Fyll i mig"
           your_photo: "Ditt foto"
-          profile: "Profil"
-          account: "Konto"
-          services: "Tjänster"
-          cancel: "Avbryt"
           update_profile: "Uppdatera profil"
-          home: "Hem"
           diaspora_username: "Användarnamn:"
           info: "Info"
           picture: "Foto"
@@ -285,7 +312,6 @@ sv:
           albums: "Fotoalbum"
           you_dont_have_any_photos: "Du har inga foton!  Gå till"
           page_to_upload_some:  "sidan för att ladda upp några."
-          or: "eller"
   requests:
       new_request:
           add_a_new_friend_to: "Lägg till en vän till"
@@ -305,12 +331,6 @@ sv:
           already_friends: "Du är redan vän med %{destination_url}!"
           success: "En vänförfrågan har skickats till %{destination_url}."
           horribly_wrong: "Nu gick något rejält fel här."
-  services:
-      index:
-          settings: "Inställningar"
-          profile: "Profil"
-          account: "Konto"
-          services: "Tjänster"
 
 # The following is from the rails-i18n project at http://github.com/svenfuchs/rails-i18n
 

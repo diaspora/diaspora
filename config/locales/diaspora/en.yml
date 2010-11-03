@@ -158,10 +158,38 @@ en:
       destroy: "Account successfully closed."
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
-          'step_1':
+          welcome_to_diaspora: "Welcome to Diaspora!"
+          edit_your_profile: "Edit your profile"
+          define_your_aspects: "Define your aspects"
+          connect_your_services: "Connect your services"
+          save_continue: "Save and continue →"
+          back: "Back"
+          skip: "skip getting started →"
+          step_1:
               albums: "Albums"
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
               page_to_upload_some:  "page to upload some."
+          step_2:
+              your_aspects: "Your aspects"
+              aspects_info_text: "Diaspora aspects are mappings of your real-life aspects. You can manage these later by clicking the manage tab on the top right. Your aspects are unique to you, and not visible by others."
+              aspect_name: "Aspect name"
+              add: "Add"
+          step_3:
+              your_services: "Your services"
+              services_info: "Connect your existing social networks to your Diaspora account. You will be able to post publically through your Everyone tab when you select \"public.\""
+              logged_in_as: "Logged in as"
+              disconnect: "disconnect"
+              connect_to_twitter: "Connect to Twitter"
+              connect_to_facebook: "Connect to Facebook"
+          step_4:
+              all_set_up: "You're all set up, %{name}!"
+              ready_to_start_sharing: "You're now ready to start sharing with"
+              continue_to: "Continue on to your everyone page, an overview of all your aspects."
+              you_can_change_profile: "You can change your profile any time by clicking"
+              in_your_user_menu: "in your user menu (top right)"
+              connect_disconnect_info: "You can connect/disconnect your services any time by clicking"
+              manage_your_aspects_info: "You can manage your aspects any time by clicking the"
+              contacts_can_also_info: "tab.  Your contacts can also be added while on a particular aspect page, as well."
   comments:
       new_comment:
           comment: "Comment"
