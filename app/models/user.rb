@@ -138,39 +138,38 @@ class User
   end
 
   ######## Posting ########
-  def post(class_name, options = {})
-    if class_name == :photo && !options[:album_id].to_s.empty?
-      aspect_ids = aspects_with_post(options[:album_id])
-      aspect_ids.map! { |aspect| aspect.id }
-    else
-      aspect_ids = options.delete(:to)
-    end
-
-    aspect_ids = validate_aspect_permissions(aspect_ids)
-
-    post = build_post(class_name, options)
+  def post(class_name, opts = {})
+    post = build_post(class_name, opts)
 
     if post.save
       raise 'MongoMapper failed to catch a failed save' unless post.id
-      dispatch_post(post, :to => aspect_ids)
+      dispatch_post(post, :to => opts[:to])
     end
     post
   end
 
-  def build_post(class_name, options = {})
-    options[:person] = self.person
-    options[:diaspora_handle] = self.person.diaspora_handle
+  def build_post(class_name, opts = {})
+    opts[:person] = self.person
+    opts[:diaspora_handle] = self.person.diaspora_handle
 
     model_class = class_name.to_s.camelize.constantize
-    model_class.instantiate(options)
+    model_class.instantiate(opts)
   end
 
   def dispatch_post(post, opts = {})
+    if post.is_a?(Photo) && post.album_id
+      aspect_ids = aspects_with_post(post.album_id)
+      aspect_ids.map! { |aspect| aspect.id }
+    else
+      aspect_ids = opts.delete(:to)
+    end
+
+    aspect_ids = validate_aspect_permissions(aspect_ids)
     self.raw_visible_posts << post
     self.save
     Rails.logger.info("Pushing: #{post.inspect} out to aspects")
-    push_to_aspects(post, opts[:to])
-    post.socket_to_uid(id, :aspect_ids => opts[:to]) if post.respond_to?(:socket_to_uid)
+    push_to_aspects(post, aspect_ids)
+    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
     if post.public
       self.services.each do |service|
         self.send("post_to_#{service.provider}".to_sym, service, post.message)

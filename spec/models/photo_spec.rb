@@ -42,15 +42,18 @@ describe Photo do
     it 'sets the persons diaspora handle' do
       @photo2.diaspora_handle.should == @user.person.diaspora_handle
     end
+    it 'has a constructor' do
+      image = File.open(@fixture_name)
+      photo = Photo.instantiate(
+                :person => @user.person, :album => @album, :user_file => image)
+      photo.created_at.nil?.should be true
+      photo.image.read.nil?.should be false
+      photo.album.should == @album
+    end
+
   end
 
-  it 'has a constructor' do
-    image = File.open(@fixture_name)
-    photo = Photo.instantiate(
-              :person => @user.person, :album => @album, :user_file => image)
-    photo.created_at.nil?.should be false
-    photo.image.read.nil?.should be false
-  end
+
 
   it 'should save a photo' do
     @photo.image.store! File.open(@fixture_name)
