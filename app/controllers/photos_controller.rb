@@ -49,10 +49,16 @@ class PhotosController < ApplicationController
 
       params[:photo][:user_file] = file
 
-      @photo = current_user.post(:photo, params[:photo])
+      @photo = current_user.build_post(:photo, params[:photo])
 
-      respond_to do |format|
-        format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+      if @photo.save
+        raise 'MongoMapper failed to catch a failed save' unless post.id
+        current_user.dispatch_post(@photo, :to => params[:photo][:to])
+        respond_to do |format|
+          format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+        end
+      else
+        respond_with :location => album, :error => message
       end
 
     rescue TypeError

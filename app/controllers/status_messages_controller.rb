@@ -13,7 +13,11 @@ class StatusMessagesController < ApplicationController
     public_flag.to_s.match(/(true)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag 
 
-    status_message = current_user.post(:status_message, params[:status_message])
+    status_message = current_user.build_post(:status_message, params[:status_message])
+    if status_message.save(:safe => true)
+      raise 'MongoMapper failed to catch a failed save' unless status_message.id
+      current_user.dispatch_post(status_message, :to => params[:status_message][:to])
+    end
     render :nothing => true
   end
 

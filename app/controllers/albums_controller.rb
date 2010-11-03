@@ -14,15 +14,17 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    aspect = params[:album][:to]
+   aspects = params[:album][:to]
 
-    @album = current_user.post(:album, params[:album])
-    if @album.persisted?
+    @album = current_user.build_post(:album, params[:album])
+    if @album.save
+      raise 'MongoMapper failed to catch a failed save' unless @album.id
+      current_user.dispatch_post(@album, :to => aspects)
       flash[:notice] = I18n.t 'albums.create.success', :name  => @album.name
-      redirect_to :action => :show, :id => @album.id, :aspect => aspect
+      redirect_to :action => :show, :id => @album.id, :aspect =>aspects
     else
       flash[:error] = I18n.t 'albums.create.failure'
-      redirect_to albums_path(:aspect => aspect)
+      redirect_to albums_path(:aspect =>aspects)
     end
   end
 
