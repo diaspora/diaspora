@@ -6,7 +6,7 @@ class EMWebfinger
   def initialize(account)
     @account = account.strip.gsub('acct:','').to_s
     @callbacks = []
-    @ssl = true
+    @ssl = false 
     # Raise an error if identifier has a port number 
     raise "Identifier is invalid" if(@account.strip.match(/\:\d+$/))
     # Raise an error if identifier is not a valid email (generous regexp)
@@ -43,7 +43,9 @@ class EMWebfinger
       end
     }
 
-    http.errback { process_callbacks "there was an error getting the xrd from account#{@account}" }
+    http.errback {
+      
+      process_callbacks "there was an error getting the xrd from account#{@account}" }
   end
 
 
