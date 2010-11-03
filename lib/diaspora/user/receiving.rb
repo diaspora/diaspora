@@ -38,30 +38,38 @@ module Diaspora
         if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request) || object.is_a?(Retraction) || object.is_a?(Profile) 
           e = EMWebfinger.new(object.diaspora_handle)
 
-          e.on_person { |person|
+          e.on_person do |person|
 
             if person.class == Person
               object.person = person if object.respond_to? :person=
 
-              if object.is_a? Request
-                return receive_request object, person
-              end
-
-              raise "Not friends with that person" unless self.contact_for(salmon_author)
-
-              if object.is_a?(Comment) 
-                receive_comment object
-              elsif object.is_a?(Retraction)
-                receive_retraction object
-              elsif object.is_a?(Profile)
-                receive_profile object, person
+              unless object.is_a?(Request) || self.contact_for(salmon_author)
+                raise "Not friends with that person" 
               else
-                receive_post object
+
+                return receive_object(object,person)
+
               end
             end
-          }
+
+          end
         else
           raise "you messed up"
+        end
+      end
+
+      def receive_object(object,person)
+        if object.is_a?(Request)
+          receive_request object, person
+        elsif object.is_a?(Profile)
+          receive_profile object, person
+
+        elsif object.is_a?(Comment) 
+          receive_comment object
+        elsif object.is_a?(Retraction)
+          receive_retraction object
+        else
+          receive_post object
         end
       end
 

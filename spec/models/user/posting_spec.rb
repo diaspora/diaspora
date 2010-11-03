@@ -97,8 +97,9 @@ describe User do
 
   context 'dispatching' do
     let!(:user3) { make_user }
-    let!(:aspect3) { user3.aspects.create(:name => 'heroes') }
     let!(:user4) { make_user }
+
+    let!(:aspect3) { user3.aspects.create(:name => 'heroes') }
     let!(:aspect4) { user4.aspects.create(:name => 'heroes') }
 
     let!(:post) { user.build_post :status_message, :message => "hey" }
@@ -128,6 +129,17 @@ describe User do
         user.should_receive(:push_to_person).twice
         user.push_to_people(post, [user2.person, user3.person])
       end
+
+      it 'does not use the queue for local transfer' do
+        User::QUEUE.should_receive(:add_post_request).twice
+
+        remote_person = user4.person
+        remote_person.owner_id = nil
+        remote_person.save
+
+        user.push_to_people(post, [user2.person, user3.person, remote_person])
+      end
+
     end
 
   end
