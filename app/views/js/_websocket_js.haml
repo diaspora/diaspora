@@ -8,7 +8,7 @@
   $(document).ready(function(){
     function debug(str){ $("#debug").append("<p>" +  str); };
 
-    ws = new WebSocket("ws://#{request.host}:#{APP_CONFIG[:socket_port]}/#{CGI::escape(current_user.id.to_s)}");
+    ws = new WebSocket("ws://#{request.host}:#{APP_CONFIG[:socket_port]}/");
 
   //Attach onmessage to websocket
     ws.onmessage = function(evt) {

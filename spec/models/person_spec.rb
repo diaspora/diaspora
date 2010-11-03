@@ -47,14 +47,15 @@ describe Person do
         @person.diaspora_handle.include?(APP_CONFIG[:terse_pod_url]).should be false
       end
     end
+
     describe 'validation' do
       it 'is unique' do
-        person_two = Factory.build(:person, :url => @person.diaspora_handle)
+        person_two = Factory.build(:person, :diaspora_handle => @person.diaspora_handle)
         person_two.valid?.should be_false
       end
 
       it 'is case insensitive' do
-        person_two = Factory.build(:person, :url => @person.diaspora_handle.upcase)
+        person_two = Factory.build(:person, :url => @person.url.upcase)
         person_two.valid?.should be_false
       end
     end
