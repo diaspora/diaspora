@@ -156,7 +156,6 @@ describe EMWebfinger do
         }
       end
 
-
       it 'must try https first' do
         single_request = FakeHttpRequest.new(:success)
         single_request.callbacks = [diaspora_xrd]
@@ -170,6 +169,23 @@ describe EMWebfinger do
           f.on_person{ |p| 
             EM.stop
           }
+        }
+      end
+
+      it 'should retry with http if https fails with an http error code' do
+        bad_request = FakeHttpRequest.new(:failure)
+
+        good_request.callbacks = [diaspora_xrd, diaspora_finger, hcard_xml]
+
+        EventMachine::HttpRequest.should_receive(:new).with("https://tom.joindiaspora.com/.well-known/host-meta").and_return(bad_request)
+        EventMachine::HttpRequest.should_receive(:new).exactly(3).and_return(good_request)
+
+        f = EMWebfinger.new("tom@tom.joindiaspora.com") 
+
+        EM.run {
+          f.on_person{ |p| 
+          EM.stop
+        }
         }
       end
     end
