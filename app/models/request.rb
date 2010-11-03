@@ -9,7 +9,6 @@ class Request
   include Diaspora::Webhooks
   include ROXML
 
-  xml_reader :_id
   xml_reader :diaspora_handle
   xml_reader :destination_url
   xml_reader :callback_url
@@ -35,9 +34,11 @@ class Request
   end
 
   def reverse_for accepting_user
-    self.diaspora_handle   = accepting_user.diaspora_handle
-    self.destination_url   = self.callback_url
-    self.save
+    Request.new(
+      :diaspora_handle => accepting_user.diaspora_handle,
+      :destination_url => self.callback_url,
+      :callback_url    => self.destination_url
+    )
   end
 
 protected

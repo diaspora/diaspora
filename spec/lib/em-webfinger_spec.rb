@@ -28,7 +28,7 @@ describe EMWebfinger do
   let(:non_diaspora_hcard) {File.open(File.join(Rails.root, 'spec/fixtures/evan_hcard')).read}
 
   context 'setup' do
-    let(:action){ Proc.new{|person| puts person.inspect }}
+    let(:action){ Proc.new{|person| person.inspect }}
 
     describe '#intialize' do
       it 'sets account ' do
@@ -60,7 +60,7 @@ describe EMWebfinger do
         n = EMWebfinger.new("mbs@gmail.com")
         n.stub(:fetch).and_return(true)
 
-        n.on_person{|person| puts "foo"}
+        n.on_person{|person| 1+1}
         n.instance_variable_get(:@callbacks).count.should be 1
       end
 

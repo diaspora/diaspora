@@ -332,7 +332,7 @@ class User
       else
         u = User.find_by_email(opts[:email])
         if u.nil?
-        elsif friends.include?(u.person)
+        elsif contact_for(u.person)
           raise "You are already friends with this person"
         elsif not u.invited?
           self.send_friend_request_to(u.person, aspect_object)
@@ -342,7 +342,7 @@ class User
         end
       end
       request = Request.instantiate(
-        :to => "http://local_request.example.com",
+        :to   => "http://local_request.example.com",
         :from => self.person,
         :into => aspect_id
       )
@@ -368,7 +368,11 @@ class User
     if invitable.inviters.include?(inviter)
       raise "You already invited this person"
     else
-      invitable.pending_requests << request
+      invitable.pending_requests << Request.create(
+        :diaspora_handle => request.diaspora_handle,
+        :callback_url    => request.callback_url,
+        :destination_url => request.destination_url)
+
       invitable.inviters << inviter
       message = attributes.delete(:invite_message)
       if message

@@ -60,9 +60,9 @@ describe Diaspora::Parser do
     it "should activate the Person if I initiated a request to that url" do
       request = user.send_friend_request_to(user3.person, aspect)
       user.reload
-      request.reverse_for user3
+      reversed = request.reverse_for user3
 
-      xml = user3.salmon(request).xml_for(user.person)
+      xml = user3.salmon(reversed).xml_for(user.person)
 
       user3.delete
 
