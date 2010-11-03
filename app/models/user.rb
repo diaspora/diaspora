@@ -151,6 +151,7 @@ class User
     post = build_post(class_name, options)
 
     if post.persisted?
+      Rails.logger.info("Pushing: #{post.inspect} out to aspects")
       push_to_aspects(post, aspect_ids)
       post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
       if options[:public] == true
