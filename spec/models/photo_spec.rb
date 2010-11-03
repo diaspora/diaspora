@@ -17,6 +17,8 @@ describe Photo do
     @photo = Photo.new(:album => @album)
     @photo.person = @user.person
     @photo.diaspora_handle = @user.person.diaspora_handle
+
+    @photo2 = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
   end
 
   describe "protected attributes" do
@@ -34,6 +36,12 @@ describe Photo do
 
   it 'should be mutable' do
     @photo.mutable?.should == true   
+  end
+
+  describe '.instantiate' do
+    it 'sets the persons diaspora handle' do
+      @photo2.diaspora_handle.should == @user.person.diaspora_handle
+    end
   end
 
   it 'has a constructor' do

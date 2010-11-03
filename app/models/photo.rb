@@ -38,6 +38,7 @@ class Photo < Post
     person = params.delete(:person)
 
     photo = Photo.new(params)
+    photo.diaspora_handle = params[:diaspora_handle]
 
     photo.image.store! image_file
     photo.person = person
