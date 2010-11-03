@@ -33,6 +33,11 @@
 
       .options_and_submit
         - if aspect == :all
+          = status.submit t('.share'), :title => "Share with all aspects"
+        - else
+          = status.submit t('.share'), :title => "Share with #{aspect}"
+
+        - if aspect == :all
           .public_toggle
             = status.check_box( :public, {}, true, false )
             = t('.make_public')
@@ -42,10 +47,6 @@
               #question_mark_pane
                 = render 'shared/public_explain'
 
-        - if aspect == :all
-          = status.submit t('.share'), :title => "Share with all aspects"
-        - else
-          = status.submit t('.share'), :title => "Share with #{aspect}"
 
     #publisher_photo_upload
       = t('or')
