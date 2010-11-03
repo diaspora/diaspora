@@ -152,6 +152,15 @@ en:
               disconnect: "disconnect"
               connect_to_twitter: "Connect to Twitter"
               connect_to_facebook: "Connect to Facebook"
+          step_4:
+              all_set_up: "You're all set up, %{name}!"
+              ready_to_start_sharing: "You're now ready to start sharing with"
+              continue_to: "Continue on to your everyone page, an overview of all your aspects."
+              you_can_change_profile: "You can change your profile any time by clicking"
+              in_your_user_menu: "in your user menu (top right)"
+              connect_disconnect_info: "You can connect/disconnect your services any time by clicking"
+              manage_your_aspects_info: "You can manage your aspects any time by clicking the"
+              contacts_can_also_info: "tab.  Your contacts can also be added while on a particular aspect page, as well."
   comments:
       new_comment:
           comment: "Comment"
