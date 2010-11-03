@@ -32,6 +32,15 @@ module Diaspora
         end
       end
 
+      def contact_for(person)
+        id = person.id
+        contact_for_person_id(id) 
+      end
+
+      def contact_for_person_id(person_id)
+        friends.first(:person_id => person_id)
+      end
+
       def friends_not_in_aspect( aspect ) 
         person_ids = Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).collect{|x| x.person_id }
         Person.all(:id.in => person_ids)

@@ -6,13 +6,18 @@ require 'spec_helper'
 
 describe User do
 
+  let(:user)          {make_user}
   let!(:user2) { Factory(:user_with_aspect) }
+  let(:person_one) { Factory.create :person }
+  let(:person_two) { Factory.create :person }
+  let(:person_three) { Factory.create :person }
+
+ 
 
   context 'with two posts' do
     let!(:status_message1) { user2.post :status_message, :message => "hi", :to => user2.aspects.first.id }
     let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => user2.aspects.first.id }
     
-
   
   describe "#visible_posts" do
       it "queries by person id" do
@@ -38,7 +43,6 @@ describe User do
       end
 
       context 'with two users' do
-        let!(:user)          {make_user}
         let!(:first_aspect)  {user.aspects.create(:name => 'bruisers')}
         let!(:second_aspect) {user.aspects.create(:name => 'losers')}
 
@@ -100,7 +104,49 @@ describe User do
     end
   end
 
+  context 'contact querying' do
+    let(:person_one) { Factory.create :person }
+    let(:person_two) { Factory.create :person }
+    let(:person_three) { Factory.create :person }
+    let(:aspect) { user.aspects.create(:name => 'heroes') }
+    describe '#contact_for_person_id' do
+      it 'returns a contact' do
+        contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
+        user.friends << contact
+        user.contact_for_person_id(person_one.id).should be_true
+      end
 
+      it 'returns the correct contact' do
+        contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
+        user.friends << contact
+
+        contact2 = Contact.create(:user => user, :person => person_two, :aspects => [aspect])
+        user.friends << contact2
+
+        contact3 = Contact.create(:user => user, :person => person_three, :aspects => [aspect])
+        user.friends << contact3
+
+        user.contact_for_person_id(person_two.id).person.should == person_two
+      end
+
+      it 'returns nil for a non-contact' do
+        user.contact_for_person_id(person_one.id).should be_nil
+      end
+
+      it 'returns nil when someone else has contact with the target' do
+        contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
+        user.friends << contact
+        user2.contact_for_person_id(person_one.id).should be_nil
+      end
+    end
+
+    describe '#contact_for' do
+      it 'takes a person_id and returns a contact' do
+        user.should_receive(:contact_for_person_id).with(person_one.id)
+        user.contact_for(person_one) 
+      end
+    end
+  end
 
   describe '#albums_by_aspect' do
     let!(:first_aspect)  {user2.aspects.create(:name => 'bruisers')}

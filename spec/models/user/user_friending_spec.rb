@@ -25,37 +25,7 @@ describe Diaspora::UserModules::Friending do
     Notifier.stub!(:request_accepted).and_return(deliverable)
   end
 
-  describe '#contact_for' do
 
-    it 'returns a contact' do
-      contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
-      user.friends << contact
-      user.contact_for(person_one).should be_true
-    end
-
-    it 'returns the correct contact' do
-      contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
-      user.friends << contact
-
-      contact2 = Contact.create(:user => user, :person => person_two, :aspects => [aspect])
-      user.friends << contact2
-
-      contact3 = Contact.create(:user => user, :person => person_three, :aspects => [aspect])
-      user.friends << contact3
-
-      user.contact_for(person_two).person.should == person_two
-    end
-
-    it 'returns nil for a non-contact' do
-      user.contact_for(person_one).should be_nil
-    end
-
-    it 'returns nil when someone else has contact with the target' do
-      contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
-      user.friends << contact
-      user2.contact_for(person_one).should be_nil
-    end
-  end
 
 
   context 'friend requesting' do
