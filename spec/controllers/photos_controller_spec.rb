@@ -16,6 +16,7 @@ describe PhotosController do
   let(:fixture_name) {File.join(File.dirname(__FILE__), '..', 'fixtures', filename)}
   let(:image) {File.open(fixture_name)}
   let!(:photo){ user.post(:photo, :album_id => album.id, :user_file => image, :to => aspect.id)}
+  let(:photo_no_album){ user.post(:photo, :user_file => image, :to => aspect.id)}
 
   before do
     friend_users(user, aspect, user2, aspect2)
@@ -36,7 +37,6 @@ describe PhotosController do
 
   describe '#index' do
     it 'defaults to returning all of users pictures' do
-      pending
       get :index
       assigns[:person].should == user.person
       assigns[:photos].should == [photo]
@@ -44,12 +44,9 @@ describe PhotosController do
     end
 
     it 'sets the person to a friend if person_id is set' do
-      pending
-      puts user.visible_people.inspect
-      user.should_not_receive(:person)
       get :index, :person_id => user2.person.id  
       
-      assigns[:person].should == [user2.person]
+      assigns[:person].should == user2.person
       assigns[:photos].should == []
       assigns[:albums].should == []
     end
@@ -62,11 +59,30 @@ describe PhotosController do
   end
 
   describe '#show' do
+    it 'assigns the photo based on the photo id' do
+      get :show, :id => photo.id
+
+      assigns[:photo].should == photo
+      assigns[:album].should == album
+      assigns[:ownership].should == true 
+    end
 
   end
 
   describe '#edit' do
+    it 'should let you edit a photo with an album' do
+      pending
 
+      get :edit, :id => photo.id 
+      response.should_not redirect_to(photo)
+    end
+
+    it 'should let you edit a photo you own that does not have an album' do
+      pending
+
+      get :edit, :id => photo_no_album.id 
+      response.should_not redirect_to(photo)
+    end
   end
 
 

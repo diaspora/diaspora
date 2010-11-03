@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
 
   def index
     if params[:person_id]
-      @person = current_user.visible_people.find_by_person_id(params[:person_id])
+      @person = current_user.contact_for_person_id(params[:person_id]).person
     end
     @person ||= current_user.person
 
@@ -87,6 +87,10 @@ class PhotosController < ApplicationController
 
     @photo.destroy
     flash[:notice] = I18n.t 'photos.destroy.notice'
+
+    redirect = @photo.album
+    redirect ||= photos_path
+
     respond_with :location => @photo.album
   end
 
@@ -104,9 +108,9 @@ class PhotosController < ApplicationController
 
   def edit
     @photo = current_user.find_visible_post_by_id params[:id]
-    @album = @photo.album
+    @album = @photo.album 
 
-    redirect_to @photo unless current_user.owns? @album
+    redirect_to @photo #unless current_user.owns? @photo
   end
 
   def update

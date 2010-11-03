@@ -127,10 +127,6 @@ module Diaspora
         aspect.save
       end
 
-      def contact_for(person)
-        friends.first(:person_id => person.id)
-      end
-
       def request_from_me?(request)
         request.callback_url == person.receive_url 
       end
