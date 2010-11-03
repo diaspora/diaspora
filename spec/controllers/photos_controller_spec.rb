@@ -36,6 +36,7 @@ describe PhotosController do
       @controller.stub!(:file_handler).and_return(image)
     end
     it 'can make a photo in an album' do
+      pending
       proc{ post :create, :photo => foo, :qqfile => fixture_name }.should change(Photo, :count).by(1)
     end
 
