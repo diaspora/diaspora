@@ -226,6 +226,15 @@ describe User do
     end
   end
 
+  describe '#update_post' do
+
+    it 'sends a notification to aspects' do
+      user.should_receive(:push_to_aspects).twice
+      album = user.post(:album, :name => "cat", :to => aspect.id)
+      user.update_post(album, :name => 'bat')
+    end
+  end
+
   describe 'account removal' do
     it 'should unfriend everyone' do
       user.should_receive(:unfriend_everyone)
