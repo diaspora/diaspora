@@ -194,6 +194,15 @@ sv:
               disconnect: "koppla bort"
               connect_to_twitter: "Anslut till Twitter"
               connect_to_facebook: "Anslut till Facebook"
+          step_4:
+              all_set_up: "Nu är du klar för start, %{name}!"
+              ready_to_start_sharing: "Du är nu redo att börja dela med"
+              continue_to: "Fortsätt till din Everyone-sida, som visar en överblick av alla dina sidor."
+              you_can_change_profile: "Du kan när som helst ändra din profil genom att klicka på"
+              in_your_user_menu: "i användarmenyn (uppe till höger)"
+              connect_disconnect_info: "Du kan närsomhelt ansluta/koppla från tjänster genom att klicka på"
+              manage_your_aspects_info: "Du kan hantera dina sidor genom att klicka på"
+              contacts_can_also_info: "-fliken.  Du kan även lägga till nya vänner direkt från valfri sida."
   comments:
       new_comment:
           comment: "Kommentar"
