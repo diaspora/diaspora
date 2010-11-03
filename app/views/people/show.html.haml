@@ -36,10 +36,7 @@
 
     %br
     %br
-    - if @person != current_user.person && @contact
-      %ul
-        %li= link_to 'stream', person_path(@person)
-        %li= link_to 'photos', person_photos_path(@person)
+    = link_to 'photos', person_photos_path(@person)
 
 
 .span-15.last

@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 .span-4.append-1.last
-  = render "shared/aspect_friends"
+  = render 'shared/aspect_friends', :people => @friends, :aspect => @aspect
 
 .span-15.last
   = render 'aspects/no_friends_message'
