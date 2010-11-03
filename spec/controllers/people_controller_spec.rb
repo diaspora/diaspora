@@ -22,14 +22,17 @@ describe PeopleController do
 
   it 'should go to the current_user show page' do
     get :show, :id => user.person.id
+    response.should be_success
   end
 
-  it "doesn't error out on an invalid id" do
+  it "redirects on an invalid id" do
     get :show, :id => 'delicious'
+    response.should redirect_to people_path
   end
 
-  it "doesn't error out on a nonexistent person" do
+  it "redirects on a nonexistent person" do
     get :show, :id => user.id
+    response.should redirect_to people_path
   end
 
   describe '#update' do
@@ -49,6 +52,12 @@ describe PeopleController do
         user.person.reload
         user.person.profile.image_url.should == image_url
       end
+    end
+    it 'does not allow mass assignment' do
+      new_user = make_user
+      put :update, :id => user.person.id, :person => {
+        :owner_id => new_user.id}
+      user.person.reload.owner_id.should_not == new_user.id
     end
   end
 end
