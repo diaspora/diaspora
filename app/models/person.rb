@@ -43,8 +43,10 @@ class Person
 
   ensure_index :diaspora_handle
 
+  scope :searchable, where('profile.searchable' => true)
+
   def self.search(query)
-    return Person.all if query.to_s.empty?
+    return Person.searchable.all if query.to_s.empty?
     query_tokens = query.to_s.strip.split(" ")
     full_query_text = Regexp.escape(query.to_s.strip)
 
@@ -52,8 +54,9 @@ class Person
 
     query_tokens.each do |token|
       q = Regexp.escape(token.to_s.strip)
-      p = Person.all('profile.first_name' => /^#{q}/i) \
- | Person.all('profile.last_name' => /^#{q}/i) \
+      p = Person.searchable.all('profile.first_name' => /^#{q}/i) \
+ | Person.searchable.all('profile.last_name' => /^#{q}/i) \
+ | Person.searchable.all('diaspora_handle' => /^#{q}/i) \
  | p
     end
   
@@ -120,7 +123,10 @@ class Person
     #hcard_profile = HCard.find profile.hcard.first[:href]
     Rails.logger.info("hcard: #{ hcard.inspect}")
     new_person.url = hcard[:url]
-    new_person.profile = Profile.new(:first_name => hcard[:given_name], :last_name => hcard[:family_name], :image_url => hcard[:photo])
+    new_person.profile = Profile.new( :first_name => hcard[:given_name],
+                                      :last_name  => hcard[:family_name],
+                                      :image_url  => hcard[:photo],
+                                      :searchable => hcard[:searchable])
 
     new_person.save! ? new_person : nil
   end

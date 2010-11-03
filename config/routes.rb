@@ -20,7 +20,6 @@ Diaspora::Application.routes.draw do
   match 'public/:username',          :to => 'users#public'
   match 'getting_started',           :to => 'users#getting_started', :as => 'getting_started'
   match 'users/export',              :to => 'users#export'
-  match 'users/import',              :to => 'users#import'
   match 'users/export_photos',       :to => 'users#export_photos'
   resources :users,                  :except => [:create, :new, :show]
 

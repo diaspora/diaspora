@@ -44,6 +44,12 @@
         = t('.your_photo')
         = render 'people/profile_photo_upload', :form => profile
 
+      %h4
+        Search
+        %p{:class=>"checkbox_select"}
+          = profile.label :searchable, "Allow for people to search for you"
+          = profile.check_box :searchable, {:checked => @person.profile.searchable}, true, false
+
     .submit_block
       = link_to t('cancel'), edit_user_path(current_user)
       = t('or')

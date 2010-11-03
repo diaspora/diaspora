@@ -16,6 +16,9 @@ describe Photo do
 
     @photo = Photo.new(:album => @album)
     @photo.person = @user.person
+    @photo.diaspora_handle = @user.person.diaspora_handle
+
+    @photo2 = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
   end
 
   describe "protected attributes" do
@@ -28,6 +31,16 @@ describe Photo do
       @photo.save!
       @photo.update_attributes(:person_id => Factory(:person).id)
       @photo.reload.person.should == @user.person
+    end
+  end
+
+  it 'should be mutable' do
+    @photo.mutable?.should == true   
+  end
+
+  describe '.instantiate' do
+    it 'sets the persons diaspora handle' do
+      @photo2.diaspora_handle.should == @user.person.diaspora_handle
     end
   end
 
@@ -88,25 +101,23 @@ describe Photo do
 
   end
 
-  describe 'remote photos' do
-    it 'should write the url on serialization' do
-      @photo.image = File.open(@fixture_name)
-      @photo.image.store!
-      @photo.save
-
-      xml = @photo.to_xml.to_s
-
-      xml.include?(@photo.image.url).should be true
-    end
-
-    it 'should have an album id on serialization' do
+  describe 'serialization' do
+    before do
       @photo.image.store! File.open(@fixture_name)
-      xml = @photo.to_xml.to_s
-      xml.include?(@photo.album_id.to_s).should be true
+      @xml = @photo.to_xml.to_s
     end
-
+    it 'serializes the url' do
+      @xml.include?(@photo.image.url).should be true
+    end
+    it 'serializes the album_id' do
+      @xml.include?(@photo.album_id.to_s).should be true
+    end
+    it 'serializes the diaspora_handle' do
+      @xml.include?(@user.diaspora_handle).should be true
+    end
+  end
+  describe 'remote photos' do
     it 'should set the remote_photo on marshalling' do
-      pending "did the socket get unstubbed?"
       @photo.image.store! File.open(@fixture_name)
 
 
@@ -114,10 +125,6 @@ describe Photo do
       user2 = Factory.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
       friend_users(@user, @aspect, user2, aspect2)
-      @photo.person = user2.person
-
-      @photo.save
-      #@photo.reload
 
       url = @photo.url
       thumb_url = @photo.url :thumb_medium
@@ -126,7 +133,7 @@ describe Photo do
       id = @photo.id
 
       @photo.destroy
-      @user.receive xml, @photo.person
+      user2.receive xml, @user.person
 
       new_photo = Photo.first(:id => id)
       new_photo.url.nil?.should be false

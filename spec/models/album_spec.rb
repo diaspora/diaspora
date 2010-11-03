@@ -23,6 +23,15 @@ describe Album do
     album.associations[:photos].type.should == :many
   end
 
+  it 'should be mutable' do
+    post = user.post :album, :name => "hello", :to => aspect.id
+    post.mutable?.should == true   
+  end
+
+  it 'has a diaspora_handle' do
+    album.diaspora_handle.should == user.diaspora_handle
+  end
+
   context 'when an album has two attached images' do
     before do
       2.times do
@@ -62,6 +71,12 @@ describe Album do
       it 'returns the last photo when given the first photo in the album' do
         album.prev_photo(photo_1).id.should == photo_3.id
       end
+    end
+  end
+
+  describe 'serialization' do
+    it 'has a diaspora_handle' do
+      album.to_diaspora_xml.include?(user.diaspora_handle).should be_true
     end
   end
 

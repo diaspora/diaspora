@@ -43,6 +43,12 @@
         <dt>Note</dt> 
         <dd class="note">Diaspora is awesome! vi is better than emacs!</dd> 
       </dl> 
+      <dl class='entity_searchable'> 
+        <dt>Searchable</dt> 
+        <dd> 
+          <span class='searchable'>false</span> 
+        </dd> 
+      </dl>
     </div> 
   </div> 
 </div> 

@@ -47,14 +47,15 @@ describe Person do
         @person.diaspora_handle.include?(APP_CONFIG[:terse_pod_url]).should be false
       end
     end
+
     describe 'validation' do
       it 'is unique' do
-        person_two = Factory.build(:person, :url => @person.diaspora_handle)
+        person_two = Factory.build(:person, :diaspora_handle => @person.diaspora_handle)
         person_two.valid?.should be_false
       end
 
       it 'is case insensitive' do
-        person_two = Factory.build(:person, :url => @person.diaspora_handle.upcase)
+        person_two = Factory.build(:person, :url => @person.url.upcase)
         person_two.valid?.should be_false
       end
     end
@@ -186,6 +187,16 @@ describe Person do
     it 'should yield results on full names' do
       people = Person.search("Casey Grippi")
       people.should == [@friend_four]
+    end
+
+    it 'should only display searchable people' do
+      invisible_person = Factory(:person, :profile => {:searchable => false, :first_name => "johnson"})
+      Person.search("johnson").should_not include invisible_person
+      Person.search("").should_not include invisible_person
+    end
+
+    it 'should search on handles' do
+      Person.search(@friend_one.diaspora_handle).should include @friend_one
     end
   end
 
