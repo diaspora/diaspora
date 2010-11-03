@@ -9,6 +9,7 @@ describe Diaspora::WebSocket do
     @user = make_user
     @aspect = @user.aspects.create(:name => "losers")
     @post = @user.build_post(:status_message, :message => "hey", :to => @aspect.id)
+    @post.save
   end
 
   it 'should queue a job' do

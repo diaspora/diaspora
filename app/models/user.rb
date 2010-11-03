@@ -150,17 +150,32 @@ class User
 
     post = build_post(class_name, options)
 
-    if post.persisted?
-      Rails.logger.info("Pushing: #{post.inspect} out to aspects")
-      push_to_aspects(post, aspect_ids)
-      post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
-      if options[:public] == true
-        self.services.each do |service|
-          self.send("post_to_#{service.provider}".to_sym, service, post.message)
-        end
-      end
+    if post.save
+      raise 'MongoMapper failed to catch a failed save' unless post.id
+      dispatch_post(post, :to => aspect_ids)
     end
     post
+  end
+
+  def build_post(class_name, options = {})
+    options[:person] = self.person
+    options[:diaspora_handle] = self.person.diaspora_handle
+
+    model_class = class_name.to_s.camelize.constantize
+    model_class.instantiate(options)
+  end
+
+  def dispatch_post(post, opts = {})
+    self.raw_visible_posts << post
+    self.save
+    Rails.logger.info("Pushing: #{post.inspect} out to aspects")
+    push_to_aspects(post, opts[:to])
+    post.socket_to_uid(id, :aspect_ids => opts[:to]) if post.respond_to?(:socket_to_uid)
+    if post.public
+      self.services.each do |service|
+        self.send("post_to_#{service.provider}".to_sym, service, post.message)
+      end
+    end
   end
 
   def post_to_facebook(service, message)
@@ -201,20 +216,6 @@ class User
     end
 
     aspect_ids
-  end
-
-  def build_post(class_name, options = {})
-    options[:person] = self.person
-    options[:diaspora_handle] = self.person.diaspora_handle
-
-    model_class = class_name.to_s.camelize.constantize
-    post = model_class.instantiate(options)
-    if post.save
-      raise 'MongoMapper failed to catch a failed save' unless post.id
-      self.raw_visible_posts << post
-      self.save
-    end
-    post
   end
 
   def push_to_aspects(post, aspect_ids)
