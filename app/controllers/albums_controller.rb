@@ -9,8 +9,13 @@ class AlbumsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    @albums = current_user.albums_by_aspect(@aspect).paginate :page => params[:page], :per_page => 9, :order => 'created_at DESC'
-    respond_with @albums, :aspect => @aspect
+    if params[:person_id]
+      @person = current_user.visible_people.find_by_person_id(params[:person_id])
+    end
+    @person ||= current_user.person
+
+    @albums = current_user.visible_posts(:_type => 'Album').paginate :page => params[:page], :per_page => 9, :order => 'created_at DESC'
+    respond_with @albums
   end
 
   def create

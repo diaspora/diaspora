@@ -4,18 +4,15 @@
 
 
 #left_pane
-  - if @aspect == :all
-    %h2= "Everyone"
-  - else
-    %h2= @aspect
+  %h2= aspect == :all ? "Everyone" : aspect
 
   .friend_pictures
     = owner_image_link
 
-    - for friend in @friends
+    - for friend in people
       = person_image_link(friend)
 
-    -unless (@aspect == :all)
+    -unless (aspect == :all)
       = link_to (image_tag('add_friend_button.png', :title => "add to #{@aspect}")), "#add_request_pane", :class => 'add_request_button'
 
       .fancybox_content
@@ -28,10 +25,7 @@
 
   %br
   %br
-  %ul
-    %li= link_to 'stream', aspect_or_all_path(@aspect)
-    %li= link_to t('.photos'), albums_path(:aspect => @aspect)
-
+  %br
   %br
 
   = render "shared/invitations", :invites => @invites
