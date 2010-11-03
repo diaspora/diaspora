@@ -24,35 +24,14 @@ class PhotosController < ApplicationController
     album = current_user.find_visible_post_by_id( params[:photo][:album_id] )
 
     begin
-
-      ######################## dealing with local files #############
-      # get file name
-      file_name = params[:qqfile]
-      # get file content type
-      att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
-      # create temporal file
-      begin
-        file = Tempfile.new(file_name, {:encoding =>  'BINARY'})
-        file.print request.raw_post.force_encoding('BINARY')
-      rescue RuntimeError => e
-        raise e unless e.message.include?('cannot generate tempfile')
-        file = Tempfile.new(file_name) # Ruby 1.8 compatibility
-        file.print request.raw_post
-      end
-      # put data into this file from raw post request
-
-      # create several required methods for this temporal file
-      Tempfile.send(:define_method, "content_type") {return att_content_type}
-      Tempfile.send(:define_method, "original_filename") {return file_name}
-
-      ##############
-
-      params[:photo][:user_file] = file
+      params[:photo][:user_file] = file_handler(params)
 
       @photo = current_user.build_post(:photo, params[:photo])
 
       if @photo.save
-        raise 'MongoMapper failed to catch a failed save' unless post.id
+        raise 'MongoMapper failed to catch a failed save' unless @photo.id
+
+
         current_user.dispatch_post(@photo, :to => params[:photo][:to])
         respond_to do |format|
           format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
@@ -83,15 +62,17 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = current_user.find_visible_post_by_id params[:id]
+    photo = current_user.my_posts.where(:_id => params[:id]).first
 
-    @photo.destroy
-    flash[:notice] = I18n.t 'photos.destroy.notice'
+    if photo
+      photo.destroy
+      flash[:notice] = I18n.t 'photos.destroy.notice'
 
-    redirect = @photo.album
+      redirect = photo.album
+    end
+
     redirect ||= photos_path
-
-    respond_with :location => @photo.album
+    respond_with :location => redirect
   end
 
   def show
@@ -107,21 +88,52 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    @photo = current_user.find_visible_post_by_id params[:id]
-    @album = @photo.album 
-
-    redirect_to @photo #unless current_user.owns? @photo
+    @photo = current_user.my_posts.where(:_id => params[:id]).first
+    if @photo
+      @album = @photo.album 
+    else
+      redirect_to photos_path
+    end
   end
 
   def update
-    @photo = current_user.find_visible_post_by_id params[:id]
-
-    if current_user.update_post( @photo, params[:photo] )
-      flash[:notice] = I18n.t 'photos.update.notice'
-      respond_with @photo
+    photo = current_user.my_posts.where(:_id => params[:id]).first
+    if photo
+      if current_user.update_post( photo, params[:photo] )
+        flash[:notice] = I18n.t 'photos.update.notice'
+        respond_with photo
+      else
+        flash[:error] = I18n.t 'photos.update.error'
+        redirect_to [:edit, photo]
+      end
     else
-      flash[:error] = I18n.t 'photos.update.error'
-      redirect_to [:edit, @photo]
+      redirect_to photos_path
     end
+  end
+
+
+  private 
+
+  def file_handler(params)
+      ######################## dealing with local files #############
+      # get file name
+      file_name = params[:qqfile]
+      # get file content type
+      att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
+      # create tempora##l file
+      begin
+        file = Tempfile.new(file_name, {:encoding =>  'BINARY'})
+        file.print request.raw_post.force_encoding('BINARY')
+      rescue RuntimeError => e
+        raise e unless e.message.include?('cannot generate tempfile')
+        file = Tempfile.new(file_name) # Ruby 1.8 compatibility
+        file.print request.raw_post
+      end
+      # put data into this file from raw post request
+
+      # create several required methods for this temporal file
+      Tempfile.send(:define_method, "content_type") {return att_content_type}
+      Tempfile.send(:define_method, "original_filename") {return file_name}
+      file
   end
 end

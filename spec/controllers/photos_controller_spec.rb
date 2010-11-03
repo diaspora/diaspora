@@ -8,29 +8,42 @@ describe PhotosController do
   let(:user) {make_user}
   let(:user2) {make_user}
 
-  let(:aspect) {user.aspects.create(:name => 'winners')}
+  let!(:aspect) {user.aspects.create(:name => 'winners')}
   let(:aspect2) {user2.aspects.create(:name => 'winners')}
   
   let!(:album) {user.post(:album, :to => aspect.id, :name => "room on fire")}
+  let!(:album2) {user2.post(:album, :to => aspect2.id, :name => "room on fire")}
   let(:filename) {'button.png'}
   let(:fixture_name) {File.join(File.dirname(__FILE__), '..', 'fixtures', filename)}
   let(:image) {File.open(fixture_name)}
   let!(:photo){ user.post(:photo, :album_id => album.id, :user_file => image, :to => aspect.id)}
   let(:photo_no_album){ user.post(:photo, :user_file => image, :to => aspect.id)}
+  let!(:photo2){ user2.post(:photo, :album_id => album2.id, :user_file => image, :to => aspect2.id)}
 
   before do
     friend_users(user, aspect, user2, aspect2)
     sign_in :user, user
     user.reload
+    aspect.reload
+    aspect2.reload
     @controller.stub!(:current_user).and_return(user)
   end
 
   describe '#create' do
+    let(:foo) {{:album_id => album.id.to_s}}
+
+    before do
+      @controller.stub!(:file_handler).and_return(image)
+    end
     it 'can make a photo in an album' do
-      pending
+      proc{ post :create, :photo => foo, :qqfile => fixture_name }.should change(Photo, :count).by(1)
     end
 
     it 'can make a picture without an album' do
+      pending
+    end
+
+    it 'does not let you create a photo in an album you do not own' do
       pending
     end
   end
@@ -71,23 +84,32 @@ describe PhotosController do
 
   describe '#edit' do
     it 'should let you edit a photo with an album' do
-      pending
-
       get :edit, :id => photo.id 
-      response.should_not redirect_to(photo)
+      response.code.should == "200"
     end
 
     it 'should let you edit a photo you own that does not have an album' do
-      pending
-
       get :edit, :id => photo_no_album.id 
-      response.should_not redirect_to(photo)
+      response.code.should == "200"
+    end
+
+    it 'should not let you edit a photo that is not yours' do
+      get :edit, :id => photo2.id 
+      response.should redirect_to(:action => :index)
     end
   end
 
 
   describe '#destroy' do
+    it 'should let me delete my photos' do
+      delete :destroy, :id => photo.id
+      Photo.find_by_id(photo.id).should be nil
+    end
 
+    it 'will not let you destory posts you do not own' do
+      delete :destroy, :id => photo2.id
+      Photo.find_by_id(photo2.id).should_not be nil
+    end
   end
 
   describe "#update" do
@@ -101,6 +123,12 @@ describe PhotosController do
       params = { :caption => "now with lasers!", :person_id => new_user.id}
       put :update, :id => photo.id, :photo => params
       photo.reload.person_id.should == user.person.id
+    end
+
+    it 'should redirect if you do not have access to the post' do
+      params = { :caption => "now with lasers!"}
+      put :update, :id => photo2.id, :photo => params
+      response.should redirect_to(:action => :index)
     end
   end
 end

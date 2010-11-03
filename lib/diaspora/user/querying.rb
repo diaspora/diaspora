@@ -32,6 +32,10 @@ module Diaspora
         end
       end
 
+      def my_posts
+        Post.where(:diaspora_handle => person.diaspora_handle)
+      end
+
       def contact_for(person)
         id = person.id
         contact_for_person_id(id) 
