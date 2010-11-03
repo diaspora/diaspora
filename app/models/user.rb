@@ -388,21 +388,16 @@ class User
 
   def accept_invitation!(opts = {})
     if self.invited?
-      self.username              = opts[:username]
+
+      self.setup(opts)
+
+      self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-      opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
-      opts[:person][:url] = APP_CONFIG[:pod_url]
 
-      opts[:serialized_private_key] = User.generate_key
-      self.serialized_private_key =  opts[:serialized_private_key]
-      opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-
-      person_hash = opts.delete(:person)
-      self.person = Person.create(person_hash)
-      self.person.save
+      self.person.save!
       self.invitation_token = nil
-      self.save
+      self.save!
       self
     end
   end
@@ -410,23 +405,27 @@ class User
   ###Helpers############
   def self.build(opts = {})
     u = User.new(opts)
-
-    u.username = opts[:username]
     u.email = opts[:email]
-
-    opts[:person] ||= {}
-    opts[:person][:profile] ||= Profile.new
-    u.person = Person.new(opts[:person])
-    u.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
-
-    u.person.url = APP_CONFIG[:pod_url]
-
-    new_key = generate_key
-    u.serialized_private_key = new_key
-    u.person.serialized_public_key = new_key.public_key
-
+    u.setup(opts)
     u
   end
+
+  def setup(opts)
+    self.username = opts[:username]
+    
+    opts[:person] ||= {}
+    opts[:person][:profile] ||= Profile.new
+
+    self.person = Person.new(opts[:person])
+    self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
+    self.person.url = APP_CONFIG[:pod_url]
+    new_key = User.generate_key
+    self.serialized_private_key = new_key
+    self.person.serialized_public_key = new_key.public_key
+
+    self
+  end
+
 
   def seed_aspects
     self.aspects.create(:name => "Family")

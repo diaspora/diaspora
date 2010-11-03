@@ -45,7 +45,7 @@ describe User do
         user = Factory.build(:user)
         user.should be_valid
 
-        user.person.update_attribute(:serialized_public_key, nil)
+        user.person.serialized_public_key = nil
         user.person.should_not be_valid
         user.should_not be_valid
 
@@ -189,6 +189,25 @@ describe User do
       end
       it "does not save" do
         User.build(@invalid_params).save.should be_false
+      end
+    end
+    describe "with malicious params" do
+      let(:person) {Factory.create :person}
+      before do
+        @invalid_params = {:username => "ohai",
+                  :email => "ohai@example.com",
+                  :password => "password",
+                  :password_confirmation => "password",
+                  :person => 
+                    {:_id => person.id,
+                      :profile => 
+                      {:first_name => "O", 
+                       :last_name => "Hai"}
+                    }
+        }
+      end
+      it "does not assign it to the person" do
+        User.build(@invalid_params).person.id.should_not == person.id
       end
     end
   end

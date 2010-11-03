@@ -35,6 +35,10 @@ describe User do
       }.should change(User, :count).by(1)
     end
 
+    it 'creates it with an email' do
+      inviter.invite_user(:email => "joe@example.com", :aspect_id => aspect.id).email.should == "joe@example.com"
+    end
+
     it 'sends email to the invited user' do
       ::Devise.mailer.should_receive(:invitation).once
       inviter.invite_user(:email => "ian@example.com", :aspect_id => aspect.id)
@@ -135,6 +139,7 @@ def create_user_with_invitation(invitation_token, attributes={})
   inviter = attributes.delete(:inviter)
   user = User.new({:password => nil, :password_confirmation => nil}.update(attributes))
   #user.skip_confirmation!
+  user.email = attributes[:email]
   user.invitation_token = invitation_token
   user.invitation_sent_at = Time.now.utc
   user.inviters << inviter

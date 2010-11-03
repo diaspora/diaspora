@@ -45,6 +45,8 @@ class Person
 
   scope :searchable, where('profile.searchable' => true)
 
+  attr_accessible :profile
+
   def self.search(query)
     return Person.searchable.all if query.to_s.empty?
     query_tokens = query.to_s.strip.split(" ")
