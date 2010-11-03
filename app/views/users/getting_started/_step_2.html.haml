@@ -28,7 +28,7 @@
           #add_request_pane
             = render "requests/new_request", :aspect => aspect, :getting_started => 2
 
-      = link_to "x", aspect_path(aspect), :confirm => "are you sure?", :method => :delete, :remote => true, :class => "delete right"
+      = link_to "x", aspect_path(aspect), :method => :delete, :remote => true, :class => "delete right"
 
 %br
 %br

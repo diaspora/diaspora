@@ -11,7 +11,9 @@
 
     $(".aspects li").find(".delete").live("click", function(){
       var aspectElement = $(this).parent("li");
-      aspectElement.fadeOut(300, function(){aspectElement.remove();});
+      if (confirm("are you sure?")){
+        aspectElement.fadeOut(300, function(){aspectElement.remove();});
+      }
     });
     
   - if current_user.getting_started == true
