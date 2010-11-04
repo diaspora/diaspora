@@ -62,11 +62,8 @@ class DevUtilitiesController < ApplicationController
 
       @fixture_name = File.join(File.dirname(__FILE__), "..", "..", "public", "images", "user", "#{username}.jpg")
 
-      photo = Photo.new
-      photo.person = current_user.person
-      photo.image.store! File.open(@fixture_name)
+      photo = current_user.post(:photo, :user_file => File.open(@fixture_name), :to => 'all')
       photo.save
-      photo.reload
 
       current_user.raw_visible_posts << photo
       current_user.save
