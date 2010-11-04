@@ -6,7 +6,7 @@ class Notifier < ActionMailer::Base
 
   def new_request(recipient_id, sender_id)
     @receiver = User.find_by_id(recipient_id)
-    @sender = Person.find_by_id(sender.id)
+    @sender = Person.find_by_id(sender_id)
 
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
   
