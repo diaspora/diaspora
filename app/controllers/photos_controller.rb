@@ -10,18 +10,17 @@ class PhotosController < ApplicationController
 
   def index
     if params[:person_id]
-      @person = current_user.contact_for_person_id(params[:person_id]).person
+      @person = current_user.contact_for_person_id(params[:person_id])
+      @person = @person.person if @person
     end
     @person ||= current_user.person
 
     @photos = current_user.visible_posts(:_type => "Photo", :person_id => @person.id)
-    @albums = current_user.visible_posts(:_type => "Album", :person_id => @person.id)
 
     @aspect = :photos
   end
 
   def create
-    album = current_user.find_visible_post_by_id( params[:photo][:album_id] )
 
     begin
       params[:photo][:user_file] = file_handler(params)
@@ -31,34 +30,32 @@ class PhotosController < ApplicationController
       if @photo.save
         raise 'MongoMapper failed to catch a failed save' unless @photo.id
 
-
         current_user.dispatch_post(@photo, :to => params[:photo][:to])
         respond_to do |format|
           format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
         end
       else
-        respond_with :location => album, :error => message
+        respond_with :location => photos_path, :error => message
       end
 
     rescue TypeError
       message = I18n.t 'photos.create.type_error'
-      respond_with :location => album, :error => message
+      respond_with :location => photos_path, :error => message
 
     rescue CarrierWave::IntegrityError
       message = I18n.t 'photos.create.integrity_error'
-      respond_with :location => album, :error => message
+      respond_with :location => photos_path, :error => message
 
     rescue RuntimeError => e
       message = I18n.t 'photos.create.runtime_error'
-      respond_with :location => album, :error => message
+      respond_with :location => photos_path, :error => message
       raise e
     end
   end
 
   def new
     @photo = Photo.new
-    @album = current_user.album_by_id(params[:album_id])
-    render :partial => 'new_photo'
+    respond_with @photo
   end
 
   def destroy
@@ -67,12 +64,9 @@ class PhotosController < ApplicationController
     if photo
       photo.destroy
       flash[:notice] = I18n.t 'photos.destroy.notice'
-
-      redirect = photo.album
     end
 
-    redirect ||= photos_path
-    respond_with :location => redirect
+    respond_with :location => photos_path
   end
 
   def show
@@ -80,17 +74,15 @@ class PhotosController < ApplicationController
     unless @photo
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
-      @album = @photo.album
       @ownership = current_user.owns? @photo
 
-      respond_with @photo, @album
+      respond_with @photo
     end
   end
 
   def edit
-    @photo = current_user.my_posts.where(:_id => params[:id]).first
-    if @photo
-      @album = @photo.album 
+    if @photo = current_user.my_posts.where(:_id => params[:id]).first
+      respond_with @photo
     else
       redirect_to photos_path
     end

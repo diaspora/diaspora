@@ -11,6 +11,7 @@ class HandleValidator < ActiveModel::Validator
 end
 
 class Comment
+  require File.join(Rails.root, 'lib/diaspora/websocket')
   include MongoMapper::Document
   include ROXML
   include Diaspora::Webhooks

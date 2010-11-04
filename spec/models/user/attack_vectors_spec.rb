@@ -148,16 +148,16 @@ describe "attack vectors" do
     end
 
     it 'does not let me update other persons post' do
-      original_message = user2.post :album, :name => 'store this!', :to => aspect2.id
+      pending "this needs to be a photo"
+      original_message = user2.post(:photo, :user_file => uploaded_photo, :caption => "store this!", :to => aspect2.id)
       user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
 
       original_message.diaspora_handle = user3.diaspora_handle
-      original_message.name = "bad bad bad"
+      original_message.caption = "bad bad bad"
       xml = user3.salmon(original_message).xml_for(user.person)
       user.receive_salmon(xml)
 
-      original_message.reload.name.should == "store this!"
-
+      original_message.reload.caption.should == "store this!"
     end
   end
 end

@@ -46,7 +46,7 @@
     - if @posts.count > 0
       %ul#stream
         - for post in @posts
-          = render type_partial(post), :post => post unless post.class == Album
+          = render type_partial(post), :post => post
         = will_paginate @posts
     - else
       %h3= t('.no_posts')

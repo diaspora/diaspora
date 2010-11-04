@@ -2,13 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class PhotoAlbumValidator < ActiveModel::Validator
-  def validate(document)
-    unless document.album.nil? || document.album.person_id == document.person_id
-      document.errors[:base] << "You post photos to that album"
-    end
-  end
-end
 class Photo < Post
   require 'carrierwave/orm/mongomapper'
   include MongoMapper::Document
@@ -16,18 +9,12 @@ class Photo < Post
 
   xml_accessor :remote_photo
   xml_accessor :caption
-  xml_reader :album_id
 
-  key :album_id, ObjectId
   key :caption,  String
   key :remote_photo_path
   key :remote_photo_name
 
-  belongs_to :album, :class_name => 'Album'
-
   timestamps!
-
-  validates_with PhotoAlbumValidator
 
   attr_accessible :caption
 
@@ -37,7 +24,6 @@ class Photo < Post
     photo = super(params)
     image_file = params.delete(:user_file)
 
-    photo.album_id = params[:album_id]
     photo.image.store! image_file
     photo
   end
@@ -69,7 +55,7 @@ class Photo < Post
   end
 
   def thumb_hash
-    {:thumb_url => url(:thumb_medium), :id => id, :album_id => album_id}
+    {:thumb_url => url(:thumb_medium), :id => id, :album_id => nil}
   end
 
   def mutable?

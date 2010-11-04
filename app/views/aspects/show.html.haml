@@ -7,11 +7,11 @@
 
 .span-15.last
   = render 'aspects/no_friends_message'
-  = render 'shared/publisher', :type => :status_message, :aspect => @aspect
+  = render 'shared/publisher', :aspect => @aspect
   = render 'aspects/no_posts_message'
   %ul#stream
     - for post in @posts
-      = render type_partial(post), :post => post unless post.class == Album
+      = render type_partial(post), :post => post
 
   #pagination
     = will_paginate @posts

@@ -22,18 +22,6 @@
         = link_to (image_tag photo.url(:thumb_medium)), photo_path(photo)
 
 .span-24.last
-  %h3
-    Photos
-  %div
-    - for album in @albums
-      = render "albums/album", :post => album
-    = link_to "uploads", album_path("uploads")
-
-.span-24.last
-  %h3
-    Albums
-
-.span-24.last
   #add_photo_pane
-    = render "photos/new_photo", :album_id => nil, :aspect_id => :all
+    = render "photos/new_photo", :aspect_id => :all
 

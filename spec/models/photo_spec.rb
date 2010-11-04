@@ -8,13 +8,12 @@ describe Photo do
   before do
     @user = make_user
     @aspect = @user.aspects.create(:name => "losers")
-    @album = @user.post :album, :name => "foo", :to => @aspect.id
 
     @fixture_filename = 'button.png'
     @fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo = Photo.new(:album => @album)
+    @photo = Photo.new
     @photo.person = @user.person
     @photo.diaspora_handle = @user.person.diaspora_handle
 
@@ -45,10 +44,9 @@ describe Photo do
     it 'has a constructor' do
       image = File.open(@fixture_name)
       photo = Photo.instantiate(
-                :person => @user.person, :album => @album, :user_file => image)
-      photo.created_at.nil?.should be true
-      photo.image.read.nil?.should be false
-      photo.album.should == @album
+                :person => @user.person, :user_file => image)
+      photo.created_at.nil?.should be_true
+      photo.image.read.nil?.should be_false
     end
 
   end
@@ -111,9 +109,6 @@ describe Photo do
     end
     it 'serializes the url' do
       @xml.include?(@photo.image.url).should be true
-    end
-    it 'serializes the album_id' do
-      @xml.include?(@photo.album_id.to_s).should be true
     end
     it 'serializes the diaspora_handle' do
       @xml.include?(@user.diaspora_handle).should be true

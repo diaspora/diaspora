@@ -30,9 +30,8 @@ describe SocketsController do
     end
 
     it 'should actionhash photos' do
-      @album = @user.post(:album, :name => "Loser faces", :to => @aspect.id)
-      photo  = @user.post(:photo, :album_id => @album.id, :user_file => File.open(@fixture_name))
-      json = @controller.action_hash(@user.id, photo, :aspect_ids => @user.aspects_with_post(@album.id).map{|g| g.id})
+      photo = @user.post(:photo, :album_id => nil, :to => @aspect.id, :user_file => File.open(@fixture_name))
+      json  = @controller.action_hash(@user.id, photo, :aspect_ids => :all)
       json.include?('photo').should be_true
     end
 

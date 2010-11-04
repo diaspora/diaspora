@@ -85,6 +85,12 @@ module HelperMethods
     UserFixer.fixed_user
   end
 
+  def uploaded_photo
+    fixture_filename = 'button.png'
+    fixture_name = File.join(File.dirname(__FILE__), 'fixtures', fixture_filename)
+    File.open(fixture_name)
+  end
+
   class UserFixer
     def self.regenerate_user_fixtures
       users = {:users => build_user_fixtures}

@@ -8,7 +8,6 @@ Diaspora::Application.routes.draw do
   resources :comments,        :except => [:index]
   resources :requests,        :except => [:edit, :update]
   resources :photos
-  resources :albums
   resources :services
 
   match '/auth/:provider/callback' => 'services#create'

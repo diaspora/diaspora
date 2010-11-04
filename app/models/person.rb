@@ -30,7 +30,6 @@ class Person
     diaspora_handle.downcase!
   end
 
-  many :albums, :class_name => 'Album', :foreign_key => :person_id
   belongs_to :owner, :class_name => 'User'
 
   timestamps!

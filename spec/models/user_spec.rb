@@ -246,11 +246,11 @@ describe User do
   end
 
   describe '#update_post' do
-
     it 'sends a notification to aspects' do
       user.should_receive(:push_to_aspects).twice
-      album = user.post(:album, :name => "cat", :to => aspect.id)
-      user.update_post(album, :name => 'bat')
+      photo = user.post(:photo, :user_file => uploaded_photo, :caption => "hello", :to => aspect.id)
+      
+      user.update_post(photo, :caption => 'hellp')
     end
   end
 

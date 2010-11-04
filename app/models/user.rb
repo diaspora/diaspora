@@ -157,12 +157,7 @@ class User
   end
 
   def dispatch_post(post, opts = {})
-    if post.is_a?(Photo) && post.album_id
-      aspect_ids = aspects_with_post(post.album_id)
-      aspect_ids.map! { |aspect| aspect.id }
-    else
-      aspect_ids = opts.delete(:to)
-    end
+    aspect_ids = opts.delete(:to)
 
     aspect_ids = validate_aspect_permissions(aspect_ids)
     self.raw_visible_posts << post
