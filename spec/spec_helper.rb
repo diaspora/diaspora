@@ -33,6 +33,9 @@ RSpec.configure do |config|
     EventMachine::HttpRequest.any_instance.stubs(:get)
     DatabaseCleaner.clean
     UserFixer.load_user_fixtures
+    Notifier.stub!(:send_request_accepted!).and_return(true)
+    Notifier.stub!(:send_new_request!).and_return(true)
+
   end
 end
 

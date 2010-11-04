@@ -39,11 +39,12 @@ def process_message
   else
     EM::Timer.new(1){process_message}
   end
-
 end
 
 begin
   EM.run {
+
+
     Diaspora::WebSocket.initialize_channels
 
     EventMachine::WebSocket.start(

@@ -67,7 +67,7 @@ module Diaspora
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
           friend_request.destroy
           original_request.destroy
-          Notifier.request_accepted(self, friend_request.person, destination_aspect)
+          Notifier.send_request_accepted!(self, friend_request.person, destination_aspect)
 
         #this is a new friend request
         elsif !request_from_me?(friend_request)
@@ -75,7 +75,7 @@ module Diaspora
           self.save
           Rails.logger.info("#{self.real_name} has received a friend request")
           friend_request.save
-          Notifier.new_request(self, friend_request.person).deliver
+          Notifier.send_new_request!(self, friend_request.person)
         else
           raise "#{self.real_name} is trying to receive a friend request from himself."
         end
