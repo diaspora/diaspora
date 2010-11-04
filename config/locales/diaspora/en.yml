@@ -81,35 +81,6 @@ en:
           reshare: 'Reshare'
       author_info:
           view_profile: 'View profile'
-  albums:
-      album:
-          you: "you"
-      new_album:
-          create: "create"
-          add_a_new_album: "Add a new album"
-      show:
-          edit_album: "Edit Album"
-          albums: "albums"
-          updated: "updated"
-      edit:
-          album_name: "Album name"
-          editing: "Editing"
-          updated: "updated"
-          update_album: "Update album"
-          delete_album: "Delete Album"
-      index:
-          new_album: "New Album"
-      create:
-          success: "You've created an album called %{name}."
-          failure: "Failed to create album."
-      update:
-          success: "Album %{name} successfully edited."
-          failure: "Failed to edit album %{name}."
-      destroy:
-          success: "Album %{name} deleted."
-      helper:
-          friends_albums: "Friends Albums"
-          your_albums: "Your Albums"
   aspects:
       no_friends_message:
           nobody: "We know you have friends — bring them to Diaspora!"
@@ -159,7 +130,6 @@ en:
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
           'step_1':
-              albums: "Albums"
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
               page_to_upload_some:  "page to upload some."
   comments:
@@ -268,7 +238,6 @@ en:
           info: "Info"
           picture: "Picture"
           editing_profile: "Editing profile"
-          albums: "Albums"
           you_dont_have_any_photos: "You don't have any photos!  Go to the"
           page_to_upload_some:  "page to upload some."
   requests:

@@ -69,7 +69,6 @@ module Diaspora
         self.aspects.find_all_by_post_ids( id.to_id )
       end
 
-
       def aspects_with_person person
         contact_for(person).aspects
       end
@@ -84,9 +83,6 @@ module Diaspora
         self.aspects.all.collect{|x| x.id}
       end
 
-      def albums_by_aspect aspect
-        aspect == :all ? raw_visible_posts.find_all_by__type("Album") : aspect.posts.find_all_by__type("Album")
-      end
     end
   end
 end

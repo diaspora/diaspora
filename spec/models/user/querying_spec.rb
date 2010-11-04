@@ -14,7 +14,6 @@ describe User do
   let(:person_three) { Factory.create :person }
 
 
-
   context 'with two posts' do
     let!(:status_message1) { user2.post :status_message, :message => "hi", :to => user2.aspects.first.id }
     let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => user2.aspects.first.id }
@@ -174,23 +173,4 @@ describe User do
     end
   end
 
-  describe '#albums_by_aspect' do
-    let!(:first_aspect)  {user2.aspects.create(:name => 'bruisers')}
-    let!(:second_aspect) {user2.aspects.create(:name => 'losers')}
-    before do
-      user2.post :album, :name => "Georges", :to => first_aspect.id
-      user2.post :album, :name => "Borges", :to => first_aspect.id
-      user2.post :album, :name => "Luises", :to => second_aspect.id
-      user2.reload
-    end
-
-    it 'should find all albums if passed :all' do
-      user2.albums_by_aspect(:all).should have(3).albums
-    end
-
-    it 'should return the right number of albums' do
-      user2.albums_by_aspect(first_aspect.reload).should have(2).albums
-      user2.albums_by_aspect(second_aspect.reload).should have(1).album
-    end
-  end
 end

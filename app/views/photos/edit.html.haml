@@ -6,18 +6,10 @@
 
 %div{:id => @photo.id}
   #show_photo
-    = linked_scaled_photo @photo, @album
+    = image_tag @photo.url(:scaled_full)
 
   = form_for @photo do |photo|
     = photo.label :caption
     = photo.text_field :caption, :value => @photo.caption
     = photo.submit
-  %div{:class => 'clear'}
-
-  #content_bottom
-    .back
-      = link_to "⇧ #{@album.name}", album_path(@album)
-    -if current_user.owns? @album
-      .button.right
-        = link_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete
 

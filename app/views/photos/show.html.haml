@@ -10,18 +10,15 @@
 
 %ul#breadcrumb
   %li= link_to "#{@photo.person.profile.first_name}'s Photos", person_photos_path(@photo.person)
-  - if !@photo.album_id.nil?
-    %li= link_to @album.name, album_path(@album)
-  - else
-    %li= link_to "uploads", album_path("uploads")
   %li= @photo.caption
 
-- if @photo.album
-  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch', :id => "prev_photo"
-  |
-  = link_to "#{t('.full_size')}", @photo.url
-  |
-  = link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch', :id => "next_photo"
+/ we need to do next photo here
+/- if @photo.album
+/= link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch', :id => "prev_photo"
+/|
+/= link_to "#{t('.full_size')}", @photo.url
+/|
+/= link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch', :id => "next_photo"
 
 .span-14.append-1.last
   %div{:data=>{:guid=>@photo.id}}
@@ -31,9 +28,10 @@
         .edit_pane
           .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
             = link_to 'make profile photo', '#', :class => "make_profile_photo"
-          = linked_scaled_photo @photo, @album
+          = image_tag @photo.url(:scaled_full)
+
       -else
-        = linked_scaled_photo @photo, @album
+        = image_tag @photo.url(:scaled_full)
 
       .caption
         -if @ownership

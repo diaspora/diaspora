@@ -11,41 +11,26 @@ describe PhotosController do
   let!(:aspect) {user.aspects.create(:name => 'winners')}
   let(:aspect2) {user2.aspects.create(:name => 'winners')}
   
-  let!(:album) {user.post(:album, :to => aspect.id, :name => "room on fire")}
-  let!(:album2) {user2.post(:album, :to => aspect2.id, :name => "room on fire")}
   let(:filename) {'button.png'}
   let(:fixture_name) {File.join(File.dirname(__FILE__), '..', 'fixtures', filename)}
   let(:image) {File.open(fixture_name)}
-  let!(:photo){ user.post(:photo, :album_id => album.id, :user_file => image, :to => aspect.id)}
-  let(:photo_no_album){ user.post(:photo, :user_file => image, :to => aspect.id)}
-  let!(:photo2){ user2.post(:photo, :album_id => album2.id, :user_file => image, :to => aspect2.id)}
+  let!(:photo){ user.post(:photo, :user_file => image, :to => aspect.id)}
+  let!(:photo2){ user2.post(:photo, :user_file => image, :to => aspect2.id)}
 
   before do
     friend_users(user, aspect, user2, aspect2)
     sign_in :user, user
-    user.reload
-    aspect.reload
-    aspect2.reload
     @controller.stub!(:current_user).and_return(user)
   end
 
   describe '#create' do
-    let(:foo) {{:album_id => album.id.to_s}}
-
     before do
       @controller.stub!(:file_handler).and_return(image)
     end
-    it 'can make a photo in an album' do
-      pending
-      proc{ post :create, :photo => foo, :qqfile => fixture_name }.should change(Photo, :count).by(1)
-    end
 
-    it 'can make a picture without an album' do
+    it 'can make a photo' do
       pending
-    end
-
-    it 'does not let you create a photo in an album you do not own' do
-      pending
+      proc{ post :create, :qqfile => fixture_name }.should change(Photo, :count).by(1)
     end
   end
 
@@ -54,7 +39,6 @@ describe PhotosController do
       get :index
       assigns[:person].should == user.person
       assigns[:photos].should == [photo]
-      assigns[:albums].should == [album]
     end
 
     it 'sets the person to a friend if person_id is set' do
@@ -62,7 +46,6 @@ describe PhotosController do
       
       assigns[:person].should == user2.person
       assigns[:photos].should == []
-      assigns[:albums].should == []
     end
 
     it 'sets the aspect to photos?' do
@@ -77,20 +60,14 @@ describe PhotosController do
       get :show, :id => photo.id
 
       assigns[:photo].should == photo
-      assigns[:album].should == album
       assigns[:ownership].should == true 
     end
 
   end
 
   describe '#edit' do
-    it 'should let you edit a photo with an album' do
+    it 'should let you edit a photo' do
       get :edit, :id => photo.id 
-      response.code.should == "200"
-    end
-
-    it 'should let you edit a photo you own that does not have an album' do
-      get :edit, :id => photo_no_album.id 
       response.code.should == "200"
     end
 

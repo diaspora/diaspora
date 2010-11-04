@@ -42,10 +42,11 @@ describe User do
       post.persisted?.should be_false
     end
 
-    it 'does not save an album' do
-      post = user.build_post(:album, :name => "hey", :to => aspect.id)
+    it 'does not save a photo' do
+      post = user.build_post(:photo, :user_file => uploaded_photo, :to => aspect.id)
       post.persisted?.should be_false
     end
+
   end
 
   describe '#dispatch_post' do
@@ -53,15 +54,6 @@ describe User do
       post = user.post(:status_message, :message => "hey", :to => aspect.id)
       aspect.reload
       aspect.posts.should include post
-    end
-
-
-
-
-    it 'should put an album in the aspect post array' do
-      album = user.post :album, :name => "Georges", :to => aspect.id
-      aspect.reload
-      aspect.posts.should include album
     end
 
     it "should add the post to that user's visible posts" do
@@ -95,10 +87,11 @@ describe User do
 
   describe '#update_post' do
     it 'should update fields' do
-      album = user.post(:album, :name => "Profile Photos", :to => aspect.id)
-      update_hash = {:name => "Other Photos"}
-      user.update_post(album, update_hash)
-      album.name.should == "Other Photos"
+      photo = user.post(:photo, :user_file => uploaded_photo, :caption => "Old caption", :to => aspect.id)
+      update_hash = {:caption => "New caption"}
+      user.update_post(photo, update_hash)
+
+      photo.caption.should match(/New/)
     end
   end
 

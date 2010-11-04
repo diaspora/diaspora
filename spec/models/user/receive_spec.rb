@@ -15,7 +15,8 @@ describe User do
   let(:user3) { make_user }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
   let(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
-  let(:album)  {user.post(:album, :name => "Original", :to => aspect.id)}
+
+  let(:photo) {user.post(:photo, :user_file => uploaded_photo, :caption => "Original", :to => aspect.id)}
 
   before do
     friend_users(user, aspect, user2, aspect2)
@@ -74,15 +75,15 @@ describe User do
     end
 
     it 'updates posts marked as mutable' do
-      user2.receive_salmon(user.salmon(album).xml_for(user2.person))
-      album.name = 'foo'
-      xml = user.salmon(album).xml_for(user2.person)
+      user2.receive_salmon(user.salmon(photo).xml_for(user2.person))
+      photo.caption = 'foo'
+      xml = user.salmon(photo).xml_for(user2.person)
 
-      album.reload.name.should == 'Original'
+      photo.reload.caption.should match(/Original/)
 
       user2.receive_salmon(xml)
 
-      album.reload.name.should == 'foo'
+      photo.reload.caption.should match(/foo/)
     end
 
   end

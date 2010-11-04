@@ -22,11 +22,7 @@
         .right
           = link_to t('delete'), photo_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
-    - if !post.album_id.nil?
-      =t('.posted_a_new_photo_to')
-      = link_to post.album.name, object_path(post.album)
-    - else
-      posted a photo
+    posted a photo
 
     %br
     %br
