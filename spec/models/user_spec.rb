@@ -190,6 +190,14 @@ describe User do
       it "does not save" do
         User.build(@invalid_params).save.should be_false
       end
+      it 'does not save a person' do
+        lambda { User.build(@invalid_params) }.should_not change(Person, :count)
+      end
+      it 'does not generate a key' do
+        pending 'Validate users before generating keys'
+        User.should_receive(:generate_key).exactly(0).times
+        User.build(@invalid_params)
+      end
     end
     describe "with malicious params" do
       let(:person) {Factory.create :person}
