@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '>= 3.0.0'
 
 gem 'bundler', '>= 1.0.0'
-gem "chef"
+#gem "chef"
 
 #Security
 gem 'devise', '1.1.3'
