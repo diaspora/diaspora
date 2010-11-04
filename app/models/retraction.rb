@@ -30,7 +30,7 @@ class Retraction
 
   def perform receiving_user_id
     Rails.logger.debug "Performing retraction for #{post_id}"
-    if Post.find_by_id(post_id) 
+    if self.type.constantize.find_by_id(post_id) 
       unless Post.first(:diaspora_handle => person.diaspora_handle, :id => post_id) 
         raise "#{person.inspect} is trying to retract a post they do not own"
       end
