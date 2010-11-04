@@ -123,7 +123,7 @@ $(".make_profile_photo").live("click", function(){
       $controls  = $this.closest(".controls"),
       user_id   = $controls.attr('data-actor');
       person_id = $controls.attr('data-actor_person');
-      photo_url = $controls(".controls").attr('data-image_url');
+      photo_url = $controls.attr('data-image_url');
 
   $.ajax({
     type: "PUT",

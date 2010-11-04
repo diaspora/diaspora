@@ -7,6 +7,6 @@
   .content
     .from
       = link_to post.person.real_name, post.person
-    = post.text
+    = markdownify(post.text)
     %div.time
       = "#{time_ago_in_words(post.updated_at)} #{t('ago')}"
