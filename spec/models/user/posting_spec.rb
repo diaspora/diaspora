@@ -55,6 +55,9 @@ describe User do
       aspect.posts.should include post
     end
 
+
+
+
     it 'should put an album in the aspect post array' do
       album = user.post :album, :name => "Georges", :to => aspect.id
       aspect.reload
@@ -78,6 +81,15 @@ describe User do
       user.should_receive(:post_to_twitter).exactly(0).times
       user.should_receive(:post_to_facebook).exactly(0).times
       user.post :status_message, :message => "hi", :to => "all"
+    end
+  end
+
+  describe '#post' do
+    it 'should not create a post with invalid aspect' do
+      pending "this would just causes db polution"
+      post_count = Post.count
+      proc { user.post(:status_message, :message => "hey", :to => aspect2.id) }.should raise_error /Cannot post to an aspect you do not own./
+      Post.count.should == post_count
     end
   end
 

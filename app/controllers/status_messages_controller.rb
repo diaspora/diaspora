@@ -22,8 +22,14 @@ class StatusMessagesController < ApplicationController
   end
 
   def destroy
-    @status_message = current_user.find_visible_post_by_id params[:id]
-    @status_message.destroy
+    @status_message = current_user.my_posts.where(:_id =>  params[:id]).first
+    if @status_message
+      @status_message.destroy
+
+    else
+      Rails.logger.info "#{current_user.inspect} is trying to delete a post they don't own with id: #{params[:id]}"
+    end
+
     respond_with :location => root_url
   end
 

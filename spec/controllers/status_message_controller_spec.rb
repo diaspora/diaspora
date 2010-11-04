@@ -8,9 +8,13 @@ describe StatusMessagesController do
   render_views
 
   let!(:user) { make_user }
-  let!(:aspect) { user.aspects.create(:name => "lame-os") }
+  let!(:aspect) { user.aspects.create(:name => "AWESOME!!") }
+
+  let!(:user2) { make_user }
+  let!(:aspect2) { user2.aspects.create(:name => "WIN!!") }
 
   before do
+    friend_users(user, aspect, user2, aspect2)
     sign_in :user, user
     @controller.stub!(:current_user).and_return(user)
   end
@@ -64,5 +68,29 @@ describe StatusMessagesController do
         post :create, status_message_hash
       end
     end
+  end
+
+  describe '#destroy' do
+    let!(:message) {user.post(:status_message, :message => "hey", :to => aspect.id)}
+    let!(:message2) {user2.post(:status_message, :message => "hey", :to => aspect2.id)}
+
+    it 'should let me delete my photos' do
+      delete :destroy, :id => message.id
+      StatusMessage.find_by_id(message.id).should be_nil
+    end
+
+    it 'will not let you destroy posts visible to you' do
+      user.receive message2.to_diaspora_xml, user2.person
+      user.visible_posts.include?(message2).should be true
+      delete :destroy, :id => message2.id
+      StatusMessage.find_by_id(message2.id).should_not be_nil
+    end
+
+    it 'will not let you destory posts you do not own' do
+      user.visible_posts.include?(message2).should be false
+      delete :destroy, :id => message2.id
+      StatusMessage.find_by_id(message2.id).should_not be_nil
+    end
+
   end
 end
