@@ -6,17 +6,27 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { Factory(:user) }
-  let(:aspect) { user.aspect(:name => 'heroes') }
+  let(:user) { make_user }
+  let(:aspect) { user.aspects.create(:name => 'heroes') }
 
-  let(:user2) { Factory(:user) }
-  let(:aspect2) { user2.aspect(:name => 'losers') }
+  let(:user2) { make_user }
+  let(:aspect2) { user2.aspects.create(:name => 'losers') }
 
-  let(:user3) { Factory(:user) }
-  let(:aspect3) { user3.aspect(:name => 'heroes') }
+  let(:user3) { make_user }
+  let(:aspect3) { user3.aspects.create(:name => 'heroes') }
+  let(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
+  let(:album)  {user.post(:album, :name => "Original", :to => aspect.id)}
 
   before do
     friend_users(user, aspect, user2, aspect2)
+  end
+
+  it 'should stream only one message to the everyone aspect when a multi-aspected friend posts' do
+    user.add_person_to_aspect(user2.person.id, user.aspects.create(:name => "villains").id)
+    status = user2.post(:status_message, :message => "Users do things", :to => aspect2.id)
+    xml = status.to_diaspora_xml
+    Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
+    user.receive xml, user2.person
   end
 
   it 'should be able to parse and store a status message from xml' do
@@ -39,6 +49,42 @@ describe User do
     }
 
     user.aspects.size.should == num_aspects
+  end
+
+  describe '#receive_salmon' do
+   it 'should handle the case where the webfinger fails' do
+    Person.should_receive(:by_account_identifier).and_return("not a person")
+
+    proc{user2.receive_salmon(user.salmon(status).xml_for(user2.person))}.should_not raise_error
+   end
+  end
+
+  context 'update posts' do
+
+    it 'does not update posts not marked as mutable' do
+      user2.receive_salmon(user.salmon(status).xml_for(user2.person))
+      status.message = 'foo'
+      xml = user.salmon(status).xml_for(user2.person)
+
+      status.reload.message.should == 'Original'
+
+      user2.receive_salmon(xml)
+
+      status.reload.message.should == 'Original'
+    end
+
+    it 'updates posts marked as mutable' do
+      user2.receive_salmon(user.salmon(album).xml_for(user2.person))
+      album.name = 'foo'
+      xml = user.salmon(album).xml_for(user2.person)
+
+      album.reload.name.should == 'Original'
+
+      user2.receive_salmon(xml)
+
+      album.reload.name.should == 'foo'
+    end
+
   end
 
   describe 'post refs' do
@@ -113,26 +159,27 @@ describe User do
       post_in_db.comments.should == []
       user2.receive_salmon(@xml)
       post_in_db.reload
-      
+
       post_in_db.comments.include?(@comment).should be true
       post_in_db.comments.first.person.should == local_person
     end
-    
+
     it 'should correctly marshal a stranger for the downstream user' do
       remote_person = user3.person
       remote_person.delete
       user3.delete
 
-      Person.should_receive(:by_webfinger).twice.and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
+      #stubs async webfinger
+      Person.should_receive(:by_account_identifier).twice.and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
         user.person; else; remote_person.save; remote_person; end }
 
-      
+
       user2.reload.raw_visible_posts.size.should == 1
       post_in_db = user2.raw_visible_posts.first
       post_in_db.comments.should == []
       user2.receive_salmon(@xml)
       post_in_db.reload
-      
+
       post_in_db.comments.include?(@comment).should be true
       post_in_db.comments.first.person.should == remote_person
     end

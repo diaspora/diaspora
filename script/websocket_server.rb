@@ -48,11 +48,15 @@ begin
                   :debug =>APP_CONFIG[:socket_debug]) do |ws|
       ws.onopen {
 
-        sid = Diaspora::WebSocket.subscribe(ws.request['Path'].gsub('/',''), ws)
+        encoded_cookie = ws.request["Cookie"].gsub("_diaspora_session=","")
+        cookie = Marshal.load(encoded_cookie.unpack("m*").first)
+        user_id = cookie["warden.user.user.key"].last
+
+        sid = Diaspora::WebSocket.subscribe(user_id, ws)
 
         ws.onmessage { |msg| SocketsController.new.incoming(msg) }
 
-        ws.onclose { Diaspora::WebSocket.unsubscribe(ws.request['Path'].gsub('/',''), sid) }
+        ws.onclose { Diaspora::WebSocket.unsubscribe(user_id, sid) }
       }
     end
     PID_FILE = APP_CONFIG[:socket_pidfile]

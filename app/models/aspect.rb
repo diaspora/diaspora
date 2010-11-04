@@ -29,11 +29,6 @@ class Aspect
     name
   end
 
-  def posts_by_person_id( id )
-    id = id.to_id
-    posts.detect{|x| x.person.id == id }
-  end
-
   def person_objects
     person_ids = people.map{|x| x.person_id}
     Person.all(:id.in => person_ids)

@@ -5,16 +5,6 @@
 require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
 
-class InvitedUserValidator < ActiveModel::Validator
-  def validate(document)
-    unless document.invitation_token
-      unless document.person
-        document.errors[:base] << "Unless you are being invited, you must have a person"
-      end
-    end
-  end
-end
-
 class User
   include MongoMapper::Document
   include Diaspora::UserModules
@@ -32,29 +22,31 @@ class User
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
-  key :inviter_ids, Array, :typecast => 'ObjectId' 
-  key :friend_ids, Array, :typecast => 'ObjectId' 
-  key :pending_request_ids, Array, :typecast => 'ObjectId' 
-  key :visible_post_ids, Array, :typecast => 'ObjectId' 
-  key :visible_person_ids, Array, :typecast => 'ObjectId' 
+  key :inviter_ids, Array, :typecast => 'ObjectId'
+  key :friend_ids, Array, :typecast => 'ObjectId'
+  key :pending_request_ids, Array, :typecast => 'ObjectId'
+  key :visible_post_ids, Array, :typecast => 'ObjectId'
+  key :visible_person_ids, Array, :typecast => 'ObjectId'
 
   key :invite_messages, Hash
 
   key :getting_started, Boolean, :default => true
 
-  before_validation :strip_username, :on => :create
+  key :language, String
+
+  before_validation :strip_and_downcase_username, :on => :create
+  before_validation :set_current_language, :on => :create
+
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
-  validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/ 
-  validates_with InvitedUserValidator
+  validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/
+  validates_length_of :username, :maximum => 32
+  validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+
+  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validates_associated :person
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
-  validate :person_is_valid
-  def person_is_valid
-    if person.present? && !person.valid?
-      person.errors.full_messages.each {|m| errors.add(:base, m)}
-    end
-  end
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
   many :friends, :in => :friend_ids, :class_name => 'Contact'
@@ -68,11 +60,21 @@ class User
   #after_create :seed_aspects
 
   before_destroy :unfriend_everyone, :remove_person
+  before_save do
+    person.save if person
+  end
 
-  def strip_username
+  attr_accessible :getting_started, :password, :password_confirmation, :language, 
+
+  def strip_and_downcase_username
     if username.present?
       username.strip!
+      username.downcase!
     end
+  end
+
+  def set_current_language
+    self.language = I18n.locale.to_s if self.language.blank?
   end
 
   def self.find_for_authentication(conditions={})
@@ -90,13 +92,6 @@ class User
   end
 
   ######### Aspects ######################
-  def aspect(opts = {})
-    aspect = Aspect.new(opts)
-    aspect.user = self
-    aspect.save
-    aspect
-  end
-
   def drop_aspect(aspect)
     if aspect.people.size == 0
       aspect.destroy
@@ -107,11 +102,11 @@ class User
 
   def move_friend(opts = {})
     return true if opts[:to] == opts[:from]
-    if opts[:friend_id] && opts[:to] && opts[:from] 
+    if opts[:friend_id] && opts[:to] && opts[:from]
       from_aspect = self.aspects.first(:_id => opts[:from])
       posts_to_move = from_aspect.posts.find_all_by_person_id(opts[:friend_id])
       if add_person_to_aspect(opts[:friend_id], opts[:to], :posts => posts_to_move)
-        delete_person_from_aspect(opts[:friend_id], opts[:from], :posts => posts_to_move) 
+        delete_person_from_aspect(opts[:friend_id], opts[:from], :posts => posts_to_move)
         return true
       end
     end
@@ -125,7 +120,7 @@ class User
     raise 'Can not add person who is already in the aspect' if aspect.people.include?(contact)
     contact.aspects << aspect
     opts[:posts] ||= self.raw_visible_posts.all(:person_id => person_id)
-    
+
     aspect.posts += opts[:posts]
     contact.save
     aspect.save
@@ -143,28 +138,43 @@ class User
   end
 
   ######## Posting ########
-  def post(class_name, options = {})
-    if class_name == :photo
-      raise ArgumentError.new("No album_id given") unless options[:album_id]
-      aspect_ids = aspects_with_post(options[:album_id])
+  def post(class_name, opts = {})
+    post = build_post(class_name, opts)
+
+    if post.save
+      raise 'MongoMapper failed to catch a failed save' unless post.id
+      dispatch_post(post, :to => opts[:to])
+    end
+    post
+  end
+
+  def build_post(class_name, opts = {})
+    opts[:person] = self.person
+    opts[:diaspora_handle] = self.person.diaspora_handle
+
+    model_class = class_name.to_s.camelize.constantize
+    model_class.instantiate(opts)
+  end
+
+  def dispatch_post(post, opts = {})
+    if post.is_a?(Photo) && post.album_id
+      aspect_ids = aspects_with_post(post.album_id)
       aspect_ids.map! { |aspect| aspect.id }
     else
-      aspect_ids = options.delete(:to)
+      aspect_ids = opts.delete(:to)
     end
 
     aspect_ids = validate_aspect_permissions(aspect_ids)
-
-    post = build_post(class_name, options)
-    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
+    self.raw_visible_posts << post
+    self.save
+    Rails.logger.info("Pushing: #{post.inspect} out to aspects")
     push_to_aspects(post, aspect_ids)
-    
-    if options[:public] == true
+    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
+    if post.public
       self.services.each do |service|
         self.send("post_to_#{service.provider}".to_sym, service, post.message)
       end
     end
-
-    post
   end
 
   def post_to_facebook(service, message)
@@ -182,6 +192,8 @@ class User
   def update_post(post, post_hash = {})
     if self.owns? post
       post.update_attributes(post_hash)
+      aspects = aspects_with_post(post.id)
+      self.push_to_aspects(post, aspects)
     end
   end
 
@@ -203,16 +215,6 @@ class User
     end
 
     aspect_ids
-  end
-
-  def build_post(class_name, options = {})
-    options[:person] = self.person
-    model_class = class_name.to_s.camelize.constantize
-    post = model_class.instantiate(options)
-    post.save
-    self.raw_visible_posts << post
-    self.save
-    post
   end
 
   def push_to_aspects(post, aspect_ids)
@@ -329,18 +331,18 @@ class User
         raise "Must invite to your aspect"
       else
         u = User.find_by_email(opts[:email])
-        if u.nil?  
-        elsif friends.include?(u.person)
-          raise "You are already friends with this person"          
+        if u.nil?
+        elsif contact_for(u.person)
+          raise "You are already friends with this person"
         elsif not u.invited?
           self.send_friend_request_to(u.person, aspect_object)
           return
         elsif u.invited? && u.inviters.include?(self)
-          raise "You already invited this person"          
+          raise "You already invited this person"
         end
       end
       request = Request.instantiate(
-        :to => "http://local_request.example.com",
+        :to   => "http://local_request.example.com",
         :from => self.person,
         :into => aspect_id
       )
@@ -366,7 +368,11 @@ class User
     if invitable.inviters.include?(inviter)
       raise "You already invited this person"
     else
-      invitable.pending_requests << request
+      invitable.pending_requests << Request.create(
+        :diaspora_handle => request.diaspora_handle,
+        :callback_url    => request.callback_url,
+        :destination_url => request.destination_url)
+
       invitable.inviters << inviter
       message = attributes.delete(:invite_message)
       if message
@@ -386,47 +392,48 @@ class User
 
   def accept_invitation!(opts = {})
     if self.invited?
-      self.username              = opts[:username]
+
+      self.setup(opts)
+
+      self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-      opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
-      opts[:person][:url] = APP_CONFIG[:pod_url]
 
-      opts[:serialized_private_key] = User.generate_key
-      self.serialized_private_key =  opts[:serialized_private_key]
-      opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-
-      person_hash = opts.delete(:person)
-      self.person = Person.create(person_hash)
-      self.person.save
+      self.person.save!
       self.invitation_token = nil
-      self.save
+      self.save!
       self
     end
   end
 
   ###Helpers############
   def self.build(opts = {})
-    opts[:person] ||= {}
-    opts[:person][:profile] ||= Profile.new
-    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
-    opts[:person][:url] = APP_CONFIG[:pod_url]
-
-    opts[:serialized_private_key] = generate_key
-    opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-
-
     u = User.new(opts)
+    u.email = opts[:email]
+    u.setup(opts)
     u
   end
 
-  def seed_aspects
-    aspect(:name => "Family")
-    aspect(:name => "Work")
+  def setup(opts)
+    self.username = opts[:username]
+    
+    opts[:person] ||= {}
+    opts[:person][:profile] ||= Profile.new
+
+    self.person = Person.new(opts[:person])
+    self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
+    self.person.url = APP_CONFIG[:pod_url]
+    new_key = User.generate_key
+    self.serialized_private_key = new_key
+    self.person.serialized_public_key = new_key.public_key
+
+    self
   end
 
-  def diaspora_handle
-    "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
+
+  def seed_aspects
+    self.aspects.create(:name => "Family")
+    self.aspects.create(:name => "Work")
   end
 
   def as_json(opts={})
@@ -442,7 +449,8 @@ class User
 
 
   def self.generate_key
-    OpenSSL::PKey::RSA::generate 4096
+    key_size = (Rails.env == 'test' ? 512 : 4096)
+    OpenSSL::PKey::RSA::generate key_size
   end
 
   def encryption_key

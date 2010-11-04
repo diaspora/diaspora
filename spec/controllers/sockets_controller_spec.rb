@@ -13,7 +13,7 @@ EOT
 describe SocketsController do
   render_views
   before do
-    @user = Factory.create(:user)
+    @user = make_user
     @controller = SocketsController.new
   end
 
@@ -24,7 +24,7 @@ describe SocketsController do
 
   describe 'actionhash' do
     before do
-      @aspect = @user.aspect :name => "losers"
+      @aspect = @user.aspects.create(:name => "losers")
       @message = @user.post :status_message, :message => "post through user for victory", :to => @aspect.id
       @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     end

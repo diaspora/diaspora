@@ -6,15 +6,23 @@ require 'spec_helper'
 
 describe User do
 
+  let(:user)          {make_user}
+  let!(:aspect) { user.aspects.create(:name => "cats")}
   let!(:user2) { Factory(:user_with_aspect) }
+  let(:person_one) { Factory.create :person }
+  let(:person_two) { Factory.create :person }
+  let(:person_three) { Factory.create :person }
+
+
 
   context 'with two posts' do
     let!(:status_message1) { user2.post :status_message, :message => "hi", :to => user2.aspects.first.id }
     let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => user2.aspects.first.id }
-    
+    let!(:status_message4) { user2.post :status_message, :message => "blah", :public => true , :to => user2.aspects.first.id }
+    let!(:status_message3) { user.post :status_message, :message => "hey", :public => true , :to => user.aspects.first.id }
 
-  
-  describe "#visible_posts" do
+
+    describe "#visible_posts" do
       it "queries by person id" do
         query = user2.visible_posts(:person_id => user2.person.id)
         query.include?(status_message1).should == true
@@ -38,9 +46,8 @@ describe User do
       end
 
       context 'with two users' do
-        let!(:user)          {Factory :user}
-        let!(:first_aspect)  {user.aspect(:name => 'bruisers')}
-        let!(:second_aspect) {user.aspect(:name => 'losers')}
+        let!(:first_aspect)  {user.aspects.create(:name => 'bruisers')}
+        let!(:second_aspect) {user.aspects.create(:name => 'losers')}
 
         it "queries by aspect" do
           friend_users(user, first_aspect, user2, user2.aspects.first)
@@ -55,17 +62,40 @@ describe User do
         end
       end
     end
+
+    describe '#my_posts' do
+      it 'should return only my posts' do
+        posts2 = user2.my_posts
+        posts2.should include status_message1
+        posts2.should include status_message2
+        posts2.should_not include status_message3
+        user.my_posts.should include status_message3
+      end
+
+      it 'returns query objexts so chainable' do
+        user2.my_posts.where(:_id => status_message1.id.to_s).all.should == [status_message1]
+
+        pub_posts = user2.my_posts.where(:public => true).all
+
+        pub_posts.should_not include status_message1
+        pub_posts.should include status_message2
+        pub_posts.should include status_message4
+        pub_posts.should_not include status_message3
+
+        user.my_posts.where(:public => false).all.should == []
+      end
+    end
   end
 
   context 'with two users' do
-    let!(:user)          {Factory :user}
-    let!(:first_aspect)  {user.aspect(:name => 'bruisers')}
-    let!(:second_aspect) {user.aspect(:name => 'losers')}
+    let!(:user)          {make_user}
+    let!(:first_aspect)  {user.aspects.create(:name => 'bruisers')}
+    let!(:second_aspect) {user.aspects.create(:name => 'losers')}
     let!(:user4) { Factory.create(:user_with_aspect)}
 
     before do
-        friend_users(user, first_aspect, user4, user4.aspects.first)
-        friend_users(user, second_aspect, user2, user2.aspects.first)
+      friend_users(user, first_aspect, user4, user4.aspects.first)
+      friend_users(user, second_aspect, user2, user2.aspects.first)
     end
 
     describe '#friends_not_in_aspect' do
@@ -100,11 +130,53 @@ describe User do
     end
   end
 
+  context 'contact querying' do
+    let(:person_one) { Factory.create :person }
+    let(:person_two) { Factory.create :person }
+    let(:person_three) { Factory.create :person }
+    let(:aspect) { user.aspects.create(:name => 'heroes') }
+    describe '#contact_for_person_id' do
+      it 'returns a contact' do
+        contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
+        user.friends << contact
+        user.contact_for_person_id(person_one.id).should be_true
+      end
 
+      it 'returns the correct contact' do
+        contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
+        user.friends << contact
+
+        contact2 = Contact.create(:user => user, :person => person_two, :aspects => [aspect])
+        user.friends << contact2
+
+        contact3 = Contact.create(:user => user, :person => person_three, :aspects => [aspect])
+        user.friends << contact3
+
+        user.contact_for_person_id(person_two.id).person.should == person_two
+      end
+
+      it 'returns nil for a non-contact' do
+        user.contact_for_person_id(person_one.id).should be_nil
+      end
+
+      it 'returns nil when someone else has contact with the target' do
+        contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
+        user.friends << contact
+        user2.contact_for_person_id(person_one.id).should be_nil
+      end
+    end
+
+    describe '#contact_for' do
+      it 'takes a person_id and returns a contact' do
+        user.should_receive(:contact_for_person_id).with(person_one.id)
+        user.contact_for(person_one) 
+      end
+    end
+  end
 
   describe '#albums_by_aspect' do
-    let!(:first_aspect)  {user2.aspect(:name => 'bruisers')}
-    let!(:second_aspect) {user2.aspect(:name => 'losers')}
+    let!(:first_aspect)  {user2.aspects.create(:name => 'bruisers')}
+    let!(:second_aspect) {user2.aspects.create(:name => 'losers')}
     before do
       user2.post :album, :name => "Georges", :to => first_aspect.id
       user2.post :album, :name => "Borges", :to => first_aspect.id

@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe StatusMessage do
   before do
-      @user = Factory.create(:user)
-      @aspect = @user.aspect(:name => "losers")
+      @user = make_user
+      @aspect = @user.aspects.create(:name => "losers")
   end
 
   it "should have a message" do

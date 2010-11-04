@@ -27,15 +27,49 @@
               - for aspect in @aspects_with_person
                 %li= link_to aspect.name, aspect
 
-    - if @person != current_user.person && current_user.friends.include?(@person)
-      = link_to t('.remove_friend'), @person, :confirm => t('.are_you_sure'), :method => :delete, :class => "button"
+    - if @person != current_user.person && @contact
+      = link_to t('.remove_friend'), @person, :confirm => t('are_you_sure'), :method => :delete, :class => "button"
+
+    - if @person == current_user.person
+      %b
+        = link_to t('.edit_my_profile'), edit_person_path(@person)
+
+    %br
+    %br
+    = link_to 'photos', person_photos_path(@person)
+
 
 .span-15.last
-  - if @posts.count > 0
-    %ul#stream
-      - for post in @posts
-        = render type_partial(post), :post => post unless post.class == Album
-      = will_paginate @posts
+
+  - if @contact || current_user.person == @person
+
+    - if @posts.count > 0
+      %ul#stream
+        - for post in @posts
+          = render type_partial(post), :post => post unless post.class == Album
+        = will_paginate @posts
+    - else
+      %h3= t('.no_posts')
+
   - else
-    %h3= t('.no_posts')
+    
+    .floating
+      %h3
+        = "You're currently not friends with #{@person.real_name}"
+        
+
+      - unless @pending_request
+        %h3
+          .description
+            If you'd like, you can request to place him/her in one of your aspects.
+         
+        = form_for Request.new do |f|
+          = f.select(:aspect_id, @aspects_dropdown_array)
+          = f.hidden_field :destination_url, :value => @person.diaspora_handle
+          = f.submit t('.add_friend')
+
+      - else
+        %h3
+          .description
+            = "You have already sent a request to #{@person.real_name}."
 

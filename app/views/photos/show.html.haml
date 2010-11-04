@@ -3,93 +3,50 @@
 -#   the COPYRIGHT file.
 
 - content_for :head do
-  :javascript
-    $(document).keydown(function(e){
-      switch(e.keyCode) {
-      case 37:
-        if(!$("textarea").hasClass("hasfocus")){//prevent redirect if textarea has focus
-          window.location.replace( "#{url_to_prev(@photo,@album)}" );
-        }
-        break;
-      case 39:
-        if(!$("textarea").hasClass("hasfocus")){
-          window.location.replace( "#{url_to_next(@photo,@album)}" );
-        }
-        break;
-      }
-    });
+  =javascript_include_tag 'photo'
+  
 
-    $(document).ready(function(){
-      //add a clas to verify if a textarea has focus
-      $("textarea").live('focus',function(){
-        $(this).addClass("hasfocus");
-      });
-      $("textarea").live('blur',function(){
-        $(this).removeClass("hasfocus");
-      });
-
-      //show form to add description
-      $(".edit-desc").click(function(){
-        $(".edit_photo").toggle(); 
-      });
-
-      //Add a description with ajax request
-      $("#photo_submit").click(function(evenet){
-        event.preventDefault();
-        var method = $(".edit_photo").attr("method");
-        var url = $(".edit_photo").attr("action");
-        var data = $(".edit_photo").serialize();
-        $(".description").text($("#photo_caption").val());
-        $(".edit_photo").toggle();
-
-          $.ajax({  
-            type: method,
-            url: url,  
-            data: data,  
-            success: function(response){  
-              $("#add-description").remove();
-            }
-          });
-
-      });
-
-    });//end document ready
-
-= render 'shared/author_info', :post => @photo
+= render 'shared/author_info', :person => @photo.person, :post => @photo
 
 %ul#breadcrumb
-  %li= link_to "#{@album.person.profile.first_name}'s Photos", '#'
-  %li= link_to @album.name, album_path(@album)
+  %li= link_to "#{@photo.person.profile.first_name}'s Photos", person_photos_path(@photo.person)
+  - if !@photo.album_id.nil?
+    %li= link_to @album.name, album_path(@album)
+  - else
+    %li= link_to "uploads", album_path("uploads")
   %li= @photo.caption
 
-= link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch'
-|
-= link_to "#{t('.full_size')}", @photo.url
-|
-= link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch'
+- if @photo.album
+  = link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch', :id => "prev_photo"
+  |
+  = link_to "#{t('.full_size')}", @photo.url
+  |
+  = link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch', :id => "next_photo"
 
 .span-14.append-1.last
   %div{:data=>{:guid=>@photo.id}}
     #show_photo
 
-      -if current_user.owns? @photo
+      -if @ownership
         .edit_pane
           .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
             = link_to 'make profile photo', '#', :class => "make_profile_photo"
           = linked_scaled_photo @photo, @album
       -else
         = linked_scaled_photo @photo, @album
+
       .caption
-        -if current_user.owns? @photo
+        -if @ownership
           -if @photo.caption and @photo.caption != ""
             = link_to 'Edit','javascript:void(0)', :id => "edit-desc", :class => "edit-desc"
         .description
           = @photo.caption
 
-  -if current_user.owns? @photo
+  -if @ownership
     %div{:class => 'clear'}
     -if !@photo.caption or @photo.caption == ""
       = link_to 'Add a description','javascript:void(0)', :id => "add-description", :class => "edit-desc"
+
   %br
   %br
 
@@ -98,7 +55,7 @@
     = p.submit
     %div{:class => 'clear'}
 
-  -if current_user.owns? @album
+  -if @ownership
     = link_to t('.delete_photo'), @photo, :confirm => t('.are_you_sure'), :method => :delete, :class => 'button'
 
 .span-9.last

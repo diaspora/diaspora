@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe ServicesController do
   render_views
-  let(:user) { Factory(:user) }
-  let!(:aspect) { user.aspect(:name => "lame-os") }
+  let(:user) { make_user }
+  let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   let!(:service1) {a = Factory(:service); user.services << a; a}
   let!(:service2) {a = Factory(:service); user.services << a; a}

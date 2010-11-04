@@ -3,12 +3,12 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
-
   protect_from_forgery :except => :receive
 
   before_filter :set_friends_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :set_invites
+  before_filter :set_locale
 
   def set_friends_and_status
     if current_user
@@ -31,6 +31,14 @@ class ApplicationController < ActionController::Base
   def set_invites
     if current_user
       @invites = current_user.invites
+    end
+  end
+
+  def set_locale
+    if current_user
+      I18n.locale = current_user.language
+    else
+      I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
     end
   end
 end

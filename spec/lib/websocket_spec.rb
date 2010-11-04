@@ -6,10 +6,10 @@ require 'spec_helper'
 
 describe Diaspora::WebSocket do
   before do
-    @user = Factory.create(:user)
-    @aspect = @user.aspect(:name => "losers")
+    @user = make_user
+    @aspect = @user.aspects.create(:name => "losers")
     @post = @user.build_post(:status_message, :message => "hey", :to => @aspect.id)
-    unstub_sockets
+    @post.save
   end
 
   it 'should queue a job' do

@@ -1,11 +1,14 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+#
+#   See config/locales/devise/devise.sv.yml for Swedish Diaspora terms.
 
 sv:
   errors:
     messages:
       not_found: "kan ej hitta"
+      already_confirmed: "är redan bekräftad"
       not_locked: "var ej låst"
 
   devise:
@@ -13,11 +16,16 @@ sv:
       unauthenticated: 'Du måste logga in innan du kan fortsätta.'
       unconfirmed: 'Du måste verifiera ditt konto innan du kan fortsätta.'
       locked: 'Ditt konto är låst.'
-      invalid: 'Felaktig användare eller lösenord.'
+      invalid: 'Felaktigt användarnamn eller lösenord.'
       invalid_token: 'Ogiltig identifiering.'
       timeout: 'Din session är avslutad, var vänlig logga in igen.'
       inactive: 'Ditt konto är inte aktiverat.'
     sessions:
+      new:
+        login: 'Logga in'
+        username: 'Användarnamn'
+        password: 'Lösenord'
+        sign_in: 'Logga in'
       signed_in: 'Inloggning ok.'
       signed_out: 'Utloggning ok.'
     passwords:
@@ -38,6 +46,16 @@ sv:
       invitation_token_invalid: 'Denna inbjudan är ej giltig!'
       updated: 'Ditt lösenord är nu inställt och du är inloggad.'
     mailer:
-      confirmation_instructions: 'Instruktioner för att verifiera ditt konto.'
-      reset_password_instructions: 'Instruktioner för att återställa ditt lösenord.'
-      unlock_instructions: 'Instruktioner för att låsa upp ditt konto.'
+      confirmation_instructions: 
+        subject: 'Instruktioner för att verifiera ditt konto.'
+      reset_password_instructions: 
+        subject: 'Instruktioner för att återställa ditt lösenord.'
+      unlock_instructions: 
+        subject: 'Instruktioner för att låsa upp ditt konto.'
+      invitation:
+        subject: 'En vän vill att du ska gå med i Diaspora!'
+    shared:
+      links:
+        sign_in: 'Logga in'
+        sign_up: 'Registrera dig'
+        forgot_your_password: 'Glömt ditt lösenord?'

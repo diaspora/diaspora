@@ -14,38 +14,52 @@
 
 #section_header
   %h2
-    Settings
+    = t('settings')
   %ul#settings_nav
-    %li=link_to 'Profile', edit_person_path(current_user.person)
-    %li=link_to 'Account', edit_user_path(current_user)
-    %li=link_to 'Services', services_path
+    %li=link_to t('profile'), edit_person_path(current_user.person)
+    %li=link_to t('account'), edit_user_path(current_user)
+    %li=link_to t('services'), services_path
 
 .span-19.prepend-5.last
-  %h2 Account
+  %h2
+    = t('account')
 
-  = link_to "invite friends", new_user_invitation_path(current_user)
+  = link_to t('.invite_friends'), new_user_invitation_path(current_user)
 
   %br
   %br
   %br
 
-  %h3 Change Password
+  %h3 
+    = t('.change_password')
   = form_for @user do |f|
     = f.error_messages
 
     %p
-      = f.label :password, "New Password"
+      = f.label :password, t('.new_password')
       = f.password_field :password
     %p
-      = f.label :password_confirmation
+      = f.label :password_confirmation, t('password_confirmation')
       = f.password_field :password_confirmation
 
     .submit_block
-      = link_to "Cancel", edit_user_path(current_user)
-      or
-      = f.submit 'Change password'
+      = link_to t('cancel'), edit_user_path(current_user)
+      = t('or')
+      = f.submit t('.change_password')
 
-  %h3 Export Data
+  %h3 
+    = t('.change_language')
+  = form_for @user do |f|
+    = f.error_messages
+
+    %p
+      = f.select :language, available_language_options
+      = f.submit t('.change_language')
+
+  %br
+
+  %h3 
+    = t('.export_data')
   = link_to "download my xml", users_export_path, :class => "button"
   = link_to "download my photos", users_export_photos_path, :class => "button"
 
@@ -53,7 +67,8 @@
   %br
   %br
 
-  %h3 Close Account
-  = link_to "Close Account", current_user,
-              :confirm => "Are you sure?", :method => :delete,
+  %h3 
+    = t('.close_account')
+  = link_to t('.close_account'), current_user,
+              :confirm => t('are_you_sure'), :method => :delete,
               :class => "button"

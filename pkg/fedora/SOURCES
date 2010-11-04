@@ -1,5 +1,0 @@
-# These files will be linked to %_sourcedir by 'make-dist links'
-diaspora-setup
-diaspora-wsd
-diaspora.logconf
-make_rel_symlink.py

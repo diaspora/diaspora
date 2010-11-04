@@ -34,7 +34,6 @@ module Diaspora
         activate_friend(request.person, aspect_by_id(aspect_id))
 
         request.reverse_for(self)
-        request
       end
 
       def dispatch_friend_acceptance(request, requester)
@@ -63,23 +62,26 @@ module Diaspora
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
         
-
         #response from a friend request you sent
-        if request_from_me?(friend_request) && self.aspect_by_id(friend_request.aspect_id)
-          aspect = self.aspect_by_id(friend_request.aspect_id)
-          activate_friend(friend_request.person, aspect)
-
+        if original_request = original_request(friend_request)
+          destination_aspect = self.aspect_by_id(original_request.aspect_id)
+          activate_friend(friend_request.person, destination_aspect)
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
           friend_request.destroy
-          Notifier.request_accepted(self, friend_request.person, aspect).deliver
+          original_request.destroy
+          Notifier.request_accepted(self, friend_request.person, destination_aspect)
+
         #this is a new friend request
-        else
+        elsif !request_from_me?(friend_request)
           self.pending_requests << friend_request
           self.save
           Rails.logger.info("#{self.real_name} has received a friend request")
           friend_request.save
           Notifier.new_request(self, friend_request.person).deliver
+        else
+          Rails.logger.info("#{self.real_name} is trying to receive a friend request from himself.")
         end
+        friend_request
       end
 
       def unfriend(bad_friend)
@@ -123,16 +125,16 @@ module Diaspora
         aspect.save
       end
 
-      def contact_for(person)
-        friends.first(:person_id => person.id)
+      def request_from_me?(request)
+        request.diaspora_handle == self.diaspora_handle
       end
 
-      def request_from_me?(request)
-        (pending_request_ids.include?(request.id.to_id)) && (request.callback_url == person.receive_url) 
+      def original_request(response)
+        pending_requests.find_by_destination_url(response.callback_url) unless response.nil? || response.id.nil?
       end
 
       def requests_for_me
-        pending_requests.select{|req| req.person != self.person }
+        pending_requests.select{|req| req.destination_url == self.person.receive_url} 
       end
     end
   end

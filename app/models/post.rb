@@ -11,14 +11,14 @@ class Post
   include Diaspora::Webhooks
   include Diaspora::Socketable
 
-  xml_accessor :_id
-  xml_accessor :person, :as => Person
-  xml_reader   :public
+  xml_reader :_id
+  xml_reader :diaspora_handle
+  xml_reader :public
   xml_reader :created_at
 
-  key :public   , Boolean, :default => false
+  key :public, Boolean, :default => false
 
-  key :person_id, ObjectId
+  key :diaspora_handle, String
   key :user_refs, Integer, :default => 0
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id, :order => 'created_at ASC'
@@ -32,11 +32,12 @@ class Post
   before_destroy :propogate_retraction
   after_destroy :destroy_comments
 
+  attr_accessible :user_refs
   def self.instantiate params
     new_post = self.new params.to_hash
     new_post.person = params[:person]
     new_post.public = params[:public]
-    new_post.save
+    new_post.diaspora_handle = new_post.person.diaspora_handle
     new_post
   end
 
@@ -47,6 +48,10 @@ class Post
         :person => self.person.as_json,
       }
     }
+  end
+
+  def mutable?
+    false
   end
 
   protected

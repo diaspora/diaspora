@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '>= 3.0.0'
 
 gem 'bundler', '>= 1.0.0'
-gem "chef"
+gem "chef", :require => false
 
 #Security
 gem 'devise', '1.1.3'
@@ -27,10 +27,10 @@ gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
 gem 'addressable', :require => 'addressable/uri'
 gem 'json'
 gem 'mini_fb'
+gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git'
 
 #Standards
 gem 'pubsubhubbub'
-gem 'redfinger', :git => 'git://github.com/rsofaer/redfinger.git'
 
 #EventMachine
 gem 'em-http-request',:ref => 'bf62d67fc72d6e701be5',  :git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
@@ -59,7 +59,9 @@ group :test do
   gem 'rspec-rails', '>= 2.0.0'
   gem 'mocha'
   gem 'database_cleaner', '0.5.2'
-  gem 'webmock'
+  gem 'webmock', :require => false
+  gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
+  gem 'mongrel', :require => false if RUBY_VERSION.include? "1.8"
 end
 
 group :deployment do

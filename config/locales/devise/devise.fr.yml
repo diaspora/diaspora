@@ -15,6 +15,11 @@ fr:
       timeout: 'Votre session a expiré, veuillez vous connecter de nouveau afin de continuer.'
       inactive: 'Votre compte n’a pas encore été activé.'
     sessions:
+      new:
+        login: 'Se connecter'
+        username: "Nom d'utilisateur"
+        password: 'Mot de passe'
+        sign_in: 'Connexion'
       signed_in: 'Connecté avec succès.'
       signed_out: 'Déconnecté avec succès.'
     passwords:
@@ -43,4 +48,9 @@ fr:
         subject: 'Instructions de déverrouillage'
       invitation:
         subject: 'Un ami souhaite que vous rejoigniez Diaspora !'
+    shared:
+      links:
+        sign_in: 'Connexion'
+        sign_up: 'Inscription'
+        forgot_your_password: 'Mot de passe oublié ?'
 

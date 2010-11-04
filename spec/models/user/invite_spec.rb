@@ -5,12 +5,12 @@
 require 'spec_helper'
 
 describe User do
-  let(:inviter)  {Factory.create :user}
-  let(:aspect)   {inviter.aspect(:name => "awesome")}
-  let(:another_user) {Factory.create :user}
-  let(:wrong_aspect) {another_user.aspect(:name => "super")}
+  let(:inviter)  {make_user}
+  let(:aspect)   {inviter.aspects.create(:name => "awesome")}
+  let(:another_user) {make_user}
+  let(:wrong_aspect) {another_user.aspects.create(:name => "super")}
   let(:inviter_with_3_invites) {Factory.create :user, :invites => 3}
-  let(:aspect2) {inviter_with_3_invites.aspect(:name => "Jersey Girls")}
+  let(:aspect2) {inviter_with_3_invites.aspects.create(:name => "Jersey Girls")}
 
 
   before do
@@ -35,6 +35,10 @@ describe User do
       }.should change(User, :count).by(1)
     end
 
+    it 'creates it with an email' do
+      inviter.invite_user(:email => "joe@example.com", :aspect_id => aspect.id).email.should == "joe@example.com"
+    end
+
     it 'sends email to the invited user' do
       ::Devise.mailer.should_receive(:invitation).once
       inviter.invite_user(:email => "ian@example.com", :aspect_id => aspect.id)
@@ -56,7 +60,7 @@ describe User do
     it 'adds a pending request to the invited user' do
       invited_user = inviter.invite_user(:email => "marcy@example.com", :aspect_id => aspect.id)
       invited_user.reload
-      invited_user.pending_requests.find_by_callback_url(inviter.receive_url).nil?.should == false
+      invited_user.pending_requests.find_by_callback_url(inviter.receive_url).should_not be_nil
     end
 
     it 'adds a pending request to the inviter' do
@@ -68,7 +72,7 @@ describe User do
     it 'throws if you try to add someone you"re friends with' do
       friend_users(inviter, aspect, another_user, wrong_aspect)
       inviter.reload
-      proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /You are already friends with that person/
+      proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /already friends/
     end
 
     it 'sends a friend request to a user with that email into the aspect' do
@@ -119,14 +123,18 @@ describe User do
                               :password_confirmation => "secret",
                               :person => {:profile => {:first_name => "Bob",
                                 :last_name  => "Smith"}} )
-      u.pending_requests
+
       u.pending_requests.count.should == 1
-      request = u.pending_requests.first
-      aspect2  = u.aspect(:name => "dudes")
+
+      received_request = u.pending_requests.first
+
+      aspect2  = u.aspects.create(:name => "dudes")
+
+      reversed_request = u.accept_friend_request(received_request.id, aspect2.id)
       u.reload
-      inviter
-      inviter.receive_salmon(u.salmon(u.accept_friend_request(request.id, aspect2.id)).xml_for(inviter.person))
-      inviter.contact_for(u.person).should_not be_nil
+
+      inviter.receive_salmon(u.salmon(reversed_request).xml_for(inviter.person))
+      inviter.reload.contact_for(u.person).should_not be_nil
     end
   end
 end
@@ -135,6 +143,7 @@ def create_user_with_invitation(invitation_token, attributes={})
   inviter = attributes.delete(:inviter)
   user = User.new({:password => nil, :password_confirmation => nil}.update(attributes))
   #user.skip_confirmation!
+  user.email = attributes[:email]
   user.invitation_token = invitation_token
   user.invitation_sent_at = Time.now.utc
   user.inviters << inviter

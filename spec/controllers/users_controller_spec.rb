@@ -6,10 +6,11 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:user) { Factory(:user) }
-  let!(:aspect) { user.aspect(:name => "lame-os") }
+  let(:user) { make_user }
+  let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   let!(:old_password) { user.encrypted_password }
+  let!(:old_language) { user.language }
     
   before do
     sign_in :user, user
@@ -45,6 +46,17 @@ describe UsersController do
         put("update", :id => user.id, "user"=> {"password" => "", 'password_confirmation' => ""})
         user.reload
         user.encrypted_password.should == old_password
+      end
+    end
+
+    describe 'language' do
+      it 'should allow user to change his language' do
+        user.language = 'en'
+        user.save
+        old_language = user.language
+        put("update", :id => user.id, "user" => {"language" => "fr"})
+        user.reload
+        user.language.should_not == old_language
       end
     end
   end

@@ -8,7 +8,7 @@ describe PeopleController do
   render_views
 
   let(:user) { Factory(:user) }
-  let!(:aspect) { user.aspect(:name => "lame-os") }
+  let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   before do
     sign_in :user, user
@@ -22,14 +22,17 @@ describe PeopleController do
 
   it 'should go to the current_user show page' do
     get :show, :id => user.person.id
+    response.should be_success
   end
 
-  it "doesn't error out on an invalid id" do
+  it "redirects on an invalid id" do
     get :show, :id => 'delicious'
+    response.should redirect_to people_path
   end
 
-  it "doesn't error out on a nonexistent person" do
+  it "redirects on a nonexistent person" do
     get :show, :id => user.id
+    response.should redirect_to people_path
   end
 
   describe '#update' do
@@ -37,17 +40,24 @@ describe PeopleController do
       it "doesn't overwrite the profile photo when an empty string is passed in" do
         user.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
         user.person.profile.save
-        
-        params = {"profile"=> 
-                   {"image_url"  => "",
-                    "last_name"  => user.person.profile.last_name,
-                    "first_name" => user.person.profile.first_name}}
+
+        params = { "profile" =>
+                   { "image" => "",
+                     "last_name"  => user.person.profile.last_name,
+                     "first_name" => user.person.profile.first_name }}
 
         image_url = user.person.profile.image_url
-        put("update", :id => user.person.id, "person" => params)
+        put :update, "id" => user.person.id.to_s, "person" => params
 
+        user.person.reload
         user.person.profile.image_url.should == image_url
       end
+    end
+    it 'does not allow mass assignment' do
+      new_user = make_user
+      put :update, :id => user.person.id, :person => {
+        :owner_id => new_user.id}
+      user.person.reload.owner_id.should_not == new_user.id
     end
   end
 end

@@ -110,11 +110,11 @@ HEADER
     end
 
     def author
-      if @author
-        @author
-      else
-        @author ||= Person.by_webfinger @author_email
+      if @author.nil?
+        @author ||= Person.by_account_identifier @author_email
+        raise "did you remember to async webfinger?" if @author.nil?
       end
+      @author
     end
 
     # Decode URL-safe-Base64. This implements
@@ -129,10 +129,6 @@ HEADER
       # Base64.decode64(string)
       Base64.urlsafe_decode64 string
     end
-
-    # def verified?
-    #
-    # end
 
     # Check whether this envelope's signature can be verified with the
     # provided OpenSSL::PKey::RSA public_key.

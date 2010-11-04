@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe Album do
-  let(:user) { Factory.create(:user) }
+  let(:user) { make_user }
   let(:person) { user.person }
-  let(:aspect) { user.aspect(:name => "Foo") }
+  let(:aspect) { user.aspects.create(:name => "Foo") }
   let(:album) { user.post(:album, :name => "test collection", :to => aspect.id) }
 
   it 'is valid' do
@@ -21,6 +21,15 @@ describe Album do
 
   it 'has many photos' do
     album.associations[:photos].type.should == :many
+  end
+
+  it 'should be mutable' do
+    post = user.post :album, :name => "hello", :to => aspect.id
+    post.mutable?.should == true   
+  end
+
+  it 'has a diaspora_handle' do
+    album.diaspora_handle.should == user.diaspora_handle
   end
 
   context 'when an album has two attached images' do
@@ -65,18 +74,10 @@ describe Album do
     end
   end
 
-  describe '#to_xml' do
-    let(:doc) { album.to_xml }
-    it 'has a name' do
-      doc.at_xpath('./name').text.should == album.name
-    end
-
-    it 'has an id' do
-      doc.at_xpath('./_id').text.should == album.id.to_s
-    end
-
-    it 'includes the person' do
-      doc.at_xpath('./person/_id').text.should == album.person.id.to_s
+  describe 'serialization' do
+    it 'has a diaspora_handle' do
+      album.to_diaspora_xml.include?(user.diaspora_handle).should be_true
     end
   end
+
 end

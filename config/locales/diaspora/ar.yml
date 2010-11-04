@@ -5,18 +5,18 @@
 # Sample localization file for Arabic.
 
 ar:
-  hello: "مرحبا العالم"
+  hello: "مرحبا"
   application:
       helper:
-          unknown_person: "غير معروف شخص"
+          unknown_person: "شخص غير معروف"
           new_requests: "طلبات جديدة"
   dashboards:
       helper:
-          home: "منزل"
+          home: "الرئيسية"
   error_messages:
       helper:
-          invalid_fields: "الحقول غير صالحة"
-          correct_the_following_errors_and_try_again: ".تصحيح الأخطاء التالية وحاول مرة أخرى"
+          invalid_fields: "مدخلات غير صحيحة"
+          correct_the_following_errors_and_try_again: ".صحح الأخطاء التالية وحاول مرة أخرى"
   people:
       helper:
            results_for: "%{params} نتائج "
@@ -34,39 +34,39 @@ ar:
           all_aspects: "جميع الجوانب"
           manage_aspects: "إدارة الجوانب"
       publisher:
-          share: "تقاسم"
+          share: "مشاركة"
       aspect_friends:
           add_friends: "أضف أصدقاء"
   albums:
       album:
           you: "أنت"
       new_album:
-          create: "خلق"
-          add_a_new_album: "إضافة ألبوم جديد"
+          create: "جديد"
+          add_a_new_album: "أضف ألبوم جديد"
       show:
           edit_album: "تعديل الألبوم"
           albums: "البومات"
           updated: "تحديث"
           by: "بواسطة"
       edit:
-          editing: "التحرير"
-          updated: "تحديث"
+          editing: "تحرير"
+          updated: "محدث"
           are_you_sure: "هل أنت متأكد؟"
           delete_album: "حذف ألبوم"
           cancel: "إلغاء"
       index:
-          home: "منزل"
+          home: "الرئيسية"
           new_album: "ألبوم جديد"
       create:
-          success: ".ألبوما %{name} لقد قمت دعا"
+          success: " .%{name} لقد قمت بإنشاء ألبوم بإسم"
       update:
-          success: ".تحرير بنجاح %{name} الألبوم"
+          success: ".بنجاح %{name} تم تحرير ألبوم"
           failure: ".%{name} فشلت في تحرير ألبوم"
       destroy:
-          success: ".حذفها %{name} الألبوم"
+          success: ".%{name} تم حذف ألبوم"
       helper:
-          friends_albums: "أصدقاء البومات"
-          your_albums: "البومات الخاص"
+          friends_albums: "ألبومات الأصدقاء"
+          your_albums: "البوماتك"
   aspects:
       index:
           photos: "صور"
@@ -81,23 +81,23 @@ ar:
           ignore_remove: "تجاهل/إزالة"
       new_aspect:
           add_a_new_aspect: "أضف جانبا جديدا"
-          create: "خلق"
+          create: "جديد"
       create:
-          success: ".الذي يمكن أن نرى الجانب الجديد الخاص بك Diaspora انقر على علامة الجمع على الجانب الأيسر لنقو"
+          success: ".من الذي يمكنه مشاهدة مظهرك الجديد Diaspora انقر على علامة الزائد على الجانب الأيسر لتقول ل"
           failure: ".فشل إنشاء الجانب"
       destroy:
-          success: ".%{name} وقد نجحت في إزالة"
+          success: ".بنجاح %{name} تم إزالة"
       update:
-          success: ".تحرير بنجاح ,%{name} ,وقد الجانب الخاص بك"
+          success: ".بنجاح %{name} تم تعديل"
       move_friends:
           failure: ".%{real_name} فشل تحرير آسبكت لصدي"
           success: ".جوانب الموضوع بنجاح"
       move_friend:
           failure: "%{inspect} لم تنجح"
-          success: ".أنت الآن عرض صديقك جانبا مختلفا من جوانب نفسك"
+          success: ".تم إضافة صديقك بنجاح"
       helper:
-          remove: "نزع"
-          aspect_not_empty: "الجانب يست فارغ"
+          remove: "حذف"
+          aspect_not_empty: "الجانب ليس فارغ"
   users:
       edit:
           editing_profile: "تحرير الملف الشخصي"
@@ -110,82 +110,82 @@ ar:
           picture: "صورة"
           editing_profile: "تحرير الملف الشخصي"
           albums: "البومات"
-          you_dont_have_any_photos: "ليس لديك أي صوا! نتقل إلى"
-          page_to_upload_some:  ".الصفحة لتحميل بعض"
+          you_dont_have_any_photos: "ليس لديك أي صور! انتقل إلى"
+          page_to_upload_some:  ".صفحة تحميل بعض"
   comments:
       comment:
           ago: "منذ"
       new_comment:
-          comment: "كيف"
+          comment: "تعليق"
   photos:
       show:
           prev: "السابق"
-          full_size: "الحجم الكام"
+          full_size: "الحجم اﻷصلي"
           next: "القادم"
-          edit_photo: "تحرير الصو"
-          delete_photo: "حذف الصو"
+          edit_photo: "تحرير الصورة"
+          delete_photo: "حذف الصورة"
           are_you_sure: "هل أنت متأكد؟"
           comments: "تعليقات"
       edit:
-          editing: "تصحيح"
-          are_you_sure: "هل أنت متأك؟"
-          delete_photo: "حذف الصو"
+          editing: "تحرير"
+          are_you_sure: "هل أنت متأكد؟"
+          delete_photo: "حذف الصورة"
       photo:
-          show_comments: "sعرض التعليقا"
-          posted_a_new_photo_to: "أرسلت صورة جديدة ل"
+          show_comments: "عرض التعليقات"
+          posted_a_new_photo_to: "أضفت صورة جديدة ل"
       new:
-          new_photo: "جديد الصو"
-          back_to_list: "عودة إلى قائم"
-          post_it: "!بعد ذلك"
+          new_photo: "صورة جديدة"
+          back_to_list: "عودة إلى القائمة"
+          post_it: "!ألصقها"
       create:
-          runtime_error: "?فشل تحميل الصور. هل أنت متأكد من أن يتم ربط حزام الأمان"
-          integrity_error: "?فشل تحميل الصور. هل أنت متأكد من أن صورة"
-          type_error: "?فشل تحميل الصور. هل أنت متأكد من وأضيف صورة"
+          runtime_error: "فشل تحميل الصور. هل ربطت حزام الأمان؟"
+          integrity_error: "فشل تحميل الصور. هل ملفك صورة؟"
+          type_error: "فشل تحميل الصور. هل أنت متأكد أنك أضفت صورة؟"
       update:
-          notice: ".الصورة تحديثها بنجاح"
-          error:  ".فشل لتحرير الصو"
+          notice: "تم تحديث الصورة بنجاح"
+          error:  "فشل تحرير الصورة."
       destroy:
-          notice: ".الصور المحذوفة"
+          notice: "تم حذف الصورة"
   registrations:
       new:
-          sign_up: "قم بالتسجي"
+          sign_up: "التسجيل"
       create:
-          success: "!Diaspora لقد انضممت"
+          success: "!Diaspora سجل في"
   status_messages:
       new_status_message:
-          tell_me_something_good: "قل لي شيئا جيد"
-          oh_yeah: "!نعم"
+          tell_me_something_good: "قل لي شيئا جيداً"
+          oh_yeah: "!يا سلااام"
       status_message:
-          show_comments: "عرض التعليقا"
+          show_comments: "عرض التعليقات"
           delete: "حذف"
           are_you_sure: "هل أنت متأكد؟"
       show:
-          status_message: "رسالة الحالة"
+          status_message: "الحالة"
           comments: "تعليقات"
           are_you_sure: "هل أنت متأكد؟"
-          destroy: "هدم"
-          view_all: "عرض الك"
+          destroy: "إزالة"
+          view_all: "عرض الكل"
           message: "رسالة"
           owner: "مالك"
       helper:
-          no_message_to_display: ".أي رسالة لعرضه"
+          no_message_to_display: "لا يوجد رسالة لعرضها"
   people:
       person:
-          add_friend: "أضف صدي"
-          pending_request: "في انتظار طلب"
+          add_friend: "أضف صديق"
+          pending_request: "طلبات معلقة"
       index:
-          add_friend: "أضف صدي"
-          real_name: "اسمه الحقيقي"
+          add_friend: "أضف صديق"
+          real_name: "الاسم الحقيقي"
           diaspora_handle: "اسمك المستعار diaspora"
-          thats_you: "!هذا لك"
-          friend_request_pending: "طلب صديق معلقة"
-          you_have_a_friend_request_from_this_person: "لديك صديق طلب من هذا الشخص"
+          thats_you: "!هذا أنت"
+          friend_request_pending: "طلبات صداقة معلقة"
+          you_have_a_friend_request_from_this_person: "لديك طلب صداقة من هذا الشخص"
       new:
           new_person: "شخص جديد"
-          back_to_list: "عودة إلى قائمة"
+          back_to_list: "عودة إلى القائمة"
       show:
-          last_seen: "%{how_long_ago} :المشاهدة الأخيرة"
-          friends_since: "%{how_long_ago} :أصدقاء منذ"
+          last_seen: "%{how_long_ago} :آخر مشاهدة"
+          friends_since: "%{how_long_ago} :صديق منذ"
           save: "حفظ"
           are_you_sure: "هل أنت متأكد؟"
           remove_friend: "إزالة صديق"
@@ -194,13 +194,13 @@ ar:
           add_a_new_friend_to: "إضافة صديق جديد إلى"
           enter_a_diaspora_username: ":Diaspora أدخل اسم مستخدم"
           your_diaspora_username_is: "%{diaspora_handle} :هو Diaspora اسم المستخدم الخاص"
-          friends_username: "صديق اسم المستخدم"
+          friends_username: "اسم مستخدم الصديق"
       destroy:
-          success: ".أنت الآن أصدقاء"
-          error: "!الرجاء اختيار جانبا"
-          ignore: ".صديق تجاهل الطلب"
+          success: ".أنتم الآن أصدقاء"
+          error: "!الرجاء اختيار جانب"
+          ignore: ". تجاهل طلب الصداقة"
       create:
-          error: "!مع هذا البريد الإلكتروني diaspora لم يتم العثور على بذور"
-          already_friends: "!%{destination_url} كنت بالفعل مع أصدقاء"
-          success: ".%{destination_url} وأرسل طلب صداقة إلى"
-          horribly_wrong: ".ذهب شيء خاطئ"
+          error: "!في هذا البريد الإلكتروني diaspora لم يتم العثور على بذور"
+          already_friends: "!من قبل %{destination_url} أنت صديق مع"
+          success: ".%{destination_url} تم إرسال طلب صداقة ل"
+          horribly_wrong: ".فيه بلوى كبيرة حصلت"

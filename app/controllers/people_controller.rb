@@ -16,15 +16,24 @@ class PeopleController < ApplicationController
 
   def show
     @aspect = :profile
-    @person = current_user.visible_person_by_id(params[:id])
-    unless @person
-      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
-    else
+
+    @person = Person.find(params[:id].to_id)
+
+    if @person
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
-      @aspects_with_person = @contact.aspects if @contact
+
+      if @contact
+        @aspects_with_person = @contact.aspects
+      else
+        @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
+      end
+
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
       respond_with @person
+    else
+      flash[:error] = "Person does not exist!"
+      redirect_to people_path
     end
   end
 
@@ -37,7 +46,6 @@ class PeopleController < ApplicationController
     @aspect  = :person_edit
     @person  = current_user.person
     @profile = @person.profile
-    @photos  = current_user.visible_posts(:person_id => @person.id, :_type => 'Photo').paginate :page => params[:page], :order => 'created_at DESC'
   end
 
   def update
@@ -45,6 +53,16 @@ class PeopleController < ApplicationController
     birthday = params[:date]
     if birthday
       params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
+    end
+
+    # upload and set new profile photo
+    params[:person][:profile] ||= {}
+    if params[:person][:profile][:image].present?
+      raw_image = params[:person][:profile].delete(:image)
+      params[:profile_image_hash] = { :user_file => raw_image, :to => "all" }
+
+      photo = current_user.post(:photo, params[:profile_image_hash])
+      params[:person][:profile][:image_url] = photo.url(:thumb_medium)
     end
 
     prep_image_url(params[:person])
@@ -64,15 +82,17 @@ class PeopleController < ApplicationController
 
   private
   def prep_image_url(params)
-    url = APP_CONFIG[:pod_url].dup
-    url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
-    if params[:profile][:image_url].empty?
-      params[:profile].delete(:image_url)
-    else
-      if /^http:\/\// =~ params[:profile][:image_url]
-        params[:profile][:image_url] = params[:profile][:image_url]
+    if params[:profile] && params[:profile][:image_url]
+      if params[:profile][:image_url].empty?
+        params[:profile].delete(:image_url)
       else
-        params[:profile][:image_url] = url + params[:profile][:image_url]
+        url = APP_CONFIG[:pod_url].dup
+        url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
+        if params[:profile][:image_url].match(/^https?:\/\//)
+          params[:profile][:image_url] = params[:profile][:image_url]
+        else
+          params[:profile][:image_url] = url + params[:profile][:image_url]
+        end
       end
     end
   end

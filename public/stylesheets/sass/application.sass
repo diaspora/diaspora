@@ -50,7 +50,6 @@ h3
 
   :padding 1em
   
-  :box-shadow 0 1px 2px #333
   :-moz-box-shadow 0 1px 2px #333
   :-webkit-box-shadow 0 1px 2px #333
 
@@ -206,6 +205,16 @@ header
         :display inline
 
   .avatar
+    :-webkit-border-radius 5px
+    :-moz-border-radius 5px
+    :border-radius 5px
+
+  img
+    :-webkit-box-shadow 0 1px 2px #666
+    :-moz-box-shadow 0 1px 2px #666
+
+    :-webkit-border-radius 5px
+    :-moz-border-radius 5px
     :border-radius 5px
 
 
@@ -256,8 +265,11 @@ header
 
   img
     :position absolute
-    :top 8px
+    :top 7px
     :left 0
+
+    :-webkit-box-shadow 0 1px 2px #666
+    :-moz-box-shadow 0 1px 2px #666
 
   h2
     :margin
@@ -271,6 +283,8 @@ header
       :size 14px
 
   .avatar
+    :-webkit-border-radius 5px
+    :-moz-border-radius 5px
     :border-radius 5px
 
 li.message
@@ -287,7 +301,7 @@ li.message
 
   .content
     :margin
-      :top -4px
+      :top 0
     :padding
       :left 65px
 
@@ -332,7 +346,11 @@ li.message
   &.active
     :background
       :color #333
+
+    :-webkit-border-radius 5px 5px 0 0
+    :-moz-border-radius 5px 5px 0 0
     :border-radius 5px 5px 0 0
+
     a
       :color #fff
       :text-shadow none
@@ -535,9 +553,11 @@ ul.comments
 #stream, #profile,
 .comments
   img.person_picture
-    :border-radius 3px
+
     :-webkit-border-radius 3px
     :-moz-border-radius 3px
+    :border-radius 3px
+
     :display inline block
     :height 30px
     :display absolute
@@ -581,9 +601,11 @@ li.message .from .right
 #show_photo
   img
     :max-width 100%
-    :-webkit-box-shadow 0 2px 4px #333
     :border 10px solid #fff
       :bottom 80px solid #fff
+
+    :-webkit-box-shadow 0 2px 4px #333
+    :-moz-box-shadow 0 2px 4px #333
 
     :-webkit-border-radius 3px
     :-moz-border-radius 3px
@@ -614,9 +636,9 @@ textarea
   :border 1px solid #ccc
   :height auto
 
-  :border-radius 5px
   :-webkit-border-radius 5px
   :-moz-border-radius 5px
+  :border-radius 5px
 
 input[type='checkbox']
   :width auto
@@ -629,6 +651,11 @@ form p
   :position relative
   :padding 0
   :margin 0
+
+form p.checkbox_select
+  label
+    :left 20px
+    :top 0
 
 label
   :font
@@ -656,9 +683,10 @@ label
     :position absolute
     :margin
       :right 15px
-    :border-radius 5px
+
     :-webkit-border-radius 5px
     :-moz-border-radius 5px
+    :border-radius 5px
 
   form
     :position relative
@@ -678,8 +706,8 @@ label
 
   .options_and_submit
     :min-height 21px
-    :display none
     :position relative
+    :display none
     :padding
       :top 8px
     :margin
@@ -710,6 +738,8 @@ label
       :bottom 1em
 
     img
+      :-moz-border-radius 3px
+      :-webkit-border-radius 3px
       :border-radius 3px
 
     input[type='checkbox']
@@ -723,6 +753,8 @@ label
 
 /* cycle it! */
 .album
+  :margin
+    :right 3px
   :position relative
   :height 200px
   :width 200px
@@ -852,6 +884,7 @@ h1.big_text
       a
         :-webkit-border-radius 5px 5px 0 0 
         :-moz-border-radius 5px 5px 0 0 
+        :border-radius 5px 5px 0 0 
 
         :text-shadow 0 1px 0 #444
         :line
@@ -993,8 +1026,13 @@ h1.big_text
     img
       :height 70px
       :width 70px
-      :border-radius 5px
+
       :-webkit-box-shadow 0 1px 2px #999
+      :-moz-box-shadow 0 1px 2px #999
+
+      :-webkit-border-radius 5px
+      :-moz-border-radius 5px
+      :border-radius 5px
 
     &:hover
       .delete
@@ -1034,6 +1072,7 @@ h1.big_text
         :border-radius 20px
 
         :-webkit-box-shadow 0 1px 3px #000
+        :-moz-box-shadow 0 1px 3px #000
 
       .x
         :z-index 2
@@ -1088,6 +1127,10 @@ ul#settings_nav
     :width 30px
     :height 30px
 
+.friend_pictures.horizontal
+  img
+    :margin-right -5px
+
 #thumbnails
   :line-height 14px
 
@@ -1096,6 +1139,9 @@ ul#settings_nav
   :padding 0
 
 #left_pane
+  h2
+    :font
+      :weight 200
   ul
     :margin 0
     :padding 0
@@ -1125,6 +1171,9 @@ ul#settings_nav
     :bottom 0.7em
 
   :border 2px dashed #FAC421
+
+  :-webkit-border-radius 5px
+  :-moz-border-radius 5px
   :border-radius 5px
 
   .null_arrow
@@ -1151,6 +1200,7 @@ h2,h3,h4
 
 input[type="search"]
   :-webkit-appearance textfield
+  :-moz-appearance textfield
 
 header
   input[type="search"]
@@ -1279,6 +1329,8 @@ ul.aspects
     :height 20px
 
     :-webkit-border-radius 10px
+    :-moz-border-radius 10px
+    :border-radius 10px
 
     :line-height 16px 
     :text-indent 6px
@@ -1292,8 +1344,14 @@ ul.aspects
   :padding 12px
   :background
     :color rgb(255,255,255)
+
   :-webkit-box-shadow 0 1px 3px #333
+  :-moz-box-shadow 0 1px 3px #333
+
+  :-webkit-border-radius 2px
+  :-moz-border-radius 2px
   :border-radius 2px
+
   :border
     :bottom 1px solid #ccc
     :top 1px solid #fff
@@ -1328,6 +1386,9 @@ ul.aspects
     :background
       :color rgb(16,127,201)
     :padding 8px
+
+    :-webkit-border-radius 10px
+    :-moz-border-radius 10px
     :border-radius 10px
 
     &:hover
@@ -1362,6 +1423,37 @@ ul.aspects
 
 #user_photo_uploader
   .avatar
+    :-webkit-border-radius 5px
+    :-moz-border-radius 5px
     :border-radius 5px
+
     :height 100px
     :width 100px
+
+#publisher_photo_upload
+  :position absolute
+  :display inline
+  :left 600px
+  :top 0
+
+#profile_photo_upload
+  :margin
+    :top 5px
+  :min-height 100px
+  img
+    :position absolute
+    :left 0
+    :height 100px
+    :width 100px
+
+    :-webkit-border-radius 5px
+    :-moz-border-radius 5px
+    :border-radius 5px
+
+    :-webkit-box-shadow 0 1px 2px #666
+    :-moz-box-shadow 0 1px 2px #666
+
+  :padding
+    :left 120px
+
+

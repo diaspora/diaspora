@@ -5,11 +5,11 @@
 require 'spec_helper'
 
 describe Comment do
-  let(:user)    {Factory.create :user}
-  let(:aspect)  {user.aspect(:name => "Doofuses")}
+  let(:user)    {make_user}
+  let(:aspect)  {user.aspects.create(:name => "Doofuses")}
 
-  let(:user2)   {Factory.create(:user)}
-  let(:aspect2) {user2.aspect(:name => "Lame-faces")}
+  let(:user2)   {make_user}
+  let(:aspect2) {user2.aspects.create(:name => "Lame-faces")}
 
   it 'validates that the handle belongs to the person' do
     user_status = user.post(:status_message, :message => "hello", :to => aspect.id)
@@ -73,7 +73,6 @@ describe Comment do
     it 'should send a comment a person made on your post to all people' do
       comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle,  :text => "cats", :post => @user_status)
       User::QUEUE.should_receive(:add_post_request).twice
-      Person.should_receive(:by_webfinger).and_return(@person)
       user.receive comment.to_diaspora_xml, @person
     end
 
@@ -115,8 +114,8 @@ describe Comment do
   end
   describe 'serialization' do
     it 'should serialize the handle and not the sender' do
-      commenter = Factory.create(:user)
-      commenter_aspect = commenter.aspect :name => "bruisers"
+      commenter = make_user
+      commenter_aspect = commenter.aspects.create(:name => "bruisers")
       friend_users(user, aspect, commenter, commenter_aspect)
       post = user.post :status_message, :message => "hello", :to => aspect.id
       comment = commenter.comment "Fool!", :on => post

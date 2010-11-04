@@ -4,8 +4,8 @@
 
 class PhotoAlbumValidator < ActiveModel::Validator
   def validate(document)
-    unless document.album.person_id == document.person_id
-      document.errors[:base] << "You can't post photos to that album"
+    unless document.album.nil? || document.album.person_id == document.person_id
+      document.errors[:base] << "You post photos to that album"
     end
   end
 end
@@ -27,18 +27,18 @@ class Photo < Post
 
   timestamps!
 
-  validates_presence_of :album
   validates_with PhotoAlbumValidator
+
+  attr_accessible :caption
 
   before_destroy :ensure_user_picture
 
   def self.instantiate(params = {})
-    image_file = params[:user_file]
-    params.delete :user_file
+    photo = super(params)
+    image_file = params.delete(:user_file)
 
-    photo = Photo.new(params)
+    photo.album_id = params[:album_id]
     photo.image.store! image_file
-    photo.save
     photo
   end
 
@@ -70,6 +70,10 @@ class Photo < Post
 
   def thumb_hash
     {:thumb_url => url(:thumb_medium), :id => id, :album_id => album_id}
+  end
+
+  def mutable?
+    true
   end
 end
 

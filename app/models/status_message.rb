@@ -11,6 +11,8 @@ class StatusMessage < Post
   key :message, String
   validates_presence_of :message
 
+  attr_accessible :message
+
   def to_activity
         <<-XML
   <entry>
@@ -23,10 +25,6 @@ class StatusMessage < Post
     <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
   </entry>
         XML
-  end
-
-  def latest_hash
-    { :text => message}
   end
 end
 

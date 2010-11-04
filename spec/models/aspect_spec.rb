@@ -5,32 +5,32 @@
 require 'spec_helper'
 
 describe Aspect do
-  let(:user ) { Factory.create(:user) }
+  let(:user ) { make_user }
   let(:friend) { Factory.create(:person) }
-  let(:user2) { Factory.create(:user) }
+  let(:user2) { make_user }
   let(:friend_2) { Factory.create(:person) }
 
-  let(:aspect) {user.aspect(:name => 'losers')}
-  let(:aspect2) {user2.aspect(:name => 'failures')}
-  let(:aspect1) {user.aspect(:name => 'cats')}
+  let(:aspect) {user.aspects.create(:name => 'losers')}
+  let(:aspect2) {user2.aspects.create(:name => 'failures')}
+  let(:aspect1) {user.aspects.create(:name => 'cats')}
   let(:not_friend) { Factory(:person, :diaspora_handle => "not@person.com")}
-  let(:user3) {Factory(:user)}
-  let(:aspect3) {user3.aspect(:name => "lala")}
+  let(:user3) {make_user}
+  let(:aspect3) {user3.aspects.create(:name => "lala")}
 
   describe 'creation' do
-    let!(:aspect){user.aspect(:name => 'losers')}
+    let!(:aspect){user.aspects.create(:name => 'losers')}
     it 'should have a name' do
       aspect.name.should == "losers"
     end
 
     it 'should not allow duplicate names' do
       lambda {
-        invalid_aspect = user.aspect(:name => "losers ")
+        invalid_aspect = user.aspects.create(:name => "losers ")
       }.should_not change(Aspect, :count)
     end
 
     it 'should not be creatable with people' do
-      aspect = user.aspect(:name => 'losers', :people => [friend, friend_2])
+      aspect = user.aspects.create(:name => 'losers', :people => [friend, friend_2])
       aspect.people.size.should == 0
     end
 
@@ -55,12 +55,12 @@ describe Aspect do
       aspect
     end
     it 'has a unique name for one user' do
-      aspect2 = user.aspect(:name => aspect.name)
+      aspect2 = user.aspects.create(:name => aspect.name)
       aspect2.valid?.should be_false
     end
 
     it 'has no uniqueness between users' do
-      aspect2 = user2.aspect(:name => aspect.name)
+      aspect2 = user2.aspects.create(:name => aspect.name)
       aspect2.valid?.should be_true
     end
   end
@@ -82,7 +82,7 @@ describe Aspect do
     end
 
     describe '#aspects_with_person' do
-      let!(:aspect_without_friend) {user.aspect(:name => "Another aspect")}
+      let!(:aspect_without_friend) {user.aspects.create(:name => "Another aspect")}
       it 'should return the aspects with given friend' do
         user.reload
         aspects = user.aspects_with_person(friend)
@@ -105,7 +105,7 @@ describe Aspect do
   describe 'posting' do
 
     it 'should add post to aspect via post method' do
-      aspect = user.aspect(:name => 'losers', :people => [friend])
+      aspect = user.aspects.create(:name => 'losers', :people => [friend])
 
       status_message = user.post( :status_message, :message => "hey", :to => aspect.id )
 
@@ -114,8 +114,8 @@ describe Aspect do
     end
 
     it 'should add post to aspect via receive method' do
-      aspect  = user.aspect(:name => 'losers')
-      aspect2 = user2.aspect(:name => 'winners')
+      aspect  = user.aspects.create(:name => 'losers')
+      aspect2 = user2.aspects.create(:name => 'winners')
       friend_users(user, aspect, user2, aspect2)
 
       message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
@@ -128,8 +128,8 @@ describe Aspect do
     end
 
     it 'should retract the post from the aspects as well' do
-      aspect  = user.aspect(:name => 'losers')
-      aspect2 = user2.aspect(:name => 'winners')
+      aspect  = user.aspects.create(:name => 'losers')
+      aspect2 = user2.aspects.create(:name => 'winners')
       friend_users(user, aspect, user2, aspect2)
 
       message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)

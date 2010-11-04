@@ -6,11 +6,30 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+
+  settings: "Settings"
+  profile: "Profile"
+  account: "Account"
+  services: "Services"
+  cancel: "Cancel"
+  delete: "Delete"  
+  or: "or"
+  by: "by"
+  ago: "ago"
+  username: "Username"
+  email: "Email"
+  home: "Home"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  are_you_sure: "Are you sure?"
+  
   activemodel:
       errors:
           models:
               user:
                   attributes:
+                      person:
+                          invalid: "is invalid"
                       username:
                           taken: "is already taken"
                       email:
@@ -24,9 +43,6 @@ en:
       helper:
           unknown_person: "unknown person"
           new_requests: "new requests"
-  dashboards:
-      helper:
-          home: "home"
   error_messages:
       helper:
           invalid_fields: "Invalid Fields"
@@ -37,7 +53,10 @@ en:
            people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
       application:
+          view_profile: "view profile"
           edit_profile: "edit profile"
+          account_settings: "account settings"
+          search: "Search"
           logout: "logout"
   shared:
       aspect_nav:
@@ -49,9 +68,19 @@ en:
           manage_aspects: "Manage Aspects"
       publisher:
           share: "Share"
+          post_a_message_to: "Post a message to %{aspect}"
+          make_public: "make public"
       aspect_friends:
           add_friends: "add friends"
           photos: "photos"
+      invitations:
+          invites: 'Invites'
+          invite_a_friend: 'Invite a friend'
+          invitations_left: '(%{count} left)'
+      reshare:
+          reshare: 'Reshare'
+      author_info:
+          view_profile: 'View profile'
   albums:
       album:
           you: "you"
@@ -62,18 +91,17 @@ en:
           edit_album: "Edit Album"
           albums: "albums"
           updated: "updated"
-          by: "by"
       edit:
+          album_name: "Album name"
           editing: "Editing"
           updated: "updated"
-          are_you_sure: "Are you sure?"
+          update_album: "Update album"
           delete_album: "Delete Album"
-          cancel: "Cancel"
       index:
-          home: "home"
           new_album: "New Album"
       create:
           success: "You've created an album called %{name}."
+          failure: "Failed to create album."
       update:
           success: "Album %{name} successfully edited."
           failure: "Failed to edit album %{name}."
@@ -84,7 +112,7 @@ en:
           your_albums: "Your Albums"
   aspects:
       no_friends_message:
-          nobody: "We know you have friends, bring them to Diaspora!"
+          nobody: "We know you have friends — bring them to Diaspora!"
           nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
           add_friend: "Add a friend"
           add_friend_to: "Add someone to %{aspect_name}"
@@ -100,6 +128,7 @@ en:
           ignore_remove: "Ignore/Remove"
       new_aspect:
           add_a_new_aspect: "Add a new aspect"
+          name: "Name"
           create: "Create"
       create:
           success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
@@ -120,16 +149,20 @@ en:
   users:
       edit:
           editing_profile: "Editing profile"
+          invite_friends: "Invite friends"
+          export_data: "Export Data"
+          close_account: "Close Account"
+          change_language: "Change Language"
+          change_password: "Change Password"
+          new_password: "New Password"
       destroy: "Account successfully closed."
       getting_started:
+          signup_steps: "Complete your sign-up by doing these things:"
           'step_1':
               albums: "Albums"
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
               page_to_upload_some:  "page to upload some."
-              or: "or"
   comments:
-      comment:
-          ago: "ago"
       new_comment:
           comment: "Comment"
   photos:
@@ -139,17 +172,13 @@ en:
           next: "next"
           edit_photo: "Edit Photo"
           delete_photo: "Delete Photo"
-          are_you_sure: "Are you sure?"
           comments: "comments"
       edit:
           editing: "Editing"
-          are_you_sure: "Are you sure?"
           delete_photo: "Delete Photo"
       photo:
           show_comments: "show comments"
           posted_a_new_photo_to: "posted a new photo to"
-          delete: "Delete"
-          are_you_sure: "Are you sure?"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -166,6 +195,9 @@ en:
   registrations:
       new:
           sign_up: "Sign up"
+          sign_up_for_diaspora: "Sign up for Diaspora"
+          upload_existing_account: "Upload an existing Diaspora account"
+          upload: "Upload"
       create:
           success: "You've joined Diaspora!"
   invitations:
@@ -176,19 +208,22 @@ en:
           already_friends: 'You are already friends with this person' 
           invitation_token_invalid: 'The invitation token provided is not valid!'
           updated: 'Your password was set successfully. You are now signed in.'
-
+      new:
+          invite_someone_to_join: 'Invite someone to join Diaspora!'
+          if_they_accept_info: 'if they accept, they will be added to the aspect you invited them'
+          to: 'To'
+          message: 'Message:'
+          send_an_invitation: 'Send an invitation'
+          send_invitation: 'Send invitation'
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
           oh_yeah: "oh yeah!"
       status_message:
           show_comments: "show comments"
-          delete: "Delete"
-          are_you_sure: "Are you sure?"
       show:
           status_message: "Status Message"
           comments: "comments"
-          are_you_sure: "Are you sure?"
           destroy: "Destroy"
           view_all: "View All"
           message: "Message"
@@ -213,13 +248,22 @@ en:
           last_seen: "last seen: %{how_long_ago}"
           friends_since: "friends since: %{how_long_ago}"
           save: "save"
-          are_you_sure: "Are you sure?"
           remove_friend: "remove friend"
           no_posts: "no posts to display!"
+          add_friend: "add friend"
+          edit_my_profile: "Edit my profile"
       edit:
-          cancel: "Cancel"
+          info_available_to: "This info will be available to whomever you connect with on Diaspora."
+          your_profile: "Your profile"
+          your_name: "Your name"
+          first_name: "First name"
+          last_name: "Last name"
+          your_gender: "Your gender"
+          your_birthday: "Your birthday"
+          your_bio: "Your bio"
+          fill_me_out: "Fill me out"
+          your_photo: "Your photo"
           update_profile: "Update Profile"
-          home: "Home"
           diaspora_username: "DIASPORA USERNAME"
           info: "Info"
           picture: "Picture"
@@ -227,13 +271,13 @@ en:
           albums: "Albums"
           you_dont_have_any_photos: "You don't have any photos!  Go to the"
           page_to_upload_some:  "page to upload some."
-          or: "or"
   requests:
       new_request:
           add_a_new_friend_to: "Add a new friend to"
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           friends_username: "Friend's username"
+          create_request: "Create request"
       destroy:
           success: "You are now friends."
           error: "Please select an aspect!"

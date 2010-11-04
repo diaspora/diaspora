@@ -43,7 +43,7 @@
       }
   %body
     %header
-      = image_tag 'diaspora_white.png'
+      = image_tag attachments['diaspora_white_on_grey.png'].url, :alt => "DIASPORA"
     #container
       %p
         Hello #{@receiver.profile.first_name}!
