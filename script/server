@@ -50,5 +50,5 @@ fi
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
-bundle exec magent start&
+bundle exec magent start -d
 bundle exec thin start $args

@@ -4,20 +4,20 @@ class Notifier < ActionMailer::Base
   default :from => "no-reply@joindiaspora.com"
   ATTACHMENT =  File.read("#{Rails.root}/public/images/diaspora_white_on_grey.png")  
 
-  def new_request(recipient, sender)
-    puts "I'm in new request"
-    @receiver = recipient
-    @sender = sender
-    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
+  def new_request(recipient_id, sender_id)
+    @receiver = User.find_by_id(recipient_id)
+    @sender = Person.find_by_id(sender.id)
 
+    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
+  
     mail(:to => "#{recipient.real_name} <#{recipient.email}>",
     :subject => "new Diaspora* friend request from #{@sender.real_name}", :host => APP_CONFIG[:terse_pod_url])
   end
 
-  def request_accepted(recipient, sender, aspect)
-    @receiver = recipient
-    @sender = sender
-    @aspect = aspect
+  def request_accepted(recipient_id, sender_id, aspect_id)
+    @receiver = User.find_by_id(recipient_id)
+    @sender = Person.find_by_id(sender_id)
+    @aspect = Aspect.find_by_id(aspect_id)
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
 
     mail(:to => "#{recipient.real_name} <#{recipient.email}>",
@@ -26,10 +26,10 @@ class Notifier < ActionMailer::Base
 
 
   def self.send_request_accepted!(user, person, aspect)
-    Notifier.async.request_accepted(user, person, aspect ).deliver.commit!
+    Notifier.async.request_accepted(user.id, person.id, aspect.id ).deliver.commit!
   end
 
   def self.send_new_request!(user, person)
-    Notifier.async.new_request(user, person).deliver.commit!
+    Notifier.async.new_request(user.id, person.id).deliver.commit!
   end
 end
