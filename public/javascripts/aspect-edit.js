@@ -27,10 +27,14 @@ var AspectEdit = {
     $(".aspect h3").live('focus', AspectEdit.changeName);
   },
 
-  startDrag: function(event, ui) {
-    $(this).children("img").animate({'height':80, 'width':80, 'opacity':0.8}, 200)
-      .tipsy("hide");
+  startDrag: function() {
+    AspectEdit.animateImage($(this).children("img").first());
     $(".draggable_info").fadeIn(100);
+  },
+  
+  animateImage: function(image) {
+    image.animate({'height':80, 'width':80, 'opacity':0.8}, 200);
+    image.tipsy("hide");
   },
 
   duringDrag: function(event, ui) {
