@@ -18,6 +18,7 @@ default:
   smtp_port: '587'
   smtp_domain: 'mail.example.com'
   smtp_authentication: 'plain'
+  smtp_sender_address: 'no-reply@example.com'
   smtp_username: 'no-reply@example.com'
   smtp_password: 'secret'
 
