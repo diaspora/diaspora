@@ -236,16 +236,23 @@ class User
 
   def push_to_people(post, people)
     salmon = salmon(post)
-    people.each { |person|
-      xml = salmon.xml_for person
-      push_to_person(person, xml)
-    }
+    people.each do |person|
+      push_to_person(salmon, post, person)
+    end
   end
 
-  def push_to_person(person, xml)
-    Rails.logger.debug("#{self.real_name} is adding xml to message queue to #{person.receive_url}")
-    QUEUE.add_post_request(person.receive_url, xml)
-    QUEUE.process
+  def push_to_person(salmon, post, person)
+    # person.owner will always return a ProxyObject.
+    # calling nil? performs a necessary evaluation.
+    unless person.owner.nil?
+      person.owner.receive(post.to_diaspora_xml, self.person)
+    else
+      xml = salmon.xml_for person
+
+      Rails.logger.debug("#{self.real_name} is adding xml to message queue to #{person.receive_url}")
+      QUEUE.add_post_request(person.receive_url, xml)
+      QUEUE.process
+    end
   end
 
   def push_to_hub(post)

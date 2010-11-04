@@ -66,5 +66,10 @@ describe 'making sure the spec runner works' do
       @aspect2.people.include?(contact).should be_true
       contact.aspects.include?( @aspect2 ).should be true
     end
+
+    it 'allows posting after running' do
+      message = @user1.post(:status_message, :message => "Friendship!", :to => @aspect1.id)
+      @user2.reload.visible_posts.should include message
+    end
   end
 end

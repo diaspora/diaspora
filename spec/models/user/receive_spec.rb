@@ -14,8 +14,8 @@ describe User do
 
   let(:user3) { make_user }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
-  let(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
 
+  let!(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
   let(:photo) {user.post(:photo, :user_file => uploaded_photo, :caption => "Original", :to => aspect.id)}
 
   before do
@@ -90,21 +90,20 @@ describe User do
 
   describe 'post refs' do
     before do
-      @status_message = user2.post :status_message, :message => "hi", :to =>aspect2.id
-      user.receive @status_message.to_diaspora_xml, user2.person
+      @status_message = user2.post :status_message, :message => "hi", :to => aspect2.id
       user.reload
+      aspect.reload
     end
 
     it "should add a received post to the aspect and visible_posts array" do
-      user.raw_visible_posts.include?(@status_message).should be true
-      aspect.reload
+      user.raw_visible_posts.include?(@status_message).should be_true
       aspect.posts.include?(@status_message).should be_true
     end
 
     it 'should be removed on unfriending' do
       user.unfriend(user2.person)
       user.reload
-      user.raw_visible_posts.count.should == 0
+      user.raw_visible_posts.count.should == 1
     end
 
     it 'should be remove a post if the noone links to it' do
@@ -112,8 +111,6 @@ describe User do
       user2.delete
 
       lambda {user.unfriend(person)}.should change(Post, :count).by(-1)
-      user.reload
-      user.raw_visible_posts.count.should == 0
     end
 
     it 'should keep track of user references for one person ' do

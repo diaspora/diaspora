@@ -11,6 +11,8 @@ describe Comment do
   let(:user2)   {make_user}
   let(:aspect2) {user2.aspects.create(:name => "Lame-faces")}
 
+  let!(:friending) { friend_users(user, aspect, user2, aspect2) }
+
   it 'validates that the handle belongs to the person' do
     user_status = user.post(:status_message, :message => "hello", :to => aspect.id)
     comment = Comment.new(:person_id => user2.person.id, :text => "hey", :post => user_status)
@@ -44,8 +46,6 @@ describe Comment do
 
   describe 'comment propagation' do
     before do
-      friend_users(user, aspect, user2, aspect2)
-
       @person = Factory.create(:person)
       user.activate_friend(@person, Aspect.first(:id => aspect.id))
 
@@ -60,25 +60,30 @@ describe Comment do
     end
 
     it "should send a user's comment on a person's post to that person" do
-      User::QUEUE.should_receive(:add_post_request)
+      User::QUEUE.should_receive(:add_post_request).once
       user.comment "yo", :on => @person_status
     end
 
     it 'should send a user comment on his own post to lots of people' do
+      User::QUEUE.should_receive(:add_post_request).once
 
-      User::QUEUE.should_receive(:add_post_request).twice
+      user2.raw_visible_posts.count.should == 0
+
       user.comment "yo", :on => @user_status
+
+      user2.reload
+      user2.raw_visible_posts.count.should == 1
     end
 
     it 'should send a comment a person made on your post to all people' do
-      comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle,  :text => "cats", :post => @user_status)
-      User::QUEUE.should_receive(:add_post_request).twice
+      comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @user_status)
+      User::QUEUE.should_receive(:add_post_request).once
       user.receive comment.to_diaspora_xml, @person
     end
 
     it 'should send a comment a user made on your post to all people' do
       comment = user2.comment( "balls", :on => @user_status)
-      User::QUEUE.should_receive(:add_post_request).twice
+      User::QUEUE.should_receive(:add_post_request).once
       user.receive comment.to_diaspora_xml, user2.person
     end
 
@@ -86,20 +91,22 @@ describe Comment do
       before(:all) do
         stub_comment_signature_verification
       end
-    it 'should not send a comment a person made on his own post to anyone' do
-      User::QUEUE.should_not_receive(:add_post_request)
-      comment = Comment.new(:person_id => @person.id,  :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
-      user.receive comment.to_diaspora_xml, @person
-    end
+      
+      it 'should not send a comment a person made on his own post to anyone' do
+        User::QUEUE.should_not_receive(:add_post_request)
+        comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
+        user.receive comment.to_diaspora_xml, @person
+      end
 
-    it 'should not send a comment a person made on a person post to anyone' do
-      User::QUEUE.should_not_receive(:add_post_request)
-      comment = Comment.new(:person_id => @person2.id,  :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
-      user.receive comment.to_diaspora_xml, @person
-    end
-    after(:all) do
-      unstub_mocha_stubs
-    end
+      it 'should not send a comment a person made on a person post to anyone' do
+        User::QUEUE.should_not_receive(:add_post_request)
+        comment = Comment.new(:person_id => @person2.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
+        user.receive comment.to_diaspora_xml, @person
+      end
+
+      after(:all) do
+        unstub_mocha_stubs
+      end
   end
 
     it 'should not clear the aspect post array on receiving a comment' do
@@ -128,12 +135,10 @@ describe Comment do
 
   describe 'comments' do
     before do
-      friend_users(user, aspect, user2, aspect2)
       @remote_message = user2.post :status_message, :message => "hello", :to => aspect2.id
-
-
       @message = user.post :status_message, :message => "hi", :to => aspect.id
     end
+
     it 'should attach the creator signature if the user is commenting' do
       user.comment "Yeah, it was great", :on => @remote_message
       @remote_message.comments.first.signature_valid?.should be true

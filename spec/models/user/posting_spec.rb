@@ -131,11 +131,12 @@ describe User do
       end
 
       it 'does not use the queue for local transfer' do
-        User::QUEUE.should_receive(:add_post_request).twice
+        User::QUEUE.should_receive(:add_post_request).once
 
         remote_person = user4.person
         remote_person.owner_id = nil
         remote_person.save
+        remote_person.reload
 
         user.push_to_people(post, [user2.person, user3.person, remote_person])
       end

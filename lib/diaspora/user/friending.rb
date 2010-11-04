@@ -22,7 +22,6 @@ module Diaspora
 
           aspect.requests << request
           aspect.save
-
           push_to_people request, [desired_friend]
         end
         request
@@ -37,8 +36,7 @@ module Diaspora
       end
 
       def dispatch_friend_acceptance(request, requester)
-        friend_acceptance = salmon(request)
-        push_to_person requester, friend_acceptance.xml_for(requester)
+        push_to_people request, [requester]
         request.destroy unless request.callback_url.include? url
       end
 
@@ -79,7 +77,7 @@ module Diaspora
           friend_request.save
           Notifier.new_request(self, friend_request.person).deliver
         else
-          Rails.logger.info("#{self.real_name} is trying to receive a friend request from himself.")
+          raise "#{self.real_name} is trying to receive a friend request from himself."
         end
         friend_request
       end
@@ -121,8 +119,8 @@ module Diaspora
         new_contact = Contact.create(:user => self, :person => person, :aspects => [aspect])
         new_contact.aspects << aspect
         friends << new_contact
-        save
-        aspect.save
+        save!
+        aspect.save!
       end
 
       def request_from_me?(request)

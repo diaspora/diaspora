@@ -83,7 +83,7 @@ describe Diaspora::UserModules::Friending do
         user.save
 
         proc { user.receive_friend_request(reversed_request)
-          }.should change(user.reload.pending_requests, :count).by(0)
+          }.should raise_error /request from himself/
       end
     end
 
@@ -249,9 +249,7 @@ describe Diaspora::UserModules::Friending do
       context 'with a post' do
         before do
           @message = user.post(:status_message, :message => "hi", :to => aspect.id)
-          user2.receive @message.to_diaspora_xml.to_s, user.person
           user2.unfriend user.person
-          user.unfriended_by user2.person
         end
         it "deletes the unfriended user's posts from visible_posts" do
           user.reload.raw_visible_posts.include?(@message.id).should be_false

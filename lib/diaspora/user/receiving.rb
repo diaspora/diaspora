@@ -32,7 +32,7 @@ module Diaspora
         end
 
         if (salmon_author.diaspora_handle != xml_author)
-          raise "Malicious Post, #{salmon_author.real_name} with id #{salmon_author.id} is sending a #{object.class} as #{xml_author} "
+          raise "Malicious Post, #{salmon_author.real_name} with handle #{salmon_author.diaspora_handle} is sending a #{object.class} as #{xml_author} "
         end
 
         if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request) || object.is_a?(Retraction) || object.is_a?(Profile) 
@@ -92,10 +92,7 @@ module Diaspora
       def receive_request request, person
         request.person = person
         request.person.save!
-        old_request =  Request.find_by_diaspora_handle(request.diaspora_handle)
-        Rails.logger.info("I got a request from #{request.diaspora_handle} with old request #{old_request.inspect}")
-        request.aspect_id = old_request.aspect_id if old_request
-        request.save
+        request.save!
         receive_friend_request(request)
       end
 
