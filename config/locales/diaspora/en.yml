@@ -10,7 +10,7 @@ en:
   settings: "Settings"
   profile: "Profile"
   account: "Account"
-  services: "Services"
+  _services: "Services"
   _photos: "photos"
   stream: "stream"
   ok: "OK"
@@ -156,6 +156,13 @@ en:
           'step_1':
               you_dont_have_any_photos: "You don't have any photos!  Go to the"
               page_to_upload_some:  "page to upload some."
+      update:
+          password_changed: "Password Changed"
+          password_not_changed: "Password Change Failed"
+          language_changed: "Language Changed"
+          language_not_changed: "Language Change Failed"
+      public:
+          does_not_exist: "User %{username} does not exist!"
   comments:
       new_comment:
           comment: "Comment"
@@ -215,6 +222,8 @@ en:
           message: 'Message:'
           send_an_invitation: 'Send an invitation'
           send_invitation: 'Send invitation'
+      check_token:
+          not_found: "Invitation token not found"
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
@@ -258,6 +267,7 @@ en:
           not_friends: "You're currently not friends with %{name}"
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
+          does_not_exist: "Person does not exist!"
       edit:
           info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"
@@ -280,6 +290,9 @@ en:
           allow_search: "Allow for people to search for you"
       profile_photo_upload:
           or_select_one: "or select one from your already existing"
+      update:
+          updated: "Profile updated"
+          failed: "Failed to update profile"
   requests:
       new_request:
           add_a_new_friend_to: "Add a new friend to"
@@ -299,3 +312,9 @@ en:
           already_friends: "You are already friends with %{destination_url}!"
           success: "A friend request was sent to %{destination_url}."
           horribly_wrong: "Something went horribly wrong."
+          tried: "we tried our best to send a message to %{account}"
+  services:
+      create:
+          success: "Authentication successful."
+      destroy:
+          success: "Successfully destroyed authentication."

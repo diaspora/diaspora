@@ -48,7 +48,7 @@ class InvitationsController < Devise::InvitationsController
 
   def check_token
     if User.find_by_invitation_token(params['invitation_token']).nil?
-      flash[:error] = "Invitation token not found"
+      flash[:error] = I18n.t 'invitations.check_token.not_found'
       redirect_to root_url
     end
   end

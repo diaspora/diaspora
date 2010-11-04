@@ -31,15 +31,15 @@ class UsersController < ApplicationController
 
       if params[:user][:password] && params[:user][:password_confirmation]
         if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-          flash[:notice] = "Password Changed"
+          flash[:notice] = I18n.t 'users.update.password_changed'
         else
-          flash[:error] = "Password Change Failed"
+          flash[:error] = I18n.t 'users.update.password_not_changed'
         end
       elsif params[:user][:language]
         if @user.update_attributes(:language => params[:user][:language])
-          flash[:notice] = "Language Changed"
+          flash[:notice] = I18n.t 'users.update.language_changed'
         else
-          flash[:error] = "Language Change Failed"
+          flash[:error] = I18n.t 'users.update.language_not_changed'
         end
       end
 
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   def destroy
     current_user.destroy
     sign_out current_user
-    flash[:notice] = t('user.destroy')
+    flash[:notice] = I18n.t 'users.destroy'
     redirect_to root_path
   end
 
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
       render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
     else
-      flash[:error] = "User #{params[:username]} does not exist!"
+      flash[:error] = I18n.t 'users.public.does_not_exists', :username => params[:username]
       redirect_to root_url
     end
   end
