@@ -13,6 +13,7 @@ class Photo < Post
   key :caption,  String
   key :remote_photo_path
   key :remote_photo_name
+  key :random_string
 
   timestamps!
 
@@ -23,6 +24,7 @@ class Photo < Post
   def self.instantiate(params = {})
     photo = super(params)
     image_file = params.delete(:user_file)
+    photo.random_string = gen_random_string(10)
 
     photo.image.store! image_file
     photo
@@ -60,6 +62,13 @@ class Photo < Post
 
   def mutable?
     true
+  end
+
+  def self.gen_random_string(len)
+    chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
+    string = ""
+    1.upto(len) { |i| string << chars[rand(chars.size-1)] }
+    return string
   end
 end
 

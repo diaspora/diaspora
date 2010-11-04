@@ -13,9 +13,10 @@ describe Photo do
     @fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo = Photo.new
-    @photo.person = @user.person
-    @photo.diaspora_handle = @user.person.diaspora_handle
+#    @photo = Photo.new
+    #@photo.person = @user.person
+    #@photo.diaspora_handle = @user.person.diaspora_handle
+    @photo = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
 
     @photo2 = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
   end
@@ -31,10 +32,19 @@ describe Photo do
       @photo.update_attributes(:person_id => Factory(:person).id)
       @photo.reload.person.should == @user.person
     end
+    it 'allows assignmant of caption' do
+      @photo.save!
+      @photo.update_attributes(:caption => "this is awesome!!")
+      @photo.reload.caption.should == "this is awesome!!"
+    end
   end
 
   it 'should be mutable' do
     @photo.mutable?.should == true   
+  end
+
+  it 'has a random string key' do
+    @photo2.random_string.should_not be nil
   end
 
   describe '.instantiate' do

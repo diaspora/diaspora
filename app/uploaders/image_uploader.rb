@@ -5,6 +5,8 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
+
+
   def store_dir
     "uploads/images"
   end
@@ -14,8 +16,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    model.id.to_s + File.extname(@filename) if @filename
+    model.random_string + model.id.to_s + File.extname(@filename) if @filename
   end
+
+
 
   version :thumb_small do
     process :resize_to_fill => [50,50]
