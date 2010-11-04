@@ -25,7 +25,7 @@ def write_pidfile
 end
 
 def debug_pp thing
-  pp thing if APP_CONFIG[:socket_debug] || ENV[:SOCKET_DEBUG]
+  pp thing if APP_CONFIG[:socket_debug] || ENV['SOCKET_DEBUG']
 end
 
 CHANNEL = Magent::GenericChannel.new('websocket')
