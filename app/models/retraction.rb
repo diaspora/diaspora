@@ -10,9 +10,6 @@ class Retraction
   xml_accessor :diaspora_handle
   xml_accessor :type
 
-  attr_accessor :post_id
-  attr_accessor :diaspora_handle
-  attr_accessor :type
   attr_accessor :person
 
   def self.for(object)
