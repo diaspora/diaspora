@@ -6,10 +6,11 @@
   profile
 
 .span-4.append-1.last
-  %h2= @person.real_name
+
   #profile
     .profile_photo
-      = person_image_link(@person)
+      = person_image_link(@person, :to => :photos)
+
     %ul
       -unless @posts.first.nil?
         %li
@@ -27,20 +28,33 @@
               - for aspect in @aspects_with_person
                 %li= link_to aspect.name, aspect
 
+
+    /should be collapsed, either or, or request friend
+
     - if @person != current_user.person && @contact
       = link_to t('.remove_friend'), @person, :confirm => t('are_you_sure'), :method => :delete, :class => "button"
 
-    - if @person == current_user.person
-      %b
-        = link_to t('.edit_my_profile'), edit_person_path(@person)
 
-    %br
-    %br
-    = link_to t('_photos'), person_photos_path(@person)
+    /profile junk
+    #profile_information
+      %ul
+        %li  
+          %b bio-epic:
+          = @person.profile.bio
+        %li
+          %b gender:
+          = @person.profile.gender
+        %li
+          %b born:
+          = "#{time_ago_in_words(@person.profile.birthday)} ago" if @person.profile.birthday
+        %li
+          %b= link_to t('.edit_my_profile'), edit_person_path(@person) if @person == current_user.person
+
+
 
 
 .span-15.last
-
+  = render 'shared/author_info', :person => @person
   - if @contact || current_user.person == @person
 
     - if @posts.count > 0
@@ -72,4 +86,3 @@
         %h3
           .description
             = t('.already_requested', :name => @person.real_name)
-

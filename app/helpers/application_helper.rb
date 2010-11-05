@@ -69,8 +69,12 @@ module ApplicationHelper
   end
   
 
-  def person_image_link(person)
-    link_to person_image_tag(person), object_path(person)
+  def person_image_link(person, opts = {})
+    if opts[:to] == :photos
+      link_to person_image_tag(person), person_photos_path(person)
+    else
+      link_to person_image_tag(person), object_path(person)
+    end
   end
 
   def new_request(request_count)

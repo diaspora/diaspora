@@ -2,7 +2,7 @@
   = person_image_link(person)
   .from
     %h2
-      = person.real_name
+      = link_to person.real_name, person_path(person)
       - if defined?(post)
         .aspect
           ➔
@@ -12,5 +12,7 @@
             - else
               - for aspect in current_user.aspects_with_post( post.id )
                 %li= link_to aspect.name, aspect
-
-    = link_to t('.view_profile'), person_path(person)
+    #person_nav_links
+      = link_to t('.view_profile'), person_path(person)
+      = link_to t('_photos'), person_photos_path(person)
+      = link_to 'status messages', person_photos_path(person)
