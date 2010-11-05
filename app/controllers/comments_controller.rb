@@ -12,8 +12,12 @@ class CommentsController < ApplicationController
     target = current_user.find_visible_post_by_id params[:comment][:post_id]
     text = params[:comment][:text]
 
-    @comment = current_user.comment text, :on => target
-    render :nothing => true
+    @comment = current_user.comment(text, :on => target) if target
+    if @comment
+      render :nothing => true, :status => 201
+    else
+      render :nothing => true, :status => 401
+    end
   end
 
 end
