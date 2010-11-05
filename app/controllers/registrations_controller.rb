@@ -11,11 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
       sign_in_and_redirect(:user, @user)
     else
       flash[:error] = @user.errors.full_messages.join(', ')
-      redirect_to new_user_registration_path
+      render :new
     end
-  end
-
-  def update
-    super
   end
 end

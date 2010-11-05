@@ -41,14 +41,14 @@ describe RegistrationsController do
     end
     context "with invalid parameters" do
       before do
-        @valid_params["user"]["password_confirmation"] = "baddword"
         @invalid_params = @valid_params
-        user = Factory.build(:user)
-        user.stub!(:save){user.errors.add(:base, "hello"); false}
-        User.stub!(:build).and_return(user)
+        @invalid_params["user"]["password_confirmation"] = "baddword"
       end
       it "does not create a user" do
         lambda { get :create, @invalid_params }.should_not change(User, :count)
+      end
+      it "does not create a person" do
+        lambda { get :create, @invalid_params }.should_not change(Person, :count)
       end
       it "assigns @user" do
         get :create, @invalid_params
@@ -58,9 +58,9 @@ describe RegistrationsController do
         get :create, @invalid_params
         flash[:error].should_not be_blank
       end
-      it "goes back to the form" do
+      it "re-renders the form" do
         get :create, @invalid_params
-        response.should redirect_to new_user_registration_path
+        response.should render_template("registrations/new")
       end
     end
   end
