@@ -4,7 +4,7 @@
 
 
 #left_pane
-  %h2= aspect == :all ? "Everyone" : aspect
+  %h2= aspect == :all ? t('.everyone') : aspect
 
   .friend_pictures
     = owner_image_link
@@ -13,7 +13,7 @@
       = person_image_link(friend)
 
     -unless (aspect == :all)
-      = link_to (image_tag('add_friend_button.png', :title => "add to #{@aspect}")), "#add_request_pane", :class => 'add_request_button'
+      = link_to (image_tag('add_friend_button.png', :title => "#{t('.add_to', :aspect => @aspect)}")), "#add_request_pane", :class => 'add_request_button'
 
       .fancybox_content
         #add_request_pane

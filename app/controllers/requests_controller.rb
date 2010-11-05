@@ -62,7 +62,7 @@ class RequestsController < ApplicationController
     if params[:getting_started]
       redirect_to getting_started_path(:step=>params[:getting_started])
     else
-      flash[:notice] = "we tried our best to send a message to #{account}" unless flash[:error]
+      flash[:notice] = I18n.t('requests.create.tried', :account => account) unless flash[:error]
       respond_with :location => aspects_manage_path 
       return
     end    

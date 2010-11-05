@@ -10,7 +10,10 @@ en:
   settings: "Settings"
   profile: "Profile"
   account: "Account"
-  services: "Services"
+  _services: "Services"
+  _photos: "photos"
+  stream: "stream"
+  ok: "OK"
   cancel: "Cancel"
   delete: "Delete"  
   or: "or"
@@ -63,6 +66,8 @@ en:
           all_aspects: "All Aspects"
           manage: "Manage"
           manage_your_aspects: "Manage your Aspects"
+          everyone: "Everyone"
+          add_a_new_aspect: "add a new aspect"
       sub_header:
           all_aspects: "All Aspects"
           manage_aspects: "Manage Aspects"
@@ -70,9 +75,14 @@ en:
           share: "Share"
           post_a_message_to: "Post a message to %{aspect}"
           make_public: "make public"
+          share_with_all: "Share with all aspects"
+          share_with: "Share with %{aspect}"
+          create: "Create"
+          all: "all"
       aspect_friends:
           add_friends: "add friends"
-          photos: "photos"
+          everyone: "Everyone"
+          add_to: "add to %{aspect}"
       invitations:
           invites: 'Invites'
           invite_a_friend: 'Invite a friend'
@@ -81,6 +91,13 @@ en:
           reshare: 'Reshare'
       author_info:
           view_profile: 'View profile'
+      add_friend_dropdown:
+          add_to: "add to %{aspect}"
+      public_explain:
+          title: "You are about to post a public message!"
+          outside: "Public messages will be available for others outside of Diaspora to see."
+          logged_in: "logged in to %{service}"
+          manage: "manage connected services"
   aspects:
       no_friends_message:
           nobody: "We know you have friends — bring them to Diaspora!"
@@ -97,6 +114,11 @@ en:
           update_aspects: "Update Aspects"
           requests: "Requests"
           ignore_remove: "Ignore/Remove"
+          no_requests: "No new requests"
+          remove_from_aspect: "Remove from Aspect"
+          manage_aspects: "Manage aspects"
+          drag_to_remove: "Drag to remove person from aspect"
+          drag_to-add: "Drag to add people"
       new_aspect:
           add_a_new_aspect: "Add a new aspect"
           name: "Name"
@@ -126,6 +148,8 @@ en:
           change_language: "Change Language"
           change_password: "Change Password"
           new_password: "New Password"
+          download_xml: "download my xml"
+          download_photos: "download my photos"
       destroy: "Account successfully closed."
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
@@ -135,6 +159,13 @@ en:
           edit_profile: "Edit your profile"
           define_aspects: "Define your aspects"
           connect_services: "Connect your services"
+      update:
+          password_changed: "Password Changed"
+          password_not_changed: "Password Change Failed"
+          language_changed: "Language Changed"
+          language_not_changed: "Language Change Failed"
+      public:
+          does_not_exist: "User %{username} does not exist!"
   comments:
       new_comment:
           comment: "Comment"
@@ -146,12 +177,18 @@ en:
           edit_photo: "Edit Photo"
           delete_photo: "Delete Photo"
           comments: "comments"
+          add_a_description: "Add a description"
+          uploads: "uploads"
+          make_profile_photo: "make profile photo"
+          update_photo: "Update Photo"
       edit:
           editing: "Editing"
           delete_photo: "Delete Photo"
       photo:
           show_comments: "show comments"
           posted_a_new_photo_to: "posted a new photo to"
+          posted_a_photo: "posted a photo"
+          the_world: "the world"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -188,6 +225,8 @@ en:
           message: 'Message:'
           send_an_invitation: 'Send an invitation'
           send_invitation: 'Send invitation'
+      check_token:
+          not_found: "Invitation token not found"
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
@@ -207,6 +246,8 @@ en:
       person:
           add_friend: "add friend"
           pending_request: "pending request"
+          already_friends: "Already friends"
+          thats_you: "thats you!"
       index:
           add_friend: "add friend"
           real_name: "real name"
@@ -214,6 +255,7 @@ en:
           thats_you: "that's you!"
           friend_request_pending: "friend request pending"
           you_have_a_friend_request_from_this_person: "you have a friend request from this person"
+          results_for: "search results for"
       new:
           new_person: "New Person"
           back_to_list: "Back to List"
@@ -225,6 +267,10 @@ en:
           no_posts: "no posts to display!"
           add_friend: "add friend"
           edit_my_profile: "Edit my profile"
+          not_friends: "You're currently not friends with %{name}"
+          request_people: "If you'd like, you can request to place him/her in one of your aspects."
+          already_requested: "You have already sent a request to %{name}."
+          does_not_exist: "Person does not exist!"
       edit:
           info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"
@@ -243,6 +289,13 @@ en:
           editing_profile: "Editing profile"
           you_dont_have_any_photos: "You don't have any photos!  Go to the"
           page_to_upload_some:  "page to upload some."
+          search: "Search"
+          allow_search: "Allow for people to search for you"
+      profile_photo_upload:
+          or_select_one: "or select one from your already existing"
+      update:
+          updated: "Profile updated"
+          failed: "Failed to update profile"
   requests:
       new_request:
           add_a_new_friend_to: "Add a new friend to"
@@ -262,3 +315,9 @@ en:
           already_friends: "You are already friends with %{destination_url}!"
           success: "A friend request was sent to %{destination_url}."
           horribly_wrong: "Something went horribly wrong."
+          tried: "we tried our best to send a message to %{account}"
+  services:
+      create:
+          success: "Authentication successful."
+      destroy:
+          success: "Successfully destroyed authentication."

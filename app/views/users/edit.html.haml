@@ -18,7 +18,7 @@
   %ul#settings_nav
     %li=link_to t('profile'), edit_person_path(current_user.person)
     %li=link_to t('account'), edit_user_path(current_user)
-    %li=link_to t('services'), services_path
+    %li=link_to t('_services'), services_path
 
 .span-19.prepend-5.last
   %h2
@@ -60,8 +60,8 @@
 
   %h3 
     = t('.export_data')
-  = link_to "download my xml", users_export_path, :class => "button"
-  = link_to "download my photos", users_export_photos_path, :class => "button"
+  = link_to t('.download_xml'), users_export_path, :class => "button"
+  = link_to t('.download_photos'), users_export_photos_path, :class => "button"
 
   %br
   %br

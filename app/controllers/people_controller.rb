@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
       respond_with @person
     else
-      flash[:error] = "Person does not exist!"
+      flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path
     end
   end
@@ -66,9 +66,9 @@ class PeopleController < ApplicationController
     end
 
     if current_user.update_profile params[:person][:profile]
-      flash[:notice] = "Profile updated"
+      flash[:notice] = I18n.t 'people.update.updated'
     else
-      flash[:error] = "Failed to update profile"
+      flash[:error] = I18n.t 'people.update.failed'
     end
 
     if params[:getting_started]

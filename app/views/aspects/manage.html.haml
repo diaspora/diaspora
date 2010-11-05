@@ -7,8 +7,7 @@
   = javascript_include_tag 'aspect-edit.js'
 
 #section_header
-  %h2
-    Manage aspects
+  %h2=t('.manage_aspects')
   .right
     = link_to("+ #{t('.add_a_new_aspect')}", "#add_aspect_pane", :class => "new_aspect add_aspect_button button", :title => t('.add_a_new_aspect'))
 
@@ -18,7 +17,7 @@
   .requests
     %ul.dropzone
       - if @remote_requests.size < 1
-        %li No new requests
+        %li=t('.no_requests')
       - else
         - for request in @remote_requests
           %li.person.request{:data=>{:guid=>request.id, :person_id=>request.person.id}}
@@ -55,7 +54,7 @@
                 .circle
               = person_image_tag(person)
           .draggable_info
-            Drag to add people
+            =t('.drag_to_add')
 
 
 

@@ -31,14 +31,14 @@ class ServicesController < ApplicationController
                                    :uid => auth['uid'])
     end
 
-    flash[:notice] = "Authentication successful."
+    flash[:notice] = I18n.t 'services.create.success'
     redirect_to services_url
   end
 
   def destroy
     @service = current_user.services.find(params[:id])
     @service.destroy
-    flash[:notice] = "Successfully destroyed authentication."
+    flash[:notice] = I18n.t 'services.destroy.success'
     redirect_to services_url
   end
 end

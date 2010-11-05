@@ -8,6 +8,6 @@
   = form.file_field :image
 
   %p
-    \...or select one from your already existing
-    = link_to 'photos', person_photos_path(@person)
+    \...#{t('.or_select_one')}
+    = link_to t('_photos'), person_photos_path(@person)
     \.
