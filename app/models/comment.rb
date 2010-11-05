@@ -18,10 +18,10 @@ class Comment
   include Encryptable
   include Diaspora::Socketable
 
-  xml_accessor :text
+  xml_reader :text
   xml_reader :diaspora_handle
-  xml_accessor :post_id
-  xml_accessor :_id
+  xml_reader :post_id
+  xml_reader :_id
 
   key :text,      String
   key :post_id,   ObjectId
@@ -39,8 +39,8 @@ class Comment
 
   #ENCRYPTION
 
-  xml_accessor :creator_signature
-  xml_accessor :post_creator_signature
+  xml_reader :creator_signature
+  xml_reader :post_creator_signature
 
   key :creator_signature, String
   key :post_creator_signature, String
