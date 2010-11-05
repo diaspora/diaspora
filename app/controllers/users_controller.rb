@@ -63,7 +63,7 @@ class UsersController < ApplicationController
 
       render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
     else
-      flash[:error] = I18n.t 'users.public.does_not_exists', :username => params[:username]
+      flash[:error] = I18n.t 'users.public.does_not_exist', :username => params[:username]
       redirect_to root_url
     end
   end
