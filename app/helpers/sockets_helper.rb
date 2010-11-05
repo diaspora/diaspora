@@ -23,10 +23,21 @@ module SocketsHelper
       action_hash[:photo_hash] = object.thumb_hash
     end
 
-    if object.person && object.person.owner_id == uid
-      action_hash[:mine?] = true
+    if object.is_a? Comment
+      action_hash[:my_post?] = (object.post.person.owner.id == uid)
+      action_hash[:notification] = notification(object)
     end
 
+    action_hash[:mine?] = object.person && (object.person.owner.id == uid)
+
     action_hash.to_json
+  end
+
+  def notification(object)
+    begin
+      render_to_string(:partial => 'shared/notification', :locals => {:object => object})
+    rescue Exception => e
+      Rails.logger.error("web socket notification failed for object #{object.inspect}.")
+    end
   end
 end

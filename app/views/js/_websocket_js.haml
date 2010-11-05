@@ -13,19 +13,24 @@
   //Attach onmessage to websocket
     ws.onmessage = function(evt) {
       var obj = jQuery.parseJSON(evt.data);
-      //console.log(obj);
-      debug("got a " + obj['class'] + " for aspects " + obj['aspect_ids']);
 
-      if (obj['class']=="retractions"){
-        processRetraction(obj['post_id']);
+      if(obj['notice']){
+        processNotification(obj['notice']);
 
-      }else if (obj['class']=="comments"){
-        processComment(obj['post_id'], obj['html'])
-
-      }else if (obj['class']=='photos' && onPageForClass('albums')){
-        processPhotoInAlbum(obj['photo_hash'])
       }else{
-        processPost(obj['class'], obj['html'], obj['aspect_ids'])
+        debug("got a " + obj['class'] + " for aspects " + obj['aspect_ids']);
+
+        if (obj['class']=="retractions"){
+          processRetraction(obj['post_id']);
+
+        }else if (obj['class']=="comments"){
+          processComment(obj['post_id'], obj['html'], {'notification':obj['notification'], 'mine?':obj['mine?'], 'my_post?':obj['my_post?']})
+
+        }else if (obj['class']=='photos' && onPageForClass('albums')){
+          processPhotoInAlbum(obj['photo_hash'])
+        }else{
+          processPost(obj['class'], obj['html'], obj['aspect_ids'])
+        }
       }
 
     };
@@ -36,6 +41,11 @@
     };
 
   });
+
+  function processNotification(html){
+    $('#notification').html(html).fadeIn(200).delay(4000).fadeOut(200, function(){ $(this).html("");});
+  }
+
   function processRetraction(post_id){
     $("*[data-guid='"+post_id+"']").fadeOut(400, function(){$(this).remove()});
     if($("#stream")[0].childElementCount == 0){
@@ -43,7 +53,7 @@
     }
   }
 
-  function processComment(post_id, html){
+  function processComment(post_id, html, opts){
     post = $("*[data-guid='"+post_id+"']'");
     $('.comments li:last', post ).before(
       $(html).fadeIn("fast", function(){})
@@ -58,6 +68,11 @@
         toggler.click();
       }
     }
+
+    if( !opts['mine?'] && opts['my_post?']) {
+      processNotification(opts['notification']);
+    }
+
   }
 
   function processPost(className, html, aspectIds){

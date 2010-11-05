@@ -43,6 +43,9 @@
 
     %header
       .container{:style => "position:relative;"}
+
+        #notification
+
         #diaspora_text
           = link_to "DIASPORA", (current_user ? root_path : new_user_session_path)
           %span.sub_text
