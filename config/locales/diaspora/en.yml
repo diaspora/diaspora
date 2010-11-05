@@ -22,6 +22,7 @@ en:
   password: "Password"
   password_confirmation: "Password confirmation"
   are_you_sure: "Are you sure?"
+  fill_me_out: "Fill me out"
   
   activemodel:
       errors:
@@ -140,8 +141,6 @@ en:
       destroy: "Account successfully closed."
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
-          step_1:
-              fill_me_out: "Fill me out"
           edit_profile: "Edit your profile"
           define_aspects: "Define your aspects"
           connect_services: "Connect your services"
@@ -234,7 +233,6 @@ en:
           your_gender: "Your gender"
           your_birthday: "Your birthday"
           your_bio: "Your bio"
-          fill_me_out: "Fill me out"
           your_photo: "Your photo"
           update_profile: "Update Profile"
           search: "Search"
