@@ -42,8 +42,8 @@ class Profile
   end
 
   def image_url= url
-    return if url.nil? || url.empty?
-    if url.match(/^https?:\/\//)
+    return image_url if url == ''
+    if url.nil? || url.match(/^https?:\/\//)
       super(url)
     else
       super(absolutify_local_url(url))

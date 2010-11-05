@@ -76,29 +76,28 @@ describe Photo do
     binary.should == fixture_binary
   end
 
-  it 'should have a caption' do
-    @photo.image.store! File.open(@fixture_name)
-    @photo.caption = "cool story, bro"
-    @photo.save.should be_true
-  end
+  context 'with a saved photo' do
+    before do
+      @photo.image.store! File.open(@fixture_name)
+    end
+    it 'should have a caption' do
+      @photo.caption = "cool story, bro"
+      @photo.save.should be_true
+    end
 
-  it 'should remove its reference in user profile if it is referred' do
-    @photo.image.store! File.open(@fixture_name)
-    @photo.save
+    it 'should remove its reference in user profile if it is referred' do
+      @photo.save
 
-    @user.profile.image_url = @photo.image.url(:thumb_medium)
-    @user.save
-    @user.person.save
+      @user.profile.image_url = @photo.image.url(:thumb_medium)
+      @user.person.save
+      @photo.destroy
+      Person.find(@user.person.id).profile.image_url.should be_nil
+    end
 
-    @user.profile.image_url.should == @photo.image.url(:thumb_medium)
-    @photo.destroy
-    @user.reload.profile.image_url.should be nil
-  end
-
-  it 'should not use the imported filename as the url' do
-    @photo.image.store! File.open(@fixture_name)
-    @photo.image.url.include?(@fixture_filename).should be false
-    @photo.image.url(:thumb_medium).include?("/" + @fixture_filename).should be false
+    it 'should not use the imported filename as the url' do
+      @photo.image.url.include?(@fixture_filename).should be false
+      @photo.image.url(:thumb_medium).include?("/" + @fixture_filename).should be false
+    end
   end
 
   describe 'non-image files' do

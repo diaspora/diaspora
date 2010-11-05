@@ -54,9 +54,6 @@ describe Profile do
     it 'ignores an empty string' do
       lambda {@profile.image_url = ""}.should_not change(@profile, :image_url)
     end
-    it 'ignores nil' do
-      lambda {@profile.image_url = nil}.should_not change(@profile, :image_url)
-    end
     it 'makes relative urls absolute' do
       @profile.image_url = @photo.url(:thumb_medium)
       @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_medium)}"

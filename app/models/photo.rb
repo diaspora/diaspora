@@ -50,9 +50,9 @@ class Photo < Post
   end
 
   def ensure_user_picture
-    users = Person.all('profile.image_url' => image.url(:thumb_medium) )
-    users.each{ |user|
-      user.profile.update_attributes!(:image_url => nil)
+    people = Person.all('profile.image_url' => absolute_url(:thumb_medium) )
+    people.each{ |person|
+      person.profile.update_attributes(:image_url => nil)
     }
   end
 
@@ -64,6 +64,12 @@ class Photo < Post
     true
   end
 
+  def absolute_url *args
+    pod_url = APP_CONFIG[:pod_url].dup
+    pod_url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
+    "#{pod_url}#{url(*args)}"
+  end
+  
   def self.gen_random_string(len)
     chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
     string = ""
