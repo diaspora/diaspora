@@ -54,7 +54,7 @@
         - if current_user
           #global_search
             = form_tag(people_path, :method => 'get') do
-              = text_field_tag 'q', nil, :placeholder => t('.search'), :type => 'search', :results => 5
+              = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
           %ul#user_menu
             .avatar
