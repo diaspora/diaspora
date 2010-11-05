@@ -36,19 +36,19 @@
     - if @step != 1
       = link_to t('.edit_profile'), getting_started_path(:step => 1)
     - else
-      %span{:style => "color: green;"}
+      %span.current_gs_step
         = t('.edit_profile')
     %br
     - if @step != 2
       = link_to t('.define_aspects'), getting_started_path(:step => 2)
     - else
-      %span{:style => "color:green;"}
+      %span.current_gs_step
         = t('.define_aspects')
     %br
     - if @step != 3
       = link_to t('.connect_services'), getting_started_path(:step => 3)
     - else
-      %span{:style => "color:green;"}
+      %span.current_gs_step
         = t('.connect_services')
     %br
 
