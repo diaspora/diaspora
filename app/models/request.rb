@@ -6,6 +6,7 @@ class Request
   require File.join(Rails.root, 'lib/diaspora/webhooks')
   
   include MongoMapper::Document
+  include Magent::Async
   include Diaspora::Webhooks
   include ROXML
 
@@ -40,6 +41,24 @@ class Request
       :callback_url    => self.destination_url
     )
   end
+
+  
+  def self.send_request_accepted(user, person, aspect)
+    self.async.send_request_accepted!(user.id, person.id, aspect.id).commit!
+  end
+
+  def self.send_request_accepted!(user_id, person_id, aspect_id)
+    Notifier.request_accepted(user_id, person_id, aspect_id).deliver
+  end
+
+  def self.send_new_request(user, person)
+    self.async.send_new_request!(user.id, person.id).commit!
+  end
+
+  def self.send_new_request!(user_id, person_id)
+    Notifier.new_request(user_id, person_id).deliver
+  end
+
 
 protected
   def clean_link

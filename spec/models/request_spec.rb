@@ -69,7 +69,50 @@ describe Request do
     it 'does not serialize the id' do
       @xml.should_not include @request.id.to_s
     end
-
   end
-
+  
+  context 'mailers' do
+    context 'suger around friends' do
+      before do
+        Request.should_receive(:async).and_return(Request)
+        @mock_request = mock()
+        @mock_request.should_receive(:commit!)
+      end
+      
+      describe '.send_request_accepted' do
+        it 'should make a call to push to the queue' do
+          Request.should_receive(:send_request_accepted!).with(user.id, person.id, aspect.id).and_return(@mock_request)
+          Request.send_request_accepted(user, person, aspect)
+        end
+      end
+    
+      describe '.send_new_request' do
+        it 'should make a call to push to the queue' do
+          Request.should_receive(:send_new_request!).with(user.id, person.id).and_return(@mock_request)
+          Request.send_new_request(user, person)
+        end
+      end
+    end
+    
+    context 'actual calls to mailer' do
+      before do
+        @mock_mail = mock()
+        @mock_mail.should_receive(:deliver)
+      end
+      
+      describe '.send_request_accepted!' do
+        it 'should deliver the message' do
+          Notifier.should_receive(:request_accepted).and_return(@mock_mail)
+          Request.send_request_accepted!(user.id, person.id, aspect.id)
+        end
+      end
+    
+      describe '.send_new_request' do
+        it 'should deliver the message' do
+          Notifier.should_receive(:new_request).and_return(@mock_mail)
+          Request.send_new_request!(user.id, person.id)
+        end
+      end
+    end
+  end
 end

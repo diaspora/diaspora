@@ -6,8 +6,8 @@ describe Notifier do
   let!(:user) {make_user}
   let!(:aspect) {user.aspects.create(:name => "science")}
   let!(:person) {Factory.create :person}
-  let!(:request_mail) {Notifier.new_request(user, person)}
-  let!(:request_accepted_mail) {Notifier.request_accepted(user, person, aspect)}
+  let!(:request_mail) {Notifier.new_request(user.id, person.id)}
+  let!(:request_accepted_mail) {Notifier.request_accepted(user.id, person.id, aspect.id)}
 
 
   describe "#new_request" do
