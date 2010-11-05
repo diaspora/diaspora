@@ -18,16 +18,6 @@ describe Diaspora::UserModules::Friending do
   let(:user2) { make_user }
   let(:aspect2) { user2.aspects.create(:name => "aspect two") }
 
-  before do
-    deliverable = Object.new
-    deliverable.stub!(:deliver)
-    Notifier.stub!(:new_request).and_return(deliverable)
-    Notifier.stub!(:request_accepted).and_return(deliverable)
-  end
-
-
-
-
   context 'friend requesting' do
     it "should assign a request to a aspect for the user that sent it out" do
       aspect.requests.size.should == 0

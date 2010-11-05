@@ -37,12 +37,6 @@ describe Diaspora::Parser do
     context "friending" do
 
     let(:good_request) { FakeHttpRequest.new(:success)}
-      before do
-        deliverable = Object.new
-        deliverable.stub!(:deliver)
-        Notifier.stub!(:new_request).and_return(deliverable)
-      end
-
       it "should create a new person upon getting a person request" do
         new_person = Factory.build(:person) 
 

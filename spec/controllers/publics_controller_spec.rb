@@ -101,14 +101,10 @@ describe PublicsController do
   context 'intergration tests that should not be in this file' do
     describe 'friend requests' do
       before do
-        deliverable = Object.new
-        deliverable.stub!(:deliver)
-        Notifier.stub!(:new_request).and_return(deliverable)
         req.delete
         user2.reload
         user2.pending_requests.count.should be 1
       end
-
 
       it 'should accept a post from another node and save the information' do
         pending
