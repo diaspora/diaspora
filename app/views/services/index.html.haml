@@ -18,11 +18,11 @@
     - for service in @services
       %h3
         %b= service.provider
-        logged in as
+        = t('.logged_in_as')
         %b
           = service.nickname
-        = link_to "disconnect", service, :confirm => "disconnect #{service.provider}?", :method => :delete
+        = link_to t('.disconnect'), service, :confirm => t('.really_disconnect', :service => service.provider), :method => :delete
 
-  %h4= link_to "Connect to twitter", "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
-  %h4= link_to "Connect to facebook", "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
+  %h4= link_to t('.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
+  %h4= link_to t('.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
 

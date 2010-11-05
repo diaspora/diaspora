@@ -63,7 +63,7 @@
             %li= link_to t('.view_profile'), current_user.person
             %li= link_to t('.edit_profile'), edit_person_path(current_user.person)
             %li= link_to t('.account_settings'), edit_user_path(current_user)
-            %li= link_to t('.logout.'), destroy_user_session_path
+            %li= link_to t('.logout'), destroy_user_session_path
 
           = render "shared/aspect_nav"
 

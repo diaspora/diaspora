@@ -12,16 +12,13 @@ en:
   account: "Account"
   _services: "Services"
   _photos: "photos"
-  stream: "stream"
   ok: "OK"
   cancel: "Cancel"
   delete: "Delete"  
   or: "or"
-  by: "by"
   ago: "ago"
   username: "Username"
   email: "Email"
-  home: "Home"
   password: "Password"
   password_confirmation: "Password confirmation"
   are_you_sure: "Are you sure?"
@@ -41,19 +38,13 @@ en:
                   attributes:
                       diaspora_handle:
                           taken: "is already taken"
-  hello: "Hello world"
   application:
       helper:
           unknown_person: "unknown person"
-          new_requests: "new requests"
   error_messages:
       helper:
           invalid_fields: "Invalid Fields"
           correct_the_following_errors_and_try_again: "Correct the following errors and try again."
-  people:
-      helper:
-           results_for: " results for %{params}"
-           people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
       application:
           view_profile: "view profile"
@@ -66,34 +57,29 @@ en:
           show_comments: "show comments"
           the_world: "the world"
       aspect_nav:
-          all_aspects: "All Aspects"
           manage: "Manage"
           manage_your_aspects: "Manage your Aspects"
           everyone: "Everyone"
           add_a_new_aspect: "add a new aspect"
-      sub_header:
-          all_aspects: "All Aspects"
-          manage_aspects: "Manage Aspects"
       publisher:
           share: "Share"
           post_a_message_to: "Post a message to %{aspect}"
           make_public: "make public"
           share_with_all: "Share with all aspects"
           share_with: "Share with %{aspect}"
-          create: "Create"
           all: "all"
       aspect_friends:
           add_friends: "add friends"
           everyone: "Everyone"
           add_to: "add to %{aspect}"
       invitations:
-          invites: 'Invites'
-          invite_a_friend: 'Invite a friend'
-          invitations_left: '(%{count} left)'
+          invites: "Invites"
+          invite_a_friend: "Invite a friend"
+          invitations_left: "(%{count} left)"
       reshare:
-          reshare: 'Reshare'
+          reshare: "Reshare"
       author_info:
-          view_profile: 'View profile'
+          view_profile: "View profile"
       add_friend_dropdown:
           add_to: "add to %{aspect}"
       public_explain:
@@ -113,15 +99,10 @@ en:
       manage:
           add_a_new_aspect: "Add a new aspect"
           add_a_new_friend:  "Add a new friend"
-          show: "Show"
-          update_aspects: "Update Aspects"
           requests: "Requests"
-          ignore_remove: "Ignore/Remove"
           no_requests: "No new requests"
-          remove_from_aspect: "Remove from Aspect"
           manage_aspects: "Manage aspects"
-          drag_to_remove: "Drag to remove person from aspect"
-          drag_to-add: "Drag to add people"
+          drag_to_add: "Drag to add people"
       new_aspect:
           add_a_new_aspect: "Add a new aspect"
           name: "Name"
@@ -136,15 +117,18 @@ en:
       move_friend:
           failure: "didn't work %{inspect}"
           success: "Person moved to new aspect"
+          error: "Error moving friend: %{inspect}"
       add_to_aspect:
           failure: "Failed to add friend to aspect."
           success: "Successfully added friend to aspect."
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
+      remove_from_aspect:
+          success: "Successfully removed person from aspect"
+          failure: "Failed to remove person from aspect"
   users:
       edit:
-          editing_profile: "Editing profile"
           invite_friends: "Invite friends"
           export_data: "Export Data"
           close_account: "Close Account"
@@ -156,9 +140,7 @@ en:
       destroy: "Account successfully closed."
       getting_started:
           signup_steps: "Complete your sign-up by doing these things:"
-          'step_1':
-              you_dont_have_any_photos: "You don't have any photos!  Go to the"
-              page_to_upload_some:  "page to upload some."
+          step_1:
               fill_me_out: "Fill me out"
           edit_profile: "Edit your profile"
           define_aspects: "Define your aspects"
@@ -175,22 +157,16 @@ en:
           comment: "Comment"
   photos:
       show:
+          delete_photo: "Delete Photo"
           prev: "prev"
           full_size: "full size"
           next: "next"
           edit_photo: "Edit Photo"
-          delete_photo: "Delete Photo"
-          comments: "comments"
           add_a_description: "Add a description"
-          uploads: "uploads"
           make_profile_photo: "make profile photo"
           update_photo: "Update Photo"
       edit:
           editing: "Editing"
-          delete_photo: "Delete Photo"
-      photo:
-          posted_a_new_photo_to: "posted a new photo to"
-          posted_a_photo: "posted a photo"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -208,25 +184,21 @@ en:
       new:
           sign_up: "Sign up"
           sign_up_for_diaspora: "Sign up for Diaspora"
-          upload_existing_account: "Upload an existing Diaspora account"
-          upload: "Upload"
       create:
           success: "You've joined Diaspora!"
   invitations:
       create:
-          sent: 'Your invitation has been sent.'
-          no_more: 'You have no more invitations.'
-          already_sent: 'You already invited this person.'
-          already_friends: 'You are already friends with this person' 
-          invitation_token_invalid: 'The invitation token provided is not valid!'
-          updated: 'Your password was set successfully. You are now signed in.'
+          sent: "Your invitation has been sent."
+          no_more: "You have no more invitations."
+          already_sent: "You already invited this person."
+          already_friends: "You are already friends with this person" 
       new:
-          invite_someone_to_join: 'Invite someone to join Diaspora!'
-          if_they_accept_info: 'if they accept, they will be added to the aspect you invited them'
-          to: 'To'
-          message: 'Message:'
-          send_an_invitation: 'Send an invitation'
-          send_invitation: 'Send invitation'
+          invite_someone_to_join: "Invite someone to join Diaspora!"
+          if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
+          to: "To"
+          message: "Message:"
+          send_an_invitation: "Send an invitation"
+          send_invitation: "Send invitation"
       check_token:
           not_found: "Invitation token not found"
   status_messages:
@@ -234,12 +206,7 @@ en:
           tell_me_something_good: "tell me something good"
           oh_yeah: "oh yeah!"
       show:
-          status_message: "Status Message"
-          comments: "comments"
           destroy: "Destroy"
-          view_all: "View All"
-          message: "Message"
-          owner: "Owner"
       helper:
           no_message_to_display: "No message to display."
   people:
@@ -249,16 +216,7 @@ en:
           already_friends: "Already friends"
           thats_you: "thats you!"
       index:
-          add_friend: "add friend"
-          real_name: "real name"
-          diaspora_handle: "diaspora handle"
-          thats_you: "that's you!"
-          friend_request_pending: "friend request pending"
-          you_have_a_friend_request_from_this_person: "you have a friend request from this person"
           results_for: "search results for"
-      new:
-          new_person: "New Person"
-          back_to_list: "Back to List"
       show:
           save: "save"
           no_posts: "no posts to display!"
@@ -279,12 +237,6 @@ en:
           fill_me_out: "Fill me out"
           your_photo: "Your photo"
           update_profile: "Update Profile"
-          diaspora_username: "DIASPORA USERNAME"
-          info: "Info"
-          picture: "Picture"
-          editing_profile: "Editing profile"
-          you_dont_have_any_photos: "You don't have any photos!  Go to the"
-          page_to_upload_some:  "page to upload some."
           search: "Search"
           allow_search: "Allow for people to search for you"
       profile_photo_upload:
@@ -297,6 +249,9 @@ en:
           edit_my_profile: "Edit my profile"
           last_seen: "last seen: %{how_long_ago}"
           friends_since: "friends since: %{how_long_ago}"
+      helper:
+           results_for: " results for %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
   requests:
       manage_aspect_contacts:
           add_a_new_friend_to: "Add a new friend to"
@@ -309,16 +264,18 @@ en:
           error: "Please select an aspect!"
           ignore: "Ignored friend request."
       create:
-          error: "No diaspora seed found with this email!"
-          invalid_identity: "This identity is not properly formatted"
-          error_server: "Problem with other server. Maybe it doesn't exist?"
-          yourself: "You cannot befriend yourself!"
-          already_friends: "You are already friends with %{destination_url}!"
-          success: "A friend request was sent to %{destination_url}."
-          horribly_wrong: "Something went horribly wrong."
           tried: "we tried our best to send a message to %{account}"
   services:
+      index:
+        logged_in_as: "logged in as"
+        disconnect: "disconnect"
+        really_disconnect: "disconnect %{service}?"
+        connect_to_twitter: "Connect to twitter"
+        connect_to_facebook: "Connect to facebook"
       create:
           success: "Authentication successful."
       destroy:
           success: "Successfully destroyed authentication."
+  dashboards:
+      helper:
+          home: "Home"
