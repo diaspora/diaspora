@@ -28,12 +28,6 @@
               .circle
             = person_image_tag(request.person)
 
-  %h3 Remove from Aspect
-  .aspect_remove
-    %ul.dropzone
-      .draggable_info
-        Drag to remove person from aspect
-
   = render 'shared/invitations', :invites => @invites
 
 .span-19.last

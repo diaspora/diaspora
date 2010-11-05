@@ -18,11 +18,6 @@ var AspectEdit = {
       drop: AspectEdit.onDropMove
     });
 
-    $(".aspect_remove ul").droppable({
-      hoverClass: 'active',
-      drop: AspectEdit.onDropDelete
-    });
-
     $(".delete").live("click", AspectEdit.deletePerson);
     $(".aspect h3").live('focus', AspectEdit.changeName);
   },
@@ -57,6 +52,7 @@ var AspectEdit = {
         data: {"accept" : true, "aspect_id" : dropzone.attr('data-aspect_id') },
         success: function(data) {
           AspectEdit.decrementRequestsCounter();
+          person.removeClass('request');
         }
       });
     }
@@ -75,10 +71,11 @@ var AspectEdit = {
     dropzone.closest("ul").append(person);
   },
 
-  onDropDelete: function(event, ui) {
-    var person = ui.draggable;
+  deletePersonFromAspect: function(person) {
 
-    if (person.attr('data-guid').length == 1) {
+    var person_id = person.attr('data-guid');
+
+    if( $(".person[data-guid='"+ person_id +"']").length == 1) {
       alert("You can not remove the person from the last aspect");
 
     } else {
@@ -88,7 +85,7 @@ var AspectEdit = {
           type: "POST",
           url: "/aspects/remove_from_aspect",
           data:{
-            'friend_id' : person.attr('data-guid'),
+            'friend_id' : person_id,
             'aspect_id' : person.attr('data-aspect_id') }
         });
       }
@@ -139,16 +136,18 @@ var AspectEdit = {
         });
       }
     } else {
-      if (confirm("Remove this person from all aspects?")) {
+      if (confirm("Also remove this person from all aspects?")) {
         var person_id = $(this).closest("li.person").attr('data-guid');
 
         $.ajax({
           type: "DELETE",
           url: "/people/" + person_id,
           success: function() {
-            person.fadeOut(200);
+            $(".person[data-guid='"+ person_id +"']").fadeOut(200);
           }
         });
+      } else {
+        AspectEdit.deletePersonFromAspect(person);
       }
     }
   },
