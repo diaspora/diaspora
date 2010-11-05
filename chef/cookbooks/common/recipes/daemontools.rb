@@ -12,3 +12,17 @@ end
 execute "executable" do
   command "chmod -R 755 /service/mongo"
 end
+
+execute "thin run" do
+  command "mkdir -p /service/thin && echo '#!/bin/sh' > /service/thin/run && echo 'exec /usr/local/bin/ruby /usr/local/bin/thin start -c /usr/local/app/diaspora -p80' >> /service/thin/run"
+end
+execute "executable" do
+  command "chmod -R 755 /service/thin"
+end
+
+execute "websocket run" do
+  command "mkdir -p /service/websocket && echo '#!/bin/sh' > /service/websocket/run && echo 'cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/app/diaspora/script/websocket_server.rb' >> /service/websocket/run"
+end
+execute "executable" do
+  command "chmod -R 755 /service/websocket"
+end
