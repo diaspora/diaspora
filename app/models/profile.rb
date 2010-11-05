@@ -41,10 +41,26 @@ class Profile
     (self._parent_document) ? self.person.diaspora_handle : self[:diaspora_handle]
   end
 
+  def image_url= url
+    return if url.nil? || url.empty?
+    if url.match(/^https?:\/\//)
+      super(url)
+    else
+      super(absolutify_local_url(url))
+    end
+  end
+
   protected
 
   def strip_names
     self.first_name.strip! if self.first_name
     self.last_name.strip! if self.last_name
+  end
+
+  private
+  def absolutify_local_url url
+    pod_url = APP_CONFIG[:pod_url].dup
+    pod_url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
+    "#{pod_url}#{url}"
   end
 end

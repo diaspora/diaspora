@@ -65,8 +65,6 @@ class PeopleController < ApplicationController
       params[:person][:profile][:image_url] = photo.url(:thumb_medium)
     end
 
-    prep_image_url(params[:person])
-
     if current_user.update_profile params[:person][:profile]
       flash[:notice] = "Profile updated"
     else
@@ -79,22 +77,4 @@ class PeopleController < ApplicationController
       redirect_to edit_person_path
     end
   end
-
-  private
-  def prep_image_url(params)
-    if params[:profile] && params[:profile][:image_url]
-      if params[:profile][:image_url].empty?
-        params[:profile].delete(:image_url)
-      else
-        url = APP_CONFIG[:pod_url].dup
-        url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
-        if params[:profile][:image_url].match(/^https?:\/\//)
-          params[:profile][:image_url] = params[:profile][:image_url]
-        else
-          params[:profile][:image_url] = url + params[:profile][:image_url]
-        end
-      end
-    end
-  end
-
 end

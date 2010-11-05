@@ -37,20 +37,30 @@ describe PeopleController do
 
   describe '#update' do
     context 'with a profile photo set' do
-      it "doesn't overwrite the profile photo when an empty string is passed in" do
+      before do
+        @params = { :profile =>
+                   { :image_url => "",
+                     :last_name  => user.person.profile.last_name,
+                     :first_name => user.person.profile.first_name }}
+
         user.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
         user.person.profile.save
-
-        params = { "profile" =>
-                   { "image" => "",
-                     "last_name"  => user.person.profile.last_name,
-                     "first_name" => user.person.profile.first_name }}
-
+      end
+      it "doesn't overwrite the profile photo when an empty string is passed in" do
         image_url = user.person.profile.image_url
-        put :update, "id" => user.person.id.to_s, "person" => params
+        put :update, :id => user.person.id.to_s, :person => @params
 
         user.person.reload
         user.person.profile.image_url.should == image_url
+      end
+      it 'updates a profile photo url' do
+        fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
+        photo = user.post(:photo, :user_file => File.open(fixture_name), :to => aspect.id)
+        @params[:profile][:image_url] = photo.url(:thumb_medium)
+        put :update, :id => user.person.id, :person => @params
+        goal_pod_url = (APP_CONFIG[:pod_url][-1,1] == '/' ? APP_CONFIG[:pod_url].chop : APP_CONFIG[:pod_url])
+        user.person.reload.profile.image_url.should ==
+          "#{goal_pod_url}#{photo.url(:thumb_medium)}"
       end
     end
     it 'does not allow mass assignment' do

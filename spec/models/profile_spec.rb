@@ -42,6 +42,30 @@ describe Profile do
     end
   end
 
+  describe '#image_url=' do
+    before do
+      @user = make_user
+      @profile = @user.person.profile
+      fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
+      @photo = @user.post(:photo, :user_file => File.open(fixture_name), :to => 'all')
+      @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
+      @pod_url = (APP_CONFIG[:pod_url][-1,1] == '/' ? APP_CONFIG[:pod_url].chop : APP_CONFIG[:pod_url])
+    end
+    it 'ignores an empty string' do
+      lambda {@profile.image_url = ""}.should_not change(@profile, :image_url)
+    end
+    it 'ignores nil' do
+      lambda {@profile.image_url = nil}.should_not change(@profile, :image_url)
+    end
+    it 'makes relative urls absolute' do
+      @profile.image_url = @photo.url(:thumb_medium)
+      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_medium)}"
+    end
+    it 'accepts absolute urls' do
+      @profile.image_url = "#{@pod_url}#{@photo.url(:thumb_medium)}"
+      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_medium)}"
+    end
+  end
   describe 'serialization' do
     let(:person) {Factory.create(:person)} 
    
