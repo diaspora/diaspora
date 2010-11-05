@@ -80,14 +80,11 @@ describe StatusMessagesController do
     end
 
     it 'will not let you destroy posts visible to you' do
-      user.receive message2.to_diaspora_xml, user2.person
-      user.visible_posts.include?(message2).should be true
       delete :destroy, :id => message2.id
       StatusMessage.find_by_id(message2.id).should_not be_nil
     end
 
     it 'will not let you destory posts you do not own' do
-      user.visible_posts.include?(message2).should be false
       delete :destroy, :id => message2.id
       StatusMessage.find_by_id(message2.id).should_not be_nil
     end

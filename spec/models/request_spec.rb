@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe Request do
-  let(:user) { make_user }
-  let(:user2) { make_user}
-  let(:person) {Factory :person}
+  let(:user)   { make_user }
+  let(:user2)  { make_user }
+  let(:person) { Factory :person }
   let(:aspect) { user.aspects.create(:name => "dudes") }
   let(:request){ user.send_friend_request_to user2.person, aspect }
 
@@ -30,22 +30,19 @@ describe Request do
   describe '#request_from_me' do
     it 'recognizes requests from me' do
       request
-      user.reload
-      user.request_from_me?(request).should be true
+      user.request_from_me?(request).should be_true
     end
 
     it 'recognized when a request is not from me' do 
-      user2.receive_salmon(user.salmon(request).xml_for(user2.person))
-      user2.reload
-      user2.request_from_me?(request).should == false
+      user2.request_from_me?(request).should be_false
     end
   end
 
   context 'quering request through user' do
     it 'finds requests for that user' do
-      len = user2.requests_for_me.size
-      user2.receive_salmon(user.salmon(request).xml_for(user2.person))
-      user2.reload.requests_for_me.size.should == len + 1
+      request
+      user2.reload
+      user2.requests_for_me.detect{|r| r.callback_url == user.receive_url}.should_not be_nil
     end
   end
 

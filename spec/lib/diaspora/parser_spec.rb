@@ -9,8 +9,7 @@ describe Diaspora::Parser do
   let(:aspect) { user.aspects.create(:name => 'spies') }
   let(:user2) { make_user }
   let(:aspect2) { user2.aspects.create(:name => "pandas") }
-  let(:user3) { make_user }
-  let(:person) { user3.person }
+  let(:person) { Factory.create(:person)}
 
   describe "parsing compliant XML object" do
     it 'should be able to correctly parse comment fields' do
@@ -52,21 +51,13 @@ describe Diaspora::Parser do
     end
 
     it "should activate the Person if I initiated a request to that url" do
-      request = user.send_friend_request_to(user3.person, aspect)
-      user.reload
-      reversed = request.reverse_for user3
-
-      xml = user3.salmon(reversed).xml_for(user.person)
-
-      user3.delete
-
-      user.receive_salmon(xml)
-      new_person = Person.find_by_url(user3.person.url)
-      new_person.nil?.should be false
-
+      user.send_friend_request_to(user2.person, aspect)
+      request = user2.reload.pending_requests.find_by_destination_url!(user2.receive_url)
+      user2.accept_and_respond(request.id, aspect2.id)
+      
       user.reload
       aspect.reload
-      new_contact = user.contact_for(new_person)
+      new_contact = user.contact_for(user2.person)
       aspect.people.include?(new_contact).should be true
       user.friends.include?(new_contact).should be true
     end

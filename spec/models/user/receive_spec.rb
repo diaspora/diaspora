@@ -15,8 +15,6 @@ describe User do
   let(:user3) { make_user }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
-  let!(:status) {user.post(:status_message, :message => "Original", :to => aspect.id)}
-  let(:photo) {user.post(:photo, :user_file => uploaded_photo, :caption => "Original", :to => aspect.id)}
 
   before do
     friend_users(user, aspect, user2, aspect2)
@@ -43,11 +41,9 @@ describe User do
   it 'should not create new aspects on message receive' do
     num_aspects = user.aspects.size
 
-    (0..5).each{ |n|
+    2.times do |n|
       status_message = user2.post :status_message, :message => "store this #{n}!", :to => aspect2.id
-      xml = status_message.to_diaspora_xml
-      user.receive xml, user2.person
-    }
+    end
 
     user.aspects.size.should == num_aspects
   end
@@ -56,33 +52,28 @@ describe User do
    it 'should handle the case where the webfinger fails' do
     Person.should_receive(:by_account_identifier).and_return("not a person")
 
-    proc{user2.receive_salmon(user.salmon(status).xml_for(user2.person))}.should_not raise_error
+    proc{
+      user2.post :status_message, :message => "store this!", :to => aspect2.id
+    }.should_not raise_error
    end
   end
 
   context 'update posts' do
 
     it 'does not update posts not marked as mutable' do
-      user2.receive_salmon(user.salmon(status).xml_for(user2.person))
+      status = user.post :status_message, :message => "store this!", :to => aspect.id
       status.message = 'foo'
-      xml = user.salmon(status).xml_for(user2.person)
+      xml = status.to_diaspora_xml
+      user2.receive(xml, user.person)
 
-      status.reload.message.should == 'Original'
-
-      user2.receive_salmon(xml)
-
-      status.reload.message.should == 'Original'
+      status.reload.message.should == 'store this!'
     end
 
     it 'updates posts marked as mutable' do
-      user2.receive_salmon(user.salmon(photo).xml_for(user2.person))
+      photo = user.post(:photo, :user_file => uploaded_photo, :caption => "Original", :to => aspect.id)
       photo.caption = 'foo'
-      xml = user.salmon(photo).xml_for(user2.person)
-
-      photo.reload.caption.should match(/Original/)
-
-      user2.receive_salmon(xml)
-
+      xml = photo.to_diaspora_xml
+      user2.reload.receive(xml, user.person)
       photo.reload.caption.should match(/foo/)
     end
 
@@ -103,7 +94,7 @@ describe User do
     it 'should be removed on unfriending' do
       user.unfriend(user2.person)
       user.reload
-      user.raw_visible_posts.count.should == 1
+      user.raw_visible_posts.should_not include @status_message
     end
 
     it 'should be remove a post if the noone links to it' do
@@ -145,7 +136,7 @@ describe User do
 
       @comment = user3.comment('tada',:on => @post)
       @comment.post_creator_signature = @comment.sign_with_key(user.encryption_key)
-      @xml = user.salmon(@comment).xml_for(user2.person)
+      @xml = @comment.to_diaspora_xml
       @comment.delete
     end
 
@@ -155,7 +146,7 @@ describe User do
       user2.reload.raw_visible_posts.size.should == 1
       post_in_db = user2.raw_visible_posts.first
       post_in_db.comments.should == []
-      user2.receive_salmon(@xml)
+      user2.receive(@xml, user.person)
       post_in_db.reload
 
       post_in_db.comments.include?(@comment).should be true
@@ -168,14 +159,14 @@ describe User do
       user3.delete
 
       #stubs async webfinger
-      Person.should_receive(:by_account_identifier).twice.and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
+      Person.should_receive(:by_account_identifier).and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
         user.person; else; remote_person.save; remote_person; end }
 
 
       user2.reload.raw_visible_posts.size.should == 1
       post_in_db = user2.raw_visible_posts.first
       post_in_db.comments.should == []
-      user2.receive_salmon(@xml)
+      user2.receive(@xml, user.person)
       post_in_db.reload
 
       post_in_db.comments.include?(@comment).should be true

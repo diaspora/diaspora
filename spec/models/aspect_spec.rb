@@ -120,8 +120,6 @@ describe Aspect do
 
       message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
 
-      user.receive message.to_diaspora_xml, user2.person
-
       aspect.reload
       aspect.posts.include?(message).should be true
       user.visible_posts(:by_members_of => aspect).include?(message).should be true
@@ -134,14 +132,9 @@ describe Aspect do
 
       message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
 
-      user.receive message.to_diaspora_xml, user2.person
-      aspect.reload
-
-      aspect.post_ids.include?(message.id).should be true
+      aspect.reload.post_ids.include?(message.id).should be true
 
       retraction = user2.retract(message)
-      user.receive retraction.to_diaspora_xml, user2.person
-
 
       aspect.reload
       aspect.post_ids.include?(message.id).should be false
@@ -195,11 +188,9 @@ describe Aspect do
 
     context 'moving and removing posts' do
 
-      let(:message) { user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)}
-      let(:message2){user3.post(:status_message, :message => "other post", :to => aspect3.id)}
 
       before do
-        user.receive message.to_diaspora_xml, user2.person
+        @message  = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
         aspect.reload
         @post_count  = aspect.posts.count
         @post_count1 = aspect1.posts.count
@@ -208,9 +199,9 @@ describe Aspect do
       end
       
       it 'moves the persons posts into the new aspect' do
-        user.add_person_to_aspect(user2.person.id, aspect1.id, :posts => [message] )
+        user.add_person_to_aspect(user2.person.id, aspect1.id, :posts => [@message] )
         aspect1.reload
-        aspect1.posts.should == [message]
+        aspect1.posts.should == [@message]
       end
 
       
@@ -222,10 +213,9 @@ describe Aspect do
 
       it 'should not delete other peoples posts' do
         friend_users(user, aspect, user3, aspect3)
-        user.receive message2.to_diaspora_xml, user3.person
-        user.delete_person_from_aspect(user2.person.id, aspect.id)
+        user.delete_person_from_aspect(user3.person.id, aspect.id)
         aspect.reload
-        aspect.posts.should == [message2]
+        aspect.posts.should == [@message]
       end
 
       describe '#move_friend' do
