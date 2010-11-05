@@ -29,7 +29,7 @@
       %h4
         = t('.your_gender')
         %br
-        = select_tag 'person[profile][gender]', options_for_select(["","Female","Male"], @person.profile.gender)
+        = profile.text_field :gender, :value => @profile.gender, :placeholder => t('.fill_me_out')
 
       %h4
         = t('.your_birthday')

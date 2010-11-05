@@ -14,6 +14,7 @@ Feature: new user registration
   Scenario: new user goes through the setup wizard
     When I fill in "person_profile_first_name" with "O"
     And I fill in "person_profile_last_name" with "Hai"
+    And I fill in "person_profile_gender" with "guess!"
     And I press "Save and continue"
     Then I should see "Profile updated"
     And I should see "Your aspects"
