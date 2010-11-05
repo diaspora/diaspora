@@ -22,6 +22,7 @@ class PeopleController < ApplicationController
     if @person
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
+      @is_contact = @person != current_user.person && @contact
 
       if @contact
         @aspects_with_person = @contact.aspects

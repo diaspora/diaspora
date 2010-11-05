@@ -18,7 +18,7 @@
         %li
           %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
 
-      - if @person != current_user.person && @contact
+      - if @is_contact
         %li
           %i= t(".friends_since",:how_long_ago => how_long_ago(@person))
         %li
@@ -31,7 +31,7 @@
 
     /should be collapsed, either or, or request friend
 
-    - if @person != current_user.person && @contact
+    - if @is_contact
       = link_to t('.remove_friend'), @person, :confirm => t('are_you_sure'), :method => :delete, :class => "button"
 
 
@@ -66,12 +66,10 @@
       %h3= t('.no_posts')
 
   - else
-    
     .floating
       %h3
         = t('.not_friends', :name => @person.real_name)
         
-
       - unless @pending_request
         %h3
           .description
