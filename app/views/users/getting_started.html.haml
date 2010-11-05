@@ -30,7 +30,7 @@
 
 .span-8.append-1.last
   %h1{:style => "text-align:right;"}
-    = "Welcome to Diaspora!"
+    = t('.welcome')
     .description
       =t('.signup_steps')
 
@@ -59,7 +59,7 @@
     = render "users/getting_started/step_#{@step}", :current_user => current_user
 
     - if @step > 1
-      = link_to "Back", getting_started_path(:step => @step-1), :class => "button", :id => "previous_step"
+      = link_to t('back'), getting_started_path(:step => @step-1), :class => "button", :id => "previous_step"
 
 .bottom_notification
-  = link_to "skip getting started →", '#', :id => "getting_started_skip"
+  = link_to "#{t('.skip')} →", '#', :id => "getting_started_skip"

@@ -4,15 +4,15 @@
 
 
 %h3
-  Your aspects
+  = t('.your_aspects')
   .description
-    Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others.
+    = t('.description')
 
 %h4
-  Aspect name
+  = t('.aspect_name')
   = form_for Aspect.new, :remote => true, :format => :json do |aspect|
     = aspect.text_field :name, :style => "display:inline;"
-    = aspect.submit "Add"
+    = aspect.submit t('.add')
 
 %ul.aspects
   - for aspect in @aspects
@@ -22,7 +22,7 @@
         - for friend in aspect.person_objects
           = person_image_link(friend)
 
-        = link_to (image_tag('add_friend_button.png', :title => "add to #{aspect}")), "#add_request_pane", :class => 'add_request_button'
+        = link_to (image_tag('add_friend_button.png', :title => t('.add_to', :aspect => aspect))), "#add_request_pane", :class => 'add_request_button'
 
         .fancybox_content
           #add_request_pane
@@ -34,5 +34,5 @@
 %br
 
 .submit_block
-  = link_to "Save and continue →", getting_started_path(:step => 3), :class => "button"
+  = link_to "#{t('.save_and_continue')} →", getting_started_path(:step => 3), :class => "button"
 

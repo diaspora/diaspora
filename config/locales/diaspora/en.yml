@@ -23,6 +23,9 @@ en:
   password_confirmation: "Password confirmation"
   are_you_sure: "Are you sure?"
   fill_me_out: "Fill me out"
+  back: "Back"
+  the_world: "the world"
+  search: "Search"
   
   activemodel:
       errors:
@@ -51,7 +54,6 @@ en:
           view_profile: "view profile"
           edit_profile: "edit profile"
           account_settings: "account settings"
-          search: "Search"
           logout: "logout"
   shared:
       stream_element:
@@ -141,10 +143,52 @@ en:
           download_photos: "download my photos"
       destroy: "Account successfully closed."
       getting_started:
+          welcome: "Welcome to Diaspora!"
           signup_steps: "Complete your sign-up by doing these things:"
           edit_profile: "Edit your profile"
           define_aspects: "Define your aspects"
           connect_services: "Connect your services"
+          skip: "skip getting started"
+          step_1:
+              your_profile: "Your Profile"
+              info: "This info will be available to whomever you connect with on Diaspora."
+              your_name: "Your name"
+              first_name: "First name"
+              last_name: "Last name"
+              your_gender: "Your gender"
+              your_birthday: "Your birthday"
+              your_bio: "Your bio"
+              your_photo: "Your photo"
+              allow_searchable: "Allow for people to search for you"
+              save_and_continue: "Save and continue"
+          step_2:
+              your_aspects: "Your aspects"
+              description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
+              aspect_name: "Aspect name"
+              add: "Add"
+              add_to: "add to %{aspect}"
+              save_and_continue: "Save and continue"
+          step_3:
+              your_services: "Your services"
+              description: 'Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select "public."'
+              logged_in_as: "logged in as"
+              disconnect: "disconnect"
+              disconnect_from: "disconnect %{service}?"
+              connect_to_twitter: "Connect to twitter"
+              connect_to_facebook: "Connect to facebook"
+              save_and_continue: "Save and continue"
+          step_4:
+              set_up: "You're all set up, %{name}!"
+              ready_to_share: "You're now ready to start sharing with "
+              continue: "Continue on to your everyone page, an overview of all of your aspects."
+              change_profile: "You can change your profile any time by clicking"
+              edit_profile: "edit profile"
+              user_menu: "in your user menu (top right)."
+              connect_disconnect: "You can connect/disconnect your services any time by clicking"
+              edit_account: "edit account"
+              manage_aspects: "You can manage your aspects any time by clicking the"
+              manage: "manage"
+              tab_also_added: "tab.  Your contacts can also be added while on a particular aspect page, as well."
       update:
           password_changed: "Password Changed"
           password_not_changed: "Password Change Failed"
@@ -207,7 +251,6 @@ en:
           oh_yeah: "oh yeah!"
       status_message:
           show_comments: "show comments"
-          the_world: "the world"
       show:
           destroy: "Destroy"
       helper:
@@ -244,7 +287,6 @@ en:
           your_bio: "Your bio"
           your_photo: "Your photo"
           update_profile: "Update Profile"
-          search: "Search"
           allow_search: "Allow for people to search for you"
       profile_photo_upload:
           or_select_one: "or select one from your already existing"
@@ -286,3 +328,5 @@ en:
   dashboards:
       helper:
           home: "Home"
+  date:
+      order: [:month, :day, :year]
