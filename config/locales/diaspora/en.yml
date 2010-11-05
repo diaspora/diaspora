@@ -81,6 +81,7 @@ en:
           reshare: "Reshare"
       author_info:
           view_profile: "View profile"
+          status_messages: "status messages"
       add_friend_dropdown:
           add_to: "add to %{aspect}"
       public_explain:
@@ -204,10 +205,15 @@ en:
       new_status_message:
           tell_me_something_good: "tell me something good"
           oh_yeah: "oh yeah!"
+      status_message:
+          show_comments: "show comments"
+          the_world: "the world"
       show:
           destroy: "Destroy"
       helper:
           no_message_to_display: "No message to display."
+      index:
+          status_messages: "status messages"
   people:
       person:
           add_friend: "add friend"
@@ -224,6 +230,9 @@ en:
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
           does_not_exist: "Person does not exist!"
+          bio_epic: "bio-epic"
+          gender: "gender"
+          born: "born"
       edit:
           info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"
