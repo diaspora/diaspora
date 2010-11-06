@@ -62,6 +62,9 @@ en:
           search: "Search"
           logout: "logout"
   shared:
+      stream_element:
+          show_comments: "show comments"
+          the_world: "the world"
       aspect_nav:
           all_aspects: "All Aspects"
           manage: "Manage"
@@ -186,10 +189,8 @@ en:
           editing: "Editing"
           delete_photo: "Delete Photo"
       photo:
-          show_comments: "show comments"
           posted_a_new_photo_to: "posted a new photo to"
           posted_a_photo: "posted a photo"
-          the_world: "the world"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -232,8 +233,6 @@ en:
       new_status_message:
           tell_me_something_good: "tell me something good"
           oh_yeah: "oh yeah!"
-      status_message:
-          show_comments: "show comments"
       show:
           status_message: "Status Message"
           comments: "comments"

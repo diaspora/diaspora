@@ -13,6 +13,7 @@ module SocketsHelper
     begin
       user = User.find_by_id uid
       v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
+      v = render_to_string(:partial => 'shared/stream_element', :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
     rescue Exception => e
       Rails.logger.error("web socket view rendering failed for object #{object.inspect}.")
       raise e
