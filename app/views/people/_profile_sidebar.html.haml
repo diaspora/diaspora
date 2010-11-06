@@ -24,16 +24,16 @@
   -if is_contact || person == current_user.person
     %ul#profile_information
       %li  
-        %b bio
+        %b #{t('.bio')}
         %br
         = person.profile.bio
       %li
-        %b gender
+        %b #{t('.gender')}
         %br
         = person.profile.gender
       %li
-        %b born
+        %b #{t('.born')}
         %br
-        = "#{time_ago_in_words(person.profile.birthday)} ago" if @person.profile.birthday
+        = "#{time_ago_in_words(person.profile.birthday)} #{t('ago')}" if @person.profile.birthday
 
   %b.small= person.diaspora_handle
