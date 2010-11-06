@@ -6,9 +6,9 @@
   = render 'shared/aspect_friends', :people => @friends, :aspect => @aspect
 
 .span-15.last
-  = render 'aspects/no_friends_message'
+  = render 'aspects/no_friends_message', :aspect => @aspect, :friend_count => @friends.count
   = render 'shared/publisher', :aspect => @aspect
-  = render 'aspects/no_posts_message'
+  = render 'aspects/no_posts_message', :post_count => @posts.count, :friend_count => @friends.count
   %ul#stream
     - for post in @posts
       = render 'shared/stream_element', :post => post
