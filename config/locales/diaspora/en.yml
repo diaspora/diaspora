@@ -260,13 +260,9 @@ en:
           new_person: "New Person"
           back_to_list: "Back to List"
       show:
-          last_seen: "last seen: %{how_long_ago}"
-          friends_since: "friends since: %{how_long_ago}"
           save: "save"
-          remove_friend: "remove friend"
           no_posts: "no posts to display!"
           add_friend: "add friend"
-          edit_my_profile: "Edit my profile"
           not_friends: "You're currently not friends with %{name}"
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
@@ -296,6 +292,11 @@ en:
       update:
           updated: "Profile updated"
           failed: "Failed to update profile"
+      profile_sidebar:
+          remove_friend: "remove friend"
+          edit_my_profile: "Edit my profile"
+          last_seen: "last seen: %{how_long_ago}"
+          friends_since: "friends since: %{how_long_ago}"
   requests:
       new_request:
           add_a_new_friend_to: "Add a new friend to"

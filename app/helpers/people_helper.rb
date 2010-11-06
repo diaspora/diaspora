@@ -10,6 +10,14 @@ module PeopleHelper
     else
       I18n.t "people.helper.people_on_pod_are_aware_of"
     end
-
   end
+
+  def action_link(person, is_contact)
+    if is_contact
+      link_to t('.remove_friend'), person, :confirm => t('are_you_sure'), :method => :delete
+    elsif person == current_user.person
+      link_to t('.edit_my_profile'), edit_person_path(person)
+    end
+  end
+
 end

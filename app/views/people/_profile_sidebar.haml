@@ -1,0 +1,44 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#profile
+  .profile_photo
+    = person_image_link(person, :to => :photos)
+
+  = action_link(person, is_contact)
+
+  %ul
+    - if @posts.first
+      %li
+        %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
+
+    - if is_contact
+      %li
+        %ul#aspects_for_person
+          %b in aspects
+          %br
+          - for aspect in @aspects_with_person
+            %li= link_to aspect.name, aspect
+
+
+  %ul#profile_information
+    %li  
+      %b bio
+      %br
+      = person.profile.bio
+    %li
+      %b gender
+      %br
+      = person.profile.gender
+    %li
+      %b born
+      %br
+      = "#{time_ago_in_words(person.profile.birthday)} ago" if @person.profile.birthday
+
+  - if is_contact
+    /%li
+    /%i= t(".friends_since",:how_long_ago => how_long_ago(person))
+
+  %b.small= person.diaspora_handle
+

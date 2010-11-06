@@ -572,14 +572,12 @@ ul.comments
     :margin 0
     :padding 0
 
-  #profile_information
-    ul
+  ul#profile_information
+    :margin
+      :top 1em
+    > li
       :margin
-        :top 1em
-      li
-        :margin
-          :bottom 1em
-  
+        :bottom 1em
   
 
 #stream, #profile,
@@ -1506,3 +1504,44 @@ h3 span.current_gs_step
     :padding 12px
     :color #fff
     
+#profile
+  ul#aspects_for_person
+  
+    > li
+
+      :display inline-block
+      :padding 4px 2px 0 0
+
+      a
+        :border-radius 6px
+        :padding 2px 4px
+        :background
+          :color #eee
+        :font
+          :size smaller
+        :border 1px solid #ccc
+          :top 1px solid #ddd
+          :bottom 1px solid #aaa
+
+        :color #777
+        :text-shadow 0 1px #fff
+
+        &:hover
+          :background
+            :color #ccc
+          :border 1px solid #999
+            :top 1px solid #bbb
+            :bottom 1px solid #777
+
+          :color #444
+
+        &:active
+          :background
+            :color #666
+
+          :border 1px solid #555
+            :top 1px solid #777
+            :bottom 1px solid #222
+
+          :color #eee
+          :text-shadow none
