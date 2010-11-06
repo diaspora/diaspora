@@ -38,9 +38,10 @@
 
       - if aspect == :all
         .public_toggle
-          = status.check_box( :public, {}, true, false )
-          = t('.make_public')
-          = link_to '(?)', "#question_mark_pane", :class => 'question_mark'
+          %p.checkbox_select
+            = status.check_box( :public, {}, true, false )
+            = status.label :public, t('.make_public')
+          = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
 
           .fancybox_content
             #question_mark_pane
