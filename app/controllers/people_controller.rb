@@ -52,7 +52,8 @@ class PeopleController < ApplicationController
   def update
     # convert date selector into proper timestamp
     birthday = params[:date]
-    if birthday
+    
+    unless [:month, :day, :year].any?{|x| birthday[x].blank?} 
       params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
     end
 

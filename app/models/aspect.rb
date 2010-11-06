@@ -29,7 +29,7 @@ class Aspect
   def to_s
     name
   end
-
+  
   def person_objects
     person_ids = people.map{|x| x.person_id}
     Person.all(:id.in => person_ids)
