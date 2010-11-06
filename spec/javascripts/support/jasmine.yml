@@ -11,8 +11,8 @@
 #   - dist/**/*.js
 #
 src_files:
-  - public/javascripts/jquery142.js
-  - public/javascripts/jquery-ui-1.8.4.custom.min.js
+  - public/javascripts/vendor/jquery142.js
+  - public/javascripts/vendor/jquery-ui-1.8.4.custom.min.js
   - public/javascripts/aspect-edit.js
 
 # stylesheets

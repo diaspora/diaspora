@@ -2,9 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= javascript_include_tag 'FABridge', 'swfobject', 'web_socket'
+= javascript_include_tag 'vendor/FABridge', 'vendor/swfobject', 'vendor/web_socket'
 :javascript
-  WebSocket.__swfLocation = "#{javascript_path 'WebSocketMain.swf'}";
+  WebSocket.__swfLocation = "#{javascript_path 'vendor/WebSocketMain.swf'}";
   $(document).ready(function(){
     function debug(str){ $("#debug").append("<p>" +  str); };
 
