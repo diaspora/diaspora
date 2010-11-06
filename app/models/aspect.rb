@@ -16,6 +16,7 @@ class Aspect
   belongs_to :user, :class_name => 'User'
 
   validates_presence_of :name
+  validates_length_of :name, :maximum => 20
   validates_uniqueness_of :name, :scope => :user_id
   attr_accessible :name
   

@@ -29,6 +29,11 @@ describe Aspect do
       }.should_not change(Aspect, :count)
     end
 
+    it 'should have a limit of 20 characters' do
+      aspect = Aspect.new(:name => "this name is really too too too too too long")
+      aspect.valid?.should == false
+    end
+
     it 'should not be creatable with people' do
       aspect = user.aspects.create(:name => 'losers', :people => [friend, friend_2])
       aspect.people.size.should == 0
