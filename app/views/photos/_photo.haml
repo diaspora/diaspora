@@ -7,5 +7,5 @@
 %p.photo_description
   = post.caption
 
-= link_to "view all of #{post.person.real_name}'s photos", person_photos_path(post.person), :class => "small_text"
+= link_to t('.view_all', :name => post.person.real_name), person_photos_path(post.person), :class => "small_text"
 

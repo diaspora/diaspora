@@ -13,7 +13,7 @@
         ➔
         %ul
           - if post.public?
-            %li= t('.the_world')
+            %li= t('the_world')
           - else
             - for aspect in current_user.aspects_with_post( post.id )
               %li= link_to aspect.name, aspect

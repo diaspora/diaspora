@@ -11,7 +11,7 @@
       .aspect
         ➔
         - if post.public?
-          = t('.the_world')
+          = t('the_world')
         - else
           = current_user.aspects_with_post( post.id ).join(', ')
 
