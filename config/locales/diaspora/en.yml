@@ -58,7 +58,6 @@ en:
   shared:
       stream_element:
           show_comments: "show comments"
-          the_world: "the world"
       aspect_nav:
           manage: "Manage"
           manage_your_aspects: "Manage your Aspects"
@@ -91,6 +90,8 @@ en:
           outside: "Public messages will be available for others outside of Diaspora to see."
           logged_in: "logged in to %{service}"
           manage: "manage connected services"
+      notification:
+          new: "New %{type} from %{from}"
   aspects:
       no_friends_message:
           nobody: "We know you have friends — bring them to Diaspora!"
@@ -211,6 +212,8 @@ en:
           update_photo: "Update Photo"
       edit:
           editing: "Editing"
+      photo:
+          view_all: "view all of %{name}'s photos"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -249,8 +252,6 @@ en:
       new_status_message:
           tell_me_something_good: "tell me something good"
           oh_yeah: "oh yeah!"
-      status_message:
-          show_comments: "show comments"
       show:
           destroy: "Destroy"
       helper:
