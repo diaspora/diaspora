@@ -25,7 +25,7 @@
     %h4
       Your birthday
       %br
-      = select_date @person.profile.birthday, :order => [:month, :day, :year], :start_year => 1930, :end_year => 2000
+      = select_date @person.profile.birthday, :prompt => true, :default => true, :order => [:month, :day, :year], :start_year => 1930, :end_year => 2000
 
     %h4
       Your bio
