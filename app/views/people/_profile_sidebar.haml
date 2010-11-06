@@ -21,24 +21,19 @@
           - for aspect in @aspects_with_person
             %li= link_to aspect.name, aspect
 
-
-  %ul#profile_information
-    %li  
-      %b bio
-      %br
-      = person.profile.bio
-    %li
-      %b gender
-      %br
-      = person.profile.gender
-    %li
-      %b born
-      %br
-      = "#{time_ago_in_words(person.profile.birthday)} ago" if @person.profile.birthday
-
-  - if is_contact
-    /%li
-    /%i= t(".friends_since",:how_long_ago => how_long_ago(person))
+  -if is_contact || person == current_user.person
+    %ul#profile_information
+      %li  
+        %b bio
+        %br
+        = person.profile.bio
+      %li
+        %b gender
+        %br
+        = person.profile.gender
+      %li
+        %b born
+        %br
+        = "#{time_ago_in_words(person.profile.birthday)} ago" if @person.profile.birthday
 
   %b.small= person.diaspora_handle
-
