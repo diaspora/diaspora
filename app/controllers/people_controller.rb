@@ -51,10 +51,11 @@ class PeopleController < ApplicationController
 
   def update
     # convert date selector into proper timestamp
-    birthday = params[:date]
     
-    unless [:month, :day, :year].any?{|x| birthday[x].blank?} 
-      params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
+    if birthday = params[:date]
+      unless [:month, :day, :year].any?{|x| birthday[x].blank?} 
+        params[:person][:profile][:birthday] ||= Date.parse("#{birthday[:year]}-#{birthday[:month]}-#{birthday[:day]}")
+      end
     end
 
     # upload and set new profile photo
