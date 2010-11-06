@@ -260,13 +260,9 @@ fr:
           new_person: "Nouvelle personne"
           back_to_list: "Retourner à la liste"
       show:
-          last_seen: "dernière connexion : %{how_long_ago}"
-          friends_since: "amis depuis : %{how_long_ago}"
           save: "sauver"
-          remove_friend: "supprimer de mes amis"
           no_posts: "aucun message à afficher !"
           add_friend: "ajouter un ami"
-          edit_my_profile: "Éditer mon profil"
           not_friends: "Vous n'êtes actuellement pas ami avec %{name}"
           request_people: "Si vous le voulez, vous pouvez demander à le/la placer dans vos aspects."
           already_requested: "Vous avez déjà envoyé une requête à %{name}."
@@ -296,6 +292,11 @@ fr:
       update:
           updated: "Profil mis à jour"
           failed: "La mise à jour du profil a échoué"
+      profile_sidebar:
+          remove_friend: "supprimer de mes amis"
+          edit_my_profile: "Éditer mon profil"
+          last_seen: "dernière connexion : %{how_long_ago}"
+          friends_since: "amis depuis : %{how_long_ago}"
   requests:
       new_request:
           add_a_new_friend_to: "Ajouter un nouvel ami à"
