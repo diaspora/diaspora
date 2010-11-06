@@ -267,16 +267,12 @@ en:
       index:
           results_for: "search results for"
       show:
-          save: "save"
           no_posts: "no posts to display!"
           add_friend: "add friend"
           not_friends: "You're currently not friends with %{name}"
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
           does_not_exist: "Person does not exist!"
-          bio_epic: "bio-epic"
-          gender: "gender"
-          born: "born"
       edit:
           info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"
@@ -299,6 +295,9 @@ en:
           edit_my_profile: "Edit my profile"
           last_seen: "last seen: %{how_long_ago}"
           friends_since: "friends since: %{how_long_ago}"
+          bio: "bio"
+          gender: "gender"
+          born: "born"
       helper:
            results_for: " results for %{params}"
            people_on_pod_are_aware_of: " people on pod are aware of"
