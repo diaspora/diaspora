@@ -20,11 +20,15 @@ fr:
         username: "Nom d'utilisateur"
         password: 'Mot de passe'
         sign_in: 'Connexion'
+        have_a_problem: "Un problème ? Trouvez une réponse ici"
       signed_in: 'Connecté avec succès.'
       signed_out: 'Déconnecté avec succès.'
     passwords:
       send_instructions: 'Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour réinitialiser votre mot de passe.'
       updated: 'Votre mot de passe a été modifié avec succès. Vous êtes à présent connecté.'
+      new:
+        forgot_password: "Mot de passe oublié ?"
+        send_password_instructions: "Envoyez-moi les instructions de réinitialisation de mot de passe"
     confirmations:
       send_instructions: 'Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour confirmer votre compte.'
       confirmed: 'Votre compte a été confirmé avec succès. Vous êtes à présent connecté.'
