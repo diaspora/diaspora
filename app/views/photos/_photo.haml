@@ -2,36 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:data=>{:guid=>post.id}}
+= link_to (image_tag post.url(:thumb_large)), object_path(post), :class => 'stream_photo'
 
-  = person_image_link(post.person)
+%p.photo_description
+  = post.caption
 
-  .content
-    .from
-      = link_to post.person.real_name, post.person
-      .aspect
-        ➔
-        %ul
-          - if post.public?
-            %li= t('.the_world')
-          - else
-            - for aspect in current_user.aspects_with_post( post.id )
-              %li= link_to aspect.name, aspect
-
-      - if current_user.owns?(post)
-        .right
-          = link_to t('delete'), photo_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
-
-    = link_to (image_tag post.url(:thumb_large)), object_path(post), :class => 'stream_photo'
-    
-    %p.photo_description
-      = post.caption
-
-    = link_to "view all of #{post.person.real_name}'s photos", person_photos_path(post.person), :class => "small_text"
-
-    .info
-      %span.time= link_to(how_long_ago(post), photo_path(post))
-      = link_to "#{t('.show_comments')} (#{post.comments.count})", '#', :class => "show_post_comments"
-
-    = render   "comments/comments", :post => post
-
+= link_to "view all of #{post.person.real_name}'s photos", person_photos_path(post.person), :class => "small_text"

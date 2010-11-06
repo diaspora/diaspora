@@ -11,7 +11,7 @@
   = render 'aspects/no_posts_message'
   %ul#stream
     - for post in @posts
-      = render type_partial(post), :post => post
+      = render 'shared/stream_element', :post => post
 
   #pagination
     = will_paginate @posts
