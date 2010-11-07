@@ -45,6 +45,8 @@ en:
   application:
       helper:
           unknown_person: "unknown person"
+          youtube_title:
+              unknown: "Unknown Video Title"
   error_messages:
       helper:
           invalid_fields: "Invalid Fields"
@@ -128,6 +130,7 @@ en:
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
+          are_you_sure: "Are you sure you want to delete this aspect?"
       remove_from_aspect:
           success: "Successfully removed person from aspect"
           failure: "Failed to remove person from aspect"
@@ -308,5 +311,10 @@ en:
   dashboards:
       helper:
           home: "Home"
+  notifier:
+      new_request:
+          subject: "new Diaspora* friend request from %{from}"
+      request_accepted:
+          subject: "%{name} has accepted your friend request on Diaspora*"
   date:
       order: [:month, :day, :year]

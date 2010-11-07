@@ -11,7 +11,7 @@ class Notifier < ActionMailer::Base
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
   
     mail(:to => "#{@receiver.real_name} <#{@receiver.email}>",
-         :subject => "new Diaspora* friend request from #{@sender.real_name}", :host => APP_CONFIG[:terse_pod_url])
+         :subject => I18n.t('notifier.new_request.subject', :from => @sender.real_name), :host => APP_CONFIG[:terse_pod_url])
   end
 
   def request_accepted(recipient_id, sender_id, aspect_id)
@@ -21,6 +21,6 @@ class Notifier < ActionMailer::Base
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
 
     mail(:to => "#{@receiver.real_name} <#{@receiver.email}>",
-          :subject => "#{@sender.real_name} has accepted your friend request on Diaspora*", :host => APP_CONFIG[:terse_pod_url])
+          :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.real_name), :host => APP_CONFIG[:terse_pod_url])
   end
 end
