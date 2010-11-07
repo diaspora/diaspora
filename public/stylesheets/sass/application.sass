@@ -689,7 +689,6 @@ form p.checkbox_select
 
 label
   :font
-    :family 'Arial', 'Helvetica', sans-serif
     :weight normal
   :color #999
   :position absolute
@@ -1545,3 +1544,40 @@ h3 span.current_gs_step
 
           :color #eee
           :text-shadow none
+
+
+.contact_list
+  :height 300px
+  :max-height 300px
+  :overflow auto
+
+  :border 2px solid #ccc
+  :margin 
+    :bottom 1.5em
+
+  input.contact_list_search
+    :width 100%
+  ul
+    :width 100%
+    :margin 0
+    :padding 0
+    :list
+      :style none
+
+    > li
+      :display block
+      :position relative
+      :height 100%
+      :padding 8px
+      :border
+        :bottom 1px solid #eee
+      :font
+        :weight bold
+
+      &:hover
+        :background
+          :color #eee
+
+      .right
+        :top -6px
+

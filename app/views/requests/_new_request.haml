@@ -2,30 +2,34 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-12.last
+.span-15.last
   .modal_title_bar
     %h4
       =t('.add_a_new_friend_to')
       %i= aspect.name
 
-  = render 'shared/add_friend_dropdown', :aspect => aspect, :friends => current_user.friends_not_in_aspect(aspect), :manage => defined?(manage)
+  .span-6.append-1.last
+    %h3 Existing contacts
+    = render 'shared/add_friend_dropdown', :aspect => aspect, :friends => current_user.friends_not_in_aspect(aspect), :manage => defined?(manage)
 
-  = form_for(Request.new, :html => {:id => "new_request_to_#{aspect.id}"}) do |fr_request|
-    = fr_request.error_messages
+  .span-7.last
+    %h3 Add a new contact
+    = form_for(Request.new, :html => {:id => "new_request_to_#{aspect.id}"}) do |fr_request|
+      = fr_request.error_messages
 
-    =t('.enter_a_diaspora_username')
-    %br
-    %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
+      =t('.enter_a_diaspora_username')
+      %br
+      %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
 
-    %p
-      = fr_request.label :destination_url, t('.friends_username'), :for => "request_d_url_to_#{aspect.id}"
-      = fr_request.text_field :destination_url, :id => "request_d_url_to_#{aspect.id}"
-    = fr_request.hidden_field :aspect_id, :value => aspect.id
+      %p
+        = fr_request.label :destination_url, t('.friends_username'), :for => "request_d_url_to_#{aspect.id}"
+        = fr_request.text_field :destination_url, :id => "request_d_url_to_#{aspect.id}"
+      = fr_request.hidden_field :aspect_id, :value => aspect.id
 
-    - if defined?(getting_started)
-      = hidden_field_tag :getting_started, getting_started
-    - if defined?(manage)
-      = hidden_field_tag :manage, true
+      - if defined?(getting_started)
+        = hidden_field_tag :getting_started, getting_started
+      - if defined?(manage)
+        = hidden_field_tag :manage, true
 
-    = fr_request.submit t('.create_request')
+      = fr_request.submit t('.create_request')
 
