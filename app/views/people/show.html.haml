@@ -11,10 +11,9 @@
   - if @contact || current_user.person == @person
 
     - if @posts.count > 0
-      %ul#stream
-        - for post in @posts
-          = render 'shared/stream_element', :post => post
-        = will_paginate @posts
+      = render 'shared/stream', :posts => @posts
+      = will_paginate @posts
+
     - else
       %h3= t('.no_posts')
 
