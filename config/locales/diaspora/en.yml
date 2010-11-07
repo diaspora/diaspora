@@ -295,7 +295,6 @@ en:
           remove_friend: "remove friend"
           edit_my_profile: "Edit my profile"
           last_seen: "last seen: %{how_long_ago}"
-          friends_since: "friends since: %{how_long_ago}"
           bio: "bio"
           gender: "gender"
           born: "born"
