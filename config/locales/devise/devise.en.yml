@@ -21,6 +21,7 @@ en:
         password: 'Password'
         sign_in: 'Sign in'
         have_a_problem: "Have a problem? Find an answer here"
+        remember_me: "Remember me"
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'
     passwords:
@@ -44,14 +45,31 @@ en:
       invitation_token_invalid: 'The invitation token provided is not valid!'
       updated: 'Your password was set successfully. You are now signed in.'
     mailer:
+      welcome: "Welcome %{email}!"
+      hello: "Hello %{email}!"
       confirmation_instructions:
         subject: 'Confirmation instructions'
+        you_can_confirm: "You can confirm your account through the link below:"
+        confirm: "Confirm my account"
       reset_password_instructions:
         subject: 'Reset password instructions'
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        change: "Change my password"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+        ignore: "If you didn't request this, please ignore this email."
       unlock_instructions:
         subject: 'Unlock Instructions'
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        unlock: "Unlock my account"
       invitation:
         subject: 'A friend wants you to join Diaspora!'
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", at %{url}, you can accept it through the link below."
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
     shared:
       links:
         sign_in: 'Sign in'

@@ -312,9 +312,17 @@ en:
       helper:
           home: "Home"
   notifier:
+      hello: "Hello %{name}!"
+      love: "love,"
+      diaspora: "the diaspora email robot"
       new_request:
           subject: "new Diaspora* friend request from %{from}"
+          just_sent_you: "just sent you a friend request on Diaspora*"
+          try_it_out: "You should really think about checking it out."
+          sign_in: "sign in here"
       request_accepted:
           subject: "%{name} has accepted your friend request on Diaspora*"
+          accepted: "has accepted your friend request. They are now in your"
+          aspect: "aspect."
   date:
       order: [:month, :day, :year]
