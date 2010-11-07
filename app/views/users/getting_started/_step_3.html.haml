@@ -11,13 +11,13 @@
   - for service in @services
     %h3
       %b= service.provider
-      = t('.logged_in_as')
+      = t('services.index.logged_in_as')
       %b= service.nickname
-      = link_to t('.disconnect'), service, :confirm => t('.disconnect_from', :service => service.provider), :method => :delete
+      = link_to t('services.index.disconnect'), service, :confirm => t('services.index.really_disconnect', :service => service.provider), :method => :delete
 
-%h4= link_to t('.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
-%h4= link_to t('.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
+%h4= link_to t('services.index.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
+%h4= link_to t('services.index.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
 
 .submit_block
-  = link_to "#{t('.save_and_continue')} →", getting_started_path(:step => 4), :class => "button"
+  = link_to "#{t('users.getting_started.save_and_continue')} →", getting_started_path(:step => 4), :class => "button"
 

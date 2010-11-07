@@ -22,7 +22,7 @@
         - for friend in aspect.person_objects
           = person_image_link(friend)
 
-        = link_to (image_tag('add_friend_button.png', :title => t('.add_to', :aspect => aspect))), "#add_request_pane", :class => 'add_request_button'
+        = link_to (image_tag('add_friend_button.png', :title => t('shared.aspect_friends.add_to', :aspect => aspect))), "#add_request_pane", :class => 'add_request_button'
 
         .fancybox_content
           #add_request_pane
@@ -34,5 +34,5 @@
 %br
 
 .submit_block
-  = link_to "#{t('.save_and_continue')} →", getting_started_path(:step => 3), :class => "button"
+  = link_to "#{t('users.getting_started.save_and_continue')} →", getting_started_path(:step => 3), :class => "button"
 

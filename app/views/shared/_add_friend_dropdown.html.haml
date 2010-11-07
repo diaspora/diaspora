@@ -4,4 +4,4 @@
   = hidden_field_tag :aspect_id, aspect.id
   - if defined?(manage) && manage
     = hidden_field_tag :manage, true
-  = submit_tag t('.add_to', :aspect => aspect.name)
+  = submit_tag t('shared.aspect_friends.add_to', :aspect => aspect.name)
