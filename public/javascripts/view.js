@@ -17,13 +17,6 @@ $(document).ready(function(){
     top: -100 
   }, $(this).remove());
 
-  $("div.image_cycle").cycle({
-    fx: 'fade',
-    random: 1,
-    timeout: 2000,
-    speed: 3000
-  });
-
   //buttons//////
   $(".add_aspect_button," + 
     ".add_request_button," +
