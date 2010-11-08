@@ -23,7 +23,6 @@ class User
   key :invitation_token, String
   key :invitation_sent_at, DateTime
   key :inviter_ids, Array, :typecast => 'ObjectId'
-  key :friend_ids, Array, :typecast => 'ObjectId'
   key :pending_request_ids, Array, :typecast => 'ObjectId'
   key :visible_post_ids, Array, :typecast => 'ObjectId'
   key :visible_person_ids, Array, :typecast => 'ObjectId'
@@ -49,7 +48,7 @@ class User
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
   many :inviters, :in => :inviter_ids, :class_name => 'User'
-  many :friends, :in => :friend_ids, :class_name => 'Contact'
+  many :friends, :class_name => 'Contact', :foreign_key => :user_id
   many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
@@ -371,6 +370,7 @@ class User
       raise "You already invited this person"
     else
       invitable.pending_requests << Request.create(
+        :person          => request.person,
         :diaspora_handle => request.diaspora_handle,
         :callback_url    => request.callback_url,
         :destination_url => request.destination_url)
