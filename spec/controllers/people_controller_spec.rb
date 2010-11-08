@@ -69,5 +69,11 @@ describe PeopleController do
         :owner_id => new_user.id}
       user.person.reload.owner_id.should_not == new_user.id
     end
+
+    it 'does not overwrite the profile diaspora handle' do
+      handle_params = {'profile' => {'diaspora_handle' => 'abc@a.com'}}
+      put :update, :id => user.person.id, :person => handle_params
+      user.person.reload.profile[:diaspora_handle].should_not == 'abc@a.com'
+    end
   end
 end
