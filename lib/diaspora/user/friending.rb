@@ -59,12 +59,16 @@ module Diaspora
 
       def receive_friend_request(friend_request)
         Rails.logger.info("receiving friend request #{friend_request.to_json}")
+        #puts ("receiving friend request #{friend_request.to_json}")
         
         #response from a friend request you sent
         if original_request = original_request(friend_request)
           destination_aspect = self.aspect_by_id(original_request.aspect_id)
+          #pp original_request
+          #pp friend_request
+          #pp friend_request.person
           activate_friend(friend_request.person, destination_aspect)
-          Rails.logger.info("#{self.real_name}'s friend request has been accepted")
+          #puts ("#{self.real_name}'s friend request has been accepted")
         
           friend_request.destroy
           original_request.destroy
@@ -74,7 +78,7 @@ module Diaspora
         elsif !request_from_me?(friend_request)
           self.pending_requests << friend_request
           self.save
-          Rails.logger.info("#{self.real_name} has received a friend request")
+          #puts ("#{self.real_name} has received a friend request")
           friend_request.save
           Request.send_new_request(self, friend_request.person)
         else
@@ -92,7 +96,6 @@ module Diaspora
 
       def remove_friend(bad_friend)
         contact = contact_for(bad_friend)
-        raise "Friend not deleted" unless self.friend_ids.delete(contact.id)
         contact.aspects.each{|aspect|
           contact.aspects.delete(aspect)
           aspect.posts.each { |post|
@@ -107,7 +110,7 @@ module Diaspora
           (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
         }
         self.save
-        contact.destroy
+        raise "Friend not deleted" unless contact.destroy
         bad_friend.save
       end
 
@@ -117,9 +120,8 @@ module Diaspora
       end
 
       def activate_friend(person, aspect)
-        new_contact = Contact.create(:user => self, :person => person, :aspects => [aspect])
+        new_contact = Contact.create!(:user => self, :person => person, :aspects => [aspect])
         new_contact.aspects << aspect
-        friends << new_contact
         save!
         aspect.save!
       end
