@@ -12,9 +12,10 @@ class PhotosController < ApplicationController
     if params[:person_id]
       @person = current_user.contact_for_person_id(params[:person_id])
       @person = @person.person if @person
+    else
+      @person = current_user.person
     end
-    @person ||= current_user.person
-
+    
     @photos = current_user.visible_posts(:_type => "Photo", :person_id => @person.id)
 
     @aspect = :photos

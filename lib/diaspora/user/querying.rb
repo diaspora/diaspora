@@ -42,7 +42,8 @@ module Diaspora
       end
 
       def contact_for_person_id(person_id)
-        friends.first(:person_id => person_id)
+        friends.first(:person_id => person_id.to_id) if person_id
+
       end
 
       def friends_not_in_aspect( aspect ) 

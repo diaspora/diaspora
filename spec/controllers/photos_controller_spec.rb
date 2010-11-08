@@ -42,7 +42,7 @@ describe PhotosController do
     end
 
     it 'sets the person to a friend if person_id is set' do
-      get :index, :person_id => user2.person.id  
+      get :index, :person_id => user2.person.id.to_s
       
       assigns[:person].should == user2.person
       assigns[:photos].should == []
