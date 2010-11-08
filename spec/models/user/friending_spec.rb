@@ -238,13 +238,20 @@ describe Diaspora::UserModules::Friending do
       context 'with a post' do
         before do
           @message = user.post(:status_message, :message => "hi", :to => aspect.id)
-          user2.unfriend user.person
         end
+
         it "deletes the unfriended user's posts from visible_posts" do
-          user.reload.raw_visible_posts.include?(@message.id).should be_false
+          user2.reload.raw_visible_posts.include?(@message).should be_true
+          user2.unfriend user.person
+          user2.reload.raw_visible_posts.include?(@message).should be_false
         end
+
         it "deletes the unfriended user's posts from the aspect's posts" do
-          aspect2.posts.include?(@message).should be_false
+          Post.count.should == 1
+          aspect2.reload.posts.include?(@message).should be_true
+          user2.unfriend user.person
+          aspect2.reload.posts.include?(@message).should be_false
+          Post.count.should == 1
         end
       end
     end

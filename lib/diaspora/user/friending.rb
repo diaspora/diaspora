@@ -95,8 +95,8 @@ module Diaspora
         raise "Friend not deleted" unless self.friend_ids.delete(contact.id)
         contact.aspects.each{|aspect|
           contact.aspects.delete(aspect)
-          aspect.posts.delete_if { |post| 
-            post.person_id == bad_friend.id
+          aspect.posts.each { |post|
+            aspect.post_ids.delete(post.id) if post.person == bad_friend
           }
           aspect.save
         }
