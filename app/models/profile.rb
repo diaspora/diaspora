@@ -32,6 +32,9 @@ class Profile
 
   before_save :strip_names
 
+  attr_accessible :first_name, :last_name, :image_url, :birthday, :gender, :bio, :searchable
+
+
   def person
     self._parent_document
   end

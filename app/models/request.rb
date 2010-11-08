@@ -28,7 +28,8 @@ class Request
 
   def self.instantiate(options = {})
     person = options[:from]
-    self.new(:destination_url => options[:to],
+    self.new(:person_id       => person.id,
+             :destination_url => options[:to],
              :callback_url    => person.receive_url,
              :diaspora_handle => person.diaspora_handle,
              :aspect_id       => options[:into])
@@ -38,7 +39,8 @@ class Request
     Request.new(
       :diaspora_handle => accepting_user.diaspora_handle,
       :destination_url => self.callback_url,
-      :callback_url    => self.destination_url
+      :callback_url    => self.destination_url,
+      :person_id => accepting_user.person.id
     )
   end
 

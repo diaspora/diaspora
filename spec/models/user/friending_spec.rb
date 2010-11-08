@@ -39,9 +39,11 @@ describe Diaspora::UserModules::Friending do
 
       it 'should autoaccept a request the user sent' do
         request = user.send_friend_request_to(user2.person, aspect)
-        proc{
-          user.receive_friend_request(request.reverse_for(user2))
-        }.should change(user.reload.friends, :count).by(1)
+        user.contact_for(user2.person).should be_nil
+        #proc{
+          user.receive_request(request.reverse_for(user2), user2.person)
+        #}.should change(user.reload.friends, :count).by(1)
+        user.contact_for(user2.person).should_not be_nil
       end
     end
 
@@ -52,8 +54,8 @@ describe Diaspora::UserModules::Friending do
       let(:request_from_myself) {Request.instantiate(:to => user.receive_url, :from => user.person)}
       before do
         request_for_user.save
-        user.receive_friend_request(request_for_user)
-        user.receive_friend_request(request2_for_user)
+        user.receive_request(request_for_user, friend)
+        user.receive_request(request2_for_user, person_one)
         user.reload
       end
 
@@ -90,7 +92,7 @@ describe Diaspora::UserModules::Friending do
     it 'should send an email on acceptance if a friend request' do
       Request.should_receive(:send_request_accepted)
       request = user.send_friend_request_to(user2.person, aspect)
-      user.receive_friend_request(request.reverse_for(user2))
+      user.receive_request(request.reverse_for(user2), user2.person)
     end
 
 
@@ -238,13 +240,20 @@ describe Diaspora::UserModules::Friending do
       context 'with a post' do
         before do
           @message = user.post(:status_message, :message => "hi", :to => aspect.id)
-          user2.unfriend user.person
         end
+
         it "deletes the unfriended user's posts from visible_posts" do
-          user.reload.raw_visible_posts.include?(@message.id).should be_false
+          user2.reload.raw_visible_posts.include?(@message).should be_true
+          user2.unfriend user.person
+          user2.reload.raw_visible_posts.include?(@message).should be_false
         end
+
         it "deletes the unfriended user's posts from the aspect's posts" do
-          aspect2.posts.include?(@message).should be_false
+          Post.count.should == 1
+          aspect2.reload.posts.include?(@message).should be_true
+          user2.unfriend user.person
+          aspect2.reload.posts.include?(@message).should be_false
+          Post.count.should == 1
         end
       end
     end
