@@ -52,7 +52,7 @@
       - @resource.inviters.each do |inv|
         - if @resource.invite_messages[inv.id.to_s]
           = "#{inv.real_name}:"
-          = @resource.invite_messages[inv.id.to_s]
+          = "\"#{@resource.invite_messages[inv.id.to_s]}\""
           %p
       %p= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :class => "large_text"
       %p.small
