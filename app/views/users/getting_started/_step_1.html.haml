@@ -25,11 +25,11 @@
     %h4
       Your birthday
       %br
-      = select_date @person.profile.birthday, :prompt => true, :default => true, :order => [:month, :day, :year], :start_year => 1930, :end_year => 2000
+      = select_date @person.profile.birthday, :prompt => true, :default => true, :order => [:month, :day, :year], :start_year => 2000, :end_year => 1930
 
     %h4
       Your bio
-      = profile.text_area :bio, :value => @profile.bio, :rows => 5, :placeholder => "Fill me out"
+      = profile.text_area :bio, :value => @profile.bio, :rows => 5, :placeholder => t(".fill_me_out")
 
     %h4
       Your photo
