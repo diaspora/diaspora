@@ -7,8 +7,14 @@ Diaspora::Application.routes.draw do
   resources :status_messages, :only   => [:create, :destroy, :show]
   resources :comments,        :except => [:index]
   resources :requests,        :except => [:edit, :update]
-  resources :photos
+  resources :photos, :except => [:index]
   resources :services
+
+  resources :people do
+    resources :status_messages
+    resources :photos
+  end
+
 
   match '/auth/:provider/callback' => 'services#create'
 

@@ -1,0 +1,23 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+=content_for(:head) do
+  :javascript
+    $(document).ready(function(){
+      $(".image_thumb img").load( function() {
+        $(this).fadeIn("slow");
+      });
+    });
+
+.span-24.last
+  #thumbnails
+    - for photo in photos
+      .image_thumb
+        = link_to (image_tag photo.url(:thumb_medium)), photo_path(photo)
+
+/.span-24.last
+/  #add_photo_pane
+/    = render "photos/new_photo", :aspect_id => :all
+

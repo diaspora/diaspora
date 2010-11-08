@@ -36,21 +36,21 @@ describe PhotosController do
 
   describe '#index' do
     it 'defaults to returning all of users pictures' do
-      get :index
+      get :index, :person_id => user.person.id.to_s
       assigns[:person].should == user.person
-      assigns[:photos].should == [photo]
+      assigns[:posts].should == [photo]
     end
 
     it 'sets the person to a friend if person_id is set' do
       get :index, :person_id => user2.person.id.to_s
       
       assigns[:person].should == user2.person
-      assigns[:photos].should == []
+      assigns[:posts].should == []
     end
 
-    it 'sets the aspect to photos?' do
-      get :index
-      assigns[:aspect].should == :photos
+    it 'sets the aspect to profile' do
+      get :index, :person_id => user.person.id.to_s
+      assigns[:aspect].should == :profile
     end
     
   end
@@ -73,7 +73,7 @@ describe PhotosController do
 
     it 'should not let you edit a photo that is not yours' do
       get :edit, :id => photo2.id 
-      response.should redirect_to(:action => :index)
+      response.should redirect_to(:action => :index, :person_id => user.person.id.to_s)
     end
   end
 
@@ -106,7 +106,8 @@ describe PhotosController do
     it 'should redirect if you do not have access to the post' do
       params = { :caption => "now with lasers!"}
       put :update, :id => photo2.id, :photo => params
-      response.should redirect_to(:action => :index)
+      response.should redirect_to(:action => :index, :person_id => user.person.id.to_s)
+
     end
   end
 end

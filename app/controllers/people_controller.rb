@@ -15,10 +15,10 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @aspect = :profile
 
     @person = Person.find(params[:id].to_id)
-
+    @post_type = :all
+    
     if @person
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
@@ -31,7 +31,9 @@ class PeopleController < ApplicationController
       end
 
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
-      respond_with @person
+      respond_with @person, :locals => {:post_type => :all}
+
+
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path

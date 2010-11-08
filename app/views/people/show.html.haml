@@ -4,14 +4,17 @@
 
 
 .span-4.append-1.last
-  = render 'profile_sidebar', :person => @person, :is_contact => @is_contact
+  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @is_contact}
 
 .span-15.last
   = render 'shared/author_info', :person => @person
   - if @contact || current_user.person == @person
 
     - if @posts.count > 0
-      = render 'shared/stream', :posts => @posts
+      -if @post_type == :photos
+        = render 'photos/index', :photos => @posts
+      - else
+        = render 'shared/stream', :posts => @posts
       = will_paginate @posts
 
     - else

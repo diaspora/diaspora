@@ -9,16 +9,28 @@ class PhotosController < ApplicationController
   respond_to :json, :only => :show
 
   def index
-    if params[:person_id]
-      @person = current_user.contact_for_person_id(params[:person_id])
-      @person = @person.person if @person
-    else
-      @person = current_user.person
-    end
-    
-    @photos = current_user.visible_posts(:_type => "Photo", :person_id => @person.id)
+    @aspect = :profile
+    @post_type = :photos
+    @person = Person.find(params[:person_id].to_id)
 
-    @aspect = :photos
+    if @person
+      @profile = @person.profile
+      @contact = current_user.contact_for(@person)
+      @is_contact = @person != current_user.person && @contact
+
+      if @contact
+        @aspects_with_person = @contact.aspects
+      else
+        @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
+      end
+
+      @posts = current_user.visible_posts(:_type => 'Photo', :person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
+      render 'people/show'
+
+    else
+      flash[:error] = I18n.t 'people.show.does_not_exist'
+      redirect_to people_path
+    end
   end
 
   def create
@@ -85,7 +97,7 @@ class PhotosController < ApplicationController
     if @photo = current_user.my_posts.where(:_id => params[:id]).first
       respond_with @photo
     else
-      redirect_to photos_path
+      redirect_to person_photos_path(current_user.person)
     end
   end
 
@@ -100,7 +112,7 @@ class PhotosController < ApplicationController
         redirect_to [:edit, photo]
       end
     else
-      redirect_to photos_path
+      redirect_to person_photos_path(current_user.person)
     end
   end
 
