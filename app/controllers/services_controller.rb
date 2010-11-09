@@ -32,7 +32,7 @@ class ServicesController < ApplicationController
     end
 
     flash[:notice] = I18n.t 'services.create.success'
-    redirect_to services_url
+    redirect_to :back 
   end
 
   def destroy
