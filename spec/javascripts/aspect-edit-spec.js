@@ -1,5 +1,13 @@
 describe("AspectEdit", function() {
 
+  beforeEach(function() {
+    $('#jasmine_content').html(
+'<li class="person ui-draggable" data-aspect_id="4cae42e12367bca44e000005" data-guid="4cae42d32367bca44e000003" style="top: 0px; left: 0px; ">' +
+'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="4cae42d32367bca44e000003" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom" style="height: 70px; width: 70px; opacity: 1; display: inline; ">' +
+'</li>'
+      );
+  });
+
   describe("initialize", function() {
     it("calls draggable on ul .person", function() {
       spyOn($.fn, "draggable");
@@ -30,13 +38,6 @@ describe("AspectEdit", function() {
   });
 
   describe("startDrag", function() {
-    beforeEach(function() {
-      $('#jasmine_content').html(
-'<li class="person ui-draggable" data-aspect_id="4cae42e12367bca44e000005" data-guid="4cae42d32367bca44e000003" style="top: 0px; left: 0px; ">' +
-'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="4cae42d32367bca44e000003" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom" style="height: 70px; width: 70px; opacity: 1; display: inline; ">' +
-'</li>'
-        );
-    });
     it("animates the image", function() {
       spyOn(AspectEdit, "animateImage");
       $.proxy(AspectEdit.startDrag, $('.person.ui-draggable'))();
@@ -52,13 +53,6 @@ describe("AspectEdit", function() {
   });
 
   describe("animateImage", function() {
-    beforeEach(function() {
-      $('#jasmine_content').html(
-'<li class="person ui-draggable" data-aspect_id="4cae42e12367bca44e000005" data-guid="4cae42d32367bca44e000003" style="top: 0px; left: 0px; ">' +
-'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="4cae42d32367bca44e000003" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom" style="height: 70px; width: 70px; opacity: 1; display: inline; ">' +
-'</li>'
-        );
-    });
     it("hides the tipsy ... thingy, whatever that is", function() {
       spyOn($.fn, "tipsy");
       AspectEdit.animateImage($('.avatar'));
@@ -68,6 +62,30 @@ describe("AspectEdit", function() {
       spyOn($.fn, "animate");
       AspectEdit.animateImage($('.avatar'));
       expect($.fn.animate).toHaveBeenCalledWith({'height':80, 'width':80, 'opacity':0.8}, 200);
+    });
+  });
+
+  describe("duringDrag", function() {
+    it("rehides the tipsy thingy", function() {
+      spyOn($.fn, "tipsy");
+      $.proxy(AspectEdit.duringDrag, $('.person.ui-draggable'))();
+      expect($.fn.tipsy).toHaveBeenCalledWith("hide");
+      expect($.fn.tipsy.mostRecentCall.object).toHaveClass("avatar");
+    });
+  });
+
+  describe("stopDrag", function() {
+    xit("animates the image back to smaller size and full opacity", function() {
+      spyOn($.fn, "animate");
+      $.proxy(AspectEdit.stopDrag, $('.person.ui-draggable'))();
+      expect($.fn.animate).toHaveBeenCalledWith({'height':70, 'width':70, 'opacity':1}, 200);
+      expect($.fn.animate.mostRecentCall.object).toHaveClass("avatar");
+    });
+    it("fades out the drag and drop text", function() {
+      spyOn($.fn, "fadeOut");
+      $.proxy(AspectEdit.stopDrag, $('.person.ui-draggable'))();
+      expect($.fn.fadeOut).toHaveBeenCalledWith(100);
+      expect($.fn.fadeOut.mostRecentCall.object.selector).toEqual(".draggable_info");
     });
   });
 
