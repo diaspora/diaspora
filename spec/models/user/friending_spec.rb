@@ -31,7 +31,7 @@ describe Diaspora::UserModules::Friending do
 
     describe  '#receive_friend_request' do
       it 'adds a request to pending if it was not sent by user' do
-        r = Request.instantiate(:to => user.receive_url, :from => friend)
+        r = Request.instantiate(:to => user.person, :from => friend)
         r.save
         user.receive_friend_request(r)
         user.reload.pending_requests.should include r
@@ -49,9 +49,9 @@ describe Diaspora::UserModules::Friending do
 
     context 'received a friend request' do
 
-      let(:request_for_user) {Request.instantiate(:to => user.receive_url, :from => friend)}
-      let(:request2_for_user) {Request.instantiate(:to => user.receive_url, :from => person_one)}
-      let(:request_from_myself) {Request.instantiate(:to => user.receive_url, :from => user.person)}
+      let(:request_for_user) {Request.instantiate(:to => user.person, :from => friend)}
+      let(:request2_for_user) {Request.instantiate(:to => user.person, :from => person_one)}
+      let(:request_from_myself) {Request.instantiate(:to => user.person, :from => user.person)}
       before do
         request_for_user.save
         user.receive_request(request_for_user, friend)
@@ -104,9 +104,9 @@ describe Diaspora::UserModules::Friending do
         user2.pending_requests.empty?.should be true
         user2.friends.empty?.should be true
 
-        @request       = Request.instantiate(:to => user.receive_url, :from => person_one)
-        @request_two   = Request.instantiate(:to => user2.receive_url, :from => person_one)
-        @request_three =  Request.instantiate(:to => user2.receive_url, :from => user.person)
+        @request       = Request.instantiate(:to => user.person, :from => person_one)
+        @request_two   = Request.instantiate(:to => user2.person, :from => person_one)
+        @request_three =  Request.instantiate(:to => user2.person, :from => user.person)
 
         @req_xml       = @request.to_diaspora_xml
         @req_two_xml   = @request_two.to_diaspora_xml
@@ -183,8 +183,8 @@ describe Diaspora::UserModules::Friending do
         user.pending_requests.empty?.should be true
         user.friends.empty?.should be true
 
-        @request = Request.instantiate(:to => user.receive_url, :from => person_one)
-        @request_two = Request.instantiate(:to => user.receive_url, :from => person_two)
+        @request = Request.instantiate(:to => user.person, :from => person_one)
+        @request_two = Request.instantiate(:to => user.person, :from => person_two)
       end
 
       it "keeps the right counts of friends" do

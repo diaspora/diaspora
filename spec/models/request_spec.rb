@@ -11,25 +11,32 @@ describe Request do
   let(:aspect) { user.aspects.create(:name => "dudes") }
   let(:request){ user.send_friend_request_to user2.person, aspect }
 
-  it 'should require a destination and callback url' do
-    person_request = Request.new
-    person_request.valid?.should be false
-    person_request.destination_url = "http://google.com/"
-    person_request.callback_url = "http://foob.com/"
-    person_request.valid?.should be true
-  end
-
-
-  it 'should strip the destination url' do
-    person_request = Request.new
-    person_request.destination_url = "   http://google.com/   "
-    person_request.send(:clean_link)
-    person_request.destination_url.should == "http://google.com/"
+  describe 'validations' do
+    before do
+      @request = Request.new(:from => user.person, :to => user2.person, :into => aspect) 
+    end
+    it 'is valid' do
+      @request.should be_valid
+      @request.from.should == user.person
+      @request.to.should   == user2.person
+      @request.into.should == aspect
+    end
+    it 'is from a person' do
+      @request.from = nil
+      @request.should_not be_valid
+    end
+    it 'is to a person' do
+      @request.to = nil
+      @request.should_not be_valid
+    end
+    it 'is not necessarily into an aspect' do
+      @request.into = nil
+      @request.should be_valid
+    end
   end
 
   describe '#request_from_me' do
     it 'recognizes requests from me' do
-      request
       user.request_from_me?(request).should be_true
     end
 
@@ -42,29 +49,76 @@ describe Request do
     it 'finds requests for that user' do
       request
       user2.reload
-      user2.requests_for_me.detect{|r| r.callback_url == user.receive_url}.should_not be_nil
+      user2.requests_for_me.detect{|r| r.from == user.person}.should_not be_nil
     end
   end
 
-  describe 'serialization' do
+  describe '#original_request' do
+    it 'returns nil on a request from me' do
+      request
+      user.original_request(request).should be_nil
+    end
+    it 'returns the original request on a response to a request from me' do
+      new_request = request.reverse_for(user2)
+      user.original_request(new_request).should == request
+    end
+  end
+
+  describe 'xml' do
     before do
-      @request = user.send_friend_request_to person, aspect
+      @request = Request.new(:from => user.person, :to => user2.person, :into => aspect) 
       @xml = @request.to_xml.to_s
     end
-    it 'should not generate xml for the User as a Person' do
-      @xml.should_not include user.person.profile.first_name
+    describe 'serialization' do
+      it 'should not generate xml for the User as a Person' do
+        @xml.should_not include user.person.profile.first_name
+      end
+
+      it 'should serialize the handle and not the sender' do
+        @xml.should include user.person.diaspora_handle
+      end
+
+      it 'serializes the intended recipient handle' do
+        @xml.should include user2.person.diaspora_handle
+      end
+
+      it 'should not serialize the exported key' do
+        @xml.should_not include user.person.exported_key
+      end
+
+      it 'does not serialize the id' do
+        @xml.should_not include @request.id.to_s
+      end
     end
 
-    it 'should serialize the handle and not the sender' do
-      @xml.should include user.person.diaspora_handle
+    describe 'marshalling' do
+      before do
+        @marshalled = Request.from_xml @xml
+      end
+      it 'marshals the sender' do
+        @marshalled.from.should == user.person
+      end
+      it 'marshals the recipient' do
+        @marshalled.to.should == user2.person
+      end
+      it 'knows nothing about the aspect' do
+        @marshalled.into.should be_nil
+      end
     end
-
-    it 'should not serialize the exported key' do
-      @xml.should_not include user.person.exported_key
-    end
-
-    it 'does not serialize the id' do
-      @xml.should_not include @request.id.to_s
+    describe 'marshalling with diaspora wrapper' do
+      before do
+        @d_xml = @request.to_diaspora_xml
+        @marshalled = Diaspora::Parser.from_xml @d_xml
+      end
+      it 'marshals the sender' do
+        @marshalled.from.should == user.person
+      end
+      it 'marshals the recipient' do
+        @marshalled.to.should == user2.person
+      end
+      it 'knows nothing about the aspect' do
+        @marshalled.into.should be_nil
+      end
     end
   end
   
@@ -96,7 +150,6 @@ describe Request do
         @mock_mail = mock()
         @mock_mail.should_receive(:deliver)
       end
-      
       describe '.send_request_accepted!' do
         it 'should deliver the message' do
           Notifier.should_receive(:request_accepted).and_return(@mock_mail)

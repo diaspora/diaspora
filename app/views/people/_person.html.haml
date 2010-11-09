@@ -19,7 +19,7 @@
           = link_to =t('.pending_request'), aspects_manage_path
         - else
           = form_for Request.new do |f|
-            = f.select(:aspect_id, @aspects_dropdown_array)
+            = f.select(:into_id, @aspects_dropdown_array)
             = f.hidden_field :destination_url, :value => person.diaspora_handle
             = f.submit t('.add_friend')
 

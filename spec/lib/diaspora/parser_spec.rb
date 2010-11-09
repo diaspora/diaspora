@@ -37,14 +37,21 @@ describe Diaspora::Parser do
 
     let(:good_request) { FakeHttpRequest.new(:success)}
       it "should create a new person upon getting a person request" do
-        new_person = Factory.build(:person) 
+        remote_user = Factory.create(:user)
+        new_person = remote_user.person
 
-        Person.should_receive(:by_account_identifier).and_return(new_person)
-        request = Request.instantiate(:to =>"http://www.google.com/", :from => new_person)
-        xml = request.to_diaspora_xml
-        user
+        request = Request.new(:to =>user.person, :from => new_person)
+        xml = remote_user.salmon(request).xml_for(user.person)
+        request.delete
+        request.from.delete
+        remote_user.delete
+        new_person.delete
 
-        lambda { user.receive xml, new_person }.should change(Person, :count).by(1)
+        Person.should_receive(:by_account_identifier).twice.and_return(new_person)
+
+        lambda { 
+          user.receive_salmon xml
+        }.should change(Person, :count).by(1)
       end
 
 
@@ -52,7 +59,7 @@ describe Diaspora::Parser do
 
     it "should activate the Person if I initiated a request to that url" do
       user.send_friend_request_to(user2.person, aspect)
-      request = user2.reload.pending_requests.find_by_destination_url!(user2.receive_url)
+      request = user2.reload.pending_requests.find_by_to_id!(user2.person.id)
       user2.accept_and_respond(request.id, aspect2.id)
       
       user.reload

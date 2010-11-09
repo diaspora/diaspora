@@ -34,7 +34,7 @@ module HelperMethods
     user2.reload
     aspect2.reload
 
-    new_request = user2.pending_requests.find_by_destination_url!(user2.receive_url)
+    new_request = user2.pending_requests.find_by_from_id!(user1.person.id)
 
     user1.reload
     aspect1.reload

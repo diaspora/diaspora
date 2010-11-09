@@ -24,8 +24,13 @@ module Diaspora
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
         Rails.logger.debug("From: #{object.diaspora_handle}")
-              
-        if object.is_a?(Comment) 
+        
+        if object.is_a?(Request)
+          salmon_author.save
+          object.sender_handle = salmon_author.diaspora_handle
+        end
+
+        if object.is_a?(Comment)
           xml_author = (owns?(object.post))? object.diaspora_handle : object.post.person.diaspora_handle
         else
           xml_author = object.diaspora_handle 
@@ -39,7 +44,6 @@ module Diaspora
           e = EMWebfinger.new(object.diaspora_handle)
 
           e.on_person do |person|
-
             if person.class == Person
               object.person = person if object.respond_to? :person=
 
@@ -90,8 +94,6 @@ module Diaspora
       end
 
       def receive_request request, person
-        request.person = person
-        request.person.save!
         request.save!
         receive_friend_request(request)
       end

@@ -55,6 +55,7 @@ describe 'making sure the spec runner works' do
 
     it 'makes the first user friends with the second' do
       contact = @user1.contact_for @user2.person
+      contact.should_not be_nil
       @user1.friends.include?(contact).should be_true
       @aspect1.people.include?(contact).should be_true
       contact.aspects.include?( @aspect1 ).should be true
@@ -62,6 +63,7 @@ describe 'making sure the spec runner works' do
 
     it 'makes the second user friends with the first' do
       contact = @user2.contact_for @user1.person
+      contact.should_not be_nil
       @user2.friends.include?(contact).should be_true
       @aspect2.people.include?(contact).should be_true
       contact.aspects.include?( @aspect2 ).should be true

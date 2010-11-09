@@ -370,10 +370,7 @@ class User
       raise "You already invited this person"
     else
       invitable.pending_requests << Request.create(
-        :person          => request.person,
-        :diaspora_handle => request.diaspora_handle,
-        :callback_url    => request.callback_url,
-        :destination_url => request.destination_url)
+        :from => inviter.person)
 
       invitable.inviters << inviter
       message = attributes.delete(:invite_message)
@@ -403,8 +400,14 @@ class User
 
       self.person.save!
       self.invitation_token = nil
+      friend_inviters
       self.save!
       self
+    end
+  end
+
+  def friend_inviters
+    inviters.each do |inviter|
     end
   end
 

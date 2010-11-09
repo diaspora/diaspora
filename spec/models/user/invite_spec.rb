@@ -12,13 +12,6 @@ describe User do
   let(:inviter_with_3_invites) {Factory.create :user, :invites => 3}
   let(:aspect2) {inviter_with_3_invites.aspects.create(:name => "Jersey Girls")}
 
-
-  before do
-    deliverable = Object.new
-    deliverable.stub!(:deliver)
-    ::Devise.mailer.stub!(:invitation).and_return(deliverable)
-  end
-
   context "creating invites" do 
     it 'requires an apect' do
       proc{inviter.invite_user(:email => "maggie@example.com")}.should raise_error /Must invite into aspect/
