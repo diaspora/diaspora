@@ -60,7 +60,7 @@ describe Diaspora::UserModules::Friending do
       end
 
       it "should delete an accepted friend request" do
-        proc { user.accept_friend_request(request2_for_user.id, aspect.id) }.should change(
+        proc { user.accept_friend_request(request2_for_user, aspect) }.should change(
           user.reload.pending_requests, :count ).by(-1)
       end
 
@@ -123,7 +123,7 @@ describe Diaspora::UserModules::Friending do
         end
         it 'should befriend the user other user on the same pod' do
           proc {
-            user2.accept_friend_request @received_request.id, aspect2.id
+            user2.accept_friend_request @received_request, aspect2
           }.should_not change(Person, :count)
           user2.contact_for(user.person).should_not be_nil
         end
@@ -149,15 +149,15 @@ describe Diaspora::UserModules::Friending do
 
         describe '#accept_friend_request' do
           it 'should both users should befriend the same person' do
-            user.accept_friend_request @req_to_user.id, aspect.id
+            user.accept_friend_request @req_to_user, aspect
             user.contact_for(person_one).should_not be_nil
 
-            user2.accept_friend_request @req_to_user2.id, aspect2.id
+            user2.accept_friend_request @req_to_user2, aspect2
             user2.contact_for(person_one).should_not be_nil
           end
 
           it 'should keep the person around if one of the users rejects him' do
-            user.accept_friend_request @req_to_user.id, aspect.id
+            user.accept_friend_request @req_to_user, aspect
             user.contact_for(person_one).should_not be_nil
 
             user2.ignore_friend_request @req_to_user2.id
@@ -197,7 +197,7 @@ describe Diaspora::UserModules::Friending do
         user.reload.pending_requests.size.should == 2
         user.friends.size.should be 0
 
-        user.accept_friend_request received_req.id, aspect.id
+        user.accept_friend_request received_req, aspect
         user.reload.pending_requests.size.should == 1
         user.friends.size.should be 1
         user.contact_for(person_one).should_not be_nil

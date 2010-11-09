@@ -26,10 +26,9 @@ module Diaspora
         request
       end
 
-      def accept_friend_request(friend_request_id, aspect_id)
-        request = pending_requests.find!(friend_request_id)
+      def accept_friend_request(request, aspect)
         pending_request_ids.delete(request.id.to_id)
-        activate_friend(request.from, aspect_by_id(aspect_id))
+        activate_friend(request.from, aspect)
 
         request.reverse_for(self)
       end
@@ -40,8 +39,9 @@ module Diaspora
       end
 
       def accept_and_respond(friend_request_id, aspect_id)
-        requester = pending_requests.find!(friend_request_id).from
-        reversed_request = accept_friend_request(friend_request_id, aspect_id)
+        request = pending_requests.find!(friend_request_id)
+        requester = request.from
+        reversed_request = accept_friend_request(request, aspect_by_id(aspect_id))
         dispatch_friend_acceptance reversed_request, requester
       end
 
