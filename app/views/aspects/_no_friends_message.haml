@@ -6,7 +6,7 @@
   - if aspect == :all
     %h3=t('.nobody')
     %h4= link_to t('.add_friend'), aspects_manage_path
-    %h4= link_to t('.invite'), aspects_manage_path
+    %h4= link_to t('.invite'), "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
   - else
     %h3=t('.nobody_in_aspect', :aspect_name => aspect.name)
     %h4= link_to t('.add_friend_to', :aspect_name => aspect.name), "#add_request_pane", :class => "add_request_button"

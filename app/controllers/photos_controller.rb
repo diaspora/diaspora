@@ -83,6 +83,7 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @aspect = :none
     @photo = current_user.find_visible_post_by_id params[:id]
     unless @photo
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
