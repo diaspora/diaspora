@@ -1,0 +1,54 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+!!!
+%html{:lang => I18n.locale.to_s}
+  %head
+    %title
+      = "#{current_user.real_name} | diaspora" if current_user
+
+    /%meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
+    = stylesheet_link_tag 'mobile'
+    = stylesheet_link_tag 'http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css'
+
+    - if current_user
+      %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "Public Diaspora Feed for #{current_user.real_name}"}
+    
+    /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_tag 'vendor/jquery-1.4.2.min', 'rails', 'vendor/jquery_mobile_a1'
+
+    = csrf_meta_tag
+    = yield(:head)
+
+  %body
+    #news{ :data => {:role => "page"}}
+      %div{:data => {:role => 'header', :nobackbtn => 'true'}}
+        foo
+      %header
+        .container
+          #notification
+            - flash.each do |name, msg|
+              = content_tag :div, msg, :id => "flash_#{name}"
+          #diaspora_text{:data => {:role => 'header', :nobackbtn => 'true'}}
+            %h1= link_to "DIASPORA", (current_user ? root_path : new_user_session_path)
+
+          %ul#user_menu
+            .avatar
+              = owner_image_tag
+            = link_to current_user.real_name, '#'
+            %li= link_to t('.view_profile'), current_user.person
+            %li= link_to t('.edit_profile'), edit_person_path(current_user.person)
+            %li= link_to t('.account_settings'), edit_user_path(current_user)
+            %li= link_to t('.logout.'), destroy_user_session_path
+
+          = render "shared/aspect_nav"
+
+      .container
+        .span-24.last
+          = yield
+
+        .span-24.last
+          = render "posts/debug"
+

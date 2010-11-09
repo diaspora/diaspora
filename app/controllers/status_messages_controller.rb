@@ -18,7 +18,7 @@ class StatusMessagesController < ApplicationController
       raise 'MongoMapper failed to catch a failed save' unless status_message.id
       current_user.dispatch_post(status_message, :to => params[:status_message][:to])
     end
-    render :nothing => true
+    redirect_to :back 
   end
 
 

@@ -1,0 +1,3 @@
+describe("Publisher", function() {
+
+)};

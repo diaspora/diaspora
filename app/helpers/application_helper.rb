@@ -68,6 +68,9 @@ module ApplicationHelper
     image_location
   end
   
+  def hard_link(string, path)
+    link_to string, path, :rel => 'external' 
+  end
 
   def person_image_link(person, opts = {})
     if opts[:to] == :photos
