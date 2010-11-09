@@ -1,6 +1,7 @@
 %div{:data => {:role => 'content'}}
   %div{:data => {:role => 'fieldcontain'}}
     =render 'shared/publisher', :aspect => @aspect
+
 = render 'shared/stream', :posts => @posts
 
 %div{:data => {:role => 'footer', :id => 'footer-toolbar', :position => 'fixed'}}

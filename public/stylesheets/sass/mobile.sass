@@ -1,6 +1,158 @@
+ul
+  :list-style none
 .avatar
   :width 50px
   :height 50px
   :padding 0
 
 
+li.message
+  :width 90%
+  :position relative
+  :margin
+    :top 1em
+  :padding
+    :bottom 1.5em
+  :border
+    :bottom 1px #eee solid
+  :line-height 19px
+  :font
+    :family 'Arial', 'Helvetica', sans-serif
+  :color #777
+
+  .avatar
+    :float left
+    :margin
+      :right 15px
+
+  .content
+    :margin
+      :top 0
+    :padding
+      :left 65px
+
+
+    :color #444
+    :font
+      :weight normal
+      :size 14px
+
+    .stream_photo
+      :float left
+      :margin 
+        :top 6px
+
+    .photo_description
+      :margin 
+        :top 6px
+      :padding
+        :left 220px
+      :min-height 185px
+      :color #888
+      :font
+        :style italic
+
+    .small_text
+      :font
+        :size 10px
+
+    div.info
+      :color #999
+      :font-size smaller
+      a
+        :color #ccc
+      .time
+        a
+          :color #bbb
+        :font
+          :weight bold
+        :margin
+          :right 5px
+      
+  &:hover
+    div.info, .time
+      a
+        :color #107FC9
+        &:hover
+          :color #22AAE0
+        &:active
+          :color #005D9C
+
+
+.right .reshare_pane .reshare_button a.inactive
+  :color #ccc
+  &:hover
+    :text
+      :decoration none
+  :cursor default
+
+.right .reshare_pane .reshare_button
+  :padding 5px
+  &.active
+    :background
+      :color #333
+
+    :-webkit-border-radius 5px 5px 0 0
+    :-moz-border-radius 5px 5px 0 0
+    :border-radius 5px 5px 0 0
+
+    a
+      :color #fff
+      :text-shadow none
+
+.right .reshare_pane
+  :margin
+    :left 5px
+    :right 5px
+  :display inline
+  :position relative
+
+
+  ul.reshare_box
+    :width 150px
+    :display none
+    :z-index 10
+    :position absolute
+    :margin
+      :top 0
+    :padding 0
+
+    :background
+      :color #fafafa
+
+    :list
+      :style none
+
+    :border 5px solid #333
+
+    :text-shadow 0 2px #fff
+    :color #000
+
+    > li
+      :font
+        :weight bold
+      :color #ccc
+      :border
+        :top 1px solid #fff
+        :bottom 1px solid #ccc
+
+      &:first-child
+        :border
+          :top none
+      &:last-child
+        :border
+          :bottom none
+      a
+        :display block
+        :height 100%
+        :padding 2px 5px
+        :cursor default
+
+        &:hover
+          :background
+            :color #eee
+          :text
+            :decoration none
+        &:active
+          :background
+            :color #ccc

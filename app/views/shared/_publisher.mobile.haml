@@ -3,22 +3,6 @@
 -#   the COPYRIGHT file.
 
 
-- content_for :head do
-  :javascript
-    $("div.public_toggle input").live("click", function(evt){
-      if($(this).attr('checked') == true){
-        $(".question_mark").click(); 
-      }; 
-    });
-    
-    $("#publisher textarea, #publisher input").live("focus", function(evt){
-      $("#publisher .options_and_submit").fadeIn(50);
-    });
-
-    $("#publisher form").live("submit", function(evt){
-      $("#publisher .options_and_submit").hide();
-    });
-
 #publisher
   = form_for StatusMessage.new, :remote => true do |status|
     %p

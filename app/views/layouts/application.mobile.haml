@@ -23,9 +23,10 @@
         %h1
           = person_image_tag (current_user.person)
           = current_user.real_name 
-
+      %div{:data => {:role => 'fieldcontain'}}
+        =select_tag "aspects", options_from_collection_for_select(@aspects, "id", "name")
       
-        = yield
+      = yield
            
       %div{:data => {:role => 'fieldcontain'}}
         = form_tag(people_path, :method => 'get') do
