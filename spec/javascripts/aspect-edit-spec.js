@@ -51,6 +51,26 @@ describe("AspectEdit", function() {
     });
   });
 
+  describe("animateImage", function() {
+    beforeEach(function() {
+      $('#jasmine_content').html(
+'<li class="person ui-draggable" data-aspect_id="4cae42e12367bca44e000005" data-guid="4cae42d32367bca44e000003" style="top: 0px; left: 0px; ">' +
+'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="4cae42d32367bca44e000003" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom" style="height: 70px; width: 70px; opacity: 1; display: inline; ">' +
+'</li>'
+        );
+    });
+    it("hides the tipsy ... thingy, whatever that is", function() {
+      spyOn($.fn, "tipsy");
+      AspectEdit.animateImage($('.avatar'));
+      expect($.fn.tipsy).toHaveBeenCalledWith("hide");
+    });
+    it("animates the image to make it look larger and slightly opaque", function() {
+      spyOn($.fn, "animate");
+      AspectEdit.animateImage($('.avatar'));
+      expect($.fn.animate).toHaveBeenCalledWith({'height':80, 'width':80, 'opacity':0.8}, 200);
+    });
+  });
+
   describe("decrementRequestsCounter", function() {
     describe("when there is one request", function() {
       it("removes the counter from the new requests div", function() {
