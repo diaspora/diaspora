@@ -21,12 +21,16 @@ describe InvitationsController do
   end
 
   describe "#create" do
-    
     it 'invites the requested user' do
       user.should_receive(:invite_user).once
-      post :create, "user"=>{"invite_messages"=>"test", "aspects"=> aspect.id.to_s, "email"=>"abc@example.com"}
+      post :create, :user=>{:invite_messages=>"test", :aspects=> aspect.id.to_s, :email=>"abc@example.com"}
     end
 
+    it 'creates an invitation' do
+      lambda{
+        post :create, :user=>{:invite_messages=>"test", :aspects=> aspect.id.to_s, :email=>"abc@example.com"}
+      }.should change(Invitation, :count).by(1)
+    end
     
   end
 end

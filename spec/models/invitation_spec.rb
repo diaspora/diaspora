@@ -99,6 +99,12 @@ describe Invitation do
         Invitation.create_invitee(:email => @email)
       }.should change{Devise.mailer.deliveries.size}.by(1)
     end
+    it 'sends an email that includes the right things' do
+      Devise.mailer.deliveries = []
+      Invitation.create_invitee(:email => @email)
+      Devise.mailer.deliveries.first.to_s.include?("Hello #{@email}").should == true
+
+    end
   end
 
   describe '#to_request!' do
