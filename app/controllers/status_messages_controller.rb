@@ -24,7 +24,7 @@ class StatusMessagesController < ApplicationController
 
   def index
     @aspect = :profile
-    @post_type = :status_message
+    @post_type = :status_messages
 
     @person = Person.find(params[:person_id].to_id)
 

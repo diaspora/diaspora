@@ -22,6 +22,7 @@ describe ServicesController do
 
   before do
     sign_in :user, user
+    @controller.stub!(:current_user).and_return(user)
     mock_access_token.stub!(:token).and_return("12345")
     mock_access_token.stub!(:secret).and_return("56789")
   end
@@ -36,8 +37,21 @@ describe ServicesController do
   describe '#create' do
     it 'creates a new OmniauthService' do
       request.env['omniauth.auth'] = omniauth_auth
-      request.env["HTTP_REFERER"] = ""
       lambda{post :create}.should change(user.services, :count).by(1)
+    end
+
+    it 'should redirect to getting started if the user still getting started' do
+      user.getting_started = true
+      request.env['omniauth.auth'] = omniauth_auth
+      post :create
+      response.should redirect_to getting_started_path(:step => 3)
+    end
+
+    it 'should redirect to services url' do
+      user.getting_started = false
+      request.env['omniauth.auth'] = omniauth_auth
+      post :create
+      response.should redirect_to services_url
     end
   end
 

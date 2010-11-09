@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
   end
 
   def create
+    
     auth = request.env['omniauth.auth']
 
     provider = auth['provider']
@@ -32,7 +33,11 @@ class ServicesController < ApplicationController
     end
 
     flash[:notice] = I18n.t 'services.create.success'
-    redirect_to :back 
+    if current_user.getting_started
+      redirect_to  getting_started_path(:step => 3)
+    else
+      redirect_to services_url 
+    end
   end
 
   def destroy

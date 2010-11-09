@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
 
     @person = Person.find(params[:id].to_id)
     @post_type = :all
-    
+    @aspect = :none 
     if @person
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
