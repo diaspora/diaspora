@@ -8,5 +8,8 @@
     .from
       = link_to post.person.real_name, post.person
     = markdownify(post.text)
+    - if current_user.owns?(post)
+      .right
+        = link_to t('delete'), comment_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
     %div.time
       = "#{time_ago_in_words(post.updated_at)} #{t('ago')}"

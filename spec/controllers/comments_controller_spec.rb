@@ -57,4 +57,27 @@ describe CommentsController do
       end
     end
   end
+
+  describe 'destroy' do
+    before do
+      friend_users(user, aspect, user2, aspect2)
+      @post = user2.post :status_message, :message => 'GIANTS', :to => aspect2.id
+      @comment1 = user.comment("yay", :on => @post)
+      @comment2 = user2.comment("gogogo", :on => @post)
+    end
+
+    it 'deletes a comment made by that user' do
+      @post.reload.comments.count.should be 2
+      delete :destroy, :id => @comment1.id
+      Comment.find_by_id(@comment1.id).should be nil
+      @post.reload.comments.count.should be 1
+    end
+
+    it 'does not delete a comment made by another user' do
+      @post.reload.comments.count.should be 2
+      delete :destroy, :id => @comment2.id
+      Comment.find_by_id(@comment2.id).should_not be nil
+      @post.reload.comments.count.should be 2
+    end
+  end
 end

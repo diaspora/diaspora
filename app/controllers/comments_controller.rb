@@ -20,4 +20,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    target = Comment.where(:diaspora_handle => current_user.diaspora_handle, :id => params[:id]).first
+
+    if target
+      target.destroy
+    end
+
+    render :nothing => true
+  end
+
 end
