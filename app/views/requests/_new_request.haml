@@ -14,22 +14,20 @@
 
   .span-7.last
     %h3 Add a new contact
-    = form_for(Request.new, :html => {:id => "new_request_to_#{aspect.id}"}) do |fr_request|
-      = fr_request.error_messages
-
+    = form_tag(requests_path, :id => "new_request_to_#{aspect.id}") do
       =t('.enter_a_diaspora_username')
       %br
       %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
 
       %p
-        = fr_request.label :destination_url, t('.friends_username'), :for => "request_d_url_to_#{aspect.id}"
-        = fr_request.text_field :destination_url, :id => "request_d_url_to_#{aspect.id}"
-      = fr_request.hidden_field :aspect_id, :value => aspect.id
+        = label_tag :destination_handle, t('.friends_username'), :for => "request_d_handle_to_#{aspect.id}"
+        = text_field_tag :destination_handle,'', :id => "request_d_handle_to_#{aspect.id}"
+      = hidden_field_tag :aspect_id, :value => aspect.id
 
       - if defined?(getting_started)
         = hidden_field_tag :getting_started, getting_started
       - if defined?(manage)
         = hidden_field_tag :manage, true
 
-      = fr_request.submit t('.create_request')
+      = submit_tag t('.create_request')
 

@@ -32,8 +32,8 @@ class RequestsController < ApplicationController
   end
 
  def create
-    aspect = current_user.aspect_by_id(params[:request][:aspect_id])
-    account = params[:request][:destination_url].strip  
+    aspect = current_user.aspect_by_id(params[:aspect_id])
+    account = params[:destination_handle].strip  
     begin 
       finger = EMWebfinger.new(account)
     
