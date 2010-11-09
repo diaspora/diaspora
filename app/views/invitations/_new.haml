@@ -19,5 +19,6 @@
     
     = invite.text_area :invite_messages, :value => ""
 
-    %p= invite.submit t('.send_an_invitation')
-
+    %p
+      = invite.submit t('.send_an_invitation')
+      = link_to t('cancel'), aspects_path, :class => 'button'
