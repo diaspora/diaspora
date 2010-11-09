@@ -36,8 +36,15 @@ describe ServicesController do
   describe '#create' do
     it 'creates a new OmniauthService' do
       request.env['omniauth.auth'] = omniauth_auth
-      request.env["HTTP_REFERER"] = ""
       lambda{post :create}.should change(user.services, :count).by(1)
+    end
+
+    it 'should redirect to getting started if the user still getting started' do
+
+    end
+
+    it 'should redirect to services url' do
+
     end
   end
 
