@@ -45,14 +45,19 @@
     %header
       = image_tag '/images/diaspora_white.png'
     #container
+      - @invs = @resource.invitations_to_me
       %p
         Hello #{@resource.email}!
       %p
-        #{(@resource.inviters.count == 1)? ( @resource.inviters.first.real_name + " (#{@resource.inviters.first.diaspora_handle})" + " has") : (@resource.inviters.map{|inv| inv.real_name + " (#{inv.diaspora_handle})"}.join(",") + " have")} invited you to join Diaspora at #{root_url}, you can accept it through the link below.
-      - @resource.inviters.each do |inv|
-        - if @resource.invite_messages[inv.id.to_s]
-          = "#{inv.real_name}:"
-          = "\"#{@resource.invite_messages[inv.id.to_s]}\""
+        - if @invs.count == 1
+          = @invs.first.real_name + " (#{@invs.first.diaspora_handle})" + " has" 
+        - else
+          = (@invs.map{|inv| inv.from.real_name + " (#{inv.from.diaspora_handle})"}.join(",") + " have")
+        = "invited you to join Diaspora at #{root_url}, you can accept it through the link below."
+      - @invs.each do |inv|
+        - if inv.message
+          = "#{inv.from.real_name}:"
+          = "\"#{inv.message}\""
           %p
       %p= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :class => "large_text"
       %p.small

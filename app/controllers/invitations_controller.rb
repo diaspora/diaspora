@@ -30,8 +30,8 @@ class InvitationsController < Devise::InvitationsController
 
   def update
     begin
-      user = User.find_by_invitation_token(params["user"]["invitation_token"])
-      user.accept_invitation!(params["user"])
+      user = User.find_by_invitation_token(params[:user][:invitation_token])
+      user.accept_invitation!(params[:user])
     rescue MongoMapper::DocumentNotValid => e
       user = nil
       flash[:error] = e.message
@@ -47,7 +47,7 @@ class InvitationsController < Devise::InvitationsController
   protected
 
   def check_token
-    if User.find_by_invitation_token(params['invitation_token']).nil?
+    if User.find_by_invitation_token(params[:invitation_token]).nil?
       flash[:error] = I18n.t 'invitations.check_token.not_found'
       redirect_to root_url
     end

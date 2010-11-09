@@ -22,12 +22,9 @@ class User
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
-  key :inviter_ids, Array, :typecast => 'ObjectId'
   key :pending_request_ids, Array, :typecast => 'ObjectId'
   key :visible_post_ids, Array, :typecast => 'ObjectId'
   key :visible_person_ids, Array, :typecast => 'ObjectId'
-
-  key :invite_messages, Hash
 
   key :getting_started, Boolean, :default => true
 
@@ -47,7 +44,8 @@ class User
 
   one :person, :class_name => 'Person', :foreign_key => :owner_id
 
-  many :inviters, :in => :inviter_ids, :class_name => 'User'
+  many :invitations_from_me, :class => Invitation, :foreign_key => :from_id
+  many :invitations_to_me, :class => Invitation, :foreign_key => :to_id
   many :friends, :class_name => 'Contact', :foreign_key => :user_id
   many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
@@ -87,7 +85,7 @@ class User
   key :email, String
 
   def method_missing(method, *args)
-    self.person.send(method, *args)
+    self.person.send(method, *args) if self.person
   end
 
   ######### Aspects ######################
@@ -322,7 +320,6 @@ class User
   ###Invitations############
   def invite_user(opts = {})
     if self.invites > 0
-
       aspect_id = opts.delete(:aspect_id)
       if aspect_id == nil
         raise "Must invite into aspect"
@@ -331,83 +328,29 @@ class User
       if !(aspect_object)
         raise "Must invite to your aspect"
       else
-        u = User.find_by_email(opts[:email])
-        if u.nil?
-        elsif contact_for(u.person)
-          raise "You are already friends with this person"
-        elsif not u.invited?
-          self.send_friend_request_to(u.person, aspect_object)
-          return
-        elsif u.invited? && u.inviters.include?(self)
-          raise "You already invited this person"
-        end
+        Invitation.invite(:email => opts[:email],
+                          :from => self,
+                          :into => aspect_object,
+                          :message => opts[:invite_message])
+
       end
-      request = Request.instantiate(
-        :to   => "http://local_request.example.com",
-        :from => self.person,
-        :into => aspect_id
-      )
-
-      invited_user = User.invite!(:email => opts[:email], :request => request, :inviter => self, :invite_message => opts[:invite_message])
-
-      self.invites = self.invites - 1
-      self.pending_requests << request
-      request.save
-      self.save!
-      invited_user
     else
       raise "You have no invites"
     end
   end
 
-  def self.invite!(attributes={})
-    inviter = attributes.delete(:inviter)
-    request = attributes.delete(:request)
-
-    invitable = find_or_initialize_with_error_by(:email, attributes.delete(:email))
-    invitable.attributes = attributes
-    if invitable.inviters.include?(inviter)
-      raise "You already invited this person"
-    else
-      invitable.pending_requests << Request.create(
-        :from => inviter.person)
-
-      invitable.inviters << inviter
-      message = attributes.delete(:invite_message)
-      if message
-        invitable.invite_messages[inviter.id.to_s] = message
-      end
-    end
-
-    if invitable.new_record?
-      invitable.errors.clear if invitable.email.try(:match, Devise.email_regexp)
-    else
-      invitable.errors.add(:email, :taken) unless invitable.invited?
-    end
-
-    invitable.invite! if invitable.errors.empty?
-    invitable
-  end
-
   def accept_invitation!(opts = {})
     if self.invited?
-
       self.setup(opts)
 
       self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-
       self.person.save!
-      self.invitation_token = nil
-      friend_inviters
       self.save!
-      self
-    end
-  end
+      invitations_to_me.each{|invitation| invitation.to_request!}
 
-  def friend_inviters
-    inviters.each do |inviter|
+      self
     end
   end
 

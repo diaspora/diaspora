@@ -94,9 +94,4 @@ class UsersController < ApplicationController
     tar_path = PhotoMover::move_photos(current_user)
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
   end
-
-  def invite
-    User.invite!(:email => params[:email])
-  end
-  
 end

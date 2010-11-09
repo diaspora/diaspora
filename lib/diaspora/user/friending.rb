@@ -67,9 +67,12 @@ module Diaspora
           #pp friend_request.person
           activate_friend(friend_request.from, destination_aspect)
           Rails.logger.info("#{self.real_name}'s friend request has been accepted")
-        
+
           friend_request.destroy
+
+          pending_requests.delete(original_request)
           original_request.destroy
+          self.save
           Request.send_request_accepted(self, friend_request.from, destination_aspect)
 
         #this is a new friend request
