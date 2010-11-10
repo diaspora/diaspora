@@ -1,3 +1,3 @@
 describe("Publisher", function() {
 
-)};
+});
