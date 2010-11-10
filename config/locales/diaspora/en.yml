@@ -241,8 +241,6 @@ en:
           destroy: "Destroy"
       helper:
           no_message_to_display: "No message to display."
-      index:
-          status_messages: "status messages"
   people:
       person:
           pending_request: "pending request"

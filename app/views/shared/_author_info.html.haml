@@ -15,5 +15,5 @@
     #person_nav_links
       = link_to t('.view_profile'), person_path(person)
       = link_to t('_photos'), person_photos_path(person)
-      = link_to t('.status messages'), person_status_messages_path(person)
+      = link_to t('.status_messages'), person_status_messages_path(person)
       = "#{t('.viewing')}: #{@post_type.to_s.titleize}" if defined?(@post_type)
