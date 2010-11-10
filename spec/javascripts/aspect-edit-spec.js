@@ -62,6 +62,7 @@ describe("AspectEdit", function() {
       spyOn($.fn, "animate");
       AspectEdit.animateImage($('.avatar'));
       expect($.fn.animate).toHaveBeenCalledWith({'height':80, 'width':80, 'opacity':0.8}, 200);
+      expect($.fn.animate.mostRecentCall.object).toHaveClass("avatar");
     });
   });
 
@@ -75,11 +76,12 @@ describe("AspectEdit", function() {
   });
 
   describe("stopDrag", function() {
-    xit("animates the image back to smaller size and full opacity", function() {
+    it("animates the image back to smaller size and full opacity", function() {
       spyOn($.fn, "animate");
       $.proxy(AspectEdit.stopDrag, $('.person.ui-draggable'))();
       expect($.fn.animate).toHaveBeenCalledWith({'height':70, 'width':70, 'opacity':1}, 200);
-      expect($.fn.animate.mostRecentCall.object).toHaveClass("avatar");
+      // fadeOut calls animate, apparently, so mostRecentCall isn't the right call
+      expect($.fn.animate.calls[0].object).toHaveClass("avatar");
     });
     it("fades out the drag and drop text", function() {
       spyOn($.fn, "fadeOut");
