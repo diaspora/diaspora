@@ -17,3 +17,4 @@ harden_ruby("ruby-1.8.7-p302")
 include_recipe "centos::image_magick"
 include_recipe "centos::mongo_db"
 include_recipe "common::main"
+include_recipe "centos::nginx"

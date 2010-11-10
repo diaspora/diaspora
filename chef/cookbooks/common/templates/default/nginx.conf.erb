@@ -1,0 +1,69 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+worker_processes 1;
+daemon off;
+
+events {
+ worker_connections  8192;
+}
+
+http {
+
+ include       mime.types;
+ default_type  application/octet-stream;
+
+ log_format main '$remote_addr - $remote_user [$time_local] '
+                 '"$request" $status $body_bytes_sent "$http_referer" '
+                 '"$http_user_agent" "$http_x_forwarded_for"';
+
+ sendfile        on;
+
+ keepalive_timeout  65;
+
+ gzip              on;
+ gzip_http_version 1.0;
+ gzip_comp_level   2;
+ gzip_proxied      any;
+ gzip_buffers      16 8k;
+  upstream thin_cluster {
+  <% @socket_paths.each do |socket_path| %>
+  server unix:<%=socket_path%>;
+  <% end %>
+  }
+
+  server {
+
+   listen       80;
+   server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
+   root /usr/local/app/diaspora;
+
+   location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_buffering off;
+
+    if (-f $request_filename/index.html) { #Something here is for photos, but do we need it all?
+      rewrite (.*) $1/index.html break;
+    }
+    if (-f $request_filename.html) {
+     rewrite (.*) $1.html break;
+    }
+    if (!-f $request_filename) {
+     proxy_pass http://thin_cluster;
+     break;
+   }
+ }
+
+ error_page 500 502 503 504 /50x.html;
+ location = /50x.html {
+   root html;
+ }
+
+}
+
+}
+

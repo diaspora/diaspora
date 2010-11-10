@@ -13,11 +13,22 @@ execute "executable" do
   command "chmod -R 755 /service/mongo"
 end
 
-execute "thin run" do
-  command "mkdir -p /service/thin && echo '#!/bin/sh' > /service/thin/run && echo 'exec /usr/local/bin/ruby /usr/local/bin/thin start -c /usr/local/app/diaspora -p80' >> /service/thin/run"
-end
-execute "executable" do
-  command "chmod -R 755 /service/thin"
+config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/default/thins.yml")
+
+config.each do |thin|
+  id = thin["socket_id"]
+  socket = "/tmp/thin_#{id}.sock"
+  dir = "/service/thin_#{id}"
+  flags = []
+  flags << "-c /usr/local/app/diaspora" #directory to run from
+  flags << "-e production" #run in production mode
+  flags << "-S #{socket}"  #use a socket
+  execute "thin run" do
+    command "mkdir -p #{dir} && echo '#!/bin/sh' > #{dir}/run && echo 'exec /usr/local/bin/ruby /usr/local/bin/thin start #{flags.join(" ")}' >> #{dir}/run"
+  end
+  execute "executable" do
+    command "chmod -R 755 " + dir
+  end
 end
 
 execute "websocket run" do
@@ -25,4 +36,11 @@ execute "websocket run" do
 end
 execute "executable" do
   command "chmod -R 755 /service/websocket"
+end
+
+execute "nginx run" do
+  command "mkdir -p /service/nginx && echo '#!/bin/sh' > /service/nginx/run && echo 'exec /usr/local/nginx/sbin/nginx' >> /service/nginx/run"
+end
+execute "executable" do
+  command "chmod -R 755 /service/nginx"
 end
