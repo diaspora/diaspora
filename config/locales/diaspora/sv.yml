@@ -61,6 +61,8 @@ sv:
   application:
       helper:
           unknown_person: "okänd person"
+          youtube_title:
+              unknown: "Okänd videotitel"
   error_messages:
       helper:
           invalid_fields: "Ogiltiga uppgifter"
@@ -99,6 +101,7 @@ sv:
       author_info:
           view_profile: "Visa profil"
           status_messages: "statusmeddelande"
+          viewing: "visar"
       public_explain:
           title: "Du är på väg att skicka ett publikt meddelande!"
           outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
@@ -118,10 +121,10 @@ sv:
       manage:
           add_a_new_aspect: "Lägg till en ny sida"
           add_a_new_friend:  "Lägg till en ny vän"
-          show: "Visa"
-          update_aspects: "Uppdatera sidor"
           requests: "Vänförfrågningar"
-          ignore_remove: "Ignorera/Ta bort"
+          no_requests: "Inga nya förfrågningar"
+          manage_aspects: "Hantera sidor"
+          drag_to_add: "Dra för att lägga till personer"
       new_aspect:
           add_a_new_aspect: "Lägg till ny sida"
           name: "Namn"
@@ -143,6 +146,7 @@ sv:
       helper:
           remove: "ta bort"
           aspect_not_empty: "Sidan är inte tom"
+          are_you_sure: "Är du säker på att du vill ta bort den här sidan?"
       remove_from_aspect:
           success: "Personen är nu borttagen från vald sida"
           failure: "Misslyckades med att ta bort personen från vald sida"
@@ -187,6 +191,13 @@ sv:
               manage_aspects: "Du kan hantera dina olika sidor närsomhelst genom att klicka på"
               manage: "hantera"
               tab_also_added: "-fliken.  Du kan även lägga till en ny kontakt direkt på en sida."
+      update:
+          password_changed: "Lösenordet är nu ändrat"
+          password_not_changed: "Lösenordet kunde inte ändras"
+          language_changed: "Språk är nu ändrat"
+          language_not_changed: "Språket kunde inte ändras"
+      public:
+          does_not_exist: "Användaren %{username} finns inte!"
   comments:
       new_comment:
           comment: "Kommentar"
@@ -301,13 +312,7 @@ sv:
           error: "Var god välj en aspekt!"
           ignore: "Ignorerade vänförfrågan."
       create:
-          error: "Inget diaspora-frö med denna adress hittades!"
-          invalid_identity: "Denna adress har ett ogiltigt format"
-          error_server: "Problem att kontaka den andra servern. Är det möjligt att den inte finns?"
-          yourself: "Du kan inte lägga till dig själv!"
-          already_friends: "Du är redan vän med %{destination_url}!"
-          success: "En vänförfrågan har skickats till %{destination_url}."
-          horribly_wrong: "Nu gick något rejält fel här."
+          tried: "vi gjorde vårat bästa för att skicka meddelandet till %{account}"
   services:
       index:
         logged_in_as: "inloggad som"
@@ -322,6 +327,19 @@ sv:
   dashboards:
       helper:
           home: "Hem"
+  notifier:
+      hello: "Hej %{name}!"
+      love: "hälsningar,"
+      diaspora: "Diasporas mailrobot"
+      new_request:
+          subject: "ny Diaspora vänförfågan från %{from}"
+          just_sent_you: "skickade nyss en vänförfrågan till dig på Diaspora"
+          try_it_out: "Du borde verkligen överväga att kolla upp detta."
+          sign_in: "logga in här"
+      request_accepted:
+          subject: "%{name} har accepterat din vänförfrågan på Diaspora"
+          accepted: "har accepterat din vänförfrågan. Denne finns nu på "
+          aspect: "sidan."
 
 # The following is from the rails-i18n project at http://github.com/svenfuchs/rails-i18n
 
