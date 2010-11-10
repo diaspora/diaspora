@@ -20,12 +20,12 @@
         %li=t('.no_requests')
       - else
         - for request in @remote_requests
-          %li.person.request{:data=>{:guid=>request.id, :person_id=>request.person.id}}
+          %li.person.request{:data=>{:guid=>request.id, :person_id=>request.from.id}}
             .delete
               .x
                 X
               .circle
-            = person_image_tag(request.person)
+            = person_image_tag(request.from)
 
   = render 'shared/invitations', :invites => @invites
 
