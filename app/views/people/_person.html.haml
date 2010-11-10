@@ -18,10 +18,10 @@
         - elsif current_user.pending_requests.find_by_person_id(person.id)
           = link_to =t('.pending_request'), aspects_manage_path
         - else
-          = form_for Request.new do |f|
-            = f.select(:into_id, @aspects_dropdown_array)
-            = f.hidden_field :destination_url, :value => person.diaspora_handle
-            = f.submit t('.add_friend')
+          = form_tag(requests_path) do
+            = select_tag(:aspect_id, @aspects_dropdown_array.join.html_safe)
+            = hidden_field_tag :destination_handle, :value => person.diaspora_handle
+            = submit_tag t('.add_friend')
 
     .info
       = person.diaspora_handle

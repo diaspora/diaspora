@@ -14,25 +14,59 @@ describe PeopleController do
     sign_in :user, user
   end
 
-  it "index should yield search results for substring of person name" do
-    eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
-    get :index, :q => "Eu"
-    assigns[:people].should include eugene
+  describe '#index' do
+    it "yields search results for substring of person name" do
+      eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
+      get :index, :q => "Eu"
+      assigns[:people].should include eugene
+    end
+
+    it 'shows a friend' do
+      user2 = make_user
+      friend_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
+      get :index
+      assigns[:people].should include user2.person
+      response.should be_success
+    end
+
+    it 'shows a non-friend' do
+      user2 = make_user
+      user2.person.profile.searchable = true
+      user2.save
+      get :index
+      assigns[:people].should include user2.person
+      response.should be_success
+    end
   end
 
-  it 'should go to the current_user show page' do
-    get :show, :id => user.person.id
-    response.should be_success
-  end
+  describe '#show' do
+    it 'should go to the current_user show page' do
+      get :show, :id => user.person.id
+      response.should be_success
+    end
 
-  it "redirects on an invalid id" do
-    get :show, :id => 'delicious'
-    response.should redirect_to people_path
-  end
+    it "redirects on an invalid id" do
+      get :show, :id => 'delicious'
+      response.should redirect_to people_path
+    end
 
-  it "redirects on a nonexistent person" do
-    get :show, :id => user.id
-    response.should redirect_to people_path
+    it "redirects on a nonexistent person" do
+      get :show, :id => user.id
+      response.should redirect_to people_path
+    end
+    
+    it "renders the show page of a friend" do
+      user2 = make_user
+      friend_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
+      get :show, :id => user2.person.id
+      response.should be_success
+    end
+    
+    it "renders the show page of a non-friend" do
+      user2 = make_user
+      get :show, :id => user2.person.id
+      response.should be_success
+    end
   end
 
   describe '#update' do
