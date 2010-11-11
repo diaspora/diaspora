@@ -1,0 +1,10 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+= form_tag(requests_path) do
+  - pp person
+  - pp aspects
+  = select_tag(:aspect_id, options_from_collection_for_select(aspects, "id", "name"))
+  = hidden_field_tag :destination_handle, :value => person.diaspora_handle
+  = submit_tag t('people.person.add_friend')
