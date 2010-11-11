@@ -254,11 +254,11 @@ en:
           pending_request: "pending request"
           already_friends: "Already friends"
           thats_you: "thats you!"
+          add_friend: "add friend"
       index:
           results_for: "search results for"
       show:
           no_posts: "no posts to display!"
-          add_friend: "add friend"
           not_friends: "You're currently not friends with %{name}"
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
