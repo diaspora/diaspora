@@ -91,6 +91,30 @@ describe("AspectEdit", function() {
     });
   });
 
+  describe("onDropMove", function() {
+    beforeEach(function() {
+      $('#jasmine_content').html(
+  '<li class="person request ui-draggable" data-aspect_id="4cae42e12367bca44e000005" data-guid="4cae42d32367bca44e000003" style="top: 0px; left: 0px; ">' +
+  '  <img alt="Alexander Hamiltom" class="avatar" data-person_id="4cae42d32367bca44e000003" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom" style="height: 70px; width: 70px; opacity: 1; display: inline; ">' +
+  '</li>' +
+  '<ul data-aspect_id="4cdae5ed2367bc30aa000007" class="dropzone ui-droppable">' +
+  '</ul>'
+        );
+    });    
+    describe("when dragging a friend request", function() {
+      it("deletes the request object", function() {
+        spyOn($, "ajax");
+        AspectEdit.initialize();
+        $.proxy(AspectEdit.onDropMove, $('.dropzone.ui-droppable'))(null, {draggable: $('.person.ui-draggable')});
+        expect($.ajax).toHaveBeenCalled();
+        var args = $.ajax.calls[0].args[0];
+        expect(args["type"]).toEqual("DELETE");
+        expect(args["url"]).toEqual("/requests/4cae42d32367bca44e000003");
+        expect(args["data"]).toEqual({"accept" : true, "aspect_id" : "4cdae5ed2367bc30aa000007" });
+      });
+    });
+  });
+
   describe("decrementRequestsCounter", function() {
     describe("when there is one request", function() {
       it("removes the counter from the new requests div", function() {

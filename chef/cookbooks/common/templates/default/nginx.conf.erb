@@ -28,8 +28,8 @@ http {
  gzip_proxied      any;
  gzip_buffers      16 8k;
   upstream thin_cluster {
-  <% @socket_paths.each do |socket_path| %>
-  server unix:<%=socket_path%>;
+  <% @ports.each do |port| %>
+    server <%="localhost:#{port}"%>;
   <% end %>
   }
 
