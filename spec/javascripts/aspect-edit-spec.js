@@ -194,6 +194,16 @@ describe("AspectEdit", function() {
     });
   });
 
+  describe("onMovePersonSuccess", function() {
+    it("updates the data-aspect_id attribute on the person li", function() {
+      var person = $('li.person');
+      var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+      expect(person.attr("data-aspect_id")).toEqual("guid-of-current-aspect");
+      AspectEdit.onMovePersonSuccess(person, dropzone);
+      expect(person.attr("data-aspect_id")).toEqual("guid-of-target-aspect");
+    });
+  });
+
   describe("decrementRequestsCounter", function() {
     describe("when there is one request", function() {
       it("removes the counter from the new requests div", function() {
