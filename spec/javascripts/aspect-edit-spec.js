@@ -170,6 +170,29 @@ describe("AspectEdit", function() {
       });
     });
   });
+  
+  describe("onDeleteRequestSuccess", function() {
+    beforeEach(function() {
+      $('#jasmine_content').html(
+'<li class="person request ui-draggable" data-person_id="guid-of-friendship-requestor" data-guid="guid-of-friendship-requestor">' +
+'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="guid-of-friendship-requestor" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom">' +
+'</li>' +
+'<ul data-aspect_id="guid-of-target-aspect" class="dropzone ui-droppable">' +
+'</ul>' +
+'<div class="new_requests">Requests (1)</div>'
+      );
+    });    
+    it("decrements the request counter", function() {
+      spyOn(AspectEdit, "decrementRequestsCounter");
+      AspectEdit.onDeleteRequestSuccess($('li.person'));
+      expect(AspectEdit.decrementRequestsCounter).toHaveBeenCalled();
+    });
+    it("takes the request class off the person li", function() {
+      expect($('li.person')).toHaveClass('request');      
+      AspectEdit.onDeleteRequestSuccess($('li.person'));
+      expect($('li.person')).not.toHaveClass('request');      
+    });
+  });
 
   describe("decrementRequestsCounter", function() {
     describe("when there is one request", function() {
