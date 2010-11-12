@@ -43,8 +43,6 @@ end
 
 begin
   EM.run {
-
-
     Diaspora::WebSocket.initialize_channels
 
     EventMachine::WebSocket.start(
@@ -74,7 +72,7 @@ begin
           Diaspora::WebSocket.unsubscribe(user_id, sid) }
       }
     end
-    PID_FILE = APP_CONFIG[:socket_pidfile]
+    PID_FILE = APP_CONFIG[:socket_pidfile] ? APP_CONFIG[:socket_pidfile] : 'tmp/diaspora-ws.pid'
     write_pidfile
     puts "Websocket server started."
     process_message
