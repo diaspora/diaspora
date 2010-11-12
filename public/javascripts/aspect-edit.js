@@ -54,7 +54,8 @@ var AspectEdit = {
       });
     }
 
-    if (dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
+    if (person.attr('data-aspect_id') != undefined && // request doesn't have an aspect ID yet
+        dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
       $.ajax({
         url: "/aspects/move_friend/",
         data: {
