@@ -1,3 +1,0 @@
-[submodule "pkg"]
-	path = pkg
-	url = git://github.com/diaspora/diaspora-packages.git
