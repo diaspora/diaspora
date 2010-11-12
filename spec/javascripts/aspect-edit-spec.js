@@ -204,6 +204,18 @@ describe("AspectEdit", function() {
     });
   });
 
+  describe("deletePersonFromAspect", function() {
+    beforeEach(function() {
+      spyOn($, 'ajax');
+    });
+    it("doesn't let you remove the person from the last aspect they're in", function() {
+      spyOn(AspectEdit, 'alertUser');
+      AspectEdit.deletePersonFromAspect($('li.person'));
+      expect(AspectEdit.alertUser).toHaveBeenCalled();
+      expect($.ajax).not.toHaveBeenCalled();
+    });
+  });
+
   describe("decrementRequestsCounter", function() {
     describe("when there is one request", function() {
       it("removes the counter from the new requests div", function() {
