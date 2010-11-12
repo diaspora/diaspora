@@ -22,7 +22,7 @@
       %p
         = label_tag :destination_handle, t('.friends_username'), :for => "request_d_handle_to_#{aspect.id}"
         = text_field_tag :destination_handle,'', :id => "request_d_handle_to_#{aspect.id}"
-      = hidden_field_tag :aspect_id, :value => aspect.id
+      = hidden_field_tag :aspect_id, aspect.id
 
       - if defined?(getting_started)
         = hidden_field_tag :getting_started, getting_started
