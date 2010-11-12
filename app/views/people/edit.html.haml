@@ -29,23 +29,23 @@
       %h4
         = t('.your_gender')
         %br
-        = profile.text_field :gender, :value => @profile.gender, :placeholder => t('.fill_me_out')
+        = profile.text_field :gender, :value => @profile.gender, :placeholder => t('fill_me_out')
 
       %h4
         = t('.your_birthday')
         %br
-        = select_date @person.profile.birthday, :prompt => true, :default => true, :order => [:month, :day, :year], :start_year => 2000, :end_year => 1930
+        = select_date @person.profile.birthday, :prompt => true, :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930
 
       %h4
         = t('.your_bio')
-        = profile.text_area :bio, :value => @profile.bio, :rows => 5, :placeholder => t('.fill_me_out')
+        = profile.text_area :bio, :value => @profile.bio, :rows => 5, :placeholder => t('fill_me_out')
 
       %h4
         = t('.your_photo')
         = render 'people/profile_photo_upload', :form => profile
 
       %h4
-        = t('.search')
+        = t('search')
         %p{:class=>"checkbox_select"}
           = profile.label :searchable, t('.allow_search')
           = profile.check_box :searchable, {:checked => @person.profile.searchable}, true, false

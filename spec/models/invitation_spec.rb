@@ -102,8 +102,7 @@ describe Invitation do
     it 'sends an email that includes the right things' do
       Devise.mailer.deliveries = []
       Invitation.create_invitee(:email => @email)
-      Devise.mailer.deliveries.first.to_s.include?("Hello #{@email}").should == true
-
+      Devise.mailer.deliveries.first.to_s.include?("Welcome #{@email}").should == true
     end
   end
 

@@ -1,9 +1,9 @@
-= "hey #{@receiver.profile.first_name},"
+= t('notifier.hello', :name => @receiver.profile.first_name)
 = "#{@sender.real_name} (#{@sender.diaspora_handle})"
-has accepted your friend request. They are now in your 
-= "#{@aspect.name} asepct.\n" 
+= t('notifier.request_accepted.accepted')
+= "#{@aspect.name} #{t('notifier.request_accepted.aspect')}\n" 
 = "#{aspect_url(@aspect)}"
 
 
-love, \n 
-the diaspora email robot
+= "#{t('notifier.love')} \n"
+= t('notifier.diaspora')

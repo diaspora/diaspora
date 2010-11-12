@@ -1,9 +1,9 @@
-= "hey #{@receiver.profile.first_name},"
+= t('notifier.hello', :name => @receiver.profile.first_name)
 = "#{@sender.real_name} (#{@sender.diaspora_handle})"
-just sent you a friend request on Diaspora*
-You should really think about checking it out.
+= t('notifier.new_request.just_sent_you')
+= t('notifier.new_request.try_it_out')
 
-= "sign in here: #{new_user_session_url}"
+= "#{t('notifier.new_request.sign_in')}: #{new_user_session_url}"
 
-love, 
-the diaspora email robot
+= t('notifier.love')
+= t('notifier.diaspora')
