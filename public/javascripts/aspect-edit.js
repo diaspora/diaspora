@@ -54,7 +54,7 @@ var AspectEdit = {
       });
     }
 
-    if (person.attr('data-aspect_id') != undefined && // request doesn't have an aspect ID yet
+    if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing friend does
         dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
       $.ajax({
         url: "/aspects/move_friend/",

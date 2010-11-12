@@ -2,19 +2,26 @@ describe("AspectEdit", function() {
 
   beforeEach(function() {
     $('#jasmine_content').html(
-'<li class="person ui-draggable" data-aspect_id="4cae42e12367bca44e000005" data-guid="4cae42d32367bca44e000003" style="top: 0px; left: 0px; ">' +
-'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="4cae42d32367bca44e000003" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom" style="height: 70px; width: 70px; opacity: 1; display: inline; ">' +
-'</li>'
-      );
+'<ul data-aspect_id="guid-of-current-aspect" class="dropzone ui-droppable">' +
+'  <li class="person ui-draggable" data-aspect_id="guid-of-current-aspect" data-guid="guid-of-this-person">' +
+'    <img alt="Alexander Hamiltom" class="avatar" data-person_id="guid-of-this-person" src="default.png" original-title="Alexander Hamiltom">' +
+'  </li>' +
+'</ul>' +
+'<ul data-aspect_id="guid-of-target-aspect" class="dropzone ui-droppable">' +
+'</ul>'
+    );
   });
 
   describe("initialize", function() {
     it("calls draggable on ul .person", function() {
       spyOn($.fn, "draggable");
       AspectEdit.initialize();
-      expect($.fn.draggable).toHaveBeenCalledWith(
-        {revert: true, start: AspectEdit.startDrag,
-         drag: AspectEdit.duringDrag, stop: AspectEdit.stopDrag});
+      expect($.fn.draggable).toHaveBeenCalledWith({
+        revert: true, 
+        start: AspectEdit.startDrag,
+        drag: AspectEdit.duringDrag, 
+        stop: AspectEdit.stopDrag
+      });
       expect($.fn.draggable.mostRecentCall.object.selector).toEqual("ul .person");
     });
     it("calls droppable on .aspect ul.dropzone", function() {
@@ -92,29 +99,74 @@ describe("AspectEdit", function() {
   });
 
   describe("onDropMove", function() {
+    beforeEach(function() {
+      spyOn($, "ajax");
+    });
+    describe("when you drop the friend or request onto the div you dragged it from", function() {
+      it("doesn't call any ajax stuffs", function() {
+        var targetAspect = $('.dropzone.ui-droppable[data-aspect_id="guid-of-current-aspect"]');
+        $.proxy(AspectEdit.onDropMove, targetAspect)(null, {draggable: $('.person.ui-draggable')});
+        expect($.ajax).not.toHaveBeenCalled();
+      });
+      it("adds the person back into the original div", function() {
+        var targetAspect = $('.dropzone.ui-droppable[data-aspect_id="guid-of-current-aspect"]');
+        spyOn($.fn, "append");
+        $.proxy(AspectEdit.onDropMove, targetAspect)(null, {draggable: $('.person.ui-draggable')});
+        expect($.fn.append).toHaveBeenCalledWith($('.person.ui-draggable'));
+        expect($.fn.append.mostRecentCall.object.attr("data-aspect_id")).toEqual("guid-of-current-aspect");
+      });
+    });
+    describe("when moving an existing friend between aspects", function() {
+      it("calls move_friend", function() {
+        var targetAspect = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+        $.proxy(AspectEdit.onDropMove, targetAspect)(null, {draggable: $('.person.ui-draggable')});
+        expect($.ajax).toHaveBeenCalled();
+        var args = $.ajax.mostRecentCall.args[0];
+        expect(args["url"]).toEqual("/aspects/move_friend/");
+        expect(args["data"]["friend_id"]).toEqual("guid-of-this-person");
+        expect(args["data"]["from"]).toEqual("guid-of-current-aspect");
+        expect(args["data"]["to"]).toEqual({"to": "guid-of-target-aspect" });
+      });
+      it("doesn't call the ajaxy request delete", function() {
+        var targetAspect = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+        $.proxy(AspectEdit.onDropMove, targetAspect)(null, {draggable: $('.person.ui-draggable')});
+        expect($.ajax.calls.length).toEqual(1);
+      });
+      it("adds the person to the aspect div", function() {
+        var targetAspect = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+        spyOn($.fn, "append");
+        $.proxy(AspectEdit.onDropMove, targetAspect)(null, {draggable: $('.person.ui-draggable')});
+        expect($.fn.append).toHaveBeenCalledWith($('.person.ui-draggable'));
+        expect($.fn.append.mostRecentCall.object.hasClass("dropzone")).toBeTruthy();
+      });
+    });
     describe("when dragging a friend request", function() {
       beforeEach(function() {
         $('#jasmine_content').html(
-'<li class="person request ui-draggable" data-person_id="4cae42d32367bca44e000003" data-guid="4cae42d32367bca44e000003">' +
-'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="4cae42d32367bca44e000003" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom">' +
+'<li class="person request ui-draggable" data-person_id="guid-of-friendship-requestor" data-guid="guid-of-friendship-requestor">' +
+'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="guid-of-friendship-requestor" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom">' +
 '</li>' +
-'<ul data-aspect_id="4cdae5ed2367bc30aa000007" class="dropzone ui-droppable">' +
+'<ul data-aspect_id="guid-of-target-aspect" class="dropzone ui-droppable">' +
 '</ul>'
-          );
+        );
       });    
       it("deletes the request object", function() {
-        spyOn($, "ajax");
         $.proxy(AspectEdit.onDropMove, $('.dropzone.ui-droppable'))(null, {draggable: $('.person.ui-draggable')});
         expect($.ajax).toHaveBeenCalled();
         var args = $.ajax.calls[0].args[0];
         expect(args["type"]).toEqual("DELETE");
-        expect(args["url"]).toEqual("/requests/4cae42d32367bca44e000003");
-        expect(args["data"]).toEqual({"accept" : true, "aspect_id" : "4cdae5ed2367bc30aa000007" });
+        expect(args["url"]).toEqual("/requests/guid-of-friendship-requestor");
+        expect(args["data"]).toEqual({"accept" : true, "aspect_id" : "guid-of-target-aspect" });
       });
       it("doesn't call move_friend", function() {
-        spyOn($, "ajax");
         $.proxy(AspectEdit.onDropMove, $('.dropzone.ui-droppable'))(null, {draggable: $('.person.ui-draggable')});
         expect($.ajax.calls.length).toEqual(1);
+      });
+      it("adds the person to the aspect div", function() {
+        spyOn($.fn, "append");
+        $.proxy(AspectEdit.onDropMove, $('.dropzone.ui-droppable'))(null, {draggable: $('.person.ui-draggable')});
+        expect($.fn.append).toHaveBeenCalledWith($('.person.ui-draggable'));
+        expect($.fn.append.mostRecentCall.object.hasClass("dropzone")).toBeTruthy();
       });
     });
   });
