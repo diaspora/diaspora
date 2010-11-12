@@ -16,13 +16,14 @@ end
 config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/default/thins.yml")
 
 config.each do |thin|
-  id = thin["socket_id"]
-  socket = "/tmp/thin_#{id}.sock"
-  dir = "/service/thin_#{id}"
+  id = thin["port"]
+  #socket = "/tmp/thin_#{id}.sock"
+  dir = "/service/thin_#{port}"
   flags = []
   flags << "-c /usr/local/app/diaspora" #directory to run from
   flags << "-e production" #run in production mode
-  flags << "-S #{socket}"  #use a socket
+  #flags << "-S #{socket}"  #use a socket
+  flags << "-p #{port}"  #use a socket
   execute "thin run" do
     command "mkdir -p #{dir} && echo '#!/bin/sh' > #{dir}/run && echo 'exec /usr/local/bin/ruby /usr/local/bin/thin start #{flags.join(" ")}' >> #{dir}/run"
   end
