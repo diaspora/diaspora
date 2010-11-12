@@ -46,14 +46,14 @@
       = image_tag attachments['diaspora_white_on_grey.png'].url, :alt => "DIASPORA"
     #container
       %p
-        Hello #{@receiver.profile.first_name}!
+        = t('notifier.hello', => :name)
       %p
         = "#{@sender.real_name} (#{@sender.diaspora_handle})"
-        just sent you a friend request on Diaspora*
-        You should really think about checking it out.
+        = t('.just_sent_you')
+        = t('.try_it_out')
         %br
-        = link_to "sign in here", new_user_session_url
+        = link_to t('.sign_in'), new_user_session_url
         %br
-        love, 
+        = t('notifier.love'), 
         %br
-        the diaspora email robot
+        = t('notifier.diaspora')

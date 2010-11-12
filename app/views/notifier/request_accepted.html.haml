@@ -46,14 +46,14 @@
       = image_tag attachments['diaspora_white_on_grey.png'].url, :alt => "DIASPORA"
     #container
       %p
-        Hello #{@receiver.profile.first_name}!
+        = t('notifier.hello', :name => @receiver.profile.first_name
       %p
         = "#{@sender.real_name} (#{@sender.diaspora_handle})"
-        has accepted your friend request. They are now in your 
+        = t('.accepted')
         = link_to @aspect.name, aspect_url(@aspect)
-        aspect.
+        = t('.aspect')
 
         %br
-        love, 
+        = t('notifier.love') 
         %br
-        the diaspora email robot
+        = t('notifier.diaspora')

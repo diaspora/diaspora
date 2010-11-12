@@ -164,7 +164,7 @@ module ApplicationHelper
       return @@youtube_title_cache[id]
     end
 
-    ret = 'Unknown Video Title' #TODO add translation
+    ret = I18n.t 'application.helper.youtube_title.unknown'
     http = Net::HTTP.new('gdata.youtube.com', 80)
     path = '/feeds/api/videos/'+id+'?v=2'
     resp, data = http.get(path, nil)
