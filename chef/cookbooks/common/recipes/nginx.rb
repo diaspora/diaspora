@@ -22,5 +22,5 @@ config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/def
 template "/usr/local/nginx/conf/nginx.conf" do
   source "nginx.conf.erb"
   #variables :socket_paths => config.map{|thin| "/tmp/thin_#{thin["socket_id"]}.sock"}
-  variables :ports => config.map{|thin| "thin["port"]"}
+  variables :ports => config.map{|thin| "#{thin["port"]}"}
 end
