@@ -1553,12 +1553,18 @@ h3 span.current_gs_step
   :max-height 300px
   :overflow auto
 
-  :border 2px solid #ccc
+  :border 2px solid #eee
+
+  :border-radius 5px
+
   :margin 
     :bottom 1.5em
 
   input.contact_list_search
     :width 100%
+    :margin
+      :top 0
+
   ul
     :width 100%
     :margin 0
@@ -1578,8 +1584,24 @@ h3 span.current_gs_step
 
       &:hover
         :background
-          :color #eee
+          :color rgb(250,250,250)
 
       .right
         :top -6px
 
+      .avatar
+        :height 22px
+        :width 22px
+        :position absolute
+        :top -2px
+
+      span.name
+        :padding
+          :left 30px
+
+      input
+        &.add
+          :color green
+
+        &.remove
+          :color red

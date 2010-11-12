@@ -1,0 +1,55 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+:javascript
+  $(".contact_list_search").keyup(function(e){
+    var search = $(this);
+    var list   = $(this).siblings("ul").first();
+    var query  = new RegExp(search.val(),'i');
+
+    $("li", list).each( function() {
+      var element = $(this);
+      if( !element.text().match(query) ){
+        if( !element.hasClass('invis') ){
+          element.addClass('invis').fadeOut(10);
+        }
+      } else {
+        element.removeClass('invis').fadeIn(10);
+      }
+    });
+  });
+
+
+.contact_list
+  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => "Search contacts"
+  
+  %ul
+    - for contact in contacts
+      %li
+
+        - unless contact.aspect_ids.include?(aspect.id)
+          = form_tag '/aspects/add_to_aspect' do
+            = person_image_tag contact.person
+            %span.name
+              = contact.person.real_name
+            .right
+              = hidden_field_tag :aspect_id, aspect.id
+              = hidden_field_tag :friend_id, contact.person.id
+              - if defined?(manage) && manage
+                = hidden_field_tag :manage, true
+              = submit_tag '+', :class => 'add', :title => "Add #{contact.person.real_name} to #{aspect}"
+
+        - else
+          = form_tag '/aspects/remove_from_aspect' do
+            = person_image_tag contact.person
+            %span.name
+              = contact.person.real_name
+            .right
+              = hidden_field_tag :aspect_id, aspect.id
+              = hidden_field_tag :friend_id, contact.person.id
+              - if defined?(manage) && manage
+                = hidden_field_tag :manage, true
+              = submit_tag 'x', :class => 'remove', :title => "Remove #{contact.person.real_name} from #{aspect}"
+

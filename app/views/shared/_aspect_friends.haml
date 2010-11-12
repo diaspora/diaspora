@@ -13,11 +13,11 @@
       = person_image_link(friend)
 
     -unless (aspect == :all)
-      = link_to (image_tag('add_friend_button.png', :title => "#{t('.add_to', :aspect => @aspect)}")), "#add_request_pane", :class => 'add_request_button'
+      = link_to (image_tag('add_friend_button.png', :title => "manage #{@aspect}")), "#manage_aspect_contacts_pane", :class => 'manage_aspect_contacts_button'
 
       .fancybox_content
-        #add_request_pane
-          = render "requests/new_request", :aspect => @aspect
+        #manage_aspect_contacts_pane
+          = render "requests/manage_aspect_contacts", :aspect => @aspect
     -else
       .clear
         %br

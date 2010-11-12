@@ -102,6 +102,10 @@ class AspectsController < ApplicationController
     else 
       flash[:error] =  I18n.t 'aspects.remove_from_aspect.failure'
     end
-    redirect_to aspects_manage_path
+    if params[:manage]
+      redirect_to aspects_manage_path
+    else
+      redirect_to aspect_path(params[:aspect_id])
+    end
   end
 end

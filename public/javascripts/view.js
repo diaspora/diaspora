@@ -19,7 +19,7 @@ $(document).ready(function(){
 
   //buttons//////
   $(".add_aspect_button," + 
-    ".add_request_button," +
+    ".manage_aspect_contacts_button," +
     ".invite_user_button," +
     ".add_photo_button," +
     ".remove_person_button," +
