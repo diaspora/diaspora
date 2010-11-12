@@ -50,29 +50,35 @@ var AspectEdit = {
         type: "DELETE",
         url: "/requests/" + person.attr('data-guid'),
         data: {"accept" : true, "aspect_id" : dropzone.attr('data-aspect_id') },
-        success: function(data) {
-          AspectEdit.decrementRequestsCounter();
-          person.removeClass('request');
-        }
+        success: function() { AspectEdit.onDeleteRequestSuccess(person); }
       });
     }
 
     if (dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
       $.ajax({
         url: "/aspects/move_friend/",
-        data: {"friend_id" : person.attr('data-guid'),
+        data: {
+          "friend_id" : person.attr('data-guid'),
           "from"      : person.attr('data-aspect_id'),
-          "to"        : { "to" : dropzone.attr('data-aspect_id') }},
-        success: function(data) {
-          person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
-        }});
+          "to"        : { "to" : dropzone.attr('data-aspect_id') }
+        },
+        success: function() { AspectEdit.onMovePersonSuccess(person, dropzone); }
+      });
     }
 
     dropzone.closest("ul").append(person);
   },
 
+  onDeleteRequestSuccess: function(person) {
+    AspectEdit.decrementRequestsCounter();
+    person.removeClass('request');
+  },
+  
+  onMovePersonSuccess: function(person, dropzone) {
+    person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
+  },
+        
   deletePersonFromAspect: function(person) {
-
     var person_id = person.attr('data-guid');
 
     if( $(".person[data-guid='"+ person_id +"']").length == 1) {
