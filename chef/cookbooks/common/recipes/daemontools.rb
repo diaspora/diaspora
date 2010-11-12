@@ -18,7 +18,7 @@ config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/def
 config.each do |thin|
   id = thin["port"]
   #socket = "/tmp/thin_#{id}.sock"
-  dir = "/service/thin_#{port}"
+  dir = "/service/thin_#{id}"
   flags = []
   flags << "-c /usr/local/app/diaspora" #directory to run from
   flags << "-e production" #run in production mode
