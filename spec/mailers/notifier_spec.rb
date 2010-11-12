@@ -23,6 +23,10 @@ describe Notifier do
     it 'has the name of person sending the request' do
       request_mail.body.encoded.include?(person.real_name).should be true
     end
+
+    it 'has the css' do
+      request_mail.body.encoded.include?("<style type='text/css'>")
+    end
   end
 
   describe "#request_accpeted" do
