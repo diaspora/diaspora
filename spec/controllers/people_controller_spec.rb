@@ -23,7 +23,7 @@ describe PeopleController do
 
     it 'shows a friend' do
       user2 = make_user
-      friend_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
+      connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :index
       assigns[:people].should include user2.person
       response.should be_success
@@ -57,7 +57,7 @@ describe PeopleController do
     
     it "renders the show page of a friend" do
       user2 = make_user
-      friend_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
+      connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :show, :id => user2.person.id
       response.should be_success
     end

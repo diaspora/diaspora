@@ -17,7 +17,7 @@ describe User do
 
 
   before do
-    friend_users(user, aspect, user2, aspect2)
+    connect_users(user, aspect, user2, aspect2)
   end
 
   it 'should stream only one message to the everyone aspect when a multi-aspected friend posts' do
@@ -128,7 +128,7 @@ describe User do
 
   describe 'comments' do
     before do
-      friend_users(user, aspect, user3, aspect3)
+      connect_users(user, aspect, user3, aspect3)
       @post = user.post :status_message, :message => "hello", :to => aspect.id
 
       user2.receive @post.to_diaspora_xml, user.person

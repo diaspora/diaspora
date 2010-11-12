@@ -11,7 +11,7 @@ describe Comment do
   let(:user2)   {make_user}
   let(:aspect2) {user2.aspects.create(:name => "Lame-faces")}
 
-  let!(:friending) { friend_users(user, aspect, user2, aspect2) }
+  let!(:friending) { connect_users(user, aspect, user2, aspect2) }
 
   it 'validates that the handle belongs to the person' do
     user_status = user.post(:status_message, :message => "hello", :to => aspect.id)
@@ -123,7 +123,7 @@ describe Comment do
     it 'should serialize the handle and not the sender' do
       commenter = make_user
       commenter_aspect = commenter.aspects.create(:name => "bruisers")
-      friend_users(user, aspect, commenter, commenter_aspect)
+      connect_users(user, aspect, commenter, commenter_aspect)
       post = user.post :status_message, :message => "hello", :to => aspect.id
       comment = commenter.comment "Fool!", :on => post
       comment.person.should_not == user.person

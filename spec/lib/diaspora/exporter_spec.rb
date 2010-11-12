@@ -44,7 +44,7 @@ describe Diaspora::Exporter do
   context '<contacts/>' do
 
     before do
-      friend_users(user1, aspect1, user3, aspect3)
+      connect_users(user1, aspect1, user3, aspect3)
       user1.add_person_to_aspect(user3.person.id, aspect.id)
       user1.reload
     end
@@ -66,7 +66,7 @@ describe Diaspora::Exporter do
   context '<people/>' do
     let(:people_xml) {exported.xpath('//people').to_s}
     before do
-      friend_users(user1, aspect1, user3, aspect3)
+      connect_users(user1, aspect1, user3, aspect3)
       user1.reload
     end
     it 'should include persons id' do

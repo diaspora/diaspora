@@ -26,7 +26,7 @@ module HelperMethods
     User::QUEUE
   end
 
-  def friend_users(user1, aspect1, user2, aspect2)
+  def connect_users(user1, aspect1, user2, aspect2)
     request = user1.send_friend_request_to(user2.person, aspect1)
 
     user1.reload

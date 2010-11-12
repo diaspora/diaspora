@@ -49,7 +49,7 @@ describe User do
         let!(:second_aspect) {user.aspects.create(:name => 'losers')}
 
         it "queries by aspect" do
-          friend_users(user, first_aspect, user2, user2.aspects.first)
+          connect_users(user, first_aspect, user2, user2.aspects.first)
           user.receive status_message1.to_diaspora_xml, user2.person
 
           user.visible_posts(:by_members_of => first_aspect).should =~ [status_message1]
@@ -93,8 +93,8 @@ describe User do
     let!(:user4) { Factory.create(:user_with_aspect)}
 
     before do
-      friend_users(user, first_aspect, user4, user4.aspects.first)
-      friend_users(user, second_aspect, user2, user2.aspects.first)
+      connect_users(user, first_aspect, user4, user4.aspects.first)
+      connect_users(user, second_aspect, user2, user2.aspects.first)
     end
 
     describe '#friends_not_in_aspect' do

@@ -37,7 +37,7 @@ describe "attack vectors" do
   end
 
   it 'does not let a user attach to posts previously in the db unless its received from the author' do
-    friend_users(user, aspect, user3, aspect3)
+    connect_users(user, aspect, user3, aspect3)
 
     original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
@@ -48,8 +48,8 @@ describe "attack vectors" do
 
   context 'malicious friend attack vector' do
     before do
-      friend_users(user, aspect, user2, aspect2)
-      friend_users(user, aspect, user3, aspect3)
+      connect_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user3, aspect3)
     end
 
 

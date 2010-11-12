@@ -18,7 +18,7 @@ describe PhotosController do
   let!(:photo2){ user2.post(:photo, :user_file => image, :to => aspect2.id)}
 
   before do
-    friend_users(user, aspect, user2, aspect2)
+    connect_users(user, aspect, user2, aspect2)
     sign_in :user, user
     @controller.stub!(:current_user).and_return(user)
   end

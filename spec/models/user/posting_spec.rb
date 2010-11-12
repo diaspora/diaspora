@@ -105,9 +105,9 @@ describe User do
     let!(:post) { user.build_post :status_message, :message => "hey" }
 
     before do
-      friend_users(user, aspect, user2, aspect2)
-      friend_users(user, aspect, user3, aspect3)
-      friend_users(user, aspect1, user4, aspect4)
+      connect_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user3, aspect3)
+      connect_users(user, aspect1, user4, aspect4)
       user.add_person_to_aspect(user2.person.id, aspect1.id)
       user.reload
     end

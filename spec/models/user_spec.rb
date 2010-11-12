@@ -246,7 +246,7 @@ describe User do
     end
 
     it 'should not delete an aspect with friends' do
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
       aspect.reload
       proc { user.drop_aspect(aspect) }.should raise_error /Aspect not empty/
       user.aspects.include?(aspect).should == true
@@ -305,7 +305,7 @@ describe User do
       end
 
       it 'should unfriend local people' do
-        friend_users(user, aspect, user2, aspect2)
+        connect_users(user, aspect, user2, aspect2)
         lambda {user.destroy}.should change{user2.reload.friends.count}.by(-1)
       end
     end

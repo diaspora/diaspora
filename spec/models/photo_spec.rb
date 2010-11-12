@@ -131,7 +131,7 @@ describe Photo do
       #security hax
       user2 = Factory.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
-      friend_users(@user, @aspect, user2, aspect2)
+      connect_users(@user, @aspect, user2, aspect2)
 
       url = @photo.url
       thumb_url = @photo.url :thumb_medium

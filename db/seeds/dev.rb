@@ -45,9 +45,9 @@ user2 = User.build( :email => "korth@tom.joindiaspora.com",
 user2.save
 user2.person.save!
 user2.seed_aspects
-# friending users
+# connecting users
 aspect = user.aspects.create(:name => "other dudes") 
 aspect2 = user2.aspects.create(:name => "presidents")
 
-friend_users(user, aspect, user2, aspect2)
+connect_users(user, aspect, user2, aspect2)
 user.aspects.create(:name => "Presidents")

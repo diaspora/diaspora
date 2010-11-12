@@ -13,7 +13,7 @@ describe AspectsController do
     @aspect1                    = @user.aspects.create(:name => "another aspect")
     @user2                      = make_user
     @aspect2                    = @user2.aspects.create(:name => "party people")
-    friend_users(@user, @aspect, @user2, @aspect2)
+    connect_users(@user, @aspect, @user2, @aspect2)
     @contact                    = @user.contact_for(@user2.person)
     sign_in :user, @user
     request.env["HTTP_REFERER"] = 'http://' + request.host

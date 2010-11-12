@@ -25,7 +25,7 @@ describe Diaspora::Parser do
     end
 
     it 'should accept retractions' do
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
       message = user2.post(:status_message, :message => "cats", :to => aspect2.id)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
@@ -70,7 +70,7 @@ describe Diaspora::Parser do
     end
 
     it 'should process retraction for a person' do
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
       retraction = Retraction.for(user2)
       retraction_xml = retraction.to_diaspora_xml
 
@@ -79,7 +79,7 @@ describe Diaspora::Parser do
     end
 
     it 'should marshal a profile for a person' do
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
       #Create person
       person = user2.person
       id = person.id

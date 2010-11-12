@@ -44,13 +44,13 @@ describe 'making sure the spec runner works' do
     end
   end
 
-   describe '#friend_users' do
+   describe '#connect_users' do
     before do
       @user1 = make_user
       @aspect1 = @user1.aspects.create(:name => "losers")
       @user2 = make_user
       @aspect2 = @user2.aspects.create(:name => "bruisers")
-      friend_users(@user1, @aspect1, @user2, @aspect2)
+      connect_users(@user1, @aspect1, @user2, @aspect2)
     end
 
     it 'makes the first user friends with the second' do

@@ -81,7 +81,7 @@ describe Diaspora::UserModules::Friending do
     end
 
     it 'should not be able to friend request an existing friend' do
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
       proc { user.send_friend_request_to(user2.person, aspect1) }.should raise_error /already friends/
     end
 
@@ -211,7 +211,7 @@ describe Diaspora::UserModules::Friending do
 
     describe 'unfriending' do
       before do
-        friend_users(user, aspect, user2, aspect2)
+        connect_users(user, aspect, user2, aspect2)
       end
 
       it 'should unfriend the other user on the same seed' do

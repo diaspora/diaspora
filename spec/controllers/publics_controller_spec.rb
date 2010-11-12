@@ -110,7 +110,7 @@ describe PublicsController do
         pending
         message = user2.build_post(:status_message, :message => "hi")
 
-        friend_users(user, aspect1, user2, aspect2)
+        connect_users(user, aspect1, user2, aspect2)
 
         user.reload
         user.visible_post_ids.include?(message.id).should be false

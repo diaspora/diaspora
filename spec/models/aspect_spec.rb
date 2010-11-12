@@ -121,7 +121,7 @@ describe Aspect do
     it 'should add post to aspect via receive method' do
       aspect  = user.aspects.create(:name => 'losers')
       aspect2 = user2.aspects.create(:name => 'winners')
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
 
       message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
 
@@ -133,7 +133,7 @@ describe Aspect do
     it 'should retract the post from the aspects as well' do
       aspect  = user.aspects.create(:name => 'losers')
       aspect2 = user2.aspects.create(:name => 'winners')
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
 
       message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
 
@@ -149,7 +149,7 @@ describe Aspect do
   context "aspect management" do
     let(:contact){user.contact_for(user2.person)}
     before do
-      friend_users(user, aspect, user2, aspect2)
+      connect_users(user, aspect, user2, aspect2)
       aspect.reload
       user.reload
     end
@@ -217,7 +217,7 @@ describe Aspect do
       end
 
       it 'should not delete other peoples posts' do
-        friend_users(user, aspect, user3, aspect3)
+        connect_users(user, aspect, user3, aspect3)
         user.delete_person_from_aspect(user3.person.id, aspect.id)
         aspect.reload
         aspect.posts.should == [@message]

@@ -40,7 +40,7 @@ describe User do
 
 
     it 'throws if you try to add someone you"re friends with' do
-      friend_users(inviter, aspect, another_user, wrong_aspect)
+      connect_users(inviter, aspect, another_user, wrong_aspect)
       inviter.reload
       proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /already friends/
     end

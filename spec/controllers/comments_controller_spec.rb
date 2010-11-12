@@ -26,7 +26,7 @@ describe CommentsController do
 
     context "on a post from a friend" do
       before do
-        friend_users(user, aspect, user2, aspect2)
+        connect_users(user, aspect, user2, aspect2)
         @post = user2.post :status_message, :message => 'GIANTS', :to => aspect2.id
       end
       it 'comments' do

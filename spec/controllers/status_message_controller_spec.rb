@@ -14,7 +14,7 @@ describe StatusMessagesController do
   let!(:aspect2) { user2.aspects.create(:name => "WIN!!") }
 
   before do
-    friend_users(user, aspect, user2, aspect2)
+    connect_users(user, aspect, user2, aspect2)
     request.env["HTTP_REFERER"] = ""
     sign_in :user, user
     @controller.stub!(:current_user).and_return(user)
