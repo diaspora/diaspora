@@ -41,7 +41,7 @@
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
+            %li= link_to t('.add_a_new_friend'), "#manage_aspect_contacts_pane_#{aspect.id}", :class => 'manage_aspect_contacts_button'
             %li!= remove_link(aspect)
 
         %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
@@ -59,7 +59,7 @@
 
 
           .fancybox_content
-            %div{:id => "add_request_pane_#{aspect.id}"}
-              = render "requests/new_request", :aspect => aspect, :manage => true
+            %div{:id => "manage_aspect_contacts_pane_#{aspect.id}"}
+              = render "requests/manage_aspect_contacts", :aspect => aspect, :manage => true
 
 
