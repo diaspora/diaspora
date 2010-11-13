@@ -14,7 +14,7 @@
 body
   :padding 2em
   :margin 0
-  :background-color rgba(252,252,252,1)
+  :background-color rgb(252,252,252)
 a
   :color #107FC9
   :text
@@ -107,8 +107,8 @@ header
 
   :background
     :color #333
-  :background -webkit-gradient( linear, left bottom, left top, color-stop(0.01, rgb(31,31,31)), color-stop(0.12, rgb(51,51,51)))
-  :background -moz-linear-gradient( center bottom, rgb(31,31,31) 1%, rgb(51,51,51) 12%)
+  :background -webkit-gradient( linear, left bottom, left top, color-stop(0.01, rgb(21,21,21)), color-stop(0.12, rgb(51,51,51)))
+  :background -moz-linear-gradient( center bottom, rgb(21,21,21) 1%, rgb(51,51,51) 12%)
 
   :padding 0
     :top 5px
@@ -910,17 +910,18 @@ h1.big_text
       :padding 0
       :display inline
       :margin 0
+        :left -1px
 
       a
-        :-webkit-border-radius 5px 5px 0 0 
-        :-moz-border-radius 5px 5px 0 0 
-        :border-radius 5px 5px 0 0 
+        :-webkit-border-radius 4px 4px 0 0 
+        :-moz-border-radius 4px 4px 0 0 
+        :border-radius 4px 4px 0 0 
 
         :text-shadow 0 1px 0 #444
         :line
           :height 22px
 
-        :padding 4px 10px
+        :padding 3px 10px
         :color #CCC
         :max-width 120px
         :overflow hidden
