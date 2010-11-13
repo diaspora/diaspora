@@ -20,7 +20,8 @@
 #   request:         (vän-) förfrågan
 #   profile:         profil
 #   seed:            frö
-#
+#   contact:	     kontakt
+
 sv:
 
   settings: "Inställningar"
@@ -88,13 +89,13 @@ sv:
           share_with_all: "Dela på alla sidor"
           share_with: "Dela med %{aspect}"
           all: "alla"
-      aspect_friends:
-          add_friends: "lägg till vänner"
+      aspect_contacts:
+          add_contacts: "lägg till kontakter"
           everyone: "Alla"
           add_to: "lägg till i %{aspect}"
       invitations:
           invites: "Inbjudningar"
-          invite_a_friend: "Bjud in en vän"
+          invite_someone: "Bjud in en kontakt"
           invitations_left: "(%{count} kvar)"
       reshare:
           reshare: "Återdela"
@@ -110,18 +111,18 @@ sv:
       notification:
           new: "Ny %{type} från %{from}"
   aspects:
-      no_friends_message:
-          nobody: "Vi vet att du har vänner, bjud in dem till Diaspora!"
+      no_contacts_message:
+          nobody: "Vi vet att du har kontakter, bjud in dem till Diaspora!"
           nobody_in_aspect: "Sidan '%{aspect_name}' är tom."
-          add_friend: "Lägg till en vän"
-          add_friend_to: "Lägg till en vän i %{aspect_name}"
-          invite: "Bjud in en vän till Diaspora!"
+          add_contact: "Lägg till en kontakt"
+          add_contact_to: "Lägg till en kontakt i %{aspect_name}"
+          invite: "Bjud in en kontakt till Diaspora!"
       no_posts_message:
           start_talking:  "Ingen har sagt något än. Bli först!"
       manage:
           add_a_new_aspect: "Lägg till en ny sida"
-          add_a_new_friend:  "Lägg till en ny vän"
-          requests: "Vänförfrågningar"
+          add_a_new_contact:  "Lägg till en ny kontakt"
+          requests: "Kontaktförfrågningar"
           no_requests: "Inga nya förfrågningar"
           manage_aspects: "Hantera sidor"
           drag_to_add: "Dra för att lägga till personer"
@@ -136,10 +137,10 @@ sv:
           success: "%{name} är nu borttagen."
       update:
           success: "Din sida %{name} är nu ändrad."
-      move_friend:
+      move_contact:
           failure: "fungerade inte %{inspect}"
           success: "Personen flyttades till den nya sidan"
-          error: "Kunde inte flytta vän: %{inspect}"
+          error: "Kunde inte flytta kontakt: %{inspect}"
       add_to_aspect:
           failure: "Misslyckades med att lägga in personen på den nya sidan."
           success: "Personen tillagt på sidan."
@@ -152,7 +153,7 @@ sv:
           failure: "Misslyckades med att ta bort personen från vald sida"
   users:
       edit:
-          invite_friends: "Bjud in en vän"
+          invite_contacts: "Bjud in en kontakt"
           export_data: "Exportera data"
           close_account: "Stäng kontot"
           change_language: "Ändra språk"
@@ -178,7 +179,7 @@ sv:
               add: "Lägg till"
           step_3:
               your_services: "Dina tjänster"
-              description: 'Anslut dina befintliga tjänster till ditt Diaspora-konto.  Du kommer att kunna skicka meddelanden genom dessa om du väljer "gör publik." på sidan för alla vänner.'
+              description: 'Anslut dina befintliga tjänster till ditt Diaspora-konto.  Du kommer att kunna skicka meddelanden genom dessa om du väljer "gör publik." på sidan för alla kontakter.'
           step_4:
               set_up: "Nu är guiden klar, %{name}!"
               ready_to_share: "Du är nu redo att börja dela med "
@@ -234,12 +235,19 @@ sv:
           sign_up_for_diaspora: "Gå med i Diaspora"
       create:
           success: "Du har nu gått med i Diaspora!"
+      edit:
+          edit: "Ändra %{name}"
+          leave_blank: "(lämna tomt om du inte vill ändra det)"
+          password_to_confirm: "(det nuvarande lösenordet krävs för att bekräfta ändringarna)"
+          unhappy: "Missnöjd?"
+          update: "Uppdatera"
+          cancel_my_account: "Avsluta mitt konto"
   invitations:
       create:
           sent: 'Din inbjudan är nu skickad.'
           no_more: 'Du har inga fler inbjudningar.'
           already_sent: 'Du har redan bjudit in denna person.'
-          already_friends: 'Du är redan vän med den här personen'
+          already_friends: 'Den här personen finns redan bland dina kontakter'
       new:
           invite_someone_to_join: "Bjud in en än till Diaspora!"
           if_they_accept_info: "om de accepterar så kommer de att läggas till på den sida du valde"
@@ -257,21 +265,19 @@ sv:
           destroy: "Ta bort"
       helper:
           no_message_to_display: "Inget meddelande att visa."
-      index:
-          status_messages: "statusmeddelanden"
   people:
       person:
           pending_request: "väntande förfrågningar"
-          already_friends: "Redan vänner"
+          already_friends: "Finns i dina kontakter"
           thats_you: "Detta är du!"
+          add_contact: "lägg till kontakt"
       index:
           results_for: "sökresultat för"
       show:
           no_posts: "inga meddelanden att visa!"
-          add_friend: "lägg till vän"
-          not_friends: "Du ärr närvarande inte vän med %{name}"
-          request_people: "Om du känner för det så skulle du kunna skicka en vänförfrågan."
-          already_requested: "Du har redan skickat en vänförfrågan till %{name}."
+          not_friends: "%{name} finns inte bland dina kontakter"
+          request_people: "Om du känner för det så skulle du kunna skicka en kontaktförfrågan."
+          already_requested: "Du har redan skickat en kontaktförfrågan till %{name}."
           does_not_exist: "Den här personen finns inte!"
       edit:
           info_available_to: "Den här informationen kommer vara synlig för alla som du ansluter till på diaspora."
@@ -291,7 +297,7 @@ sv:
           updated: "Profilen är uppdaterad"
           failed: "Misslyckades med att uppdatera profilen"
       profile_sidebar:
-          remove_friend: "ta bort vän"
+          remove_contact: "ta bort kontakt"
           edit_my_profile: "Ändra min profil"
           last_seen: "senast sedd: %{how_long_ago}"
           bio: "bio"
@@ -301,16 +307,16 @@ sv:
            results_for: " resultat för %{params}"
            people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
   requests:
-      new_request:
-          add_a_new_friend_to: "Lägg till en vän till"
+      manage_aspect_contacts:
+          add_a_new_contact_to: "Lägg till en kontakt till"
           enter_a_diaspora_username: "Ange ett användarnamn:"
           your_diaspora_username_is: "Din Diaspora-adress är: %{diaspora_handle}"
-          friends_username: "Vännens Diaspora-adress"
+          contact_username: "Kontaktens Diaspora-adress"
           create_request: "Skapa förfrågan"
       destroy:
-          success: "Ni är nu vänner."
+          success: "Kontakten är nu tillagd."
           error: "Var god välj en aspekt!"
-          ignore: "Ignorerade vänförfrågan."
+          ignore: "Ignorerade kontaktförfrågan."
       create:
           tried: "vi gjorde vårat bästa för att skicka meddelandet till %{account}"
   services:
@@ -332,13 +338,13 @@ sv:
       love: "hälsningar,"
       diaspora: "Diasporas mailrobot"
       new_request:
-          subject: "ny Diaspora vänförfågan från %{from}"
-          just_sent_you: "skickade nyss en vänförfrågan till dig på Diaspora"
+          subject: "ny kontaktförfrågan från %{from}"
+          just_sent_you: "skickade nyss en kontaktförfrågan till dig på Diaspora"
           try_it_out: "Du borde verkligen överväga att kolla upp detta."
           sign_in: "logga in här"
       request_accepted:
-          subject: "%{name} har accepterat din vänförfrågan på Diaspora"
-          accepted: "har accepterat din vänförfrågan. Denne finns nu på "
+          subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
+          accepted: "har accepterat din kontaktförfrågan. Denne finns nu på "
           aspect: "sidan."
 
 # The following is from the rails-i18n project at http://github.com/svenfuchs/rails-i18n
