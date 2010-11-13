@@ -1,0 +1,190 @@
+# Upper Sorbian translations for Ruby on Rails
+# by Michael Wolf (preklady@wolfmicha.de)
+
+hsb:
+
+  # ActiveSupport
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " a "
+      last_word_connector: " a "
+      sentence_connector: "a"
+      skip_last_comma: true
+
+
+
+  # Date
+  date:
+    formats:
+      default: "%d. %m. %Y"
+      short:   "%d %b"
+      long:    "%d. %B %Y"
+
+    day_names:        [njedźela, póndźela, wutora, srjeda, štwórtk, pjatk, sobota]
+    abbr_day_names:   [Nj, Pó, Wu, Sr, Št, Pj, So]
+    month_names:      [~, Januar, Februar, Měrc, Apryl, Meja, Junij, Julij, Awgust, September, Oktober, Nowember, December]
+    abbr_month_names: [~, jan, feb, měr, apr, mej, jun, jul, awg, sep, okt, now, dec]
+    order:            [:day, :month, :year]
+
+  # Time
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M hodź"
+      short:   "%d. %B, %H:%M hodź."
+      long:    "%A, %d. %B %Y, %H:%M hodź."
+
+    am: "dopołdnja"
+    pm: "popołdnju"
+
+
+  # Numbers
+  number:
+    format:
+      precision: 3
+      separator: ","
+      delimiter: "."
+
+    currency:
+      format:
+        unit: "€"
+        precision: 2
+        format: "%n %u"
+        separator: ","
+        delimiter: " "
+
+    human:
+      format:
+        precision: 1
+        delimiter: ""
+
+    storage_units:
+      format: "%n %u"
+      units:
+        byte:
+          one: "bajt"
+          two: "bajtaj"
+          few: "bajty"
+          other: "bajtow"
+        kb:   "KB"
+        mb:   "MB"
+        gb:   "GB"
+        tb:   "TB"
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+
+  # Distance of time ... helper
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "poł mjeńšiny"
+      less_than_x_seconds:
+        one:   "mjenje hač 1 sekundu"
+        two:   "mjenje hač %{count} sekundomaj"
+        few:   "mjenje hač %{count} sekundami"
+        other: "mjenje hač %{count} sekundami"
+      x_seconds:
+        one:   "1 sekundu"
+        two:   "%{count} sekundomaj"
+        few:   "%{count} sekundami"
+        other: "%{count} sekundami"
+      less_than_x_minutes:
+        one: "mjenje hač 1 mjeńšinu"
+        two: "mjenje hač %{count} mjeńšinomaj"
+        few: "mjenje hač %{count} mjeńšinami"
+        other: "mjenje hač %{count} mjeńšinami"
+      x_minutes:
+        one:    "1 mjeńšinu"
+        two:    "%{count} mjeńšinomaj"
+        few:    "%{count} mjeńšinami"
+        other:  "%{count} mjeńšinami"
+      about_x_hours:
+        one:    "něhdźe 1 hodźinu"
+        two:    "něhdźe %{count} hodźinomaj"
+        few:    "něhdźe %{count} hodźinami"
+        other:  "něhdźe %{count} hodźinami"
+      x_days:
+        one:    "1 dnjom"
+        two:    "%{count} dnjomaj"
+        few:    "%{count} dnjemi"
+        other:  "%{count} dnjemi"
+      about_x_months:
+        one:    "něhdźe 1 měsacom"
+        two:    "něhdźe %{count} měsacomaj"
+        few:    "něhdźe %{count} měsacami"
+        other:  "něhdźe %{count} měsacami"
+      x_months:
+        one:    "1 měsacom"
+        two:    "%{count} měsacomaj"
+        few:    "%{count} měsacami"
+        other:  "%{count} měsacami"
+      about_x_years:
+        one:    "něhdźe 1 lětom"
+        two:    "něhdźe %{count} lětomaj"
+        few:    "něhdźe %{count} lětami"
+        other:  "něhdźe %{count} lětami"
+      over_x_years:
+        one:    "přez 1 lětom"
+        two:    "přez %{count} lětomaj"
+        few:    "přez %{count} lětami"
+        other:  "přez %{count} lětami"
+      prompts:
+        year:   "Lěto"
+        month:  "Měsac"
+        day:    "Dźeń"
+        hour:   "Hodźina"
+        minute: "Mjeńšina"
+        second: "Sekunda"
+
+  # ActiveRecord validation messages
+  activerecord:
+    errors:
+      messages:
+        inclusion:    "njeje płaćiwa hódnota"
+        exclusion:    "njesteji k dispoziciji"
+        invalid:      "njeje płaćiwy"
+        confirmation: "njebu wobkrućene"
+        accepted:     "dyrbi so wobkrućić"
+        empty:        "njesmě prózdny być"
+        blank:        "je trěbny"
+        too_long:     
+          one:        "je předołhi (maks. 1 znamješko)"
+          two:        "je předołhi (maks. %{count} znamješce)"
+          few:        "je předołhi (maks. %{count} znamješka)"
+          other:      "je předołhi (maks. %{count} znamješkow)"
+        too_short:    
+          one:        "je překrótki (min. 1 znamješko)"
+          two:        "je překrótki (min. %{count} znamješće)"
+          few:        "je překrótki (min. %{count} znamješka)"
+          other:      "je překrótki (min. %{count} znamješkow)"
+        wrong_length:
+          one:        "nima prawu dołhosć (1 znamješko wočakowane)"
+          two:        "nima prawu dołhosć (%{count} znamješce wočakowanej)"
+          few:        "nima prawu dołhosć (%{count} znamješka wočakowane)"
+          other:      "nima prawu dołhosć (%{count} znamješkow wočakowanych)"
+        taken:        "je hižo w datowej bance"
+        not_a_number: "njeje ličba"
+        greater_than: "dyrbi wjetši hač %{count} być"
+        greater_than_or_equal_to: "dyrbi wjetši abo runja %{count} być"
+        equal_to:                 "dyrbi runja %{count} być"
+        less_than:                "dyrbi mjenje hač %{count} być"
+        less_than_or_equal_to:    "dyrbi mjenje abo runja %{count} być"
+        odd:                      "dyrbi njeruna ličby być"
+        even:                     "dyrbi runa ličba być"
+
+      template:
+        header:
+          one:   "Při składowanju objekta %{model} je k zmylkej dóšło a njebě móžno składować"
+          two:   "Při składowanju objekta %{model} je k %{count} zmylkam dóšło a njebě móžno składować"
+          few:   "Při składowanju objekta %{model} je k %{count} zmylkam dóšło a njebě móžno składować"
+          other: "Při składowanju objekta %{model} je k %{count} zmylkam dóšło a njebě móžno składować"
+          body:  "Prošu přepruwuj slědowace pola:"
+
+      models:

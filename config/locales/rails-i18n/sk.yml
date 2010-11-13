@@ -1,0 +1,139 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+# Slovak translations for Ruby on Rails (inspired by the Czech localization - thanx to Karel Minařík)
+# by Jozef Fulop (jofi-rails@silake.com)
+ 
+sk:
+    # ActiveSupport
+    support:
+        array:
+            words_connector: ', '
+            two_words_connector: ' a '
+            last_word_connector: ' a '
+                
+    # Date
+    date:
+        formats:
+            default: "%d. %m. %Y"
+            short: "%d %b"
+            long: "%d. %B %Y"
+        day_names: [Nedeľa, Pondelok, Utorok, Streda, Štvrtok, Piatok, Sobota]
+        abbr_day_names: [Ne, Po, Ut, St, Št, Pi, So]
+        month_names: [~, Január, Február, Marec, Apríl, Máj, Jún, Júl, August, September, Október, November, December]
+        abbr_month_names: [~, Jan, Feb, Mar, Apr, Máj, Jún, Júl, Aug, Sep, Okt, Nov, Dec]
+        order: [:day, :month, :year]
+
+    # Time
+    time:
+        formats:
+            default: "%a %d. %B %Y %H:%M %z"
+            short: "%d. %m. %H:%M"
+            long: "%A %d. %B %Y %H:%M"
+        am: 'dopoludnia'
+        pm: 'popoludní'
+
+    # Numbers
+    number:
+        format:
+            precision: 3
+            separator: '.'
+            delimiter: ','
+        currency:
+            format:
+                unit: '€'
+                precision: 2
+                format: '%n %u'
+                separator: ","
+                delimiter: " "
+        human:
+            format:
+                precision: 1
+                delimiter: ''
+            storage_units:
+                format: "%n %u"
+                units:
+                    byte:
+                        other: "B"
+                        one: "B"
+                    kb: "KB"
+                    mb: "MB"
+                    gb: "GB"
+                    tb: "TB"
+        percentage:
+            format:
+                delimiter: ''
+        precision:
+            format:
+                delimiter: ''
+    
+    # Distance of time ... helper
+    datetime:
+        prompts:
+            second: "Sekunda"
+            minute: "Minúta"
+            hour: "Hodina"
+            day: "Deň"
+            month: "Mesiac"
+            year: "Rok"
+        distance_in_words:    
+            half_a_minute: 'pol minutou'
+            less_than_x_seconds:
+                one: 'asi pred sekundou'
+                other: 'asi pred %{count} sekundami'
+            x_seconds:
+                one: 'sekundou'
+                other: '%{count} sekundami'
+            less_than_x_minutes:
+                one: 'pred necelou minútou'
+                other: 'pred ani nie %{count} minútami'
+            x_minutes:
+                one: 'minútou'
+                other: '%{count} minútami'
+            about_x_hours:
+                one: 'asi hodinou'
+                other: 'asi %{count} hodinami'
+            x_days:
+                one: '24 hodinami'
+                other: '%{count} dňami'
+            about_x_months:
+                one: 'asi mesiacom'
+                other: 'asi %{count} mesiacmi'
+            x_months:
+                one: 'mesiacom'
+                other: '%{count} mesiacmi'
+            about_x_years:
+                one: 'asi rokom'
+                other: 'asi %{count} rokmi'
+            over_x_years:
+                one: 'pred viac ako rokom'
+                other: 'viac ako %{count} rokmi'
+
+    # ActiveRecord validation messages
+    activerecord:                  
+        errors:
+            messages:
+                inclusion: "nie je v zozname povolených hodnôt"
+                exclusion: "je vyhradené pre iný účel"
+                invalid: "nie je platná hodnota"
+                confirmation: "nebolo potvrdené"
+                accepted: "musí byť potvrdené"
+                empty: "nesmie byť prázdný/é"
+                blank: "je povinná položka"
+                too_long: "je príliš dlhá/ý (max. %{count} znakov)"
+                too_short: "je príliš krátký/á (min. %{count} znakov)"
+                wrong_length: "nemá správnu dĺžku (očakáva sa %{count} znakov)"
+                taken: "sa už nachádza v databáze"
+                not_a_number: "nie je číslo"
+                greater_than: "musí byť väčšíe ako %{count}"
+                greater_than_or_equal_to: "musí byť väčšie alebo rovnaké ako %{count}"
+                equal_to: "sa musí rovnať %{count}"
+                less_than: "musí byť menšie ako %{count}"
+                less_than_or_equal_to: "musí byť menšie ako %{count}"
+                odd: "musí byť nepárne číslo"
+                even: "musí byť párne číslo"
+            template:
+                header:
+                    one: "Pri ukladaní objektu %{model} došlo k chybám a nebolo možné objekt uložiť"
+                    other: "Pri ukladaní objektu %{model} došlo ku %{count} chybe/ám a nebolo možné objekt uložiť"
+                body: "Nasledujúce polia obsahujú chybne vyplnené údaje:"

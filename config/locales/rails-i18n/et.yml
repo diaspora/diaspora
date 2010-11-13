@@ -1,0 +1,109 @@
+# Estonian localization for Ruby on Rails 2.2+
+# by Zahhar Kirillov <zahhar@gmail.com>
+
+et:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d.%m.%y"
+      long: "%d. %B %Y"
+
+    day_names: [pühapäev, esmaspäev, teisipäev, kolmapäev, neljapäev, reede, laupäev]
+    standalone_day_names: [Pühapäev, Esmaspäev, Teisipäev, Kolmapäev, Neljapäev, Reede, Laupäev]
+    abbr_day_names: [P, E, T, K, N, R, L]
+
+    month_names: [~, jaanuar, veebruar, märts, aprill, mai, juuni, juuli, august, september, oktoober, november, detsember]
+    standalone_month_names: [~, Jaanuar, Veebruar, Märts, Aprill, Mai, Juuni, Juuli, August, September, Oktoober, November, Detsember]
+    abbr_month_names: [~, jaan., veebr., märts, apr., mai, juuni, juuli, aug., sept., okt., nov., dets.]
+    standalone_abbr_month_names: [~, jaan., veebr., märts, apr., mai, juuni, juuli, aug., sept., okt., nov., dets.]
+
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%d. %B %Y, %H:%M"
+      short: "%d.%m.%y, %H:%M"
+      long: "%a, %d. %b %Y, %H:%M:%S %z"
+
+    am: "enne lõunat"
+    pm: "pärast lõunat"
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 2
+      
+    currency:
+      format:
+        format: "%n %u"
+        unit: "kr"
+        separator: ","
+        delimiter: " "
+        precision: 2
+        
+    percentage:
+      format:
+        delimiter: ""
+        
+    precision:
+      format:
+        delimiter: ""
+        
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units: [bait, KB, MB, GB, TB]
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "pool minutit"
+      less_than_x_seconds:
+        one:   "vähem kui %{count} sekund"
+        other: "vähem kui %{count} sekundit"
+      x_seconds:
+        one:   "%{count} sekund"
+        other: "%{count} sekundit"
+      less_than_x_minutes:
+        one:   "vähem kui %{count} minut"
+        other: "vähem kui %{count} minutit"
+      x_minutes:
+        one:   "%{count} minut"
+        other: "%{count} minutit"
+      about_x_hours:
+        one:   "umbes %{count} tund"
+        other: "umbes %{count} tundi"
+      x_days:
+        one:   "%{count} päev"
+        other: "%{count} päeva"
+      about_x_months:
+        one:   "umbes %{count} kuu"
+        other: "umbes %{count} kuud"
+      x_months:
+        one:   "%{count} kuu"
+        other: "%{count} kuud"
+      about_x_years:
+        one:   "umbes %{count} aasta"
+        other: "umbes %{count} aastat"
+      over_x_years:
+        one:   "üle %{count} aasta"
+        other: "üle %{count} aastat"
+    prompts:
+      year: "Aasta"
+      month: "Kuu"
+      day: "Päev"
+      hour: "Tunde"
+      minute: "Minutit"
+      second: "Sekundit"
+
+  support:
+    array:
+      # Rails 2.2
+      sentence_connector: "ja"
+      skip_last_comma: true
+      
+      # Rails 2.3
+      words_connector: ", "
+      two_words_connector: " ja "
+      last_word_connector: " ja "

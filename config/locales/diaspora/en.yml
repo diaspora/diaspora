@@ -333,5 +333,3 @@ en:
           subject: "%{name} has accepted your contact request on Diaspora*"
           accepted: "has accepted your contact request. They are now in your"
           aspect: "aspect."
-  date:
-      order: [:month, :day, :year]

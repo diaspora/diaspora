@@ -1,0 +1,182 @@
+# Lower Sorbian translations for Ruby on Rails
+# by Michael Wolf (preklady@wolfmicha.de)
+
+dsb:
+  # ActiveSupport
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " a "
+      last_word_connector: " a "
+      sentence_connector: "a"
+      skip_last_comma: true
+
+  # Date
+  date:
+    formats:
+      default: "%d. %m. %Y"
+      short:   "%d %b"
+      long:    "%d. %B %Y"
+    day_names:        [njeźela, pónjeźele, wałtora, srjoda, stwórtk, pětk, sobota]
+    abbr_day_names:   [Nj, Pó, Wu, Sr, St, Pě, So]
+    month_names:      [~, Januar, Februar, Měrc, Apryl, Maj, Junij, Julij, Awgust, September, Oktober, Nowember, December]
+    abbr_month_names: [~, jan, feb, měr, apr, maj, jun, jul, awg, sep, okt, now, dec]
+    order:            [:day, :month, :year]
+
+  # Time
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M hodź"
+      short:   "%d. %B, %H:%M hodź."
+      long:    "%A, %d. %B %Y, %H:%M hodź."
+    am: "dopołdnja"
+    pm: "wótpołdnja"
+
+
+  # Numbers
+  number:
+    format:
+      precision: 3
+      separator: ","
+      delimiter: "."
+    currency:
+      format:
+        unit: "€"
+        precision: 2
+        format: "%n %u"
+        separator: ","
+        delimiter: " "
+    human:
+      format:
+        precision: 1
+        delimiter: ""
+    storage_units:
+      format: "%n %u"
+      units:
+        byte:
+          one: "bajt"
+          two: "bajta"
+          few: "bajty"
+          other: "bajtow"
+        kb:   "KB"
+        mb:   "MB"
+        gb:   "GB"
+        tb:   "TB"
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+
+  # Distance of time ... helper
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "poł minuty"
+      less_than_x_seconds:
+        one:   "mjenjej ako 1 sekundu"
+        two:   "mjenjej ako %{count} sekundoma"
+        few:   "mjenjej ako %{count} sekundami"
+        other: "mjenjej ako %{count} sekundami"
+        x_seconds:
+        one:   "1 sekundu"
+        two:   "%{count} sekundoma"
+        few:   "%{count} sekundami"
+        other: "%{count} sekundami"
+      less_than_x_minutes:
+        one: "mjenjej ako 1 minutu"
+        two: "mjenjej ako %{count} minutoma"
+        few: "mjenjej ako %{count} minutami"
+        other: "mjenjej ako %{count} minutami"
+      x_minutes:
+        one:    "1 minutu"
+        two:    "%{count} minutoma"
+        few:    "%{count} minutami"
+        other:  "%{count} minutami"
+      about_x_hours:
+        one:    "něźi 1 góźinu"
+        two:    "něźi %{count} góźinoma"
+        few:    "něźi %{count} góźinami"
+        other:  "něźi %{count} góźinami"
+      x_days:
+        one:    "1 dnjom"
+        two:    "%{count} dnjoma"
+        few:    "%{count} dnjami"
+        other:  "%{count} dnjami"
+      about_x_months:
+        one:    "něźi 1 mjasecom"
+        two:    "něźi %{count} mjasecoma"
+        few:    "něźi %{count} mjasecami"
+        other:  "něźi %{count} mjasecami"
+      x_months:
+        one:    "1 mjasecom"
+        two:    "%{count} mjasecoma"
+        few:    "%{count} mjasecami"
+        other:  "%{count} mjasecami"
+      about_x_years:
+        one:    "něźi 1 lětom"
+        two:    "něźi %{count} lětoma"
+        few:    "něźi %{count} lětami"
+        other:  "něźi %{count} lětami"
+      over_x_years:
+        one:    "wěcej ako 1 lětom"
+        two:    "wěcej ako %{count} lětoma"
+        few:    "wěcej ako %{count} lětami"
+        other:  "wěcej ako %{count} lětami"
+      prompts:
+        year:   "Lěto"
+        month:  "Mjasec"
+        day:    "Źeń"
+        hour:   "Góźina"
+        minute: "Minuta"
+        second: "Sekunda"
+
+  # ActiveRecord validation messages
+  activerecord:
+    errors:
+      messages:
+        inclusion:           "njejo płaśiwa gódnota"
+        exclusion:           "njestoj k dispoziciji"
+        invalid:             "njejo płaśiwy"
+        confirmation:        "njejo se wobkšuśiło"
+        accepted:            "musy se wobkšuśiś"
+        empty:               "njesmějo prozny byś"
+        blank:               "jo trěbny"
+        too_long:
+          one:               "jo pśedłujki (maks. 1 znamješko)"
+          two:               "jo pśedłujki (maks. %{count} znamješce)"
+          few:               "jo pśedłujki (maks. %{count} znamješka)"
+          other:             "jo pśedłujki (maks. %{count} znamješkow)"
+        too_short:
+          one:               "jo překrotki (min. 1 znamješko)"
+          two:               "jo překrotki (min. %{count} znamješće)"
+          few:               "jo překrotki (min. %{count} znamješka)"
+          other:             "jo překrotki (min. %{count} znamješkow)"
+        wrong_length:
+          one:               "njama pšawu dłujkosć (1 znamješko wócakane)"
+          two:               "njama pšawu dłujkosć (%{count} znamješce wócakanej)"
+          few:               "njama pšawu dłujkosć (%{count} znamješka wócakane)"
+          other:             "njama pšawu dłujkosć (%{count} znamješkow wócakanych)"
+        taken:                "jo južo w datowej bance"
+        not_a_number:         "njejo licba"
+        greater_than:         "musy wětšy ako %{count} byś"
+        greater_than_or_equal_to: "musy wětšy abo jadnak %{count} być"
+        equal_to:                 "musy jadnak %{count} byś"
+        less_than:                "musy mjeńšy ako %{count} byś"
+        less_than_or_equal_to:    "musy mjeńšy abo jadnak %{count} byś"
+        odd:                      "musy njerowna licba byś"
+        even:                     "musy rowna licba byś"
+
+      template:
+        header:
+          one:   "Pśi składowanju objekta %{model} jo k zmólce dojšło a njejo było móžno składowaś"
+          two:   "Pśi składowanju objekta %{model} jo k %{count} zmólkam dojšło a njejo było móžno składowaś"
+          few:   "Pśi składowanju objekta %{model} jo k %{count} zmólkam dojšło a njejo było móžno składowaś"
+          other: "Pśi składowanju objekta %{model} jo k %{count} zmólkam dojšło a njejo było móžno składowaś"
+        body:  "Pšosym pśeglědaj slědujuce póla:"
+
+      models:
