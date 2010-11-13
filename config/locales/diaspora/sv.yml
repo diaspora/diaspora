@@ -69,6 +69,8 @@ sv:
           correct_the_following_errors_and_try_again: "Rätta följande fel och försök igen."
   layouts:
       application:
+          page_title: "diaspora"
+          page_title_inside: "%{user} | diaspora"
           view_profile: "visa profil"
           edit_profile: "ändra profil"
           account_settings: "kontoinstallningar"
