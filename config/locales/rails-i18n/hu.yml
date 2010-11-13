@@ -1,0 +1,144 @@
+# Hungarian translations for Ruby on Rails 
+# by Richard Abonyi (richard.abonyi@gmail.com)
+# thanks to KKata, replaced and #hup.hu
+# Cleaned up by László Bácsi (http://lackac.hu)
+# updated by kfl62 kfl62g@gmail.com
+
+"hu":
+  date:
+    formats:
+      default: "%Y.%m.%d."
+      short: "%b %e."
+      long: "%Y. %B %e."
+    day_names: [vasárnap, hétfő, kedd, szerda, csütörtök, péntek, szombat]
+    abbr_day_names: [v., h., k., sze., cs., p., szo.]
+    month_names: [~, január, február, március, április, május, június, július, augusztus, szeptember, október, november, december]
+    abbr_month_names: [~, jan., febr., márc., ápr., máj., jún., júl., aug., szept., okt., nov., dec.]
+    order: [ :year, :month, :day ]
+
+  time:
+    formats:
+      default: "%Y. %b %e., %H:%M"
+      short: "%b %e., %H:%M"
+      long: "%Y. %B %e., %A, %H:%M"
+    am: "de."
+    pm: "du."
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'fél perc'
+      less_than_x_seconds:
+#        zero: 'kevesebb, mint 1 másodperc'
+        one: 'kevesebb, mint 1 másodperc'
+        other: 'kevesebb, mint %{count} másodperc'
+      x_seconds:
+        one: '1 másodperc'
+        other: '%{count} másodperc'
+      less_than_x_minutes:
+#        zero: 'kevesebb, mint 1 perc'
+        one: 'kevesebb, mint 1 perc'
+        other: 'kevesebb, mint %{count} perc'
+      x_minutes:
+        one: '1 perc'
+        other: '%{count} perc'
+      about_x_hours:
+        one: 'kb 1 óra'
+        other: 'kb %{count} óra'
+      x_days:
+        one: '1 nap'
+        other: '%{count} nap'
+      about_x_months:
+        one: 'kb 1 hónap'
+        other: 'kb %{count} hónap'
+      x_months:
+        one: '1 hónap'
+        other: '%{count} hónap'
+      about_x_years:
+        one: 'kb 1 év'
+        other: 'kb %{count} év'
+      over_x_years:
+        one: 'több, mint 1 év'
+        other: 'több, mint %{count} év'
+      almost_x_years:
+        one:   "majdnem 1 év"
+        other: "majdnem %{count} év"
+    prompts:
+      year:   "Év"
+      month:  "Hónap"
+      day:    "Nap"
+      hour:   "Óra"
+      minute: "Perc"
+      second: "Másodperc"
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: ' '
+    currency:
+      format:
+        unit: 'Ft'
+        precision: 0
+        format: '%n %u'
+        separator: ""
+        delimiter: ""
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "bájt"
+            other: "bájt"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 hiba miatt nem menthető a következő: %{model}"
+          other: "%{count} hiba miatt nem menthető a következő: %{model}"
+        body: "Problémás mezők:"
+      messages:
+        inclusion: "nincs a listában"
+        exclusion: "nem elérhető"
+        invalid: "nem megfelelő"
+        confirmation: "nem egyezik"
+        accepted: "nincs elfogadva"
+        empty: "nincs megadva"
+        blank: "nincs megadva"
+        too_long: "túl hosszú (nem lehet több %{count} karakternél)"
+        too_short: "túl rövid (legalább %{count} karakter kell legyen)"
+        wrong_length: "nem megfelelő hosszúságú (%{count} karakter szükséges)"
+        taken: "már foglalt"
+        not_a_number: "nem szám"
+        greater_than: "nagyobb kell legyen, mint %{count}"
+        greater_than_or_equal_to: "legalább %{count} kell legyen"
+        equal_to: "pontosan %{count} kell legyen"
+        less_than: "kevesebb, mint %{count} kell legyen"
+        less_than_or_equal_to: "legfeljebb %{count} lehet"
+        odd: "páratlan kell legyen"
+        even: "páros kell legyen"
+        record_invalid: "Sikertelen validálás %{errors}"
+
+  support:
+    array:
+#      sentence_connector: "és"
+#      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " és "
+      last_word_connector: " és "
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Válasszon"
