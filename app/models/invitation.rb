@@ -16,9 +16,9 @@ class Invitation
     existing_user = User.find_by_email(opts[:email])
     if existing_user
       if opts[:from].contact_for(opts[:from].person)
-        raise "You are already friends with this person"
+        raise "You are already connceted to this person"
       elsif not existing_user.invited?
-        opts[:from].send_friend_request_to(existing_user.person, opts[:into])
+        opts[:from].send_contact_request_to(existing_user.person, opts[:into])
         return
       elsif Invitation.first(:from_id => opts[:from].id, :to_id => existing_user.id)
         raise "You already invited this person"
@@ -54,7 +54,7 @@ class Invitation
   end
 
   def to_request!
-    request = from.send_friend_request_to(to.person, into)
+    request = from.send_contact_request_to(to.person, into)
     destroy if request
     request
   end

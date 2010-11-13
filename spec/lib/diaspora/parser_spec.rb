@@ -33,7 +33,7 @@ describe Diaspora::Parser do
       proc { user.receive xml, user2.person }.should change(StatusMessage, :count).by(-1)
     end
 
-    context "friending" do
+    context "connecting" do
 
     let(:good_request) { FakeHttpRequest.new(:success)}
       it "should create a new person upon getting a person request" do
@@ -58,7 +58,7 @@ describe Diaspora::Parser do
     end
 
     it "should activate the Person if I initiated a request to that url" do
-      user.send_friend_request_to(user2.person, aspect)
+      user.send_contact_request_to(user2.person, aspect)
       request = user2.reload.pending_requests.find_by_to_id!(user2.person.id)
       user2.accept_and_respond(request.id, aspect2.id)
       
@@ -66,7 +66,7 @@ describe Diaspora::Parser do
       aspect.reload
       new_contact = user.contact_for(user2.person)
       aspect.people.include?(new_contact).should be true
-      user.friends.include?(new_contact).should be true
+      user.contacts.include?(new_contact).should be true
     end
 
     it 'should process retraction for a person' do

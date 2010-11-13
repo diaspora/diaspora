@@ -14,7 +14,7 @@
         - if person.id == current_user.person.id
           = t('.thats_you')
         - elsif current_user.person_objects.include?(person)
-          = t('.already_friends')
+          = t('.already_connected')
         - elsif current_user.pending_requests.find_by_person_id(person.id)
           = link_to =t('.pending_request'), aspects_manage_path
         - else

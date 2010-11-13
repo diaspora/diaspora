@@ -27,7 +27,7 @@ module HelperMethods
   end
 
   def connect_users(user1, aspect1, user2, aspect2)
-    request = user1.send_friend_request_to(user2.person, aspect1)
+    request = user1.send_contact_request_to(user2.person, aspect1)
 
     user1.reload
     aspect1.reload

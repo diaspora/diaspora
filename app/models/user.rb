@@ -46,7 +46,7 @@ class User
 
   many :invitations_from_me, :class => Invitation, :foreign_key => :from_id
   many :invitations_to_me, :class => Invitation, :foreign_key => :to_id
-  many :friends, :class_name => 'Contact', :foreign_key => :user_id
+  many :contacts, :class_name => 'Contact', :foreign_key => :user_id
   many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
   many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
   many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
@@ -56,7 +56,7 @@ class User
 
   #after_create :seed_aspects
 
-  before_destroy :unfriend_everyone, :remove_person
+  before_destroy :disconnect_everyone, :remove_person
   before_save do
     person.save if person
   end
@@ -97,13 +97,13 @@ class User
     end
   end
 
-  def move_friend(opts = {})
+  def move_contact(opts = {})
     return true if opts[:to] == opts[:from]
-    if opts[:friend_id] && opts[:to] && opts[:from]
+    if opts[:person_id] && opts[:to] && opts[:from]
       from_aspect = self.aspects.first(:_id => opts[:from])
-      posts_to_move = from_aspect.posts.find_all_by_person_id(opts[:friend_id])
-      if add_person_to_aspect(opts[:friend_id], opts[:to], :posts => posts_to_move)
-        delete_person_from_aspect(opts[:friend_id], opts[:from], :posts => posts_to_move)
+      posts_to_move = from_aspect.posts.find_all_by_person_id(opts[:person_id])
+      if add_person_to_aspect(opts[:person_id], opts[:to], :posts => posts_to_move)
+        delete_person_from_aspect(opts[:person_id], opts[:from], :posts => posts_to_move)
         return true
       end
     end
@@ -113,7 +113,7 @@ class User
   def add_person_to_aspect(person_id, aspect_id, opts = {})
     contact = contact_for(Person.find(person_id))
     raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
-    raise "Can not add person you are not friends with" unless contact
+    raise "Can not add person you are not connected to" unless contact
     raise 'Can not add person who is already in the aspect' if aspect.people.include?(contact)
     contact.aspects << aspect
     opts[:posts] ||= self.raw_visible_posts.all(:person_id => person_id)
@@ -388,8 +388,8 @@ class User
     {
       :user => {
         :posts            => self.raw_visible_posts.each { |post| post.as_json },
-        :friends          => self.friends.each { |friend| friend.as_json },
-        :aspects           => self.aspects.each { |aspect| aspect.as_json },
+        :contacts         => self.contacts.each { |contact| contact.as_json },
+        :aspects          => self.aspects.each { |aspect| aspect.as_json },
         :pending_requests => self.pending_requests.each { |request| request.as_json },
       }
     }
@@ -411,12 +411,12 @@ class User
     self.person.destroy
   end
 
-  def unfriend_everyone
-    friends.each { |contact|
+  def disconnect_everyone
+    contacts.each { |contact|
       if contact.person.owner?
-        contact.person.owner.unfriended_by self.person
+        contact.person.owner.disconnected_by self.person
       else
-        self.unfriend contact
+        self.disconnect contact
       end
     }
   end

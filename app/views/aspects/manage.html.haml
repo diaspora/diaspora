@@ -41,7 +41,7 @@
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_friend'), "#manage_aspect_contacts_pane_#{aspect.id}", :class => 'manage_aspect_contacts_button'
+            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{aspect.id}", :class => 'manage_aspect_contacts_button'
             %li!= remove_link(aspect)
 
         %ul.dropzone{:data=>{:aspect_id=>aspect.id}}

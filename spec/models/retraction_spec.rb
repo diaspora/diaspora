@@ -9,7 +9,7 @@ describe Retraction do
   let(:user) { make_user }
   let(:person) { Factory(:person) }
   let(:aspect) { user.aspects.create(:name => "Bruisers") }
-  let!(:activation) { user.activate_friend(person, aspect) }
+  let!(:activation) { user.activate_contact(person, aspect) }
   let!(:post) { user.post :status_message, :message => "Destroy!", :to => aspect.id }
 
   describe 'serialization' do

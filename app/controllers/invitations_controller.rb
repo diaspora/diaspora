@@ -19,8 +19,8 @@ class InvitationsController < Devise::InvitationsController
         flash[:error] = I18n.t 'invitations.create.no_more'
       elsif e.message == "You already invited this person"
         flash[:error] = I18n.t 'invitations.create.already_sent'
-      elsif e.message == "You are already friends with this person"
-        flash[:error] = I18n.t 'invitations.create.already_friends'
+      elsif e.message == "You are already connected to this person"
+        flash[:error] = I18n.t 'invitations.create.already_contacts'
       else
         raise e
       end

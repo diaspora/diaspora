@@ -97,15 +97,15 @@ describe User do
       connect_users(user, second_aspect, user2, user2.aspects.first)
     end
 
-    describe '#friends_not_in_aspect' do
+    describe '#contacts_not_in_aspect' do
       it 'finds the people who are not in the given aspect' do
-        people = user.friends_not_in_aspect(first_aspect)
+        people = user.contacts_not_in_aspect(first_aspect)
         people.should == [user2.person]
       end
     end
 
     describe '#person_objects' do
-      it 'returns "person" objects for all of my friends' do
+      it 'returns "person" objects for all of my contacts' do
         people = user.person_objects
         people.size.should == 2
         [user4.person, user2.person].each{ |p| people.should include p }
@@ -120,7 +120,7 @@ describe User do
     end
 
     describe '#people_in_aspects' do
-      it 'should return people objects for a users friend in each aspect' do
+      it 'should return people objects for a users contact in each aspect' do
         people = user.people_in_aspects([first_aspect])
         people.should == [user4.person]
         people = user.people_in_aspects([second_aspect])
@@ -137,19 +137,19 @@ describe User do
     describe '#contact_for_person_id' do
       it 'returns a contact' do
         contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
-        user.friends << contact
+        user.contacts << contact
         user.contact_for_person_id(person_one.id).should be_true
       end
 
       it 'returns the correct contact' do
         contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
-        user.friends << contact
+        user.contacts << contact
 
         contact2 = Contact.create(:user => user, :person => person_two, :aspects => [aspect])
-        user.friends << contact2
+        user.contacts << contact2
 
         contact3 = Contact.create(:user => user, :person => person_three, :aspects => [aspect])
-        user.friends << contact3
+        user.contacts << contact3
 
         user.contact_for_person_id(person_two.id).person.should == person_two
       end
@@ -160,7 +160,7 @@ describe User do
 
       it 'returns nil when someone else has contact with the target' do
         contact = Contact.create(:user => user, :person => person_one, :aspects => [aspect])
-        user.friends << contact
+        user.contacts << contact
         user2.contact_for_person_id(person_one.id).should be_nil
       end
     end

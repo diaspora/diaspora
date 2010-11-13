@@ -1,6 +1,7 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
 require File.join(Rails.root, 'lib/em-webfinger')
 class DevUtilitiesController < ApplicationController
   before_filter :authenticate_user!, :except => [:set_backer_number, :log]
@@ -20,13 +21,13 @@ class DevUtilitiesController < ApplicationController
         webfinger.on_person { |person|
           puts person.inspect
           if person.respond_to? :diaspora_handle
-            rel_hash = {:friend => person}
+            rel_hash = {:person => person}
             logger.info "Zombiefriending #{backer['given_name']} #{backer['family_name']}"
-            logger.info "Calling send_friend_request with #{rel_hash[:friend]} and #{current_user.aspects.first}"
+            logger.info "Calling send_contact_request with #{rel_hash[:person]} and #{current_user.aspects.first}"
             begin 
 
             
-              current_user.send_friend_request_to(rel_hash[:friend], current_user.aspects.first)
+              current_user.send_contact_request_to(rel_hash[:person], current_user.aspects.first)
           rescue Exception => e 
             logger.info e.inspect
             puts e.inspect

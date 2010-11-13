@@ -14,7 +14,7 @@ describe RequestsController do
   end
 
   describe '#create' do
-    it "redirects when requesting to be friends with yourself" do
+    it "redirects when requesting to be contacts with yourself" do
       put(:create, {
         :destination_handle => @user.diaspora_handle,
         :aspect_id => @user.aspects[0].id 

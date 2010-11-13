@@ -21,7 +21,7 @@ describe PeopleController do
       assigns[:people].should include eugene
     end
 
-    it 'shows a friend' do
+    it 'shows a contact' do
       user2 = make_user
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :index
@@ -29,7 +29,7 @@ describe PeopleController do
       response.should be_success
     end
 
-    it 'shows a non-friend' do
+    it 'shows a non-contact' do
       user2 = make_user
       user2.person.profile.searchable = true
       user2.save
@@ -55,14 +55,14 @@ describe PeopleController do
       response.should redirect_to people_path
     end
     
-    it "renders the show page of a friend" do
+    it "renders the show page of a contact" do
       user2 = make_user
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :show, :id => user2.person.id
       response.should be_success
     end
     
-    it "renders the show page of a non-friend" do
+    it "renders the show page of a non-contact" do
       user2 = make_user
       get :show, :id => user2.person.id
       response.should be_success

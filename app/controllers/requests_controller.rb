@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
   def destroy
     if params[:accept]
       if params[:aspect_id]
-        @friend = current_user.accept_and_respond( params[:id], params[:aspect_id])
+        @contact = current_user.accept_and_respond( params[:id], params[:aspect_id])
         flash[:notice] = I18n.t 'requests.destroy.success'
         respond_with :location => current_user.aspect_by_id(params[:aspect_id])
       else
@@ -21,7 +21,7 @@ class RequestsController < ApplicationController
         respond_with :location => requests_url
       end
     else
-      current_user.ignore_friend_request params[:id]
+      current_user.ignore_contact_request params[:id]
       flash[:notice] = I18n.t 'requests.destroy.ignore'
       respond_with :location => requests_url
     end
@@ -40,12 +40,12 @@ class RequestsController < ApplicationController
       finger.on_person{ |person|
       
       if person.class == Person
-        rel_hash = {:friend => person}
+        rel_hash = {:person => person}
 
         Rails.logger.debug("Sending request: #{rel_hash}")
 
         begin
-          @request = current_user.send_friend_request_to(rel_hash[:friend], aspect)
+          @request = current_user.send_contact_request_to(rel_hash[:person], aspect)
         rescue Exception => e
           Rails.logger.debug("error: #{e.message}")
           flash[:error] = e.message

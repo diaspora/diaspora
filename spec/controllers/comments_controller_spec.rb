@@ -24,7 +24,7 @@ describe CommentsController do
         :post_id     =>"#{@post.id}"}}
     }
 
-    context "on a post from a friend" do
+    context "on a post from a contact" do
       before do
         connect_users(user, aspect, user2, aspect2)
         @post = user2.post :status_message, :message => 'GIANTS', :to => aspect2.id

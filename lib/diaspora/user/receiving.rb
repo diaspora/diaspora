@@ -48,7 +48,7 @@ module Diaspora
               object.person = person if object.respond_to? :person=
 
               unless object.is_a?(Request) || self.contact_for(salmon_author)
-                raise "Not friends with that person" 
+                raise "Not connected to that person" 
               else
 
                 return receive_object(object,person)
@@ -80,10 +80,10 @@ module Diaspora
       def receive_retraction retraction
         if retraction.type == 'Person'
           unless retraction.person.id.to_s == retraction.post_id.to_s
-            raise "#{retraction.diaspora_handle} trying to unfriend #{retraction.post_id} from #{self.id}"
+            raise "#{retraction.diaspora_handle} trying to disconnect #{retraction.post_id} from #{self.id}"
           end
-          Rails.logger.info( "the person id is #{retraction.post_id} the friend found is #{visible_person_by_id(retraction.post_id).inspect}")
-          unfriended_by visible_person_by_id(retraction.post_id)
+          Rails.logger.info( "the person id is #{retraction.post_id} the contact found is #{visible_person_by_id(retraction.post_id).inspect}")
+          disconnected_by visible_person_by_id(retraction.post_id)
         else
           retraction.perform self.id
           aspects = self.aspects_with_person(retraction.person)
@@ -95,7 +95,7 @@ module Diaspora
 
       def receive_request request, person
         request.save!
-        receive_friend_request(request)
+        receive_contact_request(request)
       end
 
       def receive_profile profile, person

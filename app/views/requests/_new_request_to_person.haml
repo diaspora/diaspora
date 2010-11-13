@@ -5,4 +5,4 @@
 = form_tag(requests_path) do
   = select_tag(:aspect_id, options_from_collection_for_select(aspects, "id", "name"))
   = hidden_field_tag :destination_handle, person.diaspora_handle
-  = submit_tag t('people.person.add_friend')
+  = submit_tag t('people.person.add_connection')

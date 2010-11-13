@@ -54,12 +54,12 @@ var AspectEdit = {
       });
     }
 
-    if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing friend does
+    if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing contact does
         dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
       $.ajax({
-        url: "/aspects/move_friend/",
+        url: "/aspects/move_contact/",
         data: {
-          "friend_id" : person.attr('data-guid'),
+          "person_id" : person.attr('data-guid'),
           "from"      : person.attr('data-aspect_id'),
           "to"        : { "to" : dropzone.attr('data-aspect_id') }
         },
@@ -92,7 +92,7 @@ var AspectEdit = {
           type: "POST",
           url: "/aspects/remove_from_aspect",
           data:{
-            'friend_id' : person_id,
+            'person_id' : person_id,
             'aspect_id' : person.attr('data-aspect_id') }
         });
       }

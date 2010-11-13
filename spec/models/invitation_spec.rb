@@ -78,9 +78,9 @@ describe Invitation do
       new_user.invitations_to_me.first.message.should == message
     end
 
-    it 'sends a friend request to a user with that email into the aspect' do
+    it 'sends a contact request to a user with that email into the aspect' do
       user2
-      user.should_receive(:send_friend_request_to){ |a, b| 
+      user.should_receive(:send_contact_request_to){ |a, b| 
         a.should == user2.person
         b.should == aspect
       }

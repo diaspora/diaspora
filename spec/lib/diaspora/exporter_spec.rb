@@ -56,8 +56,8 @@ describe Diaspora::Exporter do
 
     it 'should include an aspects names of all aspects they are in' do
       #contact specific xml needs to be tested
-      user1.friends.find_by_person_id(user3.person.id).aspects.count.should > 0
-      user1.friends.find_by_person_id(user3.person.id).aspects.each { |aspect|
+      user1.contacts.find_by_person_id(user3.person.id).aspects.count.should > 0
+      user1.contacts.find_by_person_id(user3.person.id).aspects.each { |aspect|
         contacts_xml.should include aspect.name
       }
     end

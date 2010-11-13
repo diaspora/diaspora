@@ -9,7 +9,7 @@ describe Request do
   let(:user2)  { make_user }
   let(:person) { Factory :person }
   let(:aspect) { user.aspects.create(:name => "dudes") }
-  let(:request){ user.send_friend_request_to user2.person, aspect }
+  let(:request){ user.send_contact_request_to user2.person, aspect }
 
   describe 'validations' do
     before do
@@ -123,7 +123,7 @@ describe Request do
   end
   
   context 'mailers' do
-    context 'suger around friends' do
+    context 'sugar around contacts' do
       before do
         Request.should_receive(:async).and_return(Request)
         @mock_request = mock()

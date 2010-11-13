@@ -118,7 +118,7 @@ describe User do
         user.push_to_aspects(post, aspect.id)
       end
 
-      it 'should push a post to friends in all aspects' do
+      it 'should push a post to contacts in all aspects' do
         user.should_receive(:push_to_person).exactly(3).times
         user.push_to_aspects(post, :all)
       end

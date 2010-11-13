@@ -123,7 +123,7 @@ describe("AspectEdit", function() {
         expect($.ajax).toHaveBeenCalled();
         var args = $.ajax.mostRecentCall.args[0];
         expect(args["url"]).toEqual("/aspects/move_friend/");
-        expect(args["data"]["friend_id"]).toEqual("guid-of-this-person");
+        expect(args["data"]["person_id"]).toEqual("guid-of-this-person");
         expect(args["data"]["from"]).toEqual("guid-of-current-aspect");
         expect(args["data"]["to"]).toEqual({"to": "guid-of-target-aspect" });
       });

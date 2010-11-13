@@ -228,7 +228,7 @@ describe User do
   end
 
   context 'profiles' do
-    it 'should be able to update their profile and send it to their friends' do
+    it 'should be able to update their profile and send it to their contacts' do
       updated_profile = {
         :first_name => 'bob',
         :last_name => 'billytown',
@@ -245,7 +245,7 @@ describe User do
       user.aspects.include?(aspect).should == false
     end
 
-    it 'should not delete an aspect with friends' do
+    it 'should not delete an aspect with contacts' do
       connect_users(user, aspect, user2, aspect2)
       aspect.reload
       proc { user.drop_aspect(aspect) }.should raise_error /Aspect not empty/
@@ -263,8 +263,8 @@ describe User do
   end
 
   describe 'account removal' do
-    it 'should unfriend everyone' do
-      user.should_receive(:unfriend_everyone)
+    it 'should disconnect everyone' do
+      user.should_receive(:disconnect_everyone)
       user.destroy
     end
 
@@ -294,19 +294,19 @@ describe User do
       end
     end
 
-    describe '#unfriend_everyone' do
+    describe '#disconnect_everyone' do
 
       it 'should send retractions to remote poeple' do
         user2.delete
-        user.activate_friend(user2.person, aspect)
+        user.activate_contact(user2.person, aspect)
 
-        user.should_receive(:unfriend).once
+        user.should_receive(:disconnect).once
         user.destroy
       end
 
-      it 'should unfriend local people' do
+      it 'should disconnect local people' do
         connect_users(user, aspect, user2, aspect2)
-        lambda {user.destroy}.should change{user2.reload.friends.count}.by(-1)
+        lambda {user.destroy}.should change{user2.reload.contacts.count}.by(-1)
       end
     end
   end

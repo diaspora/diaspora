@@ -17,19 +17,19 @@ describe "attack vectors" do
   let(:user3) { make_user }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
-  context 'non-friend valid user' do
+  context 'non-contact valid user' do
     
-    it 'raises if receives post by non-friend' do
-      post_from_non_friend = bad_user.build_post( :status_message, :message => 'hi')
-      xml = bad_user.salmon(post_from_non_friend).xml_for(user.person)
+    it 'raises if receives post by non-contact' do
+      post_from_non_contact = bad_user.build_post( :status_message, :message => 'hi')
+      xml = bad_user.salmon(post_from_non_contact).xml_for(user.person)
 
-      post_from_non_friend.delete
+      post_from_non_contact.delete
       bad_user.delete
 
       post_count = Post.count
-      proc{ user.receive_salmon(xml) }.should raise_error /Not friends with that person/
+      proc{ user.receive_salmon(xml) }.should raise_error /Not connected to that person/
 
-      user.raw_visible_posts.include?(post_from_non_friend).should be false
+      user.raw_visible_posts.include?(post_from_non_contact).should be false
 
       Post.count.should == post_count
     end
@@ -46,7 +46,7 @@ describe "attack vectors" do
     user3.reload.visible_posts.should_not include(original_message)
   end
 
-  context 'malicious friend attack vector' do
+  context 'malicious contact attack vector' do
     before do
       connect_users(user, aspect, user2, aspect2)
       connect_users(user, aspect, user3, aspect3)
@@ -144,9 +144,9 @@ describe "attack vectors" do
 
       proc{ 
         user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
-      }.should raise_error /#{user3.diaspora_handle} trying to unfriend #{user2.person.id} from #{user.id}/
+      }.should raise_error /#{user3.diaspora_handle} trying to disconnect #{user2.person.id} from #{user.id}/
     
-      user.reload.friends.count.should == 2
+      user.reload.contacts.count.should == 2
     end
 
     it 'it should not allow you to send retractions with xml and salmon handle mismatch' do
@@ -159,7 +159,7 @@ describe "attack vectors" do
         user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
       }.should raise_error /Malicious Post/
     
-      user.reload.friends.count.should == 2
+      user.reload.contacts.count.should == 2
     end
 
     it 'does not let me update other persons post' do

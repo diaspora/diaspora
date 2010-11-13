@@ -59,8 +59,8 @@ var Publisher = {
 
     if (dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
       $.ajax({
-        url: "/aspects/move_friend/",
-        data: {"friend_id" : person.attr('data-guid'),
+        url: "/aspects/move_contact/",
+        data: {"person_id" : person.attr('data-guid'),
           "from"      : person.attr('data-aspect_id'),
           "to"        : { "to" : dropzone.attr('data-aspect_id') }},
         success: function(data) {
@@ -85,7 +85,7 @@ var Publisher = {
           type: "POST",
           url: "/aspects/remove_from_aspect",
           data:{
-            'friend_id' : person_id,
+            'person_id' : person_id,
             'aspect_id' : person.attr('data-aspect_id') }
         });
       }

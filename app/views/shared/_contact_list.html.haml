@@ -36,7 +36,7 @@
               = contact.person.real_name
             .right
               = hidden_field_tag :aspect_id, aspect.id
-              = hidden_field_tag :friend_id, contact.person.id
+              = hidden_field_tag :contact_id, contact.person.id
               - if defined?(manage) && manage
                 = hidden_field_tag :manage, true
               = submit_tag '+', :class => 'add', :title => "Add #{contact.person.real_name} to #{aspect}"
@@ -48,7 +48,7 @@
               = contact.person.real_name
             .right
               = hidden_field_tag :aspect_id, aspect.id
-              = hidden_field_tag :friend_id, contact.person.id
+              = hidden_field_tag :contact_id, contact.person.id
               - if defined?(manage) && manage
                 = hidden_field_tag :manage, true
               = submit_tag 'x', :class => 'remove', :title => "Remove #{contact.person.real_name} from #{aspect}"

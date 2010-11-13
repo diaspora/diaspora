@@ -20,10 +20,10 @@ describe AspectsController do
   end
 
   describe "#index" do
-    it "assigns @friends to all the user's friends" do
+    it "assigns @contacts to all the user's contacts" do
       Factory.create :person
       get :index
-      assigns[:friends].should == @user.person_objects
+      assigns[:contacts].should == @user.contacts
     end
   end
 
@@ -69,7 +69,7 @@ describe AspectsController do
       before do
         requestor        = make_user
         requestor_aspect = requestor.aspects.create(:name => "Meh")
-        requestor.send_friend_request_to(@user.person, requestor_aspect)
+        requestor.send_contact_request_to(@user.person, requestor_aspect)
 
         requestor.reload
         requestor_aspect.reload
@@ -90,13 +90,13 @@ describe AspectsController do
     end
   end
 
-  describe "#move_friend" do
-    let(:opts) { {:friend_id => "person_id", :from => "from_aspect_id", :to => {:to => "to_aspect_id"}} }
-    it 'calls the move_friend_method' do
+  describe "#move_contact" do
+    let(:opts) { {:person_id => "person_id", :from => "from_aspect_id", :to => {:to => "to_aspect_id"}} }
+    it 'calls the move_contact_method' do
       pending "need to figure out what is the deal with remote requests"
       @controller.stub!(:current_user).and_return(@user)
-      @user.should_receive(:move_friend).with(:friend_id => "person_id", :from => "from_aspect_id", :to => "to_aspect_id")
-      post :move_friend, opts
+      @user.should_receive(:move_contact).with(:person_id => "person_id", :from => "from_aspect_id", :to => "to_aspect_id")
+      post :move_contact, opts
     end
   end
 
@@ -117,7 +117,7 @@ describe AspectsController do
     it 'adds the users to the aspect' do
       @aspect1.reload
       @aspect1.people.include?(@contact).should be false
-      post 'add_to_aspect', {:friend_id => @user2.person.id, :aspect_id => @aspect1.id}
+      post 'add_to_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
       @aspect1.reload
       @aspect1.people.include?(@contact).should be true
     end
@@ -127,7 +127,7 @@ describe AspectsController do
     it 'adds the users to the aspect' do
       @aspect.reload
       @aspect.people.include?(@contact).should be true
-      post 'remove_from_aspect', {:friend_id => @user2.person.id, :aspect_id => @aspect1.id}
+      post 'remove_from_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
       @aspect1.reload
       @aspect1.people.include?(@contact).should be false
     end

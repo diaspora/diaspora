@@ -125,68 +125,68 @@ describe Person do
     lambda {person.destroy}.should_not change(Comment, :count)
   end
 
-  describe "unfriending" do
-    it 'should not delete an orphaned friend' do
-      @user.activate_friend(@person, @aspect)
+  describe "disconnecting" do
+    it 'should not delete an orphaned contact' do
+      @user.activate_contact(@person, @aspect)
 
-      lambda {@user.unfriend(@person)}.should_not change(Person, :count)
+      lambda {@user.disconnect(@person)}.should_not change(Person, :count)
     end
 
-    it 'should not delete an un-orphaned friend' do
-      @user.activate_friend(@person, @aspect)
-      @user2.activate_friend(@person, @aspect2)
+    it 'should not delete an un-orphaned contact' do
+      @user.activate_contact(@person, @aspect)
+      @user2.activate_contact(@person, @aspect2)
 
-      lambda {@user.unfriend(@person)}.should_not change(Person, :count)
+      lambda {@user.disconnect(@person)}.should_not change(Person, :count)
     end
   end
 
   describe '#search' do
     before do
-      @friend_one   = Factory.create(:person)
-      @friend_two   = Factory.create(:person)
-      @friend_three = Factory.create(:person)
-      @friend_four  = Factory.create(:person)
+      @connected_person_one   = Factory.create(:person)
+      @connected_person_two   = Factory.create(:person)
+      @connected_person_three = Factory.create(:person)
+      @connected_person_four  = Factory.create(:person)
 
-      @friend_one.profile.first_name = "Robert"
-      @friend_one.profile.last_name  = "Grimm"
-      @friend_one.profile.save
+      @connected_person_one.profile.first_name = "Robert"
+      @connected_person_one.profile.last_name  = "Grimm"
+      @connected_person_one.profile.save
 
-      @friend_two.profile.first_name = "Eugene"
-      @friend_two.profile.last_name  = "Weinstein"
-      @friend_two.save
+      @connected_person_two.profile.first_name = "Eugene"
+      @connected_person_two.profile.last_name  = "Weinstein"
+      @connected_person_two.save
 
-      @friend_three.profile.first_name = "Yevgeniy"
-      @friend_three.profile.last_name  = "Dodis"
-      @friend_three.save
+      @connected_person_three.profile.first_name = "Yevgeniy"
+      @connected_person_three.profile.last_name  = "Dodis"
+      @connected_person_three.save
 
-      @friend_four.profile.first_name = "Casey"
-      @friend_four.profile.last_name  = "Grippi"
-      @friend_four.save
+      @connected_person_four.profile.first_name = "Casey"
+      @connected_person_four.profile.last_name  = "Grippi"
+      @connected_person_four.save
     end
 
     it 'should yield search results on partial names' do
       people = Person.search("Eu")
-      people.include?(@friend_two).should   == true
-      people.include?(@friend_one).should   == false
-      people.include?(@friend_three).should == false
-      people.include?(@friend_four).should  == false
+      people.include?(@connected_person_two).should   == true
+      people.include?(@connected_person_one).should   == false
+      people.include?(@connected_person_three).should == false
+      people.include?(@connected_person_four).should  == false
 
       people = Person.search("wEi")
-      people.include?(@friend_two).should   == true
-      people.include?(@friend_one).should   == false
-      people.include?(@friend_three).should == false
-      people.include?(@friend_four).should  == false
+      people.include?(@connected_person_two).should   == true
+      people.include?(@connected_person_one).should   == false
+      people.include?(@connected_person_three).should == false
+      people.include?(@connected_person_four).should  == false
 
       people = Person.search("gri")
-      people.include?(@friend_one).should   == true
-      people.include?(@friend_four).should  == true
-      people.include?(@friend_two).should   == false
-      people.include?(@friend_three).should == false
+      people.include?(@connected_person_one).should   == true
+      people.include?(@connected_person_four).should  == true
+      people.include?(@connected_person_two).should   == false
+      people.include?(@connected_person_three).should == false
     end
 
     it 'should yield results on full names' do
       people = Person.search("Casey Grippi")
-      people.should == [@friend_four]
+      people.should == [@connected_person_four]
     end
 
     it 'should only display searchable people' do
@@ -196,7 +196,7 @@ describe Person do
     end
 
     it 'should search on handles' do
-      Person.search(@friend_one.diaspora_handle).should include @friend_one
+      Person.search(@connected_person_one.diaspora_handle).should include @connected_person_one
     end
   end
 

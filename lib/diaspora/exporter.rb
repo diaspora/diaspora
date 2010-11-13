@@ -46,13 +46,13 @@ module Diaspora
             }
 
             xml.contacts {
-              user.friends.each do |friend|
+              user.contacts.each do |contact|
               xml.contact { 
-                xml.user_id friend.user_id
-                xml.person_id friend.person_id
+                xml.user_id contact.user_id
+                xml.person_id contact.person_id
 
                 xml.aspects {
-                  friend.aspects.each do |aspect|
+                  contact.aspects.each do |aspect|
                     xml.aspect {
                       xml.name aspect.name
                     }
@@ -73,8 +73,8 @@ module Diaspora
             }
              
             xml.people {
-              user.friends.each do |friend|
-                person = friend.person
+              user.contacts.each do |contact|
+                person = contact.person
                 xml.parent << person.to_xml
 
               end

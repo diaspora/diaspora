@@ -12,7 +12,7 @@ describe PublicsController do
   let!(:aspect1) { user.aspects.create(:name => "foo") }
   let!(:aspect2) { user2.aspects.create(:name => "far") }
   let!(:aspect2) { user2.aspects.create(:name => 'disciples') }
-  let!(:req) { user2.send_friend_request_to(user.person, aspect2) }
+  let!(:req) { user2.send_contact_request_to(user.person, aspect2) }
   let!(:xml) { user2.salmon(req).xml_for(user.person) }
   let(:person){Factory(:person)}
 
@@ -99,7 +99,7 @@ describe PublicsController do
   end
 
   context 'intergration tests that should not be in this file' do
-    describe 'friend requests' do
+    describe 'contact requests' do
       before do
         req.delete
         user2.reload

@@ -25,8 +25,8 @@ module Diaspora
         id = id.to_id
         if id == self.person.id
           self.person
-        elsif friend = friends.first(:person_id => id)
-          friend.person
+        elsif contact = contacts.first(:person_id => id)
+          contact.person
         else
           visible_people.detect{|x| x.id == id }
         end
@@ -42,16 +42,16 @@ module Diaspora
       end
 
       def contact_for_person_id(person_id)
-        friends.first(:person_id => person_id.to_id) if person_id
+        contacts.first(:person_id => person_id.to_id) if person_id
 
       end
 
-      def friends_not_in_aspect( aspect ) 
+      def contacts_not_in_aspect( aspect ) 
         person_ids = Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).collect{|x| x.person_id }
         Person.all(:id.in => person_ids)
       end
 
-      def person_objects(contacts = self.friends)
+      def person_objects(contacts = self.contacts)
         person_ids = contacts.collect{|x| x.person_id} 
         Person.all(:id.in => person_ids)
       end

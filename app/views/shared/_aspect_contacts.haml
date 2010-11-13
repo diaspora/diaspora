@@ -6,14 +6,14 @@
 #left_pane
   %h2= aspect == :all ? t('.everyone') : aspect
 
-  .friend_pictures
+  .contact_pictures
     = owner_image_link
 
-    - for friend in people
-      = person_image_link(friend)
+    - for contact in people
+      = person_image_link(contact)
 
     -unless (aspect == :all)
-      = link_to (image_tag('add_friend_button.png', :title => "manage #{@aspect}")), "#manage_aspect_contacts_pane", :class => 'manage_aspect_contacts_button'
+      = link_to (image_tag('add_contact_button.png', :title => "manage #{@aspect}")), "#manage_aspect_contacts_pane", :class => 'manage_aspect_contacts_button'
 
       .fancybox_content
         #manage_aspect_contacts_pane
@@ -21,7 +21,7 @@
     -else
       .clear
         %br
-        = link_to t('.add_friends'), aspects_manage_path
+        = link_to t('.add_connections'), aspects_manage_path
 
   %br
   %br

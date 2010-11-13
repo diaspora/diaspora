@@ -11,7 +11,7 @@ describe Comment do
   let(:user2)   {make_user}
   let(:aspect2) {user2.aspects.create(:name => "Lame-faces")}
 
-  let!(:friending) { connect_users(user, aspect, user2, aspect2) }
+  let!(:connecting) { connect_users(user, aspect, user2, aspect2) }
 
   it 'validates that the handle belongs to the person' do
     user_status = user.post(:status_message, :message => "hello", :to => aspect.id)
@@ -47,7 +47,7 @@ describe Comment do
   describe 'comment propagation' do
     before do
       @person = Factory.create(:person)
-      user.activate_friend(@person, Aspect.first(:id => aspect.id))
+      user.activate_contact(@person, Aspect.first(:id => aspect.id))
 
       @person2 = Factory.create(:person)
       @person_status = Factory.build(:status_message, :person => @person)
@@ -151,7 +151,7 @@ describe Comment do
       message.comments.first.verify_post_creator_signature.should be true
     end
 
-    it 'should verify a comment made on a remote post by a different friend' do
+    it 'should verify a comment made on a remote post by a different contact' do
       comment = Comment.new(:person => user2.person, :text => "cats", :post => @remote_message)
       comment.creator_signature = comment.send(:sign_with_key,user2.encryption_key)
       comment.signature_valid?.should be true

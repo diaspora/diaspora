@@ -39,10 +39,10 @@ describe User do
     end
 
 
-    it 'throws if you try to add someone you"re friends with' do
+    it 'throws if you try to add someone you"re connected to' do
       connect_users(inviter, aspect, another_user, wrong_aspect)
       inviter.reload
-      proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /already friends/
+      proc{inviter.invite_user(:email => another_user.email, :aspect_id => aspect.id)}.should raise_error /already connected/
     end
 
   end
@@ -88,7 +88,7 @@ describe User do
         invited_user.person.profile.first_name.should == "Bob"
       end
 
-      it 'resolves incoming invitations into friend requests' do
+      it 'resolves incoming invitations into contact requests' do
         invited_user.reload.pending_requests.count.should == 1
         inviter.reload.pending_requests.count.should == 1
       end
@@ -101,12 +101,12 @@ describe User do
           invited_user.reload
           inviter.reload
         end
-        it 'successfully makes invited_user friends with inviter' do
+        it 'successfully connects invited_user to inviter' do
           invited_user.contact_for(inviter.person).should_not be_nil
           invited_user.pending_requests.count.should == 0
         end
 
-        it 'successfully makes inviter friends with invited_user' do
+        it 'successfully connects inviter to invited_user' do
           inviter.contact_for(invited_user.person).should_not be_nil
           inviter.pending_requests.size.should == 0
         end

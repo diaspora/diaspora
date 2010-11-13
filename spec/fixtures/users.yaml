@@ -25,7 +25,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id001 !ruby/object:BSON::ObjectId 
       data: 
@@ -118,7 +118,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id003 !ruby/object:BSON::ObjectId 
       data: 
@@ -211,7 +211,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id004 !ruby/object:BSON::ObjectId 
       data: 
@@ -304,7 +304,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id005 !ruby/object:BSON::ObjectId 
       data: 
@@ -397,7 +397,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id006 !ruby/object:BSON::ObjectId 
       data: 
@@ -490,7 +490,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id007 !ruby/object:BSON::ObjectId 
       data: 
@@ -583,7 +583,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id008 !ruby/object:BSON::ObjectId 
       data: 
@@ -676,7 +676,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id009 !ruby/object:BSON::ObjectId 
       data: 
@@ -769,7 +769,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id010 !ruby/object:BSON::ObjectId 
       data: 
@@ -862,7 +862,7 @@
 
     last_sign_in_ip: 
     invites: 5
-    friend_ids: []
+    contact_ids: []
 
     _id: &id011 !ruby/object:BSON::ObjectId 
       data: 
