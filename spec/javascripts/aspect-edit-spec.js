@@ -117,12 +117,12 @@ describe("AspectEdit", function() {
       });
     });
     describe("when moving an existing friend between aspects", function() {
-      it("calls move_friend", function() {
+      it("calls move_contact", function() {
         var targetAspect = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
         $.proxy(AspectEdit.onDropMove, targetAspect)(null, {draggable: $('.person.ui-draggable')});
         expect($.ajax).toHaveBeenCalled();
         var args = $.ajax.mostRecentCall.args[0];
-        expect(args["url"]).toEqual("/aspects/move_friend/");
+        expect(args["url"]).toEqual("/aspects/move_contact/");
         expect(args["data"]["person_id"]).toEqual("guid-of-this-person");
         expect(args["data"]["from"]).toEqual("guid-of-current-aspect");
         expect(args["data"]["to"]).toEqual({"to": "guid-of-target-aspect" });
@@ -158,7 +158,7 @@ describe("AspectEdit", function() {
         expect(args["url"]).toEqual("/requests/guid-of-friendship-requestor");
         expect(args["data"]).toEqual({"accept" : true, "aspect_id" : "guid-of-target-aspect" });
       });
-      it("doesn't call move_friend", function() {
+      it("doesn't call move_contact", function() {
         $.proxy(AspectEdit.onDropMove, $('.dropzone.ui-droppable'))(null, {draggable: $('.person.ui-draggable')});
         expect($.ajax.calls.length).toEqual(1);
       });
