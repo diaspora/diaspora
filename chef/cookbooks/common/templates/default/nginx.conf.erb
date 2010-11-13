@@ -41,7 +41,7 @@ http {
 
    listen       80;
    server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
-   root /usr/local/app/diaspora;
+   root /usr/local/app/diaspora/public;
 
    location / {
     proxy_set_header X-Real-IP $remote_addr;
