@@ -252,7 +252,7 @@ en:
   people:
       person:
           pending_request: "pending request"
-          already_friends: "Already friends"
+          already_connected: "Already connected"
           thats_you: "thats you!"
           add_contact: "add contact"
       index:
