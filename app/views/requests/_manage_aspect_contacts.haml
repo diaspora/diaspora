@@ -20,7 +20,7 @@
       %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
 
       %p
-        = label_tag :destination_handle, t('.contacts_username'), :for => "request_d_handle_to_#{aspect.id}"
+        = label_tag :destination_handle, t('.contact_username'), :for => "request_d_handle_to_#{aspect.id}"
         = text_field_tag :destination_handle,'', :id => "request_d_handle_to_#{aspect.id}"
       = hidden_field_tag :aspect_id, aspect.id
 

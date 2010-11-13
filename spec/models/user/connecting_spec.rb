@@ -215,23 +215,23 @@ describe Diaspora::UserModules::Connecting do
         lambda { 
           user2.disconnect user.person }.should change {
           user2.reload.contacts.count }.by(-1)
-        aspect2.reload.people.count.should == 0
+        aspect2.reload.contacts.count.should == 0
       end
 
       it 'is disconnected by another user' do
         lambda { user.disconnected_by user2.person }.should change {
           user.contacts.count }.by(-1)
-        aspect.reload.people.count.should == 0
+        aspect.reload.contacts.count.should == 0
       end
 
       it 'should remove the contact from all aspects they are in' do
         user.add_person_to_aspect(user2.person.id, aspect1.id)
-        aspect.reload.people.count.should == 1
-        aspect1.reload.people.count.should == 1
+        aspect.reload.contacts.count.should == 1
+        aspect1.reload.contacts.count.should == 1
         lambda { user.disconnected_by user2.person }.should change {
           user.contacts.count }.by(-1)
-        aspect.reload.people.count.should == 0
-        aspect1.reload.people.count.should == 0
+        aspect.reload.contacts.count.should == 0
+        aspect1.reload.contacts.count.should == 0
       end
 
       context 'with a post' do

@@ -3,12 +3,12 @@
 -#   the COPYRIGHT file.
 
 .span-4.append-1.last
-  = render 'shared/aspect_contacts', :people => @contacts, :aspect => @aspect
+  = render 'shared/aspect_contacts', :contacts => @aspect_contacts, :aspect => @aspect
 
 .span-15.last
-  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
+  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @aspect_contacts.count
   = render 'shared/publisher', :aspect => @aspect
-  = render 'aspects/no_posts_message', :post_count => @posts.count, :contact_count=> @contacts.count
+  = render 'aspects/no_posts_message', :post_count => @posts.count, :contact_count=> @aspect_contacts.count
 
   = render 'shared/stream', :posts => @posts
 

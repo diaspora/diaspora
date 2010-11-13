@@ -72,13 +72,13 @@ en:
           share_with_all: "Share with all aspects"
           share_with: "Share with %{aspect}"
           all: "all"
-      aspect_friends:
-          add_friends: "add friends"
+      aspect_contacts:
+          add_contacts: "add contacts"
           everyone: "Everyone"
           add_to: "add to %{aspect}"
       invitations:
           invites: "Invites"
-          invite_a_friend: "Invite a friend"
+          invite_someone: "Invite someone"
           invitations_left: "(%{count} left)"
       reshare:
           reshare: "Reshare"
@@ -94,17 +94,17 @@ en:
       notification:
           new: "New %{type} from %{from}"
   aspects:
-      no_friends_message:
-          nobody: "We know you have friends — bring them to Diaspora!"
+      no_contacts_message:
+          nobody: "We know you know people — bring them to Diaspora!"
           nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
-          add_friend: "Add a friend"
-          add_friend_to: "Add someone to %{aspect_name}"
+          add_contact: "Add a contact"
+          add_contact_to: "Add someone to %{aspect_name}"
           invite: "Invite someone to join Diaspora!"
       no_posts_message:
           start_talking:  "Nobody has said anything yet.  Get the conversation started!"
       manage:
           add_a_new_aspect: "Add a new aspect"
-          add_a_new_friend:  "Add a new friend"
+          add_a_new_contact: "Add a new contact"
           requests: "Requests"
           no_requests: "No new requests"
           manage_aspects: "Manage aspects"
@@ -120,13 +120,13 @@ en:
           success: "%{name} was successfully removed."
       update:
           success: "Your aspect, %{name}, has been successfully edited."
-      move_friend:
+      move_contact:
           failure: "didn't work %{inspect}"
           success: "Person moved to new aspect"
-          error: "Error moving friend: %{inspect}"
+          error: "Error moving contact: %{inspect}"
       add_to_aspect:
-          failure: "Failed to add friend to aspect."
-          success: "Successfully added friend to aspect."
+          failure: "Failed to add contact to aspect."
+          success: "Successfully added contact to aspect."
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
@@ -136,7 +136,7 @@ en:
           failure: "Failed to remove person from aspect"
   users:
       edit:
-          invite_friends: "Invite friends"
+          invite_contacts: "Invite contacts"
           export_data: "Export Data"
           close_account: "Close Account"
           change_language: "Change Language"
@@ -157,7 +157,7 @@ en:
               your_profile: "Your Profile"
           step_2:
               your_aspects: "Your aspects"
-              description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
+              description: "Tell Diaspora what different aspects of you are seen by different contacts.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
               aspect_name: "Aspect name"
               add: "Add"
           step_3:
@@ -254,7 +254,7 @@ en:
           pending_request: "pending request"
           already_friends: "Already friends"
           thats_you: "thats you!"
-          add_friend: "add friend"
+          add_contact: "add contact"
       index:
           results_for: "search results for"
       show:
@@ -281,7 +281,7 @@ en:
           updated: "Profile updated"
           failed: "Failed to update profile"
       profile_sidebar:
-          remove_friend: "remove friend"
+          remove_contact: "remove contact"
           edit_my_profile: "Edit my profile"
           last_seen: "last seen: %{how_long_ago}"
           bio: "bio"
@@ -292,15 +292,15 @@ en:
            people_on_pod_are_aware_of: " people on pod are aware of"
   requests:
       manage_aspect_contacts:
-          add_a_new_friend_to: "Add a new friend to"
+          add_a_new_contact_to: "Add a new contact to"
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-          friends_username: "Friend's username"
+          contact_username: "Contact's username"
           create_request: "Create request"
       destroy:
           success: "You are now friends."
           error: "Please select an aspect!"
-          ignore: "Ignored friend request."
+          ignore: "Ignored contact request."
       create:
           tried: "we tried our best to send a message to %{account}"
   services:
@@ -322,13 +322,13 @@ en:
       love: "love,"
       diaspora: "the diaspora email robot"
       new_request:
-          subject: "new Diaspora* friend request from %{from}"
-          just_sent_you: "just sent you a friend request on Diaspora*"
+          subject: "new Diaspora* contact request from %{from}"
+          just_sent_you: "just sent you a contact request on Diaspora*"
           try_it_out: "You should really think about checking it out."
           sign_in: "sign in here"
       request_accepted:
-          subject: "%{name} has accepted your friend request on Diaspora*"
-          accepted: "has accepted your friend request. They are now in your"
+          subject: "%{name} has accepted your contact request on Diaspora*"
+          accepted: "has accepted your contact request. They are now in your"
           aspect: "aspect."
   date:
       order: [:month, :day, :year]

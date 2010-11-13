@@ -57,7 +57,7 @@ module Diaspora
       end
 
       def people_in_aspects(aspects)
-        person_ids = contacts_in_aspects(aspects).collect{|x| x.person_id}
+        person_ids = contacts_in_aspects(aspects).collect{|contact| contact.person_id}
         Person.all(:id.in => person_ids)
       end
 
@@ -76,7 +76,7 @@ module Diaspora
 
       def contacts_in_aspects aspects
         aspects.inject([]) do |contacts,aspect|
-          contacts | aspect.people
+          contacts | aspect.contacts
         end
       end
 

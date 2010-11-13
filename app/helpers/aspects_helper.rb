@@ -8,7 +8,7 @@ module AspectsHelper
   end
 
   def remove_link( aspect )
-    if aspect.people.size == 0
+    if aspect.contacts.size == 0
       link_to I18n.t('aspects.helper.remove'), aspect, :method => :delete, :confirm => I18n.t('aspects.helper.are_you_sure')
     else
       "<span class='grey' title=#{I18n.t('aspects.helper.aspect_not_empty')}>#{I18n.t('aspects.helper.remove')}</span>"

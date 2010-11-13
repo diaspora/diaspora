@@ -45,21 +45,17 @@
             %li!= remove_link(aspect)
 
         %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
-          -for contact in aspect.people
-            -person = contact.person
-            %li.person{:data=>{:guid=>person.id, :aspect_id=>aspect.id}}
+          -for contact in aspect.contacts
+            %li.person{:data=>{:guid=>contact.person.id, :aspect_id=>aspect.id}}
               .delete
                 .x
                   X
                 .circle
-              = person_image_tag(person)
+              = person_image_tag(contact.person)
           .draggable_info
             =t('.drag_to_add')
-
-
 
           .fancybox_content
             %div{:id => "manage_aspect_contacts_pane_#{aspect.id}"}
               = render "requests/manage_aspect_contacts", :aspect => aspect, :manage => true
-
 

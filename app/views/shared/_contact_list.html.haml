@@ -28,7 +28,6 @@
   %ul
     - for contact in contacts
       %li
-
         - unless contact.aspect_ids.include?(aspect.id)
           = form_tag '/aspects/add_to_aspect' do
             = person_image_tag contact.person
@@ -36,11 +35,10 @@
               = contact.person.real_name
             .right
               = hidden_field_tag :aspect_id, aspect.id
-              = hidden_field_tag :contact_id, contact.person.id
+              = hidden_field_tag :person_id, contact.person.id
               - if defined?(manage) && manage
                 = hidden_field_tag :manage, true
               = submit_tag '+', :class => 'add', :title => "Add #{contact.person.real_name} to #{aspect}"
-
         - else
           = form_tag '/aspects/remove_from_aspect' do
             = person_image_tag contact.person
@@ -48,7 +46,7 @@
               = contact.person.real_name
             .right
               = hidden_field_tag :aspect_id, aspect.id
-              = hidden_field_tag :contact_id, contact.person.id
+              = hidden_field_tag :person_id, contact.person.id
               - if defined?(manage) && manage
                 = hidden_field_tag :manage, true
               = submit_tag 'x', :class => 'remove', :title => "Remove #{contact.person.real_name} from #{aspect}"

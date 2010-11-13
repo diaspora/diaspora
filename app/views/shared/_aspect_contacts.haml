@@ -9,8 +9,8 @@
   .contact_pictures
     = owner_image_link
 
-    - for contact in people
-      = person_image_link(contact)
+    - for contact in contacts
+      = person_image_link(contact.person)
 
     -unless (aspect == :all)
       = link_to (image_tag('add_contact_button.png', :title => "manage #{@aspect}")), "#manage_aspect_contacts_pane", :class => 'manage_aspect_contacts_button'

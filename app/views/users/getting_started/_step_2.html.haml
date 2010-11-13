@@ -19,10 +19,10 @@
     %li{:style=>"position:relative;"}
       = aspect
       .contact_pictures.horizontal
-        - for contact in aspect.person_objects
-          = person_image_link(contact)
+        - for contact in aspect.contacts
+          = person_image_link(contact.person)
 
-        = link_to (image_tag('add_contact_button.png', :title => t('shared.aspect_contactss.add_to', :aspect => aspect))), '#manage_aspect_contacts_pane', :class => 'manage_aspect_contacts_button'
+        = link_to (image_tag('add_contact_button.png', :title => t('shared.aspect_contacts.add_to', :aspect => aspect))), '#manage_aspect_contacts_pane', :class => 'manage_aspect_contacts_button'
 
         .fancybox_content
           #manage_aspect_contacts_pane

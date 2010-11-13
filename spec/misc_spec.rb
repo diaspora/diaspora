@@ -57,7 +57,7 @@ describe 'making sure the spec runner works' do
       contact = @user1.contact_for @user2.person
       contact.should_not be_nil
       @user1.contacts.include?(contact).should be_true
-      @aspect1.people.include?(contact).should be_true
+      @aspect1.contacts.include?(contact).should be_true
       contact.aspects.include?( @aspect1 ).should be true
     end
 
@@ -65,7 +65,7 @@ describe 'making sure the spec runner works' do
       contact = @user2.contact_for @user1.person
       contact.should_not be_nil
       @user2.contacts.include?(contact).should be_true
-      @aspect2.people.include?(contact).should be_true
+      @aspect2.contacts.include?(contact).should be_true
       contact.aspects.include?( @aspect2 ).should be true
     end
 

@@ -35,22 +35,22 @@ describe Aspect do
     end
 
     it 'should not be creatable with people' do
-      aspect = user.aspects.create(:name => 'losers', :people => [connected_person, connected_person_2])
-      aspect.people.size.should == 0
+      aspect = user.aspects.create(:name => 'losers', :contacts => [connected_person, connected_person_2])
+      aspect.contacts.size.should == 0
     end
 
     it 'should be able to have other users' do
       Contact.create(:user => user, :person => user2.person, :aspects => [aspect])
-      aspect.people.first(:person_id => user.person.id).should be_nil
-      aspect.people.first(:person_id => user2.person.id).should_not be_nil
-      aspect.people.size.should == 1
+      aspect.contacts.first(:person_id => user.person.id).should be_nil
+      aspect.contacts.first(:person_id => user2.person.id).should_not be_nil
+      aspect.contacts.size.should == 1
     end
 
     it 'should be able to have users and people' do
       contact1 = Contact.create(:user => user, :person => user2.person, :aspects => [aspect])
       contact2 = Contact.create(:user => user, :person => connected_person_2, :aspects => [aspect])
-      aspect.people.include?(contact1).should be_true
-      aspect.people.include?(contact2).should be_true
+      aspect.contacts.include?(contact1).should be_true
+      aspect.contacts.include?(contact2).should be_true
       aspect.save.should be_true
     end
   end
@@ -81,9 +81,8 @@ describe Aspect do
       user.aspects.should == [aspect]
     end
 
-    it 'should have people' do
-      aspect.people.first(:person_id => connected_person.id).should be_true
-      aspect.people.size.should == 1
+    it 'should have contacts' do
+      aspect.contacts.size.should == 1
     end
 
     describe '#aspects_with_person' do
@@ -101,7 +100,7 @@ describe Aspect do
         aspects = user.aspects_with_person(connected_person)
         aspects.count.should == 2
         contact = user.contact_for(connected_person)
-        aspects.each{ |asp| asp.people.include?(contact).should be_true }
+        aspects.each{ |asp| asp.contacts.include?(contact).should be_true }
         aspects.include?(aspect_without_contact).should be_false
       end
     end
@@ -110,7 +109,7 @@ describe Aspect do
   describe 'posting' do
 
     it 'should add post to aspect via post method' do
-      aspect = user.aspects.create(:name => 'losers', :people => [connected_person])
+      aspect = user.aspects.create(:name => 'losers', :contacts => [connected_person])
 
       status_message = user.post( :status_message, :message => "hey", :to => aspect.id )
 
@@ -157,17 +156,17 @@ describe Aspect do
 
     describe "#add_person_to_aspect" do
       it 'adds the user to the aspect' do
-        aspect1.people.include?(contact).should be_false 
+        aspect1.contacts.include?(contact).should be_false 
         user.add_person_to_aspect(user2.person.id, aspect1.id)
         aspect1.reload
-        aspect1.people.include?(contact).should be_true
+        aspect1.contacts.include?(contact).should be_true
       end
 
       it 'raises if its an aspect that the user does not own'do
         proc{user.add_person_to_aspect(user2.person.id, aspect2.id) }.should raise_error /Can not add person to an aspect you do not own/
       end
 
-      it 'does not allow to have duplicate people in an aspect' do
+      it 'does not allow to have duplicate contacts in an aspect' do
         proc{user.add_person_to_aspect(not_contact.id, aspect1.id) }.should raise_error /Can not add person you are not connected to/
       end
 
@@ -180,10 +179,10 @@ describe Aspect do
       it 'deletes a user from the aspect' do
          user.add_person_to_aspect(user2.person.id, aspect1.id)
          user.reload
-         aspect1.reload.people.include?(contact).should be true
+         aspect1.reload.contacts.include?(contact).should be true
          user.delete_person_from_aspect(user2.person.id, aspect1.id)
          user.reload
-         aspect1.reload.people.include?(contact).should be false
+         aspect1.reload.contacts.include?(contact).should be false
       end
 
       it 'should check to make sure you have the aspect ' do
@@ -229,24 +228,24 @@ describe Aspect do
           aspect.reload
           aspect1.reload
 
-          aspect.people.include?(contact).should be_false
-          aspect1.people.include?(contact).should be_true
+          aspect.contacts.include?(contact).should be_false
+          aspect1.contacts.include?(contact).should be_true
         end
 
         it "should not move a person who is not a contact" do
           proc{ user.move_contact(:person_id => connected_person.id, :from => aspect.id, :to => aspect1.id) }.should raise_error /Can not add person you are not connected to/
           aspect.reload
           aspect1.reload
-          aspect.people.first(:person_id => connected_person.id).should be_nil
-          aspect1.people.first(:person_id => connected_person.id).should be_nil
+          aspect.contacts.first(:person_id => connected_person.id).should be_nil
+          aspect1.contacts.first(:person_id => connected_person.id).should be_nil
         end
 
         it "should not move a person to a aspect that's not his" do
           proc {user.move_contact(:person_id => user2.person.id, :from => aspect.id, :to => aspect2.id )}.should raise_error /Can not add person to an aspect you do not own/
           aspect.reload
           aspect2.reload
-          aspect.people.include?(contact).should be true
-          aspect2.people.include?(contact).should be false
+          aspect.contacts.include?(contact).should be true
+          aspect2.contacts.include?(contact).should be false
         end
 
         it 'should move all posts by that user to the new aspect' do

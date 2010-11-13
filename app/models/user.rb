@@ -90,7 +90,7 @@ class User
 
   ######### Aspects ######################
   def drop_aspect(aspect)
-    if aspect.people.size == 0
+    if aspect.contacts.count == 0
       aspect.destroy
     else
       raise "Aspect not empty"
@@ -114,7 +114,7 @@ class User
     contact = contact_for(Person.find(person_id))
     raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
     raise "Can not add person you are not connected to" unless contact
-    raise 'Can not add person who is already in the aspect' if aspect.people.include?(contact)
+    raise 'Can not add person who is already in the aspect' if aspect.contacts.include?(contact)
     contact.aspects << aspect
     opts[:posts] ||= self.raw_visible_posts.all(:person_id => person_id)
 
@@ -223,7 +223,7 @@ class User
     aspects.each { |aspect|
       aspect.posts << post
       aspect.save
-      target_contacts = target_contacts | aspect.people
+      target_contacts = target_contacts | aspect.contacts
     }
 
     push_to_hub(post) if post.respond_to?(:public) && post.public

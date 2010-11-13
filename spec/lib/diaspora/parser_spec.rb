@@ -65,7 +65,7 @@ describe Diaspora::Parser do
       user.reload
       aspect.reload
       new_contact = user.contact_for(user2.person)
-      aspect.people.include?(new_contact).should be true
+      aspect.contacts.include?(new_contact).should be true
       user.contacts.include?(new_contact).should be true
     end
 
@@ -75,7 +75,7 @@ describe Diaspora::Parser do
       retraction_xml = retraction.to_diaspora_xml
 
       lambda { user.receive retraction_xml, user2.person }.should change {
-        aspect.reload.people.size }.by(-1)
+        aspect.reload.contacts.size }.by(-1)
     end
 
     it 'should marshal a profile for a person' do
