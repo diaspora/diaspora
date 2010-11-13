@@ -50,29 +50,39 @@ begin
                   :port => APP_CONFIG[:socket_port],
                   :debug =>APP_CONFIG[:socket_debug]) do |ws|
       ws.onopen {
-        debug_pp ws.request
+        begin
+          debug_pp ws.request
 
-        cookies = ws.request["Cookie"].split(';')
-        session_key = "_diaspora_session="
-        enc_diaspora_cookie = cookies.detect{|c| c.include?(session_key)}.gsub(session_key,'')
-        cookie = Marshal.load(enc_diaspora_cookie.unpack("m*").first)
+          cookies = ws.request["Cookie"].split(';')
+          session_key = "_diaspora_session="
+          enc_diaspora_cookie = cookies.detect{|c| c.include?(session_key)}.gsub(session_key,'')
+          cookie = Marshal.load(enc_diaspora_cookie.unpack("m*").first)
 
-        debug_pp cookie
+          debug_pp cookie
 
-        user_id = cookie["warden.user.user.key"].last
-        
-        debug_pp "In WSS, suscribing user: #{User.find(user_id).real_name} with id: #{user_id}"
+          user_id = cookie["warden.user.user.key"].last
 
-        sid = Diaspora::WebSocket.subscribe(user_id, ws)
+          debug_pp "In WSS, suscribing user: #{User.find(user_id).real_name} with id: #{user_id}"
+          sid = Diaspora::WebSocket.subscribe(user_id, ws)
 
-        ws.onmessage { |msg| SocketsController.new.incoming(msg) }
+          ws.onmessage { |msg| SocketsController.new.incoming(msg) }
 
-        ws.onclose {
-          debug_pp "In WSS, unsuscribing user: #{User.find(user_id).real_name} with id: #{user_id}"
-          Diaspora::WebSocket.unsubscribe(user_id, sid) }
+          ws.onclose {
+            begin
+              debug_pp "In WSS, unsuscribing user: #{User.find(user_id).real_name} with id: #{user_id}"
+              Diaspora::WebSocket.unsubscribe(user_id, sid) 
+            rescue
+              debug_pp "Could not unsubscribe socket for #{user_id}"
+            end
+          }
+        rescue RuntimeError => e
+          debug_pp "Could not open socket for request with cookie: #{ws.request["Cookie"]}"
+          debug_pp "Error was: "
+          debug_pp e
+        end
       }
     end
-    PID_FILE = APP_CONFIG[:socket_pidfile] ? APP_CONFIG[:socket_pidfile] : 'tmp/diaspora-ws.pid'
+    PID_FILE = (APP_CONFIG[:socket_pidfile] ? APP_CONFIG[:socket_pidfile] : 'tmp/diaspora-ws.pid')
     write_pidfile
     puts "Websocket server started."
     process_message
