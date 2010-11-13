@@ -170,6 +170,51 @@ describe("AspectEdit", function() {
       });
     });
   });
+  
+  describe("onDeleteRequestSuccess", function() {
+    beforeEach(function() {
+      $('#jasmine_content').html(
+'<li class="person request ui-draggable" data-person_id="guid-of-friendship-requestor" data-guid="guid-of-friendship-requestor">' +
+'  <img alt="Alexander Hamiltom" class="avatar" data-person_id="guid-of-friendship-requestor" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom">' +
+'</li>' +
+'<ul data-aspect_id="guid-of-target-aspect" class="dropzone ui-droppable">' +
+'</ul>' +
+'<div class="new_requests">Requests (1)</div>'
+      );
+    });    
+    it("decrements the request counter", function() {
+      spyOn(AspectEdit, "decrementRequestsCounter");
+      AspectEdit.onDeleteRequestSuccess($('li.person'));
+      expect(AspectEdit.decrementRequestsCounter).toHaveBeenCalled();
+    });
+    it("takes the request class off the person li", function() {
+      expect($('li.person')).toHaveClass('request');      
+      AspectEdit.onDeleteRequestSuccess($('li.person'));
+      expect($('li.person')).not.toHaveClass('request');      
+    });
+  });
+
+  describe("onMovePersonSuccess", function() {
+    it("updates the data-aspect_id attribute on the person li", function() {
+      var person = $('li.person');
+      var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+      expect(person.attr("data-aspect_id")).toEqual("guid-of-current-aspect");
+      AspectEdit.onMovePersonSuccess(person, dropzone);
+      expect(person.attr("data-aspect_id")).toEqual("guid-of-target-aspect");
+    });
+  });
+
+  describe("deletePersonFromAspect", function() {
+    beforeEach(function() {
+      spyOn($, 'ajax');
+    });
+    it("doesn't let you remove the person from the last aspect they're in", function() {
+      spyOn(AspectEdit, 'alertUser');
+      AspectEdit.deletePersonFromAspect($('li.person'));
+      expect(AspectEdit.alertUser).toHaveBeenCalled();
+      expect($.ajax).not.toHaveBeenCalled();
+    });
+  });
 
   describe("decrementRequestsCounter", function() {
     describe("when there is one request", function() {

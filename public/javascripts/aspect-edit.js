@@ -83,9 +83,9 @@ var AspectEdit = {
     var person_id = person.attr('data-guid');
 
     if( $(".person[data-guid='"+ person_id +"']").length == 1) {
-      alert("You can not remove the person from the last aspect");
-
-    } else {
+      AspectEdit.alertUser("You cannot remove the person from the last aspect");
+    } 
+    else {
       if (!person.hasClass('request')) {
 
         $.ajax({
@@ -173,6 +173,10 @@ var AspectEdit = {
         request_html.replace(/\d+/, old_request_count - 1)
         );
     }
+  },
+  
+  alertUser: function(message) {
+    alert(message);
   }
 };
 
