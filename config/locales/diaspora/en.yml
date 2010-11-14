@@ -214,6 +214,13 @@ en:
           error:  "Failed to edit photo."
       destroy:
           notice: "Photo deleted."
+      new_photo:
+          drop: "Drop photos here to upload"
+          upload: "Upload a photo"
+          failed: "Failed"
+          invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
+          size_error: "{file} is too large, maximum file size is {sizeLimit}."
+          empty: "{file} is empty, please select files again without it."
   registrations:
       new:
           sign_up: "Sign up"
