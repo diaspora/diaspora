@@ -29,7 +29,7 @@ describe Person do
   describe "vaild url" do
       it 'should allow for https urls' do
       person = Factory.create(:person, :url => "https://example.com")
-      person.valid?.should == true
+      person.should be_valid
       end
     end
 
@@ -51,12 +51,12 @@ describe Person do
     describe 'validation' do
       it 'is unique' do
         person_two = Factory.build(:person, :diaspora_handle => @person.diaspora_handle)
-        person_two.valid?.should be_false
+        person_two.should_not be_valid
       end
 
       it 'is case insensitive' do
-        person_two = Factory.build(:person, :url => @person.url.upcase)
-        person_two.valid?.should be_false
+        person_two = Factory.build(:person, :diaspora_handle => @person.diaspora_handle.upcase)
+        person_two.should_not be_valid
       end
     end
   end
