@@ -29,11 +29,17 @@ Feature: new user registration
 
     When I follow "Save and continue"
     Then I should see "You're all set up, O!"
+    And I should not see "skip getting started"
 
     When I follow "Continue on to your everyone page, an overview of all of your aspects."
     Then I should be on the aspects page
     And I should see "bring them to Diaspora!"
 
+  Scenario: new user skips the setup wizard and returns to the setup wizard
+    Given /^a user goes through the setup wizard$/
+    When I go to getting_started
+    Then I should not see "skip getting started"
+  
   Scenario: new user skips the setup wizard
     When I follow "skip getting started"
     And I wait for the aspects page to load
