@@ -9,6 +9,6 @@
     %h4= link_to t('.invite'), "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
   - else
     %h3=t('.nobody_in_aspect', :aspect_name => aspect.name)
-    %h4= link_to t('.add_contact_to', :aspect_name => aspect.name), "#add_request_pane", :class => "add_request_button"
+    %h4= link_to t('.add_contact_to', :aspect_name => aspect.name), "#manage_aspect_contacts_pane", :class => "manage_aspect_contacts_button"
     %h4= link_to t('.invite', :aspect_name => aspect.name), "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
 
