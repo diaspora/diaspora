@@ -41,3 +41,11 @@ begin
  DatabaseCleaner.strategy = :truncation
  DatabaseCleaner.orm = "mongo_mapper"
 end
+
+require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
+include HelperMethods
+
+Before do
+  UserFixer.regenerate_user_fixtures
+  UserFixer.load_user_fixtures
+end
