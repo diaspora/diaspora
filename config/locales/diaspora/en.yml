@@ -57,6 +57,11 @@ en:
         edit_profile: "edit profile"
         account_settings: "account settings"
         logout: "logout"
+        blog: "blog"
+        developers: "developers"
+        login: "login"
+      application:
+        powered_by: "POWERED BY DIASPORA*"
   shared:
       stream_element:
           show_comments: "show comments"
@@ -77,6 +82,7 @@ en:
           add_contacts: "add contacts"
           everyone: "Everyone"
           add_to: "add to %{aspect}"
+          manage: "manage %{aspect}"
       invitations:
           invites: "Invites"
           invite_someone: "Invite someone"
@@ -87,6 +93,7 @@ en:
           view_profile: "View profile"
           status_messages: "status messages"
           viewing: "viewing"
+          all: "all"
       public_explain:
           title: "You are about to post a public message!"
           outside: "Public messages will be available for others outside of Diaspora to see."
@@ -94,6 +101,10 @@ en:
           manage: "manage connected services"
       notification:
           new: "New %{type} from %{from}"
+      contact_list:
+          search_contacts: "Search contacts"
+          add_to: "Add %{name} to %{aspect}"
+          remove_from: "Remove %{name} from %{aspect}"
   aspects:
       no_contacts_message:
           nobody: "We know you know people — bring them to Diaspora!"
@@ -307,6 +318,10 @@ en:
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           contact_username: "Contact's username"
           create_request: "Create request"
+          manage_within: "Manage contacts within"
+          existing: "Existing contacts"
+          add_new: "Add a new contact"
+          know_email: "Know their email address? You should invite them"
       destroy:
           success: "You are now friends."
           error: "Please select an aspect!"
@@ -342,3 +357,8 @@ en:
           subject: "%{name} has accepted your contact request on Diaspora*"
           accepted: "has accepted your contact request. They are now in your"
           aspect: "aspect."
+  home:
+      show:
+          share_what_you_want: "Share what you want, with who you want."
+          already_account: "already have an account?"
+          login_here: "log in here"

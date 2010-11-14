@@ -8,14 +8,14 @@
 
     #diaspora_description.section
       %p
-        Share what you want, with who you want.
+        = t('.share_what_you_want')
 
     #signup_field.section
       = render 'shared/mail_signup_form'
 
     #login_field.section
-      already have an account?
-      = link_to "log in here", new_user_session_path
+      = t('.already_account')
+      = link_to t('.login_here'), new_user_session_path
 
 .span-24.last{:style=>"text-align:center;"}
   %ul#press_logos

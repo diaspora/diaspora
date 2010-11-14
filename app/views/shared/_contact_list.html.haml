@@ -23,7 +23,7 @@
 
 
 .contact_list
-  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => "Search contacts"
+  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('.search_contacts')
   
   %ul
     - for contact in contacts
@@ -38,7 +38,7 @@
               = hidden_field_tag :person_id, contact.person.id
               - if defined?(manage) && manage
                 = hidden_field_tag :manage, true
-              = submit_tag '+', :class => 'add', :title => "Add #{contact.person.real_name} to #{aspect}"
+              = submit_tag '+', :class => 'add', :title => t('.add_to', :name => contact.person.real_name, :aspect => aspect)
         - else
           = form_tag '/aspects/remove_from_aspect' do
             = person_image_tag contact.person
@@ -49,5 +49,5 @@
               = hidden_field_tag :person_id, contact.person.id
               - if defined?(manage) && manage
                 = hidden_field_tag :manage, true
-              = submit_tag 'x', :class => 'remove', :title => "Remove #{contact.person.real_name} from #{aspect}"
+              = submit_tag 'x', :class => 'remove', :title => t('.remove_from', :name => contact.person.real_name, :aspect => aspect)
 
