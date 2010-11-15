@@ -318,6 +318,7 @@ GEM
     rspec-core (2.1.0)
     rspec-expectations (2.1.0)
       diff-lcs (~> 1.1.2)
+    rspec-instafail (0.1.2)
     rspec-mocks (2.1.0)
     rspec-rails (2.1.0)
       rspec (~> 2.1.0)
@@ -400,6 +401,7 @@ DEPENDENCIES
   rails (>= 3.0.0)
   roxml!
   rspec (>= 2.0.0)
+  rspec-instafail
   rspec-rails (>= 2.0.0)
   ruby-debug
   sprinkle!

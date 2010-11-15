@@ -226,6 +226,7 @@ en:
           back: "Back"
           update: "Update"
           cancel_my_account: "Cancel my account"
+      closed: "Signups are closed on this Diaspora pod."
   invitations:
       create:
           sent: "Your invitation has been sent."

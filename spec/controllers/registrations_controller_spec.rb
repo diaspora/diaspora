@@ -17,6 +17,25 @@ describe RegistrationsController do
                                 "password_confirmation" => "password"}}
   end
 
+  describe '#check_registrations_open!' do
+    before do
+      APP_CONFIG[:registrations_closed] = true
+    end
+    after do
+      APP_CONFIG[:registrations_closed] = false
+    end
+    it 'stops a #new request' do
+      get :new
+      flash[:error].should == I18n.t('registrations.closed')
+      response.should redirect_to root_url
+    end
+    it 'stops a #create request' do
+      post :create, @valid_params
+      flash[:error].should == I18n.t('registrations.closed')
+      response.should redirect_to root_url
+    end
+  end
+
   describe "#create" do
     context "with valid parameters" do
       before do

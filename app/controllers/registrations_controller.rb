@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :check_registrations_open!
+
   def create
     @user = User.build(params[:user])
     if @user.save
@@ -12,6 +14,18 @@ class RegistrationsController < Devise::RegistrationsController
     else
       flash[:error] = @user.errors.full_messages.join(', ')
       render :new
+    end
+  end
+
+  def new
+    super
+  end
+
+  private
+  def check_registrations_open!
+    if APP_CONFIG[:registrations_closed]
+      flash[:error] = t('registrations.closed')
+      redirect_to root_url
     end
   end
 end
