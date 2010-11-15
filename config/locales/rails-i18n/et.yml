@@ -1,5 +1,7 @@
-# Estonian localization for Ruby on Rails 2.2+
+# Estonian localization for Ruby on Rails 2 and 3
 # by Zahhar Kirillov <zahhar@gmail.com>
+# contributors:
+#  - Mart Karu - http://github.com/martkaru <karu@metal.ee>
 
 et:
   date:
@@ -28,12 +30,23 @@ et:
     am: "enne lõunat"
     pm: "pärast lõunat"
 
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " ja "
+      last_word_connector: " ja "
+
+    select:
+      prompt: "Palun vali"
+
   number:
     format:
       separator: ","
       delimiter: " "
       precision: 2
-      
+      significant: false
+      strip_insignificant_zeros: false
+
     currency:
       format:
         format: "%n %u"
@@ -41,6 +54,8 @@ et:
         separator: ","
         delimiter: " "
         precision: 2
+        significant: false
+        strip_insignificant_zeros: false
         
     percentage:
       format:
@@ -54,7 +69,27 @@ et:
       format:
         delimiter: ""
         precision: 1
-      storage_units: [bait, KB, MB, GB, TB]
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "bait"
+            other: "baiti"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: tuhat
+          million: miljon
+          billion: miljard
+          trillion: triljon
+          quadrillion: kvadriljon
 
   datetime:
     distance_in_words:
@@ -89,6 +124,9 @@ et:
       over_x_years:
         one:   "üle %{count} aasta"
         other: "üle %{count} aastat"
+      almost_x_years:
+        one:   "peaaegu üks aasta"
+        other: "peaaegu %{count} aastat"
     prompts:
       year: "Aasta"
       month: "Kuu"
@@ -97,13 +135,50 @@ et:
       minute: "Minutit"
       second: "Sekundit"
 
-  support:
-    array:
-      # Rails 2.2
-      sentence_connector: "ja"
-      skip_last_comma: true
-      
-      # Rails 2.3
-      words_connector: ", "
-      two_words_connector: " ja "
-      last_word_connector: " ja "
+  helpers:
+    select:
+      prompt: "Palun vali"
+
+    submit:
+      create: 'Loo uus %{model}'
+      update: 'Uuenda objekti %{model}'
+      submit: 'Salvesta %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "ei leidu nimekirjas"
+      exclusion: "on reserveeritud"
+      invalid: "ei ole korrektne"
+      confirmation: "ei vasta kinnitusele"
+      accepted: "peab olema heaks kiidetud"
+      empty: "on tühi"
+      blank: "on täitmata"
+      too_long: "on liiga pikk (maksimum on %{count} tähemärki)"
+      too_short: "on liiga lühike (miinimum on %{count} tähemärki)"
+      wrong_length: "on vale pikkusega (peab olema %{count} tähemärki)"
+      not_a_number: "ei ole number"
+      not_an_integer: "peab olema täisarv"
+      greater_than: "ei tohi olla suurem kui %{count}"
+      greater_than_or_equal_to: "peab olema suurem või võrdne arvuga %{count}"
+      equal_to: "peab võrdne arvuga %{count}"
+      less_than: "peab olema vähem kui %{count}"
+      less_than_or_equal_to: "peab olema vähem või võrdne arvuga %{count}"
+      odd: "peab olema paaritu arv"
+      even: "peab olema paarisarv"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Üks viga takistas objekti %{model} salvestamist"
+          other:  "%{count} viga takistasid objekti %{model} salvestamist"
+        body: "Probleeme ilmnes järgmiste väljadega:"
+
+      messages:
+        taken: "on juba võetud"
+        record_invalid: "Valideerimine ebaõnnestus: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
