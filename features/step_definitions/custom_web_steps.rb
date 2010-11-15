@@ -25,3 +25,8 @@ end
 When /^I wait for the home page to load$/ do
   wait_until { current_path == root_path }
 end
+
+When /^I wait for the ajax to finish$/ do
+  pending
+  # wait_until { ??? }
+end

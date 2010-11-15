@@ -50,7 +50,7 @@ var AspectEdit = {
         type: "DELETE",
         url: "/requests/" + person.attr('data-guid'),
         data: {"accept" : true, "aspect_id" : dropzone.attr('data-aspect_id') },
-        success: function() { AspectEdit.onDeleteRequestSuccess(person); }
+        success: function() { AspectEdit.onDeleteRequestSuccess(person, dropzone); }
       });
     }
 
@@ -70,9 +70,11 @@ var AspectEdit = {
     dropzone.closest("ul").append(person);
   },
 
-  onDeleteRequestSuccess: function(person) {
+  onDeleteRequestSuccess: function(person, dropzone) {
     AspectEdit.decrementRequestsCounter();
     person.removeClass('request');
+    person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
+    person.removeAttr('data-person_id');
   },
   
   onMovePersonSuccess: function(person, dropzone) {
