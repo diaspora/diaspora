@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-#   See config/locales/devise/devise.sv.yml for Swedish Diaspora terms.
+#   See config/locales/diaspora/sv.yml for Swedish Diaspora terms.
 
 sv:
   errors:
