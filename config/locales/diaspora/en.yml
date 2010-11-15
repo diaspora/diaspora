@@ -162,7 +162,7 @@ en:
               add: "Add"
           step_3:
               your_services: "Your services"
-              description: "Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select “public.”"
+              description: 'Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select “public.”'
           step_4:
               set_up: "You’re all set up, %{name}!"
               ready_to_share: "You’re now ready to start sharing with "
