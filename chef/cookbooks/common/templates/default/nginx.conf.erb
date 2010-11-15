@@ -41,7 +41,7 @@ http {
 
    listen       80;
    server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
-   root /usr/local/app/diaspora/public;
+   root         /usr/local/app/diaspora/public;
 
    location / {
     proxy_set_header X-Real-IP $remote_addr;
@@ -50,7 +50,36 @@ http {
     proxy_redirect off;
     proxy_buffering off;
 
-    if (-f $request_filename/index.html) { #Something here is for photos, but do we need it all?
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+    if (-f $request_filename.html) {
+     rewrite (.*) $1.html break;
+    }
+    if (!-f $request_filename) {
+     proxy_pass http://thin_cluster;
+     break;
+   }
+ }
+
+  server {
+
+   listen       443;
+   server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
+   root         /usr/local/app/diaspora/public;
+
+   ssl on;
+   ssl_certificate  /usr/local/nginx/conf/joindiaspora.crt;
+   ssl_key          /usr/local/nginx/conf/joindiaspora.key;
+
+   location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_buffering off;
+
+    if (-f $request_filename/index.html) {
       rewrite (.*) $1/index.html break;
     }
     if (-f $request_filename.html) {
