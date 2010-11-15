@@ -17,6 +17,7 @@ public/uploads/*
 public/source.tar*
 tmp/**/*
 db/*.sqlite3
+.redcar
 
 # Temporary files of every sort
 .DS_Store
