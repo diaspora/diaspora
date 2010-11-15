@@ -42,17 +42,17 @@ class User
   validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_associated :person
 
-  one :person, :class_name => 'Person', :foreign_key => :owner_id
+  one :person, :class => Person, :foreign_key => :owner_id
 
   many :invitations_from_me, :class => Invitation, :foreign_key => :from_id
   many :invitations_to_me, :class => Invitation, :foreign_key => :to_id
-  many :contacts, :class_name => 'Contact', :foreign_key => :user_id
-  many :visible_people, :in => :visible_person_ids, :class_name => 'Person' # One of these needs to go
-  many :pending_requests, :in => :pending_request_ids, :class_name => 'Request'
-  many :raw_visible_posts, :in => :visible_post_ids, :class_name => 'Post'
-  many :aspects, :class_name => 'Aspect', :dependent => :destroy
+  many :contacts, :class => Contact, :foreign_key => :user_id
+  many :visible_people, :in => :visible_person_ids, :class => Person # One of these needs to go
+  many :pending_requests, :in => :pending_request_ids, :class => Request
+  many :raw_visible_posts, :in => :visible_post_ids, :class => Post
+  many :aspects, :class => Aspect, :dependent => :destroy
 
-  many :services, :class_name => "Service"
+  many :services, :class => Service
 
   #after_create :seed_aspects
 
