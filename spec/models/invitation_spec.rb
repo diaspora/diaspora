@@ -10,6 +10,7 @@ describe Invitation do
   let(:user2)  {make_user}
   before do
     @email = 'maggie@example.com'
+    Devise.mailer.deliveries = []
   end
   describe 'validations' do
     before do
@@ -78,6 +79,11 @@ describe Invitation do
       new_user.invitations_to_me.first.message.should == message
     end
 
+    it 'mails the optional message' do
+      message = "How've you been?"
+      new_user = Invitation.invite(:from => user, :email => @email, :into => aspect, :message => message)
+      Devise.mailer.deliveries.first.to_s.include?(message).should be_true
+    end
     it 'sends a contact request to a user with that email into the aspect' do
       user2
       user.should_receive(:send_contact_request_to){ |a, b| 
@@ -100,9 +106,14 @@ describe Invitation do
       }.should change{Devise.mailer.deliveries.size}.by(1)
     end
     it 'sends an email that includes the right things' do
-      Devise.mailer.deliveries = []
       Invitation.create_invitee(:email => @email)
       Devise.mailer.deliveries.first.to_s.include?("Welcome #{@email}").should == true
+    end
+    context 'with no inviter' do
+      it 'does not render nonsensical emails' do
+        Invitation.create_invitee(:email => @email)
+        Devise.mailer.deliveries.first.subject.match(/a friend/i).should be_false
+      end
     end
   end
 
