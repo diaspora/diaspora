@@ -27,12 +27,12 @@ describe RegistrationsController do
     it 'stops a #new request' do
       get :new
       flash[:error].should == I18n.t('registrations.closed')
-      response.should redirect_to root_url
+      response.should redirect_to new_user_session_path
     end
     it 'stops a #create request' do
       post :create, @valid_params
       flash[:error].should == I18n.t('registrations.closed')
-      response.should redirect_to root_url
+      response.should redirect_to new_user_session_path
     end
   end
 

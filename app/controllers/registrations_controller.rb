@@ -25,7 +25,7 @@ class RegistrationsController < Devise::RegistrationsController
   def check_registrations_open!
     if APP_CONFIG[:registrations_closed]
       flash[:error] = t('registrations.closed')
-      redirect_to root_url
+      redirect_to new_user_session_path
     end
   end
 end
