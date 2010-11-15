@@ -96,7 +96,7 @@ en:
   aspects:
       no_contacts_message:
           nobody: "We know you know people — bring them to Diaspora!"
-          nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+          nobody_in_aspect: "Your aspect “%{aspect_name}” is empty."
           add_contact: "Add a contact"
           add_contact_to: "Add someone to %{aspect_name}"
           invite: "Invite someone to join Diaspora!"
@@ -121,7 +121,7 @@ en:
       update:
           success: "Your aspect, %{name}, has been successfully edited."
       move_contact:
-          failure: "didn't work %{inspect}"
+          failure: "didn’t work %{inspect}"
           success: "Person moved to new aspect"
           error: "Error moving contact: %{inspect}"
       add_to_aspect:
@@ -162,10 +162,10 @@ en:
               add: "Add"
           step_3:
               your_services: "Your services"
-              description: 'Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select "public."'
+              description: "Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select “public.”"
           step_4:
-              set_up: "You're all set up, %{name}!"
-              ready_to_share: "You're now ready to start sharing with "
+              set_up: "You’re all set up, %{name}!"
+              ready_to_share: "You’re now ready to start sharing with "
               continue: "Continue on to your everyone page, an overview of all of your aspects."
               change_profile: "You can change your profile any time by clicking"
               edit_profile: "edit profile"
@@ -198,7 +198,7 @@ en:
       edit:
           editing: "Editing"
       photo:
-          view_all: "view all of %{name}'s photos"
+          view_all: "view all of %{name}’s photos"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -217,10 +217,10 @@ en:
           sign_up: "Sign up"
           sign_up_for_diaspora: "Sign up for Diaspora"
       create:
-          success: "You've joined Diaspora!"
+          success: "You’ve joined Diaspora!"
       edit:
           edit: "Edit %{name}"
-          leave_blank: "(leave blank if you don't want to change it)"
+          leave_blank: "(leave blank if you don’t want to change it)"
           password_to_confirm: "(we need your current password to confirm your changes)"
           unhappy: "Unhappy?"
           back: "Back"
@@ -259,8 +259,8 @@ en:
           results_for: "search results for"
       show:
           no_posts: "no posts to display!"
-          not_friends: "You're currently not friends with %{name}"
-          request_people: "If you'd like, you can request to place him/her in one of your aspects."
+          not_friends: "You’re currently not friends with %{name}"
+          request_people: "If you’d like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
           does_not_exist: "Person does not exist!"
       edit:
@@ -295,7 +295,7 @@ en:
           add_a_new_contact_to: "Add a new contact to"
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-          contact_username: "Contact's username"
+          contact_username: "Contact’s username"
           create_request: "Create request"
       destroy:
           success: "You are now friends."
