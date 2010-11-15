@@ -183,14 +183,32 @@ describe("AspectEdit", function() {
       );
     });    
     it("decrements the request counter", function() {
+      var person = $('li.person');
+      var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
       spyOn(AspectEdit, "decrementRequestsCounter");
-      AspectEdit.onDeleteRequestSuccess($('li.person'));
+      AspectEdit.onDeleteRequestSuccess(person, dropzone);
       expect(AspectEdit.decrementRequestsCounter).toHaveBeenCalled();
     });
     it("takes the request class off the person li", function() {
-      expect($('li.person')).toHaveClass('request');      
-      AspectEdit.onDeleteRequestSuccess($('li.person'));
-      expect($('li.person')).not.toHaveClass('request');      
+      var person = $('li.person');
+      var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+      expect(person).toHaveClass('request');
+      AspectEdit.onDeleteRequestSuccess(person, dropzone);
+      expect(person).not.toHaveClass('request');      
+    });
+    it("removes data-person_id from the li", function() {
+      var person = $('li.person');
+      var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+      expect(person.attr("data-person_id")).toBeDefined();
+      AspectEdit.onDeleteRequestSuccess(person, dropzone);
+      expect(person.attr("data-person_id")).not.toBeDefined();
+    });
+    it("puts a data-aspect_id on the li", function() {
+      var person = $('li.person');
+      var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
+      expect(person.attr("data-aspect_id")).not.toBeDefined();
+      AspectEdit.onDeleteRequestSuccess(person, dropzone);
+      expect(person.attr("data-aspect_id")).toEqual("guid-of-target-aspect");
     });
   });
 
