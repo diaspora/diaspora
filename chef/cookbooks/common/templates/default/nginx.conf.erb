@@ -18,7 +18,7 @@ http {
                  '"$request" $status $body_bytes_sent "$http_referer" '
                  '"$http_user_agent" "$http_x_forwarded_for"';
 
- sendfile        on;
+ sendfile on;
 
  keepalive_timeout  65;
 
@@ -27,7 +27,7 @@ http {
  gzip_comp_level   2;
  gzip_proxied      any;
  gzip_buffers      16 8k;
- gzip_types        text/plain text/html text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+ gzip_types        text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
  gzip_disable      "MSIE [1-6]\.(?!.*SV1)";
 
 
@@ -38,29 +38,10 @@ http {
   }
 
   server {
-
    listen       80;
    server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
-   root         /usr/local/app/diaspora/public;
-
-   location / {
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header Host $http_host;
-    proxy_redirect off;
-    proxy_buffering off;
-
-    if (-f $request_filename/index.html) {
-      rewrite (.*) $1/index.html break;
-    }
-    if (-f $request_filename.html) {
-     rewrite (.*) $1.html break;
-    }
-    if (!-f $request_filename) {
-     proxy_pass http://thin_cluster;
-     break;
-   }
- }
+   rewrite      ^(.*) https://alpha.joindiaspora.com$1 permanent;
+  }
 
   server {
 
@@ -69,8 +50,8 @@ http {
    root         /usr/local/app/diaspora/public;
 
    ssl on;
-   ssl_certificate  /usr/local/nginx/conf/joindiaspora.crt;
-   ssl_key          /usr/local/nginx/conf/joindiaspora.key;
+   ssl_certificate      /usr/local/nginx/conf/diaspora.crt;
+   ssl_certificate_key  /usr/local/nginx/conf/diaspora.key;
 
    location / {
     proxy_set_header X-Real-IP $remote_addr;
