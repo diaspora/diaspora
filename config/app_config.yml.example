@@ -3,25 +3,57 @@
 #   the COPYRIGHT file.
 
 default:
+
+  # Hostname of this host, as seen from the internet.
   pod_url: "http://example.org/"
+
+  # Enable extensive logging to log/{development,test,production}.log
   debug: false
+
+  # Websocket server setup, see script/websocket_server.rb
+  # Enable extensive logging to websocket server.
   socket_debug : false
+
+  # Websocket host, leave as 0.0.0.0 unless you know what you are doing
   socket_host: 0.0.0.0
+
+  # File containing pid of running script/websocket_server.rb
   socket_pidfile: "log/diaspora-wsd.pid"
+
+  # Websocket port, should normally be 8080 or 8081.
   socket_port: 8080
   socket_collection_name: 'websocket'
+
+  # Diaspora is only tested against this default pubsub server.
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
+
+  # Host/port for running mongodb server. See also mongodb.conf
   mongo_host: 'localhost'
   mongo_port: 27017
+
+  # Setting this to true enables diaspora's "send email" functionality
+  # requiring meaningful smtp_* settings. These are options for RoR's
+  # ActionMailer class.
   mailer_on: false
+
+  # Address/port to smtp server handing outgoing mail.
   smtp_address: 'smtp.example.com'
   smtp_port: '587'
-  smtp_domain: 'mail.example.com'
-  smtp_authentication: 'plain'
-  smtp_sender_address: 'no-reply@example.com'
-  smtp_username: 'no-reply@example.com'
-  smtp_password: 'secret'
 
+  # Domain administered of smtp server.
+  smtp_domain: 'example.com'
+
+  # Sender address in diaspora's outgoing mail.
+  smtp_sender_address: 'no-reply@example.com'
+
+  # Authentication required to send mail. One of "plain",
+  # "login" or  "cram-md5"
+  smtp_authentication: 'plain'
+
+  # Credentails possibly required to log in to SMTP server if
+  # smtp_authentication != 'plain'
+  smtp_username: 'smtp_username'
+  smtp_password: 'secret'
 
 development:
 
