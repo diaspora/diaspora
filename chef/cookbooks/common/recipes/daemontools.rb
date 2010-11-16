@@ -37,12 +37,6 @@ end
   #command "mkdir -p /service/mongo_ssh_tunnel && echo '#!/bin/sh' > /service/mongo_ssh_tunnel/run && echo 'exec ssh -N -f -L 27017:localhost:27017 caesar@184.106.233.43' >> /service/websocket/run"
 #end
 
-execute "socketpolicy run" do
-  command "mkdir -p /service/socketpolicy && echo '#!/bin/sh' > /service/socketpolicy/run && echo 'exec /usr/local/app/diaspora/script/socketpolicy.pl > /dev/null &' >> /service/socketpolicy/run"
-end
-execute "executable" do
-  command "chmod -R 755 /service/socketpolicy"
-end
 execute "websocket run" do
   command "mkdir -p /service/websocket && echo '#!/bin/sh' > /service/websocket/run && echo 'cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/app/diaspora/script/websocket_server.rb' >> /service/websocket/run"
 end

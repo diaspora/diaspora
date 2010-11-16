@@ -48,11 +48,6 @@ if [ ! -e public/source.tar.gz ]; then
     exit 65
 fi
 
-# Socket policy file listener
-# required to use FABridge with wss:// (firefox 3.6 websocket compatability)
-# must be run as root, need to figure out how to kill it properly
-sudo ./script/socketpolicy.pl > /dev/null &
-
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
 bundle exec magent start --log-path=log/ &
