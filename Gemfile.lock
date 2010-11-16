@@ -353,7 +353,7 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.14.4)
-    treetop (1.4.8)
+    treetop (1.4.9)
       polyglot (>= 0.3.1)
     twitter (0.9.12)
       hashie (~> 0.4.0)
