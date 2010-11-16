@@ -8,9 +8,9 @@
   $(document).ready(function(){
     function debug(str){ $("#debug").append("<p>" +  str); };
 
-    ws = new WebSocket("ws://#{request.host}:#{APP_CONFIG[:socket_port]}/");
+    ws = new WebSocket("#{(APP_CONFIG[:socket_secure])?'wss':'ws'}://#{request.host}:#{APP_CONFIG[:socket_port]}/");
 
-  //Attach onmessage to websocket
+    //Attach onmessage to websocket
     ws.onmessage = function(evt) {
       var obj = jQuery.parseJSON(evt.data);
 

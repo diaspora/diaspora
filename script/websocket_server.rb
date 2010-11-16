@@ -45,10 +45,20 @@ begin
   EM.run {
     Diaspora::WebSocket.initialize_channels
 
-    EventMachine::WebSocket.start(
-                  :host => APP_CONFIG[:socket_host],
-                  :port => APP_CONFIG[:socket_port],
-                  :debug =>APP_CONFIG[:socket_debug]) do |ws|
+    socket_params = { :host => APP_CONFIG[:socket_host],
+                      :port => APP_CONFIG[:socket_port],
+                      :debug =>APP_CONFIG[:socket_debug] }
+
+    if APP_CONFIG[:socket_secure] && APP_CONFIG[:socket_private_key_location] && APP_CONFIG[:socket_cert_chain_location]
+      socket_params[:secure] = true;
+      socket_params[:tls_options] = {
+                    :private_key_file => APP_CONFIG[:socket_private_key_location],
+                    :cert_chain_file  => APP_CONFIG[:socket_cert_chain_location]
+      }
+    end
+    
+    EventMachine::WebSocket.start( socket_params ) do |ws|
+
       ws.onopen {
         begin
           debug_pp ws.request
