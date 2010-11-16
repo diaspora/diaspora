@@ -25,15 +25,9 @@ class Invitation
       end
     end
 
-    invited_user = create_invitee(:email => opts[:email])
+    invited_user = create_invitee(opts)
     if invited_user.persisted?
-      Invitation.create!(:from => opts[:from],
-                         :to => invited_user,
-                         :into => opts[:into],
-                         :message => opts[:message])
 
-      opts[:from].invites -= 1
-      opts[:from].save!
       invited_user
     else
       false
@@ -41,16 +35,29 @@ class Invitation
   end
 
   def self.create_invitee(opts = {})
-    invitable = User.find_or_initialize_with_error_by(:email, opts[:email])
+    invitee = User.find_or_initialize_with_error_by(:email, opts[:email])
 
-    if invitable.new_record?
-      invitable.errors.clear if invitable.email.try(:match, Devise.email_regexp)
+    if invitee.new_record?
+      invitee.errors.clear if invitee.email.try(:match, Devise.email_regexp)
     else
-      invitable.errors.add(:email, :taken) unless invitable.invited?
+      invitee.errors.add(:email, :taken) unless invitee.invited?
     end
 
-    invitable.invite! if invitable.errors.empty?
-    invitable
+    if opts[:from]
+      invitee.save(:validate => false)
+      Invitation.create!(:from => opts[:from],
+                         :to => invitee,
+                         :into => opts[:into],
+                         :message => opts[:message])
+
+      opts[:from].invites -= 1
+      opts[:from].save!
+      invitee.reload
+    end
+
+    invitee.send(:generate_invitation_token)
+    invitee.invite! if invitee.errors.empty?
+    invitee
   end
 
   def to_request!

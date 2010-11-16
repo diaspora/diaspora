@@ -381,7 +381,7 @@ DEPENDENCIES
   database_cleaner (= 0.5.2)
   devise (= 1.1.3)
   devise-mongo_mapper!
-  devise_invitable (~> 0.3.4)
+  devise_invitable (= 0.3.5)
   em-http-request!
   em-websocket
   factory_girl_rails

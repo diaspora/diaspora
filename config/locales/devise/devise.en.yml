@@ -63,7 +63,7 @@ en:
         click_to_unlock: "Click the link below to unlock your account:"
         unlock: "Unlock my account"
       invitation:
-        subject: 'A friend wants you to join Diaspora!'
+        subject: "You've been invited to join Diaspora!"
         has_invited_you: "%{name} has invited you to join Diaspora"
         have_invited_you: "%{names} have invited you to join Diaspora"
         accept_at: ", at %{url}, you can accept it through the link below."

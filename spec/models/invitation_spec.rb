@@ -79,11 +79,6 @@ describe Invitation do
       new_user.invitations_to_me.first.message.should == message
     end
 
-    it 'mails the optional message' do
-      message = "How've you been?"
-      new_user = Invitation.invite(:from => user, :email => @email, :into => aspect, :message => message)
-      Devise.mailer.deliveries.first.to_s.include?(message).should be_true
-    end
     it 'sends a contact request to a user with that email into the aspect' do
       user2
       user.should_receive(:send_contact_request_to){ |a, b| 
@@ -95,24 +90,37 @@ describe Invitation do
   end
 
   describe '.create_invitee' do
-    it 'creates a user' do
-      lambda {
-        Invitation.create_invitee(:email => @email)
-      }.should change(User, :count).by(1)
-    end
-    it 'sends email to the invited user' do
-      lambda {
-        Invitation.create_invitee(:email => @email)
-      }.should change{Devise.mailer.deliveries.size}.by(1)
-    end
-    it 'sends an email that includes the right things' do
-      Invitation.create_invitee(:email => @email)
-      Devise.mailer.deliveries.first.to_s.include?("Welcome #{@email}").should == true
+    context 'with an inviter' do
+      it 'sends mail' do
+        message = "How've you been?"
+        lambda {
+          Invitation.create_invitee(:from => user, :email => @email, :into => aspect, :message => message)
+        }.should change{Devise.mailer.deliveries.size}.by(1)
+      end
+      it 'mails the optional message' do
+        message = "How've you been?"
+        new_user = Invitation.create_invitee(:from => user, :email => @email, :into => aspect, :message => message)
+        Devise.mailer.deliveries.first.to_s.include?(message).should be_true
+      end
     end
     context 'with no inviter' do
+      it 'sends an email that includes the right things' do
+        Invitation.create_invitee(:email => @email)
+        Devise.mailer.deliveries.first.to_s.include?("Welcome #{@email}").should == true
+      end
+      it 'creates a user' do
+        lambda {
+          Invitation.create_invitee(:email => @email)
+        }.should change(User, :count).by(1)
+      end
+      it 'sends email to the invited user' do
+        lambda {
+          Invitation.create_invitee(:email => @email)
+        }.should change{Devise.mailer.deliveries.size}.by(1)
+      end
       it 'does not render nonsensical emails' do
         Invitation.create_invitee(:email => @email)
-        Devise.mailer.deliveries.first.subject.match(/a friend/i).should be_false
+        Devise.mailer.deliveries.first.body.raw_source.match(/have invited you to join/i).should be_false
       end
     end
   end
