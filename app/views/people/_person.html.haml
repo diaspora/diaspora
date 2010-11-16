@@ -18,7 +18,7 @@
         - elsif current_user.pending_requests.find_by_person_id(person.id)
           = link_to =t('.pending_request'), aspects_manage_path
         - else
-          = render :partial => 'requests/new_request_to_person', :locals => {:aspects => @aspects, :person => person}
+          = render :partial => 'requests/new_request_to_person', :locals => {:aspects => aspects, :person => person}
 
     .info
       = person.diaspora_handle

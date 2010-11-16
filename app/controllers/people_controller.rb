@@ -10,8 +10,37 @@ class PeopleController < ApplicationController
 
   def index
     @aspect = :search
+
     @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'created_at DESC'
+    
+    
+    # dont do it@people.first.diaspora_handle == params[:q]  
+    
+    #only do it if it is an email address
+    if params[:q].try(:match, Devise.email_regexp)
+      find_remote_user(params[:q])
+    end
+    
     respond_with @people
+  end
+
+  def find_remote_user(account)
+
+    finger = EMWebfinger.new(account)
+    finger.on_person do |response|
+      begin
+        puts response.inspect
+        if response.class == Person
+
+          response.socket_to_uid(current_user.id, :aspects => @aspects)
+        else
+          require File.join(Rails.root,'lib/diaspora/websocket')
+          puts Diaspora::WebSocket
+          Diaspora::WebSocket.queue_to_user(current_user.id, {:class => 'person', :query => account, :response => response})
+        end
+      rescue 
+      end
+    end
   end
 
   def show
