@@ -7,8 +7,8 @@
     =t('.results_for')
     %u= params[:q]
 
-  %ul#stream
+  %ul#stream.people
     - for person in @people
-      = render 'people/person', :person => person
+      = render 'people/person', :person => person, :aspects => @aspects
 
   = will_paginate @people

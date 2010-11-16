@@ -14,10 +14,11 @@ end
 
 Given /^I have one contact request$/ do
   other_user = make_user
-  other_user.aspects.create!(:name => "meh")
+  other_aspect = other_user.aspects.create!(:name => "meh")
+  other_user.send_contact_request_to(@me.person, other_aspect)
+
   other_user.reload
-      
-  other_user.send_contact_request_to(@me.person, other_user.aspects.first)
+  other_aspect.reload
   @me.reload
 end
 

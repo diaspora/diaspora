@@ -100,6 +100,7 @@ describe User do
     it 'should be remove a post if the noone links to it' do
       person = user2.person
       user2.delete
+      person.reload
 
       lambda {user.disconnect(person)}.should change(Post, :count).by(-1)
     end

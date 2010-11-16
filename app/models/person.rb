@@ -8,6 +8,8 @@ class Person
   include MongoMapper::Document
   include ROXML
   include Encryptor::Public
+  require File.join(Rails.root, 'lib/diaspora/websocket')
+  include Diaspora::Socketable
 
   xml_accessor :_id
   xml_accessor :diaspora_handle
@@ -148,7 +150,6 @@ class Person
       }
     }
   end
-
   protected
 
   def clean_url

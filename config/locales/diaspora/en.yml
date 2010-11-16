@@ -223,7 +223,6 @@ en:
           leave_blank: "(leave blank if you don't want to change it)"
           password_to_confirm: "(we need your current password to confirm your changes)"
           unhappy: "Unhappy?"
-          back: "Back"
           update: "Update"
           cancel_my_account: "Cancel my account"
       closed: "Signups are closed on this Diaspora pod."
@@ -264,6 +263,7 @@ en:
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
           does_not_exist: "Person does not exist!"
+          not_connected: "You are not connected with this person"
       edit:
           info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"

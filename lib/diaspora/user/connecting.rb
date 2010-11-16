@@ -7,12 +7,12 @@ module Diaspora
     module Connecting
       def send_contact_request_to(desired_contact, aspect)
         # should have different exception types for these?
-        raise "You cannot connect yourself" if desired_contact.nil? 
-        raise "You have already sent a contact request to that person!" if self.pending_requests.detect{
-          |x| x.to == desired_contact}
+        raise "You cannot connect yourself" if desired_contact.nil?
+        raise "You have already sent a contact request to that person!" if self.pending_requests.detect {
+          |x| x.to == desired_contact }
         raise "You are already connected to that person!" if contact_for desired_contact
         request = Request.instantiate(
-          :to => desired_contact,
+          :to   => desired_contact,
           :from => self.person,
           :into => aspect)
         if request.save
@@ -39,8 +39,8 @@ module Diaspora
       end
 
       def accept_and_respond(contact_request_id, aspect_id)
-        request = pending_requests.find!(contact_request_id)
-        requester = request.from
+        request          = pending_requests.find!(contact_request_id)
+        requester        = request.from
         reversed_request = accept_contact_request(request, aspect_by_id(aspect_id))
         dispatch_contact_acceptance reversed_request, requester
       end
@@ -58,7 +58,7 @@ module Diaspora
 
       def receive_contact_request(contact_request)
         Rails.logger.info("receiving contact request #{contact_request.to_json}")
-        
+
         #response from a contact request you sent
         if original_request = original_request(contact_request)
           destination_aspect = self.aspect_by_id(original_request.into_id)
@@ -72,7 +72,7 @@ module Diaspora
           self.save
           Request.send_request_accepted(self, contact_request.from, destination_aspect)
 
-        #this is a new contact request
+          #this is a new contact request
         elsif !request_from_me?(contact_request)
           self.pending_requests << contact_request
           self.save!
@@ -94,19 +94,23 @@ module Diaspora
 
       def remove_contact(bad_contact)
         contact = contact_for(bad_contact)
-        contact.aspects.each{|aspect|
+        contact.aspects.each do |aspect|
           contact.aspects.delete(aspect)
-          aspect.posts.each { |post|
+          aspect.posts.each do |post|
             aspect.post_ids.delete(post.id) if post.person == bad_contact
-          }
+          end
           aspect.save
-        }
+        end
 
-        self.raw_visible_posts.find_all_by_person_id( bad_contact.id ).each{|post|
-          self.visible_post_ids.delete( post.id )
+        self.raw_visible_posts.find_all_by_person_id(bad_contact.id).each do |post|
+          self.visible_post_ids.delete(post.id)
           post.user_refs -= 1
-          (post.user_refs > 0 || post.person.owner.nil? == false) ?  post.save : post.destroy
-        }
+          if (post.user_refs > 0) || post.person.owner.nil? == false
+            post.save
+          else
+            post.destroy
+          end
+        end
         self.save
         raise "Contact not deleted" unless contact.destroy
         bad_contact.save
@@ -133,7 +137,7 @@ module Diaspora
       end
 
       def requests_for_me
-        pending_requests.select{|req| req.to == self.person} 
+        pending_requests.select { |req| req.to == self.person }
       end
     end
   end

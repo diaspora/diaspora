@@ -2,6 +2,7 @@ Feature: managing contact requests
 
   Background: 
     Given I am signed in
+    And I have an aspect called "Family"
     And I have one contact request
     
   Scenario: seeing contact requests
@@ -10,8 +11,6 @@ Feature: managing contact requests
 
   @javascript @wip
   Scenario: accepting a contact request
-    Given I have an aspect called "Family"
-
     When I am on the home page
     And I follow "Manage (1)"
     Then I should see 1 contact request

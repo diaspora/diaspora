@@ -239,6 +239,7 @@ class User
   end
 
   def push_to_person(salmon, post, person)
+    person.reload # Sadly, we need this for Ruby 1.9.
     # person.owner will always return a ProxyObject.
     # calling nil? performs a necessary evaluation.
     unless person.owner.nil?
