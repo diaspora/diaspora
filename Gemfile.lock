@@ -38,6 +38,14 @@ GIT
       eventmachine (>= 0.12.9)
 
 GIT
+  remote: git://github.com/igrigorik/em-websocket
+  revision: 96e85559334e7899ee31e9cef0b8e83d30707080
+  specs:
+    em-websocket (0.1.4)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
+
+GIT
   remote: git://github.com/jnunemaker/mongomapper.git
   revision: 9f22809a04f13b37db9078371a524aff67fafd70
   branch: rails3
@@ -79,36 +87,35 @@ GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
-    actionmailer (3.0.1)
-      actionpack (= 3.0.1)
-      mail (~> 2.2.5)
-    actionpack (3.0.1)
-      activemodel (= 3.0.1)
-      activesupport (= 3.0.1)
+    actionmailer (3.0.2)
+      actionpack (= 3.0.2)
+      mail (~> 2.2.9)
+    actionpack (3.0.2)
+      activemodel (= 3.0.2)
+      activesupport (= 3.0.2)
       builder (~> 2.1.2)
       erubis (~> 2.6.6)
       i18n (~> 0.4.1)
       rack (~> 1.2.1)
-      rack-mount (~> 0.6.12)
-      rack-test (~> 0.5.4)
+      rack-mount (~> 0.6.13)
+      rack-test (~> 0.5.6)
       tzinfo (~> 0.3.23)
-    activemodel (3.0.1)
-      activesupport (= 3.0.1)
+    activemodel (3.0.2)
+      activesupport (= 3.0.2)
       builder (~> 2.1.2)
       i18n (~> 0.4.1)
-    activerecord (3.0.1)
-      activemodel (= 3.0.1)
-      activesupport (= 3.0.1)
-      arel (~> 1.0.0)
+    activerecord (3.0.2)
+      activemodel (= 3.0.2)
+      activesupport (= 3.0.2)
+      arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
-    activeresource (3.0.1)
-      activemodel (= 3.0.1)
-      activesupport (= 3.0.1)
-    activesupport (3.0.1)
+    activeresource (3.0.2)
+      activemodel (= 3.0.2)
+      activesupport (= 3.0.2)
+    activesupport (3.0.2)
     addressable (2.2.2)
-    arel (1.0.1)
-      activesupport (~> 3.0.0)
-    aws (2.3.25)
+    arel (2.0.2)
+    aws (2.3.26)
       activesupport
       http_connection
       uuidtools
@@ -146,7 +153,7 @@ GEM
       ohai (>= 0.5.7)
       rest-client (>= 1.0.4, < 1.7.0)
       uuidtools
-    childprocess (0.1.3)
+    childprocess (0.1.4)
       ffi (~> 0.6.3)
     columnize (0.3.2)
     configuration (1.1.0)
@@ -168,9 +175,6 @@ GEM
     devise_invitable (0.3.5)
       devise (~> 1.1.0)
     diff-lcs (1.1.2)
-    em-websocket (0.1.4)
-      addressable (>= 2.1.1)
-      eventmachine (>= 0.12.9)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
@@ -179,7 +183,7 @@ GEM
     factory_girl_rails (1.0)
       factory_girl (~> 1.3)
       rails (>= 3.0.0.beta4)
-    faraday (0.5.2)
+    faraday (0.5.3)
       addressable (~> 2.2.2)
       multipart-post (~> 1.0.1)
       rack (>= 1.1.0, < 2)
@@ -203,16 +207,16 @@ GEM
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     linecache (0.43)
-    mail (2.2.9)
+    mail (2.2.9.1)
       activesupport (>= 2.3.6)
-      i18n (~> 0.4.1)
+      i18n (>= 0.4.1)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mini_fb (1.1.4)
+    mini_fb (1.1.5)
       hashie
       rest-client
-    mini_magick (3.0)
+    mini_magick (3.1)
       subexec (~> 0.0.4)
     mixlib-authentication (1.1.4)
       mixlib-log
@@ -295,19 +299,19 @@ GEM
       ruby-openid (>= 2.1.8)
     rack-test (0.5.6)
       rack (>= 1.0)
-    rails (3.0.1)
-      actionmailer (= 3.0.1)
-      actionpack (= 3.0.1)
-      activerecord (= 3.0.1)
-      activeresource (= 3.0.1)
-      activesupport (= 3.0.1)
+    rails (3.0.2)
+      actionmailer (= 3.0.2)
+      actionpack (= 3.0.2)
+      activerecord (= 3.0.2)
+      activeresource (= 3.0.2)
+      activesupport (= 3.0.2)
       bundler (~> 1.0.0)
-      railties (= 3.0.1)
-    railties (3.0.1)
-      actionpack (= 3.0.1)
-      activesupport (= 3.0.1)
-      rake (>= 0.8.4)
-      thor (~> 0.14.0)
+      railties (= 3.0.2)
+    railties (3.0.2)
+      actionpack (= 3.0.2)
+      activesupport (= 3.0.2)
+      rake (>= 0.8.7)
+      thor (~> 0.14.4)
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
@@ -318,7 +322,7 @@ GEM
     rspec-core (2.1.0)
     rspec-expectations (2.1.0)
       diff-lcs (~> 1.1.2)
-    rspec-instafail (0.1.2)
+    rspec-instafail (0.1.3)
     rspec-mocks (2.1.0)
     rspec-rails (2.1.0)
       rspec (~> 2.1.0)
@@ -335,8 +339,8 @@ GEM
     selenium-client (1.2.18)
     selenium-rc (2.2.4)
       selenium-client (>= 1.2.18)
-    selenium-webdriver (0.0.29)
-      childprocess (>= 0.0.7)
+    selenium-webdriver (0.1.0)
+      childprocess (= 0.1.4)
       ffi (~> 0.6.3)
       json_pure
       rubyzip
@@ -359,7 +363,7 @@ GEM
     uuidtools (2.1.1)
     warden (0.10.7)
       rack (>= 1.0.0)
-    webmock (1.5.0)
+    webmock (1.6.1)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
@@ -383,7 +387,7 @@ DEPENDENCIES
   devise-mongo_mapper!
   devise_invitable (= 0.3.5)
   em-http-request!
-  em-websocket
+  em-websocket!
   factory_girl_rails
   haml
   http_accept_language!

@@ -37,7 +37,7 @@ gem 'em-http-request',:ref => 'bf62d67fc72d6e701be5',  :git => 'git://github.com
 gem 'thin'
 
 #Websocket
-gem 'em-websocket'
+gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket'
 gem 'magent', :git => 'git://github.com/dcu/magent.git'
 
 #File uploading
