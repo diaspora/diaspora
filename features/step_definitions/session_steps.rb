@@ -11,7 +11,7 @@ end
 
 
 Given 'I am signed in' do
-  @me ||= Factory(:user)
+  @me ||= Factory(:user, :getting_started => false)
   When %(I go to the new user session page)
   When %(I fill in "Username" with "#{@me.username}")
   When %(I fill in "Password" with "#{@me.password}")
