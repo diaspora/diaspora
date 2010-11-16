@@ -17,13 +17,11 @@ config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/def
 
 config.each do |thin|
   port = thin["port"]
-  #socket = "/tmp/thin_#{id}.sock"
   dir = "/service/thin_#{port}"
   flags = []
   flags << "-c /usr/local/app/diaspora" #directory to run from
-  flags << "-e production" #run in production mode
-  #flags << "-S #{socket}"  #use a socket
-  flags << "-p #{port}"  #use a socket
+  flags << "-e production"              #run in production mode
+  flags << "-p #{port}"                 #use a socket
   execute "thin run" do
     command "mkdir -p #{dir} && echo '#!/bin/sh' > #{dir}/run && echo 'exec /usr/local/bin/ruby /usr/local/bin/thin start #{flags.join(" ")}' >> #{dir}/run"
   end
@@ -38,7 +36,7 @@ end
 #end
 
 execute "websocket run" do
-  command "mkdir -p /service/websocket && echo '#!/bin/sh' > /service/websocket/run && echo 'cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/app/diaspora/script/websocket_server.rb' >> /service/websocket/run"
+  command "mkdir -p /service/websocket && echo '#!/bin/sh' > /service/websocket/run && echo 'cd /usr/local/app/diaspora && RAILS_ENV=production exec /usr/local/bin/ruby /usr/local/app/diaspora/script/websocket_server.rb' >> /service/websocket/run"
 end
 execute "executable" do
   command "chmod -R 755 /service/websocket"

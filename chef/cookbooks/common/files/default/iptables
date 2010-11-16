@@ -17,5 +17,7 @@
 -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT  
 #Websocket
 -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT 
+#Crossdomain policy file for Flash sockets
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 843 -j ACCEPT 
 -A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited
 COMMIT

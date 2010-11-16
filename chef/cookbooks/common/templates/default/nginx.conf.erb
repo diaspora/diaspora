@@ -38,6 +38,21 @@ http {
   }
 
   server {
+   listen       843;
+
+   location / {
+    rewrite ^(.*)$ /crossdomain.xml;
+   }
+
+   error_page 400  /crossdomain.xml;
+
+   location = /crossdomain.xml {
+    root html;
+   }
+
+  }
+
+  server {
    listen       80;
    server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
    rewrite      ^(.*) https://alpha.joindiaspora.com$1 permanent;
