@@ -1,25 +1,17 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 # Slovak translations for Ruby on Rails (inspired by the Czech localization - thanx to Karel Minařík)
 # by Jozef Fulop (jofi-rails@silake.com)
  
-sk:
-    # ActiveSupport
-    support:
-        array:
-            words_connector: ', '
-            two_words_connector: ' a '
-            last_word_connector: ' a '
-                
+"sk":
     # Date
     date:
         formats:
-            default: "%d. %m. %Y"
+            default: "%d.%m.%Y"
             short: "%d %b"
             long: "%d. %B %Y"
+
         day_names: [Nedeľa, Pondelok, Utorok, Streda, Štvrtok, Piatok, Sobota]
         abbr_day_names: [Ne, Po, Ut, St, Št, Pi, So]
+
         month_names: [~, Január, Február, Marec, Apríl, Máj, Jún, Júl, August, September, Október, November, December]
         abbr_month_names: [~, Jan, Feb, Mar, Apr, Máj, Jún, Júl, Aug, Sep, Okt, Nov, Dec]
         order: [:day, :month, :year]
@@ -28,28 +20,54 @@ sk:
     time:
         formats:
             default: "%a %d. %B %Y %H:%M %z"
-            short: "%d. %m. %H:%M"
+            short: "%d.%m. %H:%M"
             long: "%A %d. %B %Y %H:%M"
-        am: 'dopoludnia'
-        pm: 'popoludní'
+        am: "dopoludnia"
+        pm: "popoludní"
 
+    # ActiveSupport
+    support:
+        array:
+            words_connector: ", "
+            two_words_connector: " a "
+            last_word_connector: " a "
+        select:
+            prompt: "Prosím vyberte si." 
+                
     # Numbers
     number:
         format:
             precision: 3
-            separator: '.'
-            delimiter: ','
+            separator: "."
+            delimiter: ","
+            significant: false
+            strip_insignificant_zeros: false
+
         currency:
             format:
-                unit: '€'
+                unit: "€"
                 precision: 2
-                format: '%n %u'
+                format: "%n %u"
                 separator: ","
                 delimiter: " "
+                significant: false
+                strip_insignificant_zeros: false
+
+        percentage:
+            format:
+                delimiter: ""
+
+        precision:
+            format:
+                delimiter: ""
+
         human:
             format:
                 precision: 1
-                delimiter: ''
+                delimiter: ""
+                significant: false
+                strip_insignificant_zeros: false
+
             storage_units:
                 format: "%n %u"
                 units:
@@ -60,13 +78,16 @@ sk:
                     mb: "MB"
                     gb: "GB"
                     tb: "TB"
-        percentage:
-            format:
-                delimiter: ''
-        precision:
-            format:
-                delimiter: ''
-    
+            decimal_units:
+                format: "%n %u"
+                units:
+                   unit: ""
+                   thousand: Tisíc
+                   million: Milión
+                   billion: Miliarda
+                   trillion: Trilión
+                   quadrillion: Quadrilión
+
     # Distance of time ... helper
     datetime:
         prompts:
@@ -108,30 +129,62 @@ sk:
             over_x_years:
                 one: 'pred viac ako rokom'
                 other: 'viac ako %{count} rokmi'
+            almost_x_years:
+                one:   "takmer rokom"
+                other: "takmer %{count} rokmi"
+
+    helpers:
+       select:
+          prompt: "Prosím vyberte si"
+
+       submit:
+          create: 'Vytvoriť %{model}'
+          update: 'Aktualizovať %{model}'
+          submit: 'Uložiť %{model}'
+
+    errors:
+       format: "%{attribute} %{message}"
+       messages: &errors_messages
+            inclusion: "nie je v zozname povolených hodnôt"
+            exclusion: "je vyhradené pre iný účel"
+            invalid: "nie je platná hodnota"
+            confirmation: "nebolo potvrdené"
+            accepted: "musí byť potvrdené"
+            empty: "nesmie byť prázdný/é"
+            blank: "je povinná položka"
+            too_long: "je príliš dlhá/ý (max. %{count} znakov)"
+            too_short: "je príliš krátký/á (min. %{count} znakov)"
+            wrong_length: "nemá správnu dĺžku (očakáva sa %{count} znakov)"
+            taken: "sa už nachádza v databáze"
+            not_a_number: "nie je číslo"
+            not_an_integer: "nie je celé číslo"
+            greater_than: "musí byť väčšíe ako %{count}"
+            greater_than_or_equal_to: "musí byť väčšie alebo rovnaké ako %{count}"
+            equal_to: "sa musí rovnať %{count}"
+            less_than: "musí byť menšie ako %{count}"
+            less_than_or_equal_to: "musí byť menšie ako %{count}"
+            odd: "musí byť nepárne číslo"
+            even: "musí byť párne číslo"
 
     # ActiveRecord validation messages
     activerecord:                  
         errors:
+            template:
+               header:
+                  one:    "Zmeny na %{model} neboli uložené. Vyskytla sa 1 chyba"
+                  other:  "Zmeny na %{model} neboli uložené. Vyskytlo sa %{count} chýb"
+               body: "There were problems with the following fields:"
+
             messages:
-                inclusion: "nie je v zozname povolených hodnôt"
-                exclusion: "je vyhradené pre iný účel"
-                invalid: "nie je platná hodnota"
-                confirmation: "nebolo potvrdené"
-                accepted: "musí byť potvrdené"
-                empty: "nesmie byť prázdný/é"
-                blank: "je povinná položka"
-                too_long: "je príliš dlhá/ý (max. %{count} znakov)"
-                too_short: "je príliš krátký/á (min. %{count} znakov)"
-                wrong_length: "nemá správnu dĺžku (očakáva sa %{count} znakov)"
-                taken: "sa už nachádza v databáze"
-                not_a_number: "nie je číslo"
-                greater_than: "musí byť väčšíe ako %{count}"
-                greater_than_or_equal_to: "musí byť väčšie alebo rovnaké ako %{count}"
-                equal_to: "sa musí rovnať %{count}"
-                less_than: "musí byť menšie ako %{count}"
-                less_than_or_equal_to: "musí byť menšie ako %{count}"
-                odd: "musí byť nepárne číslo"
-                even: "musí byť párne číslo"
+               taken: "ste už použili"
+               record_invalid: "Validácia neuspešná: %{errors}"
+               <<: *errors_messages
+
+            full_messages:
+               format: "%{attribute}%{message}"
+
+    activemodel:
+        errors:
             template:
                 header:
                     one: "Pri ukladaní objektu %{model} došlo k chybám a nebolo možné objekt uložiť"
