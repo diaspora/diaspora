@@ -223,7 +223,6 @@ en:
           leave_blank: "(leave blank if you don't want to change it)"
           password_to_confirm: "(we need your current password to confirm your changes)"
           unhappy: "Unhappy?"
-          back: "Back"
           update: "Update"
           cancel_my_account: "Cancel my account"
       closed: "Signups are closed on this Diaspora pod."
