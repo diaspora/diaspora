@@ -27,6 +27,9 @@ Setup is really simple.
 
 You'll want to change some settings, so check out the wiki for [Setup & Configurations](http://wiki.github.com/imathis/octopress/configuration).
 
+#### Optional:
+- Install Pygments (Python syntax highlighter), if you wish to enable _Syntax Highlighting_.  Download from [pygments.org](http://pygments.org), or <code>sudo aptitude install python-pigments</code> for Debian/Ubuntu users.
+
 ## Usage
 Octopress is almost like a front-end for Jekyll. It provides some really handy rake tasks and automation to make blogging as simple as possible. With Octopress you can:
 
