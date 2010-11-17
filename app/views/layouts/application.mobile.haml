@@ -10,11 +10,12 @@
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
-    = javascript_include_tag 'vendor/jquery-1.4.3.min.js'
+    = javascript_include_tag 'vendor/jquery144.min'
     = javascript_include_tag 'vendor/jquery.mobile-1.0a1.js', 'rails' 
-    = stylesheet_link_tag "http://code.jquery.com/mobile/1.0a1/jquery.mobile-1.0a1.min.css"
+    = stylesheet_link_tag 'vendor/jquery_mobile.min'
     = stylesheet_link_tag 'mobile'
     = csrf_meta_tag
+
     = yield(:head)
 
   %body
