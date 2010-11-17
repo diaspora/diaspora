@@ -7,7 +7,7 @@ execute "Untar splunk" do
 end
 
 execute "Install splunk" do
-  command "mv /tmp/install/splunk /opt/splunk"
+  command "mv -f /tmp/install/splunk /opt/splunk"
 end
 
 execute "Start splunk" do
