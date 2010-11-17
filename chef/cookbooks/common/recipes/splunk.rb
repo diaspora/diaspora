@@ -33,3 +33,7 @@ end
 execute "Add monitor for diaspora" do
   command "cd /opt/splunk/bin && ./splunk add monitor /usr/local/app/diaspora/log"
 end
+
+execute 'Splunk Restart' do
+  command "cd /opt/splunk/bin && ./splunk restart"
+end
