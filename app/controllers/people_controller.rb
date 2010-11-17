@@ -104,12 +104,14 @@ class PeopleController < ApplicationController
   def webfinger(account, opts = {})
     finger = EMWebfinger.new(account)
     finger.on_person do |response|
+      Rails.logger.info("event=controller_webfinger status=callback response=#{response.inspect}")
       if response.class == Person
         response.socket_to_uid(current_user.id, opts)
       else
         require File.join(Rails.root,'lib/diaspora/websocket')
         Diaspora::WebSocket.queue_to_user(current_user.id, {:class => 'people', :status => 'fail', :query => account, :response => response}.to_json)
       end
+      Rails.logger.info("event=controller_webfinger status=callback_complete response=#{response.inspect}")
     end
   end
 end
