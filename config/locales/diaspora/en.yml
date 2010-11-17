@@ -303,6 +303,8 @@ en:
           error: "Please select an aspect!"
           ignore: "Ignored contact request."
       create:
+          sending: "Sending..."
+          sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
           tried: "we tried our best to send a message to %{account}"
   services:
       index:

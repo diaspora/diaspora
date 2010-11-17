@@ -18,33 +18,13 @@ class PeopleController < ApplicationController
     
     #only do it if it is an email address
     if params[:q].try(:match, Devise.email_regexp)
-      find_remote_user(params[:q])
+      webfinger(params[:q])
     end
     
     respond_with @people
   end
 
-  def find_remote_user(account)
-
-    finger = EMWebfinger.new(account)
-    finger.on_person do |response|
-      begin
-        puts response.inspect
-        if response.class == Person
-
-          response.socket_to_uid(current_user.id, :aspects => @aspects)
-        else
-          require File.join(Rails.root,'lib/diaspora/websocket')
-          puts Diaspora::WebSocket
-          Diaspora::WebSocket.queue_to_user(current_user.id, {:class => 'person', :query => account, :response => response})
-        end
-      rescue 
-      end
-    end
-  end
-
   def show
-
     @person = Person.find(params[:id].to_id)
     @post_type = :all
     @aspect = :none 
@@ -61,7 +41,6 @@ class PeopleController < ApplicationController
 
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
       respond_with @person, :locals => {:post_type => :all}
-
 
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
@@ -109,6 +88,32 @@ class PeopleController < ApplicationController
       redirect_to getting_started_path(:step => params[:getting_started].to_i+1)
     else
       redirect_to edit_person_path
+    end
+  end
+
+  def retrieve_remote
+    if params[:diaspora_handle]
+      webfinger(params[:diaspora_handle], :single_aspect_form => true)
+      render :nothing => true
+    else
+      render :nothing => true, :status => 422
+    end
+  end
+
+  private
+  def webfinger(account, opts = {})
+    finger = EMWebfinger.new(account)
+    finger.on_person do |response|
+      begin
+        if response.class == Person
+          response.socket_to_uid(current_user.id, opts)
+        else
+          require File.join(Rails.root,'lib/diaspora/websocket')
+          Diaspora::WebSocket.queue_to_user(current_user.id, {:class => 'person', :query => account, :response => response})
+        end
+      rescue RuntimeError => e
+        puts e.message
+      end
     end
   end
 end

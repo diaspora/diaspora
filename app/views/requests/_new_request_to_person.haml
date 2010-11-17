@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_tag(requests_path) do
-  = select_tag(:aspect_id, options_from_collection_for_select(aspects, "id", "name"))
-  = hidden_field_tag :destination_handle, person.diaspora_handle
-  = submit_tag t('people.person.add_contact')
+= form_for(Request.new, :remote => true ) do |request|
+  = request.select(:into, options_from_collection_for_select(aspects, "id", "name"))
+  = request.hidden_field :to, :value => destination_handle
+  = request.submit t('people.person.add_contact'), :disable_with => t('requests.create.sending')

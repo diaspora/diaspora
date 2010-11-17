@@ -30,7 +30,7 @@
           .description
             = t('.request_people')
          
-        = render :partial =>'requests/new_request_to_person', :locals => {:aspects => @aspects, :person => @person}
+        = render :partial =>'requests/new_request_to_person', :locals => {:aspects => @aspects, :destination_handle => @person.diaspora_handle}
 
       - else
         %h3

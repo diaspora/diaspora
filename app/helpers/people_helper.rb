@@ -4,6 +4,14 @@
 
 module PeopleHelper
 
+  def request_partial single_aspect_form
+    if single_aspect_form
+      'requests/new_request_with_aspect_to_person'
+    else
+      'requests/new_request_to_person'
+    end
+  end
+
   def search_or_index
     if params[:q]
       I18n.t 'people.helper.results_for',:params => params[:q]

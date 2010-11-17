@@ -15,7 +15,7 @@ module SocketsHelper
       if object.is_a? Post
         v = render_to_string(:partial => 'shared/stream_element', :locals => {:post => object, :current_user => user})
       elsif object.is_a? Person
-        v = render_to_string(:partial => type_partial(object), :locals => {:person => object,  :current_user => user}) unless object.is_a? Retraction
+        v = render_to_string(:partial => type_partial(object), :locals => {:single_aspect_form => opts[:single_aspect_form], :person => object, :aspects => user.aspects, :current_user => user})
       else
         v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
       end
