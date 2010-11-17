@@ -6,8 +6,12 @@ execute "Untar splunk" do
   command "cd /tmp/install && tar -xvf splunk-4.1.5-85165-Linux-x86_64.tgz"
 end
 
+execute "Remove old splunk" do
+  command "rm -rf /opt/splunk"
+end
+
 execute "Install splunk" do
-  command "mv -f /tmp/install/splunk /opt/splunk"
+  command "mv /tmp/install/splunk /opt/splunk"
 end
 
 execute "Start splunk" do
