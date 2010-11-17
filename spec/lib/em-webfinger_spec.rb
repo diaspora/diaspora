@@ -43,6 +43,7 @@ describe EMWebfinger do
       end
 
       it 'should not allow port numbers' do
+        pending
         proc{
           EMWebfinger.new('eviljoe@diaspora.local:3000')
         }.should raise_error(RuntimeError, "Identifier is invalid")
