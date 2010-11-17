@@ -22,6 +22,10 @@ cookbook_file "/usr/local/nginx/html/crossdomain.xml" do
   source "crossdomain.xml"
 end
 
+execute "change crossdomain.xml permissions" do
+  command "chmod 755 /usr/local/nginx/html/crossdomain.xml"
+end
+
 config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/default/thins.yml")
 template "/usr/local/nginx/conf/nginx.conf" do
   source "nginx.conf.erb"
