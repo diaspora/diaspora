@@ -65,6 +65,8 @@ default:
   smtp_username: 'smtp_username'
   smtp_password: 'secret'
 
+  #google analytics key, if false, it won't include the javascript
+  google_a_site: false
 development:
 
 test:
