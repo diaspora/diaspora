@@ -214,9 +214,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mini_fb (1.1.5)
-      hashie
-      rest-client
     mini_magick (3.1)
       subexec (~> 0.0.4)
     mixlib-authentication (1.1.4)
@@ -396,7 +393,6 @@ DEPENDENCIES
   json
   launchy
   magent!
-  mini_fb
   mini_magick
   mocha
   mongo_mapper!
