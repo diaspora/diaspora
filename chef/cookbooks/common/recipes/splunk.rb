@@ -6,6 +6,10 @@ execute "Untar splunk" do
   command "cd /tmp/install && tar -xvf splunk-4.1.5-85165-Linux-x86_64.tgz"
 end
 
+execute "Stop old splunk" do
+  command "/opt/splunk/bin/splunk stop || true"
+end
+
 execute "Remove old splunk" do
   command "rm -rf /opt/splunk"
 end
