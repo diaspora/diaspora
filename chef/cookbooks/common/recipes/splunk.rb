@@ -11,7 +11,7 @@ execute "Install splunk" do
 end
 
 execute "Put splunk into forwarding mode" do
-  command "cd /opt/splunk/bin && ./splunk enable app SplunkLightForwarder -auth admin:changeme"
+  command "cd /opt/splunk/bin && ./splunk enable app SplunkLightForwarder --accept-license -auth admin:changeme"
 end
 
 execute "Add forwarding server" do
