@@ -65,5 +65,5 @@ group :test do
 end
 
 group :deployment do
-  gem 'sprinkle', :git => 'git://github.com/rsofaer/sprinkle.git'
+  #gem 'sprinkle', :git => 'git://github.com/rsofaer/sprinkle.git'
 end
