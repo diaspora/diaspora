@@ -104,15 +104,11 @@ class PeopleController < ApplicationController
   def webfinger(account, opts = {})
     finger = EMWebfinger.new(account)
     finger.on_person do |response|
-      begin
-        if response.class == Person
-          response.socket_to_uid(current_user.id, opts)
-        else
-          require File.join(Rails.root,'lib/diaspora/websocket')
-          Diaspora::WebSocket.queue_to_user(current_user.id, {:class => 'people', :status => 'fail', :query => account, :response => response}.to_json)
-        end
-      rescue RuntimeError => e
-        puts e.message
+      if response.class == Person
+        response.socket_to_uid(current_user.id, opts)
+      else
+        require File.join(Rails.root,'lib/diaspora/websocket')
+        Diaspora::WebSocket.queue_to_user(current_user.id, {:class => 'people', :status => 'fail', :query => account, :response => response}.to_json)
       end
     end
   end

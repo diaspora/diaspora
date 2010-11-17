@@ -22,8 +22,7 @@ module Diaspora
 
       def receive xml, salmon_author
         object = Diaspora::Parser.from_xml(xml)
-        Rails.logger.debug("Receiving object for #{self.real_name}:\n#{object.inspect}")
-        Rails.logger.debug("From: #{object.diaspora_handle}")
+        Rails.logger.debug("event=receive recipient=#{self.inspect} object=#{object.inspect} sender=#{salmon_author.inspect}")
         
         if object.is_a?(Request)
           salmon_author.save
@@ -46,13 +45,10 @@ module Diaspora
           e.on_person do |person|
             if person.class == Person
               object.person = person if object.respond_to? :person=
-
               unless object.is_a?(Request) || self.contact_for(salmon_author)
                 raise "Not connected to that person" 
               else
-
                 return receive_object(object,person)
-
               end
             end
 
@@ -164,7 +160,6 @@ module Diaspora
         end
 
         post.socket_to_uid(id, :aspect_ids => aspects.map{|x| x.id}) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
-
       end
     end
   end

@@ -7,6 +7,7 @@ class EMWebfinger
     @account = account.strip.gsub('acct:','').to_s
     @callbacks = []
     @ssl = true 
+    Rails.logger.info("event=EMWebfinger status=initialized target=#{account}")
     # Raise an error if identifier has a port number 
     #raise "Identifier is invalid" if(@account.strip.match(/\:\d+$/))
     # Raise an error if identifier is not a valid email (generous regexp)
@@ -76,7 +77,14 @@ class EMWebfinger
 
 
   def process_callbacks(person)
-    @callbacks.each { |c| c.call(person) }
+    @callbacks.each { |c|
+      begin
+        c.call(person)
+      rescue Exception => e
+        Rails.logger.info("event=EMWebfinger status=error_on_callback error=#{e.inspect}")
+      end
+    }
+    Rails.logger.info("event=EMWebfinger status=complete person=#{person.inspect}")
   end
 
 
