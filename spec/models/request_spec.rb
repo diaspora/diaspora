@@ -13,7 +13,7 @@ describe Request do
 
   describe 'validations' do
     before do
-      @request = Request.new(:from => user.person, :to => user2.person, :into => aspect) 
+      @request = Request.instantiate(:from => user.person, :to => user2.person, :into => aspect) 
     end
     it 'is valid' do
       @request.should be_valid
@@ -32,6 +32,14 @@ describe Request do
     it 'is not necessarily into an aspect' do
       @request.into = nil
       @request.should be_valid
+    end
+    it 'is not a duplicate of an existing pending request' do
+      request
+      @request.should_not be_valid
+    end
+    it 'is not to an existing friend' do
+      connect_users(user, aspect, user2, user2.aspects.create(:name => 'new aspect'))
+      @request.should_not be_valid
     end
   end
 

@@ -16,14 +16,19 @@ class Request
   belongs_to :into, :class => Aspect
   belongs_to :from, :class => Person
   belongs_to :to,   :class => Person
+  key :sent,                  Boolean, :default => false
 
   validates_presence_of :from, :to
+  validate :not_already_connected, :if => :sent
+  validate :no_pending_request, :if => :sent
+  
   #before_validation :clean_link
 
   def self.instantiate(opts = {})
     self.new(:from => opts[:from],
              :to   => opts[:to],
-             :into => opts[:into])
+             :into => opts[:into],
+             :sent => true)
   end
 
   def reverse_for accepting_user
@@ -68,4 +73,16 @@ class Request
     self.from.diaspora_handle
   end
 
+  private
+  def no_pending_request
+    if Request.first(:from_id => from_id, :to_id => to_id)
+      errors[:base] << 'You have already sent a request to that person'
+    end
+  end
+
+  def not_already_connected
+    if Contact.first(:user_id => self.from.owner_id, :person_id => self.to_id)
+      errors[:base] << 'You have already connected to this person!'
+    end
+  end
 end

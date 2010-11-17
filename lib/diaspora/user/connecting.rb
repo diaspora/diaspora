@@ -6,30 +6,27 @@ module Diaspora
   module UserModules
     module Connecting
       def send_contact_request_to(desired_contact, aspect)
-        # should have different exception types for these?
-        raise "You cannot connect yourself" if desired_contact.nil?
-        raise "You have already sent a contact request to that person!" if self.pending_requests.detect {
-          |x| x.to == desired_contact }
-        raise "You are already connected to that person!" if contact_for desired_contact
-        request = Request.instantiate(
-          :to   => desired_contact,
-          :from => self.person,
-          :into => aspect)
-        if request.save
-          self.pending_requests << request
-          self.save
-
-          aspect.requests << request
-          aspect.save
-          push_to_people request, [desired_contact]
+        request = Request.instantiate(:to => desired_contact, 
+                                      :from => self.person,
+                                      :into => aspect)
+        if request.save!
+          dispatch_request request
         end
         request
+      end
+
+      def dispatch_request(request)
+        self.pending_requests << request
+        self.save
+
+        request.into.requests << request
+        request.into.save
+        push_to_people request, [request.to]
       end
 
       def accept_contact_request(request, aspect)
         pending_request_ids.delete(request.id.to_id)
         activate_contact(request.from, aspect)
-
         request.reverse_for(self)
       end
 

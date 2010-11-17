@@ -32,39 +32,19 @@ class RequestsController < ApplicationController
   end
 
  def create
-    aspect = current_user.aspect_by_id(params[:aspect_id])
-    account = params[:destination_handle].strip  
-    begin 
-      finger = EMWebfinger.new(account)
-    
-      finger.on_person{ |person|
-      
-      if person.class == Person
-        rel_hash = {:person => person}
-
-        Rails.logger.debug("Sending request: #{rel_hash}")
-
-        begin
-          @request = current_user.send_contact_request_to(rel_hash[:person], aspect)
-        rescue Exception => e
-          Rails.logger.debug("error: #{e.message}")
-          flash[:error] = e.message
-        end
-      else
-        #socket to tell people this failed?
-      end
-      }
-
-    rescue Exception => e 
-      flash[:error] = e.message
-    end
-    
-    if params[:getting_started]
-      redirect_to getting_started_path(:step=>params[:getting_started])
+    aspect = current_user.aspect_by_id(params[:request][:into])
+    account = params[:request][:to].strip  
+    person = Person.by_account_identifier(account)
+    @request = Request.instantiate(:to => person,
+                                   :from => current_user.person,
+                                   :into => aspect)
+    if @request.save
+      current_user.dispatch_request(@request)
+      flash.now[:notice] = I18n.t('requests.create.sent')
+      redirect_to :back
     else
-      flash[:notice] = I18n.t('requests.create.tried', :account => account) unless flash[:error]
-      respond_with :location => aspects_manage_path 
-      return
-    end    
+      flash.now[:error] = @request.errors.full_messages.join(', ')
+      redirect_to :back
+    end
   end
 end
