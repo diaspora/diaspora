@@ -59,12 +59,16 @@ describe Diaspora::UserModules::Connecting do
         user.reload
       end
 
-      it "should delete an accepted contact request" do
+      it "should delete an accepted contact request from pending_requests" do
         proc {
           user.accept_contact_request(@received_request, aspect)
         }.should change(user.reload.pending_requests, :count ).by(-1)
       end
-
+      it "should delete an accepted contact request" do
+        proc {
+          user.accept_contact_request(@received_request, aspect)
+        }.should change(Request, :count ).by(-1)
+      end
       it 'should be able to ignore a pending contact request' do
         proc { user.ignore_contact_request(@received_request.id) }.should change(
           user.reload.pending_requests, :count ).by(-1)

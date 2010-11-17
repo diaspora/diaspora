@@ -27,6 +27,7 @@ module Diaspora
       def accept_contact_request(request, aspect)
         pending_request_ids.delete(request.id.to_id)
         activate_contact(request.from, aspect)
+        request.destroy
         request.reverse_for(self)
       end
 
