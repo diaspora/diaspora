@@ -10,14 +10,15 @@ execute "Install splunk" do
   command "mv /tmp/install/splunk /opt/splunk"
 end
 
+execute "Start splunk" do
+  command "cd /opt/splunk/bin && ./splunk start --accept-license"
+end
+
 execute "Put splunk into forwarding mode" do
-  command "cd /opt/splunk/bin && ./splunk enable app SplunkLightForwarder --accept-license -auth admin:changeme"
+  command "cd /opt/splunk/bin && ./splunk enable app SplunkLightForwarder -auth admin:changeme"
 end
 
 execute "Add forwarding server" do
   command "cd /opt/splunk/bin && ./splunk add forward-server splunk.joindiaspora.com:9997 -auth admin:changeme"
 end
 
-execute "Start splunk" do
-  command "cd /opt/splunk/bin && ./splunk start"
-end
