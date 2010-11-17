@@ -12,7 +12,7 @@
 #
 src_files:
   - public/javascripts/vendor/jquery144.js
-  - public/javascripts/vendor/jquery-ui-1.8.4.custom.min.js
+  - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
   - public/javascripts/vendor/jquery.tipsy.js
   - public/javascripts/aspect-edit.js
 
