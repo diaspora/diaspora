@@ -26,3 +26,6 @@ execute "Add forwarding server" do
   command "cd /opt/splunk/bin && ./splunk add forward-server splunk.joindiaspora.com:9997 -auth admin:changeme"
 end
 
+execute "Add monitor for diaspora" do
+  command "cd /opt/splunk/bin && ./splunk add monitor /usr/local/app/diaspora/log"
+end
