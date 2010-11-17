@@ -1,34 +1,26 @@
-.span-10.append-1.last
-  .floating
-    %h3 
-      = t('.login')
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      #user
-        %p.username
-          = f.label :username , t('username')
-          = f.text_field :username
-        %p.user_network
-          ="@#{APP_CONFIG[:terse_pod_url]}"
+/%h1 This is a technology preview, do not provide any private information.
+/%h3 your account may be deleted until we move into a more stable development period.
+/%h3 USE AT YOUR OWN RISK!!
 
-        %p
-          = f.label :password , t('password')
-          = f.password_field :password
-      /%p
-      /- if devise_mapping.rememberable?
-      /  = f.check_box :remember_me
-      /  = f.label :remember_me , t('.remember_me')
-      = f.submit t('.sign_in')
-    
-    %p
-      = render :partial => "devise/shared/links"
-    %p
-      = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
+.span-22.prepend-1.last
 
-.span-13.last
-  %h1
-    This is a technology preview, do not provide any private information.
-  %h3
-    your account may be deleted until we move into a more stable development period.
-  %h3
-    USE AT YOUR OWN RISK!!
+  #landing_content
 
+
+    #diaspora_description.section
+      %p
+        Share what you want, with who you want.
+
+    #signup_field.section
+      = render 'shared/mail_signup_form'
+
+    #login_field.section
+      already have an account?
+      = link_to "log in here", "#"
+
+.span-24.last{:style=>"text-align:center;"}
+  %ul#press_logos
+    %li= image_tag "press_logos/nyt.png"
+    %li= image_tag "press_logos/nymag.gif"
+    %li= image_tag "press_logos/mashable.jpeg"
+    %li= image_tag "press_logos/techcrunch.gif"

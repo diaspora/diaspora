@@ -53,17 +53,23 @@
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
 
-    %header
+    %header.landing_page
       .container{:style => "position:relative;"}
 
         #notification
 
         #diaspora_text
-          = link_to "DIASPORA", (current_user ? root_path : new_user_session_path)
+          = link_to "DIASPORA*", (current_user ? root_path : new_user_session_path)
           %span.sub_text
-            PREVIEW
+            ALPHA
 
-        - if current_user
+        - unless current_user
+          .right{:style => "top:70px;"}
+            %ul#landing_nav
+              %li= link_to "blog", "http://blog.joindiaspora.com"
+              %li= link_to "developers", "https://github.com/diaspora/diaspora"
+              %li= link_to "login", "#"
+        - else
           #global_search
             = form_tag(people_path, :method => 'get') do
               = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
@@ -83,8 +89,17 @@
       .span-24.last
         = yield
 
-      .span-24.last
-        = render "posts/debug"
+      /.span-24.last
+      /= render "posts/debug"
+    .clearfix
+
+    %footer
+      .container
+        .brandon POWERED BY DIASPORA*
+        %ul#footer_nav
+          %li= link_to "blog", "http://blog.joindiaspora.com"
+          %li= link_to "developers", "https://github.com/diaspora/diaspora"
+
     :javascript    
         var is_ssl = ("https:" == document.location.protocol);
         var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
@@ -98,3 +113,4 @@
         feedback_widget_options.color = "#222";
         feedback_widget_options.style = "idea";
         var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+    
