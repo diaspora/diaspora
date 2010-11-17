@@ -42,6 +42,13 @@ execute "executable" do
   command "chmod -R 755 /service/websocket"
 end
 
+execute "magent run" do
+  command "mkdir -p /service/magent && echo '#!/bin/sh' > /service/magent/run && echo 'cd /usr/local/app/diaspora && RAILS_ENV=production exec /usr/local/bin/ruby /usr/local/bin/magent start --log-path=log/' >> /service/magent/run"
+end
+execute "executable" do
+  command "chmod -R 755 /service/magent"
+end
+
 execute "nginx run" do
   command "mkdir -p /service/nginx && echo '#!/bin/sh' > /service/nginx/run && echo 'exec /usr/local/nginx/sbin/nginx' >> /service/nginx/run"
 end
