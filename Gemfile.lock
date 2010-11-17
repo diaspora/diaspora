@@ -14,15 +14,6 @@ GIT
       devise (~> 1.1.0)
 
 GIT
-  remote: git://github.com/dcu/magent.git
-  revision: 90ee5db241abd2e2b7d7de5c80f0d7c5b4b8db2d
-  specs:
-    magent (0.5.1)
-      em-websocket
-      mongo
-      uuidtools
-
-GIT
   remote: git://github.com/iain/http_accept_language.git
   revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
   specs:
@@ -54,6 +45,15 @@ GIT
       activemodel (~> 3.0.0)
       activesupport (~> 3.0.0)
       plucky (~> 0.3.6)
+
+GIT
+  remote: git://github.com/maxwell/magent.git
+  revision: af5ad4b58e27fc0ca49bea8ab11ec3f746e92f33
+  specs:
+    magent (0.5.1)
+      em-websocket
+      mongo
+      uuidtools
 
 GIT
   remote: git://github.com/rsofaer/carrierwave.git
