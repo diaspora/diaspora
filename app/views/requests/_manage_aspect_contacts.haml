@@ -13,7 +13,7 @@
 
   .span-7.last
     %h3 Add a new contact
-    = form_tag(person_by_handle_path, :id => "new_request_to_#{aspect.id}", :remote => true) do
+    = form_tag(person_by_handle_path, :id => "new_request_to_#{aspect.id}", :class => "webfinger_form", :remote => true) do
       =t('.enter_a_diaspora_username')
       %br
       %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
@@ -30,5 +30,6 @@
 
       = submit_tag t('.create_request')
     %br
+    #loader.hidden= image_tag 'ajax-loader.gif'
     %ul#request_result{:aspect_id => aspect.id}
-
+      %li.error.hidden

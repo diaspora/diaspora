@@ -17,8 +17,13 @@
         processNotification(obj['notice']);
 
       }else if (obj['class'] == 'people'){
+        $('#loader').hide();
         debug("got a " + obj['class']);
-        processPerson(obj['html']);
+        if(obj['status'] == 'fail'){
+          $('#request_result li:first').text(obj['response']).show();
+        }else{
+          processPerson(obj['html']);
+        }
       }else{
         debug("got a " + obj['class'] + " for aspects " + obj['aspect_ids']);
 
@@ -34,22 +39,20 @@
           processPost(obj['class'], obj['html'], obj['aspect_ids'])
         }
       }
-
     };
     ws.onclose = function() { debug("socket closed"); };
     ws.onopen = function() {
       ws.send(location.pathname);
       debug("connected...");
     };
-
   });
 
   function processPerson(html){
     $('.people#stream').prepend(html).slideDown('slow', function(){});
-    var rr = $('#request_result');
-    rr.prepend(html).hide();
+    var rr = $('#request_result li:first');
+    rr.after(html);
     $("#request_result [name='into']").val(rr.attr('aspect_id'));
-    rr.slideDown('fast', function(){});
+    $('#request_result :nth-child(2)').slideDown('fast', function(){});
   }
 
   function processNotification(html){
@@ -82,7 +85,6 @@
     if( !opts['mine?'] && opts['my_post?']) {
       processNotification(opts['notification']);
     }
-
   }
 
   function processPost(className, html, aspectIds){

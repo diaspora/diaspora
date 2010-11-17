@@ -72,6 +72,10 @@ $(document).ready(function(){
   $(".person img", ".dropzone").tipsy({live:true});
   $(".avatar", ".aspects").tipsy({live:true});
 
+  $('.webfinger_form').submit(function(){
+     $('#loader').show();
+     $('#request_result li:first').hide();
+  });
 });//end document ready
 
 
