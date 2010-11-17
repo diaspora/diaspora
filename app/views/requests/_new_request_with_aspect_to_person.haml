@@ -5,4 +5,4 @@
 = form_for Request.new, :remote => true do |request|
   = request.hidden_field :into, :value => "changeme"
   = request.hidden_field :to, :value => destination_handle
-  = request.submit '+', :class => 'add', :disable_with => "Sending..."
+  = request.submit '+', :class => 'add', :disable_with => "Sending"

@@ -20,7 +20,7 @@
         $('#loader').hide();
         debug("got a " + obj['class']);
         if(obj['status'] == 'fail'){
-          $('#request_result li:first').text(obj['response']).show();
+          $('#request_result li:first').show().$('#message').text(obj['response']).show();
         }else{
           processPerson(obj['html']);
         }

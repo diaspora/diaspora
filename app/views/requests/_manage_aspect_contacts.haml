@@ -33,7 +33,8 @@
     #loader.hidden= image_tag 'ajax-loader.gif'
     %ul#request_result{:aspect_id => aspect.id}
       %li.error.hidden
-        = link_to t('.invite_someone'), "#invite_user_pane", :class => "invite_user_button", :title => t('.invite_someone')
+        #message
+          = link_to "Know their email address? You should invite them", "#invite_user_pane", :class => "invite_user_button"
         %br
         .yo{ :style => "display:none;"}
           #invite_user_pane
