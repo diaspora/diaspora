@@ -36,6 +36,7 @@
 
     = csrf_meta_tag
     = yield(:head)
+    = javascript_include_tag 'vender/ga'
 
   %body
     - flash.each do |name, msg|
