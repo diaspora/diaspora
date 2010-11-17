@@ -17,8 +17,7 @@ describe Diaspora::UserModules::Connecting do
   let(:user2) { make_user }
   let(:aspect2) { user2.aspects.create(:name => "aspect two") }
 
-
-  context 'contact requesting' do
+  describe '#send_contact_request_to' do
     it "should assign a request to a aspect for the user that sent it out" do
       aspect.requests.size.should == 0
 
@@ -27,7 +26,9 @@ describe Diaspora::UserModules::Connecting do
       aspect.reload
       aspect.requests.size.should == 1
     end
+  end
 
+  context 'contact requesting' do
     describe  '#receive_contact_request' do
       it 'adds a request to pending if it was not sent by user' do
         r = Request.instantiate(:to => user.person, :from => person)
@@ -51,26 +52,26 @@ describe Diaspora::UserModules::Connecting do
       let(:request_from_myself) {Request.instantiate(:to => user.person, :from => user.person)}
       before do
         request_for_user.save
-        user.receive_request(request_for_user, person)
-        user.receive_request(request2_for_user, person_one)
+        user.receive(request_for_user.to_diaspora_xml, person)
+        @received_request = Request.first(:from_id => request_for_user.from.id, :to_id => user.person.id, :sent => false)
+        user.receive(request2_for_user.to_diaspora_xml, person_one)
+        @received_request2 = Request.first(:from_id => request2_for_user.from.id, :to_id => user.person.id, :sent => false)
         user.reload
       end
 
       it "should delete an accepted contact request" do
-        proc { user.accept_contact_request(request2_for_user, aspect) }.should change(
-          user.reload.pending_requests, :count ).by(-1)
+        proc {
+          user.accept_contact_request(@received_request, aspect)
+        }.should change(user.reload.pending_requests, :count ).by(-1)
       end
 
       it 'should be able to ignore a pending contact request' do
-        proc { user.ignore_contact_request(request_for_user.id) }.should change(
+        proc { user.ignore_contact_request(@received_request.id) }.should change(
           user.reload.pending_requests, :count ).by(-1)
       end
 
       it 'should ignore a contact request from yourself' do
         reversed_request = request_from_myself.reverse_for(user)
-
-        user.pending_requests.delete_all
-        user.save
 
         proc { user.receive_contact_request(reversed_request)
           }.should raise_error /request from himself/
@@ -79,11 +80,13 @@ describe Diaspora::UserModules::Connecting do
 
     it 'should not be able to contact request an existing contact' do
       connect_users(user, aspect, user2, aspect2)
-      proc { user.send_contact_request_to(user2.person, aspect1) }.should raise_error /already connected/
+      proc { user.send_contact_request_to(user2.person, aspect1) 
+      }.should raise_error(MongoMapper::DocumentNotValid, /already connected/)
     end
 
     it 'should not be able to contact request yourself' do
-      proc { user.send_contact_request_to(nil, aspect) }.should raise_error(RuntimeError, /connect yourself/)
+      proc { user.send_contact_request_to(nil, aspect) 
+      }.should raise_error(MongoMapper::DocumentNotValid)
     end
 
     it 'should send an email on acceptance if a contact request' do
