@@ -14,11 +14,16 @@ class EMWebfinger
     #raise "Identifier is invalid" if !(@account=~ /^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/)
   end 
   def fetch
-    raise 'you need to set a callback before calling fetch' if @callbacks.empty?
+    if @callbacks.empty?
+      Rails.logger.info("event=EMWebfinger status=abort target=#{account} callbacks=empty")
+      raise 'you need to set a callback before calling fetch' 
+    end
     person = Person.by_account_identifier(@account)
     if person
+      Rails.logger.info("event=EMWebfinger status=local target=#{account}")
       process_callbacks person
     else
+      Rails.logger.info("event=EMWebfinger status=remote target=#{account}")
       get_xrd
     end
   end
@@ -77,6 +82,7 @@ class EMWebfinger
 
 
   def process_callbacks(person)
+    Rails.logger.info("event=EMWebfinger status=callbacks_started response=#{person.inspect}")
     @callbacks.each { |c|
       begin
         c.call(person)
@@ -84,7 +90,7 @@ class EMWebfinger
         Rails.logger.info("event=EMWebfinger status=error_on_callback error=#{e.inspect}")
       end
     }
-    Rails.logger.info("event=EMWebfinger status=complete person=#{person.inspect}")
+    Rails.logger.info("event=EMWebfinger status=complete response=#{person.inspect}")
   end
 
 
