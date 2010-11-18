@@ -52,11 +52,11 @@ en:
           invalid_fields: "Invalid Fields"
           correct_the_following_errors_and_try_again: "Correct the following errors and try again."
   layouts:
-      application:
-          view_profile: "view profile"
-          edit_profile: "edit profile"
-          account_settings: "account settings"
-          logout: "logout"
+      header:
+        view_profile: "view profile"
+        edit_profile: "edit profile"
+        account_settings: "account settings"
+        logout: "logout"
   shared:
       stream_element:
           show_comments: "show comments"
