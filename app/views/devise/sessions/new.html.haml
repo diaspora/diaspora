@@ -20,7 +20,7 @@
 
 .span-24.last{:style=>"text-align:center;"}
   %ul#press_logos
-    %li= image_tag "press_logos/nyt.png"
-    %li= image_tag "press_logos/nymag.gif"
-    %li= image_tag "press_logos/mashable.jpeg"
-    %li= image_tag "press_logos/techcrunch.gif"
+    %li= link_to image_tag("press_logos/nyt.png"), "http://www.nytimes.com/2010/05/12/nyregion/12about.html", :title => "The New York Times"
+    %li= link_to image_tag("press_logos/nymag.gif"), "http://nymag.com/news/features/establishments/68512/", :title => "New York Magazine"
+    %li= link_to image_tag("press_logos/mashable.jpeg"), "http://mashable.com/2010/08/26/facebook-alternative-diaspora-launches-september-15/", :title => "Mashable"
+    %li= link_to image_tag("press_logos/techcrunch.gif"), "http://techcrunch.com/2010/09/15/diaspora-revealed/", :title => "TechCrunch"

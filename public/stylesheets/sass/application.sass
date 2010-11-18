@@ -1713,8 +1713,13 @@ ul#landing_nav
     :top -1px 
     :margin 0
       :right -3px
-    :border-radius 5px 0 0 5px
     :width 300px
+
+
+    :border-radius 5px 0 0 5px
+    :-webkit-border-radius 5px 0 0 5px
+    :-moz-border-radius 5px 0 0 5px
+
 
     :position relative
     :display inline
@@ -1728,9 +1733,12 @@ ul#landing_nav
     :background
       :color #107FC9
 
+    :-webkit-border-radius 0 5px 5px 0
+    :-moz-border-radius 0 5px 5px 0
     :border-radius 0 5px 5px 0
 
     :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(0,123,194)), color-stop(1, rgb(65,182,250)))
+    :background -moz-linear-gradient( center bottom, rgb(0,123,194) 0%, rgb(65,182,250) 100%)
 
     :padding 12px
     :font
@@ -1744,6 +1752,7 @@ ul#landing_nav
 
     &:hover
       :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(0,136,209)), color-stop(1, rgb(113,204,255)))
+      :background -moz-linear-gradient( center bottom, rgb(0,136,209) 0%, rgb(113,204,255) 100%)
 
     &:active
 
@@ -1769,6 +1778,8 @@ ul#landing_nav
     :background
       :color #fff
     :-webkit-box-shadow 0 1px 3px #ccc
+    :-moz-box-shadow 0 1px 3px #ccc
+    :box-shadow 0 1px 3px #ccc
 
 
 #login_field
