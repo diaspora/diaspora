@@ -1,4 +1,3 @@
-package_assets: always
 javascripts:
   flash_socket:
     - public/javascripts/vendor/FABridge.js
