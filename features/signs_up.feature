@@ -31,11 +31,11 @@ Feature: new user registration
     Then I should see "You're all set up, O!"
 
     When I follow "Continue on to your everyone page, an overview of all of your aspects."
-    Then I should be on the home page
+    Then I should be on the aspects page
     And I should see "bring them to Diaspora!"
 
   Scenario: new user skips the setup wizard
     When I follow "skip getting started"
-    And I wait for the home page to load
-    Then I should be on the home page
+    And I wait for the aspects page to load
+    Then I should be on the aspects page
     And I should see "bring them to Diaspora!"

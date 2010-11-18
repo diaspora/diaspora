@@ -20,7 +20,8 @@
 
       - if current_user.owns?(post)
         .right
-          = link_to t('delete'), photo_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
+          = render 'shared/reshare', :post => post if post.is_a? StatusMessage
+          = link_to t('delete'), object_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
     = render type_partial(post), :post => post
 

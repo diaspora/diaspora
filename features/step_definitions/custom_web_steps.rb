@@ -22,8 +22,8 @@ Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
   end
 end
 
-When /^I wait for the home page to load$/ do
-  wait_until { current_path == root_path }
+When /^I wait for the aspects page to load$/ do
+  wait_until { current_path == aspects_path }
 end
 
 When /^I wait for the ajax to finish$/ do
