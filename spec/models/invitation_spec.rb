@@ -122,6 +122,12 @@ describe Invitation do
         Invitation.create_invitee(:email => @email)
         Devise.mailer.deliveries.first.body.raw_source.match(/have invited you to join/i).should be_false
       end
+      it 'creates an invitation' do
+        pending "Invitations should be more flexible, allowing custom messages to be passed in without an inviter."
+        lambda {
+          Invitation.create_invitee(:email => @email)
+        }.should change(Invitation, :count).by(1)
+      end
     end
   end
 

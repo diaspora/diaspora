@@ -61,5 +61,6 @@
     - if @step > 1
       = link_to t('back'), getting_started_path(:step => @step-1), :class => "button", :id => "previous_step"
 
-.bottom_notification
-  = link_to "#{t('.skip')} →", '#', :id => "getting_started_skip"
+- if @user.getting_started
+  .bottom_notification
+    = link_to "#{t('.skip')} →", '#', :id => "getting_started_skip"

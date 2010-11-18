@@ -1,6 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
+# Znaki przystankowe mogą być do kitu.
 
 pl:
   errors:
@@ -19,6 +17,13 @@ pl:
       timeout: 'Twoja sesja wygasła, zaloguj się ponownie by kontynuować.'
       inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
     sessions:
+      new:
+        login: 'Login'
+        username: 'Nazwa użytkownika'
+        password: 'Hasło'
+        sign_in: 'Zaloguj się'
+        have_a_problem: "Jakiś kłopot? Znajdź odpowiedź tu"
+        remember_me: "Zapamiętaj sesję"
       signed_in: 'Zalogowano pomyślnie.'
       signed_out: 'Wylogowano.'
     passwords:
@@ -34,7 +39,34 @@ pl:
     unlocks:
       send_instructions: 'W ciągu kilku minut otrzymasz email z instrukcjami odblokowania konta.'
       unlocked: 'Twoje konto zostało odblokowane, jesteś zalogowany.'
-    mailer:
-      confirmation_instructions: 'Instrukcje aktywacji'
-      reset_password_instructions: 'Instrukcje zmiany hasła'
-      unlock_instructions: 'Instrukcje odblokowania'
+    mailer:    
+      welcome: "Witaj %{email}!"
+      hello: "Cześć %{email}!"
+      confirmation_instructions:
+        subject: 'Instrukcje aktywacji'
+        you_can_confirm: "Możesz aktywować swoje konto klikając na poniższy link:"
+        confirm: "Aktywuj moje konto"
+      reset_password_instructions:
+        subject: 'Instrukcje zmiany hasła'
+        someone_requested: "Odebraliśmy zgłoszenie zmiany hasła, jeśli chcesz to zrobić kliknij na poniższy link:"
+        change: "Zmień moje hasło"
+        wont_change: "Twoje hasło zostanie zmienione dopiero gdy klikniesz na link i podasz nowe hasło."
+        ignore: "Jeśli nie chcesz zresetować hasła, zignoruj ten email."
+      unlock_instructions:
+        subject: 'Instrukcje odblokowania'
+        account_locked: "Twoje konto zostało zablokowane, ponieważ przekroczono limit nieudanych logowań."
+        click_to_unlock: "Kliknij na poniższy link, aby odblokować konto:"
+        unlock: "Odblokuj moje konto"
+      invitation:
+        subject: "Masz zaproszenie do Diaspory!"
+        has_invited_you: "%{name} zaprosił(a) Cię do Diaspory!"
+        have_invited_you: "%{names} zaprosili Cie do Diaspory"
+        accept_at: ", at %{url}, możesz zaakceptować zaproszenie klikając na poniższy link:"
+        accept: "Zaakceptuj zaproszenie"
+        ignore: "Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ten email."
+        no_account_till: "Twoje konto nie zostanie założone dopuki nie klikniesz na link powyżej i nie zarejestrujesz sie.
+    shared:
+      links:
+        sign_in: 'Zaloguj się'
+        sign_up: 'Zarejestruj się'
+        forgot_your_password: 'Nie pamiętasz hasła?'
