@@ -36,7 +36,7 @@ class Invitation
 
   def self.create_invitee(opts = {})
     invitee = User.find_or_initialize_with_error_by(:email, opts[:email])
-
+    invitee.invites = opts[:invites]
     if invitee.new_record?
       invitee.errors.clear if invitee.email.try(:match, Devise.email_regexp)
     else

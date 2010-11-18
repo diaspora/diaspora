@@ -12,6 +12,9 @@
         = t('devise.mailer.welcome', :email => @resource.email)
       -if @invs.count > 0
         = render :partial => 'inviters'
+
+      -else
+        = render :partial => 'batch_invites'
       %p= link_to t('.accept'), accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :class => "large_text"
       %p.small
         = t('.ignore')
