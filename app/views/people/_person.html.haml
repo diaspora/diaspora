@@ -15,7 +15,7 @@
           = t('.thats_you')
         - elsif current_user.person_objects.include?(person)
           = t('.already_connected')
-        - elsif current_user.pending_requests.find_by_person_id(person.id)
+        - elsif current_user.request_for(person)
           = link_to =t('.pending_request'), aspects_manage_path
         - else
           - single_aspect_form ||= nil

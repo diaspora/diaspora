@@ -36,7 +36,7 @@ class PeopleController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
       else
-        @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
+        @pending_request = current_user.request_for(@person)
       end
 
       @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'

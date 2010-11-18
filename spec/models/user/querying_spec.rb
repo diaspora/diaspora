@@ -173,4 +173,19 @@ describe User do
     end
   end
 
+  describe "#request_for" do
+    let!(:user5) {make_user}
+
+    it 'should not have a pending request before connecting' do
+      request = user.request_for(user5.person)
+      request.should be_nil
+    end
+
+    it 'should have a pending request after sending a request' do
+      user.send_contact_request_to(user5.person, user.aspects.first)
+      request = user.reload.request_for(user5.person)
+      request.should_not be_nil
+    end
+  end
+
 end

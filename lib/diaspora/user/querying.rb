@@ -84,6 +84,9 @@ module Diaspora
         self.aspects.all.collect{|x| x.id}
       end
 
+      def request_for(to_person)
+        Request.first(:from_id => self.person.id, :to_id => to_person.id).first
+      end
     end
   end
 end
