@@ -30,6 +30,11 @@ execute "Add monitor for diaspora" do
   not_if "splunk list monitor | grep diaspora"
 end
 
+execute "Add monitor for nginx" do
+  command "splunk add monitor /usr/local/nginx/logs"
+  not_if "splunk list monitor | grep nginx"
+end
+
 execute 'Splunk Restart' do
   command "splunk restart"
 end
