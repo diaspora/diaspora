@@ -6,10 +6,10 @@ Feature: managing contact requests
     And I have one contact request
     
   Scenario: seeing contact requests
-     When I am on the home page
-     Then I should see "Manage (1)" in the header
+    When I am on the home page
+    Then I should see "Manage (1)" in the header
 
-  @javascript @wip
+  @javascript
   Scenario: accepting a contact request
     When I am on the home page
     And I follow "Manage (1)"
