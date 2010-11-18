@@ -41,8 +41,14 @@ def process_message
   end
 end
 
+def package_js
+  require 'jammit'
+  Jammit.package!
+end
+
 begin
   EM.run {
+    package_js
     Diaspora::WebSocket.initialize_channels
 
     socket_params = { :host => APP_CONFIG[:socket_host],

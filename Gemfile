@@ -46,7 +46,7 @@ gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch 
 gem 'mini_magick'
 gem 'aws'
 gem 'fastercsv', :require => false
-
+gem 'jammit'
 group :test, :development do
   gem 'factory_girl_rails'
   gem 'ruby-debug19' if RUBY_VERSION.include? "1.9"

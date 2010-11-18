@@ -5,6 +5,10 @@
 module ApplicationHelper
   @@youtube_title_cache = Hash.new("no-title")
 
+  def modern_browser?
+    false
+  end
+
   def current_aspect?(aspect)
     !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end

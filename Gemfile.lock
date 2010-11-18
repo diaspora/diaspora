@@ -141,6 +141,7 @@ GEM
       uuidtools
     childprocess (0.1.4)
       ffi (~> 0.6.3)
+    closure-compiler (0.3.3)
     columnize (0.3.2)
     configuration (1.1.0)
     crack (0.1.8)
@@ -188,6 +189,9 @@ GEM
     httparty (0.6.1)
       crack (= 0.1.8)
     i18n (0.4.2)
+    jammit (0.5.4)
+      closure-compiler (>= 0.1.0)
+      yui-compressor (>= 0.9.1)
     json (1.4.6)
     json_pure (1.4.6)
     launchy (0.3.7)
@@ -345,6 +349,7 @@ GEM
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
     xml-simple (1.0.12)
+    yui-compressor (0.9.1)
 
 PLATFORMS
   ruby
@@ -369,6 +374,7 @@ DEPENDENCIES
   fastercsv
   haml
   http_accept_language!
+  jammit
   jasmine!
   json
   launchy
