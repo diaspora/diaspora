@@ -15,15 +15,15 @@ class EMWebfinger
   end 
   def fetch
     if @callbacks.empty?
-      Rails.logger.info("event=EMWebfinger status=abort target=#{account} callbacks=empty")
+      Rails.logger.info("event=EMWebfinger status=abort target=#{@account} callbacks=empty")
       raise 'you need to set a callback before calling fetch' 
     end
     person = Person.by_account_identifier(@account)
     if person
-      Rails.logger.info("event=EMWebfinger status=local target=#{account}")
+      Rails.logger.info("event=EMWebfinger status=local target=#{@account}")
       process_callbacks person
     else
-      Rails.logger.info("event=EMWebfinger status=remote target=#{account}")
+      Rails.logger.info("event=EMWebfinger status=remote target=#{@account}")
       get_xrd
     end
   end
