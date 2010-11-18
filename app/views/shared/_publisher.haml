@@ -44,7 +44,7 @@
             = image_tag("social_media_logos/feed-16x16.png")
             - if current_user.services
               - for service in current_user.services      
-                = image_tag("social_media_logos/#{provider}-16x16.png")
+                = image_tag("social_media_logos/#{service.provider}-24x24.png")
 
 
           = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
