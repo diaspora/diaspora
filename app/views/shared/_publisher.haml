@@ -32,9 +32,9 @@
 
     .options_and_submit
       - if aspect == :all
-        = status.submit t('.share'), :title => t('.share_with_all')
+        = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
       - else
-        = status.submit t('.share'), :title => t('.share_with', :aspect => aspect)
+        = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting')
 
       - if aspect == :all
         .public_toggle

@@ -66,6 +66,7 @@ en:
           everyone: "Everyone"
           add_a_new_aspect: "add a new aspect"
       publisher:
+          posting: "Posting..."
           share: "Share"
           post_a_message_to: "Post a message to %{aspect}"
           make_public: "make public"
