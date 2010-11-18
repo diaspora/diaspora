@@ -27,6 +27,5 @@ When /^I wait for the aspects page to load$/ do
 end
 
 When /^I wait for the ajax to finish$/ do
-  pending
-  # wait_until { ??? }
+  wait_until { evaluate_script("$.active") == 0 }
 end
