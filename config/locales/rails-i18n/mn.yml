@@ -1,0 +1,156 @@
+# Mongolian localization for Ruby on Rails 2.2+
+# by Ochirkhuyag.L <ochkoo@gmail.com>
+#
+ 
+mn:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%y-%m-%d"
+      long: "%Y %B %d"
+ 
+    day_names: [Ням, Даваа, Мягмар, Лхагва, Пүрэв, Баасан, Бямба]
+    abbr_day_names: [Ня, Да, Мя, Лх, Пү, Ба, Бя]
+ 
+    month_names: [~, 1 сар, 2 сар, 3 сар, 4 сар, 5 сар, 6 сар, 7 сар, 8 сар, 9 сар, 10 сар, 11 сар, 12 сар]
+    abbr_month_names: [~, 1 сар, 2 сар, 3 сар, 4 сар, 5 сар, 6 сар, 7 сар, 8 сар, 9 сар, 10 сар, 11 сар, 12 сар]
+ 
+    order: [ :year, :month, :day ]
+ 
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M"
+      short: "%y-%m-%d"
+      long: "%Y %B %d, %H:%M:%S"
+    am: "өглөө"
+    pm: "орой"
+ 
+  number:
+    format:
+      separator: "."
+      delimiter: " "
+      precision: 3
+      
+    currency:
+      format:
+        format: "%n %u"
+        unit: "төг."
+        separator: "."
+        delimiter: " "
+        precision: 2
+        
+    percentage:
+      format:
+        delimiter: ""
+        
+    precision:
+      format:
+        delimiter: ""
+        
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      # Rails 2.2
+      # storage_units: [байт, КБ, МБ, ГБ, ТБ]
+ 
+      # Rails 2.3
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one: "Байт"
+            other: "Байт"
+          kb: "КБ"
+          mb: "МБ"
+          gb: "ГБ"
+          tb: "ТБ"
+ 
+  datetime:
+    distance_in_words:
+      half_a_minute: "хагас минут"	
+      less_than_x_seconds:
+        one: "%{count} секундээс бага"
+        other: "%{count} секундээс бага"
+      x_seconds:
+        one: "%{count} секунд"
+        other: "%{count} секунд"
+      less_than_x_minutes:
+        one: "%{count} минутаас бага"
+        other: "%{count} минутаас бага"
+      x_minutes:
+        one: "%{count} минут"
+        other: "%{count} минут"
+      about_x_hours:
+        one: "%{count} цаг орчим"
+        other: "%{count} цаг орчим"
+      x_days:
+        one: "%{count} өдөр"
+        other: "%{count} өдөр"
+      about_x_months:
+        one: "%{count} сар орчим"
+        other: "%{count} сар орчим"
+      x_months:
+        one: "%{count} сар"
+        other: "%{count} сар"
+      about_x_years:
+        one: "%{count} жил орчим"
+        other: "%{count} жил орчим"
+      almost_x_years:
+        one: "бараг %{count} жил"
+        other: "бараг %{count} жил"
+      over_x_years:
+        one: "%{count} жилээс илүү"
+        other: "%{count} жилээс илүү"
+    prompts:
+      year: "Жил"
+      month: "Сар"
+      day: "Өдөр"
+      hour: "Цаг"
+      minute: "Минут"
+      second: "Секунд"
+
+  activerecord:
+    errors:
+      messages:
+        inclusion: "жагсаалтад алга байна"
+        exclusion: "бол ашиглахад хориотой"
+        invalid: "буруу байна"
+        confirmation: "адилгүй байна"
+        accepted: "хүлээн зөвшөөрөгдсөн байх ёстой"
+        empty: "байхгүй байж болохгүй"
+        blank: "хоосон байж болохгүй"
+        too_long: "хэт урт байна (хамгийн уртдаа %{count} тэмдэгт)"
+        too_short: "хэт богино байна (хамгийн багадаа %{count} тэмдэгт)"
+        wrong_length: "урт нь буруу байна (%{count} тэмдэгт байх ёстой)"
+        taken: "аль хэдийн авчихсан байна"
+        not_a_number: "тоо биш байна"
+        not_an_integer: "бүхэл тоо байх ёстой"
+        greater_than: "%{count}-с их байх ёстой"
+        greater_than_or_equal_to: "%{count}-с их юмуу тэнцүү байх ёстой"
+        equal_to: "%{count}-тэй тэнцүү байх ёстой"
+        less_than: "%{count}-с бага байх ёстой"
+        less_than_or_equal_to: "%{count}-с бага юмуу тэнцүү байх ёстой"
+        odd: "сонгой байх ёстой"
+        even: "тэгш байх ёстой"
+        record_invalid: "Шалгалт амжилтгүй: %{errors}"
+        # Append your own errors here or at the model/attributes scope.
+
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "1 алдаа гарсан тул %{model} хадгалагдахгүй байна"
+          other:  "%{count} алдаа гарсан тул %{model} хадгалагдахгүй байна"
+        # The variable :count is also available
+        body: "Дараах %{count} хэсэгт алдаа гарлаа:"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " болон "
+      last_word_connector: " болон "
+    select:
+      prompt: "Сонгоно уу"

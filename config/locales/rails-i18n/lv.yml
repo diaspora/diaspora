@@ -1,0 +1,132 @@
+# Latvian translations for Ruby on Rails
+# by Kaspars Bankovskis (kaspars@kei.lv)
+
+lv:
+  date:
+    formats:
+      default: "%d.%m.%Y."
+      short: "%e. %B"
+      long: "%Y. gada %e. %B"
+
+    day_names: [svētdiena, pirmdiena, otrdiena, trešdiena, ceturtdiena, piektdiena, sestdiena]
+    abbr_day_names: [Sv., P., O., T., C., Pk., S.]
+    month_names: [~, janvārī, februārī, martā, aprīlī, maijā, jūnijā, jūlijā, augustā, septembrī, oktobrī, novembrī, decembrī]
+    abbr_month_names: [~, Janv, Febr, Marts, Apr, Maijs, Jūn, Jūl, Aug, Sept, Okt, Nov, Dec]
+    order: [ :year, :month, :day ]
+
+  time:
+    formats:
+      default: "%Y. gada %e. %B, %H:%M"
+      short: "%d.%m.%Y., %H:%M"
+      long: "%Y. gada %e. %B, %H:%M:%S"
+
+    am: "priekšpusdiena"
+    pm: "pēcpusdiena"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "pusminūte"
+      less_than_x_seconds:
+        one: "mazāk par vienu sekundi"
+        other: "mazāk par %{count} sekundēm"
+      x_seconds:
+        one: "1 sekunde"
+        other: "%{count} sekundes"
+      less_than_x_minutes:
+        one: "mazāk par vienu minūti"
+        other: "mazāk par %{count} minūtēm"
+      x_minutes:
+        one: "1 minūte"
+        other: "%{count} minūtes"
+      about_x_hours:
+        one: "apmēram 1 stunda"
+        other: "apmēram %{count} stundas"
+      x_days:
+        one: "1 diena"
+        other: "%{count} dienas"
+      about_x_months:
+        one: "apmēram 1 mēnesis"
+        other: "apmēram %{count} mēneši"
+      x_months:
+        one: "1 mēnesis"
+        other: "%{count} mēneši"
+      about_x_years:
+        one: "apmēram 1 gads"
+        other: "apmēram %{count} gadi"
+      over_x_years:
+        one: "vairāk kā gads"
+        other: "vairāk kā %{count} gadi"
+    prompts:
+      second: "sekunde"
+      minute: "minūte"
+      hour: "stunda"
+      day: "diena"
+      month: "mēnesis"
+      year: "gads"
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: 'LVL'
+        format: '%u %n'
+        separator: ","
+        delimiter: "."
+        precision: 2
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Baits"
+            other: "Baiti"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " un "
+      last_word_connector: " un "
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Dēļ 1 kļūdas šis %{model} netika saglabāts"
+          other:  "Dēļ %{count} kļūdām šis %{model} netika saglabāts"
+        body: "Problēmas ir šajos ievades laukos:"
+      messages:
+        inclusion: "nav iekļauts sarakstā"
+        exclusion: "nav pieejams"
+        invalid: "nav derīgs"
+        confirmation: "nesakrīt ar apstiprinājumu"
+        accepted: "ir jāpiekrīt"
+        empty: "ir jābūt aizpildītam"
+        blank: "ir jābūt aizpildītam"
+        too_long: "ir par garu (maksimums ir %{count} zīmes)"
+        too_short: "ir par īsu (minimums ir %{count} zīmes)"
+        wrong_length: "ir nepareizs garums (jābūt %{count} zīmēm)"
+        taken: "ir jau aizņemts"
+        not_a_number: "nav skaitlis"
+        greater_than: "ir jābūt lielākam par %{count}"
+        greater_than_or_equal_to: "ir jābūt lielākam vai vienādam ar %{count}"
+        equal_to: "ir jābūt vienādam ar %{count}"
+        less_than: "ir jābūt mazākam par %{count}"
+        less_than_or_equal_to: "ir jābūt mazākam vai vienādam ar %{count}"
+        odd: "ir jābūt nepāra skaitlim"
+        even: "ir jābūt pāra skaitlim"

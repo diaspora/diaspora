@@ -1,0 +1,152 @@
+# Romanian translations for Ruby on Rails 
+# by Catalin Ilinca (me@talin.ro)
+# updated by kfl62 (bogus keys are now commented)
+
+ro:
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+#      only_day: "%e"
+
+    day_names: [Duminică, Luni, Marți, Miercuri, Joi, Vineri, Sâmbată]
+    abbr_day_names: [Dum, Lun, Mar, Mie, Joi, Vin, Sâm]
+    month_names: [~, Ianuarie, Februarie, Martie, Aprilie, Mai, Iunie, Iulie, August, Septembrie, Octombrie, Noiembrie, Decembrie]
+    abbr_month_names: [~, Ian, Feb, Mar, Apr, Mai, Iun, Iul, Aug, Sep, Oct, Noi, Dec]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%a %d %b %Y, %H:%M:%S %z"
+#      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%d %B %Y %H:%M"
+#      only_second: "%S"
+      
+#      datetime:
+#        formats:
+#          default: "%d-%m-%YT%H:%M:%S%Z"
+          
+    am: ''
+    pm: ''
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: "jumătate de minut"
+      less_than_x_seconds:
+        one:  "mai puțin de o secundă"
+        other: "mai puțin de %{count} secunde"
+      x_seconds:
+        one:  "1 secundă"
+        other: "%{count} secunde"
+      less_than_x_minutes:
+        one:  "mai puțin de un minut"
+        other: "mai puțin de %{count} minute"
+      x_minutes:
+        one:  "1 minut"
+        other: "%{count} minute"
+      about_x_hours:
+        one:  "aproximativ o oră"
+        other: "aproximativ %{count} ore"
+      x_days:
+        one:  "1 zi"
+        other: "%{count} zile"
+      about_x_months:
+        one:  "aproximativ o lună"
+        other: "aproximativ %{count} luni"
+      x_months:
+        one:  "1 lună"
+        other: "%{count} luni"
+      about_x_years:
+        one:  "aproximativ un an"
+        other: "aproximativ %{count} ani"
+      over_x_years:
+        one:  "mai mult de un an"
+        other: "mai mult de %{count} ani"
+      almost_x_years:
+        one:   "aproape 1 an"
+        other: "aproape %{count} ani"
+    prompts:
+      year:   "Anul"
+      month:  "Luna"
+      day:    "Ziua"
+      hour:   "Ora"
+      minute: "Minutul"
+      second: "Secunda"
+      
+  number:
+    format:
+      precision: 3
+      separator: '.'
+      delimiter: ','
+    currency:
+      format:
+        unit: 'RON'
+        precision: 2
+        separator: '.'
+        delimiter: ','
+        format: '%n %u'
+    percentage:
+      format:
+        # separator:
+        delimiter: ","
+#        precision: 2
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+    human:
+      format:
+#        separator: "."
+        delimiter: ","
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+       
+  activerecord:
+    errors:
+      template:
+        header: 
+          one: "Nu am putut salva acest %{model}: o eroare"
+          other: "Nu am putut salva acest %{model}: %{count} erori."
+        body: "Încearcă să corectezi urmatoarele câmpuri:"
+      messages:
+        inclusion: "nu este inclus în listă"
+        exclusion: "este rezervat"
+        invalid: "este invalid"
+        confirmation: "nu este confirmat"
+        accepted: "trebuie dat acceptul"
+        empty: "nu poate fi gol"
+        blank: "nu poate fi gol"
+        too_long: "este prea lung (se pot folosi maximum %{count} caractere)"
+        too_short: "este pre scurt (minumim de caractere este %{count})"
+        wrong_length: "nu are lungimea corectă (trebuie să aiba %{count} caractere)"
+        taken: "este deja folosit"
+        not_a_number: "nu este un număr"
+        greater_than: "trebuie să fie mai mare decât %{count}"
+        greater_than_or_equal_to: "trebuie să fie mai mare sau egal cu %{count}"
+        equal_to: "trebuie să fie egal cu %{count}"
+        less_than: "trebuie să fie mai mic decât %{count}"
+        less_than_or_equal_to: "trebuie să fie mai mic sau egal cu %{count}"
+        odd: "trebuie să fie par"
+        even: "trebuie să fie impar"
+        record_invalid: "Validare nereuşită %{errors}"
+  support:
+    array:
+#        sentence_connector: "și"
+      words_connector: ", "
+      two_words_connector: " şi "
+      last_word_connector: " şi "
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Alegeţi"

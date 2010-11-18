@@ -1,0 +1,198 @@
+# Bulgarian localization for Ruby on Rails 2.2+
+# by Samson Behar <master.webmaster.master@gmail.com>
+# Fixes by Yavor Ivanov, http://github.com/YavorIvanov
+#
+# Минимална локализация на приложения за поддръжка на български език.
+
+bg:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names: [неделя, понеделник, вторник, сряда, четвъртък, петък, събота]
+    standalone_day_names: [Неделя, Понеделник, Вторник, Сряда, Четвъртък, Петък, Събота]
+    abbr_day_names: [Нд, Пн, Вт, Ср, Чт, Пт, Сб]
+
+    # should start with nil cause there is no 0-th month
+    month_names: [~, Януари, Февруари, Март, Април, Май, Юни, Юли, Август, Септември, Октомври, Ноември, Декември]
+    abbr_month_names: [~, яну., фев., март, апр., май, юни, юли, авг., сеп., окт., ноем., дек.]
+
+    order: [ :day, :month, :year ]
+
+  time:
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+
+    am: "преди обяд"
+    pm: "следобед"
+
+  number:
+    format:
+      separator: "."
+      delimiter: " "
+      precision: 3
+
+    currency:
+      format:
+        format: "%n %u"
+        unit: "лв."
+        separator: "."
+        delimiter: " "
+        precision: 2
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      # Rails 2.2
+      # storage_units: [байт, КБ, МБ, ГБ, ТБ]
+
+      # Rails 2.3
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one: "байт"
+            few: "байта"
+            many: "байт"
+            other: "байта"
+          kb: "КБ"
+          mb: "МБ"
+          gb: "ГБ"
+          tb: "ТБ"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "по-малко от минута"
+      less_than_x_seconds:
+        one: "по-малко от %{count} секунди"
+        few: "по-малко от %{count} секунди"
+        many: "по-малко от %{count} секунди"
+        other: "по-малко от %{count} секунди"
+      x_seconds:
+        one: "%{count} секунда"
+        few: "%{count} секунди"
+        many: "%{count} секунди"
+        other: "%{count} секунди"
+      less_than_x_minutes:
+        one: "по-малко от %{count} минута"
+        few: "по-малко от %{count} минути"
+        many: "по-малко от %{count} минути"
+        other: "по-малко от %{count} минути"
+      x_minutes:
+        one: "%{count} минута"
+        few: "%{count} минути"
+        many: "%{count} минути"
+        other: "%{count} минути"
+      about_x_hours:
+        one: "около %{count} час"
+        few: "около %{count} часа"
+        many: "около %{count} часа"
+        other: "около %{count} часа"
+      x_days:
+        one: "%{count} ден"
+        few: "%{count} дни"
+        many: "%{count} дни"
+        other: "%{count} дена"
+      about_x_months:
+        one: "около %{count} месеца"
+        few: "около %{count} месеца"
+        many: "около %{count} месеца"
+        other: "около %{count} месеца"
+      x_months:
+        one: "%{count} месец"
+        few: "%{count} месеца"
+        many: "%{count} месеци"
+        other: "%{count} месеца"
+      almost_x_years:
+        one: "почти %{count} година"
+        few: "почти %{count} години"
+        many: "почти %{count} години"
+        other: "почти %{count} години"
+      about_x_years:
+        one: "около %{count} година"
+        few: "около %{count} години"
+        many: "около %{count} години"
+        other: "около %{count} години"
+      over_x_years:
+        one: "над %{count} година"
+        few: "над %{count} години"
+        many: "над %{count} години"
+        other: "над %{count} години"
+    prompts:
+      year: "Година"
+      month: "Месец"
+      day: "Ден"
+      hour: "Часа"
+      minute: "Минути"
+      second: "Секунди"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "%{model}: записа неуспешен заради %{count} грешка"
+          few: "%{model}: записа неуспешен заради %{count} грешки"
+          many: "%{model}: записа неуспешен заради %{count} грешки"
+          other: "%{model}: записа неуспешен заради %{count} грешки"
+
+        body: "Възникнаха проблеми при следните полета:"
+
+      messages:
+        inclusion: "съдържа непредвидена стойност"
+        exclusion: "съдържа предварително зададена стойност"
+        invalid: "съдържа невярна стойност"
+        confirmation: "не съответства на потвърждението"
+        accepted: "трябва да се потвърди"
+        empty: "не може да е празно"
+        blank: "не може да е без стойност"
+        too_long:
+          one: "е с прекалена дължина (не може да е повече от %{count} символ)"
+          few: "е с прекалена дължина (не може да е повече от %{count} символа)"
+          many: "е с прекалена дължина (не може да е повече от %{count} символи)"
+          other: "е с прекалена дължина (не може да е повече от %{count} символа)"
+        too_short:
+          one: "е с недостатъчна дължина (не может быть меньше %{count} символ)"
+          few: "е с недостатъчна дължина (не может быть меньше %{count} символа)"
+          many: "е с недостатъчна дължина (не может быть меньше %{count} символи)"
+          other: "е с недостатъчна дължина (не может быть меньше %{count} символа)"
+        wrong_length:
+          one: "е с грешна дължина (трябва да е с дължина, равна на %{count} символ)"
+          few: "е с грешна дължина (трябва да е с дължина, равна на %{count} символа)"
+          many: "е с грешна дължина (трябва да е с дължина, равна на %{count} символа)"
+          other: "е с грешна дължина (трябва да е с дължина,  равна на %{count} символа)"
+        taken: "вече съществува"
+        not_a_number: "не е число"
+        greater_than: "може да е със стойност, по-голяма от %{count}"
+        greater_than_or_equal_to: "може да е със стойност, по-голяма или равна на %{count}"
+        equal_to: "може да е единствено със стойност, равна на %{count}"
+        less_than: "може да е със стойност, по-малка от %{count}"
+        less_than_or_equal_to: "може да е със стойност, по-голяма или равна на %{count}"
+        odd: "може да е единствено четно"
+        even: "може да е единствено нечетно"
+        record_invalid: "имаше грешки: %{errors}"
+
+  support:
+    array:
+      # Rails 2.2
+      sentence_connector: "и"
+      skip_last_comma: true
+
+      # Rails 2.3
+      words_connector: ", "
+      two_words_connector: " и "
+      last_word_connector: " и "

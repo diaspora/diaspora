@@ -1,0 +1,134 @@
+# Romansh translations for Ruby on Rails 
+# by Flurina Andriuet and Sebastian de Castelberg (rails-i18n@kpricorn.org)
+
+rm:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+
+    day_names: [dumengia, glindesdi, mardi, mesemna, gievgia, venderdi, sonda]
+    abbr_day_names: [du, gli, ma, me, gie, ve, so]
+    month_names: [~, schaner, favrer, mars, avrigl, matg, zercladur, fanadur, avust, settember, october, november, december]
+    abbr_month_names: [~, schan, favr, mars, avr, matg, zercl, fan, avust, sett, oct, nov, dec]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M Uhr"
+      short: "%d. %B, %H:%M Uhr"
+      long: "%A, %d. %B %Y, %H:%M Uhr"
+    am: "avantmezdi"
+    pm: "suentermezdi"
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: "ina mesa minuta"
+      less_than_x_seconds:
+        one: "main ch’ina secunda"
+        other: "main che %{count} secundas"
+      x_seconds:
+        one: "ina secunda"
+        other: "%{count} secundas"
+      less_than_x_minutes:
+        one: "main ch’ina minuta"
+        other: "main che %{count} minutas"
+      x_minutes:
+        one: "1 minuta"
+        other: "%{count} minutas"
+      about_x_hours:
+        one: "circa in'ura"
+        other: "circa %{count} uras"
+      x_days:
+        one: "in di"
+        other: "%{count} dis"
+      about_x_months:
+        one: "circa in mais"
+        other: "circa %{count} mais"
+      x_months:
+        one: "in mais"
+        other: "%{count} mais"
+      about_x_years:
+        one: "circa in onn"
+        other: "circa %{count} onns"
+      over_x_years:
+        one: "dapli ch'in onn"
+        other: "dapli che %{count} onns"
+    prompts:
+      second: "secundas"
+      minute: "minutas"
+      hour: "uras"
+      day: "dis"
+      month: "mais"
+      year: "onns"
+
+  number:
+    format:
+      precision: 2
+      separator: "."
+      delimiter: "'"
+    currency:
+      format:
+        precision: 2
+        separator: "."
+        delimiter: "'"
+        unit: "CHF"
+        format: "%n %u"
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "byte"
+            other: "bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Betg pussaivel da memorisar quest %{model}: 1 errur."
+          other:  "Betg pussaivel da memorisar quest %{model}: %{count} errurs."
+        body: "Faschai uschè bain e controllai ils suandants champs:"
+
+      messages:
+        inclusion: "n'è betg sin la glista"
+        exclusion: "na stat betg a disposiziun"
+        invalid: "n'è betg valid"
+        confirmation: "na correspunda betg al champ da conferma"
+        accepted: "sto vegnir acceptà"
+        empty: "sto vegnir emplenì ora"
+        blank: "sto vegnir emplenì ora"
+        too_long: "è memia lung (betg dapli che %{count} caracters)"
+        too_short: "è memia curt (betg pli pauc che %{count} caracters)"
+        wrong_length: "ha la fallida lunghezza (sto avair %{count} caracters)"
+        taken: "è gia occupà"
+        not_a_number: "è betg in dumber"
+        greater_than: "sto esser pli grond che %{count}"
+        greater_than_or_equal_to: "sto esser pli grond u medem sco %{count}"
+        equal_to: "sto esser exact %{count}"
+        less_than: "sto esser pli pitschen che %{count}"
+        less_than_or_equal_to: "sto esser pli pitschen u medem sco %{count}"
+        odd: "sto esser spèr"
+        even: "sto esser pèr"

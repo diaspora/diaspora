@@ -7,5 +7,10 @@ I18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 I18n.default_locale = DEFAULT_LANGUAGE
 I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
 AVAILABLE_LANGUAGE_CODES.each do |c|
-  I18n.fallbacks[c.to_sym] = [c.to_sym, DEFAULT_LANGUAGE.to_sym, :en]
+  if LANGUAGE_CODES_MAP.key?(c)
+    I18n.fallbacks[c.to_sym] = LANGUAGE_CODES_MAP[c]
+    I18n.fallbacks[c.to_sym].concat([c.to_sym, DEFAULT_LANGUAGE.to_sym, :en])
+  else
+    I18n.fallbacks[c.to_sym] = [c.to_sym, DEFAULT_LANGUAGE.to_sym, :en]
+  end
 end
