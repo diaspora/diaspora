@@ -47,7 +47,8 @@ def package_js
   begin
     Jammit.package!
   rescue => e
-    puts "Error minifying assets, but server will continue starting normally.  Is Java installed on your system?"
+    puts "Error minifying assets, but server will continue starting normally."
+    puts e.inspect
   end
 end
 
@@ -67,7 +68,7 @@ begin
                     :cert_chain_file  => APP_CONFIG[:socket_cert_chain_location]
       }
     end
-    
+
     EventMachine::WebSocket.start( socket_params ) do |ws|
 
       ws.onopen {
@@ -91,7 +92,7 @@ begin
           ws.onclose {
             begin
               debug_pp "In WSS, unsuscribing user: #{User.find(user_id).real_name} with id: #{user_id}"
-              Diaspora::WebSocket.unsubscribe(user_id, sid) 
+              Diaspora::WebSocket.unsubscribe(user_id, sid)
             rescue
               debug_pp "Could not unsubscribe socket for #{user_id}"
             end
