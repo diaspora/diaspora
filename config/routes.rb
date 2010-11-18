@@ -6,7 +6,7 @@ Diaspora::Application.routes.draw do
   resources :status_messages, :only   => [:create, :destroy, :show]
   resources :comments,        :except => [:index]
   resources :requests,        :except => [:edit, :update]
-  resources :photos, :except => [:index]
+  resources :photos,          :except => [:index]
   resources :services
 
   resources :people
@@ -26,6 +26,7 @@ Diaspora::Application.routes.draw do
   match 'getting_started',           :to => 'users#getting_started', :as => 'getting_started'
   match 'users/export',              :to => 'users#export'
   match 'users/export_photos',       :to => 'users#export_photos'
+  match 'login',                     :to => 'users#sign_up'
   resources :users,                  :except => [:create, :new, :show]
 
   match 'aspects/move_contact',  :to => 'aspects#move_contact', :as => 'move_contact'
@@ -40,9 +41,6 @@ Diaspora::Application.routes.draw do
   match 'set_backer_number',  :to   => "dev_utilities#set_backer_number"
   match 'set_profile_photo',  :to   => "dev_utilities#set_profile_photo"
 
-  #signup
-  match 'get_to_the_choppa', :to => redirect("/users/sign_up")
-
   #public routes
   match 'webfinger',            :to => 'publics#webfinger'
   match 'hcard/users/:id',      :to => 'publics#hcard'
@@ -51,6 +49,7 @@ Diaspora::Application.routes.draw do
   match 'hub',                  :to => 'publics#hub'
   match 'log',                  :to => "dev_utilities#log"
 
+
   #root
-  root :to => 'aspects#index'
+  root :to => 'home#show'
 end

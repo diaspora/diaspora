@@ -1,0 +1,25 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.span-22.prepend-1.last
+
+  #landing_content
+
+    #diaspora_description.section
+      %p
+        Share what you want, with who you want.
+
+    #signup_field.section
+      = render 'shared/mail_signup_form'
+
+    #login_field.section
+      already have an account?
+      = link_to "log in here", "#"
+
+.span-24.last{:style=>"text-align:center;"}
+  %ul#press_logos
+    %li= link_to image_tag("press_logos/nyt.png"), "http://www.nytimes.com/2010/05/12/nyregion/12about.html", :title => "The New York Times"
+    %li= link_to image_tag("press_logos/nymag.gif"), "http://nymag.com/news/features/establishments/68512/", :title => "New York Magazine"
+    %li= link_to image_tag("press_logos/mashable.jpeg"), "http://mashable.com/2010/08/26/facebook-alternative-diaspora-launches-september-15/", :title => "Mashable"
+    %li= link_to image_tag("press_logos/techcrunch.gif"), "http://techcrunch.com/2010/09/15/diaspora-revealed/", :title => "TechCrunch"
