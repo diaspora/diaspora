@@ -37,7 +37,7 @@
     = csrf_meta_tag
     = yield(:head)
 
-    -if true#APP_CONFIG[:google_a_site]
+    -if APP_CONFIG[:google_a_site]
       :javascript
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', '#{APP_CONFIG[:google_a_site]}']);
