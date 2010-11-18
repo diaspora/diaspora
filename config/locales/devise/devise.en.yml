@@ -64,12 +64,13 @@ en:
         unlock: "Unlock my account"
       invitation:
         subject: "You've been invited to join Diaspora!"
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
-        accept_at: ", at %{url}, you can accept it through the link below."
         accept: "Accept invitation"
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
+      inviters:
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", at %{url}, you can accept it through the link below."
     shared:
       links:
         sign_in: 'Sign in'

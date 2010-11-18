@@ -102,6 +102,11 @@ describe Invitation do
         new_user = Invitation.create_invitee(:from => user, :email => @email, :into => aspect, :message => message)
         Devise.mailer.deliveries.first.to_s.include?(message).should be_true
       end
+      it 'has no translation missing' do
+        message = "How've you been?"
+        new_user = Invitation.create_invitee(:from => user, :email => @email, :into => aspect, :message => message)
+        Devise.mailer.deliveries.first.body.raw_source.match(/(translation_missing.+)/).should be_nil
+      end
     end
     context 'with no inviter' do
       it 'sends an email that includes the right things' do
