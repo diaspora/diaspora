@@ -43,6 +43,7 @@ gem 'magent', :git => 'git://github.com/maxwell/magent.git'
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch
 gem 'mini_magick'
 gem 'aws'
+gem 'fastercsv', :require => false
 
 group :test, :development do
   gem 'factory_girl_rails'

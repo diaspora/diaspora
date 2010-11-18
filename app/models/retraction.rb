@@ -29,7 +29,8 @@ class Retraction
     Rails.logger.debug "Performing retraction for #{post_id}"
     if self.type.constantize.find_by_id(post_id) 
       unless Post.first(:diaspora_handle => person.diaspora_handle, :id => post_id) 
-        raise "#{person.inspect} is trying to retract a post they do not own"
+        Rails.logger.info("event=retraction status=abort reason='no post found authored by retractor' sender=#{person.diaspora_handle} post_id=#{post_id}")
+        raise "#{person.inspect} is trying to retract a post that either doesn't exist or is not by them"
       end
 
       begin
@@ -38,7 +39,7 @@ class Retraction
         target.unsocket_from_uid receiving_user_id if target.respond_to? :unsocket_from_uid
         target.delete
       rescue NameError
-        Rails.logger.info("Retraction for unknown type recieved.")
+        Rails.logger.info("event=retraction status=abort reason='unknown type'")
       end
     end
   end

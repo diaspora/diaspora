@@ -22,7 +22,7 @@ module Diaspora
 
       def receive xml, salmon_author
         object = Diaspora::Parser.from_xml(xml)
-        Rails.logger.debug("event=receive recipient=#{self.inspect} object=#{object.inspect} sender=#{salmon_author.inspect}")
+        Rails.logger.info("event=receive status=start recipient=#{self.diaspora_handle} object=#{object.inspect} sender=#{salmon_author.diaspora_handle}")
         
         if object.is_a?(Request)
           salmon_author.save
@@ -36,25 +36,22 @@ module Diaspora
         end
 
         if (salmon_author.diaspora_handle != xml_author)
-          raise "Malicious Post, #{salmon_author.real_name} with handle #{salmon_author.diaspora_handle} is sending a #{object.class} as #{xml_author} "
+          Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
+          return
         end
 
-        if object.is_a?(Comment) || object.is_a?(Post)|| object.is_a?(Request) || object.is_a?(Retraction) || object.is_a?(Profile) 
-          e = EMWebfinger.new(object.diaspora_handle)
+        e = EMWebfinger.new(object.diaspora_handle)
 
-          e.on_person do |person|
-            if person.class == Person
-              object.person = person if object.respond_to? :person=
-              unless object.is_a?(Request) || self.contact_for(salmon_author)
-                raise "Not connected to that person" 
-              else
-                return receive_object(object,person)
-              end
+        e.on_person do |person|
+          if person.class == Person
+            object.person = person if object.respond_to? :person=
+            unless object.is_a?(Request) || self.contact_for(salmon_author)
+              Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
+              return
+            else
+              return receive_object(object,person)
             end
-
           end
-        else
-          raise "you messed up"
         end
       end
 
@@ -76,7 +73,8 @@ module Diaspora
       def receive_retraction retraction
         if retraction.type == 'Person'
           unless retraction.person.id.to_s == retraction.post_id.to_s
-            raise "#{retraction.diaspora_handle} trying to disconnect #{retraction.post_id} from #{self.id}"
+            Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{retraction.inspect}")
+            return
           end
           Rails.logger.info( "the person id is #{retraction.post_id} the contact found is #{visible_person_by_id(retraction.post_id).inspect}")
           disconnected_by visible_person_by_id(retraction.post_id)
@@ -100,7 +98,10 @@ module Diaspora
       end
 
       def receive_comment comment
-        raise "In receive for #{self.real_name}, signature was not valid on: #{comment.inspect}" unless comment.post.person == self.person || comment.verify_post_creator_signature
+        unless comment.post.person == self.person || comment.verify_post_creator_signature
+          Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{retraction.inspect}")
+          return
+        end
         self.visible_people = self.visible_people | [comment.person]
         self.save
         Rails.logger.debug("The person parsed from comment xml is #{comment.person.inspect}") unless comment.person.nil?
