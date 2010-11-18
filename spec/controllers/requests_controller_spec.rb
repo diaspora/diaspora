@@ -35,7 +35,12 @@ describe RequestsController do
     describe 'when ignoring a contact request' do
       it "succeeds" do
         xhr :delete, :destroy, "id" => @friend_request.id.to_s
-        response.should redirect_to(requests_path)
+        response.should be_success
+      end
+      it "removes the request object" do
+        lambda { 
+          xhr :delete, :destroy, "id" => @friend_request.id.to_s
+          }.should change(Request, 'count').by(-1)
       end
     end
   end

@@ -140,6 +140,9 @@ var AspectEdit = {
           type: "DELETE",
           url: "/requests/" + request_id,
           success: function () {
+            person.fadeOut(400, function() {
+              person.remove();
+            });
             AspectEdit.decrementRequestsCounter();
           }
         });

@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
     else
       current_user.ignore_contact_request params[:id]
       flash[:notice] = I18n.t 'requests.destroy.ignore'
-      respond_with :location => requests_url
+      head :ok
     end
   end
 
