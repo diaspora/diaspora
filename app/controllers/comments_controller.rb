@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
 
     @comment = current_user.comment(text, :on => target) if target
     if @comment
+      Rails.logger.info("event=comment_create user=#{current_user.inspect} status=success comment=#{@comment.inspect}")
       render :nothing => true, :status => 201
     else
       render :nothing => true, :status => 401

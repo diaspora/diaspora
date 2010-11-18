@@ -11,8 +11,10 @@ class RegistrationsController < Devise::RegistrationsController
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
       sign_in_and_redirect(:user, @user)
+      Rails.logger.info("event=registration status=successful user=#{@user.inspect}")
     else
       flash[:error] = @user.errors.full_messages.join(', ')
+      Rails.logger.info("event=registration status=failure errors=#{@user.errors.full_messages.join(', ')}")
       render :new
     end
   end
