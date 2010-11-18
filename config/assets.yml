@@ -1,3 +1,4 @@
+package_assets: always
 javascripts:
   flash_socket:
     - public/javascripts/vendor/FABridge.js
@@ -15,7 +16,11 @@ javascripts:
   mobile:
     - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/vendor/jquery_mobile_a2.min.js
-
+  mailchimp:
+    - public/javascripts/vendor/mailchimp/jquery.form.js
+    - public/javascripts/vendor/mailchimp/jquery.validate.js
+    - public/javascripts/vendor/mailchimp/jquery126.min.js
+    
   photo:
     - public/javascripts/photo.js
     - public/javascripts/image-picker.js

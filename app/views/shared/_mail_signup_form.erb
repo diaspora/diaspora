@@ -1,13 +1,6 @@
 
 <!-- Begin MailChimp Signup Form -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-<script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.validate.js"></script>
-<script type="text/javascript" src="http://downloads.mailchimp.com/js/jquery.form.js"></script>
-<script type="text/javascript">
-// delete this script tag and use a "div.mce_inline_error{ XXX !important}" selector
-// or fill this in and it will be inlined when errors are generated
-var mc_custom_error_style = '';
-</script>
+<%= javascript_include_tag 'vendor/mailchimp/jquery126.min.js', 'vendor/mailchimp/jquery.validate.js', 'vendor/mailchimp/jquery.form.js' %>
 <div id="mc_embed_signup">
 <form action="http://joindiaspora.us1.list-manage.com/subscribe/post?u=d759919b94f9cdcf39d204f3f&amp;id=7b5ceb2f8b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 	
