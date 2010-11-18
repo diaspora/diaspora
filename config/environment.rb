@@ -18,6 +18,12 @@ else
   AVAILABLE_LANGUAGE_CODES = ['en']
 end
 
+if File.exists?(File.expand_path("./config/langcodes_alias_map.yml"))
+  LANGUAGE_CODES_MAP = YAML::load(File.open(File.expand_path("./config/langcodes_alias_map.yml")))
+else
+  LANGUAGE_CODES_MAP = {}
+end
+
 # Initialize the rails application
 Diaspora::Application.initialize!
 
