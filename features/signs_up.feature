@@ -36,8 +36,8 @@ Feature: new user registration
     And I should see "bring them to Diaspora!"
 
   Scenario: new user skips the setup wizard and returns to the setup wizard
-    Given /^a user goes through the setup wizard$/
-    When I go to getting_started
+    When I follow "skip getting started"
+    And I go to the getting started page
     Then I should not see "skip getting started"
   
   Scenario: new user skips the setup wizard
