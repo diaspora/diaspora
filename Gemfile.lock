@@ -48,7 +48,7 @@ GIT
 
 GIT
   remote: git://github.com/maxwell/magent.git
-  revision: af5ad4b58e27fc0ca49bea8ab11ec3f746e92f33
+  revision: 534977e482cc6d9a205c6d67da6ccbb2486db5a8
   specs:
     magent (0.5.1)
       em-websocket
@@ -141,6 +141,7 @@ GEM
       uuidtools
     childprocess (0.1.4)
       ffi (~> 0.6.3)
+    closure-compiler (0.3.3)
     columnize (0.3.2)
     configuration (1.1.0)
     crack (0.1.8)
@@ -173,6 +174,7 @@ GEM
       addressable (~> 2.2.2)
       multipart-post (~> 1.0.1)
       rack (>= 1.1.0, < 2)
+    fastercsv (1.5.3)
     fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
@@ -187,6 +189,9 @@ GEM
     httparty (0.6.1)
       crack (= 0.1.8)
     i18n (0.4.2)
+    jammit (0.5.4)
+      closure-compiler (>= 0.1.0)
+      yui-compressor (>= 0.9.1)
     json (1.4.6)
     json_pure (1.4.6)
     launchy (0.3.7)
@@ -344,6 +349,7 @@ GEM
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
     xml-simple (1.0.12)
+    yui-compressor (0.9.1)
 
 PLATFORMS
   ruby
@@ -365,8 +371,10 @@ DEPENDENCIES
   em-http-request!
   em-websocket!
   factory_girl_rails
+  fastercsv
   haml
   http_accept_language!
+  jammit
   jasmine!
   json
   launchy

@@ -15,28 +15,26 @@
 
     %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
 
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
     %link{:rel => 'shortcut icon', :href => '/favicon.ico'}
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
-
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "blueprint/print", :media => 'print'
-    = stylesheet_link_tag "application", "ui"
-    = stylesheet_link_tag "vendor/jquery.fancybox-1.3.1"
-    = stylesheet_link_tag "vendor/fileuploader"
-    = stylesheet_link_tag "vendor/tipsy"
+    = include_stylesheets :default, :media => 'all'
 
     
-    = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))
+    = include_javascripts :main
+    
+    - if current_user
+      = include_javascripts :flash_socket unless modern_browser?
+      = render 'js/websocket_js'
 
-    = javascript_include_tag 'rails'
-    = javascript_include_tag 'vendor/jquery.infieldlabel'
-    = javascript_include_tag 'vendor/jquery.tipsy'
-    = javascript_include_tag 'vendor/fancybox/jquery.fancybox-1.3.1.pack'
-    = javascript_include_tag 'vendor/fileuploader'
-    = javascript_include_tag 'view', 'image-picker', 'stream'
-    = render 'js/websocket_js' if current_user
+    = csrf_meta_tag
 
     = yield(:head)
     = csrf_meta_tag
