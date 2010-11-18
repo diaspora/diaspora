@@ -2,8 +2,19 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-4.append-1.last
-  = render 'shared/aspect_contacts', :contacts => @contacts, :aspect => @aspect
+.span-24.last
+  %h2{:style=>"position:relative;"}
+
+    = current_user.real_name
+
+    .right{:style=>"font-size:12px;"}
+      = link_to "View Profile", current_user.person
+      |
+      = link_to "Edit Profile", edit_person_path(current_user.person)
+      |
+      = link_to "Edit Account", edit_user_path(current_user)
+      |
+      = link_to "Logout", destroy_user_session_path
 
 .span-15.last
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
@@ -14,4 +25,8 @@
 
   #pagination
     = will_paginate @posts
+
+
+.span-8.prepend-1.last
+  = render 'shared/aspect_contacts', :contacts => @contacts, :aspect => @aspect
 

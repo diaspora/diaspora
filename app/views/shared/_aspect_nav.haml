@@ -5,18 +5,8 @@
 #aspect_nav
   %ul
     %li{:class => ("selected" if @aspect == :all)}
-      = link_to t('.everyone'), root_url
+      = link_to "Home", root_url
     - for aspect in @aspects
       %li{:class => ("selected" if current_aspect?(aspect))}
         = link_for_aspect aspect
-    %li
-      = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('.add_a_new_aspect')
-
-  %ul.right{:style=>"bottom:0;"}
-    %li{ :style => "margin-right:0;", :class => ("selected" if @aspect == :manage)}
-      = link_to ( (@request_count == 0)? t('.manage') : "#{t('.manage')} (#{@request_count})"), {:controller => :aspects, :action => :manage}, :class => "edit_aspect_button", :class => new_request(@request_count), :title => t('.manage_your_aspects')
-
-  .fancybox_content
-    #add_aspect_pane
-      = render "aspects/new_aspect"
 

@@ -3,12 +3,11 @@
 -#   the COPYRIGHT file.
 
 
-#left_pane
-  %h2= aspect == :all ? t('.everyone') : aspect
+#left_pane{:class => ("everyone" if aspect == :all)}
+  %h2{:style=>"position:relative;"}
+    = aspect == :all ? t('.everyone') : aspect
 
   .contact_pictures
-    = owner_image_link
-
     - for contact in contacts
       = person_image_link(contact.person)
 
@@ -18,14 +17,44 @@
       .fancybox_content
         #manage_aspect_contacts_pane
           = render "requests/manage_aspect_contacts", :aspect => @aspect
+
     -else
-      .clear
-        %br
-        = link_to t('.add_contacts'), aspects_manage_path
+      
+      %br
+      %br
+      %br
+      %br
+      %br
+
+      %h3{:style=>"position:relative;"}
+        Aspects
+        .right{:style=>"font-size:12px;top:7px;"}
+          = link_to "add aspect", aspects_manage_path
+
+      - for user_aspect in current_user.aspects
+        
+        .aspectt
+          %h4.aspect_title_right
+            = link_to user_aspect, user_aspect
+          
+            %span{:style=>"font-size:12px;color:#888;"}
+              = "#{user_aspect.contacts.count} contacts"
+
+          - for aspect_contact in user_aspect.contacts[0..8]
+            = person_image_link(aspect_contact.person)
+
+          %br
+          %br
+          %br
+
+      .clearfix
 
   %br
-  %br
-  %br
+
+  %h3
+    Invites and requests
+
+  No new requests
   %br
 
   = render "shared/invitations", :invites => @invites

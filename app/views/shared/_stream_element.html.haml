@@ -10,7 +10,8 @@
     .from
       = link_to post.person.real_name, post.person
       .aspect
-        ➔
+        /➔
+        %i sent to
         %ul
           - if post.public?
             %li= t('the_world')

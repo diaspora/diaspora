@@ -29,9 +29,6 @@ a
 h1, h2, h3, h4
   :color #444
 
-h3
-  :font
-    :size 18px
 .hidden
   :display none
 
@@ -1183,9 +1180,7 @@ ul#settings_nav
   :padding 0
 
 #left_pane
-  h2
-    :font
-      :weight 200
+
   ul
     :margin 0
     :padding 0
@@ -1200,6 +1195,16 @@ ul#settings_nav
       &:hover
         &:after
           :content " ►"
+
+#left_pane.everyone
+  :background
+    :color rgb(250,250,250)
+  :border 1px solid #ddd
+  :padding 11px
+
+  h2,h3
+    :border
+      :bottom 1px solid #666
 
 .floating.empty_message
   :margin
@@ -1817,3 +1822,13 @@ ul#press_logos
     :top 100px
   :text
     :align center
+
+
+h3,h4
+  :padding
+    :bottom 5px
+
+.aspectt
+  h4
+    :margin
+      :bottom 0
