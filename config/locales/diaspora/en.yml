@@ -186,6 +186,7 @@ en:
   comments:
       new_comment:
           comment: "Comment"
+          commenting: "Commenting..."
   photos:
       show:
           delete_photo: "Delete Photo"

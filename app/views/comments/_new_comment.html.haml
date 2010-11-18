@@ -10,4 +10,4 @@
   = comment.hidden_field :post_id, :id => "post_id_on_#{post.id}", :value => post.id
 
   %p{:style => "text-align:right;"}
-    = comment.submit t('.comment'), :id => "comment_submit_#{post.id}", :class => "comment_submit button"
+    = comment.submit t('.comment'), :id => "comment_submit_#{post.id}", :class => "comment_submit button", :disable_with => t('.commenting')
