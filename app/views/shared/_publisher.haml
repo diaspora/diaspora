@@ -41,6 +41,12 @@
           %p.checkbox_select
             = status.check_box( :public, {}, true, false )
             = status.label :public, t('.make_public')
+            = image_tag("social_media_logos/feed-16x16.png")
+            - if current_user.services
+              - for service in current_user.services      
+                = image_tag("social_media_logos/#{provider}-16x16.png")
+
+
           = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
 
           .fancybox_content
