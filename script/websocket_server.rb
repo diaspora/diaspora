@@ -43,7 +43,12 @@ end
 
 def package_js
   require 'jammit'
-  Jammit.package!
+
+  begin
+    Jammit.package!
+  rescue => e
+    puts "Error minifying assets, but server will continue starting normally.  Is Java installed on your system?"
+  end
 end
 
 begin

@@ -18,4 +18,12 @@ Feature: managing contact requests
 
     When I drag the contact request to the "Family" aspect
     And I wait for the ajax to finish
-    Then I should see 1 contact in "Family"    
+    Then I should see 1 contact in "Family"
+
+  @javascript @wip
+  Scenario: ignoring a contact request
+    When I am on the aspects manage page
+    Then I should see 1 contact request
+    When I click "X" on the contact request
+    And I wait for the ajax to finish
+    Then I should see 0 contact requests
