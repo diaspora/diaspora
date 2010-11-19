@@ -3,3 +3,7 @@
 -#   the COPYRIGHT file.
 
 = markdownify(post.message)
+%br
+- for photo in post.photos
+  /= render 'photos/photo', :post => photo
+  = image_tag photo.url(:thumb_medium)

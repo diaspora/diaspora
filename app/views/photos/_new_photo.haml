@@ -12,13 +12,17 @@
        debug: true,
        button: document.getElementById('file-upload'),
        sizeLimit: 5000048,
+       onSubmit: function(id, fileName){
+        $('#file-upload').text("loading");
+       },
+      
+       
        onComplete: function(id, fileName, responseJSON){
-        //var obj = jQuery.parseJSON(responseJSON.data);
-        alert(responseJSON.data.photo.url);
+        $('#file-upload').text("add photos");
         var id = responseJSON.data.photo.id;
-        alert($('#new_status_message').length);
+        var url = responseJSON.data.photo.url;
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
-        
+        $('#photodropzone').append("<li><img src='" + url +"' data-id='" + id + "' /></li>");
        }
        
    });

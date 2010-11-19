@@ -82,7 +82,7 @@ class Photo < Post
     {
       :photo => {
         :id     => self.id,
-        :url    => self.url(:thumb_small)
+        :url    => self.url(:thumb_medium)
       }
     }
   end

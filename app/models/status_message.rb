@@ -9,6 +9,7 @@ class StatusMessage < Post
   xml_accessor :message
 
   key :message, String
+  many :photos, :class => Photo
   validates_presence_of :message
 
   attr_accessible :message

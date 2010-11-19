@@ -15,25 +15,27 @@
     //  $("#publisher .options_and_submit").fadeIn(50);
     //});
 
-    $("#publisher form").live("submit", function(evt){
-      $("#publisher .options_and_submit").hide();
-    });
+    //$("#publisher form").live("submit", function(evt){
+      //$("#publisher .options_and_submit").hide();
+    //});
 
 #publisher
   = owner_image_link
 
   = form_for StatusMessage.new, :html => {:multipart => true,}, :remote => true do |status|
-      
+    %ul#photodropzone
     = status.error_messages
-    %params
-      = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? "everyone" : aspect))
-      = status.text_area :message, :rows => 2, :value => params[:prefill]
+    #file-upload.button
+      add photos
+
+    %p
+      %params
+        = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? "everyone" : aspect))
+        = status.text_area :message, :rows => 2, :value => params[:prefill]
 
     = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
     .options_and_submit
-      #file-upload.button
-        drag a photo to upload
       - if aspect == :all
         = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
       - else
@@ -54,5 +56,5 @@
           .fancybox_content
             #question_mark_pane
               = render 'shared/public_explain'
-          #publisher_photo_upload
-            = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
+      #publisher_photo_upload
+        = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)

@@ -29,6 +29,9 @@ a
 h1, h2, h3, h4
   :color #444
 
+ol, ul
+  :list-style none
+
 .hidden
   :display none
 
@@ -720,6 +723,30 @@ label
   :text
     :shadow 0 1px 1px #eee
 
+#file-upload
+  :z-index 5
+  :float right
+  :height 34px
+  :width 70px
+  :margin 0
+  :background
+    :color #107FC9
+
+  :-webkit-border-radius 0 5px 5px 0
+  :-moz-border-radius 0 5px 5px 0
+  :border-radius 0 5px 5px 0
+
+  :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(0,123,194)), color-stop(1, rgb(65,182,250)))
+  :background -moz-linear-gradient( center bottom, rgb(0,123,194) 0%, rgb(65,182,250) 100%)
+
+  :padding 9px
+
+  :font
+    :size 18px
+    :weight bold
+  :color #eee
+  :text-shadow 0 1px 0 #333
+
 #publisher
   :color #999
   :position relative
@@ -747,13 +774,20 @@ label
       :left 65px
     :top 0
 
+    ul
+      >li
+        :display inline
+        :margin-right 2px
+        img
+          :border-radius 5px
+
+        
   textarea
     :height 42px
-    :display block
 
   input[type='text'],
   textarea
-    :width 490px
+    :width 400px
     :margin 0
 
   .options_and_submit
