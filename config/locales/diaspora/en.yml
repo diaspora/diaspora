@@ -122,7 +122,6 @@ en:
           manage_aspects: "Manage aspects"
           drag_to_add: "Drag to add people"
       new_aspect:
-          add_a_new_aspect: "Add a new aspect"
           name: "Name"
           create: "Create"
       create:
@@ -180,13 +179,11 @@ en:
               ready_to_share: "You're now ready to start sharing with "
               continue: "Continue on to your everyone page, an overview of all of your aspects."
               change_profile: "You can change your profile any time by clicking"
-              edit_profile: "edit profile"
               user_menu: "in your user menu (top right)."
               connect_disconnect: "You can connect/disconnect your services any time by clicking"
-              edit_account: "edit account"
               manage_aspects: "You can manage your aspects any time by clicking the"
-              manage: "manage"
               tab_also_added: "tab.  Your contacts can also be added while on a particular aspect page, as well."
+              finish: "Finish"
       update:
           password_changed: "Password Changed"
           password_not_changed: "Password Change Failed"
@@ -251,7 +248,7 @@ en:
           sent: "Your invitation has been sent."
           no_more: "You have no more invitations."
           already_sent: "You already invited this person."
-          already_friends: "You are already friends with this person" 
+          already_contacts: "You are already connected with this person" 
       new:
           invite_someone_to_join: "Invite someone to join Diaspora!"
           if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
@@ -279,7 +276,6 @@ en:
           results_for: "search results for"
       show:
           no_posts: "no posts to display!"
-          not_friends: "You're currently not friends with %{name}"
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
           does_not_exist: "Person does not exist!"
@@ -308,19 +304,18 @@ en:
           bio: "bio"
           gender: "gender"
           born: "born"
+          in_aspects: "in aspects"
       helper:
            results_for: " results for %{params}"
            people_on_pod_are_aware_of: " people on pod are aware of"
   requests:
       manage_aspect_contacts:
-          add_a_new_contact_to: "Add a new contact to"
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           contact_username: "Contact's username"
           create_request: "Create request"
           manage_within: "Manage contacts within"
           existing: "Existing contacts"
-          add_new: "Add a new contact"
           know_email: "Know their email address? You should invite them"
       destroy:
           success: "You are now friends."

@@ -12,7 +12,7 @@
     = render 'shared/contact_list', :aspect => aspect, :contacts => @contacts, :manage => defined?(manage)
 
   .span-7.last
-    %h3= t('.add_new')
+    %h3= t('aspects.manage.add_a_new_contact')
     = form_tag(person_by_handle_path, :id => "new_request_to_#{aspect.id}", :class => "webfinger_form", :remote => true) do
       =t('.enter_a_diaspora_username')
       %br
