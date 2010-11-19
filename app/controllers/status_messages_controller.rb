@@ -9,6 +9,7 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
+    puts params.inspect
     public_flag = params[:status_message][:public]
     public_flag.to_s.match(/(true)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag 

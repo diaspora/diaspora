@@ -14,6 +14,7 @@ class Photo < Post
   key :remote_photo_path
   key :remote_photo_name
   key :random_string
+  
 
   timestamps!
 
@@ -76,5 +77,15 @@ class Photo < Post
     1.upto(len) { |i| string << chars[rand(chars.size-1)] }
     return string
   end
+  
+  def as_json(opts={})
+    {
+      :photo => {
+        :id     => self.id,
+        :url    => self.url(:thumb_small)
+      }
+    }
+  end
+  
 end
 

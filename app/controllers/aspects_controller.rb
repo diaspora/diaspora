@@ -9,7 +9,7 @@ class AspectsController < ApplicationController
   respond_to :json, :only => :show
 
   def index
-    @posts  = current_user.visible_posts(:by_members_of => :all).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
+    @posts  = current_user.visible_posts(:by_members_of => :all, :pending => false).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @aspect = :all
     
     if current_user.getting_started == true

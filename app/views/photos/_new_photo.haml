@@ -3,31 +3,24 @@
 -#   the COPYRIGHT file.
 
 :javascript
-  function createUploader(){
-    var uploader = new qq.FileUploader({
-        element: document.getElementById('file-upload'),
-        params: {'photo' : { 'to' : "#{aspect_id}"}, 'set_profile_image' : "#{set_profile_image if defined?(set_profile_image)}"},
-        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
-        action: "#{photos_path}",
-        template: '<div class="qq-uploader">' + 
-                '<div class="qq-upload-drop-area"><span>#{t('.drop')}</span></div>' +
-                '<div class="qq-upload-button">#{t('.upload')}</div>' +
-                '<ul class="qq-upload-list"></ul>' + 
-             '</div>',
-        fileTemplate: '<li>' +
-                '<span class="qq-upload-file"></span>' +
-                '<span class="qq-upload-spinner"></span>' +
-                '<span class="qq-upload-size"></span>' +
-                '<a class="qq-upload-cancel" href="#">#{t('cancel')}</a>' +
-                '<span class="qq-upload-failed-text">#{t('.failed')}</span>' +
-            '</li>',
-        messages: {
-            typeError: "#{t('.invalid_ext')}",
-            sizeError: "#{t('.size_error')}",
-            emptyError: "#{t('.empty')}"
-        }
-    });
-  }
-  window.onload = createUploader;
-
-#file-upload
+ function createUploader(){
+   var uploader = new qq.FileUploaderBasic({
+       element: document.getElementById('file-upload'),
+       params: {'photo' : {'pending' : 'true', 'to' : "#{aspect_id}"}, 'set_profile_image' : "#{set_profile_image if defined?(set_profile_image)}"},
+       allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+       action: "#{photos_path}",
+       debug: true,
+       button: document.getElementById('file-upload'),
+       sizeLimit: 5000048,
+       onComplete: function(id, fileName, responseJSON){
+        //var obj = jQuery.parseJSON(responseJSON.data);
+        alert(responseJSON.data.photo.url);
+        var id = responseJSON.data.photo.id;
+        alert($('#new_status_message').length);
+        $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
+        
+       }
+       
+   });
+ }
+ window.onload = createUploader;

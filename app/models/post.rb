@@ -20,6 +20,7 @@ class Post
 
   key :diaspora_handle, String
   key :user_refs, Integer, :default => 0
+  key :pending, Boolean, :default => false
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id, :order => 'created_at ASC'
   belongs_to :person, :class_name => 'Person'
@@ -33,10 +34,12 @@ class Post
   after_destroy :destroy_comments
 
   attr_accessible :user_refs
+  
   def self.instantiate params
     new_post = self.new params.to_hash
     new_post.person = params[:person]
     new_post.public = params[:public]
+    new_post.pending = params[:pending]
     new_post.diaspora_handle = new_post.person.diaspora_handle
     new_post
   end
