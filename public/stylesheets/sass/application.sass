@@ -190,9 +190,8 @@ header
   :margin 0
   :padding 0
   > li
-    :min-height 50px
     :list-style none
-    :padding 12px 0
+    :padding 12px
     :border
       :bottom 1px solid #eee
 
@@ -264,32 +263,33 @@ header
 
 #author_info
   :position relative
-  :padding
-    :left 65px
-  :height 70px
+  :margin
+    :bottom 12px
 
   img
-    :position absolute
-    :top 7px
-    :left 0
+    :border-radius none
+    :display inline-block
 
-    :-webkit-box-shadow 0 1px 2px #666
-    :-moz-box-shadow 0 1px 2px #666
+  .from
+    :display inline-block
+    :padding 12px
+      :top 0
 
   h2
+    :display inline
     :margin
       :bottom -2px
-  a
-    :font
-      :weight normal
+
+  .aspect
+    ul > li a
+      :font
+        :weight 200
+
 
   #person_nav_links
     a
-      :padding
+      :margin
         :right 2em
-  .from
-    :font
-      :size 14px
 
   .avatar
     :-webkit-border-radius 5px
@@ -567,8 +567,8 @@ ul.comments
 
 .profile_photo
   img
-    :height 150px
-    :width 150px
+    :height 300px
+    :width 300px
 
 #profile
   ul
@@ -633,24 +633,34 @@ li.message .from .right
       :margin-right 1em
 
 #show_photo
+  :background
+    :color #fff
+  
+  :padding 10px
+    :bottom 20px
+
+  :-webkit-box-shadow 0 2px 4px #333
+  :-moz-box-shadow 0 2px 4px #333
+
+  :-webkit-border-radius 3px
+  :-moz-border-radius 3px
+  :border-radius 3px
+
   img
     :max-width 100%
-    :border 10px solid #fff
-      :bottom 80px solid #fff
-
-    :-webkit-box-shadow 0 2px 4px #333
-    :-moz-box-shadow 0 2px 4px #333
-
-    :-webkit-border-radius 3px
-    :-moz-border-radius 3px
-    :border-radius 3px
+    :margin
+      :bottom 10px
+    :border 1px solid #eee
+      :bottom 1px solid #ddd
 
   .caption
-    :margin
-      :top 10px
-      :bottom 25px
+    :min-height 20px
+    :padding 0 10px
     :font
-      :size larger
+      :size 16px
+    :font
+      :family 'marker felt', 'comic sans ms', 'comic sans', sans-serif
+    :color #555
 
 #debug_info
   :margin-top 20px
@@ -707,10 +717,11 @@ label
 #publisher
   :color #999
   :position relative
-  :min-height 65px
-  :width 100%
+  :min-height 53px
   :margin
     :bottom 10px
+  :padding 12px
+    :top 0
 
   :border
     :bottom 2px #777 solid
@@ -728,7 +739,6 @@ label
     :position relative
     :margin
       :left 65px
-      :bottom 10px
     :top 0
 
   textarea
@@ -737,7 +747,7 @@ label
 
   input[type='text'],
   textarea
-    :width 514px
+    :width 490px
     :margin 0
 
   .options_and_submit
@@ -787,41 +797,6 @@ label
     :-moz-box-shadow 0 3px 6px #000
     :border 1px solid #fff
 
-
-/* cycle it! */
-.album
-  :margin
-    :right 3px
-  :position relative
-  :height 200px
-  :width 200px
-  :display inline-block
-
-  img
-    :width 200px
-    :height 200px
-
-  .name
-    :position absolute
-    :z-index 6
-    :padding 1em
-    :background rgba(0,0,0,0.8)
-    :bottom 20px
-    :font
-      :size 18px
-
-    :text-shadow 0 2px 0 #000
-
-    .time
-      :font
-        :size 12px
-      a
-        :font
-          :weight normal
-
-  div.image_cycle
-    img
-      :display none
 
 .field_with_submit
   input[type='text']
@@ -1180,7 +1155,6 @@ ul#settings_nav
   :padding 0
 
 #left_pane
-
   ul
     :margin 0
     :padding 0
@@ -1201,6 +1175,7 @@ ul#settings_nav
     :color rgb(250,250,250)
   :border 1px solid #ddd
   :padding 11px
+  :-webkit-border-radius 4px
 
   h2,h3
     :border
@@ -1282,10 +1257,16 @@ header
     :font
       :size small
 
-.show_text
-  img
-    :height 27px
-    :width 27px
+#show_text
+  :font
+    :size 24px
+    :family "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif
+
+  .time
+    :color #888
+    :font
+      :size 18px
+      :weight bold
 
 
 .edit_pane
@@ -1298,9 +1279,9 @@ header
       :color rgba(51,51,51,0.9)
     :padding 10px
     :position absolute
-    :right 10px
+    :right 1px
     :margin
-      :top 10px
+      :top 1px
 
     a
       :font

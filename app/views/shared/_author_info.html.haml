@@ -1,8 +1,8 @@
 #author_info
-  = person_image_link(person)
+  = person_image_link(person) unless defined?(profile)
   .from
     %h2
-      = link_to person.real_name, person_path(person)
+      = person.real_name
       - if defined?(post)
         .aspect
           ➔
@@ -12,15 +12,8 @@
             - else
               - for aspect in current_user.aspects_with_post( post.id )
                 %li= link_to aspect.name, aspect
-    #person_nav_links
-      = link_to t('.view_profile'), person_path(person)
-      = link_to t('_photos'), person_photos_path(person)
-      = link_to t('.status_messages'), person_status_messages_path(person)
-      - if defined?(@post_type)
-        - case @post_type
-        - when :all
-          = "#{t('.viewing')}: #{t('.all')}"
-        - when :photos
-          = "#{t('.viewing')}: #{t('_photos')}"
-        - when :status_messages
-          = "#{t('.viewing')}: #{t('.status_messages')}"
+    .right{:style=>"margin-right:315px;top:10px;"}
+      #person_nav_links
+        = link_to t('.view_profile'), person_path(person)
+        = link_to t('_photos'), person_photos_path(person)
+        = link_to t('.status_messages'), person_status_messages_path(person)

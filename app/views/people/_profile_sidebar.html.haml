@@ -12,7 +12,6 @@
     - if @posts.first
       %li
         %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
-
     - if is_contact
       %li
         %ul#aspects_for_person

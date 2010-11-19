@@ -3,11 +3,12 @@
 -#   the COPYRIGHT file.
 
 
-.span-4.append-1.last
+.span-24.last
+  = render 'shared/author_info', :person => @person, :profile => true
+.span-8.append-1.last
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @is_contact}
 
 .span-15.last
-  = render 'shared/author_info', :person => @person
   - if @contact || current_user.person == @person
 
     - if @posts.count > 0
@@ -36,3 +37,4 @@
         %h3
           .description
             = t('.already_requested', :name => @person.real_name)
+

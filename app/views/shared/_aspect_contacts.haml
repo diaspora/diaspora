@@ -2,13 +2,60 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- if @request_count > 0
+  #left_pane{:class => "everyone"}
+    %h4
+      = "#{@request_count} new requests!"
+
+  %br
+  %br
 
 #left_pane{:class => ("everyone" if aspect == :all)}
   %h2{:style=>"position:relative;"}
-    = aspect == :all ? t('.everyone') : aspect
+    - if aspect == :all
+      = t('.everyone')
+    - else
+      = aspect
 
   .contact_pictures
     - for contact in contacts
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
+      = person_image_link(contact.person)
       = person_image_link(contact.person)
 
     -unless (aspect == :all)
@@ -51,10 +98,11 @@
 
   %br
 
-  %h3
-    Invites and requests
+  - if aspect == :all
+    %h3
+      Invites and requests
 
-  No new requests
-  %br
+    No new requests
+    %br
+    = render "shared/invitations", :invites => @invites
 
-  = render "shared/invitations", :invites => @invites

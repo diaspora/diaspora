@@ -6,16 +6,16 @@
 = render 'shared/author_info', :person => @status_message.person, :post => @status_message
 
 .span-14.append-1.last
-  %h1.show_text
-    = markdownify(@status_message.message)
-
-  = how_long_ago(@status_message)
-
-  - if current_user.owns? @status_message
+  #show_text
     %p
-      = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
+      = markdownify(@status_message.message)
+    .time
+      = how_long_ago(@status_message)
+  - if current_user.owns? @status_message
+    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
 .span-9.last
+  %h4{:style=>"margin-bottom:5px;"} Comments
   %div{:class => 'stream show', :id => 'status_message_stream'}
     %li.message{:data=>{:guid=>@status_message.id}}
       = render "comments/comments", :post => @status_message
