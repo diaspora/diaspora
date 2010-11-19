@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /usr/local/app/diaspora/
+touch /usr/local/app/diaspora/backup_start.txt
+exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake backup:mongo 2>> /tmp/backup/rake.log
+touch /usr/local/app/diaspora/backup_end.txt
