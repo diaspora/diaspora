@@ -14,7 +14,7 @@
       = invite.select(:aspects, @aspects_dropdown_array)
     - else 
       = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
-    
+    %br
     = t('.message')
     
     = invite.text_area :invite_messages, :value => ""

@@ -16,7 +16,7 @@
     - if is_contact
       %li
         %ul#aspects_for_person
-          %b in aspects
+          %b= t('.in_aspects')
           %br
           - for aspect in @aspects_with_person
             %li= link_to aspect.name, aspect

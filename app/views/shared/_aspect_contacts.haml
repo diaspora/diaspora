@@ -13,7 +13,7 @@
       = person_image_link(contact.person)
 
     -unless (aspect == :all)
-      = link_to (image_tag('add_contact_button.png', :title => "manage #{@aspect}")), "#manage_aspect_contacts_pane", :class => 'manage_aspect_contacts_button'
+      = link_to (image_tag('add_contact_button.png', :title => t('.manage', :aspect => @aspect))), "#manage_aspect_contacts_pane", :class => 'manage_aspect_contacts_button'
 
       .fancybox_content
         #manage_aspect_contacts_pane
