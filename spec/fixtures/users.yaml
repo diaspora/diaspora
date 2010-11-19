@@ -1,908 +1,908 @@
 --- 
 :users: 
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$UDlcLCKaMVnlRmWyi/NU8OAP4lY.Y15Jl.oZbeSgEdybmPPA6dyzC
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
+    profile: !map:ActiveSupport::HashWithIndifferentAccess 
+      searchable: true
+      image_url: 
+      _id: !ruby/object:BSON::ObjectId 
+        data: 
+        - 76
+        - 229
+        - 201
+        - 177
+        - 49
+        - 47
+        - 145
+        - 48
+        - 214
+        - 0
+        - 0
+        - 3
+      gender: 
+      diaspora_handle: 
+      birthday: 
+      last_name: Grimm17acc33
+      bio: 
+      first_name: Robert1710781
+    updated_at: 2010-11-19 00:49:53 Z
+    _id: !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 4
+    url: http://google-1a4500b.com/
+    serialized_public_key: |
+      -----BEGIN RSA PUBLIC KEY-----
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
+      -----END RSA PUBLIC KEY-----
+
+    owner_id: &id001 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 2
+    diaspora_handle: bob1f292ca@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$bdvHPmSXLB66piQ1yErWPemb0IAgT.ELtPV4hTlrf0OAQ6mAxOf1O
     serialized_private_key: &id002 |
       -----BEGIN RSA PRIVATE KEY-----
-      MIICWwIBAAKBgQDWjxXDzyFb+woFsZ0sUbjHgFgcMAMnGEAnQtOqUGkiZHvi1Gb1
-      xyn2PS/8ZZETx0njjDTgVEDb3W4bDI6cZHOtxP1jfIHsoYXpXnDwqCc/SsngaD7E
-      mgB9dt3ODKVO6t04cbjnnX3N8VNQPqcWCLhE3TORpHogU4Coip/Q3BiGGQIDAQAB
-      AoGAepVHRxcZJRcZU8V1WfPa0UiXjosz0es+A/BfRCgq2PZ1/VOC+5rtc3zj5J0W
-      tSkgIvxg3WXlpHgvRw72j42otKuJqOYyQO4Fj8pDMxkpvmsLLcnDKfiScytoliRR
-      qHhnF5hWrD73CVZLMJzfvmAeXsfipLM/GO5zwIxR9wvOGHECQQD8707NCj+bsOdF
-      yl71Vsp6QaVtJFyc60TV8+ED94YOCG1+G925t2KifnipA1cyqn2bGNQRQmxH4Iqu
-      MHxJVWINAkEA2Si4yhxG9tCEfK8JrDe0ohV8NPHrQU6ZfXqdZYAIT2Oec/217SIR
-      YLor4NFHT8aVsdNwjm0bOf8eGZF/3fuNPQJAITTZx5l82FfVRRhYdyU51+seaMHJ
-      VuCcXOpztC2e7+CzX0cRSPyGeobYGHhTzlcLvnz3+nwZ8yXLjyrWZlpLUQJAL5y3
-      D1Et2fWT5sZ153V7PEJbrjwQaYwzKQjWM6fjqoxb9HB/D9P1XXDUKAGakgonTgre
-      1ctkOc4Oqmp1T5VUvQJAQW+G/WsEilk6YZAmtBefxGmRYZsV5G/PJgoIWrjvl68H
-      qyu3h7CZ5Bur8MDV2s84F/90wblK62AuL8FD3aTyvQ==
+      MIICXQIBAAKBgQDBvtoJlUY5yaQ0BY7mbGguz3FcPdKOY+G2zzKFw++9qbyjCX2W
+      h8gtQh4hk/10kr2KZmOTJa+pBmxAC+3vTP8zBfGP7i46AecVBWoE2RokHVghz1rw
+      yKo+8CKFl/Bj/3aRh4CY3GwrUDmdnMNoKBQhxEG+9StghxvvWThX/HvjXQIDAQAB
+      AoGBAJXgmDdVnM/TZw0/R36FWkrr+tvKj3nLVq7etky4eFuWVPEixF6Qh5BLV5fO
+      LgHiCnJoJpuMSclNyKv7DoNSYw+y2VBsilF7L0uN3y59HfwoZFbSvw6yH6iJx8cO
+      ipK3EhcyzmvJ7Erhy8VlenP4e9Y0ne8/IyHZNtEgLo5B4VmZAkEA5GuCHxhE2e1p
+      i9Of8pvM93qOGSHlCOJDFrCzB2WnYImEuK0V9v66iMWoAoVy2ztRNButJAeTARJM
+      zxSnzqwVZwJBANkjjUJfVkVURkRNJObA8nV0EQE9K0riHeA1mQyR4Wxlgn9Rjdyr
+      1ptoaQH9cDh/lh4meWhCd/PuiZw1Sd+q4psCQQCF5ofm1oE2BziCIVJ4E+D5ijxW
+      e0oaBRky6e5o/aw6qSLGZ6Cio/yRRN0SbUxBO+qEU10R6+a/EA06r28XdkUtAkBL
+      fsLkasVSAYUUxkWoPTmPgLVQ2vWsaYW9qKT369iWmYyPu8k5Cj3pdpnb6UQVQLbu
+      8K2RhFq0YyFRQG3Y6E81AkAIlg7vBXfWXctJQsAPOkjiRorYaiq/RLfOE/alPaYS
+      fTNJQ8Yq0rn54kRdYTl+H0nuUoTl+uMN9tmBJOxqFCfn
       -----END RSA PRIVATE KEY-----
 
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id001 !ruby/object:BSON::ObjectId 
+    invites: 0
+    _id: *id001
+    last_sign_in_at: 
+    username: bob1f292ca
+    language: en
+    sign_in_count: 0
+    visible_person_ids: []
+
+    password_salt: $2a$10$bdvHPmSXLB66piQ1yErWPe
+    remember_token: 
+    reset_password_token: 
+    current_sign_in_ip: 
+    remember_created_at: 
+    current_sign_in_at: 
+    invitation_sent_at: 
+    email: bob1632921@pivotallabs.com
+    invitation_token: 
+    visible_post_ids: []
+
+    getting_started: true
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
+    profile: !map:ActiveSupport::HashWithIndifferentAccess 
+      searchable: true
+      image_url: 
+      _id: !ruby/object:BSON::ObjectId 
+        data: 
+        - 76
+        - 229
+        - 201
+        - 177
+        - 49
+        - 47
+        - 145
+        - 48
+        - 214
+        - 0
+        - 0
+        - 6
+      gender: 
+      diaspora_handle: 
+      birthday: 
+      last_name: Grimm21b4ba1
+      bio: 
+      first_name: Robert2ef4342
+    updated_at: 2010-11-19 00:49:53 Z
+    _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 121
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 177
       - 49
-      - 222
-      - 0
-      - 1
+      - 47
+      - 145
       - 48
-    last_sign_in_at: 
-    username: bob76201396
-    language: en
-    sign_in_count: 0
-    visible_person_ids: []
-
-    password_salt: $2a$10$UDlcLCKaMVnlRmWyi/NU8O
-    remember_token: 
-    reset_password_token: 
-    current_sign_in_ip: 
-    remember_created_at: 
-    current_sign_in_at: 
-    invitation_sent_at: 
-    email: bob77e4b55f@pivotallabs.com
-    invitation_token: 
-    visible_post_ids: []
-
-    getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:37 Z
-    profile: !map:ActiveSupport::HashWithIndifferentAccess 
-      searchable: true
-      image_url: 
-      _id: !ruby/object:BSON::ObjectId 
-        data: 
-        - 76
-        - 228
-        - 197
-        - 121
-        - 55
-        - 219
-        - 91
-        - 49
-        - 222
-        - 0
-        - 1
-        - 49
-      gender: 
-      diaspora_handle: 
-      birthday: 
-      last_name: Grimm77a2b4d7
-      bio: 
-      first_name: Robert778a01ba
-    updated_at: 2010-11-18 06:19:37 Z
-    _id: !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 121
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
+      - 214
       - 0
-      - 1
-      - 50
-    url: http://google-77a20336.com/
+      - 0
+      - 7
+    url: http://google-2fb867a.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id001
-    diaspora_handle: bob76201396@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$Ha.W9fWUB85tLM7flhiblO9B6sqVqn8BL9b4OUYSqcJh1bSMLk6Ky
+    owner_id: &id003 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 5
+    diaspora_handle: bob2aa4ff6@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$2DuLKiq5ugwpWtpvLywDP.jemOvs0fgpdFupyi/gtY3vAOkJlmTCy
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id003 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 121
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 51
+    invites: 0
+    _id: *id003
     last_sign_in_at: 
-    username: bob7729168c
+    username: bob2aa4ff6
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$Ha.W9fWUB85tLM7flhiblO
+    password_salt: $2a$10$2DuLKiq5ugwpWtpvLywDP.
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob78c51463@pivotallabs.com
+    email: bob25045db@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:37 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 121
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 177
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 52
+        - 0
+        - 9
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm78648026
+      last_name: Grimm35d738c
       bio: 
-      first_name: Robert785a4628
-    updated_at: 2010-11-18 06:19:37 Z
+      first_name: Robert35ffaa8
+    updated_at: 2010-11-19 00:49:53 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 121
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 177
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 53
-    url: http://google-784d7ad0.com/
+      - 0
+      - 10
+    url: http://google-3616c68.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id003
-    diaspora_handle: bob7729168c@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$0JY/ifqVgn8ACAfi.ziHnu2KXyb8ryzbDudrH6PZ8uc/psU/q0KFm
+    owner_id: &id004 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 8
+    diaspora_handle: bob3790e44@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$ZGvP6SMRW/tYImvwj/EzI.IghvlLIY.YRofPd1cZT7TG99DvgEd1y
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id004 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 121
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 54
+    invites: 0
+    _id: *id004
     last_sign_in_at: 
-    username: bob78922b0a
+    username: bob3790e44
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$0JY/ifqVgn8ACAfi.ziHnu
+    password_salt: $2a$10$ZGvP6SMRW/tYImvwj/EzI.
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob79322f70@pivotallabs.com
+    email: bob35a3ede@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:37 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 121
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 177
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 55
+        - 0
+        - 12
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm798de0b2
+      last_name: Grimm40bf4a5
       bio: 
-      first_name: Robert794eaf49
-    updated_at: 2010-11-18 06:19:38 Z
+      first_name: Robert43bb9d8
+    updated_at: 2010-11-19 00:49:53 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 121
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 177
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 56
-    url: http://google-7901f730.com/
+      - 0
+      - 13
+    url: http://google-4f37453.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id004
-    diaspora_handle: bob78922b0a@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$37KHgcHath7iJd0XdSkSA.HlTG3txKlRpyF1H/Ejt3KtnP1RiAqG6
+    owner_id: &id005 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 11
+    diaspora_handle: bob4c45473@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$8J7nfcEXId6fsj0f/pphSuaJvf0pWezuheU4eUdC3kdHz6gay/sgq
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id005 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 57
+    invites: 0
+    _id: *id005
     last_sign_in_at: 
-    username: bob7928a5a4
+    username: bob4c45473
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$37KHgcHath7iJd0XdSkSA.
+    password_salt: $2a$10$8J7nfcEXId6fsj0f/pphSu
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob809d045b@pivotallabs.com
+    email: bob444b390@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:38 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 122
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 177
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 58
+        - 0
+        - 15
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm8000cb53
+      last_name: Grimm5f1a30a
       bio: 
-      first_name: Robert80ab51ce
-    updated_at: 2010-11-18 06:19:38 Z
+      first_name: Robert54deddb
+    updated_at: 2010-11-19 00:49:53 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 177
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 59
-    url: http://google-808d6bad.com/
+      - 0
+      - 16
+    url: http://google-55f4743.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id005
-    diaspora_handle: bob7928a5a4@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$zr2eMoM5wTmqn0ERtSFiq.7Ty2h/YQE3FeSEKoXRk.jnR8sYFouQ2
+    owner_id: &id006 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 14
+    diaspora_handle: bob5ad21ac@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$/s3HY9UJxyuv9L.ItYsopu055bmGly9jzqdUOzWb1mFWz.klxROyy
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id006 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 60
+    invites: 0
+    _id: *id006
     last_sign_in_at: 
-    username: bob804850c3
+    username: bob5ad21ac
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$zr2eMoM5wTmqn0ERtSFiq.
+    password_salt: $2a$10$/s3HY9UJxyuv9L.ItYsopu
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob81503010@pivotallabs.com
+    email: bob5a64aa1@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:38 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 122
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 177
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 61
+        - 0
+        - 18
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm81470a41
+      last_name: Grimm6bf9c96
       bio: 
-      first_name: Robert8113cbb1
-    updated_at: 2010-11-18 06:19:38 Z
+      first_name: Robert63b2692
+    updated_at: 2010-11-19 00:49:53 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 177
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 62
-    url: http://google-81055672.com/
+      - 0
+      - 19
+    url: http://google-6421691.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id006
-    diaspora_handle: bob804850c3@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$Uo6G.EiT4qXzp/pqqHGE6.KNwadLgqOZ/rH7O0IyGoz.nGb7mLevi
+    owner_id: &id007 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 17
+    diaspora_handle: bob61b8a81@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$GwFrwW4fpVteEk/h35AhVO4TKGXvFNKJzmy3E13wgp8db2nvBUShq
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id007 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 63
+    invites: 0
+    _id: *id007
     last_sign_in_at: 
-    username: bob8129dfeb
+    username: bob61b8a81
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$Uo6G.EiT4qXzp/pqqHGE6.
+    password_salt: $2a$10$GwFrwW4fpVteEk/h35AhVO
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob82c4e393@pivotallabs.com
+    email: bob6f89fc9@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:38 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 122
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 177
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 64
+        - 0
+        - 21
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm82618629
+      last_name: Grimm72c8e53
       bio: 
-      first_name: Robert82a56e95
-    updated_at: 2010-11-18 06:19:38 Z
+      first_name: Robert74a2eb9
+    updated_at: 2010-11-19 00:49:53 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 177
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 65
-    url: http://google-82ec218a.com/
+      - 0
+      - 22
+    url: http://google-7892cdf.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id007
-    diaspora_handle: bob8129dfeb@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$LmCqAyI3Ay2QVu4PlnqJ2ONkgQNtoH8JJclEtGhYyf3YpJcAuxF3y
+    owner_id: &id008 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 20
+    diaspora_handle: bob75045a0@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$WZG..XdJ5xfy0RpxJ/etSuBmzEfXf1fcEXka7YRydGFF/QOtCHOq.
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id008 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 66
+    invites: 0
+    _id: *id008
     last_sign_in_at: 
-    username: bob821db9a8
+    username: bob75045a0
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$LmCqAyI3Ay2QVu4PlnqJ2O
+    password_salt: $2a$10$WZG..XdJ5xfy0RpxJ/etSu
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob834792fb@pivotallabs.com
+    email: bob7417fc9@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:38 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:53 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 122
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 177
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 67
+        - 0
+        - 24
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm830824f1
+      last_name: Grimm83a0e80
       bio: 
-      first_name: Robert83af2c21
-    updated_at: 2010-11-18 06:19:38 Z
+      first_name: Robert82c1370
+    updated_at: 2010-11-19 00:49:53 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 177
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 68
-    url: http://google-83d5386f.com/
+      - 0
+      - 25
+    url: http://google-8bdaf5f.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id008
-    diaspora_handle: bob821db9a8@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$EHvgzXZ1A/CK.S3P.vo97OwXeiAky3k9WXmsgIWqbqiazo83pvw7.
+    owner_id: &id009 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 23
+    diaspora_handle: bob87a92d6@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$sSBM6SIz61W57ikgzgcM4.ixDlqyD8popJUHwiOxsYYSQooK9XySW
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id009 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 69
+    invites: 0
+    _id: *id009
     last_sign_in_at: 
-    username: bob83cf0eee
+    username: bob87a92d6
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$EHvgzXZ1A/CK.S3P.vo97O
+    password_salt: $2a$10$sSBM6SIz61W57ikgzgcM4.
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob845830e7@pivotallabs.com
+    email: bob838d2a4@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:38 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:54 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 122
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 178
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 70
+        - 0
+        - 27
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm8408a465
+      last_name: Grimm9ba7647
       bio: 
-      first_name: Robert8441da3a
-    updated_at: 2010-11-18 06:19:38 Z
+      first_name: Robert97115e1
+    updated_at: 2010-11-19 00:49:54 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 178
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 71
-    url: http://google-84aa7eaa.com/
+      - 0
+      - 28
+    url: http://google-91b22df.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id009
-    diaspora_handle: bob83cf0eee@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$wfnZUfY41Sq21gSgpXEFgOOKAFaqPXDRYbSu/fggoOnsT7gfFytHu
+    owner_id: &id010 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 177
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 26
+    diaspora_handle: bob9f6ebaa@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$JdplR1JnDfIN0LqmvuHHl.0I2GgUapjuY/ci32ovqlHPWpxFBT/Wy
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id010 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 72
+    invites: 0
+    _id: *id010
     last_sign_in_at: 
-    username: bob84822cf4
+    username: bob9f6ebaa
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$wfnZUfY41Sq21gSgpXEFgO
+    password_salt: $2a$10$JdplR1JnDfIN0LqmvuHHl.
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob856989b4@pivotallabs.com
+    email: bob9396f38@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:38 Z
+- :person: !map:ActiveSupport::HashWithIndifferentAccess 
+    created_at: 2010-11-19 00:49:54 Z
     profile: !map:ActiveSupport::HashWithIndifferentAccess 
       searchable: true
       image_url: 
       _id: !ruby/object:BSON::ObjectId 
         data: 
         - 76
-        - 228
-        - 197
-        - 122
-        - 55
-        - 219
-        - 91
+        - 229
+        - 201
+        - 178
         - 49
-        - 222
+        - 47
+        - 145
+        - 48
+        - 214
         - 0
-        - 1
-        - 73
+        - 0
+        - 30
       gender: 
       diaspora_handle: 
       birthday: 
-      last_name: Grimm85f2976d
+      last_name: Grimm10d5f601
       bio: 
-      first_name: Robert854faaf6
-    updated_at: 2010-11-18 06:19:38 Z
+      first_name: Robert10863cf4
+    updated_at: 2010-11-19 00:49:54 Z
     _id: !ruby/object:BSON::ObjectId 
       data: 
       - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
+      - 229
+      - 201
+      - 178
       - 49
-      - 222
+      - 47
+      - 145
+      - 48
+      - 214
       - 0
-      - 1
-      - 74
-    url: http://google-85f84305.com/
+      - 0
+      - 31
+    url: http://google-107ccd88.com/
     serialized_public_key: |
       -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
+      MIGJAoGBAMG+2gmVRjnJpDQFjuZsaC7PcVw90o5j4bbPMoXD772pvKMJfZaHyC1C
+      HiGT/XSSvYpmY5Mlr6kGbEAL7e9M/zMF8Y/uLjoB5xUFagTZGiQdWCHPWvDIqj7w
+      IoWX8GP/dpGHgJjcbCtQOZ2cw2goFCHEQb71K2CHG+9ZOFf8e+NdAgMBAAE=
       -----END RSA PUBLIC KEY-----
 
-    owner_id: *id010
-    diaspora_handle: bob84822cf4@example.org
-- :user: !map:ActiveSupport::HashWithIndifferentAccess 
-    encrypted_password: $2a$10$Efbw4M9FNEuKKGQ3RyxtxezU/4xo6Fk1EOV/yZC2rVPSCjCIKYu3W
+    owner_id: &id011 !ruby/object:BSON::ObjectId 
+      data: 
+      - 76
+      - 229
+      - 201
+      - 178
+      - 49
+      - 47
+      - 145
+      - 48
+      - 214
+      - 0
+      - 0
+      - 29
+    diaspora_handle: bob103b2594@localhost:3000
+  :user: !map:ActiveSupport::HashWithIndifferentAccess 
+    encrypted_password: $2a$10$09JyqYyqVg18F50y6h/g/.TZbVM5S1LXMI0NRiU/cIObp2i7V6uv.
     serialized_private_key: *id002
     pending_request_ids: []
 
     last_sign_in_ip: 
-    invites: 5
-    _id: &id011 !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 75
+    invites: 0
+    _id: *id011
     last_sign_in_at: 
-    username: bob85cc6069
+    username: bob103b2594
     language: en
     sign_in_count: 0
     visible_person_ids: []
 
-    password_salt: $2a$10$Efbw4M9FNEuKKGQ3Ryxtxe
+    password_salt: $2a$10$09JyqYyqVg18F50y6h/g/.
     remember_token: 
     reset_password_token: 
     current_sign_in_ip: 
     remember_created_at: 
     current_sign_in_at: 
     invitation_sent_at: 
-    email: bob8632ad90@pivotallabs.com
+    email: bob10b64880@pivotallabs.com
     invitation_token: 
     visible_post_ids: []
 
     getting_started: true
-  :person: !map:ActiveSupport::HashWithIndifferentAccess 
-    created_at: 2010-11-18 06:19:38 Z
-    profile: !map:ActiveSupport::HashWithIndifferentAccess 
-      searchable: true
-      image_url: 
-      _id: !ruby/object:BSON::ObjectId 
-        data: 
-        - 76
-        - 228
-        - 197
-        - 122
-        - 55
-        - 219
-        - 91
-        - 49
-        - 222
-        - 0
-        - 1
-        - 76
-      gender: 
-      diaspora_handle: 
-      birthday: 
-      last_name: Grimm86d301a0
-      bio: 
-      first_name: Robert86665a8e
-    updated_at: 2010-11-18 06:19:38 Z
-    _id: !ruby/object:BSON::ObjectId 
-      data: 
-      - 76
-      - 228
-      - 197
-      - 122
-      - 55
-      - 219
-      - 91
-      - 49
-      - 222
-      - 0
-      - 1
-      - 77
-    url: http://google-8681fc94.com/
-    serialized_public_key: |
-      -----BEGIN RSA PUBLIC KEY-----
-      MIGJAoGBANaPFcPPIVv7CgWxnSxRuMeAWBwwAycYQCdC06pQaSJke+LUZvXHKfY9
-      L/xlkRPHSeOMNOBUQNvdbhsMjpxkc63E/WN8geyhhelecPCoJz9KyeBoPsSaAH12
-      3c4MpU7q3ThxuOedfc3xU1A+pxYIuETdM5GkeiBTgKiKn9DcGIYZAgMBAAE=
-      -----END RSA PUBLIC KEY-----
-
-    owner_id: *id011
-    diaspora_handle: bob85cc6069@example.org

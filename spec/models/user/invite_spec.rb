@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 describe User do
-  let(:inviter)  {make_user}
+  let(:inviter)  {new_user = make_user; new_user.invites = 5; new_user.save; new_user;}
   let(:aspect)   {inviter.aspects.create(:name => "awesome")}
   let(:another_user) {make_user}
   let(:wrong_aspect) {another_user.aspects.create(:name => "super")}

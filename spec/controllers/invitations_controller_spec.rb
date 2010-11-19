@@ -14,6 +14,7 @@ describe InvitationsController do
   
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
+    user.invites = 3
 
     sign_in :user, user
 
