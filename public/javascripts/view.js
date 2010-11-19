@@ -101,6 +101,8 @@ $.fn.clearForm = function() {
     this.checked = false;
   else if (tag == 'select')
     this.selectedIndex = -1;
+  else if (this.name == 'photos[]')
+    this.value = '';
   $(this).blur();
   });
 };

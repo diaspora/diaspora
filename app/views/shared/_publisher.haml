@@ -15,14 +15,15 @@
     //  $("#publisher .options_and_submit").fadeIn(50);
     //});
 
-    //$("#publisher form").live("submit", function(evt){
-      //$("#publisher .options_and_submit").hide();
-    //});
+    $("#publisher form").live("submit", function(evt){
+      $("#photodropzone").find('li').remove(); 
+      //$("#publisher").find("input[name='photos[]']").remove();
+    });
 
 #publisher
   = owner_image_link
 
-  = form_for StatusMessage.new, :html => {:multipart => true,}, :remote => true do |status|
+  = form_for(StatusMessage.new, :remote => true) do |status|
     %ul#photodropzone
     = status.error_messages
     #file-upload.button
@@ -56,5 +57,5 @@
           .fancybox_content
             #question_mark_pane
               = render 'shared/public_explain'
-      #publisher_photo_upload
-        = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
+#publisher_photo_upload
+  = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
