@@ -67,6 +67,12 @@ default:
 
   #google analytics key, if false, it won't include the javascript
   google_a_site: false
+
+  #cloudfiles username and api-key, used for backups
+  cloudfiles_username: 'example'
+  cloudfiles_api_key:  'abc123'
+
+
 development:
 
 test:
