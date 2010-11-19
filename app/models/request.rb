@@ -23,6 +23,17 @@ class Request
   validate :no_pending_request, :if => :sent
   
   #before_validation :clean_link
+  
+  scope :from, lambda { |person| 
+    target = (person.is_a?(User) ? person.person : person)
+    where(:from_id => target.id)
+  }
+  
+  scope :to, lambda { |person| 
+    target = (person.is_a?(User) ? person.person : person)
+    where(:to_id => target.id)
+  }
+
 
   def self.instantiate(opts = {})
     self.new(:from => opts[:from],

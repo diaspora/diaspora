@@ -43,6 +43,37 @@ describe Request do
     end
   end
 
+  describe 'scopes' do
+    before do
+      @request = Request.instantiate(:from => user.person, :to => user2.person, :into => aspect) 
+      @request.save
+    end
+    describe '.from' do
+      it 'returns requests from a person' do
+        query = Request.from(user.person)
+        query.first.should == @request
+      end
+
+      it 'returns requests from a user' do
+        query = Request.from(user)
+        query.first.should == @request
+      end
+    end
+    describe '.to' do
+      it 'returns requests to a person' do
+        query = Request.to(user2.person)
+        query.first.should == @request
+      end
+      it 'returns requests to a user' do
+        query = Request.to(user2)
+        query.first.should == @request
+      end
+    end
+    it 'chains' do
+      Request.from(user).to(user2.person).first.should == @request
+    end
+  end
+
   describe '#request_from_me' do
     it 'recognizes requests from me' do
       user.request_from_me?(request).should be_true

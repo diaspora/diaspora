@@ -53,9 +53,9 @@ describe Diaspora::UserModules::Connecting do
       before do
         request_for_user.save
         user.receive(request_for_user.to_diaspora_xml, person)
-        @received_request = Request.first(:from_id => request_for_user.from.id, :to_id => user.person.id, :sent => false)
+        @received_request = Request.from(person).to(user.person).first(:sent => false)
         user.receive(request2_for_user.to_diaspora_xml, person_one)
-        @received_request2 = Request.first(:from_id => request2_for_user.from.id, :to_id => user.person.id, :sent => false)
+        @received_request2 = Request.from(person_one).to(user.person).first(:sent => false)
         user.reload
       end
 
