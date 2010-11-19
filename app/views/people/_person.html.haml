@@ -16,7 +16,7 @@
         - elsif current_user.person_objects.include?(person)
           = t('.already_connected')
         - elsif current_user.request_for(person)
-          = link_to =t('.pending_request'), aspects_manage_path
+          = link_to t('.pending_request'), aspects_manage_path
         - else
           - single_aspect_form ||= nil
           = render(:partial => request_partial(single_aspect_form), :locals => {:aspects => aspects, :destination_handle => person.diaspora_handle})
