@@ -9,4 +9,10 @@
     - for aspect in @aspects
       %li{:class => ("selected" if current_aspect?(aspect))}
         = link_for_aspect aspect
+    %li
+      = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('.add_a_new_aspect')
+
+  .fancybox_content
+    #add_aspect_pane
+      = render "aspects/new_aspect"
 

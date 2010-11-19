@@ -124,10 +124,12 @@ header
   #diaspora_text
     :display inline
     :font
-      :family 'BrandonGrotesqueLightRegular'
+      :family "BrandonGrotesqueLightRegular", "Helvetica Neue", Arial, Helvetica, sans-serif
       :size 16px
     :border none
     :color #fff
+    :margin
+      :right 12px
 
   ul#user_menu
     :overflow hidden
@@ -180,11 +182,6 @@ header
       :position absolute
       :left 5px 
       :display block
-
-
-  #global_search
-    :margin
-      :left 432px
 
 .stream
   :margin 0
@@ -882,6 +879,8 @@ h1.big_text
     :display none
 
 #aspect_nav
+  :margin
+    :top 4px
   :color #000
   :font
     :family 'Arial', 'Helvetica', sans-serif
@@ -953,10 +952,12 @@ h1.big_text
 
     input
       :display inline
-      :font
-        :size 13px
       :border none
-      :background-color #fff
+      :background-color #eee
+      :font
+        :size 12px
+
+      :border 1px solid #000
 
       :opacity 0.5
 
@@ -966,9 +967,9 @@ h1.big_text
       &.active
         :opacity 1
 
-    input[type='text']
+    input[type='search']
       :width 200px
-      :padding 2px
+      :padding 4px
 
 
 .aspect
@@ -1169,23 +1170,9 @@ ul#settings_nav
   :margin 0
   :padding 0
 
-#left_pane
-  ul
-    :margin 0
-    :padding 0
-    :list
-      :style none
-    li a
-      :display block
-      :padding 3px
-      :border
-        :bottom 1px solid #ccc
+#left_pane.everyone,
+#manage_aspect_pane
 
-      &:hover
-        &:after
-          :content " ►"
-
-#left_pane.everyone
   :background
     :color rgb(250,250,250)
   :border 1px solid #ddd
@@ -1231,10 +1218,6 @@ h2,h3,h4
 input[type="search"]
   :-webkit-appearance textfield
   :-moz-appearance textfield
-
-header
-  input[type="search"]
-    :width 192px
 
 .fancybox_content
   :display none
@@ -1575,7 +1558,12 @@ ul#request_result
 
   :border 2px solid #eee
 
+  :-webkit-border-radius 5px
+  :-moz-border-radius 5px
   :border-radius 5px
+  
+  :background
+    :color rgb(252,252,252)
 
   :margin 
     :bottom 1.5em
@@ -1843,3 +1831,10 @@ h3,h4
       :color #fff
       :font
         :weight bold
+
+#manage_aspect_pane
+  :-webkit-box-shadow 0 4px 8px #333
+  :-moz-box-shadow 0 4px 8px #333
+  :box-shadow 0 4px 8px #333
+
+  :display none
