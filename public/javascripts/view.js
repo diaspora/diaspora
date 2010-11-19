@@ -31,12 +31,15 @@ $(document).ready(function(){
     $(this).fadeIn("slow");
   });
 
-  $("#global_search").hover(
+  $("#q").focus(
     function() {
-      $(this).fadeTo('fast', '1');
-    },
+      $(this).addClass('active');
+    }
+  );
+
+  $("#q").blur(
     function() {
-      $(this).fadeTo('fast', '0.5');
+      $(this).removeClass('active');
     }
   );
 
@@ -77,6 +80,12 @@ $(document).ready(function(){
     form.siblings('.spinner').show();
      $('#request_result li:first').hide();
   });
+
+  // hotkeys
+  $(window).bind('keyup', 'ctrl+f', function(){
+    $("#q").focus();
+  });
+
 });//end document ready
 
 
@@ -142,3 +151,4 @@ $(".getting_started_box").live("click",function(evt){
         0
     },function(evt){ $(this).css('left', '1000px')});
 });
+

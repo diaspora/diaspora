@@ -15,10 +15,14 @@ describe PeopleController do
   end
 
   describe '#index' do
+    before do
+      @eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
+      @korth  = Factory.create(:person, :profile => {:first_name => "Evan", :last_name => "Korth"})
+    end
+
     it "yields search results for substring of person name" do
-      eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
       get :index, :q => "Eu"
-      assigns[:people].should include eugene
+      assigns[:people].should include @eugene
     end
 
     it 'shows a contact' do
@@ -36,6 +40,16 @@ describe PeopleController do
       get :index
       assigns[:people].should include user2.person
       response.should be_success
+    end
+
+    it "redirects to person page if there is exactly one match" do
+      get :index, :q => "Korth"
+      response.should redirect_to @korth
+    end
+
+    it "does not redirect if there are no matches" do
+      get :index, :q => "Korthsauce"
+      response.should_not be_redirect
     end
   end
 

@@ -948,7 +948,6 @@ h1.big_text
 #global_search
   :display inline
   :position relative
-  :opacity 0.5
 
   form
     :display inline
@@ -959,6 +958,14 @@ h1.big_text
         :size 13px
       :border none
       :background-color #fff
+
+      :opacity 0.5
+
+      &:hover
+        :opacity 0.8
+
+      &.active
+        :opacity 1
 
     input[type='text']
       :width 200px

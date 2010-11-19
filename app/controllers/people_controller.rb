@@ -13,15 +13,16 @@ class PeopleController < ApplicationController
 
     @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'created_at DESC'
     
-    
-    # dont do it@people.first.diaspora_handle == params[:q]  
-    
     #only do it if it is an email address
     if params[:q].try(:match, Devise.email_regexp)
       webfinger(params[:q])
     end
     
-    respond_with @people
+    if @people.count == 1
+      redirect_to @people.first
+    else
+      respond_with @people
+    end
   end
 
   def show
