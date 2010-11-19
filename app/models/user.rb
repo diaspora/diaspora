@@ -19,7 +19,7 @@ class User
 
   key :username
   key :serialized_private_key, String
-  key :invites, Integer, :default => 5
+  key :invites, Integer, :default => 0
   key :invitation_token, String
   key :invitation_sent_at, DateTime
   key :pending_request_ids, Array, :typecast => 'ObjectId'

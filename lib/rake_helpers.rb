@@ -13,8 +13,12 @@ module RakeHelpers
       churn_through = n
       backer_name = backers[n+offset][0].to_s.strip
       backer_email = backers[n+offset][1].to_s.gsub('.ksr', '').strip
-      puts "sending email to: #{backer_name} #{backer_email}"
-      Invitation.create_invitee(:email => backer_email, :name => backer_name, :invites => 5) unless User.find_by_email(backer_email)
+      unless User.find_by_email(backer_email) 
+        puts "sending email to: #{backer_name} #{backer_email}"
+        Invitation.create_invitee(:email => backer_email, :name => backer_name, :invites => 5) 
+      else
+        puts "user with the email exists: #{backer_email} ,  #{backer_name} "
+      end
     end
     churn_through
   end

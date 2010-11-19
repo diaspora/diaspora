@@ -31,6 +31,14 @@ describe InvitationsController do
         post :create, :user=>{:invite_messages=>"test", :aspects=> aspect.id.to_s, :email=>"abc@example.com"}
       }.should change(Invitation, :count).by(1)
     end
+
+    it 'creates an invited user with zero invites' do
+      lambda{
+        post :create, :user=>{:invite_messages=>"test", :aspects=> aspect.id.to_s, :email=>"abc@example.com"}
+      }.should change(User, :count).by(1)
+      User.find_by_email("abc@example.com").invites.should == 0
+
+    end
     
   end
 end
