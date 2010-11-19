@@ -32,10 +32,8 @@
     = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
     .options_and_submit
-    
       #file-upload.button
         drag a photo to upload
-        
       - if aspect == :all
         = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
       - else
