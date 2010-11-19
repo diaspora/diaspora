@@ -13,8 +13,6 @@
       = link_to "Edit Profile", edit_person_path(current_user.person)
       |
       = link_to "Edit Account", edit_user_path(current_user)
-      |
-      = link_to "Logout", destroy_user_session_path
 
 .span-15.last
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count

@@ -2,13 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- if @request_count > 0
-  #left_pane{:class => "everyone"}
-    %h4
-      = "#{@request_count} new requests!"
-
-  %br
-  %br
+- if (aspect == :all) && @request_count > 0
+  #new_request_pane{:class => "everyone"}
+    %h1.new_request
+      - if @request_count > 1
+        = link_to "#{@request_count} new requests!", aspects_manage_path
+      - else
+        = link_to "#{@request_count} new request!", aspects_manage_path
 
 #left_pane{:class => ("everyone" if aspect == :all)}
   %h2{:style=>"position:relative;"}

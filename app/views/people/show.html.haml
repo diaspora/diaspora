@@ -5,6 +5,7 @@
 
 .span-24.last
   = render 'shared/author_info', :person => @person, :profile => true
+
 .span-8.append-1.last
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @is_contact}
 
@@ -19,7 +20,9 @@
       = will_paginate @posts
 
     - else
-      %h3= t('.no_posts')
+      %ul#stream
+        %li
+          %h3= t('.no_posts')
 
   - else
     .floating

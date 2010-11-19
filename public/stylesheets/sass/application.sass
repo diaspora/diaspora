@@ -192,6 +192,7 @@ header
   > li
     :list-style none
     :padding 12px
+    :min-height 50px
     :border
       :bottom 1px solid #eee
 
@@ -274,6 +275,10 @@ header
     :display inline-block
     :padding 12px
       :top 0
+
+  &.profile
+    .from
+      :padding 0
 
   h2
     :display inline
@@ -571,6 +576,9 @@ ul.comments
     :width 300px
 
 #profile
+  h3
+    :margin
+      :bottom 0
   ul
     :list-style-type none
     :margin 0
@@ -581,7 +589,7 @@ ul.comments
       :top 1em
     > li
       :margin
-        :bottom 1em
+        :bottom 2em
   
 
 .stream, #profile,
@@ -633,11 +641,12 @@ li.message .from .right
       :margin-right 1em
 
 #show_photo
+  :display inline-block
   :background
     :color #fff
   
   :padding 10px
-    :bottom 20px
+    :bottom 30px
 
   :-webkit-box-shadow 0 2px 4px #333
   :-moz-box-shadow 0 2px 4px #333
@@ -660,7 +669,7 @@ li.message .from .right
       :size 16px
     :font
       :family 'marker felt', 'comic sans ms', 'comic sans', sans-serif
-    :color #555
+    :color #333
 
 #debug_info
   :margin-top 20px
@@ -1813,3 +1822,18 @@ h3,h4
   h4
     :margin
       :bottom 0
+
+#new_request_pane
+  :background
+    :color red
+
+  :border-radius 4px
+
+  :-webkit-box-shadow 0 1px 2px #666
+  :-moz-box-shadow 0 1px 2px #666
+
+  h1
+    a
+      :color #fff
+      :font
+        :weight bold

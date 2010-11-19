@@ -9,9 +9,9 @@
   = action_link(person, is_contact)
 
   %ul
-    - if @posts.first
-      %li
-        %i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
+    /- if @posts.first
+    /%li
+    /%i= t(".last_seen",:how_long_ago => how_long_ago(@posts.first))
     - if is_contact
       %li
         %ul#aspects_for_person
@@ -23,16 +23,17 @@
   -if is_contact || person == current_user.person
     %ul#profile_information
       %li  
-        %b #{t('.bio')}
-        %br
+        %h3 #{t('.bio')}
         = person.profile.bio
       %li
-        %b #{t('.gender')}
-        %br
-        = person.profile.gender
-      %li
-        %b #{t('.born')}
-        %br
-        = "#{time_ago_in_words(person.profile.birthday)} #{t('ago')}" if @person.profile.birthday
-
+        .span-4.last
+          %h3 #{t('.gender')}
+          = person.profile.gender
+        .span-4.last
+          %h3 #{t('.born')}
+          = "#{time_ago_in_words(person.profile.birthday)} #{t('ago')}" if @person.profile.birthday
+  %br
+  %br
+  %br
+  %br
   %b.small= person.diaspora_handle

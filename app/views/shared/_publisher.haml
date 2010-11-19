@@ -46,7 +46,6 @@
               - for service in current_user.services      
                 = image_tag("social_media_logos/#{service.provider}-16x16.png")
 
-
           = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
 
           .fancybox_content
@@ -54,7 +53,7 @@
               = render 'shared/public_explain'
 
 
-  #publisher_photo_upload
-    = t('or')
-    = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
+  /#publisher_photo_upload
+  /= t('or')
+  /= render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
 
