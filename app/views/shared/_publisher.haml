@@ -32,8 +32,10 @@
     = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
     .options_and_submit
+    
       #file-upload.button
         drag a photo to upload
+        
       - if aspect == :all
         = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
       - else
@@ -54,3 +56,5 @@
           .fancybox_content
             #question_mark_pane
               = render 'shared/public_explain'
+          #publisher_photo_upload
+            = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
