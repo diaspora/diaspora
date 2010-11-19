@@ -85,7 +85,7 @@ module Diaspora
       end
 
       def request_for(to_person)
-        Request.first(:from_id => self.person.id, :to_id => to_person.id).first
+        Request.first(:from_id => self.person.id, :to_id => to_person.id)
       end
     end
   end
