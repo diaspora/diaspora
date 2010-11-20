@@ -54,14 +54,14 @@ http {
 
   server {
    listen       80;
-   server_name  <%= @url %>  www.<%= @url %>
-   rewrite      ^(.*) https://alpha.joindiaspora.com$1 permanent;
+   server_name  <%= @url %>  www.<%= @url %>;
+   rewrite      ^(.*) https://<%= @url %>$1 permanent;
   }
 
   server {
 
    listen       443;
-   server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
+   server_name  <%= @url %> www.<%= @url %>;
    root         /usr/local/app/diaspora/public;
 
    ssl on;
