@@ -1,41 +1,82 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#   Translated to Hebrew by Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
 
-he:
-  errors:
-    messages:
-      not_found: "לא נמצא"
-      already_confirmed: "כבר אושר"
-      not_locked: "לא ננעל"
 
-  devise:
-    failure:
-      unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות."
-      unconfirmed: "עליך לאמת את חשבונך לפי המשך הפעילות."
-      locked: "חשבונך נעול."
+he: 
+  devise: 
+    confirmations: 
+      confirmed: "חשבונך אומת בהצלחה. נכנסת כעת."
+      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
+    failure: 
+      inactive: "חשבונך לא הופעל עדיין."
       invalid: "הססמה או הדוא״ל שגויים."
       invalid_token: "אסימון האימות שגוי."
+      locked: "חשבונך נעול."
       timeout: "ההפעלה שלך פגה, נא להיכנס שוב כדי להמשיך."
-      inactive: "חשבונך לא הופעל עדיין."
-    sessions:
-      signed_in: "נכנסת בהצלחה."
-      signed_out: "יצאת בהצלחה."
-    passwords:
+      unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות."
+      unconfirmed: "עליך לאמת את חשבונך לפי המשך הפעילות."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "Unlock my account"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את ססמתך."
       updated: "ססמתך הוחלפה בהצלחה. נכנסת כעת."
-    confirmations:
-      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
-      confirmed: "חשבונך אומת בהצלחה. נכנסת כעת."
-    registrations:
+    registrations: 
+      destroyed: "להתראות! חשבונך בוטל בהצלחה. מקווים לראותך שוב בקרוב."
       signed_up: "נרשמת בהצלחה. הודעת אימות תישלח אליך לדוא״ל במידה שהוגדרה."
       updated: "חשבונך עודכן בהצלחה."
-      destroyed: "להתראות! חשבונך בוטל בהצלחה. מקווים לראותך שוב בקרוב."
-    unlocks:
+    sessions: 
+      new: 
+        have_a_problem: "Have a problem? Find an answer here"
+        login: Login
+        password: Password
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: Username
+      signed_in: "נכנסת בהצלחה."
+      signed_out: "יצאת בהצלחה."
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הודא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
       unlocked: "חשבונך שוחרר בהצלחה. נכנסת כעת."
-    mailer:
-      confirmation_instructions: "הנחיות לאימות"
-      reset_password_instructions: "הנחיות לאיפוס הססמה"
-      unlock_instructions: "הנחיות לשחרור"
+  errors: 
+    messages: 
+      already_confirmed: "כבר אושר"
+      not_found: "לא נמצא"
+      not_locked: "לא ננעל"
