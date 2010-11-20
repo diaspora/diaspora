@@ -28,6 +28,37 @@ describe StatusMessagesController do
         :to      =>"#{aspect.id}"}}
     }
 
+    it "doesn't overwrite person_id" do
+      new_user = make_user
+      status_message_hash[:status_message][:person_id] = new_user.person.id
+      post :create, status_message_hash
+      StatusMessage.find_by_message(status_message_hash[:status_message][:message]).person_id.should == user.person.id
+    end
+
+    it "doesn't overwrite id" do
+      old_status_message = user.post(:status_message, :message => "hello", :to => aspect.id)
+      status_message_hash[:status_message][:id] = old_status_message.id
+      lambda {post :create, status_message_hash}.should raise_error /failed save/
+      old_status_message.reload.message.should == 'hello'
+    end
+
+    it "dispatches all referenced photos" do
+      fixture_filename  = 'button.png'
+      fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
+
+      photo1 = user.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect.id)
+      photo2 = user.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect.id)
+
+      photo1.save!
+      photo2.save!
+
+      hash = status_message_hash
+      hash[:photos] = [photo1.id.to_s, photo2.id.to_s]
+
+      user.should_receive(:dispatch_post).exactly(3).times
+      post :create, hash
+    end
+
     context "posting out to facebook" do
       let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
 
@@ -40,18 +71,6 @@ describe StatusMessagesController do
         status_message_hash[:status_message][:public] = 'false'
         user.should_not_receive(:post_to_facebook)
         post :create, status_message_hash
-      end
-      it "doesn't overwrite person_id" do
-        new_user = make_user
-        status_message_hash[:status_message][:person_id] = new_user.person.id
-        post :create, status_message_hash
-        StatusMessage.find_by_message(status_message_hash[:status_message][:message]).person_id.should == user.person.id
-      end
-      it "doesn't overwrite id" do
-        old_status_message = user.post(:status_message, :message => "hello", :to => aspect.id)
-        status_message_hash[:status_message][:id] = old_status_message.id
-        lambda {post :create, status_message_hash}.should raise_error /failed save/
-        old_status_message.reload.message.should == 'hello'
       end
     end
 

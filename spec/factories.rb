@@ -58,7 +58,6 @@ end
 
 Factory.define :photo do |p|
   p.image File.open( File.dirname(__FILE__) + '/fixtures/button.png')
-
 end
 
 Factory.define :service do |service|

@@ -161,7 +161,7 @@ class User
     self.save
     Rails.logger.info("Pushing: #{post.inspect} out to aspects")
     push_to_aspects(post, aspect_ids)
-    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
+    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid) && !post.pending
     if post.public
       self.services.each do |service|
         self.send("post_to_#{service.provider}".to_sym, service, post.message)

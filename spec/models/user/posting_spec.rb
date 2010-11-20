@@ -74,6 +74,13 @@ describe User do
       user.should_receive(:post_to_facebook).exactly(0).times
       user.post :status_message, :message => "hi", :to => "all"
     end
+
+
+    it 'should not socket a pending post' do 
+      sm = user.build_post(:status_message, :message => "your mom", :to => aspect.id, :pending => true)      
+      sm.should_not_receive(:socket_to_uid)
+      user.dispatch_post(sm, :to => aspect.id) 
+    end
   end
 
   describe '#post' do

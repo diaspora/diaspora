@@ -9,7 +9,6 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-
     photos = Photo.all(:id.in => [*params[:photos]])
 
     public_flag = params[:status_message][:public]
@@ -17,11 +16,14 @@ class StatusMessagesController < ApplicationController
     params[:status_message][:public] = public_flag 
     @status_message = current_user.build_post(:status_message, params[:status_message])
 
-    @status_message.photos += photos unless photos.nil?
-
-    puts "got it"
     if @status_message.save(:safe => true)
       raise 'MongoMapper failed to catch a failed save' unless @status_message.id
+
+      @status_message.photos += photos unless photos.nil?
+      for photo in photos
+        current_user.dispatch_post(photo, :to => params[:status_message][:to])
+      end
+
       current_user.dispatch_post(@status_message, :to => params[:status_message][:to])
     end
   

@@ -12,17 +12,23 @@
        debug: true,
        button: document.getElementById('file-upload'),
        sizeLimit: 5000048,
+
+
        onSubmit: function(id, fileName){
-        $('#file-upload').text("loading");
+        $('#file-upload').addClass("loading");
+        $('#publisher').find("input[type='submit']").attr('disabled','disabled');
+        $("#publisher .options_and_submit").fadeIn(50);
+        $("#publisher_spinner").fadeIn(100);
        },
-      
        
        onComplete: function(id, fileName, responseJSON){
-        $('#file-upload').text("add photos");
+        $("#publisher_spinner").fadeOut(100);
+        $('#file-upload').removeClass("loading");
         var id = responseJSON.data.photo.id;
         var url = responseJSON.data.photo.url;
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
         $('#photodropzone').append("<li><img src='" + url +"' data-id='" + id + "' /></li>");
+        $('#publisher').find("input[type='submit']").removeAttr('disabled');
        }
        
    });

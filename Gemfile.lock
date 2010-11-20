@@ -142,7 +142,11 @@ GEM
     childprocess (0.1.4)
       ffi (~> 0.6.3)
     closure-compiler (0.3.3)
+<<<<<<< HEAD
     cloudfiles (1.4.10)
+=======
+    cloudfiles (1.4.9)
+>>>>>>> DG MS; status messages can now have photos.
       mime-types (>= 1.16)
     columnize (0.3.2)
     configuration (1.2.0)

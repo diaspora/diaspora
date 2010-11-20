@@ -9,18 +9,27 @@ class Photo < Post
 
   xml_accessor :remote_photo
   xml_accessor :caption
+  xml_reader :status_message_id
 
   key :caption,  String
   key :remote_photo_path
   key :remote_photo_name
   key :random_string
   
-
   timestamps!
 
+  belongs_to :status_message
+
   attr_accessible :caption
+  validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
+
+  def ownership_of_status_message
+    if status_message_id
+      self.diaspora_handle == StatusMessage.find_by_id(self.status_message_id).diaspora_handle
+    end
+  end
 
   def self.instantiate(params = {})
     photo = super(params)

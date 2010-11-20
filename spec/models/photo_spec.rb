@@ -9,15 +9,11 @@ describe Photo do
     @user = make_user
     @aspect = @user.aspects.create(:name => "losers")
 
-    @fixture_filename = 'button.png'
-    @fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
+    @fixture_filename  = 'button.png'
+    @fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-#    @photo = Photo.new
-    #@photo.person = @user.person
-    #@photo.diaspora_handle = @user.person.diaspora_handle
-    @photo = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
-
+    @photo  = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
     @photo2 = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
   end
 

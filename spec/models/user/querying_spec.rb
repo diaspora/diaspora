@@ -9,17 +9,20 @@ describe User do
   let(:user)          {make_user}
   let!(:aspect) { user.aspects.create(:name => "cats")}
   let!(:user2) { Factory(:user_with_aspect) }
+  let!(:aspect2) { user2.aspects.first }
+
   let(:person_one) { Factory.create :person }
   let(:person_two) { Factory.create :person }
   let(:person_three) { Factory.create :person }
 
 
   context 'with two posts' do
-    let!(:status_message1) { user2.post :status_message, :message => "hi", :to => user2.aspects.first.id }
-    let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => user2.aspects.first.id }
-    let!(:status_message4) { user2.post :status_message, :message => "blah", :public => true , :to => user2.aspects.first.id }
-    let!(:status_message3) { user.post :status_message, :message => "hey", :public => true , :to => user.aspects.first.id }
+    let!(:status_message1) { user2.post :status_message, :message => "hi", :to => aspect2.id }
+    let!(:status_message2) { user2.post :status_message, :message => "hey", :public => true , :to => aspect2.id }
+    let!(:status_message4) { user2.post :status_message, :message => "blah", :public => true , :to => aspect2.id }
+    let!(:status_message3) { user.post :status_message, :message => "hey", :public => true , :to => aspect.id }
 
+    let!(:pending_status_message) { user2.post :status_message, :message => "hey", :public => true , :to => aspect2.id, :pending => true }
 
     describe "#visible_posts" do
       it "queries by person id" do
@@ -42,6 +45,13 @@ describe User do
 
       it "selects by message contents" do
         user2.visible_posts(:message => "hi").include?(status_message1).should == true
+      end
+
+      it "does not return pending posts" do
+        pending_status_message.pending.should be_true
+        user2.visible_posts.should_not include pending_status_message
+
+        user2.visible_posts(:by_members_of => aspect2).should_not include pending_status_message
       end
 
       context 'with two users' do

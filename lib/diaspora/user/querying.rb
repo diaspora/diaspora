@@ -12,10 +12,11 @@ module Diaspora
 
       def visible_posts( opts = {} )
         opts[:order] ||= 'created_at DESC'
-        if opts[:by_members_of]
-          return raw_visible_posts if opts[:by_members_of] == :all
+        opts[:pending] ||= false
+
+        if opts[:by_members_of] && opts[:by_members_of] != :all
           aspect = self.aspects.find_by_id( opts[:by_members_of].id )
-          aspect.posts
+          aspect.posts.find_all_by_pending(opts[:pending], :order => opts[:order])
         else
           self.raw_visible_posts.all(opts)
         end

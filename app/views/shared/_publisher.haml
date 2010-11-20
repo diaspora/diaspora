@@ -11,13 +11,13 @@
       }; 
     });
     
-    //$("#publisher textarea, #publisher input").live("focus", function(evt){
-    //  $("#publisher .options_and_submit").fadeIn(50);
-    //});
+    $("#publisher textarea, #publisher input").live("focus", function(evt){
+      $("#publisher .options_and_submit").fadeIn(50);
+    });
 
     $("#publisher form").live("submit", function(evt){
       $("#photodropzone").find('li').remove(); 
-      //$("#publisher").find("input[name='photos[]']").remove();
+      $("#publisher .options_and_submit").hide();
     });
 
 #publisher
@@ -37,10 +37,13 @@
     = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
     .options_and_submit
-      - if aspect == :all
-        = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
-      - else
-        = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting')
+
+      .right
+        = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
+        - if aspect == :all
+          = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
+        - else
+          = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting')
 
       - if aspect == :all
         .public_toggle
@@ -57,5 +60,10 @@
           .fancybox_content
             #question_mark_pane
               = render 'shared/public_explain'
+
+
+
+
+
 #publisher_photo_upload
   = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
