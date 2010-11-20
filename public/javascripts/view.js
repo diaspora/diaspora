@@ -37,6 +37,13 @@ $(document).ready(function(){
     }
   );
 
+  $('.new_request').submit(function(){
+    var foo = $(this).parent();
+    $(this).hide();
+    foo.find('.message').removeClass('hidden');
+  });
+
+
   $("#q").blur(
     function() {
       $(this).removeClass('active');

@@ -2,7 +2,10 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_for(Request.new, :remote => true ) do |request|
-  = request.select(:into, options_from_collection_for_select(aspects, "id", "name"))
-  = request.hidden_field :to, :value => destination_handle
-  = request.submit t('people.person.add_contact'), :disable_with => t('requests.create.sending')
+%div{:id => destination_handle}
+  = form_for(Request.new, :remote => true ) do |request|
+    = request.select(:into, options_from_collection_for_select(aspects, "id", "name"))
+    = request.hidden_field :to, :value => destination_handle
+    = request.submit t('people.person.add_contact'), :disable_with => t('requests.create.sending')
+  .message.hidden
+    %i sent!
