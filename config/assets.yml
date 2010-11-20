@@ -1,3 +1,4 @@
+package: always
 javascripts:
   flash_socket:
     - public/javascripts/vendor/FABridge.js
@@ -19,14 +20,14 @@ javascripts:
     - public/javascripts/vendor/mailchimp/jquery.form.js
     - public/javascripts/vendor/mailchimp/jquery.validate.js
     - public/javascripts/vendor/mailchimp/jquery126.min.js
-    
+
   photo:
     - public/javascripts/photo.js
     - public/javascripts/image-picker.js
   aspects:
     - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/aspect-edit.js
-  
+
 stylesheets:
   default:
     - public/stylesheets/application.css
