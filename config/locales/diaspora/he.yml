@@ -4,177 +4,177 @@
 
 
 he: 
-  _photos: photos
-  _services: Services
-  account: Account
+  _photos: תמונות
+  _services: שירותים
+  account: חשבון
   activemodel: 
     errors: 
       models: 
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken"
+              taken: "כבר תפוס"
         user: 
           attributes: 
             email: 
-              taken: "is already taken"
+              taken: "כבר תפוס"
             person: 
-              invalid: "is invalid"
+              invalid: "אינו תקני"
             username: 
-              taken: "is already taken"
-  ago: ago
+              taken: "כבר תפוס"
+  ago: עברו
   application: 
     helper: 
       unknown_person: "אדם לא ידוע"
       youtube_title: 
-        unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+        unknown: "כותרת הווידאו אינה ידועה"
+  are_you_sure: בבטחה?
   aspects: 
     add_to_aspect: 
-      failure: "Failed to add friend to aspect."
-      success: "Successfully added friend to aspect."
+      failure: "אירע כשל בהוספת איש הקשר להיבט."
+      success: "איש הקשר נוסף בהצלחה להיבט."
     create: 
-      failure: "Aspect creation failed."
+      failure: "יצירת ההיבט נכשלה."
       success: "יש ללחוץ על סמל הפלוס שמימין כדי לומר לדיאספורה מי יכול לצפות בהיבט החדש שלך."
     destroy: 
       success: "%{name} הוסר בהצלחה."
     helper: 
-      are_you_sure: "Are you sure you want to delete this aspect?"
+      are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
       aspect_not_empty: "ההיבט אינו ריק"
       remove: הסרה
     manage: 
       add_a_new_aspect: "הוספת היבט חדש"
-      add_a_new_contact: "Add a new contact"
-      drag_to_add: "Drag to add people"
-      manage_aspects: "Manage aspects"
-      no_requests: "No new requests"
+      add_a_new_contact: "הוספת איש קשר חדש"
+      drag_to_add: "יש לגרור כדי להוסיף אנשי קשר"
+      manage_aspects: "ניהול היבטים"
+      no_requests: "אין בקשות חדשות"
       requests: בקשות
     move_contact: 
-      error: "Error moving contact: %{inspect}"
-      failure: "didn't work %{inspect}"
-      success: "Person moved to new aspect"
+      error: "שגיאה בהעברת איש הקשר: %{inspect}"
+      failure: "%{inspect} לא עבד"
+      success: "האדם הועבר להיבט חדש"
     new_aspect: 
       create: יציאה
-      name: Name
+      name: שם
     no_contacts_message: 
-      add_contact: "Add a contact"
-      add_contact_to: "Add someone to %{aspect_name}"
-      invite: "Invite someone to join Diaspora!"
-      nobody: "We know you know people — bring them to Diaspora!"
-      nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+      add_contact: "הוספת איש קשר"
+      add_contact_to: "הוספת מישהו אל %{aspect_name}"
+      invite: "להזמין מישהו להצטרף לדיאספורה!"
+      nobody: "אנחנו יודעים שיש לך איזה כמה חברים — יאללה להזמין אותם לדיאספורה!"
+      nobody_in_aspect: "ההיבט שלך '%{aspect_name}' ריק."
     no_posts_message: 
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
     remove_from_aspect: 
-      failure: "Failed to remove person from aspect"
-      success: "Successfully removed person from aspect"
+      failure: "אירע כשר בהסרת איש הקשר מההיבט"
+      success: "איש הקשר הוסר בהצלחה מההיבט"
     update: 
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
-  back: Back
-  cancel: Cancel
+  back: חזרה
+  cancel: ביטול
   comments: 
     new_comment: 
       comment: הערה
-      commenting: Commenting...
+      commenting: "נוספת הערה..."
   dashboards: 
     helper: 
-      home: Home
-  delete: Delete
-  email: Email
+      home: "דף הבית"
+  delete: מחיקה
+  email: דוא״ל
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "יש לתקן את השגיאות הבאות ולנסות שוב."
       invalid_fields: "שדות שגויים"
-  fill_me_out: "Fill me out"
+  fill_me_out: "נא לרשום אותי"
   home: 
     show: 
-      already_account: "already have an account?"
-      login_here: "log in here"
-      share_what_you_want: "Share what you want, with who you want."
+      already_account: "כבר יש לך חשבון?"
+      login_here: "הכניסה מכאן"
+      share_what_you_want: "שיתוף מה שבא לך, עם מי שבא לך."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "אסימון ההזמנה לא נמצא"
     create: 
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
-      sent: "Your invitation has been sent."
+      already_contacts: "כבר יש לך קשר עם אדם זה"
+      already_sent: "כבר הזמנת אדם זה."
+      no_more: "אין לך עוד הזמנות."
+      sent: "ההזמנה שלך נשלחה."
     new: 
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
-      invite_someone_to_join: "Invite someone to join Diaspora!"
-      message: "Message:"
-      send_an_invitation: "Send an invitation"
-      send_invitation: "Send invitation"
-      to: To
+      if_they_accept_info: "אם ההזמנה תתקבל, הם יתווספו להיבט שאליו הזמנת אותם"
+      invite_someone_to_join: "להזמין מישהו להשתמש בדיאספורה!"
+      message: "הודעה:"
+      send_an_invitation: "שליחת הזמנה"
+      send_invitation: "שליחת הזמנה"
+      to: אל
   layouts: 
     application: 
-      powered_by: "POWERED BY DIASPORA*"
+      powered_by: "מופעל על גבי דיאספורה*"
     header: 
-      account_settings: "account settings"
-      blog: blog
-      developers: developers
-      edit_profile: "edit profile"
-      login: login
-      logout: logout
-      view_profile: "view profile"
+      account_settings: "הגדרות החשבון"
+      blog: בלוג
+      developers: מתכנתים
+      edit_profile: "עריכת הפרופיל"
+      login: כניסה
+      logout: יציאה
+      view_profile: "צפייה בפרופיל"
   notifier: 
-    diaspora: "the diaspora email robot"
-    hello: "Hello %{name}!"
-    love: "love,"
+    diaspora: "רובוט הדוא״ל של דיאספורה"
+    hello: "שלום %{name}!"
+    love: "באהבה,"
     new_request: 
-      just_sent_you: "just sent you a friend request on Diaspora*"
-      sign_in: "sign in here"
-      subject: "new Diaspora* friend request from %{from}"
-      try_it_out: "You should really think about checking it out."
+      just_sent_you: "שלח/ה לך בקשת חברות בדיאספורה*"
+      sign_in: "כניסה מכאן"
+      subject: "בקשת התקשרות חדשה בדיאספורה* מאת %{from}"
+      try_it_out: "מאוד כדאי לבדוק זאת."
     request_accepted: 
-      accepted: "has accepted your friend request. They are now in your"
-      aspect: aspect.
-      subject: "%{name} has accepted your friend request on Diaspora*"
-  ok: OK
-  or: or
-  password: Password
-  password_confirmation: "Password confirmation"
+      accepted: "קיבל/ה את בקשת ההתקשרות שלך. וכעת יופיע/תופיע תחת"
+      aspect: היבט.
+      subject: "בקשת ההתקשרות שלך התקבלה על ידי %{name} בדיאספורה*"
+  ok: אישור
+  or: או
+  password: ססמה
+  password_confirmation: "אישור הססמה"
   people: 
     edit: 
-      allow_search: "Allow for people to search for you"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "אישור לאחרים לחפש אחריך"
+      first_name: "השם הפרטי"
+      info_available_to: "פרטים אלו יהיו זמינים לכל אלו שנוצר ביניכם קשר דרך דיאספורה."
+      last_name: "שם המשפחה"
+      update_profile: "עדכון הפרופיל"
+      your_bio: "פרטיך האישיים"
+      your_birthday: "יום ההולדת שלך"
+      your_gender: "המגדר שלך"
+      your_name: "השם שלך"
+      your_photo: "התמונה שלך"
+      your_profile: "הפרופיל שלך"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
+      results_for: " תוצאות עבור %{params}"
     index: 
-      results_for: "search results for"
+      results_for: "תוצאות חיפוש עבור"
     person: 
-      add_contact: "add contact"
-      already_connected: "Already connected"
+      add_contact: "הוספת איש קשר"
+      already_connected: "כבר התחברת"
       pending_request: "בקשה ממתינה"
-      thats_you: "thats you!"
+      thats_you: "מדובר בך!"
     profile_photo_upload: 
-      or_select_one: "or select one from your already existing"
+      or_select_one: "או לבחור מבין אלו הקיימים"
     profile_sidebar: 
-      bio: bio
-      born: born
-      edit_my_profile: "Edit my profile"
-      gender: gender
-      in_aspects: "in aspects"
-      last_seen: "last seen: %{how_long_ago}"
-      remove_contact: "remove contact"
+      bio: פרטים
+      born: לידה
+      edit_my_profile: "עריכת הפרופיל שלי"
+      gender: מגדר
+      in_aspects: בהיבטים
+      last_seen: "הופעה אחרונה: %{how_long_ago}"
+      remove_contact: "הסרת איש קשר"
     show: 
-      already_requested: "You have already sent a request to %{name}."
-      does_not_exist: "Person does not exist!"
-      no_posts: "no posts to display!"
-      not_connected: "You are not connected with this person"
-      request_people: "If you'd like, you can request to place him/her in one of your aspects."
+      already_requested: "כבר שלחת בקשה אל %{name}."
+      does_not_exist: "אדם זה אינו קיים!"
+      no_posts: "אין רשומות להצגה!"
+      not_connected: "אין לך קשר עם אדם זה"
+      request_people: "אם ברצונך, ניתן לבקש להציב אותו/ה באחד מההיבטים שלך."
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "אירע כשל בעדכון הפרופיל"
+      updated: "הפרופיל עודכן"
   photos: 
     create: 
       integrity_error: "העלאת התמונה נכשלה.  האם זו באמת הייתה תמונה?"
@@ -189,114 +189,114 @@ he:
       new_photo: "תמונה חדשה"
       post_it: פרסום!
     new_photo: 
-      drop: "Drop photos here to upload"
-      empty: "{file} is empty, please select files again without it."
-      failed: Failed
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
-      upload: "Upload a photo"
+      drop: "יש להשליך לכאן קבצים כדי להעלות אותם"
+      empty: "הקובץ {file} ריק, נא לבחור שוב קבצים אבל בלעדיו."
+      failed: "אירע כשל"
+      invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
+      size_error: "הקובץ {file} גדול מדי, גודל הקובץ המרבי הוא {sizeLimit}."
+      upload: "העלאת תמונה"
     photo: 
-      view_all: "view all of %{name}'s photos"
+      view_all: "צפייה בכל התמונות של %{name}"
     show: 
-      add_a_description: "Add a description"
+      add_a_description: "הוספת תיאור"
       delete_photo: "מחיקת תמונה"
       edit_photo: "עריכת תמונה"
       full_size: "גודל מלא"
-      make_profile_photo: "make profile photo"
+      make_profile_photo: "יצירת תמונת פרופיל"
       next: הבאה
       prev: הקודמת
-      update_photo: "Update Photo"
+      update_photo: "עדכון התמונה"
     update: 
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."
-  profile: Profile
+  profile: פרופיל
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."
     create: 
       success: "הצטרפת לדיאספורה!"
     edit: 
-      cancel_my_account: "Cancel my account"
-      edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: Unhappy?
-      update: Update
+      cancel_my_account: "ביטול החשבון שלי"
+      edit: "עריכת %{name}"
+      leave_blank: "(יש להשאיר ריק אם אין ברצונך לשנות זאת)"
+      password_to_confirm: "(נזדקק לססמה הנוכחית שלך כדי לאמת את השינויים)"
+      unhappy: בבאסה?
+      update: עדכון
     new: 
       sign_up: הרשמה
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      sign_up_for_diaspora: "הרשמה לדיאספורה"
   requests: 
     create: 
-      sending: Sending...
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
-      tried: "we tried our best to send a message to %{account}"
+      sending: בשליחה...
+      sent: "ביקשת לשתף עם %{name}. פריט זה יופיע בפניהם בפעם הבאה שייכנסו לדיאספורה."
+      tried: "ניסינו כמיטב יכולתנו לשלוח הודעה אל %{account}"
     destroy: 
       error: "נא לבחור בהיבט!"
       ignore: "בקשות חברות מהן התעלמת."
       success: "אתם חברים כעת."
     manage_aspect_contacts: 
-      contact_username: "Contact's username"
-      create_request: "Create request"
-      enter_a_diaspora_username: "Enter a Diaspora username:"
-      existing: "Existing contacts"
-      know_email: "Know their email address? You should invite them"
-      manage_within: "Manage contacts within"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-  search: Search
+      contact_username: "שם המשתמש של איש הקשר"
+      create_request: "יצירת בקשה"
+      enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
+      existing: "אנשי הקשר הקיימים"
+      know_email: "ידוע לך כתובת הדוא״ל שלהם? למה לא להזמין אותם"
+      manage_within: "ניהול אנשי קשר בתוך"
+      your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
+  search: חיפוש
   services: 
     create: 
-      success: "Authentication successful."
+      success: "האימות הצליח."
     destroy: 
-      success: "Successfully destroyed authentication."
+      success: "האימות הושמד בהצלחה."
     index: 
-      connect_to_facebook: "Connect to facebook"
-      connect_to_twitter: "Connect to twitter"
-      disconnect: disconnect
-      logged_in_as: "logged in as"
-      really_disconnect: "disconnect %{service}?"
-  settings: Settings
+      connect_to_facebook: "התחברות לפייסבוק"
+      connect_to_twitter: "התחברות לטוויטר"
+      disconnect: ניתוק
+      logged_in_as: "נכנסת בשם"
+      really_disconnect: "האם לנתק את %{service}?"
+  settings: הגדרות
   shared: 
     aspect_contacts: 
-      add_contacts: "add contacts"
-      add_to: "add to %{aspect}"
-      everyone: Everyone
-      manage: "manage %{aspect}"
+      add_contacts: "הוספת אנשי קשר"
+      add_to: "הוספה אל %{aspect}"
+      everyone: כולם
+      manage: "ניהול %{aspect}"
     aspect_nav: 
-      add_a_new_aspect: "add a new aspect"
-      everyone: Everyone
+      add_a_new_aspect: "הוספת היבט חדש"
+      everyone: כולם
       manage: ניהול
       manage_your_aspects: "ניהול ההיבטים שלך"
     author_info: 
-      all: all
-      status_messages: "status messages"
-      view_profile: "View profile"
-      viewing: viewing
+      all: הכול
+      status_messages: "הודעות מצב"
+      view_profile: "צפייה בפרופיל"
+      viewing: צופה
     contact_list: 
-      add_to: "Add %{name} to %{aspect}"
-      remove_from: "Remove %{name} from %{aspect}"
-      search_contacts: "Search contacts"
+      add_to: "הוספת %{name} אל %{aspect}"
+      remove_from: "הסרת %{name} מההיבט %{aspect}"
+      search_contacts: "חיפוש באנשי הקשר"
     invitations: 
-      invitations_left: "(%{count} left)"
-      invite_someone: "Invite someone"
-      invites: Invites
+      invitations_left: "(%{count} נותרו)"
+      invite_someone: "הזמנת מישהו"
+      invites: הזמנות
     notification: 
-      new: "New %{type} from %{from}"
+      new: "%{type} חדש מאת %{from}"
     public_explain: 
-      logged_in: "logged in to %{service}"
-      manage: "manage connected services"
-      outside: "Public messages will be available for others outside of Diaspora to see."
-      title: "You are about to post a public message!"
+      logged_in: "נכנסת אל %{service}"
+      manage: "ניהול השירותים המקושרים"
+      outside: "ההודעות הציבוריות יהיו זמינות לצפייה חיצונית גם מחוץ לרשת דיאספורה."
+      title: "ההודעה מיועדת לפרסום ציבורי!"
     publisher: 
-      all: all
-      make_public: "make public"
-      post_a_message_to: "Post a message to %{aspect}"
-      posting: Posting...
+      all: הכול
+      make_public: "הפיכה לציבורי"
+      post_a_message_to: "פרסום הודעה אל %{aspect}"
+      posting: פרסום...
       share: שיתוף
-      share_with: "Share with %{aspect}"
-      share_with_all: "Share with all aspects"
+      share_with: "שיתוף עם %{aspect}"
+      share_with_all: "שיתוף עם כל ההיבטים"
     reshare: 
-      reshare: Reshare
+      reshare: "שיתוף מחדש"
     stream_element: 
-      show_comments: "show comments"
+      show_comments: "הצגת תגובות"
   status_messages: 
     helper: 
       no_message_to_display: "אין הודעה להצגה."
@@ -305,51 +305,51 @@ he:
       tell_me_something_good: "בא לי לשמוע סיפור נחמד"
     show: 
       destroy: הריסה
-  the_world: "the world"
-  username: Username
+  the_world: העולם
+  username: "שם משתמש"
   users: 
-    destroy: "Account successfully closed."
+    destroy: "החשבון נסגר בהצלחה."
     edit: 
-      change_language: "Change Language"
-      change_password: "Change Password"
-      close_account: "Close Account"
-      download_photos: "download my photos"
-      download_xml: "download my xml"
-      export_data: "Export Data"
-      invite_contacts: "Invite contacts"
-      new_password: "New Password"
+      change_language: "החלפת השפה"
+      change_password: "החלפת הססמה"
+      close_account: "סגירת החשבון"
+      download_photos: "הורדת התמונות שלי"
+      download_xml: "הורדת ה־xml שלי"
+      export_data: "יצוא הנתונים"
+      invite_contacts: "הזמנת אנשי קשר"
+      new_password: "ססמה חדשה"
     getting_started: 
-      connect_services: "Connect your services"
-      define_aspects: "Define your aspects"
-      edit_profile: "Edit your profile"
-      save_and_continue: "Save and continue"
-      signup_steps: "Complete your sign-up by doing these things:"
-      skip: "skip getting started"
+      connect_services: "התחברות לשירותים שלך"
+      define_aspects: "הגדרת ההיבטים שלך"
+      edit_profile: "עריכת הפרופיל שלך"
+      save_and_continue: "שמירה והמשך"
+      signup_steps: "עליך להשלים את הליך ההרשמה על ידי ביצוע הפעולות הבאות:"
+      skip: "דילוג על הסברי הפתיחה"
       step_1: 
-        your_profile: "Your Profile"
+        your_profile: "הפרופיל שלך"
       step_2: 
-        add: Add
-        aspect_name: "Aspect name"
-        description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
-        your_aspects: "Your aspects"
+        add: הוספה
+        aspect_name: "שם ההיבט"
+        description: "כאן ניתן לספר לדיאספורה מהם ההיבטים השונים בהם אנשי הקשר שלך מסווגים. ניתן לנהל את אלו בשלב מאוחר יותר על ידי לחיצה על לשונית הניהול בפינה הימנית העליונה. ההיבטים שלך ייחודיים לך ואינם גלויים בפני אחרים."
+        your_aspects: "ההיבטים שלך"
       step_3: 
-        description: "Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select \"public.\""
-        your_services: "Your services"
+        description: "התחברות לרשתות החברתיות הקיימות שלך באמצעות חשבונך בדיאספורה. תהיה באפשרותך לפרסם באופן ציבורי דרך הלשונית 'כולם' בעת בחירה ב\"ציבורי\"."
+        your_services: "השירותים שלך"
       step_4: 
-        change_profile: "You can change your profile any time by clicking"
-        connect_disconnect: "You can connect/disconnect your services any time by clicking"
-        continue: "Continue on to your everyone page, an overview of all of your aspects."
-        finish: Finish
-        manage_aspects: "You can manage your aspects any time by clicking the"
-        ready_to_share: "You're now ready to start sharing with "
-        set_up: "You're all set up, %{name}!"
-        tab_also_added: "tab.  Your contacts can also be added while on a particular aspect page, as well."
-        user_menu: "in your user menu (top right)."
-      welcome: "Welcome to Diaspora!"
+        change_profile: "ניתן לשנות את הפרופיל שלך בכל עת על ידי לחיצה על הלשונית"
+        connect_disconnect: "ניתן לחבר/לנתק את השירותים שלך בכל עת על ידי לחיצה על הלשונית"
+        continue: "המשך לעמוד כל אנשי הקשר שלך, עמוד הסקירה של כל ההיבטים שלך."
+        finish: סיום
+        manage_aspects: "באפשרותך לנהל את ההיבטים שלך בכל עת על ידי לחיצה על הלשונית"
+        ready_to_share: "כעת הסתיימו ההכנות לקראת השיתוף עם "
+        set_up: "הכול ערוך ומוכן, %{name}!"
+        tab_also_added: ".  ניתן, כמו כן, להוסיף את אנשי הקשר שלך גם בעת ביקור בעמוד של היבט מסוים."
+        user_menu: "בתפריט המשתמש שלך (שמאל למעלה)."
+      welcome: "ברוך בואך לדיאספורה!"
     public: 
-      does_not_exist: "User %{username} does not exist!"
+      does_not_exist: "המשתמש %{username} אינו קיים!"
     update: 
-      language_changed: "Language Changed"
-      language_not_changed: "Language Change Failed"
-      password_changed: "Password Changed"
-      password_not_changed: "Password Change Failed"
+      language_changed: "השפה הוחלפה"
+      language_not_changed: "החלפת השפה נכשלה"
+      password_changed: "הססמה הוחלפה"
+      password_not_changed: "החלפת הססמה נכשלה"

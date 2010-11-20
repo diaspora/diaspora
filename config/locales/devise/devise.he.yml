@@ -17,40 +17,40 @@ he:
       unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות."
       unconfirmed: "עליך לאמת את חשבונך לפי המשך הפעילות."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
-      updated: "Your password was set successfully. You are now signed in."
+      invitation_token_invalid: "אסימון ההזמנה שסופק אינו תקף!"
+      send_instructions: "ההזמנה שלך נשלחה."
+      updated: "הססמה שלך הוגדרה בהצלחה. נכנסת כעת."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirm my account"
-        subject: "Confirmation instructions"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+        confirm: "אימות החשבון שלי"
+        subject: "הנחיות לאימות"
+        you_can_confirm: "באפשרותך לאמת את החשבון שלך באמצעות הקישור שלהלן:"
+      hello: "שלום %{email}!"
       invitation: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "A friend wants you to join Diaspora!"
+        accept: "קבלת ההזמנה"
+        ignore: "אם אין ברצונך לאשר את ההזמנה ניתן להתעלם מהודעה זו."
+        no_account_till: "החשבון שלך לא ייווצר עד הרישום דרך קישור זה."
+        subject: "הוזמנת על ידי אחד מחבריך להצטרף לדיאספורה!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", בכתובת %{url}, ניתן לקבל אותה דרך הקישור שלהלן."
+        has_invited_you: "התקבלה הזמנה מאת %{name} להצטרף לדיאספורה"
+        have_invited_you: "הוזמנת על ידי %{names} להצטרף לדיאספורה"
       reset_password_instructions: 
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
-        subject: "Reset password instructions"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        change: "החלפת הססמה שלי"
+        ignore: "אם לא ביקשת זאת, ניתן להתעלם מהודעה זו."
+        someone_requested: "התקבלה בקשה לקישור לשינוי הססמה שלך, ניתן לעשות זאת דרך הקישור שלהלן."
+        subject: "הנחיות לאיפוס הססמה"
+        wont_change: "הססמה שלך לא תוחלף עד לכניסה לקישור שלהלן ויצירת אחת חדשה."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
-        unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+        account_locked: "חשבונך ננעל עקב מספר רב של ניסיונות כניסה כושלים."
+        click_to_unlock: "יש ללחוץ על הקישור שלהלן כדי לשחרר את חשבונך:"
+        subject: "הנחיות לשחרור"
+        unlock: "שחרור החשבון שלי"
+      welcome: "ברוך בואך %{email}!"
     passwords: 
       new: 
-        forgot_password: "Forgot your password?"
-        send_password_instructions: "Send me reset password instructions"
+        forgot_password: "שכחת את ססמתך?"
+        send_password_instructions: "שליחת הנחיות איפוס הססמה אלי"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את ססמתך."
       updated: "ססמתך הוחלפה בהצלחה. נכנסת כעת."
     registrations: 
@@ -59,19 +59,19 @@ he:
       updated: "חשבונך עודכן בהצלחה."
     sessions: 
       new: 
-        have_a_problem: "Have a problem? Find an answer here"
-        login: Login
-        password: Password
-        remember_me: "Remember me"
-        sign_in: "Sign in"
-        username: Username
+        have_a_problem: "נתקלת בבעיות? ניתן למצוא את התשובה כאן"
+        login: כניסה
+        password: ססמה
+        remember_me: "שמירת פרטי הגישה שלי"
+        sign_in: כניסה
+        username: "שם משתמש"
       signed_in: "נכנסת בהצלחה."
       signed_out: "יצאת בהצלחה."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        forgot_your_password: "שכחת את ססמתך?"
+        sign_in: כניסה
+        sign_up: הרשמה
     unlocks: 
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הודא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
       unlocked: "חשבונך שוחרר בהצלחה. נכנסת כעת."
