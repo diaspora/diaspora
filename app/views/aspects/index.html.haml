@@ -4,11 +4,11 @@
 
 .span-24.last
   %h2{:style => "position:relative;"}
-    Home
+    = t('_home')
     .right
       %span.description
         = current_user.diaspora_handle
-        = info_text("This is your diaspora handle.  Like an email address, you can give this to people to reach you.")
+        = info_text(t('.handle_explanation'))
 
 .span-15.last
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count

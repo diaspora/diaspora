@@ -19,7 +19,7 @@
     = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
 .span-9.last
-  %h4{:style=>"margin-bottom:5px;"} Comments
+  %h4{:style=>"margin-bottom:5px;"}= t('_comments')
   %div{:class => 'stream show', :id => 'status_message_stream'}
     %li.message{:data=>{:guid=>@status_message.id}}
       = render "comments/comments", :post => @status_message

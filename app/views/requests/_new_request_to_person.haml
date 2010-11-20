@@ -8,4 +8,4 @@
     = request.hidden_field :to, :value => destination_handle
     = request.submit t('people.person.add_contact'), :disable_with => t('requests.create.sending')
   .message.hidden
-    %i sent!
+    %i= t('.sent')

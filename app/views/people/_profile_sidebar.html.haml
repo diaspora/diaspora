@@ -10,7 +10,7 @@
       });
 
       $('.delete').bind('ajax:failure', function() {
-        alert("Cannot remove #{person.real_name} from last aspect.");
+        alert("#{t('.cannot_remove', :name => person.real_name)}");
       });
     });
 
@@ -30,7 +30,7 @@
           - for aspect in @aspects_with_person
             %li
               = link_to aspect.name, aspect
-              = link_to "x", {:controller => "aspects", :action => "remove_from_aspect", :person_id => person.id, :aspect_id => aspect.id}, :confirm => "Remove #{person.real_name} from #{aspect}?", :remote => true, :class => "delete"
+              = link_to "x", {:controller => "aspects", :action => "remove_from_aspect", :person_id => person.id, :aspect_id => aspect.id}, :confirm => t('.remove_from', :name => person.real_name, :aspect => aspect), :remote => true, :class => "delete"
               
 
   -if is_contact || person == current_user.person
