@@ -3,8 +3,14 @@
 #   the COPYRIGHT file.
 module RakeHelpers
   def process_emails(csv, num_to_process, offset)
-    require 'fastercsv'
-    backers = FasterCSV.read(csv)    
+    if RUBY_VERSION.include? "1.8"
+       require 'fastercsv'
+       backers = FasterCSV.read(csv)  
+     else
+       require 'csv'
+       backers = CSV.read(csv)
+     end
+    
     churn_through = 0
     num_to_process.times do |n|
       if backers[n+offset] == nil
