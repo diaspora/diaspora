@@ -167,6 +167,7 @@ en:
           edit_profile: "Edit your profile"
           define_aspects: "Define your aspects"
           connect_services: "Connect your services"
+          finished: "Finished!"
           skip: "skip getting started"
           save_and_continue: "Save and continue"
           step_1:

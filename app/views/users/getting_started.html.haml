@@ -53,7 +53,12 @@
       %span.current_gs_step
         = t('.connect_services')
     %br
-
+    - if @step != 4
+      = link_to t('.finished'), getting_started_path(:step => 4)
+    - else
+      %span.current_gs_step
+        = t('.finished')
+    %br
 .span-15.last
   .floating{:style=>"min-height:500px;"}
     = render "users/getting_started/step_#{@step}", :current_user => current_user

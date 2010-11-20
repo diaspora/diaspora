@@ -4,7 +4,7 @@
 
 
 %h1
-  = t('.set_up', :name => current_user.person.profile.first_name)
+  = t('.set_up', :name => current_user.person.profile.first_name || current_user.username)
   .description
     = t('.ready_to_share')
     %ul.inline_aspect_listing
