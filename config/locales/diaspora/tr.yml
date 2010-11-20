@@ -1,208 +1,355 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-tr:
-  hello: "Merhaba dünya"
-  application:
-      helper:
-          unknown_person: "bilinmiyen insanlar"
-          new_requests: "yeni istekler"
-  dashboards:
-      helper:
-          home: "ev"
-  error_messages:
-      helper:
-          invalid_fields: "Yanliș Bölümler"
-          correct_the_following_errors_and_try_again: "Alttaki yanlișlari düzeltin ve tekrar deneyin."
-  people:
-      helper:
-           results_for: "%{params} için sonuçlar"
-           people_on_pod_are_aware_of: " bu podda bizim bildiğimiz kişiler."
-  layouts:
-      application:
-          edit_profile: "profili düzelt"
-          logout: "çık"
-  shared:
-      aspect_nav:
-          all_aspects: "Bütün Yanlar"
-          manage: "Düzenle"
-          manage_your_aspects: "Bütün yanları düzenle"
-      sub_header:
-          all_aspects: "Bütün Yanlar"
-          manage_aspects: "Yanları Düzenle"
-      publisher:
-          share: "Paylaş"
-      aspect_friends:
-          add_friends: "Arkadaş ekle"
-  albums:
-      album:
-          you: "sen"
-      new_album:
-          create: "yarat"
-          add_a_new_album: "Yeni albüm ekle"
-      show:
-          edit_album: "Albümü düzelt"
-          albums: "albümler"
-          updated: "düzeltildi"
-          by: "tarafından"
-      edit:
-          editing: "düzeltiyor"
-          updated: "düzeltildi"
-          are_you_sure: "Eminmisin?"
-          delete_album: "Sil Albümü"
-          cancel: "Vazgeç"
-      index:
-          home: "Ev"
-          new_album: "Yeni Albüm"
-      create:
-          success: "Yeni bir album yarattınız %{name} isminde."
-      update:
-          success: "Albüm %{name} başarı ile eklenmiştir."
-          failure: "Albüm %{name} yı düzeltme başarılı değil."
-      destroy:
-          success: "Albüm %{name} silinmistir."
-      helper:
-          friends_albums: "Arkadaşların Albümleri"
-          your_albums: "Sizin Albümleriniz"
-  aspects:
-      index:
-          photos: "resimler"
-      show:
-          photos: "resimler"
-      manage:
-          add_a_new_aspect: "Yeni bir yan ekle"
-          add_a_new_friend:  "Yeni bir arkadaş ekle"
-          show: "Show"
-          update_aspects: "Yanlari düzelt"
-          requests: "Ricalar"
-          ignore_remove: "Goz ardi et/çıkart"
-      new_aspect:
-          add_a_new_aspect: "Yeni bir yan ekle"
-          create: "Yarat"
-      create:
-          success: "Sol taraftaki arti ya tıklıyarak Diasporaya sizin yeni yanınızı kimlerin görebileceğini belirtin."
-          failure: "Yan yaratimi basarılı değildi."
-      destroy:
-          success: "%{name} basarıyla yaratıldı."
-      update:
-          success: "Sizin yanınız, %{name}, başariyla düzeltildi."
-      move_friends:
-          failure: "Yan düzeltimi arkadisınız %{real_name} icin başarisizdi."
-          success: "Yanlar başariyla düzeltildi."
-      move_friend:
-          failure: "%{inspect} islemedi."
-          success: "Simdi siz arkadaşlarınıza başka bir yanınızı gosteriyorsunuz."
-      helper:
-          remove: "cikart"
-          aspect_not_empty: "Yan bos değil"
-  users:
-      edit:
-          editing_profile: "Profili düzeltiliyor"
-      profile:
-          cancel: "Vazgeç"
-          update_profile: "düzelt Profili"
-          home: "Ev"
-          diaspora_username: "DIASPORA ISMINIZ"
-          info: "Bilgi"
-          picture: "Resim"
-          editing_profile: "Profili düzeltmek"
-          albums: "Albümler"
-          you_dont_have_any_photos: "Hicbir fotorafiniz yok! Şuraya gidin"
-          page_to_upload_some:  "yuklemek icin."
-          or: "veya"
-  comments:
-      comment:
-          ago: "once"
-      new_comment:
-          comment: "Yorum"
-  photos:
-      show:
-          prev: "once"
-          full_size: "tam büyüklük"
-          next: "sonra"
-          edit_photo: "düzelt Fotoyu"
-          delete_photo: "Sil Fotoyu"
-          are_you_sure: "Eminmisiniz?"
-          comments: "yorumlar"
-      edit:
-          editing: "düzeltiliyor"
-          are_you_sure: "Eminmisiniz?"
-          delete_photo: "Sil Fotoyu"
-      photo:
-          show_comments: "göster yorumları"
-          posted_a_new_photo_to: "yeni bir foto koydu "
-      new:
-          new_photo: "Yeni Foto"
-          back_to_list: "Listeye Geri Git"
-          post_it: "ekle!"
-      create:
-          runtime_error: "Fotoyu yukleme başarısızdı.  Emniyet kemeriniz takılımıydı?"
-          integrity_error: "Fotoyu yukleme başarısızdı.  Resim olduğundan eminmisınız?"
-          type_error: "Fotoyu yukleme başarısızdı.  Bir resim yuklediğinize eminmisiniz?"
-      update:
-          notice: "Resim başarıyla eklendi."
-          error:  "Fotoyu düzeltme basarısızdı."
-      destroy:
-          notice: "Foto silindi."
-  registrations:
-      new:
-          sign_up: "Katıl"
-      create:
-          success: "Diasporaya katıldınız!"
-  status_messages:
-      new_status_message:
-          tell_me_something_good: "bana iyi bir şey söyle"
-          oh_yeah: "tabi ya!"
-      status_message:
-          show_comments: "göster yorumları"
-          delete: "Sil"
-          are_you_sure: "Eminmisiniz?"
-      show:
-          status_message: "Status Mesaji"
-          comments: "yorumlar"
-          are_you_sure: "Eminmisiniz?"
-          destroy: "Yok et"
-          view_all: "Hepsine bak"
-          message: "Mesaj"
-          owner: "Sahibi"
-      helper:
-          no_message_to_display: "Gosterilcek bir mesaj yok."
-  people:
-      person:
-          add_friend: "Arkadaş ekle"
-          pending_request: "bekletilen rica"
-      index:
-          add_friend: "Arkadaş ekle"
-          real_name: "esas ismi"
-          diaspora_handle: "diaspora ismi"
-          thats_you: "o sensin!"
-          friend_request_pending: "Arkadaş ricasi bekletiliyor"
-          you_have_a_friend_request_from_this_person: "siz bir arkadaş isteği aldiniz bu kişiden"
-      new:
-          new_person: "Yeni Kişi"
-          back_to_list: "Listeye geri dön"
-      show:
-          last_seen: "son gorüldü: %{how_long_ago}"
-          friends_since: "Arkadaş süreci: %{how_long_ago}"
-          save: "sakla"
-          are_you_sure: "Eminmisiniz?"
-          remove_friend: "çikart arkadaşlıktan"
-  requests:
-      new_request:
-          add_a_new_friend_to: "Buna yeni bir arkadaş ekle"
-          enter_a_diaspora_username: "Bir Diaspora ismi gir:"
-          your_diaspora_username_is: "Sizin Diaspora isminiz: %{diaspora_handle}"
-          friends_username: "Arkadaşin Diaspora ismi"
-      destroy:
-          success: "Siz şimdi arkadaşsınız."
-          error: "Lutfen bir yan seçiniz!"
-          ignore: "Arkadaş isteğini reddettiniz."
-      create:
-          error: "Diaspora cekirdeği bulunmadı bu emailde!"
-          already_friends: "Siz zaten arakadaşsınız %{destination_url} ile!"
-          success: "%{destination_url} için arakadaş olma isteği  gonderilmiştir."
-          horribly_wrong: "Bir şey muhtemalan yanliş gitti."
+tr: 
+  _photos: fotoğraflar
+  _services: Servisler
+  account: Hesap
+  activemodel: 
+    errors: 
+      models: 
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "zaten alınmış"
+        user: 
+          attributes: 
+            email: 
+              taken: "zaten alınmış"
+            person: 
+              invalid: geçersiz
+            username: 
+              taken: "zaten alınmış"
+  ago: önce
+  application: 
+    helper: 
+      unknown_person: "bilinmiyen kişiler"
+      youtube_title: 
+        unknown: "Bilinmeyen Video Başlığı"
+  are_you_sure: "Emin misiniz?"
+  aspects: 
+    add_to_aspect: 
+      failure: "Failed to add friend to aspect."
+      success: "Successfully added friend to aspect."
+    create: 
+      failure: "Yan yaratimi basarılı değildi."
+      success: "Sol taraftaki arti ya tıklıyarak Diasporaya sizin yeni yanınızı kimlerin görebileceğini belirtin."
+    destroy: 
+      success: "%{name} başarıyla yaratıldı."
+    helper: 
+      are_you_sure: "Are you sure you want to delete this aspect?"
+      aspect_not_empty: "Yan boş değil"
+      remove: çıkar
+    manage: 
+      add_a_new_aspect: "Yeni bir yan ekle"
+      add_a_new_contact: "Yeni kişi ekleyin"
+      drag_to_add: "Yeni kişi eklemek için taşıyın"
+      manage_aspects: "Manage aspects"
+      no_requests: "Yeni istek yok"
+      requests: İstekler
+    move_contact: 
+      error: "Kontak taşıma problemi: %{inspect}"
+      failure: "didn't work %{inspect}"
+      success: "Person moved to new aspect"
+    new_aspect: 
+      create: Yarat
+      name: İsim
+    no_contacts_message: 
+      add_contact: "Kontak ekleyin"
+      add_contact_to: "Add someone to %{aspect_name}"
+      invite: "Diaspora'ya tanıdıklarınızı davet edin!"
+      nobody: "Tanıdıklarınız olduğunu biliyoruz - onları Diasporaya getirin!"
+      nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+    no_posts_message: 
+      start_talking: "Kimse henüz birşey söylemedi. Sohbeti başlatın!"
+    remove_from_aspect: 
+      failure: "Failed to remove person from aspect"
+      success: "Successfully removed person from aspect"
+    update: 
+      success: "Sizin yanınız, %{name}, başariyla düzeltildi."
+  back: Geri
+  cancel: "İptal Et"
+  comments: 
+    new_comment: 
+      comment: Yorum
+      commenting: Commenting...
+  dashboards: 
+    helper: 
+      home: "Ana Sayfa"
+  delete: Sil
+  email: E-Posta
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Alttaki yanlıșları düzeltin ve tekrar deneyin."
+      invalid_fields: "Yanlıș Alanlar"
+  fill_me_out: "Fill me out"
+  home: 
+    show: 
+      already_account: "already have an account?"
+      login_here: "log in here"
+      share_what_you_want: "Share what you want, with who you want."
+  invitations: 
+    check_token: 
+      not_found: "Invitation token not found"
+    create: 
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
+      no_more: "You have no more invitations."
+      sent: "Your invitation has been sent."
+    new: 
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
+      invite_someone_to_join: "Invite someone to join Diaspora!"
+      message: "Message:"
+      send_an_invitation: "Send an invitation"
+      send_invitation: "Send invitation"
+      to: To
+  layouts: 
+    application: 
+      powered_by: "POWERED BY DIASPORA*"
+    header: 
+      account_settings: "account settings"
+      blog: blog
+      developers: developers
+      edit_profile: "edit profile"
+      login: login
+      logout: logout
+      view_profile: "view profile"
+  notifier: 
+    diaspora: "the diaspora email robot"
+    hello: "Hello %{name}!"
+    love: "love,"
+    new_request: 
+      just_sent_you: "just sent you a friend request on Diaspora*"
+      sign_in: "sign in here"
+      subject: "new Diaspora* friend request from %{from}"
+      try_it_out: "You should really think about checking it out."
+    request_accepted: 
+      accepted: "has accepted your friend request. They are now in your"
+      aspect: aspect.
+      subject: "%{name} has accepted your friend request on Diaspora*"
+  ok: OK
+  or: or
+  password: Password
+  password_confirmation: "Password confirmation"
+  people: 
+    edit: 
+      allow_search: "Allow for people to search for you"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    helper: 
+      people_on_pod_are_aware_of: " people on pod are aware of"
+      results_for: " results for %{params}"
+    index: 
+      results_for: "search results for"
+    person: 
+      add_contact: "add contact"
+      already_connected: "Already connected"
+      pending_request: "bekletilen rica"
+      thats_you: "thats you!"
+    profile_photo_upload: 
+      or_select_one: "or select one from your already existing"
+    profile_sidebar: 
+      bio: bio
+      born: born
+      edit_my_profile: "Edit my profile"
+      gender: gender
+      in_aspects: "in aspects"
+      last_seen: "last seen: %{how_long_ago}"
+      remove_contact: "remove contact"
+    show: 
+      already_requested: "You have already sent a request to %{name}."
+      does_not_exist: "Person does not exist!"
+      no_posts: "no posts to display!"
+      not_connected: "You are not connected with this person"
+      request_people: "If you'd like, you can request to place him/her in one of your aspects."
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
+  photos: 
+    create: 
+      integrity_error: "Fotoyu yukleme başarısızdı.  Resim olduğundan eminmisınız?"
+      runtime_error: "Fotoyu yukleme başarısızdı.  Emniyet kemeriniz takılımıydı?"
+      type_error: "Fotoyu yukleme başarısızdı.  Bir resim yuklediğinize eminmisiniz?"
+    destroy: 
+      notice: "Foto silindi."
+    edit: 
+      editing: düzeltiliyor
+    new: 
+      back_to_list: "Listeye Geri Git"
+      new_photo: "Yeni Foto"
+      post_it: ekle!
+    new_photo: 
+      drop: "Drop photos here to upload"
+      empty: "{file} is empty, please select files again without it."
+      failed: Failed
+      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
+      size_error: "{file} is too large, maximum file size is {sizeLimit}."
+      upload: "Upload a photo"
+    photo: 
+      view_all: "view all of %{name}'s photos"
+    show: 
+      add_a_description: "Add a description"
+      delete_photo: "Sil Fotoyu"
+      edit_photo: "düzelt Fotoyu"
+      full_size: "tam büyüklük"
+      make_profile_photo: "make profile photo"
+      next: sonra
+      prev: once
+      update_photo: "Fotoğrafı güncelle"
+    update: 
+      error: "Fotoyu düzeltme basarısız oldu."
+      notice: "Resim başarıyla eklendi."
+  profile: Profile
+  registrations: 
+    closed: "Üyelik bu Diaspora'da kapandı."
+    create: 
+      success: "Diasporaya katıldınız!"
+    edit: 
+      cancel_my_account: "Hesabımı iptal et"
+      edit: "Düzenle %{name}"
+      leave_blank: "(Eğer değiştirmek istemiyorsanız boş bırakın.)"
+      password_to_confirm: "(Değişikliklerin onaylanması için şu anki şifreniz gerekmektedir)"
+      unhappy: "Olmadı mı?"
+      update: Düzenle
+    new: 
+      sign_up: Katıl
+      sign_up_for_diaspora: "Sign up for Diaspora"
+  requests: 
+    create: 
+      sending: Sending...
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      tried: "%{account} üyesine mesaj atmak için elimizden geleni yaptık."
+    destroy: 
+      error: "Lutfen bir yan seçiniz!"
+      ignore: "Arkadaş isteğini reddettiniz."
+      success: "Siz şimdi arkadaşsınız."
+    manage_aspect_contacts: 
+      contact_username: "Kontak kullanıcı adı"
+      create_request: "Yaratma isteği"
+      enter_a_diaspora_username: "Diaspora kullanıcı adı girin:"
+      existing: "Existing contacts"
+      know_email: "Know their email address? You should invite them"
+      manage_within: "Manage contacts within"
+      your_diaspora_username_is: " Diaspora kullanıcı adınız : %{diaspora_handle}"
+  search: Search
+  services: 
+    create: 
+      success: "Doğrulama başarılı."
+    destroy: 
+      success: "Başarılı bir şekilde doğrulama yokedildi."
+    index: 
+      connect_to_facebook: "facebook bağlan"
+      connect_to_twitter: "twitter bağlan"
+      disconnect: çık
+      logged_in_as: "olarak bağlandınız"
+      really_disconnect: "disconnect %{service}?"
+  settings: Ayarlar
+  shared: 
+    aspect_contacts: 
+      add_contacts: "kontak ekle"
+      add_to: "add to %{aspect}"
+      everyone: Herkes
+      manage: "manage %{aspect}"
+    aspect_nav: 
+      add_a_new_aspect: "add a new aspect"
+      everyone: Everyone
+      manage: Düzenle
+      manage_your_aspects: "Bütün yanları düzenle"
+    author_info: 
+      all: all
+      status_messages: "durum mesajları"
+      view_profile: "Profili Gör"
+      viewing: viewing
+    contact_list: 
+      add_to: "Add %{name} to %{aspect}"
+      remove_from: "Remove %{name} from %{aspect}"
+      search_contacts: "Search contacts"
+    invitations: 
+      invitations_left: "(%{count} davet kaldı)"
+      invite_someone: "Birisini davet edin"
+      invites: Davetler
+    notification: 
+      new: "New %{type} from %{from}"
+    public_explain: 
+      logged_in: "%{service} , bağlandınız."
+      manage: "bağlı servisleri yönetin"
+      outside: "Public messages will be available for others outside of Diaspora to see."
+      title: "Herkese görünür bir mesaj göndermek üzeresiniz!"
+    publisher: 
+      all: hepsi
+      make_public: "herkese görünür yap"
+      post_a_message_to: "mesaj gönder %{aspect}"
+      posting: Posting...
+      share: Paylaş
+      share_with: "Share with %{aspect}"
+      share_with_all: "Share with all aspects"
+    reshare: 
+      reshare: Reshare
+    stream_element: 
+      show_comments: "yorumları göster"
+  status_messages: 
+    helper: 
+      no_message_to_display: "Gosterilcek bir mesaj yok."
+    new_status_message: 
+      oh_yeah: "tabi ya!"
+      tell_me_something_good: "bana iyi bir şey söyle"
+    show: 
+      destroy: "Yok et"
+  the_world: dünya
+  username: "Kullanıcı Adı"
+  users: 
+    destroy: "Hesap başarıyla kapatıldı"
+    edit: 
+      change_language: "Dili Değiştir"
+      change_password: "Şifremi Değiştir"
+      close_account: "Hesabımı kapat"
+      download_photos: "fotoğraflarımı kaydet"
+      download_xml: "xml dosyamı kaydet"
+      export_data: "Bilgilerimi Dışarı taşı"
+      invite_contacts: "Kontak davet et"
+      new_password: "Yeni Şifre"
+    getting_started: 
+      connect_services: "Servislerine bağlan"
+      define_aspects: "Define your aspects"
+      edit_profile: "Profilini düzenle"
+      save_and_continue: "Kaydet ve devam et"
+      signup_steps: "Complete your sign-up by doing these things:"
+      skip: "skip getting started"
+      step_1: 
+        your_profile: Profiliniz
+      step_2: 
+        add: Add
+        aspect_name: "Aspect name"
+        description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
+        your_aspects: "Your aspects"
+      step_3: 
+        description: "Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select \"public.\""
+        your_services: Servisleriniz
+      step_4: 
+        change_profile: "You can change your profile any time by clicking"
+        connect_disconnect: "You can connect/disconnect your services any time by clicking"
+        continue: "Continue on to your everyone page, an overview of all of your aspects."
+        finish: Finish
+        manage_aspects: "You can manage your aspects any time by clicking the"
+        ready_to_share: "Artık paylaşıma hazırsınız, "
+        set_up: "Kurulum tamamlandı, %{name}!"
+        tab_also_added: "tab.  Your contacts can also be added while on a particular aspect page, as well."
+        user_menu: "kullanıcı mönünüzde (üstte sağda)."
+      welcome: "Diaspora'ya hoşgeldin!"
+    public: 
+      does_not_exist: "%{username} kullanıcısı bulunmamaktadır!"
+    update: 
+      language_changed: "Dil Değişti"
+      language_not_changed: "Dil Değişikliği Başarılamadı"
+      password_changed: "Şifre Değişti"
+      password_not_changed: "Şifre Değişikliği Başarılamadı"

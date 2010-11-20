@@ -2,345 +2,354 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-#   Localization file for Swedish
-#
-#
-#   --- And now, Swedish! ---
-#
-#   Svensk terminologi i denna översättning:
-#
-#   album:           fotoalbum
-#   aspect:          sida
-#   diaspora-handle: diaspora-adress
-#   diaspora-id:     (diaspora-) användarnamn
-#   email:           mail, ebrev (diskussion pågår);
-#   pod:             plats
-#   request:         (vän-) förfrågan
-#   profile:         profil
-#   seed:            frö
-#   contact:	     kontakt
 
-sv:
-
-  settings: "Inställningar"
-  profile: "Profil"
-  account: "Konto"
-  _services: "Tjänster"
-  _photos: "foton"
-  ok: "OK"
-  cancel: "Avbryt"
-  delete: "Ta bort"  
-  or: "eller"
-  ago: "sedan"
-  username: "Användarnamn"
-  email: "E-post"
-  password: "Lösenord"
-  password_confirmation: "Bekräfta lösenord"
+sv: 
+  _photos: foton
+  _services: Tjänster
+  account: Konto
+  activemodel: 
+    errors: 
+      models: 
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "är redan taget"
+        user: 
+          attributes: 
+            email: 
+              taken: "är redan taget"
+            person: 
+              invalid: "är ogiltigt"
+            username: 
+              taken: "är redan taget"
+  ago: sedan
+  application: 
+    helper: 
+      unknown_person: "okänd person"
+      youtube_title: 
+        unknown: "Okänd videotitel"
   are_you_sure: "Är du säker?"
+  aspects: 
+    add_to_aspect: 
+      failure: "Personen kunde inte läggas till på sidan."
+      success: "Personen tillagd på sidan."
+    create: 
+      failure: "Sidan kunde inte skapas."
+      success: "Klicka på plustecknet till höger för att välja vilka som kan se din nya sida."
+    destroy: 
+      success: "%{name} är nu borttagen."
+    helper: 
+      are_you_sure: "Är du säker på att du vill ta bort den här sidan?"
+      aspect_not_empty: "Sidan är inte tom"
+      remove: "ta bort"
+    manage: 
+      add_a_new_aspect: "Lägg till en ny sida"
+      add_a_new_contact: "Lägg till en ny kontakt"
+      drag_to_add: "Dra för att lägga till personer"
+      manage_aspects: "Hantera sidor"
+      no_requests: "Inga nya förfrågningar"
+      requests: Kontaktförfrågningar
+    move_contact: 
+      error: "Kunde inte flytta kontakt: %{inspect}"
+      failure: "fungerade inte %{inspect}"
+      success: "Personen flyttades till den nya sidan"
+    new_aspect: 
+      create: Skapa
+      name: Namn
+    no_contacts_message: 
+      add_contact: "Lägg till en kontakt"
+      add_contact_to: "Lägg till en kontakt i %{aspect_name}"
+      invite: "Bjud in en kontakt till Diaspora!"
+      nobody: "Vi vet att du har kontakter, bjud in dem till Diaspora!"
+      nobody_in_aspect: "Sidan '%{aspect_name}' är tom."
+    no_posts_message: 
+      start_talking: "Ingen har sagt något än. Bli först!"
+    remove_from_aspect: 
+      failure: "Misslyckades med att ta bort personen från vald sida"
+      success: "Personen är nu borttagen från vald sida"
+    update: 
+      success: "Din sida %{name} är nu ändrad."
+  back: Tillbaka
+  cancel: Avbryt
+  comments: 
+    new_comment: 
+      comment: Kommentar
+      commenting: Kommenterar...
+  dashboards: 
+    helper: 
+      home: Hem
+  delete: "Ta bort"
+  email: E-post
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Rätta följande fel och försök igen."
+      invalid_fields: "Ogiltiga uppgifter"
   fill_me_out: "Fyll i mig"
-  back: "Tillbaka"
-  the_world: "världen"
-  search: "Sök"
-
-  activemodel:
-      errors:
-          models:
-              user:
-                  attributes:
-                      person:
-                          invalid: "är ogiltigt"
-                      username:
-                          taken: "är redan taget"
-                      email:
-                          taken: "är redan taget"
-              person:
-                  attributes:
-                      diaspora_handle:
-                          taken: "är redan taget"
-  application:
-      helper:
-          unknown_person: "okänd person"
-          youtube_title:
-              unknown: "Okänd videotitel"
-  error_messages:
-      helper:
-          invalid_fields: "Ogiltiga uppgifter"
-          correct_the_following_errors_and_try_again: "Rätta följande fel och försök igen."
-  layouts:
-      application:
-          view_profile: "visa profil"
-          edit_profile: "ändra profil"
-          account_settings: "kontoinstallningar"
-          logout: "logga ut"
-  shared:
-      stream_element:
-          show_comments: "show comments"
-      aspect_nav:
-          manage: "Hantera"
-          manage_your_aspects: "Hantera dina sidor"
-          everyone: "Alla"
-          add_a_new_aspect: "lägg till en ny sida"
-      publisher:
-          share: "Dela"
-          post_a_message_to: "Skicka ett meddelande till %{aspect}"
-          make_public: "gör publik"
-          share_with_all: "Dela på alla sidor"
-          share_with: "Dela med %{aspect}"
-          all: "alla"
-      aspect_contacts:
-          add_contacts: "lägg till kontakter"
-          everyone: "Alla"
-          add_to: "lägg till i %{aspect}"
-      invitations:
-          invites: "Inbjudningar"
-          invite_someone: "Bjud in en kontakt"
-          invitations_left: "(%{count} kvar)"
-      reshare:
-          reshare: "Återdela"
-      author_info:
-          view_profile: "Visa profil"
-          status_messages: "statusmeddelande"
-          viewing: "visar"
-      public_explain:
-          title: "Du är på väg att skicka ett publikt meddelande!"
-          outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
-          logged_in: "inloggad på %{service}"
-          manage: "hantera anslutna tjänster"
-      notification:
-          new: "Ny %{type} från %{from}"
-  aspects:
-      no_contacts_message:
-          nobody: "Vi vet att du har kontakter, bjud in dem till Diaspora!"
-          nobody_in_aspect: "Sidan '%{aspect_name}' är tom."
-          add_contact: "Lägg till en kontakt"
-          add_contact_to: "Lägg till en kontakt i %{aspect_name}"
-          invite: "Bjud in en kontakt till Diaspora!"
-      no_posts_message:
-          start_talking:  "Ingen har sagt något än. Bli först!"
-      manage:
-          add_a_new_aspect: "Lägg till en ny sida"
-          add_a_new_contact:  "Lägg till en ny kontakt"
-          requests: "Kontaktförfrågningar"
-          no_requests: "Inga nya förfrågningar"
-          manage_aspects: "Hantera sidor"
-          drag_to_add: "Dra för att lägga till personer"
-      new_aspect:
-          add_a_new_aspect: "Lägg till ny sida"
-          name: "Namn"
-          create: "Skapa"
-      create:
-          success: "Klicka på plustecknet till höger för att välja vilka som kan se din nya sida."
-          failure: "Sidan kunde inte skapas."
-      destroy:
-          success: "%{name} är nu borttagen."
-      update:
-          success: "Din sida %{name} är nu ändrad."
-      move_contact:
-          failure: "fungerade inte %{inspect}"
-          success: "Personen flyttades till den nya sidan"
-          error: "Kunde inte flytta kontakt: %{inspect}"
-      add_to_aspect:
-          failure: "Misslyckades med att lägga in personen på den nya sidan."
-          success: "Personen tillagt på sidan."
-      helper:
-          remove: "ta bort"
-          aspect_not_empty: "Sidan är inte tom"
-          are_you_sure: "Är du säker på att du vill ta bort den här sidan?"
-      remove_from_aspect:
-          success: "Personen är nu borttagen från vald sida"
-          failure: "Misslyckades med att ta bort personen från vald sida"
-  users:
-      edit:
-          invite_contacts: "Bjud in en kontakt"
-          export_data: "Exportera data"
-          close_account: "Stäng kontot"
-          change_language: "Ändra språk"
-          change_password: "Ändra lösenord"
-          new_password: "Nytt lösenord"
-          download_xml: "Ladda ner min xml"
-          download_photos: "Ladda ner mina foton"
-      destroy: "Ditt konto är nu stängt."
-      getting_started:
-          welcome: "Välkommen till diaspora!"
-          signup_steps: "Slutför registreringen genom att följa den här guiden:"
-          edit_profile: "Ändra din profil"
-          define_aspects: "Välj dina sidor"
-          connect_services: "Anslut andra tjänster"
-          skip: "hoppa över guiden"
-          save_and_continue: "Spara och fortsätt"
-          step_1:
-              your_profile: "Din Profil"
-          step_2:
-              your_aspects: "Dina sidor"
-              description: "Här anger du vilka sidor av dig själv du vill visa på Diaspora, dessa sidor är bara något du själv ser. Genom dessa kan du välja vilka personer som ska se vad du skickar."
-              aspect_name: "Namn på sida"
-              add: "Lägg till"
-          step_3:
-              your_services: "Dina tjänster"
-              description: 'Anslut dina befintliga tjänster till ditt Diaspora-konto.  Du kommer att kunna skicka meddelanden genom dessa om du väljer "gör publik." på sidan för alla kontakter.'
-          step_4:
-              set_up: "Nu är guiden klar, %{name}!"
-              ready_to_share: "Du är nu redo att börja dela med "
-              continue: 'Fortsätt till "Alla" sidan, en överblick av alla dina sidor.'
-              change_profile: "Du kan ändra din profil närsomhelst genom att klicka på"
-              edit_profile: "ändra profil"
-              user_menu: "i användarmenyn uppe till vänster."
-              connect_disconnect: "Du kan ansluta och koppla bort dina andra tjänster när som helst genom att klicka på"
-              edit_account: "kontoinställningar"
-              manage_aspects: "Du kan hantera dina olika sidor närsomhelst genom att klicka på"
-              manage: "hantera"
-              tab_also_added: "-fliken.  Du kan även lägga till en ny kontakt direkt på en sida."
-      update:
-          password_changed: "Lösenordet är nu ändrat"
-          password_not_changed: "Lösenordet kunde inte ändras"
-          language_changed: "Språk är nu ändrat"
-          language_not_changed: "Språket kunde inte ändras"
-      public:
-          does_not_exist: "Användaren %{username} finns inte!"
-  comments:
-      new_comment:
-          comment: "Kommentar"
-  photos:
-      show:
-          delete_photo: "Ta bort foto"
-          prev: "föregående"
-          full_size: "full storlek"
-          next: "nästa"
-          edit_photo: "Ändra foto"
-          add_a_description: "Lägg till beskrivning"
-          make_profile_photo: "använd som profilbild"
-          update_photo: "Uppdatera foto"
-      edit:
-          editing: "Ändrar"
-      photo:
-          view_all: "visa alla foton %{name} laddat upp"
-      new:
-          new_photo: "Nytt foto"
-          back_to_list: "Tillbaka till listan"
-          post_it: "skicka!"
-      create:
-          runtime_error: "Fotot kunde inte laddas upp."
-          integrity_error: "Fotot kunde inte laddas upp.  Är du säker på att den där filen var en bild?"
-          type_error: "Fotot kunde inte laddas upp.  Är du säker på att det var en bild du försökte ladda upp?"
-      update:
-          notice: "Fotot är nu uppdaterat."
-          error:  "Misslyckades med att ändra fotot."
-      destroy:
-          notice: "Fotot borttaget."
-  registrations:
-      new:
-          sign_up: "Registrera dig"
-          sign_up_for_diaspora: "Gå med i Diaspora"
-      create:
-          success: "Du har nu gått med i Diaspora!"
-      edit:
-          edit: "Ändra %{name}"
-          leave_blank: "(lämna tomt om du inte vill ändra det)"
-          password_to_confirm: "(det nuvarande lösenordet krävs för att bekräfta ändringarna)"
-          unhappy: "Missnöjd?"
-          update: "Uppdatera"
-          cancel_my_account: "Avsluta mitt konto"
-  invitations:
-      create:
-          sent: 'Din inbjudan är nu skickad.'
-          no_more: 'Du har inga fler inbjudningar.'
-          already_sent: 'Du har redan bjudit in denna person.'
-          already_friends: 'Den här personen finns redan bland dina kontakter'
-      new:
-          invite_someone_to_join: "Bjud in en än till Diaspora!"
-          if_they_accept_info: "om de accepterar så kommer de att läggas till på den sida du valde"
-          to: "Till"
-          message: "Meddelande:"
-          send_an_invitation: "Skicka en inbjudan"
-          send_invitation: "Skicka inbjudan"
-      check_token:
-          not_found: "Inbjudan inte funnen"
-  status_messages:
-      new_status_message:
-          tell_me_something_good: "berätta något intressant"
-          oh_yeah: "oh yeah!"
-      show:
-          destroy: "Ta bort"
-      helper:
-          no_message_to_display: "Inget meddelande att visa."
-  people:
-      person:
-          pending_request: "väntande förfrågningar"
-          already_friends: "Finns i dina kontakter"
-          thats_you: "Detta är du!"
-          add_contact: "lägg till kontakt"
-      index:
-          results_for: "sökresultat för"
-      show:
-          no_posts: "inga meddelanden att visa!"
-          not_friends: "%{name} finns inte bland dina kontakter"
-          request_people: "Om du känner för det så skulle du kunna skicka en kontaktförfrågan."
-          already_requested: "Du har redan skickat en kontaktförfrågan till %{name}."
-          does_not_exist: "Den här personen finns inte!"
-      edit:
-          info_available_to: "Den här informationen kommer vara synlig för alla som du ansluter till på diaspora."
-          your_profile: "Din profil"
-          your_name: "Ditt namn"
-          first_name: "Förnamn"
-          last_name: "Efternamn"
-          your_gender: "Ditt kön"
-          your_birthday: "Din födelsedag"
-          your_bio: "Din biografi"
-          your_photo: "Your photo"
-          update_profile: "Uppdatera profil"
-          allow_search: "Tillåt andra att söka efter dig"
-      profile_photo_upload:
-          or_select_one: "eller välj en befintlig bild"
-      update:
-          updated: "Profilen är uppdaterad"
-          failed: "Misslyckades med att uppdatera profilen"
-      profile_sidebar:
-          remove_contact: "ta bort kontakt"
-          edit_my_profile: "Ändra min profil"
-          last_seen: "senast sedd: %{how_long_ago}"
-          bio: "bio"
-          gender: "kön"
-          born: "född"
-      helper:
-           results_for: " resultat för %{params}"
-           people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
-  requests:
-      manage_aspect_contacts:
-          add_a_new_contact_to: "Lägg till en kontakt till"
-          enter_a_diaspora_username: "Ange ett användarnamn:"
-          your_diaspora_username_is: "Din Diaspora-adress är: %{diaspora_handle}"
-          contact_username: "Kontaktens Diaspora-adress"
-          create_request: "Skapa förfrågan"
-      destroy:
-          success: "Kontakten är nu tillagd."
-          error: "Var god välj en aspekt!"
-          ignore: "Ignorerade kontaktförfrågan."
-      create:
-          tried: "vi gjorde vårat bästa för att skicka meddelandet till %{account}"
-  services:
-      index:
-        logged_in_as: "inloggad som"
-        disconnect: "koppla från"
-        really_disconnect: "koppla från %{service}?"
-        connect_to_twitter: "Anslut till twitter"
-        connect_to_facebook: "Anslut till facebook"
-      create:
-          success: "Autentiering lyckades."
-      destroy:
-          success: "Du har nu kopplat bort tjänsten."
-  dashboards:
-      helper:
-          home: "Hem"
-  notifier:
-      hello: "Hej %{name}!"
-      love: "hälsningar,"
-      diaspora: "Diasporas mailrobot"
-      new_request:
-          subject: "ny kontaktförfrågan från %{from}"
-          just_sent_you: "skickade nyss en kontaktförfrågan till dig på Diaspora"
-          try_it_out: "Du borde verkligen överväga att kolla upp detta."
-          sign_in: "logga in här"
-      request_accepted:
-          subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
-          accepted: "har accepterat din kontaktförfrågan. Denne finns nu på "
-          aspect: "sidan."
+  home: 
+    show: 
+      already_account: "har du redan ett konto?"
+      login_here: "logga in här"
+      share_what_you_want: "Dela vad du vill, med vem du vill."
+  invitations: 
+    check_token: 
+      not_found: "Inbjudan inte funnen"
+    create: 
+      already_contacts: "Du är redan ansluten till den här personen"
+      already_sent: "Du har redan bjudit in denna person."
+      no_more: "Du har inga fler inbjudningar."
+      sent: "Din inbjudan är nu skickad."
+    new: 
+      if_they_accept_info: "om de accepterar så kommer de att läggas till på den sida du valde"
+      invite_someone_to_join: "Bjud in en än till Diaspora!"
+      message: "Meddelande:"
+      send_an_invitation: "Skicka en inbjudan"
+      send_invitation: "Skicka inbjudan"
+      to: Till
+  layouts: 
+    application: 
+      powered_by: "POWERED BY DIASPORA*"
+    header: 
+      account_settings: kontoinställningar
+      blog: blogg
+      developers: utvecklare
+      edit_profile: "ändra profil"
+      login: "logga in"
+      logout: "logga ut"
+      view_profile: "visa profil"
+  notifier: 
+    diaspora: "Diasporas mailrobot"
+    hello: "Hej %{name}!"
+    love: "hälsningar,"
+    new_request: 
+      just_sent_you: "skickade nyss en kontaktförfrågan till dig på Diaspora"
+      sign_in: "logga in här"
+      subject: "ny kontaktförfrågan från %{from}"
+      try_it_out: "Du borde verkligen överväga att kolla upp detta."
+    request_accepted: 
+      accepted: "har accepterat din kontaktförfrågan. Denne finns nu på "
+      aspect: sidan.
+      subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
+  ok: OK
+  or: eller
+  password: Lösenord
+  password_confirmation: "Bekräfta lösenord"
+  people: 
+    edit: 
+      allow_search: "Tillåt andra att söka efter dig"
+      first_name: Förnamn
+      info_available_to: "Den här informationen kommer vara synlig för alla som du ansluter till på diaspora."
+      last_name: Efternamn
+      update_profile: "Uppdatera profil"
+      your_bio: "Din biografi"
+      your_birthday: "Din födelsedag"
+      your_gender: "Ditt kön"
+      your_name: "Ditt namn"
+      your_photo: "Your photo"
+      your_profile: "Din profil"
+    helper: 
+      people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
+      results_for: " resultat för %{params}"
+    index: 
+      results_for: "sökresultat för"
+    person: 
+      add_contact: "lägg till kontakt"
+      already_connected: "Redan ansluten"
+      pending_request: "väntande förfrågningar"
+      thats_you: "Detta är du!"
+    profile_photo_upload: 
+      or_select_one: "eller välj en befintlig bild"
+    profile_sidebar: 
+      bio: bio
+      born: född
+      edit_my_profile: "Ändra min profil"
+      gender: kön
+      in_aspects: "på sidor"
+      last_seen: "senast sedd: %{how_long_ago}"
+      remove_contact: "ta bort kontakt"
+    show: 
+      already_requested: "Du har redan skickat en kontaktförfrågan till %{name}."
+      does_not_exist: "Den här personen finns inte!"
+      no_posts: "inga meddelanden att visa!"
+      not_connected: "Du är inte ansluten till den här personen"
+      request_people: "Om du känner för det så skulle du kunna skicka en kontaktförfrågan."
+    update: 
+      failed: "Misslyckades med att uppdatera profilen"
+      updated: "Profilen är uppdaterad"
+  photos: 
+    create: 
+      integrity_error: "Fotot kunde inte laddas upp.  Är du säker på att den där filen var en bild?"
+      runtime_error: "Fotot kunde inte laddas upp."
+      type_error: "Fotot kunde inte laddas upp.  Är du säker på att det var en bild du försökte ladda upp?"
+    destroy: 
+      notice: "Fotot borttaget."
+    edit: 
+      editing: Ändrar
+    new: 
+      back_to_list: "Tillbaka till listan"
+      new_photo: "Nytt foto"
+      post_it: skicka!
+    new_photo: 
+      drop: "Släpp foton här för att ladda upp"
+      empty: "{file} är tom, välj om filerna utan att välja denna."
+      failed: Misslyckades
+      invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
+      size_error: "{file} är för stor, maximal filstorlek är {sizeLimit}."
+      upload: "Ladda upp ett foto"
+    photo: 
+      view_all: "visa alla foton %{name} laddat upp"
+    show: 
+      add_a_description: "Lägg till beskrivning"
+      delete_photo: "Ta bort foto"
+      edit_photo: "Ändra foto"
+      full_size: "full storlek"
+      make_profile_photo: "använd som profilbild"
+      next: nästa
+      prev: föregående
+      update_photo: "Uppdatera foto"
+    update: 
+      error: "Misslyckades med att ändra fotot."
+      notice: "Fotot är nu uppdaterat."
+  profile: Profil
+  registrations: 
+    closed: "Registreringsformuläret är stäng på den här poden."
+    create: 
+      success: "Du har nu gått med i Diaspora!"
+    edit: 
+      cancel_my_account: "Avsluta mitt konto"
+      edit: "Ändra %{name}"
+      leave_blank: "(lämna tomt om du inte vill ändra det)"
+      password_to_confirm: "(det nuvarande lösenordet krävs för att bekräfta ändringarna)"
+      unhappy: Missnöjd?
+      update: Uppdatera
+    new: 
+      sign_up: "Registrera dig"
+      sign_up_for_diaspora: "Gå med i Diaspora"
+  requests: 
+    create: 
+      sending: Skickar...
+      sent: "Du har angett att du vill dela med %{name}.  De kommer bli medveten om detta nästa gång de loggar in."
+      tried: "vi gjorde vårat bästa för att skicka meddelandet till %{account}"
+    destroy: 
+      error: "Var god välj en aspekt!"
+      ignore: "Ignorerade kontaktförfrågan."
+      success: "Kontakten är nu tillagd."
+    manage_aspect_contacts: 
+      contact_username: "Kontaktens Diaspora-adress"
+      create_request: "Skapa förfrågan"
+      enter_a_diaspora_username: "Ange ett användarnamn:"
+      existing: "Befintliga kontakter"
+      know_email: "Vet du deras e-postadress? Då borde du bjuda in dem"
+      manage_within: "Hantera kontakter i "
+      your_diaspora_username_is: "Din Diaspora-adress är: %{diaspora_handle}"
+  search: Sök
+  services: 
+    create: 
+      success: "Autentiering lyckades."
+    destroy: 
+      success: "Du har nu kopplat bort tjänsten."
+    index: 
+      connect_to_facebook: "Anslut till facebook"
+      connect_to_twitter: "Anslut till twitter"
+      disconnect: "koppla från"
+      logged_in_as: "inloggad som"
+      really_disconnect: "koppla från %{service}?"
+  settings: Inställningar
+  shared: 
+    aspect_contacts: 
+      add_contacts: "lägg till kontakter"
+      add_to: "lägg till i %{aspect}"
+      everyone: Alla
+      manage: "hantera %{aspect}"
+    aspect_nav: 
+      add_a_new_aspect: "lägg till en ny sida"
+      everyone: Alla
+      manage: Hantera
+      manage_your_aspects: "Hantera dina sidor"
+    author_info: 
+      all: alla
+      status_messages: statusmeddelande
+      view_profile: "Visa profil"
+      viewing: visar
+    contact_list: 
+      add_to: "Lägg till %{name} i %{aspect}"
+      remove_from: "Ta bort %{name} från %{aspect}"
+      search_contacts: "Sök efter kontakter"
+    invitations: 
+      invitations_left: "(%{count} kvar)"
+      invite_someone: "Bjud in en kontakt"
+      invites: Inbjudningar
+    notification: 
+      new: "Ny %{type} från %{from}"
+    public_explain: 
+      logged_in: "inloggad på %{service}"
+      manage: "hantera anslutna tjänster"
+      outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
+      title: "Du är på väg att skicka ett publikt meddelande!"
+    publisher: 
+      all: alla
+      make_public: "gör publik"
+      post_a_message_to: "Skicka ett meddelande till %{aspect}"
+      posting: Skickar...
+      share: Dela
+      share_with: "Dela med %{aspect}"
+      share_with_all: "Dela på alla sidor"
+    reshare: 
+      reshare: Återdela
+    stream_element: 
+      show_comments: "visa kommentarer"
+  status_messages: 
+    helper: 
+      no_message_to_display: "Inget meddelande att visa."
+    new_status_message: 
+      oh_yeah: "oh yeah!"
+      tell_me_something_good: "berätta något intressant"
+    show: 
+      destroy: "Ta bort"
+  the_world: världen
+  username: Användarnamn
+  users: 
+    destroy: "Ditt konto är nu stängt."
+    edit: 
+      change_language: "Ändra språk"
+      change_password: "Ändra lösenord"
+      close_account: "Stäng kontot"
+      download_photos: "Ladda ner mina foton"
+      download_xml: "Ladda ner min xml"
+      export_data: "Exportera data"
+      invite_contacts: "Bjud in en kontakt"
+      new_password: "Nytt lösenord"
+    getting_started: 
+      connect_services: "Anslut andra tjänster"
+      define_aspects: "Välj dina sidor"
+      edit_profile: "Ändra din profil"
+      save_and_continue: "Spara och fortsätt"
+      signup_steps: "Slutför registreringen genom att följa den här guiden:"
+      skip: "hoppa över guiden"
+      step_1: 
+        your_profile: "Din Profil"
+      step_2: 
+        add: "Lägg till"
+        aspect_name: "Namn på sida"
+        description: "Här anger du vilka sidor av dig själv du vill visa på Diaspora. Lägger du till en person på en viss sida kan denne bara se information som du publicerar på just den sidan. Vill du ändra dessa senare så kan du göra det under fliken \"Hantera\"."
+        your_aspects: "Dina sidor"
+      step_3: 
+        description: "Anslut dina befintliga tjänster till ditt Diaspora-konto.  Du kommer att kunna skicka meddelanden genom dessa om du väljer \"gör publik.\" på sidan för alla kontakter."
+        your_services: "Dina tjänster"
+      step_4: 
+        change_profile: "Du kan ändra din profil närsomhelst genom att klicka på"
+        connect_disconnect: "Du kan ansluta och koppla bort dina andra tjänster när som helst genom att klicka på"
+        continue: "Fortsätt till \"Alla\" sidan, en överblick av alla dina sidor."
+        finish: Slutför
+        manage_aspects: "Du kan hantera dina olika sidor närsomhelst genom att klicka på"
+        ready_to_share: "Du är nu redo att börja dela med "
+        set_up: "Nu är guiden klar, %{name}!"
+        tab_also_added: "-fliken.  Du kan även lägga till en ny kontakt direkt på en sida."
+        user_menu: "i användarmenyn uppe till vänster."
+      welcome: "Välkommen till diaspora!"
+    public: 
+      does_not_exist: "Användaren %{username} finns inte!"
+    update: 
+      language_changed: "Språk är nu ändrat"
+      language_not_changed: "Språket kunde inte ändras"
+      password_changed: "Lösenordet är nu ändrat"
+      password_not_changed: "Lösenordet kunde inte ändras"
