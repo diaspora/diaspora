@@ -140,7 +140,7 @@ header
     :text-overflow ellipsis
     :text-shadow 0 1px 0 #000
 
-    :width 100px
+    :width auto
 
     :z-index 10
     :padding 5px 10px
@@ -160,9 +160,14 @@ header
 
     li
       :display none
+      :padding 4px
 
       a
         :display block
+      &:hover
+        :background
+          :color #009
+
 
     &.active
       :margin
