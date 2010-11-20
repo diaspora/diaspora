@@ -4,26 +4,34 @@
 
 - content_for :head do
   :javascript
-    $("#manage_aspect_trigger").live("click",
+    $("#edit_aspect_trigger").live("click",
       function(){
-        if( $("#manage_aspect_pane").hasClass("active") ) {
-          managePaneFadeOut();
+        if( $("#edit_aspect_pane").hasClass("active") ) {
+          editPaneFadeOut();
         } else {
-          managePaneFadeIn();
+          editPaneFadeIn();
         }
       }
     );
 
-    managePaneFadeIn = function(){
-      $("#manage_aspect_pane").addClass("active");
+    editPaneFadeIn = function(){
+
+      var trigger = $("#edit_aspect_trigger");
+
+      $("#edit_aspect_pane").addClass("active");
       $(".contact_pictures").fadeOut(200, function(){
-        $("#manage_aspect_pane").fadeIn(200);
+        $("#edit_aspect_pane").fadeIn(200);
+        trigger.html("done editing");
       });
     };
 
-    managePaneFadeOut = function(){
-      $("#manage_aspect_pane").removeClass("active");
-      $("#manage_aspect_pane").fadeOut(200, function(){
+    editPaneFadeOut = function(){
+
+      var trigger = $("#edit_aspect_trigger");
+      trigger.html("edit aspect");
+
+      $("#edit_aspect_pane").removeClass("active");
+      $("#edit_aspect_pane").fadeOut(200, function(){
         $(".contact_pictures").fadeIn(200);
       });
     };
@@ -31,7 +39,7 @@
   - if aspect != :all && aspect.contacts.count == 0
     :javascript
       $(document).ready(function(){
-        managePaneFadeIn();
+        editPaneFadeIn();
       });
 
 - if (aspect == :all) && @request_count > 0
@@ -46,56 +54,41 @@
   - if aspect == :all
     %h2= t('.everyone')
   - else
-    %h2{:style=>"position:relative;"}
+    %h2{:style=>"position:relative;margin-bottom:0;"}
       = aspect
+      .right
+        = link_to "edit aspect", "#", :id => "edit_aspect_trigger", :class => "button"
+
+    %span{:style=>"color:#999;font-size:14px;"}
       = aspect.contacts.count
       - if aspect.contacts.count == 1
         contact
       - else
         contacts
-      .right
-        = link_to "manage aspect", "#", :id => "manage_aspect_trigger", :class => "button"
 
   - unless aspect == :all
-    #manage_aspect_pane
-      %h3 Add an existing contact
-      = render 'shared/contact_list', :aspect => aspect, :contacts => @contacts, :manage => defined?(manage)
+    #edit_aspect_pane
+      - if @contacts.count > 0 
+        %h3 Add an existing contact
+        = render 'shared/contact_list', :aspect => aspect, :contacts => @contacts, :manage => defined?(manage)
 
-      %h3 Add a new contact
-      = form_tag(person_by_handle_path, :id => "new_request_to_#{aspect.id}", :class => "webfinger_form", :remote => true) do
-        =t('.enter_a_diaspora_username')
-        %br
-        %i= t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
+      = render 'shared/add_contact', :aspect => aspect
 
-        = search_field_tag :diaspora_handle,'', :id => "request_d_handle_to_#{aspect.id}", :results => 5, :placeholder => "Diaspora handle"
-        = hidden_field_tag :aspect_id, aspect.id
-
-        - if defined?(getting_started)
-          = hidden_field_tag :getting_started, getting_started
-        - if defined?(manage)
-          = hidden_field_tag :manage, true
-
-        = submit_tag t('.create_request')
-      %br
-      #loader.hidden= image_tag 'ajax-loader.gif'
-      %ul#request_result{:aspect_id => aspect.id}
-        %li.error.hidden
-          #message
-            = link_to "Know their email address? You should invite them", "#invite_user_pane", :class => "invite_user_button"
-          %br
-          .yo{ :style => "display:none;"}
-            #invite_user_pane
-              = render "invitations/new"
-
+      %h3 Aspect settings
       != remove_link(aspect)
 
   .contact_pictures
     - for contact in contacts
       = person_image_link(contact.person)
 
+    - if aspect == :all && @contacts.count == 0
+      %h4
+        You currently have no contacts.  Find your contacts here.
+      = form_tag(people_path, :method => 'get') do
+        = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
+
 
     -if aspect == :all
-      %br
       %br
       %br
       %br
@@ -107,30 +100,25 @@
           = link_to 'add aspect', '#add_aspect_pane', :class => "add_aspect_button"
 
       - for user_aspect in current_user.aspects
-        
-        .aspectt
-          %h4.aspect_title_right
+
+        %div{:style=>"border-bottom:1px solid #eee;padding:6px;"}
+          %h4.aspect_title_right{:style => "margin-bottom:0;"}
             = link_to user_aspect, user_aspect
-          
             %span{:style=>"font-size:12px;color:#888;"}
               = "#{user_aspect.contacts.count} contacts"
 
-          - for aspect_contact in user_aspect.contacts[0..8]
-            = person_image_link(aspect_contact.person)
-
-          %br
-          %br
-          %br
+          - if user_aspect.contacts.count > 0 
+            - for aspect_contact in user_aspect.contacts[0..8]
+              = person_image_link(aspect_contact.person)
 
       .clearfix
 
-  %br
+      %br
+      %br
+      %br
+      %br
 
-  - if aspect == :all
-    %h3
-      Invites
-
-    %p invite people to join Diaspora.
-    
-    = render "shared/invitations", :invites => @invites
+      %h3 Invites
+      %p invite people to join Diaspora.
+      = render "shared/invitations", :invites => @invites
 

@@ -83,6 +83,7 @@ en:
           everyone: "Everyone"
           add_to: "add to %{aspect}"
           add_a_new_contact_to: "Add a new contact to"
+      add_contact:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           contact_username: "Contact's username"
