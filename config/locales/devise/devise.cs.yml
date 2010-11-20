@@ -2,39 +2,81 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-cs:
-  errors:
-    messages:
-      not_found: "nenalezeno"
-      already_confirmed: "již bylo potvrzeno"
-      not_locked: "nebylo zamčeno"
 
-  devise:
-    failure:
-      unauthenticated: 'Pro pokračování se musíte přihlásit nebo si vytvořit účet.'
-      unconfirmed: 'Před pokračováním musíte potvrdit svůj účet.'
-      locked: 'Váš účet je uzamčen.'
-      invalid: 'Neplatný email nebo heslo.'
-      invalid_token: 'Neplatný autentizační token.'
-      timeout: 'Vaše sezení vypršelo, pro pokračování se prosím přihlašte znovu.'
-      inactive: 'Váš účet ještě nebyl aktivován.'
-    sessions:
-      signed_in: 'Přihlášení proběhlo úspěšně.'
-      signed_out: 'Odhlášení proběhlo úspěšně.'
-    passwords:
-      send_instructions: 'Běhěm několika minut obdržíte email s instrukcemi k resetnutí hesla.'
-      updated: 'Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni'
-    confirmations:
-      send_instructions: 'Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu.'
-      confirmed: 'Váš účet byl uspěšně potvrzen. Nyní jste přihlášeni.'
-    registrations:
-      signed_up: 'Úspěšně jste vytvořili účet. Pokud je tak server nastaven, byl vám zaslán potvrzovací email.'
-      updated: 'Úspěšně jste upravili svůj účet.'
-      destroyed: 'Sbohem! Váš účet byl úspěšně zrušen. Brzy naviděnou.'
-    unlocks:
-      send_instructions: 'Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu.'
-      unlocked: 'Váš účet byl úspěšně odemknut. Nyní jste přihlášeni.'
-    mailer:
-      confirmation_instructions: 'Instrukce k potvrzení'
-      reset_password_instructions: 'Instrukce k resetnutí hesla'
-      unlock_instructions: 'Instrukce k odemčení'
+cs: 
+  devise: 
+    confirmations: 
+      confirmed: "Váš účet byl uspěšně potvrzen. Nyní jste přihlášeni."
+      send_instructions: "Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu."
+    failure: 
+      inactive: "Váš účet ještě nebyl aktivován."
+      invalid: "Neplatný email nebo heslo."
+      invalid_token: "Neplatný autentizační token."
+      locked: "Váš účet je uzamčen."
+      timeout: "Vaše sezení vypršelo, pro pokračování se prosím přihlašte znovu."
+      unauthenticated: "Pro pokračování se musíte přihlásit nebo si vytvořit účet."
+      unconfirmed: "Před pokračováním musíte potvrdit svůj účet."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "Unlock my account"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
+      send_instructions: "Běhěm několika minut obdržíte email s instrukcemi k resetnutí hesla."
+      updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni"
+    registrations: 
+      destroyed: "Sbohem! Váš účet byl úspěšně zrušen. Brzy naviděnou."
+      signed_up: "Úspěšně jste vytvořili účet. Pokud je tak server nastaven, byl vám zaslán potvrzovací email."
+      updated: "Úspěšně jste upravili svůj účet."
+    sessions: 
+      new: 
+        have_a_problem: "Have a problem? Find an answer here"
+        login: Login
+        password: Password
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: Username
+      signed_in: "Přihlášení proběhlo úspěšně."
+      signed_out: "Odhlášení proběhlo úspěšně."
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
+      send_instructions: "Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu."
+      unlocked: "Váš účet byl úspěšně odemknut. Nyní jste přihlášeni."
+  errors: 
+    messages: 
+      already_confirmed: "již bylo potvrzeno"
+      not_found: nenalezeno
+      not_locked: "nebylo zamčeno"

@@ -3,19 +3,19 @@
 #   the COPYRIGHT file.
 
 
-cy: 
+da: 
   devise: 
     confirmations: 
-      confirmed: "Cadarnhawyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
-      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
+      confirmed: "Your account was successfully confirmed. You are now signed in."
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
     failure: 
-      inactive: "Nid yw eich cyfrif wedi'i actifadu."
-      invalid: "E-bost neu gyfrinair annilys."
-      invalid_token: "Tocyn dilysu annilys."
-      locked: "Mae eich cyfrif wedi'i gloi."
-      timeout: "Mae eich sesiwn wedi dod i ben, arwyddwch i mewn eto i barhau."
-      unauthenticated: "Mae angen i chi arwyddo i mewn neu ymuno cyn parhau."
-      unconfirmed: "Rhaid i chi gadarnhau eich cyfrif cyn parhau."
+      inactive: "Your account was not activated yet."
+      invalid: "Invalid email or password."
+      invalid_token: "Invalid authentication token."
+      locked: "Your account is locked."
+      timeout: "Your session expired, please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your account before continuing."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Your invitation has been sent."
@@ -30,7 +30,7 @@ cy:
         accept: "Accept invitation"
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "A friend wants you to join Diaspora!"
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
         has_invited_you: "%{name} has invited you to join Diaspora"
@@ -51,12 +51,12 @@ cy:
       new: 
         forgot_password: "Forgot your password?"
         send_password_instructions: "Send me reset password instructions"
-      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
-      updated: "Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      updated: "Your password was changed successfully. You are now signed in."
     registrations: 
-      destroyed: "Hwyl fawr! Canslwyd eich cyfrif yn llwyddiannus. Rydym yn gobeithio gweld chi eto yn fuan."
-      signed_up: "Rydych chi wedi arwyddo i fyny yn llwyddiannus. Anfonwyd cadarnhad at eich e-bost os yw wedi'i alluogi."
-      updated: "Diweddarwyd eich cyfrif yn llwyddiannus."
+      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+      signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
+      updated: "You updated your account successfully."
     sessions: 
       new: 
         have_a_problem: "Have a problem? Find an answer here"
@@ -65,18 +65,18 @@ cy:
         remember_me: "Remember me"
         sign_in: "Sign in"
         username: Username
-      signed_in: "Arwyddwyd i fewn yn llwyddiannus."
-      signed_out: "Arwyddwyd allan yn llwyddiannus."
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
     shared: 
       links: 
         forgot_your_password: "Forgot your password?"
         sign_in: "Sign in"
         sign_up: "Sign up"
     unlocks: 
-      send_instructions: "Byddwch yn derbyn e-bost gyda cyfarwyddiadau ar sut i agor eich cyfrif mewn ychydig funudau."
-      unlocked: "Datglowyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
+      unlocked: "Your account was successfully unlocked. You are now signed in."
   errors: 
     messages: 
-      already_confirmed: "cadarnhawyd eisioes"
-      not_found: "ni chanfuwyd"
-      not_locked: "heb ei gloi"
+      already_confirmed: "was already confirmed"
+      not_found: "ikke fundet"
+      not_locked: "was not locked"

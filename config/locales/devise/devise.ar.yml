@@ -2,39 +2,81 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-ar:
-  errors:
-    messages:
-      not_found: "لم يتم العثور على"
-      already_confirmed: "وقد أكد بالفعل"
-      not_locked: "لم يكن مغلق"
 
-  devise:
-    failure:
-      unauthenticated: ".تحتاج إلى تسجيل الدخول أو قم بالتسجيل قبل الشروع في الاستمرار"
-      unconfirmed: ".لديك لتأكيد الحساب الخاص بك قبل المتابعة"
-      locked: ".مؤمن حسابك"
+ar: 
+  devise: 
+    confirmations: 
+      confirmed: ".وأكد حسابك بنجاح. وقعت الآن دخولك"
+      send_instructions: ".سوف تتلقى رسالة بريد إلكتروني مع تعليمات حول كيفية تأكيد الحساب الخاص بك في بضع دقائق"
+    failure: 
+      inactive: ".ولم يتم تفعيل حسابك بعد"
       invalid: ".بريد إلكتروني غير صالح أو كلمة المرور"
       invalid_token: ".المصادقة غير صالح الرمز المميز"
+      locked: ".مؤمن حسابك"
       timeout: ".انتهت الدورة الخاصة بك ، الرجاء تسجيل الدخول مرة أخرى للمتابعة"
-      inactive: ".ولم يتم تفعيل حسابك بعد"
-    sessions:
-      signed_in: ".وقعت في بنجاح"
-      signed_out: ".بتسجيل الخروج بنجاح"
-    passwords:
+      unauthenticated: ".تحتاج إلى تسجيل الدخول أو قم بالتسجيل قبل الشروع في الاستمرار"
+      unconfirmed: ".لديك لتأكيد الحساب الخاص بك قبل المتابعة"
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "Unlock my account"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
       send_instructions: ".سوف تتلقى رسالة بريد إلكتروني مع تعليمات حول كيفية إعادة تعيين كلمة السر الخاصة بك في بضع دقائق"
       updated: ".تم تغيير كلمة السر الخاصة بك بنجاح. وقعت الآن دخولك"
-    confirmations:
-      send_instructions: ".سوف تتلقى رسالة بريد إلكتروني مع تعليمات حول كيفية تأكيد الحساب الخاص بك في بضع دقائق"
-      confirmed: ".وأكد حسابك بنجاح. وقعت الآن دخولك"
-    registrations:
+    registrations: 
+      destroyed: ".وداعا! تم إلغاء حسابك بنجاح. ونأمل أن نراكم مرة أخرى قريبا"
       signed_up: ".لقد قمت بتسجيل بنجاح. إذا مكن، وجهت رسالة تأكيد إلى البريد الإلكتروني الخاص بك"
       updated: ".قمت بتحديث حسابك بنجاح"
-      destroyed: ".وداعا! تم إلغاء حسابك بنجاح. ونأمل أن نراكم مرة أخرى قريبا"
-    unlocks:
+    sessions: 
+      new: 
+        have_a_problem: "Have a problem? Find an answer here"
+        login: Login
+        password: Password
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: Username
+      signed_in: ".وقعت في بنجاح"
+      signed_out: ".بتسجيل الخروج بنجاح"
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
       send_instructions: ".سوف تتلقى رسالة بريد إلكتروني مع تعليمات حول كيفية فتح حساب في بضع دقائق"
       unlocked: ".كان حسابك مقفلة بنجاح. وقعت الآن دخولك"
-    mailer:
-      confirmation_instructions: "تأكيد تعليمات"
-      reset_password_instructions: "تعليمات إعادة تعيين كلمة المرور"
-      unlock_instructions: "فتح التعليمات"
+  errors: 
+    messages: 
+      already_confirmed: "وقد أكد بالفعل"
+      not_found: "لم يتم العثور على"
+      not_locked: "لم يكن مغلق"

@@ -2,39 +2,81 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-nl:
-  errors:
-    messages:
-      not_found: "niet gevonden"
-      already_confirmed: "is al geactiveerd"
-      not_locked: "is niet geblokeerd"
 
-  devise:
-    failure:
-      unauthenticated: "Log in of registeer om verder te gaan."
-      unconfirmed: "Activeer je account om verder te gaan."
-      locked: "Je account is geblokkeerd."
+nl: 
+  devise: 
+    confirmations: 
+      confirmed: "Je account is geactiveerd. Je bent nu ingelogd."
+      send_instructions: "Je ontvangt een email met instructies om je account te activeren."
+    failure: 
+      inactive: "Je account is nog niet geactiveerd."
       invalid: "Ongelding emailadres of wachtwoord."
       invalid_token: "Ongeldige authenticatie token."
+      locked: "Je account is geblokkeerd."
       timeout: "Je sessie is verlopen, log opnieuw in om verder te gaan."
-      inactive: "Je account is nog niet geactiveerd."
-    sessions:
-      signed_in: "Je bent succesvol ingelogd."
-      signed_out: "Je bent succesvol uitgelogd."
-    passwords:
+      unauthenticated: "Log in of registeer om verder te gaan."
+      unconfirmed: "Activeer je account om verder te gaan."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "Unlock my account"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
       send_instructions: "Je ontvangt een email met instructies om je wachtwoord te resetten."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
-    confirmations:
-      send_instructions: "Je ontvangt een email met instructies om je account te activeren."
-      confirmed: "Je account is geactiveerd. Je bent nu ingelogd."
-    registrations:
+    registrations: 
+      destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
       signed_up: "Je bent succesvol registreerd. Wanneer activeerd, ontvang je een bevestigingsmail."
       updated: "Je account is succelvol geupdated."
-      destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
-    unlocks:
+    sessions: 
+      new: 
+        have_a_problem: "Have a problem? Find an answer here"
+        login: Login
+        password: Password
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: Username
+      signed_in: "Je bent succesvol ingelogd."
+      signed_out: "Je bent succesvol uitgelogd."
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
       send_instructions: "Je ontvangt een email met instructies om je account te deblokkeren."
       unlocked: "Je account is succelvol gedeblokkeerd. Je bent nu ingelogd."
-    mailer:
-      confirmation_instructions: "Instructies om je account te activeren"
-      reset_password_instructions: "Instructies om je wachtwoord te resetten"
-      unlock_instructions: "Instructies om je account te deblokkeren"
+  errors: 
+    messages: 
+      already_confirmed: "is al geactiveerd"
+      not_found: "niet gevonden"
+      not_locked: "is niet geblokeerd"

@@ -1,83 +1,82 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#
-#   See config/locales/diaspora/sv.yml for Swedish Diaspora terms.
 
-sv:
-  errors:
-    messages:
-      not_found: "kan ej hitta"
-      already_confirmed: "är redan bekräftad"
-      not_locked: "var ej låst"
 
-  devise:
-    failure:
-      unauthenticated: 'Du måste logga in innan du kan fortsätta.'
-      unconfirmed: 'Du måste verifiera ditt konto innan du kan fortsätta.'
-      locked: 'Ditt konto är låst.'
-      invalid: 'Felaktigt användarnamn eller lösenord.'
-      invalid_token: 'Ogiltig identifiering.'
-      timeout: 'Din session är avslutad, var vänlig logga in igen.'
-      inactive: 'Ditt konto är inte aktiverat.'
-    sessions:
-      new:
-        login: 'Logga in'
-        username: 'Användarnamn'
-        password: 'Lösenord'
-        sign_in: 'Logga in'
-        have_a_problem: "Har du problem att komma in? Klicka här"
-        remember_me: "Kom ihåg mig"
-      signed_in: 'Inloggning ok.'
-      signed_out: 'Utloggning ok.'
-    passwords:
-      send_instructions: 'Du kommer att få ett ebrev med instruktioner för att återställa lösenordet inom några minuter.'
-      updated: 'Ditt lösenord har ändrats och du är inloggad.'
-      new:
-        forgot_password: "Glömt ditt lösenord?"
-        send_password_instructions: "Skicka mig information om hur jag återställer lösenordet"
-    confirmations:
-      send_instructions: 'Du kommer att få ett ebrev med instruktioner för att verifiera ditt konto inom några minuter.'
-      confirmed: 'Ditt konto har verifierats och du är inloggad.'
-    registrations:
-      signed_up: 'Du har skapat ett konto. Beroende på inställningar kan ett ebrev ha skickats till dig.'
-      updated: 'Ditt konto har uppdateras.'
-      destroyed: 'Ditt konto är avslutat. Välkommen åter!'
-    unlocks:
-      send_instructions: 'Du kommer att få ett mail med instruktioner för att låsa upp ditt konto inom några minuter.'
-      unlocked: 'Ditt konto har är nu upplåst och du är inloggad'
-    invitations:
-      send_instructions: 'Din inbjudan är nu skickad.'
-      invitation_token_invalid: 'Denna inbjudan är ej giltig!'
-      updated: 'Ditt lösenord är nu inställt och du är inloggad.'
-    mailer:
-      welcome: "Välkommen %{email}!"
-      hello: "Hej %{email}!"
-      confirmation_instructions:
-        subject: 'Instruktioner för att aktivera ditt konto'
-        you_can_confirm: "Klicka på länken nedan för att aktivera ditt konto:"
+sv: 
+  devise: 
+    confirmations: 
+      confirmed: "Ditt konto har verifierats och du är inloggad."
+      send_instructions: "Du kommer att få ett ebrev med instruktioner för att verifiera ditt konto inom några minuter."
+    failure: 
+      inactive: "Ditt konto är inte aktiverat."
+      invalid: "Felaktigt användarnamn eller lösenord."
+      invalid_token: "Ogiltig identifiering."
+      locked: "Ditt konto är låst."
+      timeout: "Din session är avslutad, var vänlig logga in igen."
+      unauthenticated: "Du måste logga in innan du kan fortsätta."
+      unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."
+    invitations: 
+      invitation_token_invalid: "Denna inbjudan är ej giltig!"
+      send_instructions: "Din inbjudan är nu skickad."
+      updated: "Ditt lösenord är nu inställt och du är inloggad."
+    mailer: 
+      confirmation_instructions: 
         confirm: "Aktivera mitt konto"
-      reset_password_instructions:
-        subject: 'Instruktioner för att återställa lösenordet'
-        someone_requested: "Du har efterfrågat en länk för att återställa ditt lösenord. För att fullfölja det, klicka på länken neda."
-        change: "Återställ mitt lösenord"
-        wont_change: "Dit lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
-        ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
-      unlock_instructions:
-        subject: 'Instruktioner för upplåsning'
-        account_locked: "Ditt konto har låsts eftersom du eller någon annan har angett fel lösenord för många gånger."
-        click_to_unlock: "Klicka på länken nedan för att låsa upp ditt konto:"
-        unlock: "Lås upp mitt konto"
-      invitation:
-        subject: 'En vän vill att du ska gå med i Diaspora!'
-        has_invited_you: "%{name} har bjudit in dig till Diaspora"
-        have_invited_you: "%{names} har bjudit in dig till Diaspora"
-        accept_at: ", gå till %{url} för att acceptera din inbjudan."
+        subject: "Instruktioner för att aktivera ditt konto"
+        you_can_confirm: "Klicka på länken nedan för att aktivera ditt konto:"
+      hello: "Hej %{email}!"
+      invitation: 
         accept: "Acceptera inbjudan"
         ignore: "Om du inte vill gå med i Diaspora kan du ignorera detta mail."
         no_account_till: "Ditt konto kommer inte skapas förrän du klickat på knappen ovan och skapat ett nytt konto."
-    shared:
-      links:
-        sign_in: 'Logga in'
-        sign_up: 'Registrera dig'
-        forgot_your_password: 'Glömt ditt lösenord?'
+        subject: "Du har blivit inbjuden till Diaspora!"
+      inviters: 
+        accept_at: ", du kan acceptera din inbjudan på %{url}."
+        has_invited_you: "%{name} vill att du ska gå med i Diaspora"
+        have_invited_you: "%{names} vill att du ska gå med i Diaspora"
+      reset_password_instructions: 
+        change: "Återställ mitt lösenord"
+        ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
+        someone_requested: "Du har efterfrågat en länk för att återställa ditt lösenord. För att fullfölja det, klicka på länken neda."
+        subject: "Instruktioner för att återställa lösenordet"
+        wont_change: "Dit lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
+      unlock_instructions: 
+        account_locked: "Ditt konto har låsts eftersom du eller någon annan har angett fel lösenord för många gånger."
+        click_to_unlock: "Klicka på länken nedan för att låsa upp ditt konto:"
+        subject: "Instruktioner för upplåsning"
+        unlock: "Lås upp mitt konto"
+      welcome: "Välkommen %{email}!"
+    passwords: 
+      new: 
+        forgot_password: "Glömt ditt lösenord?"
+        send_password_instructions: "Skicka mig information om hur jag återställer lösenordet"
+      send_instructions: "Du kommer att få ett ebrev med instruktioner för att återställa lösenordet inom några minuter."
+      updated: "Ditt lösenord har ändrats och du är inloggad."
+    registrations: 
+      destroyed: "Ditt konto är avslutat. Välkommen åter!"
+      signed_up: "Du har skapat ett konto. Beroende på inställningar kan ett ebrev ha skickats till dig."
+      updated: "Ditt konto har uppdateras."
+    sessions: 
+      new: 
+        have_a_problem: "Har du problem att komma in? Klicka här"
+        login: "Logga in"
+        password: Lösenord
+        remember_me: "Kom ihåg mig"
+        sign_in: "Logga in"
+        username: Användarnamn
+      signed_in: "Inloggning ok."
+      signed_out: "Utloggning ok."
+    shared: 
+      links: 
+        forgot_your_password: "Glömt ditt lösenord?"
+        sign_in: "Logga in"
+        sign_up: "Registrera dig"
+    unlocks: 
+      send_instructions: "Du kommer att få ett mail med instruktioner för att låsa upp ditt konto inom några minuter."
+      unlocked: "Ditt konto har är nu upplåst och du är inloggad"
+  errors: 
+    messages: 
+      already_confirmed: "är redan bekräftad"
+      not_found: "kan ej hitta"
+      not_locked: "var ej låst"

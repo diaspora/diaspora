@@ -3,58 +3,58 @@
 #   the COPYRIGHT file.
 
 
-ar: 
-  _photos: photos
-  _services: Services
-  account: Account
+el: 
+  _photos: Φωτογραφίες
+  _services: Υπηρεσίες
+  account: Λογαριασμός
   activemodel: 
     errors: 
       models: 
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken"
+              taken: "χρησιμοποιείται ήδη"
         user: 
           attributes: 
             email: 
-              taken: "is already taken"
+              taken: "χρησιμοποιείται ήδη"
             person: 
-              invalid: "is invalid"
+              invalid: "δεν είναι έγκυρο"
             username: 
-              taken: "is already taken"
-  ago: ago
+              taken: "χρησιμοποιείται ήδη"
+  ago: πριν
   application: 
     helper: 
-      unknown_person: "شخص غير معروف"
+      unknown_person: "άγνωστο άτομο"
       youtube_title: 
         unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "Είσαι σίγουρος/ή;"
   aspects: 
     add_to_aspect: 
-      failure: "Failed to add friend to aspect."
-      success: "Successfully added friend to aspect."
+      failure: "Αποτυχία προσθήκης φίλου στην πτυχή."
+      success: "Επιτυχής προσθήκη φίλου στην πτυχή."
     create: 
-      failure: ".فشل إنشاء الجانب"
-      success: ".من الذي يمكنه مشاهدة مظهرك الجديد Diaspora انقر على علامة الزائد على الجانب الأيسر لتقول ل"
+      failure: "Η δημιουργία της πτυχής απέτυχε."
+      success: "Κάντε κλικ στο συν, στην αριστερή πλευρά για να ενημερώσετε το Diaspora ποίοι μπορούν να δουν τη νέα πτυχή σας."
     destroy: 
-      success: ".بنجاح %{name} تم إزالة"
+      success: "%{name} αφαιρέθηκε επιτυχώς."
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
-      aspect_not_empty: "الجانب ليس فارغ"
-      remove: حذف
+      aspect_not_empty: "Η πτυχή δεν είναι άδεια"
+      remove: αφαίρεση
     manage: 
-      add_a_new_aspect: "أضف جانبا جديدا"
+      add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       add_a_new_contact: "Add a new contact"
       drag_to_add: "Drag to add people"
       manage_aspects: "Manage aspects"
       no_requests: "No new requests"
-      requests: طلبات
+      requests: Requests
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
     new_aspect: 
-      create: جديد
+      create: Create
       name: Name
     no_contacts_message: 
       add_contact: "Add a contact"
@@ -68,22 +68,22 @@ ar:
       failure: "Failed to remove person from aspect"
       success: "Successfully removed person from aspect"
     update: 
-      success: ".بنجاح %{name} تم تعديل"
+      success: "Η πτυχή σας,% {name}, έχει επεξεργαστεί επιτυχώς."
   back: Back
-  cancel: Cancel
+  cancel: Ακύρωση
   comments: 
     new_comment: 
-      comment: تعليق
+      comment: Σχόλιο
       commenting: Commenting...
   dashboards: 
     helper: 
       home: Home
-  delete: Delete
+  delete: Διαγραφή
   email: Email
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: ".صحح الأخطاء التالية وحاول مرة أخرى"
-      invalid_fields: "مدخلات غير صحيحة"
+      correct_the_following_errors_and_try_again: "Διορθώστε τα ακόλουθα σφάλματα και προσπαθήστε ξανά."
+      invalid_fields: "Άκυρα Πεδία"
   fill_me_out: "Fill me out"
   home: 
     show: 
@@ -92,16 +92,16 @@ ar:
       share_what_you_want: "Share what you want, with who you want."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "Το σύμβολο της πρόσκλησης δεν βρέθηκε"
     create: 
       already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
-      sent: "Your invitation has been sent."
+      already_sent: "Έχετε ήδη προσκαλέσει αυτό το πρόσωπο."
+      no_more: "Δεν έχετε άλλες προσκλήσεις."
+      sent: "Η πρόσκλησή σας έχει σταλεί."
     new: 
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
-      invite_someone_to_join: "Invite someone to join Diaspora!"
-      message: "Message:"
+      if_they_accept_info: "αν αποδεχθούν, θα προστεθούν στην πτυχή που τους καλέσατε"
+      invite_someone_to_join: "Προσκαλέστε κάποιον να ενταχθεί στο Diaspora!"
+      message: "Μήνυμα:"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
       to: To
@@ -139,22 +139,22 @@ ar:
       first_name: "First name"
       info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      update_profile: "Ενημέρωση Προφίλ"
+      your_bio: Βιογραφικό
+      your_birthday: "Τα γενέθλιά σας"
+      your_gender: "Το φύλο σας"
+      your_name: "Το όνομά σας"
+      your_photo: "Η φωτογραφία σας"
+      your_profile: "Το προφίλ σας"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
-      results_for: "search results for"
+      results_for: "αποτελέσματα αναζήτησης για"
     person: 
       add_contact: "add contact"
       already_connected: "Already connected"
-      pending_request: "طلبات معلقة"
+      pending_request: "pending request"
       thats_you: "thats you!"
     profile_photo_upload: 
       or_select_one: "or select one from your already existing"
@@ -177,17 +177,17 @@ ar:
       updated: "Profile updated"
   photos: 
     create: 
-      integrity_error: "فشل تحميل الصور. هل ملفك صورة؟"
-      runtime_error: "فشل تحميل الصور. هل ربطت حزام الأمان؟"
-      type_error: "فشل تحميل الصور. هل أنت متأكد أنك أضفت صورة؟"
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε. Είστε σίγουροι ότι προστέθηκε μια εικόνα;"
     destroy: 
-      notice: "تم حذف الصورة"
+      notice: "Η φωτογραφία διαγράφηκε."
     edit: 
-      editing: تحرير
+      editing: Επεξεργασία
     new: 
-      back_to_list: "عودة إلى القائمة"
-      new_photo: "صورة جديدة"
-      post_it: "!ألصقها"
+      back_to_list: "Επιστροφή στη Λίστα"
+      new_photo: "Νέα φωτογραφία"
+      post_it: "δημοσίευσέ το!"
     new_photo: 
       drop: "Drop photos here to upload"
       empty: "{file} is empty, please select files again without it."
@@ -198,22 +198,22 @@ ar:
     photo: 
       view_all: "view all of %{name}'s photos"
     show: 
-      add_a_description: "Add a description"
-      delete_photo: "حذف الصورة"
-      edit_photo: "تحرير الصورة"
-      full_size: "الحجم اﻷصلي"
-      make_profile_photo: "make profile photo"
-      next: القادم
-      prev: السابق
-      update_photo: "Update Photo"
+      add_a_description: "Προσθέστε μια περιγραφή"
+      delete_photo: "Διαγραφή Φωτογραφίας"
+      edit_photo: "Επεξεργασία Φωτογραφίας"
+      full_size: "πλήρες μέγεθος"
+      make_profile_photo: "ορισμός ως φωτογραφία προφίλ"
+      next: επόμενο
+      prev: προηγ
+      update_photo: "Ενημέρωση Φωτογραφίας"
     update: 
-      error: "فشل تحرير الصورة."
-      notice: "تم تحديث الصورة بنجاح"
-  profile: Profile
+      error: "Αποτυχία επεξεργασίας φωτογραφίας."
+      notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
+  profile: Προφίλ
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
-      success: "!Diaspora سجل في"
+      success: "Γίνατε μέλος στο Diaspora!"
     edit: 
       cancel_my_account: "Cancel my account"
       edit: "Edit %{name}"
@@ -222,17 +222,17 @@ ar:
       unhappy: Unhappy?
       update: Update
     new: 
-      sign_up: التسجيل
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      sign_up: Εγγραφείτε
+      sign_up_for_diaspora: "Εγγραφείτε στο Diaspora"
   requests: 
     create: 
       sending: Sending...
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
-      tried: "we tried our best to send a message to %{account}"
+      tried: "βάλαμε τα δυνατά μας για να στείλουμε ένα μήνυμα στο %{account}"
     destroy: 
-      error: "!الرجاء اختيار جانب"
-      ignore: ". تجاهل طلب الصداقة"
-      success: ".أنتم الآن أصدقاء"
+      error: "Παρακαλώ επιλέξτε μια πτυχή!"
+      ignore: "Αγνοήθηκε αίτηση φίλου."
+      success: "Είστε πλέον φίλοι."
     manage_aspect_contacts: 
       contact_username: "Contact's username"
       create_request: "Create request"
@@ -244,16 +244,16 @@ ar:
   search: Search
   services: 
     create: 
-      success: "Authentication successful."
+      success: "Επιτυχής έλεγχος ταυτότητας."
     destroy: 
-      success: "Successfully destroyed authentication."
+      success: "Επιτυχής καταστροφή ταυτότητας."
     index: 
       connect_to_facebook: "Connect to facebook"
       connect_to_twitter: "Connect to twitter"
       disconnect: disconnect
       logged_in_as: "logged in as"
       really_disconnect: "disconnect %{service}?"
-  settings: Settings
+  settings: Ρυθμίσεις
   shared: 
     aspect_contacts: 
       add_contacts: "add contacts"
@@ -261,28 +261,28 @@ ar:
       everyone: Everyone
       manage: "manage %{aspect}"
     aspect_nav: 
-      add_a_new_aspect: "add a new aspect"
-      everyone: Everyone
-      manage: نجح
-      manage_your_aspects: "إدارة جوانب الخاص"
+      add_a_new_aspect: "προσθέστε μια νέα πτυχή"
+      everyone: Όλοι
+      manage: Διαχείριση
+      manage_your_aspects: "Διαχειριστείτε τις πτυχές σας"
     author_info: 
       all: all
       status_messages: "status messages"
-      view_profile: "View profile"
+      view_profile: "Προβολή προφίλ"
       viewing: viewing
     contact_list: 
       add_to: "Add %{name} to %{aspect}"
       remove_from: "Remove %{name} from %{aspect}"
       search_contacts: "Search contacts"
     invitations: 
-      invitations_left: "(%{count} left)"
+      invitations_left: "(%{count} απομένουν)"
       invite_someone: "Invite someone"
-      invites: Invites
+      invites: Προσκλήσεις
     notification: 
       new: "New %{type} from %{from}"
     public_explain: 
-      logged_in: "logged in to %{service}"
-      manage: "manage connected services"
+      logged_in: "συνδεδεμένοι στο %{service}"
+      manage: "συνδεδεμένοι στο %{service}"
       outside: "Public messages will be available for others outside of Diaspora to see."
       title: "You are about to post a public message!"
     publisher: 
@@ -290,7 +290,7 @@ ar:
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"
       posting: Posting...
-      share: مشاركة
+      share: Share
       share_with: "Share with %{aspect}"
       share_with_all: "Share with all aspects"
     reshare: 
@@ -299,31 +299,31 @@ ar:
       show_comments: "show comments"
   status_messages: 
     helper: 
-      no_message_to_display: "لا يوجد رسالة لعرضها"
+      no_message_to_display: "No message to display."
     new_status_message: 
-      oh_yeah: "!يا سلااام"
-      tell_me_something_good: "قل لي شيئا جيداً"
+      oh_yeah: "oh yeah!"
+      tell_me_something_good: "tell me something good"
     show: 
-      destroy: إزالة
+      destroy: Destroy
   the_world: "the world"
-  username: Username
+  username: "Όνομα Χρήστη"
   users: 
-    destroy: "Account successfully closed."
+    destroy: "Ο λογαριασμός έκλεισε με επιτυχία."
     edit: 
-      change_language: "Change Language"
-      change_password: "Change Password"
-      close_account: "Close Account"
-      download_photos: "download my photos"
-      download_xml: "download my xml"
-      export_data: "Export Data"
+      change_language: "Αλλαγή Γλώσσας"
+      change_password: "Αλλαγή κωδικού πρόσβασης"
+      close_account: "Κλείσιμο Λογαριασμού"
+      download_photos: "κατέβασε τις φωτογραφίες μου"
+      download_xml: "κατέβασε το xml μου"
+      export_data: "Εξαγωγή Δεδομένων"
       invite_contacts: "Invite contacts"
-      new_password: "New Password"
+      new_password: "Νέος κωδικός πρόσβασης"
     getting_started: 
-      connect_services: "Connect your services"
-      define_aspects: "Define your aspects"
-      edit_profile: "Edit your profile"
+      connect_services: "Συνδέστε τις υπηρεσίες σας"
+      define_aspects: "Ορίστε τις πτυχές σας"
+      edit_profile: "Επεξεργασία του προφίλ σας"
       save_and_continue: "Save and continue"
-      signup_steps: "Complete your sign-up by doing these things:"
+      signup_steps: "Ολοκληρώστε την εγγραφή σας κάνοντας τα ακόλουθα πράγματα:"
       skip: "skip getting started"
       step_1: 
         your_profile: "Your Profile"
