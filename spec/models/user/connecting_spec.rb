@@ -45,6 +45,21 @@ describe Diaspora::UserModules::Connecting do
       end
     end
 
+    context 'requests that cross paths' do
+      it 'autoaccepts and when sending a request to someone who sent me a request' do
+        pending "When a user sends a request to person who requested them the request should be auto accepted"
+        user.send_contact_request_to(user2.person, aspect)
+        user2.reload.pending_requests.count.should == 1
+        user2.contact_for(user.person).should be_nil
+
+        user2.send_contact_request_to(user.person, aspect2)
+        user2.reload.pending_requests.count.should == 0
+        user2.contact_for(user.person).should_not be_nil
+
+
+      end
+    end
+
     context 'received a contact request' do
 
       let(:request_for_user) {Request.instantiate(:to => user.person, :from => person)}
