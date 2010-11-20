@@ -25,9 +25,13 @@ class Photo < Post
 
   before_destroy :ensure_user_picture
 
+
   def ownership_of_status_message
-    if status_message_id
-      self.diaspora_handle == StatusMessage.find_by_id(self.status_message_id).diaspora_handle
+    message = StatusMessage.find_by_id(self.status_message_id)
+    if status_message_id && message 
+      self.diaspora_handle == message.diaspora_handle 
+    else
+      true
     end
   end
 
