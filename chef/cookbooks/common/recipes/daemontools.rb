@@ -15,7 +15,7 @@ end
 
 config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/default/thins.yml")
 
-config.each do |thin|
+config['thins'].each do |thin|
   port = thin["port"]
   dir = "/service/thin_#{port}"
   flags = []

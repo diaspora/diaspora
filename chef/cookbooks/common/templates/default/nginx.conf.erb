@@ -54,7 +54,7 @@ http {
 
   server {
    listen       80;
-   server_name  alpha.joindiaspora.com www.alpha.joindiaspora.com;
+   server_name  <%= @url %>  www.<%= @url %>
    rewrite      ^(.*) https://alpha.joindiaspora.com$1 permanent;
   }
 
