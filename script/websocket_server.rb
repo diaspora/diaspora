@@ -41,20 +41,8 @@ def process_message
   end
 end
 
-def package_js
-  require 'jammit'
-
-  begin
-    Jammit.package!
-  rescue => e
-    puts "Error minifying assets, but server will continue starting normally."
-    puts e.inspect
-  end
-end
-
 begin
   EM.run {
-    package_js
     Diaspora::WebSocket.initialize_channels
 
     socket_params = { :host => APP_CONFIG[:socket_host],

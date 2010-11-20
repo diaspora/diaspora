@@ -48,6 +48,16 @@ if [ ! -e public/source.tar.gz ]; then
     exit 65
 fi
 
+# Precache jammit assets
+if [ -w public ]; then
+    bundle exec jammit
+fi
+if [ ! -e 'public/assets/main.js.gz' ]; then
+    echo 'Jammit precache error (now or at install)' >&2
+    exit 66
+fi
+
+
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
 bundle exec magent start --log-path=log/ &
