@@ -15,6 +15,8 @@ class Photo < Post
   key :remote_photo_path
   key :remote_photo_name
   key :random_string
+
+  key :status_message_id, ObjectId
   
   timestamps!
 
@@ -24,7 +26,6 @@ class Photo < Post
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
-
 
   def ownership_of_status_message
     message = StatusMessage.find_by_id(self.status_message_id)

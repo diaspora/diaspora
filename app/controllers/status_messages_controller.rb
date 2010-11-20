@@ -20,9 +20,9 @@ class StatusMessagesController < ApplicationController
     if @status_message.save(:safe => true)
       raise 'MongoMapper failed to catch a failed save' unless @status_message.id
 
+      @status_message.photos += photos unless photos.nil?
       current_user.dispatch_post(@status_message, :to => params[:status_message][:to])
 
-      @status_message.photos += photos unless photos.nil?
       for photo in photos
         current_user.dispatch_post(photo, :to => params[:status_message][:to])
       end

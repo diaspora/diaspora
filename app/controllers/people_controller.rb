@@ -40,7 +40,7 @@ class PeopleController < ApplicationController
         @pending_request = current_user.request_for(@person)
       end
 
-      @posts = current_user.visible_posts(:person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
+      @posts = current_user.visible_posts(:person_id => @person.id, :_type => "StatusMessage").paginate :page => params[:page], :order => 'created_at DESC'
       respond_with @person, :locals => {:post_type => :all}
 
     else

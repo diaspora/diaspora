@@ -9,7 +9,7 @@ class AspectsController < ApplicationController
   respond_to :json, :only => :show
 
   def index
-    @posts  = current_user.visible_posts.paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
+    @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @aspect = :all
     
     if current_user.getting_started == true
@@ -51,7 +51,7 @@ class AspectsController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @aspect_contacts = @aspect.contacts
-      @posts           = current_user.visible_posts( :by_members_of => @aspect ).paginate :per_page => 15, :order => 'created_at DESC'
+      @posts           = current_user.visible_posts( :by_members_of => @aspect, :_type => "StatusMessage" ).paginate :per_page => 15, :order => 'created_at DESC'
       respond_with @aspect
     end
   end

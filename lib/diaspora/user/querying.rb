@@ -13,10 +13,11 @@ module Diaspora
       def visible_posts( opts = {} )
         opts[:order] ||= 'created_at DESC'
         opts[:pending] ||= false
+        opts[:_type] ||= ["StatusMessage","Photo"]
 
         if opts[:by_members_of] && opts[:by_members_of] != :all
           aspect = self.aspects.find_by_id( opts[:by_members_of].id )
-          aspect.posts.find_all_by_pending(opts[:pending], :order => opts[:order])
+          aspect.posts.find_all_by_pending_and__type(opts[:pending], opts[:_type], :order => opts[:order])
         else
           self.raw_visible_posts.all(opts)
         end

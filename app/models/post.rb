@@ -9,12 +9,12 @@ class Post
   include ApplicationHelper
   include ROXML
   include Diaspora::Webhooks
-  include Diaspora::Socketable
 
   xml_reader :_id
   xml_reader :diaspora_handle
   xml_reader :public
   xml_reader :created_at
+
 
   key :public, Boolean, :default => false
 
