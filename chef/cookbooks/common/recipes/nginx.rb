@@ -29,5 +29,5 @@ end
 config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/default/thins.yml")
 template "/usr/local/nginx/conf/nginx.conf" do
   source "nginx.conf.erb"
-  variables :ports => config['thins'].map{|thin| "#{thin["port"]}"}, :url => config['url']
+  variables :ports => config['thins'].map{|thin| "#{thin["port"]}"}, :url => config['url'], :cert_location => config['cert_location'], :key_location => config['key_location']
 end

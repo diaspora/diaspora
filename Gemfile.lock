@@ -142,6 +142,8 @@ GEM
     childprocess (0.1.4)
       ffi (~> 0.6.3)
     closure-compiler (0.3.3)
+    cloudfiles (1.4.9)
+      mime-types (>= 1.16)
     columnize (0.3.2)
     configuration (1.1.0)
     crack (0.1.8)
@@ -363,6 +365,7 @@ DEPENDENCIES
   capybara (~> 0.3.9)
   carrierwave!
   chef
+  cloudfiles
   cucumber-rails (= 0.3.2)
   database_cleaner (= 0.5.2)
   devise (= 1.1.3)

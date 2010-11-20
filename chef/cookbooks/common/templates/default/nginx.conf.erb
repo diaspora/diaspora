@@ -65,8 +65,8 @@ http {
    root         /usr/local/app/diaspora/public;
 
    ssl on;
-   ssl_certificate      /usr/local/nginx/conf/diaspora.crt;
-   ssl_certificate_key  /usr/local/nginx/conf/diaspora.key;
+   ssl_certificate      <%= @cert_location %>;
+   ssl_certificate_key  <%= @key_location %>;
 
    location / {
     proxy_set_header X-Real-IP $remote_addr;
