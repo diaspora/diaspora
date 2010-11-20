@@ -1,5 +1,5 @@
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
-  Factory(:user, :username => username, :password => password,
+  Factory(:user, :username       => username, :password => password,
           :password_confirmation => password, :getting_started => false)
 end
 
@@ -13,7 +13,7 @@ Given /^I have an aspect called "([^"]*)"$/ do |aspect_name|
 end
 
 Given /^I have one contact request$/ do
-  other_user = make_user
+  other_user   = make_user
   other_aspect = other_user.aspects.create!(:name => "meh")
   other_user.send_contact_request_to(@me.person, other_aspect)
 
@@ -23,8 +23,10 @@ Given /^I have one contact request$/ do
 end
 
 Then /^I should see (\d+) contact request(?:s)?$/ do |request_count|
-  number_of_requests = evaluate_script("$('.person.request.ui-draggable').length")
-  number_of_requests.should == request_count.to_i
+  wait_until do
+    number_of_requests = evaluate_script("$('.person.request.ui-draggable').length")
+    number_of_requests == request_count.to_i
+  end
 end
 
 Then /^I should see (\d+) contact(?:s)? in "([^"]*)"$/ do |contact_count, aspect_name|
@@ -38,4 +40,11 @@ When /^I drag the contact request to the "([^"]*)" aspect$/ do |aspect_name|
   aspect_div = find("ul.dropzone[data-aspect_id='#{aspect.id}']")
   request_li = find(".person.request.ui-draggable")
   request_li.drag_to(aspect_div)
+end
+
+When /^I click "X" on the contact request$/ do
+  evaluate_script <<-JS
+    window.confirm = function() { return true; };
+    $(".person.request.ui-draggable .delete").hover().click();
+  JS
 end
