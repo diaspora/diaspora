@@ -17,40 +17,40 @@ nl:
       unauthenticated: "Log in of registeer om verder te gaan."
       unconfirmed: "Activeer je account om verder te gaan."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
-      updated: "Your password was set successfully. You are now signed in."
+      invitation_token_invalid: "De opgegeven uitnodigingstoken is ongeldig!"
+      send_instructions: "Je uitnodiging is verzonden."
+      updated: "Wachtwoord succesvol veranderd. Je bent nu ingelogd."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirm my account"
-        subject: "Confirmation instructions"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+        confirm: "Bevestig mijn account"
+        subject: "Bevestigings instructies"
+        you_can_confirm: "Je kunt je account bevestigen via onderstaande link:"
+      hello: "Hallo %{email}!"
       invitation: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "A friend wants you to join Diaspora!"
+        accept: "Accepteer uitnodiging"
+        ignore: "Indien je de uitnodiging niet wilt accepteren kun je deze mail gewoon negeren."
+        no_account_till: "Je account zal niet worden aangemaakt totdat je jezelf via bovenstaande link registreert."
+        subject: "Je bent uitgenodigd om lid te worden op Diaspora!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", op %{url}, je kunt het accepteren via onderstaande link."
+        has_invited_you: "%{name} heeft je uitgenodigd om lid te worden op Diaspora"
+        have_invited_you: "%{names} hebben je uitgenodigd om lid te worden op Diaspora"
       reset_password_instructions: 
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
-        subject: "Reset password instructions"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        change: "Verander mijn wachtwoord"
+        ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."
+        someone_requested: "Iemand heeft een aanvraag gedaan tot het veranderen van je wachtwoord. Je kunt dit doen via onderstaande link."
+        subject: "Wachtwoord reset instructies"
+        wont_change: "Je wachtwoord zal niet veranderen totdat je via bovenstaande link een nieuwe hebt gekozen."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
+        account_locked: "Je account is vergrendeld als gevolg van een te hoog aantal mislukte pogingen tot inloggen."
+        click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
         subject: "Unlock Instructions"
-        unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+        unlock: "Ontgrendel mijn account"
+      welcome: "Welkom %{email}!"
     passwords: 
       new: 
-        forgot_password: "Forgot your password?"
-        send_password_instructions: "Send me reset password instructions"
+        forgot_password: "Wachtwoord vergeten?"
+        send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
       send_instructions: "Je ontvangt een email met instructies om je wachtwoord te resetten."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
     registrations: 
@@ -59,19 +59,19 @@ nl:
       updated: "Je account is succelvol geupdated."
     sessions: 
       new: 
-        have_a_problem: "Have a problem? Find an answer here"
-        login: Login
-        password: Password
-        remember_me: "Remember me"
-        sign_in: "Sign in"
-        username: Username
+        have_a_problem: "Problemen? Vind hier een antwoord"
+        login: "Log in"
+        password: Wachtwoord
+        remember_me: "Onthoud mij"
+        sign_in: "Log in"
+        username: Gebruikersnaam
       signed_in: "Je bent succesvol ingelogd."
       signed_out: "Je bent succesvol uitgelogd."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        forgot_your_password: "Wachtwoord vergeten?"
+        sign_in: "Log in"
+        sign_up: Registreer
     unlocks: 
       send_instructions: "Je ontvangt een email met instructies om je account te deblokkeren."
       unlocked: "Je account is succelvol gedeblokkeerd. Je bent nu ingelogd."
