@@ -3,5 +3,5 @@ execute "Remove Any Pervious Cronjob" do
 end
 
 execute "Add the current cronjob" do
-  command "crontab /usr/local/app/diaspora/chef/files/default/backupcorn.txt"
+  command "crontab /usr/local/app/diaspora/chef/files/default/backupcron.txt"
 end
