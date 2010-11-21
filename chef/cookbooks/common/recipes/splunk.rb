@@ -35,7 +35,7 @@ execute "Add monitor for diaspora" do
 end
 
 execute "Add monitor for nginx" do
-  command "splunk add monitor /usr/local/nginx/logs"
+  command "mkdir -p /usr/local/nginx/logs && splunk add monitor /usr/local/nginx/logs"
   not_if "splunk list monitor | grep nginx"
 end
 
