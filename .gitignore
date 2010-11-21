@@ -17,6 +17,7 @@ public/uploads/*
 public/assets/*
 public/source.tar*
 tmp/**/*
+tmp/*
 db/*.sqlite3
 .redcar
 

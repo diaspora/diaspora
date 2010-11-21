@@ -16,13 +16,9 @@
         processNotification(obj['notice']);
 
       }else if (obj['class'] == 'people'){
-        $('#loader').hide();
         debug("got a " + obj['class']);
-        if(obj['status'] == 'fail'){
-          $('#request_result li:first').show().$('#message').text(obj['response']).show();
-        }else{
-          processPerson(obj['html']);
-        }
+        processPerson(obj);
+
       }else{
         debug("got a " + obj['class'] + " for aspects " + obj['aspect_ids']);
 
@@ -46,12 +42,20 @@
     };
   });
 
-  function processPerson(html){
-    $('.people#stream').prepend(html).slideDown('slow', function(){});
-    var rr = $('#request_result li:first');
-    rr.after(html);
-    $("#request_result [name='into']").val(rr.attr('aspect_id'));
-    $('#request_result :nth-child(2)').slideDown('fast', function(){});
+  function processPerson(response){
+    form = $('.webfinger_form:visible');
+    form.siblings('.spinner').hide();
+    result_ul = form.siblings('.webfinger_result');
+    if(response['status'] == 'fail'){
+      result_ul.children('.error').show();
+      result_ul.children('.webfinger_error').text(response['response']).show();
+    }else{
+      //result_ul.prepend(response['html']).slideDown('slow', function(){});
+      var first_li = result_ul.find('li:first');
+      first_li.after(response['html']);
+      result_ul.children("[name='into']").val(first_li.attr('aspect_id'));
+      result_ul.children(':nth-child(2)').slideDown('fast', function(){});
+    }
   }
 
   function processNotification(html){
@@ -60,7 +64,7 @@
 
   function processRetraction(post_id){
     $("*[data-guid='"+post_id+"']").fadeOut(400, function(){$(this).remove()});
-    if($("#stream")[0].childElementCount == 0){
+    if($("#main_stream")[0].childElementCount == 0){
       $("#no_posts").fadeIn(200);
     }
   }
@@ -89,9 +93,9 @@
   function processPost(className, html, aspectIds){
     if(onPageForAspects(aspectIds)){
       var addPostToStream = function (html){
-        $("#stream:not('.show')").prepend(
+        $("#main_stream:not('.show')").prepend(
           $(html).fadeIn("fast", function(){
-            $("#stream").find("label").first().inFieldLabels();
+            $("#main_stream").find("label").first().inFieldLabels();
           })
         )
       };

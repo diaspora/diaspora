@@ -5,9 +5,9 @@
 
 
 $(document).ready(function(){
-  var $stream = $("#stream");
+  var $stream = $(".stream");
   // expand all comments on page load
-	$("#stream:not('.show')").find('.comments').each(function(index) {
+	$(".stream:not('.show')").find('.comments').each(function(index) {
       var comments = $(this);
 	    if(comments.children("li").length > 1) {
         var show_comments_toggle = comments.closest("li").find(".show_post_comments");
@@ -32,7 +32,7 @@ $(document).ready(function(){
               .closest("form").find(".comment_submit").fadeIn(200);
   });
 
-  $("#stream").delegate("textarea.comment_box", "blur", function(evt){
+  $(".stream").delegate("textarea.comment_box", "blur", function(evt){
     var commentBox = $(this);
     if( !commentBox.val() ) {
       commentBox.attr("rows", 1)

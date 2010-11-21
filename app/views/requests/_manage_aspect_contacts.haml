@@ -30,13 +30,13 @@
 
       = submit_tag t('.create_request')
     %br
-    #loader.hidden= image_tag 'ajax-loader.gif'
-    %ul#request_result{:aspect_id => aspect.id}
+    .spinner.hidden= image_tag 'ajax-loader.gif'
+    %ul{:class => 'webfinger_result stream', :aspect_id => aspect.id}
       %li.error.hidden
-        #message
+        .webfinger_error
           = link_to t('.know_email'), "#invite_user_pane", :class => "invite_user_button"
         %br
         .yo{ :style => "display:none;"}
-          #invite_user_pane
+          .invite_user_pane
             = render "invitations/new"
         

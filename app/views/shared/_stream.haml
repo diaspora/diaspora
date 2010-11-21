@@ -2,6 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%ul#stream
+%ul{:class => 'stream', :id => 'main_stream'}
   - for post in posts
     = render 'shared/stream_element', :post => post

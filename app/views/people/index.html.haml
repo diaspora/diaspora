@@ -7,7 +7,7 @@
     =t('.results_for')
     %u= params[:q]
 
-  %ul#stream.people
+  %ul{:class => 'stream people', :id => 'people_stream'}
     - for person in @people
       = render 'people/person', :person => person, :aspects => @aspects
 

@@ -17,7 +17,7 @@ When /^(.*) in the aspect list$/ do |action|
 end
 
 Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
-  within("#stream") do
+  within("#main_stream") do
     Then "I should see #{stuff}"
   end
 end

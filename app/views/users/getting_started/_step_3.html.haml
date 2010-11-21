@@ -7,7 +7,7 @@
   = t('.your_services')
   .description
     = t('.description')
-%ul#stream
+%ul.stream#service_stream
   - for service in @services
     %h3
       %b= service.provider

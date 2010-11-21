@@ -46,7 +46,7 @@ $(document).ready(function(){
     }
   });
 
-  $("#stream").delegate("textarea.comment_box", "keydown", function(e){
+  $(".stream").delegate("textarea.comment_box", "keydown", function(e){
     if (e.keyCode === 13) {
       $(this).closest("form").submit();
     }
@@ -72,8 +72,9 @@ $(document).ready(function(){
   $(".person img", ".dropzone").tipsy({live:true});
   $(".avatar", ".aspects").tipsy({live:true});
 
-  $('.webfinger_form').submit(function(){
-     $('#loader').show();
+  $('.webfinger_form').submit(function(evt){
+    form = $(evt.currentTarget);
+    form.siblings('.spinner').show();
      $('#request_result li:first').hide();
   });
 });//end document ready
