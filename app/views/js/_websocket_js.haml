@@ -53,7 +53,7 @@
       $('#people_stream').prepend(response['html']).slideDown('slow', function(){});
       var first_li = result_ul.find('li:first');
       first_li.after(response['html']);
-      result_ul.children("[name='into']").val(first_li.attr('aspect_id'));
+      result_ul.find("[name='request[into]']").val(result_ul.attr('aspect_id'));
       result_ul.children(':nth-child(2)').slideDown('fast', function(){});
     }
   }
