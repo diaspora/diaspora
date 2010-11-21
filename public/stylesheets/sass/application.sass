@@ -140,41 +140,58 @@ header
     :text-overflow ellipsis
     :text-shadow 0 1px 0 #000
 
-    :width auto
+    :width 120px
+
+    :cursor pointer
 
     :z-index 10
-    :padding 5px 10px
-      :left 40px
+    :padding 5px 0
+      :left 30px
+      :right 5px
     :margin 0
       :top -2px
       :right -5px
 
+    :background
+      :color #000
+    
+    :border
+      :radius 5px
+
     :position absolute
     :display inline
 
-    :top 0
+    :top 5px
     :right 0
 
     :list
       :style none
 
+    .right
+      :right 5px
+
+    &:hover
+      :background
+        :color #222
+
     li
       :display none
-      :padding 4px
 
       a
         :display block
+        :padding 4px
+        :height 100%
       &:hover
         :background
-          :color #009
-
+          :color #107FC9
+        :color #fff
 
     &.active
       :margin
         :top -3px
         :right -6px
       :background
-        :color #333
+        :color #000
       :border 1px solid #999
 
       :box-shadow 0 1px 2px #333
@@ -188,7 +205,8 @@ header
       :height 20px
       :width 20px
       :position absolute
-      :left 5px 
+      :left 2px 
+      :top 2px
       :display block
 
 .stream
@@ -712,11 +730,14 @@ form p
 
 form p.checkbox_select
   label
-    :left 20px
-    :top 0
+    :position relative
+    :left 0
+    :top 3px
+    :margin
+      :right 6px
   img
     :position relative
-    :left 90px
+    :top 7px
 
 label
   :font
@@ -1874,3 +1895,7 @@ h3,h4
   :box-shadow 0 4px 8px #333
 
   :display none
+
+.big_buttons
+  input
+    :width 100%

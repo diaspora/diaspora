@@ -20,6 +20,8 @@
         = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
     %ul#user_menu
+      .right
+        ▼
       .avatar
         = owner_image_tag
       = link_to current_user.real_name, '#'

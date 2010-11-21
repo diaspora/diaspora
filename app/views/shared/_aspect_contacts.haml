@@ -75,7 +75,8 @@
       = render 'shared/add_contact', :aspect => aspect
 
       %h3 Aspect settings
-      != remove_link(aspect)
+      .big_buttons
+        = button_to "Remove Aspect", aspect, :method => "delete", :confirm => "Remove aspect?"
 
   .contact_pictures
     - for contact in contacts
