@@ -59,16 +59,7 @@ module Diaspora
 
         #response from a contact request you sent
         if original_request = original_request(contact_request)
-          destination_aspect = self.aspect_by_id(original_request.into_id)
-          activate_contact(contact_request.from, destination_aspect)
-          Rails.logger.info("#{self.real_name}'s contact request has been accepted")
-
-          contact_request.destroy
-
-          pending_requests.delete(original_request)
-          original_request.destroy
-          self.save
-          Request.send_request_accepted(self, contact_request.from, destination_aspect)
+          receive_request_acceptance(contact_request, original_request)
 
           #this is a new contact request
         elsif !request_from_me?(contact_request)
@@ -81,6 +72,18 @@ module Diaspora
           raise "#{self.real_name} is trying to receive a contact request from himself."
         end
         contact_request
+      end
+
+      def receive_request_acceptance(received_request, sent_request)
+        destination_aspect = self.aspect_by_id(sent_request.into_id)
+        activate_contact(received_request.from, destination_aspect)
+        Rails.logger.info("#{self.real_name}'s contact request has been accepted")
+
+        received_request.destroy
+        pending_requests.delete(sent_request)
+        sent_request.destroy
+        self.save
+        Request.send_request_accepted(self, received_request.from, destination_aspect)
       end
 
       def disconnect(bad_contact)

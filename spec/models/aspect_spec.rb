@@ -179,7 +179,6 @@ describe Aspect do
       it 'deletes a user from the aspect' do
          user.add_person_to_aspect(user2.person.id, aspect1.id)
          user.reload
-         aspect1.reload.contacts.include?(contact).should be true
          user.delete_person_from_aspect(user2.person.id, aspect1.id)
          user.reload
          aspect1.reload.contacts.include?(contact).should be false
@@ -187,6 +186,15 @@ describe Aspect do
 
       it 'should check to make sure you have the aspect ' do
         proc{user.delete_person_from_aspect(user2.person.id, aspect2.id) }.should raise_error /Can not delete a person from an aspect you do not own/
+      end
+
+      it 'deletes no posts' do
+         user.add_person_to_aspect(user2.person.id, aspect1.id)
+         user.reload
+         user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
+         lambda{
+           user.delete_person_from_aspect(user2.person.id, aspect1.id)
+         }.should_not change(Post, :count)
       end
     end
 

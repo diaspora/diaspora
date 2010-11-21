@@ -36,12 +36,26 @@ describe Diaspora::UserModules::Connecting do
         user.receive_contact_request(r)
         user.reload.pending_requests.should include r
       end
+    end
 
-      it 'should autoaccept a request the user sent' do
-        request = user.send_contact_request_to(user2.person, aspect)
-        user.contact_for(user2.person).should be_nil
-        user.receive_request(request.reverse_for(user2), user2.person)
+    describe '#receive_request_accepted' do
+      before do
+        @original_request = user.send_contact_request_to(user2.person, aspect)
+        @acceptance = @original_request.reverse_for(user2)
+      end
+      it 'connects to the acceptor' do
+        user.receive_request(@acceptance, user2.person)
         user.contact_for(user2.person).should_not be_nil
+      end
+      it 'deletes the original request' do
+        user.receive_request(@acceptance, user2.person)
+        user.pending_requests.include?(@original_request).should be_false
+        Request.find(@original_request.id).should be_nil
+      end
+      it 'deletes the acceptance' do
+        user.receive_request(@acceptance, user2.person)
+        user.pending_requests.include?(@acceptance).should be_false
+        Request.find(@acceptance.id).should be_nil
       end
     end
 
