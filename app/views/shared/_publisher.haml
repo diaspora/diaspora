@@ -50,7 +50,7 @@
           %p.checkbox_select
             = status.check_box( :public, {}, true, false )
             = status.label :public, t('.make_public')
-            = image_tag "social_media_logos/feed-16x16.png", :title => "RSS"
+            = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url 
             - if current_user.services
               - for service in current_user.services      
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
