@@ -15,6 +15,7 @@ src_files:
   - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
   - public/javascripts/vendor/jquery.tipsy.js
   - public/javascripts/aspect-edit.js
+  - public/javascripts/web-socket-receiver.js
 
 # stylesheets
 #
