@@ -93,6 +93,10 @@ $(document).ready(function(){
     $("#q").focus();
   });
 
+  $(window).bind('keyup', 'ctrl+e', function(){
+    EditPane.toggle();
+  });
+
 });//end document ready
 
 

@@ -3,25 +3,61 @@
 -#   the COPYRIGHT file.
 
 
-:javascript
-  $(document).ready( function(){
-    $(".contact_list_search").keyup(function(e){
-      var search = $(this);
-      var list   = $(this).siblings("ul").first();
-      var query  = new RegExp(search.val(),'i');
+- content_for :head do
+  :javascript
+    $(document).ready( function(){
 
-      $("li", list).each( function() {
-        var element = $(this);
-        if( !element.text().match(query) ){
-          if( !element.hasClass('invis') ){
-            element.addClass('invis').slideUp(100);
-          }
-        } else {
-          element.removeClass('invis').slideDown(100);
+      var ContactList = {
+        initialize: function(){
+          $(".contact_list_search").keyup(function(e){
+            var search = $(this);
+            var list   = $(this).siblings("ul").first();
+            var query  = new RegExp(search.val(),'i');
+
+            $("li", list).each( function() {
+              var element = $(this);
+              if( !element.text().match(query) ){
+                if( !element.hasClass('invis') ){
+                  element.addClass('invis').fadeOut(100);
+                }
+              } else {
+                element.removeClass('invis').fadeIn(100);
+              }
+            });
+          });
+        },
+
+        refreshContactCount: function(){
+          var contactCountElement = $(".aspect_contact_count"),
+              contactCount = $(".contact_pictures")[0].childElementCount,
+              newHTML = contactCountElement.html().replace(/\d+/,contactCount);
+
+          contactCountElement.html(newHTML);
         }
+      };
+
+      $('.remove').live('ajax:success', function(data, html, xhr) {
+        var person_id = $(this).closest("li").find(".avatar").attr("data-person_id");
+        $(".contact_pictures").find("img[data-person_id='"+person_id+"']").parent().remove();
+
+        $(this).parent().html(html);
+        ContactList.refreshContactCount();
       });
+
+      $('.remove').live('ajax:failure', function(data, html, xhr) {
+        alert("Cannot remove person from last aspect.");
+      });
+
+      $('.add').live('ajax:success', function(data, html, xhr) {
+        var person_image = $(this).closest("li").find(".avatar")
+        person_image.parent().clone().appendTo(".contact_pictures");
+
+        $(this).parent().html(html);
+        ContactList.refreshContactCount();
+      });
+
+      ContactList.initialize();
     });
-  });
 
 
 .contact_list
@@ -31,25 +67,15 @@
     - for contact in contacts
       %li
         - unless contact.aspect_ids.include?(aspect.id)
-          = form_tag '/aspects/add_to_aspect' do
-            = person_image_tag contact.person
-            %span.name
-              = link_to contact.person.real_name, contact.person
-            .right
-              = hidden_field_tag :aspect_id, aspect.id
-              = hidden_field_tag :person_id, contact.person.id
-              - if defined?(manage) && manage
-                = hidden_field_tag :manage, true
-              = submit_tag '+', :class => 'add', :title => t('.add_to', :name => contact.person.real_name, :aspect => aspect)
-        - else
-          = form_tag '/aspects/remove_from_aspect' do
-            = person_image_tag contact.person
-            %span.name
-              = link_to contact.person.real_name, contact.person
-            .right
-              = hidden_field_tag :aspect_id, aspect.id
-              = hidden_field_tag :person_id, contact.person.id
-              - if defined?(manage) && manage
-                = hidden_field_tag :manage, true
-              = submit_tag 'x', :class => 'remove', :title => t('.remove_from', :name => contact.person.real_name, :aspect => aspect)
+          = person_image_link contact.person
+          %span.name
+            = link_to contact.person.real_name, contact.person
+          .right
+            = add_to_aspect_button(aspect.id, contact.person.id)
 
+        - else
+          = person_image_link contact.person
+          %span.name
+            = link_to contact.person.real_name, contact.person
+          .right
+            = remove_from_aspect_button(aspect.id, contact.person.id)

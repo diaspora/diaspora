@@ -6,40 +6,45 @@
   :javascript
     $("#edit_aspect_trigger").live("click",
       function(){
-        if( $("#edit_aspect_pane").hasClass("active") ) {
-          editPaneFadeOut();
-        } else {
-          editPaneFadeIn();
-        }
+        EditPane.toggle();
       }
     );
 
-    editPaneFadeIn = function(){
+    var EditPane = {
+      toggle: function() {
+        if( $("#edit_aspect_pane").hasClass("active") ) {
+          EditPane.fadeOut();
+        } else {
+          EditPane.fadeIn();
+        }
+      },
 
-      var trigger = $("#edit_aspect_trigger");
+      fadeIn: function(){
+        var trigger = $("#edit_aspect_trigger");
 
-      $("#edit_aspect_pane").addClass("active");
-      $(".contact_pictures").fadeOut(200, function(){
-        $("#edit_aspect_pane").fadeIn(200);
-        trigger.html("done editing");
-      });
+        $("#edit_aspect_pane").addClass("active");
+        $(".contact_pictures").fadeOut(200, function(){
+          $("#edit_aspect_pane").fadeIn(200);
+          trigger.html("done editing");
+        });
+      },
+
+      fadeOut: function(){
+        var trigger = $("#edit_aspect_trigger");
+        trigger.html("edit aspect");
+
+        $("#edit_aspect_pane").removeClass("active");
+        $("#edit_aspect_pane").fadeOut(200, function(){
+          $(".contact_pictures").fadeIn(200);
+        });
+      }
     };
 
-    editPaneFadeOut = function(){
-
-      var trigger = $("#edit_aspect_trigger");
-      trigger.html("edit aspect");
-
-      $("#edit_aspect_pane").removeClass("active");
-      $("#edit_aspect_pane").fadeOut(200, function(){
-        $(".contact_pictures").fadeIn(200);
-      });
-    };
 
   - if aspect != :all && aspect.contacts.count == 0
     :javascript
       $(document).ready(function(){
-        editPaneFadeIn();
+        EditPane.fadeIn();
       });
 
 - if (aspect == :all) && @request_count > 0
@@ -59,7 +64,7 @@
       .right
         = link_to "edit aspect", "#", :id => "edit_aspect_trigger", :class => "button"
 
-    %span{:style=>"color:#999;font-size:14px;"}
+    %span.aspect_contact_count{:style=>"color:#999;font-size:14px;"}
       = aspect.contacts.count
       - if aspect.contacts.count == 1
         contact

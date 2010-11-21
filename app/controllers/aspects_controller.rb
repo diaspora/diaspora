@@ -51,11 +51,7 @@ class AspectsController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @aspect_contacts = @aspect.contacts
-      #@posts           = current_user.visible_posts( :by_members_of => @aspect, :_type => "StatusMessage" ).paginate :per_page => 15, :order => 'created_at DESC'
-      @posts           = @aspect.posts.find_all_by__type("StatusMessage", :order => 'created_at desc').paginate :per_page => 15
-
-      pp @aspect.post_ids
-
+      @posts = @aspect.posts.find_all_by__type("StatusMessage", :order => 'created_at desc').paginate :per_page => 15
       respond_with @aspect
     end
   end
@@ -87,26 +83,41 @@ class AspectsController < ApplicationController
   end
 
   def add_to_aspect
-    if current_user.add_person_to_aspect( params[:person_id], params[:aspect_id])
-      flash[:notice] =  I18n.t 'aspects.add_to_aspect.success'
-    else 
-      flash[:error] =  I18n.t 'aspects.add_to_aspect.failure'
-    end
+    begin current_user.add_person_to_aspect( params[:person_id], params[:aspect_id])
+      @person_id = params[:person_id]
+      @aspect_id = params[:aspect_id]
+      flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
-    if params[:manage]
-      redirect_to aspects_manage_path
-    else
-      redirect_to aspect_path(params[:aspect_id])
+      respond_to do |format|
+        format.js { render :status => 200 }
+        format.html{ redirect_to aspect_path(@aspect_id)}
+      end
+    rescue Exception => e
+      flash.now[:error] =  I18n.t 'aspects.add_to_aspect.failure'
+      respond_to do |format|
+        format.js  { render :text => e, :status => 403 }
+        format.html{ redirect_to aspect_path(@aspect_id)}
+      end
     end
   end
 
   def remove_from_aspect
     begin current_user.delete_person_from_aspect(params[:person_id], params[:aspect_id])
+      @person_id = params[:person_id]
+      @aspect_id = params[:aspect_id]
       flash.now[:notice] = I18n.t 'aspects.remove_from_aspect.success'
-      render :nothing => true, :status => 200
+
+      respond_to do |format|
+        format.js { render :status => 200 }
+        format.html{ redirect_to aspect_path(@aspect_id)}
+      end
     rescue Exception => e
       flash.now[:error] = I18n.t 'aspects.remove_from_aspect.failure'
-      render :text => e, :status => 403
+
+      respond_to do |format|
+        format.js  { render :text => e, :status => 403 }
+        format.html{ redirect_to aspect_path(@aspect_id)}
+      end
     end
   end
 end

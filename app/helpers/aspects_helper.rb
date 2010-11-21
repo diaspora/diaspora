@@ -14,4 +14,12 @@ module AspectsHelper
       "<span class='grey' title=#{I18n.t('aspects.helper.aspect_not_empty')}>#{I18n.t('aspects.helper.remove')}</span>"
     end
   end
+
+  def add_to_aspect_button(aspect_id, person_id)
+    link_to '+', {:action => 'add_to_aspect', :aspect_id => aspect_id, :person_id => person_id}, :remote => true, :class => 'add button'
+  end
+
+  def remove_from_aspect_button(aspect_id, person_id)
+    link_to 'x', {:action => 'remove_from_aspect', :aspect_id => aspect_id, :person_id => person_id}, :remote => true, :class => 'remove button'
+  end
 end
