@@ -748,6 +748,7 @@ label
     :shadow 0 1px 1px #eee
 
 #file-upload
+  :z-index 3
   :float right
   :height 34px
   :width 70px
@@ -755,9 +756,9 @@ label
   :background
     :color #107FC9
 
-  :-webkit-border-radius 0 5px 5px 0
-  :-moz-border-radius 0 5px 5px 0
-  :border-radius 0 5px 5px 0
+  :-webkit-border-radius 5px
+  :-moz-border-radius 5px
+  :border-radius 5px 
 
   :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(0,123,194)), color-stop(1, rgb(65,182,250)))
   :background -moz-linear-gradient( center bottom, rgb(0,123,194) 0%, rgb(65,182,250) 100%)
@@ -1910,3 +1911,4 @@ h3,h4
 .big_buttons
   input
     :width 100%
+

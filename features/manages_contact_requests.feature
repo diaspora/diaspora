@@ -7,16 +7,18 @@ Feature: managing contact requests
     
   Scenario: seeing contact requests
     When I am on the home page
-    Then I should see "Manage (1)" in the header
+    Then I should see "Home (1)" in the header
 
   @javascript
   Scenario: accepting a contact request
     When I am on the home page
-    And I follow "Manage (1)"
+    And I follow "Home (1)"
     Then I should see 1 contact request
     And I should see 0 contacts in "Family"    
 
-    When I drag the contact request to the "Family" aspect
+    When I am on the home page
+    Then I follow "1 new request!"
+		And I drag the contact request to the "Family" aspect
     And I wait for the ajax to finish
     Then I should see 1 contact in "Family"
 

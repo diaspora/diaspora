@@ -60,16 +60,15 @@ en:
         blog: "blog"
         developers: "developers"
         login: "login"
+        add_a_new_aspect: "add a new aspect"
+        manage: "Manage"
+        manage_your_aspects: "Manage your Aspects"
+        everyone: "Everyone"
       application:
         powered_by: "POWERED BY DIASPORA*"
   shared:
       stream_element:
           show_comments: "show comments"
-      aspect_nav:
-          manage: "Manage"
-          manage_your_aspects: "Manage your Aspects"
-          everyone: "Everyone"
-          add_a_new_aspect: "add a new aspect"
       publisher:
           posting: "Posting..."
           share: "Share"

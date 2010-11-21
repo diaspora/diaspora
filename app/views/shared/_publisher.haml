@@ -49,7 +49,7 @@
         .public_toggle
           %p.checkbox_select
             = status.check_box( :public, {}, true, false )
-            = status.label :public, "publish to services"
+            = status.label :public, "make public"
             = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url 
             - if current_user.services
               - for service in current_user.services      
