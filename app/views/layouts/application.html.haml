@@ -35,6 +35,7 @@
     
     - if current_user
       = include_javascripts :flash_socket unless modern_browser?
+      = javascript_include_tag 'web-socket-receiver'
       = render 'js/websocket_js'
 
     = csrf_meta_tag
@@ -70,8 +71,8 @@
       .span-24.last
         = yield
 
-      /.span-24.last
-      /= render "posts/debug"
+      .span-24.last
+      = render "posts/debug"
     .clearfix
 
     %footer
