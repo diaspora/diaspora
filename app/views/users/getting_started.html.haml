@@ -5,16 +5,19 @@
 
 - content_for :head do
   :javascript
-    $("#new_aspect").live("ajax:success", function(data,stat,xhr){
-      window.location.reload();
-    });
+    $(document).ready(function(){
+      $("#new_aspect").live("ajax:success", function(data,stat,xhr){
+        window.location.reload();
+      });
 
-    $(".aspects li").find(".delete").live("click", function(){
-      var aspectElement = $(this).parent("li");
-      if (confirm("are you sure?")){
-        aspectElement.fadeOut(300, function(){aspectElement.remove();});
-      }
+      $(".aspects li").find(".delete").live("click", function(){
+        var aspectElement = $(this).parent("li");
+        if (confirm("are you sure?")){
+          aspectElement.fadeOut(300, function(){aspectElement.remove();});
+        }
+      });
     });
+    
     
   - if current_user.getting_started == true
     :javascript

@@ -1561,15 +1561,14 @@ h3 span.current_gs_step
     
 #profile
   ul#aspects_for_person
-  
     > li
-
       :display inline-block
-      :padding 4px 2px 0 0
+      :padding 4px 6px 0 0
 
       a
-        :border-radius 6px
         :padding 2px 4px
+        :margin
+          :left -3px
         :background
           :color #eee
         :font
@@ -1600,6 +1599,17 @@ h3 span.current_gs_step
 
           :color #eee
           :text-shadow none
+
+      a:first-child
+        :-webkit-border-radius 6px 0 0 6px
+        :-moz-border-radius 6px 0 0 6px
+        :border-radius 6px 0 0 6px
+
+      a:last-child
+        :-webkit-border-radius 0 6px 6px 0
+        :-moz-border-radius 0 6px 6px 0
+        :border-radius 0 6px 6px 0
+
 
 ul#request_result
   :list-style none

@@ -21,11 +21,5 @@ describe Contact do
     it 'has many aspects' do
       contact.associations[:aspects].type.should == :many
     end
-
-    it 'has at least one aspect' do
-      contact.valid?
-      contact.errors.full_messages.should include "Aspects can't be blank"
-    end
-
   end
 end

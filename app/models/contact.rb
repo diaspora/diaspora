@@ -13,6 +13,5 @@ class Contact
 
   key :aspect_ids, Array, :typecast => 'ObjectId'  
   many :aspects, :in => :aspect_ids, :class_name => 'Aspect'
-  validates_presence_of :aspects
  
 end

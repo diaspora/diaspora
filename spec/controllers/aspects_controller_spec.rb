@@ -8,13 +8,17 @@ describe AspectsController do
   render_views
 
   before do
-    @user                       = make_user
-    @aspect                     = @user.aspects.create(:name => "lame-os")
-    @aspect1                    = @user.aspects.create(:name => "another aspect")
-    @user2                      = make_user
-    @aspect2                    = @user2.aspects.create(:name => "party people")
+    @user     = make_user
+    @user2    = make_user
+
+    @aspect   = @user.aspects.create(:name => "lame-os")
+    @aspect1  = @user.aspects.create(:name => "another aspect")
+    @aspect2  = @user2.aspects.create(:name => "party people")
+
     connect_users(@user, @aspect, @user2, @aspect2)
+
     @contact                    = @user.contact_for(@user2.person)
+
     sign_in :user, @user
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
@@ -116,15 +120,17 @@ describe AspectsController do
   describe "#add_to_aspect" do
     it 'adds the users to the aspect' do
       @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be false
+      @aspect1.contacts.include?(@contact).should be_false
       post 'add_to_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
       @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be true
+      @aspect1.contacts.include?(@contact).should be_true
     end
   end
 
   describe "#remove_from_aspect" do
-    it 'adds the users to the aspect' do
+    it 'removes contacts from an aspect' do
+      pending 'this needs to test with another aspect present'
+
       @aspect.reload
       @aspect.contacts.include?(@contact).should be true
       post 'remove_from_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}

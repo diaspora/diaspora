@@ -98,40 +98,39 @@ class User
   end
 
   def move_contact(opts = {})
-    return true if opts[:to] == opts[:from]
-    if opts[:person_id] && opts[:to] && opts[:from]
-      from_aspect = self.aspects.first(:_id => opts[:from])
-      posts_to_move = from_aspect.posts.find_all_by_person_id(opts[:person_id])
-      if add_person_to_aspect(opts[:person_id], opts[:to], :posts => posts_to_move)
-        delete_person_from_aspect(opts[:person_id], opts[:from], :posts => posts_to_move)
-        return true
+    if opts[:to] == opts[:from]
+      true
+    elsif opts[:person_id] && opts[:to] && opts[:from]
+      from_aspect = self.aspects.find_by_id(opts[:from])
+
+      if add_person_to_aspect(opts[:person_id], opts[:to])
+        delete_person_from_aspect(opts[:person_id], opts[:from])
       end
     end
-    false
   end
 
-  def add_person_to_aspect(person_id, aspect_id, opts = {})
+  def add_person_to_aspect(person_id, aspect_id)
     contact = contact_for(Person.find(person_id))
     raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
     raise "Can not add person you are not connected to" unless contact
     raise 'Can not add person who is already in the aspect' if aspect.contacts.include?(contact)
     contact.aspects << aspect
-    opts[:posts] ||= self.raw_visible_posts.all(:person_id => person_id)
-
-    aspect.posts += opts[:posts]
-    contact.save
-    aspect.save
+    contact.save!
+    aspect.save!
   end
 
   def delete_person_from_aspect(person_id, aspect_id, opts = {})
     aspect = Aspect.find(aspect_id)
     raise "Can not delete a person from an aspect you do not own" unless aspect.user == self
     contact = contact_for Person.find(person_id)
-    contact.aspect_ids.delete aspect.id
-    opts[:posts] ||= aspect.posts.all(:person_id => person_id)
-    aspect.posts -= opts[:posts]
-    contact.save
-    aspect.save
+
+    if opts[:force] || contact.aspect_ids.count > 1
+      contact.aspect_ids.delete aspect.id
+      contact.save!
+      aspect.save!
+    else
+      raise "Can not delete a person from last aspect"
+    end
   end
 
   ######## Posting ########
