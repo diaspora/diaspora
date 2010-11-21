@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: git://github.com/jnunemaker/mongomapper.git
-  revision: 9f22809a04f13b37db9078371a524aff67fafd70
+  revision: de8f8f3171f687f8d65b87ba7c7d3b1cb6e3bbe6
   branch: rails3
   specs:
     mongo_mapper (0.8.6)
@@ -336,7 +336,7 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    thor (0.14.4)
+    thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     twitter (1.0.0)
