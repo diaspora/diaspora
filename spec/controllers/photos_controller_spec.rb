@@ -58,6 +58,7 @@ describe PhotosController do
   describe '#show' do
     it 'assigns the photo based on the photo id' do
       get :show, :id => photo.id
+      response.code.should == "200"
 
       assigns[:photo].should == photo
       assigns[:ownership].should == true 

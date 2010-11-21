@@ -57,6 +57,6 @@
     = link_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete, :class => 'button'
 
 .span-9.last
-  %div{id => 'photo_stream', :class => 'stream show'}"
+  %div{id => 'photo_stream', :class => 'stream show'}
     %li.message{:data=>{:guid=>@photo.id}}
       = render "comments/comments", :post => @photo
