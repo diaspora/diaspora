@@ -3,10 +3,10 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
-  has_mobile_fu
+  #has_mobile_fu
   protect_from_forgery :except => :receive
 
-  before_filter :mobile_except_ipad
+  # =>before_filter :mobile_except_ipad
   before_filter :set_contacts_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :set_invites
