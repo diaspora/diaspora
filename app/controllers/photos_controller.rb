@@ -77,9 +77,16 @@ class PhotosController < ApplicationController
     if photo
       photo.destroy
       flash[:notice] = I18n.t 'photos.destroy.notice'
+
+      if photo.status_message_id
+        respond_with :location => photo.status_message
+      else
+        respond_with :location => photos_path
+      end
+    else
+      respond_with :location => photos_path
     end
-    
-    respond_with :location => photo.status_message
+   
   end
 
   def show
@@ -108,7 +115,6 @@ class PhotosController < ApplicationController
       if current_user.update_post( photo, params[:photo] )
         flash.now[:notice] = I18n.t 'photos.update.notice'
         respond_to do |format|
-          format.html
           format.js{ render :json => photo, :status => 200 }
         end
       else
