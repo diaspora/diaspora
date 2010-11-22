@@ -11,7 +11,7 @@ class StatusMessage < Post
 
   key :message, String
   many :photos, :class => Photo, :foreign_key => :status_message_id
-  validates_presence_of :message
+  validate :message_or_photos_present?
 
   attr_accessible :message
 
@@ -28,5 +28,14 @@ class StatusMessage < Post
   </entry>
         XML
   end
+
+  protected
+
+  def message_or_photos_present?
+    unless self.message || self.photos.count > 0
+      errors[:base] << 'Status message requires a message or at least one photo'
+    end
+  end
+
 end
 

@@ -5,16 +5,24 @@
 require 'spec_helper'
 
 describe StatusMessage do
+
   before do
-      @user = make_user
-      @aspect = @user.aspects.create(:name => "losers")
+    @user = make_user
+    @aspect = @user.aspects.create(:name => "losers")
   end
 
-  it "should have a message" do
+  it "should have either a message or at least one photo" do
     n = Factory.build(:status_message, :message => nil)
-    n.valid?.should be false
+    n.valid?.should be_false
     n.message = "wales"
-    n.valid?.should be true
+    n.valid?.should be_true
+    n.message = nil
+
+    photo = @user.build_post(:photo, :user_file => uploaded_photo, :to => @aspect.id)
+    photo.save!
+
+    n.photos << photo
+    n.valid?.should be_true
   end
 
   it 'should be postable through the user' do
