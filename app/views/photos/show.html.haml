@@ -5,7 +5,8 @@
 - content_for :head do
   :javascript
     $(document).ready( function(){
-      $("#edit_photo_toggle").bind('click', function() {
+      $("#edit_photo_toggle").bind('click', function(evt) {
+        evt.preventDefault();
         $("#photo_edit_options").toggle();
         $(".edit_photo input[type='text']").first().focus();
       });
@@ -38,12 +39,11 @@
     #show_photo
       -if @ownership
         = image_tag 'ajax-loader.gif', :id => "photo_spinner", :class => "hidden"
-        .edit_pane
-          .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
-            = link_to t('.make_profile_photo'), '#', :class => "make_profile_photo"
-            |
-            = link_to 'edit', '#', :id => "edit_photo_toggle"
-          = image_tag @photo.url(:scaled_full)
+        = image_tag @photo.url(:scaled_full)
+        .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
+          = link_to t('.make_profile_photo'), '#', :class => 'make_profile_photo'
+          |
+          = link_to 'edit', '#', :id => "edit_photo_toggle"
 
       -else
         = image_tag @photo.url(:scaled_full)

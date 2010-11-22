@@ -138,12 +138,19 @@ function openVideo(type, videoid, link) {
   link.onclick = function() { $container.slideToggle('fast', function() { } ); }
 }
 
-$(".make_profile_photo").live("click", function(){
+$(".make_profile_photo").live("click", function(evt){
+
+  evt.preventDefault();
+
   var $this = $(this),
-      $controls  = $this.closest(".controls"),
+      $controls = $this.closest(".photo_options"),
       user_id   = $controls.attr('data-actor');
       person_id = $controls.attr('data-actor_person');
       photo_url = $controls.attr('data-image_url');
+
+  $("img[data-person_id='"+ person_id +"']").each( function() {
+    $(this).fadeTo(200,0.3);
+  });
 
   $.ajax({
     type: "PUT",
@@ -151,6 +158,7 @@ $(".make_profile_photo").live("click", function(){
     data: {"person":{"profile":{ "image_url": photo_url }}},
     success: function(){
       $("img[data-person_id='"+ person_id +"']").each( function() {
+        $(this).fadeTo(200,1);
         this.src = photo_url;
       });
     }

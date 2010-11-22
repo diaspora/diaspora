@@ -665,6 +665,7 @@ li.message .from .right
       :margin-right 1em
 
 #show_photo
+  :position relative
   :display inline-block
   :background
     :color #fff
@@ -680,6 +681,8 @@ li.message .from .right
   :border-radius 3px
 
   img
+    :z-index 2
+    :position relative
     :max-width 100%
     :margin
       :bottom 10px
@@ -687,6 +690,7 @@ li.message .from .right
       :bottom 1px solid #ddd
 
   #photo_spinner
+    :z-index 1
     :position absolute
     :height 100px
     :width 100px
@@ -1351,32 +1355,13 @@ input[type="search"]
     :border-radius 5px
 
 
-.edit_pane
+.photo_options
   :display inline
-  :position relative
+  :position absolute
+  :bottom 5px 
+  :right 13px
 
-  .controls
-    :display none
-    :background
-      :color rgba(51,51,51,0.9)
-    :padding 10px
-    :position absolute
-    :right 1px
-    :margin
-      :top 1px
-
-    a
-      :font
-        :weight bold
-      :color #eee
-      :text-shadow 0 1px #000
-
-      &:hover
-        :color #fff
-    
-  &:hover
-    .controls
-      :display inline
+  :color #999
 
 ul#breadcrumb
   :list
