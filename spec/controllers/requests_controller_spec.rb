@@ -14,14 +14,16 @@ describe RequestsController do
     
     @user.aspects.create!(:name => "lame-os")
     @user.reload
+
+    @other_user = make_user
+    @other_user.aspects.create!(:name => "meh")
+    @other_user.reload
   end
-  
+
   describe '#destroy' do
     before do
-      @other_user = make_user
-      @other_user.aspects.create!(:name => "meh")
-      @other_user.reload
-      
+
+
       @other_user.send_contact_request_to(@user.person, @other_user.aspects.first)
       @user.reload # so it can find its pending requests.
       @friend_request = @user.pending_requests.first
@@ -46,6 +48,22 @@ describe RequestsController do
   end
 
   describe '#create' do
+    it 'autoaccepts and when sending a request to someone who sent me a request' do
+        #pending "When a user sends a request to person who requested them the request should be auto accepted"
+        @other_user.send_contact_request_to(@user.person, @other_user.aspects[0])
+        @user.reload.pending_requests.count.should == 1
+        @user.contact_for(@other_user.person).should be_nil
+
+        post(:create, :request => {
+          :to => @other_user.diaspora_handle,
+          :into => @user.aspects[0].id 
+        } 
+            )
+        @user.reload.pending_requests.count.should == 0
+        @user.contact_for(@other_user.person).should_not be_nil
+        @user.aspects[0].contacts.all(:person_id => @other_user.person.id).should_not be_nil
+    end
+
     it "redirects when requesting to be contacts with yourself" do
       post(:create, :request => {
         :to => @user.diaspora_handle,

@@ -6,6 +6,7 @@ module Diaspora
   module UserModules
     module Connecting
       def send_contact_request_to(desired_contact, aspect)
+        ##THIS METHOD IS ONLY USED IN TEST HELPERS
         request = Request.instantiate(:to => desired_contact, 
                                       :from => self.person,
                                       :into => aspect)
