@@ -56,6 +56,20 @@
     = link_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete, :class => 'button'
 
 .span-9.last
+
+  - if @photo.status_message_id
+    #original_post_info
+      %h4{:style=>"margin-bottom:5px;position:relative;"}
+        Original Post
+        =link_to 'view', @photo.status_message
+
+      %p
+        = @photo.status_message.message
+
+      - for photo in @photo.status_message.photos
+        = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
+    %br
+
   %h4{:style=>"margin-bottom:5px;"} Comments
   %div{id => 'photo_stream', :class => 'stream show'}
     %li.message{:data=>{:guid=>@photo.id}}

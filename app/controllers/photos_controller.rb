@@ -11,7 +11,7 @@ class PhotosController < ApplicationController
   def index
     @aspect = :profile
     @post_type = :photos
-    @person = Person.find(params[:person_id].to_id)
+    @person = Person.find_by_id(params[:person_id])
 
     if @person
       @profile = @person.profile
@@ -24,7 +24,8 @@ class PhotosController < ApplicationController
         @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
       end
 
-      @posts = current_user.visible_posts(:_type => 'Photo', :person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
+      @posts = current_user.raw_visible_posts.all(:_type => 'Photo', :person_id => @person.id, :order => 'created_at DESC').paginate :page => params[:page], :order => 'created_at DESC'
+
       render 'people/show'
 
     else

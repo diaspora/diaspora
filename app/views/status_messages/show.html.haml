@@ -9,8 +9,12 @@
   #show_text
     %p
       = markdownify(@status_message.message)
-    .time
-      = how_long_ago(@status_message)
+
+    - for photo in @status_message.photos
+      = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
+
+  .time
+    = how_long_ago(@status_message)
   - if current_user.owns? @status_message
     = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
