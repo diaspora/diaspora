@@ -13,7 +13,7 @@ Feature: managing contact requests
   Scenario: accepting a contact request
     When I am on the home page
     And I follow "Home (1)"
-    Then I should see 1 contact request
+    Then I should see "1 new request!" 
     And I should see 0 contacts in "Family"    
 
     When I am on the home page
