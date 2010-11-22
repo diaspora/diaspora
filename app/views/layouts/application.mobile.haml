@@ -26,11 +26,10 @@
         %h1
           = person_image_tag (current_user.person)
           = current_user.real_name 
-      %div{:data => {:role => 'fieldcontain'}}
       = select_tag "aspect_picker", aspect_select_options(@aspects, @aspect)
       
       = yield
            
-      %div{:data => {:role => 'fieldcontain'}}
-        = form_tag(people_path, :method => 'get') do
-          = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search'
+      /%div{:data => {:role => 'fieldcontain'}}
+      /  = form_tag(people_path, :method => 'get') do
+      /    = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search'

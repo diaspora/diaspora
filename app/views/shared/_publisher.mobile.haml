@@ -11,15 +11,19 @@
 
     = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
-    .options_and_submit
-      - if aspect == :all
-        = status.submit t('.share'), :title => t('.share_with_all')
-      - else
-        = status.submit t('.share'), :title => t('.share_with', :aspect => aspect)
+    %fieldset{:class => 'ui-grid-a'}
+      .options_and_submit
+        %div{:class => 'ui-block-a'}
+          - if aspect == :all
+            = status.submit t('.share'), :title => t('.share_with_all')
+          - else
+            = status.submit t('.share'), :title => t('.share_with', :aspect => aspect)
 
-      - if aspect == :all
-        .public_toggle
-          %p.checkbox_select
-            = status.check_box( :public, {}, true, false )
-            = status.label :public, t('.make_public')
-          = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
+        - if aspect == :all
+          %div{:class => 'ui-block-a'}
+
+            .public_toggle
+              %p.checkbox_select
+                = status.check_box( :public, {}, true, false )
+                = status.label :public, t('.make_public')
+              = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"

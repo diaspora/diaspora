@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= markdownify(post.message)
+%h3= markdownify(post.message)
 %br
 - for photo in post.photos
   = link_to (image_tag photo.url(:thumb_medium)), object_path(photo)

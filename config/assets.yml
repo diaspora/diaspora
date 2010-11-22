@@ -16,6 +16,7 @@ javascripts:
     - public/javascripts/stream.js
   mobile:
     - public/javascripts/vendor/jquery144.min.js
+    - public/javascripts/custom-mobile-scripting.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/vendor/jquery_mobile_a2.min.js
