@@ -29,8 +29,6 @@ var WebSocketReceiver = {
         }else if (obj['class']=="comments"){
           WebSocketReceiver.processComment(obj['post_id'], obj['html'], {'notification':obj['notification'], 'mine?':obj['mine?'], 'my_post?':obj['my_post?']})
 
-        }else if (obj['class']=='photos' && WebSocketReceiver.onPageForClass('albums')){
-          WebSocketReceiver.processPhotoInAlbum(obj['photo_hash'])
         }else{
           WebSocketReceiver.processPost(obj['class'], obj['html'], obj['aspect_ids'])
         }
@@ -102,21 +100,6 @@ var WebSocketReceiver = {
         $("#main_stream").find("label").first().inFieldLabels();
       })
     );
-  },
-
-  processPhotoInAlbum: function(photoHash){
-    if (location.href.indexOf(photoHash['album_id']) == -1){
-      return ;
-    }
-
-    html =  "<div class=\'image_thumb\' id=\'"+photoHash['id']+"\' style=\'padding-right:3px;\'> \
-      <a href=\"/photos/"+ photoHash['id'] +"\"> \
-      <img alt=\"New thumbnail\" src=\""+ photoHash['thumb_url'] +"\" /> \
-      </a> </div>"
-    $("#thumbnails").append( $(html) )
-    $("#"+ photoHash['id'] + "  img").load( function() {
-      $(this).fadeIn("slow");
-    });
   },
 
   onPageForClass: function(className){

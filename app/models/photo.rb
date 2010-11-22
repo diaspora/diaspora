@@ -95,8 +95,9 @@ class Photo < Post
   def as_json(opts={})
     {
       :photo => {
-        :id     => self.id,
-        :url    => self.url(:thumb_medium)
+        :id => self.id,
+        :url => self.url(:thumb_medium),
+        :caption => self.caption
       }
     }
   end

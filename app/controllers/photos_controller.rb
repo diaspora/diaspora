@@ -78,8 +78,8 @@ class PhotosController < ApplicationController
       photo.destroy
       flash[:notice] = I18n.t 'photos.destroy.notice'
     end
-
-    respond_with :location => photos_path
+    
+    respond_with :location => photo.status_message
   end
 
   def show
@@ -106,11 +106,17 @@ class PhotosController < ApplicationController
     photo = current_user.my_posts.where(:_id => params[:id]).first
     if photo
       if current_user.update_post( photo, params[:photo] )
-        flash[:notice] = I18n.t 'photos.update.notice'
-        respond_with photo
+        flash.now[:notice] = I18n.t 'photos.update.notice'
+        respond_to do |format|
+          format.html
+          format.js{ render :json => photo, :status => 200 }
+        end
       else
-        flash[:error] = I18n.t 'photos.update.error'
-        redirect_to [:edit, photo]
+        flash.now[:error] = I18n.t 'photos.update.error'
+        respond_to do |format|
+          format.html{ redirect_to [:edit, photo] }
+          format.js{ render :status => 403 }
+        end
       end
     else
       redirect_to person_photos_path(current_user.person)

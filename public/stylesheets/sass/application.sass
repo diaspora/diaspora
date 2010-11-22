@@ -29,6 +29,10 @@ a
 h1, h2, h3, h4
   :color #444
 
+h4
+  :margin
+    :bottom 5px
+
 ol, ul
   :list-style none
 
@@ -679,7 +683,12 @@ li.message .from .right
     :border 1px solid #eee
       :bottom 1px solid #ddd
 
-  .caption
+  #photo_spinner
+    :position absolute
+    :height 100px
+    :width 100px
+
+  #caption
     :min-height 20px
     :padding 0 10px
     :font
@@ -1279,7 +1288,7 @@ input[type="search"]
 .fancybox_content
   :display none
 
-.edit_photo
+#photo_edit_options
   :display none
 
 #section_header
@@ -1922,8 +1931,6 @@ h3,h4
     a
       :font
         :size 12px
-
-
   img
     :-webkit-box-shadow 0 1px 2px #666
     :-moz-box-shadow 0 1px 2px #666

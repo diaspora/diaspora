@@ -3,74 +3,81 @@
 -#   the COPYRIGHT file.
 
 - content_for :head do
-  =javascript_include_tag 'photo'
-  
+  :javascript
+    $(document).ready( function(){
+      $("#edit_photo_toggle").bind('click', function() {
+        $("#photo_edit_options").toggle();
+        $(".edit_photo input[type='text']").first().focus();
+      });
+
+      $('.edit_photo').bind('ajax:loading', function(data, json, xhr) {
+        $("#photo_edit_options").toggle();
+        $("#photo_spinner").show();
+        $("#show_photo").find("img").fadeTo(200,0.3);
+      });
+
+      $('.edit_photo').bind('ajax:failure', function(data, json, xhr) {
+        alert('Failed to delete photo.  Are you sure you own this?');
+        $("#show_photo").find("img").fadeTo(200,1);
+        $("#photo_spinner").hide();
+      });
+      
+      $('.edit_photo').bind('ajax:success', function(data, json, xhr) {
+        json = $.parseJSON(json);
+        $(".edit_photo input[type='text']").val(json['photo']['caption']);
+        $("#caption").html(json['photo']['caption']);
+        $("#show_photo").find("img").fadeTo(200,1);
+        $("#photo_spinner").hide();
+      });
+    });
 
 = render 'shared/author_info', :person => @photo.person, :post => @photo
-
-/ we need to do next photo here
-/- if @photo.album
-/= link_to "<< #{t('.prev')}", url_to_prev(@photo, @album), :rel => 'prefetch', :id => "prev_photo"
-/|
-/= link_to "#{t('.full_size')}", @photo.url
-/|
-/= link_to "#{t('.next')} >>", url_to_next(@photo, @album), :rel => 'prefetch', :id => "next_photo"
 
 .span-14.append-1.last
   %div{:data=>{:guid=>@photo.id}}
     #show_photo
-
       -if @ownership
+        = image_tag 'ajax-loader.gif', :id => "photo_spinner", :class => "hidden"
         .edit_pane
           .controls{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
             = link_to t('.make_profile_photo'), '#', :class => "make_profile_photo"
+            |
+            = link_to 'edit', '#', :id => "edit_photo_toggle"
           = image_tag @photo.url(:scaled_full)
 
       -else
         = image_tag @photo.url(:scaled_full)
 
-      .caption
+      #caption
         = @photo.caption
 
-    %br
-    %br
-    %br
-
-    -if @ownership
-      = link_to t('.edit_photo'),'javascript:void(0)', :id => "edit-desc", :class => "edit-desc"
-
-  -if @ownership
-    %div{:class => 'clear'}
-    -if !@photo.caption or @photo.caption == ""
-      = link_to t('.add_a_description'),'javascript:void(0)', :id => "add-description", :class => "edit-desc"
-
-  %br
   %br
 
-  = form_for @photo do |p|
-    = p.text_field :caption, :value => @photo.caption
-    = p.submit t('.update_photo')
-    %div{:class => 'clear'}
-
   -if @ownership
-    = link_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete, :class => 'button'
+    #photo_edit_options
+      %h4 Edit photo description / delete photo
+      %p
+        = form_for @photo, :remote => true do |p|
+          = p.text_field :caption, :value => @photo.caption
+          = p.submit t('.update_photo')
+      %p
+        = button_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete
 
 .span-9.last
-
   - if @photo.status_message_id
     #original_post_info
-      %h4{:style=>"margin-bottom:5px;position:relative;"}
+      %h4{:style=>"position:relative;"}
         Original Post
-        =link_to 'view', @photo.status_message
+        = link_to 'view', @photo.status_message
 
       %p
         = @photo.status_message.message
 
-      - for photo in @photo.status_message.photos
-        = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
-    %br
+      %p
+        - for photo in @photo.status_message.photos
+          = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
 
-  %h4{:style=>"margin-bottom:5px;"} Comments
-  %div{id => 'photo_stream', :class => 'stream show'}
+  %h4 Comments
+  %div{:id => 'photo_stream', :class => 'stream show'}
     %li.message{:data=>{:guid=>@photo.id}}
       = render "comments/comments", :post => @photo
