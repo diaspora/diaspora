@@ -136,6 +136,8 @@ function openVideo(type, videoid, link) {
   link.parentNode.insertBefore(container, this.nextSibling);
   $container.slideDown('fast', function() { });
   link.onclick = function() { $container.slideToggle('fast', function() { } ); }
+  
+  
 }
 
 $(".make_profile_photo").live("click", function(evt){

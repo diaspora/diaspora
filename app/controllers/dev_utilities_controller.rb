@@ -69,7 +69,7 @@ class DevUtilitiesController < ApplicationController
       current_user.raw_visible_posts << photo
       current_user.save
 
-     current_user.update_profile(:image_url => photo.url(:thumb_medium))
+     current_user.update_profile(:image_url => photo.url(:thumb_large))
      current_user.save
   end
 

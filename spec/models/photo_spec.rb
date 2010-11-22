@@ -82,7 +82,7 @@ describe Photo do
     it 'should remove its reference in user profile if it is referred' do
       @photo.save
 
-      @user.profile.image_url = @photo.image.url(:thumb_medium)
+      @user.profile.image_url = @photo.image.url(:thumb_large)
       @user.person.save
       @photo.destroy
       Person.find(@user.person.id).profile.image_url.should be_nil

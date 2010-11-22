@@ -65,7 +65,7 @@ class Photo < Post
   end
 
   def ensure_user_picture
-    people = Person.all('profile.image_url' => absolute_url(:thumb_medium) )
+    people = Person.all('profile.image_url' => absolute_url(:thumb_large) )
     people.each{ |person|
       person.profile.update_attributes(:image_url => nil)
     }
