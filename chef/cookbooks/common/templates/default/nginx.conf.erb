@@ -75,6 +75,9 @@ http {
     proxy_redirect off;
     proxy_buffering off;
 
+    client_max_body_size 4M;
+    client_body_buffer_size 128K;
+
     if (-f $request_filename/index.html) {
       rewrite (.*) $1/index.html break;
     }
