@@ -144,7 +144,7 @@ header
     :text-overflow ellipsis
     :text-shadow 0 1px 0 #000
 
-    :width 120px
+    :width auto
 
     :cursor pointer
 
@@ -167,10 +167,13 @@ header
 
     :top 5px
     :right 0
-
+    
     :list
       :style none
 
+    a
+      :padding
+        :right 15px
     .right
       :right 5px
 
@@ -1290,6 +1293,10 @@ input[type="search"]
 
 #photo_edit_options
   :display none
+
+#photodropzone
+  :padding 0px
+  :margin 0px
 
 #section_header
   :width 100%

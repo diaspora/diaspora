@@ -11,8 +11,12 @@
        action: "#{photos_path}",
        debug: true,
        button: document.getElementById('file-upload'),
-       sizeLimit: 5000048,
+       sizeLimit: 4194304,
 
+      
+       onProgress: function(id, fileName, loaded, total){
+        alert(;
+       },
 
        onSubmit: function(id, fileName){
         $('#file-upload').addClass("loading");
