@@ -26,9 +26,18 @@ class StatusMessagesController < ApplicationController
       for photo in photos
         current_user.dispatch_post(photo, :to => params[:status_message][:to])
       end
+
+      respond_to do |format|
+        format.js{ render :json => { :post_id => @status_message.id,
+                                     :html => render_to_string(:partial => 'shared/stream_element', :locals => {:post => @status_message, :current_user => current_user})},
+                                     :status => 201 }
+        format.html{ respond_with @status_message }
+      end
+    else
+      respond_to do |format|
+        format.js{ render :status => 401 }
+      end
     end
-  
-    render :nothing => true
   end
 
 
