@@ -39,6 +39,7 @@
     .options_and_submit
 
       .right
+        #fileInfo
         = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
         - if aspect == :all
           = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')

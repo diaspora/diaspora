@@ -15,7 +15,8 @@
 
       
        onProgress: function(id, fileName, loaded, total){
-
+        var progress = Math.round(loaded / total * 100 );
+         $('#fileInfo').text(fileName + ' ' + progress + '%');
        },
 
        onSubmit: function(id, fileName){
@@ -26,6 +27,7 @@
        },
        
        onComplete: function(id, fileName, responseJSON){
+        $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
         $("#publisher_spinner").fadeOut(100);
         $('#file-upload').removeClass("loading");
         var id = responseJSON.data.photo.id;
