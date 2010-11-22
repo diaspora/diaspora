@@ -27,10 +27,10 @@ var WebSocketReceiver = {
           WebSocketReceiver.processRetraction(obj['post_id']);
 
         }else if (obj['class']=="comments"){
-          WebSocketReceiver.processComment(obj['post_id'], obj['html'], {'notification':obj['notification'], 'mine?':obj['mine?'], 'my_post?':obj['my_post?']})
+          WebSocketReceiver.processComment(obj['post_id'], obj['comment_id'], obj['html'], {'notification':obj['notification'], 'mine?':obj['mine?'], 'my_post?':obj['my_post?']})
 
         }else{
-          WebSocketReceiver.processPost(obj['class'], obj['html'], obj['aspect_ids'])
+          WebSocketReceiver.processPost(obj['class'], obj['post_id'], obj['html'], obj['aspect_ids'])
         }
       }
   },
@@ -62,44 +62,50 @@ var WebSocketReceiver = {
     }
   },
 
-  processComment: function(post_id, html, opts){
-    post = $("*[data-guid='"+post_id+"']'");
-    $('.comments li:last', post ).before(
-      $(html).fadeIn("fast", function(){})
-    );
-    toggler = $('.show_post_comments', post);
+  processComment: function(postId, commentId, html, opts){
 
-    if(toggler.length > 0){
-      toggler.html(
-        toggler.html().replace(/\d+/,$('.comments', post)[0].childElementCount -1)
+    if( $(".comment[data-guid='"+commentId+"']").length == 0 ){
+
+      post = $("*[data-guid='"+postId+"']'");
+      $('.comments li:last', post ).before(
+        $(html).fadeIn("fast", function(){})
       );
+      toggler = $('.show_post_comments', post);
 
-      if( !$(".comments", post).is(':visible') ){
-        toggler.click();
+      if(toggler.length > 0){
+        toggler.html(
+          toggler.html().replace(/\d+/,$('.comments', post)[0].childElementCount -1)
+        );
+
+        if( !$(".comments", post).is(':visible') ){
+          toggler.click();
+        }
       }
-    }
 
-    if( !opts['mine?'] && opts['my_post?']) {
-      WebSocketReceiver.processNotification(opts['notification']);
+      if( !opts['mine?'] && opts['my_post?']) {
+        WebSocketReceiver.processNotification(opts['notification']);
+      }
     }
   },
 
-  processPost: function(className, html, aspectIds){
+  processPost: function(className, postId, html, aspectIds){
     if(WebSocketReceiver.onPageForAspects(aspectIds)){
       if( $("#no_posts").is(":visible") ){
-        $("#no_posts").fadeOut(400, WebSocketReceiver.addPostToStream(html)).hide();
+        $("#no_posts").fadeOut(400, WebSocketReceiver.addPostToStream(postId, html)).hide();
       } else {
-        WebSocketReceiver.addPostToStream(html);
+        WebSocketReceiver.addPostToStream(postId, html);
       }
     }
   },
 
-  addPostToStream: function(html){
-    $("#main_stream:not('.show')").prepend(
-      $(html).fadeIn("fast", function(){
-        $("#main_stream").find("label").first().inFieldLabels();
-      })
-    );
+  addPostToStream: function(postId, html){
+    if( $(".message[data-guid='"+postId+"']").length == 0 ){
+      $("#main_stream:not('.show')").prepend(
+        $(html).fadeIn("fast", function(){
+          $("#main_stream").find("label").first().inFieldLabels();
+        })
+      );
+    }
   },
 
   onPageForClass: function(className){

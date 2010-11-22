@@ -23,13 +23,14 @@ module SocketsHelper
       Rails.logger.error("web socket view rendering failed for object #{object.inspect}.")
       raise e
     end
-    action_hash = {:class =>object.class.to_s.underscore.pluralize,  :html => v, :post_id => obj_id(object)}
+    action_hash = {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}
     action_hash.merge! opts
     if object.is_a? Photo
       action_hash[:photo_hash] = object.thumb_hash
     end
 
     if object.is_a? Comment
+      action_hash[:comment_id] = object.id
       action_hash[:my_post?] = (object.post.person.owner.id == uid)
       action_hash[:notification] = notification(object)
     end
