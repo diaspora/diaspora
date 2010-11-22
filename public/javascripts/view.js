@@ -81,6 +81,7 @@ $(document).ready(function(){
   $(".add_aspect_button", "#aspect_nav").tipsy({gravity:'w'});
   $(".person img", ".dropzone").tipsy({live:true});
   $(".avatar", ".aspects").tipsy({live:true});
+  $(".what_is_this").tipsy({live:true,delayIn:400});
 
   $('.webfinger_form').submit(function(evt){
     form = $(evt.currentTarget);
@@ -136,6 +137,8 @@ function openVideo(type, videoid, link) {
   link.parentNode.insertBefore(container, this.nextSibling);
   $container.slideDown('fast', function() { });
   link.onclick = function() { $container.slideToggle('fast', function() { } ); }
+  
+  
 }
 
 $(".make_profile_photo").live("click", function(evt){

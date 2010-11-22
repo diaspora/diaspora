@@ -9,7 +9,7 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    photos = Photo.all(:id.in => [*params[:photos]])
+    photos = Photo.all(:id.in => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
 
     public_flag = params[:status_message][:public]
     public_flag.to_s.match(/(true)/) ? public_flag = true : public_flag = false

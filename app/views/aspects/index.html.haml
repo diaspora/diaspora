@@ -3,8 +3,12 @@
 -#   the COPYRIGHT file.
 
 .span-24.last
-  %h2
+  %h2{:style => "position:relative;"}
     Home
+    .right
+      %span.description
+        = current_user.diaspora_handle
+        = info_text("This is your diaspora handle.  Like an email address, you can give this to people to reach you.")
 
 .span-15.last
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
@@ -15,7 +19,6 @@
 
   #pagination
     = will_paginate @posts
-
 
 .span-8.prepend-1.last
   = render 'shared/aspect_contacts', :contacts => @contacts, :aspect => @aspect

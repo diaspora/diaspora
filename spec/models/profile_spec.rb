@@ -55,12 +55,12 @@ describe Profile do
       lambda {@profile.image_url = ""}.should_not change(@profile, :image_url)
     end
     it 'makes relative urls absolute' do
-      @profile.image_url = @photo.url(:thumb_medium)
-      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_medium)}"
+      @profile.image_url = @photo.url(:thumb_large)
+      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_large)}"
     end
     it 'accepts absolute urls' do
-      @profile.image_url = "#{@pod_url}#{@photo.url(:thumb_medium)}"
-      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_medium)}"
+      @profile.image_url = "#{@pod_url}#{@photo.url(:thumb_large)}"
+      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_large)}"
     end
   end
   describe 'serialization' do

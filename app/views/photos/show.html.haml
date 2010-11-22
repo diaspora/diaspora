@@ -40,7 +40,7 @@
       -if @ownership
         = image_tag 'ajax-loader.gif', :id => "photo_spinner", :class => "hidden"
         = image_tag @photo.url(:scaled_full)
-        .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_medium)}"}}
+        .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_large)}"}}
           = link_to t('.make_profile_photo'), '#', :class => 'make_profile_photo'
           |
           = link_to 'edit', '#', :id => "edit_photo_toggle"

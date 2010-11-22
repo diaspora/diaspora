@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
       params[:profile_image_hash] = { :user_file => raw_image, :to => "all" }
 
       photo = current_user.post(:photo, params[:profile_image_hash])
-      params[:person][:profile][:image_url] = photo.url(:thumb_medium)
+      params[:person][:profile][:image_url] = photo.url(:thumb_large)
     end
 
     if current_user.update_profile params[:person][:profile]
