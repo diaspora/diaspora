@@ -3,16 +3,8 @@
 -#   the COPYRIGHT file.
 
 .span-24.last
-  %h2{:style=>"position:relative;"}
-
+  %h2
     Home
-
-    .right{:style=>"font-size:12px;"}
-      = link_to "View Profile", current_user.person
-      |
-      = link_to "Edit Profile", edit_person_path(current_user.person)
-      |
-      = link_to "Edit Account", edit_user_path(current_user)
 
 .span-15.last
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
