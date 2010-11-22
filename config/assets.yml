@@ -15,8 +15,11 @@ javascripts:
     - public/javascripts/image-picker.js
     - public/javascripts/stream.js
   mobile:
+    - public/javascripts/vendor/jquery144.min.js
+    - public/javascripts/rails.js
     - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/vendor/jquery_mobile_a2.min.js
+    - public/javascripts/mobile.js
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
     - public/javascripts/vendor/mailchimp/jquery.validate.js

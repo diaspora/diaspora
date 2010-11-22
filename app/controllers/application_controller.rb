@@ -28,7 +28,11 @@ class ApplicationController < ActionController::Base
 
   def mobile_except_ipad
     if is_mobile_device?
-      session[:mobile_view] = false if request.env["HTTP_USER_AGENT"].include? "iPad"
+      if request.env["HTTP_USER_AGENT"].include? "iPad"
+        session[:mobile_view] = false 
+      else
+        session[:mobile_view] = true
+      end
     end
   end
   

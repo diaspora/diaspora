@@ -10,10 +10,13 @@
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
-    = javascript_include_tag 'vendor/jquery144.min','rails' 
     = include_javascripts :mobile 
     = stylesheet_link_tag 'mobile', 'vendor/jquery_mobile.min'
     = csrf_meta_tag
+    
+    :javascript
+      $(document).ready(Mobile.initialize);
+
 
     = yield(:head)
 
@@ -24,7 +27,7 @@
           = person_image_tag (current_user.person)
           = current_user.real_name 
       %div{:data => {:role => 'fieldcontain'}}
-        =select_tag "aspects", options_from_collection_for_select(@aspects, "id", "name")
+      = select_tag "aspect_picker", aspect_select_options(@aspects, @aspect)
       
       = yield
            
