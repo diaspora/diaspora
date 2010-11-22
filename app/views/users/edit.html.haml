@@ -24,8 +24,21 @@
   %h2
     = t('account')
 
-  = link_to t('.invite_contacts'), new_user_invitation_path(current_user)
+  .span-8.append-1.last
+    %h3
+      Your diaspora handle
+    %p
+      %b= current_user.diaspora_handle
+  .span-8.prepend-2.last
+    %h3
+      Your email
+    %p
+      = current_user.email
 
+  %br
+  %br
+  %br
+  %br
   %br
   %br
   %br

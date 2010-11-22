@@ -180,4 +180,8 @@ module ApplicationHelper
     @@youtube_title_cache[id] = ret;
     return ret
   end
+
+  def info_text(text)
+    "<span class='what_is_this' title='#{text}'>?</span>".html_safe
+  end
 end
