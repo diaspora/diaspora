@@ -78,6 +78,13 @@
           = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
 
   %h4 Comments
-  %div{:id => 'photo_stream', :class => 'stream show'}
-    %li.message{:data=>{:guid=>@photo.id}}
-      = render "comments/comments", :post => @photo
+  
+  - if @photo.status_message_id
+    %div{:id => 'status_message_stream', :class => 'stream show'}
+      %li.message{:data=>{:guid=>@photo.status_message_id}}
+        = render "comments/comments", :post => @photo.status_message
+
+  - else
+    %div{:id => 'photo_stream', :class => 'stream show'}
+      %li.message{:data=>{:guid=>@photo.id}}
+        = render "comments/comments", :post => @photo

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2009, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -91,7 +91,7 @@ class Photo < Post
     1.upto(len) { |i| string << chars[rand(chars.size-1)] }
     return string
   end
-  
+
   def as_json(opts={})
     {
       :photo => {

@@ -43,7 +43,7 @@ describe Photo do
     @photo2.random_string.should_not be nil
   end
 
-  describe '.instantiate' do
+  describe '#instantiate' do
     it 'sets the persons diaspora handle' do
       @photo2.diaspora_handle.should == @user.person.diaspora_handle
     end
@@ -56,8 +56,6 @@ describe Photo do
     end
 
   end
-
-
 
   it 'should save a photo' do
     @photo.image.store! File.open(@fixture_name)
@@ -142,6 +140,21 @@ describe Photo do
       new_photo.url.nil?.should be false
       new_photo.url.include?(url).should be true
       new_photo.url(:thumb_medium).include?(thumb_url).should be true
+    end
+  end
+
+  context "commenting" do
+
+    it "forwards comments to parent status message" do
+      pending 'IMPORTANT! comments need to get sent to parent status message for a photo if one is present.  do this from the photo model, NOT in comment.'
+      status_message = @user.build_post(:status_message, :message => "whattup", :to => @aspect.id)
+      status_message.photos << @photo2
+      status_message.save
+      proc{ @user.comment("big willy style", :on => @photo2) }.should change(status_message.comments, :count).by(1)
+    end
+
+    it "accepts comments if there is no parent status message" do
+      proc{ @user.comment("big willy style", :on => @photo) }.should change(@photo.comments, :count).by(1)
     end
   end
 end
