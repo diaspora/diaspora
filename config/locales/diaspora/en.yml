@@ -82,11 +82,11 @@ en:
           done_editing: "done editing"
           new_requests: "%{count} new requests!"
           new_request: "%{count} new request!"
+          add_existing: "Add an existing contact"
+          aspect_settings: "Aspect settings"
           edit_aspect: "edit aspect"
           contact: "contact"
           contacts: "contacts"
-          add_existing: "Add an existing contact"
-          aspect_settings: "Aspect settings"
           remove_aspect: "Remove Aspect"
           confirm_remove_aspect: "Remove aspect?"
           no_contacts: "You currently have no contacts.  Find your contacts here."
@@ -116,6 +116,10 @@ en:
           search_contacts: "Search contacts"
           cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
   aspects:
+      show:
+          edit_aspect: "edit aspect"
+          contact: "contact"
+          contacts: "contacts"
       no_contacts_message:
           nobody: "We know you know people — bring them to Diaspora!"
           nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."

@@ -1257,6 +1257,10 @@ ul#settings_nav
   :margin 0
   :padding 0
 
+#edit_aspect_pane
+  :margin
+    :top 12px
+
 #left_pane.everyone,
 #edit_aspect_pane
 
@@ -1648,7 +1652,9 @@ ul#request_result
 .contact_list
   :height 300px
   :max-height 300px
-  :overflow auto
+
+  :overflow-y auto
+  :overflow-x hidden
 
   :border 2px solid #eee
 
@@ -1686,11 +1692,11 @@ ul#request_result
 
       &:hover
         :background
-          :color rgb(250,250,250)
+          :color rgb(245,245,245)
 
       .right
-        :top 8px
-        :right 6px
+        :right 8px
+        :top 2px
 
       .avatar
         :height 22px
@@ -1702,12 +1708,22 @@ ul#request_result
         :padding
           :left 30px
 
-      a
-        &.add
-          :color green
+      a.button
+        :padding
+          :right 4px
+          :left 4px
+        &.added
+          :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(92,199,86)), color-stop(1, rgb(158,255,153)))
+          :background -moz-linear-gradient(top, rgb(158,255,153), rgb(92,199,86))
 
-        &.remove
-          :color red
+        &.added.remove
+          :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(199,86,86)), color-stop(1, rgb(255,153,153)))
+          :background -moz-linear-gradient(top, rgb(255,153,153), rgb(199,86,86))
+
+          &:active
+            :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(130,55,55)), color-stop(1, rgb(199,119,119)))
+            :background -moz-linear-gradient(top, rgb(199,119,119), rgb(130,55,55))
+            
 
 footer
   :margin
@@ -1932,6 +1948,10 @@ h3,h4
 .big_buttons
   input
     :width 100%
+    :padding
+      :top 10px
+      :bottom 10px
+    :color #666
 
 #original_post_info
   p
@@ -1974,3 +1994,7 @@ h3,h4
   &:hover
     :background
       :color #107FC9
+
+#edit_aspect_trigger
+  :font
+    :size 12px
