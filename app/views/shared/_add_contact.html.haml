@@ -18,13 +18,13 @@
   - if defined?(manage)
     = hidden_field_tag :manage, true
 
-  = submit_tag t('requests.manage_aspect_contacts.create_request')
+  = submit_tag t('.create_request')
 %br
 #loader.hidden= image_tag 'ajax-loader.gif'
 %ul#request_result{:aspect_id => aspect.id}
   %li.error.hidden
     #message
-      = link_to t('requests.manage_aspect_contacts.know_email'), "#invite_user_pane", :class => "invite_user_button"
+      = link_to t('.know_email'), "#invite_user_pane", :class => "invite_user_button"
     %br
     .yo{ :style => "display:none;"}
       #invite_user_pane
