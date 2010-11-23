@@ -30,7 +30,7 @@ es:
       unknown_person: "persona desconocida"
       youtube_title: 
         unknown: "Título desconocido de video"
-  are_you_sure: "¿Está seguro?"
+  are_you_sure: "¿Estás seguro?"
   aspects: 
     add_to_aspect: 
       failure: "No se ha podido agregar un amigo a un aspecto."
@@ -48,7 +48,7 @@ es:
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
     manage: 
       add_a_new_aspect: "Añadir un nuevo aspecto"
-      add_a_new_contact: "Add a new contact"
+      add_a_new_contact: "Añadir un nuevo Contacto"
       drag_to_add: "Arrastre para agregar personas"
       manage_aspects: "Gestionar aspectos"
       no_requests: "No hay nuevas peticiones"
@@ -61,11 +61,11 @@ es:
       create: "Crear"
       name: "Nombre"
     no_contacts_message: 
-      add_contact: "Add a contact"
-      add_contact_to: "Add someone to %{aspect_name}"
-      invite: "Invite someone to join Diaspora!"
+      add_contact: "Añadir un contacto"
+      add_contact_to: "Añadir a alguien a %{aspect_name}"
+      invite: "Invita a otros a unirse a Diaspora!"
       nobody: "We know you know people — bring them to Diaspora!"
-      nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+      nobody_in_aspect: "Tu aspecto '%{aspect_name}' esta vacío."
     no_posts_message: 
       start_talking: "Nadie ha dicho nada todavía. ¡Inicia la conversación!"
     remove_from_aspect: 
@@ -85,7 +85,7 @@ es:
   comments: 
     new_comment: 
       comment: "Comentario"
-      commenting: "Commenting..."
+      commenting: "Comentando..."
   delete: "Borrar"
   email: "Correo electrónico"
   error_messages: 
@@ -128,12 +128,12 @@ es:
     application: 
       powered_by: "POWERED BY DIASPORA*"
     header: 
-      account_settings: "account settings"
+      account_settings: "configurar cuenta"
       blog: "blog"
-      edit_profile: "edit profile"
+      edit_profile: "editar perfil"
       login: "login"
-      logout: "logout"
-      view_profile: "view profile"
+      logout: "desconectarse"
+      view_profile: "ver perfil"
   notifier: 
     diaspora: "Correo robot de Diáspora"
     hello: "Hola %{name}!"
@@ -170,8 +170,8 @@ es:
     index: 
       results_for: "resultados de la búsqueda para"
     person: 
-      add_contact: "add contact"
-      already_connected: "Already connected"
+      add_contact: "añadir contacto"
+      already_connected: "Ya está conectado"
       pending_request: "petición pendiente"
       thats_you: "eres tu!"
     profile_photo_upload: 
@@ -183,13 +183,13 @@ es:
       edit_my_profile: "Modificar mi perfil"
       gender: "gender"
       in_aspects: "in aspects"
-      remove_contact: "remove contact"
+      remove_contact: "remover contacto"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
       already_requested: "Usted ya ha enviado una solicitud a %{name}."
       does_not_exist: "El usuario no existe!"
       no_posts: "no hay publicaciones que mostrar!"
-      not_connected: "You are not connected with this person"
+      not_connected: "No estas conectado con esta persona"
       request_people: "Si lo desea, puede solicitarle la colocación en uno de sus aspectos."
     update: 
       failed: "No se pudo actualizar el perfil"
@@ -216,7 +216,7 @@ es:
     show: 
       delete_photo: "Eliminar Foto"
       edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
+      edit_delete_photo: "Editar pie de fotografía / eliminar fotografía"
       make_profile_photo: "convertir en foto de perfil"
       original_post: "Original Post"
       update_photo: "Actualizar Foto"
@@ -226,7 +226,7 @@ es:
       notice: "Foto actualizada satisfactoriamente."
   profile: "Perfil"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "Registros están cerrados en este servidor Diaspora"
     create: 
       success: "Se ha unido a Diaspora!"
     edit: 
@@ -242,7 +242,7 @@ es:
   requests: 
     create: 
       sending: "Sending..."
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "Has solicitado compartir con %{name}. Ellos deberían verlo la próxima vez que se conecten a Diaspora."
     destroy: 
       error: "Seleccione un aspecto!"
       ignore: "Ignorar peticion de amistad"
@@ -252,7 +252,7 @@ es:
       manage_within: "Manage contacts within"
     new_request_to_person: 
       sent: "sent!"
-  search: "Search"
+  search: "Buscar"
   services: 
     create: 
       success: "Autenticación exitosa."
@@ -275,7 +275,7 @@ es:
     aspect_contacts: 
       add_aspect: "add aspect"
       add_existing: "Add an existing contact"
-      add_to: "add to %{aspect}"
+      add_to: "añadir a %{aspect}"
       all_contacts: "All contacts"
       aspect_settings: "Aspect settings"
       aspects: "Aspects"
@@ -293,7 +293,7 @@ es:
     invitations: 
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invitations_left: "(quedan %{count})"
-      invite_someone: "Invite someone"
+      invite_someone: "Invita a alguien"
     notification: 
       new: "Nuevo %{type} de %{from}"
     public_explain: 
@@ -307,7 +307,7 @@ es:
       all_contacts: "all contacts"
       make_public: "hacer público"
       post_a_message_to: "Publicar un mensaje a %{aspect}"
-      posting: "Posting..."
+      posting: "Posteando..."
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
       share_with_all: "Compartir con todos los aspectos"
