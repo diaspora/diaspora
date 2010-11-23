@@ -63,15 +63,15 @@ sv:
       updated: "Ditt konto har uppdateras."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Du är påväg att använda mjukvara i alpha-stadie."
+        bugs_and_feedback: "Var uppmärksam på att du kommer stöta på buggar. Använd gärna feedback-knappen till vänster för att rapportera eventuell teknisk hicka, vi kommer att försöka ordna problemen så snart som möjligt."
         have_a_problem: "Har du problem att komma in? Klicka här"
         login: "Logga in"
-        modern_browsers: "only supports modern browsers."
-        password: Lösenord
+        modern_browsers: "stöder endast moderna webbläsare."
+        password: "Lösenord"
         remember_me: "Kom ihåg mig"
         sign_in: "Logga in"
-        username: Användarnamn
+        username: "Användarnamn"
       signed_in: "Inloggning ok."
       signed_out: "Utloggning ok."
     shared: 

@@ -4,11 +4,11 @@
 
 
 da: 
-  _comments: Comments
-  _home: Home
-  _photos: foto
-  _services: Tjenester
-  account: Konto
+  _comments: "Comments"
+  _home: "Home"
+  _photos: "foto"
+  _services: "Tjenester"
+  account: "Konto"
   activemodel: 
     errors: 
       models: 
@@ -24,7 +24,7 @@ da:
               invalid: "er ugyldig"
             username: 
               taken: "er allerede taget"
-  ago: siden
+  ago: "siden"
   application: 
     helper: 
       unknown_person: "ukendt person"
@@ -43,7 +43,7 @@ da:
     helper: 
       are_you_sure: "Er du sikker på du vil slette dette aspekt?"
       aspect_not_empty: "Aspektet er ikke tom"
-      remove: slet
+      remove: "slet"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
     manage: 
@@ -52,14 +52,14 @@ da:
       drag_to_add: "Træk for at tilføje personer"
       manage_aspects: "Administrer aspekter"
       no_requests: "Ingen nye anmodninger"
-      requests: Anmodninger
+      requests: "Anmodninger"
     move_contact: 
       error: "Kunne ikke flytte kontakt: %{inspect}"
       failure: "virkede ikke %{inspect}"
       success: "Person flyttet til nyt aspekt"
     new_aspect: 
-      create: Opret
-      name: Navn
+      create: "Opret"
+      name: "Navn"
     no_contacts_message: 
       add_contact: "Tilføj en kontaktperson"
       add_contact_to: "Tilføj en kontakt til %{aspect_name}"
@@ -72,22 +72,22 @@ da:
       failure: "Kunne ikke fjerne person fra aspektet"
       success: "Person er fjernet fra aspektet"
     seed: 
-      family: Family
-      work: Work
+      family: "Family"
+      work: "Work"
     show: 
-      contact: contact
-      contacts: contacts
+      contact: "contact"
+      contacts: "contacts"
       edit_aspect: "edit aspect"
     update: 
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
-  back: Tilbage
-  cancel: Annuller
+  back: "Tilbage"
+  cancel: "Annuller"
   comments: 
     new_comment: 
-      comment: Kommenter
+      comment: "Kommenter"
       commenting: "Kommentering ..."
-  delete: Slet
-  email: Email
+  delete: "Slet"
+  email: "Email"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Ret følgende fejl, og prøv igen."
@@ -96,14 +96,14 @@ da:
   home: 
     show: 
       already_account: "har du allerede en konto?"
-      choice: Choice
+      choice: "Choice"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
       login_here: "log ind her"
-      ownership: Ownership
+      ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Del hvad du vil, med hvem du vil."
-      simplicity: Simplicity
+      simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations: 
     check_token: 
@@ -115,7 +115,7 @@ da:
       rejected: "The following email addresses had problems: "
       sent: "Din invitation er blevet sendt."
     edit: 
-      sign_up: sign_up
+      sign_up: "sign_up"
     new: 
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet det aspekt du har inviteret dem til"
@@ -123,13 +123,13 @@ da:
       message: "Besked:"
       send_an_invitation: "Send en invitation"
       send_invitation: "Send invitation"
-      to: Til
+      to: "Til"
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
     header: 
-      account_settings: kontoindstillinger
-      blog: blog
+      account_settings: "kontoindstillinger"
+      blog: "blog"
       edit_profile: "Rediger profil"
       login: "log in"
       logout: "log ud"
@@ -145,18 +145,18 @@ da:
       try_it_out: "Du skal virkelig overveje at tjekke den ud."
     request_accepted: 
       accepted: "har accepteret din kontakt anmodning. De er nu i din"
-      aspect: aspekt.
+      aspect: "aspekt."
       subject: "% {name} har accepteret din kontakt anmodning på Diaspora*"
-  ok: OK
-  or: eller
-  password: Adgangskode
+  ok: "OK"
+  or: "eller"
+  password: "Adgangskode"
   password_confirmation: "Adgangskode bekræftelse"
   people: 
     edit: 
       allow_search: "Tillad personer at søge efter dig"
-      first_name: Fornavn
+      first_name: "Fornavn"
       info_available_to: "Denne info vil være til rådighed for alle dine forbindelser på Diaspora."
-      last_name: Efternavn
+      last_name: "Efternavn"
       update_profile: "Opdater Profil"
       your_bio: "Din biografi"
       your_birthday: "Din fødselsdag"
@@ -177,11 +177,11 @@ da:
     profile_photo_upload: 
       or_select_one: "eller vælge en fra dine allerede eksisterende"
     profile_sidebar: 
-      bio: bio
-      born: født
+      bio: "bio"
+      born: "født"
       cannot_remove: "Cannot remove %{name} from last aspect."
       edit_my_profile: "Rediger min profil"
-      gender: køn
+      gender: "køn"
       in_aspects: "i aspekter"
       remove_contact: "fjern kontakt"
       remove_from: "Remove %{name} from %{aspect}?"
@@ -202,7 +202,7 @@ da:
     destroy: 
       notice: "Foto slettet."
     edit: 
-      editing: Redigering
+      editing: "Redigering"
     new: 
       back_to_list: "Tilbage til liste"
       new_photo: "Nye billeder"
@@ -215,16 +215,16 @@ da:
       view_all: "se alle %{name}s billeder"
     show: 
       delete_photo: "Slet foto"
-      edit: edit
+      edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "gøre til profilfoto"
       original_post: "Original Post"
       update_photo: "Opdater billed"
-      view: view
+      view: "view"
     update: 
       error: "Kunne ikke redigerer foto."
       notice: "Foto blev opdateret."
-  profile: Profil
+  profile: "Profil"
   registrations: 
     closed: "Der er lukket for tilmeldinger på dette Diaspora server."
     create: 
@@ -234,14 +234,14 @@ da:
       edit: "Rediger %{name}"
       leave_blank: "(Lad være tom hvis du ikke ønsker at ændre det)"
       password_to_confirm: "(Vi har brug for din nuværende adgangskode for at bekræfte dine ændringer)"
-      unhappy: Ulykkelig?
-      update: Opdater
+      unhappy: "Ulykkelig?"
+      update: "Opdater"
     new: 
       sign_up: "Tilmeld dig"
       sign_up_for_diaspora: "Tilmeld dig Diaspora"
   requests: 
     create: 
-      sending: Sender...
+      sending: "Sender..."
       sent: "Du har bedt om at dele med %{name}. De kan se det næste gang de logger ind."
     destroy: 
       error: "Vælg venligst et aspekt!"
@@ -251,8 +251,8 @@ da:
       existing: "Eksisterende kontaktpersoner"
       manage_within: "Administrer kontakter indenfor"
     new_request_to_person: 
-      sent: sent!
-  search: Søg
+      sent: "sent!"
+  search: "Søg"
   services: 
     create: 
       success: "Godkendelse lykkedes."
@@ -261,10 +261,10 @@ da:
     index: 
       connect_to_facebook: "Forbindelse til Facebook"
       connect_to_twitter: "Tilslut til twitter"
-      disconnect: afbryd
+      disconnect: "afbryd"
       logged_in_as: "log ind som"
       really_disconnect: "afbryd %{service}?"
-  settings: Indstillinger
+  settings: "Indstillinger"
   shared: 
     add_contact: 
       create_request: "Find by Diaspora handle"
@@ -278,11 +278,11 @@ da:
       add_to: "tilføj til %{aspect}"
       all_contacts: "All contacts"
       aspect_settings: "Aspect settings"
-      aspects: Aspects
+      aspects: "Aspects"
       confirm_remove_aspect: "Remove aspect?"
-      contacts: contacts
+      contacts: "contacts"
       done_editing: "done editing"
-      invites: Invites
+      invites: "Invites"
       new_request: "%{count} new request!"
       new_requests: "%{count} new requests!"
       no_contacts: "You currently have no contacts.  Find your contacts here."
@@ -303,12 +303,12 @@ da:
       title: "Du er ved at skrive en offentlig besked!"
     publisher: 
       add_photos: "add photos"
-      all: alle
+      all: "alle"
       all_contacts: "all contacts"
-      make_public: offentliggøre
+      make_public: "offentliggøre"
       post_a_message_to: "Send en besked til %{aspect}"
-      posting: Sender...
-      share: Del
+      posting: "Sender..."
+      share: "Del"
       share_with: "Del med %{aspect}"
       share_with_all: "Del med alle aspekter"
     reshare: 
@@ -322,9 +322,9 @@ da:
       oh_yeah: "Fedt mand!"
       tell_me_something_good: "fortælle mig noget godt"
     show: 
-      destroy: Ødelæg
-  the_world: verdenen
-  username: Brugernavn
+      destroy: "Ødelæg"
+  the_world: "verdenen"
+  username: "Brugernavn"
   users: 
     destroy: "Kontoen er nu lukket."
     edit: 
@@ -341,12 +341,12 @@ da:
       connect_services: "Tilslut dine tjenester"
       define_aspects: "Definer dine aspekter"
       edit_profile: "Rediger din profil"
-      finished: Færdig!
+      finished: "Færdig!"
       save_and_continue: "Gem og fortsæt"
       signup_steps: "Fuldføre din tilmelding ved at gøre følgende:"
       skip: "spring kom godt i gang over"
       step_2: 
-        add: Tilføj
+        add: "Tilføj"
         aspect_name: "Aspekt navn"
         description: "Fortæl Diaspora hvilke forskellige aspekter af jer der er set af dine forskellige kontakter. Du kan administrere disse senere ved at klikke på administer fanen øverst til højre. Dine aspekter er unikke, og er ikke synlige for andre."
         your_aspects: "Dine aspekter"
@@ -356,7 +356,7 @@ da:
       step_4: 
         change_profile: "Du kan altid ændre din profil ved at klikke på"
         continue: "Fortsæt til din start side. En oversigt over alle dine aspekter."
-        finish: Slut
+        finish: "Slut"
         manage_aspects: "Du kan altid administrerer dine aspekter ved at klikke på"
         ready_to_share: "Du er nu klar til at dele med"
         set_up: "Du er nu helt klar, %{name}!"

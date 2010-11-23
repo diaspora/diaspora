@@ -8,7 +8,7 @@ it:
     confirmations: 
       confirmed: "Il tuo account è stato confermato con successo. Hai appena effettuato l'accesso."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Invia di nuovo le informazioni per la confema"
       send_instructions: "Tra pochi minuti riceverai una email per confermare il tuo account."
     failure: 
       inactive: "Il tuo account non è ancora stato attivato."
@@ -51,7 +51,7 @@ it:
       welcome: "Benvenuto %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Cambia la mia password"
       new: 
         forgot_password: "Hai dimenticato la password?"
         send_password_instructions: "Inviami le istruzioni per reimpostare la password."
@@ -63,27 +63,27 @@ it:
       updated: "Hai aggiornato il tuo account."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Stai per usare software in alpha."
+        bugs_and_feedback: "Stai attento, troverai dei bug. Incoraggiamo gli utenti a usare il pulsante di Feedback sulla destra del browser per segnalare qualunque errore! Lavoreremo più veloce possibile per risolvere i problemi che segnali."
         have_a_problem: "Hai qualche dubbio? Trova qui la risposta"
         login: "Effettua l'accesso"
-        modern_browsers: "only supports modern browsers."
-        password: Password
-        remember_me: Ricordami
-        sign_in: Registrati
+        modern_browsers: "supporta soltano i browser recenti."
+        password: "Password"
+        remember_me: "Ricordami"
+        sign_in: "Registrati"
         username: "Nome utente"
       signed_in: "Accesso effettuato con successo."
       signed_out: "Disconnessione effettuata con successo."
     shared: 
       links: 
         forgot_your_password: "Hai dimenticato la password?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: Accedi
-        sign_up: Registrati
+        receive_confirmation: "Non hai ricevuto le istruzioni per la conferma?"
+        receive_unlock: "Non hai ricevuto le istruzioni per lo sblocco?"
+        sign_in: "Accedi"
+        sign_up: "Registrati"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Invia di nuovo le istruzioni per lo sblocco"
       send_instructions: "Tra pochi minuti riceverai una mail con le istruzioni su come sbloccare il tuo account."
       unlocked: "Il tuo account è stato sbloccato. Hai appena effettuato l'accesso."
   errors: 

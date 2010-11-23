@@ -67,7 +67,7 @@ module ApplicationHelper
   end
 
   def image_or_default(person)
-    image_location = person.profile.image_url
+    image_location = person.profile.image_url if person.profile
     image_location ||= "/images/user/default.png"
     image_location
   end
