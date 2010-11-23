@@ -49,7 +49,7 @@
 
 - if (aspect == :all) && @request_count > 0
   #new_request_pane{:class => "everyone"}
-    %h1.new_request
+    %h1.new_request{:style => 'text-align:center'}
       - if @request_count > 1
         = link_to t('.new_requests', :count => @request_count), aspects_manage_path
       - else
