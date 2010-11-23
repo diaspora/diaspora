@@ -23,16 +23,10 @@
 
 %p
   = t('.change_profile')
-  %b #{t('layouts.header.edit_profile')}
   = t('.user_menu')
-%p
-  = t('.connect_disconnect')
-  %b #{t('layouts.header.account_settings')}
-  = t('.user_menu')
+
 %p
   = t('.manage_aspects')
-  %b #{t('.manage')}
-  = t('.tab_also_added')
 
 .submit_block
   = link_to "#{t('.finish')} →", root_url, :class => "button"

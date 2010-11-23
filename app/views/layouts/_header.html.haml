@@ -4,16 +4,17 @@
 
 .container{:style => "position:relative;"}
   #diaspora_text
-    = link_to "DIASPORA*", (current_user ? root_path : new_user_session_path)
+    = link_to "DIASPORA*", root_path
     %span.sub_text
       ALPHA
 
   - unless current_user
     .right
       %ul#landing_nav
-        %li= link_to t('.blog'), "http://blog.joindiaspora.com"
+        %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
         %li= link_to t('.developers'), "https://github.com/diaspora/diaspora"
-        %li= link_to t('.login'), new_user_session_path
+        %li= link_to t('.login'), new_user_session_path, :class => 'login'
+
   - else
     #global_search
       = form_tag(people_path, :method => 'get') do

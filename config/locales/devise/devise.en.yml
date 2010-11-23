@@ -22,6 +22,9 @@ en:
         sign_in: 'Sign in'
         have_a_problem: "Have a problem? Find an answer here"
         remember_me: "Remember me"
+        tech_preview: "Important, please read: This is a technology preview; do not provide any private information."
+        account_deletion: "Also, be advised that your account may be deleted until we move into a more stable development period."
+        risk: "USE AT YOUR OWN RISK!!!"
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'
     passwords:

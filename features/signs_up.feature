@@ -31,9 +31,9 @@ Feature: new user registration
     Then I should see "You're all set up, O!"
     And I should not see "skip getting started"
 
-    When I follow "Continue on to your everyone page, an overview of all of your aspects."
+    When I follow "Continue on to your Home page, an overview of all of your aspects."
     Then I should be on the aspects page
-    And I should see "bring them to Diaspora!"
+    And I should see "Bring the people that matter in your life to Diaspora!"
 
   Scenario: new user skips the setup wizard and returns to the setup wizard
     When I follow "skip getting started"
@@ -44,4 +44,4 @@ Feature: new user registration
     When I follow "skip getting started"
     And I wait for the aspects page to load
     Then I should be on the aspects page
-    And I should see "bring them to Diaspora!"
+    And I should see "Bring the people that matter in your life to Diaspora!"

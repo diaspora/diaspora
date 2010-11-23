@@ -121,7 +121,7 @@ en:
           contact: "contact"
           contacts: "contacts"
       no_contacts_message:
-          nobody: "We know you know people — bring them to Diaspora!"
+          nobody: "Bring the people that matter in your life to Diaspora!"
           nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
           add_contact: "Add a contact"
           add_contact_to: "Add someone to %{aspect_name}"
@@ -177,32 +177,30 @@ en:
       destroy: "Account successfully closed."
       getting_started:
           welcome: "Welcome to Diaspora!"
-          signup_steps: "Complete your sign-up by doing these things:"
+          signup_steps: "Finish your sign up by completing these three steps:"
           edit_profile: "Edit your profile"
           define_aspects: "Define your aspects"
-          connect_services: "Connect your services"
+          connect_services: "Connect your other services"
           finished: "Finished!"
           skip: "skip getting started"
           save_and_continue: "Save and continue"
           step_2:
               your_aspects: "Your aspects"
-              description: "Tell Diaspora what different aspects of you are seen by different contacts.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
+              description: "Tell Diaspora what different aspects of you are seen by different contacts. You can manage these later through your account menu at the top right. Your aspects are unique to you and not visible by others."
               aspect_name: "Aspect name"
               add: "Add"
           step_3:
               your_services: "Your services"
-              description: 'Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select "public."'
+              description: 'You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public"'
           step_4:
               set_up: "You're all set up, %{name}!"
               ready_to_share: "You're now ready to start sharing with "
-              continue: "Continue on to your everyone page, an overview of all of your aspects."
-              change_profile: "You can change your profile any time by clicking"
-              user_menu: "in your user menu (top right)."
+              continue: "Continue on to your Home page, an overview of all of your aspects."
+              change_profile: "You can edit your profile and manage your connected services at any time through "
+              user_menu: "the user menu located at the top right."
               connect_disconnect: "You can connect/disconnect your services any time by clicking"
-              manage_aspects: "You can manage your aspects any time by clicking the"
-              tab_also_added: "tab.  Your contacts can also be added while on a particular aspect page, as well."
+              manage_aspects: "You can also add contacts while on any aspect page."
               finish: "Finish"
-              manage: "Manage"
       update:
           password_changed: "Password Changed"
           password_not_changed: "Password Change Failed"
@@ -381,5 +379,5 @@ en:
           ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
           simplicity: "Simplicity"
           simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
-          learn_about_host: "Learn about how to host your own Diaspora server"
+          learn_about_host: "Learn about how to host your own Diaspora server."
           learn_about_open_source: "Learn more about Diaspora as an open source project."
