@@ -806,14 +806,15 @@ label
 
 
 #publisher
+  :background
+    :color #eee
   :color #999
   :position relative
-  :min-height 53px
   :margin
     :bottom 10px
     :top 0
   :padding 12px
-    :top 0
+    :top 1px
   :top 0
 
   :border
@@ -830,8 +831,6 @@ label
 
   form
     :position relative
-    :margin
-      :left 65px
     :top 0
 
     ul
@@ -848,7 +847,7 @@ label
 
   input[type='text'],
   textarea
-    :width 400px
+    :width 460px
     :margin 0
 
   .options_and_submit
@@ -873,6 +872,40 @@ label
 
     #fileInfo
       :display inline
+
+  .content_creation
+    :margin
+      :top 12px
+
+  #content_creation_button
+    :padding 10px
+      :left 5px
+      :top 15px
+      :bottom 5px
+    :position relative
+    :background
+      :color #eee
+    :margin
+      :bottom -12px
+
+    &:hover
+      :cursor pointer
+
+    h4
+      :margin
+        :left 40px
+      :font
+        :weight bold
+      :text-shadow 0 1px 0 #fff
+
+    #share_bubble
+      :height 40px
+      :width 40px
+      :display inline
+      :position absolute
+      :top 5px
+
+
 #image_picker
   :margin
     :top 5px

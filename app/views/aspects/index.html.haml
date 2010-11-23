@@ -4,7 +4,7 @@
 
 .span-24.last
   %h2{:style => "position:relative;"}
-    = t('_home')
+    = current_user.real_name
     .right
       %span.description
         = current_user.diaspora_handle

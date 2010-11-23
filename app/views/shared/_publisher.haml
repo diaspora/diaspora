@@ -5,63 +5,76 @@
 
 - content_for :head do
   :javascript
-    $("div.public_toggle input").live("click", function(evt){
-      if($(this).attr('checked') == true){
-        $(".question_mark").click(); 
-      }; 
-    });
-    
-    $("#publisher textarea, #publisher input").live("focus", function(evt){
-      $("#publisher .options_and_submit").fadeIn(50);
-    });
+    $(document).ready(function(){
+      $("div.public_toggle input").live("click", function(evt){
+        if($(this).attr('checked') == true){
+          $(".question_mark").click(); 
+        }; 
+      });
+      
+      $("#publisher textarea, #publisher input").live("focus", function(evt){
+        $("#publisher .options_and_submit").fadeIn(50);
+      });
 
-    $("#publisher form").live("submit", function(evt){
-      $("#photodropzone").find('li').remove(); 
-      $("#publisher .options_and_submit").hide();
+      $("#publisher form").live("submit", function(evt){
+        $("#photodropzone").find('li').remove(); 
+        $("#publisher .options_and_submit").hide();
+      });
+
+      $("#content_creation_button").bind("click", function(evt){
+        $("#publisher").find(".content_creation").show();
+        $("#publisher").find("textarea").focus();
+      });
     });
 
 #publisher
-  = owner_image_link
 
-  = form_for(StatusMessage.new, :remote => true) do |status|
-    %ul#photodropzone
-    = status.error_messages
-    #file-upload.button
-      = t('.add_photos')
+  - if aspect == :all
+    #content_creation_button
+      = image_tag 'icons/monotone_chat_talk.png', :id => 'share_bubble'
+      %h4 share across all of your aspects
 
-    %p
-      %params
-        = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? t('.all_contacts') : aspect))
-        = status.text_area :message, :rows => 2, :value => params[:prefill]
+  .content_creation{:style=>("display:none;" if aspect == :all)}
+    = form_for(StatusMessage.new, :remote => true) do |status|
+      %ul#photodropzone
+      = status.error_messages
+      #file-upload.button
+        = t('.add_photos')
 
-    = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
+      %p
+        %params
+          - unless aspect == :all
+            = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? t('.all_contacts') : aspect))
+          = status.text_area :message, :rows => 2, :value => params[:prefill]
 
-    .options_and_submit
+      = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
-      .right
-        #fileInfo
-        = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
+      .options_and_submit
+
+        .right
+          #fileInfo
+          = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
+          - if aspect == :all
+            = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
+          - else
+            = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting')
+
         - if aspect == :all
-          = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
-        - else
-          = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting')
+          .public_toggle
+            %p.checkbox_select
+              = status.check_box( :public, {}, true, false )
+              = status.label :public, "make public"
+              = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url 
+              - if current_user.services
+                - for service in current_user.services      
+                  = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
 
-      - if aspect == :all
-        .public_toggle
-          %p.checkbox_select
-            = status.check_box( :public, {}, true, false )
-            = status.label :public, "make public"
-            = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url 
-            - if current_user.services
-              - for service in current_user.services      
-                = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
+            = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
 
-          = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
+            .fancybox_content
+              #question_mark_pane
+                = render 'shared/public_explain'
 
-          .fancybox_content
-            #question_mark_pane
-              = render 'shared/public_explain'
-
-#publisher_photo_upload
-  = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
+    #publisher_photo_upload
+      = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
 
