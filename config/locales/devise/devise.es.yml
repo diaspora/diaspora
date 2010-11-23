@@ -90,4 +90,4 @@ es:
     messages: 
       already_confirmed: "ya ha sido confirmada"
       not_found: "no encontrado"
-      not_locked: "no está bloqueada"
+      not_locked: "no fue bloqueado"
