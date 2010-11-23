@@ -7,6 +7,8 @@ ro:
   devise: 
     confirmations: 
       confirmed: "Contul dvs. a fost confirmat cu succes. Sunteți acum autentificat(ă)."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru confirmarea contului."
     failure: 
       inactive: "Contul dvs. încă nu a fost activat."
@@ -48,6 +50,8 @@ ro:
         unlock: "Unlock my account"
       welcome: "Welcome %{email}!"
     passwords: 
+      edit: 
+        change_password: "Change my password"
       new: 
         forgot_password: "Forgot your password?"
         send_password_instructions: "Send me reset password instructions"
@@ -59,8 +63,11 @@ ro:
       updated: "Cont actualizat cu succes."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Have a problem? Find an answer here"
         login: Login
+        modern_browsers: "only supports modern browsers."
         password: Password
         remember_me: "Remember me"
         sign_in: "Sign in"
@@ -70,9 +77,13 @@ ro:
     shared: 
       links: 
         forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Sign in"
         sign_up: "Sign up"
     unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului."
       unlocked: "Cont deblocat cu succes. Sunteți acum autentificat(ă)."
   errors: 

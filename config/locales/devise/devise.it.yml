@@ -7,6 +7,8 @@ it:
   devise: 
     confirmations: 
       confirmed: "Il tuo account è stato confermato con successo. Hai appena effettuato l'accesso."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
       send_instructions: "Tra pochi minuti riceverai una email per confermare il tuo account."
     failure: 
       inactive: "Il tuo account non è ancora stato attivato."
@@ -22,32 +24,34 @@ it:
       updated: "La tua password è stata impostata correttamente. Hai effettuato l'accesso."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirm my account"
+        confirm: "Conferma il mio account"
         subject: "Istruzioni di conferma"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+        you_can_confirm: "Puoi confermare il tuo account attraverso il link sottostante:"
+      hello: "Ciao %{email}!"
       invitation: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "Un amico vuole che ti registri su Diaspora!"
+        accept: "Accetta L' invito"
+        ignore: "se non vuoi accettare l' invito, perfavore ignora questa email."
+        no_account_till: "Il tuo account non sarà creato finchè non cliccherai sul link sottostante e farai login."
+        subject: "Sei stato invitato ad unirti a Diaspora!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", a %{url}, lo puoi accettare tramite il link sottostante."
+        has_invited_you: "%{name} ti ha invitato a unirti a Diaspora"
+        have_invited_you: "%{names} ti ha invitato a unirti a Diaspora"
       reset_password_instructions: 
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        change: "cambia la mia password"
+        ignore: "Se non l'hai richiesta, per favore ignora questa email."
+        someone_requested: "qualcuno ha richiesto un link per cambiare la tua password, e tu puoi farlo cliccando sul link sottostante."
         subject: "Istruzioni per reimpostare la password"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        wont_change: "La tua password non verrà cambiata finché non visiti il link sopra e ne crei una nuova."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
+        account_locked: "Il tuo account è stato bloccato a causa di eccessiva tentativi falliti di login."
+        click_to_unlock: "clicca il link sottostante per sbloccare il mio account:"
         subject: "Istruzioni di sblocco"
-        unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+        unlock: "sblocca il mio account"
+      welcome: "Benvenuto %{email}!"
     passwords: 
+      edit: 
+        change_password: "Change my password"
       new: 
         forgot_password: "Hai dimenticato la password?"
         send_password_instructions: "Inviami le istruzioni per reimpostare la password."
@@ -59,10 +63,13 @@ it:
       updated: "Hai aggiornato il tuo account."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Hai qualche dubbio? Trova qui la risposta"
         login: "Effettua l'accesso"
+        modern_browsers: "only supports modern browsers."
         password: Password
-        remember_me: "Remember me"
+        remember_me: Ricordami
         sign_in: Registrati
         username: "Nome utente"
       signed_in: "Accesso effettuato con successo."
@@ -70,9 +77,13 @@ it:
     shared: 
       links: 
         forgot_your_password: "Hai dimenticato la password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
         sign_in: Accedi
         sign_up: Registrati
     unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "Tra pochi minuti riceverai una mail con le istruzioni su come sbloccare il tuo account."
       unlocked: "Il tuo account è stato sbloccato. Hai appena effettuato l'accesso."
   errors: 

@@ -4,6 +4,8 @@
 
 
 sv: 
+  _comments: Comments
+  _home: Home
   _photos: foton
   _services: Tjänster
   account: Konto
@@ -42,6 +44,8 @@ sv:
       are_you_sure: "Är du säker på att du vill ta bort den här sidan?"
       aspect_not_empty: "Sidan är inte tom"
       remove: "ta bort"
+    index: 
+      handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
     manage: 
       add_a_new_aspect: "Lägg till en ny sida"
       add_a_new_contact: "Lägg till en ny kontakt"
@@ -67,6 +71,13 @@ sv:
     remove_from_aspect: 
       failure: "Misslyckades med att ta bort personen från vald sida"
       success: "Personen är nu borttagen från vald sida"
+    seed: 
+      family: Family
+      work: Work
+    show: 
+      contact: contact
+      contacts: contacts
+      edit_aspect: "edit aspect"
     update: 
       success: "Din sida %{name} är nu ändrad."
   back: Tillbaka
@@ -75,9 +86,6 @@ sv:
     new_comment: 
       comment: Kommentar
       commenting: Kommenterar...
-  dashboards: 
-    helper: 
-      home: Hem
   delete: "Ta bort"
   email: E-post
   error_messages: 
@@ -88,8 +96,15 @@ sv:
   home: 
     show: 
       already_account: "har du redan ett konto?"
+      choice: Choice
+      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
+      learn_about_host: "Learn about how to host your own Diaspora server"
       login_here: "logga in här"
+      ownership: Ownership
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Dela vad du vill, med vem du vill."
+      simplicity: Simplicity
+      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations: 
     check_token: 
       not_found: "Inbjudan inte funnen"
@@ -97,8 +112,12 @@ sv:
       already_contacts: "Du är redan ansluten till den här personen"
       already_sent: "Du har redan bjudit in denna person."
       no_more: "Du har inga fler inbjudningar."
+      rejected: "The following email addresses had problems: "
       sent: "Din inbjudan är nu skickad."
+    edit: 
+      sign_up: sign_up
     new: 
+      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "om de accepterar så kommer de att läggas till på den sida du valde"
       invite_someone_to_join: "Bjud in en än till Diaspora!"
       message: "Meddelande:"
@@ -111,7 +130,6 @@ sv:
     header: 
       account_settings: kontoinställningar
       blog: blogg
-      developers: utvecklare
       edit_profile: "ändra profil"
       login: "logga in"
       logout: "logga ut"
@@ -161,11 +179,12 @@ sv:
     profile_sidebar: 
       bio: bio
       born: född
+      cannot_remove: "Cannot remove %{name} from last aspect."
       edit_my_profile: "Ändra min profil"
       gender: kön
       in_aspects: "på sidor"
-      last_seen: "senast sedd: %{how_long_ago}"
       remove_contact: "ta bort kontakt"
+      remove_from: "Remove %{name} from %{aspect}?"
     show: 
       already_requested: "Du har redan skickat en kontaktförfrågan till %{name}."
       does_not_exist: "Den här personen finns inte!"
@@ -189,23 +208,19 @@ sv:
       new_photo: "Nytt foto"
       post_it: skicka!
     new_photo: 
-      drop: "Släpp foton här för att ladda upp"
       empty: "{file} är tom, välj om filerna utan att välja denna."
-      failed: Misslyckades
       invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
       size_error: "{file} är för stor, maximal filstorlek är {sizeLimit}."
-      upload: "Ladda upp ett foto"
     photo: 
       view_all: "visa alla foton %{name} laddat upp"
     show: 
-      add_a_description: "Lägg till beskrivning"
       delete_photo: "Ta bort foto"
-      edit_photo: "Ändra foto"
-      full_size: "full storlek"
+      edit: edit
+      edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "använd som profilbild"
-      next: nästa
-      prev: föregående
+      original_post: "Original Post"
       update_photo: "Uppdatera foto"
+      view: view
     update: 
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
@@ -228,19 +243,15 @@ sv:
     create: 
       sending: Skickar...
       sent: "Du har angett att du vill dela med %{name}.  De kommer bli medveten om detta nästa gång de loggar in."
-      tried: "vi gjorde vårat bästa för att skicka meddelandet till %{account}"
     destroy: 
       error: "Var god välj en aspekt!"
       ignore: "Ignorerade kontaktförfrågan."
       success: "Kontakten är nu tillagd."
     manage_aspect_contacts: 
-      contact_username: "Kontaktens Diaspora-adress"
-      create_request: "Skapa förfrågan"
-      enter_a_diaspora_username: "Ange ett användarnamn:"
       existing: "Befintliga kontakter"
-      know_email: "Vet du deras e-postadress? Då borde du bjuda in dem"
       manage_within: "Hantera kontakter i "
-      your_diaspora_username_is: "Din Diaspora-adress är: %{diaspora_handle}"
+    new_request_to_person: 
+      sent: sent!
   search: Sök
   services: 
     create: 
@@ -255,29 +266,34 @@ sv:
       really_disconnect: "koppla från %{service}?"
   settings: Inställningar
   shared: 
+    add_contact: 
+      create_request: "Find by Diaspora handle"
+      diaspora_handle: "Diaspora handle"
+      enter_a_diaspora_username: "Enter a Diaspora username:"
+      know_email: "Know their email address? You should invite them"
+      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
     aspect_contacts: 
-      add_contacts: "lägg till kontakter"
+      add_aspect: "add aspect"
+      add_existing: "Add an existing contact"
       add_to: "lägg till i %{aspect}"
-      everyone: Alla
-      manage: "hantera %{aspect}"
-    aspect_nav: 
-      add_a_new_aspect: "lägg till en ny sida"
-      everyone: Alla
-      manage: Hantera
-      manage_your_aspects: "Hantera dina sidor"
-    author_info: 
-      all: alla
-      status_messages: statusmeddelande
-      view_profile: "Visa profil"
-      viewing: visar
+      all_contacts: "All contacts"
+      aspect_settings: "Aspect settings"
+      aspects: Aspects
+      confirm_remove_aspect: "Remove aspect?"
+      contacts: contacts
+      done_editing: "done editing"
+      invites: Invites
+      new_request: "%{count} new request!"
+      new_requests: "%{count} new requests!"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+      remove_aspect: "Remove Aspect"
     contact_list: 
-      add_to: "Lägg till %{name} i %{aspect}"
-      remove_from: "Ta bort %{name} från %{aspect}"
+      cannot_remove: "Cannot remove person from last aspect."
       search_contacts: "Sök efter kontakter"
     invitations: 
+      dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invitations_left: "(%{count} kvar)"
       invite_someone: "Bjud in en kontakt"
-      invites: Inbjudningar
     notification: 
       new: "Ny %{type} från %{from}"
     public_explain: 
@@ -286,7 +302,9 @@ sv:
       outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
       title: "Du är på väg att skicka ett publikt meddelande!"
     publisher: 
+      add_photos: "add photos"
       all: alla
+      all_contacts: "all contacts"
       make_public: "gör publik"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: Skickar...
@@ -316,17 +334,17 @@ sv:
       download_photos: "Ladda ner mina foton"
       download_xml: "Ladda ner min xml"
       export_data: "Exportera data"
-      invite_contacts: "Bjud in en kontakt"
       new_password: "Nytt lösenord"
+      your_email: "Your email"
+      your_handle: "Your diaspora handle"
     getting_started: 
       connect_services: "Anslut andra tjänster"
       define_aspects: "Välj dina sidor"
       edit_profile: "Ändra din profil"
+      finished: Finished!
       save_and_continue: "Spara och fortsätt"
       signup_steps: "Slutför registreringen genom att följa den här guiden:"
       skip: "hoppa över guiden"
-      step_1: 
-        your_profile: "Din Profil"
       step_2: 
         add: "Lägg till"
         aspect_name: "Namn på sida"
@@ -337,13 +355,11 @@ sv:
         your_services: "Dina tjänster"
       step_4: 
         change_profile: "Du kan ändra din profil närsomhelst genom att klicka på"
-        connect_disconnect: "Du kan ansluta och koppla bort dina andra tjänster när som helst genom att klicka på"
         continue: "Fortsätt till \"Alla\" sidan, en överblick av alla dina sidor."
         finish: Slutför
         manage_aspects: "Du kan hantera dina olika sidor närsomhelst genom att klicka på"
         ready_to_share: "Du är nu redo att börja dela med "
         set_up: "Nu är guiden klar, %{name}!"
-        tab_also_added: "-fliken.  Du kan även lägga till en ny kontakt direkt på en sida."
         user_menu: "i användarmenyn uppe till vänster."
       welcome: "Välkommen till diaspora!"
     public: 

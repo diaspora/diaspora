@@ -7,6 +7,8 @@ pl:
   devise: 
     confirmations: 
       confirmed: "Twoje konto zostało aktywowane, zostałeś zalogowany."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
       send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcje dotyczące aktywacji konta."
     failure: 
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
@@ -48,6 +50,8 @@ pl:
         unlock: "Odblokuj moje konto"
       welcome: "Witaj %{email}!"
     passwords: 
+      edit: 
+        change_password: "Change my password"
       new: 
         forgot_password: "Forgot your password?"
         send_password_instructions: "Send me reset password instructions"
@@ -59,8 +63,11 @@ pl:
       updated: "Pomyślnie zaktualizowano informacje o Twoim koncie."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Jakiś kłopot? Znajdź odpowiedź tu"
         login: Login
+        modern_browsers: "only supports modern browsers."
         password: Hasło
         remember_me: "Zapamiętaj sesję"
         sign_in: "Zaloguj się"
@@ -70,9 +77,13 @@ pl:
     shared: 
       links: 
         forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Sign in"
         sign_up: "Sign up"
     unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "W ciągu kilku minut otrzymasz email z instrukcjami odblokowania konta."
       unlocked: "Twoje konto zostało odblokowane, jesteś zalogowany."
   errors: 
