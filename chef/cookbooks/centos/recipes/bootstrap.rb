@@ -28,4 +28,4 @@ def harden_ruby(ruby_string)
 
 end
 
-harden_ruby("ree")
+harden_ruby("ruby-1.8.7-p302")

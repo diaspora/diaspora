@@ -6,6 +6,7 @@
 
 $(document).ready(function(){
   var $stream = $(".stream");
+  var $publisher = $("#publisher");
   // expand all comments on page load
 	$(".stream:not('.show')").find('.comments').each(function(index) {
       var comments = $(this);
@@ -49,6 +50,22 @@ $(document).ready(function(){
       button.toggleClass("active");
       box.toggle();
     }
+  });
+
+  $(".new_status_message").bind('ajax:success', function(data, json, xhr){
+    json = $.parseJSON(json); 
+    WebSocketReceiver.addPostToStream(json['post_id'],json['html']);
+  });
+  $(".new_status_message").bind('ajax:failure', function(data, html, xhr){
+    alert('failed to post message!');
+  });
+
+  $(".new_comment").live('ajax:success', function(data, json, xhr){
+    json = $.parseJSON(json); 
+    WebSocketReceiver.processComment(json['post_id'],json['comment_id'],json['html'],false);
+  });
+  $(".new_comment").live('ajax:failure', function(data, html, xhr){
+    alert('failed to post message!');
   });
 
 });//end document ready

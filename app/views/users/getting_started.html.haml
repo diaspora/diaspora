@@ -12,7 +12,7 @@
 
       $(".aspects li").find(".delete").live("click", function(){
         var aspectElement = $(this).parent("li");
-        if (confirm("are you sure?")){
+        if (confirm(#{t('are_you_sure')})){
           aspectElement.fadeOut(300, function(){aspectElement.remove();});
         }
       });

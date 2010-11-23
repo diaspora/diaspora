@@ -18,6 +18,12 @@
         var progress = Math.round(loaded / total * 100 );
          $('#fileInfo').text(fileName + ' ' + progress + '%');
        },
+       
+       messages: {
+           typeError: "#{t('.invalid_ext')}",
+           sizeError: "#{t('.size_error')}",
+           emptyError: "#{t('.empty')}"
+       },
 
        onSubmit: function(id, fileName){
         $('#file-upload').addClass("loading");

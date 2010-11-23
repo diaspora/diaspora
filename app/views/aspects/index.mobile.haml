@@ -1,13 +1,9 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
 %div{:data => {:role => 'content'}}
   %div{:data => {:role => 'fieldcontain'}}
     =render 'shared/publisher', :aspect => @aspect
 
 = render 'shared/stream', :posts => @posts
-
-/%div{:data => {:role => 'footer', :id => 'footer-toolbar', :position => 'fixed'}}
-/  %div{:data => {:role => 'navbar'}}
-/    %ul
-/      %li{:class => 'ui-btn-active'} 
-/        = link_to 'posts', '#'
-/      %li 
-/        =link_to 'contacts', '#'

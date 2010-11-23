@@ -121,6 +121,7 @@ $.fn.clearForm = function() {
 
 var video_active_container = null;
 
+
 function openVideo(type, videoid, link) {
   var container = document.createElement('div'),
       $container = $(container);

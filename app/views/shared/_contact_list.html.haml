@@ -45,7 +45,7 @@
       });
 
       $('.remove').live('ajax:failure', function(data, html, xhr) {
-        alert("Cannot remove person from last aspect.");
+        alert("#{t('.cannot_remove')}");
       });
 
       $('.add').live('ajax:success', function(data, html, xhr) {

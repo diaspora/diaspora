@@ -13,27 +13,20 @@
     #why.span-22.prepend-1.last
       .span-7
         %h2
-          Choice
+          = t('.choice')
         %p
-          Diaspora allows you to sort your connections into groups called Aspects.
-          Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared
-          with only the people you want them to be.
+          = t('.choice_explanation')
           
       .span-7
         %h2
-          Ownership
+          = t('.ownership')
         %p
-          You own your pictures, and you shouldn’t have to give that up just in order
-          to share them. You maintain ownership of everything you share on Diaspora,
-          giving you full control over how it is distributed.
-
+          = t('.ownership_explanation')
       .span-7
         %h2
-          Simplicity
+          = t('.simplicity')
         %p
-          Diaspora makes sharing clean and easy – this goes doubly so for privacy.
-          Innherently private, Diaspora doesn’t have pages of settings and options to
-          wade through to keep your profile secure and to your liking.
+          = t('.simplicity_explanation')
 
 
     .span-22.prepend-1.last
@@ -47,12 +40,12 @@
     #info_links.span-22.prepend-1.last          
       .span-10
         %h3
-          Learn about how to host your own Diaspora server
+          = t('.learn_about_host')
 
 
       .span-11
         %h3
-          Learn more about Diaspora as an open source project.
+          = t('.learn_about_open_source')
     
 
 .span-24.last{:style=>"text-align:center;"}

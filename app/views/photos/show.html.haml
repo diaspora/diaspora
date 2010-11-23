@@ -43,7 +43,7 @@
         .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_large)}"}}
           = link_to t('.make_profile_photo'), '#', :class => 'make_profile_photo'
           |
-          = link_to 'edit', '#', :id => "edit_photo_toggle"
+          = link_to t('.edit'), '#', :id => "edit_photo_toggle"
 
       -else
         = image_tag @photo.url(:scaled_full)
@@ -55,7 +55,7 @@
 
   -if @ownership
     #photo_edit_options
-      %h4 Edit photo description / delete photo
+      %h4= t('.edit_delete_photo')
       %p
         = form_for @photo, :remote => true do |p|
           = p.text_field :caption, :value => @photo.caption
@@ -67,8 +67,8 @@
   - if @photo.status_message_id
     #original_post_info
       %h4{:style=>"position:relative;"}
-        Original Post
-        = link_to 'view', @photo.status_message
+        = t('.original_post')
+        = link_to t('.view'), @photo.status_message
 
       %p
         = @photo.status_message.message
@@ -77,7 +77,7 @@
         - for photo in @photo.status_message.photos
           = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
 
-  %h4 Comments
+  %h4= t('_comments')
   
   - if @photo.status_message_id
     %div{:id => 'status_message_stream', :class => 'stream show'}

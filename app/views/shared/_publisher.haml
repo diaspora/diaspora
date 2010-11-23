@@ -27,11 +27,11 @@
     %ul#photodropzone
     = status.error_messages
     #file-upload.button
-      add photos
+      = t('.add_photos')
 
     %p
       %params
-        = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? "all contacts" : aspect))
+        = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? t('.all_contacts') : aspect))
         = status.text_area :message, :rows => 2, :value => params[:prefill]
 
     = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)

@@ -382,8 +382,8 @@ class User
 
 
   def seed_aspects
-    self.aspects.create(:name => "Family")
-    self.aspects.create(:name => "Work")
+    self.aspects.create(:name => I18n.t('aspects.seed.family'))
+    self.aspects.create(:name => I18n.t('aspects.seed.work'))
   end
 
   def as_json(opts={})
