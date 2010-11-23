@@ -37,7 +37,7 @@ $(document).ready(function(){
     }
   );
 
-  $('.new_request').submit(function(){
+  $('.new_request').live("submit", function(){
     var foo = $(this).parent();
     $(this).hide();
     foo.find('.message').removeClass('hidden');
@@ -85,7 +85,7 @@ $(document).ready(function(){
 
   $('.webfinger_form').submit(function(evt){
     form = $(evt.currentTarget);
-    form.siblings('.spinner').show();
+    form.siblings('#loader').show();
      $('#request_result li:first').hide();
   });
 

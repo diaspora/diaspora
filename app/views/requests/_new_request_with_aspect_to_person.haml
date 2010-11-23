@@ -2,7 +2,10 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_for Request.new, :remote => true do |request|
-  = request.hidden_field :into, :value => "changeme"
-  = request.hidden_field :to, :value => destination_handle
-  = request.submit '+', :class => 'add', :disable_with => "Sending"
+%div{:id => destination_handle}
+  = form_for Request.new, :remote => true do |request|
+    = request.hidden_field :into, :value => "changeme"
+    = request.hidden_field :to, :value => destination_handle
+    = request.submit '+', :class => 'add', :disable_with => "Sending"
+  .message.hidden
+    %i= t('requests.new_request_to_person.sent')
