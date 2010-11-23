@@ -28,18 +28,16 @@ describe PeopleController do
     it 'shows a contact' do
       user2 = make_user
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
-      get :index
+      get :index, :q => user2.person.profile.first_name.to_s
       assigns[:people].should include user2.person
-      response.should be_success
     end
 
     it 'shows a non-contact' do
       user2 = make_user
       user2.person.profile.searchable = true
       user2.save
-      get :index
+      get :index, :q => user2.person.profile.first_name.to_s
       assigns[:people].should include user2.person
-      response.should be_success
     end
 
     it "redirects to person page if there is exactly one match" do
