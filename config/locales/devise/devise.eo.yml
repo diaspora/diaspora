@@ -1,0 +1,93 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+eo: 
+  devise: 
+    confirmations: 
+      confirmed: "Via konto estis sukcese konfirmita. Vi nun estas ensalutinta."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Vi post kelkaj minutoj ricevos instrukciojn pri kiel konfirmi vian konton."
+    failure: 
+      inactive: "Via konto ne jam estas konfirmita."
+      invalid: "Nevalida retpoŝtadreso aŭ pasvorto."
+      invalid_token: "Invalid authentication token."
+      locked: "Via konto estas ŝlosita."
+      timeout: "Via sesio finis. Bonvolu reensaluti por daŭri."
+      unauthenticated: "Vi devas ensaluti aŭ fari konton antaŭ ol daŭri."
+      unconfirmed: "Vi devas konfirmi vian konton antaŭ ol daŭri."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Via invito estas sendita."
+      updated: "Vi sukcese faris pasvorton. Vi nun estas ensalutinta. "
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Konfirmi mian konton"
+        subject: "Instrukcioj por konfirmi"
+        you_can_confirm: "Vi povas konfirmi vian konton per la suba ligilo:"
+      hello: "Saluton, %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
+      inviters: 
+        accept_at: ", ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
+        has_invited_you: "%{name} invitis vin aliĝi al Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Via konto estas ŝlosita pro tro da malsukcesaj ensalutprovoj."
+        click_to_unlock: "Alklaku la suban ligilon por malŝlosi vian konton:"
+        subject: "Instrukcioj por malŝlosi"
+        unlock: "Malŝlosi mian konton."
+      welcome: "Welcome %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Forgesis vian pasvorton?"
+        send_password_instructions: "Sendu al mi instrukcioj por fari novan pasvorton"
+      send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel fari novan pasvorton."
+      updated: "Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta."
+    registrations: 
+      destroyed: "Adiaŭ! Via konto estis sukcese forigita. Ni esperas baldaŭ denove vin vidi."
+      signed_up: "Vi sukcese faris novan konton. Se ebligita, konfirmo estis sendita al via retpoŝtadreso."
+      updated: "Vi sukcese ĝisdatigis vian konton."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Havas problemon? Trovu respondon ĉi tie"
+        login: Kontonomo
+        modern_browsers: "only supports modern browsers."
+        password: Pasvorto
+        remember_me: "Memoru min"
+        sign_in: Ensaluti
+        username: Kontonomo
+      signed_in: "Sukcese ensalutis."
+      signed_out: "Sukcese elsalutis."
+    shared: 
+      links: 
+        forgot_your_password: "Forgesis vian pasvorton?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: Ensaluti
+        sign_up: "Sign up"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
+      unlocked: "Your account was successfully unlocked. You are now signed in."
+  errors: 
+    messages: 
+      already_confirmed: "jam konfirmita"
+      not_found: "ne trovita"
+      not_locked: "ne estis ŝlosita"

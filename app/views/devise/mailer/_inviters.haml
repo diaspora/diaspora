@@ -1,0 +1,11 @@
+%p
+  - if @invs.count == 1
+    = t('.has_invited_you', :name => @invs.first.from.real_name + " (#{@invs.first.from.diaspora_handle})")
+  - else
+    = t('.have_invited_you', :names => (@invs.map{|inv| inv.from.real_name + " (#{inv.from.diaspora_handle})"}.join(",")))
+  = t('.accept_at', :url => root_url)
+- @invs.each do |inv|
+  - if inv.message
+    = "#{inv.from.real_name}:"
+    = "\"#{inv.message}\""
+    %p

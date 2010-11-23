@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class PhotosController < ApplicationController
@@ -8,16 +8,137 @@ class PhotosController < ApplicationController
   respond_to :html
   respond_to :json, :only => :show
 
-  def create
-    album = Album.find_by_id params[:album_id]
-    begin
+  def index
+    @aspect = :profile
+    @post_type = :photos
+    @person = Person.find_by_id(params[:person_id])
 
+    if @person
+      @profile = @person.profile
+      @contact = current_user.contact_for(@person)
+      @is_contact = @person != current_user.person && @contact
+
+      if @contact
+        @aspects_with_person = @contact.aspects
+      else
+        @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
+      end
+
+      @posts = current_user.raw_visible_posts.all(:_type => 'Photo', :person_id => @person.id, :order => 'created_at DESC').paginate :page => params[:page], :order => 'created_at DESC'
+
+      render 'people/show'
+
+    else
+      flash[:error] = I18n.t 'people.show.does_not_exist'
+      redirect_to people_path
+    end
+  end
+
+  def create
+    begin
+      params[:photo][:user_file] = file_handler(params)
+
+      @photo = current_user.build_post(:photo, params[:photo])
+
+      if @photo.save
+        raise 'MongoMapper failed to catch a failed save' unless @photo.id
+
+        current_user.dispatch_post(@photo, :to => params[:photo][:to]) unless @photo.pending
+        respond_to do |format|
+          format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+        end
+      else
+        respond_with :location => photos_path, :error => message
+      end
+
+    rescue TypeError
+      message = I18n.t 'photos.create.type_error'
+      respond_with :location => photos_path, :error => message
+
+    rescue CarrierWave::IntegrityError
+      message = I18n.t 'photos.create.integrity_error'
+      respond_with :location => photos_path, :error => message
+
+    rescue RuntimeError => e
+      message = I18n.t 'photos.create.runtime_error'
+      respond_with :location => photos_path, :error => message
+      raise e
+    end
+  end
+
+  def new
+    @photo = Photo.new
+    respond_with @photo
+  end
+
+  def destroy
+    photo = current_user.my_posts.where(:_id => params[:id]).first
+
+    if photo
+      photo.destroy
+      flash[:notice] = I18n.t 'photos.destroy.notice'
+
+      if photo.status_message_id
+        respond_with :location => photo.status_message
+      else
+        respond_with :location => photos_path
+      end
+    else
+      respond_with :location => photos_path
+    end
+   
+  end
+
+  def show
+    @aspect = :none
+    @photo = current_user.find_visible_post_by_id params[:id]
+    unless @photo
+      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    else
+      @ownership = current_user.owns? @photo
+
+      respond_with @photo
+    end
+  end
+
+  def edit
+    if @photo = current_user.my_posts.where(:_id => params[:id]).first
+      respond_with @photo
+    else
+      redirect_to person_photos_path(current_user.person)
+    end
+  end
+
+  def update
+    photo = current_user.my_posts.where(:_id => params[:id]).first
+    if photo
+      if current_user.update_post( photo, params[:photo] )
+        flash.now[:notice] = I18n.t 'photos.update.notice'
+        respond_to do |format|
+          format.js{ render :json => photo, :status => 200 }
+        end
+      else
+        flash.now[:error] = I18n.t 'photos.update.error'
+        respond_to do |format|
+          format.html{ redirect_to [:edit, photo] }
+          format.js{ render :status => 403 }
+        end
+      end
+    else
+      redirect_to person_photos_path(current_user.person)
+    end
+  end
+
+
+  private 
+
+  def file_handler(params)
       ######################## dealing with local files #############
       # get file name
       file_name = params[:qqfile]
       # get file content type
       att_content_type = (request.content_type.to_s == "") ? "application/octet-stream" : request.content_type.to_s
-      # create temporal file
+      # create tempora##l file
       begin
         file = Tempfile.new(file_name, {:encoding =>  'BINARY'})
         file.print request.raw_post.force_encoding('BINARY')
@@ -31,89 +152,6 @@ class PhotosController < ApplicationController
       # create several required methods for this temporal file
       Tempfile.send(:define_method, "content_type") {return att_content_type}
       Tempfile.send(:define_method, "original_filename") {return file_name}
-
-      ##############
-
-      params[:user_file] = file
-
-      data = clean_hash(params)
-
-      @photo = current_user.post(:photo, data)
-
-      respond_to do |format|
-        format.json{render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
-      end
-
-    rescue TypeError
-      message = I18n.t 'photos.create.type_error'
-      respond_with :location => album, :error => message
-
-    rescue CarrierWave::IntegrityError
-      message = I18n.t 'photos.create.integrity_error'
-      respond_with :location => album, :error => message
-
-    rescue RuntimeError => e
-      message = I18n.t 'photos.create.runtime_error'
-      respond_with :location => album, :error => message
-      raise e
-    end
+      file
   end
-
-  def new
-    @photo = Photo.new
-    @album = current_user.album_by_id(params[:album_id])
-    render :partial => 'new_photo'
-  end
-
-  def destroy
-    @photo = current_user.find_visible_post_by_id params[:id]
-
-    @photo.destroy
-    flash[:notice] = I18n.t 'photos.destroy.notice'
-    respond_with :location => @photo.album
-  end
-
-  def show
-    @photo = current_user.find_visible_post_by_id params[:id]
-    @album = @photo.album
-    respond_with @photo, @album
-  end
-
-  def edit
-    @photo = current_user.find_visible_post_by_id params[:id]
-    @album = @photo.album
-
-    redirect_to @photo unless current_user.owns? @album
-  end
-
-  def update
-    @photo = current_user.find_visible_post_by_id params[:id]
-
-    data = clean_hash(params)
-
-    if current_user.update_post( @photo, data[:photo] )
-      flash[:notice] = I18n.t 'photos.update.notice'
-      respond_with @photo
-    else
-      flash[:error] = I18n.t 'photos.update.error'
-      render :action => :edit
-    end
-  end
-
-  private
-  def clean_hash(params)
-    if params[:photo]
-      return {
-        :photo => {
-          :caption   => params[:photo][:caption],
-        }
-      }
-    else
-      return{
-        :album_id  => params[:album_id],
-        :user_file => params[:user_file]
-      }
-    end
-  end
-
 end

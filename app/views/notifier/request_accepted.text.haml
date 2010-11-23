@@ -1,0 +1,9 @@
+= t('notifier.hello', :name => @receiver.profile.first_name)
+= "#{@sender.real_name} (#{@sender.diaspora_handle})"
+= t('notifier.request_accepted.accepted')
+= "#{@aspect.name} #{t('notifier.request_accepted.aspect')}\n" 
+= "#{aspect_url(@aspect)}"
+
+
+= "#{t('notifier.love')} \n"
+= t('notifier.diaspora')

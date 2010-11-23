@@ -1,54 +1,99 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Request
-  require File.expand_path('../../../lib/diaspora/webhooks', __FILE__)
+class Request  
+  require File.join(Rails.root, 'lib/diaspora/webhooks')
+  
   include MongoMapper::Document
+  include Magent::Async
   include Diaspora::Webhooks
   include ROXML
 
-  xml_accessor :_id
-  xml_accessor :person, :as => Person
-  xml_accessor :destination_url
-  xml_accessor :callback_url
-  xml_accessor :exported_key, :cdata => true
+  xml_reader :sender_handle
+  xml_reader :recipient_handle
 
-  key :person_id,       ObjectId
-  key :aspect_id,        ObjectId
-  key :destination_url, String
-  key :callback_url,    String
-  key :exported_key,    String
+  belongs_to :into, :class => Aspect
+  belongs_to :from, :class => Person
+  belongs_to :to,   :class => Person
+  key :sent,                  Boolean, :default => false
 
-  belongs_to :person
+  validates_presence_of :from, :to
+  validate :not_already_connected, :if => :sent
+  validate :no_pending_request, :if => :sent
+  
+  #before_validation :clean_link
+  
+  scope :from, lambda { |person| 
+    target = (person.is_a?(User) ? person.person : person)
+    where(:from_id => target.id)
+  }
+  
+  scope :to, lambda { |person| 
+    target = (person.is_a?(User) ? person.person : person)
+    where(:to_id => target.id)
+  }
 
-  validates_presence_of :destination_url, :callback_url
-  before_validation :clean_link
 
-  scope :for_user,  lambda{ |user| where(:destination_url    => user.person.receive_url) }
-  scope :from_user, lambda{ |user| where(:destination_url.ne => user.person.receive_url) }
-
-  def self.instantiate(options = {})
-    person = options[:from]
-    self.new(:destination_url => options[:to],
-             :callback_url    => person.receive_url,
-             :person          => person,
-             :exported_key    => person.exported_key,
-             :aspect_id        => options[:into])
+  def self.instantiate(opts = {})
+    self.new(:from => opts[:from],
+             :to   => opts[:to],
+             :into => opts[:into],
+             :sent => true)
   end
 
   def reverse_for accepting_user
-    self.person          = accepting_user.person
-    self.exported_key    = accepting_user.exported_key
-    self.destination_url = self.callback_url
-    self.save
+    Request.new(
+      :from => accepting_user.person,
+      :to => self.from
+    )
   end
 
-protected
-  def clean_link
-    if self.destination_url
-      self.destination_url = 'http://' + self.destination_url unless self.destination_url.match('https?://')
-      self.destination_url = self.destination_url + '/' if self.destination_url[-1,1] != '/'
+  
+  def self.send_request_accepted(user, person, aspect)
+    self.async.send_request_accepted!(user.id, person.id, aspect.id).commit!
+  end
+
+  def self.send_request_accepted!(user_id, person_id, aspect_id)
+    Notifier.request_accepted(user_id, person_id, aspect_id).deliver
+  end
+
+  def self.send_new_request(user, person)
+    self.async.send_new_request!(user.id, person.id).commit!
+  end
+
+  def self.send_new_request!(user_id, person_id)
+    Notifier.new_request(user_id, person_id).deliver
+  end
+
+  def sender_handle
+    from.diaspora_handle
+  end
+  def sender_handle= sender_handle
+    self.from = Person.first(:diaspora_handle => sender_handle)
+  end
+
+  def recipient_handle
+    to.diaspora_handle
+  end
+  def recipient_handle= recipient_handle
+    self.to = Person.first(:diaspora_handle => recipient_handle)
+  end
+
+  def diaspora_handle
+    self.from.diaspora_handle
+  end
+
+  private
+  def no_pending_request
+    if Request.first(:from_id => from_id, :to_id => to_id)
+      errors[:base] << 'You have already sent a request to that person'
+    end
+  end
+
+  def not_already_connected
+    if Contact.first(:user_id => self.from.owner_id, :person_id => self.to_id)
+      errors[:base] << 'You have already connected to this person!'
     end
   end
 end

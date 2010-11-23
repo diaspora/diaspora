@@ -1,8 +1,9 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class CommentsController < ApplicationController
+  include ApplicationHelper
   before_filter :authenticate_user!
 
   respond_to :html
@@ -12,8 +13,20 @@ class CommentsController < ApplicationController
     target = current_user.find_visible_post_by_id params[:comment][:post_id]
     text = params[:comment][:text]
 
-    @comment = current_user.comment text, :on => target
-    render :nothing => true
+    @comment = current_user.comment(text, :on => target) if target
+    if @comment
+      Rails.logger.info("event=comment_create user=#{current_user.inspect} status=success comment=#{@comment.inspect}")
+
+      respond_to do |format|
+        format.js{ render :json => { :post_id => @comment.post_id,
+                                     :comment_id => @comment.id,
+                                     :html => render_to_string(:partial => type_partial(@comment), :locals => {:post => @comment, :current_user => current_user})},
+                                     :status => 201 }
+        format.html{ render :nothing => true, :status => 201 }
+      end
+    else
+      render :nothing => true, :status => 401
+    end
   end
 
 end

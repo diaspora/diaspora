@@ -1,16 +1,48 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 :javascript
-  function createUploader(){
-    var uploader = new qq.FileUploader({
-        element: document.getElementById('file-upload'),
-        params: {'album_id' : "#{@album.id}"},
-        allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
-        action: "#{photos_path}"
-    });
-  }
-  window.onload = createUploader;
+ function createUploader(){
+   var uploader = new qq.FileUploaderBasic({
+       element: document.getElementById('file-upload'),
+       params: {'photo' : {'pending' : 'true', 'to' : "#{aspect_id}"}, 'set_profile_image' : "#{set_profile_image if defined?(set_profile_image)}"},
+       allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+       action: "#{photos_path}",
+       debug: true,
+       button: document.getElementById('file-upload'),
+       sizeLimit: 4194304,
 
-#file-upload
+      
+       onProgress: function(id, fileName, loaded, total){
+        var progress = Math.round(loaded / total * 100 );
+         $('#fileInfo').text(fileName + ' ' + progress + '%');
+       },
+       
+       messages: {
+           typeError: "#{t('.invalid_ext')}",
+           sizeError: "#{t('.size_error')}",
+           emptyError: "#{t('.empty')}"
+       },
+
+       onSubmit: function(id, fileName){
+        $('#file-upload').addClass("loading");
+        $('#publisher').find("input[type='submit']").attr('disabled','disabled');
+        $("#publisher .options_and_submit").fadeIn(50);
+        $("#publisher_spinner").fadeIn(100);
+       },
+       
+       onComplete: function(id, fileName, responseJSON){
+        $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
+        $("#publisher_spinner").fadeOut(100);
+        $('#file-upload').removeClass("loading");
+        var id = responseJSON.data.photo.id;
+        var url = responseJSON.data.photo.url;
+        $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
+        $('#photodropzone').append("<li><img src='" + url +"' data-id='" + id + "' /></li>");
+        $('#publisher').find("input[type='submit']").removeAttr('disabled');
+       }
+       
+   });
+ }
+ window.onload = createUploader;

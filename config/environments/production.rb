@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 Diaspora::Application.configure do
@@ -35,7 +35,7 @@ Diaspora::Application.configure do
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
-  #config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -47,16 +47,4 @@ Diaspora::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
   config.threadsafe!
-
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = {:host => 'pivots.joindiaspora.com'}
-  config.action_mailer.smtp_settings = {
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :domain => 'mail.joindiaspora.com',
-    :authentication => 'plain',
-    :user_name => 'diaspora-pivots@joindiaspora.com',
-    :password => "xy289|]G+R*-kA",
-    :enable_starttls_auto => true
-  }
 end

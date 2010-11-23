@@ -1,0 +1,93 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+id: 
+  devise: 
+    confirmations: 
+      confirmed: "Akun Anda telah berhasil dikonfirmasi. Anda sekarang masuk."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Anda akan menerima email berisi instruksi bagaimana mengkonfirmasi akun Anda dalam beberapa menit."
+    failure: 
+      inactive: "Akun anda belum diaktifkan."
+      invalid: "Email atau password tidak valid."
+      invalid_token: "Token otentikasi tidak valid."
+      locked: "Akun anda terkunci."
+      timeout: "Sesi anda telah berakhir, silahkan masuk lagi untuk melanjutkan."
+      unauthenticated: "Anda harus masuk atau mendaftar sebelum melanjutkan."
+      unconfirmed: "Anda harus mengkonfirmasi akun Anda sebelum melanjutkan."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "Unlock my account"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
+      send_instructions: "Anda akan menerima email berisi petunjuk cara me-reset password Anda dalam beberapa menit."
+      updated: "Password Anda telah berhasil diubah. Anda sekarang masuk."
+    registrations: 
+      destroyed: "Bye! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi."
+      signed_up: "Anda telah berhasil mendaftar. Jika diaktifkan, konfirmasi dikirim ke e-mail Anda."
+      updated: "Anda berhasil memperbarui akun anda."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Have a problem? Find an answer here"
+        login: Login
+        modern_browsers: "only supports modern browsers."
+        password: Password
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: Username
+      signed_in: "Berhasil masuk."
+      signed_out: "Berhasil keluar."
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "Anda akan menerima email berisi instruksi bagaimana membuka akun Anda dalam beberapa menit."
+      unlocked: "Akun Anda telah berhasil dibuka. Anda sekarang masuk."
+  errors: 
+    messages: 
+      already_confirmed: "sudah dikonfirmasi"
+      not_found: "tidak ditemukan"
+      not_locked: "tidak terkunci"

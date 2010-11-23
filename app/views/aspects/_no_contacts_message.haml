@@ -1,0 +1,15 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#no_contacts.floating.empty_message{:style => ("display:none" unless contact_count == 0)}
+  - if aspect == :all
+    %h3=t('.nobody')
+    %h4= link_to t('.add_contact'), aspects_manage_path
+    %h4= link_to t('.invite'), "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
+  - else
+    %h3=t('.nobody_in_aspect', :aspect_name => aspect.name)
+    - if defined?(options) && options
+      %h4= link_to t('.add_contact_to', :aspect_name => aspect.name), "#manage_aspect_contacts_pane", :class => "manage_aspect_contacts_button"
+      %h4= link_to t('.invite', :aspect_name => aspect.name), "#invite_user_pane", :class => "invite_user_button", :class => "invite_user_button", :title => t('.invite')
+

@@ -1,14 +1,25 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h1
-  = link_to @status_message.person.real_name, @status_message.person
-  = @status_message.message
 
-%h4= "#{t('.comments')} (#{@status_message.comments.count})"
-= render "comments/comments", :post => @status_message
+= render 'shared/author_info', :person => @status_message.person, :post => @status_message
 
-%p
+.span-14.append-1.last
+  #show_text
+    %p
+      = markdownify(@status_message.message)
+
+    - for photo in @status_message.photos
+      = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
+
+  .time
+    = how_long_ago(@status_message)
   - if current_user.owns? @status_message
-    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure?'), :method => :delete
+    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
+
+.span-9.last
+  %h4{:style=>"margin-bottom:5px;"}= t('_comments')
+  %div{:class => 'stream show', :id => 'status_message_stream'}
+    %li.message{:data=>{:guid=>@status_message.id}}
+      = render "comments/comments", :post => @status_message

@@ -1,41 +1,93 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#   Translator: jarkko moilanen, jm60697@gmail.com
 
-fi:
-  errors:
-    messages:
-      not_found: "ei löytynyt"
+
+fi: 
+  devise: 
+    confirmations: 
+      confirmed: "Käyttäjätilisi luonti on vahvistettu. Olet nyt kirjautunut sisään."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä miten vahvistat käyttäjätilisi luonnin."
+    failure: 
+      inactive: "Käyttätiliäsi ei ole vielä vahvistettu."
+      invalid: "Väärä sähköpostiosoite tai salasana."
+      invalid_token: "Viallinen todennus."
+      locked: "Käyttäjätilisi on lukittu."
+      timeout: "Istunto on vanhentunut, kirjaudu uudelleen."
+      unauthenticated: "Kirjaudu tai rekisteröidy ennen kuin voit jatkaa."
+      unconfirmed: "Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa"
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "Unlock my account"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
+      send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä miten määrität salasanasi uudelleen."
+      updated: "Salasanasi on vaihdettu. Olet nyt kirjautunut sisään."
+    registrations: 
+      destroyed: "Näkemiin! Käyttäjätilisi on poistettu. Toivottavasti näemme sinut pian uudelleen."
+      signed_up: "Käyttäjätilin luominen onnistui. Mahdollinen vahvistuspyyntö on lähetetty sähköpostiisi."
+      updated: "Käyttäjätilisi on päivitetty."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Have a problem? Find an answer here"
+        login: Login
+        modern_browsers: "only supports modern browsers."
+        password: Password
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: Username
+      signed_in: "Sisäänkirjautuminen onnistui."
+      signed_out: "Uloskirjautuminen onnistui."
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "Saat muutaman minuutin kuluttua sähköpostiisi ohjeet siitä miten avaat lukituksen."
+      unlocked: "Käyttäjätilisi lukitus on avattu. Olet nyt kirjautunut sisään."
+  errors: 
+    messages: 
       already_confirmed: "oli jo varmistettu"
+      not_found: "ei löytynyt"
       not_locked: "ei ollut lukittu"
-
-  devise:
-    failure:
-      unauthenticated: 'Kirjaudu tai rekisteröidy ennen kuin voit jatkaa.'
-      unconfirmed: 'Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa'
-      locked: 'Käyttäjätilisi on lukittu.'
-      invalid: 'Väärä sähköpostiosoite tai salasana.'
-      invalid_token: 'Viallinen todennus.'
-      timeout: 'Istunto on vanhentunut, kirjaudu uudelleen.'
-      inactive: 'Käyttätiliäsi ei ole vielä vahvistettu.'
-    sessions:
-      signed_in: 'Sisäänkirjautuminen onnistui.'
-      signed_out: 'Uloskirjautuminen onnistui.'
-    passwords:
-      send_instructions: 'Saat hetken päästä sähköpostiisi ohjeet siitä miten määrität salasanasi uudelleen.'
-      updated: 'Salasanasi on vaihdettu. Olet nyt kirjautunut sisään.'
-    confirmations:
-      send_instructions: 'Saat hetken päästä sähköpostiisi ohjeet siitä miten vahvistat käyttäjätilisi luonnin.'
-      confirmed: 'Käyttäjätilisi luonti on vahvistettu. Olet nyt kirjautunut sisään.'
-    registrations:
-      signed_up: 'Käyttäjätilin luominen onnistui. Mahdollinen vahvistuspyyntö on lähetetty sähköpostiisi.'
-      updated: 'Käyttäjätilisi on päivitetty.'
-      destroyed: 'Näkemiin! Käyttäjätilisi on poistettu. Toivottavasti näemme sinut pian uudelleen.'
-    unlocks:
-      send_instructions: 'Saat muutaman minuutin kuluttua sähköpostiisi ohjeet siitä miten avaat lukituksen.'
-      unlocked: 'Käyttäjätilisi lukitus on avattu. Olet nyt kirjautunut sisään.'
-    mailer:
-      confirmation_instructions: 'Ohjeet vahvistamiseen/todentamiseen'
-      reset_password_instructions: 'Ohjeet salananan uudelleenmäärittämiseksi'
-      unlock_instructions: 'Ohjeet lukituksen poistamiseksi'

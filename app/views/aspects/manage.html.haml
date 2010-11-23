@@ -1,61 +1,60 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 - content_for :head do
-  = javascript_include_tag 'jquery-ui-1.8.4.custom.min.js'
-  = javascript_include_tag 'aspect-edit.js'
+  = include_javascripts :aspects
 
-- content_for :left_pane do
-  %h1=t('.requests')
+#section_header
+  %h2=t('.manage_aspects')
+  .right
+    = link_to("+ #{t('.add_a_new_aspect')}", "#add_aspect_pane", :class => "new_aspect add_aspect_button button", :title => t('.add_a_new_aspect'))
+
+.span-4.append-1.last
+  %h3=t('.requests')
 
   .requests
     %ul.dropzone
       - if @remote_requests.size < 1
-        %li.grey No new requests
+        %li=t('.no_requests')
       - else
         - for request in @remote_requests
-          %li.requested_person{:id => request.person.id, :request_id => request.id}
-            = person_image_tag(request.person)
-            .name
-              = request.person.real_name
-  %h1=t('.ignore_remove')
+          %li.person.request{:data=>{:guid=>request.id, :person_id=>request.from.id}}
+            .delete
+              .x
+                X
+              .circle
+            = person_image_tag(request.from)
 
-  %li.remove
-    %ul.dropzone
-      %li.grey Drag to ignore/remove
+  = render 'shared/invitations', :invites => @invites
 
-- content_for :publish do
-  = link_to(t('.add_a_new_aspect'), "#add_aspect_pane", :id => "add_aspect_button", :class => "new_aspect button", :title => t('.add_a_new_aspect'))
+.span-19.last
+  %ul#aspect_list
+    - for aspect in @aspects
+      %li.aspect{:data=>{:guid=>aspect.id}}
 
-%ul#aspect_list
-  - for aspect in @aspects
-    %li.aspect
+        .aspect_name
+          %span.edit_name_field
+            %h3{:contenteditable=>true}
+              = aspect.name
+            %span.tip click to edit
 
-      .aspect_name
-        %span.edit_name_field
-          %h1{:contenteditable => true}= aspect.name
-          %span.tip click to edit
+          %ul.tools
+            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{aspect.id}", :class => 'manage_aspect_contacts_button'
+            %li!= remove_link(aspect)
 
-        %ul.tools
-          %li= link_to t('.add_a_new_friend'), "#add_request_pane_#{aspect.id}", :class => 'add_request_button'
-          %li= link_to t('.show'), aspect_path(aspect)
-          %li!= remove_link(aspect)
+        %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
+          -for contact in aspect.contacts
+            %li.person{:data=>{:guid=>contact.person.id, :aspect_id=>aspect.id}}
+              .delete
+                .x
+                  X
+                .circle
+              = person_image_tag(contact.person)
+          .draggable_info
+            =t('.drag_to_add')
 
-      %ul.dropzone{:id => aspect.id}
+          .fancybox_content
+            %div{:id => "manage_aspect_contacts_pane_#{aspect.id}"}
+              = render "requests/manage_aspect_contacts", :aspect => aspect, :manage => true
 
-        -if aspect.people.size < 1
-          %li.grey Drag to add people
-
-        -else
-          -for person in aspect.people
-
-            %li.person{:id => person.id, :from_aspect_id => aspect.id}
-              = person_image_tag(person)
-              .name
-                = link_to person.real_name, person
-        .yo{:style => 'display:none'}
-          %div{:id => "add_request_pane_#{aspect.id}"}
-            = render "requests/new_request", :aspect => aspect
-
-#content_bottom

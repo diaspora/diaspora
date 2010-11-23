@@ -1,28 +1,33 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :check_registrations_open!
+
+  def create
+    @user = User.build(params[:user])
+    if @user.save
+      flash[:notice] = I18n.t 'registrations.create.success'
+      @user.seed_aspects
+      sign_in_and_redirect(:user, @user)
+      Rails.logger.info("event=registration status=successful user=#{@user.inspect}")
+    else
+      flash[:error] = @user.errors.full_messages.join(', ')
+      Rails.logger.info("event=registration status=failure errors=#{@user.errors.full_messages.join(', ')}")
+      render :new
+    end
+  end
+
   def new
     super
   end
 
-  def create
-    begin
-      user = User.instantiate!(params[:user])
-    rescue MongoMapper::DocumentNotValid => e
-      user = nil
-      flash[:error] = e.message
+  private
+  def check_registrations_open!
+    if APP_CONFIG[:registrations_closed]
+      flash[:error] = t('registrations.closed')
+      redirect_to new_user_session_path
     end
-    if user
-      flash[:notice] = I18n.t 'registrations.create.success'
-      sign_in_and_redirect(:user, user)
-    else
-      redirect_to new_user_registration_path
-    end
-  end
-
-  def update
-    super
   end
 end

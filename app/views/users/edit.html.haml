@@ -1,61 +1,87 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :publish do
-  %h1="#{t('.editing_profile')}"
+:javascript
+  $("#settings_nav li > a").live("click", function() {
+    var target = "#"+$(this).attr('class');
+    if( !$(target).is(":visible") ) {
+      $(".settings_pane").fadeOut(200, function() {
+        $(target).delay(200).fadeIn(200);
+      });
+    }
+  });
 
-- content_for :left_pane do
-  \.
+#section_header
+  %h2
+    = t('settings')
+  %ul#settings_nav
+    %li=link_to t('profile'), edit_person_path(current_user.person)
+    %li=link_to t('account'), edit_user_path(current_user)
+    %li=link_to t('_services'), services_path
 
-= form_for @user do |f|
-  = f.error_messages
+.span-19.prepend-5.last
+  %h2
+    = t('account')
 
-  = f.fields_for :profile do |p|
+  .span-8.append-1.last
+    %h3
+      = t('.your_handle')
+    %p
+      %b= current_user.diaspora_handle
+  .span-8.prepend-2.last
+    %h3
+      = t('.your_email')
+    %p
+      = current_user.email
 
-    %h3="#{t('.picture')}"
-    %div#image_picker
-      = p.hidden_field :image_url, :value => (@profile.image_url if @profile.image_url), :id => 'image_url_field'
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
 
-      - unless @photos.nil? || @photos.empty?
-        - for photo in @photos
-          - if @profile.image_url && @profile.image_url.include?(photo.url(:thumb_medium))
-            %div.small_photo{:id => photo.url(:thumb_medium), :class=>'selected'}
-              = check_box_tag 'checked_photo', true, true
-              = link_to image_tag(photo.url(:thumb_medium)), "#"
-          - else
-            %div.small_photo{:id => photo.url(:thumb_medium)}
-              = check_box_tag 'checked_photo'
-              = link_to image_tag(photo.url(:thumb_medium)), "#"
-
-      - else
-        =t('.you_dont_have_any_photos')
-        = link_to t('.albums'), albums_path(:aspect => 'all')
-        =t('.page_to_upload_some')
-
-    =will_paginate @photos
-
-    %br
-
-    %h3="#{t('.info')}"
+  %h3 
+    = t('.change_password')
+  = form_for @user do |f|
+    = f.error_messages
 
     %p
-      %b
-        ="#{t('.diaspora_username')}:"
-        = @user.diaspora_handle
+      = f.label :password, t('.new_password')
+      = f.password_field :password
+    %p
+      = f.label :password_confirmation, t('password_confirmation')
+      = f.password_field :password_confirmation
+
+    .submit_block
+      = link_to t('cancel'), edit_user_path(current_user)
+      = t('or')
+      = f.submit t('.change_password')
+
+  %h3 
+    = t('.change_language')
+  = form_for @user do |f|
+    = f.error_messages
 
     %p
-      = p.label :first_name
-      = p.text_field :first_name, :value => @profile.first_name
-    %p
-      = p.label :last_name
-      = p.text_field :last_name, :value => @profile.last_name
+      = f.select :language, available_language_options
+      = f.submit t('.change_language')
 
-  #submit_block
-    = link_to t('.cancel'), root_path
-    or
-    = f.submit t('.update_profile')
+  %br
 
-#content_bottom
-  .back
-    = link_to "⇧ #{t('.home')}", root_path
+  %h3 
+    = t('.export_data')
+  = link_to t('.download_xml'), users_export_path, :class => "button"
+  = link_to t('.download_photos'), users_export_photos_path, :class => "button"
+
+  %br
+  %br
+  %br
+
+  %h3 
+    = t('.close_account')
+  = link_to t('.close_account'), current_user,
+              :confirm => t('are_you_sure'), :method => :delete,
+              :class => "button"

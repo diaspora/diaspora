@@ -1,137 +1,229 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+
+  settings: "Settings"
+  profile: "Profile"
+  account: "Account"
+  _services: "Services"
+  _photos: "photos"
+  ok: "OK"
+  cancel: "Cancel"
+  delete: "Delete"  
+  or: "or"
+  ago: "ago"
+  username: "Username"
+  email: "Email"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  are_you_sure: "Are you sure?"
+  fill_me_out: "Fill me out"
+  back: "Back"
+  the_world: "the world"
+  search: "Search"
+  _home: "Home"
+  _comments: "Comments"
+  
+  activemodel:
+      errors:
+          models:
+              user:
+                  attributes:
+                      person:
+                          invalid: "is invalid"
+                      username:
+                          taken: "is already taken"
+                      email:
+                          taken: "is already taken"
+              person:
+                  attributes:
+                      diaspora_handle:
+                          taken: "is already taken"
   application:
       helper:
           unknown_person: "unknown person"
-          new_requests: "new requests"
-  dashboards:
-      helper:
-          home: "home"
+          youtube_title:
+              unknown: "Unknown Video Title"
   error_messages:
       helper:
           invalid_fields: "Invalid Fields"
           correct_the_following_errors_and_try_again: "Correct the following errors and try again."
-  people:
-      helper:
-           results_for: " results for %{params}"
-           people_on_pod_are_aware_of: " people on pod are aware of"
   layouts:
+      header:
+        view_profile: "view profile"
+        edit_profile: "edit profile"
+        account_settings: "account settings"
+        logout: "logout"
+        blog: "blog"
+        login: "login"
       application:
-          edit_profile: "edit profile"
-          logout: "logout"
+        powered_by: "POWERED BY DIASPORA*"
   shared:
-      aspect_nav:
-          all_aspects: "All Aspects"
-          manage: "Manage"
-          manage_your_aspects: "Manage your Aspects"
-      sub_header:
-          all_aspects: "All Aspects"
-          manage_aspects: "Manage Aspects"
+      stream_element:
+          show_comments: "show comments"
       publisher:
+          posting: "Posting..."
           share: "Share"
-      aspect_friends:
-          add_friends: "add friends"
-  albums:
-      album:
-          you: "you"
-      new_album:
-          create: "create"
-          add_a_new_album: "Add a new album"
-      show:
-          edit_album: "Edit Album"
-          albums: "albums"
-          updated: "updated"
-          by: "by"
-      edit:
-          editing: "Editing"
-          updated: "updated"
-          are_you_sure: "Are you sure?"
-          delete_album: "Delete Album"
-          cancel: "Cancel"
-      index:
-          home: "home"
-          new_album: "New Album"
-      create:
-          success: "You've created an album called %{name}."
-      update:
-          success: "Album %{name} successfully edited."
-          failure: "Failed to edit album %{name}."
-      destroy:
-          success: "Album %{name} deleted."
-      helper:
-          friends_albums: "Friends Albums"
-          your_albums: "Your Albums"
+          post_a_message_to: "Post a message to %{aspect}"
+          make_public: "make public"
+          share_with_all: "Share with all aspects"
+          share_with: "Share with %{aspect}"
+          all: "all"
+          add_photos: "add photos"
+          all_contacts: "all contacts"
+          share_with_all: "share across all of your aspects"
+      aspect_contacts:
+          add_to: "add to %{aspect}"
+          done_editing: "done editing"
+          new_requests: "%{count} new requests!"
+          new_request: "%{count} new request!"
+          add_existing: "Add an existing contact"
+          aspect_settings: "Aspect settings"
+          contacts: "contacts"
+          remove_aspect: "Remove Aspect"
+          confirm_remove_aspect: "Remove aspect?"
+          no_contacts: "You currently have no contacts.  Find your contacts here."
+          aspects: "Aspects"
+          add_aspect: "add aspect"
+          invites: "Invites"
+          all_contacts: "All contacts"
+      add_contact:
+          enter_a_diaspora_username: "Enter a Diaspora username:"
+          your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+          create_request: "Find by Diaspora handle"
+          diaspora_handle: "Diaspora Handle"
+          know_email: "Know their email address? You should invite them"
+      invitations:
+          invite_someone: "Invite someone"
+          invitations_left: "(%{count} left)"
+          dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      reshare:
+          reshare: "Reshare"
+      public_explain:
+          title: "You are about to post a public message!"
+          outside: "Public messages will be available for others outside of Diaspora to see."
+          logged_in: "logged in to %{service}"
+          manage: "manage connected services"
+      notification:
+          new: "New %{type} from %{from}"
+      contact_list:
+          search_contacts: "Search contacts"
+          cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
   aspects:
-      index:
-          photos: "photos"
       show:
-          photos: "photos"
+          edit_aspect: "edit aspect"
+          contact: "contact"
+          contacts: "contacts"
+      no_contacts_message:
+          nobody: "Bring the people that matter in your life to Diaspora!"
+          nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+          add_contact: "Add a contact"
+          add_contact_to: "Add someone to %{aspect_name}"
+          invite: "Invite someone to join Diaspora!"
+      no_posts_message:
+          start_talking:  "Nobody has said anything yet.  Get the conversation started!"
       manage:
           add_a_new_aspect: "Add a new aspect"
-          add_a_new_friend:  "Add a new friend"
-          show: "Show"
-          update_aspects: "Update Aspects"
+          add_a_new_contact: "Add a new contact"
           requests: "Requests"
-          ignore_remove: "Ignore/Remove"
+          no_requests: "No new requests"
+          manage_aspects: "Manage aspects"
+          drag_to_add: "Drag to add people"
       new_aspect:
-          add_a_new_aspect: "Add a new aspect"
+          name: "Name"
           create: "Create"
       create:
-          success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+          success: "Your new aspect %{name} was created"
           failure: "Aspect creation failed."
       destroy:
           success: "%{name} was successfully removed."
       update:
           success: "Your aspect, %{name}, has been successfully edited."
-      move_friends:
-          failure: "Aspect editing failed for friend %{real_name}."
-          success: "Aspects edited successfully."
-      move_friend:
+      move_contact:
           failure: "didn't work %{inspect}"
-          success: "You are now showing your friend a different aspect of yourself."
+          success: "Person moved to new aspect"
+          error: "Error moving contact: %{inspect}"
+      add_to_aspect:
+          failure: "Failed to add contact to aspect."
+          success: "Successfully added contact to aspect."
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
+          are_you_sure: "Are you sure you want to delete this aspect?"
+      remove_from_aspect:
+          success: "Successfully removed person from aspect"
+          failure: "Failed to remove person from aspect"
+      seed:
+          family: "Family"
+          work: "Work"
+      index:
+          handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
   users:
       edit:
-          cancel: "Cancel"
-          update_profile: "Update Profile"
-          home: "Home"
-          diaspora_username: "DIASPORA USERNAME"
-          info: "Info"
-          picture: "Picture"
-          editing_profile: "Editing profile"
-          albums: "Albums"
-          you_dont_have_any_photos: "You don't have any photos!  Go to the"
-          page_to_upload_some:  "page to upload some."
+          export_data: "Export Data"
+          close_account: "Close Account"
+          change_language: "Change Language"
+          change_password: "Change Password"
+          new_password: "New Password"
+          download_xml: "download my xml"
+          download_photos: "download my photos"
+          your_handle: "Your diaspora handle"
+          your_email: "Your email"
+      destroy: "Account successfully closed."
+      getting_started:
+          welcome: "Welcome to Diaspora!"
+          signup_steps: "Finish your sign up by completing these three steps:"
+          edit_profile: "Edit your profile"
+          define_aspects: "Define your aspects"
+          connect_services: "Connect your other services"
+          finished: "Finished!"
+          skip: "skip getting started"
+          save_and_continue: "Save and continue"
+          step_2:
+              your_aspects: "Your aspects"
+              description: "Tell Diaspora what different aspects of you are seen by different contacts. You can manage these later through your account menu at the top right. Your aspects are unique to you and not visible by others."
+              aspect_name: "Aspect name"
+              add: "Add"
+          step_3:
+              your_services: "Your services"
+              description: 'You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public"'
+          step_4:
+              set_up: "You're all set up, %{name}!"
+              ready_to_share: "You're now ready to start sharing with "
+              continue: "Continue on to your Home page, an overview of all of your aspects."
+              change_profile: "You can edit your profile and manage your connected services at any time through "
+              user_menu: "the user menu located at the top right."
+              manage_aspects: "You can also add contacts while on any aspect page."
+              finish: "Finish"
+      update:
+          password_changed: "Password Changed"
+          password_not_changed: "Password Change Failed"
+          language_changed: "Language Changed"
+          language_not_changed: "Language Change Failed"
+      public:
+          does_not_exist: "User %{username} does not exist!"
   comments:
-      comment:
-          ago: "ago"
       new_comment:
           comment: "Comment"
+          commenting: "Commenting..."
   photos:
       show:
-          prev: "prev"
-          full_size: "full size"
-          next: "next"
-          edit_photo: "Edit Photo"
           delete_photo: "Delete Photo"
-          are_you_sure: "Are you sure?"
-          comments: "comments"
+          make_profile_photo: "make profile photo"
+          update_photo: "Update Photo"
+          view: "view"
+          edit: "edit"
+          edit_delete_photo: "Edit photo description / delete photo"
+          original_post: "Original Post"
       edit:
           editing: "Editing"
-          are_you_sure: "Are you sure?"
-          delete_photo: "Delete Photo"
       photo:
-          show_comments: "show comments"
-          posted_a_new_photo_to: "posted a new photo to"
+          view_all: "view all of %{name}'s photos"
       new:
           new_photo: "New Photo"
           back_to_list: "Back to List"
@@ -145,61 +237,140 @@ en:
           error:  "Failed to edit photo."
       destroy:
           notice: "Photo deleted."
+      new_photo:
+          invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
+          size_error: "{file} is too large, maximum file size is {sizeLimit}."
+          empty: "{file} is empty, please select files again without it."
   registrations:
       new:
           sign_up: "Sign up"
+          sign_up_for_diaspora: "Sign up for Diaspora"
       create:
           success: "You've joined Diaspora!"
+      edit:
+          edit: "Edit %{name}"
+          leave_blank: "(leave blank if you don't want to change it)"
+          password_to_confirm: "(we need your current password to confirm your changes)"
+          unhappy: "Unhappy?"
+          update: "Update"
+          cancel_my_account: "Cancel my account"
+      closed: "Signups are closed on this Diaspora pod."
+  invitations:
+      create:
+          sent: "Invitations have been sent to: "
+          rejected: "The following email addresses had problems: "
+          no_more: "You have no more invitations."
+          already_sent: "You already invited this person."
+          already_contacts: "You are already connected with this person" 
+      new:
+          invite_someone_to_join: "Invite someone to join Diaspora!"
+          if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+          comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+          to: "To"
+          message: "Message:"
+          send_an_invitation: "Send an invitation"
+          send_invitation: "Send invitation"
+      check_token:
+          not_found: "Invitation token not found"
+      edit:
+          sign_up: "sign_up"
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
           oh_yeah: "oh yeah!"
-      status_message:
-          show_comments: "show comments"
-          delete: "Delete"
-          are_you_sure: "Are you sure?"
       show:
-          status_message: "Status Message"
-          comments: "comments"
-          are_you_sure: "Are you sure?"
           destroy: "Destroy"
-          view_all: "View All"
-          message: "Message"
-          owner: "Owner"
       helper:
           no_message_to_display: "No message to display."
   people:
       person:
-          add_friend: "add friend"
           pending_request: "pending request"
+          already_connected: "Already connected"
+          thats_you: "thats you!"
+          add_contact: "add contact"
       index:
-          add_friend: "add friend"
-          real_name: "real name"
-          diaspora_handle: "diaspora handle"
-          thats_you: "that's you!"
-          friend_request_pending: "friend request pending"
-          you_have_a_friend_request_from_this_person: "you have a friend request from this person"
-      new:
-          new_person: "New Person"
-          back_to_list: "Back to List"
+          results_for: "search results for"
       show:
-          last_seen: "last seen: %{how_long_ago}"
-          friends_since: "friends since: %{how_long_ago}"
-          save: "save"
-          are_you_sure: "Are you sure?"
-          remove_friend: "remove friend"
+          no_posts: "no posts to display!"
+          request_people: "If you'd like, you can request to place him/her in one of your aspects."
+          already_requested: "You have already sent a request to %{name}."
+          does_not_exist: "Person does not exist!"
+          not_connected: "You are not connected with this person"
+      edit:
+          info_available_to: "This info will be available to whomever you connect with on Diaspora."
+          your_profile: "Your profile"
+          your_name: "Your name"
+          first_name: "First name"
+          last_name: "Last name"
+          your_gender: "Your gender"
+          your_birthday: "Your birthday"
+          your_bio: "Your bio"
+          your_photo: "Your photo"
+          update_profile: "Update Profile"
+          allow_search: "Allow for people to search for you within Diaspora"
+      profile_photo_upload:
+          or_select_one: "or select one from your already existing"
+      update:
+          updated: "Profile updated"
+          failed: "Failed to update profile"
+      profile_sidebar:
+          remove_contact: "remove contact"
+          edit_my_profile: "Edit my profile"
+          bio: "bio"
+          gender: "gender"
+          born: "born"
+          in_aspects: "in aspects"
+          cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
+          remove_from: "Remove %{name} from %{aspect}?"
+      helper:
+           results_for: " results for %{params}"
+           people_on_pod_are_aware_of: " people on pod are aware of"
   requests:
-      new_request:
-          add_a_new_friend_to: "Add a new friend to"
-          enter_a_diaspora_username: "Enter a Diaspora username:"
-          your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-          friends_username: "Friend's username"
+      manage_aspect_contacts:
+          manage_within: "Manage contacts within"
+          existing: "Existing contacts"
       destroy:
           success: "You are now friends."
           error: "Please select an aspect!"
-          ignore: "Ignored friend request."
+          ignore: "Ignored contact request."
       create:
-          error: "No diaspora seed found with this email!"
-          already_friends: "You are already friends with %{destination_url}!"
-          success: "A friend request was sent to %{destination_url}."
-          horribly_wrong: "Something went horribly wrong."
+          sending: "Sending"
+          sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      new_request_to_person:
+          sent: "sent!"
+  services:
+      index:
+        logged_in_as: "logged in as"
+        disconnect: "disconnect"
+        really_disconnect: "disconnect %{service}?"
+        connect_to_twitter: "Connect to twitter"
+        connect_to_facebook: "Connect to facebook"
+      create:
+          success: "Authentication successful."
+      destroy:
+          success: "Successfully destroyed authentication."
+  notifier:
+      hello: "Hello %{name}!"
+      love: "love,"
+      diaspora: "the diaspora email robot"
+      new_request:
+          subject: "new Diaspora* contact request from %{from}"
+          just_sent_you: "just sent you a contact request on Diaspora*"
+          try_it_out: "You should really think about checking it out."
+          sign_in: "sign in here"
+      request_accepted:
+          subject: "%{name} has accepted your contact request on Diaspora*"
+          accepted: "has accepted your contact request. They are now in your"
+          aspect: "aspect."
+  home:
+      show:
+          share_what_you_want: "Share what you want, with who you want."
+          already_account: "already have an account?"
+          login_here: "log in here"
+          choice: "Choice"
+          choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
+          ownership: "Ownership"
+          ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+          simplicity: "Simplicity"
+          simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+          learn_about_host: "Learn about how to host your own Diaspora server."

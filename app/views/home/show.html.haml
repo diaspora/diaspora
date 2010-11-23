@@ -1,0 +1,52 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#landing_content
+  .span-22.prepend-1.append-1.last
+
+    #diaspora_description.section
+      %p
+        = t('.share_what_you_want')
+
+  #why.span-24.last
+    .span-6.append-3
+      .info_pane
+        %h2
+          = t('.choice')
+        %p
+          = t('.choice_explanation')
+        
+    .span-6.append-3
+      .info_pane
+        %h2
+          = t('.ownership')
+        %p
+          = t('.ownership_explanation')
+    .span-6.last
+      .info_pane
+        %h2
+          = t('.simplicity')
+        %p
+          = t('.simplicity_explanation')
+
+
+  #signup.span-24.last
+    #signup_field.section
+      = render 'shared/mail_signup_form'
+
+    #login_field.section
+      = t('.already_account')
+      = link_to t('.login_here'), new_user_session_path
+
+  #info_links.prepend-1.span-22.append-1.last
+    %h3
+      = link_to t('.learn_about_host'), 'http://bit.ly/dZqyd3'
+      
+
+  .span-24.last{:style=>"text-align:center;"}
+    %ul#press_logos
+      %li= link_to image_tag("press_logos/the_new_york_times_logo.png"), "http://www.nytimes.com/2010/05/12/nyregion/12about.html", :title => "The New York Times"
+      %li= link_to image_tag("press_logos/nymag_logo.png"), "http://nymag.com/news/features/establishments/68512/", :title => "New York Magazine"
+      %li= link_to image_tag("press_logos/mashable_logo.png"), "http://mashable.com/2010/08/26/facebook-alternative-diaspora-launches-september-15/", :title => "Mashable"
+      %li= link_to image_tag("press_logos/techcrunch_logo.png"), "http://techcrunch.com/2010/09/15/diaspora-revealed/", :title => "TechCrunch"

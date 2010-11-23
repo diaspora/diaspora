@@ -1,24 +1,13 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 
 describe Post do
   before do
-    @user = Factory.create(:user, :email => "bob@aol.com")
-    @user.person.save
-  end
-
-  describe 'xml' do
-    before do
-      @message = Factory.create(:status_message, :person => @user.person)
-    end
-
-    it 'should serialize to xml with its person' do
-      @message.to_xml.to_s.include?(@user.person.diaspora_handle).should == true
-    end
-
+    @user = make_user
+    @aspect = @user.aspects.create(:name => "winners")
   end
 
   describe 'deletion' do
@@ -28,6 +17,23 @@ describe Post do
       post.destroy
       Post.all(:id => post.id).empty?.should == true
       Comment.all(:text => "hey").empty?.should == true
+    end
+  end
+
+  describe 'serialization' do
+    it 'should serialize the handle and not the sender' do
+      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      xml = post.to_diaspora_xml
+
+      xml.include?(@user.person.id.to_s).should be false
+      xml.include?(@user.person.diaspora_handle).should be true
+    end
+  end
+
+  describe '#mutable?' do
+    it 'should be false by default' do
+      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      post.mutable?.should == false   
     end
   end
 end

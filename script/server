@@ -1,13 +1,64 @@
 #!/bin/bash
+#
+# Start diaspora websocket and main services
+#
 
-# Check if Mongo is running
+realpath=$( ruby -e "puts File.expand_path(\"$0\")")
+cd $( dirname $realpath)/..
 
-if ! ps ax | grep -v grep | grep mongod >/dev/null
-then
-    echo "Mongod not started"
-else
-    mkdir -p -v log/thin/
-    bundle exec ruby ./script/websocket_server.rb&
-    bundle exec thin start $@
+[ -e config/server.sh ] && source config/server.sh
+
+# Scan for -p, find out what port thin is about to use.
+args="$DEFAULT_THIN_ARGS $@"
+prev_arg=''
+for arg in $( echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
+do
+    [ "$prev_arg" = '-p' ] && THIN_PORT="$arg"
+    prev_arg="$arg"
+done
+
+# Is someone listening on the ports already? (ipv4 only test ?)
+services=$( netstat -nl | grep '[^:]:'$THIN_PORT'[ \t]')
+if [ -n "$services" ]; then
+    echo "Error: thin port $THIN_PORT is already in use. Exiting" >&2
+    echo "     $services"
+    exit 64
 fi
 
+services=$( netstat -nl | grep '[^:]:'$SOCKET_PORT'[ \t]')
+if [ -n "$services" ]; then
+    echo "Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
+    echo "     $services"
+    exit 64
+fi
+
+# Check if Mongo is running
+if  ! ps ax | grep -v grep | grep mongod >/dev/null
+then
+    echo "Error: Mongod not started. Exiting" >&2
+    exit 64
+fi
+
+# Force AGPL
+if [ -w public -a ! -e  public/source.tar.gz ]; then
+    tar czf public/source.tar.gz  --exclude='source.tar.gz' -X .gitignore *
+fi
+if [ ! -e public/source.tar.gz ]; then
+    echo "Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
+    exit 65
+fi
+
+# Precache jammit assets
+if [ -w public ]; then
+    bundle exec jammit
+fi
+if [ ! -e 'public/assets/main.js.gz' ]; then
+    echo 'Jammit precache error (now or at install)' >&2
+    exit 66
+fi
+
+
+mkdir -p -v log/thin/
+bundle exec ruby ./script/websocket_server.rb&
+bundle exec magent start --log-path=log/ &
+bundle exec thin start $args

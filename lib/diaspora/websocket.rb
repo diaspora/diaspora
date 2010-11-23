@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 module Diaspora
@@ -15,7 +15,7 @@ module Diaspora
 
     def self.push_to_user(uid, data)
       Rails.logger.debug "Websocketing to #{uid}"
-      @channels[uid.to_s][0].push(data) if @channels[uid.to_s]
+      @channels[uid][0].push(data) if @channels[uid]
     end
 
     def self.subscribe(uid, ws)

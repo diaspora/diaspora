@@ -1,6 +1,8 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
+require File.join(Rails.root, 'lib/em-webfinger')
 
 class RequestsController < ApplicationController
   before_filter :authenticate_user!
@@ -11,7 +13,7 @@ class RequestsController < ApplicationController
   def destroy
     if params[:accept]
       if params[:aspect_id]
-        @friend = current_user.accept_and_respond( params[:id], params[:aspect_id])
+        @contact = current_user.accept_and_respond( params[:id], params[:aspect_id])
         flash[:notice] = I18n.t 'requests.destroy.success'
         respond_with :location => current_user.aspect_by_id(params[:aspect_id])
       else
@@ -19,9 +21,9 @@ class RequestsController < ApplicationController
         respond_with :location => requests_url
       end
     else
-      current_user.ignore_friend_request params[:id]
+      current_user.ignore_contact_request params[:id]
       flash[:notice] = I18n.t 'requests.destroy.ignore'
-      respond_with :location => requests_url
+      head :ok
     end
   end
 
@@ -29,37 +31,26 @@ class RequestsController < ApplicationController
     @request = Request.new
   end
 
-  def create
-    aspect = current_user.aspect_by_id(params[:request][:aspect_id])
-
-    begin
-      rel_hash = relationship_flow(params[:request][:destination_url])
-    rescue Exception => e
-      raise e unless e.message.include? "not found"
-      flash[:error] = I18n.t 'requests.create.error'
-      respond_with :location => aspect
-      return
-    end
-
-    # rel_hash = {:friend => params[:friend_handle]}
-    Rails.logger.debug("Sending request: #{rel_hash}")
-
-    begin
-      @request = current_user.send_friend_request_to(rel_hash[:friend], aspect)
-    rescue Exception => e
-      raise e unless e.message.include? "already"
-      flash[:notice] = I18n.t 'requests.create.already_friends', :destination_url => params[:request][:destination_url]
-      respond_with :location => aspect
-      return
-    end
-
-    if @request
-      flash[:notice] =  I18n.t 'requests.create.success',:destination_url => @request.destination_url
-      respond_with :location => aspect
-    else
-      flash[:error] = I18n.t 'requests.create.horribly_wrong'
-      respond_with :location => aspect
-    end
+ def create
+   aspect = current_user.aspect_by_id(params[:request][:into])
+   account = params[:request][:to].strip  
+   person = Person.by_account_identifier(account)
+   existing_request = Request.from(person).to(current_user.person).where(:sent => false).first if person
+   if existing_request
+     current_user.accept_and_respond(existing_request.id, aspect.id)
+     redirect_to :back
+   else
+     @request = Request.instantiate(:to => person,
+                                    :from => current_user.person,
+                                    :into => aspect)
+     if @request.save
+       current_user.dispatch_request(@request)
+       flash.now[:notice] = I18n.t('requests.create.sent')
+       redirect_to :back
+     else
+       flash.now[:error] = @request.errors.full_messages.join(', ')
+       redirect_to :back
+     end
+   end
   end
-
 end

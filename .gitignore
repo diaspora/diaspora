@@ -1,19 +1,36 @@
-.bundle
-.idea
-*.swap
-*.swp
-*.swo
-*~
-.bundle
-db/*.sqlite3
-log/*
-tmp/**/*
-gpg/diaspora-development/*.gpg
-gpg/diaspora-production/*.gpg
-gpg/*/random_seed
-public/uploads/*
-.rvmrc
-.DS_Store
+# Configuration files
 config/app_config.yml
+config/fb_config.yml
+config/oauth_keys.yml
+config/initializers/secret_token.rb
+.bundle
+vendor/bundle/*
+
+# Generated files
+log/*
+public/stylesheets/application.css
+public/stylesheets/sessions.css
+public/stylesheets/ui.css
+
+# Uploded files and local files
+public/uploads/*
+public/assets/*
+public/source.tar*
+tmp/**/*
+tmp/*
+db/*.sqlite3
+.redcar
+
+# Temporary files of every sort
+.DS_Store
+.idea
+.rvmrc
+.stgit*
+*.swap
+*.swo
+*.swp
+*~
 bin/*
 nbproject
+patches-*
+capybara-*.html

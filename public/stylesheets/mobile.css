@@ -1,0 +1,112 @@
+img {
+  border-radius: 5px; }
+
+ul {
+  list-style: none; }
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  padding: 0; }
+
+li.message {
+  width: 90%;
+  position: relative;
+  margin-top: 1em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px #eeeeee solid;
+  line-height: 19px;
+  font-family: "Arial", "Helvetica", sans-serif;
+  color: #777777; }
+  li.message .avatar {
+    float: left;
+    margin-right: 15px; }
+  li.message .content {
+    margin-top: 0;
+    padding-left: 65px;
+    color: #444444;
+    font-weight: normal;
+    font-size: 14px; }
+    li.message .content .aspect {
+      display: inline; }
+    li.message .content .stream_photo {
+      float: left;
+      margin-top: 6px; }
+    li.message .content .photo_description {
+      margin-top: 6px;
+      padding-left: 220px;
+      min-height: 185px;
+      color: #888888;
+      font-style: italic; }
+    li.message .content .small_text {
+      font-size: 10px; }
+    li.message .content div.info {
+      color: #999999;
+      font-size: smaller; }
+      li.message .content div.info a {
+        color: #cccccc; }
+      li.message .content div.info .time {
+        font-weight: bold;
+        margin-right: 5px; }
+        li.message .content div.info .time a {
+          color: #bbbbbb; }
+  li.message:hover div.info a, li.message:hover .time a {
+    color: #107fc9; }
+    li.message:hover div.info a:hover, li.message:hover .time a:hover {
+      color: #22aae0; }
+    li.message:hover div.info a:active, li.message:hover .time a:active {
+      color: #005d9c; }
+
+.right .reshare_pane .reshare_button a.inactive {
+  color: #cccccc;
+  cursor: default; }
+  .right .reshare_pane .reshare_button a.inactive:hover {
+    text-decoration: none; }
+
+.right .reshare_pane .reshare_button {
+  padding: 5px; }
+  .right .reshare_pane .reshare_button.active {
+    background-color: #333333;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0; }
+    .right .reshare_pane .reshare_button.active a {
+      color: white;
+      text-shadow: none; }
+
+.right .reshare_pane {
+  margin-left: 5px;
+  margin-right: 5px;
+  display: inline;
+  position: relative; }
+  .right .reshare_pane ul.reshare_box {
+    width: 150px;
+    display: none;
+    z-index: 10;
+    position: absolute;
+    margin-top: 0;
+    padding: 0;
+    background-color: #fafafa;
+    list-style: none;
+    border: 5px solid #333333;
+    text-shadow: 0 2px white;
+    color: black; }
+    .right .reshare_pane ul.reshare_box > li {
+      font-weight: bold;
+      color: #cccccc;
+      border-top: 1px solid white;
+      border-bottom: 1px solid #cccccc; }
+      .right .reshare_pane ul.reshare_box > li:first-child {
+        border-top: none; }
+      .right .reshare_pane ul.reshare_box > li:last-child {
+        border-bottom: none; }
+      .right .reshare_pane ul.reshare_box > li a {
+        display: block;
+        height: 100%;
+        padding: 2px 5px;
+        cursor: default; }
+        .right .reshare_pane ul.reshare_box > li a:hover {
+          background-color: #eeeeee;
+          text-decoration: none; }
+        .right .reshare_pane ul.reshare_box > li a:active {
+          background-color: #cccccc; }

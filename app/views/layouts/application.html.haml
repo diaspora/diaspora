@@ -1,66 +1,100 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 !!!
-%html
+%html{:lang => I18n.locale.to_s}
   %head
+    %meta{:charset => 'utf-8'}
+
     %title
-      = "#{current_user.real_name} | diaspora" if current_user
+      - if current_user
+        = "#{current_user.real_name} | DIASPORA*"
+      - else
+        DIASPORA*
+
+    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
+    %link{:rel => 'shortcut icon', :href => '/favicon.ico'}
+    %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
+
+    / Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons
+
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
-    = stylesheet_link_tag "application", "ui"
+    = stylesheet_link_tag "blueprint/print", :media => 'print'
+    = include_stylesheets :default, :media => 'all'
 
-    = stylesheet_link_tag "/../javascripts/fancybox/jquery.fancybox-1.3.1"
-    = stylesheet_link_tag "fileuploader"
-
-    /= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-    = javascript_include_tag 'jquery-1.4.2.min', 'rails'
-    = javascript_include_tag 'jquery.infieldlabel', 'jquery.cycle/jquery.cycle.min.js'
-
-    = javascript_include_tag 'fancybox/jquery.fancybox-1.3.1.pack'
-    = javascript_include_tag 'fileuploader'
-
-    = javascript_include_tag 'view', 'image_picker', 'stream'
-
-    = render 'js/websocket_js'
+    
+    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    
+    :javascript
+      !window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.4.js"%3E%3C/script%3E'))
+    = include_javascripts :main
+    
+    - if current_user
+      = include_javascripts :flash_socket unless modern_browser?
+      = javascript_include_tag 'web-socket-receiver'
+      = render 'js/websocket_js'
 
     = csrf_meta_tag
+
     = yield(:head)
+    = csrf_meta_tag
+
+    -if APP_CONFIG[:google_a_site]
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '#{APP_CONFIG[:google_a_site]}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    - if current_user
+      %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "Public Diaspora Feed for #{current_user.real_name}"}
 
   %body
+    #notification
+
     - flash.each do |name, msg|
       = content_tag :div, msg, :id => "flash_#{name}"
 
-    %header
-      .container{:style => "position:relative;"}
-        #diaspora_text{:href => root_path}
-          = link_to "DIASPORA*", root_path
-          %span.sub_text
-            PREVIEW
-
-        #session_action
-          %ul
-            %li#global_search
-              = form_tag(people_path, :method => 'get') do
-                %label{:for => 'q'} Search
-                = text_field_tag 'q'
-
-            %li= link_to current_user.real_name, current_user.person
-            %li= link_to t('.edit_profile'), edit_user_path(current_user)
-            %li= link_to t('.logout.'), destroy_user_session_path
-
-        = render "shared/aspect_nav"
-      = render "shared/sub_header"
+    %header{:class=>('landing' unless current_user)}
+      = render 'layouts/header'
 
     .container
-      .span-5.last
-        = yield :left_pane
-
-      .span-19.last
+      .span-24.last
         = yield
 
-      .span-19.prepend-5.last
-        = render "posts/debug"
+    .clearfix
+
+    = render 'posts/debug'
+
+    %footer
+      .container
+        .brandon= t('.powered_by')
+        %ul#footer_nav
+          %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
+          %li= link_to 'github', "https://github.com/diaspora/diaspora"
+          %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
+
+    :javascript    
+        var is_ssl = ("https:" == document.location.protocol);
+        var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+        document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+
+    :javascript
+        var feedback_widget_options = {};
+
+        feedback_widget_options.display = "overlay";  
+        feedback_widget_options.company = "diaspora";
+        feedback_widget_options.placement = "right";
+        feedback_widget_options.color = "#222";
+        feedback_widget_options.style = "idea";
+        var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+    

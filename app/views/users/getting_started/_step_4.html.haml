@@ -1,0 +1,33 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%h1
+  = t('.set_up', :name => first_name_or_username(current_user))
+  .description
+    = t('.ready_to_share')
+    %ul.inline_aspect_listing
+      - for aspect in @aspects
+        %li= aspect
+
+%br
+%br
+
+%h3
+  = link_to t('.continue'), root_path
+
+%br
+%br
+%br
+
+%p
+  = t('.change_profile')
+  = t('.user_menu')
+
+%p
+  = t('.manage_aspects')
+
+.submit_block
+  = link_to "#{t('.finish')} →", root_url, :class => "button"
+

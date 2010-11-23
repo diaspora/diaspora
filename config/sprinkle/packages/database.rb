@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 #package :mongo, :provides => :database do
@@ -9,10 +9,9 @@
 #end
 
 package :mongodb, :provides => :database do
-  description 'Mongodb debian package.'
-  version '1.4.3'
-
-  binary "http://downloads.mongodb.org/linux/mongodb-linux-x86_64-static-legacy-#{version}.tgz" do
+  description 'Mongodb binary.'
+  version '1.6.3'
+  binary "http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-static-legacy-#{version}.tgz" do
     post :install, "ln -s -f /usr/local/bin/mongodb-linux-x86_64-static-#{version}/bin/mongod /usr/bin/mongod"
   end
 end

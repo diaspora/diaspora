@@ -1,24 +1,41 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 
 describe StatusMessage do
+
   before do
-      @user = Factory.create(:user, :email => "bob@aol.com")
-      @aspect = @user.aspect(:name => "losers")
+    @user = make_user
+    @aspect = @user.aspects.create(:name => "losers")
   end
 
-  it "should have a message" do
+  it "should have either a message or at least one photo" do
     n = Factory.build(:status_message, :message => nil)
-    n.valid?.should be false
+    n.valid?.should be_false
     n.message = "wales"
-    n.valid?.should be true
+    n.valid?.should be_true
+    n.message = nil
+
+    photo = @user.build_post(:photo, :user_file => uploaded_photo, :to => @aspect.id)
+    photo.save!
+
+    n.photos << photo
+    n.valid?.should be_true
   end
 
   it 'should be postable through the user' do
     status = @user.post(:status_message, :message => "Users do things", :to => @aspect.id)
+  end
+
+  it 'should require status messages to be less than 1000 characters' do
+    message = ''
+    1001.times do message = message +'1';end
+    status = Factory.build(:status_message, :message => message)
+
+    status.should_not be_valid
+    
   end
 
   describe "XML" do

@@ -1,16 +1,17 @@
 //   Copyright (c) 2010, Diaspora Inc.  This file is
-//   licensed under the Affero General Public License version 3.  See
+//   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
 
 .button, .button_set
   :font
-    :family "Lucida Grande", sans-serif
     :style normal
+    :weight normal
 
   :display inline
 
-  :padding 4px
+  :padding 4px 7px
+  :min-width 26px
 
   :font-size 12px
   :line-height 100%
@@ -19,39 +20,40 @@
 
   :min-height 10px
 
-  :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#FCFCFC), to(#F6F6F6))
-  :background -moz-linear-gradient(top, #FCFCFC, #F6F6F6)
+  :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#F6F6F6), to(#d0d0d0))
+  :background -moz-linear-gradient(top, #F6F6F6, #d0d0d0)
 
-  :border 1px solid #EEE
-    :bottom 1px solid #999
-    :left 1px solid #ccc
-    :right 1px solid #ccc
+  :border 1px solid #aaa
+    :top 1px solid #bbb
+    :bottom 1px solid #888
 
-  :border-radius 3px
-  :-moz-border-radius 3px
-  :-webkit-border-radius 3px
+  :border-radius 4px
+  :-moz-border-radius 4px
+  :-webkit-border-radius 4px
 
-  :cursor pointer
+  :cursor default
 
-  :box-shadow 0 1px 1px #eee
-  :-webkit-box-shadow 0 1px 1px #eee
-  :-moz-box-shadow 0 1px 1px #eee
-
-  :font-weight normal
-
-  :color #666
+  :color #444
 
   &:hover
-    :color #666
-    :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#FAFAFA), to(#F0F0F0))
-    :background -moz-linear-gradient(top, #FAFAFA, #F0F0F0)
+    :color #444
+    :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#D6D6D6), to(#b0b0b0))
+    :background -moz-linear-gradient(top, #D6D6D6, #b0b0b0)
 
   &:active
-    :color #666
-    :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#F0F0F0), to(#FAFAFA))
-    :background -moz-linear-gradient(top, #F0F0F0, #FAFAFA)
-    :border
-      :top 1px solid #ccc
+    :color #111
+    :text-shadow 0 1px 0 #ccc
+    :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#ACACAC), to(#808080))
+    :background -moz-linear-gradient(top, #ACACAC, #808080)
+    :border 1px solid #666
+      :top 1px solid #333
+      :bottom 1px solid #888
+
+  img
+    :position relative
+    :height 20px
+    :width 20px
+    :top 6px
 
 ul.button_set
 

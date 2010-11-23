@@ -1,0 +1,93 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+da: 
+  devise: 
+    confirmations: 
+      confirmed: "Din konto er blevet bekræftet. Du er nu logget ind"
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Du vil modtage en e-mail med instruktioner om, hvordan du bekræfte din konto, om et par minutter."
+    failure: 
+      inactive: "Din konto var ikke aktiveret endnu."
+      invalid: "Forkert email eller adgangskode."
+      invalid_token: "Ugyldig token."
+      locked: "Din konto er låst."
+      timeout: "Du har været indaktiv for længe. Log ind for at forsætte."
+      unauthenticated: "Du skal logge ind eller oprette en konto for at forsætte."
+      unconfirmed: "Du skal bekræfte din konto for at forsætte."
+    invitations: 
+      invitation_token_invalid: "Invitationen er ikke gyldig!"
+      send_instructions: "Din invitation er blevet sendt."
+      updated: "Din adgangskode blev sat korrekt. Du er nu logget ind."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Bekræft min konto"
+        subject: "Bekræftelses instruktioner"
+        you_can_confirm: "Du kan bekræfte din konto via nedenstående link:"
+      hello: "Hej %{email}!"
+      invitation: 
+        accept: "Accepter invitation"
+        ignore: "Hvis du ikke ønsker at acceptere invitationen, bedes du ignorere denne e-mail."
+        no_account_till: "Din konto vil ikke blive oprettet før du klikker på linket ovenfor og logger ind."
+        subject: "Du er blevet inviteret til Diaspora!"
+      inviters: 
+        accept_at: ", på %{url}, kan du acceptere via linket nedenfor."
+        has_invited_you: "%{name} har inviteret dig til Diaspora"
+        have_invited_you: "%{names} har inviteret dig til Diaspora"
+      reset_password_instructions: 
+        change: "Ændre min adgangskode"
+        ignore: "Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail."
+        someone_requested: "Nogen har anmodet om et link til at ændre din adgangskode. Du kan gøre dette via linket nedenfor."
+        subject: "Instruktioner til Nulstilning af adgangskode"
+        wont_change: "Din adgangskode vil ikke ændres før du klikker på linket ovenfor og oprette en ny."
+      unlock_instructions: 
+        account_locked: "Din konto er blevet låst på grund af en stor mængde af mislykkede logge ind forsøg."
+        click_to_unlock: "Klik på linket nedenfor for at aktivere din konto:"
+        subject: "Aktiverings Instruktioner"
+        unlock: "Aktiver min konto"
+      welcome: "Velkommen %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Glemt din adgangskode?"
+        send_password_instructions: "Send mig instruktioner til nulstilning af kodeord"
+      send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et par minutter."
+      updated: "Dit adgangskode er nu ændret. Du er nu logget ind."
+    registrations: 
+      destroyed: "Farvel! Din konto er blevet aflyst. Vi håber at se dig igen snart."
+      signed_up: "Du har nu tilmeldt dig. Hvis aktiveret er en bekræftelse sendt til din e-mail."
+      updated: "Din konto er nu opdateret."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Har du problemer? Find svaret her"
+        login: "Log ind"
+        modern_browsers: "only supports modern browsers."
+        password: Adgangskode
+        remember_me: "Husk mig"
+        sign_in: "Log ind"
+        username: Brugernavn
+      signed_in: "Du er nu logget ind."
+      signed_out: "Du er nu logget ud."
+    shared: 
+      links: 
+        forgot_your_password: "Glemt din adgangskode?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Log ind"
+        sign_up: "Opret en profil"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan man kan låse din konto op om et par minutter."
+      unlocked: "Din konto er blevet låst op. Du er nu logget ind."
+  errors: 
+    messages: 
+      already_confirmed: "var allerede bekræftet"
+      not_found: "ikke fundet"
+      not_locked: "blev ikke låst"

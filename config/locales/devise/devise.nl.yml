@@ -1,0 +1,82 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+nl: 
+  devise: 
+    confirmations: 
+      confirmed: "Je account is geactiveerd. Je bent nu ingelogd."
+      send_instructions: "Je ontvangt een email met instructies om je account te activeren."
+    failure: 
+      inactive: "Je account is nog niet geactiveerd."
+      invalid: "Ongelding emailadres of wachtwoord."
+      invalid_token: "Ongeldige authenticatie token."
+      locked: "Je account is geblokkeerd."
+      timeout: "Je sessie is verlopen, log opnieuw in om verder te gaan."
+      unauthenticated: "Log in of registeer om verder te gaan."
+      unconfirmed: "Activeer je account om verder te gaan."
+    invitations: 
+      invitation_token_invalid: "De opgegeven uitnodigingstoken is ongeldig!"
+      send_instructions: "Je uitnodiging is verzonden."
+      updated: "Wachtwoord succesvol veranderd. Je bent nu ingelogd."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Bevestig mijn account"
+        subject: "Bevestigings instructies"
+        you_can_confirm: "Je kunt je account bevestigen via onderstaande link:"
+      hello: "Hallo %{email}!"
+      invitation: 
+        accept: "Accepteer uitnodiging"
+        ignore: "Indien je de uitnodiging niet wilt accepteren kun je deze mail gewoon negeren."
+        no_account_till: "Je account zal niet worden aangemaakt totdat je jezelf via bovenstaande link registreert."
+        subject: "Je bent uitgenodigd om lid te worden op Diaspora!"
+      inviters: 
+        accept_at: ", op %{url}, je kunt het accepteren via onderstaande link."
+        has_invited_you: "%{name} heeft je uitgenodigd om lid te worden op Diaspora"
+        have_invited_you: "%{names} hebben je uitgenodigd om lid te worden op Diaspora"
+      reset_password_instructions: 
+        change: "Verander mijn wachtwoord"
+        ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."
+        someone_requested: "Iemand heeft een aanvraag gedaan tot het veranderen van je wachtwoord. Je kunt dit doen via onderstaande link."
+        subject: "Wachtwoord reset instructies"
+        wont_change: "Je wachtwoord zal niet veranderen totdat je via bovenstaande link een nieuwe hebt gekozen."
+      unlock_instructions: 
+        account_locked: "Je account is vergrendeld als gevolg van een te hoog aantal mislukte pogingen tot inloggen."
+        click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
+        subject: "Unlock Instructions"
+        unlock: "Ontgrendel mijn account"
+      welcome: "Welkom %{email}!"
+    passwords: 
+      new: 
+        forgot_password: "Wachtwoord vergeten?"
+        send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
+      send_instructions: "Je ontvangt een email met instructies om je wachtwoord te resetten."
+      updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
+    registrations: 
+      destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
+      signed_up: "Je bent succesvol registreerd. Wanneer activeerd, ontvang je een bevestigingsmail."
+      updated: "Je account is succelvol geupdated."
+    sessions: 
+      new: 
+        have_a_problem: "Problemen? Vind hier een antwoord"
+        login: "Log in"
+        password: Wachtwoord
+        remember_me: "Onthoud mij"
+        sign_in: "Log in"
+        username: Gebruikersnaam
+      signed_in: "Je bent succesvol ingelogd."
+      signed_out: "Je bent succesvol uitgelogd."
+    shared: 
+      links: 
+        forgot_your_password: "Wachtwoord vergeten?"
+        sign_in: "Log in"
+        sign_up: Registreer
+    unlocks: 
+      send_instructions: "Je ontvangt een email met instructies om je account te deblokkeren."
+      unlocked: "Je account is succelvol gedeblokkeerd. Je bent nu ingelogd."
+  errors: 
+    messages: 
+      already_confirmed: "is al geactiveerd"
+      not_found: "niet gevonden"
+      not_locked: "is niet geblokeerd"

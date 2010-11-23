@@ -1,40 +1,93 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-pt-BR:
-  errors:
-    messages:
-      not_found: "não encontrado"
-      already_confirmed: "já foi confirmado"
-      not_locked: "não foi bloqueado"
 
-  devise:
-    failure:
-      unauthenticated: 'Você precisa fazer login ou se cadastrar antes de continuar.'
-      unconfirmed: 'Você tem que confirmar a sua conta antes de continuar.'
-      locked: 'Sua conta está bloqueada.'
-      invalid: 'E-mail ou senha inválida.'
-      invalid_token: 'Token de autenticação inválida.'
-      timeout: 'Sua sessão expirou, por favor logue-se novamente para continuar.'
-      inactive: 'Sua conta ainda não foi ativada.'
-    sessions:
-      signed_in: 'Você entrou com sucesso.'
-      signed_out: 'Você saiu com sucesso.'
-    passwords:
-      send_instructions: 'Você receberá um email com instruções sobre como redefinir sua senha em alguns minutos.'
-      updated: 'Sua senha foi alterada com sucesso.'
-    confirmations:
-      send_instructions: 'Você receberá um email em alguns minutos com as instruções sobre como confirmar a sua conta.'
-      confirmed: 'Sua conta foi confirmada com sucesso. Você já pode continuar navegando.'
-    registrations:
-      signed_up: 'Você se inscreveu com êxito. Se habilitado, a confirmação foi enviada para seu e-mail.'
-      updated: 'Você atualizou a sua conta com sucesso.'
-      destroyed: 'Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve.'
-    unlocks:
-      send_instructions: 'Você receberá um email em alguns minutos com as instruções sobre como desbloquear a sua conta.'
-      unlocked: 'Sua conta foi desbloqueada com sucesso. Você já pode continuar navegando.'
-    mailer:
-      confirmation_instructions: 'Instruções para confirmarção'
-      reset_password_instructions: 'Instruções para redefinir a senha'
-      unlock_instructions: 'Instruções para o desbloqueio'
+pt-BR: 
+  devise: 
+    confirmations: 
+      confirmed: "Sua conta foi confirmada com sucesso. Você já pode continuar navegando."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Você receberá um email em alguns minutos com as instruções sobre como confirmar a sua conta."
+    failure: 
+      inactive: "Sua conta ainda não foi ativada."
+      invalid: "E-mail ou senha inválida."
+      invalid_token: "Token de autenticação inválida."
+      locked: "Sua conta está bloqueada."
+      timeout: "Sua sessão expirou, por favor logue-se novamente para continuar."
+      unauthenticated: "Você precisa fazer login ou se cadastrar antes de continuar."
+      unconfirmed: "Você tem que confirmar a sua conta antes de continuar."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Seu convite foi enviado."
+      updated: "Sua senha foi definida com sucesso. Agora você está logado."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirmar a minha conta"
+        subject: "Instruções para confirmação"
+        you_can_confirm: "Você pode confirmar a sua conta através do link abaixo:"
+      hello: "Oi %{email}!"
+      invitation: 
+        accept: "Aceitar convite"
+        ignore: "Se você não quer aceitar o convite, por favor ignore este e-mail."
+        no_account_till: "Sua conta não será criada até que você acesse o link acima e se cadastrar."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", no endereço %{url}, você pode aceitar através do link abaixo."
+        has_invited_you: "%{name} te convidou para entrar no Diaspora"
+        have_invited_you: "%{names} te convidaram a entrar no Diaspora"
+      reset_password_instructions: 
+        change: "Alterar minha senha"
+        ignore: "Se você não solicitou isto, por favor ignore este email."
+        someone_requested: "Alguém pediu um link para alterar sua senha, e você pode fazer isso através do link abaixo."
+        subject: "Instruções para redefinir senha"
+        wont_change: "Sua senha não será alterada até que você acessar o link acima e criar uma nova."
+      unlock_instructions: 
+        account_locked: "Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas sem sucesso de fazer o login."
+        click_to_unlock: "Clique no link abaixo para desbloquear a sua conta:"
+        subject: "Instruções para Desbloquear"
+        unlock: "Desbloquear a minha conta"
+      welcome: "Bemvindo(a) %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Esqueceu sua senha?"
+        send_password_instructions: "Me envie instruções para redefinir minha senha"
+      send_instructions: "Você receberá um email com instruções sobre como redefinir sua senha em alguns minutos."
+      updated: "Sua senha foi alterada com sucesso."
+    registrations: 
+      destroyed: "Sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
+      signed_up: "Você se inscreveu com êxito. Se habilitado, a confirmação foi enviada para seu e-mail."
+      updated: "Você atualizou a sua conta com sucesso."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Você tem algum problema? Encontra uma resposta aqui"
+        login: Entrar
+        modern_browsers: "only supports modern browsers."
+        password: Senha
+        remember_me: "Remember me"
+        sign_in: Entrar
+        username: "Nome de usuário"
+      signed_in: "Você entrou com sucesso."
+      signed_out: "Você saiu com sucesso."
+    shared: 
+      links: 
+        forgot_your_password: "Esqueceu sua senha?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: Entrar
+        sign_up: Cadastre-se
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "Você receberá um email em alguns minutos com as instruções sobre como desbloquear a sua conta."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Você já pode continuar navegando."
+  errors: 
+    messages: 
+      already_confirmed: "já foi confirmado"
+      not_found: "não encontrado"
+      not_locked: "não foi bloqueado"

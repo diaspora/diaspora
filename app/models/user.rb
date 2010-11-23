@@ -1,48 +1,82 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.expand_path('../../../lib/diaspora/user/friending', __FILE__)
-require File.expand_path('../../../lib/diaspora/user/querying', __FILE__)
-require File.expand_path('../../../lib/diaspora/user/receiving', __FILE__)
-require File.expand_path('../../../lib/salmon/salmon', __FILE__)
+require File.join(Rails.root, 'lib/diaspora/user')
+require File.join(Rails.root, 'lib/salmon/salmon')
 
 class User
   include MongoMapper::Document
-  include Diaspora::UserModules::Friending
-  include Diaspora::UserModules::Querying
-  include Diaspora::UserModules::Receiving
+  include Diaspora::UserModules
   include Encryptor::Private
+
+  plugin MongoMapper::Devise
+
   QUEUE = MessageHandler.new
 
-  devise :database_authenticatable, :registerable,
+  devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  key :username, :unique => true
+
+  key :username
   key :serialized_private_key, String
+  key :invites, Integer, :default => 5
+  key :invitation_token, String
+  key :invitation_sent_at, DateTime
+  key :pending_request_ids, Array, :typecast => 'ObjectId'
+  key :visible_post_ids, Array, :typecast => 'ObjectId'
+  key :visible_person_ids, Array, :typecast => 'ObjectId'
 
-  key :friend_ids,          Array
-  key :pending_request_ids, Array
-  key :visible_post_ids,    Array
-  key :visible_person_ids,  Array
+  key :getting_started, Boolean, :default => true
 
-  one :person, :class_name => 'Person', :foreign_key => :owner_id
+  key :language, String
 
-  many :friends,           :in => :friend_ids,          :class_name => 'Person'
-  many :visible_people,    :in => :visible_person_ids,  :class_name => 'Person' # One of these needs to go
-  many :pending_requests,  :in => :pending_request_ids, :class_name => 'Request'
-  many :raw_visible_posts, :in => :visible_post_ids,    :class_name => 'Post'
+  before_validation :strip_and_downcase_username, :on => :create
+  before_validation :set_current_language, :on => :create
 
-  many :aspects, :class_name => 'Aspect'
+  validates_presence_of :username
+  validates_uniqueness_of :username, :case_sensitive => false
+  validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/
+  validates_length_of :username, :maximum => 32
+  validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
 
-  after_create :seed_aspects
+  validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
+  validates_associated :person
 
-  before_validation :downcase_username, :on => :create
+  one :person, :class => Person, :foreign_key => :owner_id
 
-   def self.find_for_authentication(conditions={})
+  many :invitations_from_me, :class => Invitation, :foreign_key => :from_id
+  many :invitations_to_me, :class => Invitation, :foreign_key => :to_id
+  many :contacts, :class => Contact, :foreign_key => :user_id
+  many :visible_people, :in => :visible_person_ids, :class => Person # One of these needs to go
+  many :pending_requests, :in => :pending_request_ids, :class => Request
+  many :raw_visible_posts, :in => :visible_post_ids, :class => Post
+  many :aspects, :class => Aspect, :dependent => :destroy
+
+  many :services, :class => Service
+
+  #after_create :seed_aspects
+
+  before_destroy :disconnect_everyone, :remove_person
+  before_save do
+    person.save if person
+  end
+
+  attr_accessible :getting_started, :password, :password_confirmation, :language, 
+
+  def strip_and_downcase_username
+    if username.present?
+      username.strip!
+      username.downcase!
+    end
+  end
+
+  def set_current_language
+    self.language = I18n.locale.to_s if self.language.blank?
+  end
+
+  def self.find_for_authentication(conditions={})
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
-    else
-      conditions[:username].downcase!
     end
     super
   end
@@ -51,78 +85,106 @@ class User
   key :email, String
 
   def method_missing(method, *args)
-    self.person.send(method, *args)
-  end
-
-  def real_name
-    "#{person.profile.first_name.to_s} #{person.profile.last_name.to_s}"
+    self.person.send(method, *args) if self.person
   end
 
   ######### Aspects ######################
-  def aspect( opts = {} )
-    opts[:user] = self
-    Aspect.create(opts)
-  end
-
-  def drop_aspect( aspect )
-    if aspect.people.size == 0
+  def drop_aspect(aspect)
+    if aspect.contacts.count == 0
       aspect.destroy
     else
       raise "Aspect not empty"
     end
   end
 
-  def move_friend( opts = {})
-    return true if opts[:to] == opts[:from]
-    friend = Person.first(:_id => opts[:friend_id])
-    if self.friend_ids.include?(friend.id)
-      from_aspect = self.aspect_by_id(opts[:from])
-      to_aspect = self.aspect_by_id(opts[:to])
-      if from_aspect && to_aspect
-        posts_to_move = from_aspect.posts.find_all_by_person_id(friend.id)
-        to_aspect.people << friend
-        to_aspect.posts << posts_to_move
-        from_aspect.person_ids.delete(friend.id.to_id)
-        posts_to_move.each{ |x| from_aspect.post_ids.delete(x.id)}
-        from_aspect.save
-        to_aspect.save
-        return true
+  def move_contact(opts = {})
+    if opts[:to] == opts[:from]
+      true
+    elsif opts[:person_id] && opts[:to] && opts[:from]
+      from_aspect = self.aspects.find_by_id(opts[:from])
+
+      if add_person_to_aspect(opts[:person_id], opts[:to])
+        delete_person_from_aspect(opts[:person_id], opts[:from])
       end
     end
-    false
+  end
+
+  def add_person_to_aspect(person_id, aspect_id)
+    contact = contact_for(Person.find(person_id))
+    raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
+    raise "Can not add person you are not connected to" unless contact
+    raise 'Can not add person who is already in the aspect' if aspect.contacts.include?(contact)
+    contact.aspects << aspect
+    contact.save!
+    aspect.save!
+  end
+
+  def delete_person_from_aspect(person_id, aspect_id, opts = {})
+    aspect = Aspect.find(aspect_id)
+    raise "Can not delete a person from an aspect you do not own" unless aspect.user == self
+    contact = contact_for Person.find(person_id)
+
+    if opts[:force] || contact.aspect_ids.count > 1
+      contact.aspect_ids.delete aspect.id
+      contact.save!
+      aspect.save!
+    else
+      raise "Can not delete a person from last aspect"
+    end
   end
 
   ######## Posting ########
-  def post(class_name, options = {})
-    if class_name == :photo
-      raise ArgumentError.new("No album_id given") unless options[:album_id]
-      aspect_ids = aspects_with_post( options[:album_id] )
-      aspect_ids.map!{ |aspect| aspect.id }
-    else
-      aspect_ids = options.delete(:to)
+  def post(class_name, opts = {})
+    post = build_post(class_name, opts)
+
+    if post.save
+      raise 'MongoMapper failed to catch a failed save' unless post.id
+      dispatch_post(post, :to => opts[:to])
     end
+    post
+  end
+
+  def build_post(class_name, opts = {})
+    opts[:person] = self.person
+    opts[:diaspora_handle] = self.person.diaspora_handle
+
+    model_class = class_name.to_s.camelize.constantize
+    model_class.instantiate(opts)
+  end
+
+  def dispatch_post(post, opts = {})
+    aspect_ids = opts.delete(:to)
 
     aspect_ids = validate_aspect_permissions(aspect_ids)
-
-    intitial_post(class_name, aspect_ids, options)
-  end
-
-  def intitial_post(class_name, aspect_ids, options = {})
-    post = build_post(class_name, options)
-    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid)
+    self.raw_visible_posts << post
+    self.save
+    Rails.logger.info("Pushing: #{post.inspect} out to aspects")
     push_to_aspects(post, aspect_ids)
-    post
+    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid) && !post.pending
+    if post.public
+      self.services.each do |service|
+        self.send("post_to_#{service.provider}".to_sym, service, post.message)
+      end
+    end
   end
 
-  def repost( post, options = {} )
-    aspect_ids = validate_aspect_permissions(options[:to])
-    push_to_aspects(post, aspect_ids)
-    post
+  def post_to_facebook(service, message)
+    Rails.logger.info("Sending a message: #{message} to Facebook")
+    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{service.access_token}").post
   end
 
-  def update_post( post, post_hash = {} )
+  def post_to_twitter(service, message)
+    oauth = Twitter::OAuth.new(SERVICES['twitter']['consumer_token'], SERVICES['twitter']['consumer_secret'])
+    oauth.authorize_from_access(service.access_token, service.access_secret)
+    client = Twitter::Base.new(oauth)
+    client.update(message)
+  end
+
+  def update_post(post, post_hash = {})
     if self.owns? post
       post.update_attributes(post_hash)
+      aspects = aspects_with_post(post.id)
+      self.push_to_aspects(post, aspects)
     end
   end
 
@@ -146,52 +208,58 @@ class User
     aspect_ids
   end
 
-  def build_post( class_name, options = {})
-    options[:person] = self.person
-    model_class = class_name.to_s.camelize.constantize
-    post = model_class.instantiate(options)
-    post.save
-    self.raw_visible_posts << post
-    self.save
-    post
-  end
-
-  def push_to_aspects( post, aspect_ids )
+  def push_to_aspects(post, aspect_ids)
     if aspect_ids == :all || aspect_ids == "all"
       aspects = self.aspects
     elsif aspect_ids.is_a?(Array) && aspect_ids.first.class == Aspect
       aspects = aspect_ids
     else
-      aspects = self.aspects.find_all_by_id( aspect_ids )
+      aspects = self.aspects.find_all_by_id(aspect_ids)
     end
     #send to the aspects
-    target_people = []
+    target_contacts = []
 
-    aspects.each{ |aspect|
+    aspects.each { |aspect|
       aspect.posts << post
       aspect.save
-      target_people = target_people | aspect.people
+      target_contacts = target_contacts | aspect.contacts
     }
-    push_to_people(post, target_people)
+
+    push_to_hub(post) if post.respond_to?(:public) && post.public
+
+    push_to_people(post, self.person_objects(target_contacts))
   end
 
   def push_to_people(post, people)
-    people.each{|person|
-      salmon(post, :to => person)
-    }
+    salmon = salmon(post)
+    people.each do |person|
+      push_to_person(salmon, post, person)
+    end
   end
 
-  def push_to_person( person, xml )
-      Rails.logger.debug("Adding xml for #{self} to message queue to #{url}")
-      QUEUE.add_post_request( person.receive_url, person.encrypt(xml) )
+  def push_to_person(salmon, post, person)
+    person.reload # Sadly, we need this for Ruby 1.9.
+    # person.owner will always return a ProxyObject.
+    # calling nil? performs a necessary evaluation.
+    unless person.owner.nil?
+      Rails.logger.debug("event=push_to_person route=local sender=#{self.inspect} recipient=#{person.inspect} payload_type=#{post.class}")
+      person.owner.receive(post.to_diaspora_xml, self.person)
+    else
+      xml = salmon.xml_for person
+      Rails.logger.debug("event=push_to_person route=remote sender=#{self.inspect} recipient=#{person.inspect} payload_type=#{post.class}")
+      QUEUE.add_post_request(person.receive_url, xml)
       QUEUE.process
-
+    end
   end
 
-  def salmon( post, opts = {} )
-    salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
-    push_to_person( opts[:to], salmon.to_xml)
-    salmon
+  def push_to_hub(post)
+    Rails.logger.debug("event=push_to_hub target=#{APP_CONFIG[:pubsub_server]} sender_url=#{self.public_url}")
+    QUEUE.add_hub_notification(APP_CONFIG[:pubsub_server], self.public_url)
+  end
+
+  def salmon(post)
+    created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    created_salmon
   end
 
   ######## Commenting  ########
@@ -204,33 +272,36 @@ class User
     comment
   end
 
-  def build_comment( text, options = {})
+  def build_comment(text, options = {})
     raise "must comment on something!" unless options[:on]
-    comment = Comment.new(:person_id => self.person.id, :text => text, :post => options[:on])
+    comment = Comment.new(:person_id => self.person.id, :diaspora_handle => self.person.diaspora_handle, :text => text, :post => options[:on])
     comment.creator_signature = comment.sign_with_key(encryption_key)
     if comment.save
       comment
     else
-      Rails.logger.warn "this failed to save: #{comment.inspect}"
+      Rails.logger.warn "event=build_comment status=save_failure user=#{self.inspect} comment=#{comment.inspect}"
       false
     end
   end
 
-  def dispatch_comment( comment )
+  def dispatch_comment(comment)
     if owns? comment.post
+      Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.inspect} comment=#{comment.inspect}"
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
-      push_to_people comment, people_in_aspects(aspects_with_post(comment.post.id))
+      aspects = aspects_with_post(comment.post_id)
+      push_to_people(comment, people_in_aspects(aspects))
     elsif owns? comment
+      Rails.logger.info "event=dispatch_comment direction=upstream user=#{self.inspect} comment=#{comment.inspect}"
       comment.save
-      salmon comment, :to => comment.post.person
+      push_to_people comment, [comment.post.person]
     end
   end
 
   ######### Posts and Such ###############
-  def retract( post )
-    aspect_ids = aspects_with_post( post.id )
-    aspect_ids.map!{|aspect| aspect.id.to_s}
+  def retract(post)
+    aspect_ids = aspects_with_post(post.id)
+    aspect_ids.map! { |aspect| aspect.id.to_s }
 
     post.unsocket_from_uid(self.id, :aspect_ids => aspect_ids) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
@@ -240,7 +311,7 @@ class User
 
   ########### Profile ######################
   def update_profile(params)
-    if self.person.update_attributes(params)
+    if self.person.profile.update_attributes(params)
       push_to_aspects profile, :all
       true
     else
@@ -248,53 +319,106 @@ class User
     end
   end
 
-  ###Helpers############
-  def self.instantiate!( opts = {} )
-    opts[:person][:diaspora_handle] = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
-    opts[:person][:url] = APP_CONFIG[:pod_url]
-    
-    opts[:serialized_private_key] = generate_key
-    opts[:person][:serialized_public_key] = opts[:serialized_private_key].public_key
-    User.create(opts)
+  ###Invitations############
+  def invite_user(opts = {})
+    aspect_id = opts.delete(:aspect_id)
+    if aspect_id == nil
+      raise "Must invite into aspect"
+    end
+    aspect_object = self.aspects.find_by_id(aspect_id)
+    if !(aspect_object)
+      raise "Must invite to your aspect"
+    else
+      Invitation.invite(:email => opts[:email],
+                        :from => self,
+                        :into => aspect_object,
+                        :message => opts[:invite_message])
+
+    end
   end
+
+  def accept_invitation!(opts = {})
+    if self.invited?
+      log_string = "event=invitation_accepted username=#{opts[:username]} "
+      log_string << "inviter=#{invitations_to_me.first.from.diaspora_handle}" if invitations_to_me.first
+      Rails.logger.info log_string
+      self.setup(opts)
+
+      self.invitation_token = nil
+      self.password              = opts[:password]
+      self.password_confirmation = opts[:password_confirmation]
+      self.person.save!
+      self.save!
+      invitations_to_me.each{|invitation| invitation.to_request!}
+
+      self
+    end
+  end
+
+  ###Helpers############
+  def self.build(opts = {})
+    u = User.new(opts)
+    u.email = opts[:email]
+    u.setup(opts)
+    u
+  end
+
+  def setup(opts)
+    self.username = opts[:username]
+    
+    opts[:person] ||= {}
+    opts[:person][:profile] ||= Profile.new
+
+    self.person = Person.new(opts[:person])
+    self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
+    self.person.url = APP_CONFIG[:pod_url]
+    new_key = User.generate_key
+    self.serialized_private_key = new_key
+    self.person.serialized_public_key = new_key.public_key
+
+    self
+  end
+
 
   def seed_aspects
-    aspect(:name => "Family")
-    aspect(:name => "Work")
-  end
-
-  def diaspora_handle
-    "#{self.username}@#{APP_CONFIG[:terse_pod_url]}"
-  end
-
-  def downcase_username
-    username.downcase! if username
+    self.aspects.create(:name => I18n.t('aspects.seed.family'))
+    self.aspects.create(:name => I18n.t('aspects.seed.work'))
   end
 
   def as_json(opts={})
     {
       :user => {
-        :posts            => self.raw_visible_posts.each{|post| post.as_json},
-        :friends          => self.friends.each {|friend| friend.as_json},
-        :aspects           => self.aspects.each  {|aspect|  aspect.as_json},
-        :pending_requests => self.pending_requests.each{|request| request.as_json},
+        :posts            => self.raw_visible_posts.each { |post| post.as_json },
+        :contacts         => self.contacts.each { |contact| contact.as_json },
+        :aspects          => self.aspects.each { |aspect| aspect.as_json },
+        :pending_requests => self.pending_requests.each { |request| request.as_json },
       }
     }
   end
 
 
   def self.generate_key
-    OpenSSL::PKey::RSA::generate 4096
+    key_size = (Rails.env == 'test' ? 512 : 4096)
+    OpenSSL::PKey::RSA::generate key_size
   end
-  
+
   def encryption_key
-    OpenSSL::PKey::RSA.new( serialized_private_key )
+    OpenSSL::PKey::RSA.new(serialized_private_key)
   end
 
-  def encryption_key= new_key
-    raise TypeError unless new_key.class == OpenSSL::PKey::RSA
-    serialized_private_key = new_key.export
+  protected
+
+  def remove_person
+    self.person.destroy
   end
 
-
+  def disconnect_everyone
+    contacts.each { |contact|
+      if contact.person.owner?
+        contact.person.owner.disconnected_by self.person
+      else
+        self.disconnect contact
+      end
+    }
+  end
 end

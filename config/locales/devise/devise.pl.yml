@@ -1,40 +1,93 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-pl:
-  errors:
-    messages:
-      not_found: "nie znaleziono"
-      already_confirmed: "potwierdzono wcześniej"
-      not_locked: "nie był zablokowany"
 
-  devise:
-    failure:
-      unauthenticated: 'By kontynuować musisz się zalogować lub zarejestrować.'
-      unconfirmed: 'Musisz aktywować swoje konto.'
-      locked: 'Twoje konto jest zablokowane.'
-      invalid: 'Nieprawidłowy adres email lub hasło.'
-      invalid_token: 'Nieprawidłowy kod identyfikacyjny.'
-      timeout: 'Twoja sesja wygasła, zaloguj się ponownie by kontynuować.'
-      inactive: 'Twoje konto nie zostało jeszcze aktywowane.'
-    sessions:
-      signed_in: 'Zalogowano pomyślnie.'
-      signed_out: 'Wylogowano.'
-    passwords:
-      send_instructions: 'W ciągu kilku minut otrzymasz maila zawierającego instrukcjie dotyczące zresetowania hasła.'
-      updated: 'Twoje hasło zostało zmienione, zostałeś zalogowany.'
-    confirmations:
-      send_instructions: 'W ciągu kilku minut otrzymasz maila zawierającego instrukcje dotyczące aktywacji konta.'
-      confirmed: 'Twoje konto zostało aktywowane, zostałeś zalogowany.'
-    registrations:
-      signed_up: 'Zostałeś zarejestrowany. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie email potwierdzający rejestrację.'
-      updated: 'Pomyślnie zaktualizowano informacje o Twoim koncie.'
-      destroyed: 'Żegnaj! Twoje konto zostało usunięte.'
-    unlocks:
-      send_instructions: 'W ciągu kilku minut otrzymasz email z instrukcjami odblokowania konta.'
-      unlocked: 'Twoje konto zostało odblokowane, jesteś zalogowany.'
-    mailer:
-      confirmation_instructions: 'Instrukcje aktywacji'
-      reset_password_instructions: 'Instrukcje zmiany hasła'
-      unlock_instructions: 'Instrukcje odblokowania'
+pl: 
+  devise: 
+    confirmations: 
+      confirmed: "Twoje konto zostało aktywowane, zostałeś zalogowany."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcje dotyczące aktywacji konta."
+    failure: 
+      inactive: "Twoje konto nie zostało jeszcze aktywowane."
+      invalid: "Nieprawidłowy adres email lub hasło."
+      invalid_token: "Nieprawidłowy kod identyfikacyjny."
+      locked: "Twoje konto jest zablokowane."
+      timeout: "Twoja sesja wygasła, zaloguj się ponownie by kontynuować."
+      unauthenticated: "By kontynuować musisz się zalogować lub zarejestrować."
+      unconfirmed: "Musisz aktywować swoje konto."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Aktywuj moje konto"
+        subject: "Instrukcje aktywacji"
+        you_can_confirm: "Możesz aktywować swoje konto klikając na poniższy link:"
+      hello: "Cześć %{email}!"
+      invitation: 
+        accept: "Zaakceptuj zaproszenie"
+        ignore: "Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ten email."
+        no_account_till: "Twoje konto nie zostanie założone dopuki nie klikniesz na link powyżej i nie zarejestrujesz sie. shared: links: sign_in: 'Zaloguj się' sign_up: 'Zarejestruj się' forgot_your_password: 'Nie pamiętasz hasła?' "
+        subject: "Masz zaproszenie do Diaspory!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Zmień moje hasło"
+        ignore: "Jeśli nie chcesz zresetować hasła, zignoruj ten email."
+        someone_requested: "Odebraliśmy zgłoszenie zmiany hasła, jeśli chcesz to zrobić kliknij na poniższy link:"
+        subject: "Instrukcje zmiany hasła"
+        wont_change: "Twoje hasło zostanie zmienione dopiero gdy klikniesz na link i podasz nowe hasło."
+      unlock_instructions: 
+        account_locked: "Twoje konto zostało zablokowane, ponieważ przekroczono limit nieudanych logowań."
+        click_to_unlock: "Kliknij na poniższy link, aby odblokować konto:"
+        subject: "Instrukcje odblokowania"
+        unlock: "Odblokuj moje konto"
+      welcome: "Witaj %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
+      send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcjie dotyczące zresetowania hasła."
+      updated: "Twoje hasło zostało zmienione, zostałeś zalogowany."
+    registrations: 
+      destroyed: "Żegnaj! Twoje konto zostało usunięte."
+      signed_up: "Zostałeś zarejestrowany. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie email potwierdzający rejestrację."
+      updated: "Pomyślnie zaktualizowano informacje o Twoim koncie."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Jakiś kłopot? Znajdź odpowiedź tu"
+        login: Login
+        modern_browsers: "only supports modern browsers."
+        password: Hasło
+        remember_me: "Zapamiętaj sesję"
+        sign_in: "Zaloguj się"
+        username: "Nazwa użytkownika"
+      signed_in: "Zalogowano pomyślnie."
+      signed_out: Wylogowano.
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "W ciągu kilku minut otrzymasz email z instrukcjami odblokowania konta."
+      unlocked: "Twoje konto zostało odblokowane, jesteś zalogowany."
+  errors: 
+    messages: 
+      already_confirmed: "potwierdzono wcześniej"
+      not_found: "nie znaleziono"
+      not_locked: "nie był zablokowany"

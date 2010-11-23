@@ -1,184 +1,187 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 
 describe User do
 
+  let(:user) { make_user }
+  let(:aspect) { user.aspects.create(:name => 'heroes') }
+
+  let(:user2) { make_user }
+  let(:aspect2) { user2.aspects.create(:name => 'losers') }
+
+  let(:user3) { make_user }
+  let(:aspect3) { user3.aspects.create(:name => 'heroes') }
+
+
   before do
-    @user = Factory.create :user
-    @aspect = @user.aspect(:name => 'heroes')
+    connect_users(user, aspect, user2, aspect2)
+  end
 
-    @user2 = Factory.create(:user)
-    @aspect2 = @user2.aspect(:name => 'losers')
-
-    @user3 = Factory.create(:user)
-    @aspect3 = @user3.aspect(:name => 'heroes')
-
-    friend_users(@user, @aspect, @user2, @aspect2)
+  it 'should stream only one message to the everyone aspect when a multi-aspected contacts posts' do
+    user.add_person_to_aspect(user2.person.id, user.aspects.create(:name => "villains").id)
+    status = user2.post(:status_message, :message => "Users do things", :to => aspect2.id)
+    xml = status.to_diaspora_xml
+    Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
+    user.receive xml, user2.person
   end
 
   it 'should be able to parse and store a status message from xml' do
-    status_message = @user2.post :status_message, :message => 'store this!', :to => @aspect2.id
-    person = @user2.person
+    status_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
     xml = status_message.to_diaspora_xml
-    @user2.destroy
+    user2.delete
     status_message.destroy
-    StatusMessage.all.size.should == 0
-    @user.receive( xml )
 
-    Post.all(:person_id => person.id).first.message.should == 'store this!'
-    StatusMessage.all.size.should == 1
+    lambda {user.receive xml , user2.person}.should change(Post,:count).by(1)
   end
 
   it 'should not create new aspects on message receive' do
-    num_aspects = @user.aspects.size
+    num_aspects = user.aspects.size
 
-    (0..5).each{ |n|
-      status_message = @user2.post :status_message, :message => "store this #{n}!", :to => @aspect2.id
-      xml = status_message.to_diaspora_xml
-      @user.receive( xml )
-    }
+    2.times do |n|
+      status_message = user2.post :status_message, :message => "store this #{n}!", :to => aspect2.id
+    end
 
-    @user.aspects.size.should == num_aspects
+    user.aspects.size.should == num_aspects
+  end
+
+  describe '#receive_salmon' do
+   it 'should handle the case where the webfinger fails' do
+    Person.should_receive(:by_account_identifier).and_return("not a person")
+
+    proc{
+      user2.post :status_message, :message => "store this!", :to => aspect2.id
+    }.should_not raise_error
+   end
+  end
+
+  context 'update posts' do
+
+    it 'does not update posts not marked as mutable' do
+      status = user.post :status_message, :message => "store this!", :to => aspect.id
+      status.message = 'foo'
+      xml = status.to_diaspora_xml
+      user2.receive(xml, user.person)
+
+      status.reload.message.should == 'store this!'
+    end
+
+    it 'updates posts marked as mutable' do
+      photo = user.post(:photo, :user_file => uploaded_photo, :caption => "Original", :to => aspect.id)
+      photo.caption = 'foo'
+      xml = photo.to_diaspora_xml
+      user2.reload.receive(xml, user.person)
+      photo.reload.caption.should match(/foo/)
+    end
+
   end
 
   describe 'post refs' do
     before do
-
+      @status_message = user2.post :status_message, :message => "hi", :to => aspect2.id
+      user.reload
+      aspect.reload
     end
 
-    it "should add the post to that user's posts when a user posts it" do
-      status_message = @user.post :status_message, :message => "hi", :to => @aspect.id
-      @user.reload
-      @user.raw_visible_posts.include?(status_message).should be true
+    it "should add a received post to the aspect and visible_posts array" do
+      user.raw_visible_posts.include?(@status_message).should be_true
+      aspect.posts.include?(@status_message).should be_true
     end
 
-    it 'should be removed on unfriending' do
-      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
-      @user.receive status_message.to_diaspora_xml
-      @user.reload
-
-      @user.raw_visible_posts.count.should == 1
-
-      @user.unfriend(@user2.person)
-
-      @user.reload
-      @user.raw_visible_posts.count.should == 0
-
-      Post.count.should be 1
+    it 'should be removed on disconnecting' do
+      user.disconnect(user2.person)
+      user.reload
+      user.raw_visible_posts.should_not include @status_message
     end
 
     it 'should be remove a post if the noone links to it' do
-      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
-      @user.receive status_message.to_diaspora_xml
-      @user.reload
+      person = user2.person
+      user2.delete
+      person.reload
 
-      @user.raw_visible_posts.count.should == 1
-
-      person = @user2.person
-      @user2.destroy
-      @user.unfriend(person)
-
-      @user.reload
-      @user.raw_visible_posts.count.should == 0
-
-      Post.count.should be 0
+      lambda {user.disconnect(person)}.should change(Post, :count).by(-1)
     end
 
     it 'should keep track of user references for one person ' do
-      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
-      @user.receive status_message.to_diaspora_xml
-      @user.reload
+      @status_message.reload
+      @status_message.user_refs.should == 1
 
-      @user.raw_visible_posts.count.should == 1
-
-      status_message.reload
-      status_message.user_refs.should == 1
-
-      @user.unfriend(@user2.person)
-      status_message.reload
-
-      @user.reload
-      @user.raw_visible_posts.count.should == 0
-
-      status_message.reload
-      status_message.user_refs.should == 0
-
-      Post.count.should be 1
+      user.disconnect(user2.person)
+      @status_message.reload
+      @status_message.user_refs.should == 0
     end
 
     it 'should not override userrefs on receive by another person' do
-      @user3.activate_friend(@user2.person, @aspect3)
+      user3.activate_contact(user2.person, aspect3)
+      user3.receive @status_message.to_diaspora_xml, user2.person
 
-      status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
-      @user.receive status_message.to_diaspora_xml
+      @status_message.reload
+      @status_message.user_refs.should == 2
 
-      @user3.receive status_message.to_diaspora_xml
-      @user.reload
-      @user3.reload
-
-      @user.raw_visible_posts.count.should == 1
-
-      status_message.reload
-      status_message.user_refs.should == 2
-
-      @user.unfriend(@user2.person)
-      status_message.reload
-
-      @user.reload
-      @user.raw_visible_posts.count.should == 0
-
-      status_message.reload
-      status_message.user_refs.should == 1
-
-      Post.count.should be 1
+      user.disconnect(user2.person)
+      @status_message.reload
+      @status_message.user_refs.should == 1
     end
   end
 
   describe 'comments' do
+    before do
+      connect_users(user, aspect, user3, aspect3)
+      @post = user.post :status_message, :message => "hello", :to => aspect.id
+
+      user2.receive @post.to_diaspora_xml, user.person
+      user3.receive @post.to_diaspora_xml, user.person
+
+      @comment = user3.comment('tada',:on => @post)
+      @comment.post_creator_signature = @comment.sign_with_key(user.encryption_key)
+      @xml = @comment.to_diaspora_xml
+      @comment.delete
+    end
+
+    it 'should correctly attach the user already on the pod' do
+      local_person = user3.person
+
+      user2.reload.raw_visible_posts.size.should == 1
+      post_in_db = user2.raw_visible_posts.first
+      post_in_db.comments.should == []
+      user2.receive(@xml, user.person)
+      post_in_db.reload
+
+      post_in_db.comments.include?(@comment).should be true
+      post_in_db.comments.first.person.should == local_person
+    end
+
     it 'should correctly marshal a stranger for the downstream user' do
+      remote_person = user3.person
+      remote_person.delete
+      user3.delete
 
-      friend_users(@user, @aspect, @user3, @aspect3)
-      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      #stubs async webfinger
+      Person.should_receive(:by_account_identifier).and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
+        user.person; else; remote_person.save; remote_person; end }
 
-      @user2.receive post.to_diaspora_xml
-      @user3.receive post.to_diaspora_xml
 
-      comment = @user2.comment('tada',:on => post)
-      @user.receive comment.to_diaspora_xml
-      @user.reload
+      user2.reload.raw_visible_posts.size.should == 1
+      post_in_db = user2.raw_visible_posts.first
+      post_in_db.comments.should == []
+      user2.receive(@xml, user.person)
+      post_in_db.reload
 
-      commenter_id = @user2.person.id
-
-      @user2.person.delete
-      @user2.delete
-      comment_id = comment.id
-
-      comment.delete
-      @user3.receive comment.to_diaspora_xml
-      @user3.reload
-
-      new_comment = Comment.find_by_id(comment_id)
-      new_comment.should_not be_nil
-      new_comment.person.should_not be_nil
-      new_comment.person.profile.should_not be_nil
-
-      @user3.visible_person_by_id(commenter_id).should_not be_nil
+      post_in_db.comments.include?(@comment).should be true
+      post_in_db.comments.first.person.should == remote_person
     end
   end
 
   describe 'salmon' do
-    before do
-      @post = @user.post :status_message, :message => "hello", :to => @aspect.id
-      @salmon = @user.salmon( @post, :to => @user2.person )
-    end
+    let(:post){user.post :status_message, :message => "hello", :to => aspect.id}
+    let(:salmon){user.salmon( post )}
 
     it 'should receive a salmon for a post' do
-      @user2.receive_salmon( @user2.person.encrypt(@salmon.to_xml) )
-      @user2.visible_post_ids.include?(@post.id).should be true
+      user2.receive_salmon( salmon.xml_for user2.person )
+      user2.visible_post_ids.include?(post.id).should be true
     end
   end
 end

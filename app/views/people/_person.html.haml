@@ -1,5 +1,5 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 %li.message{:id => person.id}
@@ -10,18 +10,17 @@
     %span.from
       = link_to person.real_name, person_path(person)
 
+      .right{:style=>"display:inline;"}
+        - if person.id == current_user.person.id
+          = t('.thats_you')
+        - elsif current_user.person_objects.include?(person)
+          = t('.already_connected')
+        - elsif current_user.request_for(person)
+          = link_to t('.pending_request'), aspects_manage_path
+        - else
+          - single_aspect_form ||= nil
+          = render(:partial => request_partial(single_aspect_form), :locals => {:aspects => aspects, :destination_handle => person.diaspora_handle})
+
     .info
       = person.diaspora_handle
 
-    .right{ :style => "display:inline;top:0;" }
-      - if person.id == current_user.person.id
-        thats you!
-      - elsif current_user.friends.include?(person)
-        Already friends
-      - elsif current_user.pending_requests.find_by_person_id(person.id)
-        = link_to =t('.pending_request'), aspects_manage_path
-      - else
-        = form_for Request.new do |f|
-          = f.select(:aspect_id, @aspects_dropdown_array)
-          = f.hidden_field :destination_url, :value => person.diaspora_handle
-          = f.submit t('.add_friend')

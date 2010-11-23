@@ -1,0 +1,10 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.span-15.last
+  #thumbnails
+    - for photo in photos
+      .image_thumb
+        = link_to (image_tag photo.url(:thumb_medium)), photo_path(photo)
+

@@ -1,0 +1,29 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+#publisher
+  = form_for StatusMessage.new, :remote => true do |status|
+    %p
+      = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? t('.all') : aspect))
+      = status.text_area :message, :rows => 2, :value => params[:prefill]
+
+    = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
+
+    %fieldset{:class => 'ui-grid-a'}
+      .options_and_submit
+        %div{:class => 'ui-block-a'}
+          - if aspect == :all
+            = status.submit t('.share'), :title => t('.share_with_all')
+          - else
+            = status.submit t('.share'), :title => t('.share_with', :aspect => aspect)
+
+        - if aspect == :all
+          %div{:class => 'ui-block-a'}
+
+            .public_toggle
+              %p.checkbox_select
+                = status.check_box( :public, {}, true, false )
+                = status.label :public, t('.make_public')
+              = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"

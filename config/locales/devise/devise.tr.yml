@@ -1,0 +1,93 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+tr: 
+  devise: 
+    confirmations: 
+      confirmed: "Hesabınız dogrulanmıstır. Şu anda giriş yapmış oluyorsunuz."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Kısa bir süre içersinde hesabınızı nasıl dogruluycaginiza dair bir email alicaksiniz."
+    failure: 
+      inactive: "Hesabınız aktive edilmemiştir daha."
+      invalid: "Yanlış email veya şifre."
+      invalid_token: "Yanlış doğrulama kodu."
+      locked: "Hesabınız kilitlenmiştir."
+      timeout: "Zamanınız sona erdi, devam etmek için lütfen tekrar giriş yapın."
+      unauthenticated: "Devam etmeden once bir hesap açtırmalı veya hesabınızla giriş yapmalısınız."
+      unconfirmed: " Devam etmeden once hesabınızı doğrulamalısınız."
+    invitations: 
+      invitation_token_invalid: "Davet kodu doğrulanamadı!"
+      send_instructions: "Davetiniz gönderildi."
+      updated: "Şifreniz başarıyla oluşturuldu. Şu anda bağlısınız."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Hesabımı doğrula"
+        subject: "Doğrulama talimatları"
+        you_can_confirm: "Hesabınızı aşağıdaki bağlantı ile doğrulayabilirsiniz:"
+      hello: "Merhaba %{email}!"
+      invitation: 
+        accept: "Daveti kabul et"
+        ignore: "Eğer daveti kabul etmek istemiyorsanız bu e-postayı dikkate almayın."
+        no_account_till: "Hesabınız yukarıdaki bağlantıya tıklayıp üye olmadan oluşturulmayacaktır."
+        subject: "Bir arkadaşınız sizin Diaspora'ya katılmanızı istiyor!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Şifremi değiştir"
+        ignore: "Eğer talepte bulunmadıysanız, bu e-postayı dikkate almayın."
+        someone_requested: "Şifre değiştirme talebi aldık, şifrenizi değiştirmek için aşağıdaki bağlantıya tıklayın."
+        subject: "Şifre yenileme talimatları"
+        wont_change: "Şifreniz yukarıdaki bağlantıya tıklayıp yeni bir şifre oluşturana kadar değişmeyecektir."
+      unlock_instructions: 
+        account_locked: "Hesabınız çok fazla yanlış giriş olduğu için kilitlendi."
+        click_to_unlock: "Hesabınızı açmak için aşağıdaki linke tıklayın:"
+        subject: "Talimatları Aç"
+        unlock: "Hesabımı Aç"
+      welcome: "Merhaba %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Şifrenizi mi unuttunuz?"
+        send_password_instructions: "Şifre yenileme talimatları gönder"
+      send_instructions: "Kisa bir süre içersinde şifrenizi nasıl yeniliyceğinizi açıklıyan bir email alıcaksınız."
+      updated: "Şifreniz değistirilmiştir. Şu anda giriş yapmış oluyorsunuz."
+    registrations: 
+      destroyed: "Hoşçakal! Hesabiniz yok edildi. Umuyoruz sizi tekrar gorüceğiz yakınlarda."
+      signed_up: "Basarıyla kayıt yaptınız. Dogrulama emaili size gonderilmistir."
+      updated: "Hesabinizi başarili bir şekilde yenilediniz."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Sorun mu yaşıyorsunuz ? Çözüm aramak için"
+        login: Giriş
+        modern_browsers: "only supports modern browsers."
+        password: Şifre
+        remember_me: "Beni Hatırla"
+        sign_in: Giriş
+        username: "Kullanıcı Adı"
+      signed_in: "Başarıyla giriş yaptınız."
+      signed_out: "Başarıyla çıkıs yaptınız."
+    shared: 
+      links: 
+        forgot_your_password: "Şifrenizi mi unuttunuz?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Giriş Yap"
+        sign_up: "Üye Ol"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "Kisa bir süre içersinde hesabınızı nasıl kilit altinda çikarabiliceginize dair bir email alıcaksınız."
+      unlocked: "Heabiniz kilit altindan çıkartılmıstır. Şu anda giriş yapmıs oluyorsunuz"
+  errors: 
+    messages: 
+      already_confirmed: "zaten doğrulandı"
+      not_found: bulunmadi
+      not_locked: kilitlenmedi

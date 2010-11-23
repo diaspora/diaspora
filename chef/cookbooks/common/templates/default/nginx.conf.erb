@@ -1,0 +1,101 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+worker_processes 1;
+daemon off;
+
+events {
+ worker_connections  8192;
+}
+
+http {
+
+ include       mime.types;
+ default_type  application/octet-stream;
+
+ log_format main '$remote_addr - $remote_user [$time_local] '
+                 '"$request" $status $body_bytes_sent "$http_referer" '
+                 '"$http_user_agent" "$http_x_forwarded_for"';
+
+ sendfile on;
+
+ keepalive_timeout  65;
+
+ gzip              on;
+ gzip_http_version 1.0;
+ gzip_comp_level   2;
+ gzip_proxied      any;
+ gzip_buffers      16 8k;
+ gzip_types        text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+ gzip_disable      "MSIE [1-6]\.(?!.*SV1)";
+
+
+  upstream thin_cluster {
+  <% @ports.each do |port| %>
+    server <%="localhost:#{port}"%>;
+  <% end %>
+  }
+
+  server {
+   listen       843;
+
+   location / {
+    rewrite ^(.*)$ /crossdomain.xml;
+   }
+
+   error_page 400  /crossdomain.xml;
+
+   location = /crossdomain.xml {
+    root html;
+   }
+
+  }
+
+  server {
+   listen       80;
+   server_name  <%= @url %>  www.<%= @url %>;
+   rewrite      ^(.*) https://<%= @url %>$1 permanent;
+  }
+
+  server {
+
+   listen       443;
+   server_name  <%= @url %> www.<%= @url %>;
+   root         /usr/local/app/diaspora/public;
+
+   ssl on;
+   ssl_certificate      <%= @cert_location %>;
+   ssl_certificate_key  <%= @key_location %>;
+
+   location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_buffering off;
+
+    client_max_body_size 4M;
+    client_body_buffer_size 128K;
+
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+    if (-f $request_filename.html) {
+     rewrite (.*) $1.html break;
+    }
+    if (!-f $request_filename) {
+     proxy_pass http://thin_cluster;
+     break;
+   }
+ }
+
+ error_page 500 502 503 504 /50x.html;
+ location = /50x.html {
+   root html;
+ }
+
+}
+
+}
+

@@ -1,0 +1,4 @@
+src_files:
+<% 3.times do |i| %>
+  - <%= "file#{i}.js" %>
+<% end %>

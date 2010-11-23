@@ -1,0 +1,56 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :head do
+  :javascript
+    $(document).ready(function(){
+      $('.delete').bind('ajax:success', function() {
+        $(this).closest('li').fadeOut(200);
+      });
+
+      $('.delete').bind('ajax:failure', function() {
+        alert("#{t('.cannot_remove', :name => person.real_name)}");
+      });
+    });
+
+
+#profile
+  .profile_photo
+    = person_image_link(person, :to => :photos)
+
+  = action_link(person, is_contact)
+
+  %ul
+    - if is_contact
+      %li
+        %ul#aspects_for_person
+          %b= t('.in_aspects')
+          %br
+          - for aspect in @aspects_with_person
+            %li
+              = link_to aspect.name, aspect
+              = link_to "x", {:controller => "aspects", :action => "remove_from_aspect", :person_id => person.id, :aspect_id => aspect.id}, :confirm => t('.remove_from', :name => person.real_name, :aspect => aspect), :remote => true, :class => "delete"
+              
+
+  -if is_contact || person == current_user.person
+    %ul#profile_information
+      %li  
+        %h3 #{t('.bio')}
+        = person.profile.bio
+
+      %li
+        .span-4
+          %h3 #{t('.gender')}
+          = person.profile.gender
+
+        .span-4.last
+          %h3 #{t('.born')}
+          = "#{time_ago_in_words(person.profile.birthday)} #{t('ago')}" if @person.profile.birthday
+
+        .clearfix
+  %br
+  %br
+  %br
+  %br
+  %b.small= person.diaspora_handle

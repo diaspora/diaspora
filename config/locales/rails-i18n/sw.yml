@@ -1,0 +1,123 @@
+# Swahili translations for Rails
+# by Joachim Mangilima (joachimm3@gmail.com) and Matthew Todd (http://matthewtodd.org)
+
+sw:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      # TODO the short and long date formats are temporary until I can talk with someone...
+      short: "%e ya %b"
+      long: "%e ya %B, %Y"
+
+    day_names: [Jumpili, Jumatatu, Jumanne, Jumatano, Alhamisi, Ijumaa, Jumamosi]
+    abbr_day_names: [J2, J3, J4, J5, Al, Ij, J1]
+    month_names: [~, Januari, Februari, Machi, Aprili, Mei, Juni, Julai, Agosti, Septemba, Oktoba, Novemba, Desemba]
+    # TODO these abbreviated month names are temporary until I can talk with someone...
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    order: [ :year, :month, :day ]
+
+  # time:
+  #   formats:
+  #     default: "%A, %e. %B %Y, %H:%M Uhr"
+  #     short: "%e. %B, %H:%M Uhr"
+  #     long: "%A, %e. %B %Y, %H:%M Uhr"
+  #
+  #   am: "vormittags"
+  #   pm: "nachmittags"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'nusu dakika'
+      less_than_x_seconds:
+        zero: 'chini ya sekunde 1'
+        one: 'chini ya sekunde 1'
+        other: 'chini ya sekunde %{count}'
+      x_seconds:
+        one: 'sekunde 1'
+        other: 'sekunde %{count}'
+      less_than_x_minutes:
+        zero: 'chini ya dakika 1'
+        one: 'chini ya dakika 1'
+        other: 'chini ya dakika %{count}'
+      x_minutes:
+        one: 'dakika 1'
+        other: 'dakika %{count}'
+      about_x_hours:
+        one: 'kama saa 1'
+        other: 'kama masaa %{count}'
+      x_days:
+        one: 'siku 1'
+        other: 'siku %{count}'
+      about_x_months:
+        one: 'kama mwezi 1'
+        other: 'kama miezi %{count}'
+      x_months:
+        one: 'mwezi 1'
+        other: 'miezi %{count}'
+      about_x_years:
+        one: 'kama mwaka 1'
+        other: 'kama miaka %{count}'
+      over_x_years:
+        one: 'zaidi ya mwaka 1'
+        other: 'zaidi ya miaka %{count}'
+  #
+  # number:
+  #   format:
+  #     precision: 2
+  #     separator: ','
+  #     delimiter: '.'
+  #   currency:
+  #     format:
+  #       unit: '€'
+  #       format: '%n%u'
+  #       separator:
+  #       delimiter:
+  #       precision:
+  #   percentage:
+  #     format:
+  #       delimiter: ""
+  #   precision:
+  #     format:
+  #       delimiter: ""
+  #   human:
+  #     format:
+  #       delimiter: ""
+  #       precision: 1
+  #
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " na "
+      last_word_connector: ", na "
+
+  activerecord:
+    errors:
+      # TODO this error message template could use some work
+      template:
+        header:
+          one:    "Tumeshindwa kuhifadhi %{model} hii kwa sababu ya jambo limoja."
+          other:  "Tumeshindwa kuhifadhi %{model} hii kwa sababu ya mambo %{count}."
+        body: ""
+
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+      messages:
+        # inclusion: "is not included in the list"
+        exclusion: "haiwezi kutumika"
+        invalid: "haifai"
+        confirmation: "haifanani na hapo chini"
+        # accepted: "must be accepted"
+        empty: "haitakiwi kuwa wazi"
+        blank: "haitakiwi kuwa wazi"
+        too_long: "ndefu sana (isizidi herufi %{count})"
+        too_short: "fupi mno (isipungue herufi %{count})"
+        # wrong_length: "is the wrong length (should be %{count} characters)"
+        taken: "imeshachukuliwa"
+        not_a_number: "inaruhusiwa namba tu"
+        # greater_than: "must be greater than %{count}"
+        # greater_than_or_equal_to: "must be greater than or equal to %{count}"
+        # equal_to: "must be equal to %{count}"
+        # less_than: "must be less than %{count}"
+        # less_than_or_equal_to: "must be less than or equal to %{count}"
+        # odd: "must be odd"
+        # even: "must be even"

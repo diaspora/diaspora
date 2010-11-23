@@ -1,24 +1,14 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:id => post.id}
+= link_to (image_tag post.url(:thumb_large)), object_path(post), :class => 'stream_photo'
 
-  = person_image_tag(post.person)
+%h1
+  = post.pending
 
-  .content
-    %span.from
-      = link_to post.person.real_name, post.person
-      %b
-        =t('.posted_a_new_photo_to')
-        = link_to post.album.name, object_path(post.album)
+%p.photo_description
+  = post.caption
 
-      %br
-      = render "albums/album", :post => post.album, :current_user => current_user
-      = link_to (image_tag post.url(:thumb_medium)), object_path(post)
+= link_to t('.view_all', :name => post.person.real_name), person_photos_path(post.person), :class => "small_text"
 
-    .info
-      = link_to(how_long_ago(post), photo_path(post))
-      \--
-      = link_to "#{t('.show_comments')} (#{post.comments.count})", '#', :class => "show_post_comments"
-    = render   "comments/comments", :post => post

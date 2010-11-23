@@ -1,15 +1,15 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 
 describe Diaspora::WebSocket do
   before do
-    @user = Factory.create(:user)
-    @aspect = @user.aspect(:name => "losers")
+    @user = make_user
+    @aspect = @user.aspects.create(:name => "losers")
     @post = @user.build_post(:status_message, :message => "hey", :to => @aspect.id)
-    unstub_sockets
+    @post.save
   end
 
   it 'should queue a job' do

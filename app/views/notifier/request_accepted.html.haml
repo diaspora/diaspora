@@ -1,0 +1,12 @@
+%p
+  = t('notifier.hello', :name => @receiver.profile.first_name)
+%p
+  = "#{@sender.real_name} (#{@sender.diaspora_handle})"
+  = t('.accepted')
+  = link_to @aspect.name, aspect_url(@aspect)
+  = t('.aspect')
+
+  %br
+  = t('notifier.love') 
+  %br
+  = t('notifier.diaspora')

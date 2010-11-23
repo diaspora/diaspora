@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
@@ -13,7 +13,7 @@ EOT
 describe SocketsController do
   render_views
   before do
-    @user = Factory.create(:user)
+    @user = make_user
     @controller = SocketsController.new
   end
 
@@ -24,16 +24,14 @@ describe SocketsController do
 
   describe 'actionhash' do
     before do
-      @aspect = @user.aspect :name => "losers"
+      @aspect = @user.aspects.create(:name => "losers")
       @message = @user.post :status_message, :message => "post through user for victory", :to => @aspect.id
       @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     end
 
     it 'should actionhash photos' do
-      pending "Figure out how to make the photo posting api work in specs, it needs a file type"
-      @album = @user.post(:album, :name => "Loser faces", :to => @aspect.id)
-      photo  = @user.post(:photo, :album_id => @album.id, :user_file => [File.open(@fixture_name)])
-      json = @controller.action_hash(@user.id, photo, :aspect_ids => @user.aspects_with_post(@album.id).map{|g| g.id})
+      photo = @user.post(:photo, :album_id => nil, :to => @aspect.id, :user_file => File.open(@fixture_name))
+      json  = @controller.action_hash(@user.id, photo, :aspect_ids => :all)
       json.include?('photo').should be_true
     end
 

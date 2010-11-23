@@ -1,0 +1,371 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+da: 
+  _comments: Comments
+  _home: Home
+  _photos: foto
+  _services: Tjenester
+  account: Konto
+  activemodel: 
+    errors: 
+      models: 
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "er allerede taget"
+        user: 
+          attributes: 
+            email: 
+              taken: "er allerede taget"
+            person: 
+              invalid: "er ugyldig"
+            username: 
+              taken: "er allerede taget"
+  ago: siden
+  application: 
+    helper: 
+      unknown_person: "ukendt person"
+      youtube_title: 
+        unknown: "Ukendt Videotitel"
+  are_you_sure: "Er du sikker?"
+  aspects: 
+    add_to_aspect: 
+      failure: "Kunne ikke tilføje kontakten til aspektet."
+      success: "Føjet kontakt til aspektet."
+    create: 
+      failure: "Fejl under oprettelse af aspektet."
+      success: "Klik på pluset i venstre side for at fortælle diaspora, hvem der kan se dit nye aspekt."
+    destroy: 
+      success: "%{name} fjernet."
+    helper: 
+      are_you_sure: "Er du sikker på du vil slette dette aspekt?"
+      aspect_not_empty: "Aspektet er ikke tom"
+      remove: slet
+    index: 
+      handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
+    manage: 
+      add_a_new_aspect: "Tilføj et nyt aspekt"
+      add_a_new_contact: "Tilføj en ny kontakt"
+      drag_to_add: "Træk for at tilføje personer"
+      manage_aspects: "Administrer aspekter"
+      no_requests: "Ingen nye anmodninger"
+      requests: Anmodninger
+    move_contact: 
+      error: "Kunne ikke flytte kontakt: %{inspect}"
+      failure: "virkede ikke %{inspect}"
+      success: "Person flyttet til nyt aspekt"
+    new_aspect: 
+      create: Opret
+      name: Navn
+    no_contacts_message: 
+      add_contact: "Tilføj en kontaktperson"
+      add_contact_to: "Tilføj en kontakt til %{aspect_name}"
+      invite: "Invitere en person til Diaspora!"
+      nobody: "Vi ved, du kender mennesker - bringe dem til Diaspora!"
+      nobody_in_aspect: "Dit aspekt '%{aspect_name}' er tomt."
+    no_posts_message: 
+      start_talking: "Ingen har sagt noget endnu. Start samtalen!"
+    remove_from_aspect: 
+      failure: "Kunne ikke fjerne person fra aspektet"
+      success: "Person er fjernet fra aspektet"
+    seed: 
+      family: Family
+      work: Work
+    show: 
+      contact: contact
+      contacts: contacts
+      edit_aspect: "edit aspect"
+    update: 
+      success: "Dit aspekt, %{name}, er nu blevet redigeret."
+  back: Tilbage
+  cancel: Annuller
+  comments: 
+    new_comment: 
+      comment: Kommenter
+      commenting: "Kommentering ..."
+  delete: Slet
+  email: Email
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Ret følgende fejl, og prøv igen."
+      invalid_fields: "Ugyldige Felter"
+  fill_me_out: "Udfyld mig"
+  home: 
+    show: 
+      already_account: "har du allerede en konto?"
+      choice: Choice
+      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
+      learn_about_host: "Learn about how to host your own Diaspora server"
+      login_here: "log ind her"
+      ownership: Ownership
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
+      share_what_you_want: "Del hvad du vil, med hvem du vil."
+      simplicity: Simplicity
+      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
+  invitations: 
+    check_token: 
+      not_found: "Invitations token ikke fundet"
+    create: 
+      already_contacts: "Du er allerede forbundet med denne person"
+      already_sent: "Du har allerede inviteret denne person."
+      no_more: "Du har ikke flere invitationer."
+      rejected: "The following email addresses had problems: "
+      sent: "Din invitation er blevet sendt."
+    edit: 
+      sign_up: sign_up
+    new: 
+      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      if_they_accept_info: "hvis de accepterer, vil de blive tilføjet det aspekt du har inviteret dem til"
+      invite_someone_to_join: "Invitere en person til Diaspora!"
+      message: "Besked:"
+      send_an_invitation: "Send en invitation"
+      send_invitation: "Send invitation"
+      to: Til
+  layouts: 
+    application: 
+      powered_by: "POWERED BY DIASPORA*"
+    header: 
+      account_settings: kontoindstillinger
+      blog: blog
+      edit_profile: "Rediger profil"
+      login: "log in"
+      logout: "log ud"
+      view_profile: "vis profil"
+  notifier: 
+    diaspora: "Diaspora email robotten"
+    hello: "Hej %{name}!"
+    love: "Hilsen,"
+    new_request: 
+      just_sent_you: "har lige sendt dig en kontakt anmodning på Diaspora*"
+      sign_in: "Log ind her"
+      subject: "ny Diaspora* kontakt anmodning fra %{from}"
+      try_it_out: "Du skal virkelig overveje at tjekke den ud."
+    request_accepted: 
+      accepted: "har accepteret din kontakt anmodning. De er nu i din"
+      aspect: aspekt.
+      subject: "% {name} har accepteret din kontakt anmodning på Diaspora*"
+  ok: OK
+  or: eller
+  password: Adgangskode
+  password_confirmation: "Adgangskode bekræftelse"
+  people: 
+    edit: 
+      allow_search: "Tillad personer at søge efter dig"
+      first_name: Fornavn
+      info_available_to: "Denne info vil være til rådighed for alle dine forbindelser på Diaspora."
+      last_name: Efternavn
+      update_profile: "Opdater Profil"
+      your_bio: "Din biografi"
+      your_birthday: "Din fødselsdag"
+      your_gender: "Dit køn"
+      your_name: "Dit navn"
+      your_photo: "Dit billed"
+      your_profile: "Din profil"
+    helper: 
+      people_on_pod_are_aware_of: "brugere på serveren er bevidste om"
+      results_for: " resultat for %{params}"
+    index: 
+      results_for: "søgeresultater for"
+    person: 
+      add_contact: "tilføje kontakt"
+      already_connected: "Allerede forbindet"
+      pending_request: "afventende anmodning"
+      thats_you: "det er dig!"
+    profile_photo_upload: 
+      or_select_one: "eller vælge en fra dine allerede eksisterende"
+    profile_sidebar: 
+      bio: bio
+      born: født
+      cannot_remove: "Cannot remove %{name} from last aspect."
+      edit_my_profile: "Rediger min profil"
+      gender: køn
+      in_aspects: "i aspekter"
+      remove_contact: "fjern kontakt"
+      remove_from: "Remove %{name} from %{aspect}?"
+    show: 
+      already_requested: "Du har allerede sendt en forespørgsel til %{name}."
+      does_not_exist: "Personen findes ikke!"
+      no_posts: "ingen indlæg at vise!"
+      not_connected: "Du er ikke forbundet med denne person"
+      request_people: "Hvis du ønsker, kan du anmode om at placere ham/hende i et af dine aspekter."
+    update: 
+      failed: "Kunne ikke opdatere profil"
+      updated: "Profil opdateret"
+  photos: 
+    create: 
+      integrity_error: "Kunne ikke oploade Foto. Er du sikker på det var et billede?"
+      runtime_error: "Kunne ikke oploade foto. Er du sikker på, at sikkerhedsselen er fastgjort?"
+      type_error: "Kunne ikke oploade foto. Er du sikker på et billede blev valgt?"
+    destroy: 
+      notice: "Foto slettet."
+    edit: 
+      editing: Redigering
+    new: 
+      back_to_list: "Tilbage til liste"
+      new_photo: "Nye billeder"
+      post_it: "del det!"
+    new_photo: 
+      empty: "{file} er tom. Vælge vennligst filer igen uden den."
+      invalid_ext: "{file} har en ugyldig filtype. Kun {udvidelser} er tilladt."
+      size_error: "{File} er for stor. Maksimal filstørrelse er {sizeLimit}."
+    photo: 
+      view_all: "se alle %{name}s billeder"
+    show: 
+      delete_photo: "Slet foto"
+      edit: edit
+      edit_delete_photo: "Edit photo description / delete photo"
+      make_profile_photo: "gøre til profilfoto"
+      original_post: "Original Post"
+      update_photo: "Opdater billed"
+      view: view
+    update: 
+      error: "Kunne ikke redigerer foto."
+      notice: "Foto blev opdateret."
+  profile: Profil
+  registrations: 
+    closed: "Der er lukket for tilmeldinger på dette Diaspora server."
+    create: 
+      success: "Du har tilmeldt dig Diaspora!"
+    edit: 
+      cancel_my_account: "Annuller min konto"
+      edit: "Rediger %{name}"
+      leave_blank: "(Lad være tom hvis du ikke ønsker at ændre det)"
+      password_to_confirm: "(Vi har brug for din nuværende adgangskode for at bekræfte dine ændringer)"
+      unhappy: Ulykkelig?
+      update: Opdater
+    new: 
+      sign_up: "Tilmeld dig"
+      sign_up_for_diaspora: "Tilmeld dig Diaspora"
+  requests: 
+    create: 
+      sending: Sender...
+      sent: "Du har bedt om at dele med %{name}. De kan se det næste gang de logger ind."
+    destroy: 
+      error: "Vælg venligst et aspekt!"
+      ignore: "Ignorerede kontakt anmodning."
+      success: "I er nu venner."
+    manage_aspect_contacts: 
+      existing: "Eksisterende kontaktpersoner"
+      manage_within: "Administrer kontakter indenfor"
+    new_request_to_person: 
+      sent: sent!
+  search: Søg
+  services: 
+    create: 
+      success: "Godkendelse lykkedes."
+    destroy: 
+      success: "Godkendelsen er nu blevet ødelagt."
+    index: 
+      connect_to_facebook: "Forbindelse til Facebook"
+      connect_to_twitter: "Tilslut til twitter"
+      disconnect: afbryd
+      logged_in_as: "log ind som"
+      really_disconnect: "afbryd %{service}?"
+  settings: Indstillinger
+  shared: 
+    add_contact: 
+      create_request: "Find by Diaspora handle"
+      diaspora_handle: "Diaspora handle"
+      enter_a_diaspora_username: "Indtast et Diaspora brugernavn:"
+      know_email: "Know their email address? You should invite them"
+      your_diaspora_username_is: "Dit Diaspora brugernavn er: %{diaspora_handle}"
+    aspect_contacts: 
+      add_aspect: "add aspect"
+      add_existing: "Add an existing contact"
+      add_to: "tilføj til %{aspect}"
+      all_contacts: "All contacts"
+      aspect_settings: "Aspect settings"
+      aspects: Aspects
+      confirm_remove_aspect: "Remove aspect?"
+      contacts: contacts
+      done_editing: "done editing"
+      invites: Invites
+      new_request: "%{count} new request!"
+      new_requests: "%{count} new requests!"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+      remove_aspect: "Remove Aspect"
+    contact_list: 
+      cannot_remove: "Cannot remove person from last aspect."
+      search_contacts: "Søg kontakter"
+    invitations: 
+      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      invitations_left: "(%{count} tilbage)"
+      invite_someone: "Inviter en person"
+    notification: 
+      new: "Ny %{type} fra %{from}"
+    public_explain: 
+      logged_in: "Log in til %{service}"
+      manage: "administrer tilsluttet tjenester"
+      outside: "Offentlige meddelelser vil være tilgængelige for andre uden for Diaspora."
+      title: "Du er ved at skrive en offentlig besked!"
+    publisher: 
+      add_photos: "add photos"
+      all: alle
+      all_contacts: "all contacts"
+      make_public: offentliggøre
+      post_a_message_to: "Send en besked til %{aspect}"
+      posting: Sender...
+      share: Del
+      share_with: "Del med %{aspect}"
+      share_with_all: "Del med alle aspekter"
+    reshare: 
+      reshare: "Del igen"
+    stream_element: 
+      show_comments: "vis kommentarer"
+  status_messages: 
+    helper: 
+      no_message_to_display: "Ingen beskeder at vise."
+    new_status_message: 
+      oh_yeah: "Fedt mand!"
+      tell_me_something_good: "fortælle mig noget godt"
+    show: 
+      destroy: Ødelæg
+  the_world: verdenen
+  username: Brugernavn
+  users: 
+    destroy: "Kontoen er nu lukket."
+    edit: 
+      change_language: "Skift sprog"
+      change_password: "Skift adgangskode"
+      close_account: "Luk konto"
+      download_photos: "Download mine billeder"
+      download_xml: "downloade min xml"
+      export_data: "Exporter data"
+      new_password: "Ny adgangskode"
+      your_email: "Your email"
+      your_handle: "Your diaspora handle"
+    getting_started: 
+      connect_services: "Tilslut dine tjenester"
+      define_aspects: "Definer dine aspekter"
+      edit_profile: "Rediger din profil"
+      finished: Færdig!
+      save_and_continue: "Gem og fortsæt"
+      signup_steps: "Fuldføre din tilmelding ved at gøre følgende:"
+      skip: "spring kom godt i gang over"
+      step_2: 
+        add: Tilføj
+        aspect_name: "Aspekt navn"
+        description: "Fortæl Diaspora hvilke forskellige aspekter af jer der er set af dine forskellige kontakter. Du kan administrere disse senere ved at klikke på administer fanen øverst til højre. Dine aspekter er unikke, og er ikke synlige for andre."
+        your_aspects: "Dine aspekter"
+      step_3: 
+        description: "Tilslut dine eksisterende sociale netværk til din Diaspora konto. Du vil være i stand til at sende offentligt gennem din Enhver fane, når du vælger \"offentlige\"."
+        your_services: "Dine tjenester"
+      step_4: 
+        change_profile: "Du kan altid ændre din profil ved at klikke på"
+        continue: "Fortsæt til din start side. En oversigt over alle dine aspekter."
+        finish: Slut
+        manage_aspects: "Du kan altid administrerer dine aspekter ved at klikke på"
+        ready_to_share: "Du er nu klar til at dele med"
+        set_up: "Du er nu helt klar, %{name}!"
+        user_menu: "i din brugermenu (øverst til højre)."
+      welcome: "Velkommen til Diaspora!"
+    public: 
+      does_not_exist: "Brugeren %{username} findes ikke!"
+    update: 
+      language_changed: "Sprog Ændret"
+      language_not_changed: "Kunne ikke ændre sprog"
+      password_changed: "Adgangskode ændret"
+      password_not_changed: "Kunne ikke ændre adgangskode"

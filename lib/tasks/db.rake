@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 namespace :db do
@@ -42,7 +42,7 @@ namespace :db do
 
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:tom'].invoke
+    Rake::Task['db:seed:dev'].invoke
     puts "Success!"
   end
 
@@ -64,5 +64,19 @@ namespace :db do
       end
     }
     puts "everything should be peachy"
+  end
+
+  task :move_private_key do
+    require File.dirname(__FILE__) + '/../../config/environment'
+    User.all.each do |user|
+      if user.serialized_private_key.nil?
+        user.serialized_private_key = user.person.serialized_key
+        user.save
+        person = user.person
+        person.serialized_key = nil
+        person.serialized_public_key = user.encryption_key.public_key.to_s
+        person.save
+      end
+    end
   end
 end

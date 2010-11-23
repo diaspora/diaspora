@@ -1,0 +1,9 @@
+%h2 
+  = t('.send_invitation')
+= form_for User.new, :url => invitation_path(User) do |f|
+  = devise_error_messages!
+  %p
+    = f.label :email , t('email')
+    = f.text_field :email
+  %p= f.submit t('.send_an_invitation')
+/= link_to "Home", after_sign_in_path_for(resource_name)

@@ -1,0 +1,24 @@
+.span-12.last
+  .modal_title_bar
+    %h4 
+      = t('.invite_someone_to_join')
+  %i 
+    = t('.if_they_accept_info')
+    %br
+    = t('.comma_seperated_plz')
+  = form_for User.new, :url => invitation_path(User) do |invite|
+    %p
+      = invite.label :email , t('email')
+      = invite.text_field :email
+    = t('.to')
+    - unless @aspect.is_a? Aspect
+      = invite.select(:aspects, @aspects_dropdown_array)
+    - else 
+      = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
+    %br
+    = t('.message')
+    
+    = invite.text_area :invite_messages, :value => ""
+
+    %p= invite.submit t('.send_an_invitation')
+

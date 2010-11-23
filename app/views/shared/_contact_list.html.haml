@@ -1,0 +1,109 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+- content_for :head do
+  :javascript
+    $(document).ready( function(){
+
+      var ContactList = {
+        initialize: function(){
+          $(".contact_list_search").keyup(function(e){
+            var search = $(this);
+            var list   = $(this).siblings("ul").first();
+            var query  = new RegExp(search.val(),'i');
+
+            $("li", list).each( function() {
+              var element = $(this);
+              if( !element.text().match(query) ){
+                if( !element.hasClass('invis') ){
+                  element.addClass('invis').fadeOut(100);
+                }
+              } else {
+                element.removeClass('invis').fadeIn(100);
+              }
+            });
+          });
+        },
+
+        refreshContactCount: function(){
+          var contactCountElement = $(".aspect_contact_count"),
+              contactCount = $(".contact_pictures")[0].childElementCount,
+              newHTML = contactCountElement.html().replace(/\d+/,contactCount);
+
+          contactCountElement.html(newHTML);
+        }
+      };
+
+      $('.added').live('ajax:loading', function(data, html, xhr) {
+        $(this).fadeTo(200,0.4);
+      });
+
+      $('.added').live('ajax:success', function(data, html, xhr) {
+        var person_id = $(this).closest("li").find(".avatar").attr("data-person_id");
+        $(".contact_pictures").find("img[data-person_id='"+person_id+"']").parent().remove();
+
+        $(this).parent().html(html);
+        ContactList.refreshContactCount();
+
+        if( $(".contact_pictures")[0].childElementCount == 0 ) {
+          $("#no_contacts").fadeIn(200);
+        }
+
+        $(this).fadeTo(200,1);
+      });
+
+      $('.added').live('ajax:failure', function(data, html, xhr) {
+        alert("#{t('.cannot_remove')}");
+      });
+
+      $('.add').live('ajax:loading', function(data, html, xhr) {
+        $(this).fadeTo(200,0.4);
+      });
+
+      $('.add').live('ajax:success', function(data, html, xhr) {
+        var person_image = $(this).closest("li").find(".avatar")
+        person_image.parent().clone().appendTo(".contact_pictures");
+
+        $(this).parent().html(html);
+        ContactList.refreshContactCount();
+
+        if( $("#no_contacts").is(':visible') ) {
+          $("#no_contacts").fadeOut(200);
+        }
+
+        $(this).fadeTo(200,1);
+      });
+
+      $('.added').live('mouseover', function(){
+        $(this).addClass("remove");
+        $(this).children("img").attr("src","/images/icons/monotone_close_exit_delete.png");
+      }).live('mouseout', function(){
+        $(this).removeClass("remove");
+        $(this).children("img").attr("src","/images/icons/monotone_check_yes.png");
+      });
+
+      ContactList.initialize();
+    });
+
+
+.contact_list
+  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('.search_contacts')
+  
+  %ul
+    - for contact in contacts
+      %li
+        - unless contact.aspect_ids.include?(aspect.id)
+          = person_image_link contact.person
+          %span.name
+            = link_to contact.person.real_name, contact.person
+          .right
+            = add_to_aspect_button(aspect.id, contact.person.id)
+
+        - else
+          = person_image_link contact.person
+          %span.name
+            = link_to contact.person.real_name, contact.person
+          .right
+            = remove_from_aspect_button(aspect.id, contact.person.id)

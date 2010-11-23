@@ -1,0 +1,17 @@
+#author_info{:class=>("profile" if defined?(profile))}
+  = person_image_link(person) unless defined?(profile)
+  .from
+    %h2
+      = person.real_name
+      - if defined?(post) && current_user.owns?(post)
+        .aspect
+          ➔
+          %ul
+            - if post.public?
+              =t('the_world')
+            - else
+              - for aspect in current_user.aspects_with_post( post.id )
+                %li= link_to aspect.name, aspect
+    #person_nav_links
+      = link_to t('layouts.header.view_profile'), person_path(person)
+      = link_to t('_photos'), person_photos_path(person)

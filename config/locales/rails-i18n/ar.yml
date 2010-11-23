@@ -1,0 +1,121 @@
+# Arabic translations for Ruby on Rails 
+# by Rida Al Barazi (me@rida.me)
+# updated by Ahmed Hazem (nardgo@gmail.com)
+
+ar:
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%e %b"
+      long: "%B %e, %Y"
+
+    day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    abbr_day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+    month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+    abbr_month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"
+      
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+          
+    am: 'صباحا'
+    pm: 'مساءا'
+
+  # Used in array.to_sentence.
+  support:
+    array:
+      sentence_connector: "و"
+      skip_last_comma: false
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: 'نصف دقيقة'
+      less_than_x_seconds:
+        one: 'أقل من ثانية'
+        other: '%{count} ثوان'
+      x_seconds:
+        one: 'ثانية واحدة'
+        other: '%{count} ثوان'
+      less_than_x_minutes:
+        one: 'أقل من دقيقة'
+        other: '%{count} دقائق'
+      x_minutes:
+        one: 'دقيقة واحدة'
+        other: '%{count} دقائق'
+      about_x_hours:
+        one: 'حوالي ساعة واحدة'
+        other: '%{count} ساعات'
+      x_days:
+        one: 'يوم واحد'
+        other: '%{count} أيام'
+      about_x_months:
+        one: 'حوالي شهر واحد'
+        other: '%{count} أشهر'
+      x_months:
+        one: 'شهر واحد'
+        other: '%{count} أشهر'
+      about_x_years:
+        one: 'حوالي سنة'
+        other: '%{count} سنوات'
+      over_x_years:
+        one: 'أكثر من سنة'
+        other: '%{count} سنوات'
+      
+  number:
+    format:
+      separator: '.'
+      delimiter: ','
+      precision: 3
+    human:
+      format:
+        delimiter: ','
+        precision: 1
+    currency:
+      format:
+        separator: '.'
+        delimiter: ','
+        precision: 2
+        format: '%u %n'
+        unit: '$'
+    percentage:
+      format:
+        delimiter: ','
+    precision:
+      format:
+        delimiter: ','
+        
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "ليس بالامكان حفظ %{model}: خطأ واحد."
+          other: "ليس بالامكان حفظ %{model}: %{count} أخطاء."
+        body: "يرجى التحقق من الحقول التالية:"
+      messages:
+        inclusion: "ليس خيارا مقبولا"
+        exclusion: "محجوز"
+        invalid: "غير معرف أو محدد"
+        confirmation: "لا تتوافق مع التأكيد"
+        accepted: "يجب أن تقبل"
+        empty: "فارغ، يرجى ملء الحقل"
+        blank: "فارغ، يرجى ملء الحقل"
+        too_long: "أطول من اللازم (الحد الأقصى هو %{count})"
+        too_short: "أقصر من اللازم (الحد الأدنى هو %{count})"
+        wrong_length: "بطول غير مناسب (يجب أن يكون %{count})"
+        taken: "غير متوفر (مستخدم)"
+        not_a_number: "ليس رقما"
+        greater_than: "يجب أن يكون أكبر من %{count}"
+        greater_than_or_equal_to: "يجب أن يكون أكبر من أو يساوي %{count}"
+        equal_to: "يجب أن يساوي %{count}"
+        less_than: "يجب أن يكون أصغر من %{count}"
+        less_than_or_equal_to: "يجب أن يكون أصغر من أو يساوي %{count}"
+        odd: "يجب أن يكون فردي"
+        even: "يجب أن يكون زوجي"

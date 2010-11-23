@@ -1,21 +1,26 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class Post
-  require File.expand_path('../../../lib/encryptable', __FILE__)
-  require File.expand_path('../../../lib/diaspora/websocket', __FILE__)
+  require File.join(Rails.root, 'lib/encryptable')
+  require File.join(Rails.root, 'lib/diaspora/websocket')
   include MongoMapper::Document
   include ApplicationHelper
   include ROXML
   include Diaspora::Webhooks
-  include Diaspora::Socketable
 
-  xml_accessor :_id
-  xml_accessor :person, :as => Person
+  xml_reader :_id
+  xml_reader :diaspora_handle
+  xml_reader :public
+  xml_reader :created_at
 
-  key :person_id, ObjectId
+
+  key :public, Boolean, :default => false
+
+  key :diaspora_handle, String
   key :user_refs, Integer, :default => 0
+  key :pending, Boolean, :default => false
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id, :order => 'created_at ASC'
   belongs_to :person, :class_name => 'Person'
@@ -28,8 +33,15 @@ class Post
   before_destroy :propogate_retraction
   after_destroy :destroy_comments
 
+  attr_accessible :user_refs
+  
   def self.instantiate params
-    self.create params.to_hash
+    new_post = self.new params.to_hash
+    new_post.person = params[:person]
+    new_post.public = params[:public]
+    new_post.pending = params[:pending]
+    new_post.diaspora_handle = new_post.person.diaspora_handle
+    new_post
   end
 
   def as_json(opts={})
@@ -39,6 +51,10 @@ class Post
         :person => self.person.as_json,
       }
     }
+  end
+
+  def mutable?
+    false
   end
 
   protected

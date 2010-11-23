@@ -1,41 +1,93 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-cy:
-  errors:
-    messages:
-       not_found: "ni chanfuwyd"
-       already_confirmed: "cadarnhawyd eisioes"
-       not_locked: "heb ei gloi"
 
-  devise:
-    failure:
-      unauthenticated: "Mae angen i chi arwyddo i mewn neu ymuno cyn parhau."
-      unconfirmed: "Rhaid i chi gadarnhau eich cyfrif cyn parhau."
-      locked: "Mae eich cyfrif wedi'i gloi."
+cy: 
+  devise: 
+    confirmations: 
+      confirmed: "Cadarnhawyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
+    failure: 
+      inactive: "Nid yw eich cyfrif wedi'i actifadu."
       invalid: "E-bost neu gyfrinair annilys."
       invalid_token: "Tocyn dilysu annilys."
+      locked: "Mae eich cyfrif wedi'i gloi."
       timeout: "Mae eich sesiwn wedi dod i ben, arwyddwch i mewn eto i barhau."
-      inactive: "Nid yw eich cyfrif wedi'i actifadu."
-    sessions:
-      signed_in: "Arwyddwyd i fewn yn llwyddiannus."
-      signed_out: "Arwyddwyd allan yn llwyddiannus."
-    passwords:
+      unauthenticated: "Mae angen i chi arwyddo i mewn neu ymuno cyn parhau."
+      unconfirmed: "Rhaid i chi gadarnhau eich cyfrif cyn parhau."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "A friend wants you to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "Unlock my account"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Forgot your password?"
+        send_password_instructions: "Send me reset password instructions"
       send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
       updated: "Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
-    confirmations:
-      send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
-      confirmed: "Cadarnhawyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
-    registrations:
+    registrations: 
+      destroyed: "Hwyl fawr! Canslwyd eich cyfrif yn llwyddiannus. Rydym yn gobeithio gweld chi eto yn fuan."
       signed_up: "Rydych chi wedi arwyddo i fyny yn llwyddiannus. Anfonwyd cadarnhad at eich e-bost os yw wedi'i alluogi."
       updated: "Diweddarwyd eich cyfrif yn llwyddiannus."
-      destroyed: "Hwyl fawr! Canslwyd eich cyfrif yn llwyddiannus. Rydym yn gobeithio gweld chi eto yn fuan."
-    unlocks:
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Have a problem? Find an answer here"
+        login: Login
+        modern_browsers: "only supports modern browsers."
+        password: Password
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: Username
+      signed_in: "Arwyddwyd i fewn yn llwyddiannus."
+      signed_out: "Arwyddwyd allan yn llwyddiannus."
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "Byddwch yn derbyn e-bost gyda cyfarwyddiadau ar sut i agor eich cyfrif mewn ychydig funudau."
       unlocked: "Datglowyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
-    mailer:
-      confirmation_instructions: "Cyfarwyddiadau cadarnhad."
-      reset_password_instructions: "Ailosod cyfarwyddiadau cyfrinair"
-      unlock_instructions: "Cyfarwyddiadau Datgloi"
-
+  errors: 
+    messages: 
+      already_confirmed: "cadarnhawyd eisioes"
+      not_found: "ni chanfuwyd"
+      not_locked: "heb ei gloi"

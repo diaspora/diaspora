@@ -1,0 +1,74 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+- content_for :head do
+  :javascript
+    $(document).ready(function(){
+      $("#new_aspect").live("ajax:success", function(data,stat,xhr){
+        window.location.reload();
+      });
+
+      $(".aspects li").find(".delete").live("click", function(){
+        var aspectElement = $(this).parent("li");
+        if (confirm("#{t('are_you_sure')}")){
+          aspectElement.fadeOut(300, function(){aspectElement.remove();});
+        }
+      });
+    });
+    
+    
+  - if current_user.getting_started == true
+    :javascript
+      $("#getting_started_skip").live("click", function(evt){
+        evt.preventDefault();
+        $.ajax({
+          type: "PUT",
+          url: "/users/#{current_user.id}",
+          data: {"user":{"getting_started":'false'}},
+          success: function() { window.location = "#{root_path}"}
+        })
+      });
+
+.span-8.append-1.last
+  %h1{:style => "text-align:right;"}
+    = t('.welcome')
+    .description
+      =t('.signup_steps')
+
+  %h3{:style => "text-align:right;"}
+    - if @step != 1
+      = link_to t('.edit_profile'), getting_started_path(:step => 1)
+    - else
+      %span.current_gs_step
+        = t('.edit_profile')
+    %br
+    - if @step != 2
+      = link_to t('.define_aspects'), getting_started_path(:step => 2)
+    - else
+      %span.current_gs_step
+        = t('.define_aspects')
+    %br
+    - if @step != 3
+      = link_to t('.connect_services'), getting_started_path(:step => 3)
+    - else
+      %span.current_gs_step
+        = t('.connect_services')
+    %br
+    - if @step != 4
+      = link_to t('.finished'), getting_started_path(:step => 4)
+    - else
+      %span.current_gs_step
+        = t('.finished')
+    %br
+.span-15.last
+  .floating{:style=>"min-height:500px;"}
+    = render "users/getting_started/step_#{@step}", :current_user => current_user
+
+    - if @step > 1
+      = link_to t('back'), getting_started_path(:step => @step-1), :class => "button", :id => "previous_step"
+
+- if @user.getting_started
+  .bottom_notification
+    = link_to "#{t('.skip')} →", '#', :id => "getting_started_skip"

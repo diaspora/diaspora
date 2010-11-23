@@ -1,0 +1,43 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.span-10.append-1.last
+  .floating
+    %h3 
+      = t('.login')
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      #user
+        %p.username
+          = f.label :username , t('username')
+          = f.text_field :username
+        %p.user_network
+          ="@#{APP_CONFIG[:terse_pod_url]}"
+
+        %p
+          = f.label :password , t('password')
+          = f.password_field :password
+      /%p
+      /- if devise_mapping.rememberable?
+      /  = f.check_box :remember_me
+      /  = f.label :remember_me , t('.remember_me')
+      = f.submit t('.sign_in')
+    
+    %p
+      = render :partial => "devise/shared/links"
+    %p
+      = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
+
+.span-13.last
+  %h1
+    = t('.alpha_software')
+
+  %h3
+    = t('.bugs_and_feedback')
+
+  %h4
+    %span.brandon DIASPORA*
+    = t('.modern_browsers')
+  = image_tag('modern_browsers.png')
+    
+

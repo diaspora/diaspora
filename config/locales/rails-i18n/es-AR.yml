@@ -1,0 +1,168 @@
+"es-AR":
+  date:
+    formats:
+      default: "%e/%m/%Y"
+      short: "%e %b"
+      long: "%e de %B de %Y"
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - "miércoles"
+    - jueves
+    - viernes
+    - "sábado"
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mie
+    - jue
+    - vie
+    - sab
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - set
+    - oct
+    - nov
+    - dic
+    order:
+    - :day
+    - :month
+    - :year
+  time:
+    formats:
+      default: "%A, %e de %B de %Y, %H:%M hs"
+      short: "%e/%m, %H:%M hs"
+      long: "%A, %e de %B de %Y, %H:%M hs"
+    am: am
+    pm: pm
+  datetime:
+    distance_in_words:
+      half_a_minute: medio minuto
+      less_than_x_seconds:
+        zero: menos de 1 segundo
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        zero: menos de 1 minuto
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      x_days:
+        one: "1 día"
+        other: "%{count} días"
+      about_x_months:
+        one: aproximandamente 1 mes
+        other: aproximadamente %{count} mes
+      x_months:
+        one: 1 month
+        other: "%{count} mes"
+      about_x_years:
+        one: "aproximadamente 1 año"
+        other: "aproximadamente %{count} años"
+      over_x_years:
+        one: "más de 1 año"
+        other: "más de %{count} años"
+    prompts:
+      year:   "Año"
+      month:  "Mes"
+      day:    "Día"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundos"
+        
+  number:
+    percentage:
+      format:
+        delimiter: "."
+    precision:
+      format:
+        delimiter: "."
+    human:
+      format:
+        delimiter: "."
+        precision: "2"
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "byte"
+            other: "bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+    format:
+      precision: 3
+      separator: ","
+      delimiter: .
+    currency:
+      format:
+        unit: $
+        precision: 2
+        format: "%u %n"
+        separator: ","
+        delimiter: "."
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Un error ocurrió al guardar tus datos."
+          other: "%{count} errores ocurrieron al guardar tus datos."
+        body: "Los siguientes campos presentan problemas:"
+      messages:
+        inclusion: "no está incluido en la lista"
+        exclusion: "no está disponible"
+        invalid: "no es válido"
+        confirmation: "no coincide con la confirmación"
+        accepted: debe ser aceptado
+        empty: "no puede estar vacío"
+        blank: no puede estar en blanco
+        too_long: "es demasiado largo (el máximo es de %{count} caracteres)"
+        too_short: "es demasiado corto (el mínimo es de %{count} caracteres)"
+        wrong_length: "no posee el largo correcto (debería ser de %{count} caracteres)"
+        taken: "no está disponible"
+        not_a_number: "no es un número"
+        greater_than: debe ser mayor a %{count}
+        greater_than_or_equal_to: debe ser mayor o igual a %{count}
+        equal_to: debe ser igual a %{count}
+        less_than: debe ser menor que %{count}
+        less_than_or_equal_to: debe ser menor o igual que %{count}
+        odd: debe ser par
+        even: debe ser impar
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: " y "

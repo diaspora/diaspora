@@ -1,0 +1,35 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+!!!
+%html{:lang => I18n.locale.to_s}
+  %head
+    %title
+      = "#{current_user.real_name} | diaspora" if current_user
+
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
+    = include_javascripts :mobile 
+    = stylesheet_link_tag 'mobile', 'vendor/jquery_mobile.min'
+    = csrf_meta_tag
+    
+    :javascript
+      $(document).ready(Mobile.initialize);
+
+
+    = yield(:head)
+
+  %body
+    #content{:data => {:role => 'page'}}
+      %div{:data => {:role => 'header', :nobackbtn => 'true'}}
+        %h1
+          = person_image_tag (current_user.person)
+          = current_user.real_name 
+      = select_tag "aspect_picker", aspect_select_options(@aspects, @aspect)
+      
+      = yield
+           
+      /%div{:data => {:role => 'fieldcontain'}}
+      /  = form_tag(people_path, :method => 'get') do
+      /    = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search'

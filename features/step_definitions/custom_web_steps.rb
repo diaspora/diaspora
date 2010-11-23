@@ -15,3 +15,17 @@ When /^(.*) in the aspect list$/ do |action|
     When action
   end
 end
+
+Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
+  within("#main_stream") do
+    Then "I should see #{stuff}"
+  end
+end
+
+When /^I wait for the aspects page to load$/ do
+  wait_until { current_path == aspects_path }
+end
+
+When /^I wait for the ajax to finish$/ do
+  wait_until { evaluate_script("$.active") == 0 }
+end

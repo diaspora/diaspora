@@ -1,40 +1,93 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3.  See
+#   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-it:
-  errors:
-    messages:
-      not_found: "non trovato"
-      already_confirmed: "è già stato confermato"
-      not_locked: "non era bloccato"
 
-  devise:
-    failure:
-      unauthenticated: "Devi effettuare l'accesso o registrarti prima di continuare."
-      unconfirmed: "Devi confermare il tuo account prima di continuare."
-      locked: "Il tuo account è bloccato."
+it: 
+  devise: 
+    confirmations: 
+      confirmed: "Il tuo account è stato confermato con successo. Hai appena effettuato l'accesso."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "Tra pochi minuti riceverai una email per confermare il tuo account."
+    failure: 
+      inactive: "Il tuo account non è ancora stato attivato."
       invalid: "Email o password errati."
       invalid_token: "Token di autenticazione errato."
+      locked: "Il tuo account è bloccato."
       timeout: "La tua sessione è scaduta, effettua di nuovo l'accesso per continuare."
-      inactive: "Il tuo account non è ancora stato attivato."
-    sessions:
-      signed_in: "Accesso effettuato con successo."
-      signed_out: "Disconnessione effettuata con successo."
-    passwords:
+      unauthenticated: "Devi effettuare l'accesso o registrarti prima di continuare."
+      unconfirmed: "Devi confermare il tuo account prima di continuare."
+    invitations: 
+      invitation_token_invalid: "Il codice d'invito che hai fornito non è valido!"
+      send_instructions: "Il tuo invito è stato inoltrato."
+      updated: "La tua password è stata impostata correttamente. Hai effettuato l'accesso."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Conferma il mio account"
+        subject: "Istruzioni di conferma"
+        you_can_confirm: "Puoi confermare il tuo account attraverso il link sottostante:"
+      hello: "Ciao %{email}!"
+      invitation: 
+        accept: "Accetta L' invito"
+        ignore: "se non vuoi accettare l' invito, perfavore ignora questa email."
+        no_account_till: "Il tuo account non sarà creato finchè non cliccherai sul link sottostante e farai login."
+        subject: "Sei stato invitato ad unirti a Diaspora!"
+      inviters: 
+        accept_at: ", a %{url}, lo puoi accettare tramite il link sottostante."
+        has_invited_you: "%{name} ti ha invitato a unirti a Diaspora"
+        have_invited_you: "%{names} ti ha invitato a unirti a Diaspora"
+      reset_password_instructions: 
+        change: "cambia la mia password"
+        ignore: "Se non l'hai richiesta, per favore ignora questa email."
+        someone_requested: "qualcuno ha richiesto un link per cambiare la tua password, e tu puoi farlo cliccando sul link sottostante."
+        subject: "Istruzioni per reimpostare la password"
+        wont_change: "La tua password non verrà cambiata finché non visiti il link sopra e ne crei una nuova."
+      unlock_instructions: 
+        account_locked: "Il tuo account è stato bloccato a causa di eccessiva tentativi falliti di login."
+        click_to_unlock: "clicca il link sottostante per sbloccare il mio account:"
+        subject: "Istruzioni di sblocco"
+        unlock: "sblocca il mio account"
+      welcome: "Benvenuto %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Change my password"
+      new: 
+        forgot_password: "Hai dimenticato la password?"
+        send_password_instructions: "Inviami le istruzioni per reimpostare la password."
       send_instructions: "Tra pochi minuti riceverai una email con le istruzioni su come cambiare la tua password."
       updated: "La tua password è stata modificata. Hai appena effettuato l'accesso."
-    confirmations:
-      send_instructions: "Tra pochi minuti riceverai una email per confermare il tuo account."
-      confirmed: "Il tuo account è stato confermato con successo. Hai appena effettuato l'accesso."
-    registrations:
+    registrations: 
+      destroyed: "Ciao! Il tuo account è stato rimosso. Speriamo che tu torni a trovarci presto."
       signed_up: "Ti sei iscritto. Se il servizio è disponibile, riceverai una conferma via email."
       updated: "Hai aggiornato il tuo account."
-      destroyed: "Ciao! Il tuo account è stato rimosso. Speriamo che tu torni a trovarci presto."
-    unlocks:
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Hai qualche dubbio? Trova qui la risposta"
+        login: "Effettua l'accesso"
+        modern_browsers: "only supports modern browsers."
+        password: Password
+        remember_me: Ricordami
+        sign_in: Registrati
+        username: "Nome utente"
+      signed_in: "Accesso effettuato con successo."
+      signed_out: "Disconnessione effettuata con successo."
+    shared: 
+      links: 
+        forgot_your_password: "Hai dimenticato la password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: Accedi
+        sign_up: Registrati
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "Tra pochi minuti riceverai una mail con le istruzioni su come sbloccare il tuo account."
       unlocked: "Il tuo account è stato sbloccato. Hai appena effettuato l'accesso."
-    mailer:
-      confirmation_instructions: "Istruzioni sulla conferma"
-      reset_password_instructions: "Istruzioni su come cambiare la password"
-      unlock_instructions: "Istruzioni su come sbloccare l'account"
+  errors: 
+    messages: 
+      already_confirmed: "è già stato confermato"
+      not_found: "non trovato"
+      not_locked: "non era bloccato"

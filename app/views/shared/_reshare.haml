@@ -1,25 +1,17 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
--#   licensed under the Affero General Public License version 3.  See
+-#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-:javascript
-  $(".reshare_button").toggle(function(e){
-    e.preventDefault();
-    $(this).parent(".reshare_pane").children(".reshare_box").fadeIn(200);
-  }, function(e) {
-    e.preventDefault();
-    $(this).parent(".reshare_pane").children(".reshare_box").fadeOut(200);
-  });
+- unless current_user.aspects.size == current_user.aspects_with_post(post.id).size
+  .reshare_pane
+    %span.reshare_button
+      = link_to t('.reshare'), "#"
 
-.reshare_pane
-  %span.reshare_button
-    = link_to "Reshare", "#"
-
-  %ul.reshare_box
-    - for aspect in current_user.aspects_with_post( post.id )
-
-      %li.currently_sharing= aspect.name
-
-    - for aspect in current_user.aspects
-      - unless aspect.posts.include? post
-        %li.aspect_to_share= link_to aspect, :controller => "aspects", :action => "show", :id => aspect.id, :prefill => post.message
+    %ul.reshare_box
+      - for aspect in current_user.aspects
+        - unless aspect.posts.include? post
+          %li.aspect_to_share= link_to aspect, :controller => "aspects", :action => "show", :id => aspect.id, :prefill => post.message
+- else
+  .reshare_pane
+    %span.reshare_button
+      = link_to t('.reshare'), "#", :class => "inactive"

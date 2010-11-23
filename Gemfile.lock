@@ -1,80 +1,89 @@
 GIT
   remote: git://github.com/Empact/roxml.git
-  revision: 33034d3e632b3a14565a791af0a63c7e23ec0de4
+  revision: 7ea9a9ffd2338aaef5b04cb792060ae8c98f346a
   specs:
-    roxml (3.1.5)
+    roxml (3.1.6)
       activesupport (>= 2.3.0)
       nokogiri (>= 1.3.3)
 
 GIT
-  remote: git://github.com/igrigorik/em-http-request.git
-  revision: 6f66010cda90991863669ca52fd4c320dd931a06
+  remote: git://github.com/collectiveidea/devise-mongo_mapper
+  revision: fa2f20310e0988295adc192255d3b1cedee1b412
   specs:
-    em-http-request (0.2.12)
+    devise-mongo_mapper (0.0.1)
+      devise (~> 1.1.0)
+
+GIT
+  remote: git://github.com/dcu/magent.git
+  revision: 663d493e0058901d8a2baec00e4d20e867b1359d
+  specs:
+    magent (0.5.2)
+      em-websocket
+      mongo
+      uuidtools
+
+GIT
+  remote: git://github.com/iain/http_accept_language.git
+  revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
+  specs:
+    http_accept_language (1.0.1)
+
+GIT
+  remote: git://github.com/igrigorik/em-http-request.git
+  revision: bf62d67fc72d6e701be5037e239dd470194b8e45
+  ref: bf62d67fc72d6e701be5
+  specs:
+    em-http-request (0.2.13)
       addressable (>= 2.0.0)
       eventmachine (>= 0.12.9)
 
 GIT
-  remote: git://github.com/rsofaer/carrierwave.git
-  revision: 9edb8bdddd2236742a85bfd7b260387498d01f88
-  branch: master
+  remote: git://github.com/igrigorik/em-websocket
+  revision: 96e85559334e7899ee31e9cef0b8e83d30707080
   specs:
-    carrierwave (0.4.4)
+    em-websocket (0.1.4)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
 
 GIT
-  remote: git://github.com/rsofaer/redfinger.git
-  revision: 605edbb2b3b4bd0e7befb6963a3ada3f5d3ca76c
-  specs:
-    redfinger (0.0.6)
-      hashie
-      nokogiri (>= 1.4.0)
-      rest-client (>= 1.5.0)
-
-GIT
-  remote: git://github.com/rsofaer/sprinkle.git
-  revision: 7c744ed158dda1f99a015e6a29d086e80bd8c635
-  specs:
-    sprinkle (0.3.1)
-      activesupport (>= 3.0.0beta4)
-      capistrano (>= 2.5.5)
-      highline (>= 1.4.0)
-
-GIT
-  remote: http://github.com/BadMinus/devise.git
-  revision: 88ab2fe14e88dc45d5b969328a5e52e9011a1d7b
-  specs:
-    devise (1.1.rc1)
-      bcrypt-ruby (~> 2.1.2)
-      warden (~> 0.10.7)
-
-GIT
-  remote: http://github.com/dcu/magent.git
-  revision: 06513f3dac812469a55f2e365c349af4d2abc92a
-  specs:
-    magent (0.4.2)
-      mongo (>= 0.1.0)
-      uuidtools (>= 2.0.0)
-
-GIT
-  remote: http://github.com/jnunemaker/mongomapper.git
-  revision: b0eac421ef5b3bee782e15d391eca372a189d414
+  remote: git://github.com/jnunemaker/mongomapper.git
+  revision: de8f8f3171f687f8d65b87ba7c7d3b1cb6e3bbe6
   branch: rails3
   specs:
-    mongo_mapper (0.8.4)
+    mongo_mapper (0.8.6)
       activemodel (~> 3.0.0)
       activesupport (~> 3.0.0)
-      plucky (~> 0.3.5)
+      plucky (~> 0.3.6)
+
+GIT
+  remote: git://github.com/rsofaer/carrierwave.git
+  revision: c3dfbdda2fa227af91fe383bb126f59b991a318f
+  branch: master
+  specs:
+    carrierwave (0.5.0)
+      activesupport (~> 3.0)
+
+PATH
+  remote: vendor/gems/jasmine
+  specs:
+    jasmine (1.0.1)
+      json_pure (>= 1.4.3)
+      rack (>= 1.0.0)
+      rake (>= 0.8.7)
+      rspec (>= 1.1.5)
+      selenium-client (>= 1.2.17)
+      selenium-rc (>= 2.1.0)
 
 GEM
   remote: http://rubygems.org/
   specs:
     abstract (1.0.0)
-    actionmailer (3.0.0)
-      actionpack (= 3.0.0)
+    actionmailer (3.0.1)
+      actionpack (= 3.0.1)
       mail (~> 2.2.5)
-    actionpack (3.0.0)
-      activemodel (= 3.0.0)
-      activesupport (= 3.0.0)
+    actionpack (3.0.1)
+      activemodel (= 3.0.1)
+      activesupport (= 3.0.1)
       builder (~> 2.1.2)
       erubis (~> 2.6.6)
       i18n (~> 0.4.1)
@@ -82,33 +91,32 @@ GEM
       rack-mount (~> 0.6.12)
       rack-test (~> 0.5.4)
       tzinfo (~> 0.3.23)
-    activemodel (3.0.0)
-      activesupport (= 3.0.0)
+    activemodel (3.0.1)
+      activesupport (= 3.0.1)
       builder (~> 2.1.2)
       i18n (~> 0.4.1)
-    activerecord (3.0.0)
-      activemodel (= 3.0.0)
-      activesupport (= 3.0.0)
+    activerecord (3.0.1)
+      activemodel (= 3.0.1)
+      activesupport (= 3.0.1)
       arel (~> 1.0.0)
       tzinfo (~> 0.3.23)
-    activeresource (3.0.0)
-      activemodel (= 3.0.0)
-      activesupport (= 3.0.0)
-    activesupport (3.0.0)
-    addressable (2.2.1)
+    activeresource (3.0.1)
+      activemodel (= 3.0.1)
+      activesupport (= 3.0.1)
+    activesupport (3.0.1)
+    addressable (2.2.2)
     arel (1.0.1)
       activesupport (~> 3.0.0)
-    autotest (4.3.2)
+    aws (2.3.26)
+      activesupport
+      http_connection
+      uuidtools
+      xml-simple
     bcrypt-ruby (2.1.2)
-    bson (1.0.7)
-    bson_ext (1.0.7)
+    bson (1.1)
+    bson_ext (1.1)
     builder (2.1.2)
-    capistrano (2.5.19)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.0.0)
+    bunny (0.6.0)
     capybara (0.3.9)
       culerity (>= 0.2.4)
       mime-types (>= 1.16)
@@ -116,12 +124,33 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
-    columnize (0.3.1)
+    cgi_multipart_eof_fix (2.5.0)
+    chef (0.9.12)
+      bunny (>= 0.6.0)
+      erubis
+      extlib
+      highline
+      json (>= 1.4.4, <= 1.4.6)
+      mixlib-authentication (>= 1.1.0)
+      mixlib-cli (>= 1.1.0)
+      mixlib-config (>= 1.1.2)
+      mixlib-log (>= 1.2.0)
+      moneta
+      ohai (>= 0.5.7)
+      rest-client (>= 1.0.4, < 1.7.0)
+      uuidtools
+    childprocess (0.1.4)
+      ffi (~> 0.6.3)
+    closure-compiler (0.3.3)
+    cloudfiles (1.4.9)
+      mime-types (>= 1.16)
+    columnize (0.3.2)
+    configuration (1.2.0)
     crack (0.1.8)
-    cucumber (0.9.0)
+    cucumber (0.9.4)
       builder (~> 2.1.2)
       diff-lcs (~> 1.1.2)
-      gherkin (~> 2.2.2)
+      gherkin (~> 2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
     cucumber-rails (0.3.2)
@@ -129,157 +158,244 @@ GEM
     culerity (0.2.12)
     daemons (1.1.0)
     database_cleaner (0.5.2)
+    devise (1.1.3)
+      bcrypt-ruby (~> 2.1.2)
+      warden (~> 0.10.7)
+    devise_invitable (0.3.5)
+      devise (~> 1.1.0)
     diff-lcs (1.1.2)
-    em-websocket (0.1.4)
-      addressable (>= 2.1.1)
-      eventmachine (>= 0.12.9)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
+    extlib (0.9.15)
     factory_girl (1.3.2)
     factory_girl_rails (1.0)
       factory_girl (~> 1.3)
       rails (>= 3.0.0.beta4)
+    faraday (0.5.3)
+      addressable (~> 2.2.2)
+      multipart-post (~> 1.0.1)
+      rack (>= 1.1.0, < 2)
+    fastercsv (1.5.3)
+    fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
-    gherkin (2.2.4)
+    gem_plugin (0.2.3)
+    gherkin (2.2.9)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
-      trollop (~> 1.16.2)
-    haml (3.0.18)
+    haml (3.0.24)
     hashie (0.4.0)
     highline (1.6.1)
-    i18n (0.4.1)
+    http_connection (1.4.0)
+    httparty (0.6.1)
+      crack (= 0.1.8)
+    i18n (0.4.2)
+    jammit (0.5.4)
+      closure-compiler (>= 0.1.0)
+      yui-compressor (>= 0.9.1)
     json (1.4.6)
     json_pure (1.4.6)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     linecache (0.43)
-    mail (2.2.6.1)
+    mail (2.2.10)
       activesupport (>= 2.3.6)
-      mime-types
-      treetop (>= 1.4.5)
+      i18n (~> 0.4.1)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     mime-types (1.16)
-    mini_magick (2.1)
+    mini_magick (3.1)
       subexec (~> 0.0.4)
-    mocha (0.9.8)
+    mixlib-authentication (1.1.4)
+      mixlib-log
+    mixlib-cli (1.2.0)
+    mixlib-config (1.1.2)
+    mixlib-log (1.2.0)
+    mocha (0.9.9)
       rake
-    mongo (1.0.8)
+    moneta (0.6.0)
+    mongo (1.1)
       bson (>= 1.0.5)
-    net-scp (1.0.3)
-      net-ssh (>= 1.99.1)
-    net-sftp (2.0.5)
-      net-ssh (>= 2.0.9)
-    net-ssh (2.0.23)
-    net-ssh-gateway (1.0.1)
-      net-ssh (>= 1.99.1)
-    nifty-generators (0.4.0)
+    mongrel (1.1.5)
+      cgi_multipart_eof_fix (>= 2.4)
+      daemons (>= 1.0.3)
+      fastthread (>= 1.0.1)
+      gem_plugin (>= 0.2.3)
+    multi_json (0.0.5)
+    multipart-post (1.0.1)
+    net-ldap (0.1.1)
     nokogiri (1.4.3.1)
-    plucky (0.3.5)
-      mongo (~> 1.0.8)
+    oa-basic (0.1.6)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      rest-client (~> 1.6.0)
+    oa-core (0.1.6)
+      rack (~> 1.1)
+    oa-enterprise (0.1.6)
+      net-ldap (~> 0.1.1)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
+    oa-oauth (0.1.6)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      oauth (~> 0.4.0)
+      oauth2 (~> 0.1.0)
+    oa-openid (0.1.6)
+      oa-core (= 0.1.6)
+      rack-openid (~> 1.2.0)
+      ruby-openid-apps-discovery
+    oauth (0.4.4)
+    oauth2 (0.1.0)
+      faraday (~> 0.5.0)
+      multi_json (~> 0.0.4)
+    ohai (0.5.8)
+      extlib
+      json (>= 1.4.4, <= 1.4.6)
+      mixlib-cli
+      mixlib-config
+      mixlib-log
+      systemu
+    omniauth (0.1.6)
+      oa-basic (= 0.1.6)
+      oa-core (= 0.1.6)
+      oa-enterprise (= 0.1.6)
+      oa-oauth (= 0.1.6)
+      oa-openid (= 0.1.6)
+    plucky (0.3.6)
+      mongo (~> 1.1)
     polyglot (0.3.1)
     pubsubhubbub (0.1.1)
       em-http-request (>= 0.1.5)
       eventmachine (>= 0.12.9)
+    pyu-ruby-sasl (0.0.3.2)
     rack (1.2.1)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
-    rack-test (0.5.4)
+    rack-openid (1.2.0)
+      rack (>= 1.1.0)
+      ruby-openid (>= 2.1.8)
+    rack-test (0.5.6)
       rack (>= 1.0)
-    rails (3.0.0)
-      actionmailer (= 3.0.0)
-      actionpack (= 3.0.0)
-      activerecord (= 3.0.0)
-      activeresource (= 3.0.0)
-      activesupport (= 3.0.0)
+    rails (3.0.1)
+      actionmailer (= 3.0.1)
+      actionpack (= 3.0.1)
+      activerecord (= 3.0.1)
+      activeresource (= 3.0.1)
+      activesupport (= 3.0.1)
       bundler (~> 1.0.0)
-      railties (= 3.0.0)
-    railties (3.0.0)
-      actionpack (= 3.0.0)
-      activesupport (= 3.0.0)
+      railties (= 3.0.1)
+    railties (3.0.1)
+      actionpack (= 3.0.1)
+      activesupport (= 3.0.1)
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
-    redgreen (1.2.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rspec (2.0.0.beta.22)
-      rspec-core (= 2.0.0.beta.22)
-      rspec-expectations (= 2.0.0.beta.22)
-      rspec-mocks (= 2.0.0.beta.22)
-    rspec-core (2.0.0.beta.22)
-    rspec-expectations (2.0.0.beta.22)
-      diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.0.beta.22)
-      rspec-core (= 2.0.0.beta.22)
-      rspec-expectations (= 2.0.0.beta.22)
-    rspec-rails (2.0.0.beta.17)
-      rspec (>= 2.0.0.beta.14)
-      webrat (>= 0.7.0)
-    ruby-debug (0.10.3)
+    rspec (2.1.0)
+      rspec-core (~> 2.1.0)
+      rspec-expectations (~> 2.1.0)
+      rspec-mocks (~> 2.1.0)
+    rspec-core (2.1.0)
+    rspec-expectations (2.1.0)
+      diff-lcs (~> 1.1.2)
+    rspec-instafail (0.1.4)
+    rspec-mocks (2.1.0)
+    rspec-rails (2.1.0)
+      rspec (~> 2.1.0)
+    ruby-debug (0.10.4)
       columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.3.0)
-    ruby-debug-base (0.10.3)
+      ruby-debug-base (~> 0.10.4.0)
+    ruby-debug-base (0.10.4)
       linecache (>= 0.3)
+    ruby-openid (2.1.8)
+    ruby-openid-apps-discovery (1.2.0)
+      ruby-openid (>= 2.1.7)
+    rubyntlm (0.1.1)
     rubyzip (0.9.4)
-    selenium-webdriver (0.0.28)
-      ffi (>= 0.6.1)
+    selenium-client (1.2.18)
+    selenium-rc (2.2.4)
+      selenium-client (>= 1.2.18)
+    selenium-webdriver (0.1.0)
+      childprocess (= 0.1.4)
+      ffi (~> 0.6.3)
       json_pure
       rubyzip
     subexec (0.0.4)
+    systemu (1.2.0)
     term-ansicolor (1.0.5)
     thin (1.2.7)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
-    thor (0.14.0)
-    treetop (1.4.8)
+    thor (0.14.6)
+    treetop (1.4.9)
       polyglot (>= 0.3.1)
-    trollop (1.16.2)
+    twitter (0.9.12)
+      hashie (~> 0.4.0)
+      httparty (~> 0.6.1)
+      multi_json (~> 0.0.4)
+      oauth (~> 0.4.3)
     tzinfo (0.3.23)
     uuidtools (2.1.1)
     warden (0.10.7)
       rack (>= 1.0.0)
-    webmock (1.3.5)
-      addressable (>= 2.1.1)
+    webmock (1.6.1)
+      addressable (>= 2.2.2)
       crack (>= 0.1.7)
-    webrat (0.7.2.beta.1)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
     will_paginate (3.0.pre2)
+    xml-simple (1.0.12)
+    yui-compressor (0.9.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   addressable
-  autotest
-  bson (= 1.0.7)
-  bson_ext (= 1.0.7)
-  bundler (= 1.0.0)
+  aws
+  bson (= 1.1)
+  bson_ext (= 1.1)
+  bundler (>= 1.0.0)
   capybara (~> 0.3.9)
   carrierwave!
+  chef
+  cloudfiles
   cucumber-rails (= 0.3.2)
-  database_cleaner
-  devise!
+  database_cleaner (= 0.5.2)
+  devise (= 1.1.3)
+  devise-mongo_mapper!
+  devise_invitable (= 0.3.5)
   em-http-request!
-  em-websocket
+  em-websocket!
   factory_girl_rails
+  fastercsv
   haml
+  http_accept_language!
+  jammit
+  jasmine!
   json
+  launchy
   magent!
   mini_magick
   mocha
   mongo_mapper!
-  nifty-generators
+  mongrel
+  nokogiri (= 1.4.3.1)
+  omniauth
   pubsubhubbub
-  rails (= 3.0.0)
-  redfinger!
-  redgreen
+  rails (= 3.0.1)
   roxml!
-  rspec (>= 2.0.0.beta.17)
-  rspec-rails (= 2.0.0.beta.17)
+  rspec (>= 2.0.0)
+  rspec-instafail
+  rspec-rails (>= 2.0.0)
   ruby-debug
-  sprinkle!
   thin
+  twitter (= 0.9.12)
   webmock
   will_paginate (= 3.0.pre2)
