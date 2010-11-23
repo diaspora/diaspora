@@ -176,8 +176,6 @@ GEM
       addressable (~> 2.2.2)
       multipart-post (~> 1.0.1)
       rack (>= 1.1.0, < 2)
-    faraday_middleware (0.3.0)
-      faraday (~> 0.5.3)
     fastercsv (1.5.3)
     fastthread (1.0.7)
     ffi (0.6.3)
@@ -190,6 +188,8 @@ GEM
     hashie (0.4.0)
     highline (1.6.1)
     http_connection (1.4.0)
+    httparty (0.6.1)
+      crack (= 0.1.8)
     i18n (0.4.2)
     jammit (0.5.4)
       closure-compiler (>= 0.1.0)
@@ -224,7 +224,6 @@ GEM
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
     multi_json (0.0.5)
-    multi_xml (0.2.0)
     multipart-post (1.0.1)
     net-ldap (0.1.1)
     nokogiri (1.4.3.1)
@@ -328,7 +327,6 @@ GEM
       ffi (~> 0.6.3)
       json_pure
       rubyzip
-    simple_oauth (0.1.2)
     subexec (0.0.4)
     systemu (1.2.0)
     term-ansicolor (1.0.5)
@@ -339,13 +337,11 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    twitter (1.0.0)
-      faraday (~> 0.5.3)
-      faraday_middleware (~> 0.3.0)
+    twitter (0.9.12)
       hashie (~> 0.4.0)
-      multi_json (~> 0.0.5)
-      multi_xml (~> 0.2.0)
-      simple_oauth (~> 0.1.2)
+      httparty (~> 0.6.1)
+      multi_json (~> 0.0.4)
+      oauth (~> 0.4.3)
     tzinfo (0.3.23)
     uuidtools (2.1.1)
     warden (0.10.7)
@@ -400,6 +396,6 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0)
   ruby-debug
   thin
-  twitter
+  twitter (= 0.9.12)
   webmock
   will_paginate (= 3.0.pre2)
