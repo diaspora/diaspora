@@ -35,11 +35,11 @@ Diaspora::Application.routes.draw do
   match 'aspects/manage',       :to => 'aspects#manage'
   resources :aspects,           :except => [:edit]
 
-  match 'warzombie',          :to   => "dev_utilities#warzombie"
-  match 'zombiefriends',      :to   => "dev_utilities#zombiefriends"
-  match 'zombiefriendaccept', :to   => "dev_utilities#zombiefriendaccept"
-  match 'set_backer_number',  :to   => "dev_utilities#set_backer_number"
-  match 'set_profile_photo',  :to   => "dev_utilities#set_profile_photo"
+  #match 'warzombie',          :to   => "dev_utilities#warzombie"
+  #match 'zombiefriends',      :to   => "dev_utilities#zombiefriends"
+  #match 'zombiefriendaccept', :to   => "dev_utilities#zombiefriendaccept"
+  #match 'set_backer_number',  :to   => "dev_utilities#set_backer_number"
+  #match 'set_profile_photo',  :to   => "dev_utilities#set_profile_photo"
 
   #public routes
   match 'webfinger',            :to => 'publics#webfinger'
@@ -47,7 +47,7 @@ Diaspora::Application.routes.draw do
   match '.well-known/host-meta',:to => 'publics#host_meta'
   match 'receive/users/:id',    :to => 'publics#receive'
   match 'hub',                  :to => 'publics#hub'
-  match 'log',                  :to => "dev_utilities#log"
+  #match 'log',                  :to => "dev_utilities#log"
 
 
   #root
