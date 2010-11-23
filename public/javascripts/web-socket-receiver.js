@@ -114,7 +114,7 @@ processPerson: function(response){
   },
 
   onPageForAspects: function(aspectIds){
-    if(location.pathname == '/' && WebSocketReceiver.onPageOne()){
+    if(location.pathname == '/aspects' && WebSocketReceiver.onPageOne()){
       return true
     }
     var found = false;

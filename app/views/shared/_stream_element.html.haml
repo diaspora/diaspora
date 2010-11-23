@@ -20,7 +20,6 @@
               - for aspect in current_user.aspects_with_post( post.id )
                 %li= link_to aspect.name, aspect
 
-      - if current_user.owns?(post)
         .right
           = render 'shared/reshare', :current_user => current_user, :post => post if post.is_a? StatusMessage
           = link_to t('delete'), object_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
