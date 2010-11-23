@@ -138,6 +138,13 @@ header
     :margin
       :right 12px
 
+  &.landing
+    #diaspora_text
+      :font
+        :size 30px
+    .right
+      :top 10px
+
   ul#user_menu
     :overflow hidden
     :white-space nowrap
@@ -716,7 +723,7 @@ li.message .from .right
     :color #333
 
 #debug_info
-  :margin-top 20px
+  :margin-top 50px
   :color #ccc
 
   h5
@@ -1771,6 +1778,8 @@ ul#landing_nav
   :list
     :style none
 
+  :top 30px
+
   :font
     :size 14px
   
@@ -1780,8 +1789,31 @@ ul#landing_nav
       :right 0.5em
     a
       :color #107FC9
+      
+      &.login
+        :padding 5px 8px
+
+        :-webkit-border-radius 5px
+        :-moz-border-radius 5px
+        :border-radius 5px
+
+        :background
+          :color #000
+
+        :border
+          :top 1px solid #000
+
+        :-webkit-box-shadow 0 1px 1px #666
+        :-moz-box-shadow 0 1px 1px #666
+        :box-shadow 0 1px 1px #666
+
+        &:hover
+          :background
+            :color #222
 
     :text-shadow 0 1px 0 #000
+
+
 
 
 #signup_field
@@ -1890,7 +1922,7 @@ ul#landing_nav
     :style italic
   :margin
     :top 14px
-    :left 500px
+    :left 540px
   :color #888
   
 
@@ -1917,6 +1949,19 @@ ul#press_logos
     :top 100px
   :text
     :align center
+
+#why
+  :margin
+    :bottom 48px
+
+  h2
+    :text-shadow 0 1px #fff
+    :border
+      :bottom 3px solid #eee
+
+#signup
+  :margin
+    :bottom 48px
 
 
 h3,h4
@@ -1998,3 +2043,4 @@ h3,h4
 #edit_aspect_trigger
   :font
     :size 12px
+
