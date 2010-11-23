@@ -27,10 +27,6 @@ $(document).ready(function(){
 
   $("input[type='submit']").addClass("button");
 
-  $(".image_cycle img").load( function() {
-    $(this).fadeIn("slow");
-  });
-
   $("#q").focus(
     function() {
       $(this).addClass('active');
