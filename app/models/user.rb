@@ -339,7 +339,7 @@ class User
 
   def accept_invitation!(opts = {})
     if self.invited?
-      log_string = "event=invitation_accepted username=#{opts[username]} "
+      log_string = "event=invitation_accepted username=#{opts[:username]} "
       log_string << "inviter=#{invitations_to_me.first.from.diaspora_handle}" if invitations_to_me.first
       Rails.logger.info log_string
       self.setup(opts)
