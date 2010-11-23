@@ -233,7 +233,7 @@ nb:
       error: "Velg et aspekt først!"
       ignore: "Ignorerte venneforespørsel"
       success: "Dere er nå venner."
-    manage_aspect_contacts: 
+    aspect_contacts: 
       contact_username: "Contact's username"
       create_request: "Create request"
       enter_a_diaspora_username: "Enter a Diaspora username:"

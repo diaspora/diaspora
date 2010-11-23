@@ -40,7 +40,7 @@
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{aspect.id}", :class => 'manage_aspect_contacts_button'
+            %li= link_to t('.add_a_new_contact'), "#aspect_contacts_pane_#{aspect.id}", :class => 'aspect_contacts_button'
             %li!= remove_link(aspect)
 
         %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
@@ -55,6 +55,6 @@
             =t('.drag_to_add')
 
           .fancybox_content
-            %div{:id => "manage_aspect_contacts_pane_#{aspect.id}"}
-              = render "requests/manage_aspect_contacts", :aspect => aspect, :manage => true
+            %div{:id => "aspect_contacts_pane_#{aspect.id}"}
+              = render "shared/aspect_contacts", :aspect => aspect,  :contacts => @contacts, :manage => true
 

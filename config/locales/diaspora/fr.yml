@@ -233,7 +233,7 @@ fr:
       error: "Veuillez sélectionner un aspect !"
       ignore: "Requête de contact ignorée."
       success: "Vous êtes à présent amis."
-    manage_aspect_contacts: 
+    aspect_contacts: 
       contact_username: "Nom d'utilisateur du contact"
       create_request: "Créer une requête"
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"

@@ -233,7 +233,7 @@ pt-BR:
       error: "Favor selecionar um aspecto!"
       ignore: "Requisições de amigos ignoradas."
       success: "Vocês agora são amigos."
-    manage_aspect_contacts: 
+    aspect_contacts: 
       contact_username: "Contact's username"
       create_request: "Create request"
       enter_a_diaspora_username: "Enter a Diaspora username:"

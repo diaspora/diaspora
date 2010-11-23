@@ -22,11 +22,11 @@
         - for contact in aspect.contacts
           = person_image_link(contact.person)
 
-        = link_to (image_tag('add_contact_button.png', :title => t('shared.aspect_contacts.add_to', :aspect => aspect))), '#manage_aspect_contacts_pane', :class => 'manage_aspect_contacts_button'
+        = link_to (image_tag('add_contact_button.png', :title => t('shared.aspect_contacts.add_to', :aspect => aspect))), '#aspect_contacts_pane', :class => 'aspect_contacts_button'
 
         .fancybox_content
-          #manage_aspect_contacts_pane
-            = render "requests/manage_aspect_contacts", :aspect => aspect, :getting_started => 2
+          #aspect_contacts_pane
+            = render "shared/aspect_contacts", :aspect => aspect, :contacts => [], :getting_started => 2
 
       = link_to "x", aspect_path(aspect), :method => :delete, :remote => true, :class => "delete right"
 
