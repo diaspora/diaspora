@@ -2,15 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
-=content_for(:head) do
-  :javascript
-    $(document).ready(function(){
-      $(".image_thumb img").load( function() {
-        $(this).fadeIn("slow");
-      });
-    });
-
 .span-15.last
   #thumbnails
     - for photo in photos

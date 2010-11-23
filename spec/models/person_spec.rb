@@ -164,6 +164,11 @@ describe Person do
       @connected_person_four.save
     end
 
+    it 'should return nothing on an emprty query' do
+      people = Person.search("")
+      people.empty?.should be true
+    end
+
     it 'should yield search results on partial names' do
       people = Person.search("Eu")
       people.include?(@connected_person_two).should   == true
