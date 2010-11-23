@@ -42,6 +42,8 @@ class InvitationsController < Devise::InvitationsController
     begin
       user = User.find_by_invitation_token(params[:user][:invitation_token])
       user.accept_invitation!(params[:user])
+      user.seed_aspects
+      user.save
     rescue MongoMapper::DocumentNotValid => e
       user = nil
       flash[:error] = e.message
