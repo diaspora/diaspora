@@ -60,7 +60,6 @@ en:
         account_settings: "account settings"
         logout: "logout"
         blog: "blog"
-        developers: "developers"
         login: "login"
       application:
         powered_by: "POWERED BY DIASPORA*"
@@ -77,6 +76,7 @@ en:
           all: "all"
           add_photos: "add photos"
           all_contacts: "all contacts"
+          share_with_all: "share across all of your aspects"
       aspect_contacts:
           add_to: "add to %{aspect}"
           done_editing: "done editing"
@@ -84,8 +84,6 @@ en:
           new_request: "%{count} new request!"
           add_existing: "Add an existing contact"
           aspect_settings: "Aspect settings"
-          edit_aspect: "edit aspect"
-          contact: "contact"
           contacts: "contacts"
           remove_aspect: "Remove Aspect"
           confirm_remove_aspect: "Remove aspect?"
@@ -93,16 +91,17 @@ en:
           aspects: "Aspects"
           add_aspect: "add aspect"
           invites: "Invites"
-          invite_people: "invite people to join Diaspora."
+          all_contacts: "All contacts"
       add_contact:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-          contact_username: "Contact's username"
           create_request: "Find by Diaspora handle"
           diaspora_handle: "Diaspora Handle"
+          know_email: "Know their email address? You should invite them"
       invitations:
           invite_someone: "Invite someone"
           invitations_left: "(%{count} left)"
+          dont_have_now: "You don't have any right now, but more invites are coming soon!"
       reshare:
           reshare: "Reshare"
       public_explain:
@@ -163,10 +162,9 @@ en:
           family: "Family"
           work: "Work"
       index:
-          handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
+          handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
   users:
       edit:
-          invite_contacts: "Invite contacts"
           export_data: "Export Data"
           close_account: "Close Account"
           change_language: "Change Language"
@@ -174,6 +172,8 @@ en:
           new_password: "New Password"
           download_xml: "download my xml"
           download_photos: "download my photos"
+          your_handle: "Your diaspora handle"
+          your_email: "Your email"
       destroy: "Account successfully closed."
       getting_started:
           welcome: "Welcome to Diaspora!"
@@ -198,7 +198,6 @@ en:
               continue: "Continue on to your Home page, an overview of all of your aspects."
               change_profile: "You can edit your profile and manage your connected services at any time through "
               user_menu: "the user menu located at the top right."
-              connect_disconnect: "You can connect/disconnect your services any time by clicking"
               manage_aspects: "You can also add contacts while on any aspect page."
               finish: "Finish"
       update:
@@ -259,14 +258,14 @@ en:
   invitations:
       create:
           sent: "Invitations have been sent to: "
-          REJECTED: "The following email addresses had problems: "
+          rejected: "The following email addresses had problems: "
           no_more: "You have no more invitations."
           already_sent: "You already invited this person."
           already_contacts: "You are already connected with this person" 
       new:
           invite_someone_to_join: "Invite someone to join Diaspora!"
           if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-          comma_seperated_PLZ: "You can enter multiple email addresses separated by commas."
+          comma_seperated_plz: "You can enter multiple email addresses separated by commas."
           to: "To"
           message: "Message:"
           send_an_invitation: "Send an invitation"
@@ -328,19 +327,14 @@ en:
            people_on_pod_are_aware_of: " people on pod are aware of"
   requests:
       manage_aspect_contacts:
-          enter_a_diaspora_username: "Enter a Diaspora username:"
-          your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-          contact_username: "Contact's username"
-          create_request: "Create request"
           manage_within: "Manage contacts within"
           existing: "Existing contacts"
-          know_email: "Know their email address? You should invite them"
       destroy:
           success: "You are now friends."
           error: "Please select an aspect!"
           ignore: "Ignored contact request."
       create:
-          sending: "Sending..."
+          sending: "Sending"
           sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
       new_request_to_person:
           sent: "sent!"
@@ -380,4 +374,3 @@ en:
           simplicity: "Simplicity"
           simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
           learn_about_host: "Learn about how to host your own Diaspora server."
-          learn_about_open_source: "Learn more about Diaspora as an open source project."

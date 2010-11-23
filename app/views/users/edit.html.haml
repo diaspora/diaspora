@@ -26,12 +26,12 @@
 
   .span-8.append-1.last
     %h3
-      Your diaspora handle
+      = t('.your_handle')
     %p
       %b= current_user.diaspora_handle
   .span-8.prepend-2.last
     %h3
-      Your email
+      = t('.your_email')
     %p
       = current_user.email
 

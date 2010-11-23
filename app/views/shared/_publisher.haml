@@ -32,7 +32,7 @@
   - if aspect == :all
     #content_creation_button
       = image_tag 'icons/monotone_chat_talk.png', :id => 'share_bubble'
-      %h4 share across all of your aspects
+      %h4= t('.share_with_all')
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true) do |status|

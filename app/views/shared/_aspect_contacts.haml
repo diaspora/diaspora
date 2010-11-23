@@ -31,7 +31,7 @@
 
       fadeOut: function(){
         var trigger = $("#edit_aspect_trigger");
-        trigger.html("#{t('.edit_aspect')}");
+        trigger.html("#{t('aspects.show.edit_aspect')}");
 
         $("#edit_aspect_pane").removeClass("active");
         $("#edit_aspect_pane").fadeOut(200, function(){
@@ -57,7 +57,7 @@
 
 #left_pane{:class => ("everyone" if aspect == :all)}
   - if aspect == :all
-    %h2 All contacts
+    %h2= t('.all_contacts')
 
   - unless aspect == :all
     #edit_aspect_pane
