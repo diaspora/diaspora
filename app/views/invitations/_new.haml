@@ -2,9 +2,10 @@
   .modal_title_bar
     %h4 
       = t('.invite_someone_to_join')
-
   %i 
     = t('.if_they_accept_info')
+    %br
+    = t('.comma_seperated_PLZ')
   = form_for User.new, :url => invitation_path(User) do |invite|
     %p
       = invite.label :email , t('email')

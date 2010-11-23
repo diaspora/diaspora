@@ -267,7 +267,8 @@ en:
           already_contacts: "You are already connected with this person" 
       new:
           invite_someone_to_join: "Invite someone to join Diaspora!"
-          if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
+          if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+          comma_seperated_PLZ: "You can enter multiple email addresses separated by commas."
           to: "To"
           message: "Message:"
           send_an_invitation: "Send an invitation"
