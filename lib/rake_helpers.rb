@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 module RakeHelpers
-  def process_emails(csv, num_to_process, offset)
+  def process_emails(csv, num_to_process, offset, num_invites=10)
     if RUBY_VERSION.include? "1.8"
        require 'fastercsv'
        backers = FasterCSV.read(csv)  
@@ -21,7 +21,7 @@ module RakeHelpers
       backer_email = backers[n+offset][1].to_s.gsub('.ksr', '').strip
       unless User.find_by_email(backer_email) 
         puts "sending email to: #{backer_name} #{backer_email}" unless Rails.env == 'test'
-        Invitation.create_invitee(:email => backer_email, :name => backer_name, :invites => 5) 
+        Invitation.create_invitee(:email => backer_email, :name => backer_name, :invites => num_invites) 
       else
         puts "user with the email exists: #{backer_email} ,  #{backer_name} " unless Rails.env == 'test'
       end
