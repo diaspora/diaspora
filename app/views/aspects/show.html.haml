@@ -2,6 +2,20 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+.span-24.last
+  %h2{:style=>"position:relative;margin-bottom:0;"}
+    = @aspect
+
+  %span.aspect_contact_count{:style=>"color:#999;font-size:14px;"}
+    = @aspect.contacts.count
+    - if @aspect.contacts.count == 1
+      = t('.contact')
+    - else
+      = t('.contacts')
+
+    = link_to t('.edit_aspect'), "#", :id => "edit_aspect_trigger"
+
+
 .span-8.append-1.last
   = render 'shared/aspect_contacts', :contacts => @aspect_contacts, :aspect => @aspect
 

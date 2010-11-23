@@ -58,18 +58,6 @@
 #left_pane{:class => ("everyone" if aspect == :all)}
   - if aspect == :all
     %h2 All contacts
-  - else
-    %h2{:style=>"position:relative;margin-bottom:0;"}
-      = aspect
-      .right
-        = link_to t('.edit_aspect'), "#", :id => "edit_aspect_trigger", :class => "button"
-
-    %span.aspect_contact_count{:style=>"color:#999;font-size:14px;"}
-      = aspect.contacts.count
-      - if aspect.contacts.count == 1
-        = t('.contact')
-      - else
-        = t('.contacts')
 
   - unless aspect == :all
     #edit_aspect_pane
