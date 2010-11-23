@@ -18,7 +18,8 @@ describe AspectsController do
     connect_users(@user, @aspect, @user2, @aspect2)
 
     @contact                    = @user.contact_for(@user2.person)
-
+    @user.getting_started = false
+    @user.save
     sign_in :user, @user
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
