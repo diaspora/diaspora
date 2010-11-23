@@ -49,25 +49,30 @@ describe Invitation do
         Invitation.invite(:email => @email, :from => user, :into => aspect)
       }.should change(Invitation, :count).by(1)
     end
+
     it 'associates the invitation with the inviter' do
       lambda {
         Invitation.invite(:email => @email, :from => user, :into => aspect)
       }.should change{user.reload.invitations_from_me.count}.by(1)
     end
+    
     it 'associates the invitation with the invitee' do
       new_user = Invitation.invite(:email => @email, :from => user, :into => aspect)
       new_user.invitations_to_me.count.should == 1
     end
+    
     it 'creates a user' do
       lambda {
         Invitation.invite(:from => user, :email => @email, :into => aspect)
       }.should change(User, :count).by(1)
     end
+    
     it 'returns the new user' do
       new_user = Invitation.invite(:from => user, :email => @email, :into => aspect)
       new_user.is_a?(User).should be_true
       new_user.email.should == @email
     end
+    
     it 'adds the inviter to the invited_user' do
       new_user = Invitation.invite(:from => user, :email => @email, :into => aspect)
       new_user.invitations_to_me.first.from.should == user
@@ -87,27 +92,63 @@ describe Invitation do
       }
       Invitation.invite(:from => user, :email => user2.email, :into => aspect)
     end
+
+    it 'decrements the invite count of the from user' do
+      message = "How've you been?"
+      lambda{
+        new_user = Invitation.invite(:from => user, :email => @email, :into => aspect, :message => message)
+      }.should change(user, :invites).by(-1) 
+    end
+    
+    it "doesn't decrement counter past zero" do
+      user.invites = 0
+      user.save!
+      message = "How've you been?"
+      lambda {
+        new_user = Invitation.invite(:from => user, :email => @email, :into => aspect, :message => message)
+      }.should_not change(user, :invites)
+    end
+
+    context 'invalid email' do
+    
+      it 'return a user with errors' do
+        new_user = Invitation.invite(:email => "fkjlsdf", :from => user, :into => aspect)
+        new_user.should have(1).errors_on(:email)
+        new_user.should_not be_persisted
+      end
+    end
   end
 
   describe '.create_invitee' do
     context 'with an inviter' do
+      before do
+        @message = "whatever"
+        @valid_params = {:from => user, :email => @email, :into => aspect, :message => @message}
+      end
+
       it 'sends mail' do
-        message = "How've you been?"
         lambda {
-          Invitation.create_invitee(:from => user, :email => @email, :into => aspect, :message => message)
+          Invitation.create_invitee(@valid_params)
         }.should change{Devise.mailer.deliveries.size}.by(1)
       end
+
       it 'mails the optional message' do
-        message = "How've you been?"
-        new_user = Invitation.create_invitee(:from => user, :email => @email, :into => aspect, :message => message)
-        Devise.mailer.deliveries.first.to_s.include?(message).should be_true
+        new_user = Invitation.create_invitee(@valid_params)
+        Devise.mailer.deliveries.first.to_s.include?(@message).should be_true
       end
+
       it 'has no translation missing' do
-        message = "How've you been?"
-        new_user = Invitation.create_invitee(:from => user, :email => @email, :into => aspect, :message => message)
+        new_user = Invitation.create_invitee(@valid_params)
         Devise.mailer.deliveries.first.body.raw_source.match(/(translation_missing.+)/).should be_nil
       end
+
+      it "doesn't create an invitation if the email is invalid" do
+         new_user = Invitation.create_invitee(@valid_params.merge(:email => 'fdfdfdfdf'))
+         new_user.should_not be_persisted
+         new_user.should have(1).error_on(:email)
+      end
     end
+
     context 'with no inviter' do
       it 'sends an email that includes the right things' do
         Invitation.create_invitee(:email => @email)

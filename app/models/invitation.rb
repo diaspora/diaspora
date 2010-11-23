@@ -24,14 +24,7 @@ class Invitation
         raise "You already invited this person"
       end
     end
-
-    invited_user = create_invitee(opts)
-    if invited_user.persisted?
-
-      invited_user
-    else
-      false
-    end
+    create_invitee(opts)
   end
 
   def self.create_invitee(opts = {})
@@ -43,20 +36,23 @@ class Invitation
       invitee.errors.add(:email, :taken) unless invitee.invited?
     end
 
-    if opts[:from]
-      invitee.save(:validate => false)
-      Invitation.create!(:from => opts[:from],
-                         :to => invitee,
-                         :into => opts[:into],
-                         :message => opts[:message])
+    if invitee.errors.empty?
 
-      opts[:from].invites -= 1
-      opts[:from].save!
-      invitee.reload
+      if opts[:from]
+        invitee.save(:validate => false)
+        Invitation.create!(:from => opts[:from],
+                           :to => invitee,
+                           :into => opts[:into],
+                           :message => opts[:message])
+
+        opts[:from].invites -= 1 unless opts[:from].invites == 0
+        opts[:from].save!
+        invitee.reload
+      end
+
+      invitee.send(:generate_invitation_token)
+      invitee.invite! 
     end
-
-    invitee.send(:generate_invitation_token)
-    invitee.invite! if invitee.errors.empty?
     invitee
   end
 

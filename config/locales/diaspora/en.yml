@@ -260,7 +260,8 @@ en:
       closed: "Signups are closed on this Diaspora pod."
   invitations:
       create:
-          sent: "Your invitation has been sent."
+          sent: "Invitations have been sent to: "
+          REJECTED: "The following email addresses had problems: "
           no_more: "You have no more invitations."
           already_sent: "You already invited this person."
           already_contacts: "You are already connected with this person" 

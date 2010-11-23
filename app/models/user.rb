@@ -19,7 +19,7 @@ class User
 
   key :username
   key :serialized_private_key, String
-  key :invites, Integer, :default => 0
+  key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
   key :pending_request_ids, Array, :typecast => 'ObjectId'
@@ -321,23 +321,19 @@ class User
 
   ###Invitations############
   def invite_user(opts = {})
-    if self.invites > 0
-      aspect_id = opts.delete(:aspect_id)
-      if aspect_id == nil
-        raise "Must invite into aspect"
-      end
-      aspect_object = self.aspects.find_by_id(aspect_id)
-      if !(aspect_object)
-        raise "Must invite to your aspect"
-      else
-        Invitation.invite(:email => opts[:email],
-                          :from => self,
-                          :into => aspect_object,
-                          :message => opts[:invite_message])
-
-      end
+    aspect_id = opts.delete(:aspect_id)
+    if aspect_id == nil
+      raise "Must invite into aspect"
+    end
+    aspect_object = self.aspects.find_by_id(aspect_id)
+    if !(aspect_object)
+      raise "Must invite to your aspect"
     else
-      raise "You have no invites"
+      Invitation.invite(:email => opts[:email],
+                        :from => self,
+                        :into => aspect_object,
+                        :message => opts[:invite_message])
+
     end
   end
 

@@ -49,13 +49,6 @@ describe User do
 
   context "limit on invites" do
 
-    it 'does not invite users after 3 invites' do
-      inviter_with_3_invites.invite_user(:email => "email1@example.com", :aspect_id => aspect2.id)
-      inviter_with_3_invites.invite_user(:email => "email2@example.com", :aspect_id => aspect2.id)
-      inviter_with_3_invites.invite_user(:email => "email3@example.com", :aspect_id => aspect2.id)
-      proc{inviter_with_3_invites.invite_user(:email => "email4@example.com", :aspect_id => aspect2.id)}.should raise_error /You have no invites/
-    end
-
     it 'does not invite people I already invited' do
       inviter_with_3_invites.invite_user(:email => "email1@example.com", :aspect_id => aspect2.id)
       proc{inviter_with_3_invites.invite_user(:email => "email1@example.com", :aspect_id => aspect2.id)}.should raise_error /You already invited this person/

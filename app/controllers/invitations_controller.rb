@@ -8,12 +8,22 @@ class InvitationsController < Devise::InvitationsController
 
 
   def create
+      if current_user.invites == 0
+        flash[:error] = I18n.t 'invitations.create.no_more'
+        redirect_to :back
+        return
+      end
     begin
       params[:user][:aspect_id] = params[:user].delete(:aspects)
       message = params[:user].delete(:invite_messages)
       params[:user][:invite_message] = message unless message == ""
-      self.resource = current_user.invite_user(params[resource_name])
-      flash[:notice] = I18n.t 'invitations.create.sent'
+
+      emails = params[:user][:email].split(/, */)
+      invited_users = emails.map { |e| current_user.invite_user(params[:user].merge({:email => e}))}
+      good_users, rejected_users = invited_users.partition {|u| u.persisted? }
+
+      flash[:notice] = I18n.t('invitations.create.sent') + good_users.map{|x| x.email}.join(', ') 
+      flash[:error] = I18n.t('invitations.create.REJECTED') + rejected_users.map{|x| x.email}.join(', ')
     rescue RuntimeError => e
       if  e.message == "You have no invites"
         flash[:error] = I18n.t 'invitations.create.no_more'
@@ -25,7 +35,7 @@ class InvitationsController < Devise::InvitationsController
         raise e
       end
     end
-    redirect_to after_sign_in_path_for(resource_name)
+    redirect_to :back 
   end
 
   def update

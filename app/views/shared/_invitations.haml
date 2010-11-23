@@ -1,6 +1,9 @@
-= link_to t('.invite_someone'), "#invite_user_pane", :class => "invite_user_button", :title => t('.invite_someone')
-= t('.invitations_left', :count => invites) 
-%br
-.yo{ :style => "display:none;"}
-  #invite_user_pane
-    = render "invitations/new"
+-if invites > 0
+  = link_to t('.invite_someone'), "#invite_user_pane", :class => "invite_user_button", :title => t('.invite_someone')
+  = t('.invitations_left', :count => invites) 
+  %br
+  .yo{ :style => "display:none;"}
+    #invite_user_pane
+      = render "invitations/new"
+- else
+  You don't have any right now, but more invites are coming soon!
