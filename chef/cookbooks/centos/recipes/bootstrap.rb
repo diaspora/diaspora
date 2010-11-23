@@ -13,6 +13,9 @@ end
 execute "htop" do
   command "yum install -y htop psmisc screen"
 end
+execute "JAVA!! for Jammit" do
+  command "yum install -y java"
+end
 
 def harden_ruby(ruby_string)
   Dir.glob("/usr/local/rvm/wrappers/#{ruby_string}/*").each do |file|
