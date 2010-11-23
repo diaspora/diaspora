@@ -7,6 +7,8 @@ es:
   devise: 
     confirmations: 
       confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
+      new: 
+        resend_confirmation: "Vuelva a enviar instrucciones de confirmación"
       send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos."
     failure: 
       inactive: "Tu cuenta no ha sido activada."
@@ -17,40 +19,42 @@ es:
       unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
-      updated: "Your password was set successfully. You are now signed in."
+      invitation_token_invalid: "El identificador de la invitación no es valido!"
+      send_instructions: "Tu invitación se ha enviado."
+      updated: "Tu contraseña ha sido configurada correctamente. Ahora estas conectado."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirm my account"
+        confirm: "Confirmar mi cuenta"
         subject: "Instrucciones de confirmación"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+        you_can_confirm: "Usted puede confirmar su cuenta a través del siguiente enlace:"
+      hello: "Hola %{email}!"
       invitation: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "A friend wants you to join Diaspora!"
+        accept: "Aceptar la invitación"
+        ignore: "Si no deseas aceptar la invitación, por favor ignora este mensaje."
+        no_account_till: "Tu cuenta no será creada hasta que accedas al enlace de arriba y te identifiques."
+        subject: "¡Has sido invitado a participar en Diaspora!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", en %{url}, puedes aceptar en el siguiente link."
+        has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
+        have_invited_you: "%{names} han invitado a unirse a Diáspora"
       reset_password_instructions: 
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        change: "Cambiar mi contraseña"
+        ignore: "Si no has solicitado esto, por favor ignora este mensaje."
+        someone_requested: "Alquien ha solicitado un enlace para cambiar tu contraseña, y tu puedes hacerlo con el siguiente link."
         subject: "Instrucciones para cambiar tu contraseña"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        wont_change: "Su contraseña no cambiará hasta que acceda al enlace anterior y cree uno nuevo."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
+        account_locked: "Tu cuenta ha sido bloqueada debido a una excesiva cantidad de intentos de ingreso fallidos."
+        click_to_unlock: "Haz clic en el enlace de abajo para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear tu cuenta"
-        unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+        unlock: "Desbloquear mi cuenta"
+      welcome: "¡Bienvenido %{email}!"
     passwords: 
+      edit: 
+        change_password: "Cambiar mi contraseña"
       new: 
-        forgot_password: "Forgot your password?"
-        send_password_instructions: "Send me reset password instructions"
+        forgot_password: "¿Olvidaste tu contraseña?"
+        send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
       send_instructions: "Recibirás un email con instrucciones para cambiar tu contraseña en pocos minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations: 
@@ -59,20 +63,27 @@ es:
       updated: "Has actualizado tu cuenta correctamente."
     sessions: 
       new: 
-        have_a_problem: "Have a problem? Find an answer here"
-        login: Login
-        password: Password
-        remember_me: "Remember me"
-        sign_in: "Sign in"
-        username: Username
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
+        login: "Iniciar sesión"
+        modern_browsers: "only supports modern browsers."
+        password: Contraseña
+        remember_me: Recordarme
+        sign_in: Ingresar
+        username: "Nombre de usuario"
       signed_in: "Has ingresado correctamente."
       signed_out: "Has salido correctamente."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        forgot_your_password: "¿Olvidaste tu contraseña?"
+        receive_confirmation: "No has recibido instrucciones de confirmación?"
+        receive_unlock: "No has recibido las instrucciones de desbloqueo?"
+        sign_in: Ingresar
+        sign_up: Regístrate
     unlocks: 
+      new: 
+        resend_unlock: "Vuelva a enviar las instrucciones de desbloqueo"
       send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
   errors: 

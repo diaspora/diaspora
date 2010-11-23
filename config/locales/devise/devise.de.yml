@@ -7,6 +7,8 @@ de:
   devise: 
     confirmations: 
       confirmed: "Dein Konto wurde erfolgreich bestätigt. Du bist nun angemeldet."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto bestätigst."
     failure: 
       inactive: "Dein Konto wurde noch nicht aktiviert."
@@ -48,6 +50,8 @@ de:
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
     passwords: 
+      edit: 
+        change_password: "Mein Passwort ändern"
       new: 
         forgot_password: "Passwort vergessen?"
         send_password_instructions: "Sende mir Instruktionen zum Passwort zurücksetzen"
@@ -59,8 +63,11 @@ de:
       updated: "Dein Konto wurde aktualisiert."
     sessions: 
       new: 
+        alpha_software: "Diese Software befindet sich im Alpha-Stadium."
+        bugs_and_feedback: "Du bist gewarnt, Fehler werden auftreten. Wir empfehlen dir, den Feedback-Knopf am rechten Browserrand zu nutzen, um diese zu berichten. Wir werden so schnell wie möglich daran arbeiten, alle Probleme zu beseitigen."
         have_a_problem: "Du hast ein Problem? Finde eine Antwort hier (Englisch)"
         login: Login
+        modern_browsers: "Nur von aktuellen Browsern unterstützt."
         password: Passwort
         remember_me: "Angemeldet bleiben"
         sign_in: Anmelden
@@ -70,9 +77,13 @@ de:
     shared: 
       links: 
         forgot_your_password: "Passwort vergessen?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
         sign_in: Anmelden
         sign_up: Registrieren
     unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto entsperren kannst."
       unlocked: "Dein Konto wurde erfolgreich entsperrt. Du bist nun angemeldet."
   errors: 

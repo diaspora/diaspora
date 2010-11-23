@@ -22,19 +22,19 @@
       });
 
       $("#content_creation_button").bind("click", function(evt){
-        $("#publisher").find(".content_creation").show();
+        $("#publisher").removeClass("closed");
         $("#publisher").find("textarea").focus();
       });
     });
 
-#publisher
+#publisher{:class=>("closed" if aspect == :all)}
 
   - if aspect == :all
     #content_creation_button
       = image_tag 'icons/monotone_chat_talk.png', :id => 'share_bubble'
-      %h4 share across all of your aspects
+      %h4= t('.share_with_all')
 
-  .content_creation{:style=>("display:none;" if aspect == :all)}
+  .content_creation
     = form_for(StatusMessage.new, :remote => true) do |status|
       %ul#photodropzone
       = status.error_messages

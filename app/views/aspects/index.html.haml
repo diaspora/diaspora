@@ -10,7 +10,7 @@
         = current_user.diaspora_handle
         = info_text(t('.handle_explanation'))
 
-.span-15.last
+.span-15
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
   = render 'shared/publisher', :aspect => @aspect
   = render 'aspects/no_posts_message', :post_count => @posts.count, :contact_count => @contacts.count

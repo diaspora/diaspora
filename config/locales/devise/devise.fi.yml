@@ -7,6 +7,8 @@ fi:
   devise: 
     confirmations: 
       confirmed: "Käyttäjätilisi luonti on vahvistettu. Olet nyt kirjautunut sisään."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä miten vahvistat käyttäjätilisi luonnin."
     failure: 
       inactive: "Käyttätiliäsi ei ole vielä vahvistettu."
@@ -48,6 +50,8 @@ fi:
         unlock: "Unlock my account"
       welcome: "Welcome %{email}!"
     passwords: 
+      edit: 
+        change_password: "Change my password"
       new: 
         forgot_password: "Forgot your password?"
         send_password_instructions: "Send me reset password instructions"
@@ -59,8 +63,11 @@ fi:
       updated: "Käyttäjätilisi on päivitetty."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Have a problem? Find an answer here"
         login: Login
+        modern_browsers: "only supports modern browsers."
         password: Password
         remember_me: "Remember me"
         sign_in: "Sign in"
@@ -70,9 +77,13 @@ fi:
     shared: 
       links: 
         forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Sign in"
         sign_up: "Sign up"
     unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "Saat muutaman minuutin kuluttua sähköpostiisi ohjeet siitä miten avaat lukituksen."
       unlocked: "Käyttäjätilisi lukitus on avattu. Olet nyt kirjautunut sisään."
   errors: 

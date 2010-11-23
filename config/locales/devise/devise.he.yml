@@ -7,6 +7,8 @@ he:
   devise: 
     confirmations: 
       confirmed: "חשבונך אומת בהצלחה. נכנסת כעת."
+      new: 
+        resend_confirmation: "שלח הוראות אימות מחדש"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
     failure: 
       inactive: "חשבונך לא הופעל עדיין."
@@ -48,6 +50,8 @@ he:
         unlock: "שחרור החשבון שלי"
       welcome: "ברוך בואך %{email}!"
     passwords: 
+      edit: 
+        change_password: "שנה ססמה"
       new: 
         forgot_password: "שכחת את ססמתך?"
         send_password_instructions: "שליחת הנחיות איפוס הססמה אלי"
@@ -59,8 +63,11 @@ he:
       updated: "חשבונך עודכן בהצלחה."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "נתקלת בבעיות? ניתן למצוא את התשובה כאן"
         login: כניסה
+        modern_browsers: "only supports modern browsers."
         password: ססמה
         remember_me: "שמירת פרטי הגישה שלי"
         sign_in: כניסה
@@ -70,9 +77,13 @@ he:
     shared: 
       links: 
         forgot_your_password: "שכחת את ססמתך?"
+        receive_confirmation: "לא קיבלת הוראות אישור?"
+        receive_unlock: "לא קיבלת הוראות שחרור?"
         sign_in: כניסה
         sign_up: הרשמה
     unlocks: 
+      new: 
+        resend_unlock: "שלח הוראות שחרור מחדש"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הודא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
       unlocked: "חשבונך שוחרר בהצלחה. נכנסת כעת."
   errors: 

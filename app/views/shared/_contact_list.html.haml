@@ -47,13 +47,16 @@
         $(this).parent().html(html);
         ContactList.refreshContactCount();
 
+        if( $(".contact_pictures")[0].childElementCount == 0 ) {
+          $("#no_contacts").fadeIn(200);
+        }
+
         $(this).fadeTo(200,1);
       });
 
       $('.added').live('ajax:failure', function(data, html, xhr) {
         alert("#{t('.cannot_remove')}");
       });
-
 
       $('.add').live('ajax:loading', function(data, html, xhr) {
         $(this).fadeTo(200,0.4);
@@ -66,9 +69,12 @@
         $(this).parent().html(html);
         ContactList.refreshContactCount();
 
+        if( $("#no_contacts").is(':visible') ) {
+          $("#no_contacts").fadeOut(200);
+        }
+
         $(this).fadeTo(200,1);
       });
-
 
       $('.added').live('mouseover', function(){
         $(this).addClass("remove");

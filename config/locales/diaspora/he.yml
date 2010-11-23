@@ -4,6 +4,8 @@
 
 
 he: 
+  _comments: תגובות
+  _home: בית
   _photos: תמונות
   _services: שירותים
   account: חשבון
@@ -28,7 +30,7 @@ he:
       unknown_person: "אדם לא ידוע"
       youtube_title: 
         unknown: "כותרת הווידאו אינה ידועה"
-  are_you_sure: בבטחה?
+  are_you_sure: "האם אתה בטוח?"
   aspects: 
     add_to_aspect: 
       failure: "אירע כשל בהוספת איש הקשר להיבט."
@@ -42,6 +44,8 @@ he:
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
       aspect_not_empty: "ההיבט אינו ריק"
       remove: הסרה
+    index: 
+      handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, אתה יכול לחלוק אותו עם אנשים בכדי שיגיעו אליך."
     manage: 
       add_a_new_aspect: "הוספת היבט חדש"
       add_a_new_contact: "הוספת איש קשר חדש"
@@ -67,6 +71,13 @@ he:
     remove_from_aspect: 
       failure: "אירע כשר בהסרת איש הקשר מההיבט"
       success: "איש הקשר הוסר בהצלחה מההיבט"
+    seed: 
+      family: משפחה
+      work: עבודה
+    show: 
+      contact: contact
+      contacts: contacts
+      edit_aspect: "edit aspect"
     update: 
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
   back: חזרה
@@ -75,9 +86,6 @@ he:
     new_comment: 
       comment: הערה
       commenting: "נוספת הערה..."
-  dashboards: 
-    helper: 
-      home: "דף הבית"
   delete: מחיקה
   email: דוא״ל
   error_messages: 
@@ -88,8 +96,17 @@ he:
   home: 
     show: 
       already_account: "כבר יש לך חשבון?"
+      choice: בחירה
+      choice_explanation: "דיאספורה נותנת לך למיין את אנשי הקשר שלך אל קבוצות בשם היבטים. בצורה ייחודית לדיאספורה, ההיבטים מבטיחים שכל התמונות שלך, הסיפורים שלך, והבדיחות שלך ישותפו רק עם האנשים שאתה רוצה."
+      learn_about_host: |-
+          Learn about how to host your own Diaspora server
+          למד איך לאחסן שרת דיאספורה משלך
       login_here: "הכניסה מכאן"
+      ownership: בעלות
+      ownership_explanation: "התמונות שלך הן בבעלותך, ואתה לא צריך לוותר על בעלות זו רק בשביל לשתף אחרים בהן. אתה שומר על בעלות כל הדברים שאתה שאתה משתף בדיאספורה, עם שליטה מלאה על איך הם משותפים."
       share_what_you_want: "שיתוף מה שבא לך, עם מי שבא לך."
+      simplicity: פשטות
+      simplicity_explanation: "דיאספורה הופכת את השיתוף לנקי וקל - וזה נכון גם בנוגע לפרטיות. פרטית מטבעה, דיאספורה לא מכריחה אותך לנבור דרך דפים של הגדרות ואפשרויות רק כדי לשמור על חשבונך בטוח ולטעמך."
   invitations: 
     check_token: 
       not_found: "אסימון ההזמנה לא נמצא"
@@ -97,8 +114,12 @@ he:
       already_contacts: "כבר יש לך קשר עם אדם זה"
       already_sent: "כבר הזמנת אדם זה."
       no_more: "אין לך עוד הזמנות."
+      rejected: "The following email addresses had problems: "
       sent: "ההזמנה שלך נשלחה."
+    edit: 
+      sign_up: הרשמה
     new: 
+      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "אם ההזמנה תתקבל, הם יתווספו להיבט שאליו הזמנת אותם"
       invite_someone_to_join: "להזמין מישהו להשתמש בדיאספורה!"
       message: "הודעה:"
@@ -111,7 +132,6 @@ he:
     header: 
       account_settings: "הגדרות החשבון"
       blog: בלוג
-      developers: מתכנתים
       edit_profile: "עריכת הפרופיל"
       login: כניסה
       logout: יציאה
@@ -161,11 +181,12 @@ he:
     profile_sidebar: 
       bio: פרטים
       born: לידה
+      cannot_remove: "לא יכול להסיר %{name} מההיבט האחרון. (אם ברצונך להתנתק מאיש קשר זה, עליך להסירו מרשימת אנשי הקשר.)"
       edit_my_profile: "עריכת הפרופיל שלי"
       gender: מגדר
       in_aspects: בהיבטים
-      last_seen: "הופעה אחרונה: %{how_long_ago}"
       remove_contact: "הסרת איש קשר"
+      remove_from: "להסיר %{name} מ - %{aspect}?"
     show: 
       already_requested: "כבר שלחת בקשה אל %{name}."
       does_not_exist: "אדם זה אינו קיים!"
@@ -189,23 +210,19 @@ he:
       new_photo: "תמונה חדשה"
       post_it: פרסום!
     new_photo: 
-      drop: "יש להשליך לכאן קבצים כדי להעלות אותם"
       empty: "הקובץ {file} ריק, נא לבחור שוב קבצים אבל בלעדיו."
-      failed: "אירע כשל"
       invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
       size_error: "הקובץ {file} גדול מדי, גודל הקובץ המרבי הוא {sizeLimit}."
-      upload: "העלאת תמונה"
     photo: 
       view_all: "צפייה בכל התמונות של %{name}"
     show: 
-      add_a_description: "הוספת תיאור"
       delete_photo: "מחיקת תמונה"
-      edit_photo: "עריכת תמונה"
-      full_size: "גודל מלא"
+      edit: ערוך
+      edit_delete_photo: "ערוך תיאור תמונה \\ מחק תמונה"
       make_profile_photo: "יצירת תמונת פרופיל"
-      next: הבאה
-      prev: הקודמת
+      original_post: "רשומה מקורית"
       update_photo: "עדכון התמונה"
+      view: צפה
     update: 
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."
@@ -228,19 +245,15 @@ he:
     create: 
       sending: בשליחה...
       sent: "ביקשת לשתף עם %{name}. פריט זה יופיע בפניהם בפעם הבאה שייכנסו לדיאספורה."
-      tried: "ניסינו כמיטב יכולתנו לשלוח הודעה אל %{account}"
     destroy: 
       error: "נא לבחור בהיבט!"
       ignore: "בקשות חברות מהן התעלמת."
       success: "אתם חברים כעת."
     manage_aspect_contacts: 
-      contact_username: "שם המשתמש של איש הקשר"
-      create_request: "יצירת בקשה"
-      enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
       existing: "אנשי הקשר הקיימים"
-      know_email: "ידוע לך כתובת הדוא״ל שלהם? למה לא להזמין אותם"
       manage_within: "ניהול אנשי קשר בתוך"
-      your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
+    new_request_to_person: 
+      sent: נשלח!
   search: חיפוש
   services: 
     create: 
@@ -255,29 +268,34 @@ he:
       really_disconnect: "האם לנתק את %{service}?"
   settings: הגדרות
   shared: 
+    add_contact: 
+      create_request: "Find by Diaspora handle"
+      diaspora_handle: "שם משתמש בדיאספורה"
+      enter_a_diaspora_username: "הזן שם משתמש לדיאספורה:"
+      know_email: "Know their email address? You should invite them"
+      your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
     aspect_contacts: 
-      add_contacts: "הוספת אנשי קשר"
+      add_aspect: "הוסף היבט"
+      add_existing: "הוסף איש קשר קיים"
       add_to: "הוספה אל %{aspect}"
-      everyone: כולם
-      manage: "ניהול %{aspect}"
-    aspect_nav: 
-      add_a_new_aspect: "הוספת היבט חדש"
-      everyone: כולם
-      manage: ניהול
-      manage_your_aspects: "ניהול ההיבטים שלך"
-    author_info: 
-      all: הכול
-      status_messages: "הודעות מצב"
-      view_profile: "צפייה בפרופיל"
-      viewing: צופה
+      all_contacts: "All contacts"
+      aspect_settings: "הגדרות היבט"
+      aspects: היבטים
+      confirm_remove_aspect: "הסר היבט?"
+      contacts: "אנשי קשר"
+      done_editing: "סיים לערוך"
+      invites: הזמנות
+      new_request: "%{count} בקשות חדשות!"
+      new_requests: "%{count} בקשות חדשות!"
+      no_contacts: "כרגע אין לך אנשי קשר. מצא את אנשי הקשר שלך כאן."
+      remove_aspect: "הסר היבט"
     contact_list: 
-      add_to: "הוספת %{name} אל %{aspect}"
-      remove_from: "הסרת %{name} מההיבט %{aspect}"
+      cannot_remove: "לא יכול להסיר איש קשר מההיבט האחרון. (אם ברצונך להתנתק מאיש הקשר עליך להסירו מרשימת אנשי הקשר)."
       search_contacts: "חיפוש באנשי הקשר"
     invitations: 
+      dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invitations_left: "(%{count} נותרו)"
       invite_someone: "הזמנת מישהו"
-      invites: הזמנות
     notification: 
       new: "%{type} חדש מאת %{from}"
     public_explain: 
@@ -286,7 +304,9 @@ he:
       outside: "ההודעות הציבוריות יהיו זמינות לצפייה חיצונית גם מחוץ לרשת דיאספורה."
       title: "ההודעה מיועדת לפרסום ציבורי!"
     publisher: 
+      add_photos: "הוסף תמונות"
       all: הכול
+      all_contacts: "כל אנשי הקשר"
       make_public: "הפיכה לציבורי"
       post_a_message_to: "פרסום הודעה אל %{aspect}"
       posting: פרסום...
@@ -316,17 +336,17 @@ he:
       download_photos: "הורדת התמונות שלי"
       download_xml: "הורדת ה־xml שלי"
       export_data: "יצוא הנתונים"
-      invite_contacts: "הזמנת אנשי קשר"
       new_password: "ססמה חדשה"
+      your_email: "Your email"
+      your_handle: "Your diaspora handle"
     getting_started: 
       connect_services: "התחברות לשירותים שלך"
       define_aspects: "הגדרת ההיבטים שלך"
       edit_profile: "עריכת הפרופיל שלך"
+      finished: סיימת!
       save_and_continue: "שמירה והמשך"
       signup_steps: "עליך להשלים את הליך ההרשמה על ידי ביצוע הפעולות הבאות:"
       skip: "דילוג על הסברי הפתיחה"
-      step_1: 
-        your_profile: "הפרופיל שלך"
       step_2: 
         add: הוספה
         aspect_name: "שם ההיבט"
@@ -337,13 +357,11 @@ he:
         your_services: "השירותים שלך"
       step_4: 
         change_profile: "ניתן לשנות את הפרופיל שלך בכל עת על ידי לחיצה על הלשונית"
-        connect_disconnect: "ניתן לחבר/לנתק את השירותים שלך בכל עת על ידי לחיצה על הלשונית"
         continue: "המשך לעמוד כל אנשי הקשר שלך, עמוד הסקירה של כל ההיבטים שלך."
         finish: סיום
         manage_aspects: "באפשרותך לנהל את ההיבטים שלך בכל עת על ידי לחיצה על הלשונית"
         ready_to_share: "כעת הסתיימו ההכנות לקראת השיתוף עם "
         set_up: "הכול ערוך ומוכן, %{name}!"
-        tab_also_added: ".  ניתן, כמו כן, להוסיף את אנשי הקשר שלך גם בעת ביקור בעמוד של היבט מסוים."
         user_menu: "בתפריט המשתמש שלך (שמאל למעלה)."
       welcome: "ברוך בואך לדיאספורה!"
     public: 

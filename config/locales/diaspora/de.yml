@@ -4,6 +4,8 @@
 
 
 de: 
+  _comments: Kommentare
+  _home: Home
   _photos: Fotos
   _services: Dienste
   account: Konto
@@ -35,13 +37,15 @@ de:
       success: "Kontakt erfolgreich zum Aspekt hinzugefügt."
     create: 
       failure: "Erstellen des Aspekt fehlgeschlagen."
-      success: "Klicke auf das Plus auf der linken Seite um Diaspora zu sagen wer deinen neuen Aspekt sehen kann."
+      success: "Dein neuer Aspekt %{name} wurde erstellt."
     destroy: 
       success: "%{name} wurde erfolgreich entfernt."
     helper: 
       are_you_sure: "Bist du sicher das du diesen Aspekt löschen möchtest?"
       aspect_not_empty: "Aspekt ist nicht leer"
       remove: entfernen
+    index: 
+      handle_explanation: "Das ist deine Diaspora-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer dich kontaktieren können."
     manage: 
       add_a_new_aspect: "Neuen Aspekt hinzufügen"
       add_a_new_contact: "Neuen Kontakt hinzufügen"
@@ -67,6 +71,13 @@ de:
     remove_from_aspect: 
       failure: "Person konnte nicht aus dem Aspekt entfernt werden"
       success: "Person erfolgreich aus dem Aspekt entfernt"
+    seed: 
+      family: Familie
+      work: Arbeit
+    show: 
+      contact: Kontakt
+      contacts: Kontakte
+      edit_aspect: "Aspekt bearbeiten"
     update: 
       success: "Dein Aspekt %{name} wurde erfolgreich bearbeitet."
   back: Zurück
@@ -75,9 +86,6 @@ de:
     new_comment: 
       comment: Kommentieren
       commenting: Kommentieren...
-  dashboards: 
-    helper: 
-      home: Start
   delete: Löschen
   email: E-Mail
   error_messages: 
@@ -88,8 +96,15 @@ de:
   home: 
     show: 
       already_account: "bereits registriert?"
+      choice: Choice
+      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
+      learn_about_host: "Erfahre, wie du deinen eigenen Diaspora-Server betreiben kannst."
       login_here: "hier anmelden"
+      ownership: Ownership
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Teile was du willst, mit wem du willst."
+      simplicity: Simplicity
+      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations: 
     check_token: 
       not_found: "Einladungstoken nicht gefunden"
@@ -97,9 +112,13 @@ de:
       already_contacts: "Du bist bereits mit dieser Person verbunden"
       already_sent: "Du hast diese Person bereits eingeladen."
       no_more: "Du hast keine Einladungen mehr."
-      sent: "Deine Einladung wurde verschickt."
+      rejected: "Mit dieser E-Mail-Adresse gab es Probleme:"
+      sent: "Einladungen wurden verschickt an:"
+    edit: 
+      sign_up: anmelden
     new: 
-      if_they_accept_info: "Wenn sie akzeptieren findest du sie im Aspekt in den du sie eingeladen hast"
+      comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen kommagetrennt eintragen."
+      if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
       invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
       message: "Nachricht:"
       send_an_invitation: "Eine Einladung senden"
@@ -107,11 +126,10 @@ de:
       to: An
   layouts: 
     application: 
-      powered_by: "BETRIEBEN DURCH DIASPORA*"
+      powered_by: "BETRIEBEN MIT DIASPORA*"
     header: 
       account_settings: "Konto bearbeiten"
       blog: Blog
-      developers: Entwickler
       edit_profile: "Profil bearbeiten"
       login: Anmelden
       logout: Abmelden
@@ -135,7 +153,7 @@ de:
   password_confirmation: "Passwort bestätigen"
   people: 
     edit: 
-      allow_search: "Erlaube anderen nach dir zu suchen"
+      allow_search: "Erlaube anderen Diaspora-Nutzern nach dir zu suchen"
       first_name: Vorname
       info_available_to: "Diese Infos werden für alle verfügbar sein mit denen du bei Diaspora verbunden bist."
       last_name: Nachname
@@ -161,11 +179,12 @@ de:
     profile_sidebar: 
       bio: Info
       born: Geboren
+      cannot_remove: "%{name} kann nicht aus dem letzten Aspekt entfernt werden."
       edit_my_profile: "Profil bearbeiten"
       gender: Geschlecht
       in_aspects: "in Aspekten"
-      last_seen: "Zuletzt gesehen: %{how_long_ago}"
       remove_contact: "Kontakt entfernen"
+      remove_from: "%{name} aus %{aspect} entfernen?"
     show: 
       already_requested: "Du hast bereits eine Anfrage an %{name} geschickt."
       does_not_exist: "Person existiert nicht!"
@@ -189,23 +208,19 @@ de:
       new_photo: "Neues Foto"
       post_it: "Poste es!"
     new_photo: 
-      drop: "Ziehe Fotos hierher um sie hochzuladen"
       empty: "{file} ist leer, bitte wähle die Dateien erneut ohne sie."
-      failed: fehlgeschlagen
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       size_error: "{file} ist zu groß. Die maximale Dateigröße ist {sizeLimit}."
-      upload: "Ein Foto hochladen"
     photo: 
       view_all: "zeige alle Fotos von %{name}"
     show: 
-      add_a_description: "Füge eine Beschreibung hinzu"
       delete_photo: "Foto löschen"
-      edit_photo: "Foto bearbeiten"
-      full_size: "volle Größe"
+      edit: Bearbeiten
+      edit_delete_photo: "Fotobeschreibung bearbeiten  / Foto löschen"
       make_profile_photo: "Zum Profilbild machen"
-      next: weiter
-      prev: zurück
+      original_post: "Ursprüngliche Nachricht"
       update_photo: "Foto aktualisieren"
+      view: view
     update: 
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
@@ -228,19 +243,15 @@ de:
     create: 
       sending: "Am senden..."
       sent: "Du möchtest mit %{name} teilen. Sie sollten es beim nächsten anmelden bei Diaspora sehen."
-      tried: "Wir haben unser Bestes versucht eine Nachricht an %{account} zu senden"
     destroy: 
       error: "Bitte wähle einen Aspekt!"
       ignore: "Anfrage des Kontaktes ignoriert."
       success: "Ihr seit jetzt verbunden."
     manage_aspect_contacts: 
-      contact_username: "Diaspora Addresse des Kontaktes"
-      create_request: "Anfrage erstellen"
-      enter_a_diaspora_username: "Gib eine Diaspora Addresse ein:"
       existing: "Existierende Kontakte"
-      know_email: "Du kennst ihre E-Mail Addresse? Du solltest sie einladen"
       manage_within: "Kontakte verwalten in"
-      your_diaspora_username_is: "Deine Diaspora Adresse ist: %{diaspora_handle}"
+    new_request_to_person: 
+      sent: abschicken!
   search: Suche
   services: 
     create: 
@@ -255,29 +266,34 @@ de:
       really_disconnect: "Verbindung mit %{service} entfernen?"
   settings: Einstellungen
   shared: 
+    add_contact: 
+      create_request: "Über Diaspora-Adresse finden"
+      diaspora_handle: Diaspora-Adresse
+      enter_a_diaspora_username: "Gib eine Diaspora Adresse ein:"
+      know_email: "Know their email address? You should invite them"
+      your_diaspora_username_is: "Deine Diaspora Adresse ist: %{diaspora_handle}"
     aspect_contacts: 
-      add_contacts: "Kontakte hinzufügen"
+      add_aspect: "Aspekt hinzufügen"
+      add_existing: "Existierenden Kontakt hinzufügen"
       add_to: "Zu %{aspect} hinzufügen"
-      everyone: Alle
-      manage: "Verwalte %{aspect}"
-    aspect_nav: 
-      add_a_new_aspect: "Neuen Aspekt hinzufügen"
-      everyone: Alle
-      manage: Verwalten
-      manage_your_aspects: "Deine Aspekte verwalten"
-    author_info: 
-      all: alles
-      status_messages: "Status Nachrichten"
-      view_profile: "Profil anzeigen"
-      viewing: "du siehst"
+      all_contacts: "Alle Kontakte"
+      aspect_settings: "Aspect settings"
+      aspects: Aspekte
+      confirm_remove_aspect: "Aspekt löschen?"
+      contacts: Kontakte
+      done_editing: "Bearbeitung fertig"
+      invites: Einladungen
+      new_request: "% {Count} neue Anfrage!"
+      new_requests: "% {Count} neue Anfragen!"
+      no_contacts: "Du hast momentan keine Kontakte. Finde deine Freunde hier."
+      remove_aspect: "Aspekt löschen"
     contact_list: 
-      add_to: "%{name} zu %{aspect} hinzufügen"
-      remove_from: "%{name} aus %{aspect} entfernen"
+      cannot_remove: "Kontakt kann nicht aus dem letzten Aspekt entfernt werden."
       search_contacts: "Kontakte durchsuchen"
     invitations: 
+      dont_have_now: "Du hast noch keine Rechte, es gibt aber bald mehr Einladungen!"
       invitations_left: "(%{count} übrig)"
       invite_someone: "Jemanden einladen"
-      invites: Einladungen
     notification: 
       new: "Neue %{type} von %{from}"
     public_explain: 
@@ -286,7 +302,9 @@ de:
       outside: "Öffentliche Nachrichten werden für andere ausserhalb Diaspora zu sehen sein."
       title: "Du bist dabei eine öffentliche Nachricht zu senden!"
     publisher: 
+      add_photos: "Fotos hinzufügen"
       all: alle
+      all_contacts: "alle Kontakte"
       make_public: "öffentlich machen"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
       posting: Senden...
@@ -316,34 +334,32 @@ de:
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Mein XML herunterladen"
       export_data: "Konto exportieren"
-      invite_contacts: "Kontakte einladen"
       new_password: "Neues Passwort"
+      your_email: "deine E-Mail-Adresse"
+      your_handle: "Deine Diaspora-Adresse"
     getting_started: 
       connect_services: "Mit Diensten verbinden"
       define_aspects: "Erstelle deine Aspekte"
       edit_profile: "Bearbeite dein Profil"
+      finished: Fertig!
       save_and_continue: "Speichern und weiter"
-      signup_steps: "Vervollständige deine Registrierung indem du folgende Dinge tust:"
+      signup_steps: "Erledige folgende drei Schritte, um deine Registrierung zu vervollständigen:"
       skip: "Erste Schritte überspringen"
-      step_1: 
-        your_profile: "Dein Profil"
       step_2: 
         add: Hinzufügen
         aspect_name: "Name des Aspekts"
-        description: "Sage Diaspora welche verschiedene Aspekte von dir von verschiedenen Kontakten gesehen werden sollen. Du kannst diese später verawalten in dem du auf Verwalten oben rechts klickst. Deine Aspekte sind nur für dich und nicht für andere sichtbar."
+        description: "Sage Diaspora welche verschiedenen Aspekte von dir von verschiedenen Kontakten gesehen werden sollen. Du kannst diese später verwalten in dem du auf Verwalten oben rechts klickst. Deine Aspekte sind nur für dich und nicht für andere sichtbar."
         your_aspects: "Deine Aspekte"
       step_3: 
-        description: "Verbinde deine existierenden sozialen Netzwerke mit deinem Diaspora Konto. Du wirst öffentliche Nachrichten durch deinen Alle Aspekt schicken können wenn du dort \"öffentlich machen\" auswählst."
+        description: "Du kannst deine gewohnten sozialen Netzwerke mit deinem Diaspora-Konto verbinden. Du kannst auch deine Nachrichten außerhalb von Diaspora veröffentlichen, wenn du 'öffentlich machen' auswählst."
         your_services: "Deine Dienste"
       step_4: 
-        change_profile: "Du kannst dein Profil jederzeit ändern indem du auf"
-        connect_disconnect: "Du kannst dich jederzeit mit deinen Diensten verbinden/trennen indem du auf"
+        change_profile: "Du kannst dein Profil und verlinkte Dienste jederzeit ändern unter"
         continue: "Fahre fort um auf deine \"Alle\" Seite zu kommen, eine Übersicht über alle deiner Aspekte."
         finish: Fertigstellen
-        manage_aspects: "Du kannst jederzeit deine Aspekte verwalten indem du auf"
+        manage_aspects: "Du kannst auch Kontakte auf jeder der Aspekt-Seiten hinzufügen."
         ready_to_share: "Du bist nun bereit zum teilen mit"
         set_up: "Du bist nun bereit %{name}!"
-        tab_also_added: "klickst. Deine Kontakte können auch auf der entsprechenden Seite hinzugefügt werden."
         user_menu: "in deinem Benutzer-Menü klickst (oben rechts)."
       welcome: "Willkommen bei Diaspora!"
     public: 

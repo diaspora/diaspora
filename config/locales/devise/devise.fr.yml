@@ -7,6 +7,8 @@ fr:
   devise: 
     confirmations: 
       confirmed: "Votre compte a été confirmé avec succès. Vous êtes à présent connecté."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour confirmer votre compte."
     failure: 
       inactive: "Votre compte n’a pas encore été activé."
@@ -48,6 +50,8 @@ fr:
         unlock: "Débloquer mon compte"
       welcome: "Bienvenue %{email} !"
     passwords: 
+      edit: 
+        change_password: "Change my password"
       new: 
         forgot_password: "Mot de passe oublié ?"
         send_password_instructions: "Envoyez-moi les instructions de réinitialisation de mot de passe"
@@ -59,8 +63,11 @@ fr:
       updated: "Vous avez mis à jour votre compte avec succès."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Un problème ? Trouvez une réponse ici"
         login: "Se connecter"
+        modern_browsers: "only supports modern browsers."
         password: "Mot de passe"
         remember_me: "Se souvenir de moi"
         sign_in: Connexion
@@ -70,9 +77,13 @@ fr:
     shared: 
       links: 
         forgot_your_password: "Mot de passe oublié ?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
         sign_in: Connexion
         sign_up: Inscription
     unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour déverrouiller votre compte."
       unlocked: "Votre compte a été déverrouillé avec succès. Vous êtes à présent connecté."
   errors: 

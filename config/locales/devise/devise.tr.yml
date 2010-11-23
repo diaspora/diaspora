@@ -7,6 +7,8 @@ tr:
   devise: 
     confirmations: 
       confirmed: "Hesabınız dogrulanmıstır. Şu anda giriş yapmış oluyorsunuz."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
       send_instructions: "Kısa bir süre içersinde hesabınızı nasıl dogruluycaginiza dair bir email alicaksiniz."
     failure: 
       inactive: "Hesabınız aktive edilmemiştir daha."
@@ -48,6 +50,8 @@ tr:
         unlock: "Hesabımı Aç"
       welcome: "Merhaba %{email}!"
     passwords: 
+      edit: 
+        change_password: "Change my password"
       new: 
         forgot_password: "Şifrenizi mi unuttunuz?"
         send_password_instructions: "Şifre yenileme talimatları gönder"
@@ -59,8 +63,11 @@ tr:
       updated: "Hesabinizi başarili bir şekilde yenilediniz."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Sorun mu yaşıyorsunuz ? Çözüm aramak için"
         login: Giriş
+        modern_browsers: "only supports modern browsers."
         password: Şifre
         remember_me: "Beni Hatırla"
         sign_in: Giriş
@@ -70,9 +77,13 @@ tr:
     shared: 
       links: 
         forgot_your_password: "Şifrenizi mi unuttunuz?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Giriş Yap"
         sign_up: "Üye Ol"
     unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
       send_instructions: "Kisa bir süre içersinde hesabınızı nasıl kilit altinda çikarabiliceginize dair bir email alıcaksınız."
       unlocked: "Heabiniz kilit altindan çıkartılmıstır. Şu anda giriş yapmıs oluyorsunuz"
   errors: 

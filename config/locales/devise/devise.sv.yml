@@ -7,6 +7,8 @@ sv:
   devise: 
     confirmations: 
       confirmed: "Ditt konto har verifierats och du är inloggad."
+      new: 
+        resend_confirmation: "Skicka instruktioner för att bekräfta kontot igen"
       send_instructions: "Du kommer att få ett ebrev med instruktioner för att verifiera ditt konto inom några minuter."
     failure: 
       inactive: "Ditt konto är inte aktiverat."
@@ -48,6 +50,8 @@ sv:
         unlock: "Lås upp mitt konto"
       welcome: "Välkommen %{email}!"
     passwords: 
+      edit: 
+        change_password: "Ändra mitt lösenord"
       new: 
         forgot_password: "Glömt ditt lösenord?"
         send_password_instructions: "Skicka mig information om hur jag återställer lösenordet"
@@ -59,8 +63,11 @@ sv:
       updated: "Ditt konto har uppdateras."
     sessions: 
       new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Har du problem att komma in? Klicka här"
         login: "Logga in"
+        modern_browsers: "only supports modern browsers."
         password: Lösenord
         remember_me: "Kom ihåg mig"
         sign_in: "Logga in"
@@ -70,9 +77,13 @@ sv:
     shared: 
       links: 
         forgot_your_password: "Glömt ditt lösenord?"
+        receive_confirmation: "Fick du inget bekräftelsemail?"
+        receive_unlock: "Fick du inga upplåsningsinstruktioner?"
         sign_in: "Logga in"
         sign_up: "Registrera dig"
     unlocks: 
+      new: 
+        resend_unlock: "Skicka upplåsningsinstruktioner igen"
       send_instructions: "Du kommer att få ett mail med instruktioner för att låsa upp ditt konto inom några minuter."
       unlocked: "Ditt konto har är nu upplåst och du är inloggad"
   errors: 

@@ -5,7 +5,7 @@
   %i 
     = t('.if_they_accept_info')
     %br
-    = t('.comma_seperated_PLZ')
+    = t('.comma_seperated_plz')
   = form_for User.new, :url => invitation_path(User) do |invite|
     %p
       = invite.label :email , t('email')
