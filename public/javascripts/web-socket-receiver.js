@@ -36,16 +36,15 @@ var WebSocketReceiver = {
   },
 
   processPerson: function(response){
-    form = $('.webfinger_form');
-    form.siblings('#loader').hide();
-    result_ul = form.siblings('#request_result');
+    form = $('.webfinger_form:visible');
+    form.siblings('.spinner').hide();
+    result_ul = form.siblings('.webfinger_result');
     if(response['status'] == 'fail'){
-      result_ul.siblings('.error').show();
-      result_ul.find('.error').text(response['response']).show();
+      result_ul.children('.error').show();
+      result_ul.children('.webfinger_error').text(response['response']).show();
     }else{
       $('#people_stream').prepend(response['html']).slideDown('slow', function(){});
       var first_li = result_ul.find('li:first');
-      first_li.hide()
       first_li.after(response['html']);
       result_ul.find("[name='request[into]']").val(result_ul.attr('aspect_id'));
       result_ul.children(':nth-child(2)').slideDown('fast', function(){});

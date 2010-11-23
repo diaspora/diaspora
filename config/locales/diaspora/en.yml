@@ -98,8 +98,7 @@ en:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           contact_username: "Contact's username"
-          create_request: "Find by Diaspora handle"
-          diaspora_handle: "Diaspora Handle"
+          create_request: "Create request"
       invitations:
           invite_someone: "Invite someone"
           invitations_left: "(%{count} left)"
@@ -323,7 +322,7 @@ en:
            results_for: " results for %{params}"
            people_on_pod_are_aware_of: " people on pod are aware of"
   requests:
-      aspect_contacts:
+      manage_aspect_contacts:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           contact_username: "Contact's username"

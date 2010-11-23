@@ -233,7 +233,7 @@ ru:
       error: "Выберите аспект!"
       ignore: "Игнорированные запросы на дружбу."
       success: "Теперь вы друзья."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Контакты пользователя"
       create_request: "Создать запрос"
       enter_a_diaspora_username: "Введите имя пользователя в Диаспоре:"

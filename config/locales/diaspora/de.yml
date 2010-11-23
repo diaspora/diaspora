@@ -233,7 +233,7 @@ de:
       error: "Bitte wähle einen Aspekt!"
       ignore: "Anfrage des Kontaktes ignoriert."
       success: "Ihr seit jetzt verbunden."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Diaspora Addresse des Kontaktes"
       create_request: "Anfrage erstellen"
       enter_a_diaspora_username: "Gib eine Diaspora Addresse ein:"

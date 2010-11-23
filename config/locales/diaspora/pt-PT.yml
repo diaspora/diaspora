@@ -233,7 +233,7 @@ pt-PT:
       error: "Please select an aspect!"
       ignore: "Ignored friend request."
       success: "You are now friends."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Contact's username"
       create_request: "Create request"
       enter_a_diaspora_username: "Enter a Diaspora username:"

@@ -233,7 +233,7 @@ sv:
       error: "Var god välj en aspekt!"
       ignore: "Ignorerade kontaktförfrågan."
       success: "Kontakten är nu tillagd."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Kontaktens Diaspora-adress"
       create_request: "Skapa förfrågan"
       enter_a_diaspora_username: "Ange ett användarnamn:"

@@ -233,7 +233,7 @@ id:
       error: "Silahkan pilih sebuah aspek!"
       ignore: "Permintaan pertemanan yang diabaikan."
       success: "Anda sekarang berteman."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Contact's username"
       create_request: "Create request"
       enter_a_diaspora_username: "Enter a Diaspora username:"

@@ -19,7 +19,7 @@ $(document).ready(function(){
 
   //buttons//////
   $(".add_aspect_button," + 
-    ".aspect_contacts_button," +
+    ".manage_aspect_contacts_button," +
     ".invite_user_button," +
     ".add_photo_button," +
     ".remove_person_button," +
@@ -37,7 +37,7 @@ $(document).ready(function(){
     }
   );
 
-  $('.new_request').live("submit", function(){
+  $('.new_request').submit(function(){
     var foo = $(this).parent();
     $(this).hide();
     foo.find('.message').removeClass('hidden');
@@ -85,8 +85,8 @@ $(document).ready(function(){
 
   $('.webfinger_form').submit(function(evt){
     form = $(evt.currentTarget);
-    form.siblings('#loader').show();
-    $('#request_result li:first').hide();
+    form.siblings('.spinner').show();
+     $('#request_result li:first').hide();
   });
 
   // hotkeys

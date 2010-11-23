@@ -233,7 +233,7 @@ nl:
       error: "Selecteer een aspect!"
       ignore: "Vriendenverzoek genegeerd."
       success: "Jullie zijn nu vrienden."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Gebruikersnaam van contact"
       create_request: "Doe verzoek"
       enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"

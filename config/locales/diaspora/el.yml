@@ -233,7 +233,7 @@ el:
       error: "Παρακαλώ επιλέξτε μια πτυχή!"
       ignore: "Αγνοήθηκε αίτηση φίλου."
       success: "Είστε πλέον φίλοι."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Contact's username"
       create_request: "Create request"
       enter_a_diaspora_username: "Enter a Diaspora username:"

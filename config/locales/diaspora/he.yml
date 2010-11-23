@@ -233,7 +233,7 @@ he:
       error: "נא לבחור בהיבט!"
       ignore: "בקשות חברות מהן התעלמת."
       success: "אתם חברים כעת."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "שם המשתמש של איש הקשר"
       create_request: "יצירת בקשה"
       enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"

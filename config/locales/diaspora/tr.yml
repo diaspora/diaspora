@@ -233,7 +233,7 @@ tr:
       error: "Lutfen bir yan seçiniz!"
       ignore: "Arkadaş isteğini reddettiniz."
       success: "Siz şimdi arkadaşsınız."
-    aspect_contacts: 
+    manage_aspect_contacts: 
       contact_username: "Kontak kullanıcı adı"
       create_request: "Yaratma isteği"
       enter_a_diaspora_username: "Diaspora kullanıcı adı girin:"
