@@ -23,6 +23,6 @@
           = service.nickname
         = link_to t('.disconnect'), service, :confirm => t('.really_disconnect', :service => service.provider), :method => :delete
 
-  %h4= link_to t('.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
-  %h4= link_to t('.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
+  %h4= link_to image_tag('services/twitter_sign_in.png'), "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
+  %h4= link_to image_tag('services/facebook_sign_in.png'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
 

@@ -308,7 +308,7 @@ en:
           your_bio: "Your bio"
           your_photo: "Your photo"
           update_profile: "Update Profile"
-          allow_search: "Allow for people to search for you"
+          allow_search: "Allow for people to search for you within Diaspora"
       profile_photo_upload:
           or_select_one: "or select one from your already existing"
       update:

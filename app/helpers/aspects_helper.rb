@@ -16,10 +16,10 @@ module AspectsHelper
   end
 
   def add_to_aspect_button(aspect_id, person_id)
-    link_to image_tag('icons/monotone_plus_add_round.png'), {:action => 'add_to_aspect', :aspect_id => aspect_id, :person_id => person_id}, :remote => true, :class => 'add button'
+    link_to image_tag('icons/monotone_plus_add_round.png'), {:controller => "aspects", :action => 'add_to_aspect', :aspect_id => aspect_id, :person_id => person_id}, :remote => true, :class => 'add button'
   end
 
   def remove_from_aspect_button(aspect_id, person_id)
-    link_to image_tag('icons/monotone_check_yes.png'), {:action => 'remove_from_aspect', :aspect_id => aspect_id, :person_id => person_id}, :remote => true, :class => 'added button'
+    link_to image_tag('icons/monotone_check_yes.png'), {:controller => "aspects", :action => 'remove_from_aspect', :aspect_id => aspect_id, :person_id => person_id}, :remote => true, :class => 'added button'
   end
 end

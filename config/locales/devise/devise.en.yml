@@ -22,9 +22,9 @@ en:
         sign_in: 'Sign in'
         have_a_problem: "Have a problem? Find an answer here"
         remember_me: "Remember me"
-        tech_preview: "Important, please read: This is a technology preview; do not provide any private information."
-        account_deletion: "Also, be advised that your account may be deleted until we move into a more stable development period."
-        risk: "USE AT YOUR OWN RISK!!!"
+        alpha_software: 'You are about to use alpha software.'
+        bugs_and_feedback: 'Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report.'
+        modern_browsers: 'only supports modern browsers.'
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'
     passwords:

@@ -13,7 +13,7 @@ $(document).ready(function(){
 
   $('#flash_notice, #flash_error, #flash_alert').animate({
     top: 0
-  }).delay(4000).animate({
+  }).delay(2000).animate({
     top: -100 
   }, $(this).remove());
 
