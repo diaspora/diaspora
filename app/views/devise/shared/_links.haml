@@ -4,6 +4,9 @@
 - if !APP_CONFIG[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
   = link_to t('.sign_up'), new_registration_path(resource_name)
   %br/
+- else
+  %b= t('.sign_up_closed')
+  %br/
 - if devise_mapping.recoverable? && controller_name != 'passwords'
   = link_to t('.forgot_your_password'), new_password_path(resource_name)
   %br/
