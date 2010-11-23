@@ -78,11 +78,13 @@ function expandComments(toggler){
   if( toggler.hasClass("visible")) {
     toggler.removeClass("visible")
            .html(text.replace("hide", "show"));
-    commentBlock.slideUp(150);
+    //commentBlock.slideUp(150);
+    commentBlock.hide();
 
   } else {
     toggler.addClass("visible")
            .html(text.replace("show", "hide"));
-    commentBlock.slideDown(150);
+    //commentBlock.slideDown(150);
+    commentBlock.show();
   }
 }
