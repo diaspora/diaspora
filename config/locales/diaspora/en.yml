@@ -139,7 +139,7 @@ en:
           name: "Name"
           create: "Create"
       create:
-          success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+          success: "Your new aspect %{name} was created"
           failure: "Aspect creation failed."
       destroy:
           success: "%{name} was successfully removed."

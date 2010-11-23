@@ -20,8 +20,12 @@ class AspectsController < ApplicationController
   def create
     @aspect = current_user.aspects.create(params[:aspect])
     if @aspect.valid?
-      flash[:notice] = I18n.t('aspects.create.success')
-      respond_with @aspect
+      flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
+      if current_user.getting_started
+        redirect_to :back
+      else
+        respond_with @aspect
+      end
     else
       flash[:error] = I18n.t('aspects.create.failure')
       redirect_to :back
