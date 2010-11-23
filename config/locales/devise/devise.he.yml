@@ -63,14 +63,14 @@ he:
       updated: "חשבונך עודכן בהצלחה."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "אתה עומד להשתמש בתוכנה בשלב פיתוח אלפא."
+        bugs_and_feedback: "לידיעתכם, אתם תחוו באגים. אנו ממליצים לכם להשתמש בלחצן המשוב בצד ימין של הדפדפן שלכם כדי לדווח על כל בעיה! נפעל מהר ככל שאנחנו יכולים כדי לפתור את כל הבעיות שאתם תדווחו."
         have_a_problem: "נתקלת בבעיות? ניתן למצוא את התשובה כאן"
-        login: כניסה
-        modern_browsers: "only supports modern browsers."
-        password: ססמה
+        login: "כניסה"
+        modern_browsers: "תומך רק בדפדפנים מודרניים."
+        password: "ססמה"
         remember_me: "שמירת פרטי הגישה שלי"
-        sign_in: כניסה
+        sign_in: "כניסה"
         username: "שם משתמש"
       signed_in: "נכנסת בהצלחה."
       signed_out: "יצאת בהצלחה."
@@ -79,8 +79,8 @@ he:
         forgot_your_password: "שכחת את ססמתך?"
         receive_confirmation: "לא קיבלת הוראות אישור?"
         receive_unlock: "לא קיבלת הוראות שחרור?"
-        sign_in: כניסה
-        sign_up: הרשמה
+        sign_in: "כניסה"
+        sign_up: "הרשמה"
     unlocks: 
       new: 
         resend_unlock: "שלח הוראות שחרור מחדש"

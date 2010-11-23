@@ -68,10 +68,10 @@ da:
         have_a_problem: "Har du problemer? Find svaret her"
         login: "Log ind"
         modern_browsers: "only supports modern browsers."
-        password: Adgangskode
+        password: "Adgangskode"
         remember_me: "Husk mig"
         sign_in: "Log ind"
-        username: Brugernavn
+        username: "Brugernavn"
       signed_in: "Du er nu logget ind."
       signed_out: "Du er nu logget ud."
     shared: 

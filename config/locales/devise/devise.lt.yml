@@ -66,12 +66,12 @@ lt:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Have a problem? Find an answer here"
-        login: Login
+        login: "Login"
         modern_browsers: "only supports modern browsers."
-        password: Password
+        password: "Password"
         remember_me: "Remember me"
         sign_in: "Sign in"
-        username: Username
+        username: "Username"
       signed_in: "Sėkmingai prisijungta."
       signed_out: "Sėkmingai atsijungta."
     shared: 
@@ -89,5 +89,5 @@ lt:
   errors: 
     messages: 
       already_confirmed: "jau patvirtinta"
-      not_found: nerasta
+      not_found: "nerasta"
       not_locked: "nebuvo užrakinta"

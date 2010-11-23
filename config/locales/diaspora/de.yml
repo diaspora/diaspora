@@ -4,11 +4,11 @@
 
 
 de: 
-  _comments: Kommentare
-  _home: Home
-  _photos: Fotos
-  _services: Dienste
-  account: Konto
+  _comments: "Kommentare"
+  _home: "Alle"
+  _photos: "Fotos"
+  _services: "Dienste"
+  account: "Konto"
   activemodel: 
     errors: 
       models: 
@@ -24,7 +24,7 @@ de:
               invalid: "ist ungültig"
             username: 
               taken: "ist bereits benutzt"
-  ago: her
+  ago: "her"
   application: 
     helper: 
       unknown_person: "unbekannte Person"
@@ -43,7 +43,7 @@ de:
     helper: 
       are_you_sure: "Bist du sicher das du diesen Aspekt löschen möchtest?"
       aspect_not_empty: "Aspekt ist nicht leer"
-      remove: entfernen
+      remove: "entfernen"
     index: 
       handle_explanation: "Das ist deine Diaspora-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer dich kontaktieren können."
     manage: 
@@ -52,14 +52,14 @@ de:
       drag_to_add: "Leute hierher ziehen um sie hinzuzufügen"
       manage_aspects: "Aspkete verwalten"
       no_requests: "Keine Anfragen"
-      requests: Anfragen
+      requests: "Anfragen"
     move_contact: 
       error: "Fehler beim verschieben des Kontaktes: %{inspect}"
       failure: "hat nicht geklappt: %{inspect}"
       success: "Person in neuen Aspekt verschoben"
     new_aspect: 
-      create: Erstellen
-      name: Name
+      create: "Erstellen"
+      name: "Name"
     no_contacts_message: 
       add_contact: "Einen Kontakt hinzufügen"
       add_contact_to: "Jemanden zu %{aspect_name} hinzufügen"
@@ -72,22 +72,22 @@ de:
       failure: "Person konnte nicht aus dem Aspekt entfernt werden"
       success: "Person erfolgreich aus dem Aspekt entfernt"
     seed: 
-      family: Familie
-      work: Arbeit
+      family: "Familie"
+      work: "Arbeit"
     show: 
-      contact: Kontakt
-      contacts: Kontakte
+      contact: "Kontakt"
+      contacts: "Kontakte"
       edit_aspect: "Aspekt bearbeiten"
     update: 
       success: "Dein Aspekt %{name} wurde erfolgreich bearbeitet."
-  back: Zurück
-  cancel: Abbrechen
+  back: "Zurück"
+  cancel: "Abbrechen"
   comments: 
     new_comment: 
-      comment: Kommentieren
-      commenting: Kommentieren...
-  delete: Löschen
-  email: E-Mail
+      comment: "Kommentieren"
+      commenting: "Kommentieren..."
+  delete: "Löschen"
+  email: "E-Mail"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
@@ -96,14 +96,14 @@ de:
   home: 
     show: 
       already_account: "bereits registriert?"
-      choice: Choice
+      choice: "Choice"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Erfahre, wie du deinen eigenen Diaspora-Server betreiben kannst."
       login_here: "hier anmelden"
-      ownership: Ownership
+      ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Teile was du willst, mit wem du willst."
-      simplicity: Simplicity
+      simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations: 
     check_token: 
@@ -115,7 +115,7 @@ de:
       rejected: "Mit dieser E-Mail-Adresse gab es Probleme:"
       sent: "Einladungen wurden verschickt an:"
     edit: 
-      sign_up: anmelden
+      sign_up: "anmelden"
     new: 
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen kommagetrennt eintragen."
       if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
@@ -123,16 +123,16 @@ de:
       message: "Nachricht:"
       send_an_invitation: "Eine Einladung senden"
       send_invitation: "Einladung senden"
-      to: An
+      to: "An"
   layouts: 
     application: 
       powered_by: "BETRIEBEN MIT DIASPORA*"
     header: 
       account_settings: "Konto bearbeiten"
-      blog: Blog
+      blog: "Blog"
       edit_profile: "Profil bearbeiten"
-      login: Anmelden
-      logout: Abmelden
+      login: "Anmelden"
+      logout: "Abmelden"
       view_profile: "Profil zeigen"
   notifier: 
     diaspora: "dein Diaspora-E-Mail-Roboter"
@@ -145,18 +145,18 @@ de:
       try_it_out: "Du solltest wirklich darüber nachdenken es auszuprobieren.\n"
     request_accepted: 
       accepted: "hat deine Kontakt-Anfrage akzeptiert. Sie sind nun in deiner"
-      aspect: Aspekt.
+      aspect: "Aspekt."
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora akzeptiert"
-  ok: Ok
-  or: oder
-  password: Passwort
+  ok: "Ok"
+  or: "oder"
+  password: "Passwort"
   password_confirmation: "Passwort bestätigen"
   people: 
     edit: 
       allow_search: "Erlaube anderen Diaspora-Nutzern nach dir zu suchen"
-      first_name: Vorname
+      first_name: "Vorname"
       info_available_to: "Diese Infos werden für alle verfügbar sein mit denen du bei Diaspora verbunden bist."
-      last_name: Nachname
+      last_name: "Nachname"
       update_profile: "Profil aktualisieren"
       your_bio: "Deine Info"
       your_birthday: "Dein Geburtstag"
@@ -177,11 +177,11 @@ de:
     profile_photo_upload: 
       or_select_one: "oder wähle eins von deinen existierenden"
     profile_sidebar: 
-      bio: Info
-      born: Geboren
+      bio: "Info"
+      born: "Geboren"
       cannot_remove: "%{name} kann nicht aus dem letzten Aspekt entfernt werden."
       edit_my_profile: "Profil bearbeiten"
-      gender: Geschlecht
+      gender: "Geschlecht"
       in_aspects: "in Aspekten"
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
@@ -202,7 +202,7 @@ de:
     destroy: 
       notice: "Foto gelöscht."
     edit: 
-      editing: Bearbeiten
+      editing: "Bearbeiten"
     new: 
       back_to_list: "Zurück zu Liste"
       new_photo: "Neues Foto"
@@ -215,16 +215,16 @@ de:
       view_all: "zeige alle Fotos von %{name}"
     show: 
       delete_photo: "Foto löschen"
-      edit: Bearbeiten
+      edit: "Bearbeiten"
       edit_delete_photo: "Fotobeschreibung bearbeiten  / Foto löschen"
       make_profile_photo: "Zum Profilbild machen"
       original_post: "Ursprüngliche Nachricht"
       update_photo: "Foto aktualisieren"
-      view: view
+      view: "view"
     update: 
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
-  profile: Profil
+  profile: "Profil"
   registrations: 
     closed: "Registrierungen sind auf diesem Server geschlossen."
     create: 
@@ -234,10 +234,10 @@ de:
       edit: "%{name} bearbeiten"
       leave_blank: "(lasse es leer wenn du es nicht ändern willst)"
       password_to_confirm: "(wir brauchen dein aktuelles Passwort um deine Änderungen zu bestätigen)"
-      unhappy: Unglücklich?
-      update: Aktualisieren
+      unhappy: "Unglücklich?"
+      update: "Aktualisieren"
     new: 
-      sign_up: Registrieren
+      sign_up: "Registrieren"
       sign_up_for_diaspora: "Ein Diaspora Konto anlegen"
   requests: 
     create: 
@@ -251,8 +251,8 @@ de:
       existing: "Existierende Kontakte"
       manage_within: "Kontakte verwalten in"
     new_request_to_person: 
-      sent: abschicken!
-  search: Suche
+      sent: "Verschickt!"
+  search: "Suche"
   services: 
     create: 
       success: "Authentifizierung erfolgreich."
@@ -264,27 +264,27 @@ de:
       disconnect: "Verbindung entfernen"
       logged_in_as: "angemeldet als"
       really_disconnect: "Verbindung mit %{service} entfernen?"
-  settings: Einstellungen
+  settings: "Einstellungen"
   shared: 
     add_contact: 
       create_request: "Über Diaspora-Adresse finden"
-      diaspora_handle: Diaspora-Adresse
-      enter_a_diaspora_username: "Gib eine Diaspora Adresse ein:"
+      diaspora_handle: "Diaspora-Adresse"
+      enter_a_diaspora_username: "Gib eine Diaspora-Adresse ein:"
       know_email: "Know their email address? You should invite them"
-      your_diaspora_username_is: "Deine Diaspora Adresse ist: %{diaspora_handle}"
+      your_diaspora_username_is: "Deine Diaspora-Adresse ist: %{diaspora_handle}"
     aspect_contacts: 
       add_aspect: "Aspekt hinzufügen"
       add_existing: "Existierenden Kontakt hinzufügen"
       add_to: "Zu %{aspect} hinzufügen"
       all_contacts: "Alle Kontakte"
       aspect_settings: "Aspect settings"
-      aspects: Aspekte
+      aspects: "Aspekte"
       confirm_remove_aspect: "Aspekt löschen?"
-      contacts: Kontakte
+      contacts: "Kontakte"
       done_editing: "Bearbeitung fertig"
-      invites: Einladungen
-      new_request: "% {Count} neue Anfrage!"
-      new_requests: "% {Count} neue Anfragen!"
+      invites: "Einladungen"
+      new_request: "%{count} neue Anfrage!"
+      new_requests: "%{count} neue Anfragen!"
       no_contacts: "Du hast momentan keine Kontakte. Finde deine Freunde hier."
       remove_aspect: "Aspekt löschen"
     contact_list: 
@@ -303,12 +303,12 @@ de:
       title: "Du bist dabei eine öffentliche Nachricht zu senden!"
     publisher: 
       add_photos: "Fotos hinzufügen"
-      all: alle
+      all: "alle"
       all_contacts: "alle Kontakte"
       make_public: "öffentlich machen"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
-      posting: Senden...
-      share: Teilen
+      posting: "Senden..."
+      share: "Teilen"
       share_with: "Mit %{aspect} teilen"
       share_with_all: "Mit allen Aspekten teilen"
     reshare: 
@@ -322,9 +322,9 @@ de:
       oh_yeah: "oh yeah!"
       tell_me_something_good: "Was gibt es neues?"
     show: 
-      destroy: Zerstören
+      destroy: "Entfernen"
   the_world: "die Welt"
-  username: Benutzername
+  username: "Benutzername"
   users: 
     destroy: "Konto erfolgreich geschlossen."
     edit: 
@@ -341,12 +341,12 @@ de:
       connect_services: "Mit Diensten verbinden"
       define_aspects: "Erstelle deine Aspekte"
       edit_profile: "Bearbeite dein Profil"
-      finished: Fertig!
+      finished: "Fertig!"
       save_and_continue: "Speichern und weiter"
       signup_steps: "Erledige folgende drei Schritte, um deine Registrierung zu vervollständigen:"
       skip: "Erste Schritte überspringen"
       step_2: 
-        add: Hinzufügen
+        add: "Hinzufügen"
         aspect_name: "Name des Aspekts"
         description: "Sage Diaspora welche verschiedenen Aspekte von dir von verschiedenen Kontakten gesehen werden sollen. Du kannst diese später verwalten in dem du auf Verwalten oben rechts klickst. Deine Aspekte sind nur für dich und nicht für andere sichtbar."
         your_aspects: "Deine Aspekte"
@@ -356,7 +356,7 @@ de:
       step_4: 
         change_profile: "Du kannst dein Profil und verlinkte Dienste jederzeit ändern unter"
         continue: "Fahre fort um auf deine \"Alle\" Seite zu kommen, eine Übersicht über alle deiner Aspekte."
-        finish: Fertigstellen
+        finish: "Fertigstellen"
         manage_aspects: "Du kannst auch Kontakte auf jeder der Aspekt-Seiten hinzufügen."
         ready_to_share: "Du bist nun bereit zum teilen mit"
         set_up: "Du bist nun bereit %{name}!"

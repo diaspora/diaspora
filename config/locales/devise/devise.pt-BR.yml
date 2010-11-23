@@ -66,11 +66,11 @@ pt-BR:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Você tem algum problema? Encontra uma resposta aqui"
-        login: Entrar
+        login: "Entrar"
         modern_browsers: "only supports modern browsers."
-        password: Senha
+        password: "Senha"
         remember_me: "Remember me"
-        sign_in: Entrar
+        sign_in: "Entrar"
         username: "Nome de usuário"
       signed_in: "Você entrou com sucesso."
       signed_out: "Você saiu com sucesso."
@@ -79,8 +79,8 @@ pt-BR:
         forgot_your_password: "Esqueceu sua senha?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: Entrar
-        sign_up: Cadastre-se
+        sign_in: "Entrar"
+        sign_up: "Cadastre-se"
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

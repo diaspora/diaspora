@@ -20,8 +20,8 @@ pl:
       unconfirmed: "Musisz aktywować swoje konto."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
-      updated: "Your password was set successfully. You are now signed in."
+      send_instructions: "Twoje zaproszenie zostało wysłane."
+      updated: "Hasło zostało pomyślnie zmienione. Logowanie zakończone."
     mailer: 
       confirmation_instructions: 
         confirm: "Aktywuj moje konto"
@@ -34,9 +34,9 @@ pl:
         no_account_till: "Twoje konto nie zostanie założone dopuki nie klikniesz na link powyżej i nie zarejestrujesz sie. shared: links: sign_in: 'Zaloguj się' sign_up: 'Zarejestruj się' forgot_your_password: 'Nie pamiętasz hasła?' "
         subject: "Masz zaproszenie do Diaspory!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", pod adresem %{url}, możesz przyjąć zaproszenie poprzez link poniżej."
+        has_invited_you: "%{name} zaprosił/a Cię do Diaspory"
+        have_invited_you: "%{names} zaprosili Cię do Diaspory"
       reset_password_instructions: 
         change: "Zmień moje hasło"
         ignore: "Jeśli nie chcesz zresetować hasła, zignoruj ten email."
@@ -51,9 +51,9 @@ pl:
       welcome: "Witaj %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Zmień hasło"
       new: 
-        forgot_password: "Forgot your password?"
+        forgot_password: "Nie pamiętasz hasła?"
         send_password_instructions: "Send me reset password instructions"
       send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcjie dotyczące zresetowania hasła."
       updated: "Twoje hasło zostało zmienione, zostałeś zalogowany."
@@ -66,24 +66,24 @@ pl:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Jakiś kłopot? Znajdź odpowiedź tu"
-        login: Login
-        modern_browsers: "only supports modern browsers."
-        password: Hasło
+        login: "Login"
+        modern_browsers: "wspiera wyłącznie nowoczesne przeglądarki."
+        password: "Hasło"
         remember_me: "Zapamiętaj sesję"
         sign_in: "Zaloguj się"
         username: "Nazwa użytkownika"
       signed_in: "Zalogowano pomyślnie."
-      signed_out: Wylogowano.
+      signed_out: "Wylogowano."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
+        forgot_your_password: "Nie pamiętasz hasła?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        sign_in: "Zaloguj się"
+        sign_up: "Zarejestruj się"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Wyślij ponownie instrukcję odblokowywania"
       send_instructions: "W ciągu kilku minut otrzymasz email z instrukcjami odblokowania konta."
       unlocked: "Twoje konto zostało odblokowane, jesteś zalogowany."
   errors: 

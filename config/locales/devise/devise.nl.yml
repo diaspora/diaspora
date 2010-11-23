@@ -7,7 +7,9 @@ nl:
   devise: 
     confirmations: 
       confirmed: "Je account is geactiveerd. Je bent nu ingelogd."
-      send_instructions: "Je ontvangt een email met instructies om je account te activeren."
+      new: 
+        resend_confirmation: "Stuur bevestigingsinstructies nogmaals"
+      send_instructions: "Je ontvangt een e-mail met instructies om je account te activeren."
     failure: 
       inactive: "Je account is nog niet geactiveerd."
       invalid: "Ongelding emailadres of wachtwoord."
@@ -23,7 +25,7 @@ nl:
     mailer: 
       confirmation_instructions: 
         confirm: "Bevestig mijn account"
-        subject: "Bevestigings instructies"
+        subject: "Bevestigingsinstructies"
         you_can_confirm: "Je kunt je account bevestigen via onderstaande link:"
       hello: "Hallo %{email}!"
       invitation: 
@@ -44,37 +46,46 @@ nl:
       unlock_instructions: 
         account_locked: "Je account is vergrendeld als gevolg van een te hoog aantal mislukte pogingen tot inloggen."
         click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
-        subject: "Unlock Instructions"
+        subject: "Ontgrendeling instructies"
         unlock: "Ontgrendel mijn account"
       welcome: "Welkom %{email}!"
     passwords: 
+      edit: 
+        change_password: "Verander mijn wachtwoord"
       new: 
         forgot_password: "Wachtwoord vergeten?"
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
-      send_instructions: "Je ontvangt een email met instructies om je wachtwoord te resetten."
+      send_instructions: "Je ontvangt een e-mail met instructies om je wachtwoord te resetten."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
     registrations: 
       destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
-      signed_up: "Je bent succesvol registreerd. Wanneer activeerd, ontvang je een bevestigingsmail."
-      updated: "Je account is succelvol geupdated."
+      signed_up: "Je bent succesvol geregistreerd. Indien geactiveerd, ontvang je een bevestigingsmail."
+      updated: "Je account is succesvol geupdated."
     sessions: 
       new: 
-        have_a_problem: "Problemen? Vind hier een antwoord"
+        alpha_software: "Je staat op het punt om alpha software te gebruiken."
+        bugs_and_feedback: "In dit stadium zul je waarschijnlijk nog bugs tegenkomen. We raden je aan de Feedback-button aan de rechterzijde van je browser te gebruiken om deze bugs te melden (in het Engels)!  Vervolgens zullen wij zo hard mogelijk werken om deze op te lossen."
+        have_a_problem: "Problemen? Vind een antwoord!"
         login: "Log in"
-        password: Wachtwoord
+        modern_browsers: "ondersteunt alleen moderne browsers."
+        password: "Wachtwoord"
         remember_me: "Onthoud mij"
         sign_in: "Log in"
-        username: Gebruikersnaam
+        username: "Gebruikersnaam"
       signed_in: "Je bent succesvol ingelogd."
       signed_out: "Je bent succesvol uitgelogd."
     shared: 
       links: 
         forgot_your_password: "Wachtwoord vergeten?"
+        receive_confirmation: "Geen bevestigingsinstructies ontvangen?"
+        receive_unlock: "Geen ontgrendel instructies ontvangen?"
         sign_in: "Log in"
-        sign_up: Registreer
+        sign_up: "Registreer"
     unlocks: 
-      send_instructions: "Je ontvangt een email met instructies om je account te deblokkeren."
-      unlocked: "Je account is succelvol gedeblokkeerd. Je bent nu ingelogd."
+      new: 
+        resend_unlock: "Stuur ontgrendel instructies nogmaals"
+      send_instructions: "Je ontvangt een e-mail met instructies om je account te deblokkeren."
+      unlocked: "Je account is succesvol gedeblokkeerd. Je bent nu ingelogd."
   errors: 
     messages: 
       already_confirmed: "is al geactiveerd"
