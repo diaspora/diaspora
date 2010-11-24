@@ -11,6 +11,7 @@ log/*
 public/stylesheets/application.css
 public/stylesheets/sessions.css
 public/stylesheets/ui.css
+spec/fixtures/users.yaml
 
 # Uploded files and local files
 public/uploads/*
