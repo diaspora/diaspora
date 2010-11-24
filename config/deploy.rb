@@ -136,34 +136,9 @@ namespace :db do
 
   task :tom_seed, :roles => :tom do
     run "cd #{current_path} && bundle exec rake db:seed:tom --trace RAILS_ENV=#{rails_env}"
-    run "curl -silent -u tom@tom.joindiaspora.com:evankorth http://tom.joindiaspora.com/zombiefriends"
-    
-    EM.run { 
-      q = EM::Queue.new 
-      
-      backers.each do |backer|
-        q.push( lambda{run "curl -silent -u  #{backer['username']}@#{backer['username']}.joindiaspora.com:#{backer['username']}#{backer['pin']} http://#{backer['username']}.joindiaspora.com/zombiefriendaccept"})
-        
-      end
-     
-      timer = EventMachine::PeriodicTimer.new(5) do
-        q.pop {|x| x.call}
-        
-        if q.size == 0
-        q.pop {|x| x.call}
-          EventMachine::Timer.new(60) do
-            EM.stop
-          end
-        end
-      end
-
-    }
   end
 
   task :backer_seed, :roles => :backer do
-    (0..2).each { |n|
-      run "curl -silent http://localhost/set_backer_number?number=#{n}", :only => {:number => n}
-    }
     run "cd #{current_path} && bundle exec rake db:seed:backer --trace RAILS_ENV=#{rails_env}"
   end
 
@@ -172,7 +147,6 @@ namespace :db do
     backer_seed
     tom_seed
   end
-
 end
 
 after "deploy:symlink", "deploy:symlink_images", "deploy:symlink_bundle", 'deploy:symlink_config', 'deploy:symlink_oauth_keys_config'

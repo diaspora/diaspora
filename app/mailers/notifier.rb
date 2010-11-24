@@ -2,7 +2,7 @@ class Notifier < ActionMailer::Base
   
   default :from => "no-reply@joindiaspora.com"
   
-  ATTACHMENT = File.read("#{Rails.root}/public/images/diaspora_white_on_grey.png")  
+  ATTACHMENT = File.read("#{Rails.root}/public/images/diaspora_white_on_grey.png")
 
   def new_request(recipient_id, sender_id)
     @receiver = User.find_by_id(recipient_id)
@@ -10,7 +10,7 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'new_request')
 
-    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
+    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
 
     mail(:to => "#{@receiver.real_name} <#{@receiver.email}>",
          :subject => I18n.t('notifier.new_request.subject', :from => @sender.real_name), :host => APP_CONFIG[:terse_pod_url])
