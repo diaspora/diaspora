@@ -63,14 +63,14 @@ es:
       updated: "Has actualizado tu cuenta correctamente."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Está a punto de utilizar software en versión alfa."
+        bugs_and_feedback: "Tenga en cuenta, usted puede experimentar errores. Le animamos a que utilice el botón de reportar situado a la derecha de su navegador para reportar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema del que usted nos informe."
         have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
         login: "Iniciar sesión"
-        modern_browsers: "only supports modern browsers."
-        password: Contraseña
-        remember_me: Recordarme
-        sign_in: Ingresar
+        modern_browsers: "sólo es compatible con los navegadores modernos."
+        password: "Contraseña"
+        remember_me: "Recordarme"
+        sign_in: "Ingresar"
         username: "Nombre de usuario"
       signed_in: "Has ingresado correctamente."
       signed_out: "Has salido correctamente."
@@ -79,8 +79,9 @@ es:
         forgot_your_password: "¿Olvidaste tu contraseña?"
         receive_confirmation: "No has recibido instrucciones de confirmación?"
         receive_unlock: "No has recibido las instrucciones de desbloqueo?"
-        sign_in: Ingresar
-        sign_up: Regístrate
+        sign_in: "Ingresar"
+        sign_up: "Regístrate"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Vuelva a enviar las instrucciones de desbloqueo"
@@ -90,4 +91,4 @@ es:
     messages: 
       already_confirmed: "ya ha sido confirmada"
       not_found: "no encontrado"
-      not_locked: "no está bloqueada"
+      not_locked: "no fue bloqueado"

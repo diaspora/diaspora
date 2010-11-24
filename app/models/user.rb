@@ -350,7 +350,8 @@ class User
       self.person.save!
       self.save!
       invitations_to_me.each{|invitation| invitation.to_request!}
-
+      
+      self.reload # Because to_request adds a request and saves elsewhere
       self
     end
   end

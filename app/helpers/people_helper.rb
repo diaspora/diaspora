@@ -28,4 +28,8 @@ module PeopleHelper
     end
   end
 
+  def pending_request_for(person)
+    current_user.request_for(person)
+  end
+
 end

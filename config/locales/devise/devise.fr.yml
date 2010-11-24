@@ -8,7 +8,7 @@ fr:
     confirmations: 
       confirmed: "Votre compte a été confirmé avec succès. Vous êtes à présent connecté."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Renvoyer les instructions de confirmation"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour confirmer votre compte."
     failure: 
       inactive: "Votre compte n’a pas encore été activé."
@@ -51,7 +51,7 @@ fr:
       welcome: "Bienvenue %{email} !"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Changer mon mot de passe"
       new: 
         forgot_password: "Mot de passe oublié ?"
         send_password_instructions: "Envoyez-moi les instructions de réinitialisation de mot de passe"
@@ -63,31 +63,32 @@ fr:
       updated: "Vous avez mis à jour votre compte avec succès."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Vous êtes sur le point d'utiliser une application en version alpha."
+        bugs_and_feedback: "Soyez bien conscient que vous serez confronté à des bugs. Nous vous encourageons à utiliser le bouton Feedback à la droite de votre navigateur pour reporter tout disfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous reportez."
         have_a_problem: "Un problème ? Trouvez une réponse ici"
         login: "Se connecter"
-        modern_browsers: "only supports modern browsers."
+        modern_browsers: "supporte seulement des navigateurs modernes."
         password: "Mot de passe"
         remember_me: "Se souvenir de moi"
-        sign_in: Connexion
+        sign_in: "Connexion"
         username: "Nom d'utilisateur"
       signed_in: "Connecté avec succès."
       signed_out: "Déconnecté avec succès."
     shared: 
       links: 
         forgot_your_password: "Mot de passe oublié ?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: Connexion
-        sign_up: Inscription
+        receive_confirmation: "Vous n'avez pas reçu les instructions de confirmation ?"
+        receive_unlock: "Vous n'avez pas reçu les instructions de déblocage ?"
+        sign_in: "Connexion"
+        sign_up: "Inscription"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Renvoyer les instructions de déblocage"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour déverrouiller votre compte."
       unlocked: "Votre compte a été déverrouillé avec succès. Vous êtes à présent connecté."
   errors: 
     messages: 
       already_confirmed: "a déjà été confirmé"
-      not_found: introuvable
+      not_found: "introuvable"
       not_locked: "n’a pas été verrouillé"

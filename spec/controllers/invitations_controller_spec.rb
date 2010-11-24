@@ -11,18 +11,22 @@ describe InvitationsController do
 
   let!(:user) {make_user}
   let!(:aspect){user.aspects.create(:name => "WIN!!")}
-  
+ 
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
-    user.invites = 5
-
-    sign_in :user, user
-    @invite = {:invite_messages=>"test", :aspects=> aspect.id.to_s, :email=>"abc@example.com"}
-    @controller.stub!(:current_user).and_return(user)
-    request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
   end
 
+
   describe "#create" do
+    before do
+      user.invites = 5
+
+      sign_in :user, user
+      @invite = {:invite_messages=>"test", :aspects=> aspect.id.to_s, :email=>"abc@example.com"}
+      @controller.stub!(:current_user).and_return(user)
+      request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
+    end
+
     it 'invites the requested user' do
       user.should_receive(:invite_user).and_return(make_user)
       post :create, :user => @invite
@@ -70,6 +74,31 @@ describe InvitationsController do
     it 'returns to the previous page on success' do
       post :create, :user => @invite
       response.should redirect_to("http://test.host/cats/foo")
+    end
+  end
+
+  describe "#update" do
+    before do
+      user.invites = 5
+      invited_user = user.invite_user(:email => "a@a.com", :aspect_id => user.aspects.first.id)
+      @accept_params = {"user"=>{"password_confirmation"=>"password", "username"=>"josh",
+        "password"=>"password", "invitation_token" => invited_user.invitation_token}}
+
+    end
+
+    it 'creates user' do
+      put :update, @accept_params
+      User.find_by_username(@accept_params['user']['username']).should_not be_nil
+    end
+
+    it 'seeds the aspects' do
+      put :update, @accept_params
+      User.find_by_username(@accept_params['user']['username']).aspects.count.should == 2
+    end
+
+    it 'adds a pending request' do
+      put :update, @accept_params
+      User.find_by_username(@accept_params['user']['username']).pending_requests.count.should == 1
     end
   end
 end

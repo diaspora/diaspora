@@ -80,6 +80,7 @@ lt:
         receive_unlock: "Negavai nurodymų, kaip atrakinti paskyrą?"
         sign_in: "Prisijungti"
         sign_up: "Registruotis"
+        sign_up_closed: "Atviri prisijungimai šiuo metu uždaryti."
     unlocks: 
       new: 
         resend_unlock: "Siųsti nurodymus, kaip atrakinti, iš naujo"

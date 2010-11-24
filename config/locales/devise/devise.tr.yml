@@ -66,11 +66,11 @@ tr:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Sorun mu yaşıyorsunuz ? Çözüm aramak için"
-        login: Giriş
+        login: "Giriş"
         modern_browsers: "only supports modern browsers."
-        password: Şifre
+        password: "Şifre"
         remember_me: "Beni Hatırla"
-        sign_in: Giriş
+        sign_in: "Giriş"
         username: "Kullanıcı Adı"
       signed_in: "Başarıyla giriş yaptınız."
       signed_out: "Başarıyla çıkıs yaptınız."
@@ -81,6 +81,7 @@ tr:
         receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Giriş Yap"
         sign_up: "Üye Ol"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"
@@ -89,5 +90,5 @@ tr:
   errors: 
     messages: 
       already_confirmed: "zaten doğrulandı"
-      not_found: bulunmadi
-      not_locked: kilitlenmedi
+      not_found: "bulunmadi"
+      not_locked: "kilitlenmedi"

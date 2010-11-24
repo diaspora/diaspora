@@ -29,7 +29,7 @@
       %h3
         = t('.not_connected', :name => @person.real_name)
         
-      - unless @pending_request
+      - unless pending_request_for(@person)
         %h3
           .description
             = t('.request_people')

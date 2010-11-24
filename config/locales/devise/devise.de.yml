@@ -66,21 +66,22 @@ de:
         alpha_software: "Diese Software befindet sich im Alpha-Stadium."
         bugs_and_feedback: "Du bist gewarnt, Fehler werden auftreten. Wir empfehlen dir, den Feedback-Knopf am rechten Browserrand zu nutzen, um diese zu berichten. Wir werden so schnell wie möglich daran arbeiten, alle Probleme zu beseitigen."
         have_a_problem: "Du hast ein Problem? Finde eine Antwort hier (Englisch)"
-        login: Login
+        login: "Login"
         modern_browsers: "Nur von aktuellen Browsern unterstützt."
-        password: Passwort
+        password: "Passwort"
         remember_me: "Angemeldet bleiben"
-        sign_in: Anmelden
-        username: Benutzername
-      signed_in: Angemeldet.
-      signed_out: Abgemeldet.
+        sign_in: "Anmelden"
+        username: "Benutzername"
+      signed_in: "Angemeldet."
+      signed_out: "Abgemeldet."
     shared: 
       links: 
         forgot_your_password: "Passwort vergessen?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: Anmelden
-        sign_up: Registrieren
+        sign_in: "Anmelden"
+        sign_up: "Registrieren"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

@@ -4,9 +4,11 @@
 
 
 nl: 
-  _photos: fotos
-  _services: Services
-  account: Account
+  _comments: "Reacties"
+  _home: "Home"
+  _photos: "fotos"
+  _services: "Services"
+  account: "Account"
   activemodel: 
     errors: 
       models: 
@@ -22,7 +24,7 @@ nl:
               invalid: "is ongeldig"
             username: 
               taken: "is al bezet"
-  ago: geleden
+  ago: "geleden"
   application: 
     helper: 
       unknown_person: "onbekend persoon"
@@ -35,51 +37,57 @@ nl:
       success: "Contact succesvol toegevoegd aan aspect."
     create: 
       failure: "Aanmaken van aspect mislukt."
-      success: "Klik op de plus aan de linkerkant om Diaspora te vertellen wie je nieuwe aspect kan zien."
+      success: "Je nieuwe aspect %{name} is aangemaakt"
     destroy: 
       success: "%{name} is succesvol verwijderd."
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
-      remove: verwijderen
+      remove: "verwijderen"
+    index: 
+      handle_explanation: "Dit is jou Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
     manage: 
       add_a_new_aspect: "Voeg een nieuw aspect toe"
       add_a_new_contact: "Voeg een nieuw contact toe"
       drag_to_add: "Sleep om mensen toe te voegen"
       manage_aspects: "Beheer aspecten"
       no_requests: "Geen nieuwe aanvragen"
-      requests: Aanvragen
+      requests: "Aanvragen"
     move_contact: 
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
       failure: "werkte niet %{inspect}"
       success: "Persoon naar nieuw aspect verplaatst"
     new_aspect: 
-      create: Aanmaken
-      name: Naam
+      create: "Aanmaken"
+      name: "Naam"
     no_contacts_message: 
       add_contact: "Voeg een contact toe"
       add_contact_to: "Voeg iemand toe aan %{aspect_name}"
       invite: "Nodig iemand uit om lid te worden op Diaspora!"
-      nobody: "We weten dat je vrienden hebt — haal ze naar Diaspora!"
+      nobody: "Breng de mensen die je lief zijn naar Diaspora!"
       nobody_in_aspect: "Je aspect '%{aspect_name}' is leeg."
     no_posts_message: 
       start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
     remove_from_aspect: 
       failure: "Persoon van aspect verwijderen mislukt"
       success: "Persoon succesvol verwijderd van aspect"
+    seed: 
+      family: "Familie"
+      work: "Werk"
+    show: 
+      contact: "contact"
+      contacts: "contacten"
+      edit_aspect: "bewerk aspect"
     update: 
-      success: "Je aspect, %{name}, is succelvol aangepast."
-  back: Terug
-  cancel: Annuleren
+      success: "Je aspect, %{name}, is succesvol aangepast."
+  back: "Terug"
+  cancel: "Annuleren"
   comments: 
     new_comment: 
-      comment: Reactie
-      commenting: Reageren...
-  dashboards: 
-    helper: 
-      home: Home
-  delete: Verwijderen
-  email: E-mail
+      comment: "Reactie"
+      commenting: "Reageren..."
+  delete: "Verwijderen"
+  email: "E-mail"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
@@ -88,8 +96,15 @@ nl:
   home: 
     show: 
       already_account: "heb je al een account?"
+      choice: "Keuze"
+      choice_explanation: "Diaspora laat jou je contacten verdelen over verschillende groepen, genaamd 'Aspecten', welke uniek zijn voor Diaspora. Deze zorgen er voor dat je jou foto's, verhalen en grappen alleen deelt met degenen waarmee je ze wilt delen."
+      learn_about_host: "Leer hoe je zelf een Diaspora server kunt opzetten."
       login_here: "log hier in"
-      share_what_you_want: "Deel wat je wilt delen, met degene waarmee je het wilt delen."
+      ownership: "Eigendom"
+      ownership_explanation: "Je bent zelf de eigenaar van je eigen foto's. Dus waarom zou je dat opgeven om ze met iemand te delen? Op Diaspora behoud je het eigendom over alles wat jij met anderen deelt, waardoor je volledige controle hebt over de distributie ervan."
+      share_what_you_want: "Deel wat je wilt delen, met degenen waarmee je het wilt delen."
+      simplicity: "Eenvoud"
+      simplicity_explanation: "Diaspora maakt delen helder en simpel – vooral als het om privacy gaat. Je hoeft namelijk niet eindeloos door pagina's met instellingen en opties te klikken om je profiel veilig en afgeschermd te houden."
   invitations: 
     check_token: 
       not_found: "Uitnodigingstoken niet gevonden"
@@ -97,21 +112,24 @@ nl:
       already_contacts: "Je bent al bevriend met deze persoon"
       already_sent: "Je hebt deze persoon al uitgenodigd."
       no_more: "Je hebt geen uitnodigingen meer."
-      sent: "Je uitnodiging is verzonden."
+      rejected: "De volgende e-mailadressen gaven problemen: "
+      sent: "Uitnodigingen zijn verzonden aan:"
+    edit: 
+      sign_up: "registreer"
     new: 
-      if_they_accept_info: "als hij/zij accepteert word hij of zij toegevoegd aan het aspect waarvoor je hem/haar uitnodigde"
+      comma_seperated_plz: "Je kunt meerdere e-mailadressen invullen, gescheiden door komma's."
+      if_they_accept_info: "als hij of zij accepteert word hij/zij toegevoegd aan het aspect waarvoor je hem of haar uitnodigde"
       invite_someone_to_join: "Nodig iemand uit om lid te worden op Diaspora!"
       message: "Bericht:"
       send_an_invitation: "Stuur een uitnodiging"
       send_invitation: "Verstuur uitnodiging"
-      to: Aan
+      to: "Aan"
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
     header: 
       account_settings: "account instellingen"
-      blog: blog
-      developers: ontwikkelaars
+      blog: "blog"
       edit_profile: "bewerk profiel"
       login: "log in"
       logout: "log uit"
@@ -127,18 +145,18 @@ nl:
       try_it_out: "Overweeg eens een kijkje te nemen."
     request_accepted: 
       accepted: "heeft je vriendenverzoek geaccepteerd. Hij/zij staat nu in je"
-      aspect: aspect.
+      aspect: "aspect."
       subject: "%{name} heeft je vriendenverzoek geaccepteerd op Diaspora*"
-  ok: OK
-  or: of
-  password: Wachtwoord
+  ok: "OK"
+  or: "of"
+  password: "Wachtwoord"
   password_confirmation: "Wachtwoord bevestiging"
   people: 
     edit: 
-      allow_search: "Sta toe door anderen gevonden te kunnen worden"
-      first_name: Voornaam
+      allow_search: "Sta toe door anderen gevonden te kunnen worden binnen Diaspora"
+      first_name: "Voornaam"
       info_available_to: "Deze informatie is beschikbaar voor al je contacten op Diaspora."
-      last_name: Achternaam
+      last_name: "Achternaam"
       update_profile: "Update profiel"
       your_bio: "Jou bio"
       your_birthday: "Je verjaardag"
@@ -159,13 +177,14 @@ nl:
     profile_photo_upload: 
       or_select_one: "of kies een van je reeds bestaande"
     profile_sidebar: 
-      bio: bio
-      born: geboren
+      bio: "bio"
+      born: "geboren"
+      cannot_remove: "Kan %{name} niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
       edit_my_profile: "Bewerk mijn profiel"
-      gender: geslacht
+      gender: "geslacht"
       in_aspects: "in de aspecten"
-      last_seen: "laatst gezien: %{how_long_ago}"
       remove_contact: "verwijder contact"
+      remove_from: "Verwijder %{name} uit %{aspect}?"
     show: 
       already_requested: "Je hebt al een verzoek gestuurd aan %{name}."
       does_not_exist: "Die persoon bestaat niet!"
@@ -183,33 +202,29 @@ nl:
     destroy: 
       notice: "Foto verwijderd."
     edit: 
-      editing: Veranderen
+      editing: "Veranderen"
     new: 
       back_to_list: "Terug naar de lijst"
       new_photo: "Nieuwe Foto"
       post_it: "post het!"
     new_photo: 
-      drop: "Sleep foto's hier om te uploaden"
       empty: "{file} is leeg, selecteer de bestanden opnieuw zonder deze."
-      failed: Mislukt
       invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegestaan."
       size_error: "{file} is te groot, de maximale bestandsgrootte is {sizeLimit}."
-      upload: "Upload een foto"
     photo: 
       view_all: "bekijk al %{name}'s foto's"
     show: 
-      add_a_description: "Voeg een beschrijving toe"
       delete_photo: "Verwijder Foto"
-      edit_photo: "Verander Foto"
-      full_size: "volledige grootte"
+      edit: "bewerk"
+      edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
       make_profile_photo: "kies als profielfoto"
-      next: volgende
-      prev: vorige
+      original_post: "Originele post"
       update_photo: "Update foto"
+      view: "bekijk"
     update: 
       error: "Foto veranderen niet gelukt."
       notice: "Foto succelvol veranderd."
-  profile: Profiel
+  profile: "Profiel"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
     create: 
@@ -219,29 +234,25 @@ nl:
       edit: "Bewerk %{name}"
       leave_blank: "(Leeg laten als je niets wilt wijzigen)"
       password_to_confirm: "(we hebben je huidige wachtwoord nodig om de wijzigingen te bevestigen)"
-      unhappy: Ontevreden?
-      update: Update
+      unhappy: "Ontevreden?"
+      update: "Update"
     new: 
-      sign_up: Registeren
+      sign_up: "Registeren"
       sign_up_for_diaspora: "Registreer op Diaspora"
   requests: 
     create: 
-      sending: Versturen...
+      sending: "Versturen..."
       sent: "Je hebt gevraagd om te delen met %{name}.  Hij of zij zou het moeten zien bij de eerstvolgende log in op Diaspora."
-      tried: "we hebben ons best gedaan een bericht te versturen aan %{account}"
     destroy: 
       error: "Selecteer een aspect!"
       ignore: "Vriendenverzoek genegeerd."
       success: "Jullie zijn nu vrienden."
     manage_aspect_contacts: 
-      contact_username: "Gebruikersnaam van contact"
-      create_request: "Doe verzoek"
-      enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"
       existing: "Bestaande contacten"
-      know_email: "Weet je zijn of haar e-mailadres? Nodig hem/haar dan uit"
       manage_within: "Beheer contacten in"
-      your_diaspora_username_is: "Jouw Diaspora gebruikersnaam is: %{diaspora_handle}"
-  search: Zoek
+    new_request_to_person: 
+      sent: "verzonden!"
+  search: "Zoek"
   services: 
     create: 
       success: "Authenticatie succesvol."
@@ -253,48 +264,55 @@ nl:
       disconnect: "koppel los"
       logged_in_as: "ingelogd als"
       really_disconnect: "verbreek verbinding met %{service}?"
-  settings: Instellingen
+  settings: "Instellingen"
   shared: 
+    add_contact: 
+      create_request: "Vind door middel van Diaspora handle"
+      diaspora_handle: "Diaspora handle"
+      enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"
+      know_email: "Weet je hun e-mailadressen? Nodig ze uit"
+      your_diaspora_username_is: "Jou Diaspora gebruikersnaam is: %{diaspora_handle}"
     aspect_contacts: 
-      add_contacts: "voeg contacten toe"
+      add_aspect: "voeg aspect toe"
+      add_existing: "Voeg een bestaande contact toe"
       add_to: "voeg toe aan %{aspect}"
-      everyone: Iedereen
-      manage: "beheer %{aspect}"
-    aspect_nav: 
-      add_a_new_aspect: "voeg een nieuw aspect toe"
-      everyone: Iedereen
-      manage: Beheer
-      manage_your_aspects: "Beheer je Aspecten"
-    author_info: 
-      all: alle
-      status_messages: "status berichten"
-      view_profile: "Bekijk profiel"
-      viewing: bekijken
+      all_contacts: "Alle contacten"
+      aspect_settings: "Aspect instellingen"
+      aspects: "Aspecten"
+      confirm_remove_aspect: "Aspect verwijderen?"
+      contacts: "contacten"
+      done_editing: "klaar met bewerken"
+      invites: "Uitnodigingen"
+      new_request: "%{count} nieuw verzoek!"
+      new_requests: "%{count} nieuwe verzoeken!"
+      no_contacts: "Momenteel heb je nog geen contacten. Vind je contacten hier."
+      remove_aspect: "Verwijder Aspect"
     contact_list: 
-      add_to: "Voeg %{name} toe aan %{aspect}"
-      remove_from: "Verwijder %{name} van %{aspect}"
+      cannot_remove: "Kan persoon niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
       search_contacts: "Zoek contacten"
     invitations: 
+      dont_have_now: "Momenteel heb je er geen maar meer uitnodigingen volgen spoedig!"
       invitations_left: "(%{count} over)"
       invite_someone: "Nodig iemand uit"
-      invites: Uitnodigingen
     notification: 
       new: "Nieuw %{type} van %{from}"
     public_explain: 
       logged_in: "verbonden met %{service}"
       manage: "beheer verbonden services"
-      outside: "Publieke berichten zijn zichtbaar voor mensen buiten Diaspora."
+      outside: "Openbare berichten zijn zichtbaar voor mensen buiten Diaspora."
       title: "Je staat op het punt om een openbaar bericht te plaatsen!"
     publisher: 
-      all: alle
+      add_photos: "voeg foto's toe"
+      all: "alle"
+      all_contacts: "alle contacten"
       make_public: "maak openbaar"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
-      posting: Plaatsen...
-      share: Delen
+      posting: "Plaatsen..."
+      share: "Delen"
       share_with: "Deel met %{aspect}"
-      share_with_all: "Deel met alle aspecten"
+      share_with_all: "Deel met alle je aspecten"
     reshare: 
-      reshare: Herdeel
+      reshare: "Herdeel"
     stream_element: 
       show_comments: "toon reacties"
   status_messages: 
@@ -304,9 +322,9 @@ nl:
       oh_yeah: "oh ja!"
       tell_me_something_good: "vertel me iets leuks"
     show: 
-      destroy: Verwijderen
+      destroy: "Verwijderen"
   the_world: "de wereld"
-  username: Gebruikersnaam
+  username: "Gebruikersnaam"
   users: 
     destroy: "Account succesvol verwijderd."
     edit: 
@@ -316,35 +334,33 @@ nl:
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
       export_data: "Exporteer data"
-      invite_contacts: "Nodig contacten uit"
       new_password: "Nieuw wachtwoord"
+      your_email: "Jou e-mail"
+      your_handle: "Jou Diaspora handle"
     getting_started: 
-      connect_services: "Verbind met jou services"
+      connect_services: "Verbind met je andere services"
       define_aspects: "Definieer je aspecten"
       edit_profile: "Bewerk je profiel"
+      finished: "Klaar!"
       save_and_continue: "Sla op en ga verder"
-      signup_steps: "Voltooi je aanmelding door middel van de volgende stappen:"
+      signup_steps: "Voltooi je aanmelding door middel van de volgende drie stappen:"
       skip: "sla 'getting started' over"
-      step_1: 
-        your_profile: "Jou profiel"
       step_2: 
         add: "Voeg toe"
         aspect_name: "Aspect naam"
-        description: "Laat Diaspora weten welke verschillende aspecten verschillende mensen van jou zien. Je kunt deze later veranderen door op de beheer tab rechtsboven te klikken. Aspecten zijn uniek voor jou en niet zichtbaar voor anderen."
+        description: "Laat Diaspora weten welke verschillende aspecten verschillende mensen van jou zien. Je kunt deze later veranderen door middel van je accountmenu rechtsboven. Aspecten zijn uniek voor jou en niet zichtbaar voor anderen."
         your_aspects: "Jouw aspecten"
       step_3: 
-        description: "Verbind je bestaande sociale netwerken met je Diaspora account. Je kunt publieke berichten plaatsen via je Iedereen tab wanneer je klikt op \"public.\""
+        description: "Je kunt je bestaande sociale netwerken verbinden met je Diaspora account. Je kan via je Home pagina openbare berichten plaatsen door 'maak openbaar' aan te vinken."
         your_services: "Jou services"
       step_4: 
-        change_profile: "Je kunt je profiel ieder moment veranderen door te klikken op"
-        connect_disconnect: "Je kunt je services ieder moment verbinden/loskoppelen door te klikken op"
-        continue: "Ga door naar je iedereen pagina, een overzicht van al je aspecten."
-        finish: Voltooi
-        manage_aspects: "Je kunt je aspecten ieder moment beheren door te klikken op de"
+        change_profile: "Je kunt ieder moment je profiel bewerken en je verbonden services beheren door te klikken op"
+        continue: "Ga door naar je Home pagina, een overzicht van al je aspecten."
+        finish: "Voltooi"
+        manage_aspects: "Je kunt ook contacten toevoegen vanaf iedere willekeurige aspect pagina."
         ready_to_share: "Je bent nu klaar om te beginnen met delen met "
         set_up: "Je bent er helemaal klaar voor, %{name}!"
-        tab_also_added: "tab. Je contacten kunnen ook toegevoegd worden vanaf een specifieke aspect pagina."
-        user_menu: "in je gebruikersmenu (rechtsboven)."
+        user_menu: "het gebruikersmenu rechtsboven."
       welcome: "Welkom op Diaspora!"
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"

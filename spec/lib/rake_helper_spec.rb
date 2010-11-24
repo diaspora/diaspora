@@ -27,13 +27,13 @@ describe RakeHelpers do
       Devise.mailer.deliveries.count.should == 3
     end
 
-    it 'should make a user with 5 invites' do
+    it 'should make a user with 10 invites' do
       User.count.should == 0
 
       process_emails(@csv, 1, 1)
       
       User.count.should == 1
-      User.first.invites.should == 5
+      User.first.invites.should == 10
     end
 
   end

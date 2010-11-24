@@ -66,12 +66,12 @@ eo:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Havas problemon? Trovu respondon ĉi tie"
-        login: Kontonomo
+        login: "Kontonomo"
         modern_browsers: "only supports modern browsers."
-        password: Pasvorto
+        password: "Pasvorto"
         remember_me: "Memoru min"
-        sign_in: Ensaluti
-        username: Kontonomo
+        sign_in: "Ensaluti"
+        username: "Kontonomo"
       signed_in: "Sukcese ensalutis."
       signed_out: "Sukcese elsalutis."
     shared: 
@@ -79,8 +79,9 @@ eo:
         forgot_your_password: "Forgesis vian pasvorton?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: Ensaluti
+        sign_in: "Ensaluti"
         sign_up: "Sign up"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

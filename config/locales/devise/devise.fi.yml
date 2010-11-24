@@ -48,7 +48,7 @@ fi:
         click_to_unlock: "Click the link below to unlock your account:"
         subject: "Unlock Instructions"
         unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+      welcome: "Tervetuloa %{email}!"
     passwords: 
       edit: 
         change_password: "Change my password"
@@ -66,12 +66,12 @@ fi:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Have a problem? Find an answer here"
-        login: Login
+        login: "Kirjautuminen"
         modern_browsers: "only supports modern browsers."
-        password: Password
+        password: "Salasana"
         remember_me: "Remember me"
         sign_in: "Sign in"
-        username: Username
+        username: "Käyttäjänimi"
       signed_in: "Sisäänkirjautuminen onnistui."
       signed_out: "Uloskirjautuminen onnistui."
     shared: 
@@ -81,6 +81,7 @@ fi:
         receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Sign in"
         sign_up: "Sign up"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

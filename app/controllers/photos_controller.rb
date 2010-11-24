@@ -20,8 +20,6 @@ class PhotosController < ApplicationController
 
       if @contact
         @aspects_with_person = @contact.aspects
-      else
-        @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
       end
 
       @posts = current_user.raw_visible_posts.all(:_type => 'Photo', :person_id => @person.id, :order => 'created_at DESC').paginate :page => params[:page], :order => 'created_at DESC'

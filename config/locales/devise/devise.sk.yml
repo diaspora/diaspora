@@ -68,9 +68,9 @@ sk:
         have_a_problem: "Máte problém? Tu nájdete odpoveď"
         login: "Prihlasovacie meno"
         modern_browsers: "only supports modern browsers."
-        password: Heslo
+        password: "Heslo"
         remember_me: "Zapamätať si ma"
-        sign_in: Prihlásiť
+        sign_in: "Prihlásiť"
         username: "Meno používateľa"
       signed_in: "Prihlásenie prebehlo úspešne."
       signed_out: "Odhlásenie prebehlo úspešne."
@@ -79,8 +79,9 @@ sk:
         forgot_your_password: "Zabudli ste heslo?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: Prihlásiť
-        sign_up: Zaregistrovať
+        sign_in: "Prihlásiť"
+        sign_up: "Zaregistrovať"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"
@@ -89,5 +90,5 @@ sk:
   errors: 
     messages: 
       already_confirmed: "už bolo potvrdené"
-      not_found: nenájdené
+      not_found: "nenájdené"
       not_locked: "nebolo zamknuté"

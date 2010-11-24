@@ -68,19 +68,20 @@ ru:
         have_a_problem: "Столкнулись с проблемой? Попробуйте найти ответ здесь"
         login: "E-mail или логин"
         modern_browsers: "поддерживает только современные браузеры."
-        password: Пароль
+        password: "Пароль"
         remember_me: "Запомнить меня"
-        sign_in: Войти
+        sign_in: "Войти"
         username: "Имя пользователя"
-      signed_in: Вошли.
-      signed_out: Вышли.
+      signed_in: "Вошли."
+      signed_out: "Вышли."
     shared: 
       links: 
         forgot_your_password: "Забыли пароль?"
         receive_confirmation: "Не получили инструкцию по подтверждению?\n"
         receive_unlock: "Не получили инструкции по разблокированию ?\n"
-        sign_in: Войти
-        sign_up: Регистрация
+        sign_in: "Войти"
+        sign_up: "Регистрация"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Отправить повторно инструкцию по разблокированию"

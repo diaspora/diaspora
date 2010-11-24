@@ -24,7 +24,7 @@ lt:
               invalid: "negalioja"
             username: 
               taken: "užimtas"
-  ago: ago
+  ago: "prieš"
   application: 
     helper: 
       unknown_person: "nežinomas asmuo"
@@ -66,8 +66,6 @@ lt:
       invite: "Pakviesk į Diasporą!"
       nobody: "Žinome, kad pažįsti daug žmonių - pakviesk juos į Diasporą!"
       nobody_in_aspect: "Aspektas \"%{aspect_name}\" tuščias."
-
-
     no_posts_message: 
       start_talking: "Dar niekas nepasisakė. Pradėk pokalbį pats!"
     remove_from_aspect: 
