@@ -22,8 +22,10 @@ class InvitationsController < Devise::InvitationsController
       invited_users = emails.map { |e| current_user.invite_user(params[:user].merge({:email => e}))}
       good_users, rejected_users = invited_users.partition {|u| u.persisted? }
 
-      flash[:notice] = I18n.t('invitations.create.sent') + good_users.map{|x| x.email}.join(', ') 
-      flash[:error] = I18n.t('invitations.create.rejected') + rejected_users.map{|x| x.email}.join(', ')
+      flash[:notice] = I18n.t('invitations.create.sent') + good_users.map{|x| x.email}.join(', ')
+      if rejected_users.any?
+        flash[:error] = I18n.t('invitations.create.rejected') + rejected_users.map{|x| x.email}.join(', ')
+      end
     rescue RuntimeError => e
       if  e.message == "You have no invites"
         flash[:error] = I18n.t 'invitations.create.no_more'
