@@ -81,7 +81,7 @@ ru:
         receive_unlock: "Не получили инструкции по разблокированию ?\n"
         sign_in: "Войти"
         sign_up: "Регистрация"
-        sign_up_closed: "Open signups are closed at this time."
+        sign_up_closed: "Открытая регистрация на данный момент не доступна."
     unlocks: 
       new: 
         resend_unlock: "Отправить повторно инструкцию по разблокированию"

@@ -6,31 +6,31 @@
 pt-PT: 
   _comments: "Comments"
   _home: "Home"
-  _photos: "photos"
-  _services: "Services"
-  account: "Account"
+  _photos: "Fotografias"
+  _services: "Serviços"
+  account: "Conta"
   activemodel: 
     errors: 
       models: 
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken"
+              taken: "já existe"
         user: 
           attributes: 
             email: 
-              taken: "is already taken"
+              taken: "já existe"
             person: 
-              invalid: "is invalid"
+              invalid: "é inválida"
             username: 
-              taken: "is already taken"
-  ago: "ago"
+              taken: "já existe"
+  ago: "atrás"
   application: 
     helper: 
-      unknown_person: "unknown person"
+      unknown_person: "utilizador(a) desconhecido(a)"
       youtube_title: 
         unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "Tem a certeza?"
   aspects: 
     add_to_aspect: 
       failure: "Failed to add friend to aspect."
@@ -39,27 +39,27 @@ pt-PT:
       failure: "Aspect creation failed."
       success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     destroy: 
-      success: "%{name} was successfully removed."
+      success: "%{name} foi removido com sucesso."
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
-      aspect_not_empty: "Aspect not empty"
-      remove: "remove"
+      aspect_not_empty: "Perfil não está vazio"
+      remove: "remover"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
     manage: 
-      add_a_new_aspect: "Add a new aspect"
+      add_a_new_aspect: "Adicionar um novo perfil"
       add_a_new_contact: "Add a new contact"
       drag_to_add: "Drag to add people"
-      manage_aspects: "Manage aspects"
-      no_requests: "No new requests"
-      requests: "Requests"
+      manage_aspects: "Gerir perfil"
+      no_requests: "Não existem novos pedidos"
+      requests: "Pedidos"
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
     new_aspect: 
-      create: "Create"
-      name: "Name"
+      create: "Criar"
+      name: "Nome"
     no_contacts_message: 
       add_contact: "Add a contact"
       add_contact_to: "Add someone to %{aspect_name}"
@@ -102,7 +102,7 @@ pt-PT:
       login_here: "log in here"
       ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: "Share what you want, with who you want."
       simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations: 
@@ -150,47 +150,47 @@ pt-PT:
   ok: "OK"
   or: "or"
   password: "Password"
-  password_confirmation: "Password confirmation"
+  password_confirmation: "Confirme a sua password"
   people: 
     edit: 
       allow_search: "Allow for people to search for you"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      first_name: "Primeiro Nome"
+      info_available_to: "Esta informação ficará disponível para todos aqueles a que se ligar no Diaspora. "
+      last_name: "Último Nome"
+      update_profile: "Actualizar o Perfil"
+      your_bio: "Biografia"
+      your_birthday: "Aniversário"
+      your_gender: "Género"
+      your_name: "Nome"
+      your_photo: "Fotografia"
+      your_profile: "Perfil"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
-      results_for: "search results for"
+      results_for: "resultados de pesquisa para"
     person: 
       add_contact: "add contact"
       already_connected: "Already connected"
-      pending_request: "pending request"
-      thats_you: "thats you!"
+      pending_request: "pedido pendente"
+      thats_you: "És tu!"
     profile_photo_upload: 
-      or_select_one: "or select one from your already existing"
+      or_select_one: "ou escolhe um dos já existentes"
     profile_sidebar: 
       bio: "bio"
       born: "born"
       cannot_remove: "Cannot remove %{name} from last aspect."
-      edit_my_profile: "Edit my profile"
+      edit_my_profile: "Editar o meu perfil"
       gender: "gender"
       in_aspects: "in aspects"
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
-      already_requested: "You have already sent a request to %{name}."
-      does_not_exist: "Person does not exist!"
-      no_posts: "no posts to display!"
+      already_requested: "Já enviaste um pedido a %{name}."
+      does_not_exist: "Essa pessoa não existe ou não está cá. "
+      no_posts: "Não existem entradas para mostrar!"
       not_connected: "You are not connected with this person"
-      request_people: "If you'd like, you can request to place him/her in one of your aspects."
+      request_people: "Se quiseres podes pedir para ele/ela te colocar num dos teus perfis."
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -246,7 +246,7 @@ pt-PT:
     destroy: 
       error: "Please select an aspect!"
       ignore: "Ignored friend request."
-      success: "You are now friends."
+      success: "São agora amigos."
     manage_aspect_contacts: 
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
@@ -255,16 +255,16 @@ pt-PT:
   search: "Search"
   services: 
     create: 
-      success: "Authentication successful."
+      success: "Autenticação bem sucedida."
     destroy: 
-      success: "Successfully destroyed authentication."
+      success: "A autenticação foi destruída com sucesso."
     index: 
       connect_to_facebook: "Connect to facebook"
       connect_to_twitter: "Connect to twitter"
       disconnect: "disconnect"
       logged_in_as: "logged in as"
       really_disconnect: "disconnect %{service}?"
-  settings: "Settings"
+  settings: "Definições "
   shared: 
     add_contact: 
       create_request: "Find by Diaspora handle"
@@ -292,13 +292,13 @@ pt-PT:
       search_contacts: "Search contacts"
     invitations: 
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
-      invitations_left: "(%{count} left)"
+      invitations_left: "(faltam %{count})"
       invite_someone: "Invite someone"
     notification: 
       new: "New %{type} from %{from}"
     public_explain: 
-      logged_in: "logged in to %{service}"
-      manage: "manage connected services"
+      logged_in: "Logado em %{service}"
+      manage: "Gerir ligação a outros serviços"
       outside: "Public messages will be available for others outside of Diaspora to see."
       title: "You are about to post a public message!"
     publisher: 

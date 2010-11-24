@@ -78,13 +78,13 @@ de:
       links: 
         forgot_your_password: "Passwort vergessen?"
         receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
+        receive_unlock: "Hast du keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
         sign_up: "Registrieren"
-        sign_up_closed: "Open signups are closed at this time."
+        sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Entsperr-Anweisungen erneut senden"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto entsperren kannst."
       unlocked: "Dein Konto wurde erfolgreich entsperrt. Du bist nun angemeldet."
   errors: 
