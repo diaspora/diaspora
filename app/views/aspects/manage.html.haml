@@ -14,6 +14,9 @@
   %h3=t('.requests')
 
   .requests
+    %i
+      %p= "#{t('.drag_to_add')} =>"
+
     %ul.dropzone
       - if @remote_requests.size < 1
         %li=t('.no_requests')
