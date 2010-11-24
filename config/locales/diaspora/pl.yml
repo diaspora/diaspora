@@ -37,7 +37,7 @@ pl:
       success: "Dodane kontakt to aspektu."
     create: 
       failure: "Nie udało się stworzyć aspektu."
-      success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+      success: "Twój nowy aspekt, on nazwie %{name}, został stworzony"
     destroy: 
       success: "%{name} został usunięty."
     helper: 
@@ -45,7 +45,7 @@ pl:
       aspect_not_empty: "Aspekt nie jest pusty"
       remove: "usuń"
     index: 
-      handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
+      handle_explanation: "To jest twoja nazwa użytkownika w Diaspora. Możesz podawać ją lub swój email ludziom którzy chcą Cie dodać."
     manage: 
       add_a_new_aspect: "Dodaj nowy aspekt"
       add_a_new_contact: "Dodaj nowy kontakt"
@@ -55,7 +55,7 @@ pl:
       requests: "Zaproszenia"
     move_contact: 
       error: "Błąd przy przenoszeniu kontaktu: %{inspect}"
-      failure: "didn't work %{inspect}"
+      failure: "nie zadziałało %{inspect}"
       success: "Osoba przeniesiona do nowego aspektu"
     new_aspect: 
       create: "Stwórz"
@@ -153,9 +153,9 @@ pl:
   password_confirmation: "Potwierdź hasło"
   people: 
     edit: 
-      allow_search: "Allow for people to search for you"
+      allow_search: "Zezwól na wyszukiwanie twojego profilu wewnątrz Diaspora"
       first_name: "Imię"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      info_available_to: "Ta informacja będzie dostępna dla każdego kto połączy się z tobą na Diaspora."
       last_name: "Nazwisko"
       update_profile: "Aktualizuj Profil"
       your_bio: "Notka biograficzna"
@@ -165,8 +165,8 @@ pl:
       your_photo: "Twoje zdjęcie"
       your_profile: "Twój profil"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      people_on_pod_are_aware_of: " osoby na podzie wiedzą, że"
+      results_for: " wyniki dla for %{params}"
     index: 
       results_for: "wyniki wyszukiwania dla"
     person: 
@@ -242,7 +242,7 @@ pl:
   requests: 
     create: 
       sending: "Wysyłanie"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "Chcesz się podzielić z %{name}. Ta osoba powinna to zobaczyć następnym razem gdy zaloguje się do Diaspory."
     destroy: 
       error: "Proszę wybierz aspekt!"
       ignore: "Zignorowano zaproszenie do znajomych."
@@ -354,13 +354,13 @@ pl:
         description: "Połącz się z social networks, których już używasz. Będziesz wstanie publikować publicznie używając twojego panelu Wszyscy kiedy wybierzesz \"publiczne.\""
         your_services: "Twoje usługi"
       step_4: 
-        change_profile: "You can change your profile any time by clicking"
-        continue: "Continue on to your everyone page, an overview of all of your aspects."
+        change_profile: "Możesz zmienić swój profil i zarządzać swoimi usługami w każdej chwili poprzez"
+        continue: "Przejdź do swojej Strony domowej, na której pokazane są wszystkie aspekty. "
         finish: "Zakończ"
-        manage_aspects: "You can manage your aspects any time by clicking the"
+        manage_aspects: "Możesz również dodawać kontakty będąc na stronie któregokolwiek z aspektów"
         ready_to_share: "Możesz teraz zacząć dzielić się z"
         set_up: "Wszystko gotowe, %{name}!"
-        user_menu: "in your user menu (top right)."
+        user_menu: "menu użytkownika, znajdującego się w prawym górnym rogu."
       welcome: "Witaj w Diaspora!"
     public: 
       does_not_exist: "Użytkownik %{username} nie istnieje!"

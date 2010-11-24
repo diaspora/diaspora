@@ -237,25 +237,25 @@ sk:
       unhappy: "Unhappy?"
       update: "Update"
     new: 
-      sign_up: "Sign up"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      sign_up: "Zaregistruj sa"
+      sign_up_for_diaspora: "Pridaj sa k Diaspóre"
   requests: 
     create: 
       sending: "Sending..."
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
-      error: "Please select an aspect!"
-      ignore: "Ignored contact request."
-      success: "You are now friends."
+      error: "Vyberte aspekt prosím!"
+      ignore: "Ignorovať žiadosť."
+      success: "Teraz ste priatelia."
     manage_aspect_contacts: 
-      existing: "Existing contacts"
+      existing: "Existujúce kontakty"
       manage_within: "Manage contacts within"
     new_request_to_person: 
       sent: "sent!"
   search: "Search"
   services: 
     create: 
-      success: "Authentication successful."
+      success: "Autentifikácia prebehla úspešne."
     destroy: 
       success: "Successfully destroyed authentication."
     index: 
@@ -275,7 +275,7 @@ sk:
     aspect_contacts: 
       add_aspect: "add aspect"
       add_existing: "Add an existing contact"
-      add_to: "add to %{aspect}"
+      add_to: "Pridať k %{aspect}"
       all_contacts: "All contacts"
       aspect_settings: "Aspect settings"
       aspects: "Aspects"
@@ -295,24 +295,24 @@ sk:
       invitations_left: "(%{count} ostáva)"
       invite_someone: "Pozvať niekoho"
     notification: 
-      new: "New %{type} from %{from}"
+      new: "Nový %{type} od %{from}"
     public_explain: 
-      logged_in: "logged in to %{service}"
+      logged_in: "Prihlásenie k %{service}"
       manage: "manage connected services"
-      outside: "Public messages will be available for others outside of Diaspora to see."
+      outside: "Verejnú správu môžu vidieť aj užívatelia mimo Diaspóry."
       title: "You are about to post a public message!"
     publisher: 
       add_photos: "add photos"
-      all: "all"
+      all: "všetko"
       all_contacts: "all contacts"
-      make_public: "make public"
+      make_public: "Zverejniť"
       post_a_message_to: "Poslať správu na aspekt %{aspect}"
-      posting: "Posting..."
-      share: "Share"
+      posting: "Posielam..."
+      share: "Zdieľať"
       share_with: "Zdieľať s aspektom %{aspect}"
       share_with_all: "Share with all aspects"
     reshare: 
-      reshare: "Reshare"
+      reshare: "Znovu zdieľať"
     stream_element: 
       show_comments: "Zobraziť komentáre"
   status_messages: 
@@ -323,7 +323,7 @@ sk:
       tell_me_something_good: "Povedz niečo dobré"
     show: 
       destroy: "Zničiť"
-  the_world: "the world"
+  the_world: "svet"
   username: "Užívateľské meno"
   users: 
     destroy: "Account successfully closed."

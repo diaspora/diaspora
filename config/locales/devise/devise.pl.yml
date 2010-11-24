@@ -8,7 +8,7 @@ pl:
     confirmations: 
       confirmed: "Twoje konto zostało aktywowane, zostałeś zalogowany."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Prześlij instrukcje aktywacji ponownie"
       send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcje dotyczące aktywacji konta."
     failure: 
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
@@ -19,7 +19,7 @@ pl:
       unauthenticated: "By kontynuować musisz się zalogować lub zarejestrować."
       unconfirmed: "Musisz aktywować swoje konto."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
+      invitation_token_invalid: "Podany klucz zaproszenia jest niepoprawny!"
       send_instructions: "Twoje zaproszenie zostało wysłane."
       updated: "Hasło zostało pomyślnie zmienione. Logowanie zakończone."
     mailer: 
@@ -54,7 +54,7 @@ pl:
         change_password: "Zmień hasło"
       new: 
         forgot_password: "Nie pamiętasz hasła?"
-        send_password_instructions: "Send me reset password instructions"
+        send_password_instructions: "Wyślij instrukcję resetowania hasła"
       send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcjie dotyczące zresetowania hasła."
       updated: "Twoje hasło zostało zmienione, zostałeś zalogowany."
     registrations: 
@@ -63,8 +63,8 @@ pl:
       updated: "Pomyślnie zaktualizowano informacje o Twoim koncie."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Pamiętaj, że będziesz używać programu we wczesnym stadium rozwoju (alpha)."
+        bugs_and_feedback: "Bądź świadom/a, że doświadczysz błędów. Zachęcam do korzystania z przycisku \"Feedback\" po prawej stronie twojej przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da aby rozwiązać wszelkie kłopoty jakie zgłaszacie."
         have_a_problem: "Jakiś kłopot? Znajdź odpowiedź tu"
         login: "Login"
         modern_browsers: "wspiera wyłącznie nowoczesne przeglądarki."
@@ -77,11 +77,11 @@ pl:
     shared: 
       links: 
         forgot_your_password: "Nie pamiętasz hasła?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
+        receive_confirmation: "Nie otrzymałeś/aś instrukcji aktywacji?"
+        receive_unlock: "Nie otrzymałeś/aś instrukcji odblokowania?"
         sign_in: "Zaloguj się"
         sign_up: "Zarejestruj się"
-        sign_up_closed: "Open signups are closed at this time."
+        sign_up_closed: "Otwarta rejestracja jest zamknięta w tym momencie."
     unlocks: 
       new: 
         resend_unlock: "Wyślij ponownie instrukcję odblokowywania"
