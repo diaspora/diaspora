@@ -41,9 +41,8 @@ class InvitationsController < Devise::InvitationsController
   def update
     begin
       user = User.find_by_invitation_token(params[:user][:invitation_token])
-      user.accept_invitation!(params[:user])
       user.seed_aspects
-      user.save
+      user.accept_invitation!(params[:user])
     rescue MongoMapper::DocumentNotValid => e
       user = nil
       flash[:error] = e.message
