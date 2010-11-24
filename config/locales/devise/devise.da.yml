@@ -81,6 +81,7 @@ da:
         receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Log ind"
         sign_up: "Opret en profil"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

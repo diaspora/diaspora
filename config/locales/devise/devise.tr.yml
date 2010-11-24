@@ -81,6 +81,7 @@ tr:
         receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Giriş Yap"
         sign_up: "Üye Ol"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

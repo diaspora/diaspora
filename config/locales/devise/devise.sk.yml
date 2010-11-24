@@ -81,6 +81,7 @@ sk:
         receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Prihlásiť"
         sign_up: "Zaregistrovať"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

@@ -81,6 +81,7 @@ es:
         receive_unlock: "No has recibido las instrucciones de desbloqueo?"
         sign_in: "Ingresar"
         sign_up: "Regístrate"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Vuelva a enviar las instrucciones de desbloqueo"

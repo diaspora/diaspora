@@ -72,8 +72,8 @@ es:
       failure: "No se ha podido eliminar a la persona del perfil."
       success: "Persona eliminada del perfil con éxito"
     seed: 
-      family: "Family"
-      work: "Work"
+      family: "Familia"
+      work: "Trabajo"
     show: 
       contact: "contact"
       contacts: "contacts"
@@ -115,7 +115,7 @@ es:
       rejected: "The following email addresses had problems: "
       sent: "Tu invitación ha sido enviada."
     edit: 
-      sign_up: "sign_up"
+      sign_up: "conectarse"
     new: 
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
@@ -184,7 +184,7 @@ es:
       gender: "gender"
       in_aspects: "in aspects"
       remove_contact: "remover contacto"
-      remove_from: "Remove %{name} from %{aspect}?"
+      remove_from: "Eliminar a %{name} de %{aspect}?"
     show: 
       already_requested: "Usted ya ha enviado una solicitud a %{name}."
       does_not_exist: "El usuario no existe!"
@@ -251,7 +251,7 @@ es:
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "sent!"
+      sent: "enviado!"
   search: "Buscar"
   services: 
     create: 
@@ -273,20 +273,20 @@ es:
       know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
     aspect_contacts: 
-      add_aspect: "add aspect"
-      add_existing: "Add an existing contact"
+      add_aspect: "agregar aspecto"
+      add_existing: "Añadir un contacto existente"
       add_to: "añadir a %{aspect}"
       all_contacts: "All contacts"
-      aspect_settings: "Aspect settings"
-      aspects: "Aspects"
-      confirm_remove_aspect: "Remove aspect?"
-      contacts: "contacts"
-      done_editing: "done editing"
-      invites: "Invites"
-      new_request: "%{count} new request!"
-      new_requests: "%{count} new requests!"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
-      remove_aspect: "Remove Aspect"
+      aspect_settings: "Configuración de Aspecto"
+      aspects: "Aspectos"
+      confirm_remove_aspect: "Remover aspecto?"
+      contacts: "contactos"
+      done_editing: "editado"
+      invites: "Invitaciones"
+      new_request: "%{count} nueva petición!"
+      new_requests: "%{count} nuevas peticiones!"
+      no_contacts: "Actualmente no tienes contactos. Búscalos aquí."
+      remove_aspect: "Remover Aspecto"
     contact_list: 
       cannot_remove: "Cannot remove person from last aspect."
       search_contacts: "Search contacts"
@@ -302,9 +302,9 @@ es:
       outside: "Los mensajes públicos estarán disponibles para que otros usuarios de Diaspora los puedan ver."
       title: "Está a punto de publicar un mensaje!"
     publisher: 
-      add_photos: "add photos"
+      add_photos: "añadir fotografías"
       all: "todo"
-      all_contacts: "all contacts"
+      all_contacts: "todos los contactos"
       make_public: "hacer público"
       post_a_message_to: "Publicar un mensaje a %{aspect}"
       posting: "Posteando..."

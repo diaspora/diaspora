@@ -81,6 +81,7 @@ pl:
         receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Zaloguj się"
         sign_up: "Zarejestruj się"
+        sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 
         resend_unlock: "Wyślij ponownie instrukcję odblokowywania"

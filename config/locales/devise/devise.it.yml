@@ -81,6 +81,7 @@ it:
         receive_unlock: "Non hai ricevuto le istruzioni per lo sblocco?"
         sign_in: "Accedi"
         sign_up: "Registrati"
+        sign_up_closed: "Le iscrizioni pubbliche sono chiuse al momento."
     unlocks: 
       new: 
         resend_unlock: "Invia di nuovo le istruzioni per lo sblocco"
