@@ -11,3 +11,7 @@ export RAILS_ENV='development'
 
 # See thin -h for possible values.
 DEFAULT_THIN_ARGS="-p $THIN_PORT -e $RAILS_ENV"
+
+# Set to 'no' to disable server dry-run at first start
+# creating generated files in public/ folder.
+#INIT_PUBLIC='no'

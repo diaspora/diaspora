@@ -8,6 +8,25 @@ cd $( dirname $realpath)/..
 
 [ -e config/server.sh ] && source config/server.sh
 
+function init_public
+# Create all dynamically generated files in public/ folder
+{
+    bundle exec thin \
+         -d --pid log/thin.pid --address localhost --port $THIN_PORT \
+         start
+    for ((i = 0; i < 20; i += 1)) do
+        sleep 2
+        wget -q -O tmp/server.html http://localhost:$THIN_PORT && \
+            rm tmp/server.html && break
+    done
+    bundle exec thin --pid log/thin.pid stop
+    if [ -e tmp/server.html ]; then
+        echo "Cannot get index.html from web server (aborted)" >&2
+        return 2
+    fi
+    bundle exec jammit
+}
+
 # Scan for -p, find out what port thin is about to use.
 args="$DEFAULT_THIN_ARGS $@"
 prev_arg=''
@@ -49,8 +68,11 @@ if [ ! -e public/source.tar.gz ]; then
 fi
 
 # Precache jammit assets
-if [ -w public ]; then
-    bundle exec jammit
+if [[ -w public  && ! -e public/stylesheets/application.css ]]; then
+    if [ "$INIT_PUBLIC" != 'no' ]; then
+        echo "Making first-time server initialization."
+        init_public
+    fi
 fi
 if [ ! -e 'public/assets/main.js.gz' ]; then
     echo 'Jammit precache error (now or at install)' >&2
