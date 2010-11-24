@@ -29,6 +29,9 @@
     base.init = function () {
       // Merge supplied options with default options
       base.options = $.extend({}, $.InFieldLabels.defaultOptions, options);
+      
+      // Add the in field labels class
+      base.$label.attr("class", "infield");
 
       // Check if the field is already filled in
       if (base.$field.val() !== "") {
