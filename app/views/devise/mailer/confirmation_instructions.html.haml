@@ -47,5 +47,5 @@
     #container
       %p
         = t('devise.mailer.welcome', :email => @resource.email)
-      %p = t('.you_can_confirm')
+      %p= t('.you_can_confirm')
       %p= link_to t('.confirm'), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token), :class => "large_text"

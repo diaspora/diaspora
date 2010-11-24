@@ -47,6 +47,6 @@
     #container
       %p
         = t('devise.mailer.hello', :email => @resource.email)
-      %p = t('.account_locked')
-      %p = t('.click_to_unlock')
+      %p= t('.account_locked')
+      %p= t('.click_to_unlock')
       %p= link_to t('.unlock'), unlock_url(@resource, :unlock_token => @resource.unlock_token), :class => "large_text"
