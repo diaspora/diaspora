@@ -84,7 +84,7 @@ es:
   cancel: "Cancelar"
   comments: 
     new_comment: 
-      comment: "Comentario"
+      comment: "Comentar"
       commenting: "Comentando..."
   delete: "Borrar"
   email: "Correo electrónico"
@@ -96,15 +96,15 @@ es:
   home: 
     show: 
       already_account: "¿Todavía no dispones de una cuenta?"
-      choice: "Escoger"
-      choice_explanation: "Diaspora te permite organizar conexiones en grupos llamados Aspectos. Sólo en Diaspora, los aspectos aseguran que tus fotos, historias y bromas son compartidas sólo con la gente que tu quieras."
+      choice: "Elección"
+      choice_explanation: "Diaspora te permite organizar conexiones en grupos llamados Aspectos. En Diaspora, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
       learn_about_host: "Aprende acerca de cómo hostear tu propio servidor Diaspora."
       login_here: "Ingrese aquí"
       ownership: "Propiedad"
       ownership_explanation: "Eres dueño de tus imágenes, y nadie debería tener que cederlas sólo para compartirlas. Tú mantienes la propiedad sobre todo lo que compartas en Diaspora, dándote control total sobre lo que es distribuido."
       share_what_you_want: "Comparte lo que quieras, con quien quieras"
       simplicity: "Simplicidad"
-      simplicity_explanation: "Diaspora hace que compartir sea transparente y fácil - y esto va por privacidad también. Inherente mente privado, Diaspora no te hace caminar a través de configuraciones y opciones solo para mantener tu perfil seguro."
+      simplicity_explanation: "Diaspora hace que compartir sea transparente y fácil - y esto va por privacidad también. Inherentemente privado, Diaspora no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
   invitations: 
     check_token: 
       not_found: "Identificación de invitación no encontrada."
@@ -131,7 +131,7 @@ es:
       account_settings: "configurar cuenta"
       blog: "Blog"
       edit_profile: "editar perfil"
-      login: "ingresar"
+      login: "Ingresar"
       logout: "desconectarse"
       view_profile: "ver perfil"
   notifier: 
@@ -283,7 +283,7 @@ es:
       contacts: "contactos"
       done_editing: "editado"
       invites: "Invitaciones"
-      new_request: "%¡{count} nueva petición!"
+      new_request: "¡%{count} nueva petición!"
       new_requests: "%¡{count} nuevas peticiones!"
       no_contacts: "Actualmente no tienes contactos. Búscalos aquí."
       remove_aspect: "Eliminar aspecto"
@@ -331,8 +331,8 @@ es:
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
       close_account: "Cerrar cuenta"
-      download_photos: "descargar mis fotos"
-      download_xml: "descargar mi xml"
+      download_photos: "Descargar mis fotos"
+      download_xml: "Descargar mi xml"
       export_data: "Exportar datos"
       new_password: "Nueva contraseña"
       your_email: "Tu email"

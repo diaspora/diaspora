@@ -64,7 +64,7 @@ es:
     sessions: 
       new: 
         alpha_software: "Estás a punto de utilizar software en versión alfa."
-        bugs_and_feedback: "Ten en cuenta que puedes experimentar errores. ¡Te animamos a que utilices el botón de Informar situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema del que tú nos informes."
+        bugs_and_feedback: "Ten en cuenta que puedes experimentar errores. ¡Te animamos a que utilices el botón de Feedbak situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema del que tú nos informes."
         have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
         login: "Iniciar sesión"
         modern_browsers: "sólo es compatible con navegadores actuales."

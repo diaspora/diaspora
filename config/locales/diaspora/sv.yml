@@ -45,7 +45,7 @@ sv:
       aspect_not_empty: "Sidan är inte tom"
       remove: "ta bort"
     index: 
-      handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är denna du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
+      handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
     manage: 
       add_a_new_aspect: "Lägg till en ny sida"
       add_a_new_contact: "Lägg till en ny kontakt"
@@ -90,21 +90,21 @@ sv:
   email: "E-post"
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: "Rätta följande fel och försök igen."
+      correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
       invalid_fields: "Ogiltiga uppgifter"
   fill_me_out: "Fyll i mig"
   home: 
     show: 
       already_account: "har du redan ett konto?"
-      choice: "Val"
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
-      learn_about_host: "Learn about how to host your own Diaspora server"
+      choice: "Valfrihet"
+      choice_explanation: "Diaspora låter dig dela in dina kontakter i grupper som kallas Sidor. Det unika med aspekter är att dina foton, meddelanden och skämt endast kan ses av de personer som du valt ska se meddelandet."
+      learn_about_host: "Lär dig hur du sätter upp en egen Diaspora server."
       login_here: "logga in här"
-      ownership: "Ägarskap"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
+      ownership: "Ägandeskap"
+      ownership_explanation: "Du äger dina bilder, och du ska inte behöva frångå det när vill dela med dig av dem. Du behåller äganderätten till allt du delar med dig av på Diaspora, vilket ger dig full kontroll över hur det distribueras."
       share_what_you_want: "Dela vad du vill, med vem du vill."
-      simplicity: "Enkelhel"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
+      simplicity: "Enkelhet"
+      simplicity_explanation: "Diaspora gör det lätt att att dela meddelanden och bilder med rätt personer. Lika lätt är det att behålla den personliga integriteten, med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
   invitations: 
     check_token: 
       not_found: "Inbjudan inte funnen"
@@ -119,7 +119,7 @@ sv:
     new: 
       comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
       if_they_accept_info: "om de accepterar så kommer de att läggas till på den sida du valde"
-      invite_someone_to_join: "Bjud in en än till Diaspora!"
+      invite_someone_to_join: "Bjud in en vän till Diaspora!"
       message: "Meddelande:"
       send_an_invitation: "Skicka en inbjudan"
       send_invitation: "Skicka inbjudan"
@@ -144,7 +144,7 @@ sv:
       subject: "ny kontaktförfrågan från %{from}"
       try_it_out: "Du borde verkligen överväga att kolla upp detta."
     request_accepted: 
-      accepted: "har accepterat din kontaktförfrågan. Denne finns nu på "
+      accepted: "har accepterat din kontaktförfrågan. Personen finns nu på "
       aspect: "sidan."
       subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
   ok: "OK"
@@ -168,7 +168,7 @@ sv:
       people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
       results_for: " resultat för %{params}"
     index: 
-      results_for: "sökresultat för"
+      results_for: "Sökresultat för"
     person: 
       add_contact: "lägg till kontakt"
       already_connected: "Redan ansluten"
@@ -210,9 +210,9 @@ sv:
     new_photo: 
       empty: "{file} är tom, välj om filerna utan att välja denna."
       invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
-      size_error: "{file} är för stor, maximal filstorlek är {sizeLimit}."
+      size_error: "{file} är för stor, maximal tillåten filstorlek är {sizeLimit}."
     photo: 
-      view_all: "visa alla foton %{name} laddat upp"
+      view_all: "visa alla foton som %{name} laddat upp"
     show: 
       delete_photo: "Ta bort foto"
       edit: "ändra"
@@ -338,7 +338,7 @@ sv:
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 
-      connect_services: "Anslut dina andra tjänster"
+      connect_services: "Anslut till andra tjänster"
       define_aspects: "Välj dina sidor"
       edit_profile: "Ändra din profil"
       finished: "Slutfört!"
