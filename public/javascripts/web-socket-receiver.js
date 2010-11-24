@@ -4,7 +4,7 @@ var WebSocketReceiver = {
 
     //Attach onmessage to websocket
     ws.onmessage = WSR.onMessage;
-    ws.onclose = function() { debug("socket closed"); };
+    ws.onclose = function() { WSR.debug("socket closed"); };
     ws.onopen = function() {
       ws.send(location.pathname);
       WSR.debug("connected...");
