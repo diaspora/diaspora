@@ -1,0 +1,371 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+mk: 
+  _comments: "Коментари"
+  _home: "Дома"
+  _photos: "фотографии"
+  _services: "Сервиси"
+  account: "Корисничка сметка"
+  activemodel: 
+    errors: 
+      models: 
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "веќе е заземено"
+        user: 
+          attributes: 
+            email: 
+              taken: "веќе е заземено"
+            person: 
+              invalid: "не е валидно"
+            username: 
+              taken: "веќе е заземено"
+  ago: "пред"
+  application: 
+    helper: 
+      unknown_person: "непозната личност"
+      youtube_title: 
+        unknown: "Непознато име на видео"
+  are_you_sure: "Дали сте сигурни?"
+  aspects: 
+    add_to_aspect: 
+      failure: "Неуспешно додавање на контактот во аспект."
+      success: "Успешно додаден контактот во аспект."
+    create: 
+      failure: "Неуспешно креирање на аспект."
+      success: "Вашиот нов аспект %{name} е креиран"
+    destroy: 
+      success: "%{name} е отстранет успешно."
+    helper: 
+      are_you_sure: "Дали сигурно сакате да го отстраните овој аспект?"
+      aspect_not_empty: "Аспектот не е празен"
+      remove: "одстрани"
+    index: 
+      handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
+    manage: 
+      add_a_new_aspect: "Додај нов аспект"
+      add_a_new_contact: "Додај нов контакт"
+      drag_to_add: "Влечи за да додадеш луѓе"
+      manage_aspects: "Менаџирај аспекти"
+      no_requests: "Нема нови барања"
+      requests: "Барања"
+    move_contact: 
+      error: "Грешка при преместувањето на контактот: %{inspect}"
+      failure: "не проработи %{inspect}"
+      success: "Личноста е преместена во нов аспект"
+    new_aspect: 
+      create: "Креирај"
+      name: "Име"
+    no_contacts_message: 
+      add_contact: "Додај контакт"
+      add_contact_to: "Додај некој во %{aspect_name}"
+      invite: "Покани некој да се зачлени во Diaspora!"
+      nobody: "Донеси ги луѓето кои ти значат во Diaspora!"
+      nobody_in_aspect: "Вашиот аспект '%{aspect_name}' е празен."
+    no_posts_message: 
+      start_talking: "Никој досега нема кажано ништо. Започни го разговорот!"
+    remove_from_aspect: 
+      failure: "Неуспешно одстранување на личноста од аспектот."
+      success: "Успешно ја одстранивте личноста од аспектот."
+    seed: 
+      family: "Фамилија"
+      work: "Работа"
+    show: 
+      contact: "контакт"
+      contacts: "контакти"
+      edit_aspect: "уреди аспект"
+    update: 
+      success: "Вашиот аспект, %{name}, беше успешно уреден."
+  back: "Назад"
+  cancel: "Откажи"
+  comments: 
+    new_comment: 
+      comment: "Коментар"
+      commenting: "Коментирање..."
+  delete: "Избриши"
+  email: "Е-маил"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Поправете ги следниве грешки и обидете се повторно."
+      invalid_fields: "Невалидни полиња"
+  fill_me_out: "Пополни ме"
+  home: 
+    show: 
+      already_account: "веќе имате корисничка сметка?"
+      choice: "Избор"
+      choice_explanation: "Diaspora ви овозможува сортирање на вашите врски во групи наречени аспекти. Особеност на Diaspora, аспектите осигураат дека вашите слики, стории и шеги се споделени само со луѓето кои вие ќе ги назначите."
+      learn_about_host: "Научете како вие можете да хостирате Diaspora сервер."
+      login_here: "најави се овде"
+      ownership: "Сопственост"
+      ownership_explanation: "Вие ги поседувате вашите слики, и не треба да се откажете од нивната сопственост само за да ги споделите. Во Diaspora секоја содржина која ја споделувате останува во ваша сопственост, давајќи ви целосна контрола врз начинот на нејзиното ширење."
+      share_what_you_want: "Споделувајте се што сакате, со оние кои вие ги изберете."
+      simplicity: "Едноставност"
+      simplicity_explanation: "Diaspora овозможува споделување кое е чисто и едноставно - ова се однесува и за приватноста. Благодарение на вградената приватност, Diaspora не ве тера да пребарувате низ страници со подесувања и опции само за да си го заштитите профилот."
+  invitations: 
+    check_token: 
+      not_found: "Токенот за поканата не е пронајден"
+    create: 
+      already_contacts: "Веќе сте сврзани со оваа личност"
+      already_sent: "Веќе ја поканивте оваа личност."
+      no_more: "Немате повеќе покани."
+      rejected: "Следните е-маил адреси имаа проблем:"
+      sent: "Поканите беа испратени кон:"
+    edit: 
+      sign_up: "регистрирај_се"
+    new: 
+      comma_seperated_plz: "Можете да внесете повеќе е-маил адреси разделени со запирки."
+      if_they_accept_info: "ако прифатат, ќе бидат додадени во аспектот во кој сте ги поканиле."
+      invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
+      message: "Порака:"
+      send_an_invitation: "Испрати покана"
+      send_invitation: "Испрати покана"
+      to: "До"
+  layouts: 
+    application: 
+      powered_by: "POWERED BY DIASPORA*"
+    header: 
+      account_settings: "подесувања на корисничка сметка"
+      blog: "блог"
+      edit_profile: "уреди профил"
+      login: "најави се"
+      logout: "одјави се"
+      view_profile: "погледни профил"
+  notifier: 
+    diaspora: "diaspora е-маил робот"
+    hello: "Здраво %{name}!"
+    love: "со љубов,"
+    new_request: 
+      just_sent_you: "самошто ви испратив барање за контакт на Diaspora*"
+      sign_in: "најави се овде"
+      subject: "ново Diaspora* контакт барање од %{from}"
+      try_it_out: "Навистина треба да го проверите."
+    request_accepted: 
+      accepted: "го прифати вашето контакт барање. Сега се во вашиот"
+      aspect: "аспект."
+      subject: "%{name} го прифати вашето контакт барање на Diaspora*"
+  ok: "ОК"
+  or: "или"
+  password: "Лозинка"
+  password_confirmation: "Потврда на лозинка"
+  people: 
+    edit: 
+      allow_search: "Дозволи луѓето да можат да те најдат во Diaspora"
+      first_name: "Име"
+      info_available_to: "Овие информации ќе бидат достапни на сите со кои си поврзан во Diaspora."
+      last_name: "Презиме"
+      update_profile: "Ажурирај профил"
+      your_bio: "Ваша биографија"
+      your_birthday: "Роденден"
+      your_gender: "Пол"
+      your_name: "Име"
+      your_photo: "Ваша фотографија"
+      your_profile: "Вашиот профил"
+    helper: 
+      people_on_pod_are_aware_of: " достапните луѓе се запознаени со"
+      results_for: " резултати за %{params}"
+    index: 
+      results_for: "резултати од пребарување за"
+    person: 
+      add_contact: "додај контакт"
+      already_connected: "Веќе поврзани"
+      pending_request: "престоечко барање"
+      thats_you: "тоа си ти!"
+    profile_photo_upload: 
+      or_select_one: "или изберете некој од постоечките"
+    profile_sidebar: 
+      bio: "биографија"
+      born: "роденден"
+      cannot_remove: "Неможе да се одстрани %{name} од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
+      edit_my_profile: "Уреди го мојот профил"
+      gender: "пол"
+      in_aspects: "во аспекти"
+      remove_contact: "одстрани контакт"
+      remove_from: "Одстрани %{name} од %{aspect}?"
+    show: 
+      already_requested: "Веќе испративте барање кон %{name}."
+      does_not_exist: "Личноста не постои!"
+      no_posts: "нема пораки за прикажување!"
+      not_connected: "Не сте поврзани со оваа личност"
+      request_people: "Ако сакате, може да испратите барање до него/неа за приклучување кон вашиот аспект."
+    update: 
+      failed: "Неуспешно ажурирање на профил"
+      updated: "Профилот е ажуриран"
+  photos: 
+    create: 
+      integrity_error: "Прикачувањето на сликата беше неуспешно. Дали сте сигурни дека тоа беше слика?"
+      runtime_error: "Прикачувањето на сликата беше неуспешно. Дали сте сигурни дека вашиот ремен е прицврстен?"
+      type_error: "Прикачувањето на сликата е неуспешно. Дали сте сигурни дека сликата беше додадена?"
+    destroy: 
+      notice: "Сликата е избришана."
+    edit: 
+      editing: "Уредување"
+    new: 
+      back_to_list: "Назад кон листа"
+      new_photo: "Нова слика"
+      post_it: "објави!"
+    new_photo: 
+      empty: "{file} е празен, изберете датотеки без него."
+      invalid_ext: "{file} има невалидна екстензија. Само овие {extensions} се дозволени."
+      size_error: "{file} е премногу голема, максимална големина на датотека е {sizeLimit}."
+    photo: 
+      view_all: "погледни ги сите слики на %{name}"
+    show: 
+      delete_photo: "Избриши слика"
+      edit: "уреди"
+      edit_delete_photo: "Уреди опис на слика/избриши слика"
+      make_profile_photo: "направи ја профил слика"
+      original_post: "Изворна објава"
+      update_photo: "Ажурирај слика"
+      view: "поглед"
+    update: 
+      error: "Неуспешно уредување на слика."
+      notice: "Ажурирањето на сликата е успешно."
+  profile: "Профил"
+  registrations: 
+    closed: "Регистрирањето е затворено."
+    create: 
+      success: "Вие и се придруживте на Diaspora!"
+    edit: 
+      cancel_my_account: "Откажи ја мојата корисничка сметка"
+      edit: "Уреди %{name}"
+      leave_blank: "(оставете го празно ако не сакате да го измените)"
+      password_to_confirm: "(потребна е вашата тековна лозинка за потврдување на измените)"
+      unhappy: "Незадоволни?"
+      update: "Ажурирај"
+    new: 
+      sign_up: "Регистрирај се"
+      sign_up_for_diaspora: "Регистрирај се на Diaspora"
+  requests: 
+    create: 
+      sending: "Испраќање"
+      sent: "Побаравте да споделувате со %{name}. Треба да го видат тоа кога ќе се најават наредниот пат."
+    destroy: 
+      error: "Ве молиме изберете аспект!"
+      ignore: "Игнорирано контакт барање."
+      success: "Сега сте пријатели."
+    manage_aspect_contacts: 
+      existing: "Постоечки контакти"
+      manage_within: "Менаџирај контакти во"
+    new_request_to_person: 
+      sent: "испратено!"
+  search: "Барај"
+  services: 
+    create: 
+      success: "Автентификацијата е успешна!"
+    destroy: 
+      success: "Успешно уништена автентификација."
+    index: 
+      connect_to_facebook: "Конектирај се со facebook"
+      connect_to_twitter: "Конектирај се со twitter"
+      disconnect: "прекини"
+      logged_in_as: "најавен како"
+      really_disconnect: "прекини %{service}?"
+  settings: "Подесувања"
+  shared: 
+    add_contact: 
+      create_request: "Најди според Diaspora корисничко име"
+      diaspora_handle: "Diaspora корисничко име"
+      enter_a_diaspora_username: "Внеси Diaspora корисничко име:"
+      know_email: "Ја знаете нивната е-маил адреса? Поканете ги"
+      your_diaspora_username_is: "Вашето Diaspora корисничко име е: %{diaspora_handle}"
+    aspect_contacts: 
+      add_aspect: "додај аспект"
+      add_existing: "Додај постоечки контакт"
+      add_to: "додај во %{aspect}"
+      all_contacts: "Сите контакти"
+      aspect_settings: "Подесувања на аспект"
+      aspects: "Аспекти"
+      confirm_remove_aspect: "Одстрани аспект?"
+      contacts: "контакти"
+      done_editing: "заврши со уредување"
+      invites: "Покани"
+      new_request: "%{count} ново барање!"
+      new_requests: "%{count} нови барања!"
+      no_contacts: "Моментално немате контакти. Најдете ги вашите контакти овде."
+      remove_aspect: "Одстрани аспект"
+    contact_list: 
+      cannot_remove: "Неможе да се одстрани личноста од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
+      search_contacts: "Пребарувај контакти"
+    invitations: 
+      dont_have_now: "Моментално немате права, но повеќе покани ќе дојдат наскоро!"
+      invitations_left: "(%{count} лево)"
+      invite_someone: "Покани некој"
+    notification: 
+      new: "Нов %{type} од %{from}"
+    public_explain: 
+      logged_in: "најавен во %{service}"
+      manage: "менаџирај ги поврзаните сервиси"
+      outside: "Јавните пораки ќе бидат достапни за сите кои се надвор од Diaspora."
+      title: "На пат сте да испратите јавна порака!"
+    publisher: 
+      add_photos: "додај слики"
+      all: "сите"
+      all_contacts: "сите контакти"
+      make_public: "направи јавен"
+      post_a_message_to: "Додај порака во %{aspect}"
+      posting: "Објавување..."
+      share: "Сподели"
+      share_with: "Сподели со %{aspect}"
+      share_with_all: "сподели на сите ваши аспекти"
+    reshare: 
+      reshare: "Сподели повторно"
+    stream_element: 
+      show_comments: "покажи коментари"
+  status_messages: 
+    helper: 
+      no_message_to_display: "Нема пораки за прикажување."
+    new_status_message: 
+      oh_yeah: "о да!"
+      tell_me_something_good: "кажи ми нешто добро"
+    show: 
+      destroy: "Уништи"
+  the_world: "светот"
+  username: "Корисничко име"
+  users: 
+    destroy: "Корисничката сметка е успешно затворена."
+    edit: 
+      change_language: "Промени јазик"
+      change_password: "Промени лозинка"
+      close_account: "Затвори корисничка сметка"
+      download_photos: "симни ги моите слики"
+      download_xml: "симни го мојот xml"
+      export_data: "Изнеси податоци"
+      new_password: "Нова лозинка"
+      your_email: "Вашиот е-маил"
+      your_handle: "Вашето diaspora корисничко име"
+    getting_started: 
+      connect_services: "Поврзи се со другите ваши сервиси"
+      define_aspects: "Дефинирајте ги вашите аспекти"
+      edit_profile: "Уреди го вашиот профил"
+      finished: "Заврши!"
+      save_and_continue: "Зачувај и продолжи"
+      signup_steps: "Завршете ја вашата регистрација со комплетирање на следниве три чекори:"
+      skip: "прескокни ги почетните инструкции"
+      step_2: 
+        add: "Додај"
+        aspect_name: "Име на аспект"
+        description: "Кажи и на Diaspora кои различни аспекти можат да бидат видени од различни контакти. Овие можат да бидат менаџирани преку подесувањата за корисничката сметка во горниот десен агол. Вашите аспекти се единствени и не можат да бидат видени од некој друг."
+        your_aspects: "Ваши аспекти"
+      step_3: 
+        description: "Можете да ги поврзете вашите постоечки социјални мрежи со вашата Diaspora корисничка сметка. Ќе можете да објавувате јавно преку вашата Домашна страница ако изберете \"направи јавен\""
+        your_services: "Вашите сервиси"
+      step_4: 
+        change_profile: "Можете да го уредите вашиот профил и да ги менаџирате поврзаните сервиси во секое време преку"
+        continue: "Продолжете кон вашата Домашна страница, преглед на сите ваши аспекти."
+        finish: "Заврши"
+        manage_aspects: "Можете да додадете контакти на било која страница на аспект."
+        ready_to_share: "Сега може да почнете со споделување со"
+        set_up: "Се е подесено, %{name}!"
+        user_menu: "корисничкото мени лоцирано во горниот десен агол."
+      welcome: "Добредојдe на Diaspora!"
+    public: 
+      does_not_exist: "Корисникот %{username} не постои!"
+    update: 
+      language_changed: "Јазикот е променет"
+      language_not_changed: "Изменувањето на јазик е неуспешно"
+      password_changed: "Лозинката е променета"
+      password_not_changed: "Промената на лозинка е неуспешна"

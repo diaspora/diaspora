@@ -220,7 +220,7 @@ es:
       make_profile_photo: "convertir en foto de perfil"
       original_post: "Post original"
       update_photo: "Actualizar Foto"
-      view: "vista"
+      view: "ver"
     update: 
       error: "Falló la edición de la foto."
       notice: "Foto actualizada correctamente."

@@ -303,7 +303,7 @@ nl:
       title: "Je staat op het punt om een openbaar bericht te plaatsen!"
     publisher: 
       add_photos: "voeg foto's toe"
-      all: "alle"
+      all: "al"
       all_contacts: "alle contacten"
       make_public: "maak openbaar"
       post_a_message_to: "Plaats een bericht aan %{aspect}"

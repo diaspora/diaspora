@@ -1,0 +1,94 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+el: 
+  devise: 
+    confirmations: 
+      confirmed: "Η επιβεβαίωση του λογαριασμού σας ολοκληρώθηκε με επιτυχία. Έχετε πλέον συνδεθεί."
+      new: 
+        resend_confirmation: "Νέα αποστολή οδηγιών επιβεβαίωσης"
+      send_instructions: "Σε λίγα λεπτά θα λάβετε ένα email με οδηγίες για το πώς να επιβεβαιώσετε τον λογαριασμό σας."
+    failure: 
+      inactive: "Ο λογαριασμός σας δεν έχει ενεργοποιηθεί ακόμα."
+      invalid: "Άκυρο email ή κωδικός πρόσβασης."
+      invalid_token: "Άκυρο σύμβολο ταυτότητας."
+      locked: "Ο λογαριασμός σας είναι κλειδωμένος."
+      timeout: "Η σύνδεσή σας έληξε, παρακαλώ συνδεθείτε ξανά για να συνεχίσετε."
+      unauthenticated: "Θα πρέπει να συνδεθείτε ή να εγγραφείτε πριν συνεχίσετε."
+      unconfirmed: "Πρέπει να επιβεβαιώσετε τον λογαριασμό σας πριν συνεχίσετε."
+    invitations: 
+      invitation_token_invalid: "Το σύμβολο της πρόσκλησης δεν είναι έγκυρο!"
+      send_instructions: "Η πρόσκλησή σας έχει σταλεί."
+      updated: "Ο κωδικός πρόσβασής σας τέθηκε με επιτυχία. Είστε πλέον συνδεδεμένοι."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirm my account"
+        subject: "Confirmation instructions"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} σας προσκάλεσε να γίνετε μέλος του Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Ο λογαριασμός σας έχει κλειδωθεί λόγω υπερβολικού πλήθους ανεπιτυχών απόπειρων να συνδεθείτε."
+        click_to_unlock: "Κάντε κλικ στον παρακάτω σύνδεσμο για να ξεκλειδώσετε το λογαριασμό σας:"
+        subject: "Οδηγίες Ξεκλειδώματος"
+        unlock: "Ξεκλείδωμα του λογαριασμού μου"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Αλλαγή του κωδικού μου"
+      new: 
+        forgot_password: "Ξεχάσατε τον κωδικό σας;"
+        send_password_instructions: "Στείλτε μου οδηγίες επαναφοράς κωδικού"
+      send_instructions: "Θα λάβετε ένα email με οδηγίες για το πώς να επαναφέρετε τον κωδικό πρόσβασής σας σε λίγα λεπτά."
+      updated: "Ο κωδικός σας άλλαξε με επιτυχία. Είστε πλέον συνδεθεί."
+    registrations: 
+      destroyed: "Αντίο! Η ακύρωση του λογαριασμού σας ολοκληρώθηκε με επιτυχία. Ελπίζουμε να σας δούμε ξανά σύντομα."
+      signed_up: "Έχετε εγγραφεί επιτυχώς. Εάν είναι ενεργοποιημένο, θα λάβετε μία επιβεβαίωση στο e-mail σας."
+      updated: "Ενημερώσατε το λογαριασμό σας με επιτυχία."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
+        login: "Είσοδος"
+        modern_browsers: "only supports modern browsers."
+        password: "Κωδικός"
+        remember_me: "Να με θυμάσαι"
+        sign_in: "Συνδεθείτε"
+        username: "Όνομα Χρήστη"
+      signed_in: "Επιτυχής σύνδεση."
+      signed_out: "Επιτυχής αποσύνδεση."
+    shared: 
+      links: 
+        forgot_your_password: "Ξεχάσατε τον κωδικό σας;"
+        receive_confirmation: "Δεν λάβατε οδηγίες για την επιβεβαίωση;"
+        receive_unlock: "Δεν λάβατε τις οδηγίες ξεκλειδώματος;"
+        sign_in: "Συνδεθείτε"
+        sign_up: "Sign up"
+        sign_up_closed: "Open signups are closed at this time."
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
+      unlocked: "Your account was successfully unlocked. You are now signed in."
+  errors: 
+    messages: 
+      already_confirmed: "έχει ήδη επιβεβαιωθεί"
+      not_found: "δεν βρέθηκε"
+      not_locked: "δεν ήταν κλειδωμένο/η"

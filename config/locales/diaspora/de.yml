@@ -291,7 +291,7 @@ de:
       cannot_remove: "Kontakt kann nicht aus dem letzten Aspekt entfernt werden."
       search_contacts: "Kontakte durchsuchen"
     invitations: 
-      dont_have_now: "Du hast noch keine Rechte, es gibt aber bald mehr Einladungen!"
+      dont_have_now: "Du hast keine Einladungen mehr übrig. Es wird bald wieder neue geben!"
       invitations_left: "(%{count} übrig)"
       invite_someone: "Jemanden einladen"
     notification: 

@@ -81,7 +81,7 @@ nl:
         receive_unlock: "Geen ontgrendel instructies ontvangen?"
         sign_in: "Log in"
         sign_up: "Registreer"
-        sign_up_closed: "Open signups are closed at this time."
+        sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
     unlocks: 
       new: 
         resend_unlock: "Stuur ontgrendel instructies nogmaals"

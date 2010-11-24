@@ -8,7 +8,7 @@ de:
     confirmations: 
       confirmed: "Dein Konto wurde erfolgreich bestätigt. Du bist nun angemeldet."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Instruktionen zum Bestätigen erneut schicken"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto bestätigst."
     failure: 
       inactive: "Dein Konto wurde noch nicht aktiviert."
