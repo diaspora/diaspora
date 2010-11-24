@@ -364,7 +364,7 @@ en:
           aspect: "aspect."
   home:
       show:
-          share_what_you_want: "Share what you want, with who you want."
+          share_what_you_want: "Share what you want, with whom you want."
           already_account: "already have an account?"
           login_here: "log in here"
           choice: "Choice"
