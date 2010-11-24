@@ -2,9 +2,21 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-15.last
-  #thumbnails
-    - for photo in photos
-      .image_thumb
-        = link_to (image_tag photo.url(:thumb_medium)), photo_path(photo)
+
+- content_for :head do
+
+  :javascript
+    $(document).ready(function(){
+      $("#thumbnails").find("img").bind("mouseenter",function(){
+        var photo = $(this),
+            messageId = photo.attr("data-message-id");
+
+        $("#thumbnails").find("img[data-message-id='"+messageId+"']").css('opacity','0.5');
+        $("#thumbnails").find("img").fadeTo(100,1);
+      });
+    });
+
+#thumbnails.span-15.last
+  - for photo in photos
+    = link_to (image_tag photo.url(:thumb_medium), "data-message-id" => photo.status_message_id ), photo_path(photo)
 

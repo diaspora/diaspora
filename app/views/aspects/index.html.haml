@@ -5,7 +5,7 @@
 .span-24.last
   %h2{:style => "position:relative;"}
     = current_user.real_name
-    .right
+    .right{:style=>"top:0"}
       %span.description
         = current_user.diaspora_handle
         = info_text(t('.handle_explanation'))

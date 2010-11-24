@@ -12,14 +12,14 @@ $(document).ready(function(){
       var comments = $(this);
 	    if(comments.children("li").length > 1) {
         var show_comments_toggle = comments.closest("li").find(".show_post_comments");
-        expandComments(show_comments_toggle);
+        expandComments(show_comments_toggle,false);
       }
   });
 
   // comment toggle action
   $stream.not(".show").delegate("a.show_post_comments", "click", function(evt) {
     evt.preventDefault();
-    expandComments($(this));
+    expandComments($(this),true);
   });
 
   // comment submit action
@@ -112,20 +112,28 @@ $(document).ready(function(){
 });//end document ready
 
 
-function expandComments(toggler){
+function expandComments(toggler,animate){
   var text         = toggler.html();
       commentBlock = toggler.closest("li").find("ul.comments", ".content");
 
   if( toggler.hasClass("visible")) {
     toggler.removeClass("visible")
            .html(text.replace("hide", "show"));
-    //commentBlock.slideUp(150);
-    commentBlock.hide();
+
+    if(animate) {
+      commentBlock.fadeOut(150);
+    } else {
+      commentBlock.hide();
+    }
 
   } else {
     toggler.addClass("visible")
            .html(text.replace("show", "hide"));
-    //commentBlock.slideDown(150);
-    commentBlock.show();
+
+    if(animate) {
+      commentBlock.fadeIn(150);
+    } else {
+      commentBlock.show();
+    }
   }
 }

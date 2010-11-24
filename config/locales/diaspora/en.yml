@@ -83,7 +83,6 @@ en:
           new_requests: "%{count} new requests!"
           new_request: "%{count} new request!"
           add_existing: "Add an existing contact"
-          aspect_settings: "Aspect settings"
           contacts: "contacts"
           remove_aspect: "Remove Aspect"
           confirm_remove_aspect: "Remove aspect?"
@@ -96,7 +95,7 @@ en:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           create_request: "Find by Diaspora handle"
-          diaspora_handle: "Diaspora Handle"
+          diaspora_handle: "diaspora@handle.org"
           know_email: "Know their email address? You should invite them"
       invitations:
           invite_someone: "Invite someone"
@@ -112,7 +111,7 @@ en:
       notification:
           new: "New %{type} from %{from}"
       contact_list:
-          search_contacts: "Search contacts"
+          all_contacts: "All contacts"
           cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
   aspects:
       show:

@@ -27,7 +27,7 @@
               .x
                 X
               .circle
-            = person_image_link(request.from)
+            = link_to person_image_tag(request.from), request.from
 
   = render 'shared/invitations', :invites => @invites
 
@@ -53,7 +53,7 @@
                 .x
                   X
                 .circle
-              = person_image_link(contact.person)
+              = link_to person_image_tag(contact.person), contact.person
           .draggable_info
             =t('.drag_to_add')
 

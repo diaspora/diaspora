@@ -56,6 +56,7 @@
 
       $('.added').live('ajax:failure', function(data, html, xhr) {
         alert("#{t('.cannot_remove')}");
+        $(this).fadeTo(200,1);
       });
 
       $('.add').live('ajax:loading', function(data, html, xhr) {
@@ -89,21 +90,16 @@
 
 
 .contact_list
-  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('.search_contacts')
+  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
   
   %ul
     - for contact in contacts
       %li
-        - unless contact.aspect_ids.include?(aspect.id)
-          = person_image_link contact.person
-          %span.name
-            = link_to contact.person.real_name, contact.person
-          .right
+        = person_image_link contact.person
+        %span.name
+          = link_to contact.person.real_name, contact.person
+        .right
+          - unless contact.aspect_ids.include?(aspect.id)
             = add_to_aspect_button(aspect.id, contact.person.id)
-
-        - else
-          = person_image_link contact.person
-          %span.name
-            = link_to contact.person.real_name, contact.person
-          .right
+          - else
             = remove_from_aspect_button(aspect.id, contact.person.id)

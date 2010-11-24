@@ -4,18 +4,18 @@
 
 
 @font-face
-  :font-family 'BrandonGrotesqueLightRegular'
   :src url('brandongrotesque_light/Brandon_light-webfont.eot')
   :src local('â˜º'), url('brandongrotesque_light/Brandon_light-webfont.woff') format('woff'), url('brandongrotesque_light/Brandon_light-webfont.ttf') format('truetype'), url('brandongrotesque_light/Brandon_light-webfont.svg#webfont') format('svg')
-  font
+  :font
+    :family 'BrandonGrotesqueLightRegular'
     :weight normal
     :style normal
 
 body
-
   :padding 2em
   :margin 0
   :background-color rgb(252,252,252)
+
 a
   :color #107FC9
   :text
@@ -35,6 +35,15 @@ h4
 
 ol, ul
   :list-style none
+
+form
+  :position relative
+  input,
+  textarea,
+  label
+    :font
+      :size 14px
+
 
 .hidden
   :display none
@@ -177,9 +186,6 @@ header
     :top 5px
     :right 0
     
-    :list
-      :style none
-
     a
       :padding
         :right 15px
@@ -229,7 +235,6 @@ header
   :margin 0
   :padding 0
   > li
-    :list-style none
     :padding 12px
     :min-height 50px
     :border
@@ -282,8 +287,6 @@ header
       :display inline
       :margin 0
       :padding 0
-      :list
-        :style none
       li
         :display inline
         &:after
@@ -449,9 +452,6 @@ li.message
     :background
       :color #fafafa
 
-    :list
-      :style none
-
     :border 5px solid #333
 
     :text-shadow 0 2px #fff
@@ -487,14 +487,6 @@ li.message
             :color #ccc
 
 
-form
-  :position relative
-  input,
-  textarea,
-  label
-    :font
-      :size 14px
-
 #user_name
   :margin
     :bottom 20px
@@ -524,7 +516,6 @@ form
     :display inline
     :margin 0
     :padding 0
-    :list-style none
 
     > li
       :display inline
@@ -566,7 +557,6 @@ ul.comments
   :margin 0
     :top 1em
   :padding 0
-  :list-style none
   :background
     :color rgba(10,81,109,0.05)
 
@@ -621,7 +611,6 @@ ul.comments
     :margin
       :bottom 0
   ul
-    :list-style-type none
     :margin 0
     :padding 0
 
@@ -676,7 +665,6 @@ li.message:hover
   :position absolute
   :right 0
   :display inline
-  :list-style none
   :margin 0
   :padding 0
 
@@ -859,7 +847,6 @@ label
         img
           :border-radius 5px
 
-        
   textarea
     :height 42px
 
@@ -922,104 +909,22 @@ label
       :top 5px
 
 
-#image_picker
-  :margin
-    :top 5px
-  .small_photo
-    :height 100px
-    :position relative
-    :display inline-block
-    :margin
-      :right 1em
-      :bottom 1em
-
-    img
-      :-moz-border-radius 3px
-      :-webkit-border-radius 3px
-      :border-radius 3px
-
-    input[type='checkbox']
-      :position absolute
-
-  .selected
-    :-webkit-box-shadow 0 3px 6px #000
-    :-moz-box-shadow 0 3px 6px #000
-    :border 1px solid #fff
-
-
 .field_with_submit
   input[type='text']
     :width 82%
     :display inline
 
-h1.big_text
-  :position relative
-  :line-height auto
-  :border
-    :bottom 1px solid #666
-  .right
-    :top -6px
-
-#content_bottom
-  .right
-    :top -5px
-
-.right
-  :display inline
-  :float right
-
-  form
-    :margin
-      :right 0
-      :top 0
-
-.back
-  :font
-    :size 12px
-    :weight normal
-
-#content_bottom
-  :position relative
-  :line-height 36px
-
-  :margin 0
-    :top 25px
-    :bottom 25px
-
-  :min-height 36px
-
-  :border
-    :top 1px solid #999
-    :bottom 2px solid #eee
-
-.show_post_comments ul.comments
-  :width 100%
-
-.sub_header
-  :position relative
-  :text
-    :align center
-  :font
-    :style italic
-  :margin
-    :bottom 20px
-  :color #999
-
-.image_thumb
-  :display inline-block
-  :width 100px
-  :min-width 100px
-  :height 100px
-  :min-height 100px
-
-  img
-    :height 100px
+#thumbnails
+  a
+    :display inline-block
     :width 100px
+    :min-width 100px
+    :height 100px
+    :min-height 100px
 
-
-.image_cycle
-  img
-    :display none
+    img
+      :height 100px
+      :width 100px
 
 #aspect_nav
   :margin
@@ -1028,17 +933,9 @@ h1.big_text
   :font
     :family 'Arial', 'Helvetica', sans-serif
 
-  #aspect_manage_button
-    :display inline
-
-    a
-      :color #999
-
   ul
     :margin 0
     :padding 0
-    :list
-      :style none
 
     > li
       :padding 0
@@ -1140,8 +1037,6 @@ h1.big_text
       :display inline
       :padding 0
       :margin 0
-      :list
-        :style none
       li
         :display inline
         :margin
@@ -1153,8 +1048,6 @@ h1.big_text
 .aspect,
 .requests,
 .aspect_remove
-  :list
-    :style none
   :color #999
   :cursor default
   :text-shadow 0 1px #fff
@@ -1169,8 +1062,6 @@ h1.big_text
     :-moz-border-radius 10px
     :border-radius 10px
 
-    :list
-      :style none
     :padding 15px
     :border 2px dashed #ccc
 
@@ -1208,6 +1099,9 @@ h1.big_text
       :-webkit-border-radius 5px
       :-moz-border-radius 5px
       :border-radius 5px
+
+    a:hover
+      :cursor move
 
     &:hover
       .delete
@@ -1268,8 +1162,6 @@ h1.big_text
 
 ul#settings_nav
   :display inline
-  :list
-    :style none
   :padding 0
   :font
     :size large
@@ -1313,13 +1205,9 @@ ul#settings_nav
   :margin 0
   :padding 0
 
-#edit_aspect_pane
-  :margin
-    :top 12px
 
 #left_pane.everyone,
 #edit_aspect_pane
-
   :background
     :color rgb(250,250,250)
   :border 1px solid #ddd
@@ -1333,12 +1221,26 @@ ul#settings_nav
     :border
       :bottom 1px solid #666
 
+#edit_aspect_pane
+  h4
+    :font
+      :weight bold
+    :text
+      :shadow 0 1px #fff
+
+  :margin
+    :top 12px
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FBFBFB), to(#F5F5F5))
+
+  :border 1px solid #eee
+    :top 1px solid #fff
+    :bottom 1px solid #fff
+
 .floating.empty_message
   :margin
     :bottom 24px
   :text
     :align center
-
 
   :padding 2em
     :bottom 0.7em
@@ -1437,35 +1339,9 @@ input[type="search"]
 
   :color #999
 
-ul#breadcrumb
-  :list
-    :style none
-  :margin 0
-  :padding 0
-  :font
-    :size 14px
-    :weight bold
-  :line
-    :height 3em
-
-  a
-    :font
-      :weight bold
-
-  > li
-    :display inline
-
-    &:after
-      :content ' ››'
-
-    &:last-child
-      &:after
-        :content ''
-
 ul.aspects
   :margin 0
   :padding 0
-  :list-style none
   :color #999
   :font
     :size 24px
@@ -1561,8 +1437,6 @@ ul.aspects
 .inline_aspect_listing
   :margin 0
   :padding 0
-  :list
-    :style none
   :display inline
   > li
     :display inline
@@ -1696,7 +1570,6 @@ h3 span.current_gs_step
 
 
 ul#request_result
-  :list-style none
   :padding 0
   :margin 0
   li
@@ -1733,8 +1606,6 @@ ul#request_result
     :width 100%
     :margin 0
     :padding 0
-    :list
-      :style none
 
     > li
       :display block
@@ -1800,8 +1671,6 @@ footer
   ul#footer_nav
     :margin 0
     :padding 0
-    :list
-      :style none
 
     > li
       :display inline
@@ -1824,8 +1693,6 @@ footer
 ul#landing_nav
   :margin 0
   :padding 0
-  :list
-    :style none
 
   :top 30px
 
@@ -1979,8 +1846,6 @@ ul#press_logos
   :margin 0
     :top 100px
   :padding 0
-  :list
-    :style none
   > li
     :display inline
     :margin
@@ -2077,8 +1942,10 @@ h3,h4
   :-moz-border-radius 10px
   :border-radius 10px
 
-  :width 15px
+  :width 12px
+  :height 12px
   :max-width 12px
+  :max-height 12px
   :text
     :indent 4px
 

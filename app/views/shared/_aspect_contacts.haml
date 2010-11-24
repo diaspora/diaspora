@@ -62,12 +62,12 @@
   - unless aspect == :all
     #edit_aspect_pane
       - if @contacts.count > 0 
-        %h3= t('.add_existing')
+        %h4= t('.add_existing')
         = render 'shared/contact_list', :aspect => aspect, :contacts => @contacts, :manage => defined?(manage)
 
       = render 'shared/add_contact', :aspect => aspect
 
-      %h3= t('.aspect_settings')
+      %hr
       .big_buttons
         = button_to t('.remove_aspect'), aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
 
@@ -102,7 +102,7 @@
               = "#{user_aspect.contacts.count} #{t('.contacts')}"
 
           - if user_aspect.contacts.count > 0 
-            - for aspect_contact in user_aspect.contacts[0..8]
+            - for aspect_contact in user_aspect.contacts[0..7]
               = person_image_link(aspect_contact.person)
 
       .clearfix
