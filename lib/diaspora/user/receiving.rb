@@ -49,7 +49,9 @@ module Diaspora
               Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
               return
             else
-              return receive_object(object,person)
+              receive_object(object,person)
+              Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
+              return
             end
           end
         end
@@ -85,16 +87,19 @@ module Diaspora
             aspect.save
           }
         end
+        retraction
       end
 
       def receive_request request, person
         request.save!
         receive_contact_request(request)
+        request
       end
 
       def receive_profile profile, person
         person.profile = profile
         person.save
+        profile
       end
 
       def receive_comment comment
@@ -112,6 +117,7 @@ module Diaspora
           dispatch_comment comment
         end
         comment.socket_to_uid(id)  if (comment.respond_to?(:socket_to_uid) && !self.owns?(comment))
+        comment
       end
 
       def exsists_on_pod?(post)
@@ -159,8 +165,8 @@ module Diaspora
           aspect.posts << post
           aspect.save
         end
-
         post.socket_to_uid(id, :aspect_ids => aspects.map{|x| x.id}) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
+        post
       end
     end
   end
