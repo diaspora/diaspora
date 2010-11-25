@@ -18,7 +18,7 @@ describe 'making sure the spec runner works' do
 
     it 'returns a user on fixed_user' do
       new_user = make_user
-      new_user.is_a?(User).should be_true
+      new_user.should be_a(User)
       User.count.should == 1
     end
 
@@ -35,11 +35,11 @@ describe 'making sure the spec runner works' do
   describe 'factories' do
     describe 'build' do
       it 'does not save a built user' do
-        Factory.build(:user).persisted?.should be_false
+        Factory.build(:user).should_not be_persisted
       end
       
       it 'does not save a built person' do
-        Factory.build(:person).persisted?.should be_false
+        Factory.build(:person).should_not be_persisted
       end
     end
   end
@@ -63,15 +63,14 @@ describe 'making sure the spec runner works' do
 
     it 'connects the second user to the first' do
       contact = @user2.contact_for @user1.person
-      contact.should_not be_nil
-      @user2.contacts.include?(contact).should be_true
-      @aspect2.contacts.include?(contact).should be_true
-      contact.aspects.include?( @aspect2 ).should be true
+      contact.should be
+      [@user2, @aspect2].each { |c| c.contacts.include?(contact).should be }
+      contact.aspects.include?(@aspect2).should be
     end
 
     it 'allows posting after running' do
       message = @user1.post(:status_message, :message => "Connection!", :to => @aspect1.id)
-      @user2.reload.visible_posts.should include message
+      @user2.reload.visible_posts.should include(message)
     end
   end
 end

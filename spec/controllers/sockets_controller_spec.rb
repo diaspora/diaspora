@@ -17,31 +17,33 @@ describe SocketsController do
     @controller = SocketsController.new
   end
 
-  it 'should unstub the websockets' do
-      Diaspora::WebSocket.initialize_channels
-      @controller.class.should == SocketsController
+  it 'un-stubs the websockets' do
+    Diaspora::WebSocket.initialize_channels
+    @controller.class.should == SocketsController
   end
 
   describe 'actionhash' do
     before do
       @aspect = @user.aspects.create(:name => "losers")
-      @message = @user.post :status_message, :message => "post through user for victory", :to => @aspect.id
+      @message = @user.post(:status_message, :message => "post through user for victory",
+                            :to => @aspect.id)
       @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     end
 
-    it 'should actionhash photos' do
-      photo = @user.post(:photo, :album_id => nil, :to => @aspect.id, :user_file => File.open(@fixture_name))
+    it 'actionhashes photos' do
+      photo = @user.post(:photo, :album_id => nil, :to => @aspect.id,
+                         :user_file => File.open(@fixture_name))
       json  = @controller.action_hash(@user.id, photo, :aspect_ids => :all)
       json.include?('photo').should be_true
     end
 
-    it 'should actionhash posts' do
+    it 'actionhashes posts' do
       json = @controller.action_hash(@user.id, @message)
       json.include?(@message.message).should be_true
       json.include?('status_message').should be_true
     end
 
-    it 'should actionhash retractions' do
+    it 'actionhashes retractions' do
       retraction = Retraction.for @message
       json = @controller.action_hash(@user.id, retraction)
       json.include?('retraction').should be_true

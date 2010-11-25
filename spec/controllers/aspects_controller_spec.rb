@@ -17,7 +17,7 @@ describe AspectsController do
 
     connect_users(@user, @aspect, @user2, @aspect2)
 
-    @contact                    = @user.contact_for(@user2.person)
+    @contact  = @user.contact_for(@user2.person)
     @user.getting_started = false
     @user.save
     sign_in :user, @user
@@ -33,22 +33,22 @@ describe AspectsController do
   end
 
   describe "#create" do
-    describe "with valid params" do
+    context "with valid params" do
       it "creates an aspect" do
-        @user.aspects.count.should == 2
+        @user.should have(2).aspects
         post :create, "aspect" => {"name" => "new aspect"}
-        @user.reload.aspects.count.should == 3
+        @user.reload.should have(3).aspects
       end
       it "redirects to the aspect page" do
         post :create, "aspect" => {"name" => "new aspect"}
         response.should redirect_to(aspect_path(Aspect.find_by_name("new aspect")))
       end
     end
-    describe "with invalid params" do
+    context "with invalid params" do
       it "does not create an aspect" do
-        @user.aspects.count.should == 2
+        @user.should have(2).aspects
         post :create, "aspect" => {"name" => ""}
-        @user.reload.aspects.count.should == 2
+        @user.reload.should have(2).aspects
       end
       it "goes back to the page you came from" do
         post :create, "aspect" => {"name" => ""}
@@ -97,11 +97,14 @@ describe AspectsController do
 
   describe "#move_contact" do
     let(:opts) { {:person_id => "person_id", :from => "from_aspect_id", :to => {:to => "to_aspect_id"}} }
-    it 'calls the move_contact_method' do
-      pending "need to figure out what is the deal with remote requests"
-      @controller.stub!(:current_user).and_return(@user)
-      @user.should_receive(:move_contact).with(:person_id => "person_id", :from => "from_aspect_id", :to => "to_aspect_id")
-      post :move_contact, opts
+    it "moves the contact" do
+      pending "need to figure out what is the deal with remote requests" do
+        @controller.stub!(:current_user).and_return(@user)
+        @user.should_receive(:move_contact).with(:person_id => "person_id",
+                                                 :from => "from_aspect_id",
+                                                 :to => "to_aspect_id")
+        post :move_contact, opts
+      end
     end
   end
 
@@ -122,7 +125,7 @@ describe AspectsController do
     it 'adds the users to the aspect' do
       @aspect1.reload
       @aspect1.contacts.include?(@contact).should be_false
-      post 'add_to_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
+      post 'add_to_aspect', { :person_id => @user2.person.id, :aspect_id => @aspect1.id }
       @aspect1.reload
       @aspect1.contacts.include?(@contact).should be_true
     end
@@ -130,13 +133,13 @@ describe AspectsController do
 
   describe "#remove_from_aspect" do
     it 'removes contacts from an aspect' do
-      pending 'this needs to test with another aspect present'
-
-      @aspect.reload
-      @aspect.contacts.include?(@contact).should be true
-      post 'remove_from_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
-      @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be false
+      pending 'this needs to test with another aspect present' do
+        @aspect.reload
+        @aspect.contacts.should include(@contact)
+        post 'remove_from_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
+        @aspect1.reload
+        @aspect1.contacts.should_not include(@contact)
+      end
     end
   end
 end

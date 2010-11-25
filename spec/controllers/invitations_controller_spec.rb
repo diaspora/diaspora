@@ -2,16 +2,16 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(File.dirname(__FILE__), "..", "spec_helper")
+require 'spec_helper'
 
 describe InvitationsController do
   include Devise::TestHelpers
 
   render_views
 
-  let!(:user) {make_user}
-  let!(:aspect){user.aspects.create(:name => "WIN!!")}
- 
+  let!(:user)   { make_user }
+  let!(:aspect) { user.aspects.create(:name => "WIN!!") }
+
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
   end
@@ -33,26 +33,27 @@ describe InvitationsController do
     end
 
     it 'creates an invitation' do
-      lambda{
+      lambda {
         post :create, :user => @invite
       }.should change(Invitation, :count).by(1)
     end
 
     it 'creates an invited user with five invites' do
-      lambda{
+      lambda {
         post :create, :user => @invite
       }.should change(User, :count).by(1)
       User.find_by_email("abc@example.com").invites.should == 5
     end
 
-    it 'can handle a comma seperated list of emails' do
+    it 'handles a comma separated list of emails' do
       lambda {
         post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com, mbs@gmail.com")
       }.should change(User, :count).by(2)
     end
 
     it 'displays a message that tells you how many invites were sent, and which REJECTED' do
-      post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
+      post :create, :user => @invite.merge(
+                                :email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
       flash[:notice].should_not be_empty
       flash[:notice].should =~ /mbs@gmail\.com/
       flash[:notice].should =~ /foo@bar\.com/
@@ -63,11 +64,12 @@ describe InvitationsController do
       flash[:error].should =~ /lala@foo/
     end
 
-    it "doesn't invite anyone if you have 0 invites" do
+    it "doesn't invite anyone if the user has no invites" do
       user.invites = 0
       user.save!
       lambda {
-        post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
+        post :create, :user => @invite.merge(
+                                :email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
       }.should_not change(User, :count)
     end
 

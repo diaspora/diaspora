@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(File.dirname(__FILE__), "..", "spec_helper")
+require 'spec_helper'
 
 describe DevUtilitiesController do
   render_views
@@ -20,11 +20,15 @@ describe DevUtilitiesController do
     end
   end
 
+  def config_file_path(filename)
+    File.join(File.dirname(__FILE__), "..", "..", "config", filename)
+  end
+
   describe "operations that affect config/backer_number.yml" do
     # In case anyone wants their config/backer_number.yml to still exist after running specs
     before do
-      @backer_number_file = File.join(File.dirname(__FILE__), "..", "..", "config", "backer_number.yml")
-      @temp_file = File.join(File.dirname(__FILE__), "..", "..", "config", "backer_number.yml-tmp")
+      @backer_number_file = config_file_path("backer_number.yml")
+      @temp_file = config_file_path("backer_number.yml-tmp")
       FileUtils.mv(@backer_number_file, @temp_file, :force => true) if File.exists?(@backer_number_file)
     end
     after do
@@ -47,7 +51,7 @@ describe DevUtilitiesController do
 
     describe "#set_profile_photo" do
       before do
-        config = YAML.load_file(File.join(File.dirname(__FILE__), "..", "..", "config", "deploy_config.yml"))
+        config = YAML.load_file(config_file_path("deploy_config.yml"))
         seed_numbers = config["servers"]["backer"].map {|b| b["number"] }
         @good_number = seed_numbers.max
         @bad_number = @good_number + 1
@@ -61,7 +65,7 @@ describe DevUtilitiesController do
       it "fails when a backer with the seed number does not exist" do
     pending
         get :set_backer_number, 'number' => @bad_number.to_s
-        lambda { get :set_profile_photo }.should raise_error
+        expect { get :set_profile_photo }.to raise_error
       end
     end
   end

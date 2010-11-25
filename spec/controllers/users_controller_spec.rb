@@ -6,43 +6,45 @@ require 'spec_helper'
 
 describe UsersController do
 
-  let(:user) { make_user }
-  let!(:aspect) { user.aspects.create(:name => "lame-os") }
+  let(:user)          { make_user }
+  let!(:aspect)       { user.aspects.create(:name => "lame-os") }
 
   let!(:old_password) { user.encrypted_password }
   let!(:old_language) { user.language }
-    
+
   before do
     sign_in :user, user
   end
 
   describe '#export' do
-    it 'should return an xml file'  do
+    it 'returns an XML file'  do
       get :export
-      response.header["Content-Type"].should include "application/xml"
+      response.header["Content-Type"].should include("application/xml")
     end
   end
 
   describe '#update' do
     it "doesn't overwrite random attributes" do
-      params  = {:diaspora_handle => "notreal@stuff.com"}
-      proc{ put 'update', :id => user.id, "user" => params }.should_not change(user, :diaspora_handle)
+      params  = { :diaspora_handle => "notreal@stuff.com" }
+      lambda { put 'update', :id => user.id, "user" => params }.should_not change(user, :diaspora_handle)
     end
 
-    context 'should allow the user to update their password' do
-      it 'should change a users password ' do
-        put("update", :id => user.id, "user"=> {"password" => "foobaz", 'password_confirmation' => "foobaz"})
+    context 'allowing the user to update his password' do
+      it 'should change a users password' do
+        put("update", :id => user.id,
+            "user" => { "password" => "foobaz", 'password_confirmation' => "foobaz" })
         user.reload
         user.encrypted_password.should_not == old_password
       end
 
-      it 'should not change a password if they do not match' do
-        put("update", :id => user.id, "user"=> {"password" => "foobarz", 'password_confirmation' => "not_the_same"})
+      it "does not change password if password doesn't matches confirmation" do
+        put("update", :id => user.id,
+            "user"=> {"password" => "foobarz", 'password_confirmation' => "not_the_same"})
         user.reload
         user.encrypted_password.should == old_password
       end
 
-      it 'should not update if the password fields are left blank' do
+      it 'does not update if the password fields are left blank' do
         put("update", :id => user.id, "user"=> {"password" => "", 'password_confirmation' => ""})
         user.reload
         user.encrypted_password.should == old_password
@@ -50,7 +52,7 @@ describe UsersController do
     end
 
     describe 'language' do
-      it 'should allow user to change his language' do
+      it 'allows the user to change his language' do
         user.language = 'en'
         user.save
         old_language = user.language

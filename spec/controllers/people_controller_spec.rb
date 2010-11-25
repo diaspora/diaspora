@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PeopleController do
   render_views
 
-  let(:user) { Factory(:user) }
+  let(:user)    { Factory(:user) }
   let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   before do
@@ -17,19 +17,19 @@ describe PeopleController do
   describe '#index' do
     before do
       @eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
-      @korth  = Factory.create(:person, :profile => {:first_name => "Evan", :last_name => "Korth"})
+      @korth  = Factory.create(:person, :profile => {:first_name => "Evan",   :last_name => "Korth"})
     end
 
     it "yields search results for substring of person name" do
       get :index, :q => "Eu"
-      assigns[:people].should include @eugene
+      assigns[:people].should include(@eugene)
     end
 
     it 'shows a contact' do
       user2 = make_user
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :index, :q => user2.person.profile.first_name.to_s
-      assigns[:people].should include user2.person
+      assigns[:people].should include(user2.person)
     end
 
     it 'shows a non-contact' do
@@ -37,12 +37,12 @@ describe PeopleController do
       user2.person.profile.searchable = true
       user2.save
       get :index, :q => user2.person.profile.first_name.to_s
-      assigns[:people].should include user2.person
+      assigns[:people].should include(user2.person)
     end
 
     it "redirects to person page if there is exactly one match" do
       get :index, :q => "Korth"
-      response.should redirect_to @korth
+      response.should redirect_to(@korth)
     end
 
     it "does not redirect if there are no matches" do
@@ -52,28 +52,29 @@ describe PeopleController do
   end
 
   describe '#show' do
-    it 'should go to the current_user show page' do
+    it "goes to the current user's page" do
       get :show, :id => user.person.id
       response.should be_success
     end
 
-    it "redirects on an invalid id" do
+    it "redirects to people index if person is not found" do
       get :show, :id => 'delicious'
-      response.should redirect_to people_path
+      response.should redirect_to(people_path)
     end
 
+    # TODO: Ain't this redundant?
     it "redirects on a nonexistent person" do
       get :show, :id => user.id
-      response.should redirect_to people_path
+      response.should redirect_to(people_path)
     end
-    
+
     it "renders the show page of a contact" do
       user2 = make_user
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :show, :id => user2.person.id
       response.should be_success
     end
-    
+
     it "renders the show page of a non-contact" do
       user2 = make_user
       get :show, :id => user2.person.id
@@ -104,20 +105,19 @@ describe PeopleController do
         photo = user.post(:photo, :user_file => File.open(fixture_name), :to => aspect.id)
         @params[:profile][:image_url] = photo.url(:thumb_medium)
         put :update, :id => user.person.id, :person => @params
-        goal_pod_url = (APP_CONFIG[:pod_url][-1,1] == '/' ? APP_CONFIG[:pod_url].chop : APP_CONFIG[:pod_url])
-        user.person.reload.profile.image_url.should ==
-          "#{goal_pod_url}#{photo.url(:thumb_medium)}"
+        goal_pod_url =
+          (APP_CONFIG[:pod_url][-1,1] == '/' ? APP_CONFIG[:pod_url].chop : APP_CONFIG[:pod_url])
+        user.person.reload.profile.image_url.should == "#{goal_pod_url}#{photo.url(:thumb_medium)}"
       end
     end
     it 'does not allow mass assignment' do
       new_user = make_user
-      put :update, :id => user.person.id, :person => {
-        :owner_id => new_user.id}
+      put :update, :id => user.person.id, :person => { :owner_id => new_user.id }
       user.person.reload.owner_id.should_not == new_user.id
     end
 
-    it 'does not overwrite the profile diaspora handle' do
-      handle_params = {'profile' => {'diaspora_handle' => 'abc@a.com'}}
+    it "does not overwrite the profile's diaspora handle" do
+      handle_params = { :profile => { 'diaspora_handle' => 'abc@a.com' } }
       put :update, :id => user.person.id, :person => handle_params
       user.person.reload.profile[:diaspora_handle].should_not == 'abc@a.com'
     end

@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe ServicesController do
   render_views
-  let(:user) { make_user }
-  let!(:aspect) { user.aspects.create(:name => "lame-os") }
+  let(:user)      { make_user }
+  let!(:aspect)   { user.aspects.create(:name => "lame-os") }
 
   let!(:service1) {a = Factory(:service); user.services << a; a}
   let!(:service2) {a = Factory(:service); user.services << a; a}
@@ -16,15 +16,14 @@ describe ServicesController do
 
   let(:mock_access_token) { Object.new }
 
-  let(:omniauth_auth) {{ 'provider' => 'twitter', 'uid' => '2', 
+  let(:omniauth_auth) {{ 'provider' => 'twitter', 'uid' => '2',
                          'user_info' => { 'nickname' => 'grimmin' },
                          'extra' => { 'access_token' => mock_access_token }}}
 
   before do
     sign_in :user, user
-    @controller.stub!(:current_user).and_return(user)
-    mock_access_token.stub!(:token).and_return("12345")
-    mock_access_token.stub!(:secret).and_return("56789")
+    @controller.stub!(:current_user) { user }
+    mock_access_token.stub!(:token => "12345", :secret => "56789")
   end
 
   describe '#index' do
@@ -37,27 +36,27 @@ describe ServicesController do
   describe '#create' do
     it 'creates a new OmniauthService' do
       request.env['omniauth.auth'] = omniauth_auth
-      lambda{post :create}.should change(user.services, :count).by(1)
+      expect { post :create }.to change(user.services, :count).by(1)
     end
 
-    it 'should redirect to getting started if the user still getting started' do
+    it 'redirects to getting started if the user still getting started' do
       user.getting_started = true
       request.env['omniauth.auth'] = omniauth_auth
       post :create
-      response.should redirect_to getting_started_path(:step => 3)
+      response.should redirect_to(getting_started_path(:step => 3))
     end
 
-    it 'should redirect to services url' do
+    it 'redirects to services url' do
       user.getting_started = false
       request.env['omniauth.auth'] = omniauth_auth
       post :create
-      response.should redirect_to services_url
+      response.should redirect_to(services_url)
     end
   end
 
   describe '#destroy' do
-    it 'should destroy a service of a users with the id' do
-      lambda{delete :destroy, :id => service1.id.to_s}.should change(user.services, :count).by(-1)
+    it 'destroys a service of a users with the id' do
+      expect { delete :destroy, :id => service1.id.to_s }.to change(user.services, :count).by(-1)
     end
   end
 end

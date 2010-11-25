@@ -7,26 +7,25 @@ require 'spec_helper'
 
 describe PublicsController do
   render_views
-  let!(:user) { make_user }
-  let!(:user2) { make_user }
+  let!(:user)    { make_user }
+  let!(:user2)   { make_user }
   let!(:aspect1) { user.aspects.create(:name => "foo") }
   let!(:aspect2) { user2.aspects.create(:name => "far") }
   let!(:aspect2) { user2.aspects.create(:name => 'disciples') }
-  let!(:req) { user2.send_contact_request_to(user.person, aspect2) }
-  let!(:xml) { user2.salmon(req).xml_for(user.person) }
-  let(:person){Factory(:person)}
+  let!(:req)     { user2.send_contact_request_to(user.person, aspect2) }
+  let!(:xml)     { user2.salmon(req).xml_for(user.person) }
+  let(:person)   { Factory(:person) }
 
   before do
     sign_in :user, user
-
   end
   
   describe '#receive' do
     before do
-      EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
+      EventMachine::HttpRequest.stub!(:new) { FakeHttpRequest.new(:success) }
     end
 
-    context 'success cases' do
+    context 'when successful' do
       before do
         @person_mock = mock()
         @user_mock = mock()
@@ -35,28 +34,27 @@ describe PublicsController do
         @person_mock.stub!(:owner).and_return(@user_mock)
         Person.stub!(:first).and_return(@person_mock)
       end
-      it 'should 200 on successful receipt of a request' do
+      it 'returns HTTP 200 on successful receipt of a request' do
         post :receive, :id =>user.person.id, :xml => xml
         response.code.should == '200'
       end
 
-      it 'should have the xml processed as salmon on success' do
+      it 'has the xml processed as salmon' do
         @user_mock.should_receive(:receive_salmon).and_return(true)
         post :receive, :id => user.person.id, :xml => xml
       end
     end
 
-    it 'should return a 422 if no xml is passed' do
+    it 'returns HTTP 422 if no xml is passed' do
       post :receive, :id => person.id
       response.code.should == '422'
     end
 
-    it 'should return a 404 if no user is found' do
+    it 'returns HTTP 404 if no user is found' do
       post :receive, :id => person.id, :xml => xml
       response.code.should == '404'
     end
   end
-
 
   describe '#hcard' do
     it 'queries by person id' do
@@ -98,31 +96,32 @@ describe PublicsController do
     end
   end
 
-  context 'intergration tests that should not be in this file' do
+  context 'integration tests that should not be in this file' do
     describe 'contact requests' do
       before do
         req.delete
         user2.reload
-        user2.pending_requests.count.should be 1
+        user2.pending_requests.count.should == 1
       end
 
-      it 'should accept a post from another node and save the information' do
-        pending
-        message = user2.build_post(:status_message, :message => "hi")
+      it 'accepts a post from another node and saves the information' do
+        pending do
+          message = user2.build_post(:status_message, :message => "hi")
 
-        connect_users(user, aspect1, user2, aspect2)
+          connect_users(user, aspect1, user2, aspect2)
 
-        user.reload
-        user.visible_post_ids.include?(message.id).should be false
+          user.reload
+          user.visible_post_ids.include?(message.id).should be false
 
-        xml1 = user2.salmon(message).xml_for(user.person)
+          xml1 = user2.salmon(message).xml_for(user.person)
 
-        EM::run{
-          post :receive, :id => user.person.id, :xml => xml1
-          EM.stop
-        }
-        user.reload
-        user.visible_post_ids.include?(message.id).should be true
+          EM::run do
+            post :receive, :id => user.person.id, :xml => xml1
+            EM.stop
+          end
+          user.reload
+          user.visible_post_ids.should include(message.id)
+        end
       end
     end
   end

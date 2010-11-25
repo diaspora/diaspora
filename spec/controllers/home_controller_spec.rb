@@ -14,14 +14,14 @@ describe HomeController do
   end
 
   describe '#show' do
-    it 'should show a login link if no user is not logged in' do
-      get :show 
+    it 'shows a login link if no user is logged in' do
+      get :show
       response.body.should include("log in")
     end
 
-    it 'should redirect to aspects index if user is logged in' do
+    it 'redirects to aspects index if user is logged in' do
       sign_in @user
-      get :show 
+      get :show
       response.should redirect_to aspects_path
     end
 

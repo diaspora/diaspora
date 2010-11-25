@@ -7,10 +7,10 @@ require 'spec_helper'
 describe CommentsController do
   render_views
 
-  let!(:user) { make_user }
-  let!(:aspect) { user.aspects.create(:name => "AWESOME!!") }
+  let!(:user)    { make_user }
+  let!(:aspect)  { user.aspects.create(:name => "AWESOME!!") }
 
-  let!(:user2) { make_user }
+  let!(:user2)   { make_user }
   let!(:aspect2) { user2.aspects.create(:name => "WIN!!") }
 
   before do
@@ -19,9 +19,7 @@ describe CommentsController do
 
   describe '#create' do
     let(:comment_hash) {
-      {:comment =>{
-        :text =>"facebook, is that you?", 
-        :post_id     =>"#{@post.id}"}}
+      { :comment => { :text => "facebook, is that you?", :post_id =>"#{@post.id}"}}
     }
 
     context "on a post from a contact" do
@@ -51,7 +49,7 @@ describe CommentsController do
         @post = user2.post :status_message, :message => 'GIANTS', :to => aspect2.id
       end
       it 'posts no comment' do
-        user.should_receive(:comment).exactly(0).times
+        user.should_not_receive(:comment)
         post :create, comment_hash
         response.code.should == '401'
       end
