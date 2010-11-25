@@ -50,10 +50,7 @@
 - if (aspect == :all) && @request_count > 0
   #new_request_pane{:class => "everyone"}
     %h1.new_request{:style => 'text-align:center'}
-      - if @request_count > 1
-        = link_to t('.new_requests', :count => @request_count), aspects_manage_path
-      - else
-        = link_to t('.new_request', :count => @request_count), aspects_manage_path
+      = link_to t('.new_requests', :count => @request_count), aspects_manage_path
 
 #left_pane{:class => ("everyone" if aspect == :all)}
   - if aspect == :all
@@ -99,7 +96,7 @@
           %h4.aspect_title_right{:style => "margin-bottom:0;"}
             = link_to user_aspect, user_aspect
             %span{:style=>"font-size:12px;color:#888;"}
-              = "#{user_aspect.contacts.count} #{t('.contacts')}"
+              = t('.contacts', :count=>user_aspect.contacts.count)
 
           - if user_aspect.contacts.count > 0 
             - for aspect_contact in user_aspect.contacts[0..8]
