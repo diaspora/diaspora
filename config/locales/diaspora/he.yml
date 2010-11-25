@@ -188,9 +188,12 @@ he:
     show: 
       already_requested: "כבר שלחת בקשה אל %{name}."
       does_not_exist: "אדם זה אינו קיים!"
+      incoming_request: "קיבלת בקשה נכנסת מאדם זה."
       no_posts: "אין רשומות להצגה!"
       not_connected: "אין לך קשר עם אדם זה"
       request_people: "אם ברצונך, ניתן לבקש להציב אותו/ה באחד מההיבטים שלך."
+      return_to_aspects: "חזרה לעמוד ההיבטים שלך"
+      to_accept_or_ignore: "כדי לקבל או לדחות אותה."
     update: 
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"

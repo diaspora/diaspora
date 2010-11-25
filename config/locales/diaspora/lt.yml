@@ -177,7 +177,7 @@ lt:
     profile_photo_upload: 
       or_select_one: "arba pasirink vieną iš tavo jau egzistuojančių"
     profile_sidebar: 
-      bio: "bio"
+      bio: "biografija"
       born: "gimimo data"
       cannot_remove: "Iš paskutinio aspekto vartotojo \"%{name}\" pašalinti negalima."
       edit_my_profile: "Redaguoti mano profilį"
@@ -188,9 +188,12 @@ lt:
     show: 
       already_requested: "Tu jau išsiuntei prašymą, kurio adresatas yra \"%{name}\"."
       does_not_exist: "Asmuo neegzistuoja!"
+      incoming_request: "Jūs gavote pakvietimą iš šio asmens."
       no_posts: "nėra jokių pokalbių"
       not_connected: "Tu nesusijungęs su šiuo asmeniu"
       request_people: "Jei nori, gali paprašyti jį pridėti į vieną iš savo aspektų."
+      return_to_aspects: "Grįžti į aspektų puslapį"
+      to_accept_or_ignore: "priimti arba ignoruoti."
     update: 
       failed: "Nepavyko atnaujinti profilio"
       updated: "Profilis atnaujintas"
@@ -215,7 +218,7 @@ lt:
       view_all: "rodyti visas nuotraukas, kurias įkėlė %{name}"
     show: 
       delete_photo: "Pašalinti nuotrauką"
-      edit: "edit"
+      edit: "redaguoti"
       edit_delete_photo: "Redaguoti nuotraukos aprašymą / pašalinti nuotrauką"
       make_profile_photo: "padaryti profilio nuotrauką"
       original_post: "Pradinis pasisakymas"
@@ -224,7 +227,7 @@ lt:
     update: 
       error: "Nuotraukos atnaujinti nepavyko."
       notice: "Nuotrauka atnaujinta sėkmingai."
-  profile: "Profile"
+  profile: "Profilis"
   registrations: 
     closed: "Naujų paskyrų kūrimas šiame Diasporos serveryje yra uždarytas."
     create: 
@@ -252,7 +255,7 @@ lt:
       manage_within: "Valdyti kontaktus ties"
     new_request_to_person: 
       sent: "išsiųsta!"
-  search: "Search"
+  search: "Paieška"
   services: 
     create: 
       success: "Prijungimas sėkmingas."

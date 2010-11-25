@@ -6,9 +6,9 @@
 ar: 
   _comments: "Comments"
   _home: "Home"
-  _photos: "photos"
-  _services: "Services"
-  account: "Account"
+  _photos: "fotos"
+  _services: "Servicios"
+  account: "Cuenta"
   activemodel: 
     errors: 
       models: 
@@ -21,7 +21,7 @@ ar:
             email: 
               taken: "is already taken"
             person: 
-              invalid: "is invalid"
+              invalid: "es inválido"
             username: 
               taken: "is already taken"
   ago: "ago"
@@ -30,7 +30,7 @@ ar:
       unknown_person: "شخص غير معروف"
       youtube_title: 
         unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "¿Estás seguro?"
   aspects: 
     add_to_aspect: 
       failure: "Failed to add friend to aspect."
@@ -51,7 +51,7 @@ ar:
       add_a_new_contact: "Add a new contact"
       drag_to_add: "Drag to add people"
       manage_aspects: "Manage aspects"
-      no_requests: "No new requests"
+      no_requests: "No hay nuevas solicitudes"
       requests: "طلبات"
     move_contact: 
       error: "Error moving contact: %{inspect}"
@@ -59,7 +59,7 @@ ar:
       success: "Person moved to new aspect"
     new_aspect: 
       create: "جديد"
-      name: "Name"
+      name: "Nombre"
     no_contacts_message: 
       add_contact: "Add a contact"
       add_contact_to: "Add someone to %{aspect_name}"
@@ -67,7 +67,7 @@ ar:
       nobody: "We know you know people — bring them to Diaspora!"
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "Nadie ha dicho nada todavía. ¡Empezá la conversación!"
     remove_from_aspect: 
       failure: "Failed to remove person from aspect"
       success: "Successfully removed person from aspect"
@@ -81,12 +81,12 @@ ar:
     update: 
       success: ".بنجاح %{name} تم تعديل"
   back: "Back"
-  cancel: "Cancel"
+  cancel: "Cancelar"
   comments: 
     new_comment: 
       comment: "تعليق"
       commenting: "Commenting..."
-  delete: "Delete"
+  delete: "Eliminar"
   email: "Email"
   error_messages: 
     helper: 
@@ -110,8 +110,8 @@ ar:
       not_found: "Invitation token not found"
     create: 
       already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
+      already_sent: "Ya has invitado a esta persona."
+      no_more: "No tenés más invitaciones."
       rejected: "The following email addresses had problems: "
       sent: "Your invitation has been sent."
     edit: 
@@ -119,7 +119,7 @@ ar:
     new: 
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
-      invite_someone_to_join: "Invite someone to join Diaspora!"
+      invite_someone_to_join: "¡Invitá a alguien a unirse a Diaspora!"
       message: "Message:"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
@@ -159,41 +159,44 @@ ar:
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_birthday: "Tu cumpleaños"
+      your_gender: "Tu sexo"
+      your_name: "Tu nombre"
+      your_photo: "Tu fotografía"
+      your_profile: "Tu perfil"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
-      results_for: "search results for"
+      results_for: "buscar resultados para"
     person: 
       add_contact: "add contact"
       already_connected: "Already connected"
       pending_request: "طلبات معلقة"
-      thats_you: "thats you!"
+      thats_you: "¡Ese sos vos!"
     profile_photo_upload: 
-      or_select_one: "or select one from your already existing"
+      or_select_one: "o selecciona una de las que ya tenés"
     profile_sidebar: 
       bio: "bio"
       born: "born"
       cannot_remove: "Cannot remove %{name} from last aspect."
-      edit_my_profile: "Edit my profile"
+      edit_my_profile: "Editar mi perfil"
       gender: "gender"
       in_aspects: "in aspects"
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
-      already_requested: "You have already sent a request to %{name}."
-      does_not_exist: "Person does not exist!"
-      no_posts: "no posts to display!"
+      already_requested: "Ya has enviado una solicitud a %{name}."
+      does_not_exist: "¡Esa persona no existe!"
+      incoming_request: "You have an incoming request from this person."
+      no_posts: "¡No hay mensajes que mostrar!"
       not_connected: "You are not connected with this person"
       request_people: "If you'd like, you can request to place him/her in one of your aspects."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Error al actualizar el perfil"
+      updated: "Perfil actualizado"
   photos: 
     create: 
       integrity_error: "فشل تحميل الصور. هل ملفك صورة؟"
@@ -224,7 +227,7 @@ ar:
     update: 
       error: "فشل تحرير الصورة."
       notice: "تم تحديث الصورة بنجاح"
-  profile: "Profile"
+  profile: "Perfil"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -238,7 +241,7 @@ ar:
       update: "Update"
     new: 
       sign_up: "التسجيل"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      sign_up_for_diaspora: "Registrate en Diapora"
   requests: 
     create: 
       sending: "Sending..."
@@ -329,18 +332,18 @@ ar:
     destroy: "Account successfully closed."
     edit: 
       change_language: "Change Language"
-      change_password: "Change Password"
-      close_account: "Close Account"
-      download_photos: "download my photos"
+      change_password: "Cambiar Contraseña"
+      close_account: "Cerrar Cuenta"
+      download_photos: "descargar mis fotos"
       download_xml: "download my xml"
-      export_data: "Export Data"
-      new_password: "New Password"
+      export_data: "Exportar datos"
+      new_password: "Nueva Contraseña"
       your_email: "Your email"
       your_handle: "Your diaspora handle"
     getting_started: 
       connect_services: "Connect your services"
       define_aspects: "Define your aspects"
-      edit_profile: "Edit your profile"
+      edit_profile: "Editar tu perfil"
       finished: "Finished!"
       save_and_continue: "Save and continue"
       signup_steps: "Complete your sign-up by doing these things:"
@@ -363,7 +366,7 @@ ar:
         user_menu: "in your user menu (top right)."
       welcome: "Welcome to Diaspora!"
     public: 
-      does_not_exist: "User %{username} does not exist!"
+      does_not_exist: "¡El usuario %{username} no existe!"
     update: 
       language_changed: "Language Changed"
       language_not_changed: "Language Change Failed"

@@ -188,9 +188,12 @@ fr:
     show: 
       already_requested: "Vous avez déjà envoyé une requête à %{name}."
       does_not_exist: "Cette personne n'existe pas !"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "aucun message à afficher !"
       not_connected: "Vous n'êtes pas connecté à cet personne"
       request_people: "Si vous le voulez, vous pouvez demander à le/la placer dans vos aspects."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "La mise à jour du profil a échoué"
       updated: "Profil mis à jour"

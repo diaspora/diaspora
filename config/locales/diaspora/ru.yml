@@ -188,9 +188,12 @@ ru:
     show: 
       already_requested: "Вы уже отправили запрос для %{name}."
       does_not_exist: "Персоны не существует !"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "Новых сообщений нет!"
       not_connected: "Вы не связаны с этим человеком"
       request_people: "Если хотите, вы можете спросить его/ее разрешения добавить в аспект"
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Обновить профиль не удалось"
       updated: "Профиль обновлён"

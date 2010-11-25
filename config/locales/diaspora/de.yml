@@ -50,7 +50,7 @@ de:
       add_a_new_aspect: "Neuen Aspekt hinzufügen"
       add_a_new_contact: "Neuen Kontakt hinzufügen"
       drag_to_add: "Leute hierher ziehen um sie hinzuzufügen"
-      manage_aspects: "Aspkete verwalten"
+      manage_aspects: "Aspekte verwalten"
       no_requests: "Keine Anfragen"
       requests: "Anfragen"
     move_contact: 
@@ -96,15 +96,15 @@ de:
   home: 
     show: 
       already_account: "bereits registriert?"
-      choice: "Wahl"
-      choice_explanation: "Diaspora ermöglicht es dir, deine Kontakte in sogenannten Aspekten zu verwalten. Das Einzigartige an Diaspora ist, dass du mit Aspekten kontrollieren kannst, mit welchen Menschen du deine Fotos, Geschichten und Witze teilst."
+      choice: "Entscheidungsfreiheit"
+      choice_explanation: "Diaspora ermöglicht es dir, deine Kontakte in sogenannten Aspekten zu verwalten. Das Besondere an Diaspora ist, dass du mit Aspekten kontrollieren kannst, mit welchen Menschen du deine Fotos, Geschichten und Witze teilst."
       learn_about_host: "Erfahre, wie du deinen eigenen Diaspora-Server betreiben kannst."
       login_here: "hier anmelden"
       ownership: "Eigentum"
       ownership_explanation: "Deine Bilder gehören dir und du solltest das nicht aufgeben müssen, um sie zu teilen. Bei Diaspora gehört dein Bild immer dir und du hast die volle Kontrolle, wie es vervielfältigt wird."
       share_what_you_want: "Teile was du willst, mit wem du willst."
-      simplicity: "Unkompliziertheit"
-      simplicity_explanation: "Diaspora macht das teilen sauber und einfach - das gilt ganz besonders für deine Privatsphäre. Diaspora ist von sich aus privat; es gibt deswegen gibt es keine komplizierten Einstellungen um dein Profil sicher zu machen."
+      simplicity: "Unkompliziert"
+      simplicity_explanation: "Diaspora macht das Teilen einfach und strukturiert - das gilt ganz besonders für deine Privatsphäre. Diaspora ist von sich aus privat; es gibt deswegen keine komplizierten Einstellungen um dein Profil sicher zu machen."
   invitations: 
     check_token: 
       not_found: "Einladungstoken nicht gefunden"
@@ -188,9 +188,12 @@ de:
     show: 
       already_requested: "Du hast bereits eine Anfrage an %{name} geschickt."
       does_not_exist: "Person existiert nicht!"
+      incoming_request: "Du erhältst gerade eine Anfrage dieser Person."
       no_posts: "Keine Posts zum anzeigen!"
       not_connected: "Du bist nicht mit dieser Person verbunden"
       request_people: "Wenn du möchtest kannst du ihn/sie fragen sich zu einem von deinen Aspekten hinzuzufügen."
+      return_to_aspects: "Kehre zur Aspektenübersicht zurück."
+      to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
     update: 
       failed: "Ändern des Profils fehlgeschlagen"
       updated: "Profil aktualisiert"

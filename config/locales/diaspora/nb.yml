@@ -188,9 +188,12 @@ nb:
     show: 
       already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Person does not exist!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "no posts to display!"
       not_connected: "You are not connected with this person"
       request_people: "If you'd like, you can request to place him/her in one of your aspects."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"

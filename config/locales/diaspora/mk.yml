@@ -188,9 +188,12 @@ mk:
     show: 
       already_requested: "Веќе испративте барање кон %{name}."
       does_not_exist: "Личноста не постои!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "нема пораки за прикажување!"
       not_connected: "Не сте поврзани со оваа личност"
       request_people: "Ако сакате, може да испратите барање до него/неа за приклучување кон вашиот аспект."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Неуспешно ажурирање на профил"
       updated: "Профилот е ажуриран"

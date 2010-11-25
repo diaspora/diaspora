@@ -188,9 +188,12 @@ el:
     show: 
       already_requested: "Εχετέ ήδη στείλει ένα αίτημα στον %{name}."
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "Κανένα μήνυμα προς εμφάνιση!"
       not_connected: "Δεν έχετε συνδεθεί με αυτό το πρόσωπο"
       request_people: "Εάν επιθυμείτε μπορείτε να ζητήσετε την προσθήκη του/της."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Αποτυχία ενημέρωσης προφίλ"
       updated: "Το προφίλ ενημερώθηκε επιτυχώς"

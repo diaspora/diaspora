@@ -188,9 +188,12 @@ it:
     show: 
       already_requested: "Hai già inviato una richiesta a %{name}."
       does_not_exist: "La persona non esiste!"
+      incoming_request: "Hai ricevuto una richiesta da questa persona."
       no_posts: "nessun post da mostrare!"
       not_connected: "Non sei connesso a questa persona"
       request_people: "Se lo desideri, puoi richiedere di posizionare lui/lei in uno dei tuoi aspetti."
+      return_to_aspects: "Torna alla pagina dei tuoi aspetti"
+      to_accept_or_ignore: "per accettarla o ignorarla."
     update: 
       failed: "Impossibile aggiornare il profilo"
       updated: "Profilo aggiornato"

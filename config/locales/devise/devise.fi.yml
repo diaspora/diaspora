@@ -20,25 +20,25 @@ fi:
       unconfirmed: "Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa"
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
+      send_instructions: "Kutsusi on lähetetty."
       updated: "Your password was set successfully. You are now signed in."
     mailer: 
       confirmation_instructions: 
         confirm: "Confirm my account"
         subject: "Confirmation instructions"
         you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+      hello: "Hei %{email}!"
       invitation: 
         accept: "Accept invitation"
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "A friend wants you to join Diaspora!"
+        subject: "Sinut on kutsuttu käyttämään Diasporaa!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
+        has_invited_you: "%{name} on kutsunut sinut liittymään Diasporaan"
         have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
-        change: "Change my password"
+        change: "Vaihda salasana"
         ignore: "If you didn't request this, please ignore this email."
         someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
         subject: "Reset password instructions"
@@ -51,10 +51,10 @@ fi:
       welcome: "Tervetuloa %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Vaihda salasana"
       new: 
-        forgot_password: "Forgot your password?"
-        send_password_instructions: "Send me reset password instructions"
+        forgot_password: "Unohditko salasanasi?"
+        send_password_instructions: "Lähetä minulle salasanan resetöinti ohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä miten määrität salasanasi uudelleen."
       updated: "Salasanasi on vaihdettu. Olet nyt kirjautunut sisään."
     registrations: 
@@ -65,22 +65,22 @@ fi:
       new: 
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Have a problem? Find an answer here"
+        have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
         login: "Kirjautuminen"
         modern_browsers: "only supports modern browsers."
         password: "Salasana"
-        remember_me: "Remember me"
-        sign_in: "Sign in"
+        remember_me: "Muista minut"
+        sign_in: "Kirjaudu"
         username: "Käyttäjänimi"
       signed_in: "Sisäänkirjautuminen onnistui."
       signed_out: "Uloskirjautuminen onnistui."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
+        forgot_your_password: "Unohditko salasanasi?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        sign_in: "Kirjaudu"
+        sign_up: "Rekisteröidy"
         sign_up_closed: "Open signups are closed at this time."
     unlocks: 
       new: 

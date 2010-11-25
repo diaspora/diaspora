@@ -188,9 +188,12 @@ pl:
     show: 
       already_requested: "Wysłano już zaproszenie do %{name}."
       does_not_exist: "Osoba nie istnieje!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "brak postów!"
       not_connected: "Nie jesteś połączony/a z tą osobą"
       request_people: "Jeśli chcesz, możesz zaprosić jego/ją do jednego ze swoich aspektów."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Nie udało się zaktualizować profilu"
       updated: "Profil zaktualizowany"
