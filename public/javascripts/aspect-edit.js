@@ -6,7 +6,7 @@
 var AspectEdit = {
 
   initialize: function() {
-    $("ul .person").draggable({
+    $("ul .person.request").draggable({
       revert: true,
       start: AspectEdit.startDrag,
       drag: AspectEdit.duringDrag,

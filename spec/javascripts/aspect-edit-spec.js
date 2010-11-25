@@ -22,7 +22,7 @@ describe("AspectEdit", function() {
         drag: AspectEdit.duringDrag, 
         stop: AspectEdit.stopDrag
       });
-      expect($.fn.draggable.mostRecentCall.object.selector).toEqual("ul .person");
+      expect($.fn.draggable.mostRecentCall.object.selector).toEqual("ul .person.request");
     });
     it("calls droppable on .aspect ul.dropzone", function() {
       spyOn($.fn, "droppable");
