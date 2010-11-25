@@ -26,6 +26,10 @@ When /^I wait for the aspects page to load$/ do
   wait_until { current_path == aspects_path }
 end
 
+When /^I wait for the request's profile page to load$/ do
+  wait_until { current_path == person_path(@me.reload.pending_requests.first.from) }
+end
+
 When /^I wait for the ajax to finish$/ do
   wait_until { evaluate_script("$.active") == 0 }
 end

@@ -48,3 +48,7 @@ When /^I click "X" on the contact request$/ do
     $(".person.request.ui-draggable .delete").hover().click();
   JS
 end
+
+When /^I click on the contact request$/ do
+  find(".person.request.ui-draggable a").click
+end

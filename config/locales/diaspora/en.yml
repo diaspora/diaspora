@@ -292,6 +292,9 @@ en:
           results_for: "search results for"
       show:
           no_posts: "no posts to display!"
+          incoming_request: "You have an incoming request from this person."
+          return_to_aspects: "Return to your aspects page"
+          to_accept_or_ignore: "to accept or ignore it."
           request_people: "If you'd like, you can request to place him/her in one of your aspects."
           already_requested: "You have already sent a request to %{name}."
           does_not_exist: "Person does not exist!"

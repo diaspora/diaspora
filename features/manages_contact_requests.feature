@@ -5,20 +5,28 @@ Feature: managing contact requests
     And I have an aspect called "Family"
     And I have one contact request
     
-  Scenario: seeing contact requests
+  Scenario: seeing contact request notifications
     When I am on the home page
     Then I should see "Home (1)" in the header
+    When I follow "Home (1)"
+    Then I should see "1 new request!"
+    
+  @javascript
+  Scenario: viewing a request's profile
+    When I am on the aspects manage page
+    Then I should see 1 contact request
+    When I click on the contact request
+    And I wait for the request's profile page to load
+    Then I should be on the requestor's profile page
+    And I should see "You have an incoming request from this person"
 
   @javascript
   Scenario: accepting a contact request
     When I am on the home page
-    And I follow "Home (1)"
-    Then I should see "1 new request!" 
-    And I should see 0 contacts in "Family"    
+    And I follow "1 new request!"
+    Then I should see 0 contacts in "Family"
 
-    When I am on the home page
-    Then I follow "1 new request!"
-		And I drag the contact request to the "Family" aspect
+    When I drag the contact request to the "Family" aspect
     And I wait for the ajax to finish
     Then I should see 1 contact in "Family"
 

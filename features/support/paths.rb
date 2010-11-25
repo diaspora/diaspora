@@ -9,6 +9,8 @@ module NavigationHelpers
       send("#{$1.gsub(/\W+/, '_')}_path")
     when /^my edit profile page$/
       edit_person_path(@me.person)
+    when /^the requestor's profile page$/
+      person_path(@me.reload.pending_requests.first.from)
     when /^"(\/.*)"/
       $1
     else

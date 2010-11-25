@@ -24,6 +24,14 @@
         %li
           %h3= t('.no_posts')
 
+  - elsif current_user.has_incoming_request_from(@person)
+    .floating
+      %h3 
+        = t('.incoming_request') 
+      %h4
+        = link_to t('.return_to_aspects'), aspects_manage_path
+        = t('.to_accept_or_ignore')
+        
   - else
     .floating
       %h3

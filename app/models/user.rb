@@ -61,7 +61,7 @@ class User
     person.save if person
   end
 
-  attr_accessible :getting_started, :password, :password_confirmation, :language, 
+  attr_accessible :getting_started, :password, :password_confirmation, :language,
 
   def strip_and_downcase_username
     if username.present?
@@ -79,6 +79,12 @@ class User
       conditions[:email] = conditions.delete(:username)
     end
     super
+  end
+
+  def has_incoming_request_from(person)
+    self.pending_requests.select do |req|
+      req.to_id == self.person.id
+    end.any? { |req| req.from_id == person.id }
   end
 
   ######## Making things work ########
@@ -350,7 +356,7 @@ class User
       self.person.save!
       self.save!
       invitations_to_me.each{|invitation| invitation.to_request!}
-      
+
       self.reload # Because to_request adds a request and saves elsewhere
       self
     end
@@ -366,7 +372,7 @@ class User
 
   def setup(opts)
     self.username = opts[:username]
-    
+
     opts[:person] ||= {}
     opts[:person][:profile] ||= Profile.new
 
