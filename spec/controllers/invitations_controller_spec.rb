@@ -80,25 +80,43 @@ describe InvitationsController do
   describe "#update" do
     before do
       user.invites = 5
-      invited_user = user.invite_user(:email => "a@a.com", :aspect_id => user.aspects.first.id)
-      @accept_params = {"user"=>{"password_confirmation"=>"password", "username"=>"josh",
-        "password"=>"password", "invitation_token" => invited_user.invitation_token}}
+      @invited_user = user.invite_user(:email => "a@a.com", :aspect_id => user.aspects.first.id)
+      @accept_params = {:user=>
+        {:password_confirmation =>"password",
+         :username=>"josh",
+         :password=>"password",
+         :invitation_token => @invited_user.invitation_token}}
 
     end
+    context 'success' do
+      it 'creates user' do
+        put :update, @accept_params
+        User.find_by_username(@accept_params[:user][:username]).should_not be_nil
+      end
 
-    it 'creates user' do
-      put :update, @accept_params
-      User.find_by_username(@accept_params['user']['username']).should_not be_nil
+      it 'seeds the aspects' do
+        put :update, @accept_params
+        User.find_by_username(@accept_params[:user][:username]).aspects.count.should == 2
+      end
+
+      it 'adds a pending request' do
+        put :update, @accept_params
+        User.find_by_username(@accept_params[:user][:username]).pending_requests.count.should == 1
+      end
     end
-
-    it 'seeds the aspects' do
-      put :update, @accept_params
-      User.find_by_username(@accept_params['user']['username']).aspects.count.should == 2
-    end
-
-    it 'adds a pending request' do
-      put :update, @accept_params
-      User.find_by_username(@accept_params['user']['username']).pending_requests.count.should == 1
+    context 'failure' do
+      before do
+        @fail_params = @accept_params
+        @fail_params[:user][:username] = user.username
+      end
+      it 'stays on the invitation accept form' do
+        put :update, @fail_params
+        response.location.include?(accept_user_invitation_path).should be_true
+      end
+      it 'keeps the invitation token' do
+        put :update, @fail_params
+        response.location.include?("invitation_token=#{@invited_user.invitation_token}").should be_true
+      end
     end
   end
 end

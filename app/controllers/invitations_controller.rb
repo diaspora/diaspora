@@ -53,7 +53,8 @@ class InvitationsController < Devise::InvitationsController
       flash[:notice] = I18n.t 'registrations.create.success'
       sign_in_and_redirect(:user, user)
     else
-      redirect_to new_user_registration_path
+      redirect_to accept_user_invitation_path(
+        :invitation_token => params[:user][:invitation_token])
     end
   end
 
