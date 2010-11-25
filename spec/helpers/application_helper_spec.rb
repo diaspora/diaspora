@@ -18,6 +18,30 @@ describe ApplicationHelper do
     person_url(@user).should == "/users/#{@user.id}"
   end
 
+  describe "#object_path" do
+    it "returns an empty string if object is nil" do
+      object_path(nil).should == ""
+    end
+    it "returns person path if it's a person" do
+      object_path(@person).should == person_path(@person)
+    end
+    it "returns person path if it's a user" do
+      object_path(@user).should == person_path(@user.person)
+    end
+  end
+
+  describe "#person_image_link" do
+    it "returns an empty string if person is nil" do
+      person_image_link(nil).should == ""
+    end
+    it "returns a link containing the person's photo" do
+      person_image_link(@person).should include(image_or_default(@person))
+    end
+    it "returns a link to the person's profile" do
+      person_image_link(@person).should include("href=\"#{person_path(@person)}\"")
+    end
+  end
+
   describe "markdownify" do
     describe "autolinks" do
       it "should not allow basic XSS/HTML" do

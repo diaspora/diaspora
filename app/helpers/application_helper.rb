@@ -22,8 +22,9 @@ module ApplicationHelper
   end
   
   def object_path(object, opts = {})
+    return "" if object.nil?
     object = object.person if object.is_a? User
-    eval("#{object.class.to_s.underscore}_path(object, opts)")
+    eval("#{object.class.name.underscore}_path(object, opts)")
   end
 
   def object_fields(object)
@@ -77,10 +78,11 @@ module ApplicationHelper
   end
 
   def person_image_link(person, opts = {})
+    return "" if person.nil?
     if opts[:to] == :photos
       link_to person_image_tag(person), person_photos_path(person)
     else
-      link_to person_image_tag(person), object_path(person)
+      link_to person_image_tag(person), person_path(person)
     end
   end
 
