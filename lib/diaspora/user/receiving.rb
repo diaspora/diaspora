@@ -22,7 +22,7 @@ module Diaspora
 
       def receive xml, salmon_author
         object = Diaspora::Parser.from_xml(xml)
-        Rails.logger.info("event=receive status=start recipient=#{self.diaspora_handle} object=#{object.inspect} sender=#{salmon_author.diaspora_handle}")
+        Rails.logger.info("event=receive status=start recipient=#{self.diaspora_handle} payload_type=#{object.class} payload=#{object.inspect} sender=#{salmon_author.diaspora_handle}")
         
         if object.is_a?(Request)
           salmon_author.save
@@ -36,7 +36,7 @@ module Diaspora
         end
 
         if (salmon_author.diaspora_handle != xml_author)
-          Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
+          Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{object.class} recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
           return
         end
 
@@ -46,12 +46,12 @@ module Diaspora
           if person.class == Person
             object.person = person if object.respond_to? :person=
             unless object.is_a?(Request) || self.contact_for(salmon_author)
-              Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
+              Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect} payload_type=#{object.class}")
               return
             else
               receive_object(object,person)
-              Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect}")
-              return
+              Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{object.inspect} payload_type#{object.class}")
+              return object
             end
           end
         end
@@ -75,7 +75,7 @@ module Diaspora
       def receive_retraction retraction
         if retraction.type == 'Person'
           unless retraction.person.id.to_s == retraction.post_id.to_s
-            Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{retraction.inspect}")
+            Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{retraction.inspect} payload_type=#{retraction.class} retraction_type=person")
             return
           end
           Rails.logger.info( "the person id is #{retraction.post_id} the contact found is #{visible_person_by_id(retraction.post_id).inspect}")
@@ -93,7 +93,6 @@ module Diaspora
       def receive_request request, person
         request.save!
         receive_contact_request(request)
-        request
       end
 
       def receive_profile profile, person
@@ -104,7 +103,7 @@ module Diaspora
 
       def receive_comment comment
         unless comment.post.person == self.person || comment.verify_post_creator_signature
-          Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{retraction.inspect}")
+          Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload=#{comment.inspect} payload_type=#{comment.class}")
           return
         end
         self.visible_people = self.visible_people | [comment.person]
@@ -139,15 +138,19 @@ module Diaspora
             if known_post.mutable?
               known_post.update_attributes(post.to_mongo)
             else
-              Rails.logger.info("#{post.diaspora_handle} is trying to update an immutable object #{known_post.inspect}")
+              Rails.logger.info("event=receive payload_type=#{post.class} update=true status=abort sender=#{post.diaspora_handle} reason=immutable updated_post=#{post.inspect} existing_post=#{known_post.inspect}")
             end
           elsif on_pod == post 
             update_user_refs_and_add_to_aspects(on_pod)
+            Rails.logger.info("event=receive payload_type=#{post.class} update=true status=complete sender=#{post.diaspora_handle} payload=#{post.inspect} existing_post=#{known_post.inspect}")
+            post
           end
         elsif !on_pod 
           update_user_refs_and_add_to_aspects(post)
+          Rails.logger.info("event=receive payload_type=#{post.class} update=false status=complete sender=#{post.diaspora_handle} payload=#{post.inspect}")
+          post
         else
-          Rails.logger.info("#{post.diaspora_handle} is trying to update an exsisting object they do not own #{on_pod.inspect}")
+          Rails.logger.info("event=receive payload_type=#{post.class} update=true status=abort sender=#{post.diaspora_handle} reason='update not from post owner' updated_post=#{post.inspect} existing_post=#{known_post.inspect}")
         end
       end
 
