@@ -52,6 +52,7 @@ class Invitation
 
       invitee.send(:generate_invitation_token)
       invitee.invite! 
+      Rails.logger.info("event=invitation_sent to=#{opts[:email]} #{"inviter=#{opts[:from].diaspora_handle}" if opts[:from]}")
     end
     invitee
   end
