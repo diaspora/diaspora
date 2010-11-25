@@ -24,7 +24,7 @@ module Rack
             <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
               <head>
                 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-                <title>You need to use a real browser in order to use Diaspora!</title>
+                <title>Diaspora doesn't support your version of Internet Explorer.  Try Chrome, Firefox, or Opera!</title>
               </head>
               <body>
                 <div id="cf-placeholder"></div>
