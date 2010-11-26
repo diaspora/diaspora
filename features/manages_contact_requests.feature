@@ -9,7 +9,7 @@ Feature: managing contact requests
     When I am on the home page
     Then I should see "Home (1)" in the header
     When I follow "Home (1)"
-    Then I should see "1 new request!"
+    Then I should see "new request!"
     
   @javascript
   Scenario: viewing a request's profile
@@ -23,7 +23,7 @@ Feature: managing contact requests
   @javascript
   Scenario: accepting a contact request
     When I am on the home page
-    And I follow "1 new request!"
+    And I follow "new request!"
     Then I should see 0 contacts in "Family"
 
     When I drag the contact request to the "Family" aspect
