@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.js{ render :json => { :post_id => @comment.post_id,
                                      :comment_id => @comment.id,
-                                     :html => render_to_string(:partial => type_partial(@comment), :locals => {:post => @comment, :current_user => current_user})},
+                                     :html => render_to_string(:partial => type_partial(@comment), :locals => {:comment => @comment, :person => current_user, :current_user => current_user})},
                                      :status => 201 }
         format.html{ render :nothing => true, :status => 201 }
       end
