@@ -54,6 +54,28 @@ describe AspectsController do
     end
   end
 
+  describe "#show" do
+    it "succeeds" do
+      get :show, 'id' => @aspect.id.to_s
+      response.should be_success
+    end
+    it "assigns aspect, aspect_contacts, and posts" do
+      get :show, 'id' => @aspect.id.to_s
+      assigns(:aspect).should == @aspect
+      assigns(:aspect_contacts).should == @aspect.contacts
+      assigns(:posts).should == []
+    end
+    it "paginates" do
+      16.times { |i| @user2.post(:status_message, :to => @aspect2.id, :message => "hi #{i}") }
+
+      get :show, 'id' => @aspect.id.to_s
+      assigns(:posts).count.should == 15
+
+      get :show, 'id' => @aspect.id.to_s, 'page' => '2'
+      assigns(:posts).count.should == 1
+    end
+  end
+
   describe "#create" do
     describe "with valid params" do
       it "creates an aspect" do
