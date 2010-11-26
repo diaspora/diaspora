@@ -82,6 +82,8 @@ es:
         sign_in: "Ingresar"
         sign_up: "Regístrate"
         sign_up_closed: "Los registros están cerrados temporalmente."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Volver a enviar las instrucciones de desbloqueo"

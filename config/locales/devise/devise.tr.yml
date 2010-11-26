@@ -82,6 +82,8 @@ tr:
         sign_in: "Giriş Yap"
         sign_up: "Üye Ol"
         sign_up_closed: "Open signups are closed at this time."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

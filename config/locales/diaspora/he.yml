@@ -40,6 +40,10 @@ he:
       success: "ההיבט החדש שלך %{name} נוצר"
     destroy: 
       success: "%{name} הוסר בהצלחה."
+    edit_aspect_pane: 
+      add_existing: "הוספת איש קשר קיים"
+      confirm_remove_aspect: "האם להסיר היבט?"
+      remove_aspect: "הסרת היבט"
     helper: 
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
       aspect_not_empty: "ההיבט אינו ריק"
@@ -75,8 +79,6 @@ he:
       family: "משפחה"
       work: "עבודה"
     show: 
-      contact: "איש קשר"
-      contacts: "אנשי קשר"
       edit_aspect: "עריכת היבט"
     update: 
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
@@ -86,6 +88,11 @@ he:
     new_comment: 
       comment: "הערה"
       commenting: "נוספת הערה..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "מחיקה"
   email: "דוא״ל"
   error_messages: 
@@ -134,6 +141,11 @@ he:
       login: "כניסה"
       logout: "יציאה"
       view_profile: "צפייה בפרופיל"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "רובוט הדוא״ל של דיאספורה"
     hello: "שלום %{name}!"
@@ -271,7 +283,7 @@ he:
   shared: 
     add_contact: 
       create_request: "חיפוש לפי שם משתמש בדיאספורה"
-      diaspora_handle: "שם משתמש בדיאספורה"
+      diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
       know_email: "כתובת הדוא״ל שלהם ידועה לך? כדאי לך להזמין אותם"
       your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
@@ -283,16 +295,13 @@ he:
       aspect_settings: "הגדרות היבט"
       aspects: "היבטים"
       confirm_remove_aspect: "האם להסיר היבט?"
-      contacts: "אנשי קשר"
       done_editing: "סיום העריכה"
       invites: "הזמנות"
-      new_request: "בקשה חדשה אחת!"
-      new_requests: "%{count} בקשות חדשות!"
       no_contacts: "כרגע אין לך אנשי קשר. ניתן לחפש אנשי קשר דרך כאן."
       remove_aspect: "הסרת היבט"
     contact_list: 
+      all_contacts: "כל אנשי הקשר"
       cannot_remove: "לא ניתן להסיר את איש הקשר מההיבט האחרון. (אם ברצונך להתנתק מאיש הקשר עליך להסירו מרשימת אנשי הקשר)."
-      search_contacts: "חיפוש באנשי הקשר"
     invitations: 
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
       invitations_left: "(%{count} נותרו)"
@@ -316,8 +325,6 @@ he:
       share_with_all: "שיתוף בין כל ההיבטים שלך"
     reshare: 
       reshare: "שיתוף מחדש"
-    stream_element: 
-      show_comments: "הצגת תגובות"
   status_messages: 
     helper: 
       no_message_to_display: "אין הודעה להצגה."
@@ -326,6 +333,9 @@ he:
       tell_me_something_good: "בא לי לשמוע סיפור נחמד"
     show: 
       destroy: "הריסה"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "העולם"
   username: "שם משתמש"
   users: 
@@ -352,7 +362,10 @@ he:
         add: "הוספה"
         aspect_name: "שם ההיבט"
         description: "כאן ניתן לספר לדיאספורה מהם ההיבטים השונים בהם אנשי הקשר שלך מסווגים. ניתן לנהל את אלו בשלב מאוחר יותר דרך תפריט החשבון בפינה השמאלית העליונה. ההיבטים שלך ייחודיים לך ואינם גלויים בפני אחרים."
+        drag_to_add: "יש לגרור אותם להיבט לו הם משויכים בעיניך"
+        no_requests: "You have no requests"
         your_aspects: "ההיבטים שלך"
+        your_inviter: "להלן רשימת האנשים הממתינים לך:"
       step_3: 
         description: "באפשרותך להתחבר לרשתות החברתיות הקיימות שלך באמצעות חשבונך בדיאספורה. תהיה באפשרותך לפרסם באופן ציבורי דרך לשונית הבית שלך בעת בחירה ב\"הפיכה לציבורי\"."
         your_services: "השירותים שלך"

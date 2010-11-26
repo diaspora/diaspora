@@ -82,6 +82,8 @@ it:
         sign_in: "Accedi"
         sign_up: "Registrati"
         sign_up_closed: "Le iscrizioni pubbliche sono chiuse al momento."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Invia di nuovo le istruzioni per lo sblocco"

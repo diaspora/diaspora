@@ -5,8 +5,8 @@
 
 ru: 
   _comments: "Коментарии"
-  _home: "Домой"
-  _photos: "Фото"
+  _home: "Домашний"
+  _photos: "Фотографии"
   _services: "Сервисы"
   account: "Учётная запись"
   activemodel: 
@@ -15,7 +15,7 @@ ru:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "уже присутствет"
+              taken: "уже присутствует"
         user: 
           attributes: 
             email: 
@@ -23,7 +23,7 @@ ru:
             person: 
               invalid: "неправильный"
             username: 
-              taken: "уже присутствует в базе"
+              taken: "уже занято"
   ago: "назад"
   application: 
     helper: 
@@ -33,35 +33,39 @@ ru:
   are_you_sure: "Вы уверены?"
   aspects: 
     add_to_aspect: 
-      failure: "Добавить друга в аспект не удалось."
-      success: "Друг добавлен в аспект ."
+      failure: "Не удалось добавить друга в аспект."
+      success: "Друг добавлен в аспект."
     create: 
-      failure: "Создать аспект не удалось."
+      failure: "Не удалось создать аспект."
       success: "Ваш новый аспект %{name} создан"
     destroy: 
       success: "%{name} удалён."
+    edit_aspect_pane: 
+      add_existing: "Добавить существующий контакт"
+      confirm_remove_aspect: "Удалить аспект?"
+      remove_aspect: "Удалить Аспект"
     helper: 
       are_you_sure: "Вы уверены, что хотите удалить аспект?"
       aspect_not_empty: "Аспект не пуст"
       remove: "удалить"
     index: 
-      handle_explanation: "Это идентификатор вашей диаспоры. Так же как адрес электронной почты, который вы можете дать людям, чтобы они связались с вами."
+      handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
     manage: 
-      add_a_new_aspect: "Создать"
+      add_a_new_aspect: "Добавить аспект"
       add_a_new_contact: "Добавить новый контакт"
       drag_to_add: "Потяните для добавления в аспект"
       manage_aspects: "Управление аспектами"
       no_requests: "Новых запросов нет"
       requests: "Запросы"
     move_contact: 
-      error: "Ошибка перемещения контакта: %{inspect}"
+      error: "Ошибка при перемещении контакта: %{inspect}"
       failure: "не работает %{inspect}"
       success: "Друг перемещён в новый аспект"
     new_aspect: 
       create: "Создать"
       name: "Имя"
     no_contacts_message: 
-      add_contact: "Добавить новый контакт"
+      add_contact: "Добавить контакт"
       add_contact_to: "Добавить кого-нибудь в %{aspect_name}"
       invite: "Пригласить кого-нибудь присоединится к Диаспоре!"
       nobody: "Сообщите людям, что происходит в вашей жизни через Диаспору!"
@@ -75,9 +79,7 @@ ru:
       family: "Семья"
       work: "Работа"
     show: 
-      contact: "Контакт"
-      contacts: "Контакты"
-      edit_aspect: "Редактировать аспект"
+      edit_aspect: "редактировать аспект"
     update: 
       success: "Аспект, %{name}, отредактирован."
   back: "Назад"
@@ -86,40 +88,45 @@ ru:
     new_comment: 
       comment: "Комментарий"
       commenting: "Комментирование ..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Удаление"
-  email: "E-mail"
+  email: "Email"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
-      invalid_fields: "Неверная запись"
+      invalid_fields: "Неверные поля"
   fill_me_out: "Заполнить"
   home: 
     show: 
       already_account: "уже есть учётная запись?"
       choice: "Выбор"
-      choice_explanation: "Диаспора позволяет сортировать группы контактов, называемые аспектами. Аспекты - уникальная особенность диаспоры. Они позволяет обеспечить приватность ваших фотографий, историй и т.д. Последние будут доступны только для тех людей, которые принадлежат соответствующему аспекту."
+      choice_explanation: "Диаспора позволяет сортировать группы контактов, называемые аспектами. Аспекты - уникальная особенность диаспоры. Они позволяют обеспечить приватность ваших фотографий, историй и т.д. Последние будут доступны только для тех людей, которые принадлежат соответствующему аспекту."
       learn_about_host: "Узнайте о том, как организовать свой собственный сервер Диаспоры."
       login_here: "Войти здесь"
       ownership: "Собственность"
-      ownership_explanation: "Вы сохраняете право собственности на все, что вы предоставляете Диаспоре, что дает вам полный контроль над тем, как это распространяется."
-      share_what_you_want: "Делитесь, чем хотите, и с кем хотите."
+      ownership_explanation: "Вы сохраняете право собственности на все, что вы предоставляете Диаспоре, это дает вам полный контроль над тем, как это распространяется."
+      share_what_you_want: "Делитесь чем хотите, с кем хотите."
       simplicity: "Простота"
-      simplicity_explanation: "Диаспора делает обмен прозрачным и простым - и это распространяется и на частную жизнь. По существу, диаспора не заставляет вас пробираться через страницы настроек и опций для того, чтобы держать ваш профиль в безопасности."
+      simplicity_explanation: "Диаспора делает обмен прозрачным и простым - это распространяется и на частную жизнь. По существу, диаспора не заставляет вас пробираться через страницы настроек и опций для того, чтобы держать ваш профиль в безопасности."
   invitations: 
     check_token: 
       not_found: "Код приглашения не найден"
     create: 
-      already_contacts: "Вы уже связаны с этим человеком."
+      already_contacts: "Вы уже связаны с этим человеком"
       already_sent: "Вы уже пригласили этого человека."
       no_more: "У вас закончились приглашения."
-      rejected: "Следующие адреса электронной почты были проблемными:"
-      sent: "Ваше приглашение отправлено."
+      rejected: "Следующие адреса электронной почты имеют проблемы:"
+      sent: "Ваши приглашения отправлены:"
     edit: 
       sign_up: "регистрация"
     new: 
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
-      if_they_accept_info: "После их согласия они будут добавлены в аспект"
-      invite_someone_to_join: "Пригласить в диаспору!"
+      if_they_accept_info: "После их согласия они будут добавлены в аспект."
+      invite_someone_to_join: "Пригласить кого-либо в Диаспору!"
       message: "Сообщение:"
       send_an_invitation: "Отправить приглашение"
       send_invitation: "Отправить приглашение"
@@ -128,20 +135,25 @@ ru:
     application: 
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
     header: 
-      account_settings: "Настройки аккаунта"
+      account_settings: "настройки аккаунта"
       blog: "блог"
-      edit_profile: "Редактировать профиль"
+      edit_profile: "редактировать профиль"
       login: "логин"
       logout: "выйти"
-      view_profile: "Просмотр профиля"
+      view_profile: "просмотр профиля"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
     love: "Любовь,"
     new_request: 
-      just_sent_you: "отправил вам запрос для Диаспоры"
-      sign_in: "Войдите в систему здесь"
-      subject: "Новый запрос Диаспоры от %{from}"
+      just_sent_you: "отправил вам запрос для Диаспоры*"
+      sign_in: "войдите в систему здесь"
+      subject: "новый запрос Диаспоры от %{from}"
       try_it_out: "Вы должны подумать о его проверке.\n"
     request_accepted: 
       accepted: "принял(а) ваш запрос. Сейчас он(а) находятся в вашем\n"
@@ -153,16 +165,16 @@ ru:
   password_confirmation: "Подтверждение пароля"
   people: 
     edit: 
-      allow_search: "Разрешить отображать вас в поиске"
+      allow_search: "Разрешить отображать вас в поиске Диаспоры"
       first_name: "Имя"
-      info_available_to: "Эта информация будет доступна для всех."
+      info_available_to: "Эта информация будет доступна для всех, кто будет связан с вами в Диаспоре."
       last_name: "Фамилия"
       update_profile: "Обновить профиль"
       your_bio: "О себе"
       your_birthday: "День рождения"
       your_gender: "Ваш пол"
       your_name: "Ваше Имя"
-      your_photo: "Фото"
+      your_photo: "Ваши фото"
       your_profile: "Ваш профиль"
     helper: 
       people_on_pod_are_aware_of: "люди на сервере знают о"
@@ -172,14 +184,14 @@ ru:
     person: 
       add_contact: "добавить контакт"
       already_connected: "Уже подключен"
-      pending_request: "Ожидатется подтверждение"
-      thats_you: "Это вы!"
+      pending_request: "ожидающий запрос"
+      thats_you: "это вы!"
     profile_photo_upload: 
       or_select_one: "или выберите из уже существующих"
     profile_sidebar: 
       bio: "О себе"
       born: "день рождения"
-      cannot_remove: "Не удалось удалить %{name} c последнего аспекта. Если вы хотите отключиться от этого человека необходимо удалить контакт.\n"
+      cannot_remove: "Не удалось удалить %{name} c последнего аспекта.(Если вы хотите отключиться от этого человека необходимо удалить контакт)"
       edit_my_profile: "Редиктировать профиль"
       gender: "пол"
       in_aspects: "в аспектах"
@@ -188,14 +200,14 @@ ru:
     show: 
       already_requested: "Вы уже отправили запрос для %{name}."
       does_not_exist: "Персоны не существует !"
-      incoming_request: "You have an incoming request from this person."
-      no_posts: "Новых сообщений нет!"
+      incoming_request: "Вам поступил запрос от этого человека."
+      no_posts: "новых сообщений нет!"
       not_connected: "Вы не связаны с этим человеком"
-      request_people: "Если хотите, вы можете спросить его/ее разрешения добавить в аспект"
-      return_to_aspects: "Return to your aspects page"
-      to_accept_or_ignore: "to accept or ignore it."
+      request_people: "Если хотите, вы можете спросить его/ее разрешения добавить в аспекты."
+      return_to_aspects: "Вернуться на страницу аспектов"
+      to_accept_or_ignore: "принять или игнорировать."
     update: 
-      failed: "Обновить профиль не удалось"
+      failed: "Не удалось обновить профиль"
       updated: "Профиль обновлён"
   photos: 
     create: 
@@ -217,7 +229,7 @@ ru:
     photo: 
       view_all: "Посмотреть все фотографии %{name}"
     show: 
-      delete_photo: "Удалить"
+      delete_photo: "Удалить фото"
       edit: "редактировать"
       edit_delete_photo: "Изменить описание фото / удалить фото"
       make_profile_photo: "сделать фотографией профиля"
@@ -236,7 +248,7 @@ ru:
       cancel_my_account: "Отменить мой аккаунт"
       edit: "Редактировать %{name}"
       leave_blank: "(Оставьте пустым, если не хотите менять)"
-      password_to_confirm: "(Введите ваш текущий пароль для подтверждения изменений)"
+      password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
       unhappy: "Несчастны?"
       update: "Обновить"
     new: 
@@ -271,7 +283,7 @@ ru:
   shared: 
     add_contact: 
       create_request: "Поиск по Диаспоре"
-      diaspora_handle: "Руководство Диаспоры"
+      diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
       know_email: "Знаете их адреса электронной почты? Приглашайте"
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
@@ -283,16 +295,13 @@ ru:
       aspect_settings: "Настройки Аспектов"
       aspects: "Аспекты"
       confirm_remove_aspect: "Удалить аспект?"
-      contacts: "Контакты"
       done_editing: "редактирование завершено"
       invites: "Приглашения"
-      new_request: "%{count} новый запрос!"
-      new_requests: "%{count} новых запросов!"
       no_contacts: "У вас нет контактов. Найти контакты здесь."
       remove_aspect: "Удалить Аспект"
     contact_list: 
-      cannot_remove: "Не может удалить человека с последнего аспекта. (Если вы хотите, отключить этого человека необходимо удалить контакт)"
-      search_contacts: "Поиск контактов"
+      all_contacts: "Все контакты"
+      cannot_remove: "Не может удалить человека с последнего аспекта.(Если вы хотите, отключить этого человека необходимо удалить контакт)"
     invitations: 
       dont_have_now: "Сейчас у вас больше нет приглашений, но новые уже не за горами!"
       invitations_left: "(осталось %{count})"
@@ -300,15 +309,15 @@ ru:
     notification: 
       new: "Новый %{type} из %{from}"
     public_explain: 
-      logged_in: "Войти в %{service}"
-      manage: "Управление сервисами"
+      logged_in: "войти в %{service}"
+      manage: "управление сервисами"
       outside: "Публичные сообщения доступны для чтения всем, даже за пределами вашей Диаспоры."
       title: "Вы собираетесь отправить публичное сообщение!"
     publisher: 
       add_photos: "добавить фото"
-      all: "Все"
+      all: "все"
       all_contacts: "все контакты"
-      make_public: "Сделать публичным"
+      make_public: "сделать публичным"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка ..."
       share: "Поделиться"
@@ -316,17 +325,18 @@ ru:
       share_with_all: "Поделиться во все аспекты"
     reshare: 
       reshare: "Поделиться повторно"
-    stream_element: 
-      show_comments: "Комментарии"
   status_messages: 
     helper: 
       no_message_to_display: "Новых сообщений нет."
     new_status_message: 
-      oh_yeah: "О да!"
+      oh_yeah: "о да!"
       tell_me_something_good: "расскажи мне что-нибудь хорошее"
     show: 
       destroy: "Уничтожить"
-  the_world: "Мир"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
+  the_world: "мир"
   username: "Пользователь"
   users: 
     destroy: "Аккаунт закрыт."
@@ -347,23 +357,26 @@ ru:
       finished: "Готово!"
       save_and_continue: "Сохранить и продолжить"
       signup_steps: "Для заверщения вашей регистрации, выполните:"
-      skip: "Пропускать при старте"
+      skip: "пропускать при старте"
       step_2: 
         add: "Добавить"
         aspect_name: "Имя аспекта"
         description: "Укажите какие аспекты будут доступны для просмотра вашим контактам. Вы сможете изменять их в будущем, нажав на вкладку Управление в правом верхнем углу. Ваши аспекты уникальны и не видны другим."
+        drag_to_add: "Перетащите их в ваш аспект"
+        no_requests: "You have no requests"
         your_aspects: "Ваши аспекты"
+        your_inviter: "Здесь люди ожидающие вас:"
       step_3: 
-        description: "Подключите аккаунты с других социальных сетей к вашей диаспоре. Вы сможете общедоступно размещать через вкладку \"Для всех\""
+        description: "Подключите аккаунты с других социальных сетей к вашей Диаспоре. Вы сможете общедоступно размещать через вкладку \"Домашний\""
         your_services: "Ваши сервисы"
       step_4: 
         change_profile: "Вы можете редактировать свой профиль и управлять подключенными услугами в любое время"
         continue: "Продолжить на вашей странице, обзор всех ваших аспектов."
-        finish: "Конец"
+        finish: "Завершить"
         manage_aspects: "Так же вы можете добавлять контакты на любой странице аспектов."
         ready_to_share: "Теперь вы готовы начать обмен с"
         set_up: "Вы все готовы, %{name}!"
-        user_menu: "пользовательское меню, расположенное в правом верхнем углу.\n"
+        user_menu: "пользовательское меню, расположено в правом верхнем углу."
       welcome: "Добро пожаловать в Диаспору!"
     public: 
       does_not_exist: "Пользователя %{username} не существует!"

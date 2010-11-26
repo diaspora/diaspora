@@ -40,6 +40,10 @@ sv:
       success: "Din nya sida %{name} har skapats"
     destroy: 
       success: "%{name} är nu borttagen."
+    edit_aspect_pane: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Remove aspect?"
+      remove_aspect: "Remove Aspect"
     helper: 
       are_you_sure: "Är du säker på att du vill ta bort den här sidan?"
       aspect_not_empty: "Sidan är inte tom"
@@ -75,8 +79,6 @@ sv:
       family: "Familj"
       work: "Arbete"
     show: 
-      contact: "kontakt"
-      contacts: "kontakter"
       edit_aspect: "ändra sida"
     update: 
       success: "Din sida %{name} är nu ändrad."
@@ -86,6 +88,11 @@ sv:
     new_comment: 
       comment: "Kommentar"
       commenting: "Kommenterar..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Ta bort"
   email: "E-post"
   error_messages: 
@@ -134,6 +141,11 @@ sv:
       login: "logga in"
       logout: "logga ut"
       view_profile: "visa profil"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
@@ -283,16 +295,13 @@ sv:
       aspect_settings: "Inställningar för sida"
       aspects: "Sidor"
       confirm_remove_aspect: "Ta bort sida?"
-      contacts: "kontakter"
       done_editing: "färdig"
       invites: "Inbjudningar"
-      new_request: "%{count} nya förfrågningar!"
-      new_requests: "%{count} nya förfrågningar!"
       no_contacts: "Du har förnärvarande inga kontakter.  Hitta nya kontakter här."
       remove_aspect: "Ta bort sida"
     contact_list: 
+      all_contacts: "All contacts"
       cannot_remove: "Kan inte ta bort personen från fler sidor, ta bort kontakten om du inte längre vill vara ansluten till denne."
-      search_contacts: "Sök efter kontakter"
     invitations: 
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
       invitations_left: "(%{count} kvar)"
@@ -316,8 +325,6 @@ sv:
       share_with_all: "Dela på alla dina sidor"
     reshare: 
       reshare: "Återdela"
-    stream_element: 
-      show_comments: "visa kommentarer"
   status_messages: 
     helper: 
       no_message_to_display: "Inget meddelande att visa."
@@ -326,6 +333,9 @@ sv:
       tell_me_something_good: "berätta något intressant"
     show: 
       destroy: "Ta bort"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "världen"
   username: "Användarnamn"
   users: 
@@ -352,7 +362,10 @@ sv:
         add: "Lägg till"
         aspect_name: "Namn på sida"
         description: "Här anger du vilka sidor av dig själv du vill visa på Diaspora. Lägger du till en person på en viss sida kan denne bara se information som du publicerar på just den sidan. Vill du ändra dessa senare så kan du göra det under fliken \"Hantera\"."
+        drag_to_add: "Drag them to the aspect of yourself they know"
+        no_requests: "You have no requests"
         your_aspects: "Dina sidor"
+        your_inviter: "Here are the people who are waiting for you:"
       step_3: 
         description: "Anslut dina befintliga tjänster till ditt Diaspora-konto.  Du kommer att kunna skicka meddelanden genom dessa om du väljer \"gör publik.\" på sidan för alla kontakter."
         your_services: "Dina tjänster"

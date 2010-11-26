@@ -82,6 +82,8 @@ fr:
         sign_in: "Connexion"
         sign_up: "Inscription"
         sign_up_closed: "Les inscriptions libres sont fermées pour l'instant."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Renvoyer les instructions de déblocage"

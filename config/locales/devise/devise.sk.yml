@@ -82,6 +82,8 @@ sk:
         sign_in: "Prihlásiť"
         sign_up: "Zaregistrovať"
         sign_up_closed: "Momentálne sú ďalšie registrácie pozastavené."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Zaslať návod na odblokovanie"

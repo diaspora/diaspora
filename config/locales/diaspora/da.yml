@@ -6,7 +6,7 @@
 da: 
   _comments: "Kommentarer"
   _home: "Hjem"
-  _photos: "foto"
+  _photos: "Foto"
   _services: "Tjenester"
   account: "Konto"
   activemodel: 
@@ -40,6 +40,10 @@ da:
       success: "Klik på pluset i venstre side for at fortælle diaspora, hvem der kan se dit nye aspekt."
     destroy: 
       success: "%{name} fjernet."
+    edit_aspect_pane: 
+      add_existing: "Tilføj eksisterende kontakt"
+      confirm_remove_aspect: "Fjern aspekt?"
+      remove_aspect: "Fjern Aspekt"
     helper: 
       are_you_sure: "Er du sikker på du vil slette dette aspekt?"
       aspect_not_empty: "Aspektet er ikke tom"
@@ -75,9 +79,7 @@ da:
       family: "Familie"
       work: "Arbejde"
     show: 
-      contact: "contact"
-      contacts: "contacts"
-      edit_aspect: "edit aspect"
+      edit_aspect: "redigér aspekt"
     update: 
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
   back: "Tilbage"
@@ -86,6 +88,11 @@ da:
     new_comment: 
       comment: "Kommenter"
       commenting: "Kommentering ..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Slet"
   email: "Email"
   error_messages: 
@@ -97,11 +104,11 @@ da:
     show: 
       already_account: "har du allerede en konto?"
       choice: "Vælg"
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
-      learn_about_host: "Learn about how to host your own Diaspora server"
+      choice_explanation: "Diaspora lader dig sortere dine kontakter i grupper kaldet aspekter. Diaspora er unik idet aspekter sikrer at dine fotos, historier og vittigheder kun er delt med dem du vil. "
+      learn_about_host: "Se hvordan man hoster sin egen Diaspora server."
       login_here: "log ind her"
       ownership: "Ejerskab"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
+      ownership_explanation: "Du ejer dine billeder, og burde ikke opgive rettighederne over dem bare for at dele dem. Du beholder ejerskab over alt du deler på Diaspora, hvilket giver dig fuld kontrol over hvordan det bliver distribueret."
       share_what_you_want: "Del hvad du vil, med hvem du vil."
       simplicity: "Enkelhed"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
@@ -112,12 +119,12 @@ da:
       already_contacts: "Du er allerede forbundet med denne person"
       already_sent: "Du har allerede inviteret denne person."
       no_more: "Du har ikke flere invitationer."
-      rejected: "The following email addresses had problems: "
+      rejected: "Der var problemer med de følgende email adresser: "
       sent: "Din invitation er blevet sendt."
     edit: 
       sign_up: "Bliv medlem"
     new: 
-      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      comma_seperated_plz: "Du kan indtaste flere emailadresser adskilt med komma."
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet det aspekt du har inviteret dem til"
       invite_someone_to_join: "Invitere en person til Diaspora!"
       message: "Besked:"
@@ -134,6 +141,11 @@ da:
       login: "log in"
       logout: "log ud"
       view_profile: "vis profil"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "Diaspora email robotten"
     hello: "Hej %{name}!"
@@ -188,7 +200,7 @@ da:
     show: 
       already_requested: "Du har allerede sendt en forespørgsel til %{name}."
       does_not_exist: "Personen findes ikke!"
-      incoming_request: "You have an incoming request from this person."
+      incoming_request: "Du har en anmodning fra denne person."
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet med denne person"
       request_people: "Hvis du ønsker, kan du anmode om at placere ham/hende i et af dine aspekter."
@@ -270,31 +282,28 @@ da:
   settings: "Indstillinger"
   shared: 
     add_contact: 
-      create_request: "Find by Diaspora handle"
+      create_request: "Find med Diaspora handle"
       diaspora_handle: "Diaspora handle"
       enter_a_diaspora_username: "Indtast et Diaspora brugernavn:"
-      know_email: "Know their email address? You should invite them"
+      know_email: "Kender du deres emails? Så invitér dem"
       your_diaspora_username_is: "Dit Diaspora brugernavn er: %{diaspora_handle}"
     aspect_contacts: 
       add_aspect: "tilføj aspect"
       add_existing: "Tilføj eksisterende kontakt"
       add_to: "tilføj til %{aspect}"
-      all_contacts: "All contacts"
+      all_contacts: "Alle kontakter"
       aspect_settings: "Aspect indstillinger"
       aspects: "Aspects"
       confirm_remove_aspect: "Fjern aspect?"
-      contacts: "kontakter"
-      done_editing: "done editing"
-      invites: "Invites"
-      new_request: "%{count} new request!"
-      new_requests: "%{count} new requests!"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
-      remove_aspect: "Remove Aspect"
+      done_editing: "redigering færdig"
+      invites: "Inviterede"
+      no_contacts: "Du har lige nu ingen kontakter. Find dem her."
+      remove_aspect: "Fjern Aspekt"
     contact_list: 
-      cannot_remove: "Cannot remove person from last aspect."
-      search_contacts: "Søg kontakter"
+      all_contacts: "Alle kontakter"
+      cannot_remove: "Kan ikke fjerne person fra sidste aspekt."
     invitations: 
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere inviterede!"
       invitations_left: "(%{count} tilbage)"
       invite_someone: "Inviter en person"
     notification: 
@@ -305,9 +314,9 @@ da:
       outside: "Offentlige meddelelser vil være tilgængelige for andre uden for Diaspora."
       title: "Du er ved at skrive en offentlig besked!"
     publisher: 
-      add_photos: "add photos"
+      add_photos: "tilføj billeder"
       all: "alle"
-      all_contacts: "all contacts"
+      all_contacts: "alle kontaktpersoner"
       make_public: "offentliggøre"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
@@ -316,8 +325,6 @@ da:
       share_with_all: "Del med alle aspekter"
     reshare: 
       reshare: "Del igen"
-    stream_element: 
-      show_comments: "vis kommentarer"
   status_messages: 
     helper: 
       no_message_to_display: "Ingen beskeder at vise."
@@ -326,6 +333,9 @@ da:
       tell_me_something_good: "fortælle mig noget godt"
     show: 
       destroy: "Ødelæg"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "verdenen"
   username: "Brugernavn"
   users: 
@@ -338,8 +348,8 @@ da:
       download_xml: "downloade min xml"
       export_data: "Exporter data"
       new_password: "Ny adgangskode"
-      your_email: "Your email"
-      your_handle: "Your diaspora handle"
+      your_email: "Din email"
+      your_handle: "Dit diaspora handle"
     getting_started: 
       connect_services: "Tilslut dine tjenester"
       define_aspects: "Definer dine aspekter"
@@ -352,7 +362,10 @@ da:
         add: "Tilføj"
         aspect_name: "Aspekt navn"
         description: "Fortæl Diaspora hvilke forskellige aspekter af jer der er set af dine forskellige kontakter. Du kan administrere disse senere ved at klikke på administer fanen øverst til højre. Dine aspekter er unikke, og er ikke synlige for andre."
+        drag_to_add: "Træk dem til det aspekt af dig de kender"
+        no_requests: "You have no requests"
         your_aspects: "Dine aspekter"
+        your_inviter: "Her er personerne der venter på dig:"
       step_3: 
         description: "Tilslut dine eksisterende sociale netværk til din Diaspora konto. Du vil være i stand til at sende offentligt gennem din Enhver fane, når du vælger \"offentlige\"."
         your_services: "Dine tjenester"

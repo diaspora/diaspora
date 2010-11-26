@@ -40,6 +40,10 @@ it:
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
     destroy: 
       success: "%{name} è stato rimosso con successo."
+    edit_aspect_pane: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Remove aspect?"
+      remove_aspect: "Remove Aspect"
     helper: 
       are_you_sure: "Sei sicuro di voler cancellare questo aspetto?"
       aspect_not_empty: "Aspetto non vuoto"
@@ -75,8 +79,6 @@ it:
       family: "Famiglia"
       work: "Lavoro"
     show: 
-      contact: "contatto"
-      contacts: "contatti"
       edit_aspect: "modifica aspetto"
     update: 
       success: "Il tuo aspetto, %{name}, è stato modificato con successo."
@@ -86,6 +88,11 @@ it:
     new_comment: 
       comment: "Commento"
       commenting: "Invio commento in corso..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Cancella"
   email: "Email"
   error_messages: 
@@ -134,6 +141,11 @@ it:
       login: "accedi"
       logout: "esci"
       view_profile: "visualizza profilo"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "l'email robot di diaspora"
     hello: "Ciao %{name}!"
@@ -283,16 +295,13 @@ it:
       aspect_settings: "Impostazioni aspetto"
       aspects: "Aspetti"
       confirm_remove_aspect: "Rimuovere aspetto?"
-      contacts: "contatti"
       done_editing: "modifica completata"
       invites: "Inviti"
-      new_request: "%{count} nuova richiesta!"
-      new_requests: "%{count} nuove richieste!"
       no_contacts: "Al momento non hai contatti.  Trova i tuoi contatti qui."
       remove_aspect: "Rimuovi Aspetto"
     contact_list: 
+      all_contacts: "All contacts"
       cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto."
-      search_contacts: "Condividi contatti"
     invitations: 
       dont_have_now: "Non ne hai alcuno per il momento, ma altri arriveranno presto!"
       invitations_left: "(%{count} rimanenti)"
@@ -316,8 +325,6 @@ it:
       share_with_all: "Condividi con tutti gli aspetti"
     reshare: 
       reshare: "Ricondividi"
-    stream_element: 
-      show_comments: "mostra commenti"
   status_messages: 
     helper: 
       no_message_to_display: "Nessun messaggio da visualizzare."
@@ -326,6 +333,9 @@ it:
       tell_me_something_good: "dimmi qualcosa di buono"
     show: 
       destroy: "Distruggi"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "il mondo"
   username: "Username"
   users: 
@@ -352,7 +362,10 @@ it:
         add: "Aggiungi"
         aspect_name: "Nome aspetto"
         description: "Specifica a Diaspora quali dei tuoi diversi aspetti sono visti da persone diverse. Potrai gestirli in un secondo momento attraverso il menu account in alto a destra. I tuoi aspetti sono visibili solo da te e non dagli altri."
+        drag_to_add: "Drag them to the aspect of yourself they know"
+        no_requests: "You have no requests"
         your_aspects: "I tuoi aspetti"
+        your_inviter: "Here are the people who are waiting for you:"
       step_3: 
         description: "Puoi collegare altri social network a cui sei iscritto al tuo account Diaspora. Potrai postarci pubblicamente della tua Home page quando selezioni \"rendilo pubblico\""
         your_services: "I tuoi servizi"

@@ -6,10 +6,10 @@
 pl: 
   devise: 
     confirmations: 
-      confirmed: "Twoje konto zostało aktywowane, zostałeś zalogowany."
+      confirmed: "Twoje konto zostało aktywowane. Zalogowano pomyślnie."
       new: 
-        resend_confirmation: "Prześlij instrukcje aktywacji ponownie"
-      send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcje dotyczące aktywacji konta."
+        resend_confirmation: "Prześlij ponownie instrukcje aktywacji"
+      send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcje dotyczące aktywacji konta."
     failure: 
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
       invalid: "Nieprawidłowy adres email lub hasło."
@@ -21,32 +21,32 @@ pl:
     invitations: 
       invitation_token_invalid: "Podany klucz zaproszenia jest niepoprawny!"
       send_instructions: "Twoje zaproszenie zostało wysłane."
-      updated: "Hasło zostało pomyślnie zmienione. Logowanie zakończone."
+      updated: "Hasło zostało pomyślnie zmienione. Zalogowano."
     mailer: 
       confirmation_instructions: 
         confirm: "Aktywuj moje konto"
         subject: "Instrukcje aktywacji"
-        you_can_confirm: "Możesz aktywować swoje konto klikając na poniższy link:"
+        you_can_confirm: "Możesz aktywować swoje konto klikając poniższy odnośnik:"
       hello: "Cześć %{email}!"
       invitation: 
         accept: "Zaakceptuj zaproszenie"
-        ignore: "Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ten email."
-        no_account_till: "Twoje konto nie zostanie założone dopuki nie klikniesz na link powyżej i nie zarejestrujesz sie. shared: links: sign_in: 'Zaloguj się' sign_up: 'Zarejestruj się' forgot_your_password: 'Nie pamiętasz hasła?' "
+        ignore: "Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail."
+        no_account_till: "Twoje konto nie zostanie założone dopóki nie klikniesz odnośnika powyżej i nie zarejestrujesz się."
         subject: "Masz zaproszenie do Diaspory!"
       inviters: 
-        accept_at: ", pod adresem %{url}, możesz przyjąć zaproszenie poprzez link poniżej."
-        has_invited_you: "%{name} zaprosił/a Cię do Diaspory"
+        accept_at: ", pod adresem %{url}, możesz przyjąć zaproszenie przez poniższy odnośnik."
+        has_invited_you: "%{name} zaprosił(-a) Cię do Diaspory"
         have_invited_you: "%{names} zaprosili Cię do Diaspory"
       reset_password_instructions: 
         change: "Zmień moje hasło"
-        ignore: "Jeśli nie chcesz zresetować hasła, zignoruj ten email."
-        someone_requested: "Odebraliśmy zgłoszenie zmiany hasła, jeśli chcesz to zrobić kliknij na poniższy link:"
+        ignore: "Jeśli nie chcesz zresetować hasła, zignoruj ten e-mail."
+        someone_requested: "Odebraliśmy zgłoszenie zmiany hasła, jeśli chcesz to zrobić kliknij poniższy odnośnik:"
         subject: "Instrukcje zmiany hasła"
-        wont_change: "Twoje hasło zostanie zmienione dopiero gdy klikniesz na link i podasz nowe hasło."
+        wont_change: "Twoje hasło zostanie zmienione dopiero, gdy klikniesz odnośnik i podasz nowe hasło."
       unlock_instructions: 
-        account_locked: "Twoje konto zostało zablokowane, ponieważ przekroczono limit nieudanych logowań."
-        click_to_unlock: "Kliknij na poniższy link, aby odblokować konto:"
-        subject: "Instrukcje odblokowania"
+        account_locked: "Twoje konto zostało zablokowane, ponieważ przekroczono limit nieudanych prób logowania."
+        click_to_unlock: "Kliknij poniższy link, aby odblokować konto:"
+        subject: "Instrukcje odblokowywania"
         unlock: "Odblokuj moje konto"
       welcome: "Witaj %{email}!"
     passwords: 
@@ -54,22 +54,22 @@ pl:
         change_password: "Zmień hasło"
       new: 
         forgot_password: "Nie pamiętasz hasła?"
-        send_password_instructions: "Wyślij instrukcję resetowania hasła"
-      send_instructions: "W ciągu kilku minut otrzymasz maila zawierającego instrukcjie dotyczące zresetowania hasła."
-      updated: "Twoje hasło zostało zmienione, zostałeś zalogowany."
+        send_password_instructions: "Wyślij instrukcje resetowania hasła"
+      send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcjie dotyczące zresetowania hasła."
+      updated: "Twoje hasło zostało zmienione. Zalogowano pomyślnie."
     registrations: 
       destroyed: "Żegnaj! Twoje konto zostało usunięte."
-      signed_up: "Zostałeś zarejestrowany. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie email potwierdzający rejestrację."
+      signed_up: "Zostałeś zarejestrowany. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający rejestrację."
       updated: "Pomyślnie zaktualizowano informacje o Twoim koncie."
     sessions: 
       new: 
-        alpha_software: "Pamiętaj, że będziesz używać programu we wczesnym stadium rozwoju (alpha)."
-        bugs_and_feedback: "Bądź świadom/a, że doświadczysz błędów. Zachęcam do korzystania z przycisku \"Feedback\" po prawej stronie twojej przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da aby rozwiązać wszelkie kłopoty jakie zgłaszacie."
-        have_a_problem: "Jakiś kłopot? Znajdź odpowiedź tu"
+        alpha_software: "Pamiętaj, że będziesz używać programu we wczesnym stadium rozwoju (alfa)."
+        bugs_and_feedback: "Bądź świadom(-a), że doświadczysz błędów. Zachęcamy do korzystania z przycisku Feedback umieszczonego po prawej stronie okna przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszelkie zgłaszane kłopoty."
+        have_a_problem: "Jakiś kłopot? Tu znajdziesz odpowiedź"
         login: "Login"
-        modern_browsers: "wspiera wyłącznie nowoczesne przeglądarki."
+        modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
         password: "Hasło"
-        remember_me: "Zapamiętaj sesję"
+        remember_me: "Zapamiętaj mnie"
         sign_in: "Zaloguj się"
         username: "Nazwa użytkownika"
       signed_in: "Zalogowano pomyślnie."
@@ -77,16 +77,18 @@ pl:
     shared: 
       links: 
         forgot_your_password: "Nie pamiętasz hasła?"
-        receive_confirmation: "Nie otrzymałeś/aś instrukcji aktywacji?"
-        receive_unlock: "Nie otrzymałeś/aś instrukcji odblokowania?"
+        receive_confirmation: "Nie otrzymałeś(-aś) instrukcji aktywacji?"
+        receive_unlock: "Nie otrzymałeś(-aś) instrukcji odblokowywania?"
         sign_in: "Zaloguj się"
         sign_up: "Zarejestruj się"
-        sign_up_closed: "Otwarta rejestracja jest zamknięta w tym momencie."
+        sign_up_closed: "Otwarta rejestracja jest w tym momencie wyłączona."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
-        resend_unlock: "Wyślij ponownie instrukcję odblokowywania"
-      send_instructions: "W ciągu kilku minut otrzymasz email z instrukcjami odblokowania konta."
-      unlocked: "Twoje konto zostało odblokowane, jesteś zalogowany."
+        resend_unlock: "Wyślij ponownie instrukcje odblokowywania"
+      send_instructions: "W ciągu kilku minut otrzymasz e-mail z instrukcjami odblokowywania konta."
+      unlocked: "Twoje konto zostało odblokowane. Zalogowano pomyślnie."
   errors: 
     messages: 
       already_confirmed: "potwierdzono wcześniej"

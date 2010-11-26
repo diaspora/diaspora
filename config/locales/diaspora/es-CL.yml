@@ -40,6 +40,10 @@ es-CL:
       success: "Tu nuevo aspecto %{name} fue creado"
     destroy: 
       success: "%{name} fue correctamente eliminado."
+    edit_aspect_pane: 
+      add_existing: "Agregar un contacto existente"
+      confirm_remove_aspect: "¿Eliminar aspecto?"
+      remove_aspect: "Eliminar Aspecto"
     helper: 
       are_you_sure: "¿Seguro que quieres borrar este aspecto?"
       aspect_not_empty: "El aspecto no está vacío"
@@ -75,8 +79,6 @@ es-CL:
       family: "Familia"
       work: "Trabajo"
     show: 
-      contact: "contacto"
-      contacts: "contactos"
       edit_aspect: "editar aspecto"
     update: 
       success: "Tu aspecto, %{name}, ha sido correctamente editado."
@@ -86,6 +88,11 @@ es-CL:
     new_comment: 
       comment: "Comentario"
       commenting: "Comentando..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Borrar"
   email: "Correo electrónico"
   error_messages: 
@@ -99,7 +106,7 @@ es-CL:
       choice: "Opción"
       choice_explanation: "Diaspora te permite organizar conexiones en grupos llamados aspectos. En Diaspora, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
       learn_about_host: "Aprende como hostear tu propio servidor Diaspora."
-      login_here: "iniciar sesión aquí"
+      login_here: "inicia sesión aquí"
       ownership: "Propiedad"
       ownership_explanation: "Eres dueño de tus imágenes, y no deberías tener que cederlas sólo para compartirlas. Tú mantienes la propiedad sobre todo lo que compartas en Diaspora, dándote control total sobre lo que es distribuido."
       share_what_you_want: "Comparte lo que quieras, con quien quieras."
@@ -134,6 +141,11 @@ es-CL:
       login: "entrar"
       logout: "salir"
       view_profile: "ver perfil"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "correo robot de diaspora"
     hello: "Hola %{name}!"
@@ -283,16 +295,13 @@ es-CL:
       aspect_settings: "Configuración de aspectos"
       aspects: "Aspectos"
       confirm_remove_aspect: "¿Eliminar aspectos?"
-      contacts: "contactos"
       done_editing: "editado"
       invites: "Invitaciones"
-      new_request: "%{count} ¡nueva solicitud!"
-      new_requests: "%{count} ¡nuevas solicitudes!"
       no_contacts: "Aún no tienes contactos. Encuentra tus contactos aquí."
       remove_aspect: "Eliminar Aspecto"
     contact_list: 
+      all_contacts: "Todos los contactos"
       cannot_remove: "No se puede eliminar a la persona del último aspecto. (Si quieres desconectarte de esta persona primero debes eliminar al contacto.)"
-      search_contacts: "Buscar contactos"
     invitations: 
       dont_have_now: "No tienes ninguna ahora, ¡pero pronto vendrán mas invitaciones!"
       invitations_left: "(quedan %{count})"
@@ -316,8 +325,6 @@ es-CL:
       share_with_all: "compartir con todos tus aspectos"
     reshare: 
       reshare: "Compartir de nuevo"
-    stream_element: 
-      show_comments: "mostrar comentarios"
   status_messages: 
     helper: 
       no_message_to_display: "No hay mensaje que mostrar."
@@ -326,6 +333,9 @@ es-CL:
       tell_me_something_good: "dime algo bueno"
     show: 
       destroy: "Destruir"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "el mundo"
   username: "Nombre de usuario"
   users: 
@@ -352,7 +362,10 @@ es-CL:
         add: "Agregar"
         aspect_name: "Nombre del aspecto"
         description: "Dile a Diaspora qué aspectos diferentes de ti serán vistos por diferentes contactos. Puedes manejar estos aspectos luego en tu menú de cuenta, arriba a la derecha. Tus aspectos son solamente vistos por ti, y no por otros."
+        drag_to_add: "Arrástralos al aspecto que ellos conocen de ti mismo"
+        no_requests: "You have no requests"
         your_aspects: "Tus aspectos"
+        your_inviter: "Aquí está la gente que te está esperando:"
       step_3: 
         description: "Puedes conectar tus redes sociales existentes a tu cuenta Diaspora. Podrás realizar posteos públicos desde tu Inicio cuando selecciones \"hacer público\""
         your_services: "Tus servicios"

@@ -40,6 +40,10 @@ mk:
       success: "Вашиот нов аспект %{name} е креиран"
     destroy: 
       success: "%{name} е отстранет успешно."
+    edit_aspect_pane: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Remove aspect?"
+      remove_aspect: "Remove Aspect"
     helper: 
       are_you_sure: "Дали сигурно сакате да го отстраните овој аспект?"
       aspect_not_empty: "Аспектот не е празен"
@@ -75,8 +79,6 @@ mk:
       family: "Фамилија"
       work: "Работа"
     show: 
-      contact: "контакт"
-      contacts: "контакти"
       edit_aspect: "уреди аспект"
     update: 
       success: "Вашиот аспект, %{name}, беше успешно уреден."
@@ -86,6 +88,11 @@ mk:
     new_comment: 
       comment: "Коментар"
       commenting: "Коментирање..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Избриши"
   email: "Е-маил"
   error_messages: 
@@ -134,6 +141,11 @@ mk:
       login: "најави се"
       logout: "одјави се"
       view_profile: "погледни профил"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "diaspora е-маил робот"
     hello: "Здраво %{name}!"
@@ -283,16 +295,13 @@ mk:
       aspect_settings: "Подесувања на аспект"
       aspects: "Аспекти"
       confirm_remove_aspect: "Одстрани аспект?"
-      contacts: "контакти"
       done_editing: "заврши со уредување"
       invites: "Покани"
-      new_request: "%{count} ново барање!"
-      new_requests: "%{count} нови барања!"
       no_contacts: "Моментално немате контакти. Најдете ги вашите контакти овде."
       remove_aspect: "Одстрани аспект"
     contact_list: 
+      all_contacts: "All contacts"
       cannot_remove: "Неможе да се одстрани личноста од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
-      search_contacts: "Пребарувај контакти"
     invitations: 
       dont_have_now: "Моментално немате права, но повеќе покани ќе дојдат наскоро!"
       invitations_left: "(%{count} лево)"
@@ -316,8 +325,6 @@ mk:
       share_with_all: "сподели на сите ваши аспекти"
     reshare: 
       reshare: "Сподели повторно"
-    stream_element: 
-      show_comments: "покажи коментари"
   status_messages: 
     helper: 
       no_message_to_display: "Нема пораки за прикажување."
@@ -326,6 +333,9 @@ mk:
       tell_me_something_good: "кажи ми нешто добро"
     show: 
       destroy: "Уништи"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "светот"
   username: "Корисничко име"
   users: 
@@ -352,7 +362,10 @@ mk:
         add: "Додај"
         aspect_name: "Име на аспект"
         description: "Кажи и на Diaspora кои различни аспекти можат да бидат видени од различни контакти. Овие можат да бидат менаџирани преку подесувањата за корисничката сметка во горниот десен агол. Вашите аспекти се единствени и не можат да бидат видени од некој друг."
+        drag_to_add: "Drag them to the aspect of yourself they know"
+        no_requests: "You have no requests"
         your_aspects: "Ваши аспекти"
+        your_inviter: "Here are the people who are waiting for you:"
       step_3: 
         description: "Можете да ги поврзете вашите постоечки социјални мрежи со вашата Diaspora корисничка сметка. Ќе можете да објавувате јавно преку вашата Домашна страница ако изберете \"направи јавен\""
         your_services: "Вашите сервиси"

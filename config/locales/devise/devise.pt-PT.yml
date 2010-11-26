@@ -6,46 +6,46 @@
 pt-PT: 
   devise: 
     confirmations: 
-      confirmed: "A sua conta foi confirmada com sucesso. Está on-line."
+      confirmed: "A tua conta foi confirmada com sucesso. Estás online."
       new: 
         resend_confirmation: "Reenviar instruções de confirmação"
-      send_instructions: "Vai receber um email com instruções sobre como confirmar a sua conta dentro de alguns minutos."
+      send_instructions: "Vais receber um email com instruções sobre como confirmar a tua conta dentro de alguns minutos."
     failure: 
-      inactive: "A sua conta ainda não foi activada."
+      inactive: "A tua conta ainda não foi activada."
       invalid: "Endereço de correio ou senha inválida."
       invalid_token: "Token de autenticação inválido."
-      locked: "A sua conta foi bloqueada."
+      locked: "A tua conta foi bloqueada."
       timeout: "A sua sessão expirou, por favor faça login novamente para continuar."
       unauthenticated: "Faça login ou registe-se antes de continuar."
-      unconfirmed: "Confirme a sua conta antes de continuar."
+      unconfirmed: "Confirma a tua conta antes de continuar."
     invitations: 
-      invitation_token_invalid: "O código de convite que introduziu não é válido!"
-      send_instructions: "O seu convite foi enviado."
-      updated: "A sua senha foi definida com sucesso. Está on-line."
+      invitation_token_invalid: "O código de convite que introduziste não é válido!"
+      send_instructions: "O teu convite foi enviado."
+      updated: "A tua senha foi definida com sucesso. Estás online."
     mailer: 
       confirmation_instructions: 
         confirm: "Confirmar a minha conta"
         subject: "Instruções de confirmação"
-        you_can_confirm: "Pode confirmar a sua conta através da seguinte ligação:"
+        you_can_confirm: "Podes confirmar a tua conta através do seguinte link:"
       hello: "Olá, %{email}!"
       invitation: 
-        accept: "Aceitar convite"
-        ignore: "Se não pretender aceitar o convite, por favor ignore este email."
-        no_account_till: "A sua conta não será criada até que aceda à ligação acima e se registe."
-        subject: "Foi convidado(a) para o Diaspora!"
+        accept: "Aceitar o convite"
+        ignore: "Se não pretenderes aceitar este convite, por favor ignora este email."
+        no_account_till: "A tua conta não será criada até que acedas ao link  acima e te registes"
+        subject: "Foste convidado(a) para te juntares ao Diaspora!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} convidou-o(a) para o Diaspora"
-        have_invited_you: "%{names} convidaram-no(a) para o Diaspora"
+        accept_at: ", em %{url}, pode aceitar através do seguinte link:"
+        has_invited_you: "%{name} convidou-te para o Diaspora"
+        have_invited_you: "%{names} convidaram-te para o Diaspora"
       reset_password_instructions: 
         change: "Alterar a minha senha"
-        ignore: "Se não pediu isto, por favor ignore este email."
-        someone_requested: "Alguém pediu uma ligação para alterar a sua senha, e pode fazê-lo através da seguinte ligação."
-        subject: "Instruções de reposição de palavra-passe"
-        wont_change: "A sua senha não mudará até que aceda à ligação acima e crie uma nova."
+        ignore: "Se não fizeste este pedido, por favor ignora este email."
+        someone_requested: "Alguém pediu para alterar a tua senha, e podes alterar a mesma através do seguinte link"
+        subject: "Instruções de reposição da palavra-passe"
+        wont_change: "A tua senha não será modificada até clicares no link acima e criares uma nova senha. "
       unlock_instructions: 
-        account_locked: "A sua conta foi bloqueada devido a um número excessivo de tentativas de login falhadas."
-        click_to_unlock: "Clique na seguinte ligação para desbloquear a sua conta:"
+        account_locked: "A tua conta foi bloqueada devido a um número excessivo de tentativas de login falhadas."
+        click_to_unlock: "Clica no link abaixo para desbloquear a tua conta:"
         subject: "Instruções de Desbloqueio"
         unlock: "Desbloquear a minha conta"
       welcome: "Bem-vindo(a), %{email}!"
@@ -53,40 +53,42 @@ pt-PT:
       edit: 
         change_password: "Alterar a minha senha"
       new: 
-        forgot_password: "Esqueceu-se da sua senha?"
-        send_password_instructions: "Enviar-me instruções de reposição de senha"
-      send_instructions: "Vai receber um email com instruções sobre como alterar a sua senha dentro de alguns minutos."
-      updated: "A sua senha foi alterada com sucesso. Está on-line."
+        forgot_password: "Esqueceste-te da tua senha?"
+        send_password_instructions: "Enviem-me as instruções para modificar a minha senha"
+      send_instructions: "Vais receber um email com instruções sobre como alterar a senha dentro de alguns minutos."
+      updated: "A tua senha foi alterada com sucesso. Estás online."
     registrations: 
-      destroyed: "Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo(a) de novo brevemente."
-      signed_up: "Registou-se com sucesso. Se activado, uma confirmação foi enviada para o seu email."
-      updated: "Actualizou a sua conta com sucesso."
+      destroyed: "Adeus! A sua tua foi cancelada com sucesso. Esperamos ver-te de novo brevemente."
+      signed_up: "Registo bem sucedido. Se assim escolheste, uma confirmação foi enviada para o teu email."
+      updated: "Actualizaste a tua conta com sucesso."
     sessions: 
       new: 
-        alpha_software: "Está prestes a utilizar software \"alpha\"."
-        bugs_and_feedback: "Tenha em atenção que irão ocorrer erros. Encorajamo-lo(a) a usar o botão de Feedback na margem direita do seu navegador para denunciar quaisquer anomalias! Trabalharemos o mais rapidamente possível para resolver os problemas que denunciar."
-        have_a_problem: "Tem um problema? Encontre uma solução aqui"
+        alpha_software: "Estás preste a utilizar um programa em fase \"alpha\"."
+        bugs_and_feedback: "Tem em atenção que irão ocorrer erros. Encorajamos-te a usar o botão de Feedback na margem direita do teu navegador para reportar quaisquer anomalias! Trabalharemos o mais rapidamente possível para resolver os problemas que denunciares."
+        have_a_problem: "Tens um problema? Encontra a solução aqui"
         login: "Login"
         modern_browsers: "apenas suporta navegadores modernos."
         password: "Palavra-passe"
-        remember_me: "Lembrar-me"
+        remember_me: "Recordar-me"
         sign_in: "Entrar"
         username: "Nome de utilizador"
       signed_in: "Login com sucesso."
       signed_out: "Logout com sucesso."
     shared: 
       links: 
-        forgot_your_password: "Esqueceu-se da sua senha?"
-        receive_confirmation: "Não recebeu instruções de confirmação?"
-        receive_unlock: "Não recebeu instruções de desbloqueio?"
+        forgot_your_password: "Esqueceste-te da tua senha?"
+        receive_confirmation: "Não recebeste as instruções de confirmação?"
+        receive_unlock: "Não recebeste as instruções de desbloqueio?"
         sign_in: "Entrar"
-        sign_up: "Registar-se"
+        sign_up: "Regista-te"
         sign_up_closed: "Os registos abertos não estão disponíveis por agora."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Reenviar instruções de desbloqueio"
-      send_instructions: "Vai receber uma mensagem sobre como desbloquear a sua conta dentro de alguns minutos."
-      unlocked: "A sua conta foi desbloqueada com sucesso. Está on-line."
+      send_instructions: "Vais receber uma mensagem sobre como desbloquear a tua conta dentro de alguns minutos."
+      unlocked: "A tua conta foi desbloqueada com sucesso. Estás online."
   errors: 
     messages: 
       already_confirmed: "já foi confirmado"

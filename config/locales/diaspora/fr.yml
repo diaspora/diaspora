@@ -40,6 +40,10 @@ fr:
       success: "Votre nouvel aspect %{name} a été créé."
     destroy: 
       success: "%{name} a été supprimé avec succès."
+    edit_aspect_pane: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Remove aspect?"
+      remove_aspect: "Remove Aspect"
     helper: 
       are_you_sure: "Êtes-vous sûr(e) de vouloir supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
@@ -75,8 +79,6 @@ fr:
       family: "Famille"
       work: "Travail"
     show: 
-      contact: "contact"
-      contacts: "contacts"
       edit_aspect: "éditer l'aspect"
     update: 
       success: "Votre aspect, %{name}, a été édité avec succès."
@@ -86,6 +88,11 @@ fr:
     new_comment: 
       comment: "Commentaire"
       commenting: "Commentaire en cours d'envoi..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Supprimer"
   email: "E-mail"
   error_messages: 
@@ -134,6 +141,11 @@ fr:
       login: "connexion"
       logout: "se déconnecter"
       view_profile: "voir le profil"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "le robot de messagerie e-mail de diaspora"
     hello: "Bonjour %{name} !"
@@ -188,12 +200,12 @@ fr:
     show: 
       already_requested: "Vous avez déjà envoyé une requête à %{name}."
       does_not_exist: "Cette personne n'existe pas !"
-      incoming_request: "You have an incoming request from this person."
+      incoming_request: "Vous avez une requête venant de cette personne."
       no_posts: "aucun message à afficher !"
       not_connected: "Vous n'êtes pas connecté à cet personne"
       request_people: "Si vous le voulez, vous pouvez demander à le/la placer dans vos aspects."
-      return_to_aspects: "Return to your aspects page"
-      to_accept_or_ignore: "to accept or ignore it."
+      return_to_aspects: "Retourner à votre page des aspects"
+      to_accept_or_ignore: "l'accepter ou l'ignorer."
     update: 
       failed: "La mise à jour du profil a échoué"
       updated: "Profil mis à jour"
@@ -283,16 +295,13 @@ fr:
       aspect_settings: "Options de l'aspect"
       aspects: "Aspects"
       confirm_remove_aspect: "Supprimer l'aspect ?"
-      contacts: "contacts"
       done_editing: "edition terminée"
       invites: "Invitations"
-      new_request: "%{count} nouvelle requête !"
-      new_requests: "%{count} nouvelles requêtes !"
       no_contacts: "Vous n'avez aucun contact pour l'instant. Trouvez vos contacts ici."
       remove_aspect: "Supprimer l'aspect"
     contact_list: 
+      all_contacts: "All contacts"
       cannot_remove: "Impossible de supprimer la personne du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
-      search_contacts: "Rechercher des contacts"
     invitations: 
       dont_have_now: "Vous n'avez aucun droit pour l'instant, mais plus d'invitations arriveront bientôt !"
       invitations_left: "(%{count} restant(s))"
@@ -316,8 +325,6 @@ fr:
       share_with_all: "partager avec tous les aspects"
     reshare: 
       reshare: "Repartager"
-    stream_element: 
-      show_comments: "voir les commentaires"
   status_messages: 
     helper: 
       no_message_to_display: "Aucun message à afficher."
@@ -326,6 +333,9 @@ fr:
       tell_me_something_good: "dites-moi quelque chose de bien"
     show: 
       destroy: "Détruire"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "le monde"
   username: "Nom d'utilisateur"
   users: 
@@ -352,7 +362,10 @@ fr:
         add: "Ajouter"
         aspect_name: "Nom de l'aspect"
         description: "Signalez à Diaspora quels différents aspects sont vus par différents contacts. Vous pourrez plus tard gérer ceux-ci en allant sur votre menu de compte en haut à droite. Vos aspects vous sont spécifiques et ne sont pas visibles pour les autres."
+        drag_to_add: "Drag them to the aspect of yourself they know"
+        no_requests: "You have no requests"
         your_aspects: "Vos aspects"
+        your_inviter: "Here are the people who are waiting for you:"
       step_3: 
         description: "Vous pouvez connecter vos réseaux sociaux existants à votre compte Diaspora. Vous pourrez poster publiquement sur votre page d'accueil en sélectionnant \"rendre public\""
         your_services: "Vos services"
