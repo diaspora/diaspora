@@ -1,3 +1,8 @@
+/*   Copyright (c) 2010, Diaspora Inc.  This file is
+*   licensed under the Affero General Public License version 3 or later.  See
+*   the COPYRIGHT file.
+*/
+
 describe("mobile interface", function() {
   describe("initialize", function() {
     it("attaches a change event to the select box", function() {
