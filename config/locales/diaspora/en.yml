@@ -74,9 +74,6 @@ en:
       application:
         powered_by: "POWERED BY DIASPORA*"
   shared:
-      stream_element:
-          show_comments: "show comments"
-          hide_comments: "hide comments"
       publisher:
           posting: "Posting..."
           share: "Share"
@@ -201,6 +198,7 @@ en:
               add: "Add"
               your_inviter: "Here are the people who are waiting for you:"
               drag_to_add:  "Drag them to the aspect of yourself they know"
+              no_requests: "You have no requests"
           step_3:
               your_services: "Your services"
               description: 'You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public"'
@@ -389,3 +387,6 @@ en:
           simplicity: "Simplicity"
           simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
           learn_about_host: "Learn about how to host your own Diaspora server."
+  stream_helper:
+      show_comments: "show comments"
+      hide_comments: "hide comments"
