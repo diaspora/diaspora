@@ -216,7 +216,6 @@ describe User do
         lambda { User.build(@invalid_params) }.should_not change(Person, :count)
       end
       it 'does not generate a key' do
-        pending 'Validate users before generating keys'
         User.should_receive(:generate_key).exactly(0).times
         User.build(@invalid_params)
       end

@@ -372,6 +372,10 @@ class User
 
   def setup(opts)
     self.username = opts[:username]
+    self.valid?
+    errors = self.errors
+    errors.delete :person
+    return if errors.size > 0
 
     opts[:person] ||= {}
     opts[:person][:profile] ||= Profile.new
