@@ -28,6 +28,7 @@ a
 
 h1, h2, h3, h4
   :color #444
+  :position relative
 
 h4
   :margin
@@ -1176,15 +1177,12 @@ ul#settings_nav
     a
       :padding 2px
 
-
 .settings_pane
   :display none
-
 
 #fancybox-close:hover
   :background
     :color transparent
-
 
 .contact_pictures
   :margin
@@ -1220,22 +1218,54 @@ ul#settings_nav
 
   h2,h3
     :border
-      :bottom 1px solid #666
+      :bottom 1px solid #999
 
-#edit_aspect_pane
-  h4
+  h2,h3,h4
     :font
       :weight bold
     :text
       :shadow 0 1px #fff
 
+  h4 > span
+    :font
+      :weight normal
+      :size 12px
+    :color #999
+
+  .avatar
+    :margin-right -1px
+    :width 30px
+    :height 30px
+
+#edit_aspect_pane
   :margin
     :top 12px
   :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FBFBFB), to(#F5F5F5))
+  :background -moz-linear-gradient(top, #FBFBFB, #F5F5F5)
 
   :border 1px solid #eee
     :top 1px solid #fff
     :bottom 1px solid #fff
+
+#left_pane.everyone
+  .aspect_listings
+    a
+      :font
+        :weight bold
+
+  .section
+    :margin
+      :bottom 24px
+
+.aspect_listings
+  ul
+    :padding 0
+    :margin 0
+    > li
+      :padding 6px
+      :border
+        :bottom 1px solid #ddd
+  
 
 .floating.empty_message
   :margin
@@ -1598,6 +1628,9 @@ ul#request_result
   :margin 
     :bottom 1.5em
 
+  :-webkit-box-shadow 0 1px #fff
+  :-moz-box-shadow 0 1px #fff
+
   input.contact_list_search
     :width 100%
     :margin
@@ -1651,8 +1684,14 @@ ul#request_result
           &:active
             :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(130,55,55)), color-stop(1, rgb(199,119,119)))
             :background -moz-linear-gradient(top, rgb(199,119,119), rgb(130,55,55))
-            
 
+#edit_aspect_pane .contact_list
+  .avatar
+    :height 22px
+    :width 22px
+    :position absolute
+    :top 6px
+            
 footer
   :margin
     :top 40px
@@ -1930,32 +1969,11 @@ h3,h4
     :border-radius 5px
 
 .what_is_this
-  :display inline-block
-  :cursor default
-  :font
-    :size 8px
-  :color #fff
-
-  :background
-    :color #ccc
-
-  :-webkit-border-radius 10px
-  :-moz-border-radius 10px
-  :border-radius 10px
-
-  :width 12px
-  :height 12px
-  :max-width 12px
-  :max-height 12px
-  :text
-    :indent 4px
-
   :position relative
-  :top -4px
+  :top 3px
 
   &:hover
-    :background
-      :color #107FC9
+    :opacity 0.5
 
 #edit_aspect_trigger
   :font

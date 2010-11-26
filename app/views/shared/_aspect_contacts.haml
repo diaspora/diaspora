@@ -40,7 +40,6 @@
       }
     };
 
-
   - if aspect != :all && aspect.contacts.count == 0
     :javascript
       $(document).ready(function(){
@@ -50,28 +49,14 @@
 - if (aspect == :all) && @request_count > 0
   #new_request_pane{:class => "everyone"}
     %h1.new_request{:style => 'text-align:center'}
-      - if @request_count > 1
-        = link_to t('.new_requests', :count => @request_count), aspects_manage_path
-      - else
-        = link_to t('.new_request', :count => @request_count), aspects_manage_path
+      = new_request_link(@request_count)
 
 #left_pane{:class => ("everyone" if aspect == :all)}
+
   - if aspect == :all
-    %h2= t('.all_contacts')
+    %h3= t('.all_contacts')
 
-  - unless aspect == :all
-    #edit_aspect_pane
-      - if @contacts.count > 0 
-        %h4= t('.add_existing')
-        = render 'shared/contact_list', :aspect => aspect, :contacts => @contacts, :manage => defined?(manage)
-
-      = render 'shared/add_contact', :aspect => aspect
-
-      %hr
-      .big_buttons
-        = button_to t('.remove_aspect'), aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
-
-  .contact_pictures
+  .section.contact_pictures
     - for contact in contacts
       = person_image_link(contact.person)
 
@@ -81,37 +66,29 @@
       = form_tag(people_path, :method => 'get') do
         = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
-
-    -if aspect == :all
-      %br
-      %br
-      %br
-      %br
-
-      %h3{:style=>"position:relative;"}
+  -if aspect == :all
+    .section.aspect_listings
+      %h3
         = link_to(t('.aspects'), aspects_manage_path)
         .right{:style=>"font-size:12px;top:7px;"}
           = link_to t('.add_aspect'), '#add_aspect_pane', :class => "add_aspect_button"
 
-      - for user_aspect in current_user.aspects
+      %ul
+        - for user_aspect in current_user.aspects
+          %li
+            %h4
+              = link_to user_aspect, user_aspect
+              %span
+                = "#{user_aspect.contacts.count} #{t('.contacts')}"
 
-        %div{:style=>"border-bottom:1px solid #eee;padding:6px;"}
-          %h4.aspect_title_right{:style => "margin-bottom:0;"}
-            = link_to user_aspect, user_aspect
-            %span{:style=>"font-size:12px;color:#888;"}
-              = "#{user_aspect.contacts.count} #{t('.contacts')}"
-
-          - if user_aspect.contacts.count > 0 
-            - for aspect_contact in user_aspect.contacts[0..7]
-              = person_image_link(aspect_contact.person)
-
-      .clearfix
-
-      %br
-      %br
-      %br
-      %br
-
+            - if user_aspect.contacts.count > 0 
+              - for aspect_contact in user_aspect.contacts[0..7]
+                = person_image_link(aspect_contact.person)
+    .section
       %h3= t('.invites')
       = render "shared/invitations", :invites => @invites
+
+  -else
+    = render 'aspects/edit_aspect_pane', :aspect => aspect, :contacts => @contacts
+
 

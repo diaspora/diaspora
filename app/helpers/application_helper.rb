@@ -86,10 +86,6 @@ module ApplicationHelper
     end
   end
 
-  def new_request(request_count)
-    "new_requests" if request_count > 0 #Should not be Il8ned
-  end
-
   def post_yield_tag(post)
     (':' + post.id.to_s).to_sym
   end
@@ -184,6 +180,6 @@ module ApplicationHelper
   end
 
   def info_text(text)
-    "<span class='what_is_this' title='#{text}'>?</span>".html_safe
+    image_tag 'icons/monotone_question.png', :class => 'what_is_this', :title => text
   end
 end

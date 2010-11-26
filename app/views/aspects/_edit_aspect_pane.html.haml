@@ -1,0 +1,15 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#edit_aspect_pane
+  - if @contacts.count > 0 
+    %h4= t('.add_existing')
+    = render 'shared/contact_list', :aspect => aspect, :contacts => contacts, :manage => defined?(manage)
+
+  = render 'shared/add_contact', :aspect => aspect
+
+  %hr
+  .big_buttons
+    = button_to t('.remove_aspect'), aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
+

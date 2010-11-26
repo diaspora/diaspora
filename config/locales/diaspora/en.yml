@@ -83,10 +83,7 @@ en:
           done_editing: "done editing"
           new_requests: "%{count} new requests!"
           new_request: "%{count} new request!"
-          add_existing: "Add an existing contact"
           contacts: "contacts"
-          remove_aspect: "Remove Aspect"
-          confirm_remove_aspect: "Remove aspect?"
           no_contacts: "You currently have no contacts.  Find your contacts here."
           aspects: "Aspects"
           add_aspect: "add aspect"
@@ -163,6 +160,10 @@ en:
           work: "Work"
       index:
           handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
+      edit_aspect_pane:
+          remove_aspect: "Remove Aspect"
+          confirm_remove_aspect: "Remove aspect?"
+          add_existing: "Add an existing contact"
   users:
       edit:
           export_data: "Export Data"

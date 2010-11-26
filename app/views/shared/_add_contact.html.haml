@@ -13,7 +13,7 @@
   = submit_tag t('.create_request')
 
   %p{:style => "margin:12px 0 24px 0px;color:#999;text-align:center;"}
-    = t '.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle
+    = t('.your_diaspora_username_is', :diaspora_handle  => current_user.diaspora_handle)
 
 #loader.hidden
   = image_tag 'ajax-loader.gif'

@@ -35,7 +35,7 @@
     #aspect_nav
       %ul
         %li{:class => ("selected" if @aspect == :all)}
-          = link_to ((@request_count == 0)? t('_home') : "#{t('_home')} (#{@request_count})"), root_path, :class => new_request(@request_count)
+          = link_to ((@request_count == 0)? t('_home') : "#{t('_home')} (#{@request_count})"), root_path, :class => new_request?(@request_count)
 
         - for aspect in @aspects
           %li{:class => ("selected" if current_aspect?(aspect))}
