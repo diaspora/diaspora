@@ -49,7 +49,7 @@ describe AspectsController do
       it 'takes time' do
         Benchmark.realtime{
           get :index
-        }.should < 0
+        }.should < 3
       end
     end
   end

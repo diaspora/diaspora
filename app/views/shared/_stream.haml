@@ -3,5 +3,5 @@
 -#   the COPYRIGHT file.
 
 %ul{:class => 'stream', :id => 'main_stream'}
-  - for post in posts
-    = render 'shared/stream_element', :post => post
+  - for post in @posts
+    = render 'shared/stream_element', :post => post, :aspects => @aspects
