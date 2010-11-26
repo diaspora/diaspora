@@ -82,6 +82,8 @@ he:
         sign_in: "כניסה"
         sign_up: "הרשמה"
         sign_up_closed: "לא ניתן להירשם באופן חופשי נכון לעכשיו."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "שליחת הוראות שחרור מחדש"

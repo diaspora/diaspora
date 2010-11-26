@@ -40,6 +40,10 @@ lt:
       success: "Spustelk pliusą kairėje ir nurodyk, kas Diasporoje gali matyti tavo naują aspektą."
     destroy: 
       success: "%{name} sėkmingai pašalintas."
+    edit_aspect_pane: 
+      add_existing: "Pridėk egzistuojantį kontaktą"
+      confirm_remove_aspect: "Pašalinti aspektą?"
+      remove_aspect: "Pašalinti aspektą"
     helper: 
       are_you_sure: "Ar tikrai šalinti aspektą?"
       aspect_not_empty: "Aspektas netuščias"
@@ -75,8 +79,6 @@ lt:
       family: "Šeima"
       work: "Darbas"
     show: 
-      contact: "kontaktas"
-      contacts: "kontaktai"
       edit_aspect: "keisti aspektą"
     update: 
       success: "Aspektas \"%{name}\" pakeistas sėkmingai."
@@ -86,6 +88,11 @@ lt:
     new_comment: 
       comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Šalinti"
   email: "El. paštas"
   error_messages: 
@@ -134,6 +141,11 @@ lt:
       login: "prisijungti"
       logout: "atsijungti"
       view_profile: "peržiūrėti profilį"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "Diasporos pašto robotas"
     hello: "Labas, %{name}!"
@@ -270,8 +282,8 @@ lt:
   settings: "Nustatymai"
   shared: 
     add_contact: 
-      create_request: "Rask pagal Diaspora vartotojo vardą"
-      diaspora_handle: "Diasporos vartotojo vardas"
+      create_request: "Rask pagal Diasporos vartotojo vardą"
+      diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Įvesk Diasporos vartotojo vardą:"
       know_email: "Žinai jų el. pašto adresus? Turėtum juos pakviesti"
       your_diaspora_username_is: "Tavo Diasporos vartotojo vardas yra: %{diaspora_handle}"
@@ -283,16 +295,13 @@ lt:
       aspect_settings: "Aspekto nustatymai"
       aspects: "Aspektai"
       confirm_remove_aspect: "Pašalinti aspektą?"
-      contacts: "kontaktai"
       done_editing: "redagavimas baigtas"
       invites: "Pakvietimai"
-      new_request: "%{count} naujas pakvietimas!"
-      new_requests: "Naujų pakvietimų: %{count}!"
       no_contacts: "Šiuo metu neturi kontaktų. Rask savo kontaktus čia."
       remove_aspect: "Pašalinti aspektą"
     contact_list: 
+      all_contacts: "Visi kontaktai"
       cannot_remove: "Iš paskutinio aspekto asmens pašalinti negalima."
-      search_contacts: "Ieškoti kontaktų"
     invitations: 
       dont_have_now: "Tu neturi jokių pakvietimų dabar, tačiau netrukus gausi daugiau!"
       invitations_left: "(liko %{count})"
@@ -316,8 +325,6 @@ lt:
       share_with_all: "Skelbti visuose aspektuose"
     reshare: 
       reshare: "Skelbti papildomai"
-    stream_element: 
-      show_comments: "rodyti komentarus"
   status_messages: 
     helper: 
       no_message_to_display: "Žinučių nėra."
@@ -326,6 +333,9 @@ lt:
       tell_me_something_good: "papasakok man ką nors gero"
     show: 
       destroy: "Sunaikinti"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "pasaulis"
   username: "Vartotojo vardas"
   users: 
@@ -352,7 +362,10 @@ lt:
         add: "pridėti"
         aspect_name: "Aspekto pavadinimas"
         description: "Nurodyk Diasporai, kuriuos tavo aspektus matys kurie draugai. Tai galėsi keisti vėliau paspausdamas valdymo puslapį viršuje dešinėje. Tavo aspektai yra unikalūs tau, ir nematomi kitiems."
+        drag_to_add: "Pertempk juos į savo aspektą, kurį jie žino"
+        no_requests: "You have no requests"
         your_aspects: "Tavo aspektai"
+        your_inviter: "Žmonės, kurie tavęs laukia:"
       step_3: 
         description: "Prijunk savo socialinius tinklus prie Diasporos paskyros. Tu galėsi viešai rašyti per savo \"visi\" puslapį, kai pasirinksi \"viešai\""
         your_services: "Tavo tinklai"

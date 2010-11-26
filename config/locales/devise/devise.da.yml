@@ -8,7 +8,7 @@ da:
     confirmations: 
       confirmed: "Din konto er blevet bekræftet. Du er nu logget ind"
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Send bekræftigelse igen"
       send_instructions: "Du vil modtage en e-mail med instruktioner om, hvordan du bekræfte din konto, om et par minutter."
     failure: 
       inactive: "Din konto var ikke aktiveret endnu."
@@ -51,23 +51,23 @@ da:
       welcome: "Velkommen %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "skift password"
       new: 
         forgot_password: "Glemt din adgangskode?"
         send_password_instructions: "Send mig instruktioner til nulstilning af kodeord"
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et par minutter."
       updated: "Dit adgangskode er nu ændret. Du er nu logget ind."
     registrations: 
-      destroyed: "Farvel! Din konto er blevet aflyst. Vi håber at se dig igen snart."
-      signed_up: "Du har nu tilmeldt dig. Hvis aktiveret er en bekræftelse sendt til din e-mail."
+      destroyed: "Farvel! Din konto er nu lukket. Vi håber at se dig igen snart."
+      signed_up: "Du har nu tilmeldt dig. En bekræftelse er blevet sendt til din e-mail, hvis den er aktiveret."
       updated: "Din konto er nu opdateret."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Du er ved at starte alpha software."
+        bugs_and_feedback: "Vær opmærksom på at du vil opleve fejl og mangler. Vi opfordrer dig til at bruge feedbackknappen i højre side af din browser til at melde de fejl du støder på. Vi arbejder så hurtigt vi kan på at løse de problemer du melder."
         have_a_problem: "Har du problemer? Find svaret her"
         login: "Log ind"
-        modern_browsers: "only supports modern browsers."
+        modern_browsers: "understøtter kun nyere browsere."
         password: "Adgangskode"
         remember_me: "Husk mig"
         sign_in: "Log ind"
@@ -77,14 +77,16 @@ da:
     shared: 
       links: 
         forgot_your_password: "Glemt din adgangskode?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
+        receive_confirmation: "Modtog du ikke bekræftigelsen? "
+        receive_unlock: "Modtog du ikke aktiveringsvejledningen?"
         sign_in: "Log ind"
         sign_up: "Opret en profil"
-        sign_up_closed: "Open signups are closed at this time."
+        sign_up_closed: "Der er på nuværende tidspunkt lukket for fri tilmelding."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Send vejledningen til aktivering af konto igen"
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan man kan låse din konto op om et par minutter."
       unlocked: "Din konto er blevet låst op. Du er nu logget ind."
   errors: 

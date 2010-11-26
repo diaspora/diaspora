@@ -3,21 +3,21 @@
 #   the COPYRIGHT file.
 
 
-nb: 
+hu: 
   devise: 
     confirmations: 
-      confirmed: "Brukeren din er nå bekrefta, og du er logga inn."
+      confirmed: "Your account was successfully confirmed. You are now signed in."
       new: 
         resend_confirmation: "Resend confirmation instructions"
-      send_instructions: "Du vil få en e-post med instrukser om hvordan du bekrefter brukeren din om kort tid."
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
     failure: 
-      inactive: "Brukeren din er ikke aktivert ennå."
-      invalid: "Ugyldig e-postadresse eller passord."
-      invalid_token: "Ugyldig authentication token."
-      locked: "Brukeren din er låst."
-      timeout: "Økta har løpt ut, logg inn igjen for å fortsette."
-      unauthenticated: "Du må logge inn eller lage en bruker før du kan fortsette."
-      unconfirmed: "Du må bekrefte brukeren din før du kan fortsette."
+      inactive: "Your account was not activated yet."
+      invalid: "Invalid email or password."
+      invalid_token: "Invalid authentication token."
+      locked: "Your account is locked."
+      timeout: "Your session expired, please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your account before continuing."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Your invitation has been sent."
@@ -32,7 +32,7 @@ nb:
         accept: "Accept invitation"
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "A friend wants you to join Diaspora!"
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
         has_invited_you: "%{name} has invited you to join Diaspora"
@@ -55,12 +55,12 @@ nb:
       new: 
         forgot_password: "Forgot your password?"
         send_password_instructions: "Send me reset password instructions"
-      send_instructions: "Du vil få en e-post med instrukser om hvordan du tilbakestiller passordet ditt om kort tid."
-      updated: "Passordet ditt er nå endra, og du har logga inn."
+      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      updated: "Your password was changed successfully. You are now signed in."
     registrations: 
-      destroyed: "Ha det! Brukeren din er nå sagt opp. Vi håper å se deg igjen snart."
-      signed_up: "Du har nå laga en bruker. Hvis du valgte å få en e-post med bekreftelse på dette, er den nå sendt."
-      updated: "Du har oppdatert brukeren din."
+      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+      signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
+      updated: "You updated your account successfully."
     sessions: 
       new: 
         alpha_software: "You are about to use alpha software."
@@ -72,8 +72,8 @@ nb:
         remember_me: "Remember me"
         sign_in: "Sign in"
         username: "Username"
-      signed_in: "Innlogginga var vellykka."
-      signed_out: "Utlogginga var vellykka."
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
     shared: 
       links: 
         forgot_your_password: "Forgot your password?"
@@ -87,10 +87,10 @@ nb:
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"
-      send_instructions: "Du vil få en e-post med instrukser om hvordan du låser opp brukeren din om kort tid."
-      unlocked: "Brukeren din er nå låst opp, og du er logga in."
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
+      unlocked: "Your account was successfully unlocked. You are now signed in."
   errors: 
     messages: 
-      already_confirmed: "er allerede bekrefta"
-      not_found: "ble ikke funnet"
-      not_locked: "er ikke låst"
+      already_confirmed: "was already confirmed"
+      not_found: "not found"
+      not_locked: "was not locked"

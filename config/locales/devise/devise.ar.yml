@@ -48,7 +48,7 @@ ar:
         click_to_unlock: "Click the link below to unlock your account:"
         subject: "Unlock Instructions"
         unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+      welcome: "Welcome"
     passwords: 
       edit: 
         change_password: "Change my password"
@@ -82,6 +82,8 @@ ar:
         sign_in: "Sign in"
         sign_up: "Sign up"
         sign_up_closed: "Open signups are closed at this time."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Resend unlock instructions"

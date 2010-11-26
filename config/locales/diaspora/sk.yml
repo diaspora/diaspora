@@ -40,6 +40,10 @@ sk:
       success: "Váš nový aspekt %{name} bol vytvorený"
     destroy: 
       success: "Užívateľ %{name} bol úspešne odstránený."
+    edit_aspect_pane: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Remove aspect?"
+      remove_aspect: "Remove Aspect"
     helper: 
       are_you_sure: "Skutočne chcete odstrániť tento aspekt?"
       aspect_not_empty: "Aspekt nie je prázdny"
@@ -75,8 +79,6 @@ sk:
       family: "Rodina"
       work: "Práca"
     show: 
-      contact: "Kontakt"
-      contacts: "Kontakty"
       edit_aspect: "upraviť aspekt"
     update: 
       success: "Váš aspekt, %{name}, bol úspešne upravený."
@@ -86,6 +88,11 @@ sk:
     new_comment: 
       comment: "Komentár"
       commenting: "Komentuje..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Zmazať"
   email: "e-mail"
   error_messages: 
@@ -134,6 +141,11 @@ sk:
       login: "prihlásenie"
       logout: "odhlásiť sa"
       view_profile: "pozrieť profil"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "e-mail robot Diaspóry"
     hello: "Ahoj %{name}!"
@@ -283,16 +295,13 @@ sk:
       aspect_settings: "Nastavenia aspektu"
       aspects: "Aspekty"
       confirm_remove_aspect: "Odstrániť aspekt?"
-      contacts: "Kontakty"
       done_editing: "dokončiť úpravy"
       invites: "Pozvánky"
-      new_request: "Počet nových žiadostí - %{count}"
-      new_requests: "Počet žiadostí : %{count} "
       no_contacts: "Momentálne nemáte žiadne kontakty. Nájdite ich tu."
       remove_aspect: "Odstrániť aspekt"
     contact_list: 
+      all_contacts: "All contacts"
       cannot_remove: "Nie je možné osobu odstrániť z posledného aspektu. (Ak s ňou chcete nadobro prerušiť kontakt, odstráňte ju prosím z Vášho zoznamu osôb.)"
-      search_contacts: "Hľadať kontakty"
     invitations: 
       dont_have_now: "Momentálne už nemáte žiadnu pozvánku. Ďalšie pribudnú už čoskoro."
       invitations_left: "(%{count} ostáva)"
@@ -316,8 +325,6 @@ sk:
       share_with_all: "zdieľať so všetkými aspektami"
     reshare: 
       reshare: "Znovu zdieľať"
-    stream_element: 
-      show_comments: "Zobraziť komentáre"
   status_messages: 
     helper: 
       no_message_to_display: "Źiadne správy na zobrazenie."
@@ -326,6 +333,9 @@ sk:
       tell_me_something_good: "Povedz niečo dobré"
     show: 
       destroy: "Zničiť"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "svet"
   username: "Užívateľské meno"
   users: 
@@ -352,7 +362,10 @@ sk:
         add: "Pridať"
         aspect_name: "Názov aspektu"
         description: "Prezraďte Diaspóre, kto môže vidieť Vaše aspekty. Neskôr ich môžete spravovať kliknutím na tlačidlo - nastavenia účtu, vpravo hore."
+        drag_to_add: "Drag them to the aspect of yourself they know"
+        no_requests: "You have no requests"
         your_aspects: "Váš aspekt"
+        your_inviter: "Here are the people who are waiting for you:"
       step_3: 
         description: "Diaspóru môžete prepojiť s Vašimi sociálnymi sieťami v nastaveniach. Vaše statusy uverejníte mimo Diaspóry vybratím možnosti \"zverejniť\"."
         your_services: "Vaše služby"

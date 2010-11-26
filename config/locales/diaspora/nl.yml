@@ -40,6 +40,10 @@ nl:
       success: "Je nieuwe aspect %{name} is aangemaakt"
     destroy: 
       success: "%{name} is succesvol verwijderd."
+    edit_aspect_pane: 
+      add_existing: "Voeg een bestaand contact toe"
+      confirm_remove_aspect: "Aspect verwijderen?"
+      remove_aspect: "Verwijder Aspect"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -75,8 +79,6 @@ nl:
       family: "Familie"
       work: "Werk"
     show: 
-      contact: "contact"
-      contacts: "contacten"
       edit_aspect: "bewerk aspect"
     update: 
       success: "Je aspect, %{name}, is succesvol aangepast."
@@ -86,6 +88,11 @@ nl:
     new_comment: 
       comment: "Reactie"
       commenting: "Reageren..."
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
   delete: "Verwijderen"
   email: "E-mail"
   error_messages: 
@@ -134,6 +141,11 @@ nl:
       login: "log in"
       logout: "log uit"
       view_profile: "bekijk profiel"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
   notifier: 
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
@@ -188,12 +200,12 @@ nl:
     show: 
       already_requested: "Je hebt al een verzoek gestuurd aan %{name}."
       does_not_exist: "Die persoon bestaat niet!"
-      incoming_request: "You have an incoming request from this person."
+      incoming_request: "Je hebt een binnenkomend verzoek van deze persoon."
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je bent niet bevriend met deze persoon"
       request_people: "Als je wilt kun je hem of haar in een van je aspecten plaatsen."
-      return_to_aspects: "Return to your aspects page"
-      to_accept_or_ignore: "to accept or ignore it."
+      return_to_aspects: "Ga terug naar je aspecten pagina"
+      to_accept_or_ignore: "om te accepteren of te negeren."
     update: 
       failed: "Updaten van profiel mislukt"
       updated: "Profiel geupdated"
@@ -283,16 +295,13 @@ nl:
       aspect_settings: "Aspect instellingen"
       aspects: "Aspecten"
       confirm_remove_aspect: "Aspect verwijderen?"
-      contacts: "contacten"
       done_editing: "klaar met bewerken"
       invites: "Uitnodigingen"
-      new_request: "%{count} nieuw verzoek!"
-      new_requests: "%{count} nieuwe verzoeken!"
       no_contacts: "Momenteel heb je nog geen contacten. Vind je contacten hier."
       remove_aspect: "Verwijder Aspect"
     contact_list: 
+      all_contacts: "Alle contacten"
       cannot_remove: "Kan persoon niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
-      search_contacts: "Zoek contacten"
     invitations: 
       dont_have_now: "Momenteel heb je er geen maar meer uitnodigingen volgen spoedig!"
       invitations_left: "(%{count} over)"
@@ -316,8 +325,6 @@ nl:
       share_with_all: "Deel met alle je aspecten"
     reshare: 
       reshare: "Herdeel"
-    stream_element: 
-      show_comments: "toon reacties"
   status_messages: 
     helper: 
       no_message_to_display: "Geen bericht om te weergeven."
@@ -326,6 +333,9 @@ nl:
       tell_me_something_good: "vertel me iets leuks"
     show: 
       destroy: "Verwijderen"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
   the_world: "de wereld"
   username: "Gebruikersnaam"
   users: 
@@ -352,7 +362,10 @@ nl:
         add: "Voeg toe"
         aspect_name: "Aspect naam"
         description: "Laat Diaspora weten welke verschillende aspecten verschillende mensen van jou zien. Je kunt deze later veranderen door middel van je accountmenu rechtsboven. Aspecten zijn uniek voor jou en niet zichtbaar voor anderen."
+        drag_to_add: "Sleep ze naar het aspect dat zij van jou kennen"
+        no_requests: "You have no requests"
         your_aspects: "Jouw aspecten"
+        your_inviter: "Dit zijn de mensen die op jou wachten:"
       step_3: 
         description: "Je kunt je bestaande sociale netwerken verbinden met je Diaspora account. Je kan via je Home pagina openbare berichten plaatsen door 'maak openbaar' aan te vinken."
         your_services: "Jou services"

@@ -82,6 +82,8 @@ mk:
         sign_in: "Најави се"
         sign_up: "Регистрирај се"
         sign_up_closed: "Отворените регистрации привремено се затворени."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Повторно испрати инструкции за отклучување"

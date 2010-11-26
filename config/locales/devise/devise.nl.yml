@@ -82,6 +82,8 @@ nl:
         sign_in: "Log in"
         sign_up: "Registreer"
         sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Stuur ontgrendel instructies nogmaals"

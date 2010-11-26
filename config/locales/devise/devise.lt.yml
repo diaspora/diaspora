@@ -82,6 +82,8 @@ lt:
         sign_in: "Prisijungti"
         sign_up: "Registruotis"
         sign_up_closed: "Atviri prisijungimai šiuo metu uždaryti."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
         resend_unlock: "Siųsti nurodymus, kaip atrakinti, iš naujo"
