@@ -1,33 +1,55 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
+- content_for :head do
+  = include_javascripts :aspects
+
 %h3
   = t('.your_aspects')
   .description
     = t('.description')
 
+%h3
+  = t('.your_inviter')
+
+%h3
+  %ul.dropzone
+    - if @requests.size < 1
+      %li=t('.no_requests')
+    - else
+      - for request in @requests
+        %li.person.request{:data=>{:guid=>request.id, :person_id=>request.from.id}}
+          = person_image_link(request.from)
+  .requests
+    %p= "#{t('.drag_to_add')} =>"
+
+
+%ul#aspect_list
+  - for aspect in @aspects
+    %li.aspect{:data=>{:guid=>aspect.id}}
+
+      .aspect_name
+        %span.edit_name_field
+          %h3{:contenteditable=>true}
+            = aspect.name
+          %span.tip click to edit
+
+        %ul.tools
+          %li!= remove_link(aspect)
+
+      %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
+        -for contact in aspect.contacts
+          %li.person{:data=>{:guid=>contact.person.id, :aspect_id=>aspect.id}}
+            .delete
+              .x
+                X
+              .circle
+            = person_image_link(contact.person)
 %h4
   = t('.aspect_name')
   = form_for Aspect.new do |aspect|
     = aspect.text_field :name, :style => "display:inline;"
     = aspect.submit t('.add')
-
-%ul.aspects
-  - for aspect in @aspects
-    %li{:style=>"position:relative;"}
-      = aspect
-      .contact_pictures.horizontal
-        - for contact in aspect.contacts
-          = person_image_link(contact.person)
-
-        = link_to (image_tag('add_contact_button.png', :title => t('shared.aspect_contacts.add_to', :aspect => aspect))), '#manage_aspect_contacts_pane', :class => 'manage_aspect_contacts_button'
-
-        .fancybox_content
-          #manage_aspect_contacts_pane
-            = render "requests/manage_aspect_contacts", :aspect => aspect, :getting_started => 2
-
-      = link_to "x", aspect_path(aspect), :method => :delete, :remote => true, :class => "delete right"
-
 %br
 %br
 

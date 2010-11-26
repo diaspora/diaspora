@@ -190,6 +190,8 @@ en:
               description: "Tell Diaspora what different aspects of you are seen by different contacts. You can manage these later through your account menu at the top right. Your aspects are unique to you and not visible by others."
               aspect_name: "Aspect name"
               add: "Add"
+              your_inviter: "Here are the people who are waiting for you:"
+              drag_to_add:  "Drag them to the aspect of yourself they know"
           step_3:
               your_services: "Your services"
               description: 'You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public"'
