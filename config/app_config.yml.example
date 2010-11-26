@@ -56,9 +56,9 @@ default:
   # Sender address in diaspora's outgoing mail.
   smtp_sender_address: 'no-reply@example.com'
 
-  # Authentication required to send mail. One of "plain",
+  # If authentication is needed, change this to one of "plain",
   # "login" or  "cram-md5"
-  smtp_authentication: 'plain'
+  smtp_authentication: 'none'
 
   # Credentails possibly required to log in to SMTP server if
   # smtp_authentication != 'plain'
