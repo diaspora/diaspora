@@ -284,6 +284,7 @@ en:
           not_found: "Invitation token not found"
       edit:
           sign_up: "sign_up"
+          invitations_closed: "Invitations for this Diaspora Pod are closed right now.  Don't worry, your invite will still work, please try again in about a week."
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
@@ -390,3 +391,9 @@ en:
   stream_helper:
       show_comments: "show comments"
       hide_comments: "hide comments"
+  webfinger:
+      fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+      hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+  pagination:
+      next: "Next"
+      previous: "Previous"

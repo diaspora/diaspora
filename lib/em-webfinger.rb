@@ -64,7 +64,7 @@ class EMWebfinger
   def get_webfinger_profile(profile_url)
      http = EventMachine::HttpRequest.new(profile_url).get OPTS
      http.callback{ make_person_from_webfinger(http.response) }
-     http.errback{ process_callbacks "failed to fetch webfinger profile for #{profile_url}"}
+     http.errback{ process_callbacks I18n.t('webfinger.fetch_failed', :profile_url => profile_url) }
   end
 
   def make_person_from_webfinger(webfinger_profile)
@@ -86,7 +86,7 @@ class EMWebfinger
           process_callbacks "No person could be constructed from this hcard."
         end
       }
-      http.errback{process_callbacks "there was a problem fetching the hcard for #{@account}"}
+      http.errback{process_callbacks I18n.t('webfinger.hcard_fetch_failed', :account => @account) }
     end
   end
 
