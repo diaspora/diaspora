@@ -8,8 +8,8 @@ describe AspectsController do
   render_views
 
   before do
-    @user     = make_user
-    @user2    = make_user
+    @user  = make_user
+    @user2 = make_user
 
     @aspect   = @user.aspects.create(:name => "lame-os")
     @aspect1  = @user.aspects.create(:name => "another aspect")
@@ -29,6 +29,28 @@ describe AspectsController do
       Factory.create :person
       get :index
       assigns[:contacts].should == @user.contacts
+    end
+    context 'performance' do
+      before do
+        require 'benchmark'
+        @posts = []
+        @users = []
+        8.times do |n|
+          user = make_user
+          @users << user
+          aspect = user.aspects.create(:name => 'people')
+          connect_users(@user, @aspect, user, aspect)
+          post =  @user.post(:status_message, :message => "hello#{n}", :to => @aspect1.id)
+          @posts << post
+          user.comment "yo#{post.message}", :on => post
+        end
+      end
+
+      it 'takes time' do
+        Benchmark.realtime{
+          get :index
+        }.should < 0
+      end
     end
   end
 
