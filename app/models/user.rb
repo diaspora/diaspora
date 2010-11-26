@@ -248,11 +248,11 @@ class User
     # person.owner will always return a ProxyObject.
     # calling nil? performs a necessary evaluation.
     unless person.owner.nil?
-      Rails.logger.debug("event=push_to_person route=local sender=#{self.inspect} recipient=#{person.inspect} payload_type=#{post.class}")
+      Rails.logger.info("event=push_to_person route=local sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
       person.owner.receive(post.to_diaspora_xml, self.person)
     else
       xml = salmon.xml_for person
-      Rails.logger.debug("event=push_to_person route=remote sender=#{self.inspect} recipient=#{person.inspect} payload_type=#{post.class}")
+      Rails.logger.info("event=push_to_person route=remote sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
       QUEUE.add_post_request(person.receive_url, xml)
       QUEUE.process
     end
@@ -285,20 +285,20 @@ class User
     if comment.save
       comment
     else
-      Rails.logger.warn "event=build_comment status=save_failure user=#{self.inspect} comment=#{comment.inspect}"
+      Rails.logger.warn "event=build_comment status=save_failure user=#{self.diaspora_handle} comment=#{comment.inspect}"
       false
     end
   end
 
   def dispatch_comment(comment)
     if owns? comment.post
-      Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.inspect} comment=#{comment.inspect}"
+      Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.inspect}"
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
       aspects = aspects_with_post(comment.post_id)
       push_to_people(comment, people_in_aspects(aspects))
     elsif owns? comment
-      Rails.logger.info "event=dispatch_comment direction=upstream user=#{self.inspect} comment=#{comment.inspect}"
+      Rails.logger.info "event=dispatch_comment direction=upstream user=#{self.diaspora_handle} comment=#{comment.inspect}"
       comment.save
       push_to_people comment, [comment.post.person]
     end

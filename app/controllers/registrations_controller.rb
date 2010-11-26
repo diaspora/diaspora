@@ -14,7 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
       Rails.logger.info("event=registration status=successful user=#{@user.inspect}")
     else
       flash[:error] = @user.errors.full_messages.join(', ')
-      Rails.logger.info("event=registration status=failure errors=#{@user.errors.full_messages.join(', ')}")
+      Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
       render :new
     end
   end
