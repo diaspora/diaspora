@@ -18,10 +18,13 @@ class AspectsController < ApplicationController
   end
 
   def create
+    puts "horray" if request.env['HTTP_REFERER'] 
     @aspect = current_user.aspects.create(params[:aspect])
     if @aspect.valid?
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
       if current_user.getting_started
+        redirect_to :back
+      elsif request.env['HTTP_REFERER'].includes("aspects/manage")
         redirect_to :back
       else
         respond_with @aspect
