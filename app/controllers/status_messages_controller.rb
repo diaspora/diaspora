@@ -73,7 +73,7 @@ class StatusMessagesController < ApplicationController
       @status_message.destroy
 
     else
-      Rails.logger.info "#{current_user.inspect} is trying to delete a post they don't own with id: #{params[:id]}"
+      Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"
     end
 
     respond_with :location => root_url

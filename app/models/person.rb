@@ -125,7 +125,7 @@ class Person
     new_person.url = profile.seed_location
 
     #hcard_profile = HCard.find profile.hcard.first[:href]
-    Rails.logger.info("hcard: #{ hcard.inspect}")
+    Rails.logger.info("event=webfinger_marshal valid=#{new_person.valid?} target=#{new_person.diaspora_handle}")
     new_person.url = hcard[:url]
     new_person.profile = Profile.new( :first_name => hcard[:given_name],
                                       :last_name  => hcard[:family_name],

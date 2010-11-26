@@ -164,7 +164,7 @@ class User
     aspect_ids = validate_aspect_permissions(aspect_ids)
     self.raw_visible_posts << post
     self.save
-    Rails.logger.info("Pushing: #{post.inspect} out to aspects")
+    Rails.logger.info("event=dispatch user=#{diaspora_handle} post=#{post.id.to_s}")
     push_to_aspects(post, aspect_ids)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid) && !post.pending
     if post.public
@@ -285,20 +285,20 @@ class User
     if comment.save
       comment
     else
-      Rails.logger.warn "event=build_comment status=save_failure user=#{self.diaspora_handle} comment=#{comment.inspect}"
+      Rails.logger.warn "event=build_comment status=save_failure user=#{self.diaspora_handle} comment=#{comment.id}"
       false
     end
   end
 
   def dispatch_comment(comment)
     if owns? comment.post
-      Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.inspect}"
+      Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.id}"
       comment.post_creator_signature = comment.sign_with_key(encryption_key)
       comment.save
       aspects = aspects_with_post(comment.post_id)
       push_to_people(comment, people_in_aspects(aspects))
     elsif owns? comment
-      Rails.logger.info "event=dispatch_comment direction=upstream user=#{self.diaspora_handle} comment=#{comment.inspect}"
+      Rails.logger.info "event=dispatch_comment direction=upstream user=#{self.diaspora_handle} comment=#{comment.id}"
       comment.save
       push_to_people comment, [comment.post.person]
     end

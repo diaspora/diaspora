@@ -88,7 +88,7 @@ module Diaspora
       end
 
       def disconnect(bad_contact)
-        Rails.logger.info("#{self.real_name} is disconnecting #{bad_contact.inspect}")
+        Rails.logger.info("event=disconnect user=#{diaspora_handle} target=#{bad_contact.diaspora_handle}")
         retraction = Retraction.for(self)
         push_to_people retraction, [bad_contact]
         remove_contact(bad_contact)
@@ -119,7 +119,7 @@ module Diaspora
       end
 
       def disconnected_by(bad_contact)
-        Rails.logger.info("#{self.real_name} is being disconnected by #{bad_contact.inspect}")
+        Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{bad_contact.diaspora_handle}")
         remove_contact bad_contact
       end
 

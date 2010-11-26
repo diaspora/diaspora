@@ -22,7 +22,7 @@ module SocketsHelper
         v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
       end
     rescue Exception => e
-      Rails.logger.error("web socket view rendering failed for object #{object.inspect}.")
+      Rails.logger.error("event=socket_render status=fail user=#{user.diaspora_handle} object=#{object.id.to_s}")
       raise e
     end
     action_hash = {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}
@@ -46,7 +46,7 @@ module SocketsHelper
     begin
       render_to_string(:partial => 'shared/notification', :locals => {:object => object})
     rescue Exception => e
-      Rails.logger.error("web socket notification failed for object #{object.inspect}.")
+      Rails.logger.error("event=socket_render status=fail user=#{user.diaspora_handle} object=#{object.id.to_s}")
     end
   end
 end

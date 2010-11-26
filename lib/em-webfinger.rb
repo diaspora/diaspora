@@ -92,7 +92,7 @@ class EMWebfinger
 
 
   def process_callbacks(person)
-    Rails.logger.info("event=EMWebfinger status=callbacks_started target=#{@account} response=#{person.inspect}")
+    Rails.logger.info("event=EMWebfinger status=callbacks_started target=#{@account} response='#{person.is_a?(String) ? person : person.id}'")
     @callbacks.each { |c|
       begin
         c.call(person)
