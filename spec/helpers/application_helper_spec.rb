@@ -84,6 +84,19 @@ describe ApplicationHelper do
         res.should =~ /data-host="youtube.com"/
         res.should =~ /data-video-id="#{videoid}"/
       end
+      
+      it "recognizes youtube links with hyphens" do
+        proto="http"
+        videoid = "ABYnqp-bxvg"
+        url="www.youtube.com/watch?v="+videoid+"&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+        title = "UP & down & UP & down &amp;"
+        mock_http = mock("http")
+        Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).and_return(mock_http)
+        mock_http.should_receive(:get).with('/feeds/api/videos/'+videoid+'?v=2', nil).and_return([nil, 'Foobar <title>'+title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
+        res = markdownify(proto+'://'+url)
+        res.should =~ /data-host="youtube.com"/
+        res.should =~ /data-video-id="#{videoid}"/
+      end
 
       it "recognizes multiple links of different types" do
         message = "http:// Hello World, this is for www.joindiaspora.com and not for http://www.google.com though their Youtube service is neat, take http://www.youtube.com/watch?v=foobar or www.youtube.com/watch?foo=bar&v=BARFOO&whatever=related It is a good idea we finally have youtube, so enjoy this video http://www.youtube.com/watch?v=rickrolld"

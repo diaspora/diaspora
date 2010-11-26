@@ -152,7 +152,7 @@ module ApplicationHelper
     end
 
     if options[:youtube]
-      while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\]+)/)
+      while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\\-]+)/)
         videoid = youtube[1]
         message.gsub!('youtube.com::'+videoid, '<a class="video-link" data-host="youtube.com" data-video-id="' + videoid + '" href="#video">Youtube: ' + youtube_title(videoid) + '</a>')
       end
