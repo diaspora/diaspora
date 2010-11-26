@@ -284,6 +284,7 @@ en:
           not_found: "Invitation token not found"
       edit:
           sign_up: "sign_up"
+          invitations_closed: "Invitations for this Diaspora Pod are closed right now.  Don't worry, your invite will still work, please try again in about a week."
   status_messages:
       new_status_message:
           tell_me_something_good: "tell me something good"
