@@ -24,6 +24,30 @@ describe HomeController do
       get :show 
       response.should redirect_to aspects_path
     end
+  end
 
+  #This describe should apply to any controller class.  HomeController is just the simplest.
+  describe 'logging' do
+    before do
+      logger = FakeLogger.new
+      Rails.stub(:logger).and_return(FakeLogger.new)
+      get :show
+    end
+
+    it 'logs the routing of a request' do
+      Rails.logger.infos.first.include?('event=request_routed').should be_true
+    end
+    it 'logs the completion of a request' do
+      Rails.logger.infos.last.include?('event=request_completed').should be_true
+    end
+  end
+  class FakeLogger
+    attr_accessor :infos
+    def initialize
+      self.infos = []
+    end
+    def info line
+      self.infos << line
+    end
   end
 end
