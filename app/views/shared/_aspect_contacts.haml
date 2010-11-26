@@ -79,7 +79,7 @@
             %h4
               = link_to user_aspect, user_aspect
               %span
-                = "#{user_aspect.contacts.count} #{t('.contacts')}"
+                = t('contacts', :count=>user_aspect.contacts.count)
 
             - if user_aspect.contacts.count > 0 
               - for aspect_contact in user_aspect.contacts[0..7]

@@ -28,7 +28,17 @@ en:
   search: "Search"
   _home: "Home"
   _comments: "Comments"
-  
+  contacts:
+    zero:   "no contacts"
+    one:    "1 contact"
+    few:    "%{count} contacts"
+    other:  "%{count} contacts"
+  new_requests:
+    zero:   "no new requests"
+    one:    "new request!"
+    few:    "%{count} new requests!"
+    other:  "%{count} new requests!"
+
   activemodel:
       errors:
           models:
@@ -81,9 +91,10 @@ en:
       aspect_contacts:
           add_to: "add to %{aspect}"
           done_editing: "done editing"
-          new_requests: "%{count} new requests!"
-          new_request: "%{count} new request!"
-          contacts: "contacts"
+          add_existing: "Add an existing contact"
+          aspect_settings: "Aspect settings"
+          remove_aspect: "Remove Aspect"
+          confirm_remove_aspect: "Remove aspect?"
           no_contacts: "You currently have no contacts.  Find your contacts here."
           aspects: "Aspects"
           add_aspect: "add aspect"
@@ -114,8 +125,6 @@ en:
   aspects:
       show:
           edit_aspect: "edit aspect"
-          contact: "contact"
-          contacts: "contacts"
       no_contacts_message:
           nobody: "Bring the people that matter in your life to Diaspora!"
           nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
