@@ -4,8 +4,8 @@
 
 
 da: 
-  _comments: "Comments"
-  _home: "Home"
+  _comments: "Kommentarer"
+  _home: "Hjem"
   _photos: "foto"
   _services: "Tjenester"
   account: "Konto"
@@ -72,8 +72,8 @@ da:
       failure: "Kunne ikke fjerne person fra aspektet"
       success: "Person er fjernet fra aspektet"
     seed: 
-      family: "Family"
-      work: "Work"
+      family: "Familie"
+      work: "Arbejde"
     show: 
       contact: "contact"
       contacts: "contacts"
@@ -96,14 +96,14 @@ da:
   home: 
     show: 
       already_account: "har du allerede en konto?"
-      choice: "Choice"
+      choice: "Vælg"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
       login_here: "log ind her"
-      ownership: "Ownership"
+      ownership: "Ejerskab"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Del hvad du vil, med hvem du vil."
-      simplicity: "Simplicity"
+      simplicity: "Enkelhed"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations: 
     check_token: 
@@ -115,7 +115,7 @@ da:
       rejected: "The following email addresses had problems: "
       sent: "Din invitation er blevet sendt."
     edit: 
-      sign_up: "sign_up"
+      sign_up: "Bliv medlem"
     new: 
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet det aspekt du har inviteret dem til"
@@ -184,13 +184,16 @@ da:
       gender: "køn"
       in_aspects: "i aspekter"
       remove_contact: "fjern kontakt"
-      remove_from: "Remove %{name} from %{aspect}?"
+      remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
       already_requested: "Du har allerede sendt en forespørgsel til %{name}."
       does_not_exist: "Personen findes ikke!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet med denne person"
       request_people: "Hvis du ønsker, kan du anmode om at placere ham/hende i et af dine aspekter."
+      return_to_aspects: "Tilbage til aspects side"
+      to_accept_or_ignore: "at godkende eller ignorere det."
     update: 
       failed: "Kunne ikke opdatere profil"
       updated: "Profil opdateret"
@@ -215,12 +218,12 @@ da:
       view_all: "se alle %{name}s billeder"
     show: 
       delete_photo: "Slet foto"
-      edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
+      edit: "rediger"
+      edit_delete_photo: "Rediger foto beskrivelse / slet foto"
       make_profile_photo: "gøre til profilfoto"
       original_post: "Original Post"
       update_photo: "Opdater billed"
-      view: "view"
+      view: "se"
     update: 
       error: "Kunne ikke redigerer foto."
       notice: "Foto blev opdateret."
@@ -251,7 +254,7 @@ da:
       existing: "Eksisterende kontaktpersoner"
       manage_within: "Administrer kontakter indenfor"
     new_request_to_person: 
-      sent: "sent!"
+      sent: "afsendt!"
   search: "Søg"
   services: 
     create: 
@@ -273,14 +276,14 @@ da:
       know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Dit Diaspora brugernavn er: %{diaspora_handle}"
     aspect_contacts: 
-      add_aspect: "add aspect"
-      add_existing: "Add an existing contact"
+      add_aspect: "tilføj aspect"
+      add_existing: "Tilføj eksisterende kontakt"
       add_to: "tilføj til %{aspect}"
       all_contacts: "All contacts"
-      aspect_settings: "Aspect settings"
+      aspect_settings: "Aspect indstillinger"
       aspects: "Aspects"
-      confirm_remove_aspect: "Remove aspect?"
-      contacts: "contacts"
+      confirm_remove_aspect: "Fjern aspect?"
+      contacts: "kontakter"
       done_editing: "done editing"
       invites: "Invites"
       new_request: "%{count} new request!"

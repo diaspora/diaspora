@@ -97,10 +97,10 @@ class EMWebfinger
       begin
         c.call(person)
       rescue Exception => e
-        Rails.logger.info("event=EMWebfinger status=error_on_callback error=#{e.inspect}")
+        Rails.logger.info("event=EMWebfinger status=error_on_callback error='#{e.inspect}'")
       end
     }
-    Rails.logger.info("event=EMWebfinger status=complete response=#{person.inspect}")
+    Rails.logger.info("event=EMWebfinger status=complete target=#{@account}")
   end
 
 

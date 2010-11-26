@@ -1,0 +1,94 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+es-CL: 
+  devise: 
+    confirmations: 
+      confirmed: "Tu cuenta ha sido confirmada. Ya has entrado a tu cuenta."
+      new: 
+        resend_confirmation: "Reenviar las instrucciones de confirmación"
+      send_instructions: "Recibirás un correo con instrucciones acerca de como confirmar tu cuenta en pocos minutos."
+    failure: 
+      inactive: "Tu cuenta aún no ha sido activada."
+      invalid: "Correo electrónico o contraseña no válidos."
+      invalid_token: "Identificador de autenticación inválido."
+      locked: "Tu cuenta está bloqueada."
+      timeout: "Tu sesión terminó, por favor, accede de nuevo para continuar."
+      unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
+      unconfirmed: "Tienes que confirmar tu cuenta antes de continuar."
+    invitations: 
+      invitation_token_invalid: "¡El identificador de la invitacion no es válido!"
+      send_instructions: "Tu invitación ha sido enviada."
+      updated: "Tu contraseña ha sido modificada. Ya has entrado a tu cuenta."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Confirmar mi cuenta"
+        subject: "Instrucciones de confirmación"
+        you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
+      hello: "Hola %{email}!"
+      invitation: 
+        accept: "Aceptar la invitación"
+        ignore: "Si no quieres aceptar la invitación, por favor, ignora este correo."
+        no_account_till: "Tu cuenta no será creada hasta que accedas al enlace de arriba y te registres."
+        subject: "¡Has sido invitado a unirte a Diaspora!"
+      inviters: 
+        accept_at: ", en %{url}, puedes aceptar a través del siguiente enlace."
+        has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
+        have_invited_you: "%{names} te ha invitado a unirte a Diaspora"
+      reset_password_instructions: 
+        change: "Cambiar mi contraseña"
+        ignore: "Si no has solicitado esto, por favor, ignora este correo."
+        someone_requested: "Alguien a solicitado un enlace para cambiar tu contraseña, y tu puedes hacerlo a través del siguiente enlace."
+        subject: "Instrucciones para cambiar tu contraseña"
+        wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
+      unlock_instructions: 
+        account_locked: "Tu cuenta ha sido bloqueada debido a un excesivo numero de ingresos de intentos fallidos."
+        click_to_unlock: "Haz click en el enlace de abajo para desbloquear tu cuenta:"
+        subject: "Instrucciones para desbloquear tu cuenta"
+        unlock: "Desbloquear mi cuenta"
+      welcome: "Bienvenido %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Cambiar mi contraseña"
+      new: 
+        forgot_password: "¿Olvidaste tu contraseña?"
+        send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
+      send_instructions: "Recibirás un correo con instrucciones para restablecer tu contraseña en pocos minutos."
+      updated: "Tu contraseña ha sido modificada. Ya has entrado a tu cuenta."
+    registrations: 
+      destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
+      signed_up: "Te has registrado correctamente. Si está disponible, te hemos enviado un correo de confirmación."
+      updated: "Tu cuenta ha sido actualizada."
+    sessions: 
+      new: 
+        alpha_software: "Estás a punto de usar la versión alpha."
+        bugs_and_feedback: "Ten en cuenta que puedes experimentar errores. ¡Te animamos a que utilices el botón de Feedback ubicado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como podamos para resolver cualquier problema que tú nos informes."
+        have_a_problem: "¿Algún problema? Encuentra la respues aquí"
+        login: "Iniciar sesión"
+        modern_browsers: "Solo es compatible con navegadores modernos."
+        password: "Contraseña"
+        remember_me: "Recordarme"
+        sign_in: "Entrar"
+        username: "Nombre de usuario"
+      signed_in: "Has entrado correctamente."
+      signed_out: "Has salido correctamente."
+    shared: 
+      links: 
+        forgot_your_password: "¿Olvidaste tu contraseña?"
+        receive_confirmation: "¿No has recibido las instrucciones de confirmación?"
+        receive_unlock: "¿No has recibido las instrucciones de desbloqueo?"
+        sign_in: "Entrar"
+        sign_up: "Registrarse"
+        sign_up_closed: "Los registros no estan disponibles en este momento."
+    unlocks: 
+      new: 
+        resend_unlock: "Reenviar instrucciones de desbloqueo"
+      send_instructions: "Recibirás un correo con instrucciones acerca de como desbloquear tu cuenta en pocos minutos"
+      unlocked: "Tu cuenta ha sido desbloqueada. Ya has entrado a tu cuenta."
+  errors: 
+    messages: 
+      already_confirmed: "Ya confirmado"
+      not_found: "No encontrado"
+      not_locked: "No fue bloqueado"

@@ -5,6 +5,7 @@ available:
   de: 'Deutsch'
   en: 'English'
   es: 'Español'
+  es-CL: 'Español Chileno'
   fr: 'Français'
   he: 'עברית'
   id: 'Bahasa Indonesia'
@@ -16,6 +17,7 @@ available:
   pl: "Polski"
   pt-BR: 'Português'
   ro: 'Română'
-  ru: 'Россию'
+  sk: 'Slovenščina'
+  ru: 'Русский'
   sv: 'Svenska'
   tr: 'Türk'

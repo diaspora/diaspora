@@ -36,10 +36,10 @@ pt-PT:
       failure: "Failed to add friend to aspect."
       success: "Successfully added friend to aspect."
     create: 
-      failure: "Aspect creation failed."
+      failure: "A criação do perfil falhou."
       success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     destroy: 
-      success: "%{name} foi removido com sucesso."
+      success: "%{name} foi removido(a) com sucesso."
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Perfil não está vazio"
@@ -150,7 +150,7 @@ pt-PT:
   ok: "OK"
   or: "or"
   password: "Password"
-  password_confirmation: "Confirme a sua password"
+  password_confirmation: "Confirmação de senha"
   people: 
     edit: 
       allow_search: "Allow for people to search for you"
@@ -188,9 +188,12 @@ pt-PT:
     show: 
       already_requested: "Já enviaste um pedido a %{name}."
       does_not_exist: "Essa pessoa não existe ou não está cá. "
+      incoming_request: "You have an incoming request from this person."
       no_posts: "Não existem entradas para mostrar!"
       not_connected: "You are not connected with this person"
       request_people: "Se quiseres podes pedir para ele/ela te colocar num dos teus perfis."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"

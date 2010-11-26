@@ -188,9 +188,12 @@ sv:
     show: 
       already_requested: "Du har redan skickat en kontaktförfrågan till %{name}."
       does_not_exist: "Den här personen finns inte!"
+      incoming_request: "Du har en inkommande förfrågan från den här personen."
       no_posts: "inga meddelanden att visa!"
       not_connected: "Du är inte ansluten till den här personen"
       request_people: "Om du känner för det så skulle du kunna skicka en kontaktförfrågan."
+      return_to_aspects: "Återgå till översikten"
+      to_accept_or_ignore: "for att acceptera eller ignorera."
     update: 
       failed: "Misslyckades med att uppdatera profilen"
       updated: "Profilen är uppdaterad"

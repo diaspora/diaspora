@@ -6,7 +6,7 @@
 fi: 
   _comments: "Comments"
   _home: "Home"
-  _photos: "photos"
+  _photos: "kuvat"
   _services: "Services"
   account: "Account"
   activemodel: 
@@ -15,15 +15,15 @@ fi:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken"
+              taken: "on jo käytössä"
         user: 
           attributes: 
             email: 
-              taken: "is already taken"
+              taken: "on jo käytössä"
             person: 
               invalid: "is invalid"
             username: 
-              taken: "is already taken"
+              taken: "on jo käytössä"
   ago: "ago"
   application: 
     helper: 
@@ -43,7 +43,7 @@ fi:
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Aspect not empty"
-      remove: "remove"
+      remove: "poista"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
     manage: 
@@ -59,7 +59,7 @@ fi:
       success: "Person moved to new aspect"
     new_aspect: 
       create: "Create"
-      name: "Name"
+      name: "Nimi"
     no_contacts_message: 
       add_contact: "Add a contact"
       add_contact_to: "Add someone to %{aspect_name}"
@@ -72,8 +72,8 @@ fi:
       failure: "Failed to remove person from aspect"
       success: "Successfully removed person from aspect"
     seed: 
-      family: "Family"
-      work: "Work"
+      family: "Perhe"
+      work: "Työ"
     show: 
       contact: "contact"
       contacts: "contacts"
@@ -81,13 +81,13 @@ fi:
     update: 
       success: "Your aspect, %{name}, has been successfully edited."
   back: "Back"
-  cancel: "Cancel"
+  cancel: "Peruuta"
   comments: 
     new_comment: 
       comment: "Comment"
       commenting: "Commenting..."
-  delete: "Delete"
-  email: "Email"
+  delete: "Poista"
+  email: "Sähköposti"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
@@ -110,37 +110,37 @@ fi:
       not_found: "Invitation token not found"
     create: 
       already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
+      already_sent: "Olet jo lähettänyt kutsun tälle henkilölle."
       no_more: "You have no more invitations."
       rejected: "The following email addresses had problems: "
-      sent: "Your invitation has been sent."
+      sent: "Kutsusi on lähetetty henkilölle:"
     edit: 
       sign_up: "sign_up"
     new: 
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
       invite_someone_to_join: "Invite someone to join Diaspora!"
-      message: "Message:"
-      send_an_invitation: "Send an invitation"
-      send_invitation: "Send invitation"
+      message: "Viesti:"
+      send_an_invitation: "Lähetä kutsu"
+      send_invitation: "Lähetä kutsu"
       to: "To"
   layouts: 
     application: 
-      powered_by: "POWERED BY DIASPORA*"
+      powered_by: "PALVELUN TARJOAA DIASPORA*"
     header: 
       account_settings: "account settings"
-      blog: "blog"
+      blog: "blogi"
       edit_profile: "edit profile"
-      login: "login"
-      logout: "logout"
-      view_profile: "view profile"
+      login: "kirjaudu sisään"
+      logout: "kirjaudu ulos"
+      view_profile: "tarkastele profiilia"
   notifier: 
     diaspora: "the diaspora email robot"
-    hello: "Hello %{name}!"
+    hello: "Hei %{name}!"
     love: "love,"
     new_request: 
       just_sent_you: "just sent you a friend request on Diaspora*"
-      sign_in: "sign in here"
+      sign_in: "kirjaudu sisään täältä"
       subject: "new Diaspora* friend request from %{from}"
       try_it_out: "You should really think about checking it out."
     request_accepted: 
@@ -149,26 +149,26 @@ fi:
       subject: "%{name} has accepted your friend request on Diaspora*"
   ok: "OK"
   or: "or"
-  password: "Password"
+  password: "Salasana"
   password_confirmation: "Password confirmation"
   people: 
     edit: 
       allow_search: "Allow for people to search for you"
-      first_name: "First name"
+      first_name: "Etunimi"
       info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      last_name: "Sukunimi"
+      update_profile: "Päivitä profiili"
+      your_bio: "Biografiasi"
+      your_birthday: "Syntymäpäiväsi"
+      your_gender: "Sukupuolesi"
+      your_name: "Nimesi"
+      your_photo: "Kuvasi"
+      your_profile: "Profiilisi"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
-      results_for: "search results for"
+      results_for: "hakutulokset kohteelle "
     person: 
       add_contact: "add contact"
       already_connected: "Already connected"
@@ -177,20 +177,23 @@ fi:
     profile_photo_upload: 
       or_select_one: "or select one from your already existing"
     profile_sidebar: 
-      bio: "bio"
-      born: "born"
+      bio: "biografia"
+      born: "syntynyt"
       cannot_remove: "Cannot remove %{name} from last aspect."
       edit_my_profile: "Edit my profile"
-      gender: "gender"
+      gender: "sukupuoli"
       in_aspects: "in aspects"
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
       already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Person does not exist!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "no posts to display!"
       not_connected: "You are not connected with this person"
       request_people: "If you'd like, you can request to place him/her in one of your aspects."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -215,8 +218,8 @@ fi:
       view_all: "view all of %{name}'s photos"
     show: 
       delete_photo: "Delete Photo"
-      edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
+      edit: "muokkaa"
+      edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "make profile photo"
       original_post: "Original Post"
       update_photo: "Update Photo"
@@ -234,11 +237,11 @@ fi:
       edit: "Edit %{name}"
       leave_blank: "(leave blank if you don't want to change it)"
       password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
-      update: "Update"
+      unhappy: "Surullinen?"
+      update: "Päivitä"
     new: 
-      sign_up: "Sign up"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      sign_up: "Rekisteröidy"
+      sign_up_for_diaspora: "Rekisteröidy Diasporaan"
   requests: 
     create: 
       sending: "Sending..."
@@ -264,7 +267,7 @@ fi:
       disconnect: "disconnect"
       logged_in_as: "logged in as"
       really_disconnect: "disconnect %{service}?"
-  settings: "Settings"
+  settings: "Asetukset"
   shared: 
     add_contact: 
       create_request: "Find by Diaspora handle"
@@ -292,7 +295,7 @@ fi:
       search_contacts: "Search contacts"
     invitations: 
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
-      invitations_left: "(%{count} left)"
+      invitations_left: "(%{count} jäljellä)"
       invite_someone: "Invite someone"
     notification: 
       new: "New %{type} from %{from}"
@@ -308,7 +311,7 @@ fi:
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "Posting..."
-      share: "Share"
+      share: "Jaa"
       share_with: "Share with %{aspect}"
       share_with_all: "Share with all aspects"
     reshare: 
@@ -324,13 +327,13 @@ fi:
     show: 
       destroy: "Destroy"
   the_world: "the world"
-  username: "Username"
+  username: "Käyttäjätunnus"
   users: 
-    destroy: "Account successfully closed."
+    destroy: "Tili suljettu onnistuneesti."
     edit: 
-      change_language: "Change Language"
-      change_password: "Change Password"
-      close_account: "Close Account"
+      change_language: "Vaihd kieli"
+      change_password: "Vaihda salasana"
+      close_account: "Sulje tili"
       download_photos: "download my photos"
       download_xml: "download my xml"
       export_data: "Export Data"
@@ -342,11 +345,11 @@ fi:
       define_aspects: "Define your aspects"
       edit_profile: "Edit your profile"
       finished: "Finished!"
-      save_and_continue: "Save and continue"
+      save_and_continue: "Tallenna ja jatka"
       signup_steps: "Complete your sign-up by doing these things:"
       skip: "skip getting started"
       step_2: 
-        add: "Add"
+        add: "Lisää"
         aspect_name: "Aspect name"
         description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
         your_aspects: "Your aspects"
@@ -361,11 +364,11 @@ fi:
         ready_to_share: "You're now ready to start sharing with "
         set_up: "You're all set up, %{name}!"
         user_menu: "in your user menu (top right)."
-      welcome: "Welcome to Diaspora!"
+      welcome: "Tervetuloa Diasporaan!"
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 
-      language_changed: "Language Changed"
-      language_not_changed: "Language Change Failed"
-      password_changed: "Password Changed"
-      password_not_changed: "Password Change Failed"
+      language_changed: "Kieli vaihdettu"
+      language_not_changed: "Kielen vaihtaminen epäonnistui"
+      password_changed: "Salasana vaihdettu"
+      password_not_changed: "Salasanan vaihto epäonnistui"

@@ -8,7 +8,7 @@ de:
     confirmations: 
       confirmed: "Dein Konto wurde erfolgreich bestätigt. Du bist nun angemeldet."
       new: 
-        resend_confirmation: "Instruktionen zum Bestätigen erneut schicken"
+        resend_confirmation: "Anweisungen zum Bestätigen erneut senden"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto bestätigst."
     failure: 
       inactive: "Dein Konto wurde noch nicht aktiviert."
@@ -25,14 +25,14 @@ de:
     mailer: 
       confirmation_instructions: 
         confirm: "Mein Konto bestätigen"
-        subject: "Instruktionen zur Bestätigung"
+        subject: "Bestätigung deines Diaspora Kontos"
         you_can_confirm: "Du kannst dein Konto über den nachfolgenden Link bestätigen:"
       hello: "Hallo %{email}!"
       invitation: 
         accept: "Einladung annehmen"
         ignore: "Wenn du die Einladung nicht annehmen willst, dann ignoriere diese E-Mail."
         no_account_till: "Dein Konto wird nicht erstellt bis du dich über den Link registriert."
-        subject: "Du bist zu Diaspora einladen worden!"
+        subject: "Du wurdest zu Diaspora eingeladen!"
       inviters: 
         accept_at: "%{url} teilzunehmen, du kannst die Einladung durch den Link unten annehmen."
         has_invited_you: "%{name} hat dich eingeladen an Diaspora auf"
@@ -41,12 +41,12 @@ de:
         change: "Mein Passwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."
         someone_requested: "Jemand hat einen Link angefordert um dein Passwort zu ändern und du kannst das durch den Link unten tun."
-        subject: "Instruktionen zum Zurücksetzen des Passworts"
+        subject: "Zurücksetzen deines Passworts"
         wont_change: "Dein Passwort bleibt unverändert bis du es über den Link änderst."
       unlock_instructions: 
-        account_locked: "Dein Konto wurde gesperrt weil zu oft versucht wurde sich anzumelden."
-        click_to_unlock: "Klicken um Konto zu entsperren:"
-        subject: "Instruktionen zum Entsperren"
+        account_locked: "Dein Konto wurde aufgrund zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
+        click_to_unlock: "Folge unten aufgeführtem Link, um dein Konto zu entsperren:"
+        subject: "Konto entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
     passwords: 
@@ -54,7 +54,7 @@ de:
         change_password: "Mein Passwort ändern"
       new: 
         forgot_password: "Passwort vergessen?"
-        send_password_instructions: "Sende mir Instruktionen zum Passwort zurücksetzen"
+        send_password_instructions: "Anfordern"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Passwort zurücksetzt."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
     registrations: 

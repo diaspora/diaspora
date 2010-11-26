@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
     @comment = current_user.comment(text, :on => target) if target
     if @comment
-      Rails.logger.info("event=comment_create user=#{current_user.inspect} status=success comment=#{@comment.inspect}")
+      Rails.logger.info("event=comment_create user=#{current_user.diaspora_handle} status=success comment=#{@comment.inspect}")
 
       respond_to do |format|
         format.js{ render :json => { :post_id => @comment.post_id,

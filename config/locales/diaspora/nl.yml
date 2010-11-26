@@ -158,7 +158,7 @@ nl:
       info_available_to: "Deze informatie is beschikbaar voor al je contacten op Diaspora."
       last_name: "Achternaam"
       update_profile: "Update profiel"
-      your_bio: "Jou bio"
+      your_bio: "Jouw bio"
       your_birthday: "Je verjaardag"
       your_gender: "Je geslacht"
       your_name: "Je naam"
@@ -188,9 +188,12 @@ nl:
     show: 
       already_requested: "Je hebt al een verzoek gestuurd aan %{name}."
       does_not_exist: "Die persoon bestaat niet!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je bent niet bevriend met deze persoon"
       request_people: "Als je wilt kun je hem of haar in een van je aspecten plaatsen."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Updaten van profiel mislukt"
       updated: "Profiel geupdated"

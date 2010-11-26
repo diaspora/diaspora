@@ -15,11 +15,11 @@ sk:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken"
+              taken: "je už obsadený"
         user: 
           attributes: 
             email: 
-              taken: "is already taken"
+              taken: "je už obsadený"
             person: 
               invalid: "je neplatný"
             username: 
@@ -37,7 +37,7 @@ sk:
       success: "Kontakt bol úspešne pridaný."
     create: 
       failure: "Vytvorenie aspektu zlyhalo."
-      success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+      success: "Váš nový aspekt %{name} bol vytvorený"
     destroy: 
       success: "Užívateľ %{name} bol úspešne odstránený."
     helper: 
@@ -45,11 +45,11 @@ sk:
       aspect_not_empty: "Aspekt nie je prázdny"
       remove: "odstrániť"
     index: 
-      handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
+      handle_explanation: "Toto je Vaša adresa a slúži ako vizitka. Pomocou nej Vás môžu ostatní vyhľadať."
     manage: 
       add_a_new_aspect: "Pridať nový aspekt"
       add_a_new_contact: "Pridať nový kontakt"
-      drag_to_add: "Drag to add people"
+      drag_to_add: "Kontakt sem pridáte pretiahnutím miniatúry"
       manage_aspects: "Spravovať aspekty"
       no_requests: "Žiadne nové žiadosti"
       requests: "Žiadosti"
@@ -62,14 +62,14 @@ sk:
       name: "Meno"
     no_contacts_message: 
       add_contact: "Pridať kontakt"
-      add_contact_to: "Pridať niekoho k %{aspect_name}"
+      add_contact_to: "Pridať niekoho k aspektu %{aspect_name}"
       invite: "Prizvať niekoho k Diaspóre!"
-      nobody: "We know you know people — bring them to Diaspora!"
+      nobody: "Pozvite do Diaspóry ľudí, na ktorých Vám záleží!"
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdny."
     no_posts_message: 
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "Nikto nič nevraví. Začnite Vy!"
     remove_from_aspect: 
-      failure: "Chyba pri odstaňovaní osoby z aspektu"
+      failure: "Chyba pri odstraňovaní osoby z aspektu"
       success: "Osoba bola z aspektu úspešne odstránená."
     seed: 
       family: "Rodina"
@@ -84,7 +84,7 @@ sk:
   cancel: "Zrušiť"
   comments: 
     new_comment: 
-      comment: "Comment"
+      comment: "Komentár"
       commenting: "Komentuje..."
   delete: "Zmazať"
   email: "e-mail"
@@ -97,17 +97,17 @@ sk:
     show: 
       already_account: "Máte už vytvorený účet?"
       choice: "Možnosť"
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
-      learn_about_host: "Learn about how to host your own Diaspora server"
+      choice_explanation: "Diaspóra Vám umožňuje priradiť si všetky Vaše spojenia do skupín, ktoré sa volajú Aspekty. Je unikátna  práve tým, že dokáže zabezpečiť, aby k fotkám, správam a statusom mali prístup len tí, ktorých si v aspektoch určíte."
+      learn_about_host: "Dozvedieť sa o viac o tom, ako hostiť vlastný Diaspóra server."
       login_here: "Prihlásiť sa tu"
       ownership: "Vlastníctvo"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
+      ownership_explanation: "Vaše obrázky sú Vašim vlastníctvom. Nemali by ste sa ho zriekať len kvôli tomu, že ich chcete zdieľať. Zachovajte si preto právo na všetko, čo zverejňujete. Len to Vám dá plnú kontrolu nad tým, ako sa s tým nakladá."
       share_what_you_want: "Zdieľajte čo chcete a s kým chcete."
       simplicity: "Jednoduchosť"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
+      simplicity_explanation: "Zdieľanie v Diaspóre je veľmi ľahké a transparenté – je to dvojitá záruka ochrany súkromia. Ohľadom súkromia, Diaspóra neobsahuje žiadne zložité stránky s nastavením, ktorými by ste sa museli prelúskať, aby ste uchovali bezpečnosť Vášho profilu podľa svojich predstáv."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "Pozývací token nenájdený"
     create: 
       already_contacts: "S touto osobou už ste v kontakte"
       already_sent: "Tejto osobe ste už pozvánku zaslali."
@@ -118,12 +118,12 @@ sk:
       sign_up: "Zaregistrovať sa"
     new: 
       comma_seperated_plz: "Môžete vložiť viacero adries oddelených čiarkou."
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them"
+      if_they_accept_info: "ak budú súhlasiť, pridajú sa k aspektu, do ktorého ste ich pozvali."
       invite_someone_to_join: "Pozvite niekoho do Diaspóry*!"
       message: "Správa:"
       send_an_invitation: "Send an invitation"
       send_invitation: "Poslať pozvánku"
-      to: "To"
+      to: "Komu"
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
@@ -135,13 +135,13 @@ sk:
       logout: "odhlásiť sa"
       view_profile: "pozrieť profil"
   notifier: 
-    diaspora: "e-mail robot Diaspoóry"
+    diaspora: "e-mail robot Diaspóry"
     hello: "Ahoj %{name}!"
     love: "miluje,"
     new_request: 
       just_sent_you: "Vám zaslal žiadosť v Diaspóre*"
       sign_in: "Prihláste sa"
-      subject: "new Diaspora* contact request from %{from}"
+      subject: "Nová žiadosť o kontakt od %{from}"
       try_it_out: "Mali by ste to skontrolovať."
     request_accepted: 
       accepted: "prijal Vašu žiadosť. Teraz je vo Vašich"
@@ -153,7 +153,7 @@ sk:
   password_confirmation: "Potvrdenie hesla"
   people: 
     edit: 
-      allow_search: "Allow for people to search for you"
+      allow_search: "Dovoliť ostatným vyhľadať Vás v Diaspóre"
       first_name: "Meno"
       info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Priezvisko"
@@ -165,8 +165,8 @@ sk:
       your_photo: "Vaša fotografia"
       your_profile: "Váš profil"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
+      results_for: "Výsledky hľadania %{params}"
     index: 
       results_for: "Výsledky vyhľadávania pre"
     person: 
@@ -179,7 +179,7 @@ sk:
     profile_sidebar: 
       bio: "Niečo o Vás"
       born: "dátum narodenia"
-      cannot_remove: "Cannot remove %{name} from last aspect."
+      cannot_remove: "Užívateľa %{name} nie je možné z posledného aspektu odstrániť."
       edit_my_profile: "Upraviť profil"
       gender: "pohlavie"
       in_aspects: "v aspektoch"
@@ -188,9 +188,12 @@ sk:
     show: 
       already_requested: "Žiadosť uživateľovi %{name} ste už zaslali."
       does_not_exist: "Osoba neexistuje!"
+      incoming_request: "You have an incoming request from this person."
       no_posts: "Žiadne príspevky na zobrazenie!"
       not_connected: "S touto osobou nieste prepojený"
-      request_people: "If you'd like, you can request to place him/her in one of your aspects."
+      request_people: "Ak si prajete, môžete požiadať o umiestnenie osoby v jednom z Vašich aspektov."
+      return_to_aspects: "Return to your aspects page"
+      to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Aktualizácia profilu zlyhala"
       updated: "Profil upravený"
@@ -226,7 +229,7 @@ sk:
       notice: "Fotka bola úspešne aktualizovaná."
   profile: "Profil"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "Registrácie sú zatvorené"
     create: 
       success: "Pripojili ste sa k Diaspóre!"
     edit: 
@@ -241,7 +244,7 @@ sk:
       sign_up_for_diaspora: "Pridaj sa k Diaspóre"
   requests: 
     create: 
-      sending: "Sending..."
+      sending: "Posielanie..."
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Vyberte aspekt prosím!"
@@ -249,15 +252,15 @@ sk:
       success: "Teraz ste priatelia."
     manage_aspect_contacts: 
       existing: "Existujúce kontakty"
-      manage_within: "Manage contacts within"
+      manage_within: "Spravovať kontakty v rámci"
     new_request_to_person: 
-      sent: "poslať!"
+      sent: "Poslané!"
   search: "Hľadať"
   services: 
     create: 
       success: "Autentifikácia prebehla úspešne."
     destroy: 
-      success: "Successfully destroyed authentication."
+      success: "Autentifikácia úspešne zrušená."
     index: 
       connect_to_facebook: "Pripojiť k Facebooku"
       connect_to_twitter: "Pripojiť k Twitteru"
@@ -268,9 +271,9 @@ sk:
   shared: 
     add_contact: 
       create_request: "Find by Diaspora handle"
-      diaspora_handle: "Diaspora handle"
+      diaspora_handle: "Užívateľská príručka Diaspóry"
       enter_a_diaspora_username: "Zadajte užívateľské meno:"
-      know_email: "Know their email address? You should invite them"
+      know_email: "Poznáte ich e-mail? Mali by ste ich pozvať."
       your_diaspora_username_is: "Vaše užívateľské meno je %{diaspora_handle}"
     aspect_contacts: 
       add_aspect: "pridať aspekt"
@@ -288,19 +291,19 @@ sk:
       no_contacts: "Momentálne nemáte žiadne kontakty. Nájdite ich tu."
       remove_aspect: "Odstrániť aspekt"
     contact_list: 
-      cannot_remove: "Cannot remove person from last aspect."
+      cannot_remove: "Nie je možné osobu odstrániť z posledného aspektu. (Ak s ňou chcete nadobro prerušiť kontakt, odstráňte ju prosím z Vášho zoznamu osôb.)"
       search_contacts: "Hľadať kontakty"
     invitations: 
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      dont_have_now: "Momentálne už nemáte žiadnu pozvánku. Ďalšie pribudnú už čoskoro."
       invitations_left: "(%{count} ostáva)"
       invite_someone: "Pozvať niekoho"
     notification: 
       new: "Nový %{type} od %{from}"
     public_explain: 
       logged_in: "Prihlásenie k %{service}"
-      manage: "manage connected services"
+      manage: "Spravovať pripojené služby"
       outside: "Verejnú správu môžu vidieť aj užívatelia mimo Diaspóry."
-      title: "You are about to post a public message!"
+      title: "Práve posielate verejnú správu!"
     publisher: 
       add_photos: "Pridať fotky"
       all: "všetko"
@@ -310,7 +313,7 @@ sk:
       posting: "Posielam..."
       share: "Zdieľať"
       share_with: "Zdieľať s aspektom %{aspect}"
-      share_with_all: "Share with all aspects"
+      share_with_all: "zdieľať so všetkými aspektami"
     reshare: 
       reshare: "Znovu zdieľať"
     stream_element: 
@@ -319,7 +322,7 @@ sk:
     helper: 
       no_message_to_display: "Źiadne správy na zobrazenie."
     new_status_message: 
-      oh_yeah: "ojoj!"
+      oh_yeah: "Skvelé!"
       tell_me_something_good: "Povedz niečo dobré"
     show: 
       destroy: "Zničiť"
@@ -338,29 +341,29 @@ sk:
       your_email: "Váš e-mail"
       your_handle: "Príručka k Diaspóre"
     getting_started: 
-      connect_services: "Connect your services"
+      connect_services: "Pripojiť Vaše služby"
       define_aspects: "Definujte Váš aspekt"
       edit_profile: "Upraviť Váš profil"
       finished: "Dokončené!"
       save_and_continue: "Uložiť a pokračovať"
-      signup_steps: "Complete your sign-up by doing these things:"
+      signup_steps: "Dokončite svoju registráciu týmito troma krokmi :"
       skip: "skip getting started"
       step_2: 
         add: "Pridať"
         aspect_name: "Názov aspektu"
-        description: "Tell Diaspora what different aspects of you are seen by different contacts.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
+        description: "Prezraďte Diaspóre, kto môže vidieť Vaše aspekty. Neskôr ich môžete spravovať kliknutím na tlačidlo - nastavenia účtu, vpravo hore."
         your_aspects: "Váš aspekt"
       step_3: 
-        description: "Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select \"public.\""
+        description: "Diaspóru môžete prepojiť s Vašimi sociálnymi sieťami v nastaveniach. Vaše statusy uverejníte mimo Diaspóry vybratím možnosti \"zverejniť\"."
         your_services: "Vaše služby"
       step_4: 
-        change_profile: "You can change your profile any time by clicking"
-        continue: "Continue on to your everyone page, an overview of all of your aspects."
+        change_profile: "Váš profil, ako aj iné nastavenia môžete kedykoľvek upraviť."
+        continue: "Pokračujte na domácu stránku, ktorá poskytuje prehľad zo všetkých Vašich aspektov."
         finish: "Dokončiť"
-        manage_aspects: "You can manage your aspects any time by clicking the"
+        manage_aspects: "Spravovať aspekty môžete kedykoľvek kliknutím na ne."
         ready_to_share: "Teraz už môžte zdieľať s"
-        set_up: "You're all set up, %{name}!"
-        user_menu: "in your user menu (top right)."
+        set_up: "Gratulujeme %{name}, všetko ste úspešne nastavili!"
+        user_menu: "užívateľské menu je situované vpravo hore."
       welcome: "Vitajte v Diaspóre!"
     public: 
       does_not_exist: "Užívateľ %{username} neexistuje!"
