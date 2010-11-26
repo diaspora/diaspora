@@ -53,7 +53,7 @@ describe CommentsController do
       it 'posts no comment' do
         user.should_receive(:comment).exactly(0).times
         post :create, comment_hash
-        response.code.should == '401'
+        response.code.should == '406'
       end
     end
   end
