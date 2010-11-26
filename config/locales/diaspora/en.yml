@@ -66,6 +66,7 @@ en:
   shared:
       stream_element:
           show_comments: "show comments"
+          hide_comments: "hide comments"
       publisher:
           posting: "Posting..."
           share: "Share"

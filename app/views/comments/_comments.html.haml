@@ -2,9 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%ul.comments{:id => post.id}
+%ul.comments{:id => post.id, :class => ("hidden" if defined?(hidden) && hidden)}
   - for comment in post.comments
-    = render 'comments/comment', :post => comment
+    = render 'comments/comment', :comment => comment, :person => comment.person
   %li.comment.show
     = render 'comments/new_comment', :post => post
 

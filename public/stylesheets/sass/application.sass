@@ -33,7 +33,7 @@ h4
   :margin
     :bottom 5px
 
-ol, ul
+ol, ul, li
   :list-style none
 
 form
@@ -536,7 +536,6 @@ li.message
       :border none
 
 .stream ul.comments
-  :display none
 
   .avatar
     :width 35px
@@ -564,6 +563,8 @@ ul.comments
     :width 100%
 
   li.comment
+    :list
+      :style none
     :padding 0.6em
     :border
       :bottom 1px solid #ddd

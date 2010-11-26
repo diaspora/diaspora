@@ -7,19 +7,11 @@
 $(document).ready(function(){
   var $stream = $(".stream");
   var $publisher = $("#publisher");
-  // expand all comments on page load
-	$stream.not('.show').find('.comments').each(function(index) {
-      var comments = $(this);
-	    if(comments.children("li").length > 1) {
-        var show_comments_toggle = comments.closest("li").find(".show_post_comments");
-        expandComments(show_comments_toggle,false);
-      }
-  });
 
   // comment toggle action
   $stream.not(".show").delegate("a.show_post_comments", "click", function(evt) {
     evt.preventDefault();
-    expandComments($(this),true);
+    expandComments($(this));
   });
 
   // comment submit action
@@ -116,24 +108,17 @@ function expandComments(toggler,animate){
   var text         = toggler.html();
       commentBlock = toggler.closest("li").find("ul.comments", ".content");
 
-  if( toggler.hasClass("visible")) {
-    toggler.removeClass("visible")
-           .html(text.replace("hide", "show"));
-
-    if(animate) {
-      commentBlock.fadeOut(150);
-    } else {
-      commentBlock.hide();
-    }
+  if(commentBlock.hasClass("hidden")) {
+    commentBlock.fadeIn(150, function(){
+      commentBlock.removeClass("hidden");
+    });
+    toggler.html(text.replace("show", "hide"));
 
   } else {
-    toggler.addClass("visible")
-           .html(text.replace("show", "hide"));
+    commentBlock.fadeOut(100, function(){
+      commentBlock.addClass("hidden");
+    });
+    toggler.html(text.replace("hide", "show"));
 
-    if(animate) {
-      commentBlock.fadeIn(150);
-    } else {
-      commentBlock.show();
-    }
   }
 }

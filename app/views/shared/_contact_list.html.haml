@@ -99,7 +99,4 @@
         %span.name
           = link_to contact.person.real_name, contact.person
         .right
-          - unless contact.aspect_ids.include?(aspect.id)
-            = add_to_aspect_button(aspect.id, contact.person.id)
-          - else
-            = remove_from_aspect_button(aspect.id, contact.person.id)
+          = aspect_membership_button(aspect.id, contact)
