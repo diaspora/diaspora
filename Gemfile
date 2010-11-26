@@ -52,6 +52,10 @@ gem 'rest-client'
 #Backups
 gem "cloudfiles", :require => false
 
+#Queue
+gem 'resque'
+gem 'SystemTimer'
+
 group :test, :development do
   gem 'factory_girl_rails'
   gem 'ruby-debug19' if RUBY_VERSION.include? "1.9"
