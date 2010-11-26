@@ -81,6 +81,8 @@ en:
         have_invited_you: "%{names} have invited you to join Diaspora"
         accept_at: ", at %{url}, you can accept it through the link below."
     shared:
+      mail_signup_form:
+        sign_up_for_an_invite: "Sign up for an invite!"
       links:
         sign_in: 'Sign in'
         sign_up: 'Sign up'
