@@ -18,7 +18,6 @@ class AspectsController < ApplicationController
   end
 
   def create
-    puts "horray" if request.env['HTTP_REFERER'] 
     @aspect = current_user.aspects.create(params[:aspect])
     if @aspect.valid?
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
