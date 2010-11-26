@@ -8,7 +8,7 @@ $(document).ready(function(){
   var $stream = $(".stream");
   var $publisher = $("#publisher");
   // expand all comments on page load
-	$(".stream:not('.show')").find('.comments').each(function(index) {
+	$stream.not('.show').find('.comments').each(function(index) {
       var comments = $(this);
 	    if(comments.children("li").length > 1) {
         var show_comments_toggle = comments.closest("li").find(".show_post_comments");
@@ -33,7 +33,7 @@ $(document).ready(function(){
               .closest("form").find(".comment_submit").fadeIn(200);
   });
 
-  $(".stream").delegate("textarea.comment_box", "blur", function(evt){
+  $stream.delegate("textarea.comment_box", "blur", function(evt){
     var commentBox = $(this);
     if( !commentBox.val() ) {
       commentBox.attr("rows", 1)
@@ -50,6 +50,49 @@ $(document).ready(function(){
       button.toggleClass("active");
       box.toggle();
     }
+  });
+  
+  $stream.delegate("a.video-link", "click", function(evt) {
+    evt.preventDefault();
+    
+    var $this = $(this),
+      container = document.createElement('div'),
+      $container = $(container).attr("class", "video-container");
+
+    var $videoContainer = $this.siblings("div.video-container");
+    if($videoContainer.length > 0) {
+      $videoContainer.slideUp('fast', function () {
+        $videoContainer.detach();
+      });
+      return;
+    }
+    
+    if($("div.video-container").length > 0) {
+      $("div.video-container").slideUp("fast", function() { 
+        $(this).detach();
+      });
+    }
+      
+    if($this.data("host") === 'youtube.com') {
+	  	$container.html(
+        '<a href="//www.youtube.com/watch?v=' + $this.data("video-id") + '" target="_blank">Watch this video on Youtube</a><br />' +
+        '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/' + $this.data("video-id")+ '"></iframe>'
+      );
+    } else {
+      $container.html('Invalid videotype <i>'+$this.data("host")+'</i> (ID: '+$this.data("video-id")+')');
+    }
+  
+    
+  
+    $container.hide();
+    this.parentNode.insertBefore(container, this.nextSibling);
+    $container.slideDown('fast');
+    
+    $this.click(function() {
+      $container.slideToggle('fast', function () {
+        $(this).detach();
+      });
+    });  
   });
 
   $(".new_status_message").bind('ajax:success', function(data, json, xhr){

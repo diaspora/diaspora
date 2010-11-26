@@ -3,7 +3,6 @@
 *   the COPYRIGHT file.
 */
 
-
 $(document).ready(function(){
   $('#debug_info').click(function() {
     $('#debug_more').toggle('fast');
@@ -115,28 +114,6 @@ $.fn.clearForm = function() {
   });
 };
 
-var video_active_container = null;
-
-
-function openVideo(type, videoid, link) {
-  var container = document.createElement('div'),
-      $container = $(container);
-  if(type == 'youtube.com') {
-    $container.html('<a href="//www.youtube.com/watch?v='+videoid+'" target="_blank">Watch this video on Youtube</a><br><object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/'+videoid+'?fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'+videoid+'?fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="640" height="385"></embed></object>');
-  } else {
-    $container.html('Invalid videotype <i>'+type+'</i> (ID: '+videoid+')');
-  }
-  if(video_active_container != null) {
-    video_active_container.parentNode.removeChild(video_active_container);
-  }
-  video_active_container = container;
-  $container.hide();
-  link.parentNode.insertBefore(container, this.nextSibling);
-  $container.slideDown('fast', function() { });
-  link.onclick = function() { $container.slideToggle('fast', function() { } ); }
-  
-  
-}
 
 $(".make_profile_photo").live("click", function(evt){
 
