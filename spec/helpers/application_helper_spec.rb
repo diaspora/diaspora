@@ -72,7 +72,7 @@ describe ApplicationHelper do
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
       end
 
-      it "should recognize youtube links" do
+      it "recognizes youtube links" do
         proto="http"
         videoid = "0x__dDWdf23"
         url="www.youtube.com/watch?v="+videoid+"&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
@@ -81,10 +81,11 @@ describe ApplicationHelper do
         Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).and_return(mock_http)
         mock_http.should_receive(:get).with('/feeds/api/videos/'+videoid+'?v=2', nil).and_return([nil, 'Foobar <title>'+title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
         res = markdownify(proto+'://'+url)
-        res.should == "<a onclick=\"openVideo('youtube.com', '"+videoid+"', this)\" href=\"#video\">Youtube: "+title+"</a>"
+        res.should =~ /data-host="youtube.com"/
+        res.should =~ /data-video-id="#{videoid}"/
       end
 
-      it "should recognize a bunch of different links" do
+      it "recognizes multiple links of different types" do
         message = "http:// Hello World, this is for www.joindiaspora.com and not for http://www.google.com though their Youtube service is neat, take http://www.youtube.com/watch?v=foobar or www.youtube.com/watch?foo=bar&v=BARFOO&whatever=related It is a good idea we finally have youtube, so enjoy this video http://www.youtube.com/watch?v=rickrolld"
         mock_http = mock("http")
         Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).and_return(mock_http)
@@ -92,7 +93,11 @@ describe ApplicationHelper do
         mock_http.should_receive(:get).with('/feeds/api/videos/BARFOO?v=2', nil).and_return([nil, 'Foobar <title>BAR is the new FOO</title> hallo welt <asd><dasdd><a>dsd</a>'])
         mock_http.should_receive(:get).with('/feeds/api/videos/rickrolld?v=2', nil).and_return([nil, 'Foobar <title>Never gonne give you up</title> hallo welt <asd><dasdd><a>dsd</a>'])
         res = markdownify(message)
-        res.should == "http:// Hello World, this is for <a target=\"_blank\" href=\"http://www.joindiaspora.com\">www.joindiaspora.com</a> and not for <a target=\"_blank\" href=\"http://www.google.com\">www.google.com</a> though their Youtube service is neat, take <a onclick=\"openVideo('youtube.com', 'foobar', this)\" href=\"#video\">Youtube: F 007 - the bar is not enough</a> or <a onclick=\"openVideo('youtube.com', 'BARFOO', this)\" href=\"#video\">Youtube: BAR is the new FOO</a> It is a good idea we finally have youtube, so enjoy this video <a onclick=\"openVideo('youtube.com', 'rickrolld', this)\" href=\"#video\">Youtube: Never gonne give you up</a>"
+        res.should =~ /a target=\"_blank\" href=\"http:\/\/www.joindiaspora.com\"/
+        res.should =~ /a target=\"_blank\" href=\"http:\/\/www.google.com\"/
+        res.should =~ /data-video-id="foobar"/
+        res.should =~ /data-video-id="BARFOO"/
+        res.should =~ /data-video-id="rickrolld"/
       end
 
       it "should recognize basic ftp links" do
@@ -172,22 +177,24 @@ describe ApplicationHelper do
         @message = "http://url.com www.url.com www.youtube.com/watch?foo=bar&v=BARFOO&whatever=related *emphasis* __emphasis__ [link](www.url.com) [link](url.com \"title\")"
       end
 
-      it "should allow to render only autolinks" do
+      it "can render only autolinks" do
         res = markdownify(@message, :youtube => false, :emphasis => false, :links => false)
         res.should == "<a target=\"_blank\" href=\"http://url.com\">url.com</a> <a target=\"_blank\" href=\"http://www.url.com\">www.url.com</a> <a target=\"_blank\" href=\"http://www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related\">www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related</a> *emphasis* __emphasis__ [link](www.url.com) [link](url.com &quot;title&quot;)"
       end
 
-      it "should allow to render only youtube autolinks" do
+      it "can render only youtube" do
         res = markdownify(@message, :autolinks => false, :emphasis => false, :links => false)
-        res.should == "http://url.com www.url.com <a onclick=\"openVideo('youtube.com', 'BARFOO', this)\" href=\"#video\">Youtube: BAR is the new FOO</a> *emphasis* __emphasis__ [link](www.url.com) [link](url.com &quot;title&quot;)"
+        res.should_not =~ /a href="http:\/\/url.com"/
+        res.should_not =~ /a href="http:\/\/www.url.com"/
+        res.should_not =~ /<strong>emphasis<\/strong>/
       end
 
-      it "should allow to render only emphasis tags" do
+      it "can render only emphasis tags" do
         res = markdownify(@message, :autolinks => false, :youtube => false, :links => false)
         res.should == "http://url.com www.url.com www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related <em>emphasis</em> <strong>emphasis</strong> [link](www.url.com) [link](url.com &quot;title&quot;)"
       end
 
-      it "should allo to render only links tags" do
+      it "can render only links tags" do
         res = markdownify(@message, :autolinks => false, :youtube => false, :emphasis => false)
         res.should == "http://url.com www.url.com www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related *emphasis* __emphasis__ <a target=\"_blank\" href=\"www.url.com\">link</a> <a target=\"_blank\" href=\"url.com\" title=\"title\">link</a>"
       end

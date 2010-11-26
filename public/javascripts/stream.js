@@ -82,8 +82,6 @@ $(document).ready(function(){
       $container.html('Invalid videotype <i>'+$this.data("host")+'</i> (ID: '+$this.data("video-id")+')');
     }
   
-    
-  
     $container.hide();
     this.parentNode.insertBefore(container, this.nextSibling);
     $container.slideDown('fast');
