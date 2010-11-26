@@ -14,6 +14,10 @@ describe StatusMessage do
   it "should have either a message or at least one photo" do
     n = Factory.build(:status_message, :message => nil)
     n.valid?.should be_false
+
+    n.message = ""
+    n.valid?.should be_false
+
     n.message = "wales"
     n.valid?.should be_true
     n.message = nil

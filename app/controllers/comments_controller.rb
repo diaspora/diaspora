@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
         format.html{ render :nothing => true, :status => 201 }
       end
     else
-      render :nothing => true, :status => 401
+      render :nothing => true, :status => 406
     end
   end
 

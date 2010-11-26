@@ -35,7 +35,7 @@ class StatusMessagesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js{ render :status => 401 }
+        format.js{ render :status => 406 }
       end
     end
   end
