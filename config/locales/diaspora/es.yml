@@ -41,9 +41,9 @@ es:
     destroy: 
       success: "%{name} fue eliminado correctamente."
     edit_aspect_pane: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      add_existing: "Añadir un contacto existente"
+      confirm_remove_aspect: "Eliminar aspecto?"
+      remove_aspect: "Eliminar Aspecto"
     helper: 
       are_you_sure: "¿Seguro que deseas eliminar este aspecto?"
       aspect_not_empty: "Aspecto no vacío"
@@ -161,6 +161,9 @@ es:
       subject: "%{name} ha aceptado tu petición de contacto en Diaspora*"
   ok: "OK"
   or: "o"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people: 
@@ -300,12 +303,13 @@ es:
       no_contacts: "Actualmente no tienes contactos. Búscalos aquí."
       remove_aspect: "Eliminar aspecto"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "Todos los contactos"
       cannot_remove: "No se puede eliminar a la persona del último aspecto. (Si quieres desconectar a esta persona debes removerla de tus contactos.)"
     invitations: 
       dont_have_now: "No tienes ninguna ahora mismo, pero pronto llegarán más invitaciones!"
       invitations_left: "(quedan %{count})"
       invite_someone: "Invita a alguien"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Nuevo %{type} de %{from}"
     public_explain: 
@@ -335,7 +339,7 @@ es:
       destroy: "Destruir"
   stream_helper: 
     hide_comments: "hide comments"
-    show_comments: "show comments"
+    show_comments: "mostrar comentarios"
   the_world: "el mundo"
   username: "Nombre de usuario"
   users: 
@@ -362,10 +366,10 @@ es:
         add: "Añadir"
         aspect_name: "Nombre del aspecto"
         description: "Dile a Diaspora qué aspectos diferentes de ti serán vistos por diferentes contactos. Puedes manejar estos aspectos luego en tu menú de cuenta, arriba a la derecha. Tus aspectos son solamente vistos por ti, y no por otros."
-        drag_to_add: "Drag them to the aspect of yourself they know"
+        drag_to_add: "Arrastralos al aspecto de ti al que pertenezcan"
         no_requests: "You have no requests"
         your_aspects: "Tus aspectos"
-        your_inviter: "Here are the people who are waiting for you:"
+        your_inviter: "Estas son las personas que estan esperando por ti:"
       step_3: 
         description: "Puedes conectar tus redes sociales existentes con tu cuenta Diaspora. Podrás realizar posts públicos desde tu Inicio cuando selecciones \"hacer público\""
         your_services: "Tus servicios"
@@ -385,3 +389,6 @@ es:
       language_not_changed: "Cambio de Idioma Fallido"
       password_changed: "Contraseña Cambiada"
       password_not_changed: "Cambio de Contraseña Fallido"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

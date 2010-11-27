@@ -89,10 +89,10 @@ pl:
       comment: "Skomentuj…"
       commenting: "Komentowanie…"
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} kontakty"
+    one: "1 kontakt"
+    other: "%{count} kontaktów"
+    zero: "brak kontaktów"
   delete: "Skasuj"
   email: "E-mail"
   error_messages: 
@@ -142,10 +142,10 @@ pl:
       logout: "wylogowanie"
       view_profile: "podgląd profilu"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "Masz %{count} nowe zaproszenia!"
+    one: "nowe zaproszenie!"
+    other: "%{count} nowych zaproszeń!"
+    zero: "brak nowych zaproszeń"
   notifier: 
     diaspora: "robot e-mailowy diaspory"
     hello: "Cześć %{name}!"
@@ -161,6 +161,9 @@ pl:
       subject: "%{name} zaakceptował(-a) twoje zaproszenie do znajomych w Diasporze*"
   ok: "OK"
   or: "lub"
+  pagination: 
+    next: "Następna"
+    previous: "Poprzednia"
   password: "Hasło"
   password_confirmation: "Potwierdzenie hasła"
   people: 
@@ -289,16 +292,16 @@ pl:
       your_diaspora_username_is: "Twój identyfikator w Diasporze: %{diaspora_handle}"
     aspect_contacts: 
       add_aspect: "dodaj aspekt"
-      add_existing: "Add an existing contact"
+      add_existing: "Dodaj istniejący kontakt"
       add_to: "dodaj do aspektu %{aspect}"
       all_contacts: "Wszyscy znajomi"
-      aspect_settings: "Aspect settings"
+      aspect_settings: "Ustawienia aspektu"
       aspects: "Aspekty"
-      confirm_remove_aspect: "Remove aspect?"
+      confirm_remove_aspect: "Usunąć aspekt?"
       done_editing: "gotowe"
       invites: "Zaproszenia"
       no_contacts: "Nie masz obecnie żadnych znajomych.  Poszukaj przyjaciół."
-      remove_aspect: "Remove Aspect"
+      remove_aspect: "Usuń aspekt"
     contact_list: 
       all_contacts: "Wszystkie kontakty"
       cannot_remove: "Nie można usunąć osoby z jedynego pozostałego aspektu. (Jeśli chcesz się rozłączyć z tą osobą musisz ją usunąć ze znajomych.)"
@@ -306,6 +309,7 @@ pl:
       dont_have_now: "Nie masz wolnych zaproszeń, ale niebawem się pojawią!"
       invitations_left: "(pozostało %{count} zaproszeń)"
       invite_someone: "Zaproś kogoś"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Nowy(-a,-e) %{type} od %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ pl:
     show: 
       destroy: "Usuń"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "ukryj komentarze"
+    show_comments: "pokaż komentarze"
   the_world: "świat"
   username: "Nazwa użytkownika"
   users: 
@@ -363,7 +367,7 @@ pl:
         aspect_name: "Nazwa aspektu"
         description: "Powiedz Diasporze, które aspekty Twojego życia mają być widoczne dla wybranych znajomych. Możesz później zarządzać tym ustawieniem klikając zakładkę zarządzania umieszczoną w prawym górnym rogu. Twoje aspekty są widoczne wyłącznie dla Ciebie."
         drag_to_add: "Przeciągnij ich do właściwych aspektów Twojego życia"
-        no_requests: "You have no requests"
+        no_requests: "Nie masz żadnych zaproszeń"
         your_aspects: "Twoje aspekty"
         your_inviter: "Oto lista osób, które na Ciebie czekają:"
       step_3: 
@@ -385,3 +389,6 @@ pl:
       language_not_changed: "Nie udało się zmienić języka"
       password_changed: "Zmieniono hasło"
       password_not_changed: "Nie udało się zmienić hasła"
+  webfinger: 
+    fetch_failed: "Nie udało się pobrać profilu Webfinger dla %{profile_url}"
+    hcard_fetch_failed: "Wystąpił problem podczas pobierania zbioru hcard dla #{@account}"

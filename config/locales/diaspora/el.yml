@@ -161,6 +161,9 @@ el:
       subject: "%{name} έχει αποδεχθεί το αίτημα φιλίας σας στο Diaspora*"
   ok: "OK"
   or: "ή"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Κωδικός"
   password_confirmation: "Επαλήθευση κωδικού"
   people: 
@@ -306,6 +309,7 @@ el:
       dont_have_now: "Δεν έχετε κάποιο δικαίωμα τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
       invitations_left: "(%{count} απομένουν)"
       invite_someone: "Προσκαλέστε κάποιον/α"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Νέο %{type} από %{from}"
     public_explain: 
@@ -385,3 +389,6 @@ el:
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Αλλαγή Κωδικού"
       password_not_changed: "Η αλλαγή κωδικού απέτυχε"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

@@ -63,11 +63,11 @@ sk:
       updated: "Úspešne ste upravili Váš účet."
     sessions: 
       new: 
-        alpha_software: "Práve používate testovaciu verziu."
-        bugs_and_feedback: "Ak objavíte chybu, upozornite na ňu. Použite prosím tlačidlo Feedback na pravej strane prehliadača ak ju chcete nehlásiť. Budeme sa ju snažiť odstrániť čo v najkratšom čase."
+        alpha_software: "Používate testovaciu verziu."
+        bugs_and_feedback: "Tlačidlom Feedback, na pravej strane prehliadača upozornite prosím na chyby, ktoré pri používaní objavíte. Budeme sa ich snažiť odstrániť tak skoro, ako to len pôjde."
         have_a_problem: "Máte problém? Tu nájdete odpoveď"
         login: "Prihlasovacie meno"
-        modern_browsers: "podporuje len moderné prehliadače."
+        modern_browsers: "podporuje moderné prehliadače."
         password: "Heslo"
         remember_me: "Zapamätať si ma"
         sign_in: "Prihlásiť"

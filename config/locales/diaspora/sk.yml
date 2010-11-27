@@ -161,6 +161,9 @@ sk:
       subject: "Užívateľ %{name} prijal Vašu žiadosť a pripojil sa k Diaspóre*"
   ok: "OK"
   or: "alebo"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Heslo"
   password_confirmation: "Potvrdenie hesla"
   people: 
@@ -306,6 +309,7 @@ sk:
       dont_have_now: "Momentálne už nemáte žiadnu pozvánku. Ďalšie pribudnú už čoskoro."
       invitations_left: "(%{count} ostáva)"
       invite_someone: "Pozvať niekoho"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Nový %{type} od %{from}"
     public_explain: 
@@ -385,3 +389,6 @@ sk:
       language_not_changed: "Zmena jazyka zlyhala"
       password_changed: "Heslo zmenené"
       password_not_changed: "Zmena hesla zlyhala"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

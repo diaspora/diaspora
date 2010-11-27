@@ -41,9 +41,9 @@ sv:
     destroy: 
       success: "%{name} är nu borttagen."
     edit_aspect_pane: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      add_existing: "Lägg till en befintlig kontakt"
+      confirm_remove_aspect: "Ta bort sida?"
+      remove_aspect: "Ta bort sida"
     helper: 
       are_you_sure: "Är du säker på att du vill ta bort den här sidan?"
       aspect_not_empty: "Sidan är inte tom"
@@ -89,10 +89,10 @@ sv:
       comment: "Kommentar"
       commenting: "Kommenterar..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} kontakter"
+    one: "1 kontakt"
+    other: "%{count} kontakter"
+    zero: "inga kontakter"
   delete: "Ta bort"
   email: "E-post"
   error_messages: 
@@ -142,10 +142,10 @@ sv:
       logout: "logga ut"
       view_profile: "visa profil"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} nya förfrågningar!"
+    one: "ny förfrågan!"
+    other: "%{count} nya förfrågningar!"
+    zero: "inga nya förfrågningar"
   notifier: 
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
@@ -161,6 +161,9 @@ sv:
       subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
   ok: "OK"
   or: "eller"
+  pagination: 
+    next: "Nästa"
+    previous: "Föregående"
   password: "Lösenord"
   password_confirmation: "Bekräfta lösenord"
   people: 
@@ -300,12 +303,13 @@ sv:
       no_contacts: "Du har förnärvarande inga kontakter.  Hitta nya kontakter här."
       remove_aspect: "Ta bort sida"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "Alla kontakter"
       cannot_remove: "Kan inte ta bort personen från fler sidor, ta bort kontakten om du inte längre vill vara ansluten till denne."
     invitations: 
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
       invitations_left: "(%{count} kvar)"
       invite_someone: "Bjud in en kontakt"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Ny %{type} från %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ sv:
     show: 
       destroy: "Ta bort"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "dölj kommentarer"
+    show_comments: "visa kommentarer"
   the_world: "världen"
   username: "Användarnamn"
   users: 
@@ -362,10 +366,10 @@ sv:
         add: "Lägg till"
         aspect_name: "Namn på sida"
         description: "Här anger du vilka sidor av dig själv du vill visa på Diaspora. Lägger du till en person på en viss sida kan denne bara se information som du publicerar på just den sidan. Vill du ändra dessa senare så kan du göra det under fliken \"Hantera\"."
-        drag_to_add: "Drag them to the aspect of yourself they know"
-        no_requests: "You have no requests"
+        drag_to_add: "Drag och släpp, för att visa dem rätt sida av dig själv"
+        no_requests: "Du har inga förfrågningar"
         your_aspects: "Dina sidor"
-        your_inviter: "Here are the people who are waiting for you:"
+        your_inviter: "Här är de personer som väntar på dig:"
       step_3: 
         description: "Anslut dina befintliga tjänster till ditt Diaspora-konto.  Du kommer att kunna skicka meddelanden genom dessa om du väljer \"gör publik.\" på sidan för alla kontakter."
         your_services: "Dina tjänster"
@@ -385,3 +389,6 @@ sv:
       language_not_changed: "Språket kunde inte ändras"
       password_changed: "Lösenordet är nu ändrat"
       password_not_changed: "Lösenordet kunde inte ändras"
+  webfinger: 
+    fetch_failed: "Kunde inte hämta webfinger-profil för %{profile_url}"
+    hcard_fetch_failed: "Kunde inte hämta hcard för #{@account}"

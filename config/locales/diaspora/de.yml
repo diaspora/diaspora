@@ -41,7 +41,7 @@ de:
     destroy: 
       success: "Aspekt %{name} wurde erfolgreich entfernt."
     edit_aspect_pane: 
-      add_existing: "Füge einen bestehenden Kontakt hinzu"
+      add_existing: "Bestehenden Kontakt hinzufügen"
       confirm_remove_aspect: "Aspekt entfernen?"
       remove_aspect: "Aspekt entfernen"
     helper: 
@@ -89,10 +89,10 @@ de:
       comment: "Kommentieren"
       commenting: "Kommentieren..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} Kontakte"
+    one: "1 Kontakt"
+    other: "%{count} Kontakte"
+    zero: "keine Kontakte"
   delete: "Löschen"
   email: "E-Mail"
   error_messages: 
@@ -142,10 +142,10 @@ de:
       logout: "Abmelden"
       view_profile: "Profil zeigen"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} neue Anfragen!"
+    one: "Neue Anfrage!"
+    other: "%{count} neue Anfragen!"
+    zero: "keine neuen Anfragen"
   notifier: 
     diaspora: "dein Diaspora-E-Mail-Roboter"
     hello: "Hallo %{name}!"
@@ -161,6 +161,9 @@ de:
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora akzeptiert"
   ok: "Ok"
   or: "oder"
+  pagination: 
+    next: "Nächste"
+    previous: "Vorige"
   password: "Passwort"
   password_confirmation: "Passwort bestätigen"
   people: 
@@ -283,18 +286,18 @@ de:
   shared: 
     add_contact: 
       create_request: "Über Diaspora-Adresse finden"
-      diaspora_handle: "Diaspora-Adresse"
+      diaspora_handle: "Diaspora Adresse"
       enter_a_diaspora_username: "Gib eine Diaspora-Adresse ein:"
       know_email: "Du kennst ihre E-Mail-Adressen? Dann solltest du sie einladen"
       your_diaspora_username_is: "Deine Diaspora-Adresse ist: %{diaspora_handle}"
     aspect_contacts: 
       add_aspect: "Aspekt hinzufügen"
-      add_existing: "Existierenden Kontakt hinzufügen"
+      add_existing: "Bestehenden Kontakt hinzufügen"
       add_to: "Zu %{aspect} hinzufügen"
       all_contacts: "Alle Kontakte"
-      aspect_settings: "Aspekt-Einstellungen"
+      aspect_settings: "Aspekt bearbeiten"
       aspects: "Aspekte"
-      confirm_remove_aspect: "Aspekt löschen?"
+      confirm_remove_aspect: "Aspekt entfernen?"
       done_editing: "Bearbeitung fertig"
       invites: "Einladungen"
       no_contacts: "Du hast momentan keine Kontakte. Finde deine Freunde hier."
@@ -306,6 +309,7 @@ de:
       dont_have_now: "Du hast keine Einladungen mehr übrig. Es wird bald wieder neue geben!"
       invitations_left: "(%{count} übrig)"
       invite_someone: "Jemanden einladen"
+      invites_closed: "Einladungen sind zurzeit nicht auf diesem Diaspora Pod verfügbar"
     notification: 
       new: "Neue %{type} von %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ de:
     show: 
       destroy: "Entfernen"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "Kommentare verbergen"
+    show_comments: "Kommentare zeigen"
   the_world: "die Welt"
   username: "Benutzername"
   users: 
@@ -363,7 +367,7 @@ de:
         aspect_name: "Name des Aspekts"
         description: "Sage Diaspora welche verschiedenen Aspekte von dir von verschiedenen Kontakten gesehen werden sollen. Du kannst diese später verwalten, indem du auf Verwalten oben rechts klickst. Deine Aspekte sind nur für dich und nicht für Andere sichtbar."
         drag_to_add: "Ziehe sie in einen deiner Aspekte"
-        no_requests: "You have no requests"
+        no_requests: "Du hast keine Anfragen"
         your_aspects: "Deine Aspekte"
         your_inviter: "Hier sind die Leute, die auf dich warten:"
       step_3: 
@@ -385,3 +389,6 @@ de:
       language_not_changed: "Ändern der Sprache fehlgeschlagen"
       password_changed: "Passwort geändert"
       password_not_changed: "Ändern des Passworts fehlgeschlagen"
+  webfinger: 
+    fetch_failed: "konnte Webfinger-Profil für %{profile_url} nicht laden"
+    hcard_fetch_failed: "es gab Probleme beim Beziehen der hcard für #{@account}"

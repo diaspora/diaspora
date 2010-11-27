@@ -161,6 +161,9 @@ da:
       subject: "% {name} har accepteret din kontakt anmodning på Diaspora*"
   ok: "OK"
   or: "eller"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Adgangskode"
   password_confirmation: "Adgangskode bekræftelse"
   people: 
@@ -306,6 +309,7 @@ da:
       dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere inviterede!"
       invitations_left: "(%{count} tilbage)"
       invite_someone: "Inviter en person"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Ny %{type} fra %{from}"
     public_explain: 
@@ -385,3 +389,6 @@ da:
       language_not_changed: "Kunne ikke ændre sprog"
       password_changed: "Adgangskode ændret"
       password_not_changed: "Kunne ikke ændre adgangskode"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

@@ -89,10 +89,10 @@ es-CL:
       comment: "Comentario"
       commenting: "Comentando..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} contactos"
+    one: "1 contacto"
+    other: "%{count} contactos"
+    zero: "no hay contactos"
   delete: "Borrar"
   email: "Correo electrónico"
   error_messages: 
@@ -142,10 +142,10 @@ es-CL:
       logout: "salir"
       view_profile: "ver perfil"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} ¡nuevas solicitudes!"
+    one: "¡nueva solicitud!"
+    other: "%{count} ¡nuevas solicitudes!"
+    zero: "no hay nuevas solicitudes"
   notifier: 
     diaspora: "correo robot de diaspora"
     hello: "Hola %{name}!"
@@ -161,6 +161,9 @@ es-CL:
       subject: "%{name} ha aceptado tu solicitud de contacto en Diaspora*"
   ok: "OK"
   or: "o"
+  pagination: 
+    next: "Siguiente"
+    previous: "Anterior"
   password: "Contraseña"
   password_confirmation: "Confirmar contraseña"
   people: 
@@ -283,7 +286,7 @@ es-CL:
   shared: 
     add_contact: 
       create_request: "Encontrar por la dirección Diaspora"
-      diaspora_handle: "Dirección Diaspora"
+      diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Ingresa tu nombre de usuario Diaspora:"
       know_email: "¿Conóces su direccion de correo? Deberías invitarlo"
       your_diaspora_username_is: "Tu nombre de usuario Diaspora es: %{diaspora_handle}"
@@ -294,7 +297,7 @@ es-CL:
       all_contacts: "Todos los contactos"
       aspect_settings: "Configuración de aspectos"
       aspects: "Aspectos"
-      confirm_remove_aspect: "¿Eliminar aspectos?"
+      confirm_remove_aspect: "¿Eliminar aspecto?"
       done_editing: "editado"
       invites: "Invitaciones"
       no_contacts: "Aún no tienes contactos. Encuentra tus contactos aquí."
@@ -306,6 +309,7 @@ es-CL:
       dont_have_now: "No tienes ninguna ahora, ¡pero pronto vendrán mas invitaciones!"
       invitations_left: "(quedan %{count})"
       invite_someone: "Invita a alguien"
+      invites_closed: "Las invitaciones están temporalmente cerradas"
     notification: 
       new: "Nuevo %{type} de %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ es-CL:
     show: 
       destroy: "Destruir"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "ocultar comentarios"
+    show_comments: "mostrar comentarios"
   the_world: "el mundo"
   username: "Nombre de usuario"
   users: 
@@ -357,13 +361,13 @@ es-CL:
       finished: "¡Terminaste!"
       save_and_continue: "Guardar y continuar"
       signup_steps: "Finaliza tu registro completando estos tres pasos:"
-      skip: "saltarse el tutorial"
+      skip: "saltarse la configuración inicial"
       step_2: 
         add: "Agregar"
         aspect_name: "Nombre del aspecto"
         description: "Dile a Diaspora qué aspectos diferentes de ti serán vistos por diferentes contactos. Puedes manejar estos aspectos luego en tu menú de cuenta, arriba a la derecha. Tus aspectos son solamente vistos por ti, y no por otros."
         drag_to_add: "Arrástralos al aspecto que ellos conocen de ti mismo"
-        no_requests: "You have no requests"
+        no_requests: "No tienes solicitudes"
         your_aspects: "Tus aspectos"
         your_inviter: "Aquí está la gente que te está esperando:"
       step_3: 
@@ -385,3 +389,6 @@ es-CL:
       language_not_changed: "Error al cambiar de idioma"
       password_changed: "Contraseña Cambiada"
       password_not_changed: "Error al cambiar la Contraseña"
+  webfinger: 
+    fetch_failed: "error al buscar la dirección de correo de %{profile_url}"
+    hcard_fetch_failed: "hubo un problema al buscar la hcard de #{@account}"

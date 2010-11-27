@@ -6,7 +6,7 @@
 fr: 
   _comments: "Commentaires"
   _home: "Accueil"
-  _photos: "photos"
+  _photos: "Photos"
   _services: "Services"
   account: "Compte"
   activemodel: 
@@ -41,9 +41,9 @@ fr:
     destroy: 
       success: "%{name} a été supprimé avec succès."
     edit_aspect_pane: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      add_existing: "Ajouter un contact existant"
+      confirm_remove_aspect: "Supprimer l'aspect ?"
+      remove_aspect: "Supprimer l'Aspect"
     helper: 
       are_you_sure: "Êtes-vous sûr(e) de vouloir supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
@@ -92,7 +92,7 @@ fr:
     few: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
-    zero: "no contacts"
+    zero: "aucun contact"
   delete: "Supprimer"
   email: "E-mail"
   error_messages: 
@@ -142,10 +142,10 @@ fr:
       logout: "se déconnecter"
       view_profile: "voir le profil"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} nouvelles requêtes !"
+    one: "nouvelle requête !"
+    other: "%{count} nouvelles requêtes !"
+    zero: "aucune nouvelle requête"
   notifier: 
     diaspora: "le robot de messagerie e-mail de diaspora"
     hello: "Bonjour %{name} !"
@@ -161,6 +161,9 @@ fr:
       subject: "%{name} a accepté votre requête de contact sur Diaspora*"
   ok: "OK"
   or: "ou"
+  pagination: 
+    next: "Suivant"
+    previous: "Précédent"
   password: "Mot de passe"
   password_confirmation: "Confirmation du mot de passe"
   people: 
@@ -283,7 +286,7 @@ fr:
   shared: 
     add_contact: 
       create_request: "Trouver par Diaspora handle"
-      diaspora_handle: "Diaspora handle"
+      diaspora_handle: "Identifiant Diaspora"
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Vous connaissez leur adresse e-mail ? Vous devriez les inviter"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
@@ -300,12 +303,13 @@ fr:
       no_contacts: "Vous n'avez aucun contact pour l'instant. Trouvez vos contacts ici."
       remove_aspect: "Supprimer l'aspect"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "Tous les contacts"
       cannot_remove: "Impossible de supprimer la personne du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
     invitations: 
       dont_have_now: "Vous n'avez aucun droit pour l'instant, mais plus d'invitations arriveront bientôt !"
       invitations_left: "(%{count} restant(s))"
       invite_someone: "Inviter quelqu'un"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Nouveau/nouvelle %{type} de %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ fr:
     show: 
       destroy: "Détruire"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "cacher les commentaires"
+    show_comments: "afficher les commentaires"
   the_world: "le monde"
   username: "Nom d'utilisateur"
   users: 
@@ -362,10 +366,10 @@ fr:
         add: "Ajouter"
         aspect_name: "Nom de l'aspect"
         description: "Signalez à Diaspora quels différents aspects sont vus par différents contacts. Vous pourrez plus tard gérer ceux-ci en allant sur votre menu de compte en haut à droite. Vos aspects vous sont spécifiques et ne sont pas visibles pour les autres."
-        drag_to_add: "Drag them to the aspect of yourself they know"
-        no_requests: "You have no requests"
+        drag_to_add: "Déplacez les dans l'aspect qui leur correspond"
+        no_requests: "Vous n'avez pas de requêtes"
         your_aspects: "Vos aspects"
-        your_inviter: "Here are the people who are waiting for you:"
+        your_inviter: "Personnes en attente d'une réponse de votre part :"
       step_3: 
         description: "Vous pouvez connecter vos réseaux sociaux existants à votre compte Diaspora. Vous pourrez poster publiquement sur votre page d'accueil en sélectionnant \"rendre public\""
         your_services: "Vos services"
@@ -385,3 +389,6 @@ fr:
       language_not_changed: "Échec lors de la mise à jour de la langue"
       password_changed: "Mot de passe mis à jour"
       password_not_changed: "Échec de la mise à jour du mot de passe"
+  webfinger: 
+    fetch_failed: "impossible de télécharger le profil webfinger pour %{profile_url}"
+    hcard_fetch_failed: "une erreur est survenue lors du téléchargement de la hcard de #{@account}"

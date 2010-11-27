@@ -83,7 +83,7 @@ sv:
         sign_up: "Registrera dig"
         sign_up_closed: "Formuläret för att bli medlem är tyvärr stängt."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Begär en inbjudan!"
     unlocks: 
       new: 
         resend_unlock: "Skicka upplåsningsinstruktioner igen"

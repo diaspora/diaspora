@@ -161,6 +161,9 @@ lt:
       subject: "%{name} priėmė tavo pasiūlymą draugauti Diasporoje*"
   ok: "gerai"
   or: "arba"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Slaptažodis"
   password_confirmation: "Slaptažodžio patvirtinimas"
   people: 
@@ -306,6 +309,7 @@ lt:
       dont_have_now: "Tu neturi jokių pakvietimų dabar, tačiau netrukus gausi daugiau!"
       invitations_left: "(liko %{count})"
       invite_someone: "Pakviesk ką nors"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Naujas %{type} iš vartotojo \"%{from}\""
     public_explain: 
@@ -385,3 +389,6 @@ lt:
       language_not_changed: "Kalbos pakeisti nepavyko"
       password_changed: "Slaptažodis pakeistas"
       password_not_changed: "Slaptažodžio pakeisti nepavyko"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

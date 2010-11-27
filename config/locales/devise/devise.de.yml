@@ -83,7 +83,7 @@ de:
         sign_up: "Registrieren"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Registriere dich für eine Einladung!"
     unlocks: 
       new: 
         resend_unlock: "Entsperr-Anweisungen erneut senden"
