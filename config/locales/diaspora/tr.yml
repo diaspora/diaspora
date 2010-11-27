@@ -161,6 +161,9 @@ tr:
       subject: "%{name} has accepted your friend request on Diaspora*"
   ok: "OK"
   or: "or"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Password"
   password_confirmation: "Password confirmation"
   people: 
@@ -306,6 +309,7 @@ tr:
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invitations_left: "(%{count} davet kaldı)"
       invite_someone: "Birisini davet edin"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "New %{type} from %{from}"
     public_explain: 
@@ -385,3 +389,6 @@ tr:
       language_not_changed: "Dil Değişikliği Başarılamadı"
       password_changed: "Şifre Değişti"
       password_not_changed: "Şifre Değişikliği Başarılamadı"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

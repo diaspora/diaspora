@@ -89,10 +89,10 @@ nl:
       comment: "Reactie"
       commenting: "Reageren..."
   contacts: 
-    few: "%{count} contacts"
+    few: "%{count} contacten"
     one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    other: "%{count} contacten"
+    zero: "geen contacten"
   delete: "Verwijderen"
   email: "E-mail"
   error_messages: 
@@ -142,10 +142,10 @@ nl:
       logout: "log uit"
       view_profile: "bekijk profiel"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} nieuwe verzoeken!"
+    one: "nieuwe verzoek!"
+    other: "%{count} nieuwe verzoeken!"
+    zero: "geen nieuwe verzoeken"
   notifier: 
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
@@ -161,6 +161,9 @@ nl:
       subject: "%{name} heeft je vriendenverzoek geaccepteerd op Diaspora*"
   ok: "OK"
   or: "of"
+  pagination: 
+    next: "Volgende"
+    previous: "Vorige"
   password: "Wachtwoord"
   password_confirmation: "Wachtwoord bevestiging"
   people: 
@@ -289,7 +292,7 @@ nl:
       your_diaspora_username_is: "Jou Diaspora gebruikersnaam is: %{diaspora_handle}"
     aspect_contacts: 
       add_aspect: "voeg aspect toe"
-      add_existing: "Voeg een bestaande contact toe"
+      add_existing: "Voeg een bestaand contact toe"
       add_to: "voeg toe aan %{aspect}"
       all_contacts: "Alle contacten"
       aspect_settings: "Aspect instellingen"
@@ -306,6 +309,7 @@ nl:
       dont_have_now: "Momenteel heb je er geen maar meer uitnodigingen volgen spoedig!"
       invitations_left: "(%{count} over)"
       invite_someone: "Nodig iemand uit"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Nieuw %{type} van %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ nl:
     show: 
       destroy: "Verwijderen"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "verberg reacties"
+    show_comments: "toon reacties"
   the_world: "de wereld"
   username: "Gebruikersnaam"
   users: 
@@ -363,7 +367,7 @@ nl:
         aspect_name: "Aspect naam"
         description: "Laat Diaspora weten welke verschillende aspecten verschillende mensen van jou zien. Je kunt deze later veranderen door middel van je accountmenu rechtsboven. Aspecten zijn uniek voor jou en niet zichtbaar voor anderen."
         drag_to_add: "Sleep ze naar het aspect dat zij van jou kennen"
-        no_requests: "You have no requests"
+        no_requests: "Je hebt geen verzoeken"
         your_aspects: "Jouw aspecten"
         your_inviter: "Dit zijn de mensen die op jou wachten:"
       step_3: 
@@ -385,3 +389,6 @@ nl:
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd"
       password_not_changed: "Wachtwoord wijzigen mislukt"
+  webfinger: 
+    fetch_failed: "ophalen van webfinger profiel is mislukt voor %{profile_url}"
+    hcard_fetch_failed: "er was een probleem bij het ophalen van de hcard voor #{@account}"

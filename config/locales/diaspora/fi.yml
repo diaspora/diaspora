@@ -7,8 +7,8 @@ fi:
   _comments: "Comments"
   _home: "Home"
   _photos: "kuvat"
-  _services: "Services"
-  account: "Account"
+  _services: "Palvelut"
+  account: "Tili"
   activemodel: 
     errors: 
       models: 
@@ -24,10 +24,10 @@ fi:
               invalid: "is invalid"
             username: 
               taken: "on jo käytössä"
-  ago: "ago"
+  ago: "sitten"
   application: 
     helper: 
-      unknown_person: "unknown person"
+      unknown_person: "tuntematon persoona"
       youtube_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Oletko varma?"
@@ -39,7 +39,7 @@ fi:
       failure: "Aspect creation failed."
       success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     destroy: 
-      success: "%{name} was successfully removed."
+      success: "%{name} poistettiin onnistuneesti."
     edit_aspect_pane: 
       add_existing: "Add an existing contact"
       confirm_remove_aspect: "Remove aspect?"
@@ -62,7 +62,7 @@ fi:
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
     new_aspect: 
-      create: "Create"
+      create: "Luo"
       name: "Nimi"
     no_contacts_message: 
       add_contact: "Add a contact"
@@ -71,7 +71,7 @@ fi:
       nobody: "We know you know people — bring them to Diaspora!"
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
     remove_from_aspect: 
       failure: "Failed to remove person from aspect"
       success: "Successfully removed person from aspect"
@@ -82,7 +82,7 @@ fi:
       edit_aspect: "edit aspect"
     update: 
       success: "Your aspect, %{name}, has been successfully edited."
-  back: "Back"
+  back: "Takaisin"
   cancel: "Peruuta"
   comments: 
     new_comment: 
@@ -109,7 +109,7 @@ fi:
       login_here: "log in here"
       ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: "Jaa mitä halua, kenen kanssa haluat."
       simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations: 
@@ -161,11 +161,14 @@ fi:
       subject: "%{name} has accepted your friend request on Diaspora*"
   ok: "OK"
   or: "or"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Salasana"
   password_confirmation: "Password confirmation"
   people: 
     edit: 
-      allow_search: "Allow for people to search for you"
+      allow_search: "Salli ihmisten etsiä sinua Diasporassa"
       first_name: "Etunimi"
       info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Sukunimi"
@@ -227,7 +230,7 @@ fi:
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
       size_error: "{file} is too large, maximum file size is {sizeLimit}."
     photo: 
-      view_all: "view all of %{name}'s photos"
+      view_all: "Näytä kaikki käyttäjän %{name}kuvat"
     show: 
       delete_photo: "Poista kuva"
       edit: "muokkaa"
@@ -306,6 +309,7 @@ fi:
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invitations_left: "(%{count} jäljellä)"
       invite_someone: "Invite someone"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "New %{type} from %{from}"
     public_explain: 
@@ -332,7 +336,7 @@ fi:
       oh_yeah: "oh yeah!"
       tell_me_something_good: "tell me something good"
     show: 
-      destroy: "Destroy"
+      destroy: "Tuhoa"
   stream_helper: 
     hide_comments: "hide comments"
     show_comments: "show comments"
@@ -347,13 +351,13 @@ fi:
       download_photos: "download my photos"
       download_xml: "download my xml"
       export_data: "Export Data"
-      new_password: "New Password"
+      new_password: "Uusi salasana"
       your_email: "Your email"
       your_handle: "Your diaspora handle"
     getting_started: 
       connect_services: "Connect your services"
       define_aspects: "Define your aspects"
-      edit_profile: "Edit your profile"
+      edit_profile: "Muokkaa profiiliasi"
       finished: "Finished!"
       save_and_continue: "Tallenna ja jatka"
       signup_steps: "Complete your sign-up by doing these things:"
@@ -379,9 +383,12 @@ fi:
         user_menu: "in your user menu (top right)."
       welcome: "Tervetuloa Diasporaan!"
     public: 
-      does_not_exist: "User %{username} does not exist!"
+      does_not_exist: "Käyttäjää %{username} ei ole olemassa!"
     update: 
       language_changed: "Kieli vaihdettu"
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu"
       password_not_changed: "Salasanan vaihto epäonnistui"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

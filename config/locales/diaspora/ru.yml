@@ -161,6 +161,9 @@ ru:
       subject: "%{name} принял(а) ваш запрос для присоединения к Диаспоре*"
   ok: "Ок"
   or: "или"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Пароль"
   password_confirmation: "Подтверждение пароля"
   people: 
@@ -306,6 +309,7 @@ ru:
       dont_have_now: "Сейчас у вас больше нет приглашений, но новые уже не за горами!"
       invitations_left: "(осталось %{count})"
       invite_someone: "Пригласить кого-нибудь"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Новый %{type} из %{from}"
     public_explain: 
@@ -385,3 +389,6 @@ ru:
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён"
       password_not_changed: "Неудачное изменение пароля "
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

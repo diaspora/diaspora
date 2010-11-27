@@ -89,10 +89,10 @@ he:
       comment: "הערה"
       commenting: "נוספת הערה..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} אנשי קשר"
+    one: "איש קשר אחד"
+    other: "%{count} אנשי קשר"
+    zero: "אין אנשי קשר"
   delete: "מחיקה"
   email: "דוא״ל"
   error_messages: 
@@ -142,10 +142,10 @@ he:
       logout: "יציאה"
       view_profile: "צפייה בפרופיל"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} בקשות חדשות!"
+    one: "בקשה חדשה!"
+    other: "%{count} בקשות חדשות!"
+    zero: "אין בקשות חדשות"
   notifier: 
     diaspora: "רובוט הדוא״ל של דיאספורה"
     hello: "שלום %{name}!"
@@ -161,6 +161,9 @@ he:
       subject: "בקשת ההתקשרות שלך התקבלה על ידי %{name} בדיאספורה*"
   ok: "אישור"
   or: "או"
+  pagination: 
+    next: "הבא"
+    previous: "הקודם"
   password: "ססמה"
   password_confirmation: "אישור הססמה"
   people: 
@@ -306,6 +309,7 @@ he:
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
       invitations_left: "(%{count} נותרו)"
       invite_someone: "להזמין מישהו"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "%{type} חדש מאת %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ he:
     show: 
       destroy: "הריסה"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "הסתרת הערות"
+    show_comments: "הצגת הערות"
   the_world: "העולם"
   username: "שם משתמש"
   users: 
@@ -363,7 +367,7 @@ he:
         aspect_name: "שם ההיבט"
         description: "כאן ניתן לספר לדיאספורה מהם ההיבטים השונים בהם אנשי הקשר שלך מסווגים. ניתן לנהל את אלו בשלב מאוחר יותר דרך תפריט החשבון בפינה השמאלית העליונה. ההיבטים שלך ייחודיים לך ואינם גלויים בפני אחרים."
         drag_to_add: "יש לגרור אותם להיבט לו הם משויכים בעיניך"
-        no_requests: "You have no requests"
+        no_requests: "אין לך בקשות"
         your_aspects: "ההיבטים שלך"
         your_inviter: "להלן רשימת האנשים הממתינים לך:"
       step_3: 
@@ -385,3 +389,6 @@ he:
       language_not_changed: "החלפת השפה נכשלה"
       password_changed: "הססמה הוחלפה"
       password_not_changed: "החלפת הססמה נכשלה"
+  webfinger: 
+    fetch_failed: "אירע כשל בקבלת פרופיל ה־webfinger שלך ל־%{profile_url}"
+    hcard_fetch_failed: "אירעה שגיאה בעת קבלת ה־hcard למספר {@account}"

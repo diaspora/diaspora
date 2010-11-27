@@ -89,10 +89,10 @@ hu:
       comment: "Hozzászólás"
       commenting: "Hozzászólok.."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} ismerős"
+    one: "1 ismerős"
+    other: "%{count} ismerős"
+    zero: "nincs ismerős"
   delete: "Törlés"
   email: "Email"
   error_messages: 
@@ -133,7 +133,7 @@ hu:
       to: "Címzett"
   layouts: 
     application: 
-      powered_by: "powered by DIASPORA*"
+      powered_by: "DIASPORA* fordította ADAMEX"
     header: 
       account_settings: "Fiók beállítások"
       blog: "blog"
@@ -142,10 +142,10 @@ hu:
       logout: "kilépés"
       view_profile: "profil megtekintése"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} új felkérés!"
+    one: "új felkérés!"
+    other: "%{count} új felkérések!"
+    zero: "nincsenek új felkérések"
   notifier: 
     diaspora: "A diaspora email robot"
     hello: "Szia %{name}!"
@@ -161,6 +161,9 @@ hu:
       subject: "%{name} elfogadta a felkérésed."
   ok: "Rendben"
   or: "vagy"
+  pagination: 
+    next: "Következő"
+    previous: "Előző"
   password: "Jelszó"
   password_confirmation: "Jelszó megerősítése"
   people: 
@@ -306,6 +309,7 @@ hu:
       dont_have_now: "Nincs több meghívód, de hamarosan kapsz még!"
       invitations_left: "(%{count} maradt)"
       invite_someone: "Hívj meg valakit"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Új %{type}. Feladó: %{from}"
     public_explain: 
@@ -334,8 +338,8 @@ hu:
     show: 
       destroy: "Megsemmisít"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "hozzászólások elrejtése"
+    show_comments: "hozzászólások megtekintése"
   the_world: "a világ"
   username: "Felhasználónév"
   users: 
@@ -363,7 +367,7 @@ hu:
         aspect_name: "Csoport neve"
         description: "Mondd el a Diaspora-nak, hogy milyen szempontok alapján csoportosítod ismerőseid. Később is magadhatod a jobb felső sarokban lévő Fiók menüben. A csoportjaid csak Te láthatod, mások nem."
         drag_to_add: "Tedd bele őket a megfelelő csoportba"
-        no_requests: "You have no requests"
+        no_requests: "Nincs felkérésed"
         your_aspects: "Csoportjaid"
         your_inviter: "Itt azok az emberek, akik várnak rád:"
       step_3: 
@@ -385,3 +389,6 @@ hu:
       language_not_changed: "Nyelv megváltoztatása nem sikerült"
       password_changed: "A jelszó megváltozott"
       password_not_changed: "Jelszó megváltoztatása nem sikerült"
+  webfinger: 
+    fetch_failed: "Nem sikerült lekérni webfinger profilt %{profile_url} számára"
+    hcard_fetch_failed: "nem sikerült lekérni a hCard-ot #{@account} számára"

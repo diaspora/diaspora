@@ -83,7 +83,7 @@ es-CL:
         sign_up: "Registrarse"
         sign_up_closed: "Los registros no estan disponibles en este momento."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "¡Regístrate para ser invitado!"
     unlocks: 
       new: 
         resend_unlock: "Reenviar instrucciones de desbloqueo"

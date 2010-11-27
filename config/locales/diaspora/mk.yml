@@ -161,6 +161,9 @@ mk:
       subject: "%{name} го прифати вашето контакт барање на Diaspora*"
   ok: "ОК"
   or: "или"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
   password: "Лозинка"
   password_confirmation: "Потврда на лозинка"
   people: 
@@ -306,6 +309,7 @@ mk:
       dont_have_now: "Моментално немате права, но повеќе покани ќе дојдат наскоро!"
       invitations_left: "(%{count} лево)"
       invite_someone: "Покани некој"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Нов %{type} од %{from}"
     public_explain: 
@@ -385,3 +389,6 @@ mk:
       language_not_changed: "Изменувањето на јазик е неуспешно"
       password_changed: "Лозинката е променета"
       password_not_changed: "Промената на лозинка е неуспешна"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
