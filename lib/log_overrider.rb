@@ -12,11 +12,7 @@ end
 
 class ActionController::LogSubscriber
   def start_processing(event)
-    payload = event.payload
-    params  = payload[:params].except(*INTERNAL_PARAMS)
-    log_string = "event=request_routed controller=#{payload[:controller]} action=#{payload[:action]} format=#{payload[:formats].first.to_s.upcase} "
-    log_string << "params='#{params.inspect}'" unless params.empty?
-    Rails.logger.info(log_string)
+    #noop
   end
 
   def process_action(event)

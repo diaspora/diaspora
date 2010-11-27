@@ -32,28 +32,6 @@ describe HomeController do
       logger = FakeLogger.new
       Rails.stub(:logger).and_return(FakeLogger.new)
     end
-
-    context 'routing' do
-      before do
-        get :show, :lasers => 'green'
-        @line = Rails.logger.infos.first
-      end
-      it 'logs the routing of a request' do
-        @line.include?('event=request_routed').should be_true
-      end
-      it 'logs the controller' do
-        @line.include?('controller=HomeController').should be_true
-      end
-      it 'logs the action' do
-        @line.include?('action=show').should be_true
-      end
-      it 'logs params' do
-        @line.include?("params='{\"lasers\"=>\"green\"}'").should be_true
-      end
-      it 'logs format' do
-        @line.include?("format=html")
-      end
-    end
     context 'completion' do
       context 'ok' do
         before do
