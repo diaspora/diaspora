@@ -11,11 +11,11 @@ module Diaspora
           if response.is_a? Person
             salmon_author = response
             if salmon.verified_for_key?(salmon_author.public_key)
-              Rails.logger.info("data in salmon: #{salmon.parsed_data}")
+              Rails.logger.debug("data in salmon: #{salmon.parsed_data}")
               self.receive(salmon.parsed_data, salmon_author)
             end
           else
-            Rails.logger.info("#{salmon.author_email} not found error: #{response}")
+            Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='#{response}'")
           end
         }
       end
