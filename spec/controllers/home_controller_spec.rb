@@ -50,6 +50,9 @@ describe HomeController do
       it 'logs params' do
         @line.include?("params='{\"lasers\"=>\"green\"}'").should be_true
       end
+      it 'logs format' do
+        @line.include?("format=html")
+      end
     end
     context 'completion' do
       context 'ok' do
@@ -62,6 +65,18 @@ describe HomeController do
         end
         it 'logs an ok' do
           @line.include?('status=200').should be_true
+        end
+        it 'logs the controller' do
+          @line.include?('controller=HomeController').should be_true
+        end
+        it 'logs the action' do
+          @line.include?('action=show').should be_true
+        end
+        it 'logs params' do
+          @line.include?("params='{\"lasers\"=>\"green\"}'").should be_true
+        end
+        it 'does not log the view rendering time addition' do
+          @line.include?("(Views: ").should be_false
         end
       end
       context 'redirected' do
