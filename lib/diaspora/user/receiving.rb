@@ -75,7 +75,7 @@ module Diaspora
       def receive_retraction retraction
         if retraction.type == 'Person'
           unless retraction.person.id.to_s == retraction.post_id.to_s
-            Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type=#{retraction.class} retraction_type=person")
+            Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{retraction.person.diaspora_handle} payload_type=#{retraction.class} retraction_type=person")
             return
           end
           disconnected_by visible_person_by_id(retraction.post_id)
@@ -147,7 +147,7 @@ module Diaspora
           Rails.logger.info("event=receive payload_type=#{post.class} update=false status=complete sender=#{post.diaspora_handle}")
           post
         else
-          Rails.logger.info("event=receive payload_type=#{post.class} update=true status=abort sender=#{post.diaspora_handle} reason='update not from post owner' existing_post=#{known_post.id}")
+          Rails.logger.info("event=receive payload_type=#{post.class} update=true status=abort sender=#{post.diaspora_handle} reason='update not from post owner' existing_post=#{post.id}")
         end
       end
 
