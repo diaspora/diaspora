@@ -72,7 +72,7 @@ default:
   #cloudfiles username and api-key, used for backups
   cloudfiles_username: 'example'
   cloudfiles_api_key:  'abc123'
-  invites_off: true
+  invites_off: false
 
 development:
 
