@@ -107,6 +107,7 @@ en:
           invite_someone: "Invite someone"
           invitations_left: "(%{count} left)"
           dont_have_now: "You don't have any right now, but more invites are coming soon!"
+          invites_closed: "Invites are currently closed on this Diaspora seed"
       reshare:
           reshare: "Reshare"
       public_explain:

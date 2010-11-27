@@ -1,10 +1,13 @@
--if invites > 0
-  = link_to t('.invite_someone'), "#invite_user_pane", :class => "invite_user_button", :title => t('.invite_someone')
-  = t('.invitations_left', :count => invites) 
-  %br
-  .yo{ :style => "display:none;"}
-    #invite_user_pane
-      = render "invitations/new"
-- else
-  = t('.dont_have_now')
+- if APP_CONFIG[:invites_off]
+  = t('.invites_closed')
+-else
+  -if invites > 0
+    = link_to t('.invite_someone'), "#invite_user_pane", :class => "invite_user_button", :title => t('.invite_someone')
+    = t('.invitations_left', :count => invites) 
+    %br
+    .yo{ :style => "display:none;"}
+      #invite_user_pane
+        = render "invitations/new"
+  - else
+    = t('.dont_have_now')
 
