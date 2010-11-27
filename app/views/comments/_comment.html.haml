@@ -19,5 +19,6 @@
 - log_string << "pr_link=#{(post_person_link - post_image_link)*1000} "
 - log_string << "markdown=#{(markdownified - post_image_link)*1000} "
 - log_string << "time_agoed=#{(time_agoed - markdownified)*1000} "
-- log_string << "total=#{(time_agoed - start)*1000}"
+- log_string << "total=#{(time_agoed - start)*1000} "
+- log_string << "comment_id=#{comment.id}"
 - Rails.logger.info(log_string)
