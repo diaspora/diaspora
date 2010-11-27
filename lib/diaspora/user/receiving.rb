@@ -102,7 +102,7 @@ module Diaspora
 
       def receive_comment comment
         unless comment.post.person == self.person || comment.verify_post_creator_signature
-          Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type=#{comment.class} post_id=#{comment.post_id}")
+          Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{comment.post.person.diaspora_handle} payload_type=#{comment.class} post_id=#{comment.post_id}")
           return
         end
         self.visible_people = self.visible_people | [comment.person]
@@ -139,7 +139,7 @@ module Diaspora
             end
           elsif on_pod == post 
             update_user_refs_and_add_to_aspects(on_pod)
-            Rails.logger.info("event=receive payload_type=#{post.class} update=true status=complete sender=#{post.diaspora_handle} existing_post=#{known_post.id}")
+            Rails.logger.info("event=receive payload_type=#{post.class} update=true status=complete sender=#{post.diaspora_handle} existing_post=#{on_pod.id}")
             post
           end
         elsif !on_pod 
