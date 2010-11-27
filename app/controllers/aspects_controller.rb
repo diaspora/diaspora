@@ -57,7 +57,11 @@ class AspectsController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @aspect_contacts = @aspect.contacts
+      @aspect_contacts_count = @aspect_contacts.count
+
       @posts = @aspect.posts.find_all_by__type("StatusMessage", :order => 'created_at desc').paginate :page => params[:page], :per_page => 15
+      @posts_count = @posts.count
+
       respond_with @aspect
     end
   end

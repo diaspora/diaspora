@@ -7,9 +7,9 @@
   = t('aspects.manage.add_a_new_contact')
   = info_text(t('.enter_a_diaspora_username'))
 
-= form_tag(person_by_handle_path, :id => "new_request_to_#{aspect.id}", :class => "webfinger_form", :remote => true) do
-  = search_field_tag :diaspora_handle,'', :id => "request_d_handle_to_#{aspect.id}", :results => 5, :placeholder => t('.diaspora_handle')
-  = hidden_field_tag :aspect_id, aspect.id
+= form_tag(person_by_handle_path, :id => "new_request_to_#{aspect_id}", :class => "webfinger_form", :remote => true) do
+  = search_field_tag :diaspora_handle,'', :id => "request_d_handle_to_#{aspect_id}", :results => 5, :placeholder => t('.diaspora_handle')
+  = hidden_field_tag :aspect_id, aspect_id
   = submit_tag t('.create_request')
 
   %p{:style => "margin:12px 0 24px 0px;color:#999;text-align:center;"}
@@ -18,7 +18,7 @@
 #loader.hidden
   = image_tag 'ajax-loader.gif'
 
-%ul#request_result{:aspect_id => aspect.id}
+%ul#request_result{:aspect_id => aspect_id}
   %li.error.hidden
     #message
       = link_to t('.know_email'), "#invite_user_pane", :class => "invite_user_button"

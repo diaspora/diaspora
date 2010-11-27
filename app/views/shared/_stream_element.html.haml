@@ -31,5 +31,5 @@
 
       = comment_toggle(post.comments.count)
 
-    = render "comments/comments", :post => post, :hidden => (post.comments.count == 0)
+    = render "comments/comments", :post_id => post.id, :comments => post.comments, :hidden => (post.comments.count == 0)
 

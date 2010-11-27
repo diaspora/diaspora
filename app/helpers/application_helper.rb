@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def current_aspect?(aspect)
-    !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
+    !@aspect.nil? && !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end
 
   def aspect_or_all_path aspect

@@ -59,5 +59,5 @@
 
           .fancybox_content
             %div{:id => "manage_aspect_contacts_pane_#{aspect.id}"}
-              = render "requests/manage_aspect_contacts", :aspect => aspect, :manage => true
+              = render "requests/manage_aspect_contacts", :aspect_name => aspect.name, :aspect_id => aspect.id, :manage => true
 

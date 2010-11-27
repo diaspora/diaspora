@@ -6,10 +6,10 @@
   .modal_title_bar
     %h4
       = t('.manage_within')
-      %i= aspect.name
+      %i= aspect_name
   .span-6.append-1.last
     %h3= t('.existing')
-    = render 'shared/contact_list', :aspect => aspect, :contacts => @contacts, :manage => defined?(manage)
+    = render 'shared/contact_list', :aspect_id => aspect_id, :contacts => @contacts, :manage => defined?(manage)
 
   .span-7.last
-    = render 'shared/add_contact', :aspect => aspect
+    = render 'shared/add_contact', :aspect_id => aspect_id

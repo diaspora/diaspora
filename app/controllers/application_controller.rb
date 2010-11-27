@@ -14,14 +14,9 @@ class ApplicationController < ActionController::Base
 
   def set_contacts_and_status
     if current_user
-      if params[:aspect] == nil || params[:aspect] == 'all'
-        @aspect = :all
-      else
-        @aspect = current_user.aspect_by_id( params[:aspect])
-      end
-
-      @aspects = current_user.aspects
-      @aspects_dropdown_array = current_user.aspects.collect{|x| [x.to_s, x.id]}
+      @aspect = nil
+      @aspects = current_user.aspects.fields(:name)
+      @aspects_dropdown_array = @aspects.collect{|x| [x.to_s, x.id]}
       @contacts = current_user.contacts
     end
   end
@@ -37,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
   
   def count_requests
-    @request_count = current_user.requests_for_me.size if current_user
+    @request_count = current_user.requests_for_me.count if current_user
   end
 
   def set_invites
