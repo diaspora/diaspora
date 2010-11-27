@@ -192,7 +192,7 @@ describe Comment do
       comment = user.build_comment url, :on => @message
       
       comment.save!
-      comment[:url_maps].should == {video_id => expected_title}
+      comment[:youtube_titles].should == {video_id => expected_title}
     end
   end
 end

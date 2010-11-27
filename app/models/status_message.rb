@@ -4,6 +4,8 @@
 
 class StatusMessage < Post
   include Diaspora::Socketable
+  include YoutubeTitles
+  require File.join(Rails.root, 'lib/youtube_titles')
   
   validates_length_of :message, :maximum => 1000, :message => "please make your status messages less than 1000 characters"
   xml_name :status_message
@@ -15,6 +17,9 @@ class StatusMessage < Post
 
   attr_accessible :message
 
+  before_save do
+    get_youtube_title message
+  end
   def to_activity
         <<-XML
   <entry>

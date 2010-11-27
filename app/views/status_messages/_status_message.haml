@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 %p
-  = markdownify(post.message)
+  = markdownify(post.message, :youtube_maps => post[:youtube_titles])
 
 - if post.photos.count > 0
   .photo_attachments

@@ -56,5 +56,24 @@ describe StatusMessage do
     end
   end
 
+  describe 'youtube' do
+    it 'should process youtube titles on the way in' do
+      video_id = "ABYnqp-bxvg"
+      url="http://www.youtube.com/watch?v=#{video_id}&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+      expected_title = "UP & down & UP & down &amp;"
+
+      mock_http = mock("http")
+      Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).and_return(mock_http)
+      mock_http.should_receive(:get).with('/feeds/api/videos/'+video_id+'?v=2', nil).and_return(
+        [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
+
+      post = @user.build_post :status_message, :message => url, :to => @aspect.id
+      
+      post.save!
+      post[:youtube_titles].should == {video_id => expected_title}
+    end
+
+  end
+
 end
 
