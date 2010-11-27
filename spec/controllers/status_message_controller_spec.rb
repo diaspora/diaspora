@@ -25,7 +25,7 @@ describe StatusMessagesController do
       {:status_message =>{
         :public  =>"true", 
         :message =>"facebook, is that you?", 
-        :to      =>"#{aspect.id}"}}
+        :aspect_ids =>"#{aspect.id}"}}
     }
 
     it "doesn't overwrite person_id" do

@@ -34,6 +34,11 @@ class PhotosController < ApplicationController
 
   def create
     begin
+
+      if params[:photo][:aspect_ids] == "all"
+        params[:photo][:aspect_ids] = current_user.aspects.collect{|x| x.id}
+      end
+
       params[:photo][:user_file] = file_handler(params)
 
       @photo = current_user.build_post(:photo, params[:photo])
@@ -41,7 +46,7 @@ class PhotosController < ApplicationController
       if @photo.save
         raise 'MongoMapper failed to catch a failed save' unless @photo.id
 
-        current_user.dispatch_post(@photo, :to => params[:photo][:to]) unless @photo.pending
+        current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids]) unless @photo.pending
         respond_to do |format|
           format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
         end

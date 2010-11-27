@@ -21,8 +21,10 @@ class Post
   key :diaspora_handle, String
   key :user_refs, Integer, :default => 0
   key :pending, Boolean, :default => false
+  key :aspect_ids, Array, :typecast => 'ObjectId'
 
   many :comments, :class_name => 'Comment', :foreign_key => :post_id, :order => 'created_at ASC'
+  many :aspects, :in => :aspect_ids, :class_name => 'Aspect'
   belongs_to :person, :class_name => 'Person'
 
   timestamps!
@@ -38,6 +40,7 @@ class Post
   def self.instantiate params
     new_post = self.new params.to_hash
     new_post.person = params[:person]
+    new_post.aspect_ids = params[:aspect_ids]
     new_post.public = params[:public]
     new_post.pending = params[:pending]
     new_post.diaspora_handle = new_post.person.diaspora_handle
