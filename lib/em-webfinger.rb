@@ -47,7 +47,7 @@ class EMWebfinger
         @ssl = false
         get_xrd
       else
-        process_callbacks  "webfinger does not seem to be enabled for #{@account}'s host"
+        process_callbacks  I18n.t('webfinger.not_enabled', :account => @account)
       end
     }
 
@@ -56,7 +56,7 @@ class EMWebfinger
         @ssl = false
         get_xrd
       else
-        process_callbacks "there was an error getting the xrd from account#{@account}" 
+        process_callbacks I18n.t('webfinger.xrd_fetch_failed', :account => @account)
       end }
   end
 
@@ -83,7 +83,7 @@ class EMWebfinger
           p = Person.build_from_webfinger(wf_profile, hcard)
           process_callbacks(p)
         rescue
-          process_callbacks "No person could be constructed from this hcard."
+          process_callbacks I18n.t 'webfinger.no_person_constructed'
         end
       }
       http.errback{process_callbacks I18n.t('webfinger.hcard_fetch_failed', :account => @account) }
