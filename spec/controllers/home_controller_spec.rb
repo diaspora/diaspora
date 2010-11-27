@@ -31,14 +31,49 @@ describe HomeController do
     before do
       logger = FakeLogger.new
       Rails.stub(:logger).and_return(FakeLogger.new)
-      get :show
     end
 
-    it 'logs the routing of a request' do
-      Rails.logger.infos.first.include?('event=request_routed').should be_true
+    context 'routing' do
+      before do
+        get :show, :lasers => 'green'
+        @line = Rails.logger.infos.first
+      end
+      it 'logs the routing of a request' do
+        @line.include?('event=request_routed').should be_true
+      end
+      it 'logs the controller' do
+        @line.include?('controller=HomeController').should be_true
+      end
+      it 'logs the action' do
+        @line.include?('action=show').should be_true
+      end
+      it 'logs params' do
+        @line.include?("params='{\"lasers\"=>\"green\"}'").should be_true
+      end
     end
-    it 'logs the completion of a request' do
-      Rails.logger.infos.last.include?('event=request_completed').should be_true
+    context 'completion' do
+      context 'ok' do
+        before do
+          get :show, :lasers => 'green'
+          @line = Rails.logger.infos.last
+        end
+        it 'logs the completion of a request' do
+          @line.include?('event=request_completed').should be_true
+        end
+        it 'logs an ok' do
+          @line.include?('status=200').should be_true
+        end
+      end
+      context 'redirected' do
+        before do
+          sign_in @user
+          get :show, :lasers => 'green'
+          @line = Rails.logger.infos.last
+        end
+        it 'logs a redirect' do
+          @line.include?('status=302').should be_true
+        end
+      end
     end
   end
   class FakeLogger
