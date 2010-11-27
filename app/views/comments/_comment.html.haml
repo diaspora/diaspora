@@ -9,8 +9,7 @@
   - post_image_link=Time.now
   .content
     .from
-      %a{:href => "/people/#{person.id}", :title => person.real_name}
-      = link_to person.real_name, person
+      %a{:href => "/people/#{person.id}"}=person.real_name
       - post_person_link=Time.now 
     = markdownify(comment.text, :youtube_maps => comment[:youtube_titles])
     - markdownified=Time.now
