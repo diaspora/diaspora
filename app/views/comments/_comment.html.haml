@@ -7,6 +7,6 @@
   .content
     .from
       = link_to person.real_name, person
-    = markdownify(comment.text)
+    = markdownify(comment.text, :youtube_maps => comment[:url_maps])
     %div.time
       = "#{time_ago_in_words(comment.updated_at)} #{t('ago')}"

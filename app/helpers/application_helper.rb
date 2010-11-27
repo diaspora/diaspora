@@ -153,30 +153,17 @@ module ApplicationHelper
 
     if options[:youtube]
       while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\\-]+)/)
-        videoid = youtube[1]
-        message.gsub!('youtube.com::'+videoid, '<a class="video-link" data-host="youtube.com" data-video-id="' + videoid + '" href="#video">Youtube: ' + youtube_title(videoid) + '</a>')
+        video_id = youtube[1]
+        if options[:youtube_maps] && options[:youtube_maps][video_id]
+          title = options[:youtube_maps][video_id]
+        else
+          title = I18n.t 'application.helper.youtube_title.unknown'
+        end
+        message.gsub!('youtube.com::'+video_id, '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
       end
     end
 
     return message
-  end
-
-  def youtube_title(id)
-    unless @@youtube_title_cache[id] == 'no-title'
-      return @@youtube_title_cache[id]
-    end
-
-    ret = I18n.t 'application.helper.youtube_title.unknown'
-    http = Net::HTTP.new('gdata.youtube.com', 80)
-    path = '/feeds/api/videos/'+id+'?v=2'
-    resp, data = http.get(path, nil)
-    title = data.match(/<title>(.*)<\/title>/)
-    unless title.nil?
-      ret = title.to_s[7..-9]
-    end
-
-    @@youtube_title_cache[id] = ret;
-    return ret
   end
 
   def info_text(text)

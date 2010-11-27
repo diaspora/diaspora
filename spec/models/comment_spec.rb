@@ -173,7 +173,26 @@ describe Comment do
       comment.signature_valid?.should be true
       comment.verify_post_creator_signature.should be false
     end
-
   end
 
+  describe 'youtube' do
+    before do
+      @message = user.post :status_message, :message => "hi", :to => aspect.id
+    end
+    it 'should process youtube titles on the way in' do
+      video_id = "ABYnqp-bxvg"
+      url="http://www.youtube.com/watch?v=#{video_id}&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+      expected_title = "UP & down & UP & down &amp;"
+
+      mock_http = mock("http")
+      Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).and_return(mock_http)
+      mock_http.should_receive(:get).with('/feeds/api/videos/'+video_id+'?v=2', nil).and_return(
+        [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
+
+      comment = user.build_comment url, :on => @message
+      
+      comment.save!
+      comment[:url_maps].should == {video_id => expected_title}
+    end
+  end
 end

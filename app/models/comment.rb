@@ -34,6 +34,7 @@ class Comment
   validates_presence_of :text, :diaspora_handle
   validates_with HandleValidator
 
+  before_save :get_youtube_title
 
   timestamps!
 
@@ -65,6 +66,25 @@ class Comment
 
   def signature_valid?
     verify_signature(creator_signature, person)
+  end
+
+  def get_youtube_title
+    self[:url_maps] ||= {}
+    youtube_match = text.match(/youtube\.com.*?v=([A-Za-z0-9_\\\-]+)/)
+    return unless youtube_match
+    video_id = youtube_match[1]
+    unless self[:url_maps][video_id]
+      ret = I18n.t 'application.helper.youtube_title.unknown'
+      http = Net::HTTP.new('gdata.youtube.com', 80)
+      path = "/feeds/api/videos/#{video_id}?v=2"
+      resp, data = http.get(path, nil)
+      title = data.match(/<title>(.*)<\/title>/)
+      unless title.nil?
+        title = title.to_s[7..-9]
+      end
+      self[:url_maps][video_id] = title
+    end
+
   end
 
 end

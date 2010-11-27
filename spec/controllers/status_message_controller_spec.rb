@@ -20,6 +20,24 @@ describe StatusMessagesController do
     @controller.stub!(:current_user).and_return(user)
   end
 
+  describe '#show' do
+    before do
+      @video_id = "ABYnqp-bxvg"
+      @url="http://www.youtube.com/watch?v=#{@video_id}&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+      @message = user.post :status_message, :message => @url, :to => aspect.id
+    end
+    it 'renders posts with youtube urls' do
+      get :show, :id => @message.id
+    end
+    it 'renders posts with comments with youtube urls' do
+      @comment = user.comment "none", :on => @message
+      @comment.text = @url
+      @comment[:url_maps][@video_id] = "title"
+      @comment.save!
+      get :show, :id => @message.id
+      response.body.should match /Youtube: title/
+    end
+  end
   describe '#create' do
     let(:status_message_hash) {
       {:status_message =>{
