@@ -5,7 +5,7 @@
 %li.comment{:data=>{:guid=>comment.id}}
   -start=Time.now
   %a{:href => "/people/#{person.id}"}
-    =person_image_tag(person)
+    %img{:src => image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id}
   - post_image_link=Time.now
   .content
     .from
