@@ -68,11 +68,16 @@ class Person
   end
 
   def real_name
-    if profile.first_name.nil? || profile.first_name.empty?
-      self.diaspora_handle
-    else
-      "#{profile.first_name.to_s} #{profile.last_name.to_s}"
+    result = nil
+    time = Benchmark.realtime do
+      result = if profile.first_name.nil? || profile.first_name.empty?
+                 self.diaspora_handle
+               else
+                 "#{profile.first_name.to_s} #{profile.last_name.to_s}"
+               end
     end
+    Rails.logger.info "event=real_name ms=#{time}"
+    result
   end
 
   def owns?(post)
