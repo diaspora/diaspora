@@ -212,5 +212,16 @@ describe ApplicationHelper do
         res.should == "http://url.com www.url.com www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related *emphasis* __emphasis__ <a target=\"_blank\" href=\"www.url.com\">link</a> <a target=\"_blank\" href=\"url.com\" title=\"title\">link</a>"
       end
     end
+
+    context 'performance' do
+      before do
+        @message = "HHello,Hello_, I _am a strong robot.*Hello, I am *a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a **strong robot.Hello, I am _a _strong *robot**.Hello*, I am a strong "
+      end
+      it 'is sub millisecond' do
+        Benchmark.realtime{
+          markdownify(@message)
+        }.should < 0.001
+      end
+    end
   end
 end
