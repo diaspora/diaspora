@@ -95,7 +95,6 @@
   %ul
     - for contact in contacts
       %li
-        = person_image_link contact.person
         %span.name
           = link_to contact.person.real_name, contact.person
         .right
