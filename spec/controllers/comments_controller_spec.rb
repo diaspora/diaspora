@@ -23,6 +23,15 @@ describe CommentsController do
       {:text    =>"facebook, is that you?", 
        :post_id =>"#{@post.id}"}
     }
+    context "on my own post" do
+      before do
+        @post = user.post :status_message, :message => 'GIANTS', :to => aspect.id
+      end
+      it 'responds to format js' do
+        post :create, comment_hash.merge(:format => 'js')
+        response.code.should == '201'
+      end
+    end
 
     context "on a post from a contact" do
       before do
