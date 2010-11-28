@@ -17,7 +17,7 @@
             - if post.public?
               %li= t('the_world')
             - else
-              - for aspect in post.aspects
+              - for aspect in aspects.select{|a| post.aspect_ids.include?(a.id)}
                 %li= link_to aspect.name, aspect
 
         .right
