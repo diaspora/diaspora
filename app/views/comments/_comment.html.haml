@@ -3,23 +3,11 @@
 -#   the COPYRIGHT file.
 
 %li.comment{:data=>{:guid=>comment.id}}
-  /-start=Time.now
   %a{:href => "/people/#{person.id}"}
     %img{:src => image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id}
-  /- post_image_link=Time.now
   .content
     .from
       %a{:href => "/people/#{person.id}"}=person.real_name
-      /- post_person_link=Time.now 
     = markdownify(comment.text, :youtube_maps => comment[:youtube_titles])
-    /- markdownified=Time.now
     %div.time
-      = "#{time_ago_in_words(comment.updated_at)} #{t('ago')}"
-      /- time_agoed=Time.now
-/- log_string = "event=comment_partial im_link=#{(post_image_link - start)*1000} "
-/- log_string << "pr_link=#{(post_person_link - post_image_link)*1000} "
-/- log_string << "markdown=#{(markdownified - post_person_link)*1000} "
-/- log_string << "time_agoed=#{(time_agoed - markdownified)*1000} "
-/- log_string << "total=#{(time_agoed - start)*1000} "
-/- log_string << "comment_id=#{comment.id}"
-/- Rails.logger.info(log_string)
+      = comment.created_at ? "#{time_ago_in_words(comment.created_at)} #{t('ago')}" : time_ago_in_words(Time.now)

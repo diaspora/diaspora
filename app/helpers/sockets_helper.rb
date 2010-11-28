@@ -27,7 +27,7 @@ module SocketsHelper
       elsif object.is_a? Person
         v = render_to_string(:partial => type_partial(object), :locals => {:single_aspect_form => opts[:single_aspect_form], :person => object, :aspects => user.aspects, :current_user => user})
       elsif object.is_a? Comment
-        v = render_to_string(:partial => type_partial(object), :locals => {:comment => object, :person => object.person, :current_user => user})
+        v = render_to_string(:partial => 'comments/comment', :locals => {:comment => object, :person => object.person})
       else
         v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
       end

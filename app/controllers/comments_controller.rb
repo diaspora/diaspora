@@ -18,14 +18,22 @@ class CommentsController < ApplicationController
     if @comment.save(:safe => true)
       raise 'MongoMapper failed to catch a failed save' unless @comment.id
       Rails.logger.info("event=comment_create user=#{current_user.diaspora_handle} status=success comment=#{@comment.id}")
-
       current_user.dispatch_comment(@comment)
 
       respond_to do |format|
-        format.js{ render :json => { :post_id => @comment.post_id,
+        format.js{ 
+          json = { :post_id => @comment.post_id,
                                      :comment_id => @comment.id,
-                                     :html => render_to_string(:partial => type_partial(@comment), :locals => {:comment => @comment, :person => current_user, :current_user => current_user})},
-                                     :status => 201 }
+                                     :html => render_to_string(
+                                       :partial => 'comments/comment',
+                                       :locals => {
+                                         :comment => @comment,
+                                         :person => current_user,
+                                        }
+                                      )
+                                    }
+          render(:json => json, :status => 201)
+        }
         format.html{ render :nothing => true, :status => 201 }
       end
     else

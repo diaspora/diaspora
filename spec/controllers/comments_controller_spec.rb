@@ -30,6 +30,7 @@ describe CommentsController do
       it 'responds to format js' do
         post :create, comment_hash.merge(:format => 'js')
         response.code.should == '201'
+        response.body.should match comment_hash[:text]
       end
     end
 
