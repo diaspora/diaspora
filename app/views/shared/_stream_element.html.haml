@@ -3,12 +3,12 @@
 -#   the COPYRIGHT file.
 
 %li.message{:data=>{:guid=>post.id}}
-
-  = person_image_link(person)
+  %a{:href => "/people/#{person.id}"}
+    %img{:src => image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id}
 
   .content
     .from
-      = link_to person.real_name, person
+      %a{:href => "/people/#{person.id}"}=person.real_name
 
       - if current_user.owns?(post)
         .aspect
@@ -18,7 +18,8 @@
               %li= t('the_world')
             - else
               - for aspect in aspects.select{|a| post.aspect_ids.include?(a.id)}
-                %li= link_to aspect.name, aspect
+                %li
+                  %a{:href => "/aspects/#{aspect.id}"}=aspect.name
 
         .right
           = render 'shared/reshare', :current_user => current_user, :post => post if post.is_a? StatusMessage
