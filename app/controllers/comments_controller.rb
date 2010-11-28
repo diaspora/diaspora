@@ -10,8 +10,8 @@ class CommentsController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    target = current_user.find_visible_post_by_id params[:comment][:post_id]
-    text = params[:comment][:text]
+    target = current_user.find_visible_post_by_id params[:post_id]
+    text = params[:text]
 
     @comment = current_user.build_comment(text, :on => target)
 

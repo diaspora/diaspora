@@ -20,9 +20,8 @@ describe CommentsController do
 
   describe '#create' do
     let(:comment_hash) {
-      {:comment =>{
-        :text =>"facebook, is that you?", 
-        :post_id =>"#{@post.id}"}}
+      {:text    =>"facebook, is that you?", 
+       :post_id =>"#{@post.id}"}
     }
 
     context "on a post from a contact" do
@@ -36,13 +35,13 @@ describe CommentsController do
       end
       it "doesn't overwrite person_id" do
         new_user = make_user
-        comment_hash[:comment][:person_id] = new_user.person.id.to_s
+        comment_hash[:person_id] = new_user.person.id.to_s
         post :create, comment_hash
-        Comment.find_by_text(comment_hash[:comment][:text]).person_id.should == user.person.id
+        Comment.find_by_text(comment_hash[:text]).person_id.should == user.person.id
       end
       it "doesn't overwrite id" do
         old_comment = user.comment("hello", :on => @post)
-        comment_hash[:comment][:id] = old_comment.id
+        comment_hash[:id] = old_comment.id
         post :create, comment_hash
         old_comment.reload.text.should == 'hello'
       end

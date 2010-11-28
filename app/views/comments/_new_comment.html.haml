@@ -2,10 +2,10 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_for Comment.new, :html => {:id => "new_comment_on_#{post_id}" }, :remote => true do |comment|
+= form_tag( comments_path, :id => "new_comment_on_#{post_id}" , :remote => true) do
   %p
     = label_tag "comment_text_on_#{post_id}", t('.comment')
-    = comment.text_area :text, :rows => 1, :id => "comment_text_on_#{post_id}", :class => "comment_box"
-  = comment.hidden_field :post_id, :id => "post_id_on_#{post_id}", :value => post_id
-  = comment.submit t('.comment'), :id => "comment_submit_#{post_id}", :class => "comment_submit button", :disable_with => t('.commenting')
-  
+    = text_area_tag :text, nil, :rows => 1, :class => "comment_box",:id => "comment_text_on_#{post_id}"
+  = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
+  = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :class => "comment_submit button", :disable_with => t('.commenting')
+
