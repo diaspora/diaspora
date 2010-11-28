@@ -11,7 +11,6 @@ module Diaspora
           if response.is_a? Person
             salmon_author = response
             if salmon.verified_for_key?(salmon_author.public_key)
-              Rails.logger.debug("data in salmon: #{salmon.parsed_data}")
               self.receive(salmon.parsed_data, salmon_author)
             end
           else
