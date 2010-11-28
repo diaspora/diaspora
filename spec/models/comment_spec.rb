@@ -93,6 +93,7 @@ describe Comment do
       user.reload
     end
 
+
     it "should send a user's comment on a person's post to that person" do
       User::QUEUE.should_receive(:add_post_request).once
       user.comment "yo", :on => @person_status
@@ -166,7 +167,16 @@ describe Comment do
       xml.include?(commenter.diaspora_handle).should be true
     end
   end
-
+  describe 'local commenting' do
+    before do
+      @status = user.post(:status_message, :message => "hello", :to => aspect.id)
+    end
+    it 'does not multi-post a comment' do
+      lambda {
+        user.comment 'hello', :on => @status
+      }.should change{Comment.count}.by(1)
+    end
+  end
   describe 'comments' do
     before do
       @remote_message = user2.post :status_message, :message => "hello", :to => aspect2.id
