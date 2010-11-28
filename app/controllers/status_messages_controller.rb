@@ -38,8 +38,13 @@ class StatusMessagesController < ApplicationController
                                        :partial => 'shared/stream_element', 
                                        :locals => {
                                          :post => @status_message, 
+                                         :person => @status_message.person,
+                                         :comments => [],
                                          :aspects => current_user.aspects, 
-                                         :current_user => current_user})},
+                                         :current_user => current_user
+                                        }
+                                     )
+                                    },
                                      :status => 201 }
         format.html{ respond_with @status_message }
       end
