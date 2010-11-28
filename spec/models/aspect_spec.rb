@@ -214,9 +214,6 @@ describe Aspect do
       before do
         @message  = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
         aspect.reload
-        @post_count  = aspect.posts.count
-        @post_count1 = aspect1.posts.count
-
         user.reload
       end
       

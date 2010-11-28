@@ -27,7 +27,11 @@ describe AspectsController do
   describe "#index" do
     it "assigns @contacts to all the user's contacts" do
       Factory.create :person
+      begin
       get :index
+      rescue Exception => e
+        raise e.original_exception
+      end
       assigns[:contacts].should == @user.contacts
     end
     context 'performance' do

@@ -4,11 +4,11 @@
 
 %li.message{:data=>{:guid=>post.id}}
 
-  = person_image_link(post.person)
+  = person_image_link(person)
 
   .content
     .from
-      = link_to post.person.real_name, post.person
+      = link_to person.real_name, person
 
       - if current_user.owns?(post)
         .aspect
@@ -29,7 +29,6 @@
     .info
       %span.time= link_to(how_long_ago(post), object_path(post))
 
-      = comment_toggle(post.comments.count)
-
-    = render "comments/comments", :post_id => post.id, :comments => post.comments, :hidden => (post.comments.count == 0)
+      = comment_toggle(comments.length)
+    = render "comments/comments", :post_id => post.id, :comment_hashes => comments, :hidden => (comments.length == 0)
 

@@ -13,7 +13,17 @@ module SocketsHelper
     begin
       user = User.find_by_id uid
       if object.is_a? Post
-        v = render_to_string(:partial => 'shared/stream_element', :locals => {:post => object, :current_user => user, :aspects => user.aspects})
+        post_hash = {:post => object,
+          :person => object.person,
+          :comments => object.comments.map{|c|
+            {:comment => c,
+             :person => c.person
+            }
+        },
+          :current_user => user,
+          :aspects => user.aspects,
+        }
+        v = render_to_string(:partial => 'shared/stream_element', :locals => post_hash)
       elsif object.is_a? Person
         v = render_to_string(:partial => type_partial(object), :locals => {:single_aspect_form => opts[:single_aspect_form], :person => object, :aspects => user.aspects, :current_user => user})
       elsif object.is_a? Comment

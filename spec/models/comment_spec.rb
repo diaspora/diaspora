@@ -20,6 +20,40 @@ describe Comment do
     comment.errors.full_messages.should include "Diaspora handle and person handle must match"
   end
 
+ describe '.hash_from_post_ids' do
+   before do
+      @hello = user.post(:status_message, :message => "Hello.", :to => aspect.id)
+      @hi = user.post(:status_message, :message => "hi", :to => aspect.id)
+      @lonely = user.post(:status_message, :message => "Hello?", :to => aspect.id)
+
+      @c11 = user2.comment "why so formal?", :on => @hello
+      @c21 = user2.comment "lol hihihi", :on => @hi
+      @c12 = user.comment "I simply felt like issuing a greeting.  Do step off.", :on => @hello
+      @c22 = user.comment "stfu noob", :on => @hi
+      
+      @c12.created_at = Time.now+10
+      @c12.save!
+      @c22.created_at = Time.now+10
+      @c22.save!
+    end
+    it 'returns an empty array for posts with no comments' do
+      Comment.hash_from_post_ids([@lonely.id]).should ==
+        {@lonely.id => []}
+    end
+    it 'returns a hash from posts to comments' do
+      Comment.hash_from_post_ids([@hello.id, @hi.id]).should ==
+        {@hello.id => [@c11, @c12],
+         @hi.id => [@c21, @c22]
+      }
+    end
+    it 'gets the people from the db' do
+      hash = Comment.hash_from_post_ids([@hello.id, @hi.id])
+      Person.from_post_comment_hash(hash).should == {
+        user.person.id => user.person,
+        user2.person.id => user2.person,
+      }
+    end
+   end
   describe 'User#comment' do
     before do
       @status = user.post(:status_message, :message => "hello", :to => aspect.id)

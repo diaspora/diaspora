@@ -3,8 +3,8 @@
 -#   the COPYRIGHT file.
 
 %ul.comments{:id => post_id, :class => ("hidden" if defined?(hidden) && hidden)}
-  - for comment in comments
-    = render 'comments/comment', :comment => comment, :person => comment.person
+  - for comment_hash in comment_hashes
+    = render 'comments/comment', comment_hash
   %li.comment.show
     = render 'comments/new_comment', :post_id => post_id
 

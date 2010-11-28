@@ -71,6 +71,19 @@ class Comment
   def signature_valid?
     verify_signature(creator_signature, person)
   end
-
-
+  def self.hash_from_post_ids post_ids
+    hash = {}
+    comments = self.on_posts(post_ids)
+    post_ids.each do |id|
+      hash[id] = []
+    end
+    comments.each do |comment|
+      hash[comment.post_id] << comment
+    end
+    hash.each_value {|comments| comments.sort!{|c1, c2| c1.created_at <=> c2.created_at }}
+    hash
+  end
+  scope :on_posts, lambda { |post_ids| 
+    where(:post_id.in => post_ids)
+  }
 end
