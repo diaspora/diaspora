@@ -26,6 +26,7 @@ javascripts:
   aspects:
     - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/aspect-edit.js
+    - public/javascripts/contact-list.js
 
 stylesheets:
   default:
