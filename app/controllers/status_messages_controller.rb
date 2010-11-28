@@ -34,7 +34,12 @@ class StatusMessagesController < ApplicationController
 
       respond_to do |format|
         format.js{ render :json => { :post_id => @status_message.id,
-                                     :html => render_to_string(:partial => 'shared/stream_element', :locals => {:post => @status_message, :aspects => current_user.aspects, :current_user => current_user})},
+                                     :html => render_to_string(
+                                       :partial => 'shared/stream_element', 
+                                       :locals => {
+                                         :post => @status_message, 
+                                         :aspects => current_user.aspects, 
+                                         :current_user => current_user})},
                                      :status => 201 }
         format.html{ respond_with @status_message }
       end
