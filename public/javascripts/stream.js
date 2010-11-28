@@ -64,7 +64,7 @@ $(document).ready(function(){
         $(this).detach();
       });
     }
-      
+
     if($this.data("host") === 'youtube.com') {
 	  	$container.html(
         '<a href="//www.youtube.com/watch?v=' + $this.data("video-id") + '" target="_blank">Watch this video on Youtube</a><br />' +
@@ -73,16 +73,16 @@ $(document).ready(function(){
     } else {
       $container.html('Invalid videotype <i>'+$this.data("host")+'</i> (ID: '+$this.data("video-id")+')');
     }
-  
+
     $container.hide();
     this.parentNode.insertBefore(container, this.nextSibling);
     $container.slideDown('fast');
-    
+
     $this.click(function() {
       $container.slideToggle('fast', function () {
         $(this).detach();
       });
-    });  
+    });
   });
 
   $(".new_status_message").bind('ajax:success', function(data, json, xhr){
