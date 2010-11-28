@@ -52,7 +52,10 @@ describe StatusMessagesController do
         :message =>"facebook, is that you?", 
         :aspect_ids =>"#{aspect.id}"}}
     }
-
+    it 'responds to js requests' do
+      post :create, status_message_hash.merge(:format => 'js')
+      response.status.should == 201
+    end
     it "doesn't overwrite person_id" do
       new_user = make_user
       status_message_hash[:status_message][:person_id] = new_user.person.id
