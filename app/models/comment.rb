@@ -33,7 +33,7 @@ class Comment
   belongs_to :post,   :class_name => "Post"
   belongs_to :person, :class_name => "Person"
 
-  validates_presence_of :text, :diaspora_handle
+  validates_presence_of :text, :diaspora_handle, :post
   validates_with HandleValidator
 
   before_save do

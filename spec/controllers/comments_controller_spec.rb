@@ -15,13 +15,14 @@ describe CommentsController do
 
   before do
     sign_in :user, user
+    EM.stub!(:next_tick).and_yield(:block)
   end
 
   describe '#create' do
     let(:comment_hash) {
       {:comment =>{
         :text =>"facebook, is that you?", 
-        :post_id     =>"#{@post.id}"}}
+        :post_id =>"#{@post.id}"}}
     }
 
     context "on a post from a contact" do

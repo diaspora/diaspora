@@ -100,18 +100,32 @@ module Diaspora
       end
 
       def receive_comment comment
+    
+        commenter = comment.person
+      
         unless comment.post.person == self.person || comment.verify_post_creator_signature
           Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{comment.post.person.diaspora_handle} payload_type=#{comment.class} post_id=#{comment.post_id}")
           return
         end
-        self.visible_people = self.visible_people | [comment.person]
+
+        self.visible_people = self.visible_people | [commenter]
         self.save
-        comment.person.save
-        comment.save!
+
+        commenter.save
+
+        #sign comment as the post creator if you've been hit UPSTREAM
+        if owns? comment.post
+          comment.post_creator_signature = comment.sign_with_key(encryption_key)
+          comment.save
+        end
+
+        #dispatch comment DOWNSTREAM, received it via UPSTREAM
         unless owns?(comment)
           dispatch_comment comment
+          comment.save
         end
-        comment.socket_to_uid(id)  if (comment.respond_to?(:socket_to_uid) && !self.owns?(comment))
+
+        comment.socket_to_uid(self.id, :aspect_ids => comment.post.aspect_ids)
         comment
       end
 

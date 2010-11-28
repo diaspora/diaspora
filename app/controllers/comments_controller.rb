@@ -13,9 +13,13 @@ class CommentsController < ApplicationController
     target = current_user.find_visible_post_by_id params[:comment][:post_id]
     text = params[:comment][:text]
 
-    @comment = current_user.comment(text, :on => target) if target
-    if @comment
+    @comment = current_user.build_comment(text, :on => target)
+
+    if @comment.save(:safe => true)
+      raise 'MongoMapper failed to catch a failed save' unless @comment.id
       Rails.logger.info("event=comment_create user=#{current_user.diaspora_handle} status=success comment=#{@comment.id}")
+
+      current_user.dispatch_comment(@comment)
 
       respond_to do |format|
         format.js{ render :json => { :post_id => @comment.post_id,

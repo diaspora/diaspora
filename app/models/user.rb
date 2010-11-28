@@ -152,7 +152,7 @@ class User
 
   def build_post(class_name, opts = {})
     opts[:person] = self.person
-    opts[:diaspora_handle] = self.person.diaspora_handle
+    opts[:diaspora_handle] = opts[:person].diaspora_handle
 
     model_class = class_name.to_s.camelize.constantize
     model_class.instantiate(opts)
@@ -164,9 +164,12 @@ class User
     aspect_ids = validate_aspect_permissions(aspect_ids)
     self.raw_visible_posts << post
     self.save
+
+    #socket post
     Rails.logger.info("event=dispatch user=#{diaspora_handle} post=#{post.id.to_s}")
     push_to_aspects(post, aspect_ids)
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid) && !post.pending
+
     if post.public
       self.services.each do |service|
         self.send("post_to_#{service.provider}".to_sym, service, post.message)
@@ -271,35 +274,41 @@ class User
   ######## Commenting  ########
   def comment(text, options = {})
     comment = build_comment(text, options)
-    if comment
+
+    if comment.save
+      raise 'MongoMapper failed to catch a failed save' unless comment.id
       dispatch_comment comment
-      comment.socket_to_uid id
     end
     comment
   end
 
   def build_comment(text, options = {})
-    raise "must comment on something!" unless options[:on]
-    comment = Comment.new(:person_id => self.person.id, :diaspora_handle => self.person.diaspora_handle, :text => text, :post => options[:on])
-    comment.creator_signature = comment.sign_with_key(encryption_key)
-    if comment.save
-      comment
-    else
-      Rails.logger.warn "event=build_comment status=save_failure user=#{self.diaspora_handle} comment=#{comment.id}"
-      false
+    comment = Comment.new(:person_id => self.person.id,
+                          :diaspora_handle => self.person.diaspora_handle,
+                          :text => text,
+                          :post => options[:on])
+
+    #sign comment as commenter
+    comment.creator_signature = comment.sign_with_key(self.encryption_key)
+
+    if !comment.post_id.blank? && owns?(comment.post)
+      #sign comment as post owner
+      comment.post_creator_signature = comment.sign_with_key(self.encryption_key)
     end
+
+    comment
   end
 
   def dispatch_comment(comment)
     if owns? comment.post
+      #push DOWNSTREAM (to original audience)
       Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.id}"
-      comment.post_creator_signature = comment.sign_with_key(encryption_key)
-      comment.save
       aspects = aspects_with_post(comment.post_id)
       push_to_people(comment, people_in_aspects(aspects))
+
     elsif owns? comment
+      #push UPSTREAM (to poster)
       Rails.logger.info "event=dispatch_comment direction=upstream user=#{self.diaspora_handle} comment=#{comment.id}"
-      comment.save
       push_to_people comment, [comment.post.person]
     end
   end
