@@ -48,3 +48,6 @@ Diaspora::Application.configure do
   config.i18n.fallbacks = true
   config.threadsafe!
 end
+
+# Sacrifice readability for a 10% performance boost
+Haml::Template::options[:ugly] = true
