@@ -100,7 +100,7 @@ module Diaspora
       end
 
       def receive_comment comment
-    
+
         commenter = comment.person
       
         unless comment.post.person == self.person || comment.verify_post_creator_signature
@@ -121,8 +121,8 @@ module Diaspora
 
         #dispatch comment DOWNSTREAM, received it via UPSTREAM
         unless owns?(comment)
-          dispatch_comment comment
           comment.save
+          dispatch_comment comment
         end
 
         comment.socket_to_uid(self.id, :aspect_ids => comment.post.aspect_ids)

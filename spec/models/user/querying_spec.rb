@@ -130,14 +130,14 @@ describe User do
     end
 
     describe '#people_in_aspects' do
-      it 'should return people objects for a users contact in each aspect' do
+      it 'returns people objects for a users contact in each aspect' do
         people = user.people_in_aspects([first_aspect])
         people.should == [user4.person]
         people = user.people_in_aspects([second_aspect])
         people.should == [user2.person]
       end
 
-      it 'should return local/remote people objects for a users contact in each aspect' do
+      it 'returns local/remote people objects for a users contact in each aspect' do
         local_user1 = make_user
         local_user2 = make_user
         remote_user = make_user
@@ -158,6 +158,14 @@ describe User do
         user.people_in_aspects([first_aspect]).count.should == 4
         user.people_in_aspects([first_aspect], :type => 'remote').count.should == 1
         user.people_in_aspects([first_aspect], :type => 'local').count.should == 3
+      end
+
+      it 'does not return people not connected to user on same pod' do
+        local_user1 = make_user
+        local_user2 = make_user
+        local_user3 = make_user
+
+        user.people_in_aspects([first_aspect]).count.should == 1
       end
     end
   end

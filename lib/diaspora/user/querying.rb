@@ -63,12 +63,11 @@ module Diaspora
         people = Person.all(:id.in => person_ids)
 
         if opts[:type] == 'remote'
-          people.delete_if{ |p| !p.owner_id.blank? }
+          people.delete_if{ |p| !p.owner.blank? }
         elsif opts[:type] == 'local'
-          people.delete_if{ |p| p.owner_id.blank? }
-        else
-          people
+          people.delete_if{ |p| p.owner.blank? }
         end
+        people
       end
 
       def aspect_by_id( id )
