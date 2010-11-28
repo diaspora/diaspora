@@ -304,7 +304,17 @@ class User
       #push DOWNSTREAM (to original audience)
       Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.id}"
       aspects = aspects_with_post(comment.post_id)
-      push_to_people(comment, people_in_aspects(aspects))
+
+      #just socket to local users, as the comment has already
+      #been associated and saved by post owner
+      #  (we'll push to all of their aspects for now, the comment won't
+      #   show up via js where corresponding posts are not present)
+      people_in_aspects(aspects, :type => 'local').each do |person|
+        comment.socket_to_uid(person.owner_id, :aspect_ids => 'all')
+      end
+
+      #push to remote people
+      push_to_people(comment, people_in_aspects(aspects, :type => 'remote'))
 
     elsif owns? comment
       #push UPSTREAM (to poster)

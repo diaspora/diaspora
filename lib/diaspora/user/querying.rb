@@ -58,9 +58,17 @@ module Diaspora
         Person.all(:id.in => person_ids)
       end
 
-      def people_in_aspects(aspects)
+      def people_in_aspects(aspects, opts={})
         person_ids = contacts_in_aspects(aspects).collect{|contact| contact.person_id}
-        Person.all(:id.in => person_ids)
+        people = Person.all(:id.in => person_ids)
+
+        if opts[:type] == 'remote'
+          people.delete_if{ |p| !p.owner_id.blank? }
+        elsif opts[:type] == 'local'
+          people.delete_if{ |p| p.owner_id.blank? }
+        else
+          people
+        end
       end
 
       def aspect_by_id( id )

@@ -136,6 +136,29 @@ describe User do
         people = user.people_in_aspects([second_aspect])
         people.should == [user2.person]
       end
+
+      it 'should return local/remote people objects for a users contact in each aspect' do
+        local_user1 = make_user
+        local_user2 = make_user
+        remote_user = make_user
+
+        asp1 = local_user1.aspects.create(:name => "lol")
+        asp2 = local_user2.aspects.create(:name => "brb")
+        asp3 = remote_user.aspects.create(:name => "ttyl")
+
+        connect_users(user, first_aspect, local_user1, asp1)
+        connect_users(user, first_aspect, local_user2, asp2)
+        connect_users(user, first_aspect, remote_user, asp3)
+
+        local_person = remote_user.person
+        local_person.owner_id = nil
+        local_person.save
+        local_person.reload
+
+        user.people_in_aspects([first_aspect]).count.should == 4
+        user.people_in_aspects([first_aspect], :type => 'remote').count.should == 1
+        user.people_in_aspects([first_aspect], :type => 'local').count.should == 3
+      end
     end
   end
 
