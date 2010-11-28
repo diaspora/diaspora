@@ -7,6 +7,9 @@ default:
   # Hostname of this host, as seen from the internet.
   pod_url: "http://example.org/"
 
+  # Name of this pod, will be displayed in the header
+  pod_name: "DIASPORA*"
+
   # Set this to true in order to close signups.  Users will still be
   # able to invite other people to join.
   registrations_closed: false

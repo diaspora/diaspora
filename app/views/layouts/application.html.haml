@@ -9,9 +9,9 @@
 
     %title
       - if current_user
-        = "#{current_user.real_name} | DIASPORA*"
+        = "#{current_user.real_name} | #{APP_CONFIG[:pod_name]}"
       - else
-        DIASPORA*
+        #{APP_CONFIG[:pod_name]}
 
     %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
 
