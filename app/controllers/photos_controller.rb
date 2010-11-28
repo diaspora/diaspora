@@ -93,15 +93,24 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @aspect = :none
     @photo = current_user.find_visible_post_by_id params[:id]
-    unless @photo
-      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
-    else
-      @ownership = current_user.owns? @photo
+    @parent = @photo.status_message
 
-      respond_with @photo
+    #if photo is not an attachment, fetch comments for self
+    unless @parent
+      @parent = @photo
     end
+
+    comments_hash = Comment.hash_from_post_ids [@parent.id]
+    person_hash = Person.from_post_comment_hash comments_hash
+    @comment_hashes = comments_hash[@parent.id].map do |comment|
+      {:comment => comment,
+        :person => person_hash[comment.person_id]
+      }
+    end
+    @ownership = current_user.owns? @photo
+
+    respond_with @photo
   end
 
   def edit

@@ -18,8 +18,6 @@ describe StatusMessagesController do
     request.env["HTTP_REFERER"] = ""
     sign_in :user, user
     @controller.stub!(:current_user).and_return(user)
-
-    EM.stub!(:next_tick).and_yield(:block)
   end
 
   describe '#show' do

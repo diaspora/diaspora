@@ -15,7 +15,6 @@ describe CommentsController do
 
   before do
     sign_in :user, user
-    EM.stub!(:next_tick).and_yield(:block)
   end
 
   describe '#create' do
