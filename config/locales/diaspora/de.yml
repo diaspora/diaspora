@@ -391,4 +391,7 @@ de:
       password_not_changed: "Ändern des Passworts fehlgeschlagen"
   webfinger: 
     fetch_failed: "konnte Webfinger-Profil für %{profile_url} nicht laden"
-    hcard_fetch_failed: "es gab Probleme beim Beziehen der hcard für #{@account}"
+    hcard_fetch_failed: "es gab Probleme beim Beziehen der hcard für %{account}"
+    no_person_constructed: "Konnte keine Person von dieser hcard erstellen."
+    not_enabled: "Webfinger scheint nicht führ den Server von %{account} verfügbar zu sein."
+    xrd_fetch_failed: "Konnte  XRD Datei von %{account} nicht herunterladen"

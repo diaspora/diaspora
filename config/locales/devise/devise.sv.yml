@@ -64,7 +64,7 @@ sv:
     sessions: 
       new: 
         alpha_software: "Du är påväg att använda mjukvara i alpha-stadie."
-        bugs_and_feedback: "Var uppmärksam på att du kommer stöta på buggar. Använd gärna feedback-knappen till vänster för att rapportera eventuell teknisk hicka, vi kommer att försöka ordna problemen så snart som möjligt."
+        bugs_and_feedback: "Var beredd på att stöta på buggar och problem. Använd gärna feedback-knappen till vänster för att rapportera dessa, vi kommer att försöka ordna problemen så snart som möjligt."
         have_a_problem: "Har du problem att komma in? Klicka här"
         login: "Logga in"
         modern_browsers: "stöder endast moderna webbläsare."

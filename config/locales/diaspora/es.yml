@@ -42,12 +42,12 @@ es:
       success: "%{name} fue eliminado correctamente."
     edit_aspect_pane: 
       add_existing: "Añadir un contacto existente"
-      confirm_remove_aspect: "Eliminar aspecto?"
-      remove_aspect: "Eliminar Aspecto"
+      confirm_remove_aspect: "Remover aspecto?"
+      remove_aspect: "Remover Aspecto"
     helper: 
-      are_you_sure: "¿Seguro que deseas eliminar este aspecto?"
+      are_you_sure: "¿Seguro que deseas remover este aspecto?"
       aspect_not_empty: "Aspecto no vacío"
-      remove: "eliminar"
+      remove: "remover"
     index: 
       handle_explanation: "Esta es tu dirección Diaspora. Como una dirección de email, puedes dársela a gente para que te encuentren"
     manage: 
@@ -89,10 +89,10 @@ es:
       comment: "Comentar"
       commenting: "Comentando..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} contactos"
+    one: "1 contacto"
+    other: "%{count} contactos"
+    zero: "no hay contactos"
   delete: "Borrar"
   email: "Correo electrónico"
   error_messages: 
@@ -142,10 +142,10 @@ es:
       logout: "desconectarse"
       view_profile: "ver perfil"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} nuevas peticiones!"
+    one: "Nueva petición!"
+    other: "%{count} nuevas peticiones!"
+    zero: "no hay nuevas peticiones"
   notifier: 
     diaspora: "Correo robot de Diaspora"
     hello: "¡Hola %{name}!"
@@ -162,8 +162,8 @@ es:
   ok: "OK"
   or: "o"
   pagination: 
-    next: "Next"
-    previous: "Previous"
+    next: "Siguiente"
+    previous: "Anterior"
   password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people: 
@@ -301,7 +301,7 @@ es:
       done_editing: "editado"
       invites: "Invitaciones"
       no_contacts: "Actualmente no tienes contactos. Búscalos aquí."
-      remove_aspect: "Eliminar aspecto"
+      remove_aspect: "Remover aspecto"
     contact_list: 
       all_contacts: "Todos los contactos"
       cannot_remove: "No se puede eliminar a la persona del último aspecto. (Si quieres desconectar a esta persona debes removerla de tus contactos.)"
@@ -309,7 +309,7 @@ es:
       dont_have_now: "No tienes ninguna ahora mismo, pero pronto llegarán más invitaciones!"
       invitations_left: "(quedan %{count})"
       invite_someone: "Invita a alguien"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "Las invitaciones en este servidor Diaspora están actualmente cerradas"
     notification: 
       new: "Nuevo %{type} de %{from}"
     public_explain: 
@@ -338,7 +338,7 @@ es:
     show: 
       destroy: "Destruir"
   stream_helper: 
-    hide_comments: "hide comments"
+    hide_comments: "ocultar comentarios"
     show_comments: "mostrar comentarios"
   the_world: "el mundo"
   username: "Nombre de usuario"
@@ -367,7 +367,7 @@ es:
         aspect_name: "Nombre del aspecto"
         description: "Dile a Diaspora qué aspectos diferentes de ti serán vistos por diferentes contactos. Puedes manejar estos aspectos luego en tu menú de cuenta, arriba a la derecha. Tus aspectos son solamente vistos por ti, y no por otros."
         drag_to_add: "Arrastralos al aspecto de ti al que pertenezcan"
-        no_requests: "You have no requests"
+        no_requests: "No tienes nuevas peticiones"
         your_aspects: "Tus aspectos"
         your_inviter: "Estas son las personas que estan esperando por ti:"
       step_3: 
@@ -390,5 +390,8 @@ es:
       password_changed: "Contraseña Cambiada"
       password_not_changed: "Cambio de Contraseña Fallido"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+    fetch_failed: "error al buscar el perfil webfinger de %{profile_url}"
+    hcard_fetch_failed: "hubo un problema al buscar el hcard para #{@account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "el webfinger parece no estar habilitado para el host de %{account}"
+    xrd_fetch_failed: "hubo un error al recibir el xrd desde la cuenta %{account}"

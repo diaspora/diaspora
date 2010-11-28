@@ -143,7 +143,7 @@ nl:
       view_profile: "bekijk profiel"
   new_requests: 
     few: "%{count} nieuwe verzoeken!"
-    one: "nieuwe verzoek!"
+    one: "nieuw verzoek!"
     other: "%{count} nieuwe verzoeken!"
     zero: "geen nieuwe verzoeken"
   notifier: 
@@ -309,7 +309,7 @@ nl:
       dont_have_now: "Momenteel heb je er geen maar meer uitnodigingen volgen spoedig!"
       invitations_left: "(%{count} over)"
       invite_someone: "Nodig iemand uit"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "Uitnodigingen zijn momenteel gesloten voor deze Diaspora pod"
     notification: 
       new: "Nieuw %{type} van %{from}"
     public_explain: 
@@ -318,7 +318,7 @@ nl:
       outside: "Openbare berichten zijn zichtbaar voor mensen buiten Diaspora."
       title: "Je staat op het punt om een openbaar bericht te plaatsen!"
     publisher: 
-      add_photos: "voeg foto's toe"
+      add_photos: "+ foto's"
       all: "al"
       all_contacts: "alle contacten"
       make_public: "maak openbaar"
@@ -391,4 +391,7 @@ nl:
       password_not_changed: "Wachtwoord wijzigen mislukt"
   webfinger: 
     fetch_failed: "ophalen van webfinger profiel is mislukt voor %{profile_url}"
-    hcard_fetch_failed: "er was een probleem bij het ophalen van de hcard voor #{@account}"
+    hcard_fetch_failed: "er was een probleem bij het ophalen van de hcard voor %{account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "webfinger lijkt niet aan te staan voor %{account}'s provider"
+    xrd_fetch_failed: "er was een probleem bij het verkrijgen van de xrd van het account %{account}"

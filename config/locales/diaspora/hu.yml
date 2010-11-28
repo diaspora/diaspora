@@ -309,7 +309,7 @@ hu:
       dont_have_now: "Nincs több meghívód, de hamarosan kapsz még!"
       invitations_left: "(%{count} maradt)"
       invite_someone: "Hívj meg valakit"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "A meghívás jelenleg szünetel erre a Diaspora* kiszolgálóra."
     notification: 
       new: "Új %{type}. Feladó: %{from}"
     public_explain: 
@@ -392,3 +392,6 @@ hu:
   webfinger: 
     fetch_failed: "Nem sikerült lekérni webfinger profilt %{profile_url} számára"
     hcard_fetch_failed: "nem sikerült lekérni a hCard-ot #{@account} számára"
+    no_person_constructed: "Ebből a hCard névjegyből nem lehet személyt létrehozni."
+    not_enabled: "a webfinger nincs engedélyezve %{account} kiszolgálóján"
+    xrd_fetch_failed: "%{account} fiókjából nem sikerült az XRD kiolvasása"

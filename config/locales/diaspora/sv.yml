@@ -309,7 +309,7 @@ sv:
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
       invitations_left: "(%{count} kvar)"
       invite_someone: "Bjud in en kontakt"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "Inbjudningar är för närvarande stängd på denna Diaspora server"
     notification: 
       new: "Ny %{type} från %{from}"
     public_explain: 
@@ -392,3 +392,6 @@ sv:
   webfinger: 
     fetch_failed: "Kunde inte hämta webfinger-profil för %{profile_url}"
     hcard_fetch_failed: "Kunde inte hämta hcard för #{@account}"
+    no_person_constructed: "Den här personen kunde inte hittas (hcard-fel)."
+    not_enabled: "Webfinger verkar inte vara påslaget på %{account}'s server"
+    xrd_fetch_failed: "kunde inte hämta xrd-fil från kontot %{account}"

@@ -6,7 +6,7 @@
 fr: 
   _comments: "Commentaires"
   _home: "Accueil"
-  _photos: "Photos"
+  _photos: "photos"
   _services: "Services"
   account: "Compte"
   activemodel: 
@@ -43,13 +43,13 @@ fr:
     edit_aspect_pane: 
       add_existing: "Ajouter un contact existant"
       confirm_remove_aspect: "Supprimer l'aspect ?"
-      remove_aspect: "Supprimer l'Aspect"
+      remove_aspect: "Supprimer l'aspect"
     helper: 
       are_you_sure: "Êtes-vous sûr(e) de vouloir supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index: 
-      handle_explanation: "Ceci est votre diaspora handle.  Comme une adresse e-mail, vous pouvez le donner à des personnes pour vous joindre."
+      handle_explanation: "Ceci est votre diaspora handle.  Comme une adresse e-mail, vous pouvez le donner à des personnes pour leur permettre de vous joindre."
     manage: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_a_new_contact: "Ajouter un nouveau contact"
@@ -59,7 +59,7 @@ fr:
       requests: "Requêtes"
     move_contact: 
       error: "Erreur lors du déplacement du contact : %{inspect}"
-      failure: "ne fonctionne pas %{inspect}"
+      failure: "n'a pas fonctionné %{inspect}"
       success: "Personne déplacée vers le nouvel aspect"
     new_aspect: 
       create: "Créer"
@@ -68,10 +68,10 @@ fr:
       add_contact: "Ajouter un contact"
       add_contact_to: "Ajouter quelqu'un à %{aspect_name}"
       invite: "Inviter quelqu'un à rejoindre Diaspora !"
-      nobody: "Amenez des personnes qui comptent dans votre vie sur Diaspora !"
+      nobody: "Invitez les personnes qui comptent dans votre vie sur Diaspora !"
       nobody_in_aspect: "Votre aspect '%{aspect_name}' est vide."
     no_posts_message: 
-      start_talking: "Personne n’a encore rien dit.  Commencez dès à présent la conversation !"
+      start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
     remove_from_aspect: 
       failure: "Impossible de supprimer la personne de l'aspect"
       success: "Personne supprimée de l'aspect avec succès"
@@ -81,12 +81,12 @@ fr:
     show: 
       edit_aspect: "éditer l'aspect"
     update: 
-      success: "Votre aspect, %{name}, a été édité avec succès."
+      success: "Votre aspect '%{name}' a été édité avec succès."
   back: "Retour"
   cancel: "Annuler"
   comments: 
     new_comment: 
-      comment: "Commentaire"
+      comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
   contacts: 
     few: "%{count} contacts"
@@ -111,20 +111,20 @@ fr:
       ownership_explanation: "Vous êtes le propriétaire de vos images, et vous ne devriez pas être obligé de renoncer à cela juste pour les partager. Vous conservez la propriété de tout ce que vous partagez sur Diaspora, ce qui vous donne le contrôle total de la manière dont cela est distribué."
       share_what_you_want: "Partagez ce que vous voulez, avec qui vous voulez."
       simplicity: "Simplicité"
-      simplicity_explanation: "Diaspora rend le partage propre et facile - et cela est également valable pour la vie privée. Intrinsèquement privé, Diaspora ne vous contraint pas à vous frayer un chemin à travers des pages de configuration et d'options uniquement pour maintenir la sécurité de votre profil."
+      simplicity_explanation: "Diaspora rend le partage propre et facile - et cela est également valable pour la vie privée. Intrinsèquement privé, Diaspora ne vous contraint pas à vous frayer un chemin à travers des pages de configuration et d'options uniquement pour maintenir votre profil sécurisé."
   invitations: 
     check_token: 
-      not_found: "Jeton d'authentification introuvable"
+      not_found: "Jeton d'invitation introuvable"
     create: 
       already_contacts: "Vous êtes déjà connecté avec cette personne"
       already_sent: "Vous avez déjà invité cette personne."
       no_more: "Vous n’avez plus d’invitation."
-      rejected: "L'adresse e-mail suivante a rencontré des problèmes :"
-      sent: "Des invitations ont été envoyées à :"
+      rejected: "Les adresses e-mail suivantes ont rencontré des problèmes :"
+      sent: "Les invitations ont été envoyées à :"
     edit: 
       sign_up: "inscription"
     new: 
-      comma_seperated_plz: "Vous pouvez entrer plusieurs adresse e-mail séparées par des virgules."
+      comma_seperated_plz: "Vous pouvez entrer plusieurs adresses e-mail séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect auquel vous les avez invités"
       invite_someone_to_join: "Inviter quelqu'un à rejoindre Diaspora !"
       message: "Message :"
@@ -151,13 +151,13 @@ fr:
     hello: "Bonjour %{name} !"
     love: "affectueusement,"
     new_request: 
-      just_sent_you: "vient juste de vous envoyez une requête de contact sur Diaspora*"
+      just_sent_you: "vient juste de vous envoyer une requête de contact sur Diaspora*"
       sign_in: "connectez-vous ici"
       subject: "nouvelle requête de contact Diaspora* de %{from}"
       try_it_out: "Vous devriez vraiment envisager de l'essayer."
     request_accepted: 
-      accepted: "a accepté votre requête de contact. Ils sont maintenant dans votre"
-      aspect: "aspect."
+      accepted: "a accepté votre requête de contact. Il est maintenant dans votre aspect"
+      aspect: "."
       subject: "%{name} a accepté votre requête de contact sur Diaspora*"
   ok: "OK"
   or: "ou"
@@ -180,8 +180,8 @@ fr:
       your_photo: "Votre photo"
       your_profile: "Votre profil"
     helper: 
-      people_on_pod_are_aware_of: " les personnes sur le pod sont au courant de"
-      results_for: " résultats pour %{params}"
+      people_on_pod_are_aware_of: "les personnes sur le pod sont au courant de"
+      results_for: "résultats pour %{params}"
     index: 
       results_for: "résultats de la recherche pour"
     person: 
@@ -206,9 +206,9 @@ fr:
       incoming_request: "Vous avez une requête venant de cette personne."
       no_posts: "aucun message à afficher !"
       not_connected: "Vous n'êtes pas connecté à cet personne"
-      request_people: "Si vous le voulez, vous pouvez demander à le/la placer dans vos aspects."
+      request_people: "Si vous le voulez, vous pouvez demander à le/la placer dans un de vos aspects."
       return_to_aspects: "Retourner à votre page des aspects"
-      to_accept_or_ignore: "l'accepter ou l'ignorer."
+      to_accept_or_ignore: "pour l'accepter ou l'ignorer."
     update: 
       failed: "La mise à jour du profil a échoué"
       updated: "Profil mis à jour"
@@ -285,11 +285,11 @@ fr:
   settings: "Options"
   shared: 
     add_contact: 
-      create_request: "Trouver par Diaspora handle"
-      diaspora_handle: "Identifiant Diaspora"
-      enter_a_diaspora_username: "Enter a Diaspora username:"
+      create_request: "Trouver à l'aide du Diaspora handle"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
       know_email: "Vous connaissez leur adresse e-mail ? Vous devriez les inviter"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+      your_diaspora_username_is: "Votre nom d'utilisateur diaspora est : %{diaspora_handle}"
     aspect_contacts: 
       add_aspect: "ajouter un aspect"
       add_existing: "Ajouter un contact existant"
@@ -309,7 +309,7 @@ fr:
       dont_have_now: "Vous n'avez aucun droit pour l'instant, mais plus d'invitations arriveront bientôt !"
       invitations_left: "(%{count} restant(s))"
       invite_someone: "Inviter quelqu'un"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "Les invitations sont présentement fermées sur ce pod"
     notification: 
       new: "Nouveau/nouvelle %{type} de %{from}"
     public_explain: 
@@ -358,7 +358,7 @@ fr:
       connect_services: "Connectez vos autres services"
       define_aspects: "Définissez vos aspects"
       edit_profile: "Éditez votre profil"
-      finished: "Fin!"
+      finished: "Terminé !"
       save_and_continue: "Enregistrer et continuer"
       signup_steps: "Complétez votre inscription en suivant ces trois étapes :"
       skip: "passer la présentation"
@@ -366,7 +366,7 @@ fr:
         add: "Ajouter"
         aspect_name: "Nom de l'aspect"
         description: "Signalez à Diaspora quels différents aspects sont vus par différents contacts. Vous pourrez plus tard gérer ceux-ci en allant sur votre menu de compte en haut à droite. Vos aspects vous sont spécifiques et ne sont pas visibles pour les autres."
-        drag_to_add: "Déplacez les dans l'aspect qui leur correspond"
+        drag_to_add: "Déplacez les dans l'aspect de votre vie qui leur correspond"
         no_requests: "Vous n'avez pas de requêtes"
         your_aspects: "Vos aspects"
         your_inviter: "Personnes en attente d'une réponse de votre part :"
@@ -379,7 +379,7 @@ fr:
         finish: "Terminer"
         manage_aspects: "Vous pouvez également ajouter des contacts sur chacune de vos pages d'aspect."
         ready_to_share: "Vous êtes maintenant prêt à partager avec "
-        set_up: "Vous êtes entièrement configuré, %{name}!"
+        set_up: "Vous êtes entièrement configuré, %{name} !"
         user_menu: "le menu utilisateur situé en haut à droite."
       welcome: "Bienvenue sur Diaspora !"
     public: 
@@ -391,4 +391,7 @@ fr:
       password_not_changed: "Échec de la mise à jour du mot de passe"
   webfinger: 
     fetch_failed: "impossible de télécharger le profil webfinger pour %{profile_url}"
-    hcard_fetch_failed: "une erreur est survenue lors du téléchargement de la hcard de #{@account}"
+    hcard_fetch_failed: "une erreur est survenue lors du téléchargement de la hcard de %{account}"
+    no_person_constructed: "Cette hcard semble être invalide."
+    not_enabled: "webfinger ne semble pas être activé sur l'hôte de %{account}'s"
+    xrd_fetch_failed: "une erreur est survenue lors de la récupération du xrd du compte %{account}"

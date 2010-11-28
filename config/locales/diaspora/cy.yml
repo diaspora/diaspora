@@ -51,18 +51,18 @@ cy:
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
     manage: 
-      add_a_new_aspect: "Ychwanegwch agwedd"
+      add_a_new_aspect: "Add a new aspect"
       add_a_new_contact: "Add a new contact"
       drag_to_add: "Drag to add people"
       manage_aspects: "Manage aspects"
       no_requests: "No new requests"
-      requests: "Ceisiadau"
+      requests: "Requests"
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
     new_aspect: 
-      create: "Creu"
+      create: "Create"
       name: "Name"
     no_contacts_message: 
       add_contact: "Add a contact"
@@ -220,11 +220,11 @@ cy:
     destroy: 
       notice: "Photo deleted."
     edit: 
-      editing: "Golygu"
+      editing: "Editing"
     new: 
       back_to_list: "Nol i'r Rhestr"
-      new_photo: "Llun Newydd"
-      post_it: "postiwch e!"
+      new_photo: "New Photo"
+      post_it: "post it!"
     new_photo: 
       empty: "{file} is empty, please select files again without it."
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
@@ -232,7 +232,7 @@ cy:
     photo: 
       view_all: "view all of %{name}'s photos"
     show: 
-      delete_photo: "Dileu Llun"
+      delete_photo: "Delete Photo"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "make profile photo"
@@ -324,7 +324,7 @@ cy:
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "Posting..."
-      share: "Rhannu"
+      share: "Share"
       share_with: "Share with %{aspect}"
       share_with_all: "Share with all aspects"
     reshare: 
@@ -334,9 +334,9 @@ cy:
       no_message_to_display: "No message to display."
     new_status_message: 
       oh_yeah: "oh yeah!"
-      tell_me_something_good: "Dwi eisiau clywed rhwbeth da"
+      tell_me_something_good: "tell me something good"
     show: 
-      destroy: "Dinistrio"
+      destroy: "Destroy"
   stream_helper: 
     hide_comments: "hide comments"
     show_comments: "show comments"
@@ -392,3 +392,6 @@ cy:
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"

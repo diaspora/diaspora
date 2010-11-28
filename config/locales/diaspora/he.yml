@@ -309,7 +309,7 @@ he:
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
       invitations_left: "(%{count} נותרו)"
       invite_someone: "להזמין מישהו"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "נכון לעכשיו ההזמנות לפוד זה של דיאספורה סגורות"
     notification: 
       new: "%{type} חדש מאת %{from}"
     public_explain: 
@@ -391,4 +391,7 @@ he:
       password_not_changed: "החלפת הססמה נכשלה"
   webfinger: 
     fetch_failed: "אירע כשל בקבלת פרופיל ה־webfinger שלך ל־%{profile_url}"
-    hcard_fetch_failed: "אירעה שגיאה בעת קבלת ה־hcard למספר {@account}"
+    hcard_fetch_failed: "אירעה שגיאה בעת קבלת ה־hcard לחשבון %{account}"
+    no_person_constructed: "לא ניתן להרכיב איש קשר מ־hcard זה."
+    not_enabled: "נראה כי webfinger אינו פעיל עבור המארח של %{account}"
+    xrd_fetch_failed: "אירעה שגיאה בקבלת ה־xrd מהחשבון %{account}"

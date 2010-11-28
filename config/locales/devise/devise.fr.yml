@@ -21,7 +21,7 @@ fr:
     invitations: 
       invitation_token_invalid: "Le jeton d’invitation fourni n’est pas valide !"
       send_instructions: "Votre invitation a été envoyée."
-      updated: "Votre mot de passe a été réglé avec succès. Vous êtes à présent connecté."
+      updated: "Votre mot de passe a été créé avec succès. Vous êtes à présent connecté."
     mailer: 
       confirmation_instructions: 
         confirm: "Confirmer mon compte"
@@ -31,7 +31,7 @@ fr:
       invitation: 
         accept: "Accepter l'invitation"
         ignore: "Si vous ne souhaitez pas accepter l'invitation, merci d'ignorer cet e-mail."
-        no_account_till: "Votre compte ne sera pas créé avant que vous ne vous inscriviez en accédant au lien ci-dessus"
+        no_account_till: "Votre compte ne sera pas créé avant que vous ne vous inscriviez en accédant au lien ci-dessus."
         subject: "Vous avez été invité à rejoindre Diaspora !"
       inviters: 
         accept_at: ", sur %{url}, vous pouvez accepter à travers le lien ci-dessous."
@@ -41,10 +41,10 @@ fr:
         change: "Changer mon mot de passe"
         ignore: "Si vous n'avez pas demandé cela, merci d'ignorer cet e-mail."
         someone_requested: "Quelqu'un a demandé un lien pour changer votre mot de passe, vous pouvez effectuer cela à travers le lien ci-dessous."
-        subject: "Instructions de réinitialisation du mot de passe"
+        subject: "Instructions de réinitialisation de mot de passe"
         wont_change: "Votre mot de passe ne changera pas avant que vous n'en créiez un nouveau en accédant au lien ci-dessus. "
       unlock_instructions: 
-        account_locked: "Votre compte a été bloqué à cause d'un nombre excessif de tentatives infructueuses de connexion"
+        account_locked: "Votre compte a été bloqué à cause d'un nombre excessif de tentatives infructueuses de connexion."
         click_to_unlock: "Cliquez sur le lien ci-dessous pour débloquer votre compte :"
         subject: "Instructions de déverrouillage"
         unlock: "Débloquer mon compte"
@@ -64,7 +64,7 @@ fr:
     sessions: 
       new: 
         alpha_software: "Vous êtes sur le point d'utiliser une application en version alpha."
-        bugs_and_feedback: "Soyez bien conscient que vous serez confronté à des bugs. Nous vous encourageons à utiliser le bouton Feedback à la droite de votre navigateur pour reporter tout disfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous reportez."
+        bugs_and_feedback: "Soyez bien conscient que vous serez confronté à des bugs. Nous vous encourageons à utiliser le bouton Feedback à la droite de votre navigateur pour reporter tout disfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous reporterez."
         have_a_problem: "Un problème ? Trouvez une réponse ici"
         login: "Se connecter"
         modern_browsers: "supporte seulement des navigateurs modernes."
@@ -81,7 +81,7 @@ fr:
         receive_unlock: "Vous n'avez pas reçu les instructions de déblocage ?"
         sign_in: "Connexion"
         sign_up: "Inscription"
-        sign_up_closed: "Les inscriptions libres sont fermées pour l'instant."
+        sign_up_closed: "Les inscriptions sont fermées pour l'instant."
       mail_signup_form: 
         sign_up_for_an_invite: "Demander une invitation !"
     unlocks: 

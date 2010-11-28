@@ -23,8 +23,8 @@ sk:
             person: 
               invalid: "je neplatný"
             username: 
-              taken: "is already taken"
-  ago: ""
+              taken: "je už obsadené"
+  ago: "dozadu"
   application: 
     helper: 
       unknown_person: "neznáma osoba"
@@ -41,9 +41,9 @@ sk:
     destroy: 
       success: "Užívateľ %{name} bol úspešne odstránený."
     edit_aspect_pane: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      add_existing: "Pridať existujúci kontakt"
+      confirm_remove_aspect: "Odstrániť aspekt?"
+      remove_aspect: "Odstrániť aspekt"
     helper: 
       are_you_sure: "Skutočne chcete odstrániť tento aspekt?"
       aspect_not_empty: "Aspekt nie je prázdny"
@@ -67,8 +67,8 @@ sk:
     no_contacts_message: 
       add_contact: "Pridať kontakt"
       add_contact_to: "Pridať niekoho k aspektu %{aspect_name}"
-      invite: "Prizvať niekoho k Diaspóre!"
-      nobody: "Pozvite do Diaspóry ľudí, na ktorých Vám záleží!"
+      invite: "Prizvať niekoho k Diaspore!"
+      nobody: "Pozvite do Diaspory ľudí, na ktorých Vám záleží!"
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdny."
     no_posts_message: 
       start_talking: "Nikto nič nevraví. Začnite Vy!"
@@ -89,29 +89,29 @@ sk:
       comment: "Komentár"
       commenting: "Komentuje..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "kontakty (%{count})"
+    one: "1 kontakt"
+    other: "kontakty (%{count})"
+    zero: "žiadne kontakty"
   delete: "Zmazať"
   email: "e-mail"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Upravte nasledujúce chyby a skúste znova."
       invalid_fields: "Chybné polia"
-  fill_me_out: "Vyplni ma"
+  fill_me_out: "Vyplň ma"
   home: 
     show: 
       already_account: "Máte už vytvorený účet?"
       choice: "Možnosť"
-      choice_explanation: "Diaspóra Vám umožňuje priradiť si všetky Vaše spojenia do skupín, ktoré sa volajú Aspekty. Je unikátna  práve tým, že dokáže zabezpečiť, aby k fotkám, správam a statusom mali prístup len tí, ktorých si v aspektoch určíte."
-      learn_about_host: "Dozvedieť sa o viac o tom, ako hostiť vlastný Diaspóra server."
+      choice_explanation: "Diaspora Vám umožňuje priradiť si všetky Vaše spojenia do skupín, ktoré sa volajú Aspekty. Je unikátna  práve tým, že dokáže zabezpečiť, aby k fotkám, správam a statusom mali prístup len tí, ktorých si v aspektoch určíte."
+      learn_about_host: "Dozvedieť sa o viac o tom, ako hostiť vlastný Diaspora server."
       login_here: "Prihlásiť sa tu"
       ownership: "Vlastníctvo"
       ownership_explanation: "Vaše obrázky sú Vašim vlastníctvom. Nemali by ste sa ho zriekať len kvôli tomu, že ich chcete zdieľať. Zachovajte si preto právo na všetko, čo zverejňujete. Len to Vám dá plnú kontrolu nad tým, ako sa s tým nakladá."
       share_what_you_want: "Zdieľajte čo chcete a s kým chcete."
       simplicity: "Jednoduchosť"
-      simplicity_explanation: "Zdieľanie v Diaspóre je veľmi ľahké a transparenté – je to dvojitá záruka ochrany súkromia. Ohľadom súkromia, Diaspóra neobsahuje žiadne zložité stránky s nastavením, ktorými by ste sa museli prelúskať, aby ste uchovali bezpečnosť Vášho profilu podľa svojich predstáv."
+      simplicity_explanation: "Zdieľanie v Diaspore je veľmi ľahké a transparentné – je to dvojitá záruka ochrany súkromia. Ohľadom súkromia, Diaspora neobsahuje žiadne zložité stránky s nastavením, ktorými by ste sa museli prelúskať, aby ste uchovali bezpečnosť Vášho profilu podľa svojich predstáv."
   invitations: 
     check_token: 
       not_found: "Pozývací token nenájdený"
@@ -119,14 +119,14 @@ sk:
       already_contacts: "S touto osobou už ste v kontakte"
       already_sent: "Tejto osobe ste už pozvánku zaslali."
       no_more: "Nemáte žiadné nové pozvania."
-      rejected: "Problém s nasledujúcimi adresami : "
+      rejected: "Problém s nasledujúcimi adresami: "
       sent: "Vaše pozvanie bolo odoslané."
     edit: 
       sign_up: "Zaregistrovať sa"
     new: 
       comma_seperated_plz: "Môžete vložiť viacero adries oddelených čiarkou."
       if_they_accept_info: "ak budú súhlasiť, pridajú sa k aspektu, do ktorého ste ich pozvali."
-      invite_someone_to_join: "Pozvite niekoho do Diaspóry*!"
+      invite_someone_to_join: "Pozvite niekoho do Diaspory*!"
       message: "Správa:"
       send_an_invitation: "Send an invitation"
       send_invitation: "Poslať pozvánku"
@@ -142,35 +142,35 @@ sk:
       logout: "odhlásiť sa"
       view_profile: "pozrieť profil"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "nové žiadosti (%{count})"
+    one: "jedna nová žiadosť"
+    other: "nové žiadosti (%{count})"
+    zero: "žiadne nové žiadosti"
   notifier: 
-    diaspora: "e-mail robot Diaspóry"
+    diaspora: "e-mail robot Diaspory"
     hello: "Ahoj %{name}!"
     love: "miluje,"
     new_request: 
-      just_sent_you: "Vám zaslal žiadosť v Diaspóre*"
+      just_sent_you: "Vám zaslal žiadosť v Diaspore*"
       sign_in: "Prihláste sa"
       subject: "Nová žiadosť o kontakt od %{from}"
       try_it_out: "Mali by ste to skontrolovať."
     request_accepted: 
       accepted: "prijal Vašu žiadosť. Teraz je vo Vašich"
       aspect: "aspekt."
-      subject: "Užívateľ %{name} prijal Vašu žiadosť a pripojil sa k Diaspóre*"
+      subject: "Užívateľ %{name} prijal Vašu žiadosť a pripojil sa k Diaspore*"
   ok: "OK"
   or: "alebo"
   pagination: 
-    next: "Next"
-    previous: "Previous"
+    next: "Ďalšie"
+    previous: "Predchádzajúce"
   password: "Heslo"
   password_confirmation: "Potvrdenie hesla"
   people: 
     edit: 
-      allow_search: "Dovoliť ostatným vyhľadať Vás v Diaspóre"
+      allow_search: "Dovoliť ostatným vyhľadať Vás v Diaspore"
       first_name: "Meno"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      info_available_to: "Tieto informácie budú dostupné komukoľvek, s kým sa spojíte na Diaspore."
       last_name: "Priezvisko"
       update_profile: "Aktualizovať profil"
       your_bio: "O Vás"
@@ -190,7 +190,7 @@ sk:
       pending_request: "čakajúce žiadosti"
       thats_you: "To si ty!"
     profile_photo_upload: 
-      or_select_one: "alebo vyberte jeden už z existujúcich"
+      or_select_one: "alebo vyberte jeden z už existujúcich"
     profile_sidebar: 
       bio: "Niečo o Vás"
       born: "dátum narodenia"
@@ -203,20 +203,20 @@ sk:
     show: 
       already_requested: "Žiadosť uživateľovi %{name} ste už zaslali."
       does_not_exist: "Osoba neexistuje!"
-      incoming_request: "You have an incoming request from this person."
+      incoming_request: "Od tejto osoby máte prichádzajúcu žiadosť."
       no_posts: "Žiadne príspevky na zobrazenie!"
-      not_connected: "S touto osobou nieste prepojený"
+      not_connected: "S touto osobou nie ste prepojený"
       request_people: "Ak si prajete, môžete požiadať o umiestnenie osoby v jednom z Vašich aspektov."
-      return_to_aspects: "Return to your aspects page"
-      to_accept_or_ignore: "to accept or ignore it."
+      return_to_aspects: "Vrátiť sa na stránku aspektov"
+      to_accept_or_ignore: "akceptovať, alebo ignorovať."
     update: 
       failed: "Aktualizácia profilu zlyhala"
       updated: "Profil upravený"
   photos: 
     create: 
       integrity_error: "Načítanie fotky zlyhalo. Ste si istý, že to bol obrázok?"
-      runtime_error: "Načítanie fotky zlyhalo.  Are you sure that your seatbelt is fastened?"
-      type_error: "Načítanie fotky zlyhalo.  Are you sure an image was added?"
+      runtime_error: "Načítanie fotky zlyhalo.  Ste si istý, že ste zapásaný?"
+      type_error: "Načítanie fotky zlyhalo.  Ste si istý, že to bol obrázok?"
     destroy: 
       notice: "Fotka zmazaná."
     edit: 
@@ -226,8 +226,8 @@ sk:
       new_photo: "Nová fotka"
       post_it: "poslať!"
     new_photo: 
-      empty: "{file} je prázdny, please select files again without it."
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
+      empty: "{file} je prázdny, prosím, vyberte súbory znovu bez tohto."
+      invalid_ext: "{file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       size_error: "{file} je príliš veľký, maximálna veľkosť súboru je {sizeLimit}."
     photo: 
       view_all: "pozrieť všetky fotky užívateľa %{name}"
@@ -246,20 +246,20 @@ sk:
   registrations: 
     closed: "Registrácie sú zatvorené"
     create: 
-      success: "Pripojili ste sa k Diaspóre!"
+      success: "Pripojili ste sa k Diaspore!"
     edit: 
       cancel_my_account: "Zrušiť môj účet"
       edit: "Upraviť %{name}"
-      leave_blank: "(Ak si neželáte upraviť, nechajte prosím políčko prázdne)"
+      leave_blank: "(Ak si neželáte upraviť, nechajte prosím pole prázdne)"
       password_to_confirm: "(Pre potvrdenie zmien budeme potrebovať Vaše heslo)"
       unhappy: "Nešťastný?"
       update: "Aktualizovať"
     new: 
       sign_up: "Zaregistruj sa"
-      sign_up_for_diaspora: "Pridaj sa k Diaspóre"
+      sign_up_for_diaspora: "Pridaj sa k Diaspore"
   requests: 
     create: 
-      sending: "Posielanie..."
+      sending: "Posielam..."
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Vyberte aspekt prosím!"
@@ -286,7 +286,7 @@ sk:
   shared: 
     add_contact: 
       create_request: "Find by Diaspora handle"
-      diaspora_handle: "Užívateľská príručka Diaspóry"
+      diaspora_handle: "Užívateľská príručka Diaspory"
       enter_a_diaspora_username: "Zadajte užívateľské meno:"
       know_email: "Poznáte ich e-mail? Mali by ste ich pozvať."
       your_diaspora_username_is: "Vaše užívateľské meno je %{diaspora_handle}"
@@ -303,19 +303,19 @@ sk:
       no_contacts: "Momentálne nemáte žiadne kontakty. Nájdite ich tu."
       remove_aspect: "Odstrániť aspekt"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "Všetky kontakty"
       cannot_remove: "Nie je možné osobu odstrániť z posledného aspektu. (Ak s ňou chcete nadobro prerušiť kontakt, odstráňte ju prosím z Vášho zoznamu osôb.)"
     invitations: 
-      dont_have_now: "Momentálne už nemáte žiadnu pozvánku. Ďalšie pribudnú už čoskoro."
+      dont_have_now: "Momentálne už nemáte žiadnu pozvánku. Ďalšie pribudnú čoskoro."
       invitations_left: "(%{count} ostáva)"
       invite_someone: "Pozvať niekoho"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "Pozvánky sú na tomto seede momentálne uzavreté"
     notification: 
       new: "Nový %{type} od %{from}"
     public_explain: 
       logged_in: "Prihlásenie k %{service}"
       manage: "Spravovať pripojené služby"
-      outside: "Verejnú správu môžu vidieť aj užívatelia mimo Diaspóry."
+      outside: "Verejnú správu môžu vidieť aj užívatelia mimo Diaspory."
       title: "Práve posielate verejnú správu!"
     publisher: 
       add_photos: "Pridať fotky"
@@ -331,15 +331,15 @@ sk:
       reshare: "Znovu zdieľať"
   status_messages: 
     helper: 
-      no_message_to_display: "Źiadne správy na zobrazenie."
+      no_message_to_display: "Žiadne správy na zobrazenie."
     new_status_message: 
       oh_yeah: "Skvelé!"
       tell_me_something_good: "Povedz niečo dobré"
     show: 
       destroy: "Zničiť"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "skyť komentáre"
+    show_comments: "zobraziť komentáre"
   the_world: "svet"
   username: "Užívateľské meno"
   users: 
@@ -353,25 +353,25 @@ sk:
       export_data: "Exportovať dáta"
       new_password: "Nové heslo"
       your_email: "Váš e-mail"
-      your_handle: "Príručka k Diaspóre"
+      your_handle: "Príručka k Diaspore"
     getting_started: 
       connect_services: "Pripojiť Vaše služby"
       define_aspects: "Definujte Váš aspekt"
       edit_profile: "Upraviť Váš profil"
       finished: "Dokončené!"
       save_and_continue: "Uložiť a pokračovať"
-      signup_steps: "Dokončite svoju registráciu týmito troma krokmi :"
-      skip: "skip getting started"
+      signup_steps: "Dokončite svoju registráciu týmito troma krokmi:"
+      skip: "Preskočiť"
       step_2: 
         add: "Pridať"
         aspect_name: "Názov aspektu"
-        description: "Prezraďte Diaspóre, kto môže vidieť Vaše aspekty. Neskôr ich môžete spravovať kliknutím na tlačidlo - nastavenia účtu, vpravo hore."
-        drag_to_add: "Drag them to the aspect of yourself they know"
-        no_requests: "You have no requests"
+        description: "Prezraďte Diaspore, kto môže vidieť Vaše aspekty. Neskôr ich môžete spravovať kliknutím na tlačidlo - nastavenia účtu, vpravo hore."
+        drag_to_add: "Potiahniťe ich do aspektov, ktoré poznajú"
+        no_requests: "Nemáte žiadne žiadosti."
         your_aspects: "Váš aspekt"
-        your_inviter: "Here are the people who are waiting for you:"
+        your_inviter: "Toto sú ľudia, ktorí na Vás čakajú:"
       step_3: 
-        description: "Diaspóru môžete prepojiť s Vašimi sociálnymi sieťami v nastaveniach. Vaše statusy uverejníte mimo Diaspóry vybratím možnosti \"zverejniť\"."
+        description: "Diasporu môžete prepojiť s Vašimi sociálnymi sieťami v nastaveniach. Vaše statusy uverejníte mimo Diaspory vybratím možnosti \"zverejniť\"."
         your_services: "Vaše služby"
       step_4: 
         change_profile: "Váš profil, ako aj iné nastavenia môžete kedykoľvek upraviť."
@@ -381,7 +381,7 @@ sk:
         ready_to_share: "Teraz už môžte zdieľať s"
         set_up: "Gratulujeme %{name}, všetko ste úspešne nastavili!"
         user_menu: "užívateľské menu je situované vpravo hore."
-      welcome: "Vitajte v Diaspóre!"
+      welcome: "Vitajte v Diaspore!"
     public: 
       does_not_exist: "Užívateľ %{username} neexistuje!"
     update: 
@@ -390,5 +390,8 @@ sk:
       password_changed: "Heslo zmenené"
       password_not_changed: "Zmena hesla zlyhala"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+    fetch_failed: "Nepodarilo sa získať webfinger profil pre %{profile_url}"
+    hcard_fetch_failed: "Nepodarilo sa získať hcard pre %{@account}"
+    no_person_constructed: "Žiadna osoba nemôže byť vytvorená z tejto hcard."
+    not_enabled: "Zdá sa, že webfinger nie je povolený pre hostiteľa %{account}"
+    xrd_fetch_failed: "Nastala chyba pri získavaní xrd z konta %{account}"

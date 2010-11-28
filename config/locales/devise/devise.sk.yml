@@ -32,11 +32,11 @@ sk:
         accept: "Potvrdiť pozvánku"
         ignore: "Ak nechcete potvrdiť pozvanie, tento e-mail prosím ignorujte."
         no_account_till: "Pre dokončenie registrácie kliknite prosím na odkaz uvedený nižšie."
-        subject: "Boli ste prizvaný k Diaspóre!"
+        subject: "Boli ste prizvaný k Diaspore!"
       inviters: 
         accept_at: ", na %{url}, akceptujte kliknutím na odkaz."
-        has_invited_you: "%{name} Vás prizval k Diaspóre"
-        have_invited_you: "%{names} Vás pozvali k Diaspóre"
+        has_invited_you: "%{name} Vás prizval k Diaspore"
+        have_invited_you: "%{names} Vás pozvali k Diaspore"
       reset_password_instructions: 
         change: "Zmeniť moje heslo"
         ignore: "Ak ste o to nežiadali, prosím tento e-mail ignorujte."
@@ -64,7 +64,7 @@ sk:
     sessions: 
       new: 
         alpha_software: "Používate testovaciu verziu."
-        bugs_and_feedback: "Tlačidlom Feedback, na pravej strane prehliadača upozornite prosím na chyby, ktoré pri používaní objavíte. Budeme sa ich snažiť odstrániť tak skoro, ako to len pôjde."
+        bugs_and_feedback: "Tlačidlom Feedback na pravej strane prehliadača upozornite prosím na chyby, ktoré pri používaní objavíte. Budeme sa ich snažiť odstrániť tak skoro, ako to len pôjde."
         have_a_problem: "Máte problém? Tu nájdete odpoveď"
         login: "Prihlasovacie meno"
         modern_browsers: "podporuje moderné prehliadače."
@@ -83,7 +83,7 @@ sk:
         sign_up: "Zaregistrovať"
         sign_up_closed: "Momentálne sú ďalšie registrácie pozastavené."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Požidať o pozvánku!"
     unlocks: 
       new: 
         resend_unlock: "Zaslať návod na odblokovanie"
