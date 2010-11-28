@@ -6,6 +6,6 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 #use Rack::FiberPool
-require 'lib/chrome_frame'
+require ::File.expand_path('../lib/chrome_frame', __FILE__)
 use Rack::ChromeFrame
 run Diaspora::Application
