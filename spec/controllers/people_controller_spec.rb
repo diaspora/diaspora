@@ -57,6 +57,19 @@ describe PeopleController do
       response.should be_success
     end
 
+    it 'renders with a post' do
+      user.post :status_message, :message => 'test more', :to => aspect.id
+      get :show, :id => user.person.id
+      response.should be_success
+    end
+
+    it 'renders with a post' do
+      message = user.post :status_message, :message => 'test more', :to => aspect.id
+      user.comment 'I mean it', :on => message
+      get :show, :id => user.person.id
+      response.should be_success
+    end
+
     it "redirects on an invalid id" do
       get :show, :id => 'delicious'
       response.should redirect_to people_path
