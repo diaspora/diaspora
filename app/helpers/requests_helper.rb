@@ -13,5 +13,4 @@ module RequestsHelper
         link_to t('new_requests', :count => @request_count), aspects_manage_path
     end
   end
-
 end
