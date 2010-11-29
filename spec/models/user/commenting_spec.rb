@@ -19,40 +19,26 @@ describe User do
   end
 
   describe '#dispatch_comment' do
-
-    context 'post owners contact comments on post' do
-      it 'should not call receive on local users' do
-        pending 'need to call should_receive without it being destructive'
-
-        user1.should_receive(:receive_comment)
+    context "post owner's contact is commenting" do
+      it "doesn't call receive on local users" do
+        user1.should_not_receive(:receive_comment)
         user2.should_not_receive(:receive_comment)
-        user1.should_receive(:dispatch_comment)
-
-        user1.reload
-        user2.reload
-
+        
         comment = user2.build_comment "why so formal?", :on => @post
         comment.save!
         user2.dispatch_comment comment
       end
     end
 
-    context 'post owner comments on own post' do
-      it 'should only dispatch once' do
-        pending 'need to call should_receive without it being destructive'
-
-        user1.should_receive(:dispatch_comment).once
+    context "post owner is commenting on own post" do
+      it "doesn't call receive on local users" do
+        user1.should_not_receive(:receive_comment)
         user2.should_not_receive(:receive_comment)
-        user2.should_not_receive(:dispatch_comment)
-
-        user1.reload
-        user2.reload
-
-        comment = user1.build_comment "why so serious?", :on => @post
-        comment.save
+        
+        comment = user1.build_comment "why so formal?", :on => @post
+        comment.save!
         user1.dispatch_comment comment
       end
     end
-
   end
 end
