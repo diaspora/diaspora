@@ -18,7 +18,7 @@ var AspectEdit = {
       drop: AspectEdit.onDropMove
     });
 
-    $("#aspect_list").find(".delete").live("click", AspectEdit.deletePerson);
+    $("#manage_aspect_zones").find(".delete").live("click", AspectEdit.deletePerson);
     $(".aspect h3").live('focus', AspectEdit.changeName);
   },
 

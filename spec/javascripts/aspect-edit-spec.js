@@ -39,7 +39,7 @@ describe("AspectEdit", function() {
       spyOn($.fn, "live");
       AspectEdit.initialize();
       expect($.fn.live).toHaveBeenCalledWith("click", AspectEdit.deletePerson);
-      expect($.fn.live.calls[0].object.selector).toEqual(".delete");
+      expect($.fn.live.calls[0].object.selector).toEqual("#manage_aspect_zones .delete");
     });
     it("sets up the focus event on aspect name", function() {
       spyOn($.fn, "live");
