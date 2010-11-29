@@ -3,7 +3,8 @@ class ActionView::LogSubscriber
     message = "event=render "
     message << "template=#{from_rails_root(event.payload[:identifier])} "
     message << "layout=#{from_rails_root(event.payload[:layout])} " if event.payload[:layout]
-    message << "ms=#{("%.1f" % event.duration)}"
+    message << "ms=#{("%.1f" % event.duration)} "
+    #message << "r_id=#{event.transaction_id} "
     Rails.logger.info(message)
   end
   alias :render_partial :render_template
@@ -24,7 +25,8 @@ class ActionController::LogSubscriber
     log_string << "controller=#{payload[:controller]} action=#{payload[:action]} format=#{payload[:formats].first.to_s.upcase} "
     log_string << "ms=#{"%.0f" % event.duration} "
     log_string << "params='#{params.inspect}' " unless params.empty?
-    log_string << "additions='#{additions.join(" | ")}'" unless additions.blank?
+    #log_string << "additions='#{additions.join(" | ")}' " unless additions.blank?
+    log_string << "r_id=#{event.transaction_id} "
 
     Rails.logger.info(log_string)
   end

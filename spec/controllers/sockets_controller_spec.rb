@@ -29,12 +29,6 @@ describe SocketsController do
       @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     end
 
-    it 'should actionhash photos' do
-      photo = @user.post(:photo, :album_id => nil, :to => @aspect.id, :user_file => File.open(@fixture_name))
-      json  = @controller.action_hash(@user.id, photo, :aspect_ids => :all)
-      json.include?('photo').should be_true
-    end
-
     it 'should actionhash posts' do
       json = @controller.action_hash(@user.id, @message)
       json.include?(@message.message).should be_true

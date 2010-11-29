@@ -89,10 +89,10 @@ ru:
       comment: "Комментарий"
       commenting: "Комментирование ..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} контактов"
+    one: "1 контакт"
+    other: "%{count} контактов"
+    zero: "ни одного контакта"
   delete: "Удаление"
   email: "Email"
   error_messages: 
@@ -142,10 +142,10 @@ ru:
       logout: "выйти"
       view_profile: "просмотр профиля"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} новых запросов!"
+    one: "новый запрос!"
+    other: "%{count} новых запросов!"
+    zero: "новых запросов нет"
   notifier: 
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
@@ -162,8 +162,8 @@ ru:
   ok: "Ок"
   or: "или"
   pagination: 
-    next: "Next"
-    previous: "Previous"
+    next: "Следующая"
+    previous: "Предыдущая"
   password: "Пароль"
   password_confirmation: "Подтверждение пароля"
   people: 
@@ -338,8 +338,8 @@ ru:
     show: 
       destroy: "Уничтожить"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "скрыть комментарии"
+    show_comments: "комментарии"
   the_world: "мир"
   username: "Пользователь"
   users: 
@@ -367,7 +367,7 @@ ru:
         aspect_name: "Имя аспекта"
         description: "Укажите какие аспекты будут доступны для просмотра вашим контактам. Вы сможете изменять их в будущем, нажав на вкладку Управление в правом верхнем углу. Ваши аспекты уникальны и не видны другим."
         drag_to_add: "Перетащите их в ваш аспект"
-        no_requests: "You have no requests"
+        no_requests: "У вас нет запросов"
         your_aspects: "Ваши аспекты"
         your_inviter: "Здесь люди ожидающие вас:"
       step_3: 
@@ -390,7 +390,7 @@ ru:
       password_changed: "Пароль изменён"
       password_not_changed: "Неудачное изменение пароля "
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    fetch_failed: "Не удалось получить профиль для %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
     no_person_constructed: "No person could be constructed from this hcard."
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"

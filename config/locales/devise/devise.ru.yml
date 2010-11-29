@@ -83,7 +83,7 @@ ru:
         sign_up: "Регистрация"
         sign_up_closed: "Регистрация на данный момент не доступна."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Зарегистрируйтесь для приглашения!"
     unlocks: 
       new: 
         resend_unlock: "Отправить повторно инструкции по разблокированию"

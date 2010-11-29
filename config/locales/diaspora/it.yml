@@ -41,9 +41,9 @@ it:
     destroy: 
       success: "%{name} è stato rimosso con successo."
     edit_aspect_pane: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      add_existing: "Aggiungi un contatto esistente"
+      confirm_remove_aspect: "Rimuovere l'aspetto?"
+      remove_aspect: "Rimuovi Aspetto"
     helper: 
       are_you_sure: "Sei sicuro di voler cancellare questo aspetto?"
       aspect_not_empty: "Aspetto non vuoto"
@@ -89,10 +89,10 @@ it:
       comment: "Commento"
       commenting: "Invio commento in corso..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} contatti"
+    one: "1 contatto"
+    other: "%{count} contatti"
+    zero: "nessun contatto"
   delete: "Cancella"
   email: "Email"
   error_messages: 
@@ -142,10 +142,10 @@ it:
       logout: "esci"
       view_profile: "visualizza profilo"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} nuove richieste!"
+    one: "nuova richiesta!"
+    other: "%{count} nuove richieste!"
+    zero: "nessuna nuova richiesta"
   notifier: 
     diaspora: "l'email robot di diaspora"
     hello: "Ciao %{name}!"
@@ -162,8 +162,8 @@ it:
   ok: "OK"
   or: "o"
   pagination: 
-    next: "Next"
-    previous: "Previous"
+    next: "Successivo"
+    previous: "Precedente"
   password: "Password"
   password_confirmation: "Conferma password"
   people: 
@@ -297,19 +297,19 @@ it:
       all_contacts: "Tutti i contatti"
       aspect_settings: "Impostazioni aspetto"
       aspects: "Aspetti"
-      confirm_remove_aspect: "Rimuovere aspetto?"
+      confirm_remove_aspect: "Rimuovere l'aspetto?"
       done_editing: "modifica completata"
       invites: "Inviti"
       no_contacts: "Al momento non hai contatti.  Trova i tuoi contatti qui."
       remove_aspect: "Rimuovi Aspetto"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "Tutti i contatti"
       cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto."
     invitations: 
       dont_have_now: "Non ne hai alcuno per il momento, ma altri arriveranno presto!"
       invitations_left: "(%{count} rimanenti)"
       invite_someone: "Invita qualcuno"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites_closed: "Al momento gli inviti sono chiusi su questo pod Diaspora."
     notification: 
       new: "Nuovo %{type} da %{from}"
     public_explain: 
@@ -338,8 +338,8 @@ it:
     show: 
       destroy: "Distruggi"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show comments"
+    hide_comments: "nascondi i commenti"
+    show_comments: "mostra i commenti"
   the_world: "il mondo"
   username: "Username"
   users: 
@@ -366,10 +366,10 @@ it:
         add: "Aggiungi"
         aspect_name: "Nome aspetto"
         description: "Specifica a Diaspora quali dei tuoi diversi aspetti sono visti da persone diverse. Potrai gestirli in un secondo momento attraverso il menu account in alto a destra. I tuoi aspetti sono visibili solo da te e non dagli altri."
-        drag_to_add: "Drag them to the aspect of yourself they know"
-        no_requests: "You have no requests"
+        drag_to_add: "Trascinale sull'aspetto di te che conoscono"
+        no_requests: "Non hai richieste"
         your_aspects: "I tuoi aspetti"
-        your_inviter: "Here are the people who are waiting for you:"
+        your_inviter: "Queste sono le persone che ti stanno aspettando:"
       step_3: 
         description: "Puoi collegare altri social network a cui sei iscritto al tuo account Diaspora. Potrai postarci pubblicamente della tua Home page quando selezioni \"rendilo pubblico\""
         your_services: "I tuoi servizi"
@@ -390,8 +390,8 @@ it:
       password_changed: "Password Cambiata"
       password_not_changed: "Cambio di password fallito"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
+    fetch_failed: "impossibile recuperare il profilo webfinger da %{profile_url}"
+    hcard_fetch_failed: "impossibile recuperare l'hcard di %{account}"
+    no_person_constructed: "Questa hcard non contiene i dati di una persona."
+    not_enabled: "webfinger non attivo sull'host di %{account}"
+    xrd_fetch_failed: "impossibile recuperare il xrd dall'account %{account}"

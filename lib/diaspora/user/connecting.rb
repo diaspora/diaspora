@@ -64,13 +64,15 @@ module Diaspora
 
           #this is a new contact request
         elsif !request_from_me?(contact_request)
-          self.pending_requests << contact_request
-          self.save!
-          Rails.logger.info("#{self.real_name} has received a contact request")
-          contact_request.save
-          Request.send_new_request(self, contact_request.from)
+          if contact_request.save!
+            self.pending_requests << contact_request
+            self.save!
+            Rails.logger.info("#{self.real_name} has received a contact request")
+            Request.send_new_request(self, contact_request.from)
+          end
         else
-          raise "#{self.real_name} is trying to receive a contact request from himself."
+          Rails.logger.info "#{self.real_name} is trying to receive a contact request from himself."
+          return nil
         end
         contact_request
       end
