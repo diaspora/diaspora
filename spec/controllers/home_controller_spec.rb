@@ -33,24 +33,33 @@ describe HomeController do
     end
     context 'cross-stage' do
       before do
+        pending "This might require patching Rails"
         get :show
         @lines = Rails.logger.infos
-        @id = @lines.first.match(/r_id=(\w+)\s/).captures.first
+        @id = @lines[1].match(/r_id=(\w+)\s/).captures.first
       end
       it 'logs a unified id in a request' do
-        pending "This might require patching Rails"
         id = @lines.first.match(/r_id=(\w+)\s/).captures.first
         @lines.each do |line| 
           line.match(/r_id=(\w+)\s/).captures.first.should == @id
         end
       end
       it 'logs different ids in different requests' do
-        pending "This might require patching Rails"
         get :show
         old_lines = Rails.logger.infos.select do |line| 
           line.match(/r_id=(\w+)\s/).captures.first == @id
         end 
         old_lines.length.should == Rails.logger.infos.length/2
+      end
+    end
+    context 'starting' do
+      before do
+        pending "This code is never reached in tests, but it seems to work in actual requests"
+        get :show
+        @line = Rails.logger.infos.first
+      end
+      it 'logs it' do
+        @line.should match /event=request_started/
       end
     end
     context 'rendering' do

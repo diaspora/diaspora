@@ -31,3 +31,16 @@ class ActionController::LogSubscriber
     Rails.logger.info(log_string)
   end
 end
+
+module Rails
+  module Rack
+    class Logger
+      def before_dispatch(env)
+        request = ActionDispatch::Request.new(env)
+        path = request.fullpath
+
+        Rails.logger.info("event=request_started verb=#{env["REQUEST_METHOD"]} path=#{path} ip=#{request.ip} ")
+      end
+    end
+  end
+end
