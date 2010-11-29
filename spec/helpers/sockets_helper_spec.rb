@@ -5,9 +5,4 @@
 require 'spec_helper'
 
 describe SocketsHelper do
-  
-  describe '#obj_id' do
-
-  end
-
 end

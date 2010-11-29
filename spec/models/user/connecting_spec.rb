@@ -32,7 +32,6 @@ describe Diaspora::UserModules::Connecting do
     describe  '#receive_contact_request' do
       it 'adds a request to pending if it was not sent by user' do
         r = Request.instantiate(:to => user.person, :from => person)
-        r.save
         user.receive_contact_request(r)
         user.reload.pending_requests.should include r
       end
@@ -91,8 +90,8 @@ describe Diaspora::UserModules::Connecting do
       it 'should ignore a contact request from yourself' do
         reversed_request = request_from_myself.reverse_for(user)
 
-        proc { user.receive_contact_request(reversed_request)
-          }.should raise_error /request from himself/
+        user.receive_contact_request(reversed_request)
+        reversed_request.persisted?.should be false
       end
     end
 
@@ -101,7 +100,7 @@ describe Diaspora::UserModules::Connecting do
       proc { user.send_contact_request_to(user2.person, aspect1) 
       }.should raise_error(MongoMapper::DocumentNotValid, /already connected/)
     end
-
+    
     it 'should not be able to contact request no-one' do
       proc { user.send_contact_request_to(nil, aspect) 
       }.should raise_error(MongoMapper::DocumentNotValid)

@@ -89,7 +89,7 @@ module Diaspora
       end
 
       def receive_request request, person
-        request.save!
+        Rails.logger.info("event=receive payload_type=request sender=#{request.from} to=#{request.to}")
         receive_contact_request(request)
       end
 
