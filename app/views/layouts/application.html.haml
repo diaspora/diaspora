@@ -57,8 +57,8 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-     -if APP_CONFIG[:piwik_id]
-       :javascript
+    -if APP_CONFIG[:piwik_id]
+      :javascript
         var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{APP_CONFIG[:piwik_url]}/" : "http://#{APP_CONFIG[:piwik_url]}/");
         document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
         try {
