@@ -3,19 +3,7 @@
 -#   the COPYRIGHT file.
 
 %ul.comments{:id => post_id, :class => ("hidden" if comment_hashes.size == 0)}
-  - for comment_hash in comment_hashes
-    -comment = comment_hash[:comment]
-    -person = comment_hash[:person]
-
-    %li.comment{:data=>{:guid=>comment.id}}
-      %a{:href => "/people/#{person.id}"}
-        %img{:src => image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id}
-      .content
-        .from
-          %a{:href => "/people/#{person.id}"}=person.real_name
-        = markdownify(comment.text, :youtube_maps => comment[:youtube_titles])
-        %div.time
-          = comment.created_at ? "#{time_ago_in_words(comment.created_at)}" : Time.now
+  = render :partial => 'comments/comment', :collection => comment_hashes, :as => :hash
   %li.comment.show
     = render 'comments/new_comment', :post_id => post_id
 

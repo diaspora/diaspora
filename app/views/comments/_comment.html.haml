@@ -1,7 +1,8 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
-
+- comment = hash[:comment]
+- person = hash[:person]
 %li.comment{:data=>{:guid=>comment.id}}
   %a{:href => "/people/#{person.id}"}
     %img{:src => image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id}
