@@ -8,6 +8,7 @@ class HomeController < ApplicationController
     if current_user
       redirect_to aspects_path
     else
+      @landing_page = true
       render :show
     end
   end
