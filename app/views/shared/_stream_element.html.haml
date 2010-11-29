@@ -25,11 +25,11 @@
           = render 'shared/reshare', :current_user => current_user, :post => post if post.is_a? StatusMessage
           = link_to t('delete'), object_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
-    = render type_partial(post), :post => post
+    = render 'status_messages/status_message', :post => post
 
     .info
-      %span.time= link_to(how_long_ago(post), object_path(post))
+      %span.time= link_to(how_long_ago(post), status_message_path(post))
 
       = comment_toggle(comments.length)
-    = render "comments/comments", :post_id => post.id, :comment_hashes => comments, :hidden => (comments.length == 0)
+    = render "comments/comments", :post_id => post.id, :comment_hashes => comments
 

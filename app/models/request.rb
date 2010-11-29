@@ -19,7 +19,8 @@ class Request
   key :sent,                  Boolean, :default => false
 
   validates_presence_of :from, :to
-  validate :not_already_connected, :if => :sent
+  validate :not_already_connected_if_sent
+  validate :not_already_connected_if_not_sent
   validate :no_pending_request, :if => :sent
   
   #before_validation :clean_link
@@ -91,9 +92,19 @@ class Request
     end
   end
 
-  def not_already_connected
-    if Contact.first(:user_id => self.from.owner_id, :person_id => self.to_id)
-      errors[:base] << 'You have already connected to this person!'
+  def not_already_connected_if_sent
+    if self.sent
+      if Contact.first(:user_id => self.from.owner_id, :person_id => self.to.id)
+        errors[:base] << 'You have already connected to this person!'
+      end
+    end
+  end
+
+  def not_already_connected_if_not_sent
+    unless self.sent
+      if Contact.first(:user_id => self.to.owner_id, :person_id => self.from.id)
+        errors[:base] << 'You have already connected to this person!'
+      end
     end
   end
 end

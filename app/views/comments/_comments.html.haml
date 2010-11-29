@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%ul.comments{:id => post_id, :class => ("hidden" if defined?(hidden) && hidden)}
+%ul.comments{:id => post_id, :class => ("hidden" if comment_hashes.size == 0)}
   - for comment_hash in comment_hashes
     = render 'comments/comment', comment_hash
   %li.comment.show
