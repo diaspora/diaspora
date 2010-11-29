@@ -48,10 +48,10 @@ $(document).ready(function(){
     evt.preventDefault();
     
     var $this = $(this),
-      container = document.createElement('div'),
-      $container = $(container).attr("class", "video-container");
+      container = document.createElement("div"),
+      $container = $(container).attr("class", "video-container"),
+      $videoContainer = $this.parent().siblings("div.video-container");
 
-    var $videoContainer = $this.siblings("div.video-container");
     if($videoContainer.length > 0) {
       $videoContainer.slideUp('fast', function () {
         $videoContainer.detach();
@@ -65,21 +65,21 @@ $(document).ready(function(){
       });
     }
 
-    if($this.data("host") === 'youtube.com') {
-	  	$container.html(
+    if($this.data("host") === "youtube.com") {
+      $container.html(
         '<a href="//www.youtube.com/watch?v=' + $this.data("video-id") + '" target="_blank">Watch this video on Youtube</a><br />' +
         '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/' + $this.data("video-id")+ '"></iframe>'
       );
     } else {
       $container.html('Invalid videotype <i>'+$this.data("host")+'</i> (ID: '+$this.data("video-id")+')');
     }
-
-    $container.hide();
-    this.parentNode.insertBefore(container, this.nextSibling);
-    $container.slideDown('fast');
+ 
+    $container.hide()
+      .insertAfter($this.parent())
+      .slideDown('fast');
 
     $this.click(function() {
-      $container.slideToggle('fast', function () {
+      $container.slideUp('fast', function() {
         $(this).detach();
       });
     });
