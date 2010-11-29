@@ -27,10 +27,47 @@ describe HomeController do
   end
 
   #This describe should apply to any controller class.  HomeController is just the simplest.
-  describe 'logging' do
+  describe 'log overriding in lib/log_overrider' do
     before do
-      logger = FakeLogger.new
       Rails.stub(:logger).and_return(FakeLogger.new)
+    end
+    context 'cross-stage' do
+      before do
+        get :show
+        @lines = Rails.logger.infos
+        @id = @lines.first.match(/r_id=(\w+)\s/).captures.first
+      end
+      it 'logs a unified id in a request' do
+        pending "This might require patching Rails"
+        id = @lines.first.match(/r_id=(\w+)\s/).captures.first
+        @lines.each do |line| 
+          line.match(/r_id=(\w+)\s/).captures.first.should == @id
+        end
+      end
+      it 'logs different ids in different requests' do
+        pending "This might require patching Rails"
+        get :show
+        old_lines = Rails.logger.infos.select do |line| 
+          line.match(/r_id=(\w+)\s/).captures.first == @id
+        end 
+        old_lines.length.should == Rails.logger.infos.length/2
+      end
+    end
+    context 'rendering' do
+      before do
+        get :show, :lasers => 'green'
+        @lines = Rails.logger.infos.select{|l| l.include?("event=render")}
+      end
+      it 'logs all renders' do
+        @lines.length.should == 2
+      end
+      it 'logs layouts' do
+        pending 'where is the template=home/show line?'
+        home_line = @lines.detect{|t| 
+          t.include?("template=home/show.html.haml")}
+        home_line.should match /layout=layouts\/application/
+      end
+
     end
     context 'completion' do
       context 'ok' do
