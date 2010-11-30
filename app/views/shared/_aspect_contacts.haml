@@ -3,46 +3,15 @@
 -#   the COPYRIGHT file.
 
 - content_for :head do
-  :javascript
-    $("#edit_aspect_trigger").live("click",
-      function(){
-        EditPane.toggle();
-      }
-    );
-
-    var EditPane = {
-      toggle: function() {
-        if( $("#edit_aspect_pane").hasClass("active") ) {
-          EditPane.fadeOut();
-        } else {
-          EditPane.fadeIn();
-        }
-      },
-
-      fadeIn: function(){
-        var trigger = $("#edit_aspect_trigger");
-
-        $("#edit_aspect_pane").addClass("active");
-        $(".contact_pictures").fadeOut(200, function(){
-          $("#edit_aspect_pane").fadeIn(200);
-          trigger.html("#{t('.done_editing')}");
-        });
-      },
-
-      fadeOut: function(){
-        var trigger = $("#edit_aspect_trigger");
-        trigger.html("#{t('aspects.show.edit_aspect')}");
-
-        $("#edit_aspect_pane").removeClass("active");
-        $("#edit_aspect_pane").fadeOut(200, function(){
-          $(".contact_pictures").fadeIn(200);
-        });
-      }
-    };
-
+  =javascript_include_tag 'aspect-contacts'
   - if aspect != :all && aspect.contacts.count == 0
     :javascript
       $(document).ready(function(){
+        EditPane.setTranslations({
+          doneEditing: "#{t('.done_editing')}",
+          editAspect:"#{t('aspects.show.edit_aspect')}"
+        });
+
         EditPane.fadeIn();
       });
 
