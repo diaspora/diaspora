@@ -13,6 +13,7 @@ class AspectsController < ApplicationController
     @post_hashes = hashes_for_posts @posts
     @aspect_hashes = hashes_for_aspects @aspects.all, @contacts
     @aspect = :all
+
     
     if current_user.getting_started == true
       redirect_to getting_started_path
