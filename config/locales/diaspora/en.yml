@@ -71,6 +71,7 @@ en:
         logout: "logout"
         blog: "blog"
         login: "login"
+        code: "code"
       application:
         powered_by: "POWERED BY DIASPORA*"
   shared:
