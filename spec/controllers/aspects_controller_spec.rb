@@ -168,7 +168,7 @@ describe AspectsController do
       @hash[:aspect].should == @aspect
     end
     it 'has a contact count' do
-      @hash[:contact_count].should == 11
+      @hash[:contact_count].should == @aspect.contacts.count
     end
     it 'has people' do
       desired_people = @aspect.contacts.map{|c| c.person.diaspora_handle}
