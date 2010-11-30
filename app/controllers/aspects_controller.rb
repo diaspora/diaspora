@@ -12,9 +12,6 @@ class AspectsController < ApplicationController
     @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @post_hashes = hashes_for_posts @posts
     @aspect_hashes = hashes_for_aspects @aspects.all, @contacts
-    pp @aspect_hashes
-    pp @aspects.all
-    pp @contacts
     @aspect = :all
     
     if current_user.getting_started == true
