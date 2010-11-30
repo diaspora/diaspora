@@ -102,5 +102,20 @@ class Photo < Post
     }
   end
   
+  def self.hash_from_post_ids post_ids
+    hash = {}
+    photos = self.on_statuses(post_ids)
+    post_ids.each do |id|
+      hash[id] = []
+    end
+    photos.each do |photo|
+      hash[photo.status_message_id] << photo
+    end
+    hash.each_value {|photos| photos.sort!{|p1, p2| p1.created_at <=> p2.created_at }}
+    hash
+  end
+  scope :on_statuses, lambda { |post_ids| 
+    where(:status_message_id.in => post_ids)
+  }
 end
 

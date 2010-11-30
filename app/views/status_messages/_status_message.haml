@@ -5,8 +5,8 @@
 %p
   = markdownify(post.message, :youtube_maps => post[:youtube_titles])
 
-- if post.photos.count > 0
+- if photos.count > 0
   .photo_attachments
-    - for photo in post.photos
+    - for photo in photos
       = link_to (image_tag photo.url(:thumb_medium)), photo_path(photo)
 

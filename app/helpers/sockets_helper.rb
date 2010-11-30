@@ -12,9 +12,10 @@ module SocketsHelper
   def action_hash(uid, object, opts={})
     begin
       user = User.find_by_id uid
-      if object.is_a? Post
+      if object.is_a? StatusMessage
         post_hash = {:post => object,
           :person => object.person,
+          :photos => object.photos,
           :comments => object.comments.map{|c|
             {:comment => c,
              :person => c.person

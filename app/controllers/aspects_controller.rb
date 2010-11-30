@@ -136,11 +136,14 @@ class AspectsController < ApplicationController
   
   private
   def hashes_for_posts posts
-    comment_hash = Comment.hash_from_post_ids posts.map{|p| p.id}
+    post_ids = posts.map{|p| p.id}
+    comment_hash = Comment.hash_from_post_ids post_ids
     person_hash = Person.from_post_comment_hash comment_hash
+    photo_hash = Photo.hash_from_post_ids post_ids
 
     posts.map do |post|
       {:post => post,
+        :photos => photo_hash[post.id],
         :person => post.person,
         :comments => comment_hash[post.id].map do |comment|
           {:comment => comment,
