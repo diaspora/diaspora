@@ -43,16 +43,16 @@
           = link_to t('.add_aspect'), '#add_aspect_pane', :class => "add_aspect_button"
 
       %ul
-        - for user_aspect in @aspects
+        - for a_hash in @aspect_hashes
           %li
             %h4
-              = link_to user_aspect, user_aspect
+              = link_to a_hash[:aspect], a_hash[:aspect]
               %span
-                = t('contacts', :count=>user_aspect.contacts.count)
+                = t('contacts', :count=>a_hash[:contact_count])
 
-            - if user_aspect.contacts.count > 0 
-              - for aspect_contact in user_aspect.contacts[0..7]
-                = person_image_link(aspect_contact.person)
+            - if a_hash[:contact_count] > 0 
+              - for person in a_hash[:people]
+                = person_image_link(person)
     .section
       %h3= t('.invites')
       = render "shared/invitations", :invites => @invites

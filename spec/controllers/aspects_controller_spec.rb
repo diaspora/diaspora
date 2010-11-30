@@ -153,6 +153,33 @@ describe AspectsController do
     end
   end
 
+  describe "#hashes_for_aspects" do
+    before do
+      @people = []
+      10.times {@people << Factory.create(:person)}
+      @people.each{|p| @user.reload.activate_contact(p, @user.aspects.first.reload)}
+      @user.reload
+      @hashes = @controller.send(:hashes_for_aspects, @user.aspects, @user.contacts)
+      @hash = @hashes.first
+      @aspect = @user.aspects.first
+    end
+    it 'has aspects' do
+      @hashes.length.should == 2
+      @hash[:aspect].should == @aspect
+    end
+    it 'has a contact count' do
+      @hash[:contact_count].should == 11
+    end
+    it 'has people' do
+      desired_people = @aspect.contacts.map{|c| c.person.diaspora_handle}
+      gotten_people = @hash[:people].map{|p| p.diaspora_handle}
+      gotten_people.each{|p| desired_people.should include p}
+    end
+    it 'has at most 8 people' do
+      @hash[:people].length.should == 8
+    end
+  end
+
   describe "#update" do
     before do
       @aspect = @user.aspects.create(:name => "Bruisers")

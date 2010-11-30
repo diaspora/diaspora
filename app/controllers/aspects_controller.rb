@@ -11,7 +11,10 @@ class AspectsController < ApplicationController
   def index
     @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @post_hashes = hashes_for_posts @posts
-
+    @aspect_hashes = hashes_for_aspects @aspects.all, @contacts
+    pp @aspect_hashes
+    pp @aspects.all
+    pp @contacts
     @aspect = :all
     
     if current_user.getting_started == true
@@ -135,6 +138,17 @@ class AspectsController < ApplicationController
   end
   
   private
+  def hashes_for_aspects aspects, contacts
+    aspects.map do |a|
+      hash = {:aspect => a}
+      aspect_contacts = contacts.select{|c| 
+          c.aspect_ids.include?(a.id)}
+      hash[:contact_count] = aspect_contacts.count
+      person_ids = aspect_contacts.map{|c| c.person_id}
+      hash[:people] = Person.all(:id.in => person_ids, :limit => 8)
+      hash
+    end
+  end
   def hashes_for_posts posts
     post_ids = posts.map{|p| p.id}
     comment_hash = Comment.hash_from_post_ids post_ids
