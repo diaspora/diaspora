@@ -18,6 +18,8 @@
               =aspect_links(aspects_with_post(aspects, post))
 
         .right
+
+
           - reshare_aspects = aspects_without_post(aspects, post)
           - unless reshare_aspects.empty?
             = render 'shared/reshare', :aspects => reshare_aspects, :post => post
