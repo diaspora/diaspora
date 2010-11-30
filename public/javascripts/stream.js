@@ -11,7 +11,15 @@ $(document).ready(function(){
   // comment toggle action
   $stream.not(".show").delegate("a.show_post_comments", "click", function(evt) {
     evt.preventDefault();
-    expandComments($(this));
+    var $this = $(this),
+      text = $this.html();
+      commentBlock = $this.closest("li").find("ul.comments", ".content"),
+      show = (text.indexOf("show") != -1);
+
+    commentBlock.fadeToggle(150, function(){
+      commentBlock.toggleClass("hidden");
+    });
+    $this.html(text.replace((show) ? "show" : "hide", (show) ? "hide" : "show")$
   });
 
   // comment submit action
@@ -101,24 +109,4 @@ $(document).ready(function(){
     alert('failed to post message!');
   });
 
-});//end document ready
-
-
-function expandComments(toggler,animate){
-  var text         = toggler.html();
-      commentBlock = toggler.closest("li").find("ul.comments", ".content");
-
-  if(commentBlock.hasClass("hidden")) {
-    commentBlock.fadeIn(150, function(){
-      commentBlock.removeClass("hidden");
-    });
-    toggler.html(text.replace("show", "hide"));
-
-  } else {
-    commentBlock.fadeOut(100, function(){
-      commentBlock.addClass("hidden");
-    });
-    toggler.html(text.replace("hide", "show"));
-
-  }
-}
+});
