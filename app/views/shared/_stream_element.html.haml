@@ -10,7 +10,7 @@
     .from
       %a{:href => "/people/#{person.id}"}=person.real_name
 
-      - if current_user.owns?(post)
+      - if person.owner_id == current_user.id
         .aspect
           ➔
           %ul
