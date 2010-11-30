@@ -9,6 +9,38 @@ module ApplicationHelper
     false
   end
 
+  def aspects_with_post aspects, post
+    aspects.select do |a|
+      post.aspect_ids.include?(a.id)
+    end
+  end
+  def aspects_without_post aspects, post
+    aspects.reject do |a|
+      post.aspect_ids.include?(a.id)
+    end
+  end
+  def aspect_links aspects, opts={}
+    str = ""
+    aspects.each do |a|
+      str << aspect_li(a, opts)
+    end
+    str.html_safe
+  end
+  def aspect_li aspect, opts= {}
+    param_string = ""
+    if opts.size > 0
+      param_string << '?'
+      opts.each_pair do |k,v|
+        param_string << "#{k}=#{v}"
+      end
+    end
+"<li>
+  <a href='/aspects/#{aspect.id}#{param_string}'>
+    #{aspect.name}
+  </a>
+</li>".html_safe
+  end
+
   def current_aspect?(aspect)
     !@aspect.nil? && !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
   end

@@ -7,6 +7,5 @@
     = link_to t('.reshare'), "#"
 
   %ul.reshare_box
-    - for aspect in aspects
-      %li.aspect_to_share= link_to aspect, :controller => "aspects", :action => "show", :id => aspect.id, :prefill => post.message
+    =aspect_links(aspects, :prefill => post.message)
 
