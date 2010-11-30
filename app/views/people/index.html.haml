@@ -9,6 +9,10 @@
 
   %ul{:class => 'stream people', :id => 'people_stream'}
     - for person in @people
-      = render 'people/person', :person => person, :aspects => @aspects
+      = render 'people/person',
+        :person => person,
+        :aspects => @aspects,
+        :contact => @contacts.detect{|contact| contact.person_id == person.id},
+        :request => @requests.detect{|request| request.to_id == person.id}
 
   = will_paginate @people

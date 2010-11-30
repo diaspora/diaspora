@@ -8,14 +8,14 @@
 
   .content
     %span.from
-      = link_to person.name, person_path(person)
+      =person_link(person)
 
       .right{:style=>"display:inline;"}
-        - if person.id == current_user.person.id
+        - if person.owner_id == current_user.id
           = t('.thats_you')
-        - elsif current_user.person_objects.include?(person)
+        - elsif contact
           = t('.already_connected')
-        - elsif current_user.request_for(person)
+        - elsif request
           = link_to t('.pending_request'), aspects_manage_path
         - else
           - single_aspect_form ||= nil

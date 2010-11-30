@@ -96,7 +96,13 @@ module ApplicationHelper
   end
 
   def person_image_tag(person)
-    image_tag image_or_default(person), :class => "avatar", :alt => person.name, :title => person.name, "data-person_id" => person.id
+    "<img alt='#{person.name}' class='avatar' data-person_id='#{person.id}' src='#{image_or_default(person)}' title='#{person.name}'>".html_safe
+  end
+
+  def person_link(person)
+"<a href='/people/#{person.id}'>
+  #{person.name}
+</a>".html_safe
   end
 
   def image_or_default(person)
@@ -114,7 +120,9 @@ module ApplicationHelper
     if opts[:to] == :photos
       link_to person_image_tag(person), person_photos_path(person)
     else
-      link_to person_image_tag(person), person_path(person)
+"<a href='/people/#{person.id}'>
+  #{person_image_tag(person)}
+</a>".html_safe
     end
   end
 
