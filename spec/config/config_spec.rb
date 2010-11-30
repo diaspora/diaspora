@@ -4,16 +4,16 @@
 
 describe 'making sure the config is parsed as should' do
   
-  describe 'app config' do
-    
-    it 'pod_url has a trailing slash' do
+  describe 'pod_url' do
+    it 'should have a trailing slash' do
       APP_CONFIG[:pod_url].should == 'http://example.org/'
     end
-    
-    it 'terse_pod_url is correctly parsed' do
+  end
+  
+  describe 'terse_pod_url'
+    it 'should be correctly parsed' do
       APP_CONFIG[:terse_pod_url].should == 'example.org'
     end
-  
   end
    
 end
