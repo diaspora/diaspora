@@ -47,3 +47,7 @@
         #add_aspect_pane
           = render "aspects/new_aspect"
 
+-if APP_CONFIG[:flattr_this_site]
+  #flattr_this_site{:style => "margin-top:5px;margin-right:5px;"}
+    .right
+      = link_to "#{APP_CONFIG[:flattr_description]}", "#{APP_CONFIG[:pod_url]}", :title => "#{APP_CONFIG[:flattr_title]}", :class => "FlattrButton", :rev => "flattr;button:compact;uid:#{APP_CONFIG[:flattr_this_site]};category:text;tags:#{APP_CONFIG[:flattr_tags]};", :style => "display:none;"

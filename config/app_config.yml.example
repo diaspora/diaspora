@@ -73,7 +73,12 @@ default:
   piwik_id: 
   # the site url in raw format (e.g. pikwik.examplehost.com)
   piwik_url: 
-  
+     
+  #flattr support for this site (flattr_this_site = flattr uid)
+  flattr_this_site: false
+  flattr_title: "Title for this Flattr"
+  flattr_description: "Description for this flattr thing"
+  flattr_tags: "Tags,for,this,thing"
 
   #cloudfiles username and api-key, used for backups
   cloudfiles_username: 'example'
