@@ -38,7 +38,7 @@ describe ApplicationHelper do
       person_image_link(@person).should include(image_or_default(@person))
     end
     it "returns a link to the person's profile" do
-      person_image_link(@person).should include("href=\"#{person_path(@person)}\"")
+      person_image_link(@person).should include(person_path(@person))
     end
   end
 
