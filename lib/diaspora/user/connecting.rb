@@ -67,11 +67,11 @@ module Diaspora
           if contact_request.save!
             self.pending_requests << contact_request
             self.save!
-            Rails.logger.info("#{self.real_name} has received a contact request")
+            Rails.logger.info("#{self.name} has received a contact request")
             Request.send_new_request(self, contact_request.from)
           end
         else
-          Rails.logger.info "#{self.real_name} is trying to receive a contact request from himself."
+          Rails.logger.info "#{self.name} is trying to receive a contact request from himself."
           return nil
         end
         contact_request
@@ -80,7 +80,7 @@ module Diaspora
       def receive_request_acceptance(received_request, sent_request)
         destination_aspect = self.aspect_by_id(sent_request.into_id)
         activate_contact(received_request.from, destination_aspect)
-        Rails.logger.info("#{self.real_name}'s contact request has been accepted")
+        Rails.logger.info("#{self.name}'s contact request has been accepted")
 
         received_request.destroy
         pending_requests.delete(sent_request)

@@ -4,11 +4,11 @@
 
 %li.message{:data=>{:guid=>post.id}}
   %a{:href => "/people/#{person.id}"}
-    %img{:src => image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id}
+    %img{:src => image_or_default(person), :class => "avatar", :alt => person.name, :title => person.name, "data-person_id" => person.id}
 
   .content
     .from
-      %a{:href => "/people/#{person.id}"}=person.real_name
+      %a{:href => "/people/#{person.id}"}=person.name
 
       - if person.owner_id == current_user.id
         .aspect

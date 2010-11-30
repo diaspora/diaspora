@@ -21,7 +21,7 @@ describe Notifier do
 
 
     it 'has the name of person sending the request' do
-      request_mail.body.encoded.include?(person.real_name).should be true
+      request_mail.body.encoded.include?(person.name).should be true
     end
 
     it 'has the css' do
@@ -40,7 +40,7 @@ describe Notifier do
 
 
     it 'has the name of person sending the request' do
-      request_accepted_mail.body.encoded.include?(person.real_name).should be true
+      request_accepted_mail.body.encoded.include?(person.name).should be true
     end
 
     it 'has the name of the aspect in the body' do

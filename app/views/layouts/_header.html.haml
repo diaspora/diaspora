@@ -26,7 +26,7 @@
         ▼
       .avatar
         = owner_image_tag
-      = link_to current_user.real_name, '#'
+      = link_to current_user.name, '#'
       %li= link_to t('.view_profile'), current_user.person
       %li= link_to t('.edit_profile'), edit_person_path(current_user.person)
       %li= link_to t('.account_settings'), edit_user_path(current_user)

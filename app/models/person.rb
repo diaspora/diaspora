@@ -67,12 +67,12 @@ class Person
     return p
   end
 
-  def real_name
-    @real_name ||= if profile.first_name.nil? || profile.first_name.empty?
-                     self.diaspora_handle
-                   else
-                     "#{profile.first_name.to_s} #{profile.last_name.to_s}"
-                   end
+  def name
+    @name ||= if profile.first_name.nil? || profile.first_name.empty?
+                self.diaspora_handle
+              else
+                "#{profile.first_name.to_s} #{profile.last_name.to_s}"
+              end
   end
 
   def owns?(post)
@@ -143,10 +143,10 @@ class Person
     {
       :person => {
         :id           => self.id,
-        :name         => self.real_name,
-        :diaspora_handle => self.diaspora_handle,
+        :name         => self.name,
         :url          => self.url,
-        :exported_key => exported_key
+        :exported_key => exported_key,
+        :diaspora_handle => self.diaspora_handle
       }
     }
   end

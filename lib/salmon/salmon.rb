@@ -102,7 +102,7 @@ ENTRY
     <iv>#{iv}</iv>
     <aes_key>#{aes_key}</aes_key>
     <author>
-      <name>#{@author.real_name}</name>
+      <name>#{@author.name}</name>
       <uri>acct:#{@author.diaspora_handle}</uri>
     </author>
     </decrypted_header>

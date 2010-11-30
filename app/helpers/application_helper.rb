@@ -96,7 +96,7 @@ module ApplicationHelper
   end
 
   def person_image_tag(person)
-    image_tag image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id
+    image_tag image_or_default(person), :class => "avatar", :alt => person.name, :title => person.name, "data-person_id" => person.id
   end
 
   def image_or_default(person)

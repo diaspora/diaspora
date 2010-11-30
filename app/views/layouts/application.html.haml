@@ -9,7 +9,7 @@
 
     %title
       - if current_user
-        = "#{current_user.real_name} | DIASPORA*"
+        = "#{current_user.name} | DIASPORA*"
       - else
         DIASPORA*
 
@@ -69,7 +69,7 @@
 
 
     - if current_user
-      %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "Public Diaspora Feed for #{current_user.real_name}"}
+      %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "Public Diaspora Feed for #{current_user.name}"}
 
   %body
     -unless @landing_page

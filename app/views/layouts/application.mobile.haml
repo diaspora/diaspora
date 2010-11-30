@@ -6,7 +6,7 @@
 %html{:lang => I18n.locale.to_s}
   %head
     %title
-      = "#{current_user.real_name} | diaspora" if current_user
+      = "#{current_user.name} | diaspora" if current_user
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
@@ -25,7 +25,7 @@
       %div{:data => {:role => 'header', :nobackbtn => 'true'}}
         %h1
           = person_image_tag (current_user.person)
-          = current_user.real_name 
+          = current_user.name 
       = select_tag "aspect_picker", aspect_select_options(@aspects, @aspect)
       
       = yield

@@ -12,8 +12,8 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
 
-    mail(:to => "#{@receiver.real_name} <#{@receiver.email}>",
-         :subject => I18n.t('notifier.new_request.subject', :from => @sender.real_name), :host => APP_CONFIG[:terse_pod_url])
+    mail(:to => "#{@receiver.name} <#{@receiver.email}>",
+         :subject => I18n.t('notifier.new_request.subject', :from => @sender.name), :host => APP_CONFIG[:terse_pod_url])
   end
 
   def request_accepted(recipient_id, sender_id, aspect_id)
@@ -25,8 +25,8 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
 
-    mail(:to => "#{@receiver.real_name} <#{@receiver.email}>",
-          :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.real_name), :host => APP_CONFIG[:terse_pod_url])
+    mail(:to => "#{@receiver.name} <#{@receiver.email}>",
+          :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => APP_CONFIG[:terse_pod_url])
   end
 
   private

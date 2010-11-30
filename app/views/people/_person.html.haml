@@ -8,7 +8,7 @@
 
   .content
     %span.from
-      = link_to person.real_name, person_path(person)
+      = link_to person.name, person_path(person)
 
       .right{:style=>"display:inline;"}
         - if person.id == current_user.person.id

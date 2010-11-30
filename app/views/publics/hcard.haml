@@ -1,5 +1,5 @@
 #content
-  %h1= @person.real_name
+  %h1= @person.name
   #content_inner
     #i.entity_profile.vcard.author
       %h2 User profile
@@ -7,7 +7,7 @@
       %dl.entity_nickname
         %dt Nickname
         %dd
-          %a.nickname.url.uid{:href=>@person.url, :rel=>'me'}= @person.real_name
+          %a.nickname.url.uid{:href=>@person.url, :rel=>'me'}= @person.name
 
       %dl.entity_given_name
         %dt First name
@@ -22,7 +22,7 @@
       %dl.entity_fn
         %dt Full name
         %dd
-          %span.fn= @person.real_name
+          %span.fn= @person.name
 
       %dl.entity_url
         %dt URL

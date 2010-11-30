@@ -61,14 +61,14 @@ describe Person do
     end
   end
 
-  context '#real_name' do
+  context '#name' do
     let!(:user) { make_user }
     let!(:person) { user.person }
     let!(:profile) { person.profile }
 
     context 'with first name' do
-      it 'should return their name for real name' do
-        person.real_name.should match /#{profile.first_name}|#{profile.last_name}/
+      it 'should return their name for name' do
+        person.name.should match /#{profile.first_name}|#{profile.last_name}/
       end
     end
 
@@ -77,7 +77,7 @@ describe Person do
         person.profile.first_name = nil
         person.profile.last_name = nil
         person.save!
-        person.real_name.should == person.diaspora_handle
+        person.name.should == person.diaspora_handle
       end
     end
   end

@@ -16,13 +16,13 @@
         Rails.logger.info("Verifying sig on #{signable_string} but no person is here")
         return false
       elsif person.public_key.nil?
-        Rails.logger.info("Verifying sig on #{signable_string} but #{person.real_name} has no key")
+        Rails.logger.info("Verifying sig on #{signable_string} but #{person.name} has no key")
         return false
       elsif signature.nil?
-        Rails.logger.info("Verifying sig on #{signable_string} but #{person.real_name} did not sign")
+        Rails.logger.info("Verifying sig on #{signable_string} but #{person.name} did not sign")
         return false
       end
-      Rails.logger.debug("Verifying sig on #{signable_string} from person #{person.real_name}")
+      Rails.logger.debug("Verifying sig on #{signable_string} from person #{person.name}")
       validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
       Rails.logger.debug("Validity: #{validity}")
       validity
