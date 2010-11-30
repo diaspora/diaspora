@@ -4,6 +4,7 @@
 
 describe 'making sure the config is parsed as should' do
   
+<<<<<<< HEAD
   describe 'pod_url' do
     it 'should have a trailing slash' do
       APP_CONFIG[:pod_url].should == 'http://example.org/'
