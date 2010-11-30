@@ -72,21 +72,24 @@ class EMWebfinger
       
       begin
         wf_profile = WebfingerProfile.new(@account, webfinger_profile)
-      rescue
-        return process_callbacks "No person could be constructed from this webfinger profile."
-      end
+
       
-      http = EventMachine::HttpRequest.new(wf_profile.hcard).get OPTS
-      http.callback{
-        begin
-          hcard = HCard.build http.response
-          p = Person.build_from_webfinger(wf_profile, hcard)
-          process_callbacks(p)
-        rescue
-          process_callbacks I18n.t 'webfinger.no_person_constructed'
-        end
-      }
-      http.errback{process_callbacks I18n.t('webfinger.hcard_fetch_failed', :account => @account) }
+        http = EventMachine::HttpRequest.new(wf_profile.hcard).get OPTS
+        http.callback{
+          begin
+            hcard = HCard.build http.response
+            p = Person.build_from_webfinger(wf_profile, hcard)
+            process_callbacks(p)
+          rescue
+            process_callbacks I18n.t 'webfinger.no_person_constructed'
+          end
+        }
+        http.errback{
+          process_callbacks I18n.t('webfinger.hcard_fetch_failed', :account => @account) }
+
+      rescue
+          process_callbacks "No person could be constructed from this webfinger profile."
+      end
     end
   end
 
