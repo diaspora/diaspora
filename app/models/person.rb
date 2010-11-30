@@ -130,6 +130,8 @@ class Person
     new_person.profile = Profile.new( :first_name => hcard[:given_name],
                                       :last_name  => hcard[:family_name],
                                       :image_url  => hcard[:photo],
+                                      :image_url_medium  => hcard[:photo_medium],
+                                      :image_url_small  => hcard[:photo_small],
                                       :searchable => hcard[:searchable])
 
     new_person.save! ? new_person : nil

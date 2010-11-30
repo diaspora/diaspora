@@ -105,8 +105,9 @@ module ApplicationHelper
 </a>".html_safe
   end
 
-  def image_or_default(person)
-    image_location = person.profile.image_url if person.profile
+  def image_or_default(person, size=:thumb_large)
+    image_location = person.profile.image_url(size) if person.profile
+    image_location ||= person.profile.image_url(:thumb_large) if person.profile  #backwards compatability for old profile pictures
     image_location ||= "/images/user/default.png"
     image_location
   end

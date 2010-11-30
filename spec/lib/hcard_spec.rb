@@ -11,8 +11,10 @@ describe HCard do
     hcard = HCard.build raw_hcard
     hcard[:family_name].include?("Hamiltom").should be true
     hcard[:given_name].include?("Alex").should be true
-    hcard[:photo].include?("tom.jpg").should be true
-    hcard[:url].should == "http://tom.joindiaspora.com/"
+    hcard[:photo].include?("thumb_large").should be true
+    hcard[:photo_medium].include?("thumb_medium").should be true
+    hcard[:photo_small].include?("thumb_small").should be true
+    hcard[:url].should == "http://localhost:3000/"
     hcard[:searchable].should == "false"
   end
 end

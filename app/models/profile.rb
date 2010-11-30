@@ -12,6 +12,8 @@ class Profile
   xml_reader :first_name
   xml_reader :last_name
   xml_reader :image_url
+  xml_reader :image_url_small
+  xml_reader :image_url_medium
   xml_reader :birthday
   xml_reader :gender
   xml_reader :bio
@@ -21,6 +23,8 @@ class Profile
   key :first_name, String
   key :last_name,  String
   key :image_url,  String
+  key :image_url_small,  String
+  key :image_url_medium,  String
   key :birthday,   Date
   key :gender,     String
   key :bio,        String
@@ -32,7 +36,7 @@ class Profile
 
   before_save :strip_names
 
-  attr_accessible :first_name, :last_name, :image_url, :birthday, :gender, :bio, :searchable
+  attr_accessible :first_name, :last_name, :image_url, :image_url_medium, :image_url_small, :birthday, :gender, :bio, :searchable
 
 
   def person
@@ -44,7 +48,36 @@ class Profile
     (self._parent_document) ? self.person.diaspora_handle : self[:diaspora_handle]
   end
 
+  def image_url(size = :thumb_large)
+    if size == :thumb_medium
+      self[:image_url_medium]
+    elsif size == :thumb_small
+      self[:image_url_small]
+    else
+      self[:image_url]
+    end
+  end
+
+
   def image_url= url
+    return image_url if url == ''
+    if url.nil? || url.match(/^https?:\/\//)
+      super(url)
+    else
+      super(absolutify_local_url(url))
+    end
+  end
+
+  def image_url_small= url
+    return image_url if url == ''
+    if url.nil? || url.match(/^https?:\/\//)
+      super(url)
+    else
+      super(absolutify_local_url(url))
+    end
+  end
+
+  def image_url_medium= url
     return image_url if url == ''
     if url.nil? || url.match(/^https?:\/\//)
       super(url)

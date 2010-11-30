@@ -5,7 +5,7 @@
 default:
 
   # Hostname of this host, as seen from the internet.
-  pod_url: "http://example.org/"
+  pod_url: "http://localhost:3000"
 
   # Set this to true in order to close signups.  Users will still be
   # able to invite other people to join.
