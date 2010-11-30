@@ -27,10 +27,6 @@ RSpec.configure do |config|
   DatabaseCleaner.strategy = :truncation
   DatabaseCleaner.orm = "mongo_mapper"
 
-  config.before(:suite) do
-    UserFixer.regenerate_user_fixtures
-  end
-
   config.before(:each) do
     EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
     EventMachine::HttpRequest.any_instance.stubs(:post)
@@ -39,7 +35,6 @@ RSpec.configure do |config|
     UserFixer.load_user_fixtures
     Notifier.stub!(:send_request_accepted!).and_return(true)
     Notifier.stub!(:send_new_request!).and_return(true)
-
   end
 end
 
