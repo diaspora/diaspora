@@ -25,7 +25,7 @@
             = render 'shared/reshare', :current_user => current_user, :aspects => reshare_aspects, :post => post
           = link_to t('delete'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
-    = render 'status_messages/status_message', :post => post, :photos => post.photos
+    = render 'status_messages/status_message', :post => post, :photos => photos
 
     .info
       %span.time= link_to(how_long_ago(post), status_message_path(post))
