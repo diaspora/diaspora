@@ -11,6 +11,8 @@
         .right{:style => "top:0;"}
           %span.description
             = @person.diaspora_handle
+            /= info_text(t('aspects.index.handle_explanation'))
+
 
       #person_nav_links
         = link_to t('layouts.header.view_profile'), person_path(@person)

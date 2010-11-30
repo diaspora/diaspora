@@ -7,7 +7,7 @@
     = current_user.real_name
     .right{:style=>"top:0"}
       %span.description
-        = current_user.diaspora_handle
+        = link_to current_user.diaspora_handle, person_path(current_user.person)
         = info_text(t('.handle_explanation'))
 
 .span-15
