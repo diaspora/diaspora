@@ -5,6 +5,7 @@
 
 realpath=$( ruby -e "puts File.expand_path(\"$0\")")
 cd $( dirname $realpath)/..
+OS=`uname -s`
 
 [ -e config/server.sh ] && source config/server.sh
 
@@ -27,6 +28,21 @@ function init_public
     bundle exec jammit
 }
 
+function chk_service
+{
+    port=${1:?Missing port}
+    case $OS in
+    *[Bb][Ss][Dd]*|Darwin)
+        ## checks ipv[46]
+        netstat -anL | awk '{print $2}' | grep "\.$1$"
+    ;;
+    *)
+        # Is someone listening on the ports already? (ipv4 only test ?)
+        netstat -nl | grep '[^:]:'$port'[ \t]'
+    ;;
+    esac
+}
+
 # Scan for -p, find out what port thin is about to use.
 args="$DEFAULT_THIN_ARGS $@"
 prev_arg=''
@@ -37,14 +53,14 @@ do
 done
 
 # Is someone listening on the ports already? (ipv4 only test ?)
-services=$( netstat -nl | grep '[^:]:'$THIN_PORT'[ \t]')
+services=$( chk_service $THIN_PORT )
 if [ -n "$services" ]; then
     echo "Error: thin port $THIN_PORT is already in use. Exiting" >&2
     echo "     $services"
     exit 64
 fi
 
-services=$( netstat -nl | grep '[^:]:'$SOCKET_PORT'[ \t]')
+services=$( chk_service $SOCKET_PORT )
 if [ -n "$services" ]; then
     echo "Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
     echo "     $services"
@@ -85,3 +101,5 @@ bundle exec ruby ./script/websocket_server.rb&
 redis-server&
 QUEUE=* bundle exec rake resque:work&
 bundle exec thin start $args
+
+# vim: ts=4 sw=4 expandtab
