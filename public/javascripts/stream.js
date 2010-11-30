@@ -12,14 +12,14 @@ $(document).ready(function(){
   $stream.not(".show").delegate("a.show_post_comments", "click", function(evt) {
     evt.preventDefault();
     var $this = $(this),
-      text = $this.html();
+      text = $this.html(),
       commentBlock = $this.closest("li").find("ul.comments", ".content"),
       show = (text.indexOf("show") != -1);
 
     commentBlock.fadeToggle(150, function(){
       commentBlock.toggleClass("hidden");
     });
-    $this.html(text.replace((show) ? "show" : "hide", (show) ? "hide" : "show")$
+    $this.html(text.replace((show) ? "show" : "hide", (show) ? "hide" : "show"));
   });
 
   // comment submit action
