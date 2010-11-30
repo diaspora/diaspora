@@ -114,34 +114,6 @@ $.fn.clearForm = function() {
   });
 };
 
-
-$(".make_profile_photo").live("click", function(evt){
-
-  evt.preventDefault();
-
-  var $this = $(this),
-      $controls = $this.closest(".photo_options"),
-      user_id   = $controls.attr('data-actor');
-      person_id = $controls.attr('data-actor_person');
-      photo_url = $controls.attr('data-image_url');
-
-  $("img[data-person_id='"+ person_id +"']").each( function() {
-    $(this).fadeTo(200,0.3);
-  });
-
-  $.ajax({
-    type: "PUT",
-    url: '/people/'+user_id,
-    data: {"person":{"profile":{ "image_url": photo_url }}},
-    success: function(){
-      $("img[data-person_id='"+ person_id +"']").each( function() {
-        $(this).fadeTo(200,1);
-        this.src = photo_url;
-      });
-    }
-  });
-});
-
 $(".getting_started_box").live("click",function(evt){
   $(this).animate({
     left: parseInt($(this).css('left'),30) == 0 ?

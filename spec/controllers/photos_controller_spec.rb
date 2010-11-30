@@ -111,4 +111,19 @@ describe PhotosController do
 
     end
   end
+
+  describe "#make_profile_photo" do
+    
+    it 'should return a 201 on a js success' do
+      get :make_profile_photo, :photo_id => photo.id, :format => 'js'
+      response.code.should == "201"
+    end
+
+    it 'should return a 406 on failure' do
+      get :make_profile_photo, :photo_id => photo2.id
+      response.code.should == "406"
+    end
+
+  end
+
 end

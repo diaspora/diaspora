@@ -6,7 +6,6 @@ Diaspora::Application.routes.draw do
   resources :status_messages, :only   => [:create, :destroy, :show]
   resources :comments,        :except => [:index]
   resources :requests,        :except => [:edit, :update]
-  resources :photos,          :except => [:index]
   resources :services
 
   resources :people
@@ -14,9 +13,12 @@ Diaspora::Application.routes.draw do
     resources :status_messages
     resources :photos
   end
-  match '/people/by_handle' => 'people#retrieve_remote', :as => 'person_by_handle'
 
+  match '/people/by_handle' => 'people#retrieve_remote', :as => 'person_by_handle'
   match '/auth/:provider/callback' => 'services#create'
+
+  match 'photos/make_profile_photo' => 'photos#make_profile_photo'
+  resources :photos,          :except => [:index]
 
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
