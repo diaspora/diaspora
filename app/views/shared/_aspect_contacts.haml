@@ -9,9 +9,15 @@
       doneEditing: "#{t('.done_editing')}",
       editAspect:"#{t('aspects.show.edit_aspect')}"
     });
+
   - if aspect != :all && aspect.contacts.count == 0
     :javascript
       $(document).ready(function(){
+        EditPane.setTranslations({
+          doneEditing: "#{t('.done_editing')}",
+          editAspect:"#{t('aspects.show.edit_aspect')}"
+        });
+
         EditPane.fadeIn();
       });
 
