@@ -3,12 +3,10 @@
 -#   the COPYRIGHT file.
 
 %li.message{:data=>{:guid=>post.id}}
-  %a{:href => "/people/#{person.id}"}
-    %img{:src => image_or_default(person), :class => "avatar", :alt => person.real_name, :title => person.real_name, "data-person_id" => person.id}
-
+  =person_image_link(person)
   .content
     .from
-      %a{:href => "/people/#{person.id}"}=person.real_name
+      =person_link(person)
 
       - if person.owner_id == current_user.id
         .aspect
@@ -22,7 +20,7 @@
         .right
           - reshare_aspects = aspects_without_post(aspects, post)
           - unless reshare_aspects.empty?
-            = render 'shared/reshare', :current_user => current_user, :aspects => reshare_aspects, :post => post
+            = render 'shared/reshare', :aspects => reshare_aspects, :post => post
           = link_to t('delete'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
 
     = render 'status_messages/status_message', :post => post, :photos => photos
