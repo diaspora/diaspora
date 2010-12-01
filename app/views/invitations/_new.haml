@@ -3,7 +3,7 @@
     %h4 
       = t('.invite_someone_to_join')
   %i 
-    = t('.if_they_accept_info')
+    = t('.if_they_accept_info', :gender => current_user)
     %br
     = t('.comma_seperated_plz')
   = form_for User.new, :url => invitation_path(User) do |invite|

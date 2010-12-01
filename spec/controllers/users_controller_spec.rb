@@ -11,7 +11,8 @@ describe UsersController do
 
   let!(:old_password) { user.encrypted_password }
   let!(:old_language) { user.language }
-    
+  let!(:old_gender) { user.grammatical_gender }
+
   before do
     sign_in :user, user
   end
@@ -59,5 +60,28 @@ describe UsersController do
         user.language.should_not == old_language
       end
     end
+
+    describe 'grammatical_gender' do
+      it 'should allow user to change his grammatical gender for some languages' do
+        user.language = 'pl'
+        user.grammatical_gender = 'masculine'
+        user.save
+        old_gender = user.grammatical_gender
+        put("update", :id => user.id, "user" => {"language" => "ru", "grammatical_gender" => "neuter"})
+        user.reload
+        user.grammatical_gender.should_not == old_gender
+        old_gender = user.grammatical_gender
+        put("update", :id => user.id, "user" => {"language" => "ru", "grammatical_gender" => ""})
+        user.reload
+        user.grammatical_gender.should == old_gender
+        put("update", :id => user.id, "user" => {"language" => "ru", "grammatical_gender" => "feminine"})
+        user.reload
+        old_gender = user.grammatical_gender
+        put("update", :id => user.id, "user" => {"language" => "en"})
+        user.reload
+        user.grammatical_gender.should == old_gender
+      end
+    end
+
   end
 end

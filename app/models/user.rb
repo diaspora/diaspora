@@ -29,6 +29,7 @@ class User
   key :getting_started, Boolean, :default => true
 
   key :language, String
+  key :grammatical_gender, String
 
   before_validation :strip_and_downcase_username, :on => :create
   before_validation :set_current_language, :on => :create
@@ -38,6 +39,7 @@ class User
   validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/
   validates_length_of :username, :maximum => 32
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+  validates_inclusion_of :grammatical_gender, :in => I18n::Backend::Genderize::known_genders + [nil]
 
   validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_associated :person
@@ -61,7 +63,7 @@ class User
     person.save if person
   end
 
-  attr_accessible :getting_started, :password, :password_confirmation, :language,
+  attr_accessible :getting_started, :password, :password_confirmation, :language, :grammatical_gender
 
   def strip_and_downcase_username
     if username.present?

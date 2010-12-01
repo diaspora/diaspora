@@ -34,7 +34,7 @@
       %h4
         = t('.your_birthday')
         %br
-        = select_date @person.profile.birthday, :prompt => true, 
+        = select_date @person.profile.birthday, :prompt => true, :prefix => 'person[profile][date]',
         :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1904
 
       %h4

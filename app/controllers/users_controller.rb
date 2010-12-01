@@ -28,6 +28,7 @@ class UsersController < ApplicationController
       params[:user].delete(:password) if params[:user][:password].blank?
       params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
       params[:user].delete(:language) if params[:user][:language].blank?
+      params[:user].delete(:grammatical_gender) if params[:user][:grammatical_gender].blank?
 
       if params[:user][:password] && params[:user][:password_confirmation]
         if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
@@ -37,7 +38,15 @@ class UsersController < ApplicationController
         end
       elsif params[:user][:language]
         if @user.update_attributes(:language => params[:user][:language])
-          flash[:notice] = I18n.t 'users.update.language_changed'
+          if params[:user][:grammatical_gender]
+            if @user.update_attributes(:grammatical_gender => params[:user][:grammatical_gender])
+              flash[:notice] = I18n.t 'users.update.language_changed'
+            else
+              flash[:error] = I18n.t 'users.update.language_not_changed'
+            end
+          else
+            flash[:notice] = I18n.t 'users.update.language_changed'
+          end
         else
           flash[:error] = I18n.t 'users.update.language_not_changed'
         end
@@ -80,6 +89,7 @@ class UsersController < ApplicationController
     @step ||= 1
 
     if @step == 4
+      @user.grammatical_gender = I18n::Backend::Genderize.guess(@profile.gender)
       @user.getting_started = false
       @user.save
     end

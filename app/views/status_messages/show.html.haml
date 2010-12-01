@@ -16,7 +16,7 @@
   .time
     = how_long_ago(@status_message)
   - if current_user.owns? @status_message
-    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
+    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure', :gender => current_user), :method => :delete
 
 .span-9.last
   %h4{:style=>"margin-bottom:5px;"}= t('_comments')

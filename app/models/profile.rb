@@ -36,7 +36,8 @@ class Profile
 
   before_save :strip_names
 
-  attr_accessible :first_name, :last_name, :image_url, :image_url_medium, :image_url_small, :birthday, :gender, :bio, :searchable
+  attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
+    :image_url_small, :birthday, :gender, :bio, :searchable, :date
 
 
   def person
@@ -83,6 +84,15 @@ class Profile
       super(url)
     else
       super(absolutify_local_url(url))
+    end
+  end
+
+  def date= params
+    if ['year', 'month', 'day'].all? { |key| params[key].present? }
+      date = Date.new(params['year'].to_i, params['month'].to_i, params['day'].to_i)
+      self.birthday = date
+    elsif ['year', 'month', 'day'].all? { |key| params[key] == '' }
+      self.birthday = nil
     end
   end
 
