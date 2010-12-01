@@ -147,6 +147,7 @@ class User
 
     if post.save
       raise 'MongoMapper failed to catch a failed save' unless post.id
+      add_to_streams(post, opts[:to])
       dispatch_post(post, :to => opts[:to])
     end
     post
@@ -162,10 +163,6 @@ class User
 
   def dispatch_post(post, opts = {})
     aspect_ids = opts.delete(:to)
-
-    aspect_ids = prune_aspect_ids(aspect_ids)
-    self.raw_visible_posts << post
-    self.save
 
     #socket post
     Rails.logger.info("event=dispatch user=#{diaspora_handle} post=#{post.id.to_s}")
@@ -199,14 +196,27 @@ class User
     end
   end
 
-  def prune_aspect_ids(aspect_ids)
-    return aspect_ids if aspect_ids == "all"
-    if aspect_ids.respond_to? :to_id
-      aspect_ids = [aspect_ids]
-    end
+  def add_to_streams(post, aspect_ids)
+    self.raw_visible_posts << post
+    self.save
 
-    aspect_ids.map!{ |x| x.to_id }
-    aspects.map{ |x| x.id } & aspect_ids
+    target_aspects = aspects_from_ids(aspect_ids)
+    target_aspects.each do |aspect|
+      aspect.posts << post
+      aspect.save
+    end
+  end
+
+  def aspects_from_ids(aspect_ids)
+    if aspect_ids == "all" || aspect_ids == :all
+      self.aspects
+    else
+      if aspect_ids.respond_to? :to_id
+        aspect_ids = [aspect_ids]
+      end
+      aspect_ids.map!{ |x| x.to_id }
+      aspects.all(:id.in => aspect_ids)
+    end
   end
 
   def push_to_aspects(post, aspect_ids)
@@ -221,8 +231,6 @@ class User
     target_contacts = []
 
     aspects.each { |aspect|
-      aspect.posts << post
-      aspect.save
       target_contacts = target_contacts | aspect.contacts
     }
 

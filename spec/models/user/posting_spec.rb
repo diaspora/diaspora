@@ -16,9 +16,8 @@ describe User do
   let!(:service1) { s = Factory(:service, :provider => 'twitter'); user.services << s; s }
   let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
 
-  describe '#add_to_stream' do
+  describe '#add_to_streams' do
     before do
-      pending "not implemented"
       @params = {:message => "hey", :to => [aspect.id, aspect1.id]}
       @post = user.build_post(:status_message, @params)
       @post.save
@@ -27,27 +26,30 @@ describe User do
 
     it 'saves post into visible post ids' do
       proc {
-        user.add_to_stream(@post, @aspect_ids)
+        user.add_to_streams(@post, @aspect_ids)
       }.should change(user.raw_visible_posts, :count).by(1)
       user.reload.raw_visible_posts.should include @post
     end
 
     it 'saves post into each aspect in aspect_ids' do
-      user.add_to_stream(@post, @aspect_ids)
+      user.add_to_streams(@post, @aspect_ids)
       aspect.reload.post_ids.should include @post.id
       aspect1.reload.post_ids.should include @post.id
     end
 
   end
 
-  describe '#prune_aspect_ids' do
+  describe '#aspects_from_ids' do
     it 'returns a list of all valid aspects a user can post to' do
       aspect_ids = Aspect.all.map(&:id)
-      user.prune_aspect_ids(aspect_ids).should =~ [aspect.id, aspect1.id]
+      user.aspects_from_ids(aspect_ids).should =~ [aspect, aspect1]
     end
     it "lets you post to your own aspects" do
-      user.prune_aspect_ids(aspect.id).should be_true
-      user.prune_aspect_ids(aspect1.id).should be_true
+      user.aspects_from_ids([aspect.id]).should == [aspect]
+      user.aspects_from_ids([aspect1.id]).should == [aspect1]
+    end
+    it 'removes aspects that are not yours' do
+      user.aspects_from_ids(aspect2.id).should == []
     end
   end
 
