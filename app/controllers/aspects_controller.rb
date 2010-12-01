@@ -9,7 +9,7 @@ class AspectsController < ApplicationController
   respond_to :json, :only => :show
 
   def index
-    @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
+    @posts  = current_user.raw_visible_posts.find_all_by__type("StatusMessage", :order => 'updated_at desc').paginate :page => params[:page], :per_page => 15
     @post_hashes = hashes_for_posts @posts
     @aspect_hashes = hashes_for_aspects @aspects.all, @contacts
     @aspect = :all
@@ -62,7 +62,7 @@ class AspectsController < ApplicationController
       @aspect_contacts = @aspect.contacts
       @aspect_contacts_count = @aspect_contacts.count
 
-      @posts = @aspect.posts.find_all_by__type("StatusMessage", :order => 'created_at desc').paginate :page => params[:page], :per_page => 15
+      @posts = @aspect.posts.find_all_by__type("StatusMessage", :order => 'updated_at desc').paginate :page => params[:page], :per_page => 15
       @post_hashes = hashes_for_posts @posts
       @post_count = @posts.count
 

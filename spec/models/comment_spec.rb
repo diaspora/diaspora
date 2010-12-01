@@ -70,6 +70,15 @@ describe Comment do
       user2.comment "sup dog", :on => @status
       @status.reload.comments.first.text.should == "sup dog"
     end
+
+    it "updates updated_at of parent post on creation" do
+      hash = @status.to_mongo
+      hash[:updated_at] = (Time.now - 20).to_s
+      @status.collection.save(hash)
+      user2.comment "sup dog", :on => @status
+      @status.reload.updated_at.should == @status.comments.first.created_at
+    end
+
   end
 
   it 'should not send out comments when we have no people' do

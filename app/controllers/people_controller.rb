@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   def index
     @aspect = :search
 
-    @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'created_at DESC'
+    @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'updated_at DESC'
     @requests = Request.all(:to_id.in => @people.map{|p| p.id})
     
     #only do it if it is an email address
@@ -39,7 +39,7 @@ class PeopleController < ApplicationController
         @aspects_with_person = @contact.aspects
       end
 
-      @posts = current_user.visible_posts(:person_id => @person.id, :_type => "StatusMessage").paginate :page => params[:page], :order => 'created_at DESC'
+      @posts = current_user.visible_posts(:person_id => @person.id, :_type => "StatusMessage").paginate :page => params[:page], :order => 'updated_at DESC'
       @post_hashes = hashes_for_posts @posts
       respond_with @person, :locals => {:post_type => :all}
 

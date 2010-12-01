@@ -21,7 +21,7 @@ class PhotosController < ApplicationController
         @aspects_with_person = @contact.aspects
       end
 
-      @posts = current_user.raw_visible_posts.all(:_type => 'Photo', :person_id => @person.id, :order => 'created_at DESC').paginate :page => params[:page], :order => 'created_at DESC'
+      @posts = current_user.raw_visible_posts.all(:_type => 'Photo', :person_id => @person.id, :order => 'updated_at DESC').paginate :page => params[:page], :order => 'created_at DESC'
 
       render 'people/show'
 

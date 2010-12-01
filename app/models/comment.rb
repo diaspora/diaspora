@@ -36,6 +36,11 @@ class Comment
   validates_presence_of :text, :diaspora_handle, :post
   validates_with HandleValidator
 
+  after_create do
+    #save the parent post to update updated_at timestamp
+    post.save
+  end
+
   before_save do
     get_youtube_title text
   end
