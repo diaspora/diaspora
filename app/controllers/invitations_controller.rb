@@ -30,9 +30,9 @@ class InvitationsController < Devise::InvitationsController
       if  e.message == "You have no invites"
         flash[:error] = I18n.t 'invitations.create.no_more'
       elsif e.message == "You already invited this person"
-        flash[:error] = I18n.t 'invitations.create.already_sent'
+        flash[:error] = I18n.t('invitations.create.already_sent', :gender => current_user)
       elsif e.message == "You are already connected to this person"
-        flash[:error] = I18n.t 'invitations.create.already_contacts'
+        flash[:error] = I18n.t('invitations.create.already_contacts', :gender => current_user)
       else
         raise e
       end

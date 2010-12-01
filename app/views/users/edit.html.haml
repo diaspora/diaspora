@@ -3,13 +3,29 @@
 -#   the COPYRIGHT file.
 
 :javascript
-  $("#settings_nav li > a").live("click", function() {
-    var target = "#"+$(this).attr('class');
-    if( !$(target).is(":visible") ) {
-      $(".settings_pane").fadeOut(200, function() {
-        $(target).delay(200).fadeIn(200);
-      });
-    }
+  var genderized_languages = #{grammatical_gender_languages}
+
+  $(document).ready(function(){
+
+    $("#settings_nav li > a").live("click", function() {
+      var target = "#"+$(this).attr('class');
+      if( !$(target).is(":visible") ) {
+        $(".settings_pane").fadeOut(200, function() {
+          $(target).delay(200).fadeIn(200);
+        });
+      }
+    });
+
+    $("#user_language").change(function () {
+      var gselected = $("#user_language option:selected").val();
+      if ( $.inArray(gselected, genderized_languages) < 0 ) {
+        $("#grammatical_gender_block").hide(800);
+        $("#user_grammatical_gender").attr("disabled", "disabled");
+      } else {
+        $("#user_grammatical_gender").removeAttr("disabled");
+        $("#grammatical_gender_block").show(800);
+      }
+    });
   });
 
 #section_header
@@ -67,6 +83,9 @@
 
     %p
       = f.select :language, available_language_options
+      %span#grammatical_gender_block{options_for_grammatical_gender_block}
+        = "    " + t('.address_me_as')
+        = select_tag 'user[grammatical_gender]', options_for_gender_select, :disabled => gender_select_disabled
       = f.submit t('.change_language')
 
   %br
@@ -83,5 +102,5 @@
   %h3 
     = t('.close_account')
   = link_to t('.close_account'), current_user,
-              :confirm => t('are_you_sure'), :method => :delete,
+              :confirm => t('are_you_sure', :gender => current_user), :method => :delete,
               :class => "button"
