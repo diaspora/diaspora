@@ -163,7 +163,7 @@ class User
   def dispatch_post(post, opts = {})
     aspect_ids = opts.delete(:to)
 
-    aspect_ids = validate_aspect_permissions(aspect_ids)
+    aspect_ids = prune_aspect_ids(aspect_ids)
     self.raw_visible_posts << post
     self.save
 
@@ -199,24 +199,14 @@ class User
     end
   end
 
-  def validate_aspect_permissions(aspect_ids)
-    if aspect_ids == "all"
-      return aspect_ids
+  def prune_aspect_ids(aspect_ids)
+    return aspect_ids if aspect_ids == "all"
+    if aspect_ids.respond_to? :to_id
+      aspect_ids = [aspect_ids]
     end
 
-    aspect_ids = [aspect_ids.to_s] unless aspect_ids.is_a? Array
-
-    if aspect_ids.nil? || aspect_ids.empty?
-      raise ArgumentError.new("You must post to someone.")
-    end
-
-    aspect_ids.each do |aspect_id|
-      unless self.aspects.find(aspect_id)
-        raise ArgumentError.new("Cannot post to an aspect you do not own.")
-      end
-    end
-
-    aspect_ids
+    aspect_ids.map!{ |x| x.to_id }
+    aspects.map{ |x| x.id } & aspect_ids
   end
 
   def push_to_aspects(post, aspect_ids)
