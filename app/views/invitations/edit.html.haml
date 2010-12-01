@@ -1,18 +1,5 @@
- :javascript
-  $(function() {
-    var Validation = {
-      username: {
-        characters: /^(|[A-Za-z0-9_]{0,32})$/,
-        length: [6, 32]
-      }
-    };
-
-    $("#user_username").keypress(function(evt) {
-      if(!Validation.username.characters.test(this.value + String.fromCharCode(evt.charCode)) { 
-        evt.preventDefault();
-      }
-    });
-  });
+%script{:type => "text/javascript",
+        :src  => "/javascripts/validation.js"}
 
 = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put }) do |f|
   %p
