@@ -1,8 +1,8 @@
 #
 # Included by script/server
 #
-THIN_PORT=3000
-SOCKET_PORT=8080
+THIN_PORT=3001
+SOCKET_PORT=8081
 
 # Choose one mode by uncommenting
 export RAILS_ENV='development'

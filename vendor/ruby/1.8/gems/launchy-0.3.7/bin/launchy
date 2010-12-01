@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+begin
+    require 'launchy'
+rescue LoadError 
+    path = File.expand_path(File.join(File.dirname(__FILE__),"..","lib"))
+    raise if $:.include? path
+    $: << path
+    retry
+end
+
+Launchy.command_line.run(ARGV)

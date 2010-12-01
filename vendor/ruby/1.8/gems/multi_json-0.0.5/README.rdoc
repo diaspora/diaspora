@@ -1,0 +1,30 @@
+= MultiJSON
+
+Lots of Ruby libraries utilize JSON parsing in some form, and everyone has their favorite JSON library. In order to best support multiple JSON parsers and libraries, <tt>multi_json</tt> is a general-purpose swappable JSON backend library. You use it like so:
+
+    require 'multi_json'
+    
+    MultiJson.engine = :yajl
+    MultiJson.decode('{"abc":"def"}') # decoded using Yajl
+    
+    MultiJson.engine = :json_gem
+    MultiJson.engine = MultiJson::Engines::JsonGem # equivalent to previous line
+    MultiJson.encode({:abc => 'def'}) # encoded using the JSON gem
+    
+The <tt>engine</tt> setter takes either a symbol or a class (to allow for custom JSON parsers) that responds to both <tt>.decode</tt> and <tt>.encode</tt> at the class level.
+
+MultiJSON tries to have intelligent defaulting. That is, if you have any of the supported engines already loaded, it will utilize them before attempting to load any. When loading, libraries are ordered by speed. First Yajl-Ruby, then the JSON gem, then ActiveSupport, then JSON pure.
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 Michael Bleigh and Intridea, Inc. See LICENSE for details.

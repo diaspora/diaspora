@@ -1,0 +1,14 @@
+Autotest.add_hook(:initialize) do |at|
+  at.add_exception(".git")
+end
+
+Autotest.add_hook(:initialize) do |at|
+  at.clear_mappings
+
+  at.add_mapping %r%/^lib/(.*)\.rb$% do |_, m|
+    possible = File.basename(m[1])
+    files_matching %r%^test/.*(#{possible}_test|test_#{possible})\.rb$%
+  end
+
+  at.add_mapping(%r%^test/.*\.rb$%) {|filename, _| filename }
+end

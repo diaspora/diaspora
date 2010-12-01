@@ -1,0 +1,106 @@
+gcd.rb:4
+def gcd(a, b)
+# # ********************************************************
+# # This tests step, next, finish, continue, disable and 
+# # enable.
+# # FIXME: break out enable/disable
+# # ********************************************************
+# set debuggertesting on
+Currently testing the debugger is on.
+# set callstyle last
+Frame call-display style is last.
+# set autoeval off
+autoeval is off.
+# break 6
+Breakpoint 1 file gcd.rb, line 6
+# break 10
+Breakpoint 2 file gcd.rb, line 10
+# continue
+Breakpoint 1 at gcd.rb:6
+gcd.rb:6
+if a > b
+# where
+--> #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+    #1 at line gcd.rb:18
+# break Foo.bar
+*** Unknown class Foo.
+# break Object.gcd
+Breakpoint 3 at Object::gcd
+# info break
+Num Enb What
+  1 y   at gcd.rb:6
+	breakpoint already hit 1 time
+  2 y   at gcd.rb:10
+  3 y   at Object:gcd
+# continue
+Breakpoint 2 at gcd.rb:10
+gcd.rb:10
+return nil if a <= 0
+# where
+--> #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:10
+    #1 at line gcd.rb:18
+# info program
+Program stopped. It stopped at a breakpoint.
+# c 10
+Breakpoint 3 at Object:gcd
+gcd.rb:4
+def gcd(a, b)
+# info break
+Num Enb What
+  1 y   at gcd.rb:6
+	breakpoint already hit 1 time
+  2 y   at gcd.rb:10
+	breakpoint already hit 1 time
+  3 y   at Object:gcd
+	breakpoint already hit 1 time
+# break foo
+*** Invalid breakpoint location: foo.
+# info break
+Num Enb What
+  1 y   at gcd.rb:6
+	breakpoint already hit 1 time
+  2 y   at gcd.rb:10
+	breakpoint already hit 1 time
+  3 y   at Object:gcd
+	breakpoint already hit 1 time
+# disable  1
+# info break
+Num Enb What
+  1 n   at gcd.rb:6
+	breakpoint already hit 1 time
+  2 y   at gcd.rb:10
+	breakpoint already hit 1 time
+  3 y   at Object:gcd
+	breakpoint already hit 1 time
+# enable breakpoint 1
+# enable br 10
+Enable breakpoints argument '10' needs to at most 3.
+# delete 1
+# # We should see breakpoint 2 but not 1
+# info break
+Num Enb What
+  2 y   at gcd.rb:10
+	breakpoint already hit 1 time
+  3 y   at Object:gcd
+	breakpoint already hit 1 time
+# # We should still be able to access 2
+# disable 2
+# enable
+*** "enable" must be followed "display", "breakpoints" or breakpoint numbers.
+# enable foo
+Enable breakpoints argument 'foo' needs to be a number.
+# disable bar
+Disable breakpoints argument 'bar' needs to be a number.
+# disable
+*** "disable" must be followed "display", "breakpoints" or breakpoint numbers.
+# # We should be able to delete 2
+# delete 2 3
+# info break
+No breakpoints.
+# # Should get a message about having no breakpoints.
+# disable 1
+*** No breakpoints have been set.
+# enable 1
+*** No breakpoints have been set.
+# # finish
+# quit

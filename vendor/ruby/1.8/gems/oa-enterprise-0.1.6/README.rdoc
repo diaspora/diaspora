@@ -1,0 +1,58 @@
+= OmniAuth::Enterprise
+
+OmniAuth strategies for use in your intranet.
+
+== Installation
+
+To get just enterprise functionality:
+
+    gem install oa-enterprise
+    
+For the full auth suite:
+
+    gem install omniauth
+
+CAS strategy    
+== Stand-Alone Example
+
+Use the strategy as a middleware in your application:
+
+    require 'omniauth/enterprise'
+    
+    use OmniAuth::Strategies::CAS, :server => 'http://cas.mycompany.com/cas'
+    
+Then simply direct users to '/auth/cas' to have them sign in via your company's CAS server.
+See OmniAuth::Strategies::CAS::Configuration for more configuration options.
+    
+Then simply direct users to '/auth/cas' to have them sign in via your company's CAS server.
+See OmniAuth::Strategies::CAS::Configuration for more configuration options.
+
+== OmniAuth Builder
+
+If CAS is one of several authentication strategies, use the OmniAuth Builder:
+
+    require 'omniauth/enterprise'
+    require 'omniauth/oauth'  # for Campfire
+    require 'openid/store/filesystem'
+    
+    use OmniAuth::Builder do
+      provider :cas, :server => 'http://cas.mycompany.com/cas'
+      provider :campfire
+    end
+
+LDAP strategy
+
+    use OmniAuth::Strategies::LDAP, :host => '10.101.10.1', :port => 389, :method => :plain, :base => 'dc=intridea, dc=com', :uid => 'sAMAccountName', :try_sasl => true, :sasl_mechanisms => "GSS-SPNEGO"
+		or
+    use OmniAuth::Builder do
+      provider :LDAP, :host => '10.101.10.1', :port => 389, :method => :plain, :base => 'dc=intridea, dc=com', :uid => 'sAMAccountName', :try_sasl => true, :sasl_mechanisms => "GSS-SPNEGO"
+    end
+		    
+    LDAP server's :host and :port are required, :method is also a required field, and allowed values are :plain, :ssl, and :tls.
+    :base is required, it is the distinguish name (DN) for your organization, all users should be searchable under this base.
+    :uid is required, it is the LDAP attribute name for the user name in the login form. typically AD would be 'sAMAccountName' or 'UniquePersonalIdentifier', while 
+    OpenLDAP is 'uid'. You can also use 'dn', if your user choose the put in the dn in the login form (but usually is too long for user to remember or know).
+    :try_sasl and :sasl_mechanisms are optional, use it to initial SASL connection to server. mechanism supported are DIGEST-MD5 and GSS-SPNEGO.
+
+Then simply direct users to '/auth/ldap' to have them authenticated via your company's LDAP server.
+    

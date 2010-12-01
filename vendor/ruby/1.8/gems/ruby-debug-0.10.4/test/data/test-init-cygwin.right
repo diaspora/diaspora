@@ -1,0 +1,7 @@
+gcd-dbg.rb:18
+if a > b
+(rdb:1) p Debugger::PROG_SCRIPT
+"./gcd-dbg.rb"
+(rdb:1) show args
+Argument list to give program being debugged when it is started is "5".
+(rdb:1) quit unconditionally

@@ -1,0 +1,7 @@
+.DS_Store
+.yardoc/
+doc/
+tmp/
+log/
+pkg/
+*.swp

@@ -1,0 +1,33 @@
+*****************************************************************
+* From Twitter API Docs, so I don't have to keep going to them. *
+*****************************************************************
+
+http://apiwiki.twitter.com/REST+API+Documentation
+
+200 OK: everything went awesome.
+304 Not Modified: there was no new data to return.
+400 Bad Request: your request is invalid, and we'll return an error message that tells you why. This is the status code returned if you've exceeded the rate limit (see below). 
+401 Not Authorized: either you need to provide authentication credentials, or the credentials provided aren't valid.
+403 Forbidden: we understand your request, but are refusing to fulfill it.  An accompanying error message should explain why.
+404 Not Found: either you're requesting an invalid URI or the resource in question doesn't exist (ex: no such user). 
+500 Internal Server Error: we did something wrong.  Please post to the group about it and the Twitter team will investigate.
+502 Bad Gateway: returned if Twitter is down or being upgraded.
+503 Service Unavailable: the Twitter servers are up, but are overloaded with requests.  Try again later.
+
+**********
+* Errors *
+**********
+
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <request>/direct_messages/destroy/456.xml</request>
+  <error>No direct message with that ID found.</error>
+</hash>
+
+**********************
+* Rate Limit Headers *
+**********************
+
+X-RateLimit-Limit the current limit in effect
+X-RateLimit-Remaining the number of hits remaining before you are rate limited
+X-RateLimit-Reset the time the current rate limiting period ends (in epoch time, number of seconds since 1970-01-01 00:00:00)

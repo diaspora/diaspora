@@ -1,0 +1,97 @@
+0.5.x (In Git)
+
+== 0.5.2
+
+ === Bugfixes
+  * Removes extraneous puts call from configuration.rb.  (Ben Mabey)
+
+== 0.5.1 - The Mongoid Release
+
+This release also attempts to fix AR for Rails 3 support.  I have seen mixed reviews on this.  Some people
+claim the fixes allow for use in Rails3 while others have not had good luck with it.  I plan on reworking
+the way AR support is added so that it is more friendly with how Rails 3 uses autoload.
+
+ === New features
+  * Clean and clean_with methods are now aliased to clean! and clean_with!. (Ben Mabey)
+  * Mongoid Support! (Sidney Burks)
+
+=== Bugfixes
+  * Check PostgreSQL version >= 8.2 before using TRUNCATE CASCADE (James B. Byrne)
+  * Correct superclass is used in ActiveRecord connection adapters. (johnathan, Aslak Hellesoy, Ben Mabey)
+
+== 0.5.0 2010-02-22 - The CouchPotato Release
+
+ === New features
+  * Basic truncation support for CouchPotato / CouchDB. (Martin Rehfeld)
+  * SQLite3 on JRuby will fall back to delete if truncate doesn't work. (Darrin Holst)
+  * JDBC is used for ActiveRecord automaticaly when JRuby is detected. (Darrin Holst)
+
+ === Bufixes
+  * MongoMapper truncation strategy now works with :only and :except options. (Ben Mabey)
+
+== 0.4.3 2010-01-17
+
+ === New features
+  * Truncation for ActiveRecord oracle_enhanced adapter. (Edgars Beigarts)
+
+== 0.4.2 2010-01-12
+
+ === Bufixes
+  * Datamapper truncation now uses 'select' instead of deprecated the 'query' method. (Steve Tooke)
+
+== 0.4.1 2010-01-07
+
+ === Bufixes
+  * Postgres tables with FKs now truncate (added TRUNCADE CASCADE) using Datamapper. (Ben Mabey)
+
+== 0.4.0 2009-12-23 (The MongoMapper Edition)
+
+ === New features
+  * MongoMapper support for the truncation strategy. (Aubrey Holland)
+
+== 0.3.0 2009-12-20
+
+ === New features
+  * DataMapper 0.10.0 Compatible. (Martin Gamsjaeger)
+ === Bufixes
+  * Postgres tables with FKs now truncate (added TRUNCADE CASCADE). (Vika - yozhyk on github)
+
+== 0.2.3 2009-05-30
+
+ === New features
+  * Support for SQL Server truncation (Adam Meehan)
+
+== 0.2.2 2009-05-08
+ === Bufixes
+  * Added proper gemspec description and summary. (Ben Mabey, thanks to Martin Gamsjaeger)
+
+ === New features
+
+== 0.2.1 2009-05-08
+ === Bufixes
+  * Removed extraneous TruncationBase class definition. (Ben Mabey)
+
+== 0.2.0 2009-05-08 - The Datamapper Release
+
+ === New features
+  * DataMapper strategies (Martin Gamsjaeger)
+    * Transaction
+    * Truncation - working SQLite3, MySQL adapters. Experimental Postgres adapter (not tested).
+
+== 0.1.3 2009-04-30
+
+ === New features
+  * PostgresSQLAdapter for AR to support the truncation strategy. (Alberto Perdomo)
+ === Bufixes
+  * Added missing quotes around table names in truncation calls. (Michael MacDonald)
+
+== 0.1.2 2009-03-05
+ === New features
+  * JDBC Adapter to enable AR truncation strategy to work. (Kamal Fariz Mahyuddin)
+
+== 0.1.1 2009-03-04 - Initial Release (Ben Mabey)
+  * Basic infrastructure
+  * Features, RSpec code examples
+  * ActiveRecord strategies
+    * Truncation - with MySQL, and SQLite3 adapters.
+    * Transaction - wrap your modifications and roll them back.

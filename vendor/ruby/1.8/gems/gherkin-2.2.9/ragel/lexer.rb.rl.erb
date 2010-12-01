@@ -1,0 +1,179 @@
+require 'gherkin/lexer/i18n_lexer'
+
+module Gherkin
+  module RbLexer
+    class <%= @i18n.underscored_iso_code.capitalize %> #:nodoc:
+      %%{
+        machine lexer;
+ 
+        action begin_content {
+          @content_start = p
+          @current_line = @line_number
+        }
+
+        action start_pystring {
+          @current_line = @line_number
+          @start_col = p - @last_newline
+        }
+        
+        action begin_pystring_content {
+          @content_start = p
+        }
+
+        action store_pystring_content {
+          con = unindent(@start_col, utf8_pack(data[@content_start...@next_keyword_start-1]).sub(/(\r?\n)?([\t ])*\Z/, '').gsub(/\\"\\"\\"/, '"""'))
+          @listener.py_string(con, @current_line) 
+        }
+ 
+        action store_feature_content {
+          store_keyword_content(:feature, data, p, eof) { |con| multiline_strip(con) }
+          p = @next_keyword_start - 1 if @next_keyword_start          
+          @next_keyword_start = nil
+        }
+ 
+        action store_background_content {
+          store_keyword_content(:background, data, p, eof) { |con| multiline_strip(con) }
+          p = @next_keyword_start - 1 if @next_keyword_start                    
+          @next_keyword_start = nil
+        }
+
+        action store_scenario_content {
+          store_keyword_content(:scenario, data, p, eof) { |con| multiline_strip(con) }
+          p = @next_keyword_start - 1 if @next_keyword_start                    
+          @next_keyword_start = nil
+        }
+
+        action store_scenario_outline_content {
+          store_keyword_content(:scenario_outline, data, p, eof) { |con| multiline_strip(con) }
+          p = @next_keyword_start - 1 if @next_keyword_start                    
+          @next_keyword_start = nil
+        }
+
+        action store_examples_content {
+          store_keyword_content(:examples, data, p, eof) { |con| multiline_strip(con) }
+          p = @next_keyword_start - 1 if @next_keyword_start                    
+          @next_keyword_start = nil
+        }
+
+        action store_step_content {
+          con = utf8_pack(data[@content_start...p]).strip
+          @listener.step(@keyword, con, @current_line)
+        }
+ 
+        action store_comment_content {
+          con = utf8_pack(data[@content_start...p]).strip
+          @listener.comment(con, @line_number)
+          @keyword_start = nil
+        }
+ 
+        action store_tag_content {
+          con = utf8_pack(data[@content_start...p]).strip
+          @listener.tag(con, @current_line)
+          @keyword_start = nil
+        }
+ 
+        action inc_line_number {
+          @line_number += 1
+        }
+ 
+        action last_newline {
+          @last_newline = p + 1
+        }
+
+        action start_keyword {
+          @keyword_start ||= p
+        }
+ 
+        action end_keyword {
+          @keyword = utf8_pack(data[@keyword_start...p]).sub(/:$/,'')
+          @keyword_start = nil
+        }
+ 
+        action next_keyword_start {
+          @next_keyword_start = p
+        }
+
+        action start_row {
+          p = p - 1
+          current_row = []
+          @current_line = @line_number
+        }
+
+        action begin_cell_content {
+          @content_start = p
+        }
+
+        action store_cell_content {
+          con = utf8_pack(data[@content_start...p]).strip
+          current_row << con.gsub(/\\\|/, "|").gsub(/\\\\/, "\\")
+        }
+
+        action store_row {
+          @listener.row(current_row, @current_line)
+        }
+
+        action end_feature {
+          if cs < lexer_first_final
+            content = current_line_content(data, p)
+            raise Gherkin::Lexer::LexingError.new("Lexing error on line %d: '%s'. See http://wiki.github.com/aslakhellesoy/gherkin/lexingerror for more information." % [@line_number, content])
+          else
+            @listener.eof
+          end
+        }
+
+        include lexer_common "lexer_common.<%= @i18n.underscored_iso_code %>.rl"; 
+      }%%
+ 
+      def initialize(listener)
+        @listener = listener
+        %% write data;
+      end
+ 
+      def scan(data)
+        data = (data + "\n%_FEATURE_END_%").unpack("c*") # Explicit EOF simplifies things considerably
+        eof = pe = data.length
+ 
+        @line_number = 1
+        @last_newline = 0
+ 
+        %% write init;
+        %% write exec;
+      end
+
+      CRLF_RE = /\r\n/
+      LF_RE = /[^\r]\n/
+      CRLF = "\r\n"
+      LF = "\n"
+
+      def multiline_strip(text)
+        crlf_count = text.scan(CRLF_RE).size
+        lf_count = text.scan(LF_RE).size
+        eol = crlf_count > lf_count ? CRLF : LF
+        text.split(/\r?\n/).map{|s| s.strip}.join(eol).strip
+      end
+
+      def unindent(startcol, text)
+        text.gsub(/^[\t ]{0,#{startcol}}/, "")
+      end
+
+      def store_keyword_content(event, data, p, eof)
+        end_point = (!@next_keyword_start or (p == eof)) ? p : @next_keyword_start
+        content = yield utf8_pack(data[@content_start...end_point])
+        content_lines = content.split("\n")
+        name = content_lines.shift || ""
+        name.strip!
+        description = content_lines.join("\n")
+        @listener.__send__(event, @keyword, name, description, @current_line)
+      end
+      
+      def current_line_content(data, p)
+        rest = data[@last_newline..-1]
+        utf8_pack(rest[0..rest.index(10)||-1]).strip
+      end
+
+      def utf8_pack(array)
+        (RUBY_VERSION =~ /^1\.9/) ? array.pack("c*").force_encoding("UTF-8") : array.pack("c*")
+      end
+    end
+  end
+end

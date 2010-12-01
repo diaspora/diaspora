@@ -1,0 +1,15 @@
+# Configuration file for the chef-client service
+
+#CONFIG=/etc/chef/client.rb
+#PIDFILE=/var/run/chef/client.pid
+#LOCKFILE=/var/lock/subsys/chef-client
+#LOGFILE=/var/log/chef/client.log
+# Sleep interval between runs.
+# This value is in seconds.
+#INTERVAL=1800
+# Maximum amount of random delay before starting a run. Prevents every client
+# from contacting the server at the exact same time.
+# This value is in seconds.
+#SPLAY=20
+# Any additional chef-client options.
+#OPTIONS=

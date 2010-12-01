@@ -1,0 +1,3 @@
+== 0.0.3
+
+* Added OmniAuth::Form for displaying info forms on systems that will require them.

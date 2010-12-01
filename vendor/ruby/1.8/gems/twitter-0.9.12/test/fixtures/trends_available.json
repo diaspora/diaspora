@@ -1,0 +1,253 @@
+[{
+    "url": "http://where.yahooapis.com/v1/place/23424803",
+    "placeType": {
+        "code": 12,
+        "name": "Country"
+    },
+    "woeid": 23424803,
+    "countryCode": "IE",
+    "name": "Ireland",
+    "country": "Ireland"
+},
+{
+    "countryCode": "MX",
+    "country": "Mexico",
+    "url": "http://where.yahooapis.com/v1/place/23424900",
+    "name": "Mexico",
+    "placeType": {
+        "code": 12,
+        "name": "Country"
+    },
+    "woeid": 23424900
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/23424975",
+    "woeid": 23424975,
+    "placeType": {
+        "code": 12,
+        "name": "Country"
+    },
+    "countryCode": "GB",
+    "name": "United Kingdom",
+    "country": "United Kingdom"
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/2358820",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "countryCode": "US",
+    "woeid": 2358820,
+    "name": "Baltimore",
+    "country": "United States"
+},
+{
+    "countryCode": "US",
+    "country": "United States",
+    "url": "http://where.yahooapis.com/v1/place/2514815",
+    "name": "Washington",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 2514815
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/2367105",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 2367105,
+    "countryCode": "US",
+    "name": "Boston",
+    "country": "United States"
+},
+{
+    "country": "Brazil",
+    "url": "http://where.yahooapis.com/v1/place/455827",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "countryCode": "BR",
+    "name": "Sao Paulo",
+    "woeid": 455827
+},
+{
+    "country": "United States",
+    "url": "http://where.yahooapis.com/v1/place/2459115",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "countryCode": "US",
+    "name": "New York",
+    "woeid": 2459115
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/2487796",
+    "countryCode": "US",
+    "woeid": 2487796,
+    "name": "San Antonio",
+    "country": "United States",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    }
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/23424977",
+    "woeid": 23424977,
+    "placeType": {
+        "code": 12,
+        "name": "Country"
+    },
+    "countryCode": "US",
+    "name": "United States",
+    "country": "United States"
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/23424768",
+    "woeid": 23424768,
+    "placeType": {
+        "code": 12,
+        "name": "Country"
+    },
+    "countryCode": "BR",
+    "name": "Brazil",
+    "country": "Brazil"
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/2379574",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "countryCode": "US",
+    "woeid": 2379574,
+    "name": "Chicago",
+    "country": "United States"
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/2471217",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 2471217,
+    "countryCode": "US",
+    "name": "Philadelphia",
+    "country": "United States"
+},
+{
+    "countryCode": "US",
+    "country": "United States",
+    "url": "http://where.yahooapis.com/v1/place/2424766",
+    "name": "Houston",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 2424766
+},
+{
+    "countryCode": "US",
+    "country": "United States",
+    "url": "http://where.yahooapis.com/v1/place/2442047",
+    "name": "Los Angeles",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 2442047
+},
+{
+    "countryCode": "US",
+    "country": "United States",
+    "url": "http://where.yahooapis.com/v1/place/2487956",
+    "name": "San Francisco",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 2487956
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/23424775",
+    "woeid": 23424775,
+    "placeType": {
+        "code": 12,
+        "name": "Country"
+    },
+    "countryCode": "CA",
+    "name": "Canada",
+    "country": "Canada"
+},
+{
+    "country": "United States",
+    "url": "http://where.yahooapis.com/v1/place/2357024",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "countryCode": "US",
+    "name": "Atlanta",
+    "woeid": 2357024
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/2406080",
+    "countryCode": "US",
+    "woeid": 2406080,
+    "name": "Fort Worth",
+    "country": "United States",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    }
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/2388929",
+    "countryCode": "US",
+    "woeid": 2388929,
+    "name": "Dallas",
+    "country": "United States",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    }
+},
+{
+    "countryCode": "US",
+    "country": "United States",
+    "url": "http://where.yahooapis.com/v1/place/2490383",
+    "name": "Seattle",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 2490383
+},
+{
+    "countryCode": "GB",
+    "country": "United Kingdom",
+    "url": "http://where.yahooapis.com/v1/place/44418",
+    "name": "London",
+    "placeType": {
+        "code": 7,
+        "name": "Town"
+    },
+    "woeid": 44418
+},
+{
+    "url": "http://where.yahooapis.com/v1/place/1",
+    "placeType": {
+        "code": 19,
+        "name": "Supername"
+    },
+    "countryCode": null,
+    "woeid": 1,
+    "name": "Earth",
+    "country": ""
+}]

@@ -1,0 +1,264 @@
+find_header: checking for libxml/parser.h... -------------------- yes
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <libxml/parser.h>
+/* end */
+
+--------------------
+
+find_header: checking for libxslt/xslt.h... -------------------- yes
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <libxslt/xslt.h>
+/* end */
+
+--------------------
+
+find_header: checking for libexslt/exslt.h... -------------------- yes
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <libexslt/exslt.h>
+/* end */
+
+--------------------
+
+find_library: checking for xmlParseDoc() in -lxml2... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby1.8-static -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xmlParseDoc' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xmlParseDoc; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby1.8-static -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xmlParseDoc'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xmlParseDoc(); return 0; }
+/* end */
+
+--------------------
+
+find_library: checking for xsltParseStylesheetDoc() in -lxslt... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lxml2  -lruby1.8-static -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xsltParseStylesheetDoc' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xsltParseStylesheetDoc; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lxml2  -lruby1.8-static -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xsltParseStylesheetDoc'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xsltParseStylesheetDoc(); return 0; }
+/* end */
+
+--------------------
+
+find_library: checking for exsltFuncRegister() in -lexslt... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'exsltFuncRegister' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))exsltFuncRegister; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'exsltFuncRegister'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { exsltFuncRegister(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlFirstElementChild()... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xmlFirstElementChild' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xmlFirstElementChild; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xmlFirstElementChild'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xmlFirstElementChild(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlRelaxNGSetParserStructuredErrors()... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xmlRelaxNGSetParserStructuredErrors' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xmlRelaxNGSetParserStructuredErrors'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xmlRelaxNGSetParserStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlRelaxNGSetParserStructuredErrors()... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xmlRelaxNGSetParserStructuredErrors' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetParserStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xmlRelaxNGSetParserStructuredErrors'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xmlRelaxNGSetParserStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlRelaxNGSetValidStructuredErrors()... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xmlRelaxNGSetValidStructuredErrors' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xmlRelaxNGSetValidStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xmlRelaxNGSetValidStructuredErrors'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xmlRelaxNGSetValidStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlSchemaSetValidStructuredErrors()... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xmlSchemaSetValidStructuredErrors' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetValidStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xmlSchemaSetValidStructuredErrors'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xmlSchemaSetValidStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for xmlSchemaSetParserStructuredErrors()... -------------------- yes
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: error: 'xmlSchemaSetParserStructuredErrors' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))xmlSchemaSetParserStructuredErrors; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I. -I-I-I/opt/local/include -I-I-I/usr/local/include -I-I-I/usr/include -I-I-I/usr/include -I-I-I/usr/include/libxml2 -I/opt/local/include/libxml2 -I/usr/local/include/libxml2 -I-I/opt/local/include -I-I/usr/local/include -I-I/usr/include -I-I/usr/include -I-I/usr/include/libxml2 -I/opt/local/include -I/usr/local/include -I/usr/include -I/usr/include -I/usr/include/libxml2  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    -g -DXP_UNIX -O3 -Wall -Wcast-qual -Wwrite-strings -Wconversion -Wmissing-noreturn -Winline conftest.c  -L. -L/usr/lib -L/opt/local/lib -L/usr/local/lib -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic    -lexslt -lxslt -lxml2  -lruby1.8-static -lexslt -lxslt -lxml2  -lpthread -lrt -ldl -lcrypt -lm   -lc "
+conftest.c: In function 't':
+conftest.c:3: warning: implicit declaration of function 'xmlSchemaSetParserStructuredErrors'
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { xmlSchemaSetParserStructuredErrors(); return 0; }
+/* end */
+
+--------------------
+

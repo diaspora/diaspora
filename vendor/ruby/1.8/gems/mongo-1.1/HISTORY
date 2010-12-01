@@ -1,0 +1,210 @@
+1.1 2010-10-4
+* Official JRuby support via Java extensons for BSON (beta)
+* Connection#lock! and Connection#unlock! for easy fsync lock
+* Note: BSON::Code is no longer a subclass of String.
+
+1.0.9 2010-9-20
+* Significant performance improvements
+
+1.0.8 2010-8-27
+
+* Cursor#rewind! and more consistent Cursor Enumberable behavior
+* Deprecated ObjectID for ObjectId
+* Numerous minor bug fixes.
+
+1.0.7 2010-8-4
+
+* A few minor test/doc fixes.
+* Better tests for replica sets and replication acknowledgment.
+* Deprecated DB#error and DB#last_status
+
+1.0.6 2010-7-26
+
+* Replica set support.
+* Collection#map_reduce bug fix.
+
+1.0.5 2010-7-13
+
+* Fix for bug introduced in 1.0.4.
+
+1.0.4 2010-7-13
+
+* Removed deprecated
+  - Cursor admin option
+  - DB#query
+  - DB#create_index (use Collection#create_index)
+  - DB#command only takes hash options now
+* j2bson executable (neomantra)
+* Fixed bson_ext compilation on Solaris (slyphon)
+* System JS helpers (neovintage)
+* Use one mutex per thread on pooled connections (cremes)
+* Check for CursorNotFound response flag
+* MapReduce can return raw command output using :raw
+* BSON::OrderedHash equality with other Ruby hashes (Ryan Angilly)
+* Fix for broken Socket.send with large payloads (Frédéric De Jaeger)
+* Lots of minor improvements. See commmits.
+
+1.0.3 2010-6-15
+
+* Optimiztion for BSON::OrderedHash
+* Some important fixes.
+
+1.0.2 2010-6-5
+This is a minor release for fixing an incompatibility with MongoDB v1.5.2
+
+* Fix for boolean response on commands for core server v1.5.2
+* BSON.read_bson_document and b2json executable (neomantra)
+* BSON::ObjectID() shortcut for BSON::ObjectID.from_string (tmm1)
+* Various bug fixes.
+
+1.0.1 2010-5-7
+
+* set Encoding.default_internal
+* DEPRECATE JavaScript string on Collection#find. You now must specify $where explicitly.
+* Added Grid#exist? and GridFileSystem#exist?
+* Support for replication acknowledgment
+* Support for $slice
+* Namespaced OrderedHash under BSON (sleverbor)
+
+1.0 2010-4-29
+Note: if upgrading from versions prior to 0.20, be sure to upgrade
+to 0.20 before upgrading to 1.0.
+
+* Inspected ObjectID is represented in MongoDB extended json format.
+* Support for tailable cursors.
+* Configurable query response batch size (thx. to Aman Gupta)
+
+* bson_ext installs on early release of Ruby 1.8.5 (dfitzgibbon)
+* Deprecated DB#create_index. Use Collection#create_index index.
+* Removed deprecated Grid#put syntax; no longer requires a filename.
+
+0.20.1 2010-4-7
+ * Added bson gem dependency.
+
+0.20 2010-4-7
+If upgrading from a previous version of the Ruby driver, please read these notes carefully,
+along with the 0.20_UPGRADE doc.
+
+* Support for new commands:
+  * Collection#find_and_modify
+  * Collection#stats
+  * DB#stats
+* Query :fields options allows for values of 0 to exclude fields (houdini, railsjedi).
+* GridFS
+  * Option to delete old versions of GridFileSystem entries.
+  * Filename is now optional for Grid#put.
+  * Option to write arbitrary attributes to a file: @grid.put(@data, :favorite_phrase => "blimey!")
+  * Indexes created on the chunks collection are now unique. If you have an existing chunks collection,
+    you may want to remove 
+* Removed the following deprecated items:
+  * GridStore class
+  * RegexpOfHolding class
+  * Paired connections must now be initialized with Connection.paired
+
+* BSON-related code extracted into two separate gems: bson and bson_ext (thx to Chuck Remes).
+  * mongo_ext no longer exists.
+  * BSON::Binary constructor can now take a string, which will be packed into an array.
+  * Exception class adjustments:
+    * Mongo::InvalidObjectID moved to BSON::InvalidObjectID
+    * Mongo::InvalidDocument moved to BSON::InvalidDocument
+    * Mongo::InvalidStringEncoding moved to BSON::InvalidStringEncoding
+    * Mongo::InvalidName replaced by Mongo::InvalidNSName and BSON::InvalidKeyName
+  * BSON types are now namespaced under the BSON module. These types include:
+    * Binary
+    * ObjectID
+    * Code
+    * DBRef
+    * MinKey and MaxKey
+  * Extensions compile on Rubinius (Chuck Remes).
+
+0.19.3 2010-4-5
+* Minor fix for assert_valid_keys.
+
+0.19.2 2010-4-5
+This release fixes a major bug and is the final release
+in the 0.19 series. The next release, 0.20.0, will introduce
+separate gems for bson and bson_ext and may require small
+changes to existing code bases. Expect that release in the next
+few days.
+* Fix for Grid#delete bug.
+* Log messages read like valid ruby driver code.
+* Cursor#has_next.
+* Tests for MongoDB 1.4 features.
+* Flexible index creation method with Mongo::GEO2D constant.
+
+0.19.1 2010-3-2
+* Fix for HashWithIndifferentAccess in ActiveSupport-3.0
+
+0.19 2010-3-1
+* Deprecated GridFS::GridStore. Grid and GridFileSystem classes replace
+the GridFS implementation with a simpler API and vastly-improved performance.
+See http://www.mongodb.org/display/DOCS/GridFS+in+Ruby for more details.
+* Safe mode for Grid and GridFileSystem.
+* Grid and GridFileSystem use Mime/Types to detect content type (if available)
+* Connection API simplified. Use Connection.paired for pairs and Connection.from_uri to
+use MongoDB's connection URI specification.
+* Authentication can be saved so that reauthentication happens automatically
+on reconnect.
+* Raise exception if authentication fails.
+* Raise exception if index creation fails.
+* Removed a number of deprecated methods and classes.
+* Several bug fixes.
+* Nearing 1.0!
+
+0.18.3 2010-1-25
+* Convert docs to YARD
+* Support MongoDB extended JSON on ObjectID#to_json
+* ObjectID#from_time for performing date range queries on _id (thx., Sunny Hirai)
+* GridStore#mv for renaming files (Matt Powell)
+* Safe mode for Collection#remove (Patrick Collison)
+* Support BSON types MinKey and MaxKey
+* DEPRECATED Admin, XMLToRuby, and RegexpOfHolding classes.
+* Handle unsupported Numeric types gracefully (Complex, Rational, BigDecimal)
+* Handle unsupported Time types gracefully (Date, DateTime, ActiveSupport::TimeWithZone)
+* Numerous small bug fixes
+* Minor performance improvements
+
+0.18.2 2009-12-29
+* Significant GridStore performance improvement (thx., Sunny Hirai)
+* Enabled support for keyf on group
+* Support :query option for Collection#distinct
+* Support :finalize option for Collection#group
+* (0.18.1) ObjectID#generation_time returns a created_at timestamp.
+* Deprecated Command#group running as a JS eval; should now be run as a command.
+* Deprecated Cursor#next_object for Cursor#next_document
+* Character encoding fixes for C extension
+* Enforce 4MB limit on document creation
+* Simplified connection pooling code
+* Fixes for connection pooling on Ruby 1.8.6/Windows.
+
+0.18.1 2009-12-05
+* Fixed issue with negative dates in Ruby 1.9
+* Minor refactorings for C extension and BSON classes
+* Ensure UTF-8 in Ruby 1.8
+* Fix for connections on non-default port (Delano Mandelbaum)
+* More explicit test suite tasks for running with/without C extension.
+
+0.18 2009-11-25
+* Connections now support connection pooling. See http://api.mongodb.org/ruby/0.18/classes/Mongo/Connection.html#M000158
+* Deprecated :auto_reconnect option on connection; if the driver fails to
+  connect, it will automatically try to reconnect on the subsequent operation.
+  See http://www.mongodb.org/display/DOCS/Replica+Pairs+in+Ruby
+* Added Collection#map_reduce helper (Christos Trochalakis)
+* Deprecated DB#db_command in favor of DB#command.
+* Removed deprecated old sort options, :offset, and Connection#clear.
+* Lots of internal code restructuring for better maintainability.
+
+0.17.1 2009-11-17
+* Index ordering fix
+* Notice to install mongo_ext
+
+0.17 2009-11-16
+* Performance improvements
+  * large document inserts twice as fast as 0.16
+  * queries 18% faster than 0.16 on average
+  * see benchmark comparison: http://gist.github.com/236062
+* Support for multi-update for Mongo >= 1.1.3 (See Collection#update)
+* Collection#distinct
+* Connection#copy_database (voodootikigod)
+* C optimizations for ByteBuffer#to_s and ObjectID#generate (seancribbs)
+* Continue code restructuring for performance and simplicity.

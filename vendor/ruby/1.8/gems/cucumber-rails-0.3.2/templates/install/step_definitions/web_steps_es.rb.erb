@@ -1,0 +1,136 @@
+# encoding: utf-8
+<%= embed_file('support/edit_warning.txt') %>
+
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+
+Dado /^que estoy en (.+)$/ do |page_name|
+  Given %{I am on #{page_name}}
+end
+
+Cuando /^voy a (.+)$/ do |page_name|
+  When %{I go to #{page_name}}
+end
+
+Cuando /^apreto "([^"]*)"$/ do |button|
+  When %{I press "#{button}"}
+end
+
+Cuando /^clickeo "([^"]*)"$/ do |link|
+  When %{I follow "#{link}"}
+end
+
+Cuando /^clickeo "([^"]*)" dentro de "([^"]*)"$/ do |link, parent|
+  When %{I follow "#{link}" within "#{parent}"}
+end
+
+Cuando /^completo "([^"]*)" con "([^"]*)"$/ do |field, value|
+  When %{I fill in "#{field}" with "#{value}"}
+end
+
+Cuando /^completo "([^"]*)" para "([^"]*)"$/ do |value, field|
+  When %{I fill in "#{value}" for "#{field}"}
+end
+
+Cuando /^completo lo siguiente:$/ do |fields|
+  When %{I fill in the following:}, fields
+end
+
+Cuando /^selecciono "([^"]*)" de "([^"]*)"$/ do |value, field|
+  When %{I select "#{value}" from "#{field}"}
+end
+
+Cuando /^selecciono "([^"]*)" como la fecha y la hora$/ do |time|
+  When %{I select "#{time}" as the date and time}
+end
+
+Cuando /^selecciono "([^"]*)" como la fecha y la hora "([^"]*)"$/ do |datetime, datetime_label|
+  When %{I select "#{datetime}" as the "#{datetime_label}" date and time}
+end
+
+Cuando /^selecciono "([^"]*)" como la hora$/ do |time|
+  When %{I select "#{time}" as the time}
+end
+
+Cuando /^selecciono "([^"]*)" como la hora "([^"]*)"$/ do |time, time_label|
+  When %{I select "#{time}" as the "#{time_label}" time}
+end
+
+Cuando /^selecciono "([^"]*)" como la fecha$/ do |date|
+  When %{I select "#{date}" as the date}
+end
+
+Cuando /^selecciono "([^"]*)" como la fecha "([^"]*)"$/ do |date, date_label|
+  When %{I select "#{date}" as the "#{date_label}" date}
+end
+
+Cuando /^marco "([^"]*)"$/ do |field|
+  When %{I check "#{field}"}
+end
+
+Cuando /^desmarco "([^"]*)"$/ do |field|
+  When %{I uncheck "#{field}"}
+end
+
+Cuando /^elijo "([^"]*)"$/ do |field|
+  When %{I choose "#{field}"}
+end
+
+Cuando /^adjunto el archivo "([^"]*)" a "([^"]*)"$/ do |path, field|
+  When %{I attach the file "#{path}" to "#{field}"}
+end
+
+Entonces /^debería ver "([^"]*)"$/ do |text|
+  Then %{I should see "#{text}"}
+end
+
+Entonces /^debería ver "([^"]*)" dentro de "([^"]*)"$/ do |text, selector|
+  Then %{I should see "#{text}" within "#{selector}"}
+end
+
+Entonces /^debería ver \/([^\/]*)\/$/ do |regexp|
+  Then %{I should see /#{regexp}/}
+end
+
+Entonces /^debería ver \/([^\/]*)\/ dentro de "([^"]*)"$/ do |regexp, selector|
+  Then %{I should see /#{regexp}/ within "#{selector}"}
+end
+
+Entonces /^no debería ver "([^"]*)"$/ do |text|
+  Then %{I should not see "#{text}"}
+end
+
+Entonces /^no debería ver "([^"]*)" dentro de "([^"]*)"$/ do |text, selector|
+  Then %{I should not see "#{text}" within "#{selector}"}
+end
+
+Entonces /^no debería ver \/([^\/]*)\/$/ do |regexp|
+  Then %{I should not see /#{regexp}/}
+end
+
+Entonces /^no debería ver \/([^\/]*)\/ dentro de "([^"]*)"$/ do |regexp, selector|
+  Then %{I should not see /#{regexp}/ within "#{selector}"}
+end
+
+Entonces /^el campo "([^"]*)" debería contener "([^"]*)"$/ do |field, value|
+  Then %{the "#{field}" field should contain "#{value}"}
+end
+
+Entonces /^el campo "([^"]*)" no debería contener "([^"]*)"$/ do |field, value|
+  Then %{the "#{field}" field should not contain "#{value}"}
+end
+
+Entonces /^la checkbox "([^"]*)" debería estar marcada$/ do |label|
+  Then %{the "#{label}" checkbox should be checked}
+end
+
+Entonces /^la checkbox "([^"]*)" no debería estar marcada$/ do |label|
+  Then %{the "#{label}" checkbox should not be checked}
+end
+
+Entonces /^debería estar en (.+)$/ do |page_name|
+  Then %{I should be on #{page_name}}
+end
+
+Entonces /^mostrame la página$/ do
+  Then %{show me the page}
+end

@@ -1,0 +1,262 @@
+========================== 2009-04-01T16:50:52 CEST ===========================
+Benchmarking on ruby 1.8.6 (2008-08-11 patchlevel 287) [i686-linux].
+Running 'GeneratorBenchmarkPure' for 1000 iterations/method (compare_time=real)
+===============================================================================
+
+This first run is only for warmup.
+GeneratorBenchmarkPure#generator_pretty:
+                  real             total              user            system 
+sum       27.356301069      27.380000000      27.370000000       0.010000000 
+min        0.022372007       0.020000000       0.020000000       0.000000000 
+std-       0.018178834       0.017248947       0.017256376      -0.000306228 
+mean       0.027356301       0.027380000       0.027370000       0.000010000 
+std+       0.036533768       0.037511053       0.037483624       0.000326228 
+max        0.059602976       0.060000000       0.060000000       0.010000000 
+std        0.009177467       0.010131053       0.010113624       0.000316228 
+std%      33.547909026      37.001655096      36.951493429    3162.277660168 
+harm       0.025499974       0.024719842       0.024716787               nan 
+geo        0.026258699       0.025883656       0.025877881       0.000000000 
+q1         0.023006916       0.020000000       0.020000000       0.000000000 
+med        0.023234129       0.020000000       0.020000000       0.000000000 
+q3         0.024879038       0.030000000       0.030000000       0.000000000 
+                  1000          36.55465       0.027356301
+                 calls         calls/sec         secs/call
+
+    0.05774 -|
+    0.05402 -|*
+    0.05030 -|****
+    0.04657 -|***
+    0.04285 -|
+    0.03913 -|
+    0.03540 -|
+    0.03168 -|*
+    0.02796 -|***
+    0.02423 -|**************************************************
+
+Outliers detected with box plot algo (median=0.02323, iqr=0.00187, factor=3.00):
+high=72 very_high=150
+
+Ljung-Box statistics: q=3705.61130 (alpha=0.05, df=50).
+1.00000 >= 0.95000 => Autocorrelation was detected.
+
+GeneratorBenchmarkPure#generator_pretty:
+                  real             total              user            system 
+sum       27.569372892      27.540000000      27.530000000       0.010000000 
+min        0.022536039       0.020000000       0.020000000       0.000000000 
+std-       0.018335894       0.017329581       0.017326902      -0.000306228 
+mean       0.027569373       0.027540000       0.027530000       0.000010000 
+std+       0.036802852       0.037750419       0.037733098       0.000326228 
+max        0.056230068       0.060000000       0.060000000       0.010000000 
+std        0.009233479       0.010210419       0.010203098       0.000316228 
+std%      33.491797772      37.074868658      37.061742557    3162.277660168 
+harm       0.025675439       0.024841635       0.024836493               nan 
+geo        0.026453993       0.026024721       0.026017235       0.000000000 
+q1         0.023056030       0.020000000       0.020000000       0.000000000 
+med        0.023363113       0.020000000       0.020000000       0.000000000 
+q3         0.025253892       0.030000000       0.030000000       0.000000000 
+                  1000          36.27213       0.027569373
+                 calls         calls/sec         secs/call
+
+    0.05455 -|*
+    0.05118 -|**
+    0.04781 -|******
+    0.04444 -|
+    0.04107 -|
+    0.03770 -|
+    0.03433 -|
+    0.03096 -|*
+    0.02759 -|*****
+    0.02422 -|**************************************************
+
+Outliers detected with box plot algo (median=0.02336, iqr=0.00220, factor=3.00):
+high=67 very_high=148
+
+Ljung-Box statistics: q=3212.48820 (alpha=0.05, df=50).
+1.00000 >= 0.95000 => Autocorrelation was detected.
+
+No initial data truncated.
+ => System may have been in a steady state from the beginning.
+-------------------------------------------------------------------------------
+
+This first run is only for warmup.
+GeneratorBenchmarkPure#generator_safe:
+                  real             total              user            system 
+sum       26.869803667      26.870000000      26.870000000       0.000000000 
+min        0.022134781       0.020000000       0.020000000       0.000000000 
+std-       0.017763505       0.016750439       0.016750439       0.000000000 
+mean       0.026869804       0.026870000       0.026870000       0.000000000 
+std+       0.035976103       0.036989561       0.036989561       0.000000000 
+max        0.054952860       0.060000000       0.060000000       0.000000000 
+std        0.009106299       0.010119561       0.010119561       0.000000000 
+std%      33.890455748      37.661185483      37.661185483               nan 
+harm       0.024986876       0.024236549       0.024236549               nan 
+geo        0.025759291       0.025373850       0.025373850       0.000000000 
+q1         0.022480011       0.020000000       0.020000000       0.000000000 
+med        0.022669554       0.020000000       0.020000000       0.000000000 
+q3         0.024562180       0.030000000       0.030000000       0.000000000 
+                  1000          37.21650       0.026869804
+                 calls         calls/sec         secs/call
+
+    0.05331 -|*
+    0.05003 -|**
+    0.04675 -|*******
+    0.04347 -|
+    0.04018 -|
+    0.03690 -|
+    0.03362 -|
+    0.03034 -|*
+    0.02706 -|****
+    0.02378 -|**************************************************
+
+Outliers detected with box plot algo (median=0.02267, iqr=0.00208, factor=3.00):
+high=77 very_high=149
+
+Ljung-Box statistics: q=3100.69443 (alpha=0.05, df=50).
+1.00000 >= 0.95000 => Autocorrelation was detected.
+
+GeneratorBenchmarkPure#generator_safe:
+                  real             total              user            system 
+sum       27.079979420      27.040000000      27.030000000       0.010000000 
+min        0.022160053       0.020000000       0.020000000       0.000000000 
+std-       0.017839790       0.016756803       0.016774061      -0.000306228 
+mean       0.027079979       0.027040000       0.027030000       0.000010000 
+std+       0.036320169       0.037323197       0.037285939       0.000326228 
+max        0.056457043       0.060000000       0.060000000       0.010000000 
+std        0.009240189       0.010283197       0.010255939       0.000316228 
+std%      34.121847738      38.029575352      37.942800504    3162.277660168 
+harm       0.025134510       0.024331887       0.024329914               nan 
+geo        0.025935574       0.025501913       0.025497264       0.000000000 
+q1         0.022511005       0.020000000       0.020000000       0.000000000 
+med        0.022763968       0.020000000       0.020000000       0.000000000 
+q3         0.024686873       0.030000000       0.030000000       0.000000000 
+                  1000          36.92765       0.027079979
+                 calls         calls/sec         secs/call
+
+    0.05474 -|
+    0.05131 -|*
+    0.04788 -|********
+    0.04445 -|
+    0.04102 -|
+    0.03759 -|
+    0.03416 -|
+    0.03073 -|*
+    0.02730 -|***
+    0.02387 -|**************************************************
+
+Outliers detected with box plot algo (median=0.02276, iqr=0.00218, factor=3.00):
+high=53 very_high=158
+
+Ljung-Box statistics: q=3263.81737 (alpha=0.05, df=50).
+1.00000 >= 0.95000 => Autocorrelation was detected.
+
+No initial data truncated.
+ => System may have been in a steady state from the beginning.
+-------------------------------------------------------------------------------
+
+This first run is only for warmup.
+GeneratorBenchmarkPure#generator_fast:
+                  real             total              user            system 
+sum       19.930217266      19.900000000      19.900000000       0.000000000 
+min        0.015556812       0.010000000       0.010000000       0.000000000 
+std-       0.010984683       0.009865525       0.009865525       0.000000000 
+mean       0.019930217       0.019900000       0.019900000       0.000000000 
+std+       0.028875752       0.029934475       0.029934475       0.000000000 
+max        0.048508883       0.050000000       0.050000000       0.000000000 
+std        0.008945535       0.010034475       0.010034475       0.000000000 
+std%      44.884280314      50.424498030      50.424498030               nan 
+harm       0.017806422       0.016056519       0.016056519               nan 
+geo        0.018618502       0.017792091       0.017792091       0.000000000 
+q1         0.015833676       0.010000000       0.010000000       0.000000000 
+med        0.016059995       0.020000000       0.020000000       0.000000000 
+q3         0.016686678       0.020000000       0.020000000       0.000000000 
+                  1000          50.17507       0.019930217
+                 calls         calls/sec         secs/call
+
+    0.04686 -|
+    0.04357 -|**
+    0.04027 -|******
+    0.03698 -|
+    0.03368 -|
+    0.03039 -|
+    0.02709 -|
+    0.02379 -|*
+    0.02050 -|**
+    0.01720 -|**************************************************
+
+Outliers detected with box plot algo (median=0.01606, iqr=0.00085, factor=3.00):
+high=46 very_high=180
+
+Ljung-Box statistics: q=3486.59836 (alpha=0.05, df=50).
+1.00000 >= 0.95000 => Autocorrelation was detected.
+
+GeneratorBenchmarkPure#generator_fast:
+                  real             total              user            system 
+sum       20.008520842      19.960000000      19.950000000       0.010000000 
+min        0.015434027       0.010000000       0.010000000       0.000000000 
+std-       0.010882230       0.009581845       0.009596030      -0.000306228 
+mean       0.020008521       0.019960000       0.019950000       0.000010000 
+std+       0.029134812       0.030338155       0.030303970       0.000326228 
+max        0.047976971       0.050000000       0.050000000       0.010000000 
+std        0.009126291       0.010378155       0.010353970       0.000316228 
+std%      45.612021047      51.994765712      51.899601404    3162.277660168 
+harm       0.017787111       0.015944725       0.015943454               nan 
+geo        0.018637889       0.017737808       0.017733851       0.000000000 
+q1         0.015746295       0.010000000       0.010000000       0.000000000 
+med        0.015944481       0.020000000       0.020000000       0.000000000 
+q3         0.016811609       0.020000000       0.020000000       0.000000000 
+                  1000          49.97871       0.020008521
+                 calls         calls/sec         secs/call
+
+    0.04635 -|*
+    0.04310 -|**
+    0.03984 -|*******
+    0.03659 -|
+    0.03333 -|
+    0.03008 -|
+    0.02682 -|
+    0.02357 -|
+    0.02032 -|***
+    0.01706 -|**************************************************
+
+Outliers detected with box plot algo (median=0.01594, iqr=0.00107, factor=3.00):
+high=64 very_high=166
+
+Ljung-Box statistics: q=2965.93220 (alpha=0.05, df=50).
+1.00000 >= 0.95000 => Autocorrelation was detected.
+
+No initial data truncated.
+ => System may have been in a steady state from the beginning.
+========================== 2009-04-01T16:53:33 CEST ===========================
+
+Comparing times (call_time_mean):
+ 1 GeneratorBenchmarkPure#generator_fast   1000 repeats:
+        49.978706968 (  real) ->    1.378x 
+         0.020008521
+ 2 GeneratorBenchmarkPure#generator_safe   1000 repeats:
+        36.927649925 (  real) ->    1.018x 3 (>=3859)
+         0.027079979
+ 3 GeneratorBenchmarkPure#generator_pretty 1000 repeats:
+        36.272134441 (  real) ->    1.000x 2 (>=3859)
+         0.027569373
+           calls/sec (  time) ->    speed  covers
+           secs/call
+
+Comparing times (call_time_median):
+ 1 GeneratorBenchmarkPure#generator_fast   1000 repeats:
+        62.717626652 (  real) ->    1.465x 
+         0.015944481
+ 2 GeneratorBenchmarkPure#generator_safe   1000 repeats:
+        43.929073409 (  real) ->    1.026x 3 (>=3859)
+         0.022763968
+ 3 GeneratorBenchmarkPure#generator_pretty 1000 repeats:
+        42.802514491 (  real) ->    1.000x 2 (>=3859)
+         0.023363113
+           calls/sec (  time) ->    speed  covers
+           secs/call
+===============================================================================
+Writing measurement data file '/data/scm/json/benchmarks/data/GeneratorBenchmarkPure#generator_pretty.dat'.
+Writing autocorrelation plot file '/data/scm/json/benchmarks/data/GeneratorBenchmarkPure#generator_pretty-autocorrelation.dat'.
+Writing measurement data file '/data/scm/json/benchmarks/data/GeneratorBenchmarkPure#generator_safe.dat'.
+Writing autocorrelation plot file '/data/scm/json/benchmarks/data/GeneratorBenchmarkPure#generator_safe-autocorrelation.dat'.
+Writing measurement data file '/data/scm/json/benchmarks/data/GeneratorBenchmarkPure#generator_fast.dat'.
+Writing autocorrelation plot file '/data/scm/json/benchmarks/data/GeneratorBenchmarkPure#generator_fast-autocorrelation.dat'.

@@ -1,0 +1,30 @@
+NAME
+
+  systemu
+
+SYNOPSIS
+
+  univeral capture of stdout and stderr and handling of child process pid for windows, *nix, etc.
+
+URIS
+
+  http://rubyforge.org/projects/codeforpeople/
+  http://codeforpeople.com/lib/ruby/
+  http://codeforpeople.rubyforge.org/svn/
+
+INSTALL
+
+  gem install systemu
+
+HISTORY
+
+  1.2.0
+
+    - fixed handling of background thread management - needed
+      Thread.current.abort_on_exception = true
+
+    - fixed reporting of child pid, it was reported as the parent's pid before
+
+SAMPLES
+
+  @samples

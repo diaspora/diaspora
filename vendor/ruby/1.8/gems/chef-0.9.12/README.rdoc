@@ -1,0 +1,172 @@
+= Chef
+
+== DESCRIPTION:
+
+Chef is a configuration management tool designed to bring automation to your entire infrastructure. 
+
+The Chef Wiki is the definitive source of user documentation. 
+
+* http://wiki.opscode.com/display/chef/Home
+
+This README focuses on developers who want to modify Chef source code. For users who just want to run the latest and greatest Chef development version in their environment, see:
+
+* http://wiki.opscode.com/display/chef/Installing+Chef+from+HEAD
+
+== DEVELOPMENT:
+
+Before working on the code, if you plan to contribute your changes, you need to read the Opscode Contributing document.
+
+* http://wiki.opscode.com/display/opscode/Contributing
+
+You will also need to set up the repository with the appropriate branches. We document the process on the Chef Wiki.
+
+* http://wiki.opscode.com/display/opscode/Working+with+Git
+
+Once your repository is set up, you can start working on the code. We do use BDD/TDD with RSpec and Cucumber, so you'll need to get a development environment running.
+
+== ENVIRONMENT:
+
+In order to have a development environment where changes to the Chef code can be tested, we'll need to install a few things after setting up the Git repository.
+
+=== Non-Gem Dependencies
+
+Install these via your platform's preferred method; for example apt, yum, ports, emerge, etc.
+
+* Git[http://git-scm.com/]
+* Erlang/OTP[http://www.erlang.org/]
+* CouchDB[http://couchdb.apache.org/]
+* RabbitMQ[http://www.rabbitmq.com/]
+* GCC and C Standard Libraries, header files, etc. (i.e., build-essential on debian/ubuntu)
+* Ruby development package
+* libxml2 development package
+
+=== Runtime Rubygem Dependencies
+==== Chef Client and Solo
+* ohai
+* bunny
+* erubis
+* extlib
+* highline
+* json (1.4.4 - 1.4.6)
+* mixlib-authentication
+* mixlib-cli
+* mixlib-config
+* mixlib-log
+* moneta
+* rest-client
+* uuidtools
+* merb-core
+
+==== Chef Server, WebUI and Solr
+All of the above, plus the following:
+* coderay
+* haml
+* libxml-ruby
+* merb-assets
+* merb-core
+* merb-haml
+* merb-helpers
+* merb-param-protection
+* ruby-openid
+* thin
+
+=== Development Rubygem Dependencies
+* rake[http://rake.rubyforge.org/]
+* rspec[http://rspec.info/]
+* cucumber[http://cukes.info/]
+
+Ohai is also by Opscode and available on GitHub, http://github.com/opscode/ohai/tree/master.
+
+== Starting the Environment:
+
+=== On Mac OS X:
+For ease of debugging, Chef includes a script to start each of the required
+daemons in a separate Terminal.app tab via applescript:
+
+  scripts/mac-dev-start features
+
+=== On Linux and BSD
+
+run the dev:features rake task. You may need to run it as root depending on how
+your system is configured.
+
+  rake dev:features
+
+=== Daemons
+After starting the environment, you should have the following processes running:
+* couchdb             listening on port 5984
+* rabbitmq            listening on port 5672
+* solr                listening on port 8983
+* chef-solr-indexer   connected as a client to rabbitmq
+* chef-server         listening on port 4000
+* chef-server-webui   listening on port 4040
+
+You'll know its running when you see:
+
+    merb : chef-server (api) : worker (port 4000) ~ Starting Thin at port 4000
+    merb : chef-server (api) : worker (port 4000) ~ Using Thin adapter on host 0.0.0.0 and port 4000.
+    merb : chef-server (api) : worker (port 4000) ~ Successfully bound to port 4000
+
+You'll want to leave this terminal running the dev environment.
+
+=== Web Interface:
+
+With the dev environment running, you can now access the web interface via http://localhost:4040/.
+
+== Spec testing:
+
+We use RSpec for unit/spec tests. It is not necessary to start the development
+environment to run the specs--they are completely standalone.
+
+  rake spec
+
+== Integration testing:
+
+We test integration with Cucumber. To run the full suite, run the rake task:
+
+  rake features
+
+Subsets of the integration tests can be run with the various tasks in the
+features namespace. To see the full list, run
+
+  rake -T
+
+To run individual feature tests, you can take advantage of cucumber's tagging
+support. Tag the feature you wish to run (tags are denoted with a leading `@'
+sign), then use the cucumber command:
+
+  cucumber -t @my_tag
+
+== LINKS:
+
+Source:
+
+* http://github.com/opscode/chef/tree/master
+
+Tickets/Issues:
+
+* http://tickets.opscode.com/
+
+Documentation:
+
+* http://wiki.opscode.com/display/chef/Home/
+
+= LICENSE:
+
+Chef - A configuration management system
+
+Author:: Adam Jacob (<adam@opscode.com>)
+Copyright:: Copyright (c) 2008, 2009 Opscode, Inc.
+License:: Apache License, Version 2.0
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

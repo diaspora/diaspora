@@ -1,0 +1,10 @@
+have_header: checking for re.h... -------------------- yes
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I.  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O3  -fPIC   -Wall  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <re.h>
+/* end */
+
+--------------------
+

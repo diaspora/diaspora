@@ -1,0 +1,66 @@
+gcd.rb:4
+def gcd(a, b)
+# # ***************************************************
+# # This tests step, next, finish and continue
+# # ***************************************************
+# set debuggertesting on
+Currently testing the debugger is on.
+# set callstyle last
+Frame call-display style is last.
+# # Invalid line number in continue command
+# continue 3
+*** Line 3 is not a stopping point in file "gcd.rb".
+# # This time, for sure!
+# continue 6
+gcd.rb:6
+if a > b
+# where
+--> #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+    #1 at line gcd.rb:18
+# up
+#1 at line gcd.rb:18
+# where
+    #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+--> #1 at line gcd.rb:18
+# down
+#0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+# where
+--> #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+    #1 at line gcd.rb:18
+# frame
+#0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+# where
+--> #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+    #1 at line gcd.rb:18
+# frame -1
+#1 at line gcd.rb:18
+# where
+    #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+--> #1 at line gcd.rb:18
+# up 2
+*** Adjusting would put us beyond the oldest (initial) frame.
+# where
+    #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+--> #1 at line gcd.rb:18
+# down 2
+*** Adjusting would put us beyond the newest (innermost) frame.
+# where
+    #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+--> #1 at line gcd.rb:18
+# frame 0 thread 3
+*** Thread 3 doesn't exist.
+# frame 0 thread 1
+#0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+# # finish
+# # See that we don't match more than 'down' or 'up' when used as a variable.
+# set autoeval on
+autoeval is on.
+# download = 1
+1
+# download
+1
+# upload = 'hey'
+"hey"
+# upload
+"hey"
+# quit

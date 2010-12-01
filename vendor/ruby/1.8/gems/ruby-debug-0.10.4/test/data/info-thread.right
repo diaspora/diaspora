@@ -1,0 +1,37 @@
+gcd.rb:4
+def gcd(a, b)
+# # ********************************************************
+# # This tests basic info thread commands
+# set debuggertesting on
+Currently testing the debugger is on.
+# set callstyle last
+Frame call-display style is last.
+# set autoeval off
+autoeval is off.
+# info threads terse
++ 1 #<Thread:0xb7ceb708 run>	./gcd.rb:4
+# info threads ver
++ 1 #<Thread:0xb7ceb708 run>	
+	#0 at line gcd.rb:4
+# info thread 1 t
++ 1 #<Thread:0xb7ceb708 run>	./gcd.rb:4
+# info threads
++ 1 #<Thread:0xb7ceb708 run>	./gcd.rb:4
+# info thread
++ 1 #<Thread:0xb7ceb708 run>	./gcd.rb:4
+# help info thread
+List info about thread NUM.
+
+If no thread number is given, we list info for all threads. 'terse' and 'verbose' 
+options are possible. If terse, just give summary thread name information. See 
+"help info threads" for more detail about this summary information.
+
+If 'verbose' appended to the end of the command, then the entire
+stack trace is given for each thread.
+# help info threads
+information of currently-known threads.
+
+This information includes whether the thread is current (+), if it is
+suspended ($), or ignored (!).  The thread number and the top stack
+item. If 'verbose' is given then the entire stack frame is shown.
+# q

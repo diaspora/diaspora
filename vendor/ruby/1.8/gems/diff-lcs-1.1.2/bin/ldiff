@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+#--
+# Copyright 2004 Austin Ziegler <diff-lcs@halostatue.ca>
+#   adapted from:
+#     Algorithm::Diff (Perl) by Ned Konz <perl@bike-nomad.com>
+#     Smalltalk by Mario I. Wolczko <mario@wolczko.com>
+#   implements McIlroy-Hunt diff algorithm
+#
+# This program is free software. It may be redistributed and/or modified under
+# the terms of the GPL version 2 (or later), the Perl Artistic licence, or the
+# Ruby licence.
+# 
+# $Id: ldiff,v 1.6 2004/09/26 01:35:57 austin Exp $
+#++
+
+  # 1) Try to load Ruwiki from the gem.
+  # 2) Try to load Ruwiki from $LOAD_PATH.
+  # 3) Modify $LOAD_PATH and try to load it from the modified $LOAD_PATH.
+  # 4) Fail hard.
+load_state = 1
+  begin
+    if 1 == load_state
+      require 'rubygems'
+      require_gem 'diff-lcs', '= 1.1.1'
+    else
+      require 'diff/lcs'
+    end
+  rescue LoadError
+    load_state += 1
+
+    case load_state
+    when 3
+      $LOAD_PATH.unshift "#{File.dirname($0)}/../lib"
+    when 4
+      $LOAD_PATH.shift
+      $LOAD_PATH.unshift "#{File.dirname(__FILE__)}/../lib"
+    when 5
+      raise
+    end
+    retry
+  end
+
+require 'diff/lcs/ldiff'
+
+exit Diff::LCS::Ldiff.run(ARGV)

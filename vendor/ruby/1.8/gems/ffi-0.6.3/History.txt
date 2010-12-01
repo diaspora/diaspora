@@ -1,0 +1,102 @@
+== 0.5.0 / 2009-10-06
+
+* Major improvements
+  * New Function class
+  * Structs can be passed and returned by value
+  * Implement a custom trampoline for x86_64, resulting in roughly 30% speedup
+  * Improve dispatch of functions which take (0..6) char/short/int/long/pointer arguments by between 50% and 200% on x86_64
+  * Callbacks are now approximately 100% faster on x86_64
+* Minor improvements
+  * Add support for MacOSX Snow Leopard
+  * Improve support for Windows releasing fat binaries on rubyforge
+  * Better introspection in structs:
+    * Add StructLayout::Field#type, size, offset, alignment and name 
+      methods
+    * Add StructLayout#fields which returns an array of 
+      StructLayout::Field objects
+  * Add automagic deducing of library name from module name. 
+    Idea and prototype implementation from Matt Hulse
+  * Callback fields in structs can now be both read and written
+  * Add a bunch of new benchmarks
+  * Lots of refactoring
+* Experimental features
+  * blocking functions (i.e. native code that blocks the thread) support
+* Bug fixes
+  * Fix RUBY-FFI_43 (rake gem dependency)
+
+== 0.4.0 / 2009-08-05
+
+* Major improvements
+  * Add support for boolean types
+  * Add support for methods as callbacks
+  * Add FFI::IO.read as described in JRUBY-3636
+* Minor improvements
+  * Add Pointer::NULL constant
+  * Add AbstractMemory#get_array_of_string()
+  * Implement Pointer.new(address) and Pointer.new(:type, address)
+* Bug fixes
+  * Fix RUBY_FFI-38
+  * Fix issues related to 1.9.1 build
+  * Fix issues related to OSX build
+  * Fix issues related to FreeBSD build
+  * Fix issues related to OpenSolaris build
+
+== 0.3.5 / 2009-05-08
+
+* Bug fixes
+  * Fix RUBY_FFI-17
+  * Fix RUBY_FFI-21
+
+== 0.3.4 / 2009-05-01
+
+* Minor improvements
+  * Add return statements to functions that call rb_raise(), in case
+    rb_raise is not declared noreturn, to avoid gcc warnings.
+
+== 0.3.3 / 2009-04-27
+
+* Minor improvements
+  * Implement RUBY_FFI-16 - Add support for anonymous callbacks
+  * Add support for callback parameters in callbacks
+  * Add support for function pointer return values
+  * Callbacks can now coerce proc objects into function pointers for
+    return values.
+  * Implement FFI::Type and FFI::Type::Builtin
+  * Add support for enumerations
+* Bug fixes
+  * Fix RUBY_FFI-19
+  * Fix RUBY_FFI-15
+
+== 0.3.2 / 2009-05-01
+
+* Bug fixes
+  * Fix JRUBY-3527 by passing RTLD_GLOBAL instead of RTLD_LOCAL
+
+== 0.3.1 / 2009-03-23
+
+* Bug fixes
+  * Correctly save errno/GetLastError after each call.
+
+== 0.3.0 / 2009-03-19
+
+* Switch compilation to rake-compiler
+  * Makes cross-compilation from linux -> win32 super easy
+  * win32 support is available now, but highly experimental
+* Performance improvements
+  * struct field access approx 3x faster than 0.2.0
+  * function invocation approx 20% faster than 0.2.0
+* A bunch of minor improvements
+  * Struct instances can now be passed as :pointer parameters without calling
+    Struct#pointer
+  * Support for array struct members
+  * Structs are now padded correctly to the alignment of the struct's  
+    largest field
+  * Global library variables
+  * Callbacks in global library variables
+  * Strings passed in as :string arguments are scrubbed to avoid 
+    poison-null-byte attacks.
+  * Union support
+  * nil can be passed as a :string argument (passed as NULL)
+  * Structs can now be fields inside another struct
+  * Lots of internal cleanups and refactorings.
+ 

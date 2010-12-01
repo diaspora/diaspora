@@ -1,0 +1,27 @@
+= Ruby / Asynchronous PubSubHubbub Client
+
+EventMachine based / asynchronous PubSubHubbub client. Supports posting single or multiple URLs.
+
+Full Spec: http://code.google.com/p/pubsubhubbub
+
+HTTP PubSub: Webhooks & PubSubHubbub: http://www.igvita.com/2009/06/29/http-pubsub-webhooks-pubsubhubbub
+
+== Simple client example
+
+  EventMachine.run {
+    pub = EventMachine::PubSubHubbub.new('http://pubsubhubbub.appspot.com/publish').publish "http://www.test.com/"
+
+    pub.callback { puts "Successfully notified hub." }
+    pub.errback  { puts "Uh oh, something broke: #{pub.response}" }
+  }
+
+== Posting multiple URL's
+
+  EventMachine.run {
+    feeds = ["http://www.test.com", "http://www.test.com/2"]
+    pub = EventMachine::PubSubHubbub.new('http://pubsubhubbub.appspot.com/publish').publish feeds
+
+    pub.callback { puts "Successfully notified hub." }
+    pub.errback  { puts "Uh oh, something broke: #{pub.response}" }
+  }
+

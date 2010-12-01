@@ -1,0 +1,31 @@
+gcd.rb:4
+def gcd(a, b)
+# # ********************************************************
+# # This tests finish.
+# # ********************************************************
+# set debuggertesting on
+Currently testing the debugger is on.
+# set callstyle last
+Frame call-display style is last.
+# set autoeval off
+autoeval is off.
+# break 6
+Breakpoint 1 file gcd.rb, line 6
+# continue
+Breakpoint 1 at gcd.rb:6
+gcd.rb:6
+if a > b
+# continue
+Breakpoint 1 at gcd.rb:6
+gcd.rb:6
+if a > b
+# continue
+Breakpoint 1 at gcd.rb:6
+gcd.rb:6
+if a > b
+# where
+--> #0 Object.gcd(a#Fixnum, b#Fixnum) at line gcd.rb:6
+    #1 Object.-(a#Fixnum, b#Fixnum) at line gcd.rb:15
+    #2 Object.-(a#Fixnum, b#Fixnum) at line gcd.rb:15
+    #3 at line gcd.rb:18
+# finish 0

@@ -1,0 +1,71 @@
+= Launchy Changlog
+
+== Version 0.3.7 - 2010-07-19
+
+* Fix launchy on windows (mikefarmer)
+
+== Version 0.3.6 - 2010-02-22
+
+* add a test:spec task to run tests without rcov support
+* added 'testing' os family for running tests
+
+== Version 0.3.5 - 2009-12-17
+
+* clarify that launchy is under ISC license
+* fix missing data file in released gem needed for running specs
+
+== Version 0.3.3 - 2009-02-19
+
+* pass command line as discrete items to system() to avoid string
+  interpretation by the system shell. (Suraj N. Kurapati)
+* rework project layout and tasks
+
+== Version 0.3.2 - 2008-05-21
+
+* detect aix and mingw as known operating systems.
+
+== Version 0.3.1 - 2007-09-08
+
+* finalize the command line wrapper around the launchy library.
+* added more tests
+
+== Version 0.3.0 - 2007-08-30
+
+* reorganize the code structure, removing Spawnable namespace
+* removed 'do_magic' method, changed it to 'open'
+* added override environment variable LAUNCHY_HOST_OS for testing
+* fix broken cygwin support [Bug #13472]
+
+== Version 0.2.1 - 2007-08-18
+
+* fix inability to find windows executables [Bug #13132]
+
+== Version 0.2.0 - 2007-08-11
+
+* rework browser finding
+* manual override with LAUNCHY_BROWSER environment variable
+* on *nix use desktop application launcher with fallback to list of browsers
+* On windows, switch to 'start' command and remove dependency on win32-process
+* removed win32 gem
+* Add debug output by setting LAUNCHY_DEBUG environment variable to 'true'
+
+== Version 0.1.2 - 2007-08-11
+
+* forked child exits without calling at_exit handlers
+
+== Version 0.1.1
+
+* fixed rubyforge task to release mswin32 gem also
+
+== Version 0.1.0 
+
+* Initial public release
+* switched to using fork to spawn process and require 'win32/process' if on windows
+
+== Version 0.0.2
+
+* First attempt at using systemu to spawn processes
+
+== Version 0.0.1
+
+* Initially working release

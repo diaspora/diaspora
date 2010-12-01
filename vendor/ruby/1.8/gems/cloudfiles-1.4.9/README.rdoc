@@ -1,0 +1,71 @@
+= Rackspace Cloud Files
+
+== Description
+
+This is a Ruby interface into the Rackspace[http://rackspace.com/] {Cloud Files}[http://www.rackspacecloud.com/cloud_hosting_products/files] service. Cloud Files is reliable, scalable and affordable web-based storage hosting for backing up and archiving all your static content.  Cloud Files is the first and only cloud service that leverages a tier one CDN provider to create such an easy and complete storage-to-delivery solution for media content.
+
+== Upgrade Gotchas
+
+As of gem version 1.4.8, the connection method has changed from positional arguments to a hash of options.  This is the new style:
+
+   cf = CloudFiles::Connection.new(:username => "MY_USERNAME", :api_key => "MY_API_KEY")
+   
+This is the old style, which still works but is deprecated:
+
+   cf = CloudFiles::Connection.new("MY_USERNAME","MY_API_KEY")
+
+== Installation
+
+This source is available on Github[http://github.com/rackspace/ruby-cloudfiles/] and the gem is available on Gemcutter[http://gemcutter.org/].  To install it, do
+
+  gem sources -a http://gemcutter.org/
+  
+  sudo gem install cloudfiles
+  
+To use it in a Rails application, add the following information to your config/environment.rb
+
+  config.gem "cloudfiles"
+  
+
+== Examples
+
+See the class definitions for documentation on specific methods and operations.
+
+  require 'rubygems'
+  require 'cloudfiles'
+
+  # Log into the Cloud Files system
+  cf = CloudFiles::Connection.new(:username => "MY_USERNAME", :api_key => "MY_API_KEY")
+
+  # Get a listing of all containers under this account
+  cf.containers
+  => ["backup", "Books", "cftest", "test", "video", "webpics"]
+
+  # Access a specific container
+  container = cf.container('test')
+
+  # See how many objects are under this container
+  container.count
+  => 3
+
+  # List the objects
+  container.objects
+  => ["bigfile.txt", "new.txt", "test.txt"]
+
+  # Select an object
+  object = container.object('test.txt')
+
+  # Get that object's data
+  object.data
+  => "This is test data"
+
+== Authors
+
+Initial work by Major Hayden <major.hayden@rackspace.com>
+
+Subsequent work by H. Wade Minter <minter@lunenburg.org>
+
+== License
+
+See COPYING for license information.
+Copyright (c) 2009, Rackspace US, Inc.

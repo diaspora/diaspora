@@ -1,0 +1,403 @@
+<statuses type="array"> 
+    <status> 
+      <created_at>Sun Dec 07 00:36:16 +0000 2008</created_at> 
+      <id>1042729116</id> 
+      <text>@sebbo Outlook not so good</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id>1042716367</in_reply_to_status_id> 
+      <in_reply_to_user_id>2989541</in_reply_to_user_id> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>17656026</id> 
+      <name>Magic 8 Bot</name> 
+      <screen_name>magic8bot</screen_name> 
+      <description>ask me a question</description> 
+      <location></location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/65565851/8ball_large_normal.jpg</profile_image_url> 
+      <url></url> 
+      <protected>false</protected> 
+      <followers_count>90</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:14 +0000 2008</created_at> 
+      <id>1042729115</id> 
+      <text>Azdel Slade :friends from midian city http://bloghud.com/id/27312</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>801094</id> 
+      <name>BlogHUD</name> 
+      <screen_name>bloghud</screen_name> 
+      <description /> 
+      <location /> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/25235272/bloghud_twitter_normal.jpg</profile_image_url> 
+      <url /> 
+      <protected>false</protected> 
+      <followers_count>313</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:14 +0000 2008</created_at> 
+      <id>1042729114</id> 
+      <text>Reading: &quot;The Reckoning - Debt Watchdogs - Tamed or Caught Napping? - Series - NYTimes.com&quot; ( http://tinyurl.com/5754s6 )</text> 
+      <source>twitthat</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>3512101</id> 
+      <name>bill</name> 
+      <screen_name>niubi</screen_name> 
+      <description>in beijing learning socialism 2 prepare 4 return 2 us</description> 
+      <location>beijing</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/53292616/realtwitterers_normal.jpg</profile_image_url> 
+      <url></url> 
+      <protected>false</protected> 
+      <followers_count>710</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:14 +0000 2008</created_at> 
+      <id>1042729113</id> 
+      <text>Fianlly done and headed home!</text> 
+      <source>sms</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>13186842</id> 
+      <name>Okthirddayfan</name> 
+      <screen_name>Okthirddayfan</screen_name> 
+      <description></description> 
+      <location>Oklahoma!</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/61414367/mecropped_normal.jpg</profile_image_url> 
+      <url>http://thirddaypix.blogspot.com/</url> 
+      <protected>false</protected> 
+      <followers_count>68</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:16 +0000 2008</created_at> 
+      <id>1042729112</id> 
+      <text>Adobe Flashplayer 10 and Debug versions: http://www.adobe.com/support/flashplayer/downloads.html</text> 
+      <source>toro</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>15243380</id> 
+      <name>cbrueggenolte</name> 
+      <screen_name>cbrueggenolte</screen_name> 
+      <description>27, Male, Mac Geek, Developer Java &amp;amp; Flex &amp;amp; Air</description> 
+      <location>Aachen</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/55929263/214508011845f026bfd407c_normal.jpg</profile_image_url> 
+      <url>http://my.opera.com/carstenbrueggenolte</url> 
+      <protected>false</protected> 
+      <followers_count>16</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:14 +0000 2008</created_at> 
+      <id>1042729111</id> 
+      <text>Done and done.</text> 
+      <source>twitterrific</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>10978752</id> 
+      <name>Sergey Safonov</name> 
+      <screen_name>iron_Lung</screen_name> 
+      <description>I have my fingers in many pies.</description> 
+      <location>Moscow</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/57841057/eat38_normal.gif</profile_image_url> 
+      <url>http://www.flickr.com/photos/iron_Lung</url> 
+      <protected>false</protected> 
+      <followers_count>11</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:14 +0000 2008</created_at> 
+      <id>1042729110</id> 
+      <text>Veja a tabela de preços do Acquaplay da Tecnisa aqui:http://tinyurl.com/acquaplaypreco</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>13735402</id> 
+      <name>Tecnisa S.A</name> 
+      <screen_name>Tecnisa</screen_name> 
+      <description>Mais construtora por m2</description> 
+      <location>Faria Lima, 3144 - SP</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/56572222/logo_normal.jpg</profile_image_url> 
+      <url>http://www.tecnisa.com.br</url> 
+      <protected>false</protected> 
+      <followers_count>77</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:16 +0000 2008</created_at> 
+      <id>1042729108</id> 
+      <text>devin harris has the flu. always have the memory of jordan scoring 50 on the knicks at the garden with the flu</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>17930773</id> 
+      <name>24 Seconds to Shoot</name> 
+      <screen_name>NBA24sts</screen_name> 
+      <description>NBA handicapping insight and analysis.</description> 
+      <location>las vegas</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/66593862/fresno_normal.jpg</profile_image_url> 
+      <url></url> 
+      <protected>false</protected> 
+      <followers_count>1</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:16 +0000 2008</created_at> 
+      <id>1042729105</id> 
+      <text>At Brandon and Shannon's holiday party..</text> 
+      <source>twitterberry</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>5388602</id> 
+      <name>Mike J. (Telligent)</name> 
+      <screen_name>mjamrst</screen_name> 
+      <description>Video Game Account Manager</description> 
+      <location>Palo Alto, CA</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/66375174/Thanksgiving_11272008-048_normal.jpg</profile_image_url> 
+      <url>http://www.telligent.com</url> 
+      <protected>false</protected> 
+      <followers_count>225</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:13 +0000 2008</created_at> 
+      <id>1042729104</id> 
+      <text>Xinhua: Forty percent of Australian PM office' staff quit : CANBERRA, Dec. 7 (Xinhua) -- Only.. http://tinyurl.com/5gwotd</text> 
+      <source>twitterfeed</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>11566502</id> 
+      <name>Headline News</name> 
+      <screen_name>headlinenews</screen_name> 
+      <description></description> 
+      <location></location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/41784602/1890_wires_normal.jpg</profile_image_url> 
+      <url></url> 
+      <protected>false</protected> 
+      <followers_count>575</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:13 +0000 2008</created_at> 
+      <id>1042729101</id> 
+      <text>@hilarycassman soo funnny</text> 
+      <source>sms</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id>1042725825</in_reply_to_status_id> 
+      <in_reply_to_user_id>17644455</in_reply_to_user_id> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>17887548</id> 
+      <name>katieballss</name> 
+      <screen_name>katieballss</screen_name> 
+      <description></description> 
+      <location></location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/66523737/th_Photo87_normal.jpg</profile_image_url> 
+      <url>http://www.myspace.com/xxpeachxx101</url> 
+      <protected>false</protected> 
+      <followers_count>23</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:13 +0000 2008</created_at> 
+      <id>1042729100</id> 
+      <text>d'ora in poi, oltre al ferragosto, odiera' anche il natale e tutto il mese che ci gira intorno.. =.=''</text> 
+      <source>mobile</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>9719482</id> 
+      <name>trotto</name> 
+      <screen_name>trotto</screen_name> 
+      <description>sociologo di formazione... uno dei tanti attivisti! :)</description> 
+      <location>Fano - Italy</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/55603933/mybob-calimetux-1526_normal.png</profile_image_url> 
+      <url>http://trotto1308.netsons.org/wordpress/</url> 
+      <protected>false</protected> 
+      <followers_count>98</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:13 +0000 2008</created_at> 
+      <id>1042729099</id> 
+      <text>Came across an ad on another site with a redneck looking santa... said &quot;Bust Santa's zit and win a free ipod.&quot; Umm... disturbing much?</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>9937182</id> 
+      <name>froggybluesock</name> 
+      <screen_name>froggybluesock</screen_name> 
+      <description></description> 
+      <location>Indiana</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/35393032/about_me_normal.jpg</profile_image_url> 
+      <url>http://www.footprintsonthemoon.com</url> 
+      <protected>false</protected> 
+      <followers_count>82</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:17 +0000 2008</created_at> 
+      <id>1042729098</id> 
+      <text>nothing</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>17932339</id> 
+      <name>treblehook</name> 
+      <screen_name>treblehook</screen_name> 
+      <description /> 
+      <location /> 
+      <profile_image_url>http://static.twitter.com/images/default_profile_normal.png</profile_image_url> 
+      <url /> 
+      <protected>false</protected> 
+      <followers_count>0</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:13 +0000 2008</created_at> 
+      <id>1042729095</id> 
+      <text>Setting up my new Windows Live profile</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>17906075</id> 
+      <name>Mark_Layton</name> 
+      <screen_name>Mark_Layton</screen_name> 
+      <description /> 
+      <location /> 
+      <profile_image_url>http://static.twitter.com/images/default_profile_normal.png</profile_image_url> 
+      <url /> 
+      <protected>false</protected> 
+      <followers_count>2</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:13 +0000 2008</created_at> 
+      <id>1042729092</id> 
+      <text>me voy a sobar, a ver si mañana estoy mejor, wenas noches a tod@s</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>14062655</id> 
+      <name>tmaniak</name> 
+      <screen_name>tmaniak</screen_name> 
+      <description></description> 
+      <location></location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/51680481/BF-109_normal.jpg</profile_image_url> 
+      <url>http://dhost.info/tmaniak</url> 
+      <protected>false</protected> 
+      <followers_count>10</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:14 +0000 2008</created_at> 
+      <id>1042729090</id> 
+      <text>バイト延長戦入りましたー 店長が遅刻ってどうなんだ。しかも何回も</text> 
+      <source>natsuliphone</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>15618846</id> 
+      <name>kabayaki</name> 
+      <screen_name>kabayaki</screen_name> 
+      <description>FPS(L4D、TF2、CS:S、BF)、TPS、RCG、マンガ、アニメ、デジモノが好きなとある学生</description> 
+      <location>tokyo</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/57305902/184_normal.jpg</profile_image_url> 
+      <url>http://kabayakiya.blog43.fc2.com/</url> 
+      <protected>false</protected> 
+      <followers_count>20</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:13 +0000 2008</created_at> 
+      <id>1042729089</id> 
+      <text>just drove to southern california and joy of children hugging grandparents made it all worthwhile. heading to imedia in la quinta tomorrow.</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>1630261</id> 
+      <name>mark silva</name> 
+      <screen_name>marksilva</screen_name> 
+      <description>digital media http://realbranding.com Principal, Managing Director</description> 
+      <location>often san francisco</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/29807902/silvasimpson3th_normal.jpg</profile_image_url> 
+      <url>http://marksilva.com</url> 
+      <protected>false</protected> 
+      <followers_count>497</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:14 +0000 2008</created_at> 
+      <id>1042729088</id> 
+      <text>@wholefoods would love to have a juicebar in one of your cambridge or boston locations</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id>1041125103</in_reply_to_status_id> 
+      <in_reply_to_user_id>15131310</in_reply_to_user_id> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>15856582</id> 
+      <name>Maura  McGovern</name> 
+      <screen_name>mmcgovern</screen_name> 
+      <description>photographer with a day job in venture capital; obsessed with design blogs, long walks, yoga, social networking, people watching. tea and music are essential!</description> 
+      <location>Boston</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/66110383/DSCN1740_normal.JPG</profile_image_url> 
+      <url>http://lefteyephotography.blogspot.com</url> 
+      <protected>false</protected> 
+      <followers_count>244</followers_count> 
+    </user> 
+    </status><status> 
+      <created_at>Sun Dec 07 00:36:15 +0000 2008</created_at> 
+      <id>1042729087</id> 
+      <text>Going over the Advent lists.</text> 
+      <source>web</source> 
+      <truncated>false</truncated> 
+      <in_reply_to_status_id /> 
+      <in_reply_to_user_id /> 
+      <favorited>false</favorited> 
+      <user> 
+      <id>17122107</id> 
+      <name>gsusan</name> 
+      <screen_name>gsusan</screen_name> 
+      <description>US American writer/sister/daughter/aunt/woman from New England living in SoCal.</description> 
+      <location>San Diego, CA USA</location> 
+      <profile_image_url>http://s3.amazonaws.com/twitter_production/profile_images/63951854/susan_ocracoke_normal.jpg</profile_image_url> 
+      <url></url> 
+      <protected>false</protected> 
+      <followers_count>6</followers_count> 
+    </user> 
+    </status> 
+    </statuses>

@@ -66,6 +66,13 @@ default:
   smtp_username: 'smtp_username'
   smtp_password: 'secret'
 
+
+  # Message of the day: gives you the possibility to add a scrolling banner
+  # if variable motd is uncommented
+  # motd: "Hello World"
+
+
+
   #google analytics key, if false, it won't include the javascript
   google_a_site: false
   

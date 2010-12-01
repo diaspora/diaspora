@@ -1,0 +1,108 @@
+# Version 0.3.9
+
+Release data: 2010-07-03
+
+### Added
+
+* status_code which returns the HTTP status code of the last response (no Selenium!)
+* Capybara.save_and_open_page to store tempfiles
+* RackTest and Culerity drivers now clean up after themselves properly
+
+### Fixed
+
+* When no rack app is set and the app is called, a more descriptive error is raised
+* select now works with optgroups
+* Don't submit image buttons unless they were clicked under rack-test
+* Support custom field types under Selenium
+* Support input fields without a type, treat them as though they were text fields
+* Redirect now throws an error after 5 redirects, as per RFC
+* Selenium now properly raises an error when Node#trigger is called
+* Node#value now returns the correct value for textareas under rack-test
+
+# Version 0.3.8
+
+Release date: 2010-05-12
+
+### Added
+
+* Within_frame method to execute a block of code within a particular iframe (Selenium only!)
+
+### Fixed
+
+* Single quotes are properly escaped with `select` under rack-test and Selenium.
+* The :text option for searches now escapes regexp special characters when a string is given.
+* Selenium now correctly checks already checked checkboxes (same with uncheck)
+* Timing issue which caused Selenium to hang under certain circumstances.
+* Selenium now resolves attributes even if they are given as a Symbol
+
+# Version 0.3.7
+
+Release date: 2010-04-09
+
+This is a drop in compatible maintainance release. It's mostly
+important for driver authors.
+
+### Added
+
+* RackTest scans for data-method which rails3 uses to change the request method
+
+### Fixed
+
+* Don't hang when starting server on Windoze
+
+### Changed
+
+* The driver and session specs are now located inside lib! Driver authors can simply require them.
+
+# Version 0.3.6
+
+Release date: 2010-03-22
+
+This is a maintainance release with minor bug fixes, should be
+drop in compatible.
+
+### Added
+
+* It's now possible to load in external drivers
+
+### Fixed
+
+* has_content? ignores whitespace
+* Trigger events when choosing radios and checking checkboxes under Selenium
+* Make Capybara.app totally optional when running without server
+* Changed fallback host so it matches the one set up by Rails' integration tests
+
+# Version 0.3.5
+
+Release date: 2010-02-26
+
+This is a mostly backwards compatible release, it does break
+the API in some minor places, which should hopefully not affect
+too many users, please read the release notes carefully!
+
+### Breaking
+
+* Relative searching in a node (e.g. find('//p').all('//a')) will now follow XPath standard
+  this means that if you want to find descendant nodes only, you'll need to prefix a dot!
+* `visit` now accepts fully qualified URLs for drivers that support it.
+* Capybara will always try to run a rack server, unless you set Capybara.run_sever = false
+
+### Changed
+
+* thin is preferred over mongrel and webrick, since it is Ruby 1.9 compatible
+* click_button and click will find <input type="button">, clicking them does nothing in RackTest
+
+### Added
+
+* Much improved error messages in a multitude of places
+* More semantic page querying with has_link?, has_button?, etc...
+* Option to ignore hidden elements when querying and interacting with the page
+* Support for multiple selects
+
+### Fixed
+
+* find_by_id is no longer broken
+* clicking links where the image's alt attribute contains the text is now possible
+* within_fieldset and within_table work when the default selector is CSS
+* boolean attributes work the same across drivers (return true/false)
+

@@ -1,0 +1,30 @@
+/home/uehli/Desktop/daemons-current/examples/myserver_crashing.rb:13: CRASH! (RuntimeError)
+	from /home/uehli/Desktop/daemons-current/examples/myserver_crashing.rb:6:in `loop'
+	from /home/uehli/Desktop/daemons-current/examples/myserver_crashing.rb:6
+	from /home/uehli/Desktop/daemons-current/lib/daemons.rb:116:in `load'
+	from /home/uehli/Desktop/daemons-current/lib/daemons.rb:116:in `run_via_load'
+	from /home/uehli/Desktop/daemons-current/lib/daemons.rb:90:in `start'
+	from /home/uehli/Desktop/daemons-current/lib/daemons.rb:359:in `run'
+	from /home/uehli/Desktop/daemons-current/lib/daemons.rb:469:in `run'
+	from /home/uehli/Desktop/daemons-current/lib/daemons.rb:468:in `call'
+	from /home/uehli/Desktop/daemons-current/lib/daemons/cmdline.rb:94:in `catch_exceptions'
+	from /home/uehli/Desktop/daemons-current/lib/daemons.rb:468:in `run'
+	from ctrl_crash.rb:17
+ping from myserver.rb!
+this example server will crash in 3 seconds...
+CRASH!
+ping from myserver.rb!
+this example server will crash in 3 seconds...
+CRASH!
+/Users/uehli/Projects/daemons-proj/examples/run/myserver_crashing.rb:13: CRASH! (RuntimeError)
+	from /Users/uehli/Projects/daemons-proj/examples/run/myserver_crashing.rb:6:in `loop'
+	from /Users/uehli/Projects/daemons-proj/examples/run/myserver_crashing.rb:6
+	from /Users/uehli/Projects/daemons-proj/lib/daemons/application.rb:176:in `load'
+	from /Users/uehli/Projects/daemons-proj/lib/daemons/application.rb:176:in `start_load'
+	from /Users/uehli/Projects/daemons-proj/lib/daemons/application.rb:257:in `start'
+	from /Users/uehli/Projects/daemons-proj/lib/daemons/controller.rb:69:in `run'
+	from /Users/uehli/Projects/daemons-proj/lib/daemons.rb:139:in `run'
+	from /Users/uehli/Projects/daemons-proj/lib/daemons/cmdline.rb:105:in `call'
+	from /Users/uehli/Projects/daemons-proj/lib/daemons/cmdline.rb:105:in `catch_exceptions'
+	from /Users/uehli/Projects/daemons-proj/lib/daemons.rb:138:in `run'
+	from ctrl_crash.rb:17

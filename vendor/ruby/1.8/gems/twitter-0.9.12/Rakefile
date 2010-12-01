@@ -1,0 +1,19 @@
+require 'rake'
+require 'rake/testtask'
+require 'bundler'
+
+Bundler::GemHelper.install_tasks
+
+Rake::TestTask.new(:test) do |test|
+  test.libs << "test"
+  test.ruby_opts << "-rubygems"
+  test.pattern = "test/**/*_test.rb"
+  test.verbose = true
+end
+
+task :default => :test
+
+desc "Upload website files to rubyforge"
+task :website do
+  sh %{rsync -av website/ jnunemaker@rubyforge.org:/var/www/gforge-projects/twitter}
+end

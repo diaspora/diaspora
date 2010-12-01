@@ -1,0 +1,269 @@
+= REST Client -- simple DSL for accessing HTTP and REST resources
+
+A simple HTTP and REST client for Ruby, inspired by the Sinatra's microframework style
+of specifying actions: get, put, post, delete.
+
+* Main page: http://github.com/archiloque/rest-client
+* Mailing list: rest.client@librelist.com (send a mail to subscribe).
+* IRC: #rest-client at freenode
+
+== Usage: Raw URL
+
+  require 'rest_client'
+
+  RestClient.get 'http://example.com/resource'
+  
+  RestClient.get 'http://example.com/resource', {:params => {:id => 50, 'foo' => 'bar'}}
+
+  RestClient.get 'https://user:password@example.com/private/resource', {:accept => :json}
+
+  RestClient.post 'http://example.com/resource', :param1 => 'one', :nested => { :param2 => 'two' }
+
+  RestClient.post "http://example.com/resource", { 'x' => 1 }.to_json, :content_type => :json, :accept => :json
+
+  RestClient.delete 'http://example.com/resource'
+
+  response = RestClient.get 'http://example.com/resource'
+  response.code
+  ➔ 200
+  response.cookies
+  ➔ {"Foo"=>"BAR", "QUUX"=>"QUUUUX"}
+  response.headers
+  ➔ {:content_type=>"text/html; charset=utf-8", :cache_control=>"private" ...
+  response.to_str
+  ➔ \n<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\"\n   \"http://www.w3.org/TR/html4/strict.dtd\">\n\n<html ....
+
+  RestClient.post( url,
+    {
+      :transfer => {
+        :path => '/foo/bar',
+        :owner => 'that_guy',
+        :group => 'those_guys'
+      },
+       :upload => {
+        :file => File.new(path, 'rb')
+      }
+    })
+
+== Multipart
+
+Yeah, that's right!  This does multipart sends for you!
+
+  RestClient.post '/data', :myfile => File.new("/path/to/image.jpg", 'rb')
+
+This does two things for you:
+
+* Auto-detects that you have a File value sends it as multipart
+* Auto-detects the mime of the file and sets it in the HEAD of the payload for each entry
+
+If you are sending params that do not contain a File object but the payload needs to be multipart then:
+
+  RestClient.post '/data', :foo => 'bar', :multipart => true
+
+== Usage: ActiveResource-Style
+
+  resource = RestClient::Resource.new 'http://example.com/resource'
+  resource.get
+
+  private_resource = RestClient::Resource.new 'https://example.com/private/resource', 'user', 'pass'
+  private_resource.put File.read('pic.jpg'), :content_type => 'image/jpg'
+
+See RestClient::Resource module docs for details.
+
+== Usage: Resource Nesting
+
+  site = RestClient::Resource.new('http://example.com')
+  site['posts/1/comments'].post 'Good article.', :content_type => 'text/plain'
+
+See RestClient::Resource docs for details.
+
+== Exceptions (see http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+
+* for results code between 200 and 207 a RestClient::Response will be returned
+* for results code 301, 302 or 307 the redirection will be followed if the request is a get or a head
+* for result code 303 the redirection will be followed and the request transformed into a get
+* for other cases a RestClient::Exception holding the Response will be raised, a specific exception class will be thrown for know error codes
+
+   RestClient.get 'http://example.com/resource'
+   ➔ RestClient::ResourceNotFound: RestClient::ResourceNotFound
+
+   begin
+     RestClient.get 'http://example.com/resource'
+   rescue => e
+     e.response
+   end
+   ➔ 404 Resource Not Found | text/html 282 bytes
+
+== Result handling
+
+A block can be passed to the RestClient method, this block will then be called with the Response.
+Response.return! can be called to invoke the default response's behavior.
+
+  # Don't raise exceptions but return the response
+  RestClient.get('http://example.com/resource'){|response, request, result| response }
+  ➔ 404 Resource Not Found | text/html 282 bytes
+
+  # Manage a specific error code
+  RestClient.get('http://my-rest-service.com/resource'){ |response, request, result, &block|
+    case response.code
+    when 200
+      p "It worked !"
+      response
+    when 423
+      raise SomeCustomExceptionIfYouWant
+    else
+      response.return!(request, result, &block)
+    end
+  }
+
+  # Follow redirections for all request types and not only for get and head
+  # RFC : "If the 301, 302 or 307 status code is received in response to a request other than GET or HEAD,
+  #        the user agent MUST NOT automatically redirect the request unless it can be confirmed by the user,
+  #        since this might change the conditions under which the request was issued."
+  RestClient.get('http://my-rest-service.com/resource'){ |response, request, result, &block|
+    if [301, 302, 307].include? response.code
+      response.follow_redirection(request, result, &block)
+    else
+      response.return!(request, result, &block)
+    end
+  }
+
+== Non-normalized URIs.
+
+If you want to use non-normalized URIs, you can normalize them with the addressable gem (http://addressable.rubyforge.org/api/).
+
+  require 'addressable/uri'
+  RestClient.get(Addressable::URI.parse("http://www.詹姆斯.com/").normalize.to_str)
+
+== Lower-level access
+
+For cases not covered by the general API, you can use the RestClient::Resource class which provide a lower-level API, see the class' rdoc for more information.
+
+== Shell
+
+The restclient shell command gives an IRB session with RestClient already loaded:
+
+  $ restclient
+  >> RestClient.get 'http://example.com'
+
+Specify a URL argument for get/post/put/delete on that resource:
+
+  $ restclient http://example.com
+  >> put '/resource', 'data'
+
+Add a user and password for authenticated resources:
+
+  $ restclient https://example.com user pass
+  >> delete '/private/resource'
+
+Create ~/.restclient for named sessions:
+
+  sinatra:
+    url: http://localhost:4567
+  rack:
+    url: http://localhost:9292
+  private_site:
+    url: http://example.com
+    username: user
+    password: pass
+
+Then invoke:
+
+  $ restclient private_site
+
+Use as a one-off, curl-style:
+
+  $ restclient get http://example.com/resource > output_body
+
+  $ restclient put http://example.com/resource < input_body
+
+== Logging
+
+To enable logging you can
+
+* set RestClient.log with a ruby Logger
+* or set an environment variable to avoid modifying the code (in this case you can use a file name, "stdout" or "stderr"):
+
+   $ RESTCLIENT_LOG=stdout path/to/my/program
+
+Either produces logs like this:
+
+  RestClient.get "http://some/resource"
+  # => 200 OK | text/html 250 bytes
+  RestClient.put "http://some/resource", "payload"
+  # => 401 Unauthorized | application/xml 340 bytes
+
+Note that these logs are valid Ruby, so you can paste them into the restclient
+shell or a script to replay your sequence of rest calls.
+
+== Proxy
+
+All calls to RestClient, including Resources, will use the proxy specified by
+RestClient.proxy:
+
+  RestClient.proxy = "http://proxy.example.com/"
+  RestClient.get "http://some/resource"
+  # => response from some/resource as proxied through proxy.example.com
+
+Often the proxy url is set in an environment variable, so you can do this to
+use whatever proxy the system is configured to use:
+
+  RestClient.proxy = ENV['http_proxy']
+
+== Cookies
+
+Request and Response objects know about HTTP cookies, and will automatically
+extract and set headers for them as needed:
+
+  response = RestClient.get 'http://example.com/action_which_sets_session_id'
+  response.cookies
+  # => {"_applicatioN_session_id" => "1234"}
+
+  response2 = RestClient.post(
+    'http://localhost:3000/',
+    {:param1 => "foo"},
+    {:cookies => {:session_id => "1234"}}
+  )
+  # ...response body
+
+== SSL Client Certificates
+
+  RestClient::Resource.new(
+    'https://example.com',
+    :ssl_client_cert  =>  OpenSSL::X509::Certificate.new(File.read("cert.pem")),
+    :ssl_client_key   =>  OpenSSL::PKey::RSA.new(File.read("key.pem"), "passphrase, if any"),
+    :ssl_ca_file      =>  "ca_certificate.pem",
+    :verify_ssl       =>  OpenSSL::SSL::VERIFY_PEER
+  ).get
+
+Self-signed certificates can be generated with the openssl command-line tool.
+
+== Hook
+
+RestClient.add_before_execution_proc add a Proc to be called before each execution, it's handy if you need a direct access to the http request.
+
+Example:
+
+  # Add oath support using the oauth gem
+  require 'oauth'
+  access_token = ...
+
+  RestClient.add_before_execution_proc do |req, params|
+    access_token.sign! req
+  end
+
+  RestClient.get 'http://example.com'
+
+== More
+
+Need caching, more advanced logging or any ability provided by a rack middleware ?
+
+Have a look at rest-client-components http://github.com/crohr/rest-client-components
+
+== Meta
+
+Written by Adam Wiggins, major modifications by Blake Mizerany, maintained by Julien Kirch
+
+Patches contributed by many, including Chris Anderson, Greg Borenstein, Ardekantur, Pedro Belo, Rafael Souza, Rick Olson, Aman Gupta, François Beausoleil and Nick Plante.
+
+Released under the MIT License: http://www.opensource.org/licenses/mit-license.php

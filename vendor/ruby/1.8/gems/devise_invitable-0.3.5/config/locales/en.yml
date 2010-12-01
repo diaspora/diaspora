@@ -1,0 +1,8 @@
+en:
+  devise:
+    invitations:
+      send_instructions: 'An email with instructions about how to set the password has been sent.'
+      updated: 'Your password was set successfully. You are now signed in.'
+    mailer:
+      invitiation:
+        subject: 'Invitation'

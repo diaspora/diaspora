@@ -1,0 +1,25 @@
+== 0.3.0 / 2010-03-10
+
+* Enhancements
+
+  * Introduced "SQL compilers" for query generation.
+  * Added support for Oracle (Raimonds Simanovskis) and IBM/DB (Praveen Devarao).
+  * Improvements to give better support to ActiveRecord.
+
+== 0.2.1 / 2010-02-05
+
+* Enhancements
+
+  * Bump dependency version of activesupport to 3.0.0.beta
+
+== 0.2.0 / 2010-01-31
+
+  * Ruby 1.9 compatibility
+  * Many improvements to support the Arel integration into ActiveRecord (see `git log v0.1.0..v0.2.0`)
+  * Thanks to Emilio Tagua and Pratik Naik for many significant contributions!
+
+== 0.1.0 / 2009-08-06
+
+* 1 major enhancement
+
+  * Birthday!

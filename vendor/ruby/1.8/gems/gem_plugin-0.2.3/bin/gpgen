@@ -1,0 +1,60 @@
+require 'erb'
+require 'fileutils'
+include FileUtils
+
+if ARGV.length != 1
+  STDERR.puts "ERROR: You must give a name for your plugin and directory."
+  STDERR.puts "usage:  gpgen name"
+  STDERR.puts "example:  gpgen mygemplugin"
+  exit 1
+end
+
+# setup the required binding variables for erb processing later
+project = ARGV.shift
+gem_plugin_base = File.expand_path(File.join(File.dirname(__FILE__), ".."))
+resources = File.join(gem_plugin_base, "resources")
+gem_plugin_version = gem_plugin_base[gem_plugin_base.rindex("-")+1 .. -1]
+
+
+# make the dir if it don't exist
+if not File.exist? project
+  puts "Creating directory #{project}"
+  mkdir project
+else
+  puts "Directory #{project} exists, skipping."
+end 
+
+
+# go through all the resource files, erb them, and write them verbatim to output
+# do not overwrite if exists already
+
+Dir.glob("#{resources}/**/*") do |infile|
+  outfile = File.join(project, infile[resources.length .. -1])
+  if File.exist? outfile
+    puts "File #{outfile} exists, skipping."
+  else
+    if File.directory? infile
+      puts "Creating directory #{outfile}"
+      mkdir_p outfile
+    elsif File.file? infile
+      puts "Creating file #{outfile}"
+      open(infile) do |content|
+        template = ERB.new(content.read)
+        open(outfile,"w") {|f| f.write(template.result(binding)) }
+      end
+    else
+      puts "!!! Resources contains something not a file or directory."
+      puts "Skipping #{infile}."
+    end
+  end
+end
+
+# Finally, move the base init.rb to the right dir 
+init_file = File.join(project,"lib",project)
+if File.exist? init_file
+  puts "File init.rb already exists, skipping."
+  puts "WARNING:  There might be a junk '#{project}/lib/project/init.rb' file you can delete."
+else
+  puts "Creating proper '#{project}/lib/#{project}/init.rb' file"
+  mv File.join(project,"lib","project"), init_file
+end

@@ -1,0 +1,342 @@
+=== 0.9.12 - September 25, 2010
+* {Rename parameters to be less confusing}[http://github.com/rorra/twitter/commit/cd7ea8de6663d6ed5ea22b590d39adc72646fc1e] (@rorra[http://twitter.com/#!/rorra])
+* {Update <tt>user</tt> method to match the Twitter API docs}[http://github.com/jnunemaker/twitter/commit/cb31e4a26b20d93006d568fab50ccce5c4d1626f] (@nerdEd[http://twitter.com/#!/nerdEd])
+* {Add aliases for search methods}[http://github.com/jnunemaker/twitter/commit/05dd3e5a058ef69f874cfe33ae35b01f574e549b]
+* {Add <tt>user_agent</tt> methods to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/0fc68f1c52e3b754194fe8a9cfbd9d4499eacbe1]
+* {Add <tt>locale</tt> method to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/584bcf9eb896530a87e4122fb1a020c35744f0cf]
+
+=== 0.9.11 - September 24, 2010
+* {Add a <tt>filter</tt> method to the <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/0b37998055158d4fed0e3c296d8d2a42ac77d5d9] (@pjdavis[http://twitter.com/#!/pjdavis])
+* {Add test to ensure <tt>fetch</tt> doesn't overwrite <tt>@query[:q]</tt>}[http://github.com/jnunemaker/twitter/commit/2e05847cf70692b760c45dd54b6bad820176c9bd] (@pjdavis[http://twitter.com/#!/pjdavis])
+* {Add <tt>retweeted</tt> and <tt>not_retweeted</tt> methods to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/9ef83acdcbe682a8b5a325f89d566f7ef97fffc2] (@levycarneiro[http://twitter.com/#!/levycarneiro])
+* {Switch from YAJL to MultiJson}[http://github.com/jnunemaker/twitter/commit/60a7cb179e77319e03c595850119b63fb413a53d] (@MichaelRykov[http://twitter.com/#!/MichaelRykov])
+
+=== 0.9.10 - September 23, 2010
+* {Specify Twitter API version for all REST API calls}[http://github.com/jnunemaker/twitter/commit/76b1fa31588bbc20166464313027f75e3771e385]
+* {Parse all responses with YAJL JSON parser}[http://github.com/jnunemaker/twitter/commit/c477f368fde6161dbae59ea7bc7c7d182b15721b]
+* {Ensure that users are tested}[http://github.com/jnunemaker/twitter/commit/108019e83d745c23ebc92fc8a3f9f8c605b2e884] (@duncan[http://twitter.com/#!/duncan])
+* {Remove redgreen due to Ruby 1.9 incompatibility}[http://github.com/jnunemaker/twitter/commit/83e1ea168da2e38c3f393972bf1d8eb665df2510] (@duncan[http://twitter.com/#!/duncan])
+* {Make all tests pass in Ruby 1.9}[http://github.com/jnunemaker/twitter/commit/7bead60774fb118ef63fb1557976194848af6754] (@duncan[http://twitter.com/#!/duncan])
+
+=== 0.9.9 - September 22, 2010
+* {Bump dependency versions}[http://github.com/jnunemaker/twitter/commit/ac8114c1f6ba2da20c2267d3133252c2ffc6b6a3]
+* {Remove Basic Auth}[http://github.com/jnunemaker/twitter/pull/56] (@rodrigo3n[http://twitter.com/#!/rodrigo3n])
+* {Flatten <tt>ids_or_usernames</tt> before iterating}[http://github.com/jnunemaker/twitter/commit/956fb23f82cc1f91f6beefb24cf052cf48475a3f] (@jacqui[http://twitter.com/#!/jacqui])
+* {Add an example to list followers and friends sorted by followers count}[http://github.com/jnunemaker/twitter/commit/fb57b27e8a48abcc82810fe476413e8b506cebe6] (@danicuki[http://twitter.com/#!/danicuki])
+* {Add optional query parameter to <tt>list_subscribers</tt>}[http://github.com/jnunemaker/twitter/commit/a608d4088edf8772a3549326bed1124c9a2a123d]
+* {Change trends endpoint to api.twitter.com/1/trends}[http://github.com/jnunemaker/twitter/commit/39ff888b243ba57098589d4e304dd6dec877d05f]
+* {Use Bundler}[http://github.com/jnunemaker/twitter/commit/ebcb1d2c76d45f691cc90c880d13d19bc69a6f32]
+
+=== 0.9.8 - June 22, 2010
+* {Geo API}[http://github.com/jnunemaker/twitter/commit/0e5aa205f9e29db434d84452f59694d9b64877d2] (@spagalloco[http://twitter.com/#!/spagalloco])
+* {Set <tt>api_endpoint</tt> for unauthenticated calls}[http://github.com/jnunemaker/twitter/commit/ff20ecb4f4fef12c58572fb31e5c06162f8659d7] (@earth2marsh[http://twitter.com/#!/earth2marsh])
+
+=== 0.9.7 - May 25, 2010
+* {Add <tt>api_endpoint</tt> option for Search}[http://github.com/jnunemaker/twitter/commit/3c3d73fb8eedb5d322aeb1e4431d9936226fef9b]
+
+=== 0.9.6 - May 25, 2010
+* {Deprecated Basic Auth}[http://github.com/jnunemaker/twitter/commit/878c09527037ab8ec5ac11a48afece61f03861e1]
+* {Add <tt>api_endpoint</tt> option for OAuth}[http://github.com/jnunemaker/twitter/commit/be937cf93db35f60cd47288aeea45afd2ab42288]
+
+=== 0.9.5 - April 21, 2010
+* {Saved searches}[http://github.com/jnunemaker/twitter/commit/d5f0b5846b24468f323cc4f96e583fd267240615] (@zmoazeni[http://twitter.com/#!/zmoazeni])
+* {Handle null result sets in search more gracefully}[http://github.com/jnunemaker/twitter/commit/f6d1f995dc7757dda4f4ac71dda2487d56d51c85] (@sferik[http://twitter.com/#!/sferik])
+* {Add <tt>report_spam</tt>}[http://github.com/jnunemaker/twitter/commit/91275b549ebdd1cad795dff9f7a1772a4ca37749] (@chrisrbailey[http://twitter.com/#!/chrisrbailey])
+* {Tests for <tt>friendship_exists?</tt> method}[http://github.com/jnunemaker/twitter/commit/e778d7f5f2bed73428c854d5d788d4a2d58540cd] (@sferik[http://twitter.com/#!/sferik])
+* {Replace JSON parser with YAJL JSON parser}[http://github.com/jnunemaker/twitter/commit/1f480a85925025aec1ac5c91cfb45b4e74e4c9c3] (@sferik[http://twitter.com/#!/sferik])
+* {Cursors for lists}[http://github.com/jnunemaker/twitter/commit/d283cefdbcaeee6005b0ec747e8d6bded14911b2] (@moazeni[http://twitter.com/#!/moazeni])
+
+=== 0.9.4 - March 30, 2010
+* {Rolled back search API endpoint to get around rate limiting issues}[http://github.com/jnunemaker/twitter/commit/f9c7af99b4560f39b3542582934ae07955b6c9cc] (@secobarbital[http://twitter.com/#!/secobarbital])
+
+=== 0.9.3 - March 23, 2010
+* {Restore Ruby 1.8.6 compatibility}[http://github.com/jnunemaker/twitter/commit/b725b1b8a105fa3488783cef43b7db8b0dbb7c99] (@raykrueger[http://twitter.com/#!/raykrueger])
+
+=== 0.9.2 - March 24, 2010
+* {Make error handling consistent between authenticated and unauthenticated method calls}[http://github.com/jnunemaker/twitter/commit/f62a1502ba9c4a764d25a4179982fabd3bff2210] (@sferik[http://twitter.com/#!/sferik])
+* {Test error handling for unauthenticated methods}[http://github.com/jnunemaker/twitter/commit/4de5c9212142ceb0206f979755e6e151280b16b9] (@sferik[http://twitter.com/#!/sferik])
+
+=== 0.9.1 - March 23, 2010
+* {Add cursor to <tt>lists</tt> method}[http://github.com/jnunemaker/twitter/commit/a16ad354be4fae3d3f86207d8c5ae8b4c2a11b52] (@sferik[http://twitter.com/#!/sferik])
+* {Add Twitter API version to trends method calls}[http://github.com/jnunemaker/twitter/commit/6f23c5eb3ffdac6eac65fa2b6d36f08aa7b6e1fb] (@sferik[http://twitter.com/#!/sferik])
+* {Add Twitter API version to unauthenticated method calls}[http://github.com/jnunemaker/twitter/commit/fb895cc7e645499826dcc96e2cf8727c94eac83f] (@sferik[http://twitter.com/#!/sferik])
+* {Remove rubygems dependencies}[http://github.com/jnunemaker/twitter/commit/0f7a9ee4a1aee45bfb7136a0f6f48f9b7632e663] (@sferik[http://twitter.com/#!/sferik])
+
+=== 0.9.0 - March 20, 2010
+* {Add <tt>retweeters_of</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/7de2d6204028b6741ce7a72b12efe868e074331c]
+* {Add <tt>result_type</tt> to search for popular/recent results}[http://github.com/jnunemaker/twitter/commit/c32fa818f8331a7ff02f04f6cba8739423902029]
+* {Add <tt>users</tt> method for bulk user lookup}[http://github.com/jnunemaker/twitter/commit/5723b60f042d98b630040fa076ac86e9b735dee8] (@sferik[http://twitter.com/#!/sferik])
+* {Add Twitter API version to authenticated method calls}[http://github.com/jnunemaker/twitter/commit/69d4df515fe95f727221dad19b92665dc24f06d0] (@sferik[http://twitter.com/#!/sferik])
+* {Search exclusions}[http://github.com/jnunemaker/twitter/commit/cb05e77adb2d771170d731ad2e55ba17bcb13766] (@abozanich[http://twitter.com/#!/abozanich])
+
+=== 0.8.6 - March 11, 2010
+* {Bump httparty version}[http://github.com/jnunemaker/twitter/commit/643517da3d12442883d90918b280e968809a4750] (@dewski[http://twitter.com/#!/dewski])
+
+=== 0.8.5 - February 21, 2010
+* {Add <tt>next_page?</tt> and <tt>fetch_next_page</tt> methods to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/767ddaa62e8fa9e3872ddd17323f323d9f1393e4] (@cyu[http://twitter.com/#!/cyu])
+
+=== 0.8.4 - February 11, 2010
+* {Add <tt>query</tt> parameter to <tt>membership</tt> method}[http://github.com/jnunemaker/twitter/commit/f09b3121d4c721c34f40a11580a7a1d4ffc0df22] (@mingyeow[http://twitter.com/#!/mingyeow])
+* {Add <tt>phrase</tt> method to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/e3e8f7e4b1ea8a315f935805e409a3fff6a5483d] (@zagari[http://twitter.com/#!/zagari])
+* {Add <tt>available</tt> and <tt>location</tt> methods to <tt>Trends</tt> class}[http://github.com/jnunemaker/twitter/commit/39b8d8dd3bb25cb5cd081cae23486fb47c25ec8f]
+
+=== 0.8.3 - January 29, 2010
+* {Add unauthenticated <tt>list_timeline</tt> method}[http://github.com/jnunemaker/twitter/commit/aed3a298b613a508bb9caf93afc7f12c50626ad7] (@spastorino[http://twitter.com/#!/spastorino])
+
+=== 0.8.2 - January 21, 2010
+* {Add <tt>update_profile_image</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/10afe76daef3a2b8e10917b9550724cc9c3a6c19] (@urajat[http://twitter.com/#!/urajat])
+
+=== 0.8.1 - January 12, 2010
+* {Add unauthenticated <tt>timeline</tt> method}[http://github.com/jnunemaker/twitter/commit/dc26a0c9b5a6a98aec4ca9c0a48333e665c9bf18]
+
+=== 0.8.0 - December 18, 2009
+* {Make API endpoint configurable to use services like Tumblr}[http://github.com/jnunemaker/twitter/commit/c5550f1317538638b754d6b0dbbb372e069b5580]
+
+=== 0.7.11 - December 16, 2009
+* {Add list timeline paging}[http://github.com/jnunemaker/twitter/commit/591d31a45b1a360d5743d2bf3966e7e9b563b9b7] (@kchen1[http://twitter.com/#!/kchen1])
+
+=== 0.7.10 - December 12, 2009
+* {Add <tt>blocks</tt> and <tt>blocking</tt> methods to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/0eb099001f060431c56c1884d86abb2e53a09c6d]
+
+=== 0.7.9- December 1, 2009
+* {Add <tt>retweets</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/a1a834575000bbb8fb430632b6bf88e19daeb8fb] (@ivey[http://twitter.com/#!/ivey])
+
+=== 0.7.8- November 30, 2009
+* {Use <tt>cursor</tt> parameter to <tt>list_members</tt> method}[http://github.com/jnunemaker/twitter/commit/9f393f05c127623f4c58a68e2246a3553f225349] (@ivey[http://twitter.com/#!/ivey])
+
+=== 0.7.7- November 29, 2009
+* {Fix bug in <tt>list_remove_member</tt> when using OAuth}[http://github.com/jnunemaker/twitter/commit/b20b770af3d6594f8e551cade3cfbd58a0647c2d]
+* {Bump oauth dependency to version 0.3.6}[http://github.com/jnunemaker/twitter/commit/3eeed693180d15ba4ca2370c41bd5547f715fc88]
+* {Add <tt>update_profile_background</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/3eeed693180d15ba4ca2370c41bd5547f715fc88] (@kev_in[http://twitter.com/#!/kev_in])
+* {Add <tt>blocked_ids</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/2a5046500eb30141f55552d9b151857d08a1436a] (@rizwanreza[http://twitter.com/#!/rizwanreza])
+* {Add <tt>since_date</tt> and <tt>until_date</tt> methods to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/9dcd340817224fa34fcb515f79a846886ffa1427] (@jschairb[http://twitter.com/#!/jschairb])
+
+=== 0.7.6- November 25, 2009
+* {Add <tt>home_timeline</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/2de3786e75e6a1725572d3f08f6886f64e507851] (@coderifous[http://twitter.com/#!/coderifous])
+
+=== 0.7.5- November 17, 2009
+* {Use Hashie instead of Mash to avoid conflicts with extlib}[http://github.com/jnunemaker/twitter/commit/365f8378b45c93ed6219ac49afec5c7f7eb85fe6] (@hassox[http://twitter.com/#!/hassox])
+
+=== 0.7.4- November 16, 2009
+* {Support for user search}[http://github.com/jnunemaker/twitter/commit/54e046924431a08e3dfce06f571f71ebb76f7bbd]
+
+=== 0.7.3- November 5, 2009
+* {Add <tt>list_subscriptions</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/2273c8a4e7c5d496922fc34551b46b22d30b68aa] (@christospappas[http://twitter.com/#!/christospappas])
+
+=== 0.7.2- November 5, 2009
+* {Add <tt>friendship_show</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/693f95a6a19dd51c047078ef969e14357930bcd7] (@dcrec1[http://twitter.com/#!/dcrec1])
+
+=== 0.7.1- November 4, 2009
+* {Bump dependency versions}[http://github.com/jnunemaker/twitter/commit/d6bf8c5693f0ec4eedd641b97a7e6f0fdce75e2c]
+
+=== 0.7.0- October 31, 2009
+* {Add support for lists}[http://github.com/jnunemaker/twitter/commit/be4bffd79c2bdcfd2988ef6a65cbca8a8f6abd6d]
+
+=== 0.6.14 - August 16, 2009
+* {Lower oauth dependency to version 0.3.4 as people are complaining about 0.3.5}[http://github.com/jnunemaker/twitter/commit/dd144c377bc888388099e029a0e1505a66392bb1]
+
+=== 0.6.13 - July 27, 2009
+* {Bump oauth dependency to version >= 0.3.5}[http://github.com/jnunemaker/twitter/commit/555ae1fc13146b74b8df0346caea1a6b065b344f]
+
+=== 0.6.12 - June 26, 2009
+* {Fix <tt>fakeweb</tt> test issue}[http://github.com/jnunemaker/twitter/commit/cdd9dba19f6edc21f1b7eefb66db133dec682423] (@obie[http://twitter.com/#!/obie])
+* {Add <tt>user_agent</tt> method to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/e8fbad6a9cfdcfaad4938f7243fc971a1ea8ac8c]
+
+=== 0.6.11 - May 18, 2009
+* {Add the ability to sign in with Twitter instead of authorizing}[http://github.com/jnunemaker/twitter/commit/68b6252a21e7e773d108027f693b8378593e21ad]
+
+=== 0.6.10 - May 18, 2009
+* {Add <tt>current</tt>}[http://github.com/jnunemaker/twitter/commit/549f34903be38232c24044d9972629a86a0503a4], {<tt>daily</tt>, and <tt>weekly</tt> methods to <tt>Trends</tt> class}[http://github.com/jnunemaker/twitter/commit/dc8046aea5794303f6f36622221a412a4e80f9a8]
+
+=== 0.6.9 - May 17, 2009
+* {Bump oauth dependency to version 0.3.4}[http://github.com/jnunemaker/twitter/commit/88d4612b50d2be7cc300120278d53c80265e8780]
+
+=== 0.6.8 - April 23, 2009
+* {Fix httparty dependency}[http://github.com/jnunemaker/twitter/commit/44aa418a22233c84cea1dae74b158cd490589b10]
+
+=== 0.6.7 - April 23, 2009
+* {Bump httparty dependency to version 0.4.3 which allows <tt>response.message</tt> and fixes errors that the lack of <tt>response.message</tt> was causing}[http://github.com/jnunemaker/twitter/commit/a630b1c77792641794745d2f3cbba6c64d168d62]
+
+=== 0.6.6 - April 16, 2009
+* {Add <tt>query</tt> parameter to <tt>user</tt> method}[http://github.com/jnunemaker/twitter/commit/33ae7dbd7593235efb8ea1df13638891b621244f]
+* {Add <tt>ssl</tt> optional parameter to use HTTPS instead of HTTP for <tt>HTTPAuth</tt>}[http://github.com/jnunemaker/twitter/commit/f46cdf9ce957b03539bd4dc76a83ce439535d349]
+* {Add unauthenticated <tt>status</tt>, <tt>friend_ids</tt>, and <tt>follower_ids</tt> methods}[http://github.com/jnunemaker/twitter/commit/55813617c5b4cf672800bf7f9e7473904e3c3194]
+
+=== 0.6.5 - April 15, 2009
+* {Fix <tt>friend_ids</tt> and <tt>follower_ids</tt> bombing on mashing}[http://github.com/jnunemaker/twitter/commit/f01c2878033cd6afc1e718f2140c82b9708e5603]
+
+=== 0.6.4 - April 14, 2009
+* {More explicit about dependency versions in gemspec and when requiring}[http://github.com/jnunemaker/twitter/commit/5ce3eeb25c5b8bcd8caa8704c5d125174781781d]
+
+=== 0.6.3 - April 14, 2009
+* {Add unauthenticated <tt>user</tt> method}[http://github.com/jnunemaker/twitter/commit/cb46975eaa8aa7e02ad798ba8b7b62017f15604c]
+
+=== 0.6.2 - April 14, 2009
+* {Add <tt>max</tt> method to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/e79cc1fdb306da24462c6617b118e03ccbead9f1]
+
+=== 0.6.1 - April 12, 2009
+* {Rename one of the two <tt>friend_ids</tt> methods to <tt>follower_ids</tt>}[http://github.com/jnunemaker/twitter/commit/051d19db49dce2422d06181c5a3b595e3a9b85b3]
+
+=== 0.6.0 - April 11, 2009
+* {Add HTTP authentication}[http://github.com/jnunemaker/twitter/commit/d713ecfbe80edde688009fa6bfbf32a2de687a39]
+
+=== 0.5.3 - April 10, 2009
+* {Only send <tt>follow</tt> parameter to Twitter if <tt>follow</tt> is true for calls to <tt>friendship_create</tt>}[http://github.com/jnunemaker/twitter/commit/5ebf39c0538a3dfd48c6a1dbdf8558305737ce69]
+
+=== 0.5.2 - April 8, 2009
+* {Add mash as an install dependency}[http://github.com/jnunemaker/twitter/commit/a8693b27791e966736415cb90335600d075f60dd]
+* {Add options to <tt>search</tt>}[http://github.com/jnunemaker/twitter/commit/096d56ed9a62a0ea53bfe3a8df588ddef71df1c9]
+* {Add missing variables in exception raising}[http://github.com/jnunemaker/twitter/commit/e21a4f69c68d28148045e7c98ce1841d72994e1e]
+* {Add development dependencies to <tt>Rakefile</tt> to make that more explicit}[http://github.com/jnunemaker/twitter/commit/de57b1c2834653ea4c336ed426ee8fbbebcd80b2] (@technomancy[http://twitter.com/#!/technomancy])
+* {Add workaround for <tt>Mash#hash</tt> that allows using return objects in sets and such}[http://github.com/jnunemaker/twitter/commit/2da491308766e82c797c7801bdc3a440b7f8d719] (@technomancy[http://twitter.com/#!/technomancy])
+
+=== 0.5.1 - April 5, 2009
+* {Add data error hash returned from Twitter to a few of the exceptions to help with debugging}[http://github.com/jnunemaker/twitter/commit/72d46c4804a30b28ab351a5a0d37d6bc664e577e]
+* {Fix bug with <tt>friendship_exists?</tt> throwing a stringify keys error because it was returning <tt>true</tt> or <tt>false</tt> instead of a <tt>Hash</tt> or <tt>Array</tt>}[http://github.com/jnunemaker/twitter/commit/1e9def65277125f23739be034abd4059a42d2b87]
+
+=== 0.5.0 - April 3, 2009
+* {Proxy no longer supported (someone please add it back in, I never use proxies)}[http://github.com/jnunemaker/twitter/commit/dd2445e3e2c97f38b28a3f32ea902536b3897adf]
+* {Identica support killed with an axe (nothing against them but I don't use it)}[http://github.com/jnunemaker/twitter/commit/dd2445e3e2c97f38b28a3f32ea902536b3897adf]
+* {CLI shot to death (will be reborn at a later date using OAuth and its own gem)}[http://github.com/jnunemaker/twitter/commit/dd2445e3e2c97f38b28a3f32ea902536b3897adf]
+
+=== 0.4.3 - February 21, 2009
+* {Make <tt>verify_credentials</tt> return a <tt>Twitter::User</tt> rather than a Hpricot doc}[http://github.com/jnunemaker/twitter/commit/6a8efc464dcb174e41b2eb0197a79e778dae1428]
+
+=== 0.4.2 - February 10, 2009
+* {Add <tt>friend_ids</tt> and <tt>follower_ids</tt> methods to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/b70718cc31684af6ce2d1c2a11adaaba29ea7b92] (@joshowens[http://twitter.com/#!/joshowens])
+
+=== 0.4.1 - January 1, 2009
+* {Add better exception handling}[http://github.com/jnunemaker/twitter/commit/2b85bed874902d184e5d53c0a0bd249fd1ed3b8b] (@billymeltdown[http://twitter.com/#!/billymeltdown])
+* {Add <tt>page</tt> method to <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/977023126fbe7fdf13af53d840ca3b6807cd2d85] (@ivey[http://twitter.com/#!/ivey])
+* {Add an option to display tweets on CLI in reverse chronological order}[http://github.com/jnunemaker/twitter/commit/40d2f1ae631dce3c31c6a13d295989e945b22622] (@coderdaddy[http://twitter.com/#!/coderdaddy])
+* {Add <tt>in_reply_to_status_id</tt> option for replying to statuses}[http://github.com/jnunemaker/twitter/commit/2ecceda9fa74d486e3ba62edba7fa42a443191fa] (@anthonycrumley[http://twitter.com/#!/anthonycrumley])
+* {Fix a bug where the @config was improperly set}[http://github.com/jnunemaker/twitter/commit/9c5fd0f0a0186638aae189e28a3a0d0d20e7d3d5] (@pope[http://twitter.com/#!/pope])
+* {Fix <tt>verify_credentials</tt> to include a format}[http://github.com/jnunemaker/twitter/commit/bf6f783e8867148a056d130f00a03679ea9b414b] (@dlsspy[http://twitter.com/#!/dlsspy])
+
+=== 0.4.0 - December 23, 2008
+* {Remove Active Support dependency and switched to echoe for gem management}[http://github.com/jnunemaker/twitter/commit/fbb792561ea2aba8c8e7abb946d2a5e6e3d64fb0]
+* {Remove CLI dependencies}[http://github.com/jnunemaker/twitter/commit/906d34db1a81314bb8929d9b5ee61519ed6dc080]
+
+=== 0.3.7 - August 26, 2008
+* {Fix <tt>source</tt> parameter not getting through}[http://github.com/jnunemaker/twitter/commit/e3743cf22df3ad9406bf8c2e4425f30680606283]
+
+=== 0.3.6 - August 11, 2008
+* {Refactor the remaining methods that were not using <tt>request</tt> to use it}[http://github.com/jnunemaker/twitter/commit/8a802c4b461be0d4d7f374888591a9af6ef8b8d2]
+
+=== 0.3.5 - August 4, 2008
+* {Remove sqlite-ruby dependency}[http://github.com/jnunemaker/twitter/commit/9277e832daf9539e70f446b8b4f7093d8eb98484]
+
+=== 0.3.4 - August 3, 2008
+* {Add <tt>Search</tt> class}[http://github.com/jnunemaker/twitter/commit/538a5d4b1a72ed2bf97404704699f498ab082ca9]
+
+=== 0.3.3 - August 3, 2008
+* {Add Identica support}[http://github.com/jnunemaker/twitter/commit/ed06aaf27eea8852198200eb3db510d56508e727] (@dlsspy[http://twitter.com/#!/dlsspy])
+* {Update methods to <tt>POST</tt> instead of <tt>GET</tt>}[http://github.com/jnunemaker/twitter/commit/ed06aaf27eea8852198200eb3db510d56508e727]
+
+=== 0.3.2 - July 26, 2008
+* {Add the CLI gems as dependencies until it is separated from the API wrapper}[http://github.com/jnunemaker/twitter/commit/52af6fd83bb2e72b90abd6114e264a88431cfb34]
+* {Add cleaner CLI errors for no active account or no accounts at all}[http://github.com/jnunemaker/twitter/commit/dbc9e57d0a66ee585893b0b5955078575effc616]
+* {Add <tt>username</tt> and <tt>password</tt> parameters to <tt>add</tt> method}[http://github.com/jnunemaker/twitter/commit/013b48229786c1080ee79a490e731f4b1811a7e4]
+
+=== 0.3.1 - July 23, 2008
+* {Add <tt>open</tt> method to CLI}[http://github.com/jnunemaker/twitter/commit/84e77a1d515f762d7a24f697786f5959d4f1cc2e]
+* {Add <tt>-f</tt> option to timeline and replies which ignores the <tt>since_id</tt> and shows all results}[http://github.com/jnunemaker/twitter/commit/84e77a1d515f762d7a24f697786f5959d4f1cc2e]
+* {Add <tt>clear_config</tt> to remove all cached values}[http://github.com/jnunemaker/twitter/commit/84e77a1d515f762d7a24f697786f5959d4f1cc2e]
+* {Improved the output of <tt>timelines</tt> and <tt>replies</tt>}[http://github.com/jnunemaker/twitter/commit/84e77a1d515f762d7a24f697786f5959d4f1cc2e]
+
+=== 0.3.0 - July 22, 2008
+* {Support multiple accounts in CLI and switching between them}[http://github.com/jnunemaker/twitter/commit/35eddef783492990bf0bebcae1f5891a556988e4]
+* {Make <tt>d</tt> method accept stdin}[http://github.com/jnunemaker/twitter/commit/25ddfe33a10a252ff7d9ba74d4d16e3e25719661]
+* {Add <tt>source</tt> method to <tt>Status</tt> class}[http://github.com/jnunemaker/twitter/commit/d02d233000667c74101571f9362532a57715ae4e]
+* {Add <tt>truncated</tt> method to <tt>Status</tt> class}[http://github.com/jnunemaker/twitter/commit/d02d233000667c74101571f9362532a57715ae4e]
+* {Add <tt>in_reply_to_status_id</tt> method to <tt>Status</tt> class}[http://github.com/jnunemaker/twitter/commit/d02d233000667c74101571f9362532a57715ae4e]
+* {Add <tt>in_reply_to_user_id</tt> method to <tt>Status</tt> class}[http://github.com/jnunemaker/twitter/commit/d02d233000667c74101571f9362532a57715ae4e]
+* {Add <tt>favorited</tt> method to <tt>Status</tt> class}[http://github.com/jnunemaker/twitter/commit/d02d233000667c74101571f9362532a57715ae4e]
+* {Add <tt>protected</tt> method to <tt>User</tt> class}[http://github.com/jnunemaker/twitter/commit/d02d233000667c74101571f9362532a57715ae4e]
+* {Add <tt>friendship_exists?</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Add <tt>update_location</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Add <tt>update_delivery_device</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Add <tt>favorites</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Add <tt>create_favorite</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Add <tt>destroy_favorite</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Add <tt>block</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Add <tt>unblock</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+* {Rewrite methods that had <tt>since</tt> or <tt>lite</tt> parameters to use a <tt>Hash</tt>}[http://github.com/jnunemaker/twitter/commit/eeca67c5693dc175cf1990c2657a6efd8c4cbd6d]
+==== BACKWORDS COMPATIBILITY BREAK
+Any method passing <tt>lite</tt> or <tt>since</tt> parameters will no longer work with this version. Simply pass the parameters in a <tt>Hash</tt> instead. For example: <tt>friends(true)</tt> becomes <tt>friends(:lite => true)</tt>
+
+=== 0.2.7 - June 29, 2008
+* {Add <tt>rate_limit_status</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/2b5325b1875574805fde77f30d0df84e423272e5] (@danielmorrison[http://twitter.com/#!/danielmorrison])
+* {Add <tt>source</tt> parameter to <tt>Base#post</tt>}[http://github.com/jnunemaker/twitter/commit/215b2ca687014e042f991192281ea1dfbe100665]
+* {Add <tt>twittergem</tt> as the source when posting from the command-line interface}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176]
+* {Raise <tt>Twitter::RateExceeded</tt> when you hit your limit}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176] (@jimoleary[http://twitter.com/#!/jimoleary])
+* {Raise <tt>Twitter::Unavailable</tt> when Twitter returns 503}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176]
+* {Make <tt>Twitter::CantConnect</tt> messages more descriptive}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176]
+* {Make quoting your message optional when posting from the command-line interface}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176] (@bcaccinolo[http://twitter.com/#!/bcaccinolo])
+* {Alias <tt>post</tt> to <tt>p</tt> on the command-line interface}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176] (@bcaccinolo[http://twitter.com/#!/bcaccinolo])
+* {Unescape HTML and add color to the command-line interface}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176] (@mileszs[http://twitter.com/#!/mileszs])
+* {Add gemspec}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176] (@technoweenie[http://twitter.com/#!/technoweenie], @mileszs[http://twitter.com/#!/mileszs])
+* {Fix stack trace error on first command-line operation}[http://github.com/jnunemaker/twitter/commit/d94b6bdb23dd27ff25cf170cd7ceb5610187d176] (@mrose2n[http://twitter.com/#!/mrose2n])
+
+=== 0.2.6 - April 2, 2008
+* {Found a simpler way of doing <tt>stdin</tt> without any extra gem dependencies}[http://github.com/jnunemaker/twitter/commit/2ef6c3e7280b64d5d4a956ca245e631b126001b0]
+
+=== 0.2.5 - April 2, 2008
+* {Command-line interface can use <tt>stdin</tt> for posting}[http://github.com/jnunemaker/twitter/commit/d4e710bd3184f33775bf969b0993cbc9dff0ed50] (@reclusive_geek[http://twitter.com/#!/reclusive_geek])
+    $ twitter post 'test without stdin' # => twitters: test without stdin
+    $ echo 'test with stdin' | twitter post 'and an argv[1]' # => twitters: test with stdin and an argv[1]
+    $ echo 'test with stdin without any argv[1]' | twitter post # => twitters: test with stdin without any argv[1]
+
+=== 0.2.4 - March 31, 2008
+* {Add <tt>lite</tt> parameter to <tt>friends</tt> and <tt>followers</tt> methods, which doesn't include the user's current status}[http://github.com/jnunemaker/twitter/commit/0de3901258de5b2a4a3fda308e495ee373d07ea6] (@danielmorrison[http://twitter.com/#!/danielmorrison])
+* {Update <tt>since</tt> parameter to use HTTP header}[http://github.com/jnunemaker/twitter/commit/90b5b5ebb2a7d94a278e3ff374e4fde4cf850234] (@danielmorrison[http://twitter.com/#!/danielmorrison])
+* {Add <tt>since</tt> parameter on <tt>timeline</tt> and <tt>replies</tt> methods}[http://github.com/jnunemaker/twitter/commit/90b5b5ebb2a7d94a278e3ff374e4fde4cf850234] (@danielmorrison[http://twitter.com/#!/danielmorrison])
+
+=== 0.2.3 - January 16, 2008
+* {Add <tt>d</tt> to the command-line interface}[http://github.com/jnunemaker/twitter/commit/a9ecddd3323ef202248dae59d049b00b88b76b4e] (@uumbucker[http://twitter.com/#!/uumbucker])
+* {Add progress dots while waiting for confirmation when Twitter is being slow}[http://github.com/jnunemaker/twitter/commit/02a24d9042f3fa0235759fbbd6f34ea639a01578] (@HendyIrawan[http://twitter.com/#!/HendyIrawan])
+
+=== 0.2.2 - January 16, 2008
+* {Add <tt>leave</tt> and <tt>follow</tt> methods to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/4878689063574ad88ea76343387094fc634ccead]
+
+=== 0.2.1 - October 23, 2007
+
+=== 0.2.0 - August 4, 2007
+* {Alias <tt>direct_messages</tt> to <tt>received_messages</tt>}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>sent_messages</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>create_friendship</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>destroy_friendship</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>featured</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>replies</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>destroy</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>status</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add Active Support dependency}[http://github.com/jnunemaker/twitter/commit/c2d8c55516747627452224af8faecc15ee6b5fd4]
+* {Add <tt>d</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/139a820de0bcc97ece7e33435535985555231bc8] (@jnewland[http://twitter.com/#!/jnewland])
+* {Fix <tt>since</tt> parameter in <tt>direct_messages</tt> method}[http://github.com/jnunemaker/twitter/commit/41a9006be9221d7305752639ac4440b3a8859cd0] (@jnewland[http://twitter.com/#!/jnewland])
+
+=== 0.1.1 - May 20, 2007
+* {Add support for Hpricot 0.5+}[http://github.com/jnunemaker/twitter/commit/4aa2fabaa62c60e9f11f29510db10b6ed406e510] (@erebor[http://twitter.com/#!/erebor] is the man!)
+
+=== 0.1.0 - March 31, 2007
+* {Add <tt>d</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/13e031f8d2e8db6ca8ace18a25886fb690d580d2]
+* {Add <tt>direct_messages</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/0f4d699a5310dc8a4e2997b82853f5466292b320]
+* {Add <tt>featured</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/21ca95ffa3f42aaf7728c3d5c2aa5f1f9ed84fe7]
+* {Add <tt>friends_for</tt> method to <tt>Base</tt> class}[http://github.com/jnunemaker/twitter/commit/21ca95ffa3f42aaf7728c3d5c2aa5f1f9ed84fe7]
+* {Add tests}[http://github.com/jnunemaker/twitter/commit/ff1ae65766109c75f80c4b15797e12a69d7c29ad]
+* {Remove <tt>relative_created_at</tt>}[http://github.com/jnunemaker/twitter/commit/ff1ae65766109c75f80c4b15797e12a69d7c29ad]
+
+=== 0.0.5 - March 12, 2007
+* {Code cleanup}[http://github.com/jnunemaker/twitter/commit/abd6eb31089975e3dc65f7e0bb4156feacc97a1c]
+
+=== 0.0.4 - January 20, 2007
+* {Add <tt>location</tt>, <tt>description</tt>, <tt>url</tt>, and <tt>profile_image_url</tt> methods to <tt>User</tt> class}[http://github.com/jnunemaker/twitter/commit/e6737ec8b07b9fd1ffd96a21074a100a6fb3cf7e] (@al3x[http://twitter.com/#!/al3x])
+
+=== 0.0.3 - December 17, 2006
+* {Make error message more informative}[http://github.com/jnunemaker/twitter/commit/1763cd85c4fd85cde6815cc7c1b74937dd7aeeaf]
+
+=== 0.0.2 - November 26, 2006
+* Add command-line options for <tt>friend</tt> and <tt>follower</tt>
+* Improved docs
+
+=== 0.0.1 - November 26, 2006
+* {Initial release}[http://github.com/jnunemaker/twitter/commit/cd7aecde450157ae2ec0c07a2171d7149bebb74a]

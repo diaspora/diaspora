@@ -1,0 +1,4 @@
+* Allow a spec / test mode where a _spec_authenticate! method is called on a strategy instead if present
+* Implement back urls
+* Move all configuration to Warden::Config
+* Allow serializers to be chosen on storing/fetching/deleting

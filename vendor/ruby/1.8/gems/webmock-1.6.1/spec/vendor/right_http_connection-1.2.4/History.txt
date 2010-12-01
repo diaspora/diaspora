@@ -1,0 +1,59 @@
+== 0.0.1 2007-05-15
+* 1 major enhancement:
+  * Initial release
+
+== 0.1.2 2007-06-27
+
+* No major changes.
+
+== 0.1.3 2007-07-09
+
+* No change.
+
+== 0.1.4 2007-08-10
+
+* r1442, todd, 2007-08-07 15:45:24
+  * # 373, Add support in right_http_connection for bailing out to a block while
+    reading the HTTP response (to support GET streaming...)
+
+* r1411, todd, 2007-08-03 15:14:45
+  * # 373, Stream uploads (PUTs) if the source is a file, stream, or anything
+      read()-able
+
+== 1.1.0 2007-08-15
+Initial public release
+
+== 1.2.0 2007-10-05
+
+* r1867, konstantin, 2007-10-05 06:19:45
+  * # 220, (re)open connection to server if none exists or connection params 
+    have changed 
+
+== 1.2.1
+
+* r2648, konstantin, 01-24-08 11:12:00
+  * net_fix.rb moved from right_aws gem to fix the problem with uploading the streamable
+    objects to S3
+
+* r2764, konstantin, 02-08-08 00:05:00 +03:00
+  * "RightAws: incompatible Net::HTTP monkey-patch" exception is raised if our net_fix
+    patch was overriden (by attachment_fu for example, to avoid this load attachment_fu 
+    before loading the right_http_connection gem).
+
+== 1.2.2
+
+*  r3524, konstantin, 2008-04-17 11:35:42 +0400
+  * Fixed a problem with incorrect error handling (connection retries always failed).
+
+== 1.2.3
+
+- Added support for setting retry & timeout parameters in the constructor
+- Improve handling of data streams during upload: if there is a failure and a retry, reset
+  the seek pointer for the subsequent re-request
+
+== 1.2.4 
+
+*  r4984, konstantin, 2008-08-11 14:49:18 +0400
+  * fixed a bug: <NoMethodError: You have a nil object when you didn't expect it!
+                  The error occurred while evaluating nil.body_stream>
+

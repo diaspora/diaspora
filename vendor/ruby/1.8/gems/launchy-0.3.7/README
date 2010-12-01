@@ -1,0 +1,53 @@
+== launchy
+
+* Homepage[http://copiousfreetime.rubyforge.org/launchy/]
+* {Rubyforge Project}[http://rubyforge.org/projects/copiousfreetime]
+* email jeremy at hinegardner dot org
+
+== DESCRIPTION
+
+Launchy is helper class for launching cross-platform applications in a
+fire and forget manner.
+
+There are application concepts (browser, email client, etc) that are
+common across all platforms, and they may be launched differently on
+each platform.  Launchy is here to make a common approach to launching
+external application from within ruby programs.
+
+== FEATURES
+
+Currently only launching a browser is supported.
+
+== SYNOPSIS
+
+From within your ruby code you can trust launchy to do the right thing:
+
+    Launchy.open("http://www.ruby-lang.org/")
+
+Or, if you want to launch the application yourself:
+
+    Launchy::Browser.run("http://www.ruby-lang.org/")
+
+OR
+
+    Launchy::Browser.new.visit("http://www.ruby-lang.org/")
+
+== ISC LICENSE
+
+http://opensource.org/licenses/isc-license.txt
+
+Copyright (c) 2007-2009 Jeremy Hinegardner
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+

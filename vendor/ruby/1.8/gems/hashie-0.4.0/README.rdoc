@@ -1,0 +1,119 @@
+= Hashie
+
+Hashie is a growing collection of tools that extend Hashes and make
+them more useful.
+
+== Installation
+    
+Hashie is available as a RubyGem:
+
+    gem install hashie
+
+== Mash
+
+Mash is an extended Hash that gives simple pseudo-object functionality
+that can be built from hashes and easily extended. It is designed to
+be used in RESTful API libraries to provide easy object-like access 
+to JSON and XML parsed hashes.
+
+=== Example:
+  
+    mash = Hashie::Mash.new
+    mash.name? # => false
+    mash.name # => nil
+    mash.name = "My Mash"
+    mash.name # => "My Mash"
+    mash.name? # => true
+    mash.inspect # => <Hashie::Mash name="My Mash">
+  
+    mash = Mash.new
+    # use bang methods for multi-level assignment
+    mash.author!.name = "Michael Bleigh"
+    mash.author # => <Hashie::Mash name="Michael Bleigh">
+
+<b>Note:</b> The <tt>?</tt> method will return false if a key has been set 
+to false or nil. In order to check if a key has been set at all, use the
+<tt>mash.key?('some_key')</tt> method instead.
+  
+== Dash
+
+Dash is an extended Hash that has a discrete set of defined properties
+and only those properties may be set on the hash. Additionally, you
+can set defaults for each property.
+
+=== Example:
+
+    class Person < Hashie::Dash
+      property :name
+      property :email
+      property :occupation, :default => 'Rubyist'
+    end
+
+    p = Person.new
+    p.name # => nil
+    p.email = 'abc@def.com'
+    p.occupation   # => 'Rubyist'
+    p.email        # => 'abc@def.com'
+    p[:awesome]    # => NoMethodError
+    p[:occupation] # => 'Rubyist'
+    
+    p = Person.new(:name => "Bob")
+    p.name       # => 'Bob'
+    p.occupation # => 'Rubyist'
+    
+== Trash
+
+A Trash is a Dash that allows you to translate keys on initialization.
+It is used like so:
+
+    class Person < Hashie::Trash
+      property :first_name, :from => :firstName
+    end
+    
+This will automatically translate the <tt>firstName</tt> key to <tt>first_name</tt>
+when it is initialized using a hash such as through:
+  
+    Person.new(:firstName => 'Bob')
+    
+== Clash
+
+Clash is a Chainable Lazy Hash that allows you to easily construct
+complex hashes using method notation chaining. This will allow you
+to use a more action-oriented approach to building options hashes.
+
+Essentially, a Clash is a generalized way to provide much of the same
+kind of "chainability" that libraries like Arel or Rails 2.x's named_scopes
+provide.
+
+=== Example
+
+    c = Hashie::Clash.new
+    c.where(:abc => 'def').order(:created_at)
+    c # => {:where => {:abc => 'def}, :order => :created_at}
+
+    # You can also use bang notation to chain into sub-hashes,
+    # jumping back up the chain with _end!
+    c = Hashie::Clash.new
+    c.where!.abc('def').ghi(123)._end!.order(:created_at)
+    c # => {:where => {:abc => 'def', :ghi => 123}, :order => :created_at}
+
+    # Multiple hashes are merged automatically
+    c = Hashie::Clash.new
+    c.where(:abc => 'def').where(:hgi => 123)
+    c # => {:where => {:abc => 'def', :hgi => 123}}
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Commit, do not mess with rakefile, version, or history. (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Authors
+
+* Michael Bleigh
+
+== Copyright
+
+Copyright (c) 2009 Intridea, Inc (http://intridea.com/). See LICENSE for details.

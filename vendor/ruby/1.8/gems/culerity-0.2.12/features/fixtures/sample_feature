@@ -1,0 +1,14 @@
+Feature: Check that default Rails index.html shows information
+  In order to value
+  As a role
+  I want feature
+
+  Scenario: Check javascript runs on static file
+    Given I go to the homepage
+    Then I should not see "Rails version"
+    When I follow "About your application’s environment"
+    And I wait for the AJAX call to finish
+    Then I should see "No route matches"
+  
+  
+  

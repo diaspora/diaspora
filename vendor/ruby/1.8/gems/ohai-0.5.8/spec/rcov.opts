@@ -1,0 +1,2 @@
+--exclude
+spec,bin,/Library/Ruby

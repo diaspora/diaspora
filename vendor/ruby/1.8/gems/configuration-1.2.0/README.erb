@@ -1,0 +1,69 @@
+NAME
+  configuration.rb
+
+SYNOPSIS
+  pure ruby scoped configuration files
+
+DESCRIPTION
+  configuration.rb provides a mechanism for configuring ruby programs with
+  ruby configuration files.  a configuration.rb file, for example
+  'config/app.rb', can be written simply as
+
+      Configuration.for('app'){
+        key 'value'
+        foo 'bar'
+        port 42
+      }
+  
+  and loaded via the normal ruby require/load mechanism
+
+      Kernel.load 'config/app.rb'
+  
+  or with a slightly augmented loading mechnanism which simply searches an
+  extra set of paths in *addition* to the standard ones
+
+      Configuration.path = %w( config configuration )
+
+      Configuration.load 'app'
+
+  configurations are completely open
+
+      Configuration.for('app'){
+        object_id 'very open'
+      }
+
+  support arbitrarily nested values
+
+      Configuration.for('app'){
+        a { b { c { d 42 } } }
+      }
+
+      c = Configuration.for 'app'
+
+      p c.a.b.c.d #=> 42
+
+  allow POLS scoped lookup of vars
+
+    Configuration.for('config'){
+      outer 'bar'
+
+      inner {
+        value 42
+      }
+    }
+
+    c = Configuration.for 'config'
+
+    p c.outer       #=> 'bar'
+    p c.inner.value #=> 42
+    p c.inner.outer #=> 'bar' 
+  
+
+  and not a whole lot else - configuration.rb is s very small library
+  consisting of one file and < 150 loc
+
+SAMPLES
+<%= samples %>
+
+AUTHOR
+  ara.t.howard@gmail.com

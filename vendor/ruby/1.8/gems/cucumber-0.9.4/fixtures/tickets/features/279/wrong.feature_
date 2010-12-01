@@ -1,0 +1,11 @@
+Feature: pystring indentaion testcase
+
+  Scenario: example of wrong indentation
+    Given multiline string
+
+
+	 
+         """
+           I'm a cucumber and I'm ok
+         I sleep all night and test all day
+         """

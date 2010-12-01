@@ -1,0 +1,15 @@
+test/test_plugins.rb
+setup.rb
+resources/resources/defaults.yaml
+resources/README
+resources/Rakefile
+resources/LICENSE
+resources/lib/project/init.rb
+resources/COPYING
+README
+Manifest
+LICENSE
+lib/gem_plugin.rb
+COPYING
+CHANGELOG
+bin/gpgen

@@ -1,0 +1,3 @@
+== 0.0.3
+
+* Display a form if no identifier is provided at /auth/open_id

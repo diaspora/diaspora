@@ -9,6 +9,18 @@
       ALPHA
 
   - unless current_user
+
+    - if APP_CONFIG[:motd]
+      #motd
+        %ul{"id" => "scroller"}
+          %li 
+            MOTD:
+            = APP_CONFIG[:motd]
+
+      %script{:type => "text/javascript", :charset => "utf-8"}
+        jQuery("ul#scroller").liScroll();
+
+
     .right
       %ul#landing_nav
         %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"

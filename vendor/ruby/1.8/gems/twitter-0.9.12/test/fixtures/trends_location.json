@@ -1,0 +1,57 @@
+[{
+    "trends": [{
+        "url": "http://search.twitter.com/search?q=%23%23cakkatvstreamers",
+        "name": "##cakkatvstreamers",
+        "query": "%23%23cakkatvstreamers"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=Google+Buzz",
+        "name": "Google Buzz",
+        "query": "Google+Buzz"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=iPad",
+        "name": "iPad",
+        "query": "iPad"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=Fashion+Week",
+        "name": "Fashion Week",
+        "query": "Fashion+Week"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=Trivium",
+        "name": "Trivium",
+        "query": "Trivium"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=Haiti",
+        "name": "Haiti",
+        "query": "Haiti"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=%23hbu",
+        "name": "#hbu",
+        "query": "%23hbu"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=Olympics",
+        "name": "Olympics",
+        "query": "Olympics"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=Event",
+        "name": "Event",
+        "query": "Event"
+    },
+    {
+        "url": "http://search.twitter.com/search?q=Gmail",
+        "name": "Gmail",
+        "query": "Gmail"
+    }],
+    "locations": [{
+        "woeid": 2487956,
+        "name": "San Francisco"
+    }],
+    "as_of": "2010-02-11T14:00:02Z"
+}]

@@ -1,0 +1,118 @@
+h1. Database Cleaner
+
+Database Cleaner is a set of strategies for cleaning your database in Ruby.
+The original use case was to ensure a clean state during tests.  Each strategy
+is a small amount of code but is code that is usually needed in any ruby app
+that is testing with a database.
+
+ActiveRecord, DataMapper, MongoMapper, Mongoid, and CouchPotato are supported.
+
+h2. How to use
+
+<pre>
+  require 'database_cleaner'
+  DatabaseCleaner.strategy = :truncation
+
+  # then, whenever you need to clean the DB
+  DatabaseCleaner.clean
+</pre>
+
+With the :truncation strategy you can also pass in options, for example:
+<pre>
+  DatabaseCleaner.strategy = :truncation, {:only => %w[widgets dogs some_other_table]}
+</pre>
+
+<pre>
+  DatabaseCleaner.strategy = :truncation, {:except => %w[widgets]}
+</pre>
+
+(I should point out the truncation strategy will never truncate your schema_migrations table.)
+
+
+Some strategies require that you call DatabaseCleaner.start before calling clean
+(for example the :transaction one needs to know to open up a transaction). So
+you would have:
+
+<pre>
+  require 'database_cleaner'
+  DatabaseCleaner.strategy = :transaction
+
+  DatabaseCleaner.start # usually this is called in setup of a test
+  dirty_the_db
+  DatabaseCleaner.clean # cleanup of the test
+</pre>
+
+At times you may want to do a single clean with one strategy.  For example, you may want
+to start the process by truncating all the tables, but then use the faster transaction
+strategy the remaining time.  To accomplish this you can say:
+
+<pre>
+  require 'database_cleaner'
+  DatabaseCleaner.clean_with :truncation
+  DatabaseCleaner.strategy = :transaction
+  # then make the DatabaseCleaner.start and DatabaseCleaner.clean calls appropriately
+</pre>
+
+Example usage with RSpec:
+
+<pre>
+Spec::Runner.configure do |config|
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+end
+</pre>
+
+For use in Cucumber please see the section below.
+
+
+
+h2. Why?
+
+One of my motivations for writing this library was to have an easy way to
+turn on what Rails calls "transactional_fixtures" in my non-rails
+ActiveRecord projects.  For example, Cucumber ships with a Rails world that
+will wrap each scenario in a transaction.  This is great, but what if you are
+using ActiveRecord in a non-rails project?  You used to have to copy-and-paste
+the needed code, but with DatabaseCleaner you can now say:
+
+<pre>
+  #env.rb
+  require 'database_cleaner'
+  require 'database_cleaner/cucumber'
+  DatabaseCleaner.strategy = :transaction
+</pre>
+
+Now lets say you are running your features and it requires that another process be
+involved (i.e. Selenium running against your app's server.)  You can simply change
+your strategy type:
+
+<pre>
+  #env.rb
+  require 'database_cleaner'
+  require 'database_cleaner/cucumber'
+  DatabaseCleaner.strategy = :truncation
+</pre>
+
+You can have the best of both worlds and use the best one for the job:
+<pre>
+  #env.rb
+  require 'database_cleaner'
+  require 'database_cleaner/cucumber'
+  DatabaseCleaner.strategy = (ENV['SELENIUM'] == 'true') ? :truncation : :transaction
+</pre>
+
+h2. COPYRIGHT
+
+Copyright (c) 2009 Ben Mabey. See LICENSE for details.

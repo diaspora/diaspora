@@ -1,0 +1,349 @@
+0.10.4
+10/27/10
+
+ - Various bug fixes: 
+   * reload command. 
+   * plain 'info' command 
+   * improve list and list - (backwards) handling when hitting end of file
+ - Add ability to specify port to debug on
+ - Allow breakpoints at class methods
+ - "quit!" is same as "quit unconditionally"
+ - irb improvements: Access to non-executing rdebug commands inside irb via 
+   "dbgr" method
+ - Go over documentation including that created by rdoc.
+ - For emacs package: add README, INSTALL, AUTHORS.
+
+0.10.3
+11/17/08
+
+ - a backtrace now warns when it thinks the callstack is truncated which it
+   gets by comparing with caller()
+ - fix setting $0.
+ - fix bug in showing variables in post-mortem
+ - Document how Debugger.start with a block is intended to be used.
+ - Move Kernel#debugger from ruby-debug-base into ruby-debug
+ - Get regression tests working again
+ - Warn and add a "confirmation" when setting a breakpoint on a
+   file that is not loaded.
+
+0.10.2
+ - debugger(steps=0) breaks inside of debugger rather than wait for a line event.
+ - trace var varname (stop|nostop) added which issues trace_var.
+ - start method is now properly defined in Debugger module
+ - fixed 'finish' command
+ - rdebug script now works with Ruby 1.8.7
+
+0.10.1
+4/10/08 - in honor of the 30th Birthday of Kate Schwarz
+
+- bin/rdebug
+
+ * "rdebug --post-mortem" now really catches uncaught exceptions and
+   brings you to post-mortem handling. "info program" shows the exception.
+
+ * rdebug now searches using ENV['PATH'] for a Ruby program to debug
+   if the program name is not found and doesn't have any path
+   characters in it.
+
+ * Use ~/.rdboptrc (rdbopt.ini on MS Windows) to change default options.
+
+ * --emacs is now --emacs-basic while --emacs 3 now implies emacs-basic
+   ---annotate=3 --post-mortem --no-control --no-start --no-quit
+
+- rdebug (CLI)
+
+ *  "info" command additions and changes:
+  o fix bug in "info variables" when string had embedded %s'
+  o "info program" now shows uncaught exception information
+  o "info files" show what Ruby files are loaded
+  o "info file <f>" specific file information of <f> (e.g. time, # of lines, SHA1)
+  o "info catch" - Exceptions that can be caught in the current stack frame.
+  o "info "variables" shows "self" and class variables
+  o "info threads verbose" shows stack trace of all threads
+  o "info thread <t> verbose" shows stack trace of thread <t>.
+
+ * "frame" command now accepts an optional thread number argument
+
+ * Long information added to commands with subcommands: show, set,
+   info, enable, and disable. For example "help info <xxx>" will give
+   more detailed information about the "info <xxx>" command.
+
+ * columnize now pulled in from a separate package.
+
+ * add "var cl[ass]" command. Note "var const" can no longer be
+   abbreviated "var c"; use "var co" (or const or constant).
+
+ * add "condition" command. Allow removal of condition.
+
+ * $0 == __FILE__ when running rdebug should work -- most of the
+   time. See comments in code for a better solution.
+
+ * rdebug command history can be displayed with "show commands". Fix a bug
+   in history saving.
+
+ * INCOMPATIBLE CHANGE: "finish" works like gdb - stop just before the most
+   recent method finishes. Will now accept a number which stops that many
+   frames completed. (Note that return line numbers will be funny, the
+   first line of the method until Ruby 1.8.7.)
+
+ * fix bug in 'list' command when wrapping off the end.
+
+- Emacs interaction drastically reworked, expanded, and improved.
+
+- rdebug base
+ * allow catching multiple exceptions. 
+   INCOMPATIBLE CHANGE: variable "Debugger.catchpoint", a String, was turned
+   into "Debugger.catchpoints", a Hash. Method "Debugger.catchpoint=" no
+   longer exists. Debugger.set_catchpoint was turned into 
+   Debugger.add_catchpoint
+
+ * Add Debugger.last_exception which is set in post-mortem.
+
+ * remove Debugger.stop() when an exception is raised that would terminate the 
+   debugged program. This may allow catchpoints to work and allow tracing user 
+   code which handles "Exit" exceptions
+
+ * split off breakpoint code in ruby_debug.c.
+
+ * preface ruby_debug global Ruby variables with rdebug_.
+
+ * Change Debugger.start() to accept an optional options argument
+    :init => true saves things (like $0 and ARGV) necessary to
+     allow restart. Default: true
+    :post_mortem => true runs post-mortem on an uncaught exception
+     Default: false
+  
+   The old Debugger.start() is now renamed to Debugger.start_()
+
+ * split of line caching to an external gem. We now only allow setting
+   breakpoints on lines where it makes sense to do so.
+
+ * Incompatible enhancement: even return/end will now call event handler
+
+ See ChangeLog for full details, and the reference guide for more complete
+ documentation of these changes.
+
+0.10.0
+12/25/07
+
+- '-r' option can be used to require additional libraries.
+- --noquit option added to stay in debugger when the program exits
+- gdb-like --annotate option added. Can be used by front-ends to get information
+  without polling
+- Fixed 'var const' command. Issue #10847.
+- Using pretty-print for all var commands.
+- Better error reporting for commands that require a numeric argument.
+- Fixed Kernel#binding_n method
+- Add option -d ($DEBUG = true) and --verbose. Make -v work like ruby.
+- Remove debugger messages caused when warnings are turned on.
+- "info" and "show" commands added. "set" made more like gdb's
+  set. subcommands can be abbreviated and are case insensitive.
+- restart program if it terminates normally and we've got a tty and 
+  we stop on the first statement. 
+- help is in tidy column format. method lists are shown that way as well.
+  the "width" setting ("set/show width") is used  for the line width
+- stack traces now show parameter names and types. "info args" lists just
+  the parameters (with the most recent values, not the values at call time).
+- post-mortem "exit" bug fixed. 
+- More Emacs-friendly: rdebug-track.el will track location inside an Emacs
+  shell. Emacs position information is shown in breakpoints and catchpoints
+  similar to gdba. Commands to position in another window a unit test traceback
+  or ruby traceback. Much more work invisioned for Emacs.
+- INCOMPATIBLE CHANGE: "break" now sets a breakpoint on the current line
+  (same as gdb). Use "info break" for a list of breakpoints.
+- INCOMPATIBLE CHANGE: "script" command removed. Use "source" command instead
+  (same as gdb).
+- Run .rdebugrc on Debugger.start. Look for a file in the current directory and
+  run that instead of the one in $HOME if that exists. Again, inspired by and compatible
+  with gdb.
+- Changes compatible with Ruby 1.9. NOTE: this debugger will NOT work with
+  Ruby 1.9
+- leaving irb shows position same as entering debugger; "list" position
+  is also cleared when leaving irb
+- help "foo" gives message "Undefined command "foo" rather than a list
+  of help commands. (Message test is gdb's)
+- Add set linetrace+ - similar to step+ for linetrace
+- Start unit tests.
+- Start a reference guide.
+
+0.9.3
+- Fixed if..elsif..end stepping.
+- From irb session Ctrl-C or 'cont' command continues execution without showing the debugger prompt.
+- Added Debugger.settings method to programatically modify command settings.
+- Added Kernel#breakpoint as alias to Kernel#debugger is the former is not already defined.
+
+0.9.2
+- Fixed file comparison in Windows platform.
+- Added setter methods to Breakpoint properties
+- Added breakpoint hit condition functionality (not available via CLI yet) and methods:
+    Breakpoint:hit_count
+    Breakpoint:hit_value[=]
+    Breakpoint:hit_condition[=]
+
+0.9.1
+- Fixed incorrect stack calculation.
+- Context#stop_next= method aliased as Context#step.
+- Added the 'force' parameter to Context#step_over.
+- Added the 'force' parameter to Context#step.
+- 'next+/step+' commands forces to move to another line
+- Added a new 'forcestep' setting.
+
+0.9
+- Kernel#debugger method will start the debugger if it's not running.
+- Added Context#stop_reason method.
+- Calling a method with a block will create a new frame. This changes the behavior of 'next' command. So in order to step into a block, 'step' command must be used. That fixes bug #9629.
+- Added the possibility to add a temporary context-specific breakpoint. Context#breakpoint and Context#set_breakpoint methods are added. 
+- 'cont' command now accepts a numerical parameter which implements 'Continue until line' behavior.
+- Added new Context.frame_class method
+- Added new 'framefullpath' setting.
+- Added new 'frameclassname' setting.
+- All Ruby's 'eval' and require/load methods create a new frame. Fixes bug #9686.
+
+0.8.1
+- Added a shortcut module 'debugger'. require "ruby-debug/debugger" will start the debugger and stop at the next line (similar to require 'debug').
+- Fixed remote debugging.
+
+0.8
+- Extract the base debugger API into a separate gem (ruby-debug-base), so it will be easier to add a new interface.
+- Added 'set autoirb' setting.
+- Bugfixes.
+
+0.7.5
+- Fixed 'reload on' command
+- 'reload on' command is removed in favor of 'set autoreload'
+- rdebug will evaluate ~/.rdebugrc script on startup
+
+0.7.4
+- Added a workaround of the Ruby interpreter problem where a method created with Module#define_method 
+  and which raises an exception doesn't trigger a :return event, this way screwing the stack trace.
+- Fixed a situation of an array 'out of bounds' access.
+- Fixed the help for 'where' command.
+
+0.7.3
+- Fixed a case when a frame is not popped up properly.
+- Removed Context.ignore= method, since it can result with the segmentation fault error.
+- Fixed the case when Context#suspend may effect the state of the thread on Context#resume
+- Fixed several cases of seg faults when accessing dyna_vars structure.
+
+0.7.2
+- Fixed Context#resume (a thread should be waked up only when it was running when it was suspended).
+- When handling post-mortem exception, all threads must be suspended.
+
+0.7.1
+- Fixed 'delete' command
+
+0.7
+- Eliminated explicit Frame object. Use Context.frame_[binding,file,line] instead.
+- Fixed help command.
+- Renamed Debugger.keep_frame_info to Debugger.keep_frame_binding
+- 'eval' command is available, even when keep_frame_binding is not used.
+- New 'set' command is available.
+
+0.6.2
+- Added thread lookup cache.
+- Control thread is always started by rdebug script.
+- Ability to specify negative frame number to frame commands. Patch from R. Bernstein.
+
+0.6.1
+- Another performance optimization.
+
+0.6
+- Added option to exclude collecting of frame bindings.
+- Several performance optimizations.
+
+0.5.4
+- Added -x/--trace option to rdebug script. Patch from R. Bernstein.
+- Removed a live thread reference from the context's structure avoiding memory leakage.
+
+0.5.3
+- Added Module#post_mortem_method method, which wraps any method with Debugger.post_mortem block.
+- Added breakpoint id, which is not dependent on the breakpoint position in Debugger.breakpoints array.
+
+0.5.2
+- Fixes interoperability problems with rspec.
+- Made 'exit' as an alias to 'quit'
+- Added 'restart' command. Patch from R. Bernstein.
+
+0.5.1
+- Bugfixes.
+
+0.5
+- Added post-mortem debugging
+- Added 'irb' command.
+
+0.4.5
+- Fixed debug_method when applied to setter.
+- Added 'reload' command which can be used to reload source code in case it's been changed.
+- Added Debugger.reload_source_on_change option (true, by default) which controls whether ruby-debug should keep
+  track of the source files modification times and reload them if they've been changed.
+
+0.4.4
+- Renamed Context#set_suspend and Context#clear_suspend methods to Context#suspend and Context#resume respectively.
+- Context#resume method not only clears suspend flag, but also resumes the thread execution.
+- Bugfixes.
+
+0.4.3
+- Added Debugger.skip method which allows escaping a block from the debugger reach.
+- Bugfixes.
+
+0.4.2
+- Module#deubg_method added.
+- Added rdoc.
+- Bugfixes.
+
+0.4.1
+- New binding_n method for Kernel module.
+- Bugfixes.
+
+0.4 
+- Debugger.start method takes a block. If a block is specified, this method starts debugger, yields to the block
+  and stops debugger at the end.
+- 'tm[ate]' command accepts a frame number now.
+- 'list' command accepts on/off parameter which controls whether listing will be displayed on every stop.
+- 'eval on/off' controls the evaluation of unknown command.
+- Debugger reads readline history file .rdebug_hist at startup and saves it at exit.
+- 'sa[ve] <file>' command can be used to save current breackpoints and catchpoint if any
+- 'sc[ript] <file>' command can be used to run script file. Script files can contain only control commands.
+- rdebug script accepts '--script FILE' parameter.
+- thread commands are available for the control port.
+
+0.3 (2006-08-07)
+- Renamed Debugger.start_server to Debugger.start_remote.
+- Debugger.start_remote activates debugger by calling Debugger.start.
+- Debugger.start_remote starts a control thread which listen on port 8990 and accepts control 
+  commands, such as adding/deleting breakpoints, assigning catchpoint, etc. (Useful for GUI integration)
+- New Debugger.wait_connection option. When it's true, Debugger.start_remote waits until
+  a remote connection is made.
+- New Debugger.stop_on_connect option. When a remote connection is established, debugger
+  stops the main thread (Thread.main).
+- 'interrupt' command is available for the control thread.
+
+0.2.1 (2006-07-29)
+- 'f[rame] nn' command selects a numbered frame. Frame numbers can be obtained by running frame 
+  command without parameters.
+- 'l[ist] =' show code in the context of the current line.
+- 'tm[ate]' opens the current file in TextMate. Available only on Mac OSX. 
+
+0.2 (2006-07-17)
+- Added the remote debugging. It should be activated by calling Debugger#start_server method.
+- CHANGED: In order to activate the debugger, it's not enough to require 'ruby-debug'. 
+  Debugger#start method must be called explicitly.
+- Debugger used to evaluate anything you enter as long as it's not a command. Starting from
+  this version the 'eval' command must be used to evaluate an expression.
+
+0.1.5 (2006-07-13)
+- Now the check for a  breakpoint uses base filename of the source file.
+- Removed compilation warnings when compiling with -Wall
+
+0.1.4 (2006-07-12)
+- Remembers the previous command. Invoke it by typing a carriage return
+  at the command prompt.
+
+0.1.3 (2006-07-11)
+- Conditional breakpoints
+- Bugfixes
+
+0.1.2 (2006-07-16)
+========================
+
+- Initial release.

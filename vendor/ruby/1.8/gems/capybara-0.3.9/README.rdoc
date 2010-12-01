@@ -1,0 +1,420 @@
+= capybara
+
+* http://github.com/jnicklas/capybara
+
+== Description:
+
+Capybara aims to simplify the process of integration testing Rack applications,
+such as Rails, Sinatra or Merb. It is inspired by and aims to replace Webrat as
+a DSL for interacting with a webapplication. It is agnostic about the driver
+running your tests and currently comes bundled with rack-test, Culerity,
+Celerity and Selenium support built in. env.js support is available as the
+{capybara-envjs gem}[http://github.com/smparkes/capybara-envjs].
+
+== Install:
+
+Install as a gem:
+
+    sudo gem install capybara
+
+On OSX you may have to install libffi, you can install it via MacPorts with:
+
+    sudo port install libffi
+
+== Development:
+
+* Source hosted at {GitHub}[http://github.com/jnicklas/capybara].
+* Please direct questions, discussions at the {mailing list}[http://groups.google.com/group/ruby-capybara].
+* Report issues on {GitHub Issues}[http://github.com/jnicklas/capybara/issues]
+
+Pull requests are very welcome! Make sure your patches are well tested, Capybara is
+a testing tool after all. Please create a topic branch for every separate change
+you make.
+
+== Using Capybara with Cucumber
+
+Capybara is built to work nicely with Cucumber. The API is very similar to
+Webrat, so if you know Webrat you should feel right at home. Support for
+Capybara is built into cucumber-rails 0.2. In your Rails app, just run:
+
+    script/generate cucumber --capybara
+
+And everything should be set up and ready to go.
+
+If you want to use Capybara with Cucumber outside Rails (for example with Merb
+or Sinatra), you'll need require capybara and set the Rack app manually:
+
+    require 'capybara/cucumber'
+    Capybara.app = MyRackApp
+
+Now you can use it in your steps:
+
+    When /I sign in/ do
+      within("//form[@id='session']") do
+        fill_in 'Login', :with => 'user@example.com'
+        fill_in 'Password', :with => 'password'
+      end
+      click_link 'Sign in'
+    end
+
+Please note that while Capybara uses XPath selectors by default, Cucumber explicitly
+changes this to CSS in `env.rb`.  See "XPath and CSS" below.
+
+== Default and current driver
+
+You can set up a default driver for your features. For example if you'd prefer
+to run Selenium, you could do:
+
+    require 'capybara/rails'
+    require 'capybara/cucumber'
+    Capybara.default_driver = :selenium
+
+You can change the driver temporarily:
+
+    Capybara.current_driver = :culerity
+    Capybara.use_default_driver
+
+You can do this in Before and After blocks to temporarily switch to a different
+driver. Note that switching driver creates a new session, so you may not be able
+to switch in the middle of a Scenario.
+
+== Cucumber and Tags
+
+Capybara sets up some {tags}[http://wiki.github.com/aslakhellesoy/cucumber/tags]
+for you to use in Cucumber. Often you'll want to run only some scenarios with a
+driver that supports JavaScript, Capybara makes this easy: simply tag the
+scenario (or feature) with <tt>@javascript</tt>:
+
+    @javascript
+    Scenario: do something AJAXy
+      When I click the AJAX link
+      ...
+
+You can change which driver Capybara uses for JavaScript:
+
+    Capybara.javascript_driver = :culerity
+
+There are also explicit <tt>@selenium</tt>, <tt>@culerity</tt> and
+<tt>@rack_test</tt> tags set up for you.
+
+== Selenium
+
+At the moment, Capybara supports Webdriver, also called Selenium 2.0, *not*
+Selenium RC. Provided Firefox is installed, everything is set up for you, and
+you should be able to start using Selenium right away.
+
+If desired, you can change Selenium browser to :chrome or :ie:
+
+   require "selenium-webdriver"
+   Selenium::WebDriver.for :chrome
+
+== Celerity
+
+Celerity only runs on JRuby, so you'll need to install the celerity gem under
+JRuby:
+
+   jruby -S gem install celerity
+
+Note that some specs currently fail on celerity 0.7.5, due to a bug in recent
+versions of HTMLUnit. It is recommended you use celerity 0.7.4 for the time
+being.
+
+== Culerity
+
+Install celerity as noted above, make sure JRuby is in your path. Note that
+Culerity doesn't seem to be working under Ruby 1.9 at the moment.
+
+== env.js
+
+The {capybara-envjs driver}[http://github.com/smparkes/capybara-envjs]
+uses the envjs gem ({GitHub}[http://github.com/smparkes/env-js],
+{rubygems.org}[http://rubygems.org/gems/envjs]) to interpret
+JavaScript outside the browser. The driver is installed by installing the capybara-envjs gem:
+  gem install capybara-envjs
+More info about the driver and env.js are available through the links above. The envjs gem only supports
+Ruby 1.8.7 at this time.
+
+== The DSL
+
+Capybara's DSL is inspired by Webrat. While backwards compatibility is retained
+in a lot of cases, there are certain important differences.
+
+Unlike in Webrat, all searches in Capybara are *case sensitive*. This is because
+Capybara heavily uses XPath, which doesn't support case insensitivity.
+
+=== Navigating
+
+You can use the <tt>visit</tt> method to navigate to other pages:
+
+    visit('/projects')
+    visit(post_comments_path(post))
+
+The visit method only takes a single parameter, the request method is *always*
+GET.
+
+You can get the current path of the browsing session for test assertions:
+
+    current_path.should == post_comments_path(post)
+
+=== Clicking links and buttons
+
+You can interact with the webapp by following links and buttons. Capybara
+automatically follows any redirects, and submits forms associated with buttons.
+
+    click_link('id-of-link')
+    click_link('Link Text')
+    click_button('Save')
+    click('Link Text') # Click either a link or a button
+    click('Button Value')
+
+=== Interacting with forms
+
+Forms are everywhere in webapps, there are a number of tools for interacting
+with the various form elements:
+
+    fill_in('First Name', :with => 'John')
+    fill_in('Password', :with => 'Seekrit')
+    fill_in('Description', :with => 'Really Long Text…')
+    choose('A Radio Button')
+    check('A Checkbox')
+    uncheck('A Checkbox')
+    attach_file('Image', '/path/to/image.jpg')
+    select('Option', :from => 'Select Box')
+
+=== Scoping
+
+Capybara makes it possible to restrict certain actions, such as interacting with
+forms or clicking links and buttons, to within a specific area of the page. For
+this purpose you can use the generic <tt>within</tt> method. Optionally you can
+specify which kind of selector (CSS or XPath to use).
+
+    within("//li[@id='employee']") do
+      fill_in 'Name', :with => 'Jimmy'
+    end
+
+    within(:css, "li#employee") do
+      fill_in 'Name', :with => 'Jimmy'
+    end
+
+You can choose which kind of selector Capybara uses by default, by setting
+<tt>Capybara.default_selector</tt>.
+
+There are special methods for restricting the scope to a specific fieldset,
+identified by either an id or the text of the fieldet's legend tag, and to a
+specific table, identified by either id or text of the table's caption tag.
+
+    within_fieldset('Employee') do
+      fill_in 'Name', :with => 'Jimmy'
+    end
+
+    within_table('Employee') do
+      fill_in 'Name', :with => 'Jimmy'
+    end
+
+You can also specify a scope to be used for future searches with the <tt>scope_to</tt>.
+It returns a handle to the session scoped to the provided selector.
+
+    scope = page.scope_to("//div[@id='foo']")
+    scope.has_xpath("//a[@class='bar']")
+
+You can also chain scopes by calling <tt>scope_to</tt> on an existing scope.
+
+    more_scope = scope.scope_to("//p")
+    more_scope.has_xpath("//a[@class='baz']")
+
+=== Querying
+
+Capybara has a rich set of options for querying the page for the existence of
+certain elements, and working with and manipulating those elements.
+
+    page.has_xpath?('//table/tr')
+    page.has_css?('table tr.foo')
+    page.has_content?('foo')
+
+You can use with RSpecs magic matchers:
+
+    page.should have_xpath('//table/tr')
+    page.should have_css('table tr.foo')
+    page.should have_content('foo')
+    page.should have_no_content('foo')
+
+Note that <tt>page.should have_no_xpath</tt> is preferred over
+<tt>page.should_not have_xpath</tt>. Read the section on asynchronous JavaScript
+for an explanation.
+
+You can also find specific elements, in order to manipulate them:
+
+    find_field('First Name').value
+    find_link('Hello').visible?
+    find_button('Send').click
+
+    find('//table/tr').click
+    locate("//*[@id='overlay'").find("//h1").click
+    all('a').each { |a| a[:href] }
+
+=== Scripting
+
+In drivers which support it, you can easily execute JavaScript:
+
+    page.execute_script("$('body').empty()")
+
+For simple expressions, you can return the result of the script. Note
+that this may break with more complicated expressions:
+
+    result = page.evaluate_script('4 + 4');
+
+=== Debugging
+
+It can be useful to take a snapshot of the page as it currently is and take a
+look at it:
+
+    save_and_open_page
+
+== Asynchronous JavaScript (AJAX and friends)
+
+When working with asynchronous JavaScript, you might come across situations
+where you are attempting to interact with an element which is not yet present
+on the page. Capybara automatically deals with this by waiting for elements
+to appear on the page.
+
+When issuing instructions to the DSL such as:
+
+    click_link('foo')
+    click_link('bar')
+    page.should have_content('baz')
+
+If clicking on the *foo* link causes triggers an asynchronous process, such as
+an AJAX request, which, when complete will add the *bar* link to the page,
+clicking on the *bar* link would be expeced to fail, since that link doesn't
+exist yet. However Capybara is smart enought to retry finding the link for a
+brief period of time before giving up and throwing an error. The same is true of
+the next line, which looks for the content *baz* on the page; it will retry
+looking for that content for a brief time. You can adjust how long this period
+is (the default is 2 seconds):
+
+    Capybara.default_wait_time = 5
+
+Be aware that because of this behaviour, the following two statements are *not*
+equivalent, and you should *always* use the latter!
+
+    page.should_not have_xpath('//a')
+    page.should have_no_xpath('//a')
+
+The former would incorrectly wait for the content to appear, since the
+asynchronous process has not yet removed the element from the page, it would
+therefore fail, even though the code might be working correctly. The latter
+correctly waits for the element to disappear from the page.
+
+== Using the DSL outside cucumber
+
+You can mix the DSL into any context, for example you could use it in RSpec
+examples. Just load the DSL and include it anywhere:
+
+    require 'capybara'
+    require 'capybara/dsl'
+
+    Capybara.default_driver = :culerity
+
+    module MyModule
+      include Capybara
+
+      def login!
+        within("//form[@id='session']") do
+          fill_in 'Login', :with => 'user@example.com'
+          fill_in 'Password', :with => 'password'
+        end
+        click_link 'Sign in'
+      end
+    end
+
+== Calling remote servers
+
+Normally Capybara expects to be testing an in-process Rack application, but you can also use it to talk to a web server running anywhere on the internets, by setting app_host:
+
+    Capybara.current_driver = :selenium
+    Capybara.app_host = 'http://www.google.com'
+    ... 
+    visit('/')
+
+Note that rack-test does not support running against a remote server. With drivers that support it, you can also visit any URL directly:
+
+    visit('http://www.google.com')
+
+By default Capybara will try to boot a rack application automatically. You might want to switch off Capybara's rack server if you are running against a remote application:
+
+    Capybara.run_server = false
+
+== Using the sessions manually
+
+For ultimate control, you can instantiate and use a session manually.
+
+    require 'capybara'
+
+    session = Capybara::Session.new(:culerity, my_rack_app)
+    session.within("//form[@id='session']") do
+      session.fill_in 'Login', :with => 'user@example.com'
+      session.fill_in 'Password', :with => 'password'
+    end
+    session.click_link 'Sign in'
+
+== XPath and CSS
+
+Capybara does not try to guess what kind of selector you are going to give it,
+if you want to use CSS with your 'within' declarations for example, you'll need
+to do:
+
+    within(:css, 'ul li') { ... }
+    find(:css, 'ul li').text
+    locate(:css, 'input#name').value
+
+Alternatively you can set the default selector to CSS, which may help if you are
+moving from Webrat and used CSS a lot, or simply generally prefer CSS:
+
+    Capybara.default_selector = :css
+    within('ul li') { ... }
+    find('ul li').text
+    locate('input#name').value
+
+== Gotchas:
+
+* Domain names (including subdomains) don't work under rack-test. Since it's a
+  pain to set up subdomains for the other drivers anyway, you should consider an
+  alternate solution. You might use
+  {default_url_options}[https://gist.github.com/643a758320a2926bd2ed] in Rails
+  for example.
+
+* Access to session, request and response from the test is not possible. Maybe
+  we'll do response headers at some point in the future, but the others really
+  shouldn't be touched in an integration test anyway.
+
+* Access to Rails specific stuff (such as <tt>controller</tt>) is unavailable,
+  since we're not using Rails' integration testing.
+
+* <tt><a href="#"></tt> Will cause problems under rack-test, please do
+  <tt><a href="/same/url#"></tt> instead. You can achieve this in Rails with
+  <tt>link_to('foo', :anchor => '')</tt>
+
+== License:
+
+(The MIT License)
+
+Copyright (c) 2009 Jonas Nicklas
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

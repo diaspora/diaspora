@@ -1,0 +1,125 @@
+= The will_paginate Ruby library
+
+Pagination is just limiting the number of records loaded and displayed. Why should you let it get in
+your way while developing?
+
+This is how you paginate on an ActiveRecord model:
+
+  Post.paginate :page => 1, :order => 'created_at DESC'
+
+Most of the time it's as simple as replacing "find" with "paginate" and specifying the page you want.
+
+Some resources to get you started:
+
+* The {will_paginate project page}[http://mislav.github.com/will_paginate/];
+* Your mind reels with questions? Join our {Google group}[http://groups.google.com/group/will_paginate];
+* {How to report bugs}[http://github.com/mislav/will_paginate/wikis/report-bugs];
+* {Watch the will_paginate screencast}[http://railscasts.com/episodes/51] by Ryan Bates.
+
+== I'm not using Rails; can I still use will_paginate?
+
+Absolutely -- although will_paginate started off as a Rails plugin, now it is a <em>completely
+framework-agnostic</em> library with support for Rails and Merb built-in. The core library doesn't
+have any dependences and you can safely use it in any Ruby code.
+
+When will_paginate is loaded in an environment where ActiveRecord and ActionView are present, it
+automatically hooks into these frameworks to provide easy pagination on your models and in your
+views. The same mechanism works for Merb applications, too. But, if no known framework is present
+then you have absolute control over what parts of will_paginate do you want to load and where you want
+them mixed in.
+
+
+== Installation
+
+The recommended way is that you get the gem hosted on {gems.github.com}[http://gems.github.com/]:
+
+  gem install mislav-will_paginate
+
+In <b>Rails 2.1</b>, add a gem dependency:
+
+  # for Rails 2.1 and newer
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :version => '~> 3.0'
+
+If you're using Rails 2.0 or older, or any other Ruby framework, just add a simple require to a file
+that initializes your application. For example, in Rails you would put this at the end of
+"config/environment.rb".
+
+  gem 'mislav-will_paginate', '~> 3.0'
+  require 'will_paginate'
+
+That's it. Remember to install the gem on <strong>all</strong> machines that you are deploying to.
+
+<i>There are extensive {installation
+instructions}[http://github.com/mislav/will_paginate/wikis/installation] on {the
+wiki}[http://github.com/mislav/will_paginate/wikis].</i>
+
+
+== Example usage
+
+Typical usage involves a paginating find in the controller:
+  
+  @posts = Post.paginate :page => params[:page], :order => 'updated_at DESC'
+
+It's true: +paginate+ works just like +find+ -- it just doesn't fetch all the records. Don't forget
+to tell it which page you want, or it will complain! Read more in WillPaginate::Finders.
+
+Render the posts in your view like you would normally do, and when you need to render pagination,
+just stick this in:
+
+  <%= will_paginate @posts %>
+
+You're done. Read more in WillPaginate::ViewHelpers::Base.
+
+How does it know how much items to fetch per page? It asks your model by calling its
++per_page+ class method. You can define it like this:
+
+  class Post < ActiveRecord::Base
+    self.per_page = 50
+  end
+
+... or don't worry about it at all. WillPaginate defines it to be <strong>30</strong> by default. You can
+always specify the count explicitly when calling +paginate+:
+
+  Post.paginate :page => params[:page], :per_page => 50
+
+The +paginate+ finder wraps the original finder and returns your result set that now has some new
+properties. You can use the collection as you would use any other array. WillPaginate view helpers
+also need that collection object to be able to render pagination:
+
+  <ol>
+    <% for post in @posts -%>
+      <li>Render `post` in some nice way.</li>
+    <% end -%>
+  </ol>
+
+  <p>Now let's render us some pagination!</p>
+  <%= will_paginate @posts %>
+
+
+== Authors and credits
+
+The original author of will_paginate was PJ Hyett, who later handed over development to Mislav
+Marohnić. (The library was completely rewritten since then.)
+
+All these people helped making will_paginate what it is now with their code contributions or just
+simply awesome ideas:
+
+Chris Wanstrath, Dr. Nic Williams, K. Adam Christensen, Mike Garey, Bence Golda, Matt Aimonetti,
+Charles Brian Quinn, Desi McAdam, James Coglan, Matijs van Zuijlen, Maria, Brendan Ribera, Todd
+Willey, Bryan Helmkamp, Jan Berkel, Lourens Naudé, Rick Olson, Russell Norris, Piotr Usewicz, Chris
+Eppstein, Brandon Arbini, Denis Barushev, Paul Barry, Ben Pickles, Ken Collins, Lida Tang and Pieter
+Noordhuis.
+
+
+== Usable pagination in the UI
+
+There are example CSS styles to get you started on the will_paginate project page.
+
+More reading about pagination as design pattern:
+
+* {Pagination 101}[http://kurafire.net/log/archive/2007/06/22/pagination-101];
+* {Pagination gallery}[http://www.smashingmagazine.com/2007/11/16/pagination-gallery-examples-and-good-practices/] featured on Smashing Magazine;
+* {Pagination design pattern}[http://developer.yahoo.com/ypatterns/parent.php?pattern=pagination] on Yahoo Design Pattern Library.
+
+Want to discuss, request features, ask questions? Join the {Google
+group}[http://groups.google.com/group/will_paginate].

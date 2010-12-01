@@ -1,0 +1,12 @@
+= Cucumber API
+
+This is the public API of Cucumber. The public API includes the classes, modules
+and methods you can use if you are a user of Cucumber. It also applies to you if
+you're developing a 3rd party tool that integrates with Cucumber.
+
+== Internal API
+
+Cucumber has more classes, modules and methods than what you can see in the public
+API. If you decide to dive into the source code and make use of an API that isn't
+part of this documentation - beware that this API might change at any time. If you
+want a particular internal API to be promoted to the public API - let us know.

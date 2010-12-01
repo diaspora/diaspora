@@ -1,0 +1,12 @@
+Description:
+    Generates a skeleton for a new feature. Both a simple .feature file and
+    a steps.rb file is generated. This generator should be used with moderation.
+    See http://github.com/aslakhellesoy/cucumber/wikis/feature-coupled-steps-antipattern
+    for details about the dangers involved.
+
+    This generator can take an optional list of attribute pairs similar to Rails'
+    built-in resource generator.
+
+Examples:
+    `./script/generate feature post` # no attributes
+    `./script/generate feature post title:string body:text published:boolean`

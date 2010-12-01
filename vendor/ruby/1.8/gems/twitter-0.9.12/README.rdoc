@@ -1,0 +1,27 @@
+= Twitter
+
+The Ruby twitter gem. The gem heard round the world and famous on the streets. Haha.
+
+For now this is just an API wrapper. The command line interface is temporarily dead until I have time to make it work with OAuth. At that point, I'll make it a new gem twitter-cli or something and it will depend on this gem to work. That will keep the separation of the API wrapper and CLI and fix a lot of dependency issues.
+
+== Examples
+
+See the examples directory.
+
+http://github.com/jnunemaker/twitter/tree/master/examples
+
+== Docs
+
+http://rdoc.info/projects/jnunemaker/twitter
+
+== Submitting Patches
+
+1. Fork the project.
+2. Commit your feature or bug fix.
+3. Add tests for it. This is important so it doesn't break in the future.
+4. Do not mess with gemspec, version, or history. (If you want to have your own version, that's fine, but please do so in a separate commit.)
+5. Submit a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 John Nunemaker. See LICENSE for details.

@@ -1,0 +1,80 @@
+gcd.rb:4
+def gcd(a, b)
+# # This tests the functioning of some set/show debugger commands
+# set debuggertesting on
+Currently testing the debugger is on.
+# ### *******************************
+# ### ***   Set/show commands     ***
+# ### *******************************
+# ########################################
+# ###   test args and baseneme...
+# ########################################
+# set args this is a test
+Argument list to give program being debugged when it is started is "this is a test".
+# show args
+Argument list to give program being debugged when it is started is "this is a test".
+# show basename
+basename is on.
+# set basename foo
+Expecting 'on', 1, 'off', or 0. Got: foo.
+# show base
+basename is on.
+# set basename off
+basename is off.
+# show basename
+basename is off.
+# set basename 0
+basename is off.
+# show basename
+basename is off.
+# set basename 1
+basename is on.
+# show basename
+basename is on.
+# ########################################
+# ###   test listsize tests...
+# ########################################
+# show listsize
+Number of source lines to list by default is 10.
+# show listsi
+Number of source lines to list by default is 10.
+# set listsize abc
+Set listsize argument 'abc' needs to be a number.
+# set listsize -20
+Set listsize argument '-20' needs to at least 1.
+# ########################################
+# ###  test linetrace...
+# ########################################
+# set linetrace on
+line tracing is on.
+# show linetrace
+line tracing is on.
+# set linetrace off
+line tracing is off.
+# show linetrace
+line tracing is off.
+# #### Test 'autoeval'...
+# set autoeval on
+autoeval is on.
+# puts 'printed via autoeval'
+printed via autoeval
+nil
+# set autoeval off
+autoeval is off.
+# puts 'autoeval should not run this'
+*** Unknown command: "puts 'autoeval should not run this'".  Try "help".
+# #### Test 'callstyle'...
+# set callstyle
+Invalid call style . Should be one of: 'short', 'last', or 'tracked'.
+Frame call-display style is last.
+# set callstyle short
+Frame call-display style is short.
+# set callstyle last
+Frame call-display style is last.
+# set callstyle tracked
+Frame call-display style is tracked.
+# set callstyle foo
+Invalid call style foo. Should be one of: 'short', 'last', or 'tracked'.
+Frame call-display style is tracked.
+# 
+# 

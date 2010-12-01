@@ -1,0 +1,241 @@
+.\" $Id: rdebug.1 516 2007-12-31 05:55:24Z rockyb $
+.TH rdebug 1 
+.SH NAME
+rdebug \- Fast Ruby debugger
+.SH SYNOPSIS
+.B rdebug 
+[debugger-options] 
+rdebug
+[script-options...]
+.SH "DESCRIPTION"
+This manual page documents briefly the
+.BR rdebug
+command.
+.PP
+.B rdebug
+is a fast implementation of the standard Ruby debugger debug.rb.  It
+is implemented by utilizing a Ruby C API hook, allows for remote
+debugging and can be used as the Ruby debugger backend interface for a
+development environment.
+.PP
+The commands generally follow gdb's command set unless there's good
+reason not to.
+
+.PP
+rdebug can do four main kinds of things (plus other things in support of
+these) to help you catch bugs in the act:
+
+.TP
+\ \ \ \(bu
+Start or restart your Ruby script, specifying arguments that might
+affect its behavior.
+
+.TP
+\ \ \ \(bu
+Make your program stop at various points possibly determined by
+specified conditions.
+
+.TP
+\ \ \ \(bu
+Examine what has happened when your program has stopped.
+
+.TP
+\ \ \ \(bu
+Change things in your program, so you can experiment with correcting the
+effects of one bug and go on to learn about another.
+.PP
+
+Here are some of the most frequently-needed commands:
+.TP
+.B break \fR[\|\fIfile\fB:\fIline\fR\fR|\fIclass.method\fR] \fR[if \fIexpr\fR]
+\&
+Set a breakpoint at \c
+.I class.method\c
+\& or at the specified file and line.
+.TP
+.B continue \fR[\fIline\fR]
+Continue running your program (after stopping, e.g. at a
+breakpoint). If a line is given a one-time breakpoint is set there.
+.TP
+.B delete \fR[\fIbreakpoint-numbers\fR]
+\&
+Delete breakpoints by number. If no number is given delete all breakpoints.
+.TP
+.B down \fR[\|\fIcount\fR\|]
+Move down one block frame. If count is given move up that many frames. A negative number
+goes the other direction and is like the up command
+.TP
+.B finish
+Run until the completion of the current function or method.
+.TP
+.BI frame " frame-number"
+Set the stack frame to \fIframe-number\fR for purposes of examinine local variables. For positioning relative to the current frame, use 
+.B up
+or 
+.B down. A negative number starts counting from the other end.
+.TP
+.B help \fR[\|\fIname\fR\|]
+Show information about rdebug command \c
+.I name\c
+\&, or general information
+about using rdebug.
+.TP
+.B info \fR[\|\fIname\fR\|]
+Get the various information usually about the debugged program.
+.TP
+.B irb \fIcommand\fR
+Run an interactive ruby shell (irb) using the current environment.
+.TP
+.B list \fR[\|\fIfile\fB:\fIline\fR|\fIfunction]
+type the text of the program in the vicinity of where it is presently stopped
+or at the specified function or file and line.
+.TP
+.B next \fR[\|\fIcount\fR\|]
+Execute next program line(s) (after stopping); step \c
+.I over\c
+\& any
+function calls in the line.
+.TP
+.BI pp " expr"\c
+\&
+Pretty print the value of an expression.
+.TP
+.BI print " expr"\c
+\&
+Display the value of an expression.
+.TP
+.BI ps " expr"\c
+\&
+Print an array as a columized sorted list.
+.TP
+.B quit
+Exit from the debugger.
+.TP
+.B run \fR[\|\fIarglist\fR\|]
+(Re)start your program (with \c
+.I arglist\c
+\&, if specified). If you want the debugger to get reloaded, use
+.B restart
+instead.
+.TP
+.B set
+Modify parts of the debugger environment.
+.TP
+.B show
+See the debugger environment settings
+.TP
+.BI source " filename"\c
+\&
+Read and execute the lines in file \fIfilename\fR as a series of debugger 
+commands.
+.TP
+.B step \fR[\|\fIcount\fR\|]
+Execute next program line(s) (after stopping); step \c
+.I into\c
+\& any
+function calls in the line.
+.TP
+.B up \fR[\|\fIcount\fR\|]
+Move up one block frame. If count is given move up that many frames. A negative number
+goes the other direction and is like the down command
+.TP
+.B where \fR[\|\fIcount\fR\|]
+Display all or \fIcount\fR items of the program stack.
+.PP
+For full details on rdebug, see \c
+http://rubyforge.org/projects/ruby-debug/
+.SH OPTIONS
+.PP
+.TP 10
+.TP
+.B \-A | \-\-annotate LEVEL
+Set gdb-style annotation to LEVEL, a number. Additional information is output
+automatically when program state is changed. This can be used by
+front-ends such as GNU Emacs to post this updated information without
+having to poll for it.
+.TP
+.B \-\-client
+Connect to a remote debugger. Used with another rdebug invocation using \-\-server.
+See also \-\-host and \-\-cport options
+.TP
+.B \-\-cport=PORT
+Port used for control commands.
+.TP
+.B \-d | \-\-debug
+Set $DEBUG true.
+.TP
+.B \-\-emacs
+Activates full GNU Emacs mode. Is the equivalent of setting the
+options \-\-emacs\-basic, \-\-annotate=3, \-\-no-stop, \-\-no\-control
+and \-\-post\-mortem.
+.TP
+.B \-\-emacs-basic
+Activates GNU Emacs mode. Debugger prompts are prefaced with two octal
+032 characters.
+.TP
+.B \-h | \-\-host=HOST
+Host name used for remote debugging.
+.TP
+.B \-I | \-\-include PATH
+Add PATH to $LOAD_PATH
+.TP
+.B \-m | \-\-post-mortem
+Activate post-mortem mode.
+.TP
+.B \-\-no-control
+Do not automatically start control thread.
+.TP
+.B \-\-no\-stop
+Do not stop when script is loaded.
+.TP
+.B \-p | \-\-port=PORT
+Host name used for remote debugging.
+.TP
+.B \-r | \-\-require SCRIPT
+Require the library, before executing your script.
+.TP
+.B \-\-script FILE
+Name of the script file to run.
+.TP
+.B \-x | \-\-trace
+Show lines before executing them.
+.TP
+.B \-\-no\-quit
+Do not quit when script terminates. Instead rerun the program.
+.TP
+.B \-\-version
+Show the version number and exit.
+.TP
+.B \-\-verbose
+Turn on verbose mode.
+.TP
+.B \-\-v
+Print the version number, then turn on verbose mode if a script name
+is given. If no script name is given just exit after printing the
+version number.
+.TP
+.B \-\-nx
+Don't execute commands found in any initialization files, e.g. .rdebugrc.
+.TP
+.B \-\-keep-frame-binding
+Keep frame bindings.
+.TP
+.B \-\-script=FILE
+Name of the script file to run
+.B \-s | \-\-server
+Listen for remote connections. Another rdebug session accesses using the \-\-client option.
+See also the \-\-host, \-\-port and
+\-\-cport options
+.TP
+.B \-w | \-\-wait
+Wait for a client connection, implies -s option.
+.TP
+.B \-\-help
+Show invocation help and exit.
+.PD
+.SH "SEE ALSO"
+.Sp
+http://rubyforge.org/projects/ruby-debug/
+.SH AUTHOR
+rdebug was written by Kent Siblev. This manual page was written by
+Rocky Bernstein <rocky@gnu.org>

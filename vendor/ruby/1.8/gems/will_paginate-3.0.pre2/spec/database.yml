@@ -1,0 +1,22 @@
+sqlite3:
+  database: ":memory:"
+  adapter: sqlite3
+  timeout: 500
+
+sqlite2:
+  database: ":memory:"
+  adapter: sqlite2
+
+mysql:
+  adapter: mysql
+  username: rails
+  password: mislav
+  encoding: utf8
+  database: will_paginate_unittest
+
+postgres:
+  adapter: postgresql
+  username: mislav
+  password: mislav
+  database: will_paginate_unittest
+  min_messages: warning

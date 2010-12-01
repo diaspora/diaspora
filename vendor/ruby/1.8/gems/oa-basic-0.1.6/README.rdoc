@@ -1,0 +1,34 @@
+= OmniAuth::Basic
+
+OmniAuth stratgies for APIs that have HTTP Basic authentication (such as Campfire and Basecamp).
+
+== Installation
+
+To get just HTTP Basic functionality:
+
+    gem install oa-basic
+    
+For the full auth suite:
+
+    gem install omniauth
+    
+== Stand-Alone Example
+
+Use the strategy as a middleware in your application:
+
+    require 'omniauth/basic'
+    
+    use OmniAuth::Strategies::Campfire
+    
+Then simply direct users to '/auth/campfire' to prompt them for their Campfire credentials. You may also pre-set the credentials by POSTing to the URL with appropriate parameters (in the case of Campfire and Basecamp, the parameters are <tt>subdomain</tt>, <tt>user</tt>, and <tt>password</tt>).
+
+== OmniAuth Builder
+
+If you want to allow multiple providers, use the OmniAuth Builder:
+
+    require 'omniauth/basic'
+    
+    use OmniAuth::Builder do
+      provider :campfire
+      provider :basecamp
+    end

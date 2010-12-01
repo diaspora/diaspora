@@ -1,0 +1,9 @@
+LOGFILE=/var/log/chef/server-webui.log
+CONFIG=/etc/chef/webui.rb
+ADAPTER=thin
+PORT=4040
+USER=chef
+GROUP=chef
+# Sleep to give daemon enough time to fully start or stop.
+STARTTIME=10
+DIETIME=5

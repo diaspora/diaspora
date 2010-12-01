@@ -1,0 +1,46 @@
+package configuration for libffi is not found
+find_header: checking for ffi.h in /usr/local/include... -------------------- no
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I.  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    conftest.c -o conftest.i"
+conftest.c:1:17: error: ffi.h: Aucun fichier ou dossier de ce type
+checked program was:
+/* begin */
+1: #include <ffi.h>
+/* end */
+
+"gcc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I.  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC   -I/usr/local/include conftest.c -o conftest.i"
+conftest.c:1:17: error: ffi.h: Aucun fichier ou dossier de ce type
+checked program was:
+/* begin */
+1: #include <ffi.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_blocking_region()... -------------------- no
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I.  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC   conftest.c  -L. -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby1.8-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function 't':
+conftest.c:3: error: 'rb_thread_blocking_region' undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I.  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC   conftest.c  -L. -L/usr/lib -L.  -rdynamic -Wl,-export-dynamic     -lruby1.8-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+/tmp/ccsj7u5J.o: In function `t':
+/root/diaspora3/diaspora/vendor/ruby/1.8/gems/ffi-0.6.3/ext/ffi_c/conftest.c:3: undefined reference to `rb_thread_blocking_region'
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { rb_thread_blocking_region(); return 0; }
+/* end */
+
+--------------------
+

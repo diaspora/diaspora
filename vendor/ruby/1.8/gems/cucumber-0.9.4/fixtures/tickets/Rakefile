@@ -1,0 +1,20 @@
+$:.unshift(File.dirname(__FILE__) + '/../../lib')
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:pretty) do |t|
+  t.cucumber_opts = %w{--tags ~@intentional_failure --format pretty -q}
+end
+
+Cucumber::Rake::Task.new(:html) do |t|
+  t.cucumber_opts = %w{--tags ~@intentional_failure --format html --out features.html}
+end
+
+Cucumber::Rake::Task.new(:progress) do |t|
+  t.cucumber_opts = %w{--tags ~@intentional_failure --format progress -i -s}
+end
+
+Cucumber::Rake::Task.new(:rerun) do |t|
+  t.cucumber_opts = %w{--tags ~@intentional_failure --format rerun -i -s}
+end
+
+task :default => [:pretty, :html, :progress, :rerun]

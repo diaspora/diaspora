@@ -1,0 +1,115 @@
+= GemPlugin:  Gem Based Plugin System
+
+GemPlugin is a system that lets your users install gems and lets you load
+them as additional features to use in your software.  It originated from the
+Mongrel (http://mongrel.rubyforge.org) project but proved useful enough to
+break out into a separate project.
+
+GemPlugin works by listing the gems installed, and doing a require_gem on 
+any that have the right dependencies.  For example, if a gem depends on
+"gem_plugin" and "mongrel" then it'll load as a Mongrel plugin.  This
+makes it so that users of the plugins only need to gem install (and maybe
+config a bit), and plugin authors only need to make gems.
+
+
+== Implementers
+
+To use GemPlugin in your system you only have to require 'gem_plugin' and 
+then use the GemPlugin::Manager.create, GemPlugin::Manager.load, and 
+GemPlugin::Manager.available methods to work with them.
+
+* GemPlugin::Manager.load -- Takes a "depend include/exclude map" and loads plugins based on it.
+* GemPlugin::Manager.create -- Takes a URI style name and some options then creates one for you.
+* GemPlugin::Manager.available -- Lets you inspect and mess with the internal plugin registry.
+
+=== Loading Plugins
+
+As an example from Mongrel it's necessary to load plugins that depend on rails after 
+the Rails system is configured, but load other plugins right when Mongrel is ready.
+To do this we very first do:
+
+ GemPlugin::Manager.instance.load "mongrel" => GemPlugin::INCLUDE, "rails" => GemPlugin::EXCLUDE
+
+Later, when it's ready to load Rails plugins as well we do this:
+
+ GemPlugin::Manager.instance.load "mongrel" => GemPlugin::INCLUDE
+
+This simply loads any plugins that remain and are ready for use in Rails.
+
+=== Creating Plugins
+
+Creating a plugin is cake:
+
+ plug = GemPlugin::Manager.instance.create("/commands/snazzy", "something" => "yeah")
+
+In this case we're making the snazzy command and passing a couple fake options.
+
+=== Finding Available Plugins
+
+Finding plugins is also very easy, you just call GemPlugin::Manager.instance.available
+and you get a Hash that maps categories to name => class.  For example, if I had
+the "/commands/snazzy" plugin registered above, then I'd get the following:
+
+ puts GemPlugin::Manager.instance.available["/commands"].inspect
+ -> { "/snazzy" => Snazzy}
+
+
+=== Plugins Inside Modules
+
+Plugins that are placed in modules are also lowercased when registered but
+still retain their module.  So, if Snazzy was actually MyModule::Snazzy, then
+it'd be registered as "/commands/mymodule::snazzy".
+
+
+== Plugin Authors
+
+People who wish to write gem plugins have a faily easy time of it, but need
+to know the particular rules for the target system.  To keep this example
+concrete we'll assume you want to write a Mongrel command plugin.
+
+First thing is create your project like normal and setup Rake to make
+your gem.  Your plugin then needs to be created like so:
+
+ class Snazzy < GemPlugin::Plugin "/commands"
+    ...
+ end
+
+And place this code in a file you will have RubyGems autorequire (I use lib/init.rb).
+
+Next you need to add the following to whatever Rakefile code you use to create
+your gem:
+
+ spec.add_dependency('gem_plugin', '>= 0.1')
+ spec.add_dependency('mongrel', '>= 0.3.9')
+ spec.autorequire = 'init.rb'
+
+This does three things:
+
+* Tells GemPlugins::Manager.load that this is a GemPlugin.
+* Tells Mongrel that this is a Mongrel specific GemPlugin.
+* Tells RubyGems to run init.rb when the gem is required, just hooking up your plugin.
+
+Now, all the users of your plugin have to do is gem install it and then
+they get the plugin automagically.
+
+People writing GemPlugins for other systems would have to check the 
+documentation from that project to get an idea of what extra 
+requirements might be needed.  For example, you'd probably have to
+depend on another project other that *mongrel* and most likely have
+a few more things to configure in your init.rb.
+
+== Plugin Users
+
+Plugin users have it the easiest of all.  They simply do:
+
+ gem install mongrel_command_snazzy
+
+And that's it.  When they run mongrel_rails (given the above example)
+this snazzy command get loaded automatically without any intervention.
+
+The only thing missing in this release is a way for end users to configure
+such a plugin.  I really think this is the job of the implementers to define.
+
+== Contact
+
+E-mail zedshaw at zedshaw.com and I'll help.  Comments about the API are welcome.

@@ -1,0 +1,59 @@
+= Gherkin
+
+Fast Gherkin lexer and parser based on Ragel. Gherkin is two things:
+
+* The language that has evolved out of the Cucumber project.
+* This library
+
+== Generating and building the code
+
+You'll need MRI (any version) if you want to build for MRI. To build the Java implementation you'll need JRuby.
+You'll also need Ragel installed and on your PATH.
+
+=== MRI
+
+  rake clean compile
+
+=== Java
+
+  rake clean jar
+
+== Running RSpec and Cucumber tests
+
+rake clean spec cucumber
+
+If the RL_LANG environment variable is set, only the parsers for the languages specified there will be built.
+E.g. in Bash, export RL_LANG="en,fr,no". This can be quite helpful when modifying the Ragel grammar.
+
+== Release process
+
+* Bump version in the VERSION file and:
+** java/pom.xml
+** ikvm/Gherkin/Gherkin.csproj
+* Commit changes.
+* rake gems:prepare && ./build_native_gems.sh && rake release:ALL
+* Announce on Cucumber list, IRC and Twitter.
+
+== Configuring Rake-Compiler for cross compilation
+In order to build Windows binaries (so we can release Windows gems from OS X/Linux) we need to set up rake-compiler.
+
+http://github.com/luislavena/rake-compiler/
+
+I didn't want to install macports (I'm on homebrew) and I couldn't figure out how to build MinGW myself. I got prebuilt binaries (version 4.3.0):
+http://crossgcc.rts-software.org/doku.php - just add the bin folder to your PATH
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Run rake ragel:rb to generate all the I18n lexers
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with Rakefile, VERSION, or History.txt.
+  (if you want to have your own version, that is fine but
+   bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2009-2010 Mike Sassak, Gregory Hnatiuk, Aslak Hellesøy. See LICENSE for details.

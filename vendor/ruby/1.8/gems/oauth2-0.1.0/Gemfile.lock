@@ -1,0 +1,44 @@
+PATH
+  remote: .
+  specs:
+    oauth2 (0.0.14)
+      faraday (~> 0.5.0)
+      multi_json (~> 0.0.4)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.1.2)
+    diff-lcs (1.1.2)
+    faraday (0.5.0)
+      addressable (~> 2.1.1)
+      multipart-post (~> 1.0.1)
+      rack (~> 1.2.1)
+    json_pure (1.4.6)
+    multi_json (0.0.4)
+    multipart-post (1.0.1)
+    rack (1.2.1)
+    rake (0.8.7)
+    rcov (0.9.9)
+    rspec (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
+      rspec-mocks (= 2.0.0)
+    rspec-core (2.0.0)
+    rspec-expectations (2.0.0)
+      diff-lcs (>= 1.1.2)
+    rspec-mocks (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  faraday (~> 0.5.0)
+  json_pure (~> 1.4.6)
+  multi_json (~> 0.0.4)
+  oauth2!
+  rake (~> 0.8)
+  rcov (~> 0.9)
+  rspec (~> 2.0)

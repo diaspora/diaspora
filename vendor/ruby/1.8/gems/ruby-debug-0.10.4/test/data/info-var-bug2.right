@@ -1,0 +1,10 @@
+info-var-bug2.rb:1
+s = '<%= PRODUCT[:name] %>'
+# step
+info-var-bug2.rb:2
+y = 0
+# info variables
+s = "<%= PRODUCT[:name] %>"
+self = main
+y = nil
+# quit

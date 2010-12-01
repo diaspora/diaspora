@@ -1,0 +1,832 @@
+knife(8) -- Chef Server REST API utility
+========================================
+
+## SYNOPSIS
+
+__knife__ _sub-command_ _(options)_
+
+## DESCRIPTION
+
+This manual page documents knife, a command-line utility used to interact with a Chef server directly through the RESTful API. Knife uses sub-commands to take various actions on different types of Chef objects. Some sub-commands take additional options. General options follow sub-commands and their options. A configuration file can be created for common defaults.
+
+Unless otherwise specified, output is in JSON format, and input files are also JSON format.
+
+The Chef class `Chef::Config` that configures the behavior of how knife runs has options that correspond to command-line options. These are noted as `Chef::Config` values.
+
+## GENERAL OPTIONS
+
+  * `-s`, `--server-url` URL:
+    Chef Server URL, corresponds to `Chef::Config` `chef_server_url`.
+  * `-k`, `--key` KEY:
+    API Client Key, corresponds to `Chef::Config` `client_key`.
+  * `-c`, `--config` CONFIG:
+    The configuration file to use
+  * `-e`, `--editor` EDITOR:
+    Set the editor to use for interactive commands
+  * `-F`, `--format` FORMAT:
+    Which format to use for output
+  * `-l`, `--log_level` LEVEL:
+    Set the log level (debug, info, warn, error, fatal), corresponds to `Chef::Config` `log_level`.
+  * `-L`, `--logfile` LOGLOCATION:
+    Set the log file location, defaults to STDOUT, corresponds to `Chef::Config` `log_location`.
+  * `-n`, `--no-editor`:
+    Do not open EDITOR, just accept the data as is
+  * `-u`, `--user` USER:
+    API Client Username, corresponds to `Chef::Config` `node_name`.
+  * `-p`, `--print-after`:
+    Show the data after a destructive operation
+  * `-v`, `--version`:
+    Show chef version
+  * `-y`, `--yes`:
+    Say yes to all prompts for confirmation
+  * `-h`, `--help`:
+    Show this message
+
+Usage information for sub-commands can be displayed with `knife SUB-COMMAND --help`.
+
+## SUB-COMMANDS
+
+Knife sub-commands are structured as _NOUN verb NOUN (options)_. The sub-commands are meant to be intuitively named. Because the Chef Server API is RESTful, sub-commands generally utilize CRUD operations.
+
+* create (create)
+* list and show (read)
+* edit (update)
+* delete (destroy)
+
+Objects stored on the server support these, as described below.
+
+## GENERAL SUB-COMMANDS
+
+The following are general sub-commands that do not fit within the other object types utilized in the Chef Server API.
+
+__configure__ _(options)_
+
+  * `-i`, `--initial`:
+    Create an initial API Client
+  * `-r`, `--repository REPO`:
+    The path to your chef-repo
+
+Create a configuration file for knife. This will prompt for values to enter into the file. Default values are listed in square brackets if no other entry is typed. See __CONFIGURATION__ below for available options.
+
+__configure client DIRECTORY__
+
+Read the `knife.rb` config file and generate a config file suitable for use in `/etc/chef/client.rb` and copy the validation certificate into the specified _DIRECTORY_.
+
+__index rebuild__ _(options)_
+
+  * `-y`, `--yes`:
+    don't bother to ask if I'm sure
+
+Rebuilds all the search indexes on the server.
+
+__recipe list [PATTERN]__
+
+List available recipes from the server. Specify _PATTERN_ as a regular expression to limit the results.
+
+__search INDEX QUERY__ _(options)_
+
+  * `-a`, `--attribute ATTR`:
+    Show only one attribute
+  * `-i`, `--id-only`:
+    Show only the ID of matching objects
+  * `-R`, `--rows INT`:
+    The number of rows to return
+  * `-r`, `--run-list`:
+    Show only the run list
+  * `-o`, `--sort SORT`:
+    The order to sort the results in
+  * `-b`, `--start ROW`:
+    The row to start returning results at
+
+Search indexes are a feature of the Chef Server and the search sub-command allows querying any of the available indexes using SOLR query syntax. The following data types are indexed for search: _node_, _role_, _client_, _data bag_.
+
+__ssh QUERY COMMAND__ _(options)_
+
+  * `-a`, `--attribute ATTR       `:
+    The attribute to use for opening the connection - default is fqdn
+  * `-C`, `--concurrency NUM      `:
+    The number of concurrent connections
+  * `-m`, `--manual-list          `:
+    QUERY is a space separated list of servers
+  * `-P`, `--ssh-password PASSWORD`:
+    The ssh password
+  * `-x`, `--ssh-user USERNAME    `:
+    The ssh username
+
+The _ssh_ sub-command opens an ssh session to each of the nodes in the search results of the _QUERY_. This sub-command requires that the net-ssh-multi and highline Ruby libraries are installed. On Debian systems, these are the libnet-ssh-multi-ruby and libhighline-ruby packages. They can also be installed as RubyGems (net-ssh-multi and highline, respectively).
+
+__status__ _(options)_
+
+  * `-r`, `--run-list RUN_LIST`:
+    Show the run list
+
+The _status_ sub-command searches the Chef Server for all nodes and displays information about the last time the node checked into the server and executed a `node.save`. The fields displayed are the relative checkin time, the node name, it's operating system platform and version, the fully-qualified domain name and the default IP address. If the `-r` option is given, the node's run list will also be displayed. Note that depending on the configuration of the nodes, the FQDN and IP displayed may not be publicly reachable.
+
+## BOOTSTRAP SUB-COMMANDS
+
+__bootstrap FQDN__ _(options)_
+
+  * `-i`, `--identity-file IDENTITY_FILE`:
+    The SSH identity file used for authentication
+  * `-N`, `--node-name NAME`:
+    The Chef node name for your new node
+  * `-P`, `--ssh-password PASSWORD`:
+    The ssh password
+  * `-x`, `--ssh-user USERNAME`:
+    The ssh username
+  * `--prerelease`:
+    Install pre-release Chef gems
+  * `-r`, `--run-list RUN_LIST`:
+    Comma separated list of roles/recipes to apply
+  * `-P`, `--ssh-password PASSWORD`:
+    The ssh password
+  * `-x`, `--ssh-user USERNAME`:
+    The ssh username
+  * `--template-file TEMPLATE`:
+    Full path to location of template to use
+  * `--sudo`:
+    Execute the bootstrap via sudo
+  * `-d`, `--distro DISTRO`:
+    Bootstrap a distro using a template
+
+Performs a Chef Bootstrap on the target node. The goal of the bootstrap is to get Chef installed on the target system so it can run Chef Client with a Chef Server. The main assumption is a baseline OS installation exists. This sub-command is used internally by some cloud computing server create commands and the others will be migrated in a future version of Chef.
+
+As of Chef 0.9.8, the bootstrap sub-command supports supplying a template to perform the bootstrap steps. If the distro is not specified (via `-d` or `--distro` option), an Ubuntu 10.04 with RubyGems is assumed. The __DISTRO__ value corresponds to the base filename of the template, in other words `DISTRO`.erb. A template file can be specified with the `--template-file` option in which case the __DISTRO__ is not used. The sub-command looks in the following locations for the template to use:
+
+* `bootstrap` directory in the installed Chef Knife library.
+* `bootstrap` directory in the `$PWD/.chef`.
+* `bootstrap` directory in the users `$HOME/.chef`.
+
+The default bootstrap templates are scripts that get copied to the target node (FQDN). As of Chef 0.9.8, the following distros are supported:
+
+* centos5-gems
+* fedora13-gems
+* ubuntu10.04-gems
+* ubuntu10.04-apt
+
+The gems installations will use RubyGems 1.3.6 and Chef installed as a gem. The apt installation will use the Opscode APT repository. The RubyGems installation requires installing gems with native extensions, so development related packages (ruby-dev, build-essential) are installed. These are not installed with the apt installation, as native extensions are already compiled in the required packages.
+
+In addition to handling the software installation, these bootstrap templates do the following:
+
+  - Write the validation.pem per the local knife configuration.
+  - Write a default config file for Chef (`/etc/chef/client.rb`) using values from the `knife.rb`.
+  - Create a JSON attributes file containing the specified run list and run Chef.
+
+In the case of the RubyGems, the `client.rb` will be written from scratch with a minimal set of values; see __EXAMPLES__. In the case of APT Package installation, `client.rb` will have the `validation_client_name` appended if it is not set to `chef-validator` (default config value), and the `node_name` will be added if `chef_node_name` option is specified.
+
+When this is complete, the bootstrapped node will have:
+
+  - Latest Chef version installed from RubyGems or APT Packages from Opscode. This may be a later version than the local system.
+  - Be validated with the configured Chef Server.
+  - Have run Chef with its default run list if one is specfied.
+
+Additional custom bootstrap templates can be created and stored in `.chef/bootstrap/DISTRO.erb`, replacing __DISTRO__ with the value passed with the `-d` or `--distro` option. See __EXAMPLES__ for more information.
+
+## CLIENT SUB-COMMANDS
+
+Clients are entities that communicate with the Chef Server API.
+
+__client bulk delete REGEX__ _(options)_
+
+Delete clients on the Chef Server based on a regular expression. The regular expression (_REGEX_) should be in quotes, not in //'s.
+
+__client create CLIENT__ _(options)_
+
+  * `-a`, `--admin    `:
+    Create the client as an admin
+  * `-f`, `--file FILE`:
+    Write the key to a file
+
+Create a new client. This generates an RSA keypair. The private key will be displayed on _STDOUT_ or written to the named file. The public half will be stored on the Server. For _chef-client_ systems, the private key should be copied to the system as `/etc/chef/client.pem`.
+
+Admin clients should be created for users that will use _knife_ to access the API as an administrator. The private key will generally be copied to `~/.chef/CLIENT.pem` and referenced in the `knife.rb` configuration file.
+
+__client delete CLIENT__ _(options)_
+
+Deletes a registered client.
+
+__client edit CLIENT__ _(options)_
+
+Edit a registered client.
+
+__client list__ _(options)_
+
+  * `-w`, `--with-uri`:
+      Show corresponding URIs
+
+List all registered clients.
+
+__client reregister CLIENT__ _(options)_
+
+  * `-f`, `--file FILE`:
+    Write the key to a file
+
+Regenerate the RSA keypair for a client. The public half will be stored on the server and the private key displayed on _STDOUT_ or written to the named file.
+
+__client show CLIENT__ _(options)_
+
+  * `-a`, `--attribute ATTR`:
+    Show only one attribute
+
+Show a client.
+
+## COOKBOOK SUB-COMMANDS
+
+Cookbooks are the fundamental unit of distribution in Chef. They encapsulate all recipes of resources and assets used to configure a particular aspect of the infrastructure. The following sub-commands can be used to manipulate the cookbooks stored on the Chef Server.
+
+__cookbook bulk delete REGEX__ _(options)_
+
+  * `-p`, `--purge`:
+    Purge files from backing store. This will disable any cookbook that contains any of the same files as the cookbook being purged.
+
+Delete cookbooks on the Chef Server based on a regular expression. The regular expression (_REGEX_) should be in quotes, not in //'s.
+
+__cookbook create COOKBOOK__ _(options)_
+
+  * `-o`, `--cookbook-path PATH`:
+    The directory where the cookbook will be created
+  * `-r`, `--readme-format FORMAT`:
+    Format of the README file
+  * `-C`, `--copyright COPYRIGHT`:
+    Name of Copyright holder
+  * `-I`, `--license LICENSE`:
+    License for cookbook, apachev2 or none
+  * `-E`, `--email EMAIL`:
+    Email address of cookbook maintainer
+
+This is a helper command that creates a new cookbook directory in the `cookbook_path`. The following directories and files are created for the named cookbook.
+
+* COOKBOOK/attributes
+* COOKBOOK/definitions
+* COOKBOOK/files/default
+* COOKBOOK/libraries
+* COOKBOOK/metadata.rb
+* COOKBOOK/providers
+* COOKBOOK/README.rdoc
+* COOKBOOK/recipes/default.rb
+* COOKBOOK/resources
+* COOKBOOK/templates/default
+
+Supported README formats are 'rdoc' (default), 'md', 'mkd', 'txt'. The README file will be written with the specified extension and a set of helpful starting headers.
+
+Specify `-C` or `--copyright` with the name of the copyright holder as your name or your company/organization name in a quoted string. If this value is not specified an all-caps string `YOUR_COMPANY_NAME` is used which can be easily changed with find/replace.
+
+Specify `-I` or `--license` with the license that the cookbook is distributed under for sharing with other people or posting to the Opscode Cookbooks site. Be aware of the licenses of files you put inside the cookbook and follow any restrictions they describe. When using `none` (default) or `apachev2`, comment header text and metadata file are pre-filled. The `none` license will be treated as non-redistributable.
+
+Specify `-E` or `--email` with the email address of the cookbook's maintainer. If this value is not specified, an all-caps string `YOUR_EMAIL` is used which can easily be changed with find/replace.
+
+The cookbook copyright, license and email settings can be filled in the `knife.rb`, for example with default values:
+
+    cookbook_copyright "YOUR_COMPANY_NAME"
+    cookbook_license "none"
+    cookbook_email "YOUR_EMAIL"
+
+__cookbook delete COOKBOOK [VERSION]__ _(options)_
+
+  * `-a`, `--all`:
+    Delete all versions
+  * `-p`, `--purge`:
+    Purge files from backing store. This will disable any cookbook that contains any of the same files as the cookbook being purged.
+
+Delete the specified _VERSION_ of the named _COOKBOOK_. If no version is specified, and only one version exists on the server, that version will be deleted. If multiple versions are available on the server, you will be prompted for a version to delete.
+
+__cookbook download COOKBOOK [VERSION]__ _(options)_
+
+  * `-d`, `--dir DOWNLOAD_DIRECTORY`:
+    The directory to download the cookbook into
+  * `-f`, `--force`:
+    Overwrite an existing directory with the download
+  * `-N`, `--latest`:
+    Download the latest version of the cookbook
+
+Download a cookbook from the Chef Server. If no version is specified and only one version exists on the server, that version will be downloaded. If no version is specified and multiple versions are available on the server, you will be prompted for a version to download.
+
+__cookbook list__ _(options)_
+
+  * `-w`, `--with-uri`:
+    Show corresponding URIs
+
+List all the cookbooks.
+
+__cookbook metadata COOKBOOK__ _(options)_
+
+  * `-a`, `--all`:
+    Generate metadata for all cookbooks, rather than just a single cookbook
+  * `-o`, `--cookbook-path PATH:PATH`:
+    A colon-separated path to look for cookbooks in
+
+Generate cookbook metadata for the named _COOKBOOK_. The _PATH_ used here specifies where the cookbooks directory is located and corresponds to the `cookbook_path` configuration option.
+
+__cookbook metadata from FILE__ _(options)_
+
+Load the cookbook metadata from a specified file.
+
+__cookbook show COOKBOOK [VERSION] [PART] [FILENAME]__ _(options)_
+
+  * `-f`, `--fqdn FQDN               `:
+    The FQDN of the host to see the file for
+  * `-p`, `--platform PLATFORM       `:
+    The platform to see the file for
+  * `-V`, `--platform-version VERSION`:
+    The platform version to see the file for
+
+Show a particular part of a _COOKBOOK_ for the specified _VERSION_. _PART_ can be one of:
+
+  * _attributes_
+  * _definitions_
+  * _files_
+  * _libraries_
+  * _providers_
+  * _recipes_
+  * _resources_
+  * _templates_
+
+__cookbook test [COOKBOOKS...]__ _(options)_
+
+  * `-a`, `--all`:
+    Test all cookbooks, rather than just a single cookbook
+  * `-o`, `--cookbook-path PATH:PATH`:
+    A colon-separated path to look for cookbooks in
+
+Test the specified cookbooks for syntax errors. This uses the built-in Ruby syntax checking option for files in the cookbook ending in `.rb`, and the ERB syntax check for files ending in `.erb` (templates).
+
+__cookbook upload [COOKBOOKS...]__ _(options)_
+
+  * `-a`, `--all`:
+    Upload all cookbooks, rather than just a single cookbook
+  * `-o`, `--cookbook-path PATH:PATH`:
+    A colon-separated path to look for cookbooks in
+
+Uploads the specified cookbooks to the Chef Server. The actual upload executes a number of commands, most of which occur on the local machine. The cookbook is staged in a temporary location. Then the `cookbook_path` (or `-o PATH`) is processed to search for the named cookbook, and each occurance is copied in the order specified. A syntax check is performed a la `cookbook test`, above. The metadata is generated, a la `cookbook metadata`. A gzip(1)'ed, tar(1) file is created, and is uploaded to the server.
+
+## COOKBOOK SITE SUB-COMMANDS
+
+The following sub-commands are still in the context of cookbooks, but they make use of Opscode's Cookbook Community site, _http://cookbooks.opscode.com/_. That site has an API, and these sub-commands utilize that API, rather than the Chef Server API.
+
+__cookbook site download COOKBOOK [VERSION]__ _(options)_
+
+  * `-f`, `--file FILE`:
+    The filename to write to
+
+Downloads a specific cookbook from the Community site, optionally specifying a certain version.
+
+__cookbook site list__ _(options)_
+
+  * `-w`, `--with-uri`:
+    Show corresponding URIs
+
+Lists available cookbooks from the Community site.
+
+__cookbook site search QUERY__ _(options)_
+
+Searches the Community site with the specified query.
+
+__cookbook site share COOKBOOK CATEGORY__ _(options)_
+
+  * `-k`, `--key KEY`:
+    API Client Key
+  * `-u`, `--user USER`:
+    API Client Username
+  * `-o`, `--cookbook-path PATH:PATH`:
+    A colon-separated path to look for cookbooks in
+
+Uploads the specified cookbook using the given category to the Opscode cookbooks site. Requires a login user and certificate for the Opscode Cookbooks site. See __EXAMPLES__ for usage if the Opscode user and certificate pair are not used for authenticating with the Chef Server. In other words, if the Chef Server is not the Opscode Platform.
+
+__cookbook site unshare COOKBOOK__
+
+Stops sharing the specified cookbook on the Opscode cookbooks site.
+
+__cookbook site show COOKBOOK [VERSION]__ _(options)_
+
+Shows information from the site about a particular cookbook.
+
+__cookbook site vendor COOKBOOK [VERSION]__ _(options)_
+
+  * `-d`, `--dependencies`:
+    Grab dependencies automatically
+
+Uses `git` version control in conjunction with the cookbook site to download upstream cookbooks. A new vendor branch is created in git, the cookbook downloaded from the site and untarred, then the master branch is merged. This allows the user to track upstream changes to cookbooks while merging in customizations. If _-d_ is specified, all the cookbooks it depends on (via metadata _dependencies_) are downloaded and untarred as well, each using their own vendor branch.
+
+## DATA BAG SUB-COMMANDS
+
+Data bags are stores of JSON blobs. These blobs are called items. They are free form JSON and indexed by the Chef Server.
+
+__data bag create BAG [ITEM]__ _(options)_
+
+Create a new data bag, or an item in a data bag.
+
+__data bag delete BAG [ITEM]__ _(options)_
+
+Delete a data bag, or an item from a data bag.
+
+__data bag edit BAG ITEM__ _(options)_
+
+Edit an item in a data bag.
+
+__data bag from file BAG FILE__ _(options)_
+
+Load a data bag item from a JSON file. Looks in the directory `data_bags/BAG/ITEM.json` unless a relative path is specified.
+
+__data bag list__ _(options)_
+
+  * `-w`, `--with-uri`:
+    Show corresponding URIs
+
+List the available data bags.
+
+__data bag show BAG [ITEM]__ _(options)_
+
+Show a specific data bag or an item in a data bag.
+
+## NODE SUB-COMMANDS
+
+Nodes are the entities which are configured with Chef. Typically these are servers or workstations. Nodes are registered as a client, by default by the fully qualified domain name (fqdn). A single client may configure more than one node.
+
+__node bulk delete REGEX__ _(options)_
+
+Delete nodes on the Chef Server based on a regular expression. The regular expression (_REGEX_) should be in quotes, not in //'s.
+
+__node create NODE__ _(options)_
+
+Create a new node.
+
+__node delete NODE__ _(options)_
+
+Delete a single node.
+
+__node edit NODE__ _(options)_
+
+Edit a node.
+
+__node from file FILE__ _(options)_
+
+Create a node from a JSON file.
+
+__node list__ _(options)_
+
+  * `-w`, `--with-uri`:
+    Show corresponding URIs
+
+List all nodes.
+
+`node run_list add [NODE] [ENTRY]` _(options)_
+
+  * `-a`, `--after ITEM`:
+    Place the ENTRY in the run list after ITEM
+
+Add a recipe or role to the node's `run_list`.
+
+`node run_list remove [NODE] [ENTRY]` _(options)_
+
+Remove a recipe or role from the node's `run_list`.
+
+__node show NODE__ _(options)_
+
+  * `-a`, `--attribute [ATTR]`:
+    Show only one attribute
+  * `-r`, `--run-list        `:
+    Show only the run list
+
+Show a node.
+
+## RECIPE SUB-COMMANDS
+
+__recipe list [PATTERN]__
+
+List the recipes available on the server. The results shown can be limited with the optional PATTERN, which is a regular expression. PATTERN should be given in quotes, without slashes.
+
+## ROLE SUB-COMMANDS
+
+__role bulk delete REGEX__ _(options)_
+
+Delete roles on the Chef Server based on a regular expression. The regular expression (_REGEX_) should be in quotes, not in //'s.
+
+__role create ROLE__ _(options)_
+
+  * `-d`, `--description`:
+    The role description
+
+Create a new role.
+
+__role delete ROLE__ _(options)_
+
+Delete a role.
+
+__role edit ROLE__ _(options)_
+
+Edit a role.
+
+__role from file FILE__ _(options)_
+
+Create or update a role from a role Ruby DSL (`.rb`) or JSON file.
+
+__role list__ _(options)_
+
+  * `-w`, `--with-uri`:
+    Show corresponding URIs
+
+List roles.
+
+__role show ROLE__ _(options)_
+
+  * `-a`, `--attribute ATTR`:
+    Show only one attribute
+
+Show a specific role.
+
+## CLOUD COMPUTING SUB-COMMANDS
+
+The next sections describe sub-commands to work with various Cloud Computing APIs to launch server instances with validation and run-time configuration that Chef knows about. These sub-commands require the fog Ruby library. On Debian and Ubuntu systems with Opscode's apt repository (apt.opscode.com), this is the package `libfog-ruby`. It is also available as a RubyGem, `fog`.
+
+The Rackspace and Terremark server creation sub-commands are at an early stage of development. They do not yet use the `bootstrap` sub-command to install Chef, and make a few assumptions to be aware. Right now when creating instances of these types, knife will assume an Ubuntu image, install Ruby from packages, RubyGems from source and Chef as a RubyGem. As these commands are developed further, they will utilize the `bootstrap` sub-command.
+
+In order to use knife with the various __CLOUD COMPUTING SUB-COMMANDS__, credentials need to be added to the configuration file. See __CONFIGURATION__.
+
+## EC2 SUB-COMMANDS
+
+Chef is commonly used with Amazon AWS EC2 nodes. This sub-command will generate instance metadata that can be used to automatically configure an EC2 instance with Chef. This requires an AMI that has Chef preinstalled with a configuration file that can parse the metadata at run-time. At this time this is the only sub-command for EC2, but more may be added later similar to __RACKSPACE__ and __TERREMARK__ below.
+
+__ec2 instance data [RUN LIST...]__ _(options)_
+
+  * `-e`, `--edit`:
+    Edit the instance data
+
+The _RUN LIST_ should be specified as a space separated list of roles or recipes that will be used by the instance to configure the server.
+
+__ec2 server create [RUN LIST...]__ _(options)_
+
+  * `-Z`, `--availability-zone ZONE`:
+    The Availability Zone
+  * `--region`:
+    Your AWS region
+  * `-A`, `--aws-access-key-id KEY `:
+    Your AWS Access Key ID
+  * `-K SECRET`, `--aws-secret-access-key`:
+    Your AWS API Secret Access Key
+  * `-f`, `--flavor FLAVOR`:
+    The flavor of server (m1.small, m1.medium, etc)
+  * `-i`, `--image IMAGE`:
+    The AMI for the server
+  * `-G`, `--groups X,Y,Z     `:
+    The security groups for this server
+  * `-S`, `--ssh-key KEY      `:
+    The SSH root key, corresponds to an Amazon Keypair.
+  * `-I`, `--identity-file IDENTITY_FILE`:
+    The SSH identity file used for authentication, passed to `bootstrap`.
+  * `-P`, `--ssh-password PASSWORD`:
+    The ssh password, passed to `bootstrap`.
+  * `-x`, `--ssh-user USERNAME`:
+    The ssh username, passed to `bootstrap`.
+  * `--prerelease`:
+    Install pre-release Chef gems, passed to `bootstrap`.
+  * `--template-file TEMPLATE`:
+    Full path to location of template to use, passed to `bootstrap`.
+  * `-d`, `--distro DISTRO`:
+    Bootstrap a distro using a template, passed to `bootstrap`.
+
+Creates a new Amazon AWS EC2 instance and bootstraps it by calling the `bootstrap` sub-command. The `[RUN LIST...]` items are passed to the bootstrap's `run_list` config parameter/option. See the __BOOTSTRAP SUB-COMMANDS__ section above for more information.
+
+__ec2 server delete SERVER [SERVER]__ _(options)_
+
+  * `-A`, `--aws-access-key-id KEY`:
+    Your AWS Access Key ID
+  * `-K SECRET`, `--aws-secret-access-key`:
+    Your AWS API Secret Access Key
+
+Terminates a running Amazon AWS EC2 instance.
+
+__ec2 server list [RUN LIST...]__ _(options)_
+
+  * `-A`, `--aws-access-key-id KEY`:
+    Your AWS Access Key ID
+  * `-K SECRET`, `--aws-secret-access-key`:
+    Your AWS API Secret Access Key
+
+List running Amazon AWS EC2 instances.
+
+## RACKSPACE SUB-COMMANDS
+
+In addition to EC2 nodes, Chef can be used on Rackspace Cloud nodes. The following sub-commands allow manipulating Rackspace Cloud nodes via the `fog` library.
+
+__rackspace server create [RUN LIST...]__ _(options)_
+
+  * `-K`, `--rackspace-api-key KEY`:
+    Your rackspace API key
+  * `-A USERNAME`, `--rackspace-api-username`:
+    Your rackspace API username
+  * `-f`, `--flavor FLAVOR   `:
+    The flavor of server
+  * `-i`, `--image IMAGE     `:
+    The image of the server
+  * `-N`, `--server-name NAME`:
+    The server name
+
+Creates a new Rackspace Cloud server.
+
+__rackspace server delete SERVER__ _(options)_
+
+Deletes a running Rackspace Cloud server.
+
+__rackspace server list__ _(options)_
+
+Lists running Rackspace Cloud servers.
+
+## SLICEHOST SUB-COMMANDS
+
+As above, Chef can also be used on Slicehost nodes. The following sub-commands allow manipulating Slicehost nodes via the `fog` library.
+
+__slicehost server create [RUN LIST...]__ _(options)_
+  * `-f`, `--flavor FLAVOR`:
+    The flavor of server
+  * `-i`, `--image IMAGE`:
+    The image of the server
+  * `-N`, `--server-name NAME`:
+    The server name
+  * `-K`, `--slicehost-password PASSWORD`:
+    Your slicehost API password
+
+Creates a new slicehost server.
+
+__slicehost server list__ _(options)_
+
+Lists running Slicehost servers.
+
+__slicehost server delete SLICENAME__
+
+Deletes a running Slicehost server.
+
+__slicehost images list__
+
+Lists the available Slicehost server images to boot.
+
+## TERREMARK SUB-COMMANDS
+
+As above, Chef can also be used on Terremark vCloud nodes. The following sub-commands allow manipulating Terremark vCloud nodes via the `fog` library.
+
+__terremark server create NAME [RUN LIST...]__ _(options)_
+
+  * `-K PASSWORD`, `--terremark-password`:
+    Your terremark password
+  * `-S`, `--terremark-service SERVICE`:
+    Your terremark service name
+  * `-A USERNAME`, `--terremark-username`:
+    Your terremark username
+
+Creates a new Terremark vCloud server.
+
+__terremark server delete SERVER__ _(options)_
+
+Deletes a running Terremark vCloud server.
+
+__terremark server list__ _(options)_
+
+  * `-K PASSWORD`, `--terremark-password`:
+    Your terremark password
+  * `-S`, `--terremark-service SERVICE`:
+    Your terremark service name
+  * `-A USERNAME`, `--terremark-username`:
+    Your terremark username
+
+Lists running Terremark vCloud servers.
+
+## CONFIGURATION
+
+The knife configuration file is a Ruby DSL to set configuration parameters for Knife's __GENERAL OPTIONS__. The default location for the config file is `~/.chef/knife.rb`. If managing multiple Chef repositories, per-repository config files can be created. The file must be `.chef/knife.rb` in the current directory of the repository.
+
+If the config file exists, knife uses these settings for __GENERAL OPTIONS__ defaults.
+
+`log_level`
+
+A Ruby symbol specifying the log level. Corresponds to `-l` or `--log_level` option. Default is _:info_. Valid values are:
+
+  * :info
+  * :debug
+  * :warn
+  * :fatal
+
+`log_location`
+
+Corresponds to the `-L` or `--log-file` option. Defaults is __STDOUT__. Valid values are __STDOUT__ or a filename.
+
+`node_name`
+
+User to authenticate to the Chef server. Corresponds to the `-u` or `--user` option. This is requested from the user when running this sub-command.
+
+`client_key`
+
+Private key file to authenticate to the Chef server. Corresponds to the `-k` or `--key` option. This is requested from the user when running this sub-command.
+
+`chef_server_url`
+
+URL of the Chef server. Corresponds to the `-s` or `--server-url` option. This is requested from the user when running this sub-command.
+
+`cache_type`
+
+The type of cache to use. Default is BasicFile. This can be any type of Cache that moneta supports: BasicFile, Berkeley, Couch, DataMapper, File, LMC, Memcache, Memory, MongoDB, Redis, Rufus, S3, SDBM, Tyrant, Xattr, YAML.
+
+`cache_options`
+
+Specifies various options to use for caching. Default reads the Chef client configuration (/etc/chef/checksums).
+
+`validation_client_name`
+
+Specifies the name of the client used to validate new clients. This is requested from the user when running the configuration sub-command.
+
+`validation_key`
+
+Specifies the private key file to use for generating ec2 instance data for validating new clients. This is implied from the `validation_client_name`.
+
+`cookbook_copyright`
+`cookbook_email`
+`cookbook_license`
+
+Used by `knife cookbook create` sub-command to specify the copyright holder, maintainer email and license (respectively) for new cookbooks. The copyright holder is listed as the maintainer in the cookbook's metadata and as the Copyright in the comments of the default recipe. The maintainer email is used in the cookbook metadata. The license determines what preamble to put in the comment of the default recipe, and is listed as the license in the cookbook metadata. Currently supported licenses are "apachev2" and "none". Any other values will result in an empty license in the metadata (needs to be filled in by the author), and no comment preamble in the default recipe.
+
+`knife[:aws_access_key_id]`
+`knife[:aws_secret_access_key]`
+
+Specifies the Amazon AWS EC2 credentials to use when running the ec2 sub-commands.
+
+`knife[:rackspace_api_username]`
+`knife[:rackspace_api_key]`
+
+Specifies the Rackspace Cloud credentials to use when running the rackspace sub-commands.
+
+`knife[:terremark_username]`
+`knife[:terremark_password]`
+`knife[:terremark_service]`
+
+Specifies the Terremark vCloud credentials to use when running the terremark sub-commands.
+
+`knife[:slicehost_password]`
+
+Specifies the Slicehost password to use when running the slicdehost sub-commands.
+
+## FILES
+
+_~/.chef/knife.rb_
+
+Ruby DSL configuration file for knife. See __CONFIGURATION__.
+
+## CHEF WORKFLOW
+
+When working with Chef and Knife in the local repository, the recommended workflow outline looks like:
+
+* Create repository. A skeleton sample is provided at _http://github.com/opscode/chef-repo/_.
+* Configure knife, see __CONFIGURATION__.
+* Download cookbooks from the Opscode cookbooks site, see __COOKBOOK SITE SUB-COMMANDS__.
+* Or, create new cookbooks, see `cookbook create` sub-command.
+* Commit changes to the version control system. See your tool's documentation.
+* Upload cookbooks to the Chef Server, see __COOKBOOK SUB-COMMANDS__.
+* Launch instances in the Cloud, OR provision new hosts; see __CLOUD COMPUTING SUB-COMMANDS__ and __BOOTSTRAP SUB-COMMANDS__.
+* Watch Chef configure systems!
+
+A note about git: Opscode and many folks in the Chef community use git, but it is not required, except in the case of the `cookbook site vendor` sub-command, as it uses git directly. Version control is strongly recommended though, and git fits with a lot of the workflow paradigms.
+
+## EXAMPLES
+
+Example client config (`/etc/chef/client.rb`) from `knife configure client`. The same configuration is used when using the `knife bootstrap` command with the default `gem` templates that come with Chef.
+
+    log_level        :info
+    log_location     STDOUT
+    chef_server_url  'https://api.opscode.com/organizations/ORGNAME'
+    validation_client_name 'ORGNAME-validator'
+
+Setting up a custom bootstrap is fairly straightforward. Create `.chef/bootstrap` in your Chef Repository directory or in `$HOME/.chef/bootstrap`. Then create the ERB template file.
+
+    mkdir ~/.chef/bootstrap
+    vi ~/.chef/bootstrap/debian5.0-apt.erb
+
+For example, to create a new bootstrap template that should be used when setting up a new Debian node. Edit the template to run the commands, set up the validation certificate and the client configuration file, and finally to run chef-client on completion. The bootstrap template can be called with:
+
+    knife bootstrap mynode.example.com --template-file ~/.chef/bootstrap/debian5.0-apt.erb
+
+Or,
+
+    knife bootstrap mynode.example.com --distro debian5.0-apt
+
+The `--distro` parameter will automatically look in the `~/.chef/bootstrap` directory for a file named `debian5.0-apt.erb`.
+
+Templates provided by the Chef installation are located in `BASEDIR/lib/chef/knife/bootstrap/*.erb`, where _BASEDIR_ is the location where the package or Gem installed the Chef client libraries.
+
+Uploading cookbooks to the Opscode cookbooks site using the user/certificate specifically:
+
+    knife cookbook site share example Other -k ~/.chef/USERNAME.pem -u USERNAME
+
+## SEE ALSO
+
+Full documentation for Chef is located on the Chef wiki, http://wiki.opscode.com/display/chef/Home/.
+
+JSON is JavaScript Object Notation and more information can be found at http://json.org/.
+
+SOLR is an open source search engine. The Chef Server includes a SOLR installation. More information about SOLR, including the search query syntax, can be found at http://lucene.apache.org/solr/.
+
+Git is a version control system and documented at http://git-scm.com/.
+
+This manual page was generated in nroff from Markdown with ronn. Ryan Tomayko wrote ronn and more information can be found at http://rtomayko.github.com/ronn/ronn.5.html.
+
+## AUTHOR
+
+Chef was written by Adam Jacob <adam@opscode.com> of Opscode (http://www.opscode.com), with contributions from the community. This manual page was written by Joshua Timberman <joshua@opscode.com>. Permission is granted to copy, distribute and / or modify this document under the terms of the Apache 2.0 License.
+
+On Debian systems, the complete text of the Apache 2.0 License can be found in `/usr/share/common-licenses/Apache-2.0`.

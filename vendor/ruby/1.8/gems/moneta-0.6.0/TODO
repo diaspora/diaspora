@@ -1,0 +1,4 @@
+TODO:
+Fix LICENSE with your name
+Fix Rakefile with your name and contact info
+Add your code to lib/<%= name %>.rb

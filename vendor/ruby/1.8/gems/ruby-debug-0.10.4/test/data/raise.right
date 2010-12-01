@@ -1,0 +1,26 @@
+raise.rb:3
+raise "abc"
+# # ********************************************************
+# # This tests that the debugger doesn't step into itself
+# # when the application doesn't terminate the right way.
+# # ********************************************************
+# set debuggertesting on
+Currently testing the debugger is on.
+# catch x
+NameError Exception: undefined local variable or method `x' for main:Object
+# catch ZeroDivisionError
+Catch exception ZeroDivisionError.
+# info catch
+ZeroDivisionError
+# catch 5
+Warning 5 is not known to be a Class
+Catch exception 5.
+# step
+	./raise.rb:3
+	./tdebug.rb:61:in `debug_load'
+	./tdebug.rb:61:in `debug_program'
+	./tdebug.rb:251
+	../rdbg.rb:23:in `load'
+	../rdbg.rb:23:in `runner'
+	../rdbg.rb:32
+Uncaught exception: abc

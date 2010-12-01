@@ -1,0 +1,29 @@
+$ erubis -l c example.ec
+#line 1 "example.ec"
+
+#include <stdio.h>
+
+int main(int argc, char *argv[])
+{
+    int i;
+
+
+fputs("<html>\n"
+      " <body>\n"
+      "  <p>Hello ", stdout); fprintf(stdout, "%s", argv[0]); fputs("!</p>\n"
+      "  <table>\n"
+      "   <tbody>\n", stdout);
+     for (i = 1; i < argc; i++) { 
+fputs("    <tr bgcolor=\"", stdout); fprintf(stdout, i % 2 == 0 ? "#FFCCCC" : "#CCCCFF"); fputs("\">\n"
+      "      <td>", stdout); fprintf(stdout, "%d", i); fputs("</td>\n"
+      "      <td>", stdout); fprintf(stdout, "%s", argv[i]); fputs("</td>\n"
+      "    </tr>\n", stdout);
+     } 
+fputs("   </tbody>\n"
+      "  </table>\n"
+      " </body>\n"
+      "</html>\n", stdout);
+
+    return 0; 
+}
+
