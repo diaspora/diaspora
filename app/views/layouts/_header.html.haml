@@ -3,10 +3,7 @@
 -#   the COPYRIGHT file.
 
 .container{:style => "position:relative;"}
-  #diaspora_text
-    = link_to "DIASPORA*", root_path
-    %span.sub_text
-      ALPHA
+  = link_to image_tag('diaspora_logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), root_path
 
   - unless current_user
     .right

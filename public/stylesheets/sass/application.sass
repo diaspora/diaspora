@@ -3,14 +3,6 @@
 //   the COPYRIGHT file.
 
 
-@font-face
-  :src url('brandongrotesque_light/Brandon_light-webfont.eot')
-  :src local('â˜º'), url('brandongrotesque_light/Brandon_light-webfont.woff') format('woff'), url('brandongrotesque_light/Brandon_light-webfont.ttf') format('truetype'), url('brandongrotesque_light/Brandon_light-webfont.svg#webfont') format('svg')
-  :font
-    :family 'BrandonGrotesqueLightRegular'
-    :weight normal
-    :style normal
-
 body
   :padding 2em
   :margin 0
@@ -140,16 +132,6 @@ header
       :background none
       :color #eee
 
-  #diaspora_text
-    :display inline
-    :font
-      :family "BrandonGrotesqueLightRegular", "Helvetica Neue", Arial, Helvetica, sans-serif
-      :size 16px
-    :border none
-    :color #fff
-    :margin
-      :right 12px
-
   &.landing
     #diaspora_text
       :font
@@ -233,6 +215,14 @@ header
       :left 2px 
       :top 2px
       :display block
+
+.diaspora_header_logo
+  :position relative
+  :top 4px
+  :margin
+    :right 1em
+
+
 
 .stream
   :margin 0
@@ -1739,12 +1729,6 @@ footer
       &:hover
         :color #ccc
     
-.brandon
-  :font
-    :family 'BrandonGrotesqueLightRegular'
-  :text
-    :transform uppercase
-
 ul#landing_nav
   :margin 0
   :padding 0
