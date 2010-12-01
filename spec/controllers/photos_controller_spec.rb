@@ -47,12 +47,6 @@ describe PhotosController do
       assigns[:person].should == user2.person
       assigns[:posts].should == []
     end
-
-    it 'sets the aspect to profile' do
-      get :index, :person_id => user.person.id.to_s
-      assigns[:aspect].should == :profile
-    end
-    
   end
 
   describe '#show' do

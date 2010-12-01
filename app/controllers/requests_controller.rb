@@ -27,10 +27,6 @@ class RequestsController < ApplicationController
     end
   end
 
-  def new
-    @request = Request.new
-  end
-
  def create
    aspect = current_user.aspect_by_id(params[:request][:into])
    account = params[:request][:to].strip  

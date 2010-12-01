@@ -11,7 +11,6 @@ class ServicesController < ApplicationController
   end
 
   def create
-    
     auth = request.env['omniauth.auth']
 
     provider = auth['provider']

@@ -58,33 +58,6 @@ class StatusMessagesController < ApplicationController
     end
   end
 
-
-  def index
-    @aspect = :profile
-    @post_type = :status_messages
-
-    @person = Person.find(params[:person_id].to_id)
-
-    if @person
-      @profile = @person.profile
-      @contact = current_user.contact_for(@person)
-      @is_contact = @person != current_user.person && @contact
-
-      if @contact
-        @aspects_with_person = @contact.aspects
-      else
-        @pending_request = current_user.pending_requests.find_by_person_id(@person.id)
-      end
-
-      @posts = current_user.visible_posts(:_type => 'StatusMessage', :person_id => @person.id).paginate :page => params[:page], :order => 'created_at DESC'
-      render 'people/show'
-
-    else
-      flash[:error] = I18n.t 'people.show.does_not_exist'
-      redirect_to people_path
-    end
-  end
-
   def destroy
     @status_message = current_user.my_posts.where(:_id =>  params[:id]).first
     if @status_message

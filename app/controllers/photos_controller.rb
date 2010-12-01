@@ -9,7 +9,6 @@ class PhotosController < ApplicationController
   respond_to :json, :only => :show
 
   def index
-    @aspect = :profile
     @post_type = :photos
     @person = Person.find_by_id(params[:person_id])
 
@@ -94,11 +93,6 @@ class PhotosController < ApplicationController
     else
       render :nothing => true, :status => 406
     end
-  end
-
-  def new
-    @photo = Photo.new
-    respond_with @photo
   end
 
   def destroy
