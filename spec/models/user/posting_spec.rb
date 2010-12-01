@@ -37,6 +37,10 @@ describe User do
       aspect1.reload.post_ids.should include @post.id
     end
 
+    it 'sockets the post to the poster' do 
+      @post.should_receive(:socket_to_uid).with(user.id, anything)
+      user.add_to_streams(@post, @aspect_ids)
+    end
   end
 
   describe '#aspects_from_ids' do
@@ -67,45 +71,34 @@ describe User do
   end
 
   describe '#dispatch_post' do
-    it 'should put the post in the aspect post array' do
-      post = user.post(:status_message, :message => "hey", :to => aspect.id)
-      aspect.reload
-      aspect.posts.should include post
+    let(:status) {user.build_post(:status_message, @status_opts)}
+    before do
+      @message = "hello, world!"
+      @status_opts = {:to => "all", :message => @message}
     end
-
-    it "should add the post to that user's visible posts" do
-      status_message = user.post :status_message, :message => "hi", :to => aspect.id
-      user.reload
-      user.raw_visible_posts.include?(status_message).should be true
-    end
-
     it "posts to services if post is public" do
-      message = "hello, world!"
-      user.should_receive(:post_to_twitter).with(service1, message).exactly(1).times
-      user.should_receive(:post_to_facebook).with(service2, message).exactly(1).times
-      user.post :status_message, :message => message, :to => "all", :public => true
+      @status_opts[:public] = true
+      status.save
+      user.should_receive(:post_to_twitter).with(service1, @message).once
+      user.should_receive(:post_to_facebook).with(service2, @message).once
+      user.dispatch_post(status, :to => "all")
     end
 
     it "does not post to services if post is not public" do
-      user.should_receive(:post_to_twitter).exactly(0).times
-      user.should_receive(:post_to_facebook).exactly(0).times
-      user.post :status_message, :message => "hi", :to => "all"
-    end
-
-
-    it 'should not socket a pending post' do 
-      sm = user.build_post(:status_message, :message => "your mom", :to => aspect.id, :pending => true)      
-      sm.should_not_receive(:socket_to_uid)
-      user.dispatch_post(sm, :to => aspect.id) 
+      @status_opts[:public] = false
+      status.save
+      user.should_not_receive(:post_to_twitter)
+      user.should_not_receive(:post_to_facebook)
+      user.dispatch_post(status, :to => "all")
     end
   end
 
   describe '#post' do
     it 'should not create a post with invalid aspect' do
-      pending "this would just causes db polution"
-      post_count = Post.count
-      proc { user.post(:status_message, :message => "hey", :to => aspect2.id) }.should raise_error /Cannot post to an aspect you do not own./
-      Post.count.should == post_count
+      pending "this would just cause db polution"
+      proc {
+        user.post(:status_message, :message => "hey", :to => aspect2.id) 
+      }.should_not change(Post, :count)
     end
   end
 
@@ -139,12 +132,12 @@ describe User do
     describe '#push_to_aspects' do
       it 'should push a post to a aspect' do
         user.should_receive(:push_to_person).twice
-        user.push_to_aspects(post, aspect.id)
+        user.push_to_aspects(post, [aspect])
       end
 
       it 'should push a post to contacts in all aspects' do
         user.should_receive(:push_to_person).exactly(3).times
-        user.push_to_aspects(post, :all)
+        user.push_to_aspects(post, user.aspects)
       end
     end
 

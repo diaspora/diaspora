@@ -166,8 +166,7 @@ class User
 
     #socket post
     Rails.logger.info("event=dispatch user=#{diaspora_handle} post=#{post.id.to_s}")
-    push_to_aspects(post, aspect_ids)
-    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to?(:socket_to_uid) && !post.pending
+    push_to_aspects(post, aspects_from_ids(aspect_ids))
 
     if post.public
       self.services.each do |service|
@@ -200,6 +199,7 @@ class User
     self.raw_visible_posts << post
     self.save
 
+    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to? :socket_to_uid
     target_aspects = aspects_from_ids(aspect_ids)
     target_aspects.each do |aspect|
       aspect.posts << post
@@ -219,23 +219,13 @@ class User
     end
   end
 
-  def push_to_aspects(post, aspect_ids)
-    if aspect_ids == :all || aspect_ids == "all"
-      aspects = self.aspects
-    elsif aspect_ids.is_a?(Array) && aspect_ids.first.class == Aspect
-      aspects = aspect_ids
-    else
-      aspects = self.aspects.find_all_by_id(aspect_ids)
-    end
+  def push_to_aspects(post, aspects)
     #send to the aspects
-    target_contacts = []
-
-    aspects.each { |aspect|
-      target_contacts = target_contacts | aspect.contacts
+    target_contacts = aspects.inject([]) { |contacts,aspect|
+      contacts = contacts | aspect.contacts
     }
 
     push_to_hub(post) if post.respond_to?(:public) && post.public
-
     push_to_people(post, self.person_objects(target_contacts))
   end
 
@@ -250,7 +240,7 @@ class User
     person.reload # Sadly, we need this for Ruby 1.9.
     # person.owner will always return a ProxyObject.
     # calling nil? performs a necessary evaluation.
-    unless person.owner.nil?
+    if person.owner_id
       Rails.logger.info("event=push_to_person route=local sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
       person.owner.receive(post.to_diaspora_xml, self.person)
     else
