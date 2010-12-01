@@ -26,7 +26,13 @@ class EMWebfinger
       process_callbacks person
     else
       Rails.logger.info("event=EMWebfinger status=remote target=#{@account}")
-      get_xrd
+      profile_url = get_xrd
+
+      webfinger_profile = get_webfinger_profile(profile_url) if profile_url
+
+      fingered_person = make_person_from_webfinger(webfinger_profile) if webfinger_profile
+
+      process_callbacks(fingered_person)
     end
   end
 
@@ -38,58 +44,54 @@ class EMWebfinger
   private
 
   def get_xrd
-    http = EventMachine::HttpRequest.new(xrd_url).get OPTS
-    http.callback { 
-      profile_url = webfinger_profile_url(http.response)
-      if profile_url 
-        get_webfinger_profile(profile_url) 
-      elsif @ssl
-        @ssl = false
-        get_xrd
-      else
-        process_callbacks  I18n.t('webfinger.not_enabled', :account => @account)
-      end
-    }
+      begin
+        http = RestClient.get xrd_url, OPTS
 
-    http.errback {
-      if @ssl
-        @ssl = false
-        get_xrd
-      else
-        process_callbacks I18n.t('webfinger.xrd_fetch_failed', :account => @account)
-      end }
+        profile_url = webfinger_profile_url(http.body)
+        if profile_url
+          return profile_url
+        else
+          raise "no profile URL"
+        end
+      rescue
+        if @ssl
+          @ssl = false
+          retry
+        else
+          process_callbacks I18n.t('webfinger.xrd_fetch_failed', :account => @account)
+          return
+        end
+      end 
   end
 
 
   def get_webfinger_profile(profile_url)
-     http = EventMachine::HttpRequest.new(profile_url).get OPTS
-     http.callback{ make_person_from_webfinger(http.response) }
-     http.errback{ process_callbacks I18n.t('webfinger.fetch_failed', :profile_url => profile_url) }
+     
+    begin
+      http = RestClient.get(profile_url, OPTS)
+      return http.body
+
+    rescue Exception => e
+      puts e.message
+      process_callbacks I18n.t('webfinger.fetch_failed', :profile_url => profile_url) 
+      return
+    end 
   end
 
   def make_person_from_webfinger(webfinger_profile)
     unless webfinger_profile.strip == ""
-      
+
+      wf_profile = WebfingerProfile.new(@account, webfinger_profile)
+
       begin
-        wf_profile = WebfingerProfile.new(@account, webfinger_profile)
-
-      
-        http = EventMachine::HttpRequest.new(wf_profile.hcard).get OPTS
-        http.callback{
-          begin
-            hcard = HCard.build http.response
-            p = Person.build_from_webfinger(wf_profile, hcard)
-            process_callbacks(p)
-          rescue
-            process_callbacks I18n.t 'webfinger.no_person_constructed'
-          end
-        }
-        http.errback{
-          process_callbacks I18n.t('webfinger.hcard_fetch_failed', :account => @account) }
-
+        hcard = RestClient.get(wf_profile.hcard, OPTS)
       rescue
-          process_callbacks "No person could be constructed from this webfinger profile."
-      end
+         process_callbacks I18n.t('webfinger.hcard_fetch_failed', :account => @account)
+         return
+      end 
+
+      card = HCard.build hcard.body
+      p = Person.build_from_webfinger(wf_profile, card)
     end
   end
 

@@ -48,7 +48,7 @@ gem 'mini_magick'
 gem 'aws'
 gem 'fastercsv', :require => false
 gem 'jammit'
-
+gem 'rest-client'
 #Backups
 gem "cloudfiles", :require => false
 

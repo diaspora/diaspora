@@ -36,19 +36,6 @@ describe EMWebfinger do
         n.instance_variable_get(:@account).should_not be nil
       end
 
-      it 'should raise an error on an unresonable email' do
-        proc{
-          EMWebfinger.new("joe.valid.email@my-address.com")
-        }.should_not raise_error(RuntimeError, "Identifier is invalid")
-      end
-
-      it 'should not allow port numbers' do
-        pending
-        proc{
-          EMWebfinger.new('eviljoe@diaspora.local:3000')
-        }.should raise_error(RuntimeError, "Identifier is invalid")
-      end  
-
       it 'should set ssl as the default' do
         foo = EMWebfinger.new(account)
         foo.instance_variable_get(:@ssl).should be true
