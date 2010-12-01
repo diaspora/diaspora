@@ -19,6 +19,7 @@ src_files:
   - public/javascripts/aspect-edit.js
   - public/javascripts/aspect-contacts.js
   - public/javascripts/web-socket-receiver.js
+  - public/javascripts/stream.js
 
 # stylesheets
 #
