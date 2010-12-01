@@ -1,7 +1,0 @@
-History.txt
-License.txt
-Manifest.txt
-README.txt
-Rakefile
-lib/polyglot.rb
-lib/polyglot/version.rb

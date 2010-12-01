@@ -1,9 +1,0 @@
-1.8.20090512
-  Fixed bug where bin/selenium-rc did not stay open
-
-1.7.20090512
-  Properly handling Errno::EADDRNOTAVAIL when starting on windows.
-
-1.6.20090512
-  Properly terminate server when the process exits.
-  Fixed server blocking the process issue.

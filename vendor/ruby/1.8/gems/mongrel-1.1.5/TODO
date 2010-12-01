@@ -1,5 +1,0 @@
-
-v1.2. Rewrite and merge mongrel cluster and mongrel_rails into something small and maintainable. Remove gem_plugin entirely.
-
-v1.1.1. See if Java is setting the server version string in the request properly.
-

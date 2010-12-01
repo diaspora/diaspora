@@ -1,9 +1,0 @@
-We're using GitHub[http://github.com/thoughtbot/factory_girl/tree/master], and we've been getting any combination of github pull requests, patches, emails, etc.  We need to normalize this workflow to make sure we don't miss any fixes.
-
-* Make sure you're accessing the source from the {official repository}[http://github.com/thoughtbot/factory_girl/tree/master].
-* Please make a branch for each separate contribution.  We can cherry pick your commits, but pulling from a branch is easier.
-* If you're submitting patches, please cut each fix or feature into a separate patch.
-* There should be an issue[http://github.com/thoughtbot/factory_girl/issues] for any submission.  If you've found a bug and want to fix it, open a new ticket at the same time.
-* Please <b>don't send pull requests</b>  Just update the issue with the url for your fix when it's ready.  The github pull requests pretty much get dropped on the floor until someone with commit rights notices them in the mailbox.
-* Contributions without tests won't be accepted.
-* Please don't submit patches or branches that update the Gem version.

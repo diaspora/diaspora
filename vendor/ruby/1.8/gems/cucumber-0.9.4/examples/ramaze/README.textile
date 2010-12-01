@@ -1,7 +1,0 @@
-h1. Ramaze and Cucumber
-
-This example will work with:
-
-* ramaze 2010.04.04
-* rack-test 0.5.3
-* webrat 0.7.0

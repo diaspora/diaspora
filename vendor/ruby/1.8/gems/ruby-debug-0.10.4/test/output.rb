@@ -1,2 +1,0 @@
-puts "one"
-puts "two"

@@ -1,5 +1,0 @@
- |         | feature | background | scenario | scenario_outline | examples | step  | row   | py_string | eof | comment | tag |
- | meta    | E       | E          | E        | E                | E        | E     | E     | E         | eof | comment | tag |
- | comment | pop()   | pop()      | pop()    | pop()            | pop()    | pop() | pop() | pop()     | eof | pop()   | tag |
- | tag     | pop()   | E          | pop()    | pop()            | pop()    | E     | E     | E         | E   | E       | tag |
- | eof     | E       | E          | E        | E                | E        | E     | E     | E         | E   | E       | E   |

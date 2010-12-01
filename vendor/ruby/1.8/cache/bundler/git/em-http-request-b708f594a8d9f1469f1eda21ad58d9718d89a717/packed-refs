@@ -1,8 +1,0 @@
-# pack-refs with: peeled 
-4d5cafa7e675bbb73f042b5f57974bb4f8c007ee refs/heads/websocket-disconnect
-ca25d095c7e0b1483218328ae1d5d6e88736c872 refs/heads/websocket
-819d987563af613bcb45aa49cbc8f953fd3534fd refs/heads/proxy
-1b4badf24430ad7dc3ffdea09939461b569b0a4b refs/heads/master
-248eddfa7705c2702042a3ad0970c4ffce0c47c5 refs/heads/jruby
-fc4d0171f0b92ac40f74f5e251d3af19a3c07183 refs/heads/followlocation
-cc1a849e1f77a02a8f838a3c33fa5866c4e24f43 refs/heads/errback_handler

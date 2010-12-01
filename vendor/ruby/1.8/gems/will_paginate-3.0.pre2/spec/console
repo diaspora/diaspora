@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-irb = RUBY_PLATFORM =~ /(:?mswin|mingw)/ ? 'irb.bat' : 'irb'
-libs = []
-
-libs << 'irb/completion'
-libs << 'console_fixtures'
-
-exec "#{irb} -Ilib:spec#{libs.map{ |l| " -r #{l}" }.join} --simple-prompt"

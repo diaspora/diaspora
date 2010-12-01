@@ -1,9 +1,0 @@
-#!/usr/bin/env ruby
-
-begin
-  require "rails/cli"
-rescue LoadError
-  railties_path = File.expand_path('../../railties/lib', __FILE__)
-  $:.unshift(railties_path)
-  require "rails/cli"
-end

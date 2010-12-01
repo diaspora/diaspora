@@ -1,3 +1,0 @@
-== 0.0.3
-
-* First working release, Campfire and Basecamp support
