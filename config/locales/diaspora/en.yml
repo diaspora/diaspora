@@ -367,7 +367,11 @@ en:
   notifier:
       hello: "Hello %{name}!"
       love: "love,"
+      thanks: "Thanks,"
       diaspora: "the diaspora email robot"
+      single_admin:
+          subject: "A message from your Diaspora administrator:"
+          admin: "Your Diaspora administrator"
       new_request:
           subject: "new Diaspora* contact request from %{from}"
           just_sent_you: "just sent you a contact request on Diaspora*"

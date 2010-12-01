@@ -6,11 +6,46 @@ describe Notifier do
   let!(:user) {make_user}
   let!(:aspect) {user.aspects.create(:name => "science")}
   let!(:person) {Factory.create :person}
-  let!(:request_mail) {Notifier.new_request(user.id, person.id)}
-  let!(:request_accepted_mail) {Notifier.request_accepted(user.id, person.id, aspect.id)}
 
+  before do
+    Notifier.deliveries = []
+  end
+  describe '.administrative' do
+    it 'mails a user' do
+      mails = Notifier.admin("Welcome to bureaucracy!", [user])
+      mails.length.should == 1
+      mail = Notifier.deliveries.first
+      mail.to.should == [user.email]
+      mail.body.encoded.should match /Welcome to bureaucracy!/
+      mail.body.encoded.should match /#{user.username}/
+    end
+    it 'mails a bunch of users' do
+      users = []
+      5.times do 
+        users << make_user
+      end
+      Notifier.admin("Welcome to bureaucracy!", users)
+      mails = Notifier.deliveries
+      mails.length.should == 5
+      mails.each{|mail|
+        this_user = users.detect{|u| mail.to == [u.email]}
+        mail.body.encoded.should match /Welcome to bureaucracy!/
+        mail.body.encoded.should match /#{this_user.username}/
+      }
+    end
+  end
+
+  describe '#single_admin' do
+    it 'mails a user' do
+      mail = Notifier.single_admin("Welcome to bureaucracy!", user)
+      mail.to.should == [user.email]
+      mail.body.encoded.should match /Welcome to bureaucracy!/
+      mail.body.encoded.should match /#{user.username}/
+    end
+  end
 
   describe "#new_request" do
+    let!(:request_mail) {Notifier.new_request(user.id, person.id)}
     it 'goes to the right person' do
       request_mail.to.should == [user.email]
     end
@@ -30,6 +65,7 @@ describe Notifier do
   end
 
   describe "#request_accpeted" do
+    let!(:request_accepted_mail) {Notifier.request_accepted(user.id, person.id, aspect.id)}
     it 'goes to the right person' do
       request_accepted_mail.to.should == [user.email]
     end

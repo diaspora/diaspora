@@ -4,6 +4,23 @@ class Notifier < ActionMailer::Base
   
   ATTACHMENT = File.read("#{Rails.root}/public/images/diaspora_white_on_grey.png")
 
+  def self.admin(string, recipients, opts = {})
+    mails = []
+    recipients.each do |rec|
+      mail = single_admin(string, rec)
+      mails << mail
+      mail.deliver
+    end
+    mails
+  end
+  def single_admin(string, recipient)
+    @recipient = recipient
+    @string = string.html_safe
+    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
+    mail(:to => @recipient.email,
+         :subject => I18n.t('notifier.single_admin.subject'), :host => APP_CONFIG[:terse_pod_url])
+  end
+
   def new_request(recipient_id, sender_id)
     @receiver = User.find_by_id(recipient_id)
     @sender = Person.find_by_id(sender_id)
