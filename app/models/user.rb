@@ -328,7 +328,7 @@ class User
   ########### Profile ######################
   def update_profile(params)
     if self.person.profile.update_attributes(params)
-      push_to_aspects profile, :all
+      push_to_aspects profile, aspects
       true
     else
       false

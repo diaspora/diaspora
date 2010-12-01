@@ -26,7 +26,7 @@ class StatusMessagesController < ApplicationController
       raise 'MongoMapper failed to catch a failed save' unless @status_message.id
 
       @status_message.photos += photos unless photos.nil?
-      current_user.add_to_streams(post, params[:status_message][:aspect_ids])
+      current_user.add_to_streams(@status_message, params[:status_message][:aspect_ids])
       current_user.dispatch_post(@status_message, :to => params[:status_message][:aspect_ids])
 
       for photo in photos
