@@ -186,14 +186,17 @@ module ApplicationHelper
     end
 
     if options[:emphasis]
-      message.gsub!(/([^\\]|^)\*\*(([^*]|([^*]\*[^*]))*[^*\\])\*\*/, '\1<strong>\2</strong>')
-      message.gsub!(/([^\\]|^)__(([^_]|([^_]_[^_]))*[^_\\])__/, '\1<strong>\2</strong>')
-      message.gsub!(/([^\\]|^)\*([^*]*[^\\])\*/, '\1<em>\2</em>')
-      message.gsub!(/([^\\]|^)_([^_]*[^\\])_/, '\1<em>\2</em>')
-      message.gsub!(/([^\\]|^)\*/, '\1')
-      message.gsub!(/([^\\]|^)_/, '\1')
-      message.gsub!("\\*", "*")
-      message.gsub!("\\_", "_")
+      message.gsub!("\\**", "-^doublestar^-")
+      message.gsub!("\\__", "-^doublescore^-")
+      message.gsub!("\\*", "-^star^-")
+      message.gsub!("\\_", "-^score^-")
+      message.gsub!(/(\*\*\*|___)(.+?)\1/m, '<em><strong>\2</strong></em>')
+      message.gsub!(/(\*\*|__)(.+?)\1/m, '<strong>\2</strong>')
+      message.gsub!(/(\*|_)(.+?)\1/m, '<em>\2</em>')
+      message.gsub!("-^doublestar^-", "**")
+      message.gsub!("-^doublescore^-", "__")
+      message.gsub!("-^star^-", "*")
+      message.gsub!("-^score^-", "_")
     end
 
     if options[:youtube]

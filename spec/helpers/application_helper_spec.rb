@@ -171,7 +171,7 @@ describe ApplicationHelper do
 
     it "should allow escaping" do
       message = '*some text* \\*some text* \\**some text* _some text_ \\_some text_ \\__some text_'
-      markdownify(message).should == "<em>some text</em> *some text<em> *</em>some text <em>some text</em> _some text<em> _</em>some text"
+      markdownify(message).should == "<em>some text</em> *some text<em> **some text</em> <em>some text</em> _some text<em> __some text</em>"
     end
 
     describe "options" do
