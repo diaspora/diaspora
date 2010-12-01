@@ -22,8 +22,6 @@ describe RequestsController do
 
   describe '#destroy' do
     before do
-
-
       @other_user.send_contact_request_to(@user.person, @other_user.aspects.first)
       @user.reload # so it can find its pending requests.
       @friend_request = @user.pending_requests.first

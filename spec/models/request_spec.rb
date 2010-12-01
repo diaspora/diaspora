@@ -41,6 +41,11 @@ describe Request do
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'new aspect'))
       @request.should_not be_valid
     end
+
+    it 'is not to yourself' do
+      @request = Request.instantiate(:from => user.person, :to => user.person, :into => aspect) 
+      @request.should_not be_valid
+    end
   end
 
   describe 'scopes' do

@@ -22,6 +22,7 @@ class Request
   validate :not_already_connected_if_sent
   validate :not_already_connected_if_not_sent
   validate :no_pending_request, :if => :sent
+  validate :not_friending_yourself
   
   #before_validation :clean_link
   
@@ -95,7 +96,7 @@ class Request
   def not_already_connected_if_sent
     if self.sent
       if Contact.first(:user_id => self.from.owner_id, :person_id => self.to.id)
-        errors[:base] << 'You have already connected to this person!'
+        errors[:base] << 'You have already connected to this person'
       end
     end
   end
@@ -103,8 +104,14 @@ class Request
   def not_already_connected_if_not_sent
     unless self.sent
       if Contact.first(:user_id => self.to.owner_id, :person_id => self.from.id)
-        errors[:base] << 'You have already connected to this person!'
+        errors[:base] << 'You have already connected to this person'
       end
+    end
+  end
+
+  def not_friending_yourself
+    if self.to == self.from 
+      errors[:base] << 'You can not friend yourself'
     end
   end
 end
