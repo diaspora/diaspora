@@ -42,35 +42,6 @@ describe EMWebfinger do
       end
     end
 
-
-    describe '#on_person' do 
-      it 'should set a callback' do
-        n = EMWebfinger.new("mbs@gmail.com")
-        n.stub(:fetch).and_return(true)
-
-        n.on_person{|person| 1+1}
-        n.instance_variable_get(:@callbacks).count.should be 1
-      end
-
-      it 'should not blow up if the returned xrd is nil' do
-        http = FakeHttpRequest.new(:success)
-        fake_account = 'foo@example.com'
-        http.callbacks = ['']
-        EventMachine::HttpRequest.should_receive(:new).and_return(http)
-        n = EMWebfinger.new("foo@example.com")
-
-        n.on_person{|person|
-          person.should == "webfinger does not seem to be enabled for #{fake_account}'s host"
-        }
-      end
-    end
-
-    describe '#fetch' do
-      it 'should require a callback' do
-        proc{finger.fetch }.should raise_error "you need to set a callback before calling fetch"
-      end
-    end
-
     context 'webfinger query chain processing' do 
       describe '#webfinger_profile_url' do
         it 'should parse out the webfinger template' do
@@ -101,81 +72,31 @@ describe EMWebfinger do
     context 'webfingering local people' do
       it 'should return a person from the database if it matches its handle' do
         person.save
-        EM.run do
-          finger.on_person { |p|
-            p.should ==  person
-            EM.stop
-          }
+          finger.fetch.id.should == person.id
         end
       end
 
       it 'should fetch a diaspora webfinger and make a person for them' do
-        good_request.callbacks = [diaspora_xrd, diaspora_finger, hcard_xml]
-
+        diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
+        hcard_xml.stub!(:body).and_return(hcard_xml)
+        diaspora_finger.stub!(:body).and_return(diaspora_finger)
+        RestClient.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
         #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
         # http://tom.joindiaspora.com/.well-known/host-meta 
-        f = EMWebfinger.new("tom@tom.joindiaspora.com") 
+        f = EMWebfinger.new("tom@tom.joindiaspora.com").fetch
+        f.should be_valid
 
-        EventMachine::HttpRequest.should_receive(:new).exactly(3).times.and_return(good_request)
-
-        EM.run {
-          f.on_person{ |p| 
-            p.valid?.should be true 
-            EM.stop
-          }
-        }
       end
       
       it 'should retry with http if https fails' do
-        good_request.callbacks = [nil, diaspora_xrd, diaspora_finger, hcard_xml]
-
-        #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
-        # http://tom.joindiaspora.com/.well-known/host-meta 
         f = EMWebfinger.new("tom@tom.joindiaspora.com") 
 
-        EventMachine::HttpRequest.should_receive(:new).exactly(4).times.and_return(good_request)
-
+        diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
+        RestClient.should_receive(:get).twice.and_return(nil, diaspora_xrd)
         f.should_receive(:xrd_url).twice
-
-        EM.run {
-          f.on_person{ |p| 
-            EM.stop
-          }
-        }
+        f.send(:get_xrd)
+        f.instance_variable_get(:@ssl).should == false
       end
 
-      it 'must try https first' do
-        single_request = FakeHttpRequest.new(:success)
-        single_request.callbacks = [diaspora_xrd]
-        good_request.callbacks = [diaspora_finger, hcard_xml]
-        EventMachine::HttpRequest.should_receive(:new).with("https://tom.joindiaspora.com/.well-known/host-meta").and_return(single_request)
-        EventMachine::HttpRequest.should_receive(:new).exactly(2).and_return(good_request)
-
-        f = EMWebfinger.new("tom@tom.joindiaspora.com") 
-
-        EM.run {
-          f.on_person{ |p| 
-            EM.stop
-          }
-        }
-      end
-
-      it 'should retry with http if https fails with an http error code' do
-        bad_request = FakeHttpRequest.new(:failure)
-
-        good_request.callbacks = [diaspora_xrd, diaspora_finger, hcard_xml]
-
-        EventMachine::HttpRequest.should_receive(:new).with("https://tom.joindiaspora.com/.well-known/host-meta").and_return(bad_request)
-        EventMachine::HttpRequest.should_receive(:new).exactly(3).and_return(good_request)
-
-        f = EMWebfinger.new("tom@tom.joindiaspora.com") 
-
-        EM.run {
-          f.on_person{ |p| 
-          EM.stop
-        }
-        }
-      end
     end
   end
-end
