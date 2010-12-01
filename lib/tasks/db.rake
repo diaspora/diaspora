@@ -21,6 +21,12 @@ namespace :db do
       create
     end
 
+    task :first_user, :username, :password  do |t, args|
+      puts "Setting up first user in #{Rails.env} database"
+      ARGS = args
+      require File.dirname(__FILE__) + '/../../db/seeds/first_user'
+    end
+
   end
 
   desc 'Delete the collections in the current RAILS_ENV database'
@@ -52,6 +58,24 @@ namespace :db do
     Rake::Task['db:seed:dev'].invoke
     puts "you did it!"
   end
+
+  task :reset do
+    puts "making a new base user"
+    Rake::Task['db:purge'].invoke
+    Rake::Task['db:seed:dev'].invoke
+    puts "you did it!"
+  end
+
+  desc 'Purge database, add a new user'
+  task :first_user, :username, :password do |t, args|
+    puts "Purging database and adding a new user"
+    username = args[:username] || 'admin'
+    password = args[:password] if args[:password] != nil
+    Rake::Task['db:purge'].invoke
+    Rake::Task['db:seed:first_user'].invoke(username, password)
+  end
+
+
 
   task :fix_diaspora_handle do
     puts "fixing the people in this seed"
