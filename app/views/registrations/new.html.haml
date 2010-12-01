@@ -1,3 +1,19 @@
+ :javascript
+  $(function() {
+    var Validation = {
+      username: {
+        characters: /^(|[A-Za-z0-9_]{0,32})$/,
+        length: [6, 32]
+      }
+    };
+
+    $("#user_username").keypress(function(evt) {
+      if(!Validation.username.characters.test(this.value + String.fromCharCode($
+        evt.preventDefault();
+      }
+    });
+  });
+
 .span-12.prepend-6.last
   .floating
     %h3
