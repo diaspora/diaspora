@@ -10,7 +10,7 @@ module LanguageHelper
   def options_for_gender_select(user)
     grammatical_gender = user.grammatical_gender
     genders_list = I18n::Backend::Genderize.known_genders.map do |gender|
-      [t("#{gender}"), gender]
+      [t(".#{gender}"), gender]
     end
     if grammatical_gender.blank?
       grammatical_gender = I18n::Backend::Genderize.guess(user.profile.gender)
