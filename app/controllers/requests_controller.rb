@@ -45,7 +45,7 @@ class RequestsController < ApplicationController
                                     :into => aspect)
      if @request.save
        current_user.dispatch_request(@request)
-       flash.now[:notice] = I18n.t('requests.create.sent')
+       flash.now[:notice] = I18n.t('requests.create.sent', :gender => current_user)
        redirect_to :back
      else
        flash.now[:error] = @request.errors.full_messages.join(', ')
