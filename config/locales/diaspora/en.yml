@@ -165,7 +165,10 @@ en:
       helper:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
-          are_you_sure: "Are you sure you want to delete this aspect?"
+          are_you_sure:
+            masculine: "Are you sure you want to delete this aspect?"
+            feminine: "Are you sure you want to delete this aspect?"
+            neuter: "Are you sure you want to delete this aspect?"
       remove_from_aspect:
           success: "Successfully removed person from aspect"
           failure: "Failed to remove person from aspect"
