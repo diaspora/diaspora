@@ -8,7 +8,7 @@
     };
 
     $("#user_username").keypress(function(evt) {
-      if(!Validation.username.characters.test(this.value + String.fromCharCode($
+      if(!Validation.username.characters.test(this.value + String.fromCharCode(evt.charCode)) { 
         evt.preventDefault();
       }
     });
