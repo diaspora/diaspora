@@ -1,6 +1,6 @@
 module Jobs
   class SocketWebfinger
-    @queue = :receive
+    @queue = :socket_webfinger
     def self.perform(user_id, account, opts={})
       finger = Webfinger.new(account)
       begin
