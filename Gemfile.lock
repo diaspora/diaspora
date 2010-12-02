@@ -39,9 +39,9 @@ GIT
 
 GIT
   remote: git://github.com/igrigorik/em-websocket
-  revision: 96e85559334e7899ee31e9cef0b8e83d30707080
+  revision: e278f5a1c4db60be7485859520a069e08bfe1247
   specs:
-    em-websocket (0.1.4)
+    em-websocket (0.2.0)
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
 
@@ -142,7 +142,7 @@ GEM
     childprocess (0.1.4)
       ffi (~> 0.6.3)
     closure-compiler (0.3.3)
-    cloudfiles (1.4.9)
+    cloudfiles (1.4.10)
       mime-types (>= 1.16)
     columnize (0.3.2)
     configuration (1.2.0)
@@ -213,7 +213,7 @@ GEM
     mixlib-cli (1.2.0)
     mixlib-config (1.1.2)
     mixlib-log (1.2.0)
-    mocha (0.9.9)
+    mocha (0.9.10)
       rake
     moneta (0.6.0)
     mongo (1.1)
@@ -298,17 +298,20 @@ GEM
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rspec (2.1.0)
-      rspec-core (~> 2.1.0)
-      rspec-expectations (~> 2.1.0)
-      rspec-mocks (~> 2.1.0)
-    rspec-core (2.1.0)
-    rspec-expectations (2.1.0)
+    rspec (2.2.0)
+      rspec-core (~> 2.2)
+      rspec-expectations (~> 2.2)
+      rspec-mocks (~> 2.2)
+    rspec-core (2.2.1)
+    rspec-expectations (2.2.0)
       diff-lcs (~> 1.1.2)
-    rspec-instafail (0.1.4)
-    rspec-mocks (2.1.0)
-    rspec-rails (2.1.0)
-      rspec (~> 2.1.0)
+    rspec-instafail (0.1.5)
+    rspec-mocks (2.2.0)
+    rspec-rails (2.2.1)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.2.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -322,7 +325,7 @@ GEM
     selenium-client (1.2.18)
     selenium-rc (2.2.4)
       selenium-client (>= 1.2.18)
-    selenium-webdriver (0.1.0)
+    selenium-webdriver (0.1.1)
       childprocess (= 0.1.4)
       ffi (~> 0.6.3)
       json_pure
