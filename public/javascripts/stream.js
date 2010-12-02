@@ -103,11 +103,21 @@ var Stream = {
     var $this = $(this),
       text = $this.html(),
       commentBlock = $this.closest("li").find("ul.comments", ".content"),
+      commentBlockMore = $this.closest("li").find(".older_comments", ".content"),
       show = (text.indexOf("show") != -1);
 
-    commentBlock.fadeToggle(150, function() {
-      commentBlock.toggleClass("hidden");
+
+    if( commentBlockMore.hasClass("inactive") ) {
+      commentBlockMore.fadeIn(150, function(){
+        commentBlockMore.removeClass("inactive");
+        commentBlockMore.removeClass("hidden");
+      });
+    } else {
+      commentBlock.fadeToggle(150, function() {
+        commentBlock.toggleClass("hidden");
     });
+    }
+
     $this.html(text.replace((show) ? "show" : "hide", (show) ? "hide" : "show"));
   }
 };

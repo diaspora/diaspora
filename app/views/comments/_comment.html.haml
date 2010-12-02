@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 - comment = hash[:comment]
 - person = hash[:person]
-%li.comment{:data=>{:guid=>comment.id}}
+%li.comment{:data=>{:guid=>comment.id}, :class => ("hidden" if(defined? hidden))}
   =person_image_link(person)
   .content
     .from

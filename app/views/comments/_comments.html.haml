@@ -3,7 +3,12 @@
 -#   the COPYRIGHT file.
 
 %ul.comments{:id => post_id, :class => ("hidden" if comment_hashes.size == 0)}
-  = render :partial => 'comments/comment', :collection => comment_hashes, :as => :hash
+  -if comment_hashes.size > 3
+    .older_comments.hidden.inactive
+      = render :partial => 'comments/comment', :collection => comment_hashes[0..-3], :as => :hash
+    = render :partial => 'comments/comment', :collection => comment_hashes[-3, 3], :as => :hash
+  -else
+    = render :partial => 'comments/comment', :collection => comment_hashes, :as => :hash
   %li.comment.show
     = render 'comments/new_comment', :post_id => post_id
 
