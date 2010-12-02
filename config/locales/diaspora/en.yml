@@ -21,10 +21,7 @@ en:
   email: "Email"
   password: "Password"
   password_confirmation: "Password confirmation"
-  are_you_sure:
-    masculine: "Are you sure?"
-    feminine: "Are you sure?"
-    neuter: "Are you sure?"
+  are_you_sure: "Are you sure?"
   fill_me_out: "Fill me out"
   back: "Back"
   the_world: "the world"
@@ -106,10 +103,7 @@ en:
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
           create_request: "Find by Diaspora handle"
           diaspora_handle: "diaspora@handle.org"
-          know_email:
-            masculine: "Know their email address? You should invite them"
-            feminine: "Know their email address? You should invite them"
-            neuter: "Know their email address? You should invite them"
+          know_email: "Know their email address? You should invite them"
       invitations:
           invite_someone: "Invite someone"
           invitations_left: "(%{count} left)"
@@ -189,10 +183,6 @@ en:
           download_photos: "download my photos"
           your_handle: "Your diaspora handle"
           your_email: "Your email"
-          address_me_as: "Address me as"
-          masculine: "a man"
-          feminine: "a woman"
-          neuter: "a neuter"
       destroy: "Account successfully closed."
       getting_started:
           welcome: "Welcome to Diaspora!"
@@ -251,18 +241,9 @@ en:
           back_to_list: "Back to List"
           post_it: "post it!"
       create:
-          runtime_error:
-            masculine: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-            feminine: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-            neuter: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-          integrity_error:
-            masculine: "Photo upload failed.  Are you sure that was an image?"
-            feminine: "Photo upload failed.  Are you sure that was an image?"
-            neuter: "Photo upload failed.  Are you sure that was an image?"
-          type_error:
-            masculine: "Photo upload failed.  Are you sure an image was added?"
-            feminine: "Photo upload failed.  Are you sure an image was added?"
-            neuter: "Photo upload failed.  Are you sure an image was added?"
+          runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+          integrity_error: "Photo upload failed.  Are you sure that was an image?"
+          type_error: "Photo upload failed.  Are you sure an image was added?"
       update:
           notice: "Photo successfully updated."
           error:  "Failed to edit photo."
@@ -291,20 +272,11 @@ en:
           sent: "Invitations have been sent to: "
           rejected: "The following email addresses had problems: "
           no_more: "You have no more invitations."
-          already_sent:
-            masculine: "You already invited this person."
-            feminine: "You already invited this person."
-            neuter: "You already invited this person."
-          already_contacts:
-            masculine: "You are already connected with this person."
-            feminine: "You are already connected with this person."
-            neuter: "You are already connected with this person."
+          already_sent: "You already invited this person."
+          already_contacts: "You are already connected with this person" 
       new:
           invite_someone_to_join: "Invite someone to join Diaspora!"
-          if_they_accept_info:
-            masculine: "if they accept, they will be added to the aspect you invited them."
-            feminine: "if they accept, they will be added to the aspect you invited them."
-            neuter: "if they accept, they will be added to the aspect you invited them."
+          if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
           comma_seperated_plz: "You can enter multiple email addresses separated by commas."
           to: "To"
           message: "Message:"
@@ -335,16 +307,10 @@ en:
           incoming_request: "You have an incoming request from this person."
           return_to_aspects: "Return to your aspects page"
           to_accept_or_ignore: "to accept or ignore it."
-          request_people: "If you'd like, you can request to place him in one of your aspects."
-          already_requested:
-            masculine: "You have already sent a request to %{name}."
-            feminine: "You have already sent a request to %{name}."
-            neuter: "You have already sent a request to %{name}."
+          request_people: "If you'd like, you can request to place him/her in one of your aspects."
+          already_requested: "You have already sent a request to %{name}."
           does_not_exist: "Person does not exist!"
-          not_connected:
-            masculine: "You are not connected with this person"
-            feminine: "You are not connected with this person"
-            neuter: "You are not connected with this person"
+          not_connected: "You are not connected with this person"
       edit:
           info_available_to: "This info will be available to whomever you connect with on Diaspora."
           your_profile: "Your profile"
@@ -384,10 +350,7 @@ en:
           ignore: "Ignored contact request."
       create:
           sending: "Sending"
-          sent:
-            masculine: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
-            feminine: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
-            neuter: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+          sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
       new_request_to_person:
           sent: "sent!"
   services:
