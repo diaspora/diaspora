@@ -87,6 +87,17 @@ http {
      break;
    }
  }
+  server {
+
+   listen       443;
+   server_name  <%= @url %> resque.<%= @url %>;
+
+   ssl on;
+   ssl_certificate      <%= @cert_location %>;
+   ssl_certificate_key  <%= @key_location %>;
+
+   proxy_pass localhost:5678
+  }
 
  error_page 500 502 503 504 /50x.html;
  location = /50x.html {

@@ -65,8 +65,17 @@ execute "executable" do
 end
 
 execute "resque worker run" do
-  command "mkdir -p /service/resque_worker && echo '#!/bin/sh' > /service/resque_worker/run && echo 'cd /usr/local/app/diaspora && RAILS_ENV=production QUEUE=* exec /usr/local/bin/bundle exec /usr/local/bin/rake resque:work' >> /service/resque_worker/run"
+  command "mkdir -p /service/resque_worker && echo '#!/bin/sh' > /service/resque_worker/run && echo 'RAILS_ENV=production QUEUE=* HOME=/usr/local/app/diaspora exec /usr/local/bin/rake resque:work' >> /service/resque_worker/run"
 end
+
 execute "executable" do
   command "chmod -R 755 /service/resque_worker"
+end
+
+execute "resque web run" do
+  command "mkdir -p /service/resque_web && echo '#!/bin/sh' > /service/resque_web/run && echo 'exec resque-web' >> /service/resque_worker/run"
+end
+
+execute "executable" do
+  command "chmod -R 755 /service/resque_web"
 end
