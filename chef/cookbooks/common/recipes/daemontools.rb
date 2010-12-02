@@ -65,7 +65,7 @@ execute "executable" do
 end
 
 execute "resque worker run" do
-  command "mkdir -p /service/resque_worker && echo '#!/bin/sh' > /service/resque_worker/run && echo 'RAILS_ENV=production QUEUE=* HOME=/usr/local/app/diaspora exec /usr/local/bin/rake resque:work' >> /service/resque_worker/run"
+  command "mkdir -p /service/resque_worker && echo '#!/bin/sh' > /service/resque_worker/run && echo 'cd /user/local/app/diaspora && RAILS_ENV=production QUEUE=* HOME=/usr/local/app/diaspora exec /usr/local/bin/rake resque:work' >> /service/resque_worker/run"
 end
 
 execute "executable" do
