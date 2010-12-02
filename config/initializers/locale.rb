@@ -53,10 +53,10 @@ module I18n
     module Genderize
 
       def translate(locale, key, options = {})
-        subkey = options.delete(:gender)
-        if not (subkey.nil? || key.is_a?(Enumerable))
-          subkey = subkey.grammatical_gender if subkey.respond_to?(:grammatical_gender)
-          subkey = Genders.default unless Genders.has_key?(subkey.to_sym)
+        g = options.delete(:gender)
+        if not (g.nil? || key.is_a?(Enumerable))
+          g = g.to_sym
+          subkey = Genders[g.to_sym]
           key = "#{key}.#{subkey}".to_sym
         end
         super(locale, key, options)
