@@ -77,7 +77,6 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    SystemTimer (1.2.1)
     abstract (1.0.0)
     actionmailer (3.0.1)
       actionpack (= 3.0.1)
@@ -297,14 +296,6 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
-    redis (2.1.1)
-    redis-namespace (0.8.0)
-      redis (< 3.0.0)
-    resque (1.10.0)
-      json (~> 1.4.6)
-      redis-namespace (~> 0.8.0)
-      sinatra (>= 0.9.2)
-      vegas (~> 0.1.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     rspec (2.2.0)
@@ -339,9 +330,6 @@ GEM
       ffi (~> 0.6.3)
       json_pure
       rubyzip
-    sinatra (1.1.0)
-      rack (~> 1.1)
-      tilt (~> 1.1)
     subexec (0.0.4)
     systemu (1.2.0)
     term-ansicolor (1.0.5)
@@ -350,7 +338,6 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.14.6)
-    tilt (1.1)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     twitter (0.9.12)
@@ -360,8 +347,6 @@ GEM
       oauth (~> 0.4.3)
     tzinfo (0.3.23)
     uuidtools (2.1.1)
-    vegas (0.1.8)
-      rack (>= 1.0.0)
     warden (0.10.7)
       rack (>= 1.0.0)
     webmock (1.6.1)
@@ -375,7 +360,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  SystemTimer
   addressable
   aws
   bson (= 1.1)
@@ -409,8 +393,6 @@ DEPENDENCIES
   omniauth
   pubsubhubbub
   rails (= 3.0.1)
-  resque
-  rest-client
   roxml!
   rspec (>= 2.0.0)
   rspec-instafail

@@ -6,6 +6,7 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+
   settings: "Settings"
   profile: "Profile"
   account: "Account"
@@ -301,8 +302,6 @@ en:
           add_contact: "add contact"
       index:
           results_for: "search results for"
-      webfinger:
-          fail: "Sorry, we couldn't find %{handle}."
       show:
           no_posts: "no posts to display!"
           incoming_request: "You have an incoming request from this person."

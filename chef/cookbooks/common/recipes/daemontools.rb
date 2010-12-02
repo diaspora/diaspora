@@ -49,33 +49,9 @@ execute "executable" do
   command "chmod -R 755 /service/magent"
 end
 
-execute "redis run" do
-  command "mkdir -p /service/redis && echo '#!/bin/sh' > /service/redis/run && echo 'cd /usr/sbin/ && exec /usr/sbin/redis-server /usr/local/etc/redis.conf'  >> /service/redis/run"
-end
-execute "executable" do
-  command "chmod -R 755 /service/redis"
-end
-
 execute "nginx run" do
   command "mkdir -p /service/nginx && echo '#!/bin/sh' > /service/nginx/run && echo 'exec /usr/local/nginx/sbin/nginx' >> /service/nginx/run"
 end
-
 execute "executable" do
   command "chmod -R 755 /service/nginx"
-end
-
-execute "resque worker run" do
-  command "mkdir -p /service/resque_worker && echo '#!/bin/sh' > /service/resque_worker/run && echo 'cd /user/local/app/diaspora && RAILS_ENV=production QUEUE=* HOME=/usr/local/app/diaspora exec /usr/local/bin/rake resque:work' >> /service/resque_worker/run"
-end
-
-execute "executable" do
-  command "chmod -R 755 /service/resque_worker"
-end
-
-execute "resque web run" do
-  command "mkdir -p /service/resque_web && echo '#!/bin/sh' > /service/resque_web/run && echo 'RAILS_ENV=production HOME=/usr/local/app/diaspora exec resque-web -F' >> /service/resque_web/run"
-end
-
-execute "executable" do
-  command "chmod -R 755 /service/resque_web"
 end

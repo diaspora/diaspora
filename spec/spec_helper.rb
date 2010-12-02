@@ -39,13 +39,6 @@ RSpec.configure do |config|
   end
 end
 
-
-module Resque
-  def enqueue(klass, *args)
-    true
-  end
-end
-
 ImageUploader.enable_processing = false
 
   

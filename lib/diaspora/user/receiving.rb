@@ -1,28 +1,28 @@
-require File.join(Rails.root, 'lib/webfinger')
+require File.join(Rails.root, 'lib/em-webfinger')
 
 module Diaspora
   module UserModules
     module Receiving
       def receive_salmon salmon_xml
         salmon = Salmon::SalmonSlap.parse salmon_xml, self
-        webfinger = Webfinger.new(salmon.author_email)
-        begin
-          salmon_author = webfinger.fetch
-        rescue Exception => e
-          Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='#{e.message}'")
-        end
-        
-        if salmon.verified_for_key?(salmon_author.public_key)
-          self.receive(salmon.parsed_data, salmon_author)
-        else
-          Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='not_verified for key'")
-        end
+        webfinger = EMWebfinger.new(salmon.author_email)
+
+        webfinger.on_person { |response|
+          if response.is_a? Person
+            salmon_author = response
+            if salmon.verified_for_key?(salmon_author.public_key)
+              self.receive(salmon.parsed_data, salmon_author)
+            end
+          else
+            Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='#{response}'")
+          end
+        }
       end
 
       def receive xml, salmon_author
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.info("event=receive status=start recipient=#{self.diaspora_handle} payload_type=#{object.class} sender=#{salmon_author.diaspora_handle}")
-
+        
         if object.is_a?(Request)
           salmon_author.save
           object.sender_handle = salmon_author.diaspora_handle
@@ -39,25 +39,19 @@ module Diaspora
           return
         end
 
-        e = Webfinger.new(object.diaspora_handle)
+        e = EMWebfinger.new(object.diaspora_handle)
 
-        begin 
-          person = e.fetch
-        rescue Exception => e
-          Rails.logger.info("event=receive status=abort reason='#{e.message}' payload_type=#{object.class} recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle}")
-          return
-        end
-
-        if person
-          object.person = person if object.respond_to? :person=
-
-          unless object.is_a?(Request) || self.contact_for(salmon_author)
-            Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type=#{object.class}")
-            return
-          else
-            receive_object(object,person)
-            Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type#{object.class}")
-            return object
+        e.on_person do |person|
+          if person.class == Person
+            object.person = person if object.respond_to? :person=
+            unless object.is_a?(Request) || self.contact_for(salmon_author)
+              Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type=#{object.class}")
+              return
+            else
+              receive_object(object,person)
+              Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type#{object.class}")
+              return object
+            end
           end
         end
       end
@@ -108,7 +102,7 @@ module Diaspora
       def receive_comment comment
 
         commenter = comment.person
-
+      
         unless comment.post.person == self.person || comment.verify_post_creator_signature
           Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{comment.post.person.diaspora_handle} payload_type=#{comment.class} post_id=#{comment.post_id}")
           return
@@ -142,10 +136,10 @@ module Diaspora
       def receive_post post
         #exsists locally, but you dont know about it
         #does not exsist locally, and you dont know about it
-
+        
         #exsists_locally?
-        #you know about it, and it is mutable
-        #you know about it, and it is not mutable
+          #you know about it, and it is mutable
+          #you know about it, and it is not mutable
         #
         on_pod = exsists_on_pod?(post)
         if on_pod && on_pod.diaspora_handle == post.diaspora_handle 

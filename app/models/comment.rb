@@ -11,7 +11,7 @@ class HandleValidator < ActiveModel::Validator
 end
 
 class Comment
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
+  require File.join(Rails.root, 'lib/diaspora/websocket')
   require File.join(Rails.root, 'lib/youtube_titles')
   include YoutubeTitles
   include MongoMapper::Document

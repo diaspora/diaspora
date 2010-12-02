@@ -4,7 +4,7 @@
 
 class Post
   require File.join(Rails.root, 'lib/encryptable')
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
+  require File.join(Rails.root, 'lib/diaspora/websocket')
   include MongoMapper::Document
   include ApplicationHelper
   include ROXML

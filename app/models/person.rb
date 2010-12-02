@@ -8,7 +8,7 @@ class Person
   include MongoMapper::Document
   include ROXML
   include Encryptor::Public
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
+  require File.join(Rails.root, 'lib/diaspora/websocket')
   include Diaspora::Socketable
 
   xml_accessor :_id

@@ -30,7 +30,7 @@ class Retraction
     if self.type.constantize.find_by_id(post_id) 
       unless Post.first(:diaspora_handle => person.diaspora_handle, :id => post_id) 
         Rails.logger.info("event=retraction status=abort reason='no post found authored by retractor' sender=#{person.diaspora_handle} post_id=#{post_id}")
-        return 
+        raise "#{person.inspect} is trying to retract a post that either doesn't exist or is not by them"
       end
 
       begin
