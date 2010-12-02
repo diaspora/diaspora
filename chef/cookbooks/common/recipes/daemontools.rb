@@ -73,7 +73,7 @@ execute "executable" do
 end
 
 execute "resque web run" do
-  command "mkdir -p /service/resque_web && echo '#!/bin/sh' > /service/resque_web/run && echo 'exec resque-web' >> /service/resque_web/run"
+  command "mkdir -p /service/resque_web && echo '#!/bin/sh' > /service/resque_web/run && echo 'RAILS_ENV=production HOME=/usr/local/app/diaspora exec resque-web -F' >> /service/resque_web/run"
 end
 
 execute "executable" do
