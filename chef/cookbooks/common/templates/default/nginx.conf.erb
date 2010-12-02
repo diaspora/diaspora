@@ -36,6 +36,10 @@ http {
   <% end %>
   }
 
+  upstream resque_web {
+    server localhost:5678;
+  }
+
   server {
    listen       843;
 
@@ -49,6 +53,23 @@ http {
     root html;
    }
 
+  }
+
+  server {
+   listen  7894;
+   server_name  <%= @url %>  www.<%= @url %>;
+
+   auth_basic "Restricted";
+   auth_basic_user_file  htpasswd;
+
+   ssl on;
+   ssl_certificate      /usr/local/nginx/conf/diaspora.crt;
+   ssl_certificate_key  /usr/local/nginx/conf/diaspora.key;
+
+   location / {
+      proxy_set_header Host $http_host;
+      proxy_pass http://resque_web;
+   }
   }
 
   server {
