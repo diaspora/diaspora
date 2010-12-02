@@ -59,13 +59,6 @@ namespace :db do
     puts "you did it!"
   end
 
-  task :reset do
-    puts "making a new base user"
-    Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:dev'].invoke
-    puts "you did it!"
-  end
-
   desc 'Purge database, add a new user'
   task :first_user, :username, :password do |t, args|
     puts "Purging database and adding a new user"
@@ -74,8 +67,6 @@ namespace :db do
     Rake::Task['db:purge'].invoke
     Rake::Task['db:seed:first_user'].invoke(username, password)
   end
-
-
 
   task :fix_diaspora_handle do
     puts "fixing the people in this seed"

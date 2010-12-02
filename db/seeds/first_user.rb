@@ -5,9 +5,13 @@
 #   Add a parameterized user to database.
 #
 #
+#
 
-require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
-require File.join(File.dirname(__FILE__), '..', '..','config', 'initializers', '_load_app_config.rb')
+config_path = File.join (File.dirname(__FILE__), '..', '..', 'config')
+
+require File.join(config_path, 'environment')
+require File.join(config_path, 'initializers', '_load_app_config.rb')
+
 require 'yaml'
 
 def read_password
@@ -18,10 +22,6 @@ def read_password
             printf 'Enter password: '
             pw1 = $stdin.gets.chomp
             puts
-            if pw1.length < 6
-               puts "Too short (minimum 6 characters)"
-               next
-            end
             printf 'Again: '
             pw2 = $stdin.gets.chomp
             puts
@@ -44,25 +44,19 @@ else
     email = ARGS[:email]
 end
 
-if ARGS[:password] == nil
-    password = read_password
-else
-    password = ARGS[:password]
-end
+password = (ARGS[:password] == nil ? read_password : ARGS[:password])
 
-#printf "Building: %s, %s, '%s'\n", username, email, password
-
-user = User.build(  :email => email,
-                    :username => username,
-                    :password => password,
-                    :password_confirmation => password,
-                    :person => {
-                        :profile => {
-                            :first_name => username,
-                            :last_name => "Unknown",
-                            :image_url => "/images/user/default.png"
-                        }
-                    }
+user = User.build( :email => email,
+                   :username => username,
+                   :password => password,
+                   :password_confirmation => password,
+                   :person => {
+                       :profile => {
+                           :first_name => username,
+                           :last_name => "Unknown",
+                           :image_url => "/images/user/default.png"
+                       }
+                   }
                  )
 
 errors = user.errors
