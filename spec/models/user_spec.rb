@@ -167,22 +167,6 @@ describe User do
       end
     end
 
-    describe "of grammatical gender" do
-      after do
-        I18n.locale = :en
-      end
-      it "requires availability" do
-        user = Factory.build(:user, :grammatical_gender => 'some invalid string')
-        user.should_not be_valid
-      end
-
-      it "should save with empty grammatical gender if blank" do
-        I18n.locale = :pl
-        user = Factory(:user, :grammatical_gender => nil)
-        user.grammatical_gender.should == nil
-      end
-    end
-
    end
 
   describe ".build" do
