@@ -64,40 +64,6 @@ GIT
       activesupport (~> 3.0)
 
 GIT
-  remote: https://github.com/intridea/omniauth.git
-  revision: 3cdb4908d1a79df038be75e28077738584547cb6
-  specs:
-    oa-basic (0.2.0.beta1)
-      multi_json (~> 0.0.2)
-      nokogiri (~> 1.4.2)
-      oa-core (= 0.2.0.beta1)
-      rest-client (~> 1.6.0)
-    oa-core (0.2.0.beta1)
-      rack (~> 1.1)
-    oa-enterprise (0.2.0.beta1)
-      net-ldap (~> 0.1.1)
-      nokogiri (~> 1.4.2)
-      oa-core (= 0.2.0.beta1)
-      pyu-ruby-sasl (~> 0.0.3.1)
-      rubyntlm (~> 0.1.1)
-    oa-oauth (0.2.0.beta1)
-      multi_json (~> 0.0.2)
-      nokogiri (~> 1.4.2)
-      oa-core (= 0.2.0.beta1)
-      oauth (~> 0.4.0)
-      oauth2 (~> 0.1.0)
-    oa-openid (0.2.0.beta1)
-      oa-core (= 0.2.0.beta1)
-      rack-openid (~> 1.2.0)
-      ruby-openid-apps-discovery
-    omniauth (0.2.0.beta1)
-      oa-basic (= 0.2.0.beta1)
-      oa-core (= 0.2.0.beta1)
-      oa-enterprise (= 0.2.0.beta1)
-      oa-oauth (= 0.2.0.beta1)
-      oa-openid (= 0.2.0.beta1)
-
-GIT
   remote: https://github.com/jnunemaker/twitter.git
   revision: 4ba1444ea061c130836d671d0b451040687f757b
   specs:
@@ -274,6 +240,29 @@ GEM
     multipart-post (1.0.1)
     net-ldap (0.1.1)
     nokogiri (1.4.3.1)
+    oa-basic (0.1.6)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      rest-client (~> 1.6.0)
+    oa-core (0.1.6)
+      rack (~> 1.1)
+    oa-enterprise (0.1.6)
+      net-ldap (~> 0.1.1)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      pyu-ruby-sasl (~> 0.0.3.1)
+      rubyntlm (~> 0.1.1)
+    oa-oauth (0.1.6)
+      multi_json (~> 0.0.2)
+      nokogiri (~> 1.4.2)
+      oa-core (= 0.1.6)
+      oauth (~> 0.4.0)
+      oauth2 (~> 0.1.0)
+    oa-openid (0.1.6)
+      oa-core (= 0.1.6)
+      rack-openid (~> 1.2.0)
+      ruby-openid-apps-discovery
     oauth (0.4.4)
     oauth2 (0.1.0)
       faraday (~> 0.5.0)
@@ -285,6 +274,12 @@ GEM
       mixlib-config
       mixlib-log
       systemu
+    omniauth (0.1.6)
+      oa-basic (= 0.1.6)
+      oa-core (= 0.1.6)
+      oa-enterprise (= 0.1.6)
+      oa-oauth (= 0.1.6)
+      oa-openid (= 0.1.6)
     plucky (0.3.6)
       mongo (~> 1.1)
     polyglot (0.3.1)
@@ -404,7 +399,7 @@ DEPENDENCIES
   mongo_mapper!
   mongrel
   nokogiri (= 1.4.3.1)
-  omniauth!
+  omniauth (= 0.1.6)
   pubsubhubbub
   rails (= 3.0.1)
   roxml!

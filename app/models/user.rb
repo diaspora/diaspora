@@ -4,7 +4,7 @@
 
 require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
-
+require 'rest-client'
 class User
   include MongoMapper::Document
   include Diaspora::UserModules
@@ -179,13 +179,13 @@ class User
   def post_to_facebook(service, message)
     Rails.logger.info("Sending a message: #{message} to Facebook")
     begin
-      RestClient.post("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{service.access_token}")
+      RestClient.post("https://graph.facebook.com/me/feed", :message => message, :access_token => service.access_token)
     rescue Exception => e
       Rails.logger.info("#{e.message} failed to post to facebook")
     end
   end
 
-  def post_to_twitter(service, message)
+ def post_to_twitter(service, message)
 
     Twitter.configure do |config|
       config.consumer_key = SERVICES['twitter']['consumer_token']

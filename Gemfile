@@ -13,7 +13,7 @@ gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo
 gem 'devise_invitable','0.3.5'
 
 #Authentication
-gem 'omniauth', :git => 'https://github.com/intridea/omniauth.git'
+gem 'omniauth', '0.1.6'
 gem 'twitter', :git => 'https://github.com/jnunemaker/twitter.git'
 
 #Mongo
