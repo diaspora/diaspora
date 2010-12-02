@@ -1,0 +1,15 @@
+module Jobs
+  class SocketWebfinger
+    @queue = :receive
+    def self.perform(user_id, account, opts={})
+      finger = Webfinger.new(account)
+      begin
+        result = finger.fetch
+        result.socket_to_uid(user_id, opts)
+      rescue
+        Diaspora::WebSocket.queue_to_user(user_id, {:class => 'people', :status => 'fail', :query => account, :response => I18n.t('people.webfinger.fail')}.to_json)
+      end
+    end
+  end
+end
+

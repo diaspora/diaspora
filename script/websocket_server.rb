@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require File.dirname(__FILE__) + '/../config/environment'
-require File.dirname(__FILE__) + '/../lib/diaspora/websocket'
+require File.dirname(__FILE__) + '/../lib/diaspora/web_socket'
 
 at_exit do
   begin

@@ -48,9 +48,13 @@ gem 'mini_magick'
 gem 'aws'
 gem 'fastercsv', :require => false
 gem 'jammit'
-
+gem 'rest-client'
 #Backups
 gem "cloudfiles", :require => false
+
+#Queue
+gem 'resque'
+gem 'SystemTimer'
 
 group :test, :development do
   gem 'factory_girl_rails'
