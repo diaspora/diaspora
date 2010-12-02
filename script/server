@@ -101,4 +101,4 @@ bundle exec ruby ./script/websocket_server.rb&
 bundle exec magent start --log-path=log/ &
 bundle exec thin start $args
 
-# vim: ts=4 sw=4 expandtab
+# vim:ts=4:sw=4:expandtab
