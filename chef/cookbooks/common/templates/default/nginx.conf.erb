@@ -35,9 +35,6 @@ http {
     server <%="localhost:#{port}"%>;
   <% end %>
   }
-  upstream resque_web {
-    server "localhost:5678";
-  }
 
   server {
    listen       843;
@@ -52,24 +49,6 @@ http {
     root html;
    }
 
-  }
-  server {
-   listen       80;
-   server_name  resque.<%= @url %>;
-   rewrite      ^(.*) https://resque.<%= @url %>$1 permanent;
-  }
-  server {
-
-   listen       443;
-   server_name  resque.<%= @url %>;
-
-   ssl on;
-   ssl_certificate      /usr/local/nginx/conf/diaspora.crt;
-   ssl_certificate_key  /usr/local/nginx/conf/diaspora.key;
-
-   location / {
-    proxy_pass http://resque_web;
-   }
   }
 
   server {
@@ -87,6 +66,7 @@ http {
    ssl on;
    ssl_certificate      <%= @cert_location %>;
    ssl_certificate_key  <%= @key_location %>;
+
 
    location / {
     proxy_set_header X-Real-IP $remote_addr;
