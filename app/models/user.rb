@@ -168,22 +168,34 @@ class User
     Rails.logger.info("event=dispatch user=#{diaspora_handle} post=#{post.id.to_s}")
     push_to_aspects(post, aspects_from_ids(aspect_ids))
 
-    if post.public
+    if post.public && post.respond_to?(:message)
+      message = opts[:url] ? "#{post.message}%20#{opts[:url]}" : post.message
       self.services.each do |service|
-        self.send("post_to_#{service.provider}".to_sym, service, post.message)
+        self.send("post_to_#{service.provider}".to_sym, service, message)
       end
     end
   end
 
   def post_to_facebook(service, message)
     Rails.logger.info("Sending a message: #{message} to Facebook")
-    EventMachine::HttpRequest.new("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{service.access_token}").post
+    begin
+      RestClient.post("https://graph.facebook.com/me/feed?message=#{message}&access_token=#{service.access_token}")
+    rescue Exception => e
+      Rails.logger.info("#{e.message} failed to post to facebook")
+    end
   end
 
   def post_to_twitter(service, message)
-    oauth = Twitter::OAuth.new(SERVICES['twitter']['consumer_token'], SERVICES['twitter']['consumer_secret'])
-    oauth.authorize_from_access(service.access_token, service.access_secret)
-    client = Twitter::Base.new(oauth)
+
+    Twitter.configure do |config|
+      config.consumer_key = SERVICES['twitter']['consumer_token']
+      config.consumer_secret = SERVICES['twitter']['consumer_secret']
+      config.oauth_token = service.access_token
+      config.oauth_token_secret = service.access_secret
+    end
+
+    client = Twitter::Client.new
+
     client.update(message)
   end
 

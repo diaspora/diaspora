@@ -14,7 +14,7 @@ gem 'devise_invitable','0.3.5'
 
 #Authentication
 gem 'omniauth'
-gem 'twitter', '0.9.12'
+gem 'twitter', '1.0.0.rc.8'
 
 #Mongo
 gem 'mongo_mapper', :branch => 'rails3', :git => 'git://github.com/jnunemaker/mongomapper.git'

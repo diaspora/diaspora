@@ -27,7 +27,8 @@ class StatusMessagesController < ApplicationController
 
       @status_message.photos += photos unless photos.nil?
       current_user.add_to_streams(@status_message, params[:status_message][:aspect_ids])
-      current_user.dispatch_post(@status_message, :to => params[:status_message][:aspect_ids])
+      current_user.dispatch_post(@status_message, :to => params[:status_message][:aspect_ids], :url => post_path(@status_message))
+      
 
       for photo in photos
         current_user.add_to_streams(photo, params[:status_message][:aspect_ids])

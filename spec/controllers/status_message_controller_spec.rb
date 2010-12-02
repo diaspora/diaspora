@@ -99,6 +99,10 @@ describe StatusMessagesController do
         user.should_not_receive(:post_to_facebook)
         post :create, status_message_hash
       end
+
+      it 'should include the permalink to the post' do
+        pending
+      end
     end
 
     context "posting to twitter" do
@@ -113,6 +117,9 @@ describe StatusMessagesController do
         status_message_hash[:status_message][:public] = 'false'
         user.should_not_receive(:post_to_twitter)
         post :create, status_message_hash
+      end
+
+      it 'should include a permalink to the post' do
       end
     end
   end

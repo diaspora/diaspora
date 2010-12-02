@@ -37,4 +37,3 @@ describe Post do
     end
   end
 end
-

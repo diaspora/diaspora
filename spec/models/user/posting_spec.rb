@@ -71,6 +71,7 @@ describe User do
   end
 
   describe '#dispatch_post' do
+    include Rails.application.routes.url_helpers 
     let(:status) {user.build_post(:status_message, @status_opts)}
     before do
       @message = "hello, world!"
@@ -91,8 +92,25 @@ describe User do
       user.should_not_receive(:post_to_facebook)
       user.dispatch_post(status, :to => "all")
     end
-  end
 
+     it 'includes a permalink to my post' do
+      @status_opts[:public] = true
+      status.save
+      user.should_receive(:post_to_twitter).with(service1, @message+ "%20#{post_path(status)}").once
+      user.should_receive(:post_to_facebook).with(service2, @message + "%20#{post_path(status)}").once
+      user.dispatch_post(status, :to => "all", :url => post_path(status))
+    end
+
+     it 'only pushes to services if it is a status message' do
+        photo = Photo.new()
+        photo.public = true
+        user.stub!(:push_to_aspects)
+        user.should_not_receive(:post_to_twitter)
+        user.should_not_receive(:post_to_facebook)
+        user.dispatch_post(photo, :to =>"all")
+     end
+  end
+  
   describe '#post' do
     it 'should not create a post with invalid aspect' do
       pending "this would just cause db polution"

@@ -1,0 +1,36 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :head do
+  = include_javascripts :photos
+
+#author_info
+  = person_image_link(@post.person)
+  .from
+    %h2
+      = @post.person.name
+.span-14.append-1.last
+  #show_photo{:data=>{:guid=>@ost.id}}
+    = image_tag @post.url(:scaled_full)
+
+    #caption
+      = @post.caption
+
+  %br
+
+.span-9.last
+  - if @post.status_message_id
+    #original_post_info
+      %h4{:style=>"position:relative;"}
+        = t('.original_post')
+        = link_to t('.view'), @post.status_message
+
+      %p
+        = @post.status_message.message
+
+      %p
+        - for photo in @post.status_message.photos
+          = link_to (image_tag photo.url(:thumb_small)), photo_path(photo)
+      %p
+        = link_to 'permalink', post_path(@post)

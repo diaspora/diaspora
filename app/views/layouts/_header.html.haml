@@ -2,14 +2,14 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.container{:style => "position:relative;"}
+.container#head{:style => "position:relative;"}
 
   - if current_user
     = link_to image_tag('diaspora_logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), root_path
   - else
     = link_to image_tag('diaspora_logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
 
-  - unless current_user
+  - unless current_user 
     .right
       %ul#landing_nav
         %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
@@ -33,18 +33,19 @@
       %li= link_to t('.account_settings'), edit_user_path(current_user)
       %li= link_to t('.logout'), destroy_user_session_path
 
-    #aspect_nav
-      %ul
-        %li{:class => ("selected" if @aspect == :all)}
-          = link_to ((@request_count == 0)? t('_home') : "#{t('_home')} (#{@request_count})"), root_path, :class => new_request?(@request_count)
+    -unless @landing_page
+      #aspect_nav
+        %ul
+          %li{:class => ("selected" if @aspect == :all)}
+            = link_to ((@request_count == 0)? t('_home') : "#{t('_home')} (#{@request_count})"), root_path, :class => new_request?(@request_count)
 
-        - for aspect in @aspects
-          %li{:class => ("selected" if current_aspect?(aspect))}
-            = link_for_aspect aspect
-        %li
-          = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect')
+          - for aspect in @aspects
+            %li{:class => ("selected" if current_aspect?(aspect))}
+              = link_for_aspect aspect
+          %li
+            = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect')
 
-      .fancybox_content
-        #add_aspect_pane
-          = render "aspects/new_aspect"
+        .fancybox_content
+          #add_aspect_pane
+            = render "aspects/new_aspect"
 
