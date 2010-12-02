@@ -6,6 +6,7 @@ class MessageHandler
 
   NUM_TRIES = 3
   TIMEOUT = 10 #seconds
+  REDIRECTS = 3
 
   def initialize
     @queue = EM::Queue.new
@@ -32,13 +33,13 @@ class MessageHandler
     @queue.pop{ |query|
       case query.type
       when :post
-        http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :body =>{:xml => query.body}
+        http = EventMachine::HttpRequest.new(query.destination).post :timeout => TIMEOUT, :redirects => REDIRECTS, :body =>{:xml => query.body}
         http.callback { process; process}
       when :get
-        http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT
+        http = EventMachine::HttpRequest.new(query.destination).get :timeout => TIMEOUT, :redirects => REDIRECTS
         http.callback {process}
       when :hub_publish
-        http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT
+        http = EventMachine::PubSubHubbub.new(query.destination).publish query.body, :timeout => TIMEOUT, :redirects => REDIRECTS
         http.callback {process}
       else
         raise "message is not a type I know!"
