@@ -35,6 +35,9 @@ http {
     server <%="localhost:#{port}"%>;
   <% end %>
   }
+  upstream resque_web {
+    server "localhost:5678";
+  }
 
   server {
    listen       843;
@@ -49,6 +52,24 @@ http {
     root html;
    }
 
+  }
+  server {
+   listen       80;
+   server_name  resque.<%= @url %>;
+   rewrite      ^(.*) https://resque.<%= @url %>$1 permanent;
+  }
+  server {
+
+   listen       443;
+   server_name  resque.<%= @url %>;
+
+   ssl on;
+   ssl_certificate      /usr/local/nginx/conf/diaspora.crt;
+   ssl_certificate_key  /usr/local/nginx/conf/diaspora.key;
+
+   location / {
+    proxy_pass http://resque_web;
+   }
   }
 
   server {
@@ -85,24 +106,13 @@ http {
     if (!-f $request_filename) {
      proxy_pass http://thin_cluster;
      break;
+    }
    }
- }
-  server {
 
-   listen       443;
-   server_name  <%= @url %> resque.<%= @url %>;
-
-   ssl on;
-   ssl_certificate      <%= @cert_location %>;
-   ssl_certificate_key  <%= @key_location %>;
-
-   proxy_pass localhost:5678
-  }
-
- error_page 500 502 503 504 /50x.html;
- location = /50x.html {
-   root html;
- }
+   error_page 500 502 503 504 /50x.html;
+   location = /50x.html {
+    root html;
+   }
 
 }
 
