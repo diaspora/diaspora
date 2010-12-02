@@ -40,6 +40,11 @@ class ServicesController < ApplicationController
     end
   end
 
+
+  def failure
+    puts params.inspect
+  end
+
   def destroy
     @service = current_user.services.find(params[:id])
     @service.destroy
