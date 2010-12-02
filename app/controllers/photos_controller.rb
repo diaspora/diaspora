@@ -55,15 +55,15 @@ class PhotosController < ApplicationController
       end
 
     rescue TypeError
-      message = I18n.t('photos.create.type_error', :gender => current_user)
+      message = I18n.t 'photos.create.type_error'
       respond_with :location => photos_path, :error => message
 
     rescue CarrierWave::IntegrityError
-      message = I18n.t('photos.create.integrity_error', :gender => current_user)
+      message = I18n.t 'photos.create.integrity_error'
       respond_with :location => photos_path, :error => message
 
     rescue RuntimeError => e
-      message = I18n.t('photos.create.runtime_error', :gender => current_user)
+      message = I18n.t 'photos.create.runtime_error'
       respond_with :location => photos_path, :error => message
       raise e
     end

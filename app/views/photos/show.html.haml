@@ -33,7 +33,7 @@
           = p.text_field :caption, :value => @photo.caption
           = p.submit t('.update_photo')
       %p
-        = button_to t('.delete_photo'), @photo, :confirm => t('are_you_sure', :gender => current_user), :method => :delete
+        = button_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete
 
 .span-9.last
   - if @photo.status_message_id
