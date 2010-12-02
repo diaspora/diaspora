@@ -1,33 +1,35 @@
 require File.join(Rails.root, 'lib/hcard')
 require File.join(Rails.root, 'lib/webfinger_profile')
 
-class EMWebfinger
+class Webfinger
+  class WebfingerFailedError < RuntimeError; end
   TIMEOUT = 5
   REDIRECTS = 3
   OPTS = {:timeout => TIMEOUT, :redirects => REDIRECTS}
   def initialize(account)
     @account = account.strip.gsub('acct:','').to_s
     @ssl = true 
-    Rails.logger.info("event=EMWebfinger status=initialized target=#{account}")
-    # Raise an error if identifier has a port number 
-    #raise "Identifier is invalid" if(@account.strip.match(/\:\d+$/))
-    # Raise an error if identifier is not a valid email (generous regexp)
-    #raise "Identifier is invalid" if !(@account=~ /^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$/)
+    Rails.logger.info("event=webfinger status=initialized target=#{account}")
   end 
 
   def fetch
     person = Person.by_account_identifier(@account)
     if person
-      Rails.logger.info("event=EMWebfinger status=local target=#{@account}")
+      Rails.logger.info("event=webfinger status=success route=local target=#{@account}")
       return person
-    else
-      Rails.logger.info("event=EMWebfinger status=remote target=#{@account}")
-
-      profile_url = get_xrd
-      webfinger_profile = get_webfinger_profile(profile_url) 
-      fingered_person = make_person_from_webfinger(webfinger_profile) 
-      fingered_person
     end
+
+    profile_url = get_xrd
+    webfinger_profile = get_webfinger_profile(profile_url) 
+    fingered_person = make_person_from_webfinger(webfinger_profile) 
+    if fingered_person
+      Rails.logger.info("event=webfinger status=success route=remote target=#{@account}")
+      fingered_person
+    else
+      Rails.logger.info("event=webfinger status=failure route=remote target=#{@account}")
+      raise WebfingerFailedError.new(@account)
+    end
+    
   end
 
   private

@@ -1,23 +1,21 @@
-require File.join(Rails.root, 'lib/em-webfinger')
+require File.join(Rails.root, 'lib/webfinger')
 
 module Diaspora
   module UserModules
     module Receiving
       def receive_salmon salmon_xml
         salmon = Salmon::SalmonSlap.parse salmon_xml, self
-        webfinger = EMWebfinger.new(salmon.author_email)
+        webfinger = Webfinger.new(salmon.author_email)
         begin
           salmon_author = webfinger.fetch
         rescue Exception => e
           Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='#{e.message}'")
         end
         
-        if salmon_author
-          if salmon.verified_for_key?(salmon_author.public_key)
-            self.receive(salmon.parsed_data, salmon_author)
-          else
-            Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='not_verified for key'")
-          end
+        if salmon.verified_for_key?(salmon_author.public_key)
+          self.receive(salmon.parsed_data, salmon_author)
+        else
+          Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='not_verified for key'")
         end
       end
 
@@ -41,7 +39,7 @@ module Diaspora
           return
         end
 
-        e = EMWebfinger.new(object.diaspora_handle)
+        e = Webfinger.new(object.diaspora_handle)
 
         begin 
           person = e.fetch

@@ -4,15 +4,15 @@
 
 require 'spec_helper'
 
-require File.join(Rails.root, 'lib/em-webfinger')
+require File.join(Rails.root, 'lib/webfinger')
 
-describe EMWebfinger do
+describe Webfinger do
   let(:user1) { make_user }
   let(:user2) { make_user }
 
   let(:account) {"foo@tom.joindiaspora.com"}
   let(:person){ Factory(:person, :diaspora_handle => account)}
-  let(:finger){EMWebfinger.new(account)}
+  let(:finger){Webfinger.new(account)}
 
 
   let(:good_request) { FakeHttpRequest.new(:success)}
@@ -32,12 +32,12 @@ describe EMWebfinger do
 
     describe '#intialize' do
       it 'sets account ' do
-        n = EMWebfinger.new("mbs348@gmail.com")
+        n = Webfinger.new("mbs348@gmail.com")
         n.instance_variable_get(:@account).should_not be nil
       end
 
       it 'should set ssl as the default' do
-        foo = EMWebfinger.new(account)
+        foo = Webfinger.new(account)
         foo.instance_variable_get(:@ssl).should be true
       end
     end
@@ -83,13 +83,13 @@ describe EMWebfinger do
         RestClient.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
         #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
         # http://tom.joindiaspora.com/.well-known/host-meta 
-        f = EMWebfinger.new("tom@tom.joindiaspora.com").fetch
+        f = Webfinger.new("tom@tom.joindiaspora.com").fetch
         f.should be_valid
 
       end
       
       it 'should retry with http if https fails' do
-        f = EMWebfinger.new("tom@tom.joindiaspora.com") 
+        f = Webfinger.new("tom@tom.joindiaspora.com") 
 
         diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
         RestClient.should_receive(:get).twice.and_return(nil, diaspora_xrd)

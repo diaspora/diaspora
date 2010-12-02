@@ -94,6 +94,13 @@ describe PeopleController do
     end
   end
 
+  describe '#retrieve_remote' do
+    it 'sockets a local user' do
+      Diaspora::WebSocket.should_receive(:queue_to_user).with(user.id, anything)
+      get :retrieve_remote, :diaspora_handle => user.diaspora_handle
+    end
+  end
+
   describe '#update' do
     context 'with a profile photo set' do
       before do
