@@ -1,5 +1,4 @@
-%script{:type => "text/javascript",
-        :src  => "/javascripts/validation.js"}
+= javascript_include_tag "validation"
 
 = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put }) do |f|
   %p
