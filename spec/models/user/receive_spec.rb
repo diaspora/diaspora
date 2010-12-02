@@ -15,21 +15,9 @@ describe User do
   let(:user3) { make_user }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
-
   before do
     connect_users(user, aspect, user2, aspect2)
   end
-
-
-
-
-
-
-
-
-
-
-
 
   it 'should stream only one message to the everyone aspect when a multi-aspected contacts posts' do
     user.add_person_to_aspect(user2.person.id, user.aspects.create(:name => "villains").id)
@@ -61,7 +49,8 @@ describe User do
 
   describe '#receive_salmon' do
    it 'should handle the case where the webfinger fails' do
-    EMWebfinger.stub!(:fetch).and_return(nil)
+     pending "Write this to test #receive_salmon"
+    Webfinger.stub!(:fetch).and_return(nil)
 
     proc{
       user2.post :status_message, :message => "store this!", :to => aspect2.id
