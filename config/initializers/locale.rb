@@ -88,6 +88,7 @@ module I18n
 
       # Deduce grammatical gender using given gender and mapping.
       def guess(gender_description="")
+        gender_description ||= ""
         @genders_guesser[gender_description.downcase.to_sym]
       end
       module_function :guess
