@@ -3,7 +3,7 @@ describe("Validation", function() {
     describe("username", function() {
       describe("characters", function() {
         it("is the regex for checking if we allow what the user typed", function() { 
-          expect(typeof Validation.rules.username.characters).toEqual("function");
+          expect((typeof Validation.rules.username.characters.test === "function")).toBeTruthy();
         });
       });
     });
