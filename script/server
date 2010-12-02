@@ -102,4 +102,4 @@ redis-server&
 QUEUE=* bundle exec rake resque:work&
 bundle exec thin start $args
 
-# vim: ts=4 sw=4 expandtab
+# vim:ts=4:sw=4:expandtab
