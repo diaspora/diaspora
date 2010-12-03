@@ -56,15 +56,7 @@ GIT
       plucky (~> 0.3.6)
 
 GIT
-  remote: git://github.com/rsofaer/carrierwave.git
-  revision: c3dfbdda2fa227af91fe383bb126f59b991a318f
-  branch: master
-  specs:
-    carrierwave (0.5.0)
-      activesupport (~> 3.0)
-
-GIT
-  remote: https://github.com/jnunemaker/twitter.git
+  remote: git://github.com/jnunemaker/twitter.git
   revision: ef122bbb280e229ed34347c235c68aa9349d0d8e
   ref: ef122bbb280e229ed343
   specs:
@@ -75,6 +67,14 @@ GIT
       multi_json (~> 0.0.5)
       multi_xml (~> 0.2.0)
       simple_oauth (~> 0.1.2)
+
+GIT
+  remote: git://github.com/rsofaer/carrierwave.git
+  revision: c3dfbdda2fa227af91fe383bb126f59b991a318f
+  branch: master
+  specs:
+    carrierwave (0.5.0)
+      activesupport (~> 3.0)
 
 PATH
   remote: vendor/gems/jasmine
