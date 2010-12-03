@@ -16,12 +16,12 @@
 
   = form_for User.new, :url => invitation_path(User) do |invite|
     %h4
-      Email
+      = t('email')
     = invite.text_field :email, :title => t('.comma_seperated_plz')
     %br
 
     %h4
-      Aspect
+      = t('.aspect')
     - unless @aspect.is_a? Aspect
       = invite.select(:aspects, @aspects_dropdown_array)
     - else 

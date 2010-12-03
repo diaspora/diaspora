@@ -24,11 +24,11 @@
     - if @posts.count > 0
       -if @post_type == :photos
         %h4
-          Photos
+          = t('_photos')
         = render 'photos/index', :photos => @posts
       - else
         %h4
-          Recent Posts
+          = t('.recent_posts')
         = render 'shared/stream', :posts => @post_hashes
       = will_paginate @posts
 
