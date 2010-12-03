@@ -86,23 +86,27 @@ describe User do
       aspect.reload
     end
 
-    it "should add a received post to the aspect and visible_posts array" do
+    it "adds a received post to the aspect and visible_posts array" do
       user.raw_visible_posts.include?(@status_message).should be_true
       aspect.posts.include?(@status_message).should be_true
     end
 
-    it 'should be removed on disconnecting' do
+    it 'removes posts upon disconnecting' do
       user.disconnect(user2.person)
       user.reload
       user.raw_visible_posts.should_not include @status_message
     end
 
-    it 'should be remove a post if the noone links to it' do
+    it 'deletes a post if the noone links to it' do
       person = user2.person
-      user2.delete
-      person.reload
+      person.owner_id = nil
+      person.save
+      @status_message.user_refs = 1
+      @status_message.save
 
-      lambda {user.disconnect(person)}.should change(Post, :count).by(-1)
+      lambda {
+        user.disconnected_by(user2.person)
+      }.should change(Post, :count).by(-1)
     end
 
     it 'should keep track of user references for one person ' do
