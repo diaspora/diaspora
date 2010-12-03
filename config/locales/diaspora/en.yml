@@ -373,6 +373,8 @@ en:
           success: "Authentication successful."
       destroy:
           success: "Successfully destroyed authentication."
+      failure:
+          error: "there was an error connecting that service"
   notifier:
       hello: "Hello %{name}!"
       love: "love,"
