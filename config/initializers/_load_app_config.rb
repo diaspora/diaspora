@@ -27,3 +27,5 @@ APP_CONFIG[:pod_url].chop! if APP_CONFIG[:pod_url][-1, 1] == '/'
 APP_CONFIG[:pod_url] = APP_CONFIG[:pod_url] + '/'
 
 puts "WARNING: Please modify your app_config.yml to have a proper pod_url!" if APP_CONFIG[:terse_pod_url] == "example.org" && Rails.env != "test"
+Rails.logger.fatal(
+  "event=app_config_loaded time='#{Time.now}'")
