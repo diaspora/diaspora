@@ -381,8 +381,8 @@ class User
       self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-      self.person.save!
       self.save!
+      self.person.save!
       invitations_to_me.each{|invitation| invitation.to_request!}
 
       self.reload # Because to_request adds a request and saves elsewhere
