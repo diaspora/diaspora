@@ -13,29 +13,17 @@ class ServicesController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
 
-    pp auth['credentials']
-
     toke = auth['credentials']['token']
     secret = auth['credentials']['secret']
-
 
     provider = auth['provider']
     user     = auth['user_info']
 
-    if provider == 'twitter'
-      access_token = auth['extra']['access_token']
-      current_user.services.create(:nickname => user['nickname'],
-                                   :access_token => toke, 
-                                   :access_secret => secret,
-                                   :provider => provider, 
-                                   :uid => auth['uid'])
-                                   
-    elsif provider == 'facebook'
-      current_user.services.create(:nickname => user['nickname'],
-                                   :access_token => auth['credentials']['token'],
-                                   :provider => provider, 
-                                   :uid => auth['uid'])
-    end
+    current_user.services.create(:nickname => user['nickname'],
+                                 :access_token => toke, 
+                                 :access_secret => secret,
+                                 :provider => provider, 
+                                 :uid => auth['uid'])
 
     flash[:notice] = I18n.t 'services.create.success'
     if current_user.getting_started

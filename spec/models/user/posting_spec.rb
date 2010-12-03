@@ -96,8 +96,8 @@ describe User do
      it 'includes a permalink to my post' do
       @status_opts[:public] = true
       status.save
-      user.should_receive(:post_to_twitter).with(service1, @message+ "%20#{post_path(status)}").once
-      user.should_receive(:post_to_facebook).with(service2, @message + "%20#{post_path(status)}").once
+      user.should_receive(:post_to_twitter).with(service1, @message+ " #{post_path(status)}").once
+      user.should_receive(:post_to_facebook).with(service2, @message + " #{post_path(status)}").once
       user.dispatch_post(status, :to => "all", :url => post_path(status))
     end
 

@@ -14,8 +14,8 @@
       = markdownify(@post.message, :youtube_maps => @post[:youtube_titles])
 
     - for photo in @post.photos
-      = link_to (image_tag photo.url(:thumb_small)), photo_path(photo)
+      = link_to (image_tag photo.url(:thumb_small)), post_path(photo)
 
   .time
     = how_long_ago(@post)
-  = link_to 'permalink', post_path(@post)
+  = link_to t('status_messages.show.permalink'), post_path(@post)

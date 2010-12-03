@@ -9,7 +9,8 @@ class User
   include MongoMapper::Document
   include Diaspora::UserModules
   include Encryptor::Private
-
+  include ActionView::Helpers::TextHelper
+  
   plugin MongoMapper::Devise
 
   QUEUE = MessageHandler.new
@@ -169,7 +170,14 @@ class User
     push_to_aspects(post, aspects_from_ids(aspect_ids))
 
     if post.public && post.respond_to?(:message)
-      message = opts[:url] ? "#{post.message}%20#{opts[:url]}" : post.message
+      
+      if opts[:url]
+        message = truncate(post.message, :length => (140 - (opts[:url].length + 1)))
+        message = "#{message} #{opts[:url]}"
+      else
+        message = post.message
+      end
+
       self.services.each do |service|
         self.send("post_to_#{service.provider}".to_sym, service, message)
       end
@@ -193,10 +201,8 @@ class User
       config.oauth_token = service.access_token
       config.oauth_token_secret = service.access_secret
     end
-
-    client = Twitter::Client.new
-
-    client.update(message)
+    
+    Twitter.update(message)
   end
 
   def update_post(post, post_hash = {})

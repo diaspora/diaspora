@@ -18,7 +18,8 @@ describe ServicesController do
 
   let(:omniauth_auth) {{ 'provider' => 'twitter', 'uid' => '2', 
                          'user_info' => { 'nickname' => 'grimmin' },
-                         'extra' => { 'access_token' => mock_access_token }}}
+                         'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" }
+                      }}
 
   before do
     sign_in :user, user

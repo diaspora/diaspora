@@ -12,8 +12,9 @@ class PostsController < ApplicationController
     @post = Post.first(:id => params[:id], :public => true)
     @landing_page = true
     if @post
-      render "posts/#{@post.class.to_s.snake_case}", :layout => true
+      render "posts/#{@post.class.to_s.underscore}", :layout => true
     else
+      flash[:error] = "that post does not exsist!"
       redirect_to root_url
     end    
   end

@@ -232,6 +232,7 @@ en:
           edit: "edit"
           edit_delete_photo: "Edit photo description / delete photo"
           original_post: "Original Post"
+          permalink: "permalink"
       edit:
           editing: "Editing"
       photo:
@@ -292,6 +293,7 @@ en:
           oh_yeah: "oh yeah!"
       show:
           destroy: "Destroy"
+          permalink: "permalink"
       helper:
           no_message_to_display: "No message to display."
   people:
