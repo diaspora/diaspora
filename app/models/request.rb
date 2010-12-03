@@ -6,7 +6,6 @@ class Request
   require File.join(Rails.root, 'lib/diaspora/webhooks')
   
   include MongoMapper::Document
-  include Magent::Async
   include Diaspora::Webhooks
   include ROXML
 
@@ -23,8 +22,6 @@ class Request
   validate :not_already_connected_if_not_sent
   validate :no_pending_request, :if => :sent
   validate :not_friending_yourself
-  
-  #before_validation :clean_link
   
   scope :from, lambda { |person| 
     target = (person.is_a?(User) ? person.person : person)
@@ -51,26 +48,10 @@ class Request
     )
   end
 
-  
-  def self.send_request_accepted(user, person, aspect)
-    self.async.send_request_accepted!(user.id, person.id, aspect.id).commit!
-  end
-
-  def self.send_request_accepted!(user_id, person_id, aspect_id)
-    Notifier.request_accepted(user_id, person_id, aspect_id).deliver
-  end
-
-  def self.send_new_request(user, person)
-    self.async.send_new_request!(user.id, person.id).commit!
-  end
-
-  def self.send_new_request!(user_id, person_id)
-    Notifier.new_request(user_id, person_id).deliver
-  end
-
   def sender_handle
     from.diaspora_handle
   end
+
   def sender_handle= sender_handle
     self.from = Person.first(:diaspora_handle => sender_handle)
   end
@@ -78,6 +59,7 @@ class Request
   def recipient_handle
     to.diaspora_handle
   end
+  
   def recipient_handle= recipient_handle
     self.to = Person.first(:diaspora_handle => recipient_handle)
   end

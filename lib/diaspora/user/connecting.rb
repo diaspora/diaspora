@@ -56,22 +56,21 @@ module Diaspora
       end
 
       def receive_contact_request(contact_request)
-        Rails.logger.info("receiving contact request #{contact_request.to_json}")
 
         #response from a contact request you sent
         if original_request = original_request(contact_request)
           receive_request_acceptance(contact_request, original_request)
 
-          #this is a new contact request
+        #this is a new contact request
         elsif !request_from_me?(contact_request)
           if contact_request.save!
             self.pending_requests << contact_request
             self.save!
-            Rails.logger.info("#{self.name} has received a contact request")
-            Request.send_new_request(self, contact_request.from)
+            Rails.logger.info("event=contact_request status=received_new_request from=#{contact_request.from.diaspora_handle} to=#{self.diaspora_handle}")
+            Resque.enqueue(Jobs::MailRequestReceived, self.id, contact_request.from.id)
           end
         else
-          Rails.logger.info "#{self.name} is trying to receive a contact request from himself."
+          Rails.logger.info "event=contact_request status=abort from=#{contact_request.from.diaspora_handle} to=#{self.diaspora_handle} reason=self-love"
           return nil
         end
         contact_request
@@ -80,13 +79,13 @@ module Diaspora
       def receive_request_acceptance(received_request, sent_request)
         destination_aspect = self.aspect_by_id(sent_request.into_id)
         activate_contact(received_request.from, destination_aspect)
-        Rails.logger.info("#{self.name}'s contact request has been accepted")
+        Rails.logger.info("event=contact_request status=received_acceptance from=#{received_request.from.diaspora_handle} to=#{self.diaspora_handle}")
 
         received_request.destroy
         pending_requests.delete(sent_request)
         sent_request.destroy
         self.save
-        Request.send_request_accepted(self, received_request.from, destination_aspect)
+        Resque.enqueue(Jobs::MailRequestAcceptance, self.id, received_request.from.id, destination_aspect.id)
       end
 
       def disconnect(bad_contact)

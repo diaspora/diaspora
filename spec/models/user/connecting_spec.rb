@@ -30,14 +30,22 @@ describe Diaspora::UserModules::Connecting do
 
   context 'contact requesting' do
     describe  '#receive_contact_request' do
+      before do
+        @r = Request.instantiate(:to => user.person, :from => person)
+      end
+
       it 'adds a request to pending if it was not sent by user' do
-        r = Request.instantiate(:to => user.person, :from => person)
-        user.receive_contact_request(r)
-        user.reload.pending_requests.should include r
+        user.receive_contact_request(@r)
+        user.reload.pending_requests.should include @r
+      end
+
+      it 'enqueues a mail job' do
+        Resque.should_receive(:enqueue).with(Jobs::MailRequestReceived, user.id, person.id)
+        user.receive_contact_request(@r)
       end
     end
 
-    describe '#receive_request_accepted' do
+    describe '#receive_request_acceptance' do
       before do
         @original_request = user.send_contact_request_to(user2.person, aspect)
         @acceptance = @original_request.reverse_for(user2)
@@ -55,6 +63,10 @@ describe Diaspora::UserModules::Connecting do
         user.receive_request(@acceptance, user2.person)
         user.pending_requests.include?(@acceptance).should be_false
         Request.find(@acceptance.id).should be_nil
+      end
+      it 'enqueues a mail job' do
+        Resque.should_receive(:enqueue).with(Jobs::MailRequestAcceptance, user.id, user2.person.id, aspect.id).once
+        user.receive_request(@acceptance, user2.person)
       end
     end
 
@@ -106,13 +118,6 @@ describe Diaspora::UserModules::Connecting do
       }.should raise_error(MongoMapper::DocumentNotValid)
     end
 
-    it 'should send an email on acceptance if a contact request' do
-      Request.should_receive(:send_request_accepted)
-      request = user.send_contact_request_to(user2.person, aspect)
-      user.receive_request(request.reverse_for(user2), user2.person)
-    end
-
-
     describe 'multiple users accepting/rejecting the same person' do
 
       before do
@@ -150,11 +155,6 @@ describe Diaspora::UserModules::Connecting do
             user2.ignore_contact_request @received_request.id
           }.should_not change(Person, :count)
           user2.contact_for(user.person).should be_nil
-        end
-
-        it 'sends an email to the receiving user' do
-          Request.should_receive(:send_new_request).and_return(true)
-          user.receive @req_xml, person_one
         end
       end
 
