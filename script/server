@@ -82,5 +82,6 @@ fi
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
-bundle exec magent start --log-path=log/ &
+redis-server&
+QUEUE=* bundle exec rake resque:work&
 bundle exec thin start $args

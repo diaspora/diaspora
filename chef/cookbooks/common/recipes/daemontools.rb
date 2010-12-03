@@ -42,13 +42,6 @@ execute "executable" do
   command "chmod -R 755 /service/websocket"
 end
 
-execute "magent run" do
-  command "mkdir -p /service/magent && echo '#!/bin/sh' > /service/magent/run && echo 'cd /usr/local/app/diaspora && RAILS_ENV=production exec /usr/local/bin/bundle exec /usr/local/bin/magent start --log-path=/usr/local/app/diaspora/log/' >> /service/magent/run"
-end
-execute "executable" do
-  command "chmod -R 755 /service/magent"
-end
-
 execute "redis run" do
   command "mkdir -p /service/redis && echo '#!/bin/sh' > /service/redis/run && echo 'cd /usr/sbin/ && exec /usr/sbin/redis-server /usr/local/etc/redis.conf'  >> /service/redis/run"
 end
