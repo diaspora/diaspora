@@ -10,9 +10,17 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.first(:id => params[:id], :public => true)
-    @landing_page = true
+
     if @post
-      render "posts/#{@post.class.to_s.underscore}", :layout => true
+      @landing_page = true
+      @person = @post.person
+      if @person.owner_id
+        I18n.locale = @person.owner.language
+        render "posts/#{@post.class.to_s.underscore}", :layout => true
+      else
+        flash[:error] = "that post does not exsist!"
+        redirect_to root_url
+      end
     else
       flash[:error] = "that post does not exsist!"
       redirect_to root_url

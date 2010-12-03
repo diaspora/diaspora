@@ -6,10 +6,10 @@
   = include_javascripts :photos
 
 #author_info
-  = person_image_link(@post.person)
+  = person_image_link(@person)
   .from
     %h2
-      = @post.person.name
+      = @person.name
 .span-14.append-1.last
   #show_photo{:data=>{:guid=>@post.id}}
     = image_tag @post.url(:scaled_full)
