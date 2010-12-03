@@ -40,7 +40,7 @@
     #original_post_info
       %h4{:style=>"position:relative;"}
         = t('.original_post')
-        = link_to t('.view'), @photo.status_message
+        = link_to "#{t('.view')} →", @photo.status_message
 
       %p
         = @photo.status_message.message

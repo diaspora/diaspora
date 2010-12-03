@@ -7,7 +7,6 @@ body
   :padding 2em
   :margin 0
   :background-color rgb(252,252,252)
-  :font-family Arial, sans-serif
 a
   :color #107FC9
   :text
@@ -23,6 +22,8 @@ p
 h1, h2, h3, h4
   :color #444
   :position relative
+  :font
+    :weight bold
 
 h4
   :margin
@@ -244,11 +245,6 @@ header
       :height 370px
       :width 500px
 		 
-  .avatar
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
-
   img
     :-webkit-box-shadow 0 1px 2px #666
     :-moz-box-shadow 0 1px 2px #666
@@ -258,8 +254,6 @@ header
     :border-radius 5px
     	
 .from
-  :font
-    :family 'Helvetica neue', Arial, Helvetica, sans-serif
   :text
     :shadow 0 1px #fff
 
@@ -300,7 +294,8 @@ header
     :bottom 12px
 
   img
-    :border-radius none
+    :position relative
+    :top 5px
     :display inline-block
 
   .from
@@ -313,7 +308,6 @@ header
       :padding 0
 
   h2
-    :display inline
     :margin
       :bottom -2px
 
@@ -328,10 +322,6 @@ header
       :margin
         :right 2em
 
-  .avatar
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
 
 li.message
   :position relative
@@ -360,7 +350,7 @@ li.message
 
     p
       :margin
-        :bottom 0
+        :bottom 6px
 
     .photo_attachments
       :margin
@@ -532,7 +522,6 @@ li.message
       :border none
 
 .stream ul.comments
-
   .avatar
     :width 35px
     :height 35px
@@ -607,6 +596,7 @@ ul.comments
   img
     :height 300px
     :width 300px
+    :-webkit-box-shadow 0 2px 2px #333
 
 #profile
   h3
@@ -817,15 +807,6 @@ label
   :border
     :bottom 2px #777 solid
 
-  .avatar
-    :position absolute
-    :margin
-      :right 15px
-
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
-
   &.closed
     &:hover
       :background
@@ -936,8 +917,6 @@ label
   :margin
     :top 4px
   :color #000
-  :font
-    :family 'Arial', 'Helvetica', sans-serif
 
   ul
     :margin 0
@@ -998,20 +977,22 @@ label
 
     input
       :display inline
-      :border none
-      :background-color #eee
+      :background-color #888
+      :border 
+        :top 1px solid #111
+
       :font
         :size 12px
+      :-webkit-box-shadow 0 1px 1px #666
 
       :border 1px solid #000
 
-      :opacity 0.5
-
       &:hover
-        :opacity 0.8
+        :background-color #ccc
 
       &.active
-        :opacity 1
+        :background-color #eee
+
 
     input[type='search']
       :width 200px

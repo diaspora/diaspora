@@ -11,8 +11,6 @@
         .right{:style => "top:0;"}
           %span.description
             = @person.diaspora_handle
-            /= info_text(t('aspects.index.handle_explanation'))
-
 
       #person_nav_links
         = link_to t('layouts.header.view_profile'), person_path(@person)
@@ -22,8 +20,13 @@
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @is_contact}
 
 .span-15.last
-  - if @contact || current_user.person == @person
+  %h4
+    -if @post_type == :photos
+      Photos
+    - else
+      Recent Posts
 
+  - if @contact || current_user.person == @person
     - if @posts.count > 0
       -if @post_type == :photos
         = render 'photos/index', :photos => @posts

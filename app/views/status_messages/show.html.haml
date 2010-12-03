@@ -13,10 +13,13 @@
     - for photo in @status_message.photos
       = link_to (image_tag photo.url(:thumb_small)), photo_path(photo)
 
-  .time
+  %p.time
     = how_long_ago(@status_message)
-  %p
-    =link_to "public permalink", post_path(@status_message)
+
+  %hr
+
+  = link_to "permalink", post_path(@status_message)
+  %br
   - if current_user.owns? @status_message
     = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
