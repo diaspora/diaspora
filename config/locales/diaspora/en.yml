@@ -257,6 +257,10 @@ en:
       new:
           sign_up: "Sign up"
           sign_up_for_diaspora: "Sign up for Diaspora"
+          enter_email: "Enter an e-mail"
+          enter_username: "Pick a username (only letters, numbers, and underscores)"
+          enter_password: "Enter a password"
+          enter_password_again: "Enter the same password as before"
       create:
           success: "You've joined Diaspora!"
       edit:

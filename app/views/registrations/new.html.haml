@@ -1,5 +1,11 @@
 = javascript_include_tag "validation"
 
+:javascript
+  $(function() {
+    $('#user_new [title]').tipsy({trigger: 'focus', gravity: 'w'});
+    $("#user_username").focus();
+  });
+
 .span-12.prepend-6.last
   .floating
     %h3
@@ -7,16 +13,17 @@
     = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
       %p
         = f.label :username , t('username')
-        = f.text_field :username
-      %p
+        = f.text_field :username, :title => t('.enter_username')
+      %p  
         = f.label :email , t('email')
-        = f.text_field :email
+        = f.text_field :email, :title => t('.enter_email')
+      
       %p
         = f.label :password , t('password')
-        = f.password_field :password
+        = f.password_field :password, :title => t('.enter_password') 
       %p
         = f.label :password_confirmation , t('password_confirmation')
-        = f.password_field :password_confirmation
+        = f.password_field :password_confirmation, :title => t('.enter_password_again') 
 
       = f.submit t('.sign_up')
 
