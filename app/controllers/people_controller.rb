@@ -12,7 +12,7 @@ class PeopleController < ApplicationController
     @aspect = :search
 
     @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'created_at DESC'
-    @requests = Request.all(:to_id.in => @people.map{|p| p.id})
+    @requests = Request.all(:to_id.in => @people.map{|p| p.id}, :from_id => current_user.person.id)
     
     #only do it if it is an email address
     if params[:q].try(:match, Devise.email_regexp)
