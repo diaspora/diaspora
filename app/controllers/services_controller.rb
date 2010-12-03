@@ -35,7 +35,9 @@ class ServicesController < ApplicationController
 
 
   def failure
-    puts params.inspect
+    Rails.logger.info  "error in oauth #{params.inspect}"
+    flash[:error] = "there was an error connecting that service"
+    redirect_to services_url
   end
 
   def destroy

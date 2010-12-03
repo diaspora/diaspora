@@ -194,10 +194,16 @@ class User
   end
 
  def post_to_twitter(service, message)
+    twitter_key = SERVICES['twitter']['consumer_key']
+    twitter_consumer_secret = SERVICES['twitter']['consumer_secret']
 
+    if twitter_consumer_secret.blank? || twitter_consumer_secret.blank?
+      Rails.logger.info "you have a blank twitter key or secret.... you should look into that"
+    end
+    
     Twitter.configure do |config|
-      config.consumer_key = SERVICES['twitter']['consumer_key']
-      config.consumer_secret = SERVICES['twitter']['consumer_secret']
+      config.consumer_key = twitter_key
+      config.consumer_secret = twitter_consumer_secret
       config.oauth_token = service.access_token
       config.oauth_token_secret = service.access_secret
     end
@@ -260,7 +266,7 @@ class User
     # calling nil? performs a necessary evaluation.
     if person.owner_id
       Rails.logger.info("event=push_to_person route=local sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
-      person.owner.receive(post.to_diaspora_xml, self.person)
+      Resque.enqueue(Jobs::Receive, person.owner_id, post.to_diaspora_xml, self.person.id)
     else
       xml = salmon.xml_for person
       Rails.logger.info("event=push_to_person route=remote sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
