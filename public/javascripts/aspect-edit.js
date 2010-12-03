@@ -6,7 +6,7 @@
 var AspectEdit = {
 
   initialize: function() {
-    $("ul .person.request").draggable({
+    $("ul .person").draggable({
       revert: true,
       start: AspectEdit.startDrag,
       drag: AspectEdit.duringDrag,
@@ -148,17 +148,7 @@ var AspectEdit = {
         });
       }
     } else {
-      if (confirm("Also remove this person from all aspects?")) {
-        var person_id = $(this).closest("li.person").attr('data-guid');
-
-        $.ajax({
-          type: "DELETE",
-          url: "/people/" + person_id,
-          success: function() {
-            $(".person[data-guid='"+ person_id +"']").fadeOut(200);
-          }
-        });
-      } else {
+      if (confirm("Remove this person from aspect?")) {
         AspectEdit.deletePersonFromAspect(person);
       }
     }

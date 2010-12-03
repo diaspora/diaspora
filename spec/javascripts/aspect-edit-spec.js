@@ -27,7 +27,7 @@ describe("AspectEdit", function() {
         drag: AspectEdit.duringDrag, 
         stop: AspectEdit.stopDrag
       });
-      expect($.fn.draggable.mostRecentCall.object.selector).toEqual("ul .person.request");
+      expect($.fn.draggable.mostRecentCall.object.selector).toEqual("ul .person");
     });
     it("calls droppable on .aspect ul.dropzone", function() {
       spyOn($.fn, "droppable");
