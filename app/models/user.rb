@@ -266,7 +266,8 @@ class User
     # calling nil? performs a necessary evaluation.
     if person.owner_id
       Rails.logger.info("event=push_to_person route=local sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
-      Resque.enqueue(Jobs::Receive, person.owner_id, post.to_diaspora_xml, self.person.id)
+      #Resque.enqueue(Jobs::Receive, person.owner_id, post.to_diaspora_xml, self.person.id)
+      Jobs::Receive.perform(person.owner_id, post.to_diaspora_xml, self.person.id)
     else
       xml = salmon.xml_for person
       Rails.logger.info("event=push_to_person route=remote sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
