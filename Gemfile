@@ -54,7 +54,7 @@ gem "cloudfiles", :require => false
 
 #Queue
 gem 'resque'
-gem 'SystemTimer'
+gem 'SystemTimer' unless RUBY_VERSION.include? "1.9"
 
 group :test, :development do
   gem 'factory_girl_rails'
