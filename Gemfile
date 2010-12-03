@@ -14,7 +14,7 @@ gem 'devise_invitable','0.3.5'
 
 #Authentication
 gem 'omniauth', '0.1.6'
-gem 'twitter', :git => 'https://github.com/jnunemaker/twitter.git'
+gem 'twitter', :git => 'https://github.com/jnunemaker/twitter.git', :ref => 'ef122bbb280e229ed343'
 
 #Mongo
 gem 'mongo_mapper', :branch => 'rails3', :git => 'git://github.com/jnunemaker/mongomapper.git'
@@ -48,9 +48,13 @@ gem 'mini_magick'
 gem 'aws'
 gem 'fastercsv', :require => false
 gem 'jammit'
-
+gem 'rest-client'
 #Backups
 gem "cloudfiles", :require => false
+
+#Queue
+gem 'resque'
+gem 'SystemTimer'
 
 group :test, :development do
   gem 'factory_girl_rails'

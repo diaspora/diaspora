@@ -56,12 +56,7 @@ class PublicsController < ApplicationController
     end
 
     @user = person.owner
-     
-    begin
-      @user.receive_salmon(params[:xml])
-    rescue Exception => e
-      Rails.logger.info("bad salmon: #{e.message}")
-    end
+    Resque.enqueue(Jobs::ReceiveSalmon, @user.id, params[:xml])
 
     render :nothing => true, :status => 200
   end

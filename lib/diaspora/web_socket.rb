@@ -15,7 +15,7 @@ module Diaspora
 
     def self.push_to_user(uid, data)
       Rails.logger.debug "Websocketing to #{uid}"
-      @channels[uid][0].push(data) if @channels[uid]
+      @channels[uid.to_id][0].push(data) if @channels[uid.to_id]
     end
 
     def self.subscribe(uid, ws)

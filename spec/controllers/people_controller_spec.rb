@@ -94,6 +94,13 @@ describe PeopleController do
     end
   end
 
+  describe '#webfinger' do
+    it 'enqueues a webfinger job' do
+      Resque.should_receive(:enqueue).with(Jobs::SocketWebfinger, user.id, user.diaspora_handle, anything).once
+      get :retrieve_remote, :diaspora_handle => user.diaspora_handle
+    end
+  end
+
   describe '#update' do
     context 'with a profile photo set' do
       before do
