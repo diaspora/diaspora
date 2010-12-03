@@ -1,4 +1,5 @@
 require File.join(Rails.root, 'lib/webfinger')
+require File.join(Rails.root, 'lib/diaspora/parser')
 
 module Diaspora
   module UserModules
