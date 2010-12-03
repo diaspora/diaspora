@@ -196,7 +196,7 @@ class User
  def post_to_twitter(service, message)
 
     Twitter.configure do |config|
-      config.consumer_key = SERVICES['twitter']['consumer_token']
+      config.consumer_key = SERVICES['twitter']['consumer_key']
       config.consumer_secret = SERVICES['twitter']['consumer_secret']
       config.oauth_token = service.access_token
       config.oauth_token_secret = service.access_secret
