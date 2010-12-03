@@ -46,6 +46,18 @@ module Resque
   end
 end
 
+module Diaspora::UserModules::Connecting
+  def send_contact_request_to(desired_contact, aspect)
+    request = Request.instantiate(:to => desired_contact, 
+                                  :from => self.person,
+                                  :into => aspect)
+    if request.save!
+      dispatch_request request
+    end
+    request
+  end
+end
+
 ImageUploader.enable_processing = false
 
   
