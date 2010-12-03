@@ -7,7 +7,11 @@ module Jobs
         result = finger.fetch
         result.socket_to_uid(user_id, opts)
       rescue
-        Diaspora::WebSocket.queue_to_user(user_id, {:class => 'people', :status => 'fail', :query => account, :response => I18n.t('people.webfinger.fail')}.to_json)
+        Diaspora::WebSocket.queue_to_user(user_id, 
+          {:class => 'people',
+           :status => 'fail',
+           :query => account,
+           :response => I18n.t('people.webfinger.fail', :handle => account)}.to_json)
       end
     end
   end
