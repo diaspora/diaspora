@@ -1,6 +1,6 @@
 class Notifier < ActionMailer::Base
   
-  default :from => "no-reply@joindiaspora.com"
+  default :from => APP_CONFIG[:smtp_sender_address]
   
   ATTACHMENT = File.read("#{Rails.root}/public/images/diaspora_white_on_grey.png")
 
