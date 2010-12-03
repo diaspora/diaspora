@@ -83,9 +83,6 @@
 
     %p
       = f.select :language, available_language_options
-      %span#grammatical_gender_block{options_for_grammatical_gender_block(current_user)}
-        = "    " + t('.address_me_as')
-        = select_tag 'user[grammatical_gender]', options_for_gender_select(current_user), :disabled => gender_select_disabled(current_user)
       = f.submit t('.change_language')
 
   %br

@@ -5,6 +5,8 @@
 require 'spec_helper'
 
 describe PhotosController do
+  render_views
+
   let(:user) {make_user}
   let(:user2) {make_user}
 

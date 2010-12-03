@@ -5,6 +5,7 @@
 require 'spec_helper'
 
 describe UsersController do
+  render_views
 
   let(:user) { make_user }
   let!(:aspect) { user.aspects.create(:name => "lame-os") }
@@ -58,6 +59,13 @@ describe UsersController do
         user.reload
         user.language.should_not == old_language
       end
+    end
+  end
+
+  describe '#edit' do
+    it "returns a 200" do
+      get 'edit', :id => user.id      
+      response.code.should == "200"
     end
   end
 end
