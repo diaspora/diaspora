@@ -1,4 +1,4 @@
-package: always
+package: on 
 javascripts:
   flash_socket:
     - public/javascripts/vendor/FABridge.js
