@@ -19,12 +19,16 @@ $(document).ready(function(){
   //buttons//////
   $(".add_aspect_button," + 
     ".manage_aspect_contacts_button," +
-    ".invite_user_button," +
     ".add_photo_button," +
     ".remove_person_button," +
     ".question_mark").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
 
   $("input[type='submit']").addClass("button");
+
+  // focus aspect name on fancybox
+  $(".add_aspect_button").click( function(){
+    $("#aspect_name").focus();
+  });
 
   $("#q").focus(
     function() {

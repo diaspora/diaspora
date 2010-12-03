@@ -279,7 +279,7 @@ en:
           if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
           comma_seperated_plz: "You can enter multiple email addresses separated by commas."
           to: "To"
-          message: "Message:"
+          personal_message: "Personal message"
           send_an_invitation: "Send an invitation"
           send_invitation: "Send invitation"
       check_token:

@@ -295,7 +295,7 @@ header
 
   img
     :position relative
-    :top 5px
+    :top 6px
     :display inline-block
 
   .from
@@ -983,7 +983,10 @@ label
 
       :font
         :size 12px
-      :-webkit-box-shadow 0 1px 1px #666
+
+      :-webkit-box-shadow 0 1px #666
+      :-moz-box-shadow 0 1px #666
+      :box-shadow 0 1px #666
 
       :border 1px solid #000
 
@@ -1617,6 +1620,7 @@ ul#request_result
 
   :-webkit-box-shadow 0 1px #fff
   :-moz-box-shadow 0 1px #fff
+  :box-shadow 0 1px #fff
 
   input.contact_list_search
     :width 100%
@@ -1635,8 +1639,6 @@ ul#request_result
       :padding 8px
       :border
         :bottom 1px solid #eee
-      :font
-        :weight bold
 
       &:hover
         :background
@@ -1645,16 +1647,6 @@ ul#request_result
       .right
         :right 8px
         :top 2px
-
-      .avatar
-        :height 22px
-        :width 22px
-        :position absolute
-        :top 6px
-
-      span.name
-        :font
-          :size 14px
 
       a.button
         :padding
@@ -1672,13 +1664,6 @@ ul#request_result
             :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(130,55,55)), color-stop(1, rgb(199,119,119)))
             :background -moz-linear-gradient(top, rgb(199,119,119), rgb(130,55,55))
 
-#edit_aspect_pane .contact_list
-  .avatar
-    :height 22px
-    :width 22px
-    :position absolute
-    :top 6px
-            
 footer
   :margin
     :top 40px

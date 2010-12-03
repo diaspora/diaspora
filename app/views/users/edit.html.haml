@@ -40,12 +40,12 @@
   %h2
     = t('account')
 
-  .span-8.append-1.last
+  .span-8.append-2
     %h3
       = t('.your_handle')
     %p
       %b= current_user.diaspora_handle
-  .span-8.prepend-2.last
+  .span-8.last
     %h3
       = t('.your_email')
     %p
@@ -53,10 +53,7 @@
 
   %br
   %br
-  %br
-  %br
-  %br
-  %br
+  %hr
   %br
 
   %h3 
@@ -76,6 +73,11 @@
       = t('or')
       = f.submit t('.change_password')
 
+  %br
+  %br
+  %hr
+  %br
+
   %h3 
     = t('.change_language')
   = form_for @user do |f|
@@ -86,18 +88,20 @@
       = f.submit t('.change_language')
 
   %br
-
-  %h3 
-    = t('.export_data')
-  = link_to t('.download_xml'), users_export_path, :class => "button"
-  = link_to t('.download_photos'), users_export_photos_path, :class => "button"
-
   %br
-  %br
+  %hr
   %br
 
-  %h3 
-    = t('.close_account')
-  = link_to t('.close_account'), current_user,
-              :confirm => t('are_you_sure'), :method => :delete,
-              :class => "button"
+
+  .span-8.append-2
+    %h3 
+      = t('.export_data')
+    = link_to t('.download_xml'), users_export_path, :class => "button"
+    = link_to t('.download_photos'), users_export_photos_path, :class => "button"
+
+  .span-8.last
+    %h3 
+      = t('.close_account')
+    = link_to t('.close_account'), current_user,
+                :confirm => t('are_you_sure'), :method => :delete,
+                :class => "button"

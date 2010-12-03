@@ -21,9 +21,5 @@
 %ul#request_result{:aspect_id => aspect_id}
   %li.error.hidden
     #message
-      = link_to t('.know_email'), "#invite_user_pane", :class => "invite_user_button"
-    %br
-    .yo{ :style => "display:none;"}
-      #invite_user_pane
-        = render "invitations/new"
+      = link_to t('.know_email'), new_user_invitation_path
 
