@@ -22,10 +22,6 @@ module HelperMethods
     user.stub!(:push_to_person)
   end
 
-  def message_queue
-    User::QUEUE
-  end
-
   def connect_users(user1, aspect1, user2, aspect2)
     user1.send_contact_request_to(user2.person, aspect1)
 

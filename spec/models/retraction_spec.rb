@@ -23,7 +23,7 @@ describe Retraction do
   describe 'dispatching' do
     it 'should dispatch a message on delete' do
       Factory.create(:person)
-      User::QUEUE.should_receive :add_post_request
+      MessageHandler.should_receive :add_post_request
       post.destroy
     end
   end

@@ -85,6 +85,18 @@ describe User do
       user.dispatch_post(status, :to => "all")
     end
 
+    it "posts to a pubsub hub if enabled" do
+      EventMachine::PubSubHubbub.should_receive(:new).and_return(FakeHttpRequest.new(:success))
+
+      destination = "http://identi.ca/hub/"
+      feed_location = "http://google.com/"
+
+      EventMachine.run {
+        user.post_to_hub(feed_location)
+        EventMachine.stop
+      }
+    end
+
     it "does not post to services if post is not public" do
       @status_opts[:public] = false
       status.save
@@ -166,7 +178,7 @@ describe User do
       end
 
       it 'does not use the queue for local transfer' do
-        User::QUEUE.should_receive(:add_post_request).once
+        MessageHandler.should_receive(:add_post_request).once
 
         remote_person = user4.person
         remote_person.owner_id = nil

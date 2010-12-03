@@ -13,8 +13,6 @@ class User
   
   plugin MongoMapper::Devise
 
-  QUEUE = MessageHandler.new
-
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -185,7 +183,7 @@ class User
   end
 
   def post_to_facebook(service, message)
-    Rails.logger.info("Sending a message: #{message} to Facebook")
+    Rails.logger.debug("event=post_to_service type=facebook sender_handle=#{self.diaspora_handle}")
     begin
       RestClient.post("https://graph.facebook.com/me/feed", :message => message, :access_token => service.access_token)
     rescue Exception => e
@@ -193,7 +191,9 @@ class User
     end
   end
 
- def post_to_twitter(service, message)
+  def post_to_twitter(service, message)
+    Rails.logger.debug("event=post_to_service type=twitter sender_handle=#{self.diaspora_handle}")
+
     twitter_key = SERVICES['twitter']['consumer_key']
     twitter_consumer_secret = SERVICES['twitter']['consumer_secret']
 
@@ -209,6 +209,12 @@ class User
     end
     
     Twitter.update(message)
+  end
+
+  def post_to_hub(post)
+    Rails.logger.debug("event=post_to_service type=pubsub sender_handle=#{self.diaspora_handle}")
+
+    EventMachine::PubSubHubbub.new(APP_CONFIG[:pubsub_server]).publish self.public_url
   end
 
   def update_post(post, post_hash = {})
@@ -249,7 +255,7 @@ class User
       contacts = contacts | aspect.contacts
     }
 
-    push_to_hub(post) if post.respond_to?(:public) && post.public
+    post_to_hub(post) if post.respond_to?(:public) && post.public
     push_to_people(post, self.person_objects(target_contacts))
   end
 
@@ -266,20 +272,15 @@ class User
     # calling nil? performs a necessary evaluation.
     if person.owner_id
       Rails.logger.info("event=push_to_person route=local sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
-      #Resque.enqueue(Jobs::Receive, person.owner_id, post.to_diaspora_xml, self.person.id)
       Jobs::Receive.perform(person.owner_id, post.to_diaspora_xml, self.person.id)
     else
       xml = salmon.xml_for person
       Rails.logger.info("event=push_to_person route=remote sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
-      QUEUE.add_post_request(person.receive_url, xml)
-      QUEUE.process
+      MessageHandler.add_post_request(person.receive_url, xml)
     end
   end
 
-  def push_to_hub(post)
-    Rails.logger.debug("event=push_to_hub target=#{APP_CONFIG[:pubsub_server]} sender_url=#{self.public_url}")
-    QUEUE.add_hub_notification(APP_CONFIG[:pubsub_server], self.public_url)
-  end
+
 
   def salmon(post)
     created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
