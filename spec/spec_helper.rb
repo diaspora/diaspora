@@ -41,7 +41,11 @@ end
 
 module Resque
   def enqueue(klass, *args)
-    true
+    #if $process_queue
+      klass.send(:perform, *args)
+    #else
+    #  true
+    #end
   end
 end
 
@@ -58,6 +62,31 @@ def send_contact_request_to(desired_contact, aspect)
 end
 
 ImageUploader.enable_processing = false
+
+class User
+  def post(class_name, opts = {})
+    p = build_post(class_name, opts)
+    if p.save!
+      raise 'MongoMapper failed to catch a failed save' unless p.id
+
+      self.aspects.reload
+
+      add_to_streams(p, opts[:to])
+      dispatch_post(p, :to => opts[:to])
+    end
+    p
+  end
+
+  def comment(text, options = {})
+    c = build_comment(text, options)
+    if c.save!
+      raise 'MongoMapper failed to catch a failed save' unless c.id
+      dispatch_comment(c)
+    end
+    c
+  end
+end
+
 
   
 class FakeHttpRequest

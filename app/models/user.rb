@@ -141,17 +141,6 @@ class User
   end
 
   ######## Posting ########
-  def post(class_name, opts = {})
-    post = build_post(class_name, opts)
-
-    if post.save
-      raise 'MongoMapper failed to catch a failed save' unless post.id
-      add_to_streams(post, opts[:to])
-      dispatch_post(post, :to => opts[:to])
-    end
-    post
-  end
-
   def build_post(class_name, opts = {})
     opts[:person] = self.person
     opts[:diaspora_handle] = opts[:person].diaspora_handle
@@ -273,7 +262,7 @@ class User
     # calling nil? performs a necessary evaluation.
     if person.owner_id
       Rails.logger.info("event=push_to_person route=local sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
-      Jobs::Receive.perform(person.owner_id, post.to_diaspora_xml, self.person.id)
+      Resque.enqueue(Jobs::Receive, person.owner_id, post.to_diaspora_xml, self.person.id)
     else
       xml = salmon.xml_for person
       Rails.logger.info("event=push_to_person route=remote sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
@@ -281,24 +270,12 @@ class User
     end
   end
 
-
-
   def salmon(post)
     created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
     created_salmon
   end
 
   ######## Commenting  ########
-  def comment(text, options = {})
-    comment = build_comment(text, options)
-
-    if comment.save
-      raise 'MongoMapper failed to catch a failed save' unless comment.id
-      dispatch_comment comment
-    end
-    comment
-  end
-
   def build_comment(text, options = {})
     comment = Comment.new(:person_id => self.person.id,
                           :diaspora_handle => self.person.diaspora_handle,

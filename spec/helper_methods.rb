@@ -22,27 +22,35 @@ module HelperMethods
     user.stub!(:push_to_person)
   end
 
+  def fantasy_resque
+    $process_queue = true
+    yield
+    $process_queue = false
+  end
+  
   def connect_users(user1, aspect1, user2, aspect2)
-    user1.send_contact_request_to(user2.person, aspect1)
+    fantasy_resque do
+      user1.send_contact_request_to(user2.person, aspect1)
 
-    user1.reload
-    aspect1.reload
-    user2.reload
-    aspect2.reload
+      user1.reload
+      aspect1.reload
+      user2.reload
+      aspect2.reload
 
-    new_request = user2.pending_requests.find_by_from_id!(user1.person.id)
+      new_request = user2.pending_requests.find_by_from_id!(user1.person.id)
 
-    user1.reload
-    aspect1.reload
-    user2.reload
-    aspect2.reload
+      user1.reload
+      aspect1.reload
+      user2.reload
+      aspect2.reload
 
-    user2.accept_and_respond( new_request.id, aspect2.id)
+      user2.accept_and_respond( new_request.id, aspect2.id)
 
-    user1.reload
-    aspect1.reload
-    user2.reload
-    aspect2.reload
+      user1.reload
+      aspect1.reload
+      user2.reload
+      aspect2.reload
+    end
   end
 
   def stub_success(address = 'abc@example.com', opts = {})
