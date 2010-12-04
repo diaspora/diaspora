@@ -38,15 +38,15 @@ form
   textarea,
   label
     :font
-      :size 14px
+      :size auto
 
 
 .hidden
   :display none
 
 .avatar
-  :width 50px
-  :height 50px
+  :width 40px
+  :height 40px
 
 #flash_notice,
 #flash_error,
@@ -221,8 +221,6 @@ header
   :margin
     :right 1em
 
-
-
 .stream
   :margin 0
   :padding 0
@@ -231,6 +229,7 @@ header
     :min-height 50px
     :border
       :bottom 1px solid #eee
+      :top 1px solid #fff
 
     &:hover
       :background
@@ -245,14 +244,6 @@ header
       :height 370px
       :width 500px
 		 
-  img
-    :-webkit-box-shadow 0 1px 2px #666
-    :-moz-box-shadow 0 1px 2px #666
-
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
-    	
 .from
   :text
     :shadow 0 1px #fff
@@ -261,8 +252,6 @@ header
     :cursor default
     :display inline
     :color #bbb
-    :font
-      :size 85%
     a
       :font
         :weight normal
@@ -297,6 +286,8 @@ header
     :position relative
     :top 6px
     :display inline-block
+    :height 50px
+    :width 50px
 
   .from
     :display inline-block
@@ -325,36 +316,48 @@ header
 
 li.message
   :position relative
-  :line-height 19px
-  :font
-    :family 'Arial', 'Helvetica', sans-serif
   :word-wrap break-word
   :color #777
 
+  .from
+    :margin
+      :bottom 5px
+    h4
+      :display inline
+      a
+        :color #444
+
   .avatar
     :float left
-    :margin
-      :right 15px
 
   .content
     :margin
       :top 0
     :padding
-      :left 65px
-
+      :left 55px
 
     :color #444
     :font
       :weight normal
-      :size 14px
 
     p
       :margin
         :bottom 6px
+      :padding
+        :right 1em
+      :font
+        :family 'arial', 'helvetica', 'sans-serif'
 
     .photo_attachments
       :margin
         :top 7px
+
+      img
+        :-webkit-box-shadow 0 1px 2px #333
+        :-moz-box-shadow 0 1px 2px #333
+
+        :margin
+          :right 0.5em
 
     .stream_photo
       :float left
@@ -373,20 +376,22 @@ li.message
 
     .small_text
       :font
-        :size 10px
+        :size smaller
 
     div.info
       :color #999
       :font-size smaller
       a
         :color #ccc
-      .time
-        a
-          :color #bbb
-        :font
-          :weight bold
-        :margin
-          :right 5px
+
+  .time
+    :font-size smaller
+    a
+      :color #bbb
+    :font
+      :weight bold
+    :margin
+      :right 5px
       
   &:hover
     div.info, .time
@@ -523,10 +528,8 @@ li.message
 
 .stream ul.comments
   .avatar
-    :width 35px
-    :height 35px
-    :margin
-      :right 10px
+    :width 30px
+    :height 30px
 
   form
     :margin
@@ -550,9 +553,16 @@ ul.comments
   li.comment
     :list
       :style none
-    :padding 0.6em
+    :padding 0.7em
     :border
       :bottom 1px solid #ddd
+      :top 1px solid #fff
+
+    .from
+      :font
+        :size 1em
+      :margin
+        :bottom 0px
 
     .youtube-player
       :border none
@@ -560,27 +570,19 @@ ul.comments
       :width 400px
 
     .content
-      :color #777
+      :color #666
       :margin
-        :top -2px
+        :top 0px
         :bottom -2px
       :padding
-        :left 45px
+        :left 40px
         :right 20px
       .from
         a
           :color #444
-      :font
-        :size 12px
-
-      :line
-        :height 16px
 
       div.time
         :color #bbb
-        :font
-          :size 11px
-          :weight bold
 
     form
       :margin
@@ -652,6 +654,14 @@ li.message .from .right
 li.message:hover
   .right
     :display inline
+  .from
+    h4
+      a
+        :color #107FC9
+      &:hover
+        :color #22AAE0
+      &:active
+        :color #005D9C
 
 .request_buttons
   :position absolute
@@ -704,7 +714,7 @@ li.message:hover
     :font
       :size 16px
     :font
-      :family 'marker felt', 'comic sans ms', 'comic sans', sans-serif
+      :family 'MARKER FELT', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
     :color #333
 
 #debug_info
@@ -783,7 +793,7 @@ label
   :padding 9px
 
   :font
-    :size 18px
+    :size 16px
     :weight bold
   :color #eee
   :text-shadow 0 1px 0 #333
@@ -840,6 +850,9 @@ label
   textarea
     :width 460px
     :margin 0
+  label
+    :font
+      :size 14px
 
   .options_and_submit
     :display none

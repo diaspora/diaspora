@@ -10,7 +10,7 @@
         = link_to current_user.diaspora_handle, person_path(current_user.person)
         = info_text(t('.handle_explanation'))
 
-.span-15
+.span-15.append-1
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
   = render 'shared/publisher', :aspect => @aspect
   = render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
@@ -20,6 +20,6 @@
   #pagination
     = will_paginate @posts
 
-.span-8.prepend-1.last
+.span-8.last
   = render 'shared/aspect_contacts', :contacts => @contacts, :aspect => @aspect
 
