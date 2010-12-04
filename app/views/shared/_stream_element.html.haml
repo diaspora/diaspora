@@ -6,7 +6,8 @@
   =person_image_link(person)
   .content
     .from
-      =person_link(person)
+      %h4
+        =person_link(person)
 
       - if person.owner_id == current_user.id
         .aspect
@@ -18,8 +19,6 @@
               =aspect_links(aspects_with_post(aspects, post))
 
         .right
-
-
           - reshare_aspects = aspects_without_post(aspects, post)
           - unless reshare_aspects.empty?
             = render 'shared/reshare', :aspects => reshare_aspects, :post => post
@@ -29,7 +28,7 @@
 
     .info
       %span.time= link_to(how_long_ago(post), status_message_path(post))
-
       = comment_toggle(comments.length)
+
     = render "comments/comments", :post_id => post.id, :comment_hashes => comments
 

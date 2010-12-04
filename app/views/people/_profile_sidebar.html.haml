@@ -18,7 +18,10 @@
   .profile_photo
     = person_image_link(person, :to => :photos)
 
-  = action_link(person, is_contact)
+  %p
+    = action_link(person, is_contact)
+
+  %hr{:style=>"width:300px;"}
 
   %ul
     - if is_contact

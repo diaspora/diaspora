@@ -17,9 +17,7 @@
   = form_for User.new, :url => invitation_path(User) do |invite|
     %h4
       Email
-    %p
-      = invite.label :email , t('email')
-      = invite.text_field :email, :title => t('.comma_seperated_plz')
+    = invite.text_field :email, :title => t('.comma_seperated_plz')
     %br
 
     %h4
