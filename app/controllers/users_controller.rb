@@ -19,37 +19,30 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    if params[:user][:getting_started]
-      boolean = params[:user][:getting_started] == "true"
-      @user.update_attributes( :getting_started => boolean )
-      redirect_to root_path
+    params[:user].delete(:password) if params[:user][:password].blank?
+    params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
+    params[:user].delete(:language) if params[:user][:language].blank?
+    params[:user].delete(:grammatical_gender) if params[:user][:grammatical_gender].blank?
 
-    else
-      params[:user].delete(:password) if params[:user][:password].blank?
-      params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
-      params[:user].delete(:language) if params[:user][:language].blank?
-      params[:user].delete(:grammatical_gender) if params[:user][:grammatical_gender].blank?
-
-      if params[:user][:password] && params[:user][:password_confirmation]
-        if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-          flash[:notice] = I18n.t 'users.update.password_changed'
-        else
-          flash[:error] = I18n.t 'users.update.password_not_changed'
-        end
-      elsif params[:user][:language]
-        if @user.update_attributes(:language => params[:user][:language])
-          if params[:user][:grammatical_gender]
-            if @user.update_attributes(:grammatical_gender => params[:user][:grammatical_gender])
-              flash[:notice] = I18n.t 'users.update.language_changed'
-            else
-              flash[:error] = I18n.t 'users.update.language_not_changed'
-            end
-          else
+    if params[:user][:password] && params[:user][:password_confirmation]
+      if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+        flash[:notice] = I18n.t 'users.update.password_changed'
+      else
+        flash[:error] = I18n.t 'users.update.password_not_changed'
+      end
+    elsif params[:user][:language]
+      if @user.update_attributes(:language => params[:user][:language])
+        if params[:user][:grammatical_gender]
+          if @user.update_attributes(:grammatical_gender => params[:user][:grammatical_gender])
             flash[:notice] = I18n.t 'users.update.language_changed'
+          else
+            flash[:error] = I18n.t 'users.update.language_not_changed'
           end
         else
-          flash[:error] = I18n.t 'users.update.language_not_changed'
+          flash[:notice] = I18n.t 'users.update.language_changed'
         end
+      else
+        flash[:error] = I18n.t 'users.update.language_not_changed'
       end
 
       redirect_to edit_user_path(@user)
@@ -94,6 +87,12 @@ class UsersController < ApplicationController
       @user.save
     end
     render "users/getting_started"
+  end
+
+  def getting_started_completed
+    user = current_user
+    user.update_attributes( :getting_started => false )
+    redirect_to root_path
   end
 
   def export

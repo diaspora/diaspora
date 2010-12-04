@@ -24,12 +24,13 @@ Diaspora::Application.routes.draw do
                                       :password      => "devise/passwords",
                                       :invitations   => "invitations"}
   # added public route to user
-  match 'public/:username',   :to => 'users#public'
-  match 'getting_started',    :to => 'users#getting_started', :as => 'getting_started'
-  match 'users/export',       :to => 'users#export'
-  match 'users/export_photos',:to => 'users#export_photos'
-  match 'login',              :to => 'users#sign_up'
-  resources :users,           :except => [:create, :new, :show]
+  match 'public/:username',          :to => 'users#public'
+  match 'getting_started',           :to => 'users#getting_started', :as => 'getting_started'
+  match 'getting_started_completed', :to => 'users#getting_started_completed'
+  match 'users/export',              :to => 'users#export'
+  match 'users/export_photos',       :to => 'users#export_photos'
+  match 'login',                     :to => 'users#sign_up'
+  resources :users,                  :except => [:create, :new, :show]
 
   match 'aspects/move_contact',      :to => 'aspects#move_contact', :as => 'move_contact'
   match 'aspects/add_to_aspect',     :to => 'aspects#add_to_aspect', :as => 'add_to_aspect'
