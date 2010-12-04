@@ -14,6 +14,7 @@ describe PublicsController do
     let(:xml) { "<walruses></walruses>" }
      context 'success cases' do
       it 'should 200 on successful receipt of a request' do
+        Resque.should_receive(:enqueue)
         post :receive, :id =>user.person.id, :xml => xml
         response.code.should == '200'
       end

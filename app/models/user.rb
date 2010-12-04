@@ -364,18 +364,14 @@ class User
   ###Invitations############
   def invite_user(opts = {})
     aspect_id = opts.delete(:aspect_id)
-    if aspect_id == nil
-      raise "Must invite into aspect"
-    end
     aspect_object = self.aspects.find_by_id(aspect_id)
-    if !(aspect_object)
-      raise "Must invite to your aspect"
-    else
+    if aspect_object
       Invitation.invite(:email => opts[:email],
                         :from => self,
                         :into => aspect_object,
                         :message => opts[:invite_message])
-
+    else
+      false
     end
   end
 
@@ -419,10 +415,10 @@ class User
     self.person = Person.new(opts[:person])
     self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
     self.person.url = APP_CONFIG[:pod_url]
-    new_key = User.generate_key
-    self.serialized_private_key = new_key
-    self.person.serialized_public_key = new_key.public_key
 
+
+    self.serialized_private_key ||= User.generate_key
+    self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
     self
   end
 

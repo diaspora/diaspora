@@ -13,30 +13,21 @@ class InvitationsController < Devise::InvitationsController
         redirect_to :back
         return
       end
-    begin
       params[:user][:aspect_id] = params[:user].delete(:aspects)
       message = params[:user].delete(:invite_messages)
       params[:user][:invite_message] = message unless message == ""
-
       emails = params[:user][:email].split(/, */)
-      invited_users = emails.map { |e| current_user.invite_user(params[:user].merge({:email => e}))}
-      good_users, rejected_users = invited_users.partition {|u| u.persisted? }
 
-      flash[:notice] = I18n.t('invitations.create.sent') + good_users.map{|x| x.email}.join(', ')
-      if rejected_users.any?
-        flash[:error] = I18n.t('invitations.create.rejected') + rejected_users.map{|x| x.email}.join(', ')
-      end
-    rescue RuntimeError => e
-      if  e.message == "You have no invites"
-        flash[:error] = I18n.t 'invitations.create.no_more'
-      elsif e.message == "You already invited this person"
-        flash[:error] = I18n.t 'invitations.create.already_sent'
-      elsif e.message == "You are already connected to this person"
-        flash[:error] = I18n.t 'invitations.create.already_contacts'
+      good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
+
+      good_emails.each{|e| Resque.enqueue(Jobs::InviteUser, current_user.id, params[:user].merge({:email => e}))}
+
+      if bad_emails.any?
+        flash[:error] = I18n.t('invitations.create.sent') + good_emails.join(', ') + " "+ I18n.t('invitations.create.rejected') + bad_emails.join(', ')
       else
-        raise e
+        flash[:notice] = I18n.t('invitations.create.sent') + good_emails.join(', ')
       end
-    end
+
     redirect_to :back 
   end
 

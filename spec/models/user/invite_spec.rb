@@ -14,15 +14,11 @@ describe User do
 
   context "creating invites" do 
     it 'requires an apect' do
-      proc{
-        inviter.invite_user(:email => "maggie@example.com")
-      }.should raise_error /Must invite into aspect/
+      inviter.invite_user(:email => "maggie@example.com").should == false
     end
 
     it 'requires your aspect' do
-      proc{
-        inviter.invite_user(:email => "maggie@example.com", :aspect_id => wrong_aspect.id)
-      }.should raise_error /Must invite to your aspect/
+      inviter.invite_user(:email => "maggie@example.com", :aspect_id => wrong_aspect.id).should == false
     end
 
     it 'calls Invitation.invite' do

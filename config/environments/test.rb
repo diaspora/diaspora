@@ -43,5 +43,4 @@ begin
 rescue LoadError => ignore_if_database_cleaner_not_present
  puts "Error on cleaner"
 end
-
 end

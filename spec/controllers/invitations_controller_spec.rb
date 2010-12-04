@@ -14,6 +14,20 @@ describe InvitationsController do
  
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
+    module Resque
+      def enqueue(mod, *args)
+        mod.send(:perform, *args)
+      end
+    end
+  end
+
+  after do
+    module Resque
+      def enqueue(mod, *args)
+        true
+      end
+    end
+
   end
 
 
@@ -22,42 +36,23 @@ describe InvitationsController do
       user.invites = 5
 
       sign_in :user, user
-      @invite = {:invite_messages=>"test", :aspects=> aspect.id.to_s, :email=>"abc@example.com"}
+      @invite = {:invite_message=>"test", :aspect_id=> aspect.id.to_s, :email=>"abc@example.com"}
       @controller.stub!(:current_user).and_return(user)
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
     end
 
-    it 'invites the requested user' do
-      user.should_receive(:invite_user).and_return(make_user)
-      post :create, :user => @invite
+    it 'should call the resque job Jobs::InviteUser'  do
+    Resque.should_receive(:enqueue)
+     post :create,  :user => @invite
     end
-
-    it 'creates an invitation' do
-      lambda{
-        post :create, :user => @invite
-      }.should change(Invitation, :count).by(1)
-    end
-
-    it 'creates an invited user with five invites' do
-      lambda{
-        post :create, :user => @invite
-      }.should change(User, :count).by(1)
-      User.find_by_email("abc@example.com").invites.should == 5
-    end
-
+ 
     it 'can handle a comma seperated list of emails' do
-      lambda {
-        post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com, mbs@gmail.com")
-      }.should change(User, :count).by(2)
+      Resque.should_receive(:enqueue).twice()
+      post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com, mbs@gmail.com")
     end
 
     it 'displays a message that tells you how many invites were sent, and which REJECTED' do
       post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
-      flash[:notice].should_not be_empty
-      flash[:notice].should =~ /mbs@gmail\.com/
-      flash[:notice].should =~ /foo@bar\.com/
-      flash[:notice].should =~ /cool@bar\.com/
-
       flash[:error].should_not be_empty
       flash[:error].should =~ /foo\.com/
       flash[:error].should =~ /lala@foo/
