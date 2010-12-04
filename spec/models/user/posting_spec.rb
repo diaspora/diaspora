@@ -105,11 +105,27 @@ describe User do
       user.dispatch_post(status, :to => "all")
     end
 
-     it 'includes a permalink to my post' do
+     it 'does not include a permalink' do
       @status_opts[:public] = true
       status.save
-      user.should_receive(:post_to_twitter).with(service1, @message+ " #{post_path(status)}").once
-      user.should_receive(:post_to_facebook).with(service2, @message + " #{post_path(status)}").once
+      user.should_receive(:post_to_twitter).with(service1, @message).once
+      user.should_receive(:post_to_facebook).with(service2, @message).once
+      user.dispatch_post(status, :to => "all", :url => post_path(status))
+    end
+
+    it 'includes a permalink' do
+      fixture_filename = 'button.png'
+      fixture_name     = File.join(File.dirname(__FILE__), '..', '..', 'fixtures', fixture_filename)
+
+      photo1 = user.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect.id)
+      photo1.save!
+
+      @status_opts[:public] = true
+      @status_opts[:photo_id] = photo1.id
+      status.save
+
+      user.should_receive(:post_to_twitter).with(service1, @message).once
+      user.should_receive(:post_to_facebook).with(service2, @message).once
       user.dispatch_post(status, :to => "all", :url => post_path(status))
     end
 

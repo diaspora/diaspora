@@ -44,9 +44,9 @@ class UsersController < ApplicationController
       else
         flash[:error] = I18n.t 'users.update.language_not_changed'
       end
-
-      redirect_to edit_user_path(@user)
     end
+
+    redirect_to edit_user_path(@user)
   end
 
   def destroy
