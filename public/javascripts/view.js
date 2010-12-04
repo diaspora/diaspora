@@ -2,127 +2,198 @@
 *   licensed under the Affero General Public License version 3 or later.  See
 *   the COPYRIGHT file.
 */
+var View = {
+  initialize: function() { 
+    /* Buttons */
+    $("input[type='submit']").addClass("button");
 
-$(document).ready(function(){
-  $('#debug_info').click(function() {
-    $('#debug_more').toggle('fast');
-  });
+    /* Tooltips */
+    this.tooltips.bindAll();
 
-  $("label").inFieldLabels();
+    /* Animate flashes */
+    this.flashes.animate();
 
-  $('#flash_notice, #flash_error, #flash_alert').animate({
-    top: 0
-  }).delay(2000).animate({
-    top: -100 
-  }, $(this).remove());
+    /* In field labels */
+    $("label").inFieldLabels();
+    
+    /* Focus aspect name on fancybox */
+    $(this.addAspectButton.selector)
+      .click(this.addAspectButton.click);
 
-  //buttons//////
-  $(".add_aspect_button," + 
-    ".manage_aspect_contacts_button," +
-    ".add_photo_button," +
-    ".remove_person_button," +
-    ".question_mark").fancybox({ 'titleShow': false , 'hideOnOverlayClick' : false });
+    /* Showing debug messages  */
+    $(this.debug.selector)
+      .click(this.debug.click);
 
-  $("input[type='submit']").addClass("button");
+    /* "Toggling" the search input */
+    $(this.search.selector)
+      .blur(this.search.blur)
+      .focus(this.search.focus);
 
-  // focus aspect name on fancybox
-  $(".add_aspect_button").click( function(){
-    $("#aspect_name").focus();
-  });
+    /* Getting started animation */
+    $(this.gettingStarted.selector)
+      .live("click", this.gettingStarted.click);
 
-  $("#q").focus(
-    function() {
-      $(this).addClass('active');
+    /* Submitting the status message form when the user hits enter */
+    $(this.publisher.selector)
+      .keyup(this.publisher.keyup);
+
+    /* User menu */
+    $(this.userMenu.selector)
+      .click(this.userMenu.click);
+    
+    /* Sending a request message */
+    $(this.newRequest.selector)
+      .live("submit", this.newRequest.submit);
+
+    /* Button fancyboxes */ 
+    $(this.fancyBoxButtons.selectors.join(", "))
+      .fancybox({
+         'titleShow': false,
+         'hideOnOverlayClick' : false
+      });
+
+    /* Webfinger form ajaxy loading */
+    $(this.webFingerForm.selector)
+      .submit(this.webFingerForm.submit);
+
+    $(document.body)
+      .click(this.userMenu.removeFocus);
+  },
+  
+  addAspectButton: {
+    click: function() {
+      $("#aspect_name").focus();
+    },
+    selector: ".add_aspect_button"
+  },
+  
+  fancyBoxButtons: { 
+    selectors: [
+      ".add_aspect_button",
+      ".manage_aspect_contacts_button",
+      ".invite_user_button",
+      ".add_photo_button",
+      ".remove_person_button",
+      ".question_mark"
+    ]
+  },
+  
+  debug: {
+    click: function() { 
+      $("#debug_more").toggle("fast");
+    },
+    selector: "#debug_info"
+  },
+
+  flashes: { 
+    animate: function() { 
+      var $this = $(View.flashes.selector);
+      $this.animate({
+        top: 0
+      }).delay(2000).animate({
+        top: -100
+      }, $this.remove())
+    },
+    selector: "#flash_notice, #flash_error, #flash_alert"
+
+  },
+
+  gettingStarted: {
+    click: function() {
+      var $this = $(this); 
+      $this.animate({ 
+        left: parseInt($this.css("left"), 30) === 0 ? -$this.outerWidth() : 0
+      }, function() { 
+        $this.css("left", "1000px");
+      });
+    },
+    selector: ".getting_started_box"
+  },
+
+  newRequest: {
+    submit: function() {
+      $(this).hide().parent().find(".message").removeClass("hidden");      
+    },
+    selector: ".new_request"
+  },
+
+  publisher: {
+    keyup: function(e) {
+      if(e.keyCode === 13) {
+        $(this).closest("form").submit();
+      }
+    },
+    selector: "#publisher textarea"
+  },
+
+  search: {
+    blur: function() { 
+      $(this).removeClass("active");
+    },
+    focus: function() { 
+      $(this).addClass("active");
+    },
+    selector: "#q"
+  },
+  
+  tooltips: {
+    addAspect: { 
+      bind: function() { 
+        $(".add_aspect_button", "#aspect_nav").tipsy({
+          gravity:"w"
+        });
+      }
+    },
+
+    avatars: {
+      bind: function() { 
+        $("img.avatar").tipsy({
+          live: true
+        });
+      }
+    },
+
+    whatIsThis: {
+      bind: function() { 
+        $(".what_is_this").tipsy({
+          live: true,
+          delayIn: 400
+        });
+      }
+    },
+
+    bindAll: function() { 
+      for(var element in this) {
+        if(element !== "bindAll") { 
+          this[element].bind();
+        }
+      };
     }
-  );
+  },
 
-  $('.new_request').live("submit", function(){
-    var foo = $(this).parent();
-    $(this).hide();
-    foo.find('.message').removeClass('hidden');
-  });
+  userMenu: {
+    click: function() { 
+      $(this).toggleClass("active");
+    },
+    removeFocus: function(evt) { 
+      var $target = $(evt.target);
+      if(!$target.closest("#user_menu").length) {
+        $(View.userMenu.selector).removeClass("active");
+      }
+    },
+    selector: "#user_menu"
+  },
 
-
-  $("#q").blur(
-    function() {
-      $(this).removeClass('active');
-    }
-  );
-
-  $("#publisher").find("textarea").keydown( function(e) {
-    if (e.keyCode === 13) {
-      $(this).closest("form").submit();
-    }
-  });
-
-  $(".stream").delegate("textarea.comment_box", "keydown", function(e){
-    if (e.keyCode === 13) {
-      $(this).closest("form").submit();
-    }
-  });
-
-  $("#user_menu").click( function(){
-    $(this).toggleClass("active");
-  });
-
-  $('body').click( function(event){
-    var target = $(event.target);
-    if(!target.closest('#user_menu').length){
-      $("#user_menu").removeClass("active");
-    };
-    if(!target.closest('.reshare_pane').length){
-      $(".reshare_button").removeClass("active");
-      $(".reshare_box").hide();
-    };
-  });
-
-  $("img", "#left_pane").tipsy({live:true});
-  $(".add_aspect_button", "#aspect_nav").tipsy({gravity:'w'});
-  $(".person img", ".dropzone").tipsy({live:true});
-  $(".avatar", ".aspects").tipsy({live:true});
-  $(".what_is_this").tipsy({live:true,delayIn:400});
-
-  $('.webfinger_form').submit(function(evt){
-    form = $(evt.currentTarget);
-    form.siblings('#loader').show();
-     $('#request_result li:first').hide();
-  });
-
-  // hotkeys
-  $(window).bind('keyup', 'ctrl+f', function(){
-    $("#q").focus();
-  });
-
-  $(window).bind('keyup', 'ctrl+e', function(){
-    EditPane.toggle();
-  });
-
-});//end document ready
-
-
-//Called with $(selector).clearForm()
-$.fn.clearForm = function() {
-  return this.each(function() {
-  var type = this.type, tag = this.tagName.toLowerCase();
-  if (tag == 'form')
-    return $(':input',this).clearForm();
-  if (type == 'text' || type == 'password' || tag == 'textarea')
-    this.value = '';
-  else if (type == 'checkbox' || type == 'radio')
-    this.checked = false;
-  else if (tag == 'select')
-    this.selectedIndex = -1;
-  else if (this.name == 'photos[]')
-    this.value = '';
-  $(this).blur();
-  });
+  webFingerForm: {
+    submit: function(evt) { 
+      $(evt.currentTarget).siblings("#loader").show();
+      $("#request_result li:first").hide();
+    },
+    selector: ".webfinger_form"
+  }
 };
 
-$(".getting_started_box").live("click",function(evt){
-  $(this).animate({
-    left: parseInt($(this).css('left'),30) == 0 ?
-        -$(this).outerWidth() :
-        0
-    },function(evt){ $(this).css('left', '1000px')});
+$(function() { 
+  /* Make sure this refers to View, not the document */  
+  View.initialize.apply(View);
 });
-

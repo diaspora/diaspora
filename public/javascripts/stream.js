@@ -15,6 +15,12 @@ var Stream = {
       $(this).closest("form").children(".comment_box").attr("rows", 1);
     });
 
+    $stream.delegate("textarea.comment_box", "keydown", function(e){
+      if (e.keyCode === 13) {
+        $(this).closest("form").submit();
+      }
+    });
+
     $stream.delegate("textarea.comment_box", "focus", function(evt) {
       var commentBox = $(this);
       commentBox.attr("rows", 2)

@@ -1,3 +1,23 @@
+/* Clear form plugin - called using $("elem").clearForm(); */
+$.fn.clearForm = function() {
+  return this.each(function() {
+  var type = this.type, tag = this.tagName.toLowerCase();
+  if (tag == 'form')
+    return $(':input',this).clearForm();
+  if (type == 'text' || type == 'password' || tag == 'textarea')
+    this.value = '';
+  else if (type == 'checkbox' || type == 'radio')
+    this.checked = false;
+  else if (tag == 'select')
+    this.selectedIndex = -1;
+  else if (this.name == 'photos[]')
+    this.value = '';
+  $(this).blur();
+  });
+};
+
+
+
 jQuery(function ($) {
     var csrf_token = $('meta[name=csrf-token]').attr('content'),
         csrf_param = $('meta[name=csrf-param]').attr('content');
@@ -76,8 +96,8 @@ jQuery(function ($) {
     $('form[data-remote]').live('submit', function (e) {
         $(this).callRemote();
         e.preventDefault();
-		$(this).clearForm();
-		$(this).focusout();
+	$(this).clearForm();
+	$(this).focusout();
     });
 
     $('a[data-remote],input[data-remote]').live('click', function (e) {
