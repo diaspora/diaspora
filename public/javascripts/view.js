@@ -92,7 +92,7 @@ var View = {
         top: 0
       }).delay(2000).animate({
         top: -100
-      }, $this.remove())
+      }, $this.remove)
     },
     selector: "#flash_notice, #flash_error, #flash_alert"
 
