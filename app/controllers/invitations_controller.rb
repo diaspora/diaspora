@@ -13,14 +13,13 @@ class InvitationsController < Devise::InvitationsController
         redirect_to :back
         return
       end
-      params[:user][:aspect_id] = params[:user].delete(:aspects)
+      aspect = params[:user].delete(:aspects)
       message = params[:user].delete(:invite_messages)
-      params[:user][:invite_message] = message unless message == ""
       emails = params[:user][:email].split(/, */)
 
       good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
 
-      good_emails.each{|e| Resque.enqueue(Jobs::InviteUser, current_user.id, params[:user].merge({:email => e}))}
+      good_emails.each{|e| Resque.enqueue(Jobs::InviteUser, current_user.id, e, aspect, message)}
 
       if bad_emails.any?
         flash[:error] = I18n.t('invitations.create.sent') + good_emails.join(', ') + " "+ I18n.t('invitations.create.rejected') + bad_emails.join(', ')

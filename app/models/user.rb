@@ -362,14 +362,13 @@ class User
   end
 
   ###Invitations############
-  def invite_user(opts = {})
-    aspect_id = opts.delete(:aspect_id)
-    aspect_object = self.aspects.find_by_id(aspect_id)
+  def invite_user(email, aspect_id, invite_message = "")
+    aspect_object = Aspect.first(:user_id => self.id, :id => aspect_id)
     if aspect_object
-      Invitation.invite(:email => opts[:email],
+      Invitation.invite(:email => email,
                         :from => self,
                         :into => aspect_object,
-                        :message => opts[:invite_message])
+                        :message => invite_message)
     else
       false
     end
