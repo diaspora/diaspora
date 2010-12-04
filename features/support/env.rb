@@ -20,7 +20,7 @@ require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links wi
 # order to ease the transition to Capybara we set the default here. If you'd
 # prefer to use XPath just remove this line and adjust any selectors in your
 # steps to use the XPath syntax.
-Capybara.default_selector = :css
+Capybara.default_selector           = :css
 
 # If you set this to false, any error raised from within your app will bubble
 # up to your step definition and out to cucumber unless you catch it somewhere
@@ -36,18 +36,24 @@ ActionController::Base.allow_rescue = false
 # How to clean your database when transactions are turned off. See
 # http://github.com/bmabey/database_cleaner for more info.
 begin
- require 'database_cleaner'
- require 'database_cleaner/cucumber'
- DatabaseCleaner.strategy = :truncation
- DatabaseCleaner.orm = "mongo_mapper"
+  require 'database_cleaner'
+  require 'database_cleaner/cucumber'
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.orm      = "mongo_mapper"
 end
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
 include HelperMethods
 
-class User  
-def send_contact_request_to(desired_contact, aspect)
-    request = Request.instantiate(:to => desired_contact, 
+module Resque
+  def enqueue(klass, *args)
+    klass.send(:perform, *args)
+  end
+end
+
+class User
+  def send_contact_request_to(desired_contact, aspect)
+    request = Request.instantiate(:to   => desired_contact,
                                   :from => self.person,
                                   :into => aspect)
     if request.save!
