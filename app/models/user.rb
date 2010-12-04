@@ -169,7 +169,8 @@ class User
 
     if post.public && post.respond_to?(:message)
       
-      if opts[:url]
+      if opts[:url] && post.photos.count > 0
+
         message = truncate(post.message, :length => (140 - (opts[:url].length + 1)))
         message = "#{message} #{opts[:url]}"
       else
