@@ -80,10 +80,11 @@ jQuery(function ($) {
     /**
 * confirmation handler
 */
-    $('a[data-confirm],input[data-confirm]').live('click', function () {
+    $('a[data-confirm],input[data-confirm]').live('click', function(event) {
         var el = $(this);
         if (el.triggerAndReturn('confirm')) {
             if (!confirm(el.attr('data-confirm'))) {
+                event.stopImmediatePropagation();
                 return false;
             }
         }
