@@ -35,7 +35,7 @@ class User
 
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false
-  validates_format_of :username, :with => /\A[A-Za-z0-9_.]+\z/
+  validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
   validates_inclusion_of :grammatical_gender, :in => I18n::Backend::Genderize::known_genders + [nil]
