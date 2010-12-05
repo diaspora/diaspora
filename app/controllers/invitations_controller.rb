@@ -4,7 +4,7 @@
 
 class InvitationsController < Devise::InvitationsController
 
-  before_filter :check_token, :only => [:edit] 
+  before_filter :check_token, :only => [:edit]
 
 
   def create
@@ -27,7 +27,7 @@ class InvitationsController < Devise::InvitationsController
         flash[:notice] = I18n.t('invitations.create.sent') + good_emails.join(', ')
       end
 
-    redirect_to :back 
+    redirect_to :back
   end
 
   def update

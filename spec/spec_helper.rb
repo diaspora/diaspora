@@ -15,7 +15,7 @@ require 'webmock/rspec'
 include Devise::TestHelpers
 include WebMock::API
 include HelperMethods
-
+#
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
@@ -41,54 +41,57 @@ end
 
 module Resque
   def enqueue(klass, *args)
-    #if $process_queue
+    if $process_queue
       klass.send(:perform, *args)
-    #else
-    #  true
-    #end
-  end
-end
-
-class User  
-def send_contact_request_to(desired_contact, aspect)
-    request = Request.instantiate(:to => desired_contact, 
-                                  :from => self.person,
-                                  :into => aspect)
-    if request.save!
-      dispatch_request request
+    else
+      true
     end
-    request
   end
 end
 
 ImageUploader.enable_processing = false
-
 class User
-  def post(class_name, opts = {})
-    p = build_post(class_name, opts)
-    if p.save!
-      raise 'MongoMapper failed to catch a failed save' unless p.id
-
-      self.aspects.reload
-
-      add_to_streams(p, opts[:to])
-      dispatch_post(p, :to => opts[:to])
+  def send_contact_request_to(desired_contact, aspect)
+    fantasy_resque do
+      request = Request.instantiate(:to => desired_contact,
+                                    :from => self.person,
+                                    :into => aspect)
+      if request.save!
+        dispatch_request request
+      end
+      request
     end
-    p
+  end
+
+  def post(class_name, opts = {})
+    fantasy_resque do
+      p = build_post(class_name, opts)
+      if p.save!
+        raise 'MongoMapper failed to catch a failed save' unless p.id
+
+        self.aspects.reload
+
+        add_to_streams(p, opts[:to])
+        dispatch_post(p, :to => opts[:to])
+      end
+      p
+    end
   end
 
   def comment(text, options = {})
-    c = build_comment(text, options)
-    if c.save!
-      raise 'MongoMapper failed to catch a failed save' unless c.id
-      dispatch_comment(c)
+    fantasy_resque do
+      c = build_comment(text, options)
+      if c.save!
+        raise 'MongoMapper failed to catch a failed save' unless c.id
+        dispatch_comment(c)
+      end
+      c
     end
-    c
   end
 end
 
 
-  
+
 class FakeHttpRequest
   def initialize(callback_wanted)
     @callback = callback_wanted
@@ -111,12 +114,12 @@ class FakeHttpRequest
     self
   end
 
-  def post(opts = nil); 
-    self 
+  def post(opts = nil);
+    self
   end
 
   def get(opts = nil)
-    self 
+    self
   end
 
   def publish(opts = nil)

@@ -10,7 +10,7 @@ class User
   include Diaspora::UserModules
   include Encryptor::Private
   include ActionView::Helpers::TextHelper
-  
+
   plugin MongoMapper::Devise
 
   devise :invitable, :database_authenticatable, :registerable,
@@ -157,7 +157,7 @@ class User
     push_to_aspects(post, aspects_from_ids(aspect_ids))
 
     if post.public && post.respond_to?(:message)
-      
+
       if opts[:url] && post.photos.count > 0
 
         message = truncate(post.message, :length => (140 - (opts[:url].length + 1)))
@@ -190,14 +190,14 @@ class User
     if twitter_consumer_secret.blank? || twitter_consumer_secret.blank?
       Rails.logger.info "you have a blank twitter key or secret.... you should look into that"
     end
-    
+
     Twitter.configure do |config|
       config.consumer_key = twitter_key
       config.consumer_secret = twitter_consumer_secret
       config.oauth_token = service.access_token
       config.oauth_token_secret = service.access_secret
     end
-    
+
     Twitter.update(message)
   end
 
@@ -298,7 +298,7 @@ class User
       #push DOWNSTREAM (to original audience)
       Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.id}"
       aspects = aspects_with_post(comment.post_id)
-    
+
       #just socket to local users, as the comment has already
       #been associated and saved by post owner
       #  (we'll push to all of their aspects for now, the comment won't

@@ -49,7 +49,7 @@ describe Diaspora::Parser do
 
         Person.should_receive(:by_account_identifier).twice.and_return(new_person)
 
-        lambda { 
+        lambda {
           user.receive_salmon xml
         }.should change(Person, :count).by(1)
       end
@@ -60,8 +60,9 @@ describe Diaspora::Parser do
     it "should activate the Person if I initiated a request to that url" do
       user.send_contact_request_to(user2.person, aspect)
       request = user2.reload.pending_requests.find_by_to_id!(user2.person.id)
-      user2.accept_and_respond(request.id, aspect2.id)
-      
+      fantasy_resque do
+        user2.accept_and_respond(request.id, aspect2.id)
+      end
       user.reload
       aspect.reload
       new_contact = user.contact_for(user2.person)

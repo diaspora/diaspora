@@ -23,11 +23,13 @@ module HelperMethods
   end
 
   def fantasy_resque
+    former_value = $process_queue
     $process_queue = true
-    yield
-    $process_queue = false
+    result = yield
+    $process_queue = former_value
+    result
   end
-  
+
   def connect_users(user1, aspect1, user2, aspect2)
     fantasy_resque do
       user1.send_contact_request_to(user2.person, aspect1)
