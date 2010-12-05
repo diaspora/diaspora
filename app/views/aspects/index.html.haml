@@ -11,8 +11,8 @@
         = info_text(t('.handle_explanation'))
 
 .span-15.append-1
-  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
   = render 'shared/publisher', :aspect => @aspect
+  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
   = render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
 
   = render 'shared/stream', :posts => @post_hashes
