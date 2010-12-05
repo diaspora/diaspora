@@ -53,7 +53,7 @@ processPerson: function(response){
 
 
   processNotification: function(html){
-    $('#notification').html(html).fadeIn(200).delay(4000).fadeOut(200, function(){ $(this).html("");});
+    $('#notification').html(html).fadeIn(200).delay(8000).fadeOut(200, function(){ $(this).html("");});
   },
 
   processRetraction: function(post_id){
