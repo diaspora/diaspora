@@ -138,8 +138,9 @@ describe Aspect do
 
       aspect.reload.post_ids.include?(message.id).should be true
 
-      retraction = user2.retract(message)
-
+      fantasy_resque do
+        retraction = user2.retract(message)
+      end
       aspect.reload
       aspect.post_ids.include?(message.id).should be false
     end

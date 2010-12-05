@@ -34,8 +34,7 @@ RSpec.configure do |config|
 
     DatabaseCleaner.clean
     UserFixer.load_user_fixtures
-    Notifier.stub!(:send_request_accepted!).and_return(true)
-    Notifier.stub!(:send_new_request!).and_return(true)
+    $process_queue = false
   end
 end
 

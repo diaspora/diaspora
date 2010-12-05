@@ -80,9 +80,11 @@ describe User do
 
       context 'after request acceptance' do
         before do
-          invited_user.accept_and_respond(invited_user.pending_requests.first.id,
-                                              invited_user.aspects.create(
-                                                :name => 'first aspect!').id)
+          fantasy_resque do
+            invited_user.accept_and_respond(invited_user.pending_requests.first.id,
+                                                invited_user.aspects.create(
+                                                  :name => 'first aspect!').id)
+          end
           invited_user.reload
           inviter.reload
         end
