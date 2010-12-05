@@ -245,9 +245,15 @@ describe User do
   end
 
   describe ".find_for_authentication" do
-    it "preserves case" do
+    before do
+      user
+      user2
+    end
+    it 'finds a user' do
       User.find_for_authentication(:username => user.username).should == user
-      User.find_for_authentication(:username => user.username.upcase).should be_nil
+    end
+    it "does not preserve case" do
+      User.find_for_authentication(:username => user.username.upcase).should == user
     end
   end
 

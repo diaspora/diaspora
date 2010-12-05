@@ -76,6 +76,7 @@ class User
   end
 
   def self.find_for_authentication(conditions={})
+    conditions[:username] = conditions[:username].downcase
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
     end
