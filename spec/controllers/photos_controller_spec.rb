@@ -12,7 +12,7 @@ describe PhotosController do
 
   let!(:aspect) {user.aspects.create(:name => 'winners')}
   let(:aspect2) {user2.aspects.create(:name => 'winners')}
-  
+
   let(:filename) {'button.png'}
   let(:fixture_name) {File.join(File.dirname(__FILE__), '..', 'fixtures', filename)}
   let(:image) {File.open(fixture_name)}
@@ -31,8 +31,7 @@ describe PhotosController do
     end
 
     it 'can make a photo' do
-      pending
-      proc{ post :create, :qqfile => fixture_name }.should change(Photo, :count).by(1)
+      proc{ post :create, :photo => {:user_file => image, :aspect_ids => "all"} }.should change(Photo, :count).by(1)
     end
   end
 
@@ -45,7 +44,7 @@ describe PhotosController do
 
     it 'sets the person to a contact if person_id is set' do
       get :index, :person_id => user2.person.id.to_s
-      
+
       assigns[:person].should == user2.person
       assigns[:posts].should == []
     end
@@ -57,19 +56,19 @@ describe PhotosController do
       response.code.should == "200"
 
       assigns[:photo].should == photo
-      assigns[:ownership].should == true 
+      assigns[:ownership].should == true
     end
 
   end
 
   describe '#edit' do
     it 'should let you edit a photo' do
-      get :edit, :id => photo.id 
+      get :edit, :id => photo.id
       response.code.should == "200"
     end
 
     it 'should not let you edit a photo that is not yours' do
-      get :edit, :id => photo2.id 
+      get :edit, :id => photo2.id
       response.should redirect_to(:action => :index, :person_id => user.person.id.to_s)
     end
   end
@@ -92,7 +91,7 @@ describe PhotosController do
       put :update, :id => photo.id, :photo => { :caption => "now with lasers!"}
       photo.reload.caption.should == "now with lasers!"
     end
-    
+
     it "doesn't overwrite random attributes" do
       new_user = Factory.create :user
       params = { :caption => "now with lasers!", :person_id => new_user.id}
@@ -109,7 +108,7 @@ describe PhotosController do
   end
 
   describe "#make_profile_photo" do
-    
+
     it 'should return a 201 on a js success' do
       get :make_profile_photo, :photo_id => photo.id, :format => 'js'
       response.code.should == "201"
