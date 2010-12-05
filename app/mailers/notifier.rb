@@ -29,7 +29,7 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
 
-    mail(:to => "#{@receiver.name} <#{@receiver.email}>",
+    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
          :subject => I18n.t('notifier.new_request.subject', :from => @sender.name), :host => APP_CONFIG[:terse_pod_url])
   end
 
@@ -42,7 +42,7 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT 
 
-    mail(:to => "#{@receiver.name} <#{@receiver.email}>",
+    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
           :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => APP_CONFIG[:terse_pod_url])
   end
 
