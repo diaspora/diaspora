@@ -99,15 +99,13 @@ describe User do
         duplicate_user.should_not be_valid
       end
 
-      it "keeps the original case" do
-        pending "do we want this?"
+      it "downcases username" do
         user = Factory.build(:user, :username => "WeIrDcAsE")
         user.should be_valid
-        user.username.should == "WeIrDcAsE"
+        user.username.should == "weirdcase"
       end
 
       it "fails if the requested username is only different in case from an existing username" do
-        pending "do we want this?"
         duplicate_user = Factory.build(:user, :username => user.username.upcase)
         duplicate_user.should_not be_valid
       end
@@ -124,6 +122,11 @@ describe User do
       end
 
       it 'can not contain non url safe characters' do
+        user = Factory.build(:user, :username => "kittens;")
+        user.should_not be_valid
+      end
+
+      it 'should not contain periods' do
         user = Factory.build(:user, :username => "kittens;")
         user.should_not be_valid
       end
