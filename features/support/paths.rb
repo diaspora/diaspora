@@ -9,6 +9,8 @@ module NavigationHelpers
       send("#{$1.gsub(/\W+/, '_')}_path")
     when /^my edit profile page$/
       edit_person_path(@me.person)
+    when /^my acceptance form page$/
+      accept_user_invitation_path(:invitation_token => @me.invitation_token)
     when /^the requestor's profile page$/
       person_path(@me.reload.pending_requests.first.from)
     when /^"(\/.*)"/

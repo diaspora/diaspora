@@ -3,6 +3,10 @@ Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, 
           :password_confirmation => password, :getting_started => false)
 end
 
+Given /^I have been invited by an admin$/ do
+  @me = Invitation.create_invitee(:email => "new_invitee@example.com")
+end
+
 When /^I click on my name$/ do
   click_link("#{@me.first_name} #{@me.last_name}")
 end
