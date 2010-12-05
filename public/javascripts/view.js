@@ -147,7 +147,7 @@ var View = {
 
     avatars: {
       bind: function() { 
-        $(".left_pane img.avatar, #manage_aspec_zones img.avatar").tipsy({
+        $(".left_pane img.avatar, #manage_aspect_zones img.avatar").tipsy({
           live: true
         });
       }
