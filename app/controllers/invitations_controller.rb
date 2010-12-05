@@ -32,13 +32,17 @@ class InvitationsController < Devise::InvitationsController
 
   def update
     begin
+      puts "foobar"
+      puts params.inspect
       user = User.find_by_invitation_token(params[:user][:invitation_token])
+      puts user.inspect
       user.seed_aspects
       user.accept_invitation!(params[:user])
     rescue MongoMapper::DocumentNotValid => e
       user = nil
       flash[:error] = e.message
     end
+
     if user
       flash[:notice] = I18n.t 'registrations.create.success'
       sign_in_and_redirect(:user, user)
