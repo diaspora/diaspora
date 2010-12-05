@@ -17,19 +17,10 @@
     :javascript
       $(document).ready(Mobile.initialize);
 
-
     = yield(:head)
 
   %body
-    #content{:data => {:role => 'page'}}
-      %div{:data => {:role => 'header', :nobackbtn => 'true'}}
-        %h1
-          = person_image_tag (current_user.person)
-          = current_user.name 
-      = select_tag "aspect_picker", aspect_select_options(@aspects, @aspect)
-      
+    %div{:data => {:role => 'header', :nobackbtn => 'true'}}
+      = link_to image_tag('diaspora_logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
+    #content{:data => {:role => 'page', :theme => "b"}}
       = yield
-           
-      /%div{:data => {:role => 'fieldcontain'}}
-      /  = form_tag(people_path, :method => 'get') do
-      /    = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search'
