@@ -32,13 +32,15 @@ class InvitationsController < Devise::InvitationsController
 
   def update
     begin
-      puts "foobar"
-      puts params.inspect
+      invitation_token = params[:user][:invitation_token]
+      if invitation_token.nil? || invitation_token.blank?
+        raise "Invalid Invite Token"
+      end
       user = User.find_by_invitation_token(params[:user][:invitation_token])
       puts user.inspect
       user.seed_aspects
       user.accept_invitation!(params[:user])
-    rescue MongoMapper::DocumentNotValid => e
+    rescue Exception => e
       user = nil
       flash[:error] = e.message
     end
