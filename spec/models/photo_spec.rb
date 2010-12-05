@@ -172,12 +172,14 @@ describe Photo do
     end
 
     it 'deletes the parent object if there are no other photos or message' do
+      pending
       proc {
         @photo2.destroy
       }.should change(StatusMessage, :count).by(-1)
     end
 
     it 'does not delete the parent if the parent has other photos' do
+      pending
       @status_message.photos << @photo
       @status_message.save
 
@@ -187,6 +189,7 @@ describe Photo do
     end
 
     it 'does not delete the parent if the parent has a message' do
+      pending
       @status_message.message = "hello there kids"
       @status_message.save
 

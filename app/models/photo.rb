@@ -27,7 +27,7 @@ class Photo < Post
 
   before_destroy :ensure_user_picture
 
-  before_destroy :delete_parent_if_no_photos_or_message
+  #before_destroy :delete_parent_if_no_photos_or_message
   def ownership_of_status_message
     message = StatusMessage.find_by_id(self.status_message_id)
     if status_message_id && message 
@@ -119,6 +119,7 @@ class Photo < Post
     where(:status_message_id.in => post_ids)
   }
 
+=begin
   private
   def delete_parent_if_no_photos_or_message
     parent =  self.status_message  
@@ -127,6 +128,7 @@ class Photo < Post
       parent.delete
     end
   end
+=end
 end
 
 
