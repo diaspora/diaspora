@@ -51,7 +51,11 @@ class AspectsController < ApplicationController
       flash[:error] = e.message
     end
 
-    respond_with :location => aspects_manage_path
+    if current_user.getting_started
+      redirect_to :back
+    else
+      respond_with :location => aspects_manage_path
+    end
   end
 
   def show
