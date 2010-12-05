@@ -255,6 +255,11 @@ describe User do
     it "does not preserve case" do
       User.find_for_authentication(:username => user.username.upcase).should == user
     end
+    it 'errors out when passed a non-hash' do
+      lambda {
+        User.find_for_authentication(user.username)
+      }.should raise_error
+    end
   end
 
   context 'profiles' do
