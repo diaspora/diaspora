@@ -7,6 +7,12 @@ Given /^I have been invited by an admin$/ do
   @me = Invitation.create_invitee(:email => "new_invitee@example.com")
 end
 
+Given /^I have been invited by a user$/ do
+  @inviter = Factory(:user)
+  aspect = @inviter.aspects.create(:name => "Rocket Scientists")
+  @me = @inviter.invite_user("new_invitee@example.com", aspect.id, "Hey, tell me about your rockets!")
+end
+
 When /^I click on my name$/ do
   click_link("#{@me.first_name} #{@me.last_name}")
 end
