@@ -4,45 +4,55 @@
 
 require 'spec_helper'
 
-
 describe PublicsController do
   render_views
+
   let(:user) { make_user }
-  let(:person){Factory(:person)}
+  let(:person) { Factory(:person) }
 
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
-     context 'success cases' do
-      it 'should 200 on successful receipt of a request, and queues a job' do
-        Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, xml).once
-        post :receive, :id =>user.person.id, :xml => xml
-        response.code.should == '200'
-      end
+
+    before do
+      Jobs::ReceiveSalmon.stub!(:perform)
     end
 
-    it 'should return a 422 if no xml is passed' do
-      post :receive, :id => person.id
+    it 'succeeds' do
+      post :receive, "id" => user.person.id.to_s, "xml" => xml
+      response.should be_success
+    end
+
+    it 'enqueues a receive job' do
+      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, xml).once
+      post :receive, "id" => user.person.id.to_s, "xml" => xml
+    end
+
+    it 'returns a 422 if no xml is passed' do
+      post :receive, "id" => person.id.to_s
       response.code.should == '422'
     end
 
-    it 'should return a 404 if no user is found' do
-      post :receive, :id => person.id, :xml => xml
-      response.code.should == '404'
+    it 'returns a 404 if no user is found' do
+      post :receive, "id" => person.id.to_s, "xml" => xml
+      response.should be_not_found
     end
-
   end
 
   describe '#hcard' do
-    it 'queries by person id' do
-      post :hcard, :id => user.person.id
+    it "succeeds" do
+      post :hcard, "id" => user.person.id.to_s
+      response.should be_success
+    end
+
+    it 'sets the person' do
+      post :hcard, "id" => user.person.id.to_s
       assigns[:person].should == user.person
-      response.code.should == '200'
     end
 
     it 'does not query by user id' do
-      post :hcard, :id => user.id
+      post :hcard, "id" => user.id.to_s
       assigns[:person].should be_nil
-      response.code.should == '404'
+      response.should be_not_found
     end
   end
 
