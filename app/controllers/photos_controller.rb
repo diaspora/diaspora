@@ -105,7 +105,7 @@ class PhotosController < ApplicationController
       flash[:notice] = I18n.t 'photos.destroy.notice'
 
 
-      if photo.status_message
+      if photo.status_message_id
         respond_with :location => photo.status_message
       else
         respond_with :location => person_photos_path(current_user.person)
