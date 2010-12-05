@@ -13,14 +13,10 @@ describe PublicsController do
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
      context 'success cases' do
-      it 'should 200 on successful receipt of a request' do
-        post :receive, :id =>user.person.id, :xml => xml
-        response.code.should == '200'
-      end
-
-      it 'enqueues a receive job' do
+      it 'should 200 on successful receipt of a request, and queues a job' do
         Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, xml).once
         post :receive, :id =>user.person.id, :xml => xml
+        response.code.should == '200'
       end
     end
 

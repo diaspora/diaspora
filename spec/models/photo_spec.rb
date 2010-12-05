@@ -121,7 +121,6 @@ describe Photo do
     it 'should set the remote_photo on marshalling' do
       @photo.image.store! File.open(@fixture_name)
 
-
       #security hax
       user2 = Factory.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
@@ -155,6 +154,18 @@ describe Photo do
 
     it "accepts comments if there is no parent status message" do
       proc{ @user.comment("big willy style", :on => @photo) }.should change(@photo.comments, :count).by(1)
+    end
+  end
+
+  context "deletion" do
+    it 'is deleted with parent status message' do
+      status_message = @user.build_post(:status_message, :message => "whattup", :to => @aspect.id)
+      status_message.photos << @photo2
+      status_message.save
+
+      proc {
+        status_message.destroy
+      }.should change(Photo, :count).by(-1)
     end
   end
 end
