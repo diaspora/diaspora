@@ -119,9 +119,12 @@ var Stream = {
         commentBlockMore.removeClass("hidden");
       });
     } else {
-      commentBlock.fadeToggle(150, function() {
-        commentBlock.toggleClass("hidden");
-    });
+      if(commentBlock.hasClass("hidden")) {
+        commentBlock.fadeIn(150);
+      }else{
+        commentBlock.hide();
+      }
+      commentBlock.toggleClass("hidden");
     }
 
     $this.html(text.replace((show) ? "show" : "hide", (show) ? "hide" : "show"));
