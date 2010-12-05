@@ -28,34 +28,44 @@ class Invitation
     create_invitee(opts)
   end
 
+  def self.new_or_existing_user_by_email(email)
+    existing_user = User.first(:email => email)
+    if existing_user
+      existing_user
+    else
+      result = User.new()
+      result.email = email
+      result.valid?
+      result
+    end
+  end
+
   def self.create_invitee(opts = {})
-    invitee = User.find_or_initialize_with_error_by(:email, opts[:email])
+    invitee = new_or_existing_user_by_email(opts[:email])
+    return invitee unless opts[:email].match Devise.email_regexp
     invitee.invites = opts[:invites]
     if invitee.new_record?
-      invitee.errors.clear if invitee.email.try(:match, Devise.email_regexp)
-    else
-      invitee.errors.add(:email, :taken) unless invitee.invited?
-    end
-
-    if invitee.errors.empty?
-
-      if opts[:from]
-        invitee.save(:validate => false)
-        Invitation.create!(:from => opts[:from],
-                           :to => invitee,
-                           :into => opts[:into],
-                           :message => opts[:message])
-
-        opts[:from].invites -= 1 unless opts[:from].invites == 0
-        opts[:from].save!
-        invitee.reload
-      end
-
+      invitee.errors.clear
       invitee.serialized_private_key ||= User.generate_key
       invitee.send(:generate_invitation_token)
-      invitee.invite! 
-      Rails.logger.info("event=invitation_sent to=#{opts[:email]} #{"inviter=#{opts[:from].diaspora_handle}" if opts[:from]}")
+    elsif invitee.invitation_token.nil?
+      return invitee
     end
+
+    if opts[:from]
+      invitee.save(:validate => false)
+      Invitation.create!(:from => opts[:from],
+                         :to => invitee,
+                         :into => opts[:into],
+                         :message => opts[:message])
+
+      opts[:from].invites -= 1 unless opts[:from].invites == 0
+      opts[:from].save!
+      invitee.reload
+    end
+
+    invitee.invite! 
+    Rails.logger.info("event=invitation_sent to=#{opts[:email]} #{"inviter=#{opts[:from].diaspora_handle}" if opts[:from]}")
     invitee
   end
 

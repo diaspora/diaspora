@@ -43,6 +43,28 @@ describe Invitation do
     @invitation.message.should == "!"
   end
 
+  describe '.new_or_existing_user_by_email' do
+    let(:inv){Invitation.new_or_existing_user_by_email(@email)}
+    before do
+      @users = []
+      8.times do
+        @users << make_user
+      end
+    end
+    it 'returns User.new for a non-existent user' do
+      @email = "maggie@example.org"
+      inv.email.should == @email
+      inv.persisted?.should be_false
+      lambda {
+        inv.reload
+      }.should raise_error /does not exist/
+    end
+    it 'returns an existing user' do
+      @email = @users[3].email
+      inv.should == @users[3]
+    end
+  end
+
   describe '.invite' do
     it 'creates an invitation' do
       lambda {
@@ -110,7 +132,6 @@ describe Invitation do
     end
 
     context 'invalid email' do
-    
       it 'return a user with errors' do
         new_user = Invitation.invite(:email => "fkjlsdf", :from => user, :into => aspect)
         new_user.should have(1).errors_on(:email)
@@ -120,6 +141,36 @@ describe Invitation do
   end
 
   describe '.create_invitee' do
+    context 'with an existing invitee' do
+      before do
+        @valid_params = {:from => user, 
+          :email => @email, 
+          :into => aspect, 
+          :message => @message}
+        @invitee = Invitation.create_invitee(:email => @email)
+      end
+      it 'creates no user' do
+        lambda {
+          Invitation.create_invitee(@valid_params)
+        }.should_not change(User, :count)
+      end
+      it 'sends mail' do
+        lambda {
+          Invitation.create_invitee(@valid_params)
+        }.should change{Devise.mailer.deliveries.size}.by(1)
+      end
+      it 'does not set the key' do
+        lambda {
+          Invitation.create_invitee(@valid_params)
+        }.should_not change{@invitee.reload.serialized_private_key}
+      end
+      it 'does not change the invitation token' do
+        pending "until this passes, old invitation emails will be invalidated by new ones"
+        lambda {
+          Invitation.create_invitee(@valid_params)
+        }.should_not change{@invitee.reload.invitation_token}
+      end
+    end
     context 'with an inviter' do
       before do
         @message = "whatever"
