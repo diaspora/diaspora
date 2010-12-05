@@ -30,8 +30,8 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :en
     EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
-    EventMachine::HttpRequest.any_instance.stubs(:post)
-    EventMachine::HttpRequest.any_instance.stubs(:get)
+    RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
+
     DatabaseCleaner.clean
     UserFixer.load_user_fixtures
     Notifier.stub!(:send_request_accepted!).and_return(true)
