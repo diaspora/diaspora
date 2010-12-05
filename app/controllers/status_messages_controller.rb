@@ -22,7 +22,7 @@ class StatusMessagesController < ApplicationController
     @status_message = current_user.build_post(:status_message, params[:status_message])
 
 
-    if @status_message.save(:safe => true)
+    if photos || @status_message.save!(:safe => true)
       raise 'MongoMapper failed to catch a failed save' unless @status_message.id
 
       @status_message.photos += photos unless photos.nil?
@@ -65,7 +65,6 @@ class StatusMessagesController < ApplicationController
     @status_message = current_user.my_posts.where(:_id =>  params[:id]).first
     if @status_message
       @status_message.destroy
-
     else
       Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"
     end

@@ -158,14 +158,41 @@ describe Photo do
   end
 
   context "deletion" do
+    before do
+      @status_message = @user.build_post(:status_message, :message => "", :to => @aspect.id)
+      @status_message.photos << @photo2
+      @status_message.save
+      @status_message.reload
+    end
+
     it 'is deleted with parent status message' do
-      status_message = @user.build_post(:status_message, :message => "whattup", :to => @aspect.id)
-      status_message.photos << @photo2
-      status_message.save
+      proc {
+        @status_message.destroy
+      }.should change(Photo, :count).by(-1)
+    end
+
+    it 'deletes the parent object if there are no other photos or message' do
+      proc {
+        @photo2.destroy
+      }.should change(StatusMessage, :count).by(-1)
+    end
+
+    it 'does not delete the parent if the parent has other photos' do
+      @status_message.photos << @photo
+      @status_message.save
 
       proc {
-        status_message.destroy
-      }.should change(Photo, :count).by(-1)
+        @photo2.destroy
+      }.should_not change(StatusMessage, :count)
+    end
+
+    it 'does not delete the parent if the parent has a message' do
+      @status_message.message = "hello there kids"
+      @status_message.save
+
+      proc {
+        @photo2.destroy
+      }.should_not change(StatusMessage, :count)
     end
   end
 end

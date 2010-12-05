@@ -107,10 +107,10 @@ class PhotosController < ApplicationController
       if photo.status_message_id
         respond_with :location => photo.status_message
       else
-        respond_with :location => photos_path
+        respond_with :location => person_photos_path(current_user.person)
       end
     else
-      respond_with :location => photos_path
+      respond_with :location => person_photos_path(current_user.person)
     end
 
   end
