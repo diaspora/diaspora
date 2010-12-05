@@ -12,4 +12,5 @@ class Service
   key :access_token, String
   key :access_secret, String
   key :nickname, String
+  timestamps!
 end
