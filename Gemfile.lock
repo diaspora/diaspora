@@ -364,8 +364,9 @@ GEM
     tilt (1.2.2)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.24)
-    uuidtools (2.1.2)
+    typhoeus (0.2.0)
+    tzinfo (0.3.23)
+    uuidtools (2.1.1)
     vegas (0.1.8)
       rack (>= 1.0.0)
     warden (0.10.7)
@@ -425,5 +426,6 @@ DEPENDENCIES
   ruby-debug
   thin (= 1.2.7)
   twitter!
+  typhoeus
   webmock
   will_paginate (= 3.0.pre2)

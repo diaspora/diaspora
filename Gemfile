@@ -47,6 +47,7 @@ gem 'aws', '2.3.32' # upgrade to 2.4 breaks 1.8 >.<
 gem 'fastercsv', '1.5.4', :require => false
 gem 'jammit', '0.5.4'
 gem 'rest-client', '1.6.1'
+gem 'typhoeus'
 #Backups
 gem 'cloudfiles', '1.4.10', :require => false
 
