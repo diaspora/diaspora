@@ -391,6 +391,8 @@ en:
   home:
       show:
           share_what_you_want: "Share what you want, with whom you want."
+          tagline_first_half: "Share what you want,"
+          tagline_second_half: "with whom you want."
           already_account: "already have an account?"
           login_here: "log in here"
           choice: "Choice"
