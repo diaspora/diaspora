@@ -3,7 +3,7 @@ module Jobs
     @queue = :http
     def self.perform(url, body, tries_remaining)
       begin
-        RestClient.post(url, :xml => body){ |response, request, result, &block|
+        RestClient.post(url, :xml => body, :timeout => 4){ |response, request, result, &block|
           if [301, 302, 307].include? response.code
             response.follow_redirection(request, result, &block)
           else
