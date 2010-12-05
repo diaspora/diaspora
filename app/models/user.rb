@@ -381,7 +381,7 @@ class User
       log_string << "inviter=#{invitations_to_me.first.from.diaspora_handle}" if invitations_to_me.first
       Rails.logger.info log_string
       self.setup(opts)
-
+      puts "foobar"
       self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
@@ -419,6 +419,8 @@ class User
 
     self.serialized_private_key ||= User.generate_key
     self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
+    
+    puts self.serialized_public_key
     self
   end
 
