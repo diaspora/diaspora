@@ -29,7 +29,7 @@ describe 'making sure the spec runner works' do
       User.count.should == 2
       new_user.id.should_not == second_user.id
     end
-    
+
   end
 
   describe 'factories' do
@@ -37,7 +37,7 @@ describe 'making sure the spec runner works' do
       it 'does not save a built user' do
         Factory.build(:user).persisted?.should be_false
       end
-      
+
       it 'does not save a built person' do
         Factory.build(:person).persisted?.should be_false
       end

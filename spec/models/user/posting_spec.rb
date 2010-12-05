@@ -203,8 +203,22 @@ describe User do
 
         user.push_to_people(post, [user2.person, user3.person, remote_person])
       end
-
     end
 
+    describe '#push_to_person' do
+      before do
+        @salmon = user.salmon(post)
+        @xml = post.to_diaspora_xml
+      end
+      it 'enqueues receive for local contacts' do
+        Resque.should_receive(:enqueue).with(Jobs::Receive, user2.id, @xml, user.person.id)
+        user.push_to_person(@salmon, post, user2.person)
+      end
+      it 'calls the MessageHandler for remote contacts' do
+        person = Factory.create(:person)
+        MessageHandler.should_receive(:add_post_request).once
+        user.push_to_person(@salmon, post, person)
+      end
+    end
   end
 end

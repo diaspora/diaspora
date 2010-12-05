@@ -10,7 +10,7 @@ class User
   include Diaspora::UserModules
   include Encryptor::Private
   include ActionView::Helpers::TextHelper
-  
+
   plugin MongoMapper::Devise
 
   devise :invitable, :database_authenticatable, :registerable,
@@ -141,17 +141,6 @@ class User
   end
 
   ######## Posting ########
-  def post(class_name, opts = {})
-    post = build_post(class_name, opts)
-
-    if post.save
-      raise 'MongoMapper failed to catch a failed save' unless post.id
-      add_to_streams(post, opts[:to])
-      dispatch_post(post, :to => opts[:to])
-    end
-    post
-  end
-
   def build_post(class_name, opts = {})
     opts[:person] = self.person
     opts[:diaspora_handle] = opts[:person].diaspora_handle
@@ -168,7 +157,7 @@ class User
     push_to_aspects(post, aspects_from_ids(aspect_ids))
 
     if post.public && post.respond_to?(:message)
-      
+
       if opts[:url] && post.photos.count > 0
 
         message = truncate(post.message, :length => (140 - (opts[:url].length + 1)))
@@ -201,14 +190,14 @@ class User
     if twitter_consumer_secret.blank? || twitter_consumer_secret.blank?
       Rails.logger.info "you have a blank twitter key or secret.... you should look into that"
     end
-    
+
     Twitter.configure do |config|
       config.consumer_key = twitter_key
       config.consumer_secret = twitter_consumer_secret
       config.oauth_token = service.access_token
       config.oauth_token_secret = service.access_secret
     end
-    
+
     Twitter.update(message)
   end
 
@@ -273,7 +262,7 @@ class User
     # calling nil? performs a necessary evaluation.
     if person.owner_id
       Rails.logger.info("event=push_to_person route=local sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
-      Jobs::Receive.perform(person.owner_id, post.to_diaspora_xml, self.person.id)
+      Resque.enqueue(Jobs::Receive, person.owner_id, post.to_diaspora_xml, self.person.id)
     else
       xml = salmon.xml_for person
       Rails.logger.info("event=push_to_person route=remote sender=#{self.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{post.class}")
@@ -281,24 +270,12 @@ class User
     end
   end
 
-
-
   def salmon(post)
     created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
     created_salmon
   end
 
   ######## Commenting  ########
-  def comment(text, options = {})
-    comment = build_comment(text, options)
-
-    if comment.save
-      raise 'MongoMapper failed to catch a failed save' unless comment.id
-      dispatch_comment comment
-    end
-    comment
-  end
-
   def build_comment(text, options = {})
     comment = Comment.new(:person_id => self.person.id,
                           :diaspora_handle => self.person.diaspora_handle,
@@ -321,7 +298,7 @@ class User
       #push DOWNSTREAM (to original audience)
       Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.id}"
       aspects = aspects_with_post(comment.post_id)
-    
+
       #just socket to local users, as the comment has already
       #been associated and saved by post owner
       #  (we'll push to all of their aspects for now, the comment won't
