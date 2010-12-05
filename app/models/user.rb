@@ -381,12 +381,11 @@ class User
       log_string << "inviter=#{invitations_to_me.first.from.diaspora_handle}" if invitations_to_me.first
       Rails.logger.info log_string
       self.setup(opts)
-
       self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-      self.person.save!
       self.save!
+      self.person.save!
       invitations_to_me.each{|invitation| invitation.to_request!}
 
       self.reload # Because to_request adds a request and saves elsewhere
@@ -419,6 +418,7 @@ class User
 
     self.serialized_private_key ||= User.generate_key
     self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
+    
     self
   end
 

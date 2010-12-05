@@ -34,6 +34,8 @@ class PhotosController < ApplicationController
   def create
     begin
 
+      raise unless params[:photo][:aspect_ids]
+
       if params[:photo][:aspect_ids] == "all"
         params[:photo][:aspect_ids] = current_user.aspects.collect{|x| x.id}
       end
@@ -110,7 +112,7 @@ class PhotosController < ApplicationController
     else
       respond_with :location => photos_path
     end
-   
+
   end
 
   def show
@@ -163,7 +165,7 @@ class PhotosController < ApplicationController
   end
 
 
-  private 
+  private
 
   def file_handler(params)
       ######################## dealing with local files #############

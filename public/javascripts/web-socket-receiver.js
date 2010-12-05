@@ -53,7 +53,7 @@ processPerson: function(response){
 
 
   processNotification: function(html){
-    $('#notification').html(html).fadeIn(200).delay(4000).fadeOut(200, function(){ $(this).html("");});
+    $('#notification').html(html).fadeIn(200).delay(8000).fadeOut(200, function(){ $(this).html("");});
   },
 
   processRetraction: function(post_id){
@@ -91,21 +91,24 @@ processPerson: function(response){
 
   processPost: function(className, postId, html, aspectIds){
     if(WebSocketReceiver.onPageForAspects(aspectIds)){
-      if( $("#no_posts").is(":visible") ){
-        $("#no_posts").fadeOut(400, WebSocketReceiver.addPostToStream(postId, html)).hide();
-      } else {
-        WebSocketReceiver.addPostToStream(postId, html);
-      }
+      WebSocketReceiver.addPostToStream(postId, html);
     }
   },
 
   addPostToStream: function(postId, html){
     if( $(".message[data-guid='"+postId+"']").length == 0 ){
-      $("#main_stream:not('.show')").prepend(
-        $(html).fadeIn("fast", function(){
-          $("#main_stream").find("label").first().inFieldLabels();
-        })
-      );
+      var showMessage = function(){ $("#main_stream:not('.show')").prepend(
+          $(html).fadeIn("fast", function(){
+            $("#main_stream").find("label").first().inFieldLabels();
+          })
+        );
+      };
+
+      if( $("#no_posts").is(":visible") ){
+        $("#no_posts").fadeOut(400, showMessage()).hide();
+      } else {
+        showMessage();
+      }
     }
   },
 

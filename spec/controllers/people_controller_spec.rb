@@ -102,6 +102,17 @@ describe PeopleController do
   end
 
   describe '#update' do
+    it "sets the flash" do
+      put :update, "id" => user.person.id.to_s, "person" => {
+        "profile" => {
+          "image_url" => "",
+          "last_name" => "Smith",
+          "first_name" => "Will"
+        }
+      }
+      flash[:notice].should_not be_empty
+    end
+
     context 'with a profile photo set' do
       before do
         @params = { :profile =>

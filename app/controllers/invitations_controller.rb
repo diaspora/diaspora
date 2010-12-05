@@ -37,7 +37,6 @@ class InvitationsController < Devise::InvitationsController
         raise "Invalid Invite Token"
       end
       user = User.find_by_invitation_token(params[:user][:invitation_token])
-      puts user.inspect
       user.seed_aspects
       user.accept_invitation!(params[:user])
     rescue Exception => e
