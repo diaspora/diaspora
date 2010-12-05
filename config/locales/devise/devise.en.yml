@@ -24,6 +24,7 @@ en:
         remember_me: "Remember me"
         alpha_software: 'You are about to use alpha software.'
         bugs_and_feedback: 'Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report.'
+        bugs_and_feedback_mobile: 'Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report.'
         modern_browsers: 'only supports modern browsers.'
       signed_in: 'Signed in successfully.'
       signed_out: 'Signed out successfully.'

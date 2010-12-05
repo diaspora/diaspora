@@ -1,0 +1,29 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.floating.login_form
+  %h3
+    = t('.login')
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    #user
+      %p.username
+        = f.label :username , t('username')
+        = f.text_field :username
+      %p.user_network
+        ="@#{APP_CONFIG[:terse_pod_url]}"
+
+      %p
+        = f.label :password , t('password')
+        = f.password_field :password
+    = f.submit t('.sign_in')
+
+  %p
+    = render :partial => "devise/shared/links"
+
+.alpha-warning
+  %h1
+    = t('.alpha_software')
+
+  %h3
+    = t('.bugs_and_feedback_mobile')
