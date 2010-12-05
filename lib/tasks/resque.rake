@@ -3,6 +3,11 @@ task "resque:setup" => :environment do
   Dir[File.join(Rails.root, 'app', 'uploaders', '*.rb')].each { |file|
     safe_require(file)
   }
+
+  #fixes archlinux load dependencies
+  require File.join(Rails.root, 'lib/youtube_titles')
+  require File.join(Rails.root, 'app/models/photo')
+
   Dir[File.join(Rails.root, 'app', 'models', '*.rb')].each { |file|
     safe_require(file)
   }
