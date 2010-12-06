@@ -102,7 +102,7 @@ fi
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
-redis-server&
+redis-server &>log/redis.log &
 QUEUE=* bundle exec rake resque:work&
 bundle exec thin start $args
 
