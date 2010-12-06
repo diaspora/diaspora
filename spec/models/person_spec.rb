@@ -140,7 +140,7 @@ describe Person do
     end
   end
 
-  describe '#search' do
+  describe '.search' do
     before do
       @connected_person_one   = Factory.create(:person)
       @connected_person_two   = Factory.create(:person)

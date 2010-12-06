@@ -14,22 +14,66 @@ describe PeopleController do
     sign_in :user, user
   end
 
+  describe '#hashes_from_people' do
+    before do
+      @everyone = []
+      10.times do
+        @everyone << Factory.create(:person)
+      end
+
+      user.send_contact_request_to(@everyone[3], aspect)
+      user.send_contact_request_to(@everyone[2], aspect)
+      user.activate_contact(@everyone[4], aspect)
+      user.activate_contact(@everyone[5], aspect)
+
+      @people = Person.search('eugene')
+      @people.length.should == 10
+      @hashes = @controller.hashes_for_people(@people, user.aspects)
+    end
+    it 'has the correct result for no relationship' do
+      hash = @hashes.first
+      hash[:person].should == @people.first
+      hash[:contact].should be_false
+      hash[:request].should be_false
+      hash[:aspects].should == user.aspects
+    end
+    it 'has the correct result for a connected person' do
+      hash = @hashes[4]
+      hash[:person].should == @people[4]
+      hash[:contact].should be_true
+      hash[:request].should be_false
+      hash[:aspects].should == user.aspects
+    end
+    it 'has the correct result for a requested person' do
+      hash = @hashes[2]
+      hash[:person].should == @people[2]
+      hash[:contact].should be_false
+      hash[:request].should be_true
+      hash[:aspects].should == user.aspects
+    end
+  end
   describe '#index' do
     before do
       @eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
       @korth  = Factory.create(:person, :profile => {:first_name => "Evan", :last_name => "Korth"})
     end
 
-    it "yields search results for substring of person name" do
+    it "assigns hashes" do
+      eugene2 = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
       get :index, :q => "Eu"
-      assigns[:people].should include @eugene
+      assigns[:hashes][0][:person].should == @eugene
+      assigns[:hashes][0][:person].should == eugene2
     end
-
+    it "assigns people" do
+      eugene2 = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
+      get :index, :q => "Eu"
+      assigns[:people].should == [@eugene, eugene2]
+    end
     it 'shows a contact' do
       user2 = make_user
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :index, :q => user2.person.profile.first_name.to_s
-      assigns[:people].should include user2.person
+      response.should redirect_to user2.person
     end
 
     it 'shows a non-contact' do
@@ -37,7 +81,7 @@ describe PeopleController do
       user2.person.profile.searchable = true
       user2.save
       get :index, :q => user2.person.profile.first_name.to_s
-      assigns[:people].should include user2.person
+      response.should redirect_to user2.person
     end
 
     it "redirects to person page if there is exactly one match" do

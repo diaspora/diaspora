@@ -8,11 +8,7 @@
     %u= params[:q]
 
   %ul{:class => 'stream people', :id => 'people_stream'}
-    - for person in @people
-      = render 'people/person',
-        :person => person,
-        :aspects => @aspects,
-        :contact => @contacts.detect{|contact| contact.person_id == person.id},
-        :request => @requests.detect{|request| request.to_id == person.id}
+    - for hash in @hashes
+      = render :partial => 'people/person', :locals => hash
 
   = will_paginate @people
