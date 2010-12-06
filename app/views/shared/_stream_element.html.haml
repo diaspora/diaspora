@@ -30,5 +30,5 @@
       %span.time= link_to(how_long_ago(post), status_message_path(post))
       = comment_toggle(comments.length)
 
-    = render "comments/comments", :post_id => post.id, :comment_hashes => comments
+    = render "comments/comments", :post_id => post.id, :comment_hashes => comments, :condensed => true
 

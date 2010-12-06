@@ -4,7 +4,7 @@
 
 %ul.comments{:id => post_id, :class => ("hidden" if comment_hashes.size == 0)}
   -if comment_hashes.size > 3
-    .older_comments.hidden.inactive
+    .older_comments{:class => ("hidden inactive" if defined?(condensed) && condensed)}
       = render :partial => 'comments/comment', :collection => comment_hashes[0..-4], :as => :hash
     = render :partial => 'comments/comment', :collection => comment_hashes[-3, 3], :as => :hash
   -else
