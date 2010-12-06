@@ -15,7 +15,7 @@ function init_public
     bundle exec thin \
          -d --pid log/thin.pid --address localhost --port $THIN_PORT \
          start
-    for ((i = 0; i < 20; i += 1)) do
+    for ((i = 0; i < 30; i += 1)) do
         sleep 2
         wget -q -O tmp/server.html http://localhost:$THIN_PORT && \
             rm tmp/server.html && break
@@ -76,7 +76,8 @@ fi
 
 # Force AGPL
 if [ -w public -a ! -e  public/source.tar.gz ]; then
-    tar czf public/source.tar.gz  `git ls-tree -r master | awk '{print $4}'`
+    branch=$( git branch | awk '/^*/ {print $2}')
+    tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
 fi
 if [ ! -e public/source.tar.gz ]; then
     echo "Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
