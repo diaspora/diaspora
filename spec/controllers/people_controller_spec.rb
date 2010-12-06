@@ -61,8 +61,9 @@ describe PeopleController do
     it "assigns hashes" do
       eugene2 = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
       get :index, :q => "Eu"
-      assigns[:hashes][0][:person].should == @eugene
-      assigns[:hashes][0][:person].should == eugene2
+      people = assigns[:hashes].map{|h| h[:person]}
+      people.should include @eugene
+      people.should include eugene2
     end
     it "assigns people" do
       eugene2 = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
