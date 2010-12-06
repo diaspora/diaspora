@@ -76,7 +76,7 @@ fi
 
 # Force AGPL
 if [ -w public -a ! -e  public/source.tar.gz ]; then
-    branch=$( git branch | awk '/^*/ {print $2}')
+    branch=$( git branch | awk '/^[*]/ {print $2}')
     tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
 fi
 if [ ! -e public/source.tar.gz ]; then
