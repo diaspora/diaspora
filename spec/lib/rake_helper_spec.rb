@@ -15,14 +15,14 @@ describe RakeHelpers do
     end
     it 'should send emails to each backer' do
       Invitation.should_receive(:create_invitee).exactly(3).times
-      process_emails(@csv, 100, 1)
+      process_emails(@csv, 100, 1, 10, false)
     end
 
     it 'should not send the email to the same email twice' do
-      process_emails(@csv, 100, 1)
+      process_emails(@csv, 100, 1, 10, false)
 
       Devise.mailer.deliveries.count.should == 3
-      process_emails(@csv, 100, 1)
+      process_emails(@csv, 100, 1, 10, false)
 
       Devise.mailer.deliveries.count.should == 3
     end
@@ -30,7 +30,7 @@ describe RakeHelpers do
     it 'should make a user with 10 invites' do
       User.count.should == 0
 
-      process_emails(@csv, 1, 1)
+      process_emails(@csv, 1, 1, 10, false)
       
       User.count.should == 1
       User.first.invites.should == 10
