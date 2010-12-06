@@ -5,7 +5,15 @@
 module Diaspora
   module UserModules
     module Connecting
-
+      def send_contact_request_to(desired_contact, aspect)
+        request = Request.instantiate(:to => desired_contact,
+                                      :from => self.person,
+                                      :into => aspect)
+        if request.save!
+          dispatch_request request
+        end
+        request
+      end
       def dispatch_request(request)
         self.pending_requests << request
         self.save
