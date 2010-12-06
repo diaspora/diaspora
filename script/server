@@ -85,13 +85,13 @@ if [ ! -e public/source.tar.gz ]; then
 fi
 
 # Precache jammit assets
-if [[ -w public  && ! -e public/stylesheets/application.css ]]; then
+if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
     if [ "$INIT_PUBLIC" != 'no' ]; then
         echo "Making first-time server initialization."
         init_public
     fi
 fi
-if [ ! -e 'public/assets/main.js.gz' ]; then
+if [ ! -e 'public/stylesheets/application.css' ]; then
     echo 'Jammit precache error (now or at install)' >&2
     exit 66
 fi
