@@ -1,0 +1,9 @@
+%li
+  %h4
+    = link_to aspect, aspect
+    %span
+      = t('contacts', :count => contact_count)
+
+  - if contact_count > 0 
+    - for person in people
+      = person_image_link(person)

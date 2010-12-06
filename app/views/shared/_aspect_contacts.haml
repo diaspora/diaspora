@@ -45,15 +45,8 @@
 
       %ul
         - for a_hash in @aspect_hashes
-          %li
-            %h4
-              = link_to a_hash[:aspect], a_hash[:aspect]
-              %span
-                = t('contacts', :count=>a_hash[:contact_count])
+          = render :partial => 'aspects/aspect', :locals => a_hash
 
-            - if a_hash[:contact_count] > 0 
-              - for person in a_hash[:people]
-                = person_image_link(person)
     .section
       %h3= t('.invites')
       = render "shared/invitations", :invites => @invites
