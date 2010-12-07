@@ -3,14 +3,16 @@
 -#   the COPYRIGHT file.
 
 :javascript
-  $("#settings_nav li > a").live("click", function() {
-    var target = "#"+$(this).attr('class');
-    if( !$(target).is(":visible") ) {
-      $(".settings_pane").fadeOut(200, function() {
-        $(target).delay(200).fadeIn(200);
-      });
-    }
-  });
+  $(document).ready(function(){
+    $("#settings_nav li > a").live("click", function() {
+      var target = "#"+$(this).attr('class');
+      if( !$(target).is(":visible") ) {
+        $(".settings_pane").fadeOut(200, function() {
+          $(target).delay(200).fadeIn(200);
+        });
+      }
+    });
+  }
 
 #section_header
   %h2
