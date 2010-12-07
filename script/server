@@ -43,6 +43,31 @@ function chk_service
     esac
 }
 
+function redis_config
+# Create/update the local redis.conf file from /etc master
+{
+    if [ -r "/etc/redis.conf" ]; then
+        redis_conf="/etc/redis.conf"
+    elif [ -r "/etc/redis/redis.conf" ]; then
+        redis_conf="/etc/redis/redis.conf"
+    else
+        echo <<- EOM
+		Don't know how to configure redis for this platform. Copy
+		the configuration file redis.conf to the config directory
+		and patch it manually. In particular, don't daemonize.
+	EOM
+        return
+    fi
+
+    if [ config/redis.cont -nt $redis_conf ]
+    then
+        return
+    fi
+
+    cp $redis_conf config/redis.conf
+    sed -i '/^[^#]*daemonize/s/yes/no/' config/redis.conf
+}
+
 # Scan for -p, find out what port thin is about to use.
 args="$DEFAULT_THIN_ARGS $@"
 prev_arg=''
@@ -74,6 +99,8 @@ then
     exit 64
 fi
 
+redis_config
+
 # Force AGPL
 if [ -w public -a ! -e  public/source.tar.gz ]; then
     branch=$( git branch | awk '/^[*]/ {print $2}')
@@ -99,8 +126,6 @@ fi
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
-redis-server &>log/redis.log &
+redis-server config/redis.conf &>log/redis-console.log &
 QUEUE=* bundle exec rake resque:work&
 bundle exec thin start $args
-
-# vim:ts=4:sw=4:expandtab
