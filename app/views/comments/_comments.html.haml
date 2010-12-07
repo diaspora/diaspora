@@ -10,5 +10,5 @@
   -else
     = render :partial => 'comments/comment', :collection => comment_hashes, :as => :hash
   %li.comment.show
-    = render 'comments/new_comment', :post_id => post_id
+    = new_comment_form(post_id)
 

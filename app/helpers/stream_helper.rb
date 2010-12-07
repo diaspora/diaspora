@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 module StreamHelper
-
+  GSUB_THIS = "FIUSDHVIUSHDVIUBAIUHAPOIUXJM"
   def comment_toggle(count)
     if count == 0
       link_to "#{t('comments.new_comment.comment').downcase}", '#', :class => "show_post_comments"
@@ -14,4 +14,9 @@ module StreamHelper
     end
   end
 
+  def new_comment_form(post_id)
+    @form ||= controller.render_to_string(
+      :partial => 'comments/new_comment', :locals => {:post_id => GSUB_THIS})
+    @form.gsub(GSUB_THIS, post_id.to_s)
+  end
 end
