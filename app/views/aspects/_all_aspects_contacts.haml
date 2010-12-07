@@ -1,0 +1,36 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- if @request_count > 0
+  #new_request_pane{:class => "everyone"}
+    %h1.new_request{:style => 'text-align:center'}
+      = new_request_link(@request_count)
+
+#left_pane.everyone
+  %h3= t('.all_contacts')
+
+  .section.contact_pictures
+    - for contact in @contact_hashes
+      = person_image_link(contact[:person])
+
+    - if @contacts.count == 0
+      %h4
+        = t('.no_contacts')
+      = form_tag(people_path, :method => 'get') do
+        = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
+
+  .section.aspect_listings
+    %h3
+      = link_to(t('.aspects'), aspects_manage_path)
+      .right{:style=>"font-size:12px;top:7px;"}
+        = link_to t('.add_aspect'), '#add_aspect_pane', :class => "add_aspect_button"
+
+    %ul
+      - for a_hash in @aspect_hashes
+        = render :partial => 'aspects/aspect', :locals => a_hash
+
+  .section
+    %h3= t('shared.invitations.invites')
+    = render "shared/invitations", :invites => @invites
+

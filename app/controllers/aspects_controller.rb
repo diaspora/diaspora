@@ -14,6 +14,7 @@ class AspectsController < ApplicationController
     @aspect_hashes = hashes_for_aspects @aspects.all, @contacts
     @aspect = :all
 
+    @contact_hashes = hashes_for_contacts @contacts
     
     if current_user.getting_started == true
       redirect_to getting_started_path
@@ -63,7 +64,7 @@ class AspectsController < ApplicationController
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
-      @aspect_contacts = @aspect.contacts
+      @aspect_contacts = hashes_for_contacts @aspect.contacts
       @aspect_contacts_count = @aspect_contacts.count
 
       @posts = @aspect.posts.find_all_by__type("StatusMessage", :order => 'created_at desc').paginate :page => params[:page], :per_page => 15
@@ -140,6 +141,13 @@ class AspectsController < ApplicationController
   end
   
   private
+  def hashes_for_contacts contacts
+    people = Person.all(:id.in => contacts.map{|c| c.person_id})
+    people_hash = {}
+    people.each{|p| people_hash[p.id] = p}
+    contacts.map{|c| {:contact => c, :person => people_hash[c.person_id.to_id]}}
+  end
+
   def hashes_for_aspects aspects, contacts
     aspects.map do |a|
       hash = {:aspect => a}
