@@ -30,11 +30,18 @@ ru:
       unknown_person: "неизвестная персона"
       youtube_title: 
         unknown: "Неизвестный видео заголовок"
-  are_you_sure: "Вы уверены?"
+  are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
       failure: "Не удалось добавить друга в аспект."
       success: "Друг добавлен в аспект."
+    all_aspects_contacts: 
+      add_aspect: "add aspect"
+      all_contacts: "All contacts"
+      aspects: "Aspects"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+    aspect_contacts: 
+      done_editing: "done editing"
     create: 
       failure: "Не удалось создать аспект."
       success: "Ваш новый аспект %{name} создан"
@@ -45,7 +52,7 @@ ru:
       confirm_remove_aspect: "Удалить аспект?"
       remove_aspect: "Удалить Аспект"
     helper: 
-      are_you_sure: "Вы уверены, что хотите удалить аспект?"
+      are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Аспект не пуст"
       remove: "удалить"
     index: 
@@ -112,22 +119,25 @@ ru:
       share_what_you_want: "Делитесь чем хотите, с кем хотите."
       simplicity: "Простота"
       simplicity_explanation: "Диаспора делает обмен прозрачным и простым - это распространяется и на частную жизнь. По существу, диаспора не заставляет вас пробираться через страницы настроек и опций для того, чтобы держать ваш профиль в безопасности."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
       not_found: "Код приглашения не найден"
     create: 
-      already_contacts: "Вы уже связаны с этим человеком"
-      already_sent: "Вы уже пригласили этого человека."
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
       no_more: "У вас закончились приглашения."
       rejected: "Следующие адреса электронной почты имеют проблемы:"
       sent: "Ваши приглашения отправлены:"
     edit: 
       sign_up: "регистрация"
     new: 
+      aspect: "Aspect"
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
-      if_they_accept_info: "После их согласия они будут добавлены в аспект."
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Пригласить кого-либо в Диаспору!"
-      message: "Сообщение:"
+      personal_message: "Personal message"
       send_an_invitation: "Отправить приглашение"
       send_invitation: "Отправить приглашение"
       to: "Для"
@@ -137,6 +147,7 @@ ru:
     header: 
       account_settings: "настройки аккаунта"
       blog: "блог"
+      code: "код"
       edit_profile: "редактировать профиль"
       login: "логин"
       logout: "выйти"
@@ -159,6 +170,10 @@ ru:
       accepted: "принял(а) ваш запрос. Сейчас он(а) находятся в вашем\n"
       aspect: "аспект."
       subject: "%{name} принял(а) ваш запрос для присоединения к Диаспоре*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message from your Diaspora administrator:"
+    thanks: "Thanks,"
   ok: "Ок"
   or: "или"
   pagination: 
@@ -201,22 +216,25 @@ ru:
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
     show: 
-      already_requested: "Вы уже отправили запрос для %{name}."
+      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Персоны не существует !"
       incoming_request: "Вам поступил запрос от этого человека."
       no_posts: "новых сообщений нет!"
-      not_connected: "Вы не связаны с этим человеком"
+      not_connected: "You are not connected with this person"
+      recent_posts: "Recent Posts"
       request_people: "Если хотите, вы можете спросить его/ее разрешения добавить в аспекты."
       return_to_aspects: "Вернуться на страницу аспектов"
       to_accept_or_ignore: "принять или игнорировать."
     update: 
       failed: "Не удалось обновить профиль"
       updated: "Профиль обновлён"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
-      integrity_error: "Загрузить фотографию не удалось. Вы уверены что выбрали изображение?"
-      runtime_error: "Загрузить фотографию не удалось."
-      type_error: "Загрузить фотографию не удалось. Вы уверены что добавили изображение?"
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
       notice: "Фотография удалена."
     edit: 
@@ -237,6 +255,7 @@ ru:
       edit_delete_photo: "Изменить описание фото / удалить фото"
       make_profile_photo: "сделать фотографией профиля"
       original_post: "Оригинальное сообщение"
+      permalink: "permalink"
       update_photo: "Обновить фотографию"
       view: "смотреть"
     update: 
@@ -255,12 +274,16 @@ ru:
       unhappy: "Несчастны?"
       update: "Обновить"
     new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Регистрация"
       sign_up_for_diaspora: "Зарегистрируйтесь в Диаспоре"
   requests: 
     create: 
       sending: "Отправка"
-      sent: "Вы попросили поделиться с %{name}. Они увидят это при следующем входе в Диаспору."
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Выберите аспект!"
       ignore: "Игнорированые запросы на дружбу."
@@ -276,6 +299,8 @@ ru:
       success: "Проверка подлинности прошла успешно."
     destroy: 
       success: "Аутентификация успешно уничтожена."
+    failure: 
+      error: "there was an error connecting that service"
     index: 
       connect_to_facebook: "Подключение к Facebook"
       connect_to_twitter: "Подключение к Twitter"
@@ -288,20 +313,8 @@ ru:
       create_request: "Поиск по Диаспоре"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
-      know_email: "Знаете их адреса электронной почты? Приглашайте"
+      know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "добавить аспект"
-      add_existing: "Добавить существующий контакт"
-      add_to: "добавить в %{aspect}"
-      all_contacts: "Все контакты"
-      aspect_settings: "Настройки Аспектов"
-      aspects: "Аспекты"
-      confirm_remove_aspect: "Удалить аспект?"
-      done_editing: "редактирование завершено"
-      invites: "Приглашения"
-      no_contacts: "У вас нет контактов. Найти контакты здесь."
-      remove_aspect: "Удалить Аспект"
     contact_list: 
       all_contacts: "Все контакты"
       cannot_remove: "Не может удалить человека с последнего аспекта.(Если вы хотите, отключить этого человека необходимо удалить контакт)"
@@ -309,7 +322,8 @@ ru:
       dont_have_now: "Сейчас у вас больше нет приглашений, но новые уже не за горами!"
       invitations_left: "(осталось %{count})"
       invite_someone: "Пригласить кого-нибудь"
-      invites_closed: "Invites are currently closed on this Diaspora seed"
+      invites: "Invites"
+      invites_closed: "В данный момент возможность приглашений закрыта в этой части Диаспоры"
     notification: 
       new: "Новый %{type} из %{from}"
     public_explain: 
@@ -337,6 +351,7 @@ ru:
       tell_me_something_good: "расскажи мне что-нибудь хорошее"
     show: 
       destroy: "Уничтожить"
+      permalink: "permalink"
   stream_helper: 
     hide_comments: "скрыть комментарии"
     show_comments: "комментарии"
@@ -391,7 +406,7 @@ ru:
       password_not_changed: "Неудачное изменение пароля "
   webfinger: 
     fetch_failed: "Не удалось получить профиль для %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
+    hcard_fetch_failed: "Возникла проблема при получении hcard для %{account}"
+    no_person_constructed: "Ни одно лицо не может быть собрано из этой hcard."
+    not_enabled: "webfinger не будет включен для хоста %{account}'s"
+    xrd_fetch_failed: "Произошла ошибка при получении xrd с %{account}"

@@ -25,7 +25,7 @@ de:
     mailer: 
       confirmation_instructions: 
         confirm: "Mein Konto bestätigen"
-        subject: "Bestätigung deines Diaspora Kontos"
+        subject: "Bestätigung deines Diaspora-Kontos"
         you_can_confirm: "Du kannst dein Konto über den nachfolgenden Link bestätigen:"
       hello: "Hallo %{email}!"
       invitation: 
@@ -65,9 +65,10 @@ de:
       new: 
         alpha_software: "Diese Software befindet sich im Alpha-Stadium."
         bugs_and_feedback: "Du bist gewarnt, Fehler werden auftreten. Wir empfehlen dir, den Feedback-Knopf am rechten Browserrand zu nutzen, um diese zu berichten. Wir werden so schnell wie möglich daran arbeiten, alle Probleme zu beseitigen."
+        bugs_and_feedback_mobile: "Sei gewarnt, du wirst auf Bugs stoßen. Wir ermutigen dich, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
         have_a_problem: "Du hast ein Problem? Finde eine Antwort hier (Englisch)"
-        login: "Login"
-        modern_browsers: "Nur von aktuellen Browsern unterstützt."
+        login: "Einloggen"
+        modern_browsers: "unterstützt nur moderne Browser."
         password: "Passwort"
         remember_me: "Angemeldet bleiben"
         sign_in: "Anmelden"
@@ -77,7 +78,7 @@ de:
     shared: 
       links: 
         forgot_your_password: "Passwort vergessen?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Hast du keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
         sign_up: "Registrieren"

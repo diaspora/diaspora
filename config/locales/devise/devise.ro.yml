@@ -8,7 +8,7 @@ ro:
     confirmations: 
       confirmed: "Contul dvs. a fost confirmat cu succes. Sunteți acum autentificat(ă)."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Retrimite instrucţiunile de confirmare"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru confirmarea contului."
     failure: 
       inactive: "Contul dvs. încă nu a fost activat."
@@ -20,41 +20,41 @@ ro:
       unconfirmed: "Pentru a continua, confirmați contul dvs."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
+      send_instructions: "Invitaţia dvs. a fost trimisă."
       updated: "Your password was set successfully. You are now signed in."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirm my account"
-        subject: "Confirmation instructions"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+        confirm: "Confirmă contul meu"
+        subject: "Instrucţiuni de confirmare"
+        you_can_confirm: "Puteţi confirma contul dvs. prin intermediul link-ul de mai jos:"
+      hello: "Bună %{email}!"
       invitation: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
+        accept: "Acceptă invitaţia"
+        ignore: "Dacă nu doreşti sa accepţi invitaţia, ignorează acest mesaj."
+        no_account_till: "Contul dvs. nu va fi creat până când nu veţi accesa linkul de mai sus şi vă veţi înscrie."
         subject: "A friend wants you to join Diaspora!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
         has_invited_you: "%{name} has invited you to join Diaspora"
         have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
-        subject: "Reset password instructions"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        change: "Schimbă-mi parola"
+        ignore: "Dacă nu aţi facut aceasta petiţie, vă rugăm să ignoraţi acest e-mail."
+        someone_requested: "Cineva a solicitat un link pentru a schimba parola, puteţi face acest lucru prin intermediul link-ul de mai jos."
+        subject: "Instrucţiuni pentru a reseta parola"
+        wont_change: "Parola dvs. nu se va schimba până când nu veţi accesa linkul de mai sus şi veţi crea una nouă."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
-        unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+        account_locked: "Contul dvs. a fost blocat din cauza unei cantitaţi excesive de încercări nereuşite de autentificare."
+        click_to_unlock: "Faceţi clic pe link-ul de mai jos pentru a debloca contul dvs."
+        subject: "Instrucţiuni pentru a debloca"
+        unlock: "Deblochează contul meu"
+      welcome: "Bine ai revenit %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Schimbă-mi parola"
       new: 
-        forgot_password: "Forgot your password?"
-        send_password_instructions: "Send me reset password instructions"
+        forgot_password: "Aţi uitat parola?"
+        send_password_instructions: "Trimite-mi instrucţiunile pentru a reseta parola"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei."
       updated: "Parolă schimbată cu success. Sunteți acum autentificat(ă)."
     registrations: 
@@ -63,30 +63,31 @@ ro:
       updated: "Cont actualizat cu succes."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
+        alpha_software: "Sunteţi pe cale de a utiliza software alfa."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Have a problem? Find an answer here"
-        login: "Login"
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        have_a_problem: "Ai o problemă? Gaseşte răspunsul aici"
+        login: "Autentificare"
         modern_browsers: "only supports modern browsers."
-        password: "Password"
-        remember_me: "Remember me"
-        sign_in: "Sign in"
-        username: "Username"
+        password: "Parola"
+        remember_me: "Amintește-mă"
+        sign_in: "Autentificare"
+        username: "Nume de utilizator"
       signed_in: "Autentificare cu succes."
       signed_out: "Deconectare cu succes."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
-        sign_up_closed: "Open signups are closed at this time."
+        forgot_your_password: "Aţi uitat parola?"
+        receive_confirmation: "Nu aţi primit instrucţiunile de confirmare?"
+        receive_unlock: "Nu aţi primit instrucţiunile de deblocare?"
+        sign_in: "Autentificare"
+        sign_up: "Înregistrează-te"
+        sign_up_closed: "Înscrierile sunt închise în acest moment."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Înscrie-te pentru o invitaţie!"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Retrimite-mi instrucţiunile de deblocare"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului."
       unlocked: "Cont deblocat cu succes. Sunteți acum autentificat(ă)."
   errors: 

@@ -6,9 +6,9 @@
 fi: 
   _comments: "Kommentit"
   _home: "Alkuun"
-  _photos: "kuvat"
-  _services: "Palvelut"
-  account: "Tili"
+  _photos: "kuvista"
+  _services: "Ulkoiset palvelut"
+  account: "Käyttäjätili"
   activemodel: 
     errors: 
       models: 
@@ -35,6 +35,13 @@ fi:
     add_to_aspect: 
       failure: "Kontaktin lisäys verkostonäkymään epäonnistui."
       success: "Ystävän lisäys verkostonäkymään onnistui."
+    all_aspects_contacts: 
+      add_aspect: "lisää verkostonäkymä"
+      all_contacts: "Kaikki kontaktit"
+      aspects: "Verkostonäkymät"
+      no_contacts: "Sinulla ei vielä ole kontakteja.  Etsi kontaktejasi täältä."
+    aspect_contacts: 
+      done_editing: "muokkaus valmis"
     create: 
       failure: "Verkostonäkymän luonti epäonnistui."
       success: "Uusi verkostonäkymäsi: %{name} on luotu"
@@ -49,7 +56,7 @@ fi:
       aspect_not_empty: "Verkostonäkymä ei ole tyhjä"
       remove: "poista"
     index: 
-      handle_explanation: "Tämä on Diaspora* tunnuksesi. Käytä sitä kuin sähköpostiosoitetta. Ystäväsi tavoittavat sinut sen avulla."
+      handle_explanation: "Tämä on Diaspora* osoitteesi. Käytä sitä kuin sähköpostiosoitetta. Ystäväsi tavoittavat sinut sen avulla."
     manage: 
       add_a_new_aspect: "Lisää uusi verkostonäkymä"
       add_a_new_contact: "Lisää uusi kontakti"
@@ -112,22 +119,25 @@ fi:
       share_what_you_want: "Jaa mitä halua, kenen kanssa haluat."
       simplicity: "Yksinkertaisuus"
       simplicity_explanation: "Diaspora tekee jakamisesta helppoa ja siistiä – tämä koskee myös yksityisyyttäsi. Oletusarvoisesti yksityisenä, Diasporassa ei ole sivuittain erilaisia optioita joiden avulla yksityisyyttäsi hallinnoitaisiin."
+      tagline_first_half: "Jaa mitä haluat,"
+      tagline_second_half: "kenen kanssa haluat."
   invitations: 
     check_token: 
       not_found: "Kutsun tunnusta ei löytynyt"
     create: 
       already_contacts: "Olet jo yhteydessä tähän henkilöön"
-      already_sent: "Olet jo lähettänyt kutsun tälle henkilölle."
+      already_sent: "Olet jo kutsunut tämän henkilön."
       no_more: "Ei enempää kutsuja."
       rejected: "Ilmeni ongelmia seuraavissa sähköpostiosoitteissa: "
       sent: "Kutsusi on lähetetty henkilölle:"
     edit: 
       sign_up: "sign_up"
     new: 
+      aspect: "Verkostonäkymä"
       comma_seperated_plz: "Erottele sähköpostiosoitteet pilkulla."
-      if_they_accept_info: "Jos he hyväksyvät, heidät lisätään määrittämääsi verkostonäkymään."
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
-      message: "Viesti:"
+      personal_message: "Henkilökohtainen viesti"
       send_an_invitation: "Lähetä kutsu"
       send_invitation: "Lähetä kutsu"
       to: "Vastaanottaja"
@@ -135,12 +145,13 @@ fi:
     application: 
       powered_by: "PALVELUN TARJOAA DIASPORA*"
     header: 
-      account_settings: "Käyttäjätilin asetukset"
+      account_settings: "käyttäjätilin asetukset"
       blog: "blogi"
+      code: "lähdekoodi"
       edit_profile: "muokkaa profiilia"
       login: "kirjaudu sisään"
       logout: "kirjaudu ulos"
-      view_profile: "tarkastele profiilia"
+      view_profile: "profiili"
   new_requests: 
     few: "%{count} uutta pyyntöä!"
     one: "uusi pyyntö!"
@@ -159,13 +170,17 @@ fi:
       accepted: "on hyväksynyt kontaktipyyntösi. He kuuluvat nyt sinun "
       aspect: "verkostonäkymä."
       subject: "%{name} on hyväksynyt kontaktipyyntösi Diaspora*ssa"
+    single_admin: 
+      admin: "Diasporasi ylläpitäjä"
+      subject: "Viesti Diasporasi ylläpitäjältä:"
+    thanks: "Kiitos,"
   ok: "OK"
   or: "tai"
   pagination: 
     next: "Seuraava"
     previous: "Edellinen"
   password: "Salasana"
-  password_confirmation: "Salasanan vahvistus"
+  password_confirmation: "Salasana uudelleen"
   people: 
     edit: 
       allow_search: "Salli ihmisten etsiä sinua Diasporassa"
@@ -201,22 +216,25 @@ fi:
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} verkostonäkymästä %{aspect}?"
     show: 
-      already_requested: "Olet jo lähettänyt pyynnön vastaanottajalle: %{name}."
+      already_requested: "Olet jo lähettänyt pyynnön %{name}:lle."
       does_not_exist: "Henkilöä ei ole olemassa!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
       no_posts: "ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä tähän henkilöön"
-      request_people: "Jos haluat, voit pyytää hänen sijoittamistaan yhteen verkostonäkymistäsi."
+      recent_posts: "Tuoreimmat viestit"
+      request_people: "Jos haluat, voit pyytää häntä liittymään yhteen verkostonäkymistäsi."
       return_to_aspects: "Palaa verkostonäkymien sivulle"
       to_accept_or_ignore: "hyväksy tai hylkää."
     update: 
       failed: "Profiilin päivittäminen epäonnistui"
       updated: "Profiili päivitetty"
+    webfinger: 
+      fail: "Valitettavasti tunnusta: %{handle} ei löytynyt."
   photos: 
     create: 
-      integrity_error: "Kuvan lataus epäonnistui. Olethan varma että kyseessä oli kuvatiedosto?"
-      runtime_error: "Kuvan tallennus epäonnistui. Onko turvavyösi varmasti kiinni?"
-      type_error: "Kuvan tallennus epäonnistui. Oletko varma, että kuva lisättiin?"
+      integrity_error: "Kuvan lataus epäonnistui. Oletko varma, että valitsit kuvan?"
+      runtime_error: "Kuvan lataus epäonnistui. Onhan turvavyösi kiinni?"
+      type_error: "Kuvan lataus epäonnistui.  Lisäsitkö varmasti kuvan?"
     destroy: 
       notice: "Kuva poistettu."
     edit: 
@@ -237,6 +255,7 @@ fi:
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "laita profiili kuvaksi"
       original_post: "Alkuperäinen viesti"
+      permalink: "pysyvä linkki"
       update_photo: "Päivitä kuva"
       view: "avaa"
     update: 
@@ -255,12 +274,16 @@ fi:
       unhappy: "Surullinen?"
       update: "Päivitä"
     new: 
+      enter_email: "Anna sähköpostiosoite"
+      enter_password: "Anna salasana"
+      enter_password_again: "Anna sama salasana kuin edellä"
+      enter_username: "Valitse käyttäjänimi (vain kirjaimet, numerot ja alaviivat sallittuja)"
       sign_up: "Rekisteröidy"
       sign_up_for_diaspora: "Rekisteröidy Diasporaan"
   requests: 
     create: 
       sending: "Lähetetään..."
-      sent: "Haluat jakaa %{name}:n kanssa. Heidän pitäisi nähdä se kirjauduttuaan uudelleen Diasporaan."
+      sent: "Haluat jakaa %{name} kanssa. He näkevät sen kirjauduttuaan Diasporaan."
     destroy: 
       error: "Valitse verkostonäkymä!"
       ignore: "Hylkää kontaktipyyntö."
@@ -276,6 +299,8 @@ fi:
       success: "Autentikointi onnistui."
     destroy: 
       success: "Autentikoinnin tuhoaminen onnistui."
+    failure: 
+      error: "palvelun yhdistämisessä tapahtui virhe"
     index: 
       connect_to_facebook: "Yhdistä facebook:iin"
       connect_to_twitter: "Yhdistä twitter:iin"
@@ -288,20 +313,8 @@ fi:
       create_request: "Etsi Diaspora tunnuksella"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Anna Diaspora käyttäjätunnus:"
-      know_email: "Tiedät heidän sähköpostiosoitteet? Kutsu heidät Diasporaan"
+      know_email: "Tiedätkö heidän sähköpostiosoitteita? Mikset kutsuisi heitä Diasporaan?"
       your_diaspora_username_is: "Diaspora käyttäjätunnuksesi on: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "lisää verkostonäkymä"
-      add_existing: "Lisää kontakti"
-      add_to: "lisää verkostonäkymään: %{aspect}"
-      all_contacts: "Kaikki kontaktit"
-      aspect_settings: "Verkostonäkymän asetukset"
-      aspects: "Verkostonäkymät"
-      confirm_remove_aspect: "Poista verkostonäkymä?"
-      done_editing: "muokkaus valmis"
-      invites: "Kutsut"
-      no_contacts: "Sinulla ei ole kontakteja. Etsi kontaktejasi täältä."
-      remove_aspect: "Poista verkostonäkymä"
     contact_list: 
       all_contacts: "Kaikki kontaktit"
       cannot_remove: "Henkilöä ei voitu poistaa viimeisestä verkostonäkymästä."
@@ -309,6 +322,7 @@ fi:
       dont_have_now: "Sinulla ei ole yhtään kutsua jäljellä, mutta lisää tulee pian!"
       invitations_left: "(%{count} jäljellä)"
       invite_someone: "Kutsu joku Diasporaan"
+      invites: "Kutsut"
       invites_closed: "Kutsut on toistaiseksi suljettu tällä Diaspora palvelimella"
     notification: 
       new: "Uusi %{type}, lähettäjä: %{from}"
@@ -326,7 +340,7 @@ fi:
       posting: "Lähetetään..."
       share: "Jaa"
       share_with: "Jaa verkostonäkymän %{aspect} kanssa"
-      share_with_all: "Jaa kaikkien verkostonäkymien kesken"
+      share_with_all: "Jaa viesti kaikkiin verkostonäkymiin"
     reshare: 
       reshare: "Jaa uudelleen"
   status_messages: 
@@ -336,21 +350,22 @@ fi:
       oh_yeah: "komiaa!"
       tell_me_something_good: "kerro jotain mukavaa"
     show: 
-      destroy: "Tuhoa"
+      destroy: "Poista"
+      permalink: "pysyvä linkki"
   stream_helper: 
     hide_comments: "piilota kommentit"
     show_comments: "näytä kommentit"
   the_world: "maailma"
   username: "Käyttäjätunnus"
   users: 
-    destroy: "Tili suljettu onnistuneesti."
+    destroy: "Käyttäjätilin sulkeminen onnistui."
     edit: 
-      change_language: "Vaihd kieli"
+      change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
-      close_account: "Sulje tili"
+      close_account: "Poista käyttäjätili"
       download_photos: "lataa kaikki kuvat"
       download_xml: "lataa tiedot XML-muodossa"
-      export_data: "Vie tiedot"
+      export_data: "Vie tietoja"
       new_password: "Uusi salasana"
       your_email: "Sähköpostisoitteesi"
       your_handle: "Diaspora tunnuksesi"

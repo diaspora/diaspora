@@ -65,6 +65,7 @@ fr:
       new: 
         alpha_software: "Vous êtes sur le point d'utiliser une application en version alpha."
         bugs_and_feedback: "Soyez bien conscient que vous serez confronté à des bugs. Nous vous encourageons à utiliser le bouton Feedback à la droite de votre navigateur pour reporter tout disfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous reporterez."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Un problème ? Trouvez une réponse ici"
         login: "Se connecter"
         modern_browsers: "supporte seulement des navigateurs modernes."

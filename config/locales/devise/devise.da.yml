@@ -51,7 +51,7 @@ da:
       welcome: "Velkommen %{email}!"
     passwords: 
       edit: 
-        change_password: "skift password"
+        change_password: "skift adgangskode"
       new: 
         forgot_password: "Glemt din adgangskode?"
         send_password_instructions: "Send mig instruktioner til nulstilning af kodeord"
@@ -65,6 +65,7 @@ da:
       new: 
         alpha_software: "Du er ved at starte alpha software."
         bugs_and_feedback: "Vær opmærksom på at du vil opleve fejl og mangler. Vi opfordrer dig til at bruge feedbackknappen i højre side af din browser til at melde de fejl du støder på. Vi arbejder så hurtigt vi kan på at løse de problemer du melder."
+        bugs_and_feedback_mobile: "Vær opmærksom på at du vil opleve fejl. Vi opfordrer dig til at indmelde enhver fejl du imødekommer. Vi vil arbejde så hurtigt som muligt for at løse ethvert problem du indmelder."
         have_a_problem: "Har du problemer? Find svaret her"
         login: "Log ind"
         modern_browsers: "understøtter kun nyere browsere."
@@ -83,7 +84,7 @@ da:
         sign_up: "Opret en profil"
         sign_up_closed: "Der er på nuværende tidspunkt lukket for fri tilmelding."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Tilmeld dig til en invitation!"
     unlocks: 
       new: 
         resend_unlock: "Send vejledningen til aktivering af konto igen"

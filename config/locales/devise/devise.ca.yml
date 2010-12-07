@@ -65,6 +65,7 @@ ca:
       new: 
         alpha_software: "Estàs a punt d'utilizar software en versió alpha."
         bugs_and_feedback: "Tingues present que pots experimentar errors. T'animem a que utilitzis el botó de Feedback situat a la dreta del teu navegador per informar de qualsevol error! Treballarem tan ràpid com sigui possible per resoldre qualsevol problema del que ens informis."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Tens un problema? Troba la resposta aquí"
         login: "Iniciar sessió"
         modern_browsers: "només és compatible amb navegadors actuals."

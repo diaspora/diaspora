@@ -65,6 +65,7 @@ sk:
       new: 
         alpha_software: "Používate testovaciu verziu."
         bugs_and_feedback: "Tlačidlom Feedback na pravej strane prehliadača upozornite prosím na chyby, ktoré pri používaní objavíte. Budeme sa ich snažiť odstrániť tak skoro, ako to len pôjde."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Máte problém? Tu nájdete odpoveď"
         login: "Prihlasovacie meno"
         modern_browsers: "podporuje moderné prehliadače."

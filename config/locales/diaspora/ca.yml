@@ -30,11 +30,18 @@ ca:
       unknown_person: "persona desconeguda"
       youtube_title: 
         unknown: "Títol desconegut de vídeo"
-  are_you_sure: "N'estàs segur?"
+  are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
       failure: "Error a l'afegir el contacte a aquest aspecte."
       success: "S'ha agregat correctament el seu contacte a un aspecte."
+    all_aspects_contacts: 
+      add_aspect: "add aspect"
+      all_contacts: "All contacts"
+      aspects: "Aspects"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+    aspect_contacts: 
+      done_editing: "done editing"
     create: 
       failure: "Creació d'aspecte fallida."
       success: "El teu nou aspecte %{name} ha estat creat"
@@ -45,7 +52,7 @@ ca:
       confirm_remove_aspect: "Eliminar aspecte?"
       remove_aspect: "Eliminar aspecte"
     helper: 
-      are_you_sure: "N'estàs segur que vols eliminar aquest aspecte?"
+      are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "L'aspecte no és buit"
       remove: "eliminar"
     index: 
@@ -112,22 +119,25 @@ ca:
       share_what_you_want: "Comparteix el que vulguis, amb qui vulguis"
       simplicity: "Simplicitat"
       simplicity_explanation: "Diaspora fa que compartir sigui transparent i fàcil - i aixì fa referència a la privacitat també. Inherentment privat, Diaspora no et fa anar a través de configuracions i opcions només per mantenir el teu perfil segur."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
       not_found: "Identificació d'invitació no trobada."
     create: 
-      already_contacts: "Ja estàs en contacte amb aquesta persona"
-      already_sent: "Ja has convidat a aquesta persona."
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
       no_more: "No tens més invitacions."
       rejected: "Las següents direccions d'E-mail han tingut problemes"
       sent: "La teva invitació ha estat enviada a:"
     edit: 
       sign_up: "conectar-se"
     new: 
+      aspect: "Aspect"
       comma_seperated_plz: "Pots escriure múltiples direccions d'E-Mail separades per comes."
-      if_they_accept_info: "si accepten, seran afegits a l'aspecte al que l'hagis convidat."
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Convida algú a unir-se a Diaspora!"
-      message: "Missatge:"
+      personal_message: "Personal message"
       send_an_invitation: "Enviar una invitació"
       send_invitation: "Enviar invitació"
       to: "Per"
@@ -137,6 +147,7 @@ ca:
     header: 
       account_settings: "configurar compte"
       blog: "Blog"
+      code: "code"
       edit_profile: "editar perfil"
       login: "Entrar"
       logout: "desconectar-se"
@@ -159,6 +170,10 @@ ca:
       accepted: "ha acceptat la teva petició de contacte. Ara es troben en el teu"
       aspect: "aspecte."
       subject: "%{name} ha acceptat la teva petició de contacte a Diaspora*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message from your Diaspora administrator:"
+    thanks: "Thanks,"
   ok: "OK"
   or: "o"
   pagination: 
@@ -201,22 +216,25 @@ ca:
       remove_contact: "eliminar contacte"
       remove_from: "Eliminar a %{name} de %{aspect}?"
     show: 
-      already_requested: "Ja has enviat una solicitut a %{name}."
+      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "L'usuari no existeix!"
       incoming_request: "Tens una petició d'aquesta persona."
       no_posts: "No hi ha publicacions a mostrar!"
-      not_connected: "No estàs conectat amb aquesta persona"
+      not_connected: "You are not connected with this person"
+      recent_posts: "Recent Posts"
       request_people: "Si ho desitges, pots demanar-li la col·locació en un dels teus aspectes."
       return_to_aspects: "Tornar als teus aspectes"
       to_accept_or_ignore: "acceptar o ignorar."
     update: 
       failed: "No s'ha pogut actualitzar el teu perfil"
       updated: "Perfil actualitzat"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
-      integrity_error: "La càrrega de la fotografia ha fallat. Estàs segur de que era una imatge?"
-      runtime_error: "La càrrega de fotografies ha fallat. Estàs segur de que tens posat el cinturó de seguretat?"
-      type_error: "La càrrega de la fotografia ha fallat. Estàs segur de que s'ha afegit alguna imatge?"
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
       notice: "Fotografia eliminada."
     edit: 
@@ -237,6 +255,7 @@ ca:
       edit_delete_photo: "Editar peu de fotografia / eliminar fotografia"
       make_profile_photo: "convertir en fotografia de perfil"
       original_post: "Post original"
+      permalink: "permalink"
       update_photo: "Actualitzar fotografia"
       view: "veure"
     update: 
@@ -255,12 +274,16 @@ ca:
       unhappy: "¿Triste?"
       update: "Actualizar"
     new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Regístrate"
       sign_up_for_diaspora: "Regístrate en Diaspora"
   requests: 
     create: 
       sending: "Enviando..."
-      sent: "Has solicitado compartir con %{name}. Deberían verlo la próxima vez que se conecten a Diaspora."
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "¡Selecciona un aspecto!"
       ignore: "Petición de contacto ignorada."
@@ -276,6 +299,8 @@ ca:
       success: "Autenticación correcta."
     destroy: 
       success: "Autenticación destruida con éxito."
+    failure: 
+      error: "there was an error connecting that service"
     index: 
       connect_to_facebook: "Conectar a facebook"
       connect_to_twitter: "Conectar a twitter"
@@ -288,20 +313,8 @@ ca:
       create_request: "Buscar por la dirección Diaspora"
       diaspora_handle: "Dirección Diaspora"
       enter_a_diaspora_username: "Introduzca su nombre de usuario Diaspora:"
-      know_email: "Sabes su dirección de email? Deberías invitarlos"
+      know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Su nombre de usuario Diaspora es: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "agregar aspecto"
-      add_existing: "Añadir un contacto existente"
-      add_to: "añadir a %{aspect}"
-      all_contacts: "Todos los contactos"
-      aspect_settings: "Configuración de aspecto"
-      aspects: "Aspectos"
-      confirm_remove_aspect: "Remover aspecto?"
-      done_editing: "editado"
-      invites: "Invitaciones"
-      no_contacts: "Actualmente no tienes contactos. Búscalos aquí."
-      remove_aspect: "Remover aspecto"
     contact_list: 
       all_contacts: "Todos los contactos"
       cannot_remove: "No se puede eliminar a la persona del último aspecto. (Si quieres desconectar a esta persona debes removerla de tus contactos.)"
@@ -309,6 +322,7 @@ ca:
       dont_have_now: "No tienes ninguna ahora mismo, pero pronto llegarán más invitaciones!"
       invitations_left: "(quedan %{count})"
       invite_someone: "Invita a alguien"
+      invites: "Invites"
       invites_closed: "Las invitaciones en este servidor Diaspora están actualmente cerradas"
     notification: 
       new: "Nuevo %{type} de %{from}"
@@ -337,6 +351,7 @@ ca:
       tell_me_something_good: "dime algo bueno"
     show: 
       destroy: "Destruir"
+      permalink: "permalink"
   stream_helper: 
     hide_comments: "ocultar comentarios"
     show_comments: "mostrar comentarios"

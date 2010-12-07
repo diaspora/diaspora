@@ -35,6 +35,13 @@ sv:
     add_to_aspect: 
       failure: "Personen kunde inte läggas till på sidan."
       success: "Personen tillagd på sidan."
+    all_aspects_contacts: 
+      add_aspect: "Lägg till sida"
+      all_contacts: "Alla kontakter"
+      aspects: "Sidor"
+      no_contacts: "Förnärvarande har du inga kontakter. Hitta dina kontakter här."
+    aspect_contacts: 
+      done_editing: "färdig redigerat"
     create: 
       failure: "Sidan kunde inte skapas."
       success: "Din nya sida %{name} har skapats"
@@ -42,10 +49,10 @@ sv:
       success: "%{name} är nu borttagen."
     edit_aspect_pane: 
       add_existing: "Lägg till en befintlig kontakt"
-      confirm_remove_aspect: "Ta bort sida?"
-      remove_aspect: "Ta bort sida"
+      confirm_remove_aspect: "Är du säker på att du vill tabort denna sida?"
+      remove_aspect: "Ta bort denna sida"
     helper: 
-      are_you_sure: "Är du säker på att du vill ta bort den här sidan?"
+      are_you_sure: "Är du säker på att du vill tabort den här sidan?"
       aspect_not_empty: "Sidan är inte tom"
       remove: "ta bort"
     index: 
@@ -104,7 +111,7 @@ sv:
     show: 
       already_account: "har du redan ett konto?"
       choice: "Valfrihet"
-      choice_explanation: "Diaspora låter dig dela in dina kontakter i grupper som kallas Sidor. Det unika med aspekter är att dina foton, meddelanden och skämt endast kan ses av de personer som du valt ska se meddelandet."
+      choice_explanation: "Diaspora låter dig dela in dina kontakter i grupper som kallas Sidor. Det unika med sidor är att dina foton, meddelanden och skämt endast kan ses av de personer som du valt ska se meddelandet."
       learn_about_host: "Lär dig hur du sätter upp en egen Diaspora server."
       login_here: "logga in här"
       ownership: "Ägandeskap"
@@ -112,22 +119,25 @@ sv:
       share_what_you_want: "Dela vad du vill, med vem du vill."
       simplicity: "Enkelhet"
       simplicity_explanation: "Diaspora gör det lätt att att dela meddelanden och bilder med rätt personer. Lika lätt är det att behålla den personliga integriteten, med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
+      tagline_first_half: "Dela vad du vill,"
+      tagline_second_half: "med vem du vill."
   invitations: 
     check_token: 
       not_found: "Inbjudan inte funnen"
     create: 
-      already_contacts: "Du är redan ansluten till den här personen"
-      already_sent: "Du har redan bjudit in denna person."
+      already_contacts: "Du är redan ansluten med denna personen"
+      already_sent: "Du har redan bjudit in denna personen."
       no_more: "Du har inga fler inbjudningar."
       rejected: "Det var problem med följande e-postadresser: "
       sent: "Inbjudningar har skickats till:"
     edit: 
       sign_up: "registrera"
     new: 
+      aspect: "Aspekt"
       comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
-      if_they_accept_info: "om de accepterar så kommer de att läggas till på den sida du valde"
+      if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
-      message: "Meddelande:"
+      personal_message: "Personligt meddelande"
       send_an_invitation: "Skicka en inbjudan"
       send_invitation: "Skicka inbjudan"
       to: "Till"
@@ -137,6 +147,7 @@ sv:
     header: 
       account_settings: "kontoinställningar"
       blog: "blogg"
+      code: "källkod"
       edit_profile: "ändra profil"
       login: "logga in"
       logout: "logga ut"
@@ -159,6 +170,10 @@ sv:
       accepted: "har accepterat din kontaktförfrågan. Personen finns nu på "
       aspect: "sidan."
       subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
+    single_admin: 
+      admin: "Din Diaspora administratör"
+      subject: "Ett meddelande från din Diaspora administratör:"
+    thanks: "Tack,"
   ok: "OK"
   or: "eller"
   pagination: 
@@ -177,7 +192,7 @@ sv:
       your_birthday: "Din födelsedag"
       your_gender: "Ditt kön"
       your_name: "Ditt namn"
-      your_photo: "Your photo"
+      your_photo: "Ditt foto"
       your_profile: "Din profil"
     helper: 
       people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
@@ -201,22 +216,25 @@ sv:
       remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show: 
-      already_requested: "Du har redan skickat en kontaktförfrågan till %{name}."
+      already_requested: "Du har redan skickat en förfrågan till %{name}."
       does_not_exist: "Den här personen finns inte!"
       incoming_request: "Du har en inkommande förfrågan från den här personen."
       no_posts: "inga meddelanden att visa!"
-      not_connected: "Du är inte ansluten till den här personen"
-      request_people: "Om du känner för det så skulle du kunna skicka en kontaktförfrågan."
+      not_connected: "Du är inte ansluten med denna personen"
+      recent_posts: "Postat nyligen"
+      request_people: "Om du vill så kan du skicka en kontaktförfrågan om att lägga till han/henne på en av dina sidor."
       return_to_aspects: "Återgå till översikten"
       to_accept_or_ignore: "for att acceptera eller ignorera."
     update: 
       failed: "Misslyckades med att uppdatera profilen"
       updated: "Profilen är uppdaterad"
+    webfinger: 
+      fail: "Förlåt, vi kunde inte hitta %{handle}."
   photos: 
     create: 
-      integrity_error: "Fotot kunde inte laddas upp.  Är du säker på att den där filen var en bild?"
-      runtime_error: "Fotot kunde inte laddas upp."
-      type_error: "Fotot kunde inte laddas upp.  Är du säker på att det var en bild du försökte ladda upp?"
+      integrity_error: "Fotouppladdning misslyckades. Är du säker på att det var en bild?"
+      runtime_error: "Fotouppladdning misslyckades. Har du på dig ditt säkerhetsbälte?"
+      type_error: "Fotouppladdning misslyckades. Är du säker på att en bild blev tillagd?"
     destroy: 
       notice: "Fotot borttaget."
     edit: 
@@ -237,6 +255,7 @@ sv:
       edit_delete_photo: "Ändra beskrivning / ta bort bild"
       make_profile_photo: "använd som profilbild"
       original_post: "Ursprungligt meddelande"
+      permalink: "permalink"
       update_photo: "Uppdatera foto"
       view: "visa"
     update: 
@@ -255,14 +274,18 @@ sv:
       unhappy: "Missnöjd?"
       update: "Uppdatera"
     new: 
+      enter_email: "Skriv in en e-post"
+      enter_password: "Skriv in ett lösenord"
+      enter_password_again: "Skriv in samma lösenord som tidigare"
+      enter_username: "Välj ett användarnamn (endast bokstäver, nummer eller understreck)"
       sign_up: "Registrera dig"
       sign_up_for_diaspora: "Gå med i Diaspora"
   requests: 
     create: 
       sending: "Skickar"
-      sent: "Du har angett att du vill dela med %{name}.  De kommer bli medveten om detta nästa gång de loggar in."
+      sent: "Du har bett att dela med %{name}.  Dom kommer att se det nästa gång dom loggar in på Diaspora."
     destroy: 
-      error: "Var god välj en aspekt!"
+      error: "Var god välj en sida!"
       ignore: "Ignorerade kontaktförfrågan."
       success: "Kontakten är nu tillagd."
     manage_aspect_contacts: 
@@ -276,6 +299,8 @@ sv:
       success: "Autentiering lyckades."
     destroy: 
       success: "Du har nu kopplat bort tjänsten."
+    failure: 
+      error: "Det blev ett fel vid anslutning till tjänsten"
     index: 
       connect_to_facebook: "Anslut till facebook"
       connect_to_twitter: "Anslut till twitter"
@@ -288,20 +313,8 @@ sv:
       create_request: "Sök på Diaspora-användarnamn"
       diaspora_handle: "Diaspora-användarnamn"
       enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"
-      know_email: "Vet du deras epostadress? Isåfall borde du bjuda in dem"
+      know_email: "Vet du deras e-post adress? Du borde bjuda in dom"
       your_diaspora_username_is: "Ditt Diaspora-användarnamn är: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "lägg till sida"
-      add_existing: "Lägg till en befintlig kontakt"
-      add_to: "lägg till i %{aspect}"
-      all_contacts: "Alla kontakter"
-      aspect_settings: "Inställningar för sida"
-      aspects: "Sidor"
-      confirm_remove_aspect: "Ta bort sida?"
-      done_editing: "färdig"
-      invites: "Inbjudningar"
-      no_contacts: "Du har förnärvarande inga kontakter.  Hitta nya kontakter här."
-      remove_aspect: "Ta bort sida"
     contact_list: 
       all_contacts: "Alla kontakter"
       cannot_remove: "Kan inte ta bort personen från fler sidor, ta bort kontakten om du inte längre vill vara ansluten till denne."
@@ -309,6 +322,7 @@ sv:
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
       invitations_left: "(%{count} kvar)"
       invite_someone: "Bjud in en kontakt"
+      invites: "Bjuder in"
       invites_closed: "Inbjudningar är för närvarande stängd på denna Diaspora server"
     notification: 
       new: "Ny %{type} från %{from}"
@@ -337,9 +351,10 @@ sv:
       tell_me_something_good: "berätta något intressant"
     show: 
       destroy: "Ta bort"
+      permalink: "permalänk"
   stream_helper: 
     hide_comments: "dölj kommentarer"
-    show_comments: "visa kommentarer"
+    show_comments: "visa alla kommentarer"
   the_world: "världen"
   username: "Användarnamn"
   users: 

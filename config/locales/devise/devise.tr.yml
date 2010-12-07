@@ -34,8 +34,8 @@ tr:
         no_account_till: "Hesabınız yukarıdaki bağlantıya tıklayıp üye olmadan oluşturulmayacaktır."
         subject: "Bir arkadaşınız sizin Diaspora'ya katılmanızı istiyor!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
+        accept_at: ",  %{url}, aşağıdaki linki tıklayarak bu daveti kabul edebilirsiniz."
+        has_invited_you: "%{name} sizi Diaspora'ya katılmanız için davet etti"
         have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Şifremi değiştir"
@@ -51,7 +51,7 @@ tr:
       welcome: "Merhaba %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Şifre Değiştirme"
       new: 
         forgot_password: "Şifrenizi mi unuttunuz?"
         send_password_instructions: "Şifre yenileme talimatları gönder"
@@ -63,11 +63,12 @@ tr:
       updated: "Hesabinizi başarili bir şekilde yenilediniz."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Alphae programını kullanmak üzeresiniz."
+        bugs_and_feedback: "Sitede bazı buglarla karşılaşabilirsiniz.karşılaştığınız herhangi bug için sağüstteki feedback butonunu kullanmanızı tavsiye ederiz. Raporlarınız bize ulaşır ulaşmaz,sorunu düzeltmek için çalışacağız."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Sorun mu yaşıyorsunuz ? Çözüm aramak için"
         login: "Giriş"
-        modern_browsers: "only supports modern browsers."
+        modern_browsers: "sadece güncel tarayıcıları destekler."
         password: "Şifre"
         remember_me: "Beni Hatırla"
         sign_in: "Giriş"
@@ -86,7 +87,7 @@ tr:
         sign_up_for_an_invite: "Sign up for an invite!"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Tekrar gönder"
       send_instructions: "Kisa bir süre içersinde hesabınızı nasıl kilit altinda çikarabiliceginize dair bir email alıcaksınız."
       unlocked: "Heabiniz kilit altindan çıkartılmıstır. Şu anda giriş yapmıs oluyorsunuz"
   errors: 

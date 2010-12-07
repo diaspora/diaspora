@@ -35,6 +35,13 @@ da:
     add_to_aspect: 
       failure: "Kunne ikke tilføje kontakten til aspektet."
       success: "Føjet kontakt til aspektet."
+    all_aspects_contacts: 
+      add_aspect: "add aspect"
+      all_contacts: "All contacts"
+      aspects: "Aspects"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+    aspect_contacts: 
+      done_editing: "done editing"
     create: 
       failure: "Fejl under oprettelse af aspektet."
       success: "Klik på pluset i venstre side for at fortælle diaspora, hvem der kan se dit nye aspekt."
@@ -45,20 +52,20 @@ da:
       confirm_remove_aspect: "Fjern aspekt?"
       remove_aspect: "Fjern Aspekt"
     helper: 
-      are_you_sure: "Er du sikker på du vil slette dette aspekt?"
-      aspect_not_empty: "Aspektet er ikke tom"
+      are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"
+      aspect_not_empty: "Aspektet er ikke tomt"
       remove: "slet"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
     manage: 
       add_a_new_aspect: "Tilføj et nyt aspekt"
-      add_a_new_contact: "Tilføj en ny kontakt"
+      add_a_new_contact: "Tilføj en ny kontaktperson"
       drag_to_add: "Træk for at tilføje personer"
       manage_aspects: "Administrer aspekter"
       no_requests: "Ingen nye anmodninger"
       requests: "Anmodninger"
     move_contact: 
-      error: "Kunne ikke flytte kontakt: %{inspect}"
+      error: "Kunne ikke flytte kontaktperson: %{inspect}"
       failure: "virkede ikke %{inspect}"
       success: "Person flyttet til nyt aspekt"
     new_aspect: 
@@ -66,9 +73,9 @@ da:
       name: "Navn"
     no_contacts_message: 
       add_contact: "Tilføj en kontaktperson"
-      add_contact_to: "Tilføj en kontakt til %{aspect_name}"
-      invite: "Invitere en person til Diaspora!"
-      nobody: "Vi ved, du kender mennesker - bringe dem til Diaspora!"
+      add_contact_to: "Tilføj en kontaktperson til %{aspect_name}"
+      invite: "Inviter en person til Diaspora!"
+      nobody: "Bring de mennesker der betyder noget i dit liv til Diaspora!"
       nobody_in_aspect: "Dit aspekt '%{aspect_name}' er tomt."
     no_posts_message: 
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
@@ -89,10 +96,10 @@ da:
       comment: "Kommenter"
       commenting: "Kommentering ..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} kontaktpersoner"
+    one: "1 kontaktperson"
+    other: "%{count} kontaktperson"
+    zero: "ingen kontaktpersoner"
   delete: "Slet"
   email: "Email"
   error_messages: 
@@ -112,22 +119,25 @@ da:
       share_what_you_want: "Del hvad du vil, med hvem du vil."
       simplicity: "Enkelhed"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
+      tagline_first_half: "Del hvad du vil,"
+      tagline_second_half: "med hvem du vil."
   invitations: 
     check_token: 
       not_found: "Invitations token ikke fundet"
     create: 
       already_contacts: "Du er allerede forbundet med denne person"
-      already_sent: "Du har allerede inviteret denne person."
+      already_sent: "Du har allerede inviterert denne person."
       no_more: "Du har ikke flere invitationer."
       rejected: "Der var problemer med de følgende email adresser: "
       sent: "Din invitation er blevet sendt."
     edit: 
       sign_up: "Bliv medlem"
     new: 
+      aspect: "Aspekt"
       comma_seperated_plz: "Du kan indtaste flere emailadresser adskilt med komma."
-      if_they_accept_info: "hvis de accepterer, vil de blive tilføjet det aspekt du har inviteret dem til"
+      if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
       invite_someone_to_join: "Invitere en person til Diaspora!"
-      message: "Besked:"
+      personal_message: "Personlig besked"
       send_an_invitation: "Send en invitation"
       send_invitation: "Send invitation"
       to: "Til"
@@ -137,15 +147,16 @@ da:
     header: 
       account_settings: "kontoindstillinger"
       blog: "blog"
+      code: "code"
       edit_profile: "Rediger profil"
       login: "log in"
       logout: "log ud"
       view_profile: "vis profil"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} nye anmodninger!"
+    one: "ny anmodning!"
+    other: "%{count} nye anmodninger!"
+    zero: "ingen nye anmodninger"
   notifier: 
     diaspora: "Diaspora email robotten"
     hello: "Hej %{name}!"
@@ -159,11 +170,15 @@ da:
       accepted: "har accepteret din kontakt anmodning. De er nu i din"
       aspect: "aspekt."
       subject: "% {name} har accepteret din kontakt anmodning på Diaspora*"
+    single_admin: 
+      admin: "Din Diaspora administrator"
+      subject: "En besked fra din Diaspora administrator:"
+    thanks: "Tak,"
   ok: "OK"
   or: "eller"
   pagination: 
-    next: "Next"
-    previous: "Previous"
+    next: "Næste"
+    previous: "Forrige"
   password: "Adgangskode"
   password_confirmation: "Adgangskode bekræftelse"
   people: 
@@ -185,7 +200,7 @@ da:
     index: 
       results_for: "søgeresultater for"
     person: 
-      add_contact: "tilføje kontakt"
+      add_contact: "tilføj kontaktperson"
       already_connected: "Allerede forbindet"
       pending_request: "afventende anmodning"
       thats_you: "det er dig!"
@@ -194,29 +209,32 @@ da:
     profile_sidebar: 
       bio: "bio"
       born: "født"
-      cannot_remove: "Cannot remove %{name} from last aspect."
+      cannot_remove: "Kan ikke fjerne %{name} fra sidste aspekt."
       edit_my_profile: "Rediger min profil"
       gender: "køn"
       in_aspects: "i aspekter"
-      remove_contact: "fjern kontakt"
+      remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
-      already_requested: "Du har allerede sendt en forespørgsel til %{name}."
+      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Personen findes ikke!"
       incoming_request: "Du har en anmodning fra denne person."
       no_posts: "ingen indlæg at vise!"
-      not_connected: "Du er ikke forbundet med denne person"
+      not_connected: "Du er ikke forbundet til denne person."
+      recent_posts: "Recent Posts"
       request_people: "Hvis du ønsker, kan du anmode om at placere ham/hende i et af dine aspekter."
       return_to_aspects: "Tilbage til aspects side"
       to_accept_or_ignore: "at godkende eller ignorere det."
     update: 
       failed: "Kunne ikke opdatere profil"
       updated: "Profil opdateret"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
-      integrity_error: "Kunne ikke oploade Foto. Er du sikker på det var et billede?"
-      runtime_error: "Kunne ikke oploade foto. Er du sikker på, at sikkerhedsselen er fastgjort?"
-      type_error: "Kunne ikke oploade foto. Er du sikker på et billede blev valgt?"
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
       notice: "Foto slettet."
     edit: 
@@ -237,6 +255,7 @@ da:
       edit_delete_photo: "Rediger foto beskrivelse / slet foto"
       make_profile_photo: "gøre til profilfoto"
       original_post: "Original Post"
+      permalink: "permalink"
       update_photo: "Opdater billed"
       view: "se"
     update: 
@@ -255,19 +274,23 @@ da:
       unhappy: "Ulykkelig?"
       update: "Opdater"
     new: 
+      enter_email: "Indtast en e-mail addresse"
+      enter_password: "Indtast en adgangskode"
+      enter_password_again: "Indtast den samme adgangskode som før"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Tilmeld dig"
       sign_up_for_diaspora: "Tilmeld dig Diaspora"
   requests: 
     create: 
       sending: "Sender..."
-      sent: "Du har bedt om at dele med %{name}. De kan se det næste gang de logger ind."
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Vælg venligst et aspekt!"
       ignore: "Ignorerede kontakt anmodning."
       success: "I er nu venner."
     manage_aspect_contacts: 
       existing: "Eksisterende kontaktpersoner"
-      manage_within: "Administrer kontakter indenfor"
+      manage_within: "Administrer kontaktpersoner indenfor"
     new_request_to_person: 
       sent: "afsendt!"
   search: "Søg"
@@ -276,6 +299,8 @@ da:
       success: "Godkendelse lykkedes."
     destroy: 
       success: "Godkendelsen er nu blevet ødelagt."
+    failure: 
+      error: "there was an error connecting that service"
     index: 
       connect_to_facebook: "Forbindelse til Facebook"
       connect_to_twitter: "Tilslut til twitter"
@@ -288,27 +313,16 @@ da:
       create_request: "Find med Diaspora handle"
       diaspora_handle: "Diaspora handle"
       enter_a_diaspora_username: "Indtast et Diaspora brugernavn:"
-      know_email: "Kender du deres emails? Så invitér dem"
+      know_email: "Kender du deres e-mail addresse? Du burde invitere dem"
       your_diaspora_username_is: "Dit Diaspora brugernavn er: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "tilføj aspect"
-      add_existing: "Tilføj eksisterende kontakt"
-      add_to: "tilføj til %{aspect}"
-      all_contacts: "Alle kontakter"
-      aspect_settings: "Aspect indstillinger"
-      aspects: "Aspects"
-      confirm_remove_aspect: "Fjern aspect?"
-      done_editing: "redigering færdig"
-      invites: "Inviterede"
-      no_contacts: "Du har lige nu ingen kontakter. Find dem her."
-      remove_aspect: "Fjern Aspekt"
     contact_list: 
-      all_contacts: "Alle kontakter"
+      all_contacts: "Alle kontaktpersoner"
       cannot_remove: "Kan ikke fjerne person fra sidste aspekt."
     invitations: 
       dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere inviterede!"
       invitations_left: "(%{count} tilbage)"
       invite_someone: "Inviter en person"
+      invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Ny %{type} fra %{from}"
@@ -337,8 +351,9 @@ da:
       tell_me_something_good: "fortælle mig noget godt"
     show: 
       destroy: "Ødelæg"
+      permalink: "permalink"
   stream_helper: 
-    hide_comments: "hide comments"
+    hide_comments: "gem kommentarer"
     show_comments: "show comments"
   the_world: "verdenen"
   username: "Brugernavn"
@@ -367,7 +382,7 @@ da:
         aspect_name: "Aspekt navn"
         description: "Fortæl Diaspora hvilke forskellige aspekter af jer der er set af dine forskellige kontakter. Du kan administrere disse senere ved at klikke på administer fanen øverst til højre. Dine aspekter er unikke, og er ikke synlige for andre."
         drag_to_add: "Træk dem til det aspekt af dig de kender"
-        no_requests: "You have no requests"
+        no_requests: "Du har ingen anmodninger"
         your_aspects: "Dine aspekter"
         your_inviter: "Her er personerne der venter på dig:"
       step_3: 

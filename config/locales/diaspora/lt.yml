@@ -30,11 +30,18 @@ lt:
       unknown_person: "nežinomas asmuo"
       youtube_title: 
         unknown: "Nežinomas video pavadinimas"
-  are_you_sure: "Ar tikrai?"
+  are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
       failure: "Nepavyko pridėti draugo į aspektą."
       success: "Draugas į aspektą pridėtas sėkmingai."
+    all_aspects_contacts: 
+      add_aspect: "add aspect"
+      all_contacts: "All contacts"
+      aspects: "Aspects"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+    aspect_contacts: 
+      done_editing: "done editing"
     create: 
       failure: "Aspekto sukurti nepavyko."
       success: "Spustelk pliusą kairėje ir nurodyk, kas Diasporoje gali matyti tavo naują aspektą."
@@ -45,7 +52,7 @@ lt:
       confirm_remove_aspect: "Pašalinti aspektą?"
       remove_aspect: "Pašalinti aspektą"
     helper: 
-      are_you_sure: "Ar tikrai šalinti aspektą?"
+      are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Aspektas netuščias"
       remove: "šalinti"
     index: 
@@ -112,22 +119,25 @@ lt:
       share_what_you_want: "Dalykis, kuo tik nori, su kuo tik nori."
       simplicity: "Paprastumas"
       simplicity_explanation: "Diaspora supaprastina ir palengvina dalijimąsi - tas pats dar dvigubai labiau privatumui. Iš prigimties privati, Diaspora neturi nustatymų ir pasirinkimų puslapių, kuriuos tau tektų perbristi, norint profilį turėti saugų ir pagal tavo skonį."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
       not_found: "Pakvietimo raktas nerastas"
     create: 
-      already_contacts: "Jau esi susijungęs su šiuo asmeniu"
-      already_sent: "Jau pakvietei šį asmenį."
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
       no_more: "Daugiau pakvietimų neturi."
       rejected: "Šie el. pašto adresai neveikė: "
       sent: "Pakvietimas išsiųstas."
     edit: 
       sign_up: "Prisijungti"
     new: 
+      aspect: "Aspect"
       comma_seperated_plz: "Keletą el. pašto adresų gali įvesti atskirdamas juos kableliais."
-      if_they_accept_info: "jei jie sutiks, jie bus pridėti prie tavo pasirinkto aspekto"
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Pakviesk ką nors prisijungti prie Diasporos!"
-      message: "Žinutė:"
+      personal_message: "Personal message"
       send_an_invitation: "Nusiųsk kvietimą"
       send_invitation: "Siųsti kvietimą"
       to: "Kam"
@@ -137,6 +147,7 @@ lt:
     header: 
       account_settings: "paskyros nustatymai"
       blog: "blog'as"
+      code: "code"
       edit_profile: "keisti profilį"
       login: "prisijungti"
       logout: "atsijungti"
@@ -159,6 +170,10 @@ lt:
       accepted: "priėmė tavo prašymą draugauti. Jie dabar yra tavo"
       aspect: "aspektas."
       subject: "%{name} priėmė tavo pasiūlymą draugauti Diasporoje*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message from your Diaspora administrator:"
+    thanks: "Thanks,"
   ok: "gerai"
   or: "arba"
   pagination: 
@@ -201,22 +216,25 @@ lt:
       remove_contact: "pašalinti kontaktą"
       remove_from: "Ar pašalinti kontaktą \"%{name}\" iš aspekto \"%{aspect}\"?"
     show: 
-      already_requested: "Tu jau išsiuntei prašymą, kurio adresatas yra \"%{name}\"."
+      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Asmuo neegzistuoja!"
       incoming_request: "Jūs gavote pakvietimą iš šio asmens."
       no_posts: "nėra jokių pokalbių"
-      not_connected: "Tu nesusijungęs su šiuo asmeniu"
+      not_connected: "You are not connected with this person"
+      recent_posts: "Recent Posts"
       request_people: "Jei nori, gali paprašyti jį pridėti į vieną iš savo aspektų."
       return_to_aspects: "Grįžti į aspektų puslapį"
       to_accept_or_ignore: "priimti arba ignoruoti."
     update: 
       failed: "Nepavyko atnaujinti profilio"
       updated: "Profilis atnaujintas"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
-      integrity_error: "Nuotraukos nusiųsti nepavyko. Ar ten tikrai paveiksliukas?"
-      runtime_error: "Nuotraukos nusiųsti nepavyko. Ar esi prisisegęs saugos diržus?"
-      type_error: "Nuotraukos nusiųsti nepavyko. Ar tikrai pasirinkai paveiksliuką?"
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
       notice: "Nuotrauka pašalinta."
     edit: 
@@ -237,6 +255,7 @@ lt:
       edit_delete_photo: "Redaguoti nuotraukos aprašymą / pašalinti nuotrauką"
       make_profile_photo: "padaryti profilio nuotrauką"
       original_post: "Pradinis pasisakymas"
+      permalink: "permalink"
       update_photo: "Atnaujinti nuotrauką"
       view: "rodyti"
     update: 
@@ -255,12 +274,16 @@ lt:
       unhappy: "Nesmagu?"
       update: "Atnaujinimas"
     new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Sukurti paskyrą"
       sign_up_for_diaspora: "Sukurti paskyrą Diasporoje"
   requests: 
     create: 
       sending: "Siunčiama"
-      sent: "Tu paprašei dalytis su %{name}. Jie tai turėtų pamatyti, kai tik prisijungs prie Diasporos."
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Pasirink aspektą!"
       ignore: "Ignoruotas prašymas draugauti."
@@ -276,6 +299,8 @@ lt:
       success: "Prijungimas sėkmingas."
     destroy: 
       success: "Atjungimas sėkmingas."
+    failure: 
+      error: "there was an error connecting that service"
     index: 
       connect_to_facebook: "Prijungti facebook"
       connect_to_twitter: "Prijungti twitter"
@@ -288,20 +313,8 @@ lt:
       create_request: "Rask pagal Diasporos vartotojo vardą"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Įvesk Diasporos vartotojo vardą:"
-      know_email: "Žinai jų el. pašto adresus? Turėtum juos pakviesti"
+      know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Tavo Diasporos vartotojo vardas yra: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "pridėk aspektą"
-      add_existing: "Pridėk esamą kontaktą"
-      add_to: "pridėti į %{aspect}"
-      all_contacts: "Visi kontaktai"
-      aspect_settings: "Aspekto nustatymai"
-      aspects: "Aspektai"
-      confirm_remove_aspect: "Pašalinti aspektą?"
-      done_editing: "redagavimas baigtas"
-      invites: "Pakvietimai"
-      no_contacts: "Šiuo metu neturi kontaktų. Rask savo kontaktus čia."
-      remove_aspect: "Pašalinti aspektą"
     contact_list: 
       all_contacts: "Visi kontaktai"
       cannot_remove: "Iš paskutinio aspekto asmens pašalinti negalima."
@@ -309,6 +322,7 @@ lt:
       dont_have_now: "Tu neturi jokių pakvietimų dabar, tačiau netrukus gausi daugiau!"
       invitations_left: "(liko %{count})"
       invite_someone: "Pakviesk ką nors"
+      invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Naujas %{type} iš vartotojo \"%{from}\""
@@ -337,6 +351,7 @@ lt:
       tell_me_something_good: "papasakok man ką nors gero"
     show: 
       destroy: "Sunaikinti"
+      permalink: "permalink"
   stream_helper: 
     hide_comments: "hide comments"
     show_comments: "show comments"

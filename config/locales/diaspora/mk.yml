@@ -30,11 +30,18 @@ mk:
       unknown_person: "непозната личност"
       youtube_title: 
         unknown: "Непознато име на видео"
-  are_you_sure: "Дали сте сигурни?"
+  are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
       failure: "Неуспешно додавање на контактот во аспект."
       success: "Успешно додаден контактот во аспект."
+    all_aspects_contacts: 
+      add_aspect: "add aspect"
+      all_contacts: "All contacts"
+      aspects: "Aspects"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+    aspect_contacts: 
+      done_editing: "done editing"
     create: 
       failure: "Неуспешно креирање на аспект."
       success: "Вашиот нов аспект %{name} е креиран"
@@ -45,7 +52,7 @@ mk:
       confirm_remove_aspect: "Remove aspect?"
       remove_aspect: "Remove Aspect"
     helper: 
-      are_you_sure: "Дали сигурно сакате да го отстраните овој аспект?"
+      are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Аспектот не е празен"
       remove: "одстрани"
     index: 
@@ -112,22 +119,25 @@ mk:
       share_what_you_want: "Споделувајте се што сакате, со оние кои вие ги изберете."
       simplicity: "Едноставност"
       simplicity_explanation: "Diaspora овозможува споделување кое е чисто и едноставно - ова се однесува и за приватноста. Благодарение на вградената приватност, Diaspora не ве тера да пребарувате низ страници со подесувања и опции само за да си го заштитите профилот."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
       not_found: "Токенот за поканата не е пронајден"
     create: 
-      already_contacts: "Веќе сте сврзани со оваа личност"
-      already_sent: "Веќе ја поканивте оваа личност."
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
       no_more: "Немате повеќе покани."
       rejected: "Следните е-маил адреси имаа проблем:"
       sent: "Поканите беа испратени кон:"
     edit: 
       sign_up: "регистрирај_се"
     new: 
+      aspect: "Aspect"
       comma_seperated_plz: "Можете да внесете повеќе е-маил адреси разделени со запирки."
-      if_they_accept_info: "ако прифатат, ќе бидат додадени во аспектот во кој сте ги поканиле."
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
-      message: "Порака:"
+      personal_message: "Personal message"
       send_an_invitation: "Испрати покана"
       send_invitation: "Испрати покана"
       to: "До"
@@ -137,6 +147,7 @@ mk:
     header: 
       account_settings: "подесувања на корисничка сметка"
       blog: "блог"
+      code: "code"
       edit_profile: "уреди профил"
       login: "најави се"
       logout: "одјави се"
@@ -159,6 +170,10 @@ mk:
       accepted: "го прифати вашето контакт барање. Сега се во вашиот"
       aspect: "аспект."
       subject: "%{name} го прифати вашето контакт барање на Diaspora*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message from your Diaspora administrator:"
+    thanks: "Thanks,"
   ok: "ОК"
   or: "или"
   pagination: 
@@ -201,22 +216,25 @@ mk:
       remove_contact: "одстрани контакт"
       remove_from: "Одстрани %{name} од %{aspect}?"
     show: 
-      already_requested: "Веќе испративте барање кон %{name}."
+      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Личноста не постои!"
       incoming_request: "You have an incoming request from this person."
       no_posts: "нема пораки за прикажување!"
-      not_connected: "Не сте поврзани со оваа личност"
+      not_connected: "You are not connected with this person"
+      recent_posts: "Recent Posts"
       request_people: "Ако сакате, може да испратите барање до него/неа за приклучување кон вашиот аспект."
       return_to_aspects: "Return to your aspects page"
       to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Неуспешно ажурирање на профил"
       updated: "Профилот е ажуриран"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
-      integrity_error: "Прикачувањето на сликата беше неуспешно. Дали сте сигурни дека тоа беше слика?"
-      runtime_error: "Прикачувањето на сликата беше неуспешно. Дали сте сигурни дека вашиот ремен е прицврстен?"
-      type_error: "Прикачувањето на сликата е неуспешно. Дали сте сигурни дека сликата беше додадена?"
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
       notice: "Сликата е избришана."
     edit: 
@@ -237,6 +255,7 @@ mk:
       edit_delete_photo: "Уреди опис на слика/избриши слика"
       make_profile_photo: "направи ја профил слика"
       original_post: "Изворна објава"
+      permalink: "permalink"
       update_photo: "Ажурирај слика"
       view: "поглед"
     update: 
@@ -255,12 +274,16 @@ mk:
       unhappy: "Незадоволни?"
       update: "Ажурирај"
     new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Регистрирај се"
       sign_up_for_diaspora: "Регистрирај се на Diaspora"
   requests: 
     create: 
       sending: "Испраќање"
-      sent: "Побаравте да споделувате со %{name}. Треба да го видат тоа кога ќе се најават наредниот пат."
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Ве молиме изберете аспект!"
       ignore: "Игнорирано контакт барање."
@@ -276,6 +299,8 @@ mk:
       success: "Автентификацијата е успешна!"
     destroy: 
       success: "Успешно уништена автентификација."
+    failure: 
+      error: "there was an error connecting that service"
     index: 
       connect_to_facebook: "Конектирај се со facebook"
       connect_to_twitter: "Конектирај се со twitter"
@@ -288,20 +313,8 @@ mk:
       create_request: "Најди според Diaspora корисничко име"
       diaspora_handle: "Diaspora корисничко име"
       enter_a_diaspora_username: "Внеси Diaspora корисничко име:"
-      know_email: "Ја знаете нивната е-маил адреса? Поканете ги"
+      know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Вашето Diaspora корисничко име е: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "додај аспект"
-      add_existing: "Додај постоечки контакт"
-      add_to: "додај во %{aspect}"
-      all_contacts: "Сите контакти"
-      aspect_settings: "Подесувања на аспект"
-      aspects: "Аспекти"
-      confirm_remove_aspect: "Одстрани аспект?"
-      done_editing: "заврши со уредување"
-      invites: "Покани"
-      no_contacts: "Моментално немате контакти. Најдете ги вашите контакти овде."
-      remove_aspect: "Одстрани аспект"
     contact_list: 
       all_contacts: "All contacts"
       cannot_remove: "Неможе да се одстрани личноста од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
@@ -309,6 +322,7 @@ mk:
       dont_have_now: "Моментално немате права, но повеќе покани ќе дојдат наскоро!"
       invitations_left: "(%{count} лево)"
       invite_someone: "Покани некој"
+      invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Нов %{type} од %{from}"
@@ -337,6 +351,7 @@ mk:
       tell_me_something_good: "кажи ми нешто добро"
     show: 
       destroy: "Уништи"
+      permalink: "permalink"
   stream_helper: 
     hide_comments: "hide comments"
     show_comments: "show comments"

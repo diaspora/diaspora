@@ -65,6 +65,7 @@ el:
       new: 
         alpha_software: "Είστε έτοιμος να χρησιμοποιήσετε λογισμικό σε alpha φάση."
         bugs_and_feedback: "Να γνωρίζετε ότι θα αντιμετωπίσετε σφάλματα. Σας ενθαρρύνουμε να χρησιμοποιήσετε το κουμπί \"Ανατροφοδότηση\" στη δεξιά πλευρά του browser σας για να αναφέρετε οποιοδήποτε σφάλμα! Θα εργαστούμε όσο πιο γρήγορα μπορούμε για να την επίλυση οποιουδήποτε ζητήματος μας αναφέρετε."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
         login: "Είσοδος"
         modern_browsers: "υποστηρίζει μόνο σύγχρονα προγράμματα περιήγησης."

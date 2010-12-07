@@ -65,8 +65,9 @@ nl:
       new: 
         alpha_software: "Je staat op het punt om alpha software te gebruiken."
         bugs_and_feedback: "In dit stadium zul je waarschijnlijk nog bugs tegenkomen. We raden je aan de Feedback-button aan de rechterzijde van je browser te gebruiken om deze bugs te melden (in het Engels)!  Vervolgens zullen wij zo hard mogelijk werken om deze op te lossen."
+        bugs_and_feedback_mobile: "Wees ervan bewust dat je zeker weten bugs zult tegenkomen.  We raden je aan deze vooral te rapporteren!  We doen ons uiterste best om deze problemen zo snel mogelijk op te lossen."
         have_a_problem: "Problemen? Vind een antwoord!"
-        login: "Log in"
+        login: "Inloggen"
         modern_browsers: "ondersteunt alleen moderne browsers."
         password: "Wachtwoord"
         remember_me: "Onthoud mij"
@@ -79,7 +80,7 @@ nl:
         forgot_your_password: "Wachtwoord vergeten?"
         receive_confirmation: "Geen bevestigingsinstructies ontvangen?"
         receive_unlock: "Geen ontgrendel instructies ontvangen?"
-        sign_in: "Log in"
+        sign_in: "Inloggen"
         sign_up: "Registreer"
         sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
       mail_signup_form: 

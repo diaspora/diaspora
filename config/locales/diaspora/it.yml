@@ -30,11 +30,18 @@ it:
       unknown_person: "persona sconosciuta"
       youtube_title: 
         unknown: "Titolo Video Sconosciuto"
-  are_you_sure: "Sei sicuro?"
+  are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
       failure: "Errore nell'aggiungere il contatto all'aspetto."
       success: "Contatto aggiunto all'aspetto con successo."
+    all_aspects_contacts: 
+      add_aspect: "add aspect"
+      all_contacts: "All contacts"
+      aspects: "Aspects"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+    aspect_contacts: 
+      done_editing: "done editing"
     create: 
       failure: "Creazione dell'aspetto fallita."
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
@@ -45,7 +52,7 @@ it:
       confirm_remove_aspect: "Rimuovere l'aspetto?"
       remove_aspect: "Rimuovi Aspetto"
     helper: 
-      are_you_sure: "Sei sicuro di voler cancellare questo aspetto?"
+      are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Aspetto non vuoto"
       remove: "rimuovi"
     index: 
@@ -112,22 +119,25 @@ it:
       share_what_you_want: "Condividi ciò che vuoi, con chi vuoi"
       simplicity: "Semlpicità"
       simplicity_explanation: "Diaspora permette una condivisione facile e veloce - e lo stesso accade per la gestione della privacy. Essendo riservata per natura, Diaspora non ti fa smarrire tra paginate di impostazioni e opzioni solo per tenere il tuo profilo sicuro."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
       not_found: "Token di invito non trovato"
     create: 
-      already_contacts: "Sei già connesso a questa persona."
-      already_sent: "Hai già invitato questa persona."
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
       no_more: "Non hai più inviti a disposizione"
       rejected: "Questo indirizzo email ha dei problemi: "
       sent: "Il tuo invito è stato inviato."
     edit: 
       sign_up: "iscriviti"
     new: 
+      aspect: "Aspect"
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
-      if_they_accept_info: "se accettano, saranno aggiunti all'aspetto a cui li hai invitati"
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Invita qualcuno ad unirsi a Diaspora!"
-      message: "Messaggio:"
+      personal_message: "Personal message"
       send_an_invitation: "Invia un invito"
       send_invitation: "Invito inviato"
       to: "A"
@@ -137,6 +147,7 @@ it:
     header: 
       account_settings: "impostazioni account"
       blog: "blog"
+      code: "codice"
       edit_profile: "modifica profilo"
       login: "accedi"
       logout: "esci"
@@ -159,6 +170,10 @@ it:
       accepted: "ha accettato la tua richiesta di contatto. Adesso sono nella tua"
       aspect: "aspetto."
       subject: "%{name} ha accettato la tua richiesta di contatto su Diaspora*"
+    single_admin: 
+      admin: "Il tuo amministratore Diaspora"
+      subject: "Un messaggio dal tuo amministratore Diaspora:"
+    thanks: "Grazie,"
   ok: "OK"
   or: "o"
   pagination: 
@@ -201,22 +216,25 @@ it:
       remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
     show: 
-      already_requested: "Hai già inviato una richiesta a %{name}."
+      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "La persona non esiste!"
       incoming_request: "Hai ricevuto una richiesta da questa persona."
       no_posts: "nessun post da mostrare!"
-      not_connected: "Non sei connesso a questa persona"
-      request_people: "Se lo desideri, puoi richiedere di posizionare lui/lei in uno dei tuoi aspetti."
+      not_connected: "You are not connected with this person"
+      recent_posts: "Recent Posts"
+      request_people: "Se lo desideri, puoi richiedere di posizionarlo in uno dei tuoi aspetti."
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
       to_accept_or_ignore: "per accettarla o ignorarla."
     update: 
       failed: "Impossibile aggiornare il profilo"
       updated: "Profilo aggiornato"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
-      integrity_error: "Caricamento della foto fallito. Sei sicuro che era un'immagine?"
-      runtime_error: "Caricamento della foto fallito. Hai allacciato le cinture?"
-      type_error: "Caricamento della foto fallito. Sei sicuro di aver aggiunto un'immagine?"
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
       notice: "Foto eliminata."
     edit: 
@@ -237,6 +255,7 @@ it:
       edit_delete_photo: "Modifica descrizione della foto / elimina foto"
       make_profile_photo: "usala come foto profilo"
       original_post: "Post Originale"
+      permalink: "permalink"
       update_photo: "Aggiorna Foto"
       view: "guarda"
     update: 
@@ -255,12 +274,16 @@ it:
       unhappy: "Triste?"
       update: "Aggiorna"
     new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Iscriviti"
       sign_up_for_diaspora: "Iscriviti a Diaspora"
   requests: 
     create: 
       sending: "Invio in corso..."
-      sent: "Hai richiesto di condividere con %{name}.  Dovresti vederlo la prossima volta che accede a Diaspora."
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Seleziona un aspetto!"
       ignore: "Richiesta di amicizia ignorata."
@@ -276,6 +299,8 @@ it:
       success: "Autenticazione avvenuta con successo."
     destroy: 
       success: "Autenticazione cancellata con successo."
+    failure: 
+      error: "there was an error connecting that service"
     index: 
       connect_to_facebook: "Connettiti a facebook"
       connect_to_twitter: "Connettiti a twitter"
@@ -288,20 +313,8 @@ it:
       create_request: "Cerca tramite contatto Diaspora"
       diaspora_handle: "Contatto Diaspora"
       enter_a_diaspora_username: "Inserisci un username Diaspora"
-      know_email: "Conosci il loro indirizzo email? Dovresti invitarli"
+      know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Il tuo username Diaspora è: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "aggiungi aspetto"
-      add_existing: "Aggiungi un contatto già esistente"
-      add_to: "aggiungi a %{aspect}"
-      all_contacts: "Tutti i contatti"
-      aspect_settings: "Impostazioni aspetto"
-      aspects: "Aspetti"
-      confirm_remove_aspect: "Rimuovere l'aspetto?"
-      done_editing: "modifica completata"
-      invites: "Inviti"
-      no_contacts: "Al momento non hai contatti.  Trova i tuoi contatti qui."
-      remove_aspect: "Rimuovi Aspetto"
     contact_list: 
       all_contacts: "Tutti i contatti"
       cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto."
@@ -309,6 +322,7 @@ it:
       dont_have_now: "Non ne hai alcuno per il momento, ma altri arriveranno presto!"
       invitations_left: "(%{count} rimanenti)"
       invite_someone: "Invita qualcuno"
+      invites: "Invites"
       invites_closed: "Al momento gli inviti sono chiusi su questo pod Diaspora."
     notification: 
       new: "Nuovo %{type} da %{from}"
@@ -337,9 +351,10 @@ it:
       tell_me_something_good: "dimmi qualcosa di buono"
     show: 
       destroy: "Distruggi"
+      permalink: "permalink"
   stream_helper: 
     hide_comments: "nascondi i commenti"
-    show_comments: "mostra i commenti"
+    show_comments: "mostra tutti i commenti"
   the_world: "il mondo"
   username: "Username"
   users: 

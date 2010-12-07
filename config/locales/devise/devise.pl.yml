@@ -6,7 +6,7 @@
 pl: 
   devise: 
     confirmations: 
-      confirmed: "Twoje konto zostało aktywowane. Zalogowano pomyślnie."
+      confirmed: "Twoje konto zostało potwierdzone. Zalogowano Cię w Diasporze."
       new: 
         resend_confirmation: "Prześlij ponownie instrukcje aktywacji"
       send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcje dotyczące aktywacji konta."
@@ -34,8 +34,8 @@ pl:
         no_account_till: "Twoje konto nie zostanie założone dopóki nie klikniesz odnośnika powyżej i nie zarejestrujesz się."
         subject: "Masz zaproszenie do Diaspory!"
       inviters: 
-        accept_at: ", pod adresem %{url}, możesz przyjąć zaproszenie przez poniższy odnośnik."
-        has_invited_you: "%{name} zaprosił(-a) Cię do Diaspory"
+        accept_at: ", pod adresem %{url}, możesz przyjąć zaproszenie używając poniższego odnośnika."
+        has_invited_you: "Użytkownik %{name} zaprosił Cię do Diaspory"
         have_invited_you: "%{names} zaprosili Cię do Diaspory"
       reset_password_instructions: 
         change: "Zmień moje hasło"
@@ -54,17 +54,18 @@ pl:
         change_password: "Zmień hasło"
       new: 
         forgot_password: "Nie pamiętasz hasła?"
-        send_password_instructions: "Wyślij instrukcje resetowania hasła"
+        send_password_instructions: "Wyślij mi instrukcje resetowania hasła"
       send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcjie dotyczące zresetowania hasła."
       updated: "Twoje hasło zostało zmienione. Zalogowano pomyślnie."
     registrations: 
       destroyed: "Żegnaj! Twoje konto zostało usunięte."
-      signed_up: "Zostałeś zarejestrowany. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający rejestrację."
+      signed_up: "Twoja rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt."
       updated: "Pomyślnie zaktualizowano informacje o Twoim koncie."
     sessions: 
       new: 
         alpha_software: "Pamiętaj, że będziesz używać programu we wczesnym stadium rozwoju (alfa)."
-        bugs_and_feedback: "Bądź świadom(-a), że doświadczysz błędów. Zachęcamy do korzystania z przycisku Feedback umieszczonego po prawej stronie okna przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszelkie zgłaszane kłopoty."
+        bugs_and_feedback: "Miej świadomość, że doświadczysz błędów. Zachęcamy do korzystania z przycisku Feedback umieszczonego po prawej stronie okna przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszelkie zgłaszane kłopoty."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "Jakiś kłopot? Tu znajdziesz odpowiedź"
         login: "Login"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
@@ -77,13 +78,13 @@ pl:
     shared: 
       links: 
         forgot_your_password: "Nie pamiętasz hasła?"
-        receive_confirmation: "Nie otrzymałeś(-aś) instrukcji aktywacji?"
-        receive_unlock: "Nie otrzymałeś(-aś) instrukcji odblokowywania?"
+        receive_confirmation: "Nie otrzymano instrukcji aktywacji?"
+        receive_unlock: "Nie otrzymano instrukcji odblokowywania?"
         sign_in: "Zaloguj się"
         sign_up: "Zarejestruj się"
         sign_up_closed: "Otwarta rejestracja jest w tym momencie wyłączona."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Zgłoś się po zaproszenie!"
     unlocks: 
       new: 
         resend_unlock: "Wyślij ponownie instrukcje odblokowywania"

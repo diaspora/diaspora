@@ -65,6 +65,7 @@ fi:
       new: 
         alpha_software: "Sovellus on alpha versio. "
         bugs_and_feedback: "Ota huomioon, että tulet kohtaamaan ohjelmistovirheitä. Kannustamme sinua ilmoittamaan kaikki kokemasi virheet oikealla puolella olevan Feedback nappulan kautta! Korjaamme ilmoittamasi virheet mahdollisimman nopeasti. "
+        bugs_and_feedback_mobile: "Tulet todennäköisesti kohtaamaan ohjelmistovirheitä.  Kerro mahdollisista ongelmatilanteistasi ja virheistä meille.  Pyrimme korjaamaan ilmoittamasi ongelmatilanteet ja virheet mahdollisimman nopeasti."
         have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
         login: "Kirjautuminen"
         modern_browsers: "tukee vain moderneja selaimia."

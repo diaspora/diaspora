@@ -65,6 +65,7 @@ es-CL:
       new: 
         alpha_software: "Estás a punto de usar la versión alpha."
         bugs_and_feedback: "Ten en cuenta que puedes experimentar errores. ¡Te animamos a que utilices el botón de Feedback ubicado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como podamos para resolver cualquier problema que tú nos informes."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         have_a_problem: "¿Algún problema? Encuentra la respues aquí"
         login: "Iniciar sesión"
         modern_browsers: "Solo es compatible con navegadores modernos."

@@ -35,6 +35,13 @@ he:
     add_to_aspect: 
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
+    all_aspects_contacts: 
+      add_aspect: "הוספת היבט"
+      all_contacts: "כל אנשי הקשר"
+      aspects: "היבטים"
+      no_contacts: "נכון לעכשיו אין לך בכלל אנשי קשר.  ניתן למצוא את אנשי הקשר שלך כאן."
+    aspect_contacts: 
+      done_editing: "סיום העריכה"
     create: 
       failure: "יצירת ההיבט נכשלה."
       success: "ההיבט החדש שלך %{name} נוצר"
@@ -42,8 +49,8 @@ he:
       success: "%{name} הוסר בהצלחה."
     edit_aspect_pane: 
       add_existing: "הוספת איש קשר קיים"
-      confirm_remove_aspect: "האם להסיר היבט?"
-      remove_aspect: "הסרת היבט"
+      confirm_remove_aspect: "האם אכן ברצונך למחוק היבט זה?"
+      remove_aspect: "מחיקת היבט זה"
     helper: 
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
       aspect_not_empty: "ההיבט אינו ריק"
@@ -112,6 +119,8 @@ he:
       share_what_you_want: "שיתוף מה שבא לך, עם מי שבא לך."
       simplicity: "פשטות"
       simplicity_explanation: "דיאספורה מאפשרת לך לשתף בצורה נקייה ונוחה - ואמרה זו נוגעת גם לשמירה על פרטיותך. דיאספורה מאפשרת להוריש את הגדרות הפרטיות בין הפריטים השונים ובכך נחסך ממך השיטוט בנבכי עמודי ההגדרות והאפשרויות רק כדי לדאוג שהפרופיל שלך יהיה מאובטח."
+      tagline_first_half: "שיתוף מה שבא לך,"
+      tagline_second_half: "עם מי שבא לך."
   invitations: 
     check_token: 
       not_found: "אסימון ההזמנה לא נמצא"
@@ -124,10 +133,11 @@ he:
     edit: 
       sign_up: "הרשמה"
     new: 
+      aspect: "היבט"
       comma_seperated_plz: "באפשרותך להזין מספר כתובות דוא״ל ולהפרידן בפסיקים."
-      if_they_accept_info: "אם ההזמנה תתקבל, הם יתווספו להיבט שאליו הזמנת אותם."
+      if_they_accept_info: "אם הם יאשרו, הם יתווספו להיבט שאליו הזמנת אותם."
       invite_someone_to_join: "להזמין מישהו להשתמש בדיאספורה!"
-      message: "הודעה:"
+      personal_message: "הודעה אישית"
       send_an_invitation: "שליחת הזמנה"
       send_invitation: "שליחת הזמנה"
       to: "אל"
@@ -137,6 +147,7 @@ he:
     header: 
       account_settings: "הגדרות החשבון"
       blog: "בלוג"
+      code: "קוד"
       edit_profile: "עריכת הפרופיל"
       login: "כניסה"
       logout: "יציאה"
@@ -159,6 +170,10 @@ he:
       accepted: "קיבל/ה את בקשת ההתקשרות שלך. וכעת יופיע/תופיע תחת"
       aspect: "היבט."
       subject: "בקשת ההתקשרות שלך התקבלה על ידי %{name} בדיאספורה*"
+    single_admin: 
+      admin: "מנהל הדיאספורה שלך"
+      subject: "הודעה ממנהל הדיאספורה שלך:"
+    thanks: "רב תודות,"
   ok: "אישור"
   or: "או"
   pagination: 
@@ -186,11 +201,11 @@ he:
       results_for: "תוצאות חיפוש עבור"
     person: 
       add_contact: "הוספת איש קשר"
-      already_connected: "כבר התחברת"
+      already_connected: "כבר קושרתם"
       pending_request: "בקשה ממתינה"
       thats_you: "מדובר בך!"
     profile_photo_upload: 
-      or_select_one: "או לבחור מבין אלו הקיימים"
+      or_select_one: "או לבחור מאלו הקיימות"
     profile_sidebar: 
       bio: "פרטים"
       born: "לידה"
@@ -206,17 +221,20 @@ he:
       incoming_request: "קיבלת בקשה נכנסת מאדם זה."
       no_posts: "אין רשומות להצגה!"
       not_connected: "אין לך קשר עם אדם זה"
-      request_people: "אם ברצונך, ניתן לבקש להציב אותו/ה באחד מההיבטים שלך."
+      recent_posts: "רשומות אחרונות"
+      request_people: "אם זהו רצונך, ניתן לבקש להציב אותו/ה באחד מההיבטים שלך."
       return_to_aspects: "חזרה לעמוד ההיבטים שלך"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
     update: 
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"
+    webfinger: 
+      fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
   photos: 
     create: 
-      integrity_error: "העלאת התמונה נכשלה.  האם זו באמת הייתה תמונה?"
-      runtime_error: "העלאת התמונה נכשלה.  הידקת את החגורה?"
-      type_error: "העלאת התמונה נכשלה.  האם באמת נוספה תמונה?"
+      integrity_error: "העלאת התמונה נכשלה.  האם זו אכן הייתה תמונה?"
+      runtime_error: "העלאת התמונה נכשלה.  האם החגורה שלך אכן מהודקת??"
+      type_error: "העלאת התמונה נכשלה.  האם אכן נוספה תמונה?"
     destroy: 
       notice: "התמונה נמחקה."
     edit: 
@@ -237,6 +255,7 @@ he:
       edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
       make_profile_photo: "יצירת תמונת פרופיל"
       original_post: "רשומה מקורית"
+      permalink: "קישור קבוע"
       update_photo: "עדכון התמונה"
       view: "צפייה"
     update: 
@@ -255,12 +274,16 @@ he:
       unhappy: "בבאסה?"
       update: "עדכון"
     new: 
+      enter_email: "נא להזין כתובת דוא״ל"
+      enter_password: "נא להזין ססמה"
+      enter_password_again: "להזין את אותה הססמה כמקודם"
+      enter_username: "נא לבחור שם משתמש (אותיות, מספרים וקווים תחתונים בלבד)"
       sign_up: "הרשמה"
       sign_up_for_diaspora: "הרשמה לדיאספורה"
   requests: 
     create: 
       sending: "בשליחה"
-      sent: "ביקשת לשתף עם %{name}. פריט זה יופיע בפניהם בפעם הבאה שייכנסו לדיאספורה."
+      sent: "ביקשת לשתף עם %{name}.  הם אמורים לראות זאת בפעם הבאה שייכנסו לדיאספורה."
     destroy: 
       error: "נא לבחור בהיבט!"
       ignore: "בקשות חברות מהן התעלמת."
@@ -276,6 +299,8 @@ he:
       success: "האימות הצליח."
     destroy: 
       success: "האימות הושמד בהצלחה."
+    failure: 
+      error: "אירעה שגיאה בעת ההתחברות לשירות זה"
     index: 
       connect_to_facebook: "התחברות לפייסבוק"
       connect_to_twitter: "התחברות לטוויטר"
@@ -288,27 +313,16 @@ he:
       create_request: "חיפוש לפי שם משתמש בדיאספורה"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
-      know_email: "כתובת הדוא״ל שלהם ידועה לך? כדאי לך להזמין אותם"
+      know_email: "כתובת הדוא״ל שלהם ידועה לך? עליך להזמין אותם"
       your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
-    aspect_contacts: 
-      add_aspect: "הוספת היבט"
-      add_existing: "הוספת איש קשר קיים"
-      add_to: "הוספה אל %{aspect}"
-      all_contacts: "כל אנשי הקשר"
-      aspect_settings: "הגדרות היבט"
-      aspects: "היבטים"
-      confirm_remove_aspect: "האם להסיר היבט?"
-      done_editing: "סיום העריכה"
-      invites: "הזמנות"
-      no_contacts: "כרגע אין לך אנשי קשר. ניתן לחפש אנשי קשר דרך כאן."
-      remove_aspect: "הסרת היבט"
     contact_list: 
       all_contacts: "כל אנשי הקשר"
       cannot_remove: "לא ניתן להסיר את איש הקשר מההיבט האחרון. (אם ברצונך להתנתק מאיש הקשר עליך להסירו מרשימת אנשי הקשר)."
     invitations: 
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
       invitations_left: "(%{count} נותרו)"
-      invite_someone: "להזמין מישהו"
+      invite_someone: "שליחת הזמנה"
+      invites: "הזמנות"
       invites_closed: "נכון לעכשיו ההזמנות לפוד זה של דיאספורה סגורות"
     notification: 
       new: "%{type} חדש מאת %{from}"
@@ -337,9 +351,10 @@ he:
       tell_me_something_good: "בא לי לשמוע סיפור נחמד"
     show: 
       destroy: "הריסה"
+      permalink: "קישור קבוע"
   stream_helper: 
     hide_comments: "הסתרת הערות"
-    show_comments: "הצגת הערות"
+    show_comments: "הצגת כל ההערות"
   the_world: "העולם"
   username: "שם משתמש"
   users: 
