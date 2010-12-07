@@ -3,29 +3,13 @@
 -#   the COPYRIGHT file.
 
 :javascript
-  var genderized_languages = #{grammatical_gender_languages}
-
-  $(document).ready(function(){
-
-    $("#settings_nav li > a").live("click", function() {
-      var target = "#"+$(this).attr('class');
-      if( !$(target).is(":visible") ) {
-        $(".settings_pane").fadeOut(200, function() {
-          $(target).delay(200).fadeIn(200);
-        });
-      }
-    });
-
-    $("#user_language").change(function () {
-      var gselected = $("#user_language option:selected").val();
-      if ( $.inArray(gselected, genderized_languages) < 0 ) {
-        $("#grammatical_gender_block").hide(800);
-        $("#user_grammatical_gender").attr("disabled", "disabled");
-      } else {
-        $("#user_grammatical_gender").removeAttr("disabled");
-        $("#grammatical_gender_block").show(800);
-      }
-    });
+  $("#settings_nav li > a").live("click", function() {
+    var target = "#"+$(this).attr('class');
+    if( !$(target).is(":visible") ) {
+      $(".settings_pane").fadeOut(200, function() {
+        $(target).delay(200).fadeIn(200);
+      });
+    }
   });
 
 #section_header
