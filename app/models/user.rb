@@ -136,6 +136,12 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  def salmon(post)
+    created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    created_salmon
+  end
+
   ######## Commenting  ########
   def build_comment(text, options = {})
     comment = Comment.new(:person_id => self.person.id,

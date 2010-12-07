@@ -18,6 +18,10 @@ execute "rvm deps" do
   command "yum install -y bzip2"
 end
 
+execute "curl deps for Typheous" do
+  command "yum install -y curl.x86_64 curl-devel.x86_64"
+end
+
 def harden_ruby(ruby_string)
   Dir.glob("/usr/local/rvm/wrappers/#{ruby_string}/*").each do |file|
     link "/usr/local/bin/#{file.split('/').last}" do
