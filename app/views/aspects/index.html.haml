@@ -21,11 +21,5 @@
     = will_paginate @posts
 
 .span-8.last
-
-  - if @request_count > 0
-    #new_request_pane{:class => "everyone"}
-      %h1.new_request{:style => 'text-align:center'}
-        = new_request_link(@request_count)
-
   = render 'aspects/all_aspects_contacts'
 
