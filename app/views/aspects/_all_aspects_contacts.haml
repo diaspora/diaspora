@@ -8,17 +8,6 @@
       = new_request_link(@request_count)
 
 #left_pane.everyone
-  %h3= t('.all_contacts')
-
-  .section.contact_pictures
-    - for contact in @contact_hashes
-      = person_image_link(contact[:person])
-
-    - if @contacts.count == 0
-      %h4
-        = t('.no_contacts')
-      = form_tag(people_path, :method => 'get') do
-        = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
   .section.aspect_listings
     %h3
@@ -29,6 +18,19 @@
     %ul
       - for a_hash in @aspect_hashes
         = render :partial => 'aspects/aspect', :locals => a_hash
+
+  .section.contact_pictures
+    %h3
+      = t('.all_contacts')
+
+    - for contact in @contact_hashes
+      = person_image_link(contact[:person])
+
+    - if @contacts.count == 0
+      %h4
+        = t('.no_contacts')
+      = form_tag(people_path, :method => 'get') do
+        = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
   .section
     %h3= t('shared.invitations.invites')
