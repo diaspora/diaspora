@@ -11,7 +11,7 @@ class AspectsController < ApplicationController
   def index
     @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @post_hashes = hashes_for_posts @posts
-    @aspect_hashes = hashes_for_aspects @aspects.all, @contacts
+    @aspect_hashes = hashes_for_aspects @aspects.all, @contacts, :limit => 8
     @aspect = :all
 
     @contact_hashes = hashes_for_contacts @contacts
@@ -78,6 +78,7 @@ class AspectsController < ApplicationController
   def manage
     @aspect = :manage
     @remote_requests = current_user.requests_for_me
+    @aspect_hashes = hashes_for_aspects @aspects, @contacts
   end
 
   def update
@@ -148,14 +149,14 @@ class AspectsController < ApplicationController
     contacts.map{|c| {:contact => c, :person => people_hash[c.person_id.to_id]}}
   end
 
-  def hashes_for_aspects aspects, contacts
+  def hashes_for_aspects aspects, contacts, opts = {}
     aspects.map do |a|
       hash = {:aspect => a}
       aspect_contacts = contacts.select{|c| 
           c.aspect_ids.include?(a.id)}
       hash[:contact_count] = aspect_contacts.count
       person_ids = aspect_contacts.map{|c| c.person_id}
-      hash[:people] = Person.all(:id.in => person_ids, :limit => 8)
+      hash[:people] = Person.all({:id.in => person_ids}.merge(opts))
       hash
     end
   end

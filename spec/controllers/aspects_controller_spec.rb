@@ -179,7 +179,7 @@ describe AspectsController do
       10.times {@people << Factory.create(:person)}
       @people.each{|p| @user.reload.activate_contact(p, @user.aspects.first.reload)}
       @user.reload
-      @hashes = @controller.send(:hashes_for_aspects, @user.aspects, @user.contacts)
+      @hashes = @controller.send(:hashes_for_aspects, @user.aspects, @user.contacts, :limit => 9)
       @hash = @hashes.first
       @aspect = @user.aspects.first
     end
@@ -195,8 +195,8 @@ describe AspectsController do
       gotten_people = @hash[:people].map{|p| p.diaspora_handle}
       gotten_people.each{|p| desired_people.should include p}
     end
-    it 'has at most 8 people' do
-      @hash[:people].length.should == 8
+    it 'takes a limit on people returned' do
+      @hash[:people].length.should == 9
     end
   end
 

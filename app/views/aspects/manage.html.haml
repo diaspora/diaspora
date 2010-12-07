@@ -33,30 +33,30 @@
     = render 'shared/invitations', :invites => @invites
 
   .span-19.last
-    - for aspect in @aspects
-      .aspect.span-9{:data=>{:guid=>aspect.id}}
+    - for hash in @aspect_hashes
+      .aspect.span-9{:data=>{:guid=>hash[:aspect].id}}
         .aspect_name
           %span.edit_name_field
             %h3{:contenteditable=>true}
-              = aspect.name
+              = hash[:aspect].name
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{aspect.id}", :class => 'manage_aspect_contacts_button'
-            %li!= remove_link(aspect)
+            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{hash[:aspect].id}", :class => 'manage_aspect_contacts_button'
+            %li!= remove_link(hash[:aspect])
 
-        %ul.dropzone{:data=>{:aspect_id=>aspect.id}}
-          -for contact in aspect.contacts
-            %li.person{:data=>{:guid=>contact.person.id, :aspect_id=>aspect.id}}
+        %ul.dropzone{:data=>{:aspect_id=>hash[:aspect].id}}
+          -for person in hash[:people]
+            %li.person{:data=>{:guid=>person.id, :aspect_id=>hash[:aspect].id}}
               .delete
                 .x
                   X
                 .circle
-              = link_to person_image_tag(contact.person), contact.person
+              = link_to person_image_tag(person), person
           .draggable_info
             =t('.drag_to_add')
 
           .fancybox_content
-            %div{:id => "manage_aspect_contacts_pane_#{aspect.id}"}
-              = render "requests/manage_aspect_contacts", :aspect_name => aspect.name, :aspect_id => aspect.id, :manage => true
+            %div{:id => "manage_aspect_contacts_pane_#{hash[:aspect].id}"}
+              = render "requests/manage_aspect_contacts", :aspect_name => hash[:aspect].name, :aspect_id => hash[:aspect].id, :manage => true
 
