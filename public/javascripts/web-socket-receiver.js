@@ -75,7 +75,7 @@ processPerson: function(response){
 
       if(toggler.length > 0){
         toggler.html(
-          toggler.html().replace(/\d+/,$('.comments', post)[0].childElementCount -1)
+          toggler.html().replace(/\d+/,$('.comments', post).find('li').length -1)
         );
 
         if( !$(".comments", post).is(':visible') ){
