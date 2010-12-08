@@ -144,6 +144,7 @@ en:
           success: "%{name} was successfully removed."
       update:
           success: "Your aspect, %{name}, has been successfully edited."
+          failure: "Your aspect, %{name}, had too long name to be saved."
       move_contact:
           failure: "didn't work %{inspect}"
           success: "Person moved to new aspect"

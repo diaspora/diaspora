@@ -83,9 +83,10 @@ class AspectsController < ApplicationController
 
   def update
     @aspect = current_user.aspect_by_id(params[:id])
-
-    @aspect.update_attributes( params[:aspect] )
-    flash[:notice] = I18n.t 'aspects.update.success',:name => @aspect.name
+    if @aspect.update_attributes( params[:aspect] )
+      flash[:notice] = I18n.t 'aspects.update.success',:name => @aspect.name
+    else
+      flash[:notice] = I18n.t 'aspects.update.failure',:name => @aspect.name
     respond_with @aspect
   end
 
