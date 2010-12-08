@@ -36,12 +36,12 @@ hu:
       failure: "A kapcsolatot nem sikerült felvenni a csoportba."
       success: "A kapcsolat hozzáadva a csoporthoz."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
+      add_aspect: "csoport hozzáadása"
+      all_contacts: "Összes ismerős"
+      aspects: "Csoportok"
+      no_contacts: "Még nincs ismerősöd felvéve. Itt keresheted meg őket"
     aspect_contacts: 
-      done_editing: "done editing"
+      done_editing: "szerkesztés kész"
     create: 
       failure: "Csoport létrehozása sikertelen."
       success: "Új csoport létrehozva: %{name}"
@@ -49,7 +49,7 @@ hu:
       success: "%{name} csoport sikeresen törölve."
     edit_aspect_pane: 
       add_existing: "Létező kapcsolat hozzáadása"
-      confirm_remove_aspect: "Törlöd a csoportot?"
+      confirm_remove_aspect: "Törlöd ezt a csoportot?"
       remove_aspect: "csoport törlése"
     helper: 
       are_you_sure: "Biztos, hogy törlöd a csoportot?"
@@ -322,7 +322,7 @@ hu:
       dont_have_now: "Nincs több meghívód, de hamarosan kapsz még!"
       invitations_left: "(%{count} maradt)"
       invite_someone: "Hívj meg valakit"
-      invites: "Invites"
+      invites: "Meghívók"
       invites_closed: "A meghívás jelenleg szünetel erre a Diaspora* kiszolgálóra."
     notification: 
       new: "Új %{type}. Feladó: %{from}"

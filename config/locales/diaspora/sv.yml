@@ -41,7 +41,7 @@ sv:
       aspects: "Sidor"
       no_contacts: "Förnärvarande har du inga kontakter. Hitta dina kontakter här."
     aspect_contacts: 
-      done_editing: "färdig redigerat"
+      done_editing: "dölj"
     create: 
       failure: "Sidan kunde inte skapas."
       success: "Din nya sida %{name} har skapats"
@@ -322,7 +322,7 @@ sv:
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
       invitations_left: "(%{count} kvar)"
       invite_someone: "Bjud in en kontakt"
-      invites: "Bjuder in"
+      invites: "Inbjudningar"
       invites_closed: "Inbjudningar är för närvarande stängd på denna Diaspora server"
     notification: 
       new: "Ny %{type} från %{from}"
