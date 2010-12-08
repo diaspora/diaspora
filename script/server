@@ -70,15 +70,9 @@ function redis_config
     fi
 
     cp $redis_conf config/redis.conf
-    case $OS in
-    ## bsd sed doesn't seem to handle empty in-place edits correctly
-    *[Bb][Ss][Dd]*|Darwin)
-	    sed -i '' '/^[^#]*daemonize/s/yes/no/' config/redis.conf
-	    ;;
-    *)
-	    sed -i '/^[^#]*daemonize/s/yes/no/' config/redis.conf
-	    ;;
-    esac
+    sed -i -e '/^[^#]*daemonize/s/yes/no/'                               \
+           -e '/^[^#]*logfile/s|.*|logfile /var/log/diaspora/redis.log|' \
+        config/redis.conf
 }
 
 # Scan for -p, find out what port thin is about to use.
