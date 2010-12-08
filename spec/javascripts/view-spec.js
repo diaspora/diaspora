@@ -102,19 +102,20 @@ describe("View", function() {
       );
     });
 
-    describe("keyup", function() { 
+    describe("keydown", function() { 
       it("is called when the user types", function() {
-        spyOn(View.publisher, "keyup");
+        spyOn(View.publisher, "keydown");
         View.initialize();
-        $(View.publisher.selector).trigger("keyup");
-        expect(View.publisher.keyup).toHaveBeenCalled();
+        $(View.publisher.selector).trigger("keydown");
+        expect(View.publisher.keydown).toHaveBeenCalled();
       });
 
       it("submits the form if the user hits enter while the textarea is focused", function() {
         spyOn($.fn, "submit");
         View.initialize();
         $(View.publisher.selector).focus();
-        var event = $.Event("keyup");
+        var event = $.Event("keydown");
+        var event.ShiftKey = true;
         event.keyCode = 13;
         $(View.publisher.selector).trigger(event);
         expect($.fn.submit).toHaveBeenCalled();

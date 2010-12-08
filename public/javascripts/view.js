@@ -35,7 +35,7 @@ var View = {
 
     /* Submitting the status message form when the user hits enter */
     $(this.publisher.selector)
-      .keyup(this.publisher.keyup);
+      .keydown(this.publisher.keydown);
 
     /* User menu */
     $(this.userMenu.selector)
@@ -118,8 +118,8 @@ var View = {
   },
 
   publisher: {
-    keyup: function(e) {
-      if(e.keyCode === 13) {
+    keydown: function(e) {
+      if(e.shiftKey && e.keyCode === 13) {
         $(this).closest("form").submit();
       }
     },
