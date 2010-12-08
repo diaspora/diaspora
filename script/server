@@ -46,6 +46,11 @@ function chk_service
 function redis_config
 # Create/update the local redis.conf file from /etc master
 {
+    if [ ! -w config ]; then
+        # read-only installation, should be OK
+        return
+    fi
+
     if [ -r "/etc/redis.conf" ]; then
         redis_conf="/etc/redis.conf"
     elif [ -r "/etc/redis/redis.conf" ]; then
