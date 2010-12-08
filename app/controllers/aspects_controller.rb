@@ -86,7 +86,8 @@ class AspectsController < ApplicationController
     if @aspect.update_attributes( params[:aspect] )
       flash[:notice] = I18n.t 'aspects.update.success',:name => @aspect.name
     else
-      flash[:notice] = I18n.t 'aspects.update.failure',:name => @aspect.name
+      flash[:error] = I18n.t 'aspects.update.failure',:name => @aspect.name
+    end
     respond_with @aspect
   end
 
