@@ -9,10 +9,6 @@ describe ServicesController do
   let(:user) { make_user }
   let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
-  let!(:service1) {a = Factory(:service); user.services << a; a}
-  let!(:service2) {a = Factory(:service); user.services << a; a}
-  let!(:service3) {a = Factory(:service); user.services << a; a}
-  let!(:service4) {a = Factory(:service); user.services << a; a}
 
   let(:mock_access_token) { Object.new }
 
@@ -29,6 +25,11 @@ describe ServicesController do
   end
 
   describe '#index' do
+    let!(:service1) {a = Factory(:service); user.services << a; a}
+    let!(:service2) {a = Factory(:service); user.services << a; a}
+    let!(:service3) {a = Factory(:service); user.services << a; a}
+    let!(:service4) {a = Factory(:service); user.services << a; a}
+
     it 'displays all connected serivices for a user' do
       get :index
       assigns[:services].should == user.services
@@ -54,9 +55,18 @@ describe ServicesController do
       post :create
       response.should redirect_to services_url
     end
+
+
+    it 'creates a twitter service' do
+      user.getting_started = false
+      request.env['omniauth.auth'] = omniauth_auth
+      post :create
+      user.services.first.class.name.should == "Services::Twitter"
+    end
   end
 
   describe '#destroy' do
+    let!(:service1) {a = Factory(:service); user.services << a; a}
     it 'should destroy a service of a users with the id' do
       lambda{delete :destroy, :id => service1.id.to_s}.should change(user.services, :count).by(-1)
     end

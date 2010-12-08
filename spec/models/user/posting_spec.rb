@@ -70,9 +70,13 @@ describe User do
 
   end
 
+
+  describe 'services'
+
   describe '#dispatch_post' do
     include Rails.application.routes.url_helpers 
     let(:status) {user.build_post(:status_message, @status_opts)}
+
     before do
       @message = "hello, world!"
       @status_opts = {:to => "all", :message => @message}

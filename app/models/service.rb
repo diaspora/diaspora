@@ -13,4 +13,11 @@ class Service
   key :access_secret, String
   key :nickname, String
   timestamps!
+
+  def public_message(length, url = "")
+    space_for_url = url.blank? ? 0 : (url.length + 1)
+    truncated = truncate(self.message, :length => (length - space_for_url))
+    truncated = "#{truncated} #{url}" unless url.blank?
+    return truncated
+  end
 end

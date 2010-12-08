@@ -6,6 +6,7 @@ class StatusMessage < Post
   include Diaspora::Socketable
   include YoutubeTitles
   require File.join(Rails.root, 'lib/youtube_titles')
+  include ActionView::Helpers::TextHelper
   
   validates_length_of :message, :maximum => 1000, :message => "please make your status messages less than 1000 characters"
   xml_name :status_message
@@ -21,7 +22,7 @@ class StatusMessage < Post
     get_youtube_title message
   end
   def to_activity
-        <<-XML
+    <<-XML
   <entry>
     <title>#{self.message}</title>
     <link rel="alternate" type="text/html" href="#{person.url}status_messages/#{self.id}"/>
@@ -31,7 +32,15 @@ class StatusMessage < Post
     <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
     <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
   </entry>
-        XML
+      XML
+  end
+
+
+  def public_message(length, url = "")
+    space_for_url = url.blank? ? 0 : (url.length + 1)
+    truncated = truncate(self.message, :length => (length - space_for_url))
+    truncated = "#{truncated} #{url}" unless url.blank?
+    return truncated
   end
 
   protected
