@@ -105,9 +105,8 @@ var AspectEdit = {
   },
 
   changeName:  function() {
-
     var $this = $(this);
-    var id = $this.closest("li.aspect").attr("data-guid");
+    var id = $this.closest(".aspect").attr("data-guid");
     var link = "/aspects/" + id;
 
     $this.keypress(function(e) {
