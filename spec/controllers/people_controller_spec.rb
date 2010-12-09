@@ -183,15 +183,6 @@ describe PeopleController do
         user.person.reload
         user.person.profile.image_url.should == image_url
       end
-      it 'updates a profile photo url' do
-        fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
-        photo = user.post(:photo, :user_file => File.open(fixture_name), :to => aspect.id)
-        @params[:profile][:image_url] = photo.url(:thumb_medium)
-        put :update, @params
-        goal_pod_url = (APP_CONFIG[:pod_url][-1,1] == '/' ? APP_CONFIG[:pod_url].chop : APP_CONFIG[:pod_url])
-        user.person.reload.profile.image_url.should ==
-          "#{goal_pod_url}#{photo.url(:thumb_medium)}"
-      end
     end
     it 'does not allow mass assignment' do
       new_user = make_user

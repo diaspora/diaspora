@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-= form_tag person_path(@person), :method => :put, :multipart => true do
+= form_tag person_path(@person), :method => :put, :multipart => true, :id => 'update_profile_form' do
   %h3
     = t('people.edit.your_profile')
     .description
@@ -33,7 +33,8 @@
 
   %h4
     = t('people.edit.your_photo')
-    = render 'people/profile_photo_upload'
+    = render 'photos/new_profile_photo'
+    %br
 
   %h4
     = t('search')

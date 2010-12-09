@@ -250,6 +250,9 @@ en:
           invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
           size_error: "{file} is too large, maximum file size is {sizeLimit}."
           empty: "{file} is empty, please select files again without it."
+      new_profile_photo:
+          upload: "Upload a new profile photo!"
+          or_select_one: "or select one from your already existing"
   registrations:
       new:
           sign_up: "Sign up"
@@ -330,8 +333,6 @@ en:
           your_photo: "Your photo"
           update_profile: "Update Profile"
           allow_search: "Allow for people to search for you within Diaspora"
-      profile_photo_upload:
-          or_select_one: "or select one from your already existing"
       update:
           updated: "Profile updated"
           failed: "Failed to update profile"

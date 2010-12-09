@@ -81,18 +81,7 @@ class PeopleController < ApplicationController
     # upload and set new profile photo
     params[:profile] ||= {}
     params[:profile][:searchable] ||= false
-    if params[:profile][:image].present?
-      raw_image = params[:profile].delete(:image)
-      params[:profile_image_hash] = { :user_file => raw_image, :to => "all" }
-
-      photo = current_user.build_post(:photo, params[:profile_image_hash])
-      if photo.save!
-
-        params[:profile][:image_url] = photo.url(:thumb_large)
-        params[:profile][:image_url_medium] = photo.url(:thumb_medium)
-        params[:profile][:image_url_small] = photo.url(:thumb_small)
-      end
-    end
+    params[:profile][:photo] = Photo.first(:person_id => current_user.person.id, :id => params[:photo_id]) if params[:photo_id]
 
     if current_user.update_profile params[:profile]
       flash[:notice] = I18n.t 'people.update.updated'

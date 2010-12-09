@@ -22,16 +22,24 @@ describe PhotosController do
   before do
     connect_users(user, aspect, user2, aspect2)
     sign_in :user, user
-    @controller.stub!(:current_user).and_return(user)
   end
 
   describe '#create' do
     before do
       @controller.stub!(:file_handler).and_return(image)
+      @params = {:photo => {:user_file => image, :aspect_ids => "all"}}
     end
 
     it 'can make a photo' do
-      proc{ post :create, :photo => {:user_file => image, :aspect_ids => "all"} }.should change(Photo, :count).by(1)
+      proc{ 
+        post :create, @params
+      }.should change(Photo, :count).by(1)
+    end
+    it 'can set the photo as the profile photo' do
+      old_url = user.person.profile.image_url
+      @params[:photo][:set_profile_photo] = true
+      post :create, @params
+      user.reload.person.profile.image_url.should_not == old_url
     end
   end
 

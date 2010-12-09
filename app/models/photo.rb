@@ -22,7 +22,7 @@ class Photo < Post
 
   belongs_to :status_message
 
-  attr_accessible :caption
+  attr_accessible :caption, :pending
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture

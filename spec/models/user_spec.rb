@@ -262,21 +262,51 @@ describe User do
     end
   end
 
-  context 'profiles' do
-    let(:updated_profile) {{
+  describe '#update_profile' do
+    before do
+      @params = {
         :first_name => 'bob',
         :last_name => 'billytown',
-        :image_url => "http://clown.com"}}
-
-    it 'should be able to update their profile' do
-      user.update_profile(updated_profile).should be true
-      user.reload.profile.image_url.should == "http://clown.com"
+      }
     end
-
     it 'sends a profile to their contacts' do
       connect_users(user, aspect, user2, aspect2)
       user.should_receive(:push_to_person).once
-      user.update_profile(updated_profile).should be true
+      user.update_profile(@params).should be_true
+    end
+    it 'updates names' do
+      user.update_profile(@params).should be_true
+      user.reload.profile.first_name.should == 'bob'
+    end
+    it 'updates image_url' do
+      params = {:image_url => "http://clown.com"}
+
+      user.update_profile(params).should be_true
+      user.reload.profile.image_url.should == "http://clown.com"
+    end
+    context 'passing in a photo' do
+      before do
+        fixture_filename  = 'button.png'
+        fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
+        image = File.open(fixture_name)
+        @photo = Photo.instantiate(
+                  :person => user.person, :user_file => image)
+        @photo.save!
+        @params = {:photo => @photo}
+      end
+      it 'updates image_url' do
+        user.update_profile(@params).should be_true
+        user.reload.profile.image_url.should == @photo.absolute_url
+        user.profile.image_url_medium.should == @photo.absolute_url(:thumb_medium)
+        user.profile.image_url_small.should == @photo.absolute_url(:thumb_small)
+      end
+      it 'unpends the photo' do
+        @photo.pending = true
+        @photo.save!
+        @photo.reload
+        user.update_profile(@params).should be true
+        @photo.reload.pending.should be_false
+      end
     end
   end
 
