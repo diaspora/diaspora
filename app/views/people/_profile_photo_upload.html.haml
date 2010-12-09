@@ -5,7 +5,7 @@
 
 #profile_photo_upload
   = owner_image_tag(:thumb_medium)
-  = form.file_field :image
+  = file_field_tag 'profile[image]'
 
   -if !@aspect.nil? && @aspect != :getting_started 
     %p

@@ -78,23 +78,23 @@ class PeopleController < ApplicationController
   end
 
   def update
-
     # upload and set new profile photo
-    params[:person][:profile] ||= {}
-    if params[:person][:profile][:image].present?
-      raw_image = params[:person][:profile].delete(:image)
+    params[:profile] ||= {}
+    params[:profile][:searchable] ||= false
+    if params[:profile][:image].present?
+      raw_image = params[:profile].delete(:image)
       params[:profile_image_hash] = { :user_file => raw_image, :to => "all" }
 
       photo = current_user.build_post(:photo, params[:profile_image_hash])
       if photo.save!
 
-        params[:person][:profile][:image_url] = photo.url(:thumb_large)
-        params[:person][:profile][:image_url_medium] = photo.url(:thumb_medium)
-        params[:person][:profile][:image_url_small] = photo.url(:thumb_small)
+        params[:profile][:image_url] = photo.url(:thumb_large)
+        params[:profile][:image_url_medium] = photo.url(:thumb_medium)
+        params[:profile][:image_url_small] = photo.url(:thumb_small)
       end
     end
 
-    if current_user.update_profile params[:person][:profile]
+    if current_user.update_profile params[:profile]
       flash[:notice] = I18n.t 'people.update.updated'
     else
       flash[:error] = I18n.t 'people.update.failed'
