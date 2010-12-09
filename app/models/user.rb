@@ -331,7 +331,7 @@ class User
   ########### Profile ######################
   def update_profile(params)
     if self.person.profile.update_attributes(params)
-      push_to_aspects profile, aspects
+      push_to_people profile, self.person_objects(contacts)
       true
     else
       false

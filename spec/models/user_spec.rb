@@ -263,14 +263,20 @@ describe User do
   end
 
   context 'profiles' do
-    it 'should be able to update their profile and send it to their contacts' do
-      updated_profile = {
+    let(:updated_profile) {{
         :first_name => 'bob',
         :last_name => 'billytown',
-        :image_url => "http://clown.com"}
+        :image_url => "http://clown.com"}}
 
+    it 'should be able to update their profile' do
       user.update_profile(updated_profile).should be true
       user.reload.profile.image_url.should == "http://clown.com"
+    end
+
+    it 'sends a profile to their contacts' do
+      connect_users(user, aspect, user2, aspect2)
+      user.should_receive(:push_to_person).once
+      user.update_profile(updated_profile).should be true
     end
   end
 
