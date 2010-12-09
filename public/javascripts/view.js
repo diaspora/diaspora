@@ -153,6 +153,14 @@ var View = {
       }
     },
 
+    public_badge: {
+      bind: function() { 
+        $(".public_badge img").tipsy({
+          live: true
+        });
+      }
+    },
+
     whatIsThis: {
       bind: function() { 
         $(".what_is_this").tipsy({
