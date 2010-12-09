@@ -137,6 +137,14 @@ describe PeopleController do
       get :show, :id => user2.person.id
       response.should be_success
     end
+
+    it "renders with public posts of a non-contact" do
+      user2 = make_user
+      status_message = user2.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+
+      get :show, :id => user2.person.id
+      response.body.should include status_message.message
+    end
   end
 
   describe '#webfinger' do

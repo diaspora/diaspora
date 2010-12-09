@@ -96,6 +96,21 @@ module Diaspora
       def request_for(to_person)
         Request.from(self.person).to(to_person).first
       end
+
+      def posts_from(person)
+        post_ids = []
+
+        public_post_ids = Post.where(:person_id => person.id, :_type => "StatusMessage", :public => true).fields('id').all
+        public_post_ids.map!{ |p| p.id }
+
+        directed_post_ids = self.visible_posts(:person_id => person.id, :_type => "StatusMessage")
+        directed_post_ids.map!{ |p| p.id }
+
+        post_ids += public_post_ids
+        post_ids += directed_post_ids
+
+        Post.all(:id.in => post_ids, :order => 'created_at desc')
+      end
     end
   end
 end

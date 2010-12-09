@@ -229,4 +229,29 @@ describe User do
     end
   end
 
+  describe '#posts_from' do
+    let!(:user3) {make_user}
+    let!(:aspect3) {user3.aspects.create(:name => "bros")}
+    
+    let!(:public_message) {user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)}
+    let!(:private_message) {user3.post(:status_message, :message => "hey there", :to => aspect3.id)}
+
+    it 'displays public posts for a non-contact' do
+      user.posts_from(user3.person).should include public_message
+    end
+
+    it 'does not display private posts for a non-contact' do
+      user.posts_from(user3.person).should_not include private_message
+    end
+
+    it 'displays private and public posts for a non-contact after connecting' do
+      connect_users(user, aspect, user3, aspect3)
+      new_message = user3.post(:status_message, :message => "hey there", :to => aspect3.id)
+
+      user.reload
+
+      user.posts_from(user3.person).should include public_message
+      user.posts_from(user3.person).should include new_message
+    end
+  end
 end

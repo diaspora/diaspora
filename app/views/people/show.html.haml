@@ -20,45 +20,49 @@
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @is_contact}
 
 .span-15.last
-  - if @contact || current_user.person == @person
-    - if @posts.count > 0
-      -if @post_type == :photos
+  - unless @contact || current_user.person == @person
+    - if current_user.has_incoming_request_from(@person)
+      .floating
+        %h3 
+          = t('.incoming_request') 
         %h4
-          = t('_photos')
-        = render 'photos/index', :photos => @posts
-      - else
-        %h4
-          = t('.recent_posts')
-        = render 'shared/stream', :posts => @post_hashes
-      = will_paginate @posts
-
+          = link_to t('.return_to_aspects'), aspects_manage_path
+          = t('.to_accept_or_ignore')
+          
     - else
-      %ul#stream
-        %li
-          %h3= t('.no_posts')
+      .floating
+        %h3
+          = t('.not_connected', :name => @person.name)
+          
+        - unless pending_request_for(@person)
+          %h3
+            .description
+              = t('.request_people')
+           
+          = render :partial =>'requests/new_request_to_person', :locals => {:aspects => @aspects, :destination_handle => @person.diaspora_handle}
 
-  - elsif current_user.has_incoming_request_from(@person)
-    .floating
-      %h3 
-        = t('.incoming_request') 
+        - else
+          %h3
+            .description
+              = t('.already_requested', :name => @person.name)
+
+  - if @posts.count > 0
+    -if @post_type == :photos
       %h4
-        = link_to t('.return_to_aspects'), aspects_manage_path
-        = t('.to_accept_or_ignore')
-        
-  - else
-    .floating
-      %h3
-        = t('.not_connected', :name => @person.name)
-        
-      - unless pending_request_for(@person)
-        %h3
-          .description
-            = t('.request_people')
-         
-        = render :partial =>'requests/new_request_to_person', :locals => {:aspects => @aspects, :destination_handle => @person.diaspora_handle}
+        = t('_photos')
+      = render 'photos/index', :photos => @posts
+    - else
+      %h4
+        - if @contact
+          = t('.recent_posts')
+        - else
+          = t('.recent_public_posts')
 
-      - else
-        %h3
-          .description
-            = t('.already_requested', :name => @person.name)
+      = render 'shared/stream', :posts => @post_hashes
+    = will_paginate @posts
+
+  - else
+    %ul#stream
+      %li
+        %h3= t('.no_posts')
 

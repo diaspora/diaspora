@@ -53,8 +53,9 @@ class PeopleController < ApplicationController
         @aspects_with_person = @contact.aspects
       end
 
-      @posts = current_user.visible_posts(:person_id => @person.id, :_type => "StatusMessage").paginate :page => params[:page], :order => 'created_at DESC'
+      @posts = current_user.posts_from(@person).paginate :page => params[:page]
       @post_hashes = hashes_for_posts @posts
+
       respond_with @person, :locals => {:post_type => :all}
 
     else
@@ -132,6 +133,7 @@ class PeopleController < ApplicationController
       }
     end
   end
+
   def webfinger(account, opts = {})
     Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
   end
