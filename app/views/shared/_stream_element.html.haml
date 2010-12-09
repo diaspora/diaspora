@@ -28,7 +28,7 @@
 
     .info
       %span.time= link_to(how_long_ago(post), status_message_path(post))
-      = comment_toggle(comments.length)
+      = comment_toggle(comments.length, defined?(@commenting_disabled))
 
-    = render "comments/comments", :post_id => post.id, :comment_hashes => comments, :condensed => true
+    = render "comments/comments", :post_id => post.id, :comment_hashes => comments, :condensed => true, :commenting_disabled => defined?(@commenting_disabled)
 

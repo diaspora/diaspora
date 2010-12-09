@@ -9,6 +9,8 @@
     = render :partial => 'comments/comment', :collection => comment_hashes[-3, 3], :as => :hash
   -else
     = render :partial => 'comments/comment', :collection => comment_hashes, :as => :hash
-  %li.comment.show
-    = new_comment_form(post_id)
+
+  - unless @commenting_disabled
+    %li.comment.show
+      = new_comment_form(post_id)
 

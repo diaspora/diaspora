@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find(params[:id].to_id)
     @post_type = :all
-    @aspect = :none 
+
     if @person
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
@@ -52,6 +52,8 @@ class PeopleController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
       end
+
+      @commenting_disabled = !@contact
 
       @posts = current_user.posts_from(@person).paginate :page => params[:page]
       @post_hashes = hashes_for_posts @posts
