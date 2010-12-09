@@ -145,7 +145,7 @@ class AspectsController < ApplicationController
   
   private
   def hashes_for_contacts contacts
-    people = Person.all(:id.in => contacts.map{|c| c.person_id})
+    people = Person.all(:id.in => contacts.map{|c| c.person_id}, :fields => [:profile])
     people_hash = {}
     people.each{|p| people_hash[p.id] = p}
     contacts.map{|c| {:contact => c, :person => people_hash[c.person_id.to_id]}}
@@ -158,7 +158,7 @@ class AspectsController < ApplicationController
           c.aspect_ids.include?(a.id)}
       hash[:contact_count] = aspect_contacts.count
       person_ids = aspect_contacts.map{|c| c.person_id}
-      hash[:people] = Person.all({:id.in => person_ids}.merge(opts))
+      hash[:people] = Person.all({:id.in => person_ids, :fields => [:profile]}.merge(opts))
       hash
     end
   end

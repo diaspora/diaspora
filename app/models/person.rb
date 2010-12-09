@@ -154,8 +154,8 @@ class Person
   end
 
   def self.from_post_comment_hash(hash)
-    person_ids = hash.values.flatten.map{|c| c.person_id}.uniq
-    people = where(:id.in => person_ids)
+    person_ids = hash.values.flatten.map!{|c| c.person_id}.uniq
+    people = where(:id.in => person_ids).fields(:profile)
     people_hash = {}
     people.each{|p| people_hash[p.id] = p}
     people_hash

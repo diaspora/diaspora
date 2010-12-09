@@ -172,6 +172,9 @@ describe AspectsController do
     it 'has a person' do
       @hash[:person].should == @user.contacts.first.person
     end
+    it "does not select the person's rsa key" do
+      @hash[:person].serialized_public_key.should be_nil
+    end
   end
   describe "#hashes_for_aspects" do
     before do
@@ -191,12 +194,15 @@ describe AspectsController do
       @hash[:contact_count].should == @aspect.contacts.count
     end
     it 'has people' do
-      desired_people = @aspect.contacts.map{|c| c.person.diaspora_handle}
-      gotten_people = @hash[:people].map{|p| p.diaspora_handle}
+      desired_people = @aspect.contacts.map{|c| c.person.id}
+      gotten_people = @hash[:people].map{|p| p.id}
       gotten_people.each{|p| desired_people.should include p}
     end
     it 'takes a limit on people returned' do
       @hash[:people].length.should == 9
+    end
+    it "does not return the rsa key" do
+      @hash[:people].first.serialized_public_key.should be_nil
     end
   end
 
