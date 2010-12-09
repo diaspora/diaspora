@@ -166,7 +166,6 @@ class User
 
   def post_to_hub(post)
     Rails.logger.debug("event=post_to_service type=pubsub sender_handle=#{self.diaspora_handle}")
-
     EventMachine::PubSubHubbub.new(APP_CONFIG[:pubsub_server]).publish self.public_url
   end
 

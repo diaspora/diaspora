@@ -1,6 +1,7 @@
 module Jobs
-  class HttpPost
+  class HttpPost 
     @queue = :http
+
     def self.perform(url, body, tries_remaining)
       begin
         RestClient.post(url, :xml => body){ |response, request, result, &block|
