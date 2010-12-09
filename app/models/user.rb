@@ -240,9 +240,10 @@ class User
 
   def push_to_aspects(post, aspects)
     #send to the aspects
-    target_contacts = aspects.inject([]) { |contacts,aspect|
-      contacts = contacts | aspect.contacts
-    }
+    #
+    target_aspect_ids = aspects.map {|a| a.id}
+
+    target_contacts = Contact.all(:aspect_ids.in => target_aspect_ids)
 
     post_to_hub(post) if post.respond_to?(:public) && post.public
     push_to_people(post, self.person_objects(target_contacts))
