@@ -151,22 +151,15 @@ class User
   def dispatch_post(post, opts = {})
     aspect_ids = opts.delete(:to)
 
-    #socket post
     Rails.logger.info("event=dispatch user=#{diaspora_handle} post=#{post.id.to_s}")
     push_to_aspects(post, aspects_from_ids(aspect_ids))
+    post_to_services(post, opts[:url])
+  end
 
-    if post.public && post.respond_to?(:message)
-
-      if opts[:url] && post.photos.count > 0
-
-        message = truncate(post.message, :length => (140 - (opts[:url].length + 1)))
-        message = "#{message} #{opts[:url]}"
-      else
-        message = post.message
-      end
-
+  def post_to_services(post, url)
+  if post.public && post.respond_to?(:message)
       self.services.each do |service|
-        service.post(message)
+        service.post(post.message)
       end
     end
   end

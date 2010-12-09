@@ -13,7 +13,19 @@ describe Services::Twitter do
   describe '#post' do
     it 'posts a status message to twitter' do
       Twitter.should_receive(:update).with(@post.message) 
-      @service.post(@post.message)
+      @service.post(@post)
+    end
+
+     it 'swallows exception raised by twitter always being down' do
+      Twitter.should_receive(:update).and_raise
+      @service.post(@post)
+    end
+
+    it 'should call public message' do
+      Twitter.stub!(:update)
+      url = "foo"
+      @service.should_receive(:public_message).with(@post, url)
+      @service.post(@post, url)
     end
   end
 end

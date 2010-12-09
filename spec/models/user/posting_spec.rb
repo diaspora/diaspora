@@ -71,22 +71,19 @@ describe User do
   end
 
 
-  describe 'services'
+  describe '#post_to_services' do
+    it 'only iterates through services if the post is public' do
+      user.should_receive(:services).and_return([])
+      user.post(:status_message, :message => "foo", :public => true, :to => user.aspects.first.id)
+    end
+  end
 
   describe '#dispatch_post' do
-    include Rails.application.routes.url_helpers 
     let(:status) {user.build_post(:status_message, @status_opts)}
 
     before do
       @message = "hello, world!"
       @status_opts = {:to => "all", :message => @message}
-    end
-    it "posts to services if post is public" do
-      @status_opts[:public] = true
-      status.save
-      user.should_receive(:post_to_twitter).with(service1, @message).once
-      user.should_receive(:post_to_facebook).with(service2, @message).once
-      user.dispatch_post(status, :to => "all")
     end
 
     it "posts to a pubsub hub if enabled" do
@@ -101,57 +98,17 @@ describe User do
       }
     end
 
-    it "does not post to services if post is not public" do
-      @status_opts[:public] = false
-      status.save
-      user.should_not_receive(:post_to_twitter)
-      user.should_not_receive(:post_to_facebook)
+    it "calls post_to_services" do
+      user.should_receive(:post_to_services)
       user.dispatch_post(status, :to => "all")
     end
 
-     it 'does not include a permalink' do
-      @status_opts[:public] = true
-      status.save
-      user.should_receive(:post_to_twitter).with(service1, @message).once
-      user.should_receive(:post_to_facebook).with(service2, @message).once
-      user.dispatch_post(status, :to => "all", :url => post_path(status))
+    it 'pushes to aspects' do
+      user.should_receive(:push_to_aspects)
+      user.dispatch_post(status, :to => "all")
     end
-
-    it 'includes a permalink' do
-      fixture_filename = 'button.png'
-      fixture_name     = File.join(File.dirname(__FILE__), '..', '..', 'fixtures', fixture_filename)
-
-      photo1 = user.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect.id)
-      photo1.save!
-
-      @status_opts[:public] = true
-      @status_opts[:photo_id] = photo1.id
-      status.save
-
-      user.should_receive(:post_to_twitter).with(service1, @message).once
-      user.should_receive(:post_to_facebook).with(service2, @message).once
-      user.dispatch_post(status, :to => "all", :url => post_path(status))
-    end
-
-     it 'only pushes to services if it is a status message' do
-        photo = Photo.new()
-        photo.public = true
-        user.stub!(:push_to_aspects)
-        user.should_not_receive(:post_to_twitter)
-        user.should_not_receive(:post_to_facebook)
-        user.dispatch_post(photo, :to =>"all")
-     end
   end
   
-  describe '#post' do
-    it 'should not create a post with invalid aspect' do
-      pending "this would just cause db polution"
-      proc {
-        user.post(:status_message, :message => "hey", :to => aspect2.id) 
-      }.should_not change(Post, :count)
-    end
-  end
-
   describe '#update_post' do
     it 'should update fields' do
       photo = user.post(:photo, :user_file => uploaded_photo, :caption => "Old caption", :to => aspect.id)

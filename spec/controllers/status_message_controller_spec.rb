@@ -55,6 +55,7 @@ describe StatusMessagesController do
       post :create, status_message_hash.merge(:format => 'js')
       response.status.should == 201
     end
+
     it "doesn't overwrite person_id" do
       new_user = make_user
       status_message_hash[:status_message][:person_id] = new_user.person.id
@@ -85,45 +86,7 @@ describe StatusMessagesController do
       user.should_receive(:dispatch_post).exactly(3).times
       post :create, hash
     end
-
-    context "posting out to facebook" do
-      let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
-
-      it 'should post to facebook when public is set' do
-        user.should_receive(:post_to_facebook)
-        post :create, status_message_hash
-      end
-
-      it 'should not post to facebook when public is not set' do
-        status_message_hash[:status_message][:public] = 'false'
-        user.should_not_receive(:post_to_facebook)
-        post :create, status_message_hash
-      end
-
-      it 'should include the permalink to the post' do
-        pending
-      end
-    end
-
-    context "posting to twitter" do
-      let!(:service1) { s = Factory(:service, :provider => 'twitter'); user.services << s; s }
-
-      it 'should post to twitter if public is set' do
-        user.should_receive(:post_to_twitter).and_return(true)
-        post :create, status_message_hash
-      end
-
-      it 'should not post to twitter when public in not set' do
-        status_message_hash[:status_message][:public] = 'false'
-        user.should_not_receive(:post_to_twitter)
-        post :create, status_message_hash
-      end
-
-      it 'should include a permalink to the post' do
-      end
-    end
   end
-
   describe '#destroy' do
     let!(:message) {user.post(:status_message, :message => "hey", :to => aspect.id)}
     let!(:message2) {user2.post(:status_message, :message => "hey", :to => aspect2.id)}
