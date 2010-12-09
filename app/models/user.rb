@@ -159,7 +159,7 @@ class User
   def post_to_services(post, url)
   if post.public && post.respond_to?(:message)
       self.services.each do |service|
-        service.post(post.message)
+        service.post(post, url)
       end
     end
   end
