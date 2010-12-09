@@ -26,12 +26,15 @@ describe PeopleController do
       user.activate_contact(@everyone[4], aspect)
       user.activate_contact(@everyone[5], aspect)
 
-      @people = Person.search('eugene')
+      user.reload
+      user.aspects.reload
+      @people = @everyone
       @people.length.should == 10
       @hashes = @controller.hashes_for_people(@people, user.aspects)
     end
     it 'has the correct result for no relationship' do
       hash = @hashes.first
+
       hash[:person].should == @people.first
       hash[:contact].should be_false
       hash[:request].should be_false
