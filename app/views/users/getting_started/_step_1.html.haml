@@ -25,7 +25,7 @@
     %h4
       = t('people.edit.your_birthday')
       %br
-      = select_date @person.profile.birthday, :prompt => true, :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930
+      = select_date @person.profile.birthday, :prompt => true, :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'person[profile][date]'
 
     %h4
       = t('people.edit.your_bio')
