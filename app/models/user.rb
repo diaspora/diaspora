@@ -5,11 +5,11 @@
 require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
 require 'rest-client'
+
 class User
   include MongoMapper::Document
   include Diaspora::UserModules
   include Encryptor::Private
-  include ActionView::Helpers::TextHelper
 
   plugin MongoMapper::Devise
 
