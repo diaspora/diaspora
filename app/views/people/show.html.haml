@@ -17,7 +17,7 @@
         = link_to t('_photos'), person_photos_path(@person)
 
 .span-8.append-1.last
-  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @is_contact}
+  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @contact}
 
 .span-15.last
   - unless @contact || current_user.person == @person
