@@ -47,12 +47,13 @@ class PeopleController < ApplicationController
     if @person
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
+      @is_contact = @person != current_user.person && @contact
 
       if @contact
         @aspects_with_person = @contact.aspects
       end
 
-      @commenting_disabled = (current_user.person.id != @person.id) && !@contact
+      @commenting_disabled = !@contact
 
       @posts = current_user.posts_from(@person).paginate :page => params[:page]
       @post_hashes = hashes_for_posts @posts
