@@ -545,7 +545,7 @@ ul.comments
     :top 1em
   :padding 0
   :background
-    :color rgba(10,81,109,0.05)
+    :color #F0F4F5
 
   textarea
     :width 100%
@@ -1959,3 +1959,19 @@ h3,h4
 #edit_aspect_trigger
   :font
     :size 12px
+
+.stream
+  .public_badge
+    :position absolute
+    :top 60px
+    :left 25px
+
+.message.public
+  :background
+    :color #FEFFF0
+
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFF7), to(#FEFFF0))
+  :background -moz-linear-gradient(0% 100% 90deg,#FFFFF7, #FEFFF0)
+
+  &:hover
+    :background #FEFFE3

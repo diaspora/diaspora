@@ -2,8 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:data=>{:guid=>post.id}}
+%li.message{:data=>{:guid=>post.id}, :class => ('public' if post.public?)}
   =person_image_link(person)
+
+  .public_badge
+    - if post.public?
+      = image_tag 'icons/globe.png' 
+
   .content
     .from
       %h4
