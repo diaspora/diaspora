@@ -81,6 +81,22 @@
   %hr
   %br
 
+  %h3 
+    = t('.email_notifications')
+  = form_for @user do |f|
+    = f.error_messages
+
+    %p.checkbox_select
+      = f.label :disable_mail, t('.receive_email_notifications')
+      = f.check_box :disable_mail, {:checked => !@user.disable_mail}, false, true
+      %br
+      = f.submit t('.change')
+
+  %br
+  %br
+  %hr
+  %br
+
 
   .span-8.append-2
     %h3 

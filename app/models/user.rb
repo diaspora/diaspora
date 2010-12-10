@@ -26,6 +26,7 @@ class User
   key :visible_person_ids, Array, :typecast => 'ObjectId'
 
   key :getting_started, Boolean, :default => true
+  key :disable_mail, Boolean, :default => false
 
   key :language, String
 
@@ -60,7 +61,7 @@ class User
     person.save if person
   end
 
-  attr_accessible :getting_started, :password, :password_confirmation, :language,
+  attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
 
   def strip_and_downcase_username
     if username.present?
@@ -281,6 +282,13 @@ class User
     end
   end
 
+  ######### Mailer #######################
+  def mail(job, *args)
+    unless self.disable_mail
+      Resque.enqueue(job, *args)
+    end
+  end
+
   ######### Posts and Such ###############
   def retract(post)
     aspect_ids = aspects_with_post(post.id)
@@ -367,23 +375,10 @@ class User
     self
   end
 
-
   def seed_aspects
     self.aspects.create(:name => I18n.t('aspects.seed.family'))
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
   end
-
-  def as_json(opts={})
-    {
-      :user => {
-        :posts            => self.raw_visible_posts.each { |post| post.as_json },
-        :contacts         => self.contacts.each { |contact| contact.as_json },
-        :aspects          => self.aspects.each { |aspect| aspect.as_json },
-        :pending_requests => self.pending_requests.each { |request| request.as_json },
-      }
-    }
-  end
-
 
   def self.generate_key
     key_size = (Rails.env == 'test' ? 512 : 4096)

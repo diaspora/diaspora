@@ -381,4 +381,25 @@ describe User do
       end
     end
   end
+
+  describe '#mail' do
+    it 'enqueues a mail job' do
+      user.disable_mail = false
+      user.save
+      user.reload
+
+      Resque.should_receive(:enqueue).with(Jobs::MailRequestReceived, user.id, 'contactrequestid').once
+      user.mail(Jobs::MailRequestReceived, user.id, 'contactrequestid')
+    end
+
+    it 'does not enqueue a mail job' do
+      user.disable_mail = true
+      user.save
+      user.reload
+
+      Resque.should_not_receive(:enqueue)
+      user.mail(Jobs::MailRequestReceived, user.id, 'contactrequestid')
+    end
+  end
+
 end

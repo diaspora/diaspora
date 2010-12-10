@@ -65,7 +65,7 @@ module Diaspora
             self.pending_requests << contact_request
             self.save!
             Rails.logger.info("event=contact_request status=received_new_request from=#{contact_request.from.diaspora_handle} to=#{self.diaspora_handle}")
-            Resque.enqueue(Jobs::MailRequestReceived, self.id, contact_request.from.id)
+            self.mail(Jobs::MailRequestReceived, self.id, contact_request.from.id)
           end
         else
           Rails.logger.info "event=contact_request status=abort from=#{contact_request.from.diaspora_handle} to=#{self.diaspora_handle} reason=self-love"
@@ -83,7 +83,7 @@ module Diaspora
         pending_requests.delete(sent_request)
         sent_request.destroy
         self.save
-        Resque.enqueue(Jobs::MailRequestAcceptance, self.id, received_request.from.id, destination_aspect.id)
+        self.mail(Jobs::MailRequestAcceptance, self.id, received_request.from.id, destination_aspect.id)
       end
 
       def disconnect(bad_contact)

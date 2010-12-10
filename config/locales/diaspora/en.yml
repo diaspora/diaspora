@@ -180,6 +180,9 @@ en:
           your_handle: "Your diaspora handle"
           your_email: "Your email"
           edit_account: "Edit account"
+          email_notifications: "Email notificaions"
+          receive_email_notifications: "Receive email notificaions?"
+          change: "Change"
       destroy: "Account successfully closed."
       getting_started:
           welcome: "Welcome to Diaspora!"
@@ -214,6 +217,7 @@ en:
           password_not_changed: "Password Change Failed"
           language_changed: "Language Changed"
           language_not_changed: "Language Change Failed"
+          email_notifications_changed: "Language Change Failed"
       public:
           does_not_exist: "User %{username} does not exist!"
   comments:
