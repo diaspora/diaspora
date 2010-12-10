@@ -38,19 +38,19 @@ RSpec.configure do |config|
   end
 end
 
-module Diaspora::Websocket
-  def redis
+module Diaspora::WebSocket
+  def self.redis
     FakeRedis.new
   end
 end
 class FakeRedis
-  def rpop
+  def rpop(*args)
     true
   end
-  def llen
+  def llen(*args)
     true
   end
-  def lpush
+  def lpush(*args)
     true
   end
 end
