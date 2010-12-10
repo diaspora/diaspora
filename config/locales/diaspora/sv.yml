@@ -88,6 +88,7 @@ sv:
     show: 
       edit_aspect: "ändra sida"
     update: 
+      failure: "Din sida, %{name}, hade för långt namn för att kunna sparas."
       success: "Din sida %{name} är nu ändrad."
   back: "Tillbaka"
   cancel: "Avbryt"
@@ -184,6 +185,7 @@ sv:
   people: 
     edit: 
       allow_search: "Tillåt andra användare på Diaspora att söka efter dig"
+      edit_profile: "Edit profile"
       first_name: "Förnamn"
       info_available_to: "Den här informationen kommer vara synlig för alla som du ansluter till på diaspora."
       last_name: "Efternamn"
@@ -198,14 +200,13 @@ sv:
       people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
       results_for: " resultat för %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "Sökresultat för"
     person: 
       add_contact: "lägg till kontakt"
       already_connected: "Redan ansluten"
       pending_request: "väntande förfrågningar"
       thats_you: "Detta är du!"
-    profile_photo_upload: 
-      or_select_one: "eller välj en befintlig bild"
     profile_sidebar: 
       bio: "bio"
       born: "född"
@@ -222,6 +223,7 @@ sv:
       no_posts: "inga meddelanden att visa!"
       not_connected: "Du är inte ansluten med denna personen"
       recent_posts: "Postat nyligen"
+      recent_public_posts: "Senaste publika inlägg"
       request_people: "Om du vill så kan du skicka en kontaktförfrågan om att lägga till han/henne på en av dina sidor."
       return_to_aspects: "Återgå till översikten"
       to_accept_or_ignore: "for att acceptera eller ignorera."
@@ -247,6 +249,9 @@ sv:
       empty: "{file} är tom, välj om filerna utan att välja denna."
       invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
       size_error: "{file} är för stor, maximal tillåten filstorlek är {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "visa alla foton som %{name} laddat upp"
     show: 
@@ -305,6 +310,7 @@ sv:
       connect_to_facebook: "Anslut till facebook"
       connect_to_twitter: "Anslut till twitter"
       disconnect: "koppla från"
+      edit_services: "Edit services"
       logged_in_as: "inloggad som"
       really_disconnect: "koppla från %{service}?"
   settings: "Inställningar"
@@ -365,6 +371,7 @@ sv:
       close_account: "Stäng kontot"
       download_photos: "Ladda ner mina foton"
       download_xml: "Ladda ner min xml"
+      edit_account: "Edit account"
       export_data: "Exportera data"
       new_password: "Nytt lösenord"
       your_email: "Din epost"

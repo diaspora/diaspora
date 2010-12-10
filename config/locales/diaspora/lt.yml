@@ -88,6 +88,7 @@ lt:
     show: 
       edit_aspect: "keisti aspektą"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Aspektas \"%{name}\" pakeistas sėkmingai."
   back: "Atgal"
   cancel: "Atšaukti"
@@ -184,6 +185,7 @@ lt:
   people: 
     edit: 
       allow_search: "Leisti kitiems tavęs ieškoti"
+      edit_profile: "Edit profile"
       first_name: "Vardas"
       info_available_to: "Ši informacija bus prieinama visiems tavo Diasporos kontaktams."
       last_name: "Pavardė"
@@ -198,14 +200,13 @@ lt:
       people_on_pod_are_aware_of: " žmonės serveryje žino"
       results_for: " \"%{params}\" rezultatai"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "ieškoti rezultatų pagal"
     person: 
       add_contact: "pridėti kontaktą"
       already_connected: "Jau prisijungtas"
       pending_request: "laukiamas prašymas"
       thats_you: "tai tu!"
-    profile_photo_upload: 
-      or_select_one: "arba pasirink vieną iš tavo jau egzistuojančių"
     profile_sidebar: 
       bio: "biografija"
       born: "gimimo data"
@@ -222,6 +223,7 @@ lt:
       no_posts: "nėra jokių pokalbių"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Jei nori, gali paprašyti jį pridėti į vieną iš savo aspektų."
       return_to_aspects: "Grįžti į aspektų puslapį"
       to_accept_or_ignore: "priimti arba ignoruoti."
@@ -247,6 +249,9 @@ lt:
       empty: "{file} yra tuščias, pasirink failus iš naujo."
       invalid_ext: "{file} turi neteisingą galūnę. Yra leidžiamos tik {extensions}."
       size_error: "{file} yra per didelis, maksimalus failo dydis yra {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "rodyti visas nuotraukas, kurias įkėlė %{name}"
     show: 
@@ -305,6 +310,7 @@ lt:
       connect_to_facebook: "Prijungti facebook"
       connect_to_twitter: "Prijungti twitter"
       disconnect: "atjungti"
+      edit_services: "Edit services"
       logged_in_as: "sujungta su"
       really_disconnect: "atjungti %{service}?"
   settings: "Nustatymai"
@@ -365,6 +371,7 @@ lt:
       close_account: "Uždaryti paskyrą"
       download_photos: "atsisiųsti mano nuotraukas"
       download_xml: "atsisiųsti mano duomenis xml formatu"
+      edit_account: "Edit account"
       export_data: "Eksportuoti duomenis"
       new_password: "Naujas slaptažodis"
       your_email: "Tavo el. pašto adresas"

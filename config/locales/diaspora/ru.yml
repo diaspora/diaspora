@@ -49,8 +49,8 @@ ru:
       success: "%{name} удалён."
     edit_aspect_pane: 
       add_existing: "Добавить существующий контакт"
-      confirm_remove_aspect: "Удалить аспект?"
-      remove_aspect: "Удалить Аспект"
+      confirm_remove_aspect: "Вы уверены в том, что собираетесь удалить аспект?"
+      remove_aspect: "Удалить аспект"
     helper: 
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
@@ -88,6 +88,7 @@ ru:
     show: 
       edit_aspect: "редактировать аспект"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Аспект, %{name}, отредактирован."
   back: "Назад"
   cancel: "Отмена"
@@ -184,6 +185,7 @@ ru:
   people: 
     edit: 
       allow_search: "Разрешить отображать вас в поиске Диаспоры"
+      edit_profile: "Edit profile"
       first_name: "Имя"
       info_available_to: "Эта информация будет доступна для всех, кто будет связан с вами в Диаспоре."
       last_name: "Фамилия"
@@ -198,14 +200,13 @@ ru:
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "результат поиска для"
     person: 
       add_contact: "добавить контакт"
       already_connected: "Уже подключен"
       pending_request: "ожидающий запрос"
       thats_you: "это вы!"
-    profile_photo_upload: 
-      or_select_one: "или выберите из уже существующих"
     profile_sidebar: 
       bio: "О себе"
       born: "день рождения"
@@ -222,6 +223,7 @@ ru:
       no_posts: "новых сообщений нет!"
       not_connected: "Вы не связаны с этим человеком"
       recent_posts: "Последние сообщения"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Если хотите, вы можете спросить его/ее разрешения добавить в аспекты."
       return_to_aspects: "Вернуться на страницу аспектов"
       to_accept_or_ignore: "принять или игнорировать."
@@ -247,6 +249,9 @@ ru:
       empty: "{file} пуст, вы можете повторно выбрать файлы без него."
       invalid_ext: "{file} имеет не допустимое расширение. Разрешены только {extensions}."
       size_error: "{file} слишком большой, максимальный размер файла {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "Посмотреть все фотографии %{name}"
     show: 
@@ -305,6 +310,7 @@ ru:
       connect_to_facebook: "Подключение к Facebook"
       connect_to_twitter: "Подключение к Twitter"
       disconnect: "разъединить"
+      edit_services: "Edit services"
       logged_in_as: "Вы вошли как"
       really_disconnect: "отключить %{service}?"
   settings: "Настройки"
@@ -365,6 +371,7 @@ ru:
       close_account: "Закрыть учётную запись"
       download_photos: "Скачать мои изображения"
       download_xml: "Скачать мою информацию в xml"
+      edit_account: "Edit account"
       export_data: "Экспорт информации"
       new_password: "Новый пароль"
       your_email: "Ваш адрес электронной почты"

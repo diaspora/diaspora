@@ -24,5 +24,5 @@ class Service
     return truncated
   end
 end
-require 'app/models/services/facebook'
-require 'app/models/services/twitter'
+require File.join(Rails.root, 'app/models/services/facebook')
+require File.join(Rails.root, 'app/models/services/twitter')

@@ -88,6 +88,7 @@ el:
     show: 
       edit_aspect: "επεξεργασία πτυχής"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Η πτυχή σας,% {name}, έχει επεξεργαστεί επιτυχώς."
   back: "Πίσω"
   cancel: "Ακύρωση"
@@ -184,6 +185,7 @@ el:
   people: 
     edit: 
       allow_search: "Επιτρέψτε σε άτομα να σας αναζητήσουν"
+      edit_profile: "Edit profile"
       first_name: "Όνομα"
       info_available_to: "Η πληροφορία αυτή θα είναι διαθέσιμη σε όποιον ειναι συνδεδεμένος μαζί σας στο Diaspora"
       last_name: "Επίθετο"
@@ -198,14 +200,13 @@ el:
       people_on_pod_are_aware_of: "άνθρωποι στο pod γνωρίζουν ότι"
       results_for: "αποτελέσματα για %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "αποτελέσματα αναζήτησης για"
     person: 
       add_contact: "προσθήκη επαφής"
       already_connected: "Είναι ήδη συνδεδεμένο"
       pending_request: "αίτημα σε αναμονή"
       thats_you: "εσυ εισαι αυτός!"
-    profile_photo_upload: 
-      or_select_one: "ή διάλεξε ένα απο τα ήδη διαθέσιμα"
     profile_sidebar: 
       bio: "βιογραφικό"
       born: "γεννήθηκε"
@@ -222,6 +223,7 @@ el:
       no_posts: "Κανένα μήνυμα προς εμφάνιση!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Εάν επιθυμείτε μπορείτε να ζητήσετε την προσθήκη του/της."
       return_to_aspects: "Επιστροφή στη σελίδα με τις πτυχές σας"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
@@ -247,6 +249,9 @@ el:
       empty: "{file} είναι κενό, επιλέξτε και πάλι τα αρχεία χωρίς αυτό."
       invalid_ext: "{φιλε} δεν έχει έγκυρη επέκταση. Μόνο επεκτάσεις {extensions} επιτρέπονται."
       size_error: "{file} είναι πολύ μεγάλο, το μέγιστο μέγεθος αρχείου είναι {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "δες όλες τις φωτογραφίες του/της %{name}"
     show: 
@@ -305,6 +310,7 @@ el:
       connect_to_facebook: "Σύνδεση με το facebook"
       connect_to_twitter: "Σύνδεση με το twitter"
       disconnect: "αποσύνδεση"
+      edit_services: "Edit services"
       logged_in_as: "συνδεδεμένος ως"
       really_disconnect: "αποσύνδεση %{service};"
   settings: "Ρυθμίσεις"
@@ -365,6 +371,7 @@ el:
       close_account: "Κλείσιμο Λογαριασμού"
       download_photos: "κατέβασε τις φωτογραφίες μου"
       download_xml: "κατέβασε το xml μου"
+      edit_account: "Edit account"
       export_data: "Εξαγωγή Δεδομένων"
       new_password: "Νέος κωδικός πρόσβασης"
       your_email: "Το email σας"

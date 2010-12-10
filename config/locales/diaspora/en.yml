@@ -179,6 +179,7 @@ en:
           download_photos: "download my photos"
           your_handle: "Your diaspora handle"
           your_email: "Your email"
+          edit_account: "Edit account"
       destroy: "Account successfully closed."
       getting_started:
           welcome: "Welcome to Diaspora!"
@@ -334,6 +335,7 @@ en:
           your_photo: "Your photo"
           update_profile: "Update Profile"
           allow_search: "Allow for people to search for you within Diaspora"
+          edit_profile: "Edit profile"
       update:
           updated: "Profile updated"
           failed: "Failed to update profile"
@@ -369,6 +371,7 @@ en:
         really_disconnect: "disconnect %{service}?"
         connect_to_twitter: "Connect to twitter"
         connect_to_facebook: "Connect to facebook"
+        edit_services: "Edit services"
       create:
           success: "Authentication successful."
       destroy:

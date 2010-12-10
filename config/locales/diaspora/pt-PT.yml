@@ -88,6 +88,7 @@ pt-PT:
     show: 
       edit_aspect: "editar Grupo"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "O teu grupo, %{name}, foi editado com sucesso."
   back: "Voltar"
   cancel: "Cancelar"
@@ -184,6 +185,7 @@ pt-PT:
   people: 
     edit: 
       allow_search: "Autoriza a que as pessoas te procurem dentro do Diaspora"
+      edit_profile: "Edit profile"
       first_name: "Primeiro Nome"
       info_available_to: "Esta informação ficará disponível para todos aqueles a que te ligares no Diaspora. "
       last_name: "Último Nome"
@@ -198,14 +200,13 @@ pt-PT:
       people_on_pod_are_aware_of: " as pessoas no pod estão cientes de que"
       results_for: " resultados para %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "resultados de pesquisa para"
     person: 
       add_contact: "adicionar contacto"
       already_connected: "Já está ligado"
       pending_request: "pedido pendente"
       thats_you: "És tu!"
-    profile_photo_upload: 
-      or_select_one: "ou escolhe um dos já existentes"
     profile_sidebar: 
       bio: "sobre"
       born: "nascido a"
@@ -222,6 +223,7 @@ pt-PT:
       no_posts: "Não existem entradas para mostrar!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Se quiseres podes pedir para ele/ela te colocar num dos seus grupos."
       return_to_aspects: "Voltar à página dos grupos"
       to_accept_or_ignore: "para o aceitares ou ignorares"
@@ -247,6 +249,9 @@ pt-PT:
       empty: "{file} está vazio, por favor escolhe novamente os ficheiros sem este último."
       invalid_ext: "{file} tem uma extensão inválida. Apenas são permitidas as extensões {extensions}."
       size_error: "{file} é muito grande, o tamanho máximo é {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "ver todas as fotografias de %{name}"
     show: 
@@ -305,6 +310,7 @@ pt-PT:
       connect_to_facebook: "Ligar ao Facebook"
       connect_to_twitter: "Ligar ao Twitter"
       disconnect: "Desligar"
+      edit_services: "Edit services"
       logged_in_as: "registado como"
       really_disconnect: "desligar do %{service}?"
   settings: "Definições "
@@ -365,6 +371,7 @@ pt-PT:
       close_account: "Encerrar Conta"
       download_photos: "descarregar as minhas fotos"
       download_xml: "descarregar o meu xml"
+      edit_account: "Edit account"
       export_data: "Exportar Dados"
       new_password: "Nova Palavra-chave"
       your_email: "O teu email"

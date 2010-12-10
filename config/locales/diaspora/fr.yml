@@ -88,6 +88,7 @@ fr:
     show: 
       edit_aspect: "éditer l'aspect"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Votre aspect '%{name}' a été édité avec succès."
   back: "Retour"
   cancel: "Annuler"
@@ -184,6 +185,7 @@ fr:
   people: 
     edit: 
       allow_search: "Autoriser des personnes à vous rechercher au sein de Diaspora"
+      edit_profile: "Edit profile"
       first_name: "Votre prénom"
       info_available_to: "Cette info sera consultable par toutes les personnes avec qui vous êtes connecté sur Diaspora."
       last_name: "Votre nom de famille"
@@ -198,14 +200,13 @@ fr:
       people_on_pod_are_aware_of: "les personnes sur le pod sont au courant de"
       results_for: "résultats pour %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "résultats de la recherche pour"
     person: 
       add_contact: "ajouter un contact"
       already_connected: "Déjà connecté"
       pending_request: "requête en attente"
       thats_you: "c'est vous !"
-    profile_photo_upload: 
-      or_select_one: "ou sélectionnez-en une dans celles déjà existantes"
     profile_sidebar: 
       bio: "bio"
       born: "né(e)"
@@ -222,6 +223,7 @@ fr:
       no_posts: "aucun message à afficher !"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Si vous le voulez, vous pouvez demander à le/la placer dans un de vos aspects."
       return_to_aspects: "Retourner à votre page des aspects"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
@@ -247,6 +249,9 @@ fr:
       empty: "{file} est vide, merci de sélectionner de nouveau des fichiers sans celui-ci."
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont autorisées."
       size_error: "{file} est trop grand, la taille maximum pour un fichier est {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "voir toute les photos de %{name}"
     show: 
@@ -305,6 +310,7 @@ fr:
       connect_to_facebook: "Connecter à facebook"
       connect_to_twitter: "Connecter à twitter"
       disconnect: "déconnecter"
+      edit_services: "Edit services"
       logged_in_as: "connecté en tant que"
       really_disconnect: "déconnecter %{service} ?"
   settings: "Options"
@@ -365,6 +371,7 @@ fr:
       close_account: "Clôre le compte"
       download_photos: "télécharger mes photos"
       download_xml: "télécharger mon xml"
+      edit_account: "Edit account"
       export_data: "Exporter des données"
       new_password: "Nouveau mot de passe"
       your_email: "Votre e-mail"

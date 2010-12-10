@@ -88,6 +88,7 @@ pt-BR:
     show: 
       edit_aspect: "editar aspecto"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Seu aspecto, %{name}, foi editado com sucesso."
   back: "Voltar"
   cancel: "Cancelar"
@@ -184,6 +185,7 @@ pt-BR:
   people: 
     edit: 
       allow_search: "Permitir que eu seja enncotrado no Diaspora"
+      edit_profile: "Edit profile"
       first_name: "Nome"
       info_available_to: "Essas informações serão visualizadas por todos os seus contatos dentro do Diaspora."
       last_name: "Sobrenome"
@@ -198,14 +200,13 @@ pt-BR:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "Resultado da busca por"
     person: 
       add_contact: "adicionar contato"
       already_connected: "É seu contato"
       pending_request: "requisição pendente"
       thats_you: "você!"
-    profile_photo_upload: 
-      or_select_one: "ou escolha alguma que você já subiu às suas"
     profile_sidebar: 
       bio: "biografia"
       born: "nascido"
@@ -222,6 +223,7 @@ pt-BR:
       no_posts: "Nada para mostrar por aqui!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Você pode solicitar para que ele(a) seja adicionado(a) a um dos seus aspectos."
       return_to_aspects: "Retornar à sua página de aspectos"
       to_accept_or_ignore: "para aceitar ou ignorar."
@@ -247,6 +249,9 @@ pt-BR:
       empty: "{file} está vazio, por favor, selecione arquivos novamente."
       invalid_ext: "{file} possui extensão inválida. Somente {extensions} são permitidos."
       size_error: "{file} é muito grande, o tamanho máximo para arquivos é {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "Ver todas as fotos do(a) %{name}"
     show: 
@@ -305,6 +310,7 @@ pt-BR:
       connect_to_facebook: "Conectar com o facebook"
       connect_to_twitter: "Conectar com o twitter"
       disconnect: "desvincular"
+      edit_services: "Edit services"
       logged_in_as: "logado como"
       really_disconnect: "remover %{service}?"
   settings: "Configurações"
@@ -365,6 +371,7 @@ pt-BR:
       close_account: "Encerrar minha conta"
       download_photos: "baixar minhas fotos"
       download_xml: "baixar meu xml"
+      edit_account: "Edit account"
       export_data: "Exportar dados"
       new_password: "Nova Senha"
       your_email: "Seu email"

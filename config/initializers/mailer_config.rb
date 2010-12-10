@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.configure do
-  config.action_mailer.default_url_options = {:host => APP_CONFIG[:terse_pod_url]}
+  config.action_mailer.default_url_options = {:host => APP_CONFIG[:pod_uri].host}
   unless Rails.env == 'test' || APP_CONFIG[:mailer_on] != true
     config.action_mailer.delivery_method = :smtp
     if APP_CONFIG[:smtp_authentication] == "none"

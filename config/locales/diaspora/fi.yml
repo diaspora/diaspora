@@ -88,6 +88,7 @@ fi:
     show: 
       edit_aspect: "muokkaa verkostonäkymää"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Verkostonäkymäsi, %{name}, muokkaus onnistui."
   back: "Takaisin"
   cancel: "Peruuta"
@@ -184,6 +185,7 @@ fi:
   people: 
     edit: 
       allow_search: "Salli ihmisten etsiä sinua Diasporassa"
+      edit_profile: "Edit profile"
       first_name: "Etunimi"
       info_available_to: "Kaikki Diasporan kontaktisi näkevät nämä tiedot."
       last_name: "Sukunimi"
@@ -198,14 +200,13 @@ fi:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " tulokset kyselylle: %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "hakutulokset kohteelle "
     person: 
       add_contact: "lisää kontakti"
       already_connected: "Yhteys jo olemassa"
       pending_request: "odottaa vastausta"
       thats_you: "tarkoittaa sinua!"
-    profile_photo_upload: 
-      or_select_one: "tai valitse yksi olemassa olevista"
     profile_sidebar: 
       bio: "biografia"
       born: "syntynyt"
@@ -222,6 +223,7 @@ fi:
       no_posts: "ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä tähän henkilöön"
       recent_posts: "Tuoreimmat viestit"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Jos haluat, voit pyytää häntä liittymään yhteen verkostonäkymistäsi."
       return_to_aspects: "Palaa verkostonäkymien sivulle"
       to_accept_or_ignore: "hyväksy tai hylkää."
@@ -247,6 +249,9 @@ fi:
       empty: "{file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
       invalid_ext: "{file} sisältää viallisen tiedostopäätteen. Tuetut muodot ovat {extensions}."
       size_error: "{file} on liian suuri, suurin tiedostokoko on {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "Näytä kaikki käyttäjän %{name}kuvat"
     show: 
@@ -305,6 +310,7 @@ fi:
       connect_to_facebook: "Yhdistä facebook:iin"
       connect_to_twitter: "Yhdistä twitter:iin"
       disconnect: "katkaise"
+      edit_services: "Edit services"
       logged_in_as: "kirjautunut käyttäjänä:"
       really_disconnect: "katkaise %{service}?"
   settings: "Asetukset"
@@ -365,6 +371,7 @@ fi:
       close_account: "Poista käyttäjätili"
       download_photos: "lataa kaikki kuvat"
       download_xml: "lataa tiedot XML-muodossa"
+      edit_account: "Edit account"
       export_data: "Vie tietoja"
       new_password: "Uusi salasana"
       your_email: "Sähköpostisoitteesi"

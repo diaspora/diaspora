@@ -88,6 +88,7 @@ ca:
     show: 
       edit_aspect: "editar l'aspecte"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "El teu aspecte, %{name}, ha estat editat correctament."
   back: "Enrere"
   cancel: "Cancel·lar"
@@ -184,6 +185,7 @@ ca:
   people: 
     edit: 
       allow_search: "Permetre que la gent et busqui a Diaspora"
+      edit_profile: "Edit profile"
       first_name: "Nom"
       info_available_to: "Aquesta informació estarà disponible per qualsevol que es connecti a Diaspora."
       last_name: "Cognoms"
@@ -198,14 +200,13 @@ ca:
       people_on_pod_are_aware_of: "persones al \"pod\" són conscients de"
       results_for: "resultats per %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "resultats de la cerca per"
     person: 
       add_contact: "afegir contacte"
       already_connected: "Ja està conectat"
       pending_request: "petició pendent"
       thats_you: "Aquest ets tu!"
-    profile_photo_upload: 
-      or_select_one: "o selecciona un dels que ja existeixen"
     profile_sidebar: 
       bio: "biografoa"
       born: "nascut"
@@ -222,6 +223,7 @@ ca:
       no_posts: "No hi ha publicacions a mostrar!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Si ho desitges, pots demanar-li la col·locació en un dels teus aspectes."
       return_to_aspects: "Tornar als teus aspectes"
       to_accept_or_ignore: "acceptar o ignorar."
@@ -247,6 +249,9 @@ ca:
       empty: "{file} està buit, si us plau selecciona els arxius sense aquest últim."
       invalid_ext: "{file} té una extensió no vàlida. Només {extensions} estnn permeses."
       size_error: "{file} és massa llarg, la mida màxima per arxiu és de {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "veure totes les fotografies de %{name}"
     show: 
@@ -305,6 +310,7 @@ ca:
       connect_to_facebook: "Conectar a facebook"
       connect_to_twitter: "Conectar a twitter"
       disconnect: "desconectar"
+      edit_services: "Edit services"
       logged_in_as: "registrado como"
       really_disconnect: "¿desconectar %{service}?"
   settings: "Configuración"
@@ -365,6 +371,7 @@ ca:
       close_account: "Cerrar cuenta"
       download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi xml"
+      edit_account: "Edit account"
       export_data: "Exportar datos"
       new_password: "Nueva contraseña"
       your_email: "Tu email"

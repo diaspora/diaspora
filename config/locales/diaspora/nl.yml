@@ -56,7 +56,7 @@ nl:
       aspect_not_empty: "Aspect niet leeg"
       remove: "verwijderen"
     index: 
-      handle_explanation: "Dit is jou Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
+      handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
     manage: 
       add_a_new_aspect: "Voeg een nieuw aspect toe"
       add_a_new_contact: "Voeg een nieuw contact toe"
@@ -88,6 +88,7 @@ nl:
     show: 
       edit_aspect: "bewerk aspect"
     update: 
+      failure: "De naam van je aspect, %{name}, is te lang om op te slaan."
       success: "Je aspect, %{name}, is succesvol aangepast."
   back: "Terug"
   cancel: "Annuleren"
@@ -111,7 +112,7 @@ nl:
     show: 
       already_account: "heb je al een account?"
       choice: "Keuze"
-      choice_explanation: "Diaspora laat jou je contacten verdelen over verschillende groepen, genaamd 'Aspecten', welke uniek zijn voor Diaspora. Deze zorgen er voor dat je jou foto's, verhalen en grappen alleen deelt met degenen waarmee je ze wilt delen."
+      choice_explanation: "Diaspora laat jou je contacten verdelen over verschillende groepen, genaamd 'Aspecten', welke uniek zijn voor Diaspora. Deze zorgen er voor dat je jouw foto's, verhalen en grappen alleen deelt met degenen waarmee je ze wilt delen."
       learn_about_host: "Leer hoe je zelf een Diaspora server kunt opzetten."
       login_here: "log hier in"
       ownership: "Eigendom"
@@ -180,10 +181,11 @@ nl:
     next: "Volgende"
     previous: "Vorige"
   password: "Wachtwoord"
-  password_confirmation: "Wachtwoord bevestiging"
+  password_confirmation: "Wachtwoordbevestiging"
   people: 
     edit: 
       allow_search: "Sta toe door anderen gevonden te kunnen worden binnen Diaspora"
+      edit_profile: "Edit profile"
       first_name: "Voornaam"
       info_available_to: "Deze informatie is beschikbaar voor al je contacten op Diaspora."
       last_name: "Achternaam"
@@ -198,14 +200,13 @@ nl:
       people_on_pod_are_aware_of: "mensen op de pod zich bewust van zijn"
       results_for: "resultaten voor %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "zoekresultaten voor"
     person: 
       add_contact: "voeg contact toe"
       already_connected: "Al bevriend"
       pending_request: "openstaand verzoek"
       thats_you: "Dat ben jij!"
-    profile_photo_upload: 
-      or_select_one: "of kies een van je reeds bestaande"
     profile_sidebar: 
       bio: "bio"
       born: "geboren"
@@ -222,12 +223,13 @@ nl:
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je bent niet verbonden met deze persoon"
       recent_posts: "Recente Berichten"
+      recent_public_posts: "Recente Openbare Berichten"
       request_people: "Als je wilt kun je hem of haar verzoeken om hem/haar in een van je aspecten plaatsen."
       return_to_aspects: "Ga terug naar je aspecten pagina"
       to_accept_or_ignore: "om te accepteren of te negeren."
     update: 
       failed: "Updaten van profiel mislukt"
-      updated: "Profiel geupdated"
+      updated: "Profiel geüpdatet"
     webfinger: 
       fail: "Sorry, we konden %{handle} niet vinden."
   photos: 
@@ -247,6 +249,9 @@ nl:
       empty: "{file} is leeg, selecteer de bestanden opnieuw zonder deze."
       invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegestaan."
       size_error: "{file} is te groot, de maximale bestandsgrootte is {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "bekijk al %{name}'s foto's"
     show: 
@@ -260,7 +265,7 @@ nl:
       view: "bekijk"
     update: 
       error: "Foto veranderen niet gelukt."
-      notice: "Foto succelvol veranderd."
+      notice: "Foto succesvol veranderd."
   profile: "Profiel"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
@@ -269,7 +274,7 @@ nl:
     edit: 
       cancel_my_account: "Annuleer mijn account"
       edit: "Bewerk %{name}"
-      leave_blank: "(Leeg laten als je niets wilt wijzigen)"
+      leave_blank: "(leeg laten als je niets wilt wijzigen)"
       password_to_confirm: "(we hebben je huidige wachtwoord nodig om de wijzigingen te bevestigen)"
       unhappy: "Ontevreden?"
       update: "Update"
@@ -278,7 +283,7 @@ nl:
       enter_password: "Vul een wachtwoord in"
       enter_password_again: "Vul hetzelfde wachtwoord nogmaals in"
       enter_username: "Kies een gebruikersnaam (alleen letters, nummers, en underscores)"
-      sign_up: "Registeren"
+      sign_up: "Registreren"
       sign_up_for_diaspora: "Registreer op Diaspora"
   requests: 
     create: 
@@ -305,6 +310,7 @@ nl:
       connect_to_facebook: "Verbind met Facebook"
       connect_to_twitter: "Verbind met Twitter"
       disconnect: "koppel los"
+      edit_services: "Edit services"
       logged_in_as: "ingelogd als"
       really_disconnect: "verbreek verbinding met %{service}?"
   settings: "Instellingen"
@@ -314,12 +320,12 @@ nl:
       diaspora_handle: "gebruikersnaam@pod.org"
       enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"
       know_email: "Weet je hun e-mailadres? Je zou ze uit moeten nodigen"
-      your_diaspora_username_is: "Jou Diaspora gebruikersnaam is: %{diaspora_handle}"
+      your_diaspora_username_is: "Jouw Diaspora gebruikersnaam is: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Alle contacten"
       cannot_remove: "Kan persoon niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
     invitations: 
-      dont_have_now: "Momenteel heb je er geen maar meer uitnodigingen volgen spoedig!"
+      dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
       invitations_left: "(%{count} over)"
       invite_someone: "Nodig iemand uit"
       invites: "Uitnodigingen"
@@ -365,6 +371,7 @@ nl:
       close_account: "Verwijder account"
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
+      edit_account: "Edit account"
       export_data: "Exporteer data"
       new_password: "Nieuw wachtwoord"
       your_email: "Jou e-mail"

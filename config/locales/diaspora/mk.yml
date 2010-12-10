@@ -88,6 +88,7 @@ mk:
     show: 
       edit_aspect: "уреди аспект"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Вашиот аспект, %{name}, беше успешно уреден."
   back: "Назад"
   cancel: "Откажи"
@@ -184,6 +185,7 @@ mk:
   people: 
     edit: 
       allow_search: "Дозволи луѓето да можат да те најдат во Diaspora"
+      edit_profile: "Edit profile"
       first_name: "Име"
       info_available_to: "Овие информации ќе бидат достапни на сите со кои си поврзан во Diaspora."
       last_name: "Презиме"
@@ -198,14 +200,13 @@ mk:
       people_on_pod_are_aware_of: " достапните луѓе се запознаени со"
       results_for: " резултати за %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "резултати од пребарување за"
     person: 
       add_contact: "додај контакт"
       already_connected: "Веќе поврзани"
       pending_request: "престоечко барање"
       thats_you: "тоа си ти!"
-    profile_photo_upload: 
-      or_select_one: "или изберете некој од постоечките"
     profile_sidebar: 
       bio: "биографија"
       born: "роденден"
@@ -222,6 +223,7 @@ mk:
       no_posts: "нема пораки за прикажување!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Ако сакате, може да испратите барање до него/неа за приклучување кон вашиот аспект."
       return_to_aspects: "Return to your aspects page"
       to_accept_or_ignore: "to accept or ignore it."
@@ -247,6 +249,9 @@ mk:
       empty: "{file} е празен, изберете датотеки без него."
       invalid_ext: "{file} има невалидна екстензија. Само овие {extensions} се дозволени."
       size_error: "{file} е премногу голема, максимална големина на датотека е {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "погледни ги сите слики на %{name}"
     show: 
@@ -305,6 +310,7 @@ mk:
       connect_to_facebook: "Конектирај се со facebook"
       connect_to_twitter: "Конектирај се со twitter"
       disconnect: "прекини"
+      edit_services: "Edit services"
       logged_in_as: "најавен како"
       really_disconnect: "прекини %{service}?"
   settings: "Подесувања"
@@ -365,6 +371,7 @@ mk:
       close_account: "Затвори корисничка сметка"
       download_photos: "симни ги моите слики"
       download_xml: "симни го мојот xml"
+      edit_account: "Edit account"
       export_data: "Изнеси податоци"
       new_password: "Нова лозинка"
       your_email: "Вашиот е-маил"

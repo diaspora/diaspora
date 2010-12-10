@@ -88,6 +88,7 @@ cy:
     show: 
       edit_aspect: "edit aspect"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Your aspect, %{name}, has been successfully edited."
   back: "Back"
   cancel: "Cancel"
@@ -184,6 +185,7 @@ cy:
   people: 
     edit: 
       allow_search: "Allow for people to search for you"
+      edit_profile: "Edit profile"
       first_name: "First name"
       info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
@@ -198,14 +200,13 @@ cy:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "search results for"
     person: 
       add_contact: "add contact"
       already_connected: "Already connected"
       pending_request: "pending request"
       thats_you: "thats you!"
-    profile_photo_upload: 
-      or_select_one: "or select one from your already existing"
     profile_sidebar: 
       bio: "bio"
       born: "born"
@@ -222,6 +223,7 @@ cy:
       no_posts: "no posts to display!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "If you'd like, you can request to place him/her in one of your aspects."
       return_to_aspects: "Return to your aspects page"
       to_accept_or_ignore: "to accept or ignore it."
@@ -247,6 +249,9 @@ cy:
       empty: "{file} is empty, please select files again without it."
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
       size_error: "{file} is too large, maximum file size is {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "view all of %{name}'s photos"
     show: 
@@ -305,6 +310,7 @@ cy:
       connect_to_facebook: "Connect to facebook"
       connect_to_twitter: "Connect to twitter"
       disconnect: "disconnect"
+      edit_services: "Edit services"
       logged_in_as: "logged in as"
       really_disconnect: "disconnect %{service}?"
   settings: "Settings"
@@ -365,6 +371,7 @@ cy:
       close_account: "Close Account"
       download_photos: "download my photos"
       download_xml: "download my xml"
+      edit_account: "Edit account"
       export_data: "Export Data"
       new_password: "New Password"
       your_email: "Your email"
