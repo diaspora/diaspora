@@ -88,6 +88,7 @@ hu:
     show: 
       edit_aspect: "csoport szerkesztése"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "%{name} csoport szerkesztve."
   back: "Vissza"
   cancel: "Mégsem"
@@ -184,6 +185,7 @@ hu:
   people: 
     edit: 
       allow_search: "Megengedem, hogy megtalálható legyek a Diaspora keresési találatokban."
+      edit_profile: "Edit profile"
       first_name: "Keresztnév"
       info_available_to: "Ez az információ elérhető lesz Diaspora ismerőseidnek."
       last_name: "Vezetéknév"
@@ -198,14 +200,13 @@ hu:
       people_on_pod_are_aware_of: "az emberek tisztában vannak"
       results_for: "eredmények %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "találatok keresése"
     person: 
       add_contact: "Kapcsolat hozzáadása"
       already_connected: "Már csatlakozott"
       pending_request: "folyamatban lévő kérelem"
       thats_you: "Ez vagy Te!"
-    profile_photo_upload: 
-      or_select_one: "vagy válasszon egyet a már meglévőkből"
     profile_sidebar: 
       bio: "Személyes"
       born: "született"
@@ -222,6 +223,7 @@ hu:
       no_posts: "nincs hozzászólás!"
       not_connected: "Ez a személy nem ismerősöd"
       recent_posts: "Legutóbbi hozzászólások"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Ha szeretnéd felkérheted ezt a személyt az egyik csoportodba."
       return_to_aspects: "Menj vissza a csoportokhoz"
       to_accept_or_ignore: "hogy elfogadd vagy elutasítsd."
@@ -247,6 +249,9 @@ hu:
       empty: "{file} egy üres fájl, hagyd ki a feltöltésből."
       invalid_ext: "{file} érvénytelen kiterjesztés. Csak {extensions} kiterjesztések megengedettek."
       size_error: "{file} túl nagy, maximum fájlméret {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "%{name} összes képének megtekintése"
     show: 
@@ -305,6 +310,7 @@ hu:
       connect_to_facebook: "Csatlakozás Facebook-hoz"
       connect_to_twitter: "Csatlakozás Twitter-hez"
       disconnect: "szétkapcsol"
+      edit_services: "Edit services"
       logged_in_as: "bejelentkezett, mint"
       really_disconnect: "Lecsatlakozik: %{service}?"
   settings: "Beállítások"
@@ -365,6 +371,7 @@ hu:
       close_account: "Fiók bezárása"
       download_photos: "Képeim letöltése"
       download_xml: "Saját XML letöltése"
+      edit_account: "Edit account"
       export_data: "Adatok exportálása"
       new_password: "Új jelszó"
       your_email: "E-mail címed"

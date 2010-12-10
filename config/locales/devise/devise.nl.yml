@@ -12,11 +12,11 @@ nl:
       send_instructions: "Je ontvangt een e-mail met instructies om je account te activeren."
     failure: 
       inactive: "Je account is nog niet geactiveerd."
-      invalid: "Ongelding emailadres of wachtwoord."
-      invalid_token: "Ongeldige authenticatie token."
+      invalid: "Ongeldig emailadres of wachtwoord."
+      invalid_token: "Ongeldige authenticatietoken."
       locked: "Je account is geblokkeerd."
       timeout: "Je sessie is verlopen, log opnieuw in om verder te gaan."
-      unauthenticated: "Log in of registeer om verder te gaan."
+      unauthenticated: "Log in of registreer om verder te gaan."
       unconfirmed: "Activeer je account om verder te gaan."
     invitations: 
       invitation_token_invalid: "De opgegeven uitnodigingstoken is ongeldig!"
@@ -46,7 +46,7 @@ nl:
       unlock_instructions: 
         account_locked: "Je account is vergrendeld als gevolg van een te hoog aantal mislukte pogingen tot inloggen."
         click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
-        subject: "Ontgrendeling instructies"
+        subject: "Ontgrendelingsinstructies"
         unlock: "Ontgrendel mijn account"
       welcome: "Welkom %{email}!"
     passwords: 
@@ -55,12 +55,12 @@ nl:
       new: 
         forgot_password: "Wachtwoord vergeten?"
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
-      send_instructions: "Je ontvangt een e-mail met instructies om je wachtwoord te resetten."
+      send_instructions: "Je ontvangt een e-mail met instructies om je wachtwoord opnieuw in te stellen."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
     registrations: 
       destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
       signed_up: "Je bent succesvol geregistreerd. Indien geactiveerd, ontvang je een bevestigingsmail."
-      updated: "Je account is succesvol geupdated."
+      updated: "Je account is succesvol geüpdatet."
     sessions: 
       new: 
         alpha_software: "Je staat op het punt om alpha software te gebruiken."
@@ -79,7 +79,7 @@ nl:
       links: 
         forgot_your_password: "Wachtwoord vergeten?"
         receive_confirmation: "Geen bevestigingsinstructies ontvangen?"
-        receive_unlock: "Geen ontgrendel instructies ontvangen?"
+        receive_unlock: "Geen ontgrendelinstructies ontvangen?"
         sign_in: "Inloggen"
         sign_up: "Registreer"
         sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
@@ -87,11 +87,11 @@ nl:
         sign_up_for_an_invite: "Meld je aan voor een uitnodiging!"
     unlocks: 
       new: 
-        resend_unlock: "Stuur ontgrendel instructies nogmaals"
+        resend_unlock: "Stuur ontgrendelinstructies nogmaals"
       send_instructions: "Je ontvangt een e-mail met instructies om je account te deblokkeren."
       unlocked: "Je account is succesvol gedeblokkeerd. Je bent nu ingelogd."
   errors: 
     messages: 
       already_confirmed: "is al geactiveerd"
       not_found: "niet gevonden"
-      not_locked: "is niet geblokeerd"
+      not_locked: "is niet geblokkeerd"

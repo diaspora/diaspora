@@ -30,15 +30,15 @@ pl:
       unknown_person: "nieznana osoba"
       youtube_title: 
         unknown: "Nieznany tytuł wideo"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "Na pewno?"
   aspects: 
     add_to_aspect: 
       failure: "Nie udało się dodać kontaktu do aspektu."
       success: "Dodano kontakt to aspektu."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
-      all_contacts: "All contacts"
-      aspects: "Aspects"
+      add_aspect: "dodaj aspekt"
+      all_contacts: "Wszystkie kontakty"
+      aspects: "Aspekty"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -88,6 +88,7 @@ pl:
     show: 
       edit_aspect: "edytuj aspekt"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Twój aspekt '%{name}' został pomyślnie zmieniony."
   back: "Wróć"
   cancel: "Anuluj"
@@ -133,7 +134,7 @@ pl:
     edit: 
       sign_up: "rejestracja"
     new: 
-      aspect: "Aspect"
+      aspect: "Aspekt"
       comma_seperated_plz: "Możesz podać kilka adresów e-mailowych, oddzielając je przecinkami."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
@@ -184,6 +185,7 @@ pl:
   people: 
     edit: 
       allow_search: "Zezwól na wyszukiwanie Twojego profilu w Diasporze"
+      edit_profile: "Edit profile"
       first_name: "Imię"
       info_available_to: "Ta informacja będzie widoczna dla każdego, z kim połączysz się w Diasporze."
       last_name: "Nazwisko"
@@ -198,14 +200,13 @@ pl:
       people_on_pod_are_aware_of: " osoby na podzie wiedzą, że"
       results_for: " wyniki dla %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "wyniki wyszukiwania dla"
     person: 
       add_contact: "dodaj kontakt"
       already_connected: "Już podłączono"
       pending_request: "zaproszenie oczekujące"
       thats_you: "to przecież Ty!"
-    profile_photo_upload: 
-      or_select_one: "lub wybierz jedno z już istniejących"
     profile_sidebar: 
       bio: "notka biograficzna"
       born: "urodziny"
@@ -222,6 +223,7 @@ pl:
       no_posts: "brak wpisów!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Jeśli chcesz, możesz umieścić tę osobę w jednym ze swoich aspektów."
       return_to_aspects: "Wróć do strony aspektów"
       to_accept_or_ignore: "by je przyjąć lub zignorować."
@@ -247,6 +249,9 @@ pl:
       empty: "Plik {file} jest pusty. Wybierz proszę jeszcze raz odpowiednie pliki, pomijając ten."
       invalid_ext: "Plik {file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia: {extensions}"
       size_error: "Plik {file} jest zbyt duży, maksymalny rozmiar to {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "pokaż wszystkie zdjęcia należące do: %{name}"
     show: 
@@ -275,7 +280,7 @@ pl:
       update: "Aktualizacja"
     new: 
       enter_email: "Enter an e-mail"
-      enter_password: "Enter a password"
+      enter_password: "Podaj hasło"
       enter_password_again: "Enter the same password as before"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Zarejestruj się"
@@ -305,6 +310,7 @@ pl:
       connect_to_facebook: "Połącz z Facebookiem"
       connect_to_twitter: "Połącz z Twitterem"
       disconnect: "rozłącz"
+      edit_services: "Edit services"
       logged_in_as: "zalogowano jako"
       really_disconnect: "rozłączyć %{service}?"
   settings: "Ustawienia"
@@ -365,6 +371,7 @@ pl:
       close_account: "Zamknij konto"
       download_photos: "pobierz moje zdjęcia"
       download_xml: "pobierz mój xml"
+      edit_account: "Edit account"
       export_data: "Eksportowanie danych"
       new_password: "Nowe hasło"
       your_email: "Twój e-mail"

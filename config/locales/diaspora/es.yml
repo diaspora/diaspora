@@ -36,12 +36,12 @@ es:
       failure: "Error al añadir el contacto a este aspecto."
       success: "Se ha agregado correctamente su contacto a un aspecto."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
+      add_aspect: "Añadir Aspecto"
+      all_contacts: "Todos los contactos"
+      aspects: "Aspectos"
+      no_contacts: "Por el momento no tienes contactos. Encuentralos aqui."
     aspect_contacts: 
-      done_editing: "done editing"
+      done_editing: "Edición lista"
     create: 
       failure: "Creación de aspecto fallida."
       success: "Tu nuevo aspecto %{name} ha sido creado"
@@ -88,6 +88,7 @@ es:
     show: 
       edit_aspect: "editar aspecto"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Tu aspecto, %{name}, fue editado correctamente."
   back: "Atrás"
   cancel: "Cancelar"
@@ -119,8 +120,8 @@ es:
       share_what_you_want: "Comparte lo que quieras, con quien quieras"
       simplicity: "Simplicidad"
       simplicity_explanation: "Diaspora hace que compartir sea transparente y fácil - y esto va por privacidad también. Inherentemente privado, Diaspora no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
+      tagline_first_half: "Comparte lo que quieras"
+      tagline_second_half: "Con quién te gustaría"
   invitations: 
     check_token: 
       not_found: "Identificación de invitación no encontrada."
@@ -184,6 +185,7 @@ es:
   people: 
     edit: 
       allow_search: "Permitir que la gente te busque en Diaspora"
+      edit_profile: "Edit profile"
       first_name: "Nombre"
       info_available_to: "Esta información estará disponible para cualquiera que se conecte a Diaspora."
       last_name: "Apellido"
@@ -198,14 +200,13 @@ es:
       people_on_pod_are_aware_of: "gente en el \"pod\" son conscientes de"
       results_for: "resultados para %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "resultados de la búsqueda para"
     person: 
       add_contact: "añadir contacto"
       already_connected: "Ya está conectado"
       pending_request: "petición pendiente"
       thats_you: "¡Ese eres tú!"
-    profile_photo_upload: 
-      or_select_one: "o selecciona uno de los que ya existen"
     profile_sidebar: 
       bio: "biografía"
       born: "nacido"
@@ -220,8 +221,9 @@ es:
       does_not_exist: "¡El usuario no existe!"
       incoming_request: "Tienes una petición de esta persona."
       no_posts: "¡No hay publicaciones que mostrar!"
-      not_connected: "No estás conectado a esta persona"
+      not_connected: "No estás conectado con esta persona"
       recent_posts: "Publicaciones Recientes"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Si lo deseas, puedes solicitarle la colocación en uno de tus aspectos."
       return_to_aspects: "Volver a tus aspectos"
       to_accept_or_ignore: "aceptar o ignorar."
@@ -247,6 +249,9 @@ es:
       empty: "{file} está vacío, por favor seleccione los archivos sin este último."
       invalid_ext: "{file} tiene una extensión invalida. Sólo {extensions} están permitidas."
       size_error: "{file} es demasiado largo, el tamaño máximo por archivo es de {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "ver todas las fotos de %{name}"
     show: 
@@ -305,6 +310,7 @@ es:
       connect_to_facebook: "Conectar a facebook"
       connect_to_twitter: "Conectar a twitter"
       disconnect: "desconectar"
+      edit_services: "Edit services"
       logged_in_as: "registrado como"
       really_disconnect: "¿desconectar %{service}?"
   settings: "Configuración"
@@ -322,7 +328,7 @@ es:
       dont_have_now: "No tienes ninguna ahora mismo, pero pronto llegarán más invitaciones!"
       invitations_left: "(quedan %{count})"
       invite_someone: "Invita a alguien"
-      invites: "Invites"
+      invites: "Invita"
       invites_closed: "Las invitaciones en este servidor Diaspora están actualmente cerradas"
     notification: 
       new: "Nuevo %{type} de %{from}"
@@ -365,6 +371,7 @@ es:
       close_account: "Cerrar cuenta"
       download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi xml"
+      edit_account: "Edit account"
       export_data: "Exportar datos"
       new_password: "Nueva contraseña"
       your_email: "Tu email"

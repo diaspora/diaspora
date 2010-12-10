@@ -88,6 +88,7 @@ sk:
     show: 
       edit_aspect: "upraviť aspekt"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Váš aspekt, %{name}, bol úspešne upravený."
   back: "Späť"
   cancel: "Zrušiť"
@@ -184,6 +185,7 @@ sk:
   people: 
     edit: 
       allow_search: "Dovoliť ostatným vyhľadať Vás v Diaspore"
+      edit_profile: "Edit profile"
       first_name: "Meno"
       info_available_to: "Tieto informácie budú dostupné komukoľvek, s kým sa spojíte na Diaspore."
       last_name: "Priezvisko"
@@ -198,14 +200,13 @@ sk:
       people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
       results_for: "Výsledky hľadania %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "Výsledky vyhľadávania pre"
     person: 
       add_contact: "Pridať kontakt"
       already_connected: "Už pripojené"
       pending_request: "čakajúce žiadosti"
       thats_you: "To si ty!"
-    profile_photo_upload: 
-      or_select_one: "alebo vyberte jeden z už existujúcich"
     profile_sidebar: 
       bio: "Niečo o Vás"
       born: "dátum narodenia"
@@ -222,6 +223,7 @@ sk:
       no_posts: "Žiadne príspevky na zobrazenie!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Ak si prajete, môžete požiadať o umiestnenie osoby v jednom z Vašich aspektov."
       return_to_aspects: "Vrátiť sa na stránku aspektov"
       to_accept_or_ignore: "akceptovať, alebo ignorovať."
@@ -247,6 +249,9 @@ sk:
       empty: "{file} je prázdny, prosím, vyberte súbory znovu bez tohto."
       invalid_ext: "{file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       size_error: "{file} je príliš veľký, maximálna veľkosť súboru je {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "pozrieť všetky fotky užívateľa %{name}"
     show: 
@@ -305,6 +310,7 @@ sk:
       connect_to_facebook: "Pripojiť k Facebooku"
       connect_to_twitter: "Pripojiť k Twitteru"
       disconnect: "odpojiť"
+      edit_services: "Edit services"
       logged_in_as: "prihlásený ako"
       really_disconnect: "odpojiť %{service}?"
   settings: "Nastavenia"
@@ -365,6 +371,7 @@ sk:
       close_account: "Zrušiť účet"
       download_photos: "Stiahnuť moje fotky"
       download_xml: "stiahnuť moje xml"
+      edit_account: "Edit account"
       export_data: "Exportovať dáta"
       new_password: "Nové heslo"
       your_email: "Váš e-mail"

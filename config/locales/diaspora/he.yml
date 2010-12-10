@@ -88,6 +88,7 @@ he:
     show: 
       edit_aspect: "עריכת היבט"
     update: 
+      failure: "להיבט שלך, %{name}, היה שם ארוך מדי מכדי שיישמר."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
   back: "חזרה"
   cancel: "ביטול"
@@ -184,6 +185,7 @@ he:
   people: 
     edit: 
       allow_search: "אישור לאחרים לחפש אחריך בדיאספורה"
+      edit_profile: "Edit profile"
       first_name: "השם הפרטי"
       info_available_to: "פרטים אלו יהיו זמינים לכל אלו שנוצר ביניכם קשר דרך דיאספורה."
       last_name: "שם המשפחה"
@@ -198,14 +200,13 @@ he:
       people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
       results_for: " תוצאות עבור %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "תוצאות חיפוש עבור"
     person: 
       add_contact: "הוספת איש קשר"
       already_connected: "כבר קושרתם"
       pending_request: "בקשה ממתינה"
       thats_you: "מדובר בך!"
-    profile_photo_upload: 
-      or_select_one: "או לבחור מאלו הקיימות"
     profile_sidebar: 
       bio: "פרטים"
       born: "לידה"
@@ -222,6 +223,7 @@ he:
       no_posts: "אין רשומות להצגה!"
       not_connected: "אין לך קשר עם אדם זה"
       recent_posts: "רשומות אחרונות"
+      recent_public_posts: "הרשומות הציבוריות האחרונות"
       request_people: "אם זהו רצונך, ניתן לבקש להציב אותו/ה באחד מההיבטים שלך."
       return_to_aspects: "חזרה לעמוד ההיבטים שלך"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
@@ -247,6 +249,9 @@ he:
       empty: "הקובץ {file} ריק, נא לבחור שוב קבצים אבל בלעדיו."
       invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
       size_error: "הקובץ {file} גדול מדי, גודל הקובץ המרבי הוא {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "צפייה בכל התמונות של %{name}"
     show: 
@@ -305,6 +310,7 @@ he:
       connect_to_facebook: "התחברות לפייסבוק"
       connect_to_twitter: "התחברות לטוויטר"
       disconnect: "ניתוק"
+      edit_services: "Edit services"
       logged_in_as: "נכנסת בשם"
       really_disconnect: "האם לנתק את %{service}?"
   settings: "הגדרות"
@@ -365,6 +371,7 @@ he:
       close_account: "סגירת החשבון"
       download_photos: "הורדת התמונות שלי"
       download_xml: "הורדת ה־xml שלי"
+      edit_account: "Edit account"
       export_data: "יצוא הנתונים"
       new_password: "ססמה חדשה"
       your_email: "כתובת הדוא״ל שלך"

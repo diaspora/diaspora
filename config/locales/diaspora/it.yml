@@ -30,7 +30,7 @@ it:
       unknown_person: "persona sconosciuta"
       youtube_title: 
         unknown: "Titolo Video Sconosciuto"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "Sei sicuro?"
   aspects: 
     add_to_aspect: 
       failure: "Errore nell'aggiungere il contatto all'aspetto."
@@ -52,7 +52,7 @@ it:
       confirm_remove_aspect: "Rimuovere l'aspetto?"
       remove_aspect: "Rimuovi Aspetto"
     helper: 
-      are_you_sure: "Are you sure you want to delete this aspect?"
+      are_you_sure: "Sei sicuro di voler eliminare questo aspetto?"
       aspect_not_empty: "Aspetto non vuoto"
       remove: "rimuovi"
     index: 
@@ -88,6 +88,7 @@ it:
     show: 
       edit_aspect: "modifica aspetto"
     update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Il tuo aspetto, %{name}, è stato modificato con successo."
   back: "Indietro"
   cancel: "Annulla"
@@ -184,6 +185,7 @@ it:
   people: 
     edit: 
       allow_search: "Permetti alle persone di cercarti"
+      edit_profile: "Edit profile"
       first_name: "Nome"
       info_available_to: "Questa informazione sarà disponibile a tutti i tuoi contatti su Diaspora."
       last_name: "Cognome"
@@ -198,14 +200,13 @@ it:
       people_on_pod_are_aware_of: " le persone sul pod sanno che"
       results_for: " risultati per %{params}"
     index: 
+      no_results: "Hey! You need to search for something."
       results_for: "risultati della ricerca per"
     person: 
       add_contact: "aggiungi contatto"
       already_connected: "Già connesso"
       pending_request: "richiesta in sospeso"
       thats_you: "sei tu!"
-    profile_photo_upload: 
-      or_select_one: "o selezionala da una di quelle già esistenti"
     profile_sidebar: 
       bio: "bio"
       born: "nato"
@@ -222,6 +223,7 @@ it:
       no_posts: "nessun post da mostrare!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
       request_people: "Se lo desideri, puoi richiedere di posizionarlo in uno dei tuoi aspetti."
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
       to_accept_or_ignore: "per accettarla o ignorarla."
@@ -232,7 +234,7 @@ it:
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      integrity_error: "Il caricamento della foto non è riuscito. Sei sicuro che fosse un'immagine?"
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
@@ -247,6 +249,9 @@ it:
       empty: "{file} è vuoto, per favore seleziona di nuovo i file senza di esso."
       invalid_ext: "{file} ha un estensione non valida. Sono permesse soltanto {extensions}."
       size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
     photo: 
       view_all: "guarda tutte le foto di %{name}"
     show: 
@@ -300,11 +305,12 @@ it:
     destroy: 
       success: "Autenticazione cancellata con successo."
     failure: 
-      error: "there was an error connecting that service"
+      error: "si è verificato un errore durante la connessione a quel servizio"
     index: 
       connect_to_facebook: "Connettiti a facebook"
       connect_to_twitter: "Connettiti a twitter"
       disconnect: "disconnetti"
+      edit_services: "Edit services"
       logged_in_as: "connesso come"
       really_disconnect: "disconnettere %{service}?"
   settings: "Impostazioni"
@@ -313,7 +319,7 @@ it:
       create_request: "Cerca tramite contatto Diaspora"
       diaspora_handle: "Contatto Diaspora"
       enter_a_diaspora_username: "Inserisci un username Diaspora"
-      know_email: "Know their email address? You should invite them"
+      know_email: "Conosci i loro indirizzi email? Dovresti invitarli"
       your_diaspora_username_is: "Il tuo username Diaspora è: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Tutti i contatti"
@@ -365,6 +371,7 @@ it:
       close_account: "Chiudi Account"
       download_photos: "scarica le mie"
       download_xml: "scarica il mio xml"
+      edit_account: "Edit account"
       export_data: "Esporta Dati"
       new_password: "Nuova Password"
       your_email: "La tua email"
