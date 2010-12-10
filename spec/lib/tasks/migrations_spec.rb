@@ -18,7 +18,7 @@ describe 'migrations' do
       require "rake"
       @rake = Rake::Application.new
       Rake.application = @rake
-      Rake.application.rake_require "lib/tasks/migrations"
+      Rake.application.rake_require "lib/tasks/migrations", [Rails.root]
       Rake::Task.define_task(:environment)
       @rake['migrations:service_reclassify'].invoke   
 
