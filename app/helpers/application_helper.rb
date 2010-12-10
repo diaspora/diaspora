@@ -83,7 +83,7 @@ module ApplicationHelper
   end
 
   def how_long_ago(obj)
-    "#{time_ago_in_words(obj.created_at)} #{t('ago')}"
+    "#{time_ago_in_words(obj.created_at, true)} #{t('ago')}"
   end
 
   def person_url(person)
