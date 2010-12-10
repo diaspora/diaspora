@@ -40,7 +40,6 @@ gem 'thin'
 
 #Websocket
 gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket'
-gem 'magent', :git => 'git://github.com/dcu/magent.git'
 
 #File uploading
 gem 'carrierwave', :git => 'git://github.com/rsofaer/carrierwave.git' , :branch => 'master' #Untested mongomapper branch

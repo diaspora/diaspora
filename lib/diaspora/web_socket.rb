@@ -4,22 +4,31 @@
 
 module Diaspora
   module WebSocket
+    def self.redis
+      @redis ||= Resque.redis
+    end
+    def self.length
+      redis.llen :websocket
+    end
     def self.queue_to_user(uid, data)
-      channel = Magent::GenericChannel.new('websocket')
-      channel.enqueue({:uid => uid, :data => data})
+      redis.lpush(:websocket, {:uid => uid, :data => data}.to_json)
     end
 
     def self.initialize_channels
       @channels = {}
     end
 
+    def self.next
+      redis.rpop(:websocket)
+    end
+
     def self.push_to_user(uid, data)
-      Rails.logger.debug "Websocketing to #{uid}"
+      Rails.logger.debug "event=socket-push uid=#{uid}"
       @channels[uid.to_id][0].push(data) if @channels[uid.to_id]
     end
 
     def self.subscribe(uid, ws)
-      Rails.logger.debug "Subscribing socket to #{uid}"
+      Rails.logger.debug "event=socket-subscribe uid=#{uid}"
       self.ensure_channel(uid)
       @channels[uid][0].subscribe{ |msg| ws.send msg }
       @channels[uid][1] += 1
@@ -30,7 +39,7 @@ module Diaspora
     end
 
     def self.unsubscribe(uid,sid)
-      Rails.logger.debug "Unsubscribing socket #{sid} from #{uid}"
+      Rails.logger.debug "event=socket-unsubscribe sid=#{sid} uid=#{uid}"
       @channels[uid][0].unsubscribe(sid) if @channels[uid]
       @channels[uid][1] -= 1
       if @channels[uid][1] <= 0

@@ -28,10 +28,9 @@ def debug_pp thing
   pp thing if APP_CONFIG[:socket_debug] || ENV['SOCKET_DEBUG']
 end
 
-CHANNEL = Magent::GenericChannel.new('websocket')
 def process_message
-  if CHANNEL.queue_count > 0
-    message = CHANNEL.dequeue
+  if Diaspora::WebSocket.length > 0
+    message = JSON::parse(Diaspora::WebSocket.next)
     if message
       Diaspora::WebSocket.push_to_user(message['uid'], message['data'])
     end
