@@ -357,13 +357,13 @@ class User
     opts[:person][:profile] ||= Profile.new
 
     self.person = Person.new(opts[:person])
-    self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:terse_pod_url]}"
+    self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:pod_uri].host}"
     self.person.url = APP_CONFIG[:pod_url]
 
 
     self.serialized_private_key ||= User.generate_key
     self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
-    
+
     self
   end
 

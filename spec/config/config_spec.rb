@@ -12,6 +12,6 @@ describe 'making sure the config is parsed as should' do
   
   describe 'terse_pod_url'
     it 'should be correctly parsed' do
-      APP_CONFIG[:terse_pod_url].should == 'example.org'
+      APP_CONFIG[:pod_uri].host.should == 'example.org'
     end
 end
