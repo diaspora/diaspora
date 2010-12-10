@@ -1,4 +1,4 @@
-namespace :migration do
+namespace :migrations do
   desc 'make old registered services into the new class specific services'
   task :service_reclassify do
     Service.all.each do |s|
