@@ -930,33 +930,31 @@ label
 
 #aspect_nav
   :margin
-    :top 4px
+    :top 8px
+    :bottom 4px
   :color #000
 
   ul
-    :margin 0
     :padding 0
+      :bottom 2px
 
     > li
-      :padding 0
       :display inline
+      :margin 0
       a
-        :-webkit-border-radius 4px 4px 0 0 
-        :-moz-border-radius 4px 4px 0 0 
-        :border-radius 4px 4px 0 0 
+        :-webkit-border-radius 3px 3px 0 0 
+        :-moz-border-radius 3px 3px 0 0 
+        :border-radius 3px 3px 0 0 
 
         :text-shadow 0 1px 0 #444
-        :line
-          :height 22px
 
-        :padding 3px 10px
+        :padding 4px 10px
+        :margin
+          :left -1px
         :color #CCC
         :max-width 120px
         :overflow hidden
         :text-overflow ellipsis
-
-        :background
-          :color #222
 
         &:hover
           :background
@@ -965,11 +963,6 @@ label
 
       &.selected a
         :text-shadow 0 1px 0 #eee
-        :padding
-          :top 4px
-          :bottom 5px
-        :line
-          :height 18px
         :font
           :weight bold
         :background
