@@ -50,7 +50,22 @@ module Resque
     klass.send(:perform, *args)
   end
 end
-
+module Diaspora::Websocket
+  def redis
+    FakeRedis.new
+  end
+end
+class FakeRedis
+  def rpop
+    true
+  end
+  def llen
+    true
+  end
+  def lpush
+    true
+  end
+end
 class User
   def send_contact_request_to(desired_contact, aspect)
     request = Request.instantiate(:to   => desired_contact,

@@ -38,6 +38,22 @@ RSpec.configure do |config|
   end
 end
 
+module Diaspora::Websocket
+  def redis
+    FakeRedis.new
+  end
+end
+class FakeRedis
+  def rpop
+    true
+  end
+  def llen
+    true
+  end
+  def lpush
+    true
+  end
+end
 module Resque
   def enqueue(klass, *args)
     if $process_queue
