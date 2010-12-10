@@ -2,10 +2,13 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require 'app/models/services/facebook'
+require 'app/models/services/twitter'
+
 class Service
   include MongoMapper::Document
   include ActionView::Helpers::TextHelper
-  
+ 
   belongs_to :user
 
   key :provider, String
@@ -22,6 +25,3 @@ class Service
     truncated = "#{truncated} #{url}" unless url.blank?
     return truncated
   end
-  
-
-end
