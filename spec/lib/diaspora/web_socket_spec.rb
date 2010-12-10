@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require 'lib/diaspora/web_socket'
+require File.join(Rails.root, 'lib/diaspora/web_socket')
 describe Diaspora::WebSocket do
   before do
     @mock_redis = mock()
