@@ -8,10 +8,7 @@
     %meta{:charset => 'utf-8'}
 
     %title
-      - if current_user
-        = "#{current_user.name} | DIASPORA*"
-      - else
-        DIASPORA*
+      = page_title yield(:page_title)
 
     %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
 

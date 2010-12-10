@@ -5,6 +5,9 @@
 - content_for :head do
   = include_javascripts :aspects
 
+- content_for :page_title do
+  = "Manage aspects"
+
 #section_header
   %h2=t('.manage_aspects')
   .right{:style=>"top:0;"}

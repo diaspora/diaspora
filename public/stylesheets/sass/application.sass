@@ -931,16 +931,21 @@ label
 #aspect_nav
   :margin
     :top 8px
-    :bottom 4px
+    :bottom 0
+  :bottom 0
   :color #000
 
   ul
+    :position relative
     :padding 0
-      :bottom 2px
+      :bottom 3px
+    :margin
+      :bottom 0
 
     > li
       :display inline
       :margin 0
+      :padding 4px 0
       a
         :-webkit-border-radius 3px 3px 0 0 
         :-moz-border-radius 3px 3px 0 0 
@@ -965,6 +970,8 @@ label
         :text-shadow 0 1px 0 #eee
         :font
           :weight bold
+        :padding
+          :bottom 6px
         :background
           :color rgb(252,252,252)
 
