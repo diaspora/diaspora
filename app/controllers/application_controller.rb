@@ -24,13 +24,13 @@ class ApplicationController < ActionController::Base
   def mobile_except_ipad
     if is_mobile_device?
       if request.env["HTTP_USER_AGENT"].include? "iPad"
-        session[:mobile_view] = false 
+        session[:mobile_view] = false
       else
         session[:mobile_view] = true
       end
     end
   end
-  
+
   def count_requests
     @request_count = current_user.requests_for_me.count if current_user
   end

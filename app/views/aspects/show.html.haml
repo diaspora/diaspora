@@ -2,6 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- content_for :page_title do
+  = @aspect.name
+
 .span-24.last
   %h2{:style=>"position:relative;margin-bottom:0;"}
     = @aspect

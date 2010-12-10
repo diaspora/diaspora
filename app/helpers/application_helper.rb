@@ -9,6 +9,16 @@ module ApplicationHelper
     false
   end
 
+  def page_title text=nil
+    title = ""
+    if text.blank?
+      title = "#{current_user.name} | " if current_user
+    else
+      title = "#{text} | "
+    end
+    title += "DIASPORA*"
+  end
+
   def aspects_with_post aspects, post
     aspects.select do |a|
       post.aspect_ids.include?(a.id)
