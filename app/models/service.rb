@@ -25,6 +25,6 @@ class Service
   
 
   def post
-    raise "NotImplementedError: you must instantiate a subclass"
+    raise "NotImplementedError: you must instantiate a subclass/or you need to run 'rake migrations:service_reclassify in your production env'"
   end
 end
