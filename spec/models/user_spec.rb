@@ -127,7 +127,7 @@ describe User do
       end
 
       it 'should not contain periods' do
-        user = Factory.build(:user, :username => "kittens;")
+        user = Factory.build(:user, :username => "kittens.")
         user.should_not be_valid
       end
 

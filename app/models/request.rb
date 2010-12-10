@@ -68,6 +68,13 @@ class Request
     self.from.diaspora_handle
   end
 
+  def self.hashes_for_person person
+    requests = Request.to(person).all(:sent => false)
+    senders = Person.all(:id.in => requests.map{|r| r.from_id}, :fields => [:profile])
+    senders_hash = {}
+    senders.each{|sender| senders_hash[sender.id] = sender}
+    requests.map{|r| {:request => r, :sender => senders_hash[r.from_id]}}
+  end
   private
   def no_pending_request
     if Request.first(:from_id => from_id, :to_id => to_id)

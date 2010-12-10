@@ -77,7 +77,7 @@ class AspectsController < ApplicationController
 
   def manage
     @aspect = :manage
-    @remote_requests = current_user.requests_for_me
+    @remote_requests = Request.hashes_for_person(current_user.person)
     @aspect_hashes = hashes_for_aspects @aspects, @contacts
   end
 
