@@ -25,3 +25,4 @@ class Service
     truncated = "#{truncated} #{url}" unless url.blank?
     return truncated
   end
+end
