@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 - content_for :page_title do
-  = "Edit profile"
+  = t('.edit_profile')
 
 = form_tag person_path(@person), :method => :put, :multipart => true, :id => 'update_profile_form' do
   %h3
