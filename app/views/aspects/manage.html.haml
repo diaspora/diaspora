@@ -15,9 +15,8 @@
 
 #manage_aspect_zones
   .span-4.append-1.last
-    %h3=t('.requests')
-
     .requests
+      %h3=t('.requests')
       %i
         %p= "#{t('.drag_to_add')} =>"
 
@@ -33,7 +32,10 @@
                 .circle
               = link_to person_image_tag(hash[:sender]), hash[:sender]
 
-    = render 'shared/invitations', :invites => @invites
+      = render 'shared/invitations', :invites => @invites
+
+    %div{:style=>"color:rgb(252,252,252);"}
+      \.
 
   .span-19.last
     - for hash in @aspect_hashes
