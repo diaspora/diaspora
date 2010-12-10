@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'app/models/services/facebook'
-require 'app/models/services/twitter'
 
 class Service
   include MongoMapper::Document
@@ -26,3 +24,5 @@ class Service
     return truncated
   end
 end
+require 'app/models/services/facebook'
+require 'app/models/services/twitter'
