@@ -4,8 +4,11 @@
 
 .span-15.prepend-5.last
   %h2
-    =t('.results_for')
-    %u= params[:q]
+    -if params[:q].blank?
+      =t('.no_results')
+    -else
+      =t('.results_for')
+      %u= params[:q]
 
   %ul{:class => 'stream people', :id => 'people_stream'}
     - for hash in @hashes

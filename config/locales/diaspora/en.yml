@@ -308,6 +308,7 @@ en:
           add_contact: "add contact"
       index:
           results_for: "search results for"
+          no_results: "Hey! You need to search for something."
       webfinger:
           fail: "Sorry, we couldn't find %{handle}."
       show:
