@@ -153,11 +153,11 @@ class User
 
     Rails.logger.info("event=dispatch user=#{diaspora_handle} post=#{post.id.to_s}")
     push_to_aspects(post, aspects_from_ids(aspect_ids))
-    post_to_services(post, opts[:url])
+    Resque.enqueue(Jobs::PostToServices, self.id, post.id, opts[:url]) if post.public
   end
 
   def post_to_services(post, url)
-  if post.public && post.respond_to?(:message)
+    if post.respond_to?(:message)
       self.services.each do |service|
         service.post(post, url)
       end

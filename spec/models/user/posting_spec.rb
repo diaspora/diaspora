@@ -74,7 +74,8 @@ describe User do
   describe '#post_to_services' do
     it 'only iterates through services if the post is public' do
       user.should_receive(:services).and_return([])
-      user.post(:status_message, :message => "foo", :public => true, :to => user.aspects.first.id)
+      post = user.build_post(:status_message, :message => "foo", :public => true, :to => user.aspects.first.id)
+      user.post_to_services(post, "dfds")
     end
   end
 
@@ -98,8 +99,9 @@ describe User do
       }
     end
 
-    it "calls post_to_services" do
-      user.should_receive(:post_to_services)
+    it "calls post_to_services if status is public" do
+      Resque.should_receive(:enqueue).with(Jobs::PostToServices, anything, anything, anything)
+       status.public = true
       user.dispatch_post(status, :to => "all")
     end
 
