@@ -314,6 +314,8 @@ en:
       index:
           results_for: "search results for"
           no_results: "Hey! You need to search for something."
+          couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+          no_one_found: "...and no one was found."
       webfinger:
           fail: "Sorry, we couldn't find %{handle}."
       show:
