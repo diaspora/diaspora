@@ -41,7 +41,7 @@
   .span-4.last
     #already_invited_pane
       %h4
-        Already invited 
+        = t('.already_invited')
       - for email in @emails_delivered
         = email
 

@@ -292,6 +292,7 @@ en:
           send_an_invitation: "Send an invitation"
           send_invitation: "Send invitation"
           aspect: "Aspect"
+          already_invited: "Already invited"
       check_token:
           not_found: "Invitation token not found"
       edit:
