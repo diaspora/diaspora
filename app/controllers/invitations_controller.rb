@@ -6,6 +6,10 @@ class InvitationsController < Devise::InvitationsController
 
   before_filter :check_token, :only => [:edit]
 
+  def new
+    sent_invitations = current_user.invitations_from_me.fields(:to_id).all
+    @emails_delivered = sent_invitations.map!{ |i| i.to.email }
+  end
 
   def create
       if current_user.invites == 0

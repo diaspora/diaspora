@@ -27,9 +27,7 @@ describe InvitationsController do
         true
       end
     end
-
   end
-
 
   describe "#create" do
     before do
@@ -42,10 +40,10 @@ describe InvitationsController do
     end
 
     it 'should call the resque job Jobs::InviteUser'  do
-    Resque.should_receive(:enqueue)
-     post :create,  :user => @invite
+      Resque.should_receive(:enqueue)
+      post :create,  :user => @invite
     end
- 
+
     it 'can handle a comma seperated list of emails' do
       Resque.should_receive(:enqueue).twice()
       post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com, mbs@gmail.com")
@@ -112,6 +110,13 @@ describe InvitationsController do
         put :update, @fail_params
         response.location.include?("invitation_token=#{@invited_user.invitation_token}").should be_true
       end
+    end
+  end
+
+  describe '#new' do
+    it 'renders' do
+      sign_in :user, user
+      get :new
     end
   end
 end
