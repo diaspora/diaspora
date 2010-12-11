@@ -19,7 +19,7 @@ class InvitationsController < Devise::InvitationsController
       end
       aspect = params[:user].delete(:aspects)
       message = params[:user].delete(:invite_messages)
-      emails = params[:user][:email].split(/, */)
+      emails = params[:user][:email].to_s.gsub(/\s/, '').split(/, */)
 
       good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
 

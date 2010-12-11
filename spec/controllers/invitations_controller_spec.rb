@@ -49,6 +49,11 @@ describe InvitationsController do
       post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com, mbs@gmail.com")
     end
 
+    it 'can handle a comma seperated list of emails with whitespace' do
+      Resque.should_receive(:enqueue).twice()
+      post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com   ,        mbs@gmail.com")
+    end
+
     it 'displays a message that tells you how many invites were sent, and which REJECTED' do
       post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
       flash[:error].should_not be_empty
