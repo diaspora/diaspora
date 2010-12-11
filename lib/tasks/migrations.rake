@@ -1,9 +1,8 @@
 namespace :migrations do
+  
   desc 'make old registered services into the new class specific services'
-
   task :service_reclassify do
     require File.join(Rails.root,"config/environment")
-    #include ActiveSupport::Inflector
     Service.all.each do |s|
       puts s.inspect
       
