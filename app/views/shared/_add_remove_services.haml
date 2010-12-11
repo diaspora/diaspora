@@ -1,0 +1,18 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%ul.stream#service_stream
+  - for service in @services
+    %h3
+      %b= service.provider
+      = t('services.index.logged_in_as')
+      %b= service.nickname
+      = link_to t('services.index.disconnect'), service_path(service), :confirm => t('services.index.really_disconnect', :service => service.provider), :method => :delete
+
+- unless @services.any?{|x| x.provider == 'twitter'}
+  %h4= link_to t('services.index.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter']['consumer_key']!= ""
+
+- unless @services.any?{|x| x.provider == 'facebook'}
+  %h4= link_to t('services.index.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
