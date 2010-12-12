@@ -11,6 +11,7 @@ var Validation = {
   },
   events: { 
     usernameKeypress: function(evt) {
+      if(evt.charCode === 0) { return; }
       if(!Validation.rules.username.characters.test(this.value + String.fromCharCode(evt.charCode))) {
         evt.preventDefault();
       }
