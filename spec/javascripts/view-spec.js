@@ -23,6 +23,7 @@ describe("View", function() {
   describe("debug", function() {
     describe("click", function() {
       beforeEach(function() {
+        jasmine.Clock.useMock();
         $("#jasmine_content").html(
           '<div id="debug_info">' +
             '<h5>DEBUG INFO</h5>' +
@@ -37,10 +38,9 @@ describe("View", function() {
         spyOn(View.debug, "click");
         View.initialize();
         $(View.debug.selector).click();
+        jasmine.Clock.tick(200);
         expect(View.debug.click).toHaveBeenCalled();
-        setTimeout(function() { 
-          expect($(View.debug.selector).css("display")).toEqual("block");
-        }, 500);
+        expect($(View.debug.selector).css("display")).toEqual("block");
       });
     });
   });
@@ -115,7 +115,7 @@ describe("View", function() {
         View.initialize();
         $(View.publisher.selector).focus();
         var event = $.Event("keydown");
-        var event.ShiftKey = true;
+        event.ShiftKey = true;
         event.keyCode = 13;
         $(View.publisher.selector).trigger(event);
         expect($.fn.submit).toHaveBeenCalled();

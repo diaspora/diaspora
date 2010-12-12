@@ -17,7 +17,9 @@ describe("Stream", function() {
   describe("toggleComments", function() {
 
     beforeEach(function() {
+      jasmine.Clock.useMock();
       $('#jasmine_content').html(
+        '<div class="stream">' +
         '<li class="message" data-guid="4ceef7ba2367bc2e4d0001e9">' +
           '<div class="content">' +
             '<div class="info">' +
@@ -38,21 +40,23 @@ describe("Stream", function() {
               '</li>' +
             '</ul>' +
           '</div>' +
-        '</li>'
+        '</li>' +
+        '</div>'
       );
+      Stream.initialize();
     });
+
     it("toggles class hidden on the comment block", function () {
       expect($('ul.comments')).toHaveClass("hidden");
       $("a.show_post_comments").click();
-      setTimeout(function() {
-        expect($('ul.comments')).not.toHaveClass("hidden");
-      }, 250);
+      jasmine.Clock.tick(200);
+      expect($('ul.comments')).not.toHaveClass("hidden");
     });
+
     it("changes the text on the show comments link", function() {
       $("a.show_post_comments").click();
-      setTimeout(function() {
-        expect($("a.show_post_comments").text()).toEqual("hide comments (0)");
-      }, 250);
+      jasmine.Clock.tick(200);
+      expect($("a.show_post_comments").text()).toEqual("hide comments (0)");
     })
   });
 });
