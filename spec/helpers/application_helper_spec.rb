@@ -202,6 +202,14 @@ describe ApplicationHelper do
       end
     end
 
+    describe "newlines" do
+      it 'generates breaklines' do
+        message = "These\nare\nsome\nnew\nlines"
+        res = markdownify(message)
+        res.should == "These<br /\>are<br /\>some<br /\>new<br /\>lines"
+      end
+    end
+
     context 'performance' do
       before do
         @message = "HHello,Hello_, I _am a strong robot.*Hello, I am *a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a **strong robot.Hello, I am _a _strong *robot**.Hello*, I am a strong "

@@ -165,7 +165,7 @@ module ApplicationHelper
   def markdownify(message, options = {})
     message = h(message).html_safe
 
-    [:autolinks, :youtube, :emphasis, :links].each do |k|
+    [:autolinks, :youtube, :emphasis, :links, :newlines].each do |k|
       if !options.has_key?(k)
         options[k] = true
       end
@@ -229,6 +229,10 @@ module ApplicationHelper
         end
         message.gsub!('youtube.com::'+video_id, '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
       end
+    end
+
+    if options[:newlines]
+      message.gsub!(/\n+/, '<br />')
     end
 
     return message
