@@ -3,15 +3,15 @@
   .from
     %h2
       = person.name
-      - if current_user.owns?(post)
-        .aspect
-          ➔
-          %ul
-            - if post.public?
-              =t('the_world')
-            - else
-              - for aspect in post.aspects
-                %li= link_to aspect.name, aspect
+
+      - if post.public?
+        %span.arrow ➔
+        %span.aspect_badge.public
+          =t('the_world')
+
+      - elsif current_user.owns?(post)
+        %span.arrow ➔
+        =aspect_badge(aspects_with_post(post.aspects, post))
 
     #person_nav_links
       = link_to t('layouts.header.view_profile'), person_path(person)

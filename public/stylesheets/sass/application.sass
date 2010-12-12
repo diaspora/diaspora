@@ -12,7 +12,7 @@ a
   :text
     :decoration none
   &:hover
-    :color #22AAE0
+    :color #4CCAE0
   &:active
     :color #005D9C
 
@@ -243,39 +243,20 @@ header
       :border none
       :height 370px
       :width 500px
-		 
+
 .from
   :text
     :shadow 0 1px #fff
-
-  .aspect
-    :cursor default
+  h4
     :display inline
-    :color #bbb
-    a
-      :font
-        :weight normal
-      :color #bbb
-
-      &:hover
-        :text
-          :decoration underline
-      &:active
-        :color #999
-    ul
-      :display inline
-      :margin 0
-      :padding 0
-      li
-        :display inline
-        &:after
-          :content ","
-        &:last-child:after
-          :content ""
-
   a
     :font
       :weight bold
+
+.arrow
+  :color #ccc
+  :font
+    :weight lighter
 
 #author_info
   :position relative
@@ -301,12 +282,6 @@ header
   h2
     :margin
       :bottom -2px
-
-  .aspect
-    ul > li a
-      :font
-        :weight 200
-
 
   #person_nav_links
     a
@@ -1397,7 +1372,6 @@ ul.aspects
     &:hover
       :background
         :color #fafafa
-      
 
   .right
     :top 12px
@@ -1969,20 +1943,6 @@ h3,h4
   :font
     :size 12px
 
-.stream
-  .public_badge
-    :position absolute
-    :top 60px
-    :left 25px
-
-.message.public
-  :background
-    :color #FEFFF0
-
-  &:hover
-    :background
-      :color #FEFFE3
-
 #already_invited_pane
   h4
     :color #666
@@ -1995,3 +1955,51 @@ h3,h4
   .term
     :font
       :weight bold
+
+.aspect_badge
+  :color #fff
+  :line-height auto
+  :padding 0 4px
+
+  :-webkit-border-radius 3px
+  :-moz-border-radius 3px
+  :border-radius 3px
+
+  :display inline-block
+
+  :font
+    :size smaller
+    :weight normal
+  :text
+    :shadow none
+
+  :cursor default
+
+  a
+    :color #fff
+    :font
+      :weight normal
+
+    &:hover
+      :color #eee
+
+.aspect_badge.public
+  :background
+    :color #C0E76C
+
+.aspect_badge.single
+  :background
+    :color #999
+
+.aspect_badge.all
+  :background
+    :color #ccc
+
+.stream
+  .arrow,
+  .aspect_badge
+    :position relative
+  .arrow
+    :top -0.1em
+  .aspect_badge
+    :top -0.2em

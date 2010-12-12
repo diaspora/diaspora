@@ -2,32 +2,28 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:data=>{:guid=>post.id}, :class => ('public' if post.public?)}
+%li.message{:data=>{:guid=>post.id}}
   =person_image_link(person)
-
-  .public_badge
-    - if post.public?
-      = image_tag 'icons/globe.png', :title => "public post"
 
   .content
     .from
+      .right
+        - reshare_aspects = aspects_without_post(aspects, post)
+        - unless reshare_aspects.empty?
+          = render 'shared/reshare', :aspects => reshare_aspects, :post => post
+        = link_to t('delete'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
       %h4
         =person_link(person)
 
-      - if person.owner_id == current_user.id
-        .aspect
-          ➔
-          %ul
-            - if post.public?
-              %li= t('the_world')
-            - else
-              =aspect_links(aspects_with_post(aspects, post))
+      - if post.public?
+        %span.arrow ➔
+        %span.aspect_badge.public
+          = t('the_world')
 
-        .right
-          - reshare_aspects = aspects_without_post(aspects, post)
-          - unless reshare_aspects.empty?
-            = render 'shared/reshare', :aspects => reshare_aspects, :post => post
-          = link_to t('delete'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
+      - elsif person.owner_id == current_user.id
+        %span.arrow ➔
+        =aspect_badge(aspects_with_post(aspects, post))
+
 
     = render 'status_messages/status_message', :post => post, :photos => photos
 
