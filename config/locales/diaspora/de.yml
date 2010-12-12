@@ -24,9 +24,11 @@ de:
               invalid: "ist ungültig"
             username: 
               taken: "ist bereits vergeben"
-  ago: "her"
+  ago: "%{time} her"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "unbekannte Person"
       youtube_title: 
         unknown: "Unbekannter Video-Titel"
@@ -88,7 +90,7 @@ de:
     show: 
       edit_aspect: "Aspekt bearbeiten"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "Dein Aspekt %{name} hat einen zu langen Namen zum Speichern."
       success: "Dein Aspekt %{name} wurde erfolgreich bearbeitet."
   back: "Zurück"
   cancel: "Abbrechen"
@@ -134,6 +136,7 @@ de:
     edit: 
       sign_up: "anmelden"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen eintragen. Trenne sie mit Kommata."
       if_they_accept_info: "wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
@@ -185,7 +188,7 @@ de:
   people: 
     edit: 
       allow_search: "Erlaube anderen Diaspora-Nutzern, nach dir zu suchen"
-      edit_profile: "Edit profile"
+      edit_profile: "Profil bearbeiten"
       first_name: "Vorname"
       info_available_to: "Diese Infos werden für alle verfügbar sein, mit denen du bei Diaspora verbunden bist."
       last_name: "Nachname"
@@ -200,7 +203,9 @@ de:
       people_on_pod_are_aware_of: "Leute auf dem Pod wissen von"
       results_for: "Ergebnisse für %{params}"
     index: 
-      no_results: "Hey! You need to search for something."
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
+      no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
     person: 
       add_contact: "Kontakt hinzufügen"
@@ -223,7 +228,7 @@ de:
       no_posts: "Keine Posts zum Anzeigen!"
       not_connected: "Du bist nicht mit dieser Person verbunden"
       recent_posts: "Letzte Beiträge"
-      recent_public_posts: "Recent Public Posts"
+      recent_public_posts: "Neueste öffentliche Beiträge"
       request_people: "Wenn du möchtest, kannst du ihn fragen, ob du ihn/sie in einem deiner Aspekte platzieren darfst."
       return_to_aspects: "Kehre zur Aspekt-Übersicht zurück."
       to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
@@ -250,8 +255,8 @@ de:
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       size_error: "{file} ist zu groß. Die maximale Dateigröße ist {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "oder wähle eins aus deinen bereits bestehenden"
+      upload: "Lade ein neues Profilfoto hoch!"
     photo: 
       view_all: "zeige alle Fotos von %{name}"
     show: 
@@ -310,7 +315,7 @@ de:
       connect_to_facebook: "Mit Facebook verbinden"
       connect_to_twitter: "Mit Twitter verbinden"
       disconnect: "Verbindung entfernen"
-      edit_services: "Edit services"
+      edit_services: "Dienste bearbeiten"
       logged_in_as: "angemeldet als"
       really_disconnect: "Verbindung mit %{service} entfernen?"
   settings: "Einstellungen"
@@ -366,14 +371,17 @@ de:
   users: 
     destroy: "Konto erfolgreich stillgelegt."
     edit: 
+      change: "Ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
       close_account: "Konto stilllegen"
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Mein XML herunterladen"
-      edit_account: "Edit account"
+      edit_account: "Konto bearbeiten"
+      email_notifications: "Emailbenachrichtigungen"
       export_data: "Konto exportieren"
       new_password: "Neues Passwort"
+      receive_email_notifications: "Emailbenachrichtigungen empfangen?"
       your_email: "deine E-Mail-Adresse"
       your_handle: "Deine Diaspora-Adresse"
     getting_started: 
@@ -407,6 +415,7 @@ de:
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update: 
+      email_notifications_changed: "Wechsel der Sprache fehlgeschlagen"
       language_changed: "Sprache geändert"
       language_not_changed: "Ändern der Sprache fehlgeschlagen"
       password_changed: "Passwort geändert"

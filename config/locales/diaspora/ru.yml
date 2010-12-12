@@ -24,9 +24,11 @@ ru:
               invalid: "неправильный"
             username: 
               taken: "уже занято"
-  ago: "назад"
+  ago: "%{time} назад"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "неизвестная персона"
       youtube_title: 
         unknown: "Неизвестный видео заголовок"
@@ -134,6 +136,7 @@ ru:
     edit: 
       sign_up: "регистрация"
     new: 
+      already_invited: "Already invited"
       aspect: "Аспект"
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
       if_they_accept_info: "после согласия с их стороны, они будут добавлены в предложенный вами аспект."
@@ -200,6 +203,8 @@ ru:
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "результат поиска для"
     person: 
@@ -366,14 +371,17 @@ ru:
   users: 
     destroy: "Аккаунт закрыт."
     edit: 
+      change: "Change"
       change_language: "Сменить язык"
       change_password: "Сменить пароль"
       close_account: "Закрыть учётную запись"
       download_photos: "Скачать мои изображения"
       download_xml: "Скачать мою информацию в xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Экспорт информации"
       new_password: "Новый пароль"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 
@@ -407,6 +415,7 @@ ru:
     public: 
       does_not_exist: "Пользователя %{username} не существует!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён"

@@ -24,9 +24,11 @@ mk:
               invalid: "не е валидно"
             username: 
               taken: "веќе е заземено"
-  ago: "пред"
+  ago: "%{time} пред"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "непозната личност"
       youtube_title: 
         unknown: "Непознато име на видео"
@@ -134,6 +136,7 @@ mk:
     edit: 
       sign_up: "регистрирај_се"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspect"
       comma_seperated_plz: "Можете да внесете повеќе е-маил адреси разделени со запирки."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ mk:
       people_on_pod_are_aware_of: " достапните луѓе се запознаени со"
       results_for: " резултати за %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "резултати од пребарување за"
     person: 
@@ -366,14 +371,17 @@ mk:
   users: 
     destroy: "Корисничката сметка е успешно затворена."
     edit: 
+      change: "Change"
       change_language: "Промени јазик"
       change_password: "Промени лозинка"
       close_account: "Затвори корисничка сметка"
       download_photos: "симни ги моите слики"
       download_xml: "симни го мојот xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Изнеси податоци"
       new_password: "Нова лозинка"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Вашиот е-маил"
       your_handle: "Вашето diaspora корисничко име"
     getting_started: 
@@ -407,6 +415,7 @@ mk:
     public: 
       does_not_exist: "Корисникот %{username} не постои!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Јазикот е променет"
       language_not_changed: "Изменувањето на јазик е неуспешно"
       password_changed: "Лозинката е променета"

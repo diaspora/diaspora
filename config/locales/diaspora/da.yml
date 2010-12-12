@@ -24,9 +24,11 @@ da:
               invalid: "er ugyldig"
             username: 
               taken: "er allerede taget"
-  ago: "siden"
+  ago: "%{time} siden"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "ukendt person"
       youtube_title: 
         unknown: "Ukendt videotitel"
@@ -134,6 +136,7 @@ da:
     edit: 
       sign_up: "Bliv medlem"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kan indtaste flere e-mailadresser adskilt med komma."
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
@@ -200,6 +203,8 @@ da:
       people_on_pod_are_aware_of: "brugere på serveren er bevidste om"
       results_for: " resultat for %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "søgeresultater for"
     person: 
@@ -366,14 +371,17 @@ da:
   users: 
     destroy: "Kontoen er nu lukket."
     edit: 
+      change: "Change"
       change_language: "Skift sprog"
       change_password: "Skift adgangskode"
       close_account: "Luk konto"
       download_photos: "Download mine billeder"
       download_xml: "Download min XML"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Exportér data"
       new_password: "Ny adgangskode"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"
     getting_started: 
@@ -407,6 +415,7 @@ da:
     public: 
       does_not_exist: "Brugeren %{username} findes ikke!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Sprog ændret"
       language_not_changed: "Kunne ikke ændre sprog"
       password_changed: "Adgangskode ændret"

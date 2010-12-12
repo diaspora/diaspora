@@ -24,9 +24,11 @@ pl:
               invalid: "jest niewłaściwa"
             username: 
               taken: "jest już zajęta"
-  ago: "temu"
+  ago: "%{time} temu"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "nieznana osoba"
       youtube_title: 
         unknown: "Nieznany tytuł wideo"
@@ -134,6 +136,7 @@ pl:
     edit: 
       sign_up: "rejestracja"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspekt"
       comma_seperated_plz: "Możesz podać kilka adresów e-mailowych, oddzielając je przecinkami."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ pl:
       people_on_pod_are_aware_of: " osoby na podzie wiedzą, że"
       results_for: " wyniki dla %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "wyniki wyszukiwania dla"
     person: 
@@ -366,14 +371,17 @@ pl:
   users: 
     destroy: "Konto zostało pomyślnie zamknięte."
     edit: 
+      change: "Change"
       change_language: "Zmień język"
       change_password: "Zmiana hasła"
       close_account: "Zamknij konto"
       download_photos: "pobierz moje zdjęcia"
       download_xml: "pobierz mój xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Eksportowanie danych"
       new_password: "Nowe hasło"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Twój e-mail"
       your_handle: "Twój identyfikator w Diasporze"
     getting_started: 
@@ -407,6 +415,7 @@ pl:
     public: 
       does_not_exist: "Użytkownik %{username} nie istnieje!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Zmieniono język"
       language_not_changed: "Nie udało się zmienić języka"
       password_changed: "Zmieniono hasło"

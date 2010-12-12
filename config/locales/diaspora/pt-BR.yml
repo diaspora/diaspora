@@ -24,9 +24,11 @@ pt-BR:
               invalid: "é inválido"
             username: 
               taken: "já está sendo usado(a)"
-  ago: "atrás"
+  ago: "%{time} atrás"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "pessoa desconhecida"
       youtube_title: 
         unknown: "Título de vídeo desconhecido"
@@ -134,6 +136,7 @@ pt-BR:
     edit: 
       sign_up: "cadastre-se"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspect"
       comma_seperated_plz: "Você pode adicionar múltiplos endereços de email, separados por vírgulas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ pt-BR:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "Resultado da busca por"
     person: 
@@ -366,14 +371,17 @@ pt-BR:
   users: 
     destroy: "Conta encerrada com sucesso."
     edit: 
+      change: "Change"
       change_language: "Trocar idioma"
       change_password: "Trocar senha"
       close_account: "Encerrar minha conta"
       download_photos: "baixar minhas fotos"
       download_xml: "baixar meu xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Exportar dados"
       new_password: "Nova Senha"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Seu email"
       your_handle: "Seu endereço diaspora"
     getting_started: 
@@ -407,6 +415,7 @@ pt-BR:
     public: 
       does_not_exist: "O usuário %{username} não existe!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Idioma Alterado"
       language_not_changed: "Alteração de Idioma Falhou"
       password_changed: "Senha Alterada"

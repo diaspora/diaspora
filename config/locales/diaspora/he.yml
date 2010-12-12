@@ -24,9 +24,11 @@ he:
               invalid: "אינו תקני"
             username: 
               taken: "כבר תפוס"
-  ago: "עברו"
+  ago: "%{time} עברו"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "אדם לא ידוע"
       youtube_title: 
         unknown: "כותרת הווידאו אינה ידועה"
@@ -134,6 +136,7 @@ he:
     edit: 
       sign_up: "הרשמה"
     new: 
+      already_invited: "כבר נשלחה הזמנה"
       aspect: "היבט"
       comma_seperated_plz: "באפשרותך להזין מספר כתובות דוא״ל ולהפרידן בפסיקים."
       if_they_accept_info: "אם הם יאשרו, הם יתווספו להיבט שאליו הזמנת אותם."
@@ -185,7 +188,7 @@ he:
   people: 
     edit: 
       allow_search: "אישור לאחרים לחפש אחריך בדיאספורה"
-      edit_profile: "Edit profile"
+      edit_profile: "עריכת הפרופיל"
       first_name: "השם הפרטי"
       info_available_to: "פרטים אלו יהיו זמינים לכל אלו שנוצר ביניכם קשר דרך דיאספורה."
       last_name: "שם המשפחה"
@@ -200,7 +203,9 @@ he:
       people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
       results_for: " תוצאות עבור %{params}"
     index: 
-      no_results: "Hey! You need to search for something."
+      couldnt_find_them_send_invite: "לא נמצאים?  אפשר להזמין אותם!"
+      no_one_found: "...ולא נמצא אף אחד."
+      no_results: "הי! לא חיפשת שום דבר."
       results_for: "תוצאות חיפוש עבור"
     person: 
       add_contact: "הוספת איש קשר"
@@ -250,8 +255,8 @@ he:
       invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
       size_error: "הקובץ {file} גדול מדי, גודל הקובץ המרבי הוא {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "או לבחור באחת הקיימות"
+      upload: "העלאת תמונת פרופיל חדש!"
     photo: 
       view_all: "צפייה בכל התמונות של %{name}"
     show: 
@@ -310,7 +315,7 @@ he:
       connect_to_facebook: "התחברות לפייסבוק"
       connect_to_twitter: "התחברות לטוויטר"
       disconnect: "ניתוק"
-      edit_services: "Edit services"
+      edit_services: "עריכת שירותים"
       logged_in_as: "נכנסת בשם"
       really_disconnect: "האם לנתק את %{service}?"
   settings: "הגדרות"
@@ -366,14 +371,17 @@ he:
   users: 
     destroy: "החשבון נסגר בהצלחה."
     edit: 
+      change: "שינוי"
       change_language: "החלפת השפה"
       change_password: "החלפת הססמה"
       close_account: "סגירת החשבון"
       download_photos: "הורדת התמונות שלי"
       download_xml: "הורדת ה־xml שלי"
-      edit_account: "Edit account"
+      edit_account: "עריכת החשבון"
+      email_notifications: "התרעות בדוא״ל"
       export_data: "יצוא הנתונים"
       new_password: "ססמה חדשה"
+      receive_email_notifications: "האם לקבל התרעות בדוא״ל?"
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"
     getting_started: 
@@ -407,6 +415,7 @@ he:
     public: 
       does_not_exist: "המשתמש %{username} אינו קיים!"
     update: 
+      email_notifications_changed: "החלפת השפה נכשלה"
       language_changed: "השפה הוחלפה"
       language_not_changed: "החלפת השפה נכשלה"
       password_changed: "הססמה הוחלפה"

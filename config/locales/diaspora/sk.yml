@@ -24,9 +24,11 @@ sk:
               invalid: "je neplatný"
             username: 
               taken: "je už obsadené"
-  ago: "dozadu"
+  ago: "%{time} dozadu"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "neznáma osoba"
       youtube_title: 
         unknown: "Názov videa neznámy"
@@ -134,6 +136,7 @@ sk:
     edit: 
       sign_up: "Zaregistrovať sa"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspect"
       comma_seperated_plz: "Môžete vložiť viacero adries oddelených čiarkou."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ sk:
       people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
       results_for: "Výsledky hľadania %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "Výsledky vyhľadávania pre"
     person: 
@@ -366,14 +371,17 @@ sk:
   users: 
     destroy: "Účet bol úspešne zrušený."
     edit: 
+      change: "Change"
       change_language: "Zmeniť jazyk"
       change_password: "Zmeniť heslo"
       close_account: "Zrušiť účet"
       download_photos: "Stiahnuť moje fotky"
       download_xml: "stiahnuť moje xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Exportovať dáta"
       new_password: "Nové heslo"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Váš e-mail"
       your_handle: "Príručka k Diaspore"
     getting_started: 
@@ -407,6 +415,7 @@ sk:
     public: 
       does_not_exist: "Užívateľ %{username} neexistuje!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Jazyk zmenený"
       language_not_changed: "Zmena jazyka zlyhala"
       password_changed: "Heslo zmenené"

@@ -24,9 +24,11 @@ sv:
               invalid: "är ogiltigt"
             username: 
               taken: "är redan taget"
-  ago: "sedan"
+  ago: "%{time} sedan"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "okänd person"
       youtube_title: 
         unknown: "Okänd videotitel"
@@ -134,6 +136,7 @@ sv:
     edit: 
       sign_up: "registrera"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
@@ -185,7 +188,7 @@ sv:
   people: 
     edit: 
       allow_search: "Tillåt andra användare på Diaspora att söka efter dig"
-      edit_profile: "Edit profile"
+      edit_profile: "Ändra profil"
       first_name: "Förnamn"
       info_available_to: "Den här informationen kommer vara synlig för alla som du ansluter till på diaspora."
       last_name: "Efternamn"
@@ -200,7 +203,9 @@ sv:
       people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
       results_for: " resultat för %{params}"
     index: 
-      no_results: "Hey! You need to search for something."
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
+      no_results: "Du måste söka efter något."
       results_for: "Sökresultat för"
     person: 
       add_contact: "lägg till kontakt"
@@ -250,8 +255,8 @@ sv:
       invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
       size_error: "{file} är för stor, maximal tillåten filstorlek är {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "eller välj en av dina befintliga"
+      upload: "Ladda upp en ny profilbild!"
     photo: 
       view_all: "visa alla foton som %{name} laddat upp"
     show: 
@@ -310,7 +315,7 @@ sv:
       connect_to_facebook: "Anslut till facebook"
       connect_to_twitter: "Anslut till twitter"
       disconnect: "koppla från"
-      edit_services: "Edit services"
+      edit_services: "Anslutna tjänster"
       logged_in_as: "inloggad som"
       really_disconnect: "koppla från %{service}?"
   settings: "Inställningar"
@@ -366,14 +371,17 @@ sv:
   users: 
     destroy: "Ditt konto är nu stängt."
     edit: 
+      change: "Ändra"
       change_language: "Ändra språk"
       change_password: "Ändra lösenord"
       close_account: "Stäng kontot"
       download_photos: "Ladda ner mina foton"
       download_xml: "Ladda ner min xml"
-      edit_account: "Edit account"
+      edit_account: "Ändra konto"
+      email_notifications: "E-post meddelanden"
       export_data: "Exportera data"
       new_password: "Nytt lösenord"
+      receive_email_notifications: "Vill du få meddelande via e-post?"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 
@@ -407,6 +415,7 @@ sv:
     public: 
       does_not_exist: "Användaren %{username} finns inte!"
     update: 
+      email_notifications_changed: "Byte av språk misslyckades"
       language_changed: "Språk är nu ändrat"
       language_not_changed: "Språket kunde inte ändras"
       password_changed: "Lösenordet är nu ändrat"

@@ -24,9 +24,11 @@ it:
               invalid: "non è valido"
             username: 
               taken: "non è disponibile"
-  ago: "fa"
+  ago: "%{time} fa"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "persona sconosciuta"
       youtube_title: 
         unknown: "Titolo Video Sconosciuto"
@@ -134,6 +136,7 @@ it:
     edit: 
       sign_up: "iscriviti"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspect"
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ it:
       people_on_pod_are_aware_of: " le persone sul pod sanno che"
       results_for: " risultati per %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "risultati della ricerca per"
     person: 
@@ -235,8 +240,8 @@ it:
   photos: 
     create: 
       integrity_error: "Il caricamento della foto non è riuscito. Sei sicuro che fosse un'immagine?"
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
+      runtime_error: "La fotografia non si è caricata.  Hai dimenticato forse la cintura?"
+      type_error: "La foto non si è caricata.  Sei sicuro di aver aggiunto un'immagine?"
     destroy: 
       notice: "Foto eliminata."
     edit: 
@@ -288,7 +293,7 @@ it:
   requests: 
     create: 
       sending: "Invio in corso..."
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "Hai chiesto di condividire come %{name}. Dovrebbero vederlo nel loro prossimo accesso."
     destroy: 
       error: "Seleziona un aspetto!"
       ignore: "Richiesta di amicizia ignorata."
@@ -366,14 +371,17 @@ it:
   users: 
     destroy: "Account chiuso con successo."
     edit: 
+      change: "Change"
       change_language: "Cambia Lingua"
       change_password: "Cambia Password"
       close_account: "Chiudi Account"
       download_photos: "scarica le mie"
       download_xml: "scarica il mio xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Esporta Dati"
       new_password: "Nuova Password"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "La tua email"
       your_handle: "Il tuo contatto Diaspora"
     getting_started: 
@@ -407,6 +415,7 @@ it:
     public: 
       does_not_exist: "L'utente %{username} non esiste!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Lingua Cambiata"
       language_not_changed: "Cambio di lingua fallito"
       password_changed: "Password Cambiata"

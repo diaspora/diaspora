@@ -24,9 +24,11 @@ nl:
               invalid: "is ongeldig"
             username: 
               taken: "is al bezet"
-  ago: "geleden"
+  ago: "%{time} geleden"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "onbekend persoon"
       youtube_title: 
         unknown: "Onbekende video titel"
@@ -59,8 +61,8 @@ nl:
       handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
     manage: 
       add_a_new_aspect: "Voeg een nieuw aspect toe"
-      add_a_new_contact: "Voeg een nieuw contact toe"
-      drag_to_add: "Sleep om mensen toe te voegen"
+      add_a_new_contact: "Voeg contact toe"
+      drag_to_add: "Sleep om toe te voegen"
       manage_aspects: "Beheer aspecten"
       no_requests: "Geen nieuwe aanvragen"
       requests: "Aanvragen"
@@ -134,6 +136,7 @@ nl:
     edit: 
       sign_up: "registreer"
     new: 
+      already_invited: "Al uitgenodigd"
       aspect: "Aspect"
       comma_seperated_plz: "Je kunt meerdere e-mailadressen invullen, gescheiden door komma's."
       if_they_accept_info: "als hij of zij accepteert zal hij of zij toegevoegd worden aan het aspect waarvoor je hem of haar uitgenodigd hebt."
@@ -185,7 +188,7 @@ nl:
   people: 
     edit: 
       allow_search: "Sta toe door anderen gevonden te kunnen worden binnen Diaspora"
-      edit_profile: "Edit profile"
+      edit_profile: "Bewerk profiel"
       first_name: "Voornaam"
       info_available_to: "Deze informatie is beschikbaar voor al je contacten op Diaspora."
       last_name: "Achternaam"
@@ -200,7 +203,9 @@ nl:
       people_on_pod_are_aware_of: "mensen op de pod zich bewust van zijn"
       results_for: "resultaten voor %{params}"
     index: 
-      no_results: "Hey! You need to search for something."
+      couldnt_find_them_send_invite: "Hem of haar niet kunnen vinden? Stuur een uitnodiging!"
+      no_one_found: "...en je hebt niemand gevonden."
+      no_results: "Heey! Je moet wel ergens naar zoeken."
       results_for: "zoekresultaten voor"
     person: 
       add_contact: "voeg contact toe"
@@ -250,8 +255,8 @@ nl:
       invalid_ext: "{file} heeft een ongeldige extensie. Alleen {extensions} zijn toegestaan."
       size_error: "{file} is te groot, de maximale bestandsgrootte is {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "of selecteer een van je reeds bestaande"
+      upload: "Upload een nieuwe profiel foto!"
     photo: 
       view_all: "bekijk al %{name}'s foto's"
     show: 
@@ -310,7 +315,7 @@ nl:
       connect_to_facebook: "Verbind met Facebook"
       connect_to_twitter: "Verbind met Twitter"
       disconnect: "koppel los"
-      edit_services: "Edit services"
+      edit_services: "Bewerk services"
       logged_in_as: "ingelogd als"
       really_disconnect: "verbreek verbinding met %{service}?"
   settings: "Instellingen"
@@ -366,14 +371,17 @@ nl:
   users: 
     destroy: "Account succesvol verwijderd."
     edit: 
+      change: "Verander"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
       close_account: "Verwijder account"
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
-      edit_account: "Edit account"
+      edit_account: "Bewerk account"
+      email_notifications: "E-mail notificaties"
       export_data: "Exporteer data"
       new_password: "Nieuw wachtwoord"
+      receive_email_notifications: "E-mail notificaties ontvangen?"
       your_email: "Jou e-mail"
       your_handle: "Jou Diaspora handle"
     getting_started: 
@@ -407,6 +415,7 @@ nl:
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update: 
+      email_notifications_changed: "Taal veranderen mislukt"
       language_changed: "Taal gewijzigd"
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd"

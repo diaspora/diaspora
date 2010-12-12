@@ -24,9 +24,11 @@ pt-PT:
               invalid: "é inválida"
             username: 
               taken: "já existe"
-  ago: "atrás"
+  ago: "%{time} atrás"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "utilizador(a) desconhecido(a)"
       youtube_title: 
         unknown: "Título do Vídeo Desconhecido"
@@ -134,6 +136,7 @@ pt-PT:
     edit: 
       sign_up: "registar"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspect"
       comma_seperated_plz: "Podes inserir vários endereços de email separados por vírgulas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ pt-PT:
       people_on_pod_are_aware_of: " as pessoas no pod estão cientes de que"
       results_for: " resultados para %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "resultados de pesquisa para"
     person: 
@@ -366,14 +371,17 @@ pt-PT:
   users: 
     destroy: "Conta encerrada com sucesso"
     edit: 
+      change: "Change"
       change_language: "Modificar Idioma"
       change_password: "Modificar Palavra-chave"
       close_account: "Encerrar Conta"
       download_photos: "descarregar as minhas fotos"
       download_xml: "descarregar o meu xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Exportar Dados"
       new_password: "Nova Palavra-chave"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "O teu email"
       your_handle: "O teu nome de utilizador no Diaspora"
     getting_started: 
@@ -407,6 +415,7 @@ pt-PT:
     public: 
       does_not_exist: "O utilizador %{username} não existe!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Idioma Modificado"
       language_not_changed: "Falha ao Modificar Idioma"
       password_changed: "Palavra-chave Modificada"

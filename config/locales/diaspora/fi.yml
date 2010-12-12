@@ -24,9 +24,11 @@ fi:
               invalid: "ei kelpaa"
             username: 
               taken: "on jo käytössä"
-  ago: "sitten"
+  ago: "%{time} sitten"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "tuntematon persoona"
       youtube_title: 
         unknown: "Videon otsikko tuntematon"
@@ -88,7 +90,7 @@ fi:
     show: 
       edit_aspect: "muokkaa verkostonäkymää"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "Antamasi verkostonäkymän nimi, %{name}, on liian pitkä."
       success: "Verkostonäkymäsi, %{name}, muokkaus onnistui."
   back: "Takaisin"
   cancel: "Peruuta"
@@ -134,6 +136,7 @@ fi:
     edit: 
       sign_up: "sign_up"
     new: 
+      already_invited: "Already invited"
       aspect: "Verkostonäkymä"
       comma_seperated_plz: "Erottele sähköpostiosoitteet pilkulla."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -185,7 +188,7 @@ fi:
   people: 
     edit: 
       allow_search: "Salli ihmisten etsiä sinua Diasporassa"
-      edit_profile: "Edit profile"
+      edit_profile: "Muokkaa profiilia"
       first_name: "Etunimi"
       info_available_to: "Kaikki Diasporan kontaktisi näkevät nämä tiedot."
       last_name: "Sukunimi"
@@ -200,7 +203,9 @@ fi:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " tulokset kyselylle: %{params}"
     index: 
-      no_results: "Hey! You need to search for something."
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
+      no_results: "Hei! Sinun tulisi etsiä jotakin."
       results_for: "hakutulokset kohteelle "
     person: 
       add_contact: "lisää kontakti"
@@ -223,7 +228,7 @@ fi:
       no_posts: "ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä tähän henkilöön"
       recent_posts: "Tuoreimmat viestit"
-      recent_public_posts: "Recent Public Posts"
+      recent_public_posts: "Viimeisimmät julkiset viestit"
       request_people: "Jos haluat, voit pyytää häntä liittymään yhteen verkostonäkymistäsi."
       return_to_aspects: "Palaa verkostonäkymien sivulle"
       to_accept_or_ignore: "hyväksy tai hylkää."
@@ -250,8 +255,8 @@ fi:
       invalid_ext: "{file} sisältää viallisen tiedostopäätteen. Tuetut muodot ovat {extensions}."
       size_error: "{file} on liian suuri, suurin tiedostokoko on {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "tai valitse joku olemassa olevista"
+      upload: "Lisää uusi profiilikuva!"
     photo: 
       view_all: "Näytä kaikki käyttäjän %{name}kuvat"
     show: 
@@ -310,7 +315,7 @@ fi:
       connect_to_facebook: "Yhdistä facebook:iin"
       connect_to_twitter: "Yhdistä twitter:iin"
       disconnect: "katkaise"
-      edit_services: "Edit services"
+      edit_services: "Muokkaa palveluita"
       logged_in_as: "kirjautunut käyttäjänä:"
       really_disconnect: "katkaise %{service}?"
   settings: "Asetukset"
@@ -366,14 +371,17 @@ fi:
   users: 
     destroy: "Käyttäjätilin sulkeminen onnistui."
     edit: 
+      change: "Vaihda"
       change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
       close_account: "Poista käyttäjätili"
       download_photos: "lataa kaikki kuvat"
       download_xml: "lataa tiedot XML-muodossa"
-      edit_account: "Edit account"
+      edit_account: "Muokkaa käyttäjätiliä"
+      email_notifications: "Sähköposti-ilmoitukset"
       export_data: "Vie tietoja"
       new_password: "Uusi salasana"
+      receive_email_notifications: "Vastaanota sähköposti-ilmoituksia?"
       your_email: "Sähköpostisoitteesi"
       your_handle: "Diaspora tunnuksesi"
     getting_started: 
@@ -407,6 +415,7 @@ fi:
     public: 
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"
     update: 
+      email_notifications_changed: "Kielenvaihto epäonnistui"
       language_changed: "Kieli vaihdettu"
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu"

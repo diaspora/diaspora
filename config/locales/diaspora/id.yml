@@ -24,9 +24,11 @@ id:
               invalid: "is invalid"
             username: 
               taken: "is already taken"
-  ago: "ago"
+  ago: "%{time} ago"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "orang tak dikenal"
       youtube_title: 
         unknown: "Unknown Video Title"
@@ -134,6 +136,7 @@ id:
     edit: 
       sign_up: "sign_up"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspect"
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ id:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "search results for"
     person: 
@@ -366,14 +371,17 @@ id:
   users: 
     destroy: "Account successfully closed."
     edit: 
+      change: "Change"
       change_language: "Change Language"
       change_password: "Change Password"
       close_account: "Close Account"
       download_photos: "download my photos"
       download_xml: "download my xml"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Export Data"
       new_password: "New Password"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Your email"
       your_handle: "Your diaspora handle"
     getting_started: 
@@ -407,6 +415,7 @@ id:
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Language Changed"
       language_not_changed: "Language Change Failed"
       password_changed: "Password Changed"

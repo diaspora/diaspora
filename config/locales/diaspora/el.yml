@@ -24,9 +24,11 @@ el:
               invalid: "δεν είναι έγκυρο"
             username: 
               taken: "χρησιμοποιείται ήδη"
-  ago: "πριν"
+  ago: "%{time} πριν"
   application: 
     helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
       unknown_person: "άγνωστο άτομο"
       youtube_title: 
         unknown: "αγνώστος τίτλος αρχείου πολυμέσων"
@@ -134,6 +136,7 @@ el:
     edit: 
       sign_up: "εγγραφή"
     new: 
+      already_invited: "Already invited"
       aspect: "Aspect"
       comma_seperated_plz: "Μπορείτε να εισάγετε πολλαπλές διευθύνσεις ηλεκτρονικού ταχυδρομείου διαχωρισμένες με κόμμα."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -200,6 +203,8 @@ el:
       people_on_pod_are_aware_of: "άνθρωποι στο pod γνωρίζουν ότι"
       results_for: "αποτελέσματα για %{params}"
     index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "αποτελέσματα αναζήτησης για"
     person: 
@@ -366,14 +371,17 @@ el:
   users: 
     destroy: "Ο λογαριασμός έκλεισε με επιτυχία."
     edit: 
+      change: "Change"
       change_language: "Αλλαγή Γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
       close_account: "Κλείσιμο Λογαριασμού"
       download_photos: "κατέβασε τις φωτογραφίες μου"
       download_xml: "κατέβασε το xml μου"
       edit_account: "Edit account"
+      email_notifications: "Email notificaions"
       export_data: "Εξαγωγή Δεδομένων"
       new_password: "Νέος κωδικός πρόσβασης"
+      receive_email_notifications: "Receive email notificaions?"
       your_email: "Το email σας"
       your_handle: "Η λαβή diaspora σας"
     getting_started: 
@@ -407,6 +415,7 @@ el:
     public: 
       does_not_exist: "Ο χρήστης  %{username} δεν υπάρχει!"
     update: 
+      email_notifications_changed: "Language Change Failed"
       language_changed: "Αλλαγή γλώσσας"
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Αλλαγή Κωδικού"
