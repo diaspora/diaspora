@@ -29,6 +29,16 @@ module ApplicationHelper
       post.aspect_ids.include?(a.id)
     end
   end
+  def aspect_badge aspects
+    str = ''
+    if aspects.count > 1
+      str = "<span class='aspect_badge all'>All aspects</span>"
+    elsif aspects.count == 1
+      aspect = aspects.first
+      str = "<span class='aspect_badge single'><a href=#{aspect_path(aspect)}>#{aspect.name}</a></span>"
+    end
+    str.html_safe
+  end
   def aspect_links aspects, opts={}
     str = ""
     aspects.each do |a|
@@ -62,7 +72,7 @@ module ApplicationHelper
       aspects_path
     end
   end
-  
+
   def object_path(object, opts = {})
     return "" if object.nil?
     object = object.person if object.is_a? User
