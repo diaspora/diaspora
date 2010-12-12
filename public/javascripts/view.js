@@ -15,7 +15,7 @@ var View = {
 
     /* In field labels */
     $("label").inFieldLabels();
-    
+
     /* Focus aspect name on fancybox */
     $(this.addAspectButton.selector)
       .click(this.addAspectButton.click);
@@ -40,7 +40,7 @@ var View = {
     /* User menu */
     $(this.userMenu.selector)
       .click(this.userMenu.click);
-    
+
     /* Sending a request message */
     $(this.newRequest.selector)
       .live("submit", this.newRequest.submit);
@@ -50,6 +50,13 @@ var View = {
       .fancybox({
          'titleShow': false,
          'hideOnOverlayClick' : false
+      });
+
+    /* Autoexpand textareas */
+    $('textarea')
+      .autoResize({
+        'animate': false,
+        'extraSpace': 0
       });
 
     /* Webfinger form ajaxy loading */

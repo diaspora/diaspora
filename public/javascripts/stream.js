@@ -10,6 +10,11 @@ var Stream = {
 
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
 
+    // publisher textarea reset
+    $publisher.find("textarea").bind("blur", function(){ 
+      $(this).css('height','42px');
+    });
+
     // comment submit action
     $stream.delegate("a.comment_submit", "click", function(evt) {
       $(this).closest("form").children(".comment_box").attr("rows", 1);
@@ -23,14 +28,16 @@ var Stream = {
 
     $stream.delegate("textarea.comment_box", "focus", function(evt) {
       var commentBox = $(this);
-      commentBox.attr("rows", 2)
+      commentBox
         .closest("form").find(".comment_submit").fadeIn(200);
     });
 
     $stream.delegate("textarea.comment_box", "blur", function(evt) {
       var commentBox = $(this);
       if (!commentBox.val()) {
-        commentBox.attr("rows", 1)
+        commentBox
+          .attr('rows',2)
+          .css('height','2.4em')
           .closest("form").find(".comment_submit").hide();
       }
     });
