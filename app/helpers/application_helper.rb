@@ -32,7 +32,7 @@ module ApplicationHelper
   def aspect_badge aspects
     str = ''
     if aspects.count > 1
-      str = "<span class='aspect_badge all'>All aspects</span>"
+      str = "<span class='aspect_badge all'>#{I18n.t('application.helper.aspect_badge.all_aspects')}</span>"
     elsif aspects.count == 1
       aspect = aspects.first
       str = "<span class='aspect_badge single'><a href=#{aspect_path(aspect)}>#{aspect.name}</a></span>"
@@ -93,7 +93,7 @@ module ApplicationHelper
   end
 
   def how_long_ago(obj)
-    "#{time_ago_in_words(obj.created_at, true)} #{t('ago')}"
+    I18n.t('ago', :time => time_ago_in_words(obj.created_at, true))
   end
 
   def person_url(person)

@@ -15,7 +15,7 @@ en:
   cancel: "Cancel"
   delete: "Delete"  
   or: "or"
-  ago: "ago"
+  ago: "%{time} ago"
   username: "Username"
   email: "Email"
   password: "Password"
@@ -58,6 +58,8 @@ en:
           unknown_person: "unknown person"
           youtube_title:
               unknown: "Unknown Video Title"
+          aspect_badge:
+              all_aspects: "All aspects"
   error_messages:
       helper:
           invalid_fields: "Invalid Fields"

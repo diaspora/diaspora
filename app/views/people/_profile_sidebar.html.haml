@@ -47,5 +47,5 @@
 
         .span-4.last
           %h3 #{t('.born')}
-          = "#{time_ago_in_words(person.profile.birthday)} #{t('ago')}" if @person.profile.birthday
+          = t('ago', :time => time_ago_in_words(person.profile.birthday)) if @person.profile.birthday
 
