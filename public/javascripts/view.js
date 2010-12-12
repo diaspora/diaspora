@@ -64,7 +64,8 @@ var View = {
       .submit(this.webFingerForm.submit);
 
     $(document.body)
-      .click(this.userMenu.removeFocus);
+      .click(this.userMenu.removeFocus)
+      .click(this.reshareButton.removeFocus);
   },
   
   addAspectButton: {
@@ -183,6 +184,15 @@ var View = {
           this[element].bind();
         }
       };
+    }
+  },
+
+  reshareButton: {
+    removeFocus: function(evt) {
+      var $target = $(evt.target);
+      if(!$target.closest(".reshare_pane").length) {
+        $(".reshare_button.active").removeClass("active").siblings(".reshare_box").css("display", "none");
+      }
     }
   },
 
