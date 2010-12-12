@@ -3,23 +3,23 @@ describe("View", function() {
     expect(typeof View === "object").toBeTruthy();
   });
 
-  describe("initialize", function() { 
-    it("is called on DOM ready", function() { 
+  describe("initialize", function() {
+    it("is called on DOM ready", function() {
       spyOn(View, "initialize");
       $(View.initialize);
       expect(View.initialize).toHaveBeenCalled();
     });
-  }); 
+  });
 
-  describe("fancyBoxButtons", function() { 
-    describe("selectors", function() { 
-      it("is an array of all the selectors that will have fancybox attached", function() { 
+  describe("fancyBoxButtons", function() {
+    describe("selectors", function() {
+      it("is an array of all the selectors that will have fancybox attached", function() {
         expect(typeof View.fancyBoxButtons.selectors === "object").toBeTruthy();
         expect($.isArray(View.fancyBoxButtons.selectors)).toBeTruthy();
       });
     });
   });
-  
+
   describe("debug", function() {
     describe("click", function() {
       beforeEach(function() {
@@ -34,7 +34,7 @@ describe("View", function() {
         );
       });
 
-      it("is called when the user clicks an element matching the selector", function() { 
+      it("is called when the user clicks an element matching the selector", function() {
         spyOn(View.debug, "click");
         View.initialize();
         $(View.debug.selector).click();
@@ -45,16 +45,16 @@ describe("View", function() {
     });
   });
 
-  describe("flashes", function() { 
-    describe("animate", function() { 
-      beforeEach(function() { 
+  describe("flashes", function() {
+    describe("animate", function() {
+      beforeEach(function() {
         $("#jasmine_content").html(
-          '<div id="flash_notice">' + 
-            'flash! flash! flash!' + 
+          '<div id="flash_notice">' +
+            'flash! flash! flash!' +
           '</div>'
         );
       });
- 
+
       it("is called when the DOM is ready", function() {
         spyOn(View.flashes, "animate").andCallThrough();
         View.initialize();
@@ -62,9 +62,9 @@ describe("View", function() {
       });
     });
   });
-  
-  describe("newRequest", function() { 
-    beforeEach(function() { 
+
+  describe("newRequest", function() {
+    beforeEach(function() {
       $("#jasmine_content").html(
         '<div id="user@joindiaspora.com">' +
           '<form accept-charset="UTF-8" action="/requests" class="new_request" data-remote="true" id="new_request" method="post">' +
@@ -79,7 +79,7 @@ describe("View", function() {
       );
     });
 
-    describe("submit", function() { 
+    describe("submit", function() {
       it("is called when the user submits the form", function() {
         spyOn(View.newRequest, "submit").andCallThrough();
         View.initialize();
@@ -94,15 +94,15 @@ describe("View", function() {
   describe("publisher", function() {
     beforeEach(function() {
       $("#jasmine_content").html(
-        '<div id="publisher">' + 
-          '<form action="/status_messages" class="new_status_message" id="new_status_message" method="post">' + 
-            '<textarea id="status_message_message" name="status_message[message]"></textarea>' + 
+        '<div id="publisher">' +
+          '<form action="/status_messages" class="new_status_message" id="new_status_message" method="post">' +
+            '<textarea id="status_message_message" name="status_message[message]"></textarea>' +
           '</form>' +
         '</div>'
       );
     });
 
-    describe("keydown", function() { 
+    describe("keydown", function() {
       it("is called when the user types", function() {
         spyOn(View.publisher, "keydown");
         View.initialize();
@@ -122,7 +122,7 @@ describe("View", function() {
       });
     });
   });
-  
+
   describe("search", function() {
     beforeEach(function() {
       $("#jasmine_content").html(
@@ -170,7 +170,7 @@ describe("View", function() {
          '</div>' +
          '<a href="#">Jasmine Specson</a>' +
         '</ul>'
-      );      
+      );
     });
     describe("click", function() {
       it("adds the class 'active' when the user clicks the ul", function() {
@@ -191,11 +191,11 @@ describe("View", function() {
       });
     });
   });
-  
+
   describe("webFingerForm", function() {
     beforeEach(function() {
       $("#jasmine_content").html(
-        '<div class="span-7 last">' + 
+        '<div class="span-7 last">' +
           '<h4>' +
             'Add a new contact' +
           '</h4>' +
