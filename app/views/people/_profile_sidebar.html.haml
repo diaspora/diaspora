@@ -16,25 +16,24 @@
 
 #profile
   .profile_photo
-    = person_image_link(person, :to => :photos)
+    = person_image_link(person, :size => :thumb_large, :to => :photos)
 
   %p
-    = action_link(person, is_contact)
+    = action_link(person, contact)
 
   %hr{:style=>"width:300px;"}
 
   %ul
-    - if is_contact
+    - if contact
       %li
-        %ul#aspects_for_person
-          %b= t('.in_aspects')
-          %br
-          - for aspect in @aspects_with_person
-            %li
-              = link_to aspect.name, aspect
-              = link_to "x", {:controller => "aspects", :action => "remove_from_aspect", :person_id => person.id, :aspect_id => aspect.id}, :confirm => t('.remove_from', :name => person.name, :aspect => aspect), :remote => true, :class => "delete"
+        = render :partial => 'people/aspect_list',
+          :locals => {:contact => contact,
+                      :aspects_with_person => @aspects_with_person,
+                      :aspects_without_person => @aspects.reject{ |aspect| @aspects_with_person.include?(aspect)}}
+      %br
+      %hr{:style=>"width:300px;"}
 
-  -if is_contact || person == current_user.person
+  -if contact || person == current_user.person
     %ul#profile_information
       %li
         %h3 #{t('.bio')}

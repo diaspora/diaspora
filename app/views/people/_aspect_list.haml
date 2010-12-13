@@ -1,0 +1,50 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :head do
+  =javascript_include_tag 'contact-list'
+
+  :javascript
+    $(document).ready(function() {
+      $("#edit_contact_aspects").click(function(evt){
+        evt.preventDefault();
+        $(".badges").fadeOut(200, function(){
+          $(".edit").fadeIn(200);
+        });
+      });
+
+      $("#done_contact_aspects").click(function(evt){
+        evt.preventDefault();
+        $(".edit").fadeOut(200, function(){
+          $(".badges").fadeIn(200);
+        });
+      });
+    });
+
+.aspects
+  .badges
+    - for aspect in aspects_with_person
+      = render :partial => 'aspects/aspect_badge', :locals => {:aspect => aspect}
+    .right
+      = link_to "edit aspect membership", "#", :id=> "edit_contact_aspects"
+
+  .edit
+    .contact_list
+      %ul
+        - for aspect in aspects_with_person
+          %li
+            %span.name
+              = link_to aspect.name, aspect
+            .right
+              = aspect_membership_button(aspect.id, contact)
+
+        - for aspect in aspects_without_person
+          %li
+            %span.name
+              = link_to aspect.name, aspect
+            .right
+              = aspect_membership_button(aspect.id, contact)
+
+    .right
+      = link_to "done editing", "#", :id => "done_contact_aspects"

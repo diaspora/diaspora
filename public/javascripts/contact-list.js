@@ -5,7 +5,7 @@
 
 
 $(document).ready( function(){
-  var ContactList = {
+  var List = {
     initialize: function(){
       $(".contact_list_search").keyup(function(e){
         var search = $(this);
@@ -23,32 +23,25 @@ $(document).ready( function(){
           }
         });
       });
-    },
-
-    refreshContactCount: function(){
-      var contactCountElement = $(".aspect_contact_count"),
-          contactCount = $(".contact_pictures")[0].childElementCount,
-          newHTML = contactCountElement.html().replace(/\d+/,contactCount);
-
-      contactCountElement.html(newHTML);
     }
   };
 
-  $('.added').live('ajax:loading', function(data, html, xhr) {
+  $('.added').live('ajax:loading', function() {
     $(this).fadeTo(200,0.4);
   });
 
-  $('.added').live('ajax:success', function(data, html, xhr) {
-    var person_id = $(this).closest("li").find(".avatar").attr("data-person_id");
-    $(".contact_pictures").find("img[data-person_id='"+person_id+"']").parent().remove();
+  $('.added').live('ajax:success', function(data, json, xhr) {
+    var json = $.parseJSON(json);
+    var contactPictures = $(".contact_pictures");
 
-    $(this).parent().html(html);
-    ContactList.refreshContactCount();
-
-    if( $(".contact_pictures")[0].childElementCount == 0 ) {
-      $("#no_contacts").fadeIn(200);
+    if( contactPictures.length > 0 ) {
+      if( contactPictures[0].childElementCount == 0 ) {
+        $("#no_contacts").fadeIn(200);
+      }
     }
 
+    $(".aspect_badge[guid='"+json['aspect_id']+"']", ".aspects").remove();
+    $(this).parent().html(json['button_html']);
     $(this).fadeTo(200,1);
   });
 
@@ -57,21 +50,18 @@ $(document).ready( function(){
     $(this).fadeTo(200,1);
   });
 
-  $('.add').live('ajax:loading', function(data, html, xhr) {
+  $('.add').live('ajax:loading', function() {
     $(this).fadeTo(200,0.4);
   });
 
-  $('.add').live('ajax:success', function(data, html, xhr) {
-    var person_image = $(this).closest("li").find(".avatar")
-    person_image.parent().clone().appendTo(".contact_pictures");
-
-    $(this).parent().html(html);
-    ContactList.refreshContactCount();
-
+  $('.add').live('ajax:success', function(data, json, xhr) {
+    var json = $.parseJSON(json);
     if( $("#no_contacts").is(':visible') ) {
       $("#no_contacts").fadeOut(200);
     }
 
+    $(".badges").prepend(json['badge_html']);
+    $(this).parent().html(json['button_html']);
     $(this).fadeTo(200,1);
   });
 
@@ -83,5 +73,5 @@ $(document).ready( function(){
     $(this).children("img").attr("src","/images/icons/monotone_check_yes.png");
   });
 
-  ContactList.initialize();
+  List.initialize();
 });

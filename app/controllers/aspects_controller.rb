@@ -15,7 +15,7 @@ class AspectsController < ApplicationController
     @aspect = :all
 
     @contact_hashes = hashes_for_contacts @contacts
-    
+
     if current_user.getting_started == true
       redirect_to getting_started_path
     end
@@ -48,7 +48,7 @@ class AspectsController < ApplicationController
     begin
       current_user.drop_aspect @aspect
       flash[:notice] = I18n.t 'aspects.destroy.success',:name => @aspect.name
-    rescue RuntimeError => e 
+    rescue RuntimeError => e
       flash[:error] = e.message
     end
 
@@ -106,12 +106,21 @@ class AspectsController < ApplicationController
 
   def add_to_aspect
     begin current_user.add_person_to_aspect( params[:person_id], params[:aspect_id])
+
+      @aspect = current_user.aspects.find(params[:aspect_id])
+      @aspect_id = @aspect.id
       @person_id = params[:person_id]
-      @aspect_id = params[:aspect_id]
+
       flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
       respond_to do |format|
-        format.js { render :status => 200 }
+        format.js { render :json => {
+          :button_html => render_to_string(:partial => 'aspects/add_to_aspect',
+                           :locals => {:aspect_id => @aspect_id,
+                                       :person_id => @person_id}),
+          :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
+                              :locals => {:aspect => @aspect})
+          }}
         format.html{ redirect_to aspect_path(@aspect_id)}
       end
     rescue Exception => e
@@ -130,7 +139,12 @@ class AspectsController < ApplicationController
       flash.now[:notice] = I18n.t 'aspects.remove_from_aspect.success'
 
       respond_to do |format|
-        format.js { render :status => 200 }
+        format.js { render :json => {:button_html =>
+          render_to_string(:partial => 'aspects/remove_from_aspect',
+                           :locals => {:aspect_id => @aspect_id,
+                                       :person_id => @person_id}),
+          :aspect_id => @aspect_id
+        }}
         format.html{ redirect_to aspect_path(@aspect_id)}
       end
     rescue Exception => e
@@ -142,7 +156,7 @@ class AspectsController < ApplicationController
       end
     end
   end
-  
+
   private
   def hashes_for_contacts contacts
     people = Person.all(:id.in => contacts.map{|c| c.person_id}, :fields => [:profile])
@@ -154,7 +168,7 @@ class AspectsController < ApplicationController
   def hashes_for_aspects aspects, contacts, opts = {}
     aspects.map do |a|
       hash = {:aspect => a}
-      aspect_contacts = contacts.select{|c| 
+      aspect_contacts = contacts.select{|c|
           c.aspect_ids.include?(a.id)}
       hash[:contact_count] = aspect_contacts.count
       person_ids = aspect_contacts.map{|c| c.person_id}
