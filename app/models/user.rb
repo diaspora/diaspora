@@ -304,7 +304,7 @@ class User
   def update_profile(params)
     if params[:photo]
       params[:photo].update_attributes(:pending => false) if params[:photo].pending
-      params[:image_url] = params[:photo].url
+      params[:image_url] = params[:photo].url(:thumb_large)
       params[:image_url_medium] = params[:photo].url(:thumb_medium)
       params[:image_url_small] = params[:photo].url(:thumb_small)
     end
