@@ -208,6 +208,12 @@ describe ApplicationHelper do
         res = markdownify(message)
         res.should == "These<br /\>are<br /\>some<br /\>new<br /\>lines"
       end
+      
+      it 'should render newlines and basic http links correctly' do
+        message = "Some text, then a line break and a link\nhttp://joindiaspora.com\nsome more text"
+        res = markdownify(message)
+        res.should == 'Some text, then a line break and a link<br /><a target="_blank" href="http://joindiaspora.com">joindiaspora.com</a><br />some more text'
+      end
     end
 
     context 'performance' do

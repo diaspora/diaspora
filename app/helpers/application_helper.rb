@@ -193,8 +193,8 @@ module ApplicationHelper
     end
 
     if options[:autolinks]
-      message.gsub!(/( |^)(www\.[^ ]+\.[^ ])/, '\1http://\2')
-      message.gsub!(/(<a target="\\?_blank" href=")?(https|http|ftp):\/\/([^ ]+)/) do |m|
+      message.gsub!(/( |^)(www\.[^\s]+\.[^\s])/, '\1http://\2')
+      message.gsub!(/(<a target="\\?_blank" href=")?(https|http|ftp):\/\/([^\s]+)/) do |m|
         if !$1.nil?
           m
         else
