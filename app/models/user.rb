@@ -61,7 +61,7 @@ class User
     person.save if person
   end
 
-  attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
+  attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail, :email
 
   def strip_and_downcase_username
     if username.present?
@@ -304,7 +304,7 @@ class User
   def update_profile(params)
     if params[:photo]
       params[:photo].update_attributes(:pending => false) if params[:photo].pending
-      params[:image_url] = params[:photo].url
+      params[:image_url] = params[:photo].url(:thumb_large)
       params[:image_url_medium] = params[:photo].url(:thumb_medium)
       params[:image_url_small] = params[:photo].url(:thumb_small)
     end

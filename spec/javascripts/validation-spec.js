@@ -7,6 +7,13 @@ describe("Validation", function() {
         });
       });
     });
+    describe("email", function() {
+      describe("characters", function() {
+         it("is the regex for checking if the input is a valid list of e-mail addresses", function() {
+           expect((typeof Validation.rules.email.characters.test === "function")).toBeTruthy();
+         });
+      });
+    });  
   });
   describe("events", function() { 
     describe("usernameKeypress", function() { 
@@ -15,6 +22,17 @@ describe("Validation", function() {
         expect(Validation.rules.username.characters.test("Aa_")).toBeTruthy();
         expect(Validation.rules.username.characters.test("ffffffffffffffffffffffffffffffffff")).toBeFalsy();
       }); 
+    });
+    describe("emailKeypress", function() {
+      it("colors the border red if the input seems to be a invalid list", function() {
+        expect(Validation.rules.email.characters.test("user@example.com")).toBeTruthy();
+        expect(Validation.rules.email.characters.test("user@example.com, user@example.com")).toBeTruthy();
+        expect(Validation.rules.email.characters.test("user@example.com, user@example.com, user@example.com")).toBeTruthy();
+        expect(Validation.rules.email.characters.test("user@example.com user@example.com")).toBeFalsy();
+        expect(Validation.rules.email.characters.test("user@examplecom")).toBeFalsy();
+        expect(Validation.rules.email.characters.test("userexample.com")).toBeFalsy();
+        expect(Validation.rules.email.characters.test("userexamplecom")).toBeFalsy();
+      });
     });
   });
 });

@@ -37,8 +37,12 @@
   .span-8.last
     %h3
       = t('.your_email')
-    %p
-      = current_user.email
+    = form_for @user do |f|
+      = f.error_messages
+      %p
+        = f.label :email, current_user.email
+        = f.text_field :email
+        = f.submit t('.change_email')
 
   %br
   %br
