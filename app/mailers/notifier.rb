@@ -2,7 +2,7 @@ class Notifier < ActionMailer::Base
 
   default :from => APP_CONFIG[:smtp_sender_address]
 
-  ATTACHMENT = File.read("#{Rails.root}/public/images/diaspora_white_on_grey.png")
+  ATTACHMENT = File.read("#{Rails.root}/public/images/white_on_grey.png")
 
   def self.admin(string, recipients, opts = {})
     mails = []
