@@ -176,6 +176,7 @@ en:
           close_account: "Close Account"
           change_language: "Change Language"
           change_password: "Change Password"
+          change_email: "Change Email"
           new_password: "New Password"
           download_xml: "download my xml"
           download_photos: "download my photos"
@@ -220,6 +221,8 @@ en:
           language_changed: "Language Changed"
           language_not_changed: "Language Change Failed"
           email_notifications_changed: "Language Change Failed"
+          email_changed: "Email Changed"
+          email_not_changed: "Email Change Failed"
       public:
           does_not_exist: "User %{username} does not exist!"
   comments:
