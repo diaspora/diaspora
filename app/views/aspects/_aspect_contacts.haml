@@ -21,6 +21,9 @@
     - for contact in contacts
       = person_image_link(contact[:person])
 
+    %br
+    %br
+    %br
     .section
       %h3= t('shared.invitations.invites')
       = render "shared/invitations", :invites => @invites

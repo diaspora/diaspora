@@ -19,28 +19,28 @@
         = link_to t('_photos'), person_photos_path(@person)
 
 .span-8.append-1.last
-  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :is_contact => @contact}
+  = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact}
 
 .span-15.last
   - unless @contact || current_user.person == @person
     - if current_user.has_incoming_request_from(@person)
       .floating
-        %h3 
-          = t('.incoming_request') 
+        %h3
+          = t('.incoming_request')
         %h4
           = link_to t('.return_to_aspects'), aspects_manage_path
           = t('.to_accept_or_ignore')
-          
+
     - else
       .floating
         %h3
           = t('.not_connected', :name => @person.name)
-          
+
         - unless pending_request_for(@person)
           %h3
             .description
               = t('.request_people')
-           
+
           = render :partial =>'requests/new_request_to_person', :locals => {:aspects => @aspects, :destination_handle => @person.diaspora_handle}
 
         - else
