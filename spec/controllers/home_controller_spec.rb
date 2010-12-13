@@ -16,7 +16,7 @@ describe HomeController do
   describe '#show' do
     it 'should show a login link if no user is not logged in' do
       get :show 
-      response.body.should include("log in")
+      response.body.should include("login")
     end
 
     it 'should redirect to aspects index if user is logged in' do
@@ -68,7 +68,7 @@ describe HomeController do
         @lines = Rails.logger.infos.select{|l| l.include?("event=render")}
       end
       it 'logs all renders' do
-        @lines.length.should == 2
+        @lines.length.should == 1
       end
       it 'logs layouts' do
         pending 'where is the template=home/show line?'
