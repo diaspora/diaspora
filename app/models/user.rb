@@ -61,7 +61,7 @@ class User
     person.save if person
   end
 
-  attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
+  attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail, :email
 
   def strip_and_downcase_username
     if username.present?
