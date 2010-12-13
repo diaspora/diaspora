@@ -28,7 +28,7 @@ de:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Alle Aspekte"
       unknown_person: "unbekannte Person"
       youtube_title: 
         unknown: "Unbekannter Video-Titel"
@@ -136,7 +136,7 @@ de:
     edit: 
       sign_up: "anmelden"
     new: 
-      already_invited: "Already invited"
+      already_invited: "Bereits Eingeladen"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen eintragen. Trenne sie mit Kommata."
       if_they_accept_info: "wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
@@ -203,8 +203,8 @@ de:
       people_on_pod_are_aware_of: "Leute auf dem Pod wissen von"
       results_for: "Ergebnisse für %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      couldnt_find_them_send_invite: "Konntest Du sie nicht finden? Schick eine Einladung!"
+      no_one_found: "... und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
     person: 

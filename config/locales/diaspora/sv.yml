@@ -28,7 +28,7 @@ sv:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Alla sidor"
       unknown_person: "okänd person"
       youtube_title: 
         unknown: "Okänd videotitel"
@@ -136,7 +136,7 @@ sv:
     edit: 
       sign_up: "registrera"
     new: 
-      already_invited: "Already invited"
+      already_invited: "Redan inbjuden"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
@@ -203,8 +203,8 @@ sv:
       people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
       results_for: " resultat för %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      couldnt_find_them_send_invite: "Fanns de inte här?  Skicka en inbjudan!"
+      no_one_found: "...och ingen hittades."
       no_results: "Du måste söka efter något."
       results_for: "Sökresultat för"
     person: 

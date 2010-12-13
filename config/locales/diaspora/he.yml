@@ -28,7 +28,7 @@ he:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "כל ההיבטים"
       unknown_person: "אדם לא ידוע"
       youtube_title: 
         unknown: "כותרת הווידאו אינה ידועה"

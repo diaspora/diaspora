@@ -28,7 +28,7 @@ it:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Tutti gli aspetti"
       unknown_person: "persona sconosciuta"
       youtube_title: 
         unknown: "Titolo Video Sconosciuto"
@@ -38,12 +38,12 @@ it:
       failure: "Errore nell'aggiungere il contatto all'aspetto."
       success: "Contatto aggiunto all'aspetto con successo."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
+      add_aspect: "aggiungi aspetto"
+      all_contacts: "Tutti i contatti"
+      aspects: "Aspetto"
+      no_contacts: "Al momento non hai alcun contatto.  Clicca qui per trovare nuovi contatti."
     aspect_contacts: 
-      done_editing: "done editing"
+      done_editing: "modifica eseguita"
     create: 
       failure: "Creazione dell'aspetto fallita."
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
@@ -90,7 +90,7 @@ it:
     show: 
       edit_aspect: "modifica aspetto"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "Il tuo  aspetto, %{name}, ha un nome troppo lungo per poter essere salvato."
       success: "Il tuo aspetto, %{name}, è stato modificato con successo."
   back: "Indietro"
   cancel: "Annulla"
@@ -122,26 +122,26 @@ it:
       share_what_you_want: "Condividi ciò che vuoi, con chi vuoi"
       simplicity: "Semlpicità"
       simplicity_explanation: "Diaspora permette una condivisione facile e veloce - e lo stesso accade per la gestione della privacy. Essendo riservata per natura, Diaspora non ti fa smarrire tra paginate di impostazioni e opzioni solo per tenere il tuo profilo sicuro."
-      tagline_first_half: "Share what you want,"
+      tagline_first_half: "Condividi ciò che desideri,"
       tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
       not_found: "Token di invito non trovato"
     create: 
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
+      already_contacts: "Sei gi&agrave; connessa con questa persona"
+      already_sent: "Hai gi&agrave; invitato questa persona."
       no_more: "Non hai più inviti a disposizione"
       rejected: "Questo indirizzo email ha dei problemi: "
       sent: "Il tuo invito è stato inviato."
     edit: 
       sign_up: "iscriviti"
     new: 
-      already_invited: "Already invited"
-      aspect: "Aspect"
+      already_invited: "Già invitato"
+      aspect: "Aspetto"
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+      if_they_accept_info: "se loro accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad unirsi a Diaspora!"
-      personal_message: "Personal message"
+      personal_message: "Messaggio privato"
       send_an_invitation: "Invia un invito"
       send_invitation: "Invito inviato"
       to: "A"
@@ -188,7 +188,7 @@ it:
   people: 
     edit: 
       allow_search: "Permetti alle persone di cercarti"
-      edit_profile: "Edit profile"
+      edit_profile: "Modifica profilo"
       first_name: "Nome"
       info_available_to: "Questa informazione sarà disponibile a tutti i tuoi contatti su Diaspora."
       last_name: "Cognome"
@@ -203,9 +203,9 @@ it:
       people_on_pod_are_aware_of: " le persone sul pod sanno che"
       results_for: " risultati per %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
-      no_results: "Hey! You need to search for something."
+      couldnt_find_them_send_invite: "Non li trovi? Manda loro un invito!"
+      no_one_found: "...e nessuno è stato trovato."
+      no_results: "Ehi! Devi inserire qualcosa da cercare."
       results_for: "risultati della ricerca per"
     person: 
       add_contact: "aggiungi contatto"
@@ -222,13 +222,13 @@ it:
       remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
     show: 
-      already_requested: "You have already sent a request to %{name}."
+      already_requested: "Hai gi&agrave; inviato una richiesta a %{name}."
       does_not_exist: "La persona non esiste!"
       incoming_request: "Hai ricevuto una richiesta da questa persona."
       no_posts: "nessun post da mostrare!"
-      not_connected: "You are not connected with this person"
-      recent_posts: "Recent Posts"
-      recent_public_posts: "Recent Public Posts"
+      not_connected: "Non sei in contatto con questa persona"
+      recent_posts: "Post Recenti"
+      recent_public_posts: "Post pubblici recenti"
       request_people: "Se lo desideri, puoi richiedere di posizionarlo in uno dei tuoi aspetti."
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
       to_accept_or_ignore: "per accettarla o ignorarla."
@@ -236,7 +236,7 @@ it:
       failed: "Impossibile aggiornare il profilo"
       updated: "Profilo aggiornato"
     webfinger: 
-      fail: "Sorry, we couldn't find %{handle}."
+      fail: "Spiacenti, non possiamo trovare %{handle}."
   photos: 
     create: 
       integrity_error: "Il caricamento della foto non è riuscito. Sei sicuro che fosse un'immagine?"
@@ -255,8 +255,8 @@ it:
       invalid_ext: "{file} ha un estensione non valida. Sono permesse soltanto {extensions}."
       size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "oppure selezionane uno da quelli già esistenti"
+      upload: "Carica una nuova foto profilo!"
     photo: 
       view_all: "guarda tutte le foto di %{name}"
     show: 
@@ -284,10 +284,10 @@ it:
       unhappy: "Triste?"
       update: "Aggiorna"
     new: 
-      enter_email: "Enter an e-mail"
-      enter_password: "Enter a password"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      enter_email: "Inserisci un e-mail"
+      enter_password: "Inserisci una password"
+      enter_password_again: "Inserisci la stessa password di prima"
+      enter_username: "Scegli un nome utente (inserisci solo lettere, numeri e trattino basso)"
       sign_up: "Iscriviti"
       sign_up_for_diaspora: "Iscriviti a Diaspora"
   requests: 
@@ -315,7 +315,7 @@ it:
       connect_to_facebook: "Connettiti a facebook"
       connect_to_twitter: "Connettiti a twitter"
       disconnect: "disconnetti"
-      edit_services: "Edit services"
+      edit_services: "Modifica servizi"
       logged_in_as: "connesso come"
       really_disconnect: "disconnettere %{service}?"
   settings: "Impostazioni"
@@ -371,14 +371,14 @@ it:
   users: 
     destroy: "Account chiuso con successo."
     edit: 
-      change: "Change"
+      change: "Cambia"
       change_language: "Cambia Lingua"
       change_password: "Cambia Password"
       close_account: "Chiudi Account"
       download_photos: "scarica le mie"
       download_xml: "scarica il mio xml"
-      edit_account: "Edit account"
-      email_notifications: "Email notificaions"
+      edit_account: "Modifica account"
+      email_notifications: "Notifiche email "
       export_data: "Esporta Dati"
       new_password: "Nuova Password"
       receive_email_notifications: "Receive email notificaions?"

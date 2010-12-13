@@ -28,7 +28,7 @@ fr:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Tous les aspects"
       unknown_person: "personne inconnue"
       youtube_title: 
         unknown: "Titre de vidéo inconnu"
