@@ -20,8 +20,8 @@ var Validation = {
       }
     }, 
     emailKeypress: function(evt) {
-      if(evt.charCode === 0) { return; }
-      if(!Validation.rules.email.characters.test(this.value + String.fromCharCode(evt.charCode))) {
+      if(evt.keyCode === 0) { return; }
+      if(!Validation.rules.email.characters.test(this.value + String.fromCharCode(evt.keyCode))) {
         $('#user_email').css('border-color', '#8B0000');
       } else {
         $('#user_email').css('border-color', '#666666');
