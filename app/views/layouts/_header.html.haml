@@ -5,9 +5,9 @@
 .container#head{:style => "position:relative;"}
 
   - if current_user
-    = link_to image_tag('diaspora_logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), root_path
+    = link_to image_tag('logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), root_path
   - else
-    = link_to image_tag('diaspora_logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
+    = link_to image_tag('logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
 
   - if !current_user 
     .right
