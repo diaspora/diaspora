@@ -135,7 +135,7 @@ da:
         inclusion: "er ikke i listen"
         exclusion: "er reserveret"
         invalid: "er ikke gyldig"
-        confirmation: stemmer ikke overens med bekræftelse"
+        confirmation: "stemmer ikke overens med bekræftelse"
         accepted: "skal accepteres"
         empty: "må ikke udelades"
         blank: "skal udfyldes"

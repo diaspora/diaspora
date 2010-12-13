@@ -120,7 +120,7 @@ fr-CA:
           million: "Million"
           billion: "Milliard"
           trillion: "Mille milliard"
-          quadrillion: "Million de milliard"
+          quadrillion: "Million de milliards"
 
   support:
     array:

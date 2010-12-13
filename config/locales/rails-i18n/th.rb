@@ -37,8 +37,8 @@ end
 :date => {
   :formats => {
     :default => lambda { |date, opts| "%d-%m-#{date.year + 543}" },
-    :short => "%e %b",
-    :long => lambda { |date, opts| "%e %B #{date.year + 543}" },
+    :short => "%d %b",
+    :long => lambda { |date, opts| "%d %B #{date.year + 543}" },
   },
 
   :day_names => ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
@@ -52,8 +52,8 @@ end
 :time => {
   :formats => {
     :default => lambda { |date, opts| "%a %d %b #{date.year + 543} %H:%M:%S %z" },
-    :short => "%e %b %H:%M น.",
-    :long => lambda { |date, opts| "%e %B #{date.year + 543} %H:%M น." },
+    :short => "%d %b %H:%M น.",
+    :long => lambda { |date, opts| "%d %B #{date.year + 543} %H:%M น." },
   },
   :am => "ก่อนเที่ยง",
   :pm => "หลังเที่ยง"

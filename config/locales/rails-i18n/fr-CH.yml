@@ -10,12 +10,12 @@ fr-CH:
       default: "%d.%m.%Y"
       short: "%e %b"
       long: "%e %B %Y"
-    day_names: [lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche]
-    abbr_day_names: [lun, mar, mer, jeu, ven, sam, dim]
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
     month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
     abbr_month_names: [~, jan., fév., mar., avr., mai, juin, juil., août, sept., oct., nov., déc.]
     order: [ :day, :month, :year ]
-  
+
   time:
     formats:
       default: "%d. %B %Y %H:%M"
@@ -69,7 +69,7 @@ fr-CH:
       hour:   "Heure"
       minute: "Minute"
       second: "Seconde"
-  
+
   number:
     format:
       separator: "."
@@ -102,8 +102,8 @@ fr-CH:
         format: "%n %u"
         units:
           byte:
-            one:   "Octet"
-            other: "Octets"
+            one:   "octet"
+            other: "octets"
           kb: "ko"
           mb: "Mo"
           gb: "Go"
@@ -112,12 +112,12 @@ fr-CH:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Millier"
-          million: "Million"
-          billion: "Milliard"
-          trillion: "Mille milliard"
-          quadrillion: "Million de milliard"
-  
+          thousand: "millier"
+          million: "million"
+          billion: "milliard"
+          trillion: "billion"
+          quadrillion: "million de milliards"
+
   support:
     array:
       words_connector: ", "
