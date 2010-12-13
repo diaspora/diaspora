@@ -12,6 +12,11 @@ module SocketsHelper
   def action_hash(uid, object, opts={})
     begin
       user = User.find_by_id uid
+      unless user.nil?
+        old_locale = I18n.locale
+        I18n.locale = user.language.to_s
+      end
+      
       if object.is_a? StatusMessage
         post_hash = {:post => object,
           :person => object.person,
@@ -59,7 +64,9 @@ module SocketsHelper
     end
 
     action_hash[:mine?] = object.person && (object.person.owner.id == uid) if object.respond_to?(:person)
-
+    
+    I18n.locale = old_locale unless user.nil?
+    
     action_hash.to_json
   end
 
