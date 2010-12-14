@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
       @aspect = nil
       @aspects = current_user.aspects.fields(:name)
       @aspects_dropdown_array = @aspects.collect{|x| [x.to_s, x.id]}
-      @contacts = current_user.contacts
     end
   end
 

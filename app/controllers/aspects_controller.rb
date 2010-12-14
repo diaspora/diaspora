@@ -11,6 +11,7 @@ class AspectsController < ApplicationController
   def index
     @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @post_hashes = hashes_for_posts @posts
+    @contacts = current_user.contacts
     @aspect_hashes = hashes_for_aspects @aspects.all, @contacts, :limit => 8
     @aspect = :all
 
@@ -61,6 +62,7 @@ class AspectsController < ApplicationController
 
   def show
     @aspect = current_user.aspect_by_id params[:id]
+    @contacts = current_user.contacts
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
@@ -77,6 +79,7 @@ class AspectsController < ApplicationController
 
   def manage
     @aspect = :manage
+    @contacts = current_user.contacts
     @remote_requests = Request.hashes_for_person(current_user.person)
     @aspect_hashes = hashes_for_aspects @aspects, @contacts
   end
