@@ -304,7 +304,7 @@ en:
           tell_me_something_good: "tell me something good"
           oh_yeah: "oh yeah!"
       show:
-          destroy: "Destroy"
+          destroy: "Delete"
           permalink: "permalink"
       helper:
           no_message_to_display: "No message to display."
@@ -384,7 +384,7 @@ en:
       create:
           success: "Authentication successful."
       destroy:
-          success: "Successfully destroyed authentication."
+          success: "Successfully deleted authentication."
       failure:
           error: "there was an error connecting that service"
   notifier:

@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 %li.message{:data=>{:guid=>post.id}}
-  =person_image_link(person, :size => :thumb_small)
+  = person_image_link(person, :size => :thumb_small)
 
   .content
     .from
@@ -24,7 +24,7 @@
 
       - elsif person.owner_id == current_user.id
         %span.arrow ➔
-        =aspect_badge(aspects_with_post(aspects, post))
+        = aspect_badge(aspects_with_post(aspects, post))
 
 
     = render 'status_messages/status_message', :post => post, :photos => photos
@@ -34,4 +34,3 @@
       = comment_toggle(comments.length, @commenting_disabled)
 
     = render "comments/comments", :post_id => post.id, :comment_hashes => comments, :condensed => true, :commenting_disabled => defined?(@commenting_disabled)
-

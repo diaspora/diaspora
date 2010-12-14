@@ -18,7 +18,7 @@
 
   %hr
 
-  = link_to t('.permalink'), post_path(@status_message)
+  = link_to t('.permalink'), post_path(@status_message) if @status_message.public
   %br
   - if current_user.owns? @status_message
     = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
