@@ -5,8 +5,8 @@
     $("#user_username").focus();
   });
 
-.span-12.prepend-6.last
-  .floating
+.span-12
+  .floating{:style =>"margin-top:50px"}
     %h3
       = t('registrations.new.sign_up_for_diaspora')
     = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put }) do |f|
@@ -24,4 +24,24 @@
       = f.submit t('registrations.new.sign_up')
       %br
       = render :partial => "devise/shared/links"
+.span-10.prepend-2.last
+  .span-10.last
+    .info_pane
+      %h2
+        = t('home.show.choice')
+      %p
+        = t('home.show.choice_explanation')
+  .span-10.last
+    .info_pane
+      %h2
+        = t('home.show.ownership')
+      %p
+        = t('home.show.ownership_explanation')
+  .span-10.last
+    .info_pane
+      %h2
+        = t('home.show.simplicity')
+      %p
+        = t('home.show.simplicity_explanation')
+
 
