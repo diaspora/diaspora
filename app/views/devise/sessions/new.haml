@@ -17,10 +17,11 @@
         %p
           = f.label :password , t('password')
           = f.password_field :password
-      /%p
-      /- if devise_mapping.rememberable?
-      /  = f.check_box :remember_me
-      /  = f.label :remember_me , t('.remember_me')
+      %p.checkbox_select
+        - if devise_mapping.rememberable?
+          = f.check_box :remember_me
+          = f.label :remember_me , t('.remember_me')
+          %br
       = f.submit t('.sign_in')
 
     %p
