@@ -4,6 +4,6 @@
     %span
       = t('contacts', :count => contact_count)
 
-  - if contact_count > 0 
-    - for person in people
-      = person_image_link(person)
+  - if contact_count > 0
+    - for hash in contacts
+      = person_image_link(hash[:person])

@@ -51,17 +51,17 @@
             %li!= remove_link(hash[:aspect])
 
         %ul.dropzone{:data=>{:aspect_id=>hash[:aspect].id}}
-          -for person in hash[:people]
-            %li.person{:data=>{:guid=>person.id, :aspect_id=>hash[:aspect].id}}
+          -for contact_hash in hash[:contacts]
+            %li.person{:data=>{:guid=>contact_hash[:person].id, :aspect_id=>hash[:aspect].id}}
               .delete
                 .x
                   X
                 .circle
-              = link_to person_image_tag(person), person
+              = link_to person_image_tag(contact_hash[:person]), contact_hash[:person]
           .draggable_info
             =t('.drag_to_add')
 
           .fancybox_content
             %div{:id => "manage_aspect_contacts_pane_#{hash[:aspect].id}"}
-              = render "requests/manage_aspect_contacts", :aspect_name => hash[:aspect].name, :aspect_id => hash[:aspect].id, :manage => true
+              = render "requests/manage_aspect_contacts", :aspect => hash[:aspect], :manage => true, :contact_hashes => hash[:contacts]
 

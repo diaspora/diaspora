@@ -166,13 +166,17 @@ class AspectsController < ApplicationController
   end
 
   def hashes_for_aspects aspects, contacts, opts = {}
+    contact_hashes = hashes_for_contacts contacts
     aspects.map do |a|
       hash = {:aspect => a}
-      aspect_contacts = contacts.select{|c|
-          c.aspect_ids.include?(a.id)}
-      hash[:contact_count] = aspect_contacts.count
-      person_ids = aspect_contacts.map{|c| c.person_id}
-      hash[:people] = Person.all({:id.in => person_ids, :fields => [:profile]}.merge(opts))
+      aspect_contact_hashes = contact_hashes.select{|c|
+          c[:contact].aspect_ids.include?(a.id)}
+      hash[:contact_count] = aspect_contact_hashes.count
+      if opts[:limit]
+        hash[:contacts] = aspect_contact_hashes.slice(0,opts[:limit])
+      else
+        hash[:contacts] = aspect_contact_hashes
+      end
       hash
     end
   end

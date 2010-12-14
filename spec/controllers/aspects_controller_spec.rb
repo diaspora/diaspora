@@ -190,19 +190,20 @@ describe AspectsController do
       @hashes.length.should == 2
       @hash[:aspect].should == @aspect
     end
-    it 'has a contact count' do
+    it 'has a contact_count' do
       @hash[:contact_count].should == @aspect.contacts.count
     end
-    it 'has people' do
-      desired_people = @aspect.contacts.map{|c| c.person.id}
-      gotten_people = @hash[:people].map{|p| p.id}
-      gotten_people.each{|p| desired_people.should include p}
+    it 'takes a limit on contacts returned' do
+      @hash[:contacts].count.should == 9
     end
-    it 'takes a limit on people returned' do
-      @hash[:people].length.should == 9
+    it 'has a person in each hash' do
+      @aspect.contacts.map{|c| c.person}.include?(@hash[:contacts].first[:person]).should be_true
     end
     it "does not return the rsa key" do
-      @hash[:people].first.serialized_public_key.should be_nil
+      @hash[:contacts].first[:person].serialized_public_key.should be_nil
+    end
+    it 'has a contact in each hash' do
+      @aspect.contacts.include?(@hash[:contacts].first[:contact]).should be_true
     end
   end
 

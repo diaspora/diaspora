@@ -30,10 +30,5 @@ module AspectsHelper
       remove_from_aspect_button(aspect_id, contact.person.id)
     end
   end
-
-  def contact_link(contact)
-    person = contact.person 
-    link_to person.name, person
-  end
 end
 
