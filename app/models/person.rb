@@ -68,7 +68,7 @@ class Person
   end
 
   def name
-    @name ||= if profile.first_name.nil? || profile.first_name.empty?
+    @name ||= if profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle
               else
                 "#{profile.first_name.to_s} #{profile.last_name.to_s}"
