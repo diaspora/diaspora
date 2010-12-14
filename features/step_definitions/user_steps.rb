@@ -3,6 +3,12 @@ Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, 
           :password_confirmation => password, :getting_started => false)
 end
 
+Given /^a user with email "([^\"]*)"$/ do |email|
+  user = Factory(:user, :email => email, :password => 'password',
+          :password_confirmation => 'password', :getting_started => false)
+  user.aspects.create(:name => "Besties")
+end
+
 Given /^I have been invited by an admin$/ do
   @me = Invitation.create_invitee(:email => "new_invitee@example.com")
 end

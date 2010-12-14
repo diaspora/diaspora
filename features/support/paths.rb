@@ -13,6 +13,8 @@ module NavigationHelpers
       accept_user_invitation_path(:invitation_token => @me.invitation_token)
     when /^the requestor's profile page$/
       person_path(@me.reload.pending_requests.first.from)
+    when /^"([^\"]*)"'s page$/
+      person_path(User.find_by_email($1).person)
     when /^"(\/.*)"/
       $1
     else
