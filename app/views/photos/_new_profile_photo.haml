@@ -22,7 +22,7 @@
          var uploader = new qq.FileUploaderBasic({
              element: document.getElementById('file-upload'),
              params: {'photo' : {'pending' : true, 'aspect_ids' : "all"}},
-             allowedExtensions: ['jpg', 'jpeg', 'png', 'gif'],
+             allowedExtensions: ['jpg', 'jpeg', 'png'],
              action: "#{photos_path}",
              debug: true,
              button: document.getElementById('file-upload'),
