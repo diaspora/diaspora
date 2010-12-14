@@ -9,7 +9,7 @@
     - for contact in contacts
       %li
         %span.name
-          = link_to contact.person.name, contact.person
+          = contact_link contact
         .right
           = aspect_membership_button(aspect_id, contact)
 
