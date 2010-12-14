@@ -11,7 +11,7 @@ describe RequestsController do
 
     sign_in :user, @user
     request.env["HTTP_REFERER"] = "http://test.host"
-    
+
     @user.aspects.create!(:name => "lame-os")
     @user.reload
 
@@ -38,7 +38,7 @@ describe RequestsController do
         response.should be_success
       end
       it "removes the request object" do
-        lambda { 
+        lambda {
           xhr :delete, :destroy, "id" => @friend_request.id.to_s
           }.should change(Request, 'count').by(-1)
       end
@@ -46,57 +46,77 @@ describe RequestsController do
   end
 
   describe '#create' do
+    context 'valid new request' do
+      before do
+        @params = {:request => {:to => @other_user.diaspora_handle,
+          :into => @user.aspects[0].id}}
+      end
+      it 'creates a contact' do
+        @user.contact_for(@other_user).should be_nil
+        lambda {
+          post :create, @params
+        }.should change(Contact,:count).by(1)
+        new_contact = @user.reload.contact_for(@other_user)
+        new_contact.should_not be_nil
+        new_contact.should be_pending
+      end
+      it 'does not persist a Request' do
+        lambda {
+          post :create, @params
+        }.should_not change(Request,:count)
+      end
+    end
     it 'autoaccepts and when sending a request to someone who sent me a request' do
-        #pending "When a user sends a request to person who requested them the request should be auto accepted"
-        @other_user.send_contact_request_to(@user.person, @other_user.aspects[0])
-        @user.reload.pending_requests.count.should == 1
-        @user.contact_for(@other_user.person).should be_nil
+      @other_user.send_contact_request_to(@user.person, @other_user.aspects[0])
+      @user.reload.pending_requests.count.should == 1
+      @user.contact_for(@other_user.person).should be_nil
 
-        post(:create, :request => {
-          :to => @other_user.diaspora_handle,
-          :into => @user.aspects[0].id 
-        } 
-            )
-        @user.reload.pending_requests.count.should == 0
-        @user.contact_for(@other_user.person).should_not be_nil
-        @user.aspects[0].contacts.all(:person_id => @other_user.person.id).should_not be_nil
+      post(:create, :request => {
+        :to => @other_user.diaspora_handle,
+        :into => @user.aspects[0].id}
+      )
+      @user.reload.pending_requests.count.should == 0
+      @user.contact_for(@other_user.person).should_not be_nil
+      @user.aspects[0].contacts.all(:person_id => @other_user.person.id).should_not be_nil
     end
 
     it "redirects when requesting to be contacts with yourself" do
       post(:create, :request => {
         :to => @user.diaspora_handle,
-        :into => @user.aspects[0].id 
-        } 
-      )
-      response.should redirect_to :back
-    end
-  
-    it "flashes and redirects when requesting an invalid identity" do
-      post(:create, :request => {
-        :to => "not_a_@valid_email",
-        :into => @user.aspects[0].id 
+        :into => @user.aspects[0].id
         }
       )
       flash[:error].should_not be_blank
       response.should redirect_to :back
     end
-  
-    it "flashes and redirects when requesting an invalid identity with a port number" do
+
+    it "flashes and redirects when requesting an invalid identity" do
       post(:create, :request => {
-        :to => "johndoe@email.com:3000",
-        :into => @user.aspects[0].id 
-        } 
+        :to => "not_a_@valid_email",
+        :into => @user.aspects[0].id
+        }
       )
       flash[:error].should_not be_blank
       response.should redirect_to :back
     end
-  
+
+    it "accepts no port numbers" do
+      post(:create, :request => {
+        :to => "johndoe@email.com:3000",
+        :into => @user.aspects[0].id
+        }
+      )
+      flash[:error].should_not be_blank
+      response.should redirect_to :back
+    end
+
     it "redirects when requesting an identity from an invalid server" do
       post(:create, :request => {
         :to => "johndoe@notadiasporaserver.com",
-        :into => @user.aspects[0].id 
-        } 
+        :into => @user.aspects[0].id
+        }
       )
+      flash[:error].should_not be_blank
       response.should redirect_to :back
     end
   end

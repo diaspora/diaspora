@@ -221,10 +221,16 @@ describe AspectsController do
   end
 
   describe "#add_to_aspect" do
+    context 'with a non-contact' do
+      it 'creates a pending contact' do
+        pending
+      end
+    end
     it 'adds the users to the aspect' do
       @aspect1.reload
       @aspect1.contacts.include?(@contact).should be_false
-      post 'add_to_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
+      post 'add_to_aspect', :format => 'js', :person_id => @user2.person.id, :aspect_id => @aspect1.id
+      response.should be_success
       @aspect1.reload
       @aspect1.contacts.include?(@contact).should be_true
     end
@@ -232,13 +238,13 @@ describe AspectsController do
 
   describe "#remove_from_aspect" do
     it 'removes contacts from an aspect' do
-      pending 'this needs to test with another aspect present'
-
+      @user.add_person_to_aspect( @user2.person.id, @aspect1.id)
       @aspect.reload
       @aspect.contacts.include?(@contact).should be true
-      post 'remove_from_aspect', {:person_id => @user2.person.id, :aspect_id => @aspect1.id}
-      @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be false
+      post 'remove_from_aspect', :format => 'js', :person_id => @user2.person.id, :aspect_id => @aspect.id
+      response.should be_success
+      @aspect.reload
+      @aspect.contacts.include?(@contact).should be false
     end
   end
 end

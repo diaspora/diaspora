@@ -148,14 +148,18 @@ class AspectsController < ApplicationController
                                        :person_id => @person_id}),
           :aspect_id => @aspect_id
         }}
-        format.html{ redirect_to aspect_path(@aspect_id)}
+        format.html{
+          redirect_to :back
+        }
       end
     rescue Exception => e
       flash.now[:error] = I18n.t 'aspects.remove_from_aspect.failure'
 
       respond_to do |format|
         format.js  { render :text => e, :status => 403 }
-        format.html{ redirect_to aspect_path(@aspect_id)}
+        format.html{
+          redirect_to :back
+        }
       end
     end
   end

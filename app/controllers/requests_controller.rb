@@ -29,7 +29,7 @@ class RequestsController < ApplicationController
 
  def create
    aspect = current_user.aspect_by_id(params[:request][:into])
-   account = params[:request][:to].strip  
+   account = params[:request][:to].strip
    person = Person.by_account_identifier(account)
    existing_request = Request.from(person).to(current_user.person).where(:sent => false).first if person
    if existing_request
