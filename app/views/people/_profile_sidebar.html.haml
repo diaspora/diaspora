@@ -18,16 +18,18 @@
   .profile_photo
     = person_image_link(person, :size => :thumb_large, :to => :photos)
 
-  %p
-    = action_link(person, contact)
+  - if person == current_user.person
+    %p
+      = link_to t('people.profile_sidebar.edit_my_profile'), edit_person_path(person)
 
-  %hr{:style=>"width:300px;"}
+    %hr{:style=>"width:300px;"}
 
   %ul
     - if contact
       %li
         = render :partial => 'people/aspect_list',
-          :locals => {:contact => contact,
+          :locals => {:person => person,
+                      :contact => contact,
                       :aspects_with_person => @aspects_with_person,
                       :aspects_without_person => @aspects.reject{ |aspect| @aspects_with_person.include?(aspect)}}
       %br
