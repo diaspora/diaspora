@@ -35,7 +35,37 @@ describe RakeHelpers do
       User.count.should == 1
       User.first.invites.should == 10
     end
+  end
 
+  describe '#fix_spaces' do
+
+    before do
+      Factory(:person)
+      5.times do |number|
+        f = Factory.create(:user)
+        f.person.diaspora_handle = "#{f.username}  #{APP_CONFIG[:pod_uri].host}"
+        f.person.url = APP_CONFIG[:pod_url]
+        f.person.save(:validate => false)
+      end
+       p = Factory(:person)
+       p.diaspora_handle = "bubblegoose  @#{APP_CONFIG[:pod_uri].host}"
+       p.url = APP_CONFIG[:pod_url]
+       p.save(:validate => false)
+    end
+
+    it 'should fix diaspora handles' do
+
+    
+      RakeHelpers::fix_diaspora_handle_spaces(false)
+
+      Person.all.all?{|x| !x.diaspora_handle.include?(" ")}.should == true
+    end
+    
+    it 'should delete broken space people with no users' do
+      expect{
+        RakeHelpers::fix_diaspora_handle_spaces(false)
+      }.to change(Person, :count).by(-1)
+    end
   end
 end
 
