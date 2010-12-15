@@ -33,30 +33,18 @@ module RakeHelpers
     offenders = {}
     space_people = Person.all(:diaspora_handle => / /, :url => APP_CONFIG[:pod_url])  # this is every person with a space....
 
-
-
     #these people dont even have users.... they are totally messed up
     totally_messed_up_people = space_people.find_all{|x| x.owner.nil?}
     totally_messed_up_people.each{|x| x.delete}
 
-
     space_people = Person.all(:diaspora_handle => / /, :owner_id.ne => nil, :url => APP_CONFIG[:pod_url])  # this is every person with a space....
-
 
     space_people.each do |person|
       user = person.owner
-      new_diaspora_handle = "#{user.username}@#{APP_CONFIG[:pod_uri].host}"
-      
-      user.my_posts.all.each do |post|
-        post.diaspora_handle = new_diaspora_handle
-        if test  
-          (puts "TEST: saving post w/id #{post.id}")
-        else
-          post.save(:safe => true)
-        end
-      end
-
+      new_diaspora_handle = new_diaspora_handle(user) 
+      update_my_posts_with_new_diaspora_handle(user, new_diaspora_handle, test)
       person.diaspora_handle = new_diaspora_handle
+
       if test 
         (puts "TEST:saving person w/handle #{person.diaspora_handle}") 
       else
@@ -64,17 +52,56 @@ module RakeHelpers
       end
 
 mail =  <<mail
-      Hi, #{person.name}, you may have noticed that your Diaspora handle contained spaces, or was different than your login name.
+      You may have noticed that your Diaspora handle contained spaces, or was different than your login name.
       This was due to a weird error in the early days of Diaspora, and while we fixed the bug,
       there still may have been a problem with your account.  When logging into your account #{user.username},
       your Diaspora handle is now #{person.diaspora_handle}.  Sorry for the confusion!
-
-      - The Diaspora Team
 mail
       Notifier.admin(mail, [user]).each{|x| x.deliver unless test}
     end
   end
 
-  def fix_periods
+  def new_diaspora_handle(user)
+    "#{user.username}@#{APP_CONFIG[:pod_uri].host}"
+  end
+
+  def update_my_posts_with_new_diaspora_handle(user, new_diaspora_handle, test)
+     user.my_posts.all.each do |post|
+        post.diaspora_handle = new_diaspora_handle
+        if test  
+          (puts "TEST: saving post w/id #{post.id}")
+        else
+          post.save(:safe => true)
+        end
+      end
+  end
+
+  def fix_periods_in_username(test = true)
+    bad_users = User.all(:username => /\./)
+    bad_users.each do |bad_user|
+      bad_user.username.delete!('.')
+      bad_user.username.delete!(' ')
+      new_diaspora_handle = new_diaspora_handle(bad_user)
+
+      update_my_posts_with_new_diaspora_handle(bad_user, new_diaspora_handle, test)
+      bad_user.person.diaspora_handle = new_diaspora_handle
+      
+      if test
+        puts "saving person and user with #{new_diaspora_handle}"
+      else
+        bad_user.person.save(:safe => true)
+        bad_user.save(:safe => true)
+      end
+
+
+
+mail =  <<mail
+      We noticed that your Diaspora username contained periods.
+      This was due to a weird error in the early days of Diaspora, and while we fixed the bug,
+      there still may have been a problem with your account.  Log into your account with #{bad_user.username},
+      you improved, period-less, username!
+mail
+      Notifier.admin(mail, [bad_user]).each{|x| x.deliver unless test}
+    end
   end
 end

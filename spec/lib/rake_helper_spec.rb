@@ -67,5 +67,27 @@ describe RakeHelpers do
       }.to change(Person, :count).by(-1)
     end
   end
+
+
+  describe '#fix_periods_in_username' do
+    it 'should update a users username, his persons diaspora hande, and posts' do
+      billy = Factory.create(:user)
+      billy.username = "ma.x"
+      billy.person.diaspora_handle = "ma.x@#{APP_CONFIG[:pod_uri].host}"
+      billy.person.save(:validate => false)
+      billy.save(:validate => false)
+
+      aspect = billy.aspects.create :name => "foo"
+      billy.post :status_message, :message => "hi mom", :to => aspect.id
+
+      RakeHelpers::fix_periods_in_username(false)
+
+      new_d_handle = "max@#{APP_CONFIG[:pod_uri].host}"
+
+      User.first.username.should == 'max'
+      User.first.person.diaspora_handle.should == new_d_handle
+      User.first.my_posts.all.all?{|x| x.diaspora_handle == new_d_handle}.should == true
+    end
+  end
 end
 

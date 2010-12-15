@@ -397,7 +397,7 @@ en:
       thanks: "Thanks,"
       diaspora: "the diaspora email robot"
       single_admin:
-          subject: "A message from your Diaspora administrator:"
+          subject: "A message about your Diaspora account:"
           admin: "Your Diaspora administrator"
       new_request:
           subject: "new Diaspora* contact request from %{from}"

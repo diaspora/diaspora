@@ -30,6 +30,7 @@ namespace :migrations do
 
   desc 'fix usernames with periods in them'
   task :fix_periods_in_username do
+    RakeHelpers::fix_periods_in_usernames(false)
   end
 
   desc 'purge broken contacts'
