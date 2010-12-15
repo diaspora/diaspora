@@ -3,7 +3,7 @@
      xmlns:hm='http://host-meta.net/xrd/1.0'>
      <hm:Host><%= APP_CONFIG[:pod_uri].host %></hm:Host>
   <Link rel='lrdd'
-        template='<%= APP_CONFIG[:pod_uri].host %>/webfinger?q={uri}'>
+        template='<%= APP_CONFIG[:pod_url] %>/webfinger?q={uri}'>
     <Title>Resource Descriptor</Title>
   </Link>
 </XRD>
