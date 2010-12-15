@@ -30,7 +30,7 @@ cy:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "unknown person"
-      youtube_title: 
+      video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 

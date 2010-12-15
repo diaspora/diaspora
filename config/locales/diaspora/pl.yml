@@ -30,7 +30,7 @@ pl:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "nieznana osoba"
-      youtube_title: 
+      video_title:
         unknown: "Nieznany tytuł wideo"
   are_you_sure: "Na pewno?"
   aspects: 

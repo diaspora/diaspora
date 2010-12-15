@@ -178,6 +178,7 @@ module ApplicationHelper
     message = process_autolinks(message)
     message = process_emphasis(message)
     message = process_youtube_again(message, options[:youtube_maps])
+    message = process_vimeo(message, options[:vimeo_maps])
 
     if options[:newlines]
       message.gsub!(/\n+/, '<br />')
@@ -245,9 +246,24 @@ module ApplicationHelper
       if youtube_maps && youtube_maps[video_id]
         title = youtube_maps[video_id]
       else
-        title = I18n.t 'application.helper.youtube_title.unknown'
+        title = I18n.t 'application.helper.video_title.unknown'
       end
       message.gsub!('youtube.com::'+video_id, '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
+    end
+    return message
+  end
+
+
+  def process_vimeo(message, vimeo_maps)
+    regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{6,})/
+    while vimeo = message.match(regex)
+      video_id = vimeo[1]
+      if vimeo_maps && vimeo_maps[video_id]
+        title = vimeo_maps[video_id]
+      else
+        title = I18n.t 'application.helper.video_title.unknown'
+      end
+      message.gsub!(vimeo[0], '<a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
     end
     return message
   end
