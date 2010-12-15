@@ -2,9 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Request  
+class Request
   require File.join(Rails.root, 'lib/diaspora/webhooks')
-  
+
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML
@@ -22,12 +22,12 @@ class Request
   validate :not_already_connected_if_not_sent
   validate :no_pending_request, :if => :sent
   validate :not_friending_yourself
-  
+
   scope :from, lambda { |person| 
     target = (person.is_a?(User) ? person.person : person)
     where(:from_id => target.id)
   }
-  
+
   scope :to, lambda { |person| 
     target = (person.is_a?(User) ? person.person : person)
     where(:to_id => target.id)
@@ -59,7 +59,7 @@ class Request
   def recipient_handle
     to.diaspora_handle
   end
-  
+
   def recipient_handle= recipient_handle
     self.to = Person.first(:diaspora_handle => recipient_handle)
   end

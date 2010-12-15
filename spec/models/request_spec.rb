@@ -79,32 +79,11 @@ describe Request do
     end
   end
 
-  describe '#request_from_me' do
-    it 'recognizes requests from me' do
-      user.request_from_me?(request).should be_true
-    end
-
-    it 'recognized when a request is not from me' do
-      user2.request_from_me?(request).should be_false
-    end
-  end
-
   context 'quering request through user' do
     it 'finds requests for that user' do
       request
       user2.reload
       user2.requests_for_me.detect{|r| r.from == user.person}.should_not be_nil
-    end
-  end
-
-  describe '#original_request' do
-    it 'returns nil on a request from me' do
-      request
-      user.original_request(request).should be_nil
-    end
-    it 'returns the original request on a response to a request from me' do
-      new_request = request.reverse_for(user2)
-      user.original_request(new_request).should == request
     end
   end
 

@@ -11,22 +11,9 @@ describe InvitationsController do
 
   let!(:user) {make_user}
   let!(:aspect){user.aspects.create(:name => "WIN!!")}
- 
+
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
-    module Resque
-      def enqueue(mod, *args)
-        mod.send(:perform, *args)
-      end
-    end
-  end
-
-  after do
-    module Resque
-      def enqueue(mod, *args)
-        true
-      end
-    end
   end
 
   describe "#create" do

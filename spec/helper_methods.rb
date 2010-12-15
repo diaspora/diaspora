@@ -8,20 +8,6 @@ module HelperMethods
     Mocha::Mockery.instance.stubba.unstub_all
   end
 
-  def get_models
-    models = []
-    Dir.glob( File.dirname(__FILE__) + '/../app/models/*' ).each do |f|
-      models << File.basename( f ).gsub( /^(.+).rb/, '\1')
-    end
-    models
-  end
-
-  def stub_user_message_handle_methods(user)
-    user.stub!(:push_to_people)
-    user.stub!(:push_to_hub)
-    user.stub!(:push_to_person)
-  end
-
   def fantasy_resque
     former_value = $process_queue
     $process_queue = true

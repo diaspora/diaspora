@@ -18,13 +18,30 @@ describe Diaspora::UserModules::Connecting do
   let(:aspect2) { user2.aspects.create(:name => "aspect two") }
 
   describe '#send_contact_request_to' do
-    it "should assign a request to a aspect for the user that sent it out" do
-      aspect.requests.size.should == 0
+    it 'should not be able to contact request an existing contact' do
+      user.activate_contact(user2.person, aspect1)
 
-      user.send_contact_request_to(person, aspect)
+      proc {
+        user.send_contact_request_to(user2.person, aspect1)
+      }.should raise_error(MongoMapper::DocumentNotValid)
+    end
 
-      aspect.reload
-      aspect.requests.size.should == 1
+    it 'should not be able to contact request no-one' do
+      proc {
+        user.send_contact_request_to(nil, aspect) 
+      }.should raise_error(MongoMapper::DocumentNotValid)
+    end
+    it 'creates a pending contact' do
+      proc {
+        user.send_contact_request_to(user2.person, aspect1)
+      }.should change(Contact, :count).by(1)
+      user.contact_for(user2.person).pending.should == true
+      user.contact_for(user2.person).should be_pending
+    end
+    it 'persists no request for requester' do
+      proc {
+        user.send_contact_request_to(user2.person, aspect1)
+      }.should_not change{user.reload.pending_requests.count}
     end
   end
 
@@ -65,7 +82,7 @@ describe Diaspora::UserModules::Connecting do
         Request.find(@acceptance.id).should be_nil
       end
       it 'enqueues a mail job' do
-        Resque.should_receive(:enqueue).with(Jobs::MailRequestAcceptance, user.id, user2.person.id, aspect.id).once
+        Resque.should_receive(:enqueue).with(Jobs::MailRequestAcceptance, user.id, user2.person.id).once
         user.receive_request(@acceptance, user2.person)
       end
     end
@@ -105,17 +122,6 @@ describe Diaspora::UserModules::Connecting do
         user.receive_contact_request(reversed_request)
         reversed_request.persisted?.should be false
       end
-    end
-
-    it 'should not be able to contact request an existing contact' do
-      connect_users(user, aspect, user2, aspect2)
-      proc { user.send_contact_request_to(user2.person, aspect1) 
-      }.should raise_error(MongoMapper::DocumentNotValid, /already connected/)
-    end
-    
-    it 'should not be able to contact request no-one' do
-      proc { user.send_contact_request_to(nil, aspect) 
-      }.should raise_error(MongoMapper::DocumentNotValid)
     end
 
     describe 'multiple users accepting/rejecting the same person' do

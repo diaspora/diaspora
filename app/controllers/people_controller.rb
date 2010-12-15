@@ -22,6 +22,7 @@ class PeopleController < ApplicationController
       end
     end
   end
+
   def hashes_for_people people, aspects
     ids = people.map{|p| p.id}
     requests = {}

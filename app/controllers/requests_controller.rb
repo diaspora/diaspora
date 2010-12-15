@@ -36,15 +36,18 @@ class RequestsController < ApplicationController
      current_user.accept_and_respond(existing_request.id, aspect.id)
      redirect_to :back
    else
-     @request = Request.instantiate(:to => person,
-                                    :from => current_user.person,
-                                    :into => aspect)
-     if @request.save
-       current_user.dispatch_request(@request)
+
+     @contact = Contact.new(:user => current_user,
+                            :person => person,
+                            :aspect_ids => [aspect.id],
+                            :pending => true)
+
+     if @contact.save
+       @contact.dispatch_request
        flash.now[:notice] = I18n.t('requests.create.sent')
        redirect_to :back
      else
-       flash.now[:error] = @request.errors.full_messages.join(', ')
+       flash.now[:error] = @contact.errors.full_messages.join(', ')
        redirect_to :back
      end
    end

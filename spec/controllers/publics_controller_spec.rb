@@ -13,10 +13,6 @@ describe PublicsController do
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 
-    before do
-      Jobs::ReceiveSalmon.stub!(:perform)
-    end
-
     it 'succeeds' do
       post :receive, "id" => user.person.id.to_s, "xml" => xml
       response.should be_success

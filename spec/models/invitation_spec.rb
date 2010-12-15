@@ -250,7 +250,13 @@ describe Invitation do
     it 'creates a request, and sends it to the new user' do
       lambda {
         @invitation.to_request!
-      }.should change(Request, :count).by(2)
+      }.should change(Request, :count).by(1)
+    end
+    it 'creates a pending contact for the inviter' do
+      lambda {
+        @invitation.to_request!
+      }.should change(Contact, :count).by(1)
+      @invitation.from.contact_for(@new_user.person).should be_pending
     end
     describe 'return values' do
       before do

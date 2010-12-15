@@ -66,17 +66,6 @@ class FakeRedis
     true
   end
 end
-class User
-  def send_contact_request_to(desired_contact, aspect)
-    request = Request.instantiate(:to   => desired_contact,
-                                  :from => self.person,
-                                  :into => aspect)
-    if request.save!
-      dispatch_request request
-    end
-    request
-  end
-end
 
 Before do
   UserFixer.regenerate_user_fixtures

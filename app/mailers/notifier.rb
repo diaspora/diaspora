@@ -33,10 +33,9 @@ class Notifier < ActionMailer::Base
          :subject => I18n.t('notifier.new_request.subject', :from => @sender.name), :host => APP_CONFIG[:pod_uri].host)
   end
 
-  def request_accepted(recipient_id, sender_id, aspect_id)
+  def request_accepted(recipient_id, sender_id)
     @receiver = User.find_by_id(recipient_id)
     @sender = Person.find_by_id(sender_id)
-    @aspect = Aspect.find_by_id(aspect_id)
 
     log_mail(recipient_id, sender_id, 'request_accepted')
 

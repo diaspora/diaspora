@@ -56,7 +56,7 @@ describe RequestsController do
         lambda {
           post :create, @params
         }.should change(Contact,:count).by(1)
-        new_contact = @user.reload.contact_for(@other_user)
+        new_contact = @user.reload.contact_for(@other_user.person)
         new_contact.should_not be_nil
         new_contact.should be_pending
       end

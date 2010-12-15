@@ -68,13 +68,16 @@ ImageUploader.enable_processing = false
 class User
   def send_contact_request_to(desired_contact, aspect)
     fantasy_resque do
-      request = Request.instantiate(:to => desired_contact,
-                                    :from => self.person,
-                                    :into => aspect)
-      if request.save!
-        dispatch_request request
+      contact = Contact.new(:person => desired_contact,
+                            :user => self,
+                            :pending => true)
+      contact.aspects << aspect
+
+      if contact.save!
+        contact.dispatch_request
+      else
+        nil
       end
-      request
     end
   end
 

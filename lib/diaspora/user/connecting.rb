@@ -6,21 +6,17 @@ module Diaspora
   module UserModules
     module Connecting
       def send_contact_request_to(desired_contact, aspect)
-        request = Request.instantiate(:to => desired_contact,
-                                      :from => self.person,
-                                      :into => aspect)
-        if request.save!
-          dispatch_request request
-        end
-        request
-      end
-      def dispatch_request(request)
-        self.pending_requests << request
-        self.save
+        contact = Contact.new(:person => desired_contact,
+                              :user => self,
+                              :pending => true)
+        contact.aspects << aspect
 
-        request.into.requests << request
-        request.into.save
-        push_to_people request, [request.to]
+        if contact.save!
+          request = contact.dispatch_request
+          request
+        else
+          nil
+        end
       end
 
       def accept_contact_request(request, aspect)
@@ -56,11 +52,11 @@ module Diaspora
       def receive_contact_request(contact_request)
 
         #response from a contact request you sent
-        if original_request = original_request(contact_request)
-          receive_request_acceptance(contact_request, original_request)
+        if original_contact = self.contact_for(contact_request.from)
+          receive_request_acceptance(contact_request, original_contact)
 
         #this is a new contact request
-        elsif !request_from_me?(contact_request)
+        elsif contact_request.from != self.person
           if contact_request.save!
             self.pending_requests << contact_request
             self.save!
@@ -74,16 +70,14 @@ module Diaspora
         contact_request
       end
 
-      def receive_request_acceptance(received_request, sent_request)
-        destination_aspect = self.aspect_by_id(sent_request.into_id)
-        activate_contact(received_request.from, destination_aspect)
+      def receive_request_acceptance(received_request, contact)
+        contact.pending = false
+        contact.save
         Rails.logger.info("event=contact_request status=received_acceptance from=#{received_request.from.diaspora_handle} to=#{self.diaspora_handle}")
 
         received_request.destroy
-        pending_requests.delete(sent_request)
-        sent_request.destroy
         self.save
-        self.mail(Jobs::MailRequestAcceptance, self.id, received_request.from.id, destination_aspect.id)
+        self.mail(Jobs::MailRequestAcceptance, self.id, received_request.from.id)
       end
 
       def disconnect(bad_contact)
@@ -127,14 +121,6 @@ module Diaspora
         new_contact.aspects << aspect
         save!
         aspect.save!
-      end
-
-      def request_from_me?(request)
-        request.from == self.person
-      end
-
-      def original_request(response)
-        pending_requests.first(:from_id => self.person.id, :to_id => response.from.id)
       end
 
       def requests_for_me

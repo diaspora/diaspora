@@ -44,14 +44,14 @@ describe PeopleController do
       hash = @hashes[4]
       hash[:person].should == @people[4]
       hash[:contact].should be_true
-      hash[:request].should be_false
+      hash[:contact].should_not be_pending
       hash[:aspects].should == user.aspects
     end
     it 'has the correct result for a requested person' do
       hash = @hashes[2]
       hash[:person].should == @people[2]
-      hash[:contact].should be_false
-      hash[:request].should be_true
+      hash[:contact].should be_true
+      hash[:contact].should be_pending
       hash[:aspects].should == user.aspects
     end
   end

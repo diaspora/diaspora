@@ -53,6 +53,10 @@ en:
                   attributes:
                       diaspora_handle:
                           taken: "is already taken"
+              contact:
+                  attributes:
+                      person_id:
+                          taken: "must be unique among this user's contacts"
   application:
       helper:
           unknown_person: "unknown person"
@@ -402,8 +406,7 @@ en:
           sign_in: "sign in here"
       request_accepted:
           subject: "%{name} has accepted your contact request on Diaspora*"
-          accepted: "has accepted your contact request. They are now in your"
-          aspect: "aspect."
+          accepted: "has accepted your contact request!"
   home:
       show:
           share_what_you_want: "Share what you want, with whom you want."

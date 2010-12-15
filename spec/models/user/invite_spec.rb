@@ -34,7 +34,7 @@ describe User do
     it 'throws if you try to add someone you"re connected to' do
       connect_users(inviter, aspect, another_user, wrong_aspect)
       inviter.reload
-      proc{inviter.invite_user(another_user.email, aspect.id)}.should raise_error /already connected/
+      proc{inviter.invite_user(another_user.email, aspect.id)}.should raise_error MongoMapper::DocumentNotValid
     end
 
   end
@@ -75,7 +75,6 @@ describe User do
 
       it 'resolves incoming invitations into contact requests' do
         invited_user.reload.pending_requests.count.should == 1
-        inviter.reload.pending_requests.count.should == 1
       end
 
       context 'after request acceptance' do
