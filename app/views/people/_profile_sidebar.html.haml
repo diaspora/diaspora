@@ -25,7 +25,7 @@
     %hr{:style=>"width:300px;"}
 
   %ul
-    - if contact
+    - unless person == current_user.person
       %li
         = render :partial => 'people/aspect_list',
           :locals => {:person => person,

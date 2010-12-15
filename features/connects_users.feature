@@ -8,9 +8,9 @@ Feature: sending and receiving requests
   Scenario: initiating and accepting a contact request
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
-    And I press "add contact"
+    And I press the first ".add.button" within "#aspects_list ul > li:first-child"
     And I wait for the ajax to finish
-    Then I should see "sent!"
+    Then I should see a ".added.button" within "#aspects_list ul > li:first-child"
     Then I go to the destroy user session page
 
     When I sign in as "alice@alice.alice"
@@ -22,5 +22,10 @@ Feature: sending and receiving requests
 
     When I go to the home page
     Then I go to the aspects manage page
+    Then I should see 1 contact in "Besties"
+    Then I go to the destroy user session page
+
+    When I sign in as "bob@bob.bob"
+    And I am on the aspects manage page
     Then I should see 1 contact in "Besties"
 

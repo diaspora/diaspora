@@ -112,7 +112,11 @@ class AspectsController < ApplicationController
     @aspect = current_user.aspects.find(params[:aspect_id])
     @contact = current_user.contact_for(@person)
 
-    current_user.add_contact_to_aspect(@contact, @aspect)
+    if @contact
+      current_user.add_contact_to_aspect(@contact, @aspect)
+    else
+      current_user.send_contact_request_to(@person, @aspect)
+    end
     flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
     respond_to do |format|

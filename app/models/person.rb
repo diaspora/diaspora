@@ -25,9 +25,9 @@ class Person
 
   one :profile, :class_name => 'Profile'
   validates_associated :profile
-  delegate :first_name, :last_name, :to => :profile
-  before_save :downcase_diaspora_handle 
-  
+  delegate :last_name, :to => :profile
+  before_save :downcase_diaspora_handle
+
   def downcase_diaspora_handle
     diaspora_handle.downcase!
   end
@@ -35,7 +35,7 @@ class Person
   belongs_to :owner, :class_name => 'User'
 
   timestamps!
-  
+
   before_destroy :remove_all_traces
   before_validation :clean_url
   validates_presence_of :url, :profile, :serialized_public_key
@@ -63,7 +63,7 @@ class Person
  | Person.searchable.all('diaspora_handle' => /^#{q}/i, 'limit' => 30) \
  | p
     end
-  
+
     return p
   end
 
@@ -74,7 +74,13 @@ class Person
                 "#{profile.first_name.to_s} #{profile.last_name.to_s}"
               end
   end
-
+  def first_name
+    @first_name ||= if profile.first_name.nil? || profile.first_name.blank?
+                self.diaspora_handle.split('@').first
+              else
+                profile.first_name.to_s
+              end
+  end
   def owns?(post)
     self.id == post.person.id
   end

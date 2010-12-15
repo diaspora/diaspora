@@ -21,6 +21,7 @@ describe AspectsController do
     @user.getting_started = false
     @user.save
     sign_in :user, @user
+    @controller.stub(:current_user).and_return(@user)
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
@@ -231,25 +232,37 @@ describe AspectsController do
         @person = Factory(:person)
       end
       it 'calls send_contact_request_to' do
-
+        @user.should_receive(:send_contact_request_to).with(@person, @aspect1)
+        post 'add_to_aspect',
+          :format => 'js',
+          :person_id => @person.id,
+          :aspect_id => @aspect1.id
+      end
+      it 'does not call add_contact_to_aspect' do
+        @user.should_not_receive(:add_contact_to_aspect)
+        post 'add_to_aspect',
+          :format => 'js',
+          :person_id => @person.id,
+          :aspect_id => @aspect1.id
       end
     end
     it 'adds the users to the aspect' do
-      @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be_false
-      post 'add_to_aspect', :format => 'js', :person_id => @user2.person.id, :aspect_id => @aspect1.id
+      @user.should_receive(:add_contact_to_aspect)
+      post 'add_to_aspect',
+        :format => 'js',
+        :person_id => @user2.person.id,
+        :aspect_id => @aspect1.id
       response.should be_success
-      @aspect1.reload
-      @aspect1.contacts.include?(@contact).should be_true
     end
   end
 
   describe "#remove_from_aspect" do
     it 'removes contacts from an aspect' do
       @user.add_contact_to_aspect(@contact, @aspect1)
-      @aspect.reload
-      @aspect.contacts.include?(@contact).should be true
-      post 'remove_from_aspect', :format => 'js', :person_id => @user2.person.id, :aspect_id => @aspect.id
+      post 'remove_from_aspect',
+        :format => 'js',
+        :person_id => @user2.person.id,
+        :aspect_id => @aspect.id
       response.should be_success
       @aspect.reload
       @aspect.contacts.include?(@contact).should be false

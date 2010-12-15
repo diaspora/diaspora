@@ -14,11 +14,6 @@ describe Person do
   end
 
   describe "delegating" do
-    it "delegates first_name to the profile" do
-      @person.first_name.should == @person.profile.first_name
-      @person.profile.update_attributes(:first_name => "Jane")
-      @person.reload.first_name.should == "Jane"
-    end
     it "delegates last_name to the profile" do
       @person.last_name.should == @person.profile.last_name
       @person.profile.update_attributes(:last_name => "Heathers")
@@ -121,7 +116,7 @@ describe Person do
 
     Factory.create(:comment, :person_id => person.id, :diaspora_handle => person.diaspora_handle, :text => "i love you",     :post => status_message)
     Factory.create(:comment, :person_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => status_message)
-    
+
     lambda {person.destroy}.should_not change(Comment, :count)
   end
 
@@ -245,14 +240,14 @@ describe Person do
         Person.by_account_identifier("tom@tom.joindiaspora.com").diaspora_handle.should == "tom@tom.joindiaspora.com"
       end
 
-      it 'should only find people who are exact matches (2/2)' do 
+      it 'should only find people who are exact matches (2/2)' do
         person = Factory(:person, :diaspora_handle => "tomtom@tom.joindiaspora.com")
         person1 = Factory(:person, :diaspora_handle => "tom@tom.joindiaspora.comm")
-        f = Person.by_account_identifier("tom@tom.joindiaspora.com") 
+        f = Person.by_account_identifier("tom@tom.joindiaspora.com")
         f.should be nil
       end
 
-  
+
     end
 
     describe '.local_by_account_identifier' do

@@ -16,6 +16,16 @@ When /^(.*) in the aspect list$/ do |action|
   end
 end
 
+When /^I press the first "([^"]*)"(?: within "([^"]*)")?$/ do |link_selector, within_selector|
+  with_scope(within_selector) do
+   find(:css, link_selector).click
+  end
+end
+Then /^(?:|I )should see a "([^"]*)"(?: within "([^"]*)")?$/ do |selector, scope_selector|
+  with_scope(scope_selector) do
+    page.has_css?(selector).should be_true
+  end
+end
 Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
   within("#main_stream") do
     Then "I should see #{stuff}"

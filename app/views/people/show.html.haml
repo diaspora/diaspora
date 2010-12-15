@@ -31,23 +31,6 @@
           = link_to t('.return_to_aspects'), aspects_manage_path
           = t('.to_accept_or_ignore')
 
-    - else
-      .floating
-        %h3
-          = t('.not_connected', :name => @person.name)
-
-        - unless @outgoing_request
-          %h3
-            .description
-              = t('.request_people')
-
-          = render :partial =>'requests/new_request_to_person', :locals => {:aspects => @aspects, :destination_handle => @person.diaspora_handle}
-
-        - else
-          %h3
-            .description
-              = t('.already_requested', :name => @person.name)
-
   - if @posts.count > 0
     -if @post_type == :photos
       %h4
