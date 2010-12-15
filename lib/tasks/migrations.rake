@@ -39,7 +39,7 @@ namespace :migrations do
   end
 
   desc 'allow to upgrade old image urls to use rel path'
-  task :swtich_image_urls do
+  task :switch_image_urls do
   end
 
   desc 'fix usernames with periods in them'
