@@ -60,10 +60,12 @@ describe User do
 
   describe '#receive_object' do
     it 'adds a notification for an object' do
-      Notification.should_receive(:new)
+      Notification.should_receive(:create)
       user = make_user
-      user.receive_object(Factory(:status_message), Factory(:person))
+      sm = Factory.create(:status_message)
+      person = Factory.create(:person)
       user.should_receive(:receive_post).and_return(true)
+      user.receive_object(sm, person)
       
     end
   end

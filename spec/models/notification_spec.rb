@@ -11,7 +11,6 @@ describe Notification do
     @person = Factory(:person)
     @user = make_user
     @note = Notification.new(:object_id => @sm.id, :kind => @sm.class.name, :person => @person, :user => @user)
-    puts @note.inspect
   end
 
   it 'contains a type' do
@@ -25,5 +24,9 @@ describe Notification do
   it 'contains a person_id' do
     @note.person.id == @person.id
   end
+
+  describe '.for' do
+  end
+  
 end
 

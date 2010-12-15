@@ -14,5 +14,10 @@ class Notification
 
   timestamps!
 
-  attr_accessible :object_id, :kind, :user, :person
+  attr_accessible :object_id, :kind, :user_id, :person_id
+
+  def for(user, opts={})
+    query = opts.merge(:user_id => user)
+    self.all(opts)
+  end
 end

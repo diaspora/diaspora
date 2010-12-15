@@ -64,6 +64,9 @@ module Diaspora
       end
 
       def receive_object(object,person)
+        unless object.is_a? Retraction
+          Notification.create(:object_id => object.id, :kind => object.class.name, :person_id => person.id, :user_id => self.id) 
+        end
         if object.is_a?(Request)
           receive_request object, person
         elsif object.is_a?(Profile)
