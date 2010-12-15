@@ -12,10 +12,18 @@ lt:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "jau užimtas"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ lt:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "nežinomas asmuo"
-      video_title:
-        unknown: "Nežinomas video pavadinimas"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
@@ -157,10 +165,10 @@ lt:
       logout: "atsijungti"
       view_profile: "peržiūrėti profilį"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} nuove richieste!"
+    one: "nuova richiesta!"
+    other: "%{count} nuove richieste!"
+    zero: "nessuna nuova richiesta"
   notifier: 
     diaspora: "Diasporos pašto robotas"
     hello: "Labas, %{name}!"
@@ -172,7 +180,6 @@ lt:
       try_it_out: "Pabandyk!"
     request_accepted: 
       accepted: "priėmė tavo prašymą draugauti. Jie dabar yra tavo"
-      aspect: "aspektas."
       subject: "%{name} priėmė tavo pasiūlymą draugauti Diasporoje*"
     single_admin: 
       admin: "Your Diaspora administrator"
@@ -364,7 +371,7 @@ lt:
       destroy: "Sunaikinti"
       permalink: "permalink"
   stream_helper: 
-    hide_comments: "hide comments"
+    hide_comments: "nascondi i commenti"
     show_comments: "show comments"
   the_world: "pasaulis"
   username: "Vartotojo vardas"

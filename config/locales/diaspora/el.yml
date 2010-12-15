@@ -12,10 +12,18 @@ el:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "χρησιμοποιείται ήδη"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -31,7 +39,7 @@ el:
         all_aspects: "All aspects"
       unknown_person: "άγνωστο άτομο"
       video_title: 
-        unknown: "αγνώστος τίτλος αρχείου πολυμέσων"
+        unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ el:
       try_it_out: "Θα πρέπει πραγματικά να σκεφτείτε να το ελέγξετε."
     request_accepted: 
       accepted: "έχει αποδεχθεί το αίτημα φιλίας σας. Βρίσκονται πλέον στην"
-      aspect: "πτυχή."
       subject: "%{name} έχει αποδεχθεί το αίτημα φιλίας σας στο Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"

@@ -12,10 +12,18 @@ sv:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "är redan taget"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ sv:
       aspect_badge: 
         all_aspects: "Alla sidor"
       unknown_person: "okänd person"
-      video_title:
-        unknown: "Okänd videotitel"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Är du säker?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ sv:
       try_it_out: "Du borde verkligen överväga att kolla upp detta."
     request_accepted: 
       accepted: "har accepterat din kontaktförfrågan. Personen finns nu på "
-      aspect: "sidan."
       subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
     single_admin: 
       admin: "Din Diaspora administratör"

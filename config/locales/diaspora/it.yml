@@ -12,10 +12,18 @@ it:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "non è disponibile"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ it:
       aspect_badge: 
         all_aspects: "Tutti gli aspetti"
       unknown_person: "persona sconosciuta"
-      video_title:
-        unknown: "Titolo Video Sconosciuto"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Sei sicuro?"
   aspects: 
     add_to_aspect: 
@@ -120,10 +128,10 @@ it:
       ownership: "Possesso"
       ownership_explanation: "Tu possiedi le tue foto, e non dovresti perderne il possesso solo per condividerle. Tu mantieni il possesso di qualsiasi cosa condividi su Diaspora e ti viene dato pieno controllo su come viene distribuita."
       share_what_you_want: "Condividi ciò che vuoi, con chi vuoi"
-      simplicity: "Semlpicità"
+      simplicity: "Semplicità"
       simplicity_explanation: "Diaspora permette una condivisione facile e veloce - e lo stesso accade per la gestione della privacy. Essendo riservata per natura, Diaspora non ti fa smarrire tra paginate di impostazioni e opzioni solo per tenere il tuo profilo sicuro."
       tagline_first_half: "Condividi ciò che desideri,"
-      tagline_second_half: "with whom you want."
+      tagline_second_half: "con chi vuoi."
   invitations: 
     check_token: 
       not_found: "Token di invito non trovato"
@@ -147,7 +155,7 @@ it:
       to: "A"
   layouts: 
     application: 
-      powered_by: "BASATO SU DIASPORA*"
+      powered_by: "CREATO CON DIASPORA*"
     header: 
       account_settings: "impostazioni account"
       blog: "blog"
@@ -172,7 +180,6 @@ it:
       try_it_out: "Dovresti veramente provarlo."
     request_accepted: 
       accepted: "ha accettato la tua richiesta di contatto. Adesso sono nella tua"
-      aspect: "aspetto."
       subject: "%{name} ha accettato la tua richiesta di contatto su Diaspora*"
     single_admin: 
       admin: "Il tuo amministratore Diaspora"
@@ -333,7 +340,7 @@ it:
       dont_have_now: "Non ne hai alcuno per il momento, ma altri arriveranno presto!"
       invitations_left: "(%{count} rimanenti)"
       invite_someone: "Invita qualcuno"
-      invites: "Invites"
+      invites: "Inviti"
       invites_closed: "Al momento gli inviti sono chiusi su questo pod Diaspora."
     notification: 
       new: "Nuovo %{type} da %{from}"
@@ -381,7 +388,7 @@ it:
       email_notifications: "Notifiche email "
       export_data: "Esporta Dati"
       new_password: "Nuova Password"
-      receive_email_notifications: "Receive email notificaions?"
+      receive_email_notifications: "Vuoi ricevere notifiche via email?"
       your_email: "La tua email"
       your_handle: "Il tuo contatto Diaspora"
     getting_started: 
@@ -415,7 +422,7 @@ it:
     public: 
       does_not_exist: "L'utente %{username} non esiste!"
     update: 
-      email_notifications_changed: "Language Change Failed"
+      email_notifications_changed: "Impossibile cambiare la lingua"
       language_changed: "Lingua Cambiata"
       language_not_changed: "Cambio di lingua fallito"
       password_changed: "Password Cambiata"

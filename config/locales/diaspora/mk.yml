@@ -12,10 +12,18 @@ mk:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "веќе е заземено"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ mk:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "непозната личност"
-      video_title:
-        unknown: "Непознато име на видео"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ mk:
       try_it_out: "Навистина треба да го проверите."
     request_accepted: 
       accepted: "го прифати вашето контакт барање. Сега се во вашиот"
-      aspect: "аспект."
       subject: "%{name} го прифати вашето контакт барање на Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"

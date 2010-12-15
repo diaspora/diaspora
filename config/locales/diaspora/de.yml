@@ -12,10 +12,18 @@ de:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "wurde bereits benutzt"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -31,7 +39,7 @@ de:
         all_aspects: "Alle Aspekte"
       unknown_person: "unbekannte Person"
       video_title: 
-        unknown: "Unbekannter Video-Titel"
+        unknown: "Unknown Video Title"
   are_you_sure: "Bist du sicher?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ de:
       try_it_out: "Du solltest wirklich kurz darüber nachdenken es auszuprobieren."
     request_accepted: 
       accepted: "hat deine Kontakt-Anfrage akzeptiert. Sie sind nun in deinem"
-      aspect: "Aspekt."
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora* akzeptiert"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
@@ -229,7 +236,7 @@ de:
       not_connected: "Du bist nicht mit dieser Person verbunden"
       recent_posts: "Letzte Beiträge"
       recent_public_posts: "Neueste öffentliche Beiträge"
-      request_people: "Wenn du möchtest, kannst du ihn fragen, ob du ihn/sie in einem deiner Aspekte platzieren darfst."
+      request_people: "Wenn du möchtest, kannst du anfragen, ob du ihn/sie in einem deiner Aspekte platzieren darfst."
       return_to_aspects: "Kehre zur Aspekt-Übersicht zurück."
       to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
     update: 
@@ -241,15 +248,15 @@ de:
     create: 
       integrity_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass es eine Bilddatei war?"
       runtime_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass du deinen Morgenkaffee hattest?"
-      type_error: "Foto konnte nicht hochgeladen werden. Bist du sciher das ein Bild hinzugefügt wurde?"
+      type_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass ein Bild hinzugefügt wurde?"
     destroy: 
       notice: "Foto gelöscht."
     edit: 
       editing: "Bearbeiten"
     new: 
-      back_to_list: "Zurück zu Liste"
+      back_to_list: "Zurück zur Liste"
       new_photo: "Neues Foto"
-      post_it: "Posten!"
+      post_it: "Teile es!"
     new_photo: 
       empty: "{file} ist leer, bitte wähle die Dateien erneut ohne diese aus."
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
@@ -284,7 +291,7 @@ de:
       unhappy: "Unglücklich?"
       update: "Aktualisieren"
     new: 
-      enter_email: "Gib eine E-Mail Adresse an"
+      enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Passwort ein"
       enter_password_again: "Gib das gleiche Passwort wie eben ein"
       enter_username: "Wähle einen Benutzernamen (nur Buchstaben, Nummern und Unterstriche)"
@@ -293,7 +300,7 @@ de:
   requests: 
     create: 
       sending: "Senden..."
-      sent: "Du hast angefragt mit %{name} zu teilen. Sie sollten dies sehen wenn sie sich das nächste mal bei Diaspora einloggen."
+      sent: "Du hast angefragt mit %{name} zu teilen. Sie sollten dies sehen, wenn sie sich das nächste mal bei Diaspora einloggen."
     destroy: 
       error: "Bitte wähle einen Aspekt!"
       ignore: "Kontaktanfrage ignoriert."
@@ -310,7 +317,7 @@ de:
     destroy: 
       success: "Erfolgreich Authentifizierung zerstört."
     failure: 
-      error: "es gab ein Fehler beim Verbinden mit dem Dienst"
+      error: "es gab einen Fehler beim Verbinden mit diesem Dienst"
     index: 
       connect_to_facebook: "Mit Facebook verbinden"
       connect_to_twitter: "Mit Twitter verbinden"
@@ -323,7 +330,7 @@ de:
     add_contact: 
       create_request: "Über die Diaspora-Adresse finden"
       diaspora_handle: "diaspora@beispiel.org"
-      enter_a_diaspora_username: "Gib eine Diaspora-Benutzernamen ein:"
+      enter_a_diaspora_username: "Gib einen Diaspora-Benutzernamen ein:"
       know_email: "Du kennst die E-Mail Adresse? Du solltest sie einladen"
       your_diaspora_username_is: "Deine Diaspora-Adresse ist: %{diaspora_handle}"
     contact_list: 
@@ -369,19 +376,19 @@ de:
   the_world: "die Welt"
   username: "Benutzername"
   users: 
-    destroy: "Konto erfolgreich stillgelegt."
+    destroy: "Konto erfolgreich geschlossen."
     edit: 
       change: "Ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
-      close_account: "Konto stilllegen"
+      close_account: "Konto schließen"
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Mein XML herunterladen"
       edit_account: "Konto bearbeiten"
-      email_notifications: "Emailbenachrichtigungen"
-      export_data: "Konto exportieren"
+      email_notifications: "E-Mail-Benachrichtigungen"
+      export_data: "Daten exportieren"
       new_password: "Neues Passwort"
-      receive_email_notifications: "Emailbenachrichtigungen empfangen?"
+      receive_email_notifications: "E-Mail-Benachrichtigungen empfangen?"
       your_email: "deine E-Mail-Adresse"
       your_handle: "Deine Diaspora-Adresse"
     getting_started: 
@@ -405,7 +412,7 @@ de:
         your_services: "Deine Dienste"
       step_4: 
         change_profile: "Du kannst dein Profil und deine verlinkten Dienste jederzeit bearbeiten unter"
-        continue: "Fahre fort um auf deine \"Alle\" Seite zu kommen, eine Übersicht über alle deiner Aspekte."
+        continue: "Fahre fort um auf deine \"Alle\" Seite zu kommen, eine Übersicht aller deiner Aspekte."
         finish: "Fertigstellen"
         manage_aspects: "Du kannst auch Kontakte hinzufügen, während du dich auf einer Aspekt-Seite befindest."
         ready_to_share: "Du bist nun bereit zum Teilen mit"
@@ -422,7 +429,7 @@ de:
       password_not_changed: "Ändern des Passworts fehlgeschlagen"
   webfinger: 
     fetch_failed: "konnte Webfinger-Profil für %{profile_url} nicht laden"
-    hcard_fetch_failed: "es gab Probleme beim Holen der hcard für %{account}"
+    hcard_fetch_failed: "es gab Probleme beim Laden der hcard für %{account}"
     no_person_constructed: "Konnte keine Person aus dieser hcard erstellen."
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
     xrd_fetch_failed: "Konnte  XRD Datei von %{account} nicht herunterladen"

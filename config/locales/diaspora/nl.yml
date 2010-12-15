@@ -12,10 +12,18 @@ nl:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "is al bezet"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -28,10 +36,10 @@ nl:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Alle aspecten"
       unknown_person: "onbekend persoon"
-      video_title:
-        unknown: "Onbekende video titel"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Weet je het zeker?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ nl:
       try_it_out: "Overweeg eens een kijkje te nemen."
     request_accepted: 
       accepted: "heeft je vriendenverzoek geaccepteerd. Hij/zij staat nu in je"
-      aspect: "aspect."
       subject: "%{name} heeft je vriendenverzoek geaccepteerd op Diaspora*"
     single_admin: 
       admin: "Je Diaspora administrator"

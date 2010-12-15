@@ -12,10 +12,18 @@ ca:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "Ja ha estat escollit"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -31,7 +39,7 @@ ca:
         all_aspects: "All aspects"
       unknown_person: "persona desconeguda"
       video_title: 
-        unknown: "Títol desconegut de vídeo"
+        unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ ca:
       try_it_out: "Hauries de pensar en corregir-ho."
     request_accepted: 
       accepted: "ha acceptat la teva petició de contacte. Ara es troben en el teu"
-      aspect: "aspecte."
       subject: "%{name} ha acceptat la teva petició de contacte a Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"

@@ -12,10 +12,18 @@ hu:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "már foglalt"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ hu:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "ismeretlen személy"
-      video_title:
-        unknown: "Ismeretlen videó cím"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Biztos vagy benne?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ hu:
       try_it_out: "Tényleg ki kellene próbálnod."
     request_accepted: 
       accepted: "elfogadta a jelölésed. Most már a"
-      aspect: "csoportodban van."
       subject: "%{name} elfogadta a felkérésed."
     single_admin: 
       admin: "A Te Diaspora* rendszergazdád"
