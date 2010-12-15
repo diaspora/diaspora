@@ -30,11 +30,13 @@ namespace :migrations do
   task :contacts_as_requests do
     require File.join(Rails.root,"config/environment")
     puts "Migrating contacts..."
-    old_contacts =  Contact.all(:pending => nil)
-    old_contacts.each{|contact| contact.pending = false; contact.save}
+    MongoMapper.database.eval('
+      db.contacts.find({pending : null}).forEach(function(contact){
+        db.contacts.update({"_id" : contact["_id"]}, {"$set" : {"pending" : false}}); });')
     puts "Deleting stale requests..."
-    old_requests = Request.all(:sent => true)
-    old_requests.each{|request| request.delete}
+    Request.find_each(:sent => true){|request|
+      request.delete
+    }
     puts "Done!"
   end
 
