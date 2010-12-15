@@ -30,7 +30,7 @@ ca:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "persona desconeguda"
-      youtube_title: 
+      video_title: 
         unknown: "Títol desconegut de vídeo"
   are_you_sure: "Are you sure?"
   aspects: 

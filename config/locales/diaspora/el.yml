@@ -30,7 +30,7 @@ el:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "άγνωστο άτομο"
-      youtube_title: 
+      video_title: 
         unknown: "αγνώστος τίτλος αρχείου πολυμέσων"
   are_you_sure: "Are you sure?"
   aspects: 

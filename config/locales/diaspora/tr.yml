@@ -30,7 +30,7 @@ tr:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "bilinmiyen kişiler"
-      youtube_title: 
+      video_title:
         unknown: "Bilinmeyen Video Başlığı"
   are_you_sure: "Are you sure?"
   aspects: 

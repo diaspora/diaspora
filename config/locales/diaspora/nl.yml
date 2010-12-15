@@ -30,7 +30,7 @@ nl:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "onbekend persoon"
-      youtube_title: 
+      video_title:
         unknown: "Onbekende video titel"
   are_you_sure: "Weet je het zeker?"
   aspects: 

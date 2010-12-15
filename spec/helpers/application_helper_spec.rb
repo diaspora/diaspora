@@ -72,24 +72,30 @@ describe ApplicationHelper do
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
       end
 
-      it "recognizes youtube links" do
-        proto="http"
-        videoid = "0x__dDWdf23"
-        url="www.youtube.com/watch?v="+videoid+"&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
-        title = "UP & down & UP & down &amp;"
-        res = markdownify(proto+'://'+url)
-        res.should =~ /data-host="youtube.com"/
-        res.should =~ /data-video-id="#{videoid}"/
-      end
-      
-      it "recognizes youtube links with hyphens" do
-        proto="http"
-        videoid = "ABYnqp-bxvg"
-        url="www.youtube.com/watch?v="+videoid+"&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
-        title = "UP & down & UP & down &amp;"
-        res = markdownify(proto+'://'+url)
-        res.should =~ /data-host="youtube.com"/
-        res.should =~ /data-video-id="#{videoid}"/
+      describe "video links" do
+        it "recognizes vimeo links" do
+          video_id = "17449557"
+          url = "http://www.vimeo.com/#{video_id}"
+          res = markdownify(url)
+          res.should =~ /data-host="vimeo.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+        end
+
+        it "recognizes youtube links" do
+          video_id = "0x__dDWdf23"
+          url = "http://www.youtube.com/watch?v=" + video_id + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+          res = markdownify(url)
+          res.should =~ /data-host="youtube.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+        end
+
+        it "recognizes youtube links with hyphens" do
+          video_id = "ABYnqp-bxvg"
+          url = "http://www.youtube.com/watch?v=" + video_id + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+          res = markdownify(url)
+          res.should =~ /data-host="youtube.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+        end
       end
 
       it "recognizes multiple links of different types" do
@@ -174,35 +180,13 @@ describe ApplicationHelper do
       markdownify(message).should == "<em>some text</em> *some text<em> **some text</em> <em>some text</em> _some text<em> __some text</em>"
     end
 
-    describe "options" do
-      before do
-        @message = "http://url.com www.url.com www.youtube.com/watch?foo=bar&v=BARFOO&whatever=related *emphasis* __emphasis__ [link](www.url.com) [link](url.com \"title\")"
-      end
-
-      it "can render only autolinks" do
-        res = markdownify(@message, :youtube => false, :emphasis => false, :links => false)
-        res.should == "<a target=\"_blank\" href=\"http://url.com\">url.com</a> <a target=\"_blank\" href=\"http://www.url.com\">www.url.com</a> <a target=\"_blank\" href=\"http://www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related\">www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related</a> *emphasis* __emphasis__ [link](www.url.com) [link](url.com &quot;title&quot;)"
-      end
-
-      it "can render only youtube" do
-        res = markdownify(@message, :autolinks => false, :emphasis => false, :links => false)
-        res.should_not =~ /a href="http:\/\/url.com"/
-        res.should_not =~ /a href="http:\/\/www.url.com"/
-        res.should_not =~ /<strong>emphasis<\/strong>/
-      end
-
-      it "can render only emphasis tags" do
-        res = markdownify(@message, :autolinks => false, :youtube => false, :links => false)
-        res.should == "http://url.com www.url.com www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related <em>emphasis</em> <strong>emphasis</strong> [link](www.url.com) [link](url.com &quot;title&quot;)"
-      end
-
-      it "can render only links tags" do
-        res = markdownify(@message, :autolinks => false, :youtube => false, :emphasis => false)
-        res.should == "http://url.com www.url.com www.youtube.com/watch?foo=bar&amp;v=BARFOO&amp;whatever=related *emphasis* __emphasis__ <a target=\"_blank\" href=\"www.url.com\">link</a> <a target=\"_blank\" href=\"url.com\" title=\"title\">link</a>"
-      end
-    end
-
     describe "newlines" do
+      it 'skips inserting newlines if you pass the newlines option' do
+        message = "These\nare\n\some\nnew\lines"
+        res = markdownify(message, :newlines => false)
+        res.should == message        
+      end
+
       it 'generates breaklines' do
         message = "These\nare\nsome\nnew\nlines"
         res = markdownify(message)

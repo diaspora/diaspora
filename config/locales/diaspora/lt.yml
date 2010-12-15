@@ -30,7 +30,7 @@ lt:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "nežinomas asmuo"
-      youtube_title: 
+      video_title:
         unknown: "Nežinomas video pavadinimas"
   are_you_sure: "Are you sure?"
   aspects: 
