@@ -13,6 +13,11 @@
   = render 'shared/add_contact', :aspect_id => aspect.id
 
   %hr
+  = form_for aspect do |asp|
+    = asp.text_field :name, :value => aspect.name
+    = asp.submit "Rename Aspect"
+
+  %hr
   .big_buttons
     = button_to t('.remove_aspect'), aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
 
