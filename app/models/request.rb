@@ -15,7 +15,6 @@ class Request
   belongs_to :into, :class => Aspect
   belongs_to :from, :class => Person
   belongs_to :to,   :class => Person
-  key :sent,                  Boolean, :default => false
 
   validates_presence_of :from, :to
   validate :not_already_connected_if_sent
@@ -69,7 +68,7 @@ class Request
   end
 
   def self.hashes_for_person person
-    requests = Request.to(person).all(:sent => false)
+    requests = Request.to(person).all
     senders = Person.all(:id.in => requests.map{|r| r.from_id}, :fields => [:profile])
     senders_hash = {}
     senders.each{|sender| senders_hash[sender.id] = sender}

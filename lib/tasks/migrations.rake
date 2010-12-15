@@ -29,9 +29,13 @@ namespace :migrations do
 
   task :contacts_as_requests do
     require File.join(Rails.root,"config/environment")
+    puts "Migrating contacts..."
     old_contacts =  Contact.all(:pending => nil)
     old_contacts.each{|contact| contact.pending = false; contact.save}
-    puts "all done"
+    puts "Deleting stale requests..."
+    old_requests = Request.all(:sent => true)
+    old_requests.each{|request| request.delete}
+    puts "Done!"
   end
 
   desc 'allow to upgrade old image urls to use rel path'

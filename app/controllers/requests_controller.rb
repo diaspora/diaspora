@@ -31,7 +31,7 @@ class RequestsController < ApplicationController
    aspect = current_user.aspect_by_id(params[:request][:into])
    account = params[:request][:to].strip
    person = Person.by_account_identifier(account)
-   existing_request = Request.from(person).to(current_user.person).where(:sent => false).first if person
+   existing_request = Request.from(person).to(current_user.person).first if person
    if existing_request
      current_user.accept_and_respond(existing_request.id, aspect.id)
      redirect_to :back
