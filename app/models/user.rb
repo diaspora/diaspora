@@ -199,7 +199,7 @@ class User
     #
     target_aspect_ids = aspects.map {|a| a.id}
 
-    target_contacts = Contact.all(:aspect_ids.in => target_aspect_ids)
+    target_contacts = Contact.all(:aspect_ids.in => target_aspect_ids, :pending => false)
 
     post_to_hub(post) if post.respond_to?(:public) && post.public
     push_to_people(post, self.person_objects(target_contacts))
@@ -301,7 +301,7 @@ class User
       params[:image_url_small] = params[:photo].url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
-      push_to_people profile, self.person_objects(contacts)
+      push_to_people profile, self.person_objects(contacts(:pending => false))
       true
     else
       false
