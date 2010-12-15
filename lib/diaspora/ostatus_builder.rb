@@ -33,7 +33,7 @@ module Diaspora
 <subtitle>Posts from Diaspora</subtitle>
 <updated>#{Time.now.xmlschema}</updated>
 <author>
-  <name>#{@user.name}</name>
+  <name>#{CGI::escape(@user.name)}</name>
   <uri>#{@user.public_url}</uri>
 </author>
       XML

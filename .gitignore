@@ -42,3 +42,4 @@ bin/*
 nbproject
 patches-*
 capybara-*.html
+dump.rdb
