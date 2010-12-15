@@ -96,26 +96,19 @@ class User
     end
   end
 
-  def move_contact(opts = {})
-    if opts[:to] == opts[:from]
+  def move_contact(person, to_aspect, from_aspect)
+    contact = contact_for(person)
+    if to_aspect == from_aspect
       true
-    elsif opts[:person_id] && opts[:to] && opts[:from]
-      from_aspect = self.aspects.find_by_id(opts[:from])
-
-      if add_person_to_aspect(opts[:person_id], opts[:to])
-        delete_person_from_aspect(opts[:person_id], opts[:from])
-      end
+    elsif add_contact_to_aspect(contact, to_aspect)
+      delete_person_from_aspect(person.id, from_aspect.id)
     end
   end
 
-  def add_person_to_aspect(person_id, aspect_id)
-    contact = contact_for(Person.find(person_id))
-    raise "Can not add person to an aspect you do not own" unless aspect = self.aspects.find_by_id(aspect_id)
-    raise "Can not add person you are not connected to" unless contact
-    raise 'Can not add person who is already in the aspect' if aspect.contacts.include?(contact)
+  def add_contact_to_aspect(contact, aspect)
+    return true if contact.aspect_ids.include?(aspect.id)
     contact.aspects << aspect
     contact.save!
-    aspect.save!
   end
 
   def delete_person_from_aspect(person_id, aspect_id, opts = {})

@@ -23,11 +23,11 @@ module AspectsHelper
     link_to image_tag('icons/monotone_check_yes.png'), {:controller => "aspects", :action => 'remove_from_aspect', :aspect_id => aspect_id, :person_id => person_id}, :remote => true, :class => 'added button'
   end
 
-  def aspect_membership_button(aspect_id, contact)
-    unless contact.aspect_ids.include?(aspect_id)
-      add_to_aspect_button(aspect_id, contact.person.id)
+  def aspect_membership_button(aspect_id, contact, person)
+    if contact.nil? || !contact.aspect_ids.include?(aspect_id)
+      add_to_aspect_button(aspect_id, person.id)
     else
-      remove_from_aspect_button(aspect_id, contact.person.id)
+      remove_from_aspect_button(aspect_id, person.id)
     end
   end
 end

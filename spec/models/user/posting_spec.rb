@@ -37,7 +37,7 @@ describe User do
       aspect1.reload.post_ids.should include @post.id
     end
 
-    it 'sockets the post to the poster' do 
+    it 'sockets the post to the poster' do
       @post.should_receive(:socket_to_uid).with(user.id, anything)
       user.add_to_streams(@post, @aspect_ids)
     end
@@ -110,7 +110,7 @@ describe User do
       user.dispatch_post(status, :to => "all")
     end
   end
-  
+
   describe '#update_post' do
     it 'should update fields' do
       photo = user.post(:photo, :user_file => uploaded_photo, :caption => "Old caption", :to => aspect.id)
@@ -134,7 +134,8 @@ describe User do
       connect_users(user, aspect, user2, aspect2)
       connect_users(user, aspect, user3, aspect3)
       connect_users(user, aspect1, user4, aspect4)
-      user.add_person_to_aspect(user2.person.id, aspect1.id)
+      contact = user.contact_for(user2.person)
+      user.add_contact_to_aspect(contact, aspect1)
       user.reload
     end
 

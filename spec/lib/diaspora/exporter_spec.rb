@@ -51,7 +51,7 @@ describe Diaspora::Exporter do
 
     before do
       connect_users(@user1, @aspect1, @user3, @aspect3)
-      @user1.add_person_to_aspect(@user3.person.id, @aspect.id)
+      @user1.add_contact_to_aspect(@user1.contact_for(@user3.person), @aspect)
       @user1.reload
     end
 

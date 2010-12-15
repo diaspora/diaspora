@@ -242,7 +242,9 @@ describe Diaspora::UserModules::Connecting do
       end
 
       it 'should remove the contact from all aspects they are in' do
-        user.add_person_to_aspect(user2.person.id, aspect1.id)
+        user.add_contact_to_aspect(
+          user.contact_for(user2.person),
+          aspect1)
         aspect.reload.contacts.count.should == 1
         aspect1.reload.contacts.count.should == 1
         lambda { user.disconnected_by user2.person }.should change {

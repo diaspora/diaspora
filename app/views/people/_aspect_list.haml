@@ -23,13 +23,13 @@
     });
 
 .aspects
-  .badges
+  .badges{:class => ("hidden" if !contact)}
     - for aspect in aspects_with_person
       = render :partial => 'aspects/aspect_badge', :locals => {:aspect => aspect}
     .right
       = link_to "edit aspect membership", "#", :id=> "edit_contact_aspects"
 
-  .edit
+  .edit{:class => ("hidden" if contact)}
     .contact_list
       %ul
         - for aspect in aspects_with_person
@@ -37,14 +37,14 @@
             %span.name
               = link_to aspect.name, aspect
             .right
-              = aspect_membership_button(aspect.id, contact)
+              = aspect_membership_button(aspect.id, contact, person)
 
         - for aspect in aspects_without_person
           %li
             %span.name
               = link_to aspect.name, aspect
             .right
-              = aspect_membership_button(aspect.id, contact)
+              = aspect_membership_button(aspect.id, contact, person)
 
     .right
       = link_to "done editing", "#", :id => "done_contact_aspects"

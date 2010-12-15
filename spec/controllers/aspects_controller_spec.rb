@@ -17,7 +17,7 @@ describe AspectsController do
 
     connect_users(@user, @aspect, @user2, @aspect2)
 
-    @contact                    = @user.contact_for(@user2.person)
+    @contact = @user.contact_for(@user2.person)
     @user.getting_started = false
     @user.save
     sign_in :user, @user
@@ -146,7 +146,12 @@ describe AspectsController do
   end
 
   describe "#move_contact" do
-    let(:opts) { {:person_id => "person_id", :from => "from_aspect_id", :to => {:to => "to_aspect_id"}} }
+    let(:opts) { {
+      :person_id => "person_id",
+      :from => "from_aspect_id",
+      :to =>
+        {:to => "to_aspect_id"}
+    } }
     it 'calls the move_contact_method' do
       pending "need to figure out what is the deal with remote requests"
       @controller.stub!(:current_user).and_return(@user)
@@ -222,8 +227,11 @@ describe AspectsController do
 
   describe "#add_to_aspect" do
     context 'with a non-contact' do
-      it 'creates a pending contact' do
-        pending
+      before do
+        @person = Factory(:person)
+      end
+      it 'calls send_contact_request_to' do
+
       end
     end
     it 'adds the users to the aspect' do
@@ -238,7 +246,7 @@ describe AspectsController do
 
   describe "#remove_from_aspect" do
     it 'removes contacts from an aspect' do
-      @user.add_person_to_aspect( @user2.person.id, @aspect1.id)
+      @user.add_contact_to_aspect(@contact, @aspect1)
       @aspect.reload
       @aspect.contacts.include?(@contact).should be true
       post 'remove_from_aspect', :format => 'js', :person_id => @user2.person.id, :aspect_id => @aspect.id

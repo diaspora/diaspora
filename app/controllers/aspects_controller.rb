@@ -91,7 +91,11 @@ class AspectsController < ApplicationController
   end
 
   def move_contact
-    unless current_user.move_contact( :person_id => params[:person_id], :from => params[:from], :to => params[:to][:to])
+    @person = Person.find(params[:person_id])
+    @from_aspect = current_user.aspects.find(params[:from])
+    @to_aspect = current_user.aspects.find(params[:to][:to])
+
+    unless current_user.move_contact( @person, @from_aspect, @to_aspect)
       flash[:error] = I18n.t 'aspects.move_contact.error',:inspect => params.inspect
     end
     if aspect = current_user.aspect_by_id(params[:to][:to])
@@ -104,30 +108,22 @@ class AspectsController < ApplicationController
   end
 
   def add_to_aspect
-    begin current_user.add_person_to_aspect( params[:person_id], params[:aspect_id])
+    @person = Person.find(params[:person_id])
+    @aspect = current_user.aspects.find(params[:aspect_id])
+    @contact = current_user.contact_for(@person)
 
-      @aspect = current_user.aspects.find(params[:aspect_id])
-      @aspect_id = @aspect.id
-      @person_id = params[:person_id]
+    current_user.add_contact_to_aspect(@contact, @aspect)
+    flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
-      flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
-
-      respond_to do |format|
-        format.js { render :json => {
-          :button_html => render_to_string(:partial => 'aspects/add_to_aspect',
-                           :locals => {:aspect_id => @aspect_id,
-                                       :person_id => @person_id}),
-          :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
-                              :locals => {:aspect => @aspect})
-          }}
-        format.html{ redirect_to aspect_path(@aspect_id)}
-      end
-    rescue Exception => e
-      flash.now[:error] =  I18n.t 'aspects.add_to_aspect.failure'
-      respond_to do |format|
-        format.js  { render :text => e, :status => 403 }
-        format.html{ redirect_to aspect_path(@aspect_id)}
-      end
+    respond_to do |format|
+      format.js { render :json => {
+        :button_html => render_to_string(:partial => 'aspects/add_to_aspect',
+                         :locals => {:aspect_id => @aspect.id,
+                                     :person_id => @person.id}),
+        :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
+                            :locals => {:aspect => @aspect})
+        }}
+      format.html{ redirect_to aspect_path(@aspect.id)}
     end
   end
 

@@ -13,7 +13,6 @@ describe Aspect do
   let(:aspect) {user.aspects.create(:name => 'losers')}
   let(:aspect2) {user2.aspects.create(:name => 'failures')}
   let(:aspect1) {user.aspects.create(:name => 'cats')}
-  let(:not_contact) { Factory(:person, :diaspora_handle => "not@person.com")}
   let(:user3) {make_user}
   let(:aspect3) {user3.aspects.create(:name => "lala")}
 
@@ -96,10 +95,10 @@ describe Aspect do
 
       it 'returns multiple aspects if the person is there' do
         user.reload
-        user.add_person_to_aspect(connected_person.id, aspect1.id)
+        contact = user.contact_for(connected_person)
+        user.add_contact_to_aspect(contact, aspect1)
         aspects = user.aspects_with_person(connected_person)
         aspects.count.should == 2
-        contact = user.contact_for(connected_person)
         aspects.each{ |asp| asp.contacts.include?(contact).should be_true }
         aspects.include?(aspect_without_contact).should be_false
       end
@@ -147,42 +146,34 @@ describe Aspect do
   end
 
   context "aspect management" do
-    let(:contact){user.contact_for(user2.person)}
     before do
       connect_users(user, aspect, user2, aspect2)
       aspect.reload
       user.reload
+      @contact = user.contact_for(user2.person)
     end
-    
 
-    describe "#add_person_to_aspect" do
-      it 'adds the user to the aspect' do
-        aspect1.contacts.include?(contact).should be_false 
-        user.add_person_to_aspect(user2.person.id, aspect1.id)
+
+    describe "#add_contact_to_aspect" do
+      it 'adds the contact to the aspect' do
+        aspect1.contacts.include?(@contact).should be_false
+        user.add_contact_to_aspect(@contact, aspect1)
         aspect1.reload
-        aspect1.contacts.include?(contact).should be_true
+        aspect1.contacts.include?(@contact).should be_true
       end
 
-      it 'raises if its an aspect that the user does not own'do
-        proc{user.add_person_to_aspect(user2.person.id, aspect2.id) }.should raise_error /Can not add person to an aspect you do not own/
-      end
-
-      it 'does not allow to have duplicate contacts in an aspect' do
-        proc{user.add_person_to_aspect(not_contact.id, aspect1.id) }.should raise_error /Can not add person you are not connected to/
-      end
-
-      it 'does not allow you to add a person if they are already in the aspect' do
-        proc{user.add_person_to_aspect(user2.person.id, aspect.id) }.should raise_error /Can not add person who is already in the aspect/
+      it 'returns true if they are already in the aspect' do
+        user.add_contact_to_aspect(@contact, aspect).should == true
       end
     end
 
     describe '#delete_person_from_aspect' do
       it 'deletes a user from the aspect' do
-        user.add_person_to_aspect(user2.person.id, aspect1.id)
+        user.add_contact_to_aspect(@contact, aspect1)
         user.reload
         user.delete_person_from_aspect(user2.person.id, aspect1.id)
         user.reload
-        aspect1.reload.contacts.include?(contact).should be false
+        aspect1.reload.contacts.include?(@contact).should be false
       end
 
       it 'should check to make sure you have the aspect ' do
@@ -190,7 +181,7 @@ describe Aspect do
       end
 
       it 'deletes no posts' do
-         user.add_person_to_aspect(user2.person.id, aspect1.id)
+         user.add_contact_to_aspect(@contact, aspect1)
          user.reload
          user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
          lambda{
@@ -203,9 +194,9 @@ describe Aspect do
       end
 
       it 'should allow a force removal of a contact from an aspect' do
-        contact.aspect_ids.should_receive(:count).exactly(0).times
+        @contact.aspect_ids.should_receive(:count).exactly(0).times
 
-        user.add_person_to_aspect(user2.person.id, aspect1.id)
+        user.add_contact_to_aspect(@contact, aspect1)
         user.delete_person_from_aspect(user2.person.id, aspect.id, :force => true)
       end
 
@@ -217,7 +208,7 @@ describe Aspect do
         aspect.reload
         user.reload
       end
-      
+
       it 'should keep the contact\'s posts in previous aspect' do
         aspect.post_ids.count.should == 1
         user.delete_person_from_aspect(user2.person.id, aspect.id, :force => true)
@@ -235,34 +226,29 @@ describe Aspect do
 
       describe '#move_contact' do
         it 'should be able to move a contact from one of users existing aspects to another' do
-          user.move_contact(:person_id => user2.person.id, :from => aspect.id, :to => aspect1.id)
+          user.move_contact(user2.person, aspect1, aspect)
           aspect.reload
           aspect1.reload
 
-          aspect.contacts.include?(contact).should be_false
-          aspect1.contacts.include?(contact).should be_true
+          aspect.contacts.include?(@contact).should be_false
+          aspect1.contacts.include?(@contact).should be_true
         end
 
         it "should not move a person who is not a contact" do
-          proc{ user.move_contact(:person_id => connected_person.id, :from => aspect.id, :to => aspect1.id) }.should raise_error /Can not add person you are not connected to/
+          proc{
+            user.move_contact(connected_person, aspect1, aspect)
+          }.should raise_error
+
           aspect.reload
           aspect1.reload
           aspect.contacts.first(:person_id => connected_person.id).should be_nil
           aspect1.contacts.first(:person_id => connected_person.id).should be_nil
         end
 
-        it "should not move a person to a aspect that's not his" do
-          proc {user.move_contact(:person_id => user2.person.id, :from => aspect.id, :to => aspect2.id )}.should raise_error /Can not add person to an aspect you do not own/
-          aspect.reload
-          aspect2.reload
-          aspect.contacts.include?(contact).should be true
-          aspect2.contacts.include?(contact).should be false
-        end
-
         it 'does not try to delete if add person did not go through' do
-          user.should_receive(:add_person_to_aspect).and_return(false)
+          user.should_receive(:add_contact_to_aspect).and_return(false)
           user.should_not_receive(:delete_person_from_aspect)
-          user.move_contact(:person_id => user2.person.id, :from => aspect.id, :to => aspect1.id)
+          user.move_contact(user2.person, aspect1, aspect)
         end
       end
     end

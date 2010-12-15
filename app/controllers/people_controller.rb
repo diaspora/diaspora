@@ -51,6 +51,7 @@ class PeopleController < ApplicationController
 
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
+      @aspects_with_person = []
 
       if @contact
         @aspects_with_person = @contact.aspects
