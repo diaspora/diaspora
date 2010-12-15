@@ -25,3 +25,4 @@ class Service
 end
 require File.join(Rails.root, 'app/models/services/facebook')
 require File.join(Rails.root, 'app/models/services/twitter')
+require File.join(Rails.root, 'app/models/services/identica')
