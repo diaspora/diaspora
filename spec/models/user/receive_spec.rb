@@ -58,14 +58,22 @@ describe User do
    end
   end
 
-  context 'update posts' do
+  describe '#receive_object' do
+    it 'adds a notification for an object' do
+      Notification.should_receive(:new)
+      user = make_user
+      user.receive_object(Factory(:status_message), Factory(:person))
+      user.should_receive(:receive_post).and_return(true)
+      
+    end
+  end
 
+  context 'update posts' do
     it 'does not update posts not marked as mutable' do
       status = user.post :status_message, :message => "store this!", :to => aspect.id
       status.message = 'foo'
       xml = status.to_diaspora_xml
       user2.receive(xml, user.person)
-
       status.reload.message.should == 'store this!'
     end
 
@@ -76,7 +84,6 @@ describe User do
       user2.reload.receive(xml, user.person)
       photo.reload.caption.should match(/foo/)
     end
-
   end
 
   describe 'post refs' do
