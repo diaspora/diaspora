@@ -30,11 +30,13 @@ namespace :migrations do
   task :contacts_as_requests do
     require File.join(Rails.root,"config/environment")
     puts "Migrating contacts..."
-    old_contacts =  Contact.all(:pending => nil)
-    old_contacts.each{|contact| contact.pending = false; contact.save}
+    Contact.find_each(:pending => nil){|contact|
+      contact.pending = false; contact.save
+    }
     puts "Deleting stale requests..."
-    old_requests = Request.all(:sent => true)
-    old_requests.each{|request| request.delete}
+    Request.find_each(:sent => true){|request|
+      request.delete
+    }
     puts "Done!"
   end
 
