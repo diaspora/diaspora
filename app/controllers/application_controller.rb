@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def count_requests
-    @request_count = current_user.pending_requests.count if current_user
+    @request_count = Request.to(current_user.person).count if current_user
   end
 
   def set_invites

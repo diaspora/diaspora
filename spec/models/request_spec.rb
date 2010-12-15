@@ -79,14 +79,6 @@ describe Request do
     end
   end
 
-  context 'quering request through user' do
-    it 'finds requests for that user' do
-      request
-      user2.reload
-      user2.requests_for_me.detect{|r| r.from == user.person}.should_not be_nil
-    end
-  end
-
   describe '.hashes_for_person' do
     before do
       @user = make_user

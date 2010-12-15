@@ -74,13 +74,13 @@ describe User do
       end
 
       it 'resolves incoming invitations into contact requests' do
-        invited_user.reload.pending_requests.count.should == 1
+        Request.to(invited_user).count.should == 1
       end
 
       context 'after request acceptance' do
         before do
           fantasy_resque do
-            invited_user.accept_and_respond(invited_user.pending_requests.first.id,
+            invited_user.accept_and_respond(Request.to(invited_user).first.id,
                                                 invited_user.aspects.create(
                                                   :name => 'first aspect!').id)
           end
@@ -89,12 +89,12 @@ describe User do
         end
         it 'successfully connects invited_user to inviter' do
           invited_user.contact_for(inviter.person).should_not be_nil
-          invited_user.pending_requests.count.should == 0
+          invited_user.contact_for(inviter.person).should_not be_pending
+          Request.to(invited_user).count.should == 0
         end
 
         it 'successfully connects inviter to invited_user' do
-          inviter.contact_for(invited_user.person).should_not be_nil
-          inviter.pending_requests.size.should == 0
+          inviter.contact_for(invited_user.person).should_not be_pending
         end
       end
     end

@@ -74,19 +74,20 @@ describe InvitationsController do
 
     end
     context 'success' do
+      let(:invited) {User.find_by_username(@accept_params[:user][:username])}
       it 'creates user' do
         put :update, @accept_params
-        User.find_by_username(@accept_params[:user][:username]).should_not be_nil
+        invited.should_not be_nil
       end
 
       it 'seeds the aspects' do
         put :update, @accept_params
-        User.find_by_username(@accept_params[:user][:username]).aspects.count.should == 2
+        invited.aspects.count.should == 2
       end
 
       it 'adds a pending request' do
         put :update, @accept_params
-        User.find_by_username(@accept_params[:user][:username]).pending_requests.count.should == 1
+        Request.to(invited.person).count.should == 1
       end
     end
     context 'failure' do

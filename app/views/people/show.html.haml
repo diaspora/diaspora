@@ -23,7 +23,7 @@
 
 .span-15.last
   - unless @contact || current_user.person == @person
-    - if current_user.has_incoming_request_from(@person)
+    - if @incoming_request
       .floating
         %h3
           = t('.incoming_request')
@@ -36,7 +36,7 @@
         %h3
           = t('.not_connected', :name => @person.name)
 
-        - unless pending_request_for(@person)
+        - unless @outgoing_request
           %h3
             .description
               = t('.request_people')

@@ -46,6 +46,9 @@ class PeopleController < ApplicationController
     @post_type = :all
 
     if @person
+      @incoming_request = Request.to(current_user).from(@person).first
+      @outgoing_request = Request.from(current_user).to(@person).first
+
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
 

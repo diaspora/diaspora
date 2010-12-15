@@ -27,7 +27,7 @@ When /^I wait for the aspects page to load$/ do
 end
 
 When /^I wait for the request's profile page to load$/ do
-  wait_until { current_path == person_path(@me.reload.pending_requests.first.from) }
+  wait_until { current_path == person_path(Request.to(@me).first.from) }
 end
 
 When /^I wait for the ajax to finish$/ do

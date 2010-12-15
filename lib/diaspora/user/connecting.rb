@@ -20,7 +20,6 @@ module Diaspora
       end
 
       def accept_contact_request(request, aspect)
-        pending_request_ids.delete(request.id.to_id)
         activate_contact(request.from, aspect)
         request.destroy
         request.reverse_for(self)
@@ -32,20 +31,14 @@ module Diaspora
       end
 
       def accept_and_respond(contact_request_id, aspect_id)
-        request          = pending_requests.find!(contact_request_id)
+        request          = Request.to(self.person).find!(contact_request_id)
         requester        = request.from
         reversed_request = accept_contact_request(request, aspect_by_id(aspect_id))
         dispatch_contact_acceptance reversed_request, requester
       end
 
       def ignore_contact_request(contact_request_id)
-        request = pending_requests.find!(contact_request_id)
-        person  = request.from
-
-        self.pending_request_ids.delete(request.id)
-        self.save
-
-        person.save
+        request = Request.to(self.person).find!(contact_request_id)
         request.destroy
       end
 
@@ -58,8 +51,6 @@ module Diaspora
         #this is a new contact request
         elsif contact_request.from != self.person
           if contact_request.save!
-            self.pending_requests << contact_request
-            self.save!
             Rails.logger.info("event=contact_request status=received_new_request from=#{contact_request.from.diaspora_handle} to=#{self.diaspora_handle}")
             self.mail(Jobs::MailRequestReceived, self.id, contact_request.from.id)
           end
@@ -124,10 +115,6 @@ module Diaspora
         new_contact.aspects << aspect
         save!
         aspect.save!
-      end
-
-      def requests_for_me
-        pending_requests.select { |req| req.to == self.person }
       end
     end
   end

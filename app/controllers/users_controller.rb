@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     @person   = @user.person
     @profile  = @user.profile
     @services = @user.services
-    @requests = @user.pending_requests
+    @requests = Request.to(@person).all
 
     @step = ((params[:step].to_i>0)&&(params[:step].to_i<5)) ? params[:step].to_i : 1
     @step ||= 1

@@ -14,28 +14,6 @@ describe User do
     user.encryption_key.should_not be nil
   end
 
-  describe "#has_incoming_request_from" do
-    it "returns true if the user has an incoming request from the person" do
-      user2.send_contact_request_to(user.person, aspect2)
-
-      user.reload
-      user2.reload
-
-      user.has_incoming_request_from(user2.person).should be_true
-    end
-    it "returns false if the user does not have an incoming request from the person" do
-      user.has_incoming_request_from(user2.person).should be_false
-    end
-    it "returns false if the user has requested to be contacts with the person" do
-      user.send_contact_request_to(user2.person, aspect)
-
-      user.reload
-      user2.reload
-
-      user.has_incoming_request_from(user2.person).should be_false
-    end
-  end
-
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
       pending "Why do you want to set ids directly? MONGOMAPPERRRRR!!!"

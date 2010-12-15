@@ -59,7 +59,7 @@ describe Diaspora::Parser do
 
     it "should activate the Person if I initiated a request to that url" do
       user.send_contact_request_to(user2.person, aspect)
-      request = user2.reload.pending_requests.find_by_to_id!(user2.person.id)
+      request = Request.to(user2).from(user).first
       fantasy_resque do
         user2.accept_and_respond(request.id, aspect2.id)
       end

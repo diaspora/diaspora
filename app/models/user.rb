@@ -21,7 +21,6 @@ class User
   key :invites, Integer, :default => 5
   key :invitation_token, String
   key :invitation_sent_at, DateTime
-  key :pending_request_ids, Array, :typecast => 'ObjectId'
   key :visible_post_ids, Array, :typecast => 'ObjectId'
   key :visible_person_ids, Array, :typecast => 'ObjectId'
 
@@ -48,7 +47,6 @@ class User
   many :invitations_to_me, :class => Invitation, :foreign_key => :to_id
   many :contacts, :class => Contact, :foreign_key => :user_id
   many :visible_people, :in => :visible_person_ids, :class => Person # One of these needs to go
-  many :pending_requests, :in => :pending_request_ids, :class => Request
   many :raw_visible_posts, :in => :visible_post_ids, :class => Post
   many :aspects, :class => Aspect, :dependent => :destroy
 
@@ -80,12 +78,6 @@ class User
       conditions[:email] = conditions.delete(:username)
     end
     super
-  end
-
-  def has_incoming_request_from(person)
-    self.pending_requests.select do |req|
-      req.to_id == self.person.id
-    end.any? { |req| req.from_id == person.id }
   end
 
   ######## Making things work ########
