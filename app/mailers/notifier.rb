@@ -9,10 +9,10 @@ class Notifier < ActionMailer::Base
     recipients.each do |rec|
       mail = single_admin(string, rec)
       mails << mail
-      mail.deliver
     end
     mails
   end
+
   def single_admin(string, recipient)
     @recipient = recipient
     @string = string.html_safe

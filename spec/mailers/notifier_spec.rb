@@ -13,7 +13,7 @@ describe Notifier do
     it 'mails a user' do
       mails = Notifier.admin("Welcome to bureaucracy!", [user])
       mails.length.should == 1
-      mail = Notifier.deliveries.first
+      mail = mails.first 
       mail.to.should == [user.email]
       mail.body.encoded.should match /Welcome to bureaucracy!/
       mail.body.encoded.should match /#{user.username}/
@@ -23,8 +23,7 @@ describe Notifier do
       5.times do 
         users << make_user
       end
-      Notifier.admin("Welcome to bureaucracy!", users)
-      mails = Notifier.deliveries
+      mails = Notifier.admin("Welcome to bureaucracy!", users)
       mails.length.should == 5
       mails.each{|mail|
         this_user = users.detect{|u| mail.to == [u.email]}
