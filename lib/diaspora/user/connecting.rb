@@ -117,7 +117,10 @@ module Diaspora
       end
 
       def activate_contact(person, aspect)
-        new_contact = Contact.create!(:user => self, :person => person, :aspects => [aspect])
+        new_contact = Contact.create!(:user => self,
+          :person => person,
+          :aspects => [aspect],
+          :pending => false)
         new_contact.aspects << aspect
         save!
         aspect.save!

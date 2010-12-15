@@ -5,7 +5,7 @@
 class Contact
   include MongoMapper::Document
 
-  key :pending, Boolean
+  key :pending, Boolean, :default => true
 
   key :user_id, ObjectId
   belongs_to :user

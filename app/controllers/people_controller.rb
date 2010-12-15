@@ -26,7 +26,7 @@ class PeopleController < ApplicationController
   def hashes_for_people people, aspects
     ids = people.map{|p| p.id}
     requests = {}
-    Request.all(:to_id.in => ids, :from_id => current_user.person.id).each do |r|
+    Request.all(:from_id.in => ids, :to_id => current_user.person.id).each do |r|
       requests[r.to_id] = r
     end
     contacts = {}
@@ -53,7 +53,11 @@ class PeopleController < ApplicationController
         @aspects_with_person = @contact.aspects
       end
 
-      @commenting_disabled = (current_user.person.id != @person.id) && !@contact
+      if (@person != current_user.person) && (!@contact || @contact.pending)
+        @commenting_disabled = true
+      else
+        @commenting_disabled = false
+      end
 
       @posts = current_user.posts_from(@person).paginate :page => params[:page]
       @post_hashes = hashes_for_posts @posts
