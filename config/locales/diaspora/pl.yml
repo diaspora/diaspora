@@ -12,10 +12,18 @@ pl:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "jest już zajęty"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ pl:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "nieznana osoba"
-      youtube_title: 
-        unknown: "Nieznany tytuł wideo"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Na pewno?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ pl:
       try_it_out: "Przemyśl to, naprawdę warto spróbować."
     request_accepted: 
       accepted: "zaakceptował(-a) Twoje zaproszenie. Jest w aspekcie"
-      aspect: "."
       subject: "%{name} zaakceptował(-a) twoje zaproszenie do znajomych w Diasporze*"
     single_admin: 
       admin: "Twój panel zarządzania Diaspora"

@@ -24,21 +24,24 @@ module ApplicationHelper
       post.aspect_ids.include?(a.id)
     end
   end
+
   def aspects_without_post aspects, post
     aspects.reject do |a|
       post.aspect_ids.include?(a.id)
     end
   end
+
   def aspect_badge aspects
     str = ''
     if aspects.count > 1
       str = "<span class='aspect_badge all'>#{I18n.t('application.helper.aspect_badge.all_aspects')}</span>"
     elsif aspects.count == 1
       aspect = aspects.first
-      str = "<span class='aspect_badge single'><a href=#{aspect_path(aspect)}>#{aspect.name}</a></span>"
+      str    = "<span class='aspect_badge single'><a href=#{aspect_path(aspect)}>#{aspect.name}</a></span>"
     end
     str.html_safe
   end
+
   def aspect_links aspects, opts={}
     str = ""
     aspects.each do |a|
@@ -46,15 +49,16 @@ module ApplicationHelper
     end
     str.html_safe
   end
+
   def aspect_li aspect, opts= {}
     param_string = ""
     if opts.size > 0
       param_string << '?'
-      opts.each_pair do |k,v|
+      opts.each_pair do |k, v|
         param_string << "#{k}=#{v}"
       end
     end
-"<li>
+    "<li>
   <a href='/aspects/#{aspect.id}#{param_string}'>
     #{aspect.name}
   </a>
@@ -98,12 +102,12 @@ module ApplicationHelper
 
   def person_url(person)
     case person.class.to_s
-    when "User"
-      user_path(person)
-    when "Person"
-      person_path(person)
-    else
-      I18n.t('application.helper.unknown_person')
+      when "User"
+        user_path(person)
+      when "Person"
+        person_path(person)
+      else
+        I18n.t('application.helper.unknown_person')
     end
   end
 
@@ -124,28 +128,28 @@ module ApplicationHelper
   end
 
   def person_link(person)
-"<a href='/people/#{person.id}'>
+    "<a href='/people/#{person.id}'>
   #{person.name}
 </a>".html_safe
   end
 
   def image_or_default(person, size=:thumb_large)
     image_location = person.profile.image_url(size) if person.profile
-    image_location ||= person.profile.image_url(:thumb_large) if person.profile  #backwards compatability for old profile pictures
+    image_location ||= person.profile.image_url(:thumb_large) if person.profile #backwards compatability for old profile pictures
     image_location ||= "/images/user/default.png"
     image_location
   end
-  
+
   def hard_link(string, path)
-    link_to string, path, :rel => 'external' 
+    link_to string, path, :rel => 'external'
   end
 
   def person_image_link(person, opts = {})
     return "" if person.nil?
     if opts[:to] == :photos
-      link_to person_image_tag(person,opts[:size]), person_photos_path(person)
+      link_to person_image_tag(person, opts[:size]), person_photos_path(person)
     else
-"<a href='/people/#{person.id}'>
+      "<a href='/people/#{person.id}'>
   #{person_image_tag(person)}
 </a>".html_safe
     end
@@ -158,83 +162,109 @@ module ApplicationHelper
   def person_photos_path person
     person_id = person.id if person.respond_to?(:id)
     person_id ||= person
-      
+
     "#{photos_path}?person_id=#{person_id}"
   end
 
   def markdownify(message, options = {})
     message = h(message).html_safe
 
-    [:autolinks, :youtube, :emphasis, :links, :newlines].each do |k|
-      if !options.has_key?(k)
-        options[k] = true
-      end
+    if !options.has_key?(:newlines)
+      options[:newlines] = true
     end
 
-    if options[:links]
-      message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
-        escape = (options[:emphasis]) ? "\\" : ""
-        res = "<a target=\"#{escape}_blank\" href=\"#{$2}\" title=\"#{$3}\">#{$1}</a>"
-        res
-      end
-      message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/) do |m|
-        escape = (options[:emphasis]) ? "\\" : ""
-        res = "<a target=\"#{escape}_blank\" href=\"#{$2}\">#{$1}</a>"
-        res
-      end
-    end
-
-    if options[:youtube]
-      message.gsub!(/( |^)(http:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)(&[^ ]*|)/) do |m|
-        res = "#{$1}youtube.com::#{$3}"
-        res.gsub!(/(\*|_)/) { |m| "\\#{$1}" } if options[:emphasis]
-        res
-      end
-    end
-
-    if options[:autolinks]
-      message.gsub!(/( |^)(www\.[^\s]+\.[^\s])/, '\1http://\2')
-      message.gsub!(/(<a target="\\?_blank" href=")?(https|http|ftp):\/\/([^\s]+)/) do |m|
-        if !$1.nil?
-          m
-        else
-          res = %{<a target="_blank" href="#{$2}://#{$3}">#{$3}</a>}
-          res.gsub!(/(\*|_)/) { |m| "\\#{$1}" } if options[:emphasis]
-          res
-        end
-      end
-    end
-
-    if options[:emphasis]
-      message.gsub!("\\**", "-^doublestar^-")
-      message.gsub!("\\__", "-^doublescore^-")
-      message.gsub!("\\*", "-^star^-")
-      message.gsub!("\\_", "-^score^-")
-      message.gsub!(/(\*\*\*|___)(.+?)\1/m, '<em><strong>\2</strong></em>')
-      message.gsub!(/(\*\*|__)(.+?)\1/m, '<strong>\2</strong>')
-      message.gsub!(/(\*|_)(.+?)\1/m, '<em>\2</em>')
-      message.gsub!("-^doublestar^-", "**")
-      message.gsub!("-^doublescore^-", "__")
-      message.gsub!("-^star^-", "*")
-      message.gsub!("-^score^-", "_")
-    end
-
-    if options[:youtube]
-      while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\\-]+)/)
-        video_id = youtube[1]
-        if options[:youtube_maps] && options[:youtube_maps][video_id]
-          title = options[:youtube_maps][video_id]
-        else
-          title = I18n.t 'application.helper.youtube_title.unknown'
-        end
-        message.gsub!('youtube.com::'+video_id, '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
-      end
-    end
+    message = process_links(message)
+    message = process_youtube(message)
+    message = process_autolinks(message)
+    message = process_emphasis(message)
+    message = process_youtube_again(message, options[:youtube_maps])
+    message = process_vimeo(message, options[:vimeo_maps])
 
     if options[:newlines]
       message.gsub!(/\n+/, '<br />')
     end
 
+    return message
+  end
+
+  def process_links(message)
+    message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
+      escape = "\\"
+      res    = "<a target=\"#{escape}_blank\" href=\"#{$2}\" title=\"#{$3}\">#{$1}</a>"
+      res
+    end
+    message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/) do |m|
+      escape = "\\"
+      res    = "<a target=\"#{escape}_blank\" href=\"#{$2}\">#{$1}</a>"
+      res
+    end
+
+    return message
+  end
+
+  def process_youtube(message)
+    message.gsub!(/( |^)(http:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)(&[^ ]*|)/) do |m|
+      res = "#{$1}youtube.com::#{$3}"
+      res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
+      res
+    end
+    return message
+  end
+
+  def process_autolinks(message)
+    message.gsub!(/( |^)(www\.[^\s]+\.[^\s])/, '\1http://\2')
+    message.gsub!(/(<a target="\\?_blank" href=")?(https|http|ftp):\/\/([^\s]+)/) do |m|
+      if !$1.nil?
+        m
+      else
+        res = %{<a target="_blank" href="#{$2}://#{$3}">#{$3}</a>}
+        res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
+        res
+      end
+    end
+    return message
+  end
+
+  def process_emphasis(message)
+    message.gsub!("\\**", "-^doublestar^-")
+    message.gsub!("\\__", "-^doublescore^-")
+    message.gsub!("\\*", "-^star^-")
+    message.gsub!("\\_", "-^score^-")
+    message.gsub!(/(\*\*\*|___)(.+?)\1/m, '<em><strong>\2</strong></em>')
+    message.gsub!(/(\*\*|__)(.+?)\1/m, '<strong>\2</strong>')
+    message.gsub!(/(\*|_)(.+?)\1/m, '<em>\2</em>')
+    message.gsub!("-^doublestar^-", "**")
+    message.gsub!("-^doublescore^-", "__")
+    message.gsub!("-^star^-", "*")
+    message.gsub!("-^score^-", "_")
+    return message
+  end
+
+  def process_youtube_again(message, youtube_maps)
+    while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\\-]+)/)
+      video_id = youtube[1]
+      if youtube_maps && youtube_maps[video_id]
+        title = youtube_maps[video_id]
+      else
+        title = I18n.t 'application.helper.video_title.unknown'
+      end
+      message.gsub!('youtube.com::'+video_id, '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
+    end
+    return message
+  end
+
+
+  def process_vimeo(message, vimeo_maps)
+    regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{6,})/
+    while vimeo = message.match(regex)
+      video_id = vimeo[1]
+      if vimeo_maps && vimeo_maps[video_id]
+        title = vimeo_maps[video_id]
+      else
+        title = I18n.t 'application.helper.video_title.unknown'
+      end
+      message.gsub!(vimeo[0], '<a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
+    end
     return message
   end
 

@@ -11,7 +11,7 @@ es:
         resend_confirmation: "Volver a enviar instrucciones de confirmación"
       send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos."
     failure: 
-      inactive: "Tu cuenta aun no ha sido activada."
+      inactive: "Tu cuenta aún no ha sido activada."
       invalid: "Contraseña o email incorrecto."
       invalid_token: "Identificador de autenticación incorrecto."
       locked: "Tu cuenta está bloqueada."

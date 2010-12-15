@@ -12,10 +12,18 @@ ru:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "уже присутствует"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -28,10 +36,10 @@ ru:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Все аспекты"
       unknown_person: "неизвестная персона"
-      youtube_title: 
-        unknown: "Неизвестный видео заголовок"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Вы уверены?"
   aspects: 
     add_to_aspect: 
@@ -90,7 +98,7 @@ ru:
     show: 
       edit_aspect: "редактировать аспект"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "ваш аспект, %{name}, имеет слишком длинное имя для сохранения."
       success: "Аспект, %{name}, отредактирован."
   back: "Назад"
   cancel: "Отмена"
@@ -136,7 +144,7 @@ ru:
     edit: 
       sign_up: "регистрация"
     new: 
-      already_invited: "Already invited"
+      already_invited: "Уже приглашён(а)"
       aspect: "Аспект"
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
       if_they_accept_info: "после согласия с их стороны, они будут добавлены в предложенный вами аспект."
@@ -172,7 +180,6 @@ ru:
       try_it_out: "Вы должны подумать о его проверке.\n"
     request_accepted: 
       accepted: "принял(а) ваш запрос. Сейчас он(а) находятся в вашем\n"
-      aspect: "аспект."
       subject: "%{name} принял(а) ваш запрос для присоединения к Диаспоре*"
     single_admin: 
       admin: "Ваш администратор Диаспоры"
@@ -188,7 +195,7 @@ ru:
   people: 
     edit: 
       allow_search: "Разрешить отображать вас в поиске Диаспоры"
-      edit_profile: "Edit profile"
+      edit_profile: "Редактировать профиль"
       first_name: "Имя"
       info_available_to: "Эта информация будет доступна для всех, кто будет связан с вами в Диаспоре."
       last_name: "Фамилия"
@@ -203,9 +210,9 @@ ru:
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
-      no_results: "Hey! You need to search for something."
+      couldnt_find_them_send_invite: "Не можете их найти? Отправьте им приглашение!"
+      no_one_found: "...и не удалось кого либо найти."
+      no_results: "Эй! Вам надо что то найти."
       results_for: "результат поиска для"
     person: 
       add_contact: "добавить контакт"
@@ -228,7 +235,7 @@ ru:
       no_posts: "новых сообщений нет!"
       not_connected: "Вы не связаны с этим человеком"
       recent_posts: "Последние сообщения"
-      recent_public_posts: "Recent Public Posts"
+      recent_public_posts: "Последние Публичные Посты"
       request_people: "Если хотите, вы можете спросить его/ее разрешения добавить в аспекты."
       return_to_aspects: "Вернуться на страницу аспектов"
       to_accept_or_ignore: "принять или игнорировать."
@@ -255,8 +262,8 @@ ru:
       invalid_ext: "{file} имеет не допустимое расширение. Разрешены только {extensions}."
       size_error: "{file} слишком большой, максимальный размер файла {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "или выбрать один из существующих"
+      upload: "Загрузить новое фото для профиля!"
     photo: 
       view_all: "Посмотреть все фотографии %{name}"
     show: 
@@ -315,7 +322,7 @@ ru:
       connect_to_facebook: "Подключение к Facebook"
       connect_to_twitter: "Подключение к Twitter"
       disconnect: "разъединить"
-      edit_services: "Edit services"
+      edit_services: "Редактировать сервисы"
       logged_in_as: "Вы вошли как"
       really_disconnect: "отключить %{service}?"
   settings: "Настройки"
@@ -371,17 +378,17 @@ ru:
   users: 
     destroy: "Аккаунт закрыт."
     edit: 
-      change: "Change"
+      change: "Изменение"
       change_language: "Сменить язык"
       change_password: "Сменить пароль"
       close_account: "Закрыть учётную запись"
       download_photos: "Скачать мои изображения"
       download_xml: "Скачать мою информацию в xml"
-      edit_account: "Edit account"
-      email_notifications: "Email notificaions"
+      edit_account: "Редактировать аккаунт"
+      email_notifications: "Почтовое уведомление"
       export_data: "Экспорт информации"
       new_password: "Новый пароль"
-      receive_email_notifications: "Receive email notificaions?"
+      receive_email_notifications: "Получили письмо уведомление?"
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 
@@ -415,7 +422,7 @@ ru:
     public: 
       does_not_exist: "Пользователя %{username} не существует!"
     update: 
-      email_notifications_changed: "Language Change Failed"
+      email_notifications_changed: "Не удачная смена языка"
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён"

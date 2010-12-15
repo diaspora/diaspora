@@ -12,10 +12,18 @@ pt-PT:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "já existe"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ pt-PT:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "utilizador(a) desconhecido(a)"
-      youtube_title: 
-        unknown: "Título do Vídeo Desconhecido"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ pt-PT:
       try_it_out: "Devias mesmo pensar em dar-lhe uma vista de olhos."
     request_accepted: 
       accepted: "aceitou(aram) o teu pedido de contacto. Está(ão) agora no teu"
-      aspect: "grupo."
       subject: "%{name} aceitou o teu pedido de contacto no Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"

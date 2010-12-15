@@ -12,10 +12,18 @@ sk:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "je už obsadený"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ sk:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "neznáma osoba"
-      youtube_title: 
-        unknown: "Názov videa neznámy"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ sk:
       try_it_out: "Mali by ste to skontrolovať."
     request_accepted: 
       accepted: "prijal Vašu žiadosť. Teraz je vo Vašich"
-      aspect: "aspekt."
       subject: "Užívateľ %{name} prijal Vašu žiadosť a pripojil sa k Diaspore*"
     single_admin: 
       admin: "Your Diaspora administrator"

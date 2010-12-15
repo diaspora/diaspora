@@ -44,8 +44,8 @@ de:
         subject: "Zurücksetzen deines Passworts"
         wont_change: "Dein Passwort bleibt unverändert bis du es über den Link änderst."
       unlock_instructions: 
-        account_locked: "Dein Konto wurde aufgrund zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
-        click_to_unlock: "Folge unten aufgeführtem Link, um dein Konto zu entsperren:"
+        account_locked: "Dein Konto wurde aufgrund zu vieler fehlgeschlagener Anmeldeversuche gesperrt."
+        click_to_unlock: "Folge dem unten aufgeführtem Link, um dein Konto zu entsperren:"
         subject: "Konto entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
@@ -58,14 +58,14 @@ de:
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Passwort zurücksetzt."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
     registrations: 
-      destroyed: "Tschüss! Dein Konto wurde erfolgreich gekündigt. Wir hoffen dich bald wiederzusehen."
+      destroyed: "Tschüss! Dein Konto wurde erfolgreich geschlossen. Wir hoffen dich bald wiederzusehen."
       signed_up: "Du hast dich erfolgreich registriert. Sofern aktiviert, wurde dir eine Bestätigung per E-Mail gesendet."
       updated: "Dein Konto wurde aktualisiert."
     sessions: 
       new: 
         alpha_software: "Diese Software befindet sich im Alpha-Stadium."
-        bugs_and_feedback: "Du bist gewarnt, Fehler werden auftreten. Wir empfehlen dir, den Feedback-Knopf am rechten Browserrand zu nutzen, um diese zu berichten. Wir werden so schnell wie möglich daran arbeiten, alle Probleme zu beseitigen."
-        bugs_and_feedback_mobile: "Sei gewarnt, du wirst auf Bugs stoßen. Wir ermutigen dich, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
+        bugs_and_feedback: "Sei gewarnt, Fehler werden auftreten. Wir empfehlen dir, den Feedback-Knopf am rechten Browserrand zu nutzen, um alle Störungen zu berichten. Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
+        bugs_and_feedback_mobile: "Sei gewarnt, Fehler werden auftreten. Wir empfehlen dir, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
         have_a_problem: "Du hast ein Problem? Finde eine Antwort hier (Englisch)"
         login: "Einloggen"
         modern_browsers: "unterstützt nur moderne Browser."

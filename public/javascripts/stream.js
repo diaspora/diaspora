@@ -109,6 +109,11 @@ var Stream = {
     $(".new_comment").live('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');
     });
+
+    $(".delete").live('ajax:success', function(data, html, xhr) {
+      $(this).parents(".message").fadeOut(150);
+    });
+
   },
 
   toggleComments: function(evt) {

@@ -12,10 +12,18 @@ fi:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "on jo käytössä"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -28,10 +36,10 @@ fi:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Kaikki verkostonäkymät"
       unknown_person: "tuntematon persoona"
-      youtube_title: 
-        unknown: "Videon otsikko tuntematon"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "Oletko varma?"
   aspects: 
     add_to_aspect: 
@@ -136,7 +144,7 @@ fi:
     edit: 
       sign_up: "sign_up"
     new: 
-      already_invited: "Already invited"
+      already_invited: "On jo kutsuttu"
       aspect: "Verkostonäkymä"
       comma_seperated_plz: "Erottele sähköpostiosoitteet pilkulla."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -172,7 +180,6 @@ fi:
       try_it_out: "Sinun pitäisi todella harkita sen tarkistamista."
     request_accepted: 
       accepted: "on hyväksynyt kontaktipyyntösi. He kuuluvat nyt sinun "
-      aspect: "verkostonäkymä."
       subject: "%{name} on hyväksynyt kontaktipyyntösi Diaspora*ssa"
     single_admin: 
       admin: "Diasporasi ylläpitäjä"
@@ -203,8 +210,8 @@ fi:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " tulokset kyselylle: %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      couldnt_find_them_send_invite: "Etkö löytänyt heitä?  Lähetä kutsu!"
+      no_one_found: "...eikä ketään löytynyt."
       no_results: "Hei! Sinun tulisi etsiä jotakin."
       results_for: "hakutulokset kohteelle "
     person: 

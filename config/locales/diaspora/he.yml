@@ -12,10 +12,18 @@ he:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "כבר תפוס"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,8 +38,8 @@ he:
       aspect_badge: 
         all_aspects: "כל ההיבטים"
       unknown_person: "אדם לא ידוע"
-      youtube_title: 
-        unknown: "כותרת הווידאו אינה ידועה"
+      video_title: 
+        unknown: "Unknown Video Title"
   are_you_sure: "בבטחה?"
   aspects: 
     add_to_aspect: 
@@ -172,7 +180,6 @@ he:
       try_it_out: "מאוד כדאי לבדוק זאת."
     request_accepted: 
       accepted: "קיבל/ה את בקשת ההתקשרות שלך. וכעת יופיע/תופיע תחת"
-      aspect: "היבט."
       subject: "בקשת ההתקשרות שלך התקבלה על ידי %{name} בדיאספורה*"
     single_admin: 
       admin: "מנהל הדיאספורה שלך"

@@ -12,10 +12,18 @@ id:
   activemodel: 
     errors: 
       models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
               taken: "is already taken"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
@@ -30,7 +38,7 @@ id:
       aspect_badge: 
         all_aspects: "All aspects"
       unknown_person: "orang tak dikenal"
-      youtube_title: 
+      video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspects: 
@@ -172,7 +180,6 @@ id:
       try_it_out: "You should really think about checking it out."
     request_accepted: 
       accepted: "has accepted your friend request. They are now in your"
-      aspect: "aspect."
       subject: "%{name} has accepted your friend request on Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
