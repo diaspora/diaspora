@@ -186,7 +186,7 @@ en:
           your_handle: "Your diaspora handle"
           your_email: "Your email"
           edit_account: "Edit account"
-          email_notifications: "Email notificaions"
+          email_notifications: "Email notifications"
           receive_email_notifications: "Receive email notificaions?"
           change: "Change"
       destroy: "Account successfully closed."
