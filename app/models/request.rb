@@ -17,17 +17,16 @@ class Request
   belongs_to :to,   :class => Person
 
   validates_presence_of :from, :to
-  validate :not_already_connected_if_sent
-  validate :not_already_connected_if_not_sent
-  validate :no_pending_request, :if => :sent
+  validates_uniqueness_of :from_id, :scope => :to_id
+  validate :not_already_connected
   validate :not_friending_yourself
 
-  scope :from, lambda { |person| 
+  scope :from, lambda { |person|
     target = (person.is_a?(User) ? person.person : person)
     where(:from_id => target.id)
   }
 
-  scope :to, lambda { |person| 
+  scope :to, lambda { |person|
     target = (person.is_a?(User) ? person.person : person)
     where(:to_id => target.id)
   }
@@ -36,8 +35,7 @@ class Request
   def self.instantiate(opts = {})
     self.new(:from => opts[:from],
              :to   => opts[:to],
-             :into => opts[:into],
-             :sent => true)
+             :into => opts[:into])
   end
 
   def reverse_for accepting_user
@@ -75,30 +73,15 @@ class Request
     requests.map{|r| {:request => r, :sender => senders_hash[r.from_id]}}
   end
   private
-  def no_pending_request
-    if Request.first(:from_id => from_id, :to_id => to_id)
-      errors[:base] << 'You have already sent a request to that person'
-    end
-  end
 
-  def not_already_connected_if_sent
-    if self.sent
-      if Contact.first(:user_id => self.from.owner_id, :person_id => self.to.id)
-        errors[:base] << 'You have already connected to this person'
-      end
-    end
-  end
-
-  def not_already_connected_if_not_sent
-    unless self.sent
-      if Contact.first(:user_id => self.to.owner_id, :person_id => self.from.id)
-        errors[:base] << 'You have already connected to this person'
-      end
+  def not_already_connected
+    if Contact.first(:user_id => self.to.owner_id, :person_id => self.from.id)
+      errors[:base] << 'You have already connected to this person'
     end
   end
 
   def not_friending_yourself
-    if self.to == self.from 
+    if self.to == self.from
       errors[:base] << 'You can not friend yourself'
     end
   end

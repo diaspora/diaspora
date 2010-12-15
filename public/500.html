@@ -53,7 +53,7 @@
 <body>
   <!-- This file lives in public/500.html -->
   <header>
-		<img id="diaspora_logo" src="images/diaspora_logo_large.png"/>
+		<img id="diaspora_logo" src="images/logo_large.png"/>
   </header>
 
 	<h1>
@@ -65,17 +65,21 @@
 
 	<div id="satisfaction">
 		<script type="text/javascript" charset="utf-8">
-			var is_ssl = ("https:" == document.location.protocol);
-			var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
-			document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+      if(window.location.hostname == 'joindiaspora.com'){
+			  var is_ssl = ("https:" == document.location.protocol);
+			  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+			  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+      }
 		</script>
 
 		<script type="text/javascript" charset="utf-8">
-			var feedback_widget_options = {};
-			feedback_widget_options.display = "inline";  
-			feedback_widget_options.company = "diaspora";
-			feedback_widget_options.style = 'problem';
-			var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+      if(window.location.hostname == 'joindiaspora.com'){
+			  var feedback_widget_options = {};
+			  feedback_widget_options.display = "inline";  
+			  feedback_widget_options.company = "diaspora";
+			  feedback_widget_options.style = 'problem';
+        var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+      }
 		</script>
 
 	</div>

@@ -28,7 +28,7 @@ describe Diaspora::UserModules::Connecting do
 
     it 'should not be able to contact request no-one' do
       proc {
-        user.send_contact_request_to(nil, aspect) 
+        user.send_contact_request_to(nil, aspect)
       }.should raise_error(MongoMapper::DocumentNotValid)
     end
     it 'creates a pending contact' do
@@ -93,11 +93,10 @@ describe Diaspora::UserModules::Connecting do
       let(:request2_for_user) {Request.instantiate(:to => user.person, :from => person_one)}
       let(:request_from_myself) {Request.instantiate(:to => user.person, :from => user.person)}
       before do
-        request_for_user.save
         user.receive(request_for_user.to_diaspora_xml, person)
-        @received_request = Request.from(person).to(user.person).first(:sent => false)
+        @received_request = Request.from(person).to(user.person).first
         user.receive(request2_for_user.to_diaspora_xml, person_one)
-        @received_request2 = Request.from(person_one).to(user.person).first(:sent => false)
+        @received_request2 = Request.from(person_one).to(user.person).first
         user.reload
       end
 
@@ -107,7 +106,7 @@ describe Diaspora::UserModules::Connecting do
         }.should change(Request, :count ).by(-1)
       end
       it 'should be able to ignore a pending contact request' do
-        proc { user.ignore_contact_request(@received_request.id) 
+        proc { user.ignore_contact_request(@received_request.id)
         }.should change(Request, :count ).by(-1)
       end
 
@@ -230,7 +229,7 @@ describe Diaspora::UserModules::Connecting do
       end
 
       it 'should disconnect the other user on the same seed' do
-        lambda { 
+        lambda {
           user2.disconnect user.person }.should change {
           user2.reload.contacts.count }.by(-1)
         aspect2.reload.contacts.count.should == 0

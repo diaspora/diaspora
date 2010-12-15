@@ -5,21 +5,23 @@
 require 'spec_helper'
 
 describe Request do
-  let(:user)   { make_user }
-  let(:user2)  { make_user }
-  let(:person) { Factory :person }
-  let(:aspect) { user.aspects.create(:name => "dudes") }
-  let(:request){ user.send_contact_request_to user2.person, aspect }
+  before do
+    @user    = make_user
+    @user2   = make_user
+    @person  = Factory :person
+    @aspect  = @user.aspects.create(:name => "dudes")
+    @aspect2 = @user2.aspects.create(:name => "Snoozers")
+  end
 
   describe 'validations' do
     before do
-      @request = Request.instantiate(:from => user.person, :to => user2.person, :into => aspect)
+      @request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
     end
     it 'is valid' do
       @request.should be_valid
-      @request.from.should == user.person
-      @request.to.should   == user2.person
-      @request.into.should == aspect
+      @request.from.should == @user.person
+      @request.to.should   == @user2.person
+      @request.into.should == @aspect
     end
     it 'is from a person' do
       @request.from = nil
@@ -33,49 +35,49 @@ describe Request do
       @request.into = nil
       @request.should be_valid
     end
+    it 'is not from an existing friend' do
+      Contact.create(:user => @user2, :person => @user.person, :aspects => [@aspect2])
+      @request.should_not be_valid
+    end
     it 'is not a duplicate of an existing pending request' do
-      request
-      @request.should_not be_valid
+      @request.save
+      duplicate_request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      duplicate_request.should_not be_valid
     end
-    it 'is not to an existing friend' do
-      connect_users(user, aspect, user2, user2.aspects.create(:name => 'new aspect'))
-      @request.should_not be_valid
-    end
-
     it 'is not to yourself' do
-      @request = Request.instantiate(:from => user.person, :to => user.person, :into => aspect)
+      @request = Request.instantiate(:from => @user.person, :to => @user.person, :into => @aspect)
       @request.should_not be_valid
     end
   end
 
   describe 'scopes' do
     before do
-      @request = Request.instantiate(:from => user.person, :to => user2.person, :into => aspect)
+      @request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
       @request.save
     end
     describe '.from' do
       it 'returns requests from a person' do
-        query = Request.from(user.person)
+        query = Request.from(@user.person)
         query.first.should == @request
       end
 
       it 'returns requests from a user' do
-        query = Request.from(user)
+        query = Request.from(@user)
         query.first.should == @request
       end
     end
     describe '.to' do
       it 'returns requests to a person' do
-        query = Request.to(user2.person)
+        query = Request.to(@user2.person)
         query.first.should == @request
       end
       it 'returns requests to a user' do
-        query = Request.to(user2)
+        query = Request.to(@user2)
         query.first.should == @request
       end
     end
     it 'chains' do
-      Request.from(user).to(user2.person).first.should == @request
+      Request.from(@user).to(@user2.person).first.should == @request
     end
   end
 
@@ -90,7 +92,7 @@ describe Request do
       @hash = @hashes.first
     end
     it 'gives back requests' do
-      @hash[:request].should == Request.from(@user2).to(@user).first(:sent => false)
+      @hash[:request].should == Request.from(@user2).to(@user).first
     end
     it 'gives back people' do
       @hash[:sender].should == @user2.person
@@ -101,24 +103,24 @@ describe Request do
   end
   describe 'xml' do
     before do
-      @request = Request.new(:from => user.person, :to => user2.person, :into => aspect)
+      @request = Request.new(:from => @user.person, :to => @user2.person, :into => @aspect)
       @xml = @request.to_xml.to_s
     end
     describe 'serialization' do
       it 'should not generate xml for the User as a Person' do
-        @xml.should_not include user.person.profile.first_name
+        @xml.should_not include @user.person.profile.first_name
       end
 
       it 'should serialize the handle and not the sender' do
-        @xml.should include user.person.diaspora_handle
+        @xml.should include @user.person.diaspora_handle
       end
 
       it 'serializes the intended recipient handle' do
-        @xml.should include user2.person.diaspora_handle
+        @xml.should include @user2.person.diaspora_handle
       end
 
       it 'should not serialize the exported key' do
-        @xml.should_not include user.person.exported_key
+        @xml.should_not include @user.person.exported_key
       end
 
       it 'does not serialize the id' do
@@ -131,10 +133,10 @@ describe Request do
         @marshalled = Request.from_xml @xml
       end
       it 'marshals the sender' do
-        @marshalled.from.should == user.person
+        @marshalled.from.should == @user.person
       end
       it 'marshals the recipient' do
-        @marshalled.to.should == user2.person
+        @marshalled.to.should == @user2.person
       end
       it 'knows nothing about the aspect' do
         @marshalled.into.should be_nil
@@ -146,10 +148,10 @@ describe Request do
         @marshalled = Diaspora::Parser.from_xml @d_xml
       end
       it 'marshals the sender' do
-        @marshalled.from.should == user.person
+        @marshalled.from.should == @user.person
       end
       it 'marshals the recipient' do
-        @marshalled.to.should == user2.person
+        @marshalled.to.should == @user2.person
       end
       it 'knows nothing about the aspect' do
         @marshalled.into.should be_nil
