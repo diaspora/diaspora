@@ -14,7 +14,8 @@ class User
   plugin MongoMapper::Devise
 
   devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :timeoutable
 
   key :username
   key :serialized_private_key, String
