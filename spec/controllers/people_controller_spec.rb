@@ -80,7 +80,7 @@ describe PeopleController do
     it "assigns people" do
       eugene2 = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
       get :index, :q => "Eu"
-      assigns[:people].should == [@eugene, eugene2]
+      assigns[:people].should =~ [@eugene, eugene2]
     end
     it 'shows a contact' do
       user2 = make_user
