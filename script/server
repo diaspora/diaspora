@@ -99,6 +99,16 @@ if [ -n "$services" ]; then
     exit 64
 fi
 
+# See http://bugs.joindiaspora.com/issues/722
+services=$( chk_service 5379 )
+if [ -n "$services" ]; then
+    echo "Error:  Someone (another redis server?) is using redis port 5379" >&2
+    echo "     $services"
+    exit 64
+fi
+
+
+
 # Check if Mongo is running
 if  ! ps ax | grep -v grep | grep mongod >/dev/null
 then
