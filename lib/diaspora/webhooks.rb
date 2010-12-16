@@ -4,24 +4,17 @@
 
 module Diaspora
   module Webhooks
+    require 'builder/xchar'
 
     def to_diaspora_xml
       xml = "<XML>"
       xml += "<post>#{to_xml.to_s}</post>"
       xml += "</XML>"
     end
-
+  
     def x(input)
-      result.gsub!(/[&<>'"]/) do | match |
-        case match
-        when '&' then return '&amp;'
-        when '<' then return '&lt;'
-        when '>' then return '&gt;'
-        when "'" then return '&apos;'
-        when '"' then return '&quote;'
-        end
-      end
-      return result
+      input.to_s.to_xs
     end
+
   end
 end
