@@ -12,8 +12,8 @@ module NotificationsHelper
      link_to translation, aspects_manage_path
     when 'status_message'
      link_to translation, status_message_path(note.object_id)
-    when 'commnent'
-      link_to translation, object_path(note.object_id)
+    when 'comment'
+      link_to translation, object_path(Comment.first(object_id).post)
     when 'photo'
       link_to translation, photo_path(note.object_id)
     else
