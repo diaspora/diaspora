@@ -48,4 +48,14 @@ class ApplicationController < ActionController::Base
       I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
     end
   end
+
+  def similar_people contact
+    aspect_ids = contact.aspect_ids
+    contacts = Contact.all(:user_id => current_user.id,
+                           :person_id.ne => contact.person.id,
+                           :aspect_ids.in => aspect_ids,
+                           :limit => 5,
+                           :order => 'updated_at desc')
+    contacts.collect!{ |contact| contact.person }
+  end
 end
