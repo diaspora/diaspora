@@ -28,7 +28,7 @@ module Diaspora
     end
 
     def self.subscribe(uid, ws)
-      Rails.logger.debug "event=socket-subscribe uid=#{uid}"
+      Rails.logger.info "event=socket-subscribe uid=#{uid} channels=#{self.length}"
       self.ensure_channel(uid)
       @channels[uid][0].subscribe{ |msg| ws.send msg }
       @channels[uid][1] += 1
@@ -39,7 +39,7 @@ module Diaspora
     end
 
     def self.unsubscribe(uid,sid)
-      Rails.logger.debug "event=socket-unsubscribe sid=#{sid} uid=#{uid}"
+      Rails.logger.info "event=socket-unsubscribe sid=#{sid} uid=#{uid} channels=#{self.length}"
       @channels[uid][0].unsubscribe(sid) if @channels[uid]
       @channels[uid][1] -= 1
       if @channels[uid][1] <= 0
