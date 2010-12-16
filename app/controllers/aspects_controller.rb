@@ -192,18 +192,26 @@ class AspectsController < ApplicationController
     end
   end
   def hashes_for_posts posts
-    post_ids = posts.map{|p| p.id}
+    post_ids = []
+    post_person_ids = []
+    posts.each{|p| post_ids << p.id; post_person_ids << p.person_id}
+
     comment_hash = Comment.hash_from_post_ids post_ids
-    person_hash = Person.from_post_comment_hash comment_hash
+    commenters_hash = Person.from_post_comment_hash comment_hash
     photo_hash = Photo.hash_from_post_ids post_ids
+
+    post_person_ids.uniq!
+    posters = Person.all(:id.in => post_person_ids, :fields => [:profile, :owner_id])
+    posters_hash = {}
+    posters.each{|poster| posters_hash[poster.id] = poster}
 
     posts.map do |post|
       {:post => post,
         :photos => photo_hash[post.id],
-        :person => post.person,
+        :person => posters_hash[post.person_id],
         :comments => comment_hash[post.id].map do |comment|
           {:comment => comment,
-            :person => person_hash[comment.person_id],
+            :person => commenters_hash[comment.person_id],
           }
         end,
       }
