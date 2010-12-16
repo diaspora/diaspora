@@ -17,28 +17,19 @@ module HelperMethods
   end
 
   def connect_users(user1, aspect1, user2, aspect2)
-    fantasy_resque do
-      user1.send_contact_request_to(user2.person, aspect1)
+    Contact.create!(:user => user1,
+                    :person => user2.person,
+                    :aspects => [aspect1],
+                   :pending => false)
 
-      user1.reload
-      aspect1.reload
-      user2.reload
-      aspect2.reload
-
-      new_request = Request.from(user1.person).to(user2.person).first
-
-      user1.reload
-      aspect1.reload
-      user2.reload
-      aspect2.reload
-
-      user2.accept_and_respond( new_request.id, aspect2.id)
-
-      user1.reload
-      aspect1.reload
-      user2.reload
-      aspect2.reload
-    end
+    Contact.create!(:user => user2,
+                    :person => user1.person,
+                    :aspects => [aspect2],
+                   :pending => false)
+    user1.reload
+    user2.reload
+    aspect1.reload
+    aspect2.reload
   end
 
   def stub_success(address = 'abc@example.com', opts = {})
