@@ -65,6 +65,8 @@ class AspectsController < ApplicationController
       @aspect_contacts = hashes_for_contacts Contact.all(:user_id => current_user.id, :aspect_ids.in => [@aspect.id], :pending => false)
       @aspect_contacts_count = @aspect_contacts.count
 
+      @all_contacts = hashes_for_contacts @contacts
+
       @posts = @aspect.posts.find_all_by__type("StatusMessage", :order => 'created_at desc').paginate :page => params[:page], :per_page => 15
       @post_hashes = hashes_for_posts @posts
       @post_count = @posts.count
