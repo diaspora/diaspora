@@ -147,17 +147,19 @@ describe AspectsController do
   end
 
   describe "#move_contact" do
-    let(:opts) { {
-      :person_id => "person_id",
-      :from => "from_aspect_id",
-      :to =>
-        {:to => "to_aspect_id"}
-    } }
+    before do
+      @person = Factory.create(:person)
+      @opts = {
+        :person_id => @person.id,
+        :from => @aspect.id,
+        :to =>
+          {:to => @aspect1.id}
+      }
+    end
     it 'calls the move_contact_method' do
-      pending "need to figure out what is the deal with remote requests"
       @controller.stub!(:current_user).and_return(@user)
-      @user.should_receive(:move_contact).with(:person_id => "person_id", :from => "from_aspect_id", :to => "to_aspect_id")
-      post :move_contact, opts
+      @user.should_receive(:move_contact)
+      post :move_contact, @opts
     end
   end
 
