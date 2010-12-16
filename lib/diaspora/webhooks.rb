@@ -11,5 +11,17 @@ module Diaspora
       xml += "</XML>"
     end
 
+    def x(input)
+      result.gsub!(/[&<>'"]/) do | match |
+        case match
+        when '&' then return '&amp;'
+        when '<' then return '&lt;'
+        when '>' then return '&gt;'
+        when "'" then return '&apos;'
+        when '"' then return '&quote;'
+        end
+      end
+      return result
+    end
   end
 end

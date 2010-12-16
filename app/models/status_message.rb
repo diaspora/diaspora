@@ -24,7 +24,7 @@ class StatusMessage < Post
   def to_activity
     <<-XML
   <entry>
-    <title>#{CGI::escape(self.message)}</title>
+    <title>#{x(self.message)}</title>
     <link rel="alternate" type="text/html" href="#{person.url}status_messages/#{self.id}"/>
     <id>#{person.url}status_messages/#{self.id}</id>
     <published>#{self.created_at.xmlschema}</published>
