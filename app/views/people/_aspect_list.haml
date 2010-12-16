@@ -37,23 +37,14 @@
       = link_to "edit aspect membership", "#", :id=> "edit_contact_aspects"
 
   .edit{:class => ("hidden" if contact)}
-    .contact_list#aspects_list
-      %ul
-        - for aspect in aspects_with_person
-          %li{:data=>{:guid=>aspect.id}}
-            %span.name
-              = link_to aspect.name, aspect
-            .right
-              = aspect_membership_button(aspect.id, contact, person)
 
-        - for aspect in aspects_without_person
-          %li{:data=>{:guid=>aspect.id}}
-            %span.name
-              = link_to aspect.name, aspect
-            .right
-              = aspect_membership_button(aspect.id, contact, person)
+    = render :partial => 'people/share_with_pane',
+        :locals => {:person => person,
+          :contact => contact,
+          :aspects_with_person => aspects_with_person,
+          :aspects_without_person => aspects_without_person}
 
-    .right
-      = link_to "done editing", "#", :id => "done_contact_aspects"
     - if contact
+      .right
+        = link_to "done editing", "#", :id => "done_contact_aspects"
       = link_to t('people.profile_sidebar.remove_contact'), person, :confirm => t('are_you_sure'), :method => :delete

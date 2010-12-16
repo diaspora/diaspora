@@ -113,6 +113,22 @@ class PeopleController < ApplicationController
     end
   end
 
+  def share_with
+    @person = Person.find(params[:id].to_id)
+    @contact = current_user.contact_for(@person)
+    @aspects_with_person = []
+
+    if @contact
+      @aspects_with_person = @contact.aspects
+    end
+
+    @aspects_without_person = @aspects.reject do |aspect|
+      @aspects_with_person.include?(aspect)
+    end
+
+    render :layout => nil
+  end
+
   private
   def hashes_for_posts posts
     post_ids = posts.map{|p| p.id}

@@ -5,6 +5,9 @@
 - content_for :page_title do
   = t('search')
 
+- content_for :head do
+  = include_javascripts :people
+
 .span-24.last
   - if params[:q].blank?
     %h2
@@ -17,7 +20,7 @@
 
 
 .span-15.append-1
-  
+
   - if @hashes.empty?
     %p
       =t('.no_one_found')
