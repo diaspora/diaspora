@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def set_contacts_notifications_and_status
-    if current_user
+    if user_signed_in? 
       @aspect = nil
       @aspects = current_user.aspects.fields(:name)
       @aspects_dropdown_array = @aspects.collect{|x| [x.to_s, x.id]}
@@ -36,13 +36,13 @@ class ApplicationController < ActionController::Base
   end
 
   def set_invites
-    if current_user
+    if user_signed_in?
       @invites = current_user.invites
     end
   end
 
   def set_locale
-    if current_user
+    if user_signed_in?
       I18n.locale = current_user.language
     else
       I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES

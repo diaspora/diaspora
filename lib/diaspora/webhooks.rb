@@ -15,6 +15,5 @@ module Diaspora
     def x(input)
       input.to_s.to_xs
     end
-
   end
 end
