@@ -3,8 +3,8 @@
 *   the COPYRIGHT file.
 */
 
-$(document).bind("mobileinit", function(){
-   $.extend(  $.mobile , {
+$(document).bind("mobileinit", function() {
+   $.extend($.mobile, {
      ajaxLinksEnabled : false,
      ajaxFormsEnabled : false
    });
