@@ -227,6 +227,27 @@ describe AspectsController do
   end
 
   describe "#add_to_aspect" do
+    context 'with an incoming request' do
+      before do
+        @user3 = make_user
+        @user3.send_contact_request_to(@user.person, @user3.aspects.create(:name => "Walruses"))
+      end
+      it 'deletes the request' do
+        post 'add_to_aspect',
+          :format => 'js',
+          :person_id => @user3.person.id,
+          :aspect_id => @aspect1.id
+        Request.from(@user3).to(@user).first.should be_nil
+      end
+      it 'does not leave the contact pending' do
+        post 'add_to_aspect',
+          :format => 'js',
+          :person_id => @user3.person.id,
+          :aspect_id => @aspect1.id
+        @user.contact_for(@user3.person).should_not be_pending
+
+      end
+    end
     context 'with a non-contact' do
       before do
         @person = Factory(:person)

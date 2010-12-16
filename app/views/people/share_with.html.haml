@@ -1,0 +1,18 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#share_with
+  .share_with_header
+    = person_image_link(@person, :size => :thumb_medium)
+    %h3
+      = "Start sharing with #{@person.name}"
+    %p
+      = "Once #{@person.first_name} accepts, you'll start seeing each other's posts on Diaspora"
+
+  = render :partial => 'share_with_pane',
+    :locals => {:person => @person,
+                :contact => @contact,
+                :aspects_with_person => @aspects_with_person,
+                :aspects_without_person => @aspects_without_person}
+

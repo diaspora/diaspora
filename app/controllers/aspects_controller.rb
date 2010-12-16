@@ -116,6 +116,12 @@ class AspectsController < ApplicationController
       current_user.add_contact_to_aspect(@contact, @aspect)
     else
       current_user.send_contact_request_to(@person, @aspect)
+      contact = current_user.contact_for(@person)
+
+      if request = Request.from(@person).to(current_user).first
+        request.destroy
+        contact.update_attributes(:pending => false)
+      end
     end
     flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
