@@ -8,6 +8,10 @@ Diaspora::Application.routes.draw do
   resources :requests,        :only => [:destroy, :create]
   resources :services
   resources :posts,           :only => [:show], :path => '/p/'
+
+
+
+  match '/people/share_with' => 'people#share_with', :as => 'share_with'
   resources :people do
     resources :status_messages
     resources :photos

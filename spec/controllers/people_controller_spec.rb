@@ -14,6 +14,15 @@ describe PeopleController do
     sign_in :user, user
   end
 
+  describe '#share_with' do
+    before do
+      @person = Factory.create(:person)
+    end
+    it 'succeeds' do
+      get :share_with, :id => @person.id
+      response.should be_success
+    end
+  end
   describe '#hashes_from_people' do
     before do
       @everyone = []
@@ -127,14 +136,14 @@ describe PeopleController do
       get :show, :id => user.id
       response.should redirect_to people_path
     end
-    
+
     it "renders the show page of a contact" do
       user2 = make_user
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :show, :id => user2.person.id
       response.should be_success
     end
-    
+
     it "renders the show page of a non-contact" do
       user2 = make_user
       get :show, :id => user2.person.id

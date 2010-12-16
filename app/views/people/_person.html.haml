@@ -4,22 +4,27 @@
 
 %li.message{:id => person.id}
 
+  .right{:style=>"display:inline;"}
+    - if person.owner_id == current_user.id
+      = t('.thats_you')
+    - elsif contact && !contact.pending
+      = t('.already_connected')
+    - elsif (contact && contact.pending) || request
+      = t('.pending_request')
+    - else
+      - single_aspect_form ||= nil
+      = link_to "start sharing",
+        {:controller => "people",
+        :action => "share_with",
+        :id => person.id},
+        :class => 'button share_with_button'
+
   = person_image_link(person)
 
   .content
     %span.from
       =person_link(person)
 
-      .right{:style=>"display:inline;"}
-        - if person.owner_id == current_user.id
-          = t('.thats_you')
-        - elsif contact && !contact.pending
-          = t('.already_connected')
-        - elsif (contact && contact.pending) || request
-          = link_to t('.pending_request'), aspects_manage_path
-        - else
-          - single_aspect_form ||= nil
-          = render(:partial => request_partial(single_aspect_form), :locals => {:aspects => aspects, :destination_handle => person.diaspora_handle})
 
     .info
       = person.diaspora_handle

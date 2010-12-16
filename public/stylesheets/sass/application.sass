@@ -617,20 +617,22 @@ ul.comments
   a
     :padding 3px
 
-li.message .from .right
+li.message .right
   :display none
   :position absolute
   :right 12px
-  :font
-    :size 12px
-  :color #999
-  a
-    :color #999
+
+  &.controls
     :font
-      :weight normal
-    &:hover
-      :text
-        :decoration underline
+      :size 12px
+    :color #999
+    a
+      :color #999
+      :font
+        :weight normal
+      &:hover
+        :text
+          :decoration underline
 
 li.message:hover
   .right
@@ -2041,3 +2043,22 @@ h3,h4
   .aspect_badge
     :top -0.2em
 
+#share_with
+  :min-width 400px
+  :max-width 400px
+
+  .share_with_header
+    :min-height 100px
+
+  .avatar
+    :width 100px
+    :height 100px
+    :float left
+  h3,p
+    :padding
+      :left 120px
+  h3
+    :margin 0
+
+#aspects_list
+  :height auto
