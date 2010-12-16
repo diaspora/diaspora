@@ -129,6 +129,7 @@ describe User do
     let!(:aspect4) { user4.aspects.create(:name => 'heroes') }
 
     let!(:post) { user.build_post :status_message, :message => "hey" }
+    let!(:request) { Request.instantiate(:from => user3.person, :to => user4.person) }
 
     before do
       connect_users(user, aspect, user2, aspect2)
@@ -174,8 +175,13 @@ describe User do
         @salmon = user.salmon(post)
         @xml = post.to_diaspora_xml
       end
-      it 'enqueues receive for local contacts' do
-        Resque.should_receive(:enqueue).with(Jobs::Receive, user2.id, @xml, user.person.id)
+      it 'enqueues receive for requests and retractions for local contacts' do
+        xml = request.to_diaspora_xml
+        Resque.should_receive(:enqueue).with(Jobs::Receive, user2.id, xml, user.person.id)
+        user.push_to_person(@salmon, request, user2.person)
+      end
+      it 'enqueues receive for requests and retractions for local contacts' do
+        Resque.should_receive(:enqueue).with(Jobs::ReceiveLocal, user2.id, user.person.id, post.class.to_s, post.id)
         user.push_to_person(@salmon, post, user2.person)
       end
       it 'calls the MessageHandler for remote contacts' do
