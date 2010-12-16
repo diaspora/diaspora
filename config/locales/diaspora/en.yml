@@ -178,6 +178,14 @@ en:
           remove_aspect: "Delete this aspect"
           confirm_remove_aspect: "Are you sure you want to delete this aspect?"
           add_existing: "Add an existing contact"
+  notifications:
+      status_message_glue: "posted a new"
+      status_message_link: "message"
+      request_glue: "sent you a contact request"
+      request_link: "request"
+      comment_glue: "commented on your"
+      comment_link: "post"
+      also_commnet_glue: "commented on your contact's"
   users:
       edit:
           export_data: "Export Data"

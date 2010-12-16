@@ -7,16 +7,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive
 
 #  before_filter :mobile_except_ipad
-  before_filter :set_contacts_and_status, :except => [:create, :update]
+  before_filter :set_contacts_notifications_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
 
-  def set_contacts_and_status
+  def set_contacts_notifications_and_status
     if current_user
       @aspect = nil
       @aspects = current_user.aspects.fields(:name)
       @aspects_dropdown_array = @aspects.collect{|x| [x.to_s, x.id]}
+      @notifications = Notification.for(current_user)
     end
   end
 

@@ -7,6 +7,8 @@ Diaspora::Application.routes.draw do
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
   resources :services
+  
+  resources :notifications,           :only => [:destroy, :index]
   resources :posts,           :only => [:show], :path => '/p/'
   resources :people do
     resources :status_messages

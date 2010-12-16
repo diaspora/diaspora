@@ -10,7 +10,8 @@ describe Notification do
     @sm = Factory(:status_message)
     @person = Factory(:person)
     @user = make_user
-    @note = Notification.new(:object_id => @sm.id, :kind => @sm.class.name, :person => @person, :user => @user)
+    @opts = {:object_id => @sm.id, :kind => @sm.class.name, :person_id => @person.id, :user_id => @user.id}
+    @note = Notification.new(@opts)
   end
 
   it 'contains a type' do
@@ -26,7 +27,18 @@ describe Notification do
   end
 
   describe '.for' do
+    it 'returns all of a users notifications' do
+      user2 = make_user
+      Notification.create(@opts)
+      Notification.create(@opts)
+      Notification.create(@opts)
+      Notification.create(@opts)
+      
+      @opts.delete(:user_id)
+      Notification.create(@opts.merge(:user_id => user2.id))
+
+      Notification.for(@user).count.should == 4
+    end
   end
-  
 end
 

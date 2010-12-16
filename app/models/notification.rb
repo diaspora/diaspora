@@ -16,8 +16,7 @@ class Notification
 
   attr_accessible :object_id, :kind, :user_id, :person_id
 
-  def for(user, opts={})
-    query = opts.merge(:user_id => user)
-    self.all(opts)
+  def self.for(user, opts={})
+    self.all(opts.merge(:user_id => user.id))
   end
 end
