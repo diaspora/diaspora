@@ -9,19 +9,6 @@ CarrierWave.configure do |config|
     config.s3_secret_access_key = ENV['S3_SECRET']
     config.s3_bucket = ENV['S3_BUCKET']
     config.cache_dir = "#{Rails.root}/tmp/uploads"
-  elsif ENV['CLOUDFILES_USERNAME'] && ENV['CLOUDFILES_KEY'] && ENV['CLOUDFILES_BUCKET']
-    config.storage = :cloud_files
-    config.cloud_files_username = ENV['CLOUDFILES_USERNAME']
-    config.cloud_files_api_key = ENV['CLOUDFILES_KEY']
-    config.cloud_files_container = ENV['CLOUDFILES_BUCKET']
-
-    # providing the CDN url means carrierwave does not have to resolve it
-    # on every upload request.
-    if ENV['CLOUDFILES_CDN_URL']
-      config.cloud_files_cdn_host = ENV['CLOUDFILES_CDN_URL']
-    end
-
-    config.cache_dir = "#{Rails.root}/tmp/uploads"
   else
     config.storage = :file
   end

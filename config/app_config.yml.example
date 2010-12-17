@@ -80,10 +80,6 @@ default:
   cloudfiles_api_key:  'abc123'
   invites_off: false
 
-  #cloudfiles bucket and CDN for photo uploads
-  #cloudfiles_bucket: 'example_bucket'
-  #cloudfiles_cdn_url: 'http://xxxxxx.cdn.rackspacecloud.com'
-
 development:
 
 test:
