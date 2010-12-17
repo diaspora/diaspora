@@ -56,12 +56,10 @@ module Diaspora
             Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type=#{object.class}")
             return
           else
-            receive_object(object,person)
+            receive_object(object, person)
             Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type#{object.class}")
 
-            unless object.is_a? Retraction
-              Notification.notify(self, object, person)
-            end
+
 
             return object
           end
@@ -70,16 +68,20 @@ module Diaspora
 
       def receive_object(object,person)
         if object.is_a?(Request)
-          receive_request object, person
+          obj = receive_request object, person
         elsif object.is_a?(Profile)
-          receive_profile object, person
+          obj = receive_profile object, person
         elsif object.is_a?(Comment) 
-          receive_comment object
+          obj = receive_comment object
         elsif object.is_a?(Retraction)
-          receive_retraction object
+          obj = receive_retraction object
         else
-          receive_post object
+          obj = receive_post object
         end
+        unless object.is_a? Retraction
+          Notification.notify(self, object, person)
+        end
+        return obj
       end
 
       def receive_retraction retraction
