@@ -2,5 +2,4 @@
   - @notifications.each do |note|
     %li
       = link_to "#{note.person.name.titleize}", person_path(note.person)
-      = glue_text(note.kind)
       = object_link(note)
