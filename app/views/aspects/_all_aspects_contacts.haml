@@ -21,6 +21,8 @@
 
   .section.contact_pictures
     %h3
+      .right.description{:style => "top:-4px"}
+        = @contact_hashes.count
       = t('.all_contacts')
 
     - for contact in @contact_hashes
