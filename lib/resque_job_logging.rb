@@ -1,5 +1,6 @@
 module ResqueJobLogging
   def around_perform_log_job(*args)
+    Rails.logger.auto_flushing=1
     log_string = "event=resque_job job=#{self} "
     error = nil
     time = Benchmark.realtime{
