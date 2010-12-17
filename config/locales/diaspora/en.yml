@@ -83,6 +83,7 @@ en:
         code: "code"
       application:
         powered_by: "POWERED BY DIASPORA*"
+        whats_new: "what's new?"
   shared:
       publisher:
           posting: "Posting..."

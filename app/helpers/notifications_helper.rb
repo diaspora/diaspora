@@ -8,7 +8,7 @@ module NotificationsHelper
     when 'new_request'
       translation
     when 'comment_on_post'
-      link_to translation, object_path(Comment.first(:id => object_id).post)
+      link_to translation, object_path(Comment.first(:id => note.object_id).post)
     else
     end
   end
