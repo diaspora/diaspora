@@ -1,5 +1,6 @@
 module Jobs
   class SocketWebfinger
+    extend ResqueJobLogging
     @queue = :socket_webfinger
     def self.perform(user_id, account, opts={})
       finger = Webfinger.new(account)
@@ -7,7 +8,7 @@ module Jobs
         result = finger.fetch
         result.socket_to_uid(user_id, opts)
       rescue
-        Diaspora::WebSocket.queue_to_user(user_id, 
+        Diaspora::WebSocket.queue_to_user(user_id,
           {:class => 'people',
            :status => 'fail',
            :query => account,

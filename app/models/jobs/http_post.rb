@@ -1,5 +1,6 @@
 module Jobs
-  class HttpPost 
+  class HttpPost
+    extend ResqueJobLogging
     @queue = :http
 
     def self.perform(url, body, tries_remaining)
