@@ -7,16 +7,17 @@ class Notification
 
   key :object_id, ObjectId
   key :kind, String
+  key :unread, Boolean, :default => true
 
   belongs_to :user
   belongs_to :person
 
   timestamps!
 
-  attr_accessible :object_id, :kind, :user_id, :person_id
+  attr_accessible :object_id, :kind, :user_id, :person_id, :unread
 
   def self.for(user, opts={})
-    self.where(opts.merge(:user_id => user.id)).order('created_at desc')
+    self.where(opts.merge!(:user_id => user.id)).order('created_at desc')
   end
 
   def self.notify(user, object, person)
