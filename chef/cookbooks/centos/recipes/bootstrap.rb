@@ -16,6 +16,9 @@ end
 execute "JAVA!! for Jammit" do
   command "yum install -y java"
 end
+execute "rvm deps" do
+  command "yum install -y bzip2"
+end
 
 def harden_ruby(ruby_string)
   Dir.glob("/usr/local/rvm/wrappers/#{ruby_string}/*").each do |file|
