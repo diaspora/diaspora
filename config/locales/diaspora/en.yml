@@ -182,7 +182,8 @@ en:
   notifications:
       request_accepted: "accepted your share request."
       new_request: "offered to share with you."
-      comment_on_post: "commented on your post"
+      comment_on_post: "commented on your"
+      post: 'post'
   users:
       edit:
           export_data: "Export Data"
