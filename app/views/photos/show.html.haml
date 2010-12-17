@@ -50,7 +50,7 @@
           = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
 
   %h4= t('_comments')
-  
+
   %div{:id => 'photo_stream', :class => 'stream show'}
     %li.message{:data=>{:guid=>@parent.id}}
       = render "comments/comments", :post_id => @parent.id, :comment_hashes => @comment_hashes

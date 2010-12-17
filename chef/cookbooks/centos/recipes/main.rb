@@ -12,7 +12,7 @@ def harden_ruby(ruby_string)
 
 end
 
-harden_ruby("ruby-1.8.7-p302")
+harden_ruby("ree-1.8.7-2010.02")
 
 include_recipe "centos::image_magick"
 include_recipe "centos::mongo_db"
