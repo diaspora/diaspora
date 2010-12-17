@@ -80,6 +80,19 @@ describe Request do
       Request.from(@user).to(@user2.person).first.should == @request
     end
   end
+  describe '#notification_type' do
+    before do
+      @request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)    
+    end
+    it "returns 'request_accepted' if there is a pending contact" do
+      Contact.create(:user_id => @user.id, :person_id => @person.id)
+      @request.notification_type(@user, @person).should  == "request_accepted"
+    end
+
+    it 'returns new_request if there is not a pending contact' do
+      @request.notification_type(@user, @person).should  == "new_request"
+    end
+  end
 
   describe '.hashes_for_person' do
     before do

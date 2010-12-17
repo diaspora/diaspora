@@ -54,6 +54,31 @@ describe Comment do
       }
     end
    end
+
+  describe 'comment#notification_type' do
+    before do
+      @not_your_post = user2.post(:status_message, :message => 'yo', :to => aspect2.id)
+      @hello = user.post(:status_message, :message => "hello", :to => aspect.id)
+      @c11 = user2.comment "why so formal?", :on => @hello
+      @c12 = user.comment "I simply felt like issuing a greeting.  Do step off.", :on => @hello
+      @c12 = user2.comment "I simply felt like issuing a greeting.  Do step off.", :on => @not_your_post
+
+    end
+
+    it "returns 'comment_on_post' if the comment is on a post you own" do
+      @c11.notification_type(user, user2.person).should == 'comment_on_post'
+  
+    end
+
+   it 'returns false if the comment is not on a post you own' do
+     @c11.notification_type(user2, user.person).should == false
+   end 
+  end
+
+
+
+
+
   describe 'User#comment' do
     before do
       @status = user.post(:status_message, :message => "hello", :to => aspect.id)

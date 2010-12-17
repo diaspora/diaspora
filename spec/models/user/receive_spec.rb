@@ -59,18 +59,6 @@ describe User do
    end
   end
 
-  describe '#receive_object' do
-    it 'adds a notification for an object' do
-      Notification.should_receive(:create)
-      user = make_user
-      sm = Factory.create(:status_message)
-      person = Factory.create(:person)
-      user.should_receive(:receive_post).and_return(true)
-      user.receive_object(sm, person)
-      
-    end
-  end
-
   context 'update posts' do
     it 'does not update posts not marked as mutable' do
       status = user.post :status_message, :message => "store this!", :to => aspect.id

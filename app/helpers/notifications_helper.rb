@@ -13,7 +13,7 @@ module NotificationsHelper
     when 'status_message'
      link_to translation, status_message_path(note.object_id)
     when 'comment'
-      link_to translation, object_path(Comment.first(object_id).post)
+      link_to translation, object_path(Comment.first(:id => object_id).post)
     when 'photo'
       link_to translation, photo_path(note.object_id)
     else

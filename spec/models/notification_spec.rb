@@ -10,6 +10,8 @@ describe Notification do
     @sm = Factory(:status_message)
     @person = Factory(:person)
     @user = make_user
+    @user2 = make_user
+    @aspect  = @user.aspects.create(:name => "dudes")
     @opts = {:object_id => @sm.id, :kind => @sm.class.name, :person_id => @person.id, :user_id => @user.id}
     @note = Notification.new(@opts)
   end
@@ -38,6 +40,19 @@ describe Notification do
       Notification.create(@opts.merge(:user_id => user2.id))
 
       Notification.for(@user).count.should == 4
+    end
+  end
+
+  describe '.notify' do
+    it ' does not call Notification.create if the object does not notification_type' do
+      Notification.should_not_receive(:create)
+      Notification.notify(@user, @sm, @person)
+    end
+
+    it ' does not call Notification.create if the object does not notification_type' do
+      request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      Notification.should_receive(:create).once
+      Notification.notify(@user, request, @person)
     end
   end
 end

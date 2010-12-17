@@ -72,6 +72,16 @@ class Request
     senders.each{|sender| senders_hash[sender.id] = sender}
     requests.map{|r| {:request => r, :sender => senders_hash[r.from_id]}}
   end
+
+
+  def notification_type(user, person)
+    if Contact.first(:user_id => user.id, :person_id => person.id)
+      "request_accepted"
+    else
+      "new_request"
+    end
+  end 
+  
   private
 
   def not_already_connected

@@ -58,20 +58,21 @@ module Diaspora
           else
             receive_object(object,person)
             Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type#{object.class}")
+
+            unless object.is_a? Retraction
+              Notification.notify(self, object, person)
+            end
+
             return object
           end
         end
       end
 
       def receive_object(object,person)
-        unless object.is_a? Retraction
-          Notification.create(:object_id => object.id, :kind => object.class.name, :person_id => person.id, :user_id => self.id) 
-        end
         if object.is_a?(Request)
           receive_request object, person
         elsif object.is_a?(Profile)
           receive_profile object, person
-
         elsif object.is_a?(Comment) 
           receive_comment object
         elsif object.is_a?(Retraction)

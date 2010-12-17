@@ -52,7 +52,7 @@ class User
   many :aspects, :class => Aspect, :dependent => :destroy
 
   many :services, :class => Service
-
+  timestamps!
   #after_create :seed_aspects
 
   before_destroy :disconnect_everyone, :remove_person

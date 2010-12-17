@@ -42,6 +42,14 @@ class Comment
 
   timestamps!
 
+  def notification_type(user, person)
+    if self.post.diaspora_handle == user.diaspora_handle
+      return "comment_on_post"
+    else
+      return false
+    end
+  end
+
   #ENCRYPTION
 
   xml_reader :creator_signature
@@ -71,6 +79,7 @@ class Comment
   def signature_valid?
     verify_signature(creator_signature, person)
   end
+
   def self.hash_from_post_ids post_ids
     hash = {}
     comments = self.on_posts(post_ids)
@@ -83,6 +92,8 @@ class Comment
     hash.each_value {|comments| comments.sort!{|c1, c2| c1.created_at <=> c2.created_at }}
     hash
   end
+
+
   scope :on_posts, lambda { |post_ids| 
     where(:post_id.in => post_ids)
   }
