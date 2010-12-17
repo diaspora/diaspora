@@ -119,16 +119,6 @@ class Photo < Post
     where(:status_message_id.in => post_ids)
   }
 
-=begin
-  private
-  def delete_parent_if_no_photos_or_message
-    parent =  self.status_message  
-    photos = parent.photos || []
-    if parent.message.blank? && photos.count <= 1
-      parent.delete
-    end
-  end
-=end
 end
 
 

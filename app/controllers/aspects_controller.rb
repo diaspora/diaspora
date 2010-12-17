@@ -170,7 +170,7 @@ class AspectsController < ApplicationController
 
   private
   def hashes_for_contacts contacts
-    people = Person.all(:id.in => contacts.map{|c| c.person_id}, :fields => [:profile])
+    people = Person.all(:id.in => contacts.map{|c| c.person_id}, :fields => [:profile, :diaspora_handle])
     people_hash = {}
     people.each{|p| people_hash[p.id] = p}
     contacts.map{|c| {:contact => c, :person => people_hash[c.person_id.to_id]}}
@@ -201,7 +201,7 @@ class AspectsController < ApplicationController
     photo_hash = Photo.hash_from_post_ids post_ids
 
     post_person_ids.uniq!
-    posters = Person.all(:id.in => post_person_ids, :fields => [:profile, :owner_id])
+    posters = Person.all(:id.in => post_person_ids, :fields => [:profile, :owner_id, :diaspora_handle])
     posters_hash = {}
     posters.each{|poster| posters_hash[poster.id] = poster}
 
