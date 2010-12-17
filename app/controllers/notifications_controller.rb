@@ -16,6 +16,6 @@ class NotificationsController < ApplicationController
   end
 
   def index
-  
+    @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") } 
   end
 end
