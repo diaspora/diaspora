@@ -49,7 +49,7 @@ var View = {
     $(this.fancyBoxButtons.selectors.join(", "))
       .fancybox({
          'titleShow': false,
-         'hideOnOverlayClick' : false
+         'hideOnOverlayClick': false
       });
 
     /* Autoexpand textareas */

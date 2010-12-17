@@ -11,7 +11,7 @@ var Stream = {
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
 
     // publisher textarea reset
-    $publisher.find("textarea").bind("blur", function(){ 
+    $publisher.find("textarea").bind("blur", function() { 
       $(this).css('height','42px');
     });
 
@@ -20,7 +20,7 @@ var Stream = {
       $(this).closest("form").children(".comment_box").attr("rows", 1);
     });
 
-    $stream.delegate("textarea.comment_box", "keydown", function(e){
+    $stream.delegate("textarea.comment_box", "keydown", function(e) {
       if (e.shiftKey && e.keyCode === 13) {
         $(this).closest("form").submit();
       }
@@ -62,7 +62,7 @@ var Stream = {
         $videoContainer = $this.parent().siblings("div.video-container");
 
       if ($videoContainer.length > 0) {
-        $videoContainer.slideUp('fast', function () {
+        $videoContainer.slideUp('fast', function() {
           $videoContainer.detach();
         });
         return;
@@ -96,7 +96,7 @@ var Stream = {
 
     $(".new_status_message").bind('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
-      WebSocketReceiver.addPostToStream(json['post_id'], json['html']);
+      WebSocketReceiver.addPostToStream(json.post_id, json.html);
     });
     $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');
@@ -104,7 +104,7 @@ var Stream = {
 
     $(".new_comment").live('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
-      WebSocketReceiver.processComment(json['post_id'], json['comment_id'], json['html'], false);
+      WebSocketReceiver.processComment(json.post_id, json.comment_id, json.html, false);
     });
     $(".new_comment").live('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');
@@ -126,7 +126,7 @@ var Stream = {
 
 
     if( commentBlockMore.hasClass("inactive") ) {
-      commentBlockMore.fadeIn(150, function(){
+      commentBlockMore.fadeIn(150, function() {
         commentBlockMore.removeClass("inactive");
         commentBlockMore.removeClass("hidden");
       });
