@@ -1,6 +1,6 @@
 %ul
   - @notifications.each do |note|
-    %h2= Date.parse(note.created_at.to_s).in_words
+    %h2= Date.parse(note.created_at.to_s)
     %li
       %h3
         = link_to "#{note.person.name.titleize}", person_path(note.person)
