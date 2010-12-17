@@ -49,13 +49,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def similar_people contact
+  def similar_people contact, opts={}
+    opts[:limit] ||= 5
     aspect_ids = contact.aspect_ids
+    count = Contact.count(:user_id => current_user.id,
+                          :person_id.ne => contact.person.id,
+                          :aspect_ids.in => aspect_ids)
+
+    if count > opts[:limit]
+      offset = rand(count-opts[:limit])
+    else
+      offset = 0
+    end
+
     contacts = Contact.all(:user_id => current_user.id,
                            :person_id.ne => contact.person.id,
                            :aspect_ids.in => aspect_ids,
-                           :limit => 5,
-                           :order => 'updated_at desc')
+                           :skip => offset,
+                           :limit => opts[:limit])
     contacts.collect!{ |contact| contact.person }
   end
 end
