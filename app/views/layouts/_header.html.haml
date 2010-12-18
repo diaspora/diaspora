@@ -9,12 +9,12 @@
   - else
     = link_to image_tag('logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
 
-  - if !current_user 
+  - if !current_user
     .right
       %ul#landing_nav
         %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
         %li= link_to 'github', "https://github.com/diaspora/diaspora"
-        %li= link_to t('.blog'), 'http://blog.joindiaspora.com/' 
+        %li= link_to t('.blog'), 'http://blog.joindiaspora.com/'
         %li= link_to t('.login'), new_user_session_path, :class => 'login'
 
   - elsif (current_user || !@landing_page)
@@ -44,7 +44,7 @@
               = link_for_aspect aspect
           %li
             = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect')
-            = link_to "notifications (#{@notification_count})", notifications_path
+            /= link_to "notifications (#{@notification_count})", notifications_path
 
         .fancybox_content
           #add_aspect_pane
