@@ -17,11 +17,6 @@ describe SocketsController do
     @controller = SocketsController.new
   end
 
-  it 'should unstub the websockets' do
-      Diaspora::WebSocket.initialize_channels
-      @controller.class.should == SocketsController
-  end
-
   describe 'actionhash' do
     before do
       @aspect = @user.aspects.create(:name => "losers")
@@ -29,13 +24,13 @@ describe SocketsController do
       @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
     end
 
-    it 'should actionhash posts' do
+    it 'actionhashes posts' do
       json = @controller.action_hash(@user.id, @message)
       json.include?(@message.message).should be_true
       json.include?('status_message').should be_true
     end
 
-    it 'should actionhash retractions' do
+    it 'actionhashes retractions' do
       retraction = Retraction.for @message
       json = @controller.action_hash(@user.id, retraction)
       json.include?('retraction').should be_true

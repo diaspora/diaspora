@@ -84,7 +84,7 @@ describe AspectsController do
   end
 
   describe "#create" do
-    describe "with valid params" do
+    context "with valid params" do
       it "creates an aspect" do
         @user.aspects.count.should == 2
         post :create, "aspect" => {"name" => "new aspect"}
@@ -95,7 +95,7 @@ describe AspectsController do
         response.should redirect_to(aspect_path(Aspect.find_by_name("new aspect")))
       end
     end
-    describe "with invalid params" do
+    context "with invalid params" do
       it "does not create an aspect" do
         @user.aspects.count.should == 2
         post :create, "aspect" => {"name" => ""}

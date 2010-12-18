@@ -9,8 +9,8 @@ describe InvitationsController do
 
   render_views
 
-  let!(:user) {make_user}
-  let!(:aspect){user.aspects.create(:name => "WIN!!")}
+  let!(:user)   { make_user }
+  let!(:aspect) { user.aspects.create(:name => "WIN!!") }
 
   before do
     request.env["devise.mapping"] = Devise.mappings[:user]
@@ -26,23 +26,26 @@ describe InvitationsController do
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
     end
 
-    it 'should call the resque job Jobs::InviteUser'  do
+    it 'calls the resque job Jobs::InviteUser'  do
       Resque.should_receive(:enqueue)
       post :create,  :user => @invite
     end
 
-    it 'can handle a comma seperated list of emails' do
+    it 'handles a comma seperated list of emails' do
       Resque.should_receive(:enqueue).twice()
-      post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com, mbs@gmail.com")
+      post :create, :user => @invite.merge(
+        :email => "foofoofoofoo@example.com, mbs@gmail.com")
     end
 
-    it 'can handle a comma seperated list of emails with whitespace' do
+    it 'handles a comma seperated list of emails with whitespace' do
       Resque.should_receive(:enqueue).twice()
-      post :create, :user => @invite.merge(:email => "foofoofoofoo@example.com   ,        mbs@gmail.com")
+      post :create, :user => @invite.merge(
+        :email => "foofoofoofoo@example.com   ,        mbs@gmail.com")
     end
 
-    it 'displays a message that tells you how many invites were sent, and which REJECTED' do
-      post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
+    it 'displays a message that tells the user how many invites were sent, and which REJECTED' do
+      post :create, :user => @invite.merge(
+        :email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
       flash[:error].should_not be_empty
       flash[:error].should =~ /foo\.com/
       flash[:error].should =~ /lala@foo/
@@ -75,7 +78,7 @@ describe InvitationsController do
     end
     context 'success' do
       let(:invited) {User.find_by_username(@accept_params[:user][:username])}
-      it 'creates user' do
+      it 'creates a user' do
         put :update, @accept_params
         invited.should_not be_nil
       end

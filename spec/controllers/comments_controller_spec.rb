@@ -7,24 +7,24 @@ require 'spec_helper'
 describe CommentsController do
   render_views
 
-  let!(:user) { make_user }
-  let!(:aspect) { user.aspects.create(:name => "AWESOME!!") }
+  let!(:user1)   { make_user }
+  let!(:aspect1) { user1.aspects.create(:name => "AWESOME!!") }
 
-  let!(:user2) { make_user }
+  let!(:user2)   { make_user }
   let!(:aspect2) { user2.aspects.create(:name => "WIN!!") }
 
   before do
-    sign_in :user, user
+    sign_in :user, user1
   end
 
   describe '#create' do
     let(:comment_hash) {
-      {:text    =>"facebook, is that you?", 
+      {:text    =>"facebook, is that you?",
        :post_id =>"#{@post.id}"}
     }
     context "on my own post" do
       before do
-        @post = user.post :status_message, :message => 'GIANTS', :to => aspect.id
+        @post = user1.post :status_message, :message => 'GIANTS', :to => aspect1.id
       end
       it 'responds to format js' do
         post :create, comment_hash.merge(:format => 'js')
@@ -35,7 +35,7 @@ describe CommentsController do
 
     context "on a post from a contact" do
       before do
-        connect_users(user, aspect, user2, aspect2)
+        connect_users(user1, aspect1, user2, aspect2)
         @post = user2.post :status_message, :message => 'GIANTS', :to => aspect2.id
       end
       it 'comments' do
@@ -46,10 +46,10 @@ describe CommentsController do
         new_user = make_user
         comment_hash[:person_id] = new_user.person.id.to_s
         post :create, comment_hash
-        Comment.find_by_text(comment_hash[:text]).person_id.should == user.person.id
+        Comment.find_by_text(comment_hash[:text]).person_id.should == user1.person.id
       end
       it "doesn't overwrite id" do
-        old_comment = user.comment("hello", :on => @post)
+        old_comment = user1.comment("hello", :on => @post)
         comment_hash[:id] = old_comment.id
         post :create, comment_hash
         old_comment.reload.text.should == 'hello'
@@ -60,7 +60,7 @@ describe CommentsController do
         @post = user2.post :status_message, :message => 'GIANTS', :to => aspect2.id
       end
       it 'posts no comment' do
-        user.should_receive(:comment).exactly(0).times
+        user1.should_not_receive(:comment)
         post :create, comment_hash
         response.code.should == '406'
       end

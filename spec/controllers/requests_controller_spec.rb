@@ -23,24 +23,28 @@ describe RequestsController do
   describe '#destroy' do
     before do
       @other_user.send_contact_request_to(@user.person, @other_user.aspects.first)
-      @user.reload # so it can find its pending requests.
       @friend_request = Request.to(@user.person).first
     end
     describe 'when accepting a contact request' do
       it "succeeds" do
-        xhr :delete, :destroy, "accept" => "true", "aspect_id" => @user.aspects.first.id.to_s, "id" => @friend_request.id.to_s
+        xhr :delete, :destroy,
+          :accept    => "true",
+          :aspect_id => @user.aspects.first.id.to_s,
+          :id        => @friend_request.id.to_s
         response.should redirect_to(aspect_path(@user.aspects.first))
       end
     end
     describe 'when ignoring a contact request' do
       it "succeeds" do
-        xhr :delete, :destroy, "id" => @friend_request.id.to_s
+        xhr :delete, :destroy,
+          :id => @friend_request.id.to_s
         response.should be_success
       end
       it "removes the request object" do
         lambda {
-          xhr :delete, :destroy, "id" => @friend_request.id.to_s
-          }.should change(Request, 'count').by(-1)
+          xhr :delete, :destroy,
+            :id => @friend_request.id.to_s
+        }.should change(Request, :count).by(-1)
       end
     end
   end
@@ -48,8 +52,10 @@ describe RequestsController do
   describe '#create' do
     context 'valid new request' do
       before do
-        @params = {:request => {:to => @other_user.diaspora_handle,
-          :into => @user.aspects[0].id}}
+        @params = {:request => {
+          :to => @other_user.diaspora_handle,
+          :into => @user.aspects[0].id
+        }}
       end
       it 'creates a contact' do
         @user.contact_for(@other_user).should be_nil
@@ -63,21 +69,19 @@ describe RequestsController do
       it 'does not persist a Request' do
         lambda {
           post :create, @params
-        }.should_not change(Request,:count)
+        }.should_not change(Request, :count)
       end
     end
     it 'autoaccepts and when sending a request to someone who sent me a request' do
       @other_user.send_contact_request_to(@user.person, @other_user.aspects[0])
-      Request.to(@user).count.should == 1
-      @user.contact_for(@other_user.person).should be_nil
 
       post(:create, :request => {
         :to => @other_user.diaspora_handle,
         :into => @user.aspects[0].id}
       )
-      Request.to(@user).count.should == 0
-      @user.contact_for(@other_user.person).should_not be_nil
-      @user.aspects[0].contacts.all(:person_id => @other_user.person.id).should_not be_nil
+      Request.to(@user).first.should be_nil
+      @user.contact_for(@other_user.person).should be_true
+      @user.aspects[0].contacts.all(:person_id => @other_user.person.id).should be_true
     end
 
     it "redirects when requesting to be contacts with yourself" do

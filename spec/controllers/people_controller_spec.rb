@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PeopleController do
   render_views
 
-  let(:user) { Factory(:user) }
+  let(:user)    { make_user }
   let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   before do
@@ -119,19 +119,27 @@ describe PeopleController do
   end
   describe '#index' do
     before do
-      @eugene = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
-      @korth  = Factory.create(:person, :profile => {:first_name => "Evan", :last_name => "Korth"})
+      @eugene = Factory.create(:person,
+        :profile => {:first_name => "Eugene",
+                     :last_name => "w"})
+      @korth  = Factory.create(:person,
+        :profile => {:first_name => "Evan",
+                     :last_name => "Korth"})
     end
 
     it "assigns hashes" do
-      eugene2 = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
+      eugene2 = Factory.create(:person,
+        :profile => {:first_name => "Eugene",
+                     :last_name => "w"})
       get :index, :q => "Eu"
       people = assigns[:hashes].map{|h| h[:person]}
       people.should include @eugene
       people.should include eugene2
     end
     it "assigns people" do
-      eugene2 = Factory.create(:person, :profile => {:first_name => "Eugene", :last_name => "w"})
+      eugene2 = Factory.create(:person,
+        :profile => {:first_name => "Eugene",
+                     :last_name => "w"})
       get :index, :q => "Eu"
       assigns[:people].should =~ [@eugene, eugene2]
     end
@@ -162,7 +170,7 @@ describe PeopleController do
   end
 
   describe '#show' do
-    it 'should go to the current_user show page' do
+    it 'goes to the current_user show page' do
       get :show, :id => user.person.id
       response.should be_success
     end
@@ -180,12 +188,12 @@ describe PeopleController do
       response.should be_success
     end
 
-    it "redirects on an invalid id" do
+    it "redirects to #index if the id is invalid" do
       get :show, :id => 'delicious'
       response.should redirect_to people_path
     end
 
-    it "redirects on a nonexistent person" do
+    it "redirects to #index if no person is found" do
       get :show, :id => user.id
       response.should redirect_to people_path
     end
@@ -256,7 +264,8 @@ describe PeopleController do
     end
 
     it 'does not overwrite the profile diaspora handle' do
-      handle_params = {:id => user.person.id, :profile => {:diaspora_handle => 'abc@a.com'}}
+      handle_params = {:id => user.person.id,
+                       :profile => {:diaspora_handle => 'abc@a.com'} }
       put :update, handle_params
       user.person.reload.profile[:diaspora_handle].should_not == 'abc@a.com'
     end
