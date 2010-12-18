@@ -3,11 +3,11 @@
 #   the COPYRIGHT file.
 
 CarrierWave.configure do |config|
-  if ENV['S3_KEY'] && ENV['S3_SECRET'] && ENV['S3_BUCKET']
+  if APP_CONFIG[:s3_key] && APP_CONFIG[:s3_secret] && APP_CONFIG[:s3_bucket]
     config.storage = :s3
-    config.s3_access_key_id = ENV['S3_KEY']
-    config.s3_secret_access_key = ENV['S3_SECRET']
-    config.s3_bucket = ENV['S3_BUCKET']
+    config.s3_access_key_id = APP_CONFIG[:s3_key]
+    config.s3_secret_access_key = APP_CONFIG[:s3_secret]
+    config.s3_bucket = APP_CONFIG[:s3_bucket]
     config.cache_dir = "#{Rails.root}/tmp/uploads"
   else
     config.storage = :file

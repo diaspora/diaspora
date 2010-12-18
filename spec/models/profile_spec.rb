@@ -52,18 +52,16 @@ describe Profile do
       lambda {@profile.image_url = ""}.should_not change(@profile, :image_url)
     end
     it 'makes relative urls absolute' do
-      @profile.image_url = "/relative/url"
-      @profile.image_url.should == "#{@pod_url}/relative/url"
-    end
-    it "doesn't change absolute urls" do
-      @profile.image_url = "http://not/a/relative/url"
-      @profile.image_url.should == "http://not/a/relative/url"
+      @profile.image_url = @photo.url(:thumb_large)
+
+      @profile.image_url.should == @photo.url(:thumb_large)
     end
   end
-
   describe 'serialization' do
-    it "includes the person's diaspora handle if it doesn't have one" do
-      person = Factory(:person, :diaspora_handle => "foobar")
+    let(:person) {Factory.create(:person)}
+
+    it 'should include persons diaspora handle' do
+      xml = person.profile.to_diaspora_xml
       xml = person.profile.to_diaspora_xml
       xml.should include "foobar"
     end

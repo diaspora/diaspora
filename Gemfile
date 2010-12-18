@@ -8,6 +8,8 @@ gem 'chef', '0.9.12', :require => false
 
 gem 'nokogiri', '1.4.3.1'
 
+gem "fog"
+
 #Security
 gem 'devise', '1.1.3'
 gem 'devise_invitable','0.3.5'

@@ -54,7 +54,13 @@ describe Photo do
       photo.created_at.nil?.should be_true
       photo.image.read.nil?.should be_false
     end
-
+    it 'sets a remote url' do
+      image = File.open(@fixture_name)
+      photo = Photo.instantiate(
+                :person => @user.person, :user_file => image)
+      photo.remote_photo_path.should include("http")
+      photo.remote_photo_name.should include(".png")
+    end
   end
 
   it 'should save a photo' do
@@ -82,7 +88,7 @@ describe Photo do
     it 'should remove its reference in user profile if it is referred' do
       @photo.save
 
-      @user.profile.image_url = @photo.image.url(:thumb_large)
+      @user.profile.image_url = @photo.url(:thumb_large)
       @user.person.save
       @photo.destroy
       Person.find(@user.person.id).profile.image_url.should be_nil
@@ -111,7 +117,8 @@ describe Photo do
       @xml = @photo.to_xml.to_s
     end
     it 'serializes the url' do
-      @xml.include?(@photo.image.url).should be true
+      @xml.include?(@photo.remote_photo_path).should be true
+      @xml.include?(@photo.remote_photo_name).should be true
     end
     it 'serializes the diaspora_handle' do
       @xml.include?(@user.diaspora_handle).should be true

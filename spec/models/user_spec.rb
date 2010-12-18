@@ -288,9 +288,9 @@ describe User do
       end
       it 'updates image_url' do
         user.update_profile(@params).should be_true
-        user.reload.profile.image_url.should == @photo.absolute_url(:thumb_large)
-        user.profile.image_url_medium.should == @photo.absolute_url(:thumb_medium)
-        user.profile.image_url_small.should == @photo.absolute_url(:thumb_small)
+        user.reload.profile.image_url.should == @photo.url(:thumb_large)
+        user.profile.image_url_medium.should == @photo.url(:thumb_medium)
+        user.profile.image_url_small.should == @photo.url(:thumb_small)
       end
       it 'unpends the photo' do
         @photo.pending = true
