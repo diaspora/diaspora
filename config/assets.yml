@@ -14,6 +14,7 @@ javascripts:
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
+    - public/javascripts/application.js
   mobile:
     - public/javascripts/vendor/jquery144.min.js
     - public/javascripts/custom-mobile-scripting.js

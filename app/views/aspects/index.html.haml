@@ -15,10 +15,9 @@
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
   = render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
 
-  = render 'shared/stream', :posts => @post_hashes
+  %ul{:class => 'stream', :id => 'main_stream'}
+    = render 'shared/stream', :posts => @post_hashes
 
-  #pagination
-    = will_paginate @posts
 
 .span-8.last
   = render 'aspects/all_aspects_contacts'

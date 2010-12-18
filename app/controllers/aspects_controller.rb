@@ -7,6 +7,7 @@ class AspectsController < ApplicationController
 
   respond_to :html
   respond_to :json, :only => :show
+  respond_to :js
 
   def index
     @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
