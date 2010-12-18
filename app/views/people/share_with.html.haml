@@ -6,9 +6,9 @@
   .share_with_header
     = person_image_link(@person, :size => :thumb_medium)
     %h3
-      = "Start sharing with #{@person.name}"
+      = t('.share_with', :name => @person.name)
     %p
-      = "Once #{@person.first_name} accepts, you'll start seeing each other's posts on Diaspora"
+      = t('.accepts', :name => @person.first_name)
 
   = render :partial => 'share_with_pane',
     :locals => {:person => @person,

@@ -34,7 +34,7 @@
     - for aspect in aspects_with_person
       = render :partial => 'aspects/aspect_badge', :locals => {:aspect => aspect}
     .right
-      = link_to "edit aspect membership", "#", :id=> "edit_contact_aspects"
+      = link_to t('.edit_membership'), "#", :id=> "edit_contact_aspects"
 
   .edit{:class => ("hidden" if contact)}
 
@@ -46,5 +46,5 @@
 
     - if contact
       .right
-        = link_to "done editing", "#", :id => "done_contact_aspects"
+        = link_to t('aspects.aspect_contacts.done_editing'), "#", :id => "done_contact_aspects"
       = link_to t('people.profile_sidebar.remove_contact'), person, :confirm => t('are_you_sure'), :method => :delete

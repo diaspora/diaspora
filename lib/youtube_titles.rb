@@ -7,7 +7,7 @@ module YoutubeTitles
     unless title.nil?
       title = title.to_s[7..-9]
     end
-    title || I18n.t('application.helper.youtube_title.unknown')
+    title || I18n.t('application.helper.video_title.unknown')
   end
   def get_youtube_title text
     self[:youtube_titles] ||= {}
