@@ -51,9 +51,9 @@
           = t('.recent_posts')
         - else
           = t('.recent_public_posts')
-    
-    %ul{:class => 'stream', :id => 'main_stream'}
-      = render 'shared/stream', :posts => @post_hashes
+
+      %ul{:class => 'stream', :id => 'main_stream'}
+        = render 'shared/stream', :posts => @post_hashes
     = will_paginate @posts
 
   - else
