@@ -54,5 +54,4 @@
           - unless person.profile.birthday.blank?
             %h3 
               =t('.born')
-            = t('ago', :time => time_ago_in_words(person.profile.birthday)) if @person.profile.birthday
-
+            = birthday_format(person.profile.birthday)

@@ -366,7 +366,7 @@ en:
           edit_my_profile: "Edit my profile"
           bio: "bio"
           gender: "gender"
-          born: "born"
+          born: "birthday"
           in_aspects: "in aspects"
           cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
           remove_from: "Remove %{name} from %{aspect}?"

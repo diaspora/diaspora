@@ -88,10 +88,11 @@ class Profile
   end
 
   def date= params
-    if ['year', 'month', 'day'].all? { |key| params[key].present? }
+    params['year'] = '1000' if params['year'].blank?
+    if ['month', 'day'].all? { |key| params[key].present? }
       date = Date.new(params['year'].to_i, params['month'].to_i, params['day'].to_i)
       self.birthday = date
-    elsif ['year', 'month', 'day'].all? { |key| params[key] == '' }
+    elsif ['month', 'day'].all? { |key| params[key].blank? }
       self.birthday = nil
     end
   end
