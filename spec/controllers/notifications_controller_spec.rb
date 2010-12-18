@@ -14,22 +14,22 @@ describe NotificationsController do
 
   end
 
-  describe '#destroy' do
-    it 'removes a notification' do
+  describe '#update' do
+    it 'marks a notification as read' do
       note = Notification.create(:user_id => user.id)
-      delete :destroy, :id => note.id
-      Notification.count.should == 0 
+      put :update, :id => note.id
+      Notification.first.unread.should == false
     end
 
-    it 'only lets you delete your own notifications' do
+    it 'only lets you read your own notifications' do
       user2 = make_user
 
       Notification.create(:user_id => user.id)
       note = Notification.create(:user_id => user2.id)
 
-      delete :destroy, :id => note.id
+      put :update, :id => note.id
 
-      Notification.count.should == 2 
+      Notification.find(note.id).unread.should == true 
     end
   end
 end

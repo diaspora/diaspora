@@ -19,4 +19,12 @@ module PeopleHelper
       I18n.t "people.helper.people_on_pod_are_aware_of"
     end
   end
+
+  def birthday_format(bday)
+    if bday.year == 1000
+      bday.strftime("%B %d")
+    else
+      bday.strftime("%B %d %Y")
+    end
+  end
 end

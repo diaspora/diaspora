@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
       @aspect = nil
       @aspects = current_user.aspects.fields(:name)
       @aspects_dropdown_array = @aspects.collect{|x| [x.to_s, x.id]}
-      @notifications = Notification.for(current_user).all
+      @notification_count = Notification.for(current_user, :unread =>true).all.count
     end
   end
 

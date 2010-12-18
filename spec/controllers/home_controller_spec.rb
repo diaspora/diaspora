@@ -14,14 +14,14 @@ describe HomeController do
   end
 
   describe '#show' do
-    it 'should show a login link if no user is not logged in' do
-      get :show 
+    it 'shows a login link if no user is not logged in' do
+      get :show
       response.body.should include("login")
     end
 
-    it 'should redirect to aspects index if user is logged in' do
+    it 'redirects to aspects index if user is logged in' do
       sign_in @user
-      get :show 
+      get :show
       response.should redirect_to aspects_path
     end
   end
@@ -40,15 +40,15 @@ describe HomeController do
       end
       it 'logs a unified id in a request' do
         id = @lines.first.match(/r_id=(\w+)\s/).captures.first
-        @lines.each do |line| 
+        @lines.each do |line|
           line.match(/r_id=(\w+)\s/).captures.first.should == @id
         end
       end
       it 'logs different ids in different requests' do
         get :show
-        old_lines = Rails.logger.infos.select do |line| 
+        old_lines = Rails.logger.infos.select do |line|
           line.match(/r_id=(\w+)\s/).captures.first == @id
-        end 
+        end
         old_lines.length.should == Rails.logger.infos.length/2
       end
     end
@@ -72,7 +72,7 @@ describe HomeController do
       end
       it 'logs layouts' do
         pending 'where is the template=home/show line?'
-        home_line = @lines.detect{|t| 
+        home_line = @lines.detect{|t|
           t.include?("template=home/show.html.haml")}
         home_line.should match /layout=layouts\/application/
       end

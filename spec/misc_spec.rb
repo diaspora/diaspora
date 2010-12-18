@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 describe 'making sure the spec runner works' do
-  it 'should factory create a user with a person saved' do
+  it 'factoy creates a user with a person saved' do
     user = make_user
     loaded_user = User.first(:id => user.id)
     loaded_user.person.owner_id.should == user.id
@@ -16,30 +16,31 @@ describe 'making sure the spec runner works' do
       User.count.should == 0
     end
 
-    it 'returns a user on fixed_user' do
-      new_user = make_user
-      new_user.is_a?(User).should be_true
-      User.count.should == 1
+    describe '#make_user' do
+      it 'returns a user on' do
+        new_user = make_user
+        new_user.is_a?(User).should be_true
+        User.count.should == 1
+      end
+
+      it 'returns a different user the second time' do
+        new_user = make_user
+        second_user = make_user
+
+        User.count.should == 2
+        new_user.id.should_not == second_user.id
+      end
     end
-
-    it 'returns a different user on the second fixed_user' do
-      new_user = make_user
-      second_user = make_user
-
-      User.count.should == 2
-      new_user.id.should_not == second_user.id
-    end
-
   end
 
   describe 'factories' do
     describe 'build' do
       it 'does not save a built user' do
-        Factory.build(:user).persisted?.should be_false
+        Factory.build(:user).should_not be_persisted
       end
 
       it 'does not save a built person' do
-        Factory.build(:person).persisted?.should be_false
+        Factory.build(:person).should_not be_persisted
       end
     end
   end
@@ -58,7 +59,7 @@ describe 'making sure the spec runner works' do
       contact.should_not be_nil
       @user1.contacts.include?(contact).should be_true
       @aspect1.contacts.include?(contact).should be_true
-      contact.aspects.include?( @aspect1 ).should be true
+      contact.aspects.include?(@aspect1).should be_true
     end
 
     it 'connects the second user to the first' do
@@ -66,7 +67,7 @@ describe 'making sure the spec runner works' do
       contact.should_not be_nil
       @user2.contacts.include?(contact).should be_true
       @aspect2.contacts.include?(contact).should be_true
-      contact.aspects.include?( @aspect2 ).should be true
+      contact.aspects.include?(@aspect2).should be_true
     end
 
     it 'allows posting after running' do

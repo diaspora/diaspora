@@ -38,15 +38,20 @@
   -if (contact && !contact.pending?) || person == current_user.person || @incoming_request
     %ul#profile_information
       %li
-        %h3 #{t('.bio')}
-        = markdownify(person.profile.bio, :newlines => true)
+        - unless person.profile.bio.blank?
+          %h3
+            =t('.bio')
+          = markdownify(person.profile.bio, :newlines => true)
 
       %li.span-8.last
         .span-4
-          %h3 #{t('.gender')}
-          = person.profile.gender
+          - unless person.profile.gender.blank?
+            %h3
+              =t('.gender')
+            = person.profile.gender
 
         .span-4.last
-          %h3 #{t('.born')}
-          = t('ago', :time => time_ago_in_words(person.profile.birthday)) if @person.profile.birthday
-
+          - unless person.profile.birthday.blank?
+            %h3 
+              =t('.born')
+            = birthday_format(person.profile.birthday)

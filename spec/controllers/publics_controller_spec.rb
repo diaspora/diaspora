@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PublicsController do
   render_views
 
-  let(:user) { make_user }
+  let(:user)   { make_user }
   let(:person) { Factory(:person) }
 
   describe '#receive' do
