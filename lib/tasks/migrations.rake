@@ -40,13 +40,13 @@ namespace :migrations do
 
     Photo.all.each do |photo|
       # extract root
-      unless photo.image.url.match(/^https?:\/\//)
+      pod_url = photo.person.url
+      pod_url.chop! if pod_url[-1,1] == '/'
 
-        pod_url = photo.person.url
-        pod_url.chop! if pod_url[-1,1] == '/'
+      if photo.image.url
         remote_path = "#{pod_url}#{photo.image.url}"
       else
-        remote_path = photo.image.url
+        remote_path = "#{pod_url}#{photo.remote_photo_path}/#{photo.remote_photo_name}"
       end
 
       # get path/filename

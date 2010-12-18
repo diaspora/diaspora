@@ -21,11 +21,19 @@ describe 'migrations' do
       @photos = []
 
       5.times do |n|
-        photo = Photo.instantiate(:user_file => File.open(@fixture_name))
-        photo.remote_photo_path = nil
-        photo.remote_photo_name = nil
+        if n % 2 == 0
+          photo = Photo.instantiate(:user_file => File.open(@fixture_name))
+          photo.remote_photo_path = nil
+          photo.remote_photo_name = nil
+          photo.person = make_user.person
+        else
+          photo = Photo.new
+          photo.person = Factory(:person, :url => "https://remote.com/")
+          # legacy photo object
+          photo.remote_photo_path = "/uploads/images/"
+          photo.remote_photo_name = "129jcxz09j2103enas0zxc231cxz.png"
+        end
 
-        photo.person = (n % 2 == 0 ? make_user.person : Factory(:person, :url => "https://remote.com/"))
         @photos[n] = photo
         @photos[n].save
       end
@@ -44,6 +52,10 @@ describe 'migrations' do
 
       @photos[0].remote_photo_path.should include("http://google-")
       @photos[1].remote_photo_path.should include("https://remote.com/")
+    end
+
+    it 'is not destructive on a second pass' do
+      pending 'double check'
     end
   end
 end
