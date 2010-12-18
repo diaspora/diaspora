@@ -6,10 +6,11 @@ class NotificationsController < ApplicationController
   before_filter :authenticate_user!
   respond_to :html
 
-  def destroy
+
+  def update
     note = Notification.find_by_user_id_and_id(current_user.id, params[:id])
     if note
-      note.delete
+      note.update_attributes(:unread => false)
       render :nothing => true
     else
       render :nothing => true, :code => 404
@@ -20,6 +21,5 @@ class NotificationsController < ApplicationController
     @notifications = Notification.for(current_user)
     @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") } 
     respond_with @notifications
-    @notifications.find_all{|x| x.unread ==true}.each{|x| x.update_attributes(:unread => false)}
   end
 end

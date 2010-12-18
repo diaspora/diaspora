@@ -8,7 +8,7 @@ Diaspora::Application.routes.draw do
   resources :requests,        :only => [:destroy, :create]
   resources :services
   
-  resources :notifications,           :only => [:destroy, :index]
+  resources :notifications
   resources :posts,           :only => [:show], :path => '/p/'
 
 
