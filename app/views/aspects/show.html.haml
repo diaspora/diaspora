@@ -25,3 +25,4 @@
 
   %ul{:class => 'stream', :id => 'main_stream'}
     = render 'shared/stream', :posts => @post_hashes
+  =will_paginate @posts

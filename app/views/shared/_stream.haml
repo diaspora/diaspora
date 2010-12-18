@@ -3,6 +3,3 @@
 -#   the COPYRIGHT file.
 - for post_hash in posts
   = render 'shared/stream_element', post_hash.merge(:aspects => @aspects, :commenting_disabled => defined?(@commenting_disabled))
-
-.pagination
-  = will_paginate @posts
