@@ -91,7 +91,7 @@ describe Profile do
       profile.birthday.should == nil
     end
 
-    it 'does not change with one or more blank values' do
+    it 'does not change with blank  month and day values' do
       profile.birthday = Date.new(2000, 1, 1)
       profile.date = { 'year' => '2001', 'month' => '', 'day' => ''}
       profile.birthday.year.should == 2000
