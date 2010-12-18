@@ -15,23 +15,23 @@ he:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "על שם זה להיות ייחודי בקרב שמות אנשי הקשר."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "כבר תפוס"
+              taken: "כבר תפוס."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "הנה עותק של בקשה שכבר בוצעה."
         user: 
           attributes: 
             email: 
-              taken: "כבר תפוס"
+              taken: "כבר תפוסה."
             person: 
-              invalid: "אינו תקני"
+              invalid: "אינה תקנית."
             username: 
-              taken: "כבר תפוס"
+              taken: "כבר תפוס."
   ago: "%{time} עברו"
   application: 
     helper: 
@@ -39,7 +39,7 @@ he:
         all_aspects: "כל ההיבטים"
       unknown_person: "אדם לא ידוע"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "כותרת הווידאו אינה ידועה"
   are_you_sure: "בבטחה?"
   aspects: 
     add_to_aspect: 
@@ -156,6 +156,7 @@ he:
   layouts: 
     application: 
       powered_by: "מופעל על גבי דיאספורה*"
+      whats_new: "what's new?"
     header: 
       account_settings: "הגדרות החשבון"
       blog: "בלוג"
@@ -169,6 +170,11 @@ he:
     one: "בקשה חדשה!"
     other: "%{count} בקשות חדשות!"
     zero: "אין בקשות חדשות"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "רובוט הדוא״ל של דיאספורה"
     hello: "שלום %{name}!"
@@ -179,11 +185,11 @@ he:
       subject: "בקשת התקשרות חדשה בדיאספורה* מאת %{from}"
       try_it_out: "מאוד כדאי לבדוק זאת."
     request_accepted: 
-      accepted: "קיבל/ה את בקשת ההתקשרות שלך. וכעת יופיע/תופיע תחת"
+      accepted: "קיבל/ה את בקשת ההתקשרות שלך!"
       subject: "בקשת ההתקשרות שלך התקבלה על ידי %{name} בדיאספורה*"
     single_admin: 
       admin: "מנהל הדיאספורה שלך"
-      subject: "הודעה ממנהל הדיאספורה שלך:"
+      subject: "הודעה בנוגע לחשבונך בדיאספורה:"
     thanks: "רב תודות,"
   ok: "אישור"
   or: "או"
@@ -193,6 +199,8 @@ he:
   password: "ססמה"
   password_confirmation: "אישור הססמה"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "אישור לאחרים לחפש אחריך בדיאספורה"
       edit_profile: "עריכת הפרופיל"
@@ -228,16 +236,18 @@ he:
       in_aspects: "בהיבטים"
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "כבר שלחת בקשה אל %{name}."
       does_not_exist: "אדם זה אינו קיים!"
       incoming_request: "קיבלת בקשה נכנסת מאדם זה."
       no_posts: "אין רשומות להצגה!"
       not_connected: "אין לך קשר עם אדם זה"
       recent_posts: "רשומות אחרונות"
       recent_public_posts: "הרשומות הציבוריות האחרונות"
-      request_people: "אם זהו רצונך, ניתן לבקש להציב אותו/ה באחד מההיבטים שלך."
       return_to_aspects: "חזרה לעמוד ההיבטים שלך"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
     update: 
       failed: "אירע כשל בעדכון הפרופיל"
@@ -315,7 +325,7 @@ he:
     create: 
       success: "האימות הצליח."
     destroy: 
-      success: "האימות הושמד בהצלחה."
+      success: "האימות נמחק בהצלחה."
     failure: 
       error: "אירעה שגיאה בעת ההתחברות לשירות זה"
     index: 
@@ -368,7 +378,7 @@ he:
       oh_yeah: "אחלה!"
       tell_me_something_good: "בא לי לשמוע סיפור נחמד"
     show: 
-      destroy: "הריסה"
+      destroy: "מחיקה"
       permalink: "קישור קבוע"
   stream_helper: 
     hide_comments: "הסתרת הערות"

@@ -15,23 +15,23 @@ fr:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "doit être unique parmi les contacts ce cet utilisateur."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "est déjà pris"
+              taken: "est déjà pris."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "est un doublon d'une requête déjà existante."
         user: 
           attributes: 
             email: 
-              taken: "est déjà pris"
+              taken: "est déjà pris."
             person: 
-              invalid: "est invalide"
+              invalid: "est invalide."
             username: 
-              taken: "est déjà pris"
+              taken: "est déjà pris."
   ago: "%{time} plus tôt"
   application: 
     helper: 
@@ -39,7 +39,7 @@ fr:
         all_aspects: "Tous les aspects"
       unknown_person: "personne inconnue"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Titre de vidéo inconnu"
   are_you_sure: "Vous confirmez ?"
   aspects: 
     add_to_aspect: 
@@ -66,7 +66,7 @@ fr:
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index: 
-      handle_explanation: "Ceci est votre diaspora handle.  Comme une adresse e-mail, vous pouvez le donner à des personnes pour leur permettre de vous joindre."
+      handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
     manage: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_a_new_contact: "Ajouter un nouveau contact"
@@ -139,14 +139,14 @@ fr:
       already_contacts: "Vous avez déjà établi une connexion avec cette personne"
       already_sent: "Vous avez déjà invité cette personne."
       no_more: "Vous n’avez plus d’invitation."
-      rejected: "Les adresses e-mail suivantes ont rencontré des problèmes :"
+      rejected: "Les adresses de courrier électronique suivantes ont rencontré des problèmes :"
       sent: "Les invitations ont été envoyées à :"
     edit: 
       sign_up: "inscription"
     new: 
       already_invited: "Déjà invité(e)"
       aspect: "Aspect"
-      comma_seperated_plz: "Vous pouvez entrer plusieurs adresses e-mail séparées par des virgules."
+      comma_seperated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
       invite_someone_to_join: "Inviter quelqu'un à rejoindre Diaspora !"
       personal_message: "Message personnel"
@@ -156,6 +156,7 @@ fr:
   layouts: 
     application: 
       powered_by: "PROPULSÉ PAR DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "options du compte"
       blog: "blog"
@@ -169,8 +170,13 @@ fr:
     one: "nouvelle requête !"
     other: "%{count} nouvelles requêtes !"
     zero: "aucune nouvelle requête"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
-    diaspora: "le robot de messagerie e-mail de diaspora"
+    diaspora: "le robot de messagerie électronique de diaspora"
     hello: "Bonjour %{name} !"
     love: "affectueusement,"
     new_request: 
@@ -179,11 +185,11 @@ fr:
       subject: "nouvelle requête de contact Diaspora* de %{from}"
       try_it_out: "Vous devriez vraiment envisager de l'essayer."
     request_accepted: 
-      accepted: "a accepté votre requête de contact. Il est maintenant dans votre aspect"
+      accepted: "a accepté votre requête de contact !"
       subject: "%{name} a accepté votre requête de contact sur Diaspora*"
     single_admin: 
       admin: "Votre administrateur Diaspora"
-      subject: "Un message de votre administrateur Diaspora :"
+      subject: "Un message concernant votre compte Diaspora :"
     thanks: "Merci,"
   ok: "OK"
   or: "ou"
@@ -193,6 +199,8 @@ fr:
   password: "Mot de passe"
   password_confirmation: "Confirmation du mot de passe"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Autoriser des personnes à vous rechercher au sein de Diaspora"
       edit_profile: "Modifier le profil"
@@ -228,16 +236,18 @@ fr:
       in_aspects: "dans les aspects"
       remove_contact: "supprimer le contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Vous avez déjà envoyé une requête à %{name}."
       does_not_exist: "Cette personne n'existe pas !"
       incoming_request: "Vous avez une requête venant de cette personne."
       no_posts: "aucun message à afficher !"
       not_connected: "Vous n'êtes pas connecté(e) avec cette personne"
       recent_posts: "Messages récents"
       recent_public_posts: "Messages publics récents"
-      request_people: "Si vous le désirez, vous pouvez demander à le/la placer dans un de vos aspects."
       return_to_aspects: "Retourner à votre page des aspects"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
     update: 
       failed: "La mise à jour du profil a échoué"
@@ -291,7 +301,7 @@ fr:
       unhappy: "Insatisfait(e) ?"
       update: "Mettre à jour"
     new: 
-      enter_email: "Saisissez une adresse e-mail"
+      enter_email: "Saisissez une adresse de courrier électronique"
       enter_password: "Saisissez un mot de passe"
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
@@ -315,7 +325,7 @@ fr:
     create: 
       success: "Authentification réussie."
     destroy: 
-      success: "Authentification clôturée avec succès."
+      success: "Authentification supprimée."
     failure: 
       error: "une erreur s'est produite lors de la connexion avec ce service"
     index: 
@@ -331,13 +341,13 @@ fr:
       create_request: "Rechercher par handle Diaspora"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
-      know_email: "Vous connaissez leur adresse e-mail ? Vous devriez les inviter"
+      know_email: "Vous connaissez leur adresse de courrier électronique ? Vous devriez les inviter"
       your_diaspora_username_is: "Votre nom d'utilisateur diaspora est : %{diaspora_handle}"
     contact_list: 
       all_contacts: "Tous les contacts"
       cannot_remove: "Impossible de supprimer la personne du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
     invitations: 
-      dont_have_now: "Vous n'avez aucun droit pour l'instant, mais plus d'invitations arriveront bientôt !"
+      dont_have_now: "Vous n'en avez aucune pour l'instant, mais d'autres invitations arriveront bientôt !"
       invitations_left: "(il vous en reste %{count})"
       invite_someone: "Inviter quelqu'un"
       invites: "Invitations"
@@ -368,7 +378,7 @@ fr:
       oh_yeah: "oh ouais !"
       tell_me_something_good: "dites-moi quelque chose de bien"
     show: 
-      destroy: "Détruire"
+      destroy: "Supprimer"
       permalink: "permalien"
   stream_helper: 
     hide_comments: "masquer les commentaires"
@@ -385,11 +395,11 @@ fr:
       download_photos: "télécharger mes photos"
       download_xml: "télécharger mon XML"
       edit_account: "Modifier le compte"
-      email_notifications: "Notifications par e-mail"
+      email_notifications: "Notifications par courrier électronique"
       export_data: "Exporter des données"
       new_password: "Nouveau mot de passe"
-      receive_email_notifications: "Recevoir des notifications par e-mail ?"
-      your_email: "Votre e-mail"
+      receive_email_notifications: "Recevoir des notifications par courrier électronique ?"
+      your_email: "Votre adresse électronique"
       your_handle: "Votre handle diaspora"
     getting_started: 
       connect_services: "Connectez vos autres services"

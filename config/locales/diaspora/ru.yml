@@ -156,6 +156,7 @@ ru:
   layouts: 
     application: 
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
+      whats_new: "what's new?"
     header: 
       account_settings: "настройки аккаунта"
       blog: "блог"
@@ -169,6 +170,11 @@ ru:
     one: "новый запрос!"
     other: "%{count} новых запросов!"
     zero: "новых запросов нет"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
@@ -193,6 +199,8 @@ ru:
   password: "Пароль"
   password_confirmation: "Подтверждение пароля"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Разрешить отображать вас в поиске Диаспоры"
       edit_profile: "Редактировать профиль"
@@ -228,16 +236,18 @@ ru:
       in_aspects: "в аспектах"
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Вы отправили запрос %{name}."
       does_not_exist: "Персоны не существует !"
       incoming_request: "Вам поступил запрос от этого человека."
       no_posts: "новых сообщений нет!"
       not_connected: "Вы не связаны с этим человеком"
       recent_posts: "Последние сообщения"
       recent_public_posts: "Последние Публичные Посты"
-      request_people: "Если хотите, вы можете спросить его/ее разрешения добавить в аспекты."
       return_to_aspects: "Вернуться на страницу аспектов"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "принять или игнорировать."
     update: 
       failed: "Не удалось обновить профиль"

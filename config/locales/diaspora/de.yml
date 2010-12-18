@@ -15,31 +15,31 @@ de:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "muss unter den Kontakten dieses Benutzers einzigartig sein."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "wurde bereits benutzt"
+              taken: "ist bereits vergeben."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "ist ein Duplikat einer existierenden Anfrage."
         user: 
           attributes: 
             email: 
-              taken: "wurde bereits benutzt"
+              taken: "wird bereits benutzt."
             person: 
-              invalid: "ist ungültig"
+              invalid: "ist ungültig."
             username: 
-              taken: "ist bereits vergeben"
-  ago: "%{time} her"
+              taken: "ist bereits vergeben."
+  ago: "Vor %{time}"
   application: 
     helper: 
       aspect_badge: 
         all_aspects: "Alle Aspekte"
       unknown_person: "unbekannte Person"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Unbekannter Video-Titel"
   are_you_sure: "Bist du sicher?"
   aspects: 
     add_to_aspect: 
@@ -59,23 +59,23 @@ de:
       success: "%{name} wurde erfolgreich entfernt."
     edit_aspect_pane: 
       add_existing: "Bestehenden Kontakt hinzufügen"
-      confirm_remove_aspect: "Bist du sicher dass du diesen Aspekt löschen willst?"
+      confirm_remove_aspect: "Möchtest du diesen Aspekt wirklich löschen?"
       remove_aspect: "Diesen Aspekt löschen"
     helper: 
-      are_you_sure: "Bist du sicher dass du diesen Aspekt löschen möchtest?"
+      are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
       remove: "entfernen"
     index: 
-      handle_explanation: "Das ist deine Diaspora-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer dich kontaktieren können."
+      handle_explanation: "Das ist deine Diaspora-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
     manage: 
       add_a_new_aspect: "Neuen Aspekt hinzufügen"
       add_a_new_contact: "Neuen Kontakt hinzufügen"
-      drag_to_add: "Ziehen um Leute hinzuzufügen"
+      drag_to_add: "Ziehe, um Leute hinzuzufügen"
       manage_aspects: "Aspekte verwalten"
       no_requests: "Keine neuen Anfragen"
       requests: "Anfragen"
     move_contact: 
-      error: "Fehler beim Verschieben des Kontakts %{inspect}"
+      error: "Fehler beim Verschieben des Kontakts: %{inspect}"
       failure: "hat nicht geklappt: %{inspect}"
       success: "Person in neuen Aspekt verschoben"
     new_aspect: 
@@ -83,12 +83,12 @@ de:
       name: "Name"
     no_contacts_message: 
       add_contact: "Kontakt hinzufügen"
-      add_contact_to: "Jemanden zu %{aspect_name} hinzufügen"
+      add_contact_to: "Jemanden zum Aspekt %{aspect_name} hinzufügen"
       invite: "Lade jemanden zu Diaspora ein!"
-      nobody: "Bring die in deinem Leben wichtigen Leute zu Diaspora!"
-      nobody_in_aspect: "Dein Aspekt '%{aspect_name}' ist leer."
+      nobody: "Bring die dir wichtigen Leute zu Diaspora!"
+      nobody_in_aspect: "'%{aspect_name}' ist leer."
     no_posts_message: 
-      start_talking: "Niemand hat bisher etwas gesagt. Fange eine Unterhaltung an!"
+      start_talking: "Niemand hat bisher etwas gesagt. Fang ein Gespräch an!"
     remove_from_aspect: 
       failure: "Person konnte nicht aus dem Aspekt entfernt werden"
       success: "Person erfolgreich aus dem Aspekt entfernt"
@@ -98,8 +98,8 @@ de:
     show: 
       edit_aspect: "Aspekt bearbeiten"
     update: 
-      failure: "Dein Aspekt %{name} hat einen zu langen Namen zum Speichern."
-      success: "Dein Aspekt %{name} wurde erfolgreich bearbeitet."
+      failure: "%{name} ist ein zu langer Name. Wähle einen kürzeren."
+      success: "Aspekt %{name} erfolgreich bearbeitet."
   back: "Zurück"
   cancel: "Abbrechen"
   comments: 
@@ -117,21 +117,21 @@ de:
     helper: 
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
       invalid_fields: "Ungültige Felder"
-  fill_me_out: "Fülle mich aus"
+  fill_me_out: "Füll mich aus"
   home: 
     show: 
       already_account: "bereits registriert?"
-      choice: "Wahlfreiheit"
-      choice_explanation: "Diaspora lässt dich deine Kontakte in Gruppen, sogenannten Aspekten, verwalten. Einzigartig in Diaspora, stellen Aspekte sicher, dass deine Fotos, Geschichten und Witze nur mit den Menschen, für die sie gedacht sind, geteilt werden."
-      learn_about_host: "Erfahre, wie du deinen eigenen Diaspora-Server betreiben kannst."
-      login_here: "hier einloggen"
+      choice: "Entscheidungsfreiheit"
+      choice_explanation: "Kontakte werden bei Diaspora in Gruppen - Aspekte genannt - verwaltet. Diese einzigartige Eigenschaft sorgt dafür, dass deine Fotos, Geschichten und Witze nur mit den Menschen, für die sie gedacht sind, geteilt werden."
+      learn_about_host: "Du willst deinen eigenen Diaspora-Server betreiben?"
+      login_here: "hier anmelden"
       ownership: "Eigentum"
       ownership_explanation: "Deine Bilder gehören dir, das solltest du nicht aufgeben müssen, nur um sie zu teilen. Alles, was du auf Diaspora teilst, bleibt weiterhin dein Eigentum - du hast die volle Kontrolle über seine Verbreitung."
       share_what_you_want: "Teile was du willst, mit wem du willst."
       simplicity: "Einfachheit"
-      simplicity_explanation: "Diaspora macht Teilen klar und einfach - das gilt auch für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat; es ist nicht nötig, seitenweise Einstellungen und Optionen durchzugehen nur um dein Profil zu sichern."
+      simplicity_explanation: "Diaspora macht Teilen klar und einfach - das Gleiche gilt für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat; es ist nicht nötig, seitenweise Einstellungen durchzugehen nur um dein Profil zu sichern."
       tagline_first_half: "Teile was du willst,"
-      tagline_second_half: "mit wem du willst"
+      tagline_second_half: "mit wem du willst."
   invitations: 
     check_token: 
       not_found: "Einladungstoken nicht gefunden"
@@ -156,6 +156,7 @@ de:
   layouts: 
     application: 
       powered_by: "BETRIEBEN MIT DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "Kontoeinstellungen"
       blog: "Blog"
@@ -169,21 +170,26 @@ de:
     one: "Neue Anfrage!"
     other: "%{count} neue Anfragen!"
     zero: "keine neuen Anfragen"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
-    diaspora: "der Diaspora-E-Mail-Roboter"
+    diaspora: "der Diaspora E-Mail-Roboter"
     hello: "Hallo %{name}!"
-    love: "Es grüßt dich,"
+    love: "Mit freundlichen Grüßen,"
     new_request: 
       just_sent_you: "hat dir gerade eine Kontakt-Anfrage auf Diaspora* geschickt"
       sign_in: "melde dich hier an"
       subject: "Neue Diaspora* Kontakt-Anfrage von %{from}"
-      try_it_out: "Du solltest wirklich kurz darüber nachdenken es auszuprobieren."
+      try_it_out: "Probiers aus!"
     request_accepted: 
-      accepted: "hat deine Kontakt-Anfrage akzeptiert. Sie sind nun in deinem"
+      accepted: "hat deine Kontakt-Anfrage akzeptiert!"
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora* akzeptiert"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
-      subject: "Eine Nachricht von deinem Diaspora-Administrator:"
+      subject: "Eine Nachricht betreffend dein Diaspora-Konto:"
     thanks: "Danke,"
   ok: "OK"
   or: "oder"
@@ -193,6 +199,8 @@ de:
   password: "Passwort"
   password_confirmation: "Passwort-Bestätigung"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Erlaube anderen Diaspora-Nutzern, nach dir zu suchen"
       edit_profile: "Profil bearbeiten"
@@ -228,16 +236,18 @@ de:
       in_aspects: "in Aspekten"
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Du hast bereits eine Anfrage an %{name} gesendet."
       does_not_exist: "Person existiert nicht!"
       incoming_request: "Du hast eine eingehende Anfrage von dieser Person."
       no_posts: "Keine Posts zum Anzeigen!"
       not_connected: "Du bist nicht mit dieser Person verbunden"
       recent_posts: "Letzte Beiträge"
       recent_public_posts: "Neueste öffentliche Beiträge"
-      request_people: "Wenn du möchtest, kannst du anfragen, ob du ihn/sie in einem deiner Aspekte platzieren darfst."
       return_to_aspects: "Kehre zur Aspekt-Übersicht zurück."
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
     update: 
       failed: "Ändern des Profils fehlgeschlagen"
@@ -258,7 +268,7 @@ de:
       new_photo: "Neues Foto"
       post_it: "Teile es!"
     new_photo: 
-      empty: "{file} ist leer, bitte wähle die Dateien erneut ohne diese aus."
+      empty: "{file} ist leer, bitte wähle erneut Dateien aus."
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       size_error: "{file} ist zu groß. Die maximale Dateigröße ist {sizeLimit}."
     new_profile_photo: 
@@ -286,7 +296,7 @@ de:
     edit: 
       cancel_my_account: "Mein Konto schließen"
       edit: "%{name} bearbeiten"
-      leave_blank: "(leer lassen, wenn du nichts ändern willst)"
+      leave_blank: "(Du willst nichts ändern? Einfach leer lassen.)"
       password_to_confirm: "(wir brauchen dein aktuelles Passwort um deine Änderungen zu bestätigen)"
       unhappy: "Unglücklich?"
       update: "Aktualisieren"
@@ -315,7 +325,7 @@ de:
     create: 
       success: "Authentifizierung erfolgreich."
     destroy: 
-      success: "Erfolgreich Authentifizierung zerstört."
+      success: "Authentifizierung erfolgreich gelöscht."
     failure: 
       error: "es gab einen Fehler beim Verbinden mit diesem Dienst"
     index: 
@@ -412,7 +422,7 @@ de:
         your_services: "Deine Dienste"
       step_4: 
         change_profile: "Du kannst dein Profil und deine verlinkten Dienste jederzeit bearbeiten unter"
-        continue: "Fahre fort um auf deine \"Alle\" Seite zu kommen, eine Übersicht aller deiner Aspekte."
+        continue: "Weiter zur \"Alle\"-Seite, einer Übersicht aller deiner Aspekte."
         finish: "Fertigstellen"
         manage_aspects: "Du kannst auch Kontakte hinzufügen, während du dich auf einer Aspekt-Seite befindest."
         ready_to_share: "Du bist nun bereit zum Teilen mit"

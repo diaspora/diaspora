@@ -156,6 +156,7 @@ ar:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "account settings"
       blog: "blog"
@@ -169,6 +170,11 @@ ar:
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "the diaspora email robot"
     hello: "Hello %{name}!"
@@ -193,6 +199,8 @@ ar:
   password: "Password"
   password_confirmation: "Password confirmation"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Allow for people to search for you"
       edit_profile: "Edit profile"
@@ -228,16 +236,18 @@ ar:
       in_aspects: "in aspects"
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "¡Esa persona no existe!"
       incoming_request: "You have an incoming request from this person."
       no_posts: "¡No hay mensajes que mostrar!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
-      request_people: "If you'd like, you can request to place him/her in one of your aspects."
       return_to_aspects: "Return to your aspects page"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Error al actualizar el perfil"

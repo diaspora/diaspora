@@ -156,6 +156,7 @@ sk:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "nastavenia účtu"
       blog: "blog"
@@ -169,6 +170,11 @@ sk:
     one: "jedna nová žiadosť"
     other: "nové žiadosti (%{count})"
     zero: "žiadne nové žiadosti"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "e-mail robot Diaspory"
     hello: "Ahoj %{name}!"
@@ -193,6 +199,8 @@ sk:
   password: "Heslo"
   password_confirmation: "Potvrdenie hesla"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Dovoliť ostatným vyhľadať Vás v Diaspore"
       edit_profile: "Edit profile"
@@ -228,16 +236,18 @@ sk:
       in_aspects: "v aspektoch"
       remove_contact: "odstrániť kontakt"
       remove_from: "Odstrániť užívateľa %{name} z aspektu %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "Od tejto osoby máte prichádzajúcu žiadosť."
       no_posts: "Žiadne príspevky na zobrazenie!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
-      request_people: "Ak si prajete, môžete požiadať o umiestnenie osoby v jednom z Vašich aspektov."
       return_to_aspects: "Vrátiť sa na stránku aspektov"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "akceptovať, alebo ignorovať."
     update: 
       failed: "Aktualizácia profilu zlyhala"

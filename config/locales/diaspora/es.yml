@@ -32,14 +32,14 @@ es:
               invalid: "no es válido"
             username: 
               taken: "Ya ha sido elegido"
-  ago: "%{time} hace"
+  ago: "hace %{time} "
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Todos los aspectos"
       unknown_person: "persona desconocida"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Título de vídeo desconocido"
   are_you_sure: "¿Estás seguro?"
   aspects: 
     add_to_aspect: 
@@ -98,7 +98,7 @@ es:
     show: 
       edit_aspect: "editar aspecto"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "Tu aspecto, %{name}, tiene un nombre demasiado largo para guardarlo."
       success: "Tu aspecto, %{name}, fue editado correctamente."
   back: "Atrás"
   cancel: "Cancelar"
@@ -136,15 +136,15 @@ es:
     check_token: 
       not_found: "Identificación de invitación no encontrada."
     create: 
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
+      already_contacts: "Ya estás conectado con esa persona"
+      already_sent: "Ya has invitado a esa persona."
       no_more: "No tienes más invitaciones."
       rejected: "Las siguientes direcciones de email han tendido problemas"
       sent: "Tu invitación ha sido enviada a:"
     edit: 
       sign_up: "conectarse"
     new: 
-      already_invited: "Already invited"
+      already_invited: "Ya invitado"
       aspect: "Aspecto"
       comma_seperated_plz: "Puedes escribir múltiples direcciones de email separadas por comas."
       if_they_accept_info: ""
@@ -156,6 +156,7 @@ es:
   layouts: 
     application: 
       powered_by: "IMPULSADO POR DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "configurar cuenta"
       blog: "Blog"
@@ -169,6 +170,11 @@ es:
     one: "Nueva petición!"
     other: "%{count} nuevas peticiones!"
     zero: "no hay nuevas peticiones"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "Correo robot de Diaspora"
     hello: "¡Hola %{name}!"
@@ -193,9 +199,11 @@ es:
   password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Permitir que la gente te busque en Diaspora"
-      edit_profile: "Edit profile"
+      edit_profile: "Editar perfil"
       first_name: "Nombre"
       info_available_to: "Esta información estará disponible para cualquiera que se conecte a Diaspora."
       last_name: "Apellido"
@@ -211,7 +219,7 @@ es:
       results_for: "resultados para %{params}"
     index: 
       couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      no_one_found: "...y nadie fue encontrado."
       no_results: "Hey! You need to search for something."
       results_for: "resultados de la búsqueda para"
     person: 
@@ -228,16 +236,18 @@ es:
       in_aspects: "en aspectos"
       remove_contact: "eliminar contacto"
       remove_from: "Eliminar a %{name} de %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Ya has enviado una petición a %{name}."
       does_not_exist: "¡El usuario no existe!"
       incoming_request: "Tienes una petición de esta persona."
       no_posts: "¡No hay publicaciones que mostrar!"
       not_connected: "No estás conectado con esta persona"
       recent_posts: "Publicaciones Recientes"
       recent_public_posts: "Recent Public Posts"
-      request_people: "Si lo deseas, puedes solicitarle la colocación en uno de tus aspectos."
       return_to_aspects: "Volver a tus aspectos"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "aceptar o ignorar."
     update: 
       failed: "No se pudo actualizar el perfil"
@@ -263,7 +273,7 @@ es:
       size_error: "{file} es demasiado largo, el tamaño máximo por archivo es de {sizeLimit}."
     new_profile_photo: 
       or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      upload: "¡Sube una nueva foto de perfil!"
     photo: 
       view_all: "ver todas las fotos de %{name}"
     show: 
@@ -293,8 +303,8 @@ es:
     new: 
       enter_email: "Escribe una dirección de email"
       enter_password: "Escribe una contraseña"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      enter_password_again: "Introduce la misma contraseña "
+      enter_username: "Elije un nombre de usuario (sólo letras, números, y guiones bajos)"
       sign_up: "Regístrate"
       sign_up_for_diaspora: "Regístrate en Diaspora"
   requests: 
@@ -322,7 +332,7 @@ es:
       connect_to_facebook: "Conectar a facebook"
       connect_to_twitter: "Conectar a twitter"
       disconnect: "desconectar"
-      edit_services: "Edit services"
+      edit_services: "Editar servicios"
       logged_in_as: "registrado como"
       really_disconnect: "¿desconectar %{service}?"
   settings: "Configuración"
@@ -378,17 +388,17 @@ es:
   users: 
     destroy: "Cuenta cerrada con éxito."
     edit: 
-      change: "Change"
+      change: "Cambiar"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
       close_account: "Cerrar cuenta"
       download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi xml"
-      edit_account: "Edit account"
+      edit_account: "Editar cuenta"
       email_notifications: "Email notificaions"
       export_data: "Exportar datos"
       new_password: "Nueva contraseña"
-      receive_email_notifications: "Receive email notificaions?"
+      receive_email_notifications: "¿Recibir notificaciones por email?"
       your_email: "Tu email"
       your_handle: "Tu dirección Diaspora"
     getting_started: 
@@ -422,7 +432,7 @@ es:
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"
     update: 
-      email_notifications_changed: "Language Change Failed"
+      email_notifications_changed: "Fallo al cambiar idioma"
       language_changed: "Idioma Cambiado"
       language_not_changed: "Cambio de Idioma Fallido"
       password_changed: "Contraseña Cambiada"

@@ -156,6 +156,7 @@ es-CL:
   layouts: 
     application: 
       powered_by: "POTENCIADO POR DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "configuración de cuenta"
       blog: "blog"
@@ -169,6 +170,11 @@ es-CL:
     one: "¡nueva solicitud!"
     other: "¡%{count} nuevas solicitudes!"
     zero: "no hay nuevas solicitudes"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "correo robot de diaspora"
     hello: "¡Hola %{name}!"
@@ -193,6 +199,8 @@ es-CL:
   password: "Contraseña"
   password_confirmation: "Confirmar contraseña"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Permitir que la gente te busque en Diaspora"
       edit_profile: "Editar perfil"
@@ -228,16 +236,18 @@ es-CL:
       in_aspects: "en aspectos"
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Ya has enviado una solicitud a %{name}."
       does_not_exist: "¡La persona no existe!"
       incoming_request: "Tienes una solicitud pendiente de esta persona."
       no_posts: "¡no hay posteos para mostrar!"
       not_connected: "No estás conectado con esta persona"
       recent_posts: "Posteos Recientes"
       recent_public_posts: "Posteos Públicos Recientes"
-      request_people: "Si prefieres, puedes solicitarle a el/ella moverse a uno de tus aspectos."
       return_to_aspects: "Volver a tu página de aspectos"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "aceptar o ignorar."
     update: 
       failed: "Error al actualizar perfil"

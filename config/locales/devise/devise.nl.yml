@@ -32,26 +32,26 @@ nl:
         accept: "Accepteer uitnodiging"
         ignore: "Indien je de uitnodiging niet wilt accepteren kun je deze mail gewoon negeren."
         no_account_till: "Je account zal niet worden aangemaakt totdat je jezelf via bovenstaande link registreert."
-        subject: "Je bent uitgenodigd om lid te worden op Diaspora!"
+        subject: "Je bent uitgenodigd om lid te worden van Diaspora!"
       inviters: 
         accept_at: ", op %{url}, je kunt het accepteren via onderstaande link."
-        has_invited_you: "%{name} heeft je uitgenodigd om lid te worden op Diaspora"
-        have_invited_you: "%{names} hebben je uitgenodigd om lid te worden op Diaspora"
+        has_invited_you: "%{name} heeft je uitgenodigd om lid te worden van Diaspora"
+        have_invited_you: "%{names} hebben je uitgenodigd om lid te worden van Diaspora"
       reset_password_instructions: 
-        change: "Verander mijn wachtwoord"
+        change: "Wijzig mijn wachtwoord"
         ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."
-        someone_requested: "Iemand heeft een aanvraag gedaan tot het veranderen van je wachtwoord. Je kunt dit doen via onderstaande link."
+        someone_requested: "Iemand heeft een aanvraag gedaan om je wachtwoord te wijzigen. Je kunt dit doen via onderstaande link."
         subject: "Wachtwoord reset instructies"
-        wont_change: "Je wachtwoord zal niet veranderen totdat je via bovenstaande link een nieuwe hebt gekozen."
+        wont_change: "Je wachtwoord zal niet worden gewijzigd totdat je via bovenstaande link een nieuwe hebt gekozen."
       unlock_instructions: 
-        account_locked: "Je account is vergrendeld als gevolg van een te hoog aantal mislukte pogingen tot inloggen."
+        account_locked: "Je account is vergrendeld vanwege te veel mislukte aanmeldpogingen."
         click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
         subject: "Ontgrendelingsinstructies"
         unlock: "Ontgrendel mijn account"
       welcome: "Welkom %{email}!"
     passwords: 
       edit: 
-        change_password: "Verander mijn wachtwoord"
+        change_password: "Wijzig mijn wachtwoord"
       new: 
         forgot_password: "Wachtwoord vergeten?"
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
@@ -66,7 +66,7 @@ nl:
         alpha_software: "Je staat op het punt om alpha software te gebruiken."
         bugs_and_feedback: "In dit stadium zul je waarschijnlijk nog bugs tegenkomen. We raden je aan de Feedback-button aan de rechterzijde van je browser te gebruiken om deze bugs te melden (in het Engels)!  Vervolgens zullen wij zo hard mogelijk werken om deze op te lossen."
         bugs_and_feedback_mobile: "Wees ervan bewust dat je zeker weten bugs zult tegenkomen.  We raden je aan deze vooral te rapporteren!  We doen ons uiterste best om deze problemen zo snel mogelijk op te lossen."
-        have_a_problem: "Problemen? Vind een antwoord!"
+        have_a_problem: "Problemen? Vind hier een antwoord!"
         login: "Inloggen"
         modern_browsers: "ondersteunt alleen moderne browsers."
         password: "Wachtwoord"

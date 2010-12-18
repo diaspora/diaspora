@@ -156,6 +156,7 @@ mk:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "подесувања на корисничка сметка"
       blog: "блог"
@@ -169,6 +170,11 @@ mk:
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "diaspora е-маил робот"
     hello: "Здраво %{name}!"
@@ -193,6 +199,8 @@ mk:
   password: "Лозинка"
   password_confirmation: "Потврда на лозинка"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Дозволи луѓето да можат да те најдат во Diaspora"
       edit_profile: "Edit profile"
@@ -228,16 +236,18 @@ mk:
       in_aspects: "во аспекти"
       remove_contact: "одстрани контакт"
       remove_from: "Одстрани %{name} од %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Личноста не постои!"
       incoming_request: "You have an incoming request from this person."
       no_posts: "нема пораки за прикажување!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
-      request_people: "Ако сакате, може да испратите барање до него/неа за приклучување кон вашиот аспект."
       return_to_aspects: "Return to your aspects page"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Неуспешно ажурирање на профил"

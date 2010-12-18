@@ -156,6 +156,7 @@ sv:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "kontoinställningar"
       blog: "blogg"
@@ -169,6 +170,11 @@ sv:
     one: "ny förfrågan!"
     other: "%{count} nya förfrågningar!"
     zero: "inga nya förfrågningar"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
@@ -193,6 +199,8 @@ sv:
   password: "Lösenord"
   password_confirmation: "Bekräfta lösenord"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Tillåt andra användare på Diaspora att söka efter dig"
       edit_profile: "Ändra profil"
@@ -228,16 +236,18 @@ sv:
       in_aspects: "på sidor"
       remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Du har redan skickat en förfrågan till %{name}."
       does_not_exist: "Den här personen finns inte!"
       incoming_request: "Du har en inkommande förfrågan från den här personen."
       no_posts: "inga meddelanden att visa!"
       not_connected: "Du är inte ansluten med denna personen"
       recent_posts: "Postat nyligen"
       recent_public_posts: "Senaste publika inlägg"
-      request_people: "Om du vill så kan du skicka en kontaktförfrågan om att lägga till han/henne på en av dina sidor."
       return_to_aspects: "Återgå till översikten"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "for att acceptera eller ignorera."
     update: 
       failed: "Misslyckades med att uppdatera profilen"

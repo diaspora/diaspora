@@ -40,7 +40,7 @@ ca:
       unknown_person: "persona desconeguda"
       video_title: 
         unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "Estàs segur?"
   aspects: 
     add_to_aspect: 
       failure: "Error a l'afegir el contacte a aquest aspecte."
@@ -156,6 +156,7 @@ ca:
   layouts: 
     application: 
       powered_by: "IMPULSAT PER DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "configurar compte"
       blog: "Blog"
@@ -169,6 +170,11 @@ ca:
     one: "Nova petició!"
     other: "%{count} noves peticions!"
     zero: "no hi ha noves peticions"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "Correu robot de Diaspora"
     hello: "¡Hola %{name}!"
@@ -193,6 +199,8 @@ ca:
   password: "Contrasenya"
   password_confirmation: "Confirmació de contrasenya"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Permetre que la gent et busqui a Diaspora"
       edit_profile: "Edit profile"
@@ -228,16 +236,18 @@ ca:
       in_aspects: "a aspectes"
       remove_contact: "eliminar contacte"
       remove_from: "Eliminar a %{name} de %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "L'usuari no existeix!"
       incoming_request: "Tens una petició d'aquesta persona."
       no_posts: "No hi ha publicacions a mostrar!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
-      request_people: "Si ho desitges, pots demanar-li la col·locació en un dels teus aspectes."
       return_to_aspects: "Tornar als teus aspectes"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "acceptar o ignorar."
     update: 
       failed: "No s'ha pogut actualitzar el teu perfil"
@@ -293,8 +303,8 @@ ca:
     new: 
       enter_email: "Enter an e-mail"
       enter_password: "Enter a password"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      enter_password_again: "Introduïu la mateixa contrasenya que abans"
+      enter_username: "Trieu un nom d'usuari (només lletres, números i guions)"
       sign_up: "Regístrate"
       sign_up_for_diaspora: "Regístrate en Diaspora"
   requests: 

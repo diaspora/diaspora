@@ -15,7 +15,7 @@ da:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "Skal være unik blandt denne brugers kontakter"
         person: 
           attributes: 
             diaspora_handle: 
@@ -23,7 +23,7 @@ da:
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "Dette er en kopi af en allerede eksisterende forespørgsel.  "
         user: 
           attributes: 
             email: 
@@ -39,7 +39,7 @@ da:
         all_aspects: "Alle aspekter"
       unknown_person: "ukendt person"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Ukendt Video Titel"
   are_you_sure: "Er du sikker?"
   aspects: 
     add_to_aspect: 
@@ -156,6 +156,7 @@ da:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "kontoindstillinger"
       blog: "blog"
@@ -169,6 +170,11 @@ da:
     one: "ny anmodning!"
     other: "%{count} nye anmodninger!"
     zero: "ingen nye anmodninger"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
@@ -193,6 +199,8 @@ da:
   password: "Adgangskode"
   password_confirmation: "Adgangskode bekræftelse"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Tillad andre Diaspora brugere at søge efter dig"
       edit_profile: "Rediger profil"
@@ -228,16 +236,18 @@ da:
       in_aspects: "i aspekter"
       remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Du har allerede sendt en anmodning til %{name}"
       does_not_exist: "Personen findes ikke!"
       incoming_request: "Du har en anmodning fra denne person."
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet til denne person."
       recent_posts: "Nylige indlæg"
       recent_public_posts: "Seneste offentlige Beskeder"
-      request_people: "Hvis du ønsker, kan du anmode om at placere ham/hende i et af dine aspekter."
       return_to_aspects: "Tilbage til aspektsoversigt"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "at godkende eller ignorere det."
     update: 
       failed: "Kunne ikke opdatere profil"

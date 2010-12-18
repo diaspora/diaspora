@@ -53,17 +53,17 @@ ro:
     aspect_contacts: 
       done_editing: "done editing"
     create: 
-      failure: "Aspect creation failed."
+      failure: "Crearea aspectului a eşuat."
       success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     destroy: 
-      success: "%{name} was successfully removed."
+      success: "%{name} a fost eliminat cu succes."
     edit_aspect_pane: 
       add_existing: "Add an existing contact"
       confirm_remove_aspect: "Remove aspect?"
       remove_aspect: "Remove Aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
-      aspect_not_empty: "Aspect not empty"
+      aspect_not_empty: "Aspectul nu este gol"
       remove: "şterge"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
@@ -71,7 +71,7 @@ ro:
       add_a_new_aspect: "Adaugă aspect"
       add_a_new_contact: "Add a new contact"
       drag_to_add: "Drag to add people"
-      manage_aspects: "Manage aspects"
+      manage_aspects: "Gestionează aspectele"
       no_requests: "Nici o cerere nouă"
       requests: "Cereri"
     move_contact: 
@@ -88,7 +88,7 @@ ro:
       nobody: "We know you know people — bring them to Diaspora!"
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "Nimeni nu a spus nimic încă. Începe conversaţia!"
     remove_from_aspect: 
       failure: "Failed to remove person from aspect"
       success: "Successfully removed person from aspect"
@@ -99,7 +99,7 @@ ro:
       edit_aspect: "edit aspect"
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
-      success: "Your aspect, %{name}, has been successfully edited."
+      success: "Aspectul, %{name}, a fost editat cu succes."
   back: "Back"
   cancel: "Anulează"
   comments: 
@@ -111,11 +111,11 @@ ro:
     one: "1 contact"
     other: "%{count} contacts"
     zero: "no contacts"
-  delete: "Delete"
-  email: "Email"
+  delete: "Şterge"
+  email: "E-mail"
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+      correct_the_following_errors_and_try_again: "Corectaţi următoarele erori şi încercaţi din nou."
       invalid_fields: "Invalid Fields"
   fill_me_out: "Fill me out"
   home: 
@@ -134,7 +134,7 @@ ro:
       tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "Invitaţia nu a fost găsită"
     create: 
       already_contacts: "You are already connected with this person"
       already_sent: "You already invited this person."
@@ -156,6 +156,7 @@ ro:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "account settings"
       blog: "blog"
@@ -169,6 +170,11 @@ ro:
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "the diaspora email robot"
     hello: "Hello %{name}!"
@@ -193,6 +199,8 @@ ro:
   password: "Parola"
   password_confirmation: "Confirmă parola"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Allow for people to search for you"
       edit_profile: "Edit profile"
@@ -228,16 +236,18 @@ ro:
       in_aspects: "in aspects"
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "You have already sent a request to %{name}."
       does_not_exist: "Person does not exist!"
       incoming_request: "You have an incoming request from this person."
       no_posts: "no posts to display!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
-      request_people: "If you'd like, you can request to place him/her in one of your aspects."
       return_to_aspects: "Return to your aspects page"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Failed to update profile"

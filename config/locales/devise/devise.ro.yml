@@ -19,9 +19,9 @@ ro:
       unauthenticated: "Pentru a continuna, înregistrați-vă."
       unconfirmed: "Pentru a continua, confirmați contul dvs."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
+      invitation_token_invalid: "Invitaţia furnizată nu este valabilă!"
       send_instructions: "Invitaţia dvs. a fost trimisă."
-      updated: "Your password was set successfully. You are now signed in."
+      updated: "Parola dvs. a fost stabilită cu succes. Sunteţi acum logat"
     mailer: 
       confirmation_instructions: 
         confirm: "Confirmă contul meu"
@@ -32,11 +32,11 @@ ro:
         accept: "Acceptă invitaţia"
         ignore: "Dacă nu doreşti sa accepţi invitaţia, ignorează acest mesaj."
         no_account_till: "Contul dvs. nu va fi creat până când nu veţi accesa linkul de mai sus şi vă veţi înscrie."
-        subject: "A friend wants you to join Diaspora!"
+        subject: "Un prieten vrea să te vadă pe Diaspora!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", la %{url}, puteţi să-l acceptaţi prin link-ul de mai jos"
+        has_invited_you: "%{name} v-a invitat pe Diaspora"
+        have_invited_you: "%{names} v-au invitat pe Diaspora"
       reset_password_instructions: 
         change: "Schimbă-mi parola"
         ignore: "Dacă nu aţi facut aceasta petiţie, vă rugăm să ignoraţi acest e-mail."
@@ -45,7 +45,7 @@ ro:
         wont_change: "Parola dvs. nu se va schimba până când nu veţi accesa linkul de mai sus şi veţi crea una nouă."
       unlock_instructions: 
         account_locked: "Contul dvs. a fost blocat din cauza unei cantitaţi excesive de încercări nereuşite de autentificare."
-        click_to_unlock: "Faceţi clic pe link-ul de mai jos pentru a debloca contul dvs."
+        click_to_unlock: "Clic pe link-ul de mai jos pentru a debloca contul dvs."
         subject: "Instrucţiuni pentru a debloca"
         unlock: "Deblochează contul meu"
       welcome: "Bine ai revenit %{email}!"
@@ -64,11 +64,11 @@ ro:
     sessions: 
       new: 
         alpha_software: "Sunteţi pe cale de a utiliza software alfa."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        bugs_and_feedback: "Aveţi grijă, veţi experimenta probeleme. Vă încurajăm să utilizaţi butonul Feedback pe partea dreaptă a browser-ului pentru a raporta orice problemă! Vom lucra cât de repede putem pentru a rezolva orice dificultaţi veţi întâmpina."
+        bugs_and_feedback_mobile: "Aveţi grijă, veţi experimenta probeleme. Vă încurajăm să raportaţi orice problemă! Vom lucra cât de repede putem pentru a rezolva orice dificultaţi veţi întâmpina."
         have_a_problem: "Ai o problemă? Gaseşte răspunsul aici"
         login: "Autentificare"
-        modern_browsers: "only supports modern browsers."
+        modern_browsers: "suportă doar browser-ele moderne."
         password: "Parola"
         remember_me: "Amintește-mă"
         sign_in: "Autentificare"

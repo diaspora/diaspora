@@ -15,31 +15,31 @@ hu:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "egyedinek kell lenni a felhasználó kapcsolatai közt"
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "már foglalt"
+              taken: "már foglalt."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "egy példányban a már meglévő kérés."
         user: 
           attributes: 
             email: 
-              taken: "már foglalt"
+              taken: "már foglalt."
             person: 
-              invalid: "érvénytelen"
+              invalid: "érvénytelen."
             username: 
-              taken: "már foglalt"
+              taken: "már foglalt."
   ago: "ezelőtt"
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Összes csoport"
       unknown_person: "ismeretlen személy"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Ismeretlen videó cím"
   are_you_sure: "Biztos vagy benne?"
   aspects: 
     add_to_aspect: 
@@ -144,7 +144,7 @@ hu:
     edit: 
       sign_up: "Regisztráció"
     new: 
-      already_invited: "Already invited"
+      already_invited: "Már meghívtad"
       aspect: "Csoport"
       comma_seperated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
       if_they_accept_info: "Ha elfogadják felkérésed, akkor belekerülnek abba a csoportba amelyikbe meghívtad őket."
@@ -156,6 +156,7 @@ hu:
   layouts: 
     application: 
       powered_by: "DIASPORA* fordította ADAMEX"
+      whats_new: "what's new?"
     header: 
       account_settings: "Fiók beállítások"
       blog: "blog"
@@ -169,6 +170,11 @@ hu:
     one: "új felkérés!"
     other: "%{count} új felkérések!"
     zero: "nincsenek új felkérések"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "A diaspora email robot"
     hello: "Szia %{name}!"
@@ -179,11 +185,11 @@ hu:
       subject: "új Diaspora* ismerősnek jelölt: %{from}"
       try_it_out: "Tényleg ki kellene próbálnod."
     request_accepted: 
-      accepted: "elfogadta a jelölésed. Most már a"
+      accepted: "elfogadta a jelölésed."
       subject: "%{name} elfogadta a felkérésed."
     single_admin: 
       admin: "A Te Diaspora* rendszergazdád"
-      subject: "Üzenet a Diaspora* rendszergazdádtól:"
+      subject: "Üzenet a Diaspora* rendszergazdától:"
     thanks: "Köszi,"
   ok: "Rendben"
   or: "vagy"
@@ -193,6 +199,8 @@ hu:
   password: "Jelszó"
   password_confirmation: "Jelszó megerősítése"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Megengedem, hogy megtalálható legyek a Diaspora keresési találatokban."
       edit_profile: "Profil szerkesztése"
@@ -210,8 +218,8 @@ hu:
       people_on_pod_are_aware_of: "az emberek tisztában vannak"
       results_for: "eredmények %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      couldnt_find_them_send_invite: "Nem találod őket? Küldj meghívót nekik!"
+      no_one_found: "...és nem találni senkit."
       no_results: "Hé! Valamit keresned kell."
       results_for: "találatok keresése"
     person: 
@@ -228,16 +236,18 @@ hu:
       in_aspects: "csoportokban"
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Már küldtél meghívást neki: %{name}."
       does_not_exist: "Személy nem létezik!"
       incoming_request: "Felkérésed érkezett ettől a személytől"
       no_posts: "nincs hozzászólás!"
       not_connected: "Ez a személy nem ismerősöd"
       recent_posts: "Legutóbbi hozzászólások"
       recent_public_posts: "Legutóbbi nyilvános hozzászólások"
-      request_people: "Ha szeretnéd felkérheted ezt a személyt az egyik csoportodba."
       return_to_aspects: "Menj vissza a csoportokhoz"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "hogy elfogadd vagy elutasítsd."
     update: 
       failed: "Profil frissítése sikertelen"
@@ -368,7 +378,7 @@ hu:
       oh_yeah: "Ez az!"
       tell_me_something_good: "Mondj valami jót!"
     show: 
-      destroy: "Megsemmisít"
+      destroy: "Töröl"
       permalink: "permalink"
   stream_helper: 
     hide_comments: "hozzászólások elrejtése"

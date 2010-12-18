@@ -156,6 +156,7 @@ it:
   layouts: 
     application: 
       powered_by: "CREATO CON DIASPORA*"
+      whats_new: "what's new?"
     header: 
       account_settings: "impostazioni account"
       blog: "blog"
@@ -169,6 +170,11 @@ it:
     one: "nuova richiesta!"
     other: "%{count} nuove richieste!"
     zero: "nessuna nuova richiesta"
+  notifications: 
+    comment_on_post: "commented on your"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
   notifier: 
     diaspora: "l'email robot di diaspora"
     hello: "Ciao %{name}!"
@@ -193,6 +199,8 @@ it:
   password: "Password"
   password_confirmation: "Conferma password"
   people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
     edit: 
       allow_search: "Permetti alle persone di cercarti"
       edit_profile: "Modifica profilo"
@@ -228,16 +236,18 @@ it:
       in_aspects: "negli aspetti"
       remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
     show: 
-      already_requested: "Hai gi&agrave; inviato una richiesta a %{name}."
       does_not_exist: "La persona non esiste!"
       incoming_request: "Hai ricevuto una richiesta da questa persona."
       no_posts: "nessun post da mostrare!"
       not_connected: "Non sei in contatto con questa persona"
       recent_posts: "Post Recenti"
       recent_public_posts: "Post pubblici recenti"
-      request_people: "Se lo desideri, puoi richiedere di posizionarlo in uno dei tuoi aspetti."
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
+      similar_contacts: "similar contacts"
       to_accept_or_ignore: "per accettarla o ignorarla."
     update: 
       failed: "Impossibile aggiornare il profilo"
