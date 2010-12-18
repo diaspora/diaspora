@@ -23,7 +23,7 @@ describe YoutubeTitles do
       mock_http.should_receive(:get).with(@api_path, nil).and_return(
         [nil, "Foobar #{@expected_title}</title> hallo welt <asd><dasdd><a>dsd</a>"])
 
-      youtube_title_for(@video_id).should == I18n.t('application.helper.youtube_title.unknown')
+      youtube_title_for(@video_id).should == I18n.t('application.helper.video_title.unknown')
     end
   end
 end
