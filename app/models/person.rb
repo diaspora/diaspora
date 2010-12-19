@@ -10,11 +10,11 @@ class Person < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   include Diaspora::Socketable
 
-  xml_accessor :guid
+#  xml_accessor :guid
 #  xml_accessor :diaspora_handle
-  xml_accessor :url
-  xml_accessor :profile, :as => Profile
-  xml_reader :exported_key
+#  xml_accessor :url
+#  xml_accessor :profile, :as => Profile
+#  xml_reader :exported_key
 
   has_one :profile
   delegate :last_name, :to => :profile
@@ -23,6 +23,8 @@ class Person < ActiveRecord::Base
   def downcase_diaspora_handle
     diaspora_handle.downcase!
   end
+
+  has_many :aspect_memberships
 
   belongs_to :owner, :class_name => 'User'
 

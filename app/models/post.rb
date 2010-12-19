@@ -9,10 +9,10 @@ class Post < ActiveRecord::Base
   include ROXML
   include Diaspora::Webhooks
 
-  xml_reader :guid
-  xml_reader :diaspora_handle
-  xml_reader :public
-  xml_reader :created_at
+  #xml_accessor :guid
+  #xml_accessor :diaspora_handle
+  #xml_accessor :public
+  #xml_accessor :created_at
 
   has_many :comments, :order => 'created_at ASC'
   has_and_belongs_to_many :aspects
@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :user_refs
 
-  def self.instantiate params
+  def self.diaspora_initialize params
     new_post = self.new params.to_hash
     new_post.person = params[:person]
     params[:aspect_ids].each do |aspect_id|

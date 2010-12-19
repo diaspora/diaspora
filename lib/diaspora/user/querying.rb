@@ -10,6 +10,10 @@ module Diaspora
         self.raw_visible_posts.find id.to_id
       end
 
+      def raw_visible_posts
+        Post.joins(:aspects).where(:aspects => {:user_id => self.id})
+      end
+
       def visible_posts( opts = {} )
         opts[:order] ||= 'created_at DESC'
         opts[:pending] ||= false

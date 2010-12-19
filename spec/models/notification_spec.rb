@@ -50,7 +50,7 @@ describe Notification do
     end
 
     it ' does not call Notification.create if the object does not notification_type' do
-      request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       Notification.should_receive(:create).once
       Notification.notify(@user, request, @person)
     end

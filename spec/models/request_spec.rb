@@ -15,7 +15,7 @@ describe Request do
 
   describe 'validations' do
     before do
-      @request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
     end
     it 'is valid' do
       @request.should be_valid
@@ -41,18 +41,18 @@ describe Request do
     end
     it 'is not a duplicate of an existing pending request' do
       @request.save
-      duplicate_request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      duplicate_request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       duplicate_request.should_not be_valid
     end
     it 'is not to yourself' do
-      @request = Request.instantiate(:from => @user.person, :to => @user.person, :into => @aspect)
+      @request = Request.diaspora_initialize(:from => @user.person, :to => @user.person, :into => @aspect)
       @request.should_not be_valid
     end
   end
 
   describe 'scopes' do
     before do
-      @request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       @request.save
     end
     describe '.from' do
@@ -82,7 +82,7 @@ describe Request do
   end
   describe '#notification_type' do
     before do
-      @request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)    
+      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)    
     end
     it "returns 'request_accepted' if there is a pending contact" do
       Contact.create(:user_id => @user.id, :person_id => @person.id)

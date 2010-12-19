@@ -43,13 +43,13 @@ describe Photo do
     @photo2.random_string.should_not be nil
   end
 
-  describe '#instantiate' do
+  describe '#diaspora_initialize' do
     it 'sets the persons diaspora handle' do
       @photo2.diaspora_handle.should == @user.person.diaspora_handle
     end
     it 'has a constructor' do
       image = File.open(@fixture_name)
-      photo = Photo.instantiate(
+      photo = Photo.diaspora_initialize(
                 :person => @user.person, :user_file => image)
       photo.created_at.nil?.should be_true
       photo.image.read.nil?.should be_false

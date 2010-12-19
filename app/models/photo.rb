@@ -27,7 +27,7 @@ class Photo < Post
     end
   end
 
-  def self.instantiate(params = {})
+  def self.diaspora_initialize(params = {})
     photo = super(params)
     image_file = params.delete(:user_file)
     photo.random_string = gen_random_string(10)

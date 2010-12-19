@@ -45,7 +45,7 @@ class StatusMessage < Post
   protected
 
   def message_or_photos_present?
-    if self.message.blank? && self.photos.count == 0
+    if self.message.blank? && self.photos == []
       errors[:base] << 'Status message requires a message or at least one photo'
     end
   end

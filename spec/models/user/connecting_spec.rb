@@ -48,7 +48,7 @@ describe Diaspora::UserModules::Connecting do
   context 'contact requesting' do
     describe  '#receive_contact_request' do
       before do
-        @r = Request.instantiate(:to => user.person, :from => person)
+        @r = Request.diaspora_initialize(:to => user.person, :from => person)
       end
 
       it 'adds a request to pending if it was not sent by user' do
@@ -89,9 +89,9 @@ describe Diaspora::UserModules::Connecting do
 
     context 'received a contact request' do
 
-      let(:request_for_user) {Request.instantiate(:to => user.person, :from => person)}
-      let(:request2_for_user) {Request.instantiate(:to => user.person, :from => person_one)}
-      let(:request_from_myself) {Request.instantiate(:to => user.person, :from => user.person)}
+      let(:request_for_user) {Request.diaspora_initialize(:to => user.person, :from => person)}
+      let(:request2_for_user) {Request.diaspora_initialize(:to => user.person, :from => person_one)}
+      let(:request_from_myself) {Request.diaspora_initialize(:to => user.person, :from => user.person)}
       before do
         user.receive(request_for_user.to_diaspora_xml, person)
         @received_request = Request.from(person).to(user.person).first
@@ -126,9 +126,9 @@ describe Diaspora::UserModules::Connecting do
         Request.to(user2).count.should == 0
         user2.contacts.empty?.should be true
 
-        @request       = Request.instantiate(:to => user.person, :from => person_one)
-        @request_two   = Request.instantiate(:to => user2.person, :from => person_one)
-        @request_three =  Request.instantiate(:to => user2.person, :from => user.person)
+        @request       = Request.diaspora_initialize(:to => user.person, :from => person_one)
+        @request_two   = Request.diaspora_initialize(:to => user2.person, :from => person_one)
+        @request_three =  Request.diaspora_initialize(:to => user2.person, :from => user.person)
 
         @req_xml       = @request.to_diaspora_xml
         @req_two_xml   = @request_two.to_diaspora_xml
@@ -197,8 +197,8 @@ describe Diaspora::UserModules::Connecting do
 
     describe 'a user accepting rejecting multiple people' do
       before do
-        @request = Request.instantiate(:to => user.person, :from => person_one)
-        @request_two = Request.instantiate(:to => user.person, :from => person_two)
+        @request = Request.diaspora_initialize(:to => user.person, :from => person_one)
+        @request_two = Request.diaspora_initialize(:to => user.person, :from => person_two)
       end
 
       it "keeps the right counts of contacts" do

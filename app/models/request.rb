@@ -32,7 +32,7 @@ class Request
   }
 
 
-  def self.instantiate(opts = {})
+  def self.diaspora_initialize(opts = {})
     self.new(:from => opts[:from],
              :to   => opts[:to],
              :into => opts[:into])

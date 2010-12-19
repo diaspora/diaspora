@@ -26,7 +26,8 @@ describe StatusMessage do
     photo.save!
 
     n.photos << photo
-    n.valid?.should be_true
+    n.valid?
+    n.errors.full_messages.should == []
   end
 
   it 'should be postable through the user' do

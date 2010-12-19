@@ -129,7 +129,7 @@ describe User do
     let!(:aspect4) { user4.aspects.create(:name => 'heroes') }
 
     let!(:post) { user.build_post :status_message, :message => "hey" }
-    let!(:request) { Request.instantiate(:from => user3.person, :to => user4.person) }
+    let!(:request) { Request.diaspora_initialize(:from => user3.person, :to => user4.person) }
 
     before do
       connect_users(user, aspect, user2, aspect2)

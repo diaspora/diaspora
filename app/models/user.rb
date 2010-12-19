@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   validates_associated :person
 
   has_one :person, :foreign_key => :owner_id
+  delegate :diaspora_handle, :to => :person
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
@@ -110,7 +111,7 @@ class User < ActiveRecord::Base
     opts[:diaspora_handle] = opts[:person].diaspora_handle
 
     model_class = class_name.to_s.camelize.constantize
-    model_class.instantiate(opts)
+    model_class.diaspora_initialize(opts)
   end
 
   def dispatch_post(post, opts = {})
@@ -143,9 +144,6 @@ class User < ActiveRecord::Base
   end
 
   def add_to_streams(post, aspect_ids)
-    self.raw_visible_posts << post
-    self.save
-
     post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to? :socket_to_uid
     target_aspects = aspects_from_ids(aspect_ids)
     target_aspects.each do |aspect|
@@ -158,11 +156,8 @@ class User < ActiveRecord::Base
     if aspect_ids == "all" || aspect_ids == :all
       self.aspects
     else
-      if aspect_ids.respond_to? :to_id
-        aspect_ids = [aspect_ids]
-      end
-      aspect_ids.map!{ |x| x.to_id }
-      aspects.all(:id.in => aspect_ids)
+      aspect_ids = aspect_ids.to_a
+      aspects.where(:id => aspect_ids)
     end
   end
 
@@ -170,10 +165,11 @@ class User < ActiveRecord::Base
     #send to the aspects
     target_aspect_ids = aspects.map {|a| a.id}
 
-    target_contacts = Contact.all(:aspect_ids.in => target_aspect_ids, :pending => false)
+    target_people = Person.includes(:aspect_memberships).where(
+        "aspect_memberships.aspect_id" => target_aspect_ids, "aspect_memberships.pending" => false)
 
     post_to_hub(post) if post.respond_to?(:public) && post.public
-    push_to_people(post, self.person_objects(target_contacts))
+    push_to_people(post, target_people)
   end
 
   def push_to_people(post, people)
