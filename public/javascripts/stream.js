@@ -27,7 +27,7 @@ var Stream = {
     $stream.delegate("textarea.comment_box", "focus", function(evt) {
       var commentBox = $(this);
       commentBox
-        .closest("form").find(".comment_submit").show();
+        .closest("li").find(".submit_instructions").removeClass('hidden');
     });
 
     $stream.delegate("textarea.comment_box", "blur", function(evt) {
@@ -36,7 +36,7 @@ var Stream = {
         commentBox
           .attr('rows',2)
           .css('height','2.4em')
-          .closest("form").find(".comment_submit").hide();
+          .closest("li").find(".submit_instructions").addClass('hidden');
       }
     });
 

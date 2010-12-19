@@ -9,3 +9,8 @@
   = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
   = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :class => "comment_submit button", :disable_with => t('.commenting')
 
+.submit_instructions.hidden
+  press
+  %b enter
+  to comment
+
