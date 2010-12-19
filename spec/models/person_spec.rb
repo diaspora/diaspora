@@ -5,12 +5,9 @@
 require 'spec_helper'
 
 describe Person do
+
   before do
-    @user = Factory(:user)
-    @user2 = Factory(:user)
-    @person = Factory.create(:person)
-    @aspect = @user.aspects.create(:name => "Dudes")
-    @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
+    @person  = Factory.create(:person)
   end
 
   describe "delegating" do
@@ -121,6 +118,12 @@ describe Person do
   end
 
   describe "disconnecting" do
+    before do
+      @user    = Factory(:user)
+      @user2   = Factory(:user)
+      @aspect  = @user.aspects.create(:name => "Dudes")
+      @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
+    end
     it 'should not delete an orphaned contact' do
       @user.activate_contact(@person, @aspect)
 

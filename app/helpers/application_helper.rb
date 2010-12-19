@@ -20,14 +20,14 @@ module ApplicationHelper
   end
 
   def aspects_with_post aspects, post
-    aspects.select do |a|
-      post.aspect_ids.include?(a.id)
+    aspects.select do |aspect|
+      aspect.posts.include?(post)
     end
   end
 
   def aspects_without_post aspects, post
-    aspects.reject do |a|
-      post.aspect_ids.include?(a.id)
+    aspects.reject do |aspect|
+      aspect.posts.include?(post)
     end
   end
 

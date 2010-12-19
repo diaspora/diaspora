@@ -60,7 +60,7 @@ module Diaspora
 
       def people_in_aspects(aspects, opts={})
         person_ids = contacts_in_aspects(aspects).collect{|contact| contact.person_id}
-        people = Person.all(:id.in => person_ids)
+        people = Person.where(:id => person_ids)
 
         if opts[:type] == 'remote'
           people.delete_if{ |p| !p.owner.blank? }
@@ -71,12 +71,7 @@ module Diaspora
       end
 
       def aspect_by_id( id )
-        id = id.to_id
         aspects.detect{|x| x.id == id }
-      end
-
-      def aspects_with_post( id )
-        self.aspects.find_all_by_post_ids( id.to_id )
       end
 
       def aspects_with_person person

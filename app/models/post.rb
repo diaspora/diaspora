@@ -2,32 +2,21 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Post
+class Post < ActiveRecord::Base
   require File.join(Rails.root, 'lib/encryptable')
   require File.join(Rails.root, 'lib/diaspora/web_socket')
-  include MongoMapper::Document
   include ApplicationHelper
   include ROXML
   include Diaspora::Webhooks
 
-  xml_reader :_id
+  xml_reader :guid
   xml_reader :diaspora_handle
   xml_reader :public
   xml_reader :created_at
 
-
-  key :public, Boolean, :default => false
-
-  key :diaspora_handle, String
-  key :user_refs, Integer, :default => 0
-  key :pending, Boolean, :default => false
-  key :aspect_ids, Array, :typecast => 'ObjectId'
-
-  many :comments, :class_name => 'Comment', :foreign_key => :post_id, :order => 'created_at ASC'
-  many :aspects, :in => :aspect_ids, :class_name => 'Aspect'
+  has_many :comments, :order => 'created_at ASC'
+  has_and_belongs_to_many :aspects
   belongs_to :person, :class_name => 'Person'
-
-  timestamps!
 
   cattr_reader :per_page
   @@per_page = 10
@@ -36,11 +25,13 @@ class Post
   after_destroy :destroy_comments
 
   attr_accessible :user_refs
-  
+
   def self.instantiate params
     new_post = self.new params.to_hash
     new_post.person = params[:person]
-    new_post.aspect_ids = params[:aspect_ids]
+    params[:aspect_ids].each do |aspect_id|
+      new_post.aspects << Aspect.find_by_id(aspect_id)
+    end if params[:aspect_ids]
     new_post.public = params[:public]
     new_post.pending = params[:pending]
     new_post.diaspora_handle = new_post.person.diaspora_handle
@@ -49,10 +40,10 @@ class Post
 
   def as_json(opts={})
     {
-      :post => {
-        :id     => self.id,
-        :person => self.person.as_json,
-      }
+        :post => {
+            :id     => self.id,
+            :person => self.person.as_json,
+        }
     }
   end
 
@@ -62,7 +53,7 @@ class Post
 
   protected
   def destroy_comments
-    comments.each{|c| c.destroy}
+    comments.each { |c| c.destroy }
   end
 
   def propogate_retraction

@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Post do
   before do
-    @user = make_user
+    @user = Factory(:user)
     @aspect = @user.aspects.create(:name => "winners")
   end
 
@@ -15,8 +15,8 @@ describe Post do
       post = Factory.create(:status_message, :person => @user.person)
       @user.comment "hey", :on => post
       post.destroy
-      Post.all(:id => post.id).empty?.should == true
-      Comment.all(:text => "hey").empty?.should == true
+      Post.where(:id => post.id).empty?.should == true
+      Comment.where(:text => "hey").empty?.should == true
     end
   end
 

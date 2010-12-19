@@ -10,10 +10,9 @@ class StatusMessage < Post
   
   validates_length_of :message, :maximum => 1000, :message => "please make your status messages less than 1000 characters"
   xml_name :status_message
-  xml_reader :message
+  xml_accessor :message
 
-  key :message, String
-  many :photos, :class => Photo, :foreign_key => :status_message_id, :dependent => :destroy
+  has_many :photos, :dependent => :destroy
   validate :message_or_photos_present?
 
   attr_accessible :message
@@ -21,6 +20,7 @@ class StatusMessage < Post
   before_save do
     get_youtube_title message
   end
+
   def to_activity
     <<-XML
   <entry>
@@ -34,7 +34,6 @@ class StatusMessage < Post
   </entry>
       XML
   end
-
 
   def public_message(length, url = "")
     space_for_url = url.blank? ? 0 : (url.length + 1)
@@ -50,6 +49,5 @@ class StatusMessage < Post
       errors[:base] << 'Status message requires a message or at least one photo'
     end
   end
-
 end
 

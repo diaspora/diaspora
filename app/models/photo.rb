@@ -3,22 +3,12 @@
 #   the COPYRIGHT file.
 
 class Photo < Post
-  require 'carrierwave/orm/mongomapper'
-  include MongoMapper::Document
+  require 'carrierwave/orm/activerecord'
   mount_uploader :image, ImageUploader
 
   xml_accessor :remote_photo
   xml_accessor :caption
   xml_reader :status_message_id
-
-  key :caption,  String
-  key :remote_photo_path
-  key :remote_photo_name
-  key :random_string
-
-  key :status_message_id, ObjectId
-  
-  timestamps!
 
   belongs_to :status_message
 

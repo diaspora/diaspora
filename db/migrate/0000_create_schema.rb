@@ -86,6 +86,44 @@ class CreateSchema < ActiveRecord::Migration
     add_index :profiles, [:last_name, :searchable]
     add_index :profiles, [:first_name, :last_name, :searchable]
     add_index :profiles, :person_id
+
+    create_table :posts do |t|
+      t.boolean :public, :default => false
+      t.string :diaspora_handle
+      t.boolean :pending
+      t.integer :user_refs
+      t.string :type
+      t.text :message
+      t.integer :status_message_id
+      t.text :caption
+      t.text :remote_photo_path
+      t.string :remote_photo_name
+      t.string :random_string
+      t.timestamps
+    end
+    add_index :posts, :type
+
+    create_table :users do |t|
+      t.string :username
+      t.text :serialized_private_key
+      t.integer :invites
+      t.boolean :getting_started, :default => true
+      t.boolean :disable_mail, :default => false
+      t.string :language
+      t.string :email
+
+      t.database_authenticatable
+      t.invitable
+      t.recoverable
+      t.rememberable
+      t.trackable
+
+      t.timestamps
+    end
+    add_index :users, :username, :unique => true
+    add_index :users, :email, :unique => true
+    add_index :users, :invitation_token
+
   end
 
   def self.down

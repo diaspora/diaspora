@@ -9,7 +9,6 @@ gem "nokogiri", "1.4.3.1"
 
 #Security
 gem 'devise', '1.1.3'
-gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 gem 'devise_invitable','0.3.5'
 
 #Authentication

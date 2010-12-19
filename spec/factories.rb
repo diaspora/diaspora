@@ -32,7 +32,7 @@ Factory.define :user do |u|
   u.serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
   u.after_build do |user|
   user.person = Factory.build(:person, :profile => Factory.create(:profile),
-                              :owner_id => user._id,
+                              :owner_id => user.id,
                               :serialized_public_key => user.encryption_key.public_key.export,
                               :diaspora_handle => "#{user.username}@#{APP_CONFIG[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
   end
@@ -48,7 +48,7 @@ end
 
 Factory.define :status_message do |m|
   m.sequence(:message) { |n| "jimmy's #{n} whales" }
-  m.person
+  m.association :person
 end
 
 Factory.define :photo do |p|

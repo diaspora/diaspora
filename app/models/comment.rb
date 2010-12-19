@@ -11,10 +11,10 @@ class Comment < ActiveRecord::Base
   include Encryptable
   include Diaspora::Socketable
 
-  xml_reader :text
-  xml_reader :diaspora_handle
-  xml_reader :post_guid
-  xml_reader :guid
+  xml_accessor :text
+  xml_accessor :diaspora_handle
+  xml_accessor :post_guid
+  xml_accessor :guid
 
   belongs_to :post
   belongs_to :person
