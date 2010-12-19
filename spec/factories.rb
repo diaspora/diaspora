@@ -20,8 +20,7 @@ end
 Factory.define :person do |p|
   p.sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@aol.com" }
   p.sequence(:url)  { |n| "http://google-#{n}#{r_str}.com/" }
-  p.profile Factory.create(:profile, :first_name => "eugene", :last_name => "weinstien")
-
+  p.association :profile
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
 end
 

@@ -3,6 +3,9 @@
 #   the COPYRIGHT file.
 
 namespace :db do
+  desc "rebuild and prepare test db"
+  task :rebuild => [:drop, :create, :migrate, 'db:test:prepare']
+
   desc 'Seed the current RAILS_ENV database from db/seeds.rb'
   namespace :seed do
     task :tom do

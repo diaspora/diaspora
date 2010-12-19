@@ -2,51 +2,37 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Profile
-  include MongoMapper::EmbeddedDocument
+class Profile < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/webhooks')
   include Diaspora::Webhooks
   include ROXML
 
-  xml_reader :diaspora_handle
-  xml_reader :first_name
-  xml_reader :last_name
-  xml_reader :image_url
-  xml_reader :image_url_small
-  xml_reader :image_url_medium
-  xml_reader :birthday
-  xml_reader :gender
-  xml_reader :bio
-  xml_reader :searchable
+  xml_accessor :diaspora_handle
+  xml_accessor :first_name
+  xml_accessor :last_name
+  xml_accessor :image_url
+  xml_accessor :image_url_small
+  xml_accessor :image_url_medium
+  xml_accessor :birthday
+  xml_accessor :gender
+  xml_accessor :bio
+  xml_accessor :searchable
 
-  key :diaspora_handle, String
-  key :first_name, String
-  key :last_name,  String
-  key :image_url,  String
-  key :image_url_small,  String
-  key :image_url_medium,  String
-  key :birthday,   Date
-  key :gender,     String
-  key :bio,        String
-  key :searchable, Boolean, :default => true
-
+  before_save :strip_names
   after_validation :strip_names
+
   validates_length_of :first_name, :maximum => 32
   validates_length_of :last_name,  :maximum => 32
 
+#  attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
+#    :image_url_small, :birthday, :gender, :bio, :searchable, :date
 
-  before_save :strip_names
+  belongs_to :person
 
-  attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
-    :image_url_small, :birthday, :gender, :bio, :searchable, :date
-
-  def person
-    self._parent_document
-  end
-
+  # TODO: this should always delegate to the person
   def diaspora_handle
     #get the parent diaspora handle, unless we want to access a profile without a person
-    (self._parent_document) ? self.person.diaspora_handle : self[:diaspora_handle]
+    (self.person) ? self.person.diaspora_handle : self[:diaspora_handle]
   end
 
   def image_url(size = :thumb_large)
@@ -58,7 +44,6 @@ class Profile
       self[:image_url]
     end
   end
-
 
   def image_url= url
     return image_url if url == ''

@@ -10,6 +10,7 @@ describe Profile do
       it "strips leading and trailing whitespace" do
         profile = Factory.build(:profile, :first_name => "     Shelly    ")
         profile.should be_valid
+        pp profile
         profile.first_name.should == "Shelly"
       end
       
@@ -44,10 +45,7 @@ describe Profile do
 
   describe '#image_url=' do
     before do
-      @user = make_user
-      @profile = @user.person.profile
-      fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
-      @photo = @user.post(:photo, :user_file => File.open(fixture_name), :to => 'all')
+      @profile = Factory.build(:profile)
       @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
       @pod_url = (APP_CONFIG[:pod_url][-1,1] == '/' ? APP_CONFIG[:pod_url].chop : APP_CONFIG[:pod_url])
     end
@@ -55,27 +53,25 @@ describe Profile do
       lambda {@profile.image_url = ""}.should_not change(@profile, :image_url)
     end
     it 'makes relative urls absolute' do
-      @profile.image_url = @photo.url(:thumb_large)
-      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_large)}"
+      @profile.image_url = "/relative/url"
+      @profile.image_url.should == "#{@pod_url}/relative/url"
     end
-    it 'accepts absolute urls' do
-      @profile.image_url = "#{@pod_url}#{@photo.url(:thumb_large)}"
-      @profile.image_url.should == "#{@pod_url}#{@photo.url(:thumb_large)}"
+    it "doesn't change absolute urls" do
+      @profile.image_url = "http://not/a/relative/url"
+      @profile.image_url.should == "http://not/a/relative/url"
     end
   end
-  describe 'serialization' do
-    let(:person) {Factory.create(:person)} 
-   
-    it 'should include persons diaspora handle' do
-      xml = person.profile.to_diaspora_xml 
 
-      xml.should include person.diaspora_handle
-      xml.should_not include person.id.to_s
+  describe 'serialization' do
+    it "includes the person's diaspora handle if it doesn't have one" do
+      person = Factory(:person, :diaspora_handle => "foobar")
+      xml = person.profile.to_diaspora_xml
+      xml.should include "foobar"
     end
   end
 
   describe 'date=' do
-    let(:profile) { make_user.profile }
+    let(:profile) { Factory(:profile) }
 
     it 'accepts form data' do
       profile.birthday.should == nil

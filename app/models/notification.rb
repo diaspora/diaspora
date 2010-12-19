@@ -2,31 +2,23 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-class Notification
-  include MongoMapper::Document
+class Notification < ActiveRecord::Base
 
-  key :object_id, ObjectId
-  key :kind, String
-  key :unread, Boolean, :default => true
+  belongs_to :receiver, :class_name => 'User'
+  belongs_to :actor, :class_name => 'Person'
+  belongs_to :target, :polymorphic => true
 
-  belongs_to :user
-  belongs_to :person
-
-  timestamps!
-
-  attr_accessible :object_id, :kind, :user_id, :person_id, :unread
-
-  def self.for(user, opts={})
-    self.where(opts.merge!(:user_id => user.id)).order('created_at desc')
+  def self.for(receiver, opts={})
+    self.where(opts.merge!(:receiver => receiver)).order('created_at desc')
   end
 
-  def self.notify(user, object, person)
-    if object.respond_to? :notification_type
-      if kind = object.notification_type(user, person)
-        Notification.create(:object_id => object.id, 
-                            :kind => kind, 
-                            :person_id => person.id, 
-                            :user_id => user.id) 
+  def self.notify(receiver, target, actor)
+    if target.respond_to? :notification_type
+      if action = target.notification_type(receiver, actor)
+        create(:target => target,
+               :action => action,
+               :actor => actor,
+               :receiver => receiver)
        end
     end
   end

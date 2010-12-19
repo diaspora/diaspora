@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe Person do
   before do
-    @user = make_user
-    @user2 = make_user
+    @user = Factory(:user)
+    @user2 = Factory(:user)
     @person = Factory.create(:person)
     @aspect = @user.aspects.create(:name => "Dudes")
     @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
@@ -57,7 +57,7 @@ describe Person do
   end
 
   context '#name' do
-    let!(:user) { make_user }
+    let!(:user) { Factory(:user) }
     let!(:person) { user.person }
     let!(:profile) { person.profile }
 
@@ -201,7 +201,7 @@ describe Person do
   end
 
   context 'people finders for webfinger' do
-    let(:user) {make_user}
+    let(:user) {Factory(:user)}
     let(:person) {Factory(:person)}
 
     describe '.by_account_identifier' do

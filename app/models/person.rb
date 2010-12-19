@@ -4,50 +4,35 @@
 
 require File.join(Rails.root, 'lib/hcard')
 
-class Person
-  include MongoMapper::Document
+class Person < ActiveRecord::Base
   include ROXML
   include Encryptor::Public
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   include Diaspora::Socketable
 
-  xml_accessor :_id
-  xml_accessor :diaspora_handle
+  xml_accessor :guid
+#  xml_accessor :diaspora_handle
   xml_accessor :url
   xml_accessor :profile, :as => Profile
   xml_reader :exported_key
 
-  key :url, String
-  key :diaspora_handle, String, :unique => true
-  key :serialized_public_key, String
-
-  key :owner_id, ObjectId
-
-  one :profile, :class_name => 'Profile'
-  validates_associated :profile
+  has_one :profile
   delegate :last_name, :to => :profile
-  before_save :downcase_diaspora_handle
 
+  before_save :downcase_diaspora_handle
   def downcase_diaspora_handle
     diaspora_handle.downcase!
   end
 
   belongs_to :owner, :class_name => 'User'
 
-  timestamps!
-
   before_destroy :remove_all_traces
   before_validation :clean_url
+
   validates_presence_of :url, :profile, :serialized_public_key
   validates_uniqueness_of :diaspora_handle, :case_sensitive => false
-  #validates_format_of :url, :with =>
-  #  /^(https?):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*(\.[a-z]{2,5})?(:[0-9]{1,5})?(\/.*)?$/ix
 
-  ensure_index :diaspora_handle
-
-  scope :searchable, where('profile.searchable' => true)
-
-  attr_accessible :profile
+  scope :searchable, includes(:profile).where(:profile => {:searchable => true})
 
   def self.search(query)
     return [] if query.to_s.empty?
@@ -74,6 +59,7 @@ class Person
                 "#{profile.first_name.to_s} #{profile.last_name.to_s}"
               end
   end
+
   def first_name
     @first_name ||= if profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle.split('@').first
@@ -81,8 +67,9 @@ class Person
                 profile.first_name.to_s
               end
   end
+
   def owns?(post)
-    self.id == post.person.id
+    self == post.person
   end
 
   def receive_url
@@ -92,7 +79,6 @@ class Person
   def public_url
     "#{self.url}public/#{self.owner.username}"
   end
-
 
   def public_key_hash
     Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
@@ -126,21 +112,21 @@ class Person
     return nil if profile.nil? || !profile.valid_diaspora_profile?
     new_person = Person.new
     new_person.exported_key = profile.public_key
-    new_person.id = profile.guid
+    new_person.guid = profile.guid
     new_person.diaspora_handle = profile.account
     new_person.url = profile.seed_location
 
     #hcard_profile = HCard.find profile.hcard.first[:href]
     Rails.logger.info("event=webfinger_marshal valid=#{new_person.valid?} target=#{new_person.diaspora_handle}")
     new_person.url = hcard[:url]
-    new_person.profile = Profile.new( :first_name => hcard[:given_name],
-                                      :last_name  => hcard[:family_name],
-                                      :image_url  => hcard[:photo],
-                                      :image_url_medium  => hcard[:photo_medium],
-                                      :image_url_small  => hcard[:photo_small],
-                                      :searchable => hcard[:searchable])
-
-    new_person.save! ? new_person : nil
+    new_person.create_profile(:first_name => hcard[:given_name],
+                              :last_name  => hcard[:family_name],
+                              :image_url  => hcard[:photo],
+                              :image_url_medium  => hcard[:photo_medium],
+                              :image_url_small  => hcard[:photo_small],
+                              :searchable => hcard[:searchable])
+    new_person.save!
+    new_person
   end
 
   def remote?
@@ -150,7 +136,7 @@ class Person
   def as_json(opts={})
     {
       :person => {
-        :id           => self.id,
+        :id           => self.guid,
         :name         => self.name,
         :url          => self.url,
         :exported_key => exported_key,

@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
-
+gem 'mysql2'
 gem 'bundler', '>= 1.0.0'
 gem "chef", :require => false
 
@@ -56,13 +56,14 @@ gem 'resque'
 gem 'SystemTimer' unless RUBY_VERSION.include? "1.9"
 
 group :test, :development do
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', :require => false
   gem 'ruby-debug19' if RUBY_VERSION.include? "1.9"
   gem 'ruby-debug' if RUBY_VERSION.include? "1.8"
   gem 'launchy'
 end
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
   gem 'rspec', '>= 2.0.0'

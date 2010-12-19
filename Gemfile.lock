@@ -231,6 +231,7 @@ GEM
     multi_json (0.0.5)
     multi_xml (0.2.0)
     multipart-post (1.0.1)
+    mysql2 (0.2.6)
     net-ldap (0.1.1)
     nokogiri (1.4.3.1)
     oa-basic (0.1.6)
@@ -405,6 +406,7 @@ DEPENDENCIES
   mocha
   mongo_mapper!
   mongrel
+  mysql2
   nokogiri (= 1.4.3.1)
   omniauth (= 0.1.6)
   pubsubhubbub

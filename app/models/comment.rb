@@ -2,19 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class HandleValidator < ActiveModel::Validator
-  def validate(document)
-    unless document.diaspora_handle == document.person.diaspora_handle
-      document.errors[:base] << "Diaspora handle and person handle must match"
-    end
-  end
-end
-
-class Comment
+class Comment < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   require File.join(Rails.root, 'lib/youtube_titles')
   include YoutubeTitles
-  include MongoMapper::Document
   include ROXML
   include Diaspora::Webhooks
   include Encryptable
@@ -22,25 +13,17 @@ class Comment
 
   xml_reader :text
   xml_reader :diaspora_handle
-  xml_reader :post_id
-  xml_reader :_id
+  xml_reader :post_guid
+  xml_reader :guid
 
-  key :text,      String
-  key :post_id,   ObjectId
-  key :person_id, ObjectId
-  key :diaspora_handle, String
+  belongs_to :post
+  belongs_to :person
 
-  belongs_to :post,   :class_name => "Post"
-  belongs_to :person, :class_name => "Person"
-
-  validates_presence_of :text, :diaspora_handle, :post
-  validates_with HandleValidator
+  validates_presence_of :text, :post
 
   before_save do
     get_youtube_title text
   end
-
-  timestamps!
 
   def notification_type(user, person)
     if self.post.diaspora_handle == user.diaspora_handle
@@ -54,9 +37,6 @@ class Comment
 
   xml_reader :creator_signature
   xml_reader :post_creator_signature
-
-  key :creator_signature, String
-  key :post_creator_signature, String
 
   def signable_accessors
     accessors = self.class.roxml_attrs.collect{|definition|
@@ -82,7 +62,7 @@ class Comment
 
   def self.hash_from_post_ids post_ids
     hash = {}
-    comments = self.on_posts(post_ids)
+    comments = where(:post_id.in => post_ids)
     post_ids.each do |id|
       hash[id] = []
     end
@@ -92,9 +72,4 @@ class Comment
     hash.each_value {|comments| comments.sort!{|c1, c2| c1.created_at <=> c2.created_at }}
     hash
   end
-
-
-  scope :on_posts, lambda { |post_ids| 
-    where(:post_id.in => post_ids)
-  }
 end
