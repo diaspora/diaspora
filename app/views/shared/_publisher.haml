@@ -6,7 +6,8 @@
 - content_for :head do
   :javascript
     $(document).ready(function(){
-      $("div.public_toggle input").live("click", function(evt){
+      $("div.public_toggle input").bind("click", function(evt){
+        $("#publisher_service_icons").toggleClass("dim");
         if($(this).attr('checked') == true){
           $(".question_mark").click();
         };
@@ -64,12 +65,13 @@
         - if aspect == :all
           .public_toggle
             %p.checkbox_select
-              = status.check_box( :public, {}, true, false )
-              = status.label :public, t('.make_public')
-              = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url
-              - if current_user.services
-                - for service in current_user.services
-                  = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
+              = status.check_box( :public, {:title => t('.make_public')}, true, false)
+
+              %span#publisher_service_icons.dim
+                = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url
+                - if current_user.services
+                  - for service in current_user.services
+                    = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
 
             = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
 
