@@ -95,6 +95,9 @@ var Stream = {
     $(".new_status_message").bind('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
       WebSocketReceiver.addPostToStream(json['post_id'], json['html']);
+      //collapse publisher
+      $("#publisher").addClass("closed");
+      $("#photodropzone").find('li').remove();
     });
     $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');

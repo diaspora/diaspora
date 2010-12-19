@@ -17,11 +17,6 @@
         $("#publisher .options_and_submit").show();
       });
 
-      $("#publisher form").live("ajax:success", function(){
-        $("#publisher").addClass("closed");
-        $("#photodropzone").find('li').remove();
-      });
-
       $("#click_to_share").find("a").bind("click", function(evt){
         $("#publisher").removeClass("closed");
         $("#publisher").find("textarea").focus();
