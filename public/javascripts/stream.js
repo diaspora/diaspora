@@ -17,8 +17,10 @@ var Stream = {
 
     // comment submit action
     $stream.delegate("textarea.comment_box", "keydown", function(e){
-      if (e.shiftKey && e.keyCode === 13) {
-        $(this).closest("form").submit();
+      if (e.keyCode === 13) {
+        if(!e.shiftKey) {
+          $(this).closest("form").submit();
+        }
       }
     });
 
