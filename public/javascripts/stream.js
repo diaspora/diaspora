@@ -27,6 +27,8 @@ var Stream = {
     $stream.delegate("textarea.comment_box", "focus", function(evt) {
       var commentBox = $(this);
       commentBox
+        .attr('rows',2)
+        .addClass('force_open')
         .closest("li").find(".submit_instructions").removeClass('hidden');
     });
 
@@ -34,8 +36,9 @@ var Stream = {
       var commentBox = $(this);
       if (!commentBox.val()) {
         commentBox
-          .attr('rows',2)
-          .css('height','2.4em')
+          .attr('rows',1)
+          .removeClass('force_open')
+          .css('height','1.4em')
           .closest("li").find(".submit_instructions").addClass('hidden');
       }
     });
@@ -92,12 +95,18 @@ var Stream = {
       });
     });
 
+    $(".new_status_message").bind('ajax:loading', function(data, json, xhr) {
+      $("#photodropzone").find('li').remove();
+      $("#publisher textarea").removeClass("with_attachments");
+    });
+
     $(".new_status_message").bind('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
       WebSocketReceiver.addPostToStream(json['post_id'], json['html']);
       //collapse publisher
       $("#publisher").addClass("closed");
       $("#photodropzone").find('li').remove();
+      $("#publisher textarea").removeClass("with_attachments");
     });
     $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');

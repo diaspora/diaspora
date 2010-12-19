@@ -17,7 +17,7 @@ class Photo < Post
   key :random_string
 
   key :status_message_id, ObjectId
-  
+
   timestamps!
 
   belongs_to :status_message
@@ -30,8 +30,8 @@ class Photo < Post
   #before_destroy :delete_parent_if_no_photos_or_message
   def ownership_of_status_message
     message = StatusMessage.find_by_id(self.status_message_id)
-    if status_message_id && message 
-      self.diaspora_handle == message.diaspora_handle 
+    if status_message_id && message
+      self.diaspora_handle == message.diaspora_handle
     else
       true
     end
@@ -85,7 +85,7 @@ class Photo < Post
     pod_url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
     "#{pod_url}#{url(*args)}"
   end
-  
+
   def self.gen_random_string(len)
     chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
     string = ""
@@ -98,11 +98,12 @@ class Photo < Post
       :photo => {
         :id => self.id,
         :url => self.url(:thumb_medium),
+        :thumb_small => self.url(:thumb_small),
         :caption => self.caption
       }
     }
   end
-  
+
   def self.hash_from_post_ids post_ids
     hash = {}
     photos = self.on_statuses(post_ids)
@@ -115,7 +116,7 @@ class Photo < Post
     hash.each_value {|photos| photos.sort!{|p1, p2| p1.created_at <=> p2.created_at }}
     hash
   end
-  scope :on_statuses, lambda { |post_ids| 
+  scope :on_statuses, lambda { |post_ids|
     where(:status_message_id.in => post_ids)
   }
 

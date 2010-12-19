@@ -40,7 +40,6 @@ form
     :font
       :size auto
 
-
 .hidden
   :display none
 
@@ -376,7 +375,7 @@ li.message
       :right 5px
 
   &:hover
-    div.info, .time, .from
+    div.info, .time, .from h4
       a
         :color #107FC9
         &:hover
@@ -508,19 +507,17 @@ li.message
       :background none
       :border none
 
+  ul.comments
+    textarea
+      :width 324px
+
 .stream ul.comments
   .avatar
     :width 30px
     :height 30px
 
-  form
-    :margin
-      :right 12px
-
 input.comment_submit
   :display none
-  :margin
-    :right -10px
 
 ul.comments
   :margin 0
@@ -531,7 +528,10 @@ ul.comments
 
   textarea
     :width 100%
-    :height 2.4em
+    :height 1.4em
+
+  .force_open
+    :min-height 2.4em
 
   li.comment
     :list
@@ -909,6 +909,21 @@ label
 
     &.loading
       :opacity 0.5
+
+#publisher_textarea_wrapper
+  :position relative
+  textarea
+    :z-index 2
+
+    &.with_attachments
+      :padding
+        :bottom 70px
+
+  #photodropzone
+    :z-index 3
+    :position absolute
+    :bottom 0
+    :left 5px
 
 .field_with_submit
   input[type='text']

@@ -13,7 +13,6 @@
        button: document.getElementById('file-upload'),
        sizeLimit: 4194304,
 
-
        onProgress: function(id, fileName, loaded, total){
         var progress = Math.round(loaded / total * 100 );
          $('#fileInfo').text(fileName + ' ' + progress + '%');
@@ -37,7 +36,10 @@
         $("#publisher_spinner").fadeOut(100);
         $('#file-upload').removeClass("loading");
         var id = responseJSON.data.photo.id;
-        var url = responseJSON.data.photo.url;
+        var url = responseJSON.data.photo.thumb_small;
+
+        $("#publisher textarea").addClass("with_attachments");
+
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
         $('#photodropzone').append(
           "<li style='position:relative;'>" +
