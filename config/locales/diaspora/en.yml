@@ -388,6 +388,7 @@ en:
         really_disconnect: "disconnect %{service}?"
         connect_to_twitter: "Connect to twitter"
         connect_to_facebook: "Connect to facebook"
+        connect_to_identica: "Connect to identi.ca"  
         edit_services: "Edit services"
       create:
           success: "Authentication successful."
