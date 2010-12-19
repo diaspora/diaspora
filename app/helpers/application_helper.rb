@@ -190,12 +190,23 @@ module ApplicationHelper
   def process_links(message)
     message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
       escape = "\\"
-      res    = "<a target=\"#{escape}_blank\" href=\"#{$2}\" title=\"#{$3}\">#{$1}</a>"
+      link = $1
+      url = $2
+      title = $3
+      url.gsub!("_", "\\_")
+      url.gsub!("*", "\\*")
+      protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
+      res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\" title=\"#{title}\">#{link}</a>"
       res
     end
     message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/) do |m|
       escape = "\\"
-      res    = "<a target=\"#{escape}_blank\" href=\"#{$2}\">#{$1}</a>"
+      link = $1
+      url = $2
+      url.gsub!("_", "\\_")
+      url.gsub!("*", "\\*")
+      protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
+      res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\">#{link}</a>"
       res
     end
 
