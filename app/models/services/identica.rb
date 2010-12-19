@@ -7,20 +7,22 @@ class Services::Identica < Service
 
     identica_key = SERVICES['identica']['consumer_key']
     identica_consumer_secret = SERVICES['identica']['consumer_secret']
+    identica_endpoint = SERVICES['identica']['endpoint']
 
     if identica_consumer_secret.blank? || identica_consumer_secret.blank?
       Rails.logger.info "you have a blank identica key or secret.... you should look into that"
     end
 
-    Identica.configure do |config|
+    Twitter.configure do |config|
       config.consumer_key = identica_key
       config.consumer_secret = identica_consumer_secret
       config.oauth_token = self.access_token
       config.oauth_token_secret = self.access_secret
+      config.endpoint = identica_endpoint
     end
 
     begin
-      Identica.update(message)
+      Twitter.update(message)
     rescue Exception => e
       Rails.logger.info e.message
     end
