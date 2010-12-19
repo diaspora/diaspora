@@ -17,9 +17,8 @@
       });
 
       $("#publisher form").live("ajax:success", function(){
-        $("#publisher").addClass("closed", function(){
-          $("#photodropzone").find('li').remove();
-        });
+        $("#publisher").addClass("closed");
+        $("#photodropzone").find('li').remove();
       });
 
       $("#click_to_share").find("a").bind("click", function(evt){
@@ -31,11 +30,11 @@
 #publisher{:class=>"closed"}
 
   #click_to_share
-    = image_tag 'icons/doc_edit.png', :id => 'share_bubble'
+    = image_tag 'icons/doc_edit.png'
     - if aspect == :all
-      = link_to t('.share_with_all'), '#'
+      = link_to t('.share_with_all'), '#', :id => 'expand_publisher'
     - else
-      = link_to t('.post_a_message_to', :aspect => aspect), '#'
+      = link_to t('.post_a_message_to', :aspect => aspect), '#', :id => 'expand_publisher'
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true) do |status|

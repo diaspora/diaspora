@@ -376,7 +376,7 @@ li.message
       :right 5px
 
   &:hover
-    div.info, .time
+    div.info, .time, .from
       a
         :color #107FC9
         &:hover
@@ -640,14 +640,6 @@ li.message .right
 li.message:hover
   .right
     :display inline
-  .from
-    h4
-      a
-        :color #107FC9
-      &:hover
-        :color #22AAE0
-      &:active
-        :color #005D9C
 
 .request_buttons
   :position absolute
@@ -848,7 +840,7 @@ label
         :weight bold
       :text-shadow 0 1px 0 #fff
 
-    #share_bubble
+    img
       :display inline
       :position absolute
       :top 1em
@@ -865,13 +857,17 @@ label
     :-moz-border-radius 5px
     :border-radius 5px
 
-    :border 2px dashed #ccc
+    :border 2px solid #ccc
+    :background
+      :color #fafafa
 
     :padding 0.3em
+    :cursor pointer
 
     :font
       :weight bold
       :size smaller
+
     :text
       :align center
       :shadow 0 1px 0 #eee
