@@ -42,13 +42,11 @@ module Diaspora
       end
 
       def contact_for(person)
-        id = person.id
-        contact_for_person_id(id)
+        contact_for_person_id(person.id)
       end
 
       def contact_for_person_id(person_id)
-        contacts.first(:person_id => person_id) if person_id
-
+        Contact.where(:user_id => self.id, :person_id => person_id).first if person_id
       end
 
       def contacts_not_in_aspect( aspect )

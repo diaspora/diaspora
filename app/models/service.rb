@@ -2,18 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Service
-  include MongoMapper::Document
+class Service < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
- 
-  belongs_to :user
 
-  key :provider, String
-  key :uid, String
-  key :access_token, String
-  key :access_secret, String
-  key :nickname, String
-  timestamps!
+  belongs_to :user
 
   def public_message(post, length, url = "")
     url = "" if post.respond_to?(:photos) && post.photos.count == 0

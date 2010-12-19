@@ -157,6 +157,20 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "requests", ["sender_id", "recipient_id"], :name => "index_requests_on_sender_id_and_recipient_id", :unique => true
   add_index "requests", ["sender_id"], :name => "index_requests_on_sender_id"
 
+  create_table "services", :force => true do |t|
+    t.string   "_type"
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "access_token"
+    t.string   "access_secret"
+    t.string   "nickname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["user_id"], :name => "index_services_on_user_id"
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.text     "serialized_private_key"

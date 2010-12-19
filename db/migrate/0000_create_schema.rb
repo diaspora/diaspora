@@ -123,6 +123,18 @@ class CreateSchema < ActiveRecord::Migration
     add_index :requests, :recipient_id
     add_index :requests, [:sender_id, :recipient_id], :unique => true
 
+    create_table :services do |t|
+      t.string :_type
+      t.integer :user_id
+      t.string :provider
+      t.string :uid
+      t.string :access_token
+      t.string :access_secret
+      t.string :nickname
+      t.timestamps
+    end
+    add_index :services, :user_id
+
     create_table :users do |t|
       t.string :username
       t.text :serialized_private_key

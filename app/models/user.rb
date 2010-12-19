@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
   has_many :contact_people, :through => :contacts
+  has_many :services
 #  many :visible_people, :in => :visible_person_ids, :class => Person # One of these needs to go
 #  many :raw_visible_posts, :in => :visible_post_ids, :class => Post
 
@@ -88,9 +89,8 @@ class User < ActiveRecord::Base
   end
 
   def add_contact_to_aspect(contact, aspect)
-    return true if contact.aspect_ids.include?(aspect.id)
-    contact.aspects << aspect
-    contact.save!
+    return true if contact.aspect_memberships.where(:aspect_id => aspect.id).count > 0
+    contact.aspect_memberships.create!(:aspect => aspect)
   end
 
   def delete_person_from_aspect(person_id, aspect_id, opts = {})
