@@ -14,8 +14,8 @@ $(document).ready(function() {
 
         $("li", list).each( function() {
           var element = $(this);
-          if( !element.text().match(query) ){
-            if( !element.hasClass('invis') ){
+          if( !element.text().match(query) ) {
+            if( !element.hasClass('invis') ) {
               element.addClass('invis').fadeOut(100);
             }
           } else {
@@ -40,8 +40,8 @@ $(document).ready(function() {
       }
     }
 
-    $(".aspect_badge[guid='"+json['aspect_id']+"']", ".aspects").remove();
-    $(this).parent().html(json['button_html']);
+    $(".aspect_badge[guid='" + json.aspect_id + "']", ".aspects").remove();
+    $(this).parent().html(json.button_html);
     $(this).fadeTo(200,1);
   });
 

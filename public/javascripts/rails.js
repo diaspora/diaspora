@@ -1,7 +1,6 @@
 /* Clear form plugin - called using $("elem").clearForm(); */
 $.fn.clearForm = function() {
   return this.each(function() {
-    var type = this.type, tag = this.tagName.toLowerCase();
     if ($(this).is('form')) {
       return $(':input', this).clearForm();
     }

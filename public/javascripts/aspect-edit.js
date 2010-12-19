@@ -101,9 +101,10 @@ var AspectEdit = {
         $.ajax({
           type: "POST",
           url: "/aspects/remove_from_aspect",
-          data:{
-            'person_id' : person_id,
-            'aspect_id' : person.attr('data-aspect_id') }
+          data: {
+            'person_id': person_id,
+            'aspect_id': person.attr('data-aspect_id')
+          }
         });
       }
       person.fadeOut(400, function() {

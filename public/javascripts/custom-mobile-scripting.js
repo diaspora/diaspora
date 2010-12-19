@@ -5,7 +5,7 @@
 
 $(document).bind("mobileinit", function() {
    $.extend($.mobile, {
-     ajaxLinksEnabled : false,
-     ajaxFormsEnabled : false
+     ajaxLinksEnabled: false,
+     ajaxFormsEnabled: false
    });
 });
