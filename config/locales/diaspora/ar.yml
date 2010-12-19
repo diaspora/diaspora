@@ -106,6 +106,9 @@ ar:
     new_comment: 
       comment: "تعليق"
       commenting: "Commenting..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"

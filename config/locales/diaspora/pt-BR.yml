@@ -106,6 +106,9 @@ pt-BR:
     new_comment: 
       comment: "Comentar"
       commenting: "Comentando..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contatos"
     one: "1 contato"

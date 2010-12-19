@@ -106,6 +106,9 @@ el:
     new_comment: 
       comment: "Σχόλιο"
       commenting: "Σχολιάζει..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"

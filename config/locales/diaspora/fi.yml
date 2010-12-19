@@ -106,6 +106,9 @@ fi:
     new_comment: 
       comment: "Kommentoi"
       commenting: "Kommentoidaan..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} kontaktia"
     one: "1 kontakti"

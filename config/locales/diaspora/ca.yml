@@ -106,6 +106,9 @@ ca:
     new_comment: 
       comment: "Comentar"
       commenting: "Comentant..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contactes"
     one: "1 contacte"

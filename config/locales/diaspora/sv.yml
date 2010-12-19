@@ -106,6 +106,9 @@ sv:
     new_comment: 
       comment: "Kommentar"
       commenting: "Kommenterar..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} kontakter"
     one: "1 kontakt"

@@ -106,6 +106,9 @@ da:
     new_comment: 
       comment: "Kommentér"
       commenting: "Kommentering ..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} kontaktpersoner"
     one: "1 kontaktperson"
@@ -156,7 +159,7 @@ da:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
-      whats_new: "what's new?"
+      whats_new: "Hvad er nyt?"
     header: 
       account_settings: "kontoindstillinger"
       blog: "blog"
@@ -171,10 +174,10 @@ da:
     other: "%{count} nye anmodninger!"
     zero: "ingen nye anmodninger"
   notifications: 
-    comment_on_post: "commented on your"
-    new_request: "offered to share with you."
+    comment_on_post: "kommenterede på noget af dit"
+    new_request: "tilbød at dele med dig."
     post: "post"
-    request_accepted: "accepted your share request."
+    request_accepted: "accepterede din anmodning."
   notifier: 
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
@@ -185,7 +188,7 @@ da:
       subject: "ny Diaspora* kontaktanmodning fra %{from}"
       try_it_out: "Du bør virkelig overveje at tjekke den ud."
     request_accepted: 
-      accepted: "har accepteret din kontaktanmodning. De er nu i din"
+      accepted: "har accepteret din kontaktanmodning."
       subject: "% {name} har accepteret din kontaktanmodning på Diaspora*"
     single_admin: 
       admin: "Din Diaspora administrator"
@@ -200,7 +203,7 @@ da:
   password_confirmation: "Adgangskode bekræftelse"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "rediger aspekt medlemsskab"
     edit: 
       allow_search: "Tillad andre Diaspora brugere at søge efter dig"
       edit_profile: "Rediger profil"
@@ -229,7 +232,7 @@ da:
       thats_you: "det er dig!"
     profile_sidebar: 
       bio: "bio"
-      born: "født"
+      born: "fødselsdag"
       cannot_remove: "Kan ikke fjerne %{name} fra sidste aspekt."
       edit_my_profile: "Redigér min profil"
       gender: "køn"
@@ -237,8 +240,8 @@ da:
       remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "Så snart %{name} accepterer, vil i begynde at se hinandens poster på Diaspora"
+      share_with: "Begynd at dele med %{name}"
     show: 
       does_not_exist: "Personen findes ikke!"
       incoming_request: "Du har en anmodning fra denne person."
@@ -247,7 +250,7 @@ da:
       recent_posts: "Nylige indlæg"
       recent_public_posts: "Seneste offentlige Beskeder"
       return_to_aspects: "Tilbage til aspektsoversigt"
-      similar_contacts: "similar contacts"
+      similar_contacts: "lignende kontakter"
       to_accept_or_ignore: "at godkende eller ignorere det."
     update: 
       failed: "Kunne ikke opdatere profil"
@@ -325,7 +328,7 @@ da:
     create: 
       success: "Godkendelse lykkedes."
     destroy: 
-      success: "Godkendelsen er nu blevet ødelagt."
+      success: "Godkendelsen er nu blevet slettet."
     failure: 
       error: "der opstod en fejl i at forbinde til den service"
     index: 
@@ -378,7 +381,7 @@ da:
       oh_yeah: "Fedt mand!"
       tell_me_something_good: "fortæl mig noget godt"
     show: 
-      destroy: "Ødelæg"
+      destroy: "Slet"
       permalink: "permanentlink"
   stream_helper: 
     hide_comments: "gem kommentarer"
@@ -432,7 +435,7 @@ da:
     public: 
       does_not_exist: "Brugeren %{username} findes ikke!"
     update: 
-      email_notifications_changed: "Fejl ved sprog skift"
+      email_notifications_changed: "E-mail notifikation ændret"
       language_changed: "Sprog ændret"
       language_not_changed: "Kunne ikke ændre sprog"
       password_changed: "Adgangskode ændret"

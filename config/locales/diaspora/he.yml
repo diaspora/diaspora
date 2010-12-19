@@ -106,6 +106,9 @@ he:
     new_comment: 
       comment: "הערה"
       commenting: "נוספת הערה..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} אנשי קשר"
     one: "איש קשר אחד"
@@ -156,7 +159,7 @@ he:
   layouts: 
     application: 
       powered_by: "מופעל על גבי דיאספורה*"
-      whats_new: "what's new?"
+      whats_new: "מה חדש?"
     header: 
       account_settings: "הגדרות החשבון"
       blog: "בלוג"
@@ -171,10 +174,10 @@ he:
     other: "%{count} בקשות חדשות!"
     zero: "אין בקשות חדשות"
   notifications: 
-    comment_on_post: "commented on your"
-    new_request: "offered to share with you."
-    post: "post"
-    request_accepted: "accepted your share request."
+    comment_on_post: "הגיב/ה על ה"
+    new_request: "הציע/ה לשתף אתך."
+    post: "רשומה"
+    request_accepted: "קיבל/ה את בקשת השיתוף שלך."
   notifier: 
     diaspora: "רובוט הדוא״ל של דיאספורה"
     hello: "שלום %{name}!"
@@ -200,7 +203,7 @@ he:
   password_confirmation: "אישור הססמה"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "עריכת חברות בהיבט"
     edit: 
       allow_search: "אישור לאחרים לחפש אחריך בדיאספורה"
       edit_profile: "עריכת הפרופיל"
@@ -229,7 +232,7 @@ he:
       thats_you: "מדובר בך!"
     profile_sidebar: 
       bio: "פרטים"
-      born: "לידה"
+      born: "תאריך הלידה"
       cannot_remove: "לא ניתן להסיר את %{name} מההיבט האחרון. (אם ברצונך להתנתק מאיש קשר זה, עליך להסירו מרשימת אנשי הקשר.)"
       edit_my_profile: "עריכת הפרופיל שלי"
       gender: "מגדר"
@@ -237,17 +240,17 @@ he:
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "לאחר שבקשתך תתקבל על ידי %{name}, תהיה באפשרותכם לצפות זה ברשומותיו של זה בדיאספורה"
+      share_with: "התחלת השיתוף עם %{name}"
     show: 
       does_not_exist: "אדם זה אינו קיים!"
       incoming_request: "קיבלת בקשה נכנסת מאדם זה."
       no_posts: "אין רשומות להצגה!"
-      not_connected: "אין לך קשר עם אדם זה"
+      not_connected: "אין לך שיתוף עם %{name}"
       recent_posts: "רשומות אחרונות"
       recent_public_posts: "הרשומות הציבוריות האחרונות"
       return_to_aspects: "חזרה לעמוד ההיבטים שלך"
-      similar_contacts: "similar contacts"
+      similar_contacts: "אנשי קשר דומים"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
     update: 
       failed: "אירע כשל בעדכון הפרופיל"
@@ -432,7 +435,7 @@ he:
     public: 
       does_not_exist: "המשתמש %{username} אינו קיים!"
     update: 
-      email_notifications_changed: "החלפת השפה נכשלה"
+      email_notifications_changed: "ההתרעות בדוא״ל השתנו"
       language_changed: "השפה הוחלפה"
       language_not_changed: "החלפת השפה נכשלה"
       password_changed: "הססמה הוחלפה"

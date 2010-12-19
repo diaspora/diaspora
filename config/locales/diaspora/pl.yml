@@ -106,6 +106,9 @@ pl:
     new_comment: 
       comment: "Skomentuj…"
       commenting: "Komentowanie…"
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} kontakty"
     one: "1 kontakt"

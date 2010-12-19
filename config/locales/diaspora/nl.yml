@@ -106,6 +106,9 @@ nl:
     new_comment: 
       comment: "Reactie"
       commenting: "Reageren..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contacten"
     one: "1 contact"
@@ -156,7 +159,7 @@ nl:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
-      whats_new: "what's new?"
+      whats_new: "wat is nieuw op Diaspora?"
     header: 
       account_settings: "account instellingen"
       blog: "blog"
@@ -171,10 +174,10 @@ nl:
     other: "%{count} nieuwe verzoeken!"
     zero: "geen nieuwe verzoeken"
   notifications: 
-    comment_on_post: "commented on your"
-    new_request: "offered to share with you."
+    comment_on_post: "reageerde op jou"
+    new_request: "bood aan om met jou te delen."
     post: "post"
-    request_accepted: "accepted your share request."
+    request_accepted: "heeft je verzoek geaccepteerd."
   notifier: 
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
@@ -200,7 +203,7 @@ nl:
   password_confirmation: "Wachtwoordbevestiging"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "bewerk aspect lidmaatschap"
     edit: 
       allow_search: "Sta toe door anderen gevonden te kunnen worden binnen Diaspora"
       edit_profile: "Bewerk profiel"
@@ -229,7 +232,7 @@ nl:
       thats_you: "Dat ben jij!"
     profile_sidebar: 
       bio: "bio"
-      born: "geboren"
+      born: "geboortedatum"
       cannot_remove: "Kan %{name} niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
       edit_my_profile: "Bewerk mijn profiel"
       gender: "geslacht"
@@ -237,17 +240,17 @@ nl:
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "Zodra %{name} accepteert, zul je elkaars posts kunnen gaan zien op Diaspora"
+      share_with: "Start delen met %{name}"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "Je hebt een binnenkomend verzoek van deze persoon."
       no_posts: "geen berichten om weer te geven!"
-      not_connected: "Je bent niet verbonden met deze persoon"
+      not_connected: "Je deelt niet met %{name}"
       recent_posts: "Recente Berichten"
       recent_public_posts: "Recente Openbare Berichten"
       return_to_aspects: "Ga terug naar je aspecten pagina"
-      similar_contacts: "similar contacts"
+      similar_contacts: "vergelijkbare contacten"
       to_accept_or_ignore: "om te accepteren of te negeren."
     update: 
       failed: "Updaten van profiel mislukt"
@@ -432,7 +435,7 @@ nl:
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update: 
-      email_notifications_changed: "Taal veranderen mislukt"
+      email_notifications_changed: "E-mail notificaties veranderd"
       language_changed: "Taal gewijzigd"
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd"

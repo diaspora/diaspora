@@ -106,6 +106,9 @@ hu:
     new_comment: 
       comment: "Hozzászólás"
       commenting: "Hozzászólok.."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} ismerős"
     one: "1 ismerős"
