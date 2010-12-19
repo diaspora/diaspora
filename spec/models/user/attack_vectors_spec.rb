@@ -6,15 +6,15 @@ require 'spec_helper'
 
 describe "attack vectors" do
 
-  let(:user) { make_user }
+  let(:user) { Factory.create(:user) }
   let(:aspect) { user.aspects.create(:name => 'heroes') }
   
-  let(:bad_user) { make_user}
+  let(:bad_user) { Factory.create(:user)}
 
-  let(:user2) { make_user }
+  let(:user2) { Factory.create(:user) }
   let(:aspect2) { user2.aspects.create(:name => 'losers') }
 
-  let(:user3) { make_user }
+  let(:user3) { Factory.create(:user) }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
   context 'non-contact valid user' do

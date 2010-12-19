@@ -7,7 +7,7 @@ require 'spec_helper'
 describe RequestsController do
   render_views
   before do
-    @user = make_user
+    @user = Factory.create(:user)
 
     sign_in :user, @user
     request.env["HTTP_REFERER"] = "http://test.host"
@@ -15,7 +15,7 @@ describe RequestsController do
     @user.aspects.create!(:name => "lame-os")
     @user.reload
 
-    @other_user = make_user
+    @other_user = Factory.create(:user)
     @other_user.aspects.create!(:name => "meh")
     @other_user.reload
   end

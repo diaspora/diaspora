@@ -2,7 +2,7 @@ require File.join(Rails.root, 'spec/spec_helper')
 
 describe Jobs::SocketWebfinger do
   before do
-    @user = make_user
+    @user = Factory.create(:user)
     @account = "tom@tom.joindiaspora.com"
   end
   it 'Makes a Webfinger object' do

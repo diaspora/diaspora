@@ -9,7 +9,7 @@ describe InvitationsController do
 
   render_views
 
-  let!(:user)   { make_user }
+  let!(:user)   { Factory.create(:user) }
   let!(:aspect) { user.aspects.create(:name => "WIN!!") }
 
   before do

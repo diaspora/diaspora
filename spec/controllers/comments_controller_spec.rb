@@ -7,10 +7,10 @@ require 'spec_helper'
 describe CommentsController do
   render_views
 
-  let!(:user1)   { make_user }
+  let!(:user1)   { Factory.create(:user) }
   let!(:aspect1) { user1.aspects.create(:name => "AWESOME!!") }
 
-  let!(:user2)   { make_user }
+  let!(:user2)   { Factory.create(:user) }
   let!(:aspect2) { user2.aspects.create(:name => "WIN!!") }
 
   before do
@@ -43,7 +43,7 @@ describe CommentsController do
         response.code.should == '201'
       end
       it "doesn't overwrite person_id" do
-        new_user = make_user
+        new_user = Factory.create(:user)
         comment_hash[:person_id] = new_user.person.id.to_s
         post :create, comment_hash
         Comment.find_by_text(comment_hash[:text]).person_id.should == user1.person.id

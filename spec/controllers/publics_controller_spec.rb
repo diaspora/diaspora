@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PublicsController do
   render_views
 
-  let(:user)   { make_user }
+  let(:user)   { Factory.create(:user) }
   let(:person) { Factory(:person) }
 
   describe '#receive' do
@@ -54,7 +54,7 @@ describe PublicsController do
 
   describe '#webfinger' do
     it "succeeds when the person and user exist locally" do
-      user = make_user
+      user = Factory.create(:user)
       post :webfinger, 'q' => user.person.diaspora_handle
       response.should be_success
     end

@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe NotificationsController do
 
-  let!(:user) { make_user }
+  let!(:user) { Factory.create(:user) }
   let!(:aspect) { user.aspects.create(:name => "AWESOME!!") }
   
   before do
@@ -22,7 +22,7 @@ describe NotificationsController do
     end
 
     it 'only lets you read your own notifications' do
-      user2 = make_user
+      user2 = Factory.create(:user)
 
       Notification.create(:user_id => user.id)
       note = Notification.create(:user_id => user2.id)

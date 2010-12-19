@@ -8,9 +8,9 @@ require File.join(Rails.root, 'lib/diaspora/exporter')
 describe Diaspora::Exporter do
 
   before do
-    @user1 =  make_user
-    @user2 =  make_user
-    @user3 =  make_user
+    @user1 =  Factory.create(:user)
+    @user2 =  Factory.create(:user)
+    @user3 =  Factory.create(:user)
 
     @aspect  =  @user1.aspects.create(:name => "Old Work")
     @aspect1 =  @user1.aspects.create(:name => "Work")

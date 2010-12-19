@@ -5,11 +5,11 @@
 require 'spec_helper'
 
 describe User do
-  let(:inviter)  {new_user = make_user; new_user.invites = 5; new_user.save; new_user;}
+  let(:inviter)  {new_user = Factory.create(:user); new_user.invites = 5; new_user.save; new_user;}
   let(:aspect)   {inviter.aspects.create(:name => "awesome")}
-  let(:another_user) {make_user}
+  let(:another_user) {Factory.create(:user)}
   let(:wrong_aspect) {another_user.aspects.create(:name => "super")}
-  let(:inviter_with_3_invites) { new_user = make_user; new_user.invites = 3; new_user.save; new_user;}
+  let(:inviter_with_3_invites) { new_user = Factory.create(:user); new_user.invites = 3; new_user.save; new_user;}
   let(:aspect2) {inviter_with_3_invites.aspects.create(:name => "Jersey Girls")}
 
   context "creating invites" do 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Jobs::PostToServices do
   it 'calls post to services from the given user with given post' do
-    user = make_user
+    user = Factory.create(:user)
     aspect = user.aspects.create(:name => "yeah")
     post = user.post(:status_message, :message => 'foo', :to => aspect.id)
     User.stub!(:find_by_id).with(user.id.to_s).and_return(user)

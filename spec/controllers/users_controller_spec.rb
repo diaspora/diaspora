@@ -7,7 +7,7 @@ require 'spec_helper'
 describe UsersController do
   render_views
 
-  let(:user)    { make_user }
+  let(:user)    { Factory.create(:user) }
   let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   let!(:old_password) { user.encrypted_password }

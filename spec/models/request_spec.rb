@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe Request do
   before do
-    @user    = make_user
-    @user2   = make_user
+    @user    = Factory.create(:user)
+    @user2   = Factory.create(:user)
     @person  = Factory :person
     @aspect  = @user.aspects.create(:name => "dudes")
     @aspect2 = @user2.aspects.create(:name => "Snoozers")
@@ -18,21 +18,21 @@ describe Request do
       @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
     end
     it 'is valid' do
+      @request.sender.should == @user.person
+      @request.recipient.should   == @user2.person
+      @request.aspect.should == @aspect
       @request.should be_valid
-      @request.from.should == @user.person
-      @request.to.should   == @user2.person
-      @request.into.should == @aspect
     end
     it 'is from a person' do
-      @request.from = nil
+      @request.sender = nil
       @request.should_not be_valid
     end
     it 'is to a person' do
-      @request.to = nil
+      @request.recipient = nil
       @request.should_not be_valid
     end
     it 'is not necessarily into an aspect' do
-      @request.into = nil
+      @request.aspect = nil
       @request.should be_valid
     end
     it 'is not from an existing friend' do
@@ -82,7 +82,7 @@ describe Request do
   end
   describe '#notification_type' do
     before do
-      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)    
+      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
     end
     it "returns 'request_accepted' if there is a pending contact" do
       Contact.create(:user_id => @user.id, :person_id => @person.id)
@@ -96,8 +96,8 @@ describe Request do
 
   describe '.hashes_for_person' do
     before do
-      @user = make_user
-      @user2 = make_user
+      @user = Factory.create(:user)
+      @user2 = Factory.create(:user)
       @user2.send_contact_request_to @user.person, @user2.aspects.create(:name => "hi")
       @user.reload
       @user2.reload
@@ -116,7 +116,7 @@ describe Request do
   end
   describe 'xml' do
     before do
-      @request = Request.new(:from => @user.person, :to => @user2.person, :into => @aspect)
+      @request = Request.new(:sender => @user.person, :recipient => @user2.person, :aspect => @aspect)
       @xml = @request.to_xml.to_s
     end
     describe 'serialization' do
@@ -146,13 +146,13 @@ describe Request do
         @marshalled = Request.from_xml @xml
       end
       it 'marshals the sender' do
-        @marshalled.from.should == @user.person
+        @marshalled.sender.should == @user.person
       end
       it 'marshals the recipient' do
-        @marshalled.to.should == @user2.person
+        @marshalled.recipient.should == @user2.person
       end
       it 'knows nothing about the aspect' do
-        @marshalled.into.should be_nil
+        @marshalled.aspect.should be_nil
       end
     end
     describe 'marshalling with diaspora wrapper' do
@@ -161,13 +161,13 @@ describe Request do
         @marshalled = Diaspora::Parser.from_xml @d_xml
       end
       it 'marshals the sender' do
-        @marshalled.from.should == @user.person
+        @marshalled.sender.should == @user.person
       end
       it 'marshals the recipient' do
-        @marshalled.to.should == @user2.person
+        @marshalled.recipient.should == @user2.person
       end
       it 'knows nothing about the aspect' do
-        @marshalled.into.should be_nil
+        @marshalled.aspect.should be_nil
       end
     end
   end

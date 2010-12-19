@@ -5,7 +5,7 @@ require 'spec_helper'
 
 describe UsersHelper do
   describe '#first_name_or_username' do
-    let(:user){ make_user }
+    let(:user){ Factory(:user) }
 
     it 'should display the first name if it is set' do
       first_name_or_username(user).should == user.person.profile.first_name

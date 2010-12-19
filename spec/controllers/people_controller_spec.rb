@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PeopleController do
   render_views
 
-  let(:user)    { make_user }
+  let(:user)    { Factory.create(:user) }
   let!(:aspect) { user.aspects.create(:name => "lame-os") }
 
   before do
@@ -144,14 +144,14 @@ describe PeopleController do
       assigns[:people].should =~ [@eugene, eugene2]
     end
     it 'shows a contact' do
-      user2 = make_user
+      user2 = Factory.create(:user)
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :index, :q => user2.person.profile.first_name.to_s
       response.should redirect_to user2.person
     end
 
     it 'shows a non-contact' do
-      user2 = make_user
+      user2 = Factory.create(:user)
       user2.person.profile.searchable = true
       user2.save
       get :index, :q => user2.person.profile.first_name.to_s
@@ -199,20 +199,20 @@ describe PeopleController do
     end
 
     it "renders the show page of a contact" do
-      user2 = make_user
+      user2 = Factory.create(:user)
       connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
       get :show, :id => user2.person.id
       response.should be_success
     end
 
     it "renders the show page of a non-contact" do
-      user2 = make_user
+      user2 = Factory.create(:user)
       get :show, :id => user2.person.id
       response.should be_success
     end
 
     it "renders with public posts of a non-contact" do
-      user2 = make_user
+      user2 = Factory.create(:user)
       status_message = user2.post(:status_message, :message => "hey there", :to => 'all', :public => true)
 
       get :show, :id => user2.person.id
@@ -258,7 +258,7 @@ describe PeopleController do
       end
     end
     it 'does not allow mass assignment' do
-      new_user = make_user
+      new_user = Factory.create(:user)
       put :update, :id => user.person.id, :owner_id => new_user.id
       user.person.reload.owner_id.should_not == new_user.id
     end

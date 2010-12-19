@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 describe Diaspora::UserModules::Connecting do
-  let(:user) { make_user }
+  let(:user) { Factory.create(:user) }
   let(:aspect) { user.aspects.create(:name => 'heroes') }
   let(:aspect1) { user.aspects.create(:name => 'other') }
   let(:person) { Factory.create(:person) }
@@ -14,7 +14,7 @@ describe Diaspora::UserModules::Connecting do
   let(:person_two) { Factory.create :person }
   let(:person_three) { Factory.create :person }
 
-  let(:user2) { make_user }
+  let(:user2) { Factory.create(:user) }
   let(:aspect2) { user2.aspects.create(:name => "aspect two") }
 
   describe '#send_contact_request_to' do

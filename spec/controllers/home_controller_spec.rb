@@ -8,7 +8,7 @@ describe HomeController do
   render_views
 
   before do
-    @user = make_user
+    @user = Factory.create(:user)
     sign_in @user
     sign_out @user
   end

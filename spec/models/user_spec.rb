@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { make_user }
+  let(:user) { Factory.create(:user) }
   let(:aspect) { user.aspects.create(:name => 'heroes') }
-  let(:user2) { make_user }
+  let(:user2) { Factory.create(:user) }
   let(:aspect2) { user2.aspects.create(:name => 'stuff') }
 
   it 'should have a key' do

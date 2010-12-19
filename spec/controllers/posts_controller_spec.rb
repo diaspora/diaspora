@@ -8,7 +8,7 @@ describe PostsController do
   render_views
   
   before do
-    @user = make_user
+    @user = Factory.create(:user)
     @controller.stub!(:current_user).and_return(nil)
   end
   describe '#show' do

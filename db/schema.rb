@@ -13,15 +13,15 @@
 ActiveRecord::Schema.define(:version => 0) do
 
   create_table "aspect_memberships", :force => true do |t|
-    t.boolean  "pending",    :default => true
     t.integer  "aspect_id"
-    t.integer  "person_id"
+    t.integer  "contact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "aspect_memberships", ["aspect_id", "person_id"], :name => "index_aspect_memberships_on_aspect_id_and_person_id", :unique => true
+  add_index "aspect_memberships", ["aspect_id", "contact_id"], :name => "index_aspect_memberships_on_aspect_id_and_contact_id", :unique => true
   add_index "aspect_memberships", ["aspect_id"], :name => "index_aspect_memberships_on_aspect_id"
+  add_index "aspect_memberships", ["contact_id"], :name => "index_aspect_memberships_on_contact_id"
 
   create_table "aspects", :force => true do |t|
     t.string   "name"
@@ -55,6 +55,18 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "person_id"
+    t.boolean  "pending",    :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["person_id", "pending"], :name => "index_contacts_on_person_id_and_pending"
+  add_index "contacts", ["user_id", "pending"], :name => "index_contacts_on_user_id_and_pending"
+  add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
 
   create_table "invitations", :force => true do |t|
     t.text     "message"
@@ -132,6 +144,18 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "profiles", ["first_name", "searchable"], :name => "index_profiles_on_first_name_and_searchable"
   add_index "profiles", ["last_name", "searchable"], :name => "index_profiles_on_last_name_and_searchable"
   add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
+
+  create_table "requests", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.integer  "aspect_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requests", ["recipient_id"], :name => "index_requests_on_recipient_id"
+  add_index "requests", ["sender_id", "recipient_id"], :name => "index_requests_on_sender_id_and_recipient_id", :unique => true
+  add_index "requests", ["sender_id"], :name => "index_requests_on_sender_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

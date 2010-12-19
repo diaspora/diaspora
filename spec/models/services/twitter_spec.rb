@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Services::Twitter do 
 
   before do
-    @user = make_user
+    @user = Factory.create(:user)
     @user.aspects.create(:name => "whatever")
     @post = @user.post(:status_message, :message => "hello", :to =>@user.aspects.first.id)
     @service = Services::Twitter.new(:access_token => "yeah", :access_secret => "foobar")

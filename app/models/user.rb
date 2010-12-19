@@ -30,12 +30,14 @@ class User < ActiveRecord::Base
   validates_associated :person
 
   has_one :person, :foreign_key => :owner_id
-  delegate :diaspora_handle, :to => :person
+  delegate :diaspora_handle, :name, :public_url, :profile, :to => :person
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
   has_many :aspects, :dependent => :destroy
   has_many :aspect_memberships, :through => :aspects
+  has_many :contacts
+  has_many :contact_people, :through => :contacts
 #  many :visible_people, :in => :visible_person_ids, :class => Person # One of these needs to go
 #  many :raw_visible_posts, :in => :visible_post_ids, :class => Post
 

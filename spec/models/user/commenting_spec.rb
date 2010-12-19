@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe User do
 
-  let!(:user1){make_user}
-  let!(:user2){make_user}
+  let!(:user1){Factory.create(:user)}
+  let!(:user2){Factory.create(:user)}
   let!(:aspect1){user1.aspects.create(:name => 'heroes')}
   let!(:aspect2){user2.aspects.create(:name => 'others')}
 

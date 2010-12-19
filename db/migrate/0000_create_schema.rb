@@ -8,13 +8,13 @@ class CreateSchema < ActiveRecord::Migration
     add_index :aspects, :user_id
 
     create_table :aspect_memberships do |t|
-      t.boolean :pending, :default => true
       t.integer :aspect_id
-      t.integer :person_id
+      t.integer :contact_id
       t.timestamps
     end
     add_index :aspect_memberships, :aspect_id
-    add_index :aspect_memberships, [:aspect_id, :person_id], :unique => true
+    add_index :aspect_memberships, [:aspect_id, :contact_id], :unique => true
+    add_index :aspect_memberships, :contact_id
 
     create_table :aspects_posts, :id => false do |t|
       t.integer :aspect_id
@@ -35,6 +35,16 @@ class CreateSchema < ActiveRecord::Migration
     end
     add_index :comments, :guid, :unique => true
     add_index :comments, :post_id
+
+    create_table :contacts do |t|
+      t.integer :user_id
+      t.integer :person_id
+      t.boolean :pending, :default => true
+      t.timestamps
+    end
+    add_index :contacts, [:user_id, :pending]
+    add_index :contacts, [:person_id, :pending]
+    add_index :contacts, [:user_id, :person_id], :unique => true
 
     create_table :invitations do |t|
       t.text :message
@@ -68,6 +78,22 @@ class CreateSchema < ActiveRecord::Migration
     add_index :people, :owner_id, :unique => true
     add_index :people, :diaspora_handle, :unique => true
 
+    create_table :posts do |t|
+      t.boolean :public, :default => false
+      t.string :diaspora_handle
+      t.boolean :pending
+      t.integer :user_refs
+      t.string :type
+      t.text :message
+      t.integer :status_message_id
+      t.text :caption
+      t.text :remote_photo_path
+      t.string :remote_photo_name
+      t.string :random_string
+      t.timestamps
+    end
+    add_index :posts, :type
+
     create_table :profiles do |t|
       t.string :diaspora_handle
       t.string :first_name
@@ -87,21 +113,15 @@ class CreateSchema < ActiveRecord::Migration
     add_index :profiles, [:first_name, :last_name, :searchable]
     add_index :profiles, :person_id
 
-    create_table :posts do |t|
-      t.boolean :public, :default => false
-      t.string :diaspora_handle
-      t.boolean :pending
-      t.integer :user_refs
-      t.string :type
-      t.text :message
-      t.integer :status_message_id
-      t.text :caption
-      t.text :remote_photo_path
-      t.string :remote_photo_name
-      t.string :random_string
+    create_table :requests do |t|
+      t.integer :sender_id
+      t.integer :recipient_id
+      t.integer :aspect_id
       t.timestamps
     end
-    add_index :posts, :type
+    add_index :requests, :sender_id
+    add_index :requests, :recipient_id
+    add_index :requests, [:sender_id, :recipient_id], :unique => true
 
     create_table :users do |t|
       t.string :username

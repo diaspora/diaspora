@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe Invitation do
-  let(:user)   {make_user}
+  let(:user)   {Factory.create(:user)}
   let!(:aspect) {user.aspects.create(:name => "Invitees")}
-  let(:user2)  {make_user}
+  let(:user2)  {Factory.create(:user)}
   before do
     @email = 'maggie@example.com'
     Devise.mailer.deliveries = []
@@ -48,7 +48,7 @@ describe Invitation do
     before do
       @users = []
       8.times do
-        @users << make_user
+        @users << Factory.create(:user)
       end
     end
     it 'returns User.new for a non-existent user' do

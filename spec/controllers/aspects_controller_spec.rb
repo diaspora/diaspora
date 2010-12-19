@@ -8,8 +8,8 @@ describe AspectsController do
   render_views
 
   before do
-    @user  = make_user
-    @user2 = make_user
+    @user  = Factory.create(:user)
+    @user2 = Factory.create(:user)
 
     @aspect   = @user.aspects.create(:name => "lame-os")
     @aspect1  = @user.aspects.create(:name => "another aspect")
@@ -41,7 +41,7 @@ describe AspectsController do
         @posts = []
         @users = []
         8.times do |n|
-          user = make_user
+          user = Factory.create(:user)
           @users << user
           aspect = user.aspects.create(:name => 'people')
           connect_users(@user, @aspect, user, aspect)
@@ -123,7 +123,7 @@ describe AspectsController do
     end
     context "when the user has pending requests" do
       before do
-        requestor        = make_user
+        requestor        = Factory.create(:user)
         requestor_aspect = requestor.aspects.create(:name => "Meh")
         requestor.send_contact_request_to(@user.person, requestor_aspect)
 
@@ -231,7 +231,7 @@ describe AspectsController do
   describe "#add_to_aspect" do
     context 'with an incoming request' do
       before do
-        @user3 = make_user
+        @user3 = Factory.create(:user)
         @user3.send_contact_request_to(@user.person, @user3.aspects.create(:name => "Walruses"))
       end
       it 'deletes the request' do

@@ -9,8 +9,8 @@ describe Notification do
   before do
     @sm = Factory(:status_message)
     @person = Factory(:person)
-    @user = make_user
-    @user2 = make_user
+    @user = Factory.create(:user)
+    @user2 = Factory.create(:user)
     @aspect  = @user.aspects.create(:name => "dudes")
     @opts = {:object_id => @sm.id, :kind => @sm.class.name, :person_id => @person.id, :user_id => @user.id}
     @note = Notification.new(@opts)
@@ -30,7 +30,7 @@ describe Notification do
 
   describe '.for' do
     it 'returns all of a users notifications' do
-      user2 = make_user
+      user2 = Factory.create(:user)
       Notification.create(@opts)
       Notification.create(@opts)
       Notification.create(@opts)

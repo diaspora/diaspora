@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Retraction do
 
-  let(:user) { make_user }
+  let(:user) { Factory.create(:user) }
   let(:person) { Factory(:person) }
   let(:aspect) { user.aspects.create(:name => "Bruisers") }
   let!(:activation) { user.activate_contact(person, aspect) }

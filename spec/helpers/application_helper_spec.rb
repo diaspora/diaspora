@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe ApplicationHelper do
   before do
-    @user = make_user
+    @user = Factory(:user)
     @person = Factory.create(:person)
   end
 

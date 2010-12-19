@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Photo do
   before do
-    @user = make_user
+    @user = Factory.create(:user)
     @aspect = @user.aspects.create(:name => "losers")
 
     @fixture_filename  = 'button.png'

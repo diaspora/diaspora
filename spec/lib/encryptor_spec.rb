@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe 'user encryption' do
   before do
-    @user = make_user
+    @user = Factory.create(:user)
     @aspect = @user.aspects.create(:name => 'dudes')
   end
 

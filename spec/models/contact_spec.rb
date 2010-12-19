@@ -19,7 +19,7 @@ describe Contact do
     end
 
     it 'ensures user is not making a contact for himself' do
-      user = make_user
+      user = Factory.create(:user)
 
       contact.person = user.person
       contact.user = user
@@ -33,7 +33,7 @@ describe Contact do
     end
 
     it 'validates uniqueness' do
-      user = make_user
+      user = Factory.create(:user)
       person = Factory(:person)
 
       contact2 = Contact.create(:user => user,
@@ -51,7 +51,7 @@ describe Contact do
   context 'requesting' do
     before do
       @contact = Contact.new
-      @user = make_user
+      @user = Factory.create(:user)
       @person = Factory(:person)
 
       @contact.user = @user

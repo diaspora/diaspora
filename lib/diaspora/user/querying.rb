@@ -7,7 +7,7 @@ module Diaspora
     module Querying
 
       def find_visible_post_by_id( id )
-        self.raw_visible_posts.find id.to_id
+        self.raw_visible_posts.find id
       end
 
       def raw_visible_posts
@@ -28,7 +28,6 @@ module Diaspora
       end
 
       def visible_person_by_id( id )
-        id = id.to_id
         if id == self.person.id
           self.person
         elsif contact = contacts.first(:person_id => id)
@@ -44,21 +43,21 @@ module Diaspora
 
       def contact_for(person)
         id = person.id
-        contact_for_person_id(id) 
+        contact_for_person_id(id)
       end
 
       def contact_for_person_id(person_id)
-        contacts.first(:person_id => person_id.to_id) if person_id
+        contacts.first(:person_id => person_id) if person_id
 
       end
 
-      def contacts_not_in_aspect( aspect ) 
+      def contacts_not_in_aspect( aspect )
         person_ids = Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).collect{|x| x.person_id }
         Person.all(:id.in => person_ids)
       end
 
       def person_objects(contacts = self.contacts)
-        person_ids = contacts.collect{|x| x.person_id} 
+        person_ids = contacts.collect{|x| x.person_id}
         Person.all(:id.in => person_ids)
       end
 

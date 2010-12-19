@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Notifier do
 
-  let!(:user) {make_user}
+  let!(:user) {Factory.create(:user)}
   let!(:person) {Factory.create :person}
 
   before do
@@ -21,7 +21,7 @@ describe Notifier do
     it 'mails a bunch of users' do
       users = []
       5.times do 
-        users << make_user
+        users << Factory.create(:user)
       end
       mails = Notifier.admin("Welcome to bureaucracy!", users)
       mails.length.should == 5

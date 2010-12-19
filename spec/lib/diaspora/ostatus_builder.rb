@@ -8,7 +8,7 @@ require File.join(Rails.root,  'lib/diaspora/ostatus_builder')
 
 describe Diaspora::OstatusBuilder do
 
-  let!(:user) { make_user }
+  let!(:user) { Factory.create(:user) }
   let(:aspect) { user.aspects.create(:name => "Public People") }
   let!(:public_status_messages) {
     3.times.inject([]) do |arr,n|

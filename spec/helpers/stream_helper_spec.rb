@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe StreamHelper do
   before do
-    @user = make_user
+    @user = Factory(:user)
     @aspect = @user.aspects.create(:name => 'aspect')
     @post = @user.post(:status_message, :message => "hi", :to => @aspect.id)
   end
