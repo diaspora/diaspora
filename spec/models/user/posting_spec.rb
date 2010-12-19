@@ -25,10 +25,8 @@ describe User do
     end
 
     it 'saves post into visible post ids' do
-      pp user.raw_visible_posts
       proc {
         user.add_to_streams(@post, @aspect_ids)
-      pp user.raw_visible_posts
       }.should change(user.raw_visible_posts, :count).by(1)
       user.reload.raw_visible_posts.should include @post
     end

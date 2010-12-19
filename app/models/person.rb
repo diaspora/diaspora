@@ -24,7 +24,7 @@ class Person < ActiveRecord::Base
     diaspora_handle.downcase!
   end
 
-  has_many :aspect_memberships
+  has_many :contacts
 
   belongs_to :owner, :class_name => 'User'
 

@@ -158,7 +158,7 @@ class User < ActiveRecord::Base
     if aspect_ids == "all" || aspect_ids == :all
       self.aspects
     else
-      aspect_ids = aspect_ids.to_a
+      aspect_ids = [aspect_ids] unless aspect_ids.is_a?(Array)
       aspects.where(:id => aspect_ids)
     end
   end
@@ -167,8 +167,14 @@ class User < ActiveRecord::Base
     #send to the aspects
     target_aspect_ids = aspects.map {|a| a.id}
 
-    target_people = Person.includes(:aspect_memberships).where(
-        "aspect_memberships.aspect_id" => target_aspect_ids, "aspect_memberships.pending" => false)
+    #target_contacts = Contact.where(:user_id => self.id, "aspect_memberships
+    target_people = Person.joins(
+      :contacts => :aspect_memberships
+    ).where(:aspect_memberships => {:aspect_id => target_aspect_ids})
+    #target_people = Person.includes(:contacts).where(
+    #  "contacts.user_id" => self.id,
+    #  "contacts.aspect_memberships.aspect_id" => target_aspect_ids,
+    #  "contacts.pending" => false)
 
     post_to_hub(post) if post.respond_to?(:public) && post.public
     push_to_people(post, target_people)

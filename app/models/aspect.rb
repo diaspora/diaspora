@@ -6,7 +6,7 @@ class Aspect < ActiveRecord::Base
   belongs_to :user
 
   has_many :aspect_memberships
-  has_many :members, :through => :aspect_memberships, :class_name => 'Person'
+  has_many :contacts, :through => :aspect_memberships
 
   has_and_belongs_to_many :posts
 
