@@ -767,8 +767,6 @@ label
     :width 100%
 
 #publisher
-  :background
-    :color #eee
   :color #999
   :position relative
   :margin
@@ -780,18 +778,9 @@ label
 
   :border
     :bottom 2px #777 solid
+    :top 1px #777 solid
 
   &.closed
-    &:hover
-      :background
-        :color #fafafa
-
-      h4
-        :color #777
-
-      img
-        :opacity 0.7
-
     .content_creation
       :display none
 
@@ -811,7 +800,7 @@ label
 
   input[type='text'],
   textarea
-    :width 460px
+    :width 435px
     :margin 0
   textarea
     :height 42px
@@ -844,57 +833,72 @@ label
 
   .content_creation
     :margin
-      :top 12px
+      :top 1em
 
-  #content_creation_button
-    :padding 10px
-      :left 5px
-      :top 15px
-      :bottom 5px
+  #click_to_share
     :position relative
+    :padding 1em
     :margin
-      :bottom -12px
+      :bottom -1em
 
-    &:hover
-      :cursor pointer
-
-    h4
+    a
       :margin
-        :left 40px
+        :left 1em
       :font
         :weight bold
       :text-shadow 0 1px 0 #fff
 
     #share_bubble
-      :height 40px
-      :width 40px
       :display inline
       :position absolute
-      :top 5px
+      :top 1em
+      :left 0px
 
   #file-upload
     :z-index 10
     :float right
-    :height 34px
-    :width 70px
+    :height 42px
+    :width 103px
     :margin 0
-    :background
-      :color #107FC9
 
     :-webkit-border-radius 5px
     :-moz-border-radius 5px
     :border-radius 5px
 
-    :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(0,123,194)), color-stop(1, rgb(65,182,250)))
-    :background -moz-linear-gradient( center bottom, rgb(0,123,194) 0%, rgb(65,182,250) 100%)
+    :border 2px dashed #ccc
 
-    :padding 9px
+    :padding 0.3em
 
     :font
-      :size 16px
       :weight bold
-    :color #eee
-    :text-shadow 0 1px 0 #333
+      :size smaller
+    :text
+      :align center
+      :shadow 0 1px 0 #eee
+
+    img
+      :display inline-block
+      :margin 0
+      :padding 0
+      :margin
+        :bottom -3px
+
+      :opacity 0.4
+
+    &:hover
+      :background
+        :color #eee
+      :cursor pointer
+
+      :color #666
+      img
+        :opacity 0.6
+
+    &:active
+      :text-shadow 0 1px 0 #fafafa
+      :color #ccc
+      img
+        :opacity 0.1
 
     &.loading
       :opacity 0.5

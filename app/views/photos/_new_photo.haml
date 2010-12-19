@@ -13,12 +13,12 @@
        button: document.getElementById('file-upload'),
        sizeLimit: 4194304,
 
-      
+
        onProgress: function(id, fileName, loaded, total){
         var progress = Math.round(loaded / total * 100 );
          $('#fileInfo').text(fileName + ' ' + progress + '%');
        },
-       
+
        messages: {
            typeError: "#{t('.invalid_ext')}",
            sizeError: "#{t('.size_error')}",
@@ -31,7 +31,7 @@
         $("#publisher .options_and_submit").fadeIn(50);
         $("#publisher_spinner").fadeIn(100);
        },
-       
+
        onComplete: function(id, fileName, responseJSON){
         $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
         $("#publisher_spinner").fadeOut(100);
@@ -39,10 +39,15 @@
         var id = responseJSON.data.photo.id;
         var url = responseJSON.data.photo.url;
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
-        $('#photodropzone').append("<li><img src='" + url +"' data-id='" + id + "' /></li>");
+        $('#photodropzone').append(
+          "<li style='position:relative;'>" +
+            "<img src='" + url +"' data-id='" + id + "' />" +
+          "</li>"
+          );
         $('#publisher').find("input[type='submit']").removeAttr('disabled');
        }
-       
+
    });
  }
+
  window.onload = createUploader;

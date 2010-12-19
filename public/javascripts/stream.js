@@ -11,15 +11,11 @@ var Stream = {
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
 
     // publisher textarea reset
-    $publisher.find("textarea").bind("blur", function(){ 
+    $publisher.find("textarea").bind("blur", function(){
       $(this).css('height','42px');
-    });
+    })
 
     // comment submit action
-    $stream.delegate("a.comment_submit", "click", function(evt) {
-      $(this).closest("form").children(".comment_box").attr("rows", 1);
-    });
-
     $stream.delegate("textarea.comment_box", "keydown", function(e){
       if (e.shiftKey && e.keyCode === 13) {
         $(this).closest("form").submit();
@@ -29,7 +25,7 @@ var Stream = {
     $stream.delegate("textarea.comment_box", "focus", function(evt) {
       var commentBox = $(this);
       commentBox
-        .closest("form").find(".comment_submit").fadeIn(200);
+        .closest("form").find(".comment_submit").show();
     });
 
     $stream.delegate("textarea.comment_box", "blur", function(evt) {
@@ -110,7 +106,7 @@ var Stream = {
       alert('failed to post message!');
     });
 
-    $(".delete").live('ajax:success', function(data, html, xhr) {
+    $(".stream").find(".delete").live('ajax:success', function(data, html, xhr) {
       $(this).parents(".message").fadeOut(150);
     });
 
