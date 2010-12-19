@@ -12,6 +12,11 @@
           $(".question_mark").click();
         };
       });
+      
+      if($("textarea#status_message_message").val() != ""){
+        $("#publisher").removeClass("closed");
+        $("#publisher .options_and_submit").show();
+      }
 
       $("#publisher textarea, #publisher input").bind("focus", function(evt){
         $("#publisher .options_and_submit").show();
