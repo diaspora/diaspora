@@ -96,13 +96,13 @@ class Person < ActiveRecord::Base
 
   def exported_key= new_key
     raise "Don't change a key" if serialized_public_key
-    @serialized_public_key = new_key
+    serialized_public_key = new_key
   end
 
   #database calls
   def self.by_account_identifier(identifier)
     identifier = identifier.strip.downcase.gsub('acct:', '')
-    self.first(:diaspora_handle => identifier)
+    self.where(:diaspora_handle => identifier).first
   end
 
   def self.local_by_account_identifier(identifier)
@@ -113,7 +113,7 @@ class Person < ActiveRecord::Base
   def self.build_from_webfinger(profile, hcard)
     return nil if profile.nil? || !profile.valid_diaspora_profile?
     new_person = Person.new
-    new_person.exported_key = profile.public_key
+    new_person.serialized_public_key = profile.public_key
     new_person.guid = profile.guid
     new_person.diaspora_handle = profile.account
     new_person.url = profile.seed_location
