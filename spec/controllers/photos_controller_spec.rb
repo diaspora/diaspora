@@ -21,6 +21,7 @@ describe PhotosController do
 
   before do
     connect_users(user1, aspect1, user2, aspect2)
+    @controller.stub!(:current_user).and_return(user1)
     sign_in :user, user1
   end
 

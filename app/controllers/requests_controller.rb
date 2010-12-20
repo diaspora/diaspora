@@ -15,10 +15,10 @@ class RequestsController < ApplicationController
       if params[:aspect_id]
         @contact = current_user.accept_and_respond( params[:id], params[:aspect_id])
         flash[:notice] = I18n.t 'requests.destroy.success'
-        respond_with :location => current_user.aspect_by_id(params[:aspect_id])
+        respond_with @contact, :location => current_user.aspect_by_id(params[:aspect_id])
       else
         flash[:error] = I18n.t 'requests.destroy.error'
-        respond_with :location => requests_url
+        respond_with @contact, :location => requests_url
       end
     else
       current_user.ignore_contact_request params[:id]

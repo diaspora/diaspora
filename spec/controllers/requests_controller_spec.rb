@@ -8,7 +8,7 @@ describe RequestsController do
   render_views
   before do
     @user = make_user
-
+    @controller.stub!(:current_user).and_return(@user)
     sign_in :user, @user
     request.env["HTTP_REFERER"] = "http://test.host"
 

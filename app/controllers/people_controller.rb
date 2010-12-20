@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
 
   def destroy
     current_user.disconnect(current_user.visible_person_by_id(params[:id]))
-    respond_with :location => root_url
+    redirect_to root_url
   end
 
   def edit

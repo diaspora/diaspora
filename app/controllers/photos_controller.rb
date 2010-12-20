@@ -65,20 +65,20 @@ class PhotosController < ApplicationController
           format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
         end
       else
-        respond_with :location => photos_path, :error => message
+        respond_with @photo, :location => photos_path, :error => message
       end
 
     rescue TypeError
       message = I18n.t 'photos.create.type_error'
-      respond_with :location => photos_path, :error => message
+      respond_with @photo, :location => photos_path, :error => message
 
     rescue CarrierWave::IntegrityError
       message = I18n.t 'photos.create.integrity_error'
-      respond_with :location => photos_path, :error => message
+      respond_with @photo, :location => photos_path, :error => message
 
     rescue RuntimeError => e
       message = I18n.t 'photos.create.runtime_error'
-      respond_with :location => photos_path, :error => message
+      respond_with @photo, :location => photos_path, :error => message
       raise e
     end
   end
@@ -118,12 +118,12 @@ class PhotosController < ApplicationController
 
 
       if photo.status_message_id
-        respond_with :location => photo.status_message
+        respond_with photo, :location => photo.status_message
       else
-        respond_with :location => person_photos_path(current_user.person)
+        respond_with photo, :location => person_photos_path(current_user.person)
       end
     else
-      respond_with :location => person_photos_path(current_user.person)
+      respond_with photo, :location => person_photos_path(current_user.person)
     end
 
   end

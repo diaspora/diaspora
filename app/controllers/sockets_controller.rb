@@ -15,5 +15,4 @@ class SocketsController < ApplicationController
     @_request = ActionDispatch::Request.new({})
     Diaspora::WebSocket.queue_to_user(uid, action_hash(uid, object, opts))
   end
-
 end

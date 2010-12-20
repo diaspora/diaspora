@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.3'
 
 gem 'bundler', '>= 1.0.0'
 gem "chef", :require => false
