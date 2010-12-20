@@ -8,7 +8,8 @@ class Aspect < ActiveRecord::Base
   has_many :aspect_memberships
   has_many :contacts, :through => :aspect_memberships
 
-  has_and_belongs_to_many :posts
+  has_many :post_visibilities
+  has_many :posts, :through => :post_visibilities
 
   validates_presence_of :name
   validates_length_of :name, :maximum => 20

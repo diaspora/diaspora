@@ -33,7 +33,18 @@ describe Post do
   describe '#mutable?' do
     it 'should be false by default' do
       post = @user.post :status_message, :message => "hello", :to => @aspect.id
-      post.mutable?.should == false   
+      post.mutable?.should == false
+    end
+  end
+
+  describe '#decrement_user_refs' do
+    before do
+      @post = @user.post :status_message, :message => "hello", :to => @aspect.id
+    end
+    it 'decrements user_refs' do
+      lambda {
+        @post.decrement_user_refs
+      }.should change(@post, :user_refs).by(-1)
     end
   end
 end

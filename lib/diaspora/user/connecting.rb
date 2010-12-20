@@ -78,28 +78,19 @@ module Diaspora
         remove_contact(bad_contact)
       end
 
-      def remove_contact(bad_contact)
-        contact = contact_for(bad_contact)
-        contact.aspects.each do |aspect|
-          contact.aspects.delete(aspect)
-          aspect.posts.each do |post|
-            aspect.post_ids.delete(post.id) if post.person == bad_contact
-          end
-          aspect.save
+      def remove_contact(bad_person)
+        contact = contact_for(bad_person)
+        posts = raw_visible_posts.where(:person_id => bad_person.id)
+        visibilities = PostVisibility.joins(:post, :aspect).where(
+          :posts => {:person_id => bad_person.id},
+          :aspects => {:user_id => self.id}
+        )
+        visibility_ids = visibilities.map{|v| v.id}
+        PostVisibility.where(:id => visibility_ids).delete_all
+        posts.each do |post|
+          post.decrement_user_refs
         end
-
-        self.raw_visible_posts.find_all_by_person_id(bad_contact.id).each do |post|
-          self.visible_post_ids.delete(post.id)
-          post.user_refs -= 1
-          if (post.user_refs > 0) || post.person.owner.nil? == false
-            post.save
-          else
-            post.destroy
-          end
-        end
-        self.save
         raise "Contact not deleted" unless contact.destroy
-        bad_contact.save
       end
 
       def disconnected_by(bad_contact)

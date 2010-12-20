@@ -32,16 +32,6 @@ ActiveRecord::Schema.define(:version => 0) do
 
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
-  create_table "aspects_posts", :id => false, :force => true do |t|
-    t.integer  "aspect_id"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "aspects_posts", ["aspect_id"], :name => "index_aspects_posts_on_aspect_id"
-  add_index "aspects_posts", ["post_id"], :name => "index_aspects_posts_on_post_id"
-
   create_table "comments", :force => true do |t|
     t.text     "text"
     t.integer  "post_id"
@@ -105,6 +95,16 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
   add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
+
+  create_table "post_visibilities", :force => true do |t|
+    t.integer  "aspect_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_visibilities", ["aspect_id"], :name => "index_post_visibilities_on_aspect_id"
+  add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|
     t.integer  "person_id"

@@ -15,7 +15,8 @@ class Post < ActiveRecord::Base
   #xml_accessor :created_at
 
   has_many :comments, :order => 'created_at ASC'
-  has_and_belongs_to_many :aspects
+  has_many :post_visibilities
+  has_many :aspects, :through => :post_visibilities
   belongs_to :person
 
   cattr_reader :per_page
@@ -49,6 +50,15 @@ class Post < ActiveRecord::Base
 
   def mutable?
     false
+  end
+
+  def decrement_user_refs
+    user_refs -= 1
+    if (user_refs > 0) || person.owner.nil? == false
+      save
+    else
+      destroy
+    end
   end
 
   protected

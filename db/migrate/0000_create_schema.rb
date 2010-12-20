@@ -16,14 +16,6 @@ class CreateSchema < ActiveRecord::Migration
     add_index :aspect_memberships, [:aspect_id, :contact_id], :unique => true
     add_index :aspect_memberships, :contact_id
 
-    create_table :aspects_posts, :id => false do |t|
-      t.integer :aspect_id
-      t.integer :post_id
-      t.timestamps
-    end
-    add_index :aspects_posts, :aspect_id
-    add_index :aspects_posts, :post_id
-
     create_table :comments do |t|
       t.text :text
       t.integer :post_id
@@ -95,6 +87,14 @@ class CreateSchema < ActiveRecord::Migration
     end
     add_index :posts, :type
     add_index :posts, :person_id
+
+    create_table :post_visibilities do |t|
+      t.integer :aspect_id
+      t.integer :post_id
+      t.timestamps
+    end
+    add_index :post_visibilities, :aspect_id
+    add_index :post_visibilities, :post_id
 
     create_table :profiles do |t|
       t.string :diaspora_handle
