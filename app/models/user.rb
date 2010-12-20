@@ -299,7 +299,7 @@ class User
       params[:image_url_small] = params[:photo].url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
-      push_to_people profile, self.person_objects(contacts(:pending => false))
+      push_to_people profile, self.person_objects(contacts.where(:pending => false))
       true
     else
       false

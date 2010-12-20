@@ -262,6 +262,15 @@ describe User do
       user.update_profile(params).should be_true
       user.reload.profile.image_url.should == "http://clown.com"
     end
+    it "only pushes to non-pending contacts" do
+      connect_users(user, aspect, user2, aspect2)
+      user.contacts.count.should == 1
+      user.send_contact_request_to(make_user.person, aspect)
+      user.contacts.count.should == 2
+
+      user.should_receive(:push_to_person).once
+      user.update_profile(@params).should be_true
+    end
     context 'passing in a photo' do
       before do
         fixture_filename  = 'button.png'
