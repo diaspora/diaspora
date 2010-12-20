@@ -4,7 +4,7 @@ $(document).ready(function() {
                    // selector for the paged navigation (it will be hidden)
     nextSelector : ".pagination a.next_page",    
                    // selector for the NEXT link (to page 2)
-    itemSelector : "#main_stream",
+    itemSelector : "#main_stream li.message",
                    // selector for all items you'll retrieve
     bufferPx: 300,
     donetext: "no more.",
