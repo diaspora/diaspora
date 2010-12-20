@@ -12,7 +12,7 @@ describe Notification do
     @user = make_user
     @user2 = make_user
     @aspect  = @user.aspects.create(:name => "dudes")
-    @opts = {:object_id => @sm.id, :kind => @sm.class.name, :person_id => @person.id, :user_id => @user.id}
+    @opts = {:target_id => @sm.id, :kind => @sm.class.name, :person_id => @person.id, :user_id => @user.id}
     @note = Notification.new(@opts)
   end
 
@@ -20,8 +20,8 @@ describe Notification do
     @note.kind.should == StatusMessage.name
   end
 
-  it 'contains a object_id' do
-    @note.object_id.should == @sm.id
+  it 'contains a target_id' do
+    @note.target_id.should == @sm.id
   end
 
   it 'contains a person_id' do
