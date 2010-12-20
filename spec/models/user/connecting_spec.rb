@@ -23,13 +23,13 @@ describe Diaspora::UserModules::Connecting do
 
       proc {
         user.send_contact_request_to(user2.person, aspect1)
-      }.should raise_error(MongoMapper::DocumentNotValid)
+      }.should raise_error(ActiveRecord::RecordInvalid)
     end
 
     it 'should not be able to contact request no-one' do
       proc {
         user.send_contact_request_to(nil, aspect)
-      }.should raise_error(MongoMapper::DocumentNotValid)
+      }.should raise_error(ActiveRecord::RecordInvalid)
     end
     it 'creates a pending contact' do
       proc {
@@ -41,7 +41,7 @@ describe Diaspora::UserModules::Connecting do
     it 'persists no request for requester' do
       proc {
         user.send_contact_request_to(user2.person, aspect1)
-      }.should_not change{Request.to(user).count}
+      }.should_not change{Request.where(:recipient_id => user.person.id).count}
     end
   end
 
@@ -53,7 +53,7 @@ describe Diaspora::UserModules::Connecting do
 
       it 'adds a request to pending if it was not sent by user' do
         user.receive_contact_request(@r)
-        Request.to(user).all.should include @r
+        Request.where(:recipient_id => user.person.id).all.should include @r
       end
 
       it 'enqueues a mail job' do
@@ -71,15 +71,9 @@ describe Diaspora::UserModules::Connecting do
         user.receive_request(@acceptance, user2.person)
         user.contact_for(user2.person).should_not be_nil
       end
-      it 'deletes the original request' do
-        user.receive_request(@acceptance, user2.person)
-        Request.to(user).all.include?(@original_request).should be_false
-        Request.find(@original_request.id).should be_nil
-      end
       it 'deletes the acceptance' do
         user.receive_request(@acceptance, user2.person)
-        Request.to(user).all.include?(@original_request).should be_false
-        Request.find(@acceptance.id).should be_nil
+        Request.where(:sender_id => user2.person.id, :recipient_id => user.person.id).should be_empty
       end
       it 'enqueues a mail job' do
         Resque.should_receive(:enqueue).with(Jobs::MailRequestAcceptance, user.id, user2.person.id).once
@@ -94,9 +88,9 @@ describe Diaspora::UserModules::Connecting do
       let(:request_from_myself) {Request.diaspora_initialize(:to => user.person, :from => user.person)}
       before do
         user.receive(request_for_user.to_diaspora_xml, person)
-        @received_request = Request.from(person).to(user.person).first
+        @received_request = Request.where(:sender_id => person.id, :recipient_id => user.person.id).first
         user.receive(request2_for_user.to_diaspora_xml, person_one)
-        @received_request2 = Request.from(person_one).to(user.person).first
+        @received_request2 = Request.where(:sender_id => person_one.id, :recipient_id => user.person.id).first
         user.reload
       end
 
@@ -121,9 +115,9 @@ describe Diaspora::UserModules::Connecting do
     describe 'multiple users accepting/rejecting the same person' do
 
       before do
-        Request.to(user).count.should == 0
+        Request.where(:recipient_id => user.person.id).count.should == 0
         user.contacts.empty?.should be true
-        Request.to(user2).count.should == 0
+        Request.where(:recipient_id => user2.person.id).count.should == 0
         user2.contacts.empty?.should be true
 
         @request       = Request.diaspora_initialize(:to => user.person, :from => person_one)
@@ -184,10 +178,10 @@ describe Diaspora::UserModules::Connecting do
 
 
         it 'should keep the person around if the users ignores them' do
-          user.ignore_contact_request Request.to(user).first.id
+          user.ignore_contact_request Request.where(:recipient_id => user.person.id).first.id
           user.contact_for(person_one).should be_nil
 
-          user2.ignore_contact_request Request.to(user2).first.id
+          user2.ignore_contact_request Request.where(:recipient_id => user2.person.id).first.id
           user2.contact_for(person_one).should be_nil
         end
       end
@@ -204,20 +198,20 @@ describe Diaspora::UserModules::Connecting do
       it "keeps the right counts of contacts" do
         received_req = user.receive @request.to_diaspora_xml, person_one
 
-        Request.to(user).count.should == 1
+        Request.where(:recipient_id => user.person.id).count.should == 1
         user.reload.contacts.size.should be 0
 
         received_req2 = user.receive @request_two.to_diaspora_xml, person_two
-        Request.to(user).count.should == 2
+        Request.where(:recipient_id => user.person.id).count.should == 2
         user.reload.contacts.size.should be 0
 
         user.accept_contact_request received_req, aspect
-        Request.to(user).count.should == 1
+        Request.where(:recipient_id => user.person.id).count.should == 1
         user.reload.contacts.size.should be 1
         user.contact_for(person_one).should_not be_nil
 
         user.ignore_contact_request received_req2.id
-        Request.to(user).count.should == 0
+        Request.where(:recipient_id => user.person.id).count.should == 0
         user.reload.contacts.size.should be 1
         user.contact_for(person_two).should be_nil
       end

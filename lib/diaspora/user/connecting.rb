@@ -31,14 +31,14 @@ module Diaspora
       end
 
       def accept_and_respond(contact_request_id, aspect_id)
-        request          = Request.to(self.person).find!(contact_request_id)
+        request          = Request.where(:recipient_id => self.person.id, :id => contact_request_id).first
         requester        = request.sender
         reversed_request = accept_contact_request(request, aspects.where(:id => aspect_id).first )
         dispatch_contact_acceptance reversed_request, requester
       end
 
       def ignore_contact_request(contact_request_id)
-        request = Request.to(self.person).find!(contact_request_id)
+        request = Request.where(:recipient_id => self.person.id, :id => contact_request_id).first
         request.destroy
       end
 
