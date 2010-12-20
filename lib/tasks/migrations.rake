@@ -39,22 +39,24 @@ namespace :migrations do
     require File.join(Rails.root,"config/environment")
 
     Photo.all.each do |photo|
-      # extract root
-      pod_url = photo.person.url
-      pod_url.chop! if pod_url[-1,1] == '/'
+      unless photo.remote_photo_path
+        # extract root
+        pod_url = photo.person.url
+        pod_url.chop! if pod_url[-1,1] == '/'
 
-      if photo.image.url
-        remote_path = "#{pod_url}#{photo.image.url}"
-      else
-        remote_path = "#{pod_url}#{photo.remote_photo_path}/#{photo.remote_photo_name}"
+        if photo.image.url
+          remote_path = "#{pod_url}#{photo.image.url}"
+        else
+          remote_path = "#{pod_url}#{photo.remote_photo_path}/#{photo.remote_photo_name}"
+        end
+
+        # get path/filename
+        name_start = remote_path.rindex '/'
+        photo.remote_photo_path = "#{remote_path.slice(0, name_start)}/"
+        photo.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
+
+        photo.save!
       end
-
-      # get path/filename
-      name_start = remote_path.rindex '/'
-      photo.remote_photo_path = "#{remote_path.slice(0, name_start)}/"
-      photo.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
-
-      photo.save!
     end
   end
 end
