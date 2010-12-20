@@ -50,36 +50,6 @@ describe Request do
     end
   end
 
-  describe 'scopes' do
-    before do
-      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
-      @request.save
-    end
-    describe '.from' do
-      it 'returns requests from a person' do
-        query = Request.from(@user.person)
-        query.first.should == @request
-      end
-
-      it 'returns requests from a user' do
-        query = Request.from(@user)
-        query.first.should == @request
-      end
-    end
-    describe '.to' do
-      it 'returns requests to a person' do
-        query = Request.to(@user2.person)
-        query.first.should == @request
-      end
-      it 'returns requests to a user' do
-        query = Request.to(@user2)
-        query.first.should == @request
-      end
-    end
-    it 'chains' do
-      Request.from(@user).to(@user2.person).first.should == @request
-    end
-  end
   describe '#notification_type' do
     before do
       @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
@@ -105,7 +75,7 @@ describe Request do
       @hash = @hashes.first
     end
     it 'gives back requests' do
-      @hash[:request].should == Request.from(@user2).to(@user).first
+      @hash[:request].should == Request.where(:sender_id => @user2.person.id, :recipient_id => @user.person.id).first
     end
     it 'gives back people' do
       @hash[:sender].should == @user2.person
@@ -121,11 +91,11 @@ describe Request do
       @xml = @request.to_xml.to_s
     end
     describe 'serialization' do
-      it 'should not generate xml for the User as a Person' do
+      it 'does not generate xml for the User as a Person' do
         @xml.should_not include @user.person.profile.first_name
       end
 
-      it 'should serialize the handle and not the sender' do
+      it 'serializes the handle and not the sender' do
         @xml.should include @user.person.diaspora_handle
       end
 
@@ -133,7 +103,7 @@ describe Request do
         @xml.should include @user2.person.diaspora_handle
       end
 
-      it 'should not serialize the exported key' do
+      it 'does not serialize the exported key' do
         @xml.should_not include @user.person.exported_key
       end
     end

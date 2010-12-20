@@ -20,17 +20,6 @@ class Request < ActiveRecord::Base
   validate :not_already_connected
   validate :not_friending_yourself
 
-  scope :from, lambda { |person|
-    target = (person.is_a?(User) ? person.person : person)
-    where(:sender_id => target.id)
-  }
-
-  scope :to, lambda { |person|
-    target = (person.is_a?(User) ? person.person : person)
-    where(:recipient_id => target.id)
-  }
-
-
   def self.diaspora_initialize(opts = {})
     self.new(:sender => opts[:from],
              :recipient   => opts[:to],
@@ -65,7 +54,7 @@ class Request < ActiveRecord::Base
   end
 
   def self.hashes_for_person person
-    requests = Request.to(person).all
+    requests = Request.where(:recipient_id => person.id)
     senders = Person.where(:id => requests.map{|r| r.sender_id})
     senders_hash = {}
     senders.each{|sender| senders_hash[sender.id] = sender}
