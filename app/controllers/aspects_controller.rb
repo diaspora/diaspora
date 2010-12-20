@@ -98,7 +98,7 @@ class AspectsController < ApplicationController
     @from_aspect = current_user.aspects.find(params[:from])
     @to_aspect = current_user.aspects.find(params[:to][:to])
 
-    unless current_user.move_contact( @person, @from_aspect, @to_aspect)
+    unless current_user.move_contact( @person, @to_aspect, @from_aspect)
       flash[:error] = I18n.t 'aspects.move_contact.error',:inspect => params.inspect
     end
     if aspect = current_user.aspect_by_id(params[:to][:to])
