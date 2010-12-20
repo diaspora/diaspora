@@ -91,7 +91,7 @@
           %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
           %li= link_to 'github', "https://github.com/diaspora/diaspora"
           %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
-          %li= link_to t('layouts.header.code'), "#{root_url}source.tar.gz"
+          %li= link_to t('layouts.header.code'), "#{root_url}/source.tar.gz"
           %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
 
     -if !@landing_page && request.url.match(/joindiaspora.com/)

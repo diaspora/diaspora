@@ -8,35 +8,40 @@
 #   Specific items
 #     * pod_url: As in app_config.yml, normalized with a trailing /.
 #     * pod_uri: An uri object derived from pod_url.
-
-require 'uri'
-
-def load_config_yaml filename
-  YAML.load(File.read(filename))
-end
-
-if File.exist? "#{Rails.root}/config/app_config.yml"
-  all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml"
-  all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example" unless all_envs
+#
+if defined? APP_CONFIG
+  false
 else
-  puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
-  all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example"
-end
+  require 'uri'
 
-if all_envs[Rails.env.to_s]
-  APP_CONFIG = all_envs['default'].merge(all_envs[Rails.env.to_s]).symbolize_keys
-else
-  APP_CONFIG = all_envs['default'].symbolize_keys
-end
+  def load_config_yaml filename
+    YAML.load(File.read(filename))
+  end
 
-begin
+  if File.exist? "#{Rails.root}/config/app_config.yml"
+    all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml"
+    all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example" unless all_envs
+  else
+    puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
+    all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example"
+  end
+
+  if all_envs[Rails.env.to_s]
+    APP_CONFIG = all_envs['default'].merge(all_envs[Rails.env.to_s]).symbolize_keys
+  else
+    APP_CONFIG = all_envs['default'].symbolize_keys
+  end
+
+  begin
     APP_CONFIG[:pod_uri] = URI.parse( APP_CONFIG[:pod_url])
-rescue
+  rescue
     puts "WARNING: pod url " + APP_CONFIG[:pod_url] + " is not a legal URI"
-end
+  end
 
-APP_CONFIG[:pod_url] = APP_CONFIG[:pod_uri].normalize.to_s
+  APP_CONFIG[:pod_url] = APP_CONFIG[:pod_uri].normalize.to_s
+  APP_CONFIG[:pod_url].chomp!("/");  APP_CONFIG[:pod_url]+= '/'
 
-if APP_CONFIG[:pod_uri].host == "example.org" && Rails.env != "test"
+  if APP_CONFIG[:pod_uri].host == "example.org" && Rails.env != "test"
     puts "WARNING: Please modify your app_config.yml to have a proper pod_url!"
+  end
 end

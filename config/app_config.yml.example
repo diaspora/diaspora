@@ -4,7 +4,7 @@
 
 default:
 
-  # Hostname of this host, as seen from the internet.
+  # Url of this host, as seen from the internet.
   pod_url: "http://localhost:3000"
 
   # Set this to true in order to close signups.  Users will still be
@@ -68,12 +68,12 @@ default:
 
   #google analytics key, if false, it won't include the javascript
   google_a_site: false
-  
+
   #piwik integration if not set, no javascript included
-  piwik_id: 
+  piwik_id:
   # the site url in raw format (e.g. pikwik.examplehost.com)
-  piwik_url: 
-  
+  piwik_url:
+
 
   #cloudfiles username and api-key, used for backups
   cloudfiles_username: 'example'

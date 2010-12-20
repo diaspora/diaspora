@@ -18,6 +18,7 @@ public/stylesheets/application.css
 public/stylesheets/sessions.css
 public/stylesheets/ui.css
 public/stylesheets/mobile.css
+public/diaspora
 spec/fixtures/users.yaml
 
 # Uploded files and local files
