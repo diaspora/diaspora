@@ -58,7 +58,7 @@ class CreateSchema < ActiveRecord::Migration
     create_table :notifications do |t|
       t.string :target_type
       t.integer :target_id
-      t.integer :receiver_id
+      t.integer :recipient_id
       t.integer :actor_id
       t.string :action
       t.boolean :unread, :default => true
@@ -79,10 +79,11 @@ class CreateSchema < ActiveRecord::Migration
     add_index :people, :diaspora_handle, :unique => true
 
     create_table :posts do |t|
+      t.integer :person_id
       t.boolean :public, :default => false
       t.string :diaspora_handle
       t.boolean :pending
-      t.integer :user_refs
+      t.integer :user_refs, :default => 0
       t.string :type
       t.text :message
       t.integer :status_message_id
@@ -93,6 +94,7 @@ class CreateSchema < ActiveRecord::Migration
       t.timestamps
     end
     add_index :posts, :type
+    add_index :posts, :person_id
 
     create_table :profiles do |t|
       t.string :diaspora_handle
@@ -138,7 +140,7 @@ class CreateSchema < ActiveRecord::Migration
     create_table :users do |t|
       t.string :username
       t.text :serialized_private_key
-      t.integer :invites
+      t.integer :invites, :default => 0
       t.boolean :getting_started, :default => true
       t.boolean :disable_mail, :default => false
       t.string :language

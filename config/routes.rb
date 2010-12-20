@@ -7,7 +7,7 @@ Diaspora::Application.routes.draw do
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
   resources :services
-  
+
   resources :notifications
   resources :posts,           :only => [:show], :path => '/p/'
 
@@ -26,9 +26,9 @@ Diaspora::Application.routes.draw do
   match 'photos/make_profile_photo' => 'photos#make_profile_photo'
   resources :photos, :except => [:index]
 
-#  devise_for :users, :controllers => {:registrations => "registrations",
-#                                      :password      => "devise/passwords",
-#                                      :invitations   => "invitations"}
+  devise_for :users, :controllers => {:registrations => "registrations",
+                                      :password      => "devise/passwords",
+                                      :invitations   => "invitations"}
   # added public route to user
   match 'public/:username',          :to => 'users#public'
   match 'getting_started',           :to => 'users#getting_started', :as => 'getting_started'

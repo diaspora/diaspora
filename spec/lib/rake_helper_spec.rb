@@ -31,7 +31,7 @@ describe RakeHelpers do
       User.count.should == 0
 
       process_emails(@csv, 1, 1, 10, false)
-      
+
       User.count.should == 1
       User.first.invites.should == 10
     end
@@ -55,12 +55,12 @@ describe RakeHelpers do
 
     it 'should fix diaspora handles' do
 
-    
+
       RakeHelpers::fix_diaspora_handle_spaces(false)
 
       Person.all.all?{|x| !x.diaspora_handle.include?(" ")}.should == true
     end
-    
+
     it 'should delete broken space people with no users' do
       expect{
         RakeHelpers::fix_diaspora_handle_spaces(false)
@@ -86,7 +86,7 @@ describe RakeHelpers do
 
       User.first.username.should == 'max'
       User.first.person.diaspora_handle.should == new_d_handle
-      User.first.my_posts.all.all?{|x| x.diaspora_handle == new_d_handle}.should == true
+      User.first.posts.all.all?{|x| x.diaspora_handle == new_d_handle}.should == true
     end
   end
 end

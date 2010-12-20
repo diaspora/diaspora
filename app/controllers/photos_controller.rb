@@ -110,7 +110,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    photo = current_user.my_posts.where(:_id => params[:id]).first
+    photo = current_user.posts.where(:_id => params[:id]).first
 
     if photo
       photo.destroy
@@ -153,7 +153,7 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    if @photo = current_user.my_posts.where(:_id => params[:id]).first
+    if @photo = current_user.posts.where(:_id => params[:id]).first
       respond_with @photo
     else
       redirect_to person_photos_path(current_user.person)
@@ -161,7 +161,7 @@ class PhotosController < ApplicationController
   end
 
   def update
-    photo = current_user.my_posts.where(:_id => params[:id]).first
+    photo = current_user.posts.where(:_id => params[:id]).first
     if photo
       if current_user.update_post( photo, params[:photo] )
         flash.now[:notice] = I18n.t 'photos.update.notice'

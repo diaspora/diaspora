@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
          :timeoutable
 
 #  key :visible_post_ids, Array, :typecast => 'ObjectId'
-#  key :visible_person_ids, Array, :typecast => 'ObjectId'
 #
   before_validation :strip_and_downcase_username, :on => :create
   before_validation :set_current_language, :on => :create
@@ -30,7 +29,7 @@ class User < ActiveRecord::Base
   validates_associated :person
 
   has_one :person, :foreign_key => :owner_id
-  delegate :diaspora_handle, :name, :public_url, :profile, :to => :person
+  delegate :public_key, :posts, :owns?, :diaspora_handle, :name, :public_url, :profile, :to => :person
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
@@ -39,7 +38,6 @@ class User < ActiveRecord::Base
   has_many :contacts
   has_many :contact_people, :through => :contacts
   has_many :services
-#  many :visible_people, :in => :visible_person_ids, :class => Person # One of these needs to go
 #  many :raw_visible_posts, :in => :visible_post_ids, :class => Post
 
 #  many :services, :class => Service
@@ -279,7 +277,7 @@ class User < ActiveRecord::Base
       params[:image_url_small] = params[:photo].url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
-      push_to_people profile, self.person_objects(contacts(:pending => false))
+      push_to_people profile, contacts.includes(:person).where(:pending => false).map{|c| c.person}
       true
     else
       false
@@ -302,7 +300,7 @@ class User < ActiveRecord::Base
   def accept_invitation!(opts = {})
     if self.invited?
       log_string = "event=invitation_accepted username=#{opts[:username]} "
-      log_string << "inviter=#{invitations_to_me.first.from.diaspora_handle}" if invitations_to_me.first
+      log_string << "inviter=#{invitations_to_me.first.sender.diaspora_handle}" if invitations_to_me.first
       Rails.logger.info log_string
       self.setup(opts)
       self.invitation_token = nil
@@ -332,7 +330,10 @@ class User < ActiveRecord::Base
     return if errors.size > 0
 
     opts[:person] ||= {}
-    opts[:person][:profile] ||= Profile.new
+    unless opts[:person][:profile].is_a?(Profile)
+      opts[:person][:profile] ||= Profile.new
+      opts[:person][:profile] = Profile.new(opts[:person][:profile])
+    end
 
     self.person = Person.new(opts[:person])
     self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:pod_uri].host}"

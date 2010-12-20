@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table "notifications", :force => true do |t|
     t.string   "target_type"
     t.integer  "target_id"
-    t.integer  "receiver_id"
+    t.integer  "recipient_id"
     t.integer  "actor_id"
     t.string   "action"
-    t.boolean  "unread",      :default => true
+    t.boolean  "unread",       :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,10 +107,11 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "posts", :force => true do |t|
+    t.integer  "person_id"
     t.boolean  "public",            :default => false
     t.string   "diaspora_handle"
     t.boolean  "pending"
-    t.integer  "user_refs"
+    t.integer  "user_refs",         :default => 0
     t.string   "type"
     t.text     "message"
     t.integer  "status_message_id"
@@ -122,6 +123,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["type"], :name => "index_posts_on_type"
 
   create_table "profiles", :force => true do |t|
@@ -174,7 +176,7 @@ ActiveRecord::Schema.define(:version => 0) do
   create_table "users", :force => true do |t|
     t.string   "username"
     t.text     "serialized_private_key"
-    t.integer  "invites"
+    t.integer  "invites",                               :default => 0
     t.boolean  "getting_started",                       :default => true
     t.boolean  "disable_mail",                          :default => false
     t.string   "language"

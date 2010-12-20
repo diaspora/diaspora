@@ -30,7 +30,6 @@ RSpec.configure do |config|
     EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
     RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
 
-    UserFixer.load_user_fixtures
     $process_queue = false
   end
 end

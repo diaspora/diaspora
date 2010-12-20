@@ -45,7 +45,7 @@ class AspectsController < ApplicationController
   end
 
   def destroy
-    @aspect = current_user.aspect_by_id params[:id]
+    @aspect = current_user.aspects.where(:id => params[:id]).first
 
     begin
       current_user.drop_aspect @aspect
@@ -58,7 +58,7 @@ class AspectsController < ApplicationController
   end
 
   def show
-    @aspect = current_user.aspect_by_id params[:id]
+    @aspect = current_user.aspects.where(:id => params[:id]).first
     @contacts = current_user.contacts(:pending => false)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
@@ -84,7 +84,7 @@ class AspectsController < ApplicationController
   end
 
   def update
-    @aspect = current_user.aspect_by_id(params[:id])
+    @aspect = current_user.aspects.where(:id => params[:id]).first
     if @aspect.update_attributes( params[:aspect] )
       flash[:notice] = I18n.t 'aspects.update.success',:name => @aspect.name
     else
@@ -95,13 +95,13 @@ class AspectsController < ApplicationController
 
   def move_contact
     @person = Person.find(params[:person_id])
-    @from_aspect = current_user.aspects.find(params[:from])
-    @to_aspect = current_user.aspects.find(params[:to][:to])
+    @from_aspect = current_user.aspects.where(:id => params[:from]).first
+    @to_aspect = current_user.aspects.where(:id => params[:to][:to]).first
 
     unless current_user.move_contact( @person, @from_aspect, @to_aspect)
       flash[:error] = I18n.t 'aspects.move_contact.error',:inspect => params.inspect
     end
-    if aspect = current_user.aspect_by_id(params[:to][:to])
+    if aspect = current_user.aspects.where(:id => params[:to][:to]).first
       flash[:notice] = I18n.t 'aspects.move_contact.success'
       render :nothing => true
     else
@@ -171,7 +171,7 @@ class AspectsController < ApplicationController
 
   private
   def hashes_for_contacts contacts
-    people = Person.all(:id.in => contacts.map{|c| c.person_id}, :fields => [:profile, :diaspora_handle])
+    people = Person.all(:id.in => contacts.map{|c| c.person_id})
     people_hash = {}
     people.each{|p| people_hash[p.id] = p}
     contacts.map{|c| {:contact => c, :person => people_hash[c.person_id.to_id]}}
@@ -202,7 +202,7 @@ class AspectsController < ApplicationController
     photo_hash = Photo.hash_from_post_ids post_ids
 
     post_person_ids.uniq!
-    posters = Person.all(:id.in => post_person_ids, :fields => [:profile, :owner_id, :diaspora_handle])
+    posters = Person.all(:id.in => post_person_ids)
     posters_hash = {}
     posters.each{|poster| posters_hash[poster.id] = poster}
 

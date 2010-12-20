@@ -6,31 +6,9 @@ require 'spec_helper'
 
 describe 'making sure the spec runner works' do
   it 'factoy creates a user with a person saved' do
-    user = make_user
+    user = Factory.create(:user)
     loaded_user = User.first(:id => user.id)
     loaded_user.person.owner_id.should == user.id
-  end
-
-  describe 'fixtures' do
-    it 'does not save the fixtures without prompting' do
-      User.count.should == 0
-    end
-
-    describe '#make_user' do
-      it 'returns a user on' do
-        new_user = make_user
-        new_user.is_a?(User).should be_true
-        User.count.should == 1
-      end
-
-      it 'returns a different user the second time' do
-        new_user = make_user
-        second_user = make_user
-
-        User.count.should == 2
-        new_user.id.should_not == second_user.id
-      end
-    end
   end
 
   describe 'factories' do
@@ -47,9 +25,9 @@ describe 'making sure the spec runner works' do
 
    describe '#connect_users' do
     before do
-      @user1 = make_user
+      @user1 = Factory.create(:user)
       @aspect1 = @user1.aspects.create(:name => "losers")
-      @user2 = make_user
+      @user2 = Factory.create(:user)
       @aspect2 = @user2.aspects.create(:name => "bruisers")
       connect_users(@user1, @aspect1, @user2, @aspect2)
     end

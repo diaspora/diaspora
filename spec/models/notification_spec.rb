@@ -5,27 +5,30 @@
 require 'spec_helper'
 
 
-describe Notification do 
+describe Notification do
   before do
     @sm = Factory(:status_message)
     @person = Factory(:person)
     @user = Factory.create(:user)
     @user2 = Factory.create(:user)
     @aspect  = @user.aspects.create(:name => "dudes")
-    @opts = {:object_id => @sm.id, :kind => @sm.class.name, :person_id => @person.id, :user_id => @user.id}
+    @opts = {:target_id => @sm.id,
+      :target_type => @sm.class.name,
+      :actor_id => @person.id,
+      :recipient_id => @user.id}
     @note = Notification.new(@opts)
   end
 
   it 'contains a type' do
-    @note.kind.should == StatusMessage.name
+    @note.target_type.should == StatusMessage.name
   end
 
   it 'contains a object_id' do
-    @note.object_id.should == @sm.id
+    @note.target_id.should == @sm.id
   end
 
   it 'contains a person_id' do
-    @note.person.id == @person.id
+    @note.actor_id == @person.id
   end
 
   describe '.for' do
@@ -35,9 +38,9 @@ describe Notification do
       Notification.create(@opts)
       Notification.create(@opts)
       Notification.create(@opts)
-      
+
       @opts.delete(:user_id)
-      Notification.create(@opts.merge(:user_id => user2.id))
+      Notification.create(@opts.merge(:recipient_id => user2.id))
 
       Notification.for(@user).count.should == 4
     end

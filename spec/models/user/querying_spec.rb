@@ -19,7 +19,7 @@ describe User do
 
   describe "#raw_visible_posts" do
     it "returns all the posts the user can see" do
-      @user2.add_contact_to_aspect(@user.person, @aspect2)
+      connect_users(@user2, @aspect2, @user, @aspect)
       self_post = @user.post(:status_message, :message => "hi", :to => @aspect.id)
       visible_post = @user2.post(:status_message, :message => "hello", :to => @aspect2.id)
       dogs = @user2.aspects.create(:name => "dogs")
@@ -87,29 +87,6 @@ describe User do
         end
       end
     end
-
-    describe '#my_posts' do
-      it 'should return only my posts' do
-        posts2 = @user2.my_posts
-        posts2.should include status_message1
-        posts2.should include status_message2
-        posts2.should_not include status_message3
-        @user.my_posts.should include status_message3
-      end
-
-      it 'returns query objexts so chainable' do
-        @user2.my_posts.where(:_id => status_message1.id.to_s).all.should == [status_message1]
-
-        pub_posts = @user2.my_posts.where(:public => true).all
-
-        pub_posts.should_not include status_message1
-        pub_posts.should include status_message2
-        pub_posts.should include status_message4
-        pub_posts.should_not include status_message3
-
-        @user.my_posts.where(:public => false).all.should == []
-      end
-    end
   end
 
   context 'with two users' do
@@ -128,21 +105,6 @@ describe User do
         people = @user.contacts_not_in_aspect(first_aspect)
         people.should == [@user2.person]
       end
-    end
-
-    describe '#person_objects' do
-      it 'returns "person" objects for all of my contacts' do
-        people = @user.person_objects
-        people.size.should == 2
-        [user4.person, @user2.person].each{ |p| people.should include p }
-      end
-
-      it 'should return people objects given a collection of contacts' do
-        target_contacts = [@user.contact_for(user2.person)]
-        people = @user.person_objects(target_contacts) 
-        people.should == [@user2.person]
-      end
-
     end
 
     describe '#people_in_aspects' do
@@ -225,7 +187,7 @@ describe User do
     describe '#contact_for' do
       it 'takes a person_id and returns a contact' do
         @user.should_receive(:contact_for_person_id).with(person_one.id)
-        @user.contact_for(person_one) 
+        @user.contact_for(person_one)
       end
     end
   end
@@ -246,28 +208,31 @@ describe User do
   end
 
   describe '#posts_from' do
-    let!(:user3) {Factory(:user)}
-    let!(:aspect3) {user3.aspects.create(:name => "bros")}
-    
-    let!(:public_message) {user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)}
-    let!(:private_message) {user3.post(:status_message, :message => "hey there", :to => aspect3.id)}
+    before do
+
+    @user3 = Factory(:user)
+    @aspect3 = @user3.aspects.create(:name => "bros")
+
+    @public_message = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+    @private_message = @user3.post(:status_message, :message => "hey there", :to => @aspect3.id)
+    end
 
     it 'displays public posts for a non-contact' do
-      @user.posts_from(user3.person).should include public_message
+      @user.posts_from(@user3.person).should include @public_message
     end
 
     it 'does not display private posts for a non-contact' do
-      @user.posts_from(user3.person).should_not include private_message
+      @user.posts_from(@user3.person).should_not include @private_message
     end
 
     it 'displays private and public posts for a non-contact after connecting' do
-      connect_users(user, aspect, user3, aspect3)
-      new_message = user3.post(:status_message, :message => "hey there", :to => aspect3.id)
+      connect_users(@user, @aspect, @user3, @aspect3)
+      new_message = @user3.post(:status_message, :message => "hey there", :to => @aspect3.id)
 
       @user.reload
 
-      @user.posts_from(user3.person).should include public_message
-      @user.posts_from(user3.person).should include new_message
+      @user.posts_from(@user3.person).should include @public_message
+      @user.posts_from(@user3.person).should include new_message
     end
   end
 end

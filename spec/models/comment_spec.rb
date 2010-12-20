@@ -13,13 +13,6 @@ describe Comment do
 
   let!(:connecting) { connect_users(user, aspect, user2, aspect2) }
 
-  it 'validates that the handle belongs to the person' do
-    user_status = user.post(:status_message, :message => "hello", :to => aspect.id)
-    comment = Comment.new(:person_id => user2.person.id, :text => "hey", :post => user_status)
-    comment.valid?
-    comment.errors.full_messages.should include "Diaspora handle and person handle must match"
-  end
-
  describe '.hash_from_post_ids' do
    before do
       @hello = user.post(:status_message, :message => "Hello.", :to => aspect.id)
@@ -30,7 +23,7 @@ describe Comment do
       @c21 = user2.comment "lol hihihi", :on => @hi
       @c12 = user.comment "I simply felt like issuing a greeting.  Do step off.", :on => @hello
       @c22 = user.comment "stfu noob", :on => @hi
-      
+
       @c12.created_at = Time.now+10
       @c12.save!
       @c22.created_at = Time.now+10
@@ -67,12 +60,12 @@ describe Comment do
 
     it "returns 'comment_on_post' if the comment is on a post you own" do
       @c11.notification_type(user, user2.person).should == 'comment_on_post'
-  
+
     end
 
    it 'returns false if the comment is not on a post you own' do
      @c11.notification_type(user2, user.person).should == false
-   end 
+   end
   end
 
 
@@ -106,7 +99,7 @@ describe Comment do
   describe 'comment propagation' do
     before do
       @person = Factory.create(:person)
-      user.activate_contact(@person, Aspect.first(:id => aspect.id))
+      user.activate_contact(@person, aspect)
 
       @person2 = Factory.create(:person)
       @person_status = Factory.build(:status_message, :person => @person)
@@ -151,7 +144,7 @@ describe Comment do
       before(:all) do
         stub_comment_signature_verification
       end
-      
+
       it 'should not send a comment a person made on his own post to anyone' do
         MessageHandler.should_not_receive(:add_post_request)
         comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
@@ -259,7 +252,7 @@ describe Comment do
         [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
 
       comment = user.build_comment url, :on => @message
-      
+
       comment.save!
       comment[:youtube_titles].should == {video_id => expected_title}
     end

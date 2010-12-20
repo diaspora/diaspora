@@ -7,7 +7,7 @@ module Diaspora
     module Querying
 
       def find_visible_post_by_id( id )
-        self.raw_visible_posts.find id
+        self.raw_visible_posts.where(:id => id).first
       end
 
       def raw_visible_posts
@@ -15,30 +15,17 @@ module Diaspora
       end
 
       def visible_posts( opts = {} )
-        opts[:order] ||= 'created_at DESC'
+        order = opts.delete(:order)
+        order ||= 'created_at DESC'
         opts[:pending] ||= false
-        opts[:_type] ||= ["StatusMessage","Photo"]
+        opts[:type] ||= ["StatusMessage","Photo"]
 
         if opts[:by_members_of] && opts[:by_members_of] != :all
-          aspect = self.aspects.find_by_id( opts[:by_members_of].id )
-          aspect.posts.find_all_by_pending_and__type(opts[:pending], opts[:_type], :order => opts[:order])
+          aspect = opts[:by_members_of] unless opts[:by_members_of].user_id != self.id
+          Post.joins(:aspects).where(:aspects => {:id => aspect.id}).order(order)
         else
-          self.raw_visible_posts.all(opts)
+          self.raw_visible_posts.where(opts).order(order)
         end
-      end
-
-      def visible_person_by_id( id )
-        if id == self.person.id
-          self.person
-        elsif contact = contacts.first(:person_id => id)
-          contact.person
-        else
-          visible_people.detect{|x| x.id == id }
-        end
-      end
-
-      def my_posts
-        Post.where(:diaspora_handle => person.diaspora_handle)
       end
 
       def contact_for(person)
@@ -50,12 +37,7 @@ module Diaspora
       end
 
       def contacts_not_in_aspect( aspect )
-        person_ids = Contact.all(:user_id => self.id, :aspect_ids.ne => aspect._id).collect{|x| x.person_id }
-        Person.all(:id.in => person_ids)
-      end
-
-      def person_objects(contacts = self.contacts)
-        person_ids = contacts.collect{|x| x.person_id}
+        person_ids = Contact.where(:user_id => self.id, :aspect_ids.ne => aspect.id).collect{|x| x.person_id }
         Person.all(:id.in => person_ids)
       end
 
@@ -69,10 +51,6 @@ module Diaspora
           people.delete_if{ |p| p.owner.blank? }
         end
         people
-      end
-
-      def aspect_by_id( id )
-        aspects.detect{|x| x.id == id }
       end
 
       def aspects_with_person person
@@ -94,18 +72,10 @@ module Diaspora
       end
 
       def posts_from(person)
-        post_ids = []
-
-        public_post_ids = Post.where(:person_id => person.id, :_type => "StatusMessage", :public => true).fields('id').all
-        public_post_ids.map!{ |p| p.id }
-
-        directed_post_ids = self.visible_posts(:person_id => person.id, :_type => "StatusMessage")
-        directed_post_ids.map!{ |p| p.id }
-
-        post_ids += public_post_ids
-        post_ids += directed_post_ids
-
-        Post.all(:id.in => post_ids, :order => 'created_at desc')
+        public_posts = person.posts.where(:public => true)
+        directed_posts = raw_visible_posts.where(:person_id => person.id)
+        posts = public_posts | directed_posts
+        posts.sort!{|p1,p2| p1.created_at <=> p2.created_at }
       end
     end
   end

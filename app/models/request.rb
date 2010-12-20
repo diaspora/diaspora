@@ -48,7 +48,7 @@ class Request < ActiveRecord::Base
   end
 
   def sender_handle= sender_handle
-    self.sender = Person.first(:diaspora_handle => sender_handle)
+    self.sender = Person.where(:diaspora_handle => sender_handle).first
   end
 
   def recipient_handle
@@ -56,7 +56,7 @@ class Request < ActiveRecord::Base
   end
 
   def recipient_handle= recipient_handle
-    self.recipient = Person.first(:diaspora_handle => recipient_handle)
+    self.recipient = Person.where(:diaspora_handle => recipient_handle).first
   end
 
   def diaspora_handle
@@ -65,7 +65,7 @@ class Request < ActiveRecord::Base
 
   def self.hashes_for_person person
     requests = Request.to(person).all
-    senders = Person.all(:id.in => requests.map{|r| r.from_id}, :fields => [:profile])
+    senders = Person.all(:id.in => requests.map{|r| r.from_id})
     senders_hash = {}
     senders.each{|sender| senders_hash[sender.id] = sender}
     requests.map{|r| {:request => r, :sender => senders_hash[r.from_id]}}
@@ -73,7 +73,7 @@ class Request < ActiveRecord::Base
 
 
   def notification_type(user, person)
-    if Contact.first(:user_id => user.id, :person_id => person.id)
+    if Contact.where(:user_id => user.id, :person_id => person.id).first
       "request_accepted"
     else
       "new_request"

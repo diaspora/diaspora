@@ -12,7 +12,7 @@ class Invitation < ActiveRecord::Base
 
   def self.invite(opts = {})
     return false if opts[:email] == opts[:from].email
-    existing_user = User.find_by_email(opts[:email])
+    existing_user = User.where(:email => opts[:email]).first
     if existing_user
       if opts[:from].contact_for(opts[:from].person)
         raise "You are already connceted to this person"
@@ -27,7 +27,7 @@ class Invitation < ActiveRecord::Base
   end
 
   def self.new_or_existing_user_by_email(email)
-    existing_user = User.first(:email => email)
+    existing_user = User.where(:email => email).first
     if existing_user
       existing_user
     else
@@ -61,7 +61,6 @@ class Invitation < ActiveRecord::Base
       opts[:from].save!
       invitee.reload
     end
-
     invitee.invite!
     Rails.logger.info("event=invitation_sent to=#{opts[:email]} #{"inviter=#{opts[:from].diaspora_handle}" if opts[:from]}")
     invitee

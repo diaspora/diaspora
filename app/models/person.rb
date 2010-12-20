@@ -24,7 +24,8 @@ class Person < ActiveRecord::Base
     diaspora_handle.downcase!
   end
 
-  has_many :contacts
+  has_many :contacts #Other people's contacts for this person
+  has_many :posts #his own posts
 
   belongs_to :owner, :class_name => 'User'
 

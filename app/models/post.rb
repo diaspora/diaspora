@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
 
   has_many :comments, :order => 'created_at ASC'
   has_and_belongs_to_many :aspects
-  belongs_to :person, :class_name => 'Person'
+  belongs_to :person
 
   cattr_reader :per_page
   @@per_page = 10

@@ -63,8 +63,8 @@ describe Contact do
         @contact.stub(:user).and_return(@user)
         request = @contact.generate_request
 
-        request.from.should == @user
-        request.to.should == @person
+        request.sender.should == @user
+        request.recipient.should == @person
       end
     end
 

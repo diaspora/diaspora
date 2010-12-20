@@ -15,30 +15,30 @@ describe Invitation do
   describe 'validations' do
     before do
       aspect
-      @invitation = Invitation.new(:from => user, :to => user2, :into => aspect) 
+      @invitation = Invitation.new(:sender => user, :recipient => user2, :aspect => aspect)
     end
     it 'is valid' do
+      @invitation.sender.should == user
+      @invitation.recipient.should == user2
+      @invitation.aspect.should == aspect
       @invitation.should be_valid
-      @invitation.from.should == user
-      @invitation.to.should   == user2
-      @invitation.into.should == aspect
     end
     it 'is from a user' do
-      @invitation.from = nil
+      @invitation.sender = nil
       @invitation.should_not be_valid
     end
     it 'is to a user' do
-      @invitation.to = nil
+      @invitation.recipient = nil
       @invitation.should_not be_valid
     end
     it 'is into an aspect' do
-      @invitation.into = nil
+      @invitation.aspect = nil
       @invitation.should_not be_valid
     end
   end
 
   it 'has a message' do
-    @invitation = Invitation.new(:from => user, :to => user2, :into => aspect) 
+    @invitation = Invitation.new(:sender => user, :recipient => user2, :aspect => aspect)
     @invitation.message = "!"
     @invitation.message.should == "!"
   end
@@ -77,27 +77,27 @@ describe Invitation do
         Invitation.invite(:email => @email, :from => user, :into => aspect)
       }.should change{user.reload.invitations_from_me.count}.by(1)
     end
-    
+
     it 'associates the invitation with the invitee' do
       new_user = Invitation.invite(:email => @email, :from => user, :into => aspect)
       new_user.invitations_to_me.count.should == 1
     end
-    
+
     it 'creates a user' do
       lambda {
         Invitation.invite(:from => user, :email => @email, :into => aspect)
       }.should change(User, :count).by(1)
     end
-    
+
     it 'returns the new user' do
       new_user = Invitation.invite(:from => user, :email => @email, :into => aspect)
       new_user.is_a?(User).should be_true
       new_user.email.should == @email
     end
-    
+
     it 'adds the inviter to the invited_user' do
       new_user = Invitation.invite(:from => user, :email => @email, :into => aspect)
-      new_user.invitations_to_me.first.from.should == user
+      new_user.invitations_to_me.first.sender.should == user
     end
 
     it 'adds an optional message' do
@@ -108,7 +108,7 @@ describe Invitation do
 
     it 'sends a contact request to a user with that email into the aspect' do
       user2
-      user.should_receive(:send_contact_request_to){ |a, b| 
+      user.should_receive(:send_contact_request_to){ |a, b|
         a.should == user2.person
         b.should == aspect
       }
@@ -119,9 +119,9 @@ describe Invitation do
       message = "How've you been?"
       lambda{
         new_user = Invitation.invite(:from => user, :email => @email, :into => aspect, :message => message)
-      }.should change(user, :invites).by(-1) 
+      }.should change(user, :invites).by(-1)
     end
-    
+
     it "doesn't decrement counter past zero" do
       user.invites = 0
       user.save!
@@ -143,9 +143,9 @@ describe Invitation do
   describe '.create_invitee' do
     context 'with an existing invitee' do
       before do
-        @valid_params = {:from => user, 
-          :email => @email, 
-          :into => aspect, 
+        @valid_params = {:from => user,
+          :email => @email,
+          :into => aspect,
           :message => @message}
         @invitee = Invitation.create_invitee(:email => @email)
       end
@@ -256,7 +256,7 @@ describe Invitation do
       lambda {
         @invitation.to_request!
       }.should change(Contact, :count).by(1)
-      @invitation.from.contact_for(@new_user.person).should be_pending
+      @invitation.sender.contact_for(@new_user.person).should be_pending
     end
     describe 'return values' do
       before do
@@ -266,13 +266,13 @@ describe Invitation do
         @request.is_a?(Request).should be_true
       end
       it 'sets the receiving user' do
-        @request.to.should == @new_user.person
+        @request.recipient.should == @new_user.person
       end
       it 'sets the sending user' do
-        @request.from.should == user.person
+        @request.sender.should == user.person
       end
       it 'sets the aspect' do
-        @request.into.should == aspect
+        @request.aspect.should == aspect
       end
     end
   end

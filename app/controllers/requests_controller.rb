@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
       if params[:aspect_id]
         @contact = current_user.accept_and_respond( params[:id], params[:aspect_id])
         flash[:notice] = I18n.t 'requests.destroy.success'
-        respond_with :location => current_user.aspect_by_id(params[:aspect_id])
+        respond_with :location => current_user.aspects.where(:id => params[:aspect_id]).first
       else
         flash[:error] = I18n.t 'requests.destroy.error'
         respond_with :location => requests_url
@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
   end
 
  def create
-   aspect = current_user.aspect_by_id(params[:request][:into])
+   aspect = current_user.aspects.where(:id => params[:request][:into]).first
    account = params[:request][:to].strip
    person = Person.by_account_identifier(account)
    existing_request = Request.from(person).to(current_user.person).first if person

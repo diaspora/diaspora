@@ -5,7 +5,7 @@ module RakeHelpers
   def process_emails(csv, num_to_process, offset, num_invites=10, test=true)
     if RUBY_VERSION.include? "1.8"
        require 'fastercsv'
-       backers = FasterCSV.read(csv)  
+       backers = FasterCSV.read(csv)
      else
        require 'csv'
        backers = CSV.read(csv)
@@ -19,7 +19,7 @@ module RakeHelpers
       churn_through = n
       backer_name = backers[n+offset][0].to_s.strip
       backer_email = backers[n+offset][1].to_s.gsub('.ksr', '').strip
-      unless User.find_by_email(backer_email) 
+      unless User.find_by_email(backer_email)
         puts "sending email to: #{backer_name} #{backer_email}" unless Rails.env == 'test'
         Invitation.create_invitee(:email => backer_email, :name => backer_name, :invites => num_invites) unless test
       else
@@ -41,12 +41,12 @@ module RakeHelpers
 
     space_people.each do |person|
       user = person.owner
-      new_diaspora_handle = new_diaspora_handle(user) 
+      new_diaspora_handle = new_diaspora_handle(user)
       update_my_posts_with_new_diaspora_handle(user, new_diaspora_handle, test)
       person.diaspora_handle = new_diaspora_handle
 
-      if test 
-        (puts "TEST:saving person w/handle #{person.diaspora_handle}") 
+      if test
+        (puts "TEST:saving person w/handle #{person.diaspora_handle}")
       else
          person.save(:safe => true)
       end
@@ -66,9 +66,9 @@ mail
   end
 
   def update_my_posts_with_new_diaspora_handle(user, new_diaspora_handle, test)
-     user.my_posts.all.each do |post|
+     user.posts.all.each do |post|
         post.diaspora_handle = new_diaspora_handle
-        if test  
+        if test
           (puts "TEST: saving post w/id #{post.id}")
         else
           post.save(:safe => true)
@@ -85,7 +85,7 @@ mail
 
       update_my_posts_with_new_diaspora_handle(bad_user, new_diaspora_handle, test)
       bad_user.person.diaspora_handle = new_diaspora_handle
-      
+
       if test
         puts "saving person and user with #{new_diaspora_handle}"
       else

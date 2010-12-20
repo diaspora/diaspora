@@ -75,7 +75,7 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    current_user.disconnect(current_user.visible_person_by_id(params[:id]))
+    current_user.disconnect(Person.where(:id => params[:id].first))
     respond_with :location => root_url
   end
 

@@ -20,20 +20,20 @@ module Diaspora
       end
 
       def accept_contact_request(request, aspect)
-        activate_contact(request.from, aspect)
+        activate_contact(request.sender, aspect)
         request.destroy
         request.reverse_for(self)
       end
 
       def dispatch_contact_acceptance(request, requester)
         push_to_people request, [requester]
-        request.destroy unless request.from.owner
+        request.destroy unless request.sender.owner
       end
 
       def accept_and_respond(contact_request_id, aspect_id)
         request          = Request.to(self.person).find!(contact_request_id)
-        requester        = request.from
-        reversed_request = accept_contact_request(request, aspect_by_id(aspect_id))
+        requester        = request.sender
+        reversed_request = accept_contact_request(request, aspects.where(:id => aspect_id).first )
         dispatch_contact_acceptance reversed_request, requester
       end
 
@@ -45,17 +45,17 @@ module Diaspora
       def receive_contact_request(contact_request)
 
         #response from a contact request you sent
-        if original_contact = self.contact_for(contact_request.from)
+        if original_contact = self.contact_for(contact_request.sender)
           receive_request_acceptance(contact_request, original_contact)
 
         #this is a new contact request
-        elsif contact_request.from != self.person
+        elsif contact_request.sender != self.person
           if contact_request.save!
-            Rails.logger.info("event=contact_request status=received_new_request from=#{contact_request.from.diaspora_handle} to=#{self.diaspora_handle}")
-            self.mail(Jobs::MailRequestReceived, self.id, contact_request.from.id)
+            Rails.logger.info("event=contact_request status=received_new_request from=#{contact_request.sender.diaspora_handle} to=#{self.diaspora_handle}")
+            self.mail(Jobs::MailRequestReceived, self.id, contact_request.sender.id)
           end
         else
-          Rails.logger.info "event=contact_request status=abort from=#{contact_request.from.diaspora_handle} to=#{self.diaspora_handle} reason=self-love"
+          Rails.logger.info "event=contact_request status=abort from=#{contact_request.sender.diaspora_handle} to=#{self.diaspora_handle} reason=self-love"
           return nil
         end
         contact_request
@@ -64,11 +64,11 @@ module Diaspora
       def receive_request_acceptance(received_request, contact)
         contact.pending = false
         contact.save
-        Rails.logger.info("event=contact_request status=received_acceptance from=#{received_request.from.diaspora_handle} to=#{self.diaspora_handle}")
+        Rails.logger.info("event=contact_request status=received_acceptance from=#{received_request.sender.diaspora_handle} to=#{self.diaspora_handle}")
 
         received_request.destroy
         self.save
-        self.mail(Jobs::MailRequestAcceptance, self.id, received_request.from.id)
+        self.mail(Jobs::MailRequestAcceptance, self.id, received_request.sender.id)
       end
 
       def disconnect(bad_contact)
@@ -112,9 +112,6 @@ module Diaspora
           :person => person,
           :aspects => [aspect],
           :pending => false)
-        new_contact.aspects << aspect
-        save!
-        aspect.save!
       end
     end
   end

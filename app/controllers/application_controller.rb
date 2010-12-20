@@ -13,11 +13,11 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def set_contacts_notifications_and_status
-    if user_signed_in? 
+    if user_signed_in?
       @aspect = nil
-      @aspects = current_user.aspects.fields(:name)
+      @aspects = current_user.aspects
       @aspects_dropdown_array = @aspects.collect{|x| [x.to_s, x.id]}
-      @notification_count = Notification.for(current_user, :unread =>true).all.count
+      @notification_count = Notification.for(current_user, :unread =>true).count
     end
   end
 
