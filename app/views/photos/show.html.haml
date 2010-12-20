@@ -7,21 +7,23 @@
 
 = render 'shared/author_info', :person => @photo.person, :post => @photo
 
-.span-14.append-1.last
-  #show_photo{:data=>{:guid=>@photo.id}}
-    -if @ownership
-      = image_tag 'ajax-loader.gif', :id => "photo_spinner", :class => "hidden"
-      = image_tag @photo.url(:scaled_full)
-      .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_large)}"}}
-        = link_to t('.make_profile_photo'), {:controller => "photos", :action => "make_profile_photo", :photo_id => @photo.id}, :remote => true, :class => 'make_profile_photo'
-        |
-        = link_to t('.edit'), '#', :id => "edit_photo_toggle"
+.span-15.append-1.last
+  #photo_container
+    #show_photo{:data=>{:guid=>@photo.id}}
+      -if @ownership
+        = image_tag 'ajax-loader.gif', :id => "photo_spinner", :class => "hidden"
+        = image_tag @photo.url(:scaled_full)
+      -else
+        = image_tag @photo.url(:scaled_full)
 
-    -else
-      = image_tag @photo.url(:scaled_full)
+      #caption
+        = @photo.caption
 
-    #caption
-      = @photo.caption
+  .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_large)}"}}
+    = link_to t('.make_profile_photo'), {:controller => "photos", :action => "make_profile_photo", :photo_id => @photo.id}, :remote => true, :class => 'make_profile_photo'
+    |
+    = link_to t('.edit'), '#', :id => "edit_photo_toggle"
+
 
   %br
 
@@ -35,7 +37,7 @@
       %p
         = button_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete
 
-.span-9.last
+.span-8.last
   - if @photo.status_message_id
     #original_post_info
       %h4{:style=>"position:relative;"}
@@ -51,6 +53,6 @@
 
   %h4= t('_comments')
 
-  %div{:id => 'photo_stream', :class => 'stream show'}
+  %ul{:id => 'photo_stream', :class => 'stream show'}
     %li.message{:data=>{:guid=>@parent.id}}
       = render "comments/comments", :post_id => @parent.id, :comment_hashes => @comment_hashes
