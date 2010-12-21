@@ -12,4 +12,12 @@ module NotificationsHelper
     else
     end
   end
+
+  def new_notification_text(count)
+    if count > 0
+      t('new_notifications', :count => count)
+    else
+      t('no_new_notifications')
+    end
+  end
 end

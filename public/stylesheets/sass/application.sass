@@ -139,7 +139,6 @@ header
       :top 10px
     :height 45px
     
-  ul#notifications,
   ul#user_menu
     :overflow hidden
     :white-space nowrap
@@ -1477,38 +1476,6 @@ ul.aspects
   form
     :display relative
 
-.bottom_notification
-  :position fixed
-  :bottom 0
-  :left 0
-  :width 100%
-  :background
-    :color rgba(16,127,201,0.8)
-
-  :text
-    :align center
-  :font
-    :size 14px
-    :weight bold
-  :color #fff
-  :padding 12px
-    :bottom 10px
-
-  a
-    :color #fafafa
-    :background
-      :color rgb(16,127,201)
-    :padding 8px
-
-    :-webkit-border-radius 10px
-    :-moz-border-radius 10px
-    :border-radius 10px
-
-    &:hover
-      :background
-        :color #22AAE0
-
-
 .inline_aspect_listing
   :margin 0
   :padding 0
@@ -1596,6 +1563,69 @@ h3 span.current_gs_step
     :min-width 200px
     :padding 12px
     :color #fff
+
+.bottom_notification
+  :position fixed
+  :bottom 0
+  :left 0
+  :width 100%
+  :background
+    :color rgba(16,127,201,0.8)
+
+  :text
+    :align center
+  :font
+    :size 14px
+    :weight bold
+  :color #fff
+  :padding 12px
+    :bottom 10px
+
+  a
+    :color #fafafa
+    :background
+      :color rgb(16,127,201)
+    :padding 8px
+
+    :-webkit-border-radius 10px
+    :-moz-border-radius 10px
+    :border-radius 10px
+
+    &:hover
+      :background
+        :color #22AAE0
+
+#notification_badge
+  :position relative
+  :top 5px
+  :display inline
+  :margin 0 1em
+  :font
+    :weight bold
+    :size smaller
+  :width 30px
+
+  a
+    :z-index 5
+    :position absolute
+    :top -9px
+    :width 20px
+    :height 20px
+
+#notification_badge_number
+  :z-index 3
+  :position absolute
+  :top -10px
+  :left 11px
+  :padding 0 2px
+    :bottom 1px
+  :background
+    :color #A40802
+  :border-radius 2px
+  :line
+    :height 12px
+
+  :color #fff
 
 #profile
   ul#aspects_for_person
@@ -1945,24 +1975,6 @@ h3,h4
   :padding
     :bottom 5px
 
-#new_request_pane
-  :background
-    :color red
-
-  :-webkit-border-radius 4px
-  :-moz-border-radius 4px
-  :border-radius 4px
-
-  :-webkit-box-shadow 0 1px 2px #666
-  :-moz-box-shadow 0 1px 2px #666
-  :box-shadow 0 1px 2px #666
-
-  h1
-    a
-      :color #fff
-      :font
-        :weight bold
-
 #edit_aspect_pane
   :-webkit-box-shadow 0 4px 8px #333
   :-moz-box-shadow 0 4px 8px #333
@@ -2099,3 +2111,26 @@ h3,h4
 
 #aspects_list
   :height auto
+
+#new_request_list
+  :margin 0
+    :bottom 2em
+  :padding 0 1em
+
+  li
+    :padding 0.5em 0
+    :border
+      :bottom 1px solid #eee
+
+  .avatar
+    :height 30px
+    :width 30px
+
+  .content
+    :padding
+      :left 40px
+
+  .right
+    :top 6px
+    :right 0
+

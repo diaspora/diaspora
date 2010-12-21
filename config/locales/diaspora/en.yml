@@ -25,6 +25,8 @@ en:
   back: "Back"
   the_world: "the world"
   search: "Search"
+  new_notifications: "%{count} new notifications"
+  no_new_notifications: "no new notifications"
   _home: "Home"
   _comments: "Comments"
   contacts:
@@ -123,7 +125,7 @@ en:
   aspects:
       all_aspects_contacts:
           all_contacts: "All contacts"
-          add_aspect: "add aspect"
+          manage_aspects: "manage aspects"
           aspects: "Aspects"
           no_contacts: "You currently have no contacts.  Find your contacts here."
       aspect_contacts:

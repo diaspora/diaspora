@@ -11,9 +11,9 @@
 
   .section.aspect_listings
     %h3
-      = link_to(t('.aspects'), aspects_manage_path)
-      .right{:style=>"font-size:12px;top:7px;"}
-        = link_to t('.add_aspect'), '#add_aspect_pane', :class => "add_aspect_button"
+      = t('.aspects')
+      .right{:style=>"font-size:12px;top:5px;"}
+        = link_to t('.manage_aspects'), aspects_manage_path
 
     %ul
       - for a_hash in @aspect_hashes
