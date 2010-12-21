@@ -94,9 +94,8 @@ module Diaspora
         else
           retraction.perform self.id
           aspects = self.aspects_with_person(retraction.person)
-          aspects.each{ |aspect| aspect.post_ids.delete(retraction.post_id.to_id)
-            aspect.save
-          }
+          PostVisibility.where(:post_id => retraction.post_id,
+                               :aspect_id => aspects.map{|a| a.id}).delete_all
         end
         retraction
       end

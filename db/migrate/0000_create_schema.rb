@@ -74,7 +74,7 @@ class CreateSchema < ActiveRecord::Migration
       t.integer :person_id
       t.boolean :public, :default => false
       t.string :diaspora_handle
-      t.boolean :pending
+      t.boolean :pending, :default => false
       t.integer :user_refs, :default => 0
       t.string :type
       t.text :message

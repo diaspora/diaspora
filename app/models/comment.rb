@@ -62,7 +62,7 @@ class Comment < ActiveRecord::Base
 
   def self.hash_from_post_ids post_ids
     hash = {}
-    comments = where(:post_id.in => post_ids)
+    comments = where(:post_id => post_ids)
     post_ids.each do |id|
       hash[id] = []
     end

@@ -183,7 +183,7 @@ describe User do
 
     it 'should receive a salmon for a post' do
       user2.receive_salmon( salmon.xml_for user2.person )
-      user2.visible_post_ids.include?(post.id).should be true
+      user2.raw_visible_posts.include?(post).should be_true
     end
   end
 end

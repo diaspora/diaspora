@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable
 
-#  key :visible_post_ids, Array, :typecast => 'ObjectId'
-#
   before_validation :strip_and_downcase_username, :on => :create
   before_validation :set_current_language, :on => :create
 
@@ -38,9 +36,6 @@ class User < ActiveRecord::Base
   has_many :contacts
   has_many :contact_people, :through => :contacts
   has_many :services
-#  many :raw_visible_posts, :in => :visible_post_ids, :class => Post
-
-#  many :services, :class => Service
 
   before_destroy :disconnect_everyone, :remove_person
   before_save do
@@ -136,7 +131,7 @@ class User < ActiveRecord::Base
   def update_post(post, post_hash = {})
     if self.owns? post
       post.update_attributes(post_hash)
-      aspects = aspects_with_post(post.id)
+      aspects = self.aspects.joins(:posts).where(:posts => {:id => post.id})
       self.push_to_aspects(post, aspects)
     end
   end

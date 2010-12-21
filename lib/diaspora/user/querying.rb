@@ -11,7 +11,7 @@ module Diaspora
       end
 
       def raw_visible_posts
-        Post.joins(:post_visibilities => :aspect).where(:pending => false, :post_visibilities => {:aspects => {:user_id => self.id}})
+        Post.joins(:aspects).where(:pending => false, :aspects => {:user_id => self.id})
       end
 
       def visible_posts( opts = {} )
@@ -39,9 +39,9 @@ module Diaspora
         people = Person.where(:id => person_ids)
 
         if opts[:type] == 'remote'
-          people.delete_if{ |p| !p.owner.blank? }
+          people = people.where(:owner_id => nil)
         elsif opts[:type] == 'local'
-          people.delete_if{ |p| p.owner.blank? }
+          people = people.where('`people`.`owner_id` IS NOT NULL')
         end
         people
       end
@@ -61,7 +61,7 @@ module Diaspora
       end
 
       def request_from(person)
-        Request.where(:sender_id => person.id, :recipient_id => self.person.id)
+        Request.where(:sender_id => person.id, :recipient_id => self.person.id).first
       end
 
       def posts_from(person)

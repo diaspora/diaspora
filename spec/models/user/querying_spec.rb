@@ -37,7 +37,6 @@ describe User do
       connect_users(@user2, @aspect2, @user, @aspect)
       aspect3 = @user.aspects.create(:name => "Snoozers")
       @status_message1 = @user2.post :status_message, :message => "hi", :to => @aspect2.id
-      pp @status_message1
       @status_message2 = @user2.post :status_message, :message => "hey", :public => true , :to => @aspect2.id
       @status_message3 = @user.post :status_message, :message => "hey", :public => true , :to => @aspect.id
       @status_message4 = @user2.post :status_message, :message => "blah", :public => true , :to => @aspect2.id
@@ -76,34 +75,26 @@ describe User do
 
       it "selects by message contents" do
         query = @user2.visible_posts(:message => "hi")
-        pp @status_message1
-        pp query.to_sql
-        pp query
         query.should == [@status_message1]
       end
 
       it "does not return pending posts" do
         @pending_status_message.pending.should be_true
         @user2.visible_posts.should_not include @pending_status_message
-
-        @user2.visible_posts(:by_members_of => @aspect2).should_not include @pending_status_message
       end
 
-      context 'with two users' do
-        let!(:first_aspect)  {@user.aspects.create(:name => 'bruisers')}
-        let!(:second_aspect) {@user.aspects.create(:name => 'losers')}
-
-        it "queries by aspect" do
-          connect_users(@user, first_aspect, @user2, @user2.aspects.first)
-          @user.receive status_message1.to_diaspora_xml, @user2.person
-
-          @user.visible_posts(:by_members_of => first_aspect).should =~ [status_message1]
-          @user.visible_posts(:by_members_of => second_aspect).should =~ []
-        end
-        it '#find_visible_post_by_id' do
-          @user2.find_visible_post_by_id(status_message1.id).should == status_message1
-          @user.find_visible_post_by_id(status_message1.id).should == nil
-        end
+      it "queries by aspect" do
+        query = @user.visible_posts(:by_members_of => @aspect)
+        query.include?(@status_message1).should == true
+        query.include?(@status_message2).should == true
+        query.include?(@status_message3).should == true
+        query.include?(@status_message4).should == true
+        query.include?(@status_message5).should == false
+        @user.visible_posts(:by_members_of => @user.aspects.create(:name => "aaaaah")).should be_empty
+      end
+      it '#find_visible_post_by_id' do
+        @user2.find_visible_post_by_id(@status_message1.id).should == @status_message1
+        @user2.find_visible_post_by_id(@status_message5.id).should == nil
       end
     end
   end
@@ -147,7 +138,8 @@ describe User do
 
         @user.people_in_aspects([first_aspect]).count.should == 4
         @user.people_in_aspects([first_aspect], :type => 'remote').count.should == 1
-        @user.people_in_aspects([first_aspect], :type => 'local').count.should == 3
+        q = @user.people_in_aspects([first_aspect], :type => 'local')
+        q.count.should == 3
       end
 
       it 'does not return people not connected to user on same pod' do

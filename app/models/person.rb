@@ -168,6 +168,6 @@ class Person < ActiveRecord::Base
 
   private
   def remove_all_traces
-    Post.all(:person_id => id).each { |p| p.delete }
+    Post.where(:person_id => id).delete_all
   end
 end
