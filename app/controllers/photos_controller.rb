@@ -134,7 +134,14 @@ class PhotosController < ApplicationController
       @parent = @photo.status_message
 
       #if photo is not an attachment, fetch comments for self
-      unless @parent
+      if @parent
+        @additional_photos = @photo.status_message.photos
+        if @additional_photos
+          @next_photo = @additional_photos[@additional_photos.index(@photo)+1]
+          @prev_photo = @additional_photos[@additional_photos.index(@photo)-1]
+          @next_photo ||= @additional_photos.first
+        end
+      else
         @parent = @photo
       end
 

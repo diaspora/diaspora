@@ -264,15 +264,17 @@ header
 
 #author_info
   :position relative
-  :margin
-    :bottom 12px
 
   img
     :position relative
-    :top 3px
+    :top 0px
     :display inline-block
-    :height 40px
-    :width 40px
+    :height 30px
+    :width 30px
+
+  .avatar
+    :-webkit-box-shadow none
+    :box-shadow none
 
   .from
     :display inline-block
@@ -292,12 +294,6 @@ header
       :margin
         :right 2em
 
-  .aspect_badge
-    :position relative
-    :top -2px
-    :font
-      :size small
-    :padding 2px 4px
 
 
 li.message
@@ -681,29 +677,8 @@ li.message:hover
   :background
     :color #fff
 
-  :padding 10px
-    :bottom 30px
-  :margin
-    :bottom 2em
-
-  :-webkit-box-shadow 0 2px 4px #333
-  :-moz-box-shadow 0 2px 4px #333
-  :box-shadow 0 2px 4px #333
-
-  :-webkit-border-radius 3px
-  :-moz-border-radius 3px
-  :border-radius 3px
-
-  :max-width 100%
-
   img
-    :z-index 2
-    :position relative
     :max-width 100%
-    :margin
-      :bottom 10px
-    :border 1px solid #eee
-      :bottom 1px solid #ddd
 
   #photo_spinner
     :z-index 1
@@ -1407,9 +1382,10 @@ input[type="search"]
     :-moz-border-radius 5px
     :border-radius 5px
 
-
 .photo_options
-  :color #999
+  :color #ddd
+  :text
+    :align center
 
 ul.aspects
   :margin 0
@@ -2150,3 +2126,9 @@ ul.notifications_for_day
     :background none
     :border
       :bottom 1px solid #eee
+
+#photo_controls
+  :color #ddd
+  :position relative
+  :margin
+    :bottom 1em
