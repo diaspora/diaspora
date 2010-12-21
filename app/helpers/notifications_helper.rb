@@ -8,7 +8,12 @@ module NotificationsHelper
     when 'new_request'
       translation
     when 'comment_on_post'
-       "#{translation} #{link_to t('notifications.post'), object_path(Comment.first(:id => note.target_id).post)}".html_safe
+      comment = Comment.first(:id => note.target_id)
+      if comment
+       "#{translation} #{link_to t('notifications.post'), object_path(comment.post)}".html_safe
+      else
+        "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
+      end
     else
     end
   end

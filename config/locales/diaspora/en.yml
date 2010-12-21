@@ -188,6 +188,7 @@ en:
       new_request: "offered to share with you."
       comment_on_post: "commented on your"
       post: 'post'
+      deleted: 'deleted'
       index:
         notifications: "Notifications"
   users:
