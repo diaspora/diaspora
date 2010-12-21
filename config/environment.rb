@@ -27,5 +27,3 @@ end
 # Initialize the rails application
 Diaspora::Application.initialize!
 
-# Valid as long as thin serves the assets.
-ActionController::Base.asset_host = APP_CONFIG[ :pod_url]
