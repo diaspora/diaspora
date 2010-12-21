@@ -1,5 +1,5 @@
 :javascript
-  $('.message').live('click', function(evt){
+  $('.message, .message a').live('click', function(evt){
     var note = $(this).closest('.message'),
         note_id = note.attr('data-guid');
 
