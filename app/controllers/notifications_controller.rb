@@ -22,4 +22,5 @@ class NotificationsController < ApplicationController
     @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") } 
     respond_with @notifications
   end
+
 end
