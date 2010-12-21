@@ -47,7 +47,7 @@ class Notifier < ActionMailer::Base
 
   private
   def log_mail recipient_id, sender_id, type
-    log_string = "event=mail mail_type=#{type} db_name=#{MongoMapper.database.name} recipient_id=#{recipient_id} sender_id=#{sender_id}"
+    log_string = "event=mail mail_type=#{type} recipient_id=#{recipient_id} sender_id=#{sender_id}"
     if @receiver && @sender
       log_string << "models_found=true sender_handle=#{@sender.diaspora_handle} recipient_handle=#{@receiver.diaspora_handle}"
     else

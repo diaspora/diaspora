@@ -33,8 +33,8 @@ class Post < ActiveRecord::Base
     params[:aspect_ids].each do |aspect_id|
       new_post.aspects << Aspect.find_by_id(aspect_id)
     end if params[:aspect_ids]
-    new_post.public = params[:public]
-    new_post.pending = params[:pending]
+    new_post.public = params[:public] if params[:public]
+    new_post.pending = params[:pending] if params[:pending]
     new_post.diaspora_handle = new_post.person.diaspora_handle
     new_post
   end

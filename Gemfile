@@ -15,11 +15,6 @@ gem 'devise_invitable','0.3.5'
 gem 'omniauth', '0.1.6'
 gem 'twitter', :git => 'git://github.com/jnunemaker/twitter.git', :ref => 'ef122bbb280e229ed343'
 
-#Mongo
-gem 'mongo_mapper', :branch => 'rails3', :git => 'git://github.com/jnunemaker/mongomapper.git'
-gem 'bson_ext', '1.1'
-gem 'bson', '1.1'
-
 #Views
 gem 'haml'
 gem 'will_paginate', '3.0.pre2'

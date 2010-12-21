@@ -31,7 +31,10 @@ describe StatusMessage do
   end
 
   it 'should be postable through the user' do
-    status = @user.post(:status_message, :message => "Users do things", :to => @aspect.id)
+    message = "Users do things"
+    status = @user.post(:status_message, :message => message, :to => @aspect.id)
+    db_status = StatusMessage.find(status.id)
+    db_status.message.should == message
   end
 
   it 'should require status messages to be less than 1000 characters' do
@@ -40,7 +43,7 @@ describe StatusMessage do
     status = Factory.build(:status_message, :message => message)
 
     status.should_not be_valid
-    
+
   end
 
   describe "XML" do
@@ -69,7 +72,7 @@ describe StatusMessage do
         [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
 
       post = @user.build_post :status_message, :message => url, :to => @aspect.id
-      
+
       post.save!
       post[:youtube_titles].should == {video_id => expected_title}
     end

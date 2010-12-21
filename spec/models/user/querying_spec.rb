@@ -33,41 +33,60 @@ describe User do
   end
 
   context 'with two posts' do
-    let!(:status_message1) { @user2.post :status_message, :message => "hi", :to => @aspect2.id }
-    let!(:status_message2) { @user2.post :status_message, :message => "hey", :public => true , :to => @aspect2.id }
-    let!(:status_message4) { @user2.post :status_message, :message => "blah", :public => true , :to => @aspect2.id }
-    let!(:status_message3) { @user.post :status_message, :message => "hey", :public => true , :to => @aspect.id }
+    before do
+      connect_users(@user2, @aspect2, @user, @aspect)
+      aspect3 = @user.aspects.create(:name => "Snoozers")
+      @status_message1 = @user2.post :status_message, :message => "hi", :to => @aspect2.id
+      pp @status_message1
+      @status_message2 = @user2.post :status_message, :message => "hey", :public => true , :to => @aspect2.id
+      @status_message3 = @user.post :status_message, :message => "hey", :public => true , :to => @aspect.id
+      @status_message4 = @user2.post :status_message, :message => "blah", :public => true , :to => @aspect2.id
+      @status_message5 = @user.post :status_message, :message => "secrets", :to => aspect3.id
 
-    let!(:pending_status_message) { @user2.post :status_message, :message => "hey", :public => true , :to => @aspect2.id, :pending => true }
+      @pending_status_message = @user2.post :status_message, :message => "hey", :public => true , :to => @aspect2.id, :pending => true
+    end
 
     describe "#visible_posts" do
       it "queries by person id" do
         query = @user2.visible_posts(:person_id => @user2.person.id)
-        query.include?(status_message1).should == true
-        query.include?(status_message2).should == true
+        query.include?(@status_message1).should == true
+        query.include?(@status_message2).should == true
+        query.include?(@status_message3).should == false
+        query.include?(@status_message4).should == true
+        query.include?(@status_message5).should == false
       end
 
       it "selects public posts" do
         query = @user2.visible_posts(:public => true)
-        query.include?(status_message2).should == true
-        query.include?(status_message1).should == false
+        query.include?(@status_message1).should == false
+        query.include?(@status_message2).should == true
+        query.include?(@status_message3).should == true
+        query.include?(@status_message4).should == true
+        query.include?(@status_message5).should == false
       end
 
       it "selects non public posts" do
         query = @user2.visible_posts(:public => false)
-        query.include?(status_message1).should == true
-        query.include?(status_message2).should == false
+        query.include?(@status_message1).should == true
+        query.include?(@status_message2).should == false
+        query.include?(@status_message3).should == false
+        query.include?(@status_message4).should == false
+        query.include?(@status_message5).should == false
       end
 
       it "selects by message contents" do
-        @user2.visible_posts(:message => "hi").include?(status_message1).should == true
+        query = @user2.visible_posts(:message => "hi")
+        pp @status_message1
+        pp query.to_sql
+        pp query
+        query.should == [@status_message1]
       end
 
       it "does not return pending posts" do
-        pending_status_message.pending.should be_true
-        @user2.visible_posts.should_not include pending_status_message
+        @pending_status_message.pending.should be_true
+        @user2.visible_posts.should_not include @pending_status_message
 
-        @user2.visible_posts(:by_members_of => @aspect2).should_not include pending_status_message
+        @user2.visible_posts(:by_members_of => @aspect2).should_not include @pending_status_message
       end
 
       context 'with two users' do
@@ -98,13 +117,6 @@ describe User do
     before do
       connect_users(user, first_aspect, user4, user4.aspects.first)
       connect_users(user, second_aspect, @user2, @user2.aspects.first)
-    end
-
-    describe '#contacts_not_in_aspect' do
-      it 'finds the people who are not in the given aspect' do
-        people = @user.contacts_not_in_aspect(first_aspect)
-        people.should == [@user2.person]
-      end
     end
 
     describe '#people_in_aspects' do
@@ -196,13 +208,13 @@ describe User do
     let!(:user5) {Factory(:user)}
 
     it 'should not have a pending request before connecting' do
-      request = @user.request_for(user5.person)
+      request = @user.request_from(user5.person)
       request.should be_nil
     end
 
     it 'should have a pending request after sending a request' do
       @user.send_contact_request_to(user5.person, @user.aspects.first)
-      request = @user.reload.request_for(user5.person)
+      request = @user.reload.request_from(user5.person)
       request.should_not be_nil
     end
   end

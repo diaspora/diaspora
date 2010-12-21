@@ -11,18 +11,16 @@ module Diaspora
       end
 
       def raw_visible_posts
-        Post.joins(:aspects).where(:aspects => {:user_id => self.id})
+        Post.joins(:post_visibilities => :aspect).where(:pending => false, :post_visibilities => {:aspects => {:user_id => self.id}})
       end
 
       def visible_posts( opts = {} )
         order = opts.delete(:order)
         order ||= 'created_at DESC'
-        opts[:pending] ||= false
         opts[:type] ||= ["StatusMessage","Photo"]
 
-        if opts[:by_members_of] && opts[:by_members_of] != :all
-          aspect = opts[:by_members_of] unless opts[:by_members_of].user_id != self.id
-          Post.joins(:aspects).where(:aspects => {:id => aspect.id}).order(order)
+        if (aspect = opts[:by_members_of]) && opts[:by_members_of] != :all
+          raw_visible_posts.where(:aspects => {:id => aspect.id}).order(order)
         else
           self.raw_visible_posts.where(opts).order(order)
         end
@@ -34,11 +32,6 @@ module Diaspora
 
       def contact_for_person_id(person_id)
         Contact.where(:user_id => self.id, :person_id => person_id).first if person_id
-      end
-
-      def contacts_not_in_aspect( aspect )
-        person_ids = Contact.where(:user_id => self.id, :aspect_ids.ne => aspect.id).collect{|x| x.person_id }
-        Person.all(:id.in => person_ids)
       end
 
       def people_in_aspects(aspects, opts={})
@@ -67,8 +60,8 @@ module Diaspora
         self.aspects.all.collect{|x| x.id}
       end
 
-      def request_for(to_person)
-        Request.from(self.person).to(to_person).first
+      def request_from(person)
+        Request.where(:sender_id => person.id, :recipient_id => self.person.id)
       end
 
       def posts_from(person)

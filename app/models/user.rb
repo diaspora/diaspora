@@ -97,9 +97,7 @@ class User < ActiveRecord::Base
     contact = contact_for Person.find(person_id)
 
     if opts[:force] || contact.aspect_ids.count > 1
-      contact.aspect_ids.delete aspect.id
-      contact.save!
-      aspect.save!
+      contact.aspects.delete(aspect)
     else
       raise "Can not delete a person from last aspect"
     end

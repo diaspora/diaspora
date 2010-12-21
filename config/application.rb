@@ -9,7 +9,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-require File.expand_path('../../lib/mongo_mapper/bson_id', __FILE__)
 require File.expand_path('../../lib/log_overrider', __FILE__)
 require File.expand_path('../../lib/message_handler', __FILE__)
 module Diaspora

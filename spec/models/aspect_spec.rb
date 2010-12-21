@@ -33,15 +33,10 @@ describe Aspect do
       aspect.valid?.should == false
     end
 
-    it 'should not be creatable with people' do
-      aspect = user.aspects.create(:name => 'losers', :contacts => [connected_person, connected_person_2])
-      aspect.contacts.size.should == 0
-    end
-
     it 'should be able to have other users' do
       Contact.create(:user => user, :person => user2.person, :aspects => [aspect])
-      aspect.contacts.first(:person_id => user.person.id).should be_nil
-      aspect.contacts.first(:person_id => user2.person.id).should_not be_nil
+      aspect.contacts.where(:person_id => user.person.id).should be_empty
+      aspect.contacts.where(:person_id => user2.person.id).should_not be_empty
       aspect.contacts.size.should == 1
     end
 
@@ -108,7 +103,8 @@ describe Aspect do
   describe 'posting' do
 
     it 'should add post to aspect via post method' do
-      aspect = user.aspects.create(:name => 'losers', :contacts => [connected_person])
+      aspect = user.aspects.create(:name => 'losers')
+      contact = aspect.contacts.create(:person => connected_person)
 
       status_message = user.post( :status_message, :message => "hey", :to => aspect.id )
 
@@ -140,8 +136,7 @@ describe Aspect do
       fantasy_resque do
         retraction = user2.retract(message)
       end
-      aspect.reload
-      aspect.post_ids.include?(message.id).should be false
+      aspect.posts(true).include?(message).should be false
     end
   end
 
@@ -173,7 +168,7 @@ describe Aspect do
         user.reload
         user.delete_person_from_aspect(user2.person.id, aspect1.id)
         user.reload
-        aspect1.reload.contacts.include?(@contact).should be false
+        aspect1.contacts(true).include?(@contact).should be_false
       end
 
       it 'should check to make sure you have the aspect ' do
@@ -227,11 +222,9 @@ describe Aspect do
       describe '#move_contact' do
         it 'should be able to move a contact from one of users existing aspects to another' do
           user.move_contact(user2.person, aspect1, aspect)
-          aspect.reload
-          aspect1.reload
 
-          aspect.contacts.include?(@contact).should be_false
-          aspect1.contacts.include?(@contact).should be_true
+          aspect.contacts(true).include?(@contact).should be_false
+          aspect1.contacts(true).include?(@contact).should be_true
         end
 
         it "should not move a person who is not a contact" do
@@ -241,8 +234,8 @@ describe Aspect do
 
           aspect.reload
           aspect1.reload
-          aspect.contacts.first(:person_id => connected_person.id).should be_nil
-          aspect1.contacts.first(:person_id => connected_person.id).should be_nil
+          aspect.contacts.where(:person_id => connected_person.id).should be_empty
+          aspect1.contacts.where(:person_id => connected_person.id).should be_empty
         end
 
         it 'does not try to delete if add person did not go through' do

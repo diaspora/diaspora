@@ -30,16 +30,6 @@ GIT
       eventmachine (>= 0.12.9)
 
 GIT
-  remote: git://github.com/jnunemaker/mongomapper.git
-  revision: de8f8f3171f687f8d65b87ba7c7d3b1cb6e3bbe6
-  branch: rails3
-  specs:
-    mongo_mapper (0.8.6)
-      activemodel (~> 3.0.0)
-      activesupport (~> 3.0.0)
-      plucky (~> 0.3.6)
-
-GIT
   remote: git://github.com/jnunemaker/twitter.git
   revision: ef122bbb280e229ed34347c235c68aa9349d0d8e
   ref: ef122bbb280e229ed343
@@ -111,8 +101,6 @@ GEM
       uuidtools
       xml-simple
     bcrypt-ruby (2.1.2)
-    bson (1.1)
-    bson_ext (1.1)
     builder (2.1.2)
     bunny (0.6.0)
     capybara (0.3.9)
@@ -214,8 +202,6 @@ GEM
     mocha (0.9.10)
       rake
     moneta (0.6.0)
-    mongo (1.1)
-      bson (>= 1.0.5)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
       daemons (>= 1.0.3)
@@ -267,8 +253,6 @@ GEM
       oa-enterprise (= 0.1.6)
       oa-oauth (= 0.1.6)
       oa-openid (= 0.1.6)
-    plucky (0.3.6)
-      mongo (~> 1.1)
     polyglot (0.3.1)
     pubsubhubbub (0.1.1)
       em-http-request (>= 0.1.5)
@@ -373,8 +357,6 @@ DEPENDENCIES
   SystemTimer
   addressable
   aws
-  bson (= 1.1)
-  bson_ext (= 1.1)
   bundler (>= 1.0.0)
   capybara (~> 0.3.9)
   carrierwave!
@@ -396,7 +378,6 @@ DEPENDENCIES
   launchy
   mini_magick
   mocha
-  mongo_mapper!
   mongrel
   mysql2
   nokogiri (= 1.4.3.1)

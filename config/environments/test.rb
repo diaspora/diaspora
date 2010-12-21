@@ -36,11 +36,11 @@ Diaspora::Application.configure do
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
 
-begin
- require 'database_cleaner'
- DatabaseCleaner.strategy = :truncation
- DatabaseCleaner.orm = "mongo_mapper"
-rescue LoadError => ignore_if_database_cleaner_not_present
- puts "Error on cleaner"
-end
+  begin
+   require 'database_cleaner'
+   DatabaseCleaner.strategy = :transaction
+   DatabaseCleaner.orm = "active_record"
+  rescue LoadError => ignore_if_database_cleaner_not_present
+   puts "Error on cleaner"
+  end
 end

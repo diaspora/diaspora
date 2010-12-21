@@ -22,16 +22,5 @@ class Aspect < ActiveRecord::Base
   def to_s
     name
   end
-
-  def as_json(opts = {})
-    {
-      :aspect => {
-        :name   => self.name,
-        :people => self.people.each{|person| person.as_json},
-        :posts  => self.posts.each {|post|   post.as_json  },
-      }
-    }
-  end
-
 end
 

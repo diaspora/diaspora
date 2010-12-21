@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.expand_path('../../../lib/mongo_mapper/clear_dev_memory', __FILE__)
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -22,6 +21,5 @@ Diaspora::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.active_support.deprecation = :log
-  config.middleware.use MongoMapper::ClearDevMemory
   #config.threadsafe!
 end

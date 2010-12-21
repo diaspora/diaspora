@@ -16,7 +16,7 @@ module SocketsHelper
         old_locale = I18n.locale
         I18n.locale = user.language.to_s
       end
-      
+
       if object.is_a? StatusMessage
         post_hash = {:post => object,
           :person => object.person,
@@ -32,11 +32,11 @@ module SocketsHelper
         v = render_to_string(:partial => 'shared/stream_element', :locals => post_hash)
       elsif object.is_a? Person
         person_hash = {
-          :single_aspect_form => opts["single_aspect_form"], 
+          :single_aspect_form => opts["single_aspect_form"],
           :person => object,
           :aspects => user.aspects,
           :contact => user.contact_for(object),
-          :request => user.request_for(object), 
+          :request => user.request_from(object),
           :current_user => user}
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
       elsif object.is_a? Comment
@@ -64,9 +64,9 @@ module SocketsHelper
     end
 
     action_hash[:mine?] = object.person && (object.person.owner.id == uid) if object.respond_to?(:person)
-    
+
     I18n.locale = old_locale unless user.nil?
-    
+
     action_hash.to_json
   end
 

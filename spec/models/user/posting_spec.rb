@@ -58,6 +58,10 @@ describe User do
   end
 
   describe '#build_post' do
+    it 'sets status_message#message' do
+      post = user.build_post(:status_message, :message => "hey", :to => aspect.id)
+      post.message.should == "hey"
+    end
     it 'does not save a status_message' do
       post = user.build_post(:status_message, :message => "hey", :to => aspect.id)
       post.persisted?.should be_false

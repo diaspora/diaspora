@@ -21,21 +21,21 @@ class Retraction
       retraction.post_id = object.id
       retraction.type = object.class.to_s
     end
-    retraction.diaspora_handle = object.diaspora_handle 
+    retraction.diaspora_handle = object.diaspora_handle
     retraction
   end
 
   def perform receiving_user_id
     Rails.logger.debug "Performing retraction for #{post_id}"
-    if self.type.constantize.find_by_id(post_id) 
-      unless Post.first(:diaspora_handle => person.diaspora_handle, :id => post_id) 
+    if self.type.constantize.find_by_id(post_id)
+      unless Post.where(:diaspora_handle => person.diaspora_handle, :id => post_id).first
         Rails.logger.info("event=retraction status=abort reason='no post found authored by retractor' sender=#{person.diaspora_handle} post_id=#{post_id}")
-        return 
+        return
       end
 
       begin
         Rails.logger.debug("Retracting #{self.type} id: #{self.post_id}")
-        target = self.type.constantize.first(:id => self.post_id)
+        target = self.type.constantize.where(:id => self.post_id).first
         target.unsocket_from_uid receiving_user_id if target.respond_to? :unsocket_from_uid
         target.delete
       rescue NameError

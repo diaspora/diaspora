@@ -76,7 +76,7 @@ describe Contact do
       end
       it 'persists no request' do
         @contact.dispatch_request
-        Request.from(@user).to(@person).first.should be_nil
+        Request.where(:sender_id => @user.person.id, :recipient_id => @person.id).should be_empty
       end
     end
   end
