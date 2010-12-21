@@ -11,6 +11,7 @@ config/initializers/secret_token.rb
 config/redis.conf
 .bundle
 vendor/bundle/*
+config/database.yml
 
 # Generated files
 log/*
