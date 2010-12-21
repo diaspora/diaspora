@@ -186,6 +186,8 @@ en:
       new_request: "offered to share with you."
       comment_on_post: "commented on your"
       post: 'post'
+      index:
+        notifications: "Notifications"
   users:
       edit:
           export_data: "Export Data"
