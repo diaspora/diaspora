@@ -105,6 +105,16 @@ describe Diaspora::UserModules::Connecting do
           user.accept_contact_request(@received_request, aspect)
         }.should change(Request, :count ).by(-1)
       end
+
+      it "should mark the corresponding notification as 'read'" do
+        notification = Notification.create(:target_id => @received_request.id,
+                                           :kind => 'new_request',
+                                           :unread => true)
+
+        Notification.first(:target_id=>@received_request.id).unread.should be_true
+        user.accept_contact_request(@received_request, aspect)
+        Notification.first(:target_id=>@received_request.id).unread.should be_false
+      end
       it 'should be able to ignore a pending contact request' do
         proc { user.ignore_contact_request(@received_request.id)
         }.should change(Request, :count ).by(-1)

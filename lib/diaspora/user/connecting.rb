@@ -20,6 +20,10 @@ module Diaspora
       end
 
       def accept_contact_request(request, aspect)
+        if notification = Notification.first(:target_id=>request.id)
+          notification.update_attributes(:unread=>false)
+        end
+
         activate_contact(request.from, aspect)
         request.destroy
         request.reverse_for(self)
