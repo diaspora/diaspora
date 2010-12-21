@@ -29,6 +29,8 @@ en:
   no_new_notifications: "no new notifications"
   _home: "Home"
   _comments: "Comments"
+  next: 'next'
+  previous: 'previous'
   contacts:
     zero:   "no contacts"
     one:    "1 contact"
@@ -255,8 +257,8 @@ en:
           view: "view"
           edit: "edit"
           edit_delete_photo: "Edit photo description / delete photo"
-          original_post: "Original Post"
           permalink: "permalink"
+          view_original_post: "view original post"
       edit:
           editing: "Editing"
       photo:

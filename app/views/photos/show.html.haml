@@ -8,12 +8,12 @@
 .span-15.append-1.last
   #photo_controls
     .right
-      =link_to "← previous", @prev_photo, :rel => 'prefetch'
+      =link_to "← #{t('previous')}", @prev_photo, :rel => 'prefetch'
       \/
-      =link_to "next →", @next_photo, :rel => 'prefetch'
+      =link_to "#{t('next')} →", @next_photo, :rel => 'prefetch'
 
     - if @photo.status_message_id
-      =link_to "← view original post", @photo.status_message
+      =link_to "← #{t('.view_original_post')}", @photo.status_message
     - else
       \.
 
