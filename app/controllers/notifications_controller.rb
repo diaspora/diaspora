@@ -8,7 +8,7 @@ class NotificationsController < ApplicationController
 
 
   def update
-    note = Notification.find_by_user_id_and_id(current_user.id, params[:id])
+    note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
     if note
       note.update_attributes(:unread => false)
       render :nothing => true
@@ -19,7 +19,7 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = Notification.for(current_user)
-    @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") } 
+    @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") }
     respond_with @notifications
   end
 end

@@ -6,9 +6,9 @@ class Photo < Post
   require 'carrierwave/orm/activerecord'
   mount_uploader :image, ImageUploader
 
-  xml_accessor :remote_photo
-  xml_accessor :caption
-  xml_reader :status_message_id
+  xml_attr :remote_photo
+  xml_attr :caption
+  xml_attr :status_message_id
 
   belongs_to :status_message
 
@@ -20,8 +20,8 @@ class Photo < Post
   #before_destroy :delete_parent_if_no_photos_or_message
   def ownership_of_status_message
     message = StatusMessage.find_by_id(self.status_message_id)
-    if status_message_id && message 
-      self.diaspora_handle == message.diaspora_handle 
+    if status_message_id && message
+      self.diaspora_handle == message.diaspora_handle
     else
       true
     end
@@ -56,9 +56,10 @@ class Photo < Post
   end
 
   def ensure_user_picture
-    people = Person.all('profile.image_url' => absolute_url(:thumb_large) )
-    people.each{ |person|
-      person.profile.update_attributes(:image_url => nil)
+    profiles = Profile.where(:image_url => absolute_url(:thumb_large))
+    profiles.each { |profile|
+      profile.image_url = nil
+      profile.save
     }
   end
 
@@ -75,7 +76,7 @@ class Photo < Post
     pod_url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
     "#{pod_url}#{url(*args)}"
   end
-  
+
   def self.gen_random_string(len)
     chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
     string = ""
@@ -92,7 +93,7 @@ class Photo < Post
       }
     }
   end
-  
+
   def self.hash_from_post_ids post_ids
     hash = {}
     photos = self.on_statuses(post_ids)
@@ -105,8 +106,8 @@ class Photo < Post
     hash.each_value {|photos| photos.sort!{|p1, p2| p1.created_at <=> p2.created_at }}
     hash
   end
-  scope :on_statuses, lambda { |post_ids| 
-    where(:status_message_id.in => post_ids)
+  scope :on_statuses, lambda { |post_ids|
+    where(:status_message_id => post_ids)
   }
 
 end

@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   skip_before_filter :set_locale
 
   def show
-    @post = Post.first(:id => params[:id], :public => true)
+    @post = Post.where(:id => params[:id], :public => true).first
 
     if @post
       @landing_page = true
@@ -24,6 +24,6 @@ class PostsController < ApplicationController
     else
       flash[:error] = "that post does not exsist!"
       redirect_to root_url
-    end    
+    end
   end
 end

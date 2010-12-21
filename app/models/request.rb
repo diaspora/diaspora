@@ -8,8 +8,8 @@ class Request < ActiveRecord::Base
   include Diaspora::Webhooks
   include ROXML
 
-  xml_accessor :sender_handle
-  xml_accessor :recipient_handle
+  xml_attr :sender_handle
+  xml_attr :recipient_handle
 
   belongs_to :sender,   :class_name => 'Person'
   belongs_to :recipient, :class_name => 'Person'

@@ -57,7 +57,7 @@ describe Invitation do
       inv.persisted?.should be_false
       lambda {
         inv.reload
-      }.should raise_error /does not exist/
+      }.should raise_error ActiveRecord::RecordNotFound
     end
     it 'returns an existing user' do
       @email = @users[3].email

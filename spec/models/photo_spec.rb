@@ -36,7 +36,7 @@ describe Photo do
   end
 
   it 'should be mutable' do
-    @photo.mutable?.should == true   
+    @photo.mutable?.should == true
   end
 
   it 'has a random string key' do
@@ -135,7 +135,7 @@ describe Photo do
       @photo.destroy
       user2.receive xml, @user.person
 
-      new_photo = Photo.first(:id => id)
+      new_photo = Photo.find(id)
       new_photo.url.nil?.should be false
       new_photo.url.include?(url).should be true
       new_photo.url(:thumb_medium).include?(thumb_url).should be true

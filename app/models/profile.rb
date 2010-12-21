@@ -7,16 +7,16 @@ class Profile < ActiveRecord::Base
   include Diaspora::Webhooks
   include ROXML
 
-  xml_accessor :diaspora_handle
-  xml_accessor :first_name
-  xml_accessor :last_name
-  xml_accessor :image_url
-  xml_accessor :image_url_small
-  xml_accessor :image_url_medium
-  xml_accessor :birthday
-  xml_accessor :gender
-  xml_accessor :bio
-  xml_accessor :searchable
+  xml_attr :diaspora_handle
+  xml_attr :first_name
+  xml_attr :last_name
+  xml_attr :image_url
+  xml_attr :image_url_small
+  xml_attr :image_url_medium
+  xml_attr :birthday
+  xml_attr :gender
+  xml_attr :bio
+  xml_attr :searchable
 
   before_save :strip_names
   after_validation :strip_names
@@ -78,7 +78,7 @@ class Profile < ActiveRecord::Base
       date = Date.new(params['year'].to_i, params['month'].to_i, params['day'].to_i)
       self.birthday = date
     elsif [ 'year', 'month', 'day'].all? { |key| params[key].blank? }
-      self.birthday = nil 
+      self.birthday = nil
     end
   end
 

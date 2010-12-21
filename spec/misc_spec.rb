@@ -7,7 +7,7 @@ require 'spec_helper'
 describe 'making sure the spec runner works' do
   it 'factoy creates a user with a person saved' do
     user = Factory.create(:user)
-    loaded_user = User.first(:id => user.id)
+    loaded_user = User.find(user.id)
     loaded_user.person.owner_id.should == user.id
   end
 

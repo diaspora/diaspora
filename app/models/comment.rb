@@ -11,10 +11,10 @@ class Comment < ActiveRecord::Base
   include Encryptable
   include Diaspora::Socketable
 
-  xml_accessor :text
+  xml_attr :text
   xml_accessor :diaspora_handle
   xml_accessor :post_guid
-  xml_accessor :guid
+  xml_attr :guid
 
   belongs_to :post
   belongs_to :person
@@ -24,9 +24,21 @@ class Comment < ActiveRecord::Base
   before_save do
     get_youtube_title text
   end
+  def diaspora_handle
+    person.diaspora_handle
+  end
+  def diaspora_handle= nh
+    self.person = Person.where(:diaspora_handle => nh).first
+  end
+  def post_guid
+    post.guid
+  end
+  def post_guid= new_post_guid
+    post = Post.where(:guid => new_post_guid).first
+  end
 
   def notification_type(user, person)
-    if self.post.diaspora_handle == user.diaspora_handle
+    if self.post.person == user.person
       return "comment_on_post"
     else
       return false

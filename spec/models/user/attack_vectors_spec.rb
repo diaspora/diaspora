@@ -8,7 +8,7 @@ describe "attack vectors" do
 
   let(:user) { Factory.create(:user) }
   let(:aspect) { user.aspects.create(:name => 'heroes') }
-  
+
   let(:bad_user) { Factory.create(:user)}
 
   let(:user2) { Factory.create(:user) }
@@ -18,7 +18,7 @@ describe "attack vectors" do
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
 
   context 'non-contact valid user' do
-    
+
     it 'does not save a post from a non-contact' do
       post_from_non_contact = bad_user.build_post( :status_message, :message => 'hi')
       xml = bad_user.salmon(post_from_non_contact).xml_for(user.person)
@@ -28,7 +28,7 @@ describe "attack vectors" do
       post_count = Post.count
 
       user.receive_salmon(xml)
-      user.raw_visible_posts.include?(post_from_non_contact).should be false
+      user.raw_visible_posts.include?(post_from_non_contact).should be_false
       Post.count.should == post_count
     end
 
@@ -64,7 +64,7 @@ describe "attack vectors" do
         original_message.reload.message.should == "store this!"
         user.raw_visible_posts.first.message.should == "store this!"
       end
-       
+
       it 'does not save a message over an old message with the same author' do
         original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
         user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
@@ -123,7 +123,7 @@ describe "attack vectors" do
     it 'should not receive retractions where the retractor and the salmon author do not match' do
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
       user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
-      user.raw_visible_posts.count.should be 1
+      user.raw_visible_posts.count.should == 1
 
       ret = Retraction.new
       ret.post_id = original_message.id
@@ -133,7 +133,7 @@ describe "attack vectors" do
       lambda {
         user.receive_salmon(user3.salmon(ret).xml_for(user.person))
       }.should_not change(StatusMessage, :count)
-      user.reload.raw_visible_posts.count.should be 1
+      user.reload.raw_visible_posts.count.should == 1
     end
 
     it 'it should not allow you to send retractions for other people' do
@@ -142,8 +142,8 @@ describe "attack vectors" do
       ret.diaspora_handle = user3.person.diaspora_handle
       ret.type = user2.person.class.to_s
 
-      proc{ 
-        user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
+      proc{
+        user.receive_salmon(user3.salmon(ret).xml_for(user.person))
       }.should_not change{user.reload.contacts.count}
     end
 
@@ -153,8 +153,8 @@ describe "attack vectors" do
       ret.diaspora_handle = user2.person.diaspora_handle
       ret.type = user2.person.class.to_s
 
-      proc{ 
-        user.receive_salmon(user3.salmon(ret).xml_for(user.person)) 
+      proc{
+        user.receive_salmon(user3.salmon(ret).xml_for(user.person))
       }.should_not change{user.reload.contacts.count}
     end
 

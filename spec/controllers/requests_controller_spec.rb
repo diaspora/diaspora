@@ -23,7 +23,7 @@ describe RequestsController do
   describe '#destroy' do
     before do
       @other_user.send_contact_request_to(@user.person, @other_user.aspects.first)
-      @friend_request = Request.to(@user.person).first
+      @friend_request = Request.where(:recipient_id => @user.person.id).first
     end
     describe 'when accepting a contact request' do
       it "succeeds" do
@@ -79,9 +79,9 @@ describe RequestsController do
         :to => @other_user.diaspora_handle,
         :into => @user.aspects[0].id}
       )
-      Request.to(@user).first.should be_nil
+      Request.where(:recipient_id => @user.person.id).first.should be_nil
       @user.contact_for(@other_user.person).should be_true
-      @user.aspects[0].contacts.all(:person_id => @other_user.person.id).should be_true
+      @user.aspects[0].contacts.where(:person_id => @other_user.person.id).first.should be_true
     end
 
     it "redirects when requesting to be contacts with yourself" do

@@ -29,7 +29,7 @@ describe Contact do
     end
 
     it 'has many aspects' do
-      contact.associations[:aspects].type.should == :many
+      contact.aspects.should be_empty
     end
 
     it 'validates uniqueness' do
@@ -63,7 +63,7 @@ describe Contact do
         @contact.stub(:user).and_return(@user)
         request = @contact.generate_request
 
-        request.sender.should == @user
+        request.sender.should == @user.person
         request.recipient.should == @person
       end
     end

@@ -13,7 +13,7 @@ describe 'user encryption' do
   describe 'encryption' do
     it 'should encrypt a string' do
       string = "Secretsauce"
-      ciphertext = @user.encrypt string
+      ciphertext = @user.person.encrypt string
       ciphertext.include?(string).should be false
       @user.decrypt(ciphertext).should == string
     end

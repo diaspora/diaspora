@@ -163,13 +163,13 @@ describe Comment do
   end
 
     it 'should not clear the aspect post array on receiving a comment' do
-      aspect.post_ids.include?(@user_status.id).should be true
+      aspect.post_ids.include?(@user_status.id).should be_true
       comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @user_status)
 
       user.receive comment.to_diaspora_xml, @person
 
       aspect.reload
-      aspect.post_ids.include?(@user_status.id).should be true
+      aspect.post_ids.include?(@user_status.id).should be_true
     end
   end
   describe 'serialization' do
@@ -181,8 +181,8 @@ describe Comment do
       comment = commenter.comment "Fool!", :on => post
       comment.person.should_not == user.person
       xml = comment.to_diaspora_xml
-      xml.include?(commenter.person.id.to_s).should be false
-      xml.include?(commenter.diaspora_handle).should be true
+      xml.include?(commenter.person.id.to_s).should be_false
+      xml.include?(commenter.diaspora_handle).should be_true
     end
   end
   describe 'local commenting' do
@@ -203,37 +203,37 @@ describe Comment do
 
     it 'should attach the creator signature if the user is commenting' do
       user.comment "Yeah, it was great", :on => @remote_message
-      @remote_message.comments.first.signature_valid?.should be true
+      @remote_message.comments.first.signature_valid?.should be_true
     end
 
     it 'should sign the comment if the user is the post creator' do
       message = user.post :status_message, :message => "hi", :to => aspect.id
       user.comment "Yeah, it was great", :on => message
-      message.comments.first.signature_valid?.should be true
-      message.comments.first.verify_post_creator_signature.should be true
+      message.comments.first.signature_valid?.should be_true
+      message.comments.first.verify_post_creator_signature.should be_true
     end
 
     it 'should verify a comment made on a remote post by a different contact' do
       comment = Comment.new(:person => user2.person, :text => "cats", :post => @remote_message)
       comment.creator_signature = comment.send(:sign_with_key,user2.encryption_key)
-      comment.signature_valid?.should be true
-      comment.verify_post_creator_signature.should be false
+      comment.signature_valid?.should be_true
+      comment.verify_post_creator_signature.should be_false
       comment.post_creator_signature = comment.send(:sign_with_key,user.encryption_key)
-      comment.verify_post_creator_signature.should be true
+      comment.verify_post_creator_signature.should be_true
     end
 
     it 'should reject comments on a remote post with only a creator sig' do
       comment = Comment.new(:person => user2.person, :text => "cats", :post => @remote_message)
       comment.creator_signature = comment.send(:sign_with_key,user2.encryption_key)
-      comment.signature_valid?.should be true
-      comment.verify_post_creator_signature.should be false
+      comment.signature_valid?.should be_true
+      comment.verify_post_creator_signature.should be_false
     end
 
     it 'should receive remote comments on a user post with a creator sig' do
       comment = Comment.new(:person => user2.person, :text => "cats", :post => @message)
       comment.creator_signature = comment.send(:sign_with_key,user2.encryption_key)
-      comment.signature_valid?.should be true
-      comment.verify_post_creator_signature.should be false
+      comment.signature_valid?.should be_true
+      comment.verify_post_creator_signature.should be_false
     end
   end
 

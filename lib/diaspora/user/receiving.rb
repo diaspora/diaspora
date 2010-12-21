@@ -30,7 +30,7 @@ module Diaspora
         end
 
         if object.is_a?(Comment)
-          xml_author = (owns?(object.post))? object.diaspora_handle : object.post.person.diaspora_handle
+          xml_author = (owns?(object.post)) ? object.diaspora_handle : object.post.person.diaspora_handle
         else
           xml_author = object.diaspora_handle
         end

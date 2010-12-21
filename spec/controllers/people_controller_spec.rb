@@ -120,17 +120,17 @@ describe PeopleController do
   describe '#index' do
     before do
       @eugene = Factory.create(:person,
-        :profile => {:first_name => "Eugene",
-                     :last_name => "w"})
+        :profile => Factory(:profile, :first_name => "Eugene",
+                     :last_name => "w"))
       @korth  = Factory.create(:person,
-        :profile => {:first_name => "Evan",
-                     :last_name => "Korth"})
+        :profile => Factory(:profile, :first_name => "Evan",
+                     :last_name => "Korth"))
     end
 
     it "assigns hashes" do
       eugene2 = Factory.create(:person,
-        :profile => {:first_name => "Eugene",
-                     :last_name => "w"})
+        :profile => Factory(:profile, :first_name => "Eugene",
+                     :last_name => "w"))
       get :index, :q => "Eu"
       people = assigns[:hashes].map{|h| h[:person]}
       people.should include @eugene
@@ -138,8 +138,8 @@ describe PeopleController do
     end
     it "assigns people" do
       eugene2 = Factory.create(:person,
-        :profile => {:first_name => "Eugene",
-                     :last_name => "w"})
+        :profile => Factory(:profile, :first_name => "Eugene",
+                     :last_name => "w"))
       get :index, :q => "Eu"
       assigns[:people].should =~ [@eugene, eugene2]
     end

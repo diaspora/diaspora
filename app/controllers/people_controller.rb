@@ -26,11 +26,11 @@ class PeopleController < ApplicationController
   def hashes_for_people people, aspects
     ids = people.map{|p| p.id}
     requests = {}
-    Request.all(:from_id.in => ids, :to_id => current_user.person.id).each do |r|
-      requests[r.to_id] = r
+    Request.where(:sender_id => ids, :recipient_id => current_user.person.id).each do |r|
+      requests[r.id] = r
     end
     contacts = {}
-    Contact.all(:user_id => current_user.id, :person_id.in => ids).each do |contact|
+    Contact.where(:user_id => current_user.id, :person_id => ids).each do |contact|
       contacts[contact.person_id] = contact
     end
     people.map{|p|
@@ -42,11 +42,11 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find(params[:id].to_id)
+    @person = Person.where(:id => params[:id]).first
     @post_type = :all
 
     if @person
-      @incoming_request = Request.to(current_user).from(@person).first
+      @incoming_request = current_user.request_from(@person)
 
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
@@ -89,7 +89,8 @@ class PeopleController < ApplicationController
     # upload and set new profile photo
     params[:profile] ||= {}
     params[:profile][:searchable] ||= false
-    params[:profile][:photo] = Photo.first(:person_id => current_user.person.id, :id => params[:photo_id]) if params[:photo_id]
+    params[:profile][:photo] = Photo.where(:person_id => current_user.person.id,
+                                           :id => params[:photo_id]).first if params[:photo_id]
 
     if current_user.update_profile params[:profile]
       flash[:notice] = I18n.t 'people.update.updated'
@@ -114,7 +115,7 @@ class PeopleController < ApplicationController
   end
 
   def share_with
-    @person = Person.find(params[:id].to_id)
+    @person = Person.find(params[:id])
     @contact = current_user.contact_for(@person)
     @aspects_with_person = []
 

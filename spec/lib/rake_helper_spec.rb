@@ -36,58 +36,5 @@ describe RakeHelpers do
       User.first.invites.should == 10
     end
   end
-
-  describe '#fix_spaces' do
-
-    before do
-      Factory(:person)
-      5.times do |number|
-        f = Factory.create(:user)
-        f.person.diaspora_handle = "#{f.username}  #{APP_CONFIG[:pod_uri].host}"
-        f.person.url = APP_CONFIG[:pod_url]
-        f.person.save(:validate => false)
-      end
-       p = Factory(:person)
-       p.diaspora_handle = "bubblegoose  @#{APP_CONFIG[:pod_uri].host}"
-       p.url = APP_CONFIG[:pod_url]
-       p.save(:validate => false)
-    end
-
-    it 'should fix diaspora handles' do
-
-
-      RakeHelpers::fix_diaspora_handle_spaces(false)
-
-      Person.all.all?{|x| !x.diaspora_handle.include?(" ")}.should == true
-    end
-
-    it 'should delete broken space people with no users' do
-      expect{
-        RakeHelpers::fix_diaspora_handle_spaces(false)
-      }.to change(Person, :count).by(-1)
-    end
-  end
-
-
-  describe '#fix_periods_in_username' do
-    it 'should update a users username, his persons diaspora hande, and posts' do
-      billy = Factory.create(:user)
-      billy.username = "ma.x"
-      billy.person.diaspora_handle = "ma.x@#{APP_CONFIG[:pod_uri].host}"
-      billy.person.save(:validate => false)
-      billy.save(:validate => false)
-
-      aspect = billy.aspects.create :name => "foo"
-      billy.post :status_message, :message => "hi mom", :to => aspect.id
-
-      RakeHelpers::fix_periods_in_username(false)
-
-      new_d_handle = "max@#{APP_CONFIG[:pod_uri].host}"
-
-      User.first.username.should == 'max'
-      User.first.person.diaspora_handle.should == new_d_handle
-      User.first.posts.all.all?{|x| x.diaspora_handle == new_d_handle}.should == true
-    end
-  end
 end
 

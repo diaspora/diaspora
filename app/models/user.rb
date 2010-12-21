@@ -279,11 +279,11 @@ class User < ActiveRecord::Base
 
   ###Invitations############
   def invite_user(email, aspect_id, invite_message = "")
-    aspect_object = Aspect.first(:user_id => self.id, :id => aspect_id)
-    if aspect_object
+    aspect = aspects.find(aspect_id)
+    if aspect
       Invitation.invite(:email => email,
                         :from => self,
-                        :into => aspect_object,
+                        :into => aspect,
                         :message => invite_message)
     else
       false
@@ -361,7 +361,7 @@ class User < ActiveRecord::Base
 
   def disconnect_everyone
     contacts.each { |contact|
-      if contact.person.owner?
+      if contact.person.owner_id
         contact.person.owner.disconnected_by self.person
       else
         self.disconnect contact

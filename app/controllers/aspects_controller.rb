@@ -10,9 +10,9 @@ class AspectsController < ApplicationController
   respond_to :js
 
   def index
-    @posts  = current_user.visible_posts(:_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
+    @posts  = current_user.visible_posts(:type => "StatusMessage").paginate :page => params[:page], :per_page => 15
     @post_hashes = hashes_for_posts @posts
-    @contacts = Contact.all(:user_id => current_user.id, :pending => false)
+    @contacts = current_user.contacts.where(:pending => false)
     @aspect_hashes = hashes_for_aspects @aspects.all, @contacts, :limit => 8
     @aspect = :all
 
@@ -63,12 +63,15 @@ class AspectsController < ApplicationController
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
-      @aspect_contacts = hashes_for_contacts Contact.all(:user_id => current_user.id, :aspect_ids.in => [@aspect.id], :pending => false)
+      @aspect_contacts = hashes_for_contacts Contact.joins(:aspect_memberships).where(
+        :user_id => current_user.id,
+        :pending => false,
+        :aspect_memberships => {:aspect_id => @aspect.id})
       @aspect_contacts_count = @aspect_contacts.count
 
       @all_contacts = hashes_for_contacts @contacts
 
-      @posts = @aspect.posts.find_all_by__type("StatusMessage", :order => 'created_at desc').paginate :page => params[:page], :per_page => 15
+      @posts = @aspect.posts.where(:type => "StatusMessage").order('created_at desc').paginate :page => params[:page], :per_page => 15
       @post_hashes = hashes_for_posts @posts
       @post_count = @posts.count
 
@@ -121,7 +124,7 @@ class AspectsController < ApplicationController
       current_user.send_contact_request_to(@person, @aspect)
       contact = current_user.contact_for(@person)
 
-      if request = Request.from(@person).to(current_user).first
+      if request = Request.where(:sender_id => @person.id, :recipient_id => current_user.person.id).first
         request.destroy
         contact.update_attributes(:pending => false)
       end
@@ -171,10 +174,10 @@ class AspectsController < ApplicationController
 
   private
   def hashes_for_contacts contacts
-    people = Person.all(:id.in => contacts.map{|c| c.person_id})
+    people = Person.where(:id => contacts.map{|c| c.person_id})
     people_hash = {}
     people.each{|p| people_hash[p.id] = p}
-    contacts.map{|c| {:contact => c, :person => people_hash[c.person_id.to_id]}}
+    contacts.map{|c| {:contact => c, :person => people_hash[c.person_id]}}
   end
 
   def hashes_for_aspects aspects, contacts, opts = {}
@@ -182,7 +185,7 @@ class AspectsController < ApplicationController
     aspects.map do |a|
       hash = {:aspect => a}
       aspect_contact_hashes = contact_hashes.select{|c|
-          c[:contact].aspect_ids.include?(a.id)}
+          c[:contact].aspects.include?(a)}
       hash[:contact_count] = aspect_contact_hashes.count
       if opts[:limit]
         hash[:contacts] = aspect_contact_hashes.slice(0,opts[:limit])
@@ -202,7 +205,7 @@ class AspectsController < ApplicationController
     photo_hash = Photo.hash_from_post_ids post_ids
 
     post_person_ids.uniq!
-    posters = Person.all(:id.in => post_person_ids)
+    posters = Person.where(:id => post_person_ids)
     posters_hash = {}
     posters.each{|poster| posters_hash[poster.id] = poster}
 

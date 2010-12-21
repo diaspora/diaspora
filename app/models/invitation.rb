@@ -19,7 +19,7 @@ class Invitation < ActiveRecord::Base
       elsif not existing_user.invited?
         opts[:from].send_contact_request_to(existing_user.person, opts[:into])
         return
-      elsif Invitation.first(:sender_id => opts[:from].id, :recipient_id => existing_user.id)
+      elsif Invitation.where(:sender_id => opts[:from].id, :recipient_id => existing_user.id).first
         raise "You already invited this person"
       end
     end

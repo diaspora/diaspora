@@ -196,7 +196,7 @@ describe User do
     end
   end
 
-  describe "#request_for" do
+  describe "#request_from" do
     let!(:user5) {Factory(:user)}
 
     it 'should not have a pending request before connecting' do

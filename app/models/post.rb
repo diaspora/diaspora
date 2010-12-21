@@ -9,10 +9,10 @@ class Post < ActiveRecord::Base
   include ROXML
   include Diaspora::Webhooks
 
-  #xml_accessor :guid
-  #xml_accessor :diaspora_handle
-  #xml_accessor :public
-  #xml_accessor :created_at
+  xml_attr :guid
+  xml_attr :diaspora_handle
+  xml_attr :public
+  xml_attr :created_at
 
   has_many :comments, :order => 'created_at ASC'
   has_many :post_visibilities

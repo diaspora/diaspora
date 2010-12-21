@@ -33,14 +33,14 @@ describe Diaspora::Exporter do
     before do
       @user_xml = exported.xpath('//user').to_s
     end
-    it 'should include a users private key' do
+    it 'includes a users private key' do
       @user_xml.to_s.should include @user1.serialized_private_key
     end
   end
 
   context '<aspects/>' do
 
-    it 'should include the post_ids' do
+    it 'includes the post_ids' do
       aspects_xml = exported.xpath('//aspects').to_s
       aspects_xml.should include @status_message1.id.to_s
       aspects_xml.should include @status_message2.id.to_s
@@ -56,8 +56,8 @@ describe Diaspora::Exporter do
     end
 
     let(:contacts_xml) {exported.xpath('//contacts').to_s}
-    it 'should include a person id' do
-      contacts_xml.should include @user3.person.id.to_s
+    it 'includes a person id' do
+      contacts_xml.should include @user3.person.guid
     end
 
     it 'should include an aspects names of all aspects they are in' do
@@ -76,7 +76,7 @@ describe Diaspora::Exporter do
       @user1.reload
     end
     it 'should include persons id' do
-      people_xml.should include @user3.person.id.to_s
+      people_xml.should include @user3.person.guid
     end
 
     it 'should include their profile' do

@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def count_requests
-    @request_count = Request.to(current_user.person).count if current_user
+    @request_count = Request.where(:recipient_id => current_user.person.id).count if current_user
   end
 
   def set_invites
@@ -51,22 +51,23 @@ class ApplicationController < ActionController::Base
 
   def similar_people contact, opts={}
     opts[:limit] ||= 5
-    aspect_ids = contact.aspect_ids
-    count = Contact.count(:user_id => current_user.id,
-                          :person_id.ne => contact.person.id,
-                          :aspect_ids.in => aspect_ids)
-
+    aspect_ids = contact.aspects.map{|a| a.id}
+    count = Contact.joins(:aspect_memberships).where(
+      :user_id => current_user.id).where(
+      "contacts.person_id != #{contact.person_id}").where(
+      :aspect_memberships => {:aspect_id => aspect_ids}).count
     if count > opts[:limit]
       offset = rand(count-opts[:limit])
     else
       offset = 0
     end
 
-    contacts = Contact.all(:user_id => current_user.id,
-                           :person_id.ne => contact.person.id,
-                           :aspect_ids.in => aspect_ids,
-                           :skip => offset,
-                           :limit => opts[:limit])
+    contacts = Contact.joins(:aspect_memberships).includes(:person).where(
+      :user_id => current_user.id).where(
+      "contacts.person_id != #{contact.person_id}").where(
+      :aspect_memberships => {:aspect_id => aspect_ids}).all(
+      :offset => offset,
+      :limit => opts[:limit])
     contacts.collect!{ |contact| contact.person }
   end
 end

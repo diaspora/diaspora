@@ -40,10 +40,10 @@ describe Diaspora::Parser do
         remote_user = Factory.create(:user)
         new_person = remote_user.person
 
-        request = Request.new(:to =>user.person, :from => new_person)
+        request = Request.new(:recipient =>user.person, :sender => new_person)
         xml = remote_user.salmon(request).xml_for(user.person)
         request.delete
-        request.from.delete
+        request.sender.delete
         remote_user.delete
         new_person.delete
 
@@ -59,7 +59,7 @@ describe Diaspora::Parser do
 
     it "should activate the Person if I initiated a request to that url" do
       user.send_contact_request_to(user2.person, aspect)
-      request = Request.to(user2).from(user).first
+      request = Request.where(:recipient_id => user2.person.id, :sender_id => user.id).first
       fantasy_resque do
         user2.accept_and_respond(request.id, aspect2.id)
       end
@@ -93,19 +93,19 @@ describe Diaspora::Parser do
 
       #Build xml for profile, clear profile
       xml = person.profile.to_diaspora_xml
-      reloaded_person = Person.first(:id => id)
+      reloaded_person = Person.find(id)
       reloaded_person.profile = nil
       reloaded_person.save(:validate => false)
 
       #Make sure profile is cleared
-      Person.first(:id => id).profile.should be nil
+      Person.find(id).profile.should be nil
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
       user.receive xml, person
 
       #Check that marshaled profile is the same as old profile
-      person = Person.first(:id => person.id)
+      person = Person.find(person.id)
       person.profile.should_not be nil
       person.profile.first_name.should == old_profile.first_name
       person.profile.last_name.should == old_profile.last_name

@@ -74,19 +74,24 @@ class CreateSchema < ActiveRecord::Migration
       t.integer :person_id
       t.boolean :public, :default => false
       t.string :diaspora_handle
+      t.string :guid
       t.boolean :pending, :default => false
       t.integer :user_refs, :default => 0
       t.string :type
+
       t.text :message
+
       t.integer :status_message_id
       t.text :caption
       t.text :remote_photo_path
       t.string :remote_photo_name
       t.string :random_string
+
       t.timestamps
     end
     add_index :posts, :type
     add_index :posts, :person_id
+    add_index :posts, :guid
 
     create_table :post_visibilities do |t|
       t.integer :aspect_id

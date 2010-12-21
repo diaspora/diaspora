@@ -10,11 +10,11 @@ class Person < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   include Diaspora::Socketable
 
-#  xml_accessor :guid
-#  xml_accessor :diaspora_handle
-#  xml_accessor :url
-#  xml_accessor :profile, :as => Profile
-#  xml_reader :exported_key
+  xml_attr :guid
+  xml_attr :diaspora_handle
+  xml_attr :url
+  xml_attr :profile, :as => Profile
+  xml_attr :exported_key
 
   has_one :profile
   delegate :last_name, :to => :profile
@@ -150,7 +150,7 @@ class Person < ActiveRecord::Base
 
   def self.from_post_comment_hash(hash)
     person_ids = hash.values.flatten.map!{|c| c.person_id}.uniq
-    people = where(:id.in => person_ids).fields(:profile, :diaspora_handle)
+    people = where(:id => person_ids)
     people_hash = {}
     people.each{|p| people_hash[p.id] = p}
     people_hash

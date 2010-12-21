@@ -28,7 +28,7 @@ class PublicsController < ApplicationController
 
   def webfinger
     @person = Person.local_by_account_identifier(params[:q]) if params[:q]
-    unless @person.nil? 
+    unless @person.nil?
       render 'webfinger', :content_type => 'application/xrd+xml'
     else
       render :nothing => true, :status => 404
@@ -47,7 +47,7 @@ class PublicsController < ApplicationController
       return
     end
 
-    person = Person.first(:id => params[:id])
+    person = Person.find(params[:id])
 
     if person.owner_id.nil?
       Rails.logger.error("Received post for nonexistent person #{params[:id]}")

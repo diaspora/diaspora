@@ -90,7 +90,7 @@ describe InvitationsController do
 
       it 'adds a pending request' do
         put :update, @accept_params
-        Request.to(invited.person).count.should == 1
+        Request.where(:recipient_id => invited.person.id).count.should == 1
       end
     end
     context 'failure' do

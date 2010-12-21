@@ -14,7 +14,7 @@ class StatusMessagesController < ApplicationController
       params[:status_message][:aspect_ids] = current_user.aspects.collect{|x| x.id}
     end
 
-    photos = Photo.all(:id.in => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
+    photos = Photo.where(:id => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
 
     public_flag = params[:status_message][:public]
     public_flag.to_s.match(/(true)/) ? public_flag = true : public_flag = false
@@ -27,8 +27,9 @@ class StatusMessagesController < ApplicationController
 
       @status_message.photos += photos unless photos.nil?
       current_user.add_to_streams(@status_message, params[:status_message][:aspect_ids])
-      current_user.dispatch_post(@status_message, :to => params[:status_message][:aspect_ids], :url => post_url(@status_message))
-
+      current_user.dispatch_post(@status_message,
+                                 :to => params[:status_message][:aspect_ids],
+                                 :url => post_url(@status_message))
 
       for photo in photos
         photo.public = public_flag
@@ -62,7 +63,7 @@ class StatusMessagesController < ApplicationController
   end
 
   def destroy
-    @status_message = current_user.posts.where(:_id =>  params[:id]).first
+    @status_message = current_user.posts.where(:id =>  params[:id]).first
     if @status_message
       @status_message.destroy
       render :nothing => true, :status => 200

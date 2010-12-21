@@ -24,7 +24,7 @@ module Diaspora
 
     def self.push_to_user(uid, data)
       Rails.logger.debug "event=socket-push uid=#{uid}"
-      @channels[uid.to_id][0].push(data) if @channels[uid.to_id]
+      @channels[uid][0].push(data) if @channels[uid]
     end
 
     def self.subscribe(uid, ws)

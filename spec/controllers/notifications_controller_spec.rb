@@ -8,7 +8,7 @@ describe NotificationsController do
 
   let!(:user) { Factory.create(:user) }
   let!(:aspect) { user.aspects.create(:name => "AWESOME!!") }
-  
+
   before do
     sign_in :user, user
 
@@ -16,7 +16,7 @@ describe NotificationsController do
 
   describe '#update' do
     it 'marks a notification as read' do
-      note = Notification.create(:user_id => user.id)
+      note = Notification.create(:recipient_id => user.id)
       put :update, :id => note.id
       Notification.first.unread.should == false
     end
@@ -24,12 +24,12 @@ describe NotificationsController do
     it 'only lets you read your own notifications' do
       user2 = Factory.create(:user)
 
-      Notification.create(:user_id => user.id)
-      note = Notification.create(:user_id => user2.id)
+      Notification.create(:recipient_id => user.id)
+      note = Notification.create(:recipient_id => user2.id)
 
       put :update, :id => note.id
 
-      Notification.find(note.id).unread.should == true 
+      Notification.find(note.id).unread.should == true
     end
   end
 end

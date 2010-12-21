@@ -13,8 +13,8 @@ class PhotosController < ApplicationController
     @person = Person.find_by_id(params[:person_id])
 
     if @person
-      @incoming_request = Request.to(current_user).from(@person).first
-      @outgoing_request = Request.from(current_user).to(@person).first
+      @incoming_request = Request.where(:recipient_id => current_user.person.id, :sender_id => @person.id).first
+      @outgoing_request = Request.where(:sender_id => current_user.person.id, :recipient_id => @person.id).first
 
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
@@ -26,7 +26,10 @@ class PhotosController < ApplicationController
         @similar_people = similar_people @contact
       end
 
-      @posts = current_user.raw_visible_posts.all(:_type => 'Photo', :person_id => @person.id, :order => 'created_at DESC').paginate :page => params[:page], :order => 'created_at DESC'
+      @posts = current_user.raw_visible_posts.where(
+        :type => 'Photo',
+        :person_id => @person.id
+      ).paginate(:page => params[:page])
 
       render 'people/show'
 
@@ -85,7 +88,7 @@ class PhotosController < ApplicationController
 
   def make_profile_photo
     person_id = current_user.person.id
-    @photo = Photo.find_by_id_and_person_id(params[:photo_id], person_id)
+    @photo = Photo.where(:id => params[:photo_id], :person_id => person_id).first
 
     if @photo
       profile_hash = {:image_url        => @photo.url(:thumb_large),
@@ -110,7 +113,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    photo = current_user.posts.where(:_id => params[:id]).first
+    photo = current_user.posts.where(:id => params[:id]).first
 
     if photo
       photo.destroy
@@ -153,7 +156,7 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    if @photo = current_user.posts.where(:_id => params[:id]).first
+    if @photo = current_user.posts.where(:id => params[:id]).first
       respond_with @photo
     else
       redirect_to person_photos_path(current_user.person)
@@ -161,7 +164,7 @@ class PhotosController < ApplicationController
   end
 
   def update
-    photo = current_user.posts.where(:_id => params[:id]).first
+    photo = current_user.posts.where(:id => params[:id]).first
     if photo
       if current_user.update_post( photo, params[:photo] )
         flash.now[:notice] = I18n.t 'photos.update.notice'

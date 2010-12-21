@@ -209,7 +209,7 @@ describe User do
                   :password => "password",
                   :password_confirmation => "password",
                   :person =>
-                    {:_id => person.id,
+                    {:id => person.id,
                       :profile =>
                       {:first_name => "O",
                        :last_name => "Hai"}
@@ -339,7 +339,7 @@ describe User do
         message = user.post(:status_message, :message => "hi", :to => aspect.id)
         user.reload
         user.destroy
-        proc { message.reload }.should raise_error /does not exist/
+        proc { message.reload }.should raise_error ActiveRecord::RecordNotFound
       end
     end
 
