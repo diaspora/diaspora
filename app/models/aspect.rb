@@ -15,6 +15,8 @@ class Aspect < ActiveRecord::Base
   validates_length_of :name, :maximum => 20
   validates_uniqueness_of :name, :scope => :user_id
 
+  attr_accessible :name
+
   before_validation do
     name.strip!
   end

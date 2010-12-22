@@ -42,7 +42,8 @@ class Person < ActiveRecord::Base
     query_tokens = query.to_s.strip.split(" ")
     p = []
 
-    query_tokens.each do |token|
+    query_tokens.each do |raw_token|
+      token = "%#{raw_token}%"
       p = Person.searchable.where('profiles.first_name LIKE :token', :token => token).limit(30) \
  | Person.searchable.where('profiles.last_name LIKE :token', :token => token).limit(30) \
  | Person.searchable.where('profiles.diaspora_handle LIKE :token', :token => token).limit(30) \

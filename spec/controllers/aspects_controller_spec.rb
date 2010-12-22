@@ -27,9 +27,8 @@ describe AspectsController do
 
   describe "#index" do
     it "assigns @contacts to all the user's contacts" do
-      Factory.create :person
       get :index
-      assigns[:contacts].should == @user.contacts
+      assigns[:contacts].map{|c| c.id}.should == @user.contacts.map{|c| c.id}
     end
     context 'performance' do
       before do

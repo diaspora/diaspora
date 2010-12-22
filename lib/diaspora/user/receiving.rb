@@ -23,10 +23,9 @@ module Diaspora
       def receive xml, salmon_author
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.info("event=receive status=start recipient=#{self.diaspora_handle} payload_type=#{object.class} sender=#{salmon_author.diaspora_handle}")
-
         if object.is_a?(Request)
-          salmon_author.save
-          object.sender_handle = salmon_author.diaspora_handle
+          salmon_author.save!
+          object.sender = salmon_author
         end
 
         if object.is_a?(Comment)
