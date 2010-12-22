@@ -28,4 +28,4 @@
   %h4{:style=>"margin-bottom:5px;"}= t('_comments')
   %ul{:class => 'stream show', :id => 'status_message_stream'}
     %li.message{:data=>{:guid=>@status_message.id}}
-      = render "comments/comments", :post_id => @status_message.id, :comment_hashes => @comment_hashes
+      = render "comments/comments", :post_id => @status_message.id, :comment_hashes => @comment_hashes, :always_expanded => true
