@@ -193,7 +193,7 @@ describe Person do
     end
 
     it 'should only display searchable people' do
-      invisible_person = Factory(:person, :profile => {:searchable => false, :first_name => "johnson"})
+      invisible_person = Factory(:person, :profile => Factory(:profile,:searchable => false, :first_name => "johnson"))
       Person.search("johnson").should_not include invisible_person
       Person.search("").should_not include invisible_person
     end

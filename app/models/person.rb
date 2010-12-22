@@ -35,20 +35,17 @@ class Person < ActiveRecord::Base
   validates_presence_of :url, :profile, :serialized_public_key
   validates_uniqueness_of :diaspora_handle, :case_sensitive => false
 
-  scope :searchable, includes(:profile).where(:profile => {:searchable => true})
+  scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
 
   def self.search(query)
     return [] if query.to_s.empty?
     query_tokens = query.to_s.strip.split(" ")
-    full_query_text = Regexp.escape(query.to_s.strip)
-
     p = []
 
     query_tokens.each do |token|
-      q = Regexp.escape(token.to_s.strip)
-      p = Person.searchable.all('profile.first_name' => /^#{q}/i, 'limit' => 30) \
- | Person.searchable.all('profile.last_name' => /^#{q}/i, 'limit' => 30) \
- | Person.searchable.all('diaspora_handle' => /^#{q}/i, 'limit' => 30) \
+      p = Person.searchable.where('profiles.first_name LIKE :token', :token => token).limit(30) \
+ | Person.searchable.where('profiles.last_name LIKE :token', :token => token).limit(30) \
+ | Person.searchable.where('profiles.diaspora_handle LIKE :token', :token => token).limit(30) \
  | p
     end
 

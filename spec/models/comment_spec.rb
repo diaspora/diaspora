@@ -135,9 +135,8 @@ describe Comment do
     end
 
     it 'should send a comment a user made on your post to all people' do
-      comment = user2.comment( "balls", :on => @user_status)
       MessageHandler.should_receive(:add_post_request).once
-      user.receive comment.to_diaspora_xml, user2.person
+      comment = user2.comment( "balls", :on => @user_status)
     end
 
     context 'posts from a remote person' do

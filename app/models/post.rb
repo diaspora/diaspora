@@ -25,7 +25,9 @@ class Post < ActiveRecord::Base
   before_destroy :propogate_retraction
   after_destroy :destroy_comments
 
-  attr_accessible :user_refs
+  def user_refs
+    self.post_visibilities.count
+  end
 
   def self.diaspora_initialize params
     new_post = self.new params.to_hash
@@ -50,15 +52,6 @@ class Post < ActiveRecord::Base
 
   def mutable?
     false
-  end
-
-  def decrement_user_refs
-    user_refs -= 1
-    if (user_refs > 0) || person.owner.nil? == false
-      save
-    else
-      destroy
-    end
   end
 
   protected

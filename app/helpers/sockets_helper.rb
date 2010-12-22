@@ -63,7 +63,7 @@ module SocketsHelper
 
     end
 
-    action_hash[:mine?] = object.person && (object.person.owner.id == uid) if object.respond_to?(:person)
+    action_hash[:mine?] = object.person && (object.person.owner_id == uid) if object.respond_to?(:person)
 
     I18n.locale = old_locale unless user.nil?
 

@@ -43,6 +43,10 @@ describe Diaspora::UserModules::Connecting do
         user.send_contact_request_to(user2.person, aspect1)
       }.should_not change{Request.where(:recipient_id => user.person.id).count}
     end
+    it 'persists a request for the recipient' do
+      user.send_contact_request_to(user2.person, aspect1)
+      user2.request_from(user.person).should_not be_nil
+    end
   end
 
   context 'contact requesting' do

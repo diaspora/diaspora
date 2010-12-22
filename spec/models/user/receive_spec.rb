@@ -99,8 +99,6 @@ describe User do
       person = user2.person
       person.owner_id = nil
       person.save
-      @status_message.user_refs = 1
-      @status_message.save
 
       lambda {
         user.disconnected_by(user2.person)
@@ -109,23 +107,23 @@ describe User do
 
     it 'should keep track of user references for one person ' do
       @status_message.reload
-      @status_message.user_refs.should == 1
+      @status_message.user_refs.should == 2
 
       user.disconnect(user2.person)
       @status_message.reload
-      @status_message.user_refs.should == 0
+      @status_message.user_refs.should == 1
     end
 
     it 'should not override userrefs on receive by another person' do
       user3.activate_contact(user2.person, aspect3)
       user3.receive @status_message.to_diaspora_xml, user2.person
 
-      @status_message.reload
-      @status_message.user_refs.should == 2
+      @status_message.post_visibilities.reset
+      @status_message.user_refs.should == 3
 
       user.disconnect(user2.person)
-      @status_message.reload
-      @status_message.user_refs.should == 1
+      @status_message.post_visibilities.reset
+      @status_message.user_refs.should == 2
     end
   end
 

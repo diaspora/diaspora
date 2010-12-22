@@ -263,11 +263,11 @@ class User < ActiveRecord::Base
 
   ########### Profile ######################
   def update_profile(params)
-    if params[:photo]
-      params[:photo].update_attributes(:pending => false) if params[:photo].pending
-      params[:image_url] = params[:photo].url(:thumb_large)
-      params[:image_url_medium] = params[:photo].url(:thumb_medium)
-      params[:image_url_small] = params[:photo].url(:thumb_small)
+    if photo = params.delete(:photo)
+      photo.update_attributes(:pending => false) if photo.pending
+      params[:image_url] = photo.url(:thumb_large)
+      params[:image_url_medium] = photo.url(:thumb_medium)
+      params[:image_url_small] = photo.url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
       push_to_people profile, contacts.includes(:person).where(:pending => false).map{|c| c.person}

@@ -206,7 +206,7 @@ describe User do
 
     it 'should have a pending request after sending a request' do
       @user.send_contact_request_to(user5.person, @user.aspects.first)
-      request = @user.reload.request_from(user5.person)
+      request = user5.request_from(@user.person)
       request.should_not be_nil
     end
   end

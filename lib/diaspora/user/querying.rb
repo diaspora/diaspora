@@ -62,7 +62,8 @@ module Diaspora
       end
 
       def request_from(person)
-        Request.where(:sender_id => person.id, :recipient_id => self.person.id).first
+        Request.where(:sender_id => person.id,
+                      :recipient_id => self.person.id).first
       end
 
       def posts_from(person)
