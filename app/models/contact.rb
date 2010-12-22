@@ -13,7 +13,7 @@ class Contact < ActiveRecord::Base
   has_many :aspects, :through => :aspect_memberships
   validate :not_contact_for_self
   validates_uniqueness_of :person_id, :scope => :user_id
-    
+
   def dispatch_request
     request = self.generate_request
     self.user.push_to_people(request, [self.person])
@@ -21,7 +21,9 @@ class Contact < ActiveRecord::Base
   end
 
   def generate_request
-    Request.new(:sender => self.user.person, :recipient => self.person)
+    Request.new(:sender => self.user.person,
+                :recipient => self.person,
+                :aspect => aspects.first)
   end
 
   private

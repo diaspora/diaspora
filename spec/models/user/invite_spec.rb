@@ -14,7 +14,9 @@ describe User do
 
   context "creating invites" do
     it 'requires your aspect' do
-      inviter.invite_user("maggie@example.com",  wrong_aspect.id).should raise_error ActiveRecord::RecordNotFound
+      lambda {
+        inviter.invite_user("maggie@example.com",  wrong_aspect.id)
+      }.should raise_error ActiveRecord::RecordNotFound
     end
 
     it 'calls Invitation.invite' do

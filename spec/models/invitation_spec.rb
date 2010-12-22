@@ -9,6 +9,8 @@ describe Invitation do
   let!(:aspect) {user.aspects.create(:name => "Invitees")}
   let(:user2)  {Factory.create(:user)}
   before do
+    user.invites = 20
+    user.save
     @email = 'maggie@example.com'
     Devise.mailer.deliveries = []
   end

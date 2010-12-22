@@ -30,12 +30,13 @@ describe Diaspora::Parser do
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
-      proc { user.receive xml, user2.person }.should change(StatusMessage, :count).by(-1)
+      lambda {
+        user.receive xml, user2.person
+      }.should change(StatusMessage, :count).by(-1)
     end
 
     context "connecting" do
-
-    let(:good_request) { FakeHttpRequest.new(:success)}
+      let(:good_request) { FakeHttpRequest.new(:success)}
       it "should create a new person upon getting a person request" do
         remote_user = Factory.create(:user)
         new_person = remote_user.person
@@ -53,8 +54,6 @@ describe Diaspora::Parser do
           user.receive_salmon xml
         }.should change(Person, :count).by(1)
       end
-
-
     end
 
     it "should activate the Person if I initiated a request to that url" do

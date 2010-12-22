@@ -9,8 +9,8 @@ class Person < ActiveRecord::Base
   include Encryptor::Public
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   include Diaspora::Socketable
+  include Diaspora::Guid
 
-  xml_attr :guid
   xml_attr :diaspora_handle
   xml_attr :url
   xml_attr :profile, :as => Profile

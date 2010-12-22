@@ -103,7 +103,8 @@ describe Diaspora::Exporter do
 
     it 'should include post created at time' do
       doc = Nokogiri::XML::parse(posts_xml)
-      Time.parse(doc.xpath('//posts/status_message/created_at').first.text).should == @status_message1.created_at
+      xml_time = Time.zone.parse(doc.xpath('//posts/status_message/created_at').first.text)
+      xml_time.to_i.should == @status_message1.created_at.to_i
     end
   end
 end

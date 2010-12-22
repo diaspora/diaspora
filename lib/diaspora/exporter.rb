@@ -18,8 +18,8 @@ module Diaspora
           xml.export {
             xml.user {
               xml.username user.username
-              xml.serialized_private_key user.serialized_private_key 
-              
+              xml.serialized_private_key user.serialized_private_key
+
               xml.parent << user.person.to_xml
             }
 
@@ -27,9 +27,9 @@ module Diaspora
 
             xml.aspects {
               user.aspects.each do |aspect|
-                xml.aspect { 
+                xml.aspect {
                   xml.name aspect.name
-                   
+
 #                  xml.person_ids {
                     #aspect.person_ids.each do |id|
                       #xml.person_id id
@@ -47,9 +47,10 @@ module Diaspora
 
             xml.contacts {
               user.contacts.each do |contact|
-              xml.contact { 
+              xml.contact {
                 xml.user_id contact.user_id
                 xml.person_id contact.person_id
+                xml.person_guid contact.person.guid
 
                 xml.aspects {
                   contact.aspects.each do |aspect|
@@ -71,7 +72,7 @@ module Diaspora
                 xml.parent << post.to_xml
               end
             }
-             
+
             xml.people {
               user.contacts.each do |contact|
                 person = contact.person

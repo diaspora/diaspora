@@ -10,11 +10,11 @@ class Comment < ActiveRecord::Base
   include Diaspora::Webhooks
   include Encryptable
   include Diaspora::Socketable
+  include Diaspora::Guid
 
   xml_attr :text
   xml_accessor :diaspora_handle
   xml_accessor :post_guid
-  xml_attr :guid
 
   belongs_to :post
   belongs_to :person
@@ -34,7 +34,7 @@ class Comment < ActiveRecord::Base
     post.guid
   end
   def post_guid= new_post_guid
-    post = Post.where(:guid => new_post_guid).first
+    self.post = Post.where(:guid => new_post_guid).first
   end
 
   def notification_type(user, person)

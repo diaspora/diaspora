@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
   include ApplicationHelper
   include ROXML
   include Diaspora::Webhooks
+  include Diaspora::Guid
 
-  xml_attr :guid
   xml_attr :diaspora_handle
   xml_attr :public
   xml_attr :created_at

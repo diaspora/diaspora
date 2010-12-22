@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["guid"], :name => "index_posts_on_guid"
   add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["type"], :name => "index_posts_on_type"
 
