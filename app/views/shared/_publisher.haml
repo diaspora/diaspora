@@ -15,6 +15,7 @@
       
       if($("textarea#status_message_message").val() != ""){
         $("#publisher").removeClass("closed");
+        $("#publisher").find("textarea").focus();
         $("#publisher .options_and_submit").show();
       }
 
