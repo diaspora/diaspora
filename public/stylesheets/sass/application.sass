@@ -521,7 +521,8 @@ li.message
 input.comment_submit
   :display none
 
-ul.comments
+ul.comments,
+ul.show_comments
   :margin 0
     :top 1em
   :padding 0
@@ -535,7 +536,7 @@ ul.comments
   .force_open
     :min-height 2.4em
 
-  li.comment
+  li
     :list
       :style none
     :padding 0.7em
@@ -589,7 +590,6 @@ ul.comments
         :bottom -0.8em
         :top -0.7em
       :padding 0
-
 
 .profile_photo
   img
@@ -2111,7 +2111,6 @@ h3,h4
     :right 0
 
 ul.notifications_for_day
-
   :margin 0
   :padding 0
 
@@ -2132,3 +2131,18 @@ ul.notifications_for_day
   :position relative
   :margin
     :bottom 1em
+
+ul.show_comments
+  :margin
+    :bottom -1em
+  > li
+    :font
+      :size smaller
+    img
+      :position relative
+      :top 3px
+      :height 12px
+      :width 12px
+      :margin
+        :left 0.5em
+        :right 0.5em

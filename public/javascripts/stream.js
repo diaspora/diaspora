@@ -13,7 +13,12 @@ var Stream = {
     // publisher textarea reset
     $publisher.find("textarea").bind("blur", function(){
       $(this).css('height','42px');
-    })
+    });
+
+    // comment link form focus
+    $stream.delegate(".focus_comment_textarea", "click", function(e){
+      Stream.focusNewComment($(this), e);
+    });
 
     // comment submit action
     $stream.delegate("textarea.comment_box", "keydown", function(e){
@@ -130,10 +135,10 @@ var Stream = {
     evt.preventDefault();
     var $this = $(this),
       text = $this.html(),
-      commentBlock = $this.closest("li").find("ul.comments", ".content"),
-      commentBlockMore = $this.closest("li").find(".older_comments", ".content"),
+      showUl = $(this).closest('li'),
+      commentBlock = $this.closest("li.message").find("ul.comments", ".content"),
+      commentBlockMore = $this.closest("li.message").find(".older_comments", ".content"),
       show = (text.indexOf("show") != -1);
-
 
     if( commentBlockMore.hasClass("inactive") ) {
       commentBlockMore.fadeIn(150, function(){
@@ -142,14 +147,31 @@ var Stream = {
       });
     } else {
       if(commentBlock.hasClass("hidden")) {
-        commentBlock.fadeIn(150);
+        commentBlock.removeClass('hidden');
+        showUl.css('margin-bottom','-1em');
       }else{
-        commentBlock.hide();
+        commentBlock.addClass('hidden');
+        showUl.css('margin-bottom','1em');
       }
-      commentBlock.toggleClass("hidden");
     }
 
     $this.html(text.replace((show) ? "show" : "hide", (show) ? "hide" : "show"));
+  },
+
+  focusNewComment: function(toggle, evt) {
+    evt.preventDefault();
+    var commentBlock = toggle.closest("li.message").find("ul.comments", ".content");
+
+    if(commentBlock.hasClass('hidden')) {
+      commentBlock.removeClass('hidden');
+      commentBlock.find('textarea').focus();
+    } else {
+      if(!(commentBlock.children().length > 1)){
+        commentBlock.addClass('hidden');
+      } else {
+        commentBlock.find('textarea').focus();
+      }
+    }
   }
 };
 

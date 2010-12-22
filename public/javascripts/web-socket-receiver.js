@@ -10,7 +10,7 @@ var WebSocketReceiver = {
       WSR.debug("connected...");
     };
   },
-  
+
   onMessage: function(evt) {
       var obj = jQuery.parseJSON(evt.data);
       if(obj['notice']){
@@ -81,6 +81,10 @@ processPerson: function(response){
         if( !$(".comments", post).is(':visible') ){
           toggler.click();
         }
+
+        if( $(".show_comments", post).hasClass('hidden') ){
+          $(".show_comments", post).removeClass('hidden');
+        }
       }
 
       if( !opts['mine?'] && opts['my_post?']) {
@@ -136,7 +140,7 @@ processPerson: function(response){
       return ((c =='') || (c== '1'));
   },
   debug: function(str){
-    $("#debug").append("<p>" +  str); 
+    $("#debug").append("<p>" +  str);
   }
 };
 var WSR = WebSocketReceiver
