@@ -57,7 +57,7 @@ module SocketsHelper
     if object.is_a? Comment
       post = object.post
       action_hash[:comment_id] = object.id
-      action_hash[:my_post?] = (post.person.owner.id == uid)
+      action_hash[:my_post?] = (post.person.owner_id == uid)
       action_hash[:notification] = notification(object)
       action_hash[:post_guid] = post.id
 

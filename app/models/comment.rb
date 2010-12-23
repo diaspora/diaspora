@@ -13,8 +13,10 @@ class Comment < ActiveRecord::Base
   include Diaspora::Guid
 
   xml_attr :text
-  xml_accessor :diaspora_handle
-  xml_accessor :post_guid
+  xml_attr :diaspora_handle
+  xml_attr :post_guid
+  xml_attr :creator_signature
+  xml_attr :post_creator_signature
 
   belongs_to :post
   belongs_to :person
@@ -31,7 +33,7 @@ class Comment < ActiveRecord::Base
     self.person = Person.where(:diaspora_handle => nh).first
   end
   def post_guid
-    post.guid
+    self.post.guid
   end
   def post_guid= new_post_guid
     self.post = Post.where(:guid => new_post_guid).first
@@ -47,8 +49,6 @@ class Comment < ActiveRecord::Base
 
   #ENCRYPTION
 
-  xml_reader :creator_signature
-  xml_reader :post_creator_signature
 
   def signable_accessors
     accessors = self.class.roxml_attrs.collect{|definition|

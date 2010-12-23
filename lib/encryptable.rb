@@ -13,13 +13,13 @@ module Encryptable
 
   def verify_signature(signature, person)
     if person.nil?
-      Rails.logger.info("event=verify_signature status=abort reason=no_person model_id=#{id}")
+      Rails.logger.info("event=verify_signature status=abort reason=no_person guid=#{self.guid} model_id=#{self.id}")
       return false
     elsif person.public_key.nil?
-      Rails.logger.info("event=verify_signature status=abort reason=no_key model_id=#{id}")
+      Rails.logger.info("event=verify_signature status=abort reason=no_key guid=#{self.guid} model_id=#{self.id}")
       return false
     elsif signature.nil?
-      Rails.logger.info("event=verify_signature status=abort reason=no_signature model_id=#{id}")
+      Rails.logger.info("event=verify_signature status=abort reason=no_signature guid=#{self.guid} model_id=#{self.id}")
       return false
     end
     log_string = "event=verify_signature status=complete model_id=#{id}"

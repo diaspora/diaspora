@@ -67,5 +67,7 @@ Factory.define :service do |service|
   end
 end
 
-Factory.define(:comment) {}
+Factory.define(:comment) do |comment|
+  comment.sequence(:text) {|n| "#{n} cats"}
+end
 

@@ -102,7 +102,10 @@ describe Comment do
       user.activate_contact(@person, aspect)
 
       @person2 = Factory.create(:person)
-      @person_status = Factory.build(:status_message, :person => @person)
+      @person3 = Factory.create(:person)
+      user.activate_contact(@person3, aspect)
+
+      @person_status = Factory.create(:status_message, :person => @person)
 
       user.reload
       @user_status = user.post :status_message, :message => "hi", :to => aspect.id
@@ -118,24 +121,18 @@ describe Comment do
     end
 
     it 'should send a user comment on his own post to lots of people' do
-      MessageHandler.should_receive(:add_post_request).once
-
-      user2.raw_visible_posts.count.should == 0
-
+      MessageHandler.should_receive(:add_post_request).twice
       user.comment "yo", :on => @user_status
-
-      user2.reload
-      user2.raw_visible_posts.count.should == 1
     end
 
     it 'should send a comment a person made on your post to all people' do
       comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @user_status)
-      MessageHandler.should_receive(:add_post_request).once
+      MessageHandler.should_receive(:add_post_request).twice
       user.receive comment.to_diaspora_xml, @person
     end
 
     it 'should send a comment a user made on your post to all people' do
-      MessageHandler.should_receive(:add_post_request).once
+      MessageHandler.should_receive(:add_post_request).twice
       comment = user2.comment( "balls", :on => @user_status)
     end
 
@@ -146,13 +143,13 @@ describe Comment do
 
       it 'should not send a comment a person made on his own post to anyone' do
         MessageHandler.should_not_receive(:add_post_request)
-        comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
+        comment = Factory.build(:comment, :person => @person, :post => @person_status)
         user.receive comment.to_diaspora_xml, @person
       end
 
       it 'should not send a comment a person made on a person post to anyone' do
         MessageHandler.should_not_receive(:add_post_request)
-        comment = Comment.new(:person_id => @person2.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
+        comment = Comment.new(:person_id => @person2.id, :text => "cats", :post => @person_status)
         user.receive comment.to_diaspora_xml, @person
       end
 
@@ -163,7 +160,7 @@ describe Comment do
 
     it 'should not clear the aspect post array on receiving a comment' do
       aspect.post_ids.include?(@user_status.id).should be_true
-      comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @user_status)
+      comment = Comment.new(:person_id => @person.id, :text => "cats", :post => @user_status)
 
       user.receive comment.to_diaspora_xml, @person
 
@@ -171,17 +168,31 @@ describe Comment do
       aspect.post_ids.include?(@user_status.id).should be_true
     end
   end
-  describe 'serialization' do
-    it 'should serialize the handle and not the sender' do
-      commenter = Factory.create(:user)
-      commenter_aspect = commenter.aspects.create(:name => "bruisers")
-      connect_users(user, aspect, commenter, commenter_aspect)
-      post = user.post :status_message, :message => "hello", :to => aspect.id
-      comment = commenter.comment "Fool!", :on => post
-      comment.person.should_not == user.person
-      xml = comment.to_diaspora_xml
-      xml.include?(commenter.person.id.to_s).should be_false
-      xml.include?(commenter.diaspora_handle).should be_true
+  describe 'xml' do
+    before do
+      @commenter = Factory.create(:user)
+      @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
+      connect_users(user, aspect, @commenter, @commenter_aspect)
+      @post = user.post :status_message, :message => "hello", :to => aspect.id
+      @comment = @commenter.comment "Fool!", :on => @post
+      @xml = @comment.to_xml.to_s
+    end
+    it 'serializes the sender handle' do
+      @xml.include?(@commenter.diaspora_handle).should be_true
+    end
+    it 'serializes the post_guid' do
+      @xml.should include(@post.guid)
+    end
+    describe 'marshalling' do
+      before do
+        @marshalled_comment = Comment.from_xml(@xml)
+      end
+      it 'marshals the author' do
+        @marshalled_comment.person.should == @commenter.person
+      end
+      it 'marshals the post' do
+        @marshalled_comment.post.should == @post
+      end
     end
   end
   describe 'local commenting' do
@@ -201,13 +212,17 @@ describe Comment do
     end
 
     it 'should attach the creator signature if the user is commenting' do
-      user.comment "Yeah, it was great", :on => @remote_message
+      comment = user.comment "Yeah, it was great", :on => @remote_message
+      pp comment.signable_string
+      @remote_message.comments.reset
+      pp @remote_message.comments.first
       @remote_message.comments.first.signature_valid?.should be_true
     end
 
     it 'should sign the comment if the user is the post creator' do
       message = user.post :status_message, :message => "hi", :to => aspect.id
       user.comment "Yeah, it was great", :on => message
+      message.comments.reset
       message.comments.first.signature_valid?.should be_true
       message.comments.first.verify_post_creator_signature.should be_true
     end
