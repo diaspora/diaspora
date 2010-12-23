@@ -88,7 +88,7 @@ module Diaspora
         visibility_ids = visibilities.map{|v| v.id}
         PostVisibility.where(:id => visibility_ids).delete_all
         posts.each do |post|
-          if post.user_refs == 0
+          if post.user_refs < 1
             post.destroy
           end
         end

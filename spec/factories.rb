@@ -49,6 +49,9 @@ end
 Factory.define :status_message do |m|
   m.sequence(:message) { |n| "jimmy's #{n} whales" }
   m.association :person
+  m.after_build do|m|
+    m.diaspora_handle = m.person.diaspora_handle
+  end
 end
 
 Factory.define :photo do |p|

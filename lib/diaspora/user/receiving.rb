@@ -32,6 +32,8 @@ module Diaspora
           xml_author = (owns?(object.post)) ? object.diaspora_handle : object.post.person.diaspora_handle
         else
           xml_author = object.diaspora_handle
+          pp xml_author
+          pp salmon_author
         end
 
         if (salmon_author.diaspora_handle != xml_author)
@@ -137,8 +139,12 @@ module Diaspora
         comment
       end
 
-      def exsists_on_pod?(post)
-        post.class.find_by_id(post.id)
+      def existing_post(post)
+        post.class.where(:guid => post.guid).first
+      end
+
+      def post_visible?(post)
+        raw_visible_posts.where(:guid => post.guid).first
       end
 
       def receive_post post
@@ -149,42 +155,39 @@ module Diaspora
         #you know about it, and it is mutable
         #you know about it, and it is not mutable
         #
-        on_pod = exsists_on_pod?(post)
-        if on_pod && on_pod.diaspora_handle == post.diaspora_handle
-          known_post = find_visible_post_by_id(post.id)
-          if known_post
-            if known_post.mutable?
-              known_post.update_attributes(post.to_mongo)
+        on_pod = existing_post(post)
+        log_string = "event=receive payload_type=#{post.class} sender=#{post.diaspora_handle} "
+        if on_pod
+          puts "On pod"
+          if post_visible?(post)
+            puts "visible"
+            if post.mutable?
+              on_pod.caption = post.caption
+              on_pod.save!
             else
-              Rails.logger.info("event=receive payload_type=#{post.class} update=true status=abort sender=#{post.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
+              Rails.logger.info(log_string << "update=true status=abort reason=immutable existing_post=#{on_pod.id}")
             end
-          elsif on_pod == post
-            update_user_refs_and_add_to_aspects(on_pod)
-            Rails.logger.info("event=receive payload_type=#{post.class} update=true status=complete sender=#{post.diaspora_handle} existing_post=#{on_pod.id}")
-            post
+          else
+            add_post_to_aspects(on_pod)
+            Rails.logger.info(log_string << "update=false status=complete")
+            on_pod
           end
-        elsif !on_pod
-          update_user_refs_and_add_to_aspects(post)
-          Rails.logger.info("event=receive payload_type=#{post.class} update=false status=complete sender=#{post.diaspora_handle}")
-          post
         else
-          Rails.logger.info("event=receive payload_type=#{post.class} update=true status=abort sender=#{post.diaspora_handle} reason='update not from post owner' existing_post=#{post.id}")
+          post.save!
+          add_post_to_aspects(post)
+          Rails.logger.info(log_string << "update=false status=complete")
+          post
         end
       end
 
 
-      def update_user_refs_and_add_to_aspects(post)
-        Rails.logger.debug("Saving post: #{post}")
-        post.user_refs += 1
-        post.save
-
-        self.raw_visible_posts << post
-        self.save
+      def add_post_to_aspects(post)
+        Rails.logger.debug("event=add_post_to_aspects user_id=#{self.id} post_id=#{post.id}")
+        puts("event=add_post_to_aspects user_id=#{self.id} post_id=#{post.id}")
 
         aspects = self.aspects_with_person(post.person)
         aspects.each do |aspect|
           aspect.posts << post
-          aspect.save
         end
         post.socket_to_uid(id, :aspect_ids => aspects.map{|x| x.id}) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
         post

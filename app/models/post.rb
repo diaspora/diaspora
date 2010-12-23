@@ -60,7 +60,7 @@ class Post < ActiveRecord::Base
   end
 
   def propogate_retraction
-    self.person.owner.retract(self)
+    self.person.owner.retract(self) if self.person.owner
   end
 end
 

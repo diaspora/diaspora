@@ -47,16 +47,34 @@ describe StatusMessage do
   end
 
   describe "XML" do
-    it 'should serialize to XML' do
-      message = Factory.create(:status_message, :message => "I hate WALRUSES!", :person => @user.person)
-      message.to_xml.to_s.should include "<message>I hate WALRUSES!</message>"
+    before do
+      @message = Factory.create(:status_message, :message => "I hate WALRUSES!", :person => @user.person)
+      @xml = @message.to_xml.to_s
+    end
+    it 'serializes the message' do
+      @xml.should include "<message>I hate WALRUSES!</message>"
     end
 
-    it 'should marshal serialized XML to object' do
-      xml = "<statusmessage><message>I hate WALRUSES!</message></statusmessage>"
-      parsed = StatusMessage.from_xml(xml)
-      parsed.message.should == "I hate WALRUSES!"
-      parsed.valid?.should be_true
+    it 'serializes the author address' do
+      @xml.should include(@user.person.diaspora_handle)
+    end
+
+    describe '.from_xml' do
+      before do
+        @marshalled = StatusMessage.from_xml(@xml)
+      end
+      it 'marshals the message' do
+        @marshalled.message.should == "I hate WALRUSES!"
+      end
+      it 'marshals the guid' do
+        @marshalled.guid.should == @message.guid
+      end
+      it 'marshals the author' do
+        @marshalled.person.should == @message.person
+      end
+      it 'marshals the diaspora_handle' do
+        @marshalled.diaspora_handle.should == @message.diaspora_handle
+      end
     end
   end
 

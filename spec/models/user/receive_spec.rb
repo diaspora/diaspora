@@ -19,10 +19,10 @@ describe User do
     connect_users(user, aspect, user2, aspect2)
   end
 
-  it 'should stream only one message to the everyone aspect when a multi-aspected contacts posts' do
+  it 'streams only one message to the everyone aspect when a multi-aspected contacts posts' do
     contact = user.contact_for(user2.person)
     user.add_contact_to_aspect(contact, user.aspects.create(:name => "villains"))
-    status = user2.post(:status_message, :message => "Users do things", :to => aspect2.id)
+    status = user2.build_post(:status_message, :message => "Users do things", :to => aspect2.id)
     xml = status.to_diaspora_xml
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
     user.receive xml, user2.person
@@ -96,12 +96,20 @@ describe User do
     end
 
     it 'deletes a post if the noone links to it' do
-      person = user2.person
-      person.owner_id = nil
-      person.save
+      person = Factory(:person)
+      user.activate_contact(person, aspect)
+      post = Factory.create(:status_message, :person => person)
+      puts
+      pp post
+      post.post_visibilities.should be_empty
+      user.receive post.to_diaspora_xml, person
+      aspect.post_visibilities.reset
+      aspect.posts(true).should include(post)
+      post.post_visibilities.reset
+      post.post_visibilities.length.should == 1
 
       lambda {
-        user.disconnected_by(user2.person)
+        user.disconnected_by(person)
       }.should change(Post, :count).by(-1)
     end
 
@@ -115,6 +123,9 @@ describe User do
     end
 
     it 'should not override userrefs on receive by another person' do
+      @status_message.post_visibilities.reset
+      @status_message.user_refs.should == 2
+
       user3.activate_contact(user2.person, aspect3)
       user3.receive @status_message.to_diaspora_xml, user2.person
 
@@ -148,7 +159,7 @@ describe User do
       post_in_db = user2.raw_visible_posts.first
       post_in_db.comments.should == []
       user2.receive(@xml, user.person)
-      post_in_db.reload
+      post_in_db.comments.reset
 
       post_in_db.comments.include?(@comment).should be true
       post_in_db.comments.first.person.should == local_person
