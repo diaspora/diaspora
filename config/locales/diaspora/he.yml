@@ -46,9 +46,9 @@ he:
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
     all_aspects_contacts: 
-      add_aspect: "הוספת היבט"
       all_contacts: "כל אנשי הקשר"
       aspects: "היבטים"
+      manage_aspects: "ניהול ההיבטים"
       no_contacts: "נכון לעכשיו אין לך בכלל אנשי קשר.  ניתן למצוא את אנשי הקשר שלך כאן."
     aspect_contacts: 
       done_editing: "סיום העריכה"
@@ -106,9 +106,9 @@ he:
     new_comment: 
       comment: "הערה"
       commenting: "נוספת הערה..."
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
+      enter: "הוספה"
+      press: "יש ללחוץ"
+      to_comment: "כדי להגיב"
   contacts: 
     few: "%{count} אנשי קשר"
     one: "איש קשר אחד"
@@ -168,13 +168,19 @@ he:
       login: "כניסה"
       logout: "יציאה"
       view_profile: "צפייה בפרופיל"
+  new_notifications: "%{count} התרעות חדשות"
   new_requests: 
     few: "%{count} בקשות חדשות!"
     one: "בקשה חדשה!"
     other: "%{count} בקשות חדשות!"
     zero: "אין בקשות חדשות"
+  next: "הבאה"
+  no_new_notifications: "אין התרעות חדשות"
   notifications: 
     comment_on_post: "הגיב/ה על ה"
+    deleted: "נמחקה"
+    index: 
+      notifications: "התרעות"
     new_request: "הציע/ה לשתף אתך."
     post: "רשומה"
     request_accepted: "קיבל/ה את בקשת השיתוף שלך."
@@ -284,13 +290,14 @@ he:
       edit: "עריכה"
       edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
       make_profile_photo: "יצירת תמונת פרופיל"
-      original_post: "רשומה מקורית"
       permalink: "קישור קבוע"
       update_photo: "עדכון התמונה"
       view: "צפייה"
+      view_original_post: "צפייה ברשומה המקורית"
     update: 
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."
+  previous: "הקודמת"
   profile: "פרופיל"
   registrations: 
     closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."

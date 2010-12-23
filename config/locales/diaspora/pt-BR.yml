@@ -46,9 +46,9 @@ pt-BR:
       failure: "Falha ao adicionar contato ao aspecto."
       success: "Contato adicionado ao aspecto."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
       all_contacts: "All contacts"
       aspects: "Aspects"
+      manage_aspects: "manage aspects"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -168,13 +168,19 @@ pt-BR:
       login: "entrar"
       logout: "sair"
       view_profile: "ver perfil"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} novos pedidos!"
     one: "novo pedido!"
     other: "%{count} novos pedidos!"
     zero: "nenhum novo pedido"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -284,13 +290,14 @@ pt-BR:
       edit: "editar"
       edit_delete_photo: "Editar descrição / deletar foto"
       make_profile_photo: ""
-      original_post: "Post original"
       permalink: "permalink"
       update_photo: "Atualizar foto"
       view: "visualizar"
+      view_original_post: "view original post"
     update: 
       error: "Falha ao editar foto."
       notice: "Foto enviada com sucesso."
+  previous: "previous"
   profile: "Perfil"
   registrations: 
     closed: "Cadastro temporariamente desabilitado."

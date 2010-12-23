@@ -46,9 +46,9 @@ tr:
       failure: "Failed to add friend to aspect."
       success: "Successfully added friend to aspect."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
       all_contacts: "All contacts"
       aspects: "Aspects"
+      manage_aspects: "manage aspects"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -168,13 +168,19 @@ tr:
       login: "login"
       logout: "logout"
       view_profile: "view profile"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -284,13 +290,14 @@ tr:
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "make profile photo"
-      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Fotoğrafı güncelle"
       view: "view"
+      view_original_post: "view original post"
     update: 
       error: "Fotoyu düzeltme basarısız oldu."
       notice: "Resim başarıyla eklendi."
+  previous: "previous"
   profile: "Profile"
   registrations: 
     closed: "Üyelik bu Diaspora'da kapandı."

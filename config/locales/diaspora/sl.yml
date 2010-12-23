@@ -23,13 +23,13 @@ sl:
         request: 
           attributes: 
             from_id: 
-              taken: "gre za podvojeno obstoječo povabilo."
+              taken: "gre za dvojnik obstoječega povabila."
         user: 
           attributes: 
             email: 
               taken: "je že zasedeno."
             person: 
-              invalid: "je neveljaven."
+              invalid: "je neveljavno."
             username: 
               taken: "je že zasedeno."
   ago: "%{time} nazaj"
@@ -46,9 +46,9 @@ sl:
       failure: "Dodajanje stika v skupino ni uspelo."
       success: "Dodajanje stika v skupino je uspelo."
     all_aspects_contacts: 
-      add_aspect: "dodaj skupino"
       all_contacts: "Vsi stiki"
       aspects: "Skupine"
+      manage_aspects: "uredi skupine"
       no_contacts: "Trenutno ste brez stikov. Tukaj poiščite vaše stike."
     aspect_contacts: 
       done_editing: "zaključi urejanje"
@@ -63,10 +63,10 @@ sl:
       remove_aspect: "Izbriši skupino"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"
-      aspect_not_empty: "Skupina ni prazna"
+      aspect_not_empty: "Skupina vsebuje stike"
       remove: "odstrani"
     index: 
-      handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
+      handle_explanation: "To je vaše diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
     manage: 
       add_a_new_aspect: "Dodaj novo skupino"
       add_a_new_contact: "Dodaj nov stik"
@@ -77,43 +77,43 @@ sl:
     move_contact: 
       error: "Prestavljanje stika neuspešno: %{inspect}"
       failure: "ni uspelo %{inspect}"
-      success: "Oseba je bila prestavljena v novo skupino"
+      success: "Oseba je prestavljena v novo skupino"
     new_aspect: 
       create: "Ustvari"
       name: "Ime"
     no_contacts_message: 
       add_contact: "Dodaj stik"
-      add_contact_to: "Dodaj osebo v %{aspect_name}"
-      invite: "Povabi osebe, da se pridružijo v Diaspora!"
-      nobody: "Povabite v Diaspora vse, ki vam v življenju nekaj pomenijo!"
+      add_contact_to: "Dodaj osebo v skupino %{aspect_name}"
+      invite: "Povabi osebe, da se pridružijo v Diasporo!"
+      nobody: "Povabite v Diasporo osebe, ki vam v življenju nekaj pomenijo!"
       nobody_in_aspect: "Vaša skupina '%{aspect_name}' je prazna."
     no_posts_message: 
       start_talking: "Na to temo je zaenkrat še vse tiho. Bodite prvi in začnite pogovor!"
     remove_from_aspect: 
-      failure: "Odstranitev osebe iz skupine ni uspešno"
-      success: "Odstranitev osebe iz skpine je uspešno"
+      failure: "Odstranitev osebe iz skupine ni uspelo"
+      success: "Odstranitev osebe iz skupine je uspešno"
     seed: 
       family: "Družina"
       work: "Služba"
     show: 
       edit_aspect: "uredi skupino"
     update: 
-      failure: "Skupina %{name} ima predolgo ime, da bi jo bilo mogoče shraniti."
-      success: "Vaša skupina %{name} je uspešno posodobljena."
+      failure: "Skupina %{name} ima predolgo ime, zato je ni mogoče shraniti."
+      success: "Vaša skupina %{name} je bila uspešno posodobljena."
   back: "Nazaj"
   cancel: "Prekliči"
   comments: 
     new_comment: 
-      comment: "Komentar"
-      commenting: "Oddaj komentar..."
-      enter: "enter"
+      comment: "komentar"
+      commenting: "komentiraj..."
+      enter: "vpiši"
       press: "press"
-      to_comment: "to comment"
+      to_comment: "oddaj komentar"
   contacts: 
     few: "število stikov %{count}"
     one: "1 stik"
     other: "število stikov %{count}"
-    zero: "ni stikov"
+    zero: "brez stikov"
   delete: "Izbriši"
   email: "E-pošta"
   error_messages: 
@@ -125,16 +125,16 @@ sl:
     show: 
       already_account: "ali že imate uporabniški račun?"
       choice: "Izbira"
-      choice_explanation: "V Diaspori lahko vaše stike razvrščate s pomočjo skupin. Kot takšne so skupine unikatne in vam omogočajo, da so vaše slike, zgodbe in šale namenjene le osebam katerim to namenjate."
+      choice_explanation: "V Diaspori lahko vaše stike razvrščate s pomočjo skupin. Skupine kot takšne so unikatne in vam omogočajo, da so vaše slike, zgodbe in šale namenjene le osebam katerim to namenjate."
       learn_about_host: "Preberite več o tem, kako gostiti lasten Diaspora strežnik."
-      login_here: "tukaj se prijavite"
+      login_here: "se prijavite tukaj"
       ownership: "Lastništvo"
       ownership_explanation: "Slike so vaša last in zato je prav, da jih lahko delite, ne da bi jih s tem komerkoli posredovali. Vsebina, ki jo delite v Diaspori, se ohrani v vaši lasti, kot tudi kontrola nad distribucijo le-te."
-      share_what_you_want: "Delite kar želite in s komerkoli želite."
+      share_what_you_want: "Delite kar želite, s komerkoli želite."
       simplicity: "Preprostost"
-      simplicity_explanation: "Diaspora omogoča preprosto izmenjavo in upošteva vašo zasebnost. Za ohranjanje zasebnosti v Diaspori niso potrebne gore strani z različnimi nastavitvami in možnostmi."
+      simplicity_explanation: "Diaspora omogoča preprosto izmenjavo in upošteva vašo zasebnost. Za ohranjanje zasebnosti v Diaspori ni potrebno skozi goro različnih nastavitev in možnosti."
       tagline_first_half: "Delite kar želite,"
-      tagline_second_half: "in s komerkoli želite."
+      tagline_second_half: "s komerkoli želite."
   invitations: 
     check_token: 
       not_found: "Povabilo ni bilo najdeno"
@@ -150,8 +150,8 @@ sl:
       already_invited: "Že povabljeni"
       aspect: "Skupina"
       comma_seperated_plz: "Vnesete lahko več e-naslovov, ki jih med sabo ločite z vejico."
-      if_they_accept_info: "v kolikor sprejmejo, bodo dodani skupinam v katere ste jih povabili."
-      invite_someone_to_join: "Povabi osebo, da se pridruži v Diasporo!"
+      if_they_accept_info: "v kolikor sprejmejo vaše povabilo, bodo samodejno dodani skupinam v katere ste jih povabili."
+      invite_someone_to_join: "Povabi druge, da se pridružijo v Diasporo!"
       personal_message: "Osebno sporočilo"
       send_an_invitation: "Pošlji povabilo"
       send_invitation: "Pošlji povabilo"
@@ -161,37 +161,43 @@ sl:
       powered_by: "STRAN POGANJA DIASPORA*"
       whats_new: "kaj je novega?"
     header: 
-      account_settings: "nastavitve uporabniškega računa"
+      account_settings: "nastavitve računa"
       blog: "blog"
       code: "koda"
       edit_profile: "uredi profil"
       login: "prijava"
       logout: "odjava"
       view_profile: "poglej profil"
+  new_notifications: "število novih obvestil %{count}"
   new_requests: 
     few: "število novih prošenj %{count}!"
     one: "nova prošnja!"
     other: "število novih prošenj %{count}!"
     zero: "ni novih prošenj"
+  next: "naslednja"
+  no_new_notifications: "ni novih obvestil"
   notifications: 
     comment_on_post: "komentar na vaš"
+    deleted: "izbrisano"
+    index: 
+      notifications: "Obvestila"
     new_request: "nekdo želi deliti z vami."
     post: "prispevek"
     request_accepted: "vaše prošnja je sprejeta."
   notifier: 
-    diaspora: "diaspora e-sporočilo o ponovnem zagonu"
+    diaspora: "diaspora email robot"
     hello: "Pozdravljeni %{name}!"
     love: "vas pozdravlja,"
     new_request: 
-      just_sent_you: "poslana vam je prošnja za Diaspora*"
+      just_sent_you: "poslana vam je bila prošnja za stik v Diaspori*"
       sign_in: "prijavite se tukaj"
-      subject: "nova Diaspora* prošnja od %{from}"
+      subject: "nova Diaspora* prošnja za stik od %{from}"
       try_it_out: "Preverite in se prepričajte."
     request_accepted: 
-      accepted: "je sprejel vaše povabilo!"
-      subject: "Oseba %{name} je sprejela vaše povabilo v Diaspora*"
+      accepted: "vaše povabilo je bilo sprejeto!"
+      subject: "Oseba %{name} je sprejela vaše povabilo za stik v Diaspori*"
     single_admin: 
-      admin: "Vaš Diaspora administrator"
+      admin: "Vaš administrator Diaspore"
       subject: "Sporočilo o vašem Diaspora računu:"
     thanks: "Hvala,"
   ok: "OK"
@@ -205,26 +211,26 @@ sl:
     aspect_list: 
       edit_membership: "uredi člane skupin"
     edit: 
-      allow_search: "Dovolite osebam, da vas najdejo znotraj Diaspore"
+      allow_search: "Dovoli osebam, da me lahko poiščejo znotraj Diaspore"
       edit_profile: "Uredi profil"
       first_name: "Ime"
-      info_available_to: "Sporočilo bo na voljo vsem, s katerimi se povežete v Diaspori."
+      info_available_to: "Ti podatki bodo na voljo vsem vašim stikom znotraj Diaspore."
       last_name: "Priimek"
       update_profile: "Posodobi profil"
       your_bio: "Vaš življenjepis"
       your_birthday: "Vaš datum rojstva"
       your_gender: "Vaš spol"
       your_name: "Vaše ime"
-      your_photo: "Vaša slika"
+      your_photo: "Vaša fotografija"
       your_profile: "Vaš profil"
     helper: 
-      people_on_pod_are_aware_of: " ljudje na 'podu' vedo o"
-      results_for: " zadetkov za %{params}"
+      people_on_pod_are_aware_of: " ljudje v 'podu' so seznanjeni o"
+      results_for: "zadetkov za %{params}"
     index: 
       couldnt_find_them_send_invite: "Jih niste našli? Pošljite povabilo!"
       no_one_found: "...nikogar ni bilo mogoče najti."
-      no_results: "Hey! Za iskanje nekaj vpišite."
-      results_for: "najdi mi"
+      no_results: "Ja, halo! Za iskanje je potrebno vpisati pogoj."
+      results_for: "rezultati iskanja za"
     person: 
       add_contact: "dodaj stik"
       already_connected: "Ste že povezani"
@@ -240,15 +246,15 @@ sl:
       remove_contact: "odstrani stik"
       remove_from: "Ali odstranim %{name} iz skupine %{aspect}?"
     share_with: 
-      accepts: "Potem ko sprejmete osebo %{name}, lahko v Diaspori začneta drug drugemu spremljati prispevke"
+      accepts: "Ko vas bo oseba %{name} sprejela, boste lahko začeli drug drugem spremljati prispevke znotraj Diaspore."
       share_with: "Začnite deliti z osebo %{name}"
     show: 
       does_not_exist: "Oseba ne obstaja!"
-      incoming_request: "Imate novo prošnjo od te osebe."
-      no_posts: "ni prispevkov za objavo!"
-      not_connected: "Z osebo %{name} niste povezani"
-      recent_posts: "Zadnji prispevki"
-      recent_public_posts: "Zadnji javni prispevki"
+      incoming_request: "Od te osebe ste prejeli novo prošnjo."
+      no_posts: "ni prispevkov na ogled!"
+      not_connected: "Niste povezani s/z %{name}"
+      recent_posts: "Zadnje objave"
+      recent_public_posts: "Zadnje javne objave"
       return_to_aspects: "Vrnite se na vašo stran s skupinami"
       similar_contacts: "podobni stiki"
       to_accept_or_ignore: "sprejmite ali zavrnite."
@@ -259,48 +265,49 @@ sl:
       fail: "Žal ni bilo mogoče najti %{handle}."
   photos: 
     create: 
-      integrity_error: "Nalaganje slike ni uspelo. Ste prepričani, da je bila izbrana slika?"
-      runtime_error: "Nalaganje slike ni uspelo. Imate pripet varnostni pas?"
-      type_error: "Nalaganje slike ni uspelo. Ste prepričani, da je bila dodana slika?"
+      integrity_error: "Nalaganje fotografije ni uspelo. Ste prepričani, da je bila izbrana slika?"
+      runtime_error: "Nalaganje fotografije ni uspelo. Imate pripet varnostni pas?"
+      type_error: "Nalaganje fotografije ni uspelo. Ste prepričani, da je bila dodana slika?"
     destroy: 
-      notice: "Slika izbrisana."
+      notice: "Fotografija izbrisana."
     edit: 
       editing: "Urejanje"
     new: 
       back_to_list: "Nazaj na seznam"
-      new_photo: "Nova slika"
+      new_photo: "Nova fotografija"
       post_it: "objavi!"
     new_photo: 
       empty: "Datoteka {file} je prazna, prosimo ponovno izberite datoteke brez nje."
       invalid_ext: "Datoteka {file} ni veljavna. Dovoljene so samo naslednje vrste datotek {extensions}."
       size_error: "Datoteka {file} je prevelika, največja dovoljena velikost je {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "ali izberite eno vaših obstoječih"
-      upload: "Naloži novo sliko profila!"
+      or_select_one: "ali izberite eno od vaših obstoječih"
+      upload: "Naloži novo fotografijo profila!"
     photo: 
-      view_all: "poglej vse slike osebe %{name}"
+      view_all: "poglej vse fotografije osebe %{name}"
     show: 
-      delete_photo: "Izbriši sliko"
+      delete_photo: "Izbriši fotografijo"
       edit: "uredi"
-      edit_delete_photo: "Uredi opis slike / izbriši sliko"
-      make_profile_photo: "ustvari zbirko slik"
-      original_post: "Izvorni prispevek"
+      edit_delete_photo: "Uredi opis fotografije / izbriši fotografijo"
+      make_profile_photo: "dodaj fotografijo v profil"
       permalink: "trajna povezava"
-      update_photo: "Posodobi sliko"
+      update_photo: "Posodobi fotografijo"
       view: "poglej"
+      view_original_post: "poglej izvorni prispevek"
     update: 
-      error: "Urejanje slike ni uspelo."
-      notice: "Slika uspešno posodobljena."
+      error: "Urejanje fotografije ni uspelo."
+      notice: "Fotografija uspešno posodobljena."
+  previous: "prejšnja"
   profile: "Profil"
   registrations: 
     closed: "Za ta 'Diaspora pod' registracije trentno niso mogoče."
     create: 
-      success: "Uživajte v Diaspori!"
+      success: "Pridružili ste se v Diasporo!"
     edit: 
       cancel_my_account: "Prekliči moj uporabniški račun"
       edit: "Uredi %{name}"
-      leave_blank: "(pustite prazno, v kolikor ne želite spremeniti)"
-      password_to_confirm: "(za potrditev zamenjave gesla potrebujemo vaše trenutno geslo)"
+      leave_blank: "(v kolikor ne želite spremeniti pustite prazno)"
+      password_to_confirm: "(spremembo je potrebno potrditi z vašim trenutnim geslom)"
       unhappy: "Ste nezadovoljni?"
       update: "Posodobi"
     new: 
@@ -309,31 +316,31 @@ sl:
       enter_password_again: "Še enkrat vpišite isto geslo"
       enter_username: "Izberite uporabniško ime (samo črke, številke in podčrtaji)"
       sign_up: "Registracija"
-      sign_up_for_diaspora: "Ustvarite račun v Diaspori"
+      sign_up_for_diaspora: "Registirajte se v Diasporo"
   requests: 
     create: 
       sending: "Pošiljam"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "%{name} ste vprašali, če bi delili z vami. Vaše vprašanje bodo videli, ko se bodo prijavili v Diasporo."
     destroy: 
       error: "Prosim izberite skupino!"
-      ignore: "Vaša prošnja za stik je zavrnjena."
-      success: "Zdaj ste prijatelja."
+      ignore: "Prošnja za stik je zavrnjena."
+      success: "Zdaj sta prijatelja."
     manage_aspect_contacts: 
       existing: "Obstoječi stiki"
       manage_within: "Uredi stike znotraj"
     new_request_to_person: 
-      sent: "pošlji!"
+      sent: "poslano!"
   search: "Najdi"
   services: 
     create: 
-      success: "Preverjanje istovetnosti (authentication) uspešno."
+      success: "Preverjanje istovetnosti je uspelo."
     destroy: 
-      success: "Preverjanje istovetnosti (authentication) uspešno izbrisano."
+      success: "Preverjanje istovetnosti je uspešno izbrisano."
     failure: 
       error: "pri povezovanju s servisom je prišlo do napake"
     index: 
-      connect_to_facebook: "Poveži s facebook"
-      connect_to_twitter: "Poveži s twitter"
+      connect_to_facebook: "Poveži se s facebook"
+      connect_to_twitter: "Poveži se s twitter"
       disconnect: "povezava prekinjena"
       edit_services: "Uredi servise"
       logged_in_as: "prijavljeni ste kot"
@@ -341,36 +348,36 @@ sl:
   settings: "Nastavitve"
   shared: 
     add_contact: 
-      create_request: "Poišči po skupnosti Diaspora"
+      create_request: "Poišči po Diaspori"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Vpišite Diaspora uporabniško ime:"
-      know_email: "Poznate njihove e-naslove? Povabite jih"
+      know_email: "Ali veste njihove naslove e-pošte? Povabite jih"
       your_diaspora_username_is: "Vaše Diaspora uporabniško ime je: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Vsi stiki"
       cannot_remove: "Osebe ni mogoče odstraniti iz skupine. (V kolikor želite prekiniti stik z osebo, jo je potrebno odstraniti iz vašega seznama stikov.)"
     invitations: 
       dont_have_now: "Trenutno nimate povabil, vendar jih lahko v kratkem pričakujete!"
-      invitations_left: "(%{count} preostalo)"
+      invitations_left: "(še %{count})"
       invite_someone: "Povabi osebo"
-      invites: "Invites"
-      invites_closed: "Za ta 'Diaspora pod' povabila trenutno niso mogoča."
+      invites: "Povabila"
+      invites_closed: "Za ta 'Diaspora pod' so povabila trenutno onemogočena."
     notification: 
       new: "Novo %{type} od %{from}"
     public_explain: 
-      logged_in: "prijavljen v %{service}"
+      logged_in: "prijavljeni ste v %{service}"
       manage: "uredi povezane storitve"
-      outside: "Javna sporočila bodo na ogled tudi izven skupnosti Diaspora."
+      outside: "Javna sporočila bodo na ogled tudi drugim izven Diaspore."
       title: "Objavili boste javno sporočilo!"
     publisher: 
-      add_photos: "dodaj slike"
+      add_photos: "dodaj fotografije"
       all: "vsi"
       all_contacts: "vsi stiki"
       make_public: "naredi javno"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljam..."
       share: "Deli"
-      share_with: "Deli s/z %{aspect}"
+      share_with: "Deli s skupino %{aspect}"
       share_with_all: "deli z vsemi skupinami"
     reshare: 
       reshare: "Deli znova"
@@ -378,7 +385,7 @@ sl:
     helper: 
       no_message_to_display: "Ni sporočil."
     new_status_message: 
-      oh_yeah: "oh yeah!"
+      oh_yeah: "to ja!"
       tell_me_something_good: "povej mi kaj dobrega"
     show: 
       destroy: "Izbriši"
@@ -387,62 +394,62 @@ sl:
     hide_comments: "skrij komentarje"
     show_comments: "prikaži vse komentarje"
   the_world: "svet"
-  username: "Uporabnik"
+  username: "Uporabniško ime"
   users: 
-    destroy: "Račun je uspešno zaprt."
+    destroy: "Uporabniški račun je uspešno zaprt."
     edit: 
       change: "Spremeni"
       change_language: "Spremeni jezik"
       change_password: "Spremeni geslo"
       close_account: "Zapri uporabniški račun"
-      download_photos: "povleci moje slike"
-      download_xml: "povleci moj XML"
+      download_photos: "prenesi fotografije"
+      download_xml: "prenesi v xml"
       edit_account: "Uredi uporabniški račun"
-      email_notifications: "E-sporočilo"
+      email_notifications: "Obvestila po e-pošti"
       export_data: "Izvozi podatke"
       new_password: "Novo geslo"
-      receive_email_notifications: "Želiš prejemati obvestila po e-pošti?"
+      receive_email_notifications: "Želite prejemati obvestila po e-pošti?"
       your_email: "Vaš e-naslov"
-      your_handle: "Vaš diaspora račun"
+      your_handle: "Vaš diaspora naslov"
     getting_started: 
-      connect_services: "Poveži se s servisi"
+      connect_services: "Povežite se s servisi"
       define_aspects: "Določite vaše skupine"
       edit_profile: "Uredite vaš profil"
       finished: "Končano!"
       save_and_continue: "Shrani in nadaljuj"
-      signup_steps: "Zaključite vašo registracijo z naslednjimi koraki:"
-      skip: "skip getting started"
+      signup_steps: "Zaključite vašo registracijo s pomočjo naslednjih treh korakov:"
+      skip: "preskoči čarovnika"
       step_2: 
         add: "Dodaj"
-        aspect_name: "Ime skupine"
-        description: "Navedite Diaspori katere skupine želite videti pri posameznih stikih. Skupine lahko kasneje uredite preko menija računa. Vaše skupine so unikatne in niso vidne ostalim osebam."
+        aspect_name: "Naziv skupine"
+        description: "Navedite Diaspori katere skupine želite uporabljati za posamezne stike. Skupine lahko kasneje uredite preko menija desno zgoraj. Vaše skupine so unikatne in niso vidne ostalim osebam."
         drag_to_add: "Povlecite jih v eno od vaših skupin"
         no_requests: "Nimate novih prošenj"
         your_aspects: "Vaše skupine"
-        your_inviter: "Naslednje osebe vas čakajo: "
+        your_inviter: "Naslednje osebe vas čakajo:"
       step_3: 
-        description: "Vaš Diaspora račun lahko povežete z vašimi obstoječimi socialnimi omrežji. Lahko tudi javno objavite prispevke na vaši domači strani, če jih izberete kot 'ustvari javno'"
+        description: "Vaš Diaspora račun lahko povežete z vašimi obstoječimi socialnimi omrežji. Lahko tudi javno objavite prispevke na vaši domači strani, če izberete možnost \"naredi javno\""
         your_services: "Vaši servisi"
       step_4: 
-        change_profile: "Vaš profil in povezave na servise lahko urejate kadarkoli skozi "
-        continue: "Nadaljujte na vašo domačo stran, preglejte vse vaše skupine."
+        change_profile: "Vaš profil in povezave na servise lahko uredite kadarkoli skozi "
+        continue: "Nadaljujte na domačo stran, kjer je pregled vseh vaših skupin."
         finish: "Zaključi"
-        manage_aspects: "Stike lahko dodajate tudi na katerekoli strani vaših skupin"
-        ready_to_share: "Zdaj ste pripravljeni deliti z "
-        set_up: "Zdaj ste pripravljeni, %{name}!"
-        user_menu: "uporabniški meni najdete na desni strani zgoraj."
+        manage_aspects: "Stike lahko dodajate tudi na katerekoli strani od vaših skupin."
+        ready_to_share: "Lahko pričnete deliti s skupino "
+        set_up: "Odlično, zdaj ste pripravljeni %{name}!"
+        user_menu: "uporabniškega menija na desni zgornji strani."
       welcome: "Dobrodošli v Diasporo!"
     public: 
       does_not_exist: "Uporabnik %{username} ne obstaja!"
     update: 
-      email_notifications_changed: "Obveščanje na e-sporočila spremenjeno"
+      email_notifications_changed: "Obveščanje po e-pošti spremenjeno"
       language_changed: "Jezik spremenjen"
       language_not_changed: "Sprememba jezika ni uspela"
       password_changed: "Geslo spremenjeno"
       password_not_changed: "Sprememba gesla ni uspela"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
+    fetch_failed: "'webfinger' profil ni bilo mogoče prenesti za %{profile_url}"
+    hcard_fetch_failed: "prišlo je do težave pri prenosu 'hCard' kartice za %{account}"
+    no_person_constructed: "Iz te 'hCard' kartice ni bilo mogoče razpoznati osebe."
+    not_enabled: "račun gostitelja (host) %{account} se ne odziva na 'webfinger' protokol"
+    xrd_fetch_failed: "pri pridobivanju 'XRD' iz uporabniškega računa %{account} je prišlo do napake"

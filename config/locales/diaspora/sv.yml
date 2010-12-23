@@ -46,9 +46,9 @@ sv:
       failure: "Personen kunde inte läggas till på sidan."
       success: "Personen tillagd på sidan."
     all_aspects_contacts: 
-      add_aspect: "Lägg till sida"
       all_contacts: "Alla kontakter"
       aspects: "Sidor"
+      manage_aspects: "manage aspects"
       no_contacts: "Förnärvarande har du inga kontakter. Hitta dina kontakter här."
     aspect_contacts: 
       done_editing: "dölj"
@@ -168,13 +168,19 @@ sv:
       login: "logga in"
       logout: "logga ut"
       view_profile: "visa profil"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} nya förfrågningar!"
     one: "ny förfrågan!"
     other: "%{count} nya förfrågningar!"
     zero: "inga nya förfrågningar"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -284,13 +290,14 @@ sv:
       edit: "ändra"
       edit_delete_photo: "Ändra beskrivning / ta bort bild"
       make_profile_photo: "använd som profilbild"
-      original_post: "Ursprungligt meddelande"
       permalink: "permalink"
       update_photo: "Uppdatera foto"
       view: "visa"
+      view_original_post: "view original post"
     update: 
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
+  previous: "previous"
   profile: "Profil"
   registrations: 
     closed: "Registreringsformuläret är stäng på den här poden."

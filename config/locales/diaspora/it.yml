@@ -46,9 +46,9 @@ it:
       failure: "Errore nell'aggiungere il contatto all'aspetto."
       success: "Contatto aggiunto all'aspetto con successo."
     all_aspects_contacts: 
-      add_aspect: "aggiungi aspetto"
       all_contacts: "Tutti i contatti"
       aspects: "Aspetto"
+      manage_aspects: "manage aspects"
       no_contacts: "Al momento non hai alcun contatto.  Clicca qui per trovare nuovi contatti."
     aspect_contacts: 
       done_editing: "modifica eseguita"
@@ -168,13 +168,19 @@ it:
       login: "accedi"
       logout: "esci"
       view_profile: "visualizza profilo"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} nuove richieste!"
     one: "nuova richiesta!"
     other: "%{count} nuove richieste!"
     zero: "nessuna nuova richiesta"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -284,13 +290,14 @@ it:
       edit: "modifica"
       edit_delete_photo: "Modifica descrizione della foto / elimina foto"
       make_profile_photo: "usala come foto profilo"
-      original_post: "Post Originale"
       permalink: "permalink"
       update_photo: "Aggiorna Foto"
       view: "guarda"
+      view_original_post: "view original post"
     update: 
       error: "Modifica della foto fallita."
       notice: "Foto aggiornata con successo."
+  previous: "previous"
   profile: "Profilo"
   registrations: 
     closed: "Le iscrizioni sono chiuse su questo pod Diaspora."

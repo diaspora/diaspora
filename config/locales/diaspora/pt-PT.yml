@@ -46,9 +46,9 @@ pt-PT:
       failure: "Falha ao adicionar amigo ao grupo."
       success: "Amigo adicionado com sucesso ao grupo."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
       all_contacts: "All contacts"
       aspects: "Aspects"
+      manage_aspects: "manage aspects"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -168,13 +168,19 @@ pt-PT:
       login: "entrar"
       logout: "sair"
       view_profile: "ver perfil"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -284,13 +290,14 @@ pt-PT:
       edit: "editar"
       edit_delete_photo: "Editar descrição da fotografia / apagar fotografia"
       make_profile_photo: "criar foto de perfil"
-      original_post: "Publicação Original"
       permalink: "permalink"
       update_photo: "Actualizar Fotografia"
       view: "ver"
+      view_original_post: "view original post"
     update: 
       error: "Falha ao editar a fotografia"
       notice: "Fotografia adicionada com sucesso."
+  previous: "previous"
   profile: "Perfil"
   registrations: 
     closed: "Os registos estão encerrados neste pod do Diaspora."

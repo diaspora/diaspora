@@ -46,9 +46,9 @@ da:
       failure: "Kunne ikke tilføje kontakten til aspektet."
       success: "Kontakt blev tilføjet aspektet."
     all_aspects_contacts: 
-      add_aspect: "tilføj aspekt"
       all_contacts: "Alle kontakter"
       aspects: "Aspekter"
+      manage_aspects: "manage aspects"
       no_contacts: "Du har i øjeblikket ingen kontakter. Find dine kontakter her."
     aspect_contacts: 
       done_editing: "afslut redigering"
@@ -168,13 +168,19 @@ da:
       login: "log ind"
       logout: "log ud"
       view_profile: "vis profil"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} nye anmodninger!"
     one: "ny anmodning!"
     other: "%{count} nye anmodninger!"
     zero: "ingen nye anmodninger"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "kommenterede på noget af dit"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "tilbød at dele med dig."
     post: "post"
     request_accepted: "accepterede din anmodning."
@@ -284,13 +290,14 @@ da:
       edit: "redigér"
       edit_delete_photo: "Redigér billedbeskrivelse / slet billede"
       make_profile_photo: "gør til profilbillede"
-      original_post: "Original Post"
       permalink: "permanentlink"
       update_photo: "Opdatér billede"
       view: "se"
+      view_original_post: "view original post"
     update: 
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
+  previous: "previous"
   profile: "Profil"
   registrations: 
     closed: "Der er lukket for tilmeldinger på dette Diaspora server."

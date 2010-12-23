@@ -46,9 +46,9 @@ hu:
       failure: "A kapcsolatot nem sikerült felvenni a csoportba."
       success: "A kapcsolat hozzáadva a csoporthoz."
     all_aspects_contacts: 
-      add_aspect: "csoport hozzáadása"
       all_contacts: "Összes ismerős"
       aspects: "Csoportok"
+      manage_aspects: "manage aspects"
       no_contacts: "Még nincs ismerősöd felvéve. Itt keresheted meg őket"
     aspect_contacts: 
       done_editing: "szerkesztés kész"
@@ -168,13 +168,19 @@ hu:
       login: "belépés"
       logout: "kilépés"
       view_profile: "profil megtekintése"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} új felkérés!"
     one: "új felkérés!"
     other: "%{count} új felkérések!"
     zero: "nincsenek új felkérések"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -284,13 +290,14 @@ hu:
       edit: "szerkesztés"
       edit_delete_photo: "Kép leírás szerkesztése / kép törlése"
       make_profile_photo: "beállítás profilképnek"
-      original_post: "eredeti üzenet"
       permalink: "permalink"
       update_photo: "Kép frissítése"
       view: "nézet"
+      view_original_post: "view original post"
     update: 
       error: "Nem sikerült szerkeszteni a képet."
       notice: "Kép szerkesztése sikerült."
+  previous: "previous"
   profile: "Profil"
   registrations: 
     closed: "A regisztráció zárva ezen a Diaspora kiszolgálón."

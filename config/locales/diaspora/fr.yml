@@ -46,9 +46,9 @@ fr:
       failure: "L’ajout du contact à l’aspect a échoué."
       success: "Vous avez ajouté le contact à l’aspect avec succès."
     all_aspects_contacts: 
-      add_aspect: "ajouter un aspect"
       all_contacts: "Tous les contacts"
       aspects: "Aspects"
+      manage_aspects: "gestion des aspects"
       no_contacts: "Vous n'avez pas de contacts pour l'instant. Recherchez des contacts ici."
     aspect_contacts: 
       done_editing: "fin de la modification"
@@ -106,9 +106,9 @@ fr:
     new_comment: 
       comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
+      enter: "Entrée"
+      press: "appuyez sur"
+      to_comment: "pour commenter"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"
@@ -168,13 +168,19 @@ fr:
       login: "connexion"
       logout: "se déconnecter"
       view_profile: "voir le profil"
+  new_notifications: "%{count} nouvelles notifications"
   new_requests: 
     few: "%{count} nouvelles requêtes !"
     one: "nouvelle requête !"
     other: "%{count} nouvelles requêtes !"
     zero: "aucune nouvelle requête"
+  next: "suivant"
+  no_new_notifications: "aucune nouvelle notification"
   notifications: 
     comment_on_post: "a commenté sur votre"
+    deleted: "supprimé"
+    index: 
+      notifications: "Notifications"
     new_request: "a proposé de partager avec vous."
     post: "message"
     request_accepted: "a accepté votre demande de partage."
@@ -284,13 +290,14 @@ fr:
       edit: "modifier"
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"
       make_profile_photo: "en faire la photo de profil"
-      original_post: "Message original"
       permalink: "permalien"
       update_photo: "Mettre à jour la photo"
       view: "voir"
+      view_original_post: "afficher le message original"
     update: 
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour avec succès."
+  previous: "précédent"
   profile: "Profil"
   registrations: 
     closed: "Les inscriptions sont fermées sur ce pod Diaspora."

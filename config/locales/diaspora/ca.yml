@@ -46,9 +46,9 @@ ca:
       failure: "Error a l'afegir el contacte a aquest aspecte."
       success: "S'ha agregat correctament el seu contacte a un aspecte."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
       all_contacts: "All contacts"
       aspects: "Aspects"
+      manage_aspects: "manage aspects"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -168,13 +168,19 @@ ca:
       login: "Entrar"
       logout: "desconectar-se"
       view_profile: "veure perfil"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} noves peticions!"
     one: "Nova petició!"
     other: "%{count} noves peticions!"
     zero: "no hi ha noves peticions"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -284,13 +290,14 @@ ca:
       edit: "editar"
       edit_delete_photo: "Editar peu de fotografia / eliminar fotografia"
       make_profile_photo: "convertir en fotografia de perfil"
-      original_post: "Post original"
       permalink: "permalink"
       update_photo: "Actualitzar fotografia"
       view: "veure"
+      view_original_post: "view original post"
     update: 
       error: "Ha fallat l'edició de la fotografia."
       notice: "Fotografia actualitzada correctament."
+  previous: "previous"
   profile: "Perfil"
   registrations: 
     closed: "Los registros están cerrados en este servidor Diaspora"
