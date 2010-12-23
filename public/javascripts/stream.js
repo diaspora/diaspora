@@ -85,6 +85,11 @@ var Stream = {
           '<a href="//www.youtube.com/watch?v=' + $this.data("video-id") + '" target="_blank">Watch this video on Youtube</a><br />' +
             '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/' + $this.data("video-id") + '"></iframe>'
           );
+      } else if($this.data("host") === "vimeo.com"){
+        $container.html(
+            '<p><a href="http://vimeo.com/' + $this.data("video-id") + '">Watch this video on Vimeo</a></p>' +
+            '<iframe class="vimeo-player" src="http://player.vimeo.com/video/' + $this.data("video-id") + '"></iframe>'
+            );
       } else {
         $container.html('Invalid videotype <i>' + $this.data("host") + '</i> (ID: ' + $this.data("video-id") + ')');
       }
