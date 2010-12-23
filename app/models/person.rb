@@ -39,18 +39,24 @@ class Person < ActiveRecord::Base
 
   def self.search(query)
     return [] if query.to_s.empty?
-    query_tokens = query.to_s.strip.split(" ")
-    p = []
 
-    query_tokens.each do |raw_token|
+    where_clause = <<-SQL
+      profiles.first_name LIKE ? OR
+      profiles.last_name LIKE ? OR
+      people.diaspora_handle LIKE ?
+    SQL
+    sql = ""
+    tokens = []
+
+    query_tokens = query.to_s.strip.split(" ")
+    query_tokens.each_with_index do |raw_token, i|
       token = "%#{raw_token}%"
-      p = Person.searchable.where('profiles.first_name LIKE :token', :token => token).limit(30) \
- | Person.searchable.where('profiles.last_name LIKE :token', :token => token).limit(30) \
- | Person.searchable.where('profiles.diaspora_handle LIKE :token', :token => token).limit(30) \
- | p
+      sql << " OR " unless i == 0
+      sql << where_clause
+      tokens.concat([token, token, token])
     end
 
-    return p
+    Person.searchable.where(sql, *tokens).order("profiles.first_name")
   end
 
   def name

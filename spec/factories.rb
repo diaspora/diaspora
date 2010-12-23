@@ -24,6 +24,12 @@ Factory.define :person do |p|
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
 end
 
+Factory.define :searchable_person, :parent => :person do |p|
+  p.after_build do |person|
+    person.profile.searchable = true
+  end
+end
+
 Factory.define :user do |u|
   u.sequence(:username) { |n| "bob#{n}#{r_str}" }
   u.sequence(:email) { |n| "bob#{n}#{r_str}@pivotallabs.com" }

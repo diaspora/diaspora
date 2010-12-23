@@ -140,56 +140,57 @@ describe Person do
 
   describe '.search' do
     before do
-      @connected_person_one   = Factory.create(:person)
-      @connected_person_two   = Factory.create(:person)
-      @connected_person_three = Factory.create(:person)
-      @connected_person_four  = Factory.create(:person)
+      Person.delete_all
+      @robert_grimm = Factory.create(:searchable_person)
+      @eugene_weinstein = Factory.create(:searchable_person)
+      @yevgeniy_dodis = Factory.create(:searchable_person)
+      @casey_grippi = Factory.create(:searchable_person)
 
-      @connected_person_one.profile.first_name = "Robert"
-      @connected_person_one.profile.last_name  = "Grimm"
-      @connected_person_one.profile.save
+      @robert_grimm.profile.first_name = "Robert"
+      @robert_grimm.profile.last_name  = "Grimm"
+      @robert_grimm.profile.save
+      @robert_grimm.reload
 
-      @connected_person_two.profile.first_name = "Eugene"
-      @connected_person_two.profile.last_name  = "Weinstein"
-      @connected_person_two.save
+      @eugene_weinstein.profile.first_name = "Eugene"
+      @eugene_weinstein.profile.last_name  = "Weinstein"
+      @eugene_weinstein.profile.save
+      @eugene_weinstein.reload
 
-      @connected_person_three.profile.first_name = "Yevgeniy"
-      @connected_person_three.profile.last_name  = "Dodis"
-      @connected_person_three.save
+      @yevgeniy_dodis.profile.first_name = "Yevgeniy"
+      @yevgeniy_dodis.profile.last_name  = "Dodis"
+      @yevgeniy_dodis.profile.save
+      @yevgeniy_dodis.reload
 
-      @connected_person_four.profile.first_name = "Casey"
-      @connected_person_four.profile.last_name  = "Grippi"
-      @connected_person_four.save
+      @casey_grippi.profile.first_name = "Casey"
+      @casey_grippi.profile.last_name  = "Grippi"
+      @casey_grippi.profile.save
+      @casey_grippi.reload
     end
 
-    it 'should return nothing on an emprty query' do
+    it 'should return nothing on an empty query' do
       people = Person.search("")
       people.empty?.should be true
     end
 
     it 'should yield search results on partial names' do
       people = Person.search("Eu")
-      people.include?(@connected_person_two).should   == true
-      people.include?(@connected_person_one).should   == false
-      people.include?(@connected_person_three).should == false
-      people.include?(@connected_person_four).should  == false
+      people.count.should == 1
+      people.first.should == @eugene_weinstein
 
       people = Person.search("wEi")
-      people.include?(@connected_person_two).should   == true
-      people.include?(@connected_person_one).should   == false
-      people.include?(@connected_person_three).should == false
-      people.include?(@connected_person_four).should  == false
+      people.count.should == 1
+      people.first.should == @eugene_weinstein
 
       people = Person.search("gri")
-      people.include?(@connected_person_one).should   == true
-      people.include?(@connected_person_four).should  == true
-      people.include?(@connected_person_two).should   == false
-      people.include?(@connected_person_three).should == false
+      people.count.should == 2
+      people.first.should == @casey_grippi
+      people.second.should == @robert_grimm
     end
 
     it 'should yield results on full names' do
       people = Person.search("Casey Grippi")
-      people.should == [@connected_person_four]
+      people.count.should == 1
+      people.first.should == @casey_grippi
     end
 
     it 'should only display searchable people' do
@@ -199,7 +200,9 @@ describe Person do
     end
 
     it 'should search on handles' do
-      Person.search(@connected_person_one.diaspora_handle).should include @connected_person_one
+      people = Person.search(@robert_grimm.diaspora_handle)
+      people.count.should == 1
+      people.first.should == @robert_grimm
     end
   end
 
