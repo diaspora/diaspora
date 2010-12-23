@@ -32,8 +32,6 @@ module Diaspora
           xml_author = (owns?(object.post)) ? object.diaspora_handle : object.post.person.diaspora_handle
         else
           xml_author = object.diaspora_handle
-          pp xml_author
-          pp salmon_author
         end
 
         if (salmon_author.diaspora_handle != xml_author)
@@ -158,9 +156,7 @@ module Diaspora
         on_pod = existing_post(post)
         log_string = "event=receive payload_type=#{post.class} sender=#{post.diaspora_handle} "
         if on_pod
-          puts "On pod"
           if post_visible?(post)
-            puts "visible"
             if post.mutable?
               on_pod.caption = post.caption
               on_pod.save!
@@ -183,7 +179,6 @@ module Diaspora
 
       def add_post_to_aspects(post)
         Rails.logger.debug("event=add_post_to_aspects user_id=#{self.id} post_id=#{post.id}")
-        puts("event=add_post_to_aspects user_id=#{self.id} post_id=#{post.id}")
 
         aspects = self.aspects_with_person(post.person)
         aspects.each do |aspect|

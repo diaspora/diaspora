@@ -112,7 +112,6 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "diaspora_handle"
     t.string   "guid"
     t.boolean  "pending",           :default => false
-    t.integer  "user_refs",         :default => 0
     t.string   "type"
     t.text     "message"
     t.integer  "status_message_id"

@@ -29,6 +29,11 @@ class Post < ActiveRecord::Base
     self.post_visibilities.count
   end
 
+  def diaspora_handle= nd
+    self.person = Person.where(:diaspora_handle => nd).first
+    write_attribute(:diaspora_handle, nd)
+  end
+
   def self.diaspora_initialize params
     new_post = self.new params.to_hash
     new_post.person = params[:person]

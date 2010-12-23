@@ -11,6 +11,14 @@ describe StatusMessage do
     @aspect = @user.aspects.create(:name => "losers")
   end
 
+  describe '#diaspora_handle=' do
+    it 'sets #person' do
+      person = Factory.create(:person)
+      post = Factory.create(:status_message, :person => @user.person)
+      post.diaspora_handle = person.diaspora_handle
+      post.person.should == person
+    end
+  end
   it "should have either a message or at least one photo" do
     n = Factory.build(:status_message, :message => nil)
     n.valid?.should be_false
