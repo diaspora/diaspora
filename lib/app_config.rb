@@ -40,6 +40,9 @@ class AppConfig
 
   def self.generate_pod_uri
     require 'uri'
+    unless self.config_vars[:pod_url] =~ /^(https?:\/\/)/
+      self.config_vars[:pod_url] = "http://#{self.config_vars[:pod_url]}"
+    end
     begin
       self.config_vars[:pod_uri] = URI.parse(self.config_vars[:pod_url])
     rescue
