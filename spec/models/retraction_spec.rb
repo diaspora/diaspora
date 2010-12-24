@@ -16,13 +16,12 @@ describe Retraction do
     it 'should have a post id after serialization' do
       retraction = Retraction.for(post)
       xml = retraction.to_xml.to_s
-      xml.include?(post.id.to_s).should == true
+      xml.include?(post.guid.to_s).should == true
     end
   end
 
   describe 'dispatching' do
-    it 'should dispatch a message on delete' do
-      Factory.create(:person)
+    it 'should dispatch a message on destroy' do
       MessageHandler.should_receive :add_post_request
       post.destroy
     end

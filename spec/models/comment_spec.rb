@@ -213,9 +213,7 @@ describe Comment do
 
     it 'should attach the creator signature if the user is commenting' do
       comment = user.comment "Yeah, it was great", :on => @remote_message
-      pp comment.signable_string
       @remote_message.comments.reset
-      pp @remote_message.comments.first
       @remote_message.comments.first.signature_valid?.should be_true
     end
 

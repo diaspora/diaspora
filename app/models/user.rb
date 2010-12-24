@@ -207,7 +207,7 @@ class User < ActiveRecord::Base
     comment = Comment.new(:person_id => self.person.id,
                           :text => text,
                           :post => options[:on])
-
+    comment.set_guid
     #sign comment as commenter
     comment.creator_signature = comment.sign_with_key(self.encryption_key)
 

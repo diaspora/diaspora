@@ -26,8 +26,10 @@ describe User do
 
     it 'saves post into visible post ids' do
       proc {
+        pp user.raw_visible_posts
         user.add_to_streams(@post, @aspect_ids)
-      }.should change(user.raw_visible_posts, :count).by(1)
+        pp user.raw_visible_posts
+      }.should change{user.raw_visible_posts.count}.by(1)
       user.reload.raw_visible_posts.should include @post
     end
 
@@ -46,7 +48,7 @@ describe User do
   describe '#aspects_from_ids' do
     it 'returns a list of all valid aspects a user can post to' do
       aspect_ids = Aspect.all.map(&:id)
-      user.aspects_from_ids(aspect_ids).should =~ [aspect, aspect1]
+      user.aspects_from_ids(aspect_ids).should =~ user.aspects
     end
     it "lets you post to your own aspects" do
       user.aspects_from_ids([aspect.id]).should == [aspect]

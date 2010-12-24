@@ -11,8 +11,8 @@ module Diaspora
       end
 
       def raw_visible_posts
-        Post.joins(:aspects).where(:pending => false,
-                                   :aspects => {:user_id => self.id})
+        Post.joins(:post_visibilities => :aspect).where(:pending => false,
+                                   :aspects => {:user_id => self.id}).select('DISTINCT `posts`.*')
       end
 
       def visible_posts( opts = {} )

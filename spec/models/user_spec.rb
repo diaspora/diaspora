@@ -347,6 +347,8 @@ describe User do
 
       it 'should send retractions to remote poeple' do
         user2.delete
+        user2.person.owner_id = nil
+        user2.person.save
         user.activate_contact(user2.person, aspect)
 
         user.should_receive(:disconnect).once
@@ -355,7 +357,9 @@ describe User do
 
       it 'should disconnect local people' do
         connect_users(user, aspect, user2, aspect2)
-        lambda {user.destroy}.should change{user2.reload.contacts.count}.by(-1)
+        lambda {
+          user.destroy
+        }.should change{user2.reload.contacts.count}.by(-1)
       end
     end
   end
