@@ -30,7 +30,7 @@ class Comment < ActiveRecord::Base
     person.diaspora_handle
   end
   def diaspora_handle= nh
-    self.person = Person.where(:diaspora_handle => nh).first
+    self.person = Webfinger.new(nh).fetch
   end
   def post_guid
     self.post.guid

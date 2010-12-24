@@ -126,7 +126,7 @@ class Person < ActiveRecord::Base
     #hcard_profile = HCard.find profile.hcard.first[:href]
     Rails.logger.info("event=webfinger_marshal valid=#{new_person.valid?} target=#{new_person.diaspora_handle}")
     new_person.url = hcard[:url]
-    new_person.create_profile(:first_name => hcard[:given_name],
+    new_person.profile = Profile.create!(:first_name => hcard[:given_name],
                               :last_name  => hcard[:family_name],
                               :image_url  => hcard[:photo],
                               :image_url_medium  => hcard[:photo_medium],

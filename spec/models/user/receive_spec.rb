@@ -99,8 +99,6 @@ describe User do
       person = Factory(:person)
       user.activate_contact(person, aspect)
       post = Factory.create(:status_message, :person => person)
-      puts
-      pp post
       post.post_visibilities.should be_empty
       user.receive post.to_diaspora_xml, person
       aspect.post_visibilities.reset
@@ -112,7 +110,21 @@ describe User do
         user.disconnected_by(person)
       }.should change(Post, :count).by(-1)
     end
+    it 'deletes post_visibilities on disconnected by' do
+      person = Factory(:person)
+      user.activate_contact(person, aspect)
+      post = Factory.create(:status_message, :person => person)
+      post.post_visibilities.should be_empty
+      user.receive post.to_diaspora_xml, person
+      aspect.post_visibilities.reset
+      aspect.posts(true).should include(post)
+      post.post_visibilities.reset
+      post.post_visibilities.length.should == 1
 
+      lambda {
+        user.disconnected_by(person)
+      }.should change{post.post_visibilities(true).count}.by(-1)
+    end
     it 'should keep track of user references for one person ' do
       @status_message.reload
       @status_message.user_refs.should == 2
@@ -143,9 +155,6 @@ describe User do
       connect_users(user, aspect, user3, aspect3)
       @post = user.post :status_message, :message => "hello", :to => aspect.id
 
-      user2.receive @post.to_diaspora_xml, user.person
-      user3.receive @post.to_diaspora_xml, user.person
-
       @comment = user3.comment('tada',:on => @post)
       @comment.post_creator_signature = @comment.sign_with_key(user.encryption_key)
       @xml = @comment.to_diaspora_xml
@@ -156,33 +165,38 @@ describe User do
       local_person = user3.person
 
       user2.reload.raw_visible_posts.size.should == 1
-      post_in_db = user2.raw_visible_posts.first
+      post_in_db = StatusMessage.find(@post.id)
       post_in_db.comments.should == []
-      user2.receive(@xml, user.person)
-      post_in_db.comments.reset
-
-      post_in_db.comments.include?(@comment).should be true
-      post_in_db.comments.first.person.should == local_person
+      lambda{
+        user2.receive(@xml, user.person)
+      }.should change{StatusMessage.find(@post.id).comments.count}.by(1)
     end
 
     it 'should correctly marshal a stranger for the downstream user' do
-      remote_person = user3.person
-      remote_person.delete
+      remote_person = user3.person.dup
+      user3.person.delete
       user3.delete
+      remote_person.id = nil
 
       #stubs async webfinger
-      Person.should_receive(:by_account_identifier).and_return{ |handle| if handle == user.person.diaspora_handle; user.person.save
-        user.person; else; remote_person.save; remote_person; end }
+      Person.should_receive(:by_account_identifier).twice.and_return{ |handle|
+        if handle == user.person.diaspora_handle
+          user.person.save
+          user.person
+        else
+          remote_person.profile = Factory(:profile)
+          remote_person.save!
+          remote_person
+        end
+      }
 
 
       user2.reload.raw_visible_posts.size.should == 1
-      post_in_db = user2.raw_visible_posts.first
+      post_in_db = StatusMessage.find(@post.id)
       post_in_db.comments.should == []
-      user2.receive(@xml, user.person)
-      post_in_db.reload
-
-      post_in_db.comments.include?(@comment).should be true
-      post_in_db.comments.first.person.should == remote_person
+      lambda{
+        user2.receive(@xml, user.person)
+      }.should change{StatusMessage.find(@post.id).comments.count}.by(1)
     end
   end
 

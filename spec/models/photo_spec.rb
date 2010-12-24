@@ -135,7 +135,7 @@ describe Photo do
       @photo.destroy
       user2.receive xml, @user.person
 
-      new_photo = Photo.find(id)
+      new_photo = Photo.where(:guid => @photo.guid).first
       new_photo.url.nil?.should be false
       new_photo.url.include?(url).should be true
       new_photo.url(:thumb_medium).include?(thumb_url).should be true

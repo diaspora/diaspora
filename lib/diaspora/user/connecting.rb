@@ -80,7 +80,7 @@ module Diaspora
 
       def remove_contact(bad_person)
         contact = contact_for(bad_person)
-        posts = raw_visible_posts.where(:person_id => bad_person.id)
+        posts = raw_visible_posts.where(:person_id => bad_person.id).all
         visibilities = PostVisibility.joins(:post, :aspect).where(
           :posts => {:person_id => bad_person.id},
           :aspects => {:user_id => self.id}
@@ -88,7 +88,7 @@ module Diaspora
         visibility_ids = visibilities.map{|v| v.id}
         PostVisibility.where(:id => visibility_ids).delete_all
         posts.each do |post|
-          if post.user_refs < 1
+          if post.post_visibilities(true).count < 1
             post.destroy
           end
         end

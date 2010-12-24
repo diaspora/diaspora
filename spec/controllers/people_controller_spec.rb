@@ -253,21 +253,22 @@ describe PeopleController do
         image_url = user.person.profile.image_url
         put :update, @params
 
-        user.person.reload
-        user.person.profile.image_url.should == image_url
+        Person.find(user.person.id).profile.image_url.should == image_url
       end
     end
     it 'does not allow mass assignment' do
+      person = user.person
       new_user = Factory.create(:user)
+      person.owner_id.should == user.id
       put :update, :id => user.person.id, :owner_id => new_user.id
-      user.person.reload.owner_id.should_not == new_user.id
+      Person.find(person.id).owner_id.should == user.id
     end
 
     it 'does not overwrite the profile diaspora handle' do
       handle_params = {:id => user.person.id,
                        :profile => {:diaspora_handle => 'abc@a.com'} }
       put :update, handle_params
-      user.person.reload.profile[:diaspora_handle].should_not == 'abc@a.com'
+      Person.find(user.person.id).profile[:diaspora_handle].should_not == 'abc@a.com'
     end
   end
 end
