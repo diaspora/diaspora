@@ -31,13 +31,13 @@ module RakeHelpers
 
   def fix_diaspora_handle_spaces(test = true)
     offenders = {}
-    space_people = Person.all(:diaspora_handle => / /, :url => APP_CONFIG[:pod_url])  # this is every person with a space....
+    space_people = Person.all(:diaspora_handle => / /, :url => AppConfig[:pod_url])  # this is every person with a space....
 
     #these people dont even have users.... they are totally messed up
     totally_messed_up_people = space_people.find_all{|x| x.owner.nil?}
     totally_messed_up_people.each{|x| x.delete}
 
-    space_people = Person.all(:diaspora_handle => / /, :owner_id.ne => nil, :url => APP_CONFIG[:pod_url])  # this is every person with a space....
+    space_people = Person.all(:diaspora_handle => / /, :owner_id.ne => nil, :url => AppConfig[:pod_url])  # this is every person with a space....
 
     space_people.each do |person|
       user = person.owner
@@ -62,7 +62,7 @@ mail
   end
 
   def new_diaspora_handle(user)
-    "#{user.username}@#{APP_CONFIG[:pod_uri].host}"
+    "#{user.username}@#{AppConfig[:pod_uri].host}"
   end
 
   def update_my_posts_with_new_diaspora_handle(user, new_diaspora_handle, test)

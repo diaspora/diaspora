@@ -5,7 +5,7 @@
     = render :partial => 'notifier/notifier_css'
   %body
     %header
-      = image_tag APP_CONFIG[:pod_url] + 'images/diaspora_white_on_grey.png'
+      = image_tag AppConfig[:pod_url] + 'images/diaspora_white_on_grey.png'
     #container
       - @invs = @resource.invitations_to_me
       %p

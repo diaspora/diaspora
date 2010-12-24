@@ -5,6 +5,6 @@
 :javascript
   WebSocket.__swfLocation = "#{javascript_path 'vendor/WebSocketMain.swf'}";
   $(document).ready(function(){
-    WSR.initialize("#{(APP_CONFIG[:socket_secure])?'wss':'ws'}://#{request.host}:#{APP_CONFIG[:socket_port]}/");
+    WSR.initialize("#{(AppConfig[:socket_secure])?'wss':'ws'}://#{request.host}:#{AppConfig[:socket_port]}/");
   });
  

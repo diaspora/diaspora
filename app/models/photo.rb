@@ -81,8 +81,8 @@ class Photo < Post
   end
 
   def absolute_url *args
-    pod_url = APP_CONFIG[:pod_url].dup
-    pod_url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
+    pod_url = AppConfig[:pod_url].dup
+    pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
     "#{pod_url}#{url(*args)}"
   end
 

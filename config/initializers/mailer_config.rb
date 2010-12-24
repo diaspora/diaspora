@@ -3,23 +3,23 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.configure do
-  config.action_mailer.default_url_options = {:host => APP_CONFIG[:pod_uri].host}
-  unless Rails.env == 'test' || APP_CONFIG[:mailer_on] != true
+  config.action_mailer.default_url_options = {:host => AppConfig[:pod_uri].host}
+  unless Rails.env == 'test' || AppConfig[:mailer_on] != true
     config.action_mailer.delivery_method = :smtp
-    if APP_CONFIG[:smtp_authentication] == "none"
+    if AppConfig[:smtp_authentication] == "none"
       config.action_mailer.smtp_settings = {
-        :address => APP_CONFIG[:smtp_address],
-        :port => APP_CONFIG[:smtp_port],
-        :domain => APP_CONFIG[:smtp_domain]
+        :address => AppConfig[:smtp_address],
+        :port => AppConfig[:smtp_port],
+        :domain => AppConfig[:smtp_domain]
       }
     else
       config.action_mailer.smtp_settings = {
-        :address => APP_CONFIG[:smtp_address],
-        :port => APP_CONFIG[:smtp_port],
-        :domain => APP_CONFIG[:smtp_domain],
-        :authentication => APP_CONFIG[:smtp_authentication],
-        :user_name => APP_CONFIG[:smtp_username],
-        :password => APP_CONFIG[:smtp_password],
+        :address => AppConfig[:smtp_address],
+        :port => AppConfig[:smtp_port],
+        :domain => AppConfig[:smtp_domain],
+        :authentication => AppConfig[:smtp_authentication],
+        :user_name => AppConfig[:smtp_username],
+        :password => AppConfig[:smtp_password],
         :enable_starttls_auto => true
       }
     end

@@ -33,13 +33,13 @@ describe Person do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
         new_user = Factory.create(:user)
-        new_user.person.diaspora_handle.should == new_user.username + "@" + APP_CONFIG[:pod_uri].host
+        new_user.person.diaspora_handle.should == new_user.username + "@" + AppConfig[:pod_uri].host
       end
     end
 
     context 'remote people' do
       it 'stores the diaspora_handle in the database' do
-        @person.diaspora_handle.include?(APP_CONFIG[:pod_uri].host).should be false
+        @person.diaspora_handle.include?(AppConfig[:pod_uri].host).should be false
       end
     end
 

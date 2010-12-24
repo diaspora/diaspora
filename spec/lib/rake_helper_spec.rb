@@ -43,13 +43,13 @@ describe RakeHelpers do
       Factory(:person)
       5.times do |number|
         f = Factory.create(:user)
-        f.person.diaspora_handle = "#{f.username}  #{APP_CONFIG[:pod_uri].host}"
-        f.person.url = APP_CONFIG[:pod_url]
+        f.person.diaspora_handle = "#{f.username}  #{AppConfig[:pod_uri].host}"
+        f.person.url = AppConfig[:pod_url]
         f.person.save(:validate => false)
       end
        p = Factory(:person)
-       p.diaspora_handle = "bubblegoose  @#{APP_CONFIG[:pod_uri].host}"
-       p.url = APP_CONFIG[:pod_url]
+       p.diaspora_handle = "bubblegoose  @#{AppConfig[:pod_uri].host}"
+       p.url = AppConfig[:pod_url]
        p.save(:validate => false)
     end
 
@@ -73,7 +73,7 @@ describe RakeHelpers do
     it 'should update a users username, his persons diaspora hande, and posts' do
       billy = Factory.create(:user)
       billy.username = "ma.x"
-      billy.person.diaspora_handle = "ma.x@#{APP_CONFIG[:pod_uri].host}"
+      billy.person.diaspora_handle = "ma.x@#{AppConfig[:pod_uri].host}"
       billy.person.save(:validate => false)
       billy.save(:validate => false)
 
@@ -82,7 +82,7 @@ describe RakeHelpers do
 
       RakeHelpers::fix_periods_in_username(false)
 
-      new_d_handle = "max@#{APP_CONFIG[:pod_uri].host}"
+      new_d_handle = "max@#{AppConfig[:pod_uri].host}"
 
       User.first.username.should == 'max'
       User.first.person.diaspora_handle.should == new_d_handle

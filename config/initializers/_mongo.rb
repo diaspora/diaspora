@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-ENV['MONGODB_URL'] = ENV['MONGOHQ_URL'] || URI::Generic.build(:scheme => 'mongodb', :host => APP_CONFIG[:mongo_host], :port => APP_CONFIG[:mongo_port], :path => "/diaspora-#{Rails.env}").to_s
+ENV['MONGODB_URL'] = ENV['MONGOHQ_URL'] || URI::Generic.build(:scheme => 'mongodb', :host => AppConfig[:mongo_host], :port => AppConfig[:mongo_port], :path => "/diaspora-#{Rails.env}").to_s
 
 MongoMapper.config = {::Rails.env => {'uri' => ENV['MONGODB_URL']}}
 MongoMapper.connect ::Rails.env
