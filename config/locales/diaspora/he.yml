@@ -255,7 +255,7 @@ he:
       not_connected: "אין לך שיתוף עם %{name}"
       recent_posts: "רשומות אחרונות"
       recent_public_posts: "הרשומות הציבוריות האחרונות"
-      return_to_aspects: "חזרה לעמוד ההיבטים שלך"
+      return_to_aspects: "באפשרותך לחזור לעמוד ההיבטים שלך"
       similar_contacts: "אנשי קשר דומים"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
     update: 

@@ -1,0 +1,455 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+en-shaw: 
+  _comments: "Comments"
+  _home: "Home"
+  _photos: "𐑓𐑴𐑑𐑴𐑟"
+  _services: "Services"
+  account: "𐑩𐑒𐑬𐑯𐑑"
+  activemodel: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "𐑥𐑳𐑕𐑑 𐑚𐑰 𐑿𐑯𐑰𐑒 𐑩𐑥𐑳𐑙 𐑞𐑦𐑕 𐑿𐑟𐑼𐑟 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
+        request: 
+          attributes: 
+            from_id: 
+              taken: "𐑦𐑟 𐑩 𐑛𐑵𐑐𐑤𐑦𐑒𐑩𐑑 𐑝 𐑩 𐑐𐑮𐑦𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
+        user: 
+          attributes: 
+            email: 
+              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
+            person: 
+              invalid: "𐑦𐑟 𐑦𐑯𐑝𐑨𐑤𐑦𐑛."
+            username: 
+              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
+  ago: "%{time} ago"
+  application: 
+    helper: 
+      aspect_badge: 
+        all_aspects: "𐑷𐑤 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+      unknown_person: "𐑩𐑯𐑯𐑴𐑯 𐑐𐑻𐑕𐑩𐑯"
+      video_title: 
+        unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑑𐑩𐑤"
+  are_you_sure: "𐑸 𐑿 𐑖𐑻?"
+  aspects: 
+    add_to_aspect: 
+      failure: "𐑓𐑱𐑤𐑛 𐑑 𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
+      success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑨𐑛𐑩𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
+    all_aspects_contacts: 
+      all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      aspects: "𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+      manage_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+      no_contacts: "𐑿 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑣𐑨𐑝 𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕. 𐑓𐑲𐑯𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑣𐑽."
+    aspect_contacts: 
+      done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
+    create: 
+      failure: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑒𐑮𐑦𐑱𐑖𐑩𐑯 𐑓𐑱𐑤𐑛."
+      success: "𐑿𐑼 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑 %{name} 𐑢𐑪𐑟 𐑒𐑮𐑦𐑱𐑑𐑩𐑛"
+    destroy: 
+      success: "%{name} 𐑢𐑪𐑟 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛."
+    edit_aspect_pane: 
+      add_existing: "𐑨𐑛 𐑩𐑯 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+      confirm_remove_aspect: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
+      remove_aspect: "𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑"
+    helper: 
+      are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
+      aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
+      remove: "𐑮𐑦𐑥𐑵𐑝"
+    index: 
+      handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕, 𐑿 𐑒 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
+    manage: 
+      add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
+      add_a_new_contact: "𐑨𐑛 𐑩 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+      drag_to_add: "𐑛𐑮𐑨𐑜 𐑑 𐑨𐑛 𐑐𐑰𐑐𐑩𐑤"
+      manage_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+      no_requests: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
+      requests: "𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
+    move_contact: 
+      error: "𐑺𐑼 𐑥𐑵𐑝𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑: %{inspect}"
+      failure: "𐑛𐑦𐑛𐑯𐑑 𐑢𐑻𐑒 %{inspect}"
+      success: "𐑐𐑻𐑕𐑩𐑯 𐑥𐑵𐑝𐑛 𐑑 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
+    new_aspect: 
+      create: "𐑒𐑮𐑦𐑱𐑑"
+      name: "𐑯𐑱𐑥"
+    no_contacts_message: 
+      add_contact: "𐑨𐑛 𐑩 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+      add_contact_to: "𐑨𐑛 𐑕𐑳𐑥𐑢𐑩𐑯 𐑑 %{aspect_name}"
+      invite: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯 𐑑 𐑡𐑶𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
+      nobody: "𐑚𐑮𐑦𐑙 𐑞 𐑐𐑰𐑐𐑩𐑤 𐑞𐑨𐑑 𐑥𐑨𐑑𐑼 𐑦𐑯 𐑿𐑼 𐑤𐑲𐑓 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
+      nobody_in_aspect: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑 '%{aspect_name}' 𐑦𐑟 𐑧𐑥𐑐𐑑𐑦."
+    no_posts_message: 
+      start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑨𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑.  𐑜𐑧𐑑 𐑞 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑑𐑸𐑑𐑩𐑛!"
+    remove_from_aspect: 
+      failure: "𐑓𐑱𐑤𐑛 𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
+      success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
+    seed: 
+      family: "𐑓𐑨𐑥𐑦𐑤𐑦"
+      work: "𐑢𐑻𐑒"
+    show: 
+      edit_aspect: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
+    update: 
+      failure: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑛 𐑑𐑵 𐑤𐑪𐑙 𐑩 𐑯𐑱𐑥 𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
+      success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
+  back: "𐑚𐑨𐑒"
+  cancel: "𐑒𐑨𐑯𐑕𐑩𐑤"
+  comments: 
+    new_comment: 
+      comment: "𐑒𐑪𐑥𐑩𐑯𐑑"
+      commenting: "𐑒𐑪𐑥𐑩𐑯𐑑𐑦𐑙..."
+      enter: "𐑧𐑯𐑑𐑼"
+      press: "𐑐𐑮𐑧𐑕"
+      to_comment: "𐑑 𐑒𐑪𐑥𐑩𐑯𐑑"
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
+  delete: "𐑛𐑦𐑤𐑰𐑑"
+  email: "Email"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "𐑒𐑩𐑮𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑺𐑼𐑟 𐑯 𐑑𐑮𐑲 𐑩𐑜𐑧𐑯."
+      invalid_fields: "𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑓𐑰𐑤𐑛𐑟"
+  fill_me_out: "𐑓𐑦𐑤 𐑥𐑰 𐑬𐑑"
+  home: 
+    show: 
+      already_account: "already have an account?"
+      choice: "Choice"
+      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
+      learn_about_host: "Learn about how to host your own Diaspora server."
+      login_here: "log in here"
+      ownership: "Ownership"
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      share_what_you_want: "Share what you want, with whom you want."
+      simplicity: "Simplicity"
+      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
+  invitations: 
+    check_token: 
+      not_found: "Invitation token not found"
+    create: 
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
+      no_more: "You have no more invitations."
+      rejected: "The following email addresses had problems: "
+      sent: "Invitations have been sent to: "
+    edit: 
+      sign_up: "sign_up"
+    new: 
+      already_invited: "𐑷𐑤𐑮𐑧𐑛𐑦 𐑦𐑯𐑝𐑲𐑑𐑩𐑛"
+      aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
+      comma_seperated_plz: "𐑿 𐑒𐑨𐑯 𐑧𐑯𐑑𐑼 𐑥𐑫𐑤𐑑𐑦𐑐𐑩𐑤 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕𐑩𐑟 𐑕𐑧𐑐𐑼𐑱𐑑𐑩𐑛 𐑚𐑲 𐑒𐑪𐑥𐑩𐑟."
+      if_they_accept_info: "𐑦𐑓 𐑞𐑱 𐑩𐑒𐑕𐑧𐑐𐑑, 𐑞𐑱 𐑢𐑦𐑤 𐑚𐑰 𐑨𐑛𐑩𐑛 𐑑 𐑞 𐑨𐑕𐑐𐑧𐑒𐑑 𐑿 𐑦𐑯𐑝𐑲𐑑𐑩𐑛 𐑞𐑧𐑥."
+      invite_someone_to_join: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯 𐑑 𐑡𐑶𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
+      personal_message: "𐑐𐑻𐑕𐑩𐑯𐑩𐑤 𐑥𐑧𐑕𐑩𐑡"
+      send_an_invitation: "𐑕𐑧𐑯𐑛 𐑩𐑯 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
+      send_invitation: "𐑕𐑧𐑯𐑛 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
+      to: "𐑑"
+  layouts: 
+    application: 
+      powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
+      whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
+    header: 
+      account_settings: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑧𐑑𐑦𐑙𐑟"
+      blog: "𐑚𐑤𐑪𐑜"
+      code: "𐑒𐑴𐑛"
+      edit_profile: "𐑧𐑛𐑦𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      login: "𐑤𐑪𐑜𐑦𐑯"
+      logout: "𐑤𐑪𐑜𐑬𐑑"
+      view_profile: "𐑝𐑿 𐑐𐑮𐑴𐑓𐑲𐑤"
+  new_notifications: "%{count} new notifications"
+  new_requests: 
+    few: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
+    one: "𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
+    other: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
+    zero: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
+  next: "next"
+  no_new_notifications: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+  notifications: 
+    comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
+  notifier: 
+    diaspora: "the diaspora email robot"
+    hello: "𐑣𐑧𐑤𐑴 %{name}!"
+    love: "love,"
+    new_request: 
+      just_sent_you: "𐑡𐑳𐑕𐑑 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
+      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
+      subject: "𐑯𐑿 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩* 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑓𐑮𐑪𐑥 %{from}"
+      try_it_out: "𐑿 𐑖𐑫𐑛 𐑮𐑦𐑤𐑦 𐑔𐑦𐑙𐑒 𐑩𐑚𐑬𐑑 𐑗𐑧𐑒𐑦𐑙 𐑦𐑑 𐑬𐑑."
+    request_accepted: 
+      accepted: "has accepted your contact request!"
+      subject: "%{name} has accepted your contact request on Diaspora*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message about your Diaspora account:"
+    thanks: "Thanks,"
+  ok: "𐑴𐑒𐑱"
+  or: "𐑹"
+  pagination: 
+    next: "𐑯𐑧𐑒𐑕𐑑"
+    previous: "𐑐𐑮𐑦𐑝𐑾𐑕"
+  password: "Password"
+  password_confirmation: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑒𐑪𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
+  people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
+    edit: 
+      allow_search: "𐑩𐑤𐑬 𐑓𐑹 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑿 𐑢𐑦𐑞𐑦𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+      edit_profile: "𐑧𐑛𐑦𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      first_name: "𐑓𐑻𐑕𐑑 𐑑𐑲𐑥"
+      info_available_to: "𐑞𐑦𐑕 𐑦𐑯𐑓𐑴 𐑢𐑦𐑤 𐑚𐑰 𐑩𐑝𐑱𐑤𐑩𐑚𐑩𐑤 𐑑 𐑣𐑵𐑥𐑧𐑝𐑼 𐑿 𐑒𐑩𐑯𐑧𐑒𐑑 𐑢𐑦𐑞 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
+      last_name: "𐑤𐑨𐑕𐑑 𐑯𐑱𐑥"
+      update_profile: "𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      your_bio: "𐑿𐑼 𐑚𐑲𐑴"
+      your_birthday: "𐑿𐑼 𐑚𐑻𐑔𐑛𐑱"
+      your_gender: "𐑿𐑼 𐑡𐑧𐑯𐑛𐑼"
+      your_name: "𐑿𐑼 𐑯𐑱𐑥"
+      your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
+      your_profile: "𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
+    helper: 
+      people_on_pod_are_aware_of: " people on pod are aware of"
+      results_for: " results for %{params}"
+    index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
+      no_results: "Hey! You need to search for something."
+      results_for: "search results for"
+    person: 
+      add_contact: "add contact"
+      already_connected: "Already connected"
+      pending_request: "𐑐𐑧𐑯𐑛𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑"
+      thats_you: "𐑞𐑨𐑑𐑕 𐑿!"
+    profile_sidebar: 
+      bio: "𐑚𐑲𐑴"
+      born: "𐑚𐑻𐑔𐑛𐑱"
+      cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 𐑤𐑨𐑕𐑑 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑥𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
+      edit_my_profile: "𐑧𐑛𐑦𐑑 𐑥𐑲 𐑐𐑮𐑴𐑓𐑲𐑤"
+      gender: "𐑡𐑧𐑯𐑛𐑼"
+      in_aspects: "𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+      remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+      remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
+    show: 
+      does_not_exist: "Person does not exist!"
+      incoming_request: "You have an incoming request from this person."
+      no_posts: "no posts to display!"
+      not_connected: "You are not sharing with %{name}"
+      recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
+      return_to_aspects: "Return to your aspects page"
+      similar_contacts: "similar contacts"
+      to_accept_or_ignore: "to accept or ignore it."
+    update: 
+      failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
+    webfinger: 
+      fail: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 %{handle}."
+  photos: 
+    create: 
+      integrity_error: "𐑓𐑴𐑑𐑴 𐑳𐑐𐑤𐑴𐑛 𐑓𐑱𐑤𐑛.  𐑸 𐑿 𐑖𐑻 𐑞𐑨𐑑 𐑢𐑪𐑟 𐑩𐑯 𐑦𐑥𐑩𐑡?"
+      runtime_error: "𐑓𐑴𐑑𐑴 𐑳𐑐𐑤𐑴𐑛 𐑓𐑱𐑤𐑛.  𐑸 𐑿 𐑖𐑻 𐑿𐑼 𐑕𐑰𐑑𐑚𐑧𐑤𐑑 𐑦𐑟 𐑓𐑨𐑕𐑩𐑯𐑛?"
+      type_error: "𐑓𐑴𐑑𐑴 𐑩𐑐𐑤𐑴𐑛 𐑓𐑱𐑤𐑛.  𐑸 𐑿 𐑖𐑻 𐑩𐑯 𐑦𐑥𐑩𐑡 𐑢𐑪𐑟 𐑨𐑛𐑩𐑛?"
+    destroy: 
+      notice: "𐑓𐑴𐑑𐑴 𐑛𐑦𐑤𐑰𐑑𐑩𐑛."
+    edit: 
+      editing: "𐑧𐑛𐑦𐑑𐑦𐑙"
+    new: 
+      back_to_list: "𐑚𐑨𐑒 𐑑 𐑤𐑦𐑕𐑑"
+      new_photo: "𐑯𐑿 𐑓𐑴𐑑𐑴"
+      post_it: "𐑐𐑴𐑕𐑑 𐑦𐑑!"
+    new_photo: 
+      empty: "{file} 𐑦𐑟 𐑧𐑥𐑐𐑑𐑦, 𐑐𐑤𐑰𐑟 𐑕𐑩𐑤𐑧𐑒𐑑 𐑓𐑲𐑤𐑟 𐑩𐑜𐑧𐑯 𐑢𐑦𐑞𐑬𐑑 𐑦𐑑."
+      invalid_ext: "{file} 𐑣𐑨𐑟 𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑧𐑒𐑕𐑑𐑧𐑯𐑖𐑩𐑯. 𐑴𐑯𐑤𐑦 {extensions} 𐑸 𐑩𐑤𐑬𐑛."
+      size_error: "{file} 𐑦𐑟 𐑑𐑵 𐑤𐑸𐑡, 𐑥𐑨𐑒𐑕𐑦𐑥𐑩𐑥 𐑓𐑲𐑤 𐑕𐑲𐑟 𐑦𐑟 {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "𐑹 𐑕𐑩𐑤𐑧𐑒𐑑 𐑢𐑳𐑯 𐑓𐑮𐑳𐑥 𐑘𐑹 𐑷𐑤𐑮𐑧𐑛𐑦 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙"
+      upload: "𐑩𐑐𐑤𐑴𐑛 𐑩 𐑯𐑿 𐑐𐑮𐑴𐑓𐑲𐑤 𐑓𐑴𐑑𐑴!"
+    photo: 
+      view_all: "𐑝𐑿 𐑷𐑤 𐑝 %{name}𐑟 𐑓𐑴𐑑𐑴𐑟"
+    show: 
+      delete_photo: "𐑛𐑦𐑤𐑰𐑑 𐑓𐑴𐑑𐑴"
+      edit: "𐑧𐑛𐑦𐑑"
+      edit_delete_photo: "𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴 𐑛𐑦𐑕𐑒𐑮𐑦𐑐𐑖𐑩𐑯 / 𐑛𐑦𐑤𐑰𐑑 𐑓𐑴𐑑𐑴"
+      make_profile_photo: "𐑥𐑱𐑒 𐑐𐑮𐑴𐑓𐑲𐑤 𐑓𐑴𐑑𐑴"
+      permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
+      update_photo: "𐑩𐑐𐑛𐑱𐑑 𐑓𐑴𐑑𐑴"
+      view: "𐑝𐑿"
+      view_original_post: "𐑝𐑿 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤 𐑐𐑴𐑕𐑑"
+    update: 
+      error: "𐑓𐑱𐑤𐑛 𐑑 𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴."
+      notice: "𐑓𐑴𐑑𐑴 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑩𐑛."
+  previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
+  profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
+  registrations: 
+    closed: "Signups are closed on this Diaspora pod."
+    create: 
+      success: "𐑿'𐑝 𐑡𐑶𐑯𐑛 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
+    edit: 
+      cancel_my_account: "Cancel my account"
+      edit: "Edit %{name}"
+      leave_blank: "(leave blank if you don't want to change it)"
+      password_to_confirm: "(we need your current password to confirm your changes)"
+      unhappy: "Unhappy?"
+      update: "Update"
+    new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      sign_up: "Sign up"
+      sign_up_for_diaspora: "Sign up for Diaspora"
+  requests: 
+    create: 
+      sending: "𐑕𐑧𐑯𐑛𐑦𐑙"
+      sent: "𐑿'𐑝 𐑨𐑕𐑒𐑑 𐑑 𐑖𐑺 𐑢𐑦𐑞 %{name}.  𐑞𐑱 𐑖𐑫𐑛 𐑕𐑰 𐑦𐑑 𐑞 𐑯𐑧𐑒𐑕𐑑 𐑑𐑲𐑥 𐑞𐑱 𐑤𐑪𐑜 𐑦𐑯 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
+    destroy: 
+      error: "𐑐𐑤𐑰𐑟 𐑕𐑩𐑤𐑧𐑒𐑑 𐑩𐑯 𐑨𐑕𐑐𐑧𐑒𐑑!"
+      ignore: "𐑦𐑜𐑯𐑹𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
+      success: "𐑿 𐑸 𐑯𐑬 𐑓𐑮𐑧𐑯𐑛𐑟."
+    manage_aspect_contacts: 
+      existing: "𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      manage_within: "𐑥𐑨𐑯𐑩𐑡 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑢𐑦𐑞𐑦𐑯"
+    new_request_to_person: 
+      sent: "𐑕𐑧𐑯𐑑!"
+  search: "Search"
+  services: 
+    create: 
+      success: "𐑷𐑔𐑧𐑯𐑑𐑦𐑒𐑱𐑖𐑩𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤."
+    destroy: 
+      success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑷𐑔𐑧𐑯𐑑𐑦𐑒𐑱𐑖𐑩𐑯."
+    failure: 
+      error: "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑺𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑞𐑨𐑑 𐑕𐑻𐑝𐑩𐑕"
+    index: 
+      connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑓𐑱𐑕𐑚𐑫𐑒"
+      connect_to_twitter: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑑𐑢𐑦𐑑𐑼"
+      disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑"
+      edit_services: "𐑧𐑛𐑦𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
+      logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟"
+      really_disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 %{service}?"
+  settings: "Settings"
+  shared: 
+    add_contact: 
+      create_request: "𐑓𐑲𐑯𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "𐑧𐑯𐑑𐑼 𐑩 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥:"
+      know_email: "𐑯𐑴 𐑞𐑺 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕? 𐑿 𐑖𐑫𐑛 𐑦𐑯𐑝𐑲𐑑 𐑞𐑧𐑥"
+      your_diaspora_username_is: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 𐑦𐑟: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "All contacts"
+      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    invitations: 
+      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      invitations_left: "(%{count} left)"
+      invite_someone: "Invite someone"
+      invites: "Invites"
+      invites_closed: "Invites are currently closed on this Diaspora pod"
+    notification: 
+      new: "𐑯𐑿 %{type} 𐑓𐑮𐑪𐑥 %{from}"
+    public_explain: 
+      logged_in: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑑 %{service}"
+      manage: "𐑥𐑨𐑯𐑩𐑡 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
+      outside: "𐑐𐑳𐑚𐑤𐑦𐑒 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑢𐑦𐑤 𐑚𐑰 𐑩𐑝𐑱𐑤𐑩𐑚𐑩𐑤 𐑓𐑹 𐑳𐑞𐑼𐑟 𐑬𐑑𐑕𐑲𐑛 𐑝 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑑 𐑕𐑰."
+      title: "𐑿 𐑸 𐑩𐑚𐑬𐑑 𐑑 𐑐𐑴𐑕𐑑 𐑩 𐑐𐑳𐑚𐑤𐑦𐑒 𐑥𐑧𐑕𐑩𐑡!"
+    publisher: 
+      add_photos: "𐑨𐑛 𐑓𐑴𐑑𐑴𐑟"
+      all: "𐑷𐑤"
+      all_contacts: "all contacts"
+      make_public: "make public"
+      post_a_message_to: "Post a message to %{aspect}"
+      posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
+      share: "𐑖𐑺"
+      share_with: "Share with %{aspect}"
+      share_with_all: "share across all of your aspects"
+    reshare: 
+      reshare: "𐑮𐑦𐑖𐑺"
+  status_messages: 
+    helper: 
+      no_message_to_display: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱."
+    new_status_message: 
+      oh_yeah: "𐑴 𐑘𐑨!"
+      tell_me_something_good: "𐑑𐑧𐑤 𐑥𐑰 𐑕𐑳𐑥𐑔𐑦𐑙 𐑜𐑫𐑛"
+    show: 
+      destroy: "𐑛𐑦𐑤𐑰𐑑"
+      permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
+  stream_helper: 
+    hide_comments: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
+    show_comments: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
+  the_world: "𐑞 𐑢𐑻𐑤𐑛"
+  username: "𐑿𐑟𐑼𐑯𐑱𐑥"
+  users: 
+    destroy: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑒𐑤𐑴𐑟𐑛."
+    edit: 
+      change: "𐑗𐑱𐑯𐑡"
+      change_language: "𐑗𐑱𐑯𐑡 𐑤𐑱𐑙𐑜𐑢𐑩𐑡"
+      change_password: "𐑗𐑱𐑯𐑡 𐑐𐑨𐑕𐑢𐑼𐑛"
+      close_account: "𐑒𐑤𐑴𐑟 𐑩𐑒𐑬𐑯𐑑"
+      download_photos: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑓𐑴𐑑𐑴𐑟"
+      download_xml: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑧.𐑥.𐑤."
+      edit_account: "𐑧𐑛𐑦𐑑 𐑩𐑒𐑬𐑯𐑑"
+      email_notifications: "𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+      export_data: "𐑧𐑒𐑕𐑐𐑹𐑑 𐑛𐑱𐑑𐑩"
+      new_password: "𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛"
+      receive_email_notifications: "𐑮𐑦𐑕𐑰𐑝 𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟?"
+      your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
+      your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
+    getting_started: 
+      connect_services: "Connect your other services"
+      define_aspects: "Define your aspects"
+      edit_profile: "Edit your profile"
+      finished: "Finished!"
+      save_and_continue: "Save and continue"
+      signup_steps: "Finish your sign up by completing these three steps:"
+      skip: "skip getting started"
+      step_2: 
+        add: "Add"
+        aspect_name: "Aspect name"
+        description: "Tell Diaspora what different aspects of you are seen by different contacts. You can manage these later through your account menu at the top right. Your aspects are unique to you and not visible by others."
+        drag_to_add: "Drag them to the aspect of yourself they know"
+        no_requests: "You have no requests"
+        your_aspects: "Your aspects"
+        your_inviter: "Here are the people who are waiting for you:"
+      step_3: 
+        description: "You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public\""
+        your_services: "Your services"
+      step_4: 
+        change_profile: "You can edit your profile and manage your connected services at any time through "
+        continue: "Continue on to your Home page, an overview of all of your aspects."
+        finish: "Finish"
+        manage_aspects: "You can also add contacts while on any aspect page."
+        ready_to_share: "You're now ready to start sharing with "
+        set_up: "You're all set up, %{name}!"
+        user_menu: "the user menu located at the top right."
+      welcome: "Welcome to Diaspora!"
+    public: 
+      does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
+    update: 
+      email_notifications_changed: "Email notifications changed"
+      language_changed: "Language Changed"
+      language_not_changed: "𐑤𐑱𐑙𐑜𐑢𐑩𐑡 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
+      password_changed: "Password Changed"
+      password_not_changed: "Password Change Failed"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"

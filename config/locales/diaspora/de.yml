@@ -174,7 +174,7 @@ de:
     one: "Neue Anfrage!"
     other: "%{count} neue Anfragen!"
     zero: "keine neuen Anfragen"
-  next: "next"
+  next: "Nächste"
   no_new_notifications: "keine neuen Benachrichtigungen"
   notifications: 
     comment_on_post: "kommentierte deine"
@@ -297,7 +297,7 @@ de:
     update: 
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
-  previous: "previous"
+  previous: "Vorherige"
   profile: "Profil"
   registrations: 
     closed: "Registrierungen sind auf diesem Pod geschlossen."
@@ -422,13 +422,13 @@ de:
       step_2: 
         add: "Hinzufügen"
         aspect_name: "Name des Aspekts"
-        description: "Sage Diaspora, welche deiner verschiedenen Aspekte von verschiedenen Kontakten gesehen werden sollen. Du kannst diese später verwalten, indem du auf Verwalten oben rechts klickst. Deine Aspekte sind nur für dich und nicht für andere sichtbar."
+        description: "Sage Diaspora, welche deiner verschiedenen Aspekte von verschiedenen Kontakten gesehen werden sollen. Du kannst diese später verwalten, indem du auf dein Konto oben rechts klickst. Deine Aspekte sind nur für dich und nicht für andere sichtbar."
         drag_to_add: "Ziehe sie in einen deiner Aspekte"
         no_requests: "Du hast keine Anfragen"
         your_aspects: "Deine Aspekte"
         your_inviter: "Hier sind die Leute, die auf dich warten:"
       step_3: 
-        description: "Du kannst deine gewohnten sozialen Netzwerke mit deinem Diaspora-Konto verbinden. Du kannst auch deine Nachrichten außerhalb von Diaspora veröffentlichen, wenn du 'öffentlich machen' auswählst."
+        description: "Du kannst deine vorhandenen sozialen Netzwerke mit deinem Diaspora-Konto verbinden. Du kannst deine Beiträge auch außerhalb von Diaspora veröffentlichen, wenn du 'öffentlich machen' auswählst."
         your_services: "Deine Dienste"
       step_4: 
         change_profile: "Du kannst dein Profil und deine verlinkten Dienste jederzeit bearbeiten unter"

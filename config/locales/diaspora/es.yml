@@ -168,19 +168,19 @@ es:
       login: "Ingresar"
       logout: "desconectarse"
       view_profile: "ver perfil"
-  new_notifications: "%{count} new notifications"
+  new_notifications: "%{count} nuevas notificaciones"
   new_requests: 
     few: "%{count} nuevas peticiones!"
     one: "Nueva petición!"
     other: "%{count} nuevas peticiones!"
     zero: "no hay nuevas peticiones"
   next: "next"
-  no_new_notifications: "no new notifications"
+  no_new_notifications: "no hay nuevas notificaciones"
   notifications: 
     comment_on_post: "commented on your"
     deleted: "deleted"
     index: 
-      notifications: "Notifications"
+      notifications: "Notificaciones"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -229,7 +229,7 @@ es:
     index: 
       couldnt_find_them_send_invite: "¿No los puedes encontrar? ¡Mándalos una invitación!"
       no_one_found: "...y nadie fue encontrado."
-      no_results: "Hey! You need to search for something."
+      no_results: "¡Oye! ¡Tienes que buscar algo!"
       results_for: "resultados de la búsqueda para"
     person: 
       add_contact: "añadir contacto"

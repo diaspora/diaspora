@@ -6,7 +6,7 @@
 sl: 
   _comments: "Komentarji"
   _home: "Domov"
-  _photos: "Slike"
+  _photos: "slike"
   _services: "Servisi"
   account: "Uporabniški račun"
   activemodel: 
@@ -66,7 +66,7 @@ sl:
       aspect_not_empty: "Skupina vsebuje stike"
       remove: "odstrani"
     index: 
-      handle_explanation: "To je vaše diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
+      handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
     manage: 
       add_a_new_aspect: "Dodaj novo skupino"
       add_a_new_contact: "Dodaj nov stik"
@@ -84,8 +84,8 @@ sl:
     no_contacts_message: 
       add_contact: "Dodaj stik"
       add_contact_to: "Dodaj osebo v skupino %{aspect_name}"
-      invite: "Povabi osebe, da se pridružijo v Diasporo!"
-      nobody: "Povabite v Diasporo osebe, ki vam v življenju nekaj pomenijo!"
+      invite: "Povabi osebo naj se pridruži v Diasporo!"
+      nobody: "Povabite v Diasporo vse, ki vam v življenju nekaj pomenijo!"
       nobody_in_aspect: "Vaša skupina '%{aspect_name}' je prazna."
     no_posts_message: 
       start_talking: "Na to temo je zaenkrat še vse tiho. Bodite prvi in začnite pogovor!"
@@ -106,9 +106,9 @@ sl:
     new_comment: 
       comment: "komentar"
       commenting: "komentiraj..."
-      enter: "vpiši"
-      press: "press"
-      to_comment: "oddaj komentar"
+      enter: "tipko enter"
+      press: "uporabi"
+      to_comment: "za potrditev komentarja"
   contacts: 
     few: "število stikov %{count}"
     one: "1 stik"
@@ -166,8 +166,8 @@ sl:
       code: "koda"
       edit_profile: "uredi profil"
       login: "prijava"
-      logout: "odjava"
-      view_profile: "poglej profil"
+      logout: "odjavi me"
+      view_profile: "ogled profila"
   new_notifications: "število novih obvestil %{count}"
   new_requests: 
     few: "število novih prošenj %{count}!"
@@ -265,16 +265,16 @@ sl:
       fail: "Žal ni bilo mogoče najti %{handle}."
   photos: 
     create: 
-      integrity_error: "Nalaganje fotografije ni uspelo. Ste prepričani, da je bila izbrana slika?"
-      runtime_error: "Nalaganje fotografije ni uspelo. Imate pripet varnostni pas?"
-      type_error: "Nalaganje fotografije ni uspelo. Ste prepričani, da je bila dodana slika?"
+      integrity_error: "Nalaganje slike ni uspelo. Ste prepričani, da je bila izbrana slika?"
+      runtime_error: "Nalaganje slike ni uspelo. Imate pripet varnostni pas?"
+      type_error: "Nalaganje slike ni uspelo. Ste prepričani, da je bila dodana slika?"
     destroy: 
-      notice: "Fotografija izbrisana."
+      notice: "Slika izbrisana."
     edit: 
       editing: "Urejanje"
     new: 
       back_to_list: "Nazaj na seznam"
-      new_photo: "Nova fotografija"
+      new_photo: "Nova slika"
       post_it: "objavi!"
     new_photo: 
       empty: "Datoteka {file} je prazna, prosimo ponovno izberite datoteke brez nje."
@@ -282,21 +282,21 @@ sl:
       size_error: "Datoteka {file} je prevelika, največja dovoljena velikost je {sizeLimit}."
     new_profile_photo: 
       or_select_one: "ali izberite eno od vaših obstoječih"
-      upload: "Naloži novo fotografijo profila!"
+      upload: "Naloži novo sliko profila!"
     photo: 
-      view_all: "poglej vse fotografije osebe %{name}"
+      view_all: "ogled vseh slik osebe %{name}"
     show: 
-      delete_photo: "Izbriši fotografijo"
+      delete_photo: "Izbriši sliko"
       edit: "uredi"
-      edit_delete_photo: "Uredi opis fotografije / izbriši fotografijo"
-      make_profile_photo: "dodaj fotografijo v profil"
+      edit_delete_photo: "Dodaj opis slike ali izbriši sliko"
+      make_profile_photo: "uporabi sliko za moj profil"
       permalink: "trajna povezava"
-      update_photo: "Posodobi fotografijo"
+      update_photo: "Posodobi sliko"
       view: "poglej"
       view_original_post: "poglej izvorni prispevek"
     update: 
-      error: "Urejanje fotografije ni uspelo."
-      notice: "Fotografija uspešno posodobljena."
+      error: "Urejanje slike ni uspelo."
+      notice: "Slika uspešno posodobljena."
   previous: "prejšnja"
   profile: "Profil"
   registrations: 
@@ -348,7 +348,7 @@ sl:
   settings: "Nastavitve"
   shared: 
     add_contact: 
-      create_request: "Poišči po Diaspori"
+      create_request: "Poišči po Diaspora imenu"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Vpišite Diaspora uporabniško ime:"
       know_email: "Ali veste njihove naslove e-pošte? Povabite jih"
@@ -366,14 +366,14 @@ sl:
       new: "Novo %{type} od %{from}"
     public_explain: 
       logged_in: "prijavljeni ste v %{service}"
-      manage: "uredi povezane storitve"
-      outside: "Javna sporočila bodo na ogled tudi drugim izven Diaspore."
+      manage: "uredi povezane servise"
+      outside: "Javna sporočila bodo na ogled tudi drugim osebam izven Diaspore."
       title: "Objavili boste javno sporočilo!"
     publisher: 
-      add_photos: "dodaj fotografije"
+      add_photos: "dodaj slike"
       all: "vsi"
       all_contacts: "vsi stiki"
-      make_public: "naredi javno"
+      make_public: "objavi kot javno"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljam..."
       share: "Deli"
@@ -393,7 +393,7 @@ sl:
   stream_helper: 
     hide_comments: "skrij komentarje"
     show_comments: "prikaži vse komentarje"
-  the_world: "svet"
+  the_world: "na splet"
   username: "Uporabniško ime"
   users: 
     destroy: "Uporabniški račun je uspešno zaprt."
@@ -402,7 +402,7 @@ sl:
       change_language: "Spremeni jezik"
       change_password: "Spremeni geslo"
       close_account: "Zapri uporabniški račun"
-      download_photos: "prenesi fotografije"
+      download_photos: "prenesi slike"
       download_xml: "prenesi v xml"
       edit_account: "Uredi uporabniški račun"
       email_notifications: "Obvestila po e-pošti"

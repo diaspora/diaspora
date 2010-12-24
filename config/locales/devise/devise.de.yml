@@ -15,7 +15,7 @@ de:
       invalid: "Ungültige E-Mail-Adresse oder Passwort."
       invalid_token: "Ungültiger Authentifizierungstoken."
       locked: "Dein Konto ist gesperrt."
-      timeout: "Deine Sitzung ist abgelaufen, bitte melde dich erneut an um fortzufahren."
+      timeout: "Deine Sitzung ist abgelaufen, um fortzufahren, melde dich bitte erneut an."
       unauthenticated: "Du musst dich anmelden oder registrieren um fortzufahren."
       unconfirmed: "Du musst dein Konto bestätigen um fortzufahren."
     invitations: 
@@ -54,7 +54,7 @@ de:
         change_password: "Mein Passwort ändern"
       new: 
         forgot_password: "Passwort vergessen?"
-        send_password_instructions: "Anfordern"
+        send_password_instructions: "Anleitung zum Zurücksetzen des Passworts anfordern"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Passwort zurücksetzt."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
     registrations: 
@@ -79,7 +79,7 @@ de:
       links: 
         forgot_your_password: "Passwort vergessen?"
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
-        receive_unlock: "Hast du keine Entsperr-Anweisungen erhalten?"
+        receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
         sign_up: "Registrieren"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
