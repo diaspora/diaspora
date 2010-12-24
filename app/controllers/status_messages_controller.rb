@@ -22,7 +22,9 @@ class StatusMessagesController < ApplicationController
     @status_message = current_user.build_post(:status_message, params[:status_message])
 
 
-    if photos || @status_message.save
+    if !photos.empty? || @status_message.save
+      pp photos
+      pp @status_message
       raise 'MongoMapper failed to catch a failed save' unless @status_message.id
 
       @status_message.photos += photos unless photos.nil?

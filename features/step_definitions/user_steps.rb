@@ -29,7 +29,7 @@ Given /^I have an aspect called "([^"]*)"$/ do |aspect_name|
 end
 
 Given /^I have one contact request$/ do
-  other_user   = make_user
+  other_user   = Factory(:user)
   other_aspect = other_user.aspects.create!(:name => "meh")
   other_user.send_contact_request_to(@me.person, other_aspect)
 
