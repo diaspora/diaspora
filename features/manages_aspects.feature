@@ -8,8 +8,7 @@ Feature: User manages aspects
     Given I am signed in
     When I follow "Home" in the header
     And I follow "manage aspects"
-    And I click '+ Add a new aspect'
+    And I follow "+ Add a new aspect"
     And I fill in "Name" with "Dorm Mates" in the modal window
     And I press "Create" in the modal window
     Then I should see "Dorm Mates" in the header
-    And I should see "Your aspect 'Dorm Mates' is empty."

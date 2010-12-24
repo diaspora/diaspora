@@ -183,17 +183,9 @@ describe("AspectEdit", function() {
 '  <img alt="Alexander Hamiltom" class="avatar" data-person_id="guid-of-friendship-requestor" src="/images/user/default.png?1287542906" original-title="Alexander Hamiltom">' +
 '</li>' +
 '<ul data-aspect_id="guid-of-target-aspect" class="dropzone ui-droppable">' +
-'</ul>' +
-'<div class="new_requests">Requests (1)</div>'
+'</ul>'
       );
     });    
-    it("decrements the request counter", function() {
-      var person = $('li.person');
-      var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
-      spyOn(AspectEdit, "decrementRequestsCounter");
-      AspectEdit.onDeleteRequestSuccess(person, dropzone);
-      expect(AspectEdit.decrementRequestsCounter).toHaveBeenCalled();
-    });
     it("takes the request class off the person li", function() {
       var person = $('li.person');
       var dropzone = $('.dropzone.ui-droppable[data-aspect_id="guid-of-target-aspect"]');
@@ -236,30 +228,6 @@ describe("AspectEdit", function() {
       AspectEdit.deletePersonFromAspect($('li.person'));
       expect(AspectEdit.alertUser).toHaveBeenCalled();
       expect($.ajax).not.toHaveBeenCalled();
-    });
-  });
-
-  describe("decrementRequestsCounter", function() {
-    describe("when there is one request", function() {
-      it("removes the counter from the new requests div", function() {
-        $('#jasmine_content').html("<div class='new_requests'>Requests (1)</div>");
-        AspectEdit.decrementRequestsCounter();
-        expect($('.new_requests').first().html()).toEqual("Requests");
-      });
-    });
-    describe("when there is more than one request", function() {
-      it("decrements the request counter", function() {
-        $('#jasmine_content').html("<div class='new_requests'>Requests (67)</div>");
-        AspectEdit.decrementRequestsCounter();
-        expect($('.new_requests').first().html()).toEqual("Requests (66)");
-      });
-    });
-    describe("error cases", function() {
-      it("fails silently if there are no requests", function() {
-        $('#jasmine_content').html("<div class='new_requests'>Requests</div>");
-        AspectEdit.decrementRequestsCounter();
-        expect($('.new_requests').first().html()).toEqual("Requests");
-      });
     });
   });
 });

@@ -71,7 +71,6 @@ var AspectEdit = {
   },
 
   onDeleteRequestSuccess: function(person, dropzone) {
-    AspectEdit.decrementRequestsCounter();
     person.removeClass('request');
     person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
     person.removeAttr('data-person_id');
@@ -142,7 +141,6 @@ var AspectEdit = {
             person.fadeOut(400, function() {
               person.remove();
             });
-            AspectEdit.decrementRequestsCounter();
           }
         });
       }
@@ -153,22 +151,6 @@ var AspectEdit = {
     }
   },
 
-  decrementRequestsCounter: function() {
-    var $new_requests = $(".new_requests");
-    var request_html = $new_requests.html();
-    var old_request_count = request_html.match(/\d+/);
-
-    if (old_request_count == 1) {
-      $new_requests.html(
-        request_html.replace(/ \(\d+\)/, '')
-        );
-    } else {
-      $new_requests.html(
-        request_html.replace(/\d+/, old_request_count - 1)
-        );
-    }
-  },
-  
   alertUser: function(message) {
     alert(message);
   }
