@@ -40,8 +40,9 @@ describe "attack vectors" do
     original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
     original_message.diaspora_handle = user.diaspora_handle
+    user3.activate_contact(user2.person, user3.aspects.first)
     user3.receive_salmon(user.salmon(original_message).xml_for(user3.person))
-    user3.reload.visible_posts.should_not include(original_message)
+    user3.reload.visible_posts.should_not include(StatusMessage.find(original_message.id))
   end
 
   context 'malicious contact attack vector' do
@@ -56,10 +57,8 @@ describe "attack vectors" do
 
         user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
 
-        lambda {
-          malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :person => user3.person)
-          user.receive_salmon(user3.salmon(malicious_message).xml_for(user.person))
-        }.should_not change{user.reload.raw_visible_posts.count}
+        malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :person => user3.person)
+        user.receive_salmon(user3.salmon(malicious_message).xml_for(user.person))
 
         original_message.reload.message.should == "store this!"
         user.raw_visible_posts.first.message.should == "store this!"
@@ -94,15 +93,16 @@ describe "attack vectors" do
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
       user.receive_salmon(user2.salmon(original_message).xml_for(user.person))
       user.raw_visible_posts.count.should be 1
+      StatusMessage.count.should == 1
 
       ret = Retraction.new
-      ret.post_id = original_message.id
+      ret.post_guid = original_message.guid
       ret.diaspora_handle = user3.person.diaspora_handle
       ret.type = original_message.class.to_s
 
       user.receive_salmon(user3.salmon(ret).xml_for(user.person))
       StatusMessage.count.should be 1
-      user.reload.raw_visible_posts.count.should be 1
+      user.raw_visible_posts.count.should be 1
     end
 
     it "disregards retractions for non-existent posts that are from someone other than the post's author" do
@@ -110,14 +110,16 @@ describe "attack vectors" do
       id = original_message.reload.id
 
       ret = Retraction.new
-      ret.post_id = original_message.id
+      ret.post_guid = original_message.guid
       ret.diaspora_handle = user3.person.diaspora_handle
       ret.type = original_message.class.to_s
 
       original_message.delete
 
       StatusMessage.count.should be 0
-      proc{ user.receive_salmon(user3.salmon(ret).xml_for(user.person)) }.should_not raise_error
+      proc{
+        user.receive_salmon(user3.salmon(ret).xml_for(user.person))
+      }.should_not raise_error
     end
 
     it 'should not receive retractions where the retractor and the salmon author do not match' do
@@ -126,7 +128,7 @@ describe "attack vectors" do
       user.raw_visible_posts.count.should == 1
 
       ret = Retraction.new
-      ret.post_id = original_message.id
+      ret.post_guid = original_message.guid
       ret.diaspora_handle = user2.person.diaspora_handle
       ret.type = original_message.class.to_s
 
@@ -138,7 +140,7 @@ describe "attack vectors" do
 
     it 'it should not allow you to send retractions for other people' do
       ret = Retraction.new
-      ret.post_id = user2.person.id
+      ret.post_guid = user2.person.guid
       ret.diaspora_handle = user3.person.diaspora_handle
       ret.type = user2.person.class.to_s
 
@@ -149,7 +151,7 @@ describe "attack vectors" do
 
     it 'it should not allow you to send retractions with xml and salmon handle mismatch' do
       ret = Retraction.new
-      ret.post_id = user2.person.id
+      ret.post_guid = user2.person.guid
       ret.diaspora_handle = user2.person.diaspora_handle
       ret.type = user2.person.class.to_s
 

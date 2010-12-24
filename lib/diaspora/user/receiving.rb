@@ -85,15 +85,14 @@ module Diaspora
 
       def receive_retraction retraction
         if retraction.type == 'Person'
-          unless retraction.person.id.to_s == retraction.post_id.to_s
+          unless retraction.person.guid.to_s == retraction.post_guid.to_s
             Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{retraction.person.diaspora_handle} payload_type=#{retraction.class} retraction_type=person")
             return
           end
-          disconnected_by Person.where(:id => retraction.post_id).first
-        else
-          retraction.perform self.id
+          disconnected_by Person.where(:guid => retraction.post_guid).first
+        elsif retraction.perform self.id
           aspects = self.aspects_with_person(retraction.person)
-          PostVisibility.where(:post_id => retraction.post_id,
+          PostVisibility.where(:post_id => retraction.target.id,
                                :aspect_id => aspects.map{|a| a.id}).delete_all
         end
         retraction
@@ -144,6 +143,9 @@ module Diaspora
       def post_visible?(post)
         raw_visible_posts.where(:guid => post.guid).first
       end
+      def posts_match(first, second)
+        (first.person == second.person) && (first.guid == second.guid) && (first.diaspora_handle == second.diaspora_handle)
+      end
 
       def receive_post post
         #exsists locally, but you dont know about it
@@ -156,7 +158,10 @@ module Diaspora
         on_pod = existing_post(post)
         log_string = "event=receive payload_type=#{post.class} sender=#{post.diaspora_handle} "
         if on_pod
-          if post_visible?(post)
+          if !posts_match(on_pod, post)
+            Rails.logger.info(log_string << "update=false status=abort reason='incoming post does not patch existing post' existing_post=#{on_pod.id}")
+            return
+          elsif post_visible?(post)
             if post.mutable?
               on_pod.caption = post.caption
               on_pod.save!

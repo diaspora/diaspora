@@ -6,7 +6,13 @@ module SocketsHelper
   include ApplicationHelper
 
   def obj_id(object)
-    object.respond_to?(:post_id) ? object.post_id : object.id
+    if object.respond_to?(:post_id)
+      object.post_id
+    elsif object.respond_to?(:post_guid)
+      object.post_guid
+    else
+      object.id
+    end
   end
 
   def action_hash(uid, object, opts={})

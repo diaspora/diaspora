@@ -18,29 +18,29 @@ describe Aspect do
 
   describe 'creation' do
     let!(:aspect){user.aspects.create(:name => 'losers')}
-    it 'should have a name' do
+    it 'has a name' do
       aspect.name.should == "losers"
     end
 
-    it 'should not allow duplicate names' do
+    it 'does not allow duplicate names' do
       lambda {
         invalid_aspect = user.aspects.create(:name => "losers ")
       }.should_not change(Aspect, :count)
     end
 
-    it 'should have a limit of 20 characters' do
+    it 'has a 20 character limit on names' do
       aspect = Aspect.new(:name => "this name is really too too too too too long")
       aspect.valid?.should == false
     end
 
-    it 'should be able to have other users' do
+    it 'is able to have other users as contacts' do
       Contact.create(:user => user, :person => user2.person, :aspects => [aspect])
       aspect.contacts.where(:person_id => user.person.id).should be_empty
       aspect.contacts.where(:person_id => user2.person.id).should_not be_empty
       aspect.contacts.size.should == 1
     end
 
-    it 'should be able to have users and people' do
+    it 'is able to have users and people and contacts' do
       contact1 = Contact.create(:user => user, :person => user2.person, :aspects => [aspect])
       contact2 = Contact.create(:user => user, :person => connected_person_2, :aspects => [aspect])
       aspect.contacts.include?(contact1).should be_true
