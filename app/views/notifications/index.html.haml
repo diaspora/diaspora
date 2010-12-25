@@ -1,7 +1,8 @@
 :javascript
   $('.message').live('click', function(evt){
     var note = $(this).closest('.message'),
-        note_id = note.attr('data-guid');
+        note_id = note.attr('data-guid'),
+        nBadge = $("#notification_badge_number");
 
     if(note.hasClass('unread') ){
       note.removeClass('unread');
@@ -10,8 +11,15 @@
         type: 'PUT'
       });
     }
-  });
 
+    nBadge.html().replace(/\d+/, function(num){
+      num = parseInt(num);
+      nBadge.html(parseInt(num)-1);
+      if(num == 1) {
+        nBadge.addClass("hidden");
+      }
+    });
+  });
 
 .span-1
   = image_tag 'icons/mail_big.png', :height => 30, :width => 30, :style=>"margin-top:3px;"

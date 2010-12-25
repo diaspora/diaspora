@@ -54,7 +54,6 @@ var WebSocketReceiver = {
 
 
   processNotification: function(notification){
-
     var nBadge = $("#notification_badge_number");
 
     nBadge.html().replace(/\d+/, function(num){
