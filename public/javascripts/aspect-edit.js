@@ -23,7 +23,7 @@ var AspectEdit = {
   },
 
   startDrag: function() {
-    AspectEdit.animateImage($(this).children("img").first());
+    AspectEdit.animateImage($(this).find("img").first());
     $(".draggable_info").fadeIn(100);
   },
   
@@ -33,11 +33,11 @@ var AspectEdit = {
   },
 
   duringDrag: function(event, ui) {
-    $(this).children("img").tipsy("hide"); //ensure this is hidden
+    $(this).find("img").first().tipsy("hide"); //ensure this is hidden
   },
 
   stopDrag: function(event, ui) {
-    $(this).children("img").animate({'height':70, 'width':70, 'opacity':1}, 200);
+    $(this).find("img").first().animate({'height':70, 'width':70, 'opacity':1}, 200);
     $(".draggable_info").fadeOut(100);
   },
 

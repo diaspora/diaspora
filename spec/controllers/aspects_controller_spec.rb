@@ -163,6 +163,10 @@ describe AspectsController do
         get :manage
         assigns(:remote_requests).count.should == 1
       end
+      it "generates a jasmine fixture" do
+        get :manage
+        save_fixture(html_for("body"), "aspects_manage")
+      end
     end
   end
 
