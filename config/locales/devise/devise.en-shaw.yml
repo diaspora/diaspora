@@ -11,13 +11,13 @@ en-shaw:
         resend_confirmation: "Resend confirmation instructions"
       send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
     failure: 
-      inactive: "Your account was not activated yet."
-      invalid: "Invalid email or password."
-      invalid_token: "Invalid authentication token."
-      locked: "Your account is locked."
-      timeout: "Your session expired, please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your account before continuing."
+      inactive: "𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑢𐑪𐑟 𐑯𐑪𐑑 𐑨𐑒𐑑𐑦𐑝𐑱𐑑𐑩𐑛 𐑘𐑧𐑑."
+      invalid: "𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑦-𐑥𐑱𐑤 𐑹 𐑐𐑨𐑕𐑢𐑼𐑛."
+      invalid_token: "𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑷𐑔𐑧𐑯𐑑𐑦𐑒𐑱𐑖𐑩𐑯 𐑑𐑴𐑒𐑩𐑯."
+      locked: "𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑦𐑟 𐑤𐑪𐑒𐑑."
+      timeout: "𐑿𐑼 𐑕𐑧𐑖𐑩𐑯 𐑣𐑨𐑟 𐑧𐑒𐑕𐑐𐑲𐑮𐑛, 𐑐𐑤𐑰𐑟 𐑕𐑲𐑯 𐑦𐑯 𐑩𐑜𐑧𐑯 𐑑 𐑒𐑩𐑯𐑑𐑦𐑯𐑿."
+      unauthenticated: "𐑿 𐑯𐑰𐑛 𐑑 𐑕𐑲𐑯 𐑦𐑯 𐑹 𐑕𐑲𐑯 𐑳𐑐 𐑚𐑦𐑓𐑹 𐑒𐑩𐑯𐑑𐑦𐑯𐑿𐑦𐑙"
+      unconfirmed: "𐑿 𐑣𐑨𐑝 𐑑 𐑒𐑩𐑯𐑓𐑻𐑥 𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑚𐑦𐑓𐑹 𐑒𐑩𐑯𐑑𐑦𐑯𐑿𐑦𐑙."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Your invitation has been sent."
@@ -51,12 +51,12 @@ en-shaw:
       welcome: "Welcome %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "𐑗𐑱𐑯𐑡 𐑥𐑲 𐑐𐑨𐑕𐑢𐑼𐑛"
       new: 
-        forgot_password: "Forgot your password?"
-        send_password_instructions: "Send me reset password instructions"
-      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
-      updated: "Your password was changed successfully. You are now signed in."
+        forgot_password: "𐑓𐑹𐑜𐑪𐑑 𐑿𐑼 𐑐𐑨𐑕𐑢𐑼𐑛?"
+        send_password_instructions: "𐑕𐑧𐑯𐑛 𐑥𐑰 𐑮𐑦𐑕𐑧𐑑 𐑐𐑨𐑕𐑢𐑼𐑛 𐑦𐑯𐑕𐑑𐑮𐑳𐑒𐑖𐑩𐑯𐑟"
+      send_instructions: "𐑿 𐑢𐑦𐑤 𐑮𐑦𐑕𐑰𐑝 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑢𐑦𐑞 𐑦𐑯𐑕𐑑𐑮𐑳𐑒𐑖𐑩𐑯𐑟 𐑩𐑚𐑬𐑑 𐑣𐑬 𐑑 𐑮𐑦𐑕𐑧𐑑 𐑿𐑼 𐑐𐑨𐑕𐑢𐑼𐑛 𐑦𐑯 𐑩 𐑓𐑿 𐑥𐑦𐑯𐑩𐑑𐑕."
+      updated: "𐑿𐑼 𐑐𐑨𐑕𐑢𐑼𐑛 𐑢𐑪𐑟 𐑗𐑱𐑯𐑡𐑛 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦. 𐑿 𐑸 𐑯𐑬 𐑕𐑲𐑯𐑛 𐑦𐑯."
     registrations: 
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
@@ -92,6 +92,6 @@ en-shaw:
       unlocked: "Your account was successfully unlocked. You are now signed in."
   errors: 
     messages: 
-      already_confirmed: "was already confirmed"
-      not_found: "not found"
-      not_locked: "was not locked"
+      already_confirmed: "𐑢𐑪𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑒𐑩𐑯𐑓𐑻𐑥𐑛"
+      not_found: "𐑯𐑪𐑑 𐑓𐑬𐑯𐑛"
+      not_locked: "𐑢𐑪𐑟 𐑥𐑪𐑑 𐑤𐑪𐑒𐑑"

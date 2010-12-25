@@ -125,7 +125,7 @@ de:
     show: 
       already_account: "bereits registriert?"
       choice: "Entscheidungsfreiheit"
-      choice_explanation: "Kontakte werden bei Diaspora in Gruppen, Aspekte genannt, verwaltet. Einzigartig bei Diaspora, sorgen sie dafür, dass deine Fotos, Geschichten und Witze nur mit den Menschen, für die sie gedacht sind, geteilt werden."
+      choice_explanation: "Kontakte werden bei Diaspora in Gruppen, Aspekte genannt, verwaltet. Einzigartig bei Diaspora, sorgen sie dafür, dass deine Fotos, Geschichten und Witze nur mit den Menschen geteilt werden, für die sie gedacht sind."
       learn_about_host: "Du willst deinen eigenen Diaspora-Server betreiben?"
       login_here: "hier anmelden"
       ownership: "Eigentum"

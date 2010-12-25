@@ -1,17 +1,19 @@
-# Italian translations for Ruby on Rails 
-# by Claudio Poli (masterkain@gmail.com)
-# maintained by Simone Carletti (weppos@weppos.net)
+# Italian translations for Ruby on Rails
 #
-# This localization file targets Rails 2.3.2.
-# If you need a previous version go to http://github.com/weppos/rails-i18n/
-# and choose between available tags.
+# created by Claudio Poli (masterkain@gmail.com)
+#
+# This localization file targets Rails 2 and 3.
+#
+# Rails 3 version by Davide Guerri (d.guerri@caspur.it)
 
 it:
   number:
     format:
-      separator: ","
-      delimiter: "."
-      precision: 3
+      delimiter: ""
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+      separator: "."
       
     currency:
       format:
@@ -20,6 +22,8 @@ it:
         separator: "."
         delimiter: ","
         precision: 2
+        significant: false
+        strip_insignificant_zeros: false
         
     percentage:
       format:
@@ -37,6 +41,8 @@ it:
         # separator: 
         delimiter: ""
         precision: 1
+        significant: true
+        strip_insignificant_zeros: true
       storage_units:
         format: "%n %u"
         units:
@@ -47,6 +53,15 @@ it:
           mb: "Mb"
           gb: "Gb"
           tb: "Tb"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Mila"
+          million: "Milioni"
+          billion: "Bilioni"
+          trillion: "Trilioni"
+          quadrillion: "Quadrilioni"
 
   date:
     formats:
@@ -103,6 +118,9 @@ it:
       over_x_years:
         one:  "oltre un anno"
         other: "oltre %{count} anni"
+      almost_x_years:
+        one:   "circa 1 anno"
+        other: "circa %{count} anni"
     prompts:
       year:   "Anno"
       month:  "Mese"
@@ -116,15 +134,23 @@ it:
       words_connector: ", "
       two_words_connector: " e "
       last_word_connector: ", e "
-        
-  activerecord:
-    errors:
-      template:
-        header: 
-          one: "Non posso salvare questo %{model}: 1 errore"
-          other: "Non posso salvare questo %{model}: %{count} errori."
-        body: "Per favore ricontrolla i seguenti campi:"
-      messages:
+      
+    select:
+      prompt: "Per favore, seleziona"
+
+  helpers:
+    select:
+      prompt: "Per favore, seleziona"
+
+    submit:
+      create: 'Crea %{model}'
+      update: 'Aggiorna %{model}'
+      submit: 'Invia %{model}'
+
+  errors:
+      format: "%{attribute} %{message}"
+
+      messages: &errors_messages
         inclusion: "non è incluso nella lista"
         exclusion: "è riservato"
         invalid: "non è valido"
@@ -132,11 +158,17 @@ it:
         accepted: "deve essere accettata"
         empty: "non può essere vuoto"
         blank: "non può essere lasciato in bianco"
-        too_long: "è troppo lungo (il massimo è %{count} lettere)"
-        too_short: "è troppo corto (il minimo è %{count} lettere)"
-        wrong_length: "è della lunghezza sbagliata (deve essere di %{count} lettere)"
-        taken: "è già in uso"
+        too_long: 
+          one: "è troppo lungo (il massimo è 1 carattere)"
+          other: "è troppo lungo (il massimo è %{count} caratteri)"
+        too_short: 
+          one:  "è troppo corto (il minimo è 1 carattere)"
+          other:  "è troppo corto (il minimo è %{count} caratteri)"
+        wrong_length: 
+          one: "è della lunghezza sbagliata (deve essere di 1 carattere)"
+          other: "è della lunghezza sbagliata (deve essere di %{count} caratteri)"
         not_a_number: "non è un numero"
+        not_an_integer: "non è un intero"
         greater_than: "deve essere superiore a %{count}"
         greater_than_or_equal_to: "deve essere superiore o uguale a %{count}"
         equal_to: "deve essere uguale a %{count}"
@@ -144,3 +176,20 @@ it:
         less_than_or_equal_to: "deve essere meno o uguale a %{count}"
         odd: "deve essere dispari"
         even: "deve essere pari"
+      
+  activerecord:
+    errors:
+      template:
+        header: 
+          one: "Non posso salvare questo %{model}: 1 errore"
+          other: "Non posso salvare questo %{model}: %{count} errori."
+        body: "Per favore ricontrolla i seguenti campi:"
+
+      messages:
+        taken: "è già in uso"
+        record_invalid: "Validazione fallita: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"
+        
