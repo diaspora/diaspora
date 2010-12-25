@@ -2,8 +2,5 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= link_to t('.new', :type => object.class.to_s, :from => object.person.name), object_path(object.post)
-
-
-= link_to "#{note.person.name.titelize}", person_path(note.person)
+= link_to "#{person.name.titleize}", person_path(person)
 = object_link(note)

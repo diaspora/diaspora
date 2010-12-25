@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 
-describe Notification do 
+describe Notification do
   before do
     @sm = Factory(:status_message)
     @person = Factory(:person)
@@ -31,11 +31,10 @@ describe Notification do
   describe '.for' do
     it 'returns all of a users notifications' do
       user2 = make_user
-      Notification.create(@opts)
-      Notification.create(@opts)
-      Notification.create(@opts)
-      Notification.create(@opts)
-      
+      4.times do
+        Notification.create(@opts)
+      end
+
       @opts.delete(:user_id)
       Notification.create(@opts.merge(:user_id => user2.id))
 
@@ -44,14 +43,28 @@ describe Notification do
   end
 
   describe '.notify' do
-    it ' does not call Notification.create if the object does not notification_type' do
+    it 'does not call Notification.create if the object does not notification_type' do
       Notification.should_not_receive(:create)
       Notification.notify(@user, @sm, @person)
     end
 
-    it ' does not call Notification.create if the object does not notification_type' do
+    it 'does call Notification.create if the object does not notification_type' do
       request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
       Notification.should_receive(:create).once
+      Notification.notify(@user, request, @person)
+    end
+
+    it 'sockets to the recipient' do
+      request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      opts = {:target_id => request.id,
+              :kind => request.notification_type(@user, @person),
+              :person_id => @person.id,
+              :user_id => @user.id}
+
+      n = Notification.create(opts)
+      Notification.stub!(:create).and_return n
+
+      n.should_receive(:socket_to_uid).once
       Notification.notify(@user, request, @person)
     end
   end
