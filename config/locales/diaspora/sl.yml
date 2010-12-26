@@ -125,9 +125,9 @@ sl:
     show: 
       already_account: "ali že imate uporabniški račun?"
       choice: "Izbira"
-      choice_explanation: "V Diaspori lahko vaše stike razvrščate s pomočjo skupin. Skupine kot takšne so unikatne in vam omogočajo, da so vaše slike, zgodbe in šale namenjene le osebam katerim to namenjate."
+      choice_explanation: "V Diaspori lahko vaše stike razvrščate s pomočjo skupin. Skupine kot takšne so unikatne in vam omogočajo, da so vaše slike, zgodbe in šale dostopne le osebam katerim ste jih namenili."
       learn_about_host: "Preberite več o tem, kako gostiti lasten Diaspora strežnik."
-      login_here: "se prijavite tukaj"
+      login_here: "tukaj se prijavite"
       ownership: "Lastništvo"
       ownership_explanation: "Slike so vaša last in zato je prav, da jih lahko delite, ne da bi jih s tem komerkoli posredovali. Vsebina, ki jo delite v Diaspori, se ohrani v vaši lasti, kot tudi kontrola nad distribucijo le-te."
       share_what_you_want: "Delite kar želite, s komerkoli želite."
@@ -168,19 +168,19 @@ sl:
       login: "prijava"
       logout: "odjavi me"
       view_profile: "ogled profila"
-  new_notifications: "število novih obvestil %{count}"
+  new_notifications: "število novih sporočil %{count}"
   new_requests: 
     few: "število novih prošenj %{count}!"
     one: "nova prošnja!"
     other: "število novih prošenj %{count}!"
     zero: "ni novih prošenj"
   next: "naslednja"
-  no_new_notifications: "ni novih obvestil"
+  no_new_notifications: "ni novih sporočil"
   notifications: 
     comment_on_post: "komentar na vaš"
     deleted: "izbrisano"
     index: 
-      notifications: "Obvestila"
+      notifications: "Sporočila"
     new_request: "nekdo želi deliti z vami."
     post: "prispevek"
     request_accepted: "vaše prošnja je sprejeta."
@@ -300,7 +300,7 @@ sl:
   previous: "prejšnja"
   profile: "Profil"
   registrations: 
-    closed: "Za ta 'Diaspora pod' registracije trentno niso mogoče."
+    closed: "Za ta 'Diaspora pod' registracije trentno niso omogočene."
     create: 
       success: "Pridružili ste se v Diasporo!"
     edit: 
@@ -313,9 +313,9 @@ sl:
     new: 
       enter_email: "Vpišite e-naslov"
       enter_password: "Vpišite geslo"
-      enter_password_again: "Še enkrat vpišite isto geslo"
+      enter_password_again: "Ponovno vpišite isto geslo"
       enter_username: "Izberite uporabniško ime (samo črke, številke in podčrtaji)"
-      sign_up: "Registracija"
+      sign_up: "Registriraj me"
       sign_up_for_diaspora: "Registirajte se v Diasporo"
   requests: 
     create: 
@@ -367,7 +367,7 @@ sl:
     public_explain: 
       logged_in: "prijavljeni ste v %{service}"
       manage: "uredi povezane servise"
-      outside: "Javna sporočila bodo na ogled tudi drugim osebam izven Diaspore."
+      outside: "Javna sporočila bodo na ogled tudi osebam izven Diaspore."
       title: "Objavili boste javno sporočilo!"
     publisher: 
       add_photos: "dodaj slike"
@@ -428,7 +428,7 @@ sl:
         your_aspects: "Vaše skupine"
         your_inviter: "Naslednje osebe vas čakajo:"
       step_3: 
-        description: "Vaš Diaspora račun lahko povežete z vašimi obstoječimi socialnimi omrežji. Lahko tudi javno objavite prispevke na vaši domači strani, če izberete možnost \"naredi javno\""
+        description: "Vaš Diaspora uporabniški račun lahko povežete z že obstoječimi socialnimi omrežji. Prav tako lahko vaše objave prispevkov skozi domačo stran objavite javno, če izberete možnost \"objavi kot javno\""
         your_services: "Vaši servisi"
       step_4: 
         change_profile: "Vaš profil in povezave na servise lahko uredite kadarkoli skozi "

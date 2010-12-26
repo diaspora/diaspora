@@ -125,14 +125,14 @@ de:
     show: 
       already_account: "bereits registriert?"
       choice: "Entscheidungsfreiheit"
-      choice_explanation: "Kontakte werden bei Diaspora in Gruppen, Aspekte genannt, verwaltet. Einzigartig bei Diaspora, sorgen sie dafür, dass deine Fotos, Geschichten und Witze nur mit den Menschen geteilt werden, für die sie gedacht sind."
+      choice_explanation: "Diaspora lässt dich deine Kontakte zu Gruppen zuordnen. Deine Fotos, Geschichten und Witze werden durch diese Aspekte nur mit den Menschen geteilt, für die sie gedacht sind - das ist einzigartig bei Diaspora."
       learn_about_host: "Du willst deinen eigenen Diaspora-Server betreiben?"
       login_here: "hier anmelden"
       ownership: "Eigentum"
-      ownership_explanation: "Deine Bilder gehören dir, das solltest du nicht aufgeben müssen, nur um sie zu teilen. Alles, was du auf Diaspora teilst, bleibt weiterhin dein Eigentum - du hast die volle Kontrolle über seine Verbreitung."
+      ownership_explanation: "Deine Bilder gehören dir. Um sie zu teilen, musst du das nicht aufgeben: Alles, was du auf Diaspora teilst, bleibt dein Eigentum, und du behältst die volle Kontrolle über die Verbreitung."
       share_what_you_want: "Teile was du willst, mit wem du willst."
       simplicity: "Einfachheit"
-      simplicity_explanation: "Diaspora macht Teilen klar und einfach - das Gleiche gilt für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat, es ist nicht nötig, seitenweise Einstellungen durchzugehen nur um dein Profil zu sichern."
+      simplicity_explanation: "Diaspora macht Teilen klar und einfach - dasselbe gilt für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind schlicht nicht nötig."
       tagline_first_half: "Teile was du willst,"
       tagline_second_half: "mit wem du willst."
   invitations: 

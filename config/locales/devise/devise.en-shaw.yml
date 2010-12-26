@@ -44,10 +44,10 @@ en-shaw:
         subject: "Reset password instructions"
         wont_change: "Your password won't change until you access the link above and create a new one."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
-        unlock: "Unlock my account"
+        account_locked: "𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑤𐑪𐑒𐑑 𐑛𐑵 𐑑 𐑩𐑯 𐑧𐑒𐑕𐑧𐑕𐑦𐑝 𐑩𐑥𐑬𐑯𐑑 𐑝 𐑩𐑯𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤 𐑕𐑲𐑯 𐑦𐑯 𐑩𐑑𐑧𐑥𐑐𐑑𐑕."
+        click_to_unlock: "𐑒𐑤𐑦𐑒 𐑞 𐑤𐑦𐑙𐑒 𐑚𐑦𐑤𐑴 𐑑 𐑩𐑯𐑤𐑪𐑒 𐑿𐑼 𐑩𐑒𐑬𐑯𐑑:"
+        subject: "𐑩𐑯𐑤𐑪𐑒 𐑦𐑯𐑕𐑑𐑮𐑳𐑒𐑖𐑩𐑯𐑟"
+        unlock: "𐑩𐑯𐑤𐑪𐑒 𐑥𐑲 𐑩𐑒𐑬𐑯𐑑"
       welcome: "Welcome %{email}!"
     passwords: 
       edit: 

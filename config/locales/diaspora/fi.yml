@@ -66,7 +66,7 @@ fi:
       aspect_not_empty: "Verkostonäkymä ei ole tyhjä"
       remove: "poista"
     index: 
-      handle_explanation: "Tämä on Diaspora-osoitteesi. Kuten sähköpostiosoitteen, voit antaa sen ihmisille heidän tavoittaakseen sinut."
+      handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
     manage: 
       add_a_new_aspect: "Lisää uusi näkymä"
       add_a_new_contact: "Lisää uusi kontakti"
