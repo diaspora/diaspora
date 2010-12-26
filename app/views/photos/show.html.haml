@@ -52,7 +52,7 @@
 
     - if @photo.status_message_id
       %p
-        = @photo.status_message.message
+        = markdownify(@photo.status_message.message)
 
       %p
         - for photo in @additional_photos
