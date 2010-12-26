@@ -39,7 +39,7 @@ begin
   require 'database_cleaner'
   require 'database_cleaner/cucumber'
   DatabaseCleaner.strategy = :truncation
-  DatabaseCleaner.orm      = "mongo_mapper"
+  DatabaseCleaner.orm      = "active_record"
 end
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
@@ -65,9 +65,4 @@ class FakeRedis
   def lpush(*args)
     true
   end
-end
-
-Before do
-  UserFixer.regenerate_user_fixtures
-  UserFixer.load_user_fixtures
 end
