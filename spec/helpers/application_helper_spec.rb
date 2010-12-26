@@ -234,6 +234,12 @@ describe ApplicationHelper do
 
         person_link(@person).should include @person.diaspora_handle
       end
+      
+      it "should not allow basic XSS/HTML" do
+        @person.profile.first_name = "I'm <h1>Evil"
+        @person.profile.last_name = "I'm <h1>Evil"
+        person_link(@person).should_not include("<h1>")
+      end      
     end
     context 'performance' do
       before do
