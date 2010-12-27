@@ -265,7 +265,7 @@ describe User do
     it "only pushes to non-pending contacts" do
       connect_users(user, aspect, user2, aspect2)
       user.contacts.count.should == 1
-      user.send_contact_request_to(make_user.person, aspect)
+      user.send_contact_request_to(Factory(:user).person, aspect)
       user.contacts.count.should == 2
 
       user.should_receive(:push_to_person).once
@@ -300,7 +300,7 @@ describe User do
   context 'aspects' do
     it 'should delete an empty aspect' do
       user.drop_aspect(aspect)
-      user.aspects.include?(aspect).should == false
+      user.aspects(true).include?(aspect).should == false
     end
 
     it 'should not delete an aspect with contacts' do

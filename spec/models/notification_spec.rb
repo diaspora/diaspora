@@ -58,9 +58,9 @@ describe Notification do
     end
 
     it 'sockets to the recipient' do
-      request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+      request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       opts = {:target_id => request.id,
-              :kind => request.notification_type(@user, @person),
+              :target_type => request.notification_type(@user, @person),
               :person_id => @person.id,
               :user_id => @user.id}
 

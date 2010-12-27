@@ -69,7 +69,7 @@ describe AspectsController do
     end
     it "assigns contacts to only non-pending" do
       @user.contacts.count.should == 1
-      @user.send_contact_request_to(make_user.person, @aspect)
+      @user.send_contact_request_to(Factory(:user).person, @aspect)
       @user.contacts.count.should == 2
 
       get :show, 'id' => @aspect.id.to_s
@@ -128,7 +128,7 @@ describe AspectsController do
     end
     it "assigns contacts to only non-pending" do
       @user.contacts.count.should == 1
-      @user.send_contact_request_to(make_user.person, @aspect)
+      @user.send_contact_request_to(Factory(:user).person, @aspect)
       @user.contacts.count.should == 2
 
       get :manage
