@@ -41,6 +41,7 @@ class Photo < Post
   end
 
   def remote_photo= remote_path
+    pp remote_path
     name_start = remote_path.rindex '/'
     self.remote_photo_path = remote_path.slice(0, name_start )
     self.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)

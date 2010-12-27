@@ -15,9 +15,8 @@ describe PhotosController do
 
   let(:filename)     { 'button.png' }
   let(:fixture_name) { File.join(File.dirname(__FILE__), '..', 'fixtures', filename) }
-  let(:image)        { File.open(fixture_name) }
-  let!(:photo1)      { user1.post(:photo, :user_file => image, :to => aspect1.id) }
-  let!(:photo2)      { user2.post(:photo, :user_file => image, :to => aspect2.id) }
+  let!(:photo1)      { user1.post(:photo, :user_file => File.open(fixture_name), :to => aspect1.id) }
+  let!(:photo2)      { user2.post(:photo, :user_file => File.open(fixture_name), :to => aspect2.id) }
 
   before do
     connect_users(user1, aspect1, user2, aspect2)
@@ -25,10 +24,17 @@ describe PhotosController do
     sign_in :user, user1
   end
 
+  it 'has working context' do
+    photo1.url.should_not be_nil
+    Photo.find(photo1.id).url.should_not be_nil
+    photo2.url.should_not be_nil
+    Photo.find(photo2.id).url.should_not be_nil
+  end
+
   describe '#create' do
     before do
-      @controller.stub!(:file_handler).and_return(image)
-      @params = {:photo => {:user_file => image, :aspect_ids => "all"} }
+      @controller.stub!(:file_handler).and_return(File.open(fixture_name))
+      @params = {:photo => {:user_file => File.open(fixture_name), :aspect_ids => "all"} }
     end
 
     it 'can make a photo' do

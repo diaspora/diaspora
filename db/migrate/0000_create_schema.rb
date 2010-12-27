@@ -85,6 +85,7 @@ class CreateSchema < ActiveRecord::Migration
       t.text :remote_photo_path
       t.string :remote_photo_name
       t.string :random_string
+      t.string :image #carrierwave's column
 
       t.timestamps
     end

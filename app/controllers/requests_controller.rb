@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
       if params[:aspect_id]
         @contact = current_user.accept_and_respond( params[:id], params[:aspect_id])
         flash[:notice] = I18n.t 'requests.destroy.success'
-        respond_with :location => current_user.aspects.where(:id => params[:aspect_id]).first
+        respond_with @contact, :location => requests_url
       else
         flash[:error] = I18n.t 'requests.destroy.error'
         respond_with @contact, :location => requests_url

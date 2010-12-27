@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.text     "remote_photo_path"
     t.string   "remote_photo_name"
     t.string   "random_string"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
