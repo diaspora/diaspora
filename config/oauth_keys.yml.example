@@ -7,3 +7,5 @@ facebook:
 identica:
   consumer_key: ""
   consumer_secret: ""
+  endpoint: "http://identi.ca/api/"
+
