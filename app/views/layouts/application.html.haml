@@ -23,11 +23,12 @@
     = stylesheet_link_tag "blueprint/print", :media => 'print'
     = include_stylesheets :default, :media => 'all'
 
-
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/vendor/jquery144.min.js"%3E%3C/script%3E'))
+
+    = javascript_include_tag "/javascripts/ie.js"
 
     - unless @landing_page
       = include_javascripts :main
