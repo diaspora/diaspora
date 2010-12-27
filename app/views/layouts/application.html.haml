@@ -23,7 +23,9 @@
     = stylesheet_link_tag "blueprint/print", :media => 'print'
     = include_stylesheets :default, :media => 'all'
 
-
+    <!--[if IE]>
+    = javascript_include_tag "/javascripts/ie.js"
+    <![endif]-->
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 
     :javascript
