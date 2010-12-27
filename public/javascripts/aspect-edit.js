@@ -23,7 +23,7 @@ var AspectEdit = {
   },
 
   startDrag: function() {
-    AspectEdit.animateImage($(this).children("img").first());
+    AspectEdit.animateImage($(this).find("img").first());
     $(".draggable_info").fadeIn(100);
   },
   
@@ -33,11 +33,11 @@ var AspectEdit = {
   },
 
   duringDrag: function(event, ui) {
-    $(this).children("img").tipsy("hide"); //ensure this is hidden
+    $(this).find("img").first().tipsy("hide"); //ensure this is hidden
   },
 
   stopDrag: function(event, ui) {
-    $(this).children("img").animate({'height':70, 'width':70, 'opacity':1}, 200);
+    $(this).find("img").first().animate({'height':70, 'width':70, 'opacity':1}, 200);
     $(".draggable_info").fadeOut(100);
   },
 
@@ -71,7 +71,6 @@ var AspectEdit = {
   },
 
   onDeleteRequestSuccess: function(person, dropzone) {
-    AspectEdit.decrementRequestsCounter();
     person.removeClass('request');
     person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
     person.removeAttr('data-person_id');
@@ -142,7 +141,6 @@ var AspectEdit = {
             person.fadeOut(400, function() {
               person.remove();
             });
-            AspectEdit.decrementRequestsCounter();
           }
         });
       }
@@ -153,22 +151,6 @@ var AspectEdit = {
     }
   },
 
-  decrementRequestsCounter: function() {
-    var $new_requests = $(".new_requests");
-    var request_html = $new_requests.html();
-    var old_request_count = request_html.match(/\d+/);
-
-    if (old_request_count == 1) {
-      $new_requests.html(
-        request_html.replace(/ \(\d+\)/, '')
-        );
-    } else {
-      $new_requests.html(
-        request_html.replace(/\d+/, old_request_count - 1)
-        );
-    }
-  },
-  
   alertUser: function(message) {
     alert(message);
   }

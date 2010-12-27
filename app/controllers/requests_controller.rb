@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
         respond_with :location => current_user.aspects.where(:id => params[:aspect_id]).first
       else
         flash[:error] = I18n.t 'requests.destroy.error'
-        respond_with :location => requests_url
+        respond_with @contact, :location => requests_url
       end
     else
       current_user.ignore_contact_request params[:id]

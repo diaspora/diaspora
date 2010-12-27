@@ -6,46 +6,51 @@
 - content_for :head do
   :javascript
     $(document).ready(function(){
-      $("div.public_toggle input").live("click", function(evt){
+      $("div.public_toggle input").bind("click", function(evt){
+        $("#publisher_service_icons").toggleClass("dim");
         if($(this).attr('checked') == true){
-          $(".question_mark").click(); 
-        }; 
+          $(".question_mark").click();
+        };
       });
       
-      $("#publisher textarea, #publisher input").live("focus", function(evt){
-        $("#publisher .options_and_submit").fadeIn(50);
+      if($("textarea#status_message_message").val() != ""){
+        $("#publisher").removeClass("closed");
+        $("#publisher").find("textarea").focus();
+        $("#publisher .options_and_submit").show();
+      }
+
+      $("#publisher textarea, #publisher input").bind("focus", function(evt){
+        $("#publisher .options_and_submit").show();
       });
 
-      $("#publisher form").live("submit", function(evt){
-        $("#photodropzone").find('li').remove(); 
-        $("#publisher .options_and_submit").hide();
-      });
-
-      $("#content_creation_button").bind("click", function(evt){
+      $("#click_to_share").find("a").bind("click", function(evt){
         $("#publisher").removeClass("closed");
         $("#publisher").find("textarea").focus();
       });
     });
 
-#publisher{:class=>("closed" if aspect == :all)}
+#publisher{:class=>"closed"}
 
-  - if aspect == :all
-    #content_creation_button
-      = image_tag 'icons/monotone_chat_talk.png', :id => 'share_bubble'
-      %h4= t('.share_with_all')
+  #click_to_share
+    = image_tag 'icons/doc_edit.png'
+    - if aspect == :all
+      = link_to t('.share_with_all'), '#', :id => 'expand_publisher'
+    - else
+      = link_to t('.post_a_message_to', :aspect => aspect), '#', :id => 'expand_publisher'
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true) do |status|
-      %ul#photodropzone
       = status.error_messages
-      #file-upload.button
+      #file-upload
+        = image_tag 'icons/photos.png'
+        %br
         = t('.add_photos')
 
       %p
         %params
-          - unless aspect == :all
-            = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? t('.all_contacts') : aspect))
-          = status.text_area :message, :rows => 2, :value => params[:prefill]
+          #publisher_textarea_wrapper
+            %ul#photodropzone
+            = status.text_area :message, :rows => 2, :value => params[:prefill]
 
       = status.hidden_field :aspect_ids, :value => (aspect == :all ? aspect : aspect.id)
 
@@ -62,12 +67,13 @@
         - if aspect == :all
           .public_toggle
             %p.checkbox_select
-              = status.check_box( :public, {}, true, false )
-              = status.label :public, t('.make_public')
-              = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url 
-              - if current_user.services
-                - for service in current_user.services      
-                  = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
+              = status.check_box( :public, {:title => t('.make_public')}, true, false)
+
+              %span#publisher_service_icons.dim
+                = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url
+                - if current_user.services
+                  - for service in current_user.services
+                    = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
 
             = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
 

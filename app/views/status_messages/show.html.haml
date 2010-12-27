@@ -3,9 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-= render 'shared/author_info', :person => @status_message.person, :post => @status_message
-
-.span-14.append-1.last
+.span-15.append-1.last
   #show_text
     %p
       = markdownify(@status_message.message, :youtube_maps => @status_message[:youtube_titles])
@@ -23,8 +21,11 @@
   - if current_user.owns? @status_message
     = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
-.span-9.last
+.span-8.last
+  #original_post_info
+    = render 'shared/author_info', :person => @status_message.person, :post => @status_message
+
   %h4{:style=>"margin-bottom:5px;"}= t('_comments')
-  %div{:class => 'stream show', :id => 'status_message_stream'}
+  %ul{:class => 'stream show', :id => 'status_message_stream'}
     %li.message{:data=>{:guid=>@status_message.id}}
-      = render "comments/comments", :post_id => @status_message.id, :comment_hashes => @comment_hashes
+      = render "comments/comments", :post_id => @status_message.id, :comment_hashes => @comment_hashes, :always_expanded => true

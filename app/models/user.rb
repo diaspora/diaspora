@@ -125,7 +125,7 @@ class User < ActiveRecord::Base
 
   def post_to_hub(post)
     Rails.logger.debug("event=post_to_service type=pubsub sender_handle=#{self.diaspora_handle}")
-    EventMachine::PubSubHubbub.new(APP_CONFIG[:pubsub_server]).publish self.public_url
+    EventMachine::PubSubHubbub.new(AppConfig[:pubsub_server]).publish self.public_url
   end
 
   def update_post(post, post_hash = {})
@@ -265,7 +265,7 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
-      push_to_people profile, contacts.includes(:person).where(:pending => false).map{|c| c.person}
+      push_to_people profile, contact_people
       true
     else
       false
@@ -324,8 +324,8 @@ class User < ActiveRecord::Base
     end
 
     self.person = Person.new(opts[:person])
-    self.person.diaspora_handle = "#{opts[:username]}@#{APP_CONFIG[:pod_uri].host}"
-    self.person.url = APP_CONFIG[:pod_url]
+    self.person.diaspora_handle = "#{opts[:username]}@#{AppConfig[:pod_uri].host}"
+    self.person.url = AppConfig[:pod_url]
 
 
     self.serialized_private_key ||= User.generate_key

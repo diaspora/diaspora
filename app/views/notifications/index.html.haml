@@ -1,21 +1,42 @@
 :javascript
-  $('.note a').live('click', function(evt){
-    var note_id = $(this).closest('.note').attr('id');
-    $.ajax({
-      url: 'notifications/' + note_id,
-      type: 'PUT'
+  $('.message').live('click', function(evt){
+    var note = $(this).closest('.message'),
+        note_id = note.attr('data-guid'),
+        nBadge = $("#notification_badge_number");
+
+    if(note.hasClass('unread') ){
+      note.removeClass('unread');
+      $.ajax({
+        url: 'notifications/' + note_id,
+        type: 'PUT'
+      });
+    }
+
+    nBadge.html().replace(/\d+/, function(num){
+      num = parseInt(num);
+      nBadge.html(parseInt(num)-1);
+      if(num == 1) {
+        nBadge.addClass("hidden");
+      }
     });
   });
 
-%ul.notes
-  - @group_days.each do |day, notes|
-    %h3
-      %ul
-        %li
-          = day
-        - notes.each do |note|
-          %li.note{:id => note.id}
-            %h4{:class => "#{note.unread ? 'unread' : ''}"}
-              = link_to "#{note.person.name.titleize}", person_path(note.person)
-              = object_link(note)
-              %span.description=" #{t('ago', :time => time_ago_in_words(note.created_at))}"
+.span-1
+  = image_tag 'icons/mail_big.png', :height => 30, :width => 30, :style=>"margin-top:3px;"
+.span-23.last
+  %h2
+    = t('.notifications')
+
+.span-24.last
+  %ul.stream.notifications
+    - @group_days.each do |day, notes|
+      %li
+        %h4= day
+        %ul.notifications_for_day
+          - notes.each do |note|
+            %li.message{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
+              %span.from
+                = link_to "#{note.person.name.titleize}", person_path(note.person)
+                = object_link(note)
+
+              %span.time= "#{t('ago', :time => time_ago_in_words(note.created_at))}"

@@ -46,9 +46,9 @@ es:
       failure: "Error al añadir el contacto a este aspecto."
       success: "Se ha agregado correctamente su contacto a un aspecto."
     all_aspects_contacts: 
-      add_aspect: "Añadir Aspecto"
       all_contacts: "Todos los contactos"
       aspects: "Aspectos"
+      manage_aspects: "manage aspects"
       no_contacts: "Por el momento no tienes contactos. Encuentralos aqui."
     aspect_contacts: 
       done_editing: "Edición lista"
@@ -106,6 +106,9 @@ es:
     new_comment: 
       comment: "Comentar"
       commenting: "Comentando..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contactos"
     one: "1 contacto"
@@ -165,13 +168,19 @@ es:
       login: "Ingresar"
       logout: "desconectarse"
       view_profile: "ver perfil"
+  new_notifications: "%{count} nuevas notificaciones"
   new_requests: 
     few: "%{count} nuevas peticiones!"
     one: "Nueva petición!"
     other: "%{count} nuevas peticiones!"
     zero: "no hay nuevas peticiones"
+  next: "next"
+  no_new_notifications: "no hay nuevas notificaciones"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notificaciones"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -218,9 +227,9 @@ es:
       people_on_pod_are_aware_of: "gente en el \"pod\" son conscientes de"
       results_for: "resultados para %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      couldnt_find_them_send_invite: "¿No los puedes encontrar? ¡Mándalos una invitación!"
       no_one_found: "...y nadie fue encontrado."
-      no_results: "Hey! You need to search for something."
+      no_results: "¡Oye! ¡Tienes que buscar algo!"
       results_for: "resultados de la búsqueda para"
     person: 
       add_contact: "añadir contacto"
@@ -247,7 +256,7 @@ es:
       recent_posts: "Publicaciones Recientes"
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Volver a tus aspectos"
-      similar_contacts: "similar contacts"
+      similar_contacts: "contactos similares"
       to_accept_or_ignore: "aceptar o ignorar."
     update: 
       failed: "No se pudo actualizar el perfil"
@@ -281,13 +290,14 @@ es:
       edit: "editar"
       edit_delete_photo: "Editar pie de fotografía / eliminar fotografía"
       make_profile_photo: "convertir en foto de perfil"
-      original_post: "Post original"
       permalink: "enlace permanente"
       update_photo: "Actualizar Foto"
       view: "ver"
+      view_original_post: "view original post"
     update: 
       error: "Falló la edición de la foto."
       notice: "Foto actualizada correctamente."
+  previous: "previous"
   profile: "Perfil"
   registrations: 
     closed: "Los registros están cerrados en este servidor Diaspora"

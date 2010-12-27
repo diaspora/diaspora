@@ -4,6 +4,7 @@
 
 module SocketsHelper
   include ApplicationHelper
+  include NotificationsHelper
 
   def obj_id(object)
     if object.respond_to?(:post_id)
@@ -45,8 +46,13 @@ module SocketsHelper
           :request => user.request_from(object),
           :current_user => user}
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
+
       elsif object.is_a? Comment
         v = render_to_string(:partial => 'comments/comment', :locals => {:hash => {:comment => object, :person => object.person}})
+
+      elsif object.is_a? Notification
+        v = render_to_string(:partial => 'notifications/popup', :locals => {:note => object, :person => object.person})
+
       else
         v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
       end
@@ -74,13 +80,5 @@ module SocketsHelper
     I18n.locale = old_locale unless user.nil?
 
     action_hash.to_json
-  end
-
-  def notification(object)
-    begin
-      render_to_string(:partial => 'shared/notification', :locals => {:object => object})
-    rescue Exception => e
-      Rails.logger.error("event=socket_render status=fail user=#{user.diaspora_handle} object=#{object.id.to_s}")
-    end
   end
 end

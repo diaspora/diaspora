@@ -22,6 +22,12 @@
       = form_tag(people_path, :method => 'get', :id => "global_search_form") do
         = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
+    #notification_badge
+      = link_to "", notifications_path, :title => new_notification_text(@notification_count)
+      = image_tag 'icons/mail_grey.png'
+      #notification_badge_number{:class => ("hidden" if @notification_count == 0)}
+        = @notification_count
+
     %ul#user_menu
       .right
         ▼
@@ -37,14 +43,13 @@
       #aspect_nav
         %ul
           %li{:class => ("selected" if @aspect == :all)}
-            = link_to ((@request_count == 0)? t('_home') : "#{t('_home')} (#{@request_count})"), root_path, :class => new_request?(@request_count)
+            = link_to t('_home'), root_path
 
           - for aspect in @aspects
             %li{:class => ("selected" if current_aspect?(aspect))}
               = link_for_aspect aspect
           %li
             = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect')
-            /= link_to "notifications (#{@notification_count})", notifications_path
 
         .fancybox_content
           #add_aspect_pane

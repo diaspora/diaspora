@@ -1,7 +1,7 @@
 - if controller_name != 'sessions'
   = link_to t('.sign_in'), new_session_path(resource_name)
   %br/
-- if !APP_CONFIG[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+- if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
   = link_to t('.sign_up'), new_registration_path(resource_name)
   %br/
 - else

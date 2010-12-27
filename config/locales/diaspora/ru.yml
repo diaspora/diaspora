@@ -46,9 +46,9 @@ ru:
       failure: "Не удалось добавить друга в аспект."
       success: "Друг добавлен в аспект."
     all_aspects_contacts: 
-      add_aspect: "добавить аспект"
       all_contacts: "Все контакты"
       aspects: "Аспекты"
+      manage_aspects: "manage aspects"
       no_contacts: "Сейчас у вас нет контактов. Найти попробуйте найти контакты здесь.\n"
     aspect_contacts: 
       done_editing: "редактирование завершено"
@@ -106,6 +106,9 @@ ru:
     new_comment: 
       comment: "Комментарий"
       commenting: "Комментирование ..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} контактов"
     one: "1 контакт"
@@ -165,13 +168,19 @@ ru:
       login: "логин"
       logout: "выйти"
       view_profile: "просмотр профиля"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} новых запросов!"
     one: "новый запрос!"
     other: "%{count} новых запросов!"
     zero: "новых запросов нет"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -281,13 +290,14 @@ ru:
       edit: "редактировать"
       edit_delete_photo: "Изменить описание фото / удалить фото"
       make_profile_photo: "сделать фотографией профиля"
-      original_post: "Оригинальное сообщение"
       permalink: "постоянная ссылка"
       update_photo: "Обновить фотографию"
       view: "смотреть"
+      view_original_post: "view original post"
     update: 
       error: "Не удалось изменить фотографию."
       notice: "Фотография загружена."
+  previous: "previous"
   profile: "Профиль"
   registrations: 
     closed: "В этой части Диаспоры регистрация закрыта"

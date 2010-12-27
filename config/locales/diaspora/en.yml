@@ -25,8 +25,12 @@ en:
   back: "Back"
   the_world: "the world"
   search: "Search"
+  new_notifications: "%{count} new notifications"
+  no_new_notifications: "no new notifications"
   _home: "Home"
   _comments: "Comments"
+  next: 'next'
+  previous: 'previous'
   contacts:
     zero:   "no contacts"
     one:    "1 contact"
@@ -123,7 +127,7 @@ en:
   aspects:
       all_aspects_contacts:
           all_contacts: "All contacts"
-          add_aspect: "add aspect"
+          manage_aspects: "manage aspects"
           aspects: "Aspects"
           no_contacts: "You currently have no contacts.  Find your contacts here."
       aspect_contacts:
@@ -184,6 +188,9 @@ en:
       new_request: "offered to share with you."
       comment_on_post: "commented on your"
       post: 'post'
+      deleted: 'deleted'
+      index:
+        notifications: "Notifications"
   users:
       edit:
           export_data: "Export Data"
@@ -240,6 +247,9 @@ en:
       new_comment:
           comment: "Comment"
           commenting: "Commenting..."
+          press: "press"
+          enter: "enter"
+          to_comment: "to comment"
   photos:
       show:
           delete_photo: "Delete Photo"
@@ -248,8 +258,8 @@ en:
           view: "view"
           edit: "edit"
           edit_delete_photo: "Edit photo description / delete photo"
-          original_post: "Original Post"
           permalink: "permalink"
+          view_original_post: "view original post"
       edit:
           editing: "Editing"
       photo:

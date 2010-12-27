@@ -6,10 +6,10 @@ namespace :backup do
   task :mongo do
     Rails.logger.info("event=backup status=start type=mongo")
 
-    if APP_CONFIG[:cloudfiles_username] && APP_CONFIG[:cloudfiles_api_key]
+    if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key]
       puts "Logging into Cloud Files"
 
-      cf = CloudFiles::Connection.new(:username => APP_CONFIG[:cloudfiles_username], :api_key => APP_CONFIG[:cloudfiles_api_key])
+      cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
       mongo_container = cf.container("Mongo Backup")
 
       puts "Dumping Mongo"
@@ -35,10 +35,10 @@ namespace :backup do
   task :photos do
     Rails.logger.info("event=backup status=start type=photos")
 
-    if APP_CONFIG[:cloudfiles_username] && APP_CONFIG[:cloudfiles_api_key]
+    if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key]
       puts "Logging into Cloud Files"
 
-      cf = CloudFiles::Connection.new(:username => APP_CONFIG[:cloudfiles_username], :api_key => APP_CONFIG[:cloudfiles_api_key])
+      cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
       photo_container = cf.container("Photo Backup")
 
       tar_name = "photos_#{Time.now.to_i}.tar"

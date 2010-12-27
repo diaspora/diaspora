@@ -46,9 +46,9 @@ es-CL:
       failure: "Error al agregar el contacto a este aspecto."
       success: "Contacto agregado correctamente al aspecto."
     all_aspects_contacts: 
-      add_aspect: "agregar un aspecto"
       all_contacts: "Todos los contactos"
       aspects: "Aspectos"
+      manage_aspects: "manage aspects"
       no_contacts: "Actualmente no tienes contactos. Encuentra tus contactos aquí."
     aspect_contacts: 
       done_editing: "editado"
@@ -106,6 +106,9 @@ es-CL:
     new_comment: 
       comment: "Comentario"
       commenting: "Comentando..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contactos"
     one: "1 contacto"
@@ -165,13 +168,19 @@ es-CL:
       login: "entrar"
       logout: "salir"
       view_profile: "ver perfil"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "¡%{count} nuevas solicitudes!"
     one: "¡nueva solicitud!"
     other: "¡%{count} nuevas solicitudes!"
     zero: "no hay nuevas solicitudes"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -281,13 +290,14 @@ es-CL:
       edit: "editar"
       edit_delete_photo: "Editar descripción de foto / borrar foto"
       make_profile_photo: "convertir en foto de perfil"
-      original_post: "Posteo Original"
       permalink: "permalink"
       update_photo: "Actualizar Foto"
       view: "ver"
+      view_original_post: "view original post"
     update: 
       error: "Error al editar foto."
       notice: "Foto actualizada correctamente."
+  previous: "previous"
   profile: "Perfil"
   registrations: 
     closed: "Los registros están cerrados en este servidor de Diaspora."

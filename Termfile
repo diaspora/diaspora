@@ -1,0 +1,51 @@
+# Copyright (c) 2010, Diaspora Inc.  This file is
+# licensed under the Affero General Public License version 3 or later.  See
+# the COPYRIGHT file.
+
+# If you do
+#    terminitor start
+# from the Diaspora root directory, it will open a new terminal window with
+# 4 tabs: mongo, redis, resque, and jasmine.
+#
+# You need to install the terminitor gem. It's not in the Gemfile because it
+# causes problems on some flavors of linux.
+#    gem install terminitor
+#
+# You should set MONGO_ROOT and REDIS_ROOT before running terminitor start.
+# You might want to do that in your .bash_profile.
+#    export MONGO_ROOT=/full/path/to/mongo/without/the/bin
+#    export REDIS_ROOT=/full/path/to/redis/without/the/bin
+# You can also set DIASPORA_ROOT in a similar way if you don't want it to be
+# the directory this file is in.
+#
+# This will run on OS X and KDE.
+
+def get_var_for(env_var_name)
+  if ENV[env_var_name].nil? || ENV[env_var_name].strip == ""
+    File.dirname(__FILE__)
+  else
+    ENV[env_var_name]
+  end
+end
+
+before { system "sudo ls" } # this ensures mongo and redis can start right away
+
+window do
+  tab :name => "mongod" do
+    run "cd #{get_var_for('MONGO_ROOT')}"
+    run "sudo ./bin/mongod"
+  end
+  tab :name => "redis" do
+    run "cd #{get_var_for('REDIS_ROOT')}"
+    run "sudo ./bin/redis-server"
+  end
+  tab :name => "resque" do
+    run "cd #{get_var_for('DIASPORA_ROOT')}"
+    run "QUEUE=* rake resque:work"
+  end
+  tab :name => "jasmine" do
+    run "cd #{get_var_for('DIASPORA_ROOT')}"
+    run "rake jasmine"
+  end
+end
+

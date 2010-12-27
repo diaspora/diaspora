@@ -5,11 +5,7 @@
 module StreamHelper
   GSUB_THIS = "FIUSDHVIUSHDVIUBAIUHAPOIUXJM"
   def comment_toggle(count, commenting_disabled=false)
-    if count == 0
-      unless commenting_disabled
-        link_to "#{t('comments.new_comment.comment').downcase}", '#', :class => "show_post_comments"
-      end
-    elsif count <= 3
+    if count <= 3
       link_to "#{t('stream_helper.hide_comments')} (#{count})", '#', :class => "show_post_comments"
     else
       link_to "#{t('stream_helper.show_comments')} (#{count})", '#', :class => "show_post_comments"

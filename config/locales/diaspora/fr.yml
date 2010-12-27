@@ -46,9 +46,9 @@ fr:
       failure: "L’ajout du contact à l’aspect a échoué."
       success: "Vous avez ajouté le contact à l’aspect avec succès."
     all_aspects_contacts: 
-      add_aspect: "ajouter un aspect"
       all_contacts: "Tous les contacts"
       aspects: "Aspects"
+      manage_aspects: "gestion des aspects"
       no_contacts: "Vous n'avez pas de contacts pour l'instant. Recherchez des contacts ici."
     aspect_contacts: 
       done_editing: "fin de la modification"
@@ -106,6 +106,9 @@ fr:
     new_comment: 
       comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
+      enter: "Entrée"
+      press: "appuyez sur"
+      to_comment: "pour commenter"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"
@@ -156,7 +159,7 @@ fr:
   layouts: 
     application: 
       powered_by: "PROPULSÉ PAR DIASPORA*"
-      whats_new: "what's new?"
+      whats_new: "Quoi de neuf ?"
     header: 
       account_settings: "options du compte"
       blog: "blog"
@@ -165,16 +168,22 @@ fr:
       login: "connexion"
       logout: "se déconnecter"
       view_profile: "voir le profil"
+  new_notifications: "%{count} nouvelles notifications"
   new_requests: 
     few: "%{count} nouvelles requêtes !"
     one: "nouvelle requête !"
     other: "%{count} nouvelles requêtes !"
     zero: "aucune nouvelle requête"
+  next: "suivant"
+  no_new_notifications: "aucune nouvelle notification"
   notifications: 
-    comment_on_post: "commented on your"
-    new_request: "offered to share with you."
-    post: "post"
-    request_accepted: "accepted your share request."
+    comment_on_post: "a commenté sur votre"
+    deleted: "supprimé"
+    index: 
+      notifications: "Notifications"
+    new_request: "a proposé de partager avec vous."
+    post: "message"
+    request_accepted: "a accepté votre demande de partage."
   notifier: 
     diaspora: "le robot de messagerie électronique de diaspora"
     hello: "Bonjour %{name} !"
@@ -200,7 +209,7 @@ fr:
   password_confirmation: "Confirmation du mot de passe"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "modifier les membres de l'aspect"
     edit: 
       allow_search: "Autoriser des personnes à vous rechercher au sein de Diaspora"
       edit_profile: "Modifier le profil"
@@ -229,7 +238,7 @@ fr:
       thats_you: "c'est vous !"
     profile_sidebar: 
       bio: "bio"
-      born: "né(e)"
+      born: "anniversaire"
       cannot_remove: "Impossible de supprimer %{name} du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
       edit_my_profile: "Modifier mon profil"
       gender: "sexe"
@@ -237,17 +246,17 @@ fr:
       remove_contact: "supprimer le contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "Dès que %{name} acceptera, vous commencerez à voir ses messages sur Diaspora et réciproquement"
+      share_with: "Commencer à partager avec %{name}"
     show: 
       does_not_exist: "Cette personne n'existe pas !"
       incoming_request: "Vous avez une requête venant de cette personne."
       no_posts: "aucun message à afficher !"
-      not_connected: "Vous n'êtes pas connecté(e) avec cette personne"
+      not_connected: "Vous n'êtes pas connecté(e) avec %{name}"
       recent_posts: "Messages récents"
       recent_public_posts: "Messages publics récents"
       return_to_aspects: "Retourner à votre page des aspects"
-      similar_contacts: "similar contacts"
+      similar_contacts: "Contacts similaires"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
     update: 
       failed: "La mise à jour du profil a échoué"
@@ -281,13 +290,14 @@ fr:
       edit: "modifier"
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"
       make_profile_photo: "en faire la photo de profil"
-      original_post: "Message original"
       permalink: "permalien"
       update_photo: "Mettre à jour la photo"
       view: "voir"
+      view_original_post: "afficher le message original"
     update: 
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour avec succès."
+  previous: "précédent"
   profile: "Profil"
   registrations: 
     closed: "Les inscriptions sont fermées sur ce pod Diaspora."
@@ -432,7 +442,7 @@ fr:
     public: 
       does_not_exist: "L'utilisateur %{username} n'existe pas !"
     update: 
-      email_notifications_changed: "Échec du changement de langue"
+      email_notifications_changed: "Notifications par courriel modifiées"
       language_changed: "Langue mise à jour"
       language_not_changed: "Échec lors de la mise à jour de la langue"
       password_changed: "Mot de passe mis à jour"

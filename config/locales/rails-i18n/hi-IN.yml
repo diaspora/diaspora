@@ -161,8 +161,8 @@ hi-IN:
       equal_to: "%{count} के लिए बराबर होना चाहिए"
       less_than: "%{count} से कम होना चाहिए"
       less_than_or_equal_to: "%{count} से कम या बराबर होना आवश्यक है"
-      odd: "औड होना चाहिए"
-      even: "ईवन होना चाहिए"
+      odd: "विषम होना चाहिए"
+      even: "सम होना चाहिए"
 
   activerecord:
     errors:

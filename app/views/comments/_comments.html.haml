@@ -2,6 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+
+- unless defined?(always_expanded) && always_expanded
+  %ul.show_comments{:class => ("hidden" if comment_hashes.size == 0)}
+    %li
+      = image_tag 'icons/spechbubble_2.png', :class => 'more_comments_icon'
+      %b= comment_toggle(comment_hashes.size)
+
 %ul.comments{:id => post_id, :class => ("hidden" if comment_hashes.size == 0)}
   -if comment_hashes.size > 3
     .older_comments{:class => ("hidden inactive" if defined?(condensed) && condensed)}

@@ -42,10 +42,10 @@
     = yield(:head)
     = csrf_meta_tag
 
-    -if APP_CONFIG[:google_a_site]
+    -if AppConfig[:google_a_site]
       :javascript
         var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', '#{APP_CONFIG[:google_a_site]}']);
+        _gaq.push(['_setAccount', '#{AppConfig[:google_a_site]}']);
         _gaq.push(['_trackPageview']);
 
         (function() {
@@ -54,12 +54,12 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
 
-    -if APP_CONFIG[:piwik_id]
+    -if AppConfig[:piwik_id]
       :javascript
-        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{APP_CONFIG[:piwik_url]}/" : "http://#{APP_CONFIG[:piwik_url]}/");
+        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
         document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
         try {
-        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{APP_CONFIG[:piwik_id]});
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
         piwikTracker.trackPageView();
         piwikTracker.enableLinkTracking();
         } catch( err ) {}

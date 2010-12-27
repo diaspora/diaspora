@@ -5,8 +5,8 @@
 
 eo: 
   _comments: "Comments"
-  _home: "Home"
-  _photos: "photos"
+  _home: "Hejmo"
+  _photos: "bildoj"
   _services: "Services"
   account: "Account"
   activemodel: 
@@ -46,9 +46,9 @@ eo:
       failure: "Failed to add contact to aspect."
       success: "Successfully added contact to aspect."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
       all_contacts: "All contacts"
       aspects: "Aspects"
+      manage_aspects: "manage aspects"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -69,10 +69,10 @@ eo:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
     manage: 
       add_a_new_aspect: "Add a new aspect"
-      add_a_new_contact: "Add a new contact"
+      add_a_new_contact: "Aldoni novan kontakton"
       drag_to_add: "Drag to add people"
       manage_aspects: "Manage aspects"
-      no_requests: "No new requests"
+      no_requests: "Neniujn novajn petojn "
       requests: "Requests"
     move_contact: 
       error: "Error moving contact: %{inspect}"
@@ -80,11 +80,11 @@ eo:
       success: "Person moved to new aspect"
     new_aspect: 
       create: "Create"
-      name: "Name"
+      name: "Nomo"
     no_contacts_message: 
-      add_contact: "Add a contact"
+      add_contact: "Aldoni kontakton"
       add_contact_to: "Add someone to %{aspect_name}"
-      invite: "Invite someone to join Diaspora!"
+      invite: "Invitu iun al Diaspora!"
       nobody: "Bring the people that matter in your life to Diaspora!"
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
@@ -93,19 +93,22 @@ eo:
       failure: "Failed to remove person from aspect"
       success: "Successfully removed person from aspect"
     seed: 
-      family: "Family"
-      work: "Work"
+      family: "Familio"
+      work: "Verkejo"
     show: 
       edit_aspect: "edit aspect"
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Your aspect, %{name}, has been successfully edited."
-  back: "Back"
+  back: "Antaŭen"
   cancel: "Cancel"
   comments: 
     new_comment: 
       comment: "Comment"
       commenting: "Commenting..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"
@@ -128,7 +131,7 @@ eo:
       ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
       share_what_you_want: "Share what you want, with whom you want."
-      simplicity: "Simplicity"
+      simplicity: "Simpleco"
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
@@ -152,7 +155,7 @@ eo:
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
-      to: "To"
+      to: "Al"
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
@@ -165,19 +168,25 @@ eo:
       login: "login"
       logout: "logout"
       view_profile: "view profile"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
   notifier: 
     diaspora: "the diaspora email robot"
-    hello: "Hello %{name}!"
+    hello: "Saluton %{name}!"
     love: "love,"
     new_request: 
       just_sent_you: "just sent you a contact request on Diaspora*"
@@ -191,12 +200,12 @@ eo:
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
     thanks: "Thanks,"
-  ok: "OK"
-  or: "or"
+  ok: "Nu"
+  or: "aŭ"
   pagination: 
     next: "Next"
     previous: "Previous"
-  password: "Password"
+  password: "Pasvorto"
   password_confirmation: "Password confirmation"
   people: 
     aspect_list: 
@@ -226,7 +235,7 @@ eo:
       add_contact: "add contact"
       already_connected: "Already connected"
       pending_request: "pending request"
-      thats_you: "thats you!"
+      thats_you: "Jen vi!"
     profile_sidebar: 
       bio: "bio"
       born: "born"
@@ -281,13 +290,14 @@ eo:
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "make profile photo"
-      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Update Photo"
       view: "view"
+      view_original_post: "view original post"
     update: 
       error: "Failed to edit photo."
       notice: "Photo successfully updated."
+  previous: "previous"
   profile: "Profile"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."

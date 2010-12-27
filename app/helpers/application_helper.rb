@@ -124,12 +124,12 @@ module ApplicationHelper
   end
 
   def person_image_tag(person, size=:thumb_small)
-    "<img alt='#{person.name}' class='avatar' data-person_id='#{person.id}' src='#{image_or_default(person, size)}' title='#{person.name}'>".html_safe
+    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{image_or_default(person, size)}\" title=\"#{h(person.name)}\">".html_safe
   end
 
   def person_link(person)
     "<a href='/people/#{person.id}'>
-  #{person.name}
+  #{h(person.name)}
 </a>".html_safe
   end
 
@@ -159,13 +159,6 @@ module ApplicationHelper
     (':' + post.id.to_s).to_sym
   end
 
-  def person_photos_path person
-    person_id = person.id if person.respond_to?(:id)
-    person_id ||= person
-
-    "#{photos_path}?person_id=#{person_id}"
-  end
-
   def markdownify(message, options = {})
     message = h(message).html_safe
 
@@ -175,10 +168,10 @@ module ApplicationHelper
 
     message = process_links(message)
     message = process_youtube(message)
+    message = process_vimeo(message, options[:vimeo_maps])
     message = process_autolinks(message)
     message = process_emphasis(message)
     message = process_youtube_again(message, options[:youtube_maps])
-    message = process_vimeo(message, options[:vimeo_maps])
 
     if options[:newlines]
       message.gsub!(/\n+/, '<br />')
@@ -190,12 +183,23 @@ module ApplicationHelper
   def process_links(message)
     message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
       escape = "\\"
-      res    = "<a target=\"#{escape}_blank\" href=\"#{$2}\" title=\"#{$3}\">#{$1}</a>"
+      link = $1
+      url = $2
+      title = $3
+      url.gsub!("_", "\\_")
+      url.gsub!("*", "\\*")
+      protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
+      res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\" title=\"#{title}\">#{link}</a>"
       res
     end
     message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/) do |m|
       escape = "\\"
-      res    = "<a target=\"#{escape}_blank\" href=\"#{$2}\">#{$1}</a>"
+      link = $1
+      url = $2
+      url.gsub!("_", "\\_")
+      url.gsub!("*", "\\*")
+      protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
+      res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\">#{link}</a>"
       res
     end
 
@@ -263,7 +267,7 @@ module ApplicationHelper
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
-      message.gsub!(vimeo[0], '<a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
+      message.gsub!(vimeo[0], '<a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="#video">Vimeo: ' + title + '</a>')
     end
     return message
   end

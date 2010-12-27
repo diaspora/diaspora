@@ -46,7 +46,7 @@ describe Profile do
     before do
       @profile = Factory.build(:profile)
       @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
-      @pod_url = (APP_CONFIG[:pod_url][-1,1] == '/' ? APP_CONFIG[:pod_url].chop : APP_CONFIG[:pod_url])
+      @pod_url = (AppConfig[:pod_url][-1,1] == '/' ? AppConfig[:pod_url].chop : AppConfig[:pod_url])
     end
     it 'ignores an empty string' do
       lambda {@profile.image_url = ""}.should_not change(@profile, :image_url)

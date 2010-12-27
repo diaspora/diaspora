@@ -18,8 +18,9 @@ class NotificationsController < ApplicationController
   end
 
   def index
-    @notifications = Notification.for(current_user)
+    @notifications = Notification.for(current_user).limit(25)
     @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") }
     respond_with @notifications
   end
+
 end

@@ -25,7 +25,7 @@ def write_pidfile
 end
 
 def debug_pp thing
-  pp thing if APP_CONFIG[:socket_debug] || ENV['SOCKET_DEBUG']
+  pp thing if AppConfig[:socket_debug] || ENV['SOCKET_DEBUG']
 end
 
 def process_message
@@ -44,15 +44,15 @@ begin
   EM.run {
     Diaspora::WebSocket.initialize_channels
 
-    socket_params = { :host => APP_CONFIG[:socket_host],
-                      :port => APP_CONFIG[:socket_port],
-                      :debug =>APP_CONFIG[:socket_debug] }
+    socket_params = { :host => AppConfig[:socket_host],
+                      :port => AppConfig[:socket_port],
+                      :debug =>AppConfig[:socket_debug] }
 
-    if APP_CONFIG[:socket_secure] && APP_CONFIG[:socket_private_key_location] && APP_CONFIG[:socket_cert_chain_location]
+    if AppConfig[:socket_secure] && AppConfig[:socket_private_key_location] && AppConfig[:socket_cert_chain_location]
       socket_params[:secure] = true;
       socket_params[:tls_options] = {
-                    :private_key_file => APP_CONFIG[:socket_private_key_location],
-                    :cert_chain_file  => APP_CONFIG[:socket_cert_chain_location]
+                    :private_key_file => AppConfig[:socket_private_key_location],
+                    :cert_chain_file  => AppConfig[:socket_cert_chain_location]
       }
     end
 
@@ -91,7 +91,7 @@ begin
         end
       }
     end
-    PID_FILE = (APP_CONFIG[:socket_pidfile] ? APP_CONFIG[:socket_pidfile] : 'tmp/diaspora-ws.pid')
+    PID_FILE = (AppConfig[:socket_pidfile] ? AppConfig[:socket_pidfile] : 'tmp/diaspora-ws.pid')
     write_pidfile
     puts "Websocket server started."
     process_message

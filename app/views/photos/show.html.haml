@@ -5,27 +5,37 @@
 - content_for :head do
   = include_javascripts :photos
 
-= render 'shared/author_info', :person => @photo.person, :post => @photo
+.span-15.append-1.last
+  #photo_controls
+    .right
+      =link_to "← #{t('previous')}", @prev_photo, :rel => 'prefetch', :id => 'photo_show_left'
+      \/
+      =link_to "#{t('next')} →", @next_photo, :rel => 'prefetch',  :id => 'photo_show_right'
 
-.span-14.append-1.last
-  #show_photo{:data=>{:guid=>@photo.id}}
-    -if @ownership
-      = image_tag 'ajax-loader.gif', :id => "photo_spinner", :class => "hidden"
-      = image_tag @photo.url(:scaled_full)
-      .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_large)}"}}
-        = link_to t('.make_profile_photo'), {:controller => "photos", :action => "make_profile_photo", :photo_id => @photo.id}, :remote => true, :class => 'make_profile_photo'
-        |
-        = link_to t('.edit'), '#', :id => "edit_photo_toggle"
+    - if @photo.status_message_id
+      =link_to "← #{t('.view_original_post')}", @photo.status_message
+    - else
+      \.
 
-    -else
-      = image_tag @photo.url(:scaled_full)
+  #photo_container
+    #show_photo{:data=>{:guid=>@photo.id}}
+      -if @ownership
+        = image_tag 'ajax-loader.gif', :id => "photo_spinner", :class => "hidden"
+        = image_tag @photo.url(:scaled_full)
+      -else
+        = image_tag @photo.url(:scaled_full)
 
-    #caption
-      = @photo.caption
+      #caption
+        = @photo.caption
 
-  %br
+  %hr
 
-  -if @ownership
+  - if @ownership
+    .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_large)}"}}
+      = link_to t('.make_profile_photo'), {:controller => "photos", :action => "make_profile_photo", :photo_id => @photo.id}, :remote => true, :class => 'make_profile_photo'
+      |
+      = link_to t('.edit'), '#', :id => "edit_photo_toggle"
+
     #photo_edit_options
       %h4= t('.edit_delete_photo')
       %p
@@ -35,22 +45,21 @@
       %p
         = button_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete
 
-.span-9.last
-  - if @photo.status_message_id
-    #original_post_info
-      %h4{:style=>"position:relative;"}
-        = t('.original_post')
-        = link_to "#{t('.view')} →", @photo.status_message
+.span-8.last
+
+  #original_post_info
+    = render 'shared/author_info', :person => @photo.person, :post => @photo
+
+    - if @photo.status_message_id
+      %p
+        = markdownify(@photo.status_message.message)
 
       %p
-        = @photo.status_message.message
-
-      %p
-        - for photo in @photo.status_message.photos
+        - for photo in @additional_photos
           = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
 
   %h4= t('_comments')
 
-  %div{:id => 'photo_stream', :class => 'stream show'}
+  %ul{:id => 'photo_stream', :class => 'stream show'}
     %li.message{:data=>{:guid=>@parent.id}}
-      = render "comments/comments", :post_id => @parent.id, :comment_hashes => @comment_hashes
+      = render "comments/comments", :post_id => @parent.id, :comment_hashes => @comment_hashes, :always_expanded => true

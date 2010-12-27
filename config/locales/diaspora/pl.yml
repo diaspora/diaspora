@@ -46,9 +46,9 @@ pl:
       failure: "Nie udało się dodać kontaktu do aspektu."
       success: "Dodano kontakt to aspektu."
     all_aspects_contacts: 
-      add_aspect: "dodaj aspekt"
       all_contacts: "Wszystkie kontakty"
       aspects: "Aspekty"
+      manage_aspects: "manage aspects"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -106,6 +106,9 @@ pl:
     new_comment: 
       comment: "Skomentuj…"
       commenting: "Komentowanie…"
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} kontakty"
     one: "1 kontakt"
@@ -165,13 +168,19 @@ pl:
       login: "logowanie"
       logout: "wyloguj"
       view_profile: "podgląd profilu"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "Masz %{count} nowe zaproszenia!"
     one: "nowe zaproszenie!"
     other: "%{count} nowych zaproszeń!"
     zero: "brak nowych zaproszeń"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -281,13 +290,14 @@ pl:
       edit: "edytuj"
       edit_delete_photo: "Edytuj opis zdjęcia / usuń zdjęcie"
       make_profile_photo: "zrób zdjęcie profilowe"
-      original_post: "Oryginalny wpis"
       permalink: "permalink"
       update_photo: "Aktualizuj zdjęcie"
       view: "podgląd"
+      view_original_post: "view original post"
     update: 
       error: "Błąd podczas edycji zdjęcia."
       notice: "Pomyślnie zaktualizowano zdjęcie."
+  previous: "previous"
   profile: "Profil"
   registrations: 
     closed: "Na tym podzie Diaspory rejestracja jest zamknięta"

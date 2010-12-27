@@ -67,6 +67,16 @@ describe AspectsController do
       assigns(:aspect_contacts).first[:person].should == achash[:person]
       assigns(:posts).should == []
     end
+    it "assigns contacts to only non-pending" do
+      @user.contacts.count.should == 1
+      @user.send_contact_request_to(make_user.person, @aspect)
+      @user.contacts.count.should == 2
+
+      get :show, 'id' => @aspect.id.to_s
+      contacts = assigns(:contacts)
+      contacts.count.should == 1
+      contacts.first.should == @contact
+    end
     it "paginates" do
       16.times { |i| @user2.post(:status_message, :to => @aspect2.id, :message => "hi #{i}") }
 
@@ -116,6 +126,16 @@ describe AspectsController do
       get :manage
       assigns(:remote_requests).should be_empty
     end
+    it "assigns contacts to only non-pending" do
+      @user.contacts.count.should == 1
+      @user.send_contact_request_to(make_user.person, @aspect)
+      @user.contacts.count.should == 2
+
+      get :manage
+      contacts = assigns(:contacts)
+      contacts.count.should == 1
+      contacts.first.should == @contact
+    end
     context "when the user has pending requests" do
       before do
         requestor        = Factory.create(:user)
@@ -137,6 +157,10 @@ describe AspectsController do
       it "assigns remote_requests" do
         get :manage
         assigns(:remote_requests).count.should == 1
+      end
+      it "generates a jasmine fixture" do
+        get :manage
+        save_fixture(html_for("body"), "aspects_manage")
       end
     end
   end

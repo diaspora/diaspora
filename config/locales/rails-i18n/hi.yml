@@ -1,0 +1,181 @@
+# Hindi (hi) translations for Rails
+# by Rajesh Ranjan (rajesh672@gmail.com)
+
+hi:
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [रविवार, सोमवार, मंगलवार, बुधवार, गुरुवार, शुक्रवार, शनिवार]
+    abbr_day_names: [रवि, सोम, मंगल, बुध, गुरु, शुक्र, शनि]
+
+    month_names: [~, जनवरी, फरवरी, मार्च, अप्रैल, मई, जून, जुलाई, अगस्त, सितंबर, अक्टूबर, नवंबर, दिसंबर]
+    abbr_month_names: [~, जन, फर, मार्च, अप्रै, मई, जून, जुला, अग, सितं, अक्टू, नवं, दिस]
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "पूर्वाह्न"
+    pm: "अपराह्न"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " और "
+      last_word_connector: ", और "
+
+    select:
+      prompt: "कृपया चुनें"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "हज़ार"
+          million: "दस करोड़"
+          billion: "अरब"
+          trillion: "खरब"
+          quadrillion: "करोड़ शंख"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "एक आधा मिनट"
+      less_than_x_seconds:
+        one:   "एक सेकेंड से कम"
+        other: "%{count}  सेकेंड से कम"
+      x_seconds:
+        one:   "एक सेकेंड"
+        other: "%{count} सेकेंड"
+      less_than_x_minutes:
+        one:   "एक मिनट से कम"
+        other: "%{count} मिनट से कम"
+      x_minutes:
+        one:   "एक मिनट"
+        other: "%{count} मिनट"
+      about_x_hours:
+        one:   "लगभग एक घंटा"
+        other: "लगभग %{count} घंटा"
+      x_days:
+        one:   "एक दिन"
+        other: "%{count} दिन"
+      about_x_months:
+        one:   "लगभग 1 महीना"
+        other: "लगभग %{count} महीना"
+      x_months:
+        one:   "एक महीना"
+        other: "%{count} महीना"
+      about_x_years:
+        one:   "लगभग 1 साल"
+        other: "लगभग %{count} साल"
+      over_x_years:
+        one:   "एक साल के ऊपर"
+        other: "%{count} साल से अधिक"
+      almost_x_years:
+        one:   "लगभग एक साल"
+        other: "लगभग %{count} साल"
+    prompts:
+      year:   "वर्ष"
+      month:  "माह"
+      day:    "दिन"
+      hour:   "घंटा"
+      minute: "मिनट"
+      second: "सेकेंड"
+
+  helpers:
+    select:
+      prompt: "कृपया चुनें"
+
+    submit:
+      create: '%{model} बनाएँ'
+      update: '%{model} अद्यतन'
+      submit: '%{model} सौंपें'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "सूची में शामिल नहीं है"
+      exclusion: "आरक्षित है"
+      invalid: "अवैध है"
+      confirmation: "पुष्टिकरण मेल नहीं खाता"
+      accepted: "स्वीकार किया जाना जरूरी"
+      empty: "रिक्त नहीं रह सकता है"
+      blank: "खाली नहीं रह सकता है"
+      too_long: "अत्यधिक लंबा है (अधिकतम %{count} वर्ण हैं)"
+      too_short: "अत्यधिक छोटा है (न्यूनतम %{count} वर्ण हैं)"
+      wrong_length: "गलत लंबाई है (%{count} वर्ण युक्त होना चाहिए)"
+      not_a_number: "कोई संख्या नहीं है"
+      not_an_integer: "एक पूर्णांक होना चाहिए"
+      greater_than: "%{count} से अधिक होना चाहिए"
+      greater_than_or_equal_to: "%{count} से बड़ा या बराबर होना आवश्यक है"
+      equal_to: "%{count} के लिए बराबर होना चाहिए"
+      less_than: "%{count} से कम होना चाहिए"
+      less_than_or_equal_to: "%{count} से कम या बराबर होना आवश्यक है"
+      odd: "विसम होना चाहिए"
+      even: "सम होना चाहिए"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "इस %{model} को सहेजे जाना एक त्रुटि के कारण नहीं हुआ"
+          other:  "इस %{model} को सहेजे जाना %{count} त्रुटि के कारण नहीं हुआ"
+        body: "निम्नलिखित क्षेत्रों के साथ समस्या थी:"
+
+      messages:
+        taken: "पहले ही ले लिया गया है"
+        record_invalid: "सत्यापन विफल: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

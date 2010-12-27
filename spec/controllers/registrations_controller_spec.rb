@@ -22,10 +22,10 @@ describe RegistrationsController do
 
   describe '#check_registrations_open!' do
     before do
-      APP_CONFIG[:registrations_closed] = true
+      AppConfig[:registrations_closed] = true
     end
     after do
-      APP_CONFIG[:registrations_closed] = false
+      AppConfig[:registrations_closed] = false
     end
     it 'redirects #new to the login page' do
       get :new

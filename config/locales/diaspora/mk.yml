@@ -46,9 +46,9 @@ mk:
       failure: "Неуспешно додавање на контактот во аспект."
       success: "Успешно додаден контактот во аспект."
     all_aspects_contacts: 
-      add_aspect: "add aspect"
       all_contacts: "All contacts"
       aspects: "Aspects"
+      manage_aspects: "manage aspects"
       no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
@@ -106,6 +106,9 @@ mk:
     new_comment: 
       comment: "Коментар"
       commenting: "Коментирање..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"
@@ -165,13 +168,19 @@ mk:
       login: "најави се"
       logout: "одјави се"
       view_profile: "погледни профил"
+  new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
+  next: "next"
+  no_new_notifications: "no new notifications"
   notifications: 
     comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -281,13 +290,14 @@ mk:
       edit: "уреди"
       edit_delete_photo: "Уреди опис на слика/избриши слика"
       make_profile_photo: "направи ја профил слика"
-      original_post: "Изворна објава"
       permalink: "permalink"
       update_photo: "Ажурирај слика"
       view: "поглед"
+      view_original_post: "view original post"
     update: 
       error: "Неуспешно уредување на слика."
       notice: "Ажурирањето на сликата е успешно."
+  previous: "previous"
   profile: "Профил"
   registrations: 
     closed: "Регистрирањето е затворено."

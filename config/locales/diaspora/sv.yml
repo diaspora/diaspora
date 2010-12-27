@@ -15,7 +15,7 @@ sv:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "måste vara unik bland denna användares kontakter."
         person: 
           attributes: 
             diaspora_handle: 
@@ -23,15 +23,15 @@ sv:
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "är en dublett av en existerande förfrågan."
         user: 
           attributes: 
             email: 
-              taken: "är redan taget"
+              taken: "är redan taget."
             person: 
-              invalid: "är ogiltigt"
+              invalid: "är ogiltigt."
             username: 
-              taken: "är redan taget"
+              taken: "är redan taget."
   ago: "%{time} sedan"
   application: 
     helper: 
@@ -39,16 +39,16 @@ sv:
         all_aspects: "Alla sidor"
       unknown_person: "okänd person"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Okänd videotitel"
   are_you_sure: "Är du säker?"
   aspects: 
     add_to_aspect: 
       failure: "Personen kunde inte läggas till på sidan."
       success: "Personen tillagd på sidan."
     all_aspects_contacts: 
-      add_aspect: "Lägg till sida"
       all_contacts: "Alla kontakter"
       aspects: "Sidor"
+      manage_aspects: "hantera sidor"
       no_contacts: "Förnärvarande har du inga kontakter. Hitta dina kontakter här."
     aspect_contacts: 
       done_editing: "dölj"
@@ -106,6 +106,9 @@ sv:
     new_comment: 
       comment: "Kommentar"
       commenting: "Kommenterar..."
+      enter: "skicka"
+      press: "tryck"
+      to_comment: "för att kommentera"
   contacts: 
     few: "%{count} kontakter"
     one: "1 kontakt"
@@ -156,7 +159,7 @@ sv:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
-      whats_new: "what's new?"
+      whats_new: "några nyheter?"
     header: 
       account_settings: "kontoinställningar"
       blog: "blogg"
@@ -165,16 +168,22 @@ sv:
       login: "logga in"
       logout: "logga ut"
       view_profile: "visa profil"
+  new_notifications: "%{count} nya notifieringar"
   new_requests: 
     few: "%{count} nya förfrågningar!"
     one: "ny förfrågan!"
     other: "%{count} nya förfrågningar!"
     zero: "inga nya förfrågningar"
+  next: "nästa"
+  no_new_notifications: "inga nya notifieringar"
   notifications: 
-    comment_on_post: "commented on your"
-    new_request: "offered to share with you."
-    post: "post"
-    request_accepted: "accepted your share request."
+    comment_on_post: "kommenterade din"
+    deleted: "borttaget"
+    index: 
+      notifications: "Notifieringar"
+    new_request: "erbjöd sig att dela med dig."
+    post: "meddelande"
+    request_accepted: "accepterade din förfrågan om att dela."
   notifier: 
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
@@ -185,11 +194,11 @@ sv:
       subject: "ny kontaktförfrågan från %{from}"
       try_it_out: "Du borde verkligen överväga att kolla upp detta."
     request_accepted: 
-      accepted: "har accepterat din kontaktförfrågan. Personen finns nu på "
+      accepted: "har accepterat din kontaktförfrågan!"
       subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
     single_admin: 
       admin: "Din Diaspora administratör"
-      subject: "Ett meddelande från din Diaspora administratör:"
+      subject: "Ett meddelande gällande ditt Diaspora-konto:"
     thanks: "Tack,"
   ok: "OK"
   or: "eller"
@@ -200,7 +209,7 @@ sv:
   password_confirmation: "Bekräfta lösenord"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "flytta mellan sidor"
     edit: 
       allow_search: "Tillåt andra användare på Diaspora att söka efter dig"
       edit_profile: "Ändra profil"
@@ -229,7 +238,7 @@ sv:
       thats_you: "Detta är du!"
     profile_sidebar: 
       bio: "bio"
-      born: "född"
+      born: "födelsedag"
       cannot_remove: "Kan inte ta bort %{name} från den sista sidan. Du måste ta bort personen om du inte längre vill vara ansluten till denne."
       edit_my_profile: "Ändra min profil"
       gender: "kön"
@@ -237,17 +246,17 @@ sv:
       remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "Så snart %{name} accepterar kommer ni kunna se varandras meddelanden och bilder"
+      share_with: "Börja dela med %{name}"
     show: 
       does_not_exist: "Den här personen finns inte!"
       incoming_request: "Du har en inkommande förfrågan från den här personen."
       no_posts: "inga meddelanden att visa!"
-      not_connected: "Du är inte ansluten med denna personen"
+      not_connected: "Du är inte ansluten till %{name}"
       recent_posts: "Postat nyligen"
       recent_public_posts: "Senaste publika inlägg"
       return_to_aspects: "Återgå till översikten"
-      similar_contacts: "similar contacts"
+      similar_contacts: "liknande kontakter"
       to_accept_or_ignore: "for att acceptera eller ignorera."
     update: 
       failed: "Misslyckades med att uppdatera profilen"
@@ -281,13 +290,14 @@ sv:
       edit: "ändra"
       edit_delete_photo: "Ändra beskrivning / ta bort bild"
       make_profile_photo: "använd som profilbild"
-      original_post: "Ursprungligt meddelande"
       permalink: "permalink"
       update_photo: "Uppdatera foto"
       view: "visa"
+      view_original_post: "visa ursprungligt meddelande"
     update: 
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
+  previous: "föregående"
   profile: "Profil"
   registrations: 
     closed: "Registreringsformuläret är stäng på den här poden."
@@ -395,7 +405,7 @@ sv:
       download_photos: "Ladda ner mina foton"
       download_xml: "Ladda ner min xml"
       edit_account: "Ändra konto"
-      email_notifications: "E-post meddelanden"
+      email_notifications: "E-post notifieringar"
       export_data: "Exportera data"
       new_password: "Nytt lösenord"
       receive_email_notifications: "Vill du få meddelande via e-post?"
@@ -432,7 +442,7 @@ sv:
     public: 
       does_not_exist: "Användaren %{username} finns inte!"
     update: 
-      email_notifications_changed: "Byte av språk misslyckades"
+      email_notifications_changed: "E-post-notifieringar har ändrats"
       language_changed: "Språk är nu ändrat"
       language_not_changed: "Språket kunde inte ändras"
       password_changed: "Lösenordet är nu ändrat"

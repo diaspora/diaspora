@@ -3,3 +3,7 @@
 -#   the COPYRIGHT file.
 
 = link_to t('.new', :type => object.class.to_s, :from => object.person.name), object_path(object.post)
+
+
+= link_to "#{note.person.name.titelize}", person_path(note.person)
+= object_link(note)

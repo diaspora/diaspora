@@ -34,13 +34,13 @@ es-PE:
       date_and_day: "%A %d"
       short: "%d de %b"
       default: "%d/%m/%Y"
-      long: "%A, %d de %B de %Y"
+      long: "%A, %d de %B del %Y"
   time:
     formats:
       short: "%d de %b a las %H:%M hrs"
       short_with_year: "%d %b %Y"
-      default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
-      long: "%A, %d de %B de %Y a las %I:%M %p"
+      default: "%a, %d de %b del %Y a las %H:%M:%S %Z"
+      long: "%A, %d de %B del %Y a las %I:%M %p"
     am: "am"
     pm: "pm"
 

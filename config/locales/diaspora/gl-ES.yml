@@ -1,0 +1,455 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+gl-ES: 
+  _comments: "Comentarios"
+  _home: "Inicio"
+  _photos: "fotos"
+  _services: "Servizos"
+  account: "Conta"
+  activemodel: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "xa está sendo usada"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
+        user: 
+          attributes: 
+            email: 
+              taken: "xa está sendo usado"
+            person: 
+              invalid: "é incorrecto"
+            username: 
+              taken: "xa está sendo usado"
+  ago: "%{time} atrás"
+  application: 
+    helper: 
+      aspect_badge: 
+        all_aspects: "All aspects"
+      unknown_person: "persoa descoñecida"
+      video_title: 
+        unknown: "Unknown Video Title"
+  are_you_sure: "Are you sure?"
+  aspects: 
+    add_to_aspect: 
+      failure: "Non se puido engadir o contacto á aparencia."
+      success: "Engadiuse correctamente o contacto coa aparencia."
+    all_aspects_contacts: 
+      all_contacts: "All contacts"
+      aspects: "Aspects"
+      manage_aspects: "manage aspects"
+      no_contacts: "You currently have no contacts.  Find your contacts here."
+    aspect_contacts: 
+      done_editing: "done editing"
+    create: 
+      failure: "Fallou a creación da aparencia."
+      success: "A súa nova aparencia %{name} foi creada"
+    destroy: 
+      success: "%{name} foi eliminado correctamente."
+    edit_aspect_pane: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Remove aspect?"
+      remove_aspect: "Remove Aspect"
+    helper: 
+      are_you_sure: "Are you sure you want to delete this aspect?"
+      aspect_not_empty: "A aparencia non está baleira"
+      remove: "eliminar"
+    index: 
+      handle_explanation: "Esta é a súa tarxeta de diaspora. Coma un enderezo electrónico, podes darllo ás persoas para que te localicen."
+    manage: 
+      add_a_new_aspect: "Engadir unha nova aparencia"
+      add_a_new_contact: "Engadir un novo contacto"
+      drag_to_add: "Arrastre para engadir xente"
+      manage_aspects: "Xestionar aparencias"
+      no_requests: "Non hai solicitudes novas"
+      requests: "Solicitudes"
+    move_contact: 
+      error: "Erro movendo ao contacto: %{inspect}"
+      failure: "non funcionou %{inspect}"
+      success: "A persoa mudou a unha nova aparencia"
+    new_aspect: 
+      create: "Crear"
+      name: "Nome"
+    no_contacts_message: 
+      add_contact: "Engadir un contacto"
+      add_contact_to: "Engadir a alguén a %{aspect_name}"
+      invite: "Convida a alguén a participar en Diaspora!"
+      nobody: "Traia ás persoas que lle importan a Diaspora!"
+      nobody_in_aspect: "A túa aparencia '%{aspect_name}' está baleira."
+    no_posts_message: 
+      start_talking: "Ninguén dixo nada. Comeza unha conversa!"
+    remove_from_aspect: 
+      failure: "Non se puido eliminar a persoa da aparencia"
+      success: "Persoa eliminada correctamente da aparencia"
+    seed: 
+      family: "Familia"
+      work: "Traballo"
+    show: 
+      edit_aspect: "editar aparencia"
+    update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
+      success: "A súa aparencia, %{name}, foi editada con éxito."
+  back: "Volver"
+  cancel: "Cancelar"
+  comments: 
+    new_comment: 
+      comment: "Comentario"
+      commenting: "Comentando..."
+      enter: "enter"
+      press: "press"
+      to_comment: "to comment"
+  contacts: 
+    few: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    zero: "no contacts"
+  delete: "Borrar"
+  email: "Correo-e"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Corrixa os seguintes erros e ténteo de novo."
+      invalid_fields: "Campos incorrectos"
+  fill_me_out: "Énchame"
+  home: 
+    show: 
+      already_account: "xa tes unha conta?"
+      choice: "Escolla"
+      choice_explanation: "Diaspora permítelle clasificar as súas conexións en grupos chamados aparencias. Exclusivo de Diaspora, as aparencias garanten que as súas fotos, historias e chistes son compartidos só coas persoas que quere."
+      learn_about_host: "Aprenda como aloxar o seu propio servidor de Diaspora."
+      login_here: "inicie sesión aquí"
+      ownership: "Propiedade"
+      ownership_explanation: "Posúes as túas imaxes, e non deixarás de facelo ao compartilas. Manterás a propiedade de todo canto compartas en Diaspora, tendo pleno control de como é distribuído."
+      share_what_you_want: "Comparte o que desexes, con quen desexes."
+      simplicity: "Simplicidade"
+      simplicity_explanation: "Diaspora fai de compartir algo claro e sinxelo - e isto vale tamén coa privacidade. Coa mesma, Diaspora non lle fará percorrer páxinas de axustes e opcións para manter o seu perfil seguro."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
+  invitations: 
+    check_token: 
+      not_found: "Bono de convite non atopado"
+    create: 
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
+      no_more: "Non tes máis convites."
+      rejected: "Os seguintes enderezos de correo deron problemas:"
+      sent: "Os convites foron enviados a:"
+    edit: 
+      sign_up: "rexistrarse"
+    new: 
+      already_invited: "Already invited"
+      aspect: "Aspect"
+      comma_seperated_plz: "Podes engadir varios enderezos de correo separándoos por vírgulas."
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+      invite_someone_to_join: "Convida a alguén a participar en Diaspora!"
+      personal_message: "Personal message"
+      send_an_invitation: "Enviar un convite"
+      send_invitation: "Enviar convite"
+      to: "A"
+  layouts: 
+    application: 
+      powered_by: "FORNECIDO POR DIASPORA*"
+      whats_new: "what's new?"
+    header: 
+      account_settings: "account settings"
+      blog: "blog"
+      code: "code"
+      edit_profile: "edit profile"
+      login: "login"
+      logout: "logout"
+      view_profile: "view profile"
+  new_notifications: "%{count} new notifications"
+  new_requests: 
+    few: "%{count} new requests!"
+    one: "new request!"
+    other: "%{count} new requests!"
+    zero: "no new requests"
+  next: "next"
+  no_new_notifications: "no new notifications"
+  notifications: 
+    comment_on_post: "commented on your"
+    deleted: "deleted"
+    index: 
+      notifications: "Notifications"
+    new_request: "offered to share with you."
+    post: "post"
+    request_accepted: "accepted your share request."
+  notifier: 
+    diaspora: "the diaspora email robot"
+    hello: "Hello %{name}!"
+    love: "love,"
+    new_request: 
+      just_sent_you: "just sent you a contact request on Diaspora*"
+      sign_in: "sign in here"
+      subject: "new Diaspora* contact request from %{from}"
+      try_it_out: "You should really think about checking it out."
+    request_accepted: 
+      accepted: "has accepted your contact request. They are now in your"
+      subject: "%{name} has accepted your contact request on Diaspora*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message from your Diaspora administrator:"
+    thanks: "Thanks,"
+  ok: "OK"
+  or: "or"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
+    edit: 
+      allow_search: "Permitir á xente pescudarche dentro de Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "Nome"
+      info_available_to: "Esta información estará dispoñíbel a quen te conectes en Diaspora."
+      last_name: "Apelido"
+      update_profile: "Actualizar perfil"
+      your_bio: "Sobre min"
+      your_birthday: "O teu aniversario"
+      your_gender: "O teu xénero"
+      your_name: "O teu nome"
+      your_photo: "A túa foto"
+      your_profile: "O teu perfil"
+    helper: 
+      people_on_pod_are_aware_of: " people on pod are aware of"
+      results_for: "resultados para %{params}"
+    index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
+      no_results: "Hey! You need to search for something."
+      results_for: "resultados da procura para"
+    person: 
+      add_contact: "engadir contacto"
+      already_connected: "Xa conectado"
+      pending_request: "solicitude pendente"
+      thats_you: "es ti!"
+    profile_sidebar: 
+      bio: "bio"
+      born: "nado"
+      cannot_remove: "Non se pode eliminar %{name} da última aparencia. (Se te queres desvincular desta persoa tes que eliminar o contacto.)"
+      edit_my_profile: "Editar o meu perfil"
+      gender: "xénero"
+      in_aspects: "en aparencias"
+      remove_contact: "borrar contacto"
+      remove_from: "Eliminar %{name} da %{aspect}?"
+    share_with: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      share_with: "Start sharing with %{name}"
+    show: 
+      does_not_exist: "A persoa non existe!"
+      incoming_request: "You have an incoming request from this person."
+      no_posts: "non hai mensaxes que amosar!"
+      not_connected: "You are not connected with this person"
+      recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
+      return_to_aspects: "Return to your aspects page"
+      similar_contacts: "similar contacts"
+      to_accept_or_ignore: "to accept or ignore it."
+    update: 
+      failed: "Non se puido actualizar o perfil"
+      updated: "Perfil actualizado"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
+  photos: 
+    create: 
+      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      type_error: "Photo upload failed.  Are you sure an image was added?"
+    destroy: 
+      notice: "Foto eliminada."
+    edit: 
+      editing: "Editando"
+    new: 
+      back_to_list: "Volta á lista"
+      new_photo: "Foto nova"
+      post_it: "anótao!"
+    new_photo: 
+      empty: "{file} está baleiro, elixa de novo os arquivos."
+      invalid_ext: "{file} ten unha extensión incorrecta. Só se permiten estas {extensions}."
+      size_error: "{file} é moi grande, o peso máximo de arquivo é {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
+    photo: 
+      view_all: "ver todas as fotos de %{name}"
+    show: 
+      delete_photo: "Eliminar foto"
+      edit: "editar"
+      edit_delete_photo: "Editar descrición da foto / eliminar foto"
+      make_profile_photo: "facela foto do perfil"
+      permalink: "permalink"
+      update_photo: "Actualizar foto"
+      view: "ver"
+      view_original_post: "view original post"
+    update: 
+      error: "Erro ao editar a foto."
+      notice: "Foto actualizada correctamente."
+  previous: "previous"
+  profile: "Perfil"
+  registrations: 
+    closed: "Signups are closed on this Diaspora pod."
+    create: 
+      success: "Engadiuse a Diaspora!"
+    edit: 
+      cancel_my_account: "Cancelar a miña conta"
+      edit: "Edit %{name}"
+      leave_blank: "(leave blank if you don't want to change it)"
+      password_to_confirm: "(we need your current password to confirm your changes)"
+      unhappy: "Unhappy?"
+      update: "Update"
+    new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      sign_up: "Sign up"
+      sign_up_for_diaspora: "Sign up for Diaspora"
+  requests: 
+    create: 
+      sending: "Sending"
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+    destroy: 
+      error: "Please select an aspect!"
+      ignore: "Ignored contact request."
+      success: "You are now friends."
+    manage_aspect_contacts: 
+      existing: "Existing contacts"
+      manage_within: "Manage contacts within"
+    new_request_to_person: 
+      sent: "sent!"
+  search: "Search"
+  services: 
+    create: 
+      success: "Identificado con éxito."
+    destroy: 
+      success: "Successfully destroyed authentication."
+    failure: 
+      error: "there was an error connecting that service"
+    index: 
+      connect_to_facebook: "Conectar ao Facebook"
+      connect_to_twitter: "Conectar ao Twitter"
+      disconnect: "desconectar"
+      edit_services: "Edit services"
+      logged_in_as: "conectado coma"
+      really_disconnect: "desconectar %{service}?"
+  settings: "Axustes"
+  shared: 
+    add_contact: 
+      create_request: "Pescudar por tarxeta Diaspora"
+      diaspora_handle: "Tarxeta Diaspora"
+      enter_a_diaspora_username: "Introduza un nome de usuario de Diaspora:"
+      know_email: "Know their email address? You should invite them"
+      your_diaspora_username_is: "O teu nome de usuario de Diaspora é: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "All contacts"
+      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    invitations: 
+      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      invitations_left: "(%{count} left)"
+      invite_someone: "Invite someone"
+      invites: "Invites"
+      invites_closed: "Invites are currently closed on this Diaspora seed"
+    notification: 
+      new: "New %{type} from %{from}"
+    public_explain: 
+      logged_in: "logged in to %{service}"
+      manage: "manage connected services"
+      outside: "Public messages will be available for others outside of Diaspora to see."
+      title: "You are about to post a public message!"
+    publisher: 
+      add_photos: "add photos"
+      all: "all"
+      all_contacts: "all contacts"
+      make_public: "make public"
+      post_a_message_to: "Post a message to %{aspect}"
+      posting: "Posting..."
+      share: "Share"
+      share_with: "Share with %{aspect}"
+      share_with_all: "share across all of your aspects"
+    reshare: 
+      reshare: "Reshare"
+  status_messages: 
+    helper: 
+      no_message_to_display: "No message to display."
+    new_status_message: 
+      oh_yeah: "oh yeah!"
+      tell_me_something_good: "tell me something good"
+    show: 
+      destroy: "Destroy"
+      permalink: "permalink"
+  stream_helper: 
+    hide_comments: "hide comments"
+    show_comments: "show comments"
+  the_world: "the world"
+  username: "Username"
+  users: 
+    destroy: "Account successfully closed."
+    edit: 
+      change: "Change"
+      change_language: "Change Language"
+      change_password: "Change Password"
+      close_account: "Close Account"
+      download_photos: "download my photos"
+      download_xml: "download my xml"
+      edit_account: "Edit account"
+      email_notifications: "Email notificaions"
+      export_data: "Export Data"
+      new_password: "New Password"
+      receive_email_notifications: "Receive email notificaions?"
+      your_email: "Your email"
+      your_handle: "Your diaspora handle"
+    getting_started: 
+      connect_services: "Connect your other services"
+      define_aspects: "Define your aspects"
+      edit_profile: "Edit your profile"
+      finished: "Finished!"
+      save_and_continue: "Save and continue"
+      signup_steps: "Finish your sign up by completing these three steps:"
+      skip: "skip getting started"
+      step_2: 
+        add: "Add"
+        aspect_name: "Aspect name"
+        description: "Tell Diaspora what different aspects of you are seen by different contacts. You can manage these later through your account menu at the top right. Your aspects are unique to you and not visible by others."
+        drag_to_add: "Drag them to the aspect of yourself they know"
+        no_requests: "You have no requests"
+        your_aspects: "Your aspects"
+        your_inviter: "Here are the people who are waiting for you:"
+      step_3: 
+        description: "You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public\""
+        your_services: "Your services"
+      step_4: 
+        change_profile: "You can edit your profile and manage your connected services at any time through "
+        continue: "Continue on to your Home page, an overview of all of your aspects."
+        finish: "Finish"
+        manage_aspects: "You can also add contacts while on any aspect page."
+        ready_to_share: "You're now ready to start sharing with "
+        set_up: "You're all set up, %{name}!"
+        user_menu: "the user menu located at the top right."
+      welcome: "Welcome to Diaspora!"
+    public: 
+      does_not_exist: "User %{username} does not exist!"
+    update: 
+      email_notifications_changed: "Language Change Failed"
+      language_changed: "Language Changed"
+      language_not_changed: "Language Change Failed"
+      password_changed: "Password Changed"
+      password_not_changed: "Password Change Failed"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"

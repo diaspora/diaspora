@@ -6,8 +6,8 @@
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
-  if APP_CONFIG[:smtp_sender_address]
-    config.mailer_sender = APP_CONFIG[:smtp_sender_address]
+  if AppConfig[:smtp_sender_address]
+    config.mailer_sender = AppConfig[:smtp_sender_address]
   else
     unless Rails.env == 'test'
       Rails.logger.warn("No smtp sender address set, mail may fail.")

@@ -3,6 +3,7 @@ available:
   ca: "Català"
   cs: 'Lietuviškai'
   cy: 'Cymraeg'
+  da: 'Dansk'
   de: 'Deutsch'
   el: "Ελληνικά"
   en: 'English'
@@ -11,6 +12,7 @@ available:
   fi: 'Suomi'
   fr: 'Français'
   he: 'עברית'
+  hu: 'magyar nyelv'
   id: 'Bahasa Indonesia'
   it: 'Italiano'
   lt: 'Lietuviškai'
@@ -20,7 +22,8 @@ available:
   pl: "Polski"
   pt-BR: 'Português'
   ro: 'Română'
-  sk: 'Slovenščina'
   ru: 'Русский'
+  sl: 'Slovenščina'
+  sk: 'Slovenčina'
   sv: 'Svenska'
   tr: 'Türk'

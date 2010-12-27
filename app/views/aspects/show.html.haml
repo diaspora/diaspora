@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 - content_for :page_title do
-  = @aspect.name
+  = @aspect.name.html_safe
 
 .span-24.last
   %h2{:style=>"position:relative;margin-bottom:0;"}

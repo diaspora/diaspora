@@ -10,11 +10,11 @@ var WebSocketReceiver = {
       WSR.debug("connected...");
     };
   },
-  
+
   onMessage: function(evt) {
       var obj = jQuery.parseJSON(evt.data);
-      if(obj['notice']){
-        WebSocketReceiver.processNotification(obj['notice']);
+      if(obj['class'] == 'notifications'){
+        WebSocketReceiver.processNotification(obj);
 
       }else if (obj['class'] == 'people'){
         WSR.debug("got a " + obj['class']);
@@ -34,7 +34,8 @@ var WebSocketReceiver = {
         }
       }
   },
-processPerson: function(response){
+
+  processPerson: function(response){
     form = $('.webfinger_form');
     form.siblings('#loader').hide();
     result_ul = form.siblings('#request_result');
@@ -52,8 +53,23 @@ processPerson: function(response){
   },
 
 
-  processNotification: function(html){
-    $('#notification').html(html).fadeIn(200).delay(8000).fadeOut(200, function(){ $(this).html("");});
+  processNotification: function(notification){
+    var nBadge = $("#notification_badge_number");
+
+    nBadge.html().replace(/\d+/, function(num){
+      nBadge.html(parseInt(num)+1);
+    });
+
+    if(nBadge.hasClass("hidden")){
+      nBadge.removeClass("hidden");
+    }
+
+    $('#notification').html(notification['html'])
+      .fadeIn(200)
+      .delay(8000)
+      .fadeOut(200, function(){
+        $(this).html("");
+      });
   },
 
   processRetraction: function(post_id){
@@ -81,10 +97,10 @@ processPerson: function(response){
         if( !$(".comments", post).is(':visible') ){
           toggler.click();
         }
-      }
 
-      if( !opts['mine?'] && opts['my_post?']) {
-        WebSocketReceiver.processNotification(opts['notification']);
+        if( $(".show_comments", post).hasClass('hidden') ){
+          $(".show_comments", post).removeClass('hidden');
+        }
       }
     }
   },
@@ -136,7 +152,7 @@ processPerson: function(response){
       return ((c =='') || (c== '1'));
   },
   debug: function(str){
-    $("#debug").append("<p>" +  str); 
+    $("#debug").append("<p>" +  str);
   }
 };
 var WSR = WebSocketReceiver

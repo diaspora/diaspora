@@ -46,9 +46,9 @@ nl:
       failure: "Contact toevoegen aan aspect is mislukt."
       success: "Contact is met succes toegevoegd aan aspect."
     all_aspects_contacts: 
-      add_aspect: "voeg aspect toe"
       all_contacts: "Alle contacten"
       aspects: "Aspecten"
+      manage_aspects: "beheer aspecten"
       no_contacts: "Je hebt momenteel geen contacten. Vind je contacten hier!"
     aspect_contacts: 
       done_editing: "klaar met bewerken"
@@ -106,6 +106,9 @@ nl:
     new_comment: 
       comment: "Reactie"
       commenting: "Reageren..."
+      enter: "enter"
+      press: "druk op"
+      to_comment: "om te reageren"
   contacts: 
     few: "%{count} contacten"
     one: "1 contact"
@@ -156,7 +159,7 @@ nl:
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
-      whats_new: "what's new?"
+      whats_new: "wat is nieuw op Diaspora?"
     header: 
       account_settings: "account instellingen"
       blog: "blog"
@@ -165,16 +168,22 @@ nl:
       login: "inloggen"
       logout: "log uit"
       view_profile: "bekijk profiel"
+  new_notifications: "%{count} nieuwe notificaties"
   new_requests: 
     few: "%{count} nieuwe verzoeken!"
     one: "nieuw verzoek!"
     other: "%{count} nieuwe verzoeken!"
     zero: "geen nieuwe verzoeken"
+  next: "volgende"
+  no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
-    comment_on_post: "commented on your"
-    new_request: "offered to share with you."
+    comment_on_post: "reageerde op jouw"
+    deleted: "verwijderd"
+    index: 
+      notifications: "Notificaties"
+    new_request: "bood aan om met jou te delen."
     post: "post"
-    request_accepted: "accepted your share request."
+    request_accepted: "heeft je verzoek geaccepteerd."
   notifier: 
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
@@ -200,7 +209,7 @@ nl:
   password_confirmation: "Wachtwoordbevestiging"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "bewerk aspect lidmaatschap"
     edit: 
       allow_search: "Sta toe door anderen gevonden te kunnen worden binnen Diaspora"
       edit_profile: "Bewerk profiel"
@@ -229,7 +238,7 @@ nl:
       thats_you: "Dat ben jij!"
     profile_sidebar: 
       bio: "bio"
-      born: "geboren"
+      born: "geboortedatum"
       cannot_remove: "Kan %{name} niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
       edit_my_profile: "Bewerk mijn profiel"
       gender: "geslacht"
@@ -237,17 +246,17 @@ nl:
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "Zodra %{name} accepteert, zul je elkaars posts kunnen gaan zien op Diaspora"
+      share_with: "Start delen met %{name}"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "Je hebt een binnenkomend verzoek van deze persoon."
       no_posts: "geen berichten om weer te geven!"
-      not_connected: "Je bent niet verbonden met deze persoon"
+      not_connected: "Je deelt niet met %{name}"
       recent_posts: "Recente Berichten"
       recent_public_posts: "Recente Openbare Berichten"
       return_to_aspects: "Ga terug naar je aspecten pagina"
-      similar_contacts: "similar contacts"
+      similar_contacts: "vergelijkbare contacten"
       to_accept_or_ignore: "om te accepteren of te negeren."
     update: 
       failed: "Updaten van profiel mislukt"
@@ -273,7 +282,7 @@ nl:
       size_error: "{file} is te groot, de maximale bestandsgrootte is {sizeLimit}."
     new_profile_photo: 
       or_select_one: "of selecteer een van je reeds bestaande"
-      upload: "Upload een nieuwe profiel foto!"
+      upload: "Upload een nieuwe profielfoto!"
     photo: 
       view_all: "bekijk al %{name}'s foto's"
     show: 
@@ -281,13 +290,14 @@ nl:
       edit: "bewerk"
       edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
       make_profile_photo: "kies als profielfoto"
-      original_post: "Originele post"
       permalink: "permalink"
       update_photo: "Update foto"
       view: "bekijk"
+      view_original_post: "bekijk oorspronkelijke post"
     update: 
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
+  previous: "vorige"
   profile: "Profiel"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
@@ -399,8 +409,8 @@ nl:
       export_data: "Exporteer data"
       new_password: "Nieuw wachtwoord"
       receive_email_notifications: "E-mail notificaties ontvangen?"
-      your_email: "Jou e-mail"
-      your_handle: "Jou Diaspora handle"
+      your_email: "Jouw e-mail"
+      your_handle: "Jouw Diaspora handle"
     getting_started: 
       connect_services: "Verbind met je andere services"
       define_aspects: "Definieer je aspecten"
@@ -419,7 +429,7 @@ nl:
         your_inviter: "Dit zijn de mensen die op jou wachten:"
       step_3: 
         description: "Je kunt je bestaande sociale netwerken verbinden met je Diaspora account. Je kan via je Home pagina openbare berichten plaatsen door 'maak openbaar' aan te vinken."
-        your_services: "Jou services"
+        your_services: "Jouw services"
       step_4: 
         change_profile: "Je kunt ieder moment je profiel bewerken en je verbonden services beheren door te klikken op"
         continue: "Ga door naar je Home pagina, een overzicht van al je aspecten."
@@ -432,7 +442,7 @@ nl:
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update: 
-      email_notifications_changed: "Taal veranderen mislukt"
+      email_notifications_changed: "E-mailnotificaties gewijzigd"
       language_changed: "Taal gewijzigd"
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd"

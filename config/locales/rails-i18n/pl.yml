@@ -1,29 +1,73 @@
 # Polish translations for Ruby on Rails
 # by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
+# Minor changes and adjustments for Rails 3 by Piotrek Okoński (http://github.com/pokonski)
 
 pl:
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "%B %d, %Y"
+
+    day_names: [niedziela, poniedziałek, wtorek, środa, czwartek, Piątek, Sobota]
+    abbr_day_names: [nie, pon, wto, śro, czw, pia, sob]
+
+    month_names: [~, styczeń, luty, marzec, kwiecień, maj, czerwiec, lipiec, sierpień, wrzesień, październik, listopad, grudzień]
+    abbr_month_names: [~, sty, lut, mar, kwi, maj, cze, lip, sie, wrz, paź, lis, gru]
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "przed południem"
+    pm: "po południu"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " i "
+      last_word_connector: " oraz "
+
+    select:
+      prompt: "Proszę wybrać"
+
   number:
     format:
       separator: ","
       delimiter: " "
-      precision: 2
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
     currency:
       format:
-        format: "%n %u"
+        format: "%u %n"
         unit: "PLN"
         separator: ","
         delimiter: " "
         precision: 2
+        significant: false
+        strip_insignificant_zeros: true
+
     percentage:
       format:
         delimiter: ""
+
     precision:
       format:
         delimiter: ""
+
     human:
       format:
         delimiter: ""
-        precision: 1
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
       storage_units:
         format: "%n %u"
         units:
@@ -34,27 +78,15 @@ pl:
           mb: "MB"
           gb: "GB"
           tb: "TB"
-
-  date:
-    formats:
-      default: "%Y-%m-%d"
-      short: "%d %b"
-      long: "%d %B %Y"
-
-    day_names: [Niedziela, Poniedziałek, Wtorek, Środa, Czwartek, Piątek, Sobota]
-    abbr_day_names: [nie, pon, wto, śro, czw, pia, sob]
-
-    month_names: [~, Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
-    abbr_month_names: [~, sty, lut, mar, kwi, maj, cze, lip, sie, wrz, paź, lis, gru]
-    order: [ :year, :month, :day ]
-
-  time:
-    formats:
-      default: "%a, %d %b %Y, %H:%M:%S %z"
-      short: "%d %b, %H:%M"
-      long: "%d %B %Y, %H:%M"
-    am: "przed południem"
-    pm: "po południu"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Tysiąc
+          million: Milion
+          billion: Miliard
+          trillion: Trylion
+          quadrillion: Kwadrylion
 
   datetime:
     distance_in_words:
@@ -64,7 +96,7 @@ pl:
         few:   "mniej niż %{count} sekundy"
         other: "mniej niż %{count} sekund"
       x_seconds:
-        one:   "sekundę"
+        one:   "1 sekunda"
         few:   "%{count} sekundy"
         other: "%{count} sekund"
       less_than_x_minutes:
@@ -72,48 +104,77 @@ pl:
         few:   "mniej niż %{count} minuty"
         other: "mniej niż %{count} minut"
       x_minutes:
-        one:   "minutę"
+        one:   "1 minuta"
         few:   "%{count} minuty"
         other: "%{count} minut"
       about_x_hours:
         one:   "około godziny"
+        few:   "około %{count} godziny"
         other: "około %{count} godzin"
       x_days:
         one:   "1 dzień"
+        few:   "%{count} dni"
         other: "%{count} dni"
       about_x_months:
         one:   "około miesiąca"
+        few:   "około %{count} miesiące"
         other: "około %{count} miesięcy"
       x_months:
         one:   "1 miesiąc"
         few:   "%{count} miesiące"
         other: "%{count} miesięcy"
       about_x_years:
-        one:   "około roku"
+        one:   "około rok"
+        few:   "około %{count} lata"
         other: "około %{count} lat"
-      almost_x_years:
-        one:   "prawie rok"
-        few:   "prawie %{count} lata"
-        other: "prawie %{count} lat"
       over_x_years:
         one:   "ponad rok"
         few:   "ponad %{count} lata"
         other: "ponad %{count} lat"
+      almost_x_years:
+        one:   "prawie rok"
+        few:   "prawie %{count} lata"
+        other: "prawie %{count} lat"
     prompts:
-      second: "sekundy"
-      minute: "minuty"
-      hour:   "godziny"
-      day:    "dzień"
-      month:  "miesiąc"
-      year:   "rok"
+      year:   "Rok"
+      month:  "Miesiąc"
+      day:    "Dzień"
+      hour:   "Godzina"
+      minute: "Minuta"
+      second: "Sekundy"
 
-  activemodel:
-    errors:
-      template:
-        header:
-          one:    "%{model} nie został zachowany z powodu jednego błędu"
-          other:  "%{model} nie został zachowany z powodu %{count} błędów"
-        body: "Błędy dotyczą następujących pól:"
+  helpers:
+    select:
+      prompt: "Proszę wybrać"
+
+    submit:
+      create: 'Utwórz %{model}'
+      update: 'Aktualizuj %{model}'
+      submit: 'Zapisz %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "nie znajduje się na liście dopuszczalnych wartości"
+      exclusion: "jest zarezerwowane"
+      invalid: "jest nieprawidłowe"
+      confirmation: "nie zgadza się z potwierdzeniem"
+      accepted: "musi zostać zaakceptowane"
+      empty: "nie może być puste"
+      blank: "nie może być puste"
+      too_long: "jest za długie (maksymalnie %{count} znaków)"
+      too_short: "jest za krótkie (przynajmniej %{count} znaków)"
+      wrong_length: "ma nieprawidłową długość (powinna wynosić %{count} znaków)"
+      not_a_number: "nie jest liczbą"
+      not_an_integer: "musi być liczbą całkowitą"
+      greater_than: "musi być większe od %{count}"
+      greater_than_or_equal_to: "musi być większe lub równe %{count}"
+      equal_to: "musi być równe %{count}"
+      less_than: "musi być mniejsze od %{count}"
+      less_than_or_equal_to: "musi być mniejsze lub równe %{count}"
+      odd: "musi być nieparzyste"
+      even: "musi być parzyste"
 
   activerecord:
     errors:
@@ -122,36 +183,11 @@ pl:
           one:    "%{model} nie został zachowany z powodu jednego błędu"
           other:  "%{model} nie został zachowany z powodu %{count} błędów"
         body: "Błędy dotyczą następujących pól:"
+
       messages:
-        inclusion: "nie znajduje się na liście dopuszczalnych wartości"
-        exclusion: "znajduje się na liście zabronionych wartości"
-        invalid: "jest nieprawidłowe"
-        confirmation: "nie zgadza się z potwierdzeniem"
-        accepted: "musi być zaakceptowane"
-        empty: "nie może być puste"
-        blank: "nie może być puste"
-        too_long: "jest za długie (maksymalnie %{count} znaków)"
-        too_short: "jest za krótkie (minimalnie %{count} znaków)"
-        wrong_length: "jest nieprawidłowej długości (powinna wynosić %{count} znaków)"
         taken: "zostało już zajęte"
-        not_a_number: "nie jest liczbą"
-        not_an_integer: "nie jest liczbą całkowitą"
-        greater_than: "musi być większe niż %{count}"
-        greater_than_or_equal_to: "musi być większe lub równe %{count}"
-        equal_to: "musi być równe %{count}"
-        less_than: "musi być mniejsze niż %{count}"
-        less_than_or_equal_to: "musi być mniejsze lub równe %{count}"
-        odd: "musi być nieparzyste"
-        even: "musi być parzyste"
         record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
+        <<: *errors_messages
 
-  support:
-    array:
-      sentence_connector: "i"
-      skip_last_comma: true
-      words_connector: ", "
-      two_words_connector: " i "
-      last_word_connector: " i "
-    select:
-      prompt: "Proszę wybrać:"
-
+      full_messages:
+        format: "%{attribute}%{message}"
