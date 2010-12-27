@@ -262,6 +262,16 @@ describe User do
       user.update_profile(params).should be_true
       user.reload.profile.image_url.should == "http://clown.com"
     end
+
+    it 'only pushes to a given person once' do
+      connect_users(user, aspect, user2, aspect2)
+      user.add_contact_to_aspect(user.contact_for(user2.person),
+                                 user.aspects.create(:name => "Newsies"))
+
+      user.should_receive(:push_to_person).once
+      user.update_profile(@params).should be_true
+    end
+
     it "only pushes to non-pending contacts" do
       connect_users(user, aspect, user2, aspect2)
       user.contacts.count.should == 1
