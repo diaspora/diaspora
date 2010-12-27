@@ -31,7 +31,7 @@ describe RequestsController do
           :accept    => "true",
           :aspect_id => @user.aspects.first.id.to_s,
           :id        => @friend_request.id.to_s
-        response.should redirect_to(aspect_path(@user.aspects.first))
+        response.should redirect_to(requests_path)
       end
     end
     describe 'when ignoring a contact request' do

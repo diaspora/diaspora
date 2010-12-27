@@ -111,7 +111,7 @@ describe Diaspora::UserModules::Connecting do
 
         Notification.where(:target_id=>@received_request.id).first.unread.should be_true
         user.accept_contact_request(@received_request, aspect)
-        Notification.first(:target_id=>@received_request.id).unread.should be_false
+        Notification.where(:target_id=>@received_request.id).first.unread.should be_false
       end
       it 'should be able to ignore a pending contact request' do
         proc { user.ignore_contact_request(@received_request.id)

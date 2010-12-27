@@ -38,7 +38,7 @@ describe Notification do
         Notification.create(@opts)
       end
 
-      @opts.delete(:user_id)
+      @opts.delete(:recipient_id)
       Notification.create(@opts.merge(:recipient_id => user2.id))
 
       Notification.for(@user).count.should == 4
@@ -61,8 +61,8 @@ describe Notification do
       request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       opts = {:target_id => request.id,
               :target_type => request.notification_type(@user, @person),
-              :person_id => @person.id,
-              :user_id => @user.id}
+              :actor_id => @person.id,
+              :recipient_id => @user.id}
 
       n = Notification.create(opts)
       Notification.stub!(:create).and_return n
