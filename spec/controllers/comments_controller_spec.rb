@@ -31,6 +31,11 @@ describe CommentsController do
         response.code.should == '201'
         response.body.should match comment_hash[:text]
       end
+      it 'returns correct person' do
+        post :create, comment_hash.merge(:format => 'js')
+        response.code.should == '201'
+        ActiveSupport::JSON.decode(response.body)['html'].should match "data-person_id=\\\"#{user1.person.id}\\\""
+      end
     end
 
     context "on a post from a contact" do
