@@ -97,9 +97,13 @@ jQuery(function ($) {
     $('form[data-remote]').live('submit', function (e) {
         $(this).callRemote();
         e.preventDefault();
-	$(this).clearForm();
-	$(this).focusout();
     });
+
+    $('form[data-remote]').live('ajax:success', function (e) {
+        $(this).clearForm();
+        $(this).focusout();
+    });
+
 
     $('a[data-remote],input[data-remote]').live('click', function (e) {
         $(this).callRemote();
