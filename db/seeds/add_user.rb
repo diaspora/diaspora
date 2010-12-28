@@ -25,9 +25,23 @@ def read_password
   return pw1
 end
 
+def read_email
+  printf 'Enter email: '
+  email = $stdin.gets.chomp
+end
+
 username = ARGS[:username] || 'admin'
-email = ARGS[:email] || "#{username}@#{AppConfig[:pod_uri].host}"
 password = ARGS[:password] || read_password
+if ARGS[:email].nil?
+  host = AppConfig[:pod_uri].host
+  if host == "localhost"
+    email = read_email
+  else
+    email = "#{username}@#{host}"
+  end
+else
+  email = ARGS[:email]
+end
 
 user = User.build(:email => email,
                   :username => username,
@@ -46,7 +60,7 @@ user.valid?
 errors = user.errors
 errors.delete :person
 if errors.size > 0
-  raise "Error(s) creating user #{username}: #{errors.full_messages.to_s}"
+  raise "Error(s) creating user #{username} / #{email}: #{errors.full_messages.to_s}"
 end
 
 user.save
