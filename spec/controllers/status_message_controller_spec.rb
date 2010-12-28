@@ -21,31 +21,17 @@ describe StatusMessagesController do
   end
 
   describe '#show' do
-    before do
-      @video_id = "ABYnqp-bxvg"
-      @url="http://www.youtube.com/watch?v=#{@video_id}&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
-    end
-    it 'renders posts with youtube urls' do
-      message = user1.build_post :status_message, :message => @url, :to => aspect1.id
-      message[:youtube_titles]= {@video_id => "title"}
+    it 'succeeds' do
+      message = user1.build_post :status_message, :message => "ohai", :to => aspect1.id
       message.save!
       user1.add_to_streams(message, aspect1.id)
       user1.dispatch_post message, :to => aspect1.id
 
-      get :show, :id => message.id
-      response.body.should match /Youtube: title/
-    end
-    it 'renders posts with comments with youtube urls' do
-      message = user1.post :status_message, :message => "Respond to this with a video!", :to => aspect1.id
-      @comment = user1.comment "none", :on => message
-      @comment.text = @url
-      @comment[:youtube_titles][@video_id] = "title"
-      @comment.save!
-
-      get :show, :id => message.id
-      response.body.should match /Youtube: title/
+      get :show, "id" => message.id.to_s
+      response.should be_success
     end
   end
+  
   describe '#create' do
     let(:status_message_hash) {
       { :status_message => {
@@ -90,6 +76,7 @@ describe StatusMessagesController do
       post :create, hash
     end
   end
+
   describe '#destroy' do
     let!(:message) {user1.post(:status_message, :message => "hey", :to => aspect1.id)}
     let!(:message2) {user2.post(:status_message, :message => "hey", :to => aspect2.id)}
