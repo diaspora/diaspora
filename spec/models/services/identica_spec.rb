@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe Services::Twitter do
+describe Services::Identica do
 
   before do
     @user = make_user
     @user.aspects.create(:name => "whatever")
     @post = @user.post(:status_message, :message => "hello", :to =>@user.aspects.first.id)
-    @service = Services::Twitter.new(:access_token => "yeah", :access_secret => "foobar", :endpoint => 'http://identi.ca/api')
+    @service = Services::Identica.new(:access_token => "yeah", :access_secret => "foobar", :endpoint => 'http://identi.ca/api')
     @user.services << @service
   end
 
