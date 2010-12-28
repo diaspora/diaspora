@@ -35,7 +35,7 @@ Factory.define :user do |u|
   user.person = Factory.build(:person, :profile => Factory.create(:profile),
                               :owner_id => user._id,
                               :serialized_public_key => user.encryption_key.public_key.export,
-                              :diaspora_handle => "#{user.username}@#{AppConfig[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
+                              :diaspora_handle => "#{user.username}@#{AppConfig[:pod_uri].host}")
   end
 end
 
