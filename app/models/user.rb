@@ -265,7 +265,7 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
-      push_to_people profile, self.contacts(:pending => false).includes(:person).map{|c| c.person}
+      push_to_people profile, self.contacts.where(:pending => false).includes(:person).map{|c| c.person}
       true
     else
       false

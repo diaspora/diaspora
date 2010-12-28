@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   xml_attr :public
   xml_attr :created_at
 
-  has_many :comments, :order => 'created_at ASC'
+  has_many :comments, :order => 'created_at ASC', :dependent => :destroy
   has_many :post_visibilities
   has_many :aspects, :through => :post_visibilities
   belongs_to :person
@@ -23,7 +23,6 @@ class Post < ActiveRecord::Base
   @@per_page = 10
 
   before_destroy :propogate_retraction
-  after_destroy :destroy_comments
 
   def user_refs
     self.post_visibilities.count
@@ -60,10 +59,6 @@ class Post < ActiveRecord::Base
   end
 
   protected
-  def destroy_comments
-    comments.each { |c| c.destroy }
-  end
-
   def propogate_retraction
     self.person.owner.retract(self) if self.person.owner
   end
