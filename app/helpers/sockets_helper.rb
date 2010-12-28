@@ -51,14 +51,15 @@ module SocketsHelper
         v = render_to_string(:partial => 'comments/comment', :locals => {:hash => {:comment => object, :person => object.person}})
 
       elsif object.is_a? Notification
-        v = render_to_string(:partial => 'notifications/popup', :locals => {:note => object, :person => object.person})
+        v = render_to_string(:partial => 'notifications/popup', :locals => {:note => object, :person => object.actor})
 
       else
         v = render_to_string(:partial => type_partial(object), :locals => {:post => object, :current_user => user}) unless object.is_a? Retraction
       end
     rescue Exception => e
       Rails.logger.error("event=socket_render status=fail user=#{user.diaspora_handle} object=#{object.id.to_s}")
-      raise e.original_exception
+      raise e.original_exception if e.respond_to?(:original_exception)
+      raise e
     end
     action_hash = {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}
     action_hash.merge! opts

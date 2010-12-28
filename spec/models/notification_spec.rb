@@ -50,17 +50,18 @@ describe Notification do
       Notification.should_not_receive(:create)
       Notification.notify(@user, @sm, @person)
     end
-
+   context 'with a request' do
+     before do
+      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
+     end
    it 'calls Notification.create if the object has a notification_type' do
-      request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       Notification.should_receive(:create).once
-      Notification.notify(@user, request, @person)
+      Notification.notify(@user, @request, @person)
     end
 
     it 'sockets to the recipient' do
-      request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
-      opts = {:target_id => request.id,
-              :target_type => request.notification_type(@user, @person),
+      opts = {:target_id => @request.id,
+              :target_type => @request.notification_type(@user, @person),
               :actor_id => @person.id,
               :recipient_id => @user.id}
 
@@ -68,8 +69,9 @@ describe Notification do
       Notification.stub!(:create).and_return n
 
       n.should_receive(:socket_to_uid).once
-      Notification.notify(@user, request, @person)
+      Notification.notify(@user, @request, @person)
     end
+   end
   end
 end
 
