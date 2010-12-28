@@ -17,8 +17,6 @@
   .span-4.append-1.last
     .requests
       %h3=t('.requests')
-      %i
-        %p= "#{t('.drag_to_add')} =>"
 
       %ul.dropzone
         - if @remote_requests.size < 1
@@ -31,6 +29,10 @@
                   X
                 .circle
               = link_to person_image_tag(hash[:sender]), hash[:sender]
+
+      - if @remote_requests.size > 0
+        %p
+          %i= "#{t('.drag_to_add')} =>"
 
       = render 'shared/invitations', :invites => @invites
 
