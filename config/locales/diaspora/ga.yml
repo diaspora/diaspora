@@ -1,0 +1,66 @@
+ga:
+  settings: "Socraithe"
+  profile: "Próifíl"
+  account: "Cúntas"
+  _services: "Seirbhísí"
+  _photos: "pictíurí"
+  ok: "OK"
+  cancel: "Cealaigh"
+  delete: "Scrios"
+  or: "nó"
+  ago: "%{time} ó shin"
+  username: "Ainm úsáideora"
+  email: "Sheoladh ríomhphost"
+  password: "Pasfhocal"
+  password_confirmation: "Deimhniú pasfhocal"
+  are_you_sure: "An bhfuil tú cinnte?"
+  fill_me_out: "Líon mé amach"
+  back: "Ar ais"
+  the_world: "an domhain"
+  new_notifications: "%{count} fógraí nua"
+  no_new_notifications: "níl aon fógrái nua"
+  _home: "Abhaile"
+  _comments: "Nótaí tráchta"
+  next: "ar aghaidh"
+  previous: "roimhhe"
+  contacts:
+    zero: "níl aon teagmháila"
+    one: "teagmháil amháin"
+    few: "%{count} teagmháil"
+    other: "%{count} teagmháil"
+  new_requests:
+    zero: "níl aon iarrata"
+    one: "iarratas nua!"
+    few: "%{count} iarratas nua!"
+    other: "%{count} iarratas nua!"
+
+activemodel:
+  errors:
+    models:
+      user:
+        attributes:
+          person:
+            invalid: "neamhbhailí."
+          username:
+            taken: "tógtha cheanna féin"
+          email:
+            taken: "tóghta cheanna féin"
+      person:
+        attributes:
+          diaspora_handle:
+            taken: "tógtha cheanna féin"
+      contact:
+        attributes:
+          person_id:
+            taken: "tá ar bheith uathúil is measc na teaghmháil an úsáideora seo."
+      request:
+        attributes:
+          from_id:
+            taken: "is dúblach é de iarratas a bhí an cheanna féin"
+application:
+  helper:
+    unknown_person: "duine anaithnid"
+    video_title:
+      unknown: "Teideal Físeán Anaithnid"
+    aspect_badge:
+      all_aspects: "Gach gné"
