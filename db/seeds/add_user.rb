@@ -32,15 +32,14 @@ end
 
 username = ARGS[:username] || 'admin'
 password = ARGS[:password] || read_password
-if ARGS[:email].nil?
-  host = AppConfig[:pod_uri].host
-  if host == "localhost"
-    email = read_email
-  else
-    email = "#{username}@#{host}"
-  end
-else
-  email = ARGS[:email]
+email = ARGS[:email] || "#{username}@#{AppConfig[:pod_uri].host}"
+if email =~ /localhost$/
+  puts "WARNING: localhost will not validate as an email domain"
+  puts "\tupdate your email address, if you require email notifications for this account"
+  puts "\trake db:first_user[username,password,email]"
+  puts "\trake db:add_user[username,password]"
+  puts "\tor modify your data store"
+  email = 'username@example.com'
 end
 
 user = User.build(:email => email,
