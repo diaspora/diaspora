@@ -100,6 +100,10 @@ module ApplicationHelper
     I18n.t('ago', :time => time_ago_in_words(obj.created_at, true))
   end
 
+  def when_exactly(obj)
+    obj.created_at ? I18n.l(obj.created_at, :format => :long) : I18n.l(Time.now, :format => :long)
+  end
+
   def person_url(person)
     case person.class.to_s
       when "User"

@@ -30,7 +30,7 @@
     = render 'status_messages/status_message', :post => post, :photos => photos
 
     .info
-      %span.time= link_to(how_long_ago(post), status_message_path(post))
+      %span.time= link_to(how_long_ago(post), status_message_path(post), :title => when_exactly(post))
       = link_to t('comments.new_comment.comment').downcase, '#', :class => 'focus_comment_textarea'
 
     = render "comments/comments", :post_id => post.id, :comment_hashes => comments, :condensed => true, :commenting_disabled => defined?(@commenting_disabled)

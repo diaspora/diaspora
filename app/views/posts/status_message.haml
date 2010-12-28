@@ -16,6 +16,6 @@
     - for photo in @post.photos
       = link_to (image_tag photo.url(:thumb_small)), post_path(photo)
 
-  .time
+  .time{:title => when_exactly(@post)}
     = how_long_ago(@post)
   = link_to t('status_messages.show.permalink'), post_path(@post)
