@@ -25,7 +25,7 @@ def read_password
   return pw1
 end
 
-username = ARGS[:username] || 'admin'
+username = (ARGS[:username] || 'admin').dup
 email = ARGS[:email] || "#{username}@#{AppConfig[:pod_uri].host}"
 password = ARGS[:password] || read_password
 
