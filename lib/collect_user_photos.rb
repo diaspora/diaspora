@@ -5,7 +5,7 @@ module PhotoMover
     FileUtils::mkdir_p temp_dir
     Dir.chdir 'tmp/exports'
 
-    photos = user.visible_posts(:person_id => user.person.id, :_type => 'Photo')
+    photos = user.visible_posts(:person_id => user.person.id, :type => 'Photo')
 
     photos_dir = "#{user.id}/photos"
     FileUtils::mkdir_p photos_dir 

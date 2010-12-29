@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "requests", ["sender_id"], :name => "index_requests_on_sender_id"
 
   create_table "services", :force => true do |t|
-    t.string   "_type"
+    t.string   "type"
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"

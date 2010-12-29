@@ -131,7 +131,7 @@ class CreateSchema < ActiveRecord::Migration
     add_index :requests, [:sender_id, :recipient_id], :unique => true
 
     create_table :services do |t|
-      t.string :_type
+      t.string :type
       t.integer :user_id
       t.string :provider
       t.string :uid

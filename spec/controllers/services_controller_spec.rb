@@ -62,9 +62,11 @@ describe ServicesController do
 
 
     it 'creates a twitter service' do
+      Service.delete_all
       user.getting_started = false
       request.env['omniauth.auth'] = omniauth_auth
       post :create
+      user.reload
       user.services.first.class.name.should == "Services::Twitter"
     end
   end
