@@ -6,7 +6,6 @@
 require File.expand_path('../application', __FILE__)
 Haml::Template.options[:format] = :html5
 Haml::Template.options[:escape_html] = true
-ActionController::Base.config.relative_url_root = "/daspora"
 
 if File.exists?(File.expand_path("./config/languages.yml"))
   languages = YAML::load(File.open(File.expand_path("./config/languages.yml")))
@@ -24,8 +23,6 @@ if File.exists?(File.expand_path("./config/langcodes_alias_map.yml"))
 else
   LANGUAGE_CODES_MAP = {}
 end
-
-#config.action_controller.relative_url_root = "/diaspora"
 
 # Initialize the rails application
 Diaspora::Application.initialize!
