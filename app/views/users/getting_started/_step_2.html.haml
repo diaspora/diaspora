@@ -19,8 +19,8 @@
         %li=t('.no_requests')
       - else
         - for request in @requests
-          %li.person.request{:data=>{:guid=>request.id, :person_id=>request.from.id}}
-            = person_image_link(request.from)
+          %li.person.request{:data=>{:guid=>request.id, :person_id=>request.sender.id}}
+            = person_image_link(request.sender)
     .requests
       %p= "#{t('.drag_to_add')} =>"
 
