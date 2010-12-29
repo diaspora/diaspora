@@ -35,18 +35,17 @@ ActionController::Base.allow_rescue = false
 
 require 'database_cleaner'
 require 'database_cleaner/cucumber'
-DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.orm = "active_record"
-Cucumber::Rails::World.use_transactional_fixtures = true
+Cucumber::Rails::World.use_transactional_fixtures = false
+
+require File.join(File.dirname(__FILE__), "database_cleaner_patches")
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
 include HelperMethods
 
-DatabaseCleaner.start
-
 Before do
   DatabaseCleaner.clean
-  DatabaseCleaner.start
 end
 
 module Resque
