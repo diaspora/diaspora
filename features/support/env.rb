@@ -71,3 +71,14 @@ Before do
   UserFixer.regenerate_user_fixtures
   UserFixer.load_user_fixtures
 end
+
+Before('@localserver') do
+  TestServerFixture.start_if_needed
+  CapybaraSettings.instance.save
+  Capybara.current_driver = :selenium
+  Capybara.run_server = false
+end
+
+After('@localserver') do
+  CapybaraSettings.instance.restore
+end
