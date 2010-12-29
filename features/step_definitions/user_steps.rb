@@ -47,7 +47,8 @@ end
 
 Then /^I should see (\d+) contact(?:s)? in "([^"]*)"$/ do |contact_count, aspect_name|
   aspect = @me.reload.aspects.find_by_name(aspect_name)
-  number_of_contacts = evaluate_script("$('li.person.ui-draggable[data-aspect_id=\"#{aspect.id}\"]').length")
+  number_of_contacts = evaluate_script(
+    "$('ul.dropzone.ui-droppable[data-aspect_id=\"#{aspect.id}\"]').children('li.person').length")
   number_of_contacts.should == contact_count.to_i
 end
 
