@@ -12,7 +12,7 @@ module NavigationHelpers
     when /^my acceptance form page$/
       accept_user_invitation_path(:invitation_token => @me.invitation_token)
     when /^the requestor's profile page$/
-      person_path(Request.to(@me).first.from)
+      person_path(Request.where(:recipient_id => @me.person.id).first.sender)
     when /^"([^\"]*)"'s page$/
       person_path(User.find_by_email($1).person)
     when /^"(\/.*)"/
