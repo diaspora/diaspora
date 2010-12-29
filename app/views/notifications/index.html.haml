@@ -36,7 +36,7 @@
           - notes.each do |note|
             %li.message{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
               %span.from
-                = link_to "#{note.person.name.titleize}", person_path(note.person)
+                = link_to "#{note.actor.name.titleize}", person_path(note.actor)
                 = object_link(note)
 
               %span.time= "#{t('ago', :time => time_ago_in_words(note.created_at))}"

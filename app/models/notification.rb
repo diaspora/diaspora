@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 #
 class Notification < ActiveRecord::Base
+  require File.join(Rails.root, 'lib/diaspora/web_socket')
   include Diaspora::Socketable
 
   belongs_to :recipient, :class_name => 'User'

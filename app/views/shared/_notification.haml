@@ -5,5 +5,5 @@
 = link_to t('.new', :type => object.class.to_s, :from => object.person.name), object_path(object.post)
 
 
-= link_to "#{note.person.name.titelize}", person_path(note.person)
+= link_to "#{note.actor.name.titelize}", person_path(note.actor)
 = object_link(note)

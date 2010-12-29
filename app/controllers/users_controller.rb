@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     @person   = @user.person
     @profile  = @user.profile
     @services = @user.services
-    @requests = Request.to(@person).all
+    @requests = Request.where(:recipient_id => @person.id).all
 
     @step = ((params[:step].to_i>0)&&(params[:step].to_i<5)) ? params[:step].to_i : 1
     @step ||= 1

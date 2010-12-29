@@ -37,7 +37,7 @@ When /^I wait for the aspects page to load$/ do
 end
 
 When /^I wait for the request's profile page to load$/ do
-  wait_until { current_path == person_path(Request.where(:recipient_id => @me.id).first.sender) }
+  wait_until { current_path == person_path(Request.where(:recipient_id => @me.person.id).first.sender) }
 end
 
 When /^I wait for the ajax to finish$/ do
