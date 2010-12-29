@@ -4,16 +4,16 @@
 */
 
 var Mobile = {
-  initialize : function(){
+  initialize: function() {
     $('#aspect_picker').change(Mobile.changeAspect);
   },
   
-  changeAspect : function() {
+  changeAspect: function() {
     Mobile.windowLocation('/aspects/' + $('#aspect_picker option:selected').val());
   },
   
-  windowLocation : function(url) {
+  windowLocation: function(url) {
     window.location = url;
-  },
+  }
 };
 

@@ -49,8 +49,13 @@ var AspectEdit = {
       $.ajax({
         type: "DELETE",
         url: "/requests/" + person.attr('data-guid'),
-        data: {"accept" : true, "aspect_id" : dropzone.attr('data-aspect_id') },
-        success: function() { AspectEdit.onDeleteRequestSuccess(person, dropzone); }
+        data: {
+          "accept": true,
+          "aspect_id": dropzone.attr('data-aspect_id')
+        },
+        success: function() {
+          AspectEdit.onDeleteRequestSuccess(person, dropzone);
+        }
       });
     }
 
@@ -59,11 +64,15 @@ var AspectEdit = {
       $.ajax({
         url: "/aspects/move_contact/",
         data: {
-          "person_id" : person.attr('data-guid'),
-          "from"      : person.attr('data-aspect_id'),
-          "to"        : { "to" : dropzone.attr('data-aspect_id') }
+          "person_id": person.attr('data-guid'),
+          "from": person.attr('data-aspect_id'),
+          "to": {
+            "to": dropzone.attr('data-aspect_id')
+          }
         },
-        success: function() { AspectEdit.onMovePersonSuccess(person, dropzone); }
+        success: function() {
+          AspectEdit.onMovePersonSuccess(person, dropzone);
+        }
       });
     }
 
@@ -85,16 +94,16 @@ var AspectEdit = {
 
     if( $(".person[data-guid='"+ person_id +"']").length == 1) {
       AspectEdit.alertUser("You cannot remove the person from the last aspect");
-    } 
-    else {
+    } else {
       if (!person.hasClass('request')) {
 
         $.ajax({
           type: "POST",
           url: "/aspects/remove_from_aspect",
-          data:{
-            'person_id' : person_id,
-            'aspect_id' : person.attr('data-aspect_id') }
+          data: {
+            'person_id': person_id,
+            'aspect_id': person.attr('data-aspect_id')
+          }
         });
       }
       person.fadeOut(400, function() {
@@ -117,7 +126,11 @@ var AspectEdit = {
         $.ajax({
           type: "PUT",
           url: link,
-          data: {"aspect" : {"name" : $this.text() }}
+          data: {
+            "aspect": {
+              "name" : $this.text()
+            }
+          }
         });
       }
       //update all other aspect links
