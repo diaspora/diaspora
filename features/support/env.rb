@@ -42,12 +42,11 @@ Cucumber::Rails::World.use_transactional_fixtures = true
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
 include HelperMethods
 
-Before do
-  DatabaseCleaner.start
-end
+DatabaseCleaner.start
 
-After do
+Before do
   DatabaseCleaner.clean
+  DatabaseCleaner.start
 end
 
 module Resque
