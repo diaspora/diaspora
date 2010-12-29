@@ -177,7 +177,7 @@ de:
   next: "Nächste"
   no_new_notifications: "keine neuen Benachrichtigungen"
   notifications: 
-    comment_on_post: "kommentierte deine"
+    comment_on_post: "kommentierte deinen"
     deleted: "gelöscht"
     index: 
       notifications: "Benachrichtigungen"

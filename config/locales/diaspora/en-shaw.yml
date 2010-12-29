@@ -137,15 +137,15 @@ en-shaw:
       tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯 𐑑𐑴𐑒𐑩𐑯 𐑯𐑪𐑑 𐑓𐑬𐑯𐑛"
     create: 
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
-      rejected: "The following email addresses had problems: "
-      sent: "Invitations have been sent to: "
+      already_contacts: "𐑿 𐑣𐑨𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑢𐑦𐑞 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯"
+      already_sent: "𐑿 𐑷𐑤𐑮𐑧𐑛𐑦 𐑦𐑯𐑝𐑲𐑑𐑩𐑛 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯."
+      no_more: "𐑿 𐑣𐑨𐑝 𐑯𐑴 𐑥𐑹 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯𐑟."
+      rejected: "𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕 𐑣𐑨𐑛 𐑐𐑮𐑪𐑚𐑤𐑩𐑥𐑟: "
+      sent: "𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯𐑟 𐑣𐑨𐑝 𐑚𐑧𐑯 𐑕𐑧𐑯𐑑 𐑑: "
     edit: 
-      sign_up: "sign_up"
+      sign_up: "𐑕𐑲𐑯_𐑳𐑐"
     new: 
       already_invited: "𐑷𐑤𐑮𐑧𐑛𐑦 𐑦𐑯𐑝𐑲𐑑𐑩𐑛"
       aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -185,21 +185,21 @@ en-shaw:
     post: "post"
     request_accepted: "accepted your share request."
   notifier: 
-    diaspora: "the diaspora email robot"
+    diaspora: "𐑞 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑦-𐑥𐑱𐑤 𐑮𐑴𐑚𐑪𐑑"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
-    love: "love,"
+    love: "𐑤𐑳𐑝,"
     new_request: 
       just_sent_you: "𐑡𐑳𐑕𐑑 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
       subject: "𐑯𐑿 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩* 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑓𐑮𐑪𐑥 %{from}"
       try_it_out: "𐑿 𐑖𐑫𐑛 𐑮𐑦𐑤𐑦 𐑔𐑦𐑙𐑒 𐑩𐑚𐑬𐑑 𐑗𐑧𐑒𐑦𐑙 𐑦𐑑 𐑬𐑑."
     request_accepted: 
-      accepted: "has accepted your contact request!"
-      subject: "%{name} has accepted your contact request on Diaspora*"
+      accepted: "𐑣𐑨𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
+      subject: "%{name} 𐑣𐑨𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
     single_admin: 
-      admin: "Your Diaspora administrator"
-      subject: "A message about your Diaspora account:"
-    thanks: "Thanks,"
+      admin: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑛𐑥𐑦𐑯𐑦𐑕𐑑𐑮𐑱𐑑𐑼"
+      subject: "𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑:"
+    thanks: "𐑔𐑱𐑙𐑒𐑕,"
   ok: "𐑴𐑒𐑱"
   or: "𐑹"
   pagination: 
@@ -300,23 +300,23 @@ en-shaw:
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "𐑕𐑲𐑯𐑩𐑐𐑕 𐑸 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛."
     create: 
       success: "𐑿'𐑝 𐑡𐑶𐑯𐑛 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
     edit: 
-      cancel_my_account: "Cancel my account"
-      edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
-      update: "Update"
+      cancel_my_account: "𐑒𐑨𐑯𐑕𐑩𐑤 𐑥𐑲 𐑩𐑒𐑬𐑯𐑑"
+      edit: "𐑧𐑛𐑦𐑑 %{name}"
+      leave_blank: "(𐑤𐑰𐑝 𐑚𐑤𐑱𐑙𐑒 𐑦𐑓 𐑿 𐑛𐑴𐑯𐑑 𐑢𐑳𐑯𐑑 𐑑 𐑗𐑱𐑯𐑡 𐑦𐑑)"
+      password_to_confirm: "(𐑢𐑰 𐑯𐑰𐑛 𐑿𐑼 𐑒𐑻𐑩𐑯𐑑 𐑐𐑨𐑕𐑢𐑼𐑛 𐑑 𐑒𐑩𐑯𐑓𐑻𐑥 𐑿𐑼 𐑗𐑱𐑯𐑡𐑩𐑟)"
+      unhappy: "𐑩𐑯𐑣𐑨𐑐𐑦?"
+      update: "𐑳𐑐𐑛𐑱𐑑"
     new: 
-      enter_email: "Enter an e-mail"
-      enter_password: "Enter a password"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
-      sign_up: "Sign up"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      enter_email: "𐑧𐑯𐑑𐑼 𐑩𐑯 𐑦-𐑥𐑱𐑤"
+      enter_password: "𐑧𐑯𐑑𐑼 𐑩 𐑐𐑨𐑕𐑢𐑼𐑛"
+      enter_password_again: "𐑧𐑯𐑑𐑼 𐑞 𐑕𐑱𐑥 𐑐𐑨𐑕𐑢𐑼𐑛 𐑨𐑟 𐑚𐑦𐑓𐑹"
+      enter_username: "𐑐𐑦𐑒 𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 (𐑴𐑯𐑤𐑦 𐑤𐑧𐑑𐑼𐑟, 𐑯𐑳𐑥𐑚𐑼𐑟, 𐑯 𐑳𐑯𐑛𐑼𐑕𐑒𐑹𐑟)"
+      sign_up: "𐑕𐑲𐑯 𐑳𐑐"
+      sign_up_for_diaspora: "𐑕𐑲𐑯 𐑳𐑐 𐑓𐑹 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
   requests: 
     create: 
       sending: "𐑕𐑧𐑯𐑛𐑦𐑙"
@@ -345,7 +345,7 @@ en-shaw:
       edit_services: "𐑧𐑛𐑦𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟"
       really_disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 %{service}?"
-  settings: "Settings"
+  settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
   shared: 
     add_contact: 
       create_request: "𐑓𐑲𐑯𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
@@ -354,14 +354,14 @@ en-shaw:
       know_email: "𐑯𐑴 𐑞𐑺 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕? 𐑿 𐑖𐑫𐑛 𐑦𐑯𐑝𐑲𐑑 𐑞𐑧𐑥"
       your_diaspora_username_is: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 𐑦𐑟: %{diaspora_handle}"
     contact_list: 
-      all_contacts: "All contacts"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
     invitations: 
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
-      invitations_left: "(%{count} left)"
-      invite_someone: "Invite someone"
-      invites: "Invites"
-      invites_closed: "Invites are currently closed on this Diaspora pod"
+      dont_have_now: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑨𐑯𐑦 𐑮𐑲𐑑 𐑯𐑬, 𐑚𐑳𐑑 𐑥𐑹 𐑦𐑥𐑝𐑲𐑑𐑕 𐑸 𐑒𐑳𐑥𐑦𐑙 𐑕𐑵𐑯!"
+      invitations_left: "(%{count} 𐑤𐑧𐑓𐑑)"
+      invite_someone: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯"
+      invites: "𐑦𐑯𐑝𐑲𐑑𐑕"
+      invites_closed: "𐑦𐑯𐑝𐑲𐑑𐑕 𐑸 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛"
     notification: 
       new: "𐑯𐑿 %{type} 𐑓𐑮𐑪𐑥 %{from}"
     public_explain: 
@@ -372,13 +372,13 @@ en-shaw:
     publisher: 
       add_photos: "𐑨𐑛 𐑓𐑴𐑑𐑴𐑟"
       all: "𐑷𐑤"
-      all_contacts: "all contacts"
-      make_public: "make public"
-      post_a_message_to: "Post a message to %{aspect}"
+      all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      make_public: "𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒"
+      post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
       share: "𐑖𐑺"
-      share_with: "Share with %{aspect}"
-      share_with_all: "share across all of your aspects"
+      share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
+      share_with_all: "𐑖𐑺 𐑩𐑒𐑮𐑪𐑕 𐑷𐑤 𐑝 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
   status_messages: 
@@ -431,11 +431,11 @@ en-shaw:
         description: "You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public\""
         your_services: "Your services"
       step_4: 
-        change_profile: "You can edit your profile and manage your connected services at any time through "
+        change_profile: "𐑿 𐑒𐑨𐑯 𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤 𐑯 𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑕𐑻𐑝𐑦𐑕𐑩𐑟 𐑨𐑑 𐑨𐑯𐑦 𐑑𐑲𐑥 𐑔𐑮𐑵"
         continue: "Continue on to your Home page, an overview of all of your aspects."
         finish: "Finish"
         manage_aspects: "You can also add contacts while on any aspect page."
-        ready_to_share: "You're now ready to start sharing with "
+        ready_to_share: "𐑿𐑮 𐑯𐑬 𐑮𐑧𐑛𐑦 𐑑 𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞"
         set_up: "You're all set up, %{name}!"
         user_menu: "the user menu located at the top right."
       welcome: "Welcome to Diaspora!"

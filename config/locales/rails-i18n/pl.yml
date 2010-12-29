@@ -9,7 +9,7 @@ pl:
       short: "%d %b"
       long: "%B %d, %Y"
 
-    day_names: [niedziela, poniedziałek, wtorek, środa, czwartek, Piątek, Sobota]
+    day_names: [niedziela, poniedziałek, wtorek, środa, czwartek, piątek, sobota]
     abbr_day_names: [nie, pon, wto, śro, czw, pia, sob]
 
     month_names: [~, styczeń, luty, marzec, kwiecień, maj, czerwiec, lipiec, sierpień, wrzesień, październik, listopad, grudzień]
