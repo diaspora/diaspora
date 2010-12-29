@@ -43,7 +43,7 @@ describe NotificationsController do
       assigns[:notifications].should == Notification.all(:user_id => user.id, :limit => 25)
       
       get :index, :page => 2
-      assigns[:notifications].should == Notification.all(:user_id => user.id, :offset => 25)
+      assigns[:notifications].should == Notification.all(:user_id => user.id, :offset => 25, :limit => 25)
     end
   end
 end
