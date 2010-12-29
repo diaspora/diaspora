@@ -35,12 +35,4 @@ Diaspora::Application.configure do
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
-
-  begin
-   require 'database_cleaner'
-   DatabaseCleaner.strategy = :transaction
-   DatabaseCleaner.orm = "active_record"
-  rescue LoadError => ignore_if_database_cleaner_not_present
-   puts "Error on cleaner"
-  end
 end
