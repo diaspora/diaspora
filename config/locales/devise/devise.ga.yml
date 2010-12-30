@@ -5,25 +5,25 @@ ga:
       already_confirmed: "deimnithe cheanna féin"
       not_locked: "ní raibh glasáilte"
 
-    devise:
-      failure:
-        unauthenticated: "Tá ort síniú isteach nó síníus suas roimh a leanann tú ar aghaidh"
-        unconfirmed: "Tá ort do cúntas a dheimniú roimh a leanann tú ar aghaidh"
-        locked: "Tá do cúntas glasáilte"
-        invalid: "Seoladh ríomhphost nó pasfhocal neamhbhailí"
-        invalid_token: "Ceadchomhartha fíordheimhniú neamhbhailí"
-        timeout: "Tá do seisiún tar éis dul as feidhm, síniú isteach arís chun leanúint ar aghaidh"
-        inactive: "Ní rabih do cúntas curtha i gníomh fós."
-      sessions:
-        new:
-          login: "Logáil isteach"
-          username: "Ainm úsáideora"
-          password: "Pasfhocal"
-          sign_in: "Síniú isteach"
-          have_a_problem: "Fadbh agat? Gheobhaidh tú freagra anseo"
-          remember_me: "Cuimhnigh orm"
-          alpha_software: "Tá tú díreach chun bhogearraí alfa a úsáid."
-          bugs_and_feedback: "Cuimhnigh tá tú chun fadbhanna a fheiceáil. Molaimid duit úsáid a bhaint as an cnaipe Aiseolas ar an taobh deis don brabhsálaí, chun tuarisc a chur ar fáil faoi aon fadbhanna! Beidhmid ag obair comh tapa is gur féidir lin aon fadbhanna a réitíu."
+  devise:
+    failure:
+      unauthenticated: "Tá ort síniú isteach nó síníus suas roimh a leanann tú ar aghaidh"
+      unconfirmed: "Tá ort do cúntas a dheimniú roimh a leanann tú ar aghaidh"
+      locked: "Tá do cúntas glasáilte"
+      invalid: "Seoladh ríomhphost nó pasfhocal neamhbhailí"
+      invalid_token: "Ceadchomhartha fíordheimhniú neamhbhailí"
+      timeout: "Tá do seisiún tar éis dul as feidhm, síniú isteach arís chun leanúint ar aghaidh"
+      inactive: "Ní rabih do cúntas curtha i gníomh fós."
+    sessions:
+      new:
+        login: "Logáil isteach"
+        username: "Ainm úsáideora"
+        password: "Pasfhocal"
+        sign_in: "Síniú isteach"
+        have_a_problem: "Fadbh agat? Gheobhaidh tú freagra anseo"
+        remember_me: "Cuimhnigh orm"
+        alpha_software: "Tá tú díreach chun bhogearraí alfa a úsáid."
+        bugs_and_feedback: "Cuimhnigh tá tú chun fadbhanna a fheiceáil. Molaimid duit úsáid a bhaint as an cnaipe Aiseolas ar an taobh deis don brabhsálaí, chun tuarisc a chur ar fáil faoi aon fadbhanna! Beidhmid ag obair comh tapa is gur féidir lin aon fadbhanna a réitíu."
         bugs_and_feedback_mobile: "Cuimhnigh, tá tú chun fabhtanna a fheiceáil. Molaimid duit tuaraisc a chur ar fáil faoin aon fadhbhanna! Beidhmid ag obair chomh tapa is gur féidir lin aon fadbhanna a réitiú."
         modern_browsers: "ní ach tugaimid tacaíocht do brabhsálaí nua-aimseartha"
       signed_in: "D'éirigh leis an síniú isteach"
