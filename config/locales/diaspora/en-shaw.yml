@@ -4,7 +4,7 @@
 
 
 en-shaw: 
-  _comments: "Comments"
+  _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   _home: "Home"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
@@ -110,12 +110,12 @@ en-shaw:
       press: "𐑐𐑮𐑧𐑕"
       to_comment: "𐑑 𐑒𐑪𐑥𐑩𐑯𐑑"
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+    one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+    other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+    zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   delete: "𐑛𐑦𐑤𐑰𐑑"
-  email: "Email"
+  email: "𐑦-𐑥𐑱𐑤"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "𐑒𐑩𐑮𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑺𐑼𐑟 𐑯 𐑑𐑮𐑲 𐑩𐑜𐑧𐑯."
@@ -174,16 +174,16 @@ en-shaw:
     one: "𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
     other: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
     zero: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
-  next: "next"
+  next: "𐑯𐑧𐑒𐑕𐑑"
   no_new_notifications: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
   notifications: 
-    comment_on_post: "commented on your"
-    deleted: "deleted"
+    comment_on_post: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼"
+    deleted: "𐑛𐑦𐑤𐑰𐑑𐑩𐑛"
     index: 
-      notifications: "Notifications"
-    new_request: "offered to share with you."
-    post: "post"
-    request_accepted: "accepted your share request."
+      notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+    new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
+    post: "𐑐𐑴𐑕𐑑"
+    request_accepted: "𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
   notifier: 
     diaspora: "𐑞 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑦-𐑥𐑱𐑤 𐑮𐑴𐑚𐑪𐑑"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
@@ -209,7 +209,7 @@ en-shaw:
   password_confirmation: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑒𐑪𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑧𐑥𐑚𐑼𐑖𐑦𐑐"
     edit: 
       allow_search: "𐑩𐑤𐑬 𐑓𐑹 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑿 𐑢𐑦𐑞𐑦𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       edit_profile: "𐑧𐑛𐑦𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
@@ -224,16 +224,16 @@ en-shaw:
       your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
       your_profile: "𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      people_on_pod_are_aware_of: " 𐑐𐑰𐑐𐑤 𐑪𐑯 𐑐𐑪𐑛 𐑸 𐑩𐑢𐑺 𐑝"
+      results_for: " 𐑮𐑦𐑟𐑫𐑤𐑑 𐑓𐑹 %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
-      no_results: "Hey! You need to search for something."
-      results_for: "search results for"
+      couldnt_find_them_send_invite: "𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 𐑞𐑧𐑥?  𐑕𐑧𐑯𐑛 𐑩𐑯 𐑦𐑯𐑝𐑲𐑑!"
+      no_one_found: "...𐑯 𐑯𐑴 𐑢𐑳𐑯 𐑢𐑪𐑟 𐑓𐑬𐑯𐑛."
+      no_results: "𐑣𐑱! 𐑿 𐑯𐑰𐑛 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑕𐑳𐑥𐑔𐑦𐑙."
+      results_for: "𐑕𐑻𐑗 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑹"
     person: 
-      add_contact: "add contact"
-      already_connected: "Already connected"
+      add_contact: "𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+      already_connected: "𐑷𐑤𐑮𐑧𐑛𐑦 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛"
       pending_request: "𐑐𐑧𐑯𐑛𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑"
       thats_you: "𐑞𐑨𐑑𐑕 𐑿!"
     profile_sidebar: 
@@ -246,18 +246,18 @@ en-shaw:
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "𐑢𐑳𐑯𐑕 %{name} 𐑩𐑒𐑕𐑧𐑐𐑑𐑕, 𐑿𐑤 𐑕𐑑𐑸𐑑 𐑕𐑰𐑦𐑙 𐑰𐑗 𐑳𐑞𐑼𐑟 𐑐𐑴𐑕𐑑𐑕 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+      share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
     show: 
-      does_not_exist: "Person does not exist!"
-      incoming_request: "You have an incoming request from this person."
-      no_posts: "no posts to display!"
-      not_connected: "You are not sharing with %{name}"
-      recent_posts: "Recent Posts"
-      recent_public_posts: "Recent Public Posts"
-      return_to_aspects: "Return to your aspects page"
-      similar_contacts: "similar contacts"
-      to_accept_or_ignore: "to accept or ignore it."
+      does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
+      incoming_request: "𐑿 𐑣𐑨𐑝 𐑩𐑯 𐑦𐑯𐑒𐑳𐑥𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯."
+      no_posts: "𐑯𐑴 𐑐𐑴𐑕𐑑𐑕 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱!"
+      not_connected: "𐑿 𐑸 𐑯𐑪𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
+      recent_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑴𐑕𐑑𐑕"
+      recent_public_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑴𐑕𐑑𐑕"
+      return_to_aspects: "𐑮𐑦𐑑𐑻𐑯 𐑑 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕 𐑐𐑱𐑡"
+      similar_contacts: "𐑕𐑦𐑥𐑦𐑤𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      to_accept_or_ignore: "𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑹 𐑦𐑜𐑯𐑹 𐑦𐑑."
     update: 
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
@@ -330,7 +330,7 @@ en-shaw:
       manage_within: "𐑥𐑨𐑯𐑩𐑡 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑢𐑦𐑞𐑦𐑯"
     new_request_to_person: 
       sent: "𐑕𐑧𐑯𐑑!"
-  search: "Search"
+  search: "𐑕𐑻𐑗"
   services: 
     create: 
       success: "𐑷𐑔𐑧𐑯𐑑𐑦𐑒𐑱𐑖𐑩𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤."
@@ -412,13 +412,13 @@ en-shaw:
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
     getting_started: 
-      connect_services: "Connect your other services"
+      connect_services: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑿𐑼 𐑳𐑞𐑼 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       define_aspects: "Define your aspects"
       edit_profile: "Edit your profile"
-      finished: "Finished!"
-      save_and_continue: "Save and continue"
+      finished: "𐑓𐑦𐑯𐑦𐑖𐑑!"
+      save_and_continue: "𐑕𐑱𐑝 𐑯 𐑒𐑩𐑯𐑑𐑦𐑯𐑿"
       signup_steps: "Finish your sign up by completing these three steps:"
-      skip: "skip getting started"
+      skip: "𐑕𐑒𐑦𐑐 𐑜𐑧𐑑𐑦𐑙 𐑕𐑑𐑸𐑑𐑩𐑛"
       step_2: 
         add: "Add"
         aspect_name: "Aspect name"
@@ -432,12 +432,12 @@ en-shaw:
         your_services: "Your services"
       step_4: 
         change_profile: "𐑿 𐑒𐑨𐑯 𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤 𐑯 𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑕𐑻𐑝𐑦𐑕𐑩𐑟 𐑨𐑑 𐑨𐑯𐑦 𐑑𐑲𐑥 𐑔𐑮𐑵"
-        continue: "Continue on to your Home page, an overview of all of your aspects."
+        continue: "𐑒𐑩𐑯𐑑𐑦𐑯𐑿 𐑪𐑯 𐑑 𐑿𐑼 𐑣𐑴𐑥 𐑐𐑱𐑡, 𐑩𐑯 𐑴𐑝𐑼𐑝𐑿 𐑝 𐑷𐑤 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕."
         finish: "Finish"
         manage_aspects: "You can also add contacts while on any aspect page."
         ready_to_share: "𐑿𐑮 𐑯𐑬 𐑮𐑧𐑛𐑦 𐑑 𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞"
         set_up: "You're all set up, %{name}!"
-        user_menu: "the user menu located at the top right."
+        user_menu: "𐑞 𐑿𐑟𐑼 𐑥𐑧𐑯𐑿 𐑤𐑴𐑒𐑱𐑑𐑩𐑛 𐑨𐑑 𐑞 𐑑𐑪𐑐 𐑮𐑲𐑑."
       welcome: "Welcome to Diaspora!"
     public: 
       does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
@@ -450,6 +450,6 @@ en-shaw:
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    no_person_constructed: "𐑯𐑴 𐑐𐑻𐑕𐑩𐑯 𐑒𐑫𐑛 𐑚𐑰 𐑒𐑩𐑯𐑕𐑑𐑮𐑳𐑒𐑑𐑩𐑛 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑣-𐑒𐑸𐑛."
+    not_enabled: "𐑢𐑧𐑚𐑓𐑦𐑙𐑜𐑼 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑕𐑰𐑥 𐑑 𐑚𐑰 𐑦𐑯𐑱𐑚𐑩𐑤𐑛 𐑓𐑹 %{account}𐑟 𐑣𐑴𐑕𐑑"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
