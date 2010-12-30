@@ -178,7 +178,7 @@ de:
   no_new_notifications: "keine neuen Benachrichtigungen"
   notifications: 
     comment_on_post: "kommentierte deinen"
-    deleted: "gelöscht"
+    deleted: "gelöschten"
     index: 
       notifications: "Benachrichtigungen"
     new_request: "hat angeboten, mit dir zu teilen."

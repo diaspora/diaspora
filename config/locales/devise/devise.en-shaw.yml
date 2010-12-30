@@ -6,7 +6,7 @@
 en-shaw: 
   devise: 
     confirmations: 
-      confirmed: "Your account was successfully confirmed. You are now signed in."
+      confirmed: "𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑢𐑪𐑟 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑒𐑩𐑯𐑓𐑻𐑥𐑛. 𐑿 𐑸 𐑯𐑬 𐑕𐑲𐑯𐑛 𐑦𐑯."
       new: 
         resend_confirmation: "𐑮𐑦𐑕𐑧𐑯𐑛 𐑒𐑪𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯 𐑦𐑯𐑕𐑑𐑮𐑳𐑒𐑖𐑩𐑯𐑟"
       send_instructions: "𐑿 𐑢𐑦𐑤 𐑮𐑦𐑕𐑰𐑝 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑢𐑦𐑞 𐑦𐑯𐑕𐑑𐑮𐑳𐑒𐑖𐑩𐑯𐑟 𐑩𐑚𐑬𐑑 𐑣𐑬 𐑑 𐑒𐑩𐑯𐑓𐑻𐑥 𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑦𐑯 𐑩 𐑓𐑿 𐑥𐑦𐑯𐑩𐑑𐑕."
@@ -64,15 +64,15 @@ en-shaw:
     sessions: 
       new: 
         alpha_software: "𐑿 𐑸 𐑩𐑚𐑬𐑑 𐑑 𐑿𐑟 𐑨𐑤𐑓𐑩 𐑕𐑪𐑓𐑑𐑢𐑺."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Have a problem? Find an answer here"
+        bugs_and_feedback: "𐑚𐑰 𐑩𐑛𐑝𐑲𐑟𐑛, 𐑿 𐑢𐑦𐑤 𐑧𐑒𐑕𐑐𐑽𐑾𐑯𐑕 𐑚𐑳𐑜𐑟.  𐑢𐑰 𐑦𐑙𐑒𐑻𐑩𐑡 𐑿 𐑑 𐑿𐑟 𐑞 𐑓𐑰𐑛𐑚𐑨𐑒 𐑚𐑳𐑑𐑩𐑯 𐑪𐑯 𐑞 𐑮𐑲𐑑 𐑣𐑨𐑯𐑛 𐑕𐑲𐑛 𐑝 𐑿𐑼 𐑚𐑮𐑬𐑟𐑼 𐑑 𐑮𐑦𐑐𐑹𐑑 𐑨𐑯𐑦 𐑣𐑦𐑒𐑩𐑐𐑕!  𐑢𐑰 𐑢𐑦𐑤 𐑢𐑻𐑒 𐑨𐑟 𐑓𐑨𐑕𐑑 𐑨𐑟 𐑢𐑰 𐑒𐑨𐑯 𐑑 𐑮𐑦𐑟𐑪𐑤𐑝 𐑨𐑯𐑦 𐑦𐑖𐑵𐑟 𐑿 𐑮𐑦𐑐𐑹𐑑."
+        bugs_and_feedback_mobile: "𐑚𐑰 𐑩𐑛𐑝𐑲𐑟𐑛, 𐑿 𐑢𐑦𐑤 𐑧𐑕𐑒𐑐𐑽𐑾𐑯𐑕 𐑚𐑳𐑜𐑟.  𐑢𐑰 𐑦𐑙𐑒𐑻𐑩𐑡 𐑿 𐑑 𐑮𐑦𐑐𐑹𐑑 𐑨𐑯𐑦 𐑣𐑦𐑒𐑩𐑐𐑕!  𐑢𐑰 𐑢𐑦𐑤 𐑢𐑻𐑒 𐑨𐑟 𐑓𐑨𐑕𐑑 𐑨𐑟 𐑢𐑰 𐑒𐑨𐑯 𐑑 𐑮𐑦𐑟𐑪𐑤𐑝 𐑨𐑯𐑦 𐑦𐑖𐑵𐑟 𐑿 𐑮𐑦𐑐𐑹𐑑."
+        have_a_problem: "𐑣𐑨𐑝 𐑩 𐑐𐑮𐑪𐑚𐑤𐑩𐑥? 𐑓𐑲𐑯𐑛 𐑞 𐑨𐑯𐑕𐑼 𐑣𐑽"
         login: "𐑤𐑪𐑜𐑦𐑯"
-        modern_browsers: "only supports modern browsers."
+        modern_browsers: "𐑴𐑯𐑤𐑦 𐑕𐑩𐑐𐑹𐑑𐑕 𐑥𐑪𐑛𐑼𐑯 𐑚𐑮𐑬𐑟𐑼𐑟."
         password: "𐑐𐑨𐑕𐑢𐑼𐑛"
-        remember_me: "Remember me"
-        sign_in: "Sign in"
-        username: "Username"
+        remember_me: "𐑮𐑦𐑥𐑧𐑥𐑚𐑼 𐑥𐑰"
+        sign_in: "𐑕𐑲𐑯 𐑦𐑯"
+        username: "𐑿𐑟𐑼𐑯𐑱𐑥"
       signed_in: "𐑕𐑲𐑯𐑛 𐑦𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦."
       signed_out: "𐑕𐑲𐑥𐑛 𐑬𐑑 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦."
     shared: 
