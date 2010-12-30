@@ -1,93 +1,93 @@
 ga:
   errors:
     messages:
-      not_found: "níl sé ann"
-      already_confirmed: "deimhnithe cheanna féin"
-      not_locked: "ní raibh glasáilte"
+      not_found: "n√≠l s√© ann"
+      already_confirmed: "deimnithe cheanna f√©in"
+      not_locked: "n√≠ raibh glas√°ilte"
 
-  devise:
-    failure:
-      unauthenticated: "Tá ort síniú isteach nó síniú suas roimh a leanann tú ar aghaidh"
-      unconfirmed: "Tá ort do cúntas a deimhniú roimh a leanann tú ar aghaidh"
-      locked: "Tá do cúntas glasáilte"
-      invalid: "Seoladh ríomhphost nó pasfhocal neamhbhailí"
-      invalid_token: "Ceadchomhartha fíordheimhniú neamhbhailí"
-      timeout: "Tá do seisiún tar éis dul as feidhm, síniú isteach arís chun leanúint ar aghaidh"
-      inactive: "Ní raibh do cúntas curtha i gníomh fós."
-    sessions:
-      new:
-        login: "Logáil isteach"
-        username: "Ainm úsáideora"
-        password: "Pasfhocal"
-        sign_in: "Síniú isteach"
-        have_a_problem: "Fadbh agat? Gheobhaidh tú freagra anseo"
-        remember_me: "Cuimhnigh orm"
-        alpha_software: "Tá tú díreach chun bhogearraí alfa a úsáid."
-        bugs_and_feedback: "Cuimhnigh, tá tú chun fabhtanna a fheiceáil. Molaimid duit úsáid a bhaint as an cnaipe Aiseolais ar an taobh deis don brabhsálaí, chun tuaraisc a chur ar fáil faoin aon fadhbhanna! Beidhmid ag obair chomh tapa is gur féidir lin aon fadbhanna a réitiú."
-        bugs_and_feedback_mobile: "Cuimhnigh, tá tú chun fabhtanna a fheiceáil. Molaimid duit tuaraisc a chur ar fáil faoin aon fadhbhanna! Beidhmid ag obair chomh tapa is gur féidir lin aon fadbhanna a réitiú."
-        modern_browsers: "ní ach tugaimid tacaíocht do brabhsálaí nua-aimseartha"
-      signed_in: "D'éirigh leis an síniú isteach"
-      signed_out: "D'eirigh leis an síníu amach"
+    devise:
+      failure:
+        unauthenticated: "T√° ort s√≠ni√∫ isteach n√≥ s√≠n√≠us suas roimh a leanann t√∫ ar aghaidh"
+        unconfirmed: "T√° ort do c√∫ntas a dheimni√∫ roimh a leanann t√∫ ar aghaidh"
+        locked: "T√° do c√∫ntas glas√°ilte"
+        invalid: "Seoladh r√≠omhphost n√≥ pasfhocal neamhbhail√≠"
+        invalid_token: "Ceadchomhartha f√≠ordheimhni√∫ neamhbhail√≠"
+        timeout: "T√° do seisi√∫n tar √©is dul as feidhm, s√≠ni√∫ isteach ar√≠s chun lean√∫int ar aghaidh"
+        inactive: "N√≠ rabih do c√∫ntas curtha i gn√≠omh f√≥s."
+      sessions:
+        new:
+          login: "Log√°il isteach"
+          username: "Ainm √∫s√°ideora"
+          password: "Pasfhocal"
+          sign_in: "S√≠ni√∫ isteach"
+          have_a_problem: "Fadbh agat? Gheobhaidh t√∫ freagra anseo"
+          remember_me: "Cuimhnigh orm"
+          alpha_software: "T√° t√∫ d√≠reach chun bhogearra√≠ alfa a √∫s√°id."
+          bugs_and_feedback: "Cuimhnigh t√° t√∫ chun fadbhanna a fheice√°il. Molaimid duit √∫s√°id a bhaint as an cnaipe Aiseolas ar an taobh deis don brabhs√°la√≠, chun tuarisc a chur ar f√°il faoi aon fadbhanna! Beidhmid ag obair comh tapa is gur f√©idir lin aon fadbhanna a r√©it√≠u."
+        bugs_and_feedback_mobile: "Cuimhnigh, t√° t√∫ chun fabhtanna a fheice√°il. Molaimid duit tuaraisc a chur ar f√°il faoin aon fadhbhanna! Beidhmid ag obair chomh tapa is gur f√©idir lin aon fadbhanna a r√©iti√∫."
+        modern_browsers: "n√≠ ach tugaimid taca√≠ocht do brabhs√°la√≠ nua-aimseartha"
+      signed_in: "D'√©irigh leis an s√≠ni√∫ isteach"
+      signed_out: "D'√©irigh leis an s√≠ni√∫ amach"
     passwords:
-      send_instructions: "Gheobhaid tú ríomhphost le treoireacha ar conas do pasfhocail a athshocrú i cúpla nóiméad."
-      updated: "D'eirigh leat do pasfhocal a athrú. Tá tú sínithe isteach anois."
+      send_instructions: "Gheobhaid t√∫ r√≠omhphost le treoireacha ar conas do pasfhocail a athshocr√∫ i c√∫pla n√≥im√©ad."
+      updated: "D'eirigh leat do pasfhocal a athr√∫. T√° t√∫ s√≠nithe isteach anois."
       edit:
         change_password: "Athraigh mo pasfhocal"
       new:
-        forgot_password: "Dearmaid déanta ar do pasfhocail?"
-        send_password_instructions: "Seol treoireacha athshocrú pasfhocal dom".
+        forgot_password: "Dearmaid d√©anta ar do pasfhocail?"
+        send_password_instructions: "Seol treoireacha athshocr√∫ pasfhocal dom".
     confirmations:
-      send_instructions: "Gheobhaid tú ríomhphost le treoireacha ar conas do cúntas a deimhniú i cúpla nóiméad."
-      confirmed: "D'eirgh le do cúntas deimhníu. Tá tú sínithe isteach anois."
+      send_instructions: "Gheobhaidh t√∫ r√≠omhphost le treoireacha ar conas do c√∫ntas a deimhni√∫ i c√∫pla n√≥im√©ad."
+      confirmed: "D'√©irigh le do c√∫ntas deimhni√∫. T√° t√∫ s√≠nithe isteach anois."
       new:
-        resend_confirmation: "Seol treoireacha deimhniú arís"
+        resend_confirmation: "Seol treoireacha deimhni√∫ ar√≠s"
     registrations:
-      signed_up: "D'eirigh leat síniú tú suas. Bhí deimhníu seolta chuig do sheoladh ríomhphost."
-      updated: "D'eirigh cúntas nuashonrú"
-      destroyed: "Slán! D'eirigh le do cúntas a chealú. Tá súil againn go bhfeicfimid tú arís go luath."
+      signed_up: "D'eirigh leat s√≠ni√∫ suas. Bh√≠ deimhni√∫ seolta chuig do sheoladh r√≠omhphost."
+      updated: "D'eirigh c√∫ntas nuashonr√∫"
+      destroyed: "Sl√°n! D'eirigh le do c√∫ntas a cheal√∫. T√° s√∫il againn go bhfeicfimid t√∫ ar√≠s go luath."
     unlocks:
-      send_instructions: "Gheobhaidh tú ríomphoist le treoireacha ar chonas do chúntas a dhíghlasáil i cúpla nóiméad."
-      unlocked: "D'eirigh le do cúntas a dhíghlasáil."
+      send_instructions: "Gheobhaidh t√∫ r√≠omphoist le treoireacha ar chonas do ch√∫ntas a dh√≠ghlas√°il i c√∫pla n√≥im√©ad."
+      unlocked: "D'eirigh le do c√∫ntas a dh√≠ghlas√°il."
       new:
-        resend_unlock: "Sheol treoireacha dhíghlasáil arís"
+        resend_unlock: "Sheol treoireacha dh√≠ghlas√°il ar√≠s"
     invitations:
-      send_instructions: "Bhí do cuireadh sheolta."
-      invitation_token_invalid: "Níl an ceadchomhartha cuireadh bailí!"
-      updated: "D'eirigh le do pasfhocal a socrú. Tá tú sínithe isteach anois."
+      send_instructions: "Bh√≠ do cuireadh sheolta."
+      invitation_token_invalid: "N√≠l an ceadchomhartha cuireadh bail√≠!"
+      updated: "D'eirigh le do pasfhocal a socr√∫. T√° t√∫ s√≠nithe isteach anois."
     mailer:
-      welcome: "Fáilte %{email}!"
+      welcome: "F√°ilte %{email}!"
       hello: "Haileo %{email}!"
       confirmation_instructions:
-        subject: "Treoiracha deimhniú" 
-        you_can_confirm: "Tá tú ábalta do cúntas a deimhníu tríd an nasc faoi:"
-        confirm: "Deimhnigh mo cúntas"
+        subject: "Treoiracha deimhni√∫" 
+        you_can_confirm: "T√° t√∫ √°balta do c√∫ntas a deimhni√∫ tr√≠d an nasc faoi:"
+        confirm: "Deimhnigh mo c√∫ntas"
       reset_password_instructions:
-        subject: "Treoireacha athshocrú pasfhocal"
-        someone_requested: "Tá duine tar éis iarratas a chur ar nasc chun do pasfhocal a athrú, agus is féidir leat é seo a dhéanamh tríd an nasc faoi."
+        subject: "Treoireacha athshocr√∫ pasfhocal"
+        someone_requested: "T√° duine tar √©is iarratas a chur ar nasc chun do pasfhocal a athr√∫, agus is √©idir leat √© seo a dh√©anamh tr√≠d an nasc faoi."
         change: "Athraigh mo pasfhocal"
-        wont_change: "Ní athreoid do pasfhocal muna rochtain tú an nasc thar agus cruthaíonn tú ceann nua."
-        ignore: "Muna chur tú iarratas ar seo, déan neamhaird den ríomhphost seo más é do thoill é."
+        wont_change: "N√≠ athreoidh do pasfhocal muna rochtain t√∫ an nasc thar agus crutha√≠onn t√∫ ceann nua."
+        ignore: "Muna chur t√∫ iarratas ar seo, d√©an neamhaird den r√≠omhphost seo m√°s √© do thoill √©."
       unlock_instructions:
-        subject: "Treoracha Díghlasáil"
-        account_locked: "Bhí do cúntas ghlasáilte de réir an méid iarrachtaí siníu isteach."
-        click_to_unlock: "Cliceáil an nasc faoi chun do cúntas a díghlasáil."
-        unlock: "Díghlasáil mo cúntas"
+        subject: "Treoracha D√≠ghlas√°il"
+        account_locked: "Bh√≠ do c√∫ntas ghlas√°ilte de r√©ir an m√©id iarrachta√≠ s√≠ni√∫ isteach."
+        click_to_unlock: "Clice√°il an nasc faoi chun do c√∫ntas a d√≠ghlas√°il."
+        unlock: "D√≠ghlas√°il mo c√∫ntas"
       invitation:
-        subject: "Tá cuireadh seolta chugat chun páirt a ghlacadh i Diaspora!"
+        subject: "T√° cuireadh seolta chugat chun p√°irt a ghlacadh i Diaspora!"
         accept: "Ghlacadh leis an cuireadh"
-        ignord: "Muna bhfuil tú chun ghlacadh leis an cuireadh, déan neamhaird ar an ríomhphost seo más é do thoill é."
-        no_account_till: "Ní bheidh do cúntas déanta roimh a rochtain tú an nasc thar agus síníonn tú suas."
+        ignord: "Muna bhfuil t√∫ chun ghlacadh leis an cuireadh, d√©an neamhaird ar an r√≠omhphost seo m√°s √© do thoill √©."
+        no_account_till: "N√≠ bheidh do c√∫ntas d√©anta roimh a rochtain t√∫ an nasc thar agus s√≠n√≠onn t√∫ suas."
       inviters:
-        has_invited_you: "Tá %{name} tar éis cuireadh a sheoladh chugat chun páirt a ghlacadh i Diaspora"
-        have_inivited_you: "Tá %{names} tar éis cuireadh a sheoladh chugat chun part a ghlacadh i Diaspora"
-        accept_at: ", ag %{url}, is féidir leat ghlacadh leis an cuireadh tríd an nasc faoi."
+        has_invited_you: "T√° %{name} tar √©is cuireadh a sheoladh chugat chun p√°irt a ghlacadh i Diaspora"
+        have_inivited_you: "T√° %{names} tar √©is cuireadh a sheoladh chugat chun part a ghlacadh i Diaspora"
+        accept_at: ", ag %{url}, is f√©idir leat ghlacadh leis an cuireadh tr√≠d an nasc faoi."
     shared:
       mail_signup_form:
-        sign_up_for_an_invite: "Síniú suas do cuireadh!"
+        sign_up_for_an_invite: "S√≠ni√∫ suas do cuireadh!"
       links:
-        sign_in: "Síniú isteach"
-        sign_out: "Síniú amach"
-        sign_up_closed: "Tá síniú oscailte dúnta ag an t-am seo."
-        forgot_your_password: "Dearmad déanta ar do pasfhocal?"
-        receive_confirmation: "Níor bhfuar tú treoireacha deimhniú?"
-        receive_unlock: "Níor bhfuar tú treoireach díghlasáil?"
+        sign_in: "S√≠ni√∫ isteach"
+        sign_out: "S√≠ni√∫ amach"
+        sign_up_closed: "T√° s√≠ni√∫ oscailte cr√≠ochnaithe ag an t-am seo."
+        forgot_your_password: "Dearmad d√©anta ar do pasfhocal?"
+        receive_confirmation: "N√≠or bhfuar t√∫ treoireacha deimhni√∫?"
+        receive_unlock: "N√≠or bhfuar t√∫ treoireach d√≠ghlas√°il?"
