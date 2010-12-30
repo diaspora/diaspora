@@ -50,6 +50,38 @@ describe ApplicationHelper do
     end
   end
 
+  describe "#when_exactly" do
+    it "doesn't throw an error when param's created_at returns a datetime object" do
+      class Example
+        def created_at
+          DateTime.new
+        end
+      end
+      result = when_exactly(Example.new)
+      result.should be_kind_of(String)
+      result.should_not be_blank
+    end
+
+    it "doesn't throw an error when param's created_at doesn't return a datetime object" do
+      class Example
+        def created_at
+          true
+        end
+      end
+      result = when_exactly(Example.new)
+      result.should be_kind_of(String)
+      result.should_not be_blank
+    end
+
+    it "doesn't throw an error when object doesn't have a created_at method" do
+      class Example
+      end
+      result = when_exactly(Example.new)
+      result.should be_kind_of(String)
+      result.should_not be_blank
+    end
+  end
+
   describe "markdownify" do
     describe "autolinks" do
       it "should not allow basic XSS/HTML" do

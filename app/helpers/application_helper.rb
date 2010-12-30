@@ -101,7 +101,7 @@ module ApplicationHelper
   end
 
   def when_exactly(obj)
-    obj.created_at ? I18n.l(obj.created_at, :format => :long) : I18n.l(Time.now, :format => :long)
+    (obj.created_at && obj.created_at.kind_of?(DateTime)) ? I18n.l(obj.created_at, :format => :long) : I18n.l(Time.now, :format => :long)
   end
 
   def person_url(person)
