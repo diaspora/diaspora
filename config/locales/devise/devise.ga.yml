@@ -35,7 +35,7 @@ ga:
         change_password: "Athraigh mo pasfhocal"
       new:
         forgot_password: "Dearmaid déanta ar do pasfhocail?"
-        send_password_instructions: "Seol treoireacha athshocrú pasfhocal dom".
+        send_password_instructions: "Seol treoireacha athshocrú pasfhocal dom."
     confirmations:
       send_instructions: "Gheobhaidh tú ríomhphost le treoireacha ar conas do cúntas a deimhniú i cúpla nóiméad."
       confirmed: "D'éirigh le do cúntas deimhniú. Tá tú sínithe isteach anois."
