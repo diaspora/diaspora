@@ -26,7 +26,7 @@
     <!--[if IE]>
     = javascript_include_tag "/javascripts/ie.js"
     <![endif]-->
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    = javascript_include_tag  AppConfig[:pod_uri].scheme.to_s + "://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/vendor/jquery144.min.js"%3E%3C/script%3E'))
