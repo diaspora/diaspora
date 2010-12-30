@@ -1,2 +1,2 @@
-42 * * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake backup:mongo 2>> /usr/local/app/diaspora/log/rake_mongo.log
-42 15 * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake backup:photos 2>> /usr/local/app/diaspora/log/rake_photos.log
+42 * * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace backup:mongo 2>> /usr/local/app/diaspora/log/rake_mongo.log
+42 15 * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace backup:photos 2>> /usr/local/app/diaspora/log/rake_photos.log

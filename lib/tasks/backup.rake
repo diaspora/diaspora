@@ -4,7 +4,7 @@ namespace :backup do
   require 'cloudfiles'
 
   task :mongo do
-    Rails.logger.info("event=backup status=start type=mongo")
+    puts("event=backup status=start type=mongo")
 
     if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key]
       puts "Logging into Cloud Files"
@@ -21,11 +21,11 @@ namespace :backup do
       file = mongo_container.create_object(tar_name)
 
       if file.write File.open("/tmp/backup/" + tar_name)
-        Rails.logger.info("event=backup status=success type=mongo")
+        puts("event=backup status=success type=mongo")
         `rm /tmp/backup/#{tar_name}`
         `rm -rf /tmp/backup/mongo/`
       else
-        Rails.logger.info("event=backup status=failure type=mongo")
+        puts("event=backup status=failure type=mongo")
       end
     else
       puts "Cloudfiles username and api key needed"
@@ -33,7 +33,7 @@ namespace :backup do
   end
 
   task :photos do
-    Rails.logger.info("event=backup status=start type=photos")
+    puts("event=backup status=start type=photos")
 
     if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key]
       puts "Logging into Cloud Files"
@@ -47,10 +47,10 @@ namespace :backup do
       file = photo_container.create_object(tar_name)
 
       if file.write File.open("/tmp/backup/" + tar_name)
-        Rails.logger.info("event=backup status=success type=photos")
+        puts("event=backup status=success type=photos")
         `rm /tmp/backup/#{tar_name}`
       else
-        Rails.logger.info("event=backup status=failure type=photos")
+        puts("event=backup status=failure type=photos")
       end
     else
       puts "Cloudfiles username and api key needed"
