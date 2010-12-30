@@ -1,0 +1,448 @@
+ga:
+  settings: "Socraithe"
+  profile: "Próifíl"
+  account: "Cúntas"
+  _services: "Seirbhísí"
+  _photos: "pictíurí"
+  ok: "OK"
+  cancel: "Cealaigh"
+  delete: "Scrios"
+  or: "nó"
+  ago: "%{time} ó shin"
+  username: "Ainm úsáideora"
+  email: "Sheoladh ríomhphost"
+  password: "Pasfhocal"
+  password_confirmation: "Deimhniú pasfhocal"
+  are_you_sure: "An bhfuil tú cinnte?"
+  fill_me_out: "Líon mé amach"
+  back: "Ar ais"
+  the_world: "an domhain"
+  new_notifications: "%{count} fógraí nua"
+  no_new_notifications: "níl aon fógrái nua"
+  _home: "Abhaile"
+  _comments: "Nótaí tráchta"
+  next: "ar aghaidh"
+  previous: "roimhhe"
+  contacts:
+    zero: "níl aon teagmháila"
+    one: "teagmháil amháin"
+    few: "%{count} teagmháil"
+    other: "%{count} teagmháil"
+  new_requests:
+    zero: "níl aon iarrata"
+    one: "iarratas nua!"
+    few: "%{count} iarratas nua!"
+    other: "%{count} iarratas nua!"
+
+  activemodel:
+    errors:
+      models:
+        user:
+          attributes:
+            person:
+              invalid: "neamhbhailí."
+            username:
+              taken: "tógtha cheanna féin"
+            email:
+              taken: "tóghta cheanna féin"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "tógtha cheanna féin"
+        contact:
+          attributes:
+            person_id:
+            taken: "tá ar bheith uathúil is measc na teaghmháil an úsáideora seo."
+        request:
+          attributes:
+            from_id:
+              taken: "is dúblach é de iarratas a bhí an cheanna féin"
+  application:
+    helper:
+      unknown_person: "duine anaithnid"
+      video_title:
+        unknown: "Teideal Físeán Anaithnid"
+      aspect_badge:
+        all_aspects: "Gach gné"
+  error_messages:
+    helper:
+      invalid_fields: "Réimsí Neambhaillí"
+      correct_the_following_errors_and_try_again: "Ceartaigh na botún seo a leanas agus bain trial eile as"
+  layouts:
+    header:
+      view_profile: "brathnaigh air próifíl"
+      edit_profile: "athraigh próifíl"
+      account_settings: "socraithe cúntas"
+      logout: "logáil amach"
+      blog: "blag"
+      login: "logáil isteach"
+      code: "cod"
+    application:
+      powered_by: "AG ÚSÁID DIASPORA*"
+      whats_new: "cad atá nua?"
+  shared:
+    publisher:
+      posting: "Póstáil..."
+      share: "Roinn"
+      post_a_message_to: "Chuir teachtaireach chuig %{aspect}"
+      make_public: "dean phoiblí"
+      share_with_all: "Roinn le gach gné"
+      share_with: "Roinn le %{aspect}"
+      all: "gach rud"
+      add_photos: "cuir pictiúrí le"
+      all_contacts: "gach teagmháil"
+      share_with_all: "roinn le gach cheann de do gné"
+    add_contact:
+      enter_a_diaspora_username: "Líon isteach ainm úsáideora:"
+      your_diaspora_username_is: "Is é %{diaspora_handle} do ainm úsáideora"
+      create_requrst: "Aimsigh ó hanla Diaspora"
+      diaspora_handle: "diaspora@handle.org"
+      know_email: "Is agat a seola ríomhphost? Ba cheart duit cuireadh a sheola chucu"
+    invitations:
+      invites: "Cuireadh"
+      invite_someone: "Seol cuireadh chuig duine"
+      invitations_left: "(%{count} fágtha)"
+      dont_have_now: "Níl aon cinn agat fós, ach tá níos mó le teacht!"
+      invites_closed: "Tá na cuireadh dúnta ar an phod Diaspora seo"
+    reshare:
+      reshare: "Roinn arís"
+    public_explain:
+      title: "Tá tú díreach chun teachtaireacht phoíblí a póstáil!"
+      outside: "Tá daoine taobh amuigh de Diaspora abálta teachtaireacht phoiblí a fheiceáil."
+      logged_in: "logáilte isteach chuig %{service}"
+      manage: "bainistiú seirbhísí ceangailte"
+    notification:
+      new: "%{type} nua ó %{from}"
+    contact_list:
+      all_cntacts: "Gach teagmháil"
+      cannot_remove: "Ní féidir leat fháil ré leis an duine seo ón gné déarnach. (Má tá tú ag iarradh dínascadh ón duine seo, tá ort fháil ré le teagmháil.)"
+  aspects:
+    all_aspects_contacts:
+      all_contacts: "Gach teagmháil"
+      manage_aspects: "bainistiú gnéanna"
+      aspects: "gnéanna"
+      no_contacts: "Níl aon teaghmháilí agat. Faigh do teagmháilí anseo."
+    aspect_contacts:
+      done_editing: "críochnaithe ag aithriú"
+    show:
+      edit_aspect: "athraigh gné"
+    no_contacts_message:
+      nobody: "Tóg na daoine i gceist i do saol chuig Diaspora!"
+      nobody_in_aspect: "Tá do gné '%{aspect_name}' folamh."
+      add_contact: "Cuir teagmháil leis"
+      add_contact_to: "Cuir teaghmháil le %{aspect_name}"
+      invite: "Seol cuireadh chuig duine chun comhcheangail le Diaspora!"
+    no_posts_message:
+      start_talking: "Níor deireadh aon rud fós. Cuir tús leis an comhrá!"
+    manage:
+      add_a_new_aspect: "Cuir gné nua leis"
+      add_a_new_contact: "Cuir teagmháil leis"
+      requests: "Iarratais"
+      no_requests: "Níl aon iarratas nua"
+      manage_aspects: "Bhainistiú gné"
+      drag_to_add: "Tarraing chun duine nua a chur leis"
+    new_aspect:
+      name: "Ainm"
+      create: "Cruthaigh"
+    create:
+      success: "Bhí do gné nua, {%name}, cruthaithe"
+      failure: "Níor d'eirigh leis an gné nua a cruthú"
+    destroy:
+      success: "Fuaireadh ré le %{name}"
+    update:
+      success: "D'eirigh le athrú do gné %{name}."
+      failure: "Bhí ainm ró-fhada ag do gné, %{name}."
+    move_contact:
+      failure: "níor d'eirigh le %{inspect}"
+      success: "Bogadh an duine chuig gné nua"
+      error: "Earráid ag boga teagmháil: %{inspect}"
+    add_to_aspect:
+      failure: "Níor éirigh leis an teagmháil a chuir leis an gné."
+      success: "D'eirigh le teagmháil a chuir le gné."
+    helper:
+      remove: "bhain"
+      aspect_not_empty: "Níl an gné folamh"
+    remove_from_aspect:
+      success: "Fuaireadh ré leis an duine ón gné"
+      failure: "Níor fuaireadh ré leis an duine ón gné"
+    seed:
+      family: "Clann"
+      work: "Oibre"
+    index:
+      handle_explanations: "Seo é do hanla Diaspora. Mar do sheola ríomhpost, is féidir leat é seo a thabhairt chuig duine ionas go mbheidh siad abálta dul i dteagmháil leat."
+    edit_aspect_pane:
+      remove_aspect: "Scrios an gné seo"
+      confirm_remove_aspect: "An bhfuil tu cinnte go bhfuil tú ag iarraidh an gné seo a scriosadh?"
+      add_existing: "Cuir teagmháilí a bhfuil ann cheanna féin leis"
+  notifications:
+    request_accepted: "glacadh le do iarratas roinnt"
+    new_request: "ofráiladh chun roint leant"
+    post: "póst"
+    deleted: "scriosadh"
+    index:
+      notifications: "Fograí"
+  users:
+    edit:
+      export_data: "Easpórtáil Sonraí"
+      close_account: "Dún Cúntas"
+      change_language: "Athraigh Teanga"
+      change_password: "Athraigh Pasfhocal"
+      new_password: "Pasfhocal nua"
+      download_xml: "íoslódáil mo xml"
+      download_photos: "íoslódáil mo phictiúrí"
+      your_handle: "Do hanla diaspora"
+      your_email: "Do seola ríomhphost"
+      edit_account: "Athraigh cúntas"
+      email_notifications: "Fógraí ríomhphost"
+      receive_email_notifications: "Fháil fógraí ríomhphost?"
+      change: "Athraigh"
+    destroy: "D'eirigh le dúna do cúntas"
+    getting_started:
+      welcom: "Fáilte chuig Diaspora!"
+      signup_steps: "Críochnaigh do síniú isteach ó ag leanúint na treotracha seo"
+      edit_profile: "Athraigh do próifíl"
+      define_aspects: "Sainmhínigh do gné"
+      connect_services: "Ceangailt do seirbhísí eile"
+      finished: "Críochnaithe!"
+      skip: "scipeáil na céad treoracha"
+      save_and_continue: "Sáibháil agus leanúint ar aghaidh"
+      step_2:
+        your_aspects: "Do gné"
+        description: "Abair le Diaspora cén gnéanna duit féin a bhfuil le bhfeiceáil ag teagmháilí éagsúla. Is féidir iad seo a athrú níos déanaí tríd do roghclár cúntas ag an barr ar clé. Tá do gnéanna uathúil duitse agus ní féidir le daoine eile iad a fheiceáil."
+        aspect_name: "Ainm an gné"
+        add: "Cuir leis"
+        your_inviter: "Seo iad na daoine atá ag fanacht ort:"
+        drag_to_add: "Tarraing iad chuig na gnéanna duit féin a bhfuil fhios acu"
+        no_requests: "Níl aon iarratais agat"
+      step_3:
+        your_services: "Do seirbhísí"
+        description: "Is féidir leat ceangailt do líonraí sosialta eile chuig do cúntas Diaspora. Beidh tú ábalta postanna phoiblí a dhéanamh tríd do leathanach Baile nuair a roghnaíonn tú “déan phoiblí”"
+      step_4:
+        set_up: "Tá tú díreach críochnaithe, %{name}!"
+        ready_to_share: "Tá tú ré chun tosnú ag roint le "
+        continue: "Lean chuig do leathanach Baile, forbhreatnú do do gnéana go léir"
+        change_profile: "Is féidir leat do próifíl a athrú agus bhainistú do seirbhísí ceangailte ag aon am tríd "
+        user_menu: "an roghclár úsáidoíra ag an barr ar clé."
+        manage_aspects: "Is féidir leat teagmháilaí a cuiir leis ar aon leathanach."
+        finish: "Críochnaigh"
+    update:
+      password_changed: "Pasfhocal Athraithe"
+      password_not_changed: "Níor Éirigh le Athrú Pasfhocal"
+      language_changed: "Teanga Athraithe"
+      language_not_changed: "Níor Éirigh le Athrú Teanga"
+      email_notifications_changed: "Athraigh Fógraí Ríomhphost"
+    public:
+      does_not_exist: "Níl aon úsáidóira, %{username}!"
+  comments:
+    new_comment:
+      comment: "Scríobh Nóta Tráchta"
+      commenting: "Ag scríobh nóta tráchta"
+      press: "brú"
+      enter: "'enter'"
+      to_comment: "chun nóta tráchta a scríobh"
+  photos:
+    show:
+      delete_photo: "Scrios Pictiúr"
+      make_profile_photo: "Déan mar mo pictiúr prófíl"
+      update_photo: "Nuashonraigh Pictiúr"
+      view: "féach ar"
+      edit: "athraigh"
+      edit_delete_photo: "Athraigh tuarisc an pictiúr / scrios pictiúr"
+      permalink: "nasc-buan"
+      view_original_post: "féach ar an póst bunúil"
+    edit:
+      editing: "Ag Aithrú"
+    photo:
+      view_all: "feach ar gach pictiúr %{name}"
+    new:
+      new_photo: "Pictiúr Nua"
+      back_to_list: "Ar ais chuig Liosta"
+      post_it: "Póst é!"
+    create:
+      runtime_error: "Níor d'éirigh le uaslódáil an pictiúr. An bhfuil tú cinnte go bhfuil to crios sábhala ort?"
+      integrity_error: "Níor d'éirigh le uaslódáil an pictiúr. An bhfuil tú cinnte go raibh sé pictiúr?"
+      type_error: "Níor d'éirigh le uaslódáil an pictiúr. An bhfuil tú cinnte gur chur to pictiúr leis?"
+    update:
+      notice: "Pictiure Uaslódaithe."
+      error: "Níor d'éirigh le aithrú an pictiúr."
+    destroy:
+      notice: "Pictiúr scrioste."
+    new_photo:
+      invalid_ext: "Tá iarmhír míbhaillí ag {file}. Níl ag {extensions} ceadaithe."
+      size_error: "Tá {file} ró-mhór, tá an méid is mó {sizeLimit}."
+      empty: "Tá {file} folamh, pioc comhaid arís gan é."
+    new_profile_photo:
+      upload: "Úaslódáil pictiúr próifíl nua!"
+      or_select_one: "nó pioc cean ó do cinn ann cheanna féin"
+  registrations:
+    new:
+      sign_up: "Síniú suas"
+      sign_up_for_diaspora: "Síniú suas do Diaspora"
+      enter_email: "Iontráil seola ríomhphost"
+      enter_username: "Pioc ainm úsáideora (litir, uimhreacha agus folínigh amháin)"
+      enter_password: "Iontráil pasfhocal"
+      enter_password_again: "Iontráil an pasfhocal céanna"
+    create:
+      success: "Tá tú tar éis comhcheangal le Diaspora!"
+    edit:
+      edit: "Athraigh %{name}"
+      leave_blank: "(fág bánán muna bhfuil tú ag iarraidh é a athrú)"
+      password_to_confirm: "(táimid ag iarradh do pasfhocal reatha chun do aithrithe a deimhniú)"
+      unhappy: "Míshásta?"
+      update: "Nuashonrú"
+      cancel_my_account: "Cealaigh mo cúntas"
+    closed: "Tá síniú suas dúnta ar an phod Diaspora seo."
+  invitations:
+    create:
+      sent: "Tá cuiridh seola chuigh: "
+      rejected: "Bhí fadbhanna ag na seolaí ríomhphost seo: "
+      no_more: "Níl aon cuiridh eile agat."
+      already_sent: "Cheana féin sheol tú cuireadh chuig an duine seo."
+      already_contacts: "Tá tú cheanna féin ceangailte leis an duine seo"
+    new:
+      invite_someone_to_join: "Seol cuireadh go Diaspora chuig duine!"
+      if_they_accept_info: "má gleachann siad, beidh siad cuirthe leis an gné a sheol tú cuireadh ó."
+      comma_seperated_plz: "Is féidir leat cúpla sheola a cuir isteach má tá comma idir iad."
+      to: "Go dtí"
+      personal_mesage: "Teachtaireacht pearsanta"
+      send_an_invitation: "Seol cuireadh"
+      send_invitation: "Seol an cuireadh"
+      aspect: "Gné"
+      already_invited: "Cheanna féin tá cuireadh acu"
+    check_token:
+      not_found: "Níl aon comhceallaigh cuireadh ann"
+    edit:
+      sign_up: "síniú suas"
+  status_messages:
+    new_status_message:
+      tell_me_something_good: "rá liom rud maith"
+      oh_yeah: "ó sea!"
+    show:
+      destroy: "Scrios"
+      permalink: "nasc-buan"
+    helper:
+      no_message_to_display: "Níl aon teachtaireacht chun taispeáint."
+  people:
+    person:
+      pending_request: "iarratas ar feitheamh"
+      already_connected: "Cheanna féin nasctha"
+      thats_you: "sin tusa!"
+      add_contact: "cuir teagmháil leis"
+    index:
+      results_for: "cuardaigh torthaí do"
+      no_results: "Hé! Tá ort cuardaigh le rud éigin!"
+      couldnt_find_them_send_invite: "Níor fuarthas iad? Seol cuireadh!"
+      no_one_found: "...agus níor fuarthas aon duine"
+    webfinger:
+      fail: "Brón orn, níor raibhamar abálta %{handle} a fháil."
+    show:
+      no_posts: "níl aon póstanna chun taispeáint!"
+      incoming_request: "Tá iarratas nua agat ón duine seo."
+      return_to_aspects: "Dul siar chuig leathanach gnéithe"
+      to_accept_or_ignore: "chun glacadh leis nó neamhaird a dhéanamh de"
+      does_not_exits: "Níl an duine seo ann!"
+      not_connected: "Níl tú ag roinnt le %{name}"
+      recent_posts: "Póstanna Déanaí"
+      recent_public_posts: "Póstanna Phoiblí Déanaí"
+      similar_contacts: "teagmháillí cosúil"
+    edit:
+      info_available_to: "Beidh an eolas seo ar fáil chuig gach duine a cheanglaíonn tú le ar Diaspora."
+      your_profile: "Do próifíl"
+      your_name: "Do ainm"
+      first_name: "Chéadainm"
+      last_name: "Shloinne"
+      your_gender: "Do inscne"
+      your_birthday: "Do bhreithlá"
+      your_bio: "Do beathaisnéis"
+      update_profile: "Nuashonrú Próifíl"
+      allow_search: "Lig do daoine cuardaigh a dhéanamh ort laistigh do Diaspora"
+      edit_profile: "Athraigh próifíl"
+    update:
+      updated: "Próifíl nuashonraithe"
+      failed: "Níor éirigh le do próifíl a nuashonrú"
+    profile_sidebar:
+      remove_contact: "fhaíl ré le teagmháil"
+      edit_my_profile: "Athraigh mo próifíl"
+      bio: "beathaisnéis"
+      gender: "inscne"
+      born: "breithlá"
+      in_aspects: "i gnéithe"
+      cannot_remove: "Ní féidir leat fháil ré le %{name} ón gné déarnach. (Má tá tú ag iarradh dínascadh ón duine seo, tá ort fháil ré le teagmháil.)"
+      remove_from: "Fháil ré le %{name} ó %{aspect}?"
+    helper:
+      results_for: " torthaí do %{params}"
+      people_on_pod_are_aware_of: " tá a fhios ag daoine ar an phod faoi"
+    share_with:
+      share_with: "Tosnú ag roint le %{name}"
+      accepts: "Nuair a glacann %{name} leat, tosóidh tú ag feiceáil póstanna a chéile ar Diaspora"
+    aspect_list:
+      edit_membership: "athraigh ballraíocht gné"
+  requests:
+    manage_aspect_contacts:
+      manage_within: "Bainistiú teagmháilí istigh"
+      existing: "Teagmháillí eiseadh"
+    destroy:
+      success: "Tá sibh cairde anois."
+      error: "Pioc gné más é do thoill é!"
+      ignore: "Neamhard déanta ar iarratas teagmháil"
+    create:
+      sending: "Seoladh"
+      sent: "Tá tú tar éis ceist a chur chun roint le %{name}. Feicfidh siad é an céad uair eile a síníonn siad isteach chuir Diaspora."
+    new_request_to_person:
+      sent: "seolta!"
+  services:
+    index:
+      logged_in_as: "logáilte isteach mar"
+      diconnect: "dínasc"
+      really_disconnet: "dínasc %{service}?"
+      connect_to_twitter: "Nasc let twitter"
+      connect_to_facebook: "Nasc le facebook"
+      edit_services: "Athraigh seirbhísí"
+    create:
+      success: "D'éirigh leis an fíordheimhniú"
+    destroy:
+      success: "D'éirigh le scriose and fíordheimhniú"
+    failure:
+      error: "bhí earráid ag nasc leis an seirbhís sin"
+  notifier:
+    hello: "Haileo %{name}!"
+    love: "le meas,"
+    thanks: "Gur raibh maith agat,"
+    diaspora: "an róbat ríomhpost diaspora"
+    single_admin:
+      subject: "Fógra faoi do chúntas Diaspora:"
+      admin: "Do riarthóir Diaspora"
+    new_request:
+      subject: "Iarratas teagmháil Diaspora* nua ó %{from}"
+      just_sent_you: "díreach ag seoala iarratas teagmháil chugat ar Diaspora*"
+      try_it_out: "Ba cheart duit smaoineamh faoi é a thriala."
+      sign_in: "síniú isteach anseo"
+    request_accepted:
+      subject: "Glacadh %{name} le do iarratas teagmháil ar Diaspora*"
+      accepted: "tar éis do iarratas teagmháil a glacadh!"
+  home:
+    show:
+      share_what_you_want: "Roinnt cad atá tú ag iarraidh, le cé atá tú ag iarraidh."
+      tagline_first_half: "Roinnt cad atá tú ag iarraidh,"
+      tagline_second_half: "le cé atá tú ag iarraidh."
+      already_account: "cúntas agat cheanna féin?"
+      login_here: "logáil isteach anseo"
+      choice: "Rogha"
+      choice_explanation: "Ligeann Diaspora duit do ceangailtí a sórtáil i grúpaí dar n-ainm gnéithe. Uathúil chui Diaspora, déanann gnéithe cinnte nach bhfuil do pictiúrí, scéalanna agus jócanna roinnte ach leis na daoine a bhfuil tú ag iarradh."
+      ownership: "Úinéireacht"
+      ownership_explanation: "Tá tusa an úinéir do do phictíurí, agus ní ceart duit an ceart sin a thabhairt suas chun iad a roinnt. Coimeadann tuas úinéiracht de gach rud a roinntear a Diaspora, ag tabhart smacht duit ar chonas a roinntear é."
+      simplicity: "Simplíocht"
+      simplicity_explanation: "I diaspora tá roinnt glan agus éasca – agus téann seo do príomháideacha freisin. Príomháideach de ghná, níl Diaspora ag iarradh thú a dul tríd leathnaigh de socraigh chun choimead do próifíl sábháilte."
+      learn_about_host: "Foghlaim chonas óstáil do friothálaí Diaspora féin."
+  stream_helper:
+    show_comments: "taispeáin nótaí tráchta"
+    hide_comments: "folaigh nótaí tráchta"
+  webfinger:
+    fetch_failed: "níor d'éirigh le próifíl webfinger a fháil do %{profile_url}"
+    hcard_fetch_failed: "bhí fadbh ag fháil an hcard do %{account}"
+    xrd_fetch_failed: "bhí fadbh ag fháil an xrd ón cúntas %{account}"
+    not_enable: "níl webfinger cumasaithe do óstach %{account}"
+    no_person_contructed: "Níl féidir le duine a bheith tógtha ón hcard seo."
+  pagination:
+    next: "Ar Aghaidh"
+    previous: "Roimhe"
