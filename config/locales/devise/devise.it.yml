@@ -29,10 +29,10 @@ it:
         you_can_confirm: "Puoi confermare il tuo account attraverso il link sottostante:"
       hello: "Ciao %{email}!"
       invitation: 
-        accept: "Accetta L' invito"
+        accept: "Accetta l'invito"
         ignore: "se non vuoi accettare l' invito, perfavore ignora questa email."
         no_account_till: "Il tuo account non sarà creato finchè non cliccherai sul link qui sopra e ti registrerai."
-        subject: "Sei stato invitato ad unirti a Diaspora!"
+        subject: "Hai un invito per iscriverti a Diaspora!"
       inviters: 
         accept_at: ", a %{url}, lo puoi accettare tramite il link sottostante."
         has_invited_you: "%{name} ti ha invitato a unirti a Diaspora"
@@ -44,7 +44,7 @@ it:
         subject: "Istruzioni per reimpostare la password"
         wont_change: "La tua password non verrà cambiata finché non visiti il link sopra e ne crei una nuova."
       unlock_instructions: 
-        account_locked: "Il tuo account è stato bloccato a causa degli eccessivi tentativi falliti di login."
+        account_locked: "Il tuo account è stato bloccato a causa degli eccessivi tentativi falliti di accesso."
         click_to_unlock: "clicca il link sottostante per sbloccare il mio account:"
         subject: "Istruzioni di sblocco"
         unlock: "sblocca il mio account"
@@ -59,7 +59,7 @@ it:
       updated: "La tua password è stata modificata. Hai appena effettuato l'accesso."
     registrations: 
       destroyed: "Ciao! Il tuo account è stato rimosso. Speriamo tornerai a trovarci presto."
-      signed_up: "Ti sei iscritto. Se il servizio è disponibile, riceverai una conferma via email."
+      signed_up: "Iscrizione eseguita. Se il servizio è disponibile, riceverai una conferma via email."
       updated: "Hai aggiornato il tuo account."
     sessions: 
       new: 
