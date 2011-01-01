@@ -49,7 +49,7 @@ de:
       all_contacts: "Alle Kontakte"
       aspects: "Aspekte"
       manage_aspects: "Aspekte verwalten"
-      no_contacts: "Du hast zurzeit keine Kontakte. Finde deine Kontakte hier."
+      no_contacts: "Du hast zurzeit keine Kontakte. Finde hier deine Kontakte."
     aspect_contacts: 
       done_editing: "Änderungen abgeschlossen"
     create: 
@@ -86,7 +86,7 @@ de:
       add_contact_to: "Jemanden zum Aspekt %{aspect_name} hinzufügen"
       invite: "Lade jemanden zu Diaspora ein!"
       nobody: "Bring die dir wichtigen Leute zu Diaspora!"
-      nobody_in_aspect: "'%{aspect_name}' ist leer."
+      nobody_in_aspect: "‚%{aspect_name}‘ ist leer."
     no_posts_message: 
       start_talking: "Niemand hat bisher etwas gesagt. Fange eine Unterhaltung an!"
     remove_from_aspect: 
@@ -105,7 +105,7 @@ de:
   comments: 
     new_comment: 
       comment: "Kommentieren"
-      commenting: "Kommentieren ..."
+      commenting: "Kommentieren …"
       enter: "Eingabe"
       press: "drücke"
       to_comment: "zum Kommentieren"
@@ -125,14 +125,14 @@ de:
     show: 
       already_account: "bereits registriert?"
       choice: "deine Entscheidung"
-      choice_explanation: "Diaspora lässt dich deine Kontakte in Gruppen einordnen. Deine Fotos, Geschichten und Witze werden durch diese Aspekte nur mit den Menschen geteilt, für die sie gedacht sind - einzigartig bei Diaspora."
+      choice_explanation: "Diaspora lässt dich deine Kontakte in Gruppen einordnen. Deine Fotos, Geschichten und Witze werden durch diese Aspekte nur mit den Menschen geteilt, für die sie gedacht sind – einzigartig bei Diaspora."
       learn_about_host: "Du willst deinen eigenen Diaspora-Server betreiben?"
       login_here: "hier anmelden"
       ownership: "dein Eigentum"
-      ownership_explanation: "Deine Bilder gehören dir. Um sie zu teilen, musst du darauf nicht verzichten: Alles, was du auf Diaspora teilst, bleibt dein Eigentum - mit voller Kontrolle über die Verbreitung."
+      ownership_explanation: "Deine Bilder gehören dir. Um sie zu teilen, musst du darauf nicht verzichten: Alles, was du auf Diaspora teilst, bleibt dein Eigentum – mit voller Kontrolle über die Verbreitung."
       share_what_you_want: "Teile was du willst, mit wem du willst."
-      simplicity: "ganz Einfach"
-      simplicity_explanation: "Diaspora macht Teilen klar und einfach - dasselbe gilt für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind nicht nötig."
+      simplicity: "ganz einfach"
+      simplicity_explanation: "Diaspora macht Teilen klar und einfach – dasselbe gilt für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind nicht nötig."
       tagline_first_half: "Teile was du willst,"
       tagline_second_half: "mit wem du willst."
   invitations: 
@@ -159,7 +159,7 @@ de:
   layouts: 
     application: 
       powered_by: "BETRIEBEN MIT DIASPORA*"
-      whats_new: "Was gibt's Neues?"
+      whats_new: "Was gibt’s Neues?"
     header: 
       account_settings: "Kontoeinstellungen"
       blog: "Blog"
@@ -191,8 +191,8 @@ de:
     new_request: 
       just_sent_you: "hat dir gerade eine Kontakt-Anfrage auf Diaspora* geschickt"
       sign_in: "melde dich hier an"
-      subject: "Neue Diaspora* Kontakt-Anfrage von %{from}"
-      try_it_out: "Probier's aus!"
+      subject: "Neue Diaspora*-Kontakt-Anfrage von %{from}"
+      try_it_out: "Probier’s aus!"
     request_accepted: 
       accepted: "hat deine Kontakt-Anfrage akzeptiert!"
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora* akzeptiert"
@@ -228,7 +228,7 @@ de:
       results_for: "Ergebnisse für %{params}"
     index: 
       couldnt_find_them_send_invite: "Konntest Du ihn/sie nicht finden? Schicke eine Einladung!"
-      no_one_found: "... und niemand wurde gefunden."
+      no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
     person: 
@@ -319,7 +319,7 @@ de:
       sign_up_for_diaspora: "Ein Diaspora-Konto anlegen"
   requests: 
     create: 
-      sending: "Senden..."
+      sending: "Senden …"
       sent: "Du hast angefragt mit %{name} zu teilen. Er/sie sollte dies sehen, wenn er/sie sich das nächste mal bei Diaspora einloggt."
     destroy: 
       error: "Bitte wähle einen Aspekt!"
@@ -351,7 +351,7 @@ de:
       create_request: "Über die Diaspora-Adresse finden"
       diaspora_handle: "diaspora@beispiel.org"
       enter_a_diaspora_username: "Gib einen Diaspora-Benutzernamen ein:"
-      know_email: "Du kennst die E-Mail Adresse? Du solltest sie einladen"
+      know_email: "Du kennst die E-Mail-Adresse? Du solltest sie einladen"
       your_diaspora_username_is: "Deine Diaspora-Adresse ist: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Alle Kontakte"
@@ -375,7 +375,7 @@ de:
       all_contacts: "alle Kontakte"
       make_public: "öffentlich machen"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
-      posting: "Senden ..."
+      posting: "Senden …"
       share: "Teilen"
       share_with: "Mit %{aspect} teilen"
       share_with_all: "Mit allen Aspekten teilen"
@@ -386,7 +386,7 @@ de:
       no_message_to_display: "Keine Nachricht zum Anzeigen."
     new_status_message: 
       oh_yeah: "oh yeah!"
-      tell_me_something_good: "Was gibt's Neues?"
+      tell_me_something_good: "Was gibt’s Neues?"
     show: 
       destroy: "Entfernen"
       permalink: "Permalink"
@@ -409,7 +409,7 @@ de:
       export_data: "Daten exportieren"
       new_password: "Neues Passwort"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen?"
-      your_email: "deine E-Mail-Adresse"
+      your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora-Adresse"
     getting_started: 
       connect_services: "Mit deinen anderen Diensten verbinden"
@@ -428,11 +428,11 @@ de:
         your_aspects: "Deine Aspekte"
         your_inviter: "Hier sind die Leute, die auf dich warten:"
       step_3: 
-        description: "Du kannst deine vorhandenen sozialen Netzwerke mit deinem Diaspora-Konto verbinden. Du kannst deine Beiträge auch außerhalb von Diaspora veröffentlichen, wenn du 'öffentlich machen' auswählst."
+        description: "Du kannst deine vorhandenen sozialen Netzwerke mit deinem Diaspora-Konto verbinden. Du kannst deine Beiträge auch außerhalb von Diaspora veröffentlichen, wenn du „öffentlich machen“ auswählst."
         your_services: "Deine Dienste"
       step_4: 
         change_profile: "Du kannst dein Profil und deine verlinkten Dienste jederzeit bearbeiten unter"
-        continue: "Weiter zur \"Alle\"-Seite, einer Übersicht aller deiner Aspekte."
+        continue: "Weiter zur Startseite, einer Übersicht aller deiner Aspekte."
         finish: "Fertigstellen"
         manage_aspects: "Du kannst auch Kontakte hinzufügen, während du dich auf einer Aspekt-Seite befindest."
         ready_to_share: "Du bist nun bereit zum Teilen mit"
@@ -452,4 +452,4 @@ de:
     hcard_fetch_failed: "es gab Probleme beim Laden der hcard für %{account}"
     no_person_constructed: "Konnte keine Person aus dieser hcard erstellen."
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
-    xrd_fetch_failed: "Konnte  XRD Datei von %{account} nicht herunterladen"
+    xrd_fetch_failed: "Die XRD-Datei von %{account} konnte nicht heruntergeladen werden"
