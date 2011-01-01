@@ -1,7 +1,7 @@
 default: 'en'
 available:
   ca: "Català"
-  cs: 'Lietuviškai'
+  cs: 'Čeština'
   cy: 'Cymraeg'
   da: 'Dansk'
   de: 'Deutsch'
