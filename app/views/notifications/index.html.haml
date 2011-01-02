@@ -1,5 +1,5 @@
 :javascript
-  $('.stream_element').live('click', function(evt){
+  $('.stream_element').live('mousedown', function(evt){
     var note = $(this).closest('.stream_element'),
         note_id = note.attr('data-guid'),
         nBadge = $("#notification_badge_number");
