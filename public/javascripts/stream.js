@@ -90,6 +90,11 @@ var Stream = {
             '<p><a href="http://vimeo.com/' + $this.data("video-id") + '">Watch this video on Vimeo</a></p>' +
             '<iframe class="vimeo-player" src="http://player.vimeo.com/video/' + $this.data("video-id") + '"></iframe>'
             );
+      } else if($this.data("host") === "dailymotion.com"){
+        $container.html(
+            '<p><a href="http://www.dailymotion.com/video/' + $this.data("video-id") + '">Watch this video on Dailymotion</a></p>' +
+            '<iframe class="daily-player" src="http://www.dailymotion.com/swf/' + $this.data("video-id") + '"></iframe>'
+            );
       } else {
         $container.html('Invalid videotype <i>' + $this.data("host") + '</i> (ID: ' + $this.data("video-id") + ')');
       }

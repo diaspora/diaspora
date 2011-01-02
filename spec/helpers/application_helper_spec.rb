@@ -88,6 +88,22 @@ describe ApplicationHelper do
           res.should =~ /data-host="vimeo.com"/
           res.should =~ /data-video-id="#{video_id}"/
         end
+				
+				it "recognizes dailymotion links" do
+          video_id = "xzv4f"
+          url = "http://www.dailymotion.com/video/#{video_id}"
+          res = markdownify(url)
+          res.should =~ /data-host="dailymotion.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+        end
+
+				it "recognizes dailymotion virgilio ( and maybe others ) links" do
+          video_id = "xzv4f"
+          url = "http://dailymotion.virgilio.it/video/#{video_id}_michael-jackson-thriller_fun"
+          res = markdownify(url)
+          res.should =~ /data-host="dailymotion.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+        end
 
         it "recognizes youtube links" do
           video_id = "0x__dDWdf23"

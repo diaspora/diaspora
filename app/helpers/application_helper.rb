@@ -169,6 +169,7 @@ module ApplicationHelper
     message = process_links(message)
     message = process_youtube(message)
     message = process_vimeo(message, options[:vimeo_maps])
+    message = process_dailymotion(message, options[:daily_maps])
     message = process_autolinks(message)
     message = process_emphasis(message)
     message = process_youtube_again(message, options[:youtube_maps])
@@ -176,7 +177,7 @@ module ApplicationHelper
     if options[:newlines]
       message.gsub!(/\n+/, '<br />')
     end
-
+		
     return message
   end
 
@@ -259,7 +260,7 @@ module ApplicationHelper
 
 
   def process_vimeo(message, vimeo_maps)
-    regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{6,})/
+    regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{5,})/
     while vimeo = message.match(regex)
       video_id = vimeo[1]
       if vimeo_maps && vimeo_maps[video_id]
@@ -268,6 +269,20 @@ module ApplicationHelper
         title = I18n.t 'application.helper.video_title.unknown'
       end
       message.gsub!(vimeo[0], '<a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="#video">Vimeo: ' + title + '</a>')
+    end
+    return message
+  end
+
+	def process_dailymotion(message, daily_maps)
+    regex = /https?:\/\/(www\.)?dailymotion\.(?:\w{2,}\.)?\w{2,3}\/video\/([a-zA-Z0-9]{2,})\_?(.*)?/
+    while daily = message.match(regex)
+      video_id = daily[2]
+      if daily_maps && daily_maps[video_id]
+        title = daily_maps[video_id]
+      else
+        title = I18n.t 'application.helper.video_title.unknown'
+      end
+      message.gsub!(daily[0], '<a class="video-link" data-host="dailymotion.com" data-video-id="' + video_id + '" href="#video">Dailymotion: ' + title + '</a>')
     end
     return message
   end
