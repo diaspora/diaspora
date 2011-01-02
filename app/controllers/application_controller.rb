@@ -3,17 +3,17 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
-#  has_mobile_fu
+  #has_mobile_fu
   protect_from_forgery :except => :receive
 
-#  before_filter :mobile_except_ipad
+  #before_filter :mobile_except_ipad
   before_filter :set_contacts_notifications_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
 
   def set_contacts_notifications_and_status
-    if user_signed_in? 
+    if user_signed_in?
       @aspect = nil
       @aspects = current_user.aspects.fields(:name)
       @aspects_dropdown_array = @aspects.collect{|x| [x.to_s, x.id]}

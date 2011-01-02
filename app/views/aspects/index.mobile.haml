@@ -2,14 +2,10 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%div
-  %h1
-    = person_image_tag (current_user.person)
-    = current_user.name
 = select_tag "aspect_picker", aspect_select_options(@aspects, @aspect)
 
 %div{:data => {:role => 'content'}}
   %div{:data => {:role => 'fieldcontain'}}
     =render 'shared/publisher', :aspect => @aspect
 
-= render 'shared/stream', :posts => @posts
+= render 'shared/stream', :posts => @post_hashes

@@ -226,9 +226,7 @@ header
     :right 1em
 
 .stream
-  :margin 0
-  :padding 0
-  > li
+  .stream_element
     :padding 0.7em 1em
     :min-height 50px
     :border
@@ -294,9 +292,7 @@ header
       :margin
         :right 2em
 
-
-
-li.message
+.stream_element
   :position relative
   :word-wrap break-word
   :color #777
@@ -306,9 +302,6 @@ li.message
       :display inline
       a
         :color #444
-
-  .avatar
-    :float left
 
   .content
     :margin
@@ -610,45 +603,29 @@ ul.show_comments
       :margin
         :bottom 2em
 
-
-.stream, #profile,
-.comments
-  img.person_picture
-
-    :-webkit-border-radius 3px
-    :-moz-border-radius 3px
-    :border-radius 3px
-
-    :display inline block
-    :height 30px
-    :display absolute
-    :float left
-    :margin
-      :right 10px
-
-
 .pagination
   a
     :padding 3px
 
-li.message .right
-  :display none
-  :position absolute
-  :right 12px
+.stream_element
+  .right
+    :display none
+    :position absolute
+    :right 12px
 
-  &.controls
-    :font
-      :size 12px
-    :color #999
-    a
-      :color #999
+    &.controls
       :font
-        :weight normal
-      &:hover
-        :text
-          :decoration underline
+        :size 12px
+      :color #999
+      a
+        :color #999
+        :font
+          :weight normal
+        &:hover
+          :text
+            :decoration underline
 
-li.message:hover
+.stream_element:hover
   .right
     :display inline
 
@@ -2056,6 +2033,8 @@ h3,h4
     :color #ccc
 
 .stream
+  .avatar
+    :float left
   .arrow,
   .aspect_badge
     :position relative
@@ -2106,11 +2085,8 @@ h3,h4
     :top 6px
     :right 0
 
-ul.notifications_for_day
-  :margin 0
-  :padding 0
-
-  li.message
+.notifications_for_day
+  .stream_element
     :margin
       :bottom 0.3em
     :padding 0.2em 0.5em

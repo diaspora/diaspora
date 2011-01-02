@@ -121,7 +121,7 @@ var View = {
 
   newRequest: {
     submit: function() {
-      $(this).hide().parent().find(".message").removeClass("hidden");
+      $(this).hide().parent().find(".stream_element").removeClass("hidden");
     },
     selector: ".new_request"
   },

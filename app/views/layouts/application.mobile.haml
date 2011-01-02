@@ -10,17 +10,19 @@
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
-    = include_javascripts :mobile 
+    = include_javascripts :mobile
     = stylesheet_link_tag 'vendor/jquery_mobile.min', 'mobile'
     = csrf_meta_tag
-    
+
     :javascript
       $(document).ready(Mobile.initialize);
 
     = yield(:head)
 
   %body
-    %div{:data => {:role => 'header', :nobackbtn => 'true'}}
-      = link_to image_tag('logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
-    #content{:data => {:role => 'page', :theme => "b"}}
+    #content{:data => {:role => 'page'}}
+      %div{:data => {:role => 'header', :nobackbtn => 'true'}}
+        %h4
+          DIASPORA*
+        /= link_to image_tag('logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
       = yield

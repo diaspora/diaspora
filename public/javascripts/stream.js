@@ -131,7 +131,7 @@ var Stream = {
     });
 
     $(".stream").find(".delete").live('ajax:success', function(data, html, xhr) {
-      $(this).parents(".message").fadeOut(150);
+      $(this).parents(".status_message").fadeOut(150);
     });
 
   },
@@ -141,8 +141,8 @@ var Stream = {
     var $this = $(this),
       text = $this.html(),
       showUl = $(this).closest('li'),
-      commentBlock = $this.closest("li.message").find("ul.comments", ".content"),
-      commentBlockMore = $this.closest("li.message").find(".older_comments", ".content"),
+      commentBlock = $this.closest(".stream_element").find("ul.comments", ".content"),
+      commentBlockMore = $this.closest(".stream_element").find(".older_comments", ".content"),
       show = (text.indexOf("show") != -1);
 
     if( commentBlockMore.hasClass("inactive") ) {
@@ -165,7 +165,7 @@ var Stream = {
 
   focusNewComment: function(toggle, evt) {
     evt.preventDefault();
-    var commentBlock = toggle.closest("li.message").find("ul.comments", ".content");
+    var commentBlock = toggle.closest(".stream_element").find("ul.comments", ".content");
 
     if(commentBlock.hasClass('hidden')) {
       commentBlock.removeClass('hidden');

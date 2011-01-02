@@ -60,6 +60,6 @@
 
   %h4= t('_comments')
 
-  %ul{:id => 'photo_stream', :class => 'stream show'}
-    %li.message{:data=>{:guid=>@parent.id}}
+  #photo_stream.stream.show
+    %div{:data=>{:guid=>@parent.id}}
       = render "comments/comments", :post_id => @parent.id, :comment_hashes => @comment_hashes, :always_expanded => true

@@ -52,12 +52,12 @@
         - else
           = t('.recent_public_posts')
 
-      %ul{:class => 'stream', :id => 'main_stream'}
+      #main_stream.stream
         = render 'shared/stream', :posts => @post_hashes
     = will_paginate @posts
 
   - else
-    %ul#stream
+    #stream
       %li
         %h3= t('.no_posts')
 

@@ -117,7 +117,7 @@ var WebSocketReceiver = {
   },
 
   addPostToStream: function(postId, html) {
-    if( $(".message[data-guid='" + postId + "']").length == 0 ) {
+    if( $(".stream_element[data-guid='" + postId + "']").length == 0 ) {
       var showMessage = function() {
         $("#main_stream:not('.show')").prepend(
           $(html).fadeIn("fast", function() {
@@ -160,7 +160,7 @@ var WebSocketReceiver = {
       return ((c =='') || (c== '1'));
   },
   debug: function(str) {
-    $("#debug").append("<p>" +  str); 
+    $("#debug").append("<p>" +  str);
   }
 };
 var WSR = WebSocketReceiver;

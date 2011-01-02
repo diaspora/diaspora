@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:data=>{:guid=>post.id}}
+.stream_element{:data=>{:guid=>post.id}}
   - if person.owner_id == current_user.id
     .right.controls
       - reshare_aspects = aspects_without_post(aspects, post)
