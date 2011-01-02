@@ -13,4 +13,4 @@ if defined?(PhusionPassenger)
    end
 end
 
-puts "Security Warning (11/29/2010):  if you are using Diaspora on the internet, please make sure your mongodb is started with '--bind 127.0.0.1' or you are using a database password"
+$stderr.puts "Security Warning (11/29/2010):  if you are using Diaspora on the internet, please make sure your mongodb is started with '--bind 127.0.0.1' or you are using a database password"
