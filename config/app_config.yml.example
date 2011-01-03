@@ -46,6 +46,10 @@ default:
   # ActionMailer class.
   mailer_on: false
 
+  # This chooses which mailer should be used. 'smtp' for a smtp
+  # connection or 'sendmail' to use the sendmail binary.
+  mailer_method: 'smtp'
+
   # Address/port to smtp server handing outgoing mail.
   smtp_address: 'smtp.example.com'
   smtp_port: '587'
@@ -65,6 +69,9 @@ default:
   # smtp_authentication != 'none'
   smtp_username: 'smtp_username'
   smtp_password: 'secret'
+
+  # The path to the sendmail binary.
+  sendmail_location: '/usr/sbin/sendmail'
 
   #google analytics key, if false, it won't include the javascript
   google_a_site: false
