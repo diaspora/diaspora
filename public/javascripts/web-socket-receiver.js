@@ -4,7 +4,9 @@ var WebSocketReceiver = {
 
     //Attach onmessage to websocket
     ws.onmessage = WSR.onMessage;
-    ws.onclose = function() { WSR.debug("socket closed"); };
+    ws.onclose = function() {
+      WSR.debug("socket closed");
+    };
     ws.onopen = function() {
       ws.send(location.pathname);
       WSR.debug("connected...");
@@ -140,7 +142,7 @@ var WebSocketReceiver = {
 
   onPageForAspects: function(aspectIds) {
     if(location.pathname == '/aspects' && WebSocketReceiver.onPageOne()) {
-      return true
+      return true;
     }
     var found = false;
     $.each(aspectIds, function(index, value) {
@@ -152,7 +154,7 @@ var WebSocketReceiver = {
   },
 
   onPageForAspect: function(aspectId) {
-    return (location.href.indexOf(aspectId) != -1 )
+    return (location.href.indexOf(aspectId) != -1 );
   },
 
   onPageOne: function() {

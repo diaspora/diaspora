@@ -60,8 +60,8 @@ $(document).ready(function() {
       $("#no_contacts").fadeOut(200);
     }
 
-    $(".badges").prepend(json['badge_html']);
-    $(this).parent().html(json['button_html']);
+    $(".badges").prepend(json.badge_html);
+    $(this).parent().html(json.button_html);
     $(this).fadeTo(200,1);
   });
 

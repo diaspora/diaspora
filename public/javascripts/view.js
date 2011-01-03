@@ -5,7 +5,7 @@
 var View = {
   initialize: function() {
     /* Buttons */
-    $("input[type='submit']").addClass("button");
+    $("input:submit").addClass("button");
 
     /* Tooltips */
     this.tooltips.bindAll();
