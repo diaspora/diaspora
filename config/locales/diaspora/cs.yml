@@ -49,7 +49,7 @@ cs:
       all_contacts: "Všechny kontakty"
       aspects: "Aspekty"
       manage_aspects: "upravit aspekty"
-      no_contacts: "Nemáte žádné kontakty. Najděte je zde."
+      no_contacts: "Nemáte žádné kontakty. Vyhledejte je zde."
     aspect_contacts: 
       done_editing: "ukončit úpravy"
     create: 
@@ -85,7 +85,7 @@ cs:
       add_contact: "Přidat kontakt"
       add_contact_to: "Přidat někoho do %{aspect_name}"
       invite: "Pozvěte někoho na Diasporu!"
-      nobody: "Přiveďte lidi, na kterých vám záleží, do Diaspory!"
+      nobody: "Přiveďte do Diaspory lidi, na kterých vám záleží!"
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdný."
     no_posts_message: 
       start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
@@ -106,9 +106,9 @@ cs:
     new_comment: 
       comment: "Komentář"
       commenting: "Komentování..."
-      enter: "zadejte"
+      enter: "enter"
       press: "stiskněte"
-      to_comment: "komentovat"
+      to_comment: "pro uložení komentáře"
   contacts: 
     few: "%{count} kontaktů"
     one: "1 kontakt"
@@ -120,7 +120,7 @@ cs:
     helper: 
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
       invalid_fields: "Neplatná pole"
-  fill_me_out: "Vyplnit"
+  fill_me_out: "Vyplňte"
   home: 
     show: 
       already_account: "máte již účet?"
@@ -130,9 +130,9 @@ cs:
       login_here: "přihlásit se zde"
       ownership: "Vlastnictví"
       ownership_explanation: "Vaše obrázky jsou Vaším vlastnictvím. Neměli by jste se ho zříkat jen kvůli tomu, že je chcete sdílet. Zachovejte si proto právo na vše, co zveřejňujete. Jen to Vám dá plnou kontrolu nad tím, jak se s tím nakládá."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: "Sdílejte co chcete s kým chcete."
       simplicity: "Jednoduchost"
-      simplicity_explanation: "Zdílení v Diaspoře je velmi lehké a transparentní – je to dvojitá záruka ochrany soukromí. Kromě soukromí, Diaspora neobsahuje žádné složité stránky s nastavením, kterými by jste se museli prolouskat, aby jste uchovali bezpečnost Vašeho profilu podle svých představ."
+      simplicity_explanation: "Sdílení je v Diaspoře velmi lehké a transparentní – je to dvojitá záruka ochrany soukromí. Kromě soukromí, Diaspora neobsahuje žádné složité stránky s nastavením, kterými by jste se museli prolouskat, aby jste uchovali bezpečnost Vašeho profilu podle svých představ."
       tagline_first_half: "Sdílejte co chcete,"
       tagline_second_half: "s kým chcete."
   invitations: 

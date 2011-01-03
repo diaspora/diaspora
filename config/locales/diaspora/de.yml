@@ -279,7 +279,7 @@ de:
     new_photo: 
       empty: "{file} ist leer, bitte wähle erneut Dateien aus."
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
-      size_error: "{file} ist zu groß. Die maximale Dateigröße ist {sizeLimit}."
+      size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     new_profile_photo: 
       or_select_one: "oder wähle eins aus deinen bereits bestehenden"
       upload: "Lade ein neues Profilfoto hoch!"
