@@ -51,8 +51,8 @@ var Stream = {
     // reshare button action
     $stream.delegate(".reshare_button", "click", function(evt) {
       evt.preventDefault();
-      button = $(this)
-      box = button.siblings(".reshare_box");
+      var button = $(this);
+      var box = button.siblings(".reshare_box");
       if (box.length > 0) {
         button.toggleClass("active");
         box.toggle();

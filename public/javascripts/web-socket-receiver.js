@@ -1,6 +1,6 @@
 var WebSocketReceiver = {
   initialize: function(url) {
-    ws = new WebSocket(url);
+    var ws = new WebSocket(url);
 
     //Attach onmessage to websocket
     ws.onmessage = WSR.onMessage;
@@ -39,9 +39,9 @@ var WebSocketReceiver = {
   },
 
   processPerson: function(response) {
-    form = $('.webfinger_form');
+    var form = $('.webfinger_form');
     form.siblings('#loader').hide();
-    result_ul = form.siblings('#request_result');
+    var result_ul = form.siblings('#request_result');
     if(response.status == 'fail') {
       result_ul.siblings('.error').show();
       result_ul.find('.error').text(response.response).show();
@@ -88,11 +88,11 @@ var WebSocketReceiver = {
 
     if( $(".comment[data-guid='"+commentId+"']").length == 0 ) {
 
-      post = $("*[data-guid='"+postId+"']'");
+      var post = $("*[data-guid='"+postId+"']'");
       $('.comments li:last', post ).before(
         $(html).fadeIn("fast", function(){})
       );
-      toggler = $('.show_post_comments', post);
+      var toggler = $('.show_post_comments', post);
 
       if(toggler.length > 0){
         toggler.html(
