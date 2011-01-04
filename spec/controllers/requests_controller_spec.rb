@@ -46,6 +46,13 @@ describe RequestsController do
             :id => @friend_request.id.to_s
         }.should change(Request, :count).by(-1)
       end
+      it "marks the notification as read" do
+        notification = Notification.where(:user_id => @user.id, :target_id=> @friend_request.id).first
+        notification.reload.unread.should == true
+          xhr :delete, :destroy,
+            :id => @friend_request.id.to_s
+        notification.reload.unread.should == false
+      end
     end
   end
 
