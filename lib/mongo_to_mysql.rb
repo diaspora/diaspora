@@ -15,7 +15,7 @@ class MongoToMysql
     `mkdir -p #{dirname}/csv`
   end
   def db_name
-    'diaspora-development'
+    "diaspora-#{Rails.env}"
   end
   def models
     @models ||= [ {:name => :aspects},
@@ -107,9 +107,39 @@ class MongoToMysql
     end
   end
   def people_json_to_csv model_hash
+    model_hash[:attrs] = ["created_at", "updated_at", "serialized_public_key", "url", "mongo_id", "owner_mongo_id", "diaspora_handle"]
+    model_hash[:profile_attrs] = ["image_url_medium", "searchable", "image_url", "person_mongo_id", "gender", "diaspora_handle", "birthday", "last_name", "bio", "image_url_small", "first_name"]
     #Also writes the profiles csv
+
+    debug "Converting #{model_hash[:name]} json to csv"
+    json_file = File.open(model_hash[:json_file])
+
+    people_csv = CSV.open("#{dirpath}/csv/#{model_hash[:name]}.csv",'w')
+    people_csv << model_hash[:attrs]
+
+    profiles_csv = CSV.open("#{dirpath}/csv/profiles.csv",'w')
+    profiles_csv << model_hash[:profile_attrs]
+
+    json_file.each do |aspect_json|
+      hash = JSON.parse(aspect_json)
+      person_row = model_hash[:attrs].map do |attr_name|
+        attr_name = attr_name.gsub("mongo_", "")
+        hash[attr_name]
+      end
+      people_csv << person_row
+
+      profile_row = model_hash[:profile_attrs].map do |attr_name|
+        attr_name = attr_name.gsub("mongo_", "")
+        hash["profile"][attr_name]
+      end
+      profiles_csv << person_row
+    end
+    json_file.close
+    people_csv.close
+    profiles_csv.close
   end
   def posts_json_to_csv model_hash
+    model_hash[:attrs] = ["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_mongo_id", "caption", "remote_photo_path", "random_string", "image", "mongo_id", "type", "diaspora_handle", "person_mongo_id", "message" ]
     #has to handle the polymorphic stuff
   end
   def requests_json_to_csv model_hash
