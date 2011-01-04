@@ -4,15 +4,29 @@
 require 'json'
 require 'csv'
 class MongoToMysql
+  def csv_options
+    {:col_sep =>  ",",
+     :row_sep =>  :auto,
+     :quote_char =>  '"',
+     :field_size_limit => nil,
+     :converters => nil,
+     :unconverted_fields => nil,
+     :headers => false,
+     :return_headers => false,
+     :header_converters => nil,
+     :skip_blanks => false,
+     :force_quotes => false }
+  end
   def dirname
     "tmp/export-for-mysql"
   end
   def dirpath
     "#{Rails.root}/#{dirname}"
   end
-  def make_dir
-    `mkdir -p #{dirname}/json`
-    `mkdir -p #{dirname}/csv`
+  def clear_dir
+    `rm -rf #{dirpath}`
+    `mkdir -p #{dirpath}/json`
+    `mkdir -p #{dirpath}/csv`
   end
   def db_name
     "diaspora-#{Rails.env}"
@@ -78,7 +92,8 @@ class MongoToMysql
   def comments_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "post_mongo_id", "person_mongo_id", "diaspora_handle", "text", "youtube_titles"]
     generic_json_to_csv(model_hash) do |hash|
-      [hash["_id"], hash["post_id"], hash["person_id"], hash["diaspora_handle"], hash["text"], hash["youtube_titles"]]
+      mongo_attrs = ["_id", "post_id", "person_id", "diaspora_handle", "text", "youtube_titles"]
+      mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
   def contacts_json_to_csv model_hash
@@ -88,8 +103,9 @@ class MongoToMysql
     model_hash[:join_table_attrs] = ["contact_mongo_id", "aspect_mongo_id"]
 
     generic_json_to_two_csvs(model_hash) do |hash|
-      main_row = [hash["_id"], hash["user_id"], hash["person_id"], hash["pending"], hash["created_at"], hash["updated_at"]]
-      aspect_membership_rows = hash["aspect_ids"].map{|id| [hash["_id"],id]}
+      main_mongo_attrs = ["_id", "user_id", "person_id", "pending", "created_at", "updated_at"]
+      main_row = main_mongo_attrs.map{|attr_name| hash[attr_name]}
+      aspect_membership_rows = hash["aspect_ids"].map{|id| [hash["_id"], id]}
       [main_row, aspect_membership_rows]
     end
     #Also writes the aspect memberships csv
@@ -97,13 +113,15 @@ class MongoToMysql
   def invitations_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "recipient_mongo_id", "sender_mongo_id", "aspect_mongo_id", "message"]
     generic_json_to_csv(model_hash) do |hash|
-      [hash["_id"], hash["to_id"], hash["from_id"], hash["into_id"], hash["message"]]
+      mongo_attrs = ["_id", "to_id", "from_id", "into_id", "message"]
+      mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
   def notifications_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "target_id", "target_type", "unread"]
     generic_json_to_csv(model_hash) do |hash|
-      [hash["_id"], hash["target_id"], hash["kind"], hash["unread"]]
+      mongo_attrs = ["_id", "target_id", "kind", "unread"]
+      mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
   def people_json_to_csv model_hash
@@ -149,13 +167,15 @@ class MongoToMysql
   def requests_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "recipient_mongo_id", "sender_mongo_id", "aspect_mongo_id"]
     generic_json_to_csv(model_hash) do |hash|
-      [hash["_id"], hash["to_id"], hash["from_id"], hash["into_id"]]
+      mongo_attrs = ["_id", "to_id", "from_id", "into_id"]
+      mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
   def users_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]
     generic_json_to_csv(model_hash) do |hash|
-      [hash["_id"], hash["username"], hash["serialized_private_key"], hash["encrypted_password"], hash["invites"], hash["invitation_token"], hash["invitation_sent_at"], hash["getting_started"], hash["disable_mail"], hash["language"], hash["last_sign_in_ip"], hash["last_sign_in_at"], hash["reset_password_token"], hash["password_salt"]]
+      mongo_attrs = ["_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]
+      mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
   def aspects_json_to_csv model_hash
@@ -166,7 +186,8 @@ class MongoToMysql
     model_hash[:join_table_attrs] = ["aspect_mongo_id", "post_mongo_id"]
 
     generic_json_to_two_csvs(model_hash) do |hash|
-      main_row = [hash["_id"], hash["name"], hash["created_at"], hash["updated_at"]]
+      mongo_attrs = ["_id", "name", "created_at", "updated_at"]
+      main_row = mongo_attrs.map{|attr_name| hash[attr_name]}
       post_visibility_rows = hash["post_ids"].map{|id| [hash["_id"],id]}
       [main_row, post_visibility_rows]
     end

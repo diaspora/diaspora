@@ -10,7 +10,7 @@ namespace :migrations do
   task :export_for_mysql do
     require 'lib/mongo_to_mysql'
     migrator = MongoToMysql.new
-    migrator.make_dir
+    migrator.clear_dir
     migrator.write_json_export
     migrator.convert_json_files
   end
