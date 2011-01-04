@@ -179,6 +179,8 @@ class Person
 
   private
   def remove_all_traces
-    Post.all(:person_id => id).each { |p| p.delete }
+    Post.where(:person_id => id).each { |p| p.delete }
+    Contact.where(:person_id => id).each { |c| c.delete }
+    Notification.where(:person_id => id).each { |n| n.delete }
   end
 end
