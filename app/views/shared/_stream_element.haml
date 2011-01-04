@@ -5,7 +5,7 @@
 .stream_element{:data=>{:guid=>post.id}}
   - if person.owner_id == current_user.id
     .right.controls
-      - reshare_aspects = aspects_without_post(aspects, post)
+      - reshare_aspects = aspects_without_post(all_aspects, post)
       - unless reshare_aspects.empty?
         = render 'shared/reshare', :aspects => reshare_aspects, :post => post
       = link_to t('delete'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete"
@@ -24,7 +24,7 @@
 
       - elsif person.owner_id == current_user.id
         %span.arrow ➔
-        = aspect_badge(aspects_with_post(aspects, post))
+        = aspect_badge(aspects_with_post(all_aspects, post))
 
 
     = render 'status_messages/status_message', :post => post, :photos => photos
