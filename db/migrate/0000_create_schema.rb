@@ -23,6 +23,7 @@ class CreateSchema < ActiveRecord::Migration
       t.string :guid
       t.text :creator_signature
       t.text :post_creator_signature
+      t.text :youtube_titles
       t.timestamps
     end
     add_index :comments, :guid, :unique => true
@@ -86,6 +87,7 @@ class CreateSchema < ActiveRecord::Migration
       t.string :remote_photo_name
       t.string :random_string
       t.string :image #carrierwave's column
+      t.text :youtube_titles
 
       t.timestamps
     end

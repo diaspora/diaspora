@@ -23,6 +23,7 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :text, :post
 
+  serialize :youtube_titles, Hash
   before_save do
     get_youtube_title text
   end

@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "guid"
     t.text     "creator_signature"
     t.text     "post_creator_signature"
+    t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -120,6 +121,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.string   "remote_photo_name"
     t.string   "random_string"
     t.string   "image"
+    t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

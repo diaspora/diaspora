@@ -100,7 +100,7 @@ describe StatusMessage do
       post = @user.build_post :status_message, :message => url, :to => @aspect.id
 
       post.save!
-      post[:youtube_titles].should == {video_id => expected_title}
+      Post.find(post.id).youtube_titles.should == {video_id => expected_title}
     end
   end
 

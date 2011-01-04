@@ -31,7 +31,7 @@ describe StatusMessagesController do
       response.should be_success
     end
   end
-  
+
   describe '#create' do
     let(:status_message_hash) {
       { :status_message => {
