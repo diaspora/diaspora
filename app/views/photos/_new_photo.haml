@@ -6,7 +6,7 @@
  function createUploader(){
    var uploader = new qq.FileUploaderBasic({
        element: document.getElementById('file-upload'),
-       params: {'photo' : {'pending' : 'true', 'aspect_ids' : "#{aspect_id}"}, 'set_profile_image' : "#{set_profile_image if defined?(set_profile_image)}"},
+       params: {'photo' : {'pending' : 'true', 'aspect_ids' : "#{aspect_ids}"}, 'set_profile_image' : "#{set_profile_image if defined?(set_profile_image)}"},
        allowedExtensions: ['jpg', 'jpeg', 'png'],
        action: "#{photos_path}",
        debug: true,

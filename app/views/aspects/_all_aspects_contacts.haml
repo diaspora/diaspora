@@ -7,10 +7,9 @@
     %h1.new_request{:style => 'text-align:center'}
       = new_request_link(@request_count)
 
-#left_pane.everyone
-
+#left_pane
   .section.aspect_listings
-    %h3
+    %h4
       = t('.aspects')
       .right{:style=>"font-size:12px;top:5px;"}
         = link_to t('.manage_aspects'), aspects_manage_path
@@ -20,7 +19,7 @@
         = render :partial => 'aspects/aspect', :locals => a_hash
 
   .section.contact_pictures
-    %h3
+    %h4
       .right.description{:style => "top:-4px"}
         = @contact_hashes.count
       = t('.all_contacts')

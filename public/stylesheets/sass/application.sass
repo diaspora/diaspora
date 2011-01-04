@@ -6,6 +6,7 @@
 body
   :padding 2em
   :margin 0
+    :top 60px
   :background-color rgb(252,252,252)
 a
   :color #107FC9
@@ -114,18 +115,26 @@ header
   :z-index 4
   :position relative
   :min-height 40px
-  :margin -2em
-    :bottom 2em
-  :color #000
 
   :background
-    :color #333
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#080808), to(#191919), color-stop(.9,#262626),color-stop(.1,#333333),color-stop(.75,#343434))
-  :background -moz-linear-gradient( center bottom, rgb(21,21,21) 1%, rgb(51,51,51) 12%)
+    :color #222
+    :color rgba(30,30,30,0.98)
+
+  :-webkit-box-shadow 0 0px 3px #000
+  :-moz-box-shadow 0 0px 3px #000
+  :box-shadow 0 0px 3px #000
+
+  :border
+    :bottom 1px solid #999
 
   :padding 0
     :top 5px
   :color #CCC
+
+  :position fixed
+  :width 100%
+  :top 0
+  :left 0
 
   a
     :color #CCC
@@ -911,8 +920,8 @@ label
 
 #aspect_nav
   :margin
-    :top 8px
-    :bottom 0
+    :top 7px
+    :bottom 2px
   :bottom 0
   :color #000
 
@@ -928,13 +937,13 @@ label
       :margin 0
       :padding 4px 0
       a
-        :-webkit-border-radius 3px 3px 0 0
-        :-moz-border-radius 3px 3px 0 0
-        :border-radius 3px 3px 0 0
+        :-webkit-border-radius 2px
+        :-moz-border-radius 2px
+        :border-radius 2px
 
         :text-shadow 0 1px 0 #444
 
-        :padding 4px 10px
+        :padding 2px 7px
         :margin
           :left -1px
         :color #CCC
@@ -951,8 +960,6 @@ label
         :text-shadow 0 1px 0 #eee
         :font
           :weight bold
-        :padding
-          :bottom 6px
         :background
           :color rgb(252,252,252)
 
@@ -1201,7 +1208,6 @@ ul#settings_nav
   :padding 0
 
 
-#left_pane.everyone,
 #edit_aspect_pane
   :background
     :color rgb(250,250,250)
@@ -1243,7 +1249,7 @@ ul#settings_nav
     :top 1px solid #fff
     :bottom 1px solid #fff
 
-#left_pane.everyone
+#left_pane
   .aspect_listings
     a
       :font
@@ -1252,6 +1258,11 @@ ul#settings_nav
   .section
     :margin
       :bottom 24px
+
+  ul
+    :padding 0
+    :margin 0
+
 
 .aspect_listings
   ul
@@ -1982,6 +1993,8 @@ h3,h4
   :color #fff
   :line-height auto
   :padding 0 4px
+  :margin
+    :right 4px
 
   :-webkit-border-radius 3px
   :-moz-border-radius 3px

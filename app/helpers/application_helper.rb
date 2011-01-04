@@ -33,11 +33,8 @@ module ApplicationHelper
 
   def aspect_badge aspects
     str = ''
-    if aspects.count > 1
-      str = "<span class='aspect_badge all'>#{I18n.t('application.helper.aspect_badge.all_aspects')}</span>"
-    elsif aspects.count == 1
-      aspect = aspects.first
-      str    = "<span class='aspect_badge single'><a href=#{aspect_path(aspect)}>#{aspect.name}</a></span>"
+    aspects.each do |aspect|
+      str << "<span class='aspect_badge single'><a href=#{aspect_path(aspect)}>#{aspect.name}</a></span>"
     end
     str.html_safe
   end

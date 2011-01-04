@@ -2,8 +2,12 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+
+- content_for :head do
+  = include_javascripts :home
+
 .span-24.last
-  %h2{:style => "position:relative;"}
+  %h3{:style => "position:relative;"}
     = current_user.name
     .right{:style=>"top:0"}
       %span.description
@@ -11,14 +15,14 @@
         = info_text(t('.handle_explanation'))
 
 .span-15.append-1
-  = render 'shared/publisher', :aspect => @aspect
-  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
-  = render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
+  = render 'shared/publisher', :aspect => @aspect, :aspect_ids => @aspect_ids
+  /= render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
+  /= render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
 
   #main_stream.stream
     = render 'shared/stream', :posts => @post_hashes
   = will_paginate @posts
 
-.span-8.last
+.span-6.last
   = render 'aspects/all_aspects_contacts'
 

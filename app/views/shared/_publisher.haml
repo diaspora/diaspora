@@ -12,7 +12,7 @@
           $(".question_mark").click();
         };
       });
-      
+
       if($("textarea#status_message_message").val() != ""){
         $("#publisher").removeClass("closed");
         $("#publisher").find("textarea").focus();
@@ -52,7 +52,8 @@
             %ul#photodropzone
             = status.text_area :message, :rows => 2, :value => params[:prefill]
 
-      = status.hidden_field :aspect_ids, :value => (aspect == :all ? aspect : aspect.id)
+      - for aspect_id in @aspect_ids
+        = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
 
@@ -82,5 +83,5 @@
                 = render 'shared/public_explain'
 
     #publisher_photo_upload
-      = render 'photos/new_photo', :aspect_id => (aspect == :all ? aspect : aspect.id)
+      = render 'photos/new_photo', :aspect_ids => @aspect_ids
 
