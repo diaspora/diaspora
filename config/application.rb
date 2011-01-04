@@ -13,7 +13,6 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 require File.expand_path('../../lib/mongo_mapper/bson_id', __FILE__)
 require File.expand_path('../../lib/log_overrider', __FILE__)
-require File.expand_path('../../lib/message_handler', __FILE__)
 module Diaspora
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
