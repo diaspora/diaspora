@@ -76,9 +76,9 @@ class MongoToMysql
     csv.close
   end
   def comments_json_to_csv model_hash
-    model_hash[:attrs] = ["mongo_id", "post_mongo_id", "person_mongo_id", "diaspora_handle", "text"]
+    model_hash[:attrs] = ["mongo_id", "post_mongo_id", "person_mongo_id", "diaspora_handle", "text", "youtube_titles"]
     generic_json_to_csv(model_hash) do |hash|
-      [hash["_id"], hash["post_id"], hash["person_id"], hash["diaspora_handle"], hash["text"]]
+      [hash["_id"], hash["post_id"], hash["person_id"], hash["diaspora_handle"], hash["text"], hash["youtube_titles"]]
     end
   end
   def contacts_json_to_csv model_hash
@@ -139,7 +139,11 @@ class MongoToMysql
     profiles_csv.close
   end
   def posts_json_to_csv model_hash
-    model_hash[:attrs] = ["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_mongo_id", "caption", "remote_photo_path", "random_string", "image", "mongo_id", "type", "diaspora_handle", "person_mongo_id", "message" ]
+    model_hash[:attrs] =["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_mongo_id", "caption", "remote_photo_path", "random_string", "image", "mongo_id", "type", "diaspora_handle", "person_mongo_id", "message" ]
+    generic_json_to_csv(model_hash) do |hash|
+      mongo_attrs = ["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_id", "caption", "remote_photo_path", "random_string", "image", "_id", "_type", "diaspora_handle", "person_id", "message" ]
+      mongo_attrs.map{|attr_name| hash[attr_name]}
+    end
     #has to handle the polymorphic stuff
   end
   def requests_json_to_csv model_hash
