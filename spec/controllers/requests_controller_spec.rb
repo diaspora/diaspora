@@ -33,6 +33,15 @@ describe RequestsController do
           :id        => @friend_request.id.to_s
         response.should redirect_to(aspect_path(@user.aspects.first))
       end
+      it "marks the notification as read" do
+        notification = Notification.where(:user_id => @user.id, :target_id=> @friend_request.id).first
+        notification.reload.unread.should == true
+        xhr :delete, :destroy,
+          :accept    => "true",
+          :aspect_id => @user.aspects.first.id.to_s,
+          :id        => @friend_request.id.to_s
+        notification.reload.unread.should == false
+      end
     end
     describe 'when ignoring a contact request' do
       it "succeeds" do
@@ -46,6 +55,7 @@ describe RequestsController do
             :id => @friend_request.id.to_s
         }.should change(Request, :count).by(-1)
       end
+
       it "marks the notification as read" do
         notification = Notification.where(:user_id => @user.id, :target_id=> @friend_request.id).first
         notification.reload.unread.should == true
