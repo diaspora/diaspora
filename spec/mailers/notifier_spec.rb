@@ -4,6 +4,10 @@ require 'spec_helper'
 describe Notifier do
 
   let!(:user) {make_user}
+  let!(:user2) {make_user}
+
+  let!(:aspect) {user.aspects.create(:name => "win")}
+  let!(:aspect2) {user2.aspects.create(:name => "win")}
   let!(:person) {Factory.create :person}
 
   before do
@@ -74,6 +78,29 @@ describe Notifier do
 
     it 'has the name of person sending the request' do
       request_accepted_mail.body.encoded.include?(person.name).should be true
+    end
+  end
+
+  describe "#comment_on_post" do
+    let!(:connect) { connect_users(user, aspect, user2, aspect2)}
+    let!(:sm) {user.post(:status_message, :message => "Sunny outside", :to => :all)}
+    let!(:comment) { user2.comment("Totally is", :on => sm )}
+    let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment)}
+
+    it 'goes to the right person' do
+      comment_mail.to.should == [user.email]
+    end
+
+    it 'has the receivers name in the body' do
+      comment_mail.body.encoded.include?(user.person.profile.first_name).should be true
+    end
+
+    it 'has the name of person commenting' do
+      comment_mail.body.encoded.include?(person.name).should be true
+    end
+
+    it 'has the post link in the body' do
+      comment_mail.body.encoded.should match "/#{object_path(@sm)}/"
     end
   end
 end

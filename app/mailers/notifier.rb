@@ -1,4 +1,5 @@
 class Notifier < ActionMailer::Base
+  helper :application
 
   default :from => AppConfig[:smtp_sender_address]
 
@@ -43,6 +44,18 @@ class Notifier < ActionMailer::Base
 
     mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
           :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+  end
+
+  def comment_on_post(recipient_id, sender_id, comment)
+    @receiver = User.find_by_id(recipient_id)
+    @sender   = Person.find_by_id(sender_id)
+
+    log_mail(recipient_id, sender_id, 'comment_on_post')
+
+    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
+
+    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+          :subject => I18n.t('notifier.comment_on_post.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
   end
 
   private
