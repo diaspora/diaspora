@@ -122,7 +122,7 @@ class PeopleController < ApplicationController
       @aspects_with_person = @contact.aspects
     end
 
-    @aspects_without_person = @aspects.reject do |aspect|
+    @aspects_without_person = @all_aspects.reject do |aspect|
       @aspects_with_person.include?(aspect)
     end
 

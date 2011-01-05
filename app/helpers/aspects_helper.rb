@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 module AspectsHelper
-  def link_for_aspect( aspect )
-    link_to aspect.name, aspect
+  def link_for_aspect(aspect, opts={})
+    link_to aspect.name, aspects_path("a_ids[]" => aspect.id), opts
   end
 
   def remove_link( aspect )

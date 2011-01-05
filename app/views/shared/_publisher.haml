@@ -53,5 +53,5 @@
                 = render 'shared/public_explain'
 
     #publisher_photo_upload
-      = render 'photos/new_photo', :aspect_ids => @aspect_ids
+      = render 'photos/new_photo', :aspect_ids => @aspect_ids.join(',')
 

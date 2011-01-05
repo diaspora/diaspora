@@ -10,9 +10,9 @@
 #left_pane
   .section.aspect_listings
     %h4
-      = t('.aspects')
-      .right{:style=>"font-size:12px;top:5px;"}
+      .right{:style=>"font-size:12px;"}
         = link_to t('.manage_aspects'), aspects_manage_path
+      = t('.aspects')
 
     %ul
       - for a_hash in @aspect_hashes
