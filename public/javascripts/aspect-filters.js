@@ -11,7 +11,7 @@ $(document).ready(function(){
     var button = $(this),
         guid = button.attr('data-guid');
 
-    if(guid && location.href.match(guid)){
+    if(guid && location.href.search("a_ids..="+guid) != -1){
       button.addClass('selected');
       selectedGUIDS.push(guid);
     }
