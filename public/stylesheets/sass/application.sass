@@ -117,15 +117,17 @@ header
   :min-height 40px
 
   :background
-    :color #222
+    :color #111
     :color rgba(30,30,30,0.98)
 
-  :-webkit-box-shadow 0 0px 3px #000
-  :-moz-box-shadow 0 0px 3px #000
-  :box-shadow 0 0px 3px #000
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.94)), to(rgba(0,0,0,0.96)))
+
+  :-webkit-box-shadow 0 1px 3px #111
+  :-moz-box-shadow 0 1px 2px #111
+  :box-shadow 0 1px 3px #111
 
   :border
-    :bottom 1px solid #999
+    :bottom 1px solid #777
 
   :padding 0
     :top 5px
@@ -147,7 +149,7 @@ header
     .right
       :top 10px
     :height 45px
-    
+
   ul#user_menu
     :overflow hidden
     :white-space nowrap
@@ -943,9 +945,8 @@ label
 
         :text-shadow 0 1px 0 #444
 
-        :padding 2px 7px
-        :margin
-          :left -1px
+        :padding 1px 7px
+
         :color #CCC
         :max-width 120px
         :overflow hidden
@@ -961,7 +962,10 @@ label
         :font
           :weight bold
         :background
-          :color rgb(252,252,252)
+          :color rgb(235,235,235)
+
+        :border
+          :bottom 1px solid #fff
 
         :color #444
         &:hover

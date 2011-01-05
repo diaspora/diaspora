@@ -25,7 +25,7 @@ class AspectsController < ApplicationController
     @aspect_hashes = hashes_for_aspects @aspects, @contacts, :limit => 8
     @contact_hashes = hashes_for_contacts @contacts
 
-    #@aspect = @aspects.first
+    @aspect = :all unless params[:a_ids]
 
     if current_user.getting_started == true
       redirect_to getting_started_path

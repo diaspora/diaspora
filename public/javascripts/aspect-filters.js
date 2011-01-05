@@ -16,7 +16,7 @@ $(function(){
     }
   });
 
-  $("#aspect_nav a").click(function(e){
+  $("#aspect_nav a.aspect_selector").click(function(e){
 
     e.preventDefault();
 
