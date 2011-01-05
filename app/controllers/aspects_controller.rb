@@ -50,7 +50,7 @@ class AspectsController < ApplicationController
     begin
       current_user.drop_aspect @aspect
       flash[:notice] = I18n.t 'aspects.destroy.success',:name => @aspect.name
-      redirect_to root_url
+      redirect_to :back
     rescue RuntimeError => e
       flash[:error] = e.message
       redirect_to :back
