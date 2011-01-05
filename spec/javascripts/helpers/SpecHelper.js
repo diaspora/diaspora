@@ -11,12 +11,13 @@
 
 beforeEach(function() {
   $('#jasmine_content').empty();
-  spec.clearLiveEventBindings();
+  // NOTE Commented (as well as in afterEach) to keep the listeners from rails.js alive.
+  //spec.clearLiveEventBindings();
   jasmine.Clock.useMock();
 });
 
 afterEach(function() {
-  spec.clearLiveEventBindings();
+  //spec.clearLiveEventBindings();
   expect(spec.loadFixtureCount).toBeLessThan(2);
   spec.loadFixtureCount = 0;
 });
