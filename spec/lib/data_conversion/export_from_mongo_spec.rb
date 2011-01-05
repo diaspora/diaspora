@@ -1,8 +1,13 @@
+# Copyright (c) 2010, Diaspora Inc.  This file is
+# licensed under the Affero General Public License version 3 or later.  See
+# the COPYRIGHT file.
+
 require 'spec_helper'
-require 'lib/mongo_to_mysql'
-describe MongoToMysql do
+Dir.glob(File.join(Rails.root, 'lib', 'data_conversion', '*.rb')).each { |f| require f }
+
+describe DataConversion::ExportFromMongo do
   before do
-    @migrator = MongoToMysql.new
+    @migrator = DataConversion::ExportFromMongo.new
   end
   describe '#sed_replace' do
     before do
