@@ -72,6 +72,7 @@ class AspectsController < ApplicationController
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
+      @aspect_ids = [@aspect.id]
       @aspect_contacts = hashes_for_contacts Contact.all(:user_id => current_user.id, :aspect_ids.in => [@aspect.id], :pending => false)
       @aspect_contacts_count = @aspect_contacts.count
 
