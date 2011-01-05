@@ -4,11 +4,12 @@
 
 module DataConversion
   class Base
-    attr_accessor :start_time, :directory
+    attr_accessor :start_time, :directory, :full_path
 
     def initialize(start_time = Time.now)
       @start_time = start_time
       @directory = "tmp/export-for-mysql"
+      @full_path = "#{Rails.root}/#{directory}"
     end
 
     def log(message)
@@ -16,10 +17,6 @@ module DataConversion
         puts "#{sprintf("%.2f", Time.now - start_time)}s #{message}"
       end
       Rails.logger.debug(message) if Rails.logger
-    end
-
-    def full_path
-      "#{Rails.root}/#{directory}"
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20110105051803) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"
@@ -69,6 +69,23 @@ ActiveRecord::Schema.define(:version => 0) do
   end
 
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
+
+  create_table "mongo_users", :force => true do |t|
+    t.string   "mongo_id"
+    t.string   "username"
+    t.text     "serialized_private_key"
+    t.string   "encrypted_password"
+    t.integer  "invites"
+    t.string   "invitation_token"
+    t.datetime "invitation_sent_at"
+    t.boolean  "getting_started"
+    t.boolean  "disable_mail"
+    t.string   "language"
+    t.string   "last_sign_in_ip"
+    t.datetime "last_sign_in_at"
+    t.string   "reset_password_token"
+    t.string   "password_salt"
+  end
 
   create_table "notifications", :force => true do |t|
     t.string   "target_type"
