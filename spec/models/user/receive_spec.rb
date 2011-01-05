@@ -92,7 +92,7 @@ describe User do
     it 'removes posts upon disconnecting' do
       user.disconnect(user2.person)
       user.reload
-      user.raw_visibNotification.notify(self, oble_posts.should_not include @status_message
+      user.raw_visible_posts.should_not include @status_message
     end
 
     it 'deletes a post if the noone links to it' do
