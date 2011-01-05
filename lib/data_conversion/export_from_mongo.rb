@@ -33,15 +33,18 @@ module DataConversion
     end
 
     def models
-      @models ||= [{:name => :aspects},
-                   {:name => :comments},
-                   {:name => :contacts},
-                   {:name => :invitations},
-                   {:name => :notifications},
-                   {:name => :people},
-                   {:name => :posts},
-                   {:name => :requests},
-                   {:name => :users},
+      @models ||= [
+        {:name => :aspects},
+        {:name => :comments,
+         :attrs =>        ["mongo_id", "post_mongo_id", "person_mongo_id", "diaspora_handle", "text", "youtube_titles"],
+         :mongo_attrs =>  ["_id",      "post_id",       "person_id",       "diaspora_handle", "text", "youtube_titles"]},
+        {:name => :contacts},
+        {:name => :invitations},
+        {:name => :notifications},
+        {:name => :people},
+        {:name => :posts},
+        {:name => :requests},
+        {:name => :users},
       ]
     end
 
@@ -95,10 +98,8 @@ module DataConversion
     end
 
     def comments_json_to_csv model_hash
-      model_hash[:attrs] = ["mongo_id", "post_mongo_id", "person_mongo_id", "diaspora_handle", "text", "youtube_titles"]
       generic_json_to_csv(model_hash) do |hash|
-        mongo_attrs = ["_id", "post_id", "person_id", "diaspora_handle", "text", "youtube_titles"]
-        mongo_attrs.map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
       end
     end
 
@@ -193,13 +194,13 @@ module DataConversion
 
     def aspects_json_to_csv model_hash
       log "Converting aspects json to aspects and post_visibilities csvs"
-      model_hash[:main_attrs] = ["mongo_id", "name", "created_at", "updated_at"]
+      model_hash[:main_attrs] = ["mongo_id", "name", "user_mongo_id", "created_at", "updated_at"]
       #Post Visibilities
       model_hash[:join_table_name] = :post_visibilities
       model_hash[:join_table_attrs] = ["aspect_mongo_id", "post_mongo_id"]
 
       generic_json_to_two_csvs(model_hash) do |hash|
-        mongo_attrs = ["_id", "name", "created_at", "updated_at"]
+        mongo_attrs = ["_id", "name", "user_id", "created_at", "updated_at"]
         main_row = mongo_attrs.map { |attr_name| hash[attr_name] }
         post_visibility_rows = hash["post_ids"].map { |id| [hash["_id"], id] }
         [main_row, post_visibility_rows]

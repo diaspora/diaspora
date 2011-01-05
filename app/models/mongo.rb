@@ -4,4 +4,6 @@ module Mongo
   end
 
   class User < ActiveRecord::Base; end
+  class Aspect < ActiveRecord::Base; end
+  class AspectMembership < ActiveRecord::Base; end
 end

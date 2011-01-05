@@ -70,6 +70,26 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
 
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
 
+  create_table "mongo_aspect_memberships", :force => true do |t|
+    t.string   "aspect_mongo_id"
+    t.string   "contact_mongo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_aspect_memberships", ["aspect_mongo_id"], :name => "index_mongo_aspect_memberships_on_aspect_mongo_id"
+  add_index "mongo_aspect_memberships", ["contact_mongo_id"], :name => "index_mongo_aspect_memberships_on_contact_mongo_id"
+
+  create_table "mongo_aspects", :force => true do |t|
+    t.string   "mongo_id"
+    t.string   "name"
+    t.string   "user_mongo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_aspects", ["user_mongo_id"], :name => "index_mongo_aspects_on_user_mongo_id"
+
   create_table "mongo_users", :force => true do |t|
     t.string   "mongo_id"
     t.string   "username"

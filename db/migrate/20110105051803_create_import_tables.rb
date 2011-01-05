@@ -1,5 +1,21 @@
 class CreateImportTables < ActiveRecord::Migration
   def self.up
+    create_table :mongo_aspects do |t|
+      t.string :mongo_id
+      t.string :name
+      t.string :user_mongo_id
+      t.timestamps
+    end
+    add_index :mongo_aspects, :user_mongo_id
+
+    create_table :mongo_aspect_memberships do |t|
+      t.string :aspect_mongo_id
+      t.string :contact_mongo_id
+      t.timestamps
+    end
+    add_index :mongo_aspect_memberships, :aspect_mongo_id
+    add_index :mongo_aspect_memberships, :contact_mongo_id
+
     create_table :mongo_users do |t|
       t.string :mongo_id
       t.string :username

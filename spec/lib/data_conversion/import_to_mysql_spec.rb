@@ -19,32 +19,70 @@ describe DataConversion::ImportToMysql do
   end
 
   describe "#import_raw" do
+    describe "aspects" do
+      before do
+        copy_fixture_for("aspects")
+      end
+
+      it "imports data into the mongo_aspects table" do
+        Mongo::Aspect.count.should == 0
+        @migrator.import_raw_aspects
+        Mongo::Aspect.count.should == 4
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_aspects
+        aspect = Mongo::Aspect.first
+        aspect.name.should == "Family"
+        aspect.mongo_id.should == "4d0916c2cc8cb40e93000004"
+        aspect.user_mongo_id.should == "4d0916c1cc8cb40e93000002"
+      end
+    end
+
+    describe "aspect_memberships" do
+      before do
+        copy_fixture_for("aspect_memberships")
+      end
+
+      it "imports data into the mongo_aspects table" do
+        Mongo::AspectMembership.count.should == 0
+        @migrator.import_raw_aspect_memberships
+        Mongo::AspectMembership.count.should == 17
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_aspect_memberships
+        aspectm = Mongo::AspectMembership.first
+        aspectm.contact_mongo_id.should == "4d0916c4cc8cb40e9300000a"
+        aspectm.aspect_mongo_id.should =="4d0916c2cc8cb40e93000004"
+      end
+    end
     describe "users" do
       before do
         copy_fixture_for("users")
       end
       it "imports data into the mongo_users table" do
         Mongo::User.count.should == 0
-        @migrator.import_raw
-        Mongo::User.count.should == 1
+        @migrator.import_raw_users
+        Mongo::User.count.should == 10
       end
       it "imports all the columns" do
-        @migrator.import_raw
-        beckett = Mongo::User.first
-        beckett.mongo_id.should == "4d1513542367bc2525000002"
-        beckett.username.should == "beckett"
-        beckett.serialized_private_key.should_not be_nil
-        beckett.encrypted_password.should_not be_nil
-        beckett.invites.should == 5
-        beckett.invitation_token.should == ""
-        beckett.invitation_sent_at.should be_nil
-        beckett.getting_started.should be_false
-        beckett.disable_mail.should be_false
-        beckett.language.should == 'en'
-        beckett.last_sign_in_ip.should == '127.0.0.1'
-        beckett.last_sign_in_at.to_i.should == 1293241318
-        beckett.reset_password_token.should == ""
-        beckett.password_salt.should_not be_nil
+        @migrator.import_raw_users
+        bob = Mongo::User.first
+        bob.mongo_id.should == "4d090bd1cc8cb4054e000295"
+        bob.username.should == "bob16203059c"
+        bob.serialized_private_key.should_not be_nil
+        bob.encrypted_password.should_not be_nil
+        bob.invites.should == 5
+        bob.invitation_token.should == ""
+        bob.invitation_sent_at.should be_nil
+        bob.getting_started.should be_false
+        bob.disable_mail.should be_false
+        bob.language.should == 'en'
+        bob.last_sign_in_ip.should == ''
+        bob.last_sign_in_at.to_i.should == 1292546796
+        bob.reset_password_token.should == ""
+        bob.password_salt.should_not be_nil
       end
     end
   end
