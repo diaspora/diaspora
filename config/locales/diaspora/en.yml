@@ -432,10 +432,6 @@ en:
       request_accepted:
           subject: "%{name} has accepted your contact request on Diaspora*"
           accepted: "has accepted your contact request!"
-      comment_on_post:
-          subject: "%{name} has commented on your post."
-          commented: "has commented on your post!"
-          sign_in: "Sign in to view it."
   home:
       show:
           share_what_you_want: "Share what you want, with whom you want."
