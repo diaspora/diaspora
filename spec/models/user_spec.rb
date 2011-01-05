@@ -249,7 +249,9 @@ describe User do
     end
     it 'sends a profile to their contacts' do
       connect_users(user, aspect, user2, aspect2)
-      user.should_receive(:push_to_person).once
+      mailman = Postzord::Dispatch.new(user, Profile.new)
+      Postzord::Dispatch.should_receive(:new).and_return(mailman)
+      mailman.should_receive(:deliver_to_local)
       user.update_profile(@params).should be_true
     end
     it 'updates names' do
@@ -268,7 +270,9 @@ describe User do
       user.send_contact_request_to(make_user.person, aspect)
       user.contacts.count.should == 2
 
-      user.should_receive(:push_to_person).once
+      m = mock()
+      m.should_receive(:post)
+      Postzord::Dispatch.should_receive(:new).and_return(m)
       user.update_profile(@params).should be_true
     end
     context 'passing in a photo' do
@@ -313,9 +317,10 @@ describe User do
 
   describe '#update_post' do
     it 'sends a notification to aspects' do
-      user.should_receive(:push_to_aspects).twice
-      photo = user.post(:photo, :user_file => uploaded_photo, :caption => "hello", :to => aspect.id)
-
+      m = mock()
+      m.should_receive(:post)
+      Postzord::Dispatch.should_receive(:new).and_return(m)
+      photo = user.build_post(:photo, :user_file => uploaded_photo, :caption => "hello", :to => aspect.id)
       user.update_post(photo, :caption => 'hellp')
     end
   end

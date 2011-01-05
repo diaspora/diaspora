@@ -60,6 +60,10 @@ class Post
     false
   end
 
+  def subscribers(user)
+    user.people_in_aspects(user.aspects_with_post(self.id))
+  end
+
   protected
   def destroy_comments
     comments.each{|c| c.destroy}

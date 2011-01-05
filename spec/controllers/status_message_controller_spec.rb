@@ -18,6 +18,7 @@ describe StatusMessagesController do
     request.env["HTTP_REFERER"] = ""
     sign_in :user, user1
     @controller.stub!(:current_user).and_return(user1)
+    user1.reload
   end
 
   describe '#show' do

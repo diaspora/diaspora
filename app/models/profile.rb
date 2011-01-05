@@ -44,6 +44,10 @@ class Profile
     self._parent_document
   end
 
+  def subscribers(user)
+    user.person_objects(user.contacts.where(:pending => false))
+  end
+
   def diaspora_handle
     #get the parent diaspora handle, unless we want to access a profile without a person
     (self._parent_document) ? self.person.diaspora_handle : self[:diaspora_handle]

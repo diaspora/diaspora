@@ -12,7 +12,7 @@ describe Jobs::HttpPost do
   end
   it 'retries' do
     RestClient.should_receive(:post).with(@url, {:xml=>@escaped_body}).and_raise(SocketError)
-    Resque.should_receive(:enqueue).with(Jobs::HttpPost, @url, @body, 1).once
+    Resque.should_receive(:enqueue).with(Jobs::HttpPost, @url, @escaped_body, 1).once
     Jobs::HttpPost.perform(@url, @body, 2)
   end
 end

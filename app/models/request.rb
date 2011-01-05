@@ -5,6 +5,7 @@
 class Request
   require File.join(Rails.root, 'lib/diaspora/webhooks')
 
+require File.join(Rails.root, 'lib/postzord/dispatch')
   include MongoMapper::Document
   include Diaspora::Webhooks
   include ROXML
@@ -81,6 +82,10 @@ class Request
       "new_request"
     end
   end 
+
+  def subscribers(user)
+    [self.to]
+  end
   
   private
 

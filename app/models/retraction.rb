@@ -9,9 +9,13 @@ class Retraction
   xml_accessor :post_id
   xml_accessor :diaspora_handle
   xml_accessor :type
+  
+  attr_accessor :person, :object, :subscribers
 
-  attr_accessor :person
-
+  def subscribers(user)
+   @subscribers ||= self.object.subscribers(user)
+  end
+  
   def self.for(object)
     retraction = self.new
     if object.is_a? User
@@ -20,6 +24,7 @@ class Retraction
     else
       retraction.post_id = object.id
       retraction.type = object.class.to_s
+      retraction.object = object
     end
     retraction.diaspora_handle = object.diaspora_handle 
     retraction

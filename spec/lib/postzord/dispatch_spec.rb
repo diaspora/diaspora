@@ -133,7 +133,7 @@ describe Postzord::Dispatch do
        mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
       
        mailman.should_not_receive(:deliver_to_hub)
-       mailman.instance_variable_get(:@user).should_not_receive(:services)
+       mailman.instance_variable_get(:@sender).should_not_receive(:services)
       end
     end
 

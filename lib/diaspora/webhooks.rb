@@ -15,5 +15,9 @@ module Diaspora
     def x(input)
       input.to_s.to_xs
     end
+
+    def subscribers(user)
+      raise 'you must override subscribers in order to enable federation on this model'
+    end
   end
 end

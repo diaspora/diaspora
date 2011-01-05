@@ -50,6 +50,17 @@ class Comment
     end
   end
 
+  def subscribers(user)
+    if user.owns?(self.post)
+      p = user.people_in_aspects(user.aspects_with_post(self.post_id))
+    elsif user.owns?(self)
+:A
+
+     p =  [self.post.person]
+    end
+    p
+  end
+
   #ENCRYPTION
 
   xml_reader :creator_signature

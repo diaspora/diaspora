@@ -23,7 +23,9 @@ describe Retraction do
   describe 'dispatching' do
     it 'should dispatch a message on delete' do
       Factory.create(:person)
-      MessageHandler.should_receive :add_post_request
+      m = mock()
+      m.should_receive(:post)
+      Postzord::Dispatch.should_receive(:new).and_return(m)
       post.destroy
     end
   end
