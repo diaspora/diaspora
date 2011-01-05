@@ -49,6 +49,7 @@ class Notifier < ActionMailer::Base
   def comment_on_post(recipient_id, sender_id, comment)
     @receiver = User.find_by_id(recipient_id)
     @sender   = Person.find_by_id(sender_id)
+    @comment  = comment
 
     log_mail(recipient_id, sender_id, 'comment_on_post')
 
