@@ -32,7 +32,7 @@ cs:
               invalid: "je neplatné."
             username: 
               taken: "je již obsazeno."
-  ago: "%{time} ago"
+  ago: "před %{time}"
   application: 
     helper: 
       aspect_badge: 
@@ -378,7 +378,7 @@ cs:
       posting: "Posílání..."
       share: "Sdělit"
       share_with: "Sdílet s %{aspect}"
-      share_with_all: "Sdílet se všemi aspekty"
+      share_with_all: "Sdílet ve všech aspektech"
     reshare: 
       reshare: "Přesdílet"
   status_messages: 

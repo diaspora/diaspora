@@ -48,7 +48,7 @@ fi:
     all_aspects_contacts: 
       all_contacts: "Kaikki kontaktit"
       aspects: "Verkostonäkymät"
-      manage_aspects: "hallitse näkymiä"
+      manage_aspects: "Hallitse näkymiä"
       no_contacts: "Sinulla ei vielä ole kontakteja.  Etsi kontaktejasi täältä."
     aspect_contacts: 
       done_editing: "muokkaus valmis"
@@ -237,11 +237,11 @@ fi:
       pending_request: "odottaa vastausta"
       thats_you: "tarkoittaa sinua!"
     profile_sidebar: 
-      bio: "biografia"
-      born: "syntymäpäivä"
+      bio: "Biografia"
+      born: "Syntymäpäivä"
       cannot_remove: "Henkilöä, %{name}, ei voida poistaa viimeisestä näkymästä. (Jos haluat katkaista yhteyden henkilöön, täytyy sinun poistaa kontakti.)"
       edit_my_profile: "Muokkaa profiilia"
-      gender: "sukupuoli"
+      gender: "Sukupuoli"
       in_aspects: "näkymissä"
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
@@ -256,7 +256,7 @@ fi:
       recent_posts: "Viimeisimmät tapahtumat"
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
       return_to_aspects: "Palaa näkymiin"
-      similar_contacts: "samankaltaiset kontaktit"
+      similar_contacts: "Yhteiset kontaktit"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
     update: 
       failed: "Profiilin päivittäminen epäonnistui"
@@ -385,7 +385,7 @@ fi:
     helper: 
       no_message_to_display: "Ei näytettäviä viestejä."
     new_status_message: 
-      oh_yeah: "komiaa!"
+      oh_yeah: "Hienoa!"
       tell_me_something_good: "kerro jotain mukavaa"
     show: 
       destroy: "Poista"
