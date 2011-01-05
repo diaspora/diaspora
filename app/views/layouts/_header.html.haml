@@ -44,7 +44,7 @@
       #aspect_nav
         %ul
           %li{:class => ("selected" if @aspect == :all)}
-            = link_to t('_home'), root_path
+            = link_to t('_home'), root_path, :class => 'home_selector'
 
           - for aspect in @all_aspects
             %li{:data=>{:guid=>aspect.id}, :class => ("selected" if current_aspect?(aspect))}
