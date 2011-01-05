@@ -27,6 +27,6 @@
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @aspect_contacts_count, :options => false
   = render 'aspects/no_posts_message', :post_count => @post_count, :contact_count=> @aspect_contacts_count
 
-  #main_stream.stream
+  #main_stream.stream{:data => {:guids => @aspect.id}}
     = render 'shared/stream', :posts => @post_hashes
   =will_paginate @posts

@@ -139,20 +139,20 @@ var WebSocketReceiver = {
   },
 
   onPageForAspects: function(aspectIds) {
-    if(location.pathname == '/aspects' && WebSocketReceiver.onPageOne()) {
-      return true
-    }
-    var found = false;
+    var streamIds = $('#main_stream').attr('data-guids'),
+        found = false;
+
     $.each(aspectIds, function(index, value) {
-      if(WebSocketReceiver.onPageForAspect(value)) {
+      if(WebSocketReceiver.onStreamForAspect(value, streamIds)) {
         found = true;
+        return false;
       };
     });
     return found;
   },
 
-  onPageForAspect: function(aspectId) {
-    return (location.href.indexOf(aspectId) != -1 )
+  onStreamForAspect: function(aspectId, streamIds) {
+    return (streamIds.search(aspectId) != -1);
   },
 
   onPageOne: function() {
