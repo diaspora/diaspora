@@ -16,5 +16,13 @@ module DataConversion
       end
       Rails.logger.debug(message) if Rails.logger
     end
+
+    def export_directory
+      "tmp/export-for-mysql"
+    end
+
+    def export_path
+      "#{Rails.root}/#{export_directory}"
+    end
   end
 end
