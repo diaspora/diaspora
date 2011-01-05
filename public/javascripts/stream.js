@@ -106,12 +106,12 @@ var Stream = {
       });
     });
 
-    $(".new_status_message").bind('ajax:loading', function(data, json, xhr) {
+    $(".new_status_message").live('ajax:loading', function(data, json, xhr) {
       $("#photodropzone").find('li').remove();
       $("#publisher textarea").removeClass("with_attachments");
     });
 
-    $(".new_status_message").bind('ajax:success', function(data, json, xhr) {
+    $(".new_status_message").live('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
       WebSocketReceiver.addPostToStream(json.post_id, json.html);
       //collapse publisher

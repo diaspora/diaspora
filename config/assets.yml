@@ -31,6 +31,7 @@ javascripts:
     - public/javascripts/aspect-edit.js
     - public/javascripts/contact-list.js
   home:
+    - public/javascripts/publisher.js
     - public/javascripts/aspect-filters.js
   people:
     - public/javascripts/contact-list.js

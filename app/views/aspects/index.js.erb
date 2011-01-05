@@ -1,1 +1,1 @@
-$('#main_stream').html("<%= escape_javascript(render('shared/stream', :posts => @post_hashes)) %>");
+$('#aspect_stream_container').html("<%= escape_javascript(render('aspects/aspect_stream', :aspect => @aspect, :aspect_ids => @aspect_ids, :post_hashes => @post_hashes)) %>");

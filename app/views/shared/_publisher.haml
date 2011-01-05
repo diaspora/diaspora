@@ -3,32 +3,6 @@
 -#   the COPYRIGHT file.
 
 
-- content_for :head do
-  :javascript
-    $(document).ready(function(){
-      $("div.public_toggle input").bind("click", function(evt){
-        $("#publisher_service_icons").toggleClass("dim");
-        if($(this).attr('checked') == true){
-          $(".question_mark").click();
-        };
-      });
-
-      if($("textarea#status_message_message").val() != ""){
-        $("#publisher").removeClass("closed");
-        $("#publisher").find("textarea").focus();
-        $("#publisher .options_and_submit").show();
-      }
-
-      $("#publisher textarea, #publisher input").bind("focus", function(evt){
-        $("#publisher .options_and_submit").show();
-      });
-
-      $("#click_to_share").find("a").bind("click", function(evt){
-        $("#publisher").removeClass("closed");
-        $("#publisher").find("textarea").focus();
-      });
-    });
-
 #publisher{:class=>"closed"}
 
   #click_to_share
@@ -61,9 +35,9 @@
           #fileInfo
           = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
           - if aspect == :all
-            = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting')
+            = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting'), :class => 'button'
           - else
-            = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting')
+            = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting'), :class => 'button'
 
         - if aspect == :all
           .public_toggle

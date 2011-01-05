@@ -15,13 +15,14 @@
         = info_text(t('.handle_explanation'))
 
 .span-15.append-1
-  = render 'shared/publisher', :aspect => @aspect, :aspect_ids => @aspect_ids
   /= render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
   /= render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
 
-  #main_stream.stream
-    = render 'shared/stream', :posts => @post_hashes
-  = will_paginate @posts
+  #aspect_stream_container
+    = render 'aspect_stream',
+      :aspect => @aspect,
+      :aspect_ids => @aspect_ids,
+      :post_hashes => @post_hashes
 
 .span-6.last
   = render 'aspects/all_aspects_contacts'

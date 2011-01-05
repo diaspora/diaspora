@@ -3,7 +3,7 @@
  *   the COPYRIGHT file.
  */
 
-$(function(){
+$(document).ready(function(){
   var selectedGUIDS = [];
 
   $("#aspect_nav li").each(function(){
@@ -20,7 +20,7 @@ $(function(){
     e.preventDefault();
 
     // loading animation
-    $("#main_stream").fadeTo(100, 0.4);
+    $("#aspect_stream_container").fadeTo(100, 0.4);
 
 
     // filtering //////////////////////
@@ -53,6 +53,7 @@ $(function(){
     }
 
     // generate new url
+    baseURL = baseURL.replace('#','');
     baseURL += '?';
     for(i=0; i < selectedGUIDS.length; i++){
       baseURL += 'a_ids[]='+ selectedGUIDS[i] +'&';
@@ -66,7 +67,7 @@ $(function(){
       url : baseURL,
       dataType : 'script',
       success  : function(data){
-        $("#main_stream").fadeTo(100, 1);
+        $("#aspect_stream_container").fadeTo(100, 1);
       }
     });
 
