@@ -22,11 +22,12 @@
       = form_tag(people_path, :method => 'get', :id => "global_search_form") do
         = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
-    #notification_badge
-      = link_to "", notifications_path, :title => new_notification_text(@notification_count)
-      = image_tag 'icons/mail_grey.png'
-      #notification_badge_number{:class => ("hidden" if @notification_count == 0)}
-        = @notification_count
+    - if @notification_count
+      #notification_badge
+        = link_to "", notifications_path, :title => new_notification_text(@notification_count)
+        = image_tag 'icons/mail_grey.png'
+        #notification_badge_number{:class => ("hidden" if @notification_count == 0)}
+          = @notification_count
 
     %ul#user_menu
       .right
