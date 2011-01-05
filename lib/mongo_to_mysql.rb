@@ -1,9 +1,17 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
 require 'json'
 require 'csv'
+
 class MongoToMysql
+  attr_accessor :start_time
+
+  def initialize(start_time = Time.now)
+    @start_time = start_time
+  end
+
   def csv_options
     {:col_sep =>  ",",
      :row_sep =>  :auto,
@@ -17,20 +25,25 @@ class MongoToMysql
      :skip_blanks => false,
      :force_quotes => false }
   end
+
   def dirname
     "tmp/export-for-mysql"
   end
+
   def dirpath
     "#{Rails.root}/#{dirname}"
   end
+
   def clear_dir
     `rm -rf #{dirpath}`
     `mkdir -p #{dirpath}/json`
     `mkdir -p #{dirpath}/csv`
   end
+
   def db_name
     "diaspora-#{Rails.env}"
   end
+
   def models
     @models ||= [ {:name => :aspects},
       {:name => :comments},
@@ -43,40 +56,50 @@ class MongoToMysql
       {:name => :users},
     ]
   end
+
   def id_sed
     @id_sed = sed_replace('{\ \"$oid\"\ :\ \(\"[^"]*\"\)\ }')
   end
+
   def date_sed
     @date_sed = sed_replace('{\ \"$date\"\ :\ \([0-9]*\)\ }')
   end
+
   def sed_replace(regex)
     "sed 's/#{regex}/\\1/g'"
   end
+
   def json_for_model model_name
     "mongoexport -d #{db_name} -c #{model_name} | #{id_sed} | #{date_sed}"
   end
+
   def write_json_export
+    log "Starting JSON export..."
     models.each do |model|
+      log "Starting #{model[:name]} JSON export..."
       filename ="#{dirpath}/json/#{model[:name]}.json"
       model[:json_file] = filename
       `#{json_for_model(model[:name])} > #{filename}`
-      debug "#{model[:name]} exported to #{dirname}/json/#{model[:name]}.json"
+      log "Completed #{model[:name]} JSON export to #{dirname}/json/#{model[:name]}.json."
     end
-    debug "Json export complete."
+    log "JSON export complete."
   end
-  def debug string
+
+  def log string
     if ['development', 'production'].include?(Rails.env)
-      puts string
+      puts "#{sprintf("%.2f", Time.now - start_time)}s #{string}"
     end
     Rails.logger.debug(string) if Rails.logger
   end
+
   def convert_json_files
     models.each do |model|
       self.send("#{model[:name]}_json_to_csv".to_sym, model)
     end
   end
+
   def generic_json_to_csv model_hash
-    debug "Converting #{model_hash[:name]} json to csv"
+    log "Converting #{model_hash[:name]} json to csv"
     json_file = File.open(model_hash[:json_file])
 
     csv = CSV.open("#{dirpath}/csv/#{model_hash[:name]}.csv",'w')
@@ -89,6 +112,7 @@ class MongoToMysql
     json_file.close
     csv.close
   end
+
   def comments_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "post_mongo_id", "person_mongo_id", "diaspora_handle", "text", "youtube_titles"]
     generic_json_to_csv(model_hash) do |hash|
@@ -96,6 +120,7 @@ class MongoToMysql
       mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
+
   def contacts_json_to_csv model_hash
     model_hash[:main_attrs] = ["mongo_id", "user_mongo_id", "person_mongo_id", "pending", "created_at", "updated_at"]
     #Post Visibilities
@@ -110,6 +135,7 @@ class MongoToMysql
     end
     #Also writes the aspect memberships csv
   end
+
   def invitations_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "recipient_mongo_id", "sender_mongo_id", "aspect_mongo_id", "message"]
     generic_json_to_csv(model_hash) do |hash|
@@ -117,6 +143,7 @@ class MongoToMysql
       mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
+
   def notifications_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "target_id", "target_type", "unread"]
     generic_json_to_csv(model_hash) do |hash|
@@ -124,12 +151,13 @@ class MongoToMysql
       mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
+
   def people_json_to_csv model_hash
     model_hash[:attrs] = ["created_at", "updated_at", "serialized_public_key", "url", "mongo_id", "owner_mongo_id", "diaspora_handle"]
     model_hash[:profile_attrs] = ["image_url_medium", "searchable", "image_url", "person_mongo_id", "gender", "diaspora_handle", "birthday", "last_name", "bio", "image_url_small", "first_name"]
     #Also writes the profiles csv
 
-    debug "Converting #{model_hash[:name]} json to csv"
+    log "Converting #{model_hash[:name]} json to csv"
     json_file = File.open(model_hash[:json_file])
 
     people_csv = CSV.open("#{dirpath}/csv/#{model_hash[:name]}.csv",'w')
@@ -156,6 +184,7 @@ class MongoToMysql
     people_csv.close
     profiles_csv.close
   end
+
   def posts_json_to_csv model_hash
     model_hash[:attrs] =["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_mongo_id", "caption", "remote_photo_path", "random_string", "image", "mongo_id", "type", "diaspora_handle", "person_mongo_id", "message" ]
     generic_json_to_csv(model_hash) do |hash|
@@ -164,6 +193,7 @@ class MongoToMysql
     end
     #has to handle the polymorphic stuff
   end
+
   def requests_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "recipient_mongo_id", "sender_mongo_id", "aspect_mongo_id"]
     generic_json_to_csv(model_hash) do |hash|
@@ -171,6 +201,7 @@ class MongoToMysql
       mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
+
   def users_json_to_csv model_hash
     model_hash[:attrs] = ["mongo_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]
     generic_json_to_csv(model_hash) do |hash|
@@ -178,8 +209,9 @@ class MongoToMysql
       mongo_attrs.map{|attr_name| hash[attr_name]}
     end
   end
+
   def aspects_json_to_csv model_hash
-    debug "Converting aspects json to aspects and post_visibilities csvs"
+    log "Converting aspects json to aspects and post_visibilities csvs"
     model_hash[:main_attrs] = ["mongo_id", "name", "created_at", "updated_at"]
     #Post Visibilities
     model_hash[:join_table_name] = :post_visibilities
@@ -192,8 +224,9 @@ class MongoToMysql
       [main_row, post_visibility_rows]
     end
   end
+
   def generic_json_to_two_csvs model_hash
-    debug "Converting #{model_hash[:name]} json to two csvs"
+    log "Converting #{model_hash[:name]} json to two csvs"
     json_file = File.open(model_hash[:json_file])
 
     main_csv = CSV.open("#{dirpath}/csv/#{model_hash[:name]}.csv",'w')
