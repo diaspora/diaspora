@@ -22,9 +22,10 @@ module DataConversion
     end
 
     def clear_dir
-      `rm -rf #{full_path}`
-      `mkdir -p #{full_path}/json`
-      `mkdir -p #{full_path}/csv`
+      ["#{full_path}/json", "#{full_path}/csv"].each do |path|
+        FileUtils.rm_rf(path)
+        FileUtils.mkdir_p(path)
+      end
     end
 
     def db_name
