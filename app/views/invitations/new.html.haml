@@ -38,10 +38,11 @@
       %p
         = invite.submit t('.send_an_invitation')
 
-  .span-4.last
-    #already_invited_pane
-      %h4
-        = t('.already_invited')
-      - for email in @emails_delivered
-        = email
+  - if !@emails_delivered.empty?
+    .span-4.last
+      #already_invited_pane
+        %h4
+          = t('.already_invited')
+        - for email in @emails_delivered
+          = email
 

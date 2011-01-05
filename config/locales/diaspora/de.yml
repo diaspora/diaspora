@@ -61,6 +61,7 @@ de:
       add_existing: "Bestehenden Kontakt hinzufügen"
       confirm_remove_aspect: "Möchtest du diesen Aspekt wirklich löschen?"
       remove_aspect: "Diesen Aspekt löschen"
+      rename_aspect: "Aspekt umbennenen"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
