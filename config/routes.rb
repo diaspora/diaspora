@@ -7,7 +7,7 @@ Diaspora::Application.routes.draw do
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
   resources :services
-  
+
   resources :notifications
   resources :posts,           :only => [:show], :path => '/p/'
 
@@ -42,7 +42,7 @@ Diaspora::Application.routes.draw do
   match 'aspects/add_to_aspect',     :to => 'aspects#add_to_aspect', :as => 'add_to_aspect'
   match 'aspects/remove_from_aspect',:to => 'aspects#remove_from_aspect', :as => 'remove_from_aspect'
   match 'aspects/manage',            :to => 'aspects#manage'
-  resources :aspects,                :except => [:edit]
+  resources :aspects
 
   #public routes
   match 'webfinger',            :to => 'publics#webfinger'

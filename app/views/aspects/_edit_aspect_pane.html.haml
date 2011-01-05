@@ -7,7 +7,7 @@
 
 #edit_aspect_pane
   - if @contacts.count > 0
-    %h4= t('.add_existing')
+    %h4= t('aspects.edit.add_existing')
     = render 'shared/contact_list', :aspect_id => aspect.id, :contact_hashes => contacts, :manage => defined?(manage)
 
   = render 'shared/add_contact', :aspect_id => aspect.id
@@ -15,9 +15,9 @@
   %hr
   = form_for aspect do |asp|
     = asp.text_field :name, :value => aspect.name
-    = asp.submit t('.rename_aspect')
+    = asp.submit t('aspects.edit.rename_aspect')
 
   %hr
   .big_buttons
-    = button_to t('.remove_aspect'), aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
+    = button_to t('aspects.edit.remove_aspect'), aspect, :method => "delete", :confirm => t('aspects.edit.confirm_remove_aspect')
 

@@ -2,8 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.container#head{:style => "position:relative;"}
-
+.container{:style => "position:relative;"}
   - if current_user
     = link_to image_tag('logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), root_path
   - else
@@ -41,19 +40,19 @@
       %li= link_to t('.logout'), destroy_user_session_path
 
     -unless @landing_page
-      #aspect_nav
-        %ul
-          %li{:class => ("selected" if @aspect == :all)}
-            = link_to t('_home'), root_path, :class => 'home_selector'
+      %ul#aspect_nav
+        %li{:class => ("selected" if @aspect == :all)}
+          = link_to t('_home'), root_path, :class => 'home_selector'
 
-          - for aspect in @all_aspects
-            %li{:data=>{:guid=>aspect.id}, :class => ("selected" if current_aspect?(aspect))}
-              = link_to aspect.name, '#', :class => 'aspect_selector'
+        - for aspect in @all_aspects
+          %li{:data=>{:guid=>aspect.id}, :class => ("selected" if current_aspect?(aspect))}
+            = link_to aspect.name, '#', :class => 'aspect_selector'
+            = link_to '▼', edit_aspect_path(aspect), :class => 'aspect_selector_edit'
 
-          %li
-            = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect')
+        %li
+          = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect')
 
-        .fancybox_content
-          #add_aspect_pane
-            = render "aspects/new_aspect"
+      .fancybox_content
+        #add_aspect_pane
+          = render "aspects/new_aspect"
 

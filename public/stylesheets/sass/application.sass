@@ -919,61 +919,80 @@ label
       :height 100px
       :width 100px
 
-#aspect_nav
+ul#aspect_nav
   :margin
     :top 3px
     :bottom 2px
   :bottom 0
   :color #000
 
-  ul
-    :position relative
-    :padding 0
-      :bottom 3px
-    :margin
-      :bottom 0
+  :position relative
+  :padding 0
+    :bottom 3px
+  :margin
+    :bottom 0
 
-    > li
-      :display inline
-      :margin 0
-        :right 2px
-      :padding 4px 0
+  > li
+    :display inline
+    :padding 1px 8px
+    :margin 0
+      :right 2px
+
+    :-webkit-border-radius 2px
+    :-moz-border-radius 2px
+    :border-radius 2px
+
+    :text-shadow 0 1px 0 #444
+
+    :color #999
+    :max-width 120px
+    :overflow hidden
+    :text-overflow ellipsis
+
+    .aspect_selector_edit
+      :position absolute
+      :margin
+        :left -3px
+      :display none
+      :color #555
+
+      &:hover
+        :color #eee
+
+    &:hover
+      :background
+        :color #000
+      :color #eee
+
+      .aspect_selector_edit
+        :display inline
+
+    &.selected
+      :text-shadow 0 1px 0 #fff
+      :font
+        :weight bold
+      :background
+        :color rgb(235,235,235)
+
+      :border
+        :bottom 1px solid #fff
+
+      :color #444
+
+      .aspect_selector_edit
+        :margin
+          :left -4px
+        :color #777
+        &:hover
+          :color #999
+
+      &:hover
+        :color #888
       a
-        :-webkit-border-radius 2px
-        :-moz-border-radius 2px
-        :border-radius 2px
-
-        :text-shadow 0 1px 0 #444
-
-        :padding 1px 5px
-
-        :color #999
-        :max-width 120px
-        :overflow hidden
-        :text-overflow ellipsis
-
-        &:hover
-          :background
-            :color #000
-          :color #eee
-
-      &.selected a
-        :text-shadow 0 1px 0 #fff
-        :font
-          :weight bold
-        :background
-          :color rgb(235,235,235)
-
-        :border
-          :bottom 1px solid #fff
-
-        :color #444
-        &:hover
-          :color #888
-        a
-          :color #000
+        :color #000
   .new_requests
     :color red
+
 
 #global_search
   :display inline
@@ -1211,48 +1230,6 @@ ul#settings_nav
   :margin 0
   :padding 0
 
-
-#edit_aspect_pane
-  :background
-    :color rgb(250,250,250)
-  :border 1px solid #ddd
-  :padding 11px
-
-  :-webkit-border-radius 4px
-  :-moz-border-radius 4px
-  :border-radius 4px
-
-  h2,h3
-    :border
-      :bottom 1px solid #999
-
-  h2,h3,h4
-    :font
-      :weight bold
-    :text
-      :shadow 0 1px #fff
-
-  h4 > span
-    :font
-      :weight normal
-      :size 12px
-    :color #999
-
-  .avatar
-    :margin-right -1px
-    :width 30px
-    :height 30px
-
-#edit_aspect_pane
-  :margin
-    :top 12px
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FBFBFB), to(#F5F5F5))
-  :background -moz-linear-gradient(top, #FBFBFB, #F5F5F5)
-
-  :border 1px solid #eee
-    :top 1px solid #fff
-    :bottom 1px solid #fff
-
 #left_pane
   .aspect_listings
     a
@@ -1276,7 +1253,6 @@ ul#settings_nav
       :padding 6px
       :border
         :bottom 1px solid #ddd
-
 
 .floating.empty_message
   :margin

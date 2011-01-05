@@ -31,7 +31,7 @@
           :locals => {:person => person,
                       :contact => contact,
                       :aspects_with_person => @aspects_with_person,
-                      :aspects_without_person => @aspects.reject{ |aspect| @aspects_with_person.include?(aspect)}}
+                      :aspects_without_person => @all_aspects.reject{ |aspect| @aspects_with_person.include?(aspect)}}
       %br
       %hr{:style=>"width:300px;"}
 
@@ -52,6 +52,6 @@
 
         .span-4.last
           - unless person.profile.birthday.blank?
-            %h3 
+            %h3
               =t('.born')
             = birthday_format(person.profile.birthday)

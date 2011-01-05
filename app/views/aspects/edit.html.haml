@@ -1,0 +1,27 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :head do
+  = include_javascripts :aspects
+
+
+.span-24.last
+  %h3
+    = "Editing #{@aspect.name}"
+
+.span-6.append-1
+  - if @contacts.count > 0
+    %h4= t('.add_existing')
+    = render 'shared/contact_list', :aspect_id => @aspect.id, :contact_hashes => @all_contacts
+
+  = render 'shared/add_contact', :aspect_id => @aspect.id
+
+.span-4.last
+  = form_for @aspect do |asp|
+    = asp.text_field :name, :value => @aspect.name
+    = asp.submit t('.rename_aspect')
+
+  .big_buttons
+    = button_to t('.remove_aspect'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
+
