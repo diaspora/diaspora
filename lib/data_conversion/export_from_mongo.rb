@@ -22,9 +22,9 @@ module DataConversion
     end
 
     def clear_dir
-      `rm -rf #{export_path}`
-      `mkdir -p #{export_path}/json`
-      `mkdir -p #{export_path}/csv`
+      `rm -rf #{full_path}`
+      `mkdir -p #{full_path}/json`
+      `mkdir -p #{full_path}/csv`
     end
 
     def db_name
@@ -64,10 +64,10 @@ module DataConversion
       log "Starting JSON export..."
       models.each do |model|
         log "Starting #{model[:name]} JSON export..."
-        filename ="#{export_path}/json/#{model[:name]}.json"
+        filename ="#{full_path}/json/#{model[:name]}.json"
         model[:json_file] = filename
         `#{json_for_model(model[:name])} > #{filename}`
-        log "Completed #{model[:name]} JSON export to #{export_directory}/json/#{model[:name]}.json."
+        log "Completed #{model[:name]} JSON export to #{directory}/json/#{model[:name]}.json."
       end
       log "JSON export complete."
     end
@@ -82,7 +82,7 @@ module DataConversion
       log "Converting #{model_hash[:name]} json to csv"
       json_file = File.open(model_hash[:json_file])
 
-      csv = CSV.open("#{export_path}/csv/#{model_hash[:name]}.csv", 'w')
+      csv = CSV.open("#{full_path}/csv/#{model_hash[:name]}.csv", 'w')
       csv << model_hash[:attrs]
 
       json_file.each do |aspect_json|
@@ -140,10 +140,10 @@ module DataConversion
       log "Converting #{model_hash[:name]} json to csv"
       json_file = File.open(model_hash[:json_file])
 
-      people_csv = CSV.open("#{export_path}/csv/#{model_hash[:name]}.csv", 'w')
+      people_csv = CSV.open("#{full_path}/csv/#{model_hash[:name]}.csv", 'w')
       people_csv << model_hash[:attrs]
 
-      profiles_csv = CSV.open("#{export_path}/csv/profiles.csv", 'w')
+      profiles_csv = CSV.open("#{full_path}/csv/profiles.csv", 'w')
       profiles_csv << model_hash[:profile_attrs]
 
       json_file.each do |aspect_json|
@@ -209,10 +209,10 @@ module DataConversion
       log "Converting #{model_hash[:name]} json to two csvs"
       json_file = File.open(model_hash[:json_file])
 
-      main_csv = CSV.open("#{export_path}/csv/#{model_hash[:name]}.csv", 'w')
+      main_csv = CSV.open("#{full_path}/csv/#{model_hash[:name]}.csv", 'w')
       main_csv << model_hash[:main_attrs]
 
-      join_csv = CSV.open("#{export_path}/csv/#{model_hash[:join_table_name]}.csv", 'w')
+      join_csv = CSV.open("#{full_path}/csv/#{model_hash[:join_table_name]}.csv", 'w')
       join_csv << model_hash[:join_table_attrs]
 
       json_file.each do |aspect_json|
