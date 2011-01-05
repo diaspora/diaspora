@@ -3,14 +3,11 @@
 -#   the COPYRIGHT file.
 
 
-#publisher{:class=>"closed"}
+#publisher{:class => ("closed" unless params[:op])}
 
   #click_to_share
     = image_tag 'icons/doc_edit.png'
-    - if aspect == :all
-      = link_to t('.share_with_all'), '#', :id => 'expand_publisher'
-    - else
-      = link_to t('.post_a_message_to', :aspect => aspect), '#', :id => 'expand_publisher'
+    = publisher_description(@aspect_ids.count, aspect)
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true) do |status|
@@ -30,14 +27,13 @@
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
-
         .right
           #fileInfo
           = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
           - if aspect == :all
             = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting'), :class => 'button'
           - else
-            = status.submit t('.share'), :title => t('.share_with', :aspect => aspect), :disable_with => t('.posting'), :class => 'button'
+            = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button'
 
         - if aspect == :all
           .public_toggle

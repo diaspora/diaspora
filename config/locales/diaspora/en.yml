@@ -41,6 +41,8 @@ en:
     one:    "new request!"
     few:    "%{count} new requests!"
     other:  "%{count} new requests!"
+  _aspect: "aspect"
+  _aspects: "aspects"
 
   activemodel:
       errors:

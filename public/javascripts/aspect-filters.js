@@ -4,7 +4,8 @@
  */
 
 $(document).ready(function(){
-  var selectedGUIDS = [];
+  var selectedGUIDS = [],
+      requests = 0;
 
   $("#aspect_nav li").each(function(){
     var button = $(this),
@@ -19,9 +20,13 @@ $(document).ready(function(){
   $("#aspect_nav a.aspect_selector").click(function(e){
     e.preventDefault();
 
+    requests++;
+
     // loading animation
     $("#aspect_stream_container").fadeTo(100, 0.4);
 
+    // get text from box
+    var post = $("#publisher textarea").val();
 
     // filtering //////////////////////
     var $this = $(this),
@@ -58,16 +63,33 @@ $(document).ready(function(){
     for(i=0; i < selectedGUIDS.length; i++){
       baseURL += 'a_ids[]='+ selectedGUIDS[i] +'&';
     }
-    baseURL = baseURL.slice(0,baseURL.length-1);
+
+    if(!$("#publisher").hasClass("closed")) {
+      // open publisher
+      baseURL += "op=true";
+    } else {
+      // slice last '&'
+      baseURL = baseURL.slice(0,baseURL.length-1);
+    }
     ///////////////////////////////////
 
-
-    //window.location = baseURL;
     $.ajax({
       url : baseURL,
       dataType : 'script',
       success  : function(data){
-        $("#aspect_stream_container").fadeTo(100, 1);
+        requests--;
+
+        // fill in publisher
+        // (not cached because this element changes)
+        $("#publisher textarea").val(post);
+
+        // reinit listeners on stream
+        Stream.initialize();
+
+        // fade contents back in
+        if(requests == 0){
+          $("#aspect_stream_container").fadeTo(100, 1);
+        }
       }
     });
 
