@@ -90,7 +90,7 @@ class AspectsController < ApplicationController
     @aspect = :manage
     @contacts = current_user.contacts.where(:pending => false)
     @remote_requests = Request.hashes_for_person(current_user.person)
-    @aspect_hashes = hashes_for_aspects @aspects, @contacts
+    @aspect_hashes = hashes_for_aspects @all_aspects, @contacts
   end
 
   def update

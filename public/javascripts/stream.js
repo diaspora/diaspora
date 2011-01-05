@@ -135,6 +135,8 @@ var Stream = {
       $(this).parents(".status_message").fadeOut(150);
     });
 
+    // inf scroll
+    Stream.infiniteScroll($stream);
   },
 
   toggleComments: function(evt) {
@@ -178,6 +180,21 @@ var Stream = {
         commentBlock.find('textarea').focus();
       }
     }
+  },
+
+  infiniteScroll: function(stream){
+    stream.infinitescroll({
+      navSelector  : "div.pagination",
+                     // selector for the paged navigation (it will be hidden)
+      nextSelector : ".pagination a.next_page",
+                     // selector for the NEXT link (to page 2)
+      itemSelector : "#main_stream .stream_element",
+                     // selector for all items you'll retrieve
+      bufferPx: 300,
+      donetext: "no more.",
+      loadingText: "",
+      loadingImg: '/images/ajax-loader.gif'
+    });
   }
 };
 

@@ -83,6 +83,8 @@ $(document).ready(function(){
         // (not cached because this element changes)
         $("#publisher textarea").val(post);
 
+        $('html, body').animate({scrollTop:0}, 'fast');
+
         // reinit listeners on stream
         Stream.initialize();
 

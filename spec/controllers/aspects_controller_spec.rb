@@ -11,7 +11,7 @@ describe AspectsController do
     @user  = make_user
     @user2 = make_user
 
-    @aspect0   = @user.aspects.create(:name => "lame-os")
+    @aspect0  = @user.aspects.create(:name => "lame-os")
     @aspect1  = @user.aspects.create(:name => "another aspect")
     @aspect2  = @user2.aspects.create(:name => "party people")
 
@@ -37,7 +37,7 @@ describe AspectsController do
     end
 
     context 'filtering' do
-      before(:all) do
+      before do
         @posts = []
         @users = []
         8.times do |n|
@@ -97,7 +97,7 @@ describe AspectsController do
     end
     it "assigns aspect, aspect_contacts, and posts" do
       get :show, 'id' => @aspect0.id.to_s
-      assigns(:aspect).should == @aspect
+      assigns(:aspect).should == @aspect0
       achash = @controller.send(:hashes_for_contacts, @aspect0.contacts).first
       assigns(:aspect_contacts).first[:contact].should == achash[:contact]
       assigns(:aspect_contacts).first[:person].should == achash[:person]
@@ -105,7 +105,7 @@ describe AspectsController do
     end
     it "assigns contacts to only non-pending" do
       @user.contacts.count.should == 1
-      @user.send_contact_request_to(make_user.person, @aspect)
+      @user.send_contact_request_to(make_user.person, @aspect0)
       @user.contacts.count.should == 2
 
       get :show, 'id' => @aspect0.id.to_s
@@ -164,7 +164,7 @@ describe AspectsController do
     end
     it "assigns contacts to only non-pending" do
       @user.contacts.count.should == 1
-      @user.send_contact_request_to(make_user.person, @aspect)
+      @user.send_contact_request_to(make_user.person, @aspect0)
       @user.contacts.count.should == 2
 
       get :manage
@@ -251,7 +251,7 @@ describe AspectsController do
     end
     it 'has aspects' do
       @hashes.length.should == 2
-      @hash[:aspect].should == @aspect
+      @hash[:aspect].should == @aspect0
     end
     it 'has a contact_count' do
       @hash[:contact_count].should == @aspect0.contacts.count
