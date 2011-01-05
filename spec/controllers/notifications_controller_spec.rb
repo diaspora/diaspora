@@ -32,4 +32,18 @@ describe NotificationsController do
       Notification.find(note.id).unread.should == true 
     end
   end
+  
+  describe '#index' do
+    it 'paginates the notifications' do
+      35.times do
+        Notification.create(:user_id => user.id)
+      end
+      
+      get :index
+      assigns[:notifications].should == Notification.all(:user_id => user.id, :limit => 25)
+      
+      get :index, :page => 2
+      assigns[:notifications].should == Notification.all(:user_id => user.id, :offset => 25, :limit => 25)
+    end
+  end
 end
