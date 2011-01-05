@@ -12,8 +12,9 @@ module DataConversion
           IGNORE 1 LINES
         (mongo_id, username, serialized_private_key, encrypted_password,
          invites, invitation_token, invitation_sent_at, getting_started,
-         disable_mail, language, last_sign_in_ip, last_sign_in_at,
+         disable_mail, language, last_sign_in_ip, @last_sign_in_at_var,
          reset_password_token, password_salt)
+         SET last_sign_in_at = FROM_UNIXTIME(LEFT(@last_sign_in_at_var, LENGTH(@last_sign_in_at_var)-3));
       SQL
     end
   end

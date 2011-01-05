@@ -42,7 +42,7 @@ describe DataConversion::ImportToMysql do
         beckett.disable_mail.should be_false
         beckett.language.should == 'en'
         beckett.last_sign_in_ip.should == '127.0.0.1'
-        beckett.last_sign_in_at.should_not be_nil
+        beckett.last_sign_in_at.to_i.should == 1293241318
         beckett.reset_password_token.should == ""
         beckett.password_salt.should_not be_nil
       end
