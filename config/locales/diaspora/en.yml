@@ -133,7 +133,7 @@ en:
           add_existing: "Add an existing contact"
           rename_aspect: "Rename aspect"
       all_aspects_contacts:
-          all_contacts: "All contacts"
+          contacts: "Contacts"
           manage_aspects: "manage aspects"
           aspects: "Aspects"
           no_contacts: "You currently have no contacts.  Find your contacts here."

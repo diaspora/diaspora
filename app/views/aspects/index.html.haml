@@ -6,15 +6,7 @@
 - content_for :head do
   = include_javascripts :home
 
-.span-22.last
-  %h3{:style => "position:relative;"}
-    = current_user.name
-    .right{:style=>"top:0"}
-      %span.description
-        = link_to current_user.diaspora_handle, person_path(current_user.person)
-        = info_text(t('.handle_explanation'))
-
-.span-15.append-1
+.span-15.append-2
   /= render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
   /= render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
 
@@ -24,6 +16,15 @@
       :aspect_ids => @aspect_ids,
       :post_hashes => @post_hashes
 
-.span-6.last
+.span-7.last
+  = owner_image_tag
+  %h3{:style => "position:relative;display:inline-block;margin-left:12px;top:-8px;"}
+    = current_user.name
+    .description
+      = link_to current_user.diaspora_handle, person_path(current_user.person)
+      /= info_text(t('.handle_explanation'))
+
+  %hr
+
   = render 'aspects/all_aspects_contacts'
 

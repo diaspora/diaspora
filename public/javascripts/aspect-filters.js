@@ -17,6 +17,28 @@ $(document).ready(function(){
     }
   });
 
+  $("a.hard_aspect_link").live("click", function(e){
+    e.preventDefault();
+    requests++;
+
+    var guid = $(this).attr('data-guid');
+
+    // select correct aspect in filter list & deselect others
+    $("#aspect_nav li").each(function(){
+      var $this = $(this);
+      if( $this.attr('data-guid') == guid){
+        $this.addClass('selected');
+      } else {
+        $this.removeClass('selected');
+      }
+    });
+
+    // loading animation
+    $("#aspect_stream_container").fadeTo(100, 0.4);
+
+    performAjax( $(this).attr('href'), $("#publisher textarea").val());
+  });
+
   $("#aspect_nav a.aspect_selector").click(function(e){
     e.preventDefault();
 
@@ -25,14 +47,11 @@ $(document).ready(function(){
     // loading animation
     $("#aspect_stream_container").fadeTo(100, 0.4);
 
-    // get text from box
-    var post = $("#publisher textarea").val();
-
     // filtering //////////////////////
     var $this = $(this),
         listElement = $this.parent(),
         guid = listElement.attr('data-guid'),
-        baseURL = location.href.split("?")[0],
+        post = $("#publisher textarea").val(),
         homeListElement = $("#aspect_nav a.home_selector").parent();
 
     if( listElement.hasClass('selected') ){
@@ -57,6 +76,13 @@ $(document).ready(function(){
       homeListElement.removeClass('selected');
     }
 
+     performAjax(generateURL(), post);
+  });
+
+
+  function generateURL(){
+    var baseURL = location.href.split("?")[0];
+
     // generate new url
     baseURL = baseURL.replace('#','');
     baseURL += '?';
@@ -71,10 +97,12 @@ $(document).ready(function(){
       // slice last '&'
       baseURL = baseURL.slice(0,baseURL.length-1);
     }
-    ///////////////////////////////////
+    return baseURL;
+  }
 
+  function performAjax(newURL, post){
     $.ajax({
-      url : baseURL,
+      url : newURL,
       dataType : 'script',
       success  : function(data){
         requests--;
@@ -94,6 +122,5 @@ $(document).ready(function(){
         }
       }
     });
-
-  });
+  }
 });

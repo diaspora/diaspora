@@ -337,10 +337,6 @@ header
         :top 7px
 
       img
-        :-webkit-box-shadow 0 1px 2px #333
-        :-moz-box-shadow 0 1px 2px #333
-        :box-shadow 0 1px 2px #333
-
         :margin
           :right 0.5em
 
@@ -752,6 +748,9 @@ label
   :padding 12px
     :top 1px
   :top 0
+
+  :background
+    :color rgb(248,248,248)
 
   :border
     :bottom 2px #777 solid
@@ -1215,9 +1214,11 @@ ul#settings_nav
     :top 12px
   :line-height 1em
   img
-    :margin-right -1px
-    :width 30px
-    :height 30px
+    :margin
+      :right 1px
+      :bottom 2px
+    :width 35px
+    :height 35px
 
 .contact_pictures.horizontal
   img
@@ -1243,6 +1244,8 @@ ul#settings_nav
   ul
     :padding 0
     :margin 0
+    > li
+      :position relative
 
 
 .aspect_listings
@@ -2113,3 +2116,30 @@ ul.show_comments
       :margin
         :left 0.5em
         :right 0.5em
+
+#aspect_edit_pane
+  .aspect_search_field
+    :position absolute
+    :right 5px
+    input
+      :width 200px
+
+  .person_tiles
+    .tile
+      :padding 6px
+        :left 65px
+      :margin 3px
+        :left 0
+      :display inline-block
+      :width 126px
+      :height 50px
+
+      :border 1px solid #eee
+      :border-radius 2px
+
+      :position relative
+
+      img
+        :position absolute
+        :left 6px
+

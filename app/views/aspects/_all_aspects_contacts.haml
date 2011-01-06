@@ -10,9 +10,8 @@
 #left_pane
   .section.aspect_listings
     %h4
-      .right{:style=>"font-size:12px;"}
-        = link_to t('.manage_aspects'), aspects_manage_path
       = t('.aspects')
+      = link_to @all_aspects.count, aspects_manage_path
 
     %ul
       - for a_hash in @aspect_hashes
@@ -20,9 +19,8 @@
 
   .section.contact_pictures
     %h4
-      .right.description{:style => "top:-4px"}
-        = @contact_hashes.count
-      = t('.all_contacts')
+      = t('.contacts')
+      = link_to @contact_hashes.count, '#'
 
     - for contact in @contact_hashes
       = person_image_link(contact[:person])
@@ -34,6 +32,6 @@
         = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
   .section
-    %h3= t('shared.invitations.invites')
+    %h4= t('shared.invitations.invites')
     = render "shared/invitations", :invites => @invites
 

@@ -34,7 +34,9 @@ module ApplicationHelper
   def aspect_badge aspects
     str = ''
     aspects.each do |aspect|
-      str << "<span class='aspect_badge single'><a href=#{aspect_path(aspect)}>#{aspect.name}</a></span>"
+      str << "<span class='aspect_badge single'>"
+      str << link_for_aspect(aspect, 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
+      str << "</span>"
     end
     str.html_safe
   end

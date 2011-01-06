@@ -7,7 +7,7 @@ module AspectsHelper
     link_to aspect.name, aspects_path("a_ids[]" => aspect.id), opts
   end
 
-  def remove_link( aspect )
+  def remove_link(aspect)
     if aspect.contacts.size == 0
       link_to I18n.t('aspects.helper.remove'), aspect, :method => :delete, :confirm => I18n.t('aspects.helper.are_you_sure')
     else

@@ -79,7 +79,9 @@ var View = {
       ".add_photo_button",
       ".remove_person_button",
       ".question_mark",
-      ".share_with_button"
+      ".share_with_button",
+      ".aspect_detail_button",
+      ".aspect_selector_edit"
     ]
   },
 

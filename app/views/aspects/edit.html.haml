@@ -6,22 +6,31 @@
   = include_javascripts :aspects
 
 
-.span-24.last
-  %h3
-    = "Editing #{@aspect.name}"
+#aspect_edit_pane
+  #aspect_edit_pane_header
+    %h4
+      .aspect_search_field
+        /= text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
+      = @aspect
+      .description
+        = "#{@contacts.count} contacts"
 
-.span-6.append-1
+  .person_tiles{:style => "display:none;"}
+    - for contact in @aspect.contacts
+      .tile
+        = person_image_link contact.person
+        = link_to contact.person.name, contact.person
+    %hr
+
+    = form_for @aspect do |asp|
+      = asp.text_field :name, :value => @aspect.name
+      = asp.submit t('.rename_aspect'), :class => 'button'
+
+    = button_to t('.remove_aspect'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button'
+
   - if @contacts.count > 0
-    %h4= t('.add_existing')
+    %h5= t('.add_existing')
     = render 'shared/contact_list', :aspect_id => @aspect.id, :contact_hashes => @all_contacts
 
   = render 'shared/add_contact', :aspect_id => @aspect.id
-
-.span-4.last
-  = form_for @aspect do |asp|
-    = asp.text_field :name, :value => @aspect.name
-    = asp.submit t('.rename_aspect')
-
-  .big_buttons
-    = button_to t('.remove_aspect'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
 
