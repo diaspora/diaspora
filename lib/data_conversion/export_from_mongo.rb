@@ -152,6 +152,7 @@ module DataConversion
         hash = JSON.parse(aspect_json)
         person_row = model_hash[:attrs].map do |attr_name|
           attr_name = attr_name.gsub("mongo_", "")
+          attr_name = "_id" if attr_name == "id"
           hash[attr_name]
         end
         people_csv << person_row
