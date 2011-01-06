@@ -5,6 +5,15 @@
 require 'spec_helper'
 
 describe PubSubHubbub do
+  before :all do
+    RestClient.unstub!(:post)
+  end
+
+  after :all do
+
+    RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
+  end
+
   describe '#initialize' do
   end
 
