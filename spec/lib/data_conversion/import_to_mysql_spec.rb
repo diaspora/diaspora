@@ -100,6 +100,30 @@ describe DataConversion::ImportToMysql do
         contact.created_at.should be_nil
       end
     end
+    describe "invitations" do
+      before do
+        copy_fixture_for("invitations")
+      end
+
+      it "imports data into the mongo_invitations table" do
+        Mongo::Invitation.count.should == 0
+        @migrator.import_raw_invitations
+        Mongo::Invitation.count.should == 1
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_invitations
+        invitation = Mongo::Invitation.first
+        invitation.mongo_id.should == "4d262131cc8cb44df2000022"
+        invitation.recipient_mongo_id.should =="4d26212fcc8cb44df2000021"
+        invitation.sender_mongo_id.should == "4d26212acc8cb44df2000005"
+        invitation.aspect_mongo_id.should == '4d26212bcc8cb44df2000006'
+        invitation.message.should == "Hello!"
+      end
+    end
+
+
+
     describe "people" do
       before do
         copy_fixture_for("people")

@@ -53,6 +53,16 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_people, :owner_mongo_id, :unique => true
     add_index :mongo_people, :diaspora_handle, :unique => true
 
+    create_table :mongo_invitations do |t|
+      t.string :mongo_id
+      t.text :message
+      t.string :sender_mongo_id
+      t.string :recipient_mongo_id
+      t.string :aspect_mongo_id
+      t.timestamps
+    end
+    add_index :mongo_invitations, :sender_mongo_id
+
     create_table :mongo_post_visibilities do |t|
       t.string :aspect_mongo_id
       t.string :post_mongo_id

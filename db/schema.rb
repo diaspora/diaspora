@@ -118,6 +118,18 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "mongo_contacts", ["person_mongo_id", "pending"], :name => "index_mongo_contacts_on_person_mongo_id_and_pending"
   add_index "mongo_contacts", ["user_mongo_id", "pending"], :name => "index_mongo_contacts_on_user_mongo_id_and_pending"
 
+  create_table "mongo_invitations", :force => true do |t|
+    t.string   "mongo_id"
+    t.text     "message"
+    t.string   "sender_mongo_id"
+    t.string   "recipient_mongo_id"
+    t.string   "aspect_mongo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_invitations", ["sender_mongo_id"], :name => "index_mongo_invitations_on_sender_mongo_id"
+
   create_table "mongo_people", :force => true do |t|
     t.string   "mongo_id"
     t.string   "guid"

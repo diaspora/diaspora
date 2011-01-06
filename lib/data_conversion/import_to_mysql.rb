@@ -56,7 +56,7 @@ module DataConversion
 
     def import_raw_aspect_memberships
       log "Loading aspect memberships file..."
-      Mongo::Aspect.connection.execute <<-SQL
+      Mongo::AspectMembership.connection.execute <<-SQL
         #{load_string("aspect_memberships")}
         #{infile_opts}
         (contact_mongo_id, aspect_mongo_id)
@@ -66,7 +66,7 @@ module DataConversion
 
     def import_raw_comments
       log "Loading comments file..."
-      Mongo::Aspect.connection.execute <<-SQL
+      Mongo::Comment.connection.execute <<-SQL
         #{load_string("comments")}
         #{infile_opts}
         (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, youtube_titles)
@@ -77,7 +77,7 @@ module DataConversion
 
     def import_raw_contacts
       log "Loading contacts file..."
-      Mongo::Aspect.connection.execute <<-SQL
+      Mongo::Contact.connection.execute <<-SQL
         #{load_string("contacts")}
         #{infile_opts}
         (mongo_id, user_mongo_id, person_mongo_id, pending, created_at, updated_at)
@@ -87,7 +87,7 @@ module DataConversion
 
     def import_raw_post_visibilities
       log "Loading post visibilities file..."
-      Mongo::Aspect.connection.execute <<-SQL
+      Mongo::PostVisibility.connection.execute <<-SQL
         #{load_string("post_visibilities")}
         #{infile_opts}
         (aspect_mongo_id, post_mongo_id)
@@ -97,17 +97,25 @@ module DataConversion
 
     def import_raw_requests
       log "Loading requests file..."
-      Mongo::Aspect.connection.execute <<-SQL
+      Mongo::Request.connection.execute <<-SQL
         #{load_string("requests")}
         #{infile_opts}
         (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id)
       SQL
       log "Finished. Imported #{Mongo::Request.count} requests."
     end
-
+    def import_raw_invitations
+      log "Loading invitations file..."
+      Mongo::Invitation.connection.execute <<-SQL
+        #{load_string("invitations")}
+        #{infile_opts}
+        (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id, message)
+      SQL
+      log "Finished. Imported #{Mongo::Invitation.count} invitations."
+    end
     def import_raw_people
       log "Loading people file..."
-      Mongo::Aspect.connection.execute <<-SQL
+      Mongo::Person.connection.execute <<-SQL
         #{load_string("people")}
         #{infile_opts}
         (created_at,updated_at,serialized_public_key,url,mongo_id,@owner_mongo_id_var,diaspora_handle)

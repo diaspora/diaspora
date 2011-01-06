@@ -7,7 +7,7 @@ module Mongo
   class AspectMembership < ActiveRecord::Base; end
   class Comment < ActiveRecord::Base; end
   class Contact < ActiveRecord::Base; end
-  #class Invitation < ActiveRecord::Base; end
+  class Invitation < ActiveRecord::Base; end
   #class Notification < ActiveRecord::Base; end
   class Person < ActiveRecord::Base; end
   #Photo?
