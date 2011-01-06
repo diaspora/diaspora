@@ -10,7 +10,6 @@ describe PubSubHubbub do
   end
 
   after :all do
-
     RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
   end
 
