@@ -29,6 +29,7 @@ class User
   key :getting_started, Boolean, :default => true
   key :disable_mail, Boolean, :default => false
 
+  key :email, String
   key :language, String
 
   before_validation :strip_and_downcase_username, :on => :create
@@ -54,7 +55,6 @@ class User
 
   many :services, :class => Service
   timestamps!
-  #after_create :seed_aspects
 
   before_destroy :disconnect_everyone, :remove_person
   before_save do
@@ -83,7 +83,6 @@ class User
   end
 
   ######## Making things work ########
-  key :email, String
 
   def method_missing(method, *args)
     self.person.send(method, *args) if self.person
