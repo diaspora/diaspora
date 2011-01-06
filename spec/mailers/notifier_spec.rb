@@ -81,26 +81,52 @@ describe Notifier do
     end
   end
 
-  describe "#comment_on_post" do
+  context "comments" do
     let!(:connect) { connect_users(user, aspect, user2, aspect2)}
     let!(:sm) {user.post(:status_message, :message => "Sunny outside", :to => :all)}
     let!(:comment) { user2.comment("Totally is", :on => sm )}
-    let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment)}
+    describe "#comment_on_post" do
 
-    it 'goes to the right person' do
-      comment_mail.to.should == [user.email]
+      let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment).deliver}
+
+      it 'goes to the right person' do
+        comment_mail.to.should == [user.email]
+      end
+
+      it 'has the receivers name in the body' do
+        comment_mail.body.encoded.include?(user.person.profile.first_name).should be true
+      end
+
+      it 'has the name of person commenting' do
+        comment_mail.body.encoded.include?(person.name).should be true
+      end
+
+      it 'has the post link in the body' do
+        comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+      end
+
+    end
+    describe "#also commented" do
+
+      let!(:comment_mail) {Notifier.also_commented(user.id, person.id, comment)}
+
+      it 'goes to the right person' do
+        comment_mail.to.should == [user.email]
+      end
+
+      it 'has the receivers name in the body' do
+        comment_mail.body.encoded.include?(user.person.profile.first_name).should be true
+      end
+
+      it 'has the name of person commenting' do
+        comment_mail.body.encoded.include?(person.name).should be true
+      end
+
+      it 'has the post link in the body' do
+        comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+      end
+
     end
 
-    it 'has the receivers name in the body' do
-      comment_mail.body.encoded.include?(user.person.profile.first_name).should be true
-    end
-
-    it 'has the name of person commenting' do
-      comment_mail.body.encoded.include?(person.name).should be true
-    end
-
-    it 'has the post link in the body' do
-      comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
-    end
   end
 end

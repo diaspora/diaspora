@@ -54,26 +54,43 @@ describe Comment do
         user2.person.id => user2.person,
       }
     end
+ end
+
+ describe 'comment#notification_type' do
+   let(:user3)   {make_user}
+   let(:aspect3) {user3.aspects.create(:name => "Faces")}
+   let!(:connecting2) { connect_users(user, aspect, user3, aspect3) }
+   before do
+     @post2 = user2.post(:status_message, :message => 'yo', :to => aspect2.id)
+     @post1 = user.post(:status_message, :message => "hello", :to => aspect.id)
+     @c11 = user2.comment "why so formal?", :on => @post1
+     @c12 = user.comment "I simply felt like issuing a greeting.  Do step off.", :on => @post1
+     @c22 = user2.comment "I simply felt like issuing a greeting.  Do step off.", :on => @post2
    end
 
-  describe 'comment#notification_type' do
-    before do
-      @not_your_post = user2.post(:status_message, :message => 'yo', :to => aspect2.id)
-      @hello = user.post(:status_message, :message => "hello", :to => aspect.id)
-      @c11 = user2.comment "why so formal?", :on => @hello
-      @c12 = user.comment "I simply felt like issuing a greeting.  Do step off.", :on => @hello
-      @c12 = user2.comment "I simply felt like issuing a greeting.  Do step off.", :on => @not_your_post
+   it "returns 'comment_on_post' if the comment is on a post you own" do
+     @c11.notification_type(user, user2.person).should == 'comment_on_post'
+   end
 
-    end
-
-    it "returns 'comment_on_post' if the comment is on a post you own" do
-      @c11.notification_type(user, user2.person).should == 'comment_on_post'
-  
-    end
-
-   it 'returns false if the comment is not on a post you own' do
-     @c11.notification_type(user2, user.person).should == false
+   it 'returns false if the comment is not on a post you own and noone "also_commented"' do
+     @c12.notification_type(user3, user.person).should == false
    end 
+
+
+
+   context "also commented" do
+     before do
+       @c13 = user3.comment "I also commented on the first user's post", :on => @post1
+     end
+
+     it 'does not return also commented if the user commented' do 
+       @c13.notification_type(user3, user.person).should == false
+     end
+     
+     it "returns 'also_commented' if another person commented on a post you commented on" do
+       @c13.notification_type(user2, user.person).should == 'also_commented'
+     end
+    end
   end
 
 

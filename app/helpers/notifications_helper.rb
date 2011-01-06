@@ -14,6 +14,13 @@ module NotificationsHelper
       else
         "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
+    when 'also_commented'
+      comment = Comment.first(:id => note.target_id)
+      if comment
+       "#{translation} #{link_to t('notifications.post'), object_path(comment.post)}".html_safe
+      else
+        "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
+      end
     else
     end
   end

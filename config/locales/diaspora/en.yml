@@ -188,6 +188,7 @@ en:
       request_accepted: "accepted your share request."
       new_request: "offered to share with you."
       comment_on_post: "commented on your"
+      also_commented: "also commented on"
       post: 'post'
       deleted: 'deleted'
       index:
@@ -435,6 +436,10 @@ en:
       comment_on_post:
           subject: "%{name} has commented on your post."
           commented: "has commented on your post!"
+          sign_in: "Sign in to view it."
+      also_commented:
+          subject: "%{name} has also commented."
+          commented: "has also commented on %{post_author}'s post:"
           sign_in: "Sign in to view it."
   home:
       show:

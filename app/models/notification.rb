@@ -29,7 +29,7 @@ class Notification
                             :kind => kind,
                             :person_id => person.id,
                             :user_id => user.id)
-        n.email_the_user(object) unless user.disable_mail || !n
+        n.email_the_user(object) if n
         n.socket_to_uid(user) if n
         n
        end
@@ -43,7 +43,9 @@ class Notification
     when "request_accepted"
       self.user.mail(Jobs::MailRequestAcceptance, self.user_id, self.person_id)
     when "comment_on_post"
-      self.user.mail(Jobs::MailCommentOnPost, self.user_id, self.person_id, object)
+      self.user.mail(Jobs::MailCommentOnPost, self.user_id, self.person_id, object.id)
+    when "also_commented"
+      self.user.mail(Jobs::MailAlsoCommented, self.user_id, self.person_id, object.id)
     end
   end
 end
