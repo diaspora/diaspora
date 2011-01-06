@@ -152,7 +152,7 @@ describe DataConversion::ImportToMysql do
       it "imports data into the mongo_people table" do
         Mongo::Person.count.should == 0
         @migrator.import_raw_people
-        Mongo::Person.count.should == 6
+        Mongo::Person.count.should == 10
       end
 
       it "imports all the columns" do
@@ -180,6 +180,33 @@ describe DataConversion::ImportToMysql do
         pv = Mongo::PostVisibility.first
         pv.post_mongo_id.should == "4d262132cc8cb44df2000023"
         pv.aspect_mongo_id.should =="4d26212bcc8cb44df2000006"
+      end
+    end
+    describe "profiles" do
+      before do
+        copy_fixture_for("profiles")
+      end
+
+      it "imports data into the mongo_profiles table" do
+        Mongo::Profile.count.should == 0
+        @migrator.import_raw_profiles
+        Mongo::Profile.count.should == 10
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_profiles
+        profile = Mongo::Profile.first
+        profile.image_url_medium.should == ''
+        profile.searchable.should == true
+        profile.image_url.should == ''
+        profile.person_mongo_id.should == "4d262129cc8cb44df2000001"
+        profile.gender.should == ''
+        profile.diaspora_handle.should == ''
+        profile.birthday.should == ''
+        profile.last_name.should == 'weinstein'
+        profile.bio.should == ''
+        profile.image_url_small.should == ''
+        profile.first_name.should == 'eugene'
       end
     end
 

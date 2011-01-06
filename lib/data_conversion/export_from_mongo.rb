@@ -132,11 +132,10 @@ module DataConversion
         people_csv << person_row
 
         profile_row = model_hash[:profile_attrs].map do |attr_name|
-          attr_name = attr_name.gsub("mongo_", "")
-          attr_name = "_id" if attr_name == "id"
+          attr_name = "_id" if attr_name == "person_mongo_id"
           hash["profile"][attr_name]
         end
-        profiles_csv << person_row
+        profiles_csv << profile_row
       end
       json_file.close
       people_csv.close

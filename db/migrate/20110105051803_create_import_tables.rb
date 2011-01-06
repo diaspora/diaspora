@@ -81,6 +81,26 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_post_visibilities, :aspect_mongo_id
     add_index :mongo_post_visibilities, :post_mongo_id
 
+    create_table :mongo_profiles do |t|
+      t.string :diaspora_handle
+      t.string :first_name
+      t.string :last_name
+      t.string :image_url
+      t.string :image_url_small
+      t.string :image_url_medium
+      t.date :birthday
+      t.string :gender
+      t.text :bio
+      t.boolean :searchable, :default => true
+      t.string :person_mongo_id
+      t.timestamps
+    end
+    add_index :mongo_profiles, [:first_name, :searchable]
+    add_index :mongo_profiles, [:last_name, :searchable]
+    add_index :mongo_profiles, [:first_name, :last_name, :searchable]
+    add_index :mongo_profiles, :person_mongo_id
+
+
     create_table :mongo_requests do |t|
       t.string :mongo_id
       t.string :sender_mongo_id

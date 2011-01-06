@@ -132,7 +132,15 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Person.count} people."
     end
-
+    def import_raw_profiles
+      log "Loading profiles file..."
+      Mongo::Profile.connection.execute <<-SQL
+        #{load_string("profiles")}
+        #{infile_opts}
+        (image_url_medium,searchable,image_url,person_mongo_id,gender,diaspora_handle,birthday,last_name,bio,image_url_small,first_name)
+      SQL
+      log "Finished. Imported #{Mongo::Profile.count} profiles."
+    end
     def infile_opts
       <<-OPTS
           FIELDS TERMINATED BY ','
