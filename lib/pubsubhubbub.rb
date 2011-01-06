@@ -4,16 +4,14 @@
 
 
 class PubSubHubbub
-
   H = {"User-Agent" => "PubSubHubbub Ruby", "Content-Type" => "application/x-www-form-urlencoded"}
 
   def initialize(hub, options={})
-      @headers = H.merge(options[:head]) if options[:head]
-      @hub = hub.kind_of?(URI) ? hub : URI::parse(hub)
-    end
+    @headers = H.merge(options[:head]) if options[:head]
+    @hub = hub 
+  end
 
-    def publish(feed)
-      RestClient.post @hub, :headers => H, 'hub.url' => feed, 'hub.mode' => 'publish'
-    end
+  def publish(feed)
+    RestClient.post(@hub, :headers => @headers, 'hub.url' => feed, 'hub.mode' => 'publish')
+  end
 end
-
