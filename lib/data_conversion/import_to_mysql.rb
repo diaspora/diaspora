@@ -61,6 +61,14 @@ OPTS
         (aspect_mongo_id, post_mongo_id)
       SQL
     end
+    def import_raw_requests
+      Mongo::Aspect.connection.execute <<-SQL
+        #{load_string("requests")}
+        #{infile_opts}
+        (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id)
+      SQL
+    end
+
   end
 
 end

@@ -48,6 +48,17 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_post_visibilities, :aspect_mongo_id
     add_index :mongo_post_visibilities, :post_mongo_id
 
+    create_table :mongo_requests do |t|
+      t.string :mongo_id
+      t.string :sender_mongo_id
+      t.string :recipient_mongo_id
+      t.string :aspect_mongo_id
+      t.timestamps
+    end
+    add_index :mongo_requests, :sender_mongo_id
+    add_index :mongo_requests, :recipient_mongo_id
+    add_index :mongo_requests, [:sender_mongo_id, :recipient_mongo_id], :unique => true
+
     create_table :mongo_users do |t|
       t.string :mongo_id
       t.string :username

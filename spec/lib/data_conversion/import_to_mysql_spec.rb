@@ -118,6 +118,27 @@ describe DataConversion::ImportToMysql do
       end
     end
 
+    describe "requests" do
+      before do
+        copy_fixture_for("requests")
+      end
+
+      it "imports data into the mongo_requests table" do
+        Mongo::Request.count.should == 0
+        @migrator.import_raw_requests
+        Mongo::Request.count.should == 8
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_requests
+        request = Mongo::Request.first
+        request.mongo_id.should == "4d091791cc8cb40f14000002"
+        request.recipient_mongo_id.should =="4d090bd1cc8cb4054e000297"
+        request.sender_mongo_id.should == "4d0916c1cc8cb40e93000003"
+        request.aspect_mongo_id.should == ''
+      end
+    end
+
     describe "users" do
       before do
         copy_fixture_for("users")

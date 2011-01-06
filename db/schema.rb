@@ -128,6 +128,19 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "mongo_post_visibilities", ["aspect_mongo_id"], :name => "index_mongo_post_visibilities_on_aspect_mongo_id"
   add_index "mongo_post_visibilities", ["post_mongo_id"], :name => "index_mongo_post_visibilities_on_post_mongo_id"
 
+  create_table "mongo_requests", :force => true do |t|
+    t.string   "mongo_id"
+    t.string   "sender_mongo_id"
+    t.string   "recipient_mongo_id"
+    t.string   "aspect_mongo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_requests", ["recipient_mongo_id"], :name => "index_mongo_requests_on_recipient_mongo_id"
+  add_index "mongo_requests", ["sender_mongo_id", "recipient_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id_and_recipient_mongo_id", :unique => true
+  add_index "mongo_requests", ["sender_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id"
+
   create_table "mongo_users", :force => true do |t|
     t.string   "mongo_id"
     t.string   "username"
