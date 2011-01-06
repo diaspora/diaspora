@@ -158,9 +158,12 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_people
         person = Mongo::Person.first
-        pp person
         person.owner_mongo_id.should be_nil
-        person.mongo_id.should == "4d26212bcc8cb44df200000d"
+        person.mongo_id.should == "4d26212acc8cb44df2000002"
+        person.guid.should == person.mongo_id
+        person.url.should == "http://google-1b5b16a.com/"
+        person.diaspora_handle.should == "bob-person-1a8bc18@aol.com"
+        person.serialized_public_key.should_not be_nil
         person.created_at.should be_nil
       end
     end

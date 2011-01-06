@@ -128,7 +128,8 @@ module DataConversion
         #{load_string("people")}
         #{infile_opts}
         (created_at,updated_at,serialized_public_key,url,mongo_id,@owner_mongo_id_var,diaspora_handle)
-        SET owner_mongo_id = @owner_mongo_id_var
+        SET guid = mongo_id,
+        owner_mongo_id = NULLIF(@owner_mongo_id_var, '');
       SQL
       log "Finished. Imported #{Mongo::Person.count} people."
     end
