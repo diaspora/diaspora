@@ -58,7 +58,7 @@ describe Diaspora::UserModules::Connecting do
 
       it 'enqueues a mail job' do
         Resque.should_receive(:enqueue).with(Jobs::MailRequestReceived, user.id, person.id)
-        user.receive_contact_request(@r)
+        user.receive_object(@r, person)
       end
     end
 
@@ -83,7 +83,7 @@ describe Diaspora::UserModules::Connecting do
       end
       it 'enqueues a mail job' do
         Resque.should_receive(:enqueue).with(Jobs::MailRequestAcceptance, user.id, user2.person.id).once
-        user.receive_request(@acceptance, user2.person)
+        user.receive_object(@acceptance, user2.person)
       end
     end
 

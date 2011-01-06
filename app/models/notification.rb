@@ -30,8 +30,20 @@ class Notification
                             :person_id => person.id,
                             :user_id => user.id)
         n.socket_to_uid(user.id) if n
+        n.email_the_user(object) unless user.disable_mail || !n
         n
        end
+    end
+  end
+
+  def email_the_user(object)
+    case self.kind
+    when "new_request"
+      self.user.mail(Jobs::MailRequestReceived, self.user_id, self.person_id)
+    when "request_accepted"
+      self.user.mail(Jobs::MailRequestAcceptance, self.user_id, self.person_id)
+    when "comment_on_post"
+      self.user.mail(Jobs::MailCommentOnPost, self.user_id, self.person_id, object)
     end
   end
 end

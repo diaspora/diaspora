@@ -67,6 +67,37 @@ describe Notification do
       n.should_receive(:socket_to_uid).once
       Notification.notify(@user, request, @person)
     end
+
+    context 'emails the user' do
+      it 'email with notifications enabled' do
+        request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+        opts = {:target_id => request.id,
+          :kind => request.notification_type(@user, @person),
+          :person_id => @person.id,
+          :user_id => @user.id}
+
+        n = Notification.create(opts)
+        Notification.stub!(:create).and_return n
+
+        n.should_receive(:email_the_user).once
+        Notification.notify(@user, request, @person)
+      end
+
+      it 'does not email with emails disabled' do
+        request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
+        opts = {:target_id => request.id,
+          :kind => request.notification_type(@user, @person),
+          :person_id => @person.id,
+          :user_id => @user.id}
+
+        n = Notification.create(opts)
+        Notification.stub!(:create).and_return n
+
+        @user.disable_mail = true
+        n.should_not_receive(:email_the_user)
+        Notification.notify(@user, request, @person)
+      end
+    end
   end
 end
 
