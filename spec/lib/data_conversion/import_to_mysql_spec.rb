@@ -98,6 +98,26 @@ describe DataConversion::ImportToMysql do
         contact.created_at.should be_nil
       end
     end
+
+    describe "post_visibilities" do
+      before do
+        copy_fixture_for("post_visibilities")
+      end
+
+      it "imports data into the mongo_post_visibilities table" do
+        Mongo::PostVisibility.count.should == 0
+        @migrator.import_raw_post_visibilities
+        Mongo::PostVisibility.count.should == 44
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_post_visibilities
+        pv = Mongo::PostVisibility.first
+        pv.post_mongo_id.should == "4d0aa87acc8cb4144b000009"
+        pv.aspect_mongo_id.should =="4d0916c2cc8cb40e93000004"
+      end
+    end
+
     describe "users" do
       before do
         copy_fixture_for("users")

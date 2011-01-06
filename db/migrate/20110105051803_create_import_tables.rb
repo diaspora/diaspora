@@ -40,6 +40,14 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_contacts, [:user_mongo_id, :pending]
     add_index :mongo_contacts, [:person_mongo_id, :pending]
 
+    create_table :mongo_post_visibilities do |t|
+      t.string :aspect_mongo_id
+      t.string :post_mongo_id
+      t.timestamps
+    end
+    add_index :mongo_post_visibilities, :aspect_mongo_id
+    add_index :mongo_post_visibilities, :post_mongo_id
+
     create_table :mongo_users do |t|
       t.string :mongo_id
       t.string :username

@@ -54,6 +54,13 @@ OPTS
         (mongo_id, user_mongo_id, person_mongo_id, pending, created_at, updated_at)
       SQL
     end
+    def import_raw_post_visibilities
+      Mongo::Aspect.connection.execute <<-SQL
+        #{load_string("post_visibilities")}
+        #{infile_opts}
+        (aspect_mongo_id, post_mongo_id)
+      SQL
+    end
   end
 
 end
