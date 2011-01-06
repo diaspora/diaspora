@@ -59,8 +59,6 @@ module Diaspora
             receive_object(object, person)
             Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type#{object.class}")
 
-
-
             return object
           end
         end
@@ -92,7 +90,7 @@ module Diaspora
           end
           disconnected_by visible_person_by_id(retraction.post_id)
         else
-          retraction.perform self.id
+          retraction.perform self
           aspects = self.aspects_with_person(retraction.person)
           aspects.each{ |aspect| aspect.post_ids.delete(retraction.post_id.to_id)
             aspect.save
@@ -138,7 +136,7 @@ module Diaspora
           dispatch_comment comment
         end
 
-        comment.socket_to_uid(self.id, :aspect_ids => comment.post.aspect_ids)
+        comment.socket_to_uid(self, :aspect_ids => comment.post.aspect_ids)
         comment
       end
 
@@ -146,7 +144,7 @@ module Diaspora
         post.class.find_by_id(post.id)
       end
 
-      def receive_post post
+      def receive_post(post)
         #exsists locally, but you dont know about it
         #does not exsist locally, and you dont know about it
 
@@ -191,7 +189,7 @@ module Diaspora
           aspect.posts << post
           aspect.save
         end
-        post.socket_to_uid(id, :aspect_ids => aspects.map{|x| x.id}) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
+        post.socket_to_uid(self, :aspect_ids => aspects.map{|x| x.id}) if (post.respond_to?(:socket_to_uid) && !self.owns?(post))
         post
       end
     end

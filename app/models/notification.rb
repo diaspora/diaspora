@@ -29,8 +29,8 @@ class Notification
                             :kind => kind,
                             :person_id => person.id,
                             :user_id => user.id)
-        n.socket_to_uid(user.id) if n
         n.email_the_user(object) unless user.disable_mail || !n
+        n.socket_to_uid(user) if n
         n
        end
     end

@@ -20,14 +20,38 @@ describe Retraction do
     end
   end
 
-  describe 'dispatching' do
-    it 'should dispatch a message on delete' do
-      Factory.create(:person)
-      m = mock()
-      m.should_receive(:post)
-      Postzord::Dispatch.should_receive(:new).and_return(m)
-      post.destroy
+  describe '#subscribers' do
+    it 'returns the subscribers to the post for all objects other than person' do
+      retraction = Retraction.for(post)
+      obj = retraction.instance_variable_get(:@object)
+      wanted_subscribers = obj.subscribers(user)
+      obj.should_receive(:subscribers).with(user).and_return(wanted_subscribers)
+      retraction.subscribers(user).should =~ wanted_subscribers
+    end
+
+    context 'hax' do
+      it 'barfs if the type is a person, and subscribers instance varabile is not set' do
+        retraction = Retraction.for(user)
+        obj = retraction.instance_variable_get(:@object)
+
+        proc{retraction.subscribers(user)}.should raise_error
+      end
+
+      it 'returns manually set subscribers' do
+        retraction = Retraction.for(user)
+        retraction.subscribers = "fooey"
+        retraction.subscribers(user).should == 'fooey'
+      end
     end
   end
 
+  describe 'dispatching' do
+    it 'should dispatch a retraction on delete' do
+      Factory.create(:person)
+      m = mock()
+      m.should_receive(:post)
+      Postzord::Dispatch.should_receive(:new).with(instance_of(User), instance_of(Retraction)).and_return(m)
+      post.destroy
+    end
+  end
 end

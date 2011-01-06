@@ -157,7 +157,7 @@ class User
     self.raw_visible_posts << post
     self.save
 
-    post.socket_to_uid(id, :aspect_ids => aspect_ids) if post.respond_to? :socket_to_uid
+    post.socket_to_uid(self, :aspect_ids => aspect_ids) if post.respond_to? :socket_to_uid
     target_aspects = aspects_from_ids(aspect_ids)
     target_aspects.each do |aspect|
       aspect.posts << post
@@ -198,28 +198,6 @@ class User
   def dispatch_comment(comment)
     mailman = Postzord::Dispatch.new(self, comment)
     mailman.post 
-    #if owns? comment.post
-      ##push DOWNSTREAM (to original audience)
-      #Rails.logger.info "event=dispatch_comment direction=downstream user=#{self.diaspora_handle} comment=#{comment.id}"
-      #aspects = aspects_with_post(comment.post_id)
-
-      ##just socket to local users, as the comment has already
-      ##been associated and saved by post owner
-      ##  (we'll push to all of their aspects for now, the comment won't
-      ##   show up via js where corresponding posts are not present)
-
-      #people_in_aspects(aspects, :type => 'local').each do |person|
-        #comment.socket_to_uid(person.owner_id, :aspect_ids => 'all')
-      #end
-
-      ##push to remote people
-      #push_to_people(comment, people_in_aspects(aspects, :type => 'remote'))
-
-    #elsif owns? comment
-      ##push UPSTREAM (to poster)
-      #Rails.logger.info "event=dispatch_comment direction=upstream user=#{self.diaspora_handle} comment=#{comment.id}"
-      #push_to_people comment, [comment.post.person]
-    #end
   end
 
   ######### Mailer #######################
@@ -234,8 +212,8 @@ class User
     aspect_ids = aspects_with_post(post.id)
     aspect_ids.map! { |aspect| aspect.id.to_s }
 
-    post.unsocket_from_uid(self.id, :aspect_ids => aspect_ids) if post.respond_to? :unsocket_from_uid
     retraction = Retraction.for(post)
+    post.unsocket_from_uid(self, retraction, :aspect_ids => aspect_ids) if post.respond_to? :unsocket_from_uid
     mailman = Postzord::Dispatch.new(self, retraction)
     mailman.post 
 

@@ -52,9 +52,9 @@ class Comment
 
   def subscribers(user)
     if user.owns?(self.post)
-      p = user.people_in_aspects(user.aspects_with_post(self.post_id))
+      p = self.post.subscribers(user)
     elsif user.owns?(self)
-     p =  [self.post.person]
+      p = [self.post.person]
     end
     p
   end

@@ -98,10 +98,12 @@ describe Comment do
     end
   end
 
-  describe 'comment propagation' do
+  context 'comment propagation' do
     before do
       @person = Factory.create(:person)
       user.activate_contact(@person, Aspect.first(:id => aspect.id))
+      @person3 = Factory.create(:person)
+      user.activate_contact(@person3, Aspect.first(:id => aspect.id))
 
       @person2 = Factory.create(:person)
       @person_status = Factory.build(:status_message, :person => @person)
@@ -119,17 +121,20 @@ describe Comment do
       Postzord::Dispatch.should_receive(:new).and_return(m)
       user.comment "yo", :on => @person_status
     end
-    
-    
 
     describe '#subscribers' do
       it 'returns the posts original audience, if the post is owned by the user' do
+        comment = user.build_comment "yo", :on => @person_status
+        comment.subscribers(user).should =~ [@person]
       end
 
       it 'returns the owner of the original post, if the user owns the comment' do
+        comment = user.build_comment "yo", :on => @user_status
+        comment.subscribers(user).should =~ [@person, @person3, user2.person]
       end
     end
 
+  context 'testing a method only used for testing' do
     it "should send a user's comment on a person's post to that person" do
       m = mock()
       m.stub!(:post)
@@ -137,31 +142,7 @@ describe Comment do
 
       user.comment "yo", :on => @person_status
     end
-
-    #context 'posts from a remote person' do
-      #before(:all) do
-        #stub_comment_signature_verification
-      #end
-      #before do
-        #@mailman = Postzord::Dipatch.new(user, @person_status)
-      #end
-      
-      #it 'should not send a comment a person made on his own post to anyone' do
-        #@mailman.should_not_receive(:deliver_to_local)
-        #comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
-        #user.receive comment.to_diaspora_xml, @person
-      #end
-
-      #it 'should not send a comment a person made on a person post to anyone' do
-        #@mailman.should_not_receive(:deliver_to_local)
-        #comment = Comment.new(:person_id => @person2.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @person_status)
-        #user.receive comment.to_diaspora_xml, @person
-      #end
-
-      #after(:all) do
-        #unstub_mocha_stubs
-      #end
-  #end
+  end
 
     it 'should not clear the aspect post array on receiving a comment' do
       aspect.post_ids.include?(@user_status.id).should be true

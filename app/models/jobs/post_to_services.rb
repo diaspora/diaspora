@@ -5,8 +5,9 @@ module Jobs
     def self.perform(user_id, post_id, url)
       user = User.find_by_id(user_id)
       post = Post.find_by_id(post_id)
-      user.post_to_services(post, url)
+      user.services.each do |s|
+        s.post(post, url)
+      end
     end
   end
 end
-

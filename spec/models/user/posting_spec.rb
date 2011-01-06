@@ -38,7 +38,7 @@ describe User do
     end
 
     it 'sockets the post to the poster' do
-      @post.should_receive(:socket_to_uid).with(user.id, anything)
+      @post.should_receive(:socket_to_uid).with(user, anything)
       user.add_to_streams(@post, @aspect_ids)
     end
   end

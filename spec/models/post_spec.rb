@@ -36,4 +36,13 @@ describe Post do
       post.mutable?.should == false   
     end
   end
+
+  describe '#subscribers' do
+    it 'returns the people contained in the aspects the post appears in' do
+      
+      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+
+      post.subscribers(@user).should =~ []
+    end
+  end
 end
