@@ -5,6 +5,10 @@
 module DataConversion
   class ImportToMysql < DataConversion::Base
 
+    def boolean_set(string)
+      "#{string}= IF(STRCMP(@#{string},'false'), TRUE, FALSE)"
+
+    end
     def import_raw
       truncate_tables
       import_raw_users
@@ -36,10 +40,12 @@ module DataConversion
         #{load_string("users")}
         #{infile_opts}
         (mongo_id, username, serialized_private_key, encrypted_password,
-         invites, invitation_token, invitation_sent_at, getting_started,
-         disable_mail, language, last_sign_in_ip, @last_sign_in_at_var,
+         invites, invitation_token, invitation_sent_at, @getting_started,
+         @disable_mail, language, last_sign_in_ip, @last_sign_in_at_var,
          reset_password_token, password_salt)
-         SET last_sign_in_at = FROM_UNIXTIME(LEFT(@last_sign_in_at_var, LENGTH(@last_sign_in_at_var)-3));
+         SET last_sign_in_at = FROM_UNIXTIME(LEFT(@last_sign_in_at_var, LENGTH(@last_sign_in_at_var)-3)),
+         #{boolean_set("getting_started")},
+         #{boolean_set("disable_mail")};
       SQL
       log "Finished. Imported #{Mongo::User.count} users."
     end
@@ -80,7 +86,8 @@ module DataConversion
       Mongo::Contact.connection.execute <<-SQL
         #{load_string("contacts")}
         #{infile_opts}
-        (mongo_id, user_mongo_id, person_mongo_id, pending, created_at, updated_at)
+        (mongo_id, user_mongo_id, person_mongo_id, @pending, created_at, updated_at)
+        SET #{boolean_set("pending")};
       SQL
       log "Finished. Imported #{Mongo::Contact.count} contacts."
     end
@@ -118,7 +125,8 @@ module DataConversion
       Mongo::Notification.connection.execute <<-SQL
         #{load_string("notifications")}
         #{infile_opts}
-        (mongo_id,target_mongo_id,target_type,unread)
+        (mongo_id,target_mongo_id,target_type,@unread)
+        SET #{boolean_set("unread")};
       SQL
       log "Finished. Imported #{Mongo::Notification.count} notifications."
     end
@@ -138,8 +146,10 @@ module DataConversion
       Mongo::Profile.connection.execute <<-SQL
         #{load_string("profiles")}
         #{infile_opts}
-        (image_url_medium,searchable,image_url,person_mongo_id,gender,diaspora_handle,birthday,last_name,bio,image_url_small,first_name)
+        (image_url_medium,@searchable,image_url,person_mongo_id,gender,diaspora_handle,birthday,last_name,bio,image_url_small,first_name)
+        SET #{boolean_set("searchable")};
       SQL
+      #STRCMP returns 0 if the arguments are the same
       log "Finished. Imported #{Mongo::Profile.count} profiles."
     end
     def infile_opts

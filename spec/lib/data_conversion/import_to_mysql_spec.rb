@@ -205,8 +205,8 @@ describe DataConversion::ImportToMysql do
         profile.person_mongo_id.should == "4d262129cc8cb44df2000001"
         profile.gender.should == ''
         profile.diaspora_handle.should == ''
-        profile.birthday.should == ''
-        profile.last_name.should == 'weinstein'
+        profile.birthday.should be_nil
+        profile.last_name.should == 'weinstien'
         profile.bio.should == ''
         profile.image_url_small.should == ''
         profile.first_name.should == 'eugene'
@@ -253,7 +253,7 @@ describe DataConversion::ImportToMysql do
         bob.invites.should == 4
         bob.invitation_token.should == ""
         bob.invitation_sent_at.should be_nil
-        bob.getting_started.should be_false
+        bob.getting_started.should be_true
         bob.disable_mail.should be_false
         bob.language.should == 'en'
         bob.last_sign_in_ip.should == ''
