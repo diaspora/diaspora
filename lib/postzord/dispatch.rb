@@ -45,7 +45,7 @@ class Postzord::Dispatch
 
   def deliver_to_hub
     Rails.logger.debug("event=post_to_service type=pubsub sender_handle=#{@sender.diaspora_handle}")
-    EventMachine::PubSubHubbub.new(AppConfig[:pubsub_server]).publish(@sender.public_url)
+    PubSubHubbub.new(AppConfig[:pubsub_server]).publish(@sender.public_url)
   end
 
   def deliver_to_services(url)
