@@ -32,21 +32,7 @@ module DataConversion
       "diaspora-#{Rails.env}"
     end
 
-    def models
-      @models ||= [
-        {:name => :aspects},
-        {:name => :comments,
-         :attrs =>        ["mongo_id", "post_mongo_id", "person_mongo_id", "diaspora_handle", "text", "youtube_titles"],
-         :mongo_attrs =>  ["_id",      "post_id",       "person_id",       "diaspora_handle", "text", "youtube_titles"]},
-        {:name => :contacts},
-        {:name => :invitations},
-        {:name => :notifications},
-        {:name => :people},
-        {:name => :posts},
-        {:name => :requests},
-        {:name => :users},
-      ]
-    end
+
 
     def id_sed
       @id_sed = sed_replace('{\ \"$oid\"\ :\ \(\"[^"]*\"\)\ }')
@@ -104,14 +90,8 @@ module DataConversion
     end
 
     def contacts_json_to_csv model_hash
-      model_hash[:main_attrs] = ["mongo_id", "user_mongo_id", "person_mongo_id", "pending", "created_at", "updated_at"]
-      #Post Visibilities
-      model_hash[:join_table_name] = :aspect_memberships
-      model_hash[:join_table_attrs] = ["contact_mongo_id", "aspect_mongo_id"]
-
       generic_json_to_two_csvs(model_hash) do |hash|
-        main_mongo_attrs = ["_id", "user_id", "person_id", "pending", "created_at", "updated_at"]
-        main_row = main_mongo_attrs.map { |attr_name| hash[attr_name] }
+        main_row = model_hash[:main_mongo_attrs].map { |attr_name| hash[attr_name] }
         aspect_membership_rows = hash["aspect_ids"].map { |id| [hash["_id"], id] }
         [main_row, aspect_membership_rows]
       end
@@ -119,24 +99,18 @@ module DataConversion
     end
 
     def invitations_json_to_csv model_hash
-      model_hash[:attrs] = ["mongo_id", "recipient_mongo_id", "sender_mongo_id", "aspect_mongo_id", "message"]
       generic_json_to_csv(model_hash) do |hash|
-        mongo_attrs = ["_id", "to_id", "from_id", "into_id", "message"]
-        mongo_attrs.map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
       end
     end
 
     def notifications_json_to_csv model_hash
-      model_hash[:attrs] = ["mongo_id", "target_id", "target_type", "unread"]
       generic_json_to_csv(model_hash) do |hash|
-        mongo_attrs = ["_id", "target_id", "kind", "unread"]
-        mongo_attrs.map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
       end
     end
 
     def people_json_to_csv model_hash
-      model_hash[:attrs] = ["created_at", "updated_at", "serialized_public_key", "url", "mongo_id", "owner_mongo_id", "diaspora_handle"]
-      model_hash[:profile_attrs] = ["image_url_medium", "searchable", "image_url", "person_mongo_id", "gender", "diaspora_handle", "birthday", "last_name", "bio", "image_url_small", "first_name"]
       #Also writes the profiles csv
 
       log "Converting #{model_hash[:name]} json to csv"
@@ -170,40 +144,29 @@ module DataConversion
     end
 
     def posts_json_to_csv model_hash
-      model_hash[:attrs] =["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_mongo_id", "caption", "remote_photo_path", "random_string", "image", "mongo_id", "type", "diaspora_handle", "person_mongo_id", "message"]
       generic_json_to_csv(model_hash) do |hash|
-        mongo_attrs = ["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_id", "caption", "remote_photo_path", "random_string", "image", "_id", "_type", "diaspora_handle", "person_id", "message"]
-        mongo_attrs.map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
       end
       #has to handle the polymorphic stuff
     end
 
     def requests_json_to_csv model_hash
-      model_hash[:attrs] = ["mongo_id", "recipient_mongo_id", "sender_mongo_id", "aspect_mongo_id"]
       generic_json_to_csv(model_hash) do |hash|
-        mongo_attrs = ["_id", "to_id", "from_id", "into_id"]
-        mongo_attrs.map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
       end
     end
 
     def users_json_to_csv model_hash
-      model_hash[:attrs] = ["mongo_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]
       generic_json_to_csv(model_hash) do |hash|
-        mongo_attrs = ["_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]
-        mongo_attrs.map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
       end
     end
 
     def aspects_json_to_csv model_hash
       log "Converting aspects json to aspects and post_visibilities csvs"
-      model_hash[:main_attrs] = ["mongo_id", "name", "user_mongo_id", "created_at", "updated_at"]
-      #Post Visibilities
-      model_hash[:join_table_name] = :post_visibilities
-      model_hash[:join_table_attrs] = ["aspect_mongo_id", "post_mongo_id"]
 
       generic_json_to_two_csvs(model_hash) do |hash|
-        mongo_attrs = ["_id", "name", "user_id", "created_at", "updated_at"]
-        main_row = mongo_attrs.map { |attr_name| hash[attr_name] }
+        main_row = model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
         post_visibility_rows = hash["post_ids"].map { |id| [hash["_id"], id] }
         [main_row, post_visibility_rows]
       end
