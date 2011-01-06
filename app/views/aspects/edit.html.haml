@@ -5,15 +5,17 @@
 - content_for :head do
   = include_javascripts :aspects
 
-
 #aspect_edit_pane
   #aspect_edit_pane_header
     %h4
-      .aspect_search_field
-        /= text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
+      .right.description
+        = "#{@aspect_contacts.count} contacts"
       = @aspect
-      .description
-        = "#{@contacts.count} contacts"
+
+    = link_to 'rename', '#'
+    \.
+    \.
+    = link_to 'delete', '#'
 
   .person_tiles{:style => "display:none;"}
     - for contact in @aspect.contacts
@@ -29,8 +31,4 @@
     = button_to t('.remove_aspect'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button'
 
   - if @contacts.count > 0
-    %h5= t('.add_existing')
     = render 'shared/contact_list', :aspect_id => @aspect.id, :contact_hashes => @all_contacts
-
-  = render 'shared/add_contact', :aspect_id => @aspect.id
-

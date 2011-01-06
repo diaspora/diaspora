@@ -16,10 +16,6 @@ var View = {
     /* In field labels */
     $("label").inFieldLabels();
 
-    /* Focus aspect name on fancybox */
-    $(this.addAspectButton.selector)
-      .click(this.addAspectButton.click);
-
     /* Showing debug messages  */
     $(this.debug.selector)
       .click(this.debug.click);
@@ -41,13 +37,6 @@ var View = {
     $(this.newRequest.selector)
       .live("submit", this.newRequest.submit);
 
-    /* Button fancyboxes */
-    $(this.fancyBoxButtons.selectors.join(", "))
-      .fancybox({
-         'titleShow': false,
-         'hideOnOverlayClick': false
-      });
-
     /* Autoexpand textareas */
     $('textarea')
       .autoResize({
@@ -62,6 +51,11 @@ var View = {
     $(document.body)
       .click(this.userMenu.removeFocus)
       .click(this.reshareButton.removeFocus);
+
+    /* facebox */
+    $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
+    $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
+    $('a[rel*=facebox]').facebox();
   },
 
   addAspectButton: {

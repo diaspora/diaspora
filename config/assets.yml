@@ -10,7 +10,7 @@ javascripts:
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
-    - public/javascripts/vendor/fancybox/jquery.fancybox-1.3.1.pack.js
+    - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/view.js
@@ -42,6 +42,6 @@ stylesheets:
   default:
     - public/stylesheets/application.css
     - public/stylesheets/ui.css
-    - public/stylesheets/vendor/jquery.fancybox-1.3.1.css
+    - public/stylesheets/vendor/facebox.css
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css

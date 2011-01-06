@@ -24,8 +24,7 @@
 
       - elsif person.owner_id == current_user.id
         %span.arrow ➔
-        = aspect_badge(aspects_with_post(all_aspects, post))
-
+        = aspect_badges(aspects_with_post(all_aspects, post))
 
     = render 'status_messages/status_message', :post => post, :photos => photos
 

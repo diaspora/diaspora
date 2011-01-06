@@ -8,8 +8,11 @@
   %ul
     - for hash in contact_hashes
       %li
-        %span.name
+        = person_image_tag hash[:person]
+        %h4.name
           = link_to hash[:person].name, hash[:person]
+          .description
+            = hash[:person].diaspora_handle
         .right
           = aspect_membership_button(aspect_id, hash[:contact], hash[:person])
 

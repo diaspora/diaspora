@@ -26,5 +26,36 @@
 
   %hr
 
-  = render 'aspects/all_aspects_contacts'
+  - if @request_count > 0
+    #new_request_pane{:class => "everyone"}
+      %h1.new_request{:style => 'text-align:center'}
+        = new_request_link(@request_count)
+
+  #left_pane
+    .section.aspect_listings
+      %h4
+        = t('_aspects')
+        = link_to @all_aspects.count, aspects_manage_path
+
+      %ul
+        - for a_hash in @aspect_hashes
+          = render :partial => 'aspects/aspect', :locals => a_hash
+
+    .section.contact_pictures
+      %h4
+        = t('_contacts')
+        = link_to @contact_hashes.count, '#'
+
+      - for contact in @contact_hashes
+        = person_image_link(contact[:person])
+
+      - if @contacts.count == 0
+        %h4
+          = t('.no_contacts')
+        = form_tag(people_path, :method => 'get') do
+          = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
+
+    .section
+      %h4= t('shared.invitations.invites')
+      = render "shared/invitations", :invites => @invites
 

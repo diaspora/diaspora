@@ -17,14 +17,14 @@
         {:controller => "people",
         :action => "share_with",
         :id => person.id},
-        :class => 'button share_with_button'
+        :class => 'button',
+        :rel => 'facebox'
 
   = person_image_link(person)
 
   .content
     %span.from
       =person_link(person)
-
 
     .info
       = person.diaspora_handle

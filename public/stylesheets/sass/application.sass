@@ -120,7 +120,7 @@ header
     :color #111
     :color rgba(30,30,30,0.98)
 
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.88)), to(rgba(0,0,0,0.96)))
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.84)), to(rgba(0,0,0,0.96)))
 
   :-webkit-box-shadow 0 1px 3px #111
   :-moz-box-shadow 0 1px 2px #111
@@ -1634,23 +1634,27 @@ ul#request_result
       :color green
 
 .contact_list
-  :height 300px
-  :max-height 300px
+  :height 450px
+  :max-height 450px
 
   :overflow-y auto
   :overflow-x hidden
 
   :border 2px solid #eee
 
-  :-webkit-border-radius 5px
-  :-moz-border-radius 5px
-  :border-radius 5px
-
   :background
     :color rgb(252,252,252)
 
-  :margin
-    :bottom 1.5em
+  .name
+    :position absolute
+    :left 70px
+    :top 10px
+
+  .avatar
+    :position absolute
+    :left 6px
+    :height 50px
+    :width 50px
 
   :-webkit-box-shadow 0 1px #fff
   :-moz-box-shadow 0 1px #fff
@@ -1662,15 +1666,14 @@ ul#request_result
       :top 0
 
   ul
-    :width 100%
     :margin 0
     :padding 0
 
     > li
       :display block
       :position relative
-      :height 100%
-      :padding 8px
+      :height 50px
+      :padding 4px
       :border
         :bottom 1px solid #eee
 
@@ -1680,7 +1683,7 @@ ul#request_result
 
       .right
         :right 8px
-        :top 2px
+        :top 12px
 
       a.button
         :padding
@@ -2114,12 +2117,22 @@ ul.show_comments
         :right 0.5em
 
 #aspect_edit_pane
-  .aspect_search_field
-    :position absolute
-    :right 5px
-    input
-      :width 200px
 
+  #aspect_edit_pane_header
+    :padding 1em
+    :background
+      :color #222
+    :border
+      :bottom 1px solid #777
+
+    :-webkit-border-radius 5px 5px 0 0
+    :-moz-border-radius 5px 5px 0 0
+    :border-radius 5px 5px 0 0
+
+    h4
+      :color #eee
+
+  :width 400px
   .person_tiles
     .tile
       :padding 6px

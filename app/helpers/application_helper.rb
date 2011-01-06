@@ -31,7 +31,7 @@ module ApplicationHelper
     end
   end
 
-  def aspect_badge aspects
+  def aspect_badges aspects
     str = ''
     aspects.each do |aspect|
       str << "<span class='aspect_badge single'>"
