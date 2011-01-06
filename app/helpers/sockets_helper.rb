@@ -10,9 +10,9 @@ module SocketsHelper
     object.respond_to?(:post_id) ? object.post_id : object.id
   end
 
-  def action_hash(uid, object, opts={})
+  def action_hash(user, object, opts={})
+    uid = user.id
     begin
-      user = User.find_by_id uid
       unless user.nil?
         old_locale = I18n.locale
         I18n.locale = user.language.to_s

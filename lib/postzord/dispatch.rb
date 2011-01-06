@@ -62,7 +62,7 @@ class Postzord::Dispatch
   def socket_to_users(users)
     if @object.respond_to?(:socket_to_uid)
       users.each do |user|
-        @object.socket_to_uid(user.id)
+        @object.socket_to_uid(user)
       end
     end
   end

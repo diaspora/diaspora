@@ -33,6 +33,6 @@ describe Diaspora::Socketable do
 
   it 'sockets to a user' do
     Diaspora::WebSocket.should_receive(:queue_to_user)
-    @post.socket_to_uid(@user.id, :aspect_ids => @aspect.id)
+    @post.socket_to_uid(@user, :aspect_ids => @aspect.id)
   end
 end
