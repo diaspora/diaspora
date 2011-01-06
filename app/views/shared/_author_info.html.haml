@@ -4,15 +4,6 @@
     %h4
       = person.name
 
-      - if post.public?
-        %span.arrow ➔
-        %span.aspect_badge.public
-          =t('the_world')
-
-      - elsif current_user.owns?(post)
-        %span.arrow ➔
-        =aspect_badge(aspects_with_post(post.aspects, post))
-
     #person_nav_links
       = link_to t('layouts.header.view_profile'), person_path(person)
       = link_to t('_photos'), person_photos_path(person)

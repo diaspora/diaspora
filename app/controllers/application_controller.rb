@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   def set_contacts_notifications_and_status
     if user_signed_in?
       @aspect = nil
+      @object_aspect_ids = []
       @all_aspects = current_user.aspects.fields(:name)
       @aspects_dropdown_array = @all_aspects.collect{|x| [x.to_s, x.id]}
       @notification_count = Notification.for(current_user, :unread =>true).all.count

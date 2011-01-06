@@ -45,7 +45,7 @@
           = link_to t('_home'), root_path, :class => 'home_selector'
 
         - for aspect in @all_aspects
-          %li{:data=>{:guid=>aspect.id}, :class => ("selected" if current_aspect?(aspect))}
+          %li{:data=>{:guid=>aspect.id}, :class => ("selected" if @object_aspect_ids.include?(aspect.id))}
             = link_for_aspect(aspect, :class => 'aspect_selector')
             = link_to '▼', edit_aspect_path(aspect), :class => 'aspect_selector_edit'
 
