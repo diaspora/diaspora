@@ -57,7 +57,7 @@ class CreateImportTables < ActiveRecord::Migration
     end
     add_index :mongo_requests, :sender_mongo_id
     add_index :mongo_requests, :recipient_mongo_id
-    add_index :mongo_requests, [:sender_mongo_id, :recipient_mongo_id], :unique => true
+    add_index :mongo_requests, [:sender_mongo_id, :recipient_mongo_id]
 
     create_table :mongo_users do |t|
       t.string :mongo_id
@@ -79,5 +79,11 @@ class CreateImportTables < ActiveRecord::Migration
 
   def self.down
     drop_table :mongo_users
+    drop_table :mongo_requests
+    drop_table :mongo_post_visibilities
+    drop_table :mongo_contacts
+    drop_table :mongo_comments
+    drop_table :mongo_aspect_memberships
+    drop_table :mongo_aspects
   end
 end

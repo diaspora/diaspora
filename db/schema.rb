@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   end
 
   add_index "mongo_requests", ["recipient_mongo_id"], :name => "index_mongo_requests_on_recipient_mongo_id"
-  add_index "mongo_requests", ["sender_mongo_id", "recipient_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id_and_recipient_mongo_id", :unique => true
+  add_index "mongo_requests", ["sender_mongo_id", "recipient_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id_and_recipient_mongo_id"
   add_index "mongo_requests", ["sender_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id"
 
   create_table "mongo_users", :force => true do |t|

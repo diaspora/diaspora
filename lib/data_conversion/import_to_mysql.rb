@@ -4,17 +4,34 @@
 
 module DataConversion
   class ImportToMysql < DataConversion::Base
-    def infile_opts
-      <<-OPTS
-          FIELDS TERMINATED BY ','
-          ENCLOSED BY '"'
-          IGNORE 1 LINES
-OPTS
+
+    def import_raw
+      truncate_tables
+      import_raw_users
+      import_raw_aspects
+      import_raw_aspect_memberships
+      import_raw_comments
+      import_raw_contacts
+      import_raw_post_visibilities
+      import_raw_requests
     end
-    def load_string model_name
-        "LOAD DATA INFILE '#{full_path}/#{model_name}.csv' INTO TABLE mongo_#{model_name}"
+
+    def process_raw_tables
+      
     end
+    
+    def truncate_tables
+      Mongo::User.connection.execute "TRUNCATE TABLE mongo_users"
+      Mongo::Aspect.connection.execute "TRUNCATE TABLE mongo_aspects"
+      Mongo::AspectMembership.connection.execute "TRUNCATE TABLE mongo_aspect_memberships"
+      Mongo::Comment.connection.execute "TRUNCATE TABLE mongo_comments"
+      Mongo::Contact.connection.execute "TRUNCATE TABLE mongo_contacts"
+      Mongo::PostVisibility.connection.execute "TRUNCATE TABLE mongo_post_visibilities"
+      Mongo::Request.connection.execute "TRUNCATE TABLE mongo_requests"
+    end
+
     def import_raw_users
+      log "Loading users file..."
       Mongo::User.connection.execute <<-SQL
         #{load_string("users")}
         #{infile_opts}
@@ -24,51 +41,80 @@ OPTS
          reset_password_token, password_salt)
          SET last_sign_in_at = FROM_UNIXTIME(LEFT(@last_sign_in_at_var, LENGTH(@last_sign_in_at_var)-3));
       SQL
+      log "Finished. Imported #{Mongo::User.count} users."
     end
+
     def import_raw_aspects
+      log "Loading aspects file..."
       Mongo::Aspect.connection.execute <<-SQL
         #{load_string("aspects")}
         #{infile_opts}
         (mongo_id, name, user_mongo_id, @created_at, @updated_at)
       SQL
+      log "Finished. Imported #{Mongo::Aspect.count} aspects."
     end
+
     def import_raw_aspect_memberships
+      log "Loading aspect memberships file..."
       Mongo::Aspect.connection.execute <<-SQL
         #{load_string("aspect_memberships")}
         #{infile_opts}
         (contact_mongo_id, aspect_mongo_id)
       SQL
+      log "Finished. Imported #{Mongo::AspectMembership.count} aspect memberships."
     end
+
     def import_raw_comments
+      log "Loading comments file..."
       Mongo::Aspect.connection.execute <<-SQL
         #{load_string("comments")}
         #{infile_opts}
         (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, youtube_titles)
         SET guid = mongo_id;
       SQL
+      log "Finished. Imported #{Mongo::Comment.count} comments."
     end
+
     def import_raw_contacts
+      log "Loading contacts file..."
       Mongo::Aspect.connection.execute <<-SQL
         #{load_string("contacts")}
         #{infile_opts}
         (mongo_id, user_mongo_id, person_mongo_id, pending, created_at, updated_at)
       SQL
+      log "Finished. Imported #{Mongo::Contact.count} contacts."
     end
+
     def import_raw_post_visibilities
+      log "Loading post visibilities file..."
       Mongo::Aspect.connection.execute <<-SQL
         #{load_string("post_visibilities")}
         #{infile_opts}
         (aspect_mongo_id, post_mongo_id)
       SQL
+      log "Finished. Imported #{Mongo::PostVisibility.count} post visibilities."
     end
+
     def import_raw_requests
+      log "Loading requests file..."
       Mongo::Aspect.connection.execute <<-SQL
         #{load_string("requests")}
         #{infile_opts}
         (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id)
       SQL
+      log "Finished. Imported #{Mongo::Request.count} requests."
     end
 
-  end
+    def infile_opts
+      <<-OPTS
+          FIELDS TERMINATED BY ','
+          ENCLOSED BY '"'
+          IGNORE 1 LINES
+OPTS
+    end
 
+    def load_string model_name
+        "LOAD DATA INFILE '#{full_path}/#{model_name}.csv' INTO TABLE mongo_#{model_name}"
+    end
+  end
 end
