@@ -15,8 +15,14 @@ namespace :fixtures do
     require File.join(Rails.root,"spec/helper_methods")
     require File.join(Rails.root,"spec/factories")
     require File.join(Rails.root,"spec/support/user_methods")
+    require File.join(Rails.root,"spec/support/fake_resque")
+
     include HelperMethods
 
+    Jobs::HttpPost.class_eval do
+      def self.perform(*args)
+      end
+    end
     fantasy_resque do
       models = []
       Factory(:person)

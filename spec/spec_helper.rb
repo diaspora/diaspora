@@ -54,15 +54,6 @@ class FakeRedis
     true
   end
 end
-module Resque
-  def enqueue(klass, *args)
-    if $process_queue
-      klass.send(:perform, *args)
-    else
-      true
-    end
-  end
-end
 
 ImageUploader.enable_processing = false
 
