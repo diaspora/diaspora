@@ -100,7 +100,7 @@ describe Notifier do
     end
 
     it 'has the post link in the body' do
-      comment_mail.body.encoded.should match "/#{object_path(@sm)}/"
+      comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
     end
   end
 end
