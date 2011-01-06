@@ -17,9 +17,9 @@ module DataConversion
     end
 
     def process_raw_tables
-      
+
     end
-    
+
     def truncate_tables
       Mongo::User.connection.execute "TRUNCATE TABLE mongo_users"
       Mongo::Aspect.connection.execute "TRUNCATE TABLE mongo_aspects"
@@ -103,6 +103,17 @@ module DataConversion
         (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id)
       SQL
       log "Finished. Imported #{Mongo::Request.count} requests."
+    end
+
+    def import_raw_people
+      log "Loading people file..."
+      Mongo::Aspect.connection.execute <<-SQL
+        #{load_string("people")}
+        #{infile_opts}
+        (created_at,updated_at,serialized_public_key,url,mongo_id,@owner_mongo_id_var,diaspora_handle)
+        SET owner_mongo_id = @owner_mongo_id_var
+      SQL
+      log "Finished. Imported #{Mongo::Person.count} people."
     end
 
     def infile_opts

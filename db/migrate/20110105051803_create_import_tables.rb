@@ -37,8 +37,21 @@ class CreateImportTables < ActiveRecord::Migration
       t.boolean :pending, :default => true
       t.timestamps
     end
+
     add_index :mongo_contacts, [:user_mongo_id, :pending]
     add_index :mongo_contacts, [:person_mongo_id, :pending]
+    create_table :mongo_people do |t|
+      t.string :mongo_id
+      t.string :guid
+      t.text :url
+      t.string :diaspora_handle
+      t.text :serialized_public_key
+      t.string :owner_mongo_id
+      t.timestamps
+    end
+    add_index :mongo_people, :guid, :unique => true
+    add_index :mongo_people, :owner_mongo_id, :unique => true
+    add_index :mongo_people, :diaspora_handle, :unique => true
 
     create_table :mongo_post_visibilities do |t|
       t.string :aspect_mongo_id

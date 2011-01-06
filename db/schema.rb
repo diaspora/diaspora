@@ -118,6 +118,21 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "mongo_contacts", ["person_mongo_id", "pending"], :name => "index_mongo_contacts_on_person_mongo_id_and_pending"
   add_index "mongo_contacts", ["user_mongo_id", "pending"], :name => "index_mongo_contacts_on_user_mongo_id_and_pending"
 
+  create_table "mongo_people", :force => true do |t|
+    t.string   "mongo_id"
+    t.string   "guid"
+    t.text     "url"
+    t.string   "diaspora_handle"
+    t.text     "serialized_public_key"
+    t.string   "owner_mongo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_people", ["diaspora_handle"], :name => "index_mongo_people_on_diaspora_handle", :unique => true
+  add_index "mongo_people", ["guid"], :name => "index_mongo_people_on_guid", :unique => true
+  add_index "mongo_people", ["owner_mongo_id"], :name => "index_mongo_people_on_owner_mongo_id", :unique => true
+
   create_table "mongo_post_visibilities", :force => true do |t|
     t.string   "aspect_mongo_id"
     t.string   "post_mongo_id"

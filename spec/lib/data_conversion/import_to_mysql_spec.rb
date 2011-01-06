@@ -100,7 +100,26 @@ describe DataConversion::ImportToMysql do
         contact.created_at.should be_nil
       end
     end
+    describe "people" do
+      before do
+        copy_fixture_for("people")
+      end
 
+      it "imports data into the mongo_people table" do
+        Mongo::Person.count.should == 0
+        @migrator.import_raw_people
+        Mongo::Person.count.should == 6
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_people
+        person = Mongo::Person.first
+        pp person
+        person.owner_mongo_id.should be_nil
+        person.mongo_id.should == "4d26212bcc8cb44df200000d"
+        person.created_at.should be_nil
+      end
+    end
     describe "post_visibilities" do
       before do
         copy_fixture_for("post_visibilities")
