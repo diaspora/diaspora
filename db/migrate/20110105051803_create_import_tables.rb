@@ -62,7 +62,17 @@ class CreateImportTables < ActiveRecord::Migration
       t.timestamps
     end
     add_index :mongo_invitations, :sender_mongo_id
-
+    create_table :mongo_notifications do |t|
+      t.string :mongo_id
+      t.string :target_type
+      t.string :target_mongo_id
+      t.string :recipient_mongo_id
+      t.string :actor_mongo_id
+      t.string :action
+      t.boolean :unread, :default => true
+      t.timestamps
+    end
+    add_index :mongo_notifications, [:target_type, :target_mongo_id]
     create_table :mongo_post_visibilities do |t|
       t.string :aspect_mongo_id
       t.string :post_mongo_id

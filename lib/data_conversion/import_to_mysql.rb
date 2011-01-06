@@ -113,6 +113,15 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Invitation.count} invitations."
     end
+    def import_raw_notifications
+      log "Loading notifications file..."
+      Mongo::Notification.connection.execute <<-SQL
+        #{load_string("notifications")}
+        #{infile_opts}
+        (mongo_id,target_mongo_id,target_type,unread)
+      SQL
+      log "Finished. Imported #{Mongo::Notification.count} notifications."
+    end
     def import_raw_people
       log "Loading people file..."
       Mongo::Person.connection.execute <<-SQL

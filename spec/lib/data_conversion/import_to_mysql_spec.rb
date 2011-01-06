@@ -122,6 +122,26 @@ describe DataConversion::ImportToMysql do
       end
     end
 
+    describe "notifications" do
+      before do
+        copy_fixture_for("notifications")
+      end
+
+      it "imports data into the mongo_notifications table" do
+        Mongo::Notification.count.should == 0
+        @migrator.import_raw_notifications
+        Mongo::Notification.count.should == 3
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_notifications
+        notification = Mongo::Notification.first
+        notification.mongo_id.should == "4d26212ccc8cb44df200001c"
+        notification.target_mongo_id.should == '4d26212ccc8cb44df200001b'
+        notification.target_type.should == "new_request"
+        notification.unread.should be_true
+      end
+    end
 
 
     describe "people" do

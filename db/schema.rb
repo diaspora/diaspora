@@ -130,6 +130,20 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
 
   add_index "mongo_invitations", ["sender_mongo_id"], :name => "index_mongo_invitations_on_sender_mongo_id"
 
+  create_table "mongo_notifications", :force => true do |t|
+    t.string   "mongo_id"
+    t.string   "target_type"
+    t.string   "target_mongo_id"
+    t.string   "recipient_mongo_id"
+    t.string   "actor_mongo_id"
+    t.string   "action"
+    t.boolean  "unread",             :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_notifications", ["target_type", "target_mongo_id"], :name => "index_mongo_notifications_on_target_type_and_target_mongo_id"
+
   create_table "mongo_people", :force => true do |t|
     t.string   "mongo_id"
     t.string   "guid"
