@@ -44,7 +44,7 @@ describe DataConversion::ImportToMysql do
         copy_fixture_for("aspect_memberships")
       end
 
-      it "imports data into the mongo_aspects table" do
+      it "imports data into the mongo_aspect_memberships table" do
         Mongo::AspectMembership.count.should == 0
         @migrator.import_raw_aspect_memberships
         Mongo::AspectMembership.count.should == 17
@@ -55,6 +55,47 @@ describe DataConversion::ImportToMysql do
         aspectm = Mongo::AspectMembership.first
         aspectm.contact_mongo_id.should == "4d0916c4cc8cb40e9300000a"
         aspectm.aspect_mongo_id.should =="4d0916c2cc8cb40e93000004"
+      end
+    end
+
+    describe "comments" do
+      before do
+        copy_fixture_for("comments")
+      end
+
+      it "imports data into the mongo_comments table" do
+        Mongo::Comment.count.should == 0
+        @migrator.import_raw_comments
+        Mongo::Comment.count.should == 5
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_comments
+        comment = Mongo::Comment.first
+        comment.text.should_not be_nil
+        comment.person_mongo_id.should_not be_nil
+        comment.post_mongo_id.should_not be_nil
+      end
+    end
+    describe "contacts" do
+      before do
+        copy_fixture_for("contacts")
+      end
+
+      it "imports data into the mongo_contacts table" do
+        Mongo::Contact.count.should == 0
+        @migrator.import_raw_contacts
+        Mongo::Contact.count.should == 16
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_contacts
+        contact = Mongo::Contact.first
+        contact.mongo_id.should == "4d0916c4cc8cb40e9300000a"
+        contact.user_mongo_id.should =="4d0916c1cc8cb40e93000002"
+        contact.person_mongo_id.should == "4d0916c3cc8cb40e93000007"
+        contact.pending.should be_false
+        contact.created_at.should be_nil
       end
     end
     describe "users" do

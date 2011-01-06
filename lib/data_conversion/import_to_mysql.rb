@@ -39,6 +39,21 @@ OPTS
         (contact_mongo_id, aspect_mongo_id)
       SQL
     end
+    def import_raw_comments
+      Mongo::Aspect.connection.execute <<-SQL
+        #{load_string("comments")}
+        #{infile_opts}
+        (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, youtube_titles)
+        SET guid = mongo_id;
+      SQL
+    end
+    def import_raw_contacts
+      Mongo::Aspect.connection.execute <<-SQL
+        #{load_string("contacts")}
+        #{infile_opts}
+        (mongo_id, user_mongo_id, person_mongo_id, pending, created_at, updated_at)
+      SQL
+    end
   end
 
 end

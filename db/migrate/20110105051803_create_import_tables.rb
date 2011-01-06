@@ -16,6 +16,30 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_aspect_memberships, :aspect_mongo_id
     add_index :mongo_aspect_memberships, :contact_mongo_id
 
+    create_table :mongo_comments do |t|
+      t.text :text
+      t.string :mongo_id
+      t.string :post_mongo_id
+      t.string :person_mongo_id
+      t.string :guid
+      t.text :creator_signature
+      t.text :post_creator_signature
+      t.text :youtube_titles
+      t.timestamps
+    end
+    add_index :mongo_comments, :guid, :unique => true
+    add_index :mongo_comments, :post_mongo_id
+
+    create_table :mongo_contacts do |t|
+      t.string :mongo_id
+      t.string :user_mongo_id
+      t.string :person_mongo_id
+      t.boolean :pending, :default => true
+      t.timestamps
+    end
+    add_index :mongo_contacts, [:user_mongo_id, :pending]
+    add_index :mongo_contacts, [:person_mongo_id, :pending]
+
     create_table :mongo_users do |t|
       t.string :mongo_id
       t.string :username

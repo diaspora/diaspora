@@ -90,6 +90,34 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
 
   add_index "mongo_aspects", ["user_mongo_id"], :name => "index_mongo_aspects_on_user_mongo_id"
 
+  create_table "mongo_comments", :force => true do |t|
+    t.text     "text"
+    t.string   "mongo_id"
+    t.string   "post_mongo_id"
+    t.string   "person_mongo_id"
+    t.string   "guid"
+    t.text     "creator_signature"
+    t.text     "post_creator_signature"
+    t.text     "youtube_titles"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_comments", ["guid"], :name => "index_mongo_comments_on_guid", :unique => true
+  add_index "mongo_comments", ["post_mongo_id"], :name => "index_mongo_comments_on_post_mongo_id"
+
+  create_table "mongo_contacts", :force => true do |t|
+    t.string   "mongo_id"
+    t.string   "user_mongo_id"
+    t.string   "person_mongo_id"
+    t.boolean  "pending",         :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_contacts", ["person_mongo_id", "pending"], :name => "index_mongo_contacts_on_person_mongo_id_and_pending"
+  add_index "mongo_contacts", ["user_mongo_id", "pending"], :name => "index_mongo_contacts_on_user_mongo_id_and_pending"
+
   create_table "mongo_users", :force => true do |t|
     t.string   "mongo_id"
     t.string   "username"
