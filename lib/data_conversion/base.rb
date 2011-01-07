@@ -45,8 +45,8 @@ module DataConversion
            :attrs       => ["type", "user_mongo_id", "provider", "uid", "access_token", "access_secret", "nickname"],
            :mongo_attrs => ["_type", "user_id",      "provider", "uid", "access_token", "access_secret", "nickname"]},
         {:name => :users,
-        :attrs       => ["mongo_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"],
-        :mongo_attrs => ["_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]},
+        :attrs       => ["mongo_id","email", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"],
+        :mongo_attrs => ["_id"     , "email","username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]},
       ]
     end
     def log(message)

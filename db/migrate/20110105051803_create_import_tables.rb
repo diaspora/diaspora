@@ -1,5 +1,10 @@
 class CreateImportTables < ActiveRecord::Migration
   def self.up
+    [:aspects, :comments, :contacts, :invitations, :notifications, :people, :posts, :profiles, :requests, :services, :users].each do |table|
+      add_column(table, :mongo_id, :string)
+    end
+
+    add_column(:aspects, :user_mongo_id, :string)
     create_table :mongo_aspects do |t|
       t.string :mongo_id
       t.string :name
@@ -150,20 +155,21 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_services, :user_mongo_id
 
     create_table :mongo_users do |t|
-      t.string :mongo_id
       t.string :username
       t.text :serialized_private_key
-      t.string :encrypted_password
       t.integer :invites
-      t.string :invitation_token
-      t.datetime :invitation_sent_at
       t.boolean :getting_started
       t.boolean :disable_mail
       t.string :language
-      t.string :last_sign_in_ip
-      t.datetime :last_sign_in_at
-      t.string :reset_password_token
-      t.string :password_salt
+      t.string :email
+      t.database_authenticatable
+      t.invitable
+      t.recoverable
+      t.rememberable
+      t.trackable
+
+      t.timestamps
+      t.string :mongo_id
     end
   end
 

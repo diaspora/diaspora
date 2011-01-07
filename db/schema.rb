@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
+    t.string   "user_mongo_id"
   end
 
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
@@ -53,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.boolean  "pending",    :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "contacts", ["person_id", "pending"], :name => "index_contacts_on_person_id_and_pending"
@@ -66,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
@@ -242,20 +247,28 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "mongo_services", ["user_mongo_id"], :name => "index_mongo_services_on_user_mongo_id"
 
   create_table "mongo_users", :force => true do |t|
-    t.string   "mongo_id"
     t.string   "username"
     t.text     "serialized_private_key"
-    t.string   "encrypted_password"
     t.integer  "invites"
-    t.string   "invitation_token"
-    t.datetime "invitation_sent_at"
     t.boolean  "getting_started"
     t.boolean  "disable_mail"
     t.string   "language"
-    t.string   "last_sign_in_ip"
-    t.datetime "last_sign_in_at"
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                         :default => "", :null => false
+    t.string   "invitation_token",       :limit => 20
+    t.datetime "invitation_sent_at"
     t.string   "reset_password_token"
-    t.string   "password_salt"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   create_table "notifications", :force => true do |t|
@@ -267,6 +280,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.boolean  "unread",       :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "notifications", ["target_type", "target_id"], :name => "index_notifications_on_target_type_and_target_id"
@@ -279,6 +293,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
@@ -312,6 +327,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "posts", ["guid"], :name => "index_posts_on_guid"
@@ -332,6 +348,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "profiles", ["first_name", "last_name", "searchable"], :name => "index_profiles_on_first_name_and_last_name_and_searchable"
@@ -345,6 +362,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "requests", ["recipient_id"], :name => "index_requests_on_recipient_id"
@@ -361,6 +379,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
@@ -387,6 +406,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

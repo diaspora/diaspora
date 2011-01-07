@@ -17,17 +17,24 @@ module DataConversion
 
     def import_raw
       truncate_tables
+
       import_raw_users
       import_raw_aspects
       import_raw_aspect_memberships
       import_raw_comments
+      import_raw_invitations
+      import_raw_notifications
+      import_raw_people
+      import_raw_profiles
+      import_raw_posts
       import_raw_contacts
       import_raw_post_visibilities
       import_raw_requests
+      import_raw_services
     end
 
     def process_raw_tables
-
+      process_raw_users
     end
 
     def truncate_tables
@@ -35,9 +42,33 @@ module DataConversion
       Mongo::Aspect.connection.execute "TRUNCATE TABLE mongo_aspects"
       Mongo::AspectMembership.connection.execute "TRUNCATE TABLE mongo_aspect_memberships"
       Mongo::Comment.connection.execute "TRUNCATE TABLE mongo_comments"
+      Mongo::Invitation.connection.execute "TRUNCATE TABLE mongo_invitations"
+      Mongo::Notification.connection.execute "TRUNCATE TABLE mongo_notifications"
+      Mongo::Person.connection.execute "TRUNCATE TABLE mongo_people"
+      Mongo::Profile.connection.execute "TRUNCATE TABLE mongo_profiles"
+      Mongo::Post.connection.execute "TRUNCATE TABLE mongo_posts"
       Mongo::Contact.connection.execute "TRUNCATE TABLE mongo_contacts"
       Mongo::PostVisibility.connection.execute "TRUNCATE TABLE mongo_post_visibilities"
       Mongo::Request.connection.execute "TRUNCATE TABLE mongo_requests"
+      Mongo::Services.connection.execute "TRUNCATE TABLE mongo_services"
+    end
+
+    def process_raw_users
+      log "Importing users to main table..."
+      User.connection.execute <<-SQL
+        INSERT INTO users
+        SELECT mongo_users.* from mongo_users
+      SQL
+      log "Imported #{User.count} users."
+    end
+
+    def process_raw_aspects
+      log "Importing aspects to main table..."
+      Aspect.connection.execute <<-SQL
+        INSERT INTO aspects
+        SELECT mongo_aspects.* from mongo_aspects
+      SQL
+      log "Imported #{Aspect.count} aspects."
     end
 
     def import_raw_users
@@ -45,12 +76,13 @@ module DataConversion
       Mongo::User.connection.execute <<-SQL
         #{load_string("users")}
         #{infile_opts}
-        (mongo_id, username, serialized_private_key, encrypted_password,
+        (mongo_id, email, @username, serialized_private_key, encrypted_password,
          invites, @invitation_token, @invitation_sent_at, @getting_started,
          @disable_mail, language, @last_sign_in_ip, @last_sign_in_at,
          @reset_password_token, password_salt)
          SET #{unix_time("last_sign_in_at")},
          #{nil_es("invitation_token")},
+         #{nil_es("username")},
          #{nil_es("last_sign_in_ip")},
          #{nil_es("reset_password_token")},
          #{boolean_set("getting_started")},
@@ -58,6 +90,7 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::User.count} users."
     end
+
 
     def import_raw_aspects
       log "Loading aspects file..."

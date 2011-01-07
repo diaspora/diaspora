@@ -18,6 +18,66 @@ describe DataConversion::ImportToMysql do
     FileUtils.mkdir_p(@migrator.full_path)
   end
 
+  describe "#process_raw" do
+
+    describe "users" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+      end
+      it "imports data into the users table" do
+        Mongo::User.count.should == 6
+        User.count.should == 0
+        @migrator.process_raw_users
+        User.count.should == 6
+      end
+      it "imports all the columns" do
+        @migrator.process_raw_users
+        bob = User.first
+        bob.mongo_id.should == "4d2657e9cc8cb46033000005"
+        bob.username.should == "bob14cbf20"
+        bob.email.should == "bob13ef00b@pivotallabs.com"
+        bob.serialized_private_key.should_not be_nil
+        bob.encrypted_password.should_not be_nil
+        bob.invites.should == 4
+        bob.invitation_token.should be_nil
+        bob.invitation_sent_at.should be_nil
+        bob.getting_started.should be_true
+        bob.disable_mail.should be_false
+        bob.language.should == 'en'
+        bob.last_sign_in_ip.should be_nil
+        bob.last_sign_in_at.to_i.should_not be_nil
+        bob.reset_password_token.should be_nil
+        bob.password_salt.should_not be_nil
+      end
+      describe "aspects" do
+        before do
+          copy_fixture_for("aspects")
+          @migrator.import_raw_aspects
+          @migrator.process_raw_users
+        end
+        it "imports data into the aspects table" do
+          Mongo::Aspect.count.should == 4
+          Aspect.count.should == 0
+          @migrator.process_raw_aspects
+          Aspect.count.should == 4
+        end
+        it "imports all the columns" do
+          @migrator.process_raw_aspects
+          aspect = Aspect.first
+          aspect.name.should == "generic"
+          aspect.mongo_id.should == "4d2657e9cc8cb46033000006"
+          aspect.user_mongo_id.should == "4d2657e9cc8cb46033000005"
+          aspect.user_id.should == User.where(:mongo_id => aspect.user_mongo_id)
+        end
+        it "sets the relation column" do
+          @migrator.process_raw_aspects
+          aspect = Aspect.first
+          aspect.user_id.should == User.where(:mongo_id => aspect.user_mongo_id).first.id
+        end
+      end
+    end
+  end
   describe "#import_raw" do
     describe "aspects" do
       before do
@@ -34,8 +94,8 @@ describe DataConversion::ImportToMysql do
         @migrator.import_raw_aspects
         aspect = Mongo::Aspect.first
         aspect.name.should == "generic"
-        aspect.mongo_id.should == "4d26212bcc8cb44df2000006"
-        aspect.user_mongo_id.should == "4d26212acc8cb44df2000005"
+        aspect.mongo_id.should == "4d2657e9cc8cb46033000006"
+        aspect.user_mongo_id.should == "4d2657e9cc8cb46033000005"
       end
     end
 
@@ -53,8 +113,8 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_aspect_memberships
         aspectm = Mongo::AspectMembership.first
-        aspectm.contact_mongo_id.should == "4d26212bcc8cb44df200000d"
-        aspectm.aspect_mongo_id.should == "4d26212bcc8cb44df2000006"
+        aspectm.contact_mongo_id.should == "4d2657eacc8cb4603300000d"
+        aspectm.aspect_mongo_id.should == "4d2657e9cc8cb46033000006"
       end
     end
 
@@ -72,10 +132,10 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_comments
         comment = Mongo::Comment.first
-        comment.mongo_id.should == "4d262132cc8cb44df2000027"
+        comment.mongo_id.should == "4d2657fdcc8cb46033000027"
         comment.text.should == "Hey me!"
-        comment.person_mongo_id.should == "4d26212bcc8cb44df2000014"
-        comment.post_mongo_id.should == "4d262132cc8cb44df2000025"
+        comment.person_mongo_id.should == "4d2657eacc8cb46033000014"
+        comment.post_mongo_id.should == "4d2657fdcc8cb46033000025"
         comment.youtube_titles.should be_nil
       end
     end
@@ -93,9 +153,9 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_contacts
         contact = Mongo::Contact.first
-        contact.mongo_id.should == "4d26212bcc8cb44df200000d"
-        contact.user_mongo_id.should =="4d26212acc8cb44df2000005"
-        contact.person_mongo_id.should == "4d26212bcc8cb44df200000c"
+        contact.mongo_id.should == "4d2657eacc8cb4603300000d"
+        contact.user_mongo_id.should =="4d2657e9cc8cb46033000005"
+        contact.person_mongo_id.should == "4d2657eacc8cb4603300000c"
         contact.pending.should be_false
         contact.created_at.should be_nil
       end
@@ -114,10 +174,10 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_invitations
         invitation = Mongo::Invitation.first
-        invitation.mongo_id.should == "4d262131cc8cb44df2000022"
-        invitation.recipient_mongo_id.should =="4d26212fcc8cb44df2000021"
-        invitation.sender_mongo_id.should == "4d26212acc8cb44df2000005"
-        invitation.aspect_mongo_id.should == '4d26212bcc8cb44df2000006'
+        invitation.mongo_id.should == "4d2657fdcc8cb46033000022"
+        invitation.recipient_mongo_id.should =="4d2657fbcc8cb46033000021"
+        invitation.sender_mongo_id.should == "4d2657e9cc8cb46033000005"
+        invitation.aspect_mongo_id.should == '4d2657e9cc8cb46033000006'
         invitation.message.should == "Hello!"
       end
     end
@@ -169,8 +229,8 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_notifications
         notification = Mongo::Notification.first
-        notification.mongo_id.should == "4d26212ccc8cb44df200001c"
-        notification.target_mongo_id.should == '4d26212ccc8cb44df200001b'
+        notification.mongo_id.should == "4d2657eacc8cb4603300001c"
+        notification.target_mongo_id.should == '4d2657eacc8cb4603300001b'
         notification.target_type.should == "new_request"
         notification.unread.should be_true
       end
@@ -192,12 +252,12 @@ describe DataConversion::ImportToMysql do
         @migrator.import_raw_people
         person = Mongo::Person.first
         person.owner_mongo_id.should be_nil
-        person.mongo_id.should == "4d26212acc8cb44df2000002"
+        person.mongo_id.should == "4d2657e9cc8cb46033000002"
         person.guid.should == person.mongo_id
-        person.url.should == "http://google-1b5b16a.com/"
-        person.diaspora_handle.should == "bob-person-1a8bc18@aol.com"
+        person.url.should == "http://google-10ce30d.com/"
+        person.diaspora_handle.should == "bob-person-19732b3@aol.com"
         person.serialized_public_key.should_not be_nil
-        person.created_at.to_i.should == 1294344490
+        person.created_at.to_i.should == 1294358505
       end
     end
     describe "post_visibilities" do
@@ -214,8 +274,8 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_post_visibilities
         pv = Mongo::PostVisibility.first
-        pv.post_mongo_id.should == "4d262132cc8cb44df2000023"
-        pv.aspect_mongo_id.should =="4d26212bcc8cb44df2000006"
+        pv.aspect_mongo_id.should == "4d2657e9cc8cb46033000006"
+        pv.post_mongo_id.should =="4d2657fdcc8cb46033000023"
       end
     end
     describe "profiles" do
@@ -235,7 +295,7 @@ describe DataConversion::ImportToMysql do
         profile.image_url_medium.should be_nil
         profile.searchable.should == true
         profile.image_url.should be_nil
-        profile.person_mongo_id.should == "4d262129cc8cb44df2000001"
+        profile.person_mongo_id.should == "4d2657e8cc8cb46033000001"
         profile.gender.should be_nil
         profile.diaspora_handle.should be_nil
         profile.birthday.should be_nil
@@ -260,9 +320,9 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_requests
         request = Mongo::Request.first
-        request.mongo_id.should == "4d26212ccc8cb44df200001b"
-        request.recipient_mongo_id.should =="4d26212bcc8cb44df2000018"
-        request.sender_mongo_id.should == "4d26212bcc8cb44df2000014"
+        request.mongo_id.should == "4d2657eacc8cb4603300001b"
+        request.recipient_mongo_id.should == "4d2657eacc8cb46033000018"
+        request.sender_mongo_id.should == "4d2657eacc8cb46033000014"
         request.aspect_mongo_id.should be_nil
       end
     end
@@ -301,8 +361,9 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_users
         bob = Mongo::User.first
-        bob.mongo_id.should == "4d26212acc8cb44df2000005"
-        bob.username.should == "bob178fa79"
+        bob.mongo_id.should == "4d2657e9cc8cb46033000005"
+        bob.username.should == "bob14cbf20"
+        bob.email.should == "bob13ef00b@pivotallabs.com"
         bob.serialized_private_key.should_not be_nil
         bob.encrypted_password.should_not be_nil
         bob.invites.should == 4
