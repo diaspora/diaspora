@@ -232,16 +232,16 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_profiles
         profile = Mongo::Profile.first
-        profile.image_url_medium.should == ''
+        profile.image_url_medium.should be_nil
         profile.searchable.should == true
-        profile.image_url.should == ''
+        profile.image_url.should be_nil
         profile.person_mongo_id.should == "4d262129cc8cb44df2000001"
-        profile.gender.should == ''
-        profile.diaspora_handle.should == ''
+        profile.gender.should be_nil
+        profile.diaspora_handle.should be_nil
         profile.birthday.should be_nil
         profile.last_name.should == 'weinstien'
-        profile.bio.should == ''
-        profile.image_url_small.should == ''
+        profile.bio.should be_nil
+        profile.image_url_small.should be_nil
         profile.first_name.should == 'eugene'
       end
     end
@@ -263,7 +263,7 @@ describe DataConversion::ImportToMysql do
         request.mongo_id.should == "4d26212ccc8cb44df200001b"
         request.recipient_mongo_id.should =="4d26212bcc8cb44df2000018"
         request.sender_mongo_id.should == "4d26212bcc8cb44df2000014"
-        request.aspect_mongo_id.should == ''
+        request.aspect_mongo_id.should be_nil
       end
     end
     describe "services" do
@@ -280,7 +280,7 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_services
         service = Mongo::Service.first
-        service.type.should == "Services::Facebook"
+        service.type_before_type_cast.should == "Services::Facebook"
         service.user_mongo_id.should == "4d2657eacc8cb46033000011"
         service.provider.should be_nil
         service.uid.should be_nil
@@ -306,14 +306,14 @@ describe DataConversion::ImportToMysql do
         bob.serialized_private_key.should_not be_nil
         bob.encrypted_password.should_not be_nil
         bob.invites.should == 4
-        bob.invitation_token.should == ""
+        bob.invitation_token.should be_nil
         bob.invitation_sent_at.should be_nil
         bob.getting_started.should be_true
         bob.disable_mail.should be_false
         bob.language.should == 'en'
-        bob.last_sign_in_ip.should == ''
+        bob.last_sign_in_ip.should be_nil
         bob.last_sign_in_at.to_i.should_not be_nil
-        bob.reset_password_token.should == ""
+        bob.reset_password_token.should be_nil
         bob.password_salt.should_not be_nil
       end
     end

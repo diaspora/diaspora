@@ -7,8 +7,11 @@ module DataConversion
 
     def boolean_set(string)
       "#{string}= IF(STRCMP(@#{string},'false'), TRUE, FALSE)"
-
     end
+    def nil_es(string)
+      "#{string} = NULLIF(@#{string}, '')"
+    end
+
     def import_raw
       truncate_tables
       import_raw_users
@@ -40,10 +43,13 @@ module DataConversion
         #{load_string("users")}
         #{infile_opts}
         (mongo_id, username, serialized_private_key, encrypted_password,
-         invites, invitation_token, invitation_sent_at, @getting_started,
-         @disable_mail, language, last_sign_in_ip, @last_sign_in_at_var,
-         reset_password_token, password_salt)
+         invites, @invitation_token, invitation_sent_at, @getting_started,
+         @disable_mail, language, @last_sign_in_ip, @last_sign_in_at_var,
+         @reset_password_token, password_salt)
          SET last_sign_in_at = FROM_UNIXTIME(LEFT(@last_sign_in_at_var, LENGTH(@last_sign_in_at_var)-3)),
+         #{nil_es("invitation_token")},
+         #{nil_es("last_sign_in_ip")},
+         #{nil_es("reset_password_token")},
          #{boolean_set("getting_started")},
          #{boolean_set("disable_mail")};
       SQL
@@ -77,7 +83,7 @@ module DataConversion
         #{infile_opts}
         (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, @youtube_titles)
         SET guid = mongo_id,
-        youtube_titles = NULLIF(@youtube_titles, '');
+        #{nil_es("youtube_titles")};
       SQL
       log "Finished. Imported #{Mongo::Comment.count} comments."
     end
@@ -88,7 +94,7 @@ module DataConversion
         #{infile_opts}
         (@youtube_titles,@pending,created_at,@public,updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message)
         SET guid = mongo_id,
-        youtube_titles = NULLIF(@youtube_titles, ''),
+        #{nil_es("youtube_titles")},
         #{boolean_set("pending")},
         #{boolean_set("public")};
       SQL
@@ -110,7 +116,12 @@ module DataConversion
       Mongo::Service.connection.execute <<-SQL
         #{load_string("services")}
         #{infile_opts}
-        (type,user_mongo_id,provider,uid,access_token,access_secret,nickname)
+        (type,user_mongo_id,@provider,@uid,@access_token,@access_secret,@nickname)
+        SET #{nil_es("provider")},
+        #{nil_es("uid")},
+        #{nil_es("access_token")},
+        #{nil_es("access_secret")},
+        #{nil_es("nickname")};
       SQL
       log "Finished. Imported #{Mongo::Service.count} services."
     end
@@ -130,7 +141,8 @@ module DataConversion
       Mongo::Request.connection.execute <<-SQL
         #{load_string("requests")}
         #{infile_opts}
-        (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id)
+        (mongo_id, recipient_mongo_id, sender_mongo_id, @aspect_mongo_id)
+        SET #{nil_es("aspect_mongo_id")};
       SQL
       log "Finished. Imported #{Mongo::Request.count} requests."
     end
@@ -158,9 +170,9 @@ module DataConversion
       Mongo::Person.connection.execute <<-SQL
         #{load_string("people")}
         #{infile_opts}
-        (created_at,updated_at,serialized_public_key,url,mongo_id,@owner_mongo_id_var,diaspora_handle)
+        (created_at,updated_at,serialized_public_key,url,mongo_id,@owner_mongo_id,diaspora_handle)
         SET guid = mongo_id,
-        owner_mongo_id = NULLIF(@owner_mongo_id_var, '');
+        #{nil_es("owner_mongo_id")};
       SQL
       log "Finished. Imported #{Mongo::Person.count} people."
     end
@@ -169,8 +181,18 @@ module DataConversion
       Mongo::Profile.connection.execute <<-SQL
         #{load_string("profiles")}
         #{infile_opts}
-        (image_url_medium,@searchable,image_url,person_mongo_id,gender,diaspora_handle,birthday,last_name,bio,image_url_small,first_name)
-        SET #{boolean_set("searchable")};
+        (@image_url_medium,@searchable,@image_url,person_mongo_id,
+        @gender,@diaspora_handle,birthday,@last_name,@bio,
+        @image_url_small,@first_name)
+        SET #{boolean_set("searchable")},
+        #{nil_es("image_url_medium")},
+        #{nil_es("image_url")},
+        #{nil_es("gender")},
+        #{nil_es("diaspora_handle")},
+        #{nil_es("last_name")},
+        #{nil_es("bio")},
+        #{nil_es("image_url_small")},
+        #{nil_es("first_name")};
       SQL
       #STRCMP returns 0 if the arguments are the same
       log "Finished. Imported #{Mongo::Profile.count} profiles."
