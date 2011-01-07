@@ -1,4 +1,4 @@
-@javascript @wip
+@javascript
 Feature: Change password
 
   Scenario: Change my password
@@ -9,12 +9,10 @@ Feature: Change password
     When I fill in "user_password" with "newsecret"
     And I fill in "user_password_confirmation" with "newsecret"
     And I press "Change Password"
-    Then I should see "Password Changed"
-  
+    Then I should see "Password Changed"  
     And I click on my name in the header
     And I follow "logout"
-    Then I should be on the home page
-    
+    Then I should be on the home page    
     And I sign in with password "newsecret"
     Then I should be on the aspects page  
   
