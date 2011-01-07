@@ -1,7 +1,7 @@
-youtube_titles,pending,created_at,public,updated_at,status_message_mongo_id,caption,remote_photo_path,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message
-"",false,1294344498000,false,1294344498000,,,,,,4d262132cc8cb44df2000023,StatusMessage,bob178fa79@localhost,4d26212bcc8cb44df2000008,User2 can see this
-"",false,1294344498000,false,1294344498000,,,,,,4d262132cc8cb44df2000025,StatusMessage,bob3127b24@localhost,4d26212bcc8cb44df2000014,User3 can see this
-,false,1294344499000,false,1294344499000,,,,5SshxW8nvG,,4d262133cc8cb44df200002d,Photo,bob2f2d21a@localhost,4d26212bcc8cb44df200000c,
-,false,1294344500000,false,1294344500000,,,,tTiw1Ynzqe,,4d262134cc8cb44df200002f,Photo,bob3127b24@localhost,4d26212bcc8cb44df2000014,
-,false,1294344502000,false,1294344502000,,,/uploads/images,,,4d262135cc8cb44df2000036,Photo,bob5ae60b9@localhost,4d262135cc8cb44df2000034,
-"",false,1294344502000,false,1294344502000,,,,,,4d262136cc8cb44df2000037,StatusMessage,bob5ae60b9@localhost,4d262135cc8cb44df2000034,from another server!
+youtube_titles,pending,created_at,public,updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message
+"",false,1294358525000,false,1294358525000,,,,,,,4d2657fdcc8cb46033000023,StatusMessage,bob14cbf20@localhost,4d2657e9cc8cb46033000008,User2 can see this
+"",false,1294358525000,false,1294358525000,,,,,,,4d2657fdcc8cb46033000025,StatusMessage,bob3bce0e0@localhost,4d2657eacc8cb46033000014,User3 can see this
+,false,1294358527000,false,1294358527000,,,,,65ZfafJNL1,,4d2657fecc8cb4603300002d,Photo,bob2f629f3@localhost,4d2657eacc8cb4603300000c,
+,false,1294358528000,false,1294358528000,,,,,o1kk1GdJJ8,,4d2657ffcc8cb4603300002f,Photo,bob3bce0e0@localhost,4d2657eacc8cb46033000014,
+,false,1294358530000,false,1294358530000,,,/uploads/images,VKuVR3P7cH4d265801cc8cb46033000036.png,,,4d265801cc8cb46033000036,Photo,bob5f4e201@localhost,4d265801cc8cb46033000034,
+"",false,1294358530000,false,1294358530000,,,,,,,4d265802cc8cb46033000037,StatusMessage,bob5f4e201@localhost,4d265801cc8cb46033000034,from another server!

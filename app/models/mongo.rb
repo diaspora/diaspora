@@ -11,7 +11,7 @@ module Mongo
   class Notification < ActiveRecord::Base; end
   class Person < ActiveRecord::Base; end
   #Photo?
-  #Post?
+  class Post < ActiveRecord::Base; end
   class PostVisibility < ActiveRecord::Base; end
   class Profile < ActiveRecord::Base; end
   class Request < ActiveRecord::Base; end

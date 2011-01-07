@@ -80,7 +80,18 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Comment.count} comments."
     end
-
+    def import_raw_posts
+      log "Loading posts file..."
+      Mongo::Post.connection.execute <<-SQL
+        #{load_string("posts")}
+        #{infile_opts}
+        (youtube_titles,@pending,created_at,@public,updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message)
+        SET guid = mongo_id,
+        #{boolean_set("pending")},
+        #{boolean_set("public")};
+      SQL
+      log "Finished. Imported #{Mongo::Post.count} posts."
+    end
     def import_raw_contacts
       log "Loading contacts file..."
       Mongo::Contact.connection.execute <<-SQL

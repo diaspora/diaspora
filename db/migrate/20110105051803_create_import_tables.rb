@@ -53,6 +53,31 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_people, :owner_mongo_id, :unique => true
     add_index :mongo_people, :diaspora_handle, :unique => true
 
+    create_table :mongo_posts do |t|
+      t.string :person_mongo_id
+      t.boolean :public, :default => false
+      t.string :diaspora_handle
+      t.string :guid
+      t.string :mongo_id
+      t.boolean :pending, :default => false
+      t.string :type
+
+      t.text :message
+
+      t.string :status_message_mongo_id
+      t.text :caption
+      t.text :remote_photo_path
+      t.string :remote_photo_name
+      t.string :random_string
+      t.string :image #carrierwave's column
+      t.text :youtube_titles
+
+      t.timestamps
+    end
+    add_index :mongo_posts, :type
+    add_index :mongo_posts, :person_mongo_id
+    add_index :mongo_posts, :guid
+
     create_table :mongo_invitations do |t|
       t.string :mongo_id
       t.text :message

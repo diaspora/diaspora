@@ -122,6 +122,39 @@ describe DataConversion::ImportToMysql do
       end
     end
 
+    describe "posts" do
+      before do
+        copy_fixture_for("posts")
+      end
+
+      it "imports data into the mongo_posts table" do
+        Mongo::Post.count.should == 0
+        @migrator.import_raw_posts
+        Mongo::Post.count.should == 6
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_posts
+        post = Mongo::Post.first
+        post.youtube_titles.should == {}
+        post.pending.should == false
+        post.created_at.to_i.should == 1294358525000
+        post.public.should == false
+        post.updated_at.to_i.should == 1294358525000
+        post.status_message_mongo_id.should be_nil
+        post.caption.should be_nil
+        post.remote_photo_path.should be_nil
+        post.remote_photo_name.should be_nil
+        post.random_string.should be_nil
+        post.image.should be_nil
+        post.mongo_id.should == "4d2657fdcc8cb46033000023"
+        post.guid.should == post.mongo_id
+        post.type.should == "StatusMessage"
+        post.diaspora_handle.should == "bob14cbf20@localhost"
+        post.person_mongo_id.should == "4d2657e9cc8cb46033000008"
+        post.message.should == "User2 can see this"
+      end
+    end
     describe "notifications" do
       before do
         copy_fixture_for("notifications")

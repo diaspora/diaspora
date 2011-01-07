@@ -169,6 +169,30 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "mongo_post_visibilities", ["aspect_mongo_id"], :name => "index_mongo_post_visibilities_on_aspect_mongo_id"
   add_index "mongo_post_visibilities", ["post_mongo_id"], :name => "index_mongo_post_visibilities_on_post_mongo_id"
 
+  create_table "mongo_posts", :force => true do |t|
+    t.string   "person_mongo_id"
+    t.boolean  "public",                  :default => false
+    t.string   "diaspora_handle"
+    t.string   "guid"
+    t.string   "mongo_id"
+    t.boolean  "pending",                 :default => false
+    t.string   "type"
+    t.text     "message"
+    t.string   "status_message_mongo_id"
+    t.text     "caption"
+    t.text     "remote_photo_path"
+    t.string   "remote_photo_name"
+    t.string   "random_string"
+    t.string   "image"
+    t.text     "youtube_titles"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_posts", ["guid"], :name => "index_mongo_posts_on_guid"
+  add_index "mongo_posts", ["person_mongo_id"], :name => "index_mongo_posts_on_person_mongo_id"
+  add_index "mongo_posts", ["type"], :name => "index_mongo_posts_on_type"
+
   create_table "mongo_profiles", :force => true do |t|
     t.string   "diaspora_handle"
     t.string   "first_name"
