@@ -87,7 +87,7 @@ describe Notifier do
     let!(:comment) { user2.comment("Totally is", :on => sm )}
     describe "#comment_on_post" do
 
-      let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment).deliver}
+      let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment.id).deliver}
 
       it 'goes to the right person' do
         comment_mail.to.should == [user.email]
@@ -108,7 +108,7 @@ describe Notifier do
     end
     describe "#also commented" do
 
-      let!(:comment_mail) {Notifier.also_commented(user.id, person.id, comment)}
+      let!(:comment_mail) {Notifier.also_commented(user.id, person.id, comment.id)}
 
       it 'goes to the right person' do
         comment_mail.to.should == [user.email]

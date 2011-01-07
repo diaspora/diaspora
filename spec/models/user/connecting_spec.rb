@@ -60,14 +60,6 @@ describe Diaspora::UserModules::Connecting do
         Resque.should_receive(:enqueue).with(Jobs::MailRequestReceived, user.id, person.id)
         user.receive_object(@r, person)
       end
-
-      it 'should not lock the connection after ignore' do
-        user.send_friend_request_to(user2, aspect)
-        user2.pending_request.count.should == 1
-        user2.ignore_request(user2.pending_requests.first)
-        user.send_friend_request_to(user2, aspect)
-        user2.pending_request.count.should == 1
-      end
     end
 
     describe '#receive_request_acceptance' do

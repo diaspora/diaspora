@@ -68,34 +68,18 @@ describe Notification do
       Notification.notify(@user, request, @person)
     end
 
-    context 'emails the user' do
-      it 'email with notifications enabled' do
-        request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
-        opts = {:target_id => request.id,
-          :kind => request.notification_type(@user, @person),
+    describe '#emails_the_user' do
+      it 'calls mail' do
+        opts = {
+          :kind => "new_request",
           :person_id => @person.id,
           :user_id => @user.id}
 
-        n = Notification.create(opts)
-        Notification.stub!(:create).and_return n
+        n = Notification.new(opts)
+        n.stub!(:user).and_return @user
 
-        n.should_receive(:email_the_user).once
-        Notification.notify(@user, request, @person)
-      end
-
-      it 'does not email with emails disabled' do
-        request = Request.instantiate(:from => @user.person, :to => @user2.person, :into => @aspect)
-        opts = {:target_id => request.id,
-          :kind => request.notification_type(@user, @person),
-          :person_id => @person.id,
-          :user_id => @user.id}
-
-        n = Notification.create(opts)
-        Notification.stub!(:create).and_return n
-
-        @user.disable_mail = true
-        n.should_not_receive(:email_the_user)
-        Notification.notify(@user, request, @person)
+        @user.should_receive(:mail)
+        n.email_the_user("mock")
       end
     end
   end
