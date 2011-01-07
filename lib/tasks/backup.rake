@@ -47,12 +47,16 @@ namespace :backup do
       (0..99).each do |n|
         padded_str = n.to_s.rjust(2,'0')
         file = photo_container.create_object(tar_name + padded_str)
-        if file.write File.open("/tmp/backup/" + tar_name + padded_str)
-          puts("event=backup status=success type=photos")
-        else
-          puts("event=backup status=failure type=photos")
+        file_path = "/tmp/backup/" + tar_name + padded_str
+
+        if File.exists?(file_path)
+          if file.write File.open(file_path)
+            puts("event=backup status=success type=photos")
+          else
+            puts("event=backup status=failure type=photos")
+          end
+          `rm #{file_path}`
         end
-        `rm /tmp/backup/#{tar_name + padded_str}`
       end
 
     else
