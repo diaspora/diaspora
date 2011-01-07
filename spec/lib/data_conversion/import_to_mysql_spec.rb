@@ -68,7 +68,6 @@ describe DataConversion::ImportToMysql do
           aspect.name.should == "generic"
           aspect.mongo_id.should == "4d2657e9cc8cb46033000006"
           aspect.user_mongo_id.should == "4d2657e9cc8cb46033000005"
-          aspect.user_id.should == User.where(:mongo_id => aspect.user_mongo_id)
         end
         it "sets the relation column" do
           @migrator.process_raw_aspects

@@ -66,7 +66,7 @@ module DataConversion
       log "Importing aspects to main table..."
       Aspect.connection.execute <<-SQL
         INSERT INTO aspects
-        SELECT mongo_aspects.* from mongo_aspects
+        SELECT mongo_aspects.id, mongo_aspects.name, users.id, mongo_aspects.created_at, mongo_aspects.updated_at, mongo_aspects.mongo_id, mongo_aspects.user_mongo_id FROM mongo_aspects INNER JOIN users ON (users.mongo_id = mongo_aspects.user_mongo_id)
       SQL
       log "Imported #{Aspect.count} aspects."
     end
