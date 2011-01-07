@@ -119,12 +119,14 @@ describe Postzord::Dispatch do
       end
 
       it 'calls post for each of the users services' do
-        @service.should_receive(:post).once
+        Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
+        Resque.should_receive(:enqueue).with(Jobs::PostToService, @service.id, anything, anything).once
         @zord.instance_variable_get(:@sender).should_receive(:services).and_return([@service])
         @zord.send(:deliver_to_services, nil)
       end
 
       it 'queues a job to notify the hub' do
+        Resque.stub!(:enqueue).with(Jobs::PostToService, anything, anything, anything)
         Resque.should_receive(:enqueue).with(Jobs::PublishToHub, @user.public_url)
         @zord.send(:deliver_to_services, nil)
       end

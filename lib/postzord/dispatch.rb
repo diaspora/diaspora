@@ -19,7 +19,7 @@ class Postzord::Dispatch
     unless @subscribers == nil
       remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }
       user_ids = [*local_people].map{|x| x.owner_id }
-      local_users = User.all(:id.in => user_ids)
+      local_users = User.all(:id.in => user_ids, :fields => ['person_id, username, language, email'])
       self.socket_to_users(local_users)
       self.deliver_to_remote(remote_people)
       self.deliver_to_local(local_people)
@@ -53,7 +53,7 @@ class Postzord::Dispatch
       deliver_to_hub
       if @object.respond_to?(:message)
         @sender.services.each do |service|
-          service.post(@object, url)
+          Resque.enqueue(Jobs::PostToService, service.id, @object.id, url)
         end
       end
     end
