@@ -124,9 +124,9 @@ describe Postzord::Dispatch do
         @zord.send(:deliver_to_services, nil)
       end
 
-      it 'notifies the hub' do
-       @zord.should_receive(:deliver_to_hub) 
-       @zord.send(:deliver_to_services, nil)
+      it 'queues a job to notify the hub' do
+        Resque.should_receive(:enqueue).with(Jobs::PublishToHub, @user.public_url)
+        @zord.send(:deliver_to_services, nil)
       end
 
       it 'only pushes to services if the object is public' do
