@@ -8,14 +8,6 @@ module HelperMethods
     Mocha::Mockery.instance.stubba.unstub_all
   end
 
-  def fantasy_resque
-    former_value = $process_queue
-    $process_queue = true
-    result = yield
-    $process_queue = former_value
-    result
-  end
-
   def connect_users(user1, aspect1, user2, aspect2)
     Contact.create!(:user => user1,
                     :person => user2.person,

@@ -76,6 +76,15 @@ namespace :fixtures do
       user3.reload
       user4.receive(remote_photo.to_diaspora_xml, remote_person)
       user3.reload
+
+
+      facebook = Services::Facebook.new(:access_token => "yeah")
+      user3.services << facebook
+      facebook.save!
+
+      twitter = Services::Twitter.new(:access_token => "yeah", :access_secret => "foobar")
+      user2.services << twitter
+      twitter.save!
     end
     puts "Done generating fixtures, you can now export"
 
