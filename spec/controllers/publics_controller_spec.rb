@@ -23,6 +23,20 @@ describe PublicsController do
       post :receive, "id" => user.person.id.to_s, "xml" => xml
     end
 
+    it 'unescapes the xml before sending it to receive_salmon' do
+      aspect = user.aspects.create(:name => 'foo')
+      post1 = user.post(:status_message, :message => 'moms', :to => [aspect.id])
+      xml2 = post1.to_diaspora_xml
+      user2 = make_user
+
+      salmon_factory = Salmon::SalmonSlap.create(user, xml2)
+      enc_xml = salmon_factory.xml_for(user2.person)
+
+      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, enc_xml).once
+
+      post :receive, "id" => user.person.id.to_s, "xml" => CGI::escape(enc_xml)
+    end
+
     it 'returns a 422 if no xml is passed' do
       post :receive, "id" => person.id.to_s
       response.code.should == '422'
