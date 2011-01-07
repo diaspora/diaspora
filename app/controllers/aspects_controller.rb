@@ -21,9 +21,10 @@ class AspectsController < ApplicationController
 
     @posts = Post.where(:id.in => post_ids, :_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     @post_hashes = hashes_for_posts @posts
-    @contacts = Contact.all(:user_id => current_user.id, :pending => false)
-    @aspect_hashes = hashes_for_aspects @all_aspects, @contacts, :limit => 8
+
+    @contacts = Contact.all(:aspect_ids.in => @aspect_ids, :user_id => current_user.id, :pending => false)
     @contact_hashes = hashes_for_contacts @contacts
+    @aspect_hashes = hashes_for_aspects @all_aspects, @contacts, :limit => 8
 
     @aspect = :all unless params[:a_ids]
 

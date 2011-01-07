@@ -49,9 +49,9 @@ module AspectsHelper
     else
       str = "#{t('.post_a_message_to', :aspect => aspect_count)} "
       if aspect_count == 1
-        str += t('_aspect')
+        str += t('_aspect').downcase
       else
-        str += t('_aspects')
+        str += t('_aspects').downcase
       end
     end
     (link_to str, '#', :id => 'expand_publisher').html_safe

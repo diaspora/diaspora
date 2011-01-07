@@ -35,6 +35,7 @@ $(document).ready(function(){
 
     // loading animation
     $("#aspect_stream_container").fadeTo(100, 0.4);
+    $("#aspect_contact_pictures").fadeTo(100, 0.4);
 
     performAjax( $(this).attr('href'), $("#publisher textarea").val());
   });
@@ -46,6 +47,7 @@ $(document).ready(function(){
 
     // loading animation
     $("#aspect_stream_container").fadeTo(100, 0.4);
+    $("#aspect_contact_pictures").fadeTo(100, 0.4);
 
     // filtering //////////////////////
     var $this = $(this),
@@ -119,6 +121,7 @@ $(document).ready(function(){
         // fade contents back in
         if(requests == 0){
           $("#aspect_stream_container").fadeTo(100, 1);
+          $("#aspect_contact_pictures").fadeTo(100, 1);
         }
       }
     });

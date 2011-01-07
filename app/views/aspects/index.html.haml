@@ -17,7 +17,7 @@
       :post_hashes => @post_hashes
 
 .span-7.last
-  = owner_image_tag
+  = owner_image_link
   %h3{:style => "position:relative;display:inline-block;margin-left:12px;top:-8px;"}
     = current_user.name
     .description
@@ -42,12 +42,8 @@
           = render :partial => 'aspects/aspect', :locals => a_hash
 
     .section.contact_pictures
-      %h4
-        = t('_contacts')
-        = link_to @contact_hashes.count, '#'
-
-      - for contact in @contact_hashes
-        = person_image_link(contact[:person])
+      #aspect_contact_pictures
+        = render 'aspects/aspect_contact_pictures', :contact_hashes => @contact_hashes
 
       - if @contacts.count == 0
         %h4
