@@ -24,3 +24,9 @@ When /^I sign in as "([^"]*)"$/ do |email|
   @me.password ||= 'password'
   Given 'I am signed in'
 end
+
+When /^I sign in with password "([^"]*)"$/ do |password|
+  @me.password = password
+  Given 'I am signed in'
+end
+

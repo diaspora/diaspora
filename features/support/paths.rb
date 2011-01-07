@@ -15,6 +15,8 @@ module NavigationHelpers
       person_path(Request.to(@me).first.from)
     when /^"([^\"]*)"'s page$/
       person_path(User.find_by_email($1).person)
+   when /^my account settings page$/
+      edit_user_path(@me)  
     when /^"(\/.*)"/
       $1
     else
