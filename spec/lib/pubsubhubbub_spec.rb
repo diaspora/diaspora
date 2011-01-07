@@ -5,11 +5,11 @@
 require 'spec_helper'
 
 describe PubSubHubbub do
-  before :all do
+  before do
     RestClient.unstub!(:post)
   end
 
-  after :all do
+  after do
     RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
   end
 

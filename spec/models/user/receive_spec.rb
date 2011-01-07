@@ -49,14 +49,16 @@ describe User do
   end
 
   describe '#receive_salmon' do
-   it 'should handle the case where the webfinger fails' do
-     pending "Write this to test #receive_salmon"
-    Webfinger.stub!(:fetch).and_return(nil)
+    it 'should handle the case where the webfinger fails' do
+      pending "Write this to test #receive_salmon"
+      Webfinger.stub!(:fetch).and_return(nil)
 
-    proc{
-      user2.post :status_message, :message => "store this!", :to => aspect2.id
-    }.should_not raise_error
-   end
+      proc{
+        user2.post :status_message, :message => "store this!", :to => aspect2.id
+      }.should_not raise_error
+    end
+
+
   end
 
   context 'update posts' do
@@ -182,7 +184,7 @@ describe User do
     let(:salmon){user.salmon( post )}
 
     it 'should receive a salmon for a post' do
-      user2.receive_salmon( salmon.xml_for user2.person )
+      user2.receive_salmon( salmon.xml_for(user2.person) )
       user2.visible_post_ids.include?(post.id).should be true
     end
   end

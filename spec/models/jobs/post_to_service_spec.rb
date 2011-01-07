@@ -13,4 +13,3 @@ describe Jobs::PostToService do
     Jobs::PostToService.perform("123", post.id.to_s, url)
   end
 end
-
