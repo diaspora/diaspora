@@ -32,4 +32,10 @@ module NotificationsHelper
       t('no_new_notifications')
     end
   end
+
+  def new_notification_link(count)
+    if count > 0
+        link_to new_notification_text(count), notifications_path
+    end
+  end
 end

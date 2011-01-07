@@ -24,16 +24,22 @@
         = link_to current_user.diaspora_handle, person_path(current_user.person)
         /= info_text(t('.handle_explanation'))
 
-  - if @request_count > 0
-    #new_request_pane{:class => "everyone"}
-      %h1.new_request{:style => 'text-align:center'}
-        = new_request_link(@request_count)
+  - if @notification_count > 0 || @request_count > 0
+    - if @request_count > 0
+      #new_requests
+        %h4
+          = new_request_link(@request_count)
 
-  #left_pane
-    #aspect_listings.section
-      = render 'aspects/aspect_listings', :aspect_hashes => @aspect_hashes
+    - if @notification_count > 0
+      #new_notifications
+        %h4
+          = new_notification_link(@notification_count)
+    %hr
 
-    .section
-      %h4= t('shared.invitations.invites')
-      = render "shared/invitations", :invites => @invites
+  #aspect_listings.section
+    = render 'aspects/aspect_listings', :aspect_hashes => @aspect_hashes
+
+  .section
+    %h4= t('shared.invitations.invites')
+    = render "shared/invitations", :invites => @invites
 
