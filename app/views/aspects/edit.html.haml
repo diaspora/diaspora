@@ -15,7 +15,7 @@
     = link_to 'rename', '#'
     \.
     \.
-    = link_to 'delete', '#'
+    = link_to 'delete', @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
 
   .person_tiles{:style => "display:none;"}
     - for contact in @aspect.contacts

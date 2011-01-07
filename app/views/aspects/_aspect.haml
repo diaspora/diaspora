@@ -1,4 +1,4 @@
-%li
+%li.aspect{:data=>{:guid=>aspect.id}}
   .right
     = link_to t('contacts', :count => contact_count), edit_aspect_path(aspect), :rel => 'facebox'
   %b{:class => ("dull" if contacts.length == 0)}

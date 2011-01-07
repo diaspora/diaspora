@@ -1,2 +1,3 @@
 $('#aspect_stream_container').html("<%= escape_javascript(render('aspects/aspect_stream', :aspect => @aspect, :aspect_ids => @aspect_ids, :post_hashes => @post_hashes)) %>");
 $('#aspect_listings').html("<%= escape_javascript(render('aspects/aspect_listings', :aspect_hashes => @aspect_hashes)) %>");
+$('a[rel*=facebox]').facebox();

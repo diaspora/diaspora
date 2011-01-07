@@ -33,6 +33,7 @@ javascripts:
   home:
     - public/javascripts/publisher.js
     - public/javascripts/aspect-filters.js
+    - public/javascripts/contact-list.js
   people:
     - public/javascripts/contact-list.js
   photos:
