@@ -142,7 +142,7 @@ class User
 
   def dispatch_post(post, opts = {})
     mailman = Postzord::Dispatch.new(self, post)
-    mailman.post
+    mailman.post(opts)
   end
 
   def update_post(post, post_hash = {})
