@@ -1,3 +1,3 @@
-type,user_mongo_id,provider,uid,access_token,access_secret,nickname
-Services::Facebook,4d2657eacc8cb46033000011,,,yeah,,
-Services::Twitter,4d2657e9cc8cb46033000009,,,yeah,foobar,
+mongo_id,type,user_mongo_id,provider,uid,access_token,access_secret,nickname
+4d265803cc8cb4603300003e,Services::Facebook,4d2657eacc8cb46033000011,,,yeah,,
+4d265803cc8cb4603300003f,Services::Twitter,4d2657e9cc8cb46033000009,,,yeah,foobar,

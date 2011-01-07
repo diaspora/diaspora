@@ -233,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "mongo_requests", ["sender_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id"
 
   create_table "mongo_services", :force => true do |t|
+    t.string   "mongo_id"
     t.string   "type"
     t.string   "user_mongo_id"
     t.string   "provider"
