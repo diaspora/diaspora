@@ -22,9 +22,7 @@ describe PubSubHubbub do
       feed = 'http://rss.com/dom.atom'
       body = {'hub.url' => feed, 'hub.mode' => 'publish'}
 
-      stub_request(:post, "http://hubzord.com/").
-        with(:body => "hub.url=http%3A%2F%2Frss.com%2Fdom.atom&headers=&hub.mode=publish", 
-       :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Content-Length'=>'65', 'Content-Type'=>'application/x-www-form-urlencoded'}).to_return(:status => [202, 'you are awesome'])
+      stub_request(:post, "http://hubzord.com/").to_return(:status => [202, 'you are awesome'])
       PubSubHubbub.new(hub).publish(feed).code.should == 202
     end
   end
