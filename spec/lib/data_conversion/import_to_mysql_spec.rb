@@ -76,7 +76,7 @@ describe DataConversion::ImportToMysql do
         comment.text.should == "Hey me!"
         comment.person_mongo_id.should == "4d26212bcc8cb44df2000014"
         comment.post_mongo_id.should == "4d262132cc8cb44df2000025"
-        comment.youtube_titles.should == ""
+        comment.youtube_titles.should be_nil
       end
     end
     describe "contacts" do
@@ -136,7 +136,7 @@ describe DataConversion::ImportToMysql do
       it "imports all the columns" do
         @migrator.import_raw_posts
         post = Mongo::Post.first
-        post.youtube_titles.should == {}
+        post.youtube_titles.should be_nil
         post.pending.should == false
         post.created_at.to_i.should == 1294358525000
         post.public.should == false

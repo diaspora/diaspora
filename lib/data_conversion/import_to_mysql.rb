@@ -75,8 +75,9 @@ module DataConversion
       Mongo::Comment.connection.execute <<-SQL
         #{load_string("comments")}
         #{infile_opts}
-        (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, youtube_titles)
-        SET guid = mongo_id;
+        (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, @youtube_titles)
+        SET guid = mongo_id,
+        youtube_titles = NULLIF(@youtube_titles, '');
       SQL
       log "Finished. Imported #{Mongo::Comment.count} comments."
     end
@@ -85,8 +86,9 @@ module DataConversion
       Mongo::Post.connection.execute <<-SQL
         #{load_string("posts")}
         #{infile_opts}
-        (youtube_titles,@pending,created_at,@public,updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message)
+        (@youtube_titles,@pending,created_at,@public,updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message)
         SET guid = mongo_id,
+        youtube_titles = NULLIF(@youtube_titles, ''),
         #{boolean_set("pending")},
         #{boolean_set("public")};
       SQL
