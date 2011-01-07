@@ -4,8 +4,6 @@
 
 module Jobs
   class PublishToHub
-    
-require File.join(Rails.root, 'lib/pubsubhubbub')
     def self.perform(sender_public_url)
       PubSubHubbub.new(AppConfig[:pubsub_server]).publish(sender_public_url)
     end
