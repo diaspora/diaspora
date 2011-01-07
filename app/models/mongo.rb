@@ -15,7 +15,7 @@ module Mongo
   class PostVisibility < ActiveRecord::Base; end
   class Profile < ActiveRecord::Base; end
   class Request < ActiveRecord::Base; end
-  #Service?
+  class Service < ActiveRecord::Base; end
   #StatusMessage?
   class User < ActiveRecord::Base; end
 end

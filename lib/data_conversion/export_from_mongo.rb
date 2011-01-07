@@ -109,7 +109,11 @@ module DataConversion
         model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
       end
     end
-
+    def services_json_to_csv model_hash
+      generic_json_to_csv(model_hash) do |hash|
+        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
+      end
+    end
     def people_json_to_csv model_hash
       #Also writes the profiles csv
 

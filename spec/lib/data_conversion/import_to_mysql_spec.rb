@@ -233,7 +233,29 @@ describe DataConversion::ImportToMysql do
         request.aspect_mongo_id.should == ''
       end
     end
+    describe "services" do
+      before do
+        copy_fixture_for("services")
+      end
 
+      it "imports data into the mongo_services table" do
+        Mongo::Service.count.should == 0
+        @migrator.import_raw_services
+        Mongo::Service.count.should == 2
+      end
+
+      it "imports all the columns" do
+        @migrator.import_raw_services
+        service = Mongo::Service.first
+        service.type.should == "Services::Facebook"
+        service.user_mongo_id.should == "4d2657eacc8cb46033000011"
+        service.provider.should be_nil
+        service.uid.should be_nil
+        service.access_token.should == "yeah"
+        service.access_secret.should be_nil
+        service.nickname.should be_nil
+      end
+    end
     describe "users" do
       before do
         copy_fixture_for("users")

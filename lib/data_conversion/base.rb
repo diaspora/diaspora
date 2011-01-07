@@ -37,16 +37,16 @@ module DataConversion
          :profile_attrs => ["image_url_medium", "searchable", "image_url", "person_mongo_id", "gender", "diaspora_handle", "birthday", "last_name", "bio", "image_url_small", "first_name"]},
         {:name => :posts,
         :attrs       => ["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_mongo_id", "caption", "remote_photo_path", "random_string", "image", "mongo_id", "type", "diaspora_handle", "person_mongo_id", "message"],
-        :mongo_attrs => ["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_id"      , "caption", "remote_photo_path", "random_string", "image", "_id"    , "_type", "diaspora_handle", "person_id"      , "message"]
-      },
+        :mongo_attrs => ["youtube_titles", "pending", "created_at", "public", "updated_at", "status_message_id"      , "caption", "remote_photo_path", "random_string", "image", "_id"    , "_type", "diaspora_handle", "person_id"      , "message"]},
         {:name => :requests,
          :attrs       => ["mongo_id", "recipient_mongo_id", "sender_mongo_id", "aspect_mongo_id"],
-         :mongo_attrs => ["_id"     , "to_id"             , "from_id"        , "into_id"]
-      },
+         :mongo_attrs => ["_id"     , "to_id"             , "from_id"        , "into_id"]},
+         {:name => :services,
+           :attrs       => ["type", "user_mongo_id", "provider", "uid", "access_token", "access_secret", "nickname"],
+           :mongo_attrs => ["_type", "user_id",      "provider", "uid", "access_token", "access_secret", "nickname"]},
         {:name => :users,
         :attrs       => ["mongo_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"],
-        :mongo_attrs => ["_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]
-      },
+        :mongo_attrs => ["_id", "username", "serialized_private_key", "encrypted_password", "invites", "invitation_token", "invitation_sent_at", "getting_started", "disable_mail", "language", "last_sign_in_ip", "last_sign_in_at", "reset_password_token", "password_salt"]},
       ]
     end
     def log(message)

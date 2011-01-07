@@ -92,6 +92,16 @@ module DataConversion
       log "Finished. Imported #{Mongo::Contact.count} contacts."
     end
 
+    def import_raw_services
+      log "Loading services file..."
+      Mongo::Service.connection.execute <<-SQL
+        #{load_string("services")}
+        #{infile_opts}
+        (type,user_mongo_id,provider,uid,access_token,access_secret,nickname)
+      SQL
+      log "Finished. Imported #{Mongo::Service.count} services."
+    end
+
     def import_raw_post_visibilities
       log "Loading post visibilities file..."
       Mongo::PostVisibility.connection.execute <<-SQL

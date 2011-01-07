@@ -203,6 +203,20 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "mongo_requests", ["sender_mongo_id", "recipient_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id_and_recipient_mongo_id"
   add_index "mongo_requests", ["sender_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id"
 
+  create_table "mongo_services", :force => true do |t|
+    t.string   "type"
+    t.string   "user_mongo_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "access_token"
+    t.string   "access_secret"
+    t.string   "nickname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mongo_services", ["user_mongo_id"], :name => "index_mongo_services_on_user_mongo_id"
+
   create_table "mongo_users", :force => true do |t|
     t.string   "mongo_id"
     t.string   "username"
