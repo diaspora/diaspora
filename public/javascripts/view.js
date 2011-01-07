@@ -137,6 +137,15 @@ var View = {
       }
     },
 
+    aspect_nav: {
+      bind: function() {
+        $("a", "#aspect_nav").tipsy({
+          gravity:"n",
+          delayIn: 600
+        });
+      }
+    },
+
     avatars: {
       bind: function() {
         $("#aspect_listings img.avatar, #manage_aspect_zones img.avatar").tipsy({

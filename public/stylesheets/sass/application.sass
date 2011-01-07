@@ -246,7 +246,7 @@ header
 
     &:hover
       :background
-        :color #fafafa
+        :color #fff
       :border
         :bottom 1px solid #ddd
       .right
@@ -294,9 +294,8 @@ header
     .from
       :padding 0
 
-  h2,h3
-    :margin
-      :bottom -2px
+  h3
+    :display inline-block
 
   #person_nav_links
     a
@@ -912,6 +911,9 @@ label
     :min-width 100px
     :height 100px
     :min-height 100px
+    :margin
+      :bottom 15px
+      :right 15px
 
     img
       :height 100px
@@ -1232,12 +1234,19 @@ ul#settings_nav
   :margin 0
   :padding 0
 
-#aspect_listings
-
 .dull
   :color #aaa
   :font
     :style italic
+
+  a
+    :color #69AEDD
+
+    &:hover
+      :color #82DAE9
+
+    &:active
+      :color #005D9C
 
 .section
   :margin
@@ -1669,7 +1678,6 @@ ul#request_result
     :padding 0
 
     > li
-      :display block
       :position relative
       :height 50px
       :padding 4px
@@ -2162,3 +2170,4 @@ ul.show_comments
 
   :border
     :bottom 1px solid #ccc
+

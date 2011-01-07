@@ -7,7 +7,7 @@
 $(document).ready(function() {
   var List = {
     initialize: function() {
-      $(".contact_list_search").keyup(function(e) {
+      $(".contact_list_search").live("keyup", function(e) {
         var search = $(this);
         var list   = $(this).siblings("ul").first();
         var query  = new RegExp(search.val(),'i');
@@ -15,11 +15,11 @@ $(document).ready(function() {
         $("li", list).each( function() {
           var element = $(this);
           if( !element.text().match(query) ) {
-            if( !element.hasClass('invis') ) {
-              element.addClass('invis').fadeOut(100);
+            if( !element.hasClass('hidden') ) {
+              element.addClass('hidden');
             }
           } else {
-            element.removeClass('invis').fadeIn(100);
+            element.removeClass('hidden');
           }
         });
       });

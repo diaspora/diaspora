@@ -4,8 +4,11 @@
 
 
 %h4
+  .right
+    = link_to t('contacts', :count => @contacts.count), aspects_manage_path
+
+  = @aspect_hashes.count
   = t('_aspects')
-  = link_to @aspect_hashes.count, aspects_manage_path
 
 %ul
   - for a_hash in aspect_hashes
