@@ -37,9 +37,9 @@ class CreateImportTables < ActiveRecord::Migration
       t.boolean :pending, :default => true
       t.timestamps
     end
-
     add_index :mongo_contacts, [:user_mongo_id, :pending]
     add_index :mongo_contacts, [:person_mongo_id, :pending]
+
     create_table :mongo_people do |t|
       t.string :mongo_id
       t.string :guid
@@ -169,10 +169,15 @@ class CreateImportTables < ActiveRecord::Migration
 
   def self.down
     drop_table :mongo_users
+    drop_table :mongo_services
     drop_table :mongo_requests
     drop_table :mongo_post_visibilities
+    drop_table :mongo_invitations
     drop_table :mongo_contacts
     drop_table :mongo_comments
+    drop_table :mongo_profiles
+    drop_table :mongo_people
+    drop_table :mongo_posts
     drop_table :mongo_aspect_memberships
     drop_table :mongo_aspects
   end
