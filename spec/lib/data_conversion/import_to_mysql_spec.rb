@@ -138,9 +138,9 @@ describe DataConversion::ImportToMysql do
         post = Mongo::Post.first
         post.youtube_titles.should be_nil
         post.pending.should == false
-        post.created_at.to_i.should == 1294358525000
+        post.created_at.to_i.should == 1294358525
         post.public.should == false
-        post.updated_at.to_i.should == 1294358525000
+        post.updated_at.to_i.should == 1294358525
         post.status_message_mongo_id.should be_nil
         post.caption.should be_nil
         post.remote_photo_path.should be_nil
@@ -197,7 +197,7 @@ describe DataConversion::ImportToMysql do
         person.url.should == "http://google-1b5b16a.com/"
         person.diaspora_handle.should == "bob-person-1a8bc18@aol.com"
         person.serialized_public_key.should_not be_nil
-        person.created_at.should be_nil
+        person.created_at.to_i.should == 1294344490
       end
     end
     describe "post_visibilities" do

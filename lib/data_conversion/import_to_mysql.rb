@@ -11,6 +11,9 @@ module DataConversion
     def nil_es(string)
       "#{string} = NULLIF(@#{string}, '')"
     end
+    def unix_time(string)
+      "#{string} = FROM_UNIXTIME(LEFT(@#{string}, LENGTH(@#{string})-3))"
+    end
 
     def import_raw
       truncate_tables
@@ -43,10 +46,10 @@ module DataConversion
         #{load_string("users")}
         #{infile_opts}
         (mongo_id, username, serialized_private_key, encrypted_password,
-         invites, @invitation_token, invitation_sent_at, @getting_started,
-         @disable_mail, language, @last_sign_in_ip, @last_sign_in_at_var,
+         invites, @invitation_token, @invitation_sent_at, @getting_started,
+         @disable_mail, language, @last_sign_in_ip, @last_sign_in_at,
          @reset_password_token, password_salt)
-         SET last_sign_in_at = FROM_UNIXTIME(LEFT(@last_sign_in_at_var, LENGTH(@last_sign_in_at_var)-3)),
+         SET #{unix_time("last_sign_in_at")},
          #{nil_es("invitation_token")},
          #{nil_es("last_sign_in_ip")},
          #{nil_es("reset_password_token")},
@@ -62,6 +65,8 @@ module DataConversion
         #{load_string("aspects")}
         #{infile_opts}
         (mongo_id, name, user_mongo_id, @created_at, @updated_at)
+        SET #{unix_time("created_at")},
+        #{unix_time("updated_at")};
       SQL
       log "Finished. Imported #{Mongo::Aspect.count} aspects."
     end
@@ -92,9 +97,11 @@ module DataConversion
       Mongo::Post.connection.execute <<-SQL
         #{load_string("posts")}
         #{infile_opts}
-        (@youtube_titles,@pending,created_at,@public,updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message)
+        (@youtube_titles,@pending,@created_at,@public,@updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message)
         SET guid = mongo_id,
         #{nil_es("youtube_titles")},
+        #{unix_time("created_at")},
+        #{unix_time("updated_at")},
         #{boolean_set("pending")},
         #{boolean_set("public")};
       SQL
@@ -105,7 +112,7 @@ module DataConversion
       Mongo::Contact.connection.execute <<-SQL
         #{load_string("contacts")}
         #{infile_opts}
-        (mongo_id, user_mongo_id, person_mongo_id, @pending, created_at, updated_at)
+        (mongo_id, user_mongo_id, person_mongo_id, @pending, @created_at, @updated_at)
         SET #{boolean_set("pending")};
       SQL
       log "Finished. Imported #{Mongo::Contact.count} contacts."
@@ -170,9 +177,11 @@ module DataConversion
       Mongo::Person.connection.execute <<-SQL
         #{load_string("people")}
         #{infile_opts}
-        (created_at,updated_at,serialized_public_key,url,mongo_id,@owner_mongo_id,diaspora_handle)
+        (@created_at,@updated_at,serialized_public_key,url,mongo_id,@owner_mongo_id,diaspora_handle)
         SET guid = mongo_id,
-        #{nil_es("owner_mongo_id")};
+        #{nil_es("owner_mongo_id")},
+        #{unix_time("created_at")},
+        #{unix_time("updated_at")};
       SQL
       log "Finished. Imported #{Mongo::Person.count} people."
     end
