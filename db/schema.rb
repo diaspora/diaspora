@@ -380,6 +380,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
+    t.string   "user_mongo_id"
   end
 
   add_index "services", ["user_id"], :name => "index_services_on_user_id"

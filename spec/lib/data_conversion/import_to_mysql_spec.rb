@@ -50,30 +50,66 @@ describe DataConversion::ImportToMysql do
         bob.reset_password_token.should be_nil
         bob.password_salt.should_not be_nil
       end
-      describe "aspects" do
-        before do
-          copy_fixture_for("aspects")
-          @migrator.import_raw_aspects
-          @migrator.process_raw_users
-        end
-        it "imports data into the aspects table" do
-          Mongo::Aspect.count.should == 4
-          Aspect.count.should == 0
-          @migrator.process_raw_aspects
-          Aspect.count.should == 4
-        end
-        it "imports all the columns" do
-          @migrator.process_raw_aspects
-          aspect = Aspect.first
-          aspect.name.should == "generic"
-          aspect.mongo_id.should == "4d2657e9cc8cb46033000006"
-          aspect.user_mongo_id.should == "4d2657e9cc8cb46033000005"
-        end
-        it "sets the relation column" do
-          @migrator.process_raw_aspects
-          aspect = Aspect.first
-          aspect.user_id.should == User.where(:mongo_id => aspect.user_mongo_id).first.id
-        end
+
+    end
+    describe "aspects" do
+      before do
+        copy_fixture_for("aspects")
+        @migrator.import_raw_aspects
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+      end
+      it "imports data into the aspects table" do
+        Mongo::Aspect.count.should == 4
+        Aspect.count.should == 0
+        @migrator.process_raw_aspects
+        Aspect.count.should == 4
+      end
+      it "imports all the columns" do
+        @migrator.process_raw_aspects
+        aspect = Aspect.first
+        aspect.name.should == "generic"
+        aspect.mongo_id.should == "4d2657e9cc8cb46033000006"
+        aspect.user_mongo_id.should == "4d2657e9cc8cb46033000005"
+      end
+      it "sets the relation column" do
+        @migrator.process_raw_aspects
+        aspect = Aspect.first
+        aspect.user_id.should == User.where(:mongo_id => aspect.user_mongo_id).first.id
+      end
+    end
+    describe "services" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("services")
+        @migrator.import_raw_services
+      end
+
+      it "imports data into the services table" do
+        Mongo::Service.count.should == 2
+        Service.count.should == 0
+        @migrator.process_raw_services
+        Service.count.should == 2
+      end
+
+      it "imports all the columns" do
+        @migrator.process_raw_services
+        service = Service.first
+        service.type_before_type_cast.should == "Services::Facebook"
+        service.user_mongo_id.should == "4d2657eacc8cb46033000011"
+        service.provider.should be_nil
+        service.uid.should be_nil
+        service.access_token.should == "yeah"
+        service.access_secret.should be_nil
+        service.nickname.should be_nil
+      end
+      it 'sets the relation column' do
+        @migrator.process_raw_services
+        service = Service.first
+        service.user_id.should == User.where(:mongo_id => service.user_mongo_id).first.id
       end
     end
   end

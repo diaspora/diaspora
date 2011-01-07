@@ -142,7 +142,9 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_requests, :recipient_mongo_id
     add_index :mongo_requests, [:sender_mongo_id, :recipient_mongo_id]
 
+    add_column(:services, :user_mongo_id, :string)
     create_table :mongo_services do |t|
+      t.string :mongo_id
       t.string :type
       t.string :user_mongo_id
       t.string :provider

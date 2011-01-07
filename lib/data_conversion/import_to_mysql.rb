@@ -66,11 +66,37 @@ module DataConversion
       log "Importing aspects to main table..."
       Aspect.connection.execute <<-SQL
         INSERT INTO aspects
-        SELECT mongo_aspects.id, mongo_aspects.name, users.id, mongo_aspects.created_at, mongo_aspects.updated_at, mongo_aspects.mongo_id, mongo_aspects.user_mongo_id FROM mongo_aspects INNER JOIN users ON (users.mongo_id = mongo_aspects.user_mongo_id)
+        SELECT mongo_aspects.id,
+               mongo_aspects.name,
+               users.id,
+               mongo_aspects.created_at,
+               mongo_aspects.updated_at,
+               mongo_aspects.mongo_id,
+               mongo_aspects.user_mongo_id
+          FROM mongo_aspects INNER JOIN users ON (users.mongo_id = mongo_aspects.user_mongo_id)
       SQL
       log "Imported #{Aspect.count} aspects."
     end
-
+    def process_raw_services
+      log "Importing services to main table..."
+      Service.connection.execute <<-SQL
+        INSERT INTO services
+        SELECT mongo_services.id,
+               mongo_services.type,
+               users.id,
+               mongo_services.provider,
+               mongo_services.uid,
+               mongo_services.access_token,
+               mongo_services.access_secret,
+               mongo_services.nickname,
+               mongo_services.created_at,
+               mongo_services.updated_at,
+               mongo_services.mongo_id,
+               mongo_services.user_mongo_id
+          FROM mongo_services INNER JOIN users ON (users.mongo_id = mongo_services.user_mongo_id)
+      SQL
+      log "Imported #{Service.count} services."
+    end
     def import_raw_users
       log "Loading users file..."
       Mongo::User.connection.execute <<-SQL
@@ -156,7 +182,7 @@ module DataConversion
       Mongo::Service.connection.execute <<-SQL
         #{load_string("services")}
         #{infile_opts}
-        (type,user_mongo_id,@provider,@uid,@access_token,@access_secret,@nickname)
+        (mongo_id, type,user_mongo_id,@provider,@uid,@access_token,@access_secret,@nickname)
         SET #{nil_es("provider")},
         #{nil_es("uid")},
         #{nil_es("access_token")},
