@@ -1208,16 +1208,18 @@ ul#settings_nav
   :background
     :color transparent
 
-.contact_pictures
-  :margin
-    :top 12px
-  :line-height 1em
+.contact_pictures,
+#aspect_listings li
   img
     :margin
-      :right 1px
-      :bottom 2px
-    :width 35px
-    :height 35px
+      :right 2px
+      :bottom 0px
+    :width 29px
+    :height 29px
+
+  h5
+    :margin
+      :bottom 6px
 
 .contact_pictures.horizontal
   img
@@ -1231,7 +1233,7 @@ ul#settings_nav
   :padding 0
 
 #left_pane
-  .aspect_listings
+  #aspect_listings
     a
       :font
         :weight bold
@@ -1246,13 +1248,21 @@ ul#settings_nav
     > li
       :position relative
 
+.dull
+  :color #aaa
+  :font
+    :style italic
 
-.aspect_listings
+#aspect_listings
+  .contacts
+    :margin
+      :top 6px
+
   ul
     :padding 0
     :margin 0
     > li
-      :padding 6px
+      :padding 8px 0
       :border
         :bottom 1px solid #ddd
 
@@ -2151,3 +2161,14 @@ ul.show_comments
         :position absolute
         :left 6px
 
+#home_user_badge
+  h3
+    :margin
+      :bottom 0
+  :margin
+    :bottom 2em
+  :padding
+    :bottom 1em
+
+  :border
+    :bottom 1px solid #ccc

@@ -24,7 +24,7 @@ class AspectsController < ApplicationController
 
     @contacts = Contact.all(:aspect_ids.in => @aspect_ids, :user_id => current_user.id, :pending => false)
     @contact_hashes = hashes_for_contacts @contacts
-    @aspect_hashes = hashes_for_aspects @all_aspects, @contacts, :limit => 8
+    @aspect_hashes = hashes_for_aspects @aspects, @contacts, :limit => 8
 
     @aspect = :all unless params[:a_ids]
 

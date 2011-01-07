@@ -1,0 +1,12 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%h4
+  = t('_aspects')
+  = link_to @aspect_hashes.count, aspects_manage_path
+
+%ul
+  - for a_hash in aspect_hashes
+    = render :partial => 'aspects/aspect', :locals => a_hash
