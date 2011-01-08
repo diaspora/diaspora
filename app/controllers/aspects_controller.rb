@@ -16,20 +16,23 @@ class AspectsController < ApplicationController
       @aspects = current_user.aspects
     end
 
-    @aspect_ids = @aspects.map{|a| a.id}
-    post_ids = @aspects.map{|a| a.post_ids}.flatten!
-
-    @posts = Post.where(:id.in => post_ids, :_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
-    @post_hashes = hashes_for_posts @posts
-
-    @contacts = Contact.all(:aspect_ids.in => @aspect_ids, :user_id => current_user.id, :pending => false)
-    @contact_hashes = hashes_for_contacts @contacts
-    @aspect_hashes = hashes_for_aspects @aspects, @contacts, :limit => 8
-
-    @aspect = :all unless params[:a_ids]
-
-    if current_user.getting_started == true
+    # redirect to signup
+    if current_user.getting_started == true || @aspects.blank?
       redirect_to getting_started_path
+    else
+
+      @aspect_ids = @aspects.map{|a| a.id}
+      post_ids = @aspects.map{|a| a.post_ids}.flatten!
+
+      @posts = Post.where(:id.in => post_ids, :_type => "StatusMessage").paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
+      @post_hashes = hashes_for_posts @posts
+
+      @contacts = Contact.all(:aspect_ids.in => @aspect_ids, :user_id => current_user.id, :pending => false)
+      @contact_hashes = hashes_for_contacts @contacts
+      @aspect_hashes = hashes_for_aspects @aspects, @contacts, :limit => 8
+
+      @aspect = :all unless params[:a_ids]
+
     end
   end
 

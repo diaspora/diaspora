@@ -120,7 +120,7 @@ header
     :color #111
     :color rgba(30,30,30,0.98)
 
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(25,25,25,0.83)), to(rgba(0,0,0,0.98)))
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(25,25,25,0.80)), to(rgba(0,0,0,0.98)))
 
   :-webkit-box-shadow 0 1px 3px #111
   :-moz-box-shadow 0 1px 2px #111
@@ -738,6 +738,7 @@ label
     :cursor pointer
 
 #publisher
+  :z-index 0
   :color #999
   :position relative
   :margin
@@ -2138,6 +2139,8 @@ ul.show_comments
 
     h4
       :color #eee
+      :margin
+        :bottom 0
 
   :width 400px
   .person_tiles
@@ -2159,10 +2162,21 @@ ul.show_comments
         :position absolute
         :left 6px
 
+#aspect_edit_controls
+  :margin
+    :top 8px
+
 #home_user_badge
+  :position relative
+
+  img
+    :position absolute
+    :left 0
+
   h3
-    :margin
-      :bottom 0
+    :position relative
+    :top 4px
+
   :margin
     :bottom 2em
   :padding
@@ -2170,4 +2184,7 @@ ul.show_comments
 
   :border
     :bottom 1px solid #ccc
+
+  :padding
+    :left 60px
 

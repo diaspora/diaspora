@@ -1,6 +1,7 @@
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
-  Factory(:user, :username       => username, :password => password,
+  user = Factory(:user, :username       => username, :password => password,
           :password_confirmation => password, :getting_started => false)
+  user.aspects.create(:name => "Besties")
 end
 
 Given /^a user with email "([^\"]*)"$/ do |email|

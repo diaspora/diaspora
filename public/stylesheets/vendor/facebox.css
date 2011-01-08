@@ -37,10 +37,9 @@
 
 #facebox .close{
   position:absolute;
-  top:5px;
-  right:5px;
+  top:15px;
+  right:20px;
   padding:2px;
-  background:#fff;
 }
 #facebox .close img{
   opacity:0.3;

@@ -9,9 +9,11 @@
   = t('.manage_aspects')
 
 #section_header
-  %h2=t('.manage_aspects')
-  .right{:style=>"top:0;"}
-    = link_to("+ #{t('.add_a_new_aspect')}", "#add_aspect_pane", :class => "new_aspect add_aspect_button button", :title => t('.add_a_new_aspect'))
+  .right
+    = link_to("+ #{t('.add_a_new_aspect')}", "#add_aspect_pane", :class => "new_aspect button", :title => t('.add_a_new_aspect'), :rel => 'facebox')
+
+  %h2
+    =t('.manage_aspects')
 
 #manage_aspect_zones
   .span-4.append-1.last

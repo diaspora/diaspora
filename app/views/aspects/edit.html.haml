@@ -8,14 +8,9 @@
 #aspect_edit_pane
   #aspect_edit_pane_header
     %h4
-      .right.description
-        = "#{@aspect_contacts.count} contacts"
       = @aspect
-
-    = link_to 'rename', '#'
-    \.
-    \.
-    = link_to 'delete', @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
+      .description
+        = "#{@aspect_contacts.count} contacts"
 
   .person_tiles{:style => "display:none;"}
     - for contact in @aspect.contacts
@@ -32,3 +27,8 @@
 
   - if @contacts.count > 0
     = render 'shared/contact_list', :aspect_id => @aspect.id, :contact_hashes => @all_contacts
+
+  #aspect_edit_controls
+    = link_to 'rename', '#'
+    \/
+    = link_to 'delete', @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')

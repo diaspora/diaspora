@@ -5,7 +5,7 @@ When /^(.*) in the header$/ do |action|
 end
 
 When /^(.*) in the modal window$/ do |action|
-  within('#fancybox-wrap') do
+  within('#facebox') do
     When action
   end
 end

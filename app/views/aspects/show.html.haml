@@ -23,7 +23,6 @@
 
 .span-15.last
   = render 'shared/publisher', :aspect => @aspect
-  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @aspect_contacts_count, :options => false
 
   #main_stream.stream{:data => {:guids => @aspect.id}}
     = render 'shared/stream', :posts => @post_hashes
