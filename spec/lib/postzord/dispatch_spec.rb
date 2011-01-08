@@ -75,9 +75,12 @@ describe Postzord::Dispatch do
         @zord.post
       end
 
-      it 'calls socket_to_users with the local users' do
-        @zord.should_receive(:socket_to_users).with([@local_user])
-        @zord.post 
+      it 'calls socket_to_users with the local users if the object is a comment' do
+        comment = @local_user.comment "yo", :on => Factory(:status_message)
+        comment.should_receive(:subscribers).and_return([@local_user])
+        mailman = Postzord::Dispatch.new(@user, comment)
+        mailman.should_receive(:socket_to_users)
+        mailman.post
       end
     end
   
