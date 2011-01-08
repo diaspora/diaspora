@@ -51,15 +51,20 @@ var Stream = {
 
     // fade in controls
     $stream.delegate(".stream_element", "mouseenter", function(evt) {
-      var element = $(this),
-          controls = element.find('.controls');
+      var controls = $(this).find('.controls'),
+          badges = $(this).find('.aspect_badges');
+
       controls.fadeIn(100);
+      controls.fadeIn(100);
+      badges.fadeTo(100,1);
     });
     $stream.delegate(".stream_element", "mouseleave", function(evt) {
-      var element = $(this),
-          controls = element.find('.controls');
+      var controls = $(this).find('.controls'),
+          badges = $(this).find('.aspect_badges');
+
       controls.show()
-              .fadeOut(100);
+              .fadeOut(50);
+      badges.fadeTo(50,0.5);
     });
 
     // reshare button action

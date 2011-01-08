@@ -19,12 +19,14 @@
 
       - if post.public?
         %span.arrow ➔
-        %span.aspect_badge.public
-          = t('the_world')
+        %span.aspect_badges
+          %span.aspect_badge.public
+            = t('the_world')
 
       - elsif person.owner_id == current_user.id
         %span.arrow ➔
-        = aspect_badges(aspects_with_post(all_aspects, post))
+        %span.aspect_badges
+          = aspect_badges(aspects_with_post(all_aspects, post))
 
     = render 'status_messages/status_message', :post => post, :photos => photos
 
