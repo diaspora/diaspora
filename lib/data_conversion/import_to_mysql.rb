@@ -50,7 +50,7 @@ module DataConversion
       Mongo::Contact.connection.execute "TRUNCATE TABLE mongo_contacts"
       Mongo::PostVisibility.connection.execute "TRUNCATE TABLE mongo_post_visibilities"
       Mongo::Request.connection.execute "TRUNCATE TABLE mongo_requests"
-      Mongo::Services.connection.execute "TRUNCATE TABLE mongo_services"
+      Mongo::Service.connection.execute "TRUNCATE TABLE mongo_services"
     end
 
     def process_raw_users
@@ -91,6 +91,20 @@ module DataConversion
           FROM mongo_contacts INNER JOIN (users, people) ON (users.mongo_id = mongo_contacts.user_mongo_id AND people.mongo_id = mongo_contacts.person_mongo_id)
       SQL
       log "Imported #{Contact.count} contacts."
+    end
+    def process_raw_aspect_memberships
+      log "Importing aspect_memberships to main table..."
+      AspectMembership.connection.execute <<-SQL
+        INSERT INTO aspect_memberships
+        SELECT mongo_aspect_memberships.id,
+               aspects.id,
+               contacts.id,
+               mongo_aspect_memberships.created_at,
+               mongo_aspect_memberships.updated_at
+          FROM mongo_aspect_memberships INNER JOIN (aspects, contacts)
+            ON (aspects.mongo_id = mongo_aspect_memberships.aspect_mongo_id AND contacts.mongo_id = mongo_aspect_memberships.contact_mongo_id)
+      SQL
+      log "Imported #{AspectMembership.count} aspect_memberships."
     end
     def process_raw_services
       log "Importing services to main table..."

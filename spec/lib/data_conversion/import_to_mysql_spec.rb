@@ -19,7 +19,6 @@ describe DataConversion::ImportToMysql do
   end
 
   describe "#process_raw" do
-
     describe "users" do
       before do
         copy_fixture_for("users")
@@ -50,8 +49,8 @@ describe DataConversion::ImportToMysql do
         bob.reset_password_token.should be_nil
         bob.password_salt.should_not be_nil
       end
-
     end
+
     describe "aspects" do
       before do
         copy_fixture_for("aspects")
@@ -79,6 +78,7 @@ describe DataConversion::ImportToMysql do
         aspect.user_id.should == User.where(:mongo_id => aspect.user_mongo_id).first.id
       end
     end
+
     describe "services" do
       before do
         copy_fixture_for("users")
@@ -112,6 +112,7 @@ describe DataConversion::ImportToMysql do
         service.user_id.should == User.where(:mongo_id => service.user_mongo_id).first.id
       end
     end
+
     describe "people" do
       before do
         copy_fixture_for("users")
@@ -156,6 +157,7 @@ describe DataConversion::ImportToMysql do
         person.diaspora_handle.should include(person.owner.username)
       end
     end
+
     describe "contacts" do
       before do
         copy_fixture_for("users")
@@ -184,7 +186,39 @@ describe DataConversion::ImportToMysql do
         contact.pending.should be_false
         contact.created_at.should be_nil
       end
+    end
 
+    describe "aspect_memberships" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("people")
+        @migrator.import_raw_people
+        @migrator.process_raw_people
+        copy_fixture_for("contacts")
+        @migrator.import_raw_contacts
+        @migrator.process_raw_contacts
+        copy_fixture_for("aspects")
+        @migrator.import_raw_aspects
+        @migrator.process_raw_aspects
+        copy_fixture_for("aspect_memberships")
+        @migrator.import_raw_aspect_memberships
+      end
+
+      it "imports data into the mongo_aspect_memberships table" do
+        Mongo::AspectMembership.count.should == 6
+        AspectMembership.count.should == 0
+        @migrator.process_raw_aspect_memberships
+        AspectMembership.count.should == 6
+      end
+
+      it "imports all the columns" do
+        @migrator.process_raw_aspect_memberships
+        aspectm = AspectMembership.first
+        aspectm.contact_id.should == Contact.where(:mongo_id => "4d2657eacc8cb4603300000d").first.id
+        aspectm.aspect_id.should == Aspect.where(:mongo_id => "4d2657e9cc8cb46033000006").first.id
+      end
     end
   end
   describe "#import_raw" do
