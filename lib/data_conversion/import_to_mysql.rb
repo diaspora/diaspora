@@ -97,6 +97,23 @@ module DataConversion
       SQL
       log "Imported #{Service.count} services."
     end
+    def process_raw_people
+      log "Importing people to main table..."
+      Person.connection.execute <<-SQL
+        INSERT INTO people
+        SELECT mongo_people.id,
+               mongo_people.guid,
+               mongo_people.url,
+               mongo_people.diaspora_handle,
+               mongo_people.serialized_public_key,
+               users.id,
+               mongo_people.created_at,
+               mongo_people.updated_at,
+               mongo_people.mongo_id
+          FROM mongo_people LEFT JOIN users ON (users.mongo_id = mongo_people.owner_mongo_id)
+      SQL
+      log "Imported #{Person.count} people."
+    end
     def import_raw_users
       log "Loading users file..."
       Mongo::User.connection.execute <<-SQL

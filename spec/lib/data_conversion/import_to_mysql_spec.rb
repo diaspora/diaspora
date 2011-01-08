@@ -112,6 +112,50 @@ describe DataConversion::ImportToMysql do
         service.user_id.should == User.where(:mongo_id => service.user_mongo_id).first.id
       end
     end
+    describe "people" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("people")
+        @migrator.import_raw_people
+      end
+
+      it "imports data into the people table" do
+        Mongo::Person.count.should == 10
+        Person.count.should == 0
+        @migrator.process_raw_people
+        Person.count.should == 10
+      end
+
+      it "imports all the columns of a non-owned person" do
+        @migrator.process_raw_people
+        person = Person.first
+        person.owner_id.should be_nil
+        person.mongo_id.should == "4d2657e9cc8cb46033000002"
+        person.guid.should == person.mongo_id
+        person.url.should == "http://google-10ce30d.com/"
+        person.diaspora_handle.should == "bob-person-19732b3@aol.com"
+        person.serialized_public_key.should_not be_nil
+        person.created_at.to_i.should == 1294358505
+      end
+      it "imports all the columns of an owned person" do
+        @migrator.process_raw_people
+        person = Person.where(:owner_id => User.first.id).first
+        person.mongo_id.should == "4d2657e9cc8cb46033000008"
+        person.guid.should == person.mongo_id
+        person.url.should == "http://google-4328940.com/"
+        person.diaspora_handle.should == "bob14cbf20@localhost"
+        person.serialized_public_key.should_not be_nil
+        person.created_at.to_i.should == 1294358506
+      end
+      it 'sets the relational column of an owned person' do
+        @migrator.process_raw_people
+        person = Person.where(:owner_id => User.first.id).first
+        person.should_not be_nil
+        person.diaspora_handle.should include(person.owner.username)
+      end
+    end
   end
   describe "#import_raw" do
     describe "aspects" do
