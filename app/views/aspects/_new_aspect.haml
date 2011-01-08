@@ -3,8 +3,9 @@
 -#   the COPYRIGHT file.
 
 .span-12.last
-  .modal_title_bar
-    %h4= t('aspects.manage.add_a_new_aspect')
+  #facebox_header
+    %h4
+      = t('aspects.manage.add_a_new_aspect')
 
   = form_for Aspect.new do |aspect|
     = aspect.error_messages
