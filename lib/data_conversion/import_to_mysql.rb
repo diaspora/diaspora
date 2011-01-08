@@ -77,6 +77,21 @@ module DataConversion
       SQL
       log "Imported #{Aspect.count} aspects."
     end
+    def process_raw_contacts
+      log "Importing contacts to main table..."
+      Contact.connection.execute <<-SQL
+        INSERT INTO contacts
+        SELECT mongo_contacts.id,
+               users.id,
+               people.id,
+               mongo_contacts.pending,
+               mongo_contacts.created_at,
+               mongo_contacts.updated_at,
+               mongo_contacts.mongo_id
+          FROM mongo_contacts INNER JOIN (users, people) ON (users.mongo_id = mongo_contacts.user_mongo_id AND people.mongo_id = mongo_contacts.person_mongo_id)
+      SQL
+      log "Imported #{Contact.count} contacts."
+    end
     def process_raw_services
       log "Importing services to main table..."
       Service.connection.execute <<-SQL

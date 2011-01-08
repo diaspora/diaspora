@@ -156,6 +156,36 @@ describe DataConversion::ImportToMysql do
         person.diaspora_handle.should include(person.owner.username)
       end
     end
+    describe "contacts" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("people")
+        @migrator.import_raw_people
+        @migrator.process_raw_people
+        copy_fixture_for("contacts")
+        @migrator.import_raw_contacts
+      end
+
+      it "imports data into the mongo_contacts table" do
+        Mongo::Contact.count.should == 6
+        Contact.count.should == 0
+        @migrator.process_raw_contacts
+        Contact.count.should == 6
+      end
+
+      it "imports all the columns" do
+        @migrator.process_raw_contacts
+        contact = Contact.first
+        contact.mongo_id.should == "4d2657eacc8cb4603300000d"
+        contact.user_id.should == User.where(:mongo_id => "4d2657e9cc8cb46033000005").first.id
+        contact.person_id.should == Person.where(:mongo_id => "4d2657eacc8cb4603300000c").first.id
+        contact.pending.should be_false
+        contact.created_at.should be_nil
+      end
+
+    end
   end
   describe "#import_raw" do
     describe "aspects" do
