@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-#publisher{:class => ("closed" unless params[:op])}
+#publisher{:class => ("closed" unless params[:op] || params[:prefill])}
 
   #click_to_share
     = image_tag 'icons/doc_edit.png'

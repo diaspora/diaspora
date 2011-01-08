@@ -47,8 +47,10 @@ module ApplicationHelper
 
   def aspect_links aspects, opts={}
     str = ""
-    aspects.each do |a|
-      str << aspect_li(a, opts)
+    aspects.each do |aspect|
+      str << '<li>'
+      str << link_for_aspect(aspect, :params => opts, 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
+      str << '</li>'
     end
     str.html_safe
   end

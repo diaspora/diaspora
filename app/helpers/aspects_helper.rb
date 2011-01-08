@@ -4,7 +4,10 @@
 
 module AspectsHelper
   def link_for_aspect(aspect, opts={})
-    link_to aspect.name, aspects_path("a_ids[]" => aspect.id), opts
+    opts[:params] ||= {}
+    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id)
+
+    link_to aspect.name, aspects_path( opts[:params] ), opts
   end
 
   def remove_link(aspect)

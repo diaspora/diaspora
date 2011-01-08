@@ -111,8 +111,13 @@ $(document).ready(function(){
 
         // fill in publisher
         // (not cached because this element changes)
-        $("#publisher textarea").val(post);
 
+        var textarea = $("#publisher textarea");
+
+        if( textarea.val() == "" ) {
+          textarea.val(post);
+          textarea.focus();
+        }
         $('html, body').animate({scrollTop:0}, 'fast');
 
         // reinit listeners on stream
