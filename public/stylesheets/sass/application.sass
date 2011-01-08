@@ -20,7 +20,7 @@ a
 p
   :word-wrap break-word
 
-h1, h2, h3, h4
+h1, h2, h3, h4, h5
   :color #444
   :position relative
   :font
@@ -114,7 +114,6 @@ form
 header
   :z-index 10
   :position relative
-  :min-height 40px
 
   :background
     :color #111
@@ -148,7 +147,7 @@ header
   &.landing
     .right
       :top 10px
-    :height 45px
+    :height 40px
 
   ul#user_menu
     :overflow hidden
@@ -296,11 +295,6 @@ header
 
   h3
     :display inline-block
-
-  #person_nav_links
-    a
-      :margin
-        :right 2em
 
 .stream_element
   :position relative
@@ -651,14 +645,14 @@ ul.show_comments
     :align center
 
 #show_photo
+  :z-index 11
   :position relative
   :display inline-block
-  :background
-    :color #fff
   :max-width 100%
 
   img
     :max-width 100%
+    :-webkit-box-shadow 0 2px 5px #666
 
   #photo_spinner
     :z-index 1
@@ -1642,7 +1636,8 @@ ul#request_result
     input.add
       :color green
 
-.contact_list
+.contact_list,
+.aspect_list
   :height 450px
   :max-height 450px
 
@@ -1708,6 +1703,22 @@ ul#request_result
           &:active
             :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(130,55,55)), color-stop(1, rgb(199,119,119)))
             :background -moz-linear-gradient(top, rgb(199,119,119), rgb(130,55,55))
+
+.aspect_list
+  :height 300px
+  :max-height 300px
+
+  .name
+    :left 1em
+
+  ul
+    > li
+      :padding 1em
+      :height 1em
+
+      .right
+        :top 2px
+        :right 1em
 
 footer
   :margin
@@ -1777,8 +1788,6 @@ ul#landing_nav
             :color #222
 
     :text-shadow 0 1px 0 #000
-
-
 
 
 #signup_field
@@ -1949,15 +1958,6 @@ h3,h4
 #original_post_info
   p
     :color #999
-
-  h4
-    a
-      :font
-        :size 12px
-  img
-    :-webkit-box-shadow 0 1px 2px #666
-    :-moz-box-shadow 0 1px 2px #666
-    :box-shadow 0 1px 2px #666
 
 .what_is_this
   :position relative

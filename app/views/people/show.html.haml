@@ -19,9 +19,21 @@
 
 .span-15.last
   #author_info
-    .right#person_nav_links
-      = link_to t('layouts.header.view_profile'), person_path(@person)
-      = link_to t('_photos'), person_photos_path(@person)
+    - unless @contact || current_user.person == @person
+      .right
+        = link_to "start sharing",
+          {:controller => "people",
+          :action => "share_with",
+          :id => @person.id},
+          :class => 'button',
+          :rel => 'facebox'
+
+    - else
+      .right
+        - if @post_type == :photos
+          = link_to t('layouts.header.view_profile'), person_path(@person)
+        - else
+          = link_to t('_photos'), person_photos_path(@person)
 
     %h3
       = @person.name

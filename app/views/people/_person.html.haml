@@ -12,7 +12,6 @@
     - elsif (contact && contact.pending) || request
       = t('.pending_request')
     - else
-      - single_aspect_form ||= nil
       = link_to "start sharing",
         {:controller => "people",
         :action => "share_with",

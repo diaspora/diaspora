@@ -35,8 +35,7 @@
     .right
       = link_to t('.edit_membership'), "#", :id=> "edit_contact_aspects"
 
-  .edit{:class => ("hidden" if contact)}
-
+  .edit.hidden
     = render :partial => 'people/share_with_pane',
         :locals => {:person => person,
           :contact => contact,
