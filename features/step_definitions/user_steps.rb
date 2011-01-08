@@ -52,6 +52,7 @@ Then /^I should see (\d+) contact(?:s)? in "([^"]*)"$/ do |contact_count, aspect
 end
 
 When /^I drag the contact request to the "([^"]*)" aspect$/ do |aspect_name|
+  Given "I have turned off jQuery effects"
   aspect = @me.reload.aspects.find_by_name(aspect_name)
   aspect_div = find("ul.dropzone[data-aspect_id='#{aspect.id}']")
   request_li = find(".person.request.ui-draggable")
