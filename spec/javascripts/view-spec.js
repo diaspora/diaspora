@@ -103,13 +103,6 @@ describe("View", function() {
     });
 
     describe("keydown", function() {
-      it("is called when the user types", function() {
-        spyOn(View.publisher, "keydown");
-        View.initialize();
-        $(View.publisher.selector).trigger("keydown");
-        expect(View.publisher.keydown).toHaveBeenCalled();
-      });
-
       it("submits the form if the user hits enter while the textarea is focused", function() {
         spyOn($.fn, "submit");
         View.initialize();
