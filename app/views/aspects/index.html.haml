@@ -25,13 +25,14 @@
         /= info_text(t('.handle_explanation'))
 
   - if @notification_count > 0 || @request_count > 0
-    - if @request_count > 0
-      #new_requests
+    #new_requests
+      - if @request_count > 0
         %h4
           = new_request_link(@request_count)
 
-    - if @notification_count > 0
-      #new_notifications
+    #new_notifications
+      - if @notification_count > 0
+        = image_tag 'icons/mail_big.png', :height => 20, :width => 20, :style=>"margin-top:3px;"
         %h4
           = new_notification_link(@notification_count)
     %hr

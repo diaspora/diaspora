@@ -117,9 +117,10 @@ header
 
   :background
     :color #111
-    :color rgba(30,30,30,0.98)
+    :color rgba(15,15,15,0.90)
 
   :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(25,25,25,0.80)), to(rgba(0,0,0,0.98)))
+  :background -moz-linear-gradient(top, rgba(25,25,25,0.80), rgba(0,0,0,0.98))
 
   :-webkit-box-shadow 0 1px 3px #111
   :-moz-box-shadow 0 1px 2px #111
@@ -1989,6 +1990,7 @@ h3,h4
   :padding 0 4px
   :margin
     :right 4px
+    :bottom 4px
 
   :-webkit-border-radius 3px
   :-moz-border-radius 3px
@@ -2043,6 +2045,8 @@ h3,h4
   .arrow,
   .aspect_badge
     :position relative
+    :margin
+      :bottom 0
   .arrow
     :top -0.1em
   .aspect_badge
@@ -2175,8 +2179,6 @@ ul.show_comments
     :position relative
     :top 4px
 
-  :margin
-    :bottom 2em
   :padding
     :bottom 1em
 
@@ -2186,3 +2188,23 @@ ul.show_comments
   :padding
     :left 60px
 
+#aspect_listings
+  :margin
+    :top 24px
+
+#new_notifications,
+#new_requests
+  :position relative
+  
+  :margin
+    :bottom 10px
+    :top -8px
+
+  h4
+    :display inline
+  img
+    :position relative
+    :display inline
+    :margin
+      :right 4px
+    :top 5px

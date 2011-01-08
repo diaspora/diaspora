@@ -51,6 +51,7 @@ describe AspectsController do
       end
 
       it "returns all posts" do
+        @user.aspects.reload
         get :index
         assigns(:posts).length.should == 8
       end

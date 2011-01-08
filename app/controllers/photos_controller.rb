@@ -147,7 +147,10 @@ class PhotosController < ApplicationController
         @parent = @photo
       end
 
-      @object_aspect_ids = @parent.aspects.map{|a| a.id}
+      @object_aspect_ids = []
+      if @parent.aspects
+        @object_aspect_ids = @parent.aspects.map{|a| a.id}
+      end
 
       comments_hash = Comment.hash_from_post_ids [@parent.id]
       person_hash = Person.from_post_comment_hash comments_hash
