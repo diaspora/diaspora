@@ -33,10 +33,6 @@ var View = {
     $(this.gettingStarted.selector)
       .live("click", this.gettingStarted.click);
 
-    /* Submitting the status message form when the user hits enter */
-    $(this.publisher.selector)
-      .keydown(this.publisher.keydown);
-
     /* User menu */
     $(this.userMenu.selector)
       .click(this.userMenu.click);
@@ -124,17 +120,6 @@ var View = {
       $(this).hide().parent().find(".stream_element").removeClass("hidden");
     },
     selector: ".new_request"
-  },
-
-  publisher: {
-    keydown: function(e) {
-      if(e.keyCode === 13) {
-        if(!e.shiftKey) {
-          $(this).closest("form").submit();
-        }
-      }
-    },
-    selector: "#publisher textarea"
   },
 
   search: {
