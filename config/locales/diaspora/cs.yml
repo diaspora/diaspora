@@ -61,6 +61,7 @@ cs:
       add_existing: "Přidat existující kontakt"
       confirm_remove_aspect: "Opravdu odstranit tento aspekt?"
       remove_aspect: "Odstranit tento aspekt"
+      rename_aspect: "Přejmenovat aspekt"
     helper: 
       are_you_sure: "Opravdu chcete odstranit tento aspekt?"
       aspect_not_empty: "Aspekt není prázdný"
@@ -177,6 +178,7 @@ cs:
   next: "další"
   no_new_notifications: "žádná nová oznámení"
   notifications: 
+    also_commented: "také komentoval v"
     comment_on_post: "komentoval váš"
     deleted: "smazáno"
     index: 
@@ -185,6 +187,14 @@ cs:
     post: "zpráva"
     request_accepted: "akceptoval vaši žádost o sdílení."
   notifier: 
+    also_commented: 
+      commented: "také komentoval příspěvek od %{post_author}:"
+      sign_in: "Přihlašte se pro zobrazení."
+      subject: "%{name} také komentoval."
+    comment_on_post: 
+      commented: "komentoval váš příspěvek!"
+      sign_in: "Přihlašte se pro zobrazení."
+      subject: "%{name} komentoval váš příspěvek."
     diaspora: "diaspora email robot"
     hello: "Vítej %{name}!"
     love: "s láskou,"
@@ -252,7 +262,7 @@ cs:
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "Máte příchozí žádost od tohoto kontaktu."
       no_posts: "žádné zprávy k zobrazení!"
-      not_connected: "Nesdílíte s %{name}"
+      not_connected: "Nejste spřáteleni s %{name}"
       recent_posts: "Poslední příspěvky"
       recent_public_posts: "Poslední veřejné příspěvky"
       return_to_aspects: "Návrat na vaši stránku s aspekty"
@@ -418,7 +428,7 @@ cs:
       finished: "Dokončeno!"
       save_and_continue: "Uložit a pokračovat"
       signup_steps: "Dokončete registraci vyplněním těchto tří kroků:"
-      skip: "přeskočit"
+      skip: "přeskočit průvodce"
       step_2: 
         add: "Přidat"
         aspect_name: "Název aspektu"

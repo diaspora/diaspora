@@ -61,6 +61,7 @@ de:
       add_existing: "Bestehenden Kontakt hinzufügen"
       confirm_remove_aspect: "Möchtest du diesen Aspekt wirklich löschen?"
       remove_aspect: "Diesen Aspekt löschen"
+      rename_aspect: "Aspekt umbenennen"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
@@ -177,6 +178,7 @@ de:
   next: "Nächste"
   no_new_notifications: "keine neuen Benachrichtigungen"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "kommentierte deinen"
     deleted: "gelöschten"
     index: 
@@ -185,6 +187,14 @@ de:
     post: "Beitrag"
     request_accepted: "hat deine Teilen-Anfrage angenommen."
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "hat deinen Eintrag kommentiert!"
+      sign_in: "Melde dich an um dies zu sehen."
+      subject: "%{name} hat deinen Eintrag kommentiert."
     diaspora: "der Diaspora E-Mail-Roboter"
     hello: "Hallo %{name}!"
     love: "Gruß,"

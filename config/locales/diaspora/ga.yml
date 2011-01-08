@@ -61,6 +61,7 @@ ga:
       add_existing: "Cuir teagmháilí a bhfuil ann cheanna féin leis"
       confirm_remove_aspect: "An bhfuil tu cinnte go bhfuil tú ag iarraidh an gné seo a scriosadh?"
       remove_aspect: "Scrios an gné seo"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Níl an gné folamh"
@@ -177,6 +178,7 @@ ga:
   next: "ar aghaidh"
   no_new_notifications: "níl aon fógrái nua"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "commented on your"
     deleted: "scriosadh"
     index: 
@@ -185,6 +187,14 @@ ga:
     post: "póst"
     request_accepted: "glacadh le do iarratas roinnt"
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "an róbat ríomhpost diaspora"
     hello: "Haileo %{name}!"
     love: "le meas,"

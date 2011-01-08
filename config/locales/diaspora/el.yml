@@ -61,6 +61,7 @@ el:
       add_existing: "Προσθήκη μιας υπάρχουσας επαφής"
       confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       remove_aspect: "Διαγραφή αυτής της πτυχής"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
@@ -177,6 +178,7 @@ el:
   next: "επόμενο"
   no_new_notifications: "καμία νέα ειδοποίηση"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
     index: 
@@ -185,6 +187,14 @@ el:
     post: "δημοσίευση"
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "ρομπότ για τα email του δικτύου Diaspora"
     hello: "Γειά σου %{name}!"
     love: "αγάπη,"

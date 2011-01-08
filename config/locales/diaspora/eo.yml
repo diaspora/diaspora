@@ -61,6 +61,7 @@ eo:
       add_existing: "Add an existing contact"
       confirm_remove_aspect: "Remove aspect?"
       remove_aspect: "Remove Aspect"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Aspect not empty"
@@ -177,6 +178,7 @@ eo:
   next: "next"
   no_new_notifications: "no new notifications"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "commented on your"
     deleted: "deleted"
     index: 
@@ -185,6 +187,14 @@ eo:
     post: "post"
     request_accepted: "accepted your share request."
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "the diaspora email robot"
     hello: "Saluton %{name}!"
     love: "love,"

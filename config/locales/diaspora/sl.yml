@@ -61,6 +61,7 @@ sl:
       add_existing: "Dodaj obstoječi stik"
       confirm_remove_aspect: "Ste prepričani, da želite izbrisati skupino?"
       remove_aspect: "Izbriši skupino"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"
       aspect_not_empty: "Skupina vsebuje stike"
@@ -177,6 +178,7 @@ sl:
   next: "naslednja"
   no_new_notifications: "ni novih sporočil"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "komentar na vaš"
     deleted: "izbrisano"
     index: 
@@ -185,6 +187,14 @@ sl:
     post: "prispevek"
     request_accepted: "vaše prošnja je sprejeta."
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "diaspora email robot"
     hello: "Pozdravljeni %{name}!"
     love: "vas pozdravlja,"

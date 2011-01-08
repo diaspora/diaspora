@@ -61,6 +61,7 @@ fi:
       add_existing: "Lisää olemassa oleva kontakti"
       confirm_remove_aspect: "Oletko varma, että haluat poistaa tämän näkymän?"
       remove_aspect: "Poista näkymä"
+      rename_aspect: "Nimeä näkymä uudelleen"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
       aspect_not_empty: "Verkostonäkymä ei ole tyhjä"
@@ -177,6 +178,7 @@ fi:
   next: "seuraava"
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
+    also_commented: "kommentoi myös"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
     index: 
@@ -185,6 +187,14 @@ fi:
     post: "viesti"
     request_accepted: "hyväksyi jakopyyntösi."
   notifier: 
+    also_commented: 
+      commented: "kommentoi myös käyttäjän %{post_author} viestiin:"
+      sign_in: "Kirjaudu sisään nähdäksesi."
+      subject: "%{name} on myös kommentoinut."
+    comment_on_post: 
+      commented: "on kommentoinut viestiisi!"
+      sign_in: "Kirjaudu sisään nähdäksesi."
+      subject: "%{name} on kommentoinut viestiisi."
     diaspora: "diasporan sähköpostirobotti"
     hello: "Hei %{name}!"
     love: "terveisin,"

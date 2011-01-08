@@ -61,6 +61,7 @@ es:
       add_existing: "Añadir un contacto existente"
       confirm_remove_aspect: "Remover aspecto?"
       remove_aspect: "Remover Aspecto"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "¿Estás seguro de que quieres eliminar este aspecto?"
       aspect_not_empty: "Aspecto no vacío"
@@ -177,6 +178,7 @@ es:
   next: "siguiente"
   no_new_notifications: "no hay nuevas notificaciones"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "comentado en tu"
     deleted: "borrado"
     index: 
@@ -185,6 +187,14 @@ es:
     post: "enviar"
     request_accepted: "aceptada tu petición de participación."
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "Correo robot de Diaspora"
     hello: "¡Hola %{name}!"
     love: "cariño,"

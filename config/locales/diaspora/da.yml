@@ -61,6 +61,7 @@ da:
       add_existing: "Tilføj eksisterende kontakt"
       confirm_remove_aspect: "Fjern aspekt?"
       remove_aspect: "Fjern aspekt"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"
       aspect_not_empty: "Aspektet er ikke tomt"
@@ -177,6 +178,7 @@ da:
   next: "Næste"
   no_new_notifications: "Ingen nye notifikationer"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "kommenterede et af dine"
     deleted: "slettet"
     index: 
@@ -185,6 +187,14 @@ da:
     post: "indlæg"
     request_accepted: "accepterede din anmodning."
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
     love: "Hilsen,"

@@ -61,6 +61,7 @@ sv:
       add_existing: "Lägg till en befintlig kontakt"
       confirm_remove_aspect: "Är du säker på att du vill tabort denna sida?"
       remove_aspect: "Ta bort denna sida"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Är du säker på att du vill tabort den här sidan?"
       aspect_not_empty: "Sidan är inte tom"
@@ -177,6 +178,7 @@ sv:
   next: "nästa"
   no_new_notifications: "inga nya notifieringar"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "kommenterade din"
     deleted: "borttaget"
     index: 
@@ -185,6 +187,14 @@ sv:
     post: "meddelande"
     request_accepted: "accepterade din förfrågan om att dela."
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
     love: "hälsningar,"

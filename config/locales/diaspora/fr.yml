@@ -61,6 +61,7 @@ fr:
       add_existing: "Ajouter un contact existant"
       confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
       remove_aspect: "Supprimer cet aspect"
+      rename_aspect: "Renommer l'aspect"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
@@ -177,7 +178,8 @@ fr:
   next: "suivant"
   no_new_notifications: "aucune nouvelle notification"
   notifications: 
-    comment_on_post: "a commenté sur votre"
+    also_commented: "a également commenté sur"
+    comment_on_post: "a commenté votre"
     deleted: "supprimé"
     index: 
       notifications: "Notifications"
@@ -185,6 +187,14 @@ fr:
     post: "message"
     request_accepted: "a accepté votre demande de partage."
   notifier: 
+    also_commented: 
+      commented: "a également commenté le message de %{post_author} :"
+      sign_in: "Connectez-vous pour le voir."
+      subject: "%{name} a également commenté."
+    comment_on_post: 
+      commented: "a commenté votre message !"
+      sign_in: "Connectez-vous pour le voir."
+      subject: "%{name} a commenté votre message."
     diaspora: "le robot de messagerie électronique de diaspora"
     hello: "Bonjour %{name} !"
     love: "affectueusement,"

@@ -61,6 +61,7 @@ nl:
       add_existing: "Voeg een bestaand contact toe"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
       remove_aspect: "Verwijder dit aspect"
+      rename_aspect: "Hernoem aspect"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -177,6 +178,7 @@ nl:
   next: "volgende"
   no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
+    also_commented: "heeft ook gereageerd op"
     comment_on_post: "reageerde op jouw"
     deleted: "verwijderd"
     index: 
@@ -185,6 +187,14 @@ nl:
     post: "post"
     request_accepted: "heeft je verzoek geaccepteerd."
   notifier: 
+    also_commented: 
+      commented: "heeft ook op %{post_author}'s post gereageerd:"
+      sign_in: "Log in om het te zien."
+      subject: "%{name} heeft ook gereageerd."
+    comment_on_post: 
+      commented: "heeft op jou post gereageerd!"
+      sign_in: "Log in om het te zien."
+      subject: "%{name} heeft op jou post gereageerd."
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
     love: "liefs,"

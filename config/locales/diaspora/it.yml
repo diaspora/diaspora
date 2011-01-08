@@ -61,6 +61,7 @@ it:
       add_existing: "Aggiungi un contatto esistente"
       confirm_remove_aspect: "Rimuovere l'aspetto?"
       remove_aspect: "Rimuovi Aspetto"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Sei sicuro di voler eliminare questo aspetto?"
       aspect_not_empty: "Aspetto non vuoto"
@@ -177,6 +178,7 @@ it:
   next: "next"
   no_new_notifications: "no new notifications"
   notifications: 
+    also_commented: "also commented on"
     comment_on_post: "commented on your"
     deleted: "deleted"
     index: 
@@ -185,6 +187,14 @@ it:
     post: "post"
     request_accepted: "accepted your share request."
   notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
     diaspora: "l'email robot di diaspora"
     hello: "Ciao %{name}!"
     love: "amore,"
