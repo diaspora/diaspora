@@ -49,6 +49,19 @@ var Stream = {
       }
     });
 
+    // fade in controls
+    $stream.delegate(".stream_element", "mouseenter", function(evt) {
+      var element = $(this),
+          controls = element.find('.controls');
+      controls.fadeIn(100);
+    });
+    $stream.delegate(".stream_element", "mouseleave", function(evt) {
+      var element = $(this),
+          controls = element.find('.controls');
+      controls.show()
+              .fadeOut(100);
+    });
+
     // reshare button action
     $stream.delegate(".reshare_button", "click", function(evt) {
       evt.preventDefault();

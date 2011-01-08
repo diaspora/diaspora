@@ -260,8 +260,6 @@ header
 .from
   :text
     :shadow 0 1px #fff
-  h4
-    :display inline
   a
     :font
       :weight bold
@@ -367,8 +365,15 @@ header
     :margin
       :right 5px
 
+  .delete
+    :opacity 0.6
+    :padding 5px
+
+    &:hover
+      :opacity 1
+
   &:hover
-    div.info, .time, .from h4
+    div.info, .time, .from h5
       a
         :color #107FC9
         &:hover
@@ -384,7 +389,7 @@ header
   :cursor default
 
 .right .reshare_pane .reshare_button
-  :padding 5px
+  :padding 2px
   &.active
     :background
       :color #333
@@ -2038,6 +2043,8 @@ h3,h4
   &:hover
     :background
       :color #bbb
+  &:active
+    :top 0px
 
 .stream
   .avatar
