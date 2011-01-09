@@ -75,7 +75,7 @@ describe DataConversion::ImportToMysql do
       it "sets the relation column" do
         @migrator.process_raw_aspects
         aspect = Aspect.first
-        aspect.user_id.should == User.where(:mongo_id => aspect.user_mongo_id).first.id
+        aspect.user.should == User.where(:mongo_id => aspect.user_mongo_id).first
       end
     end
 
@@ -131,6 +131,7 @@ describe DataConversion::ImportToMysql do
 
       it "imports all the columns of a non-owned person" do
         @migrator.process_raw_people
+        mongo_person = Mongo::Person.first
         person = Person.first
         person.owner_id.should be_nil
         person.mongo_id.should == "4d2657e9cc8cb46033000002"
@@ -138,17 +139,19 @@ describe DataConversion::ImportToMysql do
         person.url.should == "http://google-10ce30d.com/"
         person.diaspora_handle.should == "bob-person-19732b3@aol.com"
         person.serialized_public_key.should_not be_nil
-        person.created_at.to_i.should == 1294358505
+        person.created_at.should == mongo_person.created_at
       end
+
       it "imports all the columns of an owned person" do
         @migrator.process_raw_people
         person = Person.where(:owner_id => User.first.id).first
-        person.mongo_id.should == "4d2657e9cc8cb46033000008"
-        person.guid.should == person.mongo_id
-        person.url.should == "http://google-4328940.com/"
-        person.diaspora_handle.should == "bob14cbf20@localhost"
-        person.serialized_public_key.should_not be_nil
-        person.created_at.to_i.should == 1294358506
+        mongo_person = Mongo::Person.where(:mongo_id => person.mongo_id).first
+        person.mongo_id.should == mongo_person.mongo_id
+        person.guid.should == mongo_person.mongo_id
+        person.url.should == mongo_person.url
+        person.diaspora_handle.should == mongo_person.diaspora_handle
+        person.serialized_public_key.should == mongo_person.serialized_public_key
+        person.created_at.should == mongo_person.created_at
       end
       it 'sets the relational column of an owned person' do
         @migrator.process_raw_people
@@ -341,8 +344,9 @@ describe DataConversion::ImportToMysql do
         post = Mongo::Post.first
         post.youtube_titles.should be_nil
         post.pending.should == false
-        post.created_at.to_i.should == 1294358525
-        post.public.should == false
+        # puts post.created_at.utc? # == true
+        post.created_at.utc.to_i.should == 1294358525 # got 1294329725 - minus 8 hours
+        post.public.should == false                   # 1294358525000 in fixture
         post.updated_at.to_i.should == 1294358525
         post.status_message_mongo_id.should be_nil
         post.caption.should be_nil

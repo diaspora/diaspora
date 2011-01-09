@@ -12,7 +12,7 @@ module DataConversion
       "#{string} = NULLIF(@#{string}, '')"
     end
     def unix_time(string)
-      "#{string} = FROM_UNIXTIME(LEFT(@#{string}, LENGTH(@#{string})-3))"
+      "#{string} = FROM_UNIXTIME(@#{string} / 1000)"
     end
 
     def import_raw
@@ -73,7 +73,8 @@ module DataConversion
                mongo_aspects.updated_at,
                mongo_aspects.mongo_id,
                mongo_aspects.user_mongo_id
-          FROM mongo_aspects INNER JOIN users ON (users.mongo_id = mongo_aspects.user_mongo_id)
+          FROM mongo_aspects
+          INNER JOIN users ON (users.mongo_id = mongo_aspects.user_mongo_id)
       SQL
       log "Imported #{Aspect.count} aspects."
     end
@@ -88,7 +89,9 @@ module DataConversion
                mongo_contacts.created_at,
                mongo_contacts.updated_at,
                mongo_contacts.mongo_id
-          FROM mongo_contacts INNER JOIN (users, people) ON (users.mongo_id = mongo_contacts.user_mongo_id AND people.mongo_id = mongo_contacts.person_mongo_id)
+          FROM mongo_contacts
+          INNER JOIN (users, people) ON (users.mongo_id = mongo_contacts.user_mongo_id
+                                         AND people.mongo_id = mongo_contacts.person_mongo_id)
       SQL
       log "Imported #{Contact.count} contacts."
     end
