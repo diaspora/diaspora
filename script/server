@@ -9,12 +9,22 @@ OS=`uname -s`
 
 [ -e config/server.sh ] && source config/server.sh
 
+function init_suburi_assets
+# fix a symlink corresponding to sub-uri
+{
+    find public -maxdepth 1 -type l -delete
+    sub_uri=$(./script/get_env.sh pod_uri.path)
+    if [  -n "$sub_uri" -a "$sub_uri"  != "/" ]; then
+        cd public; ln -sf . ${sub_uri##/}; cd ..
+    fi
+}
+
 function init_public
 # Create all dynamically generated files in public/ folder
 {
     bundle exec thin \
-         -d --pid log/thin.pid --address localhost --port $THIN_PORT \
-         start
+        -d --pid log/thin.pid --address localhost --port $THIN_PORT \
+        start
     for ((i = 0; i < 30; i += 1)) do
         sleep 2
         wget -q -O tmp/server.html http://localhost:$THIN_PORT && \
@@ -107,8 +117,6 @@ if [ -n "$services" ]; then
     exit 64
 fi
 
-
-
 # Check if Mongo is running
 if  ! ps ax | grep -v grep | grep mongod >/dev/null
 then
@@ -140,6 +148,7 @@ if [ ! -e 'public/stylesheets/application.css' ]; then
     exit 66
 fi
 
+[ -w public ] && init_suburi_assets
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&

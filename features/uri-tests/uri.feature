@@ -12,7 +12,7 @@ Feature: Flexible uri deployment
     Scenario: Present application to user
         Given configuration parameter pod_url is http://localhost:3000/diaspora
         When I visit url http://localhost:3000/diaspora
-        And  I retrieve http://localhost:3000/diaspora into tmp/index.html
+        And  I retrieve http://localhost:3000/diaspora/ into tmp/index.html
         Then I should see "put something in"
         And  a page-asset should be http://localhost:3000/diaspora/stylesheets/ui.css
         And  I should match 'http://localhost:3000/diaspora/stylesheets/blueprint/print.css.[0-9]+"' in tmp/index.html
