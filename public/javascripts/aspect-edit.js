@@ -37,7 +37,7 @@ var AspectEdit = {
   },
 
   stopDrag: function(event, ui) {
-    $(this).find("img").first().animate({'height':70, 'width':70, 'opacity':1}, 200);
+    $(this).find("img").first().animate({'height':50, 'width':50, 'opacity':1}, 200);
     $(".draggable_info").fadeOut(100);
   },
 

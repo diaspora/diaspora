@@ -8,5 +8,5 @@
 
   - if contacts.length > 0
     .contacts
-      - for hash in contacts[0..16]
+      - for hash in contacts
         = person_image_link(hash[:person])
