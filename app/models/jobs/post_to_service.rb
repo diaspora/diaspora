@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 #
 module Jobs
-  class PostToService 
+  class PostToService
     extend ResqueJobLogging
-    @queue = :http
+    @queue = :http_service
 
     def self.perform(service_id, post_id, url)
       service = Service.find_by_id(service_id)
