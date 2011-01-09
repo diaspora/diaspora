@@ -7,5 +7,9 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 #use Rack::FiberPool
 require ::File.expand_path('../lib/chrome_frame', __FILE__)
-use Rack::ChromeFrame, :minimum => 8
-run Diaspora::Application
+
+map AppConfig[:pod_uri].path  do
+  use Rack::ChromeFrame, :minimum => 8
+  use Rack::ShowExceptions
+  run Diaspora::Application
+end
