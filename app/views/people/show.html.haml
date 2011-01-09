@@ -25,7 +25,7 @@
           {:controller => "people",
           :action => "share_with",
           :id => @person.id},
-          :class => 'button',
+          :class => 'share_with button',
           :rel => 'facebox'
 
     - else
@@ -61,6 +61,6 @@
 
   - else
     #stream
-      %li
-        %h3= t('.no_posts')
+      %li{:style=>"text-align:center;"}
+        .dull= t('.no_posts')
 

@@ -119,12 +119,12 @@ header
     :color #111
     :color rgba(15,15,15,0.90)
 
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(25,25,25,0.80)), to(rgba(0,0,0,0.98)))
-  :background -moz-linear-gradient(top, rgba(25,25,25,0.80), rgba(0,0,0,0.98))
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(35,35,35,0.85)), to(rgba(20,20,20,1)))
+  :background -moz-linear-gradient(top, rgba(35,35,35,0.85), rgba(20,20,20,0.98))
 
   :-webkit-box-shadow 0 1px 3px #111
   :-moz-box-shadow 0 1px 2px #111
-  :box-shadow 0 1px 3px #111
+  :box-shadow 0 1px 3px #222
 
   :border
     :bottom 1px solid #777
@@ -1670,6 +1670,10 @@ ul#request_result
   :-moz-box-shadow 0 1px #fff
   :box-shadow 0 1px #fff
 
+  :-webkit-border-radius 0 0 5px 5px
+  :-moz-border-radius 0 0 5px 5px
+  :border-radius 0 0 5px 5px
+
   input.contact_list_search
     :width 100%
     :margin
@@ -1685,6 +1689,10 @@ ul#request_result
       :padding 4px
       :border
         :bottom 1px solid #eee
+
+      &:last-child
+        :border
+          :bottom none
 
       &:hover
         :background

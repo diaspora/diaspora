@@ -86,7 +86,7 @@ class AspectsController < ApplicationController
       @post_hashes = hashes_for_posts @posts
       @post_count = @posts.count
 
-      respond_with @aspect
+      redirect_to aspects_path('a_ids[]' => @aspect.id)
     end
   end
 

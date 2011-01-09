@@ -8,7 +8,10 @@
     = link_to t('contacts', :count => @contacts.count), aspects_manage_path, :title => t('aspects.manage.manage_aspects')
 
   = @aspect_hashes.count
-  = t('_aspects')
+  - if @aspect_hashes.count == 1
+    = t('_aspect')
+  - else
+    = t('_aspects')
 
 %ul
   - for a_hash in aspect_hashes

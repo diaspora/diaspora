@@ -94,7 +94,7 @@ describe AspectsController do
   describe "#show" do
     it "succeeds" do
       get :show, 'id' => @aspect0.id.to_s
-      response.should be_success
+      response.should be_redirect
     end
     it "assigns aspect, aspect_contacts, and posts" do
       get :show, 'id' => @aspect0.id.to_s
