@@ -35,6 +35,17 @@ module DataConversion
 
     def process_raw_tables
       process_raw_users
+      process_raw_aspects
+      process_raw_services
+      process_raw_people
+      process_raw_contacts
+      process_raw_aspect_memberships
+      #invitations
+      #requests
+      #profiles
+      #posts
+      #post_visibilities
+      #notifications
     end
 
     def truncate_tables

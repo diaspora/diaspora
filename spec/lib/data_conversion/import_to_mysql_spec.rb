@@ -113,6 +113,39 @@ describe DataConversion::ImportToMysql do
       end
     end
 
+    describe "invitations" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("invitations")
+        @migrator.import_raw_invitations
+      end
+
+      it "imports data into the mongo_invitations table" do
+        Mongo::Invitation.count.should == 1
+        Invitation.count.should == 0
+        @migrator.import_raw_invitations
+        Invitation.count.should == 1
+      end
+
+      it "imports all the columns" do
+        @migrator.process_raw_invitations
+        invitation = Mongo::Invitation.first
+        invitation.mongo_id.should == "4d2657fdcc8cb46033000022"
+        invitation.recipient_mongo_id.should =="4d2657fbcc8cb46033000021"
+        invitation.sender_mongo_id.should == "4d2657e9cc8cb46033000005"
+        invitation.aspect_mongo_id.should == '4d2657e9cc8cb46033000006'
+        invitation.message.should == "Hello!"
+      end
+      it 'sets the relation columns' do
+        @migrator.process_raw_invitations
+        invitation = Invitation.first
+        invitation.sender_id.should == User.where(:mongo_id => invitation.sender_mongo_id).first.id
+        invitation.recipient_id.should == User.where(:mongo_id => invitation.recipient_mongo_id).first.id
+      end
+    end
+
     describe "people" do
       before do
         copy_fixture_for("users")
