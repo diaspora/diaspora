@@ -82,14 +82,23 @@ describe Postzord::Dispatch do
         mailman.should_receive(:socket_to_users)
         mailman.post
       end
+
+      it 'does not call deliver_to_local if the object is a comment' do
+        comment = @local_user.comment "yo", :on => Factory(:status_message)
+        comment.should_receive(:subscribers).and_return([@local_user])
+        mailman = Postzord::Dispatch.new(@user, comment)
+        mailman.should_receive(:socket_to_users)
+        mailman.should_not_receive(:deliver_to_local)
+        mailman.post
+      end
     end
-  
+
     describe '#deliver_to_remote' do
-      
+
       before do
         @remote_people = []
         @remote_people << @user.person
-        @mailman = Postzord::Dispatch.new(@user, @sm) 
+        @mailman = Postzord::Dispatch.new(@user, @sm)
       end
 
       it 'should queue an HttpPost job for each remote person' do
@@ -136,7 +145,7 @@ describe Postzord::Dispatch do
 
       it 'only pushes to services if the object is public' do
        mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
-      
+
        mailman.should_not_receive(:deliver_to_hub)
        mailman.instance_variable_get(:@sender).should_not_receive(:services)
       end
@@ -147,13 +156,13 @@ describe Postzord::Dispatch do
         @zord.instance_variable_get(:@object).should_receive(:socket_to_uid)
         @zord.send(:socket_to_users, [@local_user])
       end
-      
+
       it 'only tries to socket when the object responds to #socket_to_uid' do
         f = Request.new
         f.stub!(:subscribers)
         users = [@user]
         z = Postzord::Dispatch.new(@user, f)
-        users.should_not_receive(:each) # checking if each is called due to respond_to, actually trying to 
+        users.should_not_receive(:each) # checking if each is called due to respond_to, actually trying to
         z.send(:socket_to_users, users)
       end
     end

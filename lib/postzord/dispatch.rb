@@ -18,16 +18,18 @@ class Postzord::Dispatch
   def post(opts = {})
     unless @subscribers == nil
       remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }
-      
+
       if @object.is_a?(Comment)
         user_ids = [*local_people].map{|x| x.owner_id }
         local_users = User.all(:id.in => user_ids, :fields => ['person_id, username, language, email'])
         self.socket_to_users(local_users)
+      else
+        self.deliver_to_local(local_people)
       end
+
       self.deliver_to_remote(remote_people)
-      self.deliver_to_local(local_people)
     end
-      self.deliver_to_services(opts[:url])
+    self.deliver_to_services(opts[:url])
   end
 
   protected
