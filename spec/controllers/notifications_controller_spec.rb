@@ -11,7 +11,6 @@ describe NotificationsController do
   
   before do
     sign_in :user, user
-
   end
 
   describe '#update' do
@@ -40,10 +39,10 @@ describe NotificationsController do
       end
       
       get :index
-      assigns[:notifications].should =~ Notification.all(:user_id => user.id, :limit => 25)
+      assigns[:notifications].count.should == 25
       
       get :index, :page => 2
-      assigns[:notifications].should =~ Notification.all(:user_id => user.id, :offset => 25, :limit => 25)
+      assigns[:notifications].count.should == 10
     end
   end
 end
