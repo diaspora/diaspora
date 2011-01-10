@@ -43,7 +43,7 @@ module DataConversion
       process_raw_invitations
       process_raw_requests
       process_raw_profiles
-      #posts
+      process_raw_posts
       #post_visibilities
       #notifications
     end
@@ -71,6 +71,41 @@ module DataConversion
         SELECT mongo_users.* from mongo_users
       SQL
       log "Imported #{User.count} users."
+    end
+
+    def process_raw_posts
+      log "Importing posts to main table..."
+      Post.connection.execute <<-SQL
+        INSERT INTO posts
+        SELECT mongo_posts.id,
+               people.id,
+               mongo_posts.public,
+               mongo_posts.diaspora_handle,
+               mongo_posts.guid,
+               mongo_posts.pending,
+               mongo_posts.type,
+               mongo_posts.message,
+               NULL,
+               mongo_posts.caption,
+               mongo_posts.remote_photo_path,
+               mongo_posts.remote_photo_name,
+               mongo_posts.random_string,
+               mongo_posts.image,
+               mongo_posts.youtube_titles,
+               mongo_posts.created_at,
+               mongo_posts.updated_at,
+               mongo_posts.mongo_id
+          FROM mongo_posts
+          INNER JOIN people ON (people.mongo_id = mongo_posts.person_mongo_id)
+      SQL
+      log "Imported #{Post.count} posts."
+
+      log "Setting Photo -> StatusMessage relation column..."
+      Photo.connection.execute <<-SQL
+      SELECT * FROM posts
+      WHERE posts.type = "Photo"
+      SQL
+      log "Processed #{Photo.count} photos."
     end
 
     def process_raw_aspects

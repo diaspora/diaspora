@@ -334,6 +334,71 @@ describe DataConversion::ImportToMysql do
         profile.person_id.should == Person.where(:mongo_id => profile.mongo_id).first.id
       end
     end
+   describe "posts" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("people")
+        @migrator.import_raw_people
+        @migrator.process_raw_people
+        copy_fixture_for("posts")
+        @migrator.import_raw_posts
+      end
+
+      it "imports data into the posts table" do
+        Mongo::Post.count.should == 6
+        Post.count.should == 0
+        @migrator.process_raw_posts
+        Post.count.should == 6
+      end
+
+      it "imports all the columns" do
+        @migrator.process_raw_posts
+        post = StatusMessage.first
+        mongo_post = Mongo::Post.where(:mongo_id => post.mongo_id).first
+        post.youtube_titles.should be_nil
+        post.pending.should == false
+        post.public.should == false
+        post.status_message_id.should be_nil
+        post.caption.should be_nil
+        post.remote_photo_path.should be_nil
+        post.remote_photo_name.should be_nil
+        post.random_string.should be_nil
+        post.image.should be_nil
+        post.mongo_id.should == "4d2b6ebecc8cb43cc2000027"
+        post.guid.should == post.mongo_id
+        post.person_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
+        post.diaspora_handle.should == post.person.diaspora_handle
+        post.message.should == "User2 can see this"
+        post.created_at.should == mongo_post.created_at
+        post.updated_at.should == mongo_post.updated_at
+      end
+
+      it "imports the columns of a photo" do
+        @migrator.process_raw_posts
+        post = Photo.first
+        mongo_post = Mongo::Post.where(:mongo_id => post.mongo_id).first
+        post.youtube_titles.should be_nil
+        post.pending.should == false
+        post.public.should == false
+        post.status_message_id.should == StatusMessage.where(:mongo_id => mongo_post.status_message_mongo_id).first.id
+        post.caption.should be_nil
+        post.remote_photo_path.should be_nil
+        post.remote_photo_name.should be_nil
+        post.random_string.should be_nil
+        post.image.should be_nil
+        post.mongo_id.should == "4d2b6ebfcc8cb43cc200002d"
+        post.guid.should == post.mongo_id
+        post.person_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
+        post.diaspora_handle.should post.person.diaspora_handle
+        post.message.should be_nil
+        # puts post.created_at.utc? # == true
+        post.created_at.utc.to_i.should == 1294692032 # got 1294663230- minus 8 hours
+        post.updated_at.to_i.should == 1294692033
+      end
+    end
+
   end
   describe "#import_raw" do
     describe "aspects" do
