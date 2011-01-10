@@ -18,7 +18,6 @@ public/stylesheets/application.css
 public/stylesheets/sessions.css
 public/stylesheets/ui.css
 public/stylesheets/mobile.css
-public/diaspora
 public/well-known/host-meta
 spec/fixtures/users.yaml
 
