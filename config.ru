@@ -6,15 +6,11 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 require ::File.expand_path('../lib/chrome_frame', __FILE__)
-require 'lib/host-meta'
-#use Rack::FiberPool
+require ::File.expand_path('../lib/host-meta', __FILE__)
 
 map "/.well-known" do
   run HostMeta::File.new( "public/well-known")
 end
 
-map AppConfig[:pod_uri].path  do
-  use Rack::ChromeFrame, :minimum => 8
-  use Rack::ShowExceptions
-  run Diaspora::Application
-end
+use Rack::ChromeFrame, :minimum => 8
+run Diaspora::Application
