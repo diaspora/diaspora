@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.boolean  "pending",    :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "contacts", ["mongo_id"], :name => "index_contacts_on_mongo_id"
@@ -86,7 +84,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "invitations", ["aspect_id"], :name => "index_invitations_on_aspect_id"
@@ -294,14 +291,14 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
   add_index "mongo_users", ["mongo_id"], :name => "index_mongo_users_on_mongo_id", :unique => true
 
   create_table "notification_actors", :force => true do |t|
-    t.integer  "notifications_id"
+    t.integer  "notification_id"
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "notification_actors", ["notifications_id", "person_id"], :name => "index_notification_actors_on_notifications_id_and_person_id", :unique => true
-  add_index "notification_actors", ["notifications_id"], :name => "index_notification_actors_on_notifications_id"
+  add_index "notification_actors", ["notification_id", "person_id"], :name => "index_notification_actors_on_notification_id_and_person_id", :unique => true
+  add_index "notification_actors", ["notification_id"], :name => "index_notification_actors_on_notification_id"
   add_index "notification_actors", ["person_id"], :name => "index_notification_actors_on_person_id"
 
   create_table "notifications", :force => true do |t|
@@ -313,7 +310,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.boolean  "unread",       :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "notifications", ["mongo_id"], :name => "index_notifications_on_mongo_id"
@@ -329,7 +325,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
@@ -365,7 +360,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "posts", ["guid"], :name => "index_posts_on_guid"
@@ -390,7 +384,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "person_id",                          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "profiles", ["first_name", "last_name", "searchable"], :name => "index_profiles_on_first_name_and_last_name_and_searchable"
@@ -405,7 +398,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "requests", ["mongo_id"], :name => "index_requests_on_mongo_id"
@@ -422,8 +414,6 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
-    t.string   "user_mongo_id"
   end
 
   add_index "services", ["mongo_id"], :name => "index_services_on_mongo_id"
