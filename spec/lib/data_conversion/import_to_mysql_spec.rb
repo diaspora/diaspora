@@ -128,24 +128,22 @@ describe DataConversion::ImportToMysql do
       it "imports data into the mongo_invitations table" do
         Mongo::Invitation.count.should == 1
         Invitation.count.should == 0
-        @migrator.import_raw_invitations
+        @migrator.process_raw_invitations
         Invitation.count.should == 1
       end
 
       it "imports all the columns" do
         @migrator.process_raw_invitations
-        invitation = Mongo::Invitation.first
+        invitation = Invitation.first
         invitation.mongo_id.should == "4d2657fdcc8cb46033000022"
-        invitation.recipient_mongo_id.should =="4d2657fbcc8cb46033000021"
-        invitation.sender_mongo_id.should == "4d2657e9cc8cb46033000005"
-        invitation.aspect_mongo_id.should == '4d2657e9cc8cb46033000006'
         invitation.message.should == "Hello!"
       end
       it 'sets the relation columns' do
         @migrator.process_raw_invitations
         invitation = Invitation.first
-        invitation.sender_id.should == User.where(:mongo_id => invitation.sender_mongo_id).first.id
-        invitation.recipient_id.should == User.where(:mongo_id => invitation.recipient_mongo_id).first.id
+        mongo_invitation = Mongo::Invitation.where(:mongo_id => invitation.mongo_id).first
+        invitation.sender_id.should == User.where(:mongo_id => mongo_invitation.sender_mongo_id).first.id
+        invitation.recipient_id.should == User.where(:mongo_id => mongo_invitation.recipient_mongo_id).first.id
       end
     end
     describe "requests" do
@@ -166,7 +164,7 @@ describe DataConversion::ImportToMysql do
       it "imports data into the mongo_requests table" do
         Mongo::Request.count.should == 2
         Request.count.should == 0
-        @migrator.import_raw_requests
+        @migrator.process_raw_requests
         Request.count.should == 2
       end
 
@@ -178,8 +176,9 @@ describe DataConversion::ImportToMysql do
       it 'sets the relation columns' do
         @migrator.process_raw_requests
         request = Request.first
-        request.sender_id.should == Person.where(:mongo_id => request.sender_mongo_id).first.id
-        request.recipient_id.should == Person.where(:mongo_id => request.recipient_mongo_id).first.id
+        mongo_request = Mongo::Request.where(:mongo_id => request.mongo_id).first
+        request.sender_id.should == Person.where(:mongo_id => mongo_request.sender_mongo_id).first.id
+        request.recipient_id.should == Person.where(:mongo_id => mongo_request.recipient_mongo_id).first.id
       end
     end
     describe "people" do
