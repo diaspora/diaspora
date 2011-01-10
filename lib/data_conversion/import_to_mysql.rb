@@ -108,7 +108,6 @@ module DataConversion
     end
     def process_raw_profiles
       log "Importing profiles to main table..."
-      debugger
       Profile.connection.execute <<-SQL
         INSERT INTO profiles
         SELECT mongo_profiles.id,
@@ -278,9 +277,17 @@ module DataConversion
       Mongo::Post.connection.execute <<-SQL
         #{load_string("posts")}
         #{infile_opts}
-        (@youtube_titles,@pending,@created_at,@public,@updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message)
+        (@youtube_titles, @pending, @created_at, @public, @updated_at, @status_message_mongo_id, @caption,
+        @remote_photo_path, @remote_photo_name, @random_string, @image, mongo_id, type, diaspora_handle, person_mongo_id, @message)
         SET guid = mongo_id,
         #{nil_es("youtube_titles")},
+        #{nil_es("status_message_mongo_id")},
+        #{nil_es("caption")},
+        #{nil_es("remote_photo_path")},
+        #{nil_es("remote_photo_name")},
+        #{nil_es("random_string")},
+        #{nil_es("image")},
+        #{nil_es("message")},
         #{unix_time("created_at")},
         #{unix_time("updated_at")},
         #{boolean_set("pending")},

@@ -1,4 +1,3 @@
 mongo_id,target_id,target_type,unread
-4d2657eacc8cb4603300001c,4d2657eacc8cb4603300001b,new_request,true
-4d2657fdcc8cb4603300002c,4d2657fdcc8cb46033000029,comment_on_post,true
-4d265802cc8cb4603300003b,4d265802cc8cb4603300003a,new_request,true
+4d2b6eb8cc8cb43cc200001f,4d2b6eb8cc8cb43cc200001e,new_request,true
+4d2b6ec4cc8cb43cc200003b,4d2b6ec4cc8cb43cc200003a,new_request,true

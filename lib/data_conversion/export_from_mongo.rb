@@ -136,8 +136,11 @@ module DataConversion
         people_csv << person_row
 
         profile_row = model_hash[:profile_attrs].map do |attr_name|
-          attr_name = "_id" if attr_name == "person_mongo_id"
-          hash["profile"][attr_name]
+          if attr_name == "person_mongo_id"
+            hash["_id"] #set person_mongo_id to the person id
+          else
+            hash["profile"][attr_name]
+          end
         end
         profiles_csv << profile_row
       end
