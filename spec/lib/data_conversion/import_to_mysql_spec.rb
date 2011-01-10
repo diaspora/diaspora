@@ -291,6 +291,46 @@ describe DataConversion::ImportToMysql do
         aspectm.aspect_id.should == Aspect.where(:mongo_id => "4d2657e9cc8cb46033000006").first.id
       end
     end
+    describe "profiles" do
+      before do
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("people")
+        @migrator.import_raw_people
+        @migrator.process_raw_people
+        copy_fixture_for("profiles")
+        @migrator.import_raw_profiles
+      end
+
+      it "processs data into the mongo_profiles table" do
+        Mongo::Profile.count.should == 10
+        Profile.count.should == 0
+        @migrator.process_raw_profiles
+        Profile.count.should == 10
+      end
+
+      it "processs all the columns" do
+        @migrator.process_raw_profiles
+        profile = Profile.first
+        profile.image_url_medium.should be_nil
+        profile.searchable.should == true
+        profile.image_url.should be_nil
+        profile.person_mongo_id.should == "4d2657e8cc8cb46033000001"
+        profile.gender.should be_nil
+        profile.diaspora_handle.should be_nil
+        profile.birthday.should be_nil
+        profile.last_name.should == 'weinstien'
+        profile.bio.should be_nil
+        profile.image_url_small.should be_nil
+        profile.first_name.should == 'eugene'
+      end
+      it "sets the relation to person" do
+        @migrator.process_raw_profiles
+        profile = Profile.first
+        profile.person_id.should == Person.where(:mongo_id => profile.person_mongo_id).first.id
+      end
+    end
   end
   describe "#import_raw" do
     describe "aspects" do

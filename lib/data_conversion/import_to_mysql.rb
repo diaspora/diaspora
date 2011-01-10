@@ -42,7 +42,7 @@ module DataConversion
       process_raw_aspect_memberships
       process_raw_invitations
       process_raw_requests
-      #profiles
+      process_raw_profiles
       #posts
       #post_visibilities
       #notifications
@@ -105,6 +105,31 @@ module DataConversion
                                          AND people.mongo_id = mongo_contacts.person_mongo_id)
       SQL
       log "Imported #{Contact.count} contacts."
+    end
+    def process_raw_profiles
+      log "Importing profiles to main table..."
+      debugger
+      Profile.connection.execute <<-SQL
+        INSERT INTO profiles
+        SELECT mongo_profiles.id,
+               mongo_profiles.diaspora_handle,
+               mongo_profiles.first_name,
+               mongo_profiles.last_name,
+               mongo_profiles.image_url,
+               mongo_profiles.image_url_small,
+               mongo_profiles.image_url_medium,
+               mongo_profiles.birthday,
+               mongo_profiles.gender,
+               mongo_profiles.bio,
+               mongo_profiles.searchable,
+               people.id,
+               mongo_profiles.created_at,
+               mongo_profiles.updated_at,
+               mongo_profiles.person_mongo_id
+          FROM mongo_profiles
+          INNER JOIN (people) ON (people.mongo_id = mongo_profiles.person_mongo_id)
+      SQL
+      log "Imported #{Profile.count} profiles."
     end
     def process_raw_aspect_memberships
       log "Importing aspect_memberships to main table..."
