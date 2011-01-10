@@ -11,6 +11,12 @@ describe DataConversion::ImportToMysql do
                  "#{@migrator.full_path}/#{table_name}.csv")
   end
 
+  def import_and_process(table_name)
+    copy_fixture_for(table_name)
+    @migrator.send("import_raw_#{table_name}".to_sym)
+    @migrator.send("process_raw_#{table_name}".to_sym)
+  end
+
   before do
     @migrator = DataConversion::ImportToMysql.new
     @migrator.full_path = "/tmp/data_conversion"
@@ -53,11 +59,9 @@ describe DataConversion::ImportToMysql do
 
     describe "aspects" do
       before do
+        import_and_process("users")
         copy_fixture_for("aspects")
         @migrator.import_raw_aspects
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
       end
       it "imports data into the aspects table" do
         Mongo::Aspect.count.should == 4
@@ -81,9 +85,7 @@ describe DataConversion::ImportToMysql do
 
     describe "services" do
       before do
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
+        import_and_process("users")
         copy_fixture_for("services")
         @migrator.import_raw_services
       end
@@ -116,12 +118,8 @@ describe DataConversion::ImportToMysql do
 
     describe "invitations" do
       before do
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
-        copy_fixture_for("aspects")
-        @migrator.import_raw_aspects
-        @migrator.process_raw_aspects
+        import_and_process("users")
+        import_and_process("aspects")
         copy_fixture_for("invitations")
         @migrator.import_raw_invitations
       end
@@ -149,15 +147,9 @@ describe DataConversion::ImportToMysql do
     end
     describe "requests" do
       before do
-        copy_fixture_for("people")
-        @migrator.import_raw_people
-        @migrator.process_raw_people
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
-        copy_fixture_for("aspects")
-        @migrator.import_raw_aspects
-        @migrator.process_raw_aspects
+        import_and_process("users")
+        import_and_process("people")
+        import_and_process("aspects")
         copy_fixture_for("requests")
         @migrator.import_raw_requests
       end
@@ -184,9 +176,7 @@ describe DataConversion::ImportToMysql do
     end
     describe "people" do
       before do
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
+        import_and_process("users")
         copy_fixture_for("people")
         @migrator.import_raw_people
       end
@@ -232,12 +222,8 @@ describe DataConversion::ImportToMysql do
 
     describe "contacts" do
       before do
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
-        copy_fixture_for("people")
-        @migrator.import_raw_people
-        @migrator.process_raw_people
+        import_and_process("users")
+        import_and_process("people")
         copy_fixture_for("contacts")
         @migrator.import_raw_contacts
       end
@@ -263,18 +249,10 @@ describe DataConversion::ImportToMysql do
 
     describe "aspect_memberships" do
       before do
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
-        copy_fixture_for("people")
-        @migrator.import_raw_people
-        @migrator.process_raw_people
-        copy_fixture_for("contacts")
-        @migrator.import_raw_contacts
-        @migrator.process_raw_contacts
-        copy_fixture_for("aspects")
-        @migrator.import_raw_aspects
-        @migrator.process_raw_aspects
+        import_and_process("users")
+        import_and_process("people")
+        import_and_process("contacts")
+        import_and_process("aspects")
         copy_fixture_for("aspect_memberships")
         @migrator.import_raw_aspect_memberships
       end
@@ -296,12 +274,8 @@ describe DataConversion::ImportToMysql do
     end
     describe "profiles" do
       before do
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
-        copy_fixture_for("people")
-        @migrator.import_raw_people
-        @migrator.process_raw_people
+        import_and_process("users")
+        import_and_process("people")
         copy_fixture_for("profiles")
         @migrator.import_raw_profiles
       end
@@ -336,12 +310,8 @@ describe DataConversion::ImportToMysql do
     end
    describe "posts" do
       before do
-        copy_fixture_for("users")
-        @migrator.import_raw_users
-        @migrator.process_raw_users
-        copy_fixture_for("people")
-        @migrator.import_raw_people
-        @migrator.process_raw_people
+        import_and_process("users")
+        import_and_process("people")
         copy_fixture_for("posts")
         @migrator.import_raw_posts
       end
@@ -398,7 +368,57 @@ describe DataConversion::ImportToMysql do
         post.updated_at.to_i.should == 1294692033
       end
     end
+    describe "notifications" do
+      before do
+        import_and_process("users")
+        import_and_process("people")
+        import_and_process("posts")
+        copy_fixture_for("notifications")
+        @migrator.import_raw_notifications
+      end
 
+      it "imports data into the notifications table" do
+        Mongo::Notification.count.should == 2
+        Notification.count.should == 0
+        @migrator.process_raw_notifications
+        Notification.count.should == 2
+      end
+
+      it "processes all the columns" do
+        @migrator.process_raw_notifications
+        notification = Notification.first
+        mongo_notification = Mongo::Notification.first
+        notification.mongo_id.should == "4d2b6eb8cc8cb43cc200001f"
+        notification.target.mongo_id.should == mongo_notification.target_mongo_id
+        notification.target_type.should == "new_request"
+        notification.unread.should be_true
+      end
+    end
+    describe "post_visibilities" do
+      before do
+        import_and_process("users")
+        import_and_process("people")
+        import_and_process("aspects")
+        import_and_process("posts")
+        copy_fixture_for("post_visibilities")
+        @migrator.import_raw_post_visibilities
+      end
+
+      it "imports data into the post_visibilities table" do
+        Mongo::PostVisibility.count.should == 8
+        PostVisibility.count.should == 0
+        @migrator.process_raw_post_visibilities
+        PostVisibility.count.should == 8
+      end
+
+      it "processes all the columns" do
+        @migrator.process_raw_post_visibilities
+        pv = PostVisibility.first
+        mongo_pv = Mongo::PostVisibility.first
+        pv.aspect.mongo_id.should == mongo_pv.aspect_mongo_id
+        pv.post.mongo_id.should == mongo_pv.post_mongo_id
+      end
+    end
   end
   describe "#import_raw" do
     describe "aspects" do
@@ -537,6 +557,8 @@ describe DataConversion::ImportToMysql do
         post.created_at.utc.to_i.should == 1294692030 # got 1294663230- minus 8 hours
         post.updated_at.to_i.should == 1294692030
       end
+
+
     end
     describe "notifications" do
       before do

@@ -253,6 +253,12 @@ module DataConversion
       SQL
       log "Imported #{Person.count} people."
     end
+    def process_raw_post_visibilities
+
+    end
+    def process_raw_notifications
+
+    end
     def import_raw_users
       log "Loading users file..."
       Mongo::User.connection.execute <<-SQL
