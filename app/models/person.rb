@@ -122,7 +122,7 @@ class Person
    (person.nil? || person.remote?) ? nil : person
   end
 
-  def self.build_from_webfinger(profile, hcard)
+  def self.create_from_webfinger(profile, hcard)
     return nil if profile.nil? || !profile.valid_diaspora_profile?
     new_person = Person.new
     new_person.exported_key = profile.public_key

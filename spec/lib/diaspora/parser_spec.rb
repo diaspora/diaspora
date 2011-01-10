@@ -33,30 +33,6 @@ describe Diaspora::Parser do
       proc { user.receive xml, user2.person }.should change(StatusMessage, :count).by(-1)
     end
 
-    context "connecting" do
-
-    let(:good_request) { FakeHttpRequest.new(:success)}
-      it "should create a new person upon getting a person request" do
-        remote_user = Factory.create(:user)
-        new_person = remote_user.person
-
-        request = Request.new(:to =>user.person, :from => new_person)
-        xml = remote_user.salmon(request).xml_for(user.person)
-        request.delete
-        request.from.delete
-        remote_user.delete
-        new_person.delete
-
-        Person.should_receive(:by_account_identifier).twice.and_return(new_person)
-
-        lambda {
-          user.receive_salmon xml
-        }.should change(Person, :count).by(1)
-      end
-
-
-    end
-
     it "should activate the Person if I initiated a request to that url" do
       user.send_contact_request_to(user2.person, aspect)
       request = Request.to(user2).from(user).first

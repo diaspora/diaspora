@@ -24,15 +24,23 @@ module Diaspora
         object = Diaspora::Parser.from_xml(xml)
         Rails.logger.info("event=receive status=start recipient=#{self.diaspora_handle} payload_type=#{object.class} sender=#{salmon_author.diaspora_handle}")
 
+        #special casey
         if object.is_a?(Request)
           salmon_author.save
           object.sender_handle = salmon_author.diaspora_handle
         end
-
         if object.is_a?(Comment)
           xml_author = (owns?(object.post))? object.diaspora_handle : object.post.person.diaspora_handle
+          person = Webfinger.new(object.diaspora_handle).fetch
         else
           xml_author = object.diaspora_handle 
+          person = salmon_author
+        end
+
+        #begin similar
+        unless object.is_a?(Request) || self.contact_for(salmon_author)
+          Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type=#{object.class}")
+          return
         end
 
         if (salmon_author.diaspora_handle != xml_author)
@@ -40,27 +48,11 @@ module Diaspora
           return
         end
 
-        e = Webfinger.new(object.diaspora_handle)
-
-        begin 
-          person = e.fetch
-        rescue Exception => e
-          Rails.logger.info("event=receive status=abort reason='#{e.message}' payload_type=#{object.class} recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle}")
-          return
-        end
-
         if person
+          Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type#{object.class}")
+
           object.person = person if object.respond_to? :person=
-
-          unless object.is_a?(Request) || self.contact_for(salmon_author)
-            Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type=#{object.class}")
-            return
-          else
-            receive_object(object, person)
-            Rails.logger.info("event=receive status=complete recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle} payload_type#{object.class}")
-
-            return object
-          end
+          receive_object(object, person)
         end
       end
 
@@ -111,9 +103,7 @@ module Diaspora
       end
 
       def receive_comment comment
-
         commenter = comment.person
-
         unless comment.post.person == self.person || comment.verify_post_creator_signature
           Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{self.diaspora_handle} sender=#{comment.post.person.diaspora_handle} payload_type=#{comment.class} post_id=#{comment.post_id}")
           return

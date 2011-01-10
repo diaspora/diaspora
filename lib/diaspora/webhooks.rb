@@ -19,5 +19,9 @@ module Diaspora
     def subscribers(user)
       raise 'you must override subscribers in order to enable federation on this model'
     end
+
+    def receive(user, salmon_author)
+      raise 'you must override receive in order to enable federation on this model'
+    end
   end
 end

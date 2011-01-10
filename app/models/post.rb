@@ -64,6 +64,20 @@ class Post
     user.people_in_aspects(user.aspects_with_post(self.id))
   end
 
+  def receive(postzord)
+    xml_author = object.diaspora_handle
+    if (postzord.salmon_author.diaspora_handle != xml_author)
+      Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{object.class} recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle}")
+      return nil
+    end
+
+    if postzord.user.contact_for(postzord.salmon_author)
+      self.person = postzord.salmon_author
+      #do post receive
+    end
+
+  end
+
   protected
   def destroy_comments
     comments.each{|c| c.destroy}
