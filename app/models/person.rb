@@ -29,6 +29,8 @@ class Person < ActiveRecord::Base
 
   belongs_to :owner, :class_name => 'User'
 
+  has_many :notifications, :through => :notification_actors
+
   before_destroy :remove_all_traces
   before_validation :clean_url
 

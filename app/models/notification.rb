@@ -7,7 +7,7 @@ class Notification < ActiveRecord::Base
   include Diaspora::Socketable
 
   belongs_to :recipient, :class_name => 'User'
-  belongs_to :actor, :class_name => 'Person'
+  has_many :actors, :class_name => 'Person', :through => :notification_actors
   belongs_to :target, :polymorphic => true
 
   def self.for(recipient, opts={})

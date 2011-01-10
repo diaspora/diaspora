@@ -293,6 +293,17 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
 
   add_index "mongo_users", ["mongo_id"], :name => "index_mongo_users_on_mongo_id", :unique => true
 
+  create_table "notification_actors", :force => true do |t|
+    t.integer  "notifications_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notification_actors", ["notifications_id", "person_id"], :name => "index_notification_actors_on_notifications_id_and_person_id", :unique => true
+  add_index "notification_actors", ["notifications_id"], :name => "index_notification_actors_on_notifications_id"
+  add_index "notification_actors", ["person_id"], :name => "index_notification_actors_on_person_id"
+
   create_table "notifications", :force => true do |t|
     t.string   "target_type"
     t.integer  "target_id"
