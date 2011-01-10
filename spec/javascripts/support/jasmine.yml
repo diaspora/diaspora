@@ -16,7 +16,7 @@ src_files:
   - public/javascripts/vendor/jquery.tipsy.js
   - public/javascripts/vendor/jquery.infieldlabel.js
   - public/javascripts/vendor/jquery.autoresize.min.js
-  - public/javascripts/vendor/fancybox/jquery.fancybox-1.3.1.pack.js
+  - public/javascripts/vendor/facebox.js
   - public/javascripts/diaspora.js
   - public/javascripts/mobile.js
   - public/javascripts/aspect-edit.js
