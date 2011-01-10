@@ -118,6 +118,9 @@ describe DataConversion::ImportToMysql do
         copy_fixture_for("users")
         @migrator.import_raw_users
         @migrator.process_raw_users
+        copy_fixture_for("aspects")
+        @migrator.import_raw_aspects
+        @migrator.process_raw_aspects
         copy_fixture_for("invitations")
         @migrator.import_raw_invitations
       end
@@ -145,7 +148,40 @@ describe DataConversion::ImportToMysql do
         invitation.recipient_id.should == User.where(:mongo_id => invitation.recipient_mongo_id).first.id
       end
     end
+    describe "requests" do
+      before do
+        copy_fixture_for("people")
+        @migrator.import_raw_people
+        @migrator.process_raw_people
+        copy_fixture_for("users")
+        @migrator.import_raw_users
+        @migrator.process_raw_users
+        copy_fixture_for("aspects")
+        @migrator.import_raw_aspects
+        @migrator.process_raw_aspects
+        copy_fixture_for("requests")
+        @migrator.import_raw_requests
+      end
 
+      it "imports data into the mongo_requests table" do
+        Mongo::Request.count.should == 2
+        Request.count.should == 0
+        @migrator.import_raw_requests
+        Request.count.should == 2
+      end
+
+      it "imports all the columns" do
+        @migrator.process_raw_requests
+        request = Request.first
+        request.mongo_id.should == "4d2657eacc8cb4603300001b"
+      end
+      it 'sets the relation columns' do
+        @migrator.process_raw_requests
+        request = Request.first
+        request.sender_id.should == Person.where(:mongo_id => request.sender_mongo_id).first.id
+        request.recipient_id.should == Person.where(:mongo_id => request.recipient_mongo_id).first.id
+      end
+    end
     describe "people" do
       before do
         copy_fixture_for("users")

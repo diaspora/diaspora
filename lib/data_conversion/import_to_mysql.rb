@@ -40,8 +40,8 @@ module DataConversion
       process_raw_people
       process_raw_contacts
       process_raw_aspect_memberships
-      #invitations
-      #requests
+      process_raw_invitations
+      process_raw_requests
       #profiles
       #posts
       #post_visibilities
@@ -119,6 +119,43 @@ module DataConversion
             ON (aspects.mongo_id = mongo_aspect_memberships.aspect_mongo_id AND contacts.mongo_id = mongo_aspect_memberships.contact_mongo_id)
       SQL
       log "Imported #{AspectMembership.count} aspect_memberships."
+    end
+    def process_raw_invitations
+      log "Importing invitations to main table..."
+      Invitation.connection.execute <<-SQL
+      INSERT INTO invitations
+      SELECT m_inv.id,
+             m_inv.message,
+             senders.id,
+             recipients.id,
+             aspects.id,
+             m_inv.created_at,
+             m_inv.updated_at,
+             m_inv.mongo_id
+        FROM mongo_invitations AS m_inv
+        INNER JOIN users AS senders ON m_inv.sender_mongo_id = senders.mongo_id
+        INNER JOIN users AS recipients ON m_inv.recipient_mongo_id = recipients.mongo_id
+        INNER JOIN aspects ON m_inv.aspect_mongo_id = aspects.mongo_id
+      SQL
+      log "Imported #{Invitation.count} invitations."
+    end
+    def process_raw_requests
+      log "Importing requests to main table..."
+      Request.connection.execute <<-SQL
+      INSERT INTO requests
+      SELECT m_r.id,
+             senders.id,
+             recipients.id,
+             aspects.id,
+             m_r.created_at,
+             m_r.updated_at,
+             m_r.mongo_id
+        FROM mongo_requests AS m_r
+        INNER JOIN people AS senders ON m_r.sender_mongo_id = senders.mongo_id
+        INNER JOIN people AS recipients ON m_r.recipient_mongo_id = recipients.mongo_id
+        LEFT JOIN aspects ON m_r.aspect_mongo_id = aspects.mongo_id
+      SQL
+      log "Imported #{Request.count} requests."
     end
     def process_raw_services
       log "Importing services to main table..."
