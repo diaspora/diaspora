@@ -380,6 +380,7 @@ describe DataConversion::ImportToMysql do
       it "imports data into the notifications table" do
         Mongo::Notification.count.should == 2
         Notification.count.should == 0
+        debugger
         @migrator.process_raw_notifications
         Notification.count.should == 2
       end

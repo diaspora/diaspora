@@ -254,10 +254,38 @@ module DataConversion
       log "Imported #{Person.count} people."
     end
     def process_raw_post_visibilities
-
+      log "Importing post_visibilities to main table..."
+      PostVisibility.connection.execute <<-SQL
+        INSERT INTO post_visibilities
+        SELECT mongo_post_visibilities.id,
+               aspects.id,
+               posts.id,
+               mongo_post_visibilities.created_at,
+               mongo_post_visibilities.updated_at
+          FROM mongo_post_visibilities INNER JOIN (aspects, posts)
+            ON (aspects.mongo_id = mongo_post_visibilities.aspect_mongo_id AND posts.mongo_id = mongo_post_visibilities.post_mongo_id)
+      SQL
+      log "Imported #{PostVisibility.count} post_visibilities."
     end
     def process_raw_notifications
-
+      log "Importing notifications to main table..."
+      Notification.connection.execute <<-SQL
+        INSERT INTO notifications
+        SELECT m_n.id,
+               m_n.target_type,
+               NULL,
+               users.id,
+               people.id,
+               m_n.action,
+               m_n.unread,
+               m_n.created_at,
+               m_n.updated_at,
+               m_n.mongo_id
+          FROM mongo_notifications AS m_n
+            INNER JOIN (users, people)
+              ON (m_n.recipient_mongo_id = users.mongo_id AND m_n.actor_mongo_id = people.mongo_id)
+      SQL
+      log "Imported #{Notification.count} notifications."
     end
     def import_raw_users
       log "Loading users file..."
