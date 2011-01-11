@@ -128,15 +128,6 @@ if [ ! -e public/source.tar.gz ]; then
     exit 65
 fi
 
-# create static public/well-known/host-meta if required
-if [[ -w public  &&
-    (! -e public/well-known/host-meta ||
-          public/well-known/host-meta -ot config/app_config.yml) ]]
-then
-    bundle exec erb -r config/environment.rb app/views/publics/host_meta.erb \
-        2>/dev/null >public/well-known/host-meta
-fi
-
 # Precache jammit assets
 if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
     if [ "$INIT_PUBLIC" != 'no' ]; then
