@@ -87,8 +87,16 @@ describe Postzord::Receiver do
       @salmon = @zord.instance_variable_get(:@salmon)
     end
 
-    it 'calls Notification.notify' do
-      Notification.should_receive(:notify)
+    it 'calls Notification.notify if object responds to notification_type' do
+      cm = Comment.new
+      cm.stub!(:receive)
+      Notification.should_receive(:notify).with(@user, cm, @person2)
+      zord = Postzord::Receiver.new(@user, :person => @person2, :object => cm)
+      zord.receive_object
+    end
+
+    it 'does not call Notification.notify if object does not respond to notification_type' do
+      Notification.should_not_receive(:notify)
       @zord.receive_object
     end
 
