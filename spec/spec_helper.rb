@@ -29,7 +29,6 @@ RSpec.configure do |config|
 
   config.before(:each) do
     I18n.locale = :en
-    EventMachine::HttpRequest.stub!(:new).and_return(FakeHttpRequest.new(:success))
     RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
 
     DatabaseCleaner.clean

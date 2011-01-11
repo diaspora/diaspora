@@ -5,7 +5,7 @@
 require 'spec_helper'
 require 'lib/pubsubhubbub'
 
-describe PubSubHubbub do
+describe Pubsubhubbub do
   before do
     RestClient.unstub!(:post)
   end
@@ -24,7 +24,7 @@ describe PubSubHubbub do
       body = {'hub.url' => feed, 'hub.mode' => 'publish'}
 
       stub_request(:post, "http://hubzord.com/").to_return(:status => [202, 'you are awesome'])
-      PubSubHubbub.new(hub).publish(feed).code.should == 202
+      Pubsubhubbub.new(hub).publish(feed).code.should == 202
     end
   end
 end

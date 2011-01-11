@@ -11,7 +11,7 @@ describe Jobs::PublishToHub do
       m = mock()
 
       m.should_receive(:publish).with(url)
-      PubSubHubbub.should_receive(:new).with(AppConfig[:pubsub_server]).and_return(m)
+      Pubsubhubbub.should_receive(:new).with(AppConfig[:pubsub_server]).and_return(m)
       Jobs::PublishToHub.perform(url)
     end
   end

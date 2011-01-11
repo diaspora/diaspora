@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-class PubSubHubbub
+class Pubsubhubbub
   H = {"User-Agent" => "PubSubHubbub Ruby", "Content-Type" => "application/x-www-form-urlencoded"}
 
   def initialize(hub, options={})
