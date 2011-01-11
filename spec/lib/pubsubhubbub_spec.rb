@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
+require 'lib/pubsubhubbub'
 
 describe PubSubHubbub do
   before do
