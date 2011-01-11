@@ -33,7 +33,9 @@ describe Jobs::ReceiveLocal do
   end
 
   it 'calls receive_object' do
-    @user1.should_receive(:receive_object).with(@status, @user2.person).and_return(true)
+    m = mock()
+    m.should_receive(:receive_object)
+    Postzord::Receiver.should_receive(:new).and_return(m)
     Jobs::ReceiveLocal.perform(@user1.id, @user2.person.id, @status_type, @status.id)
   end
 end

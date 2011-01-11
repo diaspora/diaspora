@@ -165,7 +165,8 @@ describe Comment do
       aspect.post_ids.include?(@user_status.id).should be true
       comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @user_status)
 
-      user.receive comment.to_diaspora_xml, @person
+      zord = Postzord::Receiver.new(user, :person => @person)
+      zord.parse_and_receive(comment.to_diaspora_xml)
 
       aspect.reload
       aspect.post_ids.include?(@user_status.id).should be true

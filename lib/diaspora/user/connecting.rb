@@ -44,7 +44,6 @@ module Diaspora
       end
 
       def receive_contact_request(contact_request)
-
         #response from a contact request you sent
         if original_contact = self.contact_for(contact_request.from)
           receive_request_acceptance(contact_request, original_contact)

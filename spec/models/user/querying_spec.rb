@@ -60,7 +60,8 @@ describe User do
 
         it "queries by aspect" do
           connect_users(user, first_aspect, user2, user2.aspects.first)
-          user.receive status_message1.to_diaspora_xml, user2.person
+
+          status_message1.receive(user, user2.person)
 
           user.visible_posts(:by_members_of => first_aspect).should =~ [status_message1]
           user.visible_posts(:by_members_of => second_aspect).should =~ []

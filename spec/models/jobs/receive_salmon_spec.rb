@@ -14,10 +14,10 @@ describe Jobs::ReceiveSalmon do
     }
   end
   it 'calls receive_salmon' do
-    @user.should_receive(:receive_salmon).with(@xml).once
+    salmon_mock = mock()
+
+    salmon_mock.should_receive(:perform)
+    Postzord::Receiver.should_receive(:new).and_return(salmon_mock)
     Jobs::ReceiveSalmon.perform(@user.id, @xml)
   end
-
-  
-
 end

@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe User do
+describe 'a user receives a post' do
 
   let(:user) { make_user }
   let(:aspect) { user.aspects.create(:name => 'heroes') }
@@ -25,7 +25,7 @@ describe User do
     status = user2.post(:status_message, :message => "Users do things", :to => aspect2.id)
     xml = status.to_diaspora_xml
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
-    user.receive xml, user2.person
+    Postzord::Receiver.new(user, :object => status, :person => user2.person)
   end
 
   it 'should be able to parse and store a status message from xml' do
@@ -35,7 +35,10 @@ describe User do
     user2.delete
     status_message.destroy
 
-    lambda {user.receive xml , user2.person}.should change(Post,:count).by(1)
+    lambda {
+      zord = Postzord::Receiver.new(user, :person => user2.person)
+      zord.parse_and_receive(xml)
+    }.should change(Post,:count).by(1)
   end
 
   it 'should not create new aspects on message receive' do
@@ -46,19 +49,6 @@ describe User do
     end
 
     user.aspects.size.should == num_aspects
-  end
-
-  describe '#receive_salmon' do
-    it 'should handle the case where the webfinger fails' do
-      pending "Write this to test #receive_salmon"
-      Webfinger.stub!(:fetch).and_return(nil)
-
-      proc{
-        user2.post :status_message, :message => "store this!", :to => aspect2.id
-      }.should_not raise_error
-    end
-
-
   end
 
   context 'update posts' do

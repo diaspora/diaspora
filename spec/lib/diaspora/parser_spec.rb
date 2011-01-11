@@ -30,7 +30,11 @@ describe Diaspora::Parser do
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
-      proc { user.receive xml, user2.person }.should change(StatusMessage, :count).by(-1)
+      proc {
+        zord = Postzord::Receiver.new(user, :person => user2.person)
+        zord.parse_and_receive(xml)
+       }.should change(StatusMessage, :count).by(-1)
+
     end
 
     it "should activate the Person if I initiated a request to that url" do
@@ -51,7 +55,10 @@ describe Diaspora::Parser do
       retraction = Retraction.for(user2)
       retraction_xml = retraction.to_diaspora_xml
 
-      lambda { user.receive retraction_xml, user2.person }.should change {
+      lambda { 
+          zord = Postzord::Receiver.new(user, :person => user2.person)
+          zord.parse_and_receive(retraction_xml)
+      }.should change {
         aspect.reload.contacts.size }.by(-1)
     end
 
@@ -78,7 +85,8 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
-      user.receive xml, person
+      zord = Postzord::Receiver.new(user, :person => person)
+      zord.parse_and_receive(xml)
 
       #Check that marshaled profile is the same as old profile
       person = Person.first(:id => person.id)

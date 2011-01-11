@@ -90,6 +90,8 @@ require File.join(Rails.root, 'lib/postzord/dispatch')
   def receive(user, person)
     Rails.logger.info("event=receive payload_type=request sender=#{self.from} to=#{self.to}")
     user.receive_contact_request(self)
+    self.save
+    self
   end
   
   private

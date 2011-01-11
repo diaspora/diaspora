@@ -13,11 +13,13 @@ describe InvitationsController do
   let!(:aspect) { user.aspects.create(:name => "WIN!!") }
 
   before do
+
     request.env["devise.mapping"] = Devise.mappings[:user]
   end
 
   describe "#create" do
     before do
+
       user.invites = 5
 
       sign_in :user, user
@@ -89,9 +91,11 @@ describe InvitationsController do
       end
 
       it 'adds a pending request' do
+
         put :update, @accept_params
         Request.to(invited.person).count.should == 1
       end
+
     end
     context 'failure' do
       before do

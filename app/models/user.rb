@@ -152,6 +152,16 @@ class User
     end
   end
 
+  def update_user_refs_and_add_to_aspects(post)
+    Rails.logger.debug("Saving post: #{post}")
+    post.user_refs += 1
+    post.save
+    aspects = self.aspects_with_person(post.person)
+    self.add_to_streams(post, aspects.map{|x| x.id} )
+    post
+  end
+
+
   def add_to_streams(post, aspect_ids)
     self.raw_visible_posts << post
     self.save

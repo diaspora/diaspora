@@ -8,64 +8,93 @@ require File.join(Rails.root, 'lib/postzord')
 require File.join(Rails.root, 'lib/postzord/receiver')
 
 describe Postzord::Receiver do
+
+  before do
+    @user = make_user
+    @user2 = make_user
+    @person2 = @user2.person
+
+    aspect1 = @user.aspects.create(:name => "hey")
+    aspect2 = @user2.aspects.create(:name => "hey")
+
+    connect_users(@user, aspect1, @user2, aspect2)
+
+    @original_post = @user2.build_post(:status_message, :message => "hey", :aspect_ids => [aspect2.id])
+
+    @salmon_xml = @user2.salmon(@original_post).xml_for(@user.person)
+  end
+
   describe '.initialize' do
-    it 'has @salmon_xml and an @user' do
-      xml = "yeah"
-      user = 'faa'
+    it 'valid for local' do
+      Webfinger.should_not_receive(:new)
+      Salmon::SalmonSlap.should_not_receive(:parse)
+
+      zord = Postzord::Receiver.new(@user, :person => @person2, :object => @original_post)
+      zord.instance_variable_get(:@user).should_not be_nil
+      zord.instance_variable_get(:@sender).should_not be_nil
+      zord.instance_variable_get(:@object).should_not be_nil
+    end
+
+    it 'valid for remote' do
       salmon_mock = mock()
       web_mock = mock()
       web_mock.should_receive(:fetch).and_return true
       salmon_mock.should_receive(:author_email).and_return(true)
-      Salmon::SalmonSlap.should_receive(:parse).with(xml, user).and_return(salmon_mock)
+      Salmon::SalmonSlap.should_receive(:parse).with(@salmon_xml, @user).and_return(salmon_mock)
       Webfinger.should_receive(:new).and_return(web_mock)
 
-      zord = Postzord::Receiver.new(user, xml)
+      zord = Postzord::Receiver.new(@user, :salmon_xml => @salmon_xml)
       zord.instance_variable_get(:@user).should_not be_nil
-      zord.instance_variable_get(:@salmon).should_not be_nil
-      zord.instance_variable_get(:@salmon_author).should_not be_nil
+      zord.instance_variable_get(:@sender).should_not be_nil
+      zord.instance_variable_get(:@salmon_xml).should_not be_nil
     end
   end
 
   describe '#perform' do
     before do
-      @user = make_user
-      @user2 = make_user
-      @person2 = @user2.person
-
-      a = @user2.aspects.create(:name => "hey")
-      @original_post = @user2.build_post(:status_message, :message => "hey", :aspect_ids => [a.id])
-
-      salmon_xml = @user2.salmon(@original_post).xml_for(@user.person)
-      @zord = Postzord::Receiver.new(@user, salmon_xml)
+      @zord = Postzord::Receiver.new(@user, :salmon_xml => @salmon_xml)
       @salmon = @zord.instance_variable_get(:@salmon)
-
     end
 
     context 'returns nil' do
       it 'if the salmon author does not exist' do
-        @zord.instance_variable_set(:@salmon_author, nil)
+        @zord.instance_variable_set(:@sender, nil)
         @zord.perform.should be_nil
       end
 
       it 'if the author does not match the signature' do
-        @zord.instance_variable_set(:@salmon_author, Factory(:person))
+        @zord.instance_variable_set(:@sender, Factory(:person))
         @zord.perform.should be_nil
       end
-
     end
 
     context 'returns the sent object' do
       it 'returns the received object on success' do
-        pending
         object = @zord.perform
         object.should respond_to(:to_diaspora_xml)
       end
     end
 
     it 'parses the salmon object' do
-      pending
-      Diaspora::Parser.should_receive(:from_xml).with(@salmon.parsed_data)
+      Diaspora::Parser.should_receive(:from_xml).with(@salmon.parsed_data).and_return(@original_post)
       @zord.perform
+    end
+  end
+
+  describe 'receive_object' do
+    before do
+      @zord = Postzord::Receiver.new(@user, :person => @person2, :object => @original_post)
+      @salmon = @zord.instance_variable_get(:@salmon)
+    end
+
+    it 'calls Notification.notify' do
+      Notification.should_receive(:notify)
+      @zord.receive_object
+    end
+
+    it 'calls receive on @object' do
+      obj = @zord.instance_variable_get(:@object).should_receive(:receive)
+      @zord.receive_object
     end
   end
 end

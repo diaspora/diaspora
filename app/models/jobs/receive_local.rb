@@ -5,6 +5,8 @@
 
 module Jobs
   class ReceiveLocal
+    require File.join(Rails.root, 'lib/postzord/receiver')
+
     extend ResqueJobLogging
     @queue = :receive_local
     def self.perform(user_id, person_id, object_type, object_id)
@@ -12,7 +14,8 @@ module Jobs
       person = Person.find(person_id)
       object = object_type.constantize.first(:id => object_id)
 
-      user.receive_object(object, person)
+      z = Postzord::Receiver.new(user, :person => person, :object => object)
+      z.receive_object
     end
   end
 end

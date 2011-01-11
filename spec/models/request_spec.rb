@@ -122,6 +122,12 @@ describe Request do
       @hash[:sender].serialized_public_key.should be_nil
     end
   end
+
+
+  describe '#receive' do
+  end
+
+  
   describe 'xml' do
     before do
       @request = Request.new(:from => @user.person, :to => @user2.person, :into => @aspect)

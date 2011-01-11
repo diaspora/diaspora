@@ -13,8 +13,11 @@ describe Jobs::Receive do
       end
     }
   end
+
   it 'calls receive' do
-    @user.should_receive(:receive).with(@xml, @person).once
+    zord_mock = mock()
+    zord_mock.should_receive(:parse_and_receive).with(@xml)
+    Postzord::Receiver.should_receive(:new).with(@user, anything).and_return(zord_mock)
     Jobs::Receive.perform(@user.id, @xml, @person.id)
   end
 end
