@@ -380,7 +380,6 @@ describe DataConversion::ImportToMysql do
       it "imports data into the notifications table" do
         Mongo::Notification.count.should == 2
         Notification.count.should == 0
-        debugger
         @migrator.process_raw_notifications
         Notification.count.should == 2
       end
@@ -577,8 +576,11 @@ describe DataConversion::ImportToMysql do
         notification = Mongo::Notification.first
         notification.mongo_id.should == "4d2b6eb8cc8cb43cc200001f"
         notification.target_mongo_id.should == '4d2b6eb8cc8cb43cc200001e'
-        notification.target_type.should == "new_request"
+        notification.recipient_mongo_id.should == "4d2b6eb7cc8cb43cc2000018"
+        notification.actor_mongo_id.should == "4d2b6eb7cc8cb43cc2000017"
+        notification.action.should == "new_request"
         notification.unread.should be_true
+        notification.target_type.should == "Request"
       end
     end
 

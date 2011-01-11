@@ -424,7 +424,7 @@ module DataConversion
       Mongo::Notification.connection.execute <<-SQL
         #{load_string("notifications")}
         #{infile_opts}
-        (mongo_id,target_mongo_id,target_type,@unread)
+        (mongo_id,target_mongo_id,recipient_mongo_id,actor_mongo_id,@null_action,action,@unread)
         SET #{boolean_set("unread")};
       SQL
       log "Finished. Imported #{Mongo::Notification.count} notifications."
