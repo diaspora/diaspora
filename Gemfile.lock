@@ -20,15 +20,6 @@ GIT
     http_accept_language (1.0.1)
 
 GIT
-  remote: git://github.com/igrigorik/em-http-request.git
-  revision: bf62d67fc72d6e701be5037e239dd470194b8e45
-  ref: bf62d67fc72d6e701be5
-  specs:
-    em-http-request (0.2.13)
-      addressable (>= 2.0.0)
-      eventmachine (>= 0.12.9)
-
-GIT
   remote: git://github.com/igrigorik/em-websocket
   revision: e278f5a1c4db60be7485859520a069e08bfe1247
   specs:
@@ -275,9 +266,6 @@ GEM
     plucky (0.3.6)
       mongo (~> 1.1)
     polyglot (0.3.1)
-    pubsubhubbub (0.1.1)
-      em-http-request (>= 0.1.5)
-      eventmachine (>= 0.12.9)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -390,7 +378,6 @@ DEPENDENCIES
   devise (= 1.1.3)
   devise-mongo_mapper!
   devise_invitable (= 0.3.5)
-  em-http-request!
   em-websocket!
   factory_girl_rails
   fastercsv
@@ -406,7 +393,6 @@ DEPENDENCIES
   mongrel
   nokogiri (= 1.4.3.1)
   omniauth (= 0.1.6)
-  pubsubhubbub
   rails (= 3.0.3)
   resque
   rest-client

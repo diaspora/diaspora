@@ -3,9 +3,9 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 
 gem 'bundler', '>= 1.0.0'
-gem "chef", :require => false
+gem 'chef', :require => false
 
-gem "nokogiri", "1.4.3.1"
+gem 'nokogiri', '1.4.3.1'
 
 #Security
 gem 'devise', '1.1.3'
@@ -31,12 +31,7 @@ gem 'addressable', :require => 'addressable/uri'
 gem 'json'
 gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git'
 
-#Standards
-gem 'pubsubhubbub'
-
-#EventMachine
-gem 'em-http-request',:ref => 'bf62d67fc72d6e701be5',  :git => 'git://github.com/igrigorik/em-http-request.git', :require => 'em-http'
-gem 'thin'
+gem 'thin', :require => false
 
 #Websocket
 gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket'
@@ -49,16 +44,16 @@ gem 'fastercsv', :require => false
 gem 'jammit'
 gem 'rest-client'
 #Backups
-gem "cloudfiles", :require => false
+gem 'cloudfiles', :require => false
 
 #Queue
 gem 'resque'
-gem 'SystemTimer' unless RUBY_VERSION.include? "1.9"
+gem 'SystemTimer' unless RUBY_VERSION.include? '1.9'
 
 group :test, :development do
   gem 'factory_girl_rails'
-  gem 'ruby-debug19' if RUBY_VERSION.include? "1.9"
-  gem 'ruby-debug' if RUBY_VERSION.include? "1.8"
+  gem 'ruby-debug19' if RUBY_VERSION.include? '1.9'
+  gem 'ruby-debug' if RUBY_VERSION.include? '1.8'
   gem 'launchy'
 end
 
@@ -71,10 +66,6 @@ group :test do
   gem 'database_cleaner', '0.5.2'
   gem 'webmock', :require => false
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
-  gem 'mongrel', :require => false if RUBY_VERSION.include? "1.8"
+  gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'
   gem 'rspec-instafail', :require => false
-end
-
-group :deployment do
-  #gem 'sprinkle', :git => 'git://github.com/rsofaer/sprinkle.git'
 end
