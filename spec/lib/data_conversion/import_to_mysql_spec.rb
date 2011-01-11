@@ -373,6 +373,8 @@ describe DataConversion::ImportToMysql do
         import_and_process("users")
         import_and_process("people")
         import_and_process("posts")
+        import_and_process("aspects")
+        import_and_process("requests")
         copy_fixture_for("notifications")
         @migrator.import_raw_notifications
       end
@@ -389,9 +391,10 @@ describe DataConversion::ImportToMysql do
         notification = Notification.first
         mongo_notification = Mongo::Notification.first
         notification.mongo_id.should == "4d2b6eb8cc8cb43cc200001f"
-        notification.target.mongo_id.should == mongo_notification.target_mongo_id
-        notification.target_type.should == "new_request"
+        notification.target_type.should == "Request"
+        notification.action.should == "new_request"
         notification.unread.should be_true
+        notification.target.mongo_id.should == mongo_notification.target_mongo_id
       end
     end
     describe "post_visibilities" do

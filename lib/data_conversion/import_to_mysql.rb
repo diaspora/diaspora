@@ -286,6 +286,15 @@ module DataConversion
               ON (m_n.recipient_mongo_id = users.mongo_id AND m_n.actor_mongo_id = people.mongo_id)
       SQL
       log "Imported #{Notification.count} notifications."
+      {"Request" => "requests", "Comment" => "comments"}.each_pair do |target_type, table_name|
+        log "Setting target_id on notifications on #{target_type}"
+        Notification.connection.execute <<-UPDATESQL
+        UPDATE notifications, #{table_name}, mongo_notifications
+        SET notifications.target_id = #{table_name}.id
+        WHERE notifications.mongo_id = mongo_notifications.mongo_id AND #{table_name}.mongo_id = mongo_notifications.target_mongo_id
+        UPDATESQL
+      end
+      log "Done setting target_id"
     end
     def import_raw_users
       log "Loading users file..."
@@ -429,11 +438,12 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Notification.count} notifications."
       {"new_request" => "Request",
-      "request_accepted" => "Contact",
+      "request_accepted" => "Request",
       "comment_on_post" => "Comment",
       "also_commented" => "Comment"}.each_pair do |key, value|
         Mongo::Notification.where(:action => key).update_all(:target_type => value)
       end
+      log "Notification target types set."
     end
     def import_raw_people
       log "Loading people file..."
