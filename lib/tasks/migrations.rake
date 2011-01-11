@@ -27,4 +27,7 @@ namespace :migrations do
     migrator.log("**** Import finished! ****")
     migrator.log("total elapsed time")
   end
+
+  desc 'execute mongo to mysql migration.  Requires mongoexport to be accessible.'
+  task :migrate_to_mysql => [:export_for_mysql, :import_to_mysql]
 end

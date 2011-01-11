@@ -44,8 +44,8 @@ module DataConversion
       process_raw_requests
       process_raw_profiles
       process_raw_posts
-      #post_visibilities
-      #notifications
+      process_raw_post_visibilities
+      process_raw_notifications
     end
 
     def truncate_tables
