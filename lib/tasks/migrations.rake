@@ -2,7 +2,9 @@
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
-Dir.glob(File.join(Rails.root, 'lib', 'data_conversion', '*.rb')).each { |f| require f }
+require File.join(Rails.root, 'lib', 'data_conversion', 'base')
+require File.join(Rails.root, 'lib', 'data_conversion', 'export_from_mongo')
+require File.join(Rails.root, 'lib', 'data_conversion', 'import_to_mysql')
 
 namespace :migrations do
   desc 'export data for mysql import'
