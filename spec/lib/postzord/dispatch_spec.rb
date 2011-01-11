@@ -31,7 +31,6 @@ describe Postzord::Dispatch do
     end
 
     it 'sets the @sender_person object' do
-
       zord = Postzord::Dispatch.new(@user, @sm)
       zord.instance_variable_get(:@sender_person).should == @user.person
     end

@@ -64,18 +64,36 @@ class Post
     user.people_in_aspects(user.aspects_with_post(self.id))
   end
 
-  def receive(postzord)
-    xml_author = object.diaspora_handle
-    if (postzord.salmon_author.diaspora_handle != xml_author)
-      Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{object.class} recipient=#{self.diaspora_handle} sender=#{salmon_author.diaspora_handle}")
-      return nil
-    end
+  def receive(user, person)
+    #exists locally, but you dont know about it
+    #does not exsist locally, and you dont know about it
 
-    if postzord.user.contact_for(postzord.salmon_author)
-      self.person = postzord.salmon_author
-      #do post receive
-    end
+    #exists_locally?
+    #you know about it, and it is mutable
+    #you know about it, and it is not mutable
+    
+    on_pod = Post.find_by_id(self.id)
 
+    if on_pod && on_pod.diaspora_handle == self.diaspora_handle 
+      known_post = user.find_visible_post_by_id(self.id)
+      if known_post 
+        if known_post.mutable?
+          known_post.update_attributes(self.to_mongo)
+        else
+          Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
+        end
+      elsif on_pod == self 
+        user.update_user_refs_and_add_to_aspects(on_pod)
+        Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{on_pod.id}")
+        self 
+      end
+    elsif !on_pod 
+      user.update_user_refs_and_add_to_aspects(self)
+      Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
+      self 
+    else
+      Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
+    end
   end
 
   protected

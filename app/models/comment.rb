@@ -61,6 +61,34 @@ class Comment
     p
   end
 
+  def receive(user, person)
+    commenter = self.person
+    unless self.post.person == user.person || self.verify_post_creator_signature
+      Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{user.diaspora_handle} sender=#{self.post.person.diaspora_handle} payload_type=#{self.class} post_id=#{self.post_id}")
+      return
+    end
+
+    user.visible_people = user.visible_people | [commenter]
+    user.save
+
+    commenter.save
+
+    #sign comment as the post creator if you've been hit UPSTREAM
+    if user.owns? self.post
+      self.post_creator_signature = self.sign_with_key(user.encryption_key)
+      self.save
+    end
+
+    #dispatch comment DOWNSTREAM, received it via UPSTREAM
+    unless user.owns?(self)
+      self.save
+      user.dispatch_comment(self) 
+    end
+
+    self.socket_to_uid(user, :aspect_ids => self.post.aspect_ids)
+    self
+  end
+
   #ENCRYPTION
 
   xml_reader :creator_signature

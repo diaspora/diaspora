@@ -17,7 +17,7 @@ module Postzord
     def perform
       if @salmon_author && @salmon.verified_for_key?(@salmon_author.public_key)
         @object = Diaspora::Parser.from_xml(@salmon.parsed_data)
-
+        @object.receive
       else
         Rails.logger.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_email} reason='not_verified for key'")
         nil

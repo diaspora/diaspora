@@ -45,4 +45,7 @@ describe Post do
       post.subscribers(@user).should =~ []
     end
   end
+
+  describe '#receive' do
+  end
 end

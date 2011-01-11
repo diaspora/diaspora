@@ -9,7 +9,7 @@ class Retraction
   xml_accessor :post_id
   xml_accessor :diaspora_handle
   xml_accessor :type
-  
+
   attr_accessor :person, :object, :subscribers
 
   def subscribers(user)
@@ -17,7 +17,7 @@ class Retraction
       @subscribers ||= self.object.subscribers(user)
     else
       raise 'HAX: you must set the subscribers manaully before unfriending' if @subscribers.nil?
-     @subscribers
+      @subscribers
     end
   end
 
@@ -52,5 +52,23 @@ class Retraction
         Rails.logger.info("event=retraction status=abort reason='unknown type'")
       end
     end
+  end
+
+  def receive(user, person)
+    if self.type == 'Person'
+      unless self.person.id.to_s == self.post_id.to_s
+        Rails.logger.info("event=receive status=abort reason='sender is not the person he is trying to retract' recipient=#{self.diaspora_handle} sender=#{self.person.diaspora_handle} payload_type=#{self.class} retraction_type=person")
+        return
+      end
+      user.disconnected_by(user.visible_person_by_id(self.post_id))
+    else
+      self.perform(user)
+      aspects = user.aspects_with_person(self.person)
+      aspects.each do |aspect|
+        aspect.post_ids.delete(self.post_id.to_id)
+        aspect.save
+      end
+    end
+    self
   end
 end

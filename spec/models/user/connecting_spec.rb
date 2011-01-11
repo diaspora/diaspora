@@ -68,16 +68,16 @@ describe Diaspora::UserModules::Connecting do
         @acceptance = @original_request.reverse_for(user2)
       end
       it 'connects to the acceptor' do
-        user.receive_request(@acceptance, user2.person)
+        @acceptance.receive(user, user2.person)
         user.contact_for(user2.person).should_not be_nil
       end
       it 'deletes the original request' do
-        user.receive_request(@acceptance, user2.person)
+        @acceptance.receive(user, user2.person)
         Request.to(user).all.include?(@original_request).should be_false
         Request.find(@original_request.id).should be_nil
       end
       it 'deletes the acceptance' do
-        user.receive_request(@acceptance, user2.person)
+        @acceptance.receive(user, user2.person)
         Request.to(user).all.include?(@original_request).should be_false
         Request.find(@acceptance.id).should be_nil
       end
