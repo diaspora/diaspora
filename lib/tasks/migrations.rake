@@ -6,7 +6,7 @@ Dir.glob(File.join(Rails.root, 'lib', 'data_conversion', '*.rb')).each { |f| req
 
 namespace :migrations do
   desc 'export data for mysql import'
-  task :export_for_mysql do
+  task :export_for_mysql => :environment do
     migrator = DataConversion::ExportFromMongo.new
     migrator.full_path = "/tmp/data_conversion"
     migrator.log("**** Starting export for MySQL ****")
