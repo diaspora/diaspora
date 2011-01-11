@@ -8,7 +8,7 @@ require File.join(Rails.root, 'lib', 'data_conversion', 'import_to_mysql')
 
 namespace :migrations do
   desc 'export data for mysql import'
-  task :export_for_mysql => :environment do
+  task :export_for_mysql do
     migrator = DataConversion::ExportFromMongo.new
     migrator.full_path = "/tmp/data_conversion"
     migrator.log("**** Starting export for MySQL ****")
@@ -20,7 +20,8 @@ namespace :migrations do
   end
 
   desc 'import data to mysql'
-  task :import_to_mysql => :environment do
+  task :import_to_mysql do
+    require 'config/environment'
     migrator = DataConversion::ImportToMysql.new
     migrator.full_path = "/tmp/data_conversion/csv"
     migrator.log("**** Starting import to MySQL database #{ActiveRecord::Base.connection.current_database} ****")
