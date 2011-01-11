@@ -92,7 +92,11 @@ module DataConversion
     def contacts_json_to_csv model_hash
       generic_json_to_two_csvs(model_hash) do |hash|
         main_row = model_hash[:main_mongo_attrs].map { |attr_name| hash[attr_name] }
-        aspect_membership_rows = hash["aspect_ids"].map { |id| [hash["_id"], id] }
+        if hash["aspect_ids"]
+          aspect_membership_rows = hash["aspect_ids"].map { |id| [hash["_id"], id] }
+        else
+          aspect_membership_rows = []
+        end
         [main_row, aspect_membership_rows]
       end
       #Also writes the aspect memberships csv
@@ -173,7 +177,13 @@ module DataConversion
 
       generic_json_to_two_csvs(model_hash) do |hash|
         main_row = model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
-        post_visibility_rows = hash["post_ids"].map { |id| [hash["_id"], id] }
+
+        if hash["post_ids"]
+          post_visibility_rows = hash["post_ids"].map { |id| [hash["_id"], id] }
+        else
+          post_visibility_rows = []
+        end
+
         [main_row, post_visibility_rows]
       end
     end
@@ -186,7 +196,7 @@ module DataConversion
       main_csv << model_hash[:main_attrs]
 
       join_csv = CSV.open("#{full_path}/csv/#{model_hash[:join_table_name]}.csv", 'w')
-      join_csv << model_hash[:join_table_attrs]
+      join_csv << model_hash[:join_table_attrs] unless model_hash[:join_table_attrs].empty?
 
       json_file.each do |aspect_json|
         hash = JSON.parse(aspect_json)
