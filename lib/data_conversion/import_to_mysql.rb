@@ -428,6 +428,12 @@ module DataConversion
         SET #{boolean_set("unread")};
       SQL
       log "Finished. Imported #{Mongo::Notification.count} notifications."
+      {"new_request" => "Request",
+      "request_accepted" => "Contact",
+      "comment_on_post" => "Comment",
+      "also_commented" => "Comment"}.each_pair do |key, value|
+        Mongo::Notification.where(:action => key).update_all(:target_type => value)
+      end
     end
     def import_raw_people
       log "Loading people file..."
