@@ -363,9 +363,8 @@ describe DataConversion::ImportToMysql do
         post.person_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
         post.diaspora_handle.should == post.person.diaspora_handle
         post.message.should be_nil
-        # puts post.created_at.utc? # == true
-        post.created_at.utc.to_i.should == 1294692032 # got 1294663230- minus 8 hours
-        post.updated_at.to_i.should == 1294692033
+        post.created_at.should == mongo_post.created_at
+        post.updated_at.should == mongo_post.updated_at
       end
     end
     describe "notifications" do
@@ -608,7 +607,7 @@ describe DataConversion::ImportToMysql do
         person.url.should == "http://google-1b05052.com/"
         person.diaspora_handle.should == "bob-person-1fe12fb@aol.com"
         person.serialized_public_key.should_not be_nil
-        person.created_at.to_i.should == 1294358505
+        person.created_at.to_i.should == 1294692022
       end
     end
     describe "post_visibilities" do

@@ -5,16 +5,6 @@
 module DataConversion
   class ImportToMysql < DataConversion::Base
 
-    def boolean_set(string)
-      "#{string}= IF(STRCMP(@#{string},'false'), TRUE, FALSE)"
-    end
-    def nil_es(string)
-      "#{string} = NULLIF(@#{string}, '')"
-    end
-    def unix_time(string)
-      "#{string} = FROM_UNIXTIME(@#{string} / 1000)"
-    end
-
     def import_raw
       truncate_tables
 
@@ -297,8 +287,10 @@ module DataConversion
       end
       log "Done setting target_id"
     end
+
     def import_raw_users
       log "Loading users file..."
+      Mongo::User.connection.execute set_time_zone_to_utc
       Mongo::User.connection.execute <<-SQL
         #{load_string("users")}
         #{infile_opts}
@@ -320,6 +312,7 @@ module DataConversion
 
     def import_raw_aspects
       log "Loading aspects file..."
+      Mongo::Aspect.connection.execute set_time_zone_to_utc
       Mongo::Aspect.connection.execute <<-SQL
         #{load_string("aspects")}
         #{infile_opts}
@@ -332,6 +325,7 @@ module DataConversion
 
     def import_raw_aspect_memberships
       log "Loading aspect memberships file..."
+      Mongo::AspectMembership.connection.execute set_time_zone_to_utc
       Mongo::AspectMembership.connection.execute <<-SQL
         #{load_string("aspect_memberships")}
         #{infile_opts}
@@ -342,6 +336,7 @@ module DataConversion
 
     def import_raw_comments
       log "Loading comments file..."
+      Mongo::Comment.connection.execute set_time_zone_to_utc
       Mongo::Comment.connection.execute <<-SQL
         #{load_string("comments")}
         #{infile_opts}
@@ -351,8 +346,10 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Comment.count} comments."
     end
+
     def import_raw_posts
       log "Loading posts file..."
+      Mongo::Post.connection.execute set_time_zone_to_utc
       Mongo::Post.connection.execute <<-SQL
         #{load_string("posts")}
         #{infile_opts}
@@ -374,8 +371,10 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Post.count} posts."
     end
+
     def import_raw_contacts
       log "Loading contacts file..."
+      Mongo::Contact.connection.execute set_time_zone_to_utc
       Mongo::Contact.connection.execute <<-SQL
         #{load_string("contacts")}
         #{infile_opts}
@@ -387,6 +386,7 @@ module DataConversion
 
     def import_raw_services
       log "Loading services file..."
+      Mongo::Service.connection.execute set_time_zone_to_utc
       Mongo::Service.connection.execute <<-SQL
         #{load_string("services")}
         #{infile_opts}
@@ -402,6 +402,7 @@ module DataConversion
 
     def import_raw_post_visibilities
       log "Loading post visibilities file..."
+      Mongo::PostVisibility.connection.execute set_time_zone_to_utc
       Mongo::PostVisibility.connection.execute <<-SQL
         #{load_string("post_visibilities")}
         #{infile_opts}
@@ -412,6 +413,7 @@ module DataConversion
 
     def import_raw_requests
       log "Loading requests file..."
+      Mongo::Request.connection.execute set_time_zone_to_utc
       Mongo::Request.connection.execute <<-SQL
         #{load_string("requests")}
         #{infile_opts}
@@ -420,8 +422,10 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Request.count} requests."
     end
+
     def import_raw_invitations
       log "Loading invitations file..."
+      Mongo::Invitation.connection.execute set_time_zone_to_utc
       Mongo::Invitation.connection.execute <<-SQL
         #{load_string("invitations")}
         #{infile_opts}
@@ -429,8 +433,10 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Invitation.count} invitations."
     end
+
     def import_raw_notifications
       log "Loading notifications file..."
+      Mongo::Notification.connection.execute set_time_zone_to_utc
       Mongo::Notification.connection.execute <<-SQL
         #{load_string("notifications")}
         #{infile_opts}
@@ -446,8 +452,10 @@ module DataConversion
       end
       log "Notification target types set."
     end
+
     def import_raw_people
       log "Loading people file..."
+      Mongo::Person.connection.execute set_time_zone_to_utc
       Mongo::Person.connection.execute <<-SQL
         #{load_string("people")}
         #{infile_opts}
@@ -459,8 +467,10 @@ module DataConversion
       SQL
       log "Finished. Imported #{Mongo::Person.count} people."
     end
+
     def import_raw_profiles
       log "Loading profiles file..."
+      Mongo::Profile.connection.execute set_time_zone_to_utc
       Mongo::Profile.connection.execute <<-SQL
         #{load_string("profiles")}
         #{infile_opts}
@@ -480,6 +490,19 @@ module DataConversion
       #STRCMP returns 0 if the arguments are the same
       log "Finished. Imported #{Mongo::Profile.count} profiles."
     end
+
+    def boolean_set(string)
+      "#{string}= IF(STRCMP(@#{string},'false'), TRUE, FALSE)"
+    end
+
+    def nil_es(string)
+      "#{string} = NULLIF(@#{string}, '')"
+    end
+
+    def unix_time(string)
+      "#{string} = FROM_UNIXTIME(@#{string} / 1000)"
+    end
+
     def infile_opts
       <<-OPTS
           FIELDS TERMINATED BY ','
@@ -490,6 +513,10 @@ OPTS
 
     def load_string model_name
         "LOAD DATA INFILE '#{full_path}/#{model_name}.csv' INTO TABLE mongo_#{model_name}"
+    end
+
+    def set_time_zone_to_utc
+      "set time_zone = '+0:00'"
     end
   end
 end
