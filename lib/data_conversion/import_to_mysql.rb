@@ -102,8 +102,9 @@ module DataConversion
 
       log "Setting Photo -> StatusMessage relation column..."
       Photo.connection.execute <<-SQL
-      SELECT * FROM posts
-      WHERE posts.type = "Photo"
+      UPDATE posts AS photos, mongo_posts, posts AS statuses
+      SET photos.status_message_id = statuses.id
+      WHERE photos.type = "Photo" AND mongo_posts.mongo_id = photos.mongo_id AND statuses.mongo_id = mongo_posts.status_message_mongo_id
       SQL
       log "Processed #{Photo.count} photos."
     end

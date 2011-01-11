@@ -347,7 +347,7 @@ describe DataConversion::ImportToMysql do
 
       it "imports the columns of a photo" do
         @migrator.process_raw_posts
-        post = Photo.first
+        post = Photo.where(:mongo_id => "4d2b6ebfcc8cb43cc200002d").first
         mongo_post = Mongo::Post.where(:mongo_id => post.mongo_id).first
         post.youtube_titles.should be_nil
         post.pending.should == false
@@ -356,12 +356,12 @@ describe DataConversion::ImportToMysql do
         post.caption.should be_nil
         post.remote_photo_path.should be_nil
         post.remote_photo_name.should be_nil
-        post.random_string.should be_nil
-        post.image.should be_nil
+        post.random_string.should == "mUKUIxkYlV"
+        post.image.file.file.should =~ /mUKUIxkYlV4d2b6ebfcc8cb43cc200002d\.png/
         post.mongo_id.should == "4d2b6ebfcc8cb43cc200002d"
         post.guid.should == post.mongo_id
         post.person_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
-        post.diaspora_handle.should post.person.diaspora_handle
+        post.diaspora_handle.should == post.person.diaspora_handle
         post.message.should be_nil
         # puts post.created_at.utc? # == true
         post.created_at.utc.to_i.should == 1294692032 # got 1294663230- minus 8 hours
@@ -556,11 +556,11 @@ describe DataConversion::ImportToMysql do
         post.diaspora_handle.should == "bob1d2f837@localhost"
         post.person_mongo_id.should == "4d2b6eb6cc8cb43cc200000a"
         post.message.should == "User2 can see this"
+        Mongo::Post.where(:mongo_id => "4d2b6ebfcc8cb43cc200002d").first.status_message_mongo_id.should == post.mongo_id
         # puts post.created_at.utc? # == true
         post.created_at.utc.to_i.should == 1294692030 # got 1294663230- minus 8 hours
         post.updated_at.to_i.should == 1294692030
       end
-
 
     end
     describe "notifications" do
