@@ -15,10 +15,22 @@ class NotificationMultiplePeople < ActiveRecord::Migration
       " FROM notifications"
     
     #TODO in sql
+    # 1) set target type
+    # 2) update the target_id from the comment to comment.post_id
+    execute "UPDATE notifications "+
+           " SET target_id = comment.post_id, target_type = 'post' " +
+           " FROM notifications " +
+           " INNER JOIN comments " +
+           " WHERE notifications.target_id = comments.id "
+
+
     #bump up target to status message id if comment_on_post, also_commented
     ['comment_on_post', 'also_commented'].each do |type|
 
-    Notification.where(:type => 'comment_on_post').all.each{|n|
+    Notification.joins(:target).where(:action => "comment_on_post").update_all(:target => target)
+          
+
+    Notification.where(:action => 'comment_on_post').all.each{|n|
       n.target_id => Comment.find(n.target_id).post}
 
     #for each user
