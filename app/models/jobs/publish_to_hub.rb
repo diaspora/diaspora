@@ -8,6 +8,7 @@ module Jobs
     @queue = :http_service
 
     def self.perform(sender_public_url)
+      require File.join(Rails.root, 'lib/pubsubhubbub')
       Pubsubhubbub.new(AppConfig[:pubsub_server]).publish(sender_public_url)
     end
   end
