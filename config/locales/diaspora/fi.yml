@@ -4,7 +4,11 @@
 
 
 fi: 
+  _aspect: "Näkymä"
+  _aspects: "Näkymät"
   _comments: "Kommentit"
+  _contact: "Kontakti"
+  _contacts: "Kontaktit"
   _home: "Etusivu"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
@@ -45,11 +49,6 @@ fi:
     add_to_aspect: 
       failure: "Kontaktin lisäys näkymään epäonnistui."
       success: "Ystävän lisäys näkymään onnistui."
-    all_aspects_contacts: 
-      all_contacts: "Kaikki kontaktit"
-      aspects: "Verkostonäkymät"
-      manage_aspects: "Hallitse näkymiä"
-      no_contacts: "Sinulla ei vielä ole kontakteja.  Etsi kontaktejasi täältä."
     aspect_contacts: 
       done_editing: "muokkaus valmis"
     create: 
@@ -57,9 +56,9 @@ fi:
       success: "Uusi näkymäsi, %{name}, on luotu"
     destroy: 
       success: "%{name} poistettiin onnistuneesti."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Lisää olemassa oleva kontakti"
-      confirm_remove_aspect: "Oletko varma, että haluat poistaa tämän näkymän?"
+      confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
       remove_aspect: "Poista näkymä"
       rename_aspect: "Nimeä näkymä uudelleen"
     helper: 
@@ -68,6 +67,7 @@ fi:
       remove: "poista"
     index: 
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
+      no_contacts: "Ei kontakteja"
     manage: 
       add_a_new_aspect: "Lisää uusi näkymä"
       add_a_new_contact: "Lisää uusi kontakti"

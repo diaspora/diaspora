@@ -4,7 +4,11 @@
 
 
 ga: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Nótaí tráchta"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Abhaile"
   _photos: "pictíurí"
   _services: "Seirbhísí"
@@ -45,11 +49,6 @@ ga:
     add_to_aspect: 
       failure: "Níor éirigh leis an teagmháil a chuir leis an gné."
       success: "D'eirigh le teagmháil a chuir le gné."
-    all_aspects_contacts: 
-      all_contacts: "Gach teagmháil"
-      aspects: "gnéanna"
-      manage_aspects: "bainistiú gnéanna"
-      no_contacts: "Níl aon teaghmháilí agat. Faigh do teagmháilí anseo."
     aspect_contacts: 
       done_editing: "críochnaithe ag aithriú"
     create: 
@@ -57,10 +56,10 @@ ga:
       success: "Bhí do gné nua, {%name}, cruthaithe"
     destroy: 
       success: "Fuaireadh ré le %{name}"
-    edit_aspect_pane: 
-      add_existing: "Cuir teagmháilí a bhfuil ann cheanna féin leis"
-      confirm_remove_aspect: "An bhfuil tu cinnte go bhfuil tú ag iarraidh an gné seo a scriosadh?"
-      remove_aspect: "Scrios an gné seo"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -68,6 +67,7 @@ ga:
       remove: "bhain"
     index: 
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Cuir gné nua leis"
       add_a_new_contact: "Cuir teagmháil leis"

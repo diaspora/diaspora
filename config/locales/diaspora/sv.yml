@@ -4,7 +4,11 @@
 
 
 sv: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Kommentarer"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Hem"
   _photos: "foton"
   _services: "Tjänster"
@@ -45,11 +49,6 @@ sv:
     add_to_aspect: 
       failure: "Personen kunde inte läggas till på sidan."
       success: "Personen tillagd på sidan."
-    all_aspects_contacts: 
-      all_contacts: "Alla kontakter"
-      aspects: "Sidor"
-      manage_aspects: "hantera sidor"
-      no_contacts: "Förnärvarande har du inga kontakter. Hitta dina kontakter här."
     aspect_contacts: 
       done_editing: "dölj"
     create: 
@@ -57,10 +56,10 @@ sv:
       success: "Din nya sida %{name} har skapats"
     destroy: 
       success: "%{name} är nu borttagen."
-    edit_aspect_pane: 
-      add_existing: "Lägg till en befintlig kontakt"
-      confirm_remove_aspect: "Är du säker på att du vill tabort denna sida?"
-      remove_aspect: "Ta bort denna sida"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Är du säker på att du vill tabort den här sidan?"
@@ -68,6 +67,7 @@ sv:
       remove: "ta bort"
     index: 
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Lägg till en ny sida"
       add_a_new_contact: "Lägg till en ny kontakt"

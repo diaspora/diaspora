@@ -4,7 +4,11 @@
 
 
 nl: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Reacties"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Home"
   _photos: "foto's"
   _services: "Services"
@@ -45,11 +49,6 @@ nl:
     add_to_aspect: 
       failure: "Contact toevoegen aan aspect is mislukt."
       success: "Contact is met succes toegevoegd aan aspect."
-    all_aspects_contacts: 
-      all_contacts: "Alle contacten"
-      aspects: "Aspecten"
-      manage_aspects: "beheer aspecten"
-      no_contacts: "Je hebt momenteel geen contacten. Vind je contacten hier!"
     aspect_contacts: 
       done_editing: "klaar met bewerken"
     create: 
@@ -57,17 +56,18 @@ nl:
       success: "Je nieuwe aspect %{name} is aangemaakt"
     destroy: 
       success: "%{name} is met succes verwijderd."
-    edit_aspect_pane: 
-      add_existing: "Voeg een bestaand contact toe"
-      confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
-      remove_aspect: "Verwijder dit aspect"
-      rename_aspect: "Hernoem aspect"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
       remove: "verwijderen"
     index: 
       handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Voeg een nieuw aspect toe"
       add_a_new_contact: "Voeg contact toe"

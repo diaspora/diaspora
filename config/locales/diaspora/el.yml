@@ -4,7 +4,11 @@
 
 
 el: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Σχόλια"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Αρχική"
   _photos: "φωτογραφίες"
   _services: "Υπηρεσίες"
@@ -45,11 +49,6 @@ el:
     add_to_aspect: 
       failure: "Αποτυχία προσθήκης επαφής στην πτυχή."
       success: "Επιτυχής προσθήκη επαφής στην πτυχή."
-    all_aspects_contacts: 
-      all_contacts: "Όλες οι επαφές"
-      aspects: "Πτυχές"
-      manage_aspects: "διαχείρηση πτυχών"
-      no_contacts: "Δεν έχετε ακόμα επαφές. Βρείτε τις επαφές σας εδώ."
     aspect_contacts: 
       done_editing: "ολοκλήρωση επεξεργασίας"
     create: 
@@ -57,10 +56,10 @@ el:
       success: "Η νέα σας πτυχή %{name} δημιουργήθηκε"
     destroy: 
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
-    edit_aspect_pane: 
-      add_existing: "Προσθήκη μιας υπάρχουσας επαφής"
-      confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
-      remove_aspect: "Διαγραφή αυτής της πτυχής"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
@@ -68,6 +67,7 @@ el:
       remove: "αφαίρεση"
     index: 
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       add_a_new_contact: "Προσθήκη νέας επαφής"

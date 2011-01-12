@@ -4,7 +4,11 @@
 
 
 hu: 
+  _aspect: "Csoport"
+  _aspects: "Csoportok"
   _comments: "Hozzászólások"
+  _contact: "Kapcsolat"
+  _contacts: "Ismerősök"
   _home: "Kezdőlap"
   _photos: "Képek"
   _services: "Szolgáltatások"
@@ -45,11 +49,6 @@ hu:
     add_to_aspect: 
       failure: "A kapcsolatot nem sikerült felvenni a csoportba."
       success: "A kapcsolat hozzáadva a csoporthoz."
-    all_aspects_contacts: 
-      all_contacts: "Összes ismerős"
-      aspects: "Csoportok"
-      manage_aspects: "csoportok kezelése"
-      no_contacts: "Még nincs ismerősöd felvéve. Itt keresheted meg őket"
     aspect_contacts: 
       done_editing: "szerkesztés kész"
     create: 
@@ -57,17 +56,18 @@ hu:
       success: "Új csoport létrehozva: %{name}"
     destroy: 
       success: "%{name} csoport sikeresen törölve."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Létező kapcsolat hozzáadása"
-      confirm_remove_aspect: "Törlöd ezt a csoportot?"
-      remove_aspect: "csoport törlése"
-      rename_aspect: "Rename aspect"
+      confirm_remove_aspect: "Biztos, hogy törölni akarod a csoportot?"
+      remove_aspect: "Csoport törlése"
+      rename_aspect: "Csoport átnevezése"
     helper: 
       are_you_sure: "Biztos, hogy törlöd a csoportot?"
       aspect_not_empty: "A csoport nem üres"
       remove: "eltávolítás"
     index: 
       handle_explanation: "Ez a Te Diaspora felhasználóneved. Megadhatod elérhetőségként, mint egy email címet."
+      no_contacts: "Nincs ismerős"
     manage: 
       add_a_new_aspect: "Új csoport hozzáadása"
       add_a_new_contact: "Új ismerős hozzáadása"
@@ -160,7 +160,7 @@ hu:
   layouts: 
     application: 
       powered_by: "DIASPORA* fordította ADAMEX"
-      whats_new: "Mizu?"
+      whats_new: "Újdonságok"
     header: 
       account_settings: "Fiók beállítások"
       blog: "blog"
@@ -178,7 +178,7 @@ hu:
   next: "következő"
   no_new_notifications: "nincs új értesítés"
   notifications: 
-    also_commented: "also commented on"
+    also_commented: "hozzászólt még ehhez"
     comment_on_post: "hozzászólt a"
     deleted: "törölve"
     index: 
@@ -188,13 +188,13 @@ hu:
     request_accepted: "elfogadta a megosztási kérésed."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "hozzászólt még %{post_author} bejegyzéséhez is:"
+      sign_in: "Jelentkezz be, hogy megnézhesd."
+      subject: "%{name} is hozzászólt."
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      commented: "hozzászólt a bejegyzésedhez!"
+      sign_in: "Jelentkezz be, hogy megnézd."
+      subject: "%{name} hozzászólt a bejegyzésedhez."
     diaspora: "A diaspora email robot"
     hello: "Szia %{name}!"
     love: "Szeretettel,"
@@ -318,7 +318,7 @@ hu:
       edit: "%{name} szerkesztése"
       leave_blank: "(Hagyd üresen, ha nem akarod megváltoztatni)"
       password_to_confirm: "(Szükségünk van a jelenlegi jelszavadra, hogy jóváhagyd a változást)"
-      unhappy: "Boldogtalan vagy?"
+      unhappy: "Elégedetlen?"
       update: "Frissítés"
     new: 
       enter_email: "Írd be az e-mail címed"
@@ -396,7 +396,7 @@ hu:
       no_message_to_display: "Nincs üzenet."
     new_status_message: 
       oh_yeah: "Ez az!"
-      tell_me_something_good: "Mondj valami jót!"
+      tell_me_something_good: "Mondj valamit!"
     show: 
       destroy: "Töröl"
       permalink: "permalink"

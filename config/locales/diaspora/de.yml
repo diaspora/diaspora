@@ -4,7 +4,11 @@
 
 
 de: 
+  _aspect: "Aspekt"
+  _aspects: "Aspekte"
   _comments: "Kommentare"
+  _contact: "Kontakt"
+  _contacts: "Kontakte"
   _home: "Start"
   _photos: "Fotos"
   _services: "Dienste"
@@ -45,11 +49,6 @@ de:
     add_to_aspect: 
       failure: "Hinzufügen des Kontakts zum Aspekt fehlgeschlagen."
       success: "Kontakt erfolgreich zum Aspekt hinzugefügt."
-    all_aspects_contacts: 
-      all_contacts: "Alle Kontakte"
-      aspects: "Aspekte"
-      manage_aspects: "Aspekte verwalten"
-      no_contacts: "Du hast zurzeit keine Kontakte. Finde hier deine Kontakte."
     aspect_contacts: 
       done_editing: "Änderungen abgeschlossen"
     create: 
@@ -57,10 +56,10 @@ de:
       success: "Dein neuer Aspekt %{name} wurde erstellt."
     destroy: 
       success: "%{name} wurde erfolgreich entfernt."
-    edit_aspect_pane: 
-      add_existing: "Bestehenden Kontakt hinzufügen"
-      confirm_remove_aspect: "Möchtest du diesen Aspekt wirklich löschen?"
-      remove_aspect: "Diesen Aspekt löschen"
+    edit: 
+      add_existing: "Ein bereits bestehendes Konto hinzufügen"
+      confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
+      remove_aspect: "Aspekt löschen"
       rename_aspect: "Aspekt umbenennen"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
@@ -68,6 +67,7 @@ de:
       remove: "entfernen"
     index: 
       handle_explanation: "Das ist deine Diaspora-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
+      no_contacts: "Keine Kontakte"
     manage: 
       add_a_new_aspect: "Neuen Aspekt hinzufügen"
       add_a_new_contact: "Neuen Kontakt hinzufügen"
@@ -178,7 +178,7 @@ de:
   next: "Nächste"
   no_new_notifications: "keine neuen Benachrichtigungen"
   notifications: 
-    also_commented: "also commented on"
+    also_commented: "hinterließ einen Kommentar zu"
     comment_on_post: "kommentierte deinen"
     deleted: "gelöschten"
     index: 
@@ -188,9 +188,9 @@ de:
     request_accepted: "hat deine Teilen-Anfrage angenommen."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "hat den Beitrag von %{post_author} ebenfalls kommentiert:"
+      sign_in: "Melde dich an, um ihn anzuzeigen."
+      subject: "%{name} hat einen Kommentar hinterlassen."
     comment_on_post: 
       commented: "hat deinen Eintrag kommentiert!"
       sign_in: "Melde dich an um dies zu sehen."

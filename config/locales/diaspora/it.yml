@@ -4,7 +4,11 @@
 
 
 it: 
+  _aspect: "Aspetto"
+  _aspects: "Aspetti"
   _comments: "Commenti"
+  _contact: "Contatto"
+  _contacts: "Contatti"
   _home: "Home"
   _photos: "foto"
   _services: "Servizi"
@@ -15,23 +19,23 @@ it:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "deve essere univoco tra i contatti di questo utente."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "non è disponibile"
+              taken: "non è disponibile."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "è un duplicato di una richiesta preesistente."
         user: 
           attributes: 
             email: 
-              taken: "è già stato usato"
+              taken: "non è disponibile."
             person: 
-              invalid: "non è valido"
+              invalid: "non è valido."
             username: 
-              taken: "non è disponibile"
+              taken: "non è disponibile."
   ago: "%{time} fa"
   application: 
     helper: 
@@ -39,17 +43,12 @@ it:
         all_aspects: "Tutti gli aspetti"
       unknown_person: "persona sconosciuta"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Video Senza Nome"
   are_you_sure: "Sei sicuro?"
   aspects: 
     add_to_aspect: 
       failure: "Errore nell'aggiungere il contatto all'aspetto."
       success: "Contatto aggiunto all'aspetto con successo."
-    all_aspects_contacts: 
-      all_contacts: "Tutti i contatti"
-      aspects: "Aspetto"
-      manage_aspects: "manage aspects"
-      no_contacts: "Al momento non hai alcun contatto.  Clicca qui per trovare nuovi contatti."
     aspect_contacts: 
       done_editing: "modifica eseguita"
     create: 
@@ -57,17 +56,18 @@ it:
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
     destroy: 
       success: "%{name} è stato rimosso con successo."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Aggiungi un contatto esistente"
-      confirm_remove_aspect: "Rimuovere l'aspetto?"
-      remove_aspect: "Rimuovi Aspetto"
-      rename_aspect: "Rename aspect"
+      confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
+      remove_aspect: "Elimina questo aspetto"
+      rename_aspect: "Rinomina aspetto"
     helper: 
       are_you_sure: "Sei sicuro di voler eliminare questo aspetto?"
       aspect_not_empty: "Aspetto non vuoto"
       remove: "rimuovi"
     index: 
       handle_explanation: "Questo è il tuo contatto Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
+      no_contacts: "Nessun contatto"
     manage: 
       add_a_new_aspect: "Aggiungi un nuovo aspetto"
       add_a_new_contact: "Aggiungi un nuovo contatto"
@@ -107,9 +107,9 @@ it:
     new_comment: 
       comment: "Commento"
       commenting: "Invio commento in corso..."
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
+      enter: "entra"
+      press: "premi"
+      to_comment: "per commentare"
   contacts: 
     few: "%{count} contatti"
     one: "1 contatto"
@@ -160,7 +160,7 @@ it:
   layouts: 
     application: 
       powered_by: "CREATO CON DIASPORA*"
-      whats_new: "what's new?"
+      whats_new: "novità"
     header: 
       account_settings: "impostazioni account"
       blog: "blog"
@@ -169,32 +169,32 @@ it:
       login: "accedi"
       logout: "esci"
       view_profile: "visualizza profilo"
-  new_notifications: "%{count} new notifications"
+  new_notifications: "%{count} nuove notifiche"
   new_requests: 
     few: "%{count} nuove richieste!"
     one: "nuova richiesta!"
     other: "%{count} nuove richieste!"
     zero: "nessuna nuova richiesta"
-  next: "next"
-  no_new_notifications: "no new notifications"
+  next: "successivo"
+  no_new_notifications: "nessuna nuova notifica"
   notifications: 
-    also_commented: "also commented on"
-    comment_on_post: "commented on your"
-    deleted: "deleted"
+    also_commented: "ha anche commentato"
+    comment_on_post: "ha commentato sul tuo"
+    deleted: "eliminato"
     index: 
-      notifications: "Notifications"
-    new_request: "offered to share with you."
+      notifications: "Notifiche"
+    new_request: "vuole condividere con te."
     post: "post"
-    request_accepted: "accepted your share request."
+    request_accepted: "ha accettato la tua richiesta di condivisione."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "ha anche commentato sul post di %{post_author}:"
+      sign_in: "Autenticati per vederlo."
+      subject: "%{name} ha anche commentato."
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      commented: "ha commentato il tuo post!"
+      sign_in: "Autenticati per vederlo."
+      subject: "%{name} ha commentato il tuo post."
     diaspora: "l'email robot di diaspora"
     hello: "Ciao %{name}!"
     love: "amore,"
@@ -204,11 +204,11 @@ it:
       subject: "nuova richiesta di contatto su Diaspora* da %{from}"
       try_it_out: "Dovresti veramente provarlo."
     request_accepted: 
-      accepted: "ha accettato la tua richiesta di contatto. Adesso sono nella tua"
+      accepted: "ha accettato la tua richiesta di contatto!"
       subject: "%{name} ha accettato la tua richiesta di contatto su Diaspora*"
     single_admin: 
       admin: "Il tuo amministratore Diaspora"
-      subject: "Un messaggio dal tuo amministratore Diaspora:"
+      subject: "Un messaggio sul tuo account Diaspora:"
     thanks: "Grazie,"
   ok: "OK"
   or: "o"
@@ -219,7 +219,7 @@ it:
   password_confirmation: "Conferma password"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "modifica appartenenza all'aspetto"
     edit: 
       allow_search: "Permetti alle persone di cercarti"
       edit_profile: "Modifica profilo"
@@ -248,7 +248,7 @@ it:
       thats_you: "sei tu!"
     profile_sidebar: 
       bio: "bio"
-      born: "nato"
+      born: "data di nascita"
       cannot_remove: "Impossibile rimuovere %{name} dall'ultimo aspetto."
       edit_my_profile: "Modifica il mio profilo"
       gender: "sesso"
@@ -256,17 +256,17 @@ it:
       remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "Quando %{name} avrà accettato, ognuno comincerà a vedere i post Diaspora dell'altro"
+      share_with: "Inizia a condividere con %{name}"
     show: 
       does_not_exist: "La persona non esiste!"
       incoming_request: "Hai ricevuto una richiesta da questa persona."
       no_posts: "nessun post da mostrare!"
-      not_connected: "Non sei in contatto con questa persona"
+      not_connected: "Non sei in contatto con %{name}"
       recent_posts: "Post Recenti"
       recent_public_posts: "Post pubblici recenti"
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
-      similar_contacts: "similar contacts"
+      similar_contacts: "contatti simili"
       to_accept_or_ignore: "per accettarla o ignorarla."
     update: 
       failed: "Impossibile aggiornare il profilo"
@@ -303,11 +303,11 @@ it:
       permalink: "permalink"
       update_photo: "Aggiorna Foto"
       view: "guarda"
-      view_original_post: "view original post"
+      view_original_post: "vedi post originale"
     update: 
       error: "Modifica della foto fallita."
       notice: "Foto aggiornata con successo."
-  previous: "previous"
+  previous: "precedente"
   profile: "Profilo"
   registrations: 
     closed: "Le iscrizioni sono chiuse su questo pod Diaspora."
@@ -398,7 +398,7 @@ it:
       oh_yeah: "oh si!"
       tell_me_something_good: "dimmi qualcosa di buono"
     show: 
-      destroy: "Distruggi"
+      destroy: "Elimina"
       permalink: "permalink"
   stream_helper: 
     hide_comments: "nascondi i commenti"
@@ -415,7 +415,7 @@ it:
       download_photos: "scarica le mie"
       download_xml: "scarica il mio xml"
       edit_account: "Modifica account"
-      email_notifications: "Notifiche email "
+      email_notifications: "Notifiche email"
       export_data: "Esporta Dati"
       new_password: "Nuova Password"
       receive_email_notifications: "Vuoi ricevere notifiche via email?"
@@ -452,7 +452,7 @@ it:
     public: 
       does_not_exist: "L'utente %{username} non esiste!"
     update: 
-      email_notifications_changed: "Impossibile cambiare la lingua"
+      email_notifications_changed: "Notifiche email modificate con successo"
       language_changed: "Lingua Cambiata"
       language_not_changed: "Cambio di lingua fallito"
       password_changed: "Password Cambiata"

@@ -4,7 +4,11 @@
 
 
 ar: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Comments"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Home"
   _photos: "fotos"
   _services: "Servicios"
@@ -45,11 +49,6 @@ ar:
     add_to_aspect: 
       failure: "Failed to add friend to aspect."
       success: "Successfully added friend to aspect."
-    all_aspects_contacts: 
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      manage_aspects: "manage aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
     create: 
@@ -57,10 +56,10 @@ ar:
       success: ".من الذي يمكنه مشاهدة مظهرك الجديد Diaspora انقر على علامة الزائد على الجانب الأيسر لتقول ل"
     destroy: 
       success: ".بنجاح %{name} تم إزالة"
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -68,6 +67,7 @@ ar:
       remove: "حذف"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "أضف جانبا جديدا"
       add_a_new_contact: "Add a new contact"

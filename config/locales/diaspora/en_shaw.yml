@@ -4,7 +4,11 @@
 
 
 en_shaw: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Home"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
@@ -45,11 +49,6 @@ en_shaw:
     add_to_aspect: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑨𐑛𐑩𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
-    all_aspects_contacts: 
-      all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-      aspects: "𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-      manage_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-      no_contacts: "𐑿 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑣𐑨𐑝 𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕. 𐑓𐑲𐑯𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑣𐑽."
     aspect_contacts: 
       done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
     create: 
@@ -57,10 +56,10 @@ en_shaw:
       success: "𐑿𐑼 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑 %{name} 𐑢𐑪𐑟 𐑒𐑮𐑦𐑱𐑑𐑩𐑛"
     destroy: 
       success: "%{name} 𐑢𐑪𐑟 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛."
-    edit_aspect_pane: 
-      add_existing: "𐑨𐑛 𐑩𐑯 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-      confirm_remove_aspect: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
-      remove_aspect: "𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
@@ -68,6 +67,7 @@ en_shaw:
       remove: "𐑮𐑦𐑥𐑵𐑝"
     index: 
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕, 𐑿 𐑒 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
       add_a_new_contact: "𐑨𐑛 𐑩 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
@@ -178,7 +178,7 @@ en_shaw:
   next: "𐑯𐑧𐑒𐑕𐑑"
   no_new_notifications: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
   notifications: 
-    also_commented: "also commented on"
+    also_commented: "𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯"
     comment_on_post: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼"
     deleted: "𐑛𐑦𐑤𐑰𐑑𐑩𐑛"
     index: 
@@ -188,13 +188,13 @@ en_shaw:
     request_accepted: "𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 𐑐𐑴𐑕𐑑:"
+      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
+      subject: "%{name} 𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛."
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      commented: "𐑣𐑨𐑟 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑐𐑴𐑕𐑑!"
+      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
+      subject: "%{name} 𐑣𐑨𐑟 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑐𐑴𐑕𐑑."
     diaspora: "𐑞 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑦-𐑥𐑱𐑤 𐑮𐑴𐑚𐑪𐑑"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
     love: "𐑤𐑳𐑝,"

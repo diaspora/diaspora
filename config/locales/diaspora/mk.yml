@@ -4,7 +4,11 @@
 
 
 mk: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Коментари"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Дома"
   _photos: "фотографии"
   _services: "Сервиси"
@@ -45,11 +49,6 @@ mk:
     add_to_aspect: 
       failure: "Неуспешно додавање на контактот во аспект."
       success: "Успешно додаден контактот во аспект."
-    all_aspects_contacts: 
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      manage_aspects: "manage aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
     create: 
@@ -57,10 +56,10 @@ mk:
       success: "Вашиот нов аспект %{name} е креиран"
     destroy: 
       success: "%{name} е отстранет успешно."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -68,6 +67,7 @@ mk:
       remove: "одстрани"
     index: 
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Додај нов аспект"
       add_a_new_contact: "Додај нов контакт"

@@ -4,7 +4,11 @@
 
 
 gl-ES: 
+  _aspect: "Aspecto"
+  _aspects: "Aspectos"
   _comments: "Comentarios"
+  _contact: "Contacto"
+  _contacts: "Contacts"
   _home: "Inicio"
   _photos: "fotos"
   _services: "Servizos"
@@ -45,11 +49,6 @@ gl-ES:
     add_to_aspect: 
       failure: "Non se puido engadir o contacto á aparencia."
       success: "Engadiuse correctamente o contacto coa aparencia."
-    all_aspects_contacts: 
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      manage_aspects: "manage aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
     create: 
@@ -57,10 +56,10 @@ gl-ES:
       success: "A súa nova aparencia %{name} foi creada"
     destroy: 
       success: "%{name} foi eliminado correctamente."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -68,6 +67,7 @@ gl-ES:
       remove: "eliminar"
     index: 
       handle_explanation: "Esta é a súa tarxeta de diaspora. Coma un enderezo electrónico, podes darllo ás persoas para que te localicen."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Engadir unha nova aparencia"
       add_a_new_contact: "Engadir un novo contacto"
@@ -162,13 +162,13 @@ gl-ES:
       powered_by: "FORNECIDO POR DIASPORA*"
       whats_new: "what's new?"
     header: 
-      account_settings: "account settings"
-      blog: "blog"
+      account_settings: "Configuración da conta"
+      blog: "Bitácora"
       code: "code"
-      edit_profile: "edit profile"
-      login: "login"
-      logout: "logout"
-      view_profile: "view profile"
+      edit_profile: "Modificar o perfil"
+      login: "Identificarse"
+      logout: "Saír"
+      view_profile: "Ver o perfil"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
@@ -195,28 +195,28 @@ gl-ES:
       commented: "has commented on your post!"
       sign_in: "Sign in to view it."
       subject: "%{name} has commented on your post."
-    diaspora: "the diaspora email robot"
-    hello: "Hello %{name}!"
-    love: "love,"
+    diaspora: "o robot do correo electrónico de Diaspora"
+    hello: "Ola %{name}!"
+    love: "amor,"
     new_request: 
-      just_sent_you: "just sent you a contact request on Diaspora*"
-      sign_in: "sign in here"
-      subject: "new Diaspora* contact request from %{from}"
-      try_it_out: "You should really think about checking it out."
+      just_sent_you: "acaba de mandarche unha petición de contacto en Diaspora*."
+      sign_in: "Rexistrarse"
+      subject: "Ten unha nova petición de contacto en Diaspora* de %{from}."
+      try_it_out: "Debería pensar seriamente en botarlle unha ollada."
     request_accepted: 
       accepted: "has accepted your contact request. They are now in your"
-      subject: "%{name} has accepted your contact request on Diaspora*"
+      subject: "%{name} aceptouno como contacto en Diaspora*."
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
     thanks: "Thanks,"
-  ok: "OK"
-  or: "or"
+  ok: "Aceptar"
+  or: "ou"
   pagination: 
     next: "Next"
     previous: "Previous"
-  password: "Password"
-  password_confirmation: "Password confirmation"
+  password: "Contrasinal"
+  password_confirmation: "Confirmación do contrasinal"
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"

@@ -4,7 +4,11 @@
 
 
 pt-PT: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Comentários"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Início"
   _photos: "Fotografias"
   _services: "Serviços"
@@ -45,11 +49,6 @@ pt-PT:
     add_to_aspect: 
       failure: "Falha ao adicionar amigo ao grupo."
       success: "Amigo adicionado com sucesso ao grupo."
-    all_aspects_contacts: 
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      manage_aspects: "manage aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
     create: 
@@ -57,10 +56,10 @@ pt-PT:
       success: "O teu novo grupo %{name} foi  criado"
     destroy: 
       success: "%{name} foi removido(a) com sucesso."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Remove aspect?"
-      remove_aspect: "Remove Aspect"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -68,6 +67,7 @@ pt-PT:
       remove: "remover"
     index: 
       handle_explanation: "Esta é a tua chave do Diaspora. Tal como um email, podes dar esta chave às pessoas para que te possam contactar."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Adicionar um novo grupo"
       add_a_new_contact: "Adicionar um novo contacto"

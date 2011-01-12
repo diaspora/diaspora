@@ -4,7 +4,11 @@
 
 
 ca: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Comentaris"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Inici"
   _photos: "fotografies"
   _services: "Serveis"
@@ -45,11 +49,6 @@ ca:
     add_to_aspect: 
       failure: "Error a l'afegir el contacte a aquest aspecte."
       success: "S'ha agregat correctament el seu contacte a un aspecte."
-    all_aspects_contacts: 
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      manage_aspects: "manage aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
     create: 
@@ -57,10 +56,10 @@ ca:
       success: "El teu nou aspecte %{name} ha estat creat"
     destroy: 
       success: "%{name} ha estat eliminat correctament."
-    edit_aspect_pane: 
-      add_existing: "Afegir un contacte existent"
-      confirm_remove_aspect: "Eliminar aspecte?"
-      remove_aspect: "Eliminar aspecte"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -68,6 +67,7 @@ ca:
       remove: "eliminar"
     index: 
       handle_explanation: "Aquesta és la teva direcció Diaspora. Com una direcció d'E-Mail, pots donar-la a gent perquè et trobi"
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Afegir un nou aspecte"
       add_a_new_contact: "Afegir un nou contacte"

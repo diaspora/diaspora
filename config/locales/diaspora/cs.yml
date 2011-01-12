@@ -4,7 +4,11 @@
 
 
 cs: 
+  _aspect: "Aspekt"
+  _aspects: "Aspekty"
   _comments: "Komentáře"
+  _contact: "Kontakt"
+  _contacts: "Kontakty"
   _home: "Doma"
   _photos: "fotky"
   _services: "Služby"
@@ -45,11 +49,6 @@ cs:
     add_to_aspect: 
       failure: "Přidání kontaktu do aspektu selhalo."
       success: "Kontakt byl úspěšně přidán do aspektu."
-    all_aspects_contacts: 
-      all_contacts: "Všechny kontakty"
-      aspects: "Aspekty"
-      manage_aspects: "upravit aspekty"
-      no_contacts: "Nemáte žádné kontakty. Vyhledejte je zde."
     aspect_contacts: 
       done_editing: "ukončit úpravy"
     create: 
@@ -57,9 +56,9 @@ cs:
       success: "Váš nový aspekt %{name} byl vytvořen"
     destroy: 
       success: "%{name} byl úspěšně odebrán."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Přidat existující kontakt"
-      confirm_remove_aspect: "Opravdu odstranit tento aspekt?"
+      confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
       remove_aspect: "Odstranit tento aspekt"
       rename_aspect: "Přejmenovat aspekt"
     helper: 
@@ -68,6 +67,7 @@ cs:
       remove: "odebrat"
     index: 
       handle_explanation: "Toto je váš Diaspora identifikátor. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
+      no_contacts: "Žádné kontakty"
     manage: 
       add_a_new_aspect: "Přidat aspekt"
       add_a_new_contact: "Přidat nový kontakt"
@@ -262,7 +262,7 @@ cs:
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "Máte příchozí žádost od tohoto kontaktu."
       no_posts: "žádné zprávy k zobrazení!"
-      not_connected: "Nejste spřáteleni s %{name}"
+      not_connected: "Nesdílíte s %{name}"
       recent_posts: "Poslední příspěvky"
       recent_public_posts: "Poslední veřejné příspěvky"
       return_to_aspects: "Návrat na vaši stránku s aspekty"

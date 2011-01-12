@@ -4,7 +4,11 @@
 
 
 sl: 
+  _aspect: "Vidik"
+  _aspects: "Vidiki"
   _comments: "Komentarji"
+  _contact: "Kontakt"
+  _contacts: "Kontakti"
   _home: "Domov"
   _photos: "slike"
   _services: "Servisi"
@@ -45,11 +49,6 @@ sl:
     add_to_aspect: 
       failure: "Dodajanje stika v skupino ni uspelo."
       success: "Dodajanje stika v skupino je uspelo."
-    all_aspects_contacts: 
-      all_contacts: "Vsi stiki"
-      aspects: "Skupine"
-      manage_aspects: "uredi skupine"
-      no_contacts: "Trenutno ste brez stikov. Tukaj poiščite vaše stike."
     aspect_contacts: 
       done_editing: "zaključi urejanje"
     create: 
@@ -57,21 +56,22 @@ sl:
       success: "Skupina %{name} je ustvarjena"
     destroy: 
       success: "%{name} je uspešno odstranjen."
-    edit_aspect_pane: 
-      add_existing: "Dodaj obstoječi stik"
-      confirm_remove_aspect: "Ste prepričani, da želite izbrisati skupino?"
-      remove_aspect: "Izbriši skupino"
-      rename_aspect: "Rename aspect"
+    edit: 
+      add_existing: "Dodaj obstoječ kontakt"
+      confirm_remove_aspect: "Ste prepričani, da bi radi izbrisali ta vidik?"
+      remove_aspect: "Izbriši ta vidik"
+      rename_aspect: "Preimenuj vidik"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"
       aspect_not_empty: "Skupina vsebuje stike"
       remove: "odstrani"
     index: 
       handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
+      no_contacts: "Ni kontaktov"
     manage: 
       add_a_new_aspect: "Dodaj novo skupino"
       add_a_new_contact: "Dodaj nov stik"
-      drag_to_add: "Za dodajanje osebo povleci"
+      drag_to_add: "Za dodajanje osebe povleci"
       manage_aspects: "Uredi skupine"
       no_requests: "Ni novih prošenj"
       requests: "Prošnje"
@@ -89,7 +89,7 @@ sl:
       nobody: "Povabite v Diasporo vse, ki vam v življenju nekaj pomenijo!"
       nobody_in_aspect: "Vaša skupina '%{aspect_name}' je prazna."
     no_posts_message: 
-      start_talking: "Na to temo je zaenkrat še vse tiho. Bodite prvi in začnite pogovor!"
+      start_talking: "Trenutno še brez objav. Začnite s prvo objavo!"
     remove_from_aspect: 
       failure: "Odstranitev osebe iz skupine ni uspelo"
       success: "Odstranitev osebe iz skupine je uspešno"
@@ -178,7 +178,7 @@ sl:
   next: "naslednja"
   no_new_notifications: "ni novih sporočil"
   notifications: 
-    also_commented: "also commented on"
+    also_commented: "komentirano tudi na"
     comment_on_post: "komentar na vaš"
     deleted: "izbrisano"
     index: 
@@ -188,13 +188,13 @@ sl:
     request_accepted: "vaše prošnja je sprejeta."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "prav tako komentirano na objavo osebe %{post_author}:"
+      sign_in: "Za ogled se prijavite."
+      subject: "oseba %{name} je prav tako komentirala."
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      commented: "komentar na vašo objavo!"
+      sign_in: "Za ogled se prijavite."
+      subject: "Oseba %{name} je komentirala vašo objavo."
     diaspora: "diaspora email robot"
     hello: "Pozdravljeni %{name}!"
     love: "vas pozdravlja,"
@@ -361,7 +361,7 @@ sl:
       create_request: "Poišči po Diaspora imenu"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Vpišite Diaspora uporabniško ime:"
-      know_email: "Ali veste njihove naslove e-pošte? Povabite jih"
+      know_email: "Ali poznate njihove naslove e-naslove? Povabite jih"
       your_diaspora_username_is: "Vaše Diaspora uporabniško ime je: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Vsi stiki"

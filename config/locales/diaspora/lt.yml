@@ -4,7 +4,11 @@
 
 
 lt: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Komentarai"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Pradžia"
   _photos: "Nuotraukos"
   _services: "Paslaugos"
@@ -45,11 +49,6 @@ lt:
     add_to_aspect: 
       failure: "Nepavyko pridėti draugo į aspektą."
       success: "Draugas į aspektą pridėtas sėkmingai."
-    all_aspects_contacts: 
-      all_contacts: "All contacts"
-      aspects: "Aspects"
-      manage_aspects: "manage aspects"
-      no_contacts: "You currently have no contacts.  Find your contacts here."
     aspect_contacts: 
       done_editing: "done editing"
     create: 
@@ -57,10 +56,10 @@ lt:
       success: "Spustelk pliusą kairėje ir nurodyk, kas Diasporoje gali matyti tavo naują aspektą."
     destroy: 
       success: "%{name} sėkmingai pašalintas."
-    edit_aspect_pane: 
-      add_existing: "Pridėk egzistuojantį kontaktą"
-      confirm_remove_aspect: "Pašalinti aspektą?"
-      remove_aspect: "Pašalinti aspektą"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -68,6 +67,7 @@ lt:
       remove: "šalinti"
     index: 
       handle_explanation: "Tai tavo vartotojo vardas Diasporoje. Kaip ir el. pašto adresas, jis leidžia sistemoje rasti pažįstamus."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Pridėti naują aspektą"
       add_a_new_contact: "Pridėti naują kontaktą"

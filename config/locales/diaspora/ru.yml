@@ -4,7 +4,11 @@
 
 
 ru: 
+  _aspect: "Аспект"
+  _aspects: "Аспекты"
   _comments: "Коментарии"
+  _contact: "Контакт"
+  _contacts: "Контакты"
   _home: "Домашний"
   _photos: "Фотографии"
   _services: "Сервисы"
@@ -15,23 +19,23 @@ ru:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "должно быть уникальным среди контактов пользователя."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "уже присутствует"
+              taken: "уже занято."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "является дубликатом ранее существовавшего запроса."
         user: 
           attributes: 
             email: 
-              taken: "уже присутствует в базе"
+              taken: "уже занято."
             person: 
-              invalid: "неправильный"
+              invalid: "неправильный."
             username: 
-              taken: "уже занято"
+              taken: "уже занято."
   ago: "%{time} назад"
   application: 
     helper: 
@@ -39,17 +43,12 @@ ru:
         all_aspects: "Все аспекты"
       unknown_person: "неизвестная персона"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Неизвестное название видеозаписи"
   are_you_sure: "Вы уверены?"
   aspects: 
     add_to_aspect: 
       failure: "Не удалось добавить друга в аспект."
       success: "Друг добавлен в аспект."
-    all_aspects_contacts: 
-      all_contacts: "Все контакты"
-      aspects: "Аспекты"
-      manage_aspects: "manage aspects"
-      no_contacts: "Сейчас у вас нет контактов. Найти попробуйте найти контакты здесь.\n"
     aspect_contacts: 
       done_editing: "редактирование завершено"
     create: 
@@ -57,17 +56,18 @@ ru:
       success: "Ваш новый аспект %{name} создан"
     destroy: 
       success: "%{name} удалён."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Добавить существующий контакт"
-      confirm_remove_aspect: "Вы уверены в том, что собираетесь удалить аспект?"
-      remove_aspect: "Удалить аспект"
-      rename_aspect: "Rename aspect"
+      confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
+      remove_aspect: "Удалить этот аспект"
+      rename_aspect: "Переименовать аспект"
     helper: 
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
       remove: "удалить"
     index: 
       handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
+      no_contacts: "Контакты отсутствуют"
     manage: 
       add_a_new_aspect: "Добавить аспект"
       add_a_new_contact: "Добавить новый контакт"
@@ -107,9 +107,9 @@ ru:
     new_comment: 
       comment: "Комментарий"
       commenting: "Комментирование ..."
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
+      enter: "вход"
+      press: "пресса"
+      to_comment: "комментировать"
   contacts: 
     few: "%{count} контактов"
     one: "1 контакт"
@@ -160,7 +160,7 @@ ru:
   layouts: 
     application: 
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
-      whats_new: "what's new?"
+      whats_new: "Что нового?"
     header: 
       account_settings: "настройки аккаунта"
       blog: "блог"
@@ -169,32 +169,32 @@ ru:
       login: "логин"
       logout: "выйти"
       view_profile: "просмотр профиля"
-  new_notifications: "%{count} new notifications"
+  new_notifications: "%{count} новых уведомлений"
   new_requests: 
     few: "%{count} новых запросов!"
     one: "новый запрос!"
     other: "%{count} новых запросов!"
     zero: "новых запросов нет"
-  next: "next"
-  no_new_notifications: "no new notifications"
+  next: "далее"
+  no_new_notifications: "новых уведомлений нет"
   notifications: 
-    also_commented: "also commented on"
-    comment_on_post: "commented on your"
-    deleted: "deleted"
+    also_commented: "также прокомментировал"
+    comment_on_post: "комментариев на "
+    deleted: "удален"
     index: 
-      notifications: "Notifications"
-    new_request: "offered to share with you."
-    post: "post"
-    request_accepted: "accepted your share request."
+      notifications: "Уведомления"
+    new_request: "предлагает поделиться с вами."
+    post: "сообщение"
+    request_accepted: "ваш запрос на участие принят."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "также прокомментировал %{post_author} сообщение:\n"
+      sign_in: "Войдите в систему, для дальнейшего просмотра."
+      subject: "%{name} также прокомментировал."
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      commented: "прокомментировал ваш пост!"
+      sign_in: "Войдите в систему, для дальнейшего просмотра."
+      subject: "%{name} прокомментировал ваш пост."
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
     love: "С любовью,"
@@ -204,11 +204,11 @@ ru:
       subject: "новый запрос Диаспоры от %{from}"
       try_it_out: "Вы должны подумать о его проверке.\n"
     request_accepted: 
-      accepted: "принял(а) ваш запрос. Сейчас он(а) находятся в вашем\n"
+      accepted: "принял Ваш запрос!"
       subject: "%{name} принял(а) ваш запрос для присоединения к Диаспоре*"
     single_admin: 
       admin: "Ваш администратор Диаспоры"
-      subject: "Сообщение от администратора вашей Диаспоры:"
+      subject: "Сообщение о вашей учётной записи Диаспоры:"
     thanks: "Спасибо,"
   ok: "Ок"
   or: "или"
@@ -219,7 +219,7 @@ ru:
   password_confirmation: "Подтверждение пароля"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "редактировать участников аспекта"
     edit: 
       allow_search: "Разрешить отображать вас в поиске Диаспоры"
       edit_profile: "Редактировать профиль"
@@ -256,17 +256,17 @@ ru:
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
     share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
+      accepts: "После согласия %{name}, вы сможете видеть сообщения друг друга в Диаспоре"
+      share_with: "Начать обмен с %{name}"
     show: 
       does_not_exist: "Персоны не существует !"
       incoming_request: "Вам поступил запрос от этого человека."
       no_posts: "новых сообщений нет!"
-      not_connected: "Вы не связаны с этим человеком"
+      not_connected: "Вы не поделились с %{name}"
       recent_posts: "Последние сообщения"
       recent_public_posts: "Последние Публичные Посты"
       return_to_aspects: "Вернуться на страницу аспектов"
-      similar_contacts: "similar contacts"
+      similar_contacts: "аналогичные контакты"
       to_accept_or_ignore: "принять или игнорировать."
     update: 
       failed: "Не удалось обновить профиль"
@@ -303,11 +303,11 @@ ru:
       permalink: "постоянная ссылка"
       update_photo: "Обновить фотографию"
       view: "смотреть"
-      view_original_post: "view original post"
+      view_original_post: "просмотр оригинального сообщения"
     update: 
       error: "Не удалось изменить фотографию."
       notice: "Фотография загружена."
-  previous: "previous"
+  previous: "предыдущая"
   profile: "Профиль"
   registrations: 
     closed: "В этой части Диаспоры регистрация закрыта"
@@ -415,7 +415,7 @@ ru:
       download_photos: "Скачать мои изображения"
       download_xml: "Скачать мою информацию в xml"
       edit_account: "Редактировать аккаунт"
-      email_notifications: "Почтовое уведомление"
+      email_notifications: "Уведомления по электронной почте"
       export_data: "Экспорт информации"
       new_password: "Новый пароль"
       receive_email_notifications: "Получили письмо уведомление?"
@@ -452,7 +452,7 @@ ru:
     public: 
       does_not_exist: "Пользователя %{username} не существует!"
     update: 
-      email_notifications_changed: "Не удачная смена языка"
+      email_notifications_changed: "Уведомления по электронной почте изменены"
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён"

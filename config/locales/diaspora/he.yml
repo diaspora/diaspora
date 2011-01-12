@@ -4,7 +4,11 @@
 
 
 he: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "תגובות"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "בית"
   _photos: "תמונות"
   _services: "שירותים"
@@ -45,11 +49,6 @@ he:
     add_to_aspect: 
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
-    all_aspects_contacts: 
-      all_contacts: "כל אנשי הקשר"
-      aspects: "היבטים"
-      manage_aspects: "ניהול ההיבטים"
-      no_contacts: "נכון לעכשיו אין לך בכלל אנשי קשר.  ניתן למצוא את אנשי הקשר שלך כאן."
     aspect_contacts: 
       done_editing: "סיום העריכה"
     create: 
@@ -57,10 +56,10 @@ he:
       success: "ההיבט החדש שלך %{name} נוצר"
     destroy: 
       success: "%{name} הוסר בהצלחה."
-    edit_aspect_pane: 
-      add_existing: "הוספת איש קשר קיים"
-      confirm_remove_aspect: "האם אכן ברצונך למחוק היבט זה?"
-      remove_aspect: "מחיקת היבט זה"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
@@ -68,6 +67,7 @@ he:
       remove: "הסרה"
     index: 
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "הוספת היבט חדש"
       add_a_new_contact: "הוספת איש קשר חדש"

@@ -4,7 +4,11 @@
 
 
 fr: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Commentaires"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Accueil"
   _photos: "photos"
   _services: "Services"
@@ -45,11 +49,6 @@ fr:
     add_to_aspect: 
       failure: "L’ajout du contact à l’aspect a échoué."
       success: "Vous avez ajouté le contact à l’aspect avec succès."
-    all_aspects_contacts: 
-      all_contacts: "Tous les contacts"
-      aspects: "Aspects"
-      manage_aspects: "gestion des aspects"
-      no_contacts: "Vous n'avez pas de contacts pour l'instant. Recherchez des contacts ici."
     aspect_contacts: 
       done_editing: "fin de la modification"
     create: 
@@ -57,17 +56,18 @@ fr:
       success: "Votre nouvel aspect %{name} a été créé."
     destroy: 
       success: "%{name} a été supprimé avec succès."
-    edit_aspect_pane: 
-      add_existing: "Ajouter un contact existant"
-      confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
-      remove_aspect: "Supprimer cet aspect"
-      rename_aspect: "Renommer l'aspect"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
+      rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index: 
       handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_a_new_contact: "Ajouter un nouveau contact"

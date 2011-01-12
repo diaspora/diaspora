@@ -4,7 +4,11 @@
 
 
 da: 
+  _aspect: "Aspect"
+  _aspects: "Aspects"
   _comments: "Kommentarer"
+  _contact: "Contact"
+  _contacts: "Contacts"
   _home: "Hjem"
   _photos: "Billeder"
   _services: "Tjenester"
@@ -45,11 +49,6 @@ da:
     add_to_aspect: 
       failure: "Kunne ikke tilføje kontakten til aspektet."
       success: "Kontakt blev tilføjet aspektet."
-    all_aspects_contacts: 
-      all_contacts: "Alle kontakter"
-      aspects: "Aspekter"
-      manage_aspects: "Administrér aspekter"
-      no_contacts: "Du har i øjeblikket ingen kontakter. Find dine kontakter her."
     aspect_contacts: 
       done_editing: "afslut redigering"
     create: 
@@ -57,10 +56,10 @@ da:
       success: "Klik på plusset i venstre side for at fortælle diaspora, hvem der kan se dit nye aspekt."
     destroy: 
       success: "%{name} fjernet."
-    edit_aspect_pane: 
-      add_existing: "Tilføj eksisterende kontakt"
-      confirm_remove_aspect: "Fjern aspekt?"
-      remove_aspect: "Fjern aspekt"
+    edit: 
+      add_existing: "Add an existing contact"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      remove_aspect: "Delete this aspect"
       rename_aspect: "Rename aspect"
     helper: 
       are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"
@@ -68,6 +67,7 @@ da:
       remove: "slet"
     index: 
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
+      no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Tilføj et nyt aspekt"
       add_a_new_contact: "Tilføj en ny kontaktperson"
@@ -178,7 +178,7 @@ da:
   next: "Næste"
   no_new_notifications: "Ingen nye notifikationer"
   notifications: 
-    also_commented: "also commented on"
+    also_commented: "også kommenteret på"
     comment_on_post: "kommenterede et af dine"
     deleted: "slettet"
     index: 
@@ -188,13 +188,13 @@ da:
     request_accepted: "accepterede din anmodning."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "har også kommenteret på %{post_author}'s post:"
+      sign_in: "Log in for at se det."
+      subject: "%{name} har også kommenteret."
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      commented: "har kommenteret på din post!"
+      sign_in: "Log in for at se det."
+      subject: "%{name} har kommenteret på din post!"
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
     love: "Hilsen,"
