@@ -10,7 +10,7 @@
     %h4
       = @aspect
       .description
-        = t('contacts', :count =>@aspect_contacts.count)}
+        = t('contacts', :count =>@aspect_contacts.count)
 
   .person_tiles{:style => "display:none;"}
     - for contact in @aspect.contacts
