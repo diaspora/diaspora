@@ -3,9 +3,10 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require 'lib/pubsubhubbub'
+require File.join(Rails.root, 'lib', 'pubsubhubbub')
 
 describe Pubsubhubbub do
+  
   before do
     RestClient.unstub!(:post)
   end
