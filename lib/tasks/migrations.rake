@@ -59,4 +59,21 @@ namespace :migrations do
       end
     end
   end
+
+  task :upload_photos_to_s3 do
+    require File.join(Rails.root,"config/environment")
+    puts AppConfig[:s3_key]
+    
+    connection = Aws::S3.new( AppConfig[:s3_key], AppConfig[:s3_secret])
+    bucket = connection.bucket('joindiaspora')
+    dir_name = File.dirname(__FILE__) + "/../../public/uploads/images/"
+    Dir.foreach(dir_name){|file_name| puts file_name;
+      if file_name != '.' && file_name != '..';
+        key = Aws::S3::Key.create(bucket, 'uploads/images/' + file_name);
+        key.put(File.open(dir_name+ '/' + file_name).read, 'public-read');
+        key.public_link();
+      end 
+    }
+
+  end
 end
