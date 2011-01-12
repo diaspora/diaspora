@@ -108,13 +108,14 @@ http {
      proxy_pass http://thin_cluster;
      break;
     }
+
+    rewrite ^/uploads/images/(.*)$ https://joindiaspora.s3.amazonaws.com/uploads/images/$1 permanent;
    }
 
    error_page 500 502 503 504 /50x.html;
    location = /50x.html {
     root html;
    }
-
 }
 
 }
