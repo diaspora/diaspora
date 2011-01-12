@@ -156,19 +156,18 @@ class User
     Rails.logger.debug("Saving post: #{post}")
     post.user_refs += 1
     post.save
-    aspects = self.aspects_with_person(post.person)
-    self.add_to_streams(post, aspects.map{|x| x.id} )
+    aspects_to_insert = self.aspects_with_person(post.person)
+    self.add_to_streams(post, aspects_to_insert)
     post
   end
 
 
-  def add_to_streams(post, aspect_ids)
+  def add_to_streams(post, aspects_to_insert)
     self.raw_visible_posts << post
     self.save
 
-    post.socket_to_uid(self, :aspect_ids => aspect_ids) if post.respond_to? :socket_to_uid
-    target_aspects = aspects_from_ids(aspect_ids)
-    target_aspects.each do |aspect|
+    post.socket_to_uid(self, :aspect_ids => aspects_to_insert.map{|x| x.id}) if post.respond_to? :socket_to_uid
+    aspects_to_insert.each do |aspect|
       aspect.posts << post
       aspect.save
     end

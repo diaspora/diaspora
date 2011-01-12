@@ -33,6 +33,7 @@ class Postzord::Dispatch
   end
 
   protected
+
   def deliver_to_remote(people)
     people.each do |person|
       enc_xml = @salmon_factory.xml_for(person)

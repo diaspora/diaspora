@@ -22,24 +22,25 @@ describe User do
       @post = user.build_post(:status_message, @params)
       @post.save
       @aspect_ids = @params[:to]
+      @aspects = user.aspects_from_ids(@aspect_ids)
     end
 
     it 'saves post into visible post ids' do
       proc {
-        user.add_to_streams(@post, @aspect_ids)
+        user.add_to_streams(@post, @aspects)
       }.should change(user.raw_visible_posts, :count).by(1)
       user.reload.raw_visible_posts.should include @post
     end
 
     it 'saves post into each aspect in aspect_ids' do
-      user.add_to_streams(@post, @aspect_ids)
+      user.add_to_streams(@post, @aspects)
       aspect.reload.post_ids.should include @post.id
       aspect1.reload.post_ids.should include @post.id
     end
 
     it 'sockets the post to the poster' do
       @post.should_receive(:socket_to_uid).with(user, anything)
-      user.add_to_streams(@post, @aspect_ids)
+      user.add_to_streams(@post, @aspects)
     end
   end
 
