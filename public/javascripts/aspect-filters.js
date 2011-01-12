@@ -54,8 +54,18 @@ $(document).ready(function(){
         listElement = $this.parent(),
         guid = listElement.attr('data-guid'),
         post = $("#publisher textarea").val(),
-        homeListElement = $("#aspect_nav a.home_selector").parent();
+        homeListElement = $("#aspect_nav a.home_selector").parent(),
+        photos = {};
 
+
+        //pass photos
+        $('#photodropzone img').each(function(){
+          var img = $(this);
+          guid = img.attr('data-id');
+          url = img.attr('src');
+          photos[guid] = url;
+        });
+        
     if( listElement.hasClass('selected') ){
       // remove filter
       var idx = selectedGUIDS.indexOf( guid );
@@ -78,7 +88,7 @@ $(document).ready(function(){
       homeListElement.removeClass('selected');
     }
 
-     performAjax(generateURL(), post);
+     performAjax(generateURL(), post, photos);
   });
 
 
@@ -102,25 +112,34 @@ $(document).ready(function(){
     return baseURL;
   }
 
-  function performAjax(newURL, post){
+  function performAjax(newURL, post, photos){
     $.ajax({
       url : newURL,
       dataType : 'script',
       success  : function(data){
         requests--;
-
         // fill in publisher
         // (not cached because this element changes)
 
         var textarea = $("#publisher textarea");
+        var photozone = $('#photodropzone')
 
         if( textarea.val() == "" ) {
           textarea.val(post);
           textarea.focus();
         }
+
+        var photos_html = "";
+        for(var key in photos){
+          $("#publisher textarea").addClass("with_attachments");
+          photos_html = photos_html + "<li style='position:relative;'> " + ("<img src='" + photos[key] +"' data-id='" + key + "'>") +  "</li>";
+        };
+
+
         $('html, body').animate({scrollTop:0}, 'fast');
 
         // reinit listeners on stream
+        photozone.html(photos_html);
         Stream.initialize();
 
         // fade contents back in
