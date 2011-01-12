@@ -53,7 +53,9 @@ class PhotosController < ApplicationController
       if @photo.save
         raise 'MongoMapper failed to catch a failed save' unless @photo.id
 
-        current_user.add_to_streams(@photo, params[:photo][:aspect_ids])
+
+        aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+        current_user.add_to_streams(@photo, aspects)
         current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids]) unless @photo.pending
 
         if params[:photo][:set_profile_photo]

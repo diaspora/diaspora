@@ -30,7 +30,7 @@ describe StatusMessagesController do
       message = user1.build_post :status_message, :message => @url, :to => aspect1.id
       message[:youtube_titles]= {@video_id => "title"}
       message.save!
-      user1.add_to_streams(message, aspect1.id)
+      user1.add_to_streams(message, [aspect1])
       user1.dispatch_post message, :to => aspect1.id
 
       get :show, :id => message.id

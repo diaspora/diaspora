@@ -21,8 +21,9 @@ class User
         raise 'MongoMapper failed to catch a failed save' unless p.id
 
         self.aspects.reload
-
-        add_to_streams(p, opts[:to])
+        
+        aspects = self.aspects_from_ids(opts[:to])
+        add_to_streams(p, aspects)
         dispatch_post(p, :to => opts[:to])
       end
       p
