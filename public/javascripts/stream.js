@@ -10,6 +10,8 @@ var Stream = {
 
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
 
+    /* In field labels */
+    $("label").inFieldLabels();
     // publisher textarea reset
     $publisher.find("textarea").bind("blur", function() {
       $(this).css('height','42px');
