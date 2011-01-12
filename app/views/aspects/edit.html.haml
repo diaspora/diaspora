@@ -10,7 +10,7 @@
     %h4
       = @aspect
       .description
-        = "#{@aspect_contacts.count} contacts"
+        = t('.contacts', :count =>@aspect_contacts.count)}
 
   .person_tiles{:style => "display:none;"}
     - for contact in @aspect.contacts
@@ -29,9 +29,9 @@
     = render 'shared/contact_list', :aspect_id => @aspect.id, :contact_hashes => @all_contacts
 
   #aspect_edit_controls
-    = link_to 'rename', '#'
+    = link_to t('.rename'), '#'
     \/
-    = link_to 'delete', @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
+    = link_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
 
 
   #rename_aspect

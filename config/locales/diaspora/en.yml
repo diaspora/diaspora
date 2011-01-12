@@ -135,6 +135,7 @@ en:
           confirm_remove_aspect: "Are you sure you want to delete this aspect?"
           add_existing: "Add an existing contact"
           rename_aspect: "Rename aspect"
+          rename: "rename"
       aspect_contacts:
           done_editing: "done editing"
       show:
