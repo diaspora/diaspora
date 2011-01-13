@@ -43,7 +43,7 @@ namespace :statistics do
   end
   
   task :content_splunk => :environment do
-    puts "event=statistic, type=posts, count=#{Post.count}, public_count=#{Post.where(:public => true).count}, public_% =#{Post.where(:public => true).count.to_f/Post.count}" +
+    puts "event=statistic, type=posts, count=#{Post.count}, public_count=#{Post.where(:public => true).count}, public_% =#{Post.where(:public => true).count.to_f/Post.count}, " +
     "last_day = #{Post.where(:created_at.gt => Time.now - 1.days).count}, last_day_public_count=#{Post.where(:created_at.gt => Time.now - 1.days, :public => true).count}, "+
     "last_day_public_% = #{Post.where(:created_at.gt => Time.now - 1.days, :public => true).count.to_f/Post.where(:created_at.gt => Time.now - 1.days).count}"
   end
