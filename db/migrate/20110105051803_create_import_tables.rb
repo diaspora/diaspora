@@ -4,6 +4,9 @@ class CreateImportTables < ActiveRecord::Migration
       add_column(table, :mongo_id, :string)
     end
 
+    add_index :users, :mongo_id
+    add_index :people, :mongo_id
+
     add_column(:aspects, :user_mongo_id, :string)
     create_table :mongo_aspects do |t|
       t.string :mongo_id
@@ -128,7 +131,7 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_profiles, [:first_name, :searchable]
     add_index :mongo_profiles, [:last_name, :searchable]
     add_index :mongo_profiles, [:first_name, :last_name, :searchable]
-    add_index :mongo_profiles, :person_mongo_id
+    add_index :mongo_profiles, :person_mongo_id, :unique => true
 
 
     create_table :mongo_requests do |t|
@@ -140,7 +143,7 @@ class CreateImportTables < ActiveRecord::Migration
     end
     add_index :mongo_requests, :sender_mongo_id
     add_index :mongo_requests, :recipient_mongo_id
-    add_index :mongo_requests, [:sender_mongo_id, :recipient_mongo_id]
+    add_index :mongo_requests, [:sender_mongo_id, :recipient_mongo_id], :unique => true
 
     add_column(:services, :user_mongo_id, :string)
     create_table :mongo_services do |t|
@@ -173,6 +176,7 @@ class CreateImportTables < ActiveRecord::Migration
       t.timestamps
       t.string :mongo_id
     end
+    add_index :mongo_users, :mongo_id, :unique => true
   end
 
   def self.down
