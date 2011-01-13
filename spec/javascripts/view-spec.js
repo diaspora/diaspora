@@ -11,14 +11,6 @@ describe("View", function() {
     });
   });
 
-  describe("fancyBoxButtons", function() {
-    describe("selectors", function() {
-      it("is an array of all the selectors that will have fancybox attached", function() {
-        expect(typeof View.fancyBoxButtons.selectors === "object").toBeTruthy();
-        expect($.isArray(View.fancyBoxButtons.selectors)).toBeTruthy();
-      });
-    });
-  });
 
   describe("debug", function() {
     describe("click", function() {

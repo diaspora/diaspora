@@ -51,7 +51,7 @@
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{hash[:aspect].id}", :class => 'manage_aspect_contacts_button'
+            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{hash[:aspect].id}", :class => 'manage_aspect_contacts_button', :rel => "facebox"
             %li!= remove_link(hash[:aspect])
 
         %ul.dropzone{:data=>{:aspect_id=>hash[:aspect].id}}
@@ -65,7 +65,7 @@
           .draggable_info
             =t('.drag_to_add')
 
-          .fancybox_content
+          .facebox_content
             %div{:id => "manage_aspect_contacts_pane_#{hash[:aspect].id}"}
               = render "requests/manage_aspect_contacts", :aspect => hash[:aspect], :manage => true, :contact_hashes => hash[:contacts]
 
