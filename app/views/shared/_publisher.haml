@@ -46,9 +46,9 @@
                   - for service in current_user.services
                     = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
 
-            = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;"
+            = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;", :rel => 'facebox'
 
-            .fancybox_content
+            .facebox_content
               #question_mark_pane
                 = render 'shared/public_explain'
 

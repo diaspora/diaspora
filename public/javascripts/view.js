@@ -65,20 +65,6 @@ var View = {
     selector: ".add_aspect_button"
   },
 
-  fancyBoxButtons: {
-    selectors: [
-      ".add_aspect_button",
-      ".manage_aspect_contacts_button",
-      ".invite_user_button",
-      ".add_photo_button",
-      ".remove_person_button",
-      ".question_mark",
-      ".share_with_button",
-      ".aspect_detail_button",
-      ".aspect_selector_edit"
-    ]
-  },
-
   debug: {
     click: function() {
       $("#debug_more").toggle("fast");
