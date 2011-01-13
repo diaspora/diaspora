@@ -15,13 +15,13 @@ namespace :statistics do
     "incomplete=#{User.where(:getting_started => true, :sign_in_count.gt => 0).count}, " +
     "last_1d=#{User.where(:current_sign_in_at.gt => Time.now - 1.days).count}, "+
     "last_7d=#{User.where(:current_sign_in_at.gt => Time.now - 7.days).count}, " +
-    "notification_off=#{User.where(:disable_email=>true).count}, "+
-    "notification_off_%=#{User.where(:disable_email=>true).count.to_f/User.count}, "+
+    "notification_off=#{User.where(:disable_mail=>true).count}, "+
+    "notification_off_%=#{User.where(:disable_mail=>true).count.to_f/User.count}, "+
     "no_invites=#{User.where(:invites => 0).count} "
 
 
     puts "event=statistic, type=users, last_7d_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days).count.to_f/User.count}, " +
-    "last_7d_and_notifications_off_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days, :disable_email => true).count.to_f/User.where(:disable_email=>true).count}, " +
+    "last_7d_and_notifications_off_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days, :disable_mail => true).count.to_f/User.where(:disable_mail=>true).count}, " +
     "last_7d_and_no_invites_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days, :invites => 0).count.to_f/User.where(:invites => 0).count}"
 
    
