@@ -23,4 +23,8 @@ class NotificationsController < ApplicationController
     respond_with @notifications
   end
 
+  def read_all
+    Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
+    redirect_to :back
+  end
 end

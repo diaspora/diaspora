@@ -8,10 +8,9 @@ Diaspora::Application.routes.draw do
   resources :requests,        :only => [:destroy, :create]
   resources :services
 
-  resources :notifications
+  match 'notifications/read_all' => 'notifications#read_all'
+  resources :notifications,   :only => [:index, :update]
   resources :posts,           :only => [:show], :path => '/p/'
-
-
 
   match '/people/share_with' => 'people#share_with', :as => 'share_with'
   resources :people do

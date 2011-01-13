@@ -1,4 +1,14 @@
 :javascript
+  $('.mark_all_read').live('click', function(){
+    $.ajax({
+      url: 'notifications/read_all', 
+      success: function(data, status, xhr) {
+        $('.message').removeClass('unread');
+        $("#notification_badge_number").addClass("hidden");
+      }
+    });
+  });
+
   $('.message').live('click', function(evt){
     var note = $(this).closest('.message'),
         note_id = note.attr('data-guid'),
@@ -23,9 +33,12 @@
 
 .span-1
   = image_tag 'icons/mail_big.png', :height => 30, :width => 30, :style=>"margin-top:3px;"
-.span-23.last
+.span-10
   %h2
     = t('.notifications')
+.span-13.last.left
+  .button.mark_all_read
+    = link_to "Mark All as Read", "#"
 
 .span-24.last
   %ul.stream.notifications

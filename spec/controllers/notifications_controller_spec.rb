@@ -32,4 +32,17 @@ describe NotificationsController do
       Notification.find(note.id).unread.should == true
     end
   end
+  
+  describe "#read_all" do
+    it 'marks all notifications as read' do
+      Notification.create(:recipient_id => user.id)
+      Notification.create(:recipient_id => user.id)
+
+      Notification.where(:unread => true).count.should == 2
+      get :read_all
+      Notification.where(:unread => true).count.should == 0
+      
+
+    end
+  end
 end
