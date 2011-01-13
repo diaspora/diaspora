@@ -29,7 +29,6 @@ describe AspectsController do
   describe "custom logging on success" do
     before do
       @action = :index
-      @expected_renders = 15
     end
     it_should_behave_like "it overrides the logs on success"
   end

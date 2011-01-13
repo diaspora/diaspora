@@ -31,7 +31,6 @@ describe HomeController do
     before do
       @action = :show
       @action_params = {"lasers" => "green"}
-      @expected_renders = 1
     end
     it_should_behave_like "it overrides the logs on success"
   end
