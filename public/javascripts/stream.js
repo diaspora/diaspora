@@ -86,7 +86,7 @@ var Stream = {
       var $this = $(this),
         container = document.createElement("div"),
         $container = $(container).attr("class", "video-container"),
-        $videoContainer = $this.parent().siblings("div.video-container");
+        $videoContainer = $this.siblings("div.video-container");
 
       if ($videoContainer.length > 0) {
         $videoContainer.slideUp('fast', function() {
@@ -116,7 +116,7 @@ var Stream = {
       }
 
       $container.hide()
-        .insertAfter($this.parent())
+        .insertAfter($this)
         .slideDown('fast');
 
       $this.click(function() {
