@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
+require File.join(Rails.root, "spec", "shared_behaviors", "log_override")
 
 describe AspectsController do
   render_views
@@ -23,6 +24,22 @@ describe AspectsController do
     sign_in :user, @user
     @controller.stub(:current_user).and_return(@user)
     request.env["HTTP_REFERER"] = 'http://' + request.host
+  end
+
+  describe "custom logging on success" do
+    before do
+      @action = :index
+      @expected_renders = 15
+    end
+    it_should_behave_like "it overrides the logs on success"
+  end
+
+  describe "custom logging on redirect" do
+    before do
+      @action = :show
+      @action_params = {'id' => @aspect0.id.to_s}
+    end
+    it_should_behave_like "it overrides the logs on redirect"
   end
 
   describe "#index" do
