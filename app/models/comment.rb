@@ -34,6 +34,7 @@ class Comment
   belongs_to :person, :class_name => "Person"
 
   validates_presence_of :text, :diaspora_handle, :post
+  validates_length_of :text, :maximum => 500
   validates_with HandleValidator
 
   before_save do
