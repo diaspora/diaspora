@@ -22,7 +22,7 @@ class Postzord::Dispatch
       if @object.is_a?(Comment)
         user_ids = [*local_people].map{|x| x.owner_id }
         local_users = User.all(:id.in => user_ids, :fields => ['person_id, username, language, email'])
-        self.socket_to_users(local_users)
+        self.socket_and_notify_users(local_users)
       else
         self.deliver_to_local(local_people)
       end
@@ -65,11 +65,13 @@ class Postzord::Dispatch
     end
   end
 
-  def socket_to_users(users)
-    if @object.respond_to?(:socket_to_uid)
-      users.each do |user|
+  def socket_and_notify_users(users)
+    socket = @object.respond_to?(:socket_to_uid)
+    users.each do |user|
+      if socket
         @object.socket_to_uid(user)
       end
+      Resque.enqueue(Jobs::NotifyLocalUsers, user.id, @object.class.to_s, @object.id, @sender_person.id)
     end
   end
 end

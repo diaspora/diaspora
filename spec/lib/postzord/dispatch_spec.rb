@@ -57,7 +57,7 @@ describe Postzord::Dispatch do
 
     describe '#post' do
       before do
-        @zord.stub!(:socket_to_users)
+        @zord.stub!(:socket_and_notify_users)
       end
       it 'calls Array#partition on subscribers' do
         @subscribers.should_receive(:partition).and_return([@remote_people, @local_people])
@@ -74,26 +74,37 @@ describe Postzord::Dispatch do
         @zord.post
       end
 
-      it 'calls socket_to_users with the local users if the object is a comment' do
-        comment = @local_user.comment "yo", :on => Factory(:status_message)
-        comment.should_receive(:subscribers).and_return([@local_user])
-        mailman = Postzord::Dispatch.new(@user, comment)
-        mailman.should_receive(:socket_to_users)
-        mailman.post
-      end
+      context 'passed a comment' do
+        it 'calls socket_to_users with the local users' do
+          comment = @local_user.comment "yo", :on => Factory(:status_message)
+          comment.should_receive(:subscribers).and_return([@local_user])
+          mailman = Postzord::Dispatch.new(@user, comment)
+          mailman.should_receive(:socket_and_notify_users)
+          mailman.post
+        end
 
-      it 'does not call deliver_to_local if the object is a comment' do
-        comment = @local_user.comment "yo", :on => Factory(:status_message)
-        comment.should_receive(:subscribers).and_return([@local_user])
-        mailman = Postzord::Dispatch.new(@user, comment)
-        mailman.should_receive(:socket_to_users)
-        mailman.should_not_receive(:deliver_to_local)
-        mailman.post
+        it 'does not call deliver_to_local' do
+          comment = @local_user.comment "yo", :on => Factory(:status_message)
+          comment.should_receive(:subscribers).and_return([@local_user])
+          mailman = Postzord::Dispatch.new(@user, comment)
+          mailman.should_receive(:socket_and_notify_users)
+          mailman.should_not_receive(:deliver_to_local)
+
+          mailman.post
+        end
+
+        it 'calls notify local users' do
+          comment = @local_user.comment "yo", :on => Factory(:status_message)
+          comment.should_receive(:subscribers).and_return([@local_user])
+          mailman = Postzord::Dispatch.new(@user, comment)
+          mailman.stub!(:deliver_to_local)
+          mailman.stub!(:socket_and_notify_users)
+          mailman.post
+        end
       end
     end
 
     describe '#deliver_to_remote' do
-
       before do
         @remote_people = []
         @remote_people << @user.person
@@ -150,10 +161,10 @@ describe Postzord::Dispatch do
       end
     end
 
-    describe '#socket_to_users' do
+    describe '#socket_and_notify_users' do
       it 'should call object#socket_to_uid for each local user' do
         @zord.instance_variable_get(:@object).should_receive(:socket_to_uid)
-        @zord.send(:socket_to_users, [@local_user])
+        @zord.send(:socket_and_notify_users, [@local_user])
       end
 
       it 'only tries to socket when the object responds to #socket_to_uid' do
@@ -161,8 +172,14 @@ describe Postzord::Dispatch do
         f.stub!(:subscribers)
         users = [@user]
         z = Postzord::Dispatch.new(@user, f)
-        users.should_not_receive(:each) # checking if each is called due to respond_to, actually trying to
-        z.send(:socket_to_users, users)
+        z.instance_variable_get(:@object).should_receive(:socket_to_uid).once
+        z.send(:socket_and_notify_users, users)
+      end
+
+      it 'queues a Jobs::NotifyLocalUsers jobs' do
+        @zord.instance_variable_get(:@object).should_receive(:socket_to_uid).and_return(false)
+        Resque.should_receive(:enqueue).with(Jobs::NotifyLocalUsers, @local_user.id, @sm.class.to_s, @sm.id, anything)
+        @zord.send(:socket_and_notify_users, [@local_user])
       end
     end
   end
