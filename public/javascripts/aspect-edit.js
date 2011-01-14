@@ -113,9 +113,10 @@ var AspectEdit = {
   },
 
   changeName:  function() {
-    var $this = $(this);
-    var id = $this.closest(".aspect").attr("data-guid");
-    var link = "/aspects/" + id;
+    var $this = $(this),
+      id = $this.closest(".aspect").attr("data-guid"),
+      link = "/aspects/" + id;
+
 
     $this.keypress(function(e) {
       if (e.which == 13) {
@@ -133,9 +134,11 @@ var AspectEdit = {
           }
         });
       }
+
+
       //update all other aspect links
       $this.keyup(function(e) {
-        $("#aspect_nav a[href='" + link + "']").text($this.text());
+        $("#aspect_nav li[data-guid='" + id + "'] a").text($this.text());
       });
     });
   },
