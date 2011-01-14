@@ -12,6 +12,7 @@ class PublicsController < ApplicationController
   skip_before_filter :set_locale
 
   layout false
+  caches_page :host_meta
 
   def hcard
     @person = Person.find_by_id params[:id]
