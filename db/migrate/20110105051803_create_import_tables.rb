@@ -2,10 +2,8 @@ class CreateImportTables < ActiveRecord::Migration
   def self.up
     [:aspects, :comments, :contacts, :invitations, :notifications, :people, :posts, :profiles, :requests, :services, :users].each do |table|
       add_column(table, :mongo_id, :string)
+      add_index(table, :mongo_id)
     end
-
-    add_index :users, :mongo_id
-    add_index :people, :mongo_id
 
     add_column(:aspects, :user_mongo_id, :string)
     create_table :mongo_aspects do |t|

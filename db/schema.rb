@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "user_mongo_id"
   end
 
+  add_index "aspects", ["mongo_id"], :name => "index_aspects_on_mongo_id"
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
   create_table "comments", :force => true do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   end
 
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
+  add_index "comments", ["mongo_id"], :name => "index_comments_on_mongo_id"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "contacts", :force => true do |t|
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "mongo_id"
   end
 
+  add_index "contacts", ["mongo_id"], :name => "index_contacts_on_mongo_id"
   add_index "contacts", ["person_id", "pending"], :name => "index_contacts_on_person_id_and_pending"
   add_index "contacts", ["user_id", "pending"], :name => "index_contacts_on_user_id_and_pending"
   add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
@@ -73,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "mongo_id"
   end
 
+  add_index "invitations", ["mongo_id"], :name => "index_invitations_on_mongo_id"
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
 
   create_table "mongo_aspect_memberships", :force => true do |t|
@@ -286,6 +290,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "mongo_id"
   end
 
+  add_index "notifications", ["mongo_id"], :name => "index_notifications_on_mongo_id"
   add_index "notifications", ["target_type", "target_id"], :name => "index_notifications_on_target_type_and_target_id"
 
   create_table "people", :force => true do |t|
@@ -335,6 +340,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   end
 
   add_index "posts", ["guid"], :name => "index_posts_on_guid"
+  add_index "posts", ["mongo_id"], :name => "index_posts_on_mongo_id"
   add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["type"], :name => "index_posts_on_type"
 
@@ -358,6 +364,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
   add_index "profiles", ["first_name", "last_name", "searchable"], :name => "index_profiles_on_first_name_and_last_name_and_searchable"
   add_index "profiles", ["first_name", "searchable"], :name => "index_profiles_on_first_name_and_searchable"
   add_index "profiles", ["last_name", "searchable"], :name => "index_profiles_on_last_name_and_searchable"
+  add_index "profiles", ["mongo_id"], :name => "index_profiles_on_mongo_id"
   add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
 
   create_table "requests", :force => true do |t|
@@ -369,6 +376,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "mongo_id"
   end
 
+  add_index "requests", ["mongo_id"], :name => "index_requests_on_mongo_id"
   add_index "requests", ["recipient_id"], :name => "index_requests_on_recipient_id"
   add_index "requests", ["sender_id", "recipient_id"], :name => "index_requests_on_sender_id_and_recipient_id", :unique => true
   add_index "requests", ["sender_id"], :name => "index_requests_on_sender_id"
@@ -387,6 +395,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.string   "user_mongo_id"
   end
 
+  add_index "services", ["mongo_id"], :name => "index_services_on_mongo_id"
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
 
   create_table "users", :force => true do |t|
