@@ -3,8 +3,12 @@ test:
   database: diaspora_test
   user: root
   password: password
+  charset: utf8
+  collation: utf8_bin
 development:
   adapter: mysql2
   database: diaspora_development
   user: root
   password: password
+  charset: utf8
+  collation: utf8_bin
