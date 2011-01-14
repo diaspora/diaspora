@@ -496,9 +496,10 @@ module DataConversion
         #{load_string("profiles")}
         #{infile_opts}
         (@image_url_medium,@searchable,@image_url,person_mongo_id,
-        @gender,@diaspora_handle,birthday,@last_name,@bio,
+        @gender,@diaspora_handle,@birthday,@last_name,@bio,
         @image_url_small,@first_name)
         SET #{boolean_set("searchable")},
+        #{unix_time("birthday")},
         #{nil_es("image_url_medium")},
         #{nil_es("image_url")},
         #{nil_es("gender")},
