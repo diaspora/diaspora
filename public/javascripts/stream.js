@@ -8,6 +8,7 @@ var Stream = {
     var $stream = $(".stream");
     var $publisher = $("#publisher");
 
+    $("abbr.timeago").timeago();
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
 
     /* In field labels */
@@ -139,6 +140,7 @@ var Stream = {
       $("#photodropzone").find('li').remove();
       $("#publisher textarea").removeClass("with_attachments");
     });
+
     $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');
     });

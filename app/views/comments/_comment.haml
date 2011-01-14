@@ -11,4 +11,4 @@
 
     .info
       %span.time
-        = hash[:comment].created_at ? t('ago', :time => time_ago_in_words(hash[:comment].created_at)) : time_ago_in_words(Time.now)
+        = hash[:comment].created_at ? timeago(hash[:comment].created_at) : timeago(Time.now)

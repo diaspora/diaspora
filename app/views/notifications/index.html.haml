@@ -39,5 +39,5 @@
                 = link_to "#{note.person.name.titleize}", person_path(note.person)
                 = object_link(note)
 
-              %span.time= "#{t('ago', :time => time_ago_in_words(note.created_at))}"
+              %span.time= timeago(note.created_at)
     = will_paginate @notifications

@@ -108,6 +108,8 @@ var WebSocketReceiver = {
         }
       }
     }
+
+    $("abbr.timeago").timeago();
   },
 
   processPost: function(className, postId, html, aspectIds) {
@@ -132,6 +134,7 @@ var WebSocketReceiver = {
         showMessage();
       }
     }
+    $("abbr.timeago").timeago();
   },
 
   onPageForClass: function(className) {
