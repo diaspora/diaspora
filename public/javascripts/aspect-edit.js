@@ -93,7 +93,7 @@ var AspectEdit = {
     var person_id = person.attr('data-guid');
 
     if( $(".person[data-guid='"+ person_id +"']").length == 1) {
-      AspectEdit.alertUser("You cannot remove the person from the last aspect");
+      Diaspora.widgets.alert.alert("Error removing aspect", "You cannot remove the person from the last aspect");
     } else {
       if (!person.hasClass('request')) {
 
@@ -118,27 +118,27 @@ var AspectEdit = {
       link = "/aspects/" + id;
 
 
-    $this.keypress(function(e) {
-      if (e.which == 13) {
-        e.preventDefault();
-        $this.blur();
-
-        //save changes
-        $.ajax({
-          type: "PUT",
-          url: link,
-          data: {
-            "aspect": {
-              "name" : $this.text()
-            }
-          }
-        });
-      }
-
+    $this.keyup(function(e) {
+      e.preventDefault();
 
       //update all other aspect links
-      $this.keyup(function(e) {
-        $("#aspect_nav li[data-guid='" + id + "'] a").text($this.text());
+      $("#aspect_nav li[data-guid='" + id + "'] a").text($this.text());
+
+      if(e.keyCode === 13) {
+          $this.trigger("blur");
+      }  
+    });
+
+    $this.blur(function() {
+      //save changes
+      $.ajax({
+        type: "PUT",
+        url: link,
+        data: {
+          "aspect": {
+            "name" : $this.text()
+          }
+        }
       });
     });
   },
@@ -165,10 +165,6 @@ var AspectEdit = {
         AspectEdit.deletePersonFromAspect(person);
       }
     }
-  },
-
-  alertUser: function(message) {
-    alert(message);
   }
 };
 

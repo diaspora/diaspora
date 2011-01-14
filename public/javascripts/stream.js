@@ -142,7 +142,7 @@ var Stream = {
     });
 
     $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {
-      alert('failed to post message!');
+      Diaspora.widgets.alert.alert('Failed to post message!');
     });
 
     $(".new_comment").live('ajax:success', function(data, json, xhr) {
@@ -150,7 +150,7 @@ var Stream = {
       WebSocketReceiver.processComment(json.post_id, json.comment_id, json.html, false);
     });
     $(".new_comment").live('ajax:failure', function(data, html, xhr) {
-      alert('failed to post message!');
+      Diaspora.widgets.alert.alert('Failed to post message!');
     });
 
     $(".stream").find(".delete").live('ajax:success', function(data, html, xhr) {
