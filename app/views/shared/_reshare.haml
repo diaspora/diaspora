@@ -7,5 +7,5 @@
     = link_to t('.reshare'), "#"
 
   %ul.reshare_box
-    = aspect_links(aspects, :prefill => CGI::escape(post.message))
+    = aspect_links(aspects, :prefill => post.message)
 

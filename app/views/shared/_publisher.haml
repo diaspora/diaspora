@@ -21,7 +21,7 @@
         %params
           #publisher_textarea_wrapper
             %ul#photodropzone
-            = status.text_area :message, :rows => 2, :value => params[:prefill]
+            = status.text_area :message, :rows => 2, :value => h(params[:prefill])
 
       - for aspect_id in @aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
