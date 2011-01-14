@@ -25,6 +25,9 @@ gem 'bson', '1.1'
 gem 'haml'
 gem 'will_paginate', '3.0.pre2'
 
+#Inflected translations
+gem 'i18n-inflector-rails', '0.1.0'
+
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
 gem 'addressable', :require => 'addressable/uri'

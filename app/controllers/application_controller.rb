@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
   before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
+  before_filter :set_grammatical_gender
+
+  inflection_method :grammatical_gender => :gender
 
   def set_contacts_notifications_and_status
     if user_signed_in?
@@ -48,6 +51,28 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
     end
+  end
+
+  def set_grammatical_gender
+    if (user_signed_in? && I18n.inflector.inflected_locale?)
+      gender = current_user.profile.gender.to_s.tr('!()[]"\'`*=|/\#.,-:', '').downcase
+      unless gender.empty?
+        i_langs = I18n.inflector.inflected_locales(:gender)
+        i_langs.delete  I18n.locale
+        i_langs.unshift I18n.locale
+        i_langs.each do |lang|
+          token = I18n.inflector.true_token(gender, :gender, lang)
+          unless token.nil?
+            @grammatical_gender = token
+            break
+          end
+        end
+      end
+    end
+  end
+
+  def grammatical_gender
+    @grammatical_gender || nil
   end
 
   def similar_people contact, opts={}

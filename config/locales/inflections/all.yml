@@ -1,0 +1,44 @@
+
+all:
+  i18n:
+    inflections:
+      gender:
+        f:          "female"
+        m:          "male"
+        n:          "neuter"
+        masculine:  @m
+        male:       @m
+        man:        @m
+        boy:        @m
+        b:          @m
+        he:         @m
+        sir:        @m
+        mr:         @m
+        mister:     @m
+        guy:        @m
+        dude:       @m
+        gentleman:  @m
+        mal:        @m
+        female:     @f
+        feminine:   @f
+        girl:       @f
+        g:          @f
+        lady:       @f
+        she:        @f
+        miss:       @f
+        missus:     @f
+        mrs:        @f
+        missis:     @f
+        mistress:   @f
+        ms:         @f
+        neuter:     @n
+        neutral:    @n
+        it:         @n
+        they:       @n
+        impersonal: @n
+        default:    n
+      
+    
+  
+
+
