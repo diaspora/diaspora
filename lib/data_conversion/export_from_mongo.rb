@@ -86,7 +86,7 @@ module DataConversion
     def comments_json_to_csv model_hash
       generic_json_to_csv(model_hash) do |hash|
         model_hash[:mongo_attrs].map { |attr_name|
-          if attr_name == "youtube_titles"
+          if attr_name == "youtube_titles" && hash[attr_name]
             hash[attr_name].to_yaml
           else
             hash[attr_name]
@@ -162,7 +162,7 @@ module DataConversion
     def posts_json_to_csv model_hash
       generic_json_to_csv(model_hash) do |hash|
         model_hash[:mongo_attrs].map { |attr_name|
-          if attr_name == "youtube_titles"
+          if attr_name == "youtube_titles" && hash[attr_name]
             hash[attr_name].to_yaml
           else
             hash[attr_name]
