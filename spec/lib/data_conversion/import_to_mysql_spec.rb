@@ -243,7 +243,6 @@ describe DataConversion::ImportToMysql do
         contact.user_id.should == User.where(:mongo_id => mongo_contact.user_mongo_id).first.id
         contact.person_id.should == Person.where(:mongo_id => mongo_contact.person_mongo_id).first.id
         contact.pending.should be_false
-        contact.created_at.should be_nil
       end
     end
 
@@ -296,7 +295,6 @@ describe DataConversion::ImportToMysql do
         profile.mongo_id.should == "4d2b6eb6cc8cb43cc2000001"
         profile.gender.should be_nil
         profile.diaspora_handle.should == profile.person.diaspora_handle
-        profile.birthday.should be_nil
         profile.last_name.should == 'weinstien'
         profile.bio.should be_nil
         profile.image_url_small.should be_nil
@@ -531,7 +529,6 @@ describe DataConversion::ImportToMysql do
         contact.user_mongo_id.should =="4d2b6eb6cc8cb43cc2000007"
         contact.person_mongo_id.should == "4d2b6eb7cc8cb43cc200000e"
         contact.pending.should be_false
-        contact.created_at.should be_nil
       end
     end
     describe "invitations" do
@@ -678,7 +675,6 @@ describe DataConversion::ImportToMysql do
         profile.person_mongo_id.should == "4d2b6eb6cc8cb43cc2000001"
         profile.gender.should be_nil
         profile.diaspora_handle.should be_nil
-        profile.birthday.should be_nil
         profile.last_name.should == 'weinstien'
         profile.bio.should be_nil
         profile.image_url_small.should be_nil

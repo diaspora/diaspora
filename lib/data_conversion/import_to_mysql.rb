@@ -324,6 +324,8 @@ module DataConversion
          #{nil_es("username")},
          #{nil_es("last_sign_in_ip")},
          #{nil_es("reset_password_token")},
+         #{unix_time("created_at")},
+         #{unix_time("updated_at")},
          #{boolean_set("getting_started")},
          #{boolean_set("disable_mail")};
       SQL
@@ -361,8 +363,10 @@ module DataConversion
       Mongo::Comment.connection.execute <<-SQL
         #{load_string("comments")}
         #{infile_opts}
-        (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, @youtube_titles)
+        (mongo_id, post_mongo_id, person_mongo_id, @diaspora_handle, text, @youtube_titles, @created_at, @updated_at)
         SET guid = mongo_id,
+         #{unix_time("created_at")},
+         #{unix_time("updated_at")},
         #{nil_es("youtube_titles")};
       SQL
       log "Finished. Imported #{Mongo::Comment.count} comments."
@@ -400,7 +404,9 @@ module DataConversion
         #{load_string("contacts")}
         #{infile_opts}
         (mongo_id, user_mongo_id, person_mongo_id, @pending, @created_at, @updated_at)
-        SET #{boolean_set("pending")};
+        SET #{boolean_set("pending")},
+         #{unix_time("created_at")},
+         #{unix_time("updated_at")};
       SQL
       log "Finished. Imported #{Mongo::Contact.count} contacts."
     end
@@ -411,9 +417,11 @@ module DataConversion
       Mongo::Service.connection.execute <<-SQL
         #{load_string("services")}
         #{infile_opts}
-        (mongo_id, type,user_mongo_id,@provider,@uid,@access_token,@access_secret,@nickname)
+        (mongo_id, type,user_mongo_id,@provider,@uid,@access_token,@access_secret,@nickname, @created_at, @updated_at)
         SET #{nil_es("provider")},
         #{nil_es("uid")},
+        #{unix_time("created_at")},
+        #{unix_time("updated_at")},
         #{nil_es("access_token")},
         #{nil_es("access_secret")},
         #{nil_es("nickname")};
@@ -438,8 +446,10 @@ module DataConversion
       Mongo::Request.connection.execute <<-SQL
         #{load_string("requests")}
         #{infile_opts}
-        (mongo_id, recipient_mongo_id, sender_mongo_id, @aspect_mongo_id)
-        SET #{nil_es("aspect_mongo_id")};
+        (mongo_id, recipient_mongo_id, sender_mongo_id, @aspect_mongo_id, @created_at, @updated_at)
+        SET #{nil_es("aspect_mongo_id")},
+        #{unix_time("created_at")},
+        #{unix_time("updated_at")};
       SQL
       log "Finished. Imported #{Mongo::Request.count} requests."
     end
@@ -450,7 +460,9 @@ module DataConversion
       Mongo::Invitation.connection.execute <<-SQL
         #{load_string("invitations")}
         #{infile_opts}
-        (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id, message)
+        (mongo_id, recipient_mongo_id, sender_mongo_id, aspect_mongo_id, message, @created_at, @updated_at)
+        SET #{unix_time("created_at")},
+        #{unix_time("updated_at")};
       SQL
       log "Finished. Imported #{Mongo::Invitation.count} invitations."
     end
@@ -461,8 +473,10 @@ module DataConversion
       Mongo::Notification.connection.execute <<-SQL
         #{load_string("notifications")}
         #{infile_opts}
-        (mongo_id,target_mongo_id,recipient_mongo_id,actor_mongo_id,@null_action,action,@unread)
-        SET #{boolean_set("unread")};
+        (mongo_id,target_mongo_id,recipient_mongo_id,actor_mongo_id,@null_action,action,@unread, @created_at, @updated_at)
+        SET #{boolean_set("unread")},
+        #{unix_time("created_at")},
+        #{unix_time("updated_at")};
       SQL
       log "Finished. Imported #{Mongo::Notification.count} notifications."
       {"new_request" => "Request",
