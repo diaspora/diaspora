@@ -85,7 +85,14 @@ module DataConversion
 
     def comments_json_to_csv model_hash
       generic_json_to_csv(model_hash) do |hash|
-        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name|
+          attr_val = hash[attr_name]
+          if (attr_name == "youtube_titles" && attr_val && !attr_val.empty?)
+            attr_val.to_yaml
+          else
+            attr_val
+          end
+        }
       end
     end
 
@@ -155,7 +162,14 @@ module DataConversion
 
     def posts_json_to_csv model_hash
       generic_json_to_csv(model_hash) do |hash|
-        model_hash[:mongo_attrs].map { |attr_name| hash[attr_name] }
+        model_hash[:mongo_attrs].map { |attr_name|
+          attr_val = hash[attr_name]
+          if (attr_name == "youtube_titles" && attr_val && !attr_val.empty?)
+            attr_val.to_yaml
+          else
+            attr_val
+          end
+        }
       end
       #has to handle the polymorphic stuff
     end
