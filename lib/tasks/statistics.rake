@@ -17,10 +17,8 @@ namespace :statistics do
     "last_7d=#{User.where(:current_sign_in_at.gt => Time.now - 7.days).count}, " +
     "notification_off=#{User.where(:disable_mail=>true).count}, "+
     "notification_off_%=#{User.where(:disable_mail=>true).count.to_f/User.count}, "+
-    "no_invites=#{User.where(:invites => 0).count} "
-
-
-    puts "event=statistic, type=users, last_7d_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days).count.to_f/User.count}, " +
+    "no_invites=#{User.where(:invites => 0).count}, "+
+    "last_7d_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days).count.to_f/User.count}, " +
     "last_7d_and_notifications_off_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days, :disable_mail => true).count.to_f/User.where(:disable_mail=>true).count}, " +
     "last_7d_and_no_invites_%=#{User.where(:current_sign_in_at.gt => Time.now - 7.days, :invites => 0).count.to_f/User.where(:invites => 0).count}"
 

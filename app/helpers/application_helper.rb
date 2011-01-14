@@ -5,6 +5,11 @@
 module ApplicationHelper
   @@youtube_title_cache = Hash.new("no-title")
 
+  def timeago(time, options = {})
+    options[:class] ||= "timeago"
+    content_tag(:abbr, time.to_s, options.merge(:title => time.getutc.iso8601)) if time
+  end
+
   def modern_browser?
     false
   end
@@ -95,14 +100,15 @@ module ApplicationHelper
   def mine?(post)
     current_user.owns? post
   end
-
+ 
   def type_partial(post)
     class_name = post.class.name.to_s.underscore
     "#{class_name.pluralize}/#{class_name}"
   end
 
   def how_long_ago(obj)
-    I18n.t('ago', :time => time_ago_in_words(obj.created_at, true))
+    timeago(obj.created_at)
+    #I18n.t('ago', :time => time_ago_in_words(obj.created_at, true))
   end
 
   def person_url(person)
