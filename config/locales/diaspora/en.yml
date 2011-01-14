@@ -190,7 +190,7 @@ en:
       request_accepted: "accepted your share request."
       new_request: "offered to share with you."
       comment_on_post: "commented on your"
-      also_commented: "also commented on"
+      also_commented: "also commented on your contact's"
       post: 'post'
       deleted: 'deleted'
       index:
