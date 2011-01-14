@@ -34,6 +34,7 @@ module DataConversion
       process_raw_requests
       process_raw_profiles
       process_raw_posts
+      process_raw_comments
       process_raw_post_visibilities
       process_raw_notifications
     end
@@ -226,6 +227,26 @@ module DataConversion
           FROM mongo_services INNER JOIN users ON (users.mongo_id = mongo_services.user_mongo_id)
       SQL
       log "Imported #{Service.count} services."
+    end
+    def process_raw_comments
+      log "Importing comments to main table..."
+      Comment.connection.execute <<-SQL
+        INSERT INTO comments
+        SELECT mongo_comments.id,
+               mongo_comments.text,
+               posts.id,
+               people.id,
+               mongo_comments.guid,
+               mongo_comments.creator_signature,
+               mongo_comments.post_creator_signature,
+               mongo_comments.youtube_titles,
+               mongo_comments.created_at,
+               mongo_comments.updated_at,
+               mongo_comments.mongo_id
+          FROM mongo_comments INNER JOIN (posts, people)
+            ON (posts.mongo_id = mongo_comments.post_mongo_id AND people.mongo_id = mongo_comments.person_mongo_id)
+      SQL
+      log "Imported #{Comment.count} comments."
     end
     def process_raw_people
       log "Importing people to main table..."

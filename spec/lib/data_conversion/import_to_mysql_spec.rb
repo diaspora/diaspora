@@ -367,6 +367,36 @@ describe DataConversion::ImportToMysql do
         post.updated_at.should == mongo_post.updated_at
       end
     end
+    describe "comments" do
+      before do
+        import_and_process("users")
+        import_and_process("people")
+        import_and_process("posts")
+        copy_fixture_for("comments")
+        @migrator.import_raw_comments
+      end
+
+      it "imports data into the mongo_comments table" do
+        Mongo::Comment.count.should == 2
+        Comment.count.should == 0
+        @migrator.process_raw_comments
+        Comment.count.should == 2
+      end
+
+      it "processes all the columns" do
+        @migrator.process_raw_comments
+        comment = Comment.first
+        comment.mongo_id.should == "4d2b6ebfcc8cb43cc200002b"
+        comment.text.should == "Hey me!"
+        comment.youtube_titles.should be_nil
+      end
+      it 'sets the relations' do
+        @migrator.process_raw_comments
+        comment = Comment.first
+        comment.post_id.should == Post.where(:mongo_id => "4d2b6ebecc8cb43cc2000029").first.id
+        comment.person_id.should == Person.where(:mongo_id => "4d2b6eb7cc8cb43cc2000017").first.id
+      end
+    end
     describe "notifications" do
       before do
         import_and_process("users")
