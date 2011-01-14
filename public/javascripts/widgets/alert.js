@@ -1,15 +1,13 @@
 Diaspora.widgets.add("alert", function() {
   this.start = function() {
-    console.log("called2");
     $(document).bind("close.facebox", function() {
-      console.log("called");
       if ($("#diaspora_alert").length) {
         $("#diaspora_alert").detach();
       }
     });
   };
 
-  this.faceboxTemplate = '<div id="diaspora_alert" class="facebox_content">' +
+  this.faceboxTemplate = '<div id="diaspora_alert">' +
     '<div class="span-12 last">' +
       '<div id="facebox_header">' +
         '<h4>' +
