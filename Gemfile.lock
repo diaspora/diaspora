@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/Empact/roxml.git
   revision: 7ea9a9ffd2338aaef5b04cb792060ae8c98f346a
+  ref: 7ea9a9ffd2338aaef5b0
   specs:
     roxml (3.1.6)
       activesupport (>= 2.3.0)
@@ -9,12 +10,14 @@ GIT
 GIT
   remote: git://github.com/iain/http_accept_language.git
   revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
+  ref: 0b78aa7849fc90cf9e12
   specs:
     http_accept_language (1.0.1)
 
 GIT
   remote: git://github.com/igrigorik/em-websocket
   revision: e278f5a1c4db60be7485859520a069e08bfe1247
+  ref: e278f5a1c4db60be7485
   specs:
     em-websocket (0.2.0)
       addressable (>= 2.1.1)
@@ -84,13 +87,13 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     addressable (2.2.2)
-    arel (2.0.6)
+    arel (2.0.7)
     aws (2.3.32)
       activesupport
       http_connection
       uuidtools
       xml-simple
-    bcrypt-ruby (2.1.2)
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
     bunny (0.6.0)
     capybara (0.3.9)
@@ -115,7 +118,7 @@ GEM
       ohai (>= 0.5.7)
       rest-client (>= 1.0.4, < 1.7.0)
       uuidtools
-    childprocess (0.1.4)
+    childprocess (0.1.6)
       ffi (~> 0.6.3)
     closure-compiler (0.3.3)
     cloudfiles (1.4.10)
@@ -131,7 +134,7 @@ GEM
       term-ansicolor (~> 1.0.5)
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
-    culerity (0.2.13)
+    culerity (0.2.14)
     daemons (1.1.0)
     database_cleaner (0.5.2)
     devise (1.1.3)
@@ -144,24 +147,23 @@ GEM
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
     extlib (0.9.15)
-    factory_girl (1.3.2)
-    factory_girl_rails (1.0)
+    factory_girl (1.3.3)
+    factory_girl_rails (1.0.1)
       factory_girl (~> 1.3)
-      rails (>= 3.0.0.beta4)
-    faraday (0.5.3)
+      railties (>= 3.0.0)
+    faraday (0.5.4)
       addressable (~> 2.2.2)
-      multipart-post (~> 1.0.1)
+      multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
     faraday_middleware (0.3.1)
       faraday (~> 0.5.3)
-    fastercsv (1.5.3)
+    fastercsv (1.5.4)
     fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
     gem_plugin (0.2.3)
-    gherkin (2.3.2)
+    gherkin (2.3.3)
       json (~> 1.4.6)
-      term-ansicolor (~> 1.0.5)
     haml (3.0.25)
     hashie (0.4.0)
     highline (1.6.1)
@@ -176,13 +178,13 @@ GEM
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
     linecache (0.43)
-    mail (2.2.12)
+    mail (2.2.14)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mini_magick (3.1)
+    mini_magick (3.2)
       subexec (~> 0.0.4)
     mixlib-authentication (1.1.4)
       mixlib-log
@@ -199,7 +201,7 @@ GEM
       gem_plugin (>= 0.2.3)
     multi_json (0.0.5)
     multi_xml (0.2.0)
-    multipart-post (1.0.1)
+    multipart-post (1.1.0)
     mysql2 (0.2.6)
     net-ldap (0.1.1)
     nokogiri (1.4.3.1)
@@ -227,7 +229,7 @@ GEM
       rack-openid (~> 1.2.0)
       ruby-openid-apps-discovery
     oauth (0.4.4)
-    oauth2 (0.1.0)
+    oauth2 (0.1.1)
       faraday (~> 0.5.0)
       multi_json (~> 0.0.4)
     ohai (0.5.8)
@@ -251,7 +253,7 @@ GEM
     rack-openid (1.2.0)
       rack (>= 1.1.0)
       ruby-openid (>= 2.1.8)
-    rack-test (0.5.6)
+    rack-test (0.5.7)
       rack (>= 1.0)
     rails (3.0.3)
       actionmailer (= 3.0.3)
@@ -277,20 +279,20 @@ GEM
       vegas (~> 0.1.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rspec (2.3.0)
-      rspec-core (~> 2.3.0)
-      rspec-expectations (~> 2.3.0)
-      rspec-mocks (~> 2.3.0)
-    rspec-core (2.3.1)
-    rspec-expectations (2.3.0)
+    rspec (2.4.0)
+      rspec-core (~> 2.4.0)
+      rspec-expectations (~> 2.4.0)
+      rspec-mocks (~> 2.4.0)
+    rspec-core (2.4.0)
+    rspec-expectations (2.4.0)
       diff-lcs (~> 1.1.2)
     rspec-instafail (0.1.5)
-    rspec-mocks (2.3.0)
-    rspec-rails (2.3.1)
+    rspec-mocks (2.4.0)
+    rspec-rails (2.4.1)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
-      rspec (~> 2.3.0)
+      rspec (~> 2.4.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -304,15 +306,15 @@ GEM
     selenium-client (1.2.18)
     selenium-rc (2.2.4)
       selenium-client (>= 1.2.18)
-    selenium-webdriver (0.1.1)
-      childprocess (= 0.1.4)
+    selenium-webdriver (0.1.2)
+      childprocess (~> 0.1.5)
       ffi (~> 0.6.3)
       json_pure
       rubyzip
     simple_oauth (0.1.3)
-    sinatra (1.1.0)
+    sinatra (1.1.2)
       rack (~> 1.1)
-      tilt (~> 1.1)
+      tilt (~> 1.2)
     subexec (0.0.4)
     systemu (1.2.0)
     term-ansicolor (1.0.5)
@@ -321,16 +323,16 @@ GEM
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.14.6)
-    tilt (1.1)
+    tilt (1.2.1)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.23)
+    tzinfo (0.3.24)
     uuidtools (2.1.1)
     vegas (0.1.8)
       rack (>= 1.0.0)
     warden (0.10.7)
       rack (>= 1.0.0)
-    webmock (1.6.1)
+    webmock (1.6.2)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
@@ -341,42 +343,42 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  SystemTimer
-  addressable
-  aws
+  SystemTimer (= 1.2.1)
+  addressable (= 2.2.2)
+  aws (= 2.3.32)
   bundler (>= 1.0.0)
   capybara (~> 0.3.9)
   carrierwave!
-  chef
-  cloudfiles
+  chef (= 0.9.12)
+  cloudfiles (= 1.4.10)
   cucumber-rails (= 0.3.2)
   database_cleaner (= 0.5.2)
   devise (= 1.1.3)
   devise_invitable (= 0.3.5)
   em-websocket!
   factory_girl_rails
-  fastercsv
-  haml
+  fastercsv (= 1.5.4)
+  haml (= 3.0.25)
   http_accept_language!
-  jammit
+  jammit (= 0.5.4)
   jasmine!
-  json
+  json (= 1.4.6)
   launchy
-  mini_magick
+  mini_magick (= 3.2)
   mocha
   mongrel
-  mysql2
+  mysql2 (= 0.2.6)
   nokogiri (= 1.4.3.1)
   omniauth (= 0.1.6)
   rails (= 3.0.3)
-  resque
-  rest-client
+  resque (= 1.10.0)
+  rest-client (= 1.6.1)
   roxml!
   rspec (>= 2.0.0)
   rspec-instafail
   rspec-rails (>= 2.0.0)
   ruby-debug
-  thin
+  thin (= 1.2.7)
   twitter!
   webmock
   will_paginate (= 3.0.pre2)
