@@ -12,15 +12,27 @@ var Validation = {
       characters: /^(([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,}))(, *(([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})))*$/
     }
   },
+  whiteListed: function(keyCode) {
+    var keyCodes = [0, 37, 38, 39, 40, 8, 9];
+    return $.grep(keyCodes, function(element) { return keyCode !== element; }).length === keyCodes.length - 1;
+  },
+
   events: { 
     usernameKeypress: function(evt) {
-      if(evt.keyCode === 0) { return; }
+      if(Validation.whiteListed(evt.keyCode)) {
+        return;
+      }
+
       if(!Validation.rules.username.characters.test(this.value + String.fromCharCode(evt.keyCode))) {
         evt.preventDefault();
       }
-    }, 
+    },
+
     emailKeypress: function(evt) {
-      if(evt.keyCode === 0) { return; }
+      if(Validation.whiteListed(evt.keyCode)) {
+        return;
+      }
+
       if(!Validation.rules.email.characters.test(this.value + String.fromCharCode(evt.keyCode))) {
         $('#user_email').css('border-color', '#8B0000');
       } else {

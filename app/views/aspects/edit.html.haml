@@ -1,0 +1,41 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :head do
+  = include_javascripts :aspects
+
+#aspect_edit_pane
+  #facebox_header
+    %h4
+      = @aspect
+      .description
+        = t('contacts', :count =>@aspect_contacts.count)
+
+  .person_tiles{:style => "display:none;"}
+    - for contact in @aspect.contacts
+      .tile
+        = person_image_link contact.person
+        = link_to contact.person.name, contact.person
+    %hr
+
+    = form_for @aspect do |asp|
+      = asp.text_field :name, :value => @aspect.name
+      = asp.submit t('.rename_aspect'), :class => 'button'
+
+    = button_to t('.remove_aspect'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button'
+
+  - if @contacts.count > 0
+    = render 'shared/contact_list', :aspect_id => @aspect.id, :contact_hashes => @all_contacts
+
+  #aspect_edit_controls
+    = link_to t('.rename'), '#'
+    \/
+    = link_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
+
+
+  #rename_aspect
+    = form_for @aspect do |asp|
+      = asp.text_field :name, :value => @aspect.name
+      = asp.submit t('.rename_aspect')
+

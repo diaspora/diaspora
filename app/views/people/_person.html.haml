@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.message{:id => person.id}
+.stream_element{:id => person.id}
 
   .right{:style=>"display:inline;"}
     - if person.owner_id == current_user.id
@@ -12,19 +12,18 @@
     - elsif (contact && contact.pending) || request
       = t('.pending_request')
     - else
-      - single_aspect_form ||= nil
       = link_to "start sharing",
         {:controller => "people",
         :action => "share_with",
         :id => person.id},
-        :class => 'button share_with_button'
+        :class => 'button',
+        :rel => 'facebox'
 
   = person_image_link(person)
 
   .content
     %span.from
       =person_link(person)
-
 
     .info
       = person.diaspora_handle

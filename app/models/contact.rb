@@ -16,7 +16,7 @@ class Contact < ActiveRecord::Base
 
   def dispatch_request
     request = self.generate_request
-    self.user.push_to_people(request, [self.person])
+    Postzord::Dispatch.new(self.user, request).post
     request
   end
 

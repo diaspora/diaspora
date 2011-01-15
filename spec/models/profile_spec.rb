@@ -69,6 +69,20 @@ describe Profile do
     end
   end
 
+  describe '#subscribers' do
+    it 'returns all non-pending contacts for a user' do
+      user = Factory(:user)
+      aspect = user.aspects.create(:name => "zord")
+      person = Factory.create(:person)
+      user.activate_contact(person, Aspect.where(:id => aspect.id).first)
+
+      person2 = Factory.create(:person)
+      user.activate_contact(person2, Aspect.where(:id => aspect.id).first)
+
+      user.profile.subscribers(user).map{|s| s.id}.should =~ [person, person2].map{|s| s.id}
+    end
+  end
+
   describe 'date=' do
     let(:profile) { Factory(:profile) }
 

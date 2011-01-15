@@ -31,18 +31,17 @@
       = t('people.person.pending_request')
 
   .badges{:class => ("hidden" if !contact)}
-    - for aspect in aspects_with_person
-      = render :partial => 'aspects/aspect_badge', :locals => {:aspect => aspect}
+    = aspect_badges(aspects_with_person)
     .right
       = link_to t('.edit_membership'), "#", :id=> "edit_contact_aspects"
 
-  .edit{:class => ("hidden" if contact)}
-
+  .edit.hidden
     = render :partial => 'people/share_with_pane',
         :locals => {:person => person,
           :contact => contact,
           :aspects_with_person => aspects_with_person,
           :aspects_without_person => aspects_without_person}
+    %br
 
     - if contact
       .right

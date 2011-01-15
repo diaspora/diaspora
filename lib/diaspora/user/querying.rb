@@ -30,6 +30,9 @@ module Diaspora
       def contact_for(person)
         contact_for_person_id(person.id)
       end
+      def aspects_with_post(post_id)
+        self.aspects.joins(:post_visibilities).where(:post_visibilities => {:post_id => post_id})
+      end
 
       def contact_for_person_id(person_id)
         Contact.where(:user_id => self.id, :person_id => person_id).first if person_id

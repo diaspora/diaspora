@@ -3,9 +3,9 @@
 *   the COPYRIGHT file.
 */
 
-$(document).bind("mobileinit", function(){
-   $.extend(  $.mobile , {
-     ajaxLinksEnabled : false,
-     ajaxFormsEnabled : false
+$(document).bind("mobileinit", function() {
+   $.extend($.mobile, {
+     ajaxLinksEnabled: false,
+     ajaxFormsEnabled: false
    });
 });

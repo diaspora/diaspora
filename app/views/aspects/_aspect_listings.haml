@@ -1,0 +1,18 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%h4
+  .right
+    = link_to t('contacts', :count => @contacts.count), aspects_manage_path, :title => t('aspects.manage.manage_aspects')
+
+  = @aspect_hashes.count
+  - if @aspect_hashes.count == 1
+    = t('_aspect')
+  - else
+    = t('_aspects')
+
+%ul
+  - for a_hash in aspect_hashes
+    = render :partial => 'aspects/aspect', :locals => a_hash

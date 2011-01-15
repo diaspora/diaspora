@@ -9,9 +9,7 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    if params[:status_message][:aspect_ids] == "all"
-      params[:status_message][:aspect_ids] = current_user.aspects.collect { |x| x.id }
-    end
+    params[:status_message][:aspect_ids] = params[:aspect_ids]
 
     photos = Photo.where(:id => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
 
@@ -20,19 +18,18 @@ class StatusMessagesController < ApplicationController
     params[:status_message][:public] = public_flag
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
+    aspects = current_user.aspects_from_ids(params[:aspect_ids])
 
     if @status_message.save
-      current_user.add_to_streams(@status_message, params[:status_message][:aspect_ids])
-      current_user.dispatch_post(@status_message,
-                                 :to => params[:status_message][:aspect_ids],
-                                 :url => post_url(@status_message))
+      current_user.add_to_streams(@status_message, aspects)
+      current_user.dispatch_post(@status_message, :url => post_url(@status_message))
       if !photos.empty?
         @status_message.photos += photos
         for photo in photos
           photo.public = public_flag
           photo.save
-          current_user.add_to_streams(photo, params[:status_message][:aspect_ids])
-          current_user.dispatch_post(photo, :to => params[:status_message][:aspect_ids])
+          current_user.add_to_streams(photo, aspects)
+          current_user.dispatch_post(photo)
         end
       end
       respond_to do |format|
@@ -44,7 +41,7 @@ class StatusMessagesController < ApplicationController
                                          :person => @status_message.person,
                                          :photos => @status_message.photos,
                                          :comments => [],
-                                         :aspects => current_user.aspects,
+                                         :all_aspects => current_user.aspects,
                                          :current_user => current_user
                                        }
                                      )
@@ -79,6 +76,9 @@ class StatusMessagesController < ApplicationController
        :person => person_hash[comment.person_id]
       }
     end
+
+    @object_aspect_ids = @status_message.aspects.map{|a| a.id}
+
     respond_with @status_message
   end
 

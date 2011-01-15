@@ -31,7 +31,7 @@
           :locals => {:person => person,
                       :contact => contact,
                       :aspects_with_person => @aspects_with_person,
-                      :aspects_without_person => @aspects.reject{ |aspect| @aspects_with_person.include?(aspect)}}
+                      :aspects_without_person => @all_aspects.reject{ |aspect| @aspects_with_person.include?(aspect)}}
       %br
       %hr{:style=>"width:300px;"}
 
@@ -39,19 +39,19 @@
     %ul#profile_information
       %li
         - unless person.profile.bio.blank?
-          %h3
+          %h4
             =t('.bio')
           = markdownify(person.profile.bio, :newlines => true)
 
       %li.span-8.last
         .span-4
           - unless person.profile.gender.blank?
-            %h3
+            %h4
               =t('.gender')
             = person.profile.gender
 
         .span-4.last
           - unless person.profile.birthday.blank?
-            %h3 
+            %h4
               =t('.born')
             = birthday_format(person.profile.birthday)

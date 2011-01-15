@@ -2,8 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.container#head{:style => "position:relative;"}
-
+.container{:style => "position:relative;"}
   - if current_user
     = link_to image_tag('logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), root_path
   - else
@@ -22,11 +21,12 @@
       = form_tag(people_path, :method => 'get', :id => "global_search_form") do
         = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
 
-    #notification_badge
-      = link_to "", notifications_path, :title => new_notification_text(@notification_count)
-      = image_tag 'icons/mail_grey.png'
-      #notification_badge_number{:class => ("hidden" if @notification_count == 0)}
-        = @notification_count
+    - if @notification_count
+      #notification_badge
+        = link_to "", notifications_path, :title => new_notification_text(@notification_count)
+        = image_tag 'icons/mail_grey.png'
+        #notification_badge_number{:class => ("hidden" if @notification_count == 0)}
+          = @notification_count
 
     %ul#user_menu
       .right
@@ -40,18 +40,18 @@
       %li= link_to t('.logout'), destroy_user_session_path
 
     -unless @landing_page
-      #aspect_nav
-        %ul
-          %li{:class => ("selected" if @aspect == :all)}
-            = link_to t('_home'), root_path
+      %ul#aspect_nav
+        %li{:class => ('selected' if @aspect == :all)}
+          = link_to t('_home'), root_path, :class => 'home_selector'
 
-          - for aspect in @aspects
-            %li{:class => ("selected" if current_aspect?(aspect))}
-              = link_for_aspect aspect
-          %li
-            = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect')
+        - for aspect in @all_aspects
+          %li{:data=>{:guid=>aspect.id}, :class => ("selected" if @object_aspect_ids.include?(aspect.id))}
+            = link_for_aspect(aspect, :class => 'aspect_selector', :title => "#{aspect.contacts.count} contacts")
 
-        .fancybox_content
-          #add_aspect_pane
-            = render "aspects/new_aspect"
+        %li
+          = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect'), :rel => 'facebox'
+
+      .facebox_content
+        #add_aspect_pane
+          = render "aspects/new_aspect"
 

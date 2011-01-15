@@ -1,0 +1,181 @@
+# Welsh translations for Ruby on Rails
+# by Aran Jones (aranjones@gmail.com)
+
+cy:
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Dydd Sul, Dydd Llun, Dydd Mawrth, Dydd Mercher, Dydd Iau, Dydd Gwener, Dydd Sadwrn]
+    abbr_day_names: [Sul, Llun, Maw, Mer, Iau, Gwe, Sad]
+
+    month_names: [~, mis Ionawr, mis Chwefror, mis Mawrth, mis Ebrill, mis Mai, mis Mehefin, mis Gorffennaf, mis Awst, mis Medi, mis Hydref, mis Tachwedd, mis Rhagfyr]
+    abbr_month_names: [~, Ion, Chw, Maw, Ebr, Mai, Meh, Gor, Awst, Med, Hyd, Tach, Rha]
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "yb"
+    pm: "yh"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " a "
+      last_word_connector: ", a "
+
+    select:
+      prompt: "Dewiswch"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%u%n"
+        unit: "£"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Mil
+          million: Miliwn
+          billion: Biliwn
+          trillion: Triliwn
+          quadrillion: Cwadriliwn
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "hanner munud"
+      less_than_x_seconds:
+        one:   "llai nag eiliad"
+        other: "llai na %{count} eiliad"
+      x_seconds:
+        one:   "1 eiliad"
+        other: "%{count} o eiliadau"
+      less_than_x_minutes:
+        one:   "llai na munud"
+        other: "llai na %{count} munud"
+      x_minutes:
+        one:   "1 munud"
+        other: "%{count} o funudau"
+      about_x_hours:
+        one:   "tuag awr"
+        other: "tua %{count} awr"
+      x_days:
+        one:   "1 diwrnod"
+        other: "%{count} diwrnod"
+      about_x_months:
+        one:   "tua mis"
+        other: "tua %{count} mis"
+      x_months:
+        one:   "1 mis"
+        other: "%{count} mis"
+      about_x_years:
+        one:   "tua blwyddyn"
+        other: "tua %{count} blynedd"
+      over_x_years:
+        one:   "dros flwyddyn"
+        other: "dros %{count} blynedd"
+      almost_x_years:
+        one:   "bron yn flwyddyn"
+        other: "bron yn %{count} blynedd"
+    prompts:
+      year:   "Blwyddyn"
+      month:  "Mis"
+      day:    "Diwrnod"
+      hour:   "Awr"
+      minute: "Munud"
+      second: "Eiliad"
+
+  helpers:
+    select:
+      prompt: "Dewiswch"
+
+    submit:
+      create: 'Creu %{model}'
+      update: 'Diweddaru %{model}'
+      submit: 'Cadw %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "heb fod yn y rhestr"
+      exclusion: "wedi cadw"
+      invalid: "heb fod yn nheilwng"
+      confirmation: "heb fod yn gyfateb"
+      accepted: "angen ei dderbyn"
+      empty: "methu bod yn wag"
+      blank: "methu bod yn wag"
+      too_long: "yn rhy hir (cewch %{count} llythyren ar y fwyaf)"
+      too_short: "yn rhy fyr (rhaid am o leiaf %{count} llythyren)"
+      wrong_length: "gyda maint anghywir o lythrennau (dylai fod yn %{count} llythyren)"
+      not_a_number: "heb fod yn rhif"
+      not_an_integer: "heb fod yn rhif llawn"
+      greater_than: "angen bod yn fwy na %{count}"
+      greater_than_or_equal_to: "angen bod yr un maint neu fwy na %{count}"
+      equal_to: "angen bod yn %{count}"
+      less_than: "angen bod yn llai na %{count}"
+      less_than_or_equal_to: "angen bod yr un maint neu lai na %{count}"
+      odd: "rhaid bod yn odrif"
+      even: "rhaid bod yn eilrif"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Atalwyd y %{model} hwn rhag ei gadw gan 1 nam"
+          other:  "Atalwyd y %{model} hwn rhag ei gadw gan %{count} nam"
+        body: "Cafwyd broblemau gyda'r meysydd canlynol:"
+
+      messages:
+        taken: "wedi'i gymryd yn barod"
+        record_invalid: "Gwirio wedi methu: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

@@ -64,6 +64,13 @@ describe Request do
     end
   end
 
+  describe '#subscribers' do
+    it 'returns an array with to field on a request' do
+      request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
+      request.subscribers(@user).should =~ [@user2.person]
+    end
+  end
+
   describe '.hashes_for_person' do
     before do
       @user = Factory.create(:user)
@@ -85,6 +92,7 @@ describe Request do
       @hash[:sender].serialized_public_key.should be_nil
     end
   end
+
   describe 'xml' do
     before do
       @request = Request.new(:sender => @user.person, :recipient => @user2.person, :aspect => @aspect)

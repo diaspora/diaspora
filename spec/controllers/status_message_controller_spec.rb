@@ -18,13 +18,14 @@ describe StatusMessagesController do
     request.env["HTTP_REFERER"] = ""
     sign_in :user, user1
     @controller.stub!(:current_user).and_return(user1)
+    user1.reload
   end
 
   describe '#show' do
     it 'succeeds' do
       message = user1.build_post :status_message, :message => "ohai", :to => aspect1.id
       message.save!
-      user1.add_to_streams(message, aspect1.id)
+      user1.add_to_streams(message, [aspect1])
       user1.dispatch_post message, :to => aspect1.id
 
       get :show, "id" => message.id.to_s
@@ -37,8 +38,8 @@ describe StatusMessagesController do
       { :status_message => {
         :public  =>"true",
         :message =>"facebook, is that you?",
-        :aspect_ids =>"#{aspect1.id}" }
-      }
+        },
+      :aspect_ids =>"#{aspect1.id}" }
     }
     it 'responds to js requests' do
       post :create, status_message_hash.merge(:format => 'js')

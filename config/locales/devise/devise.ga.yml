@@ -1,0 +1,97 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ga: 
+  devise: 
+    confirmations: 
+      confirmed: "D'éirigh le do cúntas deimhniú. Tá tú sínithe isteach anois."
+      new: 
+        resend_confirmation: "Seol treoireacha deimhniú arís"
+      send_instructions: "Gheobhaidh tú ríomhphost le treoireacha ar conas do cúntas a deimhniú i cúpla nóiméad."
+    failure: 
+      inactive: "Ní rabih do cúntas curtha i gníomh fós."
+      invalid: "Seoladh ríomhphost nó pasfhocal neamhbhailí"
+      invalid_token: "Ceadchomhartha fíordheimhniú neamhbhailí"
+      locked: "Tá do cúntas glasáilte"
+      timeout: "Tá do seisiún tar éis dul as feidhm, síniú isteach arís chun leanúint ar aghaidh"
+      unauthenticated: "Tá ort síniú isteach nó síníus suas roimh a leanann tú ar aghaidh"
+      unconfirmed: "Tá ort do cúntas a dheimniú roimh a leanann tú ar aghaidh"
+    invitations: 
+      invitation_token_invalid: "Níl an ceadchomhartha cuireadh bailí!"
+      send_instructions: "Bhí do cuireadh sheolta."
+      updated: "D'eirigh le do pasfhocal a socrú. Tá tú sínithe isteach anois."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "Deimhnigh mo cúntas"
+        subject: "Treoiracha deimhniú"
+        you_can_confirm: "Tá tú ábalta do cúntas a deimhniú tríd an nasc faoi:"
+      hello: "Haileo %{email}!"
+      invitation: 
+        accept: "Ghlacadh leis an cuireadh"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Ní bheidh do cúntas déanta roimh a rochtain tú an nasc thar agus síníonn tú suas."
+        subject: "Tá cuireadh seolta chugat chun páirt a ghlacadh i Diaspora!"
+      inviters: 
+        accept_at: ", ag %{url}, is féidir leat ghlacadh leis an cuireadh tríd an nasc faoi."
+        has_invited_you: "Tá %{name} tar éis cuireadh a sheoladh chugat chun páirt a ghlacadh i Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Athraigh mo pasfhocal"
+        ignore: "Muna chur tú iarratas ar seo, déan neamhaird den ríomhphost seo más é do thoill é."
+        someone_requested: "Tá duine tar éis iarratas a chur ar nasc chun do pasfhocal a athrú, agus is éidir leat é seo a dhéanamh tríd an nasc faoi."
+        subject: "Treoireacha athshocrú pasfhocal"
+        wont_change: "Ní athreoidh do pasfhocal muna rochtain tú an nasc thar agus cruthaíonn tú ceann nua."
+      unlock_instructions: 
+        account_locked: "Bhí do cúntas ghlasáilte de réir an méid iarrachtaí síniú isteach."
+        click_to_unlock: "Cliceáil an nasc faoi chun do cúntas a díghlasáil."
+        subject: "Treoracha Díghlasáil"
+        unlock: "Díghlasáil mo cúntas"
+      welcome: "Fáilte %{email}!"
+    passwords: 
+      edit: 
+        change_password: "Athraigh mo pasfhocal"
+      new: 
+        forgot_password: "Dearmaid déanta ar do pasfhocail?"
+        send_password_instructions: "Seol treoireacha athshocrú pasfhocal dom."
+      send_instructions: "Gheobhaid tú ríomhphost le treoireacha ar conas do pasfhocail a athshocrú i cúpla nóiméad."
+      updated: "D'eirigh leat do pasfhocal a athrú. Tá tú sínithe isteach anois."
+    registrations: 
+      destroyed: "Slán! D'eirigh le do cúntas a chealú. Tá súil againn go bhfeicfimid tú arís go luath."
+      signed_up: "D'eirigh leat síniú suas. Bhí deimhniú seolta chuig do sheoladh ríomhphost."
+      updated: "D'eirigh cúntas nuashonrú"
+    sessions: 
+      new: 
+        alpha_software: "Tá tú díreach chun bhogearraí alfa a úsáid."
+        bugs_and_feedback: "Cuimhnigh tá tú chun fadbhanna a fheiceáil. Molaimid duit úsáid a bhaint as an cnaipe Aiseolas ar an taobh deis don brabhsálaí, chun tuarisc a chur ar fáil faoi aon fadbhanna! Beidhmid ag obair comh tapa is gur féidir lin aon fadbhanna a réitíu."
+        bugs_and_feedback_mobile: "Cuimhnigh, tá tú chun fabhtanna a fheiceáil. Molaimid duit tuaraisc a chur ar fáil faoin aon fadhbhanna! Beidhmid ag obair chomh tapa is gur féidir lin aon fadbhanna a réitiú."
+        have_a_problem: "Fadbh agat? Gheobhaidh tú freagra anseo"
+        login: "Logáil isteach"
+        modern_browsers: "ní ach tugaimid tacaíocht do brabhsálaí nua-aimseartha"
+        password: "Pasfhocal"
+        remember_me: "Cuimhnigh orm"
+        sign_in: "Síniú isteach"
+        username: "Ainm úsáideora"
+      signed_in: "D'éirigh leis an síniú isteach"
+      signed_out: "D'éirigh leis an síniú amach"
+    shared: 
+      links: 
+        forgot_your_password: "Dearmad déanta ar do pasfhocal?"
+        receive_confirmation: "Níor bhfuar tú treoireacha deimhniú?"
+        receive_unlock: "Níor bhfuar tú treoireach díghlasáil?"
+        sign_in: "Síniú isteach"
+        sign_up: "Sign up"
+        sign_up_closed: "Tá síniú oscailte críochnaithe ag an t-am seo."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Síniú suas do cuireadh!"
+    unlocks: 
+      new: 
+        resend_unlock: "Sheol treoireacha dhíghlasáil arís"
+      send_instructions: "Gheobhaidh tú ríomphoist le treoireacha ar chonas do chúntas a dhíghlasáil i cúpla nóiméad."
+      unlocked: "D'eirigh le do cúntas a dhíghlasáil."
+  errors: 
+    messages: 
+      already_confirmed: "deimnithe cheanna féin"
+      not_found: "níl sé ann"
+      not_locked: "ní raibh glasáilte"

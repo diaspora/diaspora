@@ -115,7 +115,7 @@ class Person < ActiveRecord::Base
    (person.nil? || person.remote?) ? nil : person
   end
 
-  def self.build_from_webfinger(profile, hcard)
+  def self.create_from_webfinger(profile, hcard)
     return nil if profile.nil? || !profile.valid_diaspora_profile?
     new_person = Person.new
     new_person.serialized_public_key = profile.public_key
@@ -173,5 +173,7 @@ class Person < ActiveRecord::Base
   private
   def remove_all_traces
     Post.where(:person_id => id).delete_all
+    Contact.where(:person_id => id).delete_all
+    Notification.where(:actor_id => id).delete_all
   end
 end

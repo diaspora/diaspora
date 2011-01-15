@@ -1,6 +1,8 @@
-# Korean (한글) translations for Ruby on Rails 
+# Korean (한글) translations for Ruby on Rails
 # by John Hwang (jhwang@tavon.org)
 # http://github.com/tavon
+# and Sunghee Kang(paranoiase@gmail.com)
+# http://www.twitter.com/paranoiase
 
 ko:
   date:
@@ -8,14 +10,16 @@ ko:
       default: "%Y/%m/%d"
       short: "%m/%d"
       long: "%Y년 %m월 %d일 (%a)"
-      
+
     day_names: [일요일, 월요일, 화요일, 수요일, 목요일, 금요일, 토요일]
     abbr_day_names: [일, 월, 화, 수, 목, 금, 토]
-      
+
     month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
     abbr_month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
-
-    order: [ :year, :month, :day ]
+    order:
+      - :year
+      - :month
+      - :day
 
   time:
     formats:
@@ -24,130 +28,159 @@ ko:
       long: "%Y년 %B월 %d일, %H시 %M분 %S초 %Z"
     am: "오전"
     pm: "오후"
-      
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+
+  support:
+    array:
+      sentence_connector: ", "
+      words_connector: ", "
+      two_words_connector: "와(과) "
+      last_word_connector: ", "
+
+    select:
+      prompt: "선택해 주세요"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%n%u"
+        unit: "원"
+        separator: "."
+        delimiter: ","
+        precision: 0
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: "바이트"
+          kb: "킬로바이트"
+          mb: "메가바이트"
+          gb: "기가바이트"
+          tb: "테라바이트"
+
+      decimal_units:
+        format: "%n%u"
+        units:
+          unit: ""
+          thousand: "천"
+          million: "백만"
+          billion: "십억"
+          trillion: "조"
+          quadrillion: "경"
+
   datetime:
     distance_in_words:
       half_a_minute: "30초"
       less_than_x_seconds:
-        one:   "일초 이하"
+        one: "일 초 이하"
         other: "%{count}초 이하"
       x_seconds:
-        one:   "일초"
+        one: "일 초"
         other: "%{count}초"
       less_than_x_minutes:
-        one:   "일분 이하"
+        one: "일 분 이하"
         other: "%{count}분 이하"
       x_minutes:
-        one:   "일분"
+        one: "일 분"
         other: "%{count}분"
       about_x_hours:
-        one:   "약 한시간"
+        one: "약 한 시간"
         other: "약 %{count}시간"
       x_days:
-        one:   "하루"
+        one: "하루"
         other: "%{count}일"
       about_x_months:
-        one:   "약 한달"
+        one: "약 한 달"
         other: "약 %{count}달"
       x_months:
-        one:   "한달"
+        one: "한 달"
         other: "%{count}달"
       about_x_years:
-        one:   "약 일년"
+        one: "약 일 년"
         other: "약 %{count}년"
       over_x_years:
-        one:   "일년 이상"
+        one: "일 년 이상"
         other: "%{count}년 이상"
+      almost_x_years:
+        one: "일 년 이하"
+        other: "%{count}년 이하"
+
     prompts:
-      year:   "년"
-      month:  "월"
-      day:    "일"
-      hour:   "시"
+      year: "년"
+      month: "월"
+      day: "일"
+      hour: "시"
       minute: "분"
       second: "초"
-      
-  number:
-    # Used in number_with_delimiter()
-    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
-    format:
-      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
-      separator: "."
-      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
-      delimiter: ","
-      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
-      precision: 3
-      
-    # Used in number_to_currency()
-    currency:
-      format:
-        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
-        format: "%u%n"
-        unit: "₩"
-        # These three are to override number.format and are optional
-        separator: "."
-        delimiter: ","
-        precision: 0
-        
-    # Used in number_to_percentage()
-    percentage:
-      format:
-        # These three are to override number.format and are optional
-        # separator: 
-        delimiter: ""
-        # precision: 
-        
-    # Used in number_to_precision()
-    precision:
-      format:
-        # These three are to override number.format and are optional
-        # separator:
-        delimiter: ""
-        # precision:
-        
-    # Used in number_to_human_size()
-    human:
-      format:
-        # These three are to override number.format and are optional
-        # separator: 
-        delimiter: ""
-        precision: 1
-      storage_units: [Bytes, KB, MB, GB, TB]
 
-# Used in array.to_sentence.
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: "과 "
-      last_word_connector: ", "
-        
+  helpers:
+    select:
+      prompt: "선택해주세요"
+
+    submit:
+      create: "등록"
+      update: "갱신"
+      submit: "제출"
+
+  errors:
+    format: "%{attribute}%{message}"
+
+    messages: &errors_messages
+      inclusion: "은(는) 목록에 포함되어 있습니다"
+      exclusion: "은(는) 목록에 포함되어 있습니다"
+      invalid: "은(는) 무효입니다"
+      confirmation: "은(는) 확인되었습니다"
+      accepted: "은(는) 확인되었습니다"
+      empty: "은(는) 비어두면 안 됩니다"
+      blank: "은(는) 비어두면 안 됩니다"
+      too_long: "은(는) 너무 깁니다 (최대 %{count}자 까지)"
+      too_short: "은(는) 너무 짧습니다 (최소 %{count}자 까지)"
+      wrong_length: "은(는) 길이가 틀렸습니다 (%{count}자를 필요합니다)"
+      not_a_number: "은(는) 숫자가 아닙니다"
+      not_an_integer: "은(는) 정수가 아닙니다"
+      greater_than: "은(는) %{count}이상을 요구합니다"
+      greater_than_or_equal_to: "은(는) %{count}과 같거나 이상을 요구합니다"
+      equal_to: "은(는) %{count}과 같아야 합니다"
+      less_than: "은(는) %{count}이하를 요구합니다"
+      less_than_or_equal_to: "은(는) %{count}과 같거나 이하을 요구합니다"
+      odd: "은(는) 홀수를 요구합니다"
+      even: "은(는) 짝수를 요구합니다"
+
   activerecord:
     errors:
       template:
         header:
-          one:    "한개의 오류가 발생해 %{model}를 저장 할 수 없습니다"
-          other:  "%{count}개의 오류가 발생해 %{model}를 저장 할 수 없습니다"
-        # The variable :count is also available
+          one: "한 개의 오류가 발생해 %{model}를 저장 할 수 없습니다"
+          other: "%{count}개의 오류가 발생해 %{model}를 저장 할 수 없습니다"
         body: "다음 항목에 문제가 발견되었습니다:"
 
       messages:
-        inclusion: "은 목록에 포함되어 있습니다"
-        exclusion: "은 목록에 포함되어 있지 않습니다"
-        invalid: "은 무효입니다"
-        confirmation: "은 확인되었습니다"
-        accepted: "은 확인되었습니다"
-        empty: "은 비어두면 안 됩니다"
-        blank: "은 비어두면 안 됩니다"
-        too_long: "은 너무 깁니다 (최대 %{count}자 까지)"
-        too_short: "은 너무 짧습니다 (최소 %{count}자 까지)"
-        wrong_length: "은 길이가 틀렸습니다 (%{count}자를 필요합니다)"
-        taken: "은 이미 선택되었습니다"
-        not_a_number: "은 숫자가 아닙니다"
-        greater_than: "은 %{count}이상을 요구합니다"
-        greater_than_or_equal_to: "은 %{count}과 같거나 이상을 요구합니다"
-        equal_to: "은 %{count}과 같아야 합니다"
-        less_than: "은 %{count}이하를 요구합니다"
-        less_than_or_equal_to: "은 %{count}과 같거나 이하을 요구합니다"
-        odd: "은 홀수을 요구합니다"
-        even: "은 짝수을 요구합니다"
-        # Append your own errors here or at the model/attributes scope.
+        taken: "은(는) 이미 존재합니다."
+        record_invalid: "데이터 검증에 실패하였습니다. %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

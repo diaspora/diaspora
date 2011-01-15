@@ -2,23 +2,45 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-24.last
-  %h2{:style => "position:relative;"}
-    = current_user.name
-    .right{:style=>"top:0"}
-      %span.description
-        = link_to current_user.diaspora_handle, person_path(current_user.person)
-        = info_text(t('.handle_explanation'))
 
-.span-15.append-1
-  = render 'shared/publisher', :aspect => @aspect
+- content_for :head do
+  = include_javascripts :home
+
+.span-15.append-2
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count
-  = render 'aspects/no_posts_message', :post_count => @post_hashes.length, :contact_count => @contacts.count
 
-  %ul{:class => 'stream', :id => 'main_stream'}
-    = render 'shared/stream', :posts => @post_hashes
-  = will_paginate @posts
+  #aspect_stream_container
+    = render 'aspect_stream',
+      :aspect => @aspect,
+      :aspect_ids => @aspect_ids,
+      :post_hashes => @post_hashes
 
-.span-8.last
-  = render 'aspects/all_aspects_contacts'
+.span-7.last
+  #home_user_badge
+    = owner_image_link
+    %h3{:style => "position:relative;"}
+      = current_user.name
+      .description
+        = link_to current_user.diaspora_handle, person_path(current_user.person)
+        /= info_text(t('.handle_explanation'))
+
+  - if @notification_count > 0 || @request_count > 0
+    #new_requests
+      - if @request_count > 0
+        %h4
+          = new_request_link(@request_count)
+
+    #new_notifications
+      - if @notification_count > 0
+        = image_tag 'icons/mail_big.png', :height => 20, :width => 20, :style=>"margin-top:3px;"
+        %h4
+          = new_notification_link(@notification_count)
+    %hr
+
+  #aspect_listings.section
+    = render 'aspects/aspect_listings', :aspect_hashes => @aspect_hashes
+
+  .section
+    %h4= t('shared.invitations.invites')
+    = render "shared/invitations", :invites => @invites
 

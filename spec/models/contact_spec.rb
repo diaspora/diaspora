@@ -71,7 +71,9 @@ describe Contact do
     describe '#dispatch_request' do
       it 'pushes to people' do
         @contact.stub(:user).and_return(@user)
-        @user.should_receive(:push_to_people).with(anything, [@contact.person])
+        m = mock()
+        m.should_receive(:post)
+        Postzord::Dispatch.should_receive(:new).and_return(m)
         @contact.dispatch_request
       end
       it 'persists no request' do

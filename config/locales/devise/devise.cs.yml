@@ -8,7 +8,7 @@ cs:
     confirmations: 
       confirmed: "Váš účet byl uspěšně potvrzen. Nyní jste přihlášeni."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Zaslat instrukce o potvrzení"
       send_instructions: "Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu."
     failure: 
       inactive: "Váš účet ještě nebyl aktivován."
@@ -19,42 +19,42 @@ cs:
       unauthenticated: "Pro pokračování se musíte přihlásit nebo si vytvořit účet."
       unconfirmed: "Před pokračováním musíte potvrdit svůj účet."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
-      updated: "Your password was set successfully. You are now signed in."
+      invitation_token_invalid: "Pozvánka je neplatná!"
+      send_instructions: "Vaše pozvánka byla odeslána."
+      updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášen."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirm my account"
-        subject: "Confirmation instructions"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+        confirm: "Potvrdit můj účet"
+        subject: "Informace o potvrzení"
+        you_can_confirm: "Váš účet můžete potvrdit kliknutím na tento odkaz:"
+      hello: "Zdravím %{email}!"
       invitation: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "A friend wants you to join Diaspora!"
+        accept: "Potvrdit pozvánku"
+        ignore: "Pokud nechcete potvrdit pozvání, tento e-mail prosím ignorujte."
+        no_account_till: "Pro dokončení registrace klikněte prosím na odkaz uvedený níže."
+        subject: "Byl jste pozván na Diasporu!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", na %{url}, akceptujte kliknutím na odkaz."
+        has_invited_you: "%{name} Vás pozval na Diasporu"
+        have_invited_you: "%{names} Vás pozvali na Diasporu"
       reset_password_instructions: 
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
-        subject: "Reset password instructions"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        change: "Změnit moje heslo"
+        ignore: "Pokud nechcete potvrdit pozvání, tento e-mail prosím ignorujte."
+        someone_requested: "Vyžádali jste si změnu hesla, kterou můžete provést kliknutím na níže uvedený odkaz."
+        subject: "Instrukce ke změně hesla"
+        wont_change: "Vaše heslo není možné změnit dokud nekliknete na uvedený odkaz a nevytvoříte si nové."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
-        unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+        account_locked: "Váš účet byl zablokovaný kvůli vysokému počtu neúspěšných přihlášení."
+        click_to_unlock: "Kliknutím na uvedený odkaz odemknete svůj účet:"
+        subject: "Instrukce k odemknutí účtu."
+        unlock: "Odemknout můj účet"
+      welcome: "Vítej %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Změnit heslo"
       new: 
-        forgot_password: "Forgot your password?"
-        send_password_instructions: "Send me reset password instructions"
+        forgot_password: "Zapomněli jste heslo?"
+        send_password_instructions: "Zaslat instrukce k zaslání nového hesla."
       send_instructions: "Běhěm několika minut obdržíte email s instrukcemi k resetnutí hesla."
       updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni"
     registrations: 
@@ -63,31 +63,31 @@ cs:
       updated: "Úspěšně jste upravili svůj účet."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Have a problem? Find an answer here"
-        login: "Login"
-        modern_browsers: "only supports modern browsers."
-        password: "Password"
-        remember_me: "Remember me"
-        sign_in: "Sign in"
-        username: "Username"
+        alpha_software: "Používáte testovací verzi."
+        bugs_and_feedback: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám použít tlačítko Zpětná vazba na pravé straně vašeho prohlížeče pro nahlášení problémů! Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
+        bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
+        have_a_problem: "Máte problém? Zde najdete odpověď"
+        login: "Přihlásit"
+        modern_browsers: "podporuje pouze moderní prohlížeče."
+        password: "Heslo"
+        remember_me: "Zapamatovat si mě"
+        sign_in: "Přihlásit se"
+        username: "Uživatelské jméno"
       signed_in: "Přihlášení proběhlo úspěšně."
       signed_out: "Odhlášení proběhlo úspěšně."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
-        sign_up_closed: "Open signups are closed at this time."
+        forgot_your_password: "Zapomněli jste heslo?"
+        receive_confirmation: "Neobdrželi jste instrukce na potvrzení?"
+        receive_unlock: "Neobdrželi jste instrukce na odblokování?"
+        sign_in: "Přihlásit se"
+        sign_up: "Zapsat se"
+        sign_up_closed: "Momentálně jsou další registrace pozastavené."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Požádat o pozvánku!"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
+        resend_unlock: "Instrukce ke změně hesla"
       send_instructions: "Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu."
       unlocked: "Váš účet byl úspěšně odemknut. Nyní jste přihlášeni."
   errors: 

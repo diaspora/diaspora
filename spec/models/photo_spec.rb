@@ -35,7 +35,7 @@ describe Photo do
     end
   end
 
-  it 'should be mutable' do
+  it 'is mutable' do
     @photo.mutable?.should == true
   end
 
@@ -133,7 +133,7 @@ describe Photo do
       id = @photo.id
 
       @photo.destroy
-      user2.receive xml, @user.person
+      @photo.receive(user2, @user.person)
 
       new_photo = Photo.where(:guid => @photo.guid).first
       new_photo.url.nil?.should be false

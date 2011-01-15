@@ -45,6 +45,8 @@ class PhotosController < ApplicationController
 
       if params[:photo][:aspect_ids] == "all"
         params[:photo][:aspect_ids] = current_user.aspects.collect{|x| x.id}
+      elsif params[:photo][:aspect_ids].is_a?(Hash)
+        params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
       end
 
       params[:photo][:user_file] = file_handler(params)
@@ -54,7 +56,9 @@ class PhotosController < ApplicationController
       if @photo.save
         raise 'MongoMapper failed to catch a failed save' unless @photo.id
 
-        current_user.add_to_streams(@photo, params[:photo][:aspect_ids])
+
+        aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+        current_user.add_to_streams(@photo, aspects)
         current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids]) unless @photo.pending
 
         if params[:photo][:set_profile_photo]
@@ -146,6 +150,11 @@ class PhotosController < ApplicationController
         end
       else
         @parent = @photo
+      end
+
+      @object_aspect_ids = []
+      if @parent.aspects
+        @object_aspect_ids = @parent.aspects.map{|a| a.id}
       end
 
       comments_hash = Comment.hash_from_post_ids [@parent.id]

@@ -5,6 +5,7 @@
 class Request < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/webhooks')
 
+  require File.join(Rails.root, 'lib/postzord/dispatch')
   include Diaspora::Webhooks
   include ROXML
 
@@ -68,6 +69,17 @@ class Request < ActiveRecord::Base
     else
       "new_request"
     end
+  end
+
+  def subscribers(user)
+    [self.recipient]
+  end
+
+  def receive(user, person)
+    Rails.logger.info("event=receive payload_type=request sender=#{self.sender} to=#{self.recipient}")
+    user.receive_contact_request(self)
+    self.save
+    self
   end
 
   private

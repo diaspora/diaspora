@@ -5,7 +5,7 @@
 # This file is used by Rack-based servers to start the application.
 
 require ::File.expand_path('../config/environment',  __FILE__)
-#use Rack::FiberPool
 require ::File.expand_path('../lib/chrome_frame', __FILE__)
+
 use Rack::ChromeFrame, :minimum => 8
 run Diaspora::Application

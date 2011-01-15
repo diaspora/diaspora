@@ -1,16 +1,18 @@
 default: 'en'
 available:
   ca: "Català"
-  cs: 'Lietuviškai'
+  cs: 'Čeština'
   cy: 'Cymraeg'
   da: 'Dansk'
   de: 'Deutsch'
   el: "Ελληνικά"
   en: 'English'
+  en_shaw: '𐑦𐑙𐑤𐑦𐑖'
   es: 'Español'
   es-CL: 'Español Chileno'
   fi: 'Suomi'
   fr: 'Français'
+  ga: 'Gaeilge'
   he: 'עברית'
   hu: 'magyar nyelv'
   id: 'Bahasa Indonesia'

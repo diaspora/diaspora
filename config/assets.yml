@@ -10,12 +10,14 @@ javascripts:
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
-    - public/javascripts/vendor/fancybox/jquery.fancybox-1.3.1.pack.js
+    - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
+    - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/application.js
+  
   mobile:
     - public/javascripts/vendor/jquery144.min.js
     - public/javascripts/custom-mobile-scripting.js
@@ -30,6 +32,10 @@ javascripts:
     - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/aspect-edit.js
     - public/javascripts/contact-list.js
+  home:
+    - public/javascripts/publisher.js
+    - public/javascripts/aspect-filters.js
+    - public/javascripts/contact-list.js
   people:
     - public/javascripts/contact-list.js
   photos:
@@ -39,6 +45,6 @@ stylesheets:
   default:
     - public/stylesheets/application.css
     - public/stylesheets/ui.css
-    - public/stylesheets/vendor/jquery.fancybox-1.3.1.css
+    - public/stylesheets/vendor/facebox.css
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css

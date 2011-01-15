@@ -1,3 +1,8 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
 module Jobs
   class SocketWebfinger
     extend ResqueJobLogging
@@ -5,8 +10,9 @@ module Jobs
     def self.perform(user_id, account, opts={})
       finger = Webfinger.new(account)
       begin
+        user = User.find_by_id(user_id)
         result = finger.fetch
-        result.socket_to_uid(user_id, opts)
+        result.socket_to_user(user, opts)
       rescue
         Diaspora::WebSocket.queue_to_user(user_id,
           {:class => 'people',

@@ -9,16 +9,16 @@
   = t('.manage_aspects')
 
 #section_header
-  %h2=t('.manage_aspects')
-  .right{:style=>"top:0;"}
-    = link_to("+ #{t('.add_a_new_aspect')}", "#add_aspect_pane", :class => "new_aspect add_aspect_button button", :title => t('.add_a_new_aspect'))
+  .right
+    = link_to("+ #{t('.add_a_new_aspect')}", "#add_aspect_pane", :class => "new_aspect button", :title => t('.add_a_new_aspect'), :rel => 'facebox')
+
+  %h2
+    =t('.manage_aspects')
 
 #manage_aspect_zones
   .span-4.append-1.last
     .requests
       %h3=t('.requests')
-      %i
-        %p= "#{t('.drag_to_add')} =>"
 
       %ul.dropzone
         - if @remote_requests.size < 1
@@ -31,6 +31,10 @@
                   X
                 .circle
               = link_to person_image_tag(hash[:sender]), hash[:sender]
+
+      - if @remote_requests.size > 0
+        %p
+          %i= "#{t('.drag_to_add')} =>"
 
       = render 'shared/invitations', :invites => @invites
 
@@ -47,7 +51,7 @@
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{hash[:aspect].id}", :class => 'manage_aspect_contacts_button'
+            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{hash[:aspect].id}", :class => 'manage_aspect_contacts_button', :rel => "facebox"
             %li!= remove_link(hash[:aspect])
 
         %ul.dropzone{:data=>{:aspect_id=>hash[:aspect].id}}
@@ -61,7 +65,7 @@
           .draggable_info
             =t('.drag_to_add')
 
-          .fancybox_content
+          .facebox_content
             %div{:id => "manage_aspect_contacts_pane_#{hash[:aspect].id}"}
               = render "requests/manage_aspect_contacts", :aspect => hash[:aspect], :manage => true, :contact_hashes => hash[:contacts]
 

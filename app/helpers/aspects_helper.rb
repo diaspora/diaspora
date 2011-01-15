@@ -3,11 +3,14 @@
 #   the COPYRIGHT file.
 
 module AspectsHelper
-  def link_for_aspect( aspect )
-    link_to aspect.name, aspect
+  def link_for_aspect(aspect, opts={})
+    opts[:params] ||= {}
+    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id)
+
+    link_to aspect.name, aspects_path( opts[:params] ), opts
   end
 
-  def remove_link( aspect )
+  def remove_link(aspect)
     if aspect.contacts.size == 0
       link_to I18n.t('aspects.helper.remove'), aspect, :method => :delete, :confirm => I18n.t('aspects.helper.are_you_sure')
     else
@@ -42,5 +45,20 @@ module AspectsHelper
       remove_from_aspect_button(aspect_id, person.id)
     end
   end
+
+  def publisher_description(aspect_count, aspect=nil)
+    if aspect && aspect == :all
+      str = t('.share_with_all')
+    else
+      str = "#{t('.post_a_message_to', :aspect => aspect_count)} "
+      if aspect_count == 1
+        str += t('_aspect').downcase
+      else
+        str += t('_aspects').downcase
+      end
+    end
+    (link_to str, '#', :id => 'expand_publisher').html_safe
+  end
+
 end
 

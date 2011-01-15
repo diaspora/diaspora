@@ -20,7 +20,7 @@ describe("Stream", function() {
       jasmine.Clock.useMock();
       $('#jasmine_content').html(
         '<div class="stream">' +
-        '<li class="message" data-guid="4ceef7ba2367bc2e4d0001e9">' +
+        '<li class="stream_element" data-guid="4ceef7ba2367bc2e4d0001e9">' +
           '<div class="content">' +
             '<div class="info">' +
               '<a href="#" class="show_post_comments">show comments (0)</a>' +

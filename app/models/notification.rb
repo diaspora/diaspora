@@ -21,9 +21,23 @@ class Notification < ActiveRecord::Base
                :action => action,
                :actor => actor,
                :recipient => recipient)
-        n.socket_to_uid(recipient.id) if n
+        n.email_the_user if n
+        n.socket_to_user(recipient) if n
         n
        end
+    end
+  end
+
+  def email_the_user
+    case self.action
+    when "new_request"
+      self.recipient.mail(Jobs::MailRequestReceived, self.recipient_id, self.actor_id)
+    when "request_accepted"
+      self.recipient.mail(Jobs::MailRequestAcceptance, self.recipient_id, self.actor_id)
+    when "comment_on_post"
+      self.recipient.mail(Jobs::MailCommentOnPost, self.recipient_id, self.actor_id, target.id)
+    when "also_commented"
+      self.recipient.mail(Jobs::MailAlsoCommented, self.recipient_id, self.actor_id, target.id)
     end
   end
 end

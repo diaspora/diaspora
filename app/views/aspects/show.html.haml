@@ -2,6 +2,10 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+
+- content_for :head do
+  = include_javascripts :aspects
+
 - content_for :page_title do
   = @aspect.name.html_safe
 
@@ -17,12 +21,9 @@
   = render 'aspects/aspect_contacts', :contacts => @aspect_contacts, :aspect => @aspect
   = render 'aspects/edit_aspect_pane', :contacts => @all_contacts, :aspect => @aspect
 
-
 .span-15.last
   = render 'shared/publisher', :aspect => @aspect
-  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @aspect_contacts_count, :options => false
-  = render 'aspects/no_posts_message', :post_count => @post_count, :contact_count=> @aspect_contacts_count
 
-  %ul{:class => 'stream', :id => 'main_stream'}
+  #main_stream.stream{:data => {:guids => @aspect.id}}
     = render 'shared/stream', :posts => @post_hashes
   =will_paginate @posts

@@ -10,7 +10,6 @@ require 'rails/all'
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 require File.expand_path('../../lib/log_overrider', __FILE__)
-require File.expand_path('../../lib/message_handler', __FILE__)
 module Diaspora
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -52,5 +51,6 @@ module Diaspora
     config.filter_parameters += [:text]
     config.filter_parameters += [:caption]
     config.filter_parameters += [:bio]
+
   end
 end

@@ -26,7 +26,7 @@
       =t('.no_one_found')
 
   - else
-    %ul{:class => 'stream people', :id => 'people_stream'}
+    #people_stream.stream
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash
 

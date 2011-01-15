@@ -97,24 +97,36 @@ describe Person do
     person_two.owns?(person_message).should be false
   end
 
-  it "deletes all of a person's posts upon person deletion" do
-    person = Factory.create(:person)
+  describe '#remove_all_traces' do
+    before do
+      @user = Factory(:user_with_aspect)
+      @deleter = Factory(:person)
+      @status = Factory.create(:status_message, :person => @deleter)
+      @other_status = Factory.create(:status_message, :person => @person)
+    end
 
-    status = Factory.create(:status_message, :person => person)
-    Factory.create(:status_message, :person => @person)
+    it "deletes all notifications from a person's actions" do
+      note = Notification.create(:actor_id => @deleter.id, :recipient_id => @user.id)
+      @deleter.destroy
+      Notification.where(:id => note.id).first.should be_nil
+    end
 
-    lambda {person.destroy}.should change(Post, :count).by(-1)
-  end
+    it "deletes all contacts pointing towards a person" do
+      @user.activate_contact(@deleter, @user.aspects.first)
+      @deleter.destroy
+      @user.contact_for(@deleter).should be_nil
+    end
 
-  it "does not delete a person's comments on person deletion" do
-    person = Factory.create(:person)
+    it "deletes all of a person's posts upon person deletion" do
+      lambda {@deleter.destroy}.should change(Post, :count).by(-1)
+    end
 
-    status_message = Factory.create(:status_message, :person => @person)
+    it "does not delete a person's comments on person deletion" do
+      Factory.create(:comment, :person_id => @deleter.id, :diaspora_handle => @deleter.diaspora_handle, :text => "i love you",     :post => @other_status)
+      Factory.create(:comment, :person_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => @other_status)
 
-    Factory.create(:comment, :person_id => person.id, :diaspora_handle => person.diaspora_handle, :text => "i love you",     :post => status_message)
-    Factory.create(:comment, :person_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => status_message)
-
-    lambda {person.destroy}.should_not change(Comment, :count)
+      lambda {@deleter.destroy}.should_not change(Comment, :count)
+    end
   end
 
   describe "disconnecting" do

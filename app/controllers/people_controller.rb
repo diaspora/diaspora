@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   def index
     @aspect = :search
 
-    @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 25, :order => 'created_at DESC'
+    @people = Person.search(params[:q]).paginate :page => params[:page], :per_page => 15, :order => 'created_at DESC'
     if @people.count == 1
       redirect_to @people.first
     else
@@ -123,7 +123,7 @@ class PeopleController < ApplicationController
       @aspects_with_person = @contact.aspects
     end
 
-    @aspects_without_person = @aspects.reject do |aspect|
+    @aspects_without_person = @all_aspects.reject do |aspect|
       @aspects_with_person.include?(aspect)
     end
 

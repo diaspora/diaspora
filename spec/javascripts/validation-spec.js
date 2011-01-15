@@ -15,6 +15,15 @@ describe("Validation", function() {
       });
     });  
   });
+  describe("whiteListed", function() {
+     it("returns true if the keyCode is whitelisted", function() {
+        expect(Validation.whiteListed(0)).toBeTruthy();
+     });
+
+     it("returns false if it's not", function() {
+       expect(Validation.whiteListed(9001)).toBeFalsy();
+     });
+  });
   describe("events", function() { 
     describe("usernameKeypress", function() { 
       it("doesn't allow the user to type anything but letters, numbers and underscores", function() { 

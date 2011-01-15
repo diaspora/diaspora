@@ -71,6 +71,11 @@ class Photo < Post
     true
   end
 
+  def save_update updated_post
+    self.caption = updated_post.caption
+    self.save
+  end
+
   def absolute_url *args
     pod_url = AppConfig[:pod_url].dup
     pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'

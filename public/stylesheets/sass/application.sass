@@ -6,6 +6,7 @@
 body
   :padding 2em
   :margin 0
+    :top 60px
   :background-color rgb(252,252,252)
 a
   :color #107FC9
@@ -19,7 +20,7 @@ a
 p
   :word-wrap break-word
 
-h1, h2, h3, h4
+h1, h2, h3, h4, h5
   :color #444
   :position relative
   :font
@@ -111,21 +112,31 @@ form
     :margin 0
 
 header
-  :z-index 4
+  :z-index 50
   :position relative
-  :min-height 40px
-  :margin -2em
-    :bottom 2em
-  :color #000
 
   :background
-    :color #333
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#080808), to(#191919), color-stop(.9,#262626),color-stop(.1,#333333),color-stop(.75,#343434))
-  :background -moz-linear-gradient( center bottom, rgb(21,21,21) 1%, rgb(51,51,51) 12%)
+    :color #111
+    :color rgba(15,15,15,0.90)
+
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(35,35,35,0.85)), to(rgba(20,20,20,1)))
+  :background -moz-linear-gradient(top, rgba(35,35,35,0.85), rgba(20,20,20,0.98))
+
+  :-webkit-box-shadow 0 1px 3px #111
+  :-moz-box-shadow 0 1px 2px #111
+  :box-shadow 0 1px 3px #222
+
+  :border
+    :bottom 1px solid #777
 
   :padding 0
-    :top 5px
+    :top 2px
   :color #CCC
+
+  :position fixed
+  :width 100%
+  :top 0
+  :left 0
 
   a
     :color #CCC
@@ -137,8 +148,8 @@ header
   &.landing
     .right
       :top 10px
-    :height 45px
-    
+    :height 40px
+
   ul#user_menu
     :overflow hidden
     :white-space nowrap
@@ -226,10 +237,8 @@ header
     :right 1em
 
 .stream
-  :margin 0
-  :padding 0
-  > li
-    :padding 0.7em 1em
+  .stream_element
+    :padding 0.7em 1.2em
     :min-height 50px
     :border
       :bottom 1px solid #eee
@@ -237,7 +246,7 @@ header
 
     &:hover
       :background
-        :color #fafafa
+        :color #fff
       :border
         :bottom 1px solid #ddd
       .right
@@ -251,8 +260,6 @@ header
 .from
   :text
     :shadow 0 1px #fff
-  h4
-    :display inline
   a
     :font
       :weight bold
@@ -285,36 +292,25 @@ header
     .from
       :padding 0
 
-  h2,h3
-    :margin
-      :bottom -2px
+  h3
+    :display inline-block
 
-  #person_nav_links
-    a
-      :margin
-        :right 2em
-
-
-
-li.message
+.stream_element
   :position relative
   :word-wrap break-word
   :color #777
 
   .from
-    h4
+    h5
       :display inline
       a
         :color #444
-
-  .avatar
-    :float left
 
   .content
     :margin
       :top 0
     :padding
-      :left 60px
+      :left 63px
 
     :color #444
     :font
@@ -333,10 +329,6 @@ li.message
         :top 7px
 
       img
-        :-webkit-box-shadow 0 1px 2px #333
-        :-moz-box-shadow 0 1px 2px #333
-        :box-shadow 0 1px 2px #333
-
         :margin
           :right 0.5em
 
@@ -365,22 +357,31 @@ li.message
       a
         :color #ccc
 
-  .time
-    a
-      :color #bbb
-    :font
-      :weight bold
-    :margin
-      :right 5px
+
+
+  .delete
+    :opacity 0.6
+    :padding 5px
+
+    &:hover
+      :opacity 1
 
   &:hover
-    div.info, .time, .from h4
+    div.info, .time, .from h5
       a
         :color #107FC9
         &:hover
           :color #22AAE0
         &:active
           :color #005D9C
+.time
+  a
+    :color #bbb
+  :font
+    :weight bold
+  :margin
+    :right 5px
+  :font-size small
 
 .right .reshare_pane .reshare_button a.inactive
   :color #ccc
@@ -390,7 +391,7 @@ li.message
   :cursor default
 
 .right .reshare_pane .reshare_button
-  :padding 5px
+  :padding 2px
   &.active
     :background
       :color #333
@@ -508,7 +509,7 @@ li.message
 
   ul.comments
     textarea
-      :width 284px
+      :width 275px
 
 .stream ul.comments
   .avatar
@@ -536,7 +537,7 @@ ul.show_comments
   li
     :list
       :style none
-    :padding 0.7em
+    :padding 0.5em
     :border
       :bottom 1px solid #ddd
       :top 1px solid #fff
@@ -558,7 +559,7 @@ ul.show_comments
         :top 0px
         :bottom -2px
       :padding
-        :left 40px
+        :left 38px
         :right 20px
       .from
         a
@@ -576,7 +577,7 @@ ul.show_comments
       textarea
         :font
           :size 1em
-        :width 485px
+        :width 478px
 
     .submit_instructions
       :text-align center
@@ -610,45 +611,28 @@ ul.show_comments
       :margin
         :bottom 2em
 
-
-.stream, #profile,
-.comments
-  img.person_picture
-
-    :-webkit-border-radius 3px
-    :-moz-border-radius 3px
-    :border-radius 3px
-
-    :display inline block
-    :height 30px
-    :display absolute
-    :float left
-    :margin
-      :right 10px
-
-
 .pagination
   a
     :padding 3px
 
-li.message .right
-  :display none
-  :position absolute
-  :right 12px
+.stream_element
+  .right
+    :position absolute
+    :right 12px
 
-  &.controls
-    :font
-      :size 12px
-    :color #999
-    a
-      :color #999
+    &.controls
       :font
-        :weight normal
-      &:hover
-        :text
-          :decoration underline
+        :size 12px
+      :color #999
+      a
+        :color #999
+        :font
+          :weight normal
+        &:hover
+          :text
+            :decoration underline
 
-li.message:hover
+.stream_element:hover
   .right
     :display inline
 
@@ -669,13 +653,14 @@ li.message:hover
     :align center
 
 #show_photo
+  :z-index 11
   :position relative
   :display inline-block
-  :background
-    :color #fff
+  :max-width 100%
 
   img
     :max-width 100%
+    :-webkit-box-shadow 0 2px 5px #666
 
   #photo_spinner
     :z-index 1
@@ -752,8 +737,10 @@ label
   input
     :height 100%
     :width 100%
+    :cursor pointer
 
 #publisher
+  :z-index 0
   :color #999
   :position relative
   :margin
@@ -762,6 +749,9 @@ label
   :padding 12px
     :top 1px
   :top 0
+
+  :background
+    :color rgb(248,248,248)
 
   :border
     :bottom 2px #777 solid
@@ -796,7 +786,6 @@ label
       :size 14px
 
   .options_and_submit
-    :display none
     :min-height 21px
     :position relative
     :padding
@@ -925,65 +914,88 @@ label
     :min-width 100px
     :height 100px
     :min-height 100px
+    :margin
+      :bottom 15px
+      :right 15px
 
     img
       :height 100px
       :width 100px
 
-#aspect_nav
+ul#aspect_nav
   :margin
-    :top 8px
-    :bottom 0
+    :top 3px
+    :bottom 2px
   :bottom 0
   :color #000
 
-  ul
-    :position relative
-    :padding 0
-      :bottom 3px
-    :margin
-      :bottom 0
+  :position relative
+  :padding 0
+    :bottom 3px
+  :margin
+    :bottom 0
 
-    > li
-      :display inline
-      :margin 0
-      :padding 4px 0
-      a
-        :-webkit-border-radius 3px 3px 0 0
-        :-moz-border-radius 3px 3px 0 0
-        :border-radius 3px 3px 0 0
+  > li
+    :display inline
+    :padding 1px 8px
+    :margin 0
+      :right 2px
 
-        :text-shadow 0 1px 0 #444
+    :-webkit-border-radius 2px
+    :-moz-border-radius 2px
+    :border-radius 2px
 
-        :padding 4px 10px
+    :text-shadow 0 1px 0 #444
+
+    :color #999
+    :max-width 120px
+    :overflow hidden
+    :text-overflow ellipsis
+
+    .aspect_selector_edit
+      :position absolute
+      :margin
+        :left -3px
+      :display none
+      :color #555
+
+      &:hover
+        :color #eee
+
+    &:hover
+      :background
+        :color #000
+      :color #eee
+
+      .aspect_selector_edit
+        :display inline
+
+    &.selected
+      :text-shadow 0 1px 0 #fff
+      :font
+        :weight bold
+      :background
+        :color rgb(235,235,235)
+
+      :border
+        :bottom 1px solid #fff
+
+      :color #444
+
+      .aspect_selector_edit
         :margin
-          :left -1px
-        :color #CCC
-        :max-width 120px
-        :overflow hidden
-        :text-overflow ellipsis
-
+          :left -4px
+        :color #777
         &:hover
-          :background
-            :color #000
-          :color #eee
+          :color #999
 
-      &.selected a
-        :text-shadow 0 1px 0 #eee
-        :font
-          :weight bold
-        :padding
-          :bottom 6px
-        :background
-          :color rgb(252,252,252)
-
-        :color #444
-        &:hover
-          :color #888
-        a
-          :color #000
+      &:hover
+        :color #888
+      a
+        :color #000
   .new_requests
     :color red
+
 
 #global_search
   :display inline
@@ -1090,7 +1102,7 @@ label
   .person
     :display inline-block
     :cursor move
-    :z-index 10
+    :z-index 3
     :position relative
     :padding 0
     :margin 5px
@@ -1197,18 +1209,18 @@ ul#settings_nav
 .settings_pane
   :display none
 
-#fancybox-close:hover
-  :background
-    :color transparent
-
-.contact_pictures
-  :margin
-    :top 12px
-  :line-height 1em
+.contact_pictures,
+#aspect_listings li
   img
-    :margin-right -1px
-    :width 30px
-    :height 30px
+    :margin
+      :right 2px
+      :bottom 0px
+    :width 29px
+    :height 29px
+
+  h5
+    :margin
+      :bottom 6px
 
 .contact_pictures.horizontal
   img
@@ -1221,68 +1233,37 @@ ul#settings_nav
   :margin 0
   :padding 0
 
+.dull
+  :color #aaa
+  :font
+    :style italic
 
-#left_pane.everyone,
-#edit_aspect_pane
-  :background
-    :color rgb(250,250,250)
-  :border 1px solid #ddd
-  :padding 11px
+  a
+    :color #69AEDD
 
-  :-webkit-border-radius 4px
-  :-moz-border-radius 4px
-  :border-radius 4px
+    &:hover
+      :color #82DAE9
 
-  h2,h3
-    :border
-      :bottom 1px solid #999
+    &:active
+      :color #005D9C
 
-  h2,h3,h4
-    :font
-      :weight bold
-    :text
-      :shadow 0 1px #fff
-
-  h4 > span
-    :font
-      :weight normal
-      :size 12px
-    :color #999
-
-  .avatar
-    :margin-right -1px
-    :width 30px
-    :height 30px
-
-#edit_aspect_pane
+.section
   :margin
-    :top 12px
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FBFBFB), to(#F5F5F5))
-  :background -moz-linear-gradient(top, #FBFBFB, #F5F5F5)
+    :bottom 24px
 
-  :border 1px solid #eee
-    :top 1px solid #fff
-    :bottom 1px solid #fff
-
-#left_pane.everyone
-  .aspect_listings
-    a
-      :font
-        :weight bold
-
-  .section
+#aspect_listings
+  .contacts
     :margin
-      :bottom 24px
+      :top 6px
 
-.aspect_listings
   ul
     :padding 0
     :margin 0
     > li
-      :padding 6px
+      :position relative
+      :padding 8px 0
       :border
         :bottom 1px solid #ddd
-
 
 .floating.empty_message
   :margin
@@ -1319,7 +1300,7 @@ input[type="search"]
   :-webkit-appearance textfield
   :-moz-appearance textfield
 
-.fancybox_content
+.facebox_content
   :display none
 
 #photo_edit_options
@@ -1387,7 +1368,6 @@ input[type="search"]
 ul.aspects
   :margin 0
   :padding 0
-  :color #999
   :font
     :size 24px
 
@@ -1660,28 +1640,37 @@ ul#request_result
     input.add
       :color green
 
-.contact_list
-  :height 300px
-  :max-height 300px
+.contact_list,
+.aspect_list
+  :height 450px
+  :max-height 450px
 
   :overflow-y auto
   :overflow-x hidden
 
   :border 2px solid #eee
 
-  :-webkit-border-radius 5px
-  :-moz-border-radius 5px
-  :border-radius 5px
-
   :background
     :color rgb(252,252,252)
 
-  :margin
-    :bottom 1.5em
+  .name
+    :position absolute
+    :left 70px
+    :top 10px
+
+  .avatar
+    :position absolute
+    :left 6px
+    :height 50px
+    :width 50px
 
   :-webkit-box-shadow 0 1px #fff
   :-moz-box-shadow 0 1px #fff
   :box-shadow 0 1px #fff
+
+  :-webkit-border-radius 0 0 5px 5px
+  :-moz-border-radius 0 0 5px 5px
+  :border-radius 0 0 5px 5px
 
   input.contact_list_search
     :width 100%
@@ -1689,17 +1678,19 @@ ul#request_result
       :top 0
 
   ul
-    :width 100%
     :margin 0
     :padding 0
 
     > li
-      :display block
       :position relative
-      :height 100%
-      :padding 8px
+      :height 50px
+      :padding 4px
       :border
         :bottom 1px solid #eee
+
+      &:last-child
+        :border
+          :bottom none
 
       &:hover
         :background
@@ -1707,7 +1698,7 @@ ul#request_result
 
       .right
         :right 8px
-        :top 2px
+        :top 12px
 
       a.button
         :padding
@@ -1724,6 +1715,22 @@ ul#request_result
           &:active
             :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(130,55,55)), color-stop(1, rgb(199,119,119)))
             :background -moz-linear-gradient(top, rgb(199,119,119), rgb(130,55,55))
+
+.aspect_list
+  :height 300px
+  :max-height 300px
+
+  .name
+    :left 1em
+
+  ul
+    > li
+      :padding 1em
+      :height 1em
+
+      .right
+        :top 2px
+        :right 1em
 
 footer
   :margin
@@ -1793,8 +1800,6 @@ ul#landing_nav
             :color #222
 
     :text-shadow 0 1px 0 #000
-
-
 
 
 #signup_field
@@ -1966,15 +1971,6 @@ h3,h4
   p
     :color #999
 
-  h4
-    a
-      :font
-        :size 12px
-  img
-    :-webkit-box-shadow 0 1px 2px #666
-    :-moz-box-shadow 0 1px 2px #666
-    :box-shadow 0 1px 2px #666
-
 .what_is_this
   :position relative
   :top 3px
@@ -2003,6 +1999,9 @@ h3,h4
   :color #fff
   :line-height auto
   :padding 0 4px
+  :margin
+    :right 4px
+    :bottom 4px
 
   :-webkit-border-radius 3px
   :-moz-border-radius 3px
@@ -2022,9 +2021,6 @@ h3,h4
     :color #fff
     :font
       :weight normal
-
-    &:hover
-      :color #eee
 
 .aspects
   :position relative
@@ -2050,15 +2046,28 @@ h3,h4
 .aspect_badge.single
   :background
     :color #999
-
-.aspect_badge.all
-  :background
-    :color #ccc
+  &:hover
+    :background
+      :color #bbb
+  &:active
+    :top 0px
 
 .stream
+  .avatar
+    :float left
   .arrow,
+
+  .stream_element
+    .aspect_badges
+      :opacity 0.5
+    &:hover
+      .aspect_badges
+        :opacity 1
+
   .aspect_badge
     :position relative
+    :margin
+      :bottom 0
   .arrow
     :top -0.1em
   .aspect_badge
@@ -2068,18 +2077,17 @@ h3,h4
   :min-width 400px
   :max-width 400px
 
-  .share_with_header
-    :min-height 100px
-
   .avatar
-    :width 100px
-    :height 100px
+    :width 50px
+    :height 50px
     :float left
-  h3,p
+
+  h4,p
     :padding
-      :left 120px
-  h3
-    :margin 0
+      :left 64px
+
+  p
+    :color #eee
 
 #aspects_list
   :height auto
@@ -2106,11 +2114,8 @@ h3,h4
     :top 6px
     :right 0
 
-ul.notifications_for_day
-  :margin 0
-  :padding 0
-
-  li.message
+.notifications_for_day
+  .stream_element
     :margin
       :bottom 0.3em
     :padding 0.2em 0.5em
@@ -2143,5 +2148,87 @@ ul.show_comments
         :left 0.5em
         :right 0.5em
 .mark_all_read
-  :position relative 
+  :position relative
   :top 10px
+
+#aspect_edit_pane
+  :width 400px
+  .person_tiles
+    .tile
+      :padding 6px
+        :left 65px
+      :margin 3px
+        :left 0
+      :display inline-block
+      :width 126px
+      :height 50px
+
+      :border 1px solid #eee
+      :border-radius 2px
+
+      :position relative
+
+      img
+        :position absolute
+        :left 6px
+
+#facebox_header
+  :padding 1em
+  :background
+    :color #222
+  :border
+    :bottom 1px solid #777
+
+  :-webkit-border-radius 5px 5px 0 0
+  :-moz-border-radius 5px 5px 0 0
+  :border-radius 5px 5px 0 0
+
+  h4
+    :color #eee
+    :margin
+      :bottom 0
+
+#aspect_edit_controls
+  :margin
+    :top 8px
+
+#home_user_badge
+  :position relative
+
+  img
+    :position absolute
+    :left 0
+
+  h3
+    :position relative
+    :top 4px
+
+  :margin
+    :bottom 1em
+
+  :border
+    :bottom 1px solid #ccc
+
+  :padding
+    :left 60px
+
+#aspect_listings
+  :margin
+    :top 24px
+
+#new_notifications,
+#new_requests
+  :position relative
+
+  :margin
+    :bottom 10px
+    :top -8px
+
+  h4
+    :display inline
+  img
+    :position relative
+    :display inline
+    :margin
+      :right 4px
+    :top 5px

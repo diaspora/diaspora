@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
+require File.join(Rails.root, "spec", "shared_behaviors", "log_override")
 
 describe AspectsController do
   render_views
@@ -11,11 +12,11 @@ describe AspectsController do
     @user  = Factory.create(:user)
     @user2 = Factory.create(:user)
 
-    @aspect   = @user.aspects.create(:name => "lame-os")
+    @aspect0  = @user.aspects.create(:name => "lame-os")
     @aspect1  = @user.aspects.create(:name => "another aspect")
     @aspect2  = @user2.aspects.create(:name => "party people")
 
-    connect_users(@user, @aspect, @user2, @aspect2)
+    connect_users(@user, @aspect0, @user2, @aspect2)
 
     @contact = @user.contact_for(@user2.person)
     @user.getting_started = false
@@ -25,11 +26,58 @@ describe AspectsController do
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
+  describe "custom logging on success" do
+    before do
+      @action = :index
+    end
+    it_should_behave_like "it overrides the logs on success"
+  end
+
+  describe "custom logging on redirect" do
+    before do
+      @action = :show
+      @action_params = {'id' => @aspect0.id.to_s}
+    end
+    it_should_behave_like "it overrides the logs on redirect"
+  end
+
   describe "#index" do
     it "assigns @contacts to all the user's contacts" do
       get :index
       assigns[:contacts].map{|c| c.id}.should == @user.contacts.map{|c| c.id}
     end
+
+    context 'filtering' do
+      before do
+        @posts = []
+        @users = []
+        8.times do |n|
+          user = Factory(:user)
+          @users << user
+          aspect = user.aspects.create(:name => 'people')
+          connect_users(@user, @aspect0, user, aspect)
+          post =  @user.post(:status_message, :message => "hello#{n}", :to => eval("@aspect#{(n%2)}.id"))
+          @posts << post
+        end
+      end
+
+      it "returns all posts" do
+        @user.aspects.reload
+        get :index
+        assigns(:posts).length.should == 8
+      end
+
+      it "returns posts filtered by a single aspect" do
+        get :index, :a_ids => [@aspect1.id.to_s]
+        assigns(:posts).length.should == 4
+      end
+
+      it "returns posts from filtered aspects" do
+        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]
+        assigns(:posts).length.should == 8
+      end
+    end
+
     context 'performance' do
       before do
         require 'benchmark'
@@ -39,7 +87,7 @@ describe AspectsController do
           user = Factory.create(:user)
           @users << user
           aspect = user.aspects.create(:name => 'people')
-          connect_users(@user, @aspect, user, aspect)
+          connect_users(@user, @aspect0, user, aspect)
           post =  @user.post(:status_message, :message => "hello#{n}", :to => @aspect1.id)
           @posts << post
           user.comment "yo#{post.message}", :on => post
@@ -56,35 +104,8 @@ describe AspectsController do
 
   describe "#show" do
     it "succeeds" do
-      get :show, 'id' => @aspect.id.to_s
-      response.should be_success
-    end
-    it "assigns aspect, aspect_contacts, and posts" do
-      get :show, 'id' => @aspect.id.to_s
-      assigns(:aspect).should == @aspect
-      achash = @controller.send(:hashes_for_contacts, @aspect.contacts).first
-      assigns(:aspect_contacts).first[:contact].should == achash[:contact]
-      assigns(:aspect_contacts).first[:person].should == achash[:person]
-      assigns(:posts).should == []
-    end
-    it "assigns contacts to only non-pending" do
-      @user.contacts.count.should == 1
-      @user.send_contact_request_to(Factory(:user).person, @aspect)
-      @user.contacts.count.should == 2
-
-      get :show, 'id' => @aspect.id.to_s
-      contacts = assigns(:contacts)
-      contacts.count.should == 1
-      contacts.first.should == @contact
-    end
-    it "paginates" do
-      16.times { |i| @user2.post(:status_message, :to => @aspect2.id, :message => "hi #{i}") }
-
-      get :show, 'id' => @aspect.id.to_s
-      assigns(:posts).count.should == 15
-
-      get :show, 'id' => @aspect.id.to_s, 'page' => '2'
-      assigns(:posts).count.should == 1
+      get :show, 'id' => @aspect0.id.to_s
+      response.should be_redirect
     end
   end
 
@@ -128,7 +149,7 @@ describe AspectsController do
     end
     it "assigns contacts to only non-pending" do
       @user.contacts.count.should == 1
-      @user.send_contact_request_to(Factory(:user).person, @aspect)
+      @user.send_contact_request_to(Factory(:user).person, @aspect0)
       @user.contacts.count.should == 2
 
       get :manage
@@ -170,7 +191,7 @@ describe AspectsController do
       @person = Factory.create(:person)
       @opts = {
         :person_id => @person.id,
-        :from => @aspect.id,
+        :from => @aspect0.id,
         :to =>
           {:to => @aspect1.id}
       }
@@ -212,40 +233,40 @@ describe AspectsController do
       @user.reload
       @hashes = @controller.send(:hashes_for_aspects, @user.aspects, @user.contacts, :limit => 9)
       @hash = @hashes.first
-      @aspect = @user.aspects.first
+      @aspect0 = @user.aspects.first
     end
     it 'has aspects' do
       @hashes.length.should == 2
-      @hash[:aspect].should == @aspect
+      @hash[:aspect].should == @aspect0
     end
     it 'has a contact_count' do
-      @hash[:contact_count].should == @aspect.contacts.count
+      @hash[:contact_count].should == @aspect0.contacts.count
     end
     it 'takes a limit on contacts returned' do
       @hash[:contacts].count.should == 9
     end
     it 'has a person in each hash' do
-      @aspect.contacts.map{|c| c.person}.include?(@hash[:contacts].first[:person]).should be_true
+      @aspect0.contacts.map{|c| c.person}.include?(@hash[:contacts].first[:person]).should be_true
     end
     it "does not return the rsa key" do
       pending "Don't select RSA keys for views"
       @hash[:contacts].first[:person].serialized_public_key.should be_nil
     end
     it 'has a contact in each hash' do
-      @aspect.contacts.include?(@hash[:contacts].first[:contact]).should be_true
+      @aspect0.contacts.include?(@hash[:contacts].first[:contact]).should be_true
     end
   end
 
   describe "#update" do
     before do
-      @aspect = @user.aspects.create(:name => "Bruisers")
+      @aspect0 = @user.aspects.create(:name => "Bruisers")
     end
     it "doesn't overwrite random attributes" do
       new_user         = Factory.create :user
       params           = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
-      put('update', :id => @aspect.id, "aspect" => params)
-      Aspect.find(@aspect.id).user_id.should == @user.id
+      put('update', :id => @aspect0.id, "aspect" => params)
+      Aspect.find(@aspect0.id).user_id.should == @user.id
     end
   end
 
@@ -305,10 +326,10 @@ describe AspectsController do
       post 'remove_from_aspect',
         :format => 'js',
         :person_id => @user2.person.id,
-        :aspect_id => @aspect.id
+        :aspect_id => @aspect0.id
       response.should be_success
-      @aspect.reload
-      @aspect.contacts.include?(@contact).should be false
+      @aspect0.reload
+      @aspect0.contacts.include?(@contact).should be false
     end
   end
 end

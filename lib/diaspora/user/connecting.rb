@@ -31,7 +31,8 @@ module Diaspora
       end
 
       def dispatch_contact_acceptance(request, requester)
-        push_to_people request, [requester]
+        Postzord::Dispatch.new(self, request).post
+
         request.destroy unless request.sender.owner
       end
 
@@ -48,16 +49,13 @@ module Diaspora
       end
 
       def receive_contact_request(contact_request)
-
         #response from a contact request you sent
         if original_contact = self.contact_for(contact_request.sender)
           receive_request_acceptance(contact_request, original_contact)
-
         #this is a new contact request
         elsif contact_request.sender != self.person
           if contact_request.save!
             Rails.logger.info("event=contact_request status=received_new_request from=#{contact_request.sender.diaspora_handle} to=#{self.diaspora_handle}")
-            self.mail(Jobs::MailRequestReceived, self.id, contact_request.sender.id)
           end
         else
           Rails.logger.info "event=contact_request status=abort from=#{contact_request.sender.diaspora_handle} to=#{self.diaspora_handle} reason=self-love"
@@ -73,13 +71,13 @@ module Diaspora
 
         received_request.destroy
         self.save
-        self.mail(Jobs::MailRequestAcceptance, self.id, received_request.sender.id)
       end
 
       def disconnect(bad_contact)
         Rails.logger.info("event=disconnect user=#{diaspora_handle} target=#{bad_contact.diaspora_handle}")
         retraction = Retraction.for(self)
-        push_to_people retraction, [bad_contact]
+        retraction.subscribers = [bad_contact]#HAX
+        Postzord::Dispatch.new(self, retraction).post
         remove_contact(bad_contact)
       end
 

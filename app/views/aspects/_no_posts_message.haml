@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-#no_posts.floating.empty_message{:style => ("display:none" unless post_count == 0 && contact_count > 0)}
+#no_posts.floating.empty_message{:class => ("hidden" unless post_count == 0)}
   .null_arrow ⇧
   %h3=t('.start_talking')
 

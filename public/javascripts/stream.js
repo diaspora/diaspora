@@ -8,10 +8,13 @@ var Stream = {
     var $stream = $(".stream");
     var $publisher = $("#publisher");
 
+    $("abbr.timeago").timeago();
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
 
+    /* In field labels */
+    $("label").inFieldLabels();
     // publisher textarea reset
-    $publisher.find("textarea").bind("blur", function(){
+    $publisher.find("textarea").bind("blur", function() {
       $(this).css('height','42px');
     });
 
@@ -24,6 +27,7 @@ var Stream = {
     $stream.delegate("textarea.comment_box", "keydown", function(e){
       if (e.keyCode === 13) {
         if(!e.shiftKey) {
+          $(this).blur();
           $(this).closest("form").submit();
         }
       }
@@ -48,6 +52,24 @@ var Stream = {
       }
     });
 
+    // fade in controls
+    $stream.delegate(".stream_element", "mouseenter", function(evt) {
+      var controls = $(this).find('.controls'),
+          badges = $(this).find('.aspect_badges');
+
+      controls.fadeIn(100);
+      controls.fadeIn(100);
+      badges.fadeTo(100,1);
+    });
+    $stream.delegate(".stream_element", "mouseleave", function(evt) {
+      var controls = $(this).find('.controls'),
+          badges = $(this).find('.aspect_badges');
+
+      controls.show()
+              .fadeOut(50);
+      badges.fadeTo(50,0.5);
+    });
+
     // reshare button action
     $stream.delegate(".reshare_button", "click", function(evt) {
       evt.preventDefault();
@@ -65,10 +87,10 @@ var Stream = {
       var $this = $(this),
         container = document.createElement("div"),
         $container = $(container).attr("class", "video-container"),
-        $videoContainer = $this.parent().siblings("div.video-container");
+        $videoContainer = $this.siblings("div.video-container");
 
       if ($videoContainer.length > 0) {
-        $videoContainer.slideUp('fast', function () {
+        $videoContainer.slideUp('fast', function() {
           $videoContainer.detach();
         });
         return;
@@ -95,7 +117,7 @@ var Stream = {
       }
 
       $container.hide()
-        .insertAfter($this.parent())
+        .insertAfter($this)
         .slideDown('fast');
 
       $this.click(function() {
@@ -105,35 +127,35 @@ var Stream = {
       });
     });
 
-    $(".new_status_message").bind('ajax:loading', function(data, json, xhr) {
+    $(".new_status_message").live('ajax:loading', function(data, json, xhr) {
       $("#photodropzone").find('li').remove();
       $("#publisher textarea").removeClass("with_attachments");
     });
 
-    $(".new_status_message").bind('ajax:success', function(data, json, xhr) {
+    $(".new_status_message").live('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
-      WebSocketReceiver.addPostToStream(json['post_id'], json['html']);
+      WebSocketReceiver.addPostToStream(json.post_id, json.html);
       //collapse publisher
       $("#publisher").addClass("closed");
       $("#photodropzone").find('li').remove();
       $("#publisher textarea").removeClass("with_attachments");
     });
+
     $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');
     });
 
     $(".new_comment").live('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
-      WebSocketReceiver.processComment(json['post_id'], json['comment_id'], json['html'], false);
+      WebSocketReceiver.processComment(json.post_id, json.comment_id, json.html, false);
     });
     $(".new_comment").live('ajax:failure', function(data, html, xhr) {
       alert('failed to post message!');
     });
 
     $(".stream").find(".delete").live('ajax:success', function(data, html, xhr) {
-      $(this).parents(".message").fadeOut(150);
+      $(this).parents(".status_message").fadeOut(150);
     });
-
   },
 
   toggleComments: function(evt) {
@@ -141,12 +163,12 @@ var Stream = {
     var $this = $(this),
       text = $this.html(),
       showUl = $(this).closest('li'),
-      commentBlock = $this.closest("li.message").find("ul.comments", ".content"),
-      commentBlockMore = $this.closest("li.message").find(".older_comments", ".content"),
+      commentBlock = $this.closest(".stream_element").find("ul.comments", ".content"),
+      commentBlockMore = $this.closest(".stream_element").find(".older_comments", ".content"),
       show = (text.indexOf("show") != -1);
 
     if( commentBlockMore.hasClass("inactive") ) {
-      commentBlockMore.fadeIn(150, function(){
+      commentBlockMore.fadeIn(150, function() {
         commentBlockMore.removeClass("inactive");
         commentBlockMore.removeClass("hidden");
       });
@@ -165,7 +187,7 @@ var Stream = {
 
   focusNewComment: function(toggle, evt) {
     evt.preventDefault();
-    var commentBlock = toggle.closest("li.message").find("ul.comments", ".content");
+    var commentBlock = toggle.closest(".stream_element").find("ul.comments", ".content");
 
     if(commentBlock.hasClass('hidden')) {
       commentBlock.removeClass('hidden');

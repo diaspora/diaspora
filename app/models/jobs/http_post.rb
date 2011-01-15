@@ -1,10 +1,17 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
 module Jobs
   class HttpPost
     extend ResqueJobLogging
     @queue = :http
+    NUM_TRIES = 3
 
-    def self.perform(url, body, tries_remaining)
+    def self.perform(url, body, tries_remaining = NUM_TRIES)
       begin
+        body = CGI::escape(body)
         RestClient.post(url, :xml => body){ |response, request, result, &block|
           if [301, 302, 307].include? response.code
             response.follow_redirection(request, result, &block)

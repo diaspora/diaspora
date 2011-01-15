@@ -11,7 +11,6 @@ describe NotificationsController do
 
   before do
     sign_in :user, user
-
   end
 
   describe '#update' do
@@ -32,17 +31,30 @@ describe NotificationsController do
       Notification.find(note.id).unread.should == true
     end
   end
-  
+
   describe "#read_all" do
     it 'marks all notifications as read' do
+      request.env["HTTP_REFERER"] = "I wish I were spelled right"
       Notification.create(:recipient_id => user.id)
       Notification.create(:recipient_id => user.id)
 
       Notification.where(:unread => true).count.should == 2
       get :read_all
       Notification.where(:unread => true).count.should == 0
-      
+    end
+  end
 
+  describe '#index' do
+    it 'paginates the notifications' do
+      35.times do
+        Notification.create(:recipient_id => user.id)
+      end
+
+      get :index
+      assigns[:notifications].count.should == 25
+
+      get :index, :page => 2
+      assigns[:notifications].count.should == 10
     end
   end
 end

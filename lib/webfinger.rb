@@ -13,23 +13,27 @@ class Webfinger
   end 
 
   def fetch
-    person = Person.by_account_identifier(@account)
-    if person
-      Rails.logger.info("event=webfinger status=success route=local target=#{@account}")
-      return person
-    end
+    begin 
+      person = Person.by_account_identifier(@account)
+      if person
+        Rails.logger.info("event=webfinger status=success route=local target=#{@account}")
+        return person
+      end
 
-    profile_url = get_xrd
-    webfinger_profile = get_webfinger_profile(profile_url) 
-    fingered_person = make_person_from_webfinger(webfinger_profile) 
-    if fingered_person
-      Rails.logger.info("event=webfinger status=success route=remote target=#{@account}")
-      fingered_person
-    else
-      Rails.logger.info("event=webfinger status=failure route=remote target=#{@account}")
-      raise WebfingerFailedError.new(@account)
+      profile_url = get_xrd
+      webfinger_profile = get_webfinger_profile(profile_url) 
+      fingered_person = make_person_from_webfinger(webfinger_profile) 
+      if fingered_person
+        Rails.logger.info("event=webfinger status=success route=remote target=#{@account}")
+        fingered_person
+      else
+        Rails.logger.info("event=webfinger status=failure route=remote target=#{@account}")
+        raise WebfingerFailedError.new(@account)
+      end
+    rescue
+      Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='#{e.message}'")
+      nil
     end
-    
   end
 
   private
@@ -77,7 +81,7 @@ class Webfinger
       end
 
       card = HCard.build hcard.body
-      p = Person.build_from_webfinger(wf_profile, card)
+      p = Person.create_from_webfinger(wf_profile, card)
     end
   end
 

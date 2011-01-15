@@ -1,155 +1,88 @@
-pt-PT:
-# Used in array.to_sentence.
-  support:
-    # default value for :prompt => true in FormOptionsHelper
-    select:
-      # default value for :prompt => true in FormOptionsHelper
-      prompt: "Por favor seleccione"
-    array:
-      # Rails <= v.2.2.2
-      # sentence_connector: "y"
-      # Rails >= v.2.3
-      words_connector: ","
-      two_words_connector: "e"
-      last_word_connector: ", e"
+# European Portuguese translations for Ruby on Rails
+#
+#
 
+"pt-PT":
   date:
-    formats:
-      # Use the strftime parameters for formats.
-      # When no format has been given, it uses default.
-      # You can provide other formats here if you like!
+    formats:      
       default: "%d/%m/%Y"
       short: "%d de %B"
       long: "%d de %B de %Y"
 
     day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
     abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
-
-    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    
     month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
     abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
-    # Used in date_select and datime_select.
-    order: [:day, :month, :year]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:
       default: "%A, %d de %B de %Y, %H:%Mh"
       short: "%d/%m, %H:%M hs"
       long: "%A, %d de %B de %Y, %H:%Mh"
-    am: ''
-    pm: ''
+    am: "am"
+    pm: "pm"
 
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
-  datetime:
-    distance_in_words:
-      half_a_minute: "meio minuto"
-      less_than_x_seconds:
-        one: "menos de 1 segundo"
-        other: "menos de %{count} segundos"
-      x_seconds:
-        one: "1 segundo"
-        other: "%{count} segundos"
-      less_than_x_minutes:
-        one: "menos de um minuto"
-        other: "menos de %{count} minutos"
-      x_minutes:
-        one: "1 minuto"
-        other: "%{count} minutos"
-      about_x_hours:
-        one: "aproximadamente 1 hora"
-        other: "aproximadamente %{count} horas"
-      x_days:
-        one: "1 dia"
-        other: "%{count} dias"
-      about_x_months:
-        one: "aproximadamente 1 mês"
-        other: "aproximadamente %{count} meses"
-      x_months:
-        one: "1 mês"
-        other: "%{count} meses"
-      about_x_years:
-        one: "aproximadamente 1 ano"
-        other: "aproximadamente %{count} anos"
-      over_x_years:
-        one: "mais de 1 ano"
-        other: "mais de %{count} anos"
-      almost_x_years:
-        one:   "quase 1 ano"
-        other: "quase %{count} years"
-    prompts:
-      year: "Ano"
-      month: "Mês"
-      day: "Dia"
-      hour: "Hora"
-      minute: "Minuto"
-      second: "Segundo"
-
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: ", e"  
+    
+    select:    
+      prompt: "Por favor seleccione"
+      
   number:
-    # Used in number_with_delimiter()
-    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
     format:
-      # Number of decimals, behind the separator (1 with a precision of 2 gives: 1.00)
+      separator: ","
+      delimiter: "."
       precision: 3
-      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
-      separator: ','
-      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
-      delimiter: '.'
+      significant: false
+      strip_insignificant_zeros: false
 
-    # Used in number_to_currency()
     currency:
-      # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
       format:
         format: "%u%n"
-        unit: '€'
-        # These three are to override number.format and are optional
-        separator: ','
-        delimiter: '.'
+        unit: "€"
+        separator: ","
+        delimiter: "."
         precision: 2
+        significant: false
+        strip_insignificant_zeros: false
 
-    # Used in number_to_percentage()
     percentage:
       format:
-        # These three are to override number.format and are optional
-        # separator:
-        delimiter: ''
-        # precision:
+        delimiter: ""
 
-    # Used in number_to_precision()
     precision:
       format:
-        # These three are to override number.format and are optional
-        # separator:
-        delimiter: ''
-        # precision:
+        delimiter: ""
 
-    # Used in number_to_human_size() and number_to_human()
     human:
       format:
-        # These three are to override number.format and are optional
-        # separator:
-        delimiter: ''
+        delimiter: ""
         precision: 1
-      # Rails <= v2.2.2
-      # storage_units: [Bytes, KB, MB, GB, TB]
-      # Rails >= v2.3
-      # number_to_human_size()
+        significant: true
+        strip_insignificant_zeros: true
       storage_units:
         format: "%n %u"
         units:
           byte:
-            one:    "Byte"
-            other:  "Bytes"
+            one:   "Byte"
+            other: "Bytes"
           kb: "KB"
           mb: "MB"
           gb: "GB"
-          tb: "TB"
-      # number_to_human()
-      # new in rails 3: please add to other locales
+          tb: "TB"      
       decimal_units:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "mil"
+          thousand: mil
           million:
             one: milhão
             other: milhões
@@ -162,6 +95,83 @@ pt-PT:
           quadrillion:
             one: mil biliões
             other:  mil biliões
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one:   "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:   "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:   "menos de um minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:   "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:   "aproximadamente 1 hora"
+        other: "aproximadamente %{count} horas"
+      x_days:
+        one:   "1 dia"
+        other: "%{count} dias"
+      about_x_months:
+        one:   "aproximadamente 1 mês"
+        other: "aproximadamente %{count} meses"
+      x_months:
+        one:   "1 mês"
+        other: "%{count} meses"
+      about_x_years:
+        one:   "aproximadamente 1 ano"
+        other: "aproximadamente %{count} anos"
+      over_x_years:
+        one:   "mais de 1 ano"
+        other: "mais de %{count} anos"
+      almost_x_years:
+        one:   "quase 1 ano"
+        other: "quase %{count} years"
+    prompts:
+      year:   "Ano"
+      month:  "Mês"
+      day:    "Dia"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundo"
+
+  helpers:
+    select:
+      prompt: "Por favor seleccione"
+
+    submit:
+      create: 'Criar %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Salvar %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "não está incluído na lista"
+      exclusion: "é reservado"
+      invalid: "é inválido"
+      confirmation: "não coincide com a confirmação"
+      accepted: "tem de ser aceite"
+      empty: "não pode estar vazio"
+      blank: "não pode estar em branco"
+      too_long: "é demasiado grande (o mínimo é de %{count} characters)"
+      too_short: "é demasiado pequeno (o mínimo é de %{count} caracteres)"
+      wrong_length: "comprimento errado (deve ter %{count} caracteres)"
+      not_a_number: "não é um número"
+      not_an_integer: "tem de ser um inteiro"
+      greater_than: "tem de ser maior que %{count}"
+      greater_than_or_equal_to: "tem de ser maior ou igual a %{count}"
+      equal_to: "tem de ser igual a %{count}"
+      less_than: "tem de ser menor que %{count}"
+      less_than_or_equal_to: "tem de ser menor ou igual a %{count}"
+      odd: "tem de ser ímpar"
+      even: "tem de ser par"
 
   activerecord:
     errors:
@@ -169,67 +179,12 @@ pt-PT:
         header:
           one:    "Não foi possível guardar %{model}: 1 erro"
           other:  "Não foi possível guardar %{model}: %{count} erros"
-        # The variable :count is also available
         body: "Por favor, verifique os seguintes campos:"
-      # The values :model, :attribute and :value are always available for interpolation
-      # The value :count is available when applicable. Can be used for pluralization.
+
       messages:
-        inclusion: "não está incluído na lista"
-        exclusion: "não está disponível"
-        invalid: "não é válido"
-        confirmation: "não está de acordo com a confirmação"
-        accepted:  "precisa de ser aceite"
-        empty: "não pode estar em branco"
-        blank: "não pode estar em branco"
-        too_long: "tem demasiados caracteres (máximo: %{count} caracteres)"
-        too_short: "tem poucos caracteres (mínimo: %{count} caracteres)"
-        wrong_length: "não é do tamanho correcto (necessita de ter %{count} caracteres)"
         taken: "não está disponível"
-        not_a_number: "não é um número"
-        not_an_integer: "tem de ser um inteiro"
-        greater_than: "tem de ser maior do que %{count}"
-        greater_than_or_equal_to: "tem de ser maior ou igual a %{count}"
-        equal_to: "tem de ser igual a %{count}"
-        less_than: "tem de ser menor do que %{count}"
-        less_than_or_equal_to: "tem de ser menor ou igual a %{count}"
-        odd: "tem de ser ímpar"
-        even: "tem de ser par"
         record_invalid: "A validação falhou: %{errors}"
-        # Append your own errors here or at the model/attributes scope.
+        <<: *errors_messages
 
-      # You can define own errors for models or model attributes.
-      # The values :model, :attribute and :value are always available for interpolation.
-      #
-      # For example,
-      #   models:
-      #     user:
-      #       blank: "This is a custom blank message for %{model}: %{attribute}"
-      #       attributes:
-      #         login:
-      #           blank: "This is a custom blank message for User login"
-      # Will define custom blank validation message for User model and
-      # custom blank validation message for login attribute of User model.
-      #models:
-
-    # Translate model names. Used in Model.human_name().
-    #models:
-      # For example,
-      #   user: "Dude"
-      # will translate User model name to "Dude"
-
-    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
-    #attributes:
-      # For example,
-      #   user:
-      #     login: "Handle"
-      # will translate User attribute "login" as "Handle"
-
-
-  activemodel:
-    errors:
-      template:
-        header:
-          one:    "Não foi possível guardar %{model}: 1 erro"
-          other:  "Não foi possível guardar %{model}: %{count} erros"
-        # The variable :count is also available
-        body: "Por favor, verifique os seguintes campos:"
+      full_messages:
+        format: "%{attribute}%{message}"

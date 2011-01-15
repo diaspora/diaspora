@@ -3,9 +3,7 @@
 -#   the COPYRIGHT file.
 
 #no_contacts.floating.empty_message{:style => ("display:none" unless contact_count == 0)}
-  - if aspect == :all
-    %h3=t('.nobody')
+  %h3=t('.nobody')
+  - if current_user.invites > 0
     %h4= link_to t('.invite'), new_user_invitation_path
-  - else
-    %h3=t('.nobody_in_aspect', :aspect_name => aspect.name)
 

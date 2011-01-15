@@ -26,7 +26,7 @@ class AppConfig
       all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml"
       all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example" unless all_envs
     else
-      puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
+      $stderr.puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
       all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example"
     end
 

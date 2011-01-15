@@ -1,18 +1,19 @@
 /* Clear form plugin - called using $("elem").clearForm(); */
 $.fn.clearForm = function() {
   return this.each(function() {
-  var type = this.type, tag = this.tagName.toLowerCase();
-  if (tag == 'form')
-    return $(':input',this).clearForm();
-  if (type == 'text' || type == 'password' || tag == 'textarea')
-    this.value = '';
-  else if (type == 'checkbox' || type == 'radio')
-    this.checked = false;
-  else if (tag == 'select')
-    this.selectedIndex = -1;
-  else if (this.name == 'photos[]')
-    this.value = '';
-  $(this).blur();
+    if ($(this).is('form')) {
+      return $(':input', this).clearForm();
+    }
+    if ($(this).is(':text') || $(this).is(':password') || $(this).is('textarea')) {
+      $(this).val('');
+    } else if ($(this).is(':checkbox') || $(this).is(':radio')) {
+      $(this).attr('checked', false);
+    } else if ($(this).is('select')) {
+      this.selectedIndex = -1;
+    } else if ($(this).attr('name') == 'photos[]') {
+      $(this).val('');
+    }
+    $(this).blur();
   });
 };
 
@@ -97,16 +98,20 @@ jQuery(function ($) {
     $('form[data-remote]').live('submit', function (e) {
         $(this).callRemote();
         e.preventDefault();
-	$(this).clearForm();
-	$(this).focusout();
     });
+
+    $('form[data-remote]').live('ajax:success', function (e) {
+        $(this).clearForm();
+        $(this).focusout();
+    });
+
 
     $('a[data-remote],input[data-remote]').live('click', function (e) {
         $(this).callRemote();
         e.preventDefault();
     });
 
-    $('a[data-method]:not([data-remote])').live('click', function (e){
+    $('a[data-method]:not([data-remote])').live('click', function (e) {
         var link = $(this),
             href = link.attr('href'),
             method = link.attr('data-method'),

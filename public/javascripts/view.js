@@ -16,10 +16,6 @@ var View = {
     /* In field labels */
     $("label").inFieldLabels();
 
-    /* Focus aspect name on fancybox */
-    $(this.addAspectButton.selector)
-      .click(this.addAspectButton.click);
-
     /* Showing debug messages  */
     $(this.debug.selector)
       .click(this.debug.click);
@@ -33,10 +29,6 @@ var View = {
     $(this.gettingStarted.selector)
       .live("click", this.gettingStarted.click);
 
-    /* Submitting the status message form when the user hits enter */
-    $(this.publisher.selector)
-      .keydown(this.publisher.keydown);
-
     /* User menu */
     $(this.userMenu.selector)
       .click(this.userMenu.click);
@@ -44,13 +36,6 @@ var View = {
     /* Sending a request message */
     $(this.newRequest.selector)
       .live("submit", this.newRequest.submit);
-
-    /* Button fancyboxes */
-    $(this.fancyBoxButtons.selectors.join(", "))
-      .fancybox({
-         'titleShow': false,
-         'hideOnOverlayClick' : false
-      });
 
     /* Autoexpand textareas */
     $('textarea')
@@ -66,6 +51,11 @@ var View = {
     $(document.body)
       .click(this.userMenu.removeFocus)
       .click(this.reshareButton.removeFocus);
+
+    /* facebox */
+    $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
+    $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
+    $('a[rel*=facebox]').facebox();
   },
 
   addAspectButton: {
@@ -73,18 +63,6 @@ var View = {
       $("#aspect_name").focus();
     },
     selector: ".add_aspect_button"
-  },
-
-  fancyBoxButtons: {
-    selectors: [
-      ".add_aspect_button",
-      ".manage_aspect_contacts_button",
-      ".invite_user_button",
-      ".add_photo_button",
-      ".remove_person_button",
-      ".question_mark",
-      ".share_with_button"
-    ]
   },
 
   debug: {
@@ -121,20 +99,9 @@ var View = {
 
   newRequest: {
     submit: function() {
-      $(this).hide().parent().find(".message").removeClass("hidden");
+      $(this).hide().parent().find(".stream_element").removeClass("hidden");
     },
     selector: ".new_request"
-  },
-
-  publisher: {
-    keydown: function(e) {
-      if(e.keyCode === 13) {
-        if(!e.shiftKey) {
-          $(this).closest("form").submit();
-        }
-      }
-    },
-    selector: "#publisher textarea"
   },
 
   search: {
@@ -156,9 +123,18 @@ var View = {
       }
     },
 
+    aspect_nav: {
+      bind: function() {
+        $("a", "#aspect_nav").tipsy({
+          gravity:"n",
+          delayIn: 600
+        });
+      }
+    },
+
     avatars: {
       bind: function() {
-        $(".contact_pictures img.avatar, #manage_aspect_zones img.avatar").tipsy({
+        $("#aspect_listings img.avatar, #manage_aspect_zones img.avatar").tipsy({
           live: true
         });
       }

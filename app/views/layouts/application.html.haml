@@ -23,8 +23,10 @@
     = stylesheet_link_tag "blueprint/print", :media => 'print'
     = include_stylesheets :default, :media => 'all'
 
-
-    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    <!--[if IE]>
+    = javascript_include_tag "/javascripts/ie.js"
+    <![endif]-->
+    = javascript_include_tag  AppConfig[:pod_uri].scheme.to_s + "://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/vendor/jquery144.min.js"%3E%3C/script%3E'))
@@ -33,7 +35,7 @@
       = include_javascripts :main
 
     - if current_user
-      = include_javascripts :flash_socket unless modern_browser?
+      = include_javascripts :flash_socket #unless modern_browser?
       = javascript_include_tag 'web-socket-receiver'
       = render 'js/websocket_js'
 
@@ -83,7 +85,7 @@
         = yield
 
     .clearfix
-
+      /=render :partial => 'layouts/debug.haml'
     %footer
       .container
         = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
@@ -91,7 +93,7 @@
           %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
           %li= link_to 'github', "https://github.com/diaspora/diaspora"
           %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
-          %li= link_to t('layouts.header.code'), "#{root_url}source.tar.gz"
+          %li= link_to t('layouts.header.code'), "#{root_url.chomp('/')}/source.tar.gz" unless request.url.match(/joindiaspora.com/)
           %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
 
     -if !@landing_page && request.url.match(/joindiaspora.com/)

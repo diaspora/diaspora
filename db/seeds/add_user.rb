@@ -25,9 +25,17 @@ def read_password
   return pw1
 end
 
-username = ARGS[:username] || 'admin'
-email = ARGS[:email] || "#{username}@#{AppConfig[:pod_uri].host}"
+username = (ARGS[:username] || 'admin').dup
 password = ARGS[:password] || read_password
+email = ARGS[:email] || "#{username}@#{AppConfig[:pod_uri].host}"
+if email =~ /localhost$/
+  puts "WARNING: localhost will not validate as an email domain"
+  puts "\tupdate your email address, if you require email notifications for this account"
+  puts "\trake db:first_user[username,password,email]"
+  puts "\trake db:add_user[username,password]"
+  puts "\tor modify your data store"
+  email = 'username@example.com'
+end
 
 user = User.build(:email => email,
                   :username => username,
@@ -46,7 +54,7 @@ user.valid?
 errors = user.errors
 errors.delete :person
 if errors.size > 0
-  raise "Error(s) creating user #{username}: #{errors.full_messages.to_s}"
+  raise "Error(s) creating user #{username} / #{email}: #{errors.full_messages.to_s}"
 end
 
 user.save

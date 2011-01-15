@@ -32,33 +32,9 @@ describe Diaspora::Parser do
       xml = retraction.to_diaspora_xml
 
       lambda {
-        @user.receive xml, @user2.person
-      }.should change(StatusMessage, :count).by(-1)
-    end
-
-    context "connecting" do
-      let(:good_request) { FakeHttpRequest.new(:success)}
-      it "should create a new person upon getting a person request" do
-        new_person = @user2.person
-
-        request = Request.new(:recipient =>@user.person, :sender => @user2.person)
-        xml = @user2.salmon(request).xml_for(@user.person)
-
-        request.delete
-        request.sender.delete
-        @user2.delete
-        new_person.delete
-        new_person.profile.delete
-        new_person = new_person.dup
-        new_person.id = nil
-        new_person.owner_id = nil
-
-        Person.should_receive(:by_account_identifier).twice.and_return(new_person)
-
-        lambda {
-          @user.receive_salmon xml
-        }.should change(Person, :count).by(1)
-      end
+        zord = Postzord::Receiver.new(@user, :person => @user2.person)
+        zord.parse_and_receive(xml)
+       }.should change(StatusMessage, :count).by(-1)
     end
 
     it "should activate the Person if I initiated a request to that url" do
@@ -79,8 +55,11 @@ describe Diaspora::Parser do
       retraction = Retraction.for(@user2)
       retraction_xml = retraction.to_diaspora_xml
 
-      lambda { @user.receive retraction_xml, @user2.person }.should change {
-        @aspect.reload.contacts.size }.by(-1)
+      lambda {
+          zord = Postzord::Receiver.new(@user, :person => @user2.person)
+          zord.parse_and_receive(retraction_xml)
+      }.should change {
+        @aspect.contacts(true).size }.by(-1)
     end
 
     it 'should marshal a profile for a person' do
@@ -106,7 +85,8 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
-      @user.receive xml, person
+      zord = Postzord::Receiver.new(@user, :person => person)
+      zord.parse_and_receive(xml)
 
       #Check that marshaled profile is the same as old profile
       person = Person.find(person.id)

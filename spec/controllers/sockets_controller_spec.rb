@@ -25,14 +25,14 @@ describe SocketsController do
     end
 
     it 'actionhashes posts' do
-      json = @controller.action_hash(@user.id, @message)
+      json = @controller.action_hash(@user, @message)
       json.include?(@message.message).should be_true
       json.include?('status_message').should be_true
     end
 
     it 'actionhashes retractions' do
       retraction = Retraction.for @message
-      json = @controller.action_hash(@user.id, retraction)
+      json = @controller.action_hash(@user, retraction)
       json.include?('retraction').should be_true
       json.include?("html\":null").should be_true
     end

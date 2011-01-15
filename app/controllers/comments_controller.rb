@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
                                          :partial => 'comments/comment',
                                          :locals => { :hash => {
                                            :comment => @comment,
-                                           :person => current_user,
+                                           :person => current_user.person,
                                           }}
                                         )
                                       }

@@ -22,6 +22,7 @@ class Comment < ActiveRecord::Base
   belongs_to :person
 
   validates_presence_of :text, :post
+  validates_length_of :text, :maximum => 500
 
   serialize :youtube_titles, Hash
   before_save do
@@ -43,9 +44,43 @@ class Comment < ActiveRecord::Base
   def notification_type(user, person)
     if self.post.person == user.person
       return "comment_on_post"
+    elsif self.post.comments.where(:person_id => user.person.id) != [] && self.person_id != user.person.id
+      return "also_commented"
     else
       return false
     end
+  end
+
+  def subscribers(user)
+    if user.owns?(self.post)
+      p = self.post.subscribers(user)
+    elsif user.owns?(self)
+      p = [self.post.person]
+    end
+    p
+  end
+
+  def receive(user, person)
+    commenter = self.person
+    unless self.post.person == user.person || self.verify_post_creator_signature
+      Rails.logger.info("event=receive status=abort reason='comment signature not valid' recipient=#{user.diaspora_handle} sender=#{self.post.person.diaspora_handle} payload_type=#{self.class} post_id=#{self.post_id}")
+      return
+    end
+
+    #sign comment as the post creator if you've been hit UPSTREAM
+    if user.owns? self.post
+      self.post_creator_signature = self.sign_with_key(user.encryption_key)
+      self.save
+    end
+
+    #dispatch comment DOWNSTREAM, received it via UPSTREAM
+    unless user.owns?(self)
+      self.save
+      user.dispatch_comment(self)
+    end
+
+    self.socket_to_user(user, :aspect_ids => self.post.aspect_ids)
+    self
   end
 
   #ENCRYPTION

@@ -4,7 +4,11 @@
 
 
 fi: 
+  _aspect: "Näkymä"
+  _aspects: "Näkymät"
   _comments: "Kommentit"
+  _contact: "Kontakti"
+  _contacts: "Kontaktit"
   _home: "Etusivu"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
@@ -45,11 +49,6 @@ fi:
     add_to_aspect: 
       failure: "Kontaktin lisäys näkymään epäonnistui."
       success: "Ystävän lisäys näkymään onnistui."
-    all_aspects_contacts: 
-      all_contacts: "Kaikki kontaktit"
-      aspects: "Verkostonäkymät"
-      manage_aspects: "hallitse näkymiä"
-      no_contacts: "Sinulla ei vielä ole kontakteja.  Etsi kontaktejasi täältä."
     aspect_contacts: 
       done_editing: "muokkaus valmis"
     create: 
@@ -57,16 +56,18 @@ fi:
       success: "Uusi näkymäsi, %{name}, on luotu"
     destroy: 
       success: "%{name} poistettiin onnistuneesti."
-    edit_aspect_pane: 
+    edit: 
       add_existing: "Lisää olemassa oleva kontakti"
-      confirm_remove_aspect: "Oletko varma, että haluat poistaa tämän näkymän?"
+      confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
       remove_aspect: "Poista näkymä"
+      rename_aspect: "Nimeä näkymä uudelleen"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
       aspect_not_empty: "Verkostonäkymä ei ole tyhjä"
       remove: "poista"
     index: 
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
+      no_contacts: "Ei kontakteja"
     manage: 
       add_a_new_aspect: "Lisää uusi näkymä"
       add_a_new_contact: "Lisää uusi kontakti"
@@ -177,6 +178,7 @@ fi:
   next: "seuraava"
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
+    also_commented: "kommentoi myös"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
     index: 
@@ -185,6 +187,14 @@ fi:
     post: "viesti"
     request_accepted: "hyväksyi jakopyyntösi."
   notifier: 
+    also_commented: 
+      commented: "kommentoi myös käyttäjän %{post_author} viestiin:"
+      sign_in: "Kirjaudu sisään nähdäksesi."
+      subject: "%{name} on myös kommentoinut."
+    comment_on_post: 
+      commented: "on kommentoinut viestiisi!"
+      sign_in: "Kirjaudu sisään nähdäksesi."
+      subject: "%{name} on kommentoinut viestiisi."
     diaspora: "diasporan sähköpostirobotti"
     hello: "Hei %{name}!"
     love: "terveisin,"
@@ -237,11 +247,11 @@ fi:
       pending_request: "odottaa vastausta"
       thats_you: "tarkoittaa sinua!"
     profile_sidebar: 
-      bio: "biografia"
-      born: "syntymäpäivä"
+      bio: "Biografia"
+      born: "Syntymäpäivä"
       cannot_remove: "Henkilöä, %{name}, ei voida poistaa viimeisestä näkymästä. (Jos haluat katkaista yhteyden henkilöön, täytyy sinun poistaa kontakti.)"
       edit_my_profile: "Muokkaa profiilia"
-      gender: "sukupuoli"
+      gender: "Sukupuoli"
       in_aspects: "näkymissä"
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
@@ -256,7 +266,7 @@ fi:
       recent_posts: "Viimeisimmät tapahtumat"
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
       return_to_aspects: "Palaa näkymiin"
-      similar_contacts: "samankaltaiset kontaktit"
+      similar_contacts: "Yhteiset kontaktit"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
     update: 
       failed: "Profiilin päivittäminen epäonnistui"
@@ -385,7 +395,7 @@ fi:
     helper: 
       no_message_to_display: "Ei näytettäviä viestejä."
     new_status_message: 
-      oh_yeah: "komiaa!"
+      oh_yeah: "Hienoa!"
       tell_me_something_good: "kerro jotain mukavaa"
     show: 
       destroy: "Poista"

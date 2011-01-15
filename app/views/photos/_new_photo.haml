@@ -4,9 +4,12 @@
 
 :javascript
  function createUploader(){
+
+   var aspectIds = "#{aspect_ids}".split(',');
+
    var uploader = new qq.FileUploaderBasic({
        element: document.getElementById('file-upload'),
-       params: {'photo' : {'pending' : 'true', 'aspect_ids' : "#{aspect_id}"}, 'set_profile_image' : "#{set_profile_image if defined?(set_profile_image)}"},
+       params: {'photo' : {'pending' : 'true', 'aspect_ids' : aspectIds}, 'set_profile_image' : "#{set_profile_image if defined?(set_profile_image)}"},
        allowedExtensions: ['jpg', 'jpeg', 'png'],
        action: "#{photos_path}",
        debug: true,
@@ -52,4 +55,4 @@
    });
  }
 
- window.onload = createUploader;
+ createUploader();

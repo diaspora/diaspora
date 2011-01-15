@@ -12,6 +12,7 @@ class PublicsController < ApplicationController
   skip_before_filter :set_locale
 
   layout false
+  caches_page :host_meta
 
   def hcard
     @person = Person.find_by_id params[:id]
@@ -56,7 +57,7 @@ class PublicsController < ApplicationController
     end
 
     @user = person.owner
-    Resque.enqueue(Jobs::ReceiveSalmon, @user.id, params[:xml])
+    Resque.enqueue(Jobs::ReceiveSalmon, @user.id, CGI::unescape(params[:xml]))
 
     render :nothing => true, :status => 200
   end

@@ -1,0 +1,14 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%li.comment{:data=>{:guid=>hash[:comment].id}, :class => ("hidden" if(defined? hidden))}
+  = person_image_link(hash[:person])
+  .content
+    .from
+      = person_link(hash[:person])
+    = markdownify(hash[:comment].text, :youtube_maps => hash[:comment][:youtube_titles])
+
+    .info
+      %span.time
+        = hash[:comment].created_at ? timeago(hash[:comment].created_at) : timeago(Time.now)

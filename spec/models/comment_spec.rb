@@ -15,6 +15,7 @@ describe Comment do
 
  describe '.hash_from_post_ids' do
    before do
+      user.reload
       @hello = user.post(:status_message, :message => "Hello.", :to => aspect.id)
       @hi = user.post(:status_message, :message => "hi", :to => aspect.id)
       @lonely = user.post(:status_message, :message => "Hello?", :to => aspect.id)
@@ -37,7 +38,7 @@ describe Comment do
       Comment.hash_from_post_ids([@hello.id, @hi.id]).should ==
         {@hello.id => [@c11, @c12],
          @hi.id => [@c21, @c22]
-      }
+        }
     end
     it 'gets the people from the db' do
       hash = Comment.hash_from_post_ids([@hello.id, @hi.id])
@@ -46,26 +47,41 @@ describe Comment do
         user2.person.id => user2.person,
       }
     end
+ end
+
+ describe 'comment#notification_type' do
+   let(:user3)   {Factory(:user)}
+   let(:aspect3) {user3.aspects.create(:name => "Faces")}
+   let!(:connecting2) { connect_users(user, aspect, user3, aspect3) }
+   before do
+     @post2 = user2.post(:status_message, :message => 'yo', :to => aspect2.id)
+     @post1 = user.post(:status_message, :message => "hello", :to => aspect.id)
+     @c11 = user2.comment "why so formal?", :on => @post1
+     @c12 = user.comment "I simply felt like issuing a greeting.  Do step off.", :on => @post1
+     @c22 = user2.comment "I simply felt like issuing a greeting.  Do step off.", :on => @post2
    end
 
-  describe 'comment#notification_type' do
-    before do
-      @not_your_post = user2.post(:status_message, :message => 'yo', :to => aspect2.id)
-      @hello = user.post(:status_message, :message => "hello", :to => aspect.id)
-      @c11 = user2.comment "why so formal?", :on => @hello
-      @c12 = user.comment "I simply felt like issuing a greeting.  Do step off.", :on => @hello
-      @c12 = user2.comment "I simply felt like issuing a greeting.  Do step off.", :on => @not_your_post
-
-    end
-
-    it "returns 'comment_on_post' if the comment is on a post you own" do
-      @c11.notification_type(user, user2.person).should == 'comment_on_post'
-
-    end
-
-   it 'returns false if the comment is not on a post you own' do
-     @c11.notification_type(user2, user.person).should == false
+   it "returns 'comment_on_post' if the comment is on a post you own" do
+     @c11.notification_type(user, user2.person).should == 'comment_on_post'
    end
+
+   it 'returns false if the comment is not on a post you own and noone "also_commented"' do
+     @c12.notification_type(user3, user.person).should == false
+   end
+
+   context "also commented" do
+     before do
+       @c13 = user3.comment "I also commented on the first user's post", :on => @post1
+     end
+
+     it 'does not return also commented if the user commented' do
+       @c13.notification_type(user3, user.person).should == false
+     end
+
+     it "returns 'also_commented' if another person commented on a post you commented on" do
+       @c13.notification_type(user2, user.person).should == 'also_commented'
+     end
+    end
   end
 
 
@@ -90,13 +106,7 @@ describe Comment do
     end
   end
 
-  it 'should not send out comments when we have no people' do
-    status = Factory.create(:status_message, :person => user.person)
-    MessageHandler.should_not_receive(:add_post_request)
-    user.comment "sup dog", :on => status
-  end
-
-  describe 'comment propagation' do
+  context 'comment propagation' do
     before do
       @person = Factory.create(:person)
       user.activate_contact(@person, aspect)
@@ -114,55 +124,41 @@ describe Comment do
       user.reload
     end
 
-
-    it "should send a user's comment on a person's post to that person" do
-      MessageHandler.should_receive(:add_post_request).once
+    it 'should send the comment to the postman' do
+      m = mock()
+      m.stub!(:post)
+      Postzord::Dispatch.should_receive(:new).and_return(m)
       user.comment "yo", :on => @person_status
     end
 
-    it 'should send a user comment on his own post to lots of people' do
-      MessageHandler.should_receive(:add_post_request).twice
-      user.comment "yo", :on => @user_status
+    describe '#subscribers' do
+      it 'returns the posts original audience, if the post is owned by the user' do
+        comment = user.build_comment "yo", :on => @person_status
+        comment.subscribers(user).should =~ [@person]
+      end
+
+      it 'returns the owner of the original post, if the user owns the comment' do
+        comment = user.build_comment "yo", :on => @user_status
+        comment.subscribers(user).map{|s| s.id}.should =~ [@person, @person3, user2.person].map{|s| s.id}
+      end
     end
 
-    it 'should send a comment a person made on your post to all people' do
-      comment = Comment.new(:person_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "cats", :post => @user_status)
-      MessageHandler.should_receive(:add_post_request).twice
-      user.receive comment.to_diaspora_xml, @person
+  context 'testing a method only used for testing' do
+    it "should send a user's comment on a person's post to that person" do
+      m = mock()
+      m.stub!(:post)
+      Postzord::Dispatch.should_receive(:new).and_return(m)
+
+      user.comment "yo", :on => @person_status
     end
-
-    it 'should send a comment a user made on your post to all people' do
-      MessageHandler.should_receive(:add_post_request).twice
-      comment = user2.comment( "balls", :on => @user_status)
-    end
-
-    context 'posts from a remote person' do
-      before(:all) do
-        stub_comment_signature_verification
-      end
-
-      it 'should not send a comment a person made on his own post to anyone' do
-        MessageHandler.should_not_receive(:add_post_request)
-        comment = Factory.build(:comment, :person => @person, :post => @person_status)
-        user.receive comment.to_diaspora_xml, @person
-      end
-
-      it 'should not send a comment a person made on a person post to anyone' do
-        MessageHandler.should_not_receive(:add_post_request)
-        comment = Comment.new(:person_id => @person2.id, :text => "cats", :post => @person_status)
-        user.receive comment.to_diaspora_xml, @person
-      end
-
-      after(:all) do
-        unstub_mocha_stubs
-      end
   end
 
     it 'should not clear the aspect post array on receiving a comment' do
       aspect.post_ids.include?(@user_status.id).should be_true
       comment = Comment.new(:person_id => @person.id, :text => "cats", :post => @user_status)
 
-      user.receive comment.to_diaspora_xml, @person
+      zord = Postzord::Receiver.new(user, :person => @person)
+      zord.parse_and_receive(comment.to_diaspora_xml)
 
       aspect.reload
       aspect.post_ids.include?(@user_status.id).should be_true

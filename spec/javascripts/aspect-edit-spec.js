@@ -83,8 +83,8 @@ describe("AspectEdit", function() {
     it("animates the image back to smaller size and full opacity", function() {
       spyOn($.fn, "animate");
       $.proxy(AspectEdit.stopDrag, $('ul .person'))();
-      expect($.fn.animate).toHaveBeenCalledWith({'height':70, 'width':70, 'opacity':1}, 200);
       // fadeOut calls animate, apparently, so mostRecentCall isn't the right call
+      expect($.fn.animate.calls[0].args[0]).toEqual({'height':50, 'width':50, 'opacity':1}, 200);
       expect($.fn.animate.calls[0].object).toHaveClass("avatar");
     });
     it("fades out the drag and drop text", function() {

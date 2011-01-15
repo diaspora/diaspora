@@ -58,6 +58,42 @@ class Post < ActiveRecord::Base
     false
   end
 
+  def subscribers(user)
+    user.people_in_aspects(user.aspects_with_post(self.id))
+  end
+
+  def receive(user, person)
+    #exists locally, but you dont know about it
+    #does not exsist locally, and you dont know about it
+
+    #exists_locally?
+    #you know about it, and it is mutable
+    #you know about it, and it is not mutable
+
+    local_post = Post.where(:guid => self.guid).first
+    if local_post && local_post.person_id == self.person_id
+      known_post = user.visible_posts(:guid => self.guid).first
+      if known_post
+        if known_post.mutable?
+          known_post.save_update(self)
+        else
+          Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
+        end
+      else
+        user.add_post_to_aspects(local_post)
+        Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
+        self
+      end
+    elsif !local_post
+      self.save
+      user.add_post_to_aspects(self)
+      Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
+      self
+    else
+      Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
+    end
+  end
+
   protected
   def propogate_retraction
     self.person.owner.retract(self) if self.person.owner

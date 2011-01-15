@@ -11,14 +11,6 @@ describe("View", function() {
     });
   });
 
-  describe("fancyBoxButtons", function() {
-    describe("selectors", function() {
-      it("is an array of all the selectors that will have fancybox attached", function() {
-        expect(typeof View.fancyBoxButtons.selectors === "object").toBeTruthy();
-        expect($.isArray(View.fancyBoxButtons.selectors)).toBeTruthy();
-      });
-    });
-  });
 
   describe("debug", function() {
     describe("click", function() {
@@ -100,26 +92,6 @@ describe("View", function() {
           '</form>' +
         '</div>'
       );
-    });
-
-    describe("keydown", function() {
-      it("is called when the user types", function() {
-        spyOn(View.publisher, "keydown");
-        View.initialize();
-        $(View.publisher.selector).trigger("keydown");
-        expect(View.publisher.keydown).toHaveBeenCalled();
-      });
-
-      it("submits the form if the user hits enter while the textarea is focused", function() {
-        spyOn($.fn, "submit");
-        View.initialize();
-        $(View.publisher.selector).focus();
-        var event = $.Event("keydown");
-        event.ShiftKey = true;
-        event.keyCode = 13;
-        $(View.publisher.selector).trigger(event);
-        expect($.fn.submit).toHaveBeenCalled();
-      });
     });
   });
 

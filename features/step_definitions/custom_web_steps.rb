@@ -5,7 +5,7 @@ When /^(.*) in the header$/ do |action|
 end
 
 When /^(.*) in the modal window$/ do |action|
-  within('#fancybox-wrap') do
+  within('#facebox') do
     When action
   end
 end
@@ -41,5 +41,9 @@ When /^I wait for the request's profile page to load$/ do
 end
 
 When /^I wait for the ajax to finish$/ do
-  wait_until { evaluate_script("$.active") == 0 }
+  wait_until(10) { evaluate_script("$.active") == 0 }
+end
+
+When /^I have turned off jQuery effects$/ do
+  evaluate_script("$.fx.off = true")
 end

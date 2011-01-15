@@ -2,8 +2,11 @@
 require 'spec_helper'
 
 describe Notifier do
-
   let!(:user) {Factory.create(:user)}
+  let!(:user2) {Factory.create(:user)}
+
+  let!(:aspect) {user.aspects.create(:name => "win")}
+  let!(:aspect2) {user2.aspects.create(:name => "win")}
   let!(:person) {Factory.create :person}
 
   before do
@@ -13,14 +16,14 @@ describe Notifier do
     it 'mails a user' do
       mails = Notifier.admin("Welcome to bureaucracy!", [user])
       mails.length.should == 1
-      mail = mails.first 
+      mail = mails.first
       mail.to.should == [user.email]
       mail.body.encoded.should match /Welcome to bureaucracy!/
       mail.body.encoded.should match /#{user.username}/
     end
     it 'mails a bunch of users' do
       users = []
-      5.times do 
+      5.times do
         users << Factory.create(:user)
       end
       mails = Notifier.admin("Welcome to bureaucracy!", users)
@@ -75,5 +78,54 @@ describe Notifier do
     it 'has the name of person sending the request' do
       request_accepted_mail.body.encoded.include?(person.name).should be true
     end
+  end
+
+  context "comments" do
+    let!(:connect) { connect_users(user, aspect, user2, aspect2)}
+    let!(:sm) {user.post(:status_message, :message => "Sunny outside", :to => :all)}
+    let!(:comment) { user2.comment("Totally is", :on => sm )}
+    describe "#comment_on_post" do
+
+      let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment.id).deliver}
+
+      it 'goes to the right person' do
+        comment_mail.to.should == [user.email]
+      end
+
+      it 'has the receivers name in the body' do
+        comment_mail.body.encoded.include?(user.person.profile.first_name).should be true
+      end
+
+      it 'has the name of person commenting' do
+        comment_mail.body.encoded.include?(person.name).should be true
+      end
+
+      it 'has the post link in the body' do
+        comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+      end
+
+    end
+    describe "#also commented" do
+
+      let!(:comment_mail) {Notifier.also_commented(user.id, person.id, comment.id)}
+
+      it 'goes to the right person' do
+        comment_mail.to.should == [user.email]
+      end
+
+      it 'has the receivers name in the body' do
+        comment_mail.body.encoded.include?(user.person.profile.first_name).should be true
+      end
+
+      it 'has the name of person commenting' do
+        comment_mail.body.encoded.include?(person.name).should be true
+      end
+
+      it 'has the post link in the body' do
+        comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+      end
+
+    end
+
   end
 end

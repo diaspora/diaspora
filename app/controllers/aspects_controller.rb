@@ -10,16 +10,31 @@ class AspectsController < ApplicationController
   respond_to :js
 
   def index
-    @posts  = current_user.visible_posts(:type => "StatusMessage").paginate :page => params[:page], :per_page => 15
-    @post_hashes = hashes_for_posts @posts
-    @contacts = current_user.contacts.where(:pending => false)
-    @aspect_hashes = hashes_for_aspects @aspects.all, @contacts, :limit => 8
-    @aspect = :all
+    if params[:a_ids]
+      @aspects = current_user.aspects_from_ids(params[:a_ids])
+    else
+      @aspects = current_user.aspects
+    end
 
-    @contact_hashes = hashes_for_contacts @contacts
-
-    if current_user.getting_started == true
+    # redirect to signup
+    if current_user.getting_started == true || @aspects.blank?
       redirect_to getting_started_path
+    else
+
+      @aspect_ids = @aspects.map{|a| a.id}
+      post_ids = @aspects.map{|a| a.post_ids}.flatten!
+
+      @posts = Post.where(:id => post_ids, :type => "StatusMessage").paginate(
+        :page => params[:page], :per_page => 15, :order => 'created_at DESC')
+      @post_hashes = hashes_for_posts @posts
+
+      @contacts = Contact.joins(:aspect_memberships).where(
+        :aspect_memberships => {:aspect_id => @aspect_ids}, :user_id => current_user.id, :pending => false)
+      @contact_hashes = hashes_for_contacts @contacts
+      @aspect_hashes = hashes_for_aspects @aspects, @contacts, :limit => 16
+
+      @aspect = :all unless params[:a_ids]
+
     end
   end
 
@@ -50,7 +65,7 @@ class AspectsController < ApplicationController
     begin
       current_user.drop_aspect @aspect
       flash[:notice] = I18n.t 'aspects.destroy.success',:name => @aspect.name
-      redirect_to root_url
+      redirect_to :back
     rescue RuntimeError => e
       flash[:error] = e.message
       redirect_to :back
@@ -59,23 +74,22 @@ class AspectsController < ApplicationController
 
   def show
     @aspect = current_user.aspects.where(:id => params[:id]).first
+    redirect_to aspects_path('a_ids[]' => @aspect.id)
+  end
+
+  def edit
+    @aspect = current_user.aspect_by_id params[:id]
     @contacts = current_user.contacts.where(:pending => false)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
-      @aspect_contacts = hashes_for_contacts Contact.joins(:aspect_memberships).where(
-        :user_id => current_user.id,
-        :pending => false,
-        :aspect_memberships => {:aspect_id => @aspect.id})
+      @aspect_ids = [@aspect.id]
+      @aspect_contacts = hashes_for_contacts Contact.all(:user_id => current_user.id, :aspect_ids.in => [@aspect.id], :pending => false)
       @aspect_contacts_count = @aspect_contacts.count
 
       @all_contacts = hashes_for_contacts @contacts
 
-      @posts = @aspect.posts.where(:type => "StatusMessage").order('created_at desc').paginate :page => params[:page], :per_page => 15
-      @post_hashes = hashes_for_posts @posts
-      @post_count = @posts.count
-
-      respond_with @aspect
+      render :layout => false
     end
   end
 
@@ -83,7 +97,7 @@ class AspectsController < ApplicationController
     @aspect = :manage
     @contacts = current_user.contacts.where(:pending => false)
     @remote_requests = Request.hashes_for_person(current_user.person)
-    @aspect_hashes = hashes_for_aspects @aspects, @contacts
+    @aspect_hashes = hashes_for_aspects @all_aspects, @contacts
   end
 
   def update

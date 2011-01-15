@@ -1,9 +1,12 @@
-%li
-  %h4
-    = link_to aspect, aspect
-    %span
-      = t('contacts', :count => contact_count)
+%li{:data=>{:guid=>aspect.id}, :class => ("dull" if contacts.length == 0)}
+  .right
+    %b
+      = link_to t('contacts', :count => contact_count), edit_aspect_path(aspect), :rel => 'facebox'
+  %b
+    = aspect.name
+  %br
 
-  - if contact_count > 0
-    - for hash in contacts
-      = person_image_link(hash[:person])
+  - if contacts.length > 0
+    .contacts
+      - for hash in contacts
+        = person_image_link(hash[:person])

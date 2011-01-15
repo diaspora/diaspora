@@ -11,6 +11,10 @@ class RequestsController < ApplicationController
   respond_to :html
 
   def destroy
+    if notification = Notification.where(:recipient_id => current_user.id, :target_id=> params[:id]).first
+      notification.update_attributes(:unread=>false)
+    end
+
     if params[:accept]
       if params[:aspect_id]
         @contact = current_user.accept_and_respond( params[:id], params[:aspect_id])

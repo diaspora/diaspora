@@ -7,10 +7,11 @@
 
 .span-15.append-1.last
   #photo_controls
-    .right
-      =link_to "← #{t('previous')}", @prev_photo, :rel => 'prefetch', :id => 'photo_show_left'
-      \/
-      =link_to "#{t('next')} →", @next_photo, :rel => 'prefetch',  :id => 'photo_show_right'
+    -if @additional_photos && @additional_photos.length > 1
+      .right
+        =link_to "← #{t('previous')}", @prev_photo, :rel => 'prefetch', :id => 'photo_show_left'
+        \/
+        =link_to "#{t('next')} →", @next_photo, :rel => 'prefetch',  :id => 'photo_show_right'
 
     - if @photo.status_message_id
       =link_to "← #{t('.view_original_post')}", @photo.status_message
@@ -60,6 +61,6 @@
 
   %h4= t('_comments')
 
-  %ul{:id => 'photo_stream', :class => 'stream show'}
-    %li.message{:data=>{:guid=>@parent.id}}
+  #photo_stream.stream.show
+    %div{:data=>{:guid=>@parent.id}}
       = render "comments/comments", :post_id => @parent.id, :comment_hashes => @comment_hashes, :always_expanded => true

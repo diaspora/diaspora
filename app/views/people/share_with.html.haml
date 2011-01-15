@@ -3,12 +3,13 @@
 -#   the COPYRIGHT file.
 
 #share_with
-  .share_with_header
-    = person_image_link(@person, :size => :thumb_medium)
-    %h3
+  #facebox_header
+    = person_image_link(@person, :size => :thumb_small)
+    %h4
       = t('.share_with', :name => @person.name)
-    %p
-      = t('.accepts', :name => @person.first_name)
+
+      .description
+        = t('.accepts', :name => @person.first_name)
 
   = render :partial => 'share_with_pane',
     :locals => {:person => @person,
