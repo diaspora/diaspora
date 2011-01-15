@@ -20,7 +20,7 @@ module Postzord
 
     def perform
       if @sender && self.salmon.verified_for_key?(@sender.public_key)
-        parse_and_receive(salmon.parsed_data) 
+        parse_and_receive(salmon.parsed_data)
       else
         Rails.logger.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_email} reason='not_verified for key'")
         nil
@@ -70,7 +70,7 @@ module Postzord
         @object.sender_handle = @sender.diaspora_handle
       end
 
-     
+
       if (@author.diaspora_handle != xml_author)
         Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{@object.class} recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
         return false
