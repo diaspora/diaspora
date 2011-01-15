@@ -36,10 +36,10 @@ describe StatusMessagesController do
   describe '#create' do
     let(:status_message_hash) {
       { :status_message => {
-        :public  =>"true",
-        :message =>"facebook, is that you?",
+        :public  => "true",
+        :message => "facebook, is that you?",
         },
-      :aspect_ids =>"#{aspect1.id}" }
+      :aspect_ids => [aspect1.id.to_s] }
     }
     it 'responds to js requests' do
       post :create, status_message_hash.merge(:format => 'js')
