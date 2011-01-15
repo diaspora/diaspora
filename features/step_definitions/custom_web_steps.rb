@@ -43,3 +43,9 @@ end
 When /^I wait for the ajax to finish$/ do
   wait_until { evaluate_script("$.active") == 0 }
 end
+
+When /^I click ok in the confirm dialog to appear next$/ do
+  evaluate_script <<-JS
+    window.confirm = function() { return true; };    
+  JS
+end

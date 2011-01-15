@@ -1,5 +1,5 @@
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
-  Factory(:user, :username       => username, :password => password,
+  @me ||= Factory(:user, :username       => username, :password => password,
           :password_confirmation => password, :getting_started => false)
 end
 
