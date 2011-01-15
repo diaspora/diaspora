@@ -46,7 +46,7 @@ $(document).ready(function() {
   });
 
   $('.added').live('ajax:failure', function(data, html, xhr) {
-    alert("#{t('.cannot_remove')}");
+    Diaspora.widgets.alert.alert("#{t('.cannot_remove')}");
     $(this).fadeTo(200,1);
   });
 

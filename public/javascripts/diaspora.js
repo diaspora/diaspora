@@ -4,20 +4,30 @@
 */
 
 var Diaspora = Diaspora || {};
-Diaspora.widgets = Diaspora.widgets || {
-  pageWidgets: {},
-  
-  add: function(widgetId, widget) {
-    this.pageWidgets[widgetId] = widget;
-  },
 
-  remove: function(widgetId) {
-    delete this.pageWidgets[widgetId];
-  },
+Diaspora.widgetCollection = function() {
+  this.ready = false;
+  this.collection = {};
+};
 
-  init: function() {
-    for (var widgetId in this.pageWidgets) {
-      this.pageWidgets[widgetId].start();
+Diaspora.widgetCollection.prototype.add = function(widgetId, widget) {
+    this[widgetId] = this.collection[widgetId] = new widget();
+    if(this.ready) {
+      this.collection[widgetId].start();
+    }
+  };
+
+Diaspora.widgetCollection.prototype.remove = function(widgetId) {
+    delete this.collection[widgetId];
+};
+
+Diaspora.widgetCollection.prototype.init = function() {
+    this.ready = true;
+    for(var widgetId in this.collection) {
+      this.collection[widgetId].start();
     }
   }
-};
+
+Diaspora.widgets = Diaspora.widgets || new Diaspora.widgetCollection();
+
+$(Diaspora.widgets.init);

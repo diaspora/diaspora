@@ -19,6 +19,7 @@ src_files:
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
   - public/javascripts/diaspora.js
+  - public/javascripts/widgets/alert.js
   - public/javascripts/mobile.js
   - public/javascripts/aspect-edit.js
   - public/javascripts/aspect-contacts.js
