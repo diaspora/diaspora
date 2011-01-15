@@ -79,7 +79,7 @@ describe Notification do
             :recipient_id => @user.id}
 
             n = Notification.new(opts)
-            n.stub!(:user).and_return @user
+            n.stub!(:recipient).and_return @user
 
             @user.should_receive(:mail)
             n.email_the_user
