@@ -28,7 +28,7 @@
         %span.aspect_badges
           = aspect_badges(aspects_with_post(all_aspects, post))
 
-    = render 'status_messages/status_message', :post => post, :photos => photos
+    %p.translatable= render 'status_messages/status_message', :post => post, :photos => photos
 
     .info
       %span.timeago= link_to(how_long_ago(post), status_message_path(post))

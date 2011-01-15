@@ -7,7 +7,7 @@
   .content
     .from
       = person_link(hash[:person])
-    = markdownify(hash[:comment].text, :youtube_maps => hash[:comment][:youtube_titles])
+    %p.translatable= markdownify(hash[:comment].text, :youtube_maps => hash[:comment][:youtube_titles])
 
     .info
       %span.time
