@@ -57,17 +57,18 @@ fr:
     destroy: 
       success: "%{name} a été supprimé avec succès."
     edit: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      remove_aspect: "Delete this aspect"
-      rename_aspect: "Rename aspect"
+      add_existing: "Ajouter un contact existant"
+      confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
+      remove_aspect: "Supprimer cet aspect"
+      rename: "renommer"
+      rename_aspect: "Renommer l'aspect"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index: 
       handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
-      no_contacts: "No contacts"
+      no_contacts: "Aucun contact"
     manage: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_a_new_contact: "Ajouter un nouveau contact"

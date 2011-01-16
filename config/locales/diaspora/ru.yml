@@ -60,6 +60,7 @@ ru:
       add_existing: "Добавить существующий контакт"
       confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
       remove_aspect: "Удалить этот аспект"
+      rename: "rename"
       rename_aspect: "Переименовать аспект"
     helper: 
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"

@@ -60,6 +60,7 @@ it:
       add_existing: "Aggiungi un contatto esistente"
       confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
       remove_aspect: "Elimina questo aspetto"
+      rename: "rename"
       rename_aspect: "Rinomina aspetto"
     helper: 
       are_you_sure: "Sei sicuro di voler eliminare questo aspetto?"

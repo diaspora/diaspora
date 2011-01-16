@@ -5,7 +5,7 @@
 
 fi: 
   _aspect: "Näkymä"
-  _aspects: "Näkymät"
+  _aspects: "Näkymää"
   _comments: "Kommentit"
   _contact: "Kontakti"
   _contacts: "Kontaktit"
@@ -60,6 +60,7 @@ fi:
       add_existing: "Lisää olemassa oleva kontakti"
       confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
       remove_aspect: "Poista näkymä"
+      rename: "nimeä uudelleen"
       rename_aspect: "Nimeä näkymä uudelleen"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"

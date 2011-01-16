@@ -60,6 +60,7 @@ sl:
       add_existing: "Dodaj obstoječ kontakt"
       confirm_remove_aspect: "Ste prepričani, da bi radi izbrisali ta vidik?"
       remove_aspect: "Izbriši ta vidik"
+      rename: "rename"
       rename_aspect: "Preimenuj vidik"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"

@@ -60,6 +60,7 @@ hu:
       add_existing: "Létező kapcsolat hozzáadása"
       confirm_remove_aspect: "Biztos, hogy törölni akarod a csoportot?"
       remove_aspect: "Csoport törlése"
+      rename: "átnevezés"
       rename_aspect: "Csoport átnevezése"
     helper: 
       are_you_sure: "Biztos, hogy törlöd a csoportot?"
@@ -134,8 +135,8 @@ hu:
       share_what_you_want: "Oszd meg amit akarsz, azzal akivel akarod!"
       simplicity: "Egyszerűség"
       simplicity_explanation: "A Diaspora könnyűvé és érthetővé teszi a megosztást - és ez a biztonságra is vonatkozik. Nem kell hosszú beállító oldalakon átvergődnöd, hogy biztonságban tudd a profilodat."
-      tagline_first_half: "Ossz meg amit akarsz,"
-      tagline_second_half: "azzal akivel akarod."
+      tagline_first_half: "Megoszthatod,"
+      tagline_second_half: "akivel akarod."
   invitations: 
     check_token: 
       not_found: "Meghívó token nem található"

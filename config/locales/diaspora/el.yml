@@ -4,11 +4,11 @@
 
 
 el: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
+  _aspect: "Πτυχή"
+  _aspects: "Πτυχές"
   _comments: "Σχόλια"
-  _contact: "Contact"
-  _contacts: "Contacts"
+  _contact: "Επαφή"
+  _contacts: "Επαφές"
   _home: "Αρχική"
   _photos: "φωτογραφίες"
   _services: "Υπηρεσίες"
@@ -57,17 +57,18 @@ el:
     destroy: 
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
     edit: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      remove_aspect: "Delete this aspect"
-      rename_aspect: "Rename aspect"
+      add_existing: "Προσθέστε μια υπάρχουσα επαφή"
+      confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
+      remove_aspect: "Διαγραφή αυτής της πτυχής"
+      rename: "μετονομασία"
+      rename_aspect: "Μετονομασία πτυχής"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
       remove: "αφαίρεση"
     index: 
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
-      no_contacts: "No contacts"
+      no_contacts: "Καμία επαφή"
     manage: 
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       add_a_new_contact: "Προσθήκη νέας επαφής"
@@ -178,7 +179,7 @@ el:
   next: "επόμενο"
   no_new_notifications: "καμία νέα ειδοποίηση"
   notifications: 
-    also_commented: "also commented on"
+    also_commented: "επίσης σχολίασε στο"
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
     index: 
@@ -188,13 +189,13 @@ el:
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "σχολίασε επίσης τη δημοσίευση του χρήστη %{post_author} :"
+      sign_in: "Συνδεθείτε για να το δείτε."
+      subject: "Ο χρήστης %{name} επίσης σχολίασε."
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      commented: "σχολίασε τη δημισίευση σας!"
+      sign_in: "Συνδεθείτε για να το δείτε."
+      subject: "Ο χρήστης %{name} σχολίασε τη δημοσίευση σας."
     diaspora: "ρομπότ για τα email του δικτύου Diaspora"
     hello: "Γειά σου %{name}!"
     love: "αγάπη,"
