@@ -47,3 +47,9 @@ end
 When /^I have turned off jQuery effects$/ do
   evaluate_script("$.fx.off = true")
 end
+
+When /^I click ok in the confirm dialog to appear next$/ do
+  evaluate_script <<-JS
+    window.confirm = function() { return true; };    
+  JS
+end
