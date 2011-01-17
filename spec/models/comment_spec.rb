@@ -262,7 +262,7 @@ describe Comment do
       comment = user.build_comment url, :on => @message
 
       comment.save!
-      Comment.find(comment.id).youtube_titles.should == {video_id => expected_title}
+      Comment.find(comment.id).youtube_titles.should == {video_id => CGI::escape(expected_title)}
     end
   end
 end

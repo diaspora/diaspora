@@ -259,7 +259,7 @@ module ApplicationHelper
     while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\\-]+)/)
       video_id = youtube[1]
       if youtube_maps && youtube_maps[video_id]
-        title = youtube_maps[video_id]
+        title = h(CGI::unescape(youtube_maps[video_id]))
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
