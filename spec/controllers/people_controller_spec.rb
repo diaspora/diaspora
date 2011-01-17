@@ -216,6 +216,7 @@ describe PeopleController do
       status_message = user2.post(:status_message, :message => "hey there", :to => 'all', :public => true)
 
       get :show, :id => user2.person.id
+      assigns[:posts].should include status_message
       response.body.should include status_message.message
     end
   end

@@ -72,7 +72,7 @@ module Diaspora
       def posts_from(person)
         asp = Aspect.arel_table
         p = Post.arel_table
-        Post.joins(:aspects).where( p[:public].eq(true).or(asp[:user_id].eq(self.id))).order("updated_at DESC")
+        Post.includes(:aspects).where( p[:public].eq(true).or(asp[:user_id].eq(self.id))).order("posts.updated_at DESC")
       end
     end
   end
