@@ -60,6 +60,7 @@ de:
       add_existing: "Ein bereits bestehendes Konto hinzufügen"
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
       remove_aspect: "Aspekt löschen"
+      rename: "umbenennen"
       rename_aspect: "Aspekt umbenennen"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"

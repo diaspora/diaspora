@@ -4,30 +4,51 @@
 */
 
 describe("Diaspora", function() {
-  describe("widgets", function() {
-    beforeEach(function() {
-      Diaspora.widgets.pageWidgets = {};
-    });
-    describe("add", function() {
-      it("adds a widget to the list of pageWidgets", function() {
-        expect(Diaspora.widgets.pageWidgets["nameOfWidget"]).not.toBeDefined();
-        Diaspora.widgets.add("nameOfWidget", {});
-        expect(Diaspora.widgets.pageWidgets["nameOfWidget"]).toBeDefined();
+  describe("widgetCollection", function() {
+    describe("prototype", function() {
+      beforeEach(function() {
+        window.widgets = new Diaspora.widgetCollection();
       });
-    });
-    describe("remove", function() {
-      it("removes a widget from the list of pageWidgets", function() {
-        Diaspora.widgets.add("nameOfWidget", {});
-        expect(Diaspora.widgets.pageWidgets["nameOfWidget"]).toBeDefined();
-        Diaspora.widgets.remove("nameOfWidget");
-        expect(Diaspora.widgets.pageWidgets["nameOfWidget"]).not.toBeDefined();
+
+      describe("add", function() {
+        it("adds a widget to the collection", function() {
+          expect(window.widgets.collection["nameOfWidget"]).not.toBeDefined();
+          window.widgets.add("nameOfWidget", function() { });
+          expect(window.widgets.collection["nameOfWidget"]).toBeDefined();
+        });
+
+        it("sets a shortcut by referencing the object on Diaspora.widgetCollection", function() {
+          expect(window.widgets.sup).toBeFalsy();
+          window.widgets.add("sup", function() { });
+          expect(window.widgets.sup).toEqual(window.widgets.collection.sup);
+        });
       });
-    });
-    describe("init", function() {
-      Diaspora.widgets.add("nameOfWidget", {start:$.noop});
-      spyOn(Diaspora.widgets.pageWidgets["nameOfWidget"], "start");
-      Diaspora.widgets.init();
-      expect(Diaspora.widgets.pageWidgets["nameOfWidget"].start).toHaveBeenCalled();
+
+      describe("remove", function() {
+        it("removes a widget from the collection", function() {
+          window.widgets.add("nameOfWidget", function() { });
+          expect(window.widgets.collection["nameOfWidget"]).toBeDefined();
+          window.widgets.remove("nameOfWidget");
+          expect(window.widgets.collection["nameOfWidget"]).not.toBeDefined();
+        });
+      });
+
+      describe("init", function() {
+        it("calls the start method on all of the widgets present", function() {
+          window.widgets.add("nameOfWidget", function() {
+            this.start = function() { }
+          });
+
+          spyOn(window.widgets.collection["nameOfWidget"], "start");
+          window.widgets.init();
+          expect(window.widgets.collection["nameOfWidget"].start).toHaveBeenCalled();
+        });
+        it("changes the ready property to true", function() {
+          expect(window.widgets.ready).toBeFalsy();
+          window.widgets.init();
+          expect(window.widgets.ready).toBeTruthy();
+        });
+      });
     });
   });
 });

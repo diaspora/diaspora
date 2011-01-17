@@ -60,6 +60,7 @@ cs:
       add_existing: "Přidat existující kontakt"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
       remove_aspect: "Odstranit tento aspekt"
+      rename: "přejmenovat"
       rename_aspect: "Přejmenovat aspekt"
     helper: 
       are_you_sure: "Opravdu chcete odstranit tento aspekt?"

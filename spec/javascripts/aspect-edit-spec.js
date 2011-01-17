@@ -215,9 +215,9 @@ describe("AspectEdit", function() {
       spyOn($, 'ajax');
     });
     it("doesn't let you remove the person from the last aspect they're in", function() {
-      spyOn(AspectEdit, 'alertUser');
+      spyOn(Diaspora.widgets.alert, 'alert');
       AspectEdit.deletePersonFromAspect($('li.person'));
-      expect(AspectEdit.alertUser).toHaveBeenCalled();
+      expect(Diaspora.widgets.alert.alert).toHaveBeenCalled();
       expect($.ajax).not.toHaveBeenCalled();
     });
   });

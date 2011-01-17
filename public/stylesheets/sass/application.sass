@@ -292,8 +292,17 @@ header
     .from
       :padding 0
 
-  h3
+  h3,
+  h4
     :display inline-block
+
+  &.show
+    a
+      :margin
+        :right 1em
+    h4
+      :margin 0
+      :padding 0
 
 .stream_element
   :position relative
@@ -374,14 +383,19 @@ header
           :color #22AAE0
         &:active
           :color #005D9C
-.time
+.time,
+.timeago
   a
     :color #bbb
   :font
     :weight bold
   :margin
     :right 5px
-  :font-size small
+  :font
+    :size smaller
+  :text
+    :decoration none
+  :border none
 
 .right .reshare_pane .reshare_button a.inactive
   :color #ccc

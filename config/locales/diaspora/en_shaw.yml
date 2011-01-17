@@ -4,11 +4,11 @@
 
 
 en_shaw: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
+  _aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
+  _aspects: "𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
   _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-  _contact: "Contact"
-  _contacts: "Contacts"
+  _contact: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+  _contacts: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   _home: "Home"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
@@ -57,17 +57,18 @@ en_shaw:
     destroy: 
       success: "%{name} 𐑢𐑪𐑟 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛."
     edit: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      remove_aspect: "Delete this aspect"
-      rename_aspect: "Rename aspect"
+      add_existing: "𐑨𐑛 𐑩𐑯 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+      confirm_remove_aspect: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
+      remove_aspect: "𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑"
+      rename: "𐑮𐑦𐑯𐑱𐑥"
+      rename_aspect: "𐑮𐑦𐑯𐑱𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
     helper: 
       are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
       aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
       remove: "𐑮𐑦𐑥𐑵𐑝"
     index: 
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕, 𐑿 𐑒 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
-      no_contacts: "No contacts"
+      no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     manage: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
       add_a_new_contact: "𐑨𐑛 𐑩 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
