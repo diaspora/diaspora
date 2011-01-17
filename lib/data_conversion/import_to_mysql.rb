@@ -2,7 +2,7 @@
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
-require 'lib/data_conversion/base'
+require File.join(Rails.root, 'lib/data_conversion/base')
 module DataConversion
   class ImportToMysql < DataConversion::Base
 
