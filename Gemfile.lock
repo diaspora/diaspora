@@ -371,8 +371,8 @@ DEPENDENCIES
   em-websocket!
   factory_girl_rails
   fastercsv (= 1.5.4)
-  haml (= 3.0.25)
   fog
+  haml (= 3.0.25)
   http_accept_language!
   jammit (= 0.5.4)
   jasmine!

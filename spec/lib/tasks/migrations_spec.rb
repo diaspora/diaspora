@@ -19,13 +19,13 @@ describe 'migrations' do
       @fixture_name      = File.join(File.dirname(__FILE__), '..', '..', 'fixtures', @fixture_filename)
 
       @photos = []
+      @user = Factory.create(:user)
 
       5.times do |n|
         if n % 2 == 0
-          photo = Photo.instantiate(:user_file => File.open(@fixture_name))
+          photo = Photo.diaspora_initialize(:user_file => File.open(@fixture_name), :person => @user.person)
           photo.remote_photo_path = nil
           photo.remote_photo_name = nil
-          photo.person = make_user.person
         else
           photo = Photo.new
           photo.person = Factory(:person, :url => "https://remote.com/")
@@ -35,7 +35,7 @@ describe 'migrations' do
         end
 
         @photos[n] = photo
-        @photos[n].save
+        @photos[n].save!
       end
     end
 

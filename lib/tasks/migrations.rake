@@ -41,12 +41,14 @@ namespace :migrations do
     Photo.all.each do |photo|
       unless photo.remote_photo_path
         # extract root
-        pod_url = photo.person.url
-        pod_url.chop! if pod_url[-1,1] == '/'
+        #
+        pod = URI::parse(photo.person.url)
+        pod_url = "#{pod.scheme}://#{pod.host}" 
 
         if photo.image.url
           remote_path = "#{pod_url}#{photo.image.url}"
         else
+          puts pod_url
           remote_path = "#{pod_url}#{photo.remote_photo_path}/#{photo.remote_photo_name}"
         end
 

@@ -6,8 +6,8 @@ class Photo < Post
   require 'carrierwave/orm/activerecord'
   mount_uploader :image, ImageUploader
 
-  xml_reader :remote_photo_path
-  xml_reader :remote_photo_name
+  xml_attr :remote_photo_path
+  xml_attr :remote_photo_name
 
   xml_reader :caption
   xml_reader :status_message_id
