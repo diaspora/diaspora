@@ -1,6 +1,6 @@
 module NotificationsHelper
   def object_link(note)
-    target_type = note.target_type
+    target_type = note.action
     translation = t("notifications.#{target_type}")
     case target_type
     when 'request_accepted'
