@@ -69,11 +69,22 @@ namespace :migrations do
     connection = Aws::S3.new( AppConfig[:s3_key], AppConfig[:s3_secret])
     bucket = connection.bucket('joindiaspora')
     dir_name = File.dirname(__FILE__) + "/../../public/uploads/images/"
+    
+    count = Dir.foreach(dir_name).count
+    current = 0
+
     Dir.foreach(dir_name){|file_name| puts file_name;
       if file_name != '.' && file_name != '..';
-        key = Aws::S3::Key.create(bucket, 'uploads/images/' + file_name);
-        key.put(File.open(dir_name+ '/' + file_name).read, 'public-read');
-        key.public_link();
+        begin
+          key = Aws::S3::Key.create(bucket, 'uploads/images/' + file_name);
+          key.put(File.open(dir_name+ '/' + file_name).read, 'public-read');
+          key.public_link();
+          puts "Uploaded #{current} of #{count}"
+          current += 1
+        rescue Exception => e
+          puts "error #{e} on #{current} (#{file_name}), retrying"
+          retry
+        end
       end 
     }
 
