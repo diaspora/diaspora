@@ -213,12 +213,11 @@ describe User do
 
   describe '#posts_from' do
     before do
+      @user3 = Factory(:user)
+      @aspect3 = @user3.aspects.create(:name => "bros")
 
-    @user3 = Factory(:user)
-    @aspect3 = @user3.aspects.create(:name => "bros")
-
-    @public_message = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
-    @private_message = @user3.post(:status_message, :message => "hey there", :to => @aspect3.id)
+      @public_message = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+      @private_message = @user3.post(:status_message, :message => "hey there", :to => @aspect3.id)
     end
 
     it 'displays public posts for a non-contact' do
@@ -237,6 +236,17 @@ describe User do
 
       @user.posts_from(@user3.person).should include @public_message
       @user.posts_from(@user3.person).should include new_message
+    end
+
+    it 'displays recent posts first' do
+      msg3 = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+      msg4 = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+      msg3.updated_at = Time.now+10
+      msg3.save!
+      msg4.updated_at = Time.now+14
+      msg4.save!
+
+      @user.posts_from(@user3.person).map{|p| p.id}.should == [msg4, msg3, @public_message].map{|p| p.id}
     end
   end
 end

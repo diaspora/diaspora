@@ -70,10 +70,9 @@ module Diaspora
       end
 
       def posts_from(person)
-        public_posts = person.posts.where(:public => true)
-        directed_posts = raw_visible_posts.where(:person_id => person.id)
-        posts = public_posts | directed_posts
-        posts.sort!{|p1,p2| p1.created_at <=> p2.created_at }
+        asp = Aspect.arel_table
+        p = Post.arel_table
+        Post.joins(:aspects).where( p[:public].eq(true).or(asp[:user_id].eq(self.id))).order("updated_at DESC")
       end
     end
   end
