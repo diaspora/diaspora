@@ -28,8 +28,7 @@ class AspectsController < ApplicationController
         :page => params[:page], :per_page => 15, :order => 'created_at DESC')
       @post_hashes = hashes_for_posts @posts
 
-      @contacts = Contact.joins(:aspect_memberships).where(
-        :aspect_memberships => {:aspect_id => @aspect_ids}, :user_id => current_user.id, :pending => false)
+      @contacts = current_user.contacts.includes(:person).where(:pending => false)
       @contact_hashes = hashes_for_contacts @contacts
       @aspect_hashes = hashes_for_aspects @aspects, @contacts, :limit => 16
 
@@ -84,7 +83,7 @@ class AspectsController < ApplicationController
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @aspect_ids = [@aspect.id]
-      @aspect_contacts = hashes_for_contacts Contact.all(:user_id => current_user.id, :aspect_ids.in => [@aspect.id], :pending => false)
+      @aspect_contacts = hashes_for_contacts @aspect.contacts.where(:pending => false).all
       @aspect_contacts_count = @aspect_contacts.count
 
       @all_contacts = hashes_for_contacts @contacts

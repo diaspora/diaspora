@@ -227,16 +227,21 @@ describe AspectsController do
   end
   describe "#hashes_for_aspects" do
     before do
+      @aspect1 = @user.aspects.create(:name => "SecondAspect")
       @people = []
       10.times {@people << Factory.create(:person)}
-      @people.each{|p| @user.reload.activate_contact(p, @user.aspects.first.reload)}
+
+      @people.each do |p|
+        @user.reload.activate_contact(p, @user.aspects.first.reload)
+        @user.add_contact_to_aspect(@user.contact_for(p), @aspect1)
+      end
       @user.reload
       @hashes = @controller.send(:hashes_for_aspects, @user.aspects, @user.contacts, :limit => 9)
       @hash = @hashes.first
       @aspect0 = @user.aspects.first
     end
     it 'has aspects' do
-      @hashes.length.should == 2
+      @hashes.length.should == @user.aspects.count
       @hash[:aspect].should == @aspect0
     end
     it 'has a contact_count' do
@@ -254,6 +259,9 @@ describe AspectsController do
     end
     it 'has a contact in each hash' do
       @aspect0.contacts.include?(@hash[:contacts].first[:contact]).should be_true
+    end
+    it 'does not retreive duplicate contacts' do
+      @hash[:contacts].uniq.count.should == @hash[:contacts].count
     end
   end
 
