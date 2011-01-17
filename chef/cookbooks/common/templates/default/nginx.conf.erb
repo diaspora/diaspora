@@ -109,7 +109,9 @@ http {
      break;
     }
 
-    rewrite ^/uploads/images/(.*)$ https://joindiaspora.s3.amazonaws.com/uploads/images/$1 permanent;
+    <% unless @s3_bucket.blank? || @s3_path.blank? %>
+      <%= "rewrite ^/uploads/images/(.*)$ #{@s3_bucket}#{@s3_path}$1 permanent; %>
+    <% end %>
    }
 
    error_page 500 502 503 504 /50x.html;
