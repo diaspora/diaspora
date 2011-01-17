@@ -75,8 +75,8 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    current_user.disconnect(Person.where(:id => params[:id].first))
-    respond_with :location => root_url
+    current_user.disconnect(Person.where(:id => params[:id]).first)
+    redirect_to root_url
   end
 
   def edit
