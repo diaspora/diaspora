@@ -37,8 +37,8 @@ GIT
       simple_oauth (~> 0.1.2)
 
 GIT
-  remote: git://github.com/rsofaer/carrierwave.git
-  revision: a42dfa25023775be82d7eb9bc9edb675986b1f40
+  remote: git://github.com/recruitmilitary/carrierwave.git
+  revision: a30bb2603a51b646fd771065d6c203abef2e936e
   branch: master
   specs:
     carrierwave (0.5.0)

@@ -8,6 +8,7 @@ CarrierWave.configure do |config|
     config.s3_access_key_id = AppConfig[:s3_key]
     config.s3_secret_access_key = AppConfig[:s3_secret]
     config.s3_bucket = AppConfig[:s3_bucket]
+    config.s3_use_ssl = true
     config.cache_dir = "#{Rails.root}/tmp/uploads"
   else
     config.storage = :file
