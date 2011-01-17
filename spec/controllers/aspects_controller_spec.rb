@@ -261,7 +261,10 @@ describe AspectsController do
       @aspect0.contacts.include?(@hash[:contacts].first[:contact]).should be_true
     end
     it 'does not retreive duplicate contacts' do
-      @hash[:contacts].uniq.count.should == @hash[:contacts].count
+      @hashes = @controller.send(:hashes_for_aspects, @user.aspects, @user.contacts)
+      @hash = @hashes.first
+      flattened = @hash[:contacts].map{|c| c[:person].id}
+      flattened.uniq.should == flattened
     end
   end
 
