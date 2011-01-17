@@ -46,7 +46,7 @@ namespace :migrations do
         pod_url = "#{pod.scheme}://#{pod.host}" 
 
         if photo.image.url
-          remote_path = "#{pod_url}#{photo.image.url}"
+          remote_path = "#{photo.image.url}"
         else
           puts pod_url
           remote_path = "#{pod_url}#{photo.remote_photo_path}/#{photo.remote_photo_name}"
