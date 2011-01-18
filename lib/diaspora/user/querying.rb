@@ -16,8 +16,8 @@ module Diaspora
       end
 
       def visible_photos
-        p = Post.arel_table
-        Post.joins(:aspects).where(p[:status_message_id].not_eq(nil).or(p[:pending].eq(false))
+        p = Photo.arel_table
+        Photo.joins(:aspects).where(p[:status_message_id].not_eq(nil).or(p[:pending].eq(false))
           ).where(:aspects => {:user_id => self.id}).select('DISTINCT `posts`.*').order("posts.updated_at DESC")
       end
 
