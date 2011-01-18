@@ -14,14 +14,3 @@ FixtureBuilder.configure do |fbuilder|
   end
 end
 
-def alice
-  User.where(:username => 'alice').first
-end
-
-def bob
-  User.where(:username => 'bob').first
-end
-
-def eve
-  User.where(:username => 'eve').first
-end

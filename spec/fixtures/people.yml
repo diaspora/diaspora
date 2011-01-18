@@ -1,0 +1,49 @@
+--- 
+people_001: 
+  mongo_id: 
+  created_at: 2011-01-18 18:44:06 Z
+  guid: 89e32c010f204d98
+  updated_at: 2011-01-18 18:44:06 Z
+  url: http://google-1d915c9.com/
+  serialized_public_key: |
+    -----BEGIN RSA PUBLIC KEY-----
+    MIGJAoGBAPEQ08ZWNCiEh/fV/aQ19fMGdeK2r0ns+MB8kcbrkduTqvQ/c/RFkhJX
+    KWti8QomQVudx30mKMuD+r8XY48xw3H3XQDK2rtpFQmgJ4f/Wj4E6yFJo5pC7OL9
+    253WWqLGAJOJy9IxF76Mlo9Qazm7Z7aj1zp5kUXYusge2XAfkb0fAgMBAAE=
+    -----END RSA PUBLIC KEY-----
+
+  owner_id: 3
+  id: 3
+  diaspora_handle: alice@example.org
+people_002: 
+  mongo_id: 
+  created_at: 2011-01-18 18:44:07 Z
+  guid: 5d3d9ce10a10eafe
+  updated_at: 2011-01-18 18:44:07 Z
+  url: http://google-245c017.com/
+  serialized_public_key: |
+    -----BEGIN RSA PUBLIC KEY-----
+    MIGJAoGBAPEQ08ZWNCiEh/fV/aQ19fMGdeK2r0ns+MB8kcbrkduTqvQ/c/RFkhJX
+    KWti8QomQVudx30mKMuD+r8XY48xw3H3XQDK2rtpFQmgJ4f/Wj4E6yFJo5pC7OL9
+    253WWqLGAJOJy9IxF76Mlo9Qazm7Z7aj1zp5kUXYusge2XAfkb0fAgMBAAE=
+    -----END RSA PUBLIC KEY-----
+
+  owner_id: 4
+  id: 4
+  diaspora_handle: bob@example.org
+people_003: 
+  mongo_id: 
+  created_at: 2011-01-18 18:44:07 Z
+  guid: 742a7d253debf2d6
+  updated_at: 2011-01-18 18:44:07 Z
+  url: http://google-330296d.com/
+  serialized_public_key: |
+    -----BEGIN RSA PUBLIC KEY-----
+    MIGJAoGBAPEQ08ZWNCiEh/fV/aQ19fMGdeK2r0ns+MB8kcbrkduTqvQ/c/RFkhJX
+    KWti8QomQVudx30mKMuD+r8XY48xw3H3XQDK2rtpFQmgJ4f/Wj4E6yFJo5pC7OL9
+    253WWqLGAJOJy9IxF76Mlo9Qazm7Z7aj1zp5kUXYusge2XAfkb0fAgMBAAE=
+    -----END RSA PUBLIC KEY-----
+
+  owner_id: 5
+  id: 5
+  diaspora_handle: eve@example.org

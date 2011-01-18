@@ -35,6 +35,17 @@ RSpec.configure do |config|
   end
 end
 
+def alice
+  User.where(:username => 'alice').first
+end
+
+def bob
+  User.where(:username => 'bob').first
+end
+
+def eve
+  User.where(:username => 'eve').first
+end
 module Diaspora::WebSocket
   def self.redis
     FakeRedis.new

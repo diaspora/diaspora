@@ -35,7 +35,6 @@ describe CommentsController do
 
     context "on a post from a contact" do
       before do
-        connect_users(@user1, @aspect1, @user2, @aspect2)
         @post = @user2.post :status_message, :message => 'GIANTS', :to => @aspect2.id
       end
       it 'comments' do
@@ -57,7 +56,7 @@ describe CommentsController do
     end
     context 'on a post from a stranger' do
       before do
-        @post = @user2.post :status_message, :message => 'GIANTS', :to => @aspect2.id
+        @post = eve.post :status_message, :message => 'GIANTS', :to => eve.aspects.first.id
       end
       it 'posts no comment' do
         @user1.should_not_receive(:comment)

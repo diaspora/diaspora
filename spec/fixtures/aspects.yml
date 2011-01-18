@@ -1,0 +1,25 @@
+--- 
+generic_1: 
+  name: generic
+  mongo_id: 
+  created_at: 2011-01-18 18:44:06 Z
+  updated_at: 2011-01-18 18:44:07 Z
+  id: 2
+  user_mongo_id: 
+  user_id: 4
+generic_2: 
+  name: generic
+  mongo_id: 
+  created_at: 2011-01-18 18:44:07 Z
+  updated_at: 2011-01-18 18:44:07 Z
+  id: 3
+  user_mongo_id: 
+  user_id: 5
+generic: 
+  name: generic
+  mongo_id: 
+  created_at: 2011-01-18 18:44:06 Z
+  updated_at: 2011-01-18 18:44:06 Z
+  id: 1
+  user_mongo_id: 
+  user_id: 3
