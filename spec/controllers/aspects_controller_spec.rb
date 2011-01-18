@@ -331,6 +331,13 @@ describe AspectsController do
     end
   end
 
+  describe '#edit' do
+    it 'renders' do
+      get :edit, :id => @aspect0.id
+      response.should be_success
+    end
+  end
+
   describe "#remove_from_aspect" do
     it 'removes contacts from an aspect' do
       @user.add_contact_to_aspect(@contact, @aspect1)

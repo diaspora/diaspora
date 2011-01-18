@@ -77,7 +77,7 @@ class AspectsController < ApplicationController
   end
 
   def edit
-    @aspect = current_user.aspect_by_id params[:id]
+    @aspect = current_user.aspects.where(:id => params[:id]).first
     @contacts = current_user.contacts.where(:pending => false)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
