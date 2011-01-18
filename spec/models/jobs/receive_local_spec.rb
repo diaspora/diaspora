@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Jobs::ReceiveLocal do
   before do
-    @user1 = Factory.create(:user)
-    @user2 = Factory.create(:user)
+    @user1 = alice
+    @user2 = eve
     @status = Factory(:status_message)
     @status_type = @status.class.to_s
 

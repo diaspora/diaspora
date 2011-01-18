@@ -25,8 +25,8 @@ end
 
 describe Diaspora::Socketable do
   before do
-    @user = Factory.create(:user)
-    @aspect = @user.aspects.create(:name => "losers")
+    @user = alice
+    @aspect = @user.aspects.first
     @post = @user.build_post(:status_message, :message => "hey", :to => @aspect.id)
     @post.save
   end

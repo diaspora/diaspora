@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { Factory.create(:user) }
+  let(:user) { alice }
   let(:aspect) { user.aspects.create(:name => 'heroes') }
-  let(:user2) { Factory.create(:user) }
+  let(:user2) { eve }
   let(:aspect2) { user2.aspects.create(:name => 'stuff') }
 
   it 'should have a key' do
@@ -16,7 +16,6 @@ describe User do
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
-      pending "Why do you want to set ids directly? MONGOMAPPERRRRR!!!"
       new_user = Factory.create(:user, :id => user.id)
       new_user.persisted?.should be_true
       new_user.id.should_not == user.id

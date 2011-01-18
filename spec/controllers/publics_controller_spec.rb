@@ -7,60 +7,62 @@ require 'spec_helper'
 describe PublicsController do
   render_views
 
-  let(:user)   { Factory.create(:user) }
-  let(:person) { Factory(:person) }
+  before do
+    @user = alice
+    @person = Factory(:person)
+  end
 
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 
     it 'succeeds' do
-      post :receive, "id" => user.person.id.to_s, "xml" => xml
+      post :receive, "id" => @user.person.id.to_s, "xml" => xml
       response.should be_success
     end
 
     it 'enqueues a receive job' do
-      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, xml).once
-      post :receive, "id" => user.person.id.to_s, "xml" => xml
+      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, @user.id, xml).once
+      post :receive, "id" => @user.person.id.to_s, "xml" => xml
     end
 
     it 'unescapes the xml before sending it to receive_salmon' do
-      aspect = user.aspects.create(:name => 'foo')
-      post1 = user.post(:status_message, :message => 'moms', :to => [aspect.id])
+      aspect = @user.aspects.create(:name => 'foo')
+      post1 = @user.post(:status_message, :message => 'moms', :to => [aspect.id])
       xml2 = post1.to_diaspora_xml
       user2 = Factory(:user)
 
-      salmon_factory = Salmon::SalmonSlap.create(user, xml2)
+      salmon_factory = Salmon::SalmonSlap.create(@user, xml2)
       enc_xml = salmon_factory.xml_for(user2.person)
 
-      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, enc_xml).once
+      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, @user.id, enc_xml).once
 
-      post :receive, "id" => user.person.id.to_s, "xml" => CGI::escape(enc_xml)
+      post :receive, "id" => @user.person.id.to_s, "xml" => CGI::escape(enc_xml)
     end
 
     it 'returns a 422 if no xml is passed' do
-      post :receive, "id" => person.id.to_s
+      post :receive, "id" => @person.id.to_s
       response.code.should == '422'
     end
 
     it 'returns a 404 if no user is found' do
-      post :receive, "id" => person.id.to_s, "xml" => xml
+      post :receive, "id" => @person.id.to_s, "xml" => xml
       response.should be_not_found
     end
   end
 
   describe '#hcard' do
     it "succeeds" do
-      post :hcard, "id" => user.person.id.to_s
+      post :hcard, "id" => @user.person.id.to_s
       response.should be_success
     end
 
     it 'sets the person' do
-      post :hcard, "id" => user.person.id.to_s
-      assigns[:person].should == user.person
+      post :hcard, "id" => @user.person.id.to_s
+      assigns[:person].should == @user.person
     end
 
     it 'does not query by user id' do
-      post :hcard, "id" => user.id.to_s
+      post :hcard, "id" => 90348257609247856.to_s
       assigns[:person].should be_nil
       response.should be_not_found
     end
@@ -68,8 +70,7 @@ describe PublicsController do
 
   describe '#webfinger' do
     it "succeeds when the person and user exist locally" do
-      user = Factory.create(:user)
-      post :webfinger, 'q' => user.person.diaspora_handle
+      post :webfinger, 'q' => @user.person.diaspora_handle
       response.should be_success
     end
 
@@ -80,8 +81,7 @@ describe PublicsController do
     end
 
     it "404s when the person is local but doesn't have an owner" do
-      person = Factory(:person)
-      post :webfinger, 'q' => person.diaspora_handle
+      post :webfinger, 'q' => @person.diaspora_handle
       response.should be_not_found
     end
 

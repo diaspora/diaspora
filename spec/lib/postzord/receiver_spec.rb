@@ -10,17 +10,14 @@ require File.join(Rails.root, 'lib/postzord/receiver')
 describe Postzord::Receiver do
 
   before do
-    @user = Factory(:user)
-    @user2 = Factory(:user)
+    @user = alice
+    @user2 = bob
     @person2 = @user2.person
 
-    aspect1 = @user.aspects.create(:name => "hey")
-    aspect2 = @user2.aspects.create(:name => "hey")
-
-    connect_users(@user, aspect1, @user2, aspect2)
+    aspect1 = @user.aspects.first
+    aspect2 = @user2.aspects.first
 
     @original_post = @user2.build_post(:status_message, :message => "hey", :aspect_ids => [aspect2.id])
-
     @salmon_xml = @user2.salmon(@original_post).xml_for(@user.person)
   end
 

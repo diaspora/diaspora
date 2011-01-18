@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe Photo do
   before do
-    @user = Factory.create(:user)
-    @aspect = @user.aspects.create(:name => "losers")
+    @user = alice
+    @aspect = @user.aspects.first
 
     @fixture_filename  = 'button.png'
     @fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)

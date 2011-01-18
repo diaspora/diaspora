@@ -21,11 +21,12 @@ include HelperMethods
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  #DatabaseCleaner.strategy = nil
   config.mock_with :mocha
   config.mock_with :rspec
 
   config.use_transactional_fixtures = true
+
+  config.global_fixtures = :all
 
   config.before(:each) do
     I18n.locale = :en
@@ -36,14 +37,17 @@ RSpec.configure do |config|
 end
 
 def alice
+  #users(:alice)
   User.where(:username => 'alice').first
 end
 
 def bob
+  #users(:bob)
   User.where(:username => 'bob').first
 end
 
 def eve
+  #users(:eve)
   User.where(:username => 'eve').first
 end
 module Diaspora::WebSocket

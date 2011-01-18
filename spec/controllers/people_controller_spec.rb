@@ -7,21 +7,20 @@ require 'spec_helper'
 describe PeopleController do
   render_views
 
-  let(:user)    { Factory.create(:user) }
-  let!(:aspect) { user.aspects.create(:name => "lame-os") }
-
   before do
-    sign_in :user, user
+    @user   = alice
+    @aspect = @user.aspects.first
+    sign_in :user, @user
   end
 
   describe '#similar_people' do
     before do
       @contacts = []
-      @aspect1 = user.aspects.create(:name => "foos")
-      @aspect2 = user.aspects.create(:name => "bars")
+      @aspect1 = @user.aspects.create(:name => "foos")
+      @aspect2 = @user.aspects.create(:name => "bars")
 
       3.times do
-        @contacts << Contact.create(:user => user, :person => Factory.create(:person))
+        @contacts << Contact.create(:user => @user, :person => Factory.create(:person))
       end
     end
 
@@ -57,7 +56,7 @@ describe PeopleController do
       @contacts[0].save
 
       20.times do
-        c = Contact.create(:user => user, :person => Factory.create(:person))
+        c = Contact.create(:user => @user, :person => Factory.create(:person))
         c.aspects << @aspect1
         c.save
         @contacts << c
@@ -83,16 +82,16 @@ describe PeopleController do
         @everyone << Factory.create(:person)
       end
 
-      user.send_contact_request_to(@everyone[3], aspect)
-      user.send_contact_request_to(@everyone[2], aspect)
-      user.activate_contact(@everyone[4], aspect)
-      user.activate_contact(@everyone[5], aspect)
+      @user.send_contact_request_to(@everyone[3], @aspect)
+      @user.send_contact_request_to(@everyone[2], @aspect)
+      @user.activate_contact(@everyone[4], @aspect)
+      @user.activate_contact(@everyone[5], @aspect)
 
-      user.reload
-      user.aspects.reload
+      @user.reload
+      @user.aspects.reload
       @people = @everyone
       @people.length.should == 10
-      @hashes = @controller.hashes_for_people(@people, user.aspects)
+      @hashes = @controller.hashes_for_people(@people, @user.aspects)
     end
     it 'has the correct result for no relationship' do
       hash = @hashes.first
@@ -100,21 +99,21 @@ describe PeopleController do
       hash[:person].should == @people.first
       hash[:contact].should be_false
       hash[:request].should be_false
-      hash[:aspects].should == user.aspects
+      hash[:aspects].should == @user.aspects
     end
     it 'has the correct result for a connected person' do
       hash = @hashes[4]
       hash[:person].should == @people[4]
       hash[:contact].should be_true
       hash[:contact].should_not be_pending
-      hash[:aspects].should == user.aspects
+      hash[:aspects].should == @user.aspects
     end
     it 'has the correct result for a requested person' do
       hash = @hashes[2]
       hash[:person].should == @people[2]
       hash[:contact].should be_true
       hash[:contact].should be_pending
-      hash[:aspects].should == user.aspects
+      hash[:aspects].should == @user.aspects
     end
   end
   describe '#index' do
@@ -144,14 +143,13 @@ describe PeopleController do
       assigns[:people].should =~ [@eugene, eugene2]
     end
     it 'shows a contact' do
-      user2 = Factory.create(:user)
-      connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
+      user2 = bob
       get :index, :q => user2.person.profile.first_name.to_s
       response.should redirect_to user2.person
     end
 
     it 'shows a non-contact' do
-      user2 = Factory.create(:user)
+      user2 = eve
       user2.person.profile.searchable = true
       user2.save
       get :index, :q => user2.person.profile.first_name.to_s
@@ -171,20 +169,20 @@ describe PeopleController do
 
   describe '#show' do
     it 'goes to the current_user show page' do
-      get :show, :id => user.person.id
+      get :show, :id => @user.person.id
       response.should be_success
     end
 
     it 'renders with a post' do
-      user.post :status_message, :message => 'test more', :to => aspect.id
-      get :show, :id => user.person.id
+      @user.post :status_message, :message => 'test more', :to => @aspect.id
+      get :show, :id => @user.person.id
       response.should be_success
     end
 
     it 'renders with a post' do
-      message = user.post :status_message, :message => 'test more', :to => aspect.id
-      user.comment 'I mean it', :on => message
-      get :show, :id => user.person.id
+      message = @user.post :status_message, :message => 'test more', :to => @aspect.id
+      @user.comment 'I mean it', :on => message
+      get :show, :id => @user.person.id
       response.should be_success
     end
 
@@ -194,25 +192,24 @@ describe PeopleController do
     end
 
     it "redirects to #index if no person is found" do
-      get :show, :id => user.id
+      get :show, :id => 3920397846
       response.should redirect_to people_path
     end
 
     it "renders the show page of a contact" do
-      user2 = Factory.create(:user)
-      connect_users(user, aspect, user2, user2.aspects.create(:name => 'Neuroscience'))
+      user2 = bob
       get :show, :id => user2.person.id
       response.should be_success
     end
 
     it "renders the show page of a non-contact" do
-      user2 = Factory.create(:user)
+      user2 = eve
       get :show, :id => user2.person.id
       response.should be_success
     end
 
     it "renders with public posts of a non-contact" do
-      user2 = Factory.create(:user)
+      user2 = eve
       status_message = user2.post(:status_message, :message => "hey there", :to => 'all', :public => true)
 
       get :show, :id => user2.person.id
@@ -223,14 +220,14 @@ describe PeopleController do
 
   describe '#webfinger' do
     it 'enqueues a webfinger job' do
-      Resque.should_receive(:enqueue).with(Jobs::SocketWebfinger, user.id, user.diaspora_handle, anything).once
-      get :retrieve_remote, :diaspora_handle => user.diaspora_handle
+      Resque.should_receive(:enqueue).with(Jobs::SocketWebfinger, @user.id, @user.diaspora_handle, anything).once
+      get :retrieve_remote, :diaspora_handle => @user.diaspora_handle
     end
   end
 
   describe '#update' do
     it "sets the flash" do
-      put :update, :id => user.person.id,
+      put :update, :id => @user.person.id,
         :profile => {
           :image_url  => "",
           :first_name => "Will",
@@ -241,35 +238,35 @@ describe PeopleController do
 
     context 'with a profile photo set' do
       before do
-        @params = { :id => user.person.id,
+        @params = { :id => @user.person.id,
                     :profile =>
                      {:image_url => "",
-                      :last_name  => user.person.profile.last_name,
-                      :first_name => user.person.profile.first_name }}
+                      :last_name  => @user.person.profile.last_name,
+                      :first_name => @user.person.profile.first_name }}
 
-        user.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
-        user.person.profile.save
+        @user.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
+        @user.person.profile.save
       end
       it "doesn't overwrite the profile photo when an empty string is passed in" do
-        image_url = user.person.profile.image_url
+        image_url = @user.person.profile.image_url
         put :update, @params
 
-        Person.find(user.person.id).profile.image_url.should == image_url
+        Person.find(@user.person.id).profile.image_url.should == image_url
       end
     end
     it 'does not allow mass assignment' do
-      person = user.person
+      person = @user.person
       new_user = Factory.create(:user)
-      person.owner_id.should == user.id
-      put :update, :id => user.person.id, :owner_id => new_user.id
-      Person.find(person.id).owner_id.should == user.id
+      person.owner_id.should == @user.id
+      put :update, :id => @user.person.id, :owner_id => new_user.id
+      Person.find(person.id).owner_id.should == @user.id
     end
 
     it 'does not overwrite the profile diaspora handle' do
-      handle_params = {:id => user.person.id,
+      handle_params = {:id => @user.person.id,
                        :profile => {:diaspora_handle => 'abc@a.com'} }
       put :update, handle_params
-      Person.find(user.person.id).profile[:diaspora_handle].should_not == 'abc@a.com'
+      Person.find(@user.person.id).profile[:diaspora_handle].should_not == 'abc@a.com'
     end
   end
 end

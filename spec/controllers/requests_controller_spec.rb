@@ -7,17 +7,12 @@ require 'spec_helper'
 describe RequestsController do
   render_views
   before do
-    @user = Factory.create(:user)
+    @user = alice
+    @other_user = eve
+
     @controller.stub!(:current_user).and_return(@user)
     sign_in :user, @user
     request.env["HTTP_REFERER"] = "http://test.host"
-
-    @user.aspects.create!(:name => "lame-os")
-    @user.reload
-
-    @other_user = Factory.create(:user)
-    @other_user.aspects.create!(:name => "meh")
-    @other_user.reload
   end
 
   describe '#destroy' do

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Jobs::Receive do
   before do
-    @user = Factory.create(:user)
+    @user = alice
     @person = Factory(:person)
     @xml = '<xml></xml>'
     User.stub(:find){ |id|

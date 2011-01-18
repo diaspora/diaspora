@@ -5,15 +5,17 @@ require 'spec_helper'
 
 describe UsersHelper do
   describe '#first_name_or_username' do
-    let(:user){ Factory(:user) }
+    before do
+      @user = alice
+    end
 
     it 'should display the first name if it is set' do
-      first_name_or_username(user).should == user.person.profile.first_name
+      first_name_or_username(@user).should == @user.person.profile.first_name
     end
 
     it 'should display the username if the first name is empty' do
-      user.person.profile.first_name = ""
-      first_name_or_username(user).should == user.username
+      @user.person.profile.first_name = ""
+      first_name_or_username(@user).should == @user.username
     end
   end
 end

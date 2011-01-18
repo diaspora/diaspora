@@ -6,13 +6,12 @@ require 'spec_helper'
 
 describe User do
 
-  let!(:user1){Factory.create(:user)}
-  let!(:user2){Factory.create(:user)}
-  let!(:aspect1){user1.aspects.create(:name => 'heroes')}
-  let!(:aspect2){user2.aspects.create(:name => 'others')}
+  let!(:user1){alice}
+  let!(:user2){bob}
+  let!(:aspect1){user1.aspects.first}
+  let!(:aspect2){user2.aspects.first}
 
   before do
-    connect_users(user1, aspect1, user2, aspect2)
     @post = user1.build_post(:status_message, :message => "hey", :to => aspect1.id)
     @post.save
     user1.dispatch_post(@post, :to => "all")
@@ -23,7 +22,7 @@ describe User do
       it "doesn't call receive on local users" do
         user1.should_not_receive(:receive_comment)
         user2.should_not_receive(:receive_comment)
-        
+
         comment = user2.build_comment "why so formal?", :on => @post
         comment.save!
         user2.dispatch_comment comment
@@ -34,7 +33,7 @@ describe User do
       it "doesn't call receive on local users" do
         user1.should_not_receive(:receive_comment)
         user2.should_not_receive(:receive_comment)
-        
+
         comment = user1.build_comment "why so formal?", :on => @post
         comment.save!
         user1.dispatch_comment comment
