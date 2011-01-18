@@ -5,30 +5,25 @@
 require 'spec_helper'
 
 describe 'making sure the spec runner works' do
-  it 'factoy creates a user with a person saved' do
+  it 'factory creates a user with a person saved' do
     user = Factory.create(:user)
     loaded_user = User.find(user.id)
     loaded_user.person.owner_id.should == user.id
   end
-
-  describe 'factories' do
-    describe 'build' do
-      it 'does not save a built user' do
-        Factory.build(:user).should_not be_persisted
-      end
-
-      it 'does not save a built person' do
-        Factory.build(:person).should_not be_persisted
-      end
+  describe 'fixtures' do
+    it 'loads fixtures' do
+      User.count.should == 3
     end
   end
 
    describe '#connect_users' do
     before do
-      @user1 = Factory.create(:user)
-      @aspect1 = @user1.aspects.create(:name => "losers")
-      @user2 = Factory.create(:user)
-      @aspect2 = @user2.aspects.create(:name => "bruisers")
+      @user1 = User.where(:username => 'alice').first
+      @user2 = User.where(:username => 'eve').first
+
+      @aspect1 = @user1.aspects.first
+      @aspect2 = @user2.aspects.first
+
       connect_users(@user1, @aspect1, @user2, @aspect2)
     end
 

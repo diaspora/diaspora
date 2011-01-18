@@ -13,3 +13,15 @@ FixtureBuilder.configure do |fbuilder|
     connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
   end
 end
+
+def alice
+  User.where(:username => 'alice').first
+end
+
+def bob
+  User.where(:username => 'bob').first
+end
+
+def eve
+  User.where(:username => 'eve').first
+end

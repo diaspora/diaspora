@@ -9,14 +9,12 @@ describe AspectsController do
   render_views
 
   before do
-    @user  = Factory.create(:user)
-    @user2 = Factory.create(:user)
+    @user  = alice
+    @user2 = bob
 
-    @aspect0  = @user.aspects.create(:name => "lame-os")
+    @aspect0  = @user.aspects.first
     @aspect1  = @user.aspects.create(:name => "another aspect")
-    @aspect2  = @user2.aspects.create(:name => "party people")
-
-    connect_users(@user, @aspect0, @user2, @aspect2)
+    @aspect2  = @user2.aspects.first
 
     @contact = @user.contact_for(@user2.person)
     @user.getting_started = false

@@ -17,9 +17,11 @@ include HelperMethods
 #
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
+#DatabaseCleaner.clean_with(:truncation)
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
+  #DatabaseCleaner.strategy = nil
   config.mock_with :mocha
   config.mock_with :rspec
 
