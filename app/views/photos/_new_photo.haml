@@ -52,17 +52,18 @@
           "</li>"
           );
         $('#publisher').find("input[type='submit']").removeAttr('disabled');
-        $('.circle').live('click', function(){
+        $('.x').live('mousedown', function(){
           var photo = $(this).closest('li');
-
+          photo.addClass("dim");
           $.ajax({url: "photos/" + photo.children('img').attr('data-id'),
                   type: 'DELETE',
                   success: function() {
                             photo.fadeOut(400, function(){
-                              photo.remove()
+                              photo.remove();
                             });
+                            alert( $('#photodropzone').children().index('img') );
                             if ( $('#photodropzone').children().index('li')  == -1){
-                              alert("last one")
+                              alert("last one");
                               $("#publisher textarea").removeClass("with_attachments");
                             }
 
