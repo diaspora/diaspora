@@ -7,7 +7,8 @@
   = form_for StatusMessage.new, :remote => true do |status|
     %p
       = status.label :message, t('.post_a_message_to', :aspect => (aspect == :all ? t('.all') : aspect))
-      = status.text_area :message, :rows => 2, :value => params[:prefill]
+      = status.text_area :message, :rows => 2, :value => h(params[:prefill])
+      = javascript_tag "if ($('textarea#status_message_message').val() != ''){ $('textarea#status_message_message').focus();}"
 
     = status.hidden_field :to, :value => (aspect == :all ? aspect : aspect.id)
 
