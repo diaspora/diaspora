@@ -162,6 +162,7 @@ GEM
     fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
+    fixture_builder (0.2.0)
     fog (0.3.25)
       builder
       excon (>= 0.2.4)
@@ -371,6 +372,7 @@ DEPENDENCIES
   em-websocket!
   factory_girl_rails
   fastercsv (= 1.5.4)
+  fixture_builder (~> 0.2.0)
   fog
   haml (= 3.0.25)
   http_accept_language!

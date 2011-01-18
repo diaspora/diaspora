@@ -28,12 +28,11 @@ describe RakeHelpers do
     end
 
     it 'should make a user with 10 invites' do
-      User.count.should == 0
+      lambda {
+        process_emails(@csv, 1, 1, 10, false)
+      }.should change(User, :count).by(1)
 
-      process_emails(@csv, 1, 1, 10, false)
-
-      User.count.should == 1
-      User.first.invites.should == 10
+      User.last.invites.should == 10
     end
   end
 end
