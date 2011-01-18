@@ -63,7 +63,7 @@ class PeopleController < ApplicationController
         @commenting_disabled = false
       end
 
-      @posts = current_user.posts_from(@person).paginate :page => params[:page]
+      @posts = current_user.posts_from(@person).where(:type => "StatusMessage").paginate :page => params[:page]
       @post_hashes = hashes_for_posts @posts
 
       respond_with @person, :locals => {:post_type => :all}
