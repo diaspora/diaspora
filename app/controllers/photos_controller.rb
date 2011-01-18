@@ -116,6 +116,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    puts "THIS SHIT IS BANANAS JUST DELETED A PHOTO"
     photo = current_user.posts.where(:id => params[:id]).first
 
     if photo

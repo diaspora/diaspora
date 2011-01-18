@@ -908,7 +908,47 @@ label
     :z-index 3
     :position absolute
     :bottom 0
-    :left 5px
+    li
+      .circle
+        :display none
+        :z-index 1
+        :position absolute
+        :right -7px
+        :top -46px
+        :background
+          :color #333
+
+        :width 20px
+        :max-width 20px
+        :height 20px
+        :max-height 20px
+
+        :border 1px solid #fff
+
+        :-webkit-border-radius 10px
+        :-moz-border-radius 10px
+        :border-radius 10px
+
+        :-webkit-box-shadow 0 1px 3px #000
+        :-moz-box-shadow 0 1px 3px #000
+        :box-shadow 0 1px 3px #000
+
+      .x
+        :display none
+        :z-index 2
+        :position absolute
+        :top -48px
+        :right -5px
+        :font
+          :size xx-small
+          :weight bold
+
+      &:hover
+        :cursor default
+        .circle
+          :display block
+        .x
+          :display block
 
 .field_with_submit
   input[type='text']
