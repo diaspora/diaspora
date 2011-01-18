@@ -74,6 +74,13 @@ describe PhotosController do
       assigns[:ownership].should be_true
     end
 
+    it "renders a show page for another user's photo" do
+      get :show, :id => photo2.id
+      response.status.should == 200
+
+      assigns[:photo].should == photo2
+      assigns[:ownership].should be_false
+    end
   end
 
   describe '#edit' do
