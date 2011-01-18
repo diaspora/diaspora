@@ -60,21 +60,29 @@ describe StatusMessagesController do
       old_status_message.reload.message.should == 'hello'
     end
 
-    it "dispatches all referenced photos" do
-      fixture_filename  = 'button.png'
-      fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
+    context 'with photos' do
+      before do
+        fixture_filename  = 'button.png'
+        fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
 
-      photo1 = user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect1.id)
-      photo2 = user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect1.id)
+        @photo1 = user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect1.id)
+        @photo2 = user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect1.id)
 
-      photo1.save!
-      photo2.save!
+        @photo1.save!
+        @photo2.save!
 
-      hash = status_message_hash
-      hash[:photos] = [photo1.id.to_s, photo2.id.to_s]
-
-      user1.should_receive(:dispatch_post).exactly(3).times
-      post :create, hash
+        @hash = status_message_hash
+        @hash[:photos] = [@photo1.id.to_s, @photo2.id.to_s]
+      end
+      it "dispatches all referenced photos" do
+        user1.should_receive(:dispatch_post).exactly(3).times
+        post :create, @hash
+      end
+      it "sets the pending bit of referenced photos" do
+        post :create, @hash
+        @photo1.reload.pending.should be_false
+        @photo2.reload.pending.should be_false
+      end
     end
   end
 

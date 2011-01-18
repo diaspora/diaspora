@@ -27,6 +27,7 @@ class StatusMessagesController < ApplicationController
         @status_message.photos += photos
         for photo in photos
           photo.public = public_flag
+          photo.pending = false
           photo.save
           current_user.add_to_streams(photo, aspects)
           current_user.dispatch_post(photo)

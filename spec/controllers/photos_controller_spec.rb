@@ -15,11 +15,12 @@ describe PhotosController do
 
   let(:filename)     { 'button.png' }
   let(:fixture_name) { File.join(File.dirname(__FILE__), '..', 'fixtures', filename) }
-  let!(:photo1)      { user1.post(:photo, :user_file => File.open(fixture_name), :to => aspect1.id) }
-  let!(:photo2)      { user2.post(:photo, :user_file => File.open(fixture_name), :to => aspect2.id) }
+  let(:photo1)      { user1.post(:photo, :user_file => File.open(fixture_name), :to => aspect1.id) }
+  let(:photo2)      { user2.post(:photo, :user_file => File.open(fixture_name), :to => aspect2.id) }
 
   before do
     connect_users(user1, aspect1, user2, aspect2)
+    photo1; photo2
     @controller.stub!(:current_user).and_return(user1)
     sign_in :user, user1
   end
@@ -57,11 +58,11 @@ describe PhotosController do
       assigns[:posts].should == [photo1]
     end
 
-    it 'sets the person to a contact if person_id is set' do
+    it "displays another person's pictures" do
       get :index, :person_id => user2.person.id.to_s
 
       assigns[:person].should == user2.person
-      assigns[:posts].should be_empty
+      assigns[:posts].should == [photo2]
     end
   end
 

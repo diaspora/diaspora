@@ -26,8 +26,7 @@ class PhotosController < ApplicationController
         @similar_people = similar_people @contact
       end
 
-      @posts = current_user.raw_visible_posts.where(
-        :type => 'Photo',
+      @posts = current_user.visible_photos.where(
         :person_id => @person.id
       ).paginate(:page => params[:page])
 
@@ -136,7 +135,7 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = current_user.find_visible_post_by_id params[:id]
+    @photo = current_user.visible_photos.where(:id => params[:id]).first
     if @photo
       @parent = @photo.status_message
 

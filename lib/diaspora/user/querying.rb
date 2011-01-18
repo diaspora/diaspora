@@ -11,14 +11,20 @@ module Diaspora
       end
 
       def raw_visible_posts
-        Post.joins(:post_visibilities => :aspect).where(:pending => false,
+        Post.joins(:aspects).where(:pending => false,
                                    :aspects => {:user_id => self.id}).select('DISTINCT `posts`.*')
+      end
+
+      def visible_photos
+        p = Post.arel_table
+        Post.joins(:aspects).where(p[:status_message_id].not_eq(nil).or(p[:pending].eq(false))
+          ).where(:aspects => {:user_id => self.id}).select('DISTINCT `posts`.*').order("posts.updated_at DESC")
       end
 
       def visible_posts( opts = {} )
         order = opts.delete(:order)
         order ||= 'created_at DESC'
-        opts[:type] ||= ["StatusMessage","Photo"]
+        opts[:type] ||= ["StatusMessage", "Photo"]
 
         if (aspect = opts[:by_members_of]) && opts[:by_members_of] != :all
           raw_visible_posts.where(:aspects => {:id => aspect.id}).order(order)
