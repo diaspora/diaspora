@@ -56,7 +56,7 @@ describe Photo do
     end
     it 'sets a remote url' do
       image = File.open(@fixture_name)
-      photo = Photo.instantiate(
+      photo = Photo.diaspora_initialize(
                 :person => @user.person, :user_file => image)
       photo.remote_photo_path.should include("http")
       photo.remote_photo_name.should include(".png")

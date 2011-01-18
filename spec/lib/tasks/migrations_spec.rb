@@ -50,7 +50,7 @@ describe 'migrations' do
         photo.url.match(/$http.*jpg^/)
       end
 
-      @photos[0].remote_photo_path.should include("http://google-")
+      @photos[0].remote_photo_path.should include("http")
       @photos[1].remote_photo_path.should include("https://remote.com/")
     end
 

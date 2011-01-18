@@ -75,7 +75,7 @@ class Post < ActiveRecord::Base
       known_post = user.visible_posts(:guid => self.guid).first
       if known_post
         if known_post.mutable?
-          known_post.save_update(self)
+          known_post.update_attributes(self.attributes)
         else
           Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
         end

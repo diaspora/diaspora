@@ -36,8 +36,8 @@ class Photo < Post
     photo.image.store! image_file
 
     unless photo.image.url.match(/^https?:\/\//)
-      pod_url = APP_CONFIG[:pod_url].dup
-      pod_url.chop! if APP_CONFIG[:pod_url][-1,1] == '/'
+      pod_url = AppConfig[:pod_url].dup
+      pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
       remote_path = "#{pod_url}#{photo.image.url}"
     else
       remote_path = photo.image.url
@@ -60,7 +60,7 @@ class Photo < Post
   end
 
   def ensure_user_picture
-    profiles = Profile.where(:image_url => absolute_url(:thumb_large))
+    profiles = Profile.where(:image_url => url(:thumb_large))
     profiles.each { |profile|
       profile.image_url = nil
       profile.save
