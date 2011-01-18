@@ -64,7 +64,7 @@ function redis_config
         return
     fi
 
-    if [ config/redis.cont -nt $redis_conf ]
+    if [ config/redis.conf -nt $redis_conf ]
     then
         return
     fi
