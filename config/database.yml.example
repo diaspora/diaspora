@@ -14,7 +14,7 @@ development:
   collation: utf8_bin
 production:
   adapter: mysql2
-  database: diaspora_development
+  database: diaspora_production
   user: root
   password: password
   charset: utf8
