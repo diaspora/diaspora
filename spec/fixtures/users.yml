@@ -1,35 +1,35 @@
 --- 
 alice: 
-  encrypted_password: $2a$10$10wn.2788it4RyLvmIqap.zJfK8kAoM7IVsD6l0vPyzxQY7aH4m4m
+  encrypted_password: $2a$10$xbdc6ex5521gL/zGLbweNuF9echW6Q74L8sNu.Cug1e9fjBo2AZV6
   serialized_private_key: |
     -----BEGIN RSA PRIVATE KEY-----
-    MIICXQIBAAKBgQDxENPGVjQohIf31f2kNfXzBnXitq9J7PjAfJHG65Hbk6r0P3P0
-    RZISVylrYvEKJkFbncd9JijLg/q/F2OPMcNx910Aytq7aRUJoCeH/1o+BOshSaOa
-    Quzi/dud1lqixgCTicvSMRe+jJaPUGs5u2e2o9c6eZFF2LrIHtlwH5G9HwIDAQAB
-    AoGAIk7BxPVZwPZzn1ruGSOw2CBwQI69TakTEdnoqUW3YWeXqeEp8HbCPif3dhgD
-    s+0T2iUPUglPPv+OfQmoGqX7aYMTJOIrFPxYkBKkbfW8ZoNy/GHibblLJscJ54iF
-    iJcGL6bBGga36QSA+aw29N7+qtMQdebsBHsj6qZpFxS+N3ECQQD6/t4eX8BdHKoB
-    IfWpZV1JETyZAE+sGiUUF3QgyE3C7v5o99xtEZ6jvRMcwURf/3Dw3FeATSAgVC0Q
-    LReupEHZAkEA9d9GkOyioKoAEmVfjc08va0otSv9OR81MYWfXRuCliMMQC3wHdU4
-    kr912zY2FDHLZtxy12YImDG/hpHYbpYjtwJBALvoIxJKTRFobD381pXDNVuGc/93
-    pC4MRMYN6PrB+rV9hym+pl9hWYrr+msEpdPYwQ0RaNC87NhHLJV3rMsqXcECQFC8
-    UF+mVICNUhi4UPgvPJLMGWHkX/Ix3TW1uu7H6cmDGLK6Yu5o5XrKg9jHpFpdP303
-    Rj6Usp3HOCzoFzm482ECQQCYJ01wP0IsjFruXqhlclYxk/1cKuRt5NmhkNflJSWl
-    BrEFy9v3tTGVI6AAR1S7cYWFEyOj0OICMOqGHU72GIIv
+    MIICXgIBAAKBgQCsNZjJRMTCfZOUNRNRBD6ZoamxR3Z8V+1eUSDCgsAIDqvvkq81
+    5SXyr5z9dSCtwhWdRPhv/B/zAX9Yp7HPcEK4ykC5RDeFG3ojwNmoagDwKSez6ckA
+    ZWjeHzY0MhJtzNUIHXpogc1WFGTlNYH5CqQ6DzzCBYKipJfDumSXuqXK3wIDAQAB
+    AoGBAJt8pSANBG7q/WYS6gb7gx4p9lKHyLaKmVrQe3jEn2hm/t0IH0TVSocuAtxi
+    dggNNoDSdlJ+XcaGspm0h/pZTROa05er055twa4JxdwFTxGpv6pBgV56TXugzsYD
+    fF+pQQmfSl0TZ7nTL1DHWlGufrBUyOQ0cevcEvwlzUCdkhHpAkEA1+QVzevb0rCf
+    jf4GOG/D9PrgJBPtkhglxm81deQntfkfaNZLkMGEds41REijiEoftOPEdHt7Porq
+    sQuGdCTZ0wJBAMwz/InrGxlTxLky1dcZd+2DJCQks2OFBnyzf0kamN7KoEBv0K/w
+    yX/1C0JFu6h/6UTe9E+k4Xfnzhm+K9byd0UCQQDPlvDkbbuU7uKtHSqMD+Qj5yup
+    ZUQWK4P/N6X3MyiAEQkDvLMygPHHb2bGvvYIMgYk4LJhsu6B5//dt5BUk66jAkBy
+    aSIyZ+6r9xo+pXPYa6WdBqAGPCXiOZMT5UIIxIUoNqEo2T00hpVvQu1G+WkWFGyv
+    MLfzs668Dr2UAM/xQ7J9AkEAoR9VaZemxV8thA+w8EeIeBWjAjFY2kZJpPJIQIEv
+    VtOzYCHm0WXjuyyKHY9AOPLEO9RB4XXW0qmtE28kUCMXGw==
     -----END RSA PRIVATE KEY-----
 
   mongo_id: 
-  created_at: 2011-01-18 18:44:06 Z
-  updated_at: 2011-01-18 18:44:06 Z
+  created_at: 2011-01-18 22:45:17 Z
+  updated_at: 2011-01-18 22:45:17 Z
   last_sign_in_ip: 
   invites: 0
   username: alice
   last_sign_in_at: 
   language: en
   sign_in_count: 0
-  id: 3
+  id: 1
   disable_mail: false
-  password_salt: $2a$10$10wn.2788it4RyLvmIqap.
+  password_salt: $2a$10$xbdc6ex5521gL/zGLbweNu
   reset_password_token: 
   remember_token: 
   current_sign_in_ip: 
@@ -38,38 +38,38 @@ alice:
   invitation_sent_at: 
   invitation_token: 
   getting_started: true
-  email: bob1f866f6@pivotallabs.com
+  email: bob1810d2e@pivotallabs.com
 eve: 
-  encrypted_password: $2a$10$uDyK3VOraaekpPhbr8dPjuGqdshJlt9vSRUWvh9R1obnqqMgp60ry
+  encrypted_password: $2a$10$MunrAlmGUbgmhg0gYo/cqOPm5ObMjHA/rWsSVZiKD1ue0yFQ2AGbO
   serialized_private_key: |
     -----BEGIN RSA PRIVATE KEY-----
-    MIICXQIBAAKBgQDxENPGVjQohIf31f2kNfXzBnXitq9J7PjAfJHG65Hbk6r0P3P0
-    RZISVylrYvEKJkFbncd9JijLg/q/F2OPMcNx910Aytq7aRUJoCeH/1o+BOshSaOa
-    Quzi/dud1lqixgCTicvSMRe+jJaPUGs5u2e2o9c6eZFF2LrIHtlwH5G9HwIDAQAB
-    AoGAIk7BxPVZwPZzn1ruGSOw2CBwQI69TakTEdnoqUW3YWeXqeEp8HbCPif3dhgD
-    s+0T2iUPUglPPv+OfQmoGqX7aYMTJOIrFPxYkBKkbfW8ZoNy/GHibblLJscJ54iF
-    iJcGL6bBGga36QSA+aw29N7+qtMQdebsBHsj6qZpFxS+N3ECQQD6/t4eX8BdHKoB
-    IfWpZV1JETyZAE+sGiUUF3QgyE3C7v5o99xtEZ6jvRMcwURf/3Dw3FeATSAgVC0Q
-    LReupEHZAkEA9d9GkOyioKoAEmVfjc08va0otSv9OR81MYWfXRuCliMMQC3wHdU4
-    kr912zY2FDHLZtxy12YImDG/hpHYbpYjtwJBALvoIxJKTRFobD381pXDNVuGc/93
-    pC4MRMYN6PrB+rV9hym+pl9hWYrr+msEpdPYwQ0RaNC87NhHLJV3rMsqXcECQFC8
-    UF+mVICNUhi4UPgvPJLMGWHkX/Ix3TW1uu7H6cmDGLK6Yu5o5XrKg9jHpFpdP303
-    Rj6Usp3HOCzoFzm482ECQQCYJ01wP0IsjFruXqhlclYxk/1cKuRt5NmhkNflJSWl
-    BrEFy9v3tTGVI6AAR1S7cYWFEyOj0OICMOqGHU72GIIv
+    MIICXgIBAAKBgQCsNZjJRMTCfZOUNRNRBD6ZoamxR3Z8V+1eUSDCgsAIDqvvkq81
+    5SXyr5z9dSCtwhWdRPhv/B/zAX9Yp7HPcEK4ykC5RDeFG3ojwNmoagDwKSez6ckA
+    ZWjeHzY0MhJtzNUIHXpogc1WFGTlNYH5CqQ6DzzCBYKipJfDumSXuqXK3wIDAQAB
+    AoGBAJt8pSANBG7q/WYS6gb7gx4p9lKHyLaKmVrQe3jEn2hm/t0IH0TVSocuAtxi
+    dggNNoDSdlJ+XcaGspm0h/pZTROa05er055twa4JxdwFTxGpv6pBgV56TXugzsYD
+    fF+pQQmfSl0TZ7nTL1DHWlGufrBUyOQ0cevcEvwlzUCdkhHpAkEA1+QVzevb0rCf
+    jf4GOG/D9PrgJBPtkhglxm81deQntfkfaNZLkMGEds41REijiEoftOPEdHt7Porq
+    sQuGdCTZ0wJBAMwz/InrGxlTxLky1dcZd+2DJCQks2OFBnyzf0kamN7KoEBv0K/w
+    yX/1C0JFu6h/6UTe9E+k4Xfnzhm+K9byd0UCQQDPlvDkbbuU7uKtHSqMD+Qj5yup
+    ZUQWK4P/N6X3MyiAEQkDvLMygPHHb2bGvvYIMgYk4LJhsu6B5//dt5BUk66jAkBy
+    aSIyZ+6r9xo+pXPYa6WdBqAGPCXiOZMT5UIIxIUoNqEo2T00hpVvQu1G+WkWFGyv
+    MLfzs668Dr2UAM/xQ7J9AkEAoR9VaZemxV8thA+w8EeIeBWjAjFY2kZJpPJIQIEv
+    VtOzYCHm0WXjuyyKHY9AOPLEO9RB4XXW0qmtE28kUCMXGw==
     -----END RSA PRIVATE KEY-----
 
   mongo_id: 
-  created_at: 2011-01-18 18:44:07 Z
-  updated_at: 2011-01-18 18:44:07 Z
+  created_at: 2011-01-18 22:45:18 Z
+  updated_at: 2011-01-18 22:45:18 Z
   last_sign_in_ip: 
   invites: 0
   username: eve
   last_sign_in_at: 
   language: en
   sign_in_count: 0
-  id: 5
+  id: 3
   disable_mail: false
-  password_salt: $2a$10$uDyK3VOraaekpPhbr8dPju
+  password_salt: $2a$10$MunrAlmGUbgmhg0gYo/cqO
   reset_password_token: 
   remember_token: 
   current_sign_in_ip: 
@@ -78,38 +78,38 @@ eve:
   invitation_sent_at: 
   invitation_token: 
   getting_started: true
-  email: bob3884c35@pivotallabs.com
+  email: bob3d6acb8@pivotallabs.com
 bob: 
-  encrypted_password: $2a$10$YXDxHoVUIaIgyS405RS3NeenGVRrexiZei0.7l.LbyLDf.YqtCvfS
+  encrypted_password: $2a$10$O07zBbVmaUpAyLo6nBmOAur5BcrXLmb5kKRrx2eX04qo3Bi0uXWfu
   serialized_private_key: |
     -----BEGIN RSA PRIVATE KEY-----
-    MIICXQIBAAKBgQDxENPGVjQohIf31f2kNfXzBnXitq9J7PjAfJHG65Hbk6r0P3P0
-    RZISVylrYvEKJkFbncd9JijLg/q/F2OPMcNx910Aytq7aRUJoCeH/1o+BOshSaOa
-    Quzi/dud1lqixgCTicvSMRe+jJaPUGs5u2e2o9c6eZFF2LrIHtlwH5G9HwIDAQAB
-    AoGAIk7BxPVZwPZzn1ruGSOw2CBwQI69TakTEdnoqUW3YWeXqeEp8HbCPif3dhgD
-    s+0T2iUPUglPPv+OfQmoGqX7aYMTJOIrFPxYkBKkbfW8ZoNy/GHibblLJscJ54iF
-    iJcGL6bBGga36QSA+aw29N7+qtMQdebsBHsj6qZpFxS+N3ECQQD6/t4eX8BdHKoB
-    IfWpZV1JETyZAE+sGiUUF3QgyE3C7v5o99xtEZ6jvRMcwURf/3Dw3FeATSAgVC0Q
-    LReupEHZAkEA9d9GkOyioKoAEmVfjc08va0otSv9OR81MYWfXRuCliMMQC3wHdU4
-    kr912zY2FDHLZtxy12YImDG/hpHYbpYjtwJBALvoIxJKTRFobD381pXDNVuGc/93
-    pC4MRMYN6PrB+rV9hym+pl9hWYrr+msEpdPYwQ0RaNC87NhHLJV3rMsqXcECQFC8
-    UF+mVICNUhi4UPgvPJLMGWHkX/Ix3TW1uu7H6cmDGLK6Yu5o5XrKg9jHpFpdP303
-    Rj6Usp3HOCzoFzm482ECQQCYJ01wP0IsjFruXqhlclYxk/1cKuRt5NmhkNflJSWl
-    BrEFy9v3tTGVI6AAR1S7cYWFEyOj0OICMOqGHU72GIIv
+    MIICXgIBAAKBgQCsNZjJRMTCfZOUNRNRBD6ZoamxR3Z8V+1eUSDCgsAIDqvvkq81
+    5SXyr5z9dSCtwhWdRPhv/B/zAX9Yp7HPcEK4ykC5RDeFG3ojwNmoagDwKSez6ckA
+    ZWjeHzY0MhJtzNUIHXpogc1WFGTlNYH5CqQ6DzzCBYKipJfDumSXuqXK3wIDAQAB
+    AoGBAJt8pSANBG7q/WYS6gb7gx4p9lKHyLaKmVrQe3jEn2hm/t0IH0TVSocuAtxi
+    dggNNoDSdlJ+XcaGspm0h/pZTROa05er055twa4JxdwFTxGpv6pBgV56TXugzsYD
+    fF+pQQmfSl0TZ7nTL1DHWlGufrBUyOQ0cevcEvwlzUCdkhHpAkEA1+QVzevb0rCf
+    jf4GOG/D9PrgJBPtkhglxm81deQntfkfaNZLkMGEds41REijiEoftOPEdHt7Porq
+    sQuGdCTZ0wJBAMwz/InrGxlTxLky1dcZd+2DJCQks2OFBnyzf0kamN7KoEBv0K/w
+    yX/1C0JFu6h/6UTe9E+k4Xfnzhm+K9byd0UCQQDPlvDkbbuU7uKtHSqMD+Qj5yup
+    ZUQWK4P/N6X3MyiAEQkDvLMygPHHb2bGvvYIMgYk4LJhsu6B5//dt5BUk66jAkBy
+    aSIyZ+6r9xo+pXPYa6WdBqAGPCXiOZMT5UIIxIUoNqEo2T00hpVvQu1G+WkWFGyv
+    MLfzs668Dr2UAM/xQ7J9AkEAoR9VaZemxV8thA+w8EeIeBWjAjFY2kZJpPJIQIEv
+    VtOzYCHm0WXjuyyKHY9AOPLEO9RB4XXW0qmtE28kUCMXGw==
     -----END RSA PRIVATE KEY-----
 
   mongo_id: 
-  created_at: 2011-01-18 18:44:07 Z
-  updated_at: 2011-01-18 18:44:07 Z
+  created_at: 2011-01-18 22:45:17 Z
+  updated_at: 2011-01-18 22:45:17 Z
   last_sign_in_ip: 
   invites: 0
   username: bob
   last_sign_in_at: 
   language: en
   sign_in_count: 0
-  id: 4
+  id: 2
   disable_mail: false
-  password_salt: $2a$10$YXDxHoVUIaIgyS405RS3Ne
+  password_salt: $2a$10$O07zBbVmaUpAyLo6nBmOAu
   reset_password_token: 
   remember_token: 
   current_sign_in_ip: 
@@ -118,4 +118,4 @@ bob:
   invitation_sent_at: 
   invitation_token: 
   getting_started: true
-  email: bob25202ed@pivotallabs.com
+  email: bob2532cbe@pivotallabs.com

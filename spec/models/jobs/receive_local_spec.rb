@@ -3,7 +3,9 @@ require 'spec_helper'
 describe Jobs::ReceiveLocal do
   before do
     @user1 = alice
+    @person1 = @user1.person
     @user2 = eve
+    @person2 = @user2.person
     @status = Factory(:status_message)
     @status_type = @status.class.to_s
 
@@ -16,8 +18,8 @@ describe Jobs::ReceiveLocal do
     }
 
     Person.stub(:find){ |id|
-      if id == @user2.person.id
-        @user2.person
+      if id == @person2.id
+        @person2
       else
         nil
       end
@@ -36,6 +38,6 @@ describe Jobs::ReceiveLocal do
     m = mock()
     m.should_receive(:receive_object)
     Postzord::Receiver.should_receive(:new).and_return(m)
-    Jobs::ReceiveLocal.perform(@user1.id, @user2.person.id, @status_type, @status.id)
+    Jobs::ReceiveLocal.perform(@user1.id, @person2.id, @status_type, @status.id)
   end
 end

@@ -17,7 +17,6 @@ include HelperMethods
 #
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
-#DatabaseCleaner.clean_with(:truncation)
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
@@ -26,7 +25,7 @@ RSpec.configure do |config|
 
   config.use_transactional_fixtures = true
 
-  config.global_fixtures = :all
+#  config.global_fixtures = :all
 
   config.before(:each) do
     I18n.locale = :en

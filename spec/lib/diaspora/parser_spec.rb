@@ -19,7 +19,7 @@ describe Diaspora::Parser do
 
   describe "parsing compliant XML object" do
     it 'should be able to correctly parse comment fields' do
-      post = @user1.post :status_message, :message => "hello", :to => @aspect.id
+      post = @user1.post :status_message, :message => "hello", :to => @aspect1.id
       comment = Factory.create(:comment, :post => post, :person => @person, :diaspora_handle => @person.diaspora_handle, :text => "Freedom!")
       comment.delete
       xml = comment.to_diaspora_xml
@@ -42,15 +42,15 @@ describe Diaspora::Parser do
     end
 
     it "should activate the Person if I initiated a request to that url" do
-      @user1.send_contact_request_to(@user3.person, @aspect)
+      @user1.send_contact_request_to(@user3.person, @aspect1)
       request = @user3.request_from(@user1.person)
       fantasy_resque do
         @user3.accept_and_respond(request.id, @aspect3.id)
       end
       @user1.reload
-      @aspect.reload
+      @aspect1.reload
       new_contact = @user1.contact_for(@user3.person)
-      @aspect.contacts.include?(new_contact).should be true
+      @aspect1.contacts.include?(new_contact).should be true
       @user1.contacts.include?(new_contact).should be true
     end
 
@@ -62,7 +62,7 @@ describe Diaspora::Parser do
           zord = Postzord::Receiver.new(@user1, :person => @user2.person)
           zord.parse_and_receive(retraction_xml)
       }.should change {
-        @aspect.contacts(true).size }.by(-1)
+        @aspect1.contacts(true).size }.by(-1)
     end
 
     it 'should marshal a profile for a person' do
