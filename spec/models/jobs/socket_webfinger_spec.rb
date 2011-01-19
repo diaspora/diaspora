@@ -1,4 +1,4 @@
-require File.join(Rails.root, 'spec/spec_helper')
+require 'spec/spec_helper'
 
 describe Jobs::SocketWebfinger do
   before do
