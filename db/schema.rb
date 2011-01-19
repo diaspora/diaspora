@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110105051803) do
+ActiveRecord::Schema.define(:version => 20110119060243) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"
@@ -316,6 +316,7 @@ ActiveRecord::Schema.define(:version => 20110105051803) do
     t.datetime "updated_at"
   end
 
+  add_index "post_visibilities", ["aspect_id", "post_id"], :name => "index_post_visibilities_on_aspect_id_and_post_id"
   add_index "post_visibilities", ["aspect_id"], :name => "index_post_visibilities_on_aspect_id"
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
