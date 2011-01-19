@@ -7,9 +7,9 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = Factory(:user)
-    @aspect = @user.aspects.create(:name => "cats")
-    @user2 = Factory(:user_with_aspect)
+    @user = alice
+    @aspect = @user.aspects.first
+    @user2 = eve
     @aspect2 = @user2.aspects.first
 
     @person_one = Factory.create :person

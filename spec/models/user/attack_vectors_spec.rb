@@ -6,13 +6,13 @@ require 'spec_helper'
 
 describe "attack vectors" do
 
-  let(:user) { Factory.create(:user) }
-  let(:aspect) { user.aspects.create(:name => 'heroes') }
+  let(:user) { Factory.create(:user_with_aspect) }
+  let(:aspect) { user.aspects.first }
 
   let(:bad_user) { Factory.create(:user)}
 
-  let(:user2) { Factory.create(:user) }
-  let(:aspect2) { user2.aspects.create(:name => 'losers') }
+  let(:user2) { eve }
+  let(:aspect2) { user2.aspects.first }
 
   let(:user3) { Factory.create(:user) }
   let(:aspect3) { user3.aspects.create(:name => 'heroes') }
@@ -207,7 +207,6 @@ describe "attack vectors" do
     end
 
     it 'does not let me update other persons post' do
-      pending "this needs to be a photo"
       original_message = user2.post(:photo, :user_file => uploaded_photo, :caption => "store this!", :to => aspect2.id)
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)

@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe StreamHelper do
   before do
-    @user = Factory(:user)
-    @aspect = @user.aspects.create(:name => 'aspect')
+    @user = alice
+    @aspect = @user.aspects.first
     @post = @user.post(:status_message, :message => "hi", :to => @aspect.id)
   end
   it 'renders a new comment form' do
-    new_comment_form(@post.id).should == 
+    new_comment_form(@post.id).should ==
       @controller.render_to_string(:partial => 'comments/new_comment', :locals => {:post_id => @post.id})
   end
   it 'renders it fast the second time' do

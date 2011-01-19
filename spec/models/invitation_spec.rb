@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe Invitation do
-  let(:user)   {Factory.create(:user)}
-  let!(:aspect) {user.aspects.create(:name => "Invitees")}
-  let(:user2)  {Factory.create(:user)}
+  let(:user)   {alice}
+  let(:aspect) {user.aspects.first}
+  let(:user2)  {eve}
   before do
     user.invites = 20
     user.save

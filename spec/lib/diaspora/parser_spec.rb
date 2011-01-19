@@ -6,15 +6,20 @@ require 'spec_helper'
 
 describe Diaspora::Parser do
   before do
-    @user = Factory.create(:user)
-    @aspect = @user.aspects.create(:name => 'spies')
-    @user2 = Factory.create(:user)
-    @aspect2 = @user2.aspects.create(:name => "pandas")
+    @user1 = alice
+    @user2 = bob
+    @user3 = eve
+
+    @aspect1 = @user1.aspects.first
+    @aspect2 = @user2.aspects.first
+    @aspect3 = @user3.aspects.first
+
     @person = Factory.create(:person)
   end
+
   describe "parsing compliant XML object" do
     it 'should be able to correctly parse comment fields' do
-      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      post = @user1.post :status_message, :message => "hello", :to => @aspect1.id
       comment = Factory.create(:comment, :post => post, :person => @person, :diaspora_handle => @person.diaspora_handle, :text => "Freedom!")
       comment.delete
       xml = comment.to_diaspora_xml
@@ -26,44 +31,41 @@ describe Diaspora::Parser do
     end
 
     it 'should accept retractions' do
-      connect_users(@user, @aspect, @user2, @aspect2)
       message = @user2.post(:status_message, :message => "cats", :to => @aspect2.id)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
       lambda {
-        zord = Postzord::Receiver.new(@user, :person => @user2.person)
+        zord = Postzord::Receiver.new(@user1, :person => @user2.person)
         zord.parse_and_receive(xml)
        }.should change(StatusMessage, :count).by(-1)
     end
 
     it "should activate the Person if I initiated a request to that url" do
-      @user.send_contact_request_to(@user2.person, @aspect)
-      request = @user2.request_from(@user.person)
+      @user1.send_contact_request_to(@user3.person, @aspect1)
+      request = @user3.request_from(@user1.person)
       fantasy_resque do
-        @user2.accept_and_respond(request.id, @aspect2.id)
+        @user3.accept_and_respond(request.id, @aspect3.id)
       end
-      @user.reload
-      @aspect.reload
-      new_contact = @user.contact_for(@user2.person)
-      @aspect.contacts.include?(new_contact).should be true
-      @user.contacts.reload.include?(new_contact).should be true
+      @user1.reload
+      @aspect1.reload
+      new_contact = @user1.contact_for(@user3.person)
+      @aspect1.contacts.include?(new_contact).should be true
+      @user1.contacts.include?(new_contact).should be true
     end
 
     it 'should process retraction for a person' do
-      connect_users(@user, @aspect, @user2, @aspect2)
       retraction = Retraction.for(@user2)
       retraction_xml = retraction.to_diaspora_xml
 
       lambda {
-          zord = Postzord::Receiver.new(@user, :person => @user2.person)
+          zord = Postzord::Receiver.new(@user1, :person => @user2.person)
           zord.parse_and_receive(retraction_xml)
       }.should change {
-        @aspect.contacts(true).size }.by(-1)
+        @aspect1.contacts(true).size }.by(-1)
     end
 
     it 'should marshal a profile for a person' do
-      connect_users(@user, @aspect, @user2, @aspect2)
       #Create person
       person = @user2.person
       id = person.id
@@ -85,7 +87,7 @@ describe Diaspora::Parser do
       old_profile.first_name.should == 'bob'
 
       #Marshal profile
-      zord = Postzord::Receiver.new(@user, :person => person)
+      zord = Postzord::Receiver.new(@user1, :person => person)
       zord.parse_and_receive(xml)
 
       #Check that marshaled profile is the same as old profile

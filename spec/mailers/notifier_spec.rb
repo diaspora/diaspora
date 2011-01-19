@@ -2,8 +2,8 @@
 require 'spec_helper'
 
 describe Notifier do
-  let!(:user) {Factory.create(:user)}
-  let!(:user2) {Factory.create(:user)}
+  let!(:user) {alice}
+  let!(:user2) {eve}
 
   let!(:aspect) {user.aspects.create(:name => "win")}
   let!(:aspect2) {user2.aspects.create(:name => "win")}

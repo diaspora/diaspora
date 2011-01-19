@@ -9,22 +9,20 @@ describe InvitationsController do
 
   render_views
 
-  let!(:user)   { Factory.create(:user) }
-  let!(:aspect) { user.aspects.create(:name => "WIN!!") }
-
   before do
+    @user   = alice
+    @aspect = @user.aspects.first
 
     request.env["devise.mapping"] = Devise.mappings[:user]
   end
 
   describe "#create" do
     before do
+      @user.invites = 5
 
-      user.invites = 5
-
-      sign_in :user, user
-      @invite = {:invite_message=>"test", :aspect_id=> aspect.id.to_s, :email=>"abc@example.com"}
-      @controller.stub!(:current_user).and_return(user)
+      sign_in :user, @user
+      @invite = {:invite_message=>"test", :aspect_id=> @aspect.id.to_s, :email=>"abc@example.com"}
+      @controller.stub!(:current_user).and_return(@user)
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
     end
 
@@ -54,8 +52,8 @@ describe InvitationsController do
     end
 
     it "doesn't invite anyone if you have 0 invites" do
-      user.invites = 0
-      user.save!
+      @user.invites = 0
+      @user.save!
       lambda {
         post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
       }.should_not change(User, :count)
@@ -69,8 +67,8 @@ describe InvitationsController do
 
   describe "#update" do
     before do
-      user.invites = 5
-      @invited_user = user.invite_user("a@a.com",  user.aspects.first.id)
+      @user.invites = 5
+      @invited_user = @user.invite_user("a@a.com",  @aspect.id)
       @accept_params = {:user=>
         {:password_confirmation =>"password",
          :username=>"josh",
@@ -91,7 +89,6 @@ describe InvitationsController do
       end
 
       it 'adds a pending request' do
-
         put :update, @accept_params
         Request.where(:recipient_id => invited.person.id).count.should == 1
       end
@@ -100,7 +97,7 @@ describe InvitationsController do
     context 'failure' do
       before do
         @fail_params = @accept_params
-        @fail_params[:user][:username] = user.username
+        @fail_params[:user][:username] = @user.username
       end
       it 'stays on the invitation accept form' do
         put :update, @fail_params
@@ -115,7 +112,7 @@ describe InvitationsController do
 
   describe '#new' do
     it 'renders' do
-      sign_in :user, user
+      sign_in :user, @user
       get :new
     end
   end

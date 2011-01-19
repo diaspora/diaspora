@@ -5,7 +5,7 @@
 require 'spec_helper'
 
 describe Diaspora::UserModules::Connecting do
-  let(:user) { Factory.create(:user) }
+  let(:user) { alice }
   let(:aspect) { user.aspects.create(:name => 'heroes') }
   let(:aspect1) { user.aspects.create(:name => 'other') }
   let(:person) { Factory.create(:person) }
@@ -14,7 +14,7 @@ describe Diaspora::UserModules::Connecting do
   let(:person_two) { Factory.create :person }
   let(:person_three) { Factory.create :person }
 
-  let(:user2) { Factory.create(:user) }
+  let(:user2) { eve }
   let(:aspect2) { user2.aspects.create(:name => "aspect two") }
 
   describe '#send_contact_request_to' do
@@ -58,6 +58,12 @@ describe Diaspora::UserModules::Connecting do
       it 'adds a request to pending if it was not sent by user' do
         user.receive_contact_request(@r)
         Request.where(:recipient_id => user.person.id).all.should include @r
+      end
+
+      it 'creates no contact' do
+        lambda {
+          received_req = @r.receive(user, person_one)
+        }.should_not change(Contact, :count)
       end
 
       it 'enqueues a mail job' do
@@ -131,11 +137,6 @@ describe Diaspora::UserModules::Connecting do
     describe 'multiple users accepting/rejecting the same person' do
 
       before do
-        Request.where(:recipient_id => user.person.id).count.should == 0
-        user.contacts.empty?.should be true
-        Request.where(:recipient_id => user2.person.id).count.should == 0
-        user2.contacts.empty?.should be true
-
         @request1 = Request.diaspora_initialize(:to => user.person, :from => person_one)
         @request2 = Request.diaspora_initialize(:to => user2.person, :from => person_one)
         @request3 =  Request.diaspora_initialize(:to => user2.person, :from => user.person)
@@ -214,29 +215,33 @@ describe Diaspora::UserModules::Connecting do
 
     describe 'a user accepting rejecting multiple people' do
       before do
-        @request = Request.diaspora_initialize(:to => user.person, :from => person_one)
-        @request_two = Request.diaspora_initialize(:to => user.person, :from => person_two)
+        request = Request.diaspora_initialize(:to => user.person, :from => person_one)
+        @received_request = request.receive(user, person_one)
       end
-
-      it "keeps the right counts of contacts" do
-        received_req = @request.receive(user, person_one)
-
-        Request.where(:recipient_id => user.person.id).count.should == 1
-        user.reload.contacts.size.should be 0
-
-        received_req2 = @request_two.receive(user, person_two)
-        Request.where(:recipient_id => user.person.id).count.should == 2
-        user.reload.contacts.size.should be 0
-
-        user.accept_contact_request received_req, aspect
-        Request.where(:recipient_id => user.person.id).count.should == 1
-        user.reload.contacts.size.should be 1
-        user.contact_for(person_one).should_not be_nil
-
-        user.ignore_contact_request received_req2.id
-        Request.where(:recipient_id => user.person.id).count.should == 0
-        user.reload.contacts.size.should be 1
-        user.contact_for(person_two).should be_nil
+      describe '#accept_contact_request' do
+        it "deletes the received request" do
+          lambda {
+            user.accept_contact_request(@received_request, aspect)
+          }.should change(Request, :count).by(-1)
+        end
+        it "creates a new contact" do
+          lambda {
+            user.accept_contact_request(@received_request, aspect)
+          }.should change(Contact, :count).by(1)
+          user.contact_for(person_one).should_not be_nil
+        end
+      end
+      describe '#ignore_contact_request' do
+        it "removes the request" do
+          lambda {
+            user.ignore_contact_request(@received_request.id)
+          }.should change(Request, :count).by(-1)
+        end
+        it "creates no new contact" do
+          lambda {
+            user.ignore_contact_request(@received_request)
+          }.should_not change(Contact, :count)
+        end
       end
     end
 

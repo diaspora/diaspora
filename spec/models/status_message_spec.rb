@@ -7,8 +7,8 @@ require 'spec_helper'
 describe StatusMessage do
 
   before do
-    @user = Factory(:user)
-    @aspect = @user.aspects.create(:name => "losers")
+    @user = alice
+    @aspect = @user.aspects.first
   end
 
   describe '#diaspora_handle=' do

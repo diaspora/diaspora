@@ -9,7 +9,7 @@ require File.join(Rails.root, 'lib/postzord/dispatch')
 
 describe Postzord::Dispatch do
   before do
-    @user = Factory(:user)
+    @user = alice
     @sm = Factory(:status_message, :public => true)
     @subscribers = []
     5.times{@subscribers << Factory(:person)}

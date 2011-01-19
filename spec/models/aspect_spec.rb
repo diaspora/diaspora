@@ -5,13 +5,13 @@
 require 'spec_helper'
 
 describe Aspect do
-  let(:user ) { Factory.create(:user) }
+  let(:user ) { alice }
   let(:connected_person) { Factory.create(:person) }
-  let(:user2) { Factory.create(:user) }
+  let(:user2) { eve }
   let(:connected_person_2) { Factory.create(:person) }
 
-  let(:aspect) {user.aspects.create(:name => 'losers')}
-  let(:aspect2) {user2.aspects.create(:name => 'failures')}
+  let(:aspect) {user.aspects.first }
+  let(:aspect2) {user2.aspects.first }
   let(:aspect1) {user.aspects.create(:name => 'cats')}
   let(:user3) {Factory.create(:user)}
   let(:aspect3) {user3.aspects.create(:name => "lala")}
@@ -59,8 +59,9 @@ describe Aspect do
     end
 
     it 'has no uniqueness between users' do
+      aspect = user.aspects.create(:name => "New Aspect")
       aspect2 = user2.aspects.create(:name => aspect.name)
-      aspect2.valid?.should be_true
+      aspect2.should be_valid
     end
   end
 
@@ -76,7 +77,7 @@ describe Aspect do
     end
 
     it 'should have contacts' do
-      aspect.contacts.size.should == 1
+      aspect.contacts.size.should == 2
     end
 
     describe '#aspects_with_person' do

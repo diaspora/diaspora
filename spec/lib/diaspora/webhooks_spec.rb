@@ -10,7 +10,7 @@ describe Diaspora::Webhooks do
       class Foo
         include Diaspora::Webhooks
       end
-      
+
       f = Foo.new
 
       proc{ f.subscribers(1)}.should raise_error /override subscribers/
