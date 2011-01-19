@@ -8,8 +8,8 @@ describe Notification do
   before do
     @sm = Factory(:status_message)
     @person = Factory(:person)
-    @user = Factory.create(:user)
-    @user2 = Factory.create(:user)
+    @user = alice
+    @user2 = eve
     @aspect  = @user.aspects.create(:name => "dudes")
     @opts = {:target_id => @sm.id,
       :target_type => @sm.class.name,

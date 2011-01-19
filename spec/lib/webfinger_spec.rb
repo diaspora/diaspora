@@ -7,8 +7,8 @@ require 'spec_helper'
 require File.join(Rails.root, 'lib/webfinger')
 
 describe Webfinger do
-  let(:user1) { Factory.create(:user) }
-  let(:user2) { Factory.create(:user) }
+  let(:user1) { alice }
+  let(:user2) { eve }
 
   let(:account) {"foo@tom.joindiaspora.com"}
   let(:person){ Factory(:person, :diaspora_handle => account)}
@@ -39,7 +39,7 @@ describe Webfinger do
       end
     end
 
-    context 'webfinger query chain processing' do 
+    context 'webfinger query chain processing' do
       describe '#webfinger_profile_url' do
         it 'should parse out the webfinger template' do
           finger.send(:webfinger_profile_url, diaspora_xrd).should == "http://tom.joindiaspora.com/webfinger/?q=#{account}"
@@ -79,14 +79,14 @@ describe Webfinger do
         diaspora_finger.stub!(:body).and_return(diaspora_finger)
         RestClient.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
         #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
-        # http://tom.joindiaspora.com/.well-known/host-meta 
+        # http://tom.joindiaspora.com/.well-known/host-meta
         f = Webfinger.new("tom@tom.joindiaspora.com").fetch
 
         f.should be_valid
       end
-      
+
       it 'should retry with http if https fails' do
-        f = Webfinger.new("tom@tom.joindiaspora.com") 
+        f = Webfinger.new("tom@tom.joindiaspora.com")
 
         diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
         RestClient.should_receive(:get).twice.and_return(nil, diaspora_xrd)

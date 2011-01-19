@@ -6,16 +6,13 @@ require 'spec_helper'
 require File.join(Rails.root, 'lib', 'pubsubhubbub')
 
 describe Pubsubhubbub do
-  
+
   before do
     RestClient.unstub!(:post)
   end
 
   after do
     RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
-  end
-
-  describe '#initialize' do
   end
 
   describe '#publish' do

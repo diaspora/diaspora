@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PostVisibility do
   before do
-    @user = Factory(:user)
+    @user = alice
     @aspect = @user.aspects.create(:name => 'Boozers')
 
     @person = Factory(:person)

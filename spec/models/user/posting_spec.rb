@@ -6,12 +6,12 @@ require 'spec_helper'
 
 describe User do
 
-  let!(:user) { Factory.create(:user) }
-  let!(:user2) { Factory.create(:user) }
+  let!(:user) { alice }
+  let!(:user2) { eve }
 
-  let!(:aspect) { user.aspects.create(:name => 'heroes') }
+  let!(:aspect) { user.aspects.first }
   let!(:aspect1) { user.aspects.create(:name => 'other') }
-  let!(:aspect2) { user2.aspects.create(:name => 'losers') }
+  let!(:aspect2) { user2.aspects.first }
 
   let!(:service1) { s = Factory(:service, :provider => 'twitter'); user.services << s; s }
   let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }

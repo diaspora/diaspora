@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe Post do
   before do
-    @user = Factory(:user)
+    @user = alice
     @aspect = @user.aspects.create(:name => "winners")
   end
 

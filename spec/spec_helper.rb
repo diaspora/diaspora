@@ -13,16 +13,18 @@ require 'factory_girl'
 
 include Devise::TestHelpers
 include WebMock::API
+include HelperMethods
 #
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
-include HelperMethods
 
 RSpec.configure do |config|
   config.mock_with :mocha
   config.mock_with :rspec
 
+ # config.fixture_path = "#{Rails.root}/spec/fixtures"
+ # config.global_fixtures = :all
   config.use_transactional_fixtures = true
 
   config.before(:each) do
@@ -33,6 +35,20 @@ RSpec.configure do |config|
   end
 end
 
+def alice
+  #users(:alice)
+  User.where(:username => 'alice').first
+end
+
+def bob
+  #users(:bob)
+  User.where(:username => 'bob').first
+end
+
+def eve
+  #users(:eve)
+  User.where(:username => 'eve').first
+end
 module Diaspora::WebSocket
   def self.redis
     FakeRedis.new

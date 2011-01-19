@@ -5,13 +5,11 @@
 require 'spec_helper'
 
 describe Comment do
-  let(:user)    {Factory.create(:user)}
-  let(:aspect)  {user.aspects.create(:name => "Doofuses")}
+  let(:user)    {alice}
+  let(:aspect)  {user.aspects.first}
 
-  let(:user2)   {Factory.create(:user)}
-  let(:aspect2) {user2.aspects.create(:name => "Lame-faces")}
-
-  let!(:connecting) { connect_users(user, aspect, user2, aspect2) }
+  let(:user2)   {bob}
+  let(:aspect2) {user2.aspects.first}
 
 
  describe 'comment#notification_type' do

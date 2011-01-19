@@ -56,12 +56,13 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'fixture_builder', '~> 0.2.0'
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-rails', '>= 2.0.0'
   gem 'mocha'
-  gem 'database_cleaner', '0.5.2'
+  gem 'database_cleaner', '0.6.0'
   gem 'webmock', :require => false
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
   gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'

@@ -7,26 +7,25 @@ require 'spec_helper'
 describe StatusMessagesController do
   render_views
 
-  let!(:user1)   { Factory.create(:user) }
-  let!(:aspect1) { user1.aspects.create(:name => "AWESOME!!") }
-
-  let!(:user2)   { Factory.create(:user) }
-  let!(:aspect2) { user2.aspects.create(:name => "WIN!!") }
-
   before do
-    connect_users(user1, aspect1, user2, aspect2)
+    @user1 = alice
+    @user2 = bob
+
+    @aspect1 = @user1.aspects.first
+    @aspect2 = @user2.aspects.first
+
     request.env["HTTP_REFERER"] = ""
-    sign_in :user, user1
-    @controller.stub!(:current_user).and_return(user1)
-    user1.reload
+    sign_in :user, @user1
+    @controller.stub!(:current_user).and_return(@user1)
+    @user1.reload
   end
 
   describe '#show' do
     it 'succeeds' do
-      message = user1.build_post :status_message, :message => "ohai", :to => aspect1.id
+      message = @user1.build_post :status_message, :message => "ohai", :to => @aspect1.id
       message.save!
-      user1.add_to_streams(message, [aspect1])
-      user1.dispatch_post message, :to => aspect1.id
+      @user1.add_to_streams(message, [@aspect1])
+      @user1.dispatch_post message, :to => @aspect1.id
 
       get :show, "id" => message.id.to_s
       response.should be_success
@@ -39,7 +38,7 @@ describe StatusMessagesController do
         :public  => "true",
         :message => "facebook, is that you?",
         },
-      :aspect_ids => [aspect1.id.to_s] }
+      :aspect_ids => [@aspect1.id.to_s] }
     }
     it 'responds to js requests' do
       post :create, status_message_hash.merge(:format => 'js')
@@ -47,14 +46,14 @@ describe StatusMessagesController do
     end
 
     it "doesn't overwrite person_id" do
-      status_message_hash[:status_message][:person_id] = user2.person.id
+      status_message_hash[:status_message][:person_id] = @user2.person.id
       post :create, status_message_hash
       new_message = StatusMessage.find_by_message(status_message_hash[:status_message][:message])
-      new_message.person_id.should == user1.person.id
+      new_message.person_id.should == @user1.person.id
     end
 
     it "doesn't overwrite id" do
-      old_status_message = user1.post(:status_message, :message => "hello", :to => aspect1.id)
+      old_status_message = @user1.post(:status_message, :message => "hello", :to => @aspect1.id)
       status_message_hash[:status_message][:id] = old_status_message.id
       post :create, status_message_hash
       old_status_message.reload.message.should == 'hello'
@@ -65,8 +64,8 @@ describe StatusMessagesController do
         fixture_filename  = 'button.png'
         fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
 
-        @photo1 = user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect1.id)
-        @photo2 = user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => aspect1.id)
+        @photo1 = @user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => @aspect1.id)
+        @photo2 = @user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => @aspect1.id)
 
         @photo1.save!
         @photo2.save!
@@ -75,7 +74,7 @@ describe StatusMessagesController do
         @hash[:photos] = [@photo1.id.to_s, @photo2.id.to_s]
       end
       it "dispatches all referenced photos" do
-        user1.should_receive(:dispatch_post).exactly(3).times
+        @user1.should_receive(:dispatch_post).exactly(3).times
         post :create, @hash
       end
       it "sets the pending bit of referenced photos" do
@@ -87,8 +86,8 @@ describe StatusMessagesController do
   end
 
   describe '#destroy' do
-    let!(:message) {user1.post(:status_message, :message => "hey", :to => aspect1.id)}
-    let!(:message2) {user2.post(:status_message, :message => "hey", :to => aspect2.id)}
+    let!(:message) {@user1.post(:status_message, :message => "hey", :to => @aspect1.id)}
+    let!(:message2) {@user2.post(:status_message, :message => "hey", :to => @aspect2.id)}
 
     it 'let a user delete his photos' do
       delete :destroy, :id => message.id

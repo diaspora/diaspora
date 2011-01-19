@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Jobs::ReceiveSalmon do
   before do
-    @user = Factory.create(:user)
+    @user = alice
     @xml = '<xml></xml>'
     User.stub(:find){ |id|
       if id == @user.id

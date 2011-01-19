@@ -31,15 +31,13 @@ describe DataConversion::ImportToMysql do
         @migrator.import_raw_users
       end
       it "imports data into the users table" do
-        Mongo::User.count.should == 6
-        User.count.should == 0
-        @migrator.process_raw_users
-        User.count.should == 6
+        lambda {
+          @migrator.process_raw_users
+        }.should change(User, :count).by(Mongo::User.count)
       end
       it "imports all the columns" do
         @migrator.process_raw_users
-        bob = User.first
-        bob.mongo_id.should == "4d2b6eb6cc8cb43cc2000007"
+        bob = User.where(:mongo_id => "4d2b6eb6cc8cb43cc2000007").first
         bob.username.should == "bob1d2f837"
         bob.email.should == "bob1a25dee@pivotallabs.com"
         bob.serialized_private_key.should_not be_nil
@@ -64,21 +62,19 @@ describe DataConversion::ImportToMysql do
         @migrator.import_raw_aspects
       end
       it "imports data into the aspects table" do
-        Mongo::Aspect.count.should == 4
-        Aspect.count.should == 0
-        @migrator.process_raw_aspects
-        Aspect.count.should == 4
+        lambda {
+          @migrator.process_raw_aspects
+        }.should change(Aspect, :count).by(Mongo::Aspect.count)
       end
       it "imports all the columns" do
         @migrator.process_raw_aspects
-        aspect = Aspect.first
+        aspect = Aspect.where(:mongo_id => "4d2b6eb6cc8cb43cc2000008").first
         aspect.name.should == "generic"
-        aspect.mongo_id.should == "4d2b6eb6cc8cb43cc2000008"
         aspect.user_mongo_id.should == "4d2b6eb6cc8cb43cc2000007"
       end
       it "sets the relation column" do
         @migrator.process_raw_aspects
-        aspect = Aspect.first
+        aspect = Aspect.where(:mongo_id => "4d2b6eb6cc8cb43cc2000008").first
         aspect.user.should == User.where(:mongo_id => aspect.user_mongo_id).first
       end
     end
@@ -91,18 +87,16 @@ describe DataConversion::ImportToMysql do
       end
 
       it "imports data into the services table" do
-        Mongo::Service.count.should == 2
-        Service.count.should == 0
-        @migrator.process_raw_services
-        Service.count.should == 2
+        lambda {
+          @migrator.process_raw_services
+        }.should change(Service, :count).by(Mongo::Service.count)
       end
 
       it "imports all the columns" do
         @migrator.process_raw_services
-        service = Service.first
+        service = Service.where(:mongo_id => "4d2b6ec4cc8cb43cc200003e").first
         service.type_before_type_cast.should == "Services::Facebook"
         service.user_mongo_id.should == "4d2b6eb7cc8cb43cc2000014"
-        service.mongo_id.should == "4d2b6ec4cc8cb43cc200003e"
         service.provider.should be_nil
         service.uid.should be_nil
         service.access_token.should == "yeah"
@@ -111,7 +105,7 @@ describe DataConversion::ImportToMysql do
       end
       it 'sets the relation column' do
         @migrator.process_raw_services
-        service = Service.first
+        service = Service.where(:mongo_id => "4d2b6ec4cc8cb43cc200003e").first
         service.user_id.should == User.where(:mongo_id => service.user_mongo_id).first.id
       end
     end
@@ -182,18 +176,16 @@ describe DataConversion::ImportToMysql do
       end
 
       it "imports data into the people table" do
-        Mongo::Person.count.should == 10
-        Person.count.should == 0
-        @migrator.process_raw_people
-        Person.count.should == 10
+        lambda {
+          @migrator.process_raw_people
+        }.should change(Person, :count).by(Mongo::Person.count)
       end
 
       it "imports all the columns of a non-owned person" do
         @migrator.process_raw_people
-        mongo_person = Mongo::Person.first
-        person = Person.first
+        mongo_person = Mongo::Person.where(:mongo_id => "4d2b6eb6cc8cb43cc2000001").first
+        person = Person.where(:mongo_id => "4d2b6eb6cc8cb43cc2000001").first
         person.owner_id.should be_nil
-        person.mongo_id.should == "4d2b6eb6cc8cb43cc2000001"
         person.guid.should == person.mongo_id
         person.url.should == "http://google-1b05052.com/"
         person.diaspora_handle.should == "bob-person-1fe12fb@aol.com"
@@ -203,9 +195,8 @@ describe DataConversion::ImportToMysql do
 
       it "imports all the columns of an owned person" do
         @migrator.process_raw_people
-        person = Person.where(:owner_id => User.first.id).first
-        mongo_person = Mongo::Person.where(:mongo_id => person.mongo_id).first
-        person.mongo_id.should == mongo_person.mongo_id
+        mongo_person = Mongo::Person.first
+        person = Person.where(:mongo_id => mongo_person.mongo_id).first
         person.guid.should == mongo_person.mongo_id
         person.url.should == mongo_person.url
         person.diaspora_handle.should == mongo_person.diaspora_handle
@@ -214,8 +205,9 @@ describe DataConversion::ImportToMysql do
       end
       it 'sets the relational column of an owned person' do
         @migrator.process_raw_people
-        person = Person.where(:owner_id => User.first.id).first
-        person.should_not be_nil
+        mongo_person = Mongo::Person.where("mongo_people.owner_mongo_id IS NOT NULL").first
+        person = Person.where(:mongo_id => mongo_person.mongo_id).first
+        person.owner.should_not be_nil
         person.diaspora_handle.should include(person.owner.username)
       end
     end
@@ -229,17 +221,15 @@ describe DataConversion::ImportToMysql do
       end
 
       it "imports data into the mongo_contacts table" do
-        Mongo::Contact.count.should == 6
-        Contact.count.should == 0
-        @migrator.process_raw_contacts
-        Contact.count.should == 6
+        lambda {
+          @migrator.process_raw_contacts
+        }.should change(Contact, :count).by(Mongo::Contact.count)
       end
 
       it "imports all the columns" do
         @migrator.process_raw_contacts
-        contact = Contact.first
-        mongo_contact = Mongo::Contact.where(:mongo_id => contact.mongo_id).first
-        contact.mongo_id.should == "4d2b6eb7cc8cb43cc200000f"
+        mongo_contact = Mongo::Contact.first
+        contact = Contact.where(:mongo_id => mongo_contact.mongo_id).first
         contact.user_id.should == User.where(:mongo_id => mongo_contact.user_mongo_id).first.id
         contact.person_id.should == Person.where(:mongo_id => mongo_contact.person_mongo_id).first.id
         contact.pending.should be_false
@@ -257,18 +247,18 @@ describe DataConversion::ImportToMysql do
       end
 
       it "imports data into the mongo_aspect_memberships table" do
-        Mongo::AspectMembership.count.should == 6
-        AspectMembership.count.should == 0
-        @migrator.process_raw_aspect_memberships
-        AspectMembership.count.should == 6
+        lambda {
+          @migrator.process_raw_aspect_memberships
+        }.should change(AspectMembership, :count).by(Mongo::AspectMembership.count)
       end
 
       it "imports all the columns" do
         @migrator.process_raw_aspect_memberships
-        aspectm = AspectMembership.first
         mongo_aspectm = Mongo::AspectMembership.first
-        aspectm.contact_id.should == Contact.where(:mongo_id => mongo_aspectm.contact_mongo_id).first.id
-        aspectm.aspect_id.should == Aspect.where(:mongo_id => mongo_aspectm.aspect_mongo_id).first.id
+        aspectm = AspectMembership.where(
+          :contact_id => Contact.where(:mongo_id => mongo_aspectm.contact_mongo_id).first.id,
+          :aspect_id => Aspect.where(:mongo_id => mongo_aspectm.aspect_mongo_id).first.id).first
+        aspectm.should_not be_nil
       end
     end
     describe "profiles" do
@@ -280,19 +270,17 @@ describe DataConversion::ImportToMysql do
       end
 
       it "processs data into the mongo_profiles table" do
-        Mongo::Profile.count.should == 10
-        Profile.count.should == 0
-        @migrator.process_raw_profiles
-        Profile.count.should == 10
+        lambda {
+          @migrator.process_raw_profiles
+        }.should change(Profile, :count).by(Mongo::Profile.count)
       end
 
       it "processs all the columns" do
         @migrator.process_raw_profiles
-        profile = Profile.first
+        profile = Profile.where(:mongo_id => "4d2b6eb6cc8cb43cc2000001").first
         profile.image_url_medium.should be_nil
         profile.searchable.should == true
         profile.image_url.should be_nil
-        profile.mongo_id.should == "4d2b6eb6cc8cb43cc2000001"
         profile.gender.should be_nil
         profile.diaspora_handle.should == profile.person.diaspora_handle
         profile.last_name.should == 'weinstien'
@@ -315,10 +303,9 @@ describe DataConversion::ImportToMysql do
       end
 
       it "imports data into the posts table" do
-        Mongo::Post.count.should == 6
-        Post.count.should == 0
-        @migrator.process_raw_posts
-        Post.count.should == 6
+        lambda {
+          @migrator.process_raw_posts
+        }.should change(Post, :count).by(Mongo::Post.count)
       end
 
       it "imports all the columns" do
@@ -374,11 +361,10 @@ describe DataConversion::ImportToMysql do
         @migrator.import_raw_comments
       end
 
-      it "imports data into the mongo_comments table" do
-        Mongo::Comment.count.should == 2
-        Comment.count.should == 0
-        @migrator.process_raw_comments
-        Comment.count.should == 2
+      it "imports data into the comments table" do
+        lambda {
+          @migrator.process_raw_comments
+        }.should change(Comment, :count).by(Mongo::Comment.count)
       end
 
       it "processes all the columns" do
