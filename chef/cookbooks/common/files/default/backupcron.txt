@@ -1,5 +1,3 @@
-42 * * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace backup:mongo &> /usr/local/app/diaspora/log/rake_mongo.log
-42 15 * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace backup:photos &> /usr/local/app/diaspora/log/rake_photos.log
 #statistics
 42 15 * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace statistics:users_splunk &> /usr/local/app/diaspora/log/stats.log
 42 15 * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace statistics:content_splunk &> /usr/local/app/diaspora/log/stats.log
