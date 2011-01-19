@@ -1,12 +1,12 @@
 %li{:data=>{:guid=>aspect.id}, :class => ("dull" if contacts.length == 0)}
   .right
     %b
-      = link_to t('contacts', :count => aspect.contacts.count), edit_aspect_path(aspect), :rel => 'facebox'
+      = link_to t('contacts', :count => contacts.count), edit_aspect_path(aspect), :rel => 'facebox'
   %b
     = aspect.name
   %br
 
   - if aspect.contacts.length > 0
     .contacts
-      - for contact in aspect.contacts[0..16]
+      - for contact in contacts[0..16]
         = person_image_link(contact.person)
