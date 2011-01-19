@@ -16,11 +16,31 @@ class PeopleController < ApplicationController
       redirect_to @people.first
     else
       @hashes = hashes_for_people(@people, @aspects)
+      @people 
       #only do it if it is an email address
       if params[:q].try(:match, Devise.email_regexp)
         webfinger(params[:q])
       end
     end
+  end
+
+  def hashes_for_people people, aspects
+    ids = people.map{|p| p.id}
+    requests = {}
+    Request.where(:sender_id => ids, :recipient_id => current_user.person.id).each do |r|
+      requests[r.id] = r
+    end
+    contacts = {}
+    Contact.where(:user_id => current_user.id, :person_id => ids).each do |contact|
+      contacts[contact.person_id] = contact
+    end
+
+    people.map{|p|
+      {:person => p,
+        :contact => contacts[p.id],
+        :request => requests[p.id],
+        :aspects => aspects}
+    }
   end
 
   def show
@@ -115,5 +135,4 @@ class PeopleController < ApplicationController
   def webfinger(account, opts = {})
     Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
   end
-
 end
