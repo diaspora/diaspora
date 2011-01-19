@@ -135,7 +135,7 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = current_user.visible_photos.where(:id => params[:id]).first
+    @photo = current_user.visible_photos.where(:id => params[:id]).includes(:person, :status_message => :photos).first
     if @photo
       @parent = @photo.status_message
 
@@ -152,8 +152,8 @@ class PhotosController < ApplicationController
       end
 
       @object_aspect_ids = []
-      if @parent.aspects
-        @object_aspect_ids = @parent.aspects.map{|a| a.id}
+      if @parent_aspects = @parent.aspects.where(:user_id => current_user.id)
+        @object_aspect_ids = @parent_aspects.map{|a| a.id}
       end
 
       @ownership = current_user.owns? @photo

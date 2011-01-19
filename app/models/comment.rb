@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Comment < ActiveRecord::Base
-  default_scope :include => :person
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   require File.join(Rails.root, 'lib/youtube_titles')
   include YoutubeTitles
