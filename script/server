@@ -55,6 +55,10 @@ function redis_config
         redis_conf="/etc/redis.conf"
     elif [ -r "/etc/redis/redis.conf" ]; then
         redis_conf="/etc/redis/redis.conf"
+    elif [ -r "/usr/local/etc/redis.conf" ]; then
+        redis_conf="/usr/local/etc/redis.conf"
+    elif [ -r "/usr/local/etc/redis/redis.conf" ]; then
+        redis_conf="/usr/local/etc/redis/redis.conf"
     else
         echo <<- EOM
 		Don't know how to configure redis for this platform. Copy
