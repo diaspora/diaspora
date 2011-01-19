@@ -9,6 +9,8 @@ class Request < ActiveRecord::Base
   include Diaspora::Webhooks
   include ROXML
 
+  default_scope :include => :sender
+  
   xml_accessor :sender_handle
   xml_accessor :recipient_handle
 
@@ -53,15 +55,6 @@ class Request < ActiveRecord::Base
   def diaspora_handle
     sender_handle
   end
-
-  def self.hashes_for_person person
-    requests = Request.where(:recipient_id => person.id)
-    senders = Person.where(:id => requests.map{|r| r.sender_id})
-    senders_hash = {}
-    senders.each{|sender| senders_hash[sender.id] = sender}
-    requests.map{|r| {:request => r, :sender => senders_hash[r.sender_id]}}
-  end
-
 
   def notification_type(user, person)
     if Contact.where(:user_id => user.id, :person_id => person.id).first

@@ -11,9 +11,9 @@ class AspectsController < ApplicationController
 
   def index
     if params[:a_ids]
-      @aspects = current_user.aspects_from_ids(params[:a_ids])
+      @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts) #linit 16
     else
-      @aspects = current_user.aspects
+      @aspects = current_user.aspects.includes(:contacts)
     end
 
     # redirect to signup
@@ -24,13 +24,11 @@ class AspectsController < ApplicationController
       @aspect_ids = @aspects.map{|a| a.id}
       post_ids = @aspects.map{|a| a.post_ids}.flatten!
 
-      @posts = Post.where(:id => post_ids, :type => "StatusMessage").paginate(
-        :page => params[:page], :per_page => 15, :order => 'created_at DESC')
-      @post_hashes = hashes_for_posts @posts
+      @posts = StatusMessage.joins(:aspects).where(:pending => false,
+               :aspects => {:id => @aspect_ids}).includes(:person, :comments, :photos).select('DISTINCT `posts`.*').paginate(
+               :page => params[:page], :per_page => 15, :order => 'created_at DESC')
 
       @contacts = current_user.contacts.includes(:person).where(:pending => false)
-      @contact_hashes = hashes_for_contacts @contacts
-      @aspect_hashes = hashes_for_aspects @aspects, @contacts, :limit => 16
 
       @aspect = :all unless params[:a_ids]
 
@@ -77,17 +75,13 @@ class AspectsController < ApplicationController
   end
 
   def edit
-    @aspect = current_user.aspects.where(:id => params[:id]).first
+    @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts).first
     @contacts = current_user.contacts.where(:pending => false)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @aspect_ids = [@aspect.id]
-      @aspect_contacts = hashes_for_contacts @aspect.contacts.where(:pending => false)
-      @aspect_contacts_count = @aspect_contacts.count
-
-      @all_contacts = hashes_for_contacts @contacts
-
+      @aspect_contacts_count = @aspect.contacts.count
       render :layout => false
     end
   end
@@ -95,8 +89,8 @@ class AspectsController < ApplicationController
   def manage
     @aspect = :manage
     @contacts = current_user.contacts.where(:pending => false)
-    @remote_requests = Request.hashes_for_person(current_user.person)
-    @aspect_hashes = hashes_for_aspects @all_aspects, @contacts
+    @remote_requests = Request.where(:recipient_id => current_user.person.id)
+    @aspects = @all_aspects.includes(:contacts)
   end
 
   def update
@@ -182,53 +176,6 @@ class AspectsController < ApplicationController
           redirect_to :back
         }
       end
-    end
-  end
-
-  private
-  def hashes_for_contacts contacts
-    contacts.includes(:person).map{|c| {:contact => c, :person => c.person}}
-  end
-
-  def hashes_for_aspects aspects, contacts, opts = {}
-    contact_hashes = hashes_for_contacts contacts
-    aspects.map do |a|
-      hash = {:aspect => a}
-      aspect_contact_hashes = contact_hashes.select{|c|
-          c[:contact].aspects.include?(a)}
-      hash[:contact_count] = aspect_contact_hashes.count
-      if opts[:limit]
-        hash[:contacts] = aspect_contact_hashes.slice(0,opts[:limit])
-      else
-        hash[:contacts] = aspect_contact_hashes
-      end
-      hash
-    end
-  end
-  def hashes_for_posts posts
-    post_ids = []
-    post_person_ids = []
-    posts.each{|p| post_ids << p.id; post_person_ids << p.person_id}
-
-    comment_hash = Comment.hash_from_post_ids post_ids
-    commenters_hash = Person.from_post_comment_hash comment_hash
-    photo_hash = Photo.hash_from_post_ids post_ids
-
-    post_person_ids.uniq!
-    posters = Person.where(:id => post_person_ids)
-    posters_hash = {}
-    posters.each{|poster| posters_hash[poster.id] = poster}
-
-    posts.map do |post|
-      {:post => post,
-        :photos => photo_hash[post.id],
-        :person => posters_hash[post.person_id],
-        :comments => comment_hash[post.id].map do |comment|
-          {:comment => comment,
-            :person => commenters_hash[comment.person_id],
-          }
-        end,
-      }
     end
   end
 end

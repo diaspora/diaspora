@@ -8,7 +8,7 @@
 #edit_aspect_pane
   - if @contacts.count > 0
     %h4= t('aspects.edit.add_existing')
-    = render 'shared/contact_list', :aspect_id => aspect.id, :contact_hashes => contacts, :manage => defined?(manage)
+    = render 'shared/contact_list', :aspect_id => aspect.id, :contacts => contacts, :manage => defined?(manage)
 
   = render 'shared/add_contact', :aspect_id => aspect.id
 

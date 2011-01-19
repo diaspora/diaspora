@@ -5,5 +5,5 @@
 
 = render 'shared/publisher', :aspect => aspect, :aspect_ids => aspect_ids
 #main_stream.stream{:data => {:guids => aspect_ids.join(',')}}
-  = render 'shared/stream', :posts => post_hashes
-= will_paginate @posts
+  = render 'shared/stream', :posts => posts
+= will_paginate posts

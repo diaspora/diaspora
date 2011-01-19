@@ -35,7 +35,7 @@ describe 'making sure the spec runner works' do
     it 'connects the first user to the second' do
       contact = @user1.contact_for @user2.person
       contact.should_not be_nil
-      @user1.contacts.include?(contact).should be_true
+      @user1.contacts.reload.include?(contact).should be_true
       @aspect1.contacts.include?(contact).should be_true
       contact.aspects.include?(@aspect1).should be_true
     end
@@ -43,7 +43,7 @@ describe 'making sure the spec runner works' do
     it 'connects the second user to the first' do
       contact = @user2.contact_for @user1.person
       contact.should_not be_nil
-      @user2.contacts.include?(contact).should be_true
+      @user2.contacts.reload.include?(contact).should be_true
       @aspect2.contacts.include?(contact).should be_true
       contact.aspects.include?(@aspect2).should be_true
     end

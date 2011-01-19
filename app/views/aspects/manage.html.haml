@@ -24,13 +24,13 @@
         - if @remote_requests.size < 1
           %li=t('.no_requests')
         - else
-          - for hash in @remote_requests
-            %li.person.request{:data=>{:guid=>hash[:request].id, :person_id=>hash[:sender].id}}
+          - for req in @remote_requests
+            %li.person.request{:data=>{:guid=> req.id, :person_id=> req.sender.id}}
               .delete
                 .x
                   X
                 .circle
-              = link_to person_image_tag(hash[:sender]), hash[:sender]
+              = link_to person_image_tag(req.sender), req.sender 
 
       - if @remote_requests.size > 0
         %p
@@ -42,30 +42,30 @@
       \.
 
   .span-19.last
-    - for hash in @aspect_hashes
-      .aspect.span-9{:data=>{:guid=>hash[:aspect].id}}
+    - for aspect in @aspects
+      .aspect.span-9{:data=>{:guid => aspect.id}}
         .aspect_name
           %span.edit_name_field
             %h3{:contenteditable=>true}
-              = hash[:aspect].name
+              = aspect.name
             %span.tip click to edit
 
           %ul.tools
-            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{hash[:aspect].id}", :class => 'manage_aspect_contacts_button', :rel => "facebox"
-            %li!= remove_link(hash[:aspect])
+            %li= link_to t('.add_a_new_contact'), "#manage_aspect_contacts_pane_#{aspect.id}", :class => 'manage_aspect_contacts_button', :rel => "facebox"
+            %li!= remove_link(aspect)
 
-        %ul.dropzone{:data=>{:aspect_id=>hash[:aspect].id}}
-          -for contact_hash in hash[:contacts]
-            %li.person{:data=>{:guid=>contact_hash[:person].id, :aspect_id=>hash[:aspect].id}}
+        %ul.dropzone{:data => {:aspect_id => aspect.id}}
+          -for contact in aspect.contacts
+            %li.person{:data => {:guid => contact.person.id, :aspect_id => aspect.id}}
               .delete
                 .x
                   X
                 .circle
-              = link_to person_image_tag(contact_hash[:person]), contact_hash[:person]
+              = link_to person_image_tag(contact.person), contact.person
           .draggable_info
             =t('.drag_to_add')
 
           .facebox_content
-            %div{:id => "manage_aspect_contacts_pane_#{hash[:aspect].id}"}
-              = render "requests/manage_aspect_contacts", :aspect => hash[:aspect], :manage => true, :contact_hashes => hash[:contacts]
+            %div{:id => "manage_aspect_contacts_pane_#{ aspect.id}"}
+              = render "requests/manage_aspect_contacts", :aspect => aspect, :manage => true, :contacts => @contacts
 

@@ -48,7 +48,7 @@ module SocketsHelper
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
 
       elsif object.is_a? Comment
-        v = render_to_string(:partial => 'comments/comment', :locals => {:hash => {:comment => object, :person => object.person}})
+        v = render_to_string(:partial => 'comments/comment', :locals => {:comment => object, :person => object.person})
 
       elsif object.is_a? Notification
         v = render_to_string(:partial => 'notifications/popup', :locals => {:note => object, :person => object.actor})

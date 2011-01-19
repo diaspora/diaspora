@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class Post < ActiveRecord::Base
+  default_scope :include => [:person, :comments]
   require File.join(Rails.root, 'lib/encryptable')
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   include ApplicationHelper

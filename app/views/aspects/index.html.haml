@@ -13,7 +13,7 @@
     = render 'aspect_stream',
       :aspect => @aspect,
       :aspect_ids => @aspect_ids,
-      :post_hashes => @post_hashes
+      :posts => @posts
 
 .span-7.last
   #home_user_badge
@@ -38,7 +38,7 @@
     %hr
 
   #aspect_listings.section
-    = render 'aspects/aspect_listings', :aspect_hashes => @aspect_hashes
+    = render 'aspects/aspect_listings', :aspects => @aspects, :contacts => @contacts
 
   .section
     %h4= t('shared.invitations.invites')

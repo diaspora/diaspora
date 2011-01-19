@@ -26,10 +26,9 @@ class CommentsController < ApplicationController
                                        :comment_id => @comment.id,
                                        :html => render_to_string(
                                          :partial => 'comments/comment',
-                                         :locals => { :hash => {
-                                           :comment => @comment,
+                                         :locals => { :comment => @comment,
                                            :person => current_user.person,
-                                          }}
+                                          }
                                         )
                                       }
             render(:json => json, :status => 201)

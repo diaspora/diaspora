@@ -71,28 +71,6 @@ describe Request do
     end
   end
 
-  describe '.hashes_for_person' do
-    before do
-      @user = Factory.create(:user)
-      @user2 = Factory.create(:user)
-      @user2.send_contact_request_to @user.person, @user2.aspects.create(:name => "hi")
-      @user.reload
-      @user2.reload
-      @hashes = Request.hashes_for_person(@user.person)
-      @hash = @hashes.first
-    end
-    it 'gives back requests' do
-      @hash[:request].should == Request.where(:sender_id => @user2.person.id, :recipient_id => @user.person.id).first
-    end
-    it 'gives back people' do
-      @hash[:sender].should == @user2.person
-    end
-    it 'does not retrieve keys' do
-      pending "don't retrieve keys"
-      @hash[:sender].serialized_public_key.should be_nil
-    end
-  end
-
   describe 'xml' do
     before do
       @request = Request.new(:sender => @user.person, :recipient => @user2.person, :aspect => @aspect)

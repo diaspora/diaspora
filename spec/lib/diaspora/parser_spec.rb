@@ -47,7 +47,7 @@ describe Diaspora::Parser do
       @aspect.reload
       new_contact = @user.contact_for(@user2.person)
       @aspect.contacts.include?(new_contact).should be true
-      @user.contacts.include?(new_contact).should be true
+      @user.contacts.reload.include?(new_contact).should be true
     end
 
     it 'should process retraction for a person' do

@@ -6,13 +6,13 @@
 .contact_list
   = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
   %ul
-    - for hash in contact_hashes
+    - for contact in contacts
       %li
-        = person_image_tag hash[:person]
+        = person_image_tag contact.person
         %h4.name
-          = link_to hash[:person].name, hash[:person]
+          = link_to contact.person.name, contact.person
           .description
-            = hash[:person].diaspora_handle
+            = contact.person.diaspora_handle
         .right
-          = aspect_membership_button(aspect_id, hash[:contact], hash[:person])
+          = aspect_membership_button(aspect_id, contact, contact.person)
 

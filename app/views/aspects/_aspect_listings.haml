@@ -5,14 +5,14 @@
 
 %h4
   .right
-    = link_to t('contacts', :count => @contacts.count), aspects_manage_path, :title => t('aspects.manage.manage_aspects')
+    = link_to t('contacts', :count => contacts.count), aspects_manage_path, :title => t('aspects.manage.manage_aspects')
 
-  = @aspect_hashes.count
-  - if @aspect_hashes.count == 1
+  = aspects.count
+  - if aspects.count == 1
     = t('_aspect')
   - else
     = t('_aspects')
 
 %ul
-  - for a_hash in aspect_hashes
-    = render :partial => 'aspects/aspect', :locals => a_hash
+  - for aspect in aspects
+    = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts

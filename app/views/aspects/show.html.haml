@@ -25,5 +25,5 @@
   = render 'shared/publisher', :aspect => @aspect
 
   #main_stream.stream{:data => {:guids => @aspect.id}}
-    = render 'shared/stream', :posts => @post_hashes
+    = render 'shared/stream', :posts => @posts
   =will_paginate @posts

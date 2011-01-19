@@ -55,7 +55,7 @@
       = render 'photos/index', :photos => @posts
     - else
       #main_stream.stream
-        = render 'shared/stream', :posts => @post_hashes
+        = render 'shared/stream', :posts => @posts
 
     = will_paginate @posts
 
