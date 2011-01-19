@@ -1,5 +1,0 @@
-[10gen]
-name=10gen Repository
-baseurl=http://downloads.mongodb.org/distros/centos/5.4/os/x86_64/
-gpgcheck=0
-

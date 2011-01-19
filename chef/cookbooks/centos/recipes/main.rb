@@ -15,7 +15,6 @@ end
 harden_ruby("ree-1.8.7-2010.02")
 
 include_recipe "centos::image_magick"
-include_recipe "centos::mongo_db"
 include_recipe "common::main"
 include_recipe "centos::nginx"
 include_recipe "centos::redis"
