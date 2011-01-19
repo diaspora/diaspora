@@ -76,47 +76,6 @@ describe PeopleController do
       response.should be_success
     end
   end
-  describe '#hashes_from_people' do
-    before do
-      @everyone = []
-      10.times do
-        @everyone << Factory.create(:person)
-      end
-
-      user.send_contact_request_to(@everyone[3], aspect)
-      user.send_contact_request_to(@everyone[2], aspect)
-      user.activate_contact(@everyone[4], aspect)
-      user.activate_contact(@everyone[5], aspect)
-
-      user.reload
-      user.aspects.reload
-      @people = @everyone
-      @people.length.should == 10
-      @hashes = @controller.hashes_for_people(@people, user.aspects)
-    end
-    it 'has the correct result for no relationship' do
-      hash = @hashes.first
-
-      hash[:person].should == @people.first
-      hash[:contact].should be_false
-      hash[:request].should be_false
-      hash[:aspects].should == user.aspects
-    end
-    it 'has the correct result for a connected person' do
-      hash = @hashes[4]
-      hash[:person].should == @people[4]
-      hash[:contact].should be_true
-      hash[:contact].should_not be_pending
-      hash[:aspects].should == user.aspects
-    end
-    it 'has the correct result for a requested person' do
-      hash = @hashes[2]
-      hash[:person].should == @people[2]
-      hash[:contact].should be_true
-      hash[:contact].should be_pending
-      hash[:aspects].should == user.aspects
-    end
-  end
   describe '#index' do
     before do
       @eugene = Factory.create(:person,
@@ -127,15 +86,6 @@ describe PeopleController do
                      :last_name => "Korth"))
     end
 
-    it "assigns hashes" do
-      eugene2 = Factory.create(:person,
-        :profile => Factory(:profile, :first_name => "Eugene",
-                     :last_name => "w"))
-      get :index, :q => "Eu"
-      people = assigns[:hashes].map{|h| h[:person]}
-      people.should include @eugene
-      people.should include eugene2
-    end
     it "assigns people" do
       eugene2 = Factory.create(:person,
         :profile => Factory(:profile, :first_name => "Eugene",

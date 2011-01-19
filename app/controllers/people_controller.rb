@@ -23,24 +23,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  def hashes_for_people people, aspects
-    ids = people.map{|p| p.id}
-    requests = {}
-    Request.where(:sender_id => ids, :recipient_id => current_user.person.id).each do |r|
-      requests[r.id] = r
-    end
-    contacts = {}
-    Contact.where(:user_id => current_user.id, :person_id => ids).each do |contact|
-      contacts[contact.person_id] = contact
-    end
-    people.map{|p|
-      {:person => p,
-        :contact => contacts[p.id],
-        :request => requests[p.id],
-        :aspects => aspects}
-    }
-  end
-
   def show
     @person = Person.where(:id => params[:id]).first
     @post_type = :all
@@ -130,25 +112,6 @@ class PeopleController < ApplicationController
   end
 
   private
-  def hashes_for_posts posts
-    post_ids = posts.map{|p| p.id}
-    comment_hash = Comment.hash_from_post_ids post_ids
-    person_hash = Person.from_post_comment_hash comment_hash
-    photo_hash = Photo.hash_from_post_ids post_ids
-
-    posts.map do |post|
-      {:post => post,
-        :person => @person,
-        :photos => photo_hash[post.id],
-        :comments => comment_hash[post.id].map do |comment|
-          {:comment => comment,
-            :person => person_hash[comment.person_id],
-          }
-        end,
-      }
-    end
-  end
-
   def webfinger(account, opts = {})
     Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
   end
