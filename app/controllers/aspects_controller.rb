@@ -11,7 +11,7 @@ class AspectsController < ApplicationController
 
   def index
     if params[:a_ids]
-      @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts) #linit 16
+      @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts)
     else
       @aspects = current_user.aspects.includes(:contacts)
     end
@@ -25,7 +25,7 @@ class AspectsController < ApplicationController
       post_ids = @aspects.map{|a| a.post_ids}.flatten!
 
       @posts = StatusMessage.joins(:aspects).where(:pending => false,
-               :aspects => {:id => @aspect_ids}).includes(:person, :comments, :photos).select('DISTINCT `posts`.*').paginate(
+               :aspects => {:id => @aspect_ids}).includes(:person, :comments => :person, :photos).select('DISTINCT `posts`.*').paginate(
                :page => params[:page], :per_page => 15, :order => 'created_at DESC')
 
       @contacts = current_user.contacts.includes(:person).where(:pending => false)
@@ -70,13 +70,13 @@ class AspectsController < ApplicationController
   end
 
   def show
-    @aspect = current_user.aspects.where(:id => params[:id]).first
+    @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => :person).first
     redirect_to aspects_path('a_ids[]' => @aspect.id)
   end
 
   def edit
-    @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts).first
-    @contacts = current_user.contacts.where(:pending => false)
+    @aspect = current_user.aspects.where(:id => params[:id]).first
+    @contacts = current_user.contacts.includes(:person).where(:pending => false)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
@@ -88,9 +88,9 @@ class AspectsController < ApplicationController
 
   def manage
     @aspect = :manage
-    @contacts = current_user.contacts.where(:pending => false)
+    @contacts = current_user.contacts.includes(:person).where(:pending => false)
     @remote_requests = Request.where(:recipient_id => current_user.person.id)
-    @aspects = @all_aspects.includes(:contacts)
+    @aspects = @all_aspects.includes(:contacts => :person)
   end
 
   def update

@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   skip_before_filter :set_locale
 
   def show
-    @post = Post.where(:id => params[:id], :public => true).first
+    @post = Post.where(:id => params[:id], :public => true).includes(:person, :comments => :person).first
 
     if @post
       @landing_page = true

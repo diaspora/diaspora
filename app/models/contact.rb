@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Contact < ActiveRecord::Base
-  default_scope :include => :person
   belongs_to :user
   validates_presence_of :user
 
