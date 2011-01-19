@@ -25,7 +25,7 @@ class AspectsController < ApplicationController
       post_ids = @aspects.map{|a| a.post_ids}.flatten!
 
       @posts = StatusMessage.joins(:aspects).where(:pending => false,
-               :aspects => {:id => @aspect_ids}).includes(:person, :comments => :person, :photos).select('DISTINCT `posts`.*').paginate(
+               :aspects => {:id => @aspect_ids}).includes(:person, {:comments => :person}, :photos).select('DISTINCT `posts`.*').paginate(
                :page => params[:page], :per_page => 15, :order => 'created_at DESC')
 
       @contacts = current_user.contacts.includes(:person).where(:pending => false)
