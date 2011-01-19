@@ -18,7 +18,7 @@ class NotificationsController < ApplicationController
   end
 
   def index
-    @notifications = Notification.for(current_user).paginate :page => params[:page], :per_page => 25
+    @notifications = Notification.for(current_user).include(:target).paginate :page => params[:page], :per_page => 25
     @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") }
     respond_with @notifications
   end
@@ -27,5 +27,4 @@ class NotificationsController < ApplicationController
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
     redirect_to :back
   end
-
 end
