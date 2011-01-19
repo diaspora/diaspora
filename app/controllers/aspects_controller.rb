@@ -11,9 +11,9 @@ class AspectsController < ApplicationController
 
   def index
     if params[:a_ids]
-      @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts)
+      @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts => {:person => :profile})
     else
-      @aspects = current_user.aspects.includes(:contacts)
+      @aspects = current_user.aspects.includes(:contacts => {:person => :profile})
     end
 
     # redirect to signup
@@ -22,13 +22,12 @@ class AspectsController < ApplicationController
     else
 
       @aspect_ids = @aspects.map{|a| a.id}
-      post_ids = @aspects.map{|a| a.post_ids}.flatten!
 
       @posts = StatusMessage.joins(:aspects).where(:pending => false,
-               :aspects => {:id => @aspect_ids}).includes(:person, {:comments => :person}, :photos).select('DISTINCT `posts`.*').paginate(
+               :aspects => {:id => @aspect_ids}).includes({:person => :profile}, {:comments => {:person => :profile}}, :photos).select('DISTINCT `posts`.*').paginate(
                :page => params[:page], :per_page => 15, :order => 'created_at DESC')
 
-      @contacts = current_user.contacts.includes(:person).where(:pending => false)
+      @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
 
       @aspect = :all unless params[:a_ids]
 
@@ -70,13 +69,13 @@ class AspectsController < ApplicationController
   end
 
   def show
-    @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => :person).first
+    @aspect = current_user.aspects.where(:id => params[:id]).first
     redirect_to aspects_path('a_ids[]' => @aspect.id)
   end
 
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).first
-    @contacts = current_user.contacts.includes(:person).where(:pending => false)
+    @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
@@ -88,9 +87,9 @@ class AspectsController < ApplicationController
 
   def manage
     @aspect = :manage
-    @contacts = current_user.contacts.includes(:person).where(:pending => false)
-    @remote_requests = Request.where(:recipient_id => current_user.person.id).includes(:sender)
-    @aspects = @all_aspects.includes(:contacts => :person)
+    @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
+    @remote_requests = Request.where(:recipient_id => current_user.person.id).includes(:sender => :profile)
+    @aspects = @all_aspects.includes(:contacts => {:person => :profile})
   end
 
   def update
