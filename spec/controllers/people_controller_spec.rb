@@ -170,7 +170,7 @@ describe PeopleController do
 
   describe '#webfinger' do
     it 'enqueues a webfinger job' do
-      Resque.should_receive(:enqueue).with(Jobs::SocketWebfinger, @user.id, @user.diaspora_handle, anything).once
+      Resque.should_receive(:enqueue).with(Job::SocketWebfinger, @user.id, @user.diaspora_handle, anything).once
       get :retrieve_remote, :diaspora_handle => @user.diaspora_handle
     end
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Jobs::PostToService do
+describe Job::PostToService do
   it 'calls service#post with the given service' do
     user = alice
     aspect = user.aspects.create(:name => "yeah")
@@ -10,6 +10,6 @@ describe Jobs::PostToService do
     url = "foobar"
     m.should_receive(:post).with(anything, url)
     Service.stub!(:find_by_id).and_return(m)
-    Jobs::PostToService.perform("123", post.id.to_s, url)
+    Job::PostToService.perform("123", post.id.to_s, url)
   end
 end

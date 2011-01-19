@@ -387,8 +387,8 @@ describe User do
       user.save
       user.reload
 
-      Resque.should_receive(:enqueue).with(Jobs::MailRequestReceived, user.id, 'contactrequestid').once
-      user.mail(Jobs::MailRequestReceived, user.id, 'contactrequestid')
+      Resque.should_receive(:enqueue).with(Job::MailRequestReceived, user.id, 'contactrequestid').once
+      user.mail(Job::MailRequestReceived, user.id, 'contactrequestid')
     end
 
     it 'does not enqueue a mail job' do
@@ -397,7 +397,7 @@ describe User do
       user.reload
 
       Resque.should_not_receive(:enqueue)
-      user.mail(Jobs::MailRequestReceived, user.id, 'contactrequestid')
+      user.mail(Job::MailRequestReceived, user.id, 'contactrequestid')
     end
   end
 

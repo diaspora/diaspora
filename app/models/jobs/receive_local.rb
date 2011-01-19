@@ -3,13 +3,12 @@
 #   the COPYRIGHT file.
 
 
-module Jobs
-  class ReceiveLocal
+module Job
+  class ReceiveLocal < Base
     require File.join(Rails.root, 'lib/postzord/receiver')
 
-    extend ResqueJobLogging
     @queue = :receive_local
-    def self.perform(user_id, person_id, object_type, object_id)
+    def self.perform_delegate(user_id, person_id, object_type, object_id)
       user = User.find(user_id)
       person = Person.find(person_id)
       object = object_type.constantize.where(:id => object_id).first

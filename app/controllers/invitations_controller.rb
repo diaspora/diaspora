@@ -23,7 +23,7 @@ class InvitationsController < Devise::InvitationsController
 
       good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
 
-      good_emails.each{|e| Resque.enqueue(Jobs::InviteUser, current_user.id, e, aspect, message)}
+      good_emails.each{|e| Resque.enqueue(Job::InviteUser, current_user.id, e, aspect, message)}
 
       if bad_emails.any?
         flash[:error] = I18n.t('invitations.create.sent') + good_emails.join(', ') + " "+ I18n.t('invitations.create.rejected') + bad_emails.join(', ')

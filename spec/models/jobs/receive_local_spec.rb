@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Jobs::ReceiveLocal do
+describe Job::ReceiveLocal do
   before do
     @user1 = alice
     @person1 = @user1.person
@@ -38,6 +38,6 @@ describe Jobs::ReceiveLocal do
     m = mock()
     m.should_receive(:receive_object)
     Postzord::Receiver.should_receive(:new).and_return(m)
-    Jobs::ReceiveLocal.perform(@user1.id, @person2.id, @status_type, @status.id)
+    Job::ReceiveLocal.perform(@user1.id, @person2.id, @status_type, @status.id)
   end
 end

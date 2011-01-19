@@ -133,6 +133,6 @@ class PeopleController < ApplicationController
 
   private
   def webfinger(account, opts = {})
-    Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
+    Resque.enqueue(Job::SocketWebfinger, current_user.id, account, opts)
   end
 end

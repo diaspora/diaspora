@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Jobs::PublishToHub do
+describe Job::PublishToHub do
   describe '.perform' do
     it 'calls pubsubhubbub' do
       url = "http://publiczone.com/"
@@ -12,7 +12,7 @@ describe Jobs::PublishToHub do
 
       m.should_receive(:publish).with(url)
       Pubsubhubbub.should_receive(:new).with(AppConfig[:pubsub_server]).and_return(m)
-      Jobs::PublishToHub.perform(url)
+      Job::PublishToHub.perform(url)
     end
   end
 end

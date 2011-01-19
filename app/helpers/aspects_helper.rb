@@ -59,6 +59,4 @@ module AspectsHelper
     end
     (link_to str, '#', :id => 'expand_publisher').html_safe
   end
-
 end
-

@@ -3,11 +3,12 @@
 #   the COPYRIGHT file.
 
 
-module Jobs
-  class SocketWebfinger
-    extend ResqueJobLogging
+module Job
+  class SocketWebfinger < Base
+
     @queue = :socket_webfinger
-    def self.perform(user_id, account, opts={})
+
+    def self.perform_delegate(user_id, account, opts={})
       finger = Webfinger.new(account)
       begin
         user = User.find_by_id(user_id)

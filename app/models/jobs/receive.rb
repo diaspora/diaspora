@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 
-module Jobs
-  class Receive
-    extend ResqueJobLogging
+module Job
+  class Receive < Base
+
     @queue = :receive
     def self.perform(user_id, xml, salmon_author_id)
       user = User.find(user_id)

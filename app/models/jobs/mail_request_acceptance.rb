@@ -3,11 +3,10 @@
 #   the COPYRIGHT file.
 
 
-module Jobs
-  class MailRequestAcceptance
-    extend ResqueJobLogging
+module Job
+  class MailRequestAcceptance < Base
     @queue = :mail
-    def self.perform(recipient_id, sender_id)
+    def self.perform_delegate(recipient_id, sender_id)
       Notifier.request_accepted(recipient_id, sender_id).deliver
     end
   end

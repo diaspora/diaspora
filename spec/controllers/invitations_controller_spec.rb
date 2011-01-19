@@ -26,7 +26,7 @@ describe InvitationsController do
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
     end
 
-    it 'calls the resque job Jobs::InviteUser'  do
+    it 'calls the resque job Job::InviteUser'  do
       Resque.should_receive(:enqueue)
       post :create,  :user => @invite
     end

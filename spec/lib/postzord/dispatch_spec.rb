@@ -101,7 +101,7 @@ describe Postzord::Dispatch do
       end
 
       it 'should queue an HttpPost job for each remote person' do
-        Resque.should_receive(:enqueue).with(Jobs::HttpPost, @user.person.receive_url, anything).once
+        Resque.should_receive(:enqueue).with(Job::HttpPost, @user.person.receive_url, anything).once
         @mailman.send(:deliver_to_remote, @remote_people)
       end
 
@@ -117,7 +117,7 @@ describe Postzord::Dispatch do
         local_people = []
         local_people << @user.person
         mailman = Postzord::Dispatch.new(@user, @sm)
-        Resque.should_receive(:enqueue).with(Jobs::Receive, @user.id, @xml, anything).once
+        Resque.should_receive(:enqueue).with(Job::Receive, @user.id, @xml, anything).once
         mailman.send(:deliver_to_local, local_people)
       end
     end
@@ -130,15 +130,15 @@ describe Postzord::Dispatch do
       end
 
       it 'calls post for each of the users services' do
-        Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
-        Resque.should_receive(:enqueue).with(Jobs::PostToService, @service.id, anything, anything).once
+        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
+        Resque.should_receive(:enqueue).with(Job::PostToService, @service.id, anything, anything).once
         @zord.instance_variable_get(:@sender).should_receive(:services).and_return([@service])
         @zord.send(:deliver_to_services, nil)
       end
 
       it 'queues a job to notify the hub' do
-        Resque.stub!(:enqueue).with(Jobs::PostToService, anything, anything, anything)
-        Resque.should_receive(:enqueue).with(Jobs::PublishToHub, @user.public_url)
+        Resque.stub!(:enqueue).with(Job::PostToService, anything, anything, anything)
+        Resque.should_receive(:enqueue).with(Job::PublishToHub, @user.public_url)
         @zord.send(:deliver_to_services, nil)
       end
 
@@ -166,9 +166,9 @@ describe Postzord::Dispatch do
         z.send(:socket_and_notify_users, users)
       end
 
-      it 'queues a Jobs::NotifyLocalUsers jobs' do
+      it 'queues a Job::NotifyLocalUsers jobs' do
         @zord.instance_variable_get(:@object).should_receive(:socket_to_user).and_return(false)
-        Resque.should_receive(:enqueue).with(Jobs::NotifyLocalUsers, @local_user.id, @sm.class.to_s, @sm.id, anything)
+        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, @local_user.id, @sm.class.to_s, @sm.id, anything)
         @zord.send(:socket_and_notify_users, [@local_user])
       end
     end

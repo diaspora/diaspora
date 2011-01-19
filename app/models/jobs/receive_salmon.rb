@@ -4,11 +4,11 @@
 
 
 require File.join(Rails.root, 'lib/postzord/receiver')
-module Jobs
-  class ReceiveSalmon
-    extend ResqueJobLogging
+module Job
+  class ReceiveSalmon < Base
     @queue = :receive_salmon
-    def self.perform(user_id, xml)
+
+    def self.perform_delegate(user_id, xml)
       user = User.find(user_id)
       zord = Postzord::Receiver.new(user, :salmon_xml => xml)
       zord.perform
