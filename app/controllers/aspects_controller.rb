@@ -89,7 +89,7 @@ class AspectsController < ApplicationController
   def manage
     @aspect = :manage
     @contacts = current_user.contacts.includes(:person).where(:pending => false)
-    @remote_requests = Request.where(:recipient_id => current_user.person.id)
+    @remote_requests = Request.where(:recipient_id => current_user.person.id).includes(:sender)
     @aspects = @all_aspects.includes(:contacts => :person)
   end
 

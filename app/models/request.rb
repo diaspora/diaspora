@@ -9,8 +9,6 @@ class Request < ActiveRecord::Base
   include Diaspora::Webhooks
   include ROXML
 
-  default_scope :include => :sender
-  
   xml_accessor :sender_handle
   xml_accessor :recipient_handle
 
