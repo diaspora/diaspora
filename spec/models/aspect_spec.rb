@@ -59,8 +59,9 @@ describe Aspect do
     end
 
     it 'has no uniqueness between users' do
+      aspect = user.aspects.create(:name => "New Aspect")
       aspect2 = user2.aspects.create(:name => aspect.name)
-      aspect2.valid?.should be_true
+      aspect2.should be_valid
     end
   end
 
@@ -76,7 +77,7 @@ describe Aspect do
     end
 
     it 'should have contacts' do
-      aspect.contacts.size.should == 1
+      aspect.contacts.size.should == 2
     end
 
     describe '#aspects_with_person' do

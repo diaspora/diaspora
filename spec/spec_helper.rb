@@ -23,9 +23,9 @@ RSpec.configure do |config|
   config.mock_with :mocha
   config.mock_with :rspec
 
+ # config.fixture_path = "#{Rails.root}/spec/fixtures"
+ # config.global_fixtures = :all
   config.use_transactional_fixtures = true
-
-#  config.global_fixtures = :all
 
   config.before(:each) do
     I18n.locale = :en

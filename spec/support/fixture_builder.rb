@@ -11,6 +11,6 @@ FixtureBuilder.configure do |fbuilder|
 
     connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
     connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
-  end
+   end
 end
 
