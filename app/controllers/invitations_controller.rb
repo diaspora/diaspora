@@ -7,8 +7,8 @@ class InvitationsController < Devise::InvitationsController
   before_filter :check_token, :only => [:edit]
 
   def new
-    sent_invitations = current_user.invitations_from_me
-    @emails_delivered = sent_invitations.map!{ |i| i.to.email }
+    sent_invitations = current_user.invitations_from_me.includes(:recipient)
+    @emails_delivered = sent_invitations.map!{ |i| i.recipient.email }
   end
 
   def create
