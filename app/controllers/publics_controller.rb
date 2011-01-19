@@ -15,7 +15,7 @@ class PublicsController < ApplicationController
   caches_page :host_meta
 
   def hcard
-    @person = Person.where(:guid => params[:guid])
+    @person = Person.where(:guid => params[:guid]).first
     unless @person.nil? || @person.owner.nil?
       render 'publics/hcard'
     else

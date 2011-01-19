@@ -8,19 +8,19 @@ describe PublicsController do
   render_views
 
   let(:user)   { Factory.create(:user) }
-  let(:person) { Factory(:person) }
+  let(:person) { Factory.create(:person) }
 
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 
     it 'succeeds' do
-      post :receive, "id" => user.person.id.to_s, "xml" => xml
+      post :receive, "guid" => user.person.guid.to_s, "xml" => xml
       response.should be_success
     end
 
     it 'enqueues a receive job' do
       Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, xml).once
-      post :receive, "id" => user.person.id.to_s, "xml" => xml
+      post :receive, "guid" => user.person.guid.to_s, "xml" => xml
     end
 
     it 'unescapes the xml before sending it to receive_salmon' do
@@ -34,33 +34,33 @@ describe PublicsController do
 
       Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, enc_xml).once
 
-      post :receive, "id" => user.person.id.to_s, "xml" => CGI::escape(enc_xml)
+      post :receive, "guid" => user.person.guid.to_s, "xml" => CGI::escape(enc_xml)
     end
 
     it 'returns a 422 if no xml is passed' do
-      post :receive, "id" => person.id.to_s
+      post :receive, "guid" => person.guid.to_s
       response.code.should == '422'
     end
 
     it 'returns a 404 if no user is found' do
-      post :receive, "id" => person.id.to_s, "xml" => xml
+      post :receive, "guid" => person.guid.to_s, "xml" => xml
       response.should be_not_found
     end
   end
 
   describe '#hcard' do
     it "succeeds" do
-      post :hcard, "id" => user.person.id.to_s
+      post :hcard, "guid" => user.person.guid.to_s
       response.should be_success
     end
 
     it 'sets the person' do
-      post :hcard, "id" => user.person.id.to_s
+      post :hcard, "guid" => user.person.guid.to_s
       assigns[:person].should == user.person
     end
 
     it 'does not query by user id' do
-      post :hcard, "id" => user.id.to_s
+      post :hcard, "guid" => user.id.to_s
       assigns[:person].should be_nil
       response.should be_not_found
     end
