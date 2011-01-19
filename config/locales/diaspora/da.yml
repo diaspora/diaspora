@@ -4,11 +4,11 @@
 
 
 da: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
+  _aspect: "Aspekt"
+  _aspects: "Aspekter"
   _comments: "Kommentarer"
-  _contact: "Contact"
-  _contacts: "Contacts"
+  _contact: "Kontakt"
+  _contacts: "Kontakter"
   _home: "Hjem"
   _photos: "Billeder"
   _services: "Tjenester"
@@ -57,18 +57,18 @@ da:
     destroy: 
       success: "%{name} fjernet."
     edit: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      remove_aspect: "Delete this aspect"
-      rename: "rename"
-      rename_aspect: "Rename aspect"
+      add_existing: "Tilføj en eksisterende kontakt "
+      confirm_remove_aspect: "Er du sikker på du vil slette dette aspekt?"
+      remove_aspect: "Slet dette aspekt"
+      rename: "omdøb"
+      rename_aspect: "Omdøb aspekt"
     helper: 
       are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"
       aspect_not_empty: "Aspektet er ikke tomt"
       remove: "slet"
     index: 
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
-      no_contacts: "No contacts"
+      no_contacts: "Ingen kontakter"
     manage: 
       add_a_new_aspect: "Tilføj et nyt aspekt"
       add_a_new_contact: "Tilføj en ny kontaktperson"
@@ -179,7 +179,7 @@ da:
   next: "Næste"
   no_new_notifications: "Ingen nye notifikationer"
   notifications: 
-    also_commented: "også kommenteret på"
+    also_commented: "kommenterede også på din kontakts"
     comment_on_post: "kommenterede et af dine"
     deleted: "slettet"
     index: 
@@ -368,7 +368,7 @@ da:
       all_contacts: "Alle kontaktpersoner"
       cannot_remove: "Kan ikke fjerne person fra sidste aspekt."
     invitations: 
-      dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere inviterede!"
+      dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere invitationer!"
       invitations_left: "(%{count} tilbage)"
       invite_someone: "Invitér en person"
       invites: "Invitationer"

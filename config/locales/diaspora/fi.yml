@@ -179,7 +179,7 @@ fi:
   next: "seuraava"
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
-    also_commented: "kommentoi myös"
+    also_commented: "kommentoi myös kontaktisi"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
     index: 

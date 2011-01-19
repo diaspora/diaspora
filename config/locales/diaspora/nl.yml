@@ -179,7 +179,7 @@ nl:
   next: "volgende"
   no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
-    also_commented: "heeft ook gereageerd op"
+    also_commented: "heeft ook gereageerd op jouw contact zijn of haar"
     comment_on_post: "reageerde op jouw"
     deleted: "verwijderd"
     index: 

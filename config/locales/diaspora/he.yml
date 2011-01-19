@@ -179,7 +179,7 @@ he:
   next: "הבאה"
   no_new_notifications: "אין התרעות חדשות"
   notifications: 
-    also_commented: "גם כן הגיב/ה על"
+    also_commented: "גם כן הגיב/ה על הפריט של איש הקשר שלך"
     comment_on_post: "הגיב/ה על ה"
     deleted: "נמחקה"
     index: 

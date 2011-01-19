@@ -60,7 +60,7 @@ sl:
       add_existing: "Dodaj obstoječ kontakt"
       confirm_remove_aspect: "Ste prepričani, da bi radi izbrisali ta vidik?"
       remove_aspect: "Izbriši ta vidik"
-      rename: "rename"
+      rename: "preimenuj"
       rename_aspect: "Preimenuj vidik"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"
@@ -179,7 +179,7 @@ sl:
   next: "naslednja"
   no_new_notifications: "ni novih sporočil"
   notifications: 
-    also_commented: "komentirano tudi na"
+    also_commented: "komentirano tudi na vaših stikih"
     comment_on_post: "komentar na vaš"
     deleted: "izbrisano"
     index: 

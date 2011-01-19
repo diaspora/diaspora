@@ -179,7 +179,7 @@ cs:
   next: "další"
   no_new_notifications: "žádná nová oznámení"
   notifications: 
-    also_commented: "také komentoval v"
+    also_commented: "také komentoval ve vašich kontaktech"
     comment_on_post: "komentoval váš"
     deleted: "smazáno"
     index: 
@@ -325,7 +325,7 @@ cs:
       enter_email: "Zadejte e-mail"
       enter_password: "Zadejte heslo"
       enter_password_again: "Zadejte stejné heslo jako předtím"
-      enter_username: "Vyberte si uživatelské jméno (pouze písmena, číslice, a podtržítka)"
+      enter_username: "Vyberte si uživatelské jméno (pouze písmena, číslice a podtržítka)"
       sign_up: "Zapsat se"
       sign_up_for_diaspora: "Zapsat se na Diasporu"
   requests: 
