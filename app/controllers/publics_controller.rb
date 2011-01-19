@@ -15,7 +15,7 @@ class PublicsController < ApplicationController
   caches_page :host_meta
 
   def hcard
-    @person = Person.find_by_id params[:id]
+    @person = Person.where(:guid => params[:guid])
     unless @person.nil? || @person.owner.nil?
       render 'publics/hcard'
     else
@@ -48,10 +48,10 @@ class PublicsController < ApplicationController
       return
     end
 
-    person = Person.find(params[:id])
+    person = Person.where(:guid => params[:guid]).first
 
     if person.owner_id.nil?
-      Rails.logger.error("Received post for nonexistent person #{params[:id]}")
+      Rails.logger.error("Received post for nonexistent person #{params[:guid]}")
       render :nothing => true, :status => 404
       return
     end

@@ -80,7 +80,7 @@ class Person < ActiveRecord::Base
   end
 
   def receive_url
-    "#{self.url}receive/users/#{self.id}/"
+    "#{self.url}receive/users/#{self.guid}/"
   end
 
   def public_url
