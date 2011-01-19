@@ -11,7 +11,7 @@ class Notification < ActiveRecord::Base
   belongs_to :target, :polymorphic => true
 
   def self.for(recipient, opts={})
-    self.where(opts.merge!(:recipient_id => recipient.id)).order('created_at desc').include(:target)
+    self.where(opts.merge!(:recipient_id => recipient.id)).order('created_at desc')
   end
 
   def self.notify(recipient, target, actor)
