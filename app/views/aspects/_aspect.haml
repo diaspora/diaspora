@@ -8,5 +8,5 @@
 
   - if aspect.contacts.length > 0
     .contacts
-      - for contact in aspect.contacts
+      - for contact in aspect.contacts[0..16]
         = person_image_link(contact.person)
