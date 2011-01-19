@@ -21,7 +21,7 @@ describe PublicsController do
     end
 
     it 'enqueues a receive job' do
-      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, user.id, xml).once
+      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, @user.id, xml).once
       post :receive, "guid" => @user.person.guid.to_s, "xml" => xml
     end
 
