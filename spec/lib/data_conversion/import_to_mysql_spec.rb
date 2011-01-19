@@ -6,6 +6,10 @@ require 'spec_helper'
 Dir.glob(File.join(Rails.root, 'lib', 'data_conversion', '*.rb')).each { |f| require f }
 
 describe DataConversion::ImportToMysql do
+
+  # load data infile messes with transactional rollback
+  self.use_transactional_fixtures = false
+
   def copy_fixture_for(table_name)
     FileUtils.cp("#{Rails.root}/spec/fixtures/data_conversion/#{table_name}.csv",
                  "#{@migrator.full_path}/#{table_name}.csv")
@@ -17,7 +21,38 @@ describe DataConversion::ImportToMysql do
     @migrator.send("process_raw_#{table_name}".to_sym)
   end
 
+  def delete_everything
+    Mongo::User.delete_all
+    Mongo::Aspect.delete_all
+    Mongo::AspectMembership.delete_all
+    Mongo::Comment.delete_all
+    Mongo::Invitation.delete_all
+    Mongo::Notification.delete_all
+    Mongo::Person.delete_all
+    Mongo::Profile.delete_all
+    Mongo::Post.delete_all
+    Mongo::Contact.delete_all
+    Mongo::PostVisibility.delete_all
+    Mongo::Request.delete_all
+    Mongo::Service.delete_all
+
+    User.delete_all
+    Aspect.delete_all
+    AspectMembership.delete_all
+    Comment.delete_all
+    Invitation.delete_all
+    Notification.delete_all
+    Person.delete_all
+    Profile.delete_all
+    Post.delete_all
+    Contact.delete_all
+    PostVisibility.delete_all
+    Request.delete_all
+    Service.delete_all
+  end
+
   before do
+    delete_everything
     @migrator = DataConversion::ImportToMysql.new
     @migrator.full_path = "/tmp/data_conversion"
     system("rm -rf #{@migrator.full_path}")
@@ -54,7 +89,6 @@ describe DataConversion::ImportToMysql do
         bob.password_salt.should_not be_nil
       end
     end
-
     describe "aspects" do
       before do
         import_and_process("users")
@@ -294,7 +328,7 @@ describe DataConversion::ImportToMysql do
         profile.person_id.should == Person.where(:mongo_id => profile.mongo_id).first.id
       end
     end
-   describe "posts" do
+    describe "posts" do
       before do
         import_and_process("users")
         import_and_process("people")
@@ -742,4 +776,7 @@ describe DataConversion::ImportToMysql do
       end
     end
   end
+
+  # Otherwise, subsequent tests can't load the fixtures
+  self.use_transactional_fixtures = true
 end
