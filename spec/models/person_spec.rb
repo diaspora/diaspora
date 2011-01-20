@@ -7,6 +7,7 @@ require 'spec_helper'
 describe Person do
 
   before do
+    @user = bob
     @person  = Factory.create(:person)
   end
 
@@ -99,7 +100,6 @@ describe Person do
 
   describe '#remove_all_traces' do
     before do
-      @user = Factory(:user_with_aspect)
       @deleter = Factory(:person)
       @status = Factory.create(:status_message, :person => @deleter)
       @other_status = Factory.create(:status_message, :person => @person)
@@ -131,7 +131,6 @@ describe Person do
 
   describe "disconnecting" do
     before do
-      @user    = Factory(:user)
       @user2   = Factory(:user)
       @aspect  = @user.aspects.create(:name => "Dudes")
       @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
@@ -178,43 +177,52 @@ describe Person do
       @casey_grippi.profile.save
       @casey_grippi.reload
     end
+    it 'is ordered by last name' do
+      people = Person.search("i", @user)
+      people.map{|p| p.name}.should == ["Yevgeniy Dodis", "Robert Grimm", "Casey Grippi", "Eugene Weinstein"]
+    end
 
     it 'should return nothing on an empty query' do
-      people = Person.search("")
+      people = Person.search("", @user)
       people.empty?.should be true
     end
 
     it 'should yield search results on partial names' do
-      people = Person.search("Eu")
+      people = Person.search("Eu", @user)
       people.count.should == 1
       people.first.should == @eugene_weinstein
 
-      people = Person.search("wEi")
+      people = Person.search("wEi", @user)
       people.count.should == 1
       people.first.should == @eugene_weinstein
 
-      people = Person.search("gri")
+      people = Person.search("gri", @user)
       people.count.should == 2
-      people.first.should == @casey_grippi
-      people.second.should == @robert_grimm
-    end
-
-    it 'should yield results on full names' do
-      people = Person.search("Casey Grippi")
-      people.count.should == 1
-      people.first.should == @casey_grippi
-    end
-
-    it 'should only display searchable people' do
-      invisible_person = Factory(:person, :profile => Factory(:profile,:searchable => false, :first_name => "johnson"))
-      Person.search("johnson").should_not include invisible_person
-      Person.search("").should_not include invisible_person
-    end
-
-    it 'should search on handles' do
-      people = Person.search(@robert_grimm.diaspora_handle)
-      people.count.should == 1
       people.first.should == @robert_grimm
+      people.second.should == @casey_grippi
+    end
+
+    it 'gives results on full names' do
+      people = Person.search("Casey Grippi", @user)
+      people.count.should == 1
+      people.first.should == @casey_grippi
+    end
+
+    it 'only displays searchable people' do
+      invisible_person = Factory(:person, :profile => Factory(:profile,:searchable => false, :first_name => "johnson"))
+      Person.search("johnson", @user).should_not include invisible_person
+      Person.search("", @user).should_not include invisible_person
+    end
+
+    it 'searches on handles' do
+      people = Person.search(@robert_grimm.diaspora_handle, @user)
+      people.should == [@robert_grimm]
+    end
+
+    it 'orders by whether the person is friends with the searching user' do
+      @user.activate_contact(@casey_grippi, @user.aspects.first)
+      people = Person.search("i", @user)
+      people.map{|p| p.name}.should == ["Casey Grippi", "Yevgeniy Dodis", "Robert Grimm", "Eugene Weinstein"]
     end
   end
 

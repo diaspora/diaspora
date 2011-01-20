@@ -37,7 +37,7 @@ class Person < ActiveRecord::Base
 
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
 
-  def self.search(query)
+  def self.search(query, user)
     return [] if query.to_s.blank?
 
     where_clause = <<-SQL
@@ -56,7 +56,7 @@ class Person < ActiveRecord::Base
       tokens.concat([token, token, token])
     end
 
-    Person.searchable.where(sql, *tokens).order("profiles.first_name")
+    Person.searchable.where(sql, *tokens).includes(:contacts).order("contacts.user_id DESC", "profiles.last_name ASC", "profiles.first_name ASC", "people.diaspora_handle ASC")
   end
 
   def name
