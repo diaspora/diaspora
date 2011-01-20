@@ -176,6 +176,7 @@ GEM
     gem_plugin (0.2.3)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    gruff (0.3.6)
     haml (3.0.25)
     hashie (0.4.0)
     highline (1.6.1)
@@ -292,6 +293,7 @@ GEM
       vegas (~> 0.1.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
+    rmagick (2.13.1)
     rspec (2.4.0)
       rspec-core (~> 2.4.0)
       rspec-expectations (~> 2.4.0)
@@ -374,6 +376,7 @@ DEPENDENCIES
   fastercsv (= 1.5.4)
   fixture_builder (~> 0.2.0)
   fog
+  gruff
   haml (= 3.0.25)
   http_accept_language!
   jammit (= 0.5.4)
@@ -389,6 +392,7 @@ DEPENDENCIES
   rails (= 3.0.3)
   resque (= 1.10.0)
   rest-client (= 1.6.1)
+  rmagick
   roxml!
   rspec (>= 2.0.0)
   rspec-instafail

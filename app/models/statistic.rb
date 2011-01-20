@@ -21,6 +21,15 @@ class Statistic < ActiveRecord::Base
     }.call
   end
 
+  def distribution_as_array
+    dist = distribution
+    arr = []
+    (0..dist.size-1).each do |key|
+      arr << dist[key.to_s]
+    end
+    arr
+  end
+
   def users_in_sample 
     @users ||= lambda {
       users = self.data_points.map{|d| d.value}
@@ -28,5 +37,17 @@ class Statistic < ActiveRecord::Base
         total += curr
       end
     }.call
+  end
+
+  def generate_graph
+    g = Gruff::Bar.new
+    g.title = "Posts per user today"
+    g.data("Users", self.distribution_as_array)
+
+    h = {}
+    distribution.keys.each{|k| h[k.to_i] = k.to_s }
+
+    g.labels = h
+    g.to_blob
   end
 end

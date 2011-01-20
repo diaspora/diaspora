@@ -8,6 +8,10 @@ Diaspora::Application.routes.draw do
   resources :requests,        :only => [:destroy, :create]
   resources :services
 
+  match 'statistics/generate_single' => 'statistics#generate_single'
+  match 'statistics/graph/:id' => 'statistics#graph'
+  resources :statistics
+
   match 'notifications/read_all' => 'notifications#read_all'
   resources :notifications,   :only => [:index, :update]
   resources :posts,           :only => [:show], :path => '/p/'

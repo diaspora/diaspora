@@ -35,5 +35,4 @@ describe DataPoint do
       point.key.should == 15
     end
   end
-
 end

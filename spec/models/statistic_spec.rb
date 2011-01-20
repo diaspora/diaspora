@@ -47,9 +47,28 @@ describe Statistic do
     end
   end
 
+  context '#distribution_as_array' do
+    it 'returns an array' do
+      @stat.distribution_as_array.class.should == Array
+    end
+
+    it 'returns in order' do
+      dist = @stat.distribution_as_array
+      [dist[1], dist[5], dist[10]].each do |d|
+        d.should == 1.to_f/3
+      end
+    end
+  end
+
   context '#users_in_sample' do
     it 'returns a count' do
       @stat.users_in_sample.should == 3
+    end
+  end
+
+  context '#generate_graph' do
+    it 'outputs a binary string' do
+      @stat.generate_graph.class.should == String
     end
   end
 end
