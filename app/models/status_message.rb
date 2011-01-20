@@ -27,7 +27,7 @@ class StatusMessage < Post
   <entry>
     <title>#{x(self.message)}</title>
     <link rel="alternate" type="text/html" href="#{person.url}status_messages/#{self.id}"/>
-    <id>#{person.url}status_messages/#{self.id}</id>
+    <id>#{person.url}posts/#{self.id}</id>
     <published>#{self.created_at.xmlschema}</published>
     <updated>#{self.updated_at.xmlschema}</updated>
     <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>

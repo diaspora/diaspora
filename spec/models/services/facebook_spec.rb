@@ -26,16 +26,4 @@ describe Services::Facebook do
       @service.post(@post, url)
     end
   end
-
-
-  describe '.public_message' do
-    it 'calls super with  MAX_CHARACTERS' do
-      pending "i guess you cant test this?"
-      message = mock()
-      message.should_receive(:message).and_return("foo")
-      service = Services::Facebook.new
-      service.should_receive(:super).with(message, Services::Facebook::MAX_CHARACTERS, "url")
-      service.public_message(message, "url")
-    end
-  end
 end
