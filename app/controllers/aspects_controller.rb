@@ -70,7 +70,11 @@ class AspectsController < ApplicationController
 
   def show
     @aspect = current_user.aspects.where(:id => params[:id]).first
-    redirect_to aspects_path('a_ids[]' => @aspect.id)
+    if @aspect
+      redirect_to aspects_path('a_ids[]' => @aspect.id)
+    else
+      redirect_to aspects_path
+    end
   end
 
   def edit

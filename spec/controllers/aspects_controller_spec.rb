@@ -105,6 +105,10 @@ describe AspectsController do
       get :show, 'id' => @aspect0.id.to_s
       response.should be_redirect
     end
+    it 'redirects on an invalid id' do
+      get :show, 'id' => 4341029835
+      response.should be_redirect
+    end
   end
 
   describe "#create" do
