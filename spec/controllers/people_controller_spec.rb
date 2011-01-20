@@ -122,7 +122,32 @@ describe PeopleController do
       get :show, :id => @user.person.id
       response.should be_success
     end
+    describe 'performance' do
+      before do
+        require 'benchmark'
+        @posts = []
+        @users = []
+        8.times do |n|
+          user = Factory.create(:user)
+          @users << user
+          aspect = user.aspects.create(:name => 'people')
+          connect_users(@user, @user.aspects.first, user, aspect)
 
+          @posts << @user.post(:status_message, :message => "hello#{n}", :to => aspect.id)
+        end
+        @posts.each do |post|
+          @users.each do |user|
+            user.comment "yo#{post.message}", :on => post
+          end
+        end
+      end
+
+      it 'takes time' do
+        Benchmark.realtime{
+          get :show, :id => @user.person.id
+        }.should < 0.2
+      end
+    end
     it 'renders with a post' do
       @user.post :status_message, :message => 'test more', :to => @aspect.id
       get :show, :id => @user.person.id
