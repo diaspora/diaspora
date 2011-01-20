@@ -12,15 +12,11 @@ class PeopleController < ApplicationController
     @aspect = :search
 
     @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => 15
-    if @people.count == 1
-      redirect_to @people.first
-    else
-      @hashes = hashes_for_people(@people, @aspects)
-      @people
-      #only do it if it is an email address
-      if params[:q].try(:match, Devise.email_regexp)
-        webfinger(params[:q])
-      end
+    @hashes = hashes_for_people(@people, @aspects)
+    @people
+    #only do it if it is an email address
+    if params[:q].try(:match, Devise.email_regexp)
+      webfinger(params[:q])
     end
   end
 

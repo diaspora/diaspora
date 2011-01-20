@@ -75,7 +75,7 @@ describe PeopleController do
       response.should be_success
     end
   end
-  describe '#index' do
+  describe '#index (search)' do
     before do
       @eugene = Factory.create(:person,
         :profile => Factory(:profile, :first_name => "Eugene",
@@ -89,26 +89,13 @@ describe PeopleController do
       eugene2 = Factory.create(:person,
         :profile => Factory(:profile, :first_name => "Eugene",
                      :last_name => "w"))
-      get :index, :q => "Eu"
+      get :index, :q => "Eug"
       assigns[:people].should =~ [@eugene, eugene2]
     end
-    it 'shows a contact' do
-      user2 = bob
-      get :index, :q => user2.person.profile.first_name.to_s
-      response.should redirect_to user2.person
-    end
 
-    it 'shows a non-contact' do
-      user2 = eve
-      user2.person.profile.searchable = true
-      user2.save
-      get :index, :q => user2.person.profile.first_name.to_s
-      response.should redirect_to user2.person
-    end
-
-    it "redirects to person page if there is exactly one match" do
+    it "does not redirect to person page if there is exactly one match" do
       get :index, :q => "Korth"
-      response.should redirect_to @korth
+      response.should_not redirect_to @korth
     end
 
     it "does not redirect if there are no matches" do
