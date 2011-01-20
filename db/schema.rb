@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110119221746) do
+ActiveRecord::Schema.define(:version => 20110120182100) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(:version => 20110119221746) do
   add_index "contacts", ["person_id", "pending"], :name => "index_contacts_on_person_id_and_pending"
   add_index "contacts", ["user_id", "pending"], :name => "index_contacts_on_user_id_and_pending"
   add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
+
+  create_table "data_points", :force => true do |t|
+    t.string   "descriptor"
+    t.integer  "value"
+    t.integer  "statistic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "data_points", ["statistic_id"], :name => "index_data_points_on_statistic_id"
 
   create_table "invitations", :force => true do |t|
     t.text     "message"
@@ -406,6 +416,13 @@ ActiveRecord::Schema.define(:version => 20110119221746) do
 
   add_index "services", ["mongo_id"], :name => "index_services_on_mongo_id"
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
+
+  create_table "statistcs", :force => true do |t|
+    t.integer  "average"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
