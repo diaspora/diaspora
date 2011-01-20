@@ -41,7 +41,7 @@ class Invitation < ActiveRecord::Base
   def self.create_invitee(opts = {})
     invitee = new_or_existing_user_by_email(opts[:email])
     return invitee unless opts[:email].match Devise.email_regexp
-    invitee.invites = opts[:invites]
+    invitee.invites = opts[:invites] || 0
     if invitee.new_record?
       invitee.errors.clear
       invitee.serialized_private_key ||= User.generate_key
