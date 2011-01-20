@@ -60,8 +60,8 @@ namespace :statistics do
       [0..15].each do |n|
         stat.data_points << DataPoint.posts_per_day(n)
       end
-      stat.compute_avg
-      stat.save!
+      stat.compute_average
+      stat.save
     end
 
     task :splunk => :environment do

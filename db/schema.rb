@@ -417,7 +417,7 @@ ActiveRecord::Schema.define(:version => 20110120182100) do
   add_index "services", ["mongo_id"], :name => "index_services_on_mongo_id"
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
 
-  create_table "statistcs", :force => true do |t|
+  create_table "statistics", :force => true do |t|
     t.integer  "average"
     t.string   "type"
     t.datetime "created_at"

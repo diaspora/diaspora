@@ -1,6 +1,6 @@
-class CreateStatistcs < ActiveRecord::Migration
+class CreateStatistics < ActiveRecord::Migration
   def self.up
-    create_table :statistcs do |t|
+    create_table :statistics do |t|
       t.integer :average
       t.string :type
 
