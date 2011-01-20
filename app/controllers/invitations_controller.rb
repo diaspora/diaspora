@@ -41,8 +41,8 @@ class InvitationsController < Devise::InvitationsController
         raise I18n.t('invitations.check_token.not_found')
       end
       user = User.find_by_invitation_token(params[:user][:invitation_token])
-      user.seed_aspects
       user.accept_invitation!(params[:user])
+      user.seed_aspects
     rescue Exception => e
       user = nil
       flash[:error] = e.message
