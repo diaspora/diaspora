@@ -2,43 +2,43 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-10.append-1.last
-  .floating
-    %h3
-      = t('.login')
+= content_for :head do
+  :css
+    header{ display:none; }
+
+.container{:style => 'text-align:center;'}
+  #login
+    = image_tag('logo_caps.png')
+    %br
+    %br
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      #user
-        %p.username
-          = f.label :username , t('username')
-          = f.text_field :username
-        %p.user_network
+      %p
+        = f.label :username , t('username')
+        = f.text_field :username
+        %span.pod_location
           ="@#{AppConfig[:pod_uri].host}"
 
-        %p
-          = f.label :password , t('password')
-          = f.password_field :password
-      %p.checkbox_select
-        - if devise_mapping.rememberable?
-          = f.check_box :remember_me
-          = f.label :remember_me , t('.remember_me')
-          %br
-      = f.submit t('.sign_in')
-
-    %p
-      = render :partial => "devise/shared/links"
-    %p
-      = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
-
-.span-13.last
-  %h1
-    = t('.alpha_software')
-
-  %h3
-    = t('.bugs_and_feedback')
-
-  %h4
-    %span.brandon DIASPORA*
-    = t('.modern_browsers')
-  = image_tag('modern_browsers.png')
-
+      %p
+        = f.label :password , t('password')
+        = f.password_field :password
+        %span
+          - if devise_mapping.recoverable? && controller_name != 'passwords'
+            = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name)
+          - else
+            \.
+      /%p.checkbox_select
+      /- if devise_mapping.rememberable?
+      /= f.check_box :remember_me
+      /= f.label :remember_me , t('.remember_me')
+      %p.submit
+        = f.submit t('.sign_in')
+        %span
+          - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+            = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+          - else
+            \.
+    %br
+    %p.shared_links
+      /= render :partial => "devise/shared/links"
+      /- if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
 

@@ -90,13 +90,15 @@
       /=render :partial => 'layouts/debug.haml'
     %footer
       .container
-        = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
         %ul#footer_nav
           %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
           %li= link_to 'github', "https://github.com/diaspora/diaspora"
           %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
           %li= link_to t('layouts.header.code'), "#{root_url.chomp('/')}/source.tar.gz" unless request.url.match(/joindiaspora.com/)
           %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
+        = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
+        %br
+        = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
 
     -if !@landing_page && request.url.match(/joindiaspora.com/)
       :javascript

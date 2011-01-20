@@ -3,6 +3,8 @@
 //   the COPYRIGHT file.
 
 
+$blue: #3F8FBA
+
 body
   :padding 2em
   :margin 0
@@ -10,6 +12,7 @@ body
   :background-color rgb(252,252,252)
 a
   :color #107FC9
+  :color $blue
   :text
     :decoration none
   &:hover
@@ -201,7 +204,7 @@ header
         :height 100%
       &:hover
         :background
-          :color #107FC9
+          :color $blue
         :color #fff
 
     &.active
@@ -378,7 +381,7 @@ header
   &:hover
     div.info, .time, .from h5
       a
-        :color #107FC9
+        :color $blue
         &:hover
           :color #22AAE0
         &:active
@@ -1747,33 +1750,38 @@ ul#request_result
         :right 1em
 
 footer
-  :margin
-    :top 40px
-  :text
-    :align center
   :width 100%
   :left 0
   :bottom 0
   :color #999
 
   .container
+    :margin
+      :top 4em
     :padding 0
-      :top 2em
+      :top 0.5em
     :border
       :top 1px solid #ddd
+
+  img
+    :position relative
+    :top 2px
 
   ul#footer_nav
     :margin 0
     :padding 0
+    :display inline-block
+    :float right
 
     > li
       :display inline
       :margin
         :right 1em
+
+      &:last-child
+        :margin 0
     a
       :color #777
-      :font
-        :weight bold
 
       &:hover
         :color #ccc
@@ -1790,7 +1798,7 @@ ul#landing_nav
     :margin
       :right 0.5em
     a
-      :color #107FC9
+      :color $blue
 
       &.login
         :padding 5px 8px
@@ -1863,7 +1871,7 @@ ul#landing_nav
     :height 47px
     :margin 0
     :background
-      :color #107FC9
+      :color $blue
 
     :-webkit-border-radius 0 5px 5px 0
     :-moz-border-radius 0 5px 5px 0
@@ -2246,3 +2254,61 @@ ul.show_comments
     :margin
       :right 4px
     :top 5px
+
+#login
+  :width 600px
+  :padding
+    :top 10%
+    :bottom 20%
+  :text
+    :align center
+  :display inline-block
+
+  form
+    input,
+    label
+      :font
+        :size 21px
+      :display inline
+
+    label
+      :top 13px
+      :text-shadow 0 1px 1px #ccc
+
+    input[type='text'],
+    input[type='password']
+      :-webkit-box-shadow 0 1px 0px #fff, 0 -1px 0px #888
+      :-moz-box-shadow 0 1 0px #fff
+      :box-shadow 0 0 4px #fff
+      :width 180px
+      :max-width 180px
+
+    p
+      :display inline-block
+      :position relative
+      :width 200px
+
+      &:last-child
+        :margin
+          :left 3px
+
+      span
+        :display block
+        :color #fff
+        &.pod_location
+          :color #888
+
+      &.submit
+        :width 100px
+
+        input
+          :width 100px
+          :position relative
+          :height 40px
+          :top 0px
+          :color #666
+          :margin
+            :bottom 10px
+          &:hover
+            :color #444
+
