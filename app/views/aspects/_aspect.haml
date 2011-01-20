@@ -6,7 +6,7 @@
     = aspect.name
   %br
 
-  - if aspect.contacts.length > 0
+  - if contacts.length > 0
     .contacts
-      - for contact in contacts[0..16]
+      - for contact in contacts[0..15]
         = person_image_link(contact.person)
