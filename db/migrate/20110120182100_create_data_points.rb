@@ -1,7 +1,7 @@
 class CreateDataPoints < ActiveRecord::Migration
   def self.up
     create_table :data_points do |t|
-      t.string :descriptor
+      t.string :key
       t.integer :value
       t.integer :statistic_id
 
