@@ -157,29 +157,29 @@ describe Person do
       @yevgeniy_dodis = Factory.create(:searchable_person)
       @casey_grippi = Factory.create(:searchable_person)
 
-      @robert_grimm.profile.first_name = "Robert"
+      @robert_grimm.profile.first_name = "Roberting"
       @robert_grimm.profile.last_name  = "Grimm"
       @robert_grimm.profile.save
       @robert_grimm.reload
 
-      @eugene_weinstein.profile.first_name = "Eugene"
+      @eugene_weinstein.profile.first_name = "Eugeneing"
       @eugene_weinstein.profile.last_name  = "Weinstein"
       @eugene_weinstein.profile.save
       @eugene_weinstein.reload
 
-      @yevgeniy_dodis.profile.first_name = "Yevgeniy"
+      @yevgeniy_dodis.profile.first_name = "Yevgeniying"
       @yevgeniy_dodis.profile.last_name  = "Dodis"
       @yevgeniy_dodis.profile.save
       @yevgeniy_dodis.reload
 
-      @casey_grippi.profile.first_name = "Casey"
+      @casey_grippi.profile.first_name = "Caseying"
       @casey_grippi.profile.last_name  = "Grippi"
       @casey_grippi.profile.save
       @casey_grippi.reload
     end
     it 'is ordered by last name' do
-      people = Person.search("i", @user)
-      people.map{|p| p.name}.should == ["Yevgeniy Dodis", "Robert Grimm", "Casey Grippi", "Eugene Weinstein"]
+      people = Person.search("ing", @user)
+      people.map{|p| p.name}.should == [@yevgeniy_dodis, @robert_grimm, @casey_grippi, @eugene_weinstein].map{|p|p.name}
     end
 
     it 'should return nothing on an empty query' do
@@ -187,8 +187,13 @@ describe Person do
       people.empty?.should be true
     end
 
+    it 'should return nothing on a two character query' do
+      people = Person.search("in", @user)
+      people.empty?.should be true
+    end
+
     it 'should yield search results on partial names' do
-      people = Person.search("Eu", @user)
+      people = Person.search("Eug", @user)
       people.count.should == 1
       people.first.should == @eugene_weinstein
 
@@ -221,8 +226,8 @@ describe Person do
 
     it 'orders by whether the person is friends with the searching user' do
       @user.activate_contact(@casey_grippi, @user.aspects.first)
-      people = Person.search("i", @user)
-      people.map{|p| p.name}.should == ["Casey Grippi", "Yevgeniy Dodis", "Robert Grimm", "Eugene Weinstein"]
+      people = Person.search("ing", @user)
+      people.map{|p| p.name}.should == [@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map{|p|p.name}
     end
   end
 

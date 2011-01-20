@@ -38,7 +38,7 @@ class Person < ActiveRecord::Base
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
 
   def self.search(query, user)
-    return [] if query.to_s.blank?
+    return [] if query.to_s.blank? || query.to_s.length < 3
 
     where_clause = <<-SQL
       profiles.first_name LIKE ? OR
