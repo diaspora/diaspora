@@ -9,7 +9,7 @@
         $(this).closest('li').fadeOut(200);
       });
       $('.delete').bind('ajax:failure', function() {
-        alert("#{t('.cannot_remove', :name => person.name)}");
+        alert(h("#{t('.cannot_remove', :name => person.name)}"));
       });
     });
 
