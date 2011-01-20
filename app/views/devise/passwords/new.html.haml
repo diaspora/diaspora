@@ -2,8 +2,10 @@
   .floating
     %h3
       =t('.forgot_password')
+    - unless devise_error_messages!.empty?
+      %i=  t('.no_account')
+
     = form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f|
-      = devise_error_messages!
       %p
         = f.label :email
         = f.text_field :email
