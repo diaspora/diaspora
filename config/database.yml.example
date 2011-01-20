@@ -1,21 +1,21 @@
 test:
   adapter: mysql2
   database: diaspora_test
-  user: root
+  username: root
   password: password
   charset: utf8
   collation: utf8_bin
 development:
   adapter: mysql2
   database: diaspora_development
-  user: root
+  username: root
   password: password
   charset: utf8
   collation: utf8_bin
 production:
   adapter: mysql2
   database: diaspora_production
-  user: root
+  username: root
   password: password
   charset: utf8
   collation: utf8_bin
