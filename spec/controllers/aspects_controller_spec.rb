@@ -88,14 +88,16 @@ describe AspectsController do
           connect_users(@user, @aspect0, user, aspect)
           post =  @user.post(:status_message, :message => "hello#{n}", :to => @aspect1.id)
           @posts << post
-          user.comment "yo#{post.message}", :on => post
+          8.times do |n|
+            user.comment "yo#{post.message}", :on => post
+          end
         end
       end
 
       it 'takes time' do
         Benchmark.realtime{
           get :index
-        }.should < 1.5
+        }.should < 0.8
       end
     end
   end
@@ -140,6 +142,19 @@ describe AspectsController do
     it "succeeds" do
       get :manage
       response.should be_success
+    end
+    it "performs reasonably" do
+        require 'benchmark'
+        8.times do |n|
+          aspect = @user.aspects.create(:name => "aspect#{n}")
+          8.times do |o|
+            person = Factory(:person)
+            @user.activate_contact(person, aspect)
+          end
+        end
+        Benchmark.realtime{
+          get :manage
+        }.should < 2
     end
     it "assigns aspect to manage" do
       get :manage

@@ -9,12 +9,12 @@
         %span.name
           = link_to aspect.name, aspect
         .right
-          = aspect_membership_button(aspect.id, contact, person)
+          = aspect_membership_button(aspect, contact, person)
 
     - for aspect in aspects_without_person
       %li{:data=>{:guid=>aspect.id}}
         %span.name
           = link_to aspect.name, aspect
         .right
-          = aspect_membership_button(aspect.id, contact, person)
+          = aspect_membership_button(aspect, contact, person)
 

@@ -78,22 +78,24 @@ class AspectsController < ApplicationController
   end
 
   def edit
-    @aspect = current_user.aspects.where(:id => params[:id]).first
+    @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
     @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @aspect_ids = [@aspect.id]
-      @aspect_contacts_count = @aspect.contacts.count
+      @aspect_contacts_count = @aspect.contacts.length
       render :layout => false
     end
   end
 
   def manage
+    Rails.logger.info("Controller time")
     @aspect = :manage
     @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
     @remote_requests = Request.where(:recipient_id => current_user.person.id).includes(:sender => :profile)
     @aspects = @all_aspects.includes(:contacts => {:person => :profile})
+    Rails.logger.info("VIEW TIME!!!!!!")
   end
 
   def update

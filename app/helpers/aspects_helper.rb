@@ -38,11 +38,11 @@ module AspectsHelper
       :class => 'added button'
   end
 
-  def aspect_membership_button(aspect_id, contact, person)
-    if contact.nil? || !contact.aspect_ids.include?(aspect_id)
-      add_to_aspect_button(aspect_id, person.id)
+  def aspect_membership_button(aspect, contact, person)
+    if contact.nil? || !aspect.contacts.include?(contact)
+      add_to_aspect_button(aspect.id, person.id)
     else
-      remove_from_aspect_button(aspect_id, person.id)
+      remove_from_aspect_button(aspect.id, person.id)
     end
   end
 

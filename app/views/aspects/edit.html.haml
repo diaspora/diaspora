@@ -26,7 +26,7 @@
     = button_to t('.remove_aspect'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button'
 
   - if @contacts.count > 0
-    = render 'shared/contact_list', :aspect_id => @aspect.id, :contacts => @contacts
+    = render 'shared/contact_list', :aspect => @aspect, :contacts => @contacts
 
   #aspect_edit_controls
     = link_to t('.rename'), '#'
