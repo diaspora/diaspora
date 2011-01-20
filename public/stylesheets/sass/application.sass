@@ -16,9 +16,9 @@ a
   :text
     :decoration none
   &:hover
-    :color #4CCAE0
-  &:active
-    :color #005D9C
+    :color $blue
+    :text
+      :decoration underline
 
 p
   :word-wrap break-word
@@ -188,6 +188,9 @@ header
       :padding
         :right 15px
       :color #CCC
+      &:hover
+        :text
+          :decoration none
     .right
       :right 5px
 
@@ -248,8 +251,6 @@ header
       :top 1px solid #fff
 
     &:hover
-      :background
-        :color #fff
       :border
         :bottom 1px solid #ddd
       .right
@@ -382,10 +383,7 @@ header
     div.info, .time, .from h5
       a
         :color $blue
-        &:hover
-          :color #22AAE0
-        &:active
-          :color #005D9C
+
 .time,
 .timeago
   a
@@ -645,9 +643,6 @@ ul.show_comments
         :color #999
         :font
           :weight normal
-        &:hover
-          :text
-            :decoration underline
 
 .stream_element:hover
   .right
@@ -952,6 +947,10 @@ ul#aspect_nav
   :margin
     :bottom 0
 
+  a:hover
+    :text
+      :decoration none
+
   > li
     :display inline
     :padding 1px 8px
@@ -1010,6 +1009,7 @@ ul#aspect_nav
         :color #888
       a
         :color #000
+
   .new_requests
     :color red
 
@@ -1257,12 +1257,6 @@ ul#settings_nav
 
   a
     :color #69AEDD
-
-    &:hover
-      :color #82DAE9
-
-    &:active
-      :color #005D9C
 
 .section
   :margin
@@ -1783,9 +1777,6 @@ footer
     a
       :color #777
 
-      &:hover
-        :color #ccc
-
 ul#landing_nav
   :margin 0
   :padding 0
@@ -1822,7 +1813,6 @@ ul#landing_nav
             :color #222
 
     :text-shadow 0 1px 0 #000
-
 
 #signup_field
   :margin
