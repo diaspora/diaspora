@@ -152,6 +152,16 @@ describe PeopleController do
       response.should be_success
     end
 
+    it 'does not allow xss attacks' do
+      user2 = bob
+      profile = user2.profile
+      profile.first_name = "<script> alert('xss attack');</script>"
+      profile.save
+      get :show, :id => user2.person.id
+      response.should be_success
+      response.body.match(profile.first_name).should be_false
+    end
+
     it "renders the show page of a non-contact" do
       user2 = eve
       get :show, :id => user2.person.id

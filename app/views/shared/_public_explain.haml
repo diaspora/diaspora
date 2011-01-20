@@ -11,7 +11,7 @@
     %br
 
     - if current_user.services
-      - for service in current_user.services 
+      - for service in current_user.services
         = t('.logged_in', :service => service.provider)
         %br
 
@@ -19,4 +19,4 @@
 
     %br
     %br
-    = link_to t('ok'), '#', :class => "button", :onClick => '$.fancybox.close();'
+    = link_to t('ok'), '#', :class => "button", :onClick => '$.facebox.close();'
