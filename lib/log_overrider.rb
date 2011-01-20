@@ -26,7 +26,6 @@ class ActionController::LogSubscriber
     log_string << "ms=#{"%.0f" % event.duration} "
     log_string << "params='#{params.inspect}' " unless params.empty?
     #log_string << "additions='#{additions.join(" | ")}' " unless additions.blank?
-    log_string << "r_id=#{event.transaction_id} "
 
     Rails.logger.info(log_string)
   end
