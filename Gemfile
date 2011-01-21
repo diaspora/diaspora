@@ -23,7 +23,7 @@ gem 'haml', '3.0.25'
 gem 'will_paginate', '3.0.pre2'
 
 #Statistics
-gem 'lazy_high_charts', :git => 'git://github.com/xiaods/lazy_high_charts.git', :ref => 'c63f49ce10e1dad8a0b7'
+gem 'googlecharts'
 
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'

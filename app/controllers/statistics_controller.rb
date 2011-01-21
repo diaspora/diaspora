@@ -9,15 +9,17 @@ class StatisticsController < ApplicationController
   def show
     @statistic = Statistic.where(:id => params[:id]).first
     @distribution = @statistic.distribution_as_array
-    @h = LazyHighCharts::HighChart.new('graph') do |f|
-      f.series(:name=>'Posts on day', :data=> @distribution)
-      f.options[:x_axis][:categories] = (0..@distribution.length-1).to_a.map{|ind| ind%10==0 ? ind : ' '}
+    @google_chart_url = Gchart.line( :size => '700x400', 
+                                     :title => "Posts on day",
+                                     :bg => 'efefef',
+                                     :legend => ['Posts'],
+                                     :data => @distribution,
+                                     :max_value => 1,
+                                     :axis_with_labels => ['x','y'],
+                                     :axis_labels => [(0..@distribution.length-1).to_a.map{|d| d%10==0 ? d : ''},
+                                                      (0..10).to_a.map!{|int| int.to_f/10}]
+                                   )
 
-      f.options[:title] = "Posts on day"
-      f.options[:y_axis] = {:max => 1}
-      f.options[:y_axis][:title] = {:text => "% Users"}
-      f.options[:x_axis][:title] = {:text => "Posts"}
-    end
   end
 
   def generate_single

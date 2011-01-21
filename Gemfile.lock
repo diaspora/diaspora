@@ -184,6 +184,7 @@ GEM
     gem_plugin (0.2.3)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    googlecharts (1.6.0)
     haml (3.0.25)
     hashie (0.4.0)
     highline (1.6.1)
@@ -382,6 +383,7 @@ DEPENDENCIES
   fastercsv (= 1.5.4)
   fixture_builder (~> 0.2.0)
   fog
+  googlecharts
   haml (= 3.0.25)
   http_accept_language!
   jammit (= 0.5.4)
