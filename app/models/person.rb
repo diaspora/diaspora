@@ -43,6 +43,9 @@ class Person < ActiveRecord::Base
     where_clause = <<-SQL
       profiles.first_name LIKE ? OR
       profiles.last_name LIKE ? OR
+      people.diaspora_handle LIKE ? OR
+      profiles.first_name LIKE ? OR
+      profiles.last_name LIKE ? OR
       people.diaspora_handle LIKE ?
     SQL
     sql = ""
@@ -51,9 +54,11 @@ class Person < ActiveRecord::Base
     query_tokens = query.to_s.strip.split(" ")
     query_tokens.each_with_index do |raw_token, i|
       token = "%#{raw_token}%"
+      up_token = "%#{raw_token.titleize}%"
       sql << " OR " unless i == 0
       sql << where_clause
       tokens.concat([token, token, token])
+      tokens.concat([up_token, up_token, up_token])
     end
 #SELECT `people`.* FROM people
 #  INNER JOIN `profiles` ON `profiles`.person_id = `people`.id
