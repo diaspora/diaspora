@@ -88,6 +88,10 @@ http {
    ssl_certificate      <%= @cert_location %>;
    ssl_certificate_key  <%= @key_location %>;
 
+   location /assets {
+    expires 1d;
+    add_header Cache-Control public
+   }
 
    location / {
     proxy_set_header X-Real-IP $remote_addr;
