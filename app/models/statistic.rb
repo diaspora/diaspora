@@ -40,19 +40,7 @@ class Statistic < ActiveRecord::Base
   end
 
   def generate_graph
-    g = Gruff::Bar.new
-    g.title = "Posts per user today"
-    g.data("Users", self.distribution_as_array)
-
-    h = {}
-    distribution.keys.each do |k|
-      if k.to_i%10 ==0
-        h[k.to_i] = k.to_s
-      end
-    end
-
-    g.labels = h
-    g.to_blob
+    # need to use google's graph API
   end
   
   def self.generate(time=Time.now, post_range=(0..50))

@@ -8,6 +8,7 @@ class StatisticsController < ApplicationController
 
   def show
     @statistic = Statistic.where(:id => params[:id]).first
+    @distribution = @statistic.distribution_as_array
   end
 
   def generate_single
@@ -16,11 +17,7 @@ class StatisticsController < ApplicationController
   end
 
   def graph
-    @statistic = Statistic.where(:id => params[:id]).first
-    send_data(@statistic.generate_graph, 
-            :disposition => 'inline', 
-            :type => 'image/png', 
-            :filename => "stats.png")
+    # need to use google's graph API
   end
 
   private

@@ -75,6 +75,7 @@ describe Statistic do
 
   describe '#generate_graph' do
     it 'outputs a binary string' do
+      pending "should use google graph API"
       @stat.generate_graph.class.should == String
     end
   end

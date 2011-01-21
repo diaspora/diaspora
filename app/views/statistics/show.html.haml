@@ -6,7 +6,16 @@
 
 %h3
   = "Users in sample: #{@statistic.users_in_sample}"
-= image_tag( "/statistics/graph/#{@statistic.id}")
+
+  %h5
+    (graph implementation pending)
+
+  
+  - for pos in (0..@distribution.length-1)
+    %b
+      = pos
+    = @distribution[pos]
+    %br
 
 %br
 = link_to 'all statistics', statistics_path
