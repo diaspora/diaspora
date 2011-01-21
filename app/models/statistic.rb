@@ -45,7 +45,11 @@ class Statistic < ActiveRecord::Base
     g.data("Users", self.distribution_as_array)
 
     h = {}
-    distribution.keys.each{|k| h[k.to_i] = k.to_s }
+    distribution.keys.each do |k|
+      if k.to_i%10 ==0
+        h[k.to_i] = k.to_s
+      end
+    end
 
     g.labels = h
     g.to_blob
