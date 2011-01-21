@@ -32,6 +32,10 @@ describe PeopleController do
                      :last_name => "Korth"))
     end
 
+    it 'responds with json' do
+      get :index, :q => "Korth", :format => 'json'
+      response.body.should == [@korth].to_json
+    end
     it "assigns people" do
       eugene2 = Factory.create(:person,
         :profile => Factory.build(:profile, :first_name => "Eugene",

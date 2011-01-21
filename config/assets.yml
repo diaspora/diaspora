@@ -10,8 +10,9 @@ javascripts:
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
-    - public/javascripts/vendor/facebox.js
+    - public/javascripts/vendor/jquery-ui-1.8.8.custom.min.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
+    - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/vendor/Mustache.js
@@ -25,8 +26,8 @@ javascripts:
     - public/javascripts/application.js
   mobile:
     - public/javascripts/vendor/jquery144.min.js
+    - public/javascripts/vendor/jquery-ui-1.8.8.custom.min.js
     - public/javascripts/custom-mobile-scripting.js
-    - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/vendor/jquery_mobile_a2.min.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
     - public/javascripts/vendor/timeago.js
@@ -41,7 +42,6 @@ javascripts:
     - public/javascripts/vendor/mailchimp/jquery.validate.js
     - public/javascripts/vendor/mailchimp/jquery126.min.js
   aspects:
-    - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/aspect-edit.js
     - public/javascripts/contact-list.js
   home:

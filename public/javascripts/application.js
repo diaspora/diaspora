@@ -1,4 +1,13 @@
 $(document).ready(function() {
+  $('#global_search input').autocomplete({
+    source : '/people',
+    appendTo : ''
+    });
+
+  $('#global_search input').blur(function(evt){
+      $(this).close
+    });
+
   $('#main_stream').infinitescroll({
     navSelector  : ".pagination",
                    // selector for the paged navigation (it will be hidden)
