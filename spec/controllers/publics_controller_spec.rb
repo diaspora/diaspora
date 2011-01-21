@@ -12,6 +12,13 @@ describe PublicsController do
     @person = Factory(:person)
   end
 
+  describe '#host_meta' do
+    it 'succeeds' do
+      get :host_meta
+      response.should be_success
+      response.body.should =~ /webfinger/
+    end
+  end
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 
