@@ -5,10 +5,24 @@
 = content_for :head do
   :css
     header{ display:none; }
+    footer{ position: absolute; bottom: 12px; }
+
+  :javascript
+    $(document).ready( function(){
+      $("form").submit(function(){
+        $(this).fadeOut(200, function(){
+          $('#logo').animate({
+            'margin-top': '+=80'
+          }, 250, function(){
+            $("#spinner").fadeIn(300);
+          });
+        });
+      });
+    });
 
 .container{:style => 'text-align:center;'}
   #login
-    = image_tag('logo_caps.png')
+    = image_tag('logo_caps.png', :id => 'logo');
     %br
     %br
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
@@ -37,8 +51,6 @@
             = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
           - else
             \.
-    %br
-    %p.shared_links
-      /= render :partial => "devise/shared/links"
-      /- if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+
+    = image_tag 'ajax-loader.gif', :id => "spinner", :class => "hidden"
 
