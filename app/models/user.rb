@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
     end
-    super
+    super(conditions)
   end
 
   ######### Aspects ######################
