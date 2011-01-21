@@ -114,6 +114,8 @@ $(document).ready(function(){
       photos[guid] = url;
     });
 
+
+
     // set url
     history.pushState(null, document.title, newURL);
 
