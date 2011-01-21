@@ -11,7 +11,7 @@ $(document).ready(function(){
     var button = $(this),
         guid = button.attr('data-guid');
 
-    if(guid && location.href.search("a_ids..="+guid) != -1){
+    if(guid && location.href.search("a_ids..="+guid+"(&|$)") != -1){
       button.addClass('selected');
       selectedGUIDS.push(guid);
     }
@@ -115,7 +115,7 @@ $(document).ready(function(){
     });
 
     // set url
-    history.pushState(null, document.title, generateURL());
+    history.pushState(null, document.title, newURL);
 
     $.ajax({
       url : newURL,
