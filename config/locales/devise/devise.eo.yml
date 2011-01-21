@@ -54,6 +54,7 @@ eo:
         change_password: "Change my password"
       new: 
         forgot_password: "Forgesis vian pasvorton?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Sendu al mi instrukcioj por fari novan pasvorton"
       send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel fari novan pasvorton."
       updated: "Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta."
@@ -66,7 +67,6 @@ eo:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Havas problemon? Trovu respondon ĉi tie"
         login: "Kontonomo"
         modern_browsers: "only supports modern browsers."
         password: "Pasvorto"

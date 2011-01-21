@@ -160,6 +160,7 @@ fr:
       to: "À"
   layouts: 
     application: 
+      have_a_problem: "Un problème ? Trouvez une réponse ici"
       powered_by: "PROPULSÉ PAR DIASPORA*"
       whats_new: "Quoi de neuf ?"
     header: 

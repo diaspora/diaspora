@@ -54,6 +54,7 @@ da:
         change_password: "skift adgangskode"
       new: 
         forgot_password: "Glemt din adgangskode?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Send mig instruktioner til nulstilning af kodeord"
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et par minutter."
       updated: "Dit adgangskode er nu ændret. Du er nu logget ind."
@@ -66,7 +67,6 @@ da:
         alpha_software: "Du er ved at starte alpha software."
         bugs_and_feedback: "Vær opmærksom på at du vil opleve fejl og mangler. Vi opfordrer dig til at bruge feedbackknappen i højre side af din browser til at melde de fejl du støder på. Vi arbejder så hurtigt vi kan på at løse de problemer du melder."
         bugs_and_feedback_mobile: "Vær opmærksom på at du vil opleve fejl. Vi opfordrer dig til at melde enhver fejl du støder på. Vi vil arbejde så hurtigt som muligt for at løse ethvert problem du melder."
-        have_a_problem: "Har du problemer? Find svaret her"
         login: "Log ind"
         modern_browsers: "understøtter kun nyere browsere."
         password: "Adgangskode"

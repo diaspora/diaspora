@@ -54,6 +54,7 @@ cs:
         change_password: "Změnit heslo"
       new: 
         forgot_password: "Zapomněli jste heslo?"
+        no_account: "S touto emailovou adresou neexistuje žádný účet. Pokud čekáte na pozvání, budeme je vydávat co nejdříve to bude možné"
         send_password_instructions: "Zaslat instrukce k zaslání nového hesla."
       send_instructions: "Běhěm několika minut obdržíte email s instrukcemi k resetnutí hesla."
       updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni"
@@ -66,7 +67,6 @@ cs:
         alpha_software: "Používáte testovací verzi."
         bugs_and_feedback: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám použít tlačítko Zpětná vazba na pravé straně vašeho prohlížeče pro nahlášení problémů! Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
         bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
-        have_a_problem: "Máte problém? Zde najdete odpověď"
         login: "Přihlásit"
         modern_browsers: "podporuje pouze moderní prohlížeče."
         password: "Heslo"

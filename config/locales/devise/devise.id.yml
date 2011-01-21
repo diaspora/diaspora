@@ -54,6 +54,7 @@ id:
         change_password: "Change my password"
       new: 
         forgot_password: "Forgot your password?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Send me reset password instructions"
       send_instructions: "Anda akan menerima email berisi petunjuk cara me-reset password Anda dalam beberapa menit."
       updated: "Password Anda telah berhasil diubah. Anda sekarang masuk."
@@ -66,7 +67,6 @@ id:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Have a problem? Find an answer here"
         login: "Login"
         modern_browsers: "only supports modern browsers."
         password: "Password"

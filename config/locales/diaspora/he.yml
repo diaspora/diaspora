@@ -160,6 +160,7 @@ he:
       to: "אל"
   layouts: 
     application: 
+      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "מופעל על גבי דיאספורה*"
       whats_new: "מה חדש?"
     header: 

@@ -160,6 +160,7 @@ ga:
       to: "Go dtí"
   layouts: 
     application: 
+      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "AG ÚSÁID DIASPORA*"
       whats_new: "cad atá nua?"
     header: 

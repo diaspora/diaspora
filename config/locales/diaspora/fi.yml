@@ -160,6 +160,7 @@ fi:
       to: "Vastaanottaja"
   layouts: 
     application: 
+      have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
       powered_by: "PALVELUN TARJOAA DIASPORA*"
       whats_new: "Uutta"
     header: 

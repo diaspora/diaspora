@@ -132,7 +132,7 @@ is:
         too_short: "er of stutt (má minnst vera %{count} stafir)"
         wrong_length: "er af rangri lengd (má mest vera %{count} stafir)"
         taken: "er þegar í notkun"
-        not_a_number: "er ikke et tall"
+        not_a_number: "er ekki tala"
         greater_than: "þarf að vera stærri en %{count}"
         greater_than_or_equal_to: "þarf að vera stærri en eða jafngilt %{count}"
         equal_to: "þarf að vera jafngilt %{count}"

@@ -160,6 +160,7 @@ es:
       to: "Para"
   layouts: 
     application: 
+      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "IMPULSADO POR DIASPORA*"
       whats_new: "¿Qué te cuentas?"
     header: 

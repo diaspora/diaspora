@@ -54,6 +54,7 @@ pl:
         change_password: "Zmień hasło"
       new: 
         forgot_password: "Nie pamiętasz hasła?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Wyślij mi instrukcje resetowania hasła"
       send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcjie dotyczące zresetowania hasła."
       updated: "Twoje hasło zostało zmienione. Zalogowano pomyślnie."
@@ -66,7 +67,6 @@ pl:
         alpha_software: "Pamiętaj, że będziesz używać programu we wczesnym stadium rozwoju (alfa)."
         bugs_and_feedback: "Miej świadomość, że doświadczysz błędów. Zachęcamy do korzystania z przycisku Feedback umieszczonego po prawej stronie okna przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszelkie zgłaszane kłopoty."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Jakiś kłopot? Tu znajdziesz odpowiedź"
         login: "Login"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
         password: "Hasło"

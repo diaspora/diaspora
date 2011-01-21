@@ -160,6 +160,7 @@ gl-ES:
       to: "A"
   layouts: 
     application: 
+      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "FORNECIDO POR DIASPORA*"
       whats_new: "what's new?"
     header: 

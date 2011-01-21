@@ -160,6 +160,7 @@ it:
       to: "A"
   layouts: 
     application: 
+      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "CREATO CON DIASPORA*"
       whats_new: "novità"
     header: 

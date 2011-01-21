@@ -54,6 +54,7 @@ pt-PT:
         change_password: "Alterar a minha senha"
       new: 
         forgot_password: "Esqueceste-te da tua senha?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Enviem-me as instruções para modificar a minha senha"
       send_instructions: "Vais receber um email com instruções sobre como alterar a senha dentro de alguns minutos."
       updated: "A tua senha foi alterada com sucesso. Estás online."
@@ -66,7 +67,6 @@ pt-PT:
         alpha_software: "Estás preste a utilizar um programa em fase \"alpha\"."
         bugs_and_feedback: "Tem em atenção que irão ocorrer erros. Encorajamos-te a usar o botão de Feedback na margem direita do teu navegador para reportar quaisquer anomalias! Trabalharemos o mais rapidamente possível para resolver os problemas que denunciares."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Tens um problema? Encontra a solução aqui"
         login: "Login"
         modern_browsers: "apenas suporta navegadores modernos."
         password: "Palavra-passe"

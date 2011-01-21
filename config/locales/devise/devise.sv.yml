@@ -54,6 +54,7 @@ sv:
         change_password: "Ändra mitt lösenord"
       new: 
         forgot_password: "Glömt ditt lösenord?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       send_instructions: "Du kommer att få ett ebrev med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."
@@ -66,7 +67,6 @@ sv:
         alpha_software: "Du är påväg att använda mjukvara i alpha-stadie."
         bugs_and_feedback: "Var beredd på att stöta på buggar och problem. Använd gärna feedback-knappen till vänster för att rapportera dessa, vi kommer att försöka ordna problemen så snart som möjligt."
         bugs_and_feedback_mobile: "Tänk på att du kommer att uppleva buggar.Vi uppmanar dig att rapportera alla fel! Vi kommer att arbeta så fort som möjligt med att lösa dom problem som du rapporterar."
-        have_a_problem: "Har du problem att komma in? Klicka här"
         login: "Logga in"
         modern_browsers: "stöder endast moderna webbläsare."
         password: "Lösenord"

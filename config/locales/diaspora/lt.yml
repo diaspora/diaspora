@@ -160,6 +160,7 @@ lt:
       to: "Kam"
   layouts: 
     application: 
+      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
       whats_new: "what's new?"
     header: 

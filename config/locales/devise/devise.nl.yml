@@ -54,6 +54,7 @@ nl:
         change_password: "Wijzig mijn wachtwoord"
       new: 
         forgot_password: "Wachtwoord vergeten?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
       send_instructions: "Je ontvangt een e-mail met instructies om je wachtwoord opnieuw in te stellen."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."
@@ -66,7 +67,6 @@ nl:
         alpha_software: "Je staat op het punt om alpha software te gebruiken."
         bugs_and_feedback: "In dit stadium zul je waarschijnlijk nog bugs tegenkomen. We raden je aan de Feedback-button aan de rechterzijde van je browser te gebruiken om deze bugs te melden (in het Engels)!  Vervolgens zullen wij zo hard mogelijk werken om deze op te lossen."
         bugs_and_feedback_mobile: "Wees ervan bewust dat je zeker weten bugs zult tegenkomen.  We raden je aan deze vooral te rapporteren!  We doen ons uiterste best om deze problemen zo snel mogelijk op te lossen."
-        have_a_problem: "Problemen? Vind hier een antwoord!"
         login: "Inloggen"
         modern_browsers: "ondersteunt alleen moderne browsers."
         password: "Wachtwoord"

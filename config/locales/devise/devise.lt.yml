@@ -54,6 +54,7 @@ lt:
         change_password: "Keisti mano slaptažodį"
       new: 
         forgot_password: "Pamiršai slaptažodį?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Siųsti nurodymus, kaip atstatyti slaptažodį"
       send_instructions: "Netrukus gausite el. laišką su nurodymais, kaip atstatyti slaptažodį."
       updated: "Slaptažodis pakeistas sėkmingai. Prisijungta."
@@ -66,7 +67,6 @@ lt:
         alpha_software: "Ši programinė įranga nėra pilnai užbaigta."
         bugs_and_feedback: "Naudojantis gali pasitaikyti klaidų. Apie pasitaikiusius nesklandumus galima praneštis naudojantis mygtuku naršyklės dešinėje. Klaidas stengsimės ištaisyti kuo skubiau."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Kyla problemų? Atsakymai čia"
         login: "Prisijungti"
         modern_browsers: "palaiko tik modernias naršykles."
         password: "Slaptažodis"

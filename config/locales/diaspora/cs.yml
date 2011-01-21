@@ -160,6 +160,7 @@ cs:
       to: "Pro"
   layouts: 
     application: 
+      have_a_problem: "Máte problém? Zde najdete odpověď"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "co je nového?"
     header: 

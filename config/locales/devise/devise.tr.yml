@@ -54,6 +54,7 @@ tr:
         change_password: "Şifre Değiştirme"
       new: 
         forgot_password: "Şifrenizi mi unuttunuz?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Şifre yenileme talimatları gönder"
       send_instructions: "Kisa bir süre içersinde şifrenizi nasıl yeniliyceğinizi açıklıyan bir email alıcaksınız."
       updated: "Şifreniz değistirilmiştir. Şu anda giriş yapmış oluyorsunuz."
@@ -66,7 +67,6 @@ tr:
         alpha_software: "Alphae programını kullanmak üzeresiniz."
         bugs_and_feedback: "Sitede bazı buglarla karşılaşabilirsiniz.karşılaştığınız herhangi bug için sağüstteki feedback butonunu kullanmanızı tavsiye ederiz. Raporlarınız bize ulaşır ulaşmaz,sorunu düzeltmek için çalışacağız."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Sorun mu yaşıyorsunuz ? Çözüm aramak için"
         login: "Giriş"
         modern_browsers: "sadece güncel tarayıcıları destekler."
         password: "Şifre"

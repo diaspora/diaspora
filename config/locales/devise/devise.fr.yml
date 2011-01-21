@@ -54,6 +54,7 @@ fr:
         change_password: "Changer mon mot de passe"
       new: 
         forgot_password: "Mot de passe oublié ?"
+        no_account: "Aucun compte n'est associé à cette adresse de courrier électronique. Si vous attendez une invitation, nous les distribuons aussi vite que possible."
         send_password_instructions: "Envoyez-moi les instructions de réinitialisation de mot de passe"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour réinitialiser votre mot de passe."
       updated: "Votre mot de passe a été modifié avec succès. Vous êtes à présent connecté."
@@ -66,7 +67,6 @@ fr:
         alpha_software: "Vous êtes sur le point d'utiliser une application en version alpha."
         bugs_and_feedback: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à utiliser le bouton Feedback sur le côté droit de votre navigateur pour signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         bugs_and_feedback_mobile: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à nous signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
-        have_a_problem: "Un problème ? Trouvez une réponse ici"
         login: "Se connecter"
         modern_browsers: "supporte seulement des navigateurs modernes."
         password: "Mot de passe"

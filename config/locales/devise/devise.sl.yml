@@ -54,6 +54,7 @@ sl:
         change_password: "Spremeni geslo"
       new: 
         forgot_password: "Ste pozabili geslo?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Pošlji navodila za ponastavitev gesla"
       send_instructions: "V nekaj minutah boste po e-pošti prejeli navodila za ponastavitev vašega gesla."
       updated: "Vaše geslo je bilo uspešno spremenjeno. Zdaj ste prijavljeni."
@@ -66,7 +67,6 @@ sl:
         alpha_software: "Uporabili boste alfa različico programa."
         bugs_and_feedback: "Opozarjamo vas, da lahko naletite na napake. Veseli bomo vsake prijave napake, ki jo lahko oddate s pomočjo 'Feedback' gumba na desni strani spletnega brskalnika. Po najboljših močeh se bomo potrudili, da prijavljeno napako obravnavamo in odpravimo v najkrajšem možnem času."
         bugs_and_feedback_mobile: "Opozarjamo vas, da lahko naletite na napake. Veseli bomo vsake vaše prijave napake, ki jo bomo poskusili obravnavati in rešiti v najkrajšem možnem času."
-        have_a_problem: "Imate težavo? Tukaj poiščite odgovor"
         login: "Prijava"
         modern_browsers: "podpira le novejše spletne brskalnike."
         password: "Geslo"

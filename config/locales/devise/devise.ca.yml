@@ -54,6 +54,7 @@ ca:
         change_password: "Canviar la meva contrasenya"
       new: 
         forgot_password: "Has oblidat la teva contrasenya?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Enviam instruccions per reestablir la meva contrasenya"
       send_instructions: "Rebràs un E-Mail amb instruccions per canviar la teva contrasenya en pocs minuts."
       updated: "La teva contrasenya ha estat modificada. Ja has accedit al teu compte."
@@ -66,7 +67,6 @@ ca:
         alpha_software: "Estàs a punt d'utilizar software en versió alpha."
         bugs_and_feedback: "Tingues present que pots experimentar errors. T'animem a que utilitzis el botó de Feedback situat a la dreta del teu navegador per informar de qualsevol error! Treballarem tan ràpid com sigui possible per resoldre qualsevol problema del que ens informis."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Tens un problema? Troba la resposta aquí"
         login: "Iniciar sessió"
         modern_browsers: "només és compatible amb navegadors actuals."
         password: "Contrasenya"

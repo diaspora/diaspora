@@ -54,6 +54,7 @@ es:
         change_password: "Cambiar mi contraseña"
       new: 
         forgot_password: "¿Olvidaste tu contraseña?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
       send_instructions: "Recibirás un email con instrucciones para cambiar tu contraseña en pocos minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
@@ -66,7 +67,6 @@ es:
         alpha_software: "Estás a punto de utilizar software en versión alpha."
         bugs_and_feedback: "Ten en cuenta que puedes experimentar errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema del que tú nos informes."
         bugs_and_feedback_mobile: "Ten en cuenta, experimentarás errores. ¡Te animamos a informar de cualquier ****! Vamos a trabajar tan rápido como nos sea posible para resolver cualquier problema que informes."
-        have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
         login: "Iniciar sesión"
         modern_browsers: "sólo es compatible con navegadores actuales."
         password: "Contraseña"

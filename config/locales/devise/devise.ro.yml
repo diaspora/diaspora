@@ -54,6 +54,7 @@ ro:
         change_password: "Schimbă-mi parola"
       new: 
         forgot_password: "Aţi uitat parola?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Trimite-mi instrucţiunile pentru a reseta parola"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei."
       updated: "Parolă schimbată cu success. Sunteți acum autentificat(ă)."
@@ -66,7 +67,6 @@ ro:
         alpha_software: "Sunteţi pe cale de a utiliza software alfa."
         bugs_and_feedback: "Aveţi grijă, veţi experimenta probeleme. Vă încurajăm să utilizaţi butonul Feedback pe partea dreaptă a browser-ului pentru a raporta orice problemă! Vom lucra cât de repede putem pentru a rezolva orice dificultaţi veţi întâmpina."
         bugs_and_feedback_mobile: "Aveţi grijă, veţi experimenta probeleme. Vă încurajăm să raportaţi orice problemă! Vom lucra cât de repede putem pentru a rezolva orice dificultaţi veţi întâmpina."
-        have_a_problem: "Ai o problemă? Gaseşte răspunsul aici"
         login: "Autentificare"
         modern_browsers: "suportă doar browser-ele moderne."
         password: "Parola"

@@ -54,6 +54,7 @@ mk:
         change_password: "Промена на лозинка"
       new: 
         forgot_password: "Ја заборавивте лозинката?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Испрати ми ги инструкциите за ресетирање на лозинката"
       send_instructions: "За неколку минути ќе добиете е-маил со инструкции за начинот на кој може да ја ресетирате вашата лозинка."
       updated: "Вашата лозинка беше успешно променета. Сега сте најавени."
@@ -66,7 +67,6 @@ mk:
         alpha_software: "На пат сте на користење на експериментален софтвер."
         bugs_and_feedback: "Внимание, ќе искусите софтверски грешки. За пријавување на такви грешки, можете да го користите Feedback копчето на десната страна од вашиот прелистувач! Ние ќе се потрудиме што побргу да го решиме пријавениот проблем."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        have_a_problem: "Имате проблем? Најдете го одговорот овде"
         login: "Најави се"
         modern_browsers: "подржува само современи прелистувачи."
         password: "Лозинка"

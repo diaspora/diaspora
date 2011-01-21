@@ -160,6 +160,7 @@ ru:
       to: "Для"
   layouts: 
     application: 
+      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       whats_new: "Что нового?"
     header: 
