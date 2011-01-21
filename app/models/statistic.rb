@@ -5,7 +5,7 @@ class Statistic < ActiveRecord::Base
     users = 0
     sum = 0
     self.data_points.each do |d|
-      sum += d.key*d.value
+      sum += d.key.to_i*d.value
       users += d.value
     end
     self.average = sum.to_f/users
@@ -49,5 +49,17 @@ class Statistic < ActiveRecord::Base
 
     g.labels = h
     g.to_blob
+  end
+  
+  def self.generate(time=Time.now, post_range=(0..50))
+    stat = Statistic.new(:type => "posts_per_day", :time => time)
+    post_range.each do |n|
+      data_point = DataPoint.users_with_posts_on_day(time,n)
+      data_point.save
+      stat.data_points << data_point
+    end
+    stat.compute_average
+    stat.save
+    stat
   end
 end

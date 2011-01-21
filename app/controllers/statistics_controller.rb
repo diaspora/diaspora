@@ -10,15 +10,7 @@ class StatisticsController < ApplicationController
   end
 
   def generate_single
-    stat = Statistic.new(:type => "posts_per_day")
-    (0..15).each do |n|
-      data_point = DataPoint.users_with_posts_today(n)
-      data_point.save
-      stat.data_points << data_point
-    end
-    stat.compute_average
-    stat.save!
-    stat
+    stat = Statistic.generate()
     redirect_to stat
   end
 

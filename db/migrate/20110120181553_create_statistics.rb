@@ -3,6 +3,7 @@ class CreateStatistics < ActiveRecord::Migration
     create_table :statistics do |t|
       t.integer :average
       t.string :type
+      t.datetime :time
 
       t.timestamps
     end

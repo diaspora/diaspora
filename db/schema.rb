@@ -420,6 +420,7 @@ ActiveRecord::Schema.define(:version => 20110120182100) do
   create_table "statistics", :force => true do |t|
     t.integer  "average"
     t.string   "type"
+    t.datetime "time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

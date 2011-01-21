@@ -3,38 +3,45 @@ require 'spec_helper'
 describe Statistic do
   before(:all) do
     @stat = Statistic.new
+    @time = Time.now
 
     1.times do |n|
-      alice.post(:status_message, :message => 'hi', :to => alice.aspects.first)
+      p = alice.post(:status_message, :message => 'hi', :to => alice.aspects.first)
+      p.created_at = @time
+      p.save
     end
 
     5.times do |n|
-      bob.post(:status_message, :message => 'hi', :to => bob.aspects.first)
+      p = bob.post(:status_message, :message => 'hi', :to => bob.aspects.first)
+      p.created_at = @time
+      p.save
     end
     
     10.times do |n|
-      eve.post(:status_message, :message => 'hi', :to => eve.aspects.first)
+      p = eve.post(:status_message, :message => 'hi', :to => eve.aspects.first)
+      p.created_at = @time
+      p.save
     end
 
     (0..10).each do |n|
-      @stat.data_points << DataPoint.users_with_posts_today(n)
+      @stat.data_points << DataPoint.users_with_posts_on_day(@time, n)
     end
   end
 
-  context '#compute_average' do
+  describe '#compute_average' do
     it 'computes the average of all its DataPoints' do
       @stat.compute_average.should == 16.to_f/3
     end
   end
 
-  context '#distribution' do
+  describe '#distribution' do
     it 'generates a hash' do
       @stat.distribution.class.should == Hash
     end
 
     it 'correctly sets values' do
       dist = @stat.distribution
-      [dist[1], dist[5], dist[10]].each do |d|
+      [dist['1'], dist['5'], dist['10']].each do |d|
         d.should == 1.to_f/3
       end
     end
@@ -47,7 +54,7 @@ describe Statistic do
     end
   end
 
-  context '#distribution_as_array' do
+  describe '#distribution_as_array' do
     it 'returns an array' do
       @stat.distribution_as_array.class.should == Array
     end
@@ -60,15 +67,63 @@ describe Statistic do
     end
   end
 
-  context '#users_in_sample' do
+  describe '#users_in_sample' do
     it 'returns a count' do
       @stat.users_in_sample.should == 3
     end
   end
 
-  context '#generate_graph' do
+  describe '#generate_graph' do
     it 'outputs a binary string' do
       @stat.generate_graph.class.should == String
+    end
+  end
+
+  describe '.generate' do
+    before(:all) do
+      @time = Time.now - 1.day
+
+      1.times do |n|
+        p = alice.post(:status_message, :message => 'hi', :to => alice.aspects.first)
+        p.created_at = @time
+        p.save
+      end
+
+      5.times do |n|
+        p = bob.post(:status_message, :message => 'hi', :to => alice.aspects.first)
+        p.created_at = @time
+        p.save
+      end
+    end
+
+    it 'creates a Statistic with a default date and range' do
+      time = Time.now
+      Time.stub!(:now).and_return(time)
+
+      stat = Statistic.generate
+      stat.data_points.count.should == 51
+      stat.time.should == time
+    end
+
+    context 'custom date' do
+      before do
+        @stat = Statistic.generate(@time)
+      end
+
+      it 'creates a Statistic with a custom date' do
+        @stat.time.should == @time
+      end
+
+      it 'returns only desired sampling' do
+        @stat.users_in_sample.should == 2
+      end
+    end
+
+    context 'custom range' do
+      it 'creates a Statistic with a custom range' do
+        stat = Statistic.generate(Time.now, (2..32))
+        stat.data_points.count.should == 31
+      end
     end
   end
 end
