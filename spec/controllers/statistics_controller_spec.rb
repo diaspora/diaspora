@@ -4,6 +4,7 @@ describe StatisticsController do
   render_views
 
   before do
+    AppConfig[:admins] = ['alice']
     sign_in :user, alice
   end
 
@@ -39,4 +40,16 @@ describe StatisticsController do
     end
   end
 
+  describe '#redirect_unauthorized' do
+    it 'redirects for non admins' do
+      AppConfig[:admins] = ['bob']
+      get :index
+      response.should be_redirect
+    end
+
+    it 'succeeds' do
+      get :index
+      response.should be_success
+    end
+  end
 end

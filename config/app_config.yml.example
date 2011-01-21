@@ -87,6 +87,10 @@ default:
   cloudfiles_api_key:  'abc123'
   invites_off: false
 
+  #list of users who have admin privilages
+  admins:
+    - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
+
 development:
 
 test:
