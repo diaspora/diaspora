@@ -33,13 +33,6 @@ describe StatisticsController do
     end
   end
 
-  describe '#graph' do
-    it 'generates a graph' do
-      pending "need to use google graph API"
-      get :graph, :id => @stat.id
-      response.should be_success
-    end
-  end
 
   describe '#redirect_unauthorized' do
     it 'redirects for non admins' do

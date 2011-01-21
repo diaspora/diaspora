@@ -9,7 +9,6 @@ Diaspora::Application.routes.draw do
   resources :services
 
   match 'statistics/generate_single' => 'statistics#generate_single'
-  match 'statistics/graph/:id' => 'statistics#graph'
   resources :statistics
 
   match 'notifications/read_all' => 'notifications#read_all'

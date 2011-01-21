@@ -2,20 +2,15 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- content_for :head do
+  = javascript_include_tag 'vendor/highcharts.js'
+
 %h1 Viewing statistic
 
 %h3
   = "Users in sample: #{@statistic.users_in_sample}"
 
-  %h5
-    (graph implementation pending)
-
-  
-  - for pos in (0..@distribution.length-1)
-    %b
-      = pos
-    = @distribution[pos]
-    %br
+  = high_chart("posts_per_day", @h)
 
 %br
 = link_to 'all statistics', statistics_path

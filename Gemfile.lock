@@ -44,6 +44,14 @@ GIT
     carrierwave (0.5.0)
       activesupport (~> 3.0)
 
+GIT
+  remote: git://github.com/xiaods/lazy_high_charts.git
+  revision: c63f49ce10e1dad8a0b796233306742a1320e7b0
+  ref: c63f49ce10e1dad8a0b7
+  specs:
+    lazy_high_charts (1.0.8)
+      bundler (~> 1.0)
+
 PATH
   remote: vendor/gems/jasmine
   specs:
@@ -380,6 +388,7 @@ DEPENDENCIES
   jasmine!
   json (= 1.4.6)
   launchy
+  lazy_high_charts!
   mini_magick (= 3.2)
   mocha
   mongrel

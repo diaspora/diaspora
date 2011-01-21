@@ -22,6 +22,9 @@ gem 'twitter', :git => 'git://github.com/jnunemaker/twitter.git', :ref => 'ef122
 gem 'haml', '3.0.25'
 gem 'will_paginate', '3.0.pre2'
 
+#Statistics
+gem 'lazy_high_charts', :git => 'git://github.com/xiaods/lazy_high_charts.git', :ref => 'c63f49ce10e1dad8a0b7'
+
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'addressable', '2.2.2', :require => 'addressable/uri'
