@@ -7,7 +7,7 @@ describe DataPoint do
   end
 
   context '.posts_per_day_last_week' do
-    before(:all) do
+    before do
       1.times do |n|
         alice.post(:status_message, :message => 'hi', :to => alice.aspects.first)
       end

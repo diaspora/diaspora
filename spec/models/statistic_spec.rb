@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Statistic do
-  before(:all) do
+  before do
     @stat = Statistic.new
     @time = Time.now
 
@@ -80,7 +80,7 @@ describe Statistic do
   end
 
   describe '.generate' do
-    before(:all) do
+    before do
       @time = Time.now - 1.day
 
       1.times do |n|
