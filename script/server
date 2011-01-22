@@ -155,7 +155,6 @@ fi
 
 if [ ! -e 'public/stylesheets/application.css' ]; then
     echo 'Jammit precache error (now or at install)' >&2
-    exit 66
 fi
 
 
