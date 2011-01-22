@@ -210,7 +210,7 @@ describe AspectsController do
         :person_id => @person.id,
         :from => @aspect0.id,
         :to =>
-        {:to => @aspect1.id},
+        {:to => @aspect1.id}
       }
     end
     it 'calls the move_contact_method' do

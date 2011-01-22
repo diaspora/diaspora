@@ -62,7 +62,7 @@ var AspectEdit = {
     if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing contact does
         dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
       $.ajax({
-        url: "/aspects/move_contact.json",
+        url: "/aspects/move_contact/",
         data: {
           "person_id": person.attr('data-guid'),
           "from": person.attr('data-aspect_id'),
