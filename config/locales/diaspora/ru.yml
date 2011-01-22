@@ -269,6 +269,7 @@ ru:
       recent_public_posts: "Последние Публичные Посты"
       return_to_aspects: "Вернуться на страницу аспектов"
       similar_contacts: "аналогичные контакты"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "принять или игнорировать."
     update: 
       failed: "Не удалось обновить профиль"

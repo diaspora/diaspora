@@ -269,6 +269,7 @@ da:
       recent_public_posts: "Seneste offentlige indlæg"
       return_to_aspects: "Tilbage til aspektsoversigt"
       similar_contacts: "lignende kontakter"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "at godkende eller ignorere det."
     update: 
       failed: "Kunne ikke opdatere profil"

@@ -269,6 +269,7 @@ es-CL:
       recent_public_posts: "Posteos Públicos Recientes"
       return_to_aspects: "Volver a tu página de aspectos"
       similar_contacts: "similar contacts"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "aceptar o ignorar."
     update: 
       failed: "Error al actualizar perfil"

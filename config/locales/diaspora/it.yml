@@ -269,6 +269,7 @@ it:
       recent_public_posts: "Post pubblici recenti"
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
       similar_contacts: "contatti simili"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "per accettarla o ignorarla."
     update: 
       failed: "Impossibile aggiornare il profilo"

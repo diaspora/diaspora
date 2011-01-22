@@ -269,6 +269,7 @@ cs:
       recent_public_posts: "Poslední veřejné příspěvky"
       return_to_aspects: "Návrat na vaši stránku s aspekty"
       similar_contacts: "podobné kontakty"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "přijmout nebo ignorovat."
     update: 
       failed: "Aktualizace profilu selhala"

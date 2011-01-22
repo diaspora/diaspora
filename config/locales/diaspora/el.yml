@@ -269,6 +269,7 @@ el:
       recent_public_posts: "Πρόσφατες Δημόσιες Δημοσιεύσεις"
       return_to_aspects: "Επιστροφή στη σελίδα με τις πτυχές σας"
       similar_contacts: "παρόμοιες επαφές"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
     update: 
       failed: "Αποτυχία ενημέρωσης προφίλ"

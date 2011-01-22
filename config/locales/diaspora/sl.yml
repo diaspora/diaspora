@@ -269,6 +269,7 @@ sl:
       recent_public_posts: "Zadnje javne objave"
       return_to_aspects: "Vrnite se na vašo stran s skupinami"
       similar_contacts: "podobni stiki"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "sprejmite ali zavrnite."
     update: 
       failed: "Posodobitev profila ni uspelo"

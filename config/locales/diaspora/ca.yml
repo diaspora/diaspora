@@ -269,6 +269,7 @@ ca:
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Tornar als teus aspectes"
       similar_contacts: "similar contacts"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "acceptar o ignorar."
     update: 
       failed: "No s'ha pogut actualitzar el teu perfil"

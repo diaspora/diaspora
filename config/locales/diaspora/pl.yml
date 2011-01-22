@@ -269,6 +269,7 @@ pl:
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Wróć do strony aspektów"
       similar_contacts: "similar contacts"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "by je przyjąć lub zignorować."
     update: 
       failed: "Nie udało się zaktualizować profilu"

@@ -269,6 +269,7 @@ lt:
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Grįžti į aspektų puslapį"
       similar_contacts: "similar contacts"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "priimti arba ignoruoti."
     update: 
       failed: "Nepavyko atnaujinti profilio"
