@@ -178,11 +178,10 @@ module ApplicationHelper
     end
 
     message = process_links(message)
-    message = process_youtube(message)
+    message = process_youtube(message, options[:youtube_maps])
     message = process_vimeo(message, options[:vimeo_maps])
     message = process_autolinks(message)
     message = process_emphasis(message)
-    message = process_youtube_again(message, options[:youtube_maps])
 
     if options[:newlines]
       message.gsub!(/\n+/, '<br />')
@@ -217,11 +216,16 @@ module ApplicationHelper
     return message
   end
 
-  def process_youtube(message)
-    message.gsub!(/( |^)(http:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_]+)(&[^ ]*|)/) do |m|
-      res = "#{$1}youtube.com::#{$3}"
-      res.gsub!(/(\*|_)/) { |m| "\\#{$1}" }
-      res
+  def process_youtube(message, youtube_maps)
+    regex = /( |^)(http:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_\-]+)(&[^ ]*|)/
+    while youtube = message.match(regex)
+      video_id = youtube[3]
+      if youtube_maps && youtube_maps[video_id]
+        title = h(CGI::unescape(youtube_maps[video_id]))
+      else
+        title = I18n.t 'application.helper.video_title.unknown'
+      end
+      message.gsub!(youtube[0], '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
     end
     return message
   end
@@ -255,26 +259,12 @@ module ApplicationHelper
     return message
   end
 
-  def process_youtube_again(message, youtube_maps)
-    while youtube = message.match(/youtube\.com::([A-Za-z0-9_\\\-]+)/)
-      video_id = youtube[1]
-      if youtube_maps && youtube_maps[video_id]
-        title = h(CGI::unescape(youtube_maps[video_id]))
-      else
-        title = I18n.t 'application.helper.video_title.unknown'
-      end
-      message.gsub!('youtube.com::'+video_id, '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="#video">Youtube: ' + title + '</a>')
-    end
-    return message
-  end
-
-
   def process_vimeo(message, vimeo_maps)
     regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{6,})/
     while vimeo = message.match(regex)
       video_id = vimeo[1]
       if vimeo_maps && vimeo_maps[video_id]
-        title = vimeo_maps[video_id]
+        title = h(CGI::unescape(vimeo_maps[video_id]))
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
