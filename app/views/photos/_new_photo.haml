@@ -45,28 +45,25 @@
 
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
         $('#photodropzone').append(
-          "<li style='position:relative;'>" +
-            "<img src='" + url +"' data-id='" + id + "' />" + 
+          "<li class='publisher_photo' style='position:relative;'>" +
+            "<img  src='" + url +"' data-id='" + id + "' />" + 
             "<div class='x'> X </div>" +
             "<div class='circle'></div>" +
           "</li>"
           );
         $('#publisher').find("input[type='submit']").removeAttr('disabled');
-        $('.x').live('mousedown', function(){
-          var photo = $(this).closest('li');
+        $('.x').live('click', function(){
+          var photo = $(this).closest('.publisher_photo');
           photo.addClass("dim");
           $.ajax({url: "photos/" + photo.children('img').attr('data-id'),
                   type: 'DELETE',
                   success: function() {
                             photo.fadeOut(400, function(){
                               photo.remove();
+                              if ( $('.publisher_photo').length  == 0){
+                                $("#publisher textarea").removeClass("with_attachments");
+                              }
                             });
-                            alert( $('#photodropzone').children().index('img') );
-                            if ( $('#photodropzone').children().index('li')  == -1){
-                              alert("last one");
-                              $("#publisher textarea").removeClass("with_attachments");
-                            }
-
                           }
                   });
         });
