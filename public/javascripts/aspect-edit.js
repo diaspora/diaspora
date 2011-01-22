@@ -71,7 +71,8 @@ var AspectEdit = {
           }
         },
         success: function(data) {
-          AspectEdit.onMovePersonSuccess(person, dropzone, data);
+          AspectEdit.onMovePersonSuccess(person, dropzone);
+          View.flashes.render($.parseJSON(data));
         }
       });
     }
@@ -85,8 +86,7 @@ var AspectEdit = {
     person.removeAttr('data-person_id');
   },
 
-  onMovePersonSuccess: function(person, dropzone, data) {
-    View.flashes.render(data);
+  onMovePersonSuccess: function(person, dropzone) {
     person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
   },
 
