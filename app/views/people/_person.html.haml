@@ -12,7 +12,7 @@
     - elsif (contact && contact.pending) || request
       = t('.pending_request')
     - else
-      = link_to "start sharing",
+      = link_to t('people.show.start_sharing'),
         {:controller => "people",
         :action => "share_with",
         :id => person.id},
