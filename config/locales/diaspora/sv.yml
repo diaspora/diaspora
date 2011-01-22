@@ -269,6 +269,7 @@ sv:
       recent_public_posts: "Senaste publika inlägg"
       return_to_aspects: "Återgå till översikten"
       similar_contacts: "liknande kontakter"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "for att acceptera eller ignorera."
     update: 
       failed: "Misslyckades med att uppdatera profilen"

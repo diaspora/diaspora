@@ -269,6 +269,7 @@ fi:
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
       return_to_aspects: "Palaa näkymiin"
       similar_contacts: "Yhteiset kontaktit"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
     update: 
       failed: "Profiilin päivittäminen epäonnistui"

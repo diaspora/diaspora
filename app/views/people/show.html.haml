@@ -21,7 +21,7 @@
   #author_info
     - unless @contact || current_user.person == @person
       .right
-        = link_to "start sharing",
+        = link_to t('.start_sharing'),
           {:controller => "people",
           :action => "share_with",
           :id => @person.id},

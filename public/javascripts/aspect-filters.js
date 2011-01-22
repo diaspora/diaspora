@@ -117,7 +117,10 @@ $(document).ready(function(){
 
 
     // set url
-    history.pushState(null, document.title, newURL);
+    // some browsers (Firefox for example) don't support pushState
+    if (typeof(history.pushState) == 'function') {
+      history.pushState(null, document.title, newURL);
+    }
 
     $.ajax({
       url : newURL,

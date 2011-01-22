@@ -269,6 +269,7 @@ fr:
       recent_public_posts: "Messages publics récents"
       return_to_aspects: "Retourner à votre page des aspects"
       similar_contacts: "Contacts similaires"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
     update: 
       failed: "La mise à jour du profil a échoué"

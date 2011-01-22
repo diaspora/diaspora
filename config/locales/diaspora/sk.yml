@@ -269,6 +269,7 @@ sk:
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Vrátiť sa na stránku aspektov"
       similar_contacts: "similar contacts"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "akceptovať, alebo ignorovať."
     update: 
       failed: "Aktualizácia profilu zlyhala"

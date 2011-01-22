@@ -269,6 +269,7 @@ tr:
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Return to your aspects page"
       similar_contacts: "similar contacts"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "to accept or ignore it."
     update: 
       failed: "Failed to update profile"

@@ -269,6 +269,7 @@ pt-PT:
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Voltar à página dos grupos"
       similar_contacts: "similar contacts"
+      start_sharing: "start sharing"
       to_accept_or_ignore: "para o aceitares ou ignorares"
     update: 
       failed: "Falha ao actualizar o perfil"
