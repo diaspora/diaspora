@@ -7,7 +7,9 @@ realpath=$( ruby -e "puts File.expand_path(\"$0\")")
 cd $( dirname $realpath)/..
 OS=`uname -s`
 
+
 [ -e config/server.sh ] && source config/server.sh
+
 
 function init_public
 # Create all dynamically generated files in public/ folder
@@ -20,13 +22,19 @@ function init_public
         wget -q -O tmp/server.html http://localhost:$THIN_PORT && \
             rm tmp/server.html && break
     done
-    bundle exec thin --pid log/thin.pid stop
+    if [ -e 'log/thin.pid' ]; then
+        bundle exec thin --pid log/thin.pid stop
+    else
+        echo "Warning: Something is wrong in your installation, thin didn't come up for the first time initialization!" >&2
+        echo "Try starting it manually with bundle exec thin start and look at the output." >&2
+    fi
     if [ -e tmp/server.html ]; then
         echo "Cannot get index.html from web server (aborted)" >&2
         return 2
     fi
     bundle exec jammit
 }
+
 
 function chk_service
 {
@@ -42,6 +50,7 @@ function chk_service
     ;;
     esac
 }
+
 
 function redis_config
 # Create/update the local redis.conf file from /etc master
@@ -75,6 +84,7 @@ function redis_config
         config/redis.conf
 }
 
+
 # Scan for -p, find out what port thin is about to use.
 args="$DEFAULT_THIN_ARGS $@"
 prev_arg=''
@@ -83,6 +93,7 @@ do
     [ "$prev_arg" = '-p' ] && THIN_PORT="$arg"
     prev_arg="$arg"
 done
+
 
 # Is someone listening on the ports already? (ipv4 only test ?)
 services=$( chk_service $THIN_PORT )
@@ -110,6 +121,7 @@ fi
 
 redis_config
 
+
 # Force AGPL
 if [ -w public -a ! -e  public/source.tar.gz ]; then
     branch=$( git branch | awk '/^[*]/ {print $2}')
@@ -120,6 +132,19 @@ if [ ! -e public/source.tar.gz ]; then
     exit 65
 fi
 
+
+# Check if config files exists
+if [ ! -e 'config/app_config.yml' ]; then
+    echo "config/app_config.yml is missing! Copy over config/app_config.yml.example to config/app_config.yml and edit it properly!" >&2
+    exit 67
+fi
+
+if [ ! -e 'config/database.yml' ]; then
+    echo 'config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
+    exit 68
+fi
+
+
 # Precache jammit assets
 if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
     if [ "$INIT_PUBLIC" != 'no' ]; then
@@ -127,6 +152,7 @@ if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
         init_public
     fi
 fi
+
 if [ ! -e 'public/stylesheets/application.css' ]; then
     echo 'Jammit precache error (now or at install)' >&2
     exit 66
