@@ -30,4 +30,6 @@ Diaspora.widgetCollection.prototype.init = function() {
 
 Diaspora.widgets = Diaspora.widgets || new Diaspora.widgetCollection();
 
-$(Diaspora.widgets.init);
+$(document).ready(function() {
+  Diaspora.widgets.init();
+});

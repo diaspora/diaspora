@@ -7,7 +7,7 @@ Diaspora.widgets.add("alert", function() {
     });
   };
 
-  this.faceboxTemplate = '<div id="diaspora_alert">' +
+  this.faceboxTemplate = '<div id="diaspora_alert" class="facebox_content">' +
     '<div class="span-12 last">' +
       '<div id="facebox_header">' +
         '<h4>' +
