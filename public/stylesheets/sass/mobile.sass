@@ -1,5 +1,11 @@
 @import "mixins"
 
+a
+  :text
+    :decoration none
+  :font
+    :weight normal
+
 #landing_content
   :text-align center
 
@@ -39,164 +45,211 @@
   label
     :font-weight bold
 
-ul
-  :list-style none
-
-.avatar
-  :width 40px
-  :height 40px
-  :padding 0
-
-li.message
-  :width 90%
+.stream_element,
+.comment
   :position relative
-  :margin
-    :top 1em
-  :padding
-    :bottom 1.5em
-  :border
-    :bottom 1px #eee solid
-  :line-height 19px
-  :font
-    :family 'Arial', 'Helvetica', sans-serif
-  :color #777
+
+  :background
+    :color #fff
+
+  *
+    :max-width 100%
+
+  :min-height 34px
 
   .avatar
     :float left
+    :height 34px
+    :width 34px
+
+  .from
     :margin
-      :right 15px
+      :bottom 4px
+    a
+      :color #000
 
   .content
-    :margin
-      :top 0
     :padding
-      :left 65px
+      :left 41px
 
-    .aspect
-      :display inline
+  :border
+    :bottom 1px solid #eee
 
+  :padding 6px 6px
+    :right 8px
 
-    :color #444
-    :font
-      :weight normal
-      :size 14px
-
-    .stream_photo
-      :float left
-      :margin 
-        :top 6px
-
-    .photo_description
-      :margin 
-        :top 6px
-      :padding
-        :left 220px
-      :min-height 185px
-      :color #888
-      :font
-        :style italic
-
-    .small_text
-      :font
-        :size 10px
-
-    div.info
-      :color #999
-      :font-size smaller
-      a
-        :color #ccc
-      .time
-        a
-          :color #bbb
-        :font
-          :weight bold
-        :margin
-          :right 5px
-      
-  &:hover
-    div.info, .time
-      a
-        :color #107FC9
-        &:hover
-          :color #22AAE0
-        &:active
-          :color #005D9C
-
-
-.right .reshare_pane .reshare_button a.inactive
-  :color #ccc
-  &:hover
-    :text
-      :decoration none
-  :cursor default
-
-.right .reshare_pane .reshare_button
-  :padding 5px
-  &.active
-    :background
-      :color #333
-
-    :-webkit-border-radius 5px 5px 0 0
-    :-moz-border-radius 5px 5px 0 0
-    :border-radius 5px 5px 0 0
-
-    a
-      :color #fff
-      :text-shadow none
-
-.right .reshare_pane
-  :margin
-    :left 5px
-    :right 5px
-  :display inline
-  :position relative
-
-
-  ul.reshare_box
-    :width 150px
-    :display none
-    :z-index 10
-    :position absolute
+  .info
     :margin
-      :top 0
-    :padding 0
+      :top 0.5em
+    :font
+      :size smaller
+    :text
+      :align right
 
-    :background
-      :color #fafafa
+  .photo_attachments
+    :margin
+      :top 6px
 
-    :list
-      :style none
+.comment
+  :padding
+    :top 12px
+    :bottom 12px
 
-    :border 5px solid #333
+#main_stream
+  :font
+    :size 0.9em
 
-    :text-shadow 0 2px #fff
+.stream_element.person
+  .from
+    :font
+      :size larger
+
+.time
+  :color #ccc
+  :font
+    :size smaller
+    :weight bold
+
+.info
+  :font
+    :size smaller
+
+#show_content
+  :padding 12px
+    :bottom 24px
+  :border
+    :bottom 1px solid #bbb
+  :background
+    :color #fff
+
+  :font
+    :size larger
+
+  img
+    :max-width 100%
+
+  .photo
+    :text-align center
+
+  .controls
+    :font
+      :size smaller
+
+ul
+  :margin 0
+  :padding 0
+  :list
+    :style none
+
+#author_info.show
+  :margin
+    :bottom 24px
+  a
     :color #000
 
-    > li
-      :font
-        :weight bold
-      :color #ccc
-      :border
-        :top 1px solid #fff
-        :bottom 1px solid #ccc
+  img
+    :float left
+    :height 36px
+    :width 36px
+    :margin
+      :right 6px
 
-      &:first-child
-        :border
-          :top none
-      &:last-child
-        :border
-          :bottom none
-      a
-        :display block
-        :height 100%
-        :padding 2px 5px
-        :cursor default
+  :font
+    :size smaller
 
-        &:hover
-          :background
-            :color #eee
-          :text
-            :decoration none
-        &:active
-          :background
-            :color #ccc
+  .diaspora_handle
+    :font
+      :size 14px
+    :color #999
+
+#author_info.profile
+  :background
+    :color #eee
+  :border
+    :bottom 2px solid #ccc
+  :height 90px
+  :padding 6px
+  :margin
+    :bottom 6px
+
+  img
+    :float left
+    :height 90px
+    :width 90px
+
+  .content
+    :padding
+      :left 100px
+
+  .description
+    :font
+      :weight normal
+      :size small
+    :color #999
+
+.comments
+  :border
+    :top 2px solid #D2DBE1
+  :background
+    :color #EDF5FB
+  :font
+    :size smaller
+
+  .comment
+    :background
+      :color #EDF5FB
+
+.stream_marker
+  :background
+    :color #eee
+  :border
+    :bottom 1px solid #aaa
+    :top 1px solid #ccc
+  :font
+    :weight bold
+    :size smaller
+  :color #666
+  :padding 3px 6px
+
+.right
+  :float right
+
+.hidden
+  :display none
+
+textarea.scrunch
+  :height 1em
+
+.grey_back
+  :background
+    :color #eee
+  :border 1px solid #999
+  :padding 6px
+  :margin
+    :bottom 12px
+
+  #publisher
+    :text
+      :align center
+
+#aspect_title
+  :padding 0 6px
+    :bottom 6px
+  :font
+    :weight bold
+  :text
+    :align left
+
+#header_sauce
+  :background
+    :color #111
+  :text
+    :align center
+  :padding 12px 0
+  :border
+    :bottom 1px solid #000
+
+#footer_sauce
+  :background
+    :color #ccc
+  :padding 12px

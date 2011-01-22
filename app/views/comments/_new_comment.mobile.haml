@@ -1,0 +1,11 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+= form_tag( comments_path, :id => "new_comment_on_#{post_id}", :class => 'new_comment', :remote => true) do
+  = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
+  = text_area_tag :text, nil, :rows => 2, :class => "comment_box",:id => "comment_text_on_#{post_id}"
+
+  %div{:data => {:inline => 'true'}, :style => 'text-align:right;'}
+    = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :disable_with => t('.commenting'), "data-role" => 'button', 'data-theme' => 'b', 'data-inline' => true
+

@@ -1,0 +1,49 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  %h1
+    DIASPORA*
+
+#author_info.profile
+  - unless @contact || current_user.person == @person
+    .right
+      = link_to "start sharing",
+        {:controller => "people",
+        :action => "share_with",
+        :id => @person.id},
+        :class => 'share_with button',
+        :rel => 'facebox'
+
+  = person_image_tag @person, :thumb_medium
+
+  .content
+    %h3
+      = @person.name
+      .description
+        = @person.diaspora_handle
+
+- unless @contact || current_user.person == @person
+  - if @incoming_request
+    .floating
+      %h3
+        = t('.incoming_request')
+      %h4
+        = link_to t('.return_to_aspects'), aspects_manage_path
+        = t('.to_accept_or_ignore')
+
+- if @posts.count > 0
+  -if @post_type == :photos
+    = render 'photos/index', :photos => @posts
+  - else
+    #main_stream.stream
+      = render 'shared/stream', :posts => @posts
+
+  = will_paginate @posts
+
+- else
+  #stream
+    %li{:style=>"text-align:center;"}
+      .dull= t('.no_posts')
+
