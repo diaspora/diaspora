@@ -81,6 +81,13 @@ var View = {
         top: -100
       }, $this.remove)
     },
+    render: function(result) {
+      $("<div/>")
+        .attr("id", (result.success) ? "flash_notice" : "flash_error")
+        .prependTo(document.body)
+        .html(result.notice);
+      View.flashes.animate();
+    },
     selector: "#flash_notice, #flash_error, #flash_alert"
 
   },

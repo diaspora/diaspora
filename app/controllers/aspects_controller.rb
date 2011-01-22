@@ -6,7 +6,7 @@ class AspectsController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
-  respond_to :json, :only => :show
+  respond_to :json, :only => [:show, :move_contact]
   respond_to :js
 
   def index
@@ -113,16 +113,21 @@ class AspectsController < ApplicationController
     @from_aspect = current_user.aspects.where(:id => params[:from]).first
     @to_aspect = current_user.aspects.where(:id => params[:to][:to]).first
 
+    response = { }
+
     unless current_user.move_contact( @person, @to_aspect, @from_aspect)
       flash[:error] = I18n.t 'aspects.move_contact.error',:inspect => params.inspect
     end
     if aspect = current_user.aspects.where(:id => params[:to][:to]).first
-      flash[:notice] = I18n.t 'aspects.move_contact.success'
-      render :nothing => true
+      response[:notice] = I18n.t 'aspects.move_contact.success'
+      response[:success] = true
     else
-      flash[:notice] = I18n.t 'aspects.move_contact.failure'
-      render aspects_manage_path
+      response[:notice] = I18n.t 'aspects.move_contact.failure'
+      response[:success] = false
     end
+
+
+    respond_with response
   end
 
   def add_to_aspect

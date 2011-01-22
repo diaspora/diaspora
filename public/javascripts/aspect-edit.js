@@ -62,7 +62,7 @@ var AspectEdit = {
     if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing contact does
         dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
       $.ajax({
-        url: "/aspects/move_contact/",
+        url: "/aspects/move_contact.json",
         data: {
           "person_id": person.attr('data-guid'),
           "from": person.attr('data-aspect_id'),
@@ -70,8 +70,8 @@ var AspectEdit = {
             "to": dropzone.attr('data-aspect_id')
           }
         },
-        success: function() {
-          AspectEdit.onMovePersonSuccess(person, dropzone);
+        success: function(data) {
+          AspectEdit.onMovePersonSuccess(person, dropzone, data);
         }
       });
     }
@@ -85,7 +85,8 @@ var AspectEdit = {
     person.removeAttr('data-person_id');
   },
 
-  onMovePersonSuccess: function(person, dropzone) {
+  onMovePersonSuccess: function(person, dropzone, data) {
+    View.flashes.render(data);
     person.attr('data-aspect_id', dropzone.attr('data-aspect_id'));
   },
 
