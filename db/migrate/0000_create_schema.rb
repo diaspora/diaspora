@@ -105,8 +105,8 @@ class CreateSchema < ActiveRecord::Migration
 
     create_table :profiles do |t|
       t.string :diaspora_handle
-      t.string :first_name
-      t.string :last_name
+      t.string :first_name, :limit => 127
+      t.string :last_name, :limit => 127
       t.string :image_url
       t.string :image_url_small
       t.string :image_url_medium

@@ -95,10 +95,10 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_invitations, :sender_mongo_id
     create_table :mongo_notifications do |t|
       t.string :mongo_id
-      t.string :target_type
-      t.string :target_mongo_id
-      t.string :recipient_mongo_id
-      t.string :actor_mongo_id
+      t.string :target_type, :limit => 127
+      t.string :target_mongo_id, :limit => 127
+      t.string :recipient_mongo_id, :limit => 127
+      t.string :actor_mongo_id, :limit => 127
       t.string :action
       t.boolean :unread, :default => true
       t.timestamps
@@ -114,8 +114,8 @@ class CreateImportTables < ActiveRecord::Migration
 
     create_table :mongo_profiles do |t|
       t.string :diaspora_handle
-      t.string :first_name
-      t.string :last_name
+      t.string :first_name, :limit => 127
+      t.string :last_name, :limit => 127
       t.string :image_url
       t.string :image_url_small
       t.string :image_url_medium
@@ -133,10 +133,10 @@ class CreateImportTables < ActiveRecord::Migration
 
 
     create_table :mongo_requests do |t|
-      t.string :mongo_id
-      t.string :sender_mongo_id
-      t.string :recipient_mongo_id
-      t.string :aspect_mongo_id
+      t.string :mongo_id, :limit => 127
+      t.string :sender_mongo_id, :limit => 127
+      t.string :recipient_mongo_id, :limit => 127
+      t.string :aspect_mongo_id, :limit => 127
       t.timestamps
     end
     add_index :mongo_requests, :sender_mongo_id
