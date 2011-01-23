@@ -104,6 +104,7 @@ en:
           add_photos: "add photos"
           all_contacts: "all contacts"
           share_with: "share with"
+          whats_on_your_mind: "what's on your mind?"
       add_contact:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"

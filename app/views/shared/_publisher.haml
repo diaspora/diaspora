@@ -7,7 +7,13 @@
 
   #click_to_share
     = image_tag 'icons/doc_edit.png'
-    = publisher_description(@aspect_ids.count)
+    /= publisher_description(@aspect_ids.count)
+    %span= t('.whats_on_your_mind')
+
+    - if @aspect_ids.length == 1
+      = "(#{@aspect_ids.length} #{t('_aspect').downcase})"
+    - else
+      = "(#{@aspect_ids.length} #{t('_aspects').downcase})"
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true) do |status|
