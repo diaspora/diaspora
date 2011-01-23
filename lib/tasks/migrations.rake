@@ -21,7 +21,7 @@ namespace :migrations do
 
   desc 'import data to mysql'
   task :import_to_mysql do
-    require 'config/environment'
+    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     migrator = DataConversion::ImportToMysql.new
     migrator.full_path = "/tmp/data_conversion/csv"
     migrator.log("**** Starting import to MySQL database #{ActiveRecord::Base.connection.current_database} ****")
@@ -36,7 +36,7 @@ namespace :migrations do
 
   desc 'absolutify all existing image references'
   task :absolutify_image_references do
-    require File.join(Rails.root,"config/environment")
+    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
 
     Photo.all.each do |photo|
       unless photo.remote_photo_path
@@ -63,7 +63,7 @@ namespace :migrations do
   end
 
   task :upload_photos_to_s3 do
-    require File.join(Rails.root,"config/environment")
+    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     puts AppConfig[:s3_key]
     
     connection = Aws::S3.new( AppConfig[:s3_key], AppConfig[:s3_secret])

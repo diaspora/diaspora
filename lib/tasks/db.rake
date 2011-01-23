@@ -34,7 +34,7 @@ namespace :db do
 
   desc 'Delete the collections in the current RAILS_ENV database'
   task :purge do
-    require File.dirname(__FILE__) + '/../../config/environment'
+    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
 
     puts "Purging the database for #{Rails.env}..."
 
@@ -78,7 +78,7 @@ namespace :db do
 
   task :fix_diaspora_handle do
     puts "fixing the people in this seed"
-    require File.dirname(__FILE__) + '/../../config/environment'
+    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     Person.where(:url => 'example.org').all.each{|person|
       if person.owner
         person.url = AppConfig[:pod_url]
@@ -90,7 +90,7 @@ namespace :db do
   end
 
   task :move_private_key do
-    require File.dirname(__FILE__) + '/../../config/environment'
+    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     User.all.each do |user|
       if user.serialized_private_key.nil?
         user.serialized_private_key = user.person.serialized_key

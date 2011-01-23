@@ -17,8 +17,8 @@ namespace :invites do
     end
 
 
-    require File.dirname(__FILE__) + '/../../config/environment'
-    
+   require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
+
     filename = args[:filename]
     start = args[:start].to_i || 0
     number_of_backers = args[:number] || 1000
