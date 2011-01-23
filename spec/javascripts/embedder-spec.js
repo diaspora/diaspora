@@ -1,9 +1,6 @@
-/**
- * Created by .
- * User: dan
- * Date: Jan 22, 2011
- * Time: 11:15:17 PM
- * To change this template use File | Settings | File Templates.
+/*   Copyright (c) 2010, Diaspora Inc.  This file is
+ *   licensed under the Affero General Public License version 3 or later.  See
+ *   the COPYRIGHT file.
  */
 describe("Embedder", function() {
   describe("services", function() {
