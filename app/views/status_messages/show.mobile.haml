@@ -15,9 +15,9 @@
     %span.time
       = t('ago', :time => time_ago_in_words(@status_message.created_at))
 
-    %br
-    - if current_user.owns? @status_message
-      = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
+      %br
+      - if current_user.owns? @status_message
+        = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
 .stream.show{:data=>{:guid=>@status_message.id}}
   = render "comments/comments", :post_id => @status_message.id, :comments => @status_message.comments, :always_expanded => true, :force_open => true
