@@ -7,7 +7,7 @@
 
   #click_to_share
     = image_tag 'icons/doc_edit.png'
-    = publisher_description(@aspect_ids.count, aspect)
+    = publisher_description(@aspect_ids.count)
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true) do |status|
@@ -31,10 +31,7 @@
         .right
           #fileInfo
           = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
-          - if aspect == :all
-            = status.submit t('.share'), :title => t('.share_with_all'), :disable_with => t('.posting'), :class => 'button'
-          - else
-            = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button'
+          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button'
 
         - if aspect == :all
           .public_toggle

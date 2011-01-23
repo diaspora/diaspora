@@ -14,8 +14,11 @@ var Stream = {
     /* In field labels */
     $("label").inFieldLabels();
     // publisher textarea reset
-    $publisher.find("textarea").bind("blur", function() {
-      $(this).css('height','42px');
+    $publisher.find("textarea").bind("focus", function() {
+      $(this).css('min-height','42px');
+    });
+    $publisher.find("form").bind("blur", function() {
+      $("#publisher textarea").css('min-height','2px');
     });
 
     // comment link form focus

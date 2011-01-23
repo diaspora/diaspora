@@ -133,7 +133,7 @@ $(document).ready(function(){
         var textarea = $("#publisher textarea");
         var photozone = $('#photodropzone')
 
-        if( textarea.val() == "" ) {
+        if( post != "" ) {
           textarea.val(post);
           textarea.focus();
         }

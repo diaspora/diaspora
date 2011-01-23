@@ -22,7 +22,6 @@
       = current_user.name
       .description
         = link_to current_user.diaspora_handle, person_path(current_user.person)
-        /= info_text(t('.handle_explanation'))
 
   - if @notification_count > 0 || @request_count > 0
     #new_requests

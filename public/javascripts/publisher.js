@@ -18,11 +18,11 @@ $(document).ready(function(){
     $("#publisher .options_and_submit").show();
   }
 
-  $("#publisher textarea, #publisher input").live("focus", function(evt){
+  $("#publisher textarea").live("focus", function(evt){
     $("#publisher .options_and_submit").show();
   });
 
-  $("#click_to_share").find("a").live("click", function(evt){
+  $("#publisher textarea").live("click", function(evt){
     $("#publisher").removeClass("closed");
     $("#publisher").find("textarea").focus();
   });

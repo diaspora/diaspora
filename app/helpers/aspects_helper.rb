@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#/   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -46,17 +46,13 @@ module AspectsHelper
     end
   end
 
-  def publisher_description(aspect_count, aspect=nil)
-    if aspect && aspect == :all
-      str = t('.share_with_all')
+  def publisher_description(aspect_count)
+    str = "#{t('.share_with')} #{aspect_count} "
+    if aspect_count == 1
+      str += t('_aspect').downcase
     else
-      str = "#{t('.post_a_message_to', :aspect => aspect_count)} "
-      if aspect_count == 1
-        str += t('_aspect').downcase
-      else
-        str += t('_aspects').downcase
-      end
+      str += t('_aspects').downcase
     end
-    (link_to str, '#', :id => 'expand_publisher').html_safe
+    ("<span>#{str}</span>").html_safe
   end
 end

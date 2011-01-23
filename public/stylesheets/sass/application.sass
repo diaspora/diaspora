@@ -762,16 +762,17 @@ label
     :top 1px
   :top 0
 
-  :background
-    :color rgb(248,248,248)
-
   :border
     :bottom 2px #777 solid
-    :top 1px #777 solid
 
   &.closed
-    .content_creation
+    .options_and_submit
+      :display none !important
+    #file-upload
       :display none
+    form
+      textarea
+        :height 18px !important
 
   form
     :position relative
@@ -791,8 +792,11 @@ label
   textarea
     :width 435px
     :margin 0
+
   textarea
+    :border 1px solid $blue
     :height 42px
+
   label
     :font
       :size 14px
@@ -801,7 +805,7 @@ label
     :min-height 21px
     :position relative
     :padding
-      :top 8px
+      :top 6px
     :margin
       :bottom -2px
     input[type='submit']
@@ -826,20 +830,21 @@ label
   #click_to_share
     :position relative
     :padding 1em
+      :top 0
     :margin
-      :bottom -1em
+      :bottom -16px
 
-    a
+    span
       :margin
-        :left 1em
+        :left 12px
       :font
         :weight bold
-      :text-shadow 0 1px 0 #fff
+      :color #444
 
     img
       :display inline
       :position absolute
-      :top 1em
+      :top 0
       :left 0px
 
   #file-upload

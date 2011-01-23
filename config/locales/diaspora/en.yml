@@ -100,12 +100,10 @@ en:
           share: "Share"
           post_a_message_to: "Post a message to %{aspect}"
           make_public: "make public"
-          share_with_all: "Share with all aspects"
-          share_with: "Share with %{aspect}"
           all: "all"
           add_photos: "add photos"
           all_contacts: "all contacts"
-          share_with_all: "share across all of your aspects"
+          share_with: "share with"
       add_contact:
           enter_a_diaspora_username: "Enter a Diaspora username:"
           your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
