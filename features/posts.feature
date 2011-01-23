@@ -7,8 +7,7 @@ Feature: posting
       Given I am signed in
         And I have an aspect called "Family"
         And I am on the home page
-      When I click share across aspects
-        And I fill in "status_message_message" with "I am eating a yogurt"
+      When I fill in "status_message_message" with "I am eating a yogurt"
         And I press "Share"
         
         And I follow "Family"
