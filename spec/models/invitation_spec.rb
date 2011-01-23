@@ -301,7 +301,7 @@ describe Invitation do
   describe '.resend' do
     before do
       aspect
-      user.invite_user("a@a.com",  aspect.id)
+      user.invite_user(aspect.id, 'email', "a@a.com", "")
       @invitation = user.reload.invitations_from_me.first
     end
 
