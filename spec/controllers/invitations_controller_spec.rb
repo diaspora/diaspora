@@ -117,5 +117,33 @@ describe InvitationsController do
       get :new
     end
   end
+
+  describe '#resend' do
+    before do
+      @user.invites = 5
+
+      sign_in :user, @user
+      @controller.stub!(:current_user).and_return(@user)
+      request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
+
+      @invited_user = @user.invite_user("a@a.com",  @aspect.id)
+    end
+
+    it 'calls resend invitation if one exists' do
+      @user.reload.invitations_from_me.count.should == 1
+      invitation = @user.invitations_from_me.first
+      Resque.should_receive(:enqueue)
+      put :resend, :id => invitation.id
+    end
+
+    it 'does not send an invitation for a different user' do
+      @user2 = bob
+      @aspect2 = @user2.aspects.create(:name => "cats")
+      @user2.invite_user("b@b.com", @aspect2.id)
+      invitation2 = @user2.reload.invitations_from_me.first
+      Resque.should_not_receive(:enqueue)
+      put :resend, :id => invitation2.id 
+    end
+  end
 end
 

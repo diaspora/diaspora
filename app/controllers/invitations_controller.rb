@@ -57,6 +57,12 @@ class InvitationsController < Devise::InvitationsController
     end
   end
 
+  def resend
+    invitation = current_user.invitations_from_me.where(:id => params[:id]).first
+    Resque.enqueue(Job::ResendInvitation, invitation.id) if invitation
+    redirect_to :back
+  end
+
   protected
 
   def check_token
