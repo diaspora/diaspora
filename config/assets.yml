@@ -17,6 +17,7 @@ javascripts:
     - public/javascripts/vendor/Mustache.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
+    - public/javascripts/embedder.js
     - public/javascripts/application.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/alert.js
