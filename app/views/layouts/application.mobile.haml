@@ -6,7 +6,7 @@
 %html{:lang => I18n.locale.to_s}
   %head
     %title
-      = "#{current_user.name} | diaspora" if current_user
+      DIASPORA*
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
@@ -22,14 +22,18 @@
   %body
     #content{:data => {:role => 'page'}}
       #header_sauce
+        - if current_user
+          .right
+            = link_to(image_tag('icons/search_white.png'), people_path)
         = link_to(image_tag('white.png'), aspects_path)
 
       = yield
 
       #footer_sauce
-        logged in as
-        = link_to current_user.name, current_user.person
+        - if current_user
+          logged in as
+          = link_to current_user.name, current_user.person
 
-        %br
-        = link_to 'logout', '#'
+          %br
+          = link_to 'logout', '#'
 
