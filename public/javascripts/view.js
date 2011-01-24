@@ -23,7 +23,9 @@ var View = {
     /* "Toggling" the search input */
     $(this.search.selector)
       .blur(this.search.blur)
-      .focus(this.search.focus);
+      .focus(this.search.focus)
+    /* Submit the form when the user hits enter */
+      .keypress(this.search.keyPress);
 
     /* Getting started animation */
     $(this.gettingStarted.selector)
@@ -117,6 +119,11 @@ var View = {
     },
     focus: function() {
       $(this).addClass("active");
+    },
+    keyPress: function(evt) {
+      if(evt.keyCode === 13) {
+        $(this).parent().submit();
+      }
     },
     selector: "#q"
   },
