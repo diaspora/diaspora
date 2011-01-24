@@ -1,0 +1,22 @@
+%h3
+  = t('.notifications')
+
+%ul.stream.notifications
+  - @group_days.each do |day, notes|
+    %li
+      .notification_day_header
+        = day
+      %ul.notifications_for_day
+        - notes.each do |note|
+          .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
+
+            = person_image_link(note.actor)
+
+            .content
+              %span.from
+                %b= note.actor.name
+                
+              = object_link(note)
+              .time= timeago(note.created_at)
+
+  = will_paginate @notifications

@@ -2,6 +2,12 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+#aspect_header
+  - if @aspect == :all
+    = t('application.helper.aspect_badge.all_aspects')
+  - else
+    = @aspect
+
 .grey_back
   = render 'shared/publisher', :aspect_ids => @aspect_ids
 

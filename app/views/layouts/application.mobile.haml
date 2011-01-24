@@ -16,20 +16,30 @@
 
     :javascript
       $(document).ready(Mobile.initialize);
+      $(document).ready( function() {
+        $("#menu_button").bind('tap', function(e){
+          e.preventDefault();
+          $("#content").hide();
+          $("#menu").show();
+        });
+      });
 
     = yield(:head)
 
   %body
     #content{:data => {:role => 'page'}}
-      #header_sauce
+      #header
         - if current_user
+          .left
+            = link_to(image_tag('icons/back_white.png'), '#menu', :id => "menu_button")
+
           .right
             = link_to(image_tag('icons/search_white.png'), people_path)
         = link_to(image_tag('white.png'), aspects_path)
 
       = yield
 
-      #footer_sauce
+      #footer
         - if current_user
           logged in as
           = link_to current_user.name, current_user.person
@@ -46,3 +56,50 @@
           %br
           = link_to 'logout', destroy_user_session_path
 
+
+    #menu{:data => {:role => 'page'}}
+      #header
+        - if current_user
+          .right
+            = link_to(image_tag('icons/search_white.png'), people_path)
+        = link_to(image_tag('white.png'), aspects_path)
+
+      %div{:data => {:role => 'content'}}
+        %h2
+          = current_user.name
+
+        %ul{:data => {:role => 'listview', :inset => 'true'}}
+          %li
+            = link_to t('people.edit.your_profile'), person_path(current_user.person)
+          %li
+            = link_to t('notifications.index.notifications'), notifications_path
+            .ui-li-count 
+              = @notification_count
+
+        %h4
+          your aspects
+
+        %ul{:data => {:role => 'listview', :inset => 'true'}}
+          %li
+            = link_to t('application.helper.aspect_badge.all_aspects'), aspects_path
+          - for aspect in @all_aspects
+            %li
+              = link_to aspect, aspects_path('a_ids[]' => aspect.id)
+
+
+      #footer
+        - if current_user
+          logged in as
+          = link_to current_user.name, current_user.person
+
+          %br
+          %br
+          %b your aspects
+          %br
+          - for aspect in @all_aspects
+            = link_to aspect, aspects_path('a_ids[]' => aspect.id)
+            |
+          %br
+
+          %br
+          = link_to 'logout', destroy_user_session_path
