@@ -10,6 +10,18 @@ $(document).ready(function() {
     donetext: "no more.",
     loadingText: "",
     loadingImg: '/images/ajax-loader.gif'
+  }, function() {
+    $("a.paginate")
+      .detach()
+      .appendTo("#main_stream")
+      .css("display", "block");
+  });
+
+  $(window).unbind('.infscr');
+
+  $("a.paginate").live("click", function() {
+    $(this).css("display", "none");
+    $(document).trigger("retrieve.infscr");
   });
 });
 

@@ -28,6 +28,7 @@ en:
   new_notifications: "%{count} new notifications"
   no_new_notifications: "no new notifications"
   _home: "Home"
+  _more: "More"
   _comments: "Comments"
   next: 'next'
   previous: 'previous'
