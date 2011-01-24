@@ -62,6 +62,7 @@ class PeopleController < ApplicationController
       end
 
       @posts = current_user.posts_from(@person).where(:type => "StatusMessage").paginate :page => params[:page]
+      @fakes = PostsFake.new(@posts)
 
       respond_with @person, :locals => {:post_type => :all}
 

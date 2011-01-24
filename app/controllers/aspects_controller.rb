@@ -24,8 +24,9 @@ class AspectsController < ApplicationController
       @aspect_ids = @aspects.map{|a| a.id}
 
       @posts = StatusMessage.joins(:aspects).where(:pending => false,
-               :aspects => {:id => @aspect_ids}).includes({:person => :profile}, {:comments => {:person => :profile}}, :photos).select('DISTINCT `posts`.*').paginate(
+               :aspects => {:id => @aspect_ids}).includes(:comments, :photos).select('DISTINCT `posts`.*').paginate(
                :page => params[:page], :per_page => 15, :order => 'created_at DESC')
+      @fakes = PostsFake.new(@posts)
 
       @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
 
@@ -34,7 +35,6 @@ class AspectsController < ApplicationController
 
     end
   end
-
   def create
     @aspect = current_user.aspects.create(params[:aspect])
     if @aspect.valid?

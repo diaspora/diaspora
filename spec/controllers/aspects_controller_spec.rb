@@ -303,4 +303,9 @@ describe AspectsController do
       @aspect0.contacts.include?(@contact).should be false
     end
   end
+
+  describe "#hashes_for_posts" do
+    it 'returns only distinct people' do
+    end
+  end
 end

@@ -78,5 +78,6 @@ end
 
 Factory.define(:comment) do |comment|
   comment.sequence(:text) {|n| "#{n} cats"}
+  comment.association(:person)
 end
 
