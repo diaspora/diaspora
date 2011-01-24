@@ -2,12 +2,19 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+:javascript
+  $(document).ready(function(){
+    $("#status_message_message").bind("focus", function(){
+      $("#publisher fieldset").removeClass('hidden');
+    });
+  });
+
 #publisher
   = form_for StatusMessage.new, :remote => true do |status|
     #publisher_text
       = t('.whats_on_your_mind')
 
-    = status.text_area :message, :class => 'scrunch', 'data-inline' => 'true'
+    = status.text_area :message
 
     - for aspect_id in @aspect_ids
       = hidden_field_tag 'aspect_ids[]', aspect_id.to_s

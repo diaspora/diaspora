@@ -30,6 +30,7 @@ class AspectsController < ApplicationController
       @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
 
       @aspect = :all unless params[:a_ids]
+      @aspect ||= @aspects.first #used in mobile
 
     end
   end

@@ -35,5 +35,14 @@
           = link_to current_user.name, current_user.person
 
           %br
-          = link_to 'logout', '#'
+          %br
+          %b your aspects
+          %br
+          - for aspect in @all_aspects
+            = link_to aspect, aspects_path('a_ids[]' => aspect.id)
+            |
+          %br
+
+          %br
+          = link_to 'logout', destroy_user_session_path
 
