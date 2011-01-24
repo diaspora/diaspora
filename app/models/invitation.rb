@@ -79,6 +79,10 @@ class Invitation < ActiveRecord::Base
     invitee
   end
 
+  def resend
+    recipient.invite!
+  end
+
   def to_request!
     request = sender.send_contact_request_to(recipient.person, aspect)
     destroy if request

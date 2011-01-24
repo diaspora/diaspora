@@ -301,7 +301,8 @@ describe Invitation do
   describe '.resend' do
     before do
       aspect
-      @invitation = Invitation.new(:sender => user, :recipient => user2, :aspect => aspect)
+      user.invite_user("a@a.com",  aspect.id)
+      @invitation = user.reload.invitations_from_me.first
     end
 
     it 'sends another email' do

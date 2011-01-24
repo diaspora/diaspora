@@ -36,10 +36,11 @@
       %p
         = invite.submit t('.send_an_invitation')
 
-  - if !@emails_delivered.empty?
+  - if !@sent_invitations.empty?
     .span-4.last
       #already_invited_pane
         %h4
           = t('.already_invited')
-        - for email in @emails_delivered
-          = email
+        - for invitation in @sent_invitations
+          = invitation.recipient.email
+          = link_to "Resend", invitation_resend_path(invitation), :confirm => t('are_you_sure')
