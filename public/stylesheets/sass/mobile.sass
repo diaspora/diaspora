@@ -67,12 +67,10 @@ a:not([role='button'])
 
   .avatar
     :float left
-    :height 34px
-    :width 34px
+    :height 38px
+    :width 38px
 
   .from
-    :margin
-      :bottom 4px
     a
       :color #000 !important
       :font
@@ -80,12 +78,12 @@ a:not([role='button'])
 
   .content
     :padding
-      :left 41px
+      :left 43px
 
   :border
     :bottom 1px solid #eee
 
-  :padding 6px 6px
+  :padding 4px 4px
     :right 8px
 
   .info
@@ -100,6 +98,10 @@ a:not([role='button'])
     :margin
       :top 6px
 
+  .time
+    :font
+      :weight normal
+
 .comment
   :padding
     :top 12px
@@ -107,7 +109,7 @@ a:not([role='button'])
 
 #main_stream
   :font
-    :size 0.9em
+    :size 0.95em
 
 .stream_element.person
   .from
@@ -239,14 +241,24 @@ textarea.scrunch
 .grey_back
   :background
     :color #eee
-  :border 1px solid #999
-  :padding 6px
+  :border
+    :bottom 1px solid #999
+  :padding 4px
+    :top 3px
   :margin
     :bottom 12px
 
   #publisher
     :text
       :align center
+
+#publisher_text
+  :text
+    :align left
+  :font
+    :weight bold
+  :margin
+    :bottom 3px
 
 #aspect_title
   :padding 0 6px
