@@ -2,21 +2,18 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.floating.login_form
-  %h3
-    = t('.login')
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    #user
-      %p.username
-        = f.label :username , t('username')
-        = f.text_field :username
-      %p.user_network
-        ="@#{AppConfig[:pod_uri].host}/"
+= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  #user
+    %p.username
+      = f.label :username , t('username')
+      = f.text_field :username
+    %p.user_network
+      ="@#{AppConfig[:pod_uri].host}/"
 
-      %p
-        = f.label :password , t('password')
-        = f.password_field :password
-    = f.submit t('.sign_in')
+    %p
+      = f.label :password , t('password')
+      = f.password_field :password
+  = f.submit t('.sign_in')
 
-  %p
-    = render :partial => "devise/shared/links"
+%p
+  = render :partial => "devise/shared/links"
