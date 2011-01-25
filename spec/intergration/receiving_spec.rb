@@ -215,15 +215,25 @@ describe 'a user receives a post' do
         xml = @post.to_diaspora_xml
 
         receive_with_zord(@user2, @user1.person, xml)
+        receive_with_zord(@user3, @user1.person, xml)
 
-        @comment = @user2.comment('tada',:on => @post)
-        @xml = @comment.to_diaspora_xml
       end
 
       it 'does not raise a `Mysql2::Error: Duplicate entry...` exception on save' do
-        #lambda {
+        @comment = @user2.comment('tada',:on => @post)
+        @xml = @comment.to_diaspora_xml
+
+        lambda {
             receive_with_zord(@user1, @user2.person, @xml)
-        #}.should_not raise_exception
+        }.should_not raise_exception
+      end
+
+      it 'should dispatch to the remote user' do
+        pending
+        Postzord::Receiver.should_receive(:new).exactly(3).times
+
+        @comment = @user2.comment('tada',:on => @post)
+        @user2.dispatch_comment(@comment)
       end
     end
   end

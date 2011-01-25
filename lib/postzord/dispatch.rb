@@ -26,10 +26,9 @@ class Postzord::Dispatch
         user_ids = [*local_people].map{|x| x.owner_id }
         local_users = User.where(:id => user_ids)
         self.socket_and_notify_users(local_users)
-      else
-        self.deliver_to_local(local_people)
       end
 
+      self.deliver_to_local(local_people)
       self.deliver_to_remote(remote_people)
     end
     self.deliver_to_services(opts[:url])

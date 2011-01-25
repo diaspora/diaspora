@@ -85,9 +85,9 @@ describe Postzord::Dispatch do
           @mailman.post
         end
 
-        it 'does not call deliver_to_local' do
+        it 'calls deliver_to_local' do
           @mailman.stub!(:socket_and_notify_users)
-          @mailman.should_not_receive(:deliver_to_local)
+          @mailman.should_receive(:deliver_to_local)
           @mailman.post
         end
       end
