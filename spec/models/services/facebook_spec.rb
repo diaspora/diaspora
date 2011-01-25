@@ -32,7 +32,8 @@ describe Services::Facebook do
       @user2 = Factory(:user)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'
-      @user2.services << Factory.build(:service, :provider => 'facebook' , :uid => @user2_fb_id)
+      @user2_service = Services::Facebook.create(:uid => @user2_fb_id, :access_token => "yo")
+      @user2.services << @user2_service
       @fb_list_hash =  <<JSON
       {
         "data": [
@@ -49,25 +50,25 @@ JSON
     end
 
     it 'requests a friend list' do
-      RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends", {:params => {:access_token => @service.access_token}}).and_return(@web_mock)
-      @service.finder
+      RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends", {:params => {:access_token => @user2_service.access_token}}).and_return(@web_mock)
+      @user2_service.finder
     end
 
     context 'returns a hash' do
       it 'returns a hash' do
-        @service.finder.class.should == Hash
+        @user2_service.finder.class.should == Hash
       end
       it 'contains a name' do
-        @service.finder.values.include?({:name => @user2_fb_name}).should be_true
+        @user2_service.finder.values.first[:name].should == @user2_fb_name
       end
       it 'contains a photo url' do
         pending
       end
       it 'contains a FB id' do
-        @service.finder.include?(@user2_fb_id).should be_true
+        @user2_service.finder.include?(@user2_fb_id).should be_true
       end
       it 'contains a diaspora person object' do
-        pending
+        @user2_service.finder.values.first[:person].should == @user2.person
       end
     end
 
