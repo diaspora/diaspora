@@ -55,7 +55,6 @@ describe PostsFake do
       sm = Factory(:status_message)
       fake = PostsFake::Fake.new(sm, @fakes)
 
-      puts status_message_path(fake)
       status_message_path(fake).should == status_message_path(sm)
     end
   end
