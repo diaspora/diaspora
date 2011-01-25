@@ -30,6 +30,7 @@ describe PostsFake do
     end
   end
   describe PostsFake::Fake do
+    include Rails.application.routes.url_helpers    
     before do
       @post = mock()
       @fakes = mock()
@@ -47,6 +48,15 @@ describe PostsFake do
     it 'refers to its post for any other field' do
       @post.should_receive(:text)
       @fake.text
+    end
+
+
+    it 'works with url helpers' do
+      sm = Factory(:status_message)
+      fake = PostsFake::Fake.new(sm, @fakes)
+
+      puts status_message_path(fake)
+      status_message_path(fake).should == status_message_path(sm)
     end
   end
 end

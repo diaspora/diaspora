@@ -37,6 +37,11 @@ class PostsFake
     def id
       @model.id
     end
+
+    def to_s
+      @model.id.to_s
+    end
+
     def person
       @fakes_collection.people_hash[@model.person_id]
     end
