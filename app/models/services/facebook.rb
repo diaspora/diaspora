@@ -21,12 +21,17 @@ class Services::Facebook < Service
     data = JSON.parse(response.body)['data']
 
     data_h = {}
-    data.map do |d|
+    data.each do |d|
       data_h[d['id']] = {:name => d['name']}
     end
 
+
+
     service_objects = Services::Facebook.where(:uid => data_h.keys).includes(:user => :person)
-    service_objects.each{|s| data_h[s.uid][:person] = s.user.person}
+    service_objects.each do |s|
+      data_h[s.uid][:person] = s.user.person
+      data_h[s.uid][:contact] = self.user.contacts.where(:person_id => s.user.person.id).first
+    end
 
     data_h
   end

@@ -29,7 +29,7 @@ describe Services::Facebook do
 
   describe '#finder' do
     before do
-      @user2 = Factory(:user)
+      @user2 = Factory.create(:user_with_aspect)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'
       @user2_service = Services::Facebook.create(:uid => @user2_fb_id, :access_token => "yo")
@@ -50,25 +50,29 @@ JSON
     end
 
     it 'requests a friend list' do
-      RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends", {:params => {:access_token => @user2_service.access_token}}).and_return(@web_mock)
-      @user2_service.finder
+      RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends", {:params => {:access_token => @service.access_token}}).and_return(@web_mock)
+      @service.finder
     end
 
     context 'returns a hash' do
       it 'returns a hash' do
-        @user2_service.finder.class.should == Hash
+        @service.finder.class.should == Hash
       end
       it 'contains a name' do
-        @user2_service.finder.values.first[:name].should == @user2_fb_name
+        @service.finder.values.first[:name].should == @user2_fb_name
       end
       it 'contains a photo url' do
         pending
       end
       it 'contains a FB id' do
-        @user2_service.finder.include?(@user2_fb_id).should be_true
+        @service.finder.include?(@user2_fb_id).should be_true
       end
       it 'contains a diaspora person object' do
-        @user2_service.finder.values.first[:person].should == @user2.person
+        @service.finder.values.first[:person].should == @user2.person
+      end
+      it 'contains a contact object if connected' do
+        connect_users(@user, @user.aspects.first, @user2, @user2.aspects.first)
+        @service.finder.values.first[:contact].should == @user.reload.contact_for(@user2.person)
       end
     end
 
