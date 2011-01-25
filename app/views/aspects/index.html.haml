@@ -44,3 +44,9 @@
     %h4= t('shared.invitations.invites')
     = render "shared/invitations", :invites => @invites
 
+  .section
+    %h4
+      Find your friends
+
+    = link_to "From Facebook", friend_finder_path('facebook')
+

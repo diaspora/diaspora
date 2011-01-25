@@ -6,6 +6,8 @@ Diaspora::Application.routes.draw do
   resources :status_messages, :only => [:create, :destroy, :show]
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
+
+  match 'services/finder/:provider' => 'services#finder', :as => 'friend_finder'
   resources :services
 
   match 'statistics/generate_single' => 'statistics#generate_single'

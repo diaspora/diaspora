@@ -79,4 +79,17 @@ describe ServicesController do
       }.should change(@user.services, :count).by(-1)
     end
   end
+
+  describe '#finder' do
+    before do
+      @service1 = Factory.create(:service, :provider => 'facebook')
+      @user.services << @service1
+    end
+
+    it 'calls the finder method for the service for that user' do
+      @user.services.stub!(:where).and_return([@service1])
+      @service1.should_receive(:finder).and_return({})
+      get :finder, :provider => @service1.provider
+    end
+  end
 end

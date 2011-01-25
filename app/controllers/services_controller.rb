@@ -34,7 +34,6 @@ class ServicesController < ApplicationController
     end
   end
 
-
   def failure
     Rails.logger.info  "error in oauth #{params.inspect}"
     flash[:error] = t('services.failure.error')
@@ -46,5 +45,10 @@ class ServicesController < ApplicationController
     @service.destroy
     flash[:notice] = I18n.t 'services.destroy.success'
     redirect_to services_url
+  end
+
+  def finder
+    service = current_user.services.where(:provider => params[:provider]).first
+    @friends = service ? service.finder : {}
   end
 end

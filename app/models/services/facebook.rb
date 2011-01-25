@@ -14,4 +14,14 @@ class Services::Facebook < Service
   def public_message(post, url)
     super(post, MAX_CHARACTERS,  url)
   end
+
+  def finder
+    Rails.logger.debug("event=friend_finder type=facebook sender_id=#{self.user_id}")
+    response = RestClient.get("https://graph.facebook.com/me/friends", {:params => {:access_token => self.access_token}})
+    data = JSON.parse(response.body)['data']
+
+    Hash[*data.collect {|v|
+      [v['id'], {:name => v['name']}]
+    }.flatten]
+  end
 end

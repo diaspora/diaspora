@@ -1,0 +1,20 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :head do
+  = include_javascripts :aspects
+
+%h3
+  facebook friend finder
+
+.contact_list
+  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
+  %ul
+    - for friend in @friends
+      %li
+        %h4.name
+          = link_to friend['name'], '#'
+        /.right
+        /= aspect_membership_button(aspect, contact, contact.person)
+
