@@ -5,7 +5,7 @@
 :javascript
   $(document).ready(function(){
     $("#status_message_message").bind("focus", function(){
-      $("#publisher fieldset").removeClass('hidden');
+      $("#publisher fieldset:first").removeClass('hidden');
     });
   });
 
@@ -19,6 +19,12 @@
     - for aspect_id in @aspect_ids
       = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
+
     %fieldset.hidden{:style => 'text-align:right;'}
-      = status.submit t('.share'), 'data-inline' => 'true', 'data-theme' => 'b'
+      %fieldset{:data => {:role => 'controlgroup', :type=>'horizontal'}}
+        - unless params[:a_ids]
+          %input{:type => 'checkbox', :name => 'status_message[public]', :id => 'public', :class => 'custom', :value => 'true'}
+          %label{:for => 'public'}
+            make public?
+        = status.submit t('.share'), 'data-inline' => 'true', 'data-theme' => 'b'
 

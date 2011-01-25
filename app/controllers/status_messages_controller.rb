@@ -15,7 +15,7 @@ class StatusMessagesController < ApplicationController
     photos = Photo.where(:id => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
 
     public_flag = params[:status_message][:public]
-    public_flag.to_s.match(/(true)/) ? public_flag = true : public_flag = false
+    public_flag.to_s.match(/(true)|(on)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
@@ -51,7 +51,7 @@ class StatusMessagesController < ApplicationController
         },
                            :status => 201 }
         format.html { respond_with @status_message }
-        format.mobile{ redirect_to aspects_path('a_ids' => params[:aspect_ids]) }
+        format.mobile{ redirect_to :back}
       end
     else
       respond_to do |format|
