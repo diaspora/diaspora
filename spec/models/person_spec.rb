@@ -229,8 +229,6 @@ describe Person do
       people = Person.search("ing", @user)
       people.map{|p| p.name}.should == [@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map{|p|p.name}
     end
-
-    it 'has no duplicate contacts'
   end
 
   context 'people finders for webfinger' do

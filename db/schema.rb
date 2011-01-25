@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110120182100) do
+ActiveRecord::Schema.define(:version => 20110125190034) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"
@@ -76,19 +76,6 @@ ActiveRecord::Schema.define(:version => 20110120182100) do
   end
 
   add_index "data_points", ["statistic_id"], :name => "index_data_points_on_statistic_id"
-
-  create_table "histories", :force => true do |t|
-    t.string   "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
   create_table "invitations", :force => true do |t|
     t.text     "message"
@@ -397,7 +384,7 @@ ActiveRecord::Schema.define(:version => 20110120182100) do
   add_index "profiles", ["first_name", "searchable"], :name => "index_profiles_on_first_name_and_searchable"
   add_index "profiles", ["last_name", "searchable"], :name => "index_profiles_on_last_name_and_searchable"
   add_index "profiles", ["mongo_id"], :name => "index_profiles_on_mongo_id"
-  add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
+  add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id", :unique => true
 
   create_table "requests", :force => true do |t|
     t.integer  "sender_id"
