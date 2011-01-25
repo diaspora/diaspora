@@ -4,6 +4,22 @@ When /^(.*) in the header$/ do |action|
   end
 end
 
+And /^I expand the publisher$/ do
+  page.execute_script('
+    $("#publisher").removeClass("closed");
+    $("#publisher").find("textarea").focus();
+    ')
+end
+
+And /^I hover over the post$/ do
+  page.execute_script('$(".stream_element").first().mouseover()')
+end
+
+And /^I confirm the alert$/ do
+  a = page.driver.browser.switch_to.alert
+  a.accept
+end
+
 When /^(.*) in the modal window$/ do |action|
   within('#facebox') do
     When action
