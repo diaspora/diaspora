@@ -13,8 +13,7 @@
 
 #main_stream.stream
   = render 'shared/stream', :posts => @fakes
-  %a.paginate
-    = t("more")
-= will_paginate @posts
-
-
+  %a.more-link.paginate{:href => '#'}
+    %h2= t("more")
+  #small{:style => "font-size:x-small"}
+    = will_paginate @posts

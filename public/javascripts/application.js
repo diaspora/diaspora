@@ -15,6 +15,7 @@ $(document).ready(function() {
       .detach()
       .appendTo("#main_stream")
       .css("display", "block");
+      $("abbr.timeago").timeago();
   });
 
   $(window).unbind('.infscr');
