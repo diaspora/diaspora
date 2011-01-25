@@ -30,3 +30,8 @@ When /^I sign in with password "([^"]*)"$/ do |password|
   Given 'I am signed in'
 end
 
+When /^I put in my password in "([^"]*)"$/ do |field|
+ When %(I fill in "#{field}" with "#{@me.password}")
+end
+
+

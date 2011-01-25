@@ -6,7 +6,8 @@ Feature: Change password
     And I click on my name in the header
     And I follow "account settings"
     Then I should be on my account settings page
-    When I fill in "user_password" with "newsecret"
+    When I put in my password in "user_current_password" 
+    And I fill in "user_password" with "newsecret"
     And I fill in "user_password_confirmation" with "newsecret"
     And I press "Change Password"
     Then I should see "Password Changed"  
