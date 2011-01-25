@@ -16,7 +16,12 @@
         %h4.name
           = link_to friend[:name], '#'
 
-      - if friend[:person]
-        .right
-          = aspect_membership_button(aspect, contact, contact.person)
+        - if person = friend[:person]
+          .right
+            = link_to t('people.show.start_sharing'),
+              {:controller => "people",
+              :action => "share_with",
+              :id => person.id},
+              :class => 'button',
+              :rel => 'facebox'
 

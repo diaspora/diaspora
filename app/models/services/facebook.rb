@@ -20,9 +20,10 @@ class Services::Facebook < Service
     response = RestClient.get("https://graph.facebook.com/me/friends", {:params => {:access_token => self.access_token}})
     data = JSON.parse(response.body)['data']
 
-    data_h = Hash[*data.collect {|v|
-      [v['id'], {:name => v['name']}]
-    }.flatten]
+    data_h = {}
+    data.map do |d|
+      data_h[d['id']] = {:name => d['name']}
+    end
 
     service_objects = Services::Facebook.where(:uid => data_h.keys).includes(:user => :person)
     service_objects.each{|s| data_h[s.uid][:person] = s.user.person}
