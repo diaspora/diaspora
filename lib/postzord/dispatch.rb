@@ -28,7 +28,10 @@ class Postzord::Dispatch
         self.socket_and_notify_users(local_users)
       end
 
-      self.deliver_to_local(local_people)
+      unless @object.is_a?(Comment) && @sender.owns?(@object.post)
+        self.deliver_to_local(local_people)
+      end
+
       self.deliver_to_remote(remote_people)
     end
     self.deliver_to_services(opts[:url])

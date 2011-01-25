@@ -85,10 +85,23 @@ describe Postzord::Dispatch do
           @mailman.post
         end
 
-        it 'calls deliver_to_local' do
-          @mailman.stub!(:socket_and_notify_users)
-          @mailman.should_receive(:deliver_to_local)
-          @mailman.post
+        context 'local recipients' do
+          it 'gets called if not the post owner' do
+            @mailman.stub!(:socket_and_notify_users)
+            @mailman.should_receive(:deliver_to_local)
+            @mailman.post
+          end
+
+          it 'does not get called if not the post owner' do
+            status = @user.build_post(:status_message, :message => 'hey', :to => @user.aspects.first)
+
+            comment = @user.comment "yo", :on => status
+            comment.should_receive(:subscribers).and_return([@local_user.person])
+            mailman2 = Postzord::Dispatch.new(@user, comment)
+            mailman2.stub!(:socket_and_notify_users)
+            mailman2.should_not_receive(:deliver_to_local)
+            mailman2.post
+          end
         end
       end
     end
