@@ -6,4 +6,6 @@
 = render 'shared/publisher', :aspect => aspect, :aspect_ids => aspect_ids
 #main_stream.stream{:data => {:guids => aspect_ids.join(',')}}
   = render 'shared/stream', :posts => fakes
+  %a.paginate
+    = t("more")
 = will_paginate posts

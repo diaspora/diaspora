@@ -11,6 +11,8 @@
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
 
     = include_javascripts :mobile
+    - if ["cz", "da", "de", "el", "es", "fr", "he", "hu", "id", "it", "ja", "ko", "nl", "pl", "pt", "ro", "ru", "sv", "zh-CN"].include?(I18n.locale.to_s)
+      = javascript_include_tag "vendor/timeago_locale/jquery.timeago.#{I18n.locale.to_s}.js"
     = stylesheet_link_tag 'vendor/jquery_mobile.min', 'mobile'
     = csrf_meta_tag
 
@@ -57,38 +59,37 @@
           = link_to 'logout', destroy_user_session_path
 
 
-    #menu{:data => {:role => 'page'}}
-      #header
-        - if current_user
+    -if current_user
+      #menu{:data => {:role => 'page'}}
+        #header
           .right
             = link_to(image_tag('icons/search_white.png'), people_path)
-        = link_to(image_tag('white.png'), aspects_path)
+          = link_to(image_tag('white.png'), aspects_path)
 
-      %div{:data => {:role => 'content'}}
-        %h2
-          = current_user.name
+        %div{:data => {:role => 'content'}}
+          %h2
+            = current_user.name
 
-        %ul{:data => {:role => 'listview', :inset => 'true'}}
-          %li
-            = link_to t('people.edit.your_profile'), person_path(current_user.person)
-          %li
-            = link_to t('notifications.index.notifications'), notifications_path
-            .ui-li-count 
-              = @notification_count
-
-        %h4
-          your aspects
-
-        %ul{:data => {:role => 'listview', :inset => 'true'}}
-          %li
-            = link_to t('application.helper.aspect_badge.all_aspects'), aspects_path
-          - for aspect in @all_aspects
+          %ul{:data => {:role => 'listview', :inset => 'true'}}
             %li
-              = link_to aspect, aspects_path('a_ids[]' => aspect.id)
+              = link_to t('people.edit.your_profile'), person_path(current_user.person)
+            %li
+              = link_to t('notifications.index.notifications'), notifications_path
+              .ui-li-count 
+                = @notification_count
+
+          %h4
+            your aspects
+
+          %ul{:data => {:role => 'listview', :inset => 'true'}}
+            %li
+              = link_to t('application.helper.aspect_badge.all_aspects'), aspects_path
+            - for aspect in @all_aspects
+              %li
+                = link_to aspect, aspects_path('a_ids[]' => aspect.id)
 
 
-      #footer
-        - if current_user
+        #footer
           logged in as
           = link_to current_user.name, current_user.person
 

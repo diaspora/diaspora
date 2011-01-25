@@ -12,7 +12,9 @@
   = render 'shared/publisher', :aspect_ids => @aspect_ids
 
 #main_stream.stream
-  = render 'shared/stream', :posts => @posts
+  = render 'shared/stream', :posts => @fakes
+  %a.paginate
+    = t("more")
 = will_paginate @posts
 
 

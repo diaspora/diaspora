@@ -5,6 +5,7 @@
 
 var Mobile = {
   initialize: function() {
+    $("abbr.timeago").timeago();
     $('#aspect_picker').change(Mobile.changeAspect);
   },
   

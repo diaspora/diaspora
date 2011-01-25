@@ -56,7 +56,8 @@
     - else
       #main_stream.stream
         = render 'shared/stream', :posts => @fakes
-
+        %a.paginate
+          = t("more")
     = will_paginate @posts
 
   - else

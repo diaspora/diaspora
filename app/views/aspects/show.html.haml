@@ -26,4 +26,6 @@
 
   #main_stream.stream{:data => {:guids => @aspect.id}}
     = render 'shared/stream', :posts => @posts
+    %a.paginate
+      = t("more")
   =will_paginate @posts
