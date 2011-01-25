@@ -154,55 +154,77 @@ describe 'a user receives a post' do
   end
 
   describe 'comments' do
-    before do
-      connect_users(@user1, @aspect, @user3, @aspect3)
-      @post = @user1.post :status_message, :message => "hello", :to => @aspect.id
 
-      xml = @post.to_diaspora_xml
+    context 'remote' do
+      before do
+        connect_users(@user1, @aspect, @user3, @aspect3)
+        @post = @user1.post :status_message, :message => "hello", :to => @aspect.id
 
-      receive_with_zord(@user2, @user1.person, xml)
-      receive_with_zord(@user3, @user1.person, xml)
+        xml = @post.to_diaspora_xml
 
-      @comment = @user3.comment('tada',:on => @post)
-      @comment.post_creator_signature = @comment.sign_with_key(@user1.encryption_key)
-      @xml = @comment.to_diaspora_xml
-      @comment.delete
+        receive_with_zord(@user2, @user1.person, xml)
+        receive_with_zord(@user3, @user1.person, xml)
+
+        @comment = @user3.comment('tada',:on => @post)
+        @comment.post_creator_signature = @comment.sign_with_key(@user1.encryption_key)
+        @xml = @comment.to_diaspora_xml
+        @comment.delete
+      end
+
+      it 'should correctly attach the user already on the pod' do
+        @user2.reload.raw_visible_posts.size.should == 1
+        post_in_db = StatusMessage.find(@post.id)
+        post_in_db.comments.should == []
+        receive_with_zord(@user2, @user1.person, @xml)
+
+        post_in_db.comments(true).first.person.should == @user3.person
+      end
+
+      it 'should correctly marshal a stranger for the downstream user' do
+        remote_person = @user3.person.dup
+        @user3.person.delete
+        @user3.delete
+        remote_person.id = nil
+
+        #stubs async webfinger
+        Person.should_receive(:by_account_identifier).twice.and_return{ |handle|
+          if handle == @user1.person.diaspora_handle
+            @user1.person.save
+            @user1.person
+          else
+            remote_person.profile = Factory(:profile)
+            remote_person.save!
+            remote_person
+          end
+        }
+
+        @user2.reload.raw_visible_posts.size.should == 1
+        post_in_db = StatusMessage.find(@post.id)
+        post_in_db.comments.should == []
+
+        receive_with_zord(@user2, @user1.person, @xml)
+
+        post_in_db.comments(true).first.person.should == remote_person
+      end
     end
 
-    it 'should correctly attach the user already on the pod' do
-      @user2.reload.raw_visible_posts.size.should == 1
-      post_in_db = StatusMessage.find(@post.id)
-      post_in_db.comments.should == []
-      receive_with_zord(@user2, @user1.person, @xml)
+    context 'local' do
+      before do
+        @post = @user1.post :status_message, :message => "hello", :to => @aspect.id
 
-      post_in_db.comments(true).first.person.should == @user3.person
-    end
+        xml = @post.to_diaspora_xml
 
-    it 'should correctly marshal a stranger for the downstream user' do
-      remote_person = @user3.person.dup
-      @user3.person.delete
-      @user3.delete
-      remote_person.id = nil
+        receive_with_zord(@user2, @user1.person, xml)
 
-      #stubs async webfinger
-      Person.should_receive(:by_account_identifier).twice.and_return{ |handle|
-        if handle == @user1.person.diaspora_handle
-          @user1.person.save
-          @user1.person
-        else
-          remote_person.profile = Factory(:profile)
-          remote_person.save!
-          remote_person
-        end
-      }
+        @comment = @user2.comment('tada',:on => @post)
+        @xml = @comment.to_diaspora_xml
+      end
 
-      @user2.reload.raw_visible_posts.size.should == 1
-      post_in_db = StatusMessage.find(@post.id)
-      post_in_db.comments.should == []
-
-      receive_with_zord(@user2, @user1.person, @xml)
-
-      post_in_db.comments(true).first.person.should == remote_person
+      it 'does not raise a `Mysql2::Error: Duplicate entry...` exception on save' do
+        #lambda {
+            receive_with_zord(@user1, @user2.person, @xml)
+        #}.should_not raise_exception
+      end
     end
   end
 

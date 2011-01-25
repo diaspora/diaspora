@@ -28,8 +28,8 @@ module Postzord
     end
 
     def parse_and_receive(xml)
-      Rails.logger.info("event=receive status=start recipient=#{@user_person.diaspora_handle} payload_type=#{@object.class} sender=#{@sender.diaspora_handle}")
       @object ||= Diaspora::Parser.from_xml(xml)
+      Rails.logger.info("event=receive status=start recipient=#{@user_person.diaspora_handle} payload_type=#{@object.class} sender=#{@sender.diaspora_handle}")
       if self.validate_object
         receive_object
       end
@@ -37,8 +37,8 @@ module Postzord
 
     def receive_object
       obj = @object.receive(@user, @author)
-      Notification.notify(@user, @object, @author) if @object.respond_to?(:notification_type)
-      Rails.logger.info("event=receive status=complete recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type#{@object.class}")
+      Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
+      Rails.logger.info("event=receive status=complete recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type#{obj.class}")
       obj
     end
 

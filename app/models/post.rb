@@ -82,7 +82,7 @@ class Post < ActiveRecord::Base
       else
         user.add_post_to_aspects(local_post)
         Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
-        self
+        local_post 
       end
     elsif !local_post
       self.save

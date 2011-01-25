@@ -86,7 +86,8 @@ describe Postzord::Receiver do
 
     it 'calls Notification.notify if object responds to notification_type' do
       cm = Comment.new
-      cm.stub!(:receive)
+      cm.stub!(:receive).and_return(cm)
+
       Notification.should_receive(:notify).with(@user, cm, @person2)
       zord = Postzord::Receiver.new(@user, :person => @person2, :object => cm)
       zord.receive_object

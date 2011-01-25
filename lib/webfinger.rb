@@ -31,7 +31,7 @@ class Webfinger
         raise WebfingerFailedError.new(@account)
       end
     rescue
-      Rails.logger.info("event=receive status=abort recipient=#{self.diaspora_handle} sender=#{salmon.author_email} reason='#{e.message}'")
+      Rails.logger.info("event=receive status=abort recipient=#{@account} sender=#{salmon.author_email} reason='#{e.message}'")
       nil
     end
   end
