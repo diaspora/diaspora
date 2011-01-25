@@ -51,6 +51,9 @@
     = f.error_messages
 
     %p
+      = f.label :current_password, t('.current_password')
+      = f.password_field :current_password
+    %p
       = f.label :password, t('.new_password')
       = f.password_field :password
     %p

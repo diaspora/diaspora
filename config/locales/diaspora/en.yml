@@ -205,6 +205,7 @@ en:
           change_language: "Change Language"
           change_password: "Change Password"
           new_password: "New Password"
+          current_password: "Current password"
           download_xml: "download my xml"
           download_photos: "download my photos"
           your_handle: "Your diaspora handle"
