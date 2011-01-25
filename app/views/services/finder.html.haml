@@ -5,26 +5,35 @@
 - content_for :head do
   = include_javascripts :aspects
 
-%h3
-  facebook friend finder
+.span-24.last
+  %h3
+    Facebook friend finder
 
-.contact_list
-  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
-  %ul
-    - for friend in @friends.values
-      %li
-        %h4.name
-          = link_to friend[:name], '#'
+.span-10.prepend-7
+  .contact_list
+    = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
+    %ul
+      - for friend in @friends.values
+        %li
+          .right
+            -if friend[:contact] && !friend[:contact].pending
+              = t('people.person.already_connected')
+            - elsif (friend[:contact] && friend[:contact].pending)
+              = t('people.person.pending_request')
+            - elsif friend[:person]
+              = link_to t('people.show.start_sharing'),
+                {:controller => "people",
+                :action => "share_with",
+                :id => friend[:person].id},
+                :class => 'button',
+                :rel => 'facebox'
 
-        .right
-          -if friend[:contact] && !friend[:contact].pending
-            = t('.already_connected')
-          - elsif (friend[:contact] && friend[:contact].pending)
-            = t('.pending_request')
-          - elsif friend[:person]
-            = link_to t('people.show.start_sharing'),
-              {:controller => "people",
-              :action => "share_with",
-              :id => friend[:person].id},
-              :class => 'button',
-              :rel => 'facebox'
+          - if friend[:person]
+            = person_image_link(friend[:person])
+
+          %h4.name
+            - if friend[:person]
+              = link_to friend[:name], person_path(friend[:person])
+            - else
+              = friend[:name]
+
