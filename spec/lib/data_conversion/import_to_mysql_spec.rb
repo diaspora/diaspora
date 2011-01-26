@@ -104,6 +104,7 @@ describe DataConversion::ImportToMysql do
         @migrator.process_raw_aspects
         aspect = Aspect.where(:mongo_id => "4d2b6eb6cc8cb43cc2000008").first
         aspect.name.should == "generic"
+        aspect.contacts_visible.should == false
         aspect.user_mongo_id.should == "4d2b6eb6cc8cb43cc2000007"
       end
       it "sets the relation column" do

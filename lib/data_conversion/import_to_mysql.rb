@@ -116,7 +116,8 @@ module DataConversion
                mongo_aspects.created_at,
                mongo_aspects.updated_at,
                mongo_aspects.mongo_id,
-               mongo_aspects.user_mongo_id
+               mongo_aspects.user_mongo_id,
+               false
           FROM mongo_aspects
           INNER JOIN users ON (users.mongo_id = mongo_aspects.user_mongo_id)
       SQL

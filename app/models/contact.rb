@@ -26,6 +26,16 @@ class Contact < ActiveRecord::Base
                 :aspect => aspects.first)
   end
 
+  def contacts
+    t_p = Person.arel_table
+    incoming_aspects = Aspect.joins(:contacts).where(
+      :user_id => self.person.owner_id,
+      :contacts_visible => true,
+      :contacts => {:person_id => self.user.person.id})
+    incoming_aspect_ids = incoming_aspects.map{|a| a.id}
+    similar_contacts = Person.joins(:contacts => :aspect_memberships).where(
+      :aspect_memberships => {:aspect_id => incoming_aspect_ids}).where(t_p[:id].not_eq(self.user.person.id))
+  end
   private
   def not_contact_for_self
     if person_id && person.owner == user

@@ -52,7 +52,7 @@ class PeopleController < ApplicationController
 
       if @contact
         @aspects_with_person = @contact.aspects
-        @similar_people = similar_people @contact
+        @contacts_of_contact = @contact.contacts
       end
 
       if (@person != current_user.person) && (!@contact || @contact.pending)

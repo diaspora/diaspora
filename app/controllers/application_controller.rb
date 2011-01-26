@@ -38,25 +38,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def similar_people contact, opts={}
-    opts[:limit] ||= 5
-    aspect_ids = contact.aspects.map{|a| a.id}
-    count = Contact.joins(:aspect_memberships).where(
-      :user_id => current_user.id).where(
-      "contacts.person_id != #{contact.person_id}").where(
-      :aspect_memberships => {:aspect_id => aspect_ids}).count
-    if count > opts[:limit]
-      offset = rand(count-opts[:limit])
-    else
-      offset = 0
-    end
-
-    contacts = Contact.joins(:aspect_memberships).includes(:person).where(
-      :user_id => current_user.id).where(
-      "contacts.person_id != #{contact.person_id}").where(
-      :aspect_memberships => {:aspect_id => aspect_ids}).all(
-      :offset => offset,
-      :limit => opts[:limit])
-    contacts.collect!{ |contact| contact.person }
-  end
 end

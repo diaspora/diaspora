@@ -13,59 +13,6 @@ describe PeopleController do
     sign_in :user, @user
   end
 
-  describe '#similar_people' do
-    before do
-      @contacts = []
-      @aspect1 = @user.aspects.create(:name => "foos")
-      @aspect2 = @user.aspects.create(:name => "bars")
-
-      3.times do
-        @contacts << Contact.create(:user => @user, :person => Factory.create(:person))
-      end
-    end
-
-    it 'returns people in mutual aspects' do
-      @contacts[0].aspects << @aspect1
-      @contacts[1].aspects << @aspect1
-      @contacts[0].save
-      @contacts[1].save
-
-      @controller.similar_people(@contacts[0]).should include(@contacts[1].person)
-    end
-
-    it 'does not return people in non-mutual aspects' do
-      @contacts[0].aspects << @aspect1
-      @contacts[1].aspects << @aspect1
-      @contacts[0].save
-      @contacts[1].save
-
-      @controller.similar_people(@contacts[0]).should_not include(@contacts[2].person)
-    end
-
-    it 'does not return the original contacts person' do
-      @contacts[0].aspects << @aspect1
-      @contacts[1].aspects << @aspect1
-      @contacts[0].save
-      @contacts[1].save
-
-      @controller.similar_people(@contacts[0]).should_not include(@contacts[0].person)
-    end
-
-    it 'returns at max 5 similar people' do
-      @contacts[0].aspects << @aspect1
-      @contacts[0].save
-
-      20.times do
-        c = Contact.create(:user => @user, :person => Factory.create(:person))
-        c.aspects << @aspect1
-        c.save
-        @contacts << c
-      end
-
-      @controller.similar_people(@contacts[0]).count.should == 5
-    end
-  end
-
   describe '#share_with' do
     before do
       @person = Factory.create(:person)
