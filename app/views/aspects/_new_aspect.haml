@@ -12,5 +12,9 @@
     %p
       = aspect.label :name , t('.name')
       = aspect.text_field :name, :maxlength => 20
+    = t('aspects.contacts_visible')
+    = aspect.check_box :contacts_visible, :default => true
+    %br
+    = t('aspects.contacts_not_visible')
     = aspect.submit t('.create'), :class => 'button'
 

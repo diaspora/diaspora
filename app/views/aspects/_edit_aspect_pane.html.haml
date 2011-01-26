@@ -15,6 +15,11 @@
   %hr
   = form_for aspect do |asp|
     = asp.text_field :name, :value => aspect.name
+    = t('aspects.contacts_visible')
+    = aspect.check_box :contacts_visible, :default => true
+    %br
+    = t('aspects.contacts_not_visible')
+    -#contacts_visible should be editable here
     = asp.submit t('aspects.edit.rename_aspect')
 
   %hr
