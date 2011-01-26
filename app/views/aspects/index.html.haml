@@ -5,6 +5,8 @@
 
 - content_for :head do
   = include_javascripts :home
+  :javascript
+    Diaspora.widgets.i18n.loadLocale(#{localize(current_user.language).to_json}, "#{current_user.language}");
 
 .span-15.append-2
   = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contacts.count

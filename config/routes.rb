@@ -56,6 +56,8 @@ Diaspora::Application.routes.draw do
   match 'receive/users/:guid',    :to => 'publics#receive'
   match 'hub',                  :to => 'publics#hub'
 
+  match 'localize', :to => "localize#show"
+
   #root
   root :to => 'home#show'
 end
