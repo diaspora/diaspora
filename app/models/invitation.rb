@@ -71,6 +71,8 @@ class Invitation < ActiveRecord::Base
       opts[:from].save!
       invitee.reload
     end
+    pp opts[:service]
+    pp opts[:service] == 'email'
     invitee.invite!(:email => (opts[:service] == 'email'))
     Rails.logger.info("event=invitation_sent to=#{opts[:identifier]} #{"inviter=#{opts[:from].diaspora_handle}" if opts[:from]}")
     invitee
