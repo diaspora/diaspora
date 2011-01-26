@@ -11,8 +11,8 @@ gem 'nokogiri', '1.4.3.1'
 gem "fog"
 
 #Security
-gem 'devise', '1.1.3'
-gem 'devise_invitable','0.3.5'
+gem 'devise', '1.2.rc'
+gem 'devise_invitable', :git => 'git://github.com/zhitomirskiyi/devise_invitable.git'
 
 #Authentication
 gem 'omniauth', '0.1.6'
