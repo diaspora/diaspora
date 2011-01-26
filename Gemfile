@@ -26,7 +26,7 @@ gem 'haml'
 gem 'will_paginate', '3.0.pre2'
 
 #Inflected translations
-gem 'i18n-inflector-rails', '~> 0.1'
+gem 'i18n-inflector-rails', '~> 0.2'
 
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git'
