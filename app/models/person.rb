@@ -150,6 +150,9 @@ class Person < ActiveRecord::Base
   def remote?
     owner_id.nil?
   end
+  def local?
+    !remote?
+  end
 
   def as_json(opts={})
     {
