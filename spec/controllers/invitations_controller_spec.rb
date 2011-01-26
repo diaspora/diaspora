@@ -68,7 +68,7 @@ describe InvitationsController do
   describe "#update" do
     before do
       @user.invites = 5
-      @invited_user = @user.invite_user("a@a.com",  @aspect.id)
+      @invited_user = @user.invite_user(@aspect.id, 'email', "a@a.com")
       @accept_params = {:user=>
         {:password_confirmation =>"password",
          :username=>"josh",

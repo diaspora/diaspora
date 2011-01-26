@@ -54,6 +54,9 @@ class ServicesController < ApplicationController
     @uid = params[:uid]
     @subject = "Join me on DIASPORA*"
     @message = ""
+
+    current_user.invite_user(aspect_id, :service => params[:provider],
+                             :identifier => params[:uid])
     
     redirect_to "http://facebook.com"
   end

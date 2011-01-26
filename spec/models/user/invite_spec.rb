@@ -12,24 +12,40 @@ describe User do
   let(:inviter_with_3_invites) { new_user = Factory.create(:user); new_user.invites = 3; new_user.save; new_user;}
   let(:aspect2) {inviter_with_3_invites.aspects.create(:name => "Jersey Girls")}
 
+  before do
+    @email = "bob@bob.com"
+  end
+
   context "creating invites" do
     it 'requires your aspect' do
       lambda {
-        inviter.invite_user("maggie@example.com",  wrong_aspect.id)
+        inviter.invite_user(wrong_aspect.id, "email", "maggie@example.com")
       }.should raise_error ActiveRecord::RecordNotFound
+    end
+    
+    it 'takes a service parameter' do
+      @invite_params = {:service => 'email'}
+      Invitation.should_receive(:invite).with(hash_including(@invite_params))
+      inviter.invite_user(aspect.id, 'email', @email) 
+    end
+
+    it 'takes an indentifier parameter' do
+      @invite_params = {:identifier => @email}
+      Invitation.should_receive(:invite).with(hash_including(@invite_params))
+      inviter.invite_user(aspect.id, 'email', @email)
     end
 
     it 'calls Invitation.invite' do
       Invitation.should_receive(:invite)
-      inviter.invite_user(@email, aspect.id)
+      inviter.invite_user(aspect.id, 'email', @email)
     end
 
     it 'has an invitation' do
-      inviter.invite_user("joe@example.com", aspect.id).invitations_to_me.count.should == 1
+      inviter.invite_user(aspect.id, 'email', @email).invitations_to_me.count.should == 1
     end
 
     it 'creates it with an email' do
-      inviter.invite_user("joe@example.com", aspect.id).email.should == "joe@example.com"
+      inviter.invite_user(aspect.id, 'email', @email).email.should == @email
     end
 
 
@@ -37,7 +53,7 @@ describe User do
       connect_users(inviter, aspect, another_user, wrong_aspect)
       inviter.reload
       proc{
-        inviter.invite_user(another_user.email, aspect.id)
+        inviter.invite_user(aspect.id, 'email', another_user.email)
       }.should raise_error ActiveRecord::RecordInvalid
     end
 
@@ -46,9 +62,9 @@ describe User do
   context "limit on invites" do
 
     it 'does not invite people I already invited' do
-      inviter_with_3_invites.invite_user("email1@example.com", aspect2.id)
+      inviter_with_3_invites.invite_user(aspect2.id, 'email', "email1@example.com")
       proc{
-        inviter_with_3_invites.invite_user("email1@example.com", aspect2.id)
+        inviter_with_3_invites.invite_user(aspect2.id, 'email', "email1@example.com")
       }.should raise_error /You already invited this person/
     end
   end
@@ -63,7 +79,7 @@ describe User do
                                 :last_name  => "Smith"}} )}
 
     before do
-      @invited_user_pre = Invitation.invite(:from => inviter, :email => 'invitee@example.org', :into => aspect).reload
+      @invited_user_pre = Invitation.invite(:from => inviter, :service => 'email', :identifier => 'invitee@example.org', :into => aspect).reload
       @person_count = Person.count
     end
 

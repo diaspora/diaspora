@@ -11,8 +11,9 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :sender, :recipient, :aspect
 
   def self.invite(opts = {})
-    return false if opts[:email] == opts[:from].email
-    existing_user = User.where(:email => opts[:email]).first
+    return false if opts[:identifier] == opts[:from].email
+    existing_user = User.where(:email => opts[:identifier]).first
+
     if existing_user
       if opts[:from].contact_for(opts[:from].person)
         raise "You are already connceted to this person"
@@ -39,8 +40,8 @@ class Invitation < ActiveRecord::Base
   end
 
   def self.create_invitee(opts = {})
-    invitee = new_or_existing_user_by_email(opts[:email])
-    return invitee unless opts[:email].match Devise.email_regexp
+    invitee = new_or_existing_user_by_email(opts[:identifier])
+    return invitee unless opts[:identifier].match Devise.email_regexp
     invitee.invites = opts[:invites] || 0
     if invitee.new_record?
       invitee.errors.clear
@@ -62,7 +63,7 @@ class Invitation < ActiveRecord::Base
       invitee.reload
     end
     invitee.invite!
-    Rails.logger.info("event=invitation_sent to=#{opts[:email]} #{"inviter=#{opts[:from].diaspora_handle}" if opts[:from]}")
+    Rails.logger.info("event=invitation_sent to=#{opts[:identifier]} #{"inviter=#{opts[:from].diaspora_handle}" if opts[:from]}")
     invitee
   end
 

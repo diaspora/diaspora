@@ -204,10 +204,11 @@ class User < ActiveRecord::Base
   end
 
   ###Invitations############
-  def invite_user(email, aspect_id, invite_message = "")
+  def invite_user(aspect_id, service, identifier, invite_message = "")
     aspect = aspects.find(aspect_id)
     if aspect
-      Invitation.invite(:email => email,
+      Invitation.invite(:service => service,
+                        :identifier => identifier,
                         :from => self,
                         :into => aspect,
                         :message => invite_message)
