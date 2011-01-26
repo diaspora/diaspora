@@ -47,12 +47,13 @@ describe Aspect do
       aspect.contacts.include?(contact2).should be_true
       aspect.save.should be_true
     end
+
+    it 'has a contacts_visible? method' do
+      aspect.contacts_visible?.should be_true
+    end
   end
 
   describe 'validation' do
-    before do
-      aspect
-    end
     it 'has a unique name for one user' do
       aspect2 = user.aspects.create(:name => aspect.name)
       aspect2.valid?.should be_false

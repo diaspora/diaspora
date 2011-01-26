@@ -24,15 +24,17 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
   add_index "aspect_memberships", ["contact_id"], :name => "index_aspect_memberships_on_contact_id"
 
   create_table "aspects", :force => true do |t|
-    t.string   "name",          :null => false
-    t.integer  "user_id",       :null => false
+    t.string   "name",                               :null => false
+    t.integer  "user_id",                            :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
     t.string   "user_mongo_id"
+    t.boolean  "contacts_visible", :default => true, :null => false
   end
 
   add_index "aspects", ["mongo_id"], :name => "index_aspects_on_mongo_id"
+  add_index "aspects", ["user_id", "contacts_visible"], :name => "index_aspects_on_user_id_and_contacts_visible"
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
   create_table "comments", :force => true do |t|
