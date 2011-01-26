@@ -50,7 +50,7 @@ class Invitation < ActiveRecord::Base
 
   def self.create_invitee(opts = {})
     invitee = new_or_existing_user_by_service_and_identifier(opts[:service], opts[:identifier])
-    return invitee unless opts[:service] == 'email' && opts[:identifier].match(Devise.email_regexp)
+    return invitee if opts[:service] == 'email' && !opts[:identifier].match(Devise.email_regexp)
     invitee.invites = opts[:invites] || 0
     if invitee.new_record?
       invitee.errors.clear
