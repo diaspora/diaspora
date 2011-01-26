@@ -33,8 +33,10 @@
 
     - unless @landing_page
       = include_javascripts :main
-      - if ["cz", "da", "de", "el", "es", "fr", "he", "hu", "id", "it", "ja", "ko", "nl", "pl", "pt", "ro", "ru", "sv", "zh-CN"].include?(I18n.locale.to_s)
-        = javascript_include_tag "vendor/timeago_locale/jquery.timeago.#{I18n.locale.to_s}.js"
+      -if current_user
+        :javascript
+          Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+
 
     - if current_user
       = include_javascripts :flash_socket #unless modern_browser?

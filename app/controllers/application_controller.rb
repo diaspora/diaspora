@@ -49,4 +49,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def get_javascript_strings_for language
+    yml_path = File.join(Rails.root, "config/locales/diaspora/", "#{language}.yml")
+    yaml = YAML::load IO.read(yml_path)
+
+    yaml[language]["javascripts"]
+  end
 end
