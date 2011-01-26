@@ -25,8 +25,6 @@ class Services::Facebook < Service
       data_h[d['id']] = {:name => d['name']}
     end
 
-
-
     service_objects = Services::Facebook.where(:uid => data_h.keys).includes(:user => :person)
     service_objects.each do |s|
       data_h[s.uid][:person] = s.user.person

@@ -92,4 +92,38 @@ describe ServicesController do
       get :finder, :provider => @service1.provider
     end
   end
+
+  describe '#invite' do
+    
+    before do
+      pending
+      @service1 = Services::Facebook.create(:provider => 'facebook')
+      @uid = "abc"
+      @invite_params = {:provider => @service1.provider, :uid => @uid, :aspect_id => @user.aspects.first.id}
+    end
+
+    it 'creates an invitation' do
+      lambda {
+        put :inviter, @invite_params
+      }.should change(Invitation, :count).by(1)
+    end
+
+    it 'sets the subject' do
+      put :inviter, @invite_params
+      assigns[:@subject].should_not be_nil
+    end
+
+    it 'sets a message containing the invitation link' do
+      put :inviter, @invite_params
+      assigns[:@message].should include(User.last.invitation_token)
+    end
+
+    it 'redirects to a prefilled facebook message url' do 
+      put :inviter, @invite_params
+      response.should be_redirect
+      response.should have_text(/http:\/\/www\.facebook\.com\/\?compose=1&id=.*&subject=.*&message=.*&sk=messages/)
+    end
+
+  end
 end
+

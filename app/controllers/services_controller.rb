@@ -1,7 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
+#   licensed under the Affero General Public License version 3 or later.  See #   the COPYRIGHT file.  
 
 class ServicesController < ApplicationController
   before_filter :authenticate_user!
@@ -50,5 +48,13 @@ class ServicesController < ApplicationController
   def finder
     service = current_user.services.where(:provider => params[:provider]).first
     @friends = service ? service.finder : {}
+  end
+
+  def inviter
+    @uid = params[:uid]
+    @subject = "Join me on DIASPORA*"
+    @message = ""
+    
+    redirect_to "http://facebook.com"
   end
 end

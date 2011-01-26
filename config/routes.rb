@@ -7,6 +7,7 @@ Diaspora::Application.routes.draw do
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
 
+  match 'services/inviter/:provider' => 'services#inviter', :as => 'service_inviter'
   match 'services/finder/:provider' => 'services#finder', :as => 'friend_finder'
   resources :services
 
