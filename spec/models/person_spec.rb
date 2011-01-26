@@ -152,6 +152,12 @@ describe Person do
   describe '.search' do
     before do
       Person.delete_all
+      @user = Factory.create(:user_with_aspect)
+      user_profile = @user.person.profile
+      user_profile.first_name = "aiofj"
+      user_profile.last_name = "asdji"
+      user_profile.save
+
       @robert_grimm = Factory.create(:searchable_person)
       @eugene_weinstein = Factory.create(:searchable_person)
       @yevgeniy_dodis = Factory.create(:searchable_person)
@@ -224,10 +230,21 @@ describe Person do
       people.should == [@robert_grimm]
     end
 
-    it 'orders by whether the person is friends with the searching user' do
+    it "puts the searching user's contacts first" do
       @user.activate_contact(@casey_grippi, @user.aspects.first)
       people = Person.search("ing", @user)
       people.map{|p| p.name}.should == [@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map{|p|p.name}
+    end
+    it "puts the searching user's incoming requests first" do
+      requestor = Factory(:user_with_aspect)
+      profile = requestor.person.profile
+      profile.first_name = "Requesting"
+      profile.last_name = "Something"
+      profile.save
+
+      requestor.send_contact_request_to(@user.person, requestor.aspects.first)
+      people = Person.search("ing", @user)
+      people.map{|p| p.name}.should == [requestor.person, @yevgeniy_dodis, @robert_grimm, @casey_grippi, @eugene_weinstein].map{|p|p.name}
     end
   end
 

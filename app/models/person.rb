@@ -67,7 +67,8 @@ class Person < ActiveRecord::Base
 #  ORDER BY `contacts`.user_id DESC
     Person.searchable.where(sql, *tokens).joins(
       "LEFT OUTER JOIN `contacts` ON `contacts`.user_id = #{user.id} AND `contacts`.person_id = `people`.id"
-    ).order("contacts.user_id DESC", "profiles.last_name ASC", "profiles.first_name ASC", "people.diaspora_handle ASC")
+    ).joins("LEFT OUTER JOIN `requests` ON `requests`.recipient_id = #{user.person.id} AND `requests`.sender_id = `people`.id"
+    ).order("contacts.user_id DESC", "requests.recipient_id DESC", "profiles.last_name ASC", "profiles.first_name ASC")
   end
 
   def name
