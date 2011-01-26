@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
-require File.dirname(__FILE__) + '/../lib/diaspora/web_socket'
+require File.join(File.dirname(__FILE__), '..','lib', 'diaspora', 'web_socket')
 
 at_exit do
   begin
