@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110126015407) do
+ActiveRecord::Schema.define(:version => 20110126225202) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id"
@@ -273,7 +273,8 @@ ActiveRecord::Schema.define(:version => 20110126015407) do
     t.string   "language"
     t.string   "email",                                 :default => "", :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "invitation_token",       :limit => 60
+    t.string   "password_salt",                         :default => "", :null => false
+    t.string   "invitation_token",       :limit => 20
     t.datetime "invitation_sent_at"
     t.string   "reset_password_token"
     t.string   "remember_token"
@@ -433,7 +434,8 @@ ActiveRecord::Schema.define(:version => 20110126015407) do
     t.string   "language"
     t.string   "email",                                 :default => "",    :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
-    t.string   "invitation_token",       :limit => 60
+    t.string   "password_salt",                         :default => "",    :null => false
+    t.string   "invitation_token",       :limit => 20
     t.datetime "invitation_sent_at"
     t.string   "reset_password_token"
     t.string   "remember_token"
@@ -450,7 +452,7 @@ ActiveRecord::Schema.define(:version => 20110126015407) do
     t.string   "invitation_identifier"
   end
 
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["mongo_id"], :name => "index_users_on_mongo_id"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true

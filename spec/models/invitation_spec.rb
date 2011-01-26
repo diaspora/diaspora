@@ -239,7 +239,6 @@ describe Invitation do
 
       it 'mails the optional message' do
         new_user = Invitation.create_invitee(@valid_params)
-        pp Devise.mailer.deliveries
         Devise.mailer.deliveries.first.to_s.include?(@message).should be_true
       end
 
@@ -257,7 +256,11 @@ describe Invitation do
       it 'does not save a user with an empty string email' do
         @valid_params[:service] = 'facebook'
         @valid_params[:identifier] = '3423423'
-        Invitation.create_invitee(@valid_params).email.should_not == ''
+        Invitation.create_invitee(@valid_params)
+        @valid_params[:identifier] = 'dfadsfdas'
+        lambda {
+            Invitation.create_invitee(@valid_params)
+        }.should_not raise_error
       end
     end
 
