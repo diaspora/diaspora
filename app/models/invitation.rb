@@ -27,21 +27,30 @@ class Invitation < ActiveRecord::Base
     create_invitee(opts)
   end
 
-  def self.new_or_existing_user_by_email(email)
-    existing_user = User.where(:email => email).first
+  def self.new_or_existing_user_by_service_and_identifier(service, identifier)
+    existing_user = User.where(:invitation_service => service,
+                               :invitation_identifier => identifier).first
+    if service == 'email'
+      existing_user ||= User.where(:email => identifier).first
+    else
+      existing_user ||= User.joins(:services).where(:services => {:provider => service, :uid => identifier}).first
+    end
+
     if existing_user
       existing_user
     else
       result = User.new()
-      result.email = email
+      result.invitation_service = service
+      result.invitation_identifier = identifier
+      result.email = identifier if service == 'email'
       result.valid?
       result
     end
   end
 
   def self.create_invitee(opts = {})
-    invitee = new_or_existing_user_by_email(opts[:identifier])
-    return invitee unless opts[:identifier].match Devise.email_regexp
+    invitee = new_or_existing_user_by_service_and_identifier(opts[:service], opts[:identifier])
+    return invitee unless opts[:service] == 'email' && opts[:identifier].match(Devise.email_regexp)
     invitee.invites = opts[:invites] || 0
     if invitee.new_record?
       invitee.errors.clear

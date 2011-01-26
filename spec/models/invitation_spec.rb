@@ -46,24 +46,75 @@ describe Invitation do
   end
 
   describe '.new_or_existing_user_by_email' do
-    let(:inv){Invitation.new_or_existing_user_by_email(@email)}
+    let(:inv){Invitation.new_or_existing_user_by_service_and_identifier(@type, @identifier)}
     before do
       @users = []
       8.times do
         @users << Factory.create(:user)
       end
+      @user_fb_id = 'abc123'
+      @user_fb = Factory.create(:user, :invitation_service => "facebook", :invitation_identifier => @user_fb_id)
     end
-    it 'returns User.new for a non-existent user' do
-      @email = "maggie@example.org"
-      inv.email.should == @email
+    
+    it 'returns User.new for a non-existent user for email' do
+      @type = "email"
+      @identifier = "maggie@example.org"
+      inv.invitation_identifier.should == @identifier
+      inv.invitation_service.should == 'email'
       inv.persisted?.should be_false
       lambda {
         inv.reload
       }.should raise_error ActiveRecord::RecordNotFound
     end
-    it 'returns an existing user' do
-      @email = @users[3].email
-      inv.should == @users[3]
+    
+    it 'returns User.new for a non-existent user' do
+      @type = "facebook"
+      @identifier = "1234892323"
+      inv.invitation_identifier.should == @identifier
+      inv.invitation_service.should == @type
+      inv.persisted?.should be_false
+      lambda {
+        inv.reload
+      }.should raise_error ActiveRecord::RecordNotFound
+    end
+
+    context 'returns an existing user' do
+      context 'active users' do
+        it 'by email' do
+          @identifier = @users[3].email
+          @type = 'email'
+          inv.should == @users[3]
+        end
+
+        it 'by service' do
+          uid = '123324234'
+          @users[0].services << Services::Facebook.create(:provider => 'facebook', :uid => uid)
+          @users[0].save
+
+          @type = 'facebook'
+          @identifier = uid
+
+          inv.should == @users[0]
+        end
+      end
+
+      context 'invitated users' do
+        it 'by email' do
+          @identifier = @users[3].email
+          @type = 'email'
+
+          @users[3].invitation_identifier = @identifier
+          @users[3].invitation_service = @type
+          @users[3].save
+          inv.should == @users[3]
+        end
+
+        it 'by service' do
+          @identifier = @user_fb_id
+          @type = 'facebook'
+          inv.should == @user_fb
+        end
+      end
     end
   end
 
@@ -236,6 +287,7 @@ describe Invitation do
       @new_user = Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect)
       acceptance_params = {:invitation_token => "abc",
                               :username => "user",
+                              :email => @email,
                               :password => "secret",
                               :password_confirmation => "secret",
                               :person => {:profile => {:first_name => "Bob",
