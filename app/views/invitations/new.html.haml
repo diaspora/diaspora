@@ -24,10 +24,8 @@
 
       %h4
         = t('.aspect')
-      - unless @aspect.is_a? Aspect
-        = invite.select(:aspects, @aspects_dropdown_array)
-      - else 
-        = invite.select(:aspects, @aspects_dropdown_array, :selected => @aspect.id)
+      = invite.select(:aspects, options_from_collection_for_select(@all_aspects, 'id', 'name'))
+
       %br
       %br
 

@@ -9,11 +9,12 @@
   %h3
     Facebook friend finder
 
-.span-10.prepend-7
+.span-12.prepend-6
   .contact_list
     = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
     %ul
-      - for friend in @friends.values
+      - for uid in @friends.keys
+        - friend = @friends[uid]
         %li
           .right
             -if friend[:contact] && !friend[:contact].pending
@@ -27,6 +28,12 @@
                 :id => friend[:person].id},
                 :class => 'button',
                 :rel => 'facebox'
+            - else
+              = form_tag service_inviter_path do
+                = select_tag (:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
+                = hidden_field_tag :uid, uid
+                = hidden_field_tag :provider, 'facebook'
+                = submit_tag "invite"
 
           - if friend[:person]
             = person_image_link(friend[:person])
