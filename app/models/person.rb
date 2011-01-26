@@ -71,7 +71,7 @@ class Person < ActiveRecord::Base
     ).order("contacts.user_id DESC", "requests.recipient_id DESC", "profiles.last_name ASC", "profiles.first_name ASC")
   end
 
-  def name
+  def name(opts = {})
     @name ||= if profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle
               else

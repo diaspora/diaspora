@@ -25,7 +25,12 @@
 .aspects
   - if !contact
     %h4
-      = t('people.show.not_connected', :name => person.first_name)
+      = link_to truncate(t('people.show.not_connected', :name => person.name), :length => 49, :separator => ' ', :omission => ''),
+        {:controller => "people",
+        :action => "share_with",
+        :id => @person.id},
+        :class => 'share_with button',
+        :rel => 'facebox'
   - elsif contact.pending
     %h4
       = t('people.person.pending_request')
