@@ -13,7 +13,7 @@ Feature: posting
         And I am on the home page
       Then I should see "I am eating a yogurt" within ".stream_element"
 
-    @javascript
+    @javascript @wip
     Scenario: delete a post
       Given I am signed in
         And I have an aspect called "Family"
