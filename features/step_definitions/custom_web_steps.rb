@@ -15,9 +15,8 @@ And /^I hover over the post$/ do
   page.execute_script('$(".stream_element").first().mouseover()')
 end
 
-And /^I confirm the alert$/ do
-  a = page.driver.browser.switch_to.alert
-  a.accept
+And /^I preemptively confirm the alert$/ do
+  a = page.evaluate_script("window.confirm = function() { return true; }")
 end
 
 When /^(.*) in the modal window$/ do |action|

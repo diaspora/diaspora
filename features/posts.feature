@@ -13,7 +13,7 @@ Feature: posting
         And I am on the home page
       Then I should see "I am eating a yogurt" within ".stream_element"
 
-    @javascript @wip
+    @javascript
     Scenario: delete a post
       Given I am signed in
         And I have an aspect called "Family"
@@ -23,8 +23,8 @@ Feature: posting
         And I press "Share"
         And I am on the home page
         And I hover over the post
+        And I preemptively confirm the alert
         And I press the first ".delete" within ".stream_element"
-        And I confirm the alert
         And I am on the home page
         Then I should not see "I am eating a yoghurt"
 
