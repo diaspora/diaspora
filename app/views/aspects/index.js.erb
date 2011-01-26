@@ -4,7 +4,7 @@ $('a[rel*=facebox]').facebox();
 
 $(document).ready(function() {
   $('#main_stream').infinitescroll({
-    navSelector  : "div.pagination",
+    navSelector  : "#main_stream + div.pagination",
                    // selector for the paged navigation (it will be hidden)
     nextSelector : ".pagination a.next_page",
                    // selector for the NEXT link (to page 2)
