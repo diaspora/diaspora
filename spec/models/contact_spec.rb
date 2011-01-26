@@ -47,6 +47,58 @@ describe Contact do
     end
   end
 
+  describe '#contacts' do
+    before do
+      @alice = alice
+      @bob = bob
+      @eve = eve
+      @bob.aspects.create(:name => 'next')
+      @people1 = []
+      @people2 = []
+
+      1.upto(5) do
+        person = Factory(:person)
+        bob.activate_contact(person, bob.aspects.first)
+        @people1 << person
+      end
+      1.upto(5) do
+        person = Factory(:person)
+        bob.activate_contact(person, bob.aspects.last)
+        @people2 << person
+      end
+    #eve <-> bob <-> alice
+    end
+    context 'on a contact for a local user' do
+      before do
+        @contact = @alice.contact_for(@bob.person)
+      end
+      it "returns the target local user's contacts that are in the same aspect" do
+        @contact.contacts.map{|p| p.id}.should == [@eve.person].concat(@people1).map{|p| p.id}
+      end
+      it 'returns nothing if contacts_visible is false in that aspect' do
+        asp = @bob.aspects.first
+        asp.contacts_visible = false
+        asp.save
+        @contact.contacts.should == []
+      end
+      it 'returns no duplicate contacts' do
+        [@alice, @eve].each {|c| @bob.add_contact_to_aspect(@bob.contact_for(c.person), @bob.aspects.last)}
+        contact_ids = @contact.contacts.map{|p| p.id}
+        contact_ids.uniq.should == contact_ids
+      end
+    end
+
+    context 'on a contact for a remote user' do
+      before do
+        @contact = @bob.contact_for @people1.first
+      end
+      it 'returns an empty array' do
+        @contact.contacts.should == []
+      end
+    end
+
+  end
+
 
   context 'requesting' do
     before do
@@ -56,44 +108,6 @@ describe Contact do
 
       @contact.user = @user
       @contact.person = @person
-    end
-
-    describe '#contacts' do
-      before do
-        @alice = alice
-        @bob = bob
-        @eve = eve
-        @bob.aspects.create(:name => 'next')
-        @people1 = []
-        @people2 = []
-
-        1.upto(5) do
-          person = Factory(:person)
-          bob.activate_contact(person, bob.aspects.first)
-          @people1 << person
-        end
-        1.upto(5) do
-          person = Factory(:person)
-          bob.activate_contact(person, bob.aspects.last)
-          @people2 << person
-        end
-      #eve <-> bob <-> alice
-      end
-      context 'on a contact for a local user' do
-        before do
-          @contact = @alice.contact_for(@bob.person)
-        end
-        it "returns the target local user's contacts that are in the same aspect" do
-          @contact.contacts.map{|p| p.id}.should == [@eve.person].concat(@people1).map{|p| p.id}
-        end
-        it 'returns nothing if contacts_visible is false in that aspect' do
-          asp = @bob.aspects.first
-          asp.contacts_visible = false
-          asp.save
-          @contact.contacts.should == []
-        end
-      end
-
     end
 
     describe '#generate_request' do
