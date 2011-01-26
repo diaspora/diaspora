@@ -37,7 +37,7 @@ gem 'thin', '1.2.7', :require => false
 gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket', :ref => 'e278f5a1c4db60be7485'
 
 #File uploading
-gem 'carrierwave', :git => 'git://github.com/recruitmilitary/carrierwave.git' , :branch => 'master' #Untested mongomapper branch
+gem 'carrierwave', :git => 'git://github.com/recruitmilitary/carrierwave.git' , :branch => 'master'
 gem 'mini_magick', '3.2'
 gem 'aws', '2.3.32' # upgrade to 2.4 breaks 1.8 >.<
 gem 'fastercsv', '1.5.4', :require => false
@@ -64,7 +64,6 @@ group :test do
   gem 'cucumber-rails', '0.3.2'
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-rails', '>= 2.0.0'
-  gem 'mocha'
   gem 'database_cleaner', '0.6.0'
   gem 'webmock', :require => false
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false

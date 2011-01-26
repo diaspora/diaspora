@@ -1,13 +1,4 @@
 module HelperMethods
-
-  def stub_comment_signature_verification
-    Comment.any_instance.stubs(:verify_signature).returns(true)
-  end
-
-  def unstub_mocha_stubs
-    Mocha::Mockery.instance.stubba.unstub_all
-  end
-
   def connect_users_with_aspects(u1,u2)
     connect_users(u1, u1.aspects.first, u2, u2.aspects.first)
   end

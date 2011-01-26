@@ -204,8 +204,6 @@ GEM
     mixlib-cli (1.2.0)
     mixlib-config (1.1.2)
     mixlib-log (1.2.0)
-    mocha (0.9.10)
-      rake
     moneta (0.6.0)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
@@ -383,7 +381,6 @@ DEPENDENCIES
   json (= 1.4.6)
   launchy
   mini_magick (= 3.2)
-  mocha
   mongrel
   mysql2 (= 0.2.6)
   nokogiri (= 1.4.3.1)
