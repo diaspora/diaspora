@@ -8,44 +8,24 @@
 Diaspora.widgets.add("i18n", function() {
   this.start = $.noop;
 
-  this.callbacks = [];
   this.language = undefined;
   this.locale = undefined;
-  this.ready = false;
 
   this.loadLocale = function(locale, language) {
-    this.ready = true;
     this.language = language;
 
     if(typeof locale !== "undefined") {
       this.locale = locale;
-      this.triggerCallbacks();
       return;
     }
 
     if(!this.locale) {
       function setLocale(data) {
         this.locale = $.parseJSON(data);
-        this.triggerCallbacks();
       }
 
       $.getJSON("/localize", setLocale);
     }
-  };
-
-  this.triggerCallbacks = function() {
-    for(var i = 0; i < this.callbacks.length; i++) {
-      this.callbacks[i]();
-    }
-  };
-    
-  this.onLocaleLoaded = function(callback) {
-    if(this.ready) {
-      callback();
-      return;
-    }
-    
-    this.callbacks.push(callback);
   };
 
   this.t = function(item, views) {

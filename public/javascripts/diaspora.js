@@ -22,11 +22,11 @@ Diaspora.widgetCollection.prototype.remove = function(widgetId) {
 };
 
 Diaspora.widgetCollection.prototype.init = function() {
-    this.ready = true;
-    for(var widgetId in this.collection) {
-      this.collection[widgetId].start();
-    }
+  this.ready = true;
+  for(var widgetId in this.collection) {
+    this.collection[widgetId].start();
   }
+}
 
 Diaspora.widgets = Diaspora.widgets || new Diaspora.widgetCollection();
 

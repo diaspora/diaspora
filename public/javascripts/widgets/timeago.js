@@ -7,8 +7,6 @@
  */
 Diaspora.widgets.add("timeago", function() {
   this.start = function() {
-    Diaspora.widgets.i18n.onLocaleLoaded(function() {
-      
       if(Diaspora.widgets.i18n.language === "en") {
         return;
       }
@@ -32,7 +30,6 @@ Diaspora.widgets.add("timeago", function() {
       };
       
       Diaspora.widgets.timeago.updateTimeAgo("abbr");
-    });
   };
 
   this.updateTimeAgo = function(selector) {
