@@ -201,6 +201,7 @@ en:
       deleted: 'deleted'
       index:
         notifications: "Notifications"
+        mark_all_as_read: "Mark All as Read"
   users:
       edit:
           export_data: "Export Data"
