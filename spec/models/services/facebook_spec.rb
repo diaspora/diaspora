@@ -82,14 +82,14 @@ JSON
         end
         it 'contains an invitation if invited' do
           @inv = Invitation.create(:sender => @user, :recipient => @user2, :aspect => @user.aspects.first)
-          @service.finder.values.first[:invitation].should be_true
+          @service.finder.values.first[:invitation_id].should == @inv.id
         end
         it 'does not find the user with a wrong identifier' do
           @user2.invitation_identifier = 'dsaofhnadsoifnsdanf'
           @user2.save
 
           @inv = Invitation.create(:sender => @user, :recipient => @user2, :aspect => @user.aspects.first)
-          @service.finder.values.first[:invitation].should be_nil
+          @service.finder.values.first[:invitation_id].should be_nil
         end
       end
     end

@@ -52,8 +52,14 @@ class ServicesController < ApplicationController
 
   def inviter
     @uid = params[:uid]
+
+    if i_id = params[:invitation_id]
+      invited_user = Invitation.find(i_id).recipient
+    else
+      invited_user = current_user.invite_user(params[:aspect_id], params[:provider], @uid)
+    end
+
     @subject = t('.join_me_on_diaspora')
-    invited_user = current_user.invite_user(params[:aspect_id], params[:provider], params[:uid])
     @message = <<MSG
 #{t('.click_link_to_accept_invitation')}:
 \n

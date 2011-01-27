@@ -427,6 +427,8 @@ en:
       inviter:
           join_me_on_diaspora: "Join me on DIASPORA*"
           click_link_to_accept_invitation: "Click this link to accept your invitation"
+      finder:
+          resend: "resend"
   notifier:
       hello: "Hello %{name}!"
       love: "love,"

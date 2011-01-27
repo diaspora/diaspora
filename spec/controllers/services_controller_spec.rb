@@ -101,12 +101,6 @@ describe ServicesController do
       @invite_params = {:provider => @service1.provider, :uid => @uid, :aspect_id => @user.aspects.first.id}
     end
 
-    it 'creates an invitation' do
-      lambda {
-        put :inviter, @invite_params
-      }.should change(Invitation, :count).by(1)
-    end
-
     it 'sets the subject' do
       put :inviter, @invite_params
       assigns[:subject].should_not be_nil
@@ -122,6 +116,20 @@ describe ServicesController do
       response.location.should match(/https:\/\/www\.facebook\.com\/\?compose=1&id=.*&subject=.*&message=.*&sk=messages/)
     end
 
+    it 'creates an invitation' do
+      lambda {
+        put :inviter, @invite_params
+      }.should change(Invitation, :count).by(1)
+    end
+
+    it 'does not create a duplicate invitation' do
+      inv = Invitation.create!(:sender_id => @user.id, :recipient_id => eve.id, :aspect_id => @user.aspects.first.id)
+      @invite_params[:invitation_id] = inv.id
+
+      lambda {
+        put :inviter, @invite_params
+      }.should_not change(Invitation, :count)
+    end
   end
 end
 

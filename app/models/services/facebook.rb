@@ -30,7 +30,7 @@ class Services::Facebook < Service
                                                                        :invitation_identifier => data_h.keys})
 
     invitation_objects.each do |inv|
-      data_h[inv.recipient.invitation_identifier][:invitation] = true
+      data_h[inv.recipient.invitation_identifier][:invitation_id] = inv.id
     end
 
     service_objects = Services::Facebook.where(:uid => data_h.keys).includes(:user => :person)
