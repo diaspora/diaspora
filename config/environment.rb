@@ -14,7 +14,7 @@ if File.exists?(File.expand_path("./config/languages.yml"))
   AVAILABLE_LANGUAGE_CODES = languages['available'].keys.map { |v| v.to_s }
 else
   AVAILABLE_LANGUAGES = { :en => 'English' }
-  DEFAULT_LANGUAGES = 'en'
+  DEFAULT_LANGUAGE = 'en'
   AVAILABLE_LANGUAGE_CODES = ['en']
 end
 
