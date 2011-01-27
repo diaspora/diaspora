@@ -437,6 +437,12 @@ en:
           resend: "resend"
           invite_your_friends_from: "Invite your friends from %{service}"
           not_connected: "not connected"
+          friends:
+            zero:   "no friends"
+            one:    "1 friend"
+            few:    "%{count} friends"
+            other:  "%{count} friends"
+          invite: "invite"
   notifier:
       hello: "Hello %{name}!"
       love: "love,"
