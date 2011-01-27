@@ -120,6 +120,9 @@ en:
           invitations_left: "(%{count} left)"
           dont_have_now: "You don't have any right now, but more invites are coming soon!"
           invites_closed: "Invites are currently closed on this Diaspora pod"
+          invite_your_friends: "Invite your friends"
+          from_facebook: "From Facebook"
+          by_email: "by Email"
       reshare:
           reshare: "Reshare"
       public_explain:
@@ -189,8 +192,6 @@ en:
       index:
           handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
           no_contacts: "No contacts"
-          invite_your_friends: "Invite your friends"
-          from_facebook: "From Facebook"
   notifications:
       request_accepted: "accepted your share request."
       new_request: "offered to share with you."
