@@ -430,7 +430,6 @@ en:
           join_me_on_diaspora: "Join me on DIASPORA*"
           click_link_to_accept_invitation: "Click this link to accept your invitation"
       finder:
-          generating: "generating"
           resend: "resend"
           invite_your_friends_from: "Invite your friends from %{service}"
           not_connected: "not connected"
