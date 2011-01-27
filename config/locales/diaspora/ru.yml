@@ -6,10 +6,12 @@
 ru: 
   _aspect: "Аспект"
   _aspects: "Аспекты"
+  _comment: "Comment"
   _comments: "Коментарии"
   _contact: "Контакт"
   _contacts: "Контакты"
   _home: "Домашний"
+  _more: "More"
   _photos: "Фотографии"
   _services: "Сервисы"
   account: "Учётная запись"
@@ -171,6 +173,7 @@ ru:
       login: "логин"
       logout: "выйти"
       view_profile: "просмотр профиля"
+  more: "More"
   new_notifications: "%{count} новых уведомлений"
   new_requests: 
     few: "%{count} новых запросов!"
@@ -351,6 +354,10 @@ ru:
       success: "Аутентификация успешно уничтожена."
     failure: 
       error: "Произошла ошибка при подключении этого сервиса"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Подключение к Facebook"
       connect_to_twitter: "Подключение к Twitter"
@@ -358,6 +365,9 @@ ru:
       edit_services: "Редактировать сервисы"
       logged_in_as: "Вы вошли как"
       really_disconnect: "отключить %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Настройки"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ ru:
       all_contacts: "Все контакты"
       cannot_remove: "Не может удалить человека с последнего аспекта.(Если вы хотите, отключить этого человека необходимо удалить контакт)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Сейчас у вас больше нет приглашений, но новые уже не за горами!"
+      from_facebook: "From Facebook"
       invitations_left: "(осталось %{count})"
       invite_someone: "Пригласить кого-нибудь"
+      invite_your_friends: "Invite your friends"
       invites: "Приглашения"
       invites_closed: "В данный момент возможность приглашений закрыта в этой части Диаспоры"
     notification: 
@@ -391,7 +404,7 @@ ru:
       posting: "Отправка ..."
       share: "Поделиться"
       share_with: "Поделиться с %{aspect}"
-      share_with_all: "Поделиться во все аспекты"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Поделиться повторно"
   status_messages: 
@@ -415,6 +428,7 @@ ru:
       change_language: "Сменить язык"
       change_password: "Сменить пароль"
       close_account: "Закрыть учётную запись"
+      current_password: "Current password"
       download_photos: "Скачать мои изображения"
       download_xml: "Скачать мою информацию в xml"
       edit_account: "Редактировать аккаунт"

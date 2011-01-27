@@ -6,10 +6,12 @@
 da: 
   _aspect: "Aspekt"
   _aspects: "Aspekter"
+  _comment: "Comment"
   _comments: "Kommentarer"
   _contact: "Kontakt"
   _contacts: "Kontakter"
   _home: "Hjem"
+  _more: "More"
   _photos: "Billeder"
   _services: "Tjenester"
   account: "Konto"
@@ -160,7 +162,7 @@ da:
       to: "Til"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "Har du et problem? Find svaret her"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "Hvad er nyt?"
     header: 
@@ -171,6 +173,7 @@ da:
       login: "Log ind"
       logout: "Log ud"
       view_profile: "Vis profil"
+  more: "More"
   new_notifications: "%{count} nye notifikationer"
   new_requests: 
     few: "%{count} nye anmodninger!"
@@ -269,7 +272,7 @@ da:
       recent_public_posts: "Seneste offentlige indlæg"
       return_to_aspects: "Tilbage til aspektsoversigt"
       similar_contacts: "lignende kontakter"
-      start_sharing: "start sharing"
+      start_sharing: "begynd at dele"
       to_accept_or_ignore: "at godkende eller ignorere det."
     update: 
       failed: "Kunne ikke opdatere profil"
@@ -351,6 +354,10 @@ da:
       success: "Godkendelsen er nu blevet slettet."
     failure: 
       error: "der opstod en fejl i at forbinde til den service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Tilslut til Facebook"
       connect_to_twitter: "Tilslut til twitter"
@@ -358,6 +365,9 @@ da:
       edit_services: "Redigér tjenester"
       logged_in_as: "log ind som"
       really_disconnect: "afbryd %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Indstillinger"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ da:
       all_contacts: "Alle kontaktpersoner"
       cannot_remove: "Kan ikke fjerne person fra sidste aspekt."
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere invitationer!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} tilbage)"
       invite_someone: "Invitér en person"
+      invite_your_friends: "Invite your friends"
       invites: "Invitationer"
       invites_closed: "Invitationer er i øjeblikket lukkede på denne Diaspora seed"
     notification: 
@@ -391,7 +404,7 @@ da:
       posting: "Sender..."
       share: "Del"
       share_with: "Del med %{aspect}"
-      share_with_all: "Del med alle dine aspekter"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Del igen"
   status_messages: 
@@ -415,6 +428,7 @@ da:
       change_language: "Skift sprog"
       change_password: "Skift adgangskode"
       close_account: "Luk konto"
+      current_password: "Current password"
       download_photos: "Download mine billeder"
       download_xml: "Download min XML"
       edit_account: "Rediger konto"

@@ -15,5 +15,4 @@ Feature: Change password
     And I follow "logout"
     Then I should be on the home page    
     And I sign in with password "newsecret"
-    Then I should be on the aspects page  
-  
+    Then I should be on the aspects page

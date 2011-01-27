@@ -6,10 +6,12 @@
 de: 
   _aspect: "Aspekt"
   _aspects: "Aspekte"
+  _comment: "Kommentar"
   _comments: "Kommentare"
   _contact: "Kontakt"
   _contacts: "Kontakte"
   _home: "Start"
+  _more: "Mehr"
   _photos: "Fotos"
   _services: "Dienste"
   account: "Konto"
@@ -171,6 +173,7 @@ de:
       login: "Anmelden"
       logout: "Abmelden"
       view_profile: "Profil ansehen"
+  more: "Mehr"
   new_notifications: "%{count} neue Benachrichtigungen"
   new_requests: 
     few: "%{count} neue Anfragen!"
@@ -180,7 +183,7 @@ de:
   next: "Nächste"
   no_new_notifications: "keine neuen Benachrichtigungen"
   notifications: 
-    also_commented: "hinterließ einen Kommentar zu"
+    also_commented: "kommentierte ebenfalls"
     comment_on_post: "kommentierte deinen"
     deleted: "gelöschten"
     index: 
@@ -269,7 +272,7 @@ de:
       recent_public_posts: "Neueste öffentliche Beiträge"
       return_to_aspects: "Kehre zur Aspekt-Übersicht zurück."
       similar_contacts: "ähnliche Kontakte"
-      start_sharing: "start sharing"
+      start_sharing: "Fang an zu teilen!"
       to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
     update: 
       failed: "Ändern des Profils fehlgeschlagen"
@@ -351,6 +354,10 @@ de:
       success: "Authentifizierung erfolgreich gelöscht."
     failure: 
       error: "es gab einen Fehler beim Verbinden mit diesem Dienst"
+    finder: 
+      invite_your_friends_from: "Lade deine Freunde von %{service} ein"
+      not_connected: "nicht verbunden"
+      resend: "Erneut senden"
     index: 
       connect_to_facebook: "Mit Facebook verbinden"
       connect_to_twitter: "Mit Twitter verbinden"
@@ -358,21 +365,27 @@ de:
       edit_services: "Dienste bearbeiten"
       logged_in_as: "angemeldet als"
       really_disconnect: "Verbindung mit %{service} entfernen?"
+    inviter: 
+      click_link_to_accept_invitation: "Öffne diesen Link um die Einladung zu akzeptieren"
+      join_me_on_diaspora: "Folge mir auf DIASPORA*"
   settings: "Einstellungen"
   shared: 
     add_contact: 
       create_request: "Über die Diaspora-Adresse finden"
       diaspora_handle: "diaspora@beispiel.org"
       enter_a_diaspora_username: "Gib einen Diaspora-Benutzernamen ein:"
-      know_email: "Du kennst die E-Mail-Adresse? Du solltest sie einladen"
+      know_email: "Du kennst die E-Mail-Adresse? Sende eine Einladung!"
       your_diaspora_username_is: "Deine Diaspora-Adresse ist: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Alle Kontakte"
       cannot_remove: "Kontakt kann nicht aus dem letzten Aspekt entfernt werden. Wenn du nicht länger verbunden sein willst, lösche den Kontakt."
     invitations: 
+      by_email: "Per E-Mail"
       dont_have_now: "Du hast im Moment keine, aber es wird bald wieder neue Einladungen geben!"
+      from_facebook: "Von Facebook"
       invitations_left: "(%{count} übrig)"
       invite_someone: "Jemanden einladen"
+      invite_your_friends: "Lade deine Freunde ein"
       invites: "Einladungen"
       invites_closed: "Einladungen sind auf diesem Diaspora-Pod derzeit nicht verfügbar."
     notification: 
@@ -390,15 +403,15 @@ de:
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
       posting: "Senden …"
       share: "Teilen"
-      share_with: "Mit %{aspect} teilen"
-      share_with_all: "Mit allen Aspekten teilen"
+      share_with: "Teile mit"
+      whats_on_your_mind: "Woran denkst du?"
     reshare: 
       reshare: "Erneut senden an"
   status_messages: 
     helper: 
       no_message_to_display: "Keine Nachricht zum Anzeigen."
     new_status_message: 
-      oh_yeah: "oh yeah!"
+      oh_yeah: "Ja!"
       tell_me_something_good: "Was gibt’s Neues?"
     show: 
       destroy: "Entfernen"
@@ -415,6 +428,7 @@ de:
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
       close_account: "Konto schließen"
+      current_password: "Derzeitiges Passwort"
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Mein XML herunterladen"
       edit_account: "Konto bearbeiten"

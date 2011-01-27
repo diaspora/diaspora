@@ -18,6 +18,7 @@ Feature: new user registration
     And I press "Save and continue"
     Then I should see "Profile updated"
     And I should see "Your aspects"
+    
 
 #  Not working with selenium - it thinks the aspect name field is hidden
 #    When I fill in "Aspect name" with "cheez friends"

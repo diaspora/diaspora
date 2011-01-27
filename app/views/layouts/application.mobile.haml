@@ -48,7 +48,7 @@
 
           %br
           %br
-          %b your aspects
+          %b= t('.your_aspects')
           %br
           - for aspect in @all_aspects
             = link_to aspect, aspects_path('a_ids[]' => aspect.id)
@@ -56,7 +56,7 @@
           %br
 
           %br
-          = link_to 'logout', destroy_user_session_path
+          = link_to t('layouts.header.logout'), destroy_user_session_path
 
 
     -if current_user
@@ -79,7 +79,7 @@
                 = @notification_count
 
           %h4
-            your aspects
+            = t('.your_aspects')
 
           %ul{:data => {:role => 'listview', :inset => 'true'}}
             %li
@@ -90,12 +90,11 @@
 
 
         #footer
-          logged in as
-          = link_to current_user.name, current_user.person
+          = link_to t('.logged_in_as' :name => current_user.name), current_user.person
 
           %br
           %br
-          %b your aspects
+          %b= t('.your_aspects')
           %br
           - for aspect in @all_aspects
             = link_to aspect, aspects_path('a_ids[]' => aspect.id)
@@ -103,4 +102,4 @@
           %br
 
           %br
-          = link_to 'logout', destroy_user_session_path
+          = link_to t('layouts.header.logout'), destroy_user_session_path

@@ -6,10 +6,12 @@
 tr: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Comments"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Home"
+  _more: "More"
   _photos: "fotoğraflar"
   _services: "Servisler"
   account: "Hesap"
@@ -171,6 +173,7 @@ tr:
       login: "login"
       logout: "logout"
       view_profile: "view profile"
+  more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
@@ -351,6 +354,10 @@ tr:
       success: "Başarılı bir şekilde doğrulama yokedildi."
     failure: 
       error: "there was an error connecting that service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "facebook bağlan"
       connect_to_twitter: "twitter bağlan"
@@ -358,6 +365,9 @@ tr:
       edit_services: "Edit services"
       logged_in_as: "olarak bağlandınız"
       really_disconnect: "disconnect %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Ayarlar"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ tr:
       all_contacts: "All contacts"
       cannot_remove: "Cannot remove person from last aspect."
     invitations: 
+      by_email: "by Email"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} davet kaldı)"
       invite_someone: "Birisini davet edin"
+      invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
@@ -391,7 +404,7 @@ tr:
       posting: "Posting..."
       share: "Paylaş"
       share_with: "Share with %{aspect}"
-      share_with_all: "Share with all aspects"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Reshare"
   status_messages: 
@@ -415,6 +428,7 @@ tr:
       change_language: "Dili Değiştir"
       change_password: "Şifremi Değiştir"
       close_account: "Hesabımı kapat"
+      current_password: "Current password"
       download_photos: "fotoğraflarımı kaydet"
       download_xml: "xml dosyamı kaydet"
       edit_account: "Edit account"

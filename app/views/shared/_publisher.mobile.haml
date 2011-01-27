@@ -25,6 +25,6 @@
         - unless params[:a_ids]
           %input{:type => 'checkbox', :name => 'status_message[public]', :id => 'public', :class => 'custom', :value => 'true'}
           %label{:for => 'public'}
-            make public?
+            = t('.make_public')
         = status.submit t('.share'), 'data-inline' => 'true', 'data-theme' => 'b'
 

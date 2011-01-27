@@ -6,10 +6,12 @@
 sv: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Kommentarer"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Hem"
+  _more: "More"
   _photos: "foton"
   _services: "Tjänster"
   account: "Konto"
@@ -171,6 +173,7 @@ sv:
       login: "logga in"
       logout: "logga ut"
       view_profile: "visa profil"
+  more: "More"
   new_notifications: "%{count} nya notifieringar"
   new_requests: 
     few: "%{count} nya förfrågningar!"
@@ -351,6 +354,10 @@ sv:
       success: "Du har nu kopplat bort tjänsten."
     failure: 
       error: "Det blev ett fel vid anslutning till tjänsten"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Anslut till facebook"
       connect_to_twitter: "Anslut till twitter"
@@ -358,6 +365,9 @@ sv:
       edit_services: "Anslutna tjänster"
       logged_in_as: "inloggad som"
       really_disconnect: "koppla från %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Inställningar"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ sv:
       all_contacts: "Alla kontakter"
       cannot_remove: "Kan inte ta bort personen från fler sidor, ta bort kontakten om du inte längre vill vara ansluten till denne."
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} kvar)"
       invite_someone: "Bjud in en kontakt"
+      invite_your_friends: "Invite your friends"
       invites: "Inbjudningar"
       invites_closed: "Inbjudningar är för närvarande stängd på denna Diaspora server"
     notification: 
@@ -391,7 +404,7 @@ sv:
       posting: "Skickar..."
       share: "Dela"
       share_with: "Dela med %{aspect}"
-      share_with_all: "Dela på alla dina sidor"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Återdela"
   status_messages: 
@@ -415,6 +428,7 @@ sv:
       change_language: "Ändra språk"
       change_password: "Ändra lösenord"
       close_account: "Stäng kontot"
+      current_password: "Current password"
       download_photos: "Ladda ner mina foton"
       download_xml: "Ladda ner min xml"
       edit_account: "Ändra konto"

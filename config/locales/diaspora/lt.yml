@@ -6,10 +6,12 @@
 lt: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Komentarai"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Pradžia"
+  _more: "More"
   _photos: "Nuotraukos"
   _services: "Paslaugos"
   account: "Paskyra"
@@ -171,6 +173,7 @@ lt:
       login: "prisijungti"
       logout: "atsijungti"
       view_profile: "peržiūrėti profilį"
+  more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} nuove richieste!"
@@ -351,6 +354,10 @@ lt:
       success: "Atjungimas sėkmingas."
     failure: 
       error: "there was an error connecting that service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Prijungti facebook"
       connect_to_twitter: "Prijungti twitter"
@@ -358,6 +365,9 @@ lt:
       edit_services: "Edit services"
       logged_in_as: "sujungta su"
       really_disconnect: "atjungti %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Nustatymai"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ lt:
       all_contacts: "Visi kontaktai"
       cannot_remove: "Iš paskutinio aspekto asmens pašalinti negalima."
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Tu neturi jokių pakvietimų dabar, tačiau netrukus gausi daugiau!"
+      from_facebook: "From Facebook"
       invitations_left: "(liko %{count})"
       invite_someone: "Pakviesk ką nors"
+      invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
@@ -391,7 +404,7 @@ lt:
       posting: "Rašoma..."
       share: "Skelbti"
       share_with: "Skelbti aspekte \"%{aspect}\""
-      share_with_all: "Skelbti visuose aspektuose"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Skelbti papildomai"
   status_messages: 
@@ -415,6 +428,7 @@ lt:
       change_language: "Keisti kalbą"
       change_password: "Keisti slaptažodį"
       close_account: "Uždaryti paskyrą"
+      current_password: "Current password"
       download_photos: "atsisiųsti mano nuotraukas"
       download_xml: "atsisiųsti mano duomenis xml formatu"
       edit_account: "Edit account"

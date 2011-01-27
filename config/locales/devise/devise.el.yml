@@ -54,7 +54,7 @@ el:
         change_password: "Αλλαγή του κωδικού μου"
       new: 
         forgot_password: "Ξεχάσατε τον κωδικό σας;"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Δεν υπάρχει λογαριασμός με αυτό το email. Αν περιμένετε για πρόσκληση, θα γίνουν αποστολές το συντομότερο δυνατόν"
         send_password_instructions: "Στείλτε μου οδηγίες επαναφοράς κωδικού"
       send_instructions: "Θα λάβετε ένα email με οδηγίες για το πως να επαναφέρετε τον κωδικό πρόσβασης σας σε λίγα λεπτά."
       updated: "Ο κωδικός σας άλλαξε με επιτυχία. Έχετε πλέον συνδεθεί."

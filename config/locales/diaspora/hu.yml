@@ -6,10 +6,12 @@
 hu: 
   _aspect: "Csoport"
   _aspects: "Csoportok"
+  _comment: "Hozzászólás"
   _comments: "Hozzászólások"
   _contact: "Kapcsolat"
   _contacts: "Ismerősök"
   _home: "Kezdőlap"
+  _more: "Bővebben"
   _photos: "Képek"
   _services: "Szolgáltatások"
   account: "Felhasználói fiók"
@@ -160,7 +162,7 @@ hu:
       to: "Címzett"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "Problémád van?"
       powered_by: "DIASPORA* fordította ADAMEX"
       whats_new: "Újdonságok"
     header: 
@@ -171,6 +173,7 @@ hu:
       login: "belépés"
       logout: "kilépés"
       view_profile: "profil megtekintése"
+  more: "Bővebben"
   new_notifications: "%{count} új értesítés"
   new_requests: 
     few: "%{count} új felkérés!"
@@ -269,7 +272,7 @@ hu:
       recent_public_posts: "Legutóbbi nyilvános hozzászólások"
       return_to_aspects: "Menj vissza a csoportokhoz"
       similar_contacts: "hasonló kapcsolatok"
-      start_sharing: "start sharing"
+      start_sharing: "Megosztás indítása"
       to_accept_or_ignore: "hogy elfogadd vagy elutasítsd."
     update: 
       failed: "Profil frissítése sikertelen"
@@ -351,6 +354,10 @@ hu:
       success: "Sikeresen megsemmisítetted hitelesítést."
     failure: 
       error: "Hiba történt a szolgáltatáshoz kapcsolódás közben"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Csatlakozás Facebook-hoz"
       connect_to_twitter: "Csatlakozás Twitter-hez"
@@ -358,6 +365,9 @@ hu:
       edit_services: "Szolgáltatások szerkesztése"
       logged_in_as: "bejelentkezett, mint"
       really_disconnect: "Lecsatlakozik: %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Beállítások"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ hu:
       all_contacts: "Összes kapcsolat"
       cannot_remove: "Nem törölheted az utolsó csoportot. (Ha nem akarsz a személy ismerőse lenni, töröld a kapcsolatot.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Nincs több meghívód, de hamarosan kapsz még!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} maradt)"
       invite_someone: "Hívj meg valakit"
+      invite_your_friends: "Invite your friends"
       invites: "Meghívók"
       invites_closed: "A meghívás jelenleg szünetel erre a Diaspora* kiszolgálóra."
     notification: 
@@ -390,8 +403,8 @@ hu:
       post_a_message_to: "Üzenet küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
       share: "Megosztás"
-      share_with: "Megosztás ezzel a csoporttal: %{aspect}"
-      share_with_all: "megosztás az összes csoportommal"
+      share_with: "Megosztás vele: %{aspect}"
+      whats_on_your_mind: "Mi jár a fejedben?"
     reshare: 
       reshare: "Újraosztás"
   status_messages: 
@@ -415,6 +428,7 @@ hu:
       change_language: "Nyelv megváltoztatása"
       change_password: "Jelszó módosítása"
       close_account: "Fiók bezárása"
+      current_password: "Jelenlegi jelszó"
       download_photos: "Képeim letöltése"
       download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"

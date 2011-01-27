@@ -6,10 +6,12 @@
 it: 
   _aspect: "Aspetto"
   _aspects: "Aspetti"
+  _comment: "Commento"
   _comments: "Commenti"
   _contact: "Contatto"
   _contacts: "Contatti"
   _home: "Home"
+  _more: "Altro"
   _photos: "foto"
   _services: "Servizi"
   account: "Account"
@@ -60,7 +62,7 @@ it:
       add_existing: "Aggiungi un contatto esistente"
       confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
       remove_aspect: "Elimina questo aspetto"
-      rename: "rename"
+      rename: "rinomina"
       rename_aspect: "Rinomina aspetto"
     helper: 
       are_you_sure: "Sei sicuro di voler eliminare questo aspetto?"
@@ -160,7 +162,7 @@ it:
       to: "A"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "Hai un problema? Trova qui la soluzione"
       powered_by: "CREATO CON DIASPORA*"
       whats_new: "novità"
     header: 
@@ -171,6 +173,7 @@ it:
       login: "accedi"
       logout: "esci"
       view_profile: "visualizza profilo"
+  more: "Altro"
   new_notifications: "%{count} nuove notifiche"
   new_requests: 
     few: "%{count} nuove richieste!"
@@ -269,7 +272,7 @@ it:
       recent_public_posts: "Post pubblici recenti"
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
       similar_contacts: "contatti simili"
-      start_sharing: "start sharing"
+      start_sharing: "inizia a condividere"
       to_accept_or_ignore: "per accettarla o ignorarla."
     update: 
       failed: "Impossibile aggiornare il profilo"
@@ -351,6 +354,10 @@ it:
       success: "Autenticazione cancellata con successo."
     failure: 
       error: "si è verificato un errore durante la connessione a quel servizio"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Connettiti a facebook"
       connect_to_twitter: "Connettiti a twitter"
@@ -358,6 +365,9 @@ it:
       edit_services: "Modifica servizi"
       logged_in_as: "connesso come"
       really_disconnect: "disconnettere %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Impostazioni"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ it:
       all_contacts: "Tutti i contatti"
       cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto."
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Non ne hai alcuno per il momento, ma altri arriveranno presto!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} rimanenti)"
       invite_someone: "Invita qualcuno"
+      invite_your_friends: "Invite your friends"
       invites: "Inviti"
       invites_closed: "Al momento gli inviti sono chiusi su questo pod Diaspora."
     notification: 
@@ -390,8 +403,8 @@ it:
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
       share: "Condividi"
-      share_with: "Condividi con %{aspect}"
-      share_with_all: "Condividi con tutti gli aspetti"
+      share_with: "Condividi con"
+      whats_on_your_mind: "cosa stai pensando?"
     reshare: 
       reshare: "Ricondividi"
   status_messages: 
@@ -415,6 +428,7 @@ it:
       change_language: "Cambia Lingua"
       change_password: "Cambia Password"
       close_account: "Chiudi Account"
+      current_password: "Password attuale"
       download_photos: "scarica le mie"
       download_xml: "scarica il mio xml"
       edit_account: "Modifica account"
