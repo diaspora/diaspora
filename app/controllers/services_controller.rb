@@ -45,7 +45,7 @@ class ServicesController < ApplicationController
   end
 
   def finder
-    service = current_user.services.where(:provider => params[:provider]).first
+    service = current_user.services.where(:type => "Services::#{params[:provider].titleize}").first
     @friends = service ? service.finder : {}
     render :layout => false
   end
