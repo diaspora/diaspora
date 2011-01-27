@@ -6,8 +6,9 @@
 var Stream = {
   initialize: function() {
     var $stream = $(".stream");
-    
-    $("abbr.timeago").timeago();
+    var $publisher = $("#publisher");
+
+    Diaspora.widgets.timeago.updateTimeAgo();
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
 
     // comment link form focus

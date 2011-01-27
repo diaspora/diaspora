@@ -109,7 +109,7 @@ var WebSocketReceiver = {
       }
     }
 
-    $("abbr.timeago").timeago();
+    Diaspora.widgets.timeago.updateTimeAgo();
   },
 
   processPost: function(className, postId, html, aspectIds) {
@@ -134,7 +134,7 @@ var WebSocketReceiver = {
         showMessage();
       }
     }
-    $("abbr.timeago").timeago();
+    Diaspora.widgets.timeago.updateTimeAgo();
   },
 
   onPageForClass: function(className) {

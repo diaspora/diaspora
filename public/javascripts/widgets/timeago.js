@@ -6,6 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 Diaspora.widgets.add("timeago", function() {
+  this.selector = "abbr.timeago";
+
   this.start = function() {
       if(Diaspora.widgets.i18n.language === "en") {
         return;
@@ -33,6 +35,6 @@ Diaspora.widgets.add("timeago", function() {
   };
 
   this.updateTimeAgo = function(selector) {
-    $(selector).timeago();
+    $(selector || this.selector).timeago();
   };
 });

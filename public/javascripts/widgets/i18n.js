@@ -13,19 +13,7 @@ Diaspora.widgets.add("i18n", function() {
 
   this.loadLocale = function(locale, language) {
     this.language = language;
-
-    if(typeof locale !== "undefined") {
-      this.locale = locale;
-      return;
-    }
-
-    if(!this.locale) {
-      function setLocale(data) {
-        this.locale = $.parseJSON(data);
-      }
-
-      $.getJSON("/localize", setLocale);
-    }
+    this.locale = locale;
   };
 
   this.t = function(item, views) {

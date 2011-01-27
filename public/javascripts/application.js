@@ -16,7 +16,7 @@ $(document).ready(function() {
       .detach()
       .appendTo("#main_stream")
       .css("display", "block");
-      $("abbr.timeago").timeago();
+    Diaspora.widgets.timeago.updateTimeAgo();
   });
 
   $(window).unbind('.infscr');
