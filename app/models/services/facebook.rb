@@ -25,6 +25,14 @@ class Services::Facebook < Service
       data_h[d['id']] = {:name => d['name']}
     end
 
+    invitation_objects = Invitation.joins(:recipient).where(:sender_id => self.user_id,
+                                                            :users => {:invitation_service => 'facebook',
+                                                                       :invitation_identifier => data_h.keys})
+
+    invitation_objects.each do |inv|
+      data_h[inv.recipient.invitation_identifier][:invitation] = true
+    end
+
     service_objects = Services::Facebook.where(:uid => data_h.keys).includes(:user => :person)
     service_objects.each do |s|
       data_h[s.uid][:person] = s.user.person

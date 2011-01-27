@@ -28,6 +28,8 @@
                 :id => friend[:person].id},
                 :class => 'button',
                 :rel => 'facebox'
+            - elsif friend[:invitation]
+              = t('invitations.new.already_invited')
             - else
               = form_tag service_inviter_path do
                 = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))

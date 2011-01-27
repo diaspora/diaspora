@@ -74,7 +74,24 @@ JSON
         connect_users(@user, @user.aspects.first, @user2, @user2.aspects.first)
         @service.finder.values.first[:contact].should == @user.reload.contact_for(@user2.person)
       end
-    end
+      context 'already invited' do
+        before do
+          @user2.invitation_service = 'facebook'
+          @user2.invitation_identifier = @user2_fb_id
+          @user2.save!
+        end
+        it 'contains an invitation if invited' do
+          @inv = Invitation.create(:sender => @user, :recipient => @user2, :aspect => @user.aspects.first)
+          @service.finder.values.first[:invitation].should be_true
+        end
+        it 'does not find the user with a wrong identifier' do
+          @user2.invitation_identifier = 'dsaofhnadsoifnsdanf'
+          @user2.save
 
+          @inv = Invitation.create(:sender => @user, :recipient => @user2, :aspect => @user.aspects.first)
+          @service.finder.values.first[:invitation].should be_nil
+        end
+      end
+    end
   end
 end
