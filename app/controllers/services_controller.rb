@@ -59,9 +59,9 @@ class ServicesController < ApplicationController
       invited_user = current_user.invite_user(params[:aspect_id], params[:provider], @uid)
     end
 
-    @subject = t('.join_me_on_diaspora')
+    @subject = t('services.inviter.join_me_on_diaspora')
     @message = <<MSG
-#{t('.click_link_to_accept_invitation')}:
+#{t('services.inviter.click_link_to_accept_invitation')}: 
 \n
 \n
 #{accept_invitation_url(invited_user, :invitation_token => invited_user.invitation_token)}
