@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   has_mobile_fu
   protect_from_forgery :except => :receive
 
-  #before_filter :mobile_except_ipad
   before_filter :set_contacts_notifications_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :set_invites
@@ -18,16 +17,6 @@ class ApplicationController < ActionController::Base
       @object_aspect_ids = []
       @all_aspects = current_user.aspects.includes(:aspect_memberships)
       @notification_count = Notification.for(current_user, :unread =>true).count
-    end
-  end
-
-  def mobile_except_ipad
-    if is_mobile_device?
-      if request.env["HTTP_USER_AGENT"].include? "iPad"
-        session[:mobile_view] = false
-      else
-        session[:mobile_view] = true
-      end
     end
   end
 
