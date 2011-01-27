@@ -1,12 +1,18 @@
 class FakeLogger
   attr_accessor :infos
+  attr_accessor :lines
 
   def initialize
     self.infos = []
+    self.lines = []
   end
 
   def info line
     self.infos << line
+    self.lines << line
+  end
+  def fatal line
+    self.lines << line
   end
 end
 
@@ -48,6 +54,27 @@ shared_examples_for 'it overrides the logs on success' do
         @line.include?("(Views: ").should be_false
       end
     end
+  end
+end
+
+shared_examples_for 'it overrides the logs on error' do
+  before do
+    Rails.stub(:logger).and_return(FakeLogger.new)
+    begin
+      get @action, @action_params
+    rescue Exception => e
+      ActionDispatch::ShowExceptions.new(nil).send(:log_error,e)
+    end
+    @line = Rails.logger.lines.last
+  end
+  it 'logs the backtrace' do
+    @line.should =~ /app_backtrace=/
+  end
+  it 'logs the error message' do
+    @line.should =~ /error_message='#{@desired_error_message}'/
+  end
+  it 'logs the original error message, if it exists' do
+    @line.should =~ /orig_error_message='#{@orig_error_message}'/ if @orig_error_message
   end
 end
 
