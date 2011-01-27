@@ -37,6 +37,10 @@ class AspectsController < ApplicationController
   end
   def create
     @aspect = current_user.aspects.create(params[:aspect])
+    #hack, we don't know why mass assignment is not working
+    @aspect.contacts_visible = params[:aspect][:contacts_visible]
+    @aspect.save
+
     if @aspect.valid?
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
       if current_user.getting_started
