@@ -13,6 +13,7 @@
       %hr{:style=>"width:300px;"}
       .section.contact_pictures
         %h4
+          = @contacts_of_contact.length
           = t('.similar_contacts')
         - for person in @contacts_of_contact
           = person_image_link person

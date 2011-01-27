@@ -101,11 +101,16 @@ class AspectsController < ApplicationController
 
   def update
     @aspect = current_user.aspects.where(:id => params[:id]).first
-    if @aspect.update_attributes( params[:aspect] )
+    
+    if @aspect.update_attributes!( params[:aspect] )
+      #hack, we don't know why mass assignment is not working
+      @aspect.contacts_visible = params[:aspect][:contacts_visible]
+      @aspect.save
       flash[:notice] = I18n.t 'aspects.update.success',:name => @aspect.name
     else
       flash[:error] = I18n.t 'aspects.update.failure',:name => @aspect.name
     end
+
     respond_with @aspect
   end
 

@@ -16,13 +16,15 @@
     = render 'shared/contact_list', :aspect => @aspect, :contacts => @contacts
 
   #aspect_edit_controls
-    = link_to t('.rename'), '#'
-    \/
     = link_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
-
 
   #rename_aspect
     = form_for @aspect do |asp|
-      = asp.text_field :name, :value => @aspect.name
-      = asp.submit t('.rename_aspect')
+      = asp.text_field :name
+      %p.checkbox_select{:style => 'font-size:14px'}
+        = asp.label :contacts_visible, t('.make_aspect_list_visible')
+        = asp.check_box :contacts_visible
+      %br
+      %div{:style => "text-align:right;"}
+        = asp.submit t('.save')
 
