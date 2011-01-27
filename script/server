@@ -67,6 +67,10 @@ function redis_config
     elif [ -r "/opt/local/etc/redis.conf" ]; then
         # MacPorts location
         redis_conf="/opt/local/etc/redis.conf"
+    elif [ -r "/usr/local/etc/redis.conf" ]; then
+        redis_conf="/usr/local/etc/redis.conf"
+    elif [ -r "/usr/local/etc/redis/redis.conf" ]; then
+        redis_conf="/usr/local/etc/redis/redis.conf"
     else
         echo "Don't know how to configure redis for this platform. Copy the configuration file redis.conf to the config directory and patch it manually. In particular, don't daemonize." >&2
         return
