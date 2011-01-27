@@ -40,7 +40,7 @@ Diaspora::Application.routes.draw do
   match 'getting_started_completed', :to => 'users#getting_started_completed'
   match 'users/export',              :to => 'users#export'
   match 'users/export_photos',       :to => 'users#export_photos'
-  match 'login',                     :to => 'users#sign_up'
+  match 'login'                      => redirect('/users/sign_in')
   resources :users,                  :except => [:create, :new, :show]
 
   match 'aspects/move_contact',      :to => 'aspects#move_contact', :as => 'move_contact'
