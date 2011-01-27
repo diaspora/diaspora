@@ -60,7 +60,12 @@ module DataConversion
       log "Importing users to main table..."
       User.connection.execute <<-SQL
         INSERT INTO users
-        SELECT mongo_users.* from mongo_users
+        SELECT mongo_users.*, 'email', mongo_users.email from mongo_users
+      SQL
+      User.connection.execute <<-SQL
+        UPDATE users
+        SET users.invitation_service = NULL, users.invitation_identifier = NULL
+        WHERE users.invitation_token IS NULL AND users.mongo_id IS NOT NULL
       SQL
       log "Imported #{User.count} users."
     end

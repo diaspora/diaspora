@@ -21,6 +21,7 @@ public/stylesheets/ui.css
 public/stylesheets/mobile.css
 public/diaspora
 spec/fixtures/*.yml
+spec/fixtures/*.fixture.*
 
 # Uploded files and local files
 public/uploads/*
