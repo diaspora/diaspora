@@ -31,6 +31,19 @@ describe AspectsController do
     it_should_behave_like "it overrides the logs on success"
   end
 
+  describe "custom logging on error" do
+    class FakeError < RuntimeError; attr_accessor :original_exception; end
+    before do
+      @action = :index
+      @desired_error_message = "I love errors"
+      @error = FakeError.new(@desired_error_message)
+      @orig_error_message = "I loooooove nested errors!"
+      @error.original_exception = NoMethodError.new(@orig_error_message)
+      @controller.stub(:index).and_raise(@error)
+    end
+    it_should_behave_like "it overrides the logs on error"
+  end
+
   describe "custom logging on redirect" do
     before do
       @action = :show

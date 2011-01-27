@@ -2,11 +2,12 @@ module ActionController
   module MobileFu
     # These are various strings that can be found in mobile devices.  Please feel free
     # to add on to this list.
+    # removed ipad because ipad isn't a mobile device
     MOBILE_USER_AGENTS =  'palm|blackberry|nokia|phone|midp|mobi|symbian|chtml|ericsson|minimo|' +
                           'audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|' +
                           'x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|' +
                           'pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|' +
-                          'webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|' +
+                          'webos|amoi|novarra|cdm|alcatel|pocket|iphone|mobileexplorer|' +
                           'mobile'
 
     def self.included(base)
