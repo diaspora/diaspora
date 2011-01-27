@@ -16,8 +16,7 @@ module ResqueJobLogging
       log_string += "status=complete "
     end
     log_string += "ms=#{time} "
-    arg_count = 1
-    args.each{|arg| log_string += "arg#{arg_count}=\"#{arg.to_s[0..30]}\" "}
+    args.each_with_index{|arg,idx| log_string += "arg#{idx.succ}=\"#{arg.to_s[0..30]}\" "}
 
     Rails.logger.info(log_string)
     raise error if error
