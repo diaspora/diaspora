@@ -6,10 +6,12 @@
 cs: 
   _aspect: "Aspekt"
   _aspects: "Aspekty"
+  _comment: "Komentář"
   _comments: "Komentáře"
   _contact: "Kontakt"
   _contacts: "Kontakty"
   _home: "Doma"
+  _more: "Více"
   _photos: "fotky"
   _services: "Služby"
   account: "Účet"
@@ -171,6 +173,7 @@ cs:
       login: "přihlášení"
       logout: "odhlásit"
       view_profile: "zobrazit profil"
+  more: "Více"
   new_notifications: "%{count} nových oznámení"
   new_requests: 
     few: "%{count} nových žádostí!"
@@ -269,7 +272,7 @@ cs:
       recent_public_posts: "Poslední veřejné příspěvky"
       return_to_aspects: "Návrat na vaši stránku s aspekty"
       similar_contacts: "podobné kontakty"
-      start_sharing: "start sharing"
+      start_sharing: "začít sdílet"
       to_accept_or_ignore: "přijmout nebo ignorovat."
     update: 
       failed: "Aktualizace profilu selhala"
@@ -351,6 +354,10 @@ cs:
       success: "Autorizace úspěšně odstraněna."
     failure: 
       error: "nastala chyba při připojení ke službě"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Připojit na facebook"
       connect_to_twitter: "Připojit na twitter"
@@ -358,6 +365,9 @@ cs:
       edit_services: "Upravit služby"
       logged_in_as: "přihlášen jako"
       really_disconnect: "odpojit %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Nastavení"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ cs:
       all_contacts: "Všechny kontakty"
       cannot_remove: "Nelze odstranit osobu z posledního aspektu. (Pokud se chcete odpojit od této osoby, musíte odstranit její kontakt.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Již nemáte žádné, ale další brzy přibudou!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} zbývá)"
       invite_someone: "Pozvěte někoho"
+      invite_your_friends: "Invite your friends"
       invites: "Pozvánky"
       invites_closed: "Pozvánky jsou aktuálně uzavřeny na tomto Diaspora podu"
     notification: 
@@ -390,8 +403,8 @@ cs:
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Posílání..."
       share: "Sdělit"
-      share_with: "Sdílet s %{aspect}"
-      share_with_all: "Sdílet ve všech aspektech"
+      share_with: "sdílet s"
+      whats_on_your_mind: "co máte na mysli?"
     reshare: 
       reshare: "Přesdílet"
   status_messages: 
@@ -415,6 +428,7 @@ cs:
       change_language: "Změnit jazyk"
       change_password: "Změnit heslo"
       close_account: "Uzavřít účet"
+      current_password: "Současné heslo"
       download_photos: "stáhnout moje fotky"
       download_xml: "stáhnout moje xml"
       edit_account: "Upravit účet"

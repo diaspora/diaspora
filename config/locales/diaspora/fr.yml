@@ -6,10 +6,12 @@
 fr: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Commentaire"
   _comments: "Commentaires"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Accueil"
+  _more: "Plus"
   _photos: "photos"
   _services: "Services"
   account: "Compte"
@@ -36,7 +38,7 @@ fr:
               invalid: "est invalide."
             username: 
               taken: "est déjà pris."
-  ago: "%{time} plus tôt"
+  ago: "Il y a %{time}"
   application: 
     helper: 
       aspect_badge: 
@@ -171,7 +173,8 @@ fr:
       login: "connexion"
       logout: "se déconnecter"
       view_profile: "voir le profil"
-  new_notifications: "%{count} nouvelles notifications"
+  more: "Plus"
+  new_notifications: "%{count} nouvelle(s) notification(s)"
   new_requests: 
     few: "%{count} nouvelles requêtes !"
     one: "nouvelle requête !"
@@ -269,7 +272,7 @@ fr:
       recent_public_posts: "Messages publics récents"
       return_to_aspects: "Retourner à votre page des aspects"
       similar_contacts: "Contacts similaires"
-      start_sharing: "start sharing"
+      start_sharing: "commencer à partager"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
     update: 
       failed: "La mise à jour du profil a échoué"
@@ -351,6 +354,10 @@ fr:
       success: "Authentification supprimée."
     failure: 
       error: "une erreur s'est produite lors de la connexion avec ce service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Connecter à facebook"
       connect_to_twitter: "Connecter à twitter"
@@ -358,6 +365,9 @@ fr:
       edit_services: "Modifier les services"
       logged_in_as: "connecté(e) en tant que"
       really_disconnect: "déconnecter %{service} ?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Options"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ fr:
       all_contacts: "Tous les contacts"
       cannot_remove: "Impossible de supprimer la personne du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Vous n'en avez aucune pour l'instant, mais d'autres invitations arriveront bientôt !"
+      from_facebook: "From Facebook"
       invitations_left: "(il vous en reste %{count})"
       invite_someone: "Inviter quelqu'un"
+      invite_your_friends: "Invite your friends"
       invites: "Invitations"
       invites_closed: "Les invitations sont actuellement fermées sur ce pod Diaspora"
     notification: 
@@ -390,8 +403,8 @@ fr:
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
       share: "Partager"
-      share_with: "Partager avec %{aspect}"
-      share_with_all: "partager avec tous les aspects"
+      share_with: "Partager avec"
+      whats_on_your_mind: "exprimez-vous"
     reshare: 
       reshare: "Repartager"
   status_messages: 
@@ -415,6 +428,7 @@ fr:
       change_language: "Changer la langue"
       change_password: "Changer le mot de passe"
       close_account: "Clôturer le compte"
+      current_password: "Mot de passe actuel"
       download_photos: "télécharger mes photos"
       download_xml: "télécharger mon XML"
       edit_account: "Modifier le compte"

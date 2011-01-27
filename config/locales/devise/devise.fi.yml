@@ -54,7 +54,7 @@ fi:
         change_password: "Vaihda salasanani"
       new: 
         forgot_password: "Unohditko salasanasi?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Tunnusta tälle sähköpostille ei ole olemassa. Mikäli odotat vielä kutsua, pyrimme lähettämänää sen niin pian kuin mahdollista."
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
       updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."

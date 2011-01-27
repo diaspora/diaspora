@@ -54,7 +54,7 @@ sl:
         change_password: "Spremeni geslo"
       new: 
         forgot_password: "Ste pozabili geslo?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Uporabniški račun s tem e-naslovom ne obstaja. V kolikor čakate na povabilo, ga lahko v kratkem pričakujete."
         send_password_instructions: "Pošlji navodila za ponastavitev gesla"
       send_instructions: "V nekaj minutah boste po e-pošti prejeli navodila za ponastavitev vašega gesla."
       updated: "Vaše geslo je bilo uspešno spremenjeno. Zdaj ste prijavljeni."

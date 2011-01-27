@@ -6,10 +6,12 @@
 en_shaw: 
   _aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
   _aspects: "𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+  _comment: "Comment"
   _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   _contact: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
   _contacts: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   _home: "Home"
+  _more: "More"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
   account: "𐑩𐑒𐑬𐑯𐑑"
@@ -171,6 +173,7 @@ en_shaw:
       login: "𐑤𐑪𐑜𐑦𐑯"
       logout: "𐑤𐑪𐑜𐑬𐑑"
       view_profile: "𐑝𐑿 𐑐𐑮𐑴𐑓𐑲𐑤"
+  more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
@@ -269,7 +272,7 @@ en_shaw:
       recent_public_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑴𐑕𐑑𐑕"
       return_to_aspects: "𐑮𐑦𐑑𐑻𐑯 𐑑 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕 𐑐𐑱𐑡"
       similar_contacts: "𐑕𐑦𐑥𐑦𐑤𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-      start_sharing: "start sharing"
+      start_sharing: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙"
       to_accept_or_ignore: "𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑹 𐑦𐑜𐑯𐑹 𐑦𐑑."
     update: 
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
@@ -351,6 +354,10 @@ en_shaw:
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑷𐑔𐑧𐑯𐑑𐑦𐑒𐑱𐑖𐑩𐑯."
     failure: 
       error: "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑺𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑞𐑨𐑑 𐑕𐑻𐑝𐑩𐑕"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑓𐑱𐑕𐑚𐑫𐑒"
       connect_to_twitter: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑑𐑢𐑦𐑑𐑼"
@@ -358,6 +365,9 @@ en_shaw:
       edit_services: "𐑧𐑛𐑦𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟"
       really_disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ en_shaw:
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑨𐑯𐑦 𐑮𐑲𐑑 𐑯𐑬, 𐑚𐑳𐑑 𐑥𐑹 𐑦𐑥𐑝𐑲𐑑𐑕 𐑸 𐑒𐑳𐑥𐑦𐑙 𐑕𐑵𐑯!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} 𐑤𐑧𐑓𐑑)"
       invite_someone: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯"
+      invite_your_friends: "Invite your friends"
       invites: "𐑦𐑯𐑝𐑲𐑑𐑕"
       invites_closed: "𐑦𐑯𐑝𐑲𐑑𐑕 𐑸 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛"
     notification: 
@@ -391,7 +404,7 @@ en_shaw:
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
-      share_with_all: "𐑖𐑺 𐑩𐑒𐑮𐑪𐑕 𐑷𐑤 𐑝 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
   status_messages: 
@@ -415,6 +428,7 @@ en_shaw:
       change_language: "𐑗𐑱𐑯𐑡 𐑤𐑱𐑙𐑜𐑢𐑩𐑡"
       change_password: "𐑗𐑱𐑯𐑡 𐑐𐑨𐑕𐑢𐑼𐑛"
       close_account: "𐑒𐑤𐑴𐑟 𐑩𐑒𐑬𐑯𐑑"
+      current_password: "Current password"
       download_photos: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑓𐑴𐑑𐑴𐑟"
       download_xml: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑧.𐑥.𐑤."
       edit_account: "𐑧𐑛𐑦𐑑 𐑩𐑒𐑬𐑯𐑑"

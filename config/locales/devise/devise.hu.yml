@@ -54,7 +54,7 @@ hu:
         change_password: "Megváltoztatom a jelszavamat"
       new: 
         forgot_password: "Elfelejtetted a jelszavad?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Ehhez az emailhez nincs fiók regisztrálva. Ha meghívóra vársz, akkor légy türelmes. Hamarosan osztogatunk."
         send_password_instructions: "Küldd el nekem jelszó alaphelyzetbe állításához szükséges utasítások"
       send_instructions: "Néhány perc múlva kapni fog egy e-mailt arról, hogy miként állítsa alaphelyzetbe a jelszavát."
       updated: "A jelszavad megváltozott. Be vagy jelentkezve vele."

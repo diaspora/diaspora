@@ -6,10 +6,12 @@
 sk: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Komentáre"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Domov"
+  _more: "More"
   _photos: "Fotky"
   _services: "Služby"
   account: "Účet"
@@ -171,6 +173,7 @@ sk:
       login: "prihlásenie"
       logout: "odhlásiť sa"
       view_profile: "pozrieť profil"
+  more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "nové žiadosti (%{count})"
@@ -351,6 +354,10 @@ sk:
       success: "Autentifikácia úspešne zrušená."
     failure: 
       error: "there was an error connecting that service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Pripojiť k Facebooku"
       connect_to_twitter: "Pripojiť k Twitteru"
@@ -358,6 +365,9 @@ sk:
       edit_services: "Edit services"
       logged_in_as: "prihlásený ako"
       really_disconnect: "odpojiť %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Nastavenia"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ sk:
       all_contacts: "Všetky kontakty"
       cannot_remove: "Nie je možné osobu odstrániť z posledného aspektu. (Ak s ňou chcete nadobro prerušiť kontakt, odstráňte ju prosím z Vášho zoznamu osôb.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Momentálne už nemáte žiadnu pozvánku. Ďalšie pribudnú čoskoro."
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} ostáva)"
       invite_someone: "Pozvať niekoho"
+      invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Pozvánky sú na tomto seede momentálne uzavreté"
     notification: 
@@ -391,7 +404,7 @@ sk:
       posting: "Posielam..."
       share: "Zdieľať"
       share_with: "Zdieľať s aspektom %{aspect}"
-      share_with_all: "zdieľať so všetkými aspektami"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Znovu zdieľať"
   status_messages: 
@@ -415,6 +428,7 @@ sk:
       change_language: "Zmeniť jazyk"
       change_password: "Zmeniť heslo"
       close_account: "Zrušiť účet"
+      current_password: "Current password"
       download_photos: "Stiahnuť moje fotky"
       download_xml: "stiahnuť moje xml"
       edit_account: "Edit account"

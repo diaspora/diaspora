@@ -6,10 +6,12 @@
 fi: 
   _aspect: "Näkymä"
   _aspects: "Näkymää"
+  _comment: "Kommentoi"
   _comments: "Kommentit"
   _contact: "Kontakti"
   _contacts: "Kontaktit"
   _home: "Etusivu"
+  _more: "Lisää"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
   account: "Käyttäjätili"
@@ -171,6 +173,7 @@ fi:
       login: "kirjaudu sisään"
       logout: "kirjaudu ulos"
       view_profile: "profiili"
+  more: "Lisää"
   new_notifications: "%{count} uutta ilmoitusta"
   new_requests: 
     few: "%{count} uutta pyyntöä!"
@@ -269,7 +272,7 @@ fi:
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
       return_to_aspects: "Palaa näkymiin"
       similar_contacts: "Yhteiset kontaktit"
-      start_sharing: "start sharing"
+      start_sharing: "aloita jakamaan"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
     update: 
       failed: "Profiilin päivittäminen epäonnistui"
@@ -351,6 +354,10 @@ fi:
       success: "Tunnistuksen poisto onnistui."
     failure: 
       error: "palvelun yhdistämisessä tapahtui virhe"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Yhdistä palveluun facebook"
       connect_to_twitter: "Yhdistä palveluun twitter"
@@ -358,6 +365,9 @@ fi:
       edit_services: "Muokkaa palveluita"
       logged_in_as: "kirjautunut käyttäjänä"
       really_disconnect: "katkaise %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Asetukset"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ fi:
       all_contacts: "Kaikki kontaktit"
       cannot_remove: "Henkilöä ei voitu poistaa viimeisestä näkymästä. (Jos haluat katkaista yhteyden tähän henkilöön, tulee sinun poistaa kontakti.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Sinulla ei ole yhtään kutsua jäljellä, mutta lisää tulee pian!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} jäljellä)"
       invite_someone: "Kutsu joku"
+      invite_your_friends: "Invite your friends"
       invites: "Kutsut"
       invites_closed: "Kutsut on toistaiseksi suljettu tällä Diaspora-palvelimella"
     notification: 
@@ -390,8 +403,8 @@ fi:
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
       share: "Jaa"
-      share_with: "Jaa näkymän, %{aspect}, kanssa"
-      share_with_all: "Jaa viesti kaikkiin näkymiin"
+      share_with: "Jaa"
+      whats_on_your_mind: "Mitä mielessä?"
     reshare: 
       reshare: "Jaa uudelleen"
   status_messages: 
@@ -415,6 +428,7 @@ fi:
       change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
       close_account: "Sulje käyttäjätili"
+      current_password: "Nykyinen salasana"
       download_photos: "lataa kaikki kuvat"
       download_xml: "lataa tiedot XML-muodossa"
       edit_account: "Muokkaa käyttäjätiliä"

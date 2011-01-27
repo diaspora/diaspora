@@ -6,10 +6,12 @@
 ga: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Nótaí tráchta"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Abhaile"
+  _more: "More"
   _photos: "pictíurí"
   _services: "Seirbhísí"
   account: "Cúntas"
@@ -171,6 +173,7 @@ ga:
       login: "logáil isteach"
       logout: "logáil amach"
       view_profile: "brathnaigh air próifíl"
+  more: "More"
   new_notifications: "%{count} fógraí nua"
   new_requests: 
     few: "%{count} iarratas nua!"
@@ -351,6 +354,10 @@ ga:
       success: "D'éirigh le scriose and fíordheimhniú"
     failure: 
       error: "bhí earráid ag nasc leis an seirbhís sin"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Nasc le facebook"
       connect_to_twitter: "Nasc let twitter"
@@ -358,6 +365,9 @@ ga:
       edit_services: "Athraigh seirbhísí"
       logged_in_as: "logáilte isteach mar"
       really_disconnect: "disconnect %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Socraithe"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ ga:
       all_contacts: "All contacts"
       cannot_remove: "Ní féidir leat fháil ré leis an duine seo ón gné déarnach. (Má tá tú ag iarradh dínascadh ón duine seo, tá ort fháil ré le teagmháil.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Níl aon cinn agat fós, ach tá níos mó le teacht!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} fágtha)"
       invite_someone: "Seol cuireadh chuig duine"
+      invite_your_friends: "Invite your friends"
       invites: "Cuireadh"
       invites_closed: "Tá na cuireadh dúnta ar an phod Diaspora seo"
     notification: 
@@ -391,7 +404,7 @@ ga:
       posting: "Póstáil..."
       share: "Roinn"
       share_with: "Roinn le %{aspect}"
-      share_with_all: "roinn le gach cheann de do gné"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Roinn arís"
   status_messages: 
@@ -415,6 +428,7 @@ ga:
       change_language: "Athraigh Teanga"
       change_password: "Athraigh Pasfhocal"
       close_account: "Dún Cúntas"
+      current_password: "Current password"
       download_photos: "íoslódáil mo phictiúrí"
       download_xml: "íoslódáil mo xml"
       edit_account: "Athraigh cúntas"

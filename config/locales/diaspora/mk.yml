@@ -6,10 +6,12 @@
 mk: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Коментари"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Дома"
+  _more: "More"
   _photos: "фотографии"
   _services: "Сервиси"
   account: "Корисничка сметка"
@@ -171,6 +173,7 @@ mk:
       login: "најави се"
       logout: "одјави се"
       view_profile: "погледни профил"
+  more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
@@ -351,6 +354,10 @@ mk:
       success: "Успешно уништена автентификација."
     failure: 
       error: "there was an error connecting that service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Конектирај се со facebook"
       connect_to_twitter: "Конектирај се со twitter"
@@ -358,6 +365,9 @@ mk:
       edit_services: "Edit services"
       logged_in_as: "најавен како"
       really_disconnect: "прекини %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Подесувања"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ mk:
       all_contacts: "All contacts"
       cannot_remove: "Неможе да се одстрани личноста од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Моментално немате права, но повеќе покани ќе дојдат наскоро!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} лево)"
       invite_someone: "Покани некој"
+      invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
@@ -391,7 +404,7 @@ mk:
       posting: "Објавување..."
       share: "Сподели"
       share_with: "Сподели со %{aspect}"
-      share_with_all: "сподели на сите ваши аспекти"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Сподели повторно"
   status_messages: 
@@ -415,6 +428,7 @@ mk:
       change_language: "Промени јазик"
       change_password: "Промени лозинка"
       close_account: "Затвори корисничка сметка"
+      current_password: "Current password"
       download_photos: "симни ги моите слики"
       download_xml: "симни го мојот xml"
       edit_account: "Edit account"

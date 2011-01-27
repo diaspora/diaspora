@@ -71,7 +71,7 @@ cs:
         modern_browsers: "podporuje pouze moderní prohlížeče."
         password: "Heslo"
         remember_me: "Zapamatovat si mě"
-        sign_in: "Přihlásit se"
+        sign_in: "Přihlásit"
         username: "Uživatelské jméno"
       signed_in: "Přihlášení proběhlo úspěšně."
       signed_out: "Odhlášení proběhlo úspěšně."
@@ -80,7 +80,7 @@ cs:
         forgot_your_password: "Zapomněli jste heslo?"
         receive_confirmation: "Neobdrželi jste instrukce na potvrzení?"
         receive_unlock: "Neobdrželi jste instrukce na odblokování?"
-        sign_in: "Přihlásit se"
+        sign_in: "Přihlášení"
         sign_up: "Zapsat se"
         sign_up_closed: "Momentálně jsou další registrace pozastavené."
       mail_signup_form: 

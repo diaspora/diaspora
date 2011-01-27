@@ -6,10 +6,12 @@
 sl: 
   _aspect: "Vidik"
   _aspects: "Vidiki"
+  _comment: "Comment"
   _comments: "Komentarji"
   _contact: "Kontakt"
   _contacts: "Kontakti"
   _home: "Domov"
+  _more: "More"
   _photos: "slike"
   _services: "Servisi"
   account: "Uporabniški račun"
@@ -160,7 +162,7 @@ sl:
       to: "Za"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "Ste naleteli na težavo? Tukaj poiščite odgovor"
       powered_by: "STRAN POGANJA DIASPORA*"
       whats_new: "kaj je novega?"
     header: 
@@ -171,6 +173,7 @@ sl:
       login: "prijava"
       logout: "odjavi me"
       view_profile: "ogled profila"
+  more: "More"
   new_notifications: "število novih sporočil %{count}"
   new_requests: 
     few: "število novih prošenj %{count}!"
@@ -269,7 +272,7 @@ sl:
       recent_public_posts: "Zadnje javne objave"
       return_to_aspects: "Vrnite se na vašo stran s skupinami"
       similar_contacts: "podobni stiki"
-      start_sharing: "start sharing"
+      start_sharing: "začni deliti"
       to_accept_or_ignore: "sprejmite ali zavrnite."
     update: 
       failed: "Posodobitev profila ni uspelo"
@@ -351,6 +354,10 @@ sl:
       success: "Preverjanje istovetnosti je uspešno izbrisano."
     failure: 
       error: "pri povezovanju s servisom je prišlo do napake"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Poveži se s facebook"
       connect_to_twitter: "Poveži se s twitter"
@@ -358,6 +365,9 @@ sl:
       edit_services: "Uredi servise"
       logged_in_as: "prijavljeni ste kot"
       really_disconnect: "prekinem povezavo s servisom %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Nastavitve"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ sl:
       all_contacts: "Vsi stiki"
       cannot_remove: "Osebe ni mogoče odstraniti iz skupine. (V kolikor želite prekiniti stik z osebo, jo je potrebno odstraniti iz vašega seznama stikov.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Trenutno nimate povabil, vendar jih lahko v kratkem pričakujete!"
+      from_facebook: "From Facebook"
       invitations_left: "(še %{count})"
       invite_someone: "Povabi osebo"
+      invite_your_friends: "Invite your friends"
       invites: "Povabila"
       invites_closed: "Za ta 'Diaspora pod' so povabila trenutno onemogočena."
     notification: 
@@ -390,8 +403,8 @@ sl:
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljam..."
       share: "Deli"
-      share_with: "Deli s skupino %{aspect}"
-      share_with_all: "deli z vsemi skupinami"
+      share_with: "deli s/z"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Deli znova"
   status_messages: 
@@ -415,6 +428,7 @@ sl:
       change_language: "Spremeni jezik"
       change_password: "Spremeni geslo"
       close_account: "Zapri uporabniški račun"
+      current_password: "Current password"
       download_photos: "prenesi slike"
       download_xml: "prenesi v xml"
       edit_account: "Uredi uporabniški račun"

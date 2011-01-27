@@ -6,11 +6,13 @@
 el: 
   _aspect: "Πτυχή"
   _aspects: "Πτυχές"
+  _comment: "Comment"
   _comments: "Σχόλια"
   _contact: "Επαφή"
   _contacts: "Επαφές"
   _home: "Αρχική"
-  _photos: "φωτογραφίες"
+  _more: "Περισσότερα"
+  _photos: "Φωτογραφίες"
   _services: "Υπηρεσίες"
   account: "Λογαριασμός"
   activemodel: 
@@ -160,7 +162,7 @@ el:
       to: "Στον"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "Τι νέα?"
     header: 
@@ -171,6 +173,7 @@ el:
       login: "Είσοδος"
       logout: "αποσύνδεση"
       view_profile: "προβολή προφίλ"
+  more: "Περισσότερα"
   new_notifications: "%{count} νέες ειδοποιήσεις"
   new_requests: 
     few: "%{count} νέα αιτήματα!"
@@ -269,7 +272,7 @@ el:
       recent_public_posts: "Πρόσφατες Δημόσιες Δημοσιεύσεις"
       return_to_aspects: "Επιστροφή στη σελίδα με τις πτυχές σας"
       similar_contacts: "παρόμοιες επαφές"
-      start_sharing: "start sharing"
+      start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
     update: 
       failed: "Αποτυχία ενημέρωσης προφίλ"
@@ -351,6 +354,10 @@ el:
       success: "Επιτυχής καταστροφή ταυτότητας."
     failure: 
       error: "εμφανίστηκε ένα σφάλμα κατά τη σύνδεση με αυτή την υπηρεσία"
+    finder: 
+      invite_your_friends_from: "Προσκαλέστε τους φίλους σας απο %{service}"
+      not_connected: "not connected"
+      resend: "ξαναστείλτε"
     index: 
       connect_to_facebook: "Σύνδεση με το facebook"
       connect_to_twitter: "Σύνδεση με το twitter"
@@ -358,6 +365,9 @@ el:
       edit_services: "Επεξεργασία υπηρεσιών"
       logged_in_as: "συνδεδεμένος ως"
       really_disconnect: "αποσύνδεση %{service};"
+    inviter: 
+      click_link_to_accept_invitation: "Κάντε κλικ αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"
+      join_me_on_diaspora: "Συνδεθείτε μαζί μου στο DIASPORA*"
   settings: "Ρυθμίσεις"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ el:
       all_contacts: "Όλες οι επαφές"
       cannot_remove: "Δεν είναι δυνατή η αφαίρεση του ατόμου από την τελευταία πτυχή. (Αν θέλετε να αποσυνδεθείτε από το πρόσωπο αυτό πρέπει να καταργήσετε την αντίστοιχη επαφή.)"
     invitations: 
+      by_email: "με ηλεκτρονικό ταχυδρομείο"
       dont_have_now: "Δεν έχετε κάποιο δικαίωμα τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
+      from_facebook: "Από το Facebook"
       invitations_left: "(απομένουν %{count})"
       invite_someone: "Προσκαλέστε κάποιον/α"
+      invite_your_friends: "Προσκαλέστε τους φίλους σας"
       invites: "Προσκλήσεις"
       invites_closed: "Οι προσκλήσεις είναι κλειστές αυτή την περίοδο στο Diaspora pod"
     notification: 
@@ -391,7 +404,7 @@ el:
       posting: "Ανάρτηση..."
       share: "Μοιράσου"
       share_with: "Μοιράσου με %{aspect}"
-      share_with_all: "Μοιράσου με όλους στις πτυχές"
+      whats_on_your_mind: "τι έχετε στο μυαλό σας;"
     reshare: 
       reshare: "Μοιράσου και πάλι"
   status_messages: 
@@ -415,6 +428,7 @@ el:
       change_language: "Αλλαγή Γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
       close_account: "Κλείσιμο Λογαριασμού"
+      current_password: "Τρέχων κωδικός πρόσβασης"
       download_photos: "κατέβασε τις φωτογραφίες μου"
       download_xml: "κατέβασε το xml μου"
       edit_account: "Επεξεργασία λογαριασμού"

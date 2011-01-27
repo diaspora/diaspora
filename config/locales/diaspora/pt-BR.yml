@@ -6,10 +6,12 @@
 pt-BR: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Comentários"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Home"
+  _more: "More"
   _photos: "fotos"
   _services: "Serviços"
   account: "Conta"
@@ -171,6 +173,7 @@ pt-BR:
       login: "entrar"
       logout: "sair"
       view_profile: "ver perfil"
+  more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} novos pedidos!"
@@ -351,6 +354,10 @@ pt-BR:
       success: "Autenticação removida com sucesso."
     failure: 
       error: "there was an error connecting that service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Conectar com o facebook"
       connect_to_twitter: "Conectar com o twitter"
@@ -358,6 +365,9 @@ pt-BR:
       edit_services: "Edit services"
       logged_in_as: "logado como"
       really_disconnect: "remover %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Configurações"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ pt-BR:
       all_contacts: "Todos contatos"
       cannot_remove: "Cannot remove person from last aspect."
     invitations: 
+      by_email: "by Email"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} restantes)"
       invite_someone: "Convidar"
+      invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
@@ -391,7 +404,7 @@ pt-BR:
       posting: "Postando..."
       share: "Compartilhar"
       share_with: "Compartilhar com %{aspect}"
-      share_with_all: "Compartilhar com todos os seus aspectos"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Re-compartilhar"
   status_messages: 
@@ -415,6 +428,7 @@ pt-BR:
       change_language: "Trocar idioma"
       change_password: "Trocar senha"
       close_account: "Encerrar minha conta"
+      current_password: "Current password"
       download_photos: "baixar minhas fotos"
       download_xml: "baixar meu xml"
       edit_account: "Edit account"

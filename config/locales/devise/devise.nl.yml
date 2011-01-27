@@ -54,7 +54,7 @@ nl:
         change_password: "Wijzig mijn wachtwoord"
       new: 
         forgot_password: "Wachtwoord vergeten?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Er bestaat geen account met dit e-mailadres.  Mocht je op een uitnodiging wachten; deze komen zo snel mogelijk beschikbaar."
         send_password_instructions: "Stuur mij instructies om mijn wachtwoord te resetten"
       send_instructions: "Je ontvangt een e-mail met instructies om je wachtwoord opnieuw in te stellen."
       updated: "Je wachtwoord is veranderd. Je bent nu ingelogd."

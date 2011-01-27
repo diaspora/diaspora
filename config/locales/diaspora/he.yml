@@ -6,10 +6,12 @@
 he: 
   _aspect: "היבט"
   _aspects: "היבטים"
+  _comment: "Comment"
   _comments: "תגובות"
   _contact: "איש קשר"
   _contacts: "אנשי קשר"
   _home: "בית"
+  _more: "More"
   _photos: "תמונות"
   _services: "שירותים"
   account: "חשבון"
@@ -171,6 +173,7 @@ he:
       login: "כניסה"
       logout: "יציאה"
       view_profile: "צפייה בפרופיל"
+  more: "More"
   new_notifications: "%{count} התרעות חדשות"
   new_requests: 
     few: "%{count} בקשות חדשות!"
@@ -351,6 +354,10 @@ he:
       success: "האימות נמחק בהצלחה."
     failure: 
       error: "אירעה שגיאה בעת ההתחברות לשירות זה"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "התחברות לפייסבוק"
       connect_to_twitter: "התחברות לטוויטר"
@@ -358,6 +365,9 @@ he:
       edit_services: "עריכת שירותים"
       logged_in_as: "נכנסת בשם"
       really_disconnect: "האם לנתק את %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "הגדרות"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ he:
       all_contacts: "כל אנשי הקשר"
       cannot_remove: "לא ניתן להסיר את איש הקשר מההיבט האחרון. (אם ברצונך להתנתק מאיש הקשר עליך להסירו מרשימת אנשי הקשר)."
     invitations: 
+      by_email: "by Email"
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
+      from_facebook: "From Facebook"
       invitations_left: "(%{count} נותרו)"
       invite_someone: "שליחת הזמנה"
+      invite_your_friends: "Invite your friends"
       invites: "הזמנות"
       invites_closed: "נכון לעכשיו ההזמנות לפוד זה של דיאספורה סגורות"
     notification: 
@@ -391,7 +404,7 @@ he:
       posting: "פרסום..."
       share: "שיתוף"
       share_with: "שיתוף עם %{aspect}"
-      share_with_all: "שיתוף בין כל ההיבטים שלך"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "שיתוף מחדש"
   status_messages: 
@@ -415,6 +428,7 @@ he:
       change_language: "החלפת השפה"
       change_password: "החלפת הססמה"
       close_account: "סגירת החשבון"
+      current_password: "Current password"
       download_photos: "הורדת התמונות שלי"
       download_xml: "הורדת ה־xml שלי"
       edit_account: "עריכת החשבון"

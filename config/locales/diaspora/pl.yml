@@ -6,10 +6,12 @@
 pl: 
   _aspect: "Aspect"
   _aspects: "Aspects"
+  _comment: "Comment"
   _comments: "Komentarze"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Wszyscy"
+  _more: "More"
   _photos: "zdjęcia"
   _services: "Usługi"
   account: "Konto"
@@ -171,6 +173,7 @@ pl:
       login: "logowanie"
       logout: "wyloguj"
       view_profile: "podgląd profilu"
+  more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "Masz %{count} nowe zaproszenia!"
@@ -351,6 +354,10 @@ pl:
       success: "Pomyślnie zniszczono hasło i login."
     failure: 
       error: "there was an error connecting that service"
+    finder: 
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+      resend: "resend"
     index: 
       connect_to_facebook: "Połącz z Facebookiem"
       connect_to_twitter: "Połącz z Twitterem"
@@ -358,6 +365,9 @@ pl:
       edit_services: "Edit services"
       logged_in_as: "zalogowano jako"
       really_disconnect: "rozłączyć %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
   settings: "Ustawienia"
   shared: 
     add_contact: 
@@ -370,9 +380,12 @@ pl:
       all_contacts: "Wszystkie kontakty"
       cannot_remove: "Nie można usunąć osoby z jedynego pozostałego aspektu. (Jeśli chcesz się rozłączyć z tą osobą musisz ją usunąć ze znajomych.)"
     invitations: 
+      by_email: "by Email"
       dont_have_now: "Nie masz wolnych zaproszeń, ale niebawem się pojawią!"
+      from_facebook: "From Facebook"
       invitations_left: "(pozostało %{count} zaproszeń)"
       invite_someone: "Zaproś kogoś"
+      invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Wysyłanie zaproszeń jest obecnie wyłączony na tym podzie Diaspora"
     notification: 
@@ -391,7 +404,7 @@ pl:
       posting: "Wysyłanie…"
       share: "Podziel się"
       share_with: "Podziel się z aspektem %{aspect}"
-      share_with_all: "Podziel się ze wszystkimi aspektami"
+      whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Podziel się ponownie"
   status_messages: 
@@ -415,6 +428,7 @@ pl:
       change_language: "Zmień język"
       change_password: "Zmiana hasła"
       close_account: "Zamknij konto"
+      current_password: "Current password"
       download_photos: "pobierz moje zdjęcia"
       download_xml: "pobierz mój xml"
       edit_account: "Edit account"
