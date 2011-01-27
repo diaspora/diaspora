@@ -19,6 +19,8 @@ describe ServicesController do
   before do
     @user   = alice
     @aspect = @user.aspects.first
+    @user.invites = 100
+    @user.save
 
     sign_in :user, @user
     @controller.stub!(:current_user).and_return(@user)
