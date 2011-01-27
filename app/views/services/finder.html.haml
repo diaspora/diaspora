@@ -39,7 +39,7 @@
                 = t('invitations.new.already_invited')
                 %br
                 = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend[:invitation_id])
-              - else
+              - elsif current_user.invites > 0
                 = form_tag service_inviter_path do
                   = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
                   = hidden_field_tag :uid, uid

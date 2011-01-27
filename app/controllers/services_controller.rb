@@ -52,6 +52,12 @@ class ServicesController < ApplicationController
   end
 
   def inviter
+    if current_user.invites == 0
+      flash[:error] = I18n.t 'invitations.create.no_more'
+      redirect_to :back
+      return
+    end
+
     @uid = params[:uid]
 
     if i_id = params[:invitation_id]
