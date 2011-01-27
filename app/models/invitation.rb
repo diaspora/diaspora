@@ -12,7 +12,8 @@ class Invitation < ActiveRecord::Base
 
   def self.invite(opts = {})
     return false if opts[:identifier] == opts[:from].email
-    existing_user = User.where(:email => opts[:identifier]).first
+
+    existing_user = self.find_existing_user(opts[:service], opts[:identifier])
 
     if existing_user
       if opts[:from].contact_for(opts[:from].person)
@@ -24,10 +25,12 @@ class Invitation < ActiveRecord::Base
         raise "You already invited this person"
       end
     end
+
+    opts[:existing_user] = existing_user
     create_invitee(opts)
   end
 
-  def self.new_or_existing_user_by_service_and_identifier(service, identifier)
+  def self.find_existing_user(service, identifier)
     existing_user = User.where(:invitation_service => service,
                                :invitation_identifier => identifier).first
     if service == 'email'
@@ -36,20 +39,20 @@ class Invitation < ActiveRecord::Base
       existing_user ||= User.joins(:services).where(:services => {:provider => service, :uid => identifier}).first
     end
 
-    if existing_user
-      existing_user
-    else
-      result = User.new()
-      result.invitation_service = service
-      result.invitation_identifier = identifier
-      result.email = identifier if service == 'email'
-      result.valid?
-      result
-    end
+    existing_user
+  end
+
+  def self.new_user_by_service_and_identifier(service, identifier)
+    result = User.new()
+    result.invitation_service = service
+    result.invitation_identifier = identifier
+    result.email = identifier if service == 'email'
+    result.valid?
+    result
   end
 
   def self.create_invitee(opts = {})
-    invitee = new_or_existing_user_by_service_and_identifier(opts[:service], opts[:identifier])
+    invitee = opts[:existing_user] || new_user_by_service_and_identifier(opts[:service], opts[:identifier])
     return invitee if opts[:service] == 'email' && !opts[:identifier].match(Devise.email_regexp)
     invitee.invites = opts[:invites] || 0
     if invitee.new_record?

@@ -45,16 +45,8 @@ describe Invitation do
     @invitation.message.should == "!"
   end
 
-  describe '.new_or_existing_user_by_email' do
-    let(:inv){Invitation.new_or_existing_user_by_service_and_identifier(@type, @identifier)}
-    before do
-      @users = []
-      8.times do
-        @users << Factory.create(:user)
-      end
-      @user_fb_id = 'abc123'
-      @user_fb = Factory.create(:user, :invitation_service => "facebook", :invitation_identifier => @user_fb_id)
-    end
+  describe '.new_user_by_service_and_identifier' do
+    let(:inv){Invitation.new_user_by_service_and_identifier(@type, @identifier)}
     
     it 'returns User.new for a non-existent user for email' do
       @type = "email"
@@ -77,9 +69,21 @@ describe Invitation do
         inv.reload
       }.should raise_error ActiveRecord::RecordNotFound
     end
+  end
 
-    context 'returns an existing user' do
-      context 'active users' do
+  describe '.find_existing_user' do
+    let(:inv){Invitation.find_existing_user(@type, @identifier)}
+    before do
+      @users = []
+      8.times do
+        @users << Factory.create(:user)
+      end
+      @user_fb_id = 'abc123'
+      @user_fb = Factory.create(:user, :invitation_service => "facebook", :invitation_identifier => @user_fb_id)
+    end
+
+    context 'send a request to an existing' do
+      context 'active user' do
         it 'by email' do
           @identifier = @users[3].email
           @type = 'email'
@@ -98,7 +102,7 @@ describe Invitation do
         end
       end
 
-      context 'invitated users' do
+      context 'invitated user' do
         it 'by email' do
           @identifier = @users[3].email
           @type = 'email'
@@ -204,6 +208,7 @@ describe Invitation do
         @invitee = Invitation.create_invitee(:service => 'email', :identifier => @email)
       end
       it 'creates no user' do
+        @valid_params[:existing_user] = @invitee
         lambda {
           Invitation.create_invitee(@valid_params)
         }.should_not change(User, :count)

@@ -52,15 +52,13 @@ class ServicesController < ApplicationController
 
   def inviter
     @uid = params[:uid]
-    @subject = "Join me on DIASPORA*"
-
+    @subject = t('.join_me_on_diaspora')
     invited_user = current_user.invite_user(params[:aspect_id], params[:provider], params[:uid])
-
     @message = <<MSG
-    Diaspora* is the social network that puts you in control of your information. You decide what you'd like to share, and with whom. You retain full ownership of all your information, including friend lists, messages, photos, and profile details.
-
-    Click here to accept your invitation:
-    #{accept_invitation_url(invited_user, :invitation_token => invited_user.invitation_token)}
+#{t('.click_link_to_accept_invitation')}:
+\n
+\n
+#{accept_invitation_url(invited_user, :invitation_token => invited_user.invitation_token)}
 MSG
     redirect_to "https://www.facebook.com/?compose=1&id=#{@uid}&subject=#{@subject}&message=#{@message}&sk=messages"
   end

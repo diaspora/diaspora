@@ -13,6 +13,9 @@
       %p
         = f.label :username , t('username')
         = f.text_field :username, :title => t('registrations.new.enter_username')
+      %p  
+        = f.label :email , t('email')
+        = f.text_field :email, :title => t('registrations.new.enter_email')
       %p
         = f.label :password , t('password')
         = f.password_field :password, :title => t('registrations.new.enter_password') 

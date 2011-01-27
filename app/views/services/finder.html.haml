@@ -30,7 +30,7 @@
                 :rel => 'facebox'
             - else
               = form_tag service_inviter_path do
-                = select_tag (:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
+                = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
                 = hidden_field_tag :uid, uid
                 = hidden_field_tag :provider, 'facebook'
                 = submit_tag "invite"

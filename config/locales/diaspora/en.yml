@@ -424,6 +424,9 @@ en:
           success: "Successfully deleted authentication."
       failure:
           error: "there was an error connecting that service"
+      inviter:
+          join_me_on_diaspora: "Join me on DIASPORA*"
+          click_link_to_accept_invitation: "Click this link to accept your invitation"
   notifier:
       hello: "Hello %{name}!"
       love: "love,"
