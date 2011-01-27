@@ -184,16 +184,17 @@ describe 'a user receives a post' do
         remote_person = @user3.person.dup
         @user3.person.delete
         @user3.delete
+        Person.where(:id => remote_person.id).delete_all
+        Profile.where(:person_id => remote_person.id).delete_all
         remote_person.id = nil
 
-        #stubs async webfinger
         Person.should_receive(:by_account_identifier).twice.and_return{ |handle|
           if handle == @user1.person.diaspora_handle
             @user1.person.save
             @user1.person
           else
-            remote_person.profile = Factory(:profile)
-            remote_person.save!
+            remote_person.save(:validate => false)
+            remote_person.profile = Factory(:profile, :person => remote_person)
             remote_person
           end
         }

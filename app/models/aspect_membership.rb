@@ -6,8 +6,6 @@ class AspectMembership < ActiveRecord::Base
 
   belongs_to :aspect
   belongs_to :contact
-  validates_presence_of :contact
-  validates_presence_of :aspect
   has_one :user, :through => :contact
   has_one :person, :through => :contact
 

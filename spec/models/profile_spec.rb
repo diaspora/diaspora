@@ -84,7 +84,7 @@ describe Profile do
   end
 
   describe 'date=' do
-    let(:profile) { Factory(:profile) }
+    let(:profile) { Factory.build(:profile) }
 
     it 'accepts form data' do
       profile.birthday.should == nil

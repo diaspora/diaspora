@@ -18,9 +18,8 @@ class ServicesController < ApplicationController
     user     = auth['user_info']
 
     service = "Services::#{provider.camelize}".constantize.new(:nickname => user['nickname'],
-                                                               :access_token => toke, 
+                                                               :access_token => toke,
                                                                :access_secret => secret,
-                                                               :provider => provider,
                                                                :uid => auth['uid'])
     current_user.services << service
 
@@ -28,7 +27,7 @@ class ServicesController < ApplicationController
     if current_user.getting_started
       redirect_to  getting_started_path(:step => 3)
     else
-      redirect_to services_url 
+      redirect_to services_url
     end
   end
 

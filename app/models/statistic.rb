@@ -30,7 +30,7 @@ class Statistic < ActiveRecord::Base
     arr
   end
 
-  def users_in_sample 
+  def users_in_sample
     @users ||= lambda {
       users = self.data_points.map{|d| d.value}
       users.inject do |total,curr|
@@ -42,13 +42,14 @@ class Statistic < ActiveRecord::Base
   def generate_graph
     # need to use google's graph API
   end
-  
+
   def self.generate(time=Time.now, post_range=(0..50))
-    stat = Statistic.new(:type => "posts_per_day", :time => time)
+    stat = Statistic.new(:time => time)
+    stat.save
     post_range.each do |n|
       data_point = DataPoint.users_with_posts_on_day(time,n)
+      data_point.statistic = stat
       data_point.save
-      stat.data_points << data_point
     end
     stat.compute_average
     stat.save

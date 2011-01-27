@@ -16,16 +16,15 @@ describe Webfinger do
 
   let(:good_request) { FakeHttpRequest.new(:success)}
 
-  let(:diaspora_xrd) {File.open(File.join(Rails.root, 'spec/fixtures/host_xrd')).read}
-  let(:diaspora_finger) {File.open(File.join(Rails.root, 'spec/fixtures/finger_xrd')).read}
-  let(:hcard_xml) {File.open(File.join(Rails.root, 'spec/fixtures/hcard_response')).read}
+  let(:diaspora_xrd) {File.open(File.join(Rails.root, 'spec/fixtures/host-meta.fixture.html')).read}
+  let(:diaspora_finger) {File.open(File.join(Rails.root, 'spec/fixtures/webfinger.fixture.html')).read}
+  let(:hcard_xml) {File.open(File.join(Rails.root, 'spec/fixtures/hcard.fixture.html')).read}
 
 
   let(:non_diaspora_xrd) {File.open(File.join(Rails.root, 'spec/fixtures/nonseed_finger_xrd')).read}
   let(:non_diaspora_hcard) {File.open(File.join(Rails.root, 'spec/fixtures/evan_hcard')).read}
 
   context 'setup' do
-    let(:action){ Proc.new{|person| person.inspect }}
 
     describe '#intialize' do
       it 'sets account ' do
@@ -42,7 +41,8 @@ describe Webfinger do
     context 'webfinger query chain processing' do
       describe '#webfinger_profile_url' do
         it 'should parse out the webfinger template' do
-          finger.send(:webfinger_profile_url, diaspora_xrd).should == "http://tom.joindiaspora.com/webfinger/?q=#{account}"
+          finger.send(:webfinger_profile_url, diaspora_xrd).should ==
+            "http://example.org/webfinger?q=foo@tom.joindiaspora.com"
         end
 
         it 'should return nil if not an xrd' do
@@ -50,7 +50,8 @@ describe Webfinger do
         end
 
         it 'should return the template for xrd' do
-          finger.send(:webfinger_profile_url, diaspora_xrd).should == 'http://tom.joindiaspora.com/webfinger/?q=foo@tom.joindiaspora.com'
+          finger.send(:webfinger_profile_url, diaspora_xrd).should ==
+            'http://example.org/webfinger?q=foo@tom.joindiaspora.com'
         end
       end
 
@@ -70,30 +71,30 @@ describe Webfinger do
     context 'webfingering local people' do
       it 'should return a person from the database if it matches its handle' do
         person.save
-          finger.fetch.id.should == person.id
-        end
+        finger.fetch.id.should == person.id
       end
-      it 'should fetch a diaspora webfinger and make a person for them' do
-        diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
-        hcard_xml.stub!(:body).and_return(hcard_xml)
-        diaspora_finger.stub!(:body).and_return(diaspora_finger)
-        RestClient.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
-        #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
-        # http://tom.joindiaspora.com/.well-known/host-meta
-        f = Webfinger.new("tom@tom.joindiaspora.com").fetch
-
-        f.should be_valid
-      end
-
-      it 'should retry with http if https fails' do
-        f = Webfinger.new("tom@tom.joindiaspora.com")
-
-        diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
-        RestClient.should_receive(:get).twice.and_return(nil, diaspora_xrd)
-        f.should_receive(:xrd_url).twice
-        f.send(:get_xrd)
-        f.instance_variable_get(:@ssl).should == false
-      end
-
     end
+    it 'should fetch a diaspora webfinger and make a person for them' do
+      diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
+      hcard_xml.stub!(:body).and_return(hcard_xml)
+      diaspora_finger.stub!(:body).and_return(diaspora_finger)
+      RestClient.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
+      #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
+      # http://tom.joindiaspora.com/.well-known/host-meta
+      f = Webfinger.new("alice@example.org").fetch
+
+      f.should be_valid
+    end
+
+    it 'should retry with http if https fails' do
+      f = Webfinger.new("tom@tom.joindiaspora.com")
+
+      diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
+      RestClient.should_receive(:get).twice.and_return(nil, diaspora_xrd)
+      f.should_receive(:xrd_url).twice
+      f.send(:get_xrd)
+      f.instance_variable_get(:@ssl).should == false
+    end
+
   end
+end

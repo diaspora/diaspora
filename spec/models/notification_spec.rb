@@ -13,6 +13,7 @@ describe Notification do
     @aspect  = @user.aspects.create(:name => "dudes")
     @opts = {:target_id => @sm.id,
       :target_type => @sm.class.name,
+      :action => "comment_on_post",
       :actor_id => @person.id,
       :recipient_id => @user.id}
     @note = Notification.new(@opts)
@@ -60,7 +61,8 @@ describe Notification do
 
       it 'sockets to the recipient' do
         opts = {:target_id => @request.id,
-          :target_type => @request.notification_type(@user, @person),
+          :target_type => "Request",
+          :action => @request.notification_type(@user, @person),
           :actor_id => @person.id,
           :recipient_id => @user.id}
 

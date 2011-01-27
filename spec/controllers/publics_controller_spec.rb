@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe PublicsController do
   render_views
-
+  let(:fixture_path) { File.join(Rails.root, 'spec', 'fixtures')}
   before do
     @user = alice
     @person = Factory(:person)
@@ -17,6 +17,7 @@ describe PublicsController do
       get :host_meta
       response.should be_success
       response.body.should =~ /webfinger/
+      save_fixture(response.body, "host-meta", fixture_path)
     end
   end
   describe '#receive' do
@@ -60,6 +61,7 @@ describe PublicsController do
     it "succeeds" do
       post :hcard, "guid" => @user.person.guid.to_s
       response.should be_success
+      save_fixture(response.body, "hcard", fixture_path)
     end
 
     it 'sets the person' do
@@ -78,6 +80,7 @@ describe PublicsController do
     it "succeeds when the person and user exist locally" do
       post :webfinger, 'q' => @user.person.diaspora_handle
       response.should be_success
+      save_fixture(response.body, "webfinger", fixture_path)
     end
 
     it "404s when the person exists remotely because it is local only" do

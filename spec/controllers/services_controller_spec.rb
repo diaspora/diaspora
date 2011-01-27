@@ -30,7 +30,7 @@ describe ServicesController do
   describe '#index' do
     it 'displays all connected serivices for a user' do
       4.times do
-        @user.services << Factory(:service)
+        Factory(:service, :user => @user)
       end
 
       get :index
@@ -72,8 +72,7 @@ describe ServicesController do
 
   describe '#destroy' do
     before do
-      @service1 = Factory.create(:service)
-      @user.services << @service1
+      @service1 = Factory.create(:service, :user => @user)
     end
     it 'destroys a service selected by id' do
       lambda{

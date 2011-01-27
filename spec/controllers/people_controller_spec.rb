@@ -78,16 +78,16 @@ describe PeopleController do
   describe '#index (search)' do
     before do
       @eugene = Factory.create(:person,
-        :profile => Factory(:profile, :first_name => "Eugene",
+        :profile => Factory.build(:profile, :first_name => "Eugene",
                      :last_name => "w"))
       @korth  = Factory.create(:person,
-        :profile => Factory(:profile, :first_name => "Evan",
+        :profile => Factory.build(:profile, :first_name => "Evan",
                      :last_name => "Korth"))
     end
 
     it "assigns people" do
       eugene2 = Factory.create(:person,
-        :profile => Factory(:profile, :first_name => "Eugene",
+        :profile => Factory.build(:profile, :first_name => "Eugene",
                      :last_name => "w"))
       get :index, :q => "Eug"
       assigns[:people].should =~ [@eugene, eugene2]

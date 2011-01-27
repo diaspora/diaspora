@@ -112,9 +112,7 @@ describe Diaspora::UserModules::Connecting do
       end
 
       it "should mark the corresponding notification as 'read'" do
-        notification = Notification.create(:target_id => @received_request.id,
-                                           :target_type => 'new_request',
-                                           :unread => true)
+        notification = Factory.create(:notification, :target => @received_request)
 
         Notification.where(:target_id=>@received_request.id).first.unread.should be_true
         user.accept_contact_request(@received_request, aspect)

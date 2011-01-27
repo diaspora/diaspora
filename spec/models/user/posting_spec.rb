@@ -13,8 +13,8 @@ describe User do
   let!(:aspect1) { user.aspects.create(:name => 'other') }
   let!(:aspect2) { user2.aspects.first }
 
-  let!(:service1) { s = Factory(:service, :provider => 'twitter'); user.services << s; s }
-  let!(:service2) { s = Factory(:service, :provider => 'facebook'); user.services << s; s }
+  let!(:service1) { Factory(:service, :type => 'Services::Twitter' , :user => user) }
+  let!(:service2) { Factory(:service, :type => 'Services::Facebook', :user => user) }
 
   describe '#add_to_streams' do
     before do

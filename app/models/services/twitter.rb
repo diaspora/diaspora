@@ -1,6 +1,10 @@
 class Services::Twitter < Service
   MAX_CHARACTERS = 140
 
+  def provider
+    "twitter"
+  end
+
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=twitter sender_id=#{self.user_id}")
     message = public_message(post, url)

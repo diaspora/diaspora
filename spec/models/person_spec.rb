@@ -106,7 +106,7 @@ describe Person do
     end
 
     it "deletes all notifications from a person's actions" do
-      note = Notification.create(:actor_id => @deleter.id, :recipient_id => @user.id)
+      note = Factory(:notification, :actor => @deleter, :recipient => @user)
       @deleter.destroy
       Notification.where(:id => note.id).first.should be_nil
     end
@@ -220,7 +220,7 @@ describe Person do
     end
 
     it 'only displays searchable people' do
-      invisible_person = Factory(:person, :profile => Factory(:profile,:searchable => false, :first_name => "johnson"))
+      invisible_person = Factory(:person, :profile => Factory.build(:profile,:searchable => false, :first_name => "johnson"))
       Person.search("johnson", @user).should_not include invisible_person
       Person.search("", @user).should_not include invisible_person
     end

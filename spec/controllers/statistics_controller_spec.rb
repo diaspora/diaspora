@@ -9,6 +9,7 @@ describe StatisticsController do
   end
 
   before do
+    faker_stat = Statistic.generate
     @stat = Statistic.new
     5.times do |n|
       bob.post(:status_message, :message => 'hi', :to => bob.aspects.first)
@@ -16,6 +17,7 @@ describe StatisticsController do
     (0..10).each do |n|
       @stat.data_points << DataPoint.users_with_posts_on_day(Time.now, n)
     end
+    @stat.time = faker_stat.time
     @stat.save
   end
 

@@ -216,7 +216,6 @@ module DataConversion
         SELECT mongo_services.id,
                mongo_services.type,
                users.id,
-               mongo_services.provider,
                mongo_services.uid,
                mongo_services.access_token,
                mongo_services.access_secret,

@@ -131,7 +131,6 @@ describe DataConversion::ImportToMysql do
         service = Service.where(:mongo_id => "4d2b6ec4cc8cb43cc200003e").first
         service.type_before_type_cast.should == "Services::Facebook"
         service.user_mongo_id.should == "4d2b6eb7cc8cb43cc2000014"
-        service.provider.should be_nil
         service.uid.should be_nil
         service.access_token.should == "yeah"
         service.access_secret.should be_nil
@@ -739,7 +738,6 @@ describe DataConversion::ImportToMysql do
         service.mongo_id.should == "4d2b6ec4cc8cb43cc200003e"
         service.type_before_type_cast.should == "Services::Facebook"
         service.user_mongo_id.should == "4d2b6eb7cc8cb43cc2000014"
-        service.provider.should be_nil
         service.uid.should be_nil
         service.access_token.should == "yeah"
         service.access_secret.should be_nil

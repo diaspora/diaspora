@@ -79,7 +79,7 @@ describe Diaspora::Parser do
       #Build xml for profile, clear profile
       xml = person.profile.to_diaspora_xml
       reloaded_person = Person.find(id)
-      reloaded_person.profile = nil
+      reloaded_person.profile.delete
       reloaded_person.save(:validate => false)
 
       #Make sure profile is cleared
