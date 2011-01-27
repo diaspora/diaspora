@@ -126,7 +126,7 @@ describe InvitationsController do
       @controller.stub!(:current_user).and_return(@user)
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
 
-      @invited_user = @user.invite_user("a@a.com",  @aspect.id)
+      @invited_user = @user.invite_user(@aspect.id, 'email', "a@a.com", "")
     end
 
     it 'calls resend invitation if one exists' do
@@ -139,7 +139,7 @@ describe InvitationsController do
     it 'does not send an invitation for a different user' do
       @user2 = bob
       @aspect2 = @user2.aspects.create(:name => "cats")
-      @user2.invite_user("b@b.com", @aspect2.id)
+      @user2.invite_user(@aspect2.id, 'email', "b@b.com", "")
       invitation2 = @user2.reload.invitations_from_me.first
       Resque.should_not_receive(:enqueue)
       put :resend, :id => invitation2.id 
