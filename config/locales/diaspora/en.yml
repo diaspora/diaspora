@@ -189,6 +189,8 @@ en:
       index:
           handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
           no_contacts: "No contacts"
+          invite_your_friends: "Invite your friends"
+          from_facebook: "From Facebook"
   notifications:
       request_accepted: "accepted your share request."
       new_request: "offered to share with you."
@@ -428,7 +430,10 @@ en:
           join_me_on_diaspora: "Join me on DIASPORA*"
           click_link_to_accept_invitation: "Click this link to accept your invitation"
       finder:
+          generating: "generating"
           resend: "resend"
+          invite_your_friends_from: "Invite your friends from %{service}"
+          not_connected: "not connected"
   notifier:
       hello: "Hello %{name}!"
       love: "love,"

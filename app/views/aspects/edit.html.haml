@@ -12,13 +12,6 @@
       .description
         = t('contacts', :count =>@aspect_contacts_count)
 
-  .person_tiles{:style => "display:none;"}
-    - for contact in @aspect.contacts
-      .tile
-        = person_image_link contact.person
-        = link_to contact.person.name, contact.person
-    %hr
-
     = form_for @aspect do |asp|
       = asp.text_field :name, :value => @aspect.name
       = asp.submit t('.rename_aspect'), :class => 'button'

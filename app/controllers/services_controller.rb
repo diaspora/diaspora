@@ -48,6 +48,7 @@ class ServicesController < ApplicationController
   def finder
     service = current_user.services.where(:provider => params[:provider]).first
     @friends = service ? service.finder : {}
+    render :layout => false
   end
 
   def inviter

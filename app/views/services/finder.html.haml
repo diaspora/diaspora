@@ -5,46 +5,59 @@
 - content_for :head do
   = include_javascripts :aspects
 
-.span-24.last
-  %h3
-    Facebook friend finder
+#aspect_edit_pane
+  #facebox_header
+    %h4
+      = t('.invite_your_friends_from', :service => params[:provider].titleize)
+      .description
+        - if @friends.keys.length > 0
+          = "#{@friends.keys.length} friends"
+        - else
+          %i= t('.not_connected')
 
-.span-12.prepend-6
+
   .contact_list
-    = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
-    %ul
-      - for uid in @friends.keys
-        - friend = @friends[uid]
-        %li
-          .right
-            -if friend[:contact] && !friend[:contact].pending
-              = t('people.person.already_connected')
-            - elsif (friend[:contact] && friend[:contact].pending)
-              = t('people.person.pending_request')
-            - elsif friend[:person]
-              = link_to t('people.show.start_sharing'),
-                {:controller => "people",
-                :action => "share_with",
-                :id => friend[:person].id},
-                :class => 'button',
-                :rel => 'facebox'
-            - elsif friend[:invitation_id]
-              = t('invitations.new.already_invited')
-              %br
-              = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend[:invitation_id])
-            - else
-              = form_tag service_inviter_path do
-                = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
-                = hidden_field_tag :uid, uid
-                = hidden_field_tag :provider, 'facebook'
-                = submit_tag "invite"
+    - if @friends.keys.length > 0
+      = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
+      %ul
+        - for uid in @friends.keys
+          - friend = @friends[uid]
+          %li
+            .right
+              -if friend[:contact] && !friend[:contact].pending
+                = t('people.person.already_connected')
+              - elsif (friend[:contact] && friend[:contact].pending)
+                = t('people.person.pending_request')
+              - elsif friend[:person]
+                = link_to t('people.show.start_sharing'),
+                  {:controller => "people",
+                  :action => "share_with",
+                  :id => friend[:person].id},
+                  :class => 'button',
+                  :rel => 'facebox'
+              - elsif friend[:invitation_id]
+                = t('invitations.new.already_invited')
+                %br
+                = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend[:invitation_id])
+              - else
+                = form_tag service_inviter_path do
+                  = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
+                  = hidden_field_tag :uid, uid
+                  = hidden_field_tag :provider, 'facebook'
+                  = submit_tag "invite", :disable_with => "#{t('.generating')}..."
 
-          - if friend[:person]
-            = person_image_link(friend[:person])
-
-          %h4.name
             - if friend[:person]
-              = link_to friend[:name], person_path(friend[:person])
-            - else
-              = friend[:name]
+              = person_image_link(friend[:person])
 
+            %h4.name
+              - if friend[:person]
+                = link_to friend[:name], person_path(friend[:person])
+              - else
+                = friend[:name]
+
+    - else
+      %br
+      %br
+      %br
+      %h4
+        = link_to t('services.index.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""

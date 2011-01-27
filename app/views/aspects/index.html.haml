@@ -44,9 +44,9 @@
     %h4= t('shared.invitations.invites')
     = render "shared/invitations", :invites => @invites
 
-  .section
-    %h4
-      Find your friends
-
-    = link_to "From Facebook", friend_finder_path('facebook')
+  - if SERVICES['facebook']['app_id'] !=""
+    .section
+      %h4
+        = t('.invite_your_friends')
+      = link_to t('.from_facebook'), friend_finder_path('facebook'), :rel => 'facebox'
 
