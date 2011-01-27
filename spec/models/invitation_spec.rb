@@ -92,7 +92,7 @@ describe Invitation do
 
         it 'by service' do
           uid = '123324234'
-          @users[0].services << Services::Facebook.create(:provider => 'facebook', :uid => uid)
+          @users[0].services << Services::Facebook.new(:uid => uid)
           @users[0].save
 
           @type = 'facebook'
@@ -206,6 +206,7 @@ describe Invitation do
           :into => aspect,
           :message => @message}
         @invitee = Invitation.create_invitee(:service => 'email', :identifier => @email)
+        @valid_params[:existing_user] = @invitee
       end
       it 'creates no user' do
         @valid_params[:existing_user] = @invitee

@@ -32,7 +32,7 @@ describe Services::Facebook do
       @user2 = Factory.create(:user_with_aspect)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'
-      @user2_service = Services::Facebook.create(:uid => @user2_fb_id, :access_token => "yo")
+      @user2_service = Services::Facebook.new(:uid => @user2_fb_id, :access_token => "yo")
       @user2.services << @user2_service
       @fb_list_hash =  <<JSON
       {

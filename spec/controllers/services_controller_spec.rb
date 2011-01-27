@@ -83,7 +83,7 @@ describe ServicesController do
 
   describe '#finder' do
     before do
-      @service1 = Factory.create(:service, :provider => 'facebook')
+      @service1 = Services::Facebook.new
       @user.services << @service1
     end
 
@@ -97,9 +97,8 @@ describe ServicesController do
   describe '#invite' do
     
     before do
-      @service1 = Services::Facebook.create(:provider => 'facebook')
       @uid = "abc"
-      @invite_params = {:provider => @service1.provider, :uid => @uid, :aspect_id => @user.aspects.first.id}
+      @invite_params = {:provider => 'facebook', :uid => @uid, :aspect_id => @user.aspects.first.id}
     end
 
     it 'sets the subject' do

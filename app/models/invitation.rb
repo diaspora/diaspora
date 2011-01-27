@@ -36,7 +36,7 @@ class Invitation < ActiveRecord::Base
     if service == 'email'
       existing_user ||= User.where(:email => identifier).first
     else
-      existing_user ||= User.joins(:services).where(:services => {:provider => service, :uid => identifier}).first
+      existing_user ||= User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
     end
 
     existing_user
