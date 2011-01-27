@@ -28,13 +28,13 @@
                 = t('people.person.already_connected')
               - elsif (friend[:contact] && friend[:contact].pending)
                 = t('people.person.pending_request')
-              - elsif friend[:person]
-                = link_to t('people.show.start_sharing'),
-                  {:controller => "people",
-                  :action => "share_with",
-                  :id => friend[:person].id},
-                  :class => 'button',
-                  :rel => 'facebox'
+                /- elsif friend[:person]
+                /= link_to t('people.show.start_sharing'),
+                /  {:controller => "people",
+                /  :action => "share_with",
+                /  :id => friend[:person].id},
+                /  :class => 'button',
+                /  :rel => 'facebox'
               - elsif friend[:invitation_id]
                 = t('invitations.new.already_invited')
                 %br
