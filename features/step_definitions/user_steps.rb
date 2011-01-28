@@ -11,13 +11,13 @@ Given /^a user with email "([^\"]*)"$/ do |email|
 end
 
 Given /^I have been invited by an admin$/ do
-  @me = Invitation.create_invitee(:email => "new_invitee@example.com")
+  @me = Invitation.create_invitee(:service => 'email', :identifier => "new_invitee@example.com")
 end
 
 Given /^I have been invited by a user$/ do
   @inviter = Factory(:user)
   aspect = @inviter.aspects.create(:name => "Rocket Scientists")
-  @me = @inviter.invite_user("new_invitee@example.com", aspect.id, "Hey, tell me about your rockets!")
+  @me = @inviter.invite_user(aspect.id, 'email', "new_invitee@example.com",  "Hey, tell me about your rockets!")
 end
 
 When /^I click on my name$/ do
