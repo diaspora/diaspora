@@ -106,3 +106,4 @@ module ActionController
 end
 
 ActionController::Base.send(:include, ActionController::MobileFu)
+
