@@ -38,8 +38,5 @@ describe YoutubeTitles do
         StatusMessage.find(@post.id).youtube_titles
       }.should_not raise_error
     end
-    it 'correctly marshals' do
-        StatusMessage.find(@post.id).youtube_titles.should == {@video_id => @expected_title}
-    end
   end
 end

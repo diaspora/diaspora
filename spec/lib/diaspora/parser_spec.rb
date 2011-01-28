@@ -42,7 +42,11 @@ describe Diaspora::Parser do
     end
 
     it "should activate the Person if I initiated a request to that url" do
+      begin
       @user1.send_contact_request_to(@user3.person, @aspect1)
+      rescue Exception => e
+        raise e.original_exception
+      end
       request = @user3.request_from(@user1.person)
       fantasy_resque do
         @user3.accept_and_respond(request.id, @aspect3.id)

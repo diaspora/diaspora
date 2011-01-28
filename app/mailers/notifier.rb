@@ -28,7 +28,7 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'new_request')
 
-    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
+    attachments.inline['logo_caps.png'] = ATTACHMENT
 
     mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
          :subject => I18n.t('notifier.new_request.subject', :from => @sender.name), :host => AppConfig[:pod_uri].host)
@@ -40,7 +40,7 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'request_accepted')
 
-    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
+    attachments.inline['logo_caps.png'] = ATTACHMENT
 
     mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
           :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
@@ -53,7 +53,7 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'comment_on_post')
 
-    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
+    attachments.inline['logo_caps.png'] = ATTACHMENT
 
     mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
           :subject => I18n.t('notifier.comment_on_post.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
@@ -68,7 +68,7 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'comment_on_post')
 
-    attachments.inline['diaspora_white_on_grey.png'] = ATTACHMENT
+    attachments.inline['logo_caps.png'] = ATTACHMENT
 
     mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
           :subject => I18n.t('notifier.also_commented.subject', :name => @sender.name, :post_author => @post_author_name ), :host => AppConfig[:pod_uri].host)
