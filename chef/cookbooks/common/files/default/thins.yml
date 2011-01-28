@@ -6,4 +6,4 @@ url: 'joindiaspora.com'
 cert_location: '/usr/local/nginx/conf/diaspora.crt'
 key_location: '/usr/local/nginx/conf/diaspora.key'
 s3_bucket: "https://joindiaspora.s3.amazonaws.com"
-s3_path: "/uploads/images/'
+s3_path: "/uploads/images/"
