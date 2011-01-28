@@ -19,6 +19,9 @@ end
 execute "rvm deps" do
   command "yum install -y bzip2"
 end
+execute "install mysql" do
+  command "yum install -y mysql mysql-server mysql-devel"
+end
 
 def harden_ruby(ruby_string)
   Dir.glob("/usr/local/rvm/wrappers/#{ruby_string}/*").each do |file|

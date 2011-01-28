@@ -6,11 +6,18 @@ execute "compile daemontools" do
   command "cd /package/admin/daemontools-0.76 && ./package/install"
 end
 
-execute "mongo run" do
-  command "mkdir -p /service/mongo && echo '#!/bin/sh' > /service/mongo/run && echo 'exec /usr/bin/mongod' >> /service/mongo/run"
+#execute "mongo run" do
+#  command "mkdir -p /service/mongo && echo '#!/bin/sh' > /service/mongo/run && echo 'exec /usr/bin/mongod' >> /service/mongo/run"
+#end
+#execute "executable" do
+#  command "chmod -R 755 /service/mongo"
+#end
+
+execute "mysql run" do
+  command "mkdir -p /service/mysql && echo '#!/bin/sh' > /service/mysql/run && echo 'exec /usr/bin/mysqld_safe --datadir=/var/lib/mysql --socket=/var/lib/mysql/mysql.sock --log-error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --user=mysql'  >> /service/mysql/run"
 end
 execute "executable" do
-  command "chmod -R 755 /service/mongo"
+  command "chmod -R 755 /service/mysql"
 end
 
 config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/default/thins.yml")
