@@ -90,7 +90,7 @@ http {
 
    location /assets {
     expires 1d;
-    add_header Cache-Control public
+    add_header Cache-Control public;
    }
 
    location / {
@@ -114,7 +114,7 @@ http {
     }
 
     <% unless @s3_bucket.blank? || @s3_path.blank? %>
-      <%= "rewrite ^/uploads/images/(.*)$ #{@s3_bucket}#{@s3_path}$1 permanent; %>
+      <%= "rewrite ^/uploads/images/(.*)$ #{@s3_bucket}#{@s3_path}$1 permanent;" %>
     <% end %>
    }
 
