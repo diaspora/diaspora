@@ -181,6 +181,7 @@ class Person < ActiveRecord::Base
   private
   def remove_all_traces
     Post.where(:person_id => id).delete_all
+    Comment.where(:person_id => id).delete_all
     Contact.where(:person_id => id).delete_all
     Notification.where(:actor_id => id).delete_all
   end
