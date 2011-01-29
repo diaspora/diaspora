@@ -16,9 +16,9 @@ javascripts:
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/vendor/Mustache.js
     - public/javascripts/diaspora.js
+    - public/javascripts/widgets/i18n.js
     - public/javascripts/widgets/alert.js
     - public/javascripts/widgets/embedder.js
-    - public/javascripts/widgets/i18n.js
     - public/javascripts/widgets/timeago.js
     - public/javascripts/view.js
     - public/javascripts/stream.js

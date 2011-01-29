@@ -27,6 +27,10 @@ Diaspora.widgets.add("i18n", function() {
       }
     }
 
-    return $.mustache(ret, views || {});
+    if(typeof views === "object") {
+      return $.mustache(ret, views || {});
+    }
+    
+    return ret;
   };
 });

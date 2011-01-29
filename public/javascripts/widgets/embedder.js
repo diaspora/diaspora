@@ -56,15 +56,17 @@
   };
 
   Embedder.prototype.registerServices = function() {
+    var watchVideoOn = Diaspora.widgets.i18n.t("videos.watch");
+    console.log(watchVideoOn);
     this.register("youtube.com",
-        '<a href="//www.youtube.com/watch?v={{video-id}}" target="_blank">Watch this video on Youtube</a><br />' +
+        '<a href="//www.youtube.com/watch?v={{video-id}}" target="_blank">' + $.mustache(watchVideoOn, { provider: "YouTube" }) + 'Youtube</a><br />' +
         '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/{{video-id}}"></iframe>');
 
     this.register("vimeo.com",
-      '<a href="http://vimeo.com/{{video-id}}">Watch this video on Vimeo</a><br />' +
+      '<a href="http://vimeo.com/{{video-id}}">' + $.mustache(watchVideoOn, { provider: "Vimeo" }) + '</a><br />' +
       '<iframe class="vimeo-player" src="http://player.vimeo.com/video/{{video-id}}"></iframe>');
 
-    this.register("undefined", '<p>Unknown video type - {{host}}</p>');
+    this.register("undefined", '<p>' + Diaspora.widgets.i18n.t("videos.unknown") + ' - {{host}}</p>');
   };
 
   Embedder.prototype.onVideoLinkClicked = function(evt) {
