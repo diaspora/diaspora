@@ -21,11 +21,11 @@ src_files:
   - public/javascripts/vendor/facebox.js
   - public/javascripts/diaspora.js
   - public/javascripts/widgets/alert.js
+  - public/javascripts/widgets/embedder.js
   - public/javascripts/mobile.js
   - public/javascripts/aspect-edit.js
   - public/javascripts/aspect-contacts.js
   - public/javascripts/web-socket-receiver.js
-  - public/javascripts/embedder.js
   - public/javascripts/view.js
   - public/javascripts/stream.js
   - public/javascripts/validation.js
