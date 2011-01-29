@@ -16,7 +16,7 @@ $(document).ready(function(){
 
   if($("#status_message_message").val() != ""){
     $publisher
-      .removeClass("closed");
+      .removeClass("closed")
       .find("textarea")
       .focus();
 
