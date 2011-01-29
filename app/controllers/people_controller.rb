@@ -42,6 +42,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.where(:id => params[:id]).first
     @post_type = :all
+    @share_with = (params[:share_with] == 'true')
 
     if @person
       @incoming_request = current_user.request_from(@person)

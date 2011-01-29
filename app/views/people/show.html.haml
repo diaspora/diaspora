@@ -28,6 +28,9 @@
           :id => @person.id},
           :class => 'share_with button',
           :rel => 'facebox'
+        - if @share_with
+          = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{share_with_path(:id => @person.id)}' });});"
+
 
     - else
       .right
