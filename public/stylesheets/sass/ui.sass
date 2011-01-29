@@ -10,7 +10,7 @@
 
   :display inline
 
-  :padding 4px 7px
+  :padding 6px 6px
   :min-width 26px
 
   :font-size 12px
@@ -20,22 +20,26 @@
 
   :min-height 10px
 
+  :background
+    :color #ccc
   :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#F6F6F6), to(#d0d0d0))
   :background -moz-linear-gradient(top, #F6F6F6, #d0d0d0)
 
   :border 1px solid #aaa
-    :top 1px solid #bbb
-    :bottom 1px solid #888
+    :top 1px solid #ccc
+    :bottom 1px solid #666
 
-  :border-radius 4px
-  :-moz-border-radius 4px
-  :-webkit-border-radius 4px
+  :-webkit-border-radius 3px
+  :-moz-border-radius 3px
+  :border-radius 3px
 
-  :cursor default
+  :cursor pointer
 
   :color #444
 
   &:hover
+    :text
+      :decoration none
     :color #444
     :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#D6D6D6), to(#b0b0b0))
     :background -moz-linear-gradient(top, #D6D6D6, #b0b0b0)
