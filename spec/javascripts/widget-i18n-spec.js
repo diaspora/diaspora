@@ -36,6 +36,13 @@ describe("Diaspora", function() {
          expect(Diaspora.widgets.i18n.t("yo.hi.sup.test")).toEqual("test");
          expect(Diaspora.widgets.i18n.t("more.another")).toEqual("i hope this spec is green");
         });
+        it("can render a mustache template", function() {
+          Diaspora.widgets.i18n.loadLocale({yo: "{{yo}}"}, "en");
+          expect(Diaspora.widgets.i18n.t("yo", {yo: "it works!"})).toEqual("it works!");
+        });
+        it("returns an empty string if the translation is not found", function() {
+          expect(Diaspora.widgets.i18n.t("thisstringdoesnotexist")).toEqual("");
+        });
       });
     });
   });
