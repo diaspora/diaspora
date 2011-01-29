@@ -72,6 +72,7 @@ describe User do
 
   describe "#accept_invitation!" do
     let(:invited_user) {@invited_user_pre.accept_invitation!(:invitation_token => "abc",
+                              :email    => "a@a.com",
                               :username => "user",
                               :password => "secret",
                               :password_confirmation => "secret",

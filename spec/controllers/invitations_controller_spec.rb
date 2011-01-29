@@ -71,6 +71,7 @@ describe InvitationsController do
       @invited_user = @user.invite_user(@aspect.id, 'email', "a@a.com")
       @accept_params = {:user=>
         {:password_confirmation =>"password",
+         :email => "a@a.com", 
          :username=>"josh",
          :password=>"password",
          :invitation_token => @invited_user.invitation_token}}

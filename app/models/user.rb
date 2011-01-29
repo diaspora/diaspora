@@ -237,13 +237,13 @@ class User < ActiveRecord::Base
   ###Helpers############
   def self.build(opts = {})
     u = User.new(opts)
-    u.email = opts[:email]
     u.setup(opts)
     u
   end
 
   def setup(opts)
     self.username = opts[:username]
+    self.email = opts[:email]
     self.valid?
     errors = self.errors
     errors.delete :person
