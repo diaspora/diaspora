@@ -38,10 +38,15 @@ class Services::Facebook < Service
     end
 
     service_objects = Services::Facebook.where(:uid => data_h.keys).includes(:user => {:person => :profile})
+    person_ids_and_uids = {}
+
     service_objects.each do |s|
       data_h[s.uid][:person] = s.user.person if s.user.person.profile.searchable
-      data_h[s.uid][:contact] = self.user.contacts.where(:person_id => s.user.person.id).first
+      person_ids_and_uids[s.user.person.id] = s.uid
     end
+
+    contact_objects = self.user.contacts.where(:person_id => person_ids_and_uids.keys)
+    contact_objects.each{|c| data_h[person_ids_and_uids[c.person_id]][:contact] = c}
 
     data_h
   end
